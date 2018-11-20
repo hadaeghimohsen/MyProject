@@ -208,15 +208,6 @@ namespace System.Scsc.Ui.Settings
                      //tp_printmodual.Text = control.LABL_TEXT; // ToolTip
                      //tp_printmodual.Text = control.LABL_TEXT; // Place Holder
                      break;
-                  case "clubcode_lb":
-                     ClubCode_Lb.Text = control.LABL_TEXT;
-                     //ClubCode_Lb.Text = control.LABL_TEXT; // ToolTip
-                     //ClubCode_Lb.Text = control.LABL_TEXT; // Place Holder
-                     break;
-                  case "backup_gb":
-                     BackUp_Gb.Text = control.LABL_TEXT;
-                     //BackUp_Gb.Text = control.LABL_TEXT; // ToolTip
-                     //BackUp_Gb.Text = control.LABL_TEXT; // Place Holder
                      break;
                   case "btn_takebackup":
                      Btn_TakeBackup.Text = control.LABL_TEXT;
@@ -228,25 +219,10 @@ namespace System.Scsc.Ui.Settings
                      //Btn_APPLY.Text = control.LABL_TEXT; // ToolTip
                      //Btn_APPLY.Text = control.LABL_TEXT; // Place Holder
                      break;
-                  case "ckb_back_up_optn_path":
-                     Ckb_BACK_UP_OPTN_PATH.Text = control.LABL_TEXT;
-                     //Ckb_BACK_UP_OPTN_PATH.Text = control.LABL_TEXT; // ToolTip
-                     //Ckb_BACK_UP_OPTN_PATH.Text = control.LABL_TEXT; // Place Holder
-                     break;
                   case "optionpath_lb":
                      OptionPath_Lb.Text = control.LABL_TEXT;
                      //OptionPath_Lb.Text = control.LABL_TEXT; // ToolTip
                      //OptionPath_Lb.Text = control.LABL_TEXT; // Place Holder
-                     break;
-                  case "rootpath_lb":
-                     RootPath_Lb.Text = control.LABL_TEXT;
-                     //RootPath_Lb.Text = control.LABL_TEXT; // ToolTip
-                     //RootPath_Lb.Text = control.LABL_TEXT; // Place Holder
-                     break;
-                  case "restore_gb":
-                     Restore_Gb.Text = control.LABL_TEXT;
-                     //Restore_Gb.Text = control.LABL_TEXT; // ToolTip
-                     //Restore_Gb.Text = control.LABL_TEXT; // Place Holder
                      break;
                   case "filename_clm":
                      FileName_Clm.Caption = control.LABL_TEXT;

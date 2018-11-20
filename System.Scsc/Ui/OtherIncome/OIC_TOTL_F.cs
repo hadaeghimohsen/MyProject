@@ -1646,5 +1646,10 @@ namespace System.Scsc.Ui.OtherIncome
                Execute_Query();
          }
       }
+
+      private void Expn_Gv_DoubleClick(object sender, EventArgs e)
+      {
+         AddItem_ButtonClick(null, null);
+      }
    }
 }

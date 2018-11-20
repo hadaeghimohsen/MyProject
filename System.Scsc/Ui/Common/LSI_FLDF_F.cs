@@ -27,7 +27,7 @@ namespace System.Scsc.Ui.Common
       {
          try
          {
-            var CrntFigh = vF_Last_Info_FighterResultBindingSource.Current as Data.VF_Last_Info_FighterResult;
+            var CrntFigh = vF_Fighs.Current as Data.VF_Last_Info_FighterResult;
             _DefaultGateway.Gateway(
                new Job(SendType.External, "localhost", "", 46, SendType.Self) { Input = new XElement("Fighter", new XAttribute("fileno", CrntFigh.FILE_NO)) }
             );
@@ -56,13 +56,13 @@ namespace System.Scsc.Ui.Common
 
       private void FighBnDefaultPrint_Click(object sender, EventArgs e)
       {
-         if (vF_Last_Info_FighterResultBindingSource.Current == null) return;
+         if (vF_Fighs.Current == null) return;
          string filenos = "";
 
          foreach (int i in PBLC.GetSelectedRows())
          {
-            vF_Last_Info_FighterResultBindingSource.Position = i;
-            var figh = vF_Last_Info_FighterResultBindingSource.Current as Data.VF_Last_Info_FighterResult;
+            vF_Fighs.Position = i;
+            var figh = vF_Fighs.Current as Data.VF_Last_Info_FighterResult;
             filenos += (filenos.Length == 0 ? "" : ",") + figh.FILE_NO;
          }
 
@@ -80,8 +80,8 @@ namespace System.Scsc.Ui.Common
       XElement xHost;
       private void colActn_Butn_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
       {
-         index = vF_Last_Info_FighterResultBindingSource.Position;
-         var figh = vF_Last_Info_FighterResultBindingSource.Current as Data.VF_Last_Info_FighterResult;
+         index = vF_Fighs.Position;
+         var figh = vF_Fighs.Current as Data.VF_Last_Info_FighterResult;
          switch (e.Button.Index)
          {
             case 0:
@@ -219,7 +219,7 @@ namespace System.Scsc.Ui.Common
                break;
          }
 
-         vF_Last_Info_FighterResultBindingSource.Position = index;
+         vF_Fighs.Position = index;
       }
 
       private void Lbls_Click(object sender, EventArgs e)
@@ -264,7 +264,7 @@ namespace System.Scsc.Ui.Common
       private void TrnsFngrPrnt_Butn_Click(object sender, EventArgs e)
       {         
          if (MessageBox.Show(this, "آیا با انتقال شناسایی کارت اعضا به دستگاه موافق هستید؟", "عملیات انتقال", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
-         foreach (Data.VF_Last_Info_FighterResult figh in vF_Last_Info_FighterResultBindingSource.List.OfType<Data.VF_Last_Info_FighterResult>().Where(f => f.END_DATE < DateTime.Now))
+         foreach (Data.VF_Last_Info_FighterResult figh in vF_Fighs.List.OfType<Data.VF_Last_Info_FighterResult>().Where(f => f.END_DATE < DateTime.Now))
          {
             _DefaultGateway.Gateway(
                new Job(SendType.External, "Localhost", "MAIN_PAGE_F", 41, SendType.SelfToUserInterface)
@@ -293,7 +293,7 @@ namespace System.Scsc.Ui.Common
             MbspBs.List.Clear();
             ExpnAmnt_Txt.Text = PymtAmnt_Txt.Text = DscnAmnt_Txt.Text = "";
 
-            vF_Last_Info_FighterResultBindingSource.DataSource = iScsc.VF_Last_Info_Fighter(null, FrstName_Txt.Text, LastName_Txt.Text, NatlCode_Txt.Text, FngrPrnt_Txt.Text, CellPhon_Txt.Text, TellPhon_Txt.Text, (Men_Rb.Checked ? "001" : Women_Rb.Checked ? "002" : null), ServNo_Txt.Text, GlobCode_Txt.Text, null, null, null, null);
+            vF_Fighs.DataSource = iScsc.VF_Last_Info_Fighter(null, FrstName_Txt.Text, LastName_Txt.Text, NatlCode_Txt.Text, FngrPrnt_Txt.Text, CellPhon_Txt.Text, TellPhon_Txt.Text, (Men_Rb.Checked ? "001" : Women_Rb.Checked ? "002" : null), ServNo_Txt.Text, GlobCode_Txt.Text, null, null, null, null);
             vF_Last_Info_FighterResultGridControl.Focus();
          }
          catch (Exception exc) { MessageBox.Show(exc.Message); }
@@ -303,8 +303,10 @@ namespace System.Scsc.Ui.Common
       {
          try
          {
-            var figh = vF_Last_Info_FighterResultBindingSource.Current as Data.VF_Last_Info_FighterResult;
+            var figh = vF_Fighs.Current as Data.VF_Last_Info_FighterResult;
             if (figh == null) return;
+
+            RqstBnFignInfo_Lb.Text = figh.NAME_DNRM;
 
             MbspBs.DataSource = iScsc.Member_Ships.Where(mb => mb.FIGH_FILE_NO == figh.FILE_NO && mb.RECT_CODE == "004" && (mb.TYPE == "001" || mb.TYPE == "005"));
             Mbsp_gv.TopRowIndex = 0;
@@ -316,7 +318,7 @@ namespace System.Scsc.Ui.Common
             Bitmap bm = new Bitmap(mStream, false);
             mStream.Dispose();
 
-            //Pb_FighImg.Visible = true;
+            //Pb_FighImg.Visible = true;            
 
             if (InvokeRequired)
                Invoke(new Action(() => UserProFile_Rb.ImageProfile = bm));
@@ -374,7 +376,7 @@ namespace System.Scsc.Ui.Common
       {
          try
          {
-            var figh = vF_Last_Info_FighterResultBindingSource.Current as Data.VF_Last_Info_FighterResult;
+            var figh = vF_Fighs.Current as Data.VF_Last_Info_FighterResult;
             if (figh == null) return;
 
             var mbsp = MbspBs.Current as Data.Member_Ship;
@@ -450,7 +452,7 @@ namespace System.Scsc.Ui.Common
       {
          try
          {
-            var figh = vF_Last_Info_FighterResultBindingSource.Current as Data.VF_Last_Info_FighterResult;
+            var figh = vF_Fighs.Current as Data.VF_Last_Info_FighterResult;
             if (figh == null) return;
 
             var mbsp = MbspBs.Current as Data.Member_Ship;
@@ -574,5 +576,95 @@ namespace System.Scsc.Ui.Common
           }
           catch { }
       }
+
+      #region Finger Print Device Operation
+      private void RqstBnEnrollFngrPrnt1_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            //if (FNGR_PRNT_TextEdit.Text == "") { FNGR_PRNT_TextEdit.Focus(); return; }
+
+            //_DefaultGateway.Gateway(
+            //   new Job(SendType.External, "localhost", "MAIN_PAGE_F", 10 /* Execute actn_Calf_F */, SendType.SelfToUserInterface)
+            //   {
+            //      Input =
+            //         new XElement("Command",
+            //            new XAttribute("type", "fngrprntdev"),
+            //            new XAttribute("fngractn", "enroll"),
+            //            new XAttribute("fngrprnt", FNGR_PRNT_TextEdit.Text)
+            //         )
+            //   }
+            //);
+         }
+         catch (Exception exc) { }
+      }
+
+      private void RqstBnDeleteFngrPrnt1_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            //if (FNGR_PRNT_TextEdit.Text == "") { FNGR_PRNT_TextEdit.Focus(); return; }
+
+            //_DefaultGateway.Gateway(
+            //   new Job(SendType.External, "localhost", "MAIN_PAGE_F", 10 /* Execute actn_Calf_F */, SendType.SelfToUserInterface)
+            //   {
+            //      Input =
+            //         new XElement("Command",
+            //            new XAttribute("type", "fngrprntdev"),
+            //            new XAttribute("fngractn", "enroll"),
+            //            new XAttribute("fngrprnt", FNGR_PRNT_TextEdit.Text)
+            //         )
+            //   }
+            //);
+         }
+         catch (Exception exc) { }
+      }
+
+      private void RqstBnEnrollFngrPrnt2_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var figh = vF_Fighs.Current as Data.VF_Last_Info_FighterResult;
+            if (figh == null) return;
+            if (figh.FNGR_PRNT_DNRM == "") { return; }
+
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost", "MAIN_PAGE_F", 10 /* Execute actn_Calf_F */, SendType.SelfToUserInterface)
+               {
+                  Input =
+                     new XElement("Command",
+                        new XAttribute("type", "fngrprntdev"),
+                        new XAttribute("fngractn", "enroll"),
+                        new XAttribute("fngrprnt", figh.FNGR_PRNT_DNRM)
+                     )
+               }
+            );
+         }
+         catch { }
+      }
+
+      private void RqstBnDeleteFngrPrnt2_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var figh = vF_Fighs.Current as Data.VF_Last_Info_FighterResult;
+            if (figh == null) return;
+            if (figh.FNGR_PRNT_DNRM == "") { return; }
+
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost", "MAIN_PAGE_F", 10 /* Execute actn_Calf_F */, SendType.SelfToUserInterface)
+               {
+                  Input =
+                     new XElement("Command",
+                        new XAttribute("type", "fngrprntdev"),
+                        new XAttribute("fngractn", "delete"),
+                        new XAttribute("fngrprnt", figh.FNGR_PRNT_DNRM)
+                     )
+               }
+            );
+         }
+         catch { }
+      }
+      #endregion
    }
 }

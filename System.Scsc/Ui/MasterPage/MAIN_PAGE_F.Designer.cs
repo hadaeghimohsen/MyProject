@@ -29,34 +29,34 @@
       private void InitializeComponent()
       {
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MAIN_PAGE_F));
-         DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem1 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.ToolTipItem toolTipItem1 = new DevExpress.Utils.ToolTipItem();
-         DevExpress.Utils.SuperToolTip superToolTip2 = new DevExpress.Utils.SuperToolTip();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem2 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.ToolTipItem toolTipItem2 = new DevExpress.Utils.ToolTipItem();
-         DevExpress.Utils.SuperToolTip superToolTip3 = new DevExpress.Utils.SuperToolTip();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem3 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.ToolTipItem toolTipItem3 = new DevExpress.Utils.ToolTipItem();
-         DevExpress.Utils.SuperToolTip superToolTip4 = new DevExpress.Utils.SuperToolTip();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem4 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.ToolTipItem toolTipItem4 = new DevExpress.Utils.ToolTipItem();
-         DevExpress.Utils.SuperToolTip superToolTip5 = new DevExpress.Utils.SuperToolTip();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem5 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.ToolTipItem toolTipItem5 = new DevExpress.Utils.ToolTipItem();
+         DevExpress.Utils.SuperToolTip superToolTip14 = new DevExpress.Utils.SuperToolTip();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem17 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.ToolTipItem toolTipItem14 = new DevExpress.Utils.ToolTipItem();
+         DevExpress.Utils.SuperToolTip superToolTip15 = new DevExpress.Utils.SuperToolTip();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem18 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.ToolTipItem toolTipItem15 = new DevExpress.Utils.ToolTipItem();
+         DevExpress.Utils.SuperToolTip superToolTip16 = new DevExpress.Utils.SuperToolTip();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem19 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.ToolTipItem toolTipItem16 = new DevExpress.Utils.ToolTipItem();
+         DevExpress.Utils.SuperToolTip superToolTip17 = new DevExpress.Utils.SuperToolTip();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem20 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.ToolTipItem toolTipItem17 = new DevExpress.Utils.ToolTipItem();
+         DevExpress.Utils.SuperToolTip superToolTip18 = new DevExpress.Utils.SuperToolTip();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem21 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.ToolTipItem toolTipItem18 = new DevExpress.Utils.ToolTipItem();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.Utils.SuperToolTip superToolTip6 = new DevExpress.Utils.SuperToolTip();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem6 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.ToolTipItem toolTipItem6 = new DevExpress.Utils.ToolTipItem();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem7 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.SuperToolTip superToolTip19 = new DevExpress.Utils.SuperToolTip();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem22 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.ToolTipItem toolTipItem19 = new DevExpress.Utils.ToolTipItem();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem23 = new DevExpress.Utils.ToolTipTitleItem();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.Utils.SuperToolTip superToolTip7 = new DevExpress.Utils.SuperToolTip();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem8 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.ToolTipItem toolTipItem7 = new DevExpress.Utils.ToolTipItem();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem9 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.SuperToolTip superToolTip13 = new DevExpress.Utils.SuperToolTip();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem15 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.ToolTipItem toolTipItem13 = new DevExpress.Utils.ToolTipItem();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem16 = new DevExpress.Utils.ToolTipTitleItem();
          this.statusStrip1 = new System.Windows.Forms.StatusStrip();
          this.Lbs_CrntUser = new System.Windows.Forms.ToolStripStatusLabel();
          this.Tsp_AttnSys = new System.Windows.Forms.ToolStripStatusLabel();
@@ -205,6 +205,36 @@
          this.Tm_ShowTime = new System.Windows.Forms.Timer();
          this.Sp_GateAttn = new System.IO.Ports.SerialPort();
          this.Sp_ExpnExtr = new System.IO.Ports.SerialPort();
+         this.AllMenu_Cmn = new System.Windows.Forms.ContextMenuStrip();
+         this.اطلاعاتپایهToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+         this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
+         this.اطلاعاتثبتنامToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+         this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
+         this.اطلاعاتپروندهمشترکینToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+         this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripSeparator();
+         this.اطلاعاتمتفرقهToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+         this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripSeparator();
+         this.کارهایتجمعیToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+         this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripSeparator();
+         this.گزارشاتToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+         this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripSeparator();
+         this.مدیریتسیستمToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+         this.ثبتنامToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+         this.تمدیدToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+         this.بلوکهToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+         this.تغییرمشخصاتعمومیToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+         this.فروشگاهToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+         this.toolStripMenuItem7 = new System.Windows.Forms.ToolStripSeparator();
+         this.کنترلمیزToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+         this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripSeparator();
+         this.ثبتهزینهToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+         this.toolStripMenuItem9 = new System.Windows.Forms.ToolStripSeparator();
+         this.محاسهحقوقودستمزدToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+         this.ارسالپیامکToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+         this.گزارشفروشToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+         this.عملکردToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+         this.وضعیتToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+         this.پشتیبانگیریاضطراریToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
          this.statusStrip1.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.spc_desktop)).BeginInit();
@@ -215,6 +245,7 @@
          ((System.ComponentModel.ISupportInitialize)(this.CardNumb_Text.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.FngrPrnt_Txt.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.FighBs)).BeginInit();
+         this.AllMenu_Cmn.SuspendLayout();
          this.SuspendLayout();
          // 
          // statusStrip1
@@ -442,6 +473,7 @@
          this.bbi_crglbutn.Id = 10;
          this.bbi_crglbutn.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbi_crglbutn.LargeGlyph")));
          this.bbi_crglbutn.Name = "bbi_crglbutn";
+         this.bbi_crglbutn.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
          this.bbi_crglbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_crglbutn_ItemClick);
          // 
          // bbi_idrgbutn
@@ -461,6 +493,7 @@
          this.bbi_orgnbutn.Id = 12;
          this.bbi_orgnbutn.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbi_orgnbutn.LargeGlyph")));
          this.bbi_orgnbutn.Name = "bbi_orgnbutn";
+         this.bbi_orgnbutn.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
          this.bbi_orgnbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_orgnbutn_ItemClick);
          // 
          // bbi_movpbutn
@@ -479,18 +512,18 @@
          this.bbi_adm1butn.Id = 15;
          this.bbi_adm1butn.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbi_adm1butn.LargeGlyph")));
          this.bbi_adm1butn.Name = "bbi_adm1butn";
-         toolTipTitleItem1.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
-         toolTipTitleItem1.Appearance.Options.UseImage = true;
-         toolTipTitleItem1.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem1.Image")));
-         toolTipTitleItem1.Text = "ثبت نام جدید";
-         toolTipItem1.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1181;
-         toolTipItem1.Appearance.Options.UseImage = true;
-         toolTipItem1.Image = global::System.Scsc.Properties.Resources.IMAGE_1181;
-         toolTipItem1.LeftIndent = 6;
-         toolTipItem1.Text = "F2 \r\nبرای دسترسی آسان از این کلید استفاده کنید";
-         superToolTip1.Items.Add(toolTipTitleItem1);
-         superToolTip1.Items.Add(toolTipItem1);
-         this.bbi_adm1butn.SuperTip = superToolTip1;
+         toolTipTitleItem17.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
+         toolTipTitleItem17.Appearance.Options.UseImage = true;
+         toolTipTitleItem17.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem17.Image")));
+         toolTipTitleItem17.Text = "ثبت نام جدید";
+         toolTipItem14.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1181;
+         toolTipItem14.Appearance.Options.UseImage = true;
+         toolTipItem14.Image = global::System.Scsc.Properties.Resources.IMAGE_1181;
+         toolTipItem14.LeftIndent = 6;
+         toolTipItem14.Text = "F2 \r\nبرای دسترسی آسان از این کلید استفاده کنید";
+         superToolTip14.Items.Add(toolTipTitleItem17);
+         superToolTip14.Items.Add(toolTipItem14);
+         this.bbi_adm1butn.SuperTip = superToolTip14;
          this.bbi_adm1butn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_adm1butn_ItemClick);
          // 
          // bbi_mbs1butn
@@ -500,18 +533,18 @@
          this.bbi_mbs1butn.Id = 16;
          this.bbi_mbs1butn.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbi_mbs1butn.LargeGlyph")));
          this.bbi_mbs1butn.Name = "bbi_mbs1butn";
-         toolTipTitleItem2.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image1")));
-         toolTipTitleItem2.Appearance.Options.UseImage = true;
-         toolTipTitleItem2.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem2.Image")));
-         toolTipTitleItem2.Text = "تمدید عضویت";
-         toolTipItem2.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1181;
-         toolTipItem2.Appearance.Options.UseImage = true;
-         toolTipItem2.Image = global::System.Scsc.Properties.Resources.IMAGE_1181;
-         toolTipItem2.LeftIndent = 6;
-         toolTipItem2.Text = "F3\r\nبرای دسترسی آسان از این کلید استفاده کنید";
-         superToolTip2.Items.Add(toolTipTitleItem2);
-         superToolTip2.Items.Add(toolTipItem2);
-         this.bbi_mbs1butn.SuperTip = superToolTip2;
+         toolTipTitleItem18.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image1")));
+         toolTipTitleItem18.Appearance.Options.UseImage = true;
+         toolTipTitleItem18.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem18.Image")));
+         toolTipTitleItem18.Text = "تمدید عضویت";
+         toolTipItem15.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1181;
+         toolTipItem15.Appearance.Options.UseImage = true;
+         toolTipItem15.Image = global::System.Scsc.Properties.Resources.IMAGE_1181;
+         toolTipItem15.LeftIndent = 6;
+         toolTipItem15.Text = "F3\r\nبرای دسترسی آسان از این کلید استفاده کنید";
+         superToolTip15.Items.Add(toolTipTitleItem18);
+         superToolTip15.Items.Add(toolTipItem15);
+         this.bbi_mbs1butn.SuperTip = superToolTip15;
          this.bbi_mbs1butn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_mbs1butn_ItemClick);
          // 
          // bbi_insrbutn
@@ -530,18 +563,18 @@
          this.bbi_flstbutn.Id = 18;
          this.bbi_flstbutn.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbi_flstbutn.LargeGlyph")));
          this.bbi_flstbutn.Name = "bbi_flstbutn";
-         toolTipTitleItem3.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image2")));
-         toolTipTitleItem3.Appearance.Options.UseImage = true;
-         toolTipTitleItem3.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem3.Image")));
-         toolTipTitleItem3.Text = "لیست اعضا";
-         toolTipItem3.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1181;
-         toolTipItem3.Appearance.Options.UseImage = true;
-         toolTipItem3.Image = global::System.Scsc.Properties.Resources.IMAGE_1181;
-         toolTipItem3.LeftIndent = 6;
-         toolTipItem3.Text = "F4\r\nبرای دسترسی آسان از این کلید استفاده کنید";
-         superToolTip3.Items.Add(toolTipTitleItem3);
-         superToolTip3.Items.Add(toolTipItem3);
-         this.bbi_flstbutn.SuperTip = superToolTip3;
+         toolTipTitleItem19.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image2")));
+         toolTipTitleItem19.Appearance.Options.UseImage = true;
+         toolTipTitleItem19.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem19.Image")));
+         toolTipTitleItem19.Text = "لیست اعضا";
+         toolTipItem16.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1181;
+         toolTipItem16.Appearance.Options.UseImage = true;
+         toolTipItem16.Image = global::System.Scsc.Properties.Resources.IMAGE_1181;
+         toolTipItem16.LeftIndent = 6;
+         toolTipItem16.Text = "F4\r\nبرای دسترسی آسان از این کلید استفاده کنید";
+         superToolTip16.Items.Add(toolTipTitleItem19);
+         superToolTip16.Items.Add(toolTipItem16);
+         this.bbi_flstbutn.SuperTip = superToolTip16;
          this.bbi_flstbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_flstbutn_ItemClick);
          // 
          // bbi_fdbtbutn
@@ -723,15 +756,15 @@
          this.bbi_oincbutn.Id = 38;
          this.bbi_oincbutn.LargeGlyph = global::System.Scsc.Properties.Resources.IMAGE_1088;
          this.bbi_oincbutn.Name = "bbi_oincbutn";
-         toolTipTitleItem4.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image3")));
-         toolTipTitleItem4.Appearance.Options.UseImage = true;
-         toolTipTitleItem4.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem4.Image")));
-         toolTipTitleItem4.Text = "فروشگاه";
-         toolTipItem4.LeftIndent = 6;
-         toolTipItem4.Text = "F5\r\nبرای دسترسی آسان از این کلیئ استفاده کنید";
-         superToolTip4.Items.Add(toolTipTitleItem4);
-         superToolTip4.Items.Add(toolTipItem4);
-         this.bbi_oincbutn.SuperTip = superToolTip4;
+         toolTipTitleItem20.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image3")));
+         toolTipTitleItem20.Appearance.Options.UseImage = true;
+         toolTipTitleItem20.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem20.Image")));
+         toolTipTitleItem20.Text = "فروشگاه";
+         toolTipItem17.LeftIndent = 6;
+         toolTipItem17.Text = "F5\r\nبرای دسترسی آسان از این کلیئ استفاده کنید";
+         superToolTip17.Items.Add(toolTipTitleItem20);
+         superToolTip17.Items.Add(toolTipItem17);
+         this.bbi_oincbutn.SuperTip = superToolTip17;
          this.bbi_oincbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_oincbutn_ItemClick);
          // 
          // bbi_oexpbutn
@@ -1063,15 +1096,15 @@
          this.bbi_exdsbutn.Id = 80;
          this.bbi_exdsbutn.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbi_exdsbutn.LargeGlyph")));
          this.bbi_exdsbutn.Name = "bbi_exdsbutn";
-         toolTipTitleItem5.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image4")));
-         toolTipTitleItem5.Appearance.Options.UseImage = true;
-         toolTipTitleItem5.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem5.Image")));
-         toolTipTitleItem5.Text = "رزرو میز";
-         toolTipItem5.LeftIndent = 6;
-         toolTipItem5.Text = "F6\r\nبرای دسترسی آسان از این کلید استفاده کنید";
-         superToolTip5.Items.Add(toolTipTitleItem5);
-         superToolTip5.Items.Add(toolTipItem5);
-         this.bbi_exdsbutn.SuperTip = superToolTip5;
+         toolTipTitleItem21.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image4")));
+         toolTipTitleItem21.Appearance.Options.UseImage = true;
+         toolTipTitleItem21.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem21.Image")));
+         toolTipTitleItem21.Text = "رزرو میز";
+         toolTipItem18.LeftIndent = 6;
+         toolTipItem18.Text = "F6\r\nبرای دسترسی آسان از این کلید استفاده کنید";
+         superToolTip18.Items.Add(toolTipTitleItem21);
+         superToolTip18.Items.Add(toolTipItem18);
+         this.bbi_exdsbutn.SuperTip = superToolTip18;
          this.bbi_exdsbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_exdsbutn_ItemClick);
          // 
          // bbi_hlstbutn
@@ -1314,7 +1347,7 @@
          this.OtherInCome_RPgc.Name = "OtherInCome_RPgc";
          this.OtherInCome_RPgc.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.OthrOption_RbPg});
-         this.OtherInCome_RPgc.Text = "متفرقه باشگاه";
+         this.OtherInCome_RPgc.Text = "متفرقه";
          // 
          // OthrOption_RbPg
          // 
@@ -1463,14 +1496,14 @@
          this.SystemAdmin_RPgc.Name = "SystemAdmin_RPgc";
          this.SystemAdmin_RPgc.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.SystemAdmin_RbPg});
-         this.SystemAdmin_RPgc.Text = "تنظیمات نرم افزار";
+         this.SystemAdmin_RPgc.Text = "مدیریت سیستم";
          // 
          // SystemAdmin_RbPg
          // 
          this.SystemAdmin_RbPg.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.SystemAdmin_RbGp});
          this.SystemAdmin_RbPg.Name = "SystemAdmin_RbPg";
-         this.SystemAdmin_RbPg.Text = "تنظیمات نرم افزار";
+         this.SystemAdmin_RbPg.Text = "مدیریت سیستم";
          // 
          // SystemAdmin_RbGp
          // 
@@ -1679,24 +1712,24 @@
          this.CardNumb_Text.Properties.Appearance.Options.UseFont = true;
          this.CardNumb_Text.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
          this.CardNumb_Text.Properties.AppearanceFocused.Options.UseBackColor = true;
-         toolTipTitleItem6.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image5")));
-         toolTipTitleItem6.Appearance.Options.UseImage = true;
-         toolTipTitleItem6.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem6.Image")));
-         toolTipTitleItem6.Text = "مشترک";
-         toolTipItem6.LeftIndent = 6;
-         toolTipItem6.Text = "نمایش اطلاعات عمومی مشترک";
-         toolTipTitleItem7.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image6")));
-         toolTipTitleItem7.Appearance.Options.UseImage = true;
-         toolTipTitleItem7.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem7.Image")));
-         toolTipTitleItem7.LeftIndent = 6;
-         toolTipTitleItem7.Text = "کلید میانبر \r\nF4";
-         superToolTip6.Items.Add(toolTipTitleItem6);
-         superToolTip6.Items.Add(toolTipItem6);
-         superToolTip6.Items.Add(toolTipTitleItem7);
+         toolTipTitleItem22.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image5")));
+         toolTipTitleItem22.Appearance.Options.UseImage = true;
+         toolTipTitleItem22.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem22.Image")));
+         toolTipTitleItem22.Text = "مشترک";
+         toolTipItem19.LeftIndent = 6;
+         toolTipItem19.Text = "نمایش اطلاعات عمومی مشترک";
+         toolTipTitleItem23.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image6")));
+         toolTipTitleItem23.Appearance.Options.UseImage = true;
+         toolTipTitleItem23.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem23.Image")));
+         toolTipTitleItem23.LeftIndent = 6;
+         toolTipTitleItem23.Text = "کلید میانبر \r\nF4";
+         superToolTip19.Items.Add(toolTipTitleItem22);
+         superToolTip19.Items.Add(toolTipItem19);
+         superToolTip19.Items.Add(toolTipTitleItem23);
          this.CardNumb_Text.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("CardNumb_Text.Properties.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "ثبت نام", null, null, true),
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("CardNumb_Text.Properties.Buttons1"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "تعویض کارت", null, null, true),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("CardNumb_Text.Properties.Buttons2"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject3, "", null, superToolTip6, true),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("CardNumb_Text.Properties.Buttons2"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject3, "", null, superToolTip19, true),
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("CardNumb_Text.Properties.Buttons3"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject4, "حضور و غیاب دستی", null, null, true),
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, global::System.Scsc.Properties.Resources.IMAGE_1223, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, "خرید فروشگاه", null, null, true)});
          this.CardNumb_Text.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
@@ -1847,24 +1880,24 @@
          this.AttendanceSystemAlert_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.AttendanceSystemAlert_Butn.Name = "AttendanceSystemAlert_Butn";
          this.AttendanceSystemAlert_Butn.Size = new System.Drawing.Size(39, 27);
-         toolTipTitleItem8.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1219;
-         toolTipTitleItem8.Appearance.Options.UseImage = true;
-         toolTipTitleItem8.Image = global::System.Scsc.Properties.Resources.IMAGE_1219;
-         toolTipTitleItem8.Text = "IP : ...\r\nوضعیت : *";
-         toolTipItem7.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1067;
-         toolTipItem7.Appearance.Options.UseImage = true;
-         toolTipItem7.Image = global::System.Scsc.Properties.Resources.IMAGE_1067;
-         toolTipItem7.LeftIndent = 6;
-         toolTipItem7.Text = "IP : ...\r\nComputer Name : *";
-         toolTipTitleItem9.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1116;
-         toolTipTitleItem9.Appearance.Options.UseImage = true;
-         toolTipTitleItem9.Image = global::System.Scsc.Properties.Resources.IMAGE_1116;
-         toolTipTitleItem9.LeftIndent = 6;
-         toolTipTitleItem9.Text = "تیم پشتیبانی\r\nوضعیت اینترنت : *";
-         superToolTip7.Items.Add(toolTipTitleItem8);
-         superToolTip7.Items.Add(toolTipItem7);
-         superToolTip7.Items.Add(toolTipTitleItem9);
-         this.AttendanceSystemAlert_Butn.SuperTip = superToolTip7;
+         toolTipTitleItem15.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1219;
+         toolTipTitleItem15.Appearance.Options.UseImage = true;
+         toolTipTitleItem15.Image = global::System.Scsc.Properties.Resources.IMAGE_1219;
+         toolTipTitleItem15.Text = "IP : ...\r\nوضعیت : *";
+         toolTipItem13.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1067;
+         toolTipItem13.Appearance.Options.UseImage = true;
+         toolTipItem13.Image = global::System.Scsc.Properties.Resources.IMAGE_1067;
+         toolTipItem13.LeftIndent = 6;
+         toolTipItem13.Text = "IP : ...\r\nComputer Name : *";
+         toolTipTitleItem16.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1116;
+         toolTipTitleItem16.Appearance.Options.UseImage = true;
+         toolTipTitleItem16.Image = global::System.Scsc.Properties.Resources.IMAGE_1116;
+         toolTipTitleItem16.LeftIndent = 6;
+         toolTipTitleItem16.Text = "تیم پشتیبانی\r\nوضعیت اینترنت : *";
+         superToolTip13.Items.Add(toolTipTitleItem15);
+         superToolTip13.Items.Add(toolTipItem13);
+         superToolTip13.Items.Add(toolTipTitleItem16);
+         this.AttendanceSystemAlert_Butn.SuperTip = superToolTip13;
          this.AttendanceSystemAlert_Butn.TabIndex = 8;
          this.AttendanceSystemAlert_Butn.Click += new System.EventHandler(this.AttendanceSystemAlert_Butn_Click);
          // 
@@ -1940,6 +1973,222 @@
          // 
          this.Sp_ExpnExtr.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.Sp_ExpnExtr_DataReceived);
          // 
+         // AllMenu_Cmn
+         // 
+         this.AllMenu_Cmn.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.اطلاعاتپایهToolStripMenuItem,
+            this.toolStripMenuItem1,
+            this.اطلاعاتثبتنامToolStripMenuItem,
+            this.toolStripMenuItem2,
+            this.اطلاعاتپروندهمشترکینToolStripMenuItem,
+            this.toolStripMenuItem3,
+            this.اطلاعاتمتفرقهToolStripMenuItem,
+            this.toolStripMenuItem4,
+            this.کارهایتجمعیToolStripMenuItem,
+            this.toolStripMenuItem5,
+            this.گزارشاتToolStripMenuItem,
+            this.toolStripMenuItem6,
+            this.مدیریتسیستمToolStripMenuItem});
+         this.AllMenu_Cmn.Name = "AllMenu_Cmn";
+         this.AllMenu_Cmn.Size = new System.Drawing.Size(195, 194);
+         // 
+         // اطلاعاتپایهToolStripMenuItem
+         // 
+         this.اطلاعاتپایهToolStripMenuItem.Image = global::System.Scsc.Properties.Resources.IMAGE_1150;
+         this.اطلاعاتپایهToolStripMenuItem.Name = "اطلاعاتپایهToolStripMenuItem";
+         this.اطلاعاتپایهToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
+         this.اطلاعاتپایهToolStripMenuItem.Text = "اطلاعات پایه";
+         // 
+         // toolStripMenuItem1
+         // 
+         this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+         this.toolStripMenuItem1.Size = new System.Drawing.Size(191, 6);
+         // 
+         // اطلاعاتثبتنامToolStripMenuItem
+         // 
+         this.اطلاعاتثبتنامToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ثبتنامToolStripMenuItem,
+            this.تمدیدToolStripMenuItem,
+            this.بلوکهToolStripMenuItem,
+            this.تغییرمشخصاتعمومیToolStripMenuItem});
+         this.اطلاعاتثبتنامToolStripMenuItem.Name = "اطلاعاتثبتنامToolStripMenuItem";
+         this.اطلاعاتثبتنامToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
+         this.اطلاعاتثبتنامToolStripMenuItem.Text = "اطلاعات ثبت نام";
+         // 
+         // toolStripMenuItem2
+         // 
+         this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+         this.toolStripMenuItem2.Size = new System.Drawing.Size(191, 6);
+         // 
+         // اطلاعاتپروندهمشترکینToolStripMenuItem
+         // 
+         this.اطلاعاتپروندهمشترکینToolStripMenuItem.Image = global::System.Scsc.Properties.Resources.IMAGE_1087;
+         this.اطلاعاتپروندهمشترکینToolStripMenuItem.Name = "اطلاعاتپروندهمشترکینToolStripMenuItem";
+         this.اطلاعاتپروندهمشترکینToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
+         this.اطلاعاتپروندهمشترکینToolStripMenuItem.Text = "اطلاعات پرونده مشترکین";
+         // 
+         // toolStripMenuItem3
+         // 
+         this.toolStripMenuItem3.Name = "toolStripMenuItem3";
+         this.toolStripMenuItem3.Size = new System.Drawing.Size(191, 6);
+         // 
+         // اطلاعاتمتفرقهToolStripMenuItem
+         // 
+         this.اطلاعاتمتفرقهToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.فروشگاهToolStripMenuItem,
+            this.toolStripMenuItem7,
+            this.کنترلمیزToolStripMenuItem,
+            this.toolStripMenuItem8,
+            this.ثبتهزینهToolStripMenuItem,
+            this.toolStripMenuItem9,
+            this.محاسهحقوقودستمزدToolStripMenuItem});
+         this.اطلاعاتمتفرقهToolStripMenuItem.Name = "اطلاعاتمتفرقهToolStripMenuItem";
+         this.اطلاعاتمتفرقهToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
+         this.اطلاعاتمتفرقهToolStripMenuItem.Text = "اطلاعات متفرقه";
+         // 
+         // toolStripMenuItem4
+         // 
+         this.toolStripMenuItem4.Name = "toolStripMenuItem4";
+         this.toolStripMenuItem4.Size = new System.Drawing.Size(191, 6);
+         // 
+         // کارهایتجمعیToolStripMenuItem
+         // 
+         this.کارهایتجمعیToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ارسالپیامکToolStripMenuItem});
+         this.کارهایتجمعیToolStripMenuItem.Name = "کارهایتجمعیToolStripMenuItem";
+         this.کارهایتجمعیToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
+         this.کارهایتجمعیToolStripMenuItem.Text = "کارهای تجمعی";
+         // 
+         // toolStripMenuItem5
+         // 
+         this.toolStripMenuItem5.Name = "toolStripMenuItem5";
+         this.toolStripMenuItem5.Size = new System.Drawing.Size(191, 6);
+         // 
+         // گزارشاتToolStripMenuItem
+         // 
+         this.گزارشاتToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.گزارشفروشToolStripMenuItem,
+            this.عملکردToolStripMenuItem});
+         this.گزارشاتToolStripMenuItem.Name = "گزارشاتToolStripMenuItem";
+         this.گزارشاتToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
+         this.گزارشاتToolStripMenuItem.Text = "گزارشات";
+         // 
+         // toolStripMenuItem6
+         // 
+         this.toolStripMenuItem6.Name = "toolStripMenuItem6";
+         this.toolStripMenuItem6.Size = new System.Drawing.Size(191, 6);
+         // 
+         // مدیریتسیستمToolStripMenuItem
+         // 
+         this.مدیریتسیستمToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.وضعیتToolStripMenuItem,
+            this.پشتیبانگیریاضطراریToolStripMenuItem});
+         this.مدیریتسیستمToolStripMenuItem.Name = "مدیریتسیستمToolStripMenuItem";
+         this.مدیریتسیستمToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
+         this.مدیریتسیستمToolStripMenuItem.Text = "مدیریت سیستم";
+         // 
+         // ثبتنامToolStripMenuItem
+         // 
+         this.ثبتنامToolStripMenuItem.Image = global::System.Scsc.Properties.Resources.IMAGE_1064;
+         this.ثبتنامToolStripMenuItem.Name = "ثبتنامToolStripMenuItem";
+         this.ثبتنامToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+         this.ثبتنامToolStripMenuItem.Text = "ثبت نام";
+         // 
+         // تمدیدToolStripMenuItem
+         // 
+         this.تمدیدToolStripMenuItem.Image = global::System.Scsc.Properties.Resources.IMAGE_1056;
+         this.تمدیدToolStripMenuItem.Name = "تمدیدToolStripMenuItem";
+         this.تمدیدToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+         this.تمدیدToolStripMenuItem.Text = "تمدید";
+         // 
+         // بلوکهToolStripMenuItem
+         // 
+         this.بلوکهToolStripMenuItem.Image = global::System.Scsc.Properties.Resources.IMAGE_1241;
+         this.بلوکهToolStripMenuItem.Name = "بلوکهToolStripMenuItem";
+         this.بلوکهToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+         this.بلوکهToolStripMenuItem.Text = "بلوکه";
+         // 
+         // تغییرمشخصاتعمومیToolStripMenuItem
+         // 
+         this.تغییرمشخصاتعمومیToolStripMenuItem.Image = global::System.Scsc.Properties.Resources.IMAGE_1055;
+         this.تغییرمشخصاتعمومیToolStripMenuItem.Name = "تغییرمشخصاتعمومیToolStripMenuItem";
+         this.تغییرمشخصاتعمومیToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+         this.تغییرمشخصاتعمومیToolStripMenuItem.Text = "تغییر مشخصات عمومی";
+         // 
+         // فروشگاهToolStripMenuItem
+         // 
+         this.فروشگاهToolStripMenuItem.Image = global::System.Scsc.Properties.Resources.IMAGE_1088;
+         this.فروشگاهToolStripMenuItem.Name = "فروشگاهToolStripMenuItem";
+         this.فروشگاهToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+         this.فروشگاهToolStripMenuItem.Text = "فروشگاه";
+         // 
+         // toolStripMenuItem7
+         // 
+         this.toolStripMenuItem7.Name = "toolStripMenuItem7";
+         this.toolStripMenuItem7.Size = new System.Drawing.Size(184, 6);
+         // 
+         // کنترلمیزToolStripMenuItem
+         // 
+         this.کنترلمیزToolStripMenuItem.Image = global::System.Scsc.Properties.Resources.IMAGE_1067;
+         this.کنترلمیزToolStripMenuItem.Name = "کنترلمیزToolStripMenuItem";
+         this.کنترلمیزToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+         this.کنترلمیزToolStripMenuItem.Text = "کنترل میز";
+         // 
+         // toolStripMenuItem8
+         // 
+         this.toolStripMenuItem8.Name = "toolStripMenuItem8";
+         this.toolStripMenuItem8.Size = new System.Drawing.Size(184, 6);
+         // 
+         // ثبتهزینهToolStripMenuItem
+         // 
+         this.ثبتهزینهToolStripMenuItem.Image = global::System.Scsc.Properties.Resources.IMAGE_1105;
+         this.ثبتهزینهToolStripMenuItem.Name = "ثبتهزینهToolStripMenuItem";
+         this.ثبتهزینهToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+         this.ثبتهزینهToolStripMenuItem.Text = "ثبت هزینه";
+         // 
+         // toolStripMenuItem9
+         // 
+         this.toolStripMenuItem9.Name = "toolStripMenuItem9";
+         this.toolStripMenuItem9.Size = new System.Drawing.Size(184, 6);
+         // 
+         // محاسهحقوقودستمزدToolStripMenuItem
+         // 
+         this.محاسهحقوقودستمزدToolStripMenuItem.Image = global::System.Scsc.Properties.Resources.IMAGE_1126;
+         this.محاسهحقوقودستمزدToolStripMenuItem.Name = "محاسهحقوقودستمزدToolStripMenuItem";
+         this.محاسهحقوقودستمزدToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+         this.محاسهحقوقودستمزدToolStripMenuItem.Text = "محاسه حقوق و دستمزد";
+         // 
+         // ارسالپیامکToolStripMenuItem
+         // 
+         this.ارسالپیامکToolStripMenuItem.Image = global::System.Scsc.Properties.Resources.IMAGE_1154;
+         this.ارسالپیامکToolStripMenuItem.Name = "ارسالپیامکToolStripMenuItem";
+         this.ارسالپیامکToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+         this.ارسالپیامکToolStripMenuItem.Text = "ارسال پیامک";
+         // 
+         // گزارشفروشToolStripMenuItem
+         // 
+         this.گزارشفروشToolStripMenuItem.Name = "گزارشفروشToolStripMenuItem";
+         this.گزارشفروشToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+         this.گزارشفروشToolStripMenuItem.Text = "فروش";
+         // 
+         // عملکردToolStripMenuItem
+         // 
+         this.عملکردToolStripMenuItem.Name = "عملکردToolStripMenuItem";
+         this.عملکردToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+         this.عملکردToolStripMenuItem.Text = "عملکرد";
+         // 
+         // وضعیتToolStripMenuItem
+         // 
+         this.وضعیتToolStripMenuItem.Name = "وضعیتToolStripMenuItem";
+         this.وضعیتToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+         this.وضعیتToolStripMenuItem.Text = "تنظیمات پشتیبان گیری";
+         // 
+         // پشتیبانگیریاضطراریToolStripMenuItem
+         // 
+         this.پشتیبانگیریاضطراریToolStripMenuItem.Name = "پشتیبانگیریاضطراریToolStripMenuItem";
+         this.پشتیبانگیریاضطراریToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+         this.پشتیبانگیریاضطراریToolStripMenuItem.Text = "پشتیبان گیری اضطراری";
+         // 
          // MAIN_PAGE_F
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -1962,6 +2211,7 @@
          ((System.ComponentModel.ISupportInitialize)(this.CardNumb_Text.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.FngrPrnt_Txt.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.FighBs)).EndInit();
+         this.AllMenu_Cmn.ResumeLayout(false);
          this.ResumeLayout(false);
          this.PerformLayout();
 
@@ -2117,5 +2367,35 @@
       private Windows.Forms.Button button3;
       private Windows.Forms.Button button2;
       private Windows.Forms.Button button1;
+      private Windows.Forms.ContextMenuStrip AllMenu_Cmn;
+      private Windows.Forms.ToolStripMenuItem اطلاعاتپایهToolStripMenuItem;
+      private Windows.Forms.ToolStripSeparator toolStripMenuItem1;
+      private Windows.Forms.ToolStripMenuItem اطلاعاتثبتنامToolStripMenuItem;
+      private Windows.Forms.ToolStripSeparator toolStripMenuItem2;
+      private Windows.Forms.ToolStripMenuItem اطلاعاتپروندهمشترکینToolStripMenuItem;
+      private Windows.Forms.ToolStripSeparator toolStripMenuItem3;
+      private Windows.Forms.ToolStripMenuItem اطلاعاتمتفرقهToolStripMenuItem;
+      private Windows.Forms.ToolStripSeparator toolStripMenuItem4;
+      private Windows.Forms.ToolStripMenuItem کارهایتجمعیToolStripMenuItem;
+      private Windows.Forms.ToolStripSeparator toolStripMenuItem5;
+      private Windows.Forms.ToolStripMenuItem گزارشاتToolStripMenuItem;
+      private Windows.Forms.ToolStripSeparator toolStripMenuItem6;
+      private Windows.Forms.ToolStripMenuItem مدیریتسیستمToolStripMenuItem;
+      private Windows.Forms.ToolStripMenuItem ثبتنامToolStripMenuItem;
+      private Windows.Forms.ToolStripMenuItem تمدیدToolStripMenuItem;
+      private Windows.Forms.ToolStripMenuItem بلوکهToolStripMenuItem;
+      private Windows.Forms.ToolStripMenuItem تغییرمشخصاتعمومیToolStripMenuItem;
+      private Windows.Forms.ToolStripMenuItem فروشگاهToolStripMenuItem;
+      private Windows.Forms.ToolStripSeparator toolStripMenuItem7;
+      private Windows.Forms.ToolStripMenuItem کنترلمیزToolStripMenuItem;
+      private Windows.Forms.ToolStripSeparator toolStripMenuItem8;
+      private Windows.Forms.ToolStripMenuItem ثبتهزینهToolStripMenuItem;
+      private Windows.Forms.ToolStripSeparator toolStripMenuItem9;
+      private Windows.Forms.ToolStripMenuItem محاسهحقوقودستمزدToolStripMenuItem;
+      private Windows.Forms.ToolStripMenuItem ارسالپیامکToolStripMenuItem;
+      private Windows.Forms.ToolStripMenuItem گزارشفروشToolStripMenuItem;
+      private Windows.Forms.ToolStripMenuItem عملکردToolStripMenuItem;
+      private Windows.Forms.ToolStripMenuItem وضعیتToolStripMenuItem;
+      private Windows.Forms.ToolStripMenuItem پشتیبانگیریاضطراریToolStripMenuItem;
    }
 }

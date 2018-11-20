@@ -406,9 +406,9 @@ namespace System.Scsc.Ui.Common
             if (isFirstLoaded) goto finishcommand;
 
             //provinceBindingSource.DataSource = iScsc.Provinces.Where(p => Fga_Uprv_U.Split(',').Contains(p.CODE));
-            methodBindingSource.DataSource = iScsc.Methods;
+            //methodBindingSource.DataSource = iScsc.Methods;
             //dSXTPBindingSource.DataSource = iScsc.D_SXTPs;
-            dFGTPBindingSource.DataSource = iScsc.D_FGTPs;
+            //dFGTPBindingSource.DataSource = iScsc.D_FGTPs;
             //dFGSTBindingSource.DataSource = iScsc.D_FGSTs;
             CochBs1.DataSource = iScsc.Fighters.Where(c => c.FGPB_TYPE_DNRM == "003");
 

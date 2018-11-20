@@ -146,5 +146,10 @@ namespace System.Scsc.Ui.Notifications
             RqstBnExit1_Click(null, null);
          }
       }
+
+      private void Mbsp_Gv_DoubleClick(object sender, EventArgs e)
+      {
+         Attn_Butn_Click(null, null);
+      }
    }
 }

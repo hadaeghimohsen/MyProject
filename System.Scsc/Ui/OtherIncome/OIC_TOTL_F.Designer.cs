@@ -28,7 +28,6 @@
       /// </summary>
       private void InitializeComponent()
       {
-         this.components = new System.ComponentModel.Container();
          DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
          DevExpress.Utils.ToolTipTitleItem toolTipTitleItem1 = new DevExpress.Utils.ToolTipTitleItem();
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OIC_TOTL_F));
@@ -79,18 +78,18 @@
          this.tbn_CashPayment1 = new DevExpress.XtraEditors.SimpleButton();
          this.tbn_POSPayment1 = new DevExpress.XtraEditors.SimpleButton();
          this.Pos_Lov = new DevExpress.XtraEditors.LookUpEdit();
-         this.VPosBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.VPosBs1 = new System.Windows.Forms.BindingSource();
          this.PosStng_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.RcmtType_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.UsePos_Cb = new System.Windows.Forms.CheckBox();
          this.PydsType_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.Pymt_Lb = new DevExpress.XtraEditors.LabelControl();
          this.bn_PaymentMethods1 = new System.MaxUi.NewMaxBtn();
-         this.im_images = new System.Windows.Forms.ImageList(this.components);
+         this.im_images = new System.Windows.Forms.ImageList();
          this.gridControl2 = new DevExpress.XtraGrid.GridControl();
-         this.PmmtBs1 = new System.Windows.Forms.BindingSource(this.components);
-         this.PymtsBs1 = new System.Windows.Forms.BindingSource(this.components);
-         this.RqstBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.PmmtBs1 = new System.Windows.Forms.BindingSource();
+         this.PymtsBs1 = new System.Windows.Forms.BindingSource();
+         this.RqstBs1 = new System.Windows.Forms.BindingSource();
          this.gridView5 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colPYMT_CASH_CODE2 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colPYMT_RQST_RQID2 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -100,7 +99,7 @@
          this.PymtAmnt_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
          this.RcptMtod_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
          this.repositoryItemLookUpEdit6 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-         this.DRcmtBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.DRcmtBs1 = new System.Windows.Forms.BindingSource();
          this.colTERM_NO = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colTRAN_NO = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colCARD_NO = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -117,7 +116,7 @@
          this.colPayment2 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colRequest_Row2 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.gridControl3 = new DevExpress.XtraGrid.GridControl();
-         this.PydsBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.PydsBs1 = new System.Windows.Forms.BindingSource();
          this.gridView4 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colPYMT_CASH_CODE1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colPYMT_RQST_RQID1 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -144,6 +143,7 @@
          this.SavePymt_Butn = new System.Windows.Forms.Button();
          this.SavePyds_Butn = new System.Windows.Forms.Button();
          this.PydsType_Lov = new DevExpress.XtraEditors.LookUpEdit();
+         this.DPydsBs1 = new System.Windows.Forms.BindingSource();
          this.PymtDate_DateTime001 = new Atf.UI.DateTimeSelector();
          this.paymentsGridControl = new DevExpress.XtraGrid.GridControl();
          this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -152,19 +152,19 @@
          this.SumExpnExtrPrct_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colAMNT_UNIT_TYPE_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
          this.repositoryItemLookUpEdit5 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-         this.DAtypBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.DAtypBs1 = new System.Windows.Forms.BindingSource();
          this.colREMN_AMNT = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colSUM_RCPT_AMNT = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colSUM_PYDS_AMNT = new DevExpress.XtraGrid.Columns.GridColumn();
          this.RemoveExpn_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.SaveExpn_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.PydtDesc_TextEdit = new DevExpress.XtraEditors.TextEdit();
-         this.PydtsBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.PydtsBs1 = new System.Windows.Forms.BindingSource();
          this.Btn_Cbmt1 = new System.Windows.Forms.Button();
          this.CBMT_CODE_GridLookUpEdit = new DevExpress.XtraEditors.GridLookUpEdit();
-         this.CbmtBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.CbmtBs1 = new System.Windows.Forms.BindingSource();
          this.repositoryItemLookUpEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-         this.DDytpBs = new System.Windows.Forms.BindingSource(this.components);
+         this.DDytpBs = new System.Windows.Forms.BindingSource();
          this.cBMT_CODEGridLookUpEditView = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -190,7 +190,7 @@
          this.colRQRO_RWNO = new DevExpress.XtraGrid.Columns.GridColumn();
          this.ExpnCode_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
          this.LOV_EXPN = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-         this.ExpnBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.ExpnBs1 = new System.Windows.Forms.BindingSource();
          this.colCODE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colPAY_STAT = new DevExpress.XtraGrid.Columns.GridColumn();
          this.ExpnPric_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -213,7 +213,7 @@
          this.colPYDT_DESC = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colFIGH_FILE_NO1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.repositoryItemSearchLookUpEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemSearchLookUpEdit();
-         this.FighsBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.FighsBs1 = new System.Windows.Forms.BindingSource();
          this.repositoryItemSearchLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colREGN_PRVN_CNTY_CODE1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colREGN_PRVN_CODE1 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -287,12 +287,12 @@
          this.colCategory_Belt2 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colPRE_EXPN_STAT = new DevExpress.XtraGrid.Columns.GridColumn();
          this.Lov_YSNO = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-         this.DYsnoBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.DYsnoBs1 = new System.Windows.Forms.BindingSource();
          this.colCBMT_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.repositoryItemSearchLookUpEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemSearchLookUpEdit();
          this.repositoryItemLookUpEdit3 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
          this.repositoryItemLookUpEdit4 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-         this.DSxtpBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.DSxtpBs1 = new System.Windows.Forms.BindingSource();
          this.repositoryItemSearchLookUpEdit2View = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colCLUB_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colMTOD_CODE1 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -322,10 +322,10 @@
          this.FreeAdm_Pn = new System.Windows.Forms.Panel();
          this.RqstDesc_Lb = new System.Windows.Forms.Label();
          this.SERV_NO_TextEdit = new DevExpress.XtraEditors.TextEdit();
-         this.FgpbBs1 = new System.Windows.Forms.BindingSource(this.components);
-         this.RqroBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.FgpbBs1 = new System.Windows.Forms.BindingSource();
+         this.RqroBs1 = new System.Windows.Forms.BindingSource();
          this.SUNT_CODELookUpEdit = new DevExpress.XtraEditors.LookUpEdit();
-         this.SuntBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.SuntBs1 = new System.Windows.Forms.BindingSource();
          this.NatlCode_Txt = new DevExpress.XtraEditors.TextEdit();
          this.LastName_Txt = new DevExpress.XtraEditors.TextEdit();
          this.CellPhon_Txt = new DevExpress.XtraEditors.TextEdit();
@@ -403,9 +403,9 @@
          this.colSub_Unit = new DevExpress.XtraGrid.Columns.GridColumn();
          this.textEdit3 = new DevExpress.XtraEditors.TextEdit();
          this.textEdit2 = new DevExpress.XtraEditors.TextEdit();
-         this.FighBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.FighBs1 = new System.Windows.Forms.BindingSource();
          this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
-         this.RqstBn1 = new System.Windows.Forms.BindingNavigator(this.components);
+         this.RqstBn1 = new System.Windows.Forms.BindingNavigator();
          this.RqstBnNew1 = new System.Windows.Forms.ToolStripButton();
          this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
          this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
@@ -461,9 +461,8 @@
          this.colEXTR_PRCT = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
          this.colGROP_CODE = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
          this.repositoryItemLookUpEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-         this.RqttBs1 = new System.Windows.Forms.BindingSource(this.components);
-         this.DCyclBs1 = new System.Windows.Forms.BindingSource(this.components);
-         this.DPydsBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.RqttBs1 = new System.Windows.Forms.BindingSource();
+         this.DCyclBs1 = new System.Windows.Forms.BindingSource();
          ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
          this.splitContainer1.Panel1.SuspendLayout();
          this.splitContainer1.Panel2.SuspendLayout();
@@ -488,6 +487,7 @@
          ((System.ComponentModel.ISupportInitialize)(this.PydsAmnt_Txt.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.PydsDesc_Txt.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.PydsType_Lov.Properties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.DPydsBs1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.paymentsGridControl)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit5)).BeginInit();
@@ -544,7 +544,6 @@
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit2)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.RqttBs1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.DCyclBs1)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.DPydsBs1)).BeginInit();
          this.SuspendLayout();
          // 
          // gridColumn16
@@ -1547,6 +1546,10 @@
          this.PydsType_Lov.Properties.ValueMember = "VALU";
          this.PydsType_Lov.Size = new System.Drawing.Size(68, 22);
          this.PydsType_Lov.TabIndex = 65;
+         // 
+         // DPydsBs1
+         // 
+         this.DPydsBs1.DataSource = typeof(System.Scsc.Data.D_PYDS);
          // 
          // PymtDate_DateTime001
          // 
@@ -4146,6 +4149,7 @@
          this.Expn_Gv.OptionsView.EnableAppearanceEvenRow = true;
          this.Expn_Gv.OptionsView.ShowDetailButtons = false;
          this.Expn_Gv.OptionsView.ShowGroupPanel = false;
+         this.Expn_Gv.DoubleClick += new System.EventHandler(this.Expn_Gv_DoubleClick);
          this.Expn_Gv.RowCountChanged += new System.EventHandler(this.advBandedGridView1_RowCountChanged);
          // 
          // ExpnGropList_Clm
@@ -4374,10 +4378,6 @@
          // 
          this.DCyclBs1.DataSource = typeof(System.Scsc.Data.D_CYCL);
          // 
-         // DPydsBs1
-         // 
-         this.DPydsBs1.DataSource = typeof(System.Scsc.Data.D_PYDS);
-         // 
          // OIC_TOTL_F
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -4414,6 +4414,7 @@
          ((System.ComponentModel.ISupportInitialize)(this.PydsAmnt_Txt.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.PydsDesc_Txt.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.PydsType_Lov.Properties)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.DPydsBs1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.paymentsGridControl)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit5)).EndInit();
@@ -4473,7 +4474,6 @@
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit2)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.RqttBs1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.DCyclBs1)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.DPydsBs1)).EndInit();
          this.ResumeLayout(false);
 
       }

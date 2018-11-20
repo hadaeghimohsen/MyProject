@@ -28,13 +28,12 @@
       /// </summary>
       private void InitializeComponent()
       {
-         this.components = new System.ComponentModel.Container();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CHOS_MBSP_F));
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
-         this.MbspBn1 = new System.Windows.Forms.BindingNavigator(this.components);
+         this.MbspBn1 = new System.Windows.Forms.BindingNavigator();
          this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
          this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
          this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
@@ -51,11 +50,11 @@
          this.NameDnrm_Lbl = new System.Windows.Forms.Label();
          this.UserProFile_Rb = new System.MaxUi.RoundedButton();
          this.Mbsp_gc = new DevExpress.XtraGrid.GridControl();
-         this.MbspBs = new System.Windows.Forms.BindingSource(this.components);
-         this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+         this.MbspBs = new System.Windows.Forms.BindingSource();
+         this.Mbsp_Gv = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colRQRO_RQST_RQID = new DevExpress.XtraGrid.Columns.GridColumn();
          this.repositoryItemLookUpEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-         this.CochBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.CochBs1 = new System.Windows.Forms.BindingSource();
          this.colRQRO_RWNO1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colFIGH_FILE_NO1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colRWNO = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -89,7 +88,7 @@
          this.panel4.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.Mbsp_gc)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.MbspBs)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.Mbsp_Gv)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.CochBs1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit1)).BeginInit();
@@ -283,7 +282,7 @@
          this.Mbsp_gc.Location = new System.Drawing.Point(0, 156);
          this.Mbsp_gc.LookAndFeel.SkinName = "Office 2013 Dark Gray";
          this.Mbsp_gc.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.Mbsp_gc.MainView = this.gridView1;
+         this.Mbsp_gc.MainView = this.Mbsp_Gv;
          this.Mbsp_gc.Name = "Mbsp_gc";
          this.Mbsp_gc.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemLookUpEdit1,
@@ -292,25 +291,25 @@
          this.Mbsp_gc.Size = new System.Drawing.Size(721, 392);
          this.Mbsp_gc.TabIndex = 88;
          this.Mbsp_gc.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView1});
+            this.Mbsp_Gv});
          // 
          // MbspBs
          // 
          this.MbspBs.DataSource = typeof(System.Scsc.Data.Member_Ship);
          // 
-         // gridView1
+         // Mbsp_Gv
          // 
-         this.gridView1.Appearance.FooterPanel.Font = new System.Drawing.Font("Tahoma", 9F);
-         this.gridView1.Appearance.FooterPanel.Options.UseFont = true;
-         this.gridView1.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 9F);
-         this.gridView1.Appearance.HeaderPanel.Options.UseFont = true;
-         this.gridView1.Appearance.HeaderPanel.Options.UseTextOptions = true;
-         this.gridView1.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-         this.gridView1.Appearance.Row.Font = new System.Drawing.Font("Tahoma", 9F);
-         this.gridView1.Appearance.Row.Options.UseFont = true;
-         this.gridView1.Appearance.Row.Options.UseTextOptions = true;
-         this.gridView1.Appearance.Row.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-         this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+         this.Mbsp_Gv.Appearance.FooterPanel.Font = new System.Drawing.Font("Tahoma", 9F);
+         this.Mbsp_Gv.Appearance.FooterPanel.Options.UseFont = true;
+         this.Mbsp_Gv.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 9F);
+         this.Mbsp_Gv.Appearance.HeaderPanel.Options.UseFont = true;
+         this.Mbsp_Gv.Appearance.HeaderPanel.Options.UseTextOptions = true;
+         this.Mbsp_Gv.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         this.Mbsp_Gv.Appearance.Row.Font = new System.Drawing.Font("Tahoma", 9F);
+         this.Mbsp_Gv.Appearance.Row.Options.UseFont = true;
+         this.Mbsp_Gv.Appearance.Row.Options.UseTextOptions = true;
+         this.Mbsp_Gv.Appearance.Row.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         this.Mbsp_Gv.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colRQRO_RQST_RQID,
             this.colRQRO_RWNO1,
             this.colFIGH_FILE_NO1,
@@ -338,14 +337,15 @@
             this.colRequest_Row,
             this.colFighter,
             this.colATTNRMND});
-         this.gridView1.GridControl = this.Mbsp_gc;
-         this.gridView1.Name = "gridView1";
-         this.gridView1.OptionsDetail.EnableMasterViewMode = false;
-         this.gridView1.OptionsSelection.EnableAppearanceFocusedCell = false;
-         this.gridView1.OptionsView.ShowGroupPanel = false;
-         this.gridView1.OptionsView.ShowIndicator = false;
-         this.gridView1.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
+         this.Mbsp_Gv.GridControl = this.Mbsp_gc;
+         this.Mbsp_Gv.Name = "Mbsp_Gv";
+         this.Mbsp_Gv.OptionsDetail.EnableMasterViewMode = false;
+         this.Mbsp_Gv.OptionsSelection.EnableAppearanceFocusedCell = false;
+         this.Mbsp_Gv.OptionsView.ShowGroupPanel = false;
+         this.Mbsp_Gv.OptionsView.ShowIndicator = false;
+         this.Mbsp_Gv.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
             new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colRWNO, DevExpress.Data.ColumnSortOrder.Descending)});
+         this.Mbsp_Gv.DoubleClick += new System.EventHandler(this.Mbsp_Gv_DoubleClick);
          // 
          // colRQRO_RQST_RQID
          // 
@@ -611,7 +611,7 @@
          this.panel4.ResumeLayout(false);
          ((System.ComponentModel.ISupportInitialize)(this.Mbsp_gc)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.MbspBs)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.Mbsp_Gv)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.CochBs1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit1.CalendarTimeProperties)).EndInit();
@@ -640,7 +640,7 @@
       private MaxUi.RoundedButton UserProFile_Rb;
       private DevExpress.XtraGrid.GridControl Mbsp_gc;
       private Windows.Forms.BindingSource MbspBs;
-      private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+      private DevExpress.XtraGrid.Views.Grid.GridView Mbsp_Gv;
       private DevExpress.XtraGrid.Columns.GridColumn colRQRO_RQST_RQID;
       private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repositoryItemLookUpEdit1;
       private Windows.Forms.BindingSource CochBs1;

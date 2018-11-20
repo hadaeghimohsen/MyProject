@@ -2853,6 +2853,81 @@ namespace System.Scsc.Ui.MasterPage
          Sp_Barcode.Write("empty");
       }
 
+      private void bbi_basdifnbutn_Mn_Click(object sender, EventArgs e)
+      {
+         bbi_basdifnbutn_ItemClick(null, null);
+      }
+
+      private void bbi_adm1butn_Mn_Click(object sender, EventArgs e)
+      {
+         bbi_adm1butn_ItemClick(null, null);
+      }
+
+      private void bbi_mbs1butn_Mn_Click(object sender, EventArgs e)
+      {
+         bbi_mbs1butn_ItemClick(null, null);
+      }
+
+      private void bbi_mbfzbutn_Mn_Click(object sender, EventArgs e)
+      {
+         bbi_mbfzbutn_ItemClick(null, null);
+      }
+
+      private void bbi_fmdfbutn_Mn_Click(object sender, EventArgs e)
+      {
+         bbi_fmdfbutn_ItemClick(null, null);
+      }
+
+      private void bbi_flstbutn_Mn_Click(object sender, EventArgs e)
+      {
+         bbi_flstbutn_ItemClick(null, null);
+      }
+
+      private void bbi_oincbutn_Mn_Click(object sender, EventArgs e)
+      {
+         bbi_oincbutn_ItemClick(null, null);
+      }
+
+      private void bbi_exdsbutn_Mn_Click(object sender, EventArgs e)
+      {
+         bbi_exdsbutn_ItemClick(null, null);
+      }
+
+      private void bbi_oexpbutn_Mn_Click(object sender, EventArgs e)
+      {
+         bbi_oexpbutn_ItemClick(null, null);
+      }
+
+      private void bbi_cpaybutn_Mn_Click(object sender, EventArgs e)
+      {
+         bbi_cpaybutn_ItemClick(null, null);
+      }
+
+      private void bbi_smsbbutn_Mn_Click(object sender, EventArgs e)
+      {
+         bbi_smsbbutn_ItemClick(null, null);
+      }
+
+      private void bbi_incmbutn_Mn_Click(object sender, EventArgs e)
+      {
+         bbi_incmbutn_ItemClick(null, null);
+      }
+
+      private void bbi_bislbutn_Mn_Click(object sender, EventArgs e)
+      {
+         bbi_bislbutn_ItemClick(null, null);
+      }
+
+      private void bbi_bkupbutn_Mn_Click(object sender, EventArgs e)
+      {
+         bbi_bkupbutn_ItemClick(null, null);
+      }
+
+      private void bbi_embkbutn_Mn_Click(object sender, EventArgs e)
+      {
+         bbi_embkbutn_ItemClick(null, null);
+      }
+
       
    }
 }

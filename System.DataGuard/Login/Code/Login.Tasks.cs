@@ -58,19 +58,19 @@ namespace System.DataGuard.Login.Code
          try
          {
             #region Check Tiny Lock
-            var _jobCheckTiny =
-               new Job(SendType.External, "Localhost", "", 05 /* Execute DoWork4TinyLock  */, SendType.Self);
-            _DefaultGateway.Gateway(_jobCheckTiny);
+            //var _jobCheckTiny =
+            //   new Job(SendType.External, "Localhost", "", 05 /* Execute DoWork4TinyLock  */, SendType.Self);
+            //_DefaultGateway.Gateway(_jobCheckTiny);
 
-            if (_jobCheckTiny.Output != null)
-            {
-               var _jobUnSecureHashCode =
-                  new Job(SendType.External, "Localhost", "", 08 /* Execute DoWork4UnSecureHashCode  */, SendType.Self) { Input = (_jobCheckTiny.Output as XElement).Value };
-               _DefaultGateway.Gateway(_jobUnSecureHashCode);
-               MessageBox.Show(_jobUnSecureHashCode.Output.ToString());
-               Application.Exit();
-               Process.GetCurrentProcess().Kill();
-            }
+            //if (_jobCheckTiny.Output != null)
+            //{
+            //   var _jobUnSecureHashCode =
+            //      new Job(SendType.External, "Localhost", "", 08 /* Execute DoWork4UnSecureHashCode  */, SendType.Self) { Input = (_jobCheckTiny.Output as XElement).Value };
+            //   _DefaultGateway.Gateway(_jobUnSecureHashCode);
+            //   MessageBox.Show(_jobUnSecureHashCode.Output.ToString());
+            //   Application.Exit();
+            //   Process.GetCurrentProcess().Kill();
+            //}
             #endregion
 
             _DefaultGateway.Gateway(

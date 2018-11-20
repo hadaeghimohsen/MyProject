@@ -79,9 +79,12 @@ namespace System.Scsc.Ui.Settings
       {
          try
          {
+            StngBs1.EndEdit();
             Data.Setting Stng = null;
             if(tc_Settings.SelectedTab == tp_backuprestore)
                Stng = StngBs1.List.OfType<Data.Setting>().FirstOrDefault();
+
+            Stng.BACK_UP_OPTN_PATH = true;
 
             if(tc_Settings.SelectedTab == tp_backuprestore)
                iScsc.STNG_SAVE_P(

@@ -28,6 +28,7 @@
       /// </summary>
       private void InitializeComponent()
       {
+         this.components = new System.ComponentModel.Container();
          System.Windows.Forms.Label label13;
          System.Windows.Forms.Label label14;
          System.Windows.Forms.Label label17;
@@ -48,28 +49,27 @@
          this.SectDesc_Lb = new System.Windows.Forms.Label();
          this.SectName_Lb = new System.Windows.Forms.Label();
          this.AfterPrntPay_Lb = new System.Windows.Forms.Label();
-         this.DActvBs1 = new System.Windows.Forms.BindingSource();
+         this.DActvBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.tc_Settings = new System.Windows.Forms.TabControl();
          this.tp_backuprestore = new System.Windows.Forms.TabPage();
+         this.GB_BACK_UP_OPTN_PATH_ADRS = new System.MaxUi.GroupBox();
+         this.Btn_DeleteBackup = new System.MaxUi.NewMaxBtn();
          this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-         this.RestBs1 = new System.Windows.Forms.BindingSource();
+         this.RestBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.FileName_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
          this.Directory_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.Btn_DeleteBackup = new System.MaxUi.NewMaxBtn();
          this.Btn_QueryBackupFile = new System.MaxUi.NewMaxBtn();
          this.Btn_RestoreDb = new System.MaxUi.NewMaxBtn();
-         this.Btn_TakeBackup = new System.MaxUi.NewMaxBtn();
          this.Btn_APPLY = new System.MaxUi.NewMaxBtn();
-         this.StngBs1 = new System.Windows.Forms.BindingSource();
-         this.GB_BACK_UP_OPTN_PATH_ADRS = new System.MaxUi.GroupBox();
+         this.Btn_TakeBackup = new System.MaxUi.NewMaxBtn();
          this.Txt_BACK_UP_OPTN_PATH_ADRS = new System.Windows.Forms.TextBox();
+         this.StngBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.OptionPath_Lb = new System.Windows.Forms.Label();
          this.Btn_BackupOptnPathAdrs = new System.MaxUi.NewMaxBtn();
-         this.ClubBs1 = new System.Windows.Forms.BindingSource();
          this.tp_printmodual = new System.Windows.Forms.TabPage();
          this.sECT_DESCTextEdit = new DevExpress.XtraEditors.TextEdit();
-         this.MdrpBs1 = new System.Windows.Forms.BindingSource();
+         this.MdrpBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.modual_ReportGridControl = new DevExpress.XtraGrid.GridControl();
          this.gridView11 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colCODE7 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -82,7 +82,7 @@
          this.repositoryItemLookUpEdit6 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
          this.colDFLT = new DevExpress.XtraGrid.Columns.GridColumn();
          this.repositoryItemLookUpEdit5 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-         this.DYsnoBs1 = new System.Windows.Forms.BindingSource();
+         this.DYsnoBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.colSTAT = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colCRET_BY9 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colCRET_DATE9 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -102,7 +102,8 @@
          this.sTATLookUpEdit = new DevExpress.XtraEditors.LookUpEdit();
          this.sHOW_PRVWLookUpEdit = new DevExpress.XtraEditors.LookUpEdit();
          this.lookUpEdit1 = new DevExpress.XtraEditors.LookUpEdit();
-         this.Mc_Base = new System.Windows.Forms.ContextMenuStrip();
+         this.ClubBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.Mc_Base = new System.Windows.Forms.ContextMenuStrip(this.components);
          this.tsm_bas_close = new System.Windows.Forms.ToolStripMenuItem();
          this.tsm_bas_open = new System.Windows.Forms.ToolStripMenuItem();
          this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
@@ -110,8 +111,8 @@
          this.tsm_bas_R2 = new System.Windows.Forms.ToolStripMenuItem();
          this.tsm_bas_R3 = new System.Windows.Forms.ToolStripMenuItem();
          this.tsm_bas_R4 = new System.Windows.Forms.ToolStripMenuItem();
-         this.vCompBs1 = new System.Windows.Forms.BindingSource();
-         this.DBcdtBs4 = new System.Windows.Forms.BindingSource();
+         this.vCompBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.DBcdtBs4 = new System.Windows.Forms.BindingSource(this.components);
          this.Ofd_BackupOptnPathAdrs = new System.Windows.Forms.FolderBrowserDialog();
          this.Ofd_ReportFiles = new System.Windows.Forms.OpenFileDialog();
          this.Auto_Gnrt_LOV = new DevExpress.XtraEditors.LookUpEdit();
@@ -127,12 +128,11 @@
          ((System.ComponentModel.ISupportInitialize)(this.DActvBs1)).BeginInit();
          this.tc_Settings.SuspendLayout();
          this.tp_backuprestore.SuspendLayout();
+         this.GB_BACK_UP_OPTN_PATH_ADRS.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.RestBs1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.StngBs1)).BeginInit();
-         this.GB_BACK_UP_OPTN_PATH_ADRS.SuspendLayout();
-         ((System.ComponentModel.ISupportInitialize)(this.ClubBs1)).BeginInit();
          this.tp_printmodual.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.sECT_DESCTextEdit.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.MdrpBs1)).BeginInit();
@@ -150,6 +150,7 @@
          ((System.ComponentModel.ISupportInitialize)(this.sTATLookUpEdit.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.sHOW_PRVWLookUpEdit.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit1.Properties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.ClubBs1)).BeginInit();
          this.Mc_Base.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.vCompBs1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.DBcdtBs4)).BeginInit();
@@ -317,6 +318,50 @@
          this.tp_backuprestore.TabIndex = 1;
          this.tp_backuprestore.Text = "پشتیبان گیری / بازگردانی داده";
          // 
+         // GB_BACK_UP_OPTN_PATH_ADRS
+         // 
+         this.GB_BACK_UP_OPTN_PATH_ADRS.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.GB_BACK_UP_OPTN_PATH_ADRS.BackColor = System.Drawing.Color.Transparent;
+         this.GB_BACK_UP_OPTN_PATH_ADRS.Caption = "";
+         this.GB_BACK_UP_OPTN_PATH_ADRS.CaptionFont = new System.Drawing.Font("Tahoma", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.GB_BACK_UP_OPTN_PATH_ADRS.Controls.Add(this.Btn_DeleteBackup);
+         this.GB_BACK_UP_OPTN_PATH_ADRS.Controls.Add(this.gridControl1);
+         this.GB_BACK_UP_OPTN_PATH_ADRS.Controls.Add(this.Btn_QueryBackupFile);
+         this.GB_BACK_UP_OPTN_PATH_ADRS.Controls.Add(this.Btn_RestoreDb);
+         this.GB_BACK_UP_OPTN_PATH_ADRS.Controls.Add(this.Btn_APPLY);
+         this.GB_BACK_UP_OPTN_PATH_ADRS.Controls.Add(this.Btn_TakeBackup);
+         this.GB_BACK_UP_OPTN_PATH_ADRS.Controls.Add(this.Txt_BACK_UP_OPTN_PATH_ADRS);
+         this.GB_BACK_UP_OPTN_PATH_ADRS.Controls.Add(this.OptionPath_Lb);
+         this.GB_BACK_UP_OPTN_PATH_ADRS.Controls.Add(this.Btn_BackupOptnPathAdrs);
+         this.GB_BACK_UP_OPTN_PATH_ADRS.FullHeader = false;
+         this.GB_BACK_UP_OPTN_PATH_ADRS.Location = new System.Drawing.Point(480, 3);
+         this.GB_BACK_UP_OPTN_PATH_ADRS.Name = "GB_BACK_UP_OPTN_PATH_ADRS";
+         this.GB_BACK_UP_OPTN_PATH_ADRS.Size = new System.Drawing.Size(501, 332);
+         this.GB_BACK_UP_OPTN_PATH_ADRS.Style = System.MaxUi.GroupBox.StyleBorder.Windows98;
+         this.GB_BACK_UP_OPTN_PATH_ADRS.TabIndex = 7;
+         // 
+         // Btn_DeleteBackup
+         // 
+         this.Btn_DeleteBackup.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.Btn_DeleteBackup.BackColor = System.Drawing.Color.Gainsboro;
+         this.Btn_DeleteBackup.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+         this.Btn_DeleteBackup.Caption = "حذف فایل پشتیبان";
+         this.Btn_DeleteBackup.Disabled = false;
+         this.Btn_DeleteBackup.EnterColor = System.Drawing.Color.Transparent;
+         this.Btn_DeleteBackup.ForeColor = System.Drawing.SystemColors.ControlText;
+         this.Btn_DeleteBackup.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         this.Btn_DeleteBackup.ImageIndex = -1;
+         this.Btn_DeleteBackup.ImageList = null;
+         this.Btn_DeleteBackup.InToBold = false;
+         this.Btn_DeleteBackup.Location = new System.Drawing.Point(271, 462);
+         this.Btn_DeleteBackup.Name = "Btn_DeleteBackup";
+         this.Btn_DeleteBackup.Size = new System.Drawing.Size(107, 27);
+         this.Btn_DeleteBackup.TabIndex = 0;
+         this.Btn_DeleteBackup.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         this.Btn_DeleteBackup.TextColor = System.Drawing.Color.Black;
+         this.Btn_DeleteBackup.TextFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)), true);
+         this.Btn_DeleteBackup.Click += new System.EventHandler(this.Btn_DeleteBackup_Click);
+         // 
          // gridControl1
          // 
          this.gridControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -326,7 +371,7 @@
          this.gridControl1.LookAndFeel.UseDefaultLookAndFeel = false;
          this.gridControl1.MainView = this.gridView1;
          this.gridControl1.Name = "gridControl1";
-         this.gridControl1.Size = new System.Drawing.Size(482, 375);
+         this.gridControl1.Size = new System.Drawing.Size(482, 240);
          this.gridControl1.TabIndex = 2;
          this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -373,28 +418,6 @@
          this.Directory_Clm.VisibleIndex = 0;
          this.Directory_Clm.Width = 168;
          // 
-         // Btn_DeleteBackup
-         // 
-         this.Btn_DeleteBackup.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.Btn_DeleteBackup.BackColor = System.Drawing.Color.Gainsboro;
-         this.Btn_DeleteBackup.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-         this.Btn_DeleteBackup.Caption = "حذف فایل پشتیبان";
-         this.Btn_DeleteBackup.Disabled = false;
-         this.Btn_DeleteBackup.EnterColor = System.Drawing.Color.Transparent;
-         this.Btn_DeleteBackup.ForeColor = System.Drawing.SystemColors.ControlText;
-         this.Btn_DeleteBackup.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         this.Btn_DeleteBackup.ImageIndex = -1;
-         this.Btn_DeleteBackup.ImageList = null;
-         this.Btn_DeleteBackup.InToBold = false;
-         this.Btn_DeleteBackup.Location = new System.Drawing.Point(271, 462);
-         this.Btn_DeleteBackup.Name = "Btn_DeleteBackup";
-         this.Btn_DeleteBackup.Size = new System.Drawing.Size(107, 27);
-         this.Btn_DeleteBackup.TabIndex = 0;
-         this.Btn_DeleteBackup.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         this.Btn_DeleteBackup.TextColor = System.Drawing.Color.Black;
-         this.Btn_DeleteBackup.TextFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)), true);
-         this.Btn_DeleteBackup.Click += new System.EventHandler(this.Btn_DeleteBackup_Click);
-         // 
          // Btn_QueryBackupFile
          // 
          this.Btn_QueryBackupFile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -439,28 +462,6 @@
          this.Btn_RestoreDb.TextFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)), true);
          this.Btn_RestoreDb.Click += new System.EventHandler(this.Btn_RestoreDb_Click);
          // 
-         // Btn_TakeBackup
-         // 
-         this.Btn_TakeBackup.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.Btn_TakeBackup.BackColor = System.Drawing.Color.Gainsboro;
-         this.Btn_TakeBackup.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
-         this.Btn_TakeBackup.Caption = "پشتیبان اضطراری";
-         this.Btn_TakeBackup.Disabled = false;
-         this.Btn_TakeBackup.EnterColor = System.Drawing.Color.Transparent;
-         this.Btn_TakeBackup.ForeColor = System.Drawing.SystemColors.ControlText;
-         this.Btn_TakeBackup.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         this.Btn_TakeBackup.ImageIndex = -1;
-         this.Btn_TakeBackup.ImageList = null;
-         this.Btn_TakeBackup.InToBold = false;
-         this.Btn_TakeBackup.Location = new System.Drawing.Point(339, 48);
-         this.Btn_TakeBackup.Name = "Btn_TakeBackup";
-         this.Btn_TakeBackup.Size = new System.Drawing.Size(93, 27);
-         this.Btn_TakeBackup.TabIndex = 0;
-         this.Btn_TakeBackup.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         this.Btn_TakeBackup.TextColor = System.Drawing.Color.Black;
-         this.Btn_TakeBackup.TextFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)), true);
-         this.Btn_TakeBackup.Click += new System.EventHandler(this.Btn_TakeBackup_Click);
-         // 
          // Btn_APPLY
          // 
          this.Btn_APPLY.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -484,31 +485,27 @@
          this.Btn_APPLY.Visible = false;
          this.Btn_APPLY.Click += new System.EventHandler(this.Btn_APPLY_Click);
          // 
-         // StngBs1
+         // Btn_TakeBackup
          // 
-         this.StngBs1.DataSource = typeof(System.Scsc.Data.Setting);
-         // 
-         // GB_BACK_UP_OPTN_PATH_ADRS
-         // 
-         this.GB_BACK_UP_OPTN_PATH_ADRS.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.GB_BACK_UP_OPTN_PATH_ADRS.BackColor = System.Drawing.Color.Transparent;
-         this.GB_BACK_UP_OPTN_PATH_ADRS.Caption = "";
-         this.GB_BACK_UP_OPTN_PATH_ADRS.CaptionFont = new System.Drawing.Font("Tahoma", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.GB_BACK_UP_OPTN_PATH_ADRS.Controls.Add(this.Btn_DeleteBackup);
-         this.GB_BACK_UP_OPTN_PATH_ADRS.Controls.Add(this.gridControl1);
-         this.GB_BACK_UP_OPTN_PATH_ADRS.Controls.Add(this.Btn_QueryBackupFile);
-         this.GB_BACK_UP_OPTN_PATH_ADRS.Controls.Add(this.Btn_RestoreDb);
-         this.GB_BACK_UP_OPTN_PATH_ADRS.Controls.Add(this.Btn_APPLY);
-         this.GB_BACK_UP_OPTN_PATH_ADRS.Controls.Add(this.Btn_TakeBackup);
-         this.GB_BACK_UP_OPTN_PATH_ADRS.Controls.Add(this.Txt_BACK_UP_OPTN_PATH_ADRS);
-         this.GB_BACK_UP_OPTN_PATH_ADRS.Controls.Add(this.OptionPath_Lb);
-         this.GB_BACK_UP_OPTN_PATH_ADRS.Controls.Add(this.Btn_BackupOptnPathAdrs);
-         this.GB_BACK_UP_OPTN_PATH_ADRS.FullHeader = false;
-         this.GB_BACK_UP_OPTN_PATH_ADRS.Location = new System.Drawing.Point(480, 3);
-         this.GB_BACK_UP_OPTN_PATH_ADRS.Name = "GB_BACK_UP_OPTN_PATH_ADRS";
-         this.GB_BACK_UP_OPTN_PATH_ADRS.Size = new System.Drawing.Size(501, 498);
-         this.GB_BACK_UP_OPTN_PATH_ADRS.Style = System.MaxUi.GroupBox.StyleBorder.Windows98;
-         this.GB_BACK_UP_OPTN_PATH_ADRS.TabIndex = 7;
+         this.Btn_TakeBackup.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.Btn_TakeBackup.BackColor = System.Drawing.Color.Gainsboro;
+         this.Btn_TakeBackup.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
+         this.Btn_TakeBackup.Caption = "پشتیبان اضطراری";
+         this.Btn_TakeBackup.Disabled = false;
+         this.Btn_TakeBackup.EnterColor = System.Drawing.Color.Transparent;
+         this.Btn_TakeBackup.ForeColor = System.Drawing.SystemColors.ControlText;
+         this.Btn_TakeBackup.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         this.Btn_TakeBackup.ImageIndex = -1;
+         this.Btn_TakeBackup.ImageList = null;
+         this.Btn_TakeBackup.InToBold = false;
+         this.Btn_TakeBackup.Location = new System.Drawing.Point(339, 48);
+         this.Btn_TakeBackup.Name = "Btn_TakeBackup";
+         this.Btn_TakeBackup.Size = new System.Drawing.Size(93, 27);
+         this.Btn_TakeBackup.TabIndex = 0;
+         this.Btn_TakeBackup.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         this.Btn_TakeBackup.TextColor = System.Drawing.Color.Black;
+         this.Btn_TakeBackup.TextFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)), true);
+         this.Btn_TakeBackup.Click += new System.EventHandler(this.Btn_TakeBackup_Click);
          // 
          // Txt_BACK_UP_OPTN_PATH_ADRS
          // 
@@ -520,6 +517,10 @@
          this.Txt_BACK_UP_OPTN_PATH_ADRS.Size = new System.Drawing.Size(380, 21);
          this.Txt_BACK_UP_OPTN_PATH_ADRS.TabIndex = 7;
          this.Txt_BACK_UP_OPTN_PATH_ADRS.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+         // 
+         // StngBs1
+         // 
+         this.StngBs1.DataSource = typeof(System.Scsc.Data.Setting);
          // 
          // OptionPath_Lb
          // 
@@ -551,10 +552,6 @@
          this.Btn_BackupOptnPathAdrs.TextColor = System.Drawing.Color.Black;
          this.Btn_BackupOptnPathAdrs.TextFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)), true);
          this.Btn_BackupOptnPathAdrs.Click += new System.EventHandler(this.Btn_BackupOptnPathAdrs_Click);
-         // 
-         // ClubBs1
-         // 
-         this.ClubBs1.DataSource = typeof(System.Scsc.Data.Club);
          // 
          // tp_printmodual
          // 
@@ -1033,6 +1030,10 @@
          this.lookUpEdit1.Size = new System.Drawing.Size(100, 22);
          this.lookUpEdit1.TabIndex = 3;
          // 
+         // ClubBs1
+         // 
+         this.ClubBs1.DataSource = typeof(System.Scsc.Data.Club);
+         // 
          // Mc_Base
          // 
          this.Mc_Base.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1258,13 +1259,12 @@
          ((System.ComponentModel.ISupportInitialize)(this.DActvBs1)).EndInit();
          this.tc_Settings.ResumeLayout(false);
          this.tp_backuprestore.ResumeLayout(false);
+         this.GB_BACK_UP_OPTN_PATH_ADRS.ResumeLayout(false);
+         this.GB_BACK_UP_OPTN_PATH_ADRS.PerformLayout();
          ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.RestBs1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.StngBs1)).EndInit();
-         this.GB_BACK_UP_OPTN_PATH_ADRS.ResumeLayout(false);
-         this.GB_BACK_UP_OPTN_PATH_ADRS.PerformLayout();
-         ((System.ComponentModel.ISupportInitialize)(this.ClubBs1)).EndInit();
          this.tp_printmodual.ResumeLayout(false);
          this.tp_printmodual.PerformLayout();
          ((System.ComponentModel.ISupportInitialize)(this.sECT_DESCTextEdit.Properties)).EndInit();
@@ -1283,6 +1283,7 @@
          ((System.ComponentModel.ISupportInitialize)(this.sTATLookUpEdit.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.sHOW_PRVWLookUpEdit.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit1.Properties)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.ClubBs1)).EndInit();
          this.Mc_Base.ResumeLayout(false);
          ((System.ComponentModel.ISupportInitialize)(this.vCompBs1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.DBcdtBs4)).EndInit();

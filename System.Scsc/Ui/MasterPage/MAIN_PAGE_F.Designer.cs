@@ -28,7 +28,6 @@
       /// </summary>
       private void InitializeComponent()
       {
-         this.components = new System.ComponentModel.Container();
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MAIN_PAGE_F));
          DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
          DevExpress.Utils.ToolTipTitleItem toolTipTitleItem1 = new DevExpress.Utils.ToolTipTitleItem();
@@ -186,7 +185,7 @@
          this.TlgrmBot_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.BackGrnd_Butn = new System.MaxUi.RoundedButton();
          this.AttnType_Lov = new DevExpress.XtraEditors.LookUpEdit();
-         this.DaeatBs = new System.Windows.Forms.BindingSource(this.components);
+         this.DaeatBs = new System.Windows.Forms.BindingSource();
          this.AdjustDateTime_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.CardNumb_Text = new DevExpress.XtraEditors.ButtonEdit();
          this.FngrPrnt_Txt = new DevExpress.XtraEditors.TextEdit();
@@ -199,14 +198,14 @@
          this.AttendanceSystemAlert_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.ActionCenter_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.ShowDesktop_Butn = new DevExpress.XtraEditors.SimpleButton();
-         this.FighBs = new System.Windows.Forms.BindingSource(this.components);
-         this.Sp_Barcode = new System.IO.Ports.SerialPort(this.components);
-         this.Tm_FingerPrintWorker = new System.Windows.Forms.Timer(this.components);
+         this.FighBs = new System.Windows.Forms.BindingSource();
+         this.Sp_Barcode = new System.IO.Ports.SerialPort();
+         this.Tm_FingerPrintWorker = new System.Windows.Forms.Timer();
          this.ribbonPageGroup6 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-         this.Tm_ShowTime = new System.Windows.Forms.Timer(this.components);
-         this.Sp_GateAttn = new System.IO.Ports.SerialPort(this.components);
-         this.Sp_ExpnExtr = new System.IO.Ports.SerialPort(this.components);
-         this.AllMenu_Cmn = new System.Windows.Forms.ContextMenuStrip(this.components);
+         this.Tm_ShowTime = new System.Windows.Forms.Timer();
+         this.Sp_GateAttn = new System.IO.Ports.SerialPort();
+         this.Sp_ExpnExtr = new System.IO.Ports.SerialPort();
+         this.AllMenu_Cmn = new System.Windows.Forms.ContextMenuStrip();
          this.bbi_basdifnbutn_Mn = new System.Windows.Forms.ToolStripMenuItem();
          this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
          this.اطلاعاتثبتنامToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -228,6 +227,10 @@
          this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripSeparator();
          this.کارهایتجمعیToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
          this.bbi_smsbbutn_Mn = new System.Windows.Forms.ToolStripMenuItem();
+         this.toolStripMenuItem10 = new System.Windows.Forms.ToolStripSeparator();
+         this.bbi_agmbbutn_Mn = new System.Windows.Forms.ToolStripMenuItem();
+         this.bbi_agcbbutn_Mn = new System.Windows.Forms.ToolStripMenuItem();
+         this.bbi_aglsbutn_Mn = new System.Windows.Forms.ToolStripMenuItem();
          this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripSeparator();
          this.گزارشاتToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
          this.bbi_incmbutn_Mn = new System.Windows.Forms.ToolStripMenuItem();
@@ -717,6 +720,7 @@
          this.bbi_coptbutn.Id = 34;
          this.bbi_coptbutn.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbi_coptbutn.LargeGlyph")));
          this.bbi_coptbutn.Name = "bbi_coptbutn";
+         this.bbi_coptbutn.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
          this.bbi_coptbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_coptbutn_ItemClick);
          // 
          // bbi_bkupbutn
@@ -821,7 +825,7 @@
          // 
          // bbi_agmbbutn
          // 
-         this.bbi_agmbbutn.Caption = "تمدید قرارداد عضویت باشگاه";
+         this.bbi_agmbbutn.Caption = "تمدید قرارداد گروهی";
          this.bbi_agmbbutn.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
          this.bbi_agmbbutn.Glyph = ((System.Drawing.Image)(resources.GetObject("bbi_agmbbutn.Glyph")));
          this.bbi_agmbbutn.Id = 44;
@@ -831,7 +835,7 @@
          // 
          // bbi_aglsbutn
          // 
-         this.bbi_aglsbutn.Caption = "ایجاد لیست حضور و غیاب";
+         this.bbi_aglsbutn.Caption = "حضور و غیاب گروهی";
          this.bbi_aglsbutn.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
          this.bbi_aglsbutn.Glyph = ((System.Drawing.Image)(resources.GetObject("bbi_aglsbutn.Glyph")));
          this.bbi_aglsbutn.Id = 45;
@@ -841,7 +845,7 @@
          // 
          // bbi_agcbbutn
          // 
-         this.bbi_agcbbutn.Caption = "تغییر برنامه ساعت کلاسی مشترییان";
+         this.bbi_agcbbutn.Caption = "تغییر برنامه کلاسی گروهی";
          this.bbi_agcbbutn.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
          this.bbi_agcbbutn.Glyph = ((System.Drawing.Image)(resources.GetObject("bbi_agcbbutn.Glyph")));
          this.bbi_agcbbutn.Id = 46;
@@ -1025,6 +1029,7 @@
          this.bbi_agmcbutn.Id = 71;
          this.bbi_agmcbutn.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbi_agmcbutn.LargeGlyph")));
          this.bbi_agmcbutn.Name = "bbi_agmcbutn";
+         this.bbi_agmcbutn.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
          this.bbi_agmcbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_agmcbutn_ItemClick);
          // 
          // bbi_mbcobutn
@@ -1358,7 +1363,7 @@
             this.OthrExpnOption_RbGp,
             this.ribbonPageGroup19});
          this.OthrOption_RbPg.Name = "OthrOption_RbPg";
-         this.OthrOption_RbPg.Text = "گزینه ها";
+         this.OthrOption_RbPg.Text = "متفرقه";
          // 
          // OthrOption_RbGp
          // 
@@ -1420,7 +1425,7 @@
          this.AgrActn_RPgc.Name = "AgrActn_RPgc";
          this.AgrActn_RPgc.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.AgrOption_RbPg});
-         this.AgrActn_RPgc.Text = "کارهای تجمعی";
+         this.AgrActn_RPgc.Text = "فعالیت گروهی";
          // 
          // AgrOption_RbPg
          // 
@@ -1428,7 +1433,7 @@
             this.AgrSmsOption_RbGp,
             this.AgrOprOption_RbGp});
          this.AgrOption_RbPg.Name = "AgrOption_RbPg";
-         this.AgrOption_RbPg.Text = "گزینه ها";
+         this.AgrOption_RbPg.Text = "فعالیت های گروهی";
          // 
          // AgrSmsOption_RbGp
          // 
@@ -1993,7 +1998,7 @@
             this.مدیریتسیستمToolStripMenuItem});
          this.AllMenu_Cmn.Name = "AllMenu_Cmn";
          this.AllMenu_Cmn.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-         this.AllMenu_Cmn.Size = new System.Drawing.Size(195, 216);
+         this.AllMenu_Cmn.Size = new System.Drawing.Size(195, 194);
          // 
          // bbi_basdifnbutn_Mn
          // 
@@ -2138,18 +2143,48 @@
          // کارهایتجمعیToolStripMenuItem
          // 
          this.کارهایتجمعیToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.bbi_smsbbutn_Mn});
+            this.bbi_smsbbutn_Mn,
+            this.toolStripMenuItem10,
+            this.bbi_agmbbutn_Mn,
+            this.bbi_agcbbutn_Mn,
+            this.bbi_aglsbutn_Mn});
          this.کارهایتجمعیToolStripMenuItem.Name = "کارهایتجمعیToolStripMenuItem";
          this.کارهایتجمعیToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
-         this.کارهایتجمعیToolStripMenuItem.Text = "کارهای تجمعی";
+         this.کارهایتجمعیToolStripMenuItem.Text = "فعالیت های گروهی";
          // 
          // bbi_smsbbutn_Mn
          // 
          this.bbi_smsbbutn_Mn.Image = global::System.Scsc.Properties.Resources.IMAGE_1154;
          this.bbi_smsbbutn_Mn.Name = "bbi_smsbbutn_Mn";
-         this.bbi_smsbbutn_Mn.Size = new System.Drawing.Size(152, 22);
+         this.bbi_smsbbutn_Mn.Size = new System.Drawing.Size(199, 22);
          this.bbi_smsbbutn_Mn.Text = "ارسال پیامک";
          this.bbi_smsbbutn_Mn.Click += new System.EventHandler(this.bbi_smsbbutn_Mn_Click);
+         // 
+         // toolStripMenuItem10
+         // 
+         this.toolStripMenuItem10.Name = "toolStripMenuItem10";
+         this.toolStripMenuItem10.Size = new System.Drawing.Size(196, 6);
+         // 
+         // bbi_agmbbutn_Mn
+         // 
+         this.bbi_agmbbutn_Mn.Name = "bbi_agmbbutn_Mn";
+         this.bbi_agmbbutn_Mn.Size = new System.Drawing.Size(199, 22);
+         this.bbi_agmbbutn_Mn.Text = "تمدید قرارداد گروهی";
+         this.bbi_agmbbutn_Mn.Click += new System.EventHandler(this.bbi_agmbbutn_Mn_Click);
+         // 
+         // bbi_agcbbutn_Mn
+         // 
+         this.bbi_agcbbutn_Mn.Name = "bbi_agcbbutn_Mn";
+         this.bbi_agcbbutn_Mn.Size = new System.Drawing.Size(199, 22);
+         this.bbi_agcbbutn_Mn.Text = "تغییر برنامه کلاسی گروهی";
+         this.bbi_agcbbutn_Mn.Click += new System.EventHandler(this.bbi_agcbbutn_Mn_Click);
+         // 
+         // bbi_aglsbutn_Mn
+         // 
+         this.bbi_aglsbutn_Mn.Name = "bbi_aglsbutn_Mn";
+         this.bbi_aglsbutn_Mn.Size = new System.Drawing.Size(199, 22);
+         this.bbi_aglsbutn_Mn.Text = "حضور و غیاب گروهی";
+         this.bbi_aglsbutn_Mn.Click += new System.EventHandler(this.bbi_aglsbutn_Mn_Click);
          // 
          // toolStripMenuItem5
          // 
@@ -2168,14 +2203,14 @@
          // bbi_incmbutn_Mn
          // 
          this.bbi_incmbutn_Mn.Name = "bbi_incmbutn_Mn";
-         this.bbi_incmbutn_Mn.Size = new System.Drawing.Size(152, 22);
+         this.bbi_incmbutn_Mn.Size = new System.Drawing.Size(108, 22);
          this.bbi_incmbutn_Mn.Text = "فروش";
          this.bbi_incmbutn_Mn.Click += new System.EventHandler(this.bbi_incmbutn_Mn_Click);
          // 
          // bbi_bislbutn_Mn
          // 
          this.bbi_bislbutn_Mn.Name = "bbi_bislbutn_Mn";
-         this.bbi_bislbutn_Mn.Size = new System.Drawing.Size(152, 22);
+         this.bbi_bislbutn_Mn.Size = new System.Drawing.Size(108, 22);
          this.bbi_bislbutn_Mn.Text = "عملکرد";
          this.bbi_bislbutn_Mn.Click += new System.EventHandler(this.bbi_bislbutn_Mn_Click);
          // 
@@ -2416,5 +2451,9 @@
       private Windows.Forms.ToolStripMenuItem bbi_bislbutn_Mn;
       private Windows.Forms.ToolStripMenuItem bbi_bkupbutn_Mn;
       private Windows.Forms.ToolStripMenuItem bbi_embkbutn_Mn;
+      private Windows.Forms.ToolStripSeparator toolStripMenuItem10;
+      private Windows.Forms.ToolStripMenuItem bbi_agmbbutn_Mn;
+      private Windows.Forms.ToolStripMenuItem bbi_agcbbutn_Mn;
+      private Windows.Forms.ToolStripMenuItem bbi_aglsbutn_Mn;
    }
 }

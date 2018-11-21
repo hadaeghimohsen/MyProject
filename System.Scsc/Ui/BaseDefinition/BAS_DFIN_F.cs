@@ -143,6 +143,10 @@ namespace System.Scsc.Ui.BaseDefinition
 
             MtodBs1.DataSource = iScsc.Methods;
          }
+         else if(Tb_Master.SelectedTab == tp_009)
+         {
+            ClubBs3.DataSource = iScsc.Clubs;
+         }
 
          requery = false;
       }
@@ -2435,5 +2439,144 @@ namespace System.Scsc.Ui.BaseDefinition
          catch { }
       }
 
+      private void AttnComPortName_Lov_SelectedIndexChanged(object sender, EventArgs e)
+      {
+         AttnComPortName_Txt.Text = AttnComPortName_Lov.Text;
+      }
+
+      private void GateComPortName_Lov_SelectedIndexChanged(object sender, EventArgs e)
+      {
+         GateComPortName_Txt.Text = GateComPortName_Lov.Text;
+      }
+
+      private void ExpnComPortName_Lov_SelectedIndexChanged(object sender, EventArgs e)
+      {
+         ExpnComPortName_Txt.Text = ExpnComPortName_Lov.Text;
+      }
+
+      private void ATIP_REST_Butn_Click(object sender, EventArgs e)
+      {
+         Job _InteractWithScsc =
+            new Job(SendType.External, "Localhost",
+               new List<Job>
+               {
+                  new Job(SendType.External, "Commons",
+                     new List<Job>
+                     {
+                        #region Access Privilege
+                        new Job(SendType.Self, 07 /* Execute DoWork4AccessPrivilege */)
+                        {
+                           Input = new List<string> 
+                           {
+                              "<Privilege>225</Privilege><Sub_Sys>5</Sub_Sys>", 
+                              "DataGuard"
+                           },
+                           AfterChangedOutput = new Action<object>((output) => {
+                              if ((bool)output)
+                                 return;
+                              MessageBox.Show("خطا - عدم دسترسی به ردیف 225 سطوح امینتی", "عدم دسترسی");
+                           })
+                        },
+                        #endregion
+                     }),
+                  #region DoWork                  
+                  new Job(SendType.SelfToUserInterface, "MAIN_PAGE_F", 43 /* DeviceControlFunction */){Input = new XElement("DeviceControlFunction", new XAttribute("functype", "5.5.1"), new XAttribute("funcdesc", "ClearAdministrators"))}
+                  #endregion
+               });
+         _DefaultGateway.Gateway(_InteractWithScsc);
+      }
+
+      private void DeleteComputer1_Butn_Click(object sender, EventArgs e)
+      {
+         var stng = StngBs1.Current as Data.Setting;
+
+         stng.ATTN_COMP_CONCT = null;
+         lookUpEdit3.EditValue = null;
+      }
+
+      private void DeleteComputer2_Butn_Click(object sender, EventArgs e)
+      {
+         var stng = StngBs1.Current as Data.Setting;
+
+         stng.ATTN_COMP_CNC2 = null;
+         lookUpEdit4.EditValue = null;
+      }
+
+      private void SettingSubmitChange_butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            StngBs1.EndEdit();
+            Data.Setting Stng = StngBs1.Current as Data.Setting;
+
+            iScsc.STNG_SAVE_P(
+               new XElement("Request",
+                  new XElement("Settings",
+                     new XAttribute("clubcode", Stng.CLUB_CODE),
+                     new XAttribute("dfltstat", Stng.DFLT_STAT ?? "001"),
+                     new XAttribute("backup", Stng.BACK_UP ?? false),
+                     new XAttribute("backupappexit", Stng.BACK_UP_APP_EXIT ?? false),
+                     new XAttribute("backupintred", Stng.BACK_UP_IN_TRED ?? false),
+                     new XAttribute("backupoptnpath", Stng.BACK_UP_OPTN_PATH ?? false),
+                     new XAttribute("backupoptnpathadrs", Stng.BACK_UP_OPTN_PATH_ADRS ?? ""),
+                     new XAttribute("backuprootpath", Stng.BACK_UP_ROOT_PATH ?? ""),
+                     new XAttribute("dresstat", Stng.DRES_STAT ?? "002"),
+                     new XAttribute("dresauto", Stng.DRES_AUTO ?? "001"),
+                     new XAttribute("morefighonedres", Stng.MORE_FIGH_ONE_DRES ?? "001"),
+                     new XAttribute("moreattnsesn", Stng.MORE_ATTN_SESN ?? "002"),
+                     new XAttribute("notfstat", Stng.NOTF_STAT ?? "001"),
+                     new XAttribute("notfexpday", Stng.NOTF_EXP_DAY ?? 3),
+                     new XAttribute("attnsysttype", Stng.ATTN_SYST_TYPE ?? "000"),
+                     new XAttribute("commportname", /*AttnComPortName_Lov.Text*/Stng.COMM_PORT_NAME ?? ""),
+                     new XAttribute("bandrate", Stng.BAND_RATE ?? 0),
+                     new XAttribute("barcodedatatype", Stng.BAR_CODE_DATA_TYPE ?? "000"),
+                     new XAttribute("atn3evntactntype", Stng.ATN3_EVNT_ACTN_TYPE ?? "001"),
+
+                     new XAttribute("ipaddr", Stng.IP_ADDR ?? ""),
+                     new XAttribute("portnumb", Stng.PORT_NUMB ?? 0),
+                     new XAttribute("attncompconct", Stng.ATTN_COMP_CONCT ?? ""),
+                     new XAttribute("atn1evntactntype", Stng.ATN1_EVNT_ACTN_TYPE ?? "001"),
+
+                     new XAttribute("ipadr2", Stng.IP_ADR2 ?? ""),
+                     new XAttribute("portnum2", Stng.PORT_NUM2 ?? 0),
+                     new XAttribute("attncompcnc2", Stng.ATTN_COMP_CNC2 ?? ""),
+                     new XAttribute("atn2evntactntype", Stng.ATN2_EVNT_ACTN_TYPE ?? "001"),
+
+                     new XAttribute("attnnotfstat", Stng.ATTN_NOTF_STAT ?? "002"),
+                     new XAttribute("attnnotfclostype", Stng.ATTN_NOTF_CLOS_TYPE ?? ""),
+                     new XAttribute("attnnotfclosintr", Stng.ATTN_NOTF_CLOS_INTR ?? 0),
+                     new XAttribute("debtclngstat", Stng.DEBT_CLNG_STAT ?? "001"),
+                     new XAttribute("mostdebtclngamnt", Stng.MOST_DEBT_CLNG_AMNT ?? 0),
+                     new XAttribute("exprdebtday", Stng.EXPR_DEBT_DAY ?? 7),
+                     new XAttribute("tryvaldsbmt", Stng.TRY_VALD_SBMT ?? "002"),
+                     new XAttribute("debtchckstat", Stng.DEBT_CHCK_STAT ?? "002"),
+
+                     new XAttribute("gateattnstat", Stng.GATE_ATTN_STAT ?? "001"),
+                     new XAttribute("gatecommportname", /*GateComPortName_Lov.Text*/Stng.GATE_COMM_PORT_NAME ?? ""),
+                     new XAttribute("gatebandrate", Stng.GATE_BAND_RATE ?? 9600),
+                     new XAttribute("gatetimeclos", Stng.GATE_TIME_CLOS ?? 5),
+                     new XAttribute("gateentropen", Stng.GATE_ENTR_OPEN ?? "002"),
+                     new XAttribute("gateexitopen", Stng.GATE_EXIT_OPEN ?? "002"),
+
+                     new XAttribute("expnextrstat", Stng.EXPN_EXTR_STAT ?? "001"),
+                     new XAttribute("expncommportname", /*GateComPortName_Lov.Text*/Stng.EXPN_COMM_PORT_NAME ?? ""),
+                     new XAttribute("expnbandrate", Stng.EXPN_BAND_RATE ?? 9600),
+
+                     new XAttribute("runqury", Stng.RUN_QURY ?? "001"),
+                     new XAttribute("attnprntstat", Stng.ATTN_PRNT_STAT ?? "001"),
+                     new XAttribute("sharmbspstat", Stng.SHAR_MBSP_STAT ?? "001"),
+                     new XAttribute("runrbot", Stng.RUN_RBOT ?? "001"),
+                     new XAttribute("clerzero", Stng.CLER_ZERO ?? "001"),
+                     new XAttribute("hldycont", Stng.HLDY_CONT ?? 1)
+                  )
+               )
+            );
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
    }
 }

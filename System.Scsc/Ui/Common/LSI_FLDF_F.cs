@@ -666,5 +666,63 @@ namespace System.Scsc.Ui.Common
          catch { }
       }
       #endregion
+
+      private void RqstBnNewMbsp_Click(object sender, EventArgs e)
+      {
+         AttnMbsp_Butn_ButtonClick(null, new DevExpress.XtraEditors.Controls.ButtonPressedEventArgs(AttnMbsp_Butn.Buttons[1]));
+      }
+
+      private void RqstBnEditPblc_Click(object sender, EventArgs e)
+      {
+         dynamic figh = vF_Fighs.Current as Data.VF_Last_Info_FighterResult;
+         if (figh == null)
+            figh = vF_Fighs.Current as Data.VF_Last_Info_Deleted_FighterResult;
+
+         _DefaultGateway.Gateway(
+            new Job(SendType.External, "Localhost",
+               new List<Job>
+               {
+                  new Job(SendType.Self, 70 /* Execute Adm_Chng_F */),
+                  new Job(SendType.SelfToUserInterface, "ADM_CHNG_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "changeinfo"), new XAttribute("fileno", figh.FILE_NO), new XAttribute("auto", "true"), new XAttribute("formcaller", GetType().Name))}
+               })
+         );
+      }
+
+      private void RqstBnInsr_Click(object sender, EventArgs e)
+      {
+         dynamic figh = vF_Fighs.Current as Data.VF_Last_Info_FighterResult;
+         if (figh == null)
+            figh = vF_Fighs.Current as Data.VF_Last_Info_Deleted_FighterResult;
+
+         _DefaultGateway.Gateway(
+            new Job(SendType.External, "Localhost",
+               new List<Job>
+               {
+                  new Job(SendType.Self, 80 /* Execute Ins_Totl_F */),
+                  new Job(SendType.SelfToUserInterface, "INS_TOTL_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "renewinscard"), new XAttribute("fileno", figh.FILE_NO), new XAttribute("formcaller", GetType().Name))}
+               })
+         );
+      }
+
+      private void RqstBnBlok_Click(object sender, EventArgs e)
+      {
+         dynamic figh = vF_Fighs.Current as Data.VF_Last_Info_FighterResult;
+         if (figh == null)
+            figh = vF_Fighs.Current as Data.VF_Last_Info_Deleted_FighterResult;
+
+         _DefaultGateway.Gateway(
+            new Job(SendType.External, "Localhost",
+               new List<Job>
+               {
+                  new Job(SendType.Self, 133 /* Execute Adm_Mbfz_F */),
+                  new Job(SendType.SelfToUserInterface, "ADM_MBFZ_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "block"), new XAttribute("enrollnumber", figh.FNGR_PRNT_DNRM), new XAttribute("formcaller", GetType().Name))}
+               })
+         );
+      }
+
+      private void PymtBnDebt_Click(object sender, EventArgs e)
+      {
+         colActn_Butn_ButtonClick(null, new DevExpress.XtraEditors.Controls.ButtonPressedEventArgs(colActn_Butn.Buttons[6]));
+      }
    }
 }

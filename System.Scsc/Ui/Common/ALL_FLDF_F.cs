@@ -1796,5 +1796,11 @@ namespace System.Scsc.Ui.Common
          catch (Exception exc) { }
       }
       #endregion
+
+      private void PymtBnDebt_Click(object sender, EventArgs e)
+      {
+         tb_master.SelectedTab = tp_003;
+         SavePayment_Gv.ActiveFilterString = "colTOTL_DEBT_PYMT > 0";
+      }
    }
 }

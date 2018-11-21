@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO.Ports;
 using System.JobRouting.Jobs;
 using System.JobRouting.Routering;
 using System.Linq;
@@ -719,6 +720,18 @@ namespace System.Scsc.Ui.BaseDefinition
          DWkdyBs1.DataSource = iScsc.D_WKDies;
          DysnoBs.DataSource = iScsc.D_YSNOs;
          VCompBs.DataSource = iScsc.V_Computers;
+         DbcdtBs1.DataSource = iScsc.D_BCDTs;
+         DAeatBs.DataSource = iScsc.D_AEATs;
+         DatsmBs1.DataSource = iScsc.D_ATSMs;
+
+         AttnComPortName_Lov.Items.Clear();
+         GateComPortName_Lov.Items.Clear();
+         ExpnComPortName_Lov.Items.Clear();
+
+         AttnComPortName_Lov.Items.AddRange(SerialPort.GetPortNames());
+         GateComPortName_Lov.Items.AddRange(SerialPort.GetPortNames());
+         ExpnComPortName_Lov.Items.AddRange(SerialPort.GetPortNames());
+
 
          job.Status = StatusType.Successful;
       }

@@ -289,6 +289,21 @@
          this.SmsBnNearMbsp = new System.Windows.Forms.ToolStripMenuItem();
          this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripSeparator();
          this.SmsBnOthr = new System.Windows.Forms.ToolStripMenuItem();
+         this.TlgrmMesgBnEntrClub = new System.Windows.Forms.ToolStripMenuItem();
+         this.TlgrmMesgBnBrthDate = new System.Windows.Forms.ToolStripMenuItem();
+         this.TlgrmMesgBnNoEntrClub = new System.Windows.Forms.ToolStripMenuItem();
+         this.TlrgmMesgBnEntrClub = new System.Windows.Forms.ToolStripMenuItem();
+         this.TlgrmMesgBnDebt = new System.Windows.Forms.ToolStripMenuItem();
+         this.TlgrmMesgBnAds = new System.Windows.Forms.ToolStripMenuItem();
+         this.TlgrmMesgBnAdm = new System.Windows.Forms.ToolStripMenuItem();
+         this.TlgrmMesgBnMbsp = new System.Windows.Forms.ToolStripMenuItem();
+         this.toolStripMenuItem42 = new System.Windows.Forms.ToolStripMenuItem();
+         this.TlgrmMesgBnAttnSelf = new System.Windows.Forms.ToolStripMenuItem();
+         this.TlgrmMesgBnAttnDad = new System.Windows.Forms.ToolStripMenuItem();
+         this.TlgrmMesgBnMomAttn = new System.Windows.Forms.ToolStripMenuItem();
+         this.toolStripMenuItem46 = new System.Windows.Forms.ToolStripMenuItem();
+         this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+         this.TlgrmMesgBnOthr = new System.Windows.Forms.ToolStripMenuItem();
          this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripSeparator();
          this.PymtBnDebt = new System.Windows.Forms.ToolStripMenuItem();
          this.toolStripMenuItem7 = new System.Windows.Forms.ToolStripSeparator();
@@ -325,6 +340,37 @@
          this.toolStripMenuItem33 = new System.Windows.Forms.ToolStripMenuItem();
          this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
          this.toolStripMenuItem34 = new System.Windows.Forms.ToolStripMenuItem();
+         this.toolStripMenuItem35 = new System.Windows.Forms.ToolStripMenuItem();
+         this.toolStripMenuItem36 = new System.Windows.Forms.ToolStripMenuItem();
+         this.toolStripMenuItem37 = new System.Windows.Forms.ToolStripMenuItem();
+         this.toolStripMenuItem38 = new System.Windows.Forms.ToolStripMenuItem();
+         this.toolStripMenuItem39 = new System.Windows.Forms.ToolStripMenuItem();
+         this.toolStripMenuItem40 = new System.Windows.Forms.ToolStripMenuItem();
+         this.toolStripMenuItem41 = new System.Windows.Forms.ToolStripMenuItem();
+         this.toolStripMenuItem43 = new System.Windows.Forms.ToolStripMenuItem();
+         this.toolStripMenuItem44 = new System.Windows.Forms.ToolStripMenuItem();
+         this.toolStripMenuItem45 = new System.Windows.Forms.ToolStripMenuItem();
+         this.toolStripMenuItem47 = new System.Windows.Forms.ToolStripMenuItem();
+         this.toolStripMenuItem48 = new System.Windows.Forms.ToolStripMenuItem();
+         this.toolStripMenuItem49 = new System.Windows.Forms.ToolStripMenuItem();
+         this.toolStripMenuItem50 = new System.Windows.Forms.ToolStripMenuItem();
+         this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+         this.toolStripMenuItem51 = new System.Windows.Forms.ToolStripMenuItem();
+         this.toolStripMenuItem52 = new System.Windows.Forms.ToolStripMenuItem();
+         this.toolStripMenuItem53 = new System.Windows.Forms.ToolStripMenuItem();
+         this.toolStripMenuItem54 = new System.Windows.Forms.ToolStripMenuItem();
+         this.toolStripMenuItem55 = new System.Windows.Forms.ToolStripMenuItem();
+         this.toolStripMenuItem56 = new System.Windows.Forms.ToolStripMenuItem();
+         this.toolStripMenuItem57 = new System.Windows.Forms.ToolStripMenuItem();
+         this.toolStripMenuItem58 = new System.Windows.Forms.ToolStripMenuItem();
+         this.toolStripMenuItem59 = new System.Windows.Forms.ToolStripMenuItem();
+         this.toolStripMenuItem60 = new System.Windows.Forms.ToolStripMenuItem();
+         this.toolStripMenuItem61 = new System.Windows.Forms.ToolStripMenuItem();
+         this.toolStripMenuItem62 = new System.Windows.Forms.ToolStripMenuItem();
+         this.toolStripMenuItem63 = new System.Windows.Forms.ToolStripMenuItem();
+         this.toolStripMenuItem64 = new System.Windows.Forms.ToolStripMenuItem();
+         this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+         this.toolStripMenuItem65 = new System.Windows.Forms.ToolStripMenuItem();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit1.CalendarTimeProperties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.AttnMbsp_Butn)).BeginInit();
@@ -2566,10 +2612,11 @@
             this.toolStripMenuItem7,
             this.RqstBnFind,
             this.toolStripMenuItem8,
-            this.ارسالپیامکToolStripMenuItem1});
+            this.ارسالپیامکToolStripMenuItem1,
+            this.toolStripMenuItem35});
          this.AllMenu_Cmn.Name = "AllMenu_Cmn";
          this.AllMenu_Cmn.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-         this.AllMenu_Cmn.Size = new System.Drawing.Size(188, 104);
+         this.AllMenu_Cmn.Size = new System.Drawing.Size(198, 126);
          // 
          // RqstBnFignInfo_Lb
          // 
@@ -2584,11 +2631,12 @@
             this.RqstBnBlok,
             this.toolStripMenuItem5,
             this.ارسالپیامکToolStripMenuItem,
+            this.TlgrmMesgBnEntrClub,
             this.toolStripMenuItem6,
             this.PymtBnDebt});
          this.RqstBnFignInfo_Lb.Image = global::System.Scsc.Properties.Resources.IMAGE_1115;
          this.RqstBnFignInfo_Lb.Name = "RqstBnFignInfo_Lb";
-         this.RqstBnFignInfo_Lb.Size = new System.Drawing.Size(187, 22);
+         this.RqstBnFignInfo_Lb.Size = new System.Drawing.Size(197, 22);
          this.RqstBnFignInfo_Lb.Text = "نام مشترک";
          // 
          // RqstBnFighInfo
@@ -2661,6 +2709,7 @@
          this.RqstBnNewMbsp.Name = "RqstBnNewMbsp";
          this.RqstBnNewMbsp.Size = new System.Drawing.Size(233, 46);
          this.RqstBnNewMbsp.Text = "ثبت دوره جدید";
+         this.RqstBnNewMbsp.Click += new System.EventHandler(this.RqstBnNewMbsp_Click);
          // 
          // RqstBnEditPblc
          // 
@@ -2668,6 +2717,7 @@
          this.RqstBnEditPblc.Name = "RqstBnEditPblc";
          this.RqstBnEditPblc.Size = new System.Drawing.Size(233, 46);
          this.RqstBnEditPblc.Text = "اصلاح اطلاعات";
+         this.RqstBnEditPblc.Click += new System.EventHandler(this.RqstBnEditPblc_Click);
          // 
          // RqstBnInsr
          // 
@@ -2675,6 +2725,7 @@
          this.RqstBnInsr.Name = "RqstBnInsr";
          this.RqstBnInsr.Size = new System.Drawing.Size(233, 46);
          this.RqstBnInsr.Text = "ثبت بیمه";
+         this.RqstBnInsr.Click += new System.EventHandler(this.RqstBnInsr_Click);
          // 
          // RqstBnBlok
          // 
@@ -2682,6 +2733,7 @@
          this.RqstBnBlok.Name = "RqstBnBlok";
          this.RqstBnBlok.Size = new System.Drawing.Size(233, 46);
          this.RqstBnBlok.Text = "بلوکه کردن";
+         this.RqstBnBlok.Click += new System.EventHandler(this.RqstBnBlok_Click);
          // 
          // toolStripMenuItem5
          // 
@@ -2794,6 +2846,112 @@
          this.SmsBnOthr.Size = new System.Drawing.Size(163, 22);
          this.SmsBnOthr.Text = "سایر";
          // 
+         // TlgrmMesgBnEntrClub
+         // 
+         this.TlgrmMesgBnEntrClub.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.TlgrmMesgBnBrthDate,
+            this.TlgrmMesgBnNoEntrClub,
+            this.TlrgmMesgBnEntrClub,
+            this.TlgrmMesgBnDebt,
+            this.TlgrmMesgBnAds,
+            this.TlgrmMesgBnAdm,
+            this.TlgrmMesgBnMbsp,
+            this.toolStripMenuItem42,
+            this.toolStripMenuItem46,
+            this.toolStripSeparator3,
+            this.TlgrmMesgBnOthr});
+         this.TlgrmMesgBnEntrClub.Image = global::System.Scsc.Properties.Resources.IMAGE_1616;
+         this.TlgrmMesgBnEntrClub.Name = "TlgrmMesgBnEntrClub";
+         this.TlgrmMesgBnEntrClub.Size = new System.Drawing.Size(233, 46);
+         this.TlgrmMesgBnEntrClub.Text = "ارسال پیام از طریق تلگرام";
+         // 
+         // TlgrmMesgBnBrthDate
+         // 
+         this.TlgrmMesgBnBrthDate.Name = "TlgrmMesgBnBrthDate";
+         this.TlgrmMesgBnBrthDate.Size = new System.Drawing.Size(163, 22);
+         this.TlgrmMesgBnBrthDate.Text = "تبریک تولد";
+         // 
+         // TlgrmMesgBnNoEntrClub
+         // 
+         this.TlgrmMesgBnNoEntrClub.Name = "TlgrmMesgBnNoEntrClub";
+         this.TlgrmMesgBnNoEntrClub.Size = new System.Drawing.Size(163, 22);
+         this.TlgrmMesgBnNoEntrClub.Text = "عدم برگذاری کلاس";
+         // 
+         // TlrgmMesgBnEntrClub
+         // 
+         this.TlrgmMesgBnEntrClub.Name = "TlrgmMesgBnEntrClub";
+         this.TlrgmMesgBnEntrClub.Size = new System.Drawing.Size(163, 22);
+         this.TlrgmMesgBnEntrClub.Text = "برگذاری کلاس";
+         // 
+         // TlgrmMesgBnDebt
+         // 
+         this.TlgrmMesgBnDebt.Name = "TlgrmMesgBnDebt";
+         this.TlgrmMesgBnDebt.Size = new System.Drawing.Size(163, 22);
+         this.TlgrmMesgBnDebt.Text = "تسویه بدهی";
+         // 
+         // TlgrmMesgBnAds
+         // 
+         this.TlgrmMesgBnAds.Name = "TlgrmMesgBnAds";
+         this.TlgrmMesgBnAds.Size = new System.Drawing.Size(163, 22);
+         this.TlgrmMesgBnAds.Text = "تبلیغات";
+         // 
+         // TlgrmMesgBnAdm
+         // 
+         this.TlgrmMesgBnAdm.Name = "TlgrmMesgBnAdm";
+         this.TlgrmMesgBnAdm.Size = new System.Drawing.Size(163, 22);
+         this.TlgrmMesgBnAdm.Text = "ثبت نام";
+         // 
+         // TlgrmMesgBnMbsp
+         // 
+         this.TlgrmMesgBnMbsp.Name = "TlgrmMesgBnMbsp";
+         this.TlgrmMesgBnMbsp.Size = new System.Drawing.Size(163, 22);
+         this.TlgrmMesgBnMbsp.Text = "تمدید";
+         // 
+         // toolStripMenuItem42
+         // 
+         this.toolStripMenuItem42.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.TlgrmMesgBnAttnSelf,
+            this.TlgrmMesgBnAttnDad,
+            this.TlgrmMesgBnMomAttn});
+         this.toolStripMenuItem42.Name = "toolStripMenuItem42";
+         this.toolStripMenuItem42.Size = new System.Drawing.Size(163, 22);
+         this.toolStripMenuItem42.Text = "حضور و غیاب";
+         // 
+         // TlgrmMesgBnAttnSelf
+         // 
+         this.TlgrmMesgBnAttnSelf.Name = "TlgrmMesgBnAttnSelf";
+         this.TlgrmMesgBnAttnSelf.Size = new System.Drawing.Size(133, 22);
+         this.TlgrmMesgBnAttnSelf.Text = "برای مشترک";
+         // 
+         // TlgrmMesgBnAttnDad
+         // 
+         this.TlgrmMesgBnAttnDad.Name = "TlgrmMesgBnAttnDad";
+         this.TlgrmMesgBnAttnDad.Size = new System.Drawing.Size(133, 22);
+         this.TlgrmMesgBnAttnDad.Text = "برای پدر";
+         // 
+         // TlgrmMesgBnMomAttn
+         // 
+         this.TlgrmMesgBnMomAttn.Name = "TlgrmMesgBnMomAttn";
+         this.TlgrmMesgBnMomAttn.Size = new System.Drawing.Size(133, 22);
+         this.TlgrmMesgBnMomAttn.Text = "برای مادر";
+         // 
+         // toolStripMenuItem46
+         // 
+         this.toolStripMenuItem46.Name = "toolStripMenuItem46";
+         this.toolStripMenuItem46.Size = new System.Drawing.Size(163, 22);
+         this.toolStripMenuItem46.Text = "تمدید مجدد دوره";
+         // 
+         // toolStripSeparator3
+         // 
+         this.toolStripSeparator3.Name = "toolStripSeparator3";
+         this.toolStripSeparator3.Size = new System.Drawing.Size(160, 6);
+         // 
+         // TlgrmMesgBnOthr
+         // 
+         this.TlgrmMesgBnOthr.Name = "TlgrmMesgBnOthr";
+         this.TlgrmMesgBnOthr.Size = new System.Drawing.Size(163, 22);
+         this.TlgrmMesgBnOthr.Text = "سایر";
+         // 
          // toolStripMenuItem6
          // 
          this.toolStripMenuItem6.Name = "toolStripMenuItem6";
@@ -2804,26 +2962,27 @@
          this.PymtBnDebt.Image = global::System.Scsc.Properties.Resources.IMAGE_1103;
          this.PymtBnDebt.Name = "PymtBnDebt";
          this.PymtBnDebt.Size = new System.Drawing.Size(233, 46);
-         this.PymtBnDebt.Text = "صورتحساب های بدهکار";
+         this.PymtBnDebt.Text = "صورتحساب ها";
+         this.PymtBnDebt.Click += new System.EventHandler(this.PymtBnDebt_Click);
          // 
          // toolStripMenuItem7
          // 
          this.toolStripMenuItem7.Name = "toolStripMenuItem7";
-         this.toolStripMenuItem7.Size = new System.Drawing.Size(184, 6);
+         this.toolStripMenuItem7.Size = new System.Drawing.Size(194, 6);
          // 
          // RqstBnFind
          // 
          this.RqstBnFind.Image = global::System.Scsc.Properties.Resources.IMAGE_1133;
          this.RqstBnFind.Name = "RqstBnFind";
          this.RqstBnFind.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F11)));
-         this.RqstBnFind.Size = new System.Drawing.Size(187, 22);
+         this.RqstBnFind.Size = new System.Drawing.Size(197, 22);
          this.RqstBnFind.Text = "جستجو کردن";
          this.RqstBnFind.Click += new System.EventHandler(this.Search_Butn_Click);
          // 
          // toolStripMenuItem8
          // 
          this.toolStripMenuItem8.Name = "toolStripMenuItem8";
-         this.toolStripMenuItem8.Size = new System.Drawing.Size(184, 6);
+         this.toolStripMenuItem8.Size = new System.Drawing.Size(194, 6);
          // 
          // ارسالپیامکToolStripMenuItem1
          // 
@@ -2832,7 +2991,7 @@
             this.مشترکینغیرفعالToolStripMenuItem});
          this.ارسالپیامکToolStripMenuItem1.Image = global::System.Scsc.Properties.Resources.IMAGE_1154;
          this.ارسالپیامکToolStripMenuItem1.Name = "ارسالپیامکToolStripMenuItem1";
-         this.ارسالپیامکToolStripMenuItem1.Size = new System.Drawing.Size(187, 22);
+         this.ارسالپیامکToolStripMenuItem1.Size = new System.Drawing.Size(197, 22);
          this.ارسالپیامکToolStripMenuItem1.Text = "ارسال پیامک";
          // 
          // مشترکینفعالToolStripMenuItem
@@ -3044,6 +3203,226 @@
          this.toolStripMenuItem34.Name = "toolStripMenuItem34";
          this.toolStripMenuItem34.Size = new System.Drawing.Size(163, 22);
          this.toolStripMenuItem34.Text = "سایر";
+         // 
+         // toolStripMenuItem35
+         // 
+         this.toolStripMenuItem35.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem36,
+            this.toolStripMenuItem52});
+         this.toolStripMenuItem35.Image = global::System.Scsc.Properties.Resources.IMAGE_1616;
+         this.toolStripMenuItem35.Name = "toolStripMenuItem35";
+         this.toolStripMenuItem35.Size = new System.Drawing.Size(197, 22);
+         this.toolStripMenuItem35.Text = "ارسال پیام از طریق تلگرام";
+         // 
+         // toolStripMenuItem36
+         // 
+         this.toolStripMenuItem36.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem37,
+            this.toolStripMenuItem38,
+            this.toolStripMenuItem39,
+            this.toolStripMenuItem40,
+            this.toolStripMenuItem41,
+            this.toolStripMenuItem43,
+            this.toolStripMenuItem44,
+            this.toolStripMenuItem45,
+            this.toolStripMenuItem50,
+            this.toolStripSeparator4,
+            this.toolStripMenuItem51});
+         this.toolStripMenuItem36.Name = "toolStripMenuItem36";
+         this.toolStripMenuItem36.Size = new System.Drawing.Size(159, 22);
+         this.toolStripMenuItem36.Text = "مشترکین فعال";
+         // 
+         // toolStripMenuItem37
+         // 
+         this.toolStripMenuItem37.Name = "toolStripMenuItem37";
+         this.toolStripMenuItem37.Size = new System.Drawing.Size(163, 22);
+         this.toolStripMenuItem37.Text = "تبریک تولد";
+         // 
+         // toolStripMenuItem38
+         // 
+         this.toolStripMenuItem38.Name = "toolStripMenuItem38";
+         this.toolStripMenuItem38.Size = new System.Drawing.Size(163, 22);
+         this.toolStripMenuItem38.Text = "عدم برگذاری کلاس";
+         // 
+         // toolStripMenuItem39
+         // 
+         this.toolStripMenuItem39.Name = "toolStripMenuItem39";
+         this.toolStripMenuItem39.Size = new System.Drawing.Size(163, 22);
+         this.toolStripMenuItem39.Text = "برگذاری کلاس";
+         // 
+         // toolStripMenuItem40
+         // 
+         this.toolStripMenuItem40.Name = "toolStripMenuItem40";
+         this.toolStripMenuItem40.Size = new System.Drawing.Size(163, 22);
+         this.toolStripMenuItem40.Text = "تسویه بدهی";
+         // 
+         // toolStripMenuItem41
+         // 
+         this.toolStripMenuItem41.Name = "toolStripMenuItem41";
+         this.toolStripMenuItem41.Size = new System.Drawing.Size(163, 22);
+         this.toolStripMenuItem41.Text = "تبلیغات";
+         // 
+         // toolStripMenuItem43
+         // 
+         this.toolStripMenuItem43.Name = "toolStripMenuItem43";
+         this.toolStripMenuItem43.Size = new System.Drawing.Size(163, 22);
+         this.toolStripMenuItem43.Text = "ثبت نام";
+         // 
+         // toolStripMenuItem44
+         // 
+         this.toolStripMenuItem44.Name = "toolStripMenuItem44";
+         this.toolStripMenuItem44.Size = new System.Drawing.Size(163, 22);
+         this.toolStripMenuItem44.Text = "تمدید";
+         // 
+         // toolStripMenuItem45
+         // 
+         this.toolStripMenuItem45.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem47,
+            this.toolStripMenuItem48,
+            this.toolStripMenuItem49});
+         this.toolStripMenuItem45.Name = "toolStripMenuItem45";
+         this.toolStripMenuItem45.Size = new System.Drawing.Size(163, 22);
+         this.toolStripMenuItem45.Text = "حضور و غیاب";
+         // 
+         // toolStripMenuItem47
+         // 
+         this.toolStripMenuItem47.Name = "toolStripMenuItem47";
+         this.toolStripMenuItem47.Size = new System.Drawing.Size(133, 22);
+         this.toolStripMenuItem47.Text = "برای مشترک";
+         // 
+         // toolStripMenuItem48
+         // 
+         this.toolStripMenuItem48.Name = "toolStripMenuItem48";
+         this.toolStripMenuItem48.Size = new System.Drawing.Size(133, 22);
+         this.toolStripMenuItem48.Text = "برای پدر";
+         // 
+         // toolStripMenuItem49
+         // 
+         this.toolStripMenuItem49.Name = "toolStripMenuItem49";
+         this.toolStripMenuItem49.Size = new System.Drawing.Size(133, 22);
+         this.toolStripMenuItem49.Text = "برای مادر";
+         // 
+         // toolStripMenuItem50
+         // 
+         this.toolStripMenuItem50.Name = "toolStripMenuItem50";
+         this.toolStripMenuItem50.Size = new System.Drawing.Size(163, 22);
+         this.toolStripMenuItem50.Text = "تمدید مجدد دوره";
+         // 
+         // toolStripSeparator4
+         // 
+         this.toolStripSeparator4.Name = "toolStripSeparator4";
+         this.toolStripSeparator4.Size = new System.Drawing.Size(160, 6);
+         // 
+         // toolStripMenuItem51
+         // 
+         this.toolStripMenuItem51.Name = "toolStripMenuItem51";
+         this.toolStripMenuItem51.Size = new System.Drawing.Size(163, 22);
+         this.toolStripMenuItem51.Text = "سایر";
+         // 
+         // toolStripMenuItem52
+         // 
+         this.toolStripMenuItem52.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem53,
+            this.toolStripMenuItem54,
+            this.toolStripMenuItem55,
+            this.toolStripMenuItem56,
+            this.toolStripMenuItem57,
+            this.toolStripMenuItem58,
+            this.toolStripMenuItem59,
+            this.toolStripMenuItem60,
+            this.toolStripMenuItem64,
+            this.toolStripSeparator5,
+            this.toolStripMenuItem65});
+         this.toolStripMenuItem52.Name = "toolStripMenuItem52";
+         this.toolStripMenuItem52.Size = new System.Drawing.Size(159, 22);
+         this.toolStripMenuItem52.Text = "مشترکین غیرفعال";
+         // 
+         // toolStripMenuItem53
+         // 
+         this.toolStripMenuItem53.Name = "toolStripMenuItem53";
+         this.toolStripMenuItem53.Size = new System.Drawing.Size(163, 22);
+         this.toolStripMenuItem53.Text = "تبریک تولد";
+         // 
+         // toolStripMenuItem54
+         // 
+         this.toolStripMenuItem54.Name = "toolStripMenuItem54";
+         this.toolStripMenuItem54.Size = new System.Drawing.Size(163, 22);
+         this.toolStripMenuItem54.Text = "عدم برگذاری کلاس";
+         // 
+         // toolStripMenuItem55
+         // 
+         this.toolStripMenuItem55.Name = "toolStripMenuItem55";
+         this.toolStripMenuItem55.Size = new System.Drawing.Size(163, 22);
+         this.toolStripMenuItem55.Text = "برگذاری کلاس";
+         // 
+         // toolStripMenuItem56
+         // 
+         this.toolStripMenuItem56.Name = "toolStripMenuItem56";
+         this.toolStripMenuItem56.Size = new System.Drawing.Size(163, 22);
+         this.toolStripMenuItem56.Text = "تسویه بدهی";
+         // 
+         // toolStripMenuItem57
+         // 
+         this.toolStripMenuItem57.Name = "toolStripMenuItem57";
+         this.toolStripMenuItem57.Size = new System.Drawing.Size(163, 22);
+         this.toolStripMenuItem57.Text = "تبلیغات";
+         // 
+         // toolStripMenuItem58
+         // 
+         this.toolStripMenuItem58.Name = "toolStripMenuItem58";
+         this.toolStripMenuItem58.Size = new System.Drawing.Size(163, 22);
+         this.toolStripMenuItem58.Text = "ثبت نام";
+         // 
+         // toolStripMenuItem59
+         // 
+         this.toolStripMenuItem59.Name = "toolStripMenuItem59";
+         this.toolStripMenuItem59.Size = new System.Drawing.Size(163, 22);
+         this.toolStripMenuItem59.Text = "تمدید";
+         // 
+         // toolStripMenuItem60
+         // 
+         this.toolStripMenuItem60.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem61,
+            this.toolStripMenuItem62,
+            this.toolStripMenuItem63});
+         this.toolStripMenuItem60.Name = "toolStripMenuItem60";
+         this.toolStripMenuItem60.Size = new System.Drawing.Size(163, 22);
+         this.toolStripMenuItem60.Text = "حضور و غیاب";
+         // 
+         // toolStripMenuItem61
+         // 
+         this.toolStripMenuItem61.Name = "toolStripMenuItem61";
+         this.toolStripMenuItem61.Size = new System.Drawing.Size(133, 22);
+         this.toolStripMenuItem61.Text = "برای مشترک";
+         // 
+         // toolStripMenuItem62
+         // 
+         this.toolStripMenuItem62.Name = "toolStripMenuItem62";
+         this.toolStripMenuItem62.Size = new System.Drawing.Size(133, 22);
+         this.toolStripMenuItem62.Text = "برای پدر";
+         // 
+         // toolStripMenuItem63
+         // 
+         this.toolStripMenuItem63.Name = "toolStripMenuItem63";
+         this.toolStripMenuItem63.Size = new System.Drawing.Size(133, 22);
+         this.toolStripMenuItem63.Text = "برای مادر";
+         // 
+         // toolStripMenuItem64
+         // 
+         this.toolStripMenuItem64.Name = "toolStripMenuItem64";
+         this.toolStripMenuItem64.Size = new System.Drawing.Size(163, 22);
+         this.toolStripMenuItem64.Text = "تمدید مجدد دوره";
+         // 
+         // toolStripSeparator5
+         // 
+         this.toolStripSeparator5.Name = "toolStripSeparator5";
+         this.toolStripSeparator5.Size = new System.Drawing.Size(160, 6);
+         // 
+         // toolStripMenuItem65
+         // 
+         this.toolStripMenuItem65.Name = "toolStripMenuItem65";
+         this.toolStripMenuItem65.Size = new System.Drawing.Size(163, 22);
+         this.toolStripMenuItem65.Text = "سایر";
          // 
          // LSI_FLDF_F
          // 
@@ -3332,5 +3711,51 @@
       private Windows.Forms.ToolStripMenuItem toolStripMenuItem33;
       private Windows.Forms.ToolStripSeparator toolStripSeparator2;
       private Windows.Forms.ToolStripMenuItem toolStripMenuItem34;
+      private Windows.Forms.ToolStripMenuItem TlgrmMesgBnEntrClub;
+      private Windows.Forms.ToolStripMenuItem TlgrmMesgBnBrthDate;
+      private Windows.Forms.ToolStripMenuItem TlgrmMesgBnNoEntrClub;
+      private Windows.Forms.ToolStripMenuItem TlrgmMesgBnEntrClub;
+      private Windows.Forms.ToolStripMenuItem TlgrmMesgBnDebt;
+      private Windows.Forms.ToolStripMenuItem TlgrmMesgBnAds;
+      private Windows.Forms.ToolStripMenuItem TlgrmMesgBnAdm;
+      private Windows.Forms.ToolStripMenuItem TlgrmMesgBnMbsp;
+      private Windows.Forms.ToolStripMenuItem toolStripMenuItem42;
+      private Windows.Forms.ToolStripMenuItem TlgrmMesgBnAttnSelf;
+      private Windows.Forms.ToolStripMenuItem TlgrmMesgBnAttnDad;
+      private Windows.Forms.ToolStripMenuItem TlgrmMesgBnMomAttn;
+      private Windows.Forms.ToolStripMenuItem toolStripMenuItem46;
+      private Windows.Forms.ToolStripSeparator toolStripSeparator3;
+      private Windows.Forms.ToolStripMenuItem TlgrmMesgBnOthr;
+      private Windows.Forms.ToolStripMenuItem toolStripMenuItem35;
+      private Windows.Forms.ToolStripMenuItem toolStripMenuItem36;
+      private Windows.Forms.ToolStripMenuItem toolStripMenuItem37;
+      private Windows.Forms.ToolStripMenuItem toolStripMenuItem38;
+      private Windows.Forms.ToolStripMenuItem toolStripMenuItem39;
+      private Windows.Forms.ToolStripMenuItem toolStripMenuItem40;
+      private Windows.Forms.ToolStripMenuItem toolStripMenuItem41;
+      private Windows.Forms.ToolStripMenuItem toolStripMenuItem43;
+      private Windows.Forms.ToolStripMenuItem toolStripMenuItem44;
+      private Windows.Forms.ToolStripMenuItem toolStripMenuItem45;
+      private Windows.Forms.ToolStripMenuItem toolStripMenuItem47;
+      private Windows.Forms.ToolStripMenuItem toolStripMenuItem48;
+      private Windows.Forms.ToolStripMenuItem toolStripMenuItem49;
+      private Windows.Forms.ToolStripMenuItem toolStripMenuItem50;
+      private Windows.Forms.ToolStripSeparator toolStripSeparator4;
+      private Windows.Forms.ToolStripMenuItem toolStripMenuItem51;
+      private Windows.Forms.ToolStripMenuItem toolStripMenuItem52;
+      private Windows.Forms.ToolStripMenuItem toolStripMenuItem53;
+      private Windows.Forms.ToolStripMenuItem toolStripMenuItem54;
+      private Windows.Forms.ToolStripMenuItem toolStripMenuItem55;
+      private Windows.Forms.ToolStripMenuItem toolStripMenuItem56;
+      private Windows.Forms.ToolStripMenuItem toolStripMenuItem57;
+      private Windows.Forms.ToolStripMenuItem toolStripMenuItem58;
+      private Windows.Forms.ToolStripMenuItem toolStripMenuItem59;
+      private Windows.Forms.ToolStripMenuItem toolStripMenuItem60;
+      private Windows.Forms.ToolStripMenuItem toolStripMenuItem61;
+      private Windows.Forms.ToolStripMenuItem toolStripMenuItem62;
+      private Windows.Forms.ToolStripMenuItem toolStripMenuItem63;
+      private Windows.Forms.ToolStripMenuItem toolStripMenuItem64;
+      private Windows.Forms.ToolStripSeparator toolStripSeparator5;
+      private Windows.Forms.ToolStripMenuItem toolStripMenuItem65;
    }
 }

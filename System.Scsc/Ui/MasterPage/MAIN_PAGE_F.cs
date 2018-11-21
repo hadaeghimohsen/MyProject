@@ -2928,6 +2928,19 @@ namespace System.Scsc.Ui.MasterPage
          bbi_embkbutn_ItemClick(null, null);
       }
 
-      
+      private void bbi_agmbbutn_Mn_Click(object sender, EventArgs e)
+      {
+         bbi_agmbbutn_ItemClick(null, null);
+      }
+
+      private void bbi_agcbbutn_Mn_Click(object sender, EventArgs e)
+      {
+         bbi_agcbbutn_ItemClick(null, null);
+      }
+
+      private void bbi_aglsbutn_Mn_Click(object sender, EventArgs e)
+      {
+         bbi_aglsbutn_ItemClick(null, null);
+      }      
    }
 }

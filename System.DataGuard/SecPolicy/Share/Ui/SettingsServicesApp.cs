@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.JobRouting.Jobs;
 using DevExpress.XtraEditors;
+using System.Xml.Linq;
 
 namespace System.DataGuard.SecPolicy.Share.Ui
 {
@@ -50,11 +51,72 @@ namespace System.DataGuard.SecPolicy.Share.Ui
             #endregion
          }
          catch { }
+         finally { Execute_Query(); }
       }
 
       private void RightButns_Click(object sender, EventArgs e)
       {
          SwitchButtonsTabPage(sender);
+      }
+
+      private void Execute_Query()
+      {
+         iProject = new Data.iProjectDataContext(ConnectionString);
+
+         if(Tb_Master.SelectedTab == tp_001)
+         {
+
+         }
+         else if(Tb_Master.SelectedTab == tp_002)
+         {
+            SmsConfBs.DataSource = iProject.Message_Broad_Settings;
+         }
+      }
+
+      private void SubmitChange_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            SmsConfBs.EndEdit();
+            iProject.SubmitChanges();
+            SubmitChange_Butn.Visible = false;
+         }
+         catch { }      
+      }
+
+      private void SmsConfBs_ListChanged(object sender, ListChangedEventArgs e)
+      {
+         SubmitChange_Butn.Visible = true;
+      }
+
+      private void CreditCheck_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            PayResult_Lb.Appearance.Image = null;
+
+            // To Do List
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost", "Commons:Program:Msgb:MSTR_PAGE_F", 10 /* Execute Actn_Calf_F */, SendType.SelfToUserInterface)
+               {
+                  Input = 
+                     new XElement("SmsConf",
+                        new XAttribute("actntype", "getcredit")
+                     ),
+                  AfterChangedOutput = 
+                     new Action<object>((output) =>
+                     {
+
+                     })
+               }
+            );
+
+            PayResult_Lb.Appearance.Image = System.DataGuard.Properties.Resources.IMAGE_1603;
+         }
+         catch
+         {
+            PayResult_Lb.Appearance.Image = System.DataGuard.Properties.Resources.IMAGE_1577;            
+         }
       }
    }
 }

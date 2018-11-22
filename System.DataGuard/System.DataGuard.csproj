@@ -990,6 +990,7 @@
     <None Include="Properties\DataSources\System.DataGuard.Data.ISP_Privilege.datasource" />
     <None Include="Properties\DataSources\System.DataGuard.Data.Localization.datasource" />
     <None Include="Properties\DataSources\System.DataGuard.Data.Mail_Server.datasource" />
+    <None Include="Properties\DataSources\System.DataGuard.Data.Message_Broad_Setting.datasource" />
     <None Include="Properties\DataSources\System.DataGuard.Data.Msgb_Privilege.datasource" />
     <None Include="Properties\DataSources\System.DataGuard.Data.Opportunity.datasource" />
     <None Include="Properties\DataSources\System.DataGuard.Data.Package.datasource" />

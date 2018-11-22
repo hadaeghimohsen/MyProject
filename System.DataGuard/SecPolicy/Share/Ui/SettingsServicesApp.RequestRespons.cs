@@ -13,6 +13,9 @@ namespace System.DataGuard.SecPolicy.Share.Ui
    partial class SettingsServicesApp : ISendRequest
    {
       public IRouter _DefaultGateway { get; set; }
+      private Data.iProjectDataContext iProject;
+      private string ConnectionString;
+      private string CurrentUser;
 
       public void SendRequest(Job job)
       {
@@ -87,7 +90,24 @@ namespace System.DataGuard.SecPolicy.Share.Ui
       /// <param name="job"></param>
       private void Set(Job job)
       {
-         Enabled = true;
+         var GetConnectionString =
+            new Job(SendType.External, "Localhost", "Commons", 22 /* Execute GetConnectionString */, SendType.Self) { Input = "<Database>iProject</Database><Dbms>SqlServer</Dbms>" };
+
+         _DefaultGateway.Gateway(
+            GetConnectionString
+         );
+
+         var GetUserAccount =
+            new Job(SendType.External, "Localhost", "Commons", 12 /* Execute DoWork4RoleSettings4CurrentUser */, SendType.Self);
+
+         _DefaultGateway.Gateway(
+            GetUserAccount
+         );
+         CurrentUser = GetUserAccount.Output.ToString();
+
+         ConnectionString = GetConnectionString.Output.ToString();
+         iProject = new Data.iProjectDataContext(GetConnectionString.Output.ToString());
+
          job.Status = StatusType.Successful;
       }
 

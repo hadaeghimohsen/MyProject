@@ -29,9 +29,9 @@
       private void InitializeComponent()
       {
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingsAccount));
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
          this.Back_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
          this.SubmitChange_Butn = new DevExpress.XtraEditors.SimpleButton();
@@ -54,9 +54,11 @@
          this.tp_002 = new System.Windows.Forms.TabPage();
          this.JobSchedule_Lnk = new System.Windows.Forms.LinkLabel();
          this.MailServer_Lnk = new System.Windows.Forms.LinkLabel();
+         this.labelControl28 = new DevExpress.XtraEditors.LabelControl();
          this.labelControl20 = new DevExpress.XtraEditors.LabelControl();
          this.labelControl21 = new DevExpress.XtraEditors.LabelControl();
          this.SendEmail_Butn = new DevExpress.XtraEditors.SimpleButton();
+         this.DuplicateUser_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.OtherUsers_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.Ts_DefaultUserMailServer = new DevExpress.XtraEditors.ToggleSwitch();
          this.Ts_ContactPublicStatus = new DevExpress.XtraEditors.ToggleSwitch();
@@ -90,8 +92,6 @@
          this.ChangePassword_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
          this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
-         this.DuplicateUser_Butn = new DevExpress.XtraEditors.SimpleButton();
-         this.labelControl28 = new DevExpress.XtraEditors.LabelControl();
          this.panel1.SuspendLayout();
          this.flowLayoutPanel1.SuspendLayout();
          this.Tb_Master.SuspendLayout();
@@ -272,7 +272,7 @@
          this.tp_001.Location = new System.Drawing.Point(4, 23);
          this.tp_001.Name = "tp_001";
          this.tp_001.Padding = new System.Windows.Forms.Padding(3);
-         this.tp_001.Size = new System.Drawing.Size(748, 679);
+         this.tp_001.Size = new System.Drawing.Size(748, 789);
          this.tp_001.TabIndex = 0;
          this.tp_001.Tag = "1";
          this.tp_001.Text = "کاربری شما";
@@ -464,6 +464,22 @@
          this.MailServer_Lnk.VisitedLinkColor = System.Drawing.Color.DodgerBlue;
          this.MailServer_Lnk.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.MailServer_Lnk_LinkClicked);
          // 
+         // labelControl28
+         // 
+         this.labelControl28.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.labelControl28.Appearance.BackColor = System.Drawing.Color.Transparent;
+         this.labelControl28.Appearance.Font = new System.Drawing.Font("IRANSans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.labelControl28.Appearance.ForeColor = System.Drawing.Color.Gray;
+         this.labelControl28.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+         this.labelControl28.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         this.labelControl28.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+         this.labelControl28.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
+         this.labelControl28.Location = new System.Drawing.Point(487, 609);
+         this.labelControl28.Name = "labelControl28";
+         this.labelControl28.Size = new System.Drawing.Size(227, 22);
+         this.labelControl28.TabIndex = 27;
+         this.labelControl28.Text = "ایجاد کاربری جدید با نمونه برداری از کاربر جاری";
+         // 
          // labelControl20
          // 
          this.labelControl20.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -517,6 +533,28 @@
          this.SendEmail_Butn.TabIndex = 25;
          this.SendEmail_Butn.Text = "ارسال ایمیل";
          this.SendEmail_Butn.Click += new System.EventHandler(this.SendEmail_Butn_Click);
+         // 
+         // DuplicateUser_Butn
+         // 
+         this.DuplicateUser_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.DuplicateUser_Butn.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+         this.DuplicateUser_Butn.Appearance.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.DuplicateUser_Butn.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+         this.DuplicateUser_Butn.Appearance.Options.UseBackColor = true;
+         this.DuplicateUser_Butn.Appearance.Options.UseFont = true;
+         this.DuplicateUser_Butn.Appearance.Options.UseForeColor = true;
+         this.DuplicateUser_Butn.Appearance.Options.UseTextOptions = true;
+         this.DuplicateUser_Butn.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         this.DuplicateUser_Butn.Image = global::System.DataGuard.Properties.Resources.IMAGE_1433;
+         this.DuplicateUser_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
+         this.DuplicateUser_Butn.Location = new System.Drawing.Point(464, 639);
+         this.DuplicateUser_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.DuplicateUser_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.DuplicateUser_Butn.Name = "DuplicateUser_Butn";
+         this.DuplicateUser_Butn.Size = new System.Drawing.Size(250, 38);
+         this.DuplicateUser_Butn.TabIndex = 25;
+         this.DuplicateUser_Butn.Text = "نمونه برداری برای کاربر جدید";
+         this.DuplicateUser_Butn.Click += new System.EventHandler(this.DuplicateUser_Butn_Click);
          // 
          // OtherUsers_Butn
          // 
@@ -723,7 +761,7 @@
          this.tp_003.Location = new System.Drawing.Point(4, 23);
          this.tp_003.Name = "tp_003";
          this.tp_003.Padding = new System.Windows.Forms.Padding(3);
-         this.tp_003.Size = new System.Drawing.Size(748, 679);
+         this.tp_003.Size = new System.Drawing.Size(748, 789);
          this.tp_003.TabIndex = 2;
          this.tp_003.Tag = "3";
          this.tp_003.Text = "روش های ورود به سیستم";
@@ -754,7 +792,7 @@
          this.buttonEdit2.Properties.AppearanceFocused.Options.UseFont = true;
          this.buttonEdit2.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
          this.buttonEdit2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("buttonEdit2.Properties.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject4, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("buttonEdit2.Properties.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
          this.buttonEdit2.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.buttonEdit2.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
          this.buttonEdit2.Properties.NullValuePromptShowForEmptyValue = true;
@@ -787,7 +825,7 @@
          this.buttonEdit1.Properties.AppearanceFocused.Options.UseFont = true;
          this.buttonEdit1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
          this.buttonEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("buttonEdit1.Properties.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("buttonEdit1.Properties.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
          this.buttonEdit1.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.buttonEdit1.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
          this.buttonEdit1.Properties.NullValuePromptShowForEmptyValue = true;
@@ -820,7 +858,7 @@
          this.UserName_Be.Properties.AppearanceFocused.Options.UseFont = true;
          this.UserName_Be.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
          this.UserName_Be.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("UserName_Be.Properties.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("UserName_Be.Properties.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject3, "", null, null, true)});
          this.UserName_Be.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.UserName_Be.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
          this.UserName_Be.Properties.NullValuePromptShowForEmptyValue = true;
@@ -1106,44 +1144,6 @@
          this.splitContainerControl1.SplitterPosition = 219;
          this.splitContainerControl1.TabIndex = 1;
          this.splitContainerControl1.Text = "splitContainerControl1";
-         // 
-         // DuplicateUser_Butn
-         // 
-         this.DuplicateUser_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.DuplicateUser_Butn.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-         this.DuplicateUser_Butn.Appearance.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.DuplicateUser_Butn.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-         this.DuplicateUser_Butn.Appearance.Options.UseBackColor = true;
-         this.DuplicateUser_Butn.Appearance.Options.UseFont = true;
-         this.DuplicateUser_Butn.Appearance.Options.UseForeColor = true;
-         this.DuplicateUser_Butn.Appearance.Options.UseTextOptions = true;
-         this.DuplicateUser_Butn.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-         this.DuplicateUser_Butn.Image = global::System.DataGuard.Properties.Resources.IMAGE_1433;
-         this.DuplicateUser_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
-         this.DuplicateUser_Butn.Location = new System.Drawing.Point(464, 639);
-         this.DuplicateUser_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.DuplicateUser_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.DuplicateUser_Butn.Name = "DuplicateUser_Butn";
-         this.DuplicateUser_Butn.Size = new System.Drawing.Size(250, 38);
-         this.DuplicateUser_Butn.TabIndex = 25;
-         this.DuplicateUser_Butn.Text = "نمونه برداری برای کاربر جدید";
-         this.DuplicateUser_Butn.Click += new System.EventHandler(this.DuplicateUser_Butn_Click);
-         // 
-         // labelControl28
-         // 
-         this.labelControl28.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.labelControl28.Appearance.BackColor = System.Drawing.Color.Transparent;
-         this.labelControl28.Appearance.Font = new System.Drawing.Font("IRANSans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.labelControl28.Appearance.ForeColor = System.Drawing.Color.Gray;
-         this.labelControl28.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         this.labelControl28.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-         this.labelControl28.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-         this.labelControl28.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl28.Location = new System.Drawing.Point(487, 609);
-         this.labelControl28.Name = "labelControl28";
-         this.labelControl28.Size = new System.Drawing.Size(227, 22);
-         this.labelControl28.TabIndex = 27;
-         this.labelControl28.Text = "ایجاد کاربری جدید با نمونه برداری از کاربر جاری";
          // 
          // SettingsAccount
          // 

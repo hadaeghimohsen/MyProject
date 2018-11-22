@@ -170,6 +170,9 @@ namespace System.DataGuard.Data
     partial void InsertTiny_Sub_System(Tiny_Sub_System instance);
     partial void UpdateTiny_Sub_System(Tiny_Sub_System instance);
     partial void DeleteTiny_Sub_System(Tiny_Sub_System instance);
+    partial void InsertMessage_Broad_Setting(Message_Broad_Setting instance);
+    partial void UpdateMessage_Broad_Setting(Message_Broad_Setting instance);
+    partial void DeleteMessage_Broad_Setting(Message_Broad_Setting instance);
     #endregion
 		
 		public iProjectDataContext() : 
@@ -791,6 +794,14 @@ namespace System.DataGuard.Data
 			get
 			{
 				return this.GetTable<Tiny_Sub_System>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Message_Broad_Setting> Message_Broad_Settings
+		{
+			get
+			{
+				return this.GetTable<Message_Broad_Setting>();
 			}
 		}
 		
@@ -22047,6 +22058,500 @@ namespace System.DataGuard.Data
 						this._TINY_TNID = default(Nullable<long>);
 					}
 					this.SendPropertyChanged("Tiny_Lock");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="Msgb.Message_Broad_Settings")]
+	public partial class Message_Broad_Setting : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private long _MBID;
+		
+		private string _TYPE;
+		
+		private string _BGWK_STAT;
+		
+		private System.Nullable<int> _BGWK_INTR;
+		
+		private string _CUST_BGWK_STAT;
+		
+		private System.Nullable<int> _CUST_BGWK_INTR;
+		
+		private string _USER_NAME;
+		
+		private string _PASS_WORD;
+		
+		private string _WEB_SITE_LOGN;
+		
+		private string _WEB_SITE_PSWD;
+		
+		private string _LINE_NUMB;
+		
+		private string _LINE_TYPE;
+		
+		private string _DFLT_STAT;
+		
+		private System.Nullable<long> _LAST_ROW_FTCH;
+		
+		private System.Nullable<int> _FTCH_ROW;
+		
+		private string _CRET_BY;
+		
+		private System.Nullable<System.DateTime> _CRET_DATE;
+		
+		private string _MDFY_BY;
+		
+		private System.Nullable<System.DateTime> _MDFY_DATE;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnMBIDChanging(long value);
+    partial void OnMBIDChanged();
+    partial void OnTYPEChanging(string value);
+    partial void OnTYPEChanged();
+    partial void OnBGWK_STATChanging(string value);
+    partial void OnBGWK_STATChanged();
+    partial void OnBGWK_INTRChanging(System.Nullable<int> value);
+    partial void OnBGWK_INTRChanged();
+    partial void OnCUST_BGWK_STATChanging(string value);
+    partial void OnCUST_BGWK_STATChanged();
+    partial void OnCUST_BGWK_INTRChanging(System.Nullable<int> value);
+    partial void OnCUST_BGWK_INTRChanged();
+    partial void OnUSER_NAMEChanging(string value);
+    partial void OnUSER_NAMEChanged();
+    partial void OnPASS_WORDChanging(string value);
+    partial void OnPASS_WORDChanged();
+    partial void OnWEB_SITE_LOGNChanging(string value);
+    partial void OnWEB_SITE_LOGNChanged();
+    partial void OnWEB_SITE_PSWDChanging(string value);
+    partial void OnWEB_SITE_PSWDChanged();
+    partial void OnLINE_NUMBChanging(string value);
+    partial void OnLINE_NUMBChanged();
+    partial void OnLINE_TYPEChanging(string value);
+    partial void OnLINE_TYPEChanged();
+    partial void OnDFLT_STATChanging(string value);
+    partial void OnDFLT_STATChanged();
+    partial void OnLAST_ROW_FTCHChanging(System.Nullable<long> value);
+    partial void OnLAST_ROW_FTCHChanged();
+    partial void OnFTCH_ROWChanging(System.Nullable<int> value);
+    partial void OnFTCH_ROWChanged();
+    partial void OnCRET_BYChanging(string value);
+    partial void OnCRET_BYChanged();
+    partial void OnCRET_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnCRET_DATEChanged();
+    partial void OnMDFY_BYChanging(string value);
+    partial void OnMDFY_BYChanged();
+    partial void OnMDFY_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnMDFY_DATEChanged();
+    #endregion
+		
+		public Message_Broad_Setting()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MBID", DbType="BigInt NOT NULL", IsPrimaryKey=true)]
+		public long MBID
+		{
+			get
+			{
+				return this._MBID;
+			}
+			set
+			{
+				if ((this._MBID != value))
+				{
+					this.OnMBIDChanging(value);
+					this.SendPropertyChanging();
+					this._MBID = value;
+					this.SendPropertyChanged("MBID");
+					this.OnMBIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TYPE", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		public string TYPE
+		{
+			get
+			{
+				return this._TYPE;
+			}
+			set
+			{
+				if ((this._TYPE != value))
+				{
+					this.OnTYPEChanging(value);
+					this.SendPropertyChanging();
+					this._TYPE = value;
+					this.SendPropertyChanged("TYPE");
+					this.OnTYPEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BGWK_STAT", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		public string BGWK_STAT
+		{
+			get
+			{
+				return this._BGWK_STAT;
+			}
+			set
+			{
+				if ((this._BGWK_STAT != value))
+				{
+					this.OnBGWK_STATChanging(value);
+					this.SendPropertyChanging();
+					this._BGWK_STAT = value;
+					this.SendPropertyChanged("BGWK_STAT");
+					this.OnBGWK_STATChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BGWK_INTR", DbType="Int", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<int> BGWK_INTR
+		{
+			get
+			{
+				return this._BGWK_INTR;
+			}
+			set
+			{
+				if ((this._BGWK_INTR != value))
+				{
+					this.OnBGWK_INTRChanging(value);
+					this.SendPropertyChanging();
+					this._BGWK_INTR = value;
+					this.SendPropertyChanged("BGWK_INTR");
+					this.OnBGWK_INTRChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CUST_BGWK_STAT", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		public string CUST_BGWK_STAT
+		{
+			get
+			{
+				return this._CUST_BGWK_STAT;
+			}
+			set
+			{
+				if ((this._CUST_BGWK_STAT != value))
+				{
+					this.OnCUST_BGWK_STATChanging(value);
+					this.SendPropertyChanging();
+					this._CUST_BGWK_STAT = value;
+					this.SendPropertyChanged("CUST_BGWK_STAT");
+					this.OnCUST_BGWK_STATChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CUST_BGWK_INTR", DbType="Int", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<int> CUST_BGWK_INTR
+		{
+			get
+			{
+				return this._CUST_BGWK_INTR;
+			}
+			set
+			{
+				if ((this._CUST_BGWK_INTR != value))
+				{
+					this.OnCUST_BGWK_INTRChanging(value);
+					this.SendPropertyChanging();
+					this._CUST_BGWK_INTR = value;
+					this.SendPropertyChanged("CUST_BGWK_INTR");
+					this.OnCUST_BGWK_INTRChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_USER_NAME", DbType="VarChar(250)", UpdateCheck=UpdateCheck.Never)]
+		public string USER_NAME
+		{
+			get
+			{
+				return this._USER_NAME;
+			}
+			set
+			{
+				if ((this._USER_NAME != value))
+				{
+					this.OnUSER_NAMEChanging(value);
+					this.SendPropertyChanging();
+					this._USER_NAME = value;
+					this.SendPropertyChanged("USER_NAME");
+					this.OnUSER_NAMEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PASS_WORD", DbType="VarChar(250)", UpdateCheck=UpdateCheck.Never)]
+		public string PASS_WORD
+		{
+			get
+			{
+				return this._PASS_WORD;
+			}
+			set
+			{
+				if ((this._PASS_WORD != value))
+				{
+					this.OnPASS_WORDChanging(value);
+					this.SendPropertyChanging();
+					this._PASS_WORD = value;
+					this.SendPropertyChanged("PASS_WORD");
+					this.OnPASS_WORDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WEB_SITE_LOGN", DbType="VarChar(250)", UpdateCheck=UpdateCheck.Never)]
+		public string WEB_SITE_LOGN
+		{
+			get
+			{
+				return this._WEB_SITE_LOGN;
+			}
+			set
+			{
+				if ((this._WEB_SITE_LOGN != value))
+				{
+					this.OnWEB_SITE_LOGNChanging(value);
+					this.SendPropertyChanging();
+					this._WEB_SITE_LOGN = value;
+					this.SendPropertyChanged("WEB_SITE_LOGN");
+					this.OnWEB_SITE_LOGNChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WEB_SITE_PSWD", DbType="VarChar(250)", UpdateCheck=UpdateCheck.Never)]
+		public string WEB_SITE_PSWD
+		{
+			get
+			{
+				return this._WEB_SITE_PSWD;
+			}
+			set
+			{
+				if ((this._WEB_SITE_PSWD != value))
+				{
+					this.OnWEB_SITE_PSWDChanging(value);
+					this.SendPropertyChanging();
+					this._WEB_SITE_PSWD = value;
+					this.SendPropertyChanged("WEB_SITE_PSWD");
+					this.OnWEB_SITE_PSWDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LINE_NUMB", DbType="VarChar(30)", UpdateCheck=UpdateCheck.Never)]
+		public string LINE_NUMB
+		{
+			get
+			{
+				return this._LINE_NUMB;
+			}
+			set
+			{
+				if ((this._LINE_NUMB != value))
+				{
+					this.OnLINE_NUMBChanging(value);
+					this.SendPropertyChanging();
+					this._LINE_NUMB = value;
+					this.SendPropertyChanged("LINE_NUMB");
+					this.OnLINE_NUMBChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LINE_TYPE", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		public string LINE_TYPE
+		{
+			get
+			{
+				return this._LINE_TYPE;
+			}
+			set
+			{
+				if ((this._LINE_TYPE != value))
+				{
+					this.OnLINE_TYPEChanging(value);
+					this.SendPropertyChanging();
+					this._LINE_TYPE = value;
+					this.SendPropertyChanged("LINE_TYPE");
+					this.OnLINE_TYPEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DFLT_STAT", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		public string DFLT_STAT
+		{
+			get
+			{
+				return this._DFLT_STAT;
+			}
+			set
+			{
+				if ((this._DFLT_STAT != value))
+				{
+					this.OnDFLT_STATChanging(value);
+					this.SendPropertyChanging();
+					this._DFLT_STAT = value;
+					this.SendPropertyChanged("DFLT_STAT");
+					this.OnDFLT_STATChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LAST_ROW_FTCH", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<long> LAST_ROW_FTCH
+		{
+			get
+			{
+				return this._LAST_ROW_FTCH;
+			}
+			set
+			{
+				if ((this._LAST_ROW_FTCH != value))
+				{
+					this.OnLAST_ROW_FTCHChanging(value);
+					this.SendPropertyChanging();
+					this._LAST_ROW_FTCH = value;
+					this.SendPropertyChanged("LAST_ROW_FTCH");
+					this.OnLAST_ROW_FTCHChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FTCH_ROW", DbType="Int", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<int> FTCH_ROW
+		{
+			get
+			{
+				return this._FTCH_ROW;
+			}
+			set
+			{
+				if ((this._FTCH_ROW != value))
+				{
+					this.OnFTCH_ROWChanging(value);
+					this.SendPropertyChanging();
+					this._FTCH_ROW = value;
+					this.SendPropertyChanged("FTCH_ROW");
+					this.OnFTCH_ROWChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_BY", DbType="VarChar(250)", UpdateCheck=UpdateCheck.Never)]
+		public string CRET_BY
+		{
+			get
+			{
+				return this._CRET_BY;
+			}
+			set
+			{
+				if ((this._CRET_BY != value))
+				{
+					this.OnCRET_BYChanging(value);
+					this.SendPropertyChanging();
+					this._CRET_BY = value;
+					this.SendPropertyChanged("CRET_BY");
+					this.OnCRET_BYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<System.DateTime> CRET_DATE
+		{
+			get
+			{
+				return this._CRET_DATE;
+			}
+			set
+			{
+				if ((this._CRET_DATE != value))
+				{
+					this.OnCRET_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._CRET_DATE = value;
+					this.SendPropertyChanged("CRET_DATE");
+					this.OnCRET_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_BY", DbType="VarChar(250)", UpdateCheck=UpdateCheck.Never)]
+		public string MDFY_BY
+		{
+			get
+			{
+				return this._MDFY_BY;
+			}
+			set
+			{
+				if ((this._MDFY_BY != value))
+				{
+					this.OnMDFY_BYChanging(value);
+					this.SendPropertyChanging();
+					this._MDFY_BY = value;
+					this.SendPropertyChanged("MDFY_BY");
+					this.OnMDFY_BYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<System.DateTime> MDFY_DATE
+		{
+			get
+			{
+				return this._MDFY_DATE;
+			}
+			set
+			{
+				if ((this._MDFY_DATE != value))
+				{
+					this.OnMDFY_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._MDFY_DATE = value;
+					this.SendPropertyChanged("MDFY_DATE");
+					this.OnMDFY_DATEChanged();
 				}
 			}
 		}

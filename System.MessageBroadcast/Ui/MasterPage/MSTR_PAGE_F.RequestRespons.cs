@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace System.MessageBroadcast.Ui.MasterPage
 {
@@ -174,6 +175,16 @@ namespace System.MessageBroadcast.Ui.MasterPage
       /// <param name="job"></param>
       private void Actn_CalF_P(Job job)
       {
+         var xinput = job.Input as XElement;
+         if(xinput != null)
+         {
+            switch(xinput.Attribute("actntype").Value)
+            {
+               case "getcredit":
+                  Btn_SmsServerRefresh_Click(null, null);
+                  break;
+            }
+         }
          job.Status = StatusType.Successful;
       }
    }

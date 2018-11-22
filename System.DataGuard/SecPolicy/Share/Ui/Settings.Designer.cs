@@ -201,7 +201,8 @@
          this.ServiceApp_Butn.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
          this.ServiceApp_Butn.Size = new System.Drawing.Size(208, 152);
          this.ServiceApp_Butn.TabIndex = 8;
-         this.ServiceApp_Butn.Text = "<b>سرویس های نرم افزار</b> <br> <color=Gray><size=9>آب و هوا</size></color> <br>";
+         this.ServiceApp_Butn.Text = "<b>سرویس های نرم افزار</b> <br> <color=Gray><size=9>آب و هوا، ارسال پیامک</size><" +
+    "/color> <br>";
          this.ServiceApp_Butn.Click += new System.EventHandler(this.ServiceApp_Butn_Click);
          // 
          // Privacy_Butn

@@ -588,5 +588,39 @@ namespace System.DataGuard.SecPolicy.Share.Ui
             )
          );
       }
+
+      private void EmptyDatabase_Butn_Click(object sender, EventArgs e)
+      {
+         Job _InteractWithJob =
+            new Job(SendType.External, "Localhost",
+               new List<Job>
+               {
+                  new Job(SendType.External, "Commons",
+                     new List<Job>
+                     {
+                        #region Access Privilege
+                        new Job(SendType.Self, 07 /* Execute DoWork4AccessPrivilege */)
+                        {
+                           Input = new List<string> {"<Privilege>39</Privilege><Sub_Sys>0</Sub_Sys>", "DataGuard"},
+                           AfterChangedOutput = new Action<object>((output) => {
+                              if ((bool)output)
+                                 return;
+                              #region Show Error
+                              MessageBox.Show(this, "خطا - عدم دسترسی به ردیف 39 امنیتی", "خطا دسترسی");
+                              #endregion                           
+                           })
+                        },
+                        #endregion
+                     })                     
+                  });
+         _DefaultGateway.Gateway(_InteractWithJob);
+
+         if(_InteractWithJob.Status == StatusType.Successful)
+         {
+            // First step full backup from database
+
+            // Run EMPTY DATABASE STORE PROCEDURE
+         }
+      }
    }
 }

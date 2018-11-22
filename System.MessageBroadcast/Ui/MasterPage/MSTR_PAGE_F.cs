@@ -85,6 +85,10 @@ namespace System.MessageBroadcast.Ui.MasterPage
                         if (xmsRespons.Descendants("SendCredit").Count() > 0)
                         {
                            LL_SmsSendCredit.Text = xmsRespons.Descendants("SendCredit").FirstOrDefault().Value;
+                           // 1397/09/01 * برای فایر شدن رخداد
+                           if(_tmpjob != null) _tmpjob.Output = xmsRespons;
+                           // ازاد کردن
+                           _tmpjob = null;
                         }
                         Btn_SmsServerRefresh.Enabled = true;
                      }));
@@ -125,7 +129,7 @@ namespace System.MessageBroadcast.Ui.MasterPage
                });
 
             Thread _tmpWorker = new Thread(new ThreadStart(smsServerRefresh));
-            _tmpWorker.Start();
+            _tmpWorker.Start();            
          }
          catch { }
       }

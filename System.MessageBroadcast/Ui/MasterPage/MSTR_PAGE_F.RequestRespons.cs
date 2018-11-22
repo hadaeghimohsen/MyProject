@@ -15,6 +15,7 @@ namespace System.MessageBroadcast.Ui.MasterPage
       public IRouter _DefaultGateway { get; set; }
       private Data.iProjectDataContext iProject;
       private string ConnectionString;
+      private Job _tmpjob;
 
       public void SendRequest(Job job)
       {
@@ -178,6 +179,7 @@ namespace System.MessageBroadcast.Ui.MasterPage
          var xinput = job.Input as XElement;
          if(xinput != null)
          {
+            _tmpjob = job;
             switch(xinput.Attribute("actntype").Value)
             {
                case "getcredit":

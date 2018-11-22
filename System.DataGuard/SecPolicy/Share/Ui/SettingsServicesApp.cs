@@ -93,29 +93,81 @@ namespace System.DataGuard.SecPolicy.Share.Ui
       {
          try
          {
-            PayResult_Lb.Appearance.Image = null;
+            SubmitChange_Butn_Click(null, null);
+
+            SmsResult_Lb.Appearance.Image = null;
 
             // To Do List
             _DefaultGateway.Gateway(
-               new Job(SendType.External, "localhost", "Commons:Program:Msgb:MSTR_PAGE_F", 10 /* Execute Actn_Calf_F */, SendType.SelfToUserInterface)
-               {
-                  Input = 
-                     new XElement("SmsConf",
-                        new XAttribute("actntype", "getcredit")
-                     ),
-                  AfterChangedOutput = 
-                     new Action<object>((output) =>
-                     {
+               new Job(SendType.External, "localhost", "Commons:Program:Msgb", 2 /* Execute Mstr_Page_F */, SendType.Self)               
+            );
 
-                     })
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost", "Commons:Program:Msgb:MSTR_PAGE_F", 00 /* Execute ProcessCmdKey */, SendType.SelfToUserInterface)
+               {
+                  Input = Keys.Escape
                }
             );
 
-            PayResult_Lb.Appearance.Image = System.DataGuard.Properties.Resources.IMAGE_1603;
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost",
+                  new List<Job>
+                  {
+                     new Job(SendType.External, "Commons",
+                        new List<Job>
+                        {
+                           new Job(SendType.External, "Program",
+                              new List<Job>
+                              {
+                                 new Job(SendType.External, "Msgb",
+                                    new List<Job>
+                                    {
+                                       new Job(SendType.SelfToUserInterface, "MSTR_PAGE_F", 10 /* Execuet Actn_Calf_F */)
+                                       {
+                                          Input =
+                                             new XElement("SmsConf",
+                                                new XAttribute("actntype", "getcredit")
+                                             ),
+                                          AfterChangedOutput =
+                                             new Action<object>((output) =>
+                                             {
+                                                var xoutput = output as XDocument;
+                                                if (InvokeRequired)
+                                                {
+                                                   Invoke(
+                                                      new Action(() => 
+                                                      {
+                                                         SmsResult_Lb.Appearance.Image = System.DataGuard.Properties.Resources.IMAGE_1603;
+                                                         SendCreditCount_Txt.Text = xoutput.Descendants("SendCredit").FirstOrDefault().Value;
+                                                         SendCreditAmnt_Txt.Text = xoutput.Descendants("SMS_SendFee").FirstOrDefault().Value;
+                                                         ReceiveCreditCount_Txt.Text = xoutput.Descendants("RecieveCredit").FirstOrDefault().Value;
+                                                         ReceiveCreditAmnt_Txt.Text = xoutput.Descendants("SMS_RecieveFee").FirstOrDefault().Value;
+                                                      })
+                                                   );
+                                                }
+                                                else
+                                                {
+                                                   SmsResult_Lb.Appearance.Image = System.DataGuard.Properties.Resources.IMAGE_1603;
+                                                   SendCreditCount_Txt.Text = xoutput.Descendants("SendCredit").FirstOrDefault().Value;
+                                                   SendCreditAmnt_Txt.Text = xoutput.Descendants("SMS_SendFee").FirstOrDefault().Value;
+                                                   ReceiveCreditCount_Txt.Text = xoutput.Descendants("RecieveCredit").FirstOrDefault().Value;
+                                                   ReceiveCreditAmnt_Txt.Text = xoutput.Descendants("SMS_RecieveFee").FirstOrDefault().Value;
+                                                }
+                                             })
+                                       }
+                                    }
+                                 )
+                              }
+                           )
+                        }
+                     )
+                  }
+               )
+            );
          }
          catch
          {
-            PayResult_Lb.Appearance.Image = System.DataGuard.Properties.Resources.IMAGE_1577;            
+            SmsResult_Lb.Appearance.Image = System.DataGuard.Properties.Resources.IMAGE_1577;            
          }
       }
    }

@@ -535,6 +535,7 @@
          this.colRegion1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.gridColumn79 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.Expn_Butn = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+         this.colQNTY = new DevExpress.XtraGrid.Columns.GridColumn();
          this.Parm4_Gb = new System.Windows.Forms.GroupBox();
          this.Back5_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.Find5_Butn = new DevExpress.XtraEditors.SimpleButton();
@@ -671,7 +672,6 @@
          this.RqstBnPrint_Butn = new System.Windows.Forms.ToolStripButton();
          this.RqstBnSettingPrint_Butn = new System.Windows.Forms.ToolStripButton();
          this.RqstBnExit1 = new System.Windows.Forms.ToolStripButton();
-         this.colQNTY = new DevExpress.XtraGrid.Columns.GridColumn();
          this.tc_master.SuspendLayout();
          this.tp_002.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl2)).BeginInit();
@@ -4906,6 +4906,16 @@
          this.Expn_Butn.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
          this.Expn_Butn.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.Expn_Butn_ButtonClick);
          // 
+         // colQNTY
+         // 
+         this.colQNTY.Caption = "تعداد";
+         this.colQNTY.FieldName = "QNTY";
+         this.colQNTY.Name = "colQNTY";
+         this.colQNTY.OptionsColumn.AllowEdit = false;
+         this.colQNTY.OptionsColumn.ReadOnly = true;
+         this.colQNTY.Visible = true;
+         this.colQNTY.VisibleIndex = 4;
+         // 
          // Parm4_Gb
          // 
          this.Parm4_Gb.Controls.Add(this.Back5_Butn);
@@ -6141,16 +6151,6 @@
          this.RqstBnExit1.Text = "toolStripButton3";
          this.RqstBnExit1.ToolTipText = "خروج";
          this.RqstBnExit1.Click += new System.EventHandler(this.Back_Butn_Click);
-         // 
-         // colQNTY
-         // 
-         this.colQNTY.Caption = "تعداد";
-         this.colQNTY.FieldName = "QNTY";
-         this.colQNTY.Name = "colQNTY";
-         this.colQNTY.OptionsColumn.AllowEdit = false;
-         this.colQNTY.OptionsColumn.ReadOnly = true;
-         this.colQNTY.Visible = true;
-         this.colQNTY.VisibleIndex = 4;
          // 
          // RPT_PMMT_F
          // 

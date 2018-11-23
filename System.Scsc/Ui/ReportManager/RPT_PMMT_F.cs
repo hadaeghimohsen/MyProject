@@ -22,6 +22,7 @@ namespace System.Scsc.Ui.ReportManager
 
       private bool requery = false;
       private string formName = "";
+      private long? cochfileno = null;
 
       private void Execute_Query()
       {
@@ -46,7 +47,9 @@ namespace System.Scsc.Ui.ReportManager
                      (rcmts.Count == 0 || rcmts.Contains(pm.RCPT_MTOD)) &&
                      (users.Count == 0 || (users.Contains(pm.CRET_BY) || users.Contains(pm.MDFY_BY))) &&
                      (pm.Request_Row.FIGH_FILE_NO == (fileno ?? pm.Request_Row.FIGH_FILE_NO)) &&
-                     (Fga_Uclb_U.Contains(pm.Payment.CLUB_CODE_DNRM))
+                     (Fga_Uclb_U.Contains(pm.Payment.CLUB_CODE_DNRM)) &&
+                     // 1397/09/02 * اضافه شدن فیلتر مربوط به مربی
+                     (cochfileno == null || pm.Payment.Payment_Details.Any(pd => pd.FIGH_FILE_NO == cochfileno))
                   );
             }
             else if(tc_master.SelectedTab == tp_002)
@@ -72,7 +75,9 @@ namespace System.Scsc.Ui.ReportManager
                      (rqtps.Count == 0 || rqtps.Contains(pd.Request_Row.RQTP_CODE)) &&
                      (users.Count == 0 || (users.Contains(pd.CRET_BY) || users.Contains(pd.MDFY_BY))) &&                     
                      (pd.Request_Row.FIGH_FILE_NO == (fileno ?? pd.Request_Row.FIGH_FILE_NO)) &&
-                     (Fga_Uclb_U.Contains(pd.Payment.CLUB_CODE_DNRM))
+                     (Fga_Uclb_U.Contains(pd.Payment.CLUB_CODE_DNRM)) &&
+                     // 1397/09/02 * اضافه شدن فیلتر مربوط به مربی
+                     (cochfileno == null || pd.FIGH_FILE_NO == cochfileno)
                   );
             }
             else if (tc_master.SelectedTab == tp_003)
@@ -97,7 +102,9 @@ namespace System.Scsc.Ui.ReportManager
                      //(pd.AMNT_TYPE != "004" /* به جز ملبغ های مابه التفاوت */) &&
                      (pd.Request_Row.FIGH_FILE_NO == (fileno ?? pd.Request_Row.FIGH_FILE_NO)) &&
                      ((Pyds004_Cb.Checked && pd.AMNT_TYPE == "004") || (Pyds004_Cb.Checked == false && pd.AMNT_TYPE != "004")) &&
-                     (Fga_Uclb_U.Contains(pd.Payment.CLUB_CODE_DNRM))
+                     (Fga_Uclb_U.Contains(pd.Payment.CLUB_CODE_DNRM)) &&
+                     // 1397/09/02 * اضافه شدن فیلتر مربوط به مربی
+                     (cochfileno == null || pd.Payment.Payment_Details.Any(pdt => pdt.FIGH_FILE_NO == cochfileno))
                   );
             }
             else if(tc_master.SelectedTab == tp_004)
@@ -109,7 +116,9 @@ namespace System.Scsc.Ui.ReportManager
                      me.DELV_STAT == "002" &&
                      me.CRET_DATE.Value.Date >= FromDate4_Date.Value.Value.Date &&
                      me.CRET_DATE.Value.Date <= ToDate4_Date.Value.Value.Date  &&
-                     (Fga_Uclb_U.Contains(me.CLUB_CODE))
+                     (Fga_Uclb_U.Contains(me.CLUB_CODE)) &&
+                     // 1397/09/02 * اضافه شدن فیلتر مربوط به مربی
+                     (cochfileno == null || me.COCH_FILE_NO == cochfileno)
                   );
             }
             else if (tc_master.SelectedTab == tp_005)

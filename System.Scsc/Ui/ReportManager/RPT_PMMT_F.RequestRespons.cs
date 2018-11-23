@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DevExpress.XtraEditors.Controls;
+using System;
 using System.Collections.Generic;
 using System.JobRouting.Jobs;
 using System.JobRouting.Routering;
@@ -620,7 +621,7 @@ namespace System.Scsc.Ui.ReportManager
       /// </summary>
       /// <param name="job"></param>
       private void CheckSecurity(Job job)
-      {
+      {         
          job.Status = StatusType.Successful;
       }
 
@@ -630,8 +631,44 @@ namespace System.Scsc.Ui.ReportManager
       /// <param name="job"></param>
       private void LoadData(Job job)
       {
+         Job _InteractWithScsc =
+            new Job(SendType.External, "Localhost",
+               new List<Job>
+               {
+                  new Job(SendType.External, "Commons",
+                     new List<Job>
+                     {
+                        #region Access Privilege
+                        new Job(SendType.Self, 07 /* Execute DoWork4AccessPrivilege */)
+                        {
+                           Input = new List<string> 
+                           {
+                              "<Privilege>236</Privilege><Sub_Sys>5</Sub_Sys>", 
+                              "DataGuard"
+                           },
+                           AfterChangedOutput = new Action<object>((output) => {
+                              if ((bool)output)
+                              {
+                                 VuserBs1.DataSource = iScsc.V_Users;
+                                 User_Lov.Properties.Items.OfType<CheckedListBoxItem>().ToList().ForEach(u => u.CheckState = CheckState.Checked);
+                                 User_Lov.Properties.ReadOnly = false;
+                              }
+                              else
+                              {
+                                 VuserBs1.DataSource = iScsc.V_Users.FirstOrDefault(u => u.USER_DB == CurrentUser);
+                                 User_Lov.Properties.Items.OfType<CheckedListBoxItem>().ToList().ForEach(u => u.CheckState = CheckState.Checked);
+                                 User_Lov.Properties.ReadOnly = true;                                 
+                              }
+                              //MessageBox.Show("خطا - عدم دسترسی به ردیف 218 سطوح امینتی", "عدم دسترسی");
+                           })
+                        },
+                        #endregion
+                     }),
+               });
+         _DefaultGateway.Gateway(_InteractWithScsc);
+
          DrcmtBs1.DataSource = iScsc.D_RCMTs;
-         VuserBs1.DataSource = iScsc.V_Users;
+         //VuserBs1.DataSource = iScsc.V_Users;
          DysnoBs2.DataSource = iScsc.D_YSNOs;
          DsxtpBs2.DataSource = iScsc.D_SXTPs;
          DpydsBs2.DataSource = iScsc.D_PYDS;
@@ -684,6 +721,10 @@ namespace System.Scsc.Ui.ReportManager
                   TotlPric_Clm.Visible = false;
                }
             }
+            if (xinput.Attribute("cochfileno") != null)
+               cochfileno = Convert.ToInt64(xinput.Attribute("cochfileno").Value);
+            else
+               cochfileno = null;
          }
          Execute_Query();
          job.Status = StatusType.Successful;

@@ -35,7 +35,7 @@ namespace System.Scsc.Ui.BaseDefinition
       {
          try
          {
-            FngrPrint_Text.EditValue =
+            FNGR_PRNT_TextEdit.EditValue =
                 iScsc.Fighters
                 .Where(f => f.FNGR_PRNT_DNRM != null && f.FNGR_PRNT_DNRM.Length > 0)
                 .Select(f => f.FNGR_PRNT_DNRM)
@@ -45,7 +45,7 @@ namespace System.Scsc.Ui.BaseDefinition
          }
          catch
          {
-            FngrPrint_Text.Text = "1";
+            FNGR_PRNT_TextEdit.Text = "1";
          }
       }
 
@@ -90,7 +90,7 @@ namespace System.Scsc.Ui.BaseDefinition
                         new XElement("Dise_Code", ""),
                         new XElement("Calc_Expn_Type", ""),
                         new XElement("Blod_grop", ""),
-                        new XElement("Fngr_Prnt", FngrPrint_Text.Text),
+                        new XElement("Fngr_Prnt", FNGR_PRNT_TextEdit.Text),
                         new XElement("Dpst_Acnt_Slry_Bank", ""),
                         new XElement("Dpst_Acnt_Slry", ""),
                         new XElement("Chat_Id", Chat_Id_TextEdit.Text)
@@ -106,7 +106,7 @@ namespace System.Scsc.Ui.BaseDefinition
                   {
                      Input =
                      new XElement("User",
-                        new XAttribute("enrollnumb", FngrPrint_Text.Text),
+                        new XAttribute("enrollnumb", FNGR_PRNT_TextEdit.Text),
                         new XAttribute("cardnumb", CardNum_Txt.Text),
                         new XAttribute("namednrm", FrstName_Text.Text + ", " + LastName_Text.Text)
                      )
@@ -186,7 +186,7 @@ namespace System.Scsc.Ui.BaseDefinition
                         new XElement("Dise_Code", ""),
                         new XElement("Calc_Expn_Type", ""),
                         new XElement("Blod_grop", ""),
-                        new XElement("Fngr_Prnt", FngrPrint_Text.Text),
+                        new XElement("Fngr_Prnt", FNGR_PRNT_TextEdit.Text),
                         new XElement("Dpst_Acnt_Slry_Bank", ""),
                         new XElement("Dpst_Acnt_Slry", ""),
                         new XElement("Chat_Id", Chat_Id_TextEdit.Text)
@@ -202,7 +202,7 @@ namespace System.Scsc.Ui.BaseDefinition
                   {
                      Input =
                      new XElement("User",
-                        new XAttribute("enrollnumb", FngrPrint_Text.Text),
+                        new XAttribute("enrollnumb", FNGR_PRNT_TextEdit.Text),
                         new XAttribute("cardnumb", CardNum_Txt.Text),
                         new XAttribute("namednrm", FrstName_Text.Text + ", " + LastName_Text.Text)
                      )
@@ -235,11 +235,97 @@ namespace System.Scsc.Ui.BaseDefinition
                      }
                   )
                );
-               FrstName_Text.Text = LastName_Text.Text = FngrPrint_Text.Text = Chat_Id_TextEdit.Text = "";
+               FrstName_Text.Text = LastName_Text.Text = FNGR_PRNT_TextEdit.Text = Chat_Id_TextEdit.Text = "";
                FrstName_Text.Focus();
                requery = false;
             }
          }
       }
+
+      #region Finger Print Device Operation
+      private void RqstBnEnrollFngrPrnt1_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            if (FNGR_PRNT_TextEdit.Text == "") { FNGR_PRNT_TextEdit.Focus(); return; }
+
+            //_DefaultGateway.Gateway(
+            //   new Job(SendType.External, "localhost", "MAIN_PAGE_F", 10 /* Execute actn_Calf_F */, SendType.SelfToUserInterface)
+            //   {
+            //      Input =
+            //         new XElement("Command",
+            //            new XAttribute("type", "fngrprntdev"),
+            //            new XAttribute("fngractn", "enroll"),
+            //            new XAttribute("fngrprnt", FNGR_PRNT_TextEdit.Text)
+            //         )
+            //   }
+            //);
+         }
+         catch{ }
+      }
+
+      private void RqstBnDeleteFngrPrnt1_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            if (FNGR_PRNT_TextEdit.Text == "") { FNGR_PRNT_TextEdit.Focus(); return; }
+
+            //_DefaultGateway.Gateway(
+            //   new Job(SendType.External, "localhost", "MAIN_PAGE_F", 10 /* Execute actn_Calf_F */, SendType.SelfToUserInterface)
+            //   {
+            //      Input =
+            //         new XElement("Command",
+            //            new XAttribute("type", "fngrprntdev"),
+            //            new XAttribute("fngractn", "enroll"),
+            //            new XAttribute("fngrprnt", FNGR_PRNT_TextEdit.Text)
+            //         )
+            //   }
+            //);
+         }
+         catch{ }
+      }
+
+      private void RqstBnEnrollFngrPrnt2_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            if (FNGR_PRNT_TextEdit.Text == "") { FNGR_PRNT_TextEdit.Focus(); return; }
+
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost", "MAIN_PAGE_F", 10 /* Execute actn_Calf_F */, SendType.SelfToUserInterface)
+               {
+                  Input =
+                     new XElement("Command",
+                        new XAttribute("type", "fngrprntdev"),
+                        new XAttribute("fngractn", "enroll"),
+                        new XAttribute("fngrprnt", FNGR_PRNT_TextEdit.Text)
+                     )
+               }
+            );
+         }
+         catch{ }
+      }
+
+      private void RqstBnDeleteFngrPrnt2_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            if (FNGR_PRNT_TextEdit.Text == "") { FNGR_PRNT_TextEdit.Focus(); return; }
+
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost", "MAIN_PAGE_F", 10 /* Execute actn_Calf_F */, SendType.SelfToUserInterface)
+               {
+                  Input =
+                     new XElement("Command",
+                        new XAttribute("type", "fngrprntdev"),
+                        new XAttribute("fngractn", "delete"),
+                        new XAttribute("fngrprnt", FNGR_PRNT_TextEdit.Text)
+                     )
+               }
+            );
+         }
+         catch{ }
+      }
+      #endregion
    }
 }

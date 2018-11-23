@@ -43,7 +43,7 @@
          this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
          this.gridControl1 = new DevExpress.XtraGrid.GridControl();
          this.UserClubBs = new System.Windows.Forms.BindingSource(this.components);
-         this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
+         this.UserClub_Gv = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colFGA_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colCLUB_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.SysUser_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -59,7 +59,7 @@
          this.ClubName_Lb = new DevExpress.XtraEditors.LabelControl();
          this.RevokeUserFromClub_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.cashGridControl = new DevExpress.XtraGrid.GridControl();
-         this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+         this.User_Gv = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.UserName_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colUSER_DB = new DevExpress.XtraGrid.Columns.GridColumn();
          this.panel1.SuspendLayout();
@@ -68,10 +68,10 @@
          this.splitContainerControl1.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.UserClubBs)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.UserClub_Gv)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.cashGridControl)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.User_Gv)).BeginInit();
          this.SuspendLayout();
          // 
          // panel1
@@ -183,30 +183,30 @@
          this.gridControl1.Location = new System.Drawing.Point(0, 52);
          this.gridControl1.LookAndFeel.SkinName = "Office 2013 Dark Gray";
          this.gridControl1.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.gridControl1.MainView = this.gridView2;
+         this.gridControl1.MainView = this.UserClub_Gv;
          this.gridControl1.Name = "gridControl1";
          this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemLookUpEdit1});
          this.gridControl1.Size = new System.Drawing.Size(269, 309);
          this.gridControl1.TabIndex = 11;
          this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView2});
+            this.UserClub_Gv});
          // 
          // UserClubBs
          // 
          this.UserClubBs.DataSource = typeof(System.Scsc.Data.User_Club_Fgac);
          // 
-         // gridView2
+         // UserClub_Gv
          // 
-         this.gridView2.Appearance.HeaderPanel.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.gridView2.Appearance.HeaderPanel.Options.UseFont = true;
-         this.gridView2.Appearance.HeaderPanel.Options.UseTextOptions = true;
-         this.gridView2.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-         this.gridView2.Appearance.Row.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.gridView2.Appearance.Row.Options.UseFont = true;
-         this.gridView2.Appearance.Row.Options.UseTextOptions = true;
-         this.gridView2.Appearance.Row.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-         this.gridView2.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+         this.UserClub_Gv.Appearance.HeaderPanel.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.UserClub_Gv.Appearance.HeaderPanel.Options.UseFont = true;
+         this.UserClub_Gv.Appearance.HeaderPanel.Options.UseTextOptions = true;
+         this.UserClub_Gv.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         this.UserClub_Gv.Appearance.Row.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.UserClub_Gv.Appearance.Row.Options.UseFont = true;
+         this.UserClub_Gv.Appearance.Row.Options.UseTextOptions = true;
+         this.UserClub_Gv.Appearance.Row.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         this.UserClub_Gv.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colFGA_CODE,
             this.colCLUB_CODE,
             this.SysUser_Clm,
@@ -228,16 +228,17 @@
          styleFormatCondition2.ApplyToRow = true;
          styleFormatCondition2.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
          styleFormatCondition2.Value1 = "001";
-         this.gridView2.FormatConditions.AddRange(new DevExpress.XtraGrid.StyleFormatCondition[] {
+         this.UserClub_Gv.FormatConditions.AddRange(new DevExpress.XtraGrid.StyleFormatCondition[] {
             styleFormatCondition1,
             styleFormatCondition2});
-         this.gridView2.GridControl = this.gridControl1;
-         this.gridView2.Name = "gridView2";
-         this.gridView2.OptionsBehavior.Editable = false;
-         this.gridView2.OptionsBehavior.ReadOnly = true;
-         this.gridView2.OptionsView.ShowDetailButtons = false;
-         this.gridView2.OptionsView.ShowGroupPanel = false;
-         this.gridView2.OptionsView.ShowIndicator = false;
+         this.UserClub_Gv.GridControl = this.gridControl1;
+         this.UserClub_Gv.Name = "UserClub_Gv";
+         this.UserClub_Gv.OptionsBehavior.Editable = false;
+         this.UserClub_Gv.OptionsBehavior.ReadOnly = true;
+         this.UserClub_Gv.OptionsView.ShowDetailButtons = false;
+         this.UserClub_Gv.OptionsView.ShowGroupPanel = false;
+         this.UserClub_Gv.OptionsView.ShowIndicator = false;
+         this.UserClub_Gv.DoubleClick += new System.EventHandler(this.UserClub_Gv_DoubleClick);
          // 
          // colFGA_CODE
          // 
@@ -352,24 +353,24 @@
          this.cashGridControl.Location = new System.Drawing.Point(0, 0);
          this.cashGridControl.LookAndFeel.SkinName = "Office 2013 Dark Gray";
          this.cashGridControl.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.cashGridControl.MainView = this.gridView1;
+         this.cashGridControl.MainView = this.User_Gv;
          this.cashGridControl.Name = "cashGridControl";
          this.cashGridControl.Size = new System.Drawing.Size(268, 361);
          this.cashGridControl.TabIndex = 11;
          this.cashGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView1});
+            this.User_Gv});
          // 
-         // gridView1
+         // User_Gv
          // 
-         this.gridView1.Appearance.HeaderPanel.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.gridView1.Appearance.HeaderPanel.Options.UseFont = true;
-         this.gridView1.Appearance.HeaderPanel.Options.UseTextOptions = true;
-         this.gridView1.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-         this.gridView1.Appearance.Row.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.gridView1.Appearance.Row.Options.UseFont = true;
-         this.gridView1.Appearance.Row.Options.UseTextOptions = true;
-         this.gridView1.Appearance.Row.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-         this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+         this.User_Gv.Appearance.HeaderPanel.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.User_Gv.Appearance.HeaderPanel.Options.UseFont = true;
+         this.User_Gv.Appearance.HeaderPanel.Options.UseTextOptions = true;
+         this.User_Gv.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         this.User_Gv.Appearance.Row.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.User_Gv.Appearance.Row.Options.UseFont = true;
+         this.User_Gv.Appearance.Row.Options.UseTextOptions = true;
+         this.User_Gv.Appearance.Row.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         this.User_Gv.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.UserName_Clm,
             this.colUSER_DB});
          styleFormatCondition3.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
@@ -382,16 +383,17 @@
          styleFormatCondition4.ApplyToRow = true;
          styleFormatCondition4.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
          styleFormatCondition4.Value1 = "001";
-         this.gridView1.FormatConditions.AddRange(new DevExpress.XtraGrid.StyleFormatCondition[] {
+         this.User_Gv.FormatConditions.AddRange(new DevExpress.XtraGrid.StyleFormatCondition[] {
             styleFormatCondition3,
             styleFormatCondition4});
-         this.gridView1.GridControl = this.cashGridControl;
-         this.gridView1.Name = "gridView1";
-         this.gridView1.OptionsBehavior.Editable = false;
-         this.gridView1.OptionsBehavior.ReadOnly = true;
-         this.gridView1.OptionsView.ShowDetailButtons = false;
-         this.gridView1.OptionsView.ShowGroupPanel = false;
-         this.gridView1.OptionsView.ShowIndicator = false;
+         this.User_Gv.GridControl = this.cashGridControl;
+         this.User_Gv.Name = "User_Gv";
+         this.User_Gv.OptionsBehavior.Editable = false;
+         this.User_Gv.OptionsBehavior.ReadOnly = true;
+         this.User_Gv.OptionsView.ShowDetailButtons = false;
+         this.User_Gv.OptionsView.ShowGroupPanel = false;
+         this.User_Gv.OptionsView.ShowIndicator = false;
+         this.User_Gv.DoubleClick += new System.EventHandler(this.User_Gv_DoubleClick);
          // 
          // UserName_Clm
          // 
@@ -424,10 +426,10 @@
          this.splitContainerControl1.ResumeLayout(false);
          ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.UserClubBs)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.UserClub_Gv)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.cashGridControl)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.User_Gv)).EndInit();
          this.ResumeLayout(false);
 
       }
@@ -443,9 +445,9 @@
       private DevExpress.XtraEditors.SplitContainerControl splitContainerControl1;
       private DevExpress.XtraEditors.SimpleButton RevokeUserFromClub_Butn;
       private DevExpress.XtraGrid.GridControl gridControl1;
-      private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
+      private DevExpress.XtraGrid.Views.Grid.GridView UserClub_Gv;
       private DevExpress.XtraGrid.GridControl cashGridControl;
-      private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+      private DevExpress.XtraGrid.Views.Grid.GridView User_Gv;
       private DevExpress.XtraEditors.LabelControl ClubName_Lb;
       private Windows.Forms.BindingSource UserClubBs;
       private DevExpress.XtraGrid.Columns.GridColumn colFGA_CODE;

@@ -131,5 +131,15 @@ namespace System.Scsc.Ui.BaseDefinition
          }
 
       }
+
+      private void User_Gv_DoubleClick(object sender, EventArgs e)
+      {
+         GrantUserToClub_Butn_Click(null, null);
+      }
+
+      private void UserClub_Gv_DoubleClick(object sender, EventArgs e)
+      {
+         RevokeUserFromClub_Butn_Click(null, null);
+      }
    }
 }

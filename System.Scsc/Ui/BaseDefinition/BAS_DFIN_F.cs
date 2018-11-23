@@ -1928,6 +1928,12 @@ namespace System.Scsc.Ui.BaseDefinition
             var coch = CochBs1.Current as Data.Fighter;
             if (coch == null) return;
 
+            if(Tb_Master.SelectedTab == tp_005)
+            {
+               RqstBnCochName_Butn.Text = coch.NAME_DNRM;
+               RqstBnCochName_Butn.Text += " ( " + coch.FNGR_PRNT_DNRM + " )";
+            }
+
             switch (coch.ACTV_TAG_DNRM)
             {
                case "101":
@@ -2200,6 +2206,13 @@ namespace System.Scsc.Ui.BaseDefinition
          }
 
          CochName_Lb.Text = cbmt.Fighter.NAME_DNRM;
+         FngrPrnt_Lb.Text = cbmt.Fighter.FNGR_PRNT_DNRM == "" ? "نامشخص" : cbmt.Fighter.FNGR_PRNT_DNRM;
+
+         if(Tb_Master.SelectedTab == tp_006)
+         {
+            RqstBnCochName_Butn.Text = CochName_Lb.Text;
+            RqstBnCochName_Butn.Text += " ( " + FngrPrnt_Lb.Text + " )";
+         }
 
          var listMbsp = 
             iScsc.Member_Ships
@@ -2217,6 +2230,7 @@ namespace System.Scsc.Ui.BaseDefinition
 
          try
          {
+            CochProFile_Rb.ImageVisiable = true;
             CochProFile_Rb.ImageProfile = null;
             MemoryStream mStream = new MemoryStream();
             byte[] pData = iScsc.GET_PIMG_U(new XElement("Fighter", new XAttribute("fileno", cbmt.COCH_FILE_NO))).ToArray();
@@ -2577,6 +2591,431 @@ namespace System.Scsc.Ui.BaseDefinition
          {
             MessageBox.Show(exc.Message);
          }
+      }
+
+      #region Finger Print Device Operation
+      private void RqstBnEnrollFngrPrnt1_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            string FngrPrnt = "";
+            if(Tb_Master.SelectedTab == tp_005)
+            {
+               var coch = CochBs1.Current as Data.Fighter;
+               if (coch == null) return;
+               FngrPrnt = coch.FNGR_PRNT_DNRM;
+
+               if (FngrPrnt == "") return;
+            }
+            else if(Tb_Master.SelectedTab == tp_006)
+            {
+               var cbmt = CbmtBs2.Current as Data.Club_Method;
+               if (cbmt == null) return;
+               FngrPrnt = cbmt.Fighter.FNGR_PRNT_DNRM;
+
+               if (FngrPrnt == "") return;
+            }
+
+            //_DefaultGateway.Gateway(
+            //   new Job(SendType.External, "localhost", "MAIN_PAGE_F", 10 /* Execute actn_Calf_F */, SendType.SelfToUserInterface)
+            //   {
+            //      Input =
+            //         new XElement("Command",
+            //            new XAttribute("type", "fngrprntdev"),
+            //            new XAttribute("fngractn", "enroll"),
+            //            new XAttribute("fngrprnt", FNGR_PRNT_TextEdit.Text)
+            //         )
+            //   }
+            //);
+         }
+         catch { }
+      }
+
+      private void RqstBnDeleteFngrPrnt1_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            string FngrPrnt = "";
+            if (Tb_Master.SelectedTab == tp_005)
+            {
+               var coch = CochBs1.Current as Data.Fighter;
+               if (coch == null) return;
+               FngrPrnt = coch.FNGR_PRNT_DNRM;
+
+               if (FngrPrnt == "") return;
+            }
+            else if (Tb_Master.SelectedTab == tp_006)
+            {
+               var cbmt = CbmtBs2.Current as Data.Club_Method;
+               if (cbmt == null) return;
+               FngrPrnt = cbmt.Fighter.FNGR_PRNT_DNRM;
+
+               if (FngrPrnt == "") return;
+            }
+
+            //_DefaultGateway.Gateway(
+            //   new Job(SendType.External, "localhost", "MAIN_PAGE_F", 10 /* Execute actn_Calf_F */, SendType.SelfToUserInterface)
+            //   {
+            //      Input =
+            //         new XElement("Command",
+            //            new XAttribute("type", "fngrprntdev"),
+            //            new XAttribute("fngractn", "enroll"),
+            //            new XAttribute("fngrprnt", FNGR_PRNT_TextEdit.Text)
+            //         )
+            //   }
+            //);
+         }
+         catch { }
+      }
+
+      private void RqstBnEnrollFngrPrnt2_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            string FngrPrnt = "";
+            if (Tb_Master.SelectedTab == tp_005)
+            {
+               var coch = CochBs1.Current as Data.Fighter;
+               if (coch == null) return;
+               FngrPrnt = coch.FNGR_PRNT_DNRM;
+
+               if (FngrPrnt == "") return;
+            }
+            else if (Tb_Master.SelectedTab == tp_006)
+            {
+               var cbmt = CbmtBs2.Current as Data.Club_Method;
+               if (cbmt == null) return;
+               FngrPrnt = cbmt.Fighter.FNGR_PRNT_DNRM;
+
+               if (FngrPrnt == "") return;
+            }
+
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost", "MAIN_PAGE_F", 10 /* Execute actn_Calf_F */, SendType.SelfToUserInterface)
+               {
+                  Input =
+                     new XElement("Command",
+                        new XAttribute("type", "fngrprntdev"),
+                        new XAttribute("fngractn", "enroll"),
+                        new XAttribute("fngrprnt", FngrPrnt)
+                     )
+               }
+            );
+         }
+         catch { }
+      }
+
+      private void RqstBnDeleteFngrPrnt2_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            string FngrPrnt = "";
+            if (Tb_Master.SelectedTab == tp_005)
+            {
+               var coch = CochBs1.Current as Data.Fighter;
+               if (coch == null) return;
+               FngrPrnt = coch.FNGR_PRNT_DNRM;
+
+               if (FngrPrnt == "") return;
+            }
+            else if (Tb_Master.SelectedTab == tp_006)
+            {
+               var cbmt = CbmtBs2.Current as Data.Club_Method;
+               if (cbmt == null) return;
+               FngrPrnt = cbmt.Fighter.FNGR_PRNT_DNRM;
+
+               if (FngrPrnt == "") return;
+            }
+
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost", "MAIN_PAGE_F", 10 /* Execute actn_Calf_F */, SendType.SelfToUserInterface)
+               {
+                  Input =
+                     new XElement("Command",
+                        new XAttribute("type", "fngrprntdev"),
+                        new XAttribute("fngractn", "delete"),
+                        new XAttribute("fngrprnt", FngrPrnt)
+                     )
+               }
+            );
+         }
+         catch { }
+      }
+      #endregion
+
+      private void RqstBnCochName_Butn_Click(object sender, EventArgs e)
+      {
+         if(Tb_Master.SelectedTab == tp_005)
+         {
+            CochInfo_Lnk_LinkClicked(null, null);
+         }
+         else if(Tb_Master.SelectedTab == tp_006)
+         {
+            CochProFile_Rb_Click(null, null);
+         }
+      }
+
+      private void RqstBnEditPblc_Click(object sender, EventArgs e)
+      {
+         long fileno = 0;
+         if(Tb_Master.SelectedTab == tp_005)
+         {
+            var coch = CochBs1.Current as Data.Fighter;
+            if (coch == null) return;
+
+            fileno = coch.FILE_NO;
+         }
+         else if(Tb_Master.SelectedTab == tp_006)
+         {
+            var cbmt = CbmtBs2.Current as Data.Club_Method;
+            if (cbmt == null) return;
+
+            fileno = (long)cbmt.COCH_FILE_NO;
+         }
+
+         _DefaultGateway.Gateway(
+            new Job(SendType.External, "Localhost",
+               new List<Job>
+               {
+                  new Job(SendType.Self, 70 /* Execute Adm_Chng_F */),
+                  new Job(SendType.SelfToUserInterface, "ADM_CHNG_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "changeinfo"), new XAttribute("fileno", fileno), new XAttribute("auto", "true"), new XAttribute("formcaller", GetType().Name))}
+               })
+         );
+      }
+
+      private void RqstBnInComeDay_Butn_Click(object sender, EventArgs e)
+      {
+         long fileno = 0;
+         if (Tb_Master.SelectedTab == tp_005)
+         {
+            var coch = CochBs1.Current as Data.Fighter;
+            if (coch == null) return;
+
+            fileno = coch.FILE_NO;
+         }
+         else if (Tb_Master.SelectedTab == tp_006)
+         {
+            var cbmt = CbmtBs2.Current as Data.Club_Method;
+            if (cbmt == null) return;
+
+            fileno = (long)cbmt.COCH_FILE_NO;
+         }
+
+         Job _InteractWithScsc =
+            new Job(SendType.External, "Localhost",
+               new List<Job>
+               {
+                  new Job(SendType.External, "Commons",
+                     new List<Job>
+                     {
+                        #region Access Privilege
+                        new Job(SendType.Self, 07 /* Execute DoWork4AccessPrivilege */)
+                        {
+                           Input = new List<string> 
+                           {
+                              "<Privilege>218</Privilege><Sub_Sys>5</Sub_Sys>", 
+                              "DataGuard"
+                           },
+                           AfterChangedOutput = new Action<object>((output) => {
+                              if ((bool)output)
+                                 return;
+                              MessageBox.Show("خطا - عدم دسترسی به ردیف 218 سطوح امینتی", "عدم دسترسی");
+                           })
+                        },
+                        #endregion
+                     }),
+                  #region DoWork
+                  new Job(SendType.Self, 135 /* Execute Rpt_Pmmt_F */),
+                  new Job(SendType.SelfToUserInterface, "RPT_PMMT_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "tp_001"), new XAttribute("formname", "RPT_PYM2_F"), new XAttribute("fromdate", DateTime.Now), new XAttribute("todate", DateTime.Now), new XAttribute("useraccount", "manager"), new XAttribute("cochfileno", fileno))}
+                  #endregion
+               });
+         _DefaultGateway.Gateway(_InteractWithScsc);
+      }
+
+      private void RqstBnInComeWeek_Butn_Click(object sender, EventArgs e)
+      {
+         long fileno = 0;
+         if (Tb_Master.SelectedTab == tp_005)
+         {
+            var coch = CochBs1.Current as Data.Fighter;
+            if (coch == null) return;
+
+            fileno = coch.FILE_NO;
+         }
+         else if (Tb_Master.SelectedTab == tp_006)
+         {
+            var cbmt = CbmtBs2.Current as Data.Club_Method;
+            if (cbmt == null) return;
+
+            fileno = (long)cbmt.COCH_FILE_NO;
+         }
+
+         var strtdate = DateTime.Now;
+         switch (strtdate.DayOfWeek)
+         {
+            case DayOfWeek.Friday:
+               strtdate = strtdate.AddDays(-6);
+               break;
+            case DayOfWeek.Monday:
+               strtdate = strtdate.AddDays(-2);
+               break;
+            case DayOfWeek.Saturday:
+               break;
+            case DayOfWeek.Sunday:
+               strtdate = strtdate.AddDays(-1);
+               break;
+            case DayOfWeek.Thursday:
+               strtdate = strtdate.AddDays(-5);
+               break;
+            case DayOfWeek.Tuesday:
+               strtdate = strtdate.AddDays(-3);
+               break;
+            case DayOfWeek.Wednesday:
+               strtdate = strtdate.AddDays(-4);
+               break;
+         }         
+         var enddate = DateTime.Now;
+         Job _InteractWithScsc =
+            new Job(SendType.External, "Localhost",
+               new List<Job>
+               {
+                  new Job(SendType.External, "Commons",
+                     new List<Job>
+                     {
+                        #region Access Privilege
+                        new Job(SendType.Self, 07 /* Execute DoWork4AccessPrivilege */)
+                        {
+                           Input = new List<string> 
+                           {
+                              "<Privilege>218</Privilege><Sub_Sys>5</Sub_Sys>", 
+                              "DataGuard"
+                           },
+                           AfterChangedOutput = new Action<object>((output) => {
+                              if ((bool)output)
+                                 return;
+                              MessageBox.Show("خطا - عدم دسترسی به ردیف 218 سطوح امینتی", "عدم دسترسی");
+                           })
+                        },
+                        #endregion
+                     }),
+                  #region DoWork
+                  new Job(SendType.Self, 135 /* Execute Rpt_Pmmt_F */),
+                  new Job(SendType.SelfToUserInterface, "RPT_PMMT_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "tp_001"), new XAttribute("formname", "RPT_PYM2_F"), new XAttribute("fromdate", strtdate), new XAttribute("todate", enddate), new XAttribute("useraccount", "manager"), new XAttribute("cochfileno", fileno))}
+                  #endregion
+               });
+         _DefaultGateway.Gateway(_InteractWithScsc);
+      }
+
+      private void RqstBnInComeMonth_Butn_Click(object sender, EventArgs e)
+      {
+         long fileno = 0;
+         if (Tb_Master.SelectedTab == tp_005)
+         {
+            var coch = CochBs1.Current as Data.Fighter;
+            if (coch == null) return;
+
+            fileno = coch.FILE_NO;
+         }
+         else if (Tb_Master.SelectedTab == tp_006)
+         {
+            var cbmt = CbmtBs2.Current as Data.Club_Method;
+            if (cbmt == null) return;
+
+            fileno = (long)cbmt.COCH_FILE_NO;
+         }
+
+         var strtdate = DateTime.Now;
+         PersianCalendar pc = new PersianCalendar();
+         strtdate = strtdate.AddDays(-(pc.GetDayOfMonth(strtdate) - 1));
+         var enddate = DateTime.Now;
+         Job _InteractWithScsc =
+            new Job(SendType.External, "Localhost",
+               new List<Job>
+               {
+                  new Job(SendType.External, "Commons",
+                     new List<Job>
+                     {
+                        #region Access Privilege
+                        new Job(SendType.Self, 07 /* Execute DoWork4AccessPrivilege */)
+                        {
+                           Input = new List<string> 
+                           {
+                              "<Privilege>218</Privilege><Sub_Sys>5</Sub_Sys>", 
+                              "DataGuard"
+                           },
+                           AfterChangedOutput = new Action<object>((output) => {
+                              if ((bool)output)
+                                 return;
+                              MessageBox.Show("خطا - عدم دسترسی به ردیف 218 سطوح امینتی", "عدم دسترسی");
+                           })
+                        },
+                        #endregion
+                     }),
+                  #region DoWork
+                  new Job(SendType.Self, 135 /* Execute Rpt_Pmmt_F */),
+                  new Job(SendType.SelfToUserInterface, "RPT_PMMT_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "tp_001"), new XAttribute("formname", "RPT_PYM2_F"), new XAttribute("fromdate", strtdate), new XAttribute("todate", enddate), new XAttribute("useraccount", "manager"), new XAttribute("cochfileno", fileno))}
+                  #endregion
+               });
+         _DefaultGateway.Gateway(_InteractWithScsc);                  
+      }
+
+      private void RqstBnInComeYear_Butn_Click(object sender, EventArgs e)
+      {
+         long fileno = 0;
+         if (Tb_Master.SelectedTab == tp_005)
+         {
+            var coch = CochBs1.Current as Data.Fighter;
+            if (coch == null) return;
+
+            fileno = coch.FILE_NO;
+         }
+         else if (Tb_Master.SelectedTab == tp_006)
+         {
+            var cbmt = CbmtBs2.Current as Data.Club_Method;
+            if (cbmt == null) return;
+
+            fileno = (long)cbmt.COCH_FILE_NO;
+         }
+
+         var strtdate = DateTime.Now;
+         PersianCalendar pc = new PersianCalendar();
+         strtdate = strtdate.AddMonths(-(pc.GetMonth(strtdate) - 1));
+         strtdate = strtdate.AddDays(-(pc.GetDayOfMonth(strtdate) - 1));
+         var enddate = DateTime.Now;
+         Job _InteractWithScsc =
+            new Job(SendType.External, "Localhost",
+               new List<Job>
+               {
+                  new Job(SendType.External, "Commons",
+                     new List<Job>
+                     {
+                        #region Access Privilege
+                        new Job(SendType.Self, 07 /* Execute DoWork4AccessPrivilege */)
+                        {
+                           Input = new List<string> 
+                           {
+                              "<Privilege>218</Privilege><Sub_Sys>5</Sub_Sys>", 
+                              "DataGuard"
+                           },
+                           AfterChangedOutput = new Action<object>((output) => {
+                              if ((bool)output)
+                                 return;
+                              MessageBox.Show("خطا - عدم دسترسی به ردیف 218 سطوح امینتی", "عدم دسترسی");
+                           })
+                        },
+                        #endregion
+                     }),
+                  #region DoWork
+                  new Job(SendType.Self, 135 /* Execute Rpt_Pmmt_F */),
+                  new Job(SendType.SelfToUserInterface, "RPT_PMMT_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "tp_001"), new XAttribute("formname", "RPT_PYM2_F"), new XAttribute("fromdate", strtdate), new XAttribute("todate", enddate), new XAttribute("useraccount", "manager"), new XAttribute("cochfileno", fileno))}
+                  #endregion
+               });
+         _DefaultGateway.Gateway(_InteractWithScsc);                  
+      }
+
+      private void RqstBnAttnMonth_Butn_Click(object sender, EventArgs e)
+      {
+
       }
    }
 }

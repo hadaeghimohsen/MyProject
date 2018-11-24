@@ -808,6 +808,7 @@
          this.RqtpCode1_Lb.Size = new System.Drawing.Size(83, 14);
          this.RqtpCode1_Lb.TabIndex = 16;
          this.RqtpCode1_Lb.Text = "نوع درخواست :";
+         this.RqtpCode1_Lb.Visible = false;
          // 
          // CochFileNo1_Lb
          // 
@@ -818,6 +819,7 @@
          this.CochFileNo1_Lb.Size = new System.Drawing.Size(59, 14);
          this.CochFileNo1_Lb.TabIndex = 16;
          this.CochFileNo1_Lb.Text = "نام مربی :";
+         this.CochFileNo1_Lb.Visible = false;
          // 
          // RcptMtod_Lb
          // 
@@ -858,6 +860,7 @@
          this.CochFileNo3_Lb.Size = new System.Drawing.Size(59, 14);
          this.CochFileNo3_Lb.TabIndex = 16;
          this.CochFileNo3_Lb.Text = "نام مربی :";
+         this.CochFileNo3_Lb.Visible = false;
          // 
          // RqtpCode3_Lb
          // 
@@ -868,6 +871,7 @@
          this.RqtpCode3_Lb.Size = new System.Drawing.Size(83, 14);
          this.RqtpCode3_Lb.TabIndex = 16;
          this.RqtpCode3_Lb.Text = "نوع درخواست :";
+         this.RqtpCode3_Lb.Visible = false;
          // 
          // ToDate3_Lb
          // 
@@ -978,6 +982,7 @@
          this.CochFileNo2_Lb.Size = new System.Drawing.Size(59, 14);
          this.CochFileNo2_Lb.TabIndex = 16;
          this.CochFileNo2_Lb.Text = "نام مربی :";
+         this.CochFileNo2_Lb.Visible = false;
          // 
          // RqtpCode2_Lb
          // 
@@ -988,6 +993,7 @@
          this.RqtpCode2_Lb.Size = new System.Drawing.Size(83, 14);
          this.RqtpCode2_Lb.TabIndex = 16;
          this.RqtpCode2_Lb.Text = "نوع درخواست :";
+         this.RqtpCode2_Lb.Visible = false;
          // 
          // ToDate2_Lb
          // 
@@ -2065,6 +2071,7 @@
          this.Figh_Lov2.Properties.View = this.Figh_Gv2;
          this.Figh_Lov2.Size = new System.Drawing.Size(240, 22);
          this.Figh_Lov2.TabIndex = 3;
+         this.Figh_Lov2.Visible = false;
          // 
          // FighBs1
          // 
@@ -2538,6 +2545,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
          this.User_Lov2.Location = new System.Drawing.Point(6, 135);
          this.User_Lov2.Name = "User_Lov2";
+         this.User_Lov2.Properties.AllowMultiSelect = true;
          this.User_Lov2.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
          this.User_Lov2.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.User_Lov2.Properties.Appearance.Options.UseBackColor = true;
@@ -2550,6 +2558,7 @@
          this.User_Lov2.Properties.DisplayMember = "USER_NAME";
          this.User_Lov2.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
          this.User_Lov2.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.User_Lov2.Properties.SelectAllItemVisible = false;
          this.User_Lov2.Properties.ValueMember = "USER_DB";
          this.User_Lov2.Size = new System.Drawing.Size(240, 22);
          this.User_Lov2.TabIndex = 5;
@@ -2579,6 +2588,7 @@
          this.Rqtp_Lov2.Properties.ValueMember = "CODE";
          this.Rqtp_Lov2.Size = new System.Drawing.Size(240, 22);
          this.Rqtp_Lov2.TabIndex = 2;
+         this.Rqtp_Lov2.Visible = false;
          // 
          // RqtpBs1
          // 
@@ -3067,6 +3077,7 @@
          this.Figh_Lov.Properties.View = this.searchLookUpEdit1View;
          this.Figh_Lov.Size = new System.Drawing.Size(192, 22);
          this.Figh_Lov.TabIndex = 3;
+         this.Figh_Lov.Visible = false;
          // 
          // searchLookUpEdit1View
          // 
@@ -3595,6 +3606,7 @@
          this.Rqtp_Lov.Properties.ValueMember = "CODE";
          this.Rqtp_Lov.Size = new System.Drawing.Size(192, 22);
          this.Rqtp_Lov.TabIndex = 2;
+         this.Rqtp_Lov.Visible = false;
          // 
          // ToDate1_Date
          // 
@@ -4036,6 +4048,7 @@
          this.Figh_Lov3.Properties.View = this.gridView5;
          this.Figh_Lov3.Size = new System.Drawing.Size(175, 22);
          this.Figh_Lov3.TabIndex = 3;
+         this.Figh_Lov3.Visible = false;
          // 
          // gridView5
          // 
@@ -4542,6 +4555,7 @@
          this.Rqtp_Lov3.Properties.ValueMember = "CODE";
          this.Rqtp_Lov3.Size = new System.Drawing.Size(175, 22);
          this.Rqtp_Lov3.TabIndex = 2;
+         this.Rqtp_Lov3.Visible = false;
          // 
          // ToDate3_Date
          // 

@@ -2785,7 +2785,9 @@ namespace System.Scsc.Ui.BaseDefinition
 
       private void RqstBnInComeDay_Butn_Click(object sender, EventArgs e)
       {
-         long fileno = 0;
+         long? fileno = 0,
+              cbmtcode = null;
+         
          if (Tb_Master.SelectedTab == tp_005)
          {
             var coch = CochBs1.Current as Data.Fighter;
@@ -2799,6 +2801,7 @@ namespace System.Scsc.Ui.BaseDefinition
             if (cbmt == null) return;
 
             fileno = (long)cbmt.COCH_FILE_NO;
+            cbmtcode = cbmt.CODE;
          }
 
          Job _InteractWithScsc =
@@ -2826,7 +2829,19 @@ namespace System.Scsc.Ui.BaseDefinition
                      }),
                   #region DoWork
                   new Job(SendType.Self, 135 /* Execute Rpt_Pmmt_F */),
-                  new Job(SendType.SelfToUserInterface, "RPT_PMMT_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "tp_001"), new XAttribute("formname", "RPT_PYM2_F"), new XAttribute("fromdate", DateTime.Now), new XAttribute("todate", DateTime.Now), new XAttribute("useraccount", "manager"), new XAttribute("cochfileno", fileno))}
+                  new Job(SendType.SelfToUserInterface, "RPT_PMMT_F", 10 /* Actn_CalF_P */)
+                  {
+                     Input = 
+                        new XElement("Request", 
+                           new XAttribute("type", "tp_001"), 
+                           new XAttribute("formname", "RPT_PYM1_F"), 
+                           new XAttribute("fromdate", DateTime.Now), 
+                           new XAttribute("todate", DateTime.Now), 
+                           new XAttribute("useraccount", "manager"), 
+                           new XAttribute("cochfileno", fileno),
+                           cbmtcode != null ? new XAttribute("cbmtcode", cbmtcode) : null
+                        )
+                  }
                   #endregion
                });
          _DefaultGateway.Gateway(_InteractWithScsc);
@@ -2834,7 +2849,9 @@ namespace System.Scsc.Ui.BaseDefinition
 
       private void RqstBnInComeWeek_Butn_Click(object sender, EventArgs e)
       {
-         long fileno = 0;
+         long? fileno = 0,
+              cbmtcode = null;
+
          if (Tb_Master.SelectedTab == tp_005)
          {
             var coch = CochBs1.Current as Data.Fighter;
@@ -2848,6 +2865,7 @@ namespace System.Scsc.Ui.BaseDefinition
             if (cbmt == null) return;
 
             fileno = (long)cbmt.COCH_FILE_NO;
+            cbmtcode = cbmt.CODE;
          }
 
          var strtdate = DateTime.Now;
@@ -2900,7 +2918,19 @@ namespace System.Scsc.Ui.BaseDefinition
                      }),
                   #region DoWork
                   new Job(SendType.Self, 135 /* Execute Rpt_Pmmt_F */),
-                  new Job(SendType.SelfToUserInterface, "RPT_PMMT_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "tp_001"), new XAttribute("formname", "RPT_PYM2_F"), new XAttribute("fromdate", strtdate), new XAttribute("todate", enddate), new XAttribute("useraccount", "manager"), new XAttribute("cochfileno", fileno))}
+                  new Job(SendType.SelfToUserInterface, "RPT_PMMT_F", 10 /* Actn_CalF_P */)
+                  {
+                     Input = 
+                        new XElement("Request", 
+                           new XAttribute("type", "tp_001"), 
+                           new XAttribute("formname", "RPT_PYM1_F"), 
+                           new XAttribute("fromdate", strtdate), 
+                           new XAttribute("todate", enddate), 
+                           new XAttribute("useraccount", "manager"), 
+                           new XAttribute("cochfileno", fileno),
+                           cbmtcode != null ? new XAttribute("cbmtcode", cbmtcode) : null
+                        )
+                  }
                   #endregion
                });
          _DefaultGateway.Gateway(_InteractWithScsc);
@@ -2908,7 +2938,9 @@ namespace System.Scsc.Ui.BaseDefinition
 
       private void RqstBnInComeMonth_Butn_Click(object sender, EventArgs e)
       {
-         long fileno = 0;
+         long? fileno = 0,
+              cbmtcode = null;
+
          if (Tb_Master.SelectedTab == tp_005)
          {
             var coch = CochBs1.Current as Data.Fighter;
@@ -2922,6 +2954,7 @@ namespace System.Scsc.Ui.BaseDefinition
             if (cbmt == null) return;
 
             fileno = (long)cbmt.COCH_FILE_NO;
+            cbmtcode = cbmt.CODE;
          }
 
          var strtdate = DateTime.Now;
@@ -2953,7 +2986,19 @@ namespace System.Scsc.Ui.BaseDefinition
                      }),
                   #region DoWork
                   new Job(SendType.Self, 135 /* Execute Rpt_Pmmt_F */),
-                  new Job(SendType.SelfToUserInterface, "RPT_PMMT_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "tp_001"), new XAttribute("formname", "RPT_PYM2_F"), new XAttribute("fromdate", strtdate), new XAttribute("todate", enddate), new XAttribute("useraccount", "manager"), new XAttribute("cochfileno", fileno))}
+                  new Job(SendType.SelfToUserInterface, "RPT_PMMT_F", 10 /* Actn_CalF_P */)
+                  {
+                     Input = 
+                        new XElement("Request", 
+                           new XAttribute("type", "tp_001"), 
+                           new XAttribute("formname", "RPT_PYM1_F"), 
+                           new XAttribute("fromdate", strtdate), 
+                           new XAttribute("todate", enddate), 
+                           new XAttribute("useraccount", "manager"), 
+                           new XAttribute("cochfileno", fileno),
+                           cbmtcode != null ? new XAttribute("cbmtcode", cbmtcode) : null
+                        )
+                  }
                   #endregion
                });
          _DefaultGateway.Gateway(_InteractWithScsc);                  
@@ -2961,7 +3006,9 @@ namespace System.Scsc.Ui.BaseDefinition
 
       private void RqstBnInComeYear_Butn_Click(object sender, EventArgs e)
       {
-         long fileno = 0;
+         long? fileno = 0,
+              cbmtcode = null;
+
          if (Tb_Master.SelectedTab == tp_005)
          {
             var coch = CochBs1.Current as Data.Fighter;
@@ -2975,6 +3022,7 @@ namespace System.Scsc.Ui.BaseDefinition
             if (cbmt == null) return;
 
             fileno = (long)cbmt.COCH_FILE_NO;
+            cbmtcode = cbmt.CODE;
          }
 
          var strtdate = DateTime.Now;
@@ -3007,7 +3055,19 @@ namespace System.Scsc.Ui.BaseDefinition
                      }),
                   #region DoWork
                   new Job(SendType.Self, 135 /* Execute Rpt_Pmmt_F */),
-                  new Job(SendType.SelfToUserInterface, "RPT_PMMT_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "tp_001"), new XAttribute("formname", "RPT_PYM2_F"), new XAttribute("fromdate", strtdate), new XAttribute("todate", enddate), new XAttribute("useraccount", "manager"), new XAttribute("cochfileno", fileno))}
+                  new Job(SendType.SelfToUserInterface, "RPT_PMMT_F", 10 /* Actn_CalF_P */)
+                  {
+                     Input = 
+                        new XElement("Request", 
+                           new XAttribute("type", "tp_001"), 
+                           new XAttribute("formname", "RPT_PYM1_F"), 
+                           new XAttribute("fromdate", strtdate), 
+                           new XAttribute("todate", enddate), 
+                           new XAttribute("useraccount", "manager"), 
+                           new XAttribute("cochfileno", fileno),
+                           cbmtcode != null ? new XAttribute("cbmtcode", cbmtcode) : null
+                        )
+                  }
                   #endregion
                });
          _DefaultGateway.Gateway(_InteractWithScsc);                  

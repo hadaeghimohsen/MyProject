@@ -650,22 +650,24 @@ namespace System.Scsc.Ui.ReportManager
                               if ((bool)output)
                               {
                                  VuserBs1.DataSource = iScsc.V_Users;
-                                 //User_Lov.Properties.Items.OfType<CheckedListBoxItem>().ToList().ForEach(u => u.CheckState = CheckState.Checked);
-                                 User_Lov.Properties.ReadOnly = false;
+                                 User_Lov.Properties.AllowMultiSelect = User_Lov2.Properties.AllowMultiSelect = User_Lov3.Properties.AllowMultiSelect = true;
+                                 User_Lov.Properties.SelectAllItemVisible = User_Lov2.Properties.SelectAllItemVisible = User_Lov3.Properties.SelectAllItemVisible = true;
+                                 User_Lov.Properties.ReadOnly = User_Lov2.Properties.ReadOnly = User_Lov3.Properties.ReadOnly = false;
                               }
                               else
                               {
                                  VuserBs1.DataSource = iScsc.V_Users.FirstOrDefault(u => u.USER_DB == CurrentUser);
+                                 User_Lov.Properties.GetItems();
+                                 User_Lov2.Properties.GetItems();
+                                 User_Lov3.Properties.GetItems();
+
                                  User_Lov.Properties.Items.OfType<CheckedListBoxItem>().ToList().ForEach(u => u.CheckState = CheckState.Checked);
-                                 User_Lov.Properties.ReadOnly = true;
-
                                  User_Lov2.Properties.Items.OfType<CheckedListBoxItem>().ToList().ForEach(u => u.CheckState = CheckState.Checked);
-                                 User_Lov2.Properties.ReadOnly = true;
-
                                  User_Lov3.Properties.Items.OfType<CheckedListBoxItem>().ToList().ForEach(u => u.CheckState = CheckState.Checked);
-                                 User_Lov3.Properties.ReadOnly = true;
+                                 User_Lov.Properties.AllowMultiSelect = User_Lov2.Properties.AllowMultiSelect = User_Lov3.Properties.AllowMultiSelect = true;
+                                 User_Lov.Properties.SelectAllItemVisible = User_Lov2.Properties.SelectAllItemVisible = User_Lov3.Properties.SelectAllItemVisible = false;
+                                 User_Lov.Properties.ReadOnly = User_Lov2.Properties.ReadOnly = User_Lov3.Properties.ReadOnly = true;
                               }
-                              //MessageBox.Show("خطا - عدم دسترسی به ردیف 218 سطوح امینتی", "عدم دسترسی");
                            })
                         },
                         #endregion
@@ -731,6 +733,11 @@ namespace System.Scsc.Ui.ReportManager
                cochfileno = Convert.ToInt64(xinput.Attribute("cochfileno").Value);
             else
                cochfileno = null;
+
+            if (xinput.Attribute("cbmtcode") != null)
+               cbmtcode = Convert.ToInt64(xinput.Attribute("cbmtcode").Value);
+            else
+               cbmtcode = null;
          }
          Execute_Query();
          job.Status = StatusType.Successful;

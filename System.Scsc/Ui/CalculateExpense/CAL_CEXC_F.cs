@@ -41,6 +41,7 @@ namespace System.Scsc.Ui.CalculateExpense
             Validate();
             MsexBs.EndEdit();
             MosxBs2.EndEdit();
+            Pyde_Gv.PostEditor();
             iScsc.SubmitChanges();
             requery = true;
          }

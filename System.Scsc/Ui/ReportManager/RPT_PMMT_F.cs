@@ -22,7 +22,7 @@ namespace System.Scsc.Ui.ReportManager
 
       private bool requery = false;
       private string formName = "";
-      private long? cochfileno = null;
+      private long? cochfileno = null, cbmtcode = null;
 
       private void Execute_Query()
       {
@@ -49,7 +49,8 @@ namespace System.Scsc.Ui.ReportManager
                      (pm.Request_Row.FIGH_FILE_NO == (fileno ?? pm.Request_Row.FIGH_FILE_NO)) &&
                      (Fga_Uclb_U.Contains(pm.Payment.CLUB_CODE_DNRM)) &&
                      // 1397/09/02 * اضافه شدن فیلتر مربوط به مربی
-                     (cochfileno == null || pm.Payment.Payment_Details.Any(pd => pd.FIGH_FILE_NO == cochfileno))
+                     (cochfileno == null || pm.Payment.Payment_Details.Any(pd => pd.FIGH_FILE_NO == cochfileno)) &&
+                     (cbmtcode == null || pm.Payment.Payment_Details.Any(pd => pd.CBMT_CODE_DNRM == cbmtcode))
                   );
             }
             else if(tc_master.SelectedTab == tp_002)
@@ -77,7 +78,8 @@ namespace System.Scsc.Ui.ReportManager
                      (pd.Request_Row.FIGH_FILE_NO == (fileno ?? pd.Request_Row.FIGH_FILE_NO)) &&
                      (Fga_Uclb_U.Contains(pd.Payment.CLUB_CODE_DNRM)) &&
                      // 1397/09/02 * اضافه شدن فیلتر مربوط به مربی
-                     (cochfileno == null || pd.FIGH_FILE_NO == cochfileno)
+                     (cochfileno == null || pd.FIGH_FILE_NO == cochfileno) &&
+                     (cbmtcode == null || pd.CBMT_CODE_DNRM == cbmtcode)
                   );
             }
             else if (tc_master.SelectedTab == tp_003)
@@ -104,7 +106,8 @@ namespace System.Scsc.Ui.ReportManager
                      ((Pyds004_Cb.Checked && pd.AMNT_TYPE == "004") || (Pyds004_Cb.Checked == false && pd.AMNT_TYPE != "004")) &&
                      (Fga_Uclb_U.Contains(pd.Payment.CLUB_CODE_DNRM)) &&
                      // 1397/09/02 * اضافه شدن فیلتر مربوط به مربی
-                     (cochfileno == null || pd.Payment.Payment_Details.Any(pdt => pdt.FIGH_FILE_NO == cochfileno))
+                     (cochfileno == null || pd.Payment.Payment_Details.Any(pdt => pdt.FIGH_FILE_NO == cochfileno)) &&
+                     (cbmtcode == null || pd.Payment.Payment_Details.Any(pdt => pdt.CBMT_CODE_DNRM == cbmtcode))
                   );
             }
             else if(tc_master.SelectedTab == tp_004)
@@ -375,7 +378,14 @@ namespace System.Scsc.Ui.ReportManager
                               new XAttribute("type", "Selection"), 
                               new XAttribute("modual", /*GetType().Name*/formName), 
                               new XAttribute("section", GetType().Name.Substring(0,3) + "_001_F"),
-                              string.Format("<Request fromrqstdate=\"{0}\" torqstdate=\"{1}\" cretby=\"{2}\"><Club_Method cochfileno=\"{3}\" code=\"{4}\" ctgycode=\"{5}\"/></Request>", FromDate2_Date.Value.Value.Date.ToString("yyyy-MM-dd"), ToDate2_Date.Value.Value.Date.ToString("yyyy-MM-dd"), User_Lov2.EditValue, Figh_Lov2.EditValue, Cbmt_Lov2.EditValue, Ctgy_lov2.EditValue )
+                              //string.Format("<Request fromrqstdate=\"{0}\" torqstdate=\"{1}\" cretby=\"{2}\"><Club_Method cochfileno=\"{3}\" code=\"{4}\" ctgycode=\"{5}\"/></Request>", FromDate2_Date.Value.Value.Date.ToString("yyyy-MM-dd"), ToDate2_Date.Value.Value.Date.ToString("yyyy-MM-dd"), User_Lov2.EditValue, Figh_Lov2.EditValue, Cbmt_Lov2.EditValue, Ctgy_lov2.EditValue )
+                              string.Format("<Request fromrqstdate=\"{0}\" torqstdate=\"{1}\" cretby=\"{2}\"><Club_Method cochfileno=\"{3}\" code=\"{4}\" ctgycode=\"{5}\"/></Request>", 
+                                            FromDate2_Date.Value.Value.Date.ToString("yyyy-MM-dd"), 
+                                            ToDate2_Date.Value.Value.Date.ToString("yyyy-MM-dd"), 
+                                            User_Lov2.EditValue, 
+                                            /*Figh_Lov2.EditValue*/cochfileno, 
+                                            /*Cbmt_Lov2.EditValue*/cbmtcode, 
+                                            Ctgy_lov2.EditValue )
                            )
                      }
                   });

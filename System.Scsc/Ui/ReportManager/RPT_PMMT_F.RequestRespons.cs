@@ -650,14 +650,20 @@ namespace System.Scsc.Ui.ReportManager
                               if ((bool)output)
                               {
                                  VuserBs1.DataSource = iScsc.V_Users;
-                                 User_Lov.Properties.Items.OfType<CheckedListBoxItem>().ToList().ForEach(u => u.CheckState = CheckState.Checked);
+                                 //User_Lov.Properties.Items.OfType<CheckedListBoxItem>().ToList().ForEach(u => u.CheckState = CheckState.Checked);
                                  User_Lov.Properties.ReadOnly = false;
                               }
                               else
                               {
                                  VuserBs1.DataSource = iScsc.V_Users.FirstOrDefault(u => u.USER_DB == CurrentUser);
                                  User_Lov.Properties.Items.OfType<CheckedListBoxItem>().ToList().ForEach(u => u.CheckState = CheckState.Checked);
-                                 User_Lov.Properties.ReadOnly = true;                                 
+                                 User_Lov.Properties.ReadOnly = true;
+
+                                 User_Lov2.Properties.Items.OfType<CheckedListBoxItem>().ToList().ForEach(u => u.CheckState = CheckState.Checked);
+                                 User_Lov2.Properties.ReadOnly = true;
+
+                                 User_Lov3.Properties.Items.OfType<CheckedListBoxItem>().ToList().ForEach(u => u.CheckState = CheckState.Checked);
+                                 User_Lov3.Properties.ReadOnly = true;
                               }
                               //MessageBox.Show("خطا - عدم دسترسی به ردیف 218 سطوح امینتی", "عدم دسترسی");
                            })

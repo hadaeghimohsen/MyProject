@@ -162,12 +162,32 @@ namespace System.RoboTech.Controller
             {
                await Send_Advertising(Token, chat);
             }
-            catch { }
+            catch(Exception exc) {
+               if (ConsoleOutLog_MemTxt.InvokeRequired)
+                  ConsoleOutLog_MemTxt.Invoke(new Action(() => ConsoleOutLog_MemTxt.Text += exc.Message));
+               else
+                  ConsoleOutLog_MemTxt.Text += exc.Message;
+
+               Bot.SendTextMessageAsync(
+                  chat.Message.Chat.Id,
+                  exc.Message
+               );
+            }
             try
             {
                await Send_Replay_Message(Token, chat);
             }
-            catch { }
+            catch(Exception exc) {
+               if (ConsoleOutLog_MemTxt.InvokeRequired)
+                  ConsoleOutLog_MemTxt.Invoke(new Action(() => ConsoleOutLog_MemTxt.Text += exc.Message));
+               else
+                  ConsoleOutLog_MemTxt.Text += exc.Message;
+
+               Bot.SendTextMessageAsync(
+                  chat.Message.Chat.Id,
+                  exc.Message
+               );
+            }
             
 
             /* اگر برای اولین بار داره ربات رو اجرا می کنه می تونیم چک کنیم آیا متن مقدماتی داریم به بخوایم بهش نشون بدیم
@@ -698,6 +718,7 @@ namespace System.RoboTech.Controller
                   {
                      elmntype = "006";
                      mimetype = chat.Message.Audio.MimeType;
+                     filename = e.Message.Audio.FileId;
                   }
                   try                  
                   {
@@ -726,6 +747,9 @@ namespace System.RoboTech.Controller
                               ),
                               new XElement("Document",
                                  new XAttribute("fileid", chat.Message.Document != null ? chat.Message.Document.FileId : "")
+                              ),
+                              new XElement("Audio",
+                                 new XAttribute("fileid", chat.Message.Audio != null ? chat.Message.Audio.FileId : "")
                               )
                            )
                         ), connectionString);
@@ -2649,7 +2673,7 @@ namespace System.RoboTech.Controller
                         {
                            try
                            {
-                              Bot.SendAudioAsync((long)s.CHAT_ID, file,"*", 0, send.TEXT_MESG, "#");
+                              Bot.SendAudioAsync((long)s.CHAT_ID, file,send.TEXT_MESG ?? "No Audio Caption", 0, send.TEXT_MESG, "#");
                               var srsa = new Data.Service_Robot_Send_Advertising()
                               {
                                  Service_Robot = s,

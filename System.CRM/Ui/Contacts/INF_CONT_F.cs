@@ -66,10 +66,10 @@ namespace System.CRM.Ui.Contacts
          else
             TwitterUrl_Butn.Enabled = true;
 
-         if ((serv.RQST_RQID ?? 0) > 0)
-            RqstRqid_Lbl.BackColor = Color.YellowGreen;
-         else
-            RqstRqid_Lbl.BackColor = Color.FromArgb(241, 241, 241);
+         //if ((serv.RQST_RQID ?? 0) > 0)
+         //   RqstRqid_Lbl.BackColor = Color.YellowGreen;
+         //else
+         //   RqstRqid_Lbl.BackColor = Color.FromArgb(241, 241, 241);
 
          if (Convert.ToInt32(serv.ONOF_TAG_DNRM) <= 100)
             DeleteRecycleService_Butn.ImageProfile = System.CRM.Properties.Resources.IMAGE_1541;

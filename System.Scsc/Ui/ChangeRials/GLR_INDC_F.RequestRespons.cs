@@ -406,6 +406,11 @@ namespace System.Scsc.Ui.ChangeRials
                FIGH_FILE_NOLookUpEdit.EditValue = Convert.ToInt64(xinput.Attribute("fileno").Value);
                Btn_RqstRqt1_Click(null, null);               
             }
+            else if (xinput.Attribute("type").Value == "rqidfocus")
+            {
+               ShowRqst_PickButn.PickChecked = false;
+               RqstBs1.Position = RqstBs1.IndexOf(RqstBs1.List.OfType<Data.Request>().FirstOrDefault(r => r.RQID == Convert.ToInt64(xinput.Attribute("rqid").Value)));
+            }
             else
                Execute_Query();
          }

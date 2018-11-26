@@ -95,14 +95,77 @@ namespace System.Scsc.Ui.UserAction
          switch (e.Button.Index)
          {
             case 0:
-               var RqstChek = RqstBs1.Current as Data.Request;
+               var Rqst = RqstBs1.Current as Data.Request;
+               if (Rqst == null) return;
+
+               int SpecFormNumb = 0;
+               string SpecFormString = "";
+
+               switch(Rqst.RQTP_CODE)
+               {
+                  case "001":
+                     // ثبت نام
+                     SpecFormNumb = 123;
+                     SpecFormString = "ADM_FIGH_F";
+                     break;
+                  case "002":
+                     // تغییر مشخصات عمومی
+                     SpecFormNumb = 70;
+                     SpecFormString = "ADM_CHNG_F";
+                     break;
+                  case "009":
+                     // تمدید دوره
+                     SpecFormNumb = 64;
+                     SpecFormString = "ADM_TOTL_F";
+                     break;
+                  case "012":
+                     // تمدید کارت بیمه
+                     SpecFormNumb = 80;
+                     SpecFormString = "INS_TOTL_F";
+                     break;
+                  case "016":
+                     // درآمد متفرقه
+                     SpecFormNumb = 92;
+                     SpecFormString = "OIC_TOTL_F";
+                     break;
+                  case "020":
+                     // تغییرات ریالی
+                     SpecFormNumb = 153;
+                     SpecFormString = "GLR_INDC_F";
+                     break;
+                  case "026":
+                     // بلوکه کردن
+                     SpecFormNumb = 133;
+                     SpecFormString = "ADM_MBFZ_F";
+                     break;
+               }
+
+               _DefaultGateway.Gateway(
+                  new Job(SendType.External, "localhost",
+                     new List<Job>
+                     {
+                        new Job(SendType.Self, SpecFormNumb /* Execute Specify Form */),
+                        new Job(SendType.SelfToUserInterface, SpecFormString, 10 /* Execute Actn_Calf_F */)
+                        {
+                           Input = 
+                              new XElement("Request",
+                                 new XAttribute("type", "rqidfocus"),
+                                 new XAttribute("rqid", Rqst.RQID)
+                              )
+                        }
+                     }
+                  )
+               );
+
+               Back_Butn_Click(null, null);
+
                break;
             case 1:
                try
                {
                   if (MessageBox.Show(this, "آیا با انصراف و حذف درخواست مطمئن هستید؟", "هشدار!", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
 
-                  var Rqst = RqstBs1.Current as Data.Request;
+                  Rqst = RqstBs1.Current as Data.Request;
                   {
                      if (Rqst != null && Rqst.RQID > 0)
                      {

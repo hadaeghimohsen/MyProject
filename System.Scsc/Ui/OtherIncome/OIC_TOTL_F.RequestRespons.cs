@@ -461,12 +461,13 @@ namespace System.Scsc.Ui.OtherIncome
       /// <param name="job"></param>
       private void Actn_CalF_P(Job job)
       {
-         if ((job.Input as XElement).Element("Request_Row") != null)
-            fileno = (job.Input as XElement).Element("Request_Row").Attribute("fileno").Value;
+         var xinput = job.Input as XElement;
+         if (xinput.Element("Request_Row") != null)
+            fileno = xinput.Element("Request_Row").Attribute("fileno").Value;
          else
             fileno = "";
 
-         switch ((job.Input as XElement).Attribute("type").Value)
+         switch (xinput.Attribute("type").Value)
          {
             case "01":
                var figh = iScsc.Fighters.Where(f => f.FILE_NO == Convert.ToInt64(fileno)).First();
@@ -478,26 +479,29 @@ namespace System.Scsc.Ui.OtherIncome
                   FILE_NO_LookUpEdit.EditValue = fileno;
 
                   // 1397/05/26 * rqstrqid
-                  if ((job.Input as XElement).Attribute("rqstrqid") != null)
-                     rqstRqid = Convert.ToInt64((job.Input as XElement).Attribute("rqstrqid").Value);
+                  if (xinput.Attribute("rqstrqid") != null)
+                     rqstRqid = Convert.ToInt64(xinput.Attribute("rqstrqid").Value);
                   else
                      rqstRqid = 0;
 
                   Btn_RqstBnARqt1_Click(null, null);
 
                   // 1397/05/16
-                  if ((job.Input as XElement).Attribute("formcaller") != null)
-                     formCaller = (job.Input as XElement).Attribute("formcaller").Value;
+                  if (xinput.Attribute("formcaller") != null)
+                     formCaller = xinput.Attribute("formcaller").Value;
                   else
                      formCaller = "";
 
                   // 1397/05/26 * followups
-                  if ((job.Input as XElement).Attribute("followups") != null)
-                     followups = (job.Input as XElement).Attribute("followups").Value;
+                  if (xinput.Attribute("followups") != null)
+                     followups = xinput.Attribute("followups").Value;
                   else
                      followups = "";
                }
-               break;            
+               break; 
+            case "rqidfocus":
+               RqstBs1.Position = RqstBs1.IndexOf(RqstBs1.List.OfType<Data.Request>().FirstOrDefault(r => r.RQID == Convert.ToInt64(xinput.Attribute("rqid").Value)));
+               break;
             case "refresh":
                Execute_Query();
                break;

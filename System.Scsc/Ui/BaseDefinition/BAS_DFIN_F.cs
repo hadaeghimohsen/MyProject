@@ -3077,5 +3077,55 @@ namespace System.Scsc.Ui.BaseDefinition
       {
 
       }
+
+      private void Organ_Lnk_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+      {
+         Job _InteractWithScsc =
+            new Job(SendType.External, "Localhost",
+               new List<Job>
+               {
+                  new Job(SendType.External, "Commons",
+                     new List<Job>
+                     {
+                        #region Access Privilege
+                        new Job(SendType.Self, 07 /* Execute DoWork4AccessPrivilege */)
+                        {
+                           Input = new List<string> 
+                           {
+                              "<Privilege>171</Privilege><Sub_Sys>5</Sub_Sys>", 
+                              "DataGuard"
+                           },
+                           AfterChangedOutput = new Action<object>((output) => {
+                              if ((bool)output)
+                                 return;
+                              #region Show Error
+                              MessageBox.Show("خطا: عدم دسترسی به کد 171");
+                              #endregion                           
+                           })
+                        },
+                        new Job(SendType.Self, 07 /* Execute DoWork4AccessPrivilege */)
+                        {
+                           Input = new List<string> 
+                           {
+                              "<Privilege>175</Privilege><Sub_Sys>5</Sub_Sys>", 
+                              "DataGuard"
+                           },
+                           AfterChangedOutput = new Action<object>((output) => {
+                              if ((bool)output)
+                                 return;
+                              #region Show Error
+                              MessageBox.Show("خطا: عدم دسترسی به کد 175");
+                              #endregion                           
+                           })
+                        }
+                        #endregion
+                     }),
+                  #region DoWork
+                  new Job(SendType.Self, 108 /* Execute Orgn_Totl_F */),
+                  new Job(SendType.SelfToUserInterface, "ORGN_TOTL_F", 10 /* Actn_CalF_P */)
+                  #endregion
+                  });
+         _DefaultGateway.Gateway(_InteractWithScsc);
+      }
    }
 }

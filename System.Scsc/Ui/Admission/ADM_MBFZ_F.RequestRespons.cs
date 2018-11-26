@@ -375,27 +375,33 @@ namespace System.Scsc.Ui.Admission
       {
          try
          {
-            if ((job.Input as XElement).Attribute("enrollnumber") != null)
+            var xinput = job.Input as XElement;
+            if (xinput.Attribute("enrollnumber") != null)
             {
-               if ((job.Input as XElement).Attribute("type").Value == "block")
+               if (xinput.Attribute("type").Value == "block")
                {
                   if (RqstBs1.Count > 0 && (RqstBs1.Current as Data.Request).RQID > 0)
                      RqstBs1.AddNew();
 
                   Data.Fighter figh = null;
-                  if((job.Input as XElement).Attribute("enrollnumber").Value != "")
-                     figh = iScsc.Fighters.Where(f => f.FNGR_PRNT_DNRM == (job.Input as XElement).Attribute("enrollnumber").Value).FirstOrDefault();
+                  if (xinput.Attribute("enrollnumber").Value != "")
+                     figh = iScsc.Fighters.Where(f => f.FNGR_PRNT_DNRM == xinput.Attribute("enrollnumber").Value).FirstOrDefault();
                   else
-                     figh = iScsc.Fighters.Where(f => f.FILE_NO == Convert.ToInt64((job.Input as XElement).Attribute("fileno").Value)).FirstOrDefault();
+                     figh = iScsc.Fighters.Where(f => f.FILE_NO == Convert.ToInt64(xinput.Attribute("fileno").Value)).FirstOrDefault();
                   FIGH_FILE_NOLookUpEdit.EditValue = figh.FILE_NO;
                   Btn_RqstRqt3_Click(null, null);
 
                   // 1396/11/04
-                  if ((job.Input as XElement).Attribute("formcaller") != null)
-                     formCaller = (job.Input as XElement).Attribute("formcaller").Value;
+                  if (xinput.Attribute("formcaller") != null)
+                     formCaller = xinput.Attribute("formcaller").Value;
                   else
                      formCaller = "";
                }
+            }
+            else if (xinput.Attribute("type").Value == "rqidfocus")
+            {
+               ShowRqst_PickButn.PickChecked = false;
+               RqstBs1.Position = RqstBs1.IndexOf(RqstBs1.List.OfType<Data.Request>().FirstOrDefault(r => r.RQID == Convert.ToInt64(xinput.Attribute("rqid").Value)));
             }
             else
                Execute_Query();

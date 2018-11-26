@@ -623,8 +623,9 @@ namespace System.Scsc.Ui.Admission
          try
          {
             CardNumb_Text.Text = "";
+            var xinput = job.Input as XElement;
             //tb_master.TabPages.Clear();
-            switch ((job.Input as XElement).Attribute("type").Value)
+            switch (xinput.Attribute("type").Value)
             {
                case "fighter":
                   //tb_master.TabPages.Add(tp_001);
@@ -638,33 +639,39 @@ namespace System.Scsc.Ui.Admission
                   //tb_master.TabPages.Add(tp_003);
                   //tb_master.SelectedTab = tp_003;
                   break;
+
             }
-            if ((job.Input as XElement).Attribute("enrollnumber") != null)
+            if (xinput.Attribute("enrollnumber") != null)
             {
-               if ((job.Input as XElement).Attribute("type").Value == "fighter")
+               if (xinput.Attribute("type").Value == "fighter")
                {
                   //INSR_NUMB_TextEdit.Text = FNGR_PRNT_TextEdit.Text = (job.Input as XElement).Attribute("enrollnumber").Value;
                   //INSR_DATE_PersianDateEdit.Value = DateTime.Now;
                }
-               if ((job.Input as XElement).Attribute("type").Value == "coach")
+               if (xinput.Attribute("type").Value == "coach")
                {
                   //Insr_Numb_TextEdit2.Text = Fngr_Prnt_TextEdit2.Text = (job.Input as XElement).Attribute("enrollnumber").Value;
                   //Insr_Date_PersianDateEdit2.Value = DateTime.Now;
                }
-               else if ((job.Input as XElement).Attribute("type").Value == "renewcontract")
+               else if (xinput.Attribute("type").Value == "renewcontract")
                {
-                  var figh = iScsc.Fighters.Where(f => f.FNGR_PRNT_DNRM == (job.Input as XElement).Attribute("enrollnumber").Value).FirstOrDefault();
+                  var figh = iScsc.Fighters.Where(f => f.FNGR_PRNT_DNRM == xinput.Attribute("enrollnumber").Value).FirstOrDefault();
                   //FIGH_FILE_NOLookUpEdit.EditValue = figh.FILE_NO;
                   //RQTT_CODE_LookUpEdit3.EditValue = figh.FGPB_TYPE_DNRM;
                }
-               FNGR_PRNT_TextEdit.EditValue = (job.Input as XElement).Attribute("enrollnumber").Value;
+               FNGR_PRNT_TextEdit.EditValue = xinput.Attribute("enrollnumber").Value;
             }
-            else if ((job.Input as XElement).Attribute("type").Value == "setcard")
+            else if (xinput.Attribute("type").Value == "setcard")
             {
-               FNGR_PRNT_TextEdit.Text = CardNumb_Text.Text = (job.Input as XElement).Attribute("value").Value;
+               FNGR_PRNT_TextEdit.Text = CardNumb_Text.Text = xinput.Attribute("value").Value;
             }
-            else if ((job.Input as XElement).Attribute("type").Value == "refresh")
+            else if (xinput.Attribute("type").Value == "refresh")
                Execute_Query();
+            else if (xinput.Attribute("type").Value == "rqidfocus")
+            {
+               ShowRqst_PickButn.PickChecked = false;
+               RqstBs1.Position = RqstBs1.IndexOf(RqstBs1.List.OfType<Data.Request>().FirstOrDefault(r => r.RQID == Convert.ToInt64(xinput.Attribute("rqid").Value)));
+            }
             else
                Execute_Query();
          }

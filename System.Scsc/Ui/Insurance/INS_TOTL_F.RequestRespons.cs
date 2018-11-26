@@ -463,16 +463,17 @@ namespace System.Scsc.Ui.Insurance
       {
          try
          {
-            if (job.Input != null && (job.Input as XElement).Attribute("fileno") != null)
+            var xinput = job.Input as XElement;
+            if (job.Input != null && xinput.Attribute("fileno") != null)
             {
-               if ((job.Input as XElement).Attribute("type").Value == "renewinscard")
+               if (xinput.Attribute("type").Value == "renewinscard")
                {
-                  FILE_NO_LookUpEdit.EditValue = Convert.ToInt64((job.Input as XElement).Attribute("fileno").Value);
+                  FILE_NO_LookUpEdit.EditValue = Convert.ToInt64(xinput.Attribute("fileno").Value);
                   RQTT_CODELookUpEdit.EditValue = "001";
 
                   // 1397/05/26 * rqstrqid
-                  if ((job.Input as XElement).Attribute("rqstrqid") != null)
-                     rqstRqid = Convert.ToInt64((job.Input as XElement).Attribute("rqstrqid").Value);
+                  if (xinput.Attribute("rqstrqid") != null)
+                     rqstRqid = Convert.ToInt64(xinput.Attribute("rqstrqid").Value);
                   else
                      rqstRqid = 0;
 
@@ -480,16 +481,21 @@ namespace System.Scsc.Ui.Insurance
                }
 
                // 1397/05/16
-               if ((job.Input as XElement).Attribute("formcaller") != null)
-                  formCaller = (job.Input as XElement).Attribute("formcaller").Value;
+               if (xinput.Attribute("formcaller") != null)
+                  formCaller = xinput.Attribute("formcaller").Value;
                else
                   formCaller = "";
 
                // 1397/05/26 * followups
-               if ((job.Input as XElement).Attribute("followups") != null)
-                  followups = (job.Input as XElement).Attribute("followups").Value;
+               if (xinput.Attribute("followups") != null)
+                  followups = xinput.Attribute("followups").Value;
                else
                   followups = "";
+            }
+            else if (xinput.Attribute("type").Value == "rqidfocus")
+            {
+               ShowRqst_PickButn.PickChecked = false;
+               RqstBs1.Position = RqstBs1.IndexOf(RqstBs1.List.OfType<Data.Request>().FirstOrDefault(r => r.RQID == Convert.ToInt64(xinput.Attribute("rqid").Value)));
             }
             else
                Execute_Query();

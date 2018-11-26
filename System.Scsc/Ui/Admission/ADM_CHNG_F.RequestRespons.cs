@@ -606,6 +606,10 @@ namespace System.Scsc.Ui.Admission
                if (AutoTrans_Cb.Checked)
                   CardNumb_Text.EditValue = FNGR_PRNT_TextEdit.EditValue;
                break;
+            case "rqidfocus":               
+               ShowRqst_PickButn.PickChecked = false;
+               RqstBs1.Position = RqstBs1.IndexOf(RqstBs1.List.OfType<Data.Request>().FirstOrDefault(r => r.RQID == Convert.ToInt64(xinput.Attribute("rqid").Value)));
+               break;
             default:
                break;
          }

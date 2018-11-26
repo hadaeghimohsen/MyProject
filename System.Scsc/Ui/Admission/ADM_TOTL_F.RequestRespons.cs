@@ -536,38 +536,43 @@ namespace System.Scsc.Ui.Admission
       {
          try
          {
-            if ((job.Input as XElement).Attribute("enrollnumber") != null)
+            var xinput = job.Input as XElement;
+            if (xinput.Attribute("enrollnumber") != null)
             {
-               if ((job.Input as XElement).Attribute("type").Value == "fighter")
+               if (xinput.Attribute("type").Value == "fighter")
                {
                   //INSR_NUMB_TextEdit.Text = FNGR_PRNT_TextEdit.Text = (job.Input as XElement).Attribute("enrollnumber").Value;
                   //INSR_DATE_PersianDateEdit.Value = DateTime.Now;
                }
-               else if ((job.Input as XElement).Attribute("type").Value == "renewcontract")
+               else if (xinput.Attribute("type").Value == "renewcontract")
                {
                   if (RqstBs3.Count > 0 && (RqstBs3.Current as Data.Request).RQID > 0)
                      RqstBs3.AddNew();
 
-                  var figh = iScsc.Fighters.Where(f => f.FNGR_PRNT_DNRM == (job.Input as XElement).Attribute("enrollnumber").Value).FirstOrDefault();
+                  var figh = iScsc.Fighters.Where(f => f.FNGR_PRNT_DNRM == xinput.Attribute("enrollnumber").Value).FirstOrDefault();
                   Figh_Lov.EditValue = figh.FILE_NO;
                   RQTT_CODE_LookUpEdit3.EditValue = "001";//figh.FGPB_TYPE_DNRM;
                   Btn_RqstRqt3_Click(null, null);
 
                   // 1396/11/04
-                  if ((job.Input as XElement).Attribute("formcaller") != null)
-                     formCaller = (job.Input as XElement).Attribute("formcaller").Value;
+                  if (xinput.Attribute("formcaller") != null)
+                     formCaller = xinput.Attribute("formcaller").Value;
                   else
                      formCaller = "";
                }
 
             }
-            else if ((job.Input as XElement).Attribute("type") != null)
+            else if (xinput.Attribute("type") != null)
             {
-               if ((job.Input as XElement).Attribute("type").Value == "refresh" || (job.Input as XElement).Attribute("type").Value == "renewcontract")
+               if (xinput.Attribute("type").Value == "refresh" || xinput.Attribute("type").Value == "renewcontract")
                {
                   Execute_Query();
-
                   //ReloadSelectedData();
+               }
+               else if (xinput.Attribute("type").Value == "rqidfocus")
+               {
+                  ShowRqst_PickButn.PickChecked = false;
+                  RqstBs3.Position = RqstBs3.IndexOf(RqstBs3.List.OfType<Data.Request>().FirstOrDefault(r => r.RQID == Convert.ToInt64(xinput.Attribute("rqid").Value)));
                }
             }
             else

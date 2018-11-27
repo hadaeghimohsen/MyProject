@@ -12,6 +12,7 @@ using System.Xml.Linq;
 using System.Data.SqlClient;
 using DevExpress.XtraGrid.Views.Grid;
 using System.Scsc.ExtCode;
+using DevExpress.XtraEditors;
 
 namespace System.Scsc.Ui.Admission
 {
@@ -23,8 +24,8 @@ namespace System.Scsc.Ui.Admission
       }
 
       private bool requery = false;
-
       private int rqstindex = default(int);
+      private long? cbmtcode = null, ctgycode = null;
 
       private void Execute_Query()
       {
@@ -158,7 +159,7 @@ namespace System.Scsc.Ui.Admission
                                     new XElement("Insr_Numb", ""),
                                     new XElement("Insr_Date", ""),
                                     new XElement("Educ_Deg", ""),
-                                    new XElement("Cbmt_Code", CBMT_CODE_GridLookUpEdit.EditValue ?? ""),
+                                    new XElement("Cbmt_Code", CbmtCode_Lov.EditValue ?? ""),
                                     new XElement("Dise_Code", ""),
                                     new XElement("Blod_Grop", ""),
                                     new XElement("Fngr_Prnt", FNGR_PRNT_TextEdit.EditValue ?? ""),
@@ -170,7 +171,7 @@ namespace System.Scsc.Ui.Admission
                                     new XElement("Cord_Y", ""),
                                     new XElement("Glob_Code", Glob_Code_TextEdit.EditValue ?? ""),
                                     new XElement("Chat_Id", Chat_Id_TextEdit.EditValue ?? ""),
-                                    new XElement("Ctgy_Code", CtgyCode_LookupEdit001.EditValue ?? ""),
+                                    new XElement("Ctgy_Code", CtgyCode_Lov.EditValue ?? ""),
                                     new XElement("Most_Debt_Clng", ""),
                                     new XElement("Serv_No", SERV_NO_TextEdit.EditValue ?? "")
                                  ),
@@ -404,7 +405,7 @@ namespace System.Scsc.Ui.Admission
       {
          try
          {
-            long code = (long)CBMT_CODE_GridLookUpEdit.EditValue;
+            long code = (long)CbmtCode_Lov.EditValue;
 
             _DefaultGateway.Gateway(
                new Job(SendType.External, "localhost",
@@ -450,7 +451,7 @@ namespace System.Scsc.Ui.Admission
                if (RQTT_CODE_LookUpEdit1.EditValue == null || RQTT_CODE_LookUpEdit1.EditValue.ToString() == "")
                   RQTT_CODE_LookUpEdit1.EditValue = "001";
 
-               long ctgycode = (long)CtgyCode_LookupEdit001.EditValue;
+               long ctgycode = (long)CtgyCode_Lov.EditValue;
                string rqttcode = (string)RQTT_CODE_LookUpEdit1.EditValue;
                var expn = iScsc.Expenses.Where(exp => exp.Expense_Type.Request_Requester.RQTP_CODE == "001" && exp.Expense_Type.Request_Requester.RQTT_CODE == "001" && exp.Expense_Type.Request_Requester.Regulation.REGL_STAT == "002" && exp.Expense_Type.Request_Requester.Regulation.TYPE == "001" && /*exp.MTOD_CODE == mtodcode &&*/ exp.CTGY_CODE == ctgycode && exp.EXPN_STAT == "002").FirstOrDefault();
 
@@ -1041,22 +1042,36 @@ namespace System.Scsc.Ui.Admission
          }
       }
 
-      private void CBMT_CODE_GridLookUpEdit_Popup(object sender, EventArgs e)
+      private void CbmtCode_Lov_Popup(object sender, EventArgs e)
       {
          try
          {
-            var cbmt = CBMT_CODE_GridLookUpEdit.EditValue;
+            var cbmt = CbmtCode_Lov.EditValue;
 
             if (cbmt == null || cbmt.ToString() == "") return;
 
             var crntcbmt = CbmtBs1.List.OfType<Data.Club_Method>().FirstOrDefault(c => c.CODE == (long)cbmt);
 
             CtgyBs1.DataSource = iScsc.Category_Belts.Where(c => c.MTOD_CODE == crntcbmt.MTOD_CODE && c.CTGY_STAT == "002");
+
+            var cbmtt = iScsc.Club_Methods.First(cm => cm.CODE == (long)CbmtCode_Lov.EditValue);
+            if (cbmtt == null) return;
+
+            var cmwk = cbmtt.Club_Method_Weekdays.ToList();
+
+            if (cmwk.Count == 0)
+            {
+               ClubWkdy_Pn.Controls.OfType<SimpleButton>().Where(sb => sb.Tag != null).ToList().ForEach(sb => sb.Appearance.BackColor = Color.Gold);
+               return;
+            }
+
+            foreach (var wkdy in cmwk)
+            {
+               var rslt = ClubWkdy_Pn.Controls.OfType<SimpleButton>().FirstOrDefault(sb => sb.Tag != null && sb.Tag.ToString() == wkdy.WEEK_DAY);
+               rslt.Appearance.BackColor = wkdy.STAT == "001" ? Color.LightGray : Color.GreenYellow;
+            }
          }
-         catch (Exception)
-         {
-                        
-         }
+         catch {}
       }
 
       private void BTN_MBSP_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)

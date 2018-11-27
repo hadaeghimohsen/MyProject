@@ -2208,6 +2208,8 @@ namespace System.Scsc.Ui.BaseDefinition
          CochName_Lb.Text = cbmt.Fighter.NAME_DNRM;
          FngrPrnt_Lb.Text = cbmt.Fighter.FNGR_PRNT_DNRM == "" ? "نامشخص" : cbmt.Fighter.FNGR_PRNT_DNRM;
 
+         CtgyBs2.DataSource = iScsc.Category_Belts.Where(cb => cb.MTOD_CODE == cbmt.MTOD_CODE && cb.CTGY_STAT == "002");
+
          if(Tb_Master.SelectedTab == tp_006)
          {
             RqstBnCochName_Butn.Text = CochName_Lb.Text;
@@ -3126,6 +3128,94 @@ namespace System.Scsc.Ui.BaseDefinition
                   #endregion
                   });
          _DefaultGateway.Gateway(_InteractWithScsc);
+      }
+
+      private void GropAttn_Butn_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+      {
+         try
+         {
+            var cbmt = CbmtBs2.Current as Data.Club_Method;
+            if (cbmt == null) return;
+
+            if (!AttnDate_Dt.Value.HasValue)
+               AttnDate_Dt.Value = DateTime.Now;
+
+            Job _InteractWithScsc =
+               new Job(SendType.External, "Localhost",
+                  new List<Job>
+                  {                    
+                     new Job(SendType.Self, 126 /* Execute Aop_Attn_F */),
+                     new Job(SendType.SelfToUserInterface, "AOP_ATTN_F", 10 /* Execute Actn_Calf_F */)
+                     {
+                        Input = 
+                           new XElement("Attendance",
+                              new XAttribute("cbmtcode", cbmt.CODE),
+                              new XAttribute("attndate", AttnDate_Dt.Value.Value.Date)
+                           )
+                     }
+                  });
+            _DefaultGateway.Gateway(_InteractWithScsc);
+         }
+         catch { }
+      }
+
+      private void GropMbsp_Butn_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+      {
+         try
+         {
+            var cbmt = CbmtBs2.Current as Data.Club_Method;
+            if (cbmt == null) return;
+
+            if (!AttnDate_Dt.Value.HasValue)
+               AttnDate_Dt.Value = DateTime.Now;
+
+            Job _InteractWithScsc =
+               new Job(SendType.External, "Localhost",
+                  new List<Job>
+                  {                    
+                     new Job(SendType.Self, 121 /* Execute Aop_Mbsp_F */),
+                     new Job(SendType.SelfToUserInterface, "AOP_MBSP_F", 10 /* Execute Actn_Calf_F */)
+                     {
+                        Input = 
+                           new XElement("Member_Ship",
+                              new XAttribute("cbmtcode", cbmt.CODE),
+                              new XAttribute("attndate", AttnDate_Dt.Value.Value.Date)
+                           )
+                     }
+                  });
+            _DefaultGateway.Gateway(_InteractWithScsc);
+         }
+         catch { }
+      }
+
+      private void AddNewMbsp_Butn_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+      {
+         try
+         {
+            var cbmt = CbmtBs2.Current as Data.Club_Method;
+            if (cbmt == null) return;
+
+            var ctgy = CtgyBs2.Current as Data.Category_Belt;
+            if (ctgy == null) return;
+
+            Job _InteractWithScsc =
+               new Job(SendType.External, "Localhost",
+                  new List<Job>
+                  {
+                     new Job(SendType.Self, 123 /* Execute Adm_Figh_F */),
+                     new Job(SendType.SelfToUserInterface, "ADM_FIGH_F", 10 /* Actn_CalF_P */)
+                     {
+                        Input = 
+                           new XElement("Request", 
+                              new XAttribute("type", "admcbmt"),
+                              new XAttribute("cbmtcode", cbmt.CODE),
+                              new XAttribute("ctgycode", ctgy.CODE)
+                           )
+                     }
+                  });
+            _DefaultGateway.Gateway(_InteractWithScsc);
+         }
+         catch { }
       }
    }
 }

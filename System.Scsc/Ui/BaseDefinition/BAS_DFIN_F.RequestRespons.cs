@@ -63,11 +63,14 @@ namespace System.Scsc.Ui.BaseDefinition
 
          if (keyData == Keys.F1)
          {
-
          }
          else if (keyData == Keys.Escape)
          {
             job.Next = new Job(SendType.SelfToUserInterface, GetType().Name, 04 /* Execute UnPaint */);
+         }
+         else if (keyData == Keys.Enter)
+         {
+            SendKeys.Send("{TAB}");
          }
 
 

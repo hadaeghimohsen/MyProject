@@ -28,6 +28,7 @@
       /// </summary>
       private void InitializeComponent()
       {
+         this.components = new System.ComponentModel.Container();
          System.Windows.Forms.Label rEGN_CODELabel;
          System.Windows.Forms.Label cTGY_CODELabel;
          System.Windows.Forms.Label cOCH_FILE_NOLabel;
@@ -75,9 +76,9 @@
          this.splitContainer1 = new System.Windows.Forms.SplitContainer();
          this.groupBox1 = new System.Windows.Forms.GroupBox();
          this.Btn_AutoCalcAttn = new System.Windows.Forms.Button();
-         this.AgopBn1 = new System.Windows.Forms.BindingNavigator();
+         this.AgopBn1 = new System.Windows.Forms.BindingNavigator(this.components);
          this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
-         this.AgopBs1 = new System.Windows.Forms.BindingSource();
+         this.AgopBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
          this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
          this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
@@ -108,7 +109,7 @@
          this.ToDate_Dt = new Atf.UI.DateTimeSelector();
          this.FromDate_Dt = new Atf.UI.DateTimeSelector();
          this.CbmtNew_Lov = new DevExpress.XtraEditors.GridLookUpEdit();
-         this.CbmtBs1 = new System.Windows.Forms.BindingSource();
+         this.CbmtBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.gridView5 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.gridColumn27 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.gridColumn28 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -127,7 +128,7 @@
          this.gridColumn41 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.cBMT_CODEGridLookUpEdit = new DevExpress.XtraEditors.GridLookUpEdit();
          this.repositoryItemLookUpEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-         this.DDytpBs1 = new System.Windows.Forms.BindingSource();
+         this.DDytpBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.cBMT_CODEGridLookUpEditView = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colCLUB_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colMTOD_CODE1 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -145,7 +146,7 @@
          this.colMethod2 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colFighter2 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.cOCH_FILE_NOGridLookUpEdit = new DevExpress.XtraEditors.GridLookUpEdit();
-         this.CochBs1 = new System.Windows.Forms.BindingSource();
+         this.CochBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.cOCH_FILE_NOGridLookUpEditView = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colREGN_PRVN_CNTY_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colREGN_PRVN_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -214,7 +215,7 @@
          this.colRequest = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colSub_Unit = new DevExpress.XtraGrid.Columns.GridColumn();
          this.CtgyNew_Lov = new DevExpress.XtraEditors.GridLookUpEdit();
-         this.CtgyBs1 = new System.Windows.Forms.BindingSource();
+         this.CtgyBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.gridView4 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.gridColumn14 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.gridColumn15 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -245,7 +246,7 @@
          this.colMDFY_DATE1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colMethod = new DevExpress.XtraGrid.Columns.GridColumn();
          this.RqttCode_Lov = new DevExpress.XtraEditors.GridLookUpEdit();
-         this.RqttBs1 = new System.Windows.Forms.BindingSource();
+         this.RqttBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colCODE3 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colSUB_SYS = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -255,7 +256,7 @@
          this.colMDFY_BY5 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colMDFY_DATE5 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.rEGN_CODEGridLookUpEdit = new DevExpress.XtraEditors.GridLookUpEdit();
-         this.RegnBs1 = new System.Windows.Forms.BindingSource();
+         this.RegnBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.rEGN_CODEGridLookUpEditView = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colPRVN_CNTY_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colPRVN_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -270,7 +271,7 @@
          this.colRegion1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.groupBox2 = new System.Windows.Forms.GroupBox();
          this.aggregation_Operation_DetailsGridControl = new DevExpress.XtraGrid.GridControl();
-         this.AodtBs1 = new System.Windows.Forms.BindingSource();
+         this.AodtBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colAGOP_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colRWNO = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -308,17 +309,27 @@
          this.textEdit3 = new DevExpress.XtraEditors.TextEdit();
          this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
          this.NumbOfAttnWeek_TextEdit003 = new DevExpress.XtraEditors.TextEdit();
-         this.MbspBs2 = new System.Windows.Forms.BindingSource();
-         this.RqroBs2 = new System.Windows.Forms.BindingSource();
-         this.RqstBs2 = new System.Windows.Forms.BindingSource();
+         this.MbspBs2 = new System.Windows.Forms.BindingSource(this.components);
+         this.RqroBs2 = new System.Windows.Forms.BindingSource(this.components);
+         this.RqstBs2 = new System.Windows.Forms.BindingSource(this.components);
          this.NumbOfAttnMont_TextEdit003 = new DevExpress.XtraEditors.TextEdit();
          this.NumbOfMontDnrm_TextEdit003 = new DevExpress.XtraEditors.TextEdit();
          this.NumbOfDays_TextEdit003 = new DevExpress.XtraEditors.TextEdit();
          this.NumbMontOfer_TextEdit003 = new DevExpress.XtraEditors.TextEdit();
          this.EndDate_DateTime003 = new Atf.UI.DateTimeSelector();
          this.StrtDate_DateTime003 = new Atf.UI.DateTimeSelector();
-         this.Back_Butn = new System.Windows.Forms.Button();
-         this.PymtBs1 = new System.Windows.Forms.BindingSource();
+         this.PymtBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.panel1 = new System.Windows.Forms.Panel();
+         this.Tilt_Lb = new DevExpress.XtraEditors.LabelControl();
+         this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+         this.ClubWkdy_Pn = new System.Windows.Forms.Panel();
+         this.QWkdy007_Butn = new DevExpress.XtraEditors.SimpleButton();
+         this.QWkdy006_Butn = new DevExpress.XtraEditors.SimpleButton();
+         this.QWkdy001_Butn = new DevExpress.XtraEditors.SimpleButton();
+         this.QWkdy005_Butn = new DevExpress.XtraEditors.SimpleButton();
+         this.QWkdy002_Butn = new DevExpress.XtraEditors.SimpleButton();
+         this.QWkdy004_Butn = new DevExpress.XtraEditors.SimpleButton();
+         this.QWkdy003_Butn = new DevExpress.XtraEditors.SimpleButton();
          rEGN_CODELabel = new System.Windows.Forms.Label();
          cTGY_CODELabel = new System.Windows.Forms.Label();
          cOCH_FILE_NOLabel = new System.Windows.Forms.Label();
@@ -404,13 +415,15 @@
          ((System.ComponentModel.ISupportInitialize)(this.NumbOfDays_TextEdit003.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.NumbMontOfer_TextEdit003.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.PymtBs1)).BeginInit();
+         this.panel1.SuspendLayout();
+         this.ClubWkdy_Pn.SuspendLayout();
          this.SuspendLayout();
          // 
          // rEGN_CODELabel
          // 
          rEGN_CODELabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          rEGN_CODELabel.AutoSize = true;
-         rEGN_CODELabel.Location = new System.Drawing.Point(226, 53);
+         rEGN_CODELabel.Location = new System.Drawing.Point(280, 53);
          rEGN_CODELabel.Name = "rEGN_CODELabel";
          rEGN_CODELabel.Size = new System.Drawing.Size(58, 14);
          rEGN_CODELabel.TabIndex = 0;
@@ -420,7 +433,7 @@
          // 
          cTGY_CODELabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          cTGY_CODELabel.AutoSize = true;
-         cTGY_CODELabel.Location = new System.Drawing.Point(226, 81);
+         cTGY_CODELabel.Location = new System.Drawing.Point(280, 81);
          cTGY_CODELabel.Name = "cTGY_CODELabel";
          cTGY_CODELabel.Size = new System.Drawing.Size(88, 14);
          cTGY_CODELabel.TabIndex = 6;
@@ -430,7 +443,7 @@
          // 
          cOCH_FILE_NOLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          cOCH_FILE_NOLabel.AutoSize = true;
-         cOCH_FILE_NOLabel.Location = new System.Drawing.Point(226, 109);
+         cOCH_FILE_NOLabel.Location = new System.Drawing.Point(280, 109);
          cOCH_FILE_NOLabel.Name = "cOCH_FILE_NOLabel";
          cOCH_FILE_NOLabel.Size = new System.Drawing.Size(63, 14);
          cOCH_FILE_NOLabel.TabIndex = 8;
@@ -440,7 +453,7 @@
          // 
          cBMT_CODELabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          cBMT_CODELabel.AutoSize = true;
-         cBMT_CODELabel.Location = new System.Drawing.Point(226, 136);
+         cBMT_CODELabel.Location = new System.Drawing.Point(280, 136);
          cBMT_CODELabel.Name = "cBMT_CODELabel";
          cBMT_CODELabel.Size = new System.Drawing.Size(65, 14);
          cBMT_CODELabel.TabIndex = 10;
@@ -450,7 +463,7 @@
          // 
          label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          label1.AutoSize = true;
-         label1.Location = new System.Drawing.Point(226, 193);
+         label1.Location = new System.Drawing.Point(280, 193);
          label1.Name = "label1";
          label1.Size = new System.Drawing.Size(48, 14);
          label1.TabIndex = 10;
@@ -460,7 +473,7 @@
          // 
          label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          label2.AutoSize = true;
-         label2.Location = new System.Drawing.Point(226, 222);
+         label2.Location = new System.Drawing.Point(280, 222);
          label2.Name = "label2";
          label2.Size = new System.Drawing.Size(48, 14);
          label2.TabIndex = 10;
@@ -470,7 +483,7 @@
          // 
          nUMB_MONT_OFFRLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          nUMB_MONT_OFFRLabel.AutoSize = true;
-         nUMB_MONT_OFFRLabel.Location = new System.Drawing.Point(226, 249);
+         nUMB_MONT_OFFRLabel.Location = new System.Drawing.Point(280, 249);
          nUMB_MONT_OFFRLabel.Name = "nUMB_MONT_OFFRLabel";
          nUMB_MONT_OFFRLabel.Size = new System.Drawing.Size(96, 14);
          nUMB_MONT_OFFRLabel.TabIndex = 29;
@@ -480,7 +493,7 @@
          // 
          label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          label3.AutoSize = true;
-         label3.Location = new System.Drawing.Point(226, 277);
+         label3.Location = new System.Drawing.Point(280, 277);
          label3.Name = "label3";
          label3.Size = new System.Drawing.Size(73, 14);
          label3.TabIndex = 0;
@@ -490,7 +503,7 @@
          // 
          eND_DATELabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          eND_DATELabel.AutoSize = true;
-         eND_DATELabel.Location = new System.Drawing.Point(323, 47);
+         eND_DATELabel.Location = new System.Drawing.Point(327, 47);
          eND_DATELabel.Name = "eND_DATELabel";
          eND_DATELabel.Size = new System.Drawing.Size(72, 14);
          eND_DATELabel.TabIndex = 23;
@@ -500,7 +513,7 @@
          // 
          sTRT_DATELabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          sTRT_DATELabel.AutoSize = true;
-         sTRT_DATELabel.Location = new System.Drawing.Point(323, 21);
+         sTRT_DATELabel.Location = new System.Drawing.Point(327, 21);
          sTRT_DATELabel.Name = "sTRT_DATELabel";
          sTRT_DATELabel.Size = new System.Drawing.Size(77, 14);
          sTRT_DATELabel.TabIndex = 22;
@@ -510,7 +523,7 @@
          // 
          label56.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          label56.AutoSize = true;
-         label56.Location = new System.Drawing.Point(135, 23);
+         label56.Location = new System.Drawing.Point(139, 23);
          label56.Name = "label56";
          label56.Size = new System.Drawing.Size(60, 14);
          label56.TabIndex = 37;
@@ -520,7 +533,7 @@
          // 
          label54.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          label54.AutoSize = true;
-         label54.Location = new System.Drawing.Point(262, 79);
+         label54.Location = new System.Drawing.Point(266, 79);
          label54.Name = "label54";
          label54.Size = new System.Drawing.Size(122, 14);
          label54.TabIndex = 34;
@@ -530,7 +543,7 @@
          // 
          label55.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          label55.AutoSize = true;
-         label55.Location = new System.Drawing.Point(135, 51);
+         label55.Location = new System.Drawing.Point(139, 51);
          label55.Name = "label55";
          label55.Size = new System.Drawing.Size(57, 14);
          label55.TabIndex = 35;
@@ -540,7 +553,7 @@
          // 
          label61.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          label61.AutoSize = true;
-         label61.Location = new System.Drawing.Point(262, 135);
+         label61.Location = new System.Drawing.Point(266, 135);
          label61.Name = "label61";
          label61.Size = new System.Drawing.Size(123, 14);
          label61.TabIndex = 40;
@@ -550,7 +563,7 @@
          // 
          label62.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          label62.AutoSize = true;
-         label62.Location = new System.Drawing.Point(262, 107);
+         label62.Location = new System.Drawing.Point(266, 107);
          label62.Name = "label62";
          label62.Size = new System.Drawing.Size(102, 14);
          label62.TabIndex = 41;
@@ -560,7 +573,7 @@
          // 
          label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          label4.AutoSize = true;
-         label4.Location = new System.Drawing.Point(309, 25);
+         label4.Location = new System.Drawing.Point(313, 25);
          label4.Name = "label4";
          label4.Size = new System.Drawing.Size(61, 14);
          label4.TabIndex = 40;
@@ -570,7 +583,7 @@
          // 
          label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          label5.AutoSize = true;
-         label5.Location = new System.Drawing.Point(122, 25);
+         label5.Location = new System.Drawing.Point(126, 25);
          label5.Name = "label5";
          label5.Size = new System.Drawing.Size(75, 14);
          label5.TabIndex = 40;
@@ -580,7 +593,7 @@
          // 
          label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          label6.AutoSize = true;
-         label6.Location = new System.Drawing.Point(309, 53);
+         label6.Location = new System.Drawing.Point(313, 53);
          label6.Name = "label6";
          label6.Size = new System.Drawing.Size(87, 14);
          label6.TabIndex = 40;
@@ -590,7 +603,7 @@
          // 
          label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          label7.AutoSize = true;
-         label7.Location = new System.Drawing.Point(122, 53);
+         label7.Location = new System.Drawing.Point(126, 53);
          label7.Name = "label7";
          label7.Size = new System.Drawing.Size(75, 14);
          label7.TabIndex = 40;
@@ -600,7 +613,7 @@
          // 
          label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          label8.AutoSize = true;
-         label8.Location = new System.Drawing.Point(309, 81);
+         label8.Location = new System.Drawing.Point(313, 81);
          label8.Name = "label8";
          label8.Size = new System.Drawing.Size(72, 14);
          label8.TabIndex = 40;
@@ -610,7 +623,7 @@
          // 
          label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          label9.AutoSize = true;
-         label9.Location = new System.Drawing.Point(226, 305);
+         label9.Location = new System.Drawing.Point(280, 305);
          label9.Name = "label9";
          label9.Size = new System.Drawing.Size(88, 14);
          label9.TabIndex = 6;
@@ -620,7 +633,7 @@
          // 
          label10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          label10.AutoSize = true;
-         label10.Location = new System.Drawing.Point(226, 333);
+         label10.Location = new System.Drawing.Point(280, 333);
          label10.Name = "label10";
          label10.Size = new System.Drawing.Size(65, 14);
          label10.TabIndex = 10;
@@ -630,11 +643,21 @@
          // 
          label11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          label11.AutoSize = true;
-         label11.Location = new System.Drawing.Point(151, 165);
+         label11.Location = new System.Drawing.Point(205, 165);
          label11.Name = "label11";
          label11.Size = new System.Drawing.Size(171, 14);
          label11.TabIndex = 10;
          label11.Text = "اطلاعات ویرایش : ------------------";
+         // 
+         // label12
+         // 
+         label12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         label12.AutoSize = true;
+         label12.Location = new System.Drawing.Point(147, 249);
+         label12.Name = "label12";
+         label12.Size = new System.Drawing.Size(83, 14);
+         label12.TabIndex = 29;
+         label12.Text = "تعداد جلسات :";
          // 
          // col_REC_STAT
          // 
@@ -660,28 +683,16 @@
          this.gridColumn12.VisibleIndex = 0;
          this.gridColumn12.Width = 22;
          // 
-         // label12
-         // 
-         label12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         label12.AutoSize = true;
-         label12.Location = new System.Drawing.Point(93, 249);
-         label12.Name = "label12";
-         label12.Size = new System.Drawing.Size(83, 14);
-         label12.TabIndex = 29;
-         label12.Text = "تعداد جلسات :";
-         // 
          // tabControl1
          // 
-         this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
          this.tabControl1.Controls.Add(this.tabPage1);
          this.tabControl1.Controls.Add(this.tabPage2);
-         this.tabControl1.Location = new System.Drawing.Point(3, 3);
+         this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+         this.tabControl1.Location = new System.Drawing.Point(0, 59);
          this.tabControl1.Name = "tabControl1";
          this.tabControl1.RightToLeftLayout = true;
          this.tabControl1.SelectedIndex = 0;
-         this.tabControl1.Size = new System.Drawing.Size(774, 562);
+         this.tabControl1.Size = new System.Drawing.Size(897, 638);
          this.tabControl1.TabIndex = 0;
          // 
          // tabPage1
@@ -691,7 +702,7 @@
          this.tabPage1.Location = new System.Drawing.Point(4, 23);
          this.tabPage1.Name = "tabPage1";
          this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-         this.tabPage1.Size = new System.Drawing.Size(766, 535);
+         this.tabPage1.Size = new System.Drawing.Size(889, 611);
          this.tabPage1.TabIndex = 0;
          this.tabPage1.Text = "پارامتر عملیات تمدید قرارداد مشترییان";
          // 
@@ -710,12 +721,13 @@
          // 
          this.splitContainer1.Panel2.Controls.Add(this.groupBox2);
          this.splitContainer1.Panel2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-         this.splitContainer1.Size = new System.Drawing.Size(760, 529);
-         this.splitContainer1.SplitterDistance = 334;
+         this.splitContainer1.Size = new System.Drawing.Size(883, 605);
+         this.splitContainer1.SplitterDistance = 388;
          this.splitContainer1.TabIndex = 0;
          // 
          // groupBox1
          // 
+         this.groupBox1.Controls.Add(this.ClubWkdy_Pn);
          this.groupBox1.Controls.Add(this.Btn_AutoCalcAttn);
          this.groupBox1.Controls.Add(this.AgopBn1);
          this.groupBox1.Controls.Add(label12);
@@ -759,7 +771,7 @@
          this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
          this.groupBox1.Location = new System.Drawing.Point(0, 0);
          this.groupBox1.Name = "groupBox1";
-         this.groupBox1.Size = new System.Drawing.Size(334, 529);
+         this.groupBox1.Size = new System.Drawing.Size(388, 605);
          this.groupBox1.TabIndex = 0;
          this.groupBox1.TabStop = false;
          this.groupBox1.Text = "ورود اطلاعات اولیه";
@@ -769,7 +781,7 @@
          this.Btn_AutoCalcAttn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.Btn_AutoCalcAttn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
          this.Btn_AutoCalcAttn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         this.Btn_AutoCalcAttn.Location = new System.Drawing.Point(48, 359);
+         this.Btn_AutoCalcAttn.Location = new System.Drawing.Point(102, 359);
          this.Btn_AutoCalcAttn.Name = "Btn_AutoCalcAttn";
          this.Btn_AutoCalcAttn.Size = new System.Drawing.Size(172, 24);
          this.Btn_AutoCalcAttn.TabIndex = 31;
@@ -803,7 +815,7 @@
          this.AgopBn1.Name = "AgopBn1";
          this.AgopBn1.PositionItem = this.bindingNavigatorPositionItem;
          this.AgopBn1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-         this.AgopBn1.Size = new System.Drawing.Size(328, 25);
+         this.AgopBn1.Size = new System.Drawing.Size(382, 25);
          this.AgopBn1.TabIndex = 30;
          // 
          // bindingNavigatorAddNewItem
@@ -818,6 +830,7 @@
          // AgopBs1
          // 
          this.AgopBs1.DataSource = typeof(System.Scsc.Data.Aggregation_Operation);
+         this.AgopBs1.CurrentChanged += new System.EventHandler(this.AgopBs1_CurrentChanged);
          // 
          // bindingNavigatorCountItem
          // 
@@ -906,7 +919,7 @@
             0,
             0,
             0});
-         this.NumbOfAttnMont_Txt.Location = new System.Drawing.Point(48, 246);
+         this.NumbOfAttnMont_Txt.Location = new System.Drawing.Point(102, 246);
          this.NumbOfAttnMont_Txt.Name = "NumbOfAttnMont_Txt";
          this.NumbOfAttnMont_Txt.Properties.Appearance.Options.UseTextOptions = true;
          this.NumbOfAttnMont_Txt.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
@@ -929,7 +942,7 @@
             0,
             0,
             0});
-         this.NumbMontOffr_Txt.Location = new System.Drawing.Point(182, 247);
+         this.NumbMontOffr_Txt.Location = new System.Drawing.Point(236, 247);
          this.NumbMontOffr_Txt.Name = "NumbMontOffr_Txt";
          this.NumbMontOffr_Txt.Properties.Appearance.Options.UseTextOptions = true;
          this.NumbMontOffr_Txt.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
@@ -948,7 +961,7 @@
          this.EndRqst_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
          this.EndRqst_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1184;
          this.EndRqst_Butn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         this.EndRqst_Butn.Location = new System.Drawing.Point(6, 411);
+         this.EndRqst_Butn.Location = new System.Drawing.Point(6, 487);
          this.EndRqst_Butn.Name = "EndRqst_Butn";
          this.EndRqst_Butn.Size = new System.Drawing.Size(157, 35);
          this.EndRqst_Butn.TabIndex = 9;
@@ -962,9 +975,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
          this.CretRqst_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1204;
          this.CretRqst_Butn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         this.CretRqst_Butn.Location = new System.Drawing.Point(171, 411);
+         this.CretRqst_Butn.Location = new System.Drawing.Point(171, 487);
          this.CretRqst_Butn.Name = "CretRqst_Butn";
-         this.CretRqst_Butn.Size = new System.Drawing.Size(157, 35);
+         this.CretRqst_Butn.Size = new System.Drawing.Size(211, 35);
          this.CretRqst_Butn.TabIndex = 9;
          this.CretRqst_Butn.Text = "ایجاد درخواست";
          this.CretRqst_Butn.UseVisualStyleBackColor = true;
@@ -976,9 +989,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
          this.ClearAll_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1197;
          this.ClearAll_Butn.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-         this.ClearAll_Butn.Location = new System.Drawing.Point(114, 452);
+         this.ClearAll_Butn.Location = new System.Drawing.Point(114, 528);
          this.ClearAll_Butn.Name = "ClearAll_Butn";
-         this.ClearAll_Butn.Size = new System.Drawing.Size(106, 71);
+         this.ClearAll_Butn.Size = new System.Drawing.Size(160, 71);
          this.ClearAll_Butn.TabIndex = 11;
          this.ClearAll_Butn.Text = "پاک کردن";
          this.ClearAll_Butn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -989,7 +1002,7 @@
          // 
          this.ClerNumMontOfer_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.ClerNumMontOfer_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1197;
-         this.ClerNumMontOfer_Butn.Location = new System.Drawing.Point(13, 242);
+         this.ClerNumMontOfer_Butn.Location = new System.Drawing.Point(67, 242);
          this.ClerNumMontOfer_Butn.Name = "ClerNumMontOfer_Butn";
          this.ClerNumMontOfer_Butn.Size = new System.Drawing.Size(29, 29);
          this.ClerNumMontOfer_Butn.TabIndex = 1;
@@ -1000,7 +1013,7 @@
          // 
          this.ClerToDate_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.ClerToDate_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1197;
-         this.ClerToDate_Butn.Location = new System.Drawing.Point(13, 214);
+         this.ClerToDate_Butn.Location = new System.Drawing.Point(67, 214);
          this.ClerToDate_Butn.Name = "ClerToDate_Butn";
          this.ClerToDate_Butn.Size = new System.Drawing.Size(29, 29);
          this.ClerToDate_Butn.TabIndex = 1;
@@ -1011,7 +1024,7 @@
          // 
          this.ClerCoch_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.ClerCoch_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1197;
-         this.ClerCoch_Butn.Location = new System.Drawing.Point(13, 102);
+         this.ClerCoch_Butn.Location = new System.Drawing.Point(67, 102);
          this.ClerCoch_Butn.Name = "ClerCoch_Butn";
          this.ClerCoch_Butn.Size = new System.Drawing.Size(29, 29);
          this.ClerCoch_Butn.TabIndex = 1;
@@ -1022,7 +1035,7 @@
          // 
          this.ClerFromDate_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.ClerFromDate_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1197;
-         this.ClerFromDate_Butn.Location = new System.Drawing.Point(13, 186);
+         this.ClerFromDate_Butn.Location = new System.Drawing.Point(67, 186);
          this.ClerFromDate_Butn.Name = "ClerFromDate_Butn";
          this.ClerFromDate_Butn.Size = new System.Drawing.Size(29, 29);
          this.ClerFromDate_Butn.TabIndex = 1;
@@ -1033,7 +1046,7 @@
          // 
          this.ClerNewCtgy_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.ClerNewCtgy_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1197;
-         this.ClerNewCtgy_Butn.Location = new System.Drawing.Point(13, 298);
+         this.ClerNewCtgy_Butn.Location = new System.Drawing.Point(67, 298);
          this.ClerNewCtgy_Butn.Name = "ClerNewCtgy_Butn";
          this.ClerNewCtgy_Butn.Size = new System.Drawing.Size(29, 29);
          this.ClerNewCtgy_Butn.TabIndex = 1;
@@ -1044,7 +1057,7 @@
          // 
          this.ClerCtgy_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.ClerCtgy_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1197;
-         this.ClerCtgy_Butn.Location = new System.Drawing.Point(13, 74);
+         this.ClerCtgy_Butn.Location = new System.Drawing.Point(67, 74);
          this.ClerCtgy_Butn.Name = "ClerCtgy_Butn";
          this.ClerCtgy_Butn.Size = new System.Drawing.Size(29, 29);
          this.ClerCtgy_Butn.TabIndex = 1;
@@ -1055,7 +1068,7 @@
          // 
          this.ClerNewCbmt_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.ClerNewCbmt_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1197;
-         this.ClerNewCbmt_Butn.Location = new System.Drawing.Point(13, 327);
+         this.ClerNewCbmt_Butn.Location = new System.Drawing.Point(67, 327);
          this.ClerNewCbmt_Butn.Name = "ClerNewCbmt_Butn";
          this.ClerNewCbmt_Butn.Size = new System.Drawing.Size(29, 29);
          this.ClerNewCbmt_Butn.TabIndex = 1;
@@ -1066,7 +1079,7 @@
          // 
          this.ClerCbmt_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.ClerCbmt_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1197;
-         this.ClerCbmt_Butn.Location = new System.Drawing.Point(13, 130);
+         this.ClerCbmt_Butn.Location = new System.Drawing.Point(67, 130);
          this.ClerCbmt_Butn.Name = "ClerCbmt_Butn";
          this.ClerCbmt_Butn.Size = new System.Drawing.Size(29, 29);
          this.ClerCbmt_Butn.TabIndex = 1;
@@ -1077,7 +1090,7 @@
          // 
          this.ClerRqtt_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.ClerRqtt_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1197;
-         this.ClerRqtt_Butn.Location = new System.Drawing.Point(13, 270);
+         this.ClerRqtt_Butn.Location = new System.Drawing.Point(67, 270);
          this.ClerRqtt_Butn.Name = "ClerRqtt_Butn";
          this.ClerRqtt_Butn.Size = new System.Drawing.Size(29, 29);
          this.ClerRqtt_Butn.TabIndex = 1;
@@ -1088,7 +1101,7 @@
          // 
          this.ClerRegn_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.ClerRegn_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1197;
-         this.ClerRegn_Butn.Location = new System.Drawing.Point(13, 46);
+         this.ClerRegn_Butn.Location = new System.Drawing.Point(67, 46);
          this.ClerRegn_Butn.Name = "ClerRegn_Butn";
          this.ClerRegn_Butn.Size = new System.Drawing.Size(29, 29);
          this.ClerRegn_Butn.TabIndex = 1;
@@ -1100,7 +1113,7 @@
          this.Cncl_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
          this.Cncl_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1143;
          this.Cncl_Butn.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-         this.Cncl_Butn.Location = new System.Drawing.Point(6, 452);
+         this.Cncl_Butn.Location = new System.Drawing.Point(6, 528);
          this.Cncl_Butn.Name = "Cncl_Butn";
          this.Cncl_Butn.Size = new System.Drawing.Size(102, 71);
          this.Cncl_Butn.TabIndex = 12;
@@ -1114,7 +1127,7 @@
          this.Edit_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
          this.Edit_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1055;
          this.Edit_Butn.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-         this.Edit_Butn.Location = new System.Drawing.Point(226, 452);
+         this.Edit_Butn.Location = new System.Drawing.Point(280, 528);
          this.Edit_Butn.Name = "Edit_Butn";
          this.Edit_Butn.Size = new System.Drawing.Size(102, 71);
          this.Edit_Butn.TabIndex = 10;
@@ -1129,7 +1142,7 @@
          this.ToDate_Dt.CustomFormat = "dd/MM/yyyy";
          this.ToDate_Dt.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.AgopBs1, "TO_DATE", true));
          this.ToDate_Dt.Format = Atf.UI.DateTimeSelectorFormat.Custom;
-         this.ToDate_Dt.Location = new System.Drawing.Point(120, 218);
+         this.ToDate_Dt.Location = new System.Drawing.Point(174, 218);
          this.ToDate_Dt.Name = "ToDate_Dt";
          this.ToDate_Dt.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
          this.ToDate_Dt.Size = new System.Drawing.Size(100, 23);
@@ -1142,7 +1155,7 @@
          this.FromDate_Dt.CustomFormat = "dd/MM/yyyy";
          this.FromDate_Dt.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.AgopBs1, "FROM_DATE", true));
          this.FromDate_Dt.Format = Atf.UI.DateTimeSelectorFormat.Custom;
-         this.FromDate_Dt.Location = new System.Drawing.Point(120, 188);
+         this.FromDate_Dt.Location = new System.Drawing.Point(174, 188);
          this.FromDate_Dt.Name = "FromDate_Dt";
          this.FromDate_Dt.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
          this.FromDate_Dt.Size = new System.Drawing.Size(100, 23);
@@ -1153,7 +1166,7 @@
          // 
          this.CbmtNew_Lov.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.CbmtNew_Lov.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.AgopBs1, "NEW_CBMT_CODE", true));
-         this.CbmtNew_Lov.Location = new System.Drawing.Point(48, 331);
+         this.CbmtNew_Lov.Location = new System.Drawing.Point(102, 331);
          this.CbmtNew_Lov.Name = "CbmtNew_Lov";
          this.CbmtNew_Lov.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.CbmtNew_Lov.Properties.Appearance.Options.UseFont = true;
@@ -1173,6 +1186,7 @@
          this.CbmtNew_Lov.Properties.View = this.gridView5;
          this.CbmtNew_Lov.Size = new System.Drawing.Size(172, 22);
          this.CbmtNew_Lov.TabIndex = 3;
+         this.CbmtNew_Lov.EditValueChanging += new DevExpress.XtraEditors.Controls.ChangingEventHandler(this.CbmtNew_Lov_EditValueChanging);
          // 
          // CbmtBs1
          // 
@@ -1311,7 +1325,7 @@
          // 
          this.cBMT_CODEGridLookUpEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.cBMT_CODEGridLookUpEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.AgopBs1, "CBMT_CODE", true));
-         this.cBMT_CODEGridLookUpEdit.Location = new System.Drawing.Point(48, 134);
+         this.cBMT_CODEGridLookUpEdit.Location = new System.Drawing.Point(102, 134);
          this.cBMT_CODEGridLookUpEdit.Name = "cBMT_CODEGridLookUpEdit";
          this.cBMT_CODEGridLookUpEdit.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.cBMT_CODEGridLookUpEdit.Properties.Appearance.Options.UseFont = true;
@@ -1483,7 +1497,7 @@
          // 
          this.cOCH_FILE_NOGridLookUpEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.cOCH_FILE_NOGridLookUpEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.AgopBs1, "COCH_FILE_NO", true));
-         this.cOCH_FILE_NOGridLookUpEdit.Location = new System.Drawing.Point(48, 107);
+         this.cOCH_FILE_NOGridLookUpEdit.Location = new System.Drawing.Point(102, 107);
          this.cOCH_FILE_NOGridLookUpEdit.Name = "cOCH_FILE_NOGridLookUpEdit";
          this.cOCH_FILE_NOGridLookUpEdit.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.cOCH_FILE_NOGridLookUpEdit.Properties.Appearance.Options.UseFont = true;
@@ -1949,7 +1963,7 @@
          // 
          this.CtgyNew_Lov.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.CtgyNew_Lov.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.AgopBs1, "NEW_CTGY_CODE", true));
-         this.CtgyNew_Lov.Location = new System.Drawing.Point(48, 303);
+         this.CtgyNew_Lov.Location = new System.Drawing.Point(102, 303);
          this.CtgyNew_Lov.Name = "CtgyNew_Lov";
          this.CtgyNew_Lov.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.CtgyNew_Lov.Properties.Appearance.Options.UseFont = true;
@@ -2083,7 +2097,7 @@
          // 
          this.cTGY_CODEGridLookUpEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.cTGY_CODEGridLookUpEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.AgopBs1, "CTGY_CODE", true));
-         this.cTGY_CODEGridLookUpEdit.Location = new System.Drawing.Point(48, 79);
+         this.cTGY_CODEGridLookUpEdit.Location = new System.Drawing.Point(102, 79);
          this.cTGY_CODEGridLookUpEdit.Name = "cTGY_CODEGridLookUpEdit";
          this.cTGY_CODEGridLookUpEdit.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.cTGY_CODEGridLookUpEdit.Properties.Appearance.Options.UseFont = true;
@@ -2213,7 +2227,7 @@
          // 
          this.RqttCode_Lov.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.RqttCode_Lov.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.AgopBs1, "RQTT_CODE", true));
-         this.RqttCode_Lov.Location = new System.Drawing.Point(48, 275);
+         this.RqttCode_Lov.Location = new System.Drawing.Point(102, 275);
          this.RqttCode_Lov.Name = "RqttCode_Lov";
          this.RqttCode_Lov.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.RqttCode_Lov.Properties.Appearance.Options.UseFont = true;
@@ -2305,7 +2319,7 @@
          // 
          this.rEGN_CODEGridLookUpEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.rEGN_CODEGridLookUpEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.AgopBs1, "REGN_CODE", true));
-         this.rEGN_CODEGridLookUpEdit.Location = new System.Drawing.Point(48, 51);
+         this.rEGN_CODEGridLookUpEdit.Location = new System.Drawing.Point(102, 51);
          this.rEGN_CODEGridLookUpEdit.Name = "rEGN_CODEGridLookUpEdit";
          this.rEGN_CODEGridLookUpEdit.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.rEGN_CODEGridLookUpEdit.Properties.Appearance.Options.UseFont = true;
@@ -2435,7 +2449,7 @@
          this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
          this.groupBox2.Location = new System.Drawing.Point(0, 0);
          this.groupBox2.Name = "groupBox2";
-         this.groupBox2.Size = new System.Drawing.Size(422, 529);
+         this.groupBox2.Size = new System.Drawing.Size(491, 605);
          this.groupBox2.TabIndex = 0;
          this.groupBox2.TabStop = false;
          this.groupBox2.Text = "نتیجه عملیات برای مشترییان";
@@ -2451,7 +2465,7 @@
          this.aggregation_Operation_DetailsGridControl.Name = "aggregation_Operation_DetailsGridControl";
          this.aggregation_Operation_DetailsGridControl.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.RecStat_Butn});
-         this.aggregation_Operation_DetailsGridControl.Size = new System.Drawing.Size(416, 508);
+         this.aggregation_Operation_DetailsGridControl.Size = new System.Drawing.Size(485, 584);
          this.aggregation_Operation_DetailsGridControl.TabIndex = 0;
          this.aggregation_Operation_DetailsGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -2603,7 +2617,7 @@
          this.tabPage2.Location = new System.Drawing.Point(4, 23);
          this.tabPage2.Name = "tabPage2";
          this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-         this.tabPage2.Size = new System.Drawing.Size(766, 535);
+         this.tabPage2.Size = new System.Drawing.Size(772, 519);
          this.tabPage2.TabIndex = 1;
          this.tabPage2.Text = "درخواستهای ایجادی";
          this.tabPage2.UseVisualStyleBackColor = true;
@@ -2637,8 +2651,8 @@
          this.splitContainer2.Panel2.Controls.Add(eND_DATELabel);
          this.splitContainer2.Panel2.Controls.Add(sTRT_DATELabel);
          this.splitContainer2.Panel2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-         this.splitContainer2.Size = new System.Drawing.Size(760, 529);
-         this.splitContainer2.SplitterDistance = 340;
+         this.splitContainer2.Size = new System.Drawing.Size(766, 513);
+         this.splitContainer2.SplitterDistance = 342;
          this.splitContainer2.TabIndex = 0;
          // 
          // gridControl1
@@ -2652,7 +2666,7 @@
          this.gridControl1.Name = "gridControl1";
          this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemButtonEdit1});
-         this.gridControl1.Size = new System.Drawing.Size(340, 529);
+         this.gridControl1.Size = new System.Drawing.Size(342, 513);
          this.gridControl1.TabIndex = 1;
          this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView3});
@@ -2818,7 +2832,7 @@
          this.Gb_Expense.Controls.Add(label4);
          this.Gb_Expense.Location = new System.Drawing.Point(9, 159);
          this.Gb_Expense.Name = "Gb_Expense";
-         this.Gb_Expense.Size = new System.Drawing.Size(400, 357);
+         this.Gb_Expense.Size = new System.Drawing.Size(404, 341);
          this.Gb_Expense.TabIndex = 42;
          this.Gb_Expense.TabStop = false;
          this.Gb_Expense.Text = "هزینه";
@@ -2827,7 +2841,7 @@
          // 
          this.textEdit4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.textEdit4.EditValue = "0";
-         this.textEdit4.Location = new System.Drawing.Point(16, 49);
+         this.textEdit4.Location = new System.Drawing.Point(20, 49);
          this.textEdit4.Name = "textEdit4";
          this.textEdit4.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.textEdit4.Properties.Appearance.Options.UseFont = true;
@@ -2848,7 +2862,7 @@
          // 
          this.textEdit2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.textEdit2.EditValue = "0";
-         this.textEdit2.Location = new System.Drawing.Point(16, 21);
+         this.textEdit2.Location = new System.Drawing.Point(20, 21);
          this.textEdit2.Name = "textEdit2";
          this.textEdit2.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.textEdit2.Properties.Appearance.Options.UseFont = true;
@@ -2869,7 +2883,7 @@
          // 
          this.textEdit5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.textEdit5.EditValue = "0";
-         this.textEdit5.Location = new System.Drawing.Point(203, 77);
+         this.textEdit5.Location = new System.Drawing.Point(207, 77);
          this.textEdit5.Name = "textEdit5";
          this.textEdit5.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.textEdit5.Properties.Appearance.Options.UseFont = true;
@@ -2890,7 +2904,7 @@
          // 
          this.textEdit3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.textEdit3.EditValue = "0";
-         this.textEdit3.Location = new System.Drawing.Point(203, 49);
+         this.textEdit3.Location = new System.Drawing.Point(207, 49);
          this.textEdit3.Name = "textEdit3";
          this.textEdit3.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.textEdit3.Properties.Appearance.Options.UseFont = true;
@@ -2911,7 +2925,7 @@
          // 
          this.textEdit1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.textEdit1.EditValue = "0";
-         this.textEdit1.Location = new System.Drawing.Point(203, 21);
+         this.textEdit1.Location = new System.Drawing.Point(207, 21);
          this.textEdit1.Name = "textEdit1";
          this.textEdit1.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.textEdit1.Properties.Appearance.Options.UseFont = true;
@@ -2933,7 +2947,7 @@
          this.NumbOfAttnWeek_TextEdit003.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.NumbOfAttnWeek_TextEdit003.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.MbspBs2, "NUMB_OF_ATTN_WEEK", true));
          this.NumbOfAttnWeek_TextEdit003.EditValue = "0";
-         this.NumbOfAttnWeek_TextEdit003.Location = new System.Drawing.Point(217, 131);
+         this.NumbOfAttnWeek_TextEdit003.Location = new System.Drawing.Point(221, 131);
          this.NumbOfAttnWeek_TextEdit003.Name = "NumbOfAttnWeek_TextEdit003";
          this.NumbOfAttnWeek_TextEdit003.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.NumbOfAttnWeek_TextEdit003.Properties.Appearance.Options.UseFont = true;
@@ -2965,7 +2979,7 @@
          this.NumbOfAttnMont_TextEdit003.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.NumbOfAttnMont_TextEdit003.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.MbspBs2, "NUMB_OF_ATTN_MONT", true));
          this.NumbOfAttnMont_TextEdit003.EditValue = "0";
-         this.NumbOfAttnMont_TextEdit003.Location = new System.Drawing.Point(217, 103);
+         this.NumbOfAttnMont_TextEdit003.Location = new System.Drawing.Point(221, 103);
          this.NumbOfAttnMont_TextEdit003.Name = "NumbOfAttnMont_TextEdit003";
          this.NumbOfAttnMont_TextEdit003.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.NumbOfAttnMont_TextEdit003.Properties.Appearance.Options.UseFont = true;
@@ -2983,7 +2997,7 @@
          this.NumbOfMontDnrm_TextEdit003.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.NumbOfMontDnrm_TextEdit003.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.MbspBs2, "NUMB_OF_MONT_DNRM", true));
          this.NumbOfMontDnrm_TextEdit003.EditValue = "1";
-         this.NumbOfMontDnrm_TextEdit003.Location = new System.Drawing.Point(90, 19);
+         this.NumbOfMontDnrm_TextEdit003.Location = new System.Drawing.Point(94, 19);
          this.NumbOfMontDnrm_TextEdit003.Name = "NumbOfMontDnrm_TextEdit003";
          this.NumbOfMontDnrm_TextEdit003.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.NumbOfMontDnrm_TextEdit003.Properties.Appearance.Options.UseFont = true;
@@ -3002,7 +3016,7 @@
          this.NumbOfDays_TextEdit003.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.NumbOfDays_TextEdit003.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.MbspBs2, "NUMB_OF_DAYS_DNRM", true));
          this.NumbOfDays_TextEdit003.EditValue = "1";
-         this.NumbOfDays_TextEdit003.Location = new System.Drawing.Point(90, 47);
+         this.NumbOfDays_TextEdit003.Location = new System.Drawing.Point(94, 47);
          this.NumbOfDays_TextEdit003.Name = "NumbOfDays_TextEdit003";
          this.NumbOfDays_TextEdit003.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.NumbOfDays_TextEdit003.Properties.Appearance.Options.UseFont = true;
@@ -3019,7 +3033,7 @@
          this.NumbMontOfer_TextEdit003.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.NumbMontOfer_TextEdit003.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.MbspBs2, "NUMB_MONT_OFER", true));
          this.NumbMontOfer_TextEdit003.EditValue = "0";
-         this.NumbMontOfer_TextEdit003.Location = new System.Drawing.Point(217, 75);
+         this.NumbMontOfer_TextEdit003.Location = new System.Drawing.Point(221, 75);
          this.NumbMontOfer_TextEdit003.Name = "NumbMontOfer_TextEdit003";
          this.NumbMontOfer_TextEdit003.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.NumbMontOfer_TextEdit003.Properties.Appearance.Options.UseFont = true;
@@ -3038,7 +3052,7 @@
          this.EndDate_DateTime003.CustomFormat = "dd/MM/yyyy";
          this.EndDate_DateTime003.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.MbspBs2, "END_DATE", true));
          this.EndDate_DateTime003.Format = Atf.UI.DateTimeSelectorFormat.Custom;
-         this.EndDate_DateTime003.Location = new System.Drawing.Point(217, 46);
+         this.EndDate_DateTime003.Location = new System.Drawing.Point(221, 46);
          this.EndDate_DateTime003.Name = "EndDate_DateTime003";
          this.EndDate_DateTime003.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
          this.EndDate_DateTime003.Size = new System.Drawing.Size(100, 23);
@@ -3051,40 +3065,237 @@
          this.StrtDate_DateTime003.CustomFormat = "dd/MM/yyyy";
          this.StrtDate_DateTime003.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.MbspBs2, "STRT_DATE", true));
          this.StrtDate_DateTime003.Format = Atf.UI.DateTimeSelectorFormat.Custom;
-         this.StrtDate_DateTime003.Location = new System.Drawing.Point(217, 18);
+         this.StrtDate_DateTime003.Location = new System.Drawing.Point(221, 18);
          this.StrtDate_DateTime003.Name = "StrtDate_DateTime003";
          this.StrtDate_DateTime003.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
          this.StrtDate_DateTime003.Size = new System.Drawing.Size(100, 23);
          this.StrtDate_DateTime003.TabIndex = 20;
          this.StrtDate_DateTime003.UsePersianFormat = true;
          // 
-         // Back_Butn
-         // 
-         this.Back_Butn.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-         this.Back_Butn.Location = new System.Drawing.Point(353, 572);
-         this.Back_Butn.Name = "Back_Butn";
-         this.Back_Butn.Size = new System.Drawing.Size(75, 23);
-         this.Back_Butn.TabIndex = 1;
-         this.Back_Butn.Text = "بازگشت";
-         this.Back_Butn.UseVisualStyleBackColor = true;
-         this.Back_Butn.Click += new System.EventHandler(this.Back_Butn_Click);
-         // 
          // PymtBs1
          // 
          this.PymtBs1.DataMember = "Payments";
          this.PymtBs1.DataSource = this.RqstBs2;
          // 
+         // panel1
+         // 
+         this.panel1.Controls.Add(this.Tilt_Lb);
+         this.panel1.Controls.Add(this.simpleButton1);
+         this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+         this.panel1.Location = new System.Drawing.Point(0, 0);
+         this.panel1.Name = "panel1";
+         this.panel1.Size = new System.Drawing.Size(897, 59);
+         this.panel1.TabIndex = 3;
+         // 
+         // Tilt_Lb
+         // 
+         this.Tilt_Lb.Appearance.Font = new System.Drawing.Font("IRANSans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.Tilt_Lb.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+         this.Tilt_Lb.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+         this.Tilt_Lb.Dock = System.Windows.Forms.DockStyle.Right;
+         this.Tilt_Lb.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
+         this.Tilt_Lb.Location = new System.Drawing.Point(453, 0);
+         this.Tilt_Lb.Name = "Tilt_Lb";
+         this.Tilt_Lb.Size = new System.Drawing.Size(383, 59);
+         this.Tilt_Lb.TabIndex = 1;
+         this.Tilt_Lb.Text = "تمدید گروهی";
+         // 
+         // simpleButton1
+         // 
+         this.simpleButton1.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+         this.simpleButton1.Appearance.Options.UseBackColor = true;
+         this.simpleButton1.Dock = System.Windows.Forms.DockStyle.Right;
+         this.simpleButton1.Image = global::System.Scsc.Properties.Resources.IMAGE_1371;
+         this.simpleButton1.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+         this.simpleButton1.Location = new System.Drawing.Point(836, 0);
+         this.simpleButton1.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.simpleButton1.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.simpleButton1.Name = "simpleButton1";
+         this.simpleButton1.Size = new System.Drawing.Size(61, 59);
+         this.simpleButton1.TabIndex = 0;
+         this.simpleButton1.ToolTip = "بازگشت";
+         this.simpleButton1.Click += new System.EventHandler(this.Back_Butn_Click);
+         // 
+         // ClubWkdy_Pn
+         // 
+         this.ClubWkdy_Pn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.ClubWkdy_Pn.Controls.Add(this.QWkdy007_Butn);
+         this.ClubWkdy_Pn.Controls.Add(this.QWkdy006_Butn);
+         this.ClubWkdy_Pn.Controls.Add(this.QWkdy001_Butn);
+         this.ClubWkdy_Pn.Controls.Add(this.QWkdy005_Butn);
+         this.ClubWkdy_Pn.Controls.Add(this.QWkdy002_Butn);
+         this.ClubWkdy_Pn.Controls.Add(this.QWkdy004_Butn);
+         this.ClubWkdy_Pn.Controls.Add(this.QWkdy003_Butn);
+         this.ClubWkdy_Pn.Location = new System.Drawing.Point(23, 389);
+         this.ClubWkdy_Pn.Name = "ClubWkdy_Pn";
+         this.ClubWkdy_Pn.Size = new System.Drawing.Size(251, 61);
+         this.ClubWkdy_Pn.TabIndex = 43;
+         // 
+         // QWkdy007_Butn
+         // 
+         this.QWkdy007_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.QWkdy007_Butn.Appearance.BackColor = System.Drawing.Color.GreenYellow;
+         this.QWkdy007_Butn.Appearance.BorderColor = System.Drawing.Color.Khaki;
+         this.QWkdy007_Butn.Appearance.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.QWkdy007_Butn.Appearance.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+         this.QWkdy007_Butn.Appearance.Options.UseBackColor = true;
+         this.QWkdy007_Butn.Appearance.Options.UseBorderColor = true;
+         this.QWkdy007_Butn.Appearance.Options.UseFont = true;
+         this.QWkdy007_Butn.Appearance.Options.UseForeColor = true;
+         this.QWkdy007_Butn.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
+         this.QWkdy007_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+         this.QWkdy007_Butn.Location = new System.Drawing.Point(188, 3);
+         this.QWkdy007_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.QWkdy007_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.QWkdy007_Butn.Name = "QWkdy007_Butn";
+         this.QWkdy007_Butn.Size = new System.Drawing.Size(60, 27);
+         this.QWkdy007_Butn.TabIndex = 41;
+         this.QWkdy007_Butn.Tag = "007";
+         this.QWkdy007_Butn.Text = "شنبه";
+         // 
+         // QWkdy006_Butn
+         // 
+         this.QWkdy006_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.QWkdy006_Butn.Appearance.BackColor = System.Drawing.Color.GreenYellow;
+         this.QWkdy006_Butn.Appearance.BorderColor = System.Drawing.Color.Khaki;
+         this.QWkdy006_Butn.Appearance.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.QWkdy006_Butn.Appearance.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+         this.QWkdy006_Butn.Appearance.Options.UseBackColor = true;
+         this.QWkdy006_Butn.Appearance.Options.UseBorderColor = true;
+         this.QWkdy006_Butn.Appearance.Options.UseFont = true;
+         this.QWkdy006_Butn.Appearance.Options.UseForeColor = true;
+         this.QWkdy006_Butn.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
+         this.QWkdy006_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+         this.QWkdy006_Butn.Location = new System.Drawing.Point(66, 31);
+         this.QWkdy006_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.QWkdy006_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.QWkdy006_Butn.Name = "QWkdy006_Butn";
+         this.QWkdy006_Butn.Size = new System.Drawing.Size(60, 27);
+         this.QWkdy006_Butn.TabIndex = 35;
+         this.QWkdy006_Butn.Tag = "006";
+         this.QWkdy006_Butn.Text = "جمعه";
+         // 
+         // QWkdy001_Butn
+         // 
+         this.QWkdy001_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.QWkdy001_Butn.Appearance.BackColor = System.Drawing.Color.GreenYellow;
+         this.QWkdy001_Butn.Appearance.BorderColor = System.Drawing.Color.Khaki;
+         this.QWkdy001_Butn.Appearance.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.QWkdy001_Butn.Appearance.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+         this.QWkdy001_Butn.Appearance.Options.UseBackColor = true;
+         this.QWkdy001_Butn.Appearance.Options.UseBorderColor = true;
+         this.QWkdy001_Butn.Appearance.Options.UseFont = true;
+         this.QWkdy001_Butn.Appearance.Options.UseForeColor = true;
+         this.QWkdy001_Butn.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
+         this.QWkdy001_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+         this.QWkdy001_Butn.Location = new System.Drawing.Point(127, 3);
+         this.QWkdy001_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.QWkdy001_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.QWkdy001_Butn.Name = "QWkdy001_Butn";
+         this.QWkdy001_Butn.Size = new System.Drawing.Size(60, 27);
+         this.QWkdy001_Butn.TabIndex = 40;
+         this.QWkdy001_Butn.Tag = "001";
+         this.QWkdy001_Butn.Text = "یکشنبه";
+         // 
+         // QWkdy005_Butn
+         // 
+         this.QWkdy005_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.QWkdy005_Butn.Appearance.BackColor = System.Drawing.Color.GreenYellow;
+         this.QWkdy005_Butn.Appearance.BorderColor = System.Drawing.Color.Khaki;
+         this.QWkdy005_Butn.Appearance.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.QWkdy005_Butn.Appearance.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+         this.QWkdy005_Butn.Appearance.Options.UseBackColor = true;
+         this.QWkdy005_Butn.Appearance.Options.UseBorderColor = true;
+         this.QWkdy005_Butn.Appearance.Options.UseFont = true;
+         this.QWkdy005_Butn.Appearance.Options.UseForeColor = true;
+         this.QWkdy005_Butn.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
+         this.QWkdy005_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+         this.QWkdy005_Butn.Location = new System.Drawing.Point(127, 31);
+         this.QWkdy005_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.QWkdy005_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.QWkdy005_Butn.Name = "QWkdy005_Butn";
+         this.QWkdy005_Butn.Size = new System.Drawing.Size(60, 27);
+         this.QWkdy005_Butn.TabIndex = 36;
+         this.QWkdy005_Butn.Tag = "005";
+         this.QWkdy005_Butn.Text = "پنجشنبه";
+         // 
+         // QWkdy002_Butn
+         // 
+         this.QWkdy002_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.QWkdy002_Butn.Appearance.BackColor = System.Drawing.Color.GreenYellow;
+         this.QWkdy002_Butn.Appearance.BorderColor = System.Drawing.Color.Khaki;
+         this.QWkdy002_Butn.Appearance.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.QWkdy002_Butn.Appearance.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+         this.QWkdy002_Butn.Appearance.Options.UseBackColor = true;
+         this.QWkdy002_Butn.Appearance.Options.UseBorderColor = true;
+         this.QWkdy002_Butn.Appearance.Options.UseFont = true;
+         this.QWkdy002_Butn.Appearance.Options.UseForeColor = true;
+         this.QWkdy002_Butn.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
+         this.QWkdy002_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+         this.QWkdy002_Butn.Location = new System.Drawing.Point(66, 3);
+         this.QWkdy002_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.QWkdy002_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.QWkdy002_Butn.Name = "QWkdy002_Butn";
+         this.QWkdy002_Butn.Size = new System.Drawing.Size(60, 27);
+         this.QWkdy002_Butn.TabIndex = 39;
+         this.QWkdy002_Butn.Tag = "002";
+         this.QWkdy002_Butn.Text = "دوشنبه";
+         // 
+         // QWkdy004_Butn
+         // 
+         this.QWkdy004_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.QWkdy004_Butn.Appearance.BackColor = System.Drawing.Color.GreenYellow;
+         this.QWkdy004_Butn.Appearance.BorderColor = System.Drawing.Color.Khaki;
+         this.QWkdy004_Butn.Appearance.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.QWkdy004_Butn.Appearance.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+         this.QWkdy004_Butn.Appearance.Options.UseBackColor = true;
+         this.QWkdy004_Butn.Appearance.Options.UseBorderColor = true;
+         this.QWkdy004_Butn.Appearance.Options.UseFont = true;
+         this.QWkdy004_Butn.Appearance.Options.UseForeColor = true;
+         this.QWkdy004_Butn.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
+         this.QWkdy004_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+         this.QWkdy004_Butn.Location = new System.Drawing.Point(188, 31);
+         this.QWkdy004_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.QWkdy004_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.QWkdy004_Butn.Name = "QWkdy004_Butn";
+         this.QWkdy004_Butn.Size = new System.Drawing.Size(60, 27);
+         this.QWkdy004_Butn.TabIndex = 37;
+         this.QWkdy004_Butn.Tag = "004";
+         this.QWkdy004_Butn.Text = "چهارشنبه";
+         // 
+         // QWkdy003_Butn
+         // 
+         this.QWkdy003_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.QWkdy003_Butn.Appearance.BackColor = System.Drawing.Color.GreenYellow;
+         this.QWkdy003_Butn.Appearance.BorderColor = System.Drawing.Color.Khaki;
+         this.QWkdy003_Butn.Appearance.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.QWkdy003_Butn.Appearance.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+         this.QWkdy003_Butn.Appearance.Options.UseBackColor = true;
+         this.QWkdy003_Butn.Appearance.Options.UseBorderColor = true;
+         this.QWkdy003_Butn.Appearance.Options.UseFont = true;
+         this.QWkdy003_Butn.Appearance.Options.UseForeColor = true;
+         this.QWkdy003_Butn.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
+         this.QWkdy003_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+         this.QWkdy003_Butn.Location = new System.Drawing.Point(5, 3);
+         this.QWkdy003_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.QWkdy003_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.QWkdy003_Butn.Name = "QWkdy003_Butn";
+         this.QWkdy003_Butn.Size = new System.Drawing.Size(60, 27);
+         this.QWkdy003_Butn.TabIndex = 38;
+         this.QWkdy003_Butn.Tag = "003";
+         this.QWkdy003_Butn.Text = "سه شنبه";
+         // 
          // AOP_MBSP_F
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
          this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-         this.Controls.Add(this.Back_Butn);
          this.Controls.Add(this.tabControl1);
+         this.Controls.Add(this.panel1);
          this.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.MinimumSize = new System.Drawing.Size(780, 522);
          this.Name = "AOP_MBSP_F";
          this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-         this.Size = new System.Drawing.Size(780, 605);
+         this.Size = new System.Drawing.Size(897, 697);
          this.tabControl1.ResumeLayout(false);
          this.tabPage1.ResumeLayout(false);
          this.splitContainer1.Panel1.ResumeLayout(false);
@@ -3150,6 +3361,8 @@
          ((System.ComponentModel.ISupportInitialize)(this.NumbOfDays_TextEdit003.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.NumbMontOfer_TextEdit003.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.PymtBs1)).EndInit();
+         this.panel1.ResumeLayout(false);
+         this.ClubWkdy_Pn.ResumeLayout(false);
          this.ResumeLayout(false);
 
       }
@@ -3158,7 +3371,6 @@
 
       private Windows.Forms.TabControl tabControl1;
       private Windows.Forms.TabPage tabPage1;
-      private Windows.Forms.Button Back_Butn;
       private Windows.Forms.SplitContainer splitContainer1;
       private Windows.Forms.GroupBox groupBox1;
       private Windows.Forms.GroupBox groupBox2;
@@ -3407,5 +3619,16 @@
       private DevExpress.XtraGrid.Columns.GridColumn gridColumn26;
       private Windows.Forms.Button Btn_AutoCalcAttn;
       private DevExpress.XtraEditors.SpinEdit NumbOfAttnMont_Txt;
+      private Windows.Forms.Panel panel1;
+      private DevExpress.XtraEditors.LabelControl Tilt_Lb;
+      private DevExpress.XtraEditors.SimpleButton simpleButton1;
+      private Windows.Forms.Panel ClubWkdy_Pn;
+      private DevExpress.XtraEditors.SimpleButton QWkdy007_Butn;
+      private DevExpress.XtraEditors.SimpleButton QWkdy006_Butn;
+      private DevExpress.XtraEditors.SimpleButton QWkdy001_Butn;
+      private DevExpress.XtraEditors.SimpleButton QWkdy005_Butn;
+      private DevExpress.XtraEditors.SimpleButton QWkdy002_Butn;
+      private DevExpress.XtraEditors.SimpleButton QWkdy004_Butn;
+      private DevExpress.XtraEditors.SimpleButton QWkdy003_Butn;
    }
 }

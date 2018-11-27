@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace System.Scsc.Ui.AggregateOperation
 {
@@ -214,7 +215,48 @@ namespace System.Scsc.Ui.AggregateOperation
       /// <param name="job"></param>
       private void Actn_CalF_P(Job job)
       {
+         var xinput = job.Input as XElement;
+         if (xinput != null)
+         {
+            if (xinput.Attribute("cbmtcode") != null)
+               cbmtcode = Convert.ToInt64(xinput.Attribute("cbmtcode").Value);
+            else
+               cbmtcode = null;
+
+            if (xinput.Attribute("attndate") != null)
+               fromdate = Convert.ToDateTime(xinput.Attribute("attndate").Value);
+            else
+               fromdate = DateTime.Now;
+
+            if (cbmtcode != null)
+            {
+               if (!iScsc.Aggregation_Operations.Any(ao => ao.CBMT_CODE == cbmtcode && ao.FROM_DATE == fromdate.Value.Date && ao.OPRT_TYPE == "004" && (ao.OPRT_STAT == "001" || ao.OPRT_STAT == "002")))
+               {
+                  AgopBs1.AddNew();
+                  var agop = AgopBs1.Current as Data.Aggregation_Operation;
+
+                  agop.CBMT_CODE = cbmtcode;
+                  agop.FROM_DATE = fromdate;
+                  agop.TO_DATE = fromdate.Value.AddDays(29);
+                  agop.RQTT_CODE = "001";
+                  agop.NEW_CBMT_CODE = cbmtcode;
+
+                  Edit_Butn_Click(null, null);
+               }
+            }
+         }
+         else
+         {
+            cbmtcode = null;
+            fromdate = null;
+         }
+
          Execute_Query();
+
+         if (cbmtcode != null)
+         {
+            AgopBs1.Position = AgopBs1.IndexOf(AgopBs1.List.OfType<Data.Aggregation_Operation>().FirstOrDefault(ao => ao.CBMT_CODE == cbmtcode && ao.FROM_DATE == fromdate.Value.Date && ao.OPRT_TYPE == "001" && (ao.OPRT_STAT == "001" || ao.OPRT_STAT == "002")));
+         }
 
          job.Status = StatusType.Successful;
       }

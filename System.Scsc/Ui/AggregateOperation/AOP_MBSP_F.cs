@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.JobRouting.Jobs;
 using System.Xml.Linq;
+using DevExpress.XtraEditors;
 
 namespace System.Scsc.Ui.AggregateOperation
 {
@@ -21,6 +22,8 @@ namespace System.Scsc.Ui.AggregateOperation
 
       private bool requery = false;
       private int agopindx = 0, aodtindx = 0;
+      private long? cbmtcode;
+      private DateTime? fromdate = null, todate = null;
 
       private void Execute_Query()
       {
@@ -30,6 +33,7 @@ namespace System.Scsc.Ui.AggregateOperation
          AgopBs1.DataSource = iScsc.Aggregation_Operations.Where(a => a.OPRT_TYPE == "001" && (a.OPRT_STAT == "001" || a.OPRT_STAT == "002"));
          AgopBs1.Position = agopindx;
          AodtBs1.Position = aodtindx;
+         requery = false;
       }
 
       private void Back_Butn_Click(object sender, EventArgs e)
@@ -233,7 +237,9 @@ namespace System.Scsc.Ui.AggregateOperation
             if (requery)
             {
                Execute_Query();
-               requery = false;
+               if (AgopBs1.List.Count == 0)
+                  Back_Butn_Click(null, null);
+               //requery = false;
             }
          }
       }
@@ -437,6 +443,35 @@ namespace System.Scsc.Ui.AggregateOperation
          {
             MessageBox.Show("در آیین نامه نرخ و هزینه تعداد جلسات و اطلاعات اتوماتیک به درستی وارد نشده. لطفا آیین نامه را بررسی و اصلاح کنید");
          }
+      }
+
+      private void CbmtNew_Lov_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
+      {
+         try
+         {
+            var cbmt = iScsc.Club_Methods.First(cm => cm.CODE == (long)CbmtNew_Lov.EditValue);
+            if (cbmt == null) return;
+
+            var cmwk = cbmt.Club_Method_Weekdays.ToList();
+
+            if (cmwk.Count == 0)
+            {
+               ClubWkdy_Pn.Controls.OfType<SimpleButton>().Where(sb => sb.Tag != null).ToList().ForEach(sb => sb.Appearance.BackColor = Color.Gold);
+               return;
+            }
+
+            foreach (var wkdy in cmwk)
+            {
+               var rslt = ClubWkdy_Pn.Controls.OfType<SimpleButton>().FirstOrDefault(sb => sb.Tag != null && sb.Tag.ToString() == wkdy.WEEK_DAY);
+               rslt.Appearance.BackColor = wkdy.STAT == "001" ? Color.LightGray : Color.GreenYellow;
+            }
+         }
+         catch { }
+      }
+
+      private void AgopBs1_CurrentChanged(object sender, EventArgs e)
+      {
+         CbmtNew_Lov_EditValueChanging(null, null);
       }
    }
 }

@@ -672,6 +672,28 @@ namespace System.Scsc.Ui.Admission
                ShowRqst_PickButn.PickChecked = false;
                RqstBs1.Position = RqstBs1.IndexOf(RqstBs1.List.OfType<Data.Request>().FirstOrDefault(r => r.RQID == Convert.ToInt64(xinput.Attribute("rqid").Value)));
             }
+            else if(xinput.Attribute("type").Value == "admcbmt")
+            {
+               if (xinput.Attribute("cbmtcode") != null)
+                  cbmtcode = Convert.ToInt64(xinput.Attribute("cbmtcode").Value);
+               else
+                  cbmtcode = null;
+
+               if (xinput.Attribute("ctgycode") != null)
+                  ctgycode = Convert.ToInt64(xinput.Attribute("ctgycode").Value);
+               else
+                  ctgycode = null;
+
+               Execute_Query();
+
+               if(RqstBs1.List.Count >= 1)
+                  RqstBs1.AddNew();
+
+               CbmtCode_Lov.EditValue = cbmtcode;
+               CtgyCode_Lov.EditValue = ctgycode;
+
+               Btn_AutoCalcAttn_Click(null, null);
+            }
             else
                Execute_Query();
          }

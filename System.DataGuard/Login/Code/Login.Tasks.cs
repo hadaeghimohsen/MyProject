@@ -125,7 +125,7 @@ namespace System.DataGuard.Login.Code
          job.Next =
             new Job(SendType.SelfToUserInterface, "LastUserLogin", 02 /* Execute Set */,
                new Job(SendType.SelfToUserInterface, "LastUserLogin", 03 /* Execute Paint */,
-                  new Job(SendType.SelfToUserInterface, "LastUserLogin", 08 /* Execute LoadDataAsync */) { Executive = ExecutiveType.Asynchronous }));
+                  new Job(SendType.SelfToUserInterface, "LastUserLogin", 08 /* Execute LoadDataAsync */) { Executive = ExecutiveType.Synchronize }));
          job.Status = StatusType.Successful;
       }
 

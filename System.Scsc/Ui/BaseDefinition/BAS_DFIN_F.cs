@@ -1459,25 +1459,37 @@ namespace System.Scsc.Ui.BaseDefinition
             //if (!FromDate006_Date.Value.HasValue) { MessageBox.Show("تاریخ شروع را مشخص کنید"); FromDate006_Date.Focus(); return; }
             //if (!ToDate006_Date.Value.HasValue) { MessageBox.Show("تاریخ پایان را مشخص کنید"); ToDate006_Date.Focus(); return; }
 
-            var crnt = CbmtBs2.Current as Data.Club_Method;
+            Data.Club_Method crnt = null;
+            var section = "";
+            if (Tb_Master.SelectedTab == tp_006)
+            {
+               crnt = CbmtBs2.Current as Data.Club_Method;
+               section = GetType().Name.Substring(0, 3) + "_006_F";
+            }
+            else if (Tb_Master.SelectedTab == tp_005)
+            {
+               crnt = CbmtBs1.Current as Data.Club_Method;
+               section = GetType().Name.Substring(0, 3) + "_005_F";
+            }
+            
             if (crnt == null) return;
 
             Job _InteractWithScsc =
                new Job(SendType.External, "Localhost",
                   new List<Job>
-               {
-                  new Job(SendType.Self, 84 /* Execute Cfg_Stng_F */)
                   {
-                     Input = 
-                        new XElement("Print", 
-                           new XAttribute("type", "Default"), 
-                           new XAttribute("modual", GetType().Name), 
-                           new XAttribute("section", GetType().Name.Substring(0,3) + "_006_F"), 
-                           //string.Format("<Club_Method code=\"{0}\" /><Request fromsavedate=\"{1}\" tosavedate=\"{2}\" />", crnt.CODE, FromDate006_Date.Value.Value.Date.ToString("yyyy-MM-dd"), ToDate006_Date.Value.Value.Date.ToString("yyyy-MM-dd") )
-                           string.Format("<Club_Method code=\"{0}\" />",crnt.CODE )
-                        )
-                  }
-               });
+                     new Job(SendType.Self, 84 /* Execute Cfg_Stng_F */)
+                     {
+                        Input = 
+                           new XElement("Print", 
+                              new XAttribute("type", "Default"), 
+                              new XAttribute("modual", GetType().Name), 
+                              new XAttribute("section", section),
+                              //string.Format("<Club_Method code=\"{0}\" /><Request fromsavedate=\"{1}\" tosavedate=\"{2}\" />", crnt.CODE, FromDate006_Date.Value.Value.Date.ToString("yyyy-MM-dd"), ToDate006_Date.Value.Value.Date.ToString("yyyy-MM-dd") )
+                              string.Format("<Club_Method code=\"{0}\" />",crnt.CODE )
+                           )
+                     }
+                  });
             _DefaultGateway.Gateway(_InteractWithScsc);
          }
          catch (Exception exc) { MessageBox.Show(exc.Message); }
@@ -1490,7 +1502,19 @@ namespace System.Scsc.Ui.BaseDefinition
             //if (!FromDate006_Date.Value.HasValue) { MessageBox.Show("تاریخ شروع را مشخص کنید"); FromDate006_Date.Focus(); return; }
             //if (!ToDate006_Date.Value.HasValue) { MessageBox.Show("تاریخ پایان را مشخص کنید"); ToDate006_Date.Focus(); return; }
 
-            var crnt = CbmtBs2.Current as Data.Club_Method;
+            Data.Club_Method crnt = null;
+            var section = "";
+            if (Tb_Master.SelectedTab == tp_006)
+            {
+               crnt = CbmtBs2.Current as Data.Club_Method;
+               section = GetType().Name.Substring(0, 3) + "_006_F";
+            }
+            else if (Tb_Master.SelectedTab == tp_005)
+            {
+               crnt = CbmtBs1.Current as Data.Club_Method;
+               section = GetType().Name.Substring(0, 3) + "_005_F";
+            }
+
             if (crnt == null) return;
 
             Job _InteractWithScsc =
@@ -1503,7 +1527,7 @@ namespace System.Scsc.Ui.BaseDefinition
                            new XElement("Print", 
                               new XAttribute("type", "Selection"), 
                               new XAttribute("modual", GetType().Name), 
-                              new XAttribute("section", GetType().Name.Substring(0,3) + "_006_F"),
+                              new XAttribute("section", section),
                               //string.Format("<Club_Method code=\"{0}\" /><Request fromsavedate=\"{1}\" tosavedate=\"{2}\" />",crnt.CODE , FromDate006_Date.Value.Value.Date.ToString("yyyy-MM-dd"), ToDate006_Date.Value.Value.Date.ToString("yyyy-MM-dd") )
                               string.Format("<Club_Method code=\"{0}\" />",crnt.CODE )
                            )
@@ -1518,9 +1542,19 @@ namespace System.Scsc.Ui.BaseDefinition
       {
          try
          {
+            var section = "";
+            if (Tb_Master.SelectedTab == tp_006)
+            {
+               section = GetType().Name.Substring(0, 3) + "_006_F";
+            }
+            else if (Tb_Master.SelectedTab == tp_005)
+            {
+               section = GetType().Name.Substring(0, 3) + "_005_F";
+            }
+
             Job _InteractWithScsc =
-                 new Job(SendType.External, "Localhost",
-                    new List<Job>
+               new Job(SendType.External, "Localhost",
+                  new List<Job>
                   {
                      new Job(SendType.Self, 81 /* Execute Cfg_Stng_F */),
                      new Job(SendType.SelfToUserInterface, "CFG_STNG_F", 10 /* Actn_CalF_P */)
@@ -1529,7 +1563,7 @@ namespace System.Scsc.Ui.BaseDefinition
                            new XElement("Request", 
                               new XAttribute("type", "ModualReport"), 
                               new XAttribute("modul", GetType().Name), 
-                              new XAttribute("section", GetType().Name.Substring(0,3) + "_006_F")
+                              new XAttribute("section", section)
                            )
                      }
                   });
@@ -1583,7 +1617,8 @@ namespace System.Scsc.Ui.BaseDefinition
                      SaveClubMethod_Butn_Click(null, null);
                      break;
                   case 2:
-                     WeekDay_Butn_Click(null, null);
+                     //WeekDay_Butn_Click(null, null);
+                     PrintDefaultClubMethod_Butn_Click(null, null);
                      break;
                   default:
                      break;
@@ -2261,7 +2296,7 @@ namespace System.Scsc.Ui.BaseDefinition
             Data.Club_Method c = null;
             if(Tb_Master.SelectedTab == tp_006)
                c = CbmtBs2.Current as Data.Club_Method;
-            else
+            else if(Tb_Master.SelectedTab == tp_005)
                c = CbmtBs1.Current as Data.Club_Method;
 
             iScsc.STNG_SAVE_P(

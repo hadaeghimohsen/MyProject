@@ -2191,65 +2191,66 @@ namespace System.Scsc.Ui.BaseDefinition
          var cbmt = CbmtBs2.Current as Data.Club_Method;
          if(cbmt == null)return;
 
-         CbmtwkdyBs1.DataSource = cbmt.Club_Method_Weekdays.ToList();
-
-         if(CbmtwkdyBs1.List.Count == 0)
+         if (Tb_Master.SelectedTab == tp_006)
          {
-            ClubWkdy_Spn.Panel2.Controls.OfType<SimpleButton>().Where(sb => sb.Tag != null).ToList().ForEach(sb => sb.Appearance.BackColor = Color.Gold);
-            return;
-         }
+            CbmtwkdyBs1.DataSource = cbmt.Club_Method_Weekdays.ToList();
 
-         foreach (var wkdy in CbmtwkdyBs1.List.OfType<Data.Club_Method_Weekday>())
-         {
-            var rslt = ClubWkdy_Spn.Panel2.Controls.OfType<SimpleButton>().FirstOrDefault(sb => sb.Tag != null && sb.Tag.ToString() == wkdy.WEEK_DAY);
-            rslt.Appearance.BackColor = wkdy.STAT == "001" ? Color.LightGray : Color.GreenYellow;
-         }
+            if (CbmtwkdyBs1.List.Count == 0)
+            {
+               ClubWkdy_Spn.Panel2.Controls.OfType<SimpleButton>().Where(sb => sb.Tag != null).ToList().ForEach(sb => sb.Appearance.BackColor = Color.Gold);
+               return;
+            }
 
-         CochName_Lb.Text = cbmt.Fighter.NAME_DNRM;
-         FngrPrnt_Lb.Text = cbmt.Fighter.FNGR_PRNT_DNRM == "" ? "نامشخص" : cbmt.Fighter.FNGR_PRNT_DNRM;
+            foreach (var wkdy in CbmtwkdyBs1.List.OfType<Data.Club_Method_Weekday>())
+            {
+               var rslt = ClubWkdy_Spn.Panel2.Controls.OfType<SimpleButton>().FirstOrDefault(sb => sb.Tag != null && sb.Tag.ToString() == wkdy.WEEK_DAY);
+               rslt.Appearance.BackColor = wkdy.STAT == "001" ? Color.LightGray : Color.GreenYellow;
+            }
 
-         CtgyBs2.DataSource = iScsc.Category_Belts.Where(cb => cb.MTOD_CODE == cbmt.MTOD_CODE && cb.CTGY_STAT == "002");
+            CochName_Lb.Text = cbmt.Fighter.NAME_DNRM;
+            FngrPrnt_Lb.Text = cbmt.Fighter.FNGR_PRNT_DNRM == "" ? "نامشخص" : cbmt.Fighter.FNGR_PRNT_DNRM;
 
-         if(Tb_Master.SelectedTab == tp_006)
-         {
+
             RqstBnCochName_Butn.Text = CochName_Lb.Text;
             RqstBnCochName_Butn.Text += " ( " + FngrPrnt_Lb.Text + " )";
-         }
 
-         var listMbsp = 
-            iScsc.Member_Ships
-            .Where(ms =>                
-               ms.RECT_CODE == "004" &&
-               ms.VALD_TYPE == "002" &&
-               ms.STRT_DATE.Value.Date <= DateTime.Now.Date &&
-               ms.END_DATE.Value.Date >= DateTime.Now.Date &&
-               (ms.NUMB_OF_ATTN_MONT == 0 || ms.NUMB_OF_ATTN_MONT > ms.SUM_ATTN_MONT_DNRM) &&
-               ms.Fighter_Public.CBMT_CODE == cbmt.CODE
-            );
+            CtgyBs2.DataSource = iScsc.Category_Belts.Where(cb => cb.MTOD_CODE == cbmt.MTOD_CODE && cb.CTGY_STAT == "002");
 
-         ActvMembCount_Lb.Text = listMbsp.Count().ToString();
-         AgeMemb_Lb.Text = string.Join(", ", listMbsp.Select(ms => (DateTime.Now.Year - ms.Fighter.BRTH_DATE_DNRM.Value.Year).ToString()).Distinct().OrderBy(f => f).ToList());
+            var listMbsp =
+               iScsc.Member_Ships
+               .Where(ms =>
+                  ms.RECT_CODE == "004" &&
+                  ms.VALD_TYPE == "002" &&
+                  ms.STRT_DATE.Value.Date <= DateTime.Now.Date &&
+                  ms.END_DATE.Value.Date >= DateTime.Now.Date &&
+                  (ms.NUMB_OF_ATTN_MONT == 0 || ms.NUMB_OF_ATTN_MONT > ms.SUM_ATTN_MONT_DNRM) &&
+                  ms.Fighter_Public.CBMT_CODE == cbmt.CODE
+               );
 
-         try
-         {
-            CochProFile_Rb.ImageVisiable = true;
-            CochProFile_Rb.ImageProfile = null;
-            MemoryStream mStream = new MemoryStream();
-            byte[] pData = iScsc.GET_PIMG_U(new XElement("Fighter", new XAttribute("fileno", cbmt.COCH_FILE_NO))).ToArray();
-            mStream.Write(pData, 0, Convert.ToInt32(pData.Length));
-            Bitmap bm = new Bitmap(mStream, false);
-            mStream.Dispose();
+            ActvMembCount_Lb.Text = listMbsp.Count().ToString();
+            AgeMemb_Lb.Text = string.Join(", ", listMbsp.Select(ms => (DateTime.Now.Year - ms.Fighter.BRTH_DATE_DNRM.Value.Year).ToString()).Distinct().OrderBy(f => f).ToList());
 
-            //Pb_FighImg.Visible = true;
+            try
+            {
+               CochProFile_Rb.ImageVisiable = true;
+               CochProFile_Rb.ImageProfile = null;
+               MemoryStream mStream = new MemoryStream();
+               byte[] pData = iScsc.GET_PIMG_U(new XElement("Fighter", new XAttribute("fileno", cbmt.COCH_FILE_NO))).ToArray();
+               mStream.Write(pData, 0, Convert.ToInt32(pData.Length));
+               Bitmap bm = new Bitmap(mStream, false);
+               mStream.Dispose();
 
-            if (InvokeRequired)
-               Invoke(new Action(() => CochProFile_Rb.ImageProfile = bm));
-            else
-               CochProFile_Rb.ImageProfile = bm;
-         }
-         catch
-         { //Pb_FighImg.Visible = false;
-            CochProFile_Rb.ImageProfile = global::System.Scsc.Properties.Resources.IMAGE_1482;
+               //Pb_FighImg.Visible = true;
+
+               if (InvokeRequired)
+                  Invoke(new Action(() => CochProFile_Rb.ImageProfile = bm));
+               else
+                  CochProFile_Rb.ImageProfile = bm;
+            }
+            catch
+            { //Pb_FighImg.Visible = false;
+               CochProFile_Rb.ImageProfile = global::System.Scsc.Properties.Resources.IMAGE_1482;
+            }
          }
       }
 
@@ -2257,7 +2258,11 @@ namespace System.Scsc.Ui.BaseDefinition
       {
          try
          {
-            var c = CbmtBs2.Current as Data.Club_Method;
+            Data.Club_Method c = null;
+            if(Tb_Master.SelectedTab == tp_006)
+               c = CbmtBs2.Current as Data.Club_Method;
+            else
+               c = CbmtBs1.Current as Data.Club_Method;
 
             iScsc.STNG_SAVE_P(
                new XElement("Config",
@@ -3134,11 +3139,28 @@ namespace System.Scsc.Ui.BaseDefinition
       {
          try
          {
-            var cbmt = CbmtBs2.Current as Data.Club_Method;
-            if (cbmt == null) return;
+            long? cbmtcode = null;
+            DateTime? date = null;
+            if (Tb_Master.SelectedTab == tp_006)
+            {
+               var cbmt = CbmtBs2.Current as Data.Club_Method;
+               if (cbmt == null) return;
 
-            if (!AttnDate_Dt.Value.HasValue)
-               AttnDate_Dt.Value = DateTime.Now;
+               cbmtcode = cbmt.CODE;
+
+               if (!AttnDate_Dt.Value.HasValue)
+                  date = AttnDate_Dt.Value = DateTime.Now;
+            }
+            else if(Tb_Master.SelectedTab == tp_005)
+            {
+               var cbmt = CbmtBs1.Current as Data.Club_Method;
+               if (cbmt == null) return;
+
+               cbmtcode = cbmt.CODE;
+
+               if (!AttnDate_Dt.Value.HasValue)
+                  date = AttnDate1_Dt.Value = DateTime.Now;
+            }
 
             Job _InteractWithScsc =
                new Job(SendType.External, "Localhost",
@@ -3149,8 +3171,8 @@ namespace System.Scsc.Ui.BaseDefinition
                      {
                         Input = 
                            new XElement("Attendance",
-                              new XAttribute("cbmtcode", cbmt.CODE),
-                              new XAttribute("attndate", AttnDate_Dt.Value.Value.Date)
+                              new XAttribute("cbmtcode", cbmtcode),
+                              new XAttribute("attndate", date.Value.Date)
                            )
                      }
                   });
@@ -3163,11 +3185,28 @@ namespace System.Scsc.Ui.BaseDefinition
       {
          try
          {
-            var cbmt = CbmtBs2.Current as Data.Club_Method;
-            if (cbmt == null) return;
+            long? cbmtcode = null;
+            DateTime? date = null;
+            if (Tb_Master.SelectedTab == tp_006)
+            {
+               var cbmt = CbmtBs2.Current as Data.Club_Method;
+               if (cbmt == null) return;
 
-            if (!AttnDate_Dt.Value.HasValue)
-               AttnDate_Dt.Value = DateTime.Now;
+               cbmtcode = cbmt.CODE;
+
+               if (!AttnDate_Dt.Value.HasValue)
+                  date = AttnDate_Dt.Value = DateTime.Now;
+            }
+            else if (Tb_Master.SelectedTab == tp_005)
+            {
+               var cbmt = CbmtBs1.Current as Data.Club_Method;
+               if (cbmt == null) return;
+
+               cbmtcode = cbmt.CODE;
+
+               if (!AttnDate1_Dt.Value.HasValue)
+                  date = AttnDate1_Dt.Value = DateTime.Now;
+            }
 
             Job _InteractWithScsc =
                new Job(SendType.External, "Localhost",
@@ -3178,8 +3217,8 @@ namespace System.Scsc.Ui.BaseDefinition
                      {
                         Input = 
                            new XElement("Member_Ship",
-                              new XAttribute("cbmtcode", cbmt.CODE),
-                              new XAttribute("attndate", AttnDate_Dt.Value.Value.Date)
+                              new XAttribute("cbmtcode", cbmtcode),
+                              new XAttribute("attndate", date.Value.Date)
                            )
                      }
                   });
@@ -3192,11 +3231,31 @@ namespace System.Scsc.Ui.BaseDefinition
       {
          try
          {
-            var cbmt = CbmtBs2.Current as Data.Club_Method;
-            if (cbmt == null) return;
+            long? cbmtcode = null, ctgycode = null;
+            if (Tb_Master.SelectedTab == tp_006)
+            {
+               var cbmt = CbmtBs2.Current as Data.Club_Method;
+               if (cbmt == null) return;
 
-            var ctgy = CtgyBs2.Current as Data.Category_Belt;
-            if (ctgy == null) return;
+               var ctgy = CtgyBs2.Current as Data.Category_Belt;
+               if (ctgy == null) return;
+
+               cbmtcode = cbmt.CODE;
+               ctgycode = ctgy.CODE;
+            }
+            else if (Tb_Master.SelectedTab == tp_005)
+            {
+               var cbmt = CbmtBs1.Current as Data.Club_Method;
+               if (cbmt == null) return;
+
+               var ctgy = CtgyBs2.Current as Data.Category_Belt;
+               if (ctgy == null) return;
+
+               cbmtcode = cbmt.CODE;
+               ctgycode = ctgy.CODE;
+            }
+
+            
 
             Job _InteractWithScsc =
                new Job(SendType.External, "Localhost",
@@ -3208,14 +3267,81 @@ namespace System.Scsc.Ui.BaseDefinition
                         Input = 
                            new XElement("Request", 
                               new XAttribute("type", "admcbmt"),
-                              new XAttribute("cbmtcode", cbmt.CODE),
-                              new XAttribute("ctgycode", ctgy.CODE)
+                              new XAttribute("cbmtcode", cbmtcode),
+                              new XAttribute("ctgycode", ctgycode)
                            )
                      }
                   });
             _DefaultGateway.Gateway(_InteractWithScsc);
          }
          catch { }
+      }
+
+      private void CbmtBs1_CurrentChanged(object sender, EventArgs e)
+      {
+         try
+         {
+            var cbmt = CbmtBs1.Current as Data.Club_Method;
+            if (cbmt == null) return;
+
+            if(Tb_Master.SelectedTab == tp_005)
+            {
+               CbmtwkdyBs1.DataSource = cbmt.Club_Method_Weekdays.ToList();
+
+               if (CbmtwkdyBs1.List.Count == 0)
+               {
+                  ClubWkdy1_Spn.Panel2.Controls.OfType<SimpleButton>().Where(sb => sb.Tag != null).ToList().ForEach(sb => sb.Appearance.BackColor = Color.Gold);
+                  return;
+               }
+
+               foreach (var wkdy in CbmtwkdyBs1.List.OfType<Data.Club_Method_Weekday>())
+               {
+                  var rslt = ClubWkdy1_Spn.Panel2.Controls.OfType<SimpleButton>().FirstOrDefault(sb => sb.Tag != null && sb.Tag.ToString() == wkdy.WEEK_DAY);
+                  rslt.Appearance.BackColor = wkdy.STAT == "001" ? Color.LightGray : Color.GreenYellow;
+               }
+
+               CochName_Lb.Text = cbmt.Fighter.NAME_DNRM;
+               FngrPrnt_Lb.Text = cbmt.Fighter.FNGR_PRNT_DNRM == "" ? "نامشخص" : cbmt.Fighter.FNGR_PRNT_DNRM;
+               CtgyBs2.DataSource = iScsc.Category_Belts.Where(cb => cb.MTOD_CODE == cbmt.MTOD_CODE && cb.CTGY_STAT == "002");
+
+               var listMbsp =
+                  iScsc.Member_Ships
+                  .Where(ms =>
+                     ms.RECT_CODE == "004" &&
+                     ms.VALD_TYPE == "002" &&
+                     ms.STRT_DATE.Value.Date <= DateTime.Now.Date &&
+                     ms.END_DATE.Value.Date >= DateTime.Now.Date &&
+                     (ms.NUMB_OF_ATTN_MONT == 0 || ms.NUMB_OF_ATTN_MONT > ms.SUM_ATTN_MONT_DNRM) &&
+                     ms.Fighter_Public.CBMT_CODE == cbmt.CODE
+                  );
+
+               ActvMembCount1_Lb.Text = listMbsp.Count().ToString();
+               AgeMemb1_Lb.Text = string.Join(", ", listMbsp.Select(ms => (DateTime.Now.Year - ms.Fighter.BRTH_DATE_DNRM.Value.Year).ToString()).Distinct().OrderBy(f => f).ToList());
+
+               try
+               {
+                  CochProFile1_Rb.ImageVisiable = true;
+                  CochProFile1_Rb.ImageProfile = null;
+                  MemoryStream mStream = new MemoryStream();
+                  byte[] pData = iScsc.GET_PIMG_U(new XElement("Fighter", new XAttribute("fileno", cbmt.COCH_FILE_NO))).ToArray();
+                  mStream.Write(pData, 0, Convert.ToInt32(pData.Length));
+                  Bitmap bm = new Bitmap(mStream, false);
+                  mStream.Dispose();
+
+                  //Pb_FighImg.Visible = true;
+
+                  if (InvokeRequired)
+                     Invoke(new Action(() => CochProFile1_Rb.ImageProfile = bm));
+                  else
+                     CochProFile1_Rb.ImageProfile = bm;
+               }
+               catch
+               { //Pb_FighImg.Visible = false;
+                  CochProFile1_Rb.ImageProfile = global::System.Scsc.Properties.Resources.IMAGE_1482;
+               }
+            }
+         }
+         catch {}
       }
    }
 }

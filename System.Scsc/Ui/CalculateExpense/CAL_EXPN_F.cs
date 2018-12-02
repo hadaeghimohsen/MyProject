@@ -354,6 +354,57 @@ namespace System.Scsc.Ui.CalculateExpense
             iScsc.Calculate_Expense_Coaches.InsertOnSubmit(crnt);
          }
          catch { }
+      }
+
+      private void CbmtCode_Lov_Popup(object sender, EventArgs e)
+      {
+         try
+         {
+            var cexc = CexcBs.Current as Data.Calculate_Expense_Coach;
+            if (cexc == null) return;
+
+            Cexc_Gv.ActiveFilterString = "1=1 ";
+
+            if (cexc.MTOD_CODE != null)
+               Cexc_Gv.ActiveFilterString = string.Format("AND MTOD_CODE = '{0}'", cexc.MTOD_CODE);
+            if(cexc.COCH_FILE_NO != null)
+               Cexc_Gv.ActiveFilterString = string.Format("AND COCH_FILE_NO = '{0}'", cexc.COCH_FILE_NO);
+         }
+         catch {}
+      }
+
+      private void CbmtCode_Lov_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
+      {
+         try
+         {
+            var cexc = CexcBs.Current as Data.Calculate_Expense_Coach;
+            if (cexc == null) return;
+
+            var cbmt = CbmtBs1.List.OfType<Data.Club_Method>().FirstOrDefault(cm => cm.CODE == (long)e.NewValue);
+
+            if (cexc.CODE == 0)
+            {
+               cexc.COCH_FILE_NO = cbmt.COCH_FILE_NO;
+               cexc.MTOD_CODE = cbmt.MTOD_CODE;
+            }
+            else
+            {
+               if (cexc.COCH_FILE_NO == null)
+                  cexc.COCH_FILE_NO = cbmt.COCH_FILE_NO;
+               if (cexc.MTOD_CODE == null)
+                  cexc.MTOD_CODE = cbmt.MTOD_CODE;
+
+               if (cexc.COCH_FILE_NO != cbmt.COCH_FILE_NO && MessageBox.Show(this, "عنوان برنامه گروه با اسم سرپرست همخوانی ندارد، آیا مایل به جایگزین کردن هستین؟", "تغییر سرپرست", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) != DialogResult.Yes) return;
+               else
+                  cexc.COCH_FILE_NO = cbmt.COCH_FILE_NO;
+               if (cexc.MTOD_CODE != cbmt.MTOD_CODE && MessageBox.Show(this, "عنوان برنامه گروه با نام گروه همخوانی ندارد، آیا مایل به جایگزین کردن هستین؟", "تغییر گروه", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) != DialogResult.Yes) return;
+               else
+                  cexc.MTOD_CODE = cbmt.MTOD_CODE;
+            }
+
+            CexcBs.EndEdit();            
+         }
+         catch {}
       }      
    }
 }

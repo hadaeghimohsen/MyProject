@@ -2485,7 +2485,12 @@ namespace System.Scsc.Ui.BaseDefinition
       {
          try
          {
-            var cbmt = CbmtBs2.Current as Data.Club_Method;
+            Data.Club_Method cbmt = null;
+            if (Tb_Master.SelectedTab == tp_006)
+               cbmt = CbmtBs2.Current as Data.Club_Method;
+            else if (Tb_Master.SelectedTab == tp_005)
+               cbmt = CbmtBs1.Current as Data.Club_Method;
+
             if (cbmt == null) return;
 
             _DefaultGateway.Gateway(
@@ -3335,8 +3340,7 @@ namespace System.Scsc.Ui.BaseDefinition
                   rslt.Appearance.BackColor = wkdy.STAT == "001" ? Color.LightGray : Color.GreenYellow;
                }
 
-               CochName_Lb.Text = cbmt.Fighter.NAME_DNRM;
-               FngrPrnt_Lb.Text = cbmt.Fighter.FNGR_PRNT_DNRM == "" ? "نامشخص" : cbmt.Fighter.FNGR_PRNT_DNRM;
+               FngrPrnt1_Lb.Text = cbmt.Fighter.FNGR_PRNT_DNRM == "" ? "نامشخص" : cbmt.Fighter.FNGR_PRNT_DNRM;
                CtgyBs2.DataSource = iScsc.Category_Belts.Where(cb => cb.MTOD_CODE == cbmt.MTOD_CODE && cb.CTGY_STAT == "002");
 
                var listMbsp =

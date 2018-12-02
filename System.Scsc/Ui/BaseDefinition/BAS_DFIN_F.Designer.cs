@@ -634,7 +634,6 @@
          this.labelControl12 = new DevExpress.XtraEditors.LabelControl();
          this.labelControl13 = new DevExpress.XtraEditors.LabelControl();
          this.FngrPrnt1_Lb = new DevExpress.XtraEditors.LabelControl();
-         this.CochName1_Lb = new DevExpress.XtraEditors.LabelControl();
          this.ClubWkdy1_Spn = new DevExpress.XtraEditors.SplitContainerControl();
          this.gridControl8 = new DevExpress.XtraGrid.GridControl();
          this.CbmtBs1 = new System.Windows.Forms.BindingSource(this.components);
@@ -6450,7 +6449,6 @@
          this.splitContainerControl11.Panel1.Controls.Add(this.labelControl12);
          this.splitContainerControl11.Panel1.Controls.Add(this.labelControl13);
          this.splitContainerControl11.Panel1.Controls.Add(this.FngrPrnt1_Lb);
-         this.splitContainerControl11.Panel1.Controls.Add(this.CochName1_Lb);
          this.splitContainerControl11.Panel1.Text = "Panel1";
          this.splitContainerControl11.Panel2.Controls.Add(this.ClubWkdy1_Spn);
          this.splitContainerControl11.Panel2.Text = "Panel2";
@@ -6780,6 +6778,7 @@
          this.CochProFile1_Rb.SmoothingQuality = System.MaxUi.RoundedButton.SmoothingQualities.AntiAlias;
          this.CochProFile1_Rb.TabIndex = 77;
          this.CochProFile1_Rb.Tooltip = null;
+         this.CochProFile1_Rb.Click += new System.EventHandler(this.CochProFile_Rb_Click);
          // 
          // AgeMemb1_Lb
          // 
@@ -6793,7 +6792,7 @@
          this.AgeMemb1_Lb.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
          this.AgeMemb1_Lb.Location = new System.Drawing.Point(414, 46);
          this.AgeMemb1_Lb.Name = "AgeMemb1_Lb";
-         this.AgeMemb1_Lb.Size = new System.Drawing.Size(49, 22);
+         this.AgeMemb1_Lb.Size = new System.Drawing.Size(188, 22);
          this.AgeMemb1_Lb.TabIndex = 71;
          // 
          // ActvMembCount1_Lb
@@ -6806,7 +6805,7 @@
          this.ActvMembCount1_Lb.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
          this.ActvMembCount1_Lb.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.ActvMembCount1_Lb.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.ActvMembCount1_Lb.Location = new System.Drawing.Point(537, 46);
+         this.ActvMembCount1_Lb.Location = new System.Drawing.Point(540, 14);
          this.ActvMembCount1_Lb.Name = "ActvMembCount1_Lb";
          this.ActvMembCount1_Lb.Size = new System.Drawing.Size(25, 22);
          this.ActvMembCount1_Lb.TabIndex = 72;
@@ -6821,7 +6820,7 @@
          this.labelControl12.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Top;
          this.labelControl12.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
          this.labelControl12.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl12.Location = new System.Drawing.Point(469, 46);
+         this.labelControl12.Location = new System.Drawing.Point(608, 46);
          this.labelControl12.Name = "labelControl12";
          this.labelControl12.Size = new System.Drawing.Size(62, 22);
          this.labelControl12.TabIndex = 73;
@@ -6837,7 +6836,7 @@
          this.labelControl13.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Top;
          this.labelControl13.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
          this.labelControl13.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl13.Location = new System.Drawing.Point(568, 46);
+         this.labelControl13.Location = new System.Drawing.Point(571, 14);
          this.labelControl13.Name = "labelControl13";
          this.labelControl13.Size = new System.Drawing.Size(99, 22);
          this.labelControl13.TabIndex = 74;
@@ -6857,23 +6856,6 @@
          this.FngrPrnt1_Lb.Size = new System.Drawing.Size(117, 26);
          this.FngrPrnt1_Lb.TabIndex = 75;
          this.FngrPrnt1_Lb.Text = "3";
-         // 
-         // CochName1_Lb
-         // 
-         this.CochName1_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.CochName1_Lb.Appearance.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.CochName1_Lb.Appearance.ForeColor = System.Drawing.Color.Red;
-         this.CochName1_Lb.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("CochName1_Lb.Appearance.Image")));
-         this.CochName1_Lb.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         this.CochName1_Lb.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Top;
-         this.CochName1_Lb.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-         this.CochName1_Lb.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.CochName1_Lb.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.CochName1_Lb.Location = new System.Drawing.Point(537, 12);
-         this.CochName1_Lb.Name = "CochName1_Lb";
-         this.CochName1_Lb.Size = new System.Drawing.Size(130, 26);
-         this.CochName1_Lb.TabIndex = 76;
-         this.CochName1_Lb.Text = "نام سرپرست";
          // 
          // ClubWkdy1_Spn
          // 
@@ -13202,7 +13184,6 @@
       private DevExpress.XtraEditors.LabelControl labelControl12;
       private DevExpress.XtraEditors.LabelControl labelControl13;
       private DevExpress.XtraEditors.LabelControl FngrPrnt1_Lb;
-      private DevExpress.XtraEditors.LabelControl CochName1_Lb;
       private DevExpress.XtraEditors.SplitContainerControl ClubWkdy1_Spn;
       private DevExpress.XtraEditors.LabelControl labelControl10;
       private DevExpress.XtraEditors.SimpleButton simpleButton3;

@@ -56,9 +56,9 @@
          System.Windows.Forms.Label label24;
          System.Windows.Forms.Label label25;
          System.Windows.Forms.Label label26;
+         System.Windows.Forms.Label label27;
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
-         System.Windows.Forms.Label label27;
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition1 = new DevExpress.XtraGrid.StyleFormatCondition();
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition2 = new DevExpress.XtraGrid.StyleFormatCondition();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
@@ -187,6 +187,7 @@
          this.groupBox1 = new System.Windows.Forms.GroupBox();
          this.CbmtCode_Lov = new DevExpress.XtraEditors.GridLookUpEdit();
          this.CbmtBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.repositoryItemLookUpEdit9 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
          this.CbmtCode_GridView003 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.ClubCode_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
          this.MtodCode_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -327,6 +328,7 @@
          this.groupBox1.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.CbmtCode_Lov.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.CbmtBs1)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit9)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.CbmtCode_GridView003)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit1.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).BeginInit();
@@ -619,6 +621,16 @@
          label26.TabIndex = 28;
          label26.Text = "حداقل تعداد جلسه :";
          // 
+         // label27
+         // 
+         label27.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         label27.AutoSize = true;
+         label27.Location = new System.Drawing.Point(735, 112);
+         label27.Name = "label27";
+         label27.Size = new System.Drawing.Size(82, 16);
+         label27.TabIndex = 10;
+         label27.Text = "کاهش مبلغ :";
+         // 
          // colSTAT
          // 
          this.colSTAT.Caption = "وضعیت";
@@ -673,7 +685,7 @@
          this.repositoryItemLookUpEdit4.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("VALU", "VALU", 48, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("DOMN_DESC", "وضعیت", 72, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near)});
-         this.repositoryItemLookUpEdit4.DataSource = this.DDytpBs1;
+         this.repositoryItemLookUpEdit4.DataSource = this.DactvBs;
          this.repositoryItemLookUpEdit4.DisplayMember = "DOMN_DESC";
          this.repositoryItemLookUpEdit4.Name = "repositoryItemLookUpEdit4";
          this.repositoryItemLookUpEdit4.NullText = "";
@@ -682,16 +694,6 @@
          // DDytpBs1
          // 
          this.DDytpBs1.DataSource = typeof(System.Scsc.Data.D_DYTP);
-         // 
-         // label27
-         // 
-         label27.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         label27.AutoSize = true;
-         label27.Location = new System.Drawing.Point(735, 112);
-         label27.Name = "label27";
-         label27.Size = new System.Drawing.Size(82, 16);
-         label27.TabIndex = 10;
-         label27.Text = "کاهش مبلغ :";
          // 
          // tb_master
          // 
@@ -2004,7 +2006,8 @@
          this.CbmtCode_Lov.Properties.NullText = "";
          this.CbmtCode_Lov.Properties.PopupFormMinSize = new System.Drawing.Size(800, 0);
          this.CbmtCode_Lov.Properties.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.repositoryItemLookUpEdit4});
+            this.repositoryItemLookUpEdit4,
+            this.repositoryItemLookUpEdit9});
          this.CbmtCode_Lov.Properties.ValueMember = "CODE";
          this.CbmtCode_Lov.Properties.View = this.CbmtCode_GridView003;
          this.CbmtCode_Lov.Size = new System.Drawing.Size(243, 22);
@@ -2015,6 +2018,17 @@
          // CbmtBs1
          // 
          this.CbmtBs1.DataSource = typeof(System.Scsc.Data.Club_Method);
+         // 
+         // repositoryItemLookUpEdit9
+         // 
+         this.repositoryItemLookUpEdit9.AutoHeight = false;
+         this.repositoryItemLookUpEdit9.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+         this.repositoryItemLookUpEdit9.DataSource = this.DDytpBs1;
+         this.repositoryItemLookUpEdit9.DisplayMember = "DOMN_DESC";
+         this.repositoryItemLookUpEdit9.Name = "repositoryItemLookUpEdit9";
+         this.repositoryItemLookUpEdit9.NullText = "";
+         this.repositoryItemLookUpEdit9.ValueMember = "VALU";
          // 
          // CbmtCode_GridView003
          // 
@@ -2080,7 +2094,7 @@
          // DayType_Clm
          // 
          this.DayType_Clm.Caption = "زوج / فرد";
-         this.DayType_Clm.ColumnEdit = this.repositoryItemLookUpEdit4;
+         this.DayType_Clm.ColumnEdit = this.repositoryItemLookUpEdit9;
          this.DayType_Clm.FieldName = "DAY_TYPE";
          this.DayType_Clm.Name = "DayType_Clm";
          this.DayType_Clm.Visible = true;
@@ -2877,6 +2891,7 @@
          this.groupBox1.PerformLayout();
          ((System.ComponentModel.ISupportInitialize)(this.CbmtCode_Lov.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.CbmtBs1)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit9)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.CbmtCode_GridView003)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit1.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).EndInit();
@@ -3052,5 +3067,6 @@
       private Windows.Forms.Label CbmtCode_Lb;
       private DevExpress.XtraEditors.TextEdit RducAmnt_Txt;
       private Windows.Forms.BindingSource DDytpBs1;
+      private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repositoryItemLookUpEdit9;
    }
 }

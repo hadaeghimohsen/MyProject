@@ -108,7 +108,9 @@ namespace System.Scsc.Ui.CalculateExpense
             }
 
             if (cexc.CODE != 0)
+            {
                CtgyBs.DataSource = iScsc.Category_Belts.Where(c => c.MTOD_CODE == cexc.MTOD_CODE && c.CTGY_STAT == "002");
+            }
          }
          catch (Exception ){}
       }
@@ -386,20 +388,27 @@ namespace System.Scsc.Ui.CalculateExpense
             {
                cexc.COCH_FILE_NO = cbmt.COCH_FILE_NO;
                cexc.MTOD_CODE = cbmt.MTOD_CODE;
+               CtgyBs.DataSource = iScsc.Category_Belts.Where(cb => cb.MTOD_CODE == cbmt.MTOD_CODE && cb.CTGY_STAT == "002");
             }
             else
             {
                if (cexc.COCH_FILE_NO == null)
                   cexc.COCH_FILE_NO = cbmt.COCH_FILE_NO;
                if (cexc.MTOD_CODE == null)
+               {
                   cexc.MTOD_CODE = cbmt.MTOD_CODE;
+                  CtgyBs.DataSource = iScsc.Category_Belts.Where(cb => cb.MTOD_CODE == cbmt.MTOD_CODE && cb.CTGY_STAT == "002");
+               }
 
                if (cexc.COCH_FILE_NO != cbmt.COCH_FILE_NO && MessageBox.Show(this, "عنوان برنامه گروه با اسم سرپرست همخوانی ندارد، آیا مایل به جایگزین کردن هستین؟", "تغییر سرپرست", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) != DialogResult.Yes) return;
                else
                   cexc.COCH_FILE_NO = cbmt.COCH_FILE_NO;
                if (cexc.MTOD_CODE != cbmt.MTOD_CODE && MessageBox.Show(this, "عنوان برنامه گروه با نام گروه همخوانی ندارد، آیا مایل به جایگزین کردن هستین؟", "تغییر گروه", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) != DialogResult.Yes) return;
                else
+               {
                   cexc.MTOD_CODE = cbmt.MTOD_CODE;
+                  CtgyBs.DataSource = iScsc.Category_Belts.Where(cb => cb.MTOD_CODE == cbmt.MTOD_CODE && cb.CTGY_STAT == "002");
+               }
             }
 
             CexcBs.EndEdit();            

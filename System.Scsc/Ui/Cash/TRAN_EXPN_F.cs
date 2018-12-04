@@ -316,6 +316,20 @@ namespace System.Scsc.Ui.Cash
          {
 
          }
+      }
+
+      private void TranCopy_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var pydt = PydtBs.Current as Data.Payment_Detail;
+
+            pydt.TRAN_CBMT_CODE = pydt.CBMT_CODE_DNRM;
+            pydt.TRAN_MTOD_CODE = pydt.MTOD_CODE_DNRM;
+            pydt.TRAN_CTGY_CODE = pydt.CTGY_CODE_DNRM;
+            pydt.TRAN_EXPN_CODE = pydt.EXPN_CODE;            
+         }
+         catch { }
       }  
    }
 }

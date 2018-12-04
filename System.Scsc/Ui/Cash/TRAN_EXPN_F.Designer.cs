@@ -29,9 +29,9 @@
       private void InitializeComponent()
       {
          this.components = new System.ComponentModel.Container();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
          this.BrthDate_Lb = new System.Windows.Forms.Label();
          this.TellPhon_Lb = new System.Windows.Forms.Label();
          this.FngrPrnt_Lb = new System.Windows.Forms.Label();
@@ -61,8 +61,8 @@
          this.lookUpEdit1 = new DevExpress.XtraEditors.TextEdit();
          this.lookUpEdit2 = new DevExpress.XtraEditors.TextEdit();
          this.Tran_Gb = new System.Windows.Forms.GroupBox();
+         this.AutoChngPric_Cb = new DevExpress.XtraEditors.CheckEdit();
          this.memoEdit1 = new DevExpress.XtraEditors.MemoEdit();
-         this.button1 = new System.Windows.Forms.Button();
          this.Expn_Lov = new DevExpress.XtraEditors.LookUpEdit();
          this.ExpnBs = new System.Windows.Forms.BindingSource(this.components);
          this.ExtrPrct_Txt = new DevExpress.XtraEditors.TextEdit();
@@ -105,7 +105,7 @@
          this.RqstSave_Butn = new System.Windows.Forms.Button();
          this.Back_Butn = new System.Windows.Forms.Button();
          this.RqstCncl_Butn = new System.Windows.Forms.Button();
-         this.AutoChngPric_Cb = new DevExpress.XtraEditors.CheckEdit();
+         this.TranCopy_Butn = new System.Windows.Forms.Button();
          ((System.ComponentModel.ISupportInitialize)(this.FighBs)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.nAME_DNRMTextEdit.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.tELL_PHON_DNRMTextEdit.Properties)).BeginInit();
@@ -119,6 +119,7 @@
          ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit1.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit2.Properties)).BeginInit();
          this.Tran_Gb.SuspendLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.AutoChngPric_Cb.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.memoEdit1.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.Expn_Lov.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.ExpnBs)).BeginInit();
@@ -134,7 +135,6 @@
          ((System.ComponentModel.ISupportInitialize)(this.DdytpBs)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1View)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.textEdit4.Properties)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.AutoChngPric_Cb.Properties)).BeginInit();
          this.SuspendLayout();
          // 
          // BrthDate_Lb
@@ -498,10 +498,10 @@
          this.Tran_Gb.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
          this.Tran_Gb.BackColor = System.Drawing.Color.Gold;
+         this.Tran_Gb.Controls.Add(this.TranCopy_Butn);
          this.Tran_Gb.Controls.Add(this.AutoChngPric_Cb);
          this.Tran_Gb.Controls.Add(this.memoEdit1);
          this.Tran_Gb.Controls.Add(this.TranBy_Lb);
-         this.Tran_Gb.Controls.Add(this.button1);
          this.Tran_Gb.Controls.Add(this.Expn_Lov);
          this.Tran_Gb.Controls.Add(this.TranDesc_Lb);
          this.Tran_Gb.Controls.Add(this.ExtrPrct_Txt);
@@ -520,34 +520,37 @@
          this.Tran_Gb.TabStop = false;
          this.Tran_Gb.Text = "انتقال هزینه";
          // 
+         // AutoChngPric_Cb
+         // 
+         this.AutoChngPric_Cb.EditValue = true;
+         this.AutoChngPric_Cb.Location = new System.Drawing.Point(43, 107);
+         this.AutoChngPric_Cb.Name = "AutoChngPric_Cb";
+         this.AutoChngPric_Cb.Properties.Caption = "";
+         this.AutoChngPric_Cb.Properties.LookAndFeel.SkinName = "DevExpress Dark Style";
+         this.AutoChngPric_Cb.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Style3D;
+         this.AutoChngPric_Cb.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.AutoChngPric_Cb.Size = new System.Drawing.Size(20, 17);
+         this.AutoChngPric_Cb.TabIndex = 68;
+         this.AutoChngPric_Cb.ToolTip = "مبلغ هزینه با تغییر آیتم هزینه به صورت اتوماتیک تغییر کند";
+         // 
          // memoEdit1
          // 
          this.memoEdit1.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.PydtBs, "PYDT_DESC", true));
-         this.memoEdit1.Location = new System.Drawing.Point(42, 163);
+         this.memoEdit1.Location = new System.Drawing.Point(69, 163);
          this.memoEdit1.Name = "memoEdit1";
          this.memoEdit1.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.memoEdit1.Properties.Appearance.Options.UseFont = true;
          this.memoEdit1.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
          this.memoEdit1.Properties.AppearanceFocused.Options.UseBackColor = true;
-         this.memoEdit1.Size = new System.Drawing.Size(208, 112);
+         this.memoEdit1.Size = new System.Drawing.Size(181, 112);
          this.memoEdit1.TabIndex = 4;
-         // 
-         // button1
-         // 
-         this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.button1.Location = new System.Drawing.Point(7, 48);
-         this.button1.Name = "button1";
-         this.button1.Size = new System.Drawing.Size(27, 22);
-         this.button1.TabIndex = 67;
-         this.button1.Text = "...";
-         this.button1.UseVisualStyleBackColor = true;
          // 
          // Expn_Lov
          // 
          this.Expn_Lov.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
          this.Expn_Lov.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.PydtBs, "TRAN_EXPN_CODE", true));
-         this.Expn_Lov.Location = new System.Drawing.Point(42, 105);
+         this.Expn_Lov.Location = new System.Drawing.Point(69, 105);
          this.Expn_Lov.Name = "Expn_Lov";
          this.Expn_Lov.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.Expn_Lov.Properties.Appearance.Options.UseFont = true;
@@ -558,7 +561,7 @@
          this.Expn_Lov.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
          this.Expn_Lov.Properties.AppearanceFocused.Options.UseBackColor = true;
          this.Expn_Lov.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject4, "", null, null, true)});
          this.Expn_Lov.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("REGL_YEAR", "سال آیین نامه", 30, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("REGL_CODE", "کد آیین نامه", 30, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near),
@@ -607,7 +610,7 @@
          this.Expn_Lov.Properties.NullText = "";
          this.Expn_Lov.Properties.PopupFormMinSize = new System.Drawing.Size(500, 0);
          this.Expn_Lov.Properties.ValueMember = "CODE";
-         this.Expn_Lov.Size = new System.Drawing.Size(208, 22);
+         this.Expn_Lov.Size = new System.Drawing.Size(181, 22);
          this.Expn_Lov.TabIndex = 3;
          // 
          // ExpnBs
@@ -619,7 +622,7 @@
          this.ExtrPrct_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
          this.ExtrPrct_Txt.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.PydtBs, "EXPN_EXTR_PRCT", true));
-         this.ExtrPrct_Txt.Location = new System.Drawing.Point(42, 132);
+         this.ExtrPrct_Txt.Location = new System.Drawing.Point(69, 132);
          this.ExtrPrct_Txt.Name = "ExtrPrct_Txt";
          this.ExtrPrct_Txt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.ExtrPrct_Txt.Properties.Appearance.Options.UseFont = true;
@@ -636,7 +639,7 @@
          this.ExtrPrct_Txt.Properties.Mask.EditMask = "n0";
          this.ExtrPrct_Txt.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
          this.ExtrPrct_Txt.Properties.Mask.UseMaskAsDisplayFormat = true;
-         this.ExtrPrct_Txt.Size = new System.Drawing.Size(98, 22);
+         this.ExtrPrct_Txt.Size = new System.Drawing.Size(71, 22);
          this.ExtrPrct_Txt.TabIndex = 1;
          this.ExtrPrct_Txt.ToolTip = "ارزش افزوده هزینه";
          // 
@@ -680,7 +683,7 @@
          this.Ctgy_Lov.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
          this.Ctgy_Lov.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.PydtBs, "TRAN_CTGY_CODE", true));
-         this.Ctgy_Lov.Location = new System.Drawing.Point(42, 77);
+         this.Ctgy_Lov.Location = new System.Drawing.Point(69, 77);
          this.Ctgy_Lov.Name = "Ctgy_Lov";
          this.Ctgy_Lov.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.Ctgy_Lov.Properties.Appearance.Options.UseFont = true;
@@ -691,7 +694,7 @@
          this.Ctgy_Lov.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
          this.Ctgy_Lov.Properties.AppearanceFocused.Options.UseBackColor = true;
          this.Ctgy_Lov.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
          this.Ctgy_Lov.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("MTOD_CODE", "MTOD_CODE", 95, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("CODE", "CODE", 41, DevExpress.Utils.FormatType.Numeric, "", false, DevExpress.Utils.HorzAlignment.Far),
@@ -723,7 +726,7 @@
          this.Ctgy_Lov.Properties.NullText = "";
          this.Ctgy_Lov.Properties.PopupFormMinSize = new System.Drawing.Size(400, 0);
          this.Ctgy_Lov.Properties.ValueMember = "CODE";
-         this.Ctgy_Lov.Size = new System.Drawing.Size(208, 22);
+         this.Ctgy_Lov.Size = new System.Drawing.Size(181, 22);
          this.Ctgy_Lov.TabIndex = 2;
          this.Ctgy_Lov.EditValueChanging += new DevExpress.XtraEditors.Controls.ChangingEventHandler(this.Ctgy_Lov_EditValueChanging);
          // 
@@ -736,7 +739,7 @@
          this.Cbmt_Lov.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
          this.Cbmt_Lov.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.PydtBs, "TRAN_CBMT_CODE", true));
-         this.Cbmt_Lov.Location = new System.Drawing.Point(42, 49);
+         this.Cbmt_Lov.Location = new System.Drawing.Point(69, 49);
          this.Cbmt_Lov.Name = "Cbmt_Lov";
          this.Cbmt_Lov.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.Cbmt_Lov.Properties.Appearance.Options.UseFont = true;
@@ -747,7 +750,7 @@
          this.Cbmt_Lov.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
          this.Cbmt_Lov.Properties.AppearanceFocused.Options.UseBackColor = true;
          this.Cbmt_Lov.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject3, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
          this.Cbmt_Lov.Properties.DataSource = this.CbmtBs;
          this.Cbmt_Lov.Properties.DisplayMember = "Fighter.NAME_DNRM";
          this.Cbmt_Lov.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
@@ -759,7 +762,7 @@
             this.Day_Lov});
          this.Cbmt_Lov.Properties.ValueMember = "CODE";
          this.Cbmt_Lov.Properties.View = this.gridLookUpEdit1View;
-         this.Cbmt_Lov.Size = new System.Drawing.Size(208, 22);
+         this.Cbmt_Lov.Size = new System.Drawing.Size(181, 22);
          this.Cbmt_Lov.TabIndex = 1;
          this.Cbmt_Lov.EditValueChanging += new DevExpress.XtraEditors.Controls.ChangingEventHandler(this.Cbmt_Lov_EditValueChanging);
          // 
@@ -977,7 +980,7 @@
          this.textEdit4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
          this.textEdit4.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.PydtBs, "TRAN_BY", true));
-         this.textEdit4.Location = new System.Drawing.Point(42, 21);
+         this.textEdit4.Location = new System.Drawing.Point(69, 21);
          this.textEdit4.Name = "textEdit4";
          this.textEdit4.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.textEdit4.Properties.Appearance.Options.UseFont = true;
@@ -988,7 +991,7 @@
          this.textEdit4.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
          this.textEdit4.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
          this.textEdit4.Properties.ReadOnly = true;
-         this.textEdit4.Size = new System.Drawing.Size(208, 22);
+         this.textEdit4.Size = new System.Drawing.Size(181, 22);
          this.textEdit4.TabIndex = 0;
          // 
          // RqstTran_Butn
@@ -1048,18 +1051,19 @@
          this.RqstCncl_Butn.UseVisualStyleBackColor = true;
          this.RqstCncl_Butn.Click += new System.EventHandler(this.RqstCncl_Butn_Click);
          // 
-         // AutoChngPric_Cb
+         // TranCopy_Butn
          // 
-         this.AutoChngPric_Cb.EditValue = true;
-         this.AutoChngPric_Cb.Location = new System.Drawing.Point(16, 108);
-         this.AutoChngPric_Cb.Name = "AutoChngPric_Cb";
-         this.AutoChngPric_Cb.Properties.Caption = "";
-         this.AutoChngPric_Cb.Properties.LookAndFeel.SkinName = "DevExpress Dark Style";
-         this.AutoChngPric_Cb.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Style3D;
-         this.AutoChngPric_Cb.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.AutoChngPric_Cb.Size = new System.Drawing.Size(20, 17);
-         this.AutoChngPric_Cb.TabIndex = 68;
-         this.AutoChngPric_Cb.ToolTip = "مبلغ هزینه با تغییر آیتم هزینه به صورت اتوماتیک تغییر کند";
+         this.TranCopy_Butn.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+         this.TranCopy_Butn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+         this.TranCopy_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1435;
+         this.TranCopy_Butn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+         this.TranCopy_Butn.Location = new System.Drawing.Point(6, 49);
+         this.TranCopy_Butn.Name = "TranCopy_Butn";
+         this.TranCopy_Butn.Size = new System.Drawing.Size(39, 36);
+         this.TranCopy_Butn.TabIndex = 69;
+         this.TranCopy_Butn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+         this.TranCopy_Butn.UseVisualStyleBackColor = true;
+         this.TranCopy_Butn.Click += new System.EventHandler(this.TranCopy_Butn_Click);
          // 
          // TRAN_EXPN_F
          // 
@@ -1101,6 +1105,7 @@
          ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit2.Properties)).EndInit();
          this.Tran_Gb.ResumeLayout(false);
          this.Tran_Gb.PerformLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.AutoChngPric_Cb.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.memoEdit1.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.Expn_Lov.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.ExpnBs)).EndInit();
@@ -1116,7 +1121,6 @@
          ((System.ComponentModel.ISupportInitialize)(this.DdytpBs)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1View)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.textEdit4.Properties)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.AutoChngPric_Cb.Properties)).EndInit();
          this.ResumeLayout(false);
          this.PerformLayout();
 
@@ -1133,7 +1137,6 @@
       private Windows.Forms.GroupBox Tran_Gb;
       private DevExpress.XtraEditors.LookUpEdit Expn_Lov;
       private DevExpress.XtraEditors.LookUpEdit Ctgy_Lov;
-      private Windows.Forms.Button button1;
       private Windows.Forms.Button RqstTran_Butn;
       private Windows.Forms.Button RqstSave_Butn;
       private Windows.Forms.Button Back_Butn;
@@ -1198,5 +1201,6 @@
       private DevExpress.XtraEditors.TextEdit Pric_Txt;
       private Windows.Forms.Label label1;
       private DevExpress.XtraEditors.CheckEdit AutoChngPric_Cb;
+      private Windows.Forms.Button TranCopy_Butn;
    }
 }

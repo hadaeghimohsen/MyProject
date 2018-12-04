@@ -21,6 +21,7 @@ namespace System.Scsc.Ui.Cash
       int Sleeping = 1;
       int step = 15;
       private string CurrentUser;
+      private string formCaller = "";
       private string RegnLang = "054";
 
       public void SendRequest(Job job)
@@ -69,8 +70,28 @@ namespace System.Scsc.Ui.Cash
 
          if (keyData == Keys.Escape)
          {
-            job.Next =
-               new Job(SendType.SelfToUserInterface, this.GetType().Name, 04 /* Execute UnPaint */);
+            //job.Next =
+            //   new Job(SendType.SelfToUserInterface, this.GetType().Name, 04 /* Execute UnPaint */);
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost",
+                  new List<Job>
+                  {
+                     new Job(SendType.SelfToUserInterface, GetType().Name, 04 /* Execute UnPaint */)
+                  })
+            );
+
+            switch (formCaller)
+            {
+               case "ALL_FLDF_F":
+                  _DefaultGateway.Gateway(
+                     new Job(SendType.External, "Localhost", formCaller, 08 /* Exec LoadDataSource */, SendType.SelfToUserInterface)
+                  );
+                  break;
+               default:
+                  break;
+            }
+            formCaller = "";
+
          }
          else if (keyData == Keys.Enter)
          {            
@@ -379,7 +400,8 @@ namespace System.Scsc.Ui.Cash
 
          if (xinput.Attribute("formcaller") != null)
          {
-            switch (xinput.Attribute("formcaller").Value)
+            formCaller = xinput.Attribute("formcaller").Value;
+            switch (formCaller)
             {
                case "MBSP_CHNG_F":
                   AutoChngPric_Cb.Checked = true;

@@ -124,74 +124,114 @@ namespace System.Scsc.Ui.MessageBroadcast
                   FLP_002.Visible = true;
                   Pn_Step2002.Visible = false;
                   Pn_Step3002.Visible = true;
-                  FighBs2.DataSource = ExecuteQuery(new List<long?>(), new List<long?>(), new List<long?>(), sex, true);
+                  FighBs2.DataSource = ExecuteQuery(new List<long?>(), new List<long?>(), new List<long?>(), sex, "000");
                   Figh_CheckedComboBoxEdit002.CheckAll();
                   Figh_CheckedComboBoxEdit002.Enabled = false;
+                  AllFigh_Count002_Txt.Text = FighBs2.Count.ToString();
                   break;
                case "Rb_Deactive002":
+                  FLP_002.Visible = true;
+                  Pn_Step2002.Visible = false;
+                  Pn_Step3002.Visible = true;
+                  PrepareForExecuteQuery(null, null);
+                  Figh_CheckedComboBoxEdit002.Properties.Items.OfType<CheckedListBoxItem>().ToList().ForEach(i => i.CheckState = CheckState.Unchecked);
+                  Figh_CheckedComboBoxEdit002.Enabled = true;
+                  AllFigh_Count002_Txt.Text = FighBs2.Count.ToString();
+                  break;
                case "Rb_SpecFighter002":
                   FLP_002.Visible = true;
                   Pn_Step2002.Visible = true;
                   Pn_Step3002.Visible = true;
                   PrepareForExecuteQuery(null, null);
+                  Figh_CheckedComboBoxEdit002.Properties.Items.OfType<CheckedListBoxItem>().ToList().ForEach(i => i.CheckState = CheckState.Unchecked);
                   Figh_CheckedComboBoxEdit002.Enabled = true;
+                  AllFigh_Count002_Txt.Text = FighBs2.Count.ToString();
                   break;
                case "Rb_ManualSelection002":
                   FLP_002.Visible = true;
                   Pn_Step2002.Visible = false;
                   Pn_Step3002.Visible = true;
-                  FighBs2.DataSource = ExecuteQuery(new List<long?>(), new List<long?>(), new List<long?>(), sex, true);
-                  Figh_CheckedComboBoxEdit002.Properties.Items.OfType<CheckedListBoxItem>().Where(c => c.CheckState == CheckState.Checked).ToList().ForEach(c => c.CheckState = CheckState.Unchecked);
+                  FighBs2.DataSource = ExecuteQuery(new List<long?>(), new List<long?>(), new List<long?>(), sex, "000");
+                  //Figh_CheckedComboBoxEdit002.Properties.Items.OfType<CheckedListBoxItem>().Where(c => c.CheckState == CheckState.Checked).ToList().ForEach(c => c.CheckState = CheckState.Unchecked);
+                  Figh_CheckedComboBoxEdit002.Properties.Items.OfType<CheckedListBoxItem>().ToList().ForEach(i => i.CheckState = CheckState.Unchecked);
                   Figh_CheckedComboBoxEdit002.Enabled = true;
+                  AllFigh_Count002_Txt.Text = FighBs2.Count.ToString();
                   break;
                case "Rb_All003":
                   FLP_003.Visible = true;
                   Pn_Step2003.Visible = false;
                   Pn_Step3003.Visible = true;
-                  FighBs3.DataSource = ExecuteQuery(new List<long?>(), new List<long?>(), new List<long?>(), sex, true);
+                  FighBs3.DataSource = ExecuteQuery(new List<long?>(), new List<long?>(), new List<long?>(), sex, "000");
                   Figh_CheckedComboBoxEdit003.CheckAll();
                   Figh_CheckedComboBoxEdit003.Enabled = false;
+                  AllFigh_Count003_Txt.Text = FighBs3.Count.ToString();
                   break;
                case "Rb_Deactive003":
+                  FLP_003.Visible = true;
+                  Pn_Step2003.Visible = false;
+                  Pn_Step3003.Visible = true;
+                  PrepareForExecuteQuery(null, null);
+                  Figh_CheckedComboBoxEdit003.Properties.Items.OfType<CheckedListBoxItem>().ToList().ForEach(i => i.CheckState = CheckState.Unchecked);
+                  Figh_CheckedComboBoxEdit003.Enabled = true;
+                  AllFigh_Count003_Txt.Text = FighBs3.Count.ToString();
+                  break;
                case "Rb_SpecFighter003":
                   FLP_003.Visible = true;
                   Pn_Step2003.Visible = true;
                   Pn_Step3003.Visible = true;
                   PrepareForExecuteQuery(null, null);
+                  Figh_CheckedComboBoxEdit003.Properties.Items.OfType<CheckedListBoxItem>().ToList().ForEach(i => i.CheckState = CheckState.Unchecked);
                   Figh_CheckedComboBoxEdit003.Enabled = true;
+                  AllFigh_Count003_Txt.Text = FighBs3.Count.ToString();
                   break;
                case "Rb_ManualSelection003":
                   FLP_003.Visible = true;
                   Pn_Step2003.Visible = false;
                   Pn_Step3003.Visible = true;
-                  FighBs3.DataSource = ExecuteQuery(new List<long?>(), new List<long?>(), new List<long?>(), sex, true);
-                  Figh_CheckedComboBoxEdit003.Properties.Items.OfType<CheckedListBoxItem>().Where(c => c.CheckState == CheckState.Checked).ToList().ForEach(c => c.CheckState = CheckState.Unchecked);
+                  FighBs3.DataSource = ExecuteQuery(new List<long?>(), new List<long?>(), new List<long?>(), sex, "000");
+                  //Figh_CheckedComboBoxEdit003.Properties.Items.OfType<CheckedListBoxItem>().Where(c => c.CheckState == CheckState.Checked).ToList().ForEach(c => c.CheckState = CheckState.Unchecked);
+                  Figh_CheckedComboBoxEdit003.Properties.Items.OfType<CheckedListBoxItem>().ToList().ForEach(i => i.CheckState = CheckState.Unchecked);
                   Figh_CheckedComboBoxEdit003.Enabled = true;
+                  AllFigh_Count003_Txt.Text = FighBs3.Count.ToString();
                   break;
 
                case "Rb_All004":
                   FLP_004.Visible = true;
                   Pn_Step2004.Visible = false;
                   Pn_Step3004.Visible = true;
-                  FighBs4.DataSource = ExecuteQuery(new List<long?>(), new List<long?>(), new List<long?>(), sex, true).Where(f => f.DEBT_DNRM >= Convert.ToInt64(Debt_Pric_TextEdit004.EditValue));
+                  FighBs4.DataSource = ExecuteQuery(new List<long?>(), new List<long?>(), new List<long?>(), sex, "000").Where(f => f.DEBT_DNRM >= Convert.ToInt64(Debt_Pric_TextEdit004.EditValue));
                   Figh_CheckedComboBoxEdit004.CheckAll();
                   Figh_CheckedComboBoxEdit004.Enabled = false;
+                  AllFigh_Count004_Txt.Text = FighBs4.Count.ToString();
                   break;
                case "Rb_Deactive004":
+                  FLP_004.Visible = true;
+                  Pn_Step2004.Visible = false;
+                  Pn_Step3004.Visible = true;
+                  PrepareForExecuteQuery(null, null);
+                  Figh_CheckedComboBoxEdit004.Properties.Items.OfType<CheckedListBoxItem>().ToList().ForEach(i => i.CheckState = CheckState.Unchecked);
+                  Figh_CheckedComboBoxEdit004.Enabled = true;
+                  AllFigh_Count004_Txt.Text = FighBs4.Count.ToString();
+                  break;
                case "Rb_SpecFighter004":
                   FLP_004.Visible = true;
                   Pn_Step2004.Visible = true;
                   Pn_Step3004.Visible = true;
                   PrepareForExecuteQuery(null, null);
+                  Figh_CheckedComboBoxEdit004.Properties.Items.OfType<CheckedListBoxItem>().ToList().ForEach(i => i.CheckState = CheckState.Unchecked);
                   Figh_CheckedComboBoxEdit004.Enabled = true;
+                  AllFigh_Count004_Txt.Text = FighBs4.Count.ToString();
                   break;
                case "Rb_ManualSelection004":
                   FLP_004.Visible = true;
                   Pn_Step2004.Visible = false;
                   Pn_Step3004.Visible = true;
-                  FighBs4.DataSource = ExecuteQuery(new List<long?>(), new List<long?>(), new List<long?>(), sex, true).Where(f => f.DEBT_DNRM >= Convert.ToInt64(Debt_Pric_TextEdit004.EditValue));
-                  Figh_CheckedComboBoxEdit004.Properties.Items.OfType<CheckedListBoxItem>().Where(c => c.CheckState == CheckState.Checked).ToList().ForEach(c => c.CheckState = CheckState.Unchecked);
+                  Debt_Pric_TextEdit004.EditValue = Debt_Pric_TextEdit004.EditValue == null || Debt_Pric_TextEdit004.EditValue.ToString() == "" ? "0" : Debt_Pric_TextEdit004.EditValue;
+                  FighBs4.DataSource = ExecuteQuery(new List<long?>(), new List<long?>(), new List<long?>(), sex, "000").Where(f => f.DEBT_DNRM >= Convert.ToInt64(Debt_Pric_TextEdit004.EditValue));
+                  //Figh_CheckedComboBoxEdit004.Properties.Items.OfType<CheckedListBoxItem>().Where(c => c.CheckState == CheckState.Checked).ToList().ForEach(c => c.CheckState = CheckState.Unchecked);
+                  Figh_CheckedComboBoxEdit004.Properties.Items.OfType<CheckedListBoxItem>().ToList().ForEach(i => i.CheckState = CheckState.Unchecked);
                   Figh_CheckedComboBoxEdit004.Enabled = true;
+                  AllFigh_Count004_Txt.Text = FighBs4.Count.ToString();
                   break;
 
                case "Rb_All005":
@@ -199,27 +239,42 @@ namespace System.Scsc.Ui.MessageBroadcast
                   Pn_Step2005.Visible = false;
                   Pn_Step3005.Visible = true;
                   Pn_Step4005.Visible = false;
-                  FighBs5.DataSource = ExecuteQuery(new List<long?>(), new List<long?>(), new List<long?>(), sex, true);
+                  FighBs5.DataSource = ExecuteQuery(new List<long?>(), new List<long?>(), new List<long?>(), sex, "000");
                   Figh_CheckedComboBoxEdit005.CheckAll();
+                  //Figh_CheckedComboBoxEdit005.Properties.Items.OfType<CheckedListBoxItem>().ToList().ForEach(i => i.CheckState = CheckState.Unchecked);
                   Figh_CheckedComboBoxEdit005.Enabled = false;
+                  AllFigh_Count005_Txt.Text = FighBs5.Count.ToString();
                   break;
                case "Rb_Deactive005":
+                  FLP_005.Visible = true;
+                  Pn_Step2005.Visible = false;
+                  Pn_Step3005.Visible = true;
+                  Pn_Step4005.Visible = false;
+                  PrepareForExecuteQuery(null, null);
+                  Figh_CheckedComboBoxEdit005.Properties.Items.OfType<CheckedListBoxItem>().ToList().ForEach(i => i.CheckState = CheckState.Unchecked);
+                  Figh_CheckedComboBoxEdit005.Enabled = true;
+                  AllFigh_Count005_Txt.Text = FighBs5.Count.ToString();
+                  break;
                case "Rb_SpecFighter005":
                   FLP_005.Visible = true;
                   Pn_Step2005.Visible = true;
                   Pn_Step3005.Visible = true;
                   Pn_Step4005.Visible = false;
                   PrepareForExecuteQuery(null, null);
+                  Figh_CheckedComboBoxEdit005.Properties.Items.OfType<CheckedListBoxItem>().ToList().ForEach(i => i.CheckState = CheckState.Unchecked);
                   Figh_CheckedComboBoxEdit005.Enabled = true;
+                  AllFigh_Count005_Txt.Text = FighBs5.Count.ToString();
                   break;
                case "Rb_ManualSelection005":
                   FLP_005.Visible = true;
                   Pn_Step2005.Visible = false;
                   Pn_Step3005.Visible = true;
                   Pn_Step4005.Visible = false;
-                  FighBs5.DataSource = ExecuteQuery(new List<long?>(), new List<long?>(), new List<long?>(), sex, true);
-                  Figh_CheckedComboBoxEdit005.Properties.Items.OfType<CheckedListBoxItem>().Where(c => c.CheckState == CheckState.Checked).ToList().ForEach(c => c.CheckState = CheckState.Unchecked);
+                  FighBs5.DataSource = ExecuteQuery(new List<long?>(), new List<long?>(), new List<long?>(), sex, "000");
+                  //Figh_CheckedComboBoxEdit005.Properties.Items.OfType<CheckedListBoxItem>().Where(c => c.CheckState == CheckState.Checked).ToList().ForEach(c => c.CheckState = CheckState.Unchecked);
+                  Figh_CheckedComboBoxEdit005.Properties.Items.OfType<CheckedListBoxItem>().ToList().ForEach(i => i.CheckState = CheckState.Unchecked);
                   Figh_CheckedComboBoxEdit005.Enabled = true;
+                  AllFigh_Count005_Txt.Text = FighBs5.Count.ToString();
                   break;
 
                case "Rb_PhoneNumberFromFile":
@@ -228,6 +283,8 @@ namespace System.Scsc.Ui.MessageBroadcast
                   Pn_Step3005.Visible = false;
                   Pn_Step4005.Visible = true;
                   Figh_CheckedComboBoxEdit005.Enabled = true;
+                  AllFigh_Count005_Txt.Text = PhonNumber_CheckedComboBoxEdit005.Properties.Items.Count.ToString();
+                  SlctFigh_Count005_Txt.Text = PhonNumber_CheckedComboBoxEdit005.Properties.Items.OfType<CheckedListBoxItem>().Where(i => i.CheckState == CheckState.Checked).Count().ToString();
                   break;
                default:
                   break;
@@ -236,7 +293,7 @@ namespace System.Scsc.Ui.MessageBroadcast
          catch { }
       }
 
-      private IEnumerable<Data.Fighter> ExecuteQuery(List<long?> cbmtcodes, List<long?> cochs, List<long?> mtods, string sex = "000", bool stat = true)
+      private IEnumerable<Data.Fighter> ExecuteQuery(List<long?> cbmtcodes, List<long?> cochs, List<long?> mtods, string sex = "000", string stat = "000")
       {
          try
          {
@@ -251,26 +308,42 @@ namespace System.Scsc.Ui.MessageBroadcast
                   (sex == "000" || f.SEX_TYPE_DNRM == sex) &&
                   (f.CELL_PHON_DNRM != null && f.CELL_PHON_DNRM.Length > 0) &&
                   !(f.FGPB_TYPE_DNRM == "002" || f.FGPB_TYPE_DNRM == "003") &&
-                  Convert.ToInt32(f.ACTV_TAG_DNRM) >= 101 &&
+                  f.ACTV_TAG_DNRM.CompareTo("101") >= 0 &&
                   (
-                     f.Member_Ships
-                     .Any(
-                        ms => ms.TYPE == "001" &&
-                              ms.VALD_TYPE == "002" &&
-                              (
-                                 stat ?
+                     stat == "000" ||
+                     (
+                        // اعضا فعال
+                        stat == "002" &&
+                        f.Member_Ships
+                        .Any(
+                           ms => ms.TYPE == "001" &&
+                                 ms.VALD_TYPE == "002" &&
+                                 ms.RECT_CODE == "004" &&
                                  (
                                     (ms.NUMB_OF_ATTN_MONT == 0 && ms.END_DATE.Value.Date >= DateTime.Now.Date) ||
                                     (ms.NUMB_OF_ATTN_MONT != 0 && ms.SUM_ATTN_MONT_DNRM <= ms.NUMB_OF_ATTN_MONT && ms.END_DATE.Value.Date >= DateTime.Now.Date)
-                                 ) :
-                                 !(
-                                    (ms.NUMB_OF_ATTN_MONT == 0 && ms.END_DATE.Value.Date >= DateTime.Now.Date) &&
+                                 ) &&
+                                 (cbmtcodes == null || cbmtcodes.Count == 0 || cbmtcodes.Contains(ms.Fighter_Public.CBMT_CODE)) &&
+                                 (cochs == null || cochs.Count == 0 || cochs.Contains(ms.Fighter_Public.COCH_FILE_NO)) &&
+                                 (mtods == null || mtods.Count == 0 || mtods.Contains(ms.Fighter_Public.MTOD_CODE))
+                        )
+                     ) ||
+                     (
+                        // اعضا غیرفعال
+                        stat == "001" &&
+                        !f.Member_Ships
+                        .Any(
+                           ms => ms.TYPE == "001" &&
+                                 ms.VALD_TYPE == "002" &&
+                                 ms.RECT_CODE == "004" &&
+                                 (
+                                    (ms.NUMB_OF_ATTN_MONT == 0 && ms.END_DATE.Value.Date >= DateTime.Now.Date) ||
                                     (ms.NUMB_OF_ATTN_MONT != 0 && ms.SUM_ATTN_MONT_DNRM <= ms.NUMB_OF_ATTN_MONT && ms.END_DATE.Value.Date >= DateTime.Now.Date)
-                                 )
-                              ) &&
-                              (cbmtcodes == null || cbmtcodes.Count == 0 || cbmtcodes.Contains(ms.Fighter_Public.CBMT_CODE)) &&
-                              (cochs == null || cochs.Count == 0 || cochs.Contains(ms.Fighter_Public.COCH_FILE_NO)) &&
-                              (mtods == null || mtods.Count == 0 || mtods.Contains(ms.Fighter_Public.MTOD_CODE))
+                                 ) /*&&
+                                 (cbmtcodes == null || cbmtcodes.Count == 0 || cbmtcodes.Contains(ms.Fighter_Public.CBMT_CODE)) &&
+                                 (cochs == null || cochs.Count == 0 || cochs.Contains(ms.Fighter_Public.COCH_FILE_NO)) &&
+                                 (mtods == null || mtods.Count == 0 || mtods.Contains(ms.Fighter_Public.MTOD_CODE))*/
+                        )
                      )
                   )
                ).ToList()
@@ -289,24 +362,24 @@ namespace System.Scsc.Ui.MessageBroadcast
             mtods = new List<long?>();
 
             string sex = "000";
-            bool stat = true;
+            string stat = "000";
             switch (tb_master.SelectedTab.Name)
             {
                case "tp_002":
                   sex = Rb_Men002.Checked ? "001" : (Rb_Women002.Checked ? "002" : "000");
-                  stat = !Rb_Deactive002.Checked;
+                  stat = Rb_Deactive002.Checked ? "001" : "002";
                   break;
                case "tp_003":
                   sex = Rb_Men003.Checked ? "001" : (Rb_Women003.Checked ? "002" : "000");
-                  stat = !Rb_Deactive003.Checked;
+                  stat = Rb_Deactive003.Checked ? "001" : "002";
                   break;
                case "tp_004":
                   sex = Rb_Men004.Checked ? "001" : (Rb_Women004.Checked ? "002" : "000");
-                  stat = !Rb_Deactive004.Checked;
+                  stat = Rb_Deactive004.Checked ? "001" : "002";
                   break;
                case "tp_005":
                   sex = Rb_Men005.Checked ? "001" : (Rb_Women005.Checked ? "002" : "000");
-                  stat = !Rb_Deactive005.Checked;
+                  stat = Rb_Deactive005.Checked ? "001" : "002";
                   break;
             }
 
@@ -340,6 +413,7 @@ namespace System.Scsc.Ui.MessageBroadcast
 
                Coch_CheckedComboBoxEdit004.Properties.Items.GetCheckedValues().ForEach(c => cochs.Add((long?)c));
                Mtod_CheckedComboBoxEdit004.Properties.Items.GetCheckedValues().ForEach(m => mtods.Add((long?)m));
+               Debt_Pric_TextEdit004.EditValue = Debt_Pric_TextEdit004.EditValue == null || Debt_Pric_TextEdit004.EditValue.ToString() == "" ? 0 : Debt_Pric_TextEdit004.EditValue;
                long debtpric = Convert.ToInt64(Debt_Pric_TextEdit004.EditValue);
                FighBs4.DataSource = ExecuteQuery(cbmtcodes, cochs, mtods, sex, stat).Where(f => f.DEBT_DNRM >= debtpric);
             }
@@ -387,8 +461,8 @@ namespace System.Scsc.Ui.MessageBroadcast
          PhonNumber_CheckedComboBoxEdit005.Properties.DisplayMember = "Value";
          PhonNumber_CheckedComboBoxEdit005.Properties.ValueMember = "Value";
          PhonNumber_CheckedComboBoxEdit005.Properties.GetItems().OfType<CheckedListBoxItem>().ToList().ForEach(i => i.CheckState = Windows.Forms.CheckState.Checked);
+         AllFigh_Count005_Txt.Text = PhonNumber_CheckedComboBoxEdit005.Properties.Items.Count.ToString();
       }
-
 
       private void Btn_Save_Click(object sender, EventArgs e)
       {
@@ -1127,6 +1201,60 @@ namespace System.Scsc.Ui.MessageBroadcast
                lov.EditValue = null;
          }
          catch {}
+      }
+
+      private void Figh_CheckedComboBoxEditXXX_EditValueChanging(object sender, ChangingEventArgs e)
+      {
+         try
+         {
+            var lov = sender as CheckedComboBoxEdit;
+            switch (tb_master.SelectedTab.Name)
+            {
+               case "tp_002":
+                  SlctFigh_Count002_Txt.Text = lov.Properties.Items.OfType<CheckedListBoxItem>().Where(i => i.CheckState == CheckState.Checked).Count().ToString();
+                  break;
+               case "tp_003":
+                  SlctFigh_Count003_Txt.Text = lov.Properties.Items.OfType<CheckedListBoxItem>().Where(i => i.CheckState == CheckState.Checked).Count().ToString();
+                  break;
+               case "tp_004":
+                  SlctFigh_Count004_Txt.Text = lov.Properties.Items.OfType<CheckedListBoxItem>().Where(i => i.CheckState == CheckState.Checked).Count().ToString();
+                  break;
+               case "tp_005":
+                  if(Rb_PhoneNumberFromFile.Checked)
+                     SlctFigh_Count005_Txt.Text = PhonNumber_CheckedComboBoxEdit005.Properties.Items.OfType<CheckedListBoxItem>().Where(i => i.CheckState == CheckState.Checked).Count().ToString();
+                  else
+                     SlctFigh_Count005_Txt.Text = lov.Properties.Items.OfType<CheckedListBoxItem>().Where(i => i.CheckState == CheckState.Checked).Count().ToString();
+                  break;
+               default:
+                  break;
+            }
+         }
+         catch { }
+      }
+
+      private void Rb_SexType_CheckedChanged(object sender, EventArgs e)
+      {
+         try
+         {
+            switch (tb_master.SelectedTab.Name)
+            {
+               case "tp_002":
+                  Rb_Selected00X_CheckedChanged(Pn_002.Controls.OfType<RadioButton>().First(i => i.Checked), null);
+                  break;
+               case "tp_003":
+                  Rb_Selected00X_CheckedChanged(Pn_003.Controls.OfType<RadioButton>().First(i => i.Checked), null);
+                  break;
+               case "tp_004":
+                  Rb_Selected00X_CheckedChanged(Pn_004.Controls.OfType<RadioButton>().First(i => i.Checked), null);
+                  break;
+               case "tp_005":
+                  Rb_Selected00X_CheckedChanged(Pn_005.Controls.OfType<RadioButton>().First(i => i.Checked), null);
+                  break;
+               default:
+                  break;
+            }
+         }
+         catch { }
       }
    }
 }

@@ -28,6 +28,7 @@
       /// </summary>
       private void InitializeComponent()
       {
+         this.components = new System.ComponentModel.Container();
          System.Windows.Forms.Label aCTN_TYPELabel;
          System.Windows.Forms.Label dSCT_DESCLabel;
          System.Windows.Forms.Label label1;
@@ -46,8 +47,8 @@
          this.colNEED_TYPE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colSTAT = new DevExpress.XtraGrid.Columns.GridColumn();
          this.Acdc_Lov = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-         this.DactvBs = new System.Windows.Forms.BindingSource();
-         this.DpermBs = new System.Windows.Forms.BindingSource();
+         this.DactvBs = new System.Windows.Forms.BindingSource(this.components);
+         this.DpermBs = new System.Windows.Forms.BindingSource(this.components);
          this.tb_master = new C1.Win.C1Command.C1DockingTab();
          this.tp_001 = new C1.Win.C1Command.C1DockingTabPage();
          this.splitContainer1 = new System.Windows.Forms.SplitContainer();
@@ -55,7 +56,7 @@
          this.splitContainerControl4 = new DevExpress.XtraEditors.SplitContainerControl();
          this.splitContainerControl2 = new DevExpress.XtraEditors.SplitContainerControl();
          this.departmentsGridControl = new DevExpress.XtraGrid.GridControl();
-         this.DeptBs = new System.Windows.Forms.BindingSource();
+         this.DeptBs = new System.Windows.Forms.BindingSource(this.components);
          this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colORGN_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colCODE1 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -66,7 +67,7 @@
          this.colMDFY_DATE1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colOrgan = new DevExpress.XtraGrid.Columns.GridColumn();
          this.organGridControl = new DevExpress.XtraGrid.GridControl();
-         this.OrgnBs = new System.Windows.Forms.BindingSource();
+         this.OrgnBs = new System.Windows.Forms.BindingSource(this.components);
          this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colCODE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colORGN_DESC = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -76,7 +77,7 @@
          this.colMDFY_DATE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.splitContainerControl3 = new DevExpress.XtraEditors.SplitContainerControl();
          this.sub_UnitsGridControl = new DevExpress.XtraGrid.GridControl();
-         this.SuntBs = new System.Windows.Forms.BindingSource();
+         this.SuntBs = new System.Windows.Forms.BindingSource(this.components);
          this.gridView4 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colBUNT_DEPT_ORGN_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colBUNT_DEPT_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -90,7 +91,7 @@
          this.colMDFY_DATE3 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colBase_Unit = new DevExpress.XtraGrid.Columns.GridColumn();
          this.base_UnitsGridControl = new DevExpress.XtraGrid.GridControl();
-         this.BuntBs = new System.Windows.Forms.BindingSource();
+         this.BuntBs = new System.Windows.Forms.BindingSource(this.components);
          this.gridView3 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colDEPT_ORGN_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colDEPT_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -103,7 +104,7 @@
          this.colDepartment = new DevExpress.XtraGrid.Columns.GridColumn();
          this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
          this.request_RequesterGridControl = new DevExpress.XtraGrid.GridControl();
-         this.RqrqBs = new System.Windows.Forms.BindingSource();
+         this.RqrqBs = new System.Windows.Forms.BindingSource(this.components);
          this.gridView5 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colREGL_YEAR = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colREGL_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -121,7 +122,7 @@
          this.tabControl1 = new System.Windows.Forms.TabControl();
          this.tabPage1 = new System.Windows.Forms.TabPage();
          this.request_DocumentsGridControl = new DevExpress.XtraGrid.GridControl();
-         this.RqdcBs = new System.Windows.Forms.BindingSource();
+         this.RqdcBs = new System.Windows.Forms.BindingSource(this.components);
          this.gridView6 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colDCMT_DSID = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colRQRQ_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -136,7 +137,7 @@
          this.colRequest_Requester = new DevExpress.XtraGrid.Columns.GridColumn();
          this.tabPage2 = new System.Windows.Forms.TabPage();
          this.organ_DocumentsGridControl = new DevExpress.XtraGrid.GridControl();
-         this.OgdcBs = new System.Windows.Forms.BindingSource();
+         this.OgdcBs = new System.Windows.Forms.BindingSource(this.components);
          this.gridView7 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colSUNT_BUNT_DEPT_ORGN_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colSUNT_BUNT_DEPT_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -149,7 +150,7 @@
          this.colODID = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colNEED_TYPE1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.Dcnd_Lov = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-         this.DdcndBs = new System.Windows.Forms.BindingSource();
+         this.DdcndBs = new System.Windows.Forms.BindingSource(this.components);
          this.colCRET_BY6 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colCRET_DATE6 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colMDFY_BY6 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -160,7 +161,7 @@
          this.colSub_Unit = new DevExpress.XtraGrid.Columns.GridColumn();
          this.TransferOrgnDcmt_Butn = new C1.Win.C1Input.C1Button();
          this.aCTN_TYPEComboBox = new System.Windows.Forms.ComboBox();
-         this.DdsatBs = new System.Windows.Forms.BindingSource();
+         this.DdsatBs = new System.Windows.Forms.BindingSource(this.components);
          this.dateTimeSelector1 = new Atf.UI.DateTimeSelector();
          this.dateTimeSelector2 = new Atf.UI.DateTimeSelector();
          this.dSCT_DESCTextEdit = new DevExpress.XtraEditors.TextEdit();
@@ -178,7 +179,7 @@
          this.colPRCT_DSCT = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colDSCT_TYPE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.Cetp_Lov = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-         this.DcetpBs = new System.Windows.Forms.BindingSource();
+         this.DcetpBs = new System.Windows.Forms.BindingSource(this.components);
          this.colSTAT1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.Acdc2_Lov = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
          this.colCRET_BY7 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -192,8 +193,8 @@
          this.colExpense_Item = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colRegulation2 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colSub_Unit1 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.DdctpBs = new System.Windows.Forms.BindingSource();
-         this.DcspBs = new System.Windows.Forms.BindingSource();
+         this.DdctpBs = new System.Windows.Forms.BindingSource(this.components);
+         this.DcspBs = new System.Windows.Forms.BindingSource(this.components);
          this.Btn_Back = new C1.Win.C1Input.C1Button();
          aCTN_TYPELabel = new System.Windows.Forms.Label();
          dSCT_DESCLabel = new System.Windows.Forms.Label();

@@ -724,5 +724,32 @@ namespace System.Scsc.Ui.Common
       {
          colActn_Butn_ButtonClick(null, new DevExpress.XtraEditors.Controls.ButtonPressedEventArgs(colActn_Butn.Buttons[6]));
       }
+
+      private void MbspMark_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var mbsp = MbspBs.Current as Data.Member_Ship;
+            if (mbsp == null) return;
+
+            Job _InteractWithScsc =
+             new Job(SendType.External, "Localhost",
+                new List<Job>
+                  {                     
+                     new Job(SendType.Self, 155 /* Execute Mbsp_Mark_F */),
+                     new Job(SendType.SelfToUserInterface, "MBSP_MARK_F", 10 /* execute Actn_CalF_F */)
+                     {
+                        Input = 
+                           new XElement("Member_Ship",
+                              new XAttribute("fileno", mbsp.FIGH_FILE_NO),
+                              new XAttribute("rwno", mbsp.RWNO),
+                              new XAttribute("formcaller", GetType().Name)
+                           )
+                     }
+                  });
+            _DefaultGateway.Gateway(_InteractWithScsc);
+         }
+         catch { }
+      }
    }
 }

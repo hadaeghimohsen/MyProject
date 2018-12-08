@@ -732,6 +732,16 @@ namespace System.Scsc.Code
             if (_Glr_Indc_F == null)
                _Glr_Indc_F = new Ui.ChangeRials.GLR_INDC_F { _DefaultGateway = this };
          }
+         else if (value == "apbs_dfin_f")
+         {
+            if (_Apbs_Dfin_F == null)
+               _Apbs_Dfin_F = new Ui.BaseDefinition.APBS_DFIN_F { _DefaultGateway = this };
+         }
+         else if (value == "mbsp_mark_f")
+         {
+            if (_Mbsp_Mark_F == null)
+               _Mbsp_Mark_F = new Ui.Admission.MBSP_MARK_F { _DefaultGateway = this };
+         }
 
          // فرم های نمایش تغییرات
          else if (value == "show_atrq_f")
@@ -4454,6 +4464,54 @@ namespace System.Scsc.Code
                   new Job(SendType.SelfToUserInterface, "GLR_INDC_F", 02 /* Execute Set */),                  
                   new Job(SendType.SelfToUserInterface, "GLR_INDC_F", 07 /* Execute Load_Data */),
                   new Job(SendType.SelfToUserInterface, "GLR_INDC_F", 03 /* Execute Paint */),
+               });
+         }
+         else if (job.Status == StatusType.SignalForPreconditions)
+         {
+            job.Status = StatusType.Successful;
+         }
+      }
+
+      /// <summary>
+      /// Code 154
+      /// </summary>
+      /// <param name="job"></param>
+      private void Apbs_Dfin_F(Job job)
+      {
+         if (job.Status == StatusType.Running)
+         {
+            job.Status = StatusType.WaitForPreconditions;
+            job.OwnerDefineWorkWith.AddRange(
+               new List<Job>
+               {
+                  new Job(SendType.Self, 01 /* Execute GetUi */){Input = "apbs_dfin_f"},
+                  new Job(SendType.SelfToUserInterface, "APBS_DFIN_F", 02 /* Execute Set */),                  
+                  new Job(SendType.SelfToUserInterface, "APBS_DFIN_F", 07 /* Execute Load_Data */),
+                  new Job(SendType.SelfToUserInterface, "APBS_DFIN_F", 03 /* Execute Paint */),
+               });
+         }
+         else if (job.Status == StatusType.SignalForPreconditions)
+         {
+            job.Status = StatusType.Successful;
+         }
+      }
+
+      /// <summary>
+      /// Code 155
+      /// </summary>
+      /// <param name="job"></param>
+      private void Mbsp_Mark_F(Job job)
+      {
+         if (job.Status == StatusType.Running)
+         {
+            job.Status = StatusType.WaitForPreconditions;
+            job.OwnerDefineWorkWith.AddRange(
+               new List<Job>
+               {
+                  new Job(SendType.Self, 01 /* Execute GetUi */){Input = "mbsp_mark_f"},
+                  new Job(SendType.SelfToUserInterface, "MBSP_MARK_F", 02 /* Execute Set */),                  
+                  new Job(SendType.SelfToUserInterface, "MBSP_MARK_F", 07 /* Execute Load_Data */),
+                  new Job(SendType.SelfToUserInterface, "MBSP_MARK_F", 03 /* Execute Paint */),
                });
          }
          else if (job.Status == StatusType.SignalForPreconditions)

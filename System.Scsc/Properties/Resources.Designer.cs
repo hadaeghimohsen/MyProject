@@ -4153,6 +4153,16 @@ namespace System.Scsc.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap IMAGE_1520 {
+            get {
+                object obj = ResourceManager.GetObject("IMAGE_1520", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap IMAGE_1554 {
             get {
                 object obj = ResourceManager.GetObject("IMAGE_1554", resourceCulture);
@@ -4176,6 +4186,26 @@ namespace System.Scsc.Properties {
         internal static System.Drawing.Bitmap IMAGE_1564 {
             get {
                 object obj = ResourceManager.GetObject("IMAGE_1564", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap IMAGE_1568 {
+            get {
+                object obj = ResourceManager.GetObject("IMAGE_1568", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap IMAGE_1599 {
+            get {
+                object obj = ResourceManager.GetObject("IMAGE_1599", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

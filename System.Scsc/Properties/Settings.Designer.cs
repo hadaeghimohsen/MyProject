@@ -26,11 +26,20 @@ namespace System.Scsc.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=.;Initial Catalog=iScsc;Integrated Security=True;Connection Timeout=1" +
-            "80")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=IMACBOOKPRO;Initial Catalog=iScsc;Integrated Security=True")]
         public string iScscConnectionString {
             get {
                 return ((string)(this["iScscConnectionString"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=IMACBOOKPRO;Initial Catalog=iScsc;Integrated Security=True")]
+        public string iScscConnectionString2 {
+            get {
+                return ((string)(this["iScscConnectionString2"]));
             }
         }
     }

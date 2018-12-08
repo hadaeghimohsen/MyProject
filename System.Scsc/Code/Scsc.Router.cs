@@ -489,6 +489,12 @@ namespace System.Scsc.Code
             case 153:
                Glr_Indc_F(job);
                break;
+            case 154:
+               Apbs_Dfin_F(job);
+               break;
+            case 155:
+               Mbsp_Mark_F(job);
+               break;
             default:
                job.Status = StatusType.Failed;
                break;
@@ -930,6 +936,12 @@ namespace System.Scsc.Code
                break;
             case "GLR_INDC_F":
                _Glr_Indc_F.SendRequest(job);
+               break;
+            case "APBS_DFIN_F":
+               _Apbs_Dfin_F.SendRequest(job);
+               break;
+            case "MBSP_MARK_F":
+               _Mbsp_Mark_F.SendRequest(job);
                break;
 
             /* Show Changed */

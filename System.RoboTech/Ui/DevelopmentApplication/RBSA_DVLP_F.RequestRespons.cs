@@ -217,6 +217,19 @@ namespace System.RoboTech.Ui.DevelopmentApplication
             //      CompBs.Position = CompBs.IndexOf(CompBs.List.OfType<Data.Company>().ToList().Find(c => c.CODE == compinfo.CODE));
             //      break;
             //}
+
+            Srbt01_Gv.ActiveFilterString = Srbt02_Gv.ActiveFilterString = Srbt03_Gv.ActiveFilterString = "";
+
+            if(xinput.Attribute("filtering") != null)
+            {
+               switch(xinput.Attribute("filtering").Value)
+               { 
+                  case "chatid":
+                     var chatid = xinput.Attribute("valu").Value;
+                     Srbt01_Gv.ActiveFilterString = Srbt02_Gv.ActiveFilterString = Srbt03_Gv.ActiveFilterString = string.Format("CHAT_ID = '{0}'", chatid);
+                     break;
+               }
+            }
          }
          catch { }
          job.Status = StatusType.Successful;

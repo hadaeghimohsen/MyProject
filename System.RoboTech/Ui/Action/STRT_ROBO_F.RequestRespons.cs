@@ -63,8 +63,7 @@ namespace System.RoboTech.Ui.Action
 
          if (keyData == Keys.Enter)
          {
-            if (!(Btn_Back.Focused))
-               SendKeys.Send("{TAB}");
+            SendKeys.Send("{TAB}");
          }
          else if (keyData == Keys.Escape)
          {

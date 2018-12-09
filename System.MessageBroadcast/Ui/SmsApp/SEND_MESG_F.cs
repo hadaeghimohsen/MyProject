@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
+using System.JobRouting.Jobs;
 
 namespace System.MessageBroadcast.Ui.SmsApp
 {
@@ -17,6 +18,8 @@ namespace System.MessageBroadcast.Ui.SmsApp
       {
          InitializeComponent();
       }
+
+      private bool requery = false;
 
       List<TabPage> listTabPages;
       private void SwitchButtonsTabPage(object sender)
@@ -53,7 +56,33 @@ namespace System.MessageBroadcast.Ui.SmsApp
       private void Execute_Query()
       {
          iProject = new Data.iProjectDataContext(ConnectionString);
-         //UserBs.DataSource = iProject.Users.Where(u => u.USERDB.ToUpper() == CurrentUser.ToUpper());
+         if (Tb_Master.SelectedTab == tp_004)
+         {
+            int sms = SmsSendedBs.Position;
+            SmsSendedBs.DataSource = iProject.Sms_Message_Boxes;
+            SmsSendedBs.Position = sms;
+
+            if(xinput.Attribute("filtering") != null)
+            {
+               switch(xinput.Attribute("filtering").Value)
+               {
+                  case "phonnumb":
+                     SmsSended_Gv.ActiveFilterString = string.Format("PHON_NUMB = '{0}'", xinput.Attribute("valu").Value);
+                     break;
+                  default:
+                     SmsSended_Gv.ActiveFilterString = "";
+                     break;
+               }
+            }
+         }
+         requery = false;
+      }
+
+      private void Back_Butn_Click(object sender, EventArgs e)
+      {
+         _DefaultGateway.Gateway(
+            new Job(SendType.External, "localhost", GetType().Name, 00 /* Execute ProcessCmdKey */, SendType.SelfToUserInterface) { Input = Keys.Escape }
+         );
       }
    }
 }

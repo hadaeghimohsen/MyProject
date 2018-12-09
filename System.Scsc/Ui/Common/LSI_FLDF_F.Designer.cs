@@ -95,15 +95,24 @@
          DevExpress.Utils.SuperToolTip superToolTip17 = new DevExpress.Utils.SuperToolTip();
          DevExpress.Utils.ToolTipTitleItem toolTipTitleItem21 = new DevExpress.Utils.ToolTipTitleItem();
          DevExpress.Utils.ToolTipItem toolTipItem5 = new DevExpress.Utils.ToolTipItem();
+         DevExpress.Utils.SuperToolTip superToolTip18 = new DevExpress.Utils.SuperToolTip();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem22 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.ToolTipItem toolTipItem6 = new DevExpress.Utils.ToolTipItem();
          DevExpress.Utils.SuperToolTip superToolTip19 = new DevExpress.Utils.SuperToolTip();
          DevExpress.Utils.ToolTipTitleItem toolTipTitleItem23 = new DevExpress.Utils.ToolTipTitleItem();
          DevExpress.Utils.ToolTipItem toolTipItem7 = new DevExpress.Utils.ToolTipItem();
          DevExpress.Utils.SuperToolTip superToolTip20 = new DevExpress.Utils.SuperToolTip();
          DevExpress.Utils.ToolTipTitleItem toolTipTitleItem24 = new DevExpress.Utils.ToolTipTitleItem();
          DevExpress.Utils.ToolTipItem toolTipItem8 = new DevExpress.Utils.ToolTipItem();
-         DevExpress.Utils.SuperToolTip superToolTip18 = new DevExpress.Utils.SuperToolTip();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem22 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.ToolTipItem toolTipItem6 = new DevExpress.Utils.ToolTipItem();
+         DevExpress.Utils.SuperToolTip superToolTip21 = new DevExpress.Utils.SuperToolTip();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem25 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.ToolTipItem toolTipItem9 = new DevExpress.Utils.ToolTipItem();
+         DevExpress.Utils.SuperToolTip superToolTip22 = new DevExpress.Utils.SuperToolTip();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem26 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.ToolTipItem toolTipItem10 = new DevExpress.Utils.ToolTipItem();
+         DevExpress.Utils.SuperToolTip superToolTip23 = new DevExpress.Utils.SuperToolTip();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem27 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.ToolTipItem toolTipItem11 = new DevExpress.Utils.ToolTipItem();
          this.DebtDnrm_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colEND_DATE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.persianRepositoryItemDateEdit1 = new dxExample.PersianRepositoryItemDateEdit();
@@ -242,6 +251,7 @@
          this.colREMN_DAY = new DevExpress.XtraGrid.Columns.GridColumn();
          this.panel1 = new System.Windows.Forms.Panel();
          this.MbspValdType_Butn = new DevExpress.XtraEditors.SimpleButton();
+         this.MbspMark_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
          this.MbspInfo_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.PymtAmnt_Txt = new DevExpress.XtraEditors.TextEdit();
@@ -249,6 +259,9 @@
          this.ExpnAmnt_Txt = new DevExpress.XtraEditors.TextEdit();
          this.panel2 = new System.Windows.Forms.Panel();
          this.EndDate_DateTime001 = new Atf.UI.DateTimeSelector();
+         this.simpleButton4 = new DevExpress.XtraEditors.SimpleButton();
+         this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
+         this.SmsHist_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
          this.UserProFile_Rb = new System.MaxUi.RoundedButton();
          this.textEdit3 = new DevExpress.XtraEditors.TextEdit();
@@ -256,11 +269,11 @@
          this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
          this.label3 = new System.Windows.Forms.Label();
          this.textEdit5 = new DevExpress.XtraEditors.TextEdit();
-         this.textEdit6 = new DevExpress.XtraEditors.TextEdit();
+         this.MomPhon01_Txt = new DevExpress.XtraEditors.TextEdit();
          this.label2 = new System.Windows.Forms.Label();
-         this.textEdit2 = new DevExpress.XtraEditors.TextEdit();
+         this.DadPhon01_Txt = new DevExpress.XtraEditors.TextEdit();
          this.label1 = new System.Windows.Forms.Label();
-         this.textEdit4 = new DevExpress.XtraEditors.TextEdit();
+         this.CellPhon01_Txt = new DevExpress.XtraEditors.TextEdit();
          this.AllMenu_Cmn = new System.Windows.Forms.ContextMenuStrip();
          this.RqstBnFignInfo_Lb = new System.Windows.Forms.ToolStripMenuItem();
          this.RqstBnFighInfo = new System.Windows.Forms.ToolStripMenuItem();
@@ -374,7 +387,6 @@
          this.toolStripMenuItem64 = new System.Windows.Forms.ToolStripMenuItem();
          this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
          this.toolStripMenuItem65 = new System.Windows.Forms.ToolStripMenuItem();
-         this.MbspMark_Butn = new DevExpress.XtraEditors.SimpleButton();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit1.CalendarTimeProperties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.AttnMbsp_Butn)).BeginInit();
@@ -416,9 +428,9 @@
          ((System.ComponentModel.ISupportInitialize)(this.GlobCodeDnrm_Txt.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.textEdit5.Properties)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.textEdit6.Properties)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.textEdit4.Properties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.MomPhon01_Txt.Properties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.DadPhon01_Txt.Properties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.CellPhon01_Txt.Properties)).BeginInit();
          this.AllMenu_Cmn.SuspendLayout();
          this.SuspendLayout();
          // 
@@ -529,7 +541,7 @@
          // 
          this.GlobCode1_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.GlobCode1_Lb.AutoSize = true;
-         this.GlobCode1_Lb.Location = new System.Drawing.Point(302, 39);
+         this.GlobCode1_Lb.Location = new System.Drawing.Point(269, 39);
          this.GlobCode1_Lb.Name = "GlobCode1_Lb";
          this.GlobCode1_Lb.Size = new System.Drawing.Size(66, 13);
          this.GlobCode1_Lb.TabIndex = 19;
@@ -539,7 +551,7 @@
          // 
          this.SuntCode1_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.SuntCode1_Lb.AutoSize = true;
-         this.SuntCode1_Lb.Location = new System.Drawing.Point(299, 11);
+         this.SuntCode1_Lb.Location = new System.Drawing.Point(266, 11);
          this.SuntCode1_Lb.Name = "SuntCode1_Lb";
          this.SuntCode1_Lb.Size = new System.Drawing.Size(84, 13);
          this.SuntCode1_Lb.TabIndex = 19;
@@ -569,7 +581,7 @@
          // 
          this.NatlCode1_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.NatlCode1_Lb.AutoSize = true;
-         this.NatlCode1_Lb.Location = new System.Drawing.Point(302, 67);
+         this.NatlCode1_Lb.Location = new System.Drawing.Point(269, 67);
          this.NatlCode1_Lb.Name = "NatlCode1_Lb";
          this.NatlCode1_Lb.Size = new System.Drawing.Size(49, 13);
          this.NatlCode1_Lb.TabIndex = 19;
@@ -2269,6 +2281,32 @@
          this.MbspValdType_Butn.Text = "وضعیت دوره";
          this.MbspValdType_Butn.Click += new System.EventHandler(this.MbspValdType_Butn_Click);
          // 
+         // MbspMark_Butn
+         // 
+         this.MbspMark_Butn.Appearance.BackColor = System.Drawing.Color.Gainsboro;
+         this.MbspMark_Butn.Appearance.Options.UseBackColor = true;
+         this.MbspMark_Butn.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+         this.MbspMark_Butn.Image = ((System.Drawing.Image)(resources.GetObject("MbspMark_Butn.Image")));
+         this.MbspMark_Butn.Location = new System.Drawing.Point(193, 37);
+         this.MbspMark_Butn.LookAndFeel.SkinName = "Office 2010 Silver";
+         this.MbspMark_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Style3D;
+         this.MbspMark_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.MbspMark_Butn.Name = "MbspMark_Butn";
+         this.MbspMark_Butn.Size = new System.Drawing.Size(87, 29);
+         toolTipTitleItem22.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image1")));
+         toolTipTitleItem22.Appearance.Options.UseImage = true;
+         toolTipTitleItem22.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem22.Image")));
+         toolTipTitleItem22.Text = "اصلاح اطلاعات دوره";
+         toolTipItem6.LeftIndent = 6;
+         toolTipItem6.Text = "اگر تاریخ شروع و پایان و تعداد جلسات دوره به درستی وارد نشده می توانید از این گزی" +
+    "نه استفاده کنید";
+         superToolTip18.Items.Add(toolTipTitleItem22);
+         superToolTip18.Items.Add(toolTipItem6);
+         this.MbspMark_Butn.SuperTip = superToolTip18;
+         this.MbspMark_Butn.TabIndex = 39;
+         this.MbspMark_Butn.Text = "نمره دوره";
+         this.MbspMark_Butn.Click += new System.EventHandler(this.MbspMark_Butn_Click);
+         // 
          // simpleButton2
          // 
          this.simpleButton2.Appearance.BackColor = System.Drawing.Color.Gainsboro;
@@ -2380,6 +2418,9 @@
          // 
          this.panel2.BackColor = System.Drawing.Color.Transparent;
          this.panel2.Controls.Add(this.EndDate_DateTime001);
+         this.panel2.Controls.Add(this.simpleButton4);
+         this.panel2.Controls.Add(this.simpleButton3);
+         this.panel2.Controls.Add(this.SmsHist_Butn);
          this.panel2.Controls.Add(this.labelControl1);
          this.panel2.Controls.Add(this.UserProFile_Rb);
          this.panel2.Controls.Add(this.textEdit3);
@@ -2391,11 +2432,11 @@
          this.panel2.Controls.Add(this.NatlCode1_Lb);
          this.panel2.Controls.Add(this.textEdit5);
          this.panel2.Controls.Add(this.TellPhon1_Lb);
-         this.panel2.Controls.Add(this.textEdit6);
+         this.panel2.Controls.Add(this.MomPhon01_Txt);
          this.panel2.Controls.Add(this.label2);
-         this.panel2.Controls.Add(this.textEdit2);
+         this.panel2.Controls.Add(this.DadPhon01_Txt);
          this.panel2.Controls.Add(this.label1);
-         this.panel2.Controls.Add(this.textEdit4);
+         this.panel2.Controls.Add(this.CellPhon01_Txt);
          this.panel2.Controls.Add(this.CellPhon1_Lb);
          this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
          this.panel2.Location = new System.Drawing.Point(3, 17);
@@ -2409,12 +2450,90 @@
          this.EndDate_DateTime001.CustomFormat = "dd/MM/yyyy";
          this.EndDate_DateTime001.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.vF_Fighs, "INSR_DATE_DNRM", true));
          this.EndDate_DateTime001.Format = Atf.UI.DateTimeSelectorFormat.Custom;
-         this.EndDate_DateTime001.Location = new System.Drawing.Point(196, 90);
+         this.EndDate_DateTime001.Location = new System.Drawing.Point(163, 90);
          this.EndDate_DateTime001.Name = "EndDate_DateTime001";
          this.EndDate_DateTime001.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
          this.EndDate_DateTime001.Size = new System.Drawing.Size(100, 22);
          this.EndDate_DateTime001.TabIndex = 69;
          this.EndDate_DateTime001.UsePersianFormat = true;
+         // 
+         // simpleButton4
+         // 
+         this.simpleButton4.Appearance.BackColor = System.Drawing.Color.Gainsboro;
+         this.simpleButton4.Appearance.Options.UseBackColor = true;
+         this.simpleButton4.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+         this.simpleButton4.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton4.Image")));
+         this.simpleButton4.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+         this.simpleButton4.Location = new System.Drawing.Point(356, 90);
+         this.simpleButton4.LookAndFeel.SkinName = "Office 2010 Silver";
+         this.simpleButton4.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Style3D;
+         this.simpleButton4.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.simpleButton4.Name = "simpleButton4";
+         this.simpleButton4.Size = new System.Drawing.Size(28, 22);
+         toolTipTitleItem25.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image4")));
+         toolTipTitleItem25.Appearance.Options.UseImage = true;
+         toolTipTitleItem25.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem25.Image")));
+         toolTipTitleItem25.Text = "لیست پیام های ارسال شده";
+         toolTipItem9.LeftIndent = 6;
+         toolTipItem9.Text = "پیام های که تا به الان برای این مشترک ارسال شده  را می توانید مشاهده کنید";
+         superToolTip21.Items.Add(toolTipTitleItem25);
+         superToolTip21.Items.Add(toolTipItem9);
+         this.simpleButton4.SuperTip = superToolTip21;
+         this.simpleButton4.TabIndex = 39;
+         this.simpleButton4.Tag = "Mom_Phon";
+         this.simpleButton4.Click += new System.EventHandler(this.SmsHist_Butn_Click);
+         // 
+         // simpleButton3
+         // 
+         this.simpleButton3.Appearance.BackColor = System.Drawing.Color.Gainsboro;
+         this.simpleButton3.Appearance.Options.UseBackColor = true;
+         this.simpleButton3.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+         this.simpleButton3.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton3.Image")));
+         this.simpleButton3.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+         this.simpleButton3.Location = new System.Drawing.Point(356, 62);
+         this.simpleButton3.LookAndFeel.SkinName = "Office 2010 Silver";
+         this.simpleButton3.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Style3D;
+         this.simpleButton3.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.simpleButton3.Name = "simpleButton3";
+         this.simpleButton3.Size = new System.Drawing.Size(28, 22);
+         toolTipTitleItem26.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image5")));
+         toolTipTitleItem26.Appearance.Options.UseImage = true;
+         toolTipTitleItem26.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem26.Image")));
+         toolTipTitleItem26.Text = "لیست پیام های ارسال شده";
+         toolTipItem10.LeftIndent = 6;
+         toolTipItem10.Text = "پیام های که تا به الان برای این مشترک ارسال شده  را می توانید مشاهده کنید";
+         superToolTip22.Items.Add(toolTipTitleItem26);
+         superToolTip22.Items.Add(toolTipItem10);
+         this.simpleButton3.SuperTip = superToolTip22;
+         this.simpleButton3.TabIndex = 39;
+         this.simpleButton3.Tag = "Dad_Phon";
+         this.simpleButton3.Click += new System.EventHandler(this.SmsHist_Butn_Click);
+         // 
+         // SmsHist_Butn
+         // 
+         this.SmsHist_Butn.Appearance.BackColor = System.Drawing.Color.Gainsboro;
+         this.SmsHist_Butn.Appearance.Options.UseBackColor = true;
+         this.SmsHist_Butn.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+         this.SmsHist_Butn.Image = ((System.Drawing.Image)(resources.GetObject("SmsHist_Butn.Image")));
+         this.SmsHist_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+         this.SmsHist_Butn.Location = new System.Drawing.Point(356, 6);
+         this.SmsHist_Butn.LookAndFeel.SkinName = "Office 2010 Silver";
+         this.SmsHist_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Style3D;
+         this.SmsHist_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.SmsHist_Butn.Name = "SmsHist_Butn";
+         this.SmsHist_Butn.Size = new System.Drawing.Size(28, 22);
+         toolTipTitleItem27.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image6")));
+         toolTipTitleItem27.Appearance.Options.UseImage = true;
+         toolTipTitleItem27.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem27.Image")));
+         toolTipTitleItem27.Text = "لیست پیام های ارسال شده";
+         toolTipItem11.LeftIndent = 6;
+         toolTipItem11.Text = "پیام های که تا به الان برای این مشترک ارسال شده  را می توانید مشاهده کنید";
+         superToolTip23.Items.Add(toolTipTitleItem27);
+         superToolTip23.Items.Add(toolTipItem11);
+         this.SmsHist_Butn.SuperTip = superToolTip23;
+         this.SmsHist_Butn.TabIndex = 39;
+         this.SmsHist_Butn.Tag = "Cell_Phon";
+         this.SmsHist_Butn.Click += new System.EventHandler(this.SmsHist_Butn_Click);
          // 
          // labelControl1
          // 
@@ -2458,7 +2577,7 @@
          this.textEdit3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.textEdit3.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.vF_Fighs, "SUNT_DESC", true));
          this.textEdit3.EditValue = "";
-         this.textEdit3.Location = new System.Drawing.Point(154, 6);
+         this.textEdit3.Location = new System.Drawing.Point(121, 6);
          this.textEdit3.Name = "textEdit3";
          this.textEdit3.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.textEdit3.Properties.Appearance.Options.UseFont = true;
@@ -2476,7 +2595,7 @@
          this.GlobCodeDnrm_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.GlobCodeDnrm_Txt.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.vF_Fighs, "GLOB_CODE", true));
          this.GlobCodeDnrm_Txt.EditValue = "";
-         this.GlobCodeDnrm_Txt.Location = new System.Drawing.Point(196, 34);
+         this.GlobCodeDnrm_Txt.Location = new System.Drawing.Point(163, 34);
          this.GlobCodeDnrm_Txt.Name = "GlobCodeDnrm_Txt";
          this.GlobCodeDnrm_Txt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.GlobCodeDnrm_Txt.Properties.Appearance.Options.UseFont = true;
@@ -2495,7 +2614,7 @@
          this.textEdit1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.textEdit1.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.vF_Fighs, "NATL_CODE", true));
          this.textEdit1.EditValue = "";
-         this.textEdit1.Location = new System.Drawing.Point(196, 62);
+         this.textEdit1.Location = new System.Drawing.Point(163, 62);
          this.textEdit1.Name = "textEdit1";
          this.textEdit1.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.textEdit1.Properties.Appearance.Options.UseFont = true;
@@ -2512,7 +2631,7 @@
          // 
          this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.label3.AutoSize = true;
-         this.label3.Location = new System.Drawing.Point(302, 95);
+         this.label3.Location = new System.Drawing.Point(269, 95);
          this.label3.Name = "label3";
          this.label3.Size = new System.Drawing.Size(62, 13);
          this.label3.TabIndex = 19;
@@ -2536,23 +2655,23 @@
          this.textEdit5.Size = new System.Drawing.Size(100, 22);
          this.textEdit5.TabIndex = 35;
          // 
-         // textEdit6
+         // MomPhon01_Txt
          // 
-         this.textEdit6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.textEdit6.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.vF_Fighs, "MOM_CELL_PHON_DNRM", true));
-         this.textEdit6.EditValue = "";
-         this.textEdit6.Location = new System.Drawing.Point(389, 90);
-         this.textEdit6.Name = "textEdit6";
-         this.textEdit6.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.textEdit6.Properties.Appearance.Options.UseFont = true;
-         this.textEdit6.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-         this.textEdit6.Properties.AppearanceFocused.Options.UseBackColor = true;
-         this.textEdit6.Properties.Mask.EditMask = "n0";
-         this.textEdit6.Properties.Mask.UseMaskAsDisplayFormat = true;
-         this.textEdit6.Properties.NullValuePromptShowForEmptyValue = true;
-         this.textEdit6.Properties.ReadOnly = true;
-         this.textEdit6.Size = new System.Drawing.Size(100, 22);
-         this.textEdit6.TabIndex = 35;
+         this.MomPhon01_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.MomPhon01_Txt.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.vF_Fighs, "MOM_CELL_PHON_DNRM", true));
+         this.MomPhon01_Txt.EditValue = "";
+         this.MomPhon01_Txt.Location = new System.Drawing.Point(389, 90);
+         this.MomPhon01_Txt.Name = "MomPhon01_Txt";
+         this.MomPhon01_Txt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.MomPhon01_Txt.Properties.Appearance.Options.UseFont = true;
+         this.MomPhon01_Txt.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+         this.MomPhon01_Txt.Properties.AppearanceFocused.Options.UseBackColor = true;
+         this.MomPhon01_Txt.Properties.Mask.EditMask = "n0";
+         this.MomPhon01_Txt.Properties.Mask.UseMaskAsDisplayFormat = true;
+         this.MomPhon01_Txt.Properties.NullValuePromptShowForEmptyValue = true;
+         this.MomPhon01_Txt.Properties.ReadOnly = true;
+         this.MomPhon01_Txt.Size = new System.Drawing.Size(100, 22);
+         this.MomPhon01_Txt.TabIndex = 35;
          // 
          // label2
          // 
@@ -2564,23 +2683,23 @@
          this.label2.TabIndex = 19;
          this.label2.Text = "شماره مادر :";
          // 
-         // textEdit2
+         // DadPhon01_Txt
          // 
-         this.textEdit2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.textEdit2.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.vF_Fighs, "DAD_CELL_PHON_DNRM", true));
-         this.textEdit2.EditValue = "";
-         this.textEdit2.Location = new System.Drawing.Point(389, 62);
-         this.textEdit2.Name = "textEdit2";
-         this.textEdit2.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.textEdit2.Properties.Appearance.Options.UseFont = true;
-         this.textEdit2.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-         this.textEdit2.Properties.AppearanceFocused.Options.UseBackColor = true;
-         this.textEdit2.Properties.Mask.EditMask = "n0";
-         this.textEdit2.Properties.Mask.UseMaskAsDisplayFormat = true;
-         this.textEdit2.Properties.NullValuePromptShowForEmptyValue = true;
-         this.textEdit2.Properties.ReadOnly = true;
-         this.textEdit2.Size = new System.Drawing.Size(100, 22);
-         this.textEdit2.TabIndex = 35;
+         this.DadPhon01_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.DadPhon01_Txt.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.vF_Fighs, "DAD_CELL_PHON_DNRM", true));
+         this.DadPhon01_Txt.EditValue = "";
+         this.DadPhon01_Txt.Location = new System.Drawing.Point(389, 62);
+         this.DadPhon01_Txt.Name = "DadPhon01_Txt";
+         this.DadPhon01_Txt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.DadPhon01_Txt.Properties.Appearance.Options.UseFont = true;
+         this.DadPhon01_Txt.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+         this.DadPhon01_Txt.Properties.AppearanceFocused.Options.UseBackColor = true;
+         this.DadPhon01_Txt.Properties.Mask.EditMask = "n0";
+         this.DadPhon01_Txt.Properties.Mask.UseMaskAsDisplayFormat = true;
+         this.DadPhon01_Txt.Properties.NullValuePromptShowForEmptyValue = true;
+         this.DadPhon01_Txt.Properties.ReadOnly = true;
+         this.DadPhon01_Txt.Size = new System.Drawing.Size(100, 22);
+         this.DadPhon01_Txt.TabIndex = 35;
          // 
          // label1
          // 
@@ -2592,23 +2711,23 @@
          this.label1.TabIndex = 19;
          this.label1.Text = "شماره پدر :";
          // 
-         // textEdit4
+         // CellPhon01_Txt
          // 
-         this.textEdit4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.textEdit4.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.vF_Fighs, "CELL_PHON_DNRM", true));
-         this.textEdit4.EditValue = "";
-         this.textEdit4.Location = new System.Drawing.Point(389, 6);
-         this.textEdit4.Name = "textEdit4";
-         this.textEdit4.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.textEdit4.Properties.Appearance.Options.UseFont = true;
-         this.textEdit4.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-         this.textEdit4.Properties.AppearanceFocused.Options.UseBackColor = true;
-         this.textEdit4.Properties.Mask.EditMask = "n0";
-         this.textEdit4.Properties.Mask.UseMaskAsDisplayFormat = true;
-         this.textEdit4.Properties.NullValuePromptShowForEmptyValue = true;
-         this.textEdit4.Properties.ReadOnly = true;
-         this.textEdit4.Size = new System.Drawing.Size(100, 22);
-         this.textEdit4.TabIndex = 35;
+         this.CellPhon01_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.CellPhon01_Txt.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.vF_Fighs, "CELL_PHON_DNRM", true));
+         this.CellPhon01_Txt.EditValue = "";
+         this.CellPhon01_Txt.Location = new System.Drawing.Point(389, 6);
+         this.CellPhon01_Txt.Name = "CellPhon01_Txt";
+         this.CellPhon01_Txt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.CellPhon01_Txt.Properties.Appearance.Options.UseFont = true;
+         this.CellPhon01_Txt.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+         this.CellPhon01_Txt.Properties.AppearanceFocused.Options.UseBackColor = true;
+         this.CellPhon01_Txt.Properties.Mask.EditMask = "n0";
+         this.CellPhon01_Txt.Properties.Mask.UseMaskAsDisplayFormat = true;
+         this.CellPhon01_Txt.Properties.NullValuePromptShowForEmptyValue = true;
+         this.CellPhon01_Txt.Properties.ReadOnly = true;
+         this.CellPhon01_Txt.Size = new System.Drawing.Size(100, 22);
+         this.CellPhon01_Txt.TabIndex = 35;
          // 
          // AllMenu_Cmn
          // 
@@ -3429,32 +3548,6 @@
          this.toolStripMenuItem65.Size = new System.Drawing.Size(163, 22);
          this.toolStripMenuItem65.Text = "سایر";
          // 
-         // MbspMark_Butn
-         // 
-         this.MbspMark_Butn.Appearance.BackColor = System.Drawing.Color.Gainsboro;
-         this.MbspMark_Butn.Appearance.Options.UseBackColor = true;
-         this.MbspMark_Butn.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-         this.MbspMark_Butn.Image = ((System.Drawing.Image)(resources.GetObject("MbspMark_Butn.Image")));
-         this.MbspMark_Butn.Location = new System.Drawing.Point(193, 37);
-         this.MbspMark_Butn.LookAndFeel.SkinName = "Office 2010 Silver";
-         this.MbspMark_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Style3D;
-         this.MbspMark_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.MbspMark_Butn.Name = "MbspMark_Butn";
-         this.MbspMark_Butn.Size = new System.Drawing.Size(87, 29);
-         toolTipTitleItem22.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image1")));
-         toolTipTitleItem22.Appearance.Options.UseImage = true;
-         toolTipTitleItem22.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem22.Image")));
-         toolTipTitleItem22.Text = "اصلاح اطلاعات دوره";
-         toolTipItem6.LeftIndent = 6;
-         toolTipItem6.Text = "اگر تاریخ شروع و پایان و تعداد جلسات دوره به درستی وارد نشده می توانید از این گزی" +
-    "نه استفاده کنید";
-         superToolTip18.Items.Add(toolTipTitleItem22);
-         superToolTip18.Items.Add(toolTipItem6);
-         this.MbspMark_Butn.SuperTip = superToolTip18;
-         this.MbspMark_Butn.TabIndex = 39;
-         this.MbspMark_Butn.Text = "نمره دوره";
-         this.MbspMark_Butn.Click += new System.EventHandler(this.MbspMark_Butn_Click);
-         // 
          // LSI_FLDF_F
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3508,9 +3601,9 @@
          ((System.ComponentModel.ISupportInitialize)(this.GlobCodeDnrm_Txt.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.textEdit5.Properties)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.textEdit6.Properties)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.textEdit4.Properties)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.MomPhon01_Txt.Properties)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.DadPhon01_Txt.Properties)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.CellPhon01_Txt.Properties)).EndInit();
          this.AllMenu_Cmn.ResumeLayout(false);
          this.ResumeLayout(false);
 
@@ -3648,7 +3741,7 @@
       private DevExpress.XtraEditors.TextEdit textEdit3;
       private DevExpress.XtraEditors.TextEdit GlobCodeDnrm_Txt;
       private DevExpress.XtraEditors.TextEdit textEdit5;
-      private DevExpress.XtraEditors.TextEdit textEdit4;
+      private DevExpress.XtraEditors.TextEdit CellPhon01_Txt;
       private DevExpress.XtraGrid.Columns.GridColumn DpstAmnt_Clm;
       private DevExpress.XtraEditors.TextEdit textEdit1;
       private Windows.Forms.Label PymtAmnt_Lb;
@@ -3665,9 +3758,9 @@
       private DevExpress.XtraEditors.SimpleButton simpleButton2;
       private DevExpress.XtraEditors.SimpleButton Search_Butn;
       private DevExpress.XtraEditors.SimpleButton Back_Butn;
-      private DevExpress.XtraEditors.TextEdit textEdit6;
+      private DevExpress.XtraEditors.TextEdit MomPhon01_Txt;
       private Windows.Forms.Label label2;
-      private DevExpress.XtraEditors.TextEdit textEdit2;
+      private DevExpress.XtraEditors.TextEdit DadPhon01_Txt;
       private Windows.Forms.Label label1;
       private DevExpress.XtraEditors.LabelControl NullDcmt_Lbl;
       private DevExpress.XtraEditors.LabelControl NullProfile_Lbl;
@@ -3789,5 +3882,8 @@
       private Windows.Forms.ToolStripSeparator toolStripSeparator5;
       private Windows.Forms.ToolStripMenuItem toolStripMenuItem65;
       private DevExpress.XtraEditors.SimpleButton MbspMark_Butn;
+      private DevExpress.XtraEditors.SimpleButton simpleButton4;
+      private DevExpress.XtraEditors.SimpleButton simpleButton3;
+      private DevExpress.XtraEditors.SimpleButton SmsHist_Butn;
    }
 }

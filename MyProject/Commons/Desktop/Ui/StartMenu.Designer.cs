@@ -96,6 +96,7 @@
          // 
          // flowLayoutPanel1
          // 
+         this.flowLayoutPanel1.BackColor = System.Drawing.Color.White;
          this.flowLayoutPanel1.Controls.Add(this.Back_Butn);
          this.flowLayoutPanel1.Controls.Add(this.Shutdown_Butn);
          this.flowLayoutPanel1.Controls.Add(this.Settings_Butn);
@@ -620,6 +621,7 @@
          this.simpleButton13.TabIndex = 7;
          this.simpleButton13.Tag = "1";
          this.simpleButton13.Text = "نرم افزار مدیریت مجتمع مسکونی";
+         this.simpleButton13.Visible = false;
          // 
          // simpleButton14
          // 
@@ -645,6 +647,7 @@
          this.simpleButton14.TabIndex = 7;
          this.simpleButton14.Tag = "1";
          this.simpleButton14.Text = "نرم افزار مدیریت تدارکات";
+         this.simpleButton14.Visible = false;
          // 
          // simpleButton15
          // 

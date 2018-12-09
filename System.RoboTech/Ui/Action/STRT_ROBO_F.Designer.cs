@@ -28,7 +28,6 @@
       /// </summary>
       private void InitializeComponent()
       {
-         this.components = new System.ComponentModel.Container();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition5 = new DevExpress.XtraGrid.StyleFormatCondition();
@@ -51,7 +50,7 @@
          this.groupBox1 = new System.Windows.Forms.GroupBox();
          this.splitContainerControl5 = new DevExpress.XtraEditors.SplitContainerControl();
          this.countryGridControl = new DevExpress.XtraGrid.GridControl();
-         this.OrgnBs = new System.Windows.Forms.BindingSource(this.components);
+         this.OrgnBs = new System.Windows.Forms.BindingSource();
          this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colREGN_PRVN_CNTY_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.Cnty_Lov = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
@@ -70,7 +69,7 @@
          this.colActnButn = new DevExpress.XtraGrid.Columns.GridColumn();
          this.OrgnActn_Butn = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
          this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-         this.RoboBs = new System.Windows.Forms.BindingSource(this.components);
+         this.RoboBs = new System.Windows.Forms.BindingSource();
          this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colORGN_OGID = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colRBID = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -88,7 +87,9 @@
          this.gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.StopRobot_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.StrtBot_Butn = new DevExpress.XtraEditors.SimpleButton();
-         this.Btn_Back = new C1.Win.C1Input.C1Button();
+         this.panelControl5 = new DevExpress.XtraEditors.PanelControl();
+         this.labelControl15 = new DevExpress.XtraEditors.LabelControl();
+         this.Back_Butn = new DevExpress.XtraEditors.SimpleButton();
          ((System.ComponentModel.ISupportInitialize)(this.Actv_Lov)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.Actv_Lov2)).BeginInit();
          this.Tb_master.SuspendLayout();
@@ -113,7 +114,8 @@
          ((System.ComponentModel.ISupportInitialize)(this.Buld_Lov)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit6)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit6.CalendarTimeProperties)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.Btn_Back)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.panelControl5)).BeginInit();
+         this.panelControl5.SuspendLayout();
          this.SuspendLayout();
          // 
          // colSTAT
@@ -160,16 +162,14 @@
          // 
          // Tb_master
          // 
-         this.Tb_master.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
          this.Tb_master.Controls.Add(this.tabPage1);
-         this.Tb_master.Location = new System.Drawing.Point(3, 3);
+         this.Tb_master.Dock = System.Windows.Forms.DockStyle.Fill;
+         this.Tb_master.Location = new System.Drawing.Point(0, 53);
          this.Tb_master.Name = "Tb_master";
          this.Tb_master.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
          this.Tb_master.RightToLeftLayout = true;
          this.Tb_master.SelectedIndex = 0;
-         this.Tb_master.Size = new System.Drawing.Size(732, 477);
+         this.Tb_master.Size = new System.Drawing.Size(738, 474);
          this.Tb_master.TabIndex = 0;
          // 
          // tabPage1
@@ -178,7 +178,7 @@
          this.tabPage1.Location = new System.Drawing.Point(4, 23);
          this.tabPage1.Name = "tabPage1";
          this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-         this.tabPage1.Size = new System.Drawing.Size(724, 450);
+         this.tabPage1.Size = new System.Drawing.Size(730, 447);
          this.tabPage1.TabIndex = 0;
          this.tabPage1.Text = "مشترکین ارگان و رباتها";
          this.tabPage1.UseVisualStyleBackColor = true;
@@ -194,7 +194,7 @@
          this.splitContainerControl1.Panel1.Text = "Panel1";
          this.splitContainerControl1.Panel2.Controls.Add(this.groupBox1);
          this.splitContainerControl1.Panel2.Text = "Panel2";
-         this.splitContainerControl1.Size = new System.Drawing.Size(718, 444);
+         this.splitContainerControl1.Size = new System.Drawing.Size(724, 441);
          this.splitContainerControl1.SplitterPosition = 257;
          this.splitContainerControl1.TabIndex = 2;
          this.splitContainerControl1.Text = "splitContainerControl1";
@@ -205,7 +205,7 @@
          this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
          this.groupBox2.Location = new System.Drawing.Point(0, 0);
          this.groupBox2.Name = "groupBox2";
-         this.groupBox2.Size = new System.Drawing.Size(456, 444);
+         this.groupBox2.Size = new System.Drawing.Size(462, 441);
          this.groupBox2.TabIndex = 0;
          this.groupBox2.TabStop = false;
          this.groupBox2.Text = "Logs";
@@ -219,7 +219,7 @@
          this.ConsoleOutLog_MemTxt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.ConsoleOutLog_MemTxt.Properties.Appearance.Options.UseFont = true;
          this.ConsoleOutLog_MemTxt.RightToLeft = System.Windows.Forms.RightToLeft.No;
-         this.ConsoleOutLog_MemTxt.Size = new System.Drawing.Size(450, 423);
+         this.ConsoleOutLog_MemTxt.Size = new System.Drawing.Size(456, 420);
          this.ConsoleOutLog_MemTxt.TabIndex = 0;
          // 
          // groupBox1
@@ -228,7 +228,7 @@
          this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
          this.groupBox1.Location = new System.Drawing.Point(0, 0);
          this.groupBox1.Name = "groupBox1";
-         this.groupBox1.Size = new System.Drawing.Size(257, 444);
+         this.groupBox1.Size = new System.Drawing.Size(257, 441);
          this.groupBox1.TabIndex = 1;
          this.groupBox1.TabStop = false;
          this.groupBox1.Text = "سازمان و ارگان ها و ربات ها";
@@ -247,7 +247,7 @@
          this.splitContainerControl5.Panel2.Controls.Add(this.StopRobot_Butn);
          this.splitContainerControl5.Panel2.Controls.Add(this.StrtBot_Butn);
          this.splitContainerControl5.Panel2.Text = "Panel2";
-         this.splitContainerControl5.Size = new System.Drawing.Size(251, 423);
+         this.splitContainerControl5.Size = new System.Drawing.Size(251, 420);
          this.splitContainerControl5.SplitterPosition = 145;
          this.splitContainerControl5.TabIndex = 2;
          this.splitContainerControl5.Text = "splitContainerControl5";
@@ -267,7 +267,7 @@
             this.Prvn_Lov,
             this.Regn_Lov,
             this.OrgnActn_Butn});
-         this.countryGridControl.Size = new System.Drawing.Size(251, 273);
+         this.countryGridControl.Size = new System.Drawing.Size(251, 270);
          this.countryGridControl.TabIndex = 1;
          this.countryGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -697,23 +697,56 @@
          this.StrtBot_Butn.Text = "شروع کار ربات";
          this.StrtBot_Butn.Click += new System.EventHandler(this.StrtBot_Butn_Click);
          // 
-         // Btn_Back
+         // panelControl5
          // 
-         this.Btn_Back.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-         this.Btn_Back.Location = new System.Drawing.Point(329, 486);
-         this.Btn_Back.Name = "Btn_Back";
-         this.Btn_Back.Size = new System.Drawing.Size(80, 27);
-         this.Btn_Back.TabIndex = 9;
-         this.Btn_Back.Text = "بازگشت";
-         this.Btn_Back.UseVisualStyleBackColor = true;
-         this.Btn_Back.Click += new System.EventHandler(this.Btn_Back_Click);
+         this.panelControl5.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+         this.panelControl5.Appearance.Options.UseBackColor = true;
+         this.panelControl5.Controls.Add(this.labelControl15);
+         this.panelControl5.Controls.Add(this.Back_Butn);
+         this.panelControl5.Dock = System.Windows.Forms.DockStyle.Top;
+         this.panelControl5.Location = new System.Drawing.Point(0, 0);
+         this.panelControl5.LookAndFeel.SkinName = "Office 2010 Blue";
+         this.panelControl5.Name = "panelControl5";
+         this.panelControl5.Size = new System.Drawing.Size(738, 53);
+         this.panelControl5.TabIndex = 13;
+         // 
+         // labelControl15
+         // 
+         this.labelControl15.Appearance.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.labelControl15.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("labelControl15.Appearance.Image")));
+         this.labelControl15.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+         this.labelControl15.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         this.labelControl15.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+         this.labelControl15.Dock = System.Windows.Forms.DockStyle.Right;
+         this.labelControl15.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
+         this.labelControl15.Location = new System.Drawing.Point(535, 2);
+         this.labelControl15.Name = "labelControl15";
+         this.labelControl15.Size = new System.Drawing.Size(140, 49);
+         this.labelControl15.TabIndex = 2;
+         this.labelControl15.Text = "وضعیت ربات ها";
+         // 
+         // Back_Butn
+         // 
+         this.Back_Butn.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+         this.Back_Butn.Appearance.Options.UseBackColor = true;
+         this.Back_Butn.Dock = System.Windows.Forms.DockStyle.Right;
+         this.Back_Butn.Image = ((System.Drawing.Image)(resources.GetObject("Back_Butn.Image")));
+         this.Back_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+         this.Back_Butn.Location = new System.Drawing.Point(675, 2);
+         this.Back_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.Back_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.Back_Butn.Name = "Back_Butn";
+         this.Back_Butn.Size = new System.Drawing.Size(61, 49);
+         this.Back_Butn.TabIndex = 3;
+         this.Back_Butn.ToolTip = "بازگشت";
+         this.Back_Butn.Click += new System.EventHandler(this.Btn_Back_Click);
          // 
          // STRT_ROBO_F
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
          this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-         this.Controls.Add(this.Btn_Back);
          this.Controls.Add(this.Tb_master);
+         this.Controls.Add(this.panelControl5);
          this.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.Name = "STRT_ROBO_F";
          this.Size = new System.Drawing.Size(738, 527);
@@ -741,7 +774,8 @@
          ((System.ComponentModel.ISupportInitialize)(this.Buld_Lov)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit6.CalendarTimeProperties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit6)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.Btn_Back)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.panelControl5)).EndInit();
+         this.panelControl5.ResumeLayout(false);
          this.ResumeLayout(false);
 
       }
@@ -750,7 +784,6 @@
 
       private Windows.Forms.TabControl Tb_master;
       private Windows.Forms.TabPage tabPage1;
-      private C1.Win.C1Input.C1Button Btn_Back;
       private Windows.Forms.BindingSource OrgnBs;
       private Windows.Forms.BindingSource RoboBs;
       private Windows.Forms.GroupBox groupBox1;
@@ -798,5 +831,8 @@
       private DevExpress.XtraEditors.MemoEdit ConsoleOutLog_MemTxt;
       private DevExpress.XtraEditors.SimpleButton StopRobot_Butn;
       private DevExpress.XtraEditors.SimpleButton StrtBot_Butn;
+      private DevExpress.XtraEditors.PanelControl panelControl5;
+      private DevExpress.XtraEditors.LabelControl labelControl15;
+      private DevExpress.XtraEditors.SimpleButton Back_Butn;
    }
 }

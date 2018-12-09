@@ -12,5 +12,6 @@ namespace System.MessageBroadcast.Code
       public ISendRequest _Wall { get; set; }
 
       internal Ui.MasterPage.MSTR_PAGE_F _Mstr_Page_F { get; set; }
+      internal Ui.SmsApp.SEND_MESG_F _Send_Mesg_F { get; set; }
    }
 }

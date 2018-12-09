@@ -48,6 +48,9 @@ namespace System.MessageBroadcast.Code
             case 06:
                Tree_Node_P(job);
                break;
+            case 07:
+               Send_Mesg_F(job);
+               break;
             default:
                job.Status = StatusType.Failed;
                break;
@@ -63,6 +66,9 @@ namespace System.MessageBroadcast.Code
                break;
             case "MSTR_PAGE_F":
                _Mstr_Page_F.SendRequest(job);
+               break;
+            case "SEND_MESG_F":
+               _Send_Mesg_F.SendRequest(job);
                break;
             default:
                job.Status = StatusType.Failed;

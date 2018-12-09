@@ -21,6 +21,7 @@ namespace System.MessageBroadcast.Ui.SmsApp
       private string ConnectionString;
       private string CurrentUser;
       private string FormCaller;
+      private XElement xinput;
 
       public void SendRequest(Job job)
       {
@@ -156,6 +157,30 @@ namespace System.MessageBroadcast.Ui.SmsApp
       /// <param name="job"></param>
       private void Actn_CalF_P(Job job)
       {
+         xinput = job.Input as XElement;
+         if (xinput.Attribute("tab") != null)
+         {
+            switch (xinput.Attribute("tab").Value)
+            {
+               case "tp_001":
+                  SwitchButtonsTabPage(SendOneMesg_Butn);
+                  break;
+               case "tp_002":
+                  SwitchButtonsTabPage(SendMoreMesg_Butn);
+                  break;
+               case "tp_003":
+                  SwitchButtonsTabPage(ReceiveMesg_Butn);
+                  break;
+               case "tp_004":
+                  SwitchButtonsTabPage(SendedMesg_Butn);
+                  break;
+               default:                  
+                  break;
+            }            
+         }
+         else
+            SwitchButtonsTabPage(SendOneMesg_Butn);
+         
          job.Status = StatusType.Successful;
       }
    }

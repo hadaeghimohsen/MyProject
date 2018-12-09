@@ -24,6 +24,10 @@ namespace System.MessageBroadcast.Code
                if (_Mstr_Page_F == null)
                   _Mstr_Page_F = new Ui.MasterPage.MSTR_PAGE_F { _DefaultGateway = this };
                break;
+            case "send_mesg_f":
+               if (_Send_Mesg_F == null)
+                  _Send_Mesg_F = new Ui.SmsApp.SEND_MESG_F { _DefaultGateway = this };
+               break;
             default:
                break;
          }
@@ -292,6 +296,30 @@ namespace System.MessageBroadcast.Code
          catch (Exception exc)
          {
             MessageBox.Show(exc.Message);
+         }
+      }
+
+      /// <summary>
+      /// Code 07
+      /// </summary>
+      /// <param name="job"></param>
+      private void Send_Mesg_F(Job job)
+      {
+         if (job.Status == StatusType.Running)
+         {
+            job.Status = StatusType.WaitForPreconditions;
+            job.OwnerDefineWorkWith.AddRange(
+               new List<Job>
+               {
+                  new Job(SendType.Self, 01 /* Execute GetUi */){Input = "send_mesg_f"},
+                  new Job(SendType.SelfToUserInterface, "SEND_MESG_F", 02 /* Execute Set */),
+                  new Job(SendType.SelfToUserInterface, "SEND_MESG_F", 07 /* Execute Load_Data */),
+                  new Job(SendType.SelfToUserInterface, "SEND_MESG_F", 03 /* Execute Paint */),                  
+               });
+         }
+         else if (job.Status == StatusType.SignalForPreconditions)
+         {
+            job.Status = StatusType.Successful;
          }
       }
    }

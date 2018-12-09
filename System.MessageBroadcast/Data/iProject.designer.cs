@@ -30,15 +30,15 @@ namespace System.MessageBroadcast.Data
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
-    partial void InsertSub_System(Sub_System instance);
-    partial void UpdateSub_System(Sub_System instance);
-    partial void DeleteSub_System(Sub_System instance);
     partial void InsertSms_Message_Box(Sms_Message_Box instance);
     partial void UpdateSms_Message_Box(Sms_Message_Box instance);
     partial void DeleteSms_Message_Box(Sms_Message_Box instance);
     partial void InsertMessage_Broad_Setting(Message_Broad_Setting instance);
     partial void UpdateMessage_Broad_Setting(Message_Broad_Setting instance);
     partial void DeleteMessage_Broad_Setting(Message_Broad_Setting instance);
+    partial void InsertSub_System(Sub_System instance);
+    partial void UpdateSub_System(Sub_System instance);
+    partial void DeleteSub_System(Sub_System instance);
     #endregion
 		
 		public iProjectDataContext() : 
@@ -69,14 +69,6 @@ namespace System.MessageBroadcast.Data
 				base(connection, mappingSource)
 		{
 			OnCreated();
-		}
-		
-		public System.Data.Linq.Table<Sub_System> Sub_Systems
-		{
-			get
-			{
-				return this.GetTable<Sub_System>();
-			}
 		}
 		
 		public System.Data.Linq.Table<D_LNTP> D_LNTPs
@@ -119,6 +111,14 @@ namespace System.MessageBroadcast.Data
 			}
 		}
 		
+		public System.Data.Linq.Table<Sub_System> Sub_Systems
+		{
+			get
+			{
+				return this.GetTable<Sub_System>();
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Msgb.PrepareSendCustSms")]
 		public ISingleResult<PrepareSendCustSmsResult> PrepareSendCustSms([global::System.Data.Linq.Mapping.ParameterAttribute(Name="X", DbType="Xml")] System.Xml.Linq.XElement x)
 		{
@@ -130,144 +130,6 @@ namespace System.MessageBroadcast.Data
 		public string GET_CRNTUSER_U([global::System.Data.Linq.Mapping.ParameterAttribute(Name="X", DbType="Xml")] System.Xml.Linq.XElement x)
 		{
 			return ((string)(this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), x).ReturnValue));
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="DataGuard.Sub_System")]
-	public partial class Sub_System : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _SUB_SYS;
-		
-		private string _DESC;
-		
-		private string _SCHM_NAME;
-		
-		private EntitySet<Sms_Message_Box> _Sms_Message_Boxes;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnSUB_SYSChanging(int value);
-    partial void OnSUB_SYSChanged();
-    partial void OnDESCChanging(string value);
-    partial void OnDESCChanged();
-    partial void OnSCHM_NAMEChanging(string value);
-    partial void OnSCHM_NAMEChanged();
-    #endregion
-		
-		public Sub_System()
-		{
-			this._Sms_Message_Boxes = new EntitySet<Sms_Message_Box>(new Action<Sms_Message_Box>(this.attach_Sms_Message_Boxes), new Action<Sms_Message_Box>(this.detach_Sms_Message_Boxes));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SUB_SYS", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int SUB_SYS
-		{
-			get
-			{
-				return this._SUB_SYS;
-			}
-			set
-			{
-				if ((this._SUB_SYS != value))
-				{
-					this.OnSUB_SYSChanging(value);
-					this.SendPropertyChanging();
-					this._SUB_SYS = value;
-					this.SendPropertyChanged("SUB_SYS");
-					this.OnSUB_SYSChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[DESC]", Storage="_DESC", DbType="NVarChar(100)")]
-		public string DESC
-		{
-			get
-			{
-				return this._DESC;
-			}
-			set
-			{
-				if ((this._DESC != value))
-				{
-					this.OnDESCChanging(value);
-					this.SendPropertyChanging();
-					this._DESC = value;
-					this.SendPropertyChanged("DESC");
-					this.OnDESCChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SCHM_NAME", DbType="VarChar(30)")]
-		public string SCHM_NAME
-		{
-			get
-			{
-				return this._SCHM_NAME;
-			}
-			set
-			{
-				if ((this._SCHM_NAME != value))
-				{
-					this.OnSCHM_NAMEChanging(value);
-					this.SendPropertyChanging();
-					this._SCHM_NAME = value;
-					this.SendPropertyChanged("SCHM_NAME");
-					this.OnSCHM_NAMEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Sub_System_Sms_Message_Box", Storage="_Sms_Message_Boxes", ThisKey="SUB_SYS", OtherKey="SUB_SYS")]
-		public EntitySet<Sms_Message_Box> Sms_Message_Boxes
-		{
-			get
-			{
-				return this._Sms_Message_Boxes;
-			}
-			set
-			{
-				this._Sms_Message_Boxes.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Sms_Message_Boxes(Sms_Message_Box entity)
-		{
-			this.SendPropertyChanging();
-			entity.Sub_System = this;
-		}
-		
-		private void detach_Sms_Message_Boxes(Sms_Message_Box entity)
-		{
-			this.SendPropertyChanging();
-			entity.Sub_System = null;
 		}
 	}
 	
@@ -1360,6 +1222,744 @@ namespace System.MessageBroadcast.Data
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="DataGuard.Sub_System")]
+	public partial class Sub_System : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _SUB_SYS;
+		
+		private string _DESC;
+		
+		private string _SCHM_NAME;
+		
+		private string _STAT;
+		
+		private string _INST_STAT;
+		
+		private System.Nullable<System.DateTime> _INST_DATE;
+		
+		private string _DLL_NAME;
+		
+		private string _CAN_UN_INST;
+		
+		private string _DFLT_APP_STRT_STAT;
+		
+		private string _LICN_TYPE;
+		
+		private System.Nullable<System.DateTime> _LICN_TRIL_DATE;
+		
+		private string _CLNT_LICN_DESC;
+		
+		private string _SRVR_LICN_DESC;
+		
+		private string _INST_LICN_DESC;
+		
+		private string _VERS_NO;
+		
+		private string _DB_NAME;
+		
+		private string _SUB_DESC;
+		
+		private string _SUPR_EMAL;
+		
+		private string _JOBS_STAT;
+		
+		private System.Nullable<int> _FREQ_INTR;
+		
+		private string _BACK_UP_STAT;
+		
+		private string _BACK_UP_APP_EXIT;
+		
+		private string _BACK_UP_PATH_ADRS;
+		
+		private string _UPLD_FILE_PATH_ADRS;
+		
+		private string _CRET_BY;
+		
+		private System.Nullable<System.DateTime> _CRET_DATE;
+		
+		private string _MDFY_BY;
+		
+		private System.Nullable<System.DateTime> _MDFY_DATE;
+		
+		private EntitySet<Sms_Message_Box> _Sms_Message_Boxes;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnSUB_SYSChanging(int value);
+    partial void OnSUB_SYSChanged();
+    partial void OnDESCChanging(string value);
+    partial void OnDESCChanged();
+    partial void OnSCHM_NAMEChanging(string value);
+    partial void OnSCHM_NAMEChanged();
+    partial void OnSTATChanging(string value);
+    partial void OnSTATChanged();
+    partial void OnINST_STATChanging(string value);
+    partial void OnINST_STATChanged();
+    partial void OnINST_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnINST_DATEChanged();
+    partial void OnDLL_NAMEChanging(string value);
+    partial void OnDLL_NAMEChanged();
+    partial void OnCAN_UN_INSTChanging(string value);
+    partial void OnCAN_UN_INSTChanged();
+    partial void OnDFLT_APP_STRT_STATChanging(string value);
+    partial void OnDFLT_APP_STRT_STATChanged();
+    partial void OnLICN_TYPEChanging(string value);
+    partial void OnLICN_TYPEChanged();
+    partial void OnLICN_TRIL_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnLICN_TRIL_DATEChanged();
+    partial void OnCLNT_LICN_DESCChanging(string value);
+    partial void OnCLNT_LICN_DESCChanged();
+    partial void OnSRVR_LICN_DESCChanging(string value);
+    partial void OnSRVR_LICN_DESCChanged();
+    partial void OnINST_LICN_DESCChanging(string value);
+    partial void OnINST_LICN_DESCChanged();
+    partial void OnVERS_NOChanging(string value);
+    partial void OnVERS_NOChanged();
+    partial void OnDB_NAMEChanging(string value);
+    partial void OnDB_NAMEChanged();
+    partial void OnSUB_DESCChanging(string value);
+    partial void OnSUB_DESCChanged();
+    partial void OnSUPR_EMALChanging(string value);
+    partial void OnSUPR_EMALChanged();
+    partial void OnJOBS_STATChanging(string value);
+    partial void OnJOBS_STATChanged();
+    partial void OnFREQ_INTRChanging(System.Nullable<int> value);
+    partial void OnFREQ_INTRChanged();
+    partial void OnBACK_UP_STATChanging(string value);
+    partial void OnBACK_UP_STATChanged();
+    partial void OnBACK_UP_APP_EXITChanging(string value);
+    partial void OnBACK_UP_APP_EXITChanged();
+    partial void OnBACK_UP_PATH_ADRSChanging(string value);
+    partial void OnBACK_UP_PATH_ADRSChanged();
+    partial void OnUPLD_FILE_PATH_ADRSChanging(string value);
+    partial void OnUPLD_FILE_PATH_ADRSChanged();
+    partial void OnCRET_BYChanging(string value);
+    partial void OnCRET_BYChanged();
+    partial void OnCRET_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnCRET_DATEChanged();
+    partial void OnMDFY_BYChanging(string value);
+    partial void OnMDFY_BYChanged();
+    partial void OnMDFY_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnMDFY_DATEChanged();
+    #endregion
+		
+		public Sub_System()
+		{
+			this._Sms_Message_Boxes = new EntitySet<Sms_Message_Box>(new Action<Sms_Message_Box>(this.attach_Sms_Message_Boxes), new Action<Sms_Message_Box>(this.detach_Sms_Message_Boxes));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SUB_SYS", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int SUB_SYS
+		{
+			get
+			{
+				return this._SUB_SYS;
+			}
+			set
+			{
+				if ((this._SUB_SYS != value))
+				{
+					this.OnSUB_SYSChanging(value);
+					this.SendPropertyChanging();
+					this._SUB_SYS = value;
+					this.SendPropertyChanged("SUB_SYS");
+					this.OnSUB_SYSChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[DESC]", Storage="_DESC", DbType="NVarChar(100)")]
+		public string DESC
+		{
+			get
+			{
+				return this._DESC;
+			}
+			set
+			{
+				if ((this._DESC != value))
+				{
+					this.OnDESCChanging(value);
+					this.SendPropertyChanging();
+					this._DESC = value;
+					this.SendPropertyChanged("DESC");
+					this.OnDESCChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SCHM_NAME", DbType="VarChar(30)")]
+		public string SCHM_NAME
+		{
+			get
+			{
+				return this._SCHM_NAME;
+			}
+			set
+			{
+				if ((this._SCHM_NAME != value))
+				{
+					this.OnSCHM_NAMEChanging(value);
+					this.SendPropertyChanging();
+					this._SCHM_NAME = value;
+					this.SendPropertyChanged("SCHM_NAME");
+					this.OnSCHM_NAMEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STAT", DbType="VarChar(3)")]
+		public string STAT
+		{
+			get
+			{
+				return this._STAT;
+			}
+			set
+			{
+				if ((this._STAT != value))
+				{
+					this.OnSTATChanging(value);
+					this.SendPropertyChanging();
+					this._STAT = value;
+					this.SendPropertyChanged("STAT");
+					this.OnSTATChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_INST_STAT", DbType="VarChar(3)")]
+		public string INST_STAT
+		{
+			get
+			{
+				return this._INST_STAT;
+			}
+			set
+			{
+				if ((this._INST_STAT != value))
+				{
+					this.OnINST_STATChanging(value);
+					this.SendPropertyChanging();
+					this._INST_STAT = value;
+					this.SendPropertyChanged("INST_STAT");
+					this.OnINST_STATChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_INST_DATE", DbType="DateTime")]
+		public System.Nullable<System.DateTime> INST_DATE
+		{
+			get
+			{
+				return this._INST_DATE;
+			}
+			set
+			{
+				if ((this._INST_DATE != value))
+				{
+					this.OnINST_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._INST_DATE = value;
+					this.SendPropertyChanged("INST_DATE");
+					this.OnINST_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DLL_NAME", DbType="VarChar(100)")]
+		public string DLL_NAME
+		{
+			get
+			{
+				return this._DLL_NAME;
+			}
+			set
+			{
+				if ((this._DLL_NAME != value))
+				{
+					this.OnDLL_NAMEChanging(value);
+					this.SendPropertyChanging();
+					this._DLL_NAME = value;
+					this.SendPropertyChanged("DLL_NAME");
+					this.OnDLL_NAMEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CAN_UN_INST", DbType="VarChar(3)")]
+		public string CAN_UN_INST
+		{
+			get
+			{
+				return this._CAN_UN_INST;
+			}
+			set
+			{
+				if ((this._CAN_UN_INST != value))
+				{
+					this.OnCAN_UN_INSTChanging(value);
+					this.SendPropertyChanging();
+					this._CAN_UN_INST = value;
+					this.SendPropertyChanged("CAN_UN_INST");
+					this.OnCAN_UN_INSTChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DFLT_APP_STRT_STAT", DbType="VarChar(3)")]
+		public string DFLT_APP_STRT_STAT
+		{
+			get
+			{
+				return this._DFLT_APP_STRT_STAT;
+			}
+			set
+			{
+				if ((this._DFLT_APP_STRT_STAT != value))
+				{
+					this.OnDFLT_APP_STRT_STATChanging(value);
+					this.SendPropertyChanging();
+					this._DFLT_APP_STRT_STAT = value;
+					this.SendPropertyChanged("DFLT_APP_STRT_STAT");
+					this.OnDFLT_APP_STRT_STATChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LICN_TYPE", DbType="VarChar(3)")]
+		public string LICN_TYPE
+		{
+			get
+			{
+				return this._LICN_TYPE;
+			}
+			set
+			{
+				if ((this._LICN_TYPE != value))
+				{
+					this.OnLICN_TYPEChanging(value);
+					this.SendPropertyChanging();
+					this._LICN_TYPE = value;
+					this.SendPropertyChanged("LICN_TYPE");
+					this.OnLICN_TYPEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LICN_TRIL_DATE", DbType="DateTime")]
+		public System.Nullable<System.DateTime> LICN_TRIL_DATE
+		{
+			get
+			{
+				return this._LICN_TRIL_DATE;
+			}
+			set
+			{
+				if ((this._LICN_TRIL_DATE != value))
+				{
+					this.OnLICN_TRIL_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._LICN_TRIL_DATE = value;
+					this.SendPropertyChanged("LICN_TRIL_DATE");
+					this.OnLICN_TRIL_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CLNT_LICN_DESC", DbType="NVarChar(4000)")]
+		public string CLNT_LICN_DESC
+		{
+			get
+			{
+				return this._CLNT_LICN_DESC;
+			}
+			set
+			{
+				if ((this._CLNT_LICN_DESC != value))
+				{
+					this.OnCLNT_LICN_DESCChanging(value);
+					this.SendPropertyChanging();
+					this._CLNT_LICN_DESC = value;
+					this.SendPropertyChanged("CLNT_LICN_DESC");
+					this.OnCLNT_LICN_DESCChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SRVR_LICN_DESC", DbType="NVarChar(4000)")]
+		public string SRVR_LICN_DESC
+		{
+			get
+			{
+				return this._SRVR_LICN_DESC;
+			}
+			set
+			{
+				if ((this._SRVR_LICN_DESC != value))
+				{
+					this.OnSRVR_LICN_DESCChanging(value);
+					this.SendPropertyChanging();
+					this._SRVR_LICN_DESC = value;
+					this.SendPropertyChanged("SRVR_LICN_DESC");
+					this.OnSRVR_LICN_DESCChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_INST_LICN_DESC", DbType="NVarChar(4000)")]
+		public string INST_LICN_DESC
+		{
+			get
+			{
+				return this._INST_LICN_DESC;
+			}
+			set
+			{
+				if ((this._INST_LICN_DESC != value))
+				{
+					this.OnINST_LICN_DESCChanging(value);
+					this.SendPropertyChanging();
+					this._INST_LICN_DESC = value;
+					this.SendPropertyChanged("INST_LICN_DESC");
+					this.OnINST_LICN_DESCChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VERS_NO", DbType="VarChar(20)")]
+		public string VERS_NO
+		{
+			get
+			{
+				return this._VERS_NO;
+			}
+			set
+			{
+				if ((this._VERS_NO != value))
+				{
+					this.OnVERS_NOChanging(value);
+					this.SendPropertyChanging();
+					this._VERS_NO = value;
+					this.SendPropertyChanged("VERS_NO");
+					this.OnVERS_NOChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DB_NAME", DbType="VarChar(50)")]
+		public string DB_NAME
+		{
+			get
+			{
+				return this._DB_NAME;
+			}
+			set
+			{
+				if ((this._DB_NAME != value))
+				{
+					this.OnDB_NAMEChanging(value);
+					this.SendPropertyChanging();
+					this._DB_NAME = value;
+					this.SendPropertyChanged("DB_NAME");
+					this.OnDB_NAMEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SUB_DESC", DbType="NVarChar(500)")]
+		public string SUB_DESC
+		{
+			get
+			{
+				return this._SUB_DESC;
+			}
+			set
+			{
+				if ((this._SUB_DESC != value))
+				{
+					this.OnSUB_DESCChanging(value);
+					this.SendPropertyChanging();
+					this._SUB_DESC = value;
+					this.SendPropertyChanged("SUB_DESC");
+					this.OnSUB_DESCChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SUPR_EMAL", DbType="VarChar(250)")]
+		public string SUPR_EMAL
+		{
+			get
+			{
+				return this._SUPR_EMAL;
+			}
+			set
+			{
+				if ((this._SUPR_EMAL != value))
+				{
+					this.OnSUPR_EMALChanging(value);
+					this.SendPropertyChanging();
+					this._SUPR_EMAL = value;
+					this.SendPropertyChanged("SUPR_EMAL");
+					this.OnSUPR_EMALChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_JOBS_STAT", DbType="VarChar(3)")]
+		public string JOBS_STAT
+		{
+			get
+			{
+				return this._JOBS_STAT;
+			}
+			set
+			{
+				if ((this._JOBS_STAT != value))
+				{
+					this.OnJOBS_STATChanging(value);
+					this.SendPropertyChanging();
+					this._JOBS_STAT = value;
+					this.SendPropertyChanged("JOBS_STAT");
+					this.OnJOBS_STATChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FREQ_INTR", DbType="Int")]
+		public System.Nullable<int> FREQ_INTR
+		{
+			get
+			{
+				return this._FREQ_INTR;
+			}
+			set
+			{
+				if ((this._FREQ_INTR != value))
+				{
+					this.OnFREQ_INTRChanging(value);
+					this.SendPropertyChanging();
+					this._FREQ_INTR = value;
+					this.SendPropertyChanged("FREQ_INTR");
+					this.OnFREQ_INTRChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BACK_UP_STAT", DbType="VarChar(3)")]
+		public string BACK_UP_STAT
+		{
+			get
+			{
+				return this._BACK_UP_STAT;
+			}
+			set
+			{
+				if ((this._BACK_UP_STAT != value))
+				{
+					this.OnBACK_UP_STATChanging(value);
+					this.SendPropertyChanging();
+					this._BACK_UP_STAT = value;
+					this.SendPropertyChanged("BACK_UP_STAT");
+					this.OnBACK_UP_STATChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BACK_UP_APP_EXIT", DbType="VarChar(3)")]
+		public string BACK_UP_APP_EXIT
+		{
+			get
+			{
+				return this._BACK_UP_APP_EXIT;
+			}
+			set
+			{
+				if ((this._BACK_UP_APP_EXIT != value))
+				{
+					this.OnBACK_UP_APP_EXITChanging(value);
+					this.SendPropertyChanging();
+					this._BACK_UP_APP_EXIT = value;
+					this.SendPropertyChanged("BACK_UP_APP_EXIT");
+					this.OnBACK_UP_APP_EXITChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BACK_UP_PATH_ADRS", DbType="NVarChar(MAX)")]
+		public string BACK_UP_PATH_ADRS
+		{
+			get
+			{
+				return this._BACK_UP_PATH_ADRS;
+			}
+			set
+			{
+				if ((this._BACK_UP_PATH_ADRS != value))
+				{
+					this.OnBACK_UP_PATH_ADRSChanging(value);
+					this.SendPropertyChanging();
+					this._BACK_UP_PATH_ADRS = value;
+					this.SendPropertyChanged("BACK_UP_PATH_ADRS");
+					this.OnBACK_UP_PATH_ADRSChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UPLD_FILE_PATH_ADRS", DbType="NVarChar(MAX)")]
+		public string UPLD_FILE_PATH_ADRS
+		{
+			get
+			{
+				return this._UPLD_FILE_PATH_ADRS;
+			}
+			set
+			{
+				if ((this._UPLD_FILE_PATH_ADRS != value))
+				{
+					this.OnUPLD_FILE_PATH_ADRSChanging(value);
+					this.SendPropertyChanging();
+					this._UPLD_FILE_PATH_ADRS = value;
+					this.SendPropertyChanged("UPLD_FILE_PATH_ADRS");
+					this.OnUPLD_FILE_PATH_ADRSChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_BY", DbType="VarChar(250)")]
+		public string CRET_BY
+		{
+			get
+			{
+				return this._CRET_BY;
+			}
+			set
+			{
+				if ((this._CRET_BY != value))
+				{
+					this.OnCRET_BYChanging(value);
+					this.SendPropertyChanging();
+					this._CRET_BY = value;
+					this.SendPropertyChanged("CRET_BY");
+					this.OnCRET_BYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_DATE", DbType="DateTime")]
+		public System.Nullable<System.DateTime> CRET_DATE
+		{
+			get
+			{
+				return this._CRET_DATE;
+			}
+			set
+			{
+				if ((this._CRET_DATE != value))
+				{
+					this.OnCRET_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._CRET_DATE = value;
+					this.SendPropertyChanged("CRET_DATE");
+					this.OnCRET_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_BY", DbType="VarChar(250)")]
+		public string MDFY_BY
+		{
+			get
+			{
+				return this._MDFY_BY;
+			}
+			set
+			{
+				if ((this._MDFY_BY != value))
+				{
+					this.OnMDFY_BYChanging(value);
+					this.SendPropertyChanging();
+					this._MDFY_BY = value;
+					this.SendPropertyChanged("MDFY_BY");
+					this.OnMDFY_BYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_DATE", DbType="DateTime")]
+		public System.Nullable<System.DateTime> MDFY_DATE
+		{
+			get
+			{
+				return this._MDFY_DATE;
+			}
+			set
+			{
+				if ((this._MDFY_DATE != value))
+				{
+					this.OnMDFY_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._MDFY_DATE = value;
+					this.SendPropertyChanged("MDFY_DATE");
+					this.OnMDFY_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Sub_System_Sms_Message_Box", Storage="_Sms_Message_Boxes", ThisKey="SUB_SYS", OtherKey="SUB_SYS")]
+		public EntitySet<Sms_Message_Box> Sms_Message_Boxes
+		{
+			get
+			{
+				return this._Sms_Message_Boxes;
+			}
+			set
+			{
+				this._Sms_Message_Boxes.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Sms_Message_Boxes(Sms_Message_Box entity)
+		{
+			this.SendPropertyChanging();
+			entity.Sub_System = this;
+		}
+		
+		private void detach_Sms_Message_Boxes(Sms_Message_Box entity)
+		{
+			this.SendPropertyChanging();
+			entity.Sub_System = null;
 		}
 	}
 	

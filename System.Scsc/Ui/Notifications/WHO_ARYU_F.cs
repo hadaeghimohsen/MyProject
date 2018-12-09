@@ -126,7 +126,7 @@ namespace System.Scsc.Ui.Notifications
             DresNumb_Butn.Enabled = true;
 
             // 1396/10/18 * آیا گزینه نمایش چاپ حضوری انجام شود یا خیر
-            if (iScsc.Settings.FirstOrDefault(s => Fga_Uclb_U.Contains(s.CLUB_CODE)).ATTN_PRNT_STAT == "002")
+            if (attn.Fighter1.FGPB_TYPE_DNRM == "001" && iScsc.Settings.FirstOrDefault(s => Fga_Uclb_U.Contains(s.CLUB_CODE)).ATTN_PRNT_STAT == "002")
             {
                // 1397/01/28 * برای آن دسته از ورود هایی که هنوز چاپ نشده اند
                if(attn.PRNT_STAT != "002")

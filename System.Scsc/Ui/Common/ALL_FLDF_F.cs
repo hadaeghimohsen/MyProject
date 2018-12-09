@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.JobRouting.Jobs;
 using System.Xml.Linq;
+using DevExpress.XtraEditors;
 
 namespace System.Scsc.Ui.Common
 {
@@ -1801,6 +1802,115 @@ namespace System.Scsc.Ui.Common
       {
          tb_master.SelectedTab = tp_003;
          SavePayment_Gv.ActiveFilterString = "colTOTL_DEBT_PYMT > 0";
+      }
+
+      private void SmsHist_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var sms = sender as SimpleButton;
+
+            string phon = "";
+            switch (sms.Tag.ToString())
+            {
+               case "Cell_Phon":
+                  phon = CellPhon01_Txt.Text;
+                  break;
+               case "Dad_Phon":
+                  phon = DadPhon01_Txt.Text;
+                  break;
+               case "Mom_Phon":
+                  phon = MomPhon01_Txt.Text;
+                  break;
+               case "Cell_Phon01":
+                  phon = CellPhon02_Txt.Text;
+                  break;
+               case "Dad_Phon01":
+                  phon = DadPhon02_Txt.Text;
+                  break;
+               case "Mom_Phon01":
+                  phon = MomPhon02_Txt.Text;
+                  break;
+            }
+
+            if (phon == null || phon == "")
+               return;
+
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost", "DefaultGateway:Msgb", 07 /* Execute Send_Mesg_F */, SendType.Self)
+            );
+
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost", "DefaultGateway:Msgb:SEND_MESG_F", 10 /* Execute Actn_CalF_P */, SendType.SelfToUserInterface) { Input = new XElement("Message", new XAttribute("tab", "tp_004"), new XAttribute("filtering", "phonnumb"), new XAttribute("valu", phon)) }
+            );
+         }
+         catch (Exception exc)
+         {
+
+            throw;
+         }
+      }
+
+      private void TlgrmSndMesg_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var mesg = sender as SimpleButton;
+
+            var chatid = "";
+            switch (mesg.Tag.ToString())
+            {
+               case "Chatid":
+                  chatid = Chatid_Txt.Text;
+                  break;
+               case "Chatid01":
+                  chatid = Chatid01_Txt.Text;
+                  break;
+               default:
+                  break;
+            }
+
+            if (chatid == null || chatid == "") return;
+
+            Job _InteractWithScsc =
+            new Job(SendType.External, "localhost",
+               new List<Job>
+               {
+                  new Job(SendType.External, "Commons",
+                     new List<Job>
+                     {
+                        #region Access Privilege
+                        new Job(SendType.Self, 07 /* Execute DoWork4AccessPrivilege */)
+                        {
+                           Input = new List<string> 
+                           {
+                              "<Privilege>1</Privilege><Sub_Sys>12</Sub_Sys>", 
+                              "DataGuard"
+                           },
+                           AfterChangedOutput = new Action<object>((output) => {
+                              if ((bool)output)
+                                 return;
+                              #region Show Error
+                              MessageBox.Show(this, "خطا - عدم دسترسی به ردیف 1 سطوح امینتی", "عدم دسترسی");
+                              #endregion                           
+                           })
+                        },
+                        #endregion                        
+                        new Job(SendType.External, "Program", "RoboTech", 02 /* Execute Frst_Page_F */,SendType.Self)
+                     }
+                  ),
+                  #region DoWork
+                  new Job(SendType.External, "DefaultGateway", "RoboTech", 09 /* Execute Rbsa_Dvlp_F */,SendType.Self),
+                  new Job(SendType.External, "DefaultGateway", "RoboTech:RBSA_DVLP_F", 10 /* Execute Actn_Calf_P */,SendType.SelfToUserInterface){Input = new XElement("Message", new XAttribute("filtering", "chatid"), new XAttribute("valu", chatid))}
+                  #endregion
+            });
+            _DefaultGateway.Gateway(_InteractWithScsc);
+         }
+         catch (Exception)
+         {
+            
+            throw;
+         }
       }
    }
 }

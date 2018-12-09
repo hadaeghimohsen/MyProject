@@ -1,13 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="iProject" Class="iProjectDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="AppSettings" ConnectionString="Data Source=.;Initial Catalog=iProject;Integrated Security=True" SettingsObjectName="System.MessageBroadcast.Properties.Settings" SettingsPropertyName="iProjectConnectionString" Provider="System.Data.SqlClient" />
-  <Table Name="DataGuard.Sub_System" Member="Sub_Systems">
-    <Type Name="Sub_System">
-      <Column Name="SUB_SYS" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="[DESC]" Member="DESC" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="SCHM_NAME" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
-      <Association Name="Sub_System_Sms_Message_Box" Member="Sms_Message_Boxes" ThisKey="SUB_SYS" OtherKey="SUB_SYS" Type="Sms_Message_Box" />
-    </Type>
-  </Table>
   <Table Name="DataGuard.D$LNTP" Member="D_LNTPs">
     <Type Name="D_LNTP">
       <Column Name="VALU" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
@@ -68,6 +60,39 @@
       <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
       <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="DataGuard.Sub_System" Member="Sub_Systems">
+    <Type Name="Sub_System">
+      <Column Name="SUB_SYS" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="[DESC]" Member="DESC" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="SCHM_NAME" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="INST_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="INST_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DLL_NAME" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="CAN_UN_INST" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="DFLT_APP_STRT_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="LICN_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="LICN_TRIL_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CLNT_LICN_DESC" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="SRVR_LICN_DESC" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="INST_LICN_DESC" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="VERS_NO" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="DB_NAME" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="SUB_DESC" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="SUPR_EMAL" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="JOBS_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="FREQ_INTR" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BACK_UP_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="BACK_UP_APP_EXIT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="BACK_UP_PATH_ADRS" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="UPLD_FILE_PATH_ADRS" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Sub_System_Sms_Message_Box" Member="Sms_Message_Boxes" ThisKey="SUB_SYS" OtherKey="SUB_SYS" Type="Sms_Message_Box" />
     </Type>
   </Table>
   <Function Name="Msgb.PrepareSendCustSms" Method="PrepareSendCustSms">

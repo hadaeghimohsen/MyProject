@@ -2811,7 +2811,39 @@ namespace System.Scsc.Ui.MasterPage
 
       private void TlgrmBot_Butn_Click(object sender, EventArgs e)
       {
-         var result = Controls.Find("FngrPrnt_Txt", true);
+         if (ModifierKeys.HasFlag(Keys.Control))
+         {
+            Job _InteractWithScsc =
+            new Job(SendType.External, "Desktop",
+               new List<Job>
+               {
+                  new Job(SendType.External, "Commons",
+                     new List<Job>
+                     {
+                        #region Access Privilege
+                        new Job(SendType.Self, 07 /* Execute DoWork4AccessPrivilege */)
+                        {
+                           Input = new List<string> 
+                           {
+                              "<Privilege>1</Privilege><Sub_Sys>12</Sub_Sys>", 
+                              "DataGuard"
+                           },
+                           AfterChangedOutput = new Action<object>((output) => {
+                              if ((bool)output)
+                                 return;
+                              #region Show Error
+                              MessageBox.Show(this, "خطا - عدم دسترسی به ردیف 1 سطوح امینتی", "عدم دسترسی");
+                              #endregion                           
+                           })
+                        },
+                        #endregion
+                        #region DoWork
+                        new Job(SendType.External, "Program", "RoboTech", 02 /* Execute Frst_Page_F */,SendType.Self)
+                        #endregion
+                     })                     
+                  });
+            _DefaultGateway.Gateway(_InteractWithScsc);
+         }
       }
 
       private void ChngAttnActn_Butn_Click(object sender, EventArgs e)

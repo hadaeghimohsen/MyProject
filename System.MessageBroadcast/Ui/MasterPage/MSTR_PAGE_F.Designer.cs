@@ -362,7 +362,7 @@
          this.label12.Font = new System.Drawing.Font("B Davat", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.label12.Image = global::System.MessageBroadcast.Properties.Resources.IMAGE_1088;
          this.label12.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         this.label12.Location = new System.Drawing.Point(297, 884);
+         this.label12.Location = new System.Drawing.Point(289, 884);
          this.label12.Name = "label12";
          this.label12.Size = new System.Drawing.Size(184, 51);
          this.label12.TabIndex = 11;
@@ -380,7 +380,7 @@
          this.Btn_SmsServerRefresh.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
          this.Btn_SmsServerRefresh.ImageIndex = 0;
          this.Btn_SmsServerRefresh.ImageList = this.imageList1;
-         this.Btn_SmsServerRefresh.Location = new System.Drawing.Point(1, 788);
+         this.Btn_SmsServerRefresh.Location = new System.Drawing.Point(-7, 788);
          this.Btn_SmsServerRefresh.Name = "Btn_SmsServerRefresh";
          this.Btn_SmsServerRefresh.Size = new System.Drawing.Size(40, 40);
          this.Btn_SmsServerRefresh.TabIndex = 10;
@@ -403,7 +403,7 @@
          this.LL_SmsSendCredit.AutoSize = true;
          this.LL_SmsSendCredit.Font = new System.Drawing.Font("B Kamran", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.LL_SmsSendCredit.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-         this.LL_SmsSendCredit.Location = new System.Drawing.Point(5, 889);
+         this.LL_SmsSendCredit.Location = new System.Drawing.Point(-3, 889);
          this.LL_SmsSendCredit.Name = "LL_SmsSendCredit";
          this.LL_SmsSendCredit.Size = new System.Drawing.Size(23, 38);
          this.LL_SmsSendCredit.TabIndex = 9;
@@ -416,7 +416,7 @@
          this.LL_SmsSendWebService.AutoSize = true;
          this.LL_SmsSendWebService.Font = new System.Drawing.Font("B Kamran", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.LL_SmsSendWebService.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-         this.LL_SmsSendWebService.Location = new System.Drawing.Point(5, 838);
+         this.LL_SmsSendWebService.Location = new System.Drawing.Point(-3, 838);
          this.LL_SmsSendWebService.Name = "LL_SmsSendWebService";
          this.LL_SmsSendWebService.Size = new System.Drawing.Size(23, 38);
          this.LL_SmsSendWebService.TabIndex = 9;
@@ -444,7 +444,7 @@
             this.bindingNavigatorSeparator2,
             this.bindingNavigatorAddNewItem,
             this.bindingNavigatorDeleteItem});
-         this.SmsBn.Location = new System.Drawing.Point(1, 275);
+         this.SmsBn.Location = new System.Drawing.Point(-7, 275);
          this.SmsBn.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
          this.SmsBn.MoveLastItem = this.bindingNavigatorMoveLastItem;
          this.SmsBn.MoveNextItem = this.bindingNavigatorMoveNextItem;
@@ -557,7 +557,7 @@
          this.LL_SmsNotSending.AutoSize = true;
          this.LL_SmsNotSending.Font = new System.Drawing.Font("B Kamran", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.LL_SmsNotSending.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-         this.LL_SmsNotSending.Location = new System.Drawing.Point(1, 727);
+         this.LL_SmsNotSending.Location = new System.Drawing.Point(-7, 727);
          this.LL_SmsNotSending.Name = "LL_SmsNotSending";
          this.LL_SmsNotSending.Size = new System.Drawing.Size(23, 38);
          this.LL_SmsNotSending.TabIndex = 6;
@@ -570,7 +570,7 @@
          this.label11.Font = new System.Drawing.Font("B Davat", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.label11.Image = global::System.MessageBroadcast.Properties.Resources.IMAGE_1119;
          this.label11.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         this.label11.Location = new System.Drawing.Point(212, 833);
+         this.label11.Location = new System.Drawing.Point(204, 833);
          this.label11.Name = "label11";
          this.label11.Size = new System.Drawing.Size(269, 51);
          this.label11.TabIndex = 8;
@@ -583,7 +583,7 @@
          this.LL_SmsSended.AutoSize = true;
          this.LL_SmsSended.Font = new System.Drawing.Font("B Kamran", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.LL_SmsSended.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-         this.LL_SmsSended.Location = new System.Drawing.Point(1, 676);
+         this.LL_SmsSended.Location = new System.Drawing.Point(-7, 676);
          this.LL_SmsSended.Name = "LL_SmsSended";
          this.LL_SmsSended.Size = new System.Drawing.Size(23, 38);
          this.LL_SmsSended.TabIndex = 6;
@@ -596,7 +596,7 @@
          this.LL_SmsTotal.AutoSize = true;
          this.LL_SmsTotal.Font = new System.Drawing.Font("B Kamran", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.LL_SmsTotal.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-         this.LL_SmsTotal.Location = new System.Drawing.Point(1, 625);
+         this.LL_SmsTotal.Location = new System.Drawing.Point(-7, 625);
          this.LL_SmsTotal.Name = "LL_SmsTotal";
          this.LL_SmsTotal.Size = new System.Drawing.Size(23, 38);
          this.LL_SmsTotal.TabIndex = 6;
@@ -609,7 +609,7 @@
          this.label5.Font = new System.Drawing.Font("B Davat", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.label5.Image = global::System.MessageBroadcast.Properties.Resources.IMAGE_1118;
          this.label5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         this.label5.Location = new System.Drawing.Point(306, 722);
+         this.label5.Location = new System.Drawing.Point(298, 722);
          this.label5.Name = "label5";
          this.label5.Size = new System.Drawing.Size(171, 51);
          this.label5.TabIndex = 5;
@@ -622,7 +622,7 @@
          this.label4.Font = new System.Drawing.Font("B Davat", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.label4.Image = global::System.MessageBroadcast.Properties.Resources.IMAGE_1117;
          this.label4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         this.label4.Location = new System.Drawing.Point(310, 671);
+         this.label4.Location = new System.Drawing.Point(302, 671);
          this.label4.Name = "label4";
          this.label4.Size = new System.Drawing.Size(167, 51);
          this.label4.TabIndex = 5;
@@ -635,7 +635,7 @@
          this.label3.Font = new System.Drawing.Font("B Davat", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.label3.Image = global::System.MessageBroadcast.Properties.Resources.IMAGE_1123;
          this.label3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         this.label3.Location = new System.Drawing.Point(218, 620);
+         this.label3.Location = new System.Drawing.Point(210, 620);
          this.label3.Name = "label3";
          this.label3.Size = new System.Drawing.Size(259, 51);
          this.label3.TabIndex = 5;
@@ -645,7 +645,7 @@
          // label2
          // 
          this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
-         this.label2.Location = new System.Drawing.Point(1, 518);
+         this.label2.Location = new System.Drawing.Point(-7, 518);
          this.label2.Name = "label2";
          this.label2.Size = new System.Drawing.Size(476, 42);
          this.label2.TabIndex = 4;
@@ -655,7 +655,7 @@
          // LB_SmsLineType
          // 
          this.LB_SmsLineType.Anchor = System.Windows.Forms.AnchorStyles.Top;
-         this.LB_SmsLineType.Location = new System.Drawing.Point(1, 321);
+         this.LB_SmsLineType.Location = new System.Drawing.Point(-7, 321);
          this.LB_SmsLineType.Name = "LB_SmsLineType";
          this.LB_SmsLineType.Size = new System.Drawing.Size(476, 35);
          this.LB_SmsLineType.TabIndex = 4;
@@ -664,7 +664,7 @@
          // label1
          // 
          this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-         this.label1.Location = new System.Drawing.Point(1, 416);
+         this.label1.Location = new System.Drawing.Point(-7, 416);
          this.label1.Name = "label1";
          this.label1.Size = new System.Drawing.Size(476, 42);
          this.label1.TabIndex = 4;
@@ -674,7 +674,7 @@
          // Ts_SmsWorkerStat
          // 
          this.Ts_SmsWorkerStat.Anchor = System.Windows.Forms.AnchorStyles.Top;
-         this.Ts_SmsWorkerStat.Location = new System.Drawing.Point(-1, 476);
+         this.Ts_SmsWorkerStat.Location = new System.Drawing.Point(-9, 476);
          this.Ts_SmsWorkerStat.Name = "Ts_SmsWorkerStat";
          this.Ts_SmsWorkerStat.Properties.LookAndFeel.SkinName = "Office 2013";
          this.Ts_SmsWorkerStat.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
@@ -688,7 +688,7 @@
          // 
          this.Ts_SmsBgwkStat.Anchor = System.Windows.Forms.AnchorStyles.Top;
          this.Ts_SmsBgwkStat.EditValue = true;
-         this.Ts_SmsBgwkStat.Location = new System.Drawing.Point(-1, 374);
+         this.Ts_SmsBgwkStat.Location = new System.Drawing.Point(-9, 374);
          this.Ts_SmsBgwkStat.Name = "Ts_SmsBgwkStat";
          this.Ts_SmsBgwkStat.Properties.LookAndFeel.SkinName = "Office 2013";
          this.Ts_SmsBgwkStat.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
@@ -709,7 +709,7 @@
          this.labelControl2.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
          this.labelControl2.LineLocation = DevExpress.XtraEditors.LineLocation.Bottom;
          this.labelControl2.LineVisible = true;
-         this.labelControl2.Location = new System.Drawing.Point(1, 461);
+         this.labelControl2.Location = new System.Drawing.Point(-7, 461);
          this.labelControl2.Name = "labelControl2";
          this.labelControl2.Size = new System.Drawing.Size(473, 54);
          this.labelControl2.TabIndex = 3;
@@ -726,7 +726,7 @@
          this.labelControl8.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
          this.labelControl8.LineLocation = DevExpress.XtraEditors.LineLocation.Bottom;
          this.labelControl8.LineVisible = true;
-         this.labelControl8.Location = new System.Drawing.Point(1, 776);
+         this.labelControl8.Location = new System.Drawing.Point(-7, 776);
          this.labelControl8.Name = "labelControl8";
          this.labelControl8.Size = new System.Drawing.Size(473, 54);
          this.labelControl8.TabIndex = 3;
@@ -743,7 +743,7 @@
          this.labelControl3.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
          this.labelControl3.LineLocation = DevExpress.XtraEditors.LineLocation.Bottom;
          this.labelControl3.LineVisible = true;
-         this.labelControl3.Location = new System.Drawing.Point(1, 563);
+         this.labelControl3.Location = new System.Drawing.Point(-7, 563);
          this.labelControl3.Name = "labelControl3";
          this.labelControl3.Size = new System.Drawing.Size(473, 54);
          this.labelControl3.TabIndex = 3;
@@ -757,7 +757,7 @@
          this.labelControl7.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
          this.labelControl7.LineLocation = DevExpress.XtraEditors.LineLocation.Bottom;
          this.labelControl7.LineVisible = true;
-         this.labelControl7.Location = new System.Drawing.Point(1, 264);
+         this.labelControl7.Location = new System.Drawing.Point(-7, 264);
          this.labelControl7.Name = "labelControl7";
          this.labelControl7.Size = new System.Drawing.Size(473, 54);
          this.labelControl7.TabIndex = 3;
@@ -771,7 +771,7 @@
          this.labelControl1.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
          this.labelControl1.LineLocation = DevExpress.XtraEditors.LineLocation.Bottom;
          this.labelControl1.LineVisible = true;
-         this.labelControl1.Location = new System.Drawing.Point(1, 359);
+         this.labelControl1.Location = new System.Drawing.Point(-7, 359);
          this.labelControl1.Name = "labelControl1";
          this.labelControl1.Size = new System.Drawing.Size(473, 54);
          this.labelControl1.TabIndex = 3;
@@ -783,7 +783,7 @@
          this.linkLabel1.AutoSize = true;
          this.linkLabel1.Font = new System.Drawing.Font("B Mitra", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.linkLabel1.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-         this.linkLabel1.Location = new System.Drawing.Point(156, 234);
+         this.linkLabel1.Location = new System.Drawing.Point(148, 234);
          this.linkLabel1.Name = "linkLabel1";
          this.linkLabel1.Size = new System.Drawing.Size(165, 27);
          this.linkLabel1.TabIndex = 1;
@@ -795,7 +795,7 @@
          this.SmsApp_Butn.Anchor = System.Windows.Forms.AnchorStyles.Top;
          this.SmsApp_Butn.Cursor = System.Windows.Forms.Cursors.Hand;
          this.SmsApp_Butn.Image = global::System.MessageBroadcast.Properties.Resources.IMAGE_1162;
-         this.SmsApp_Butn.Location = new System.Drawing.Point(138, 15);
+         this.SmsApp_Butn.Location = new System.Drawing.Point(130, 15);
          this.SmsApp_Butn.Name = "SmsApp_Butn";
          this.SmsApp_Butn.Size = new System.Drawing.Size(200, 200);
          this.SmsApp_Butn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;

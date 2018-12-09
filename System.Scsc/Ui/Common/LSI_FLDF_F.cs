@@ -751,5 +751,43 @@ namespace System.Scsc.Ui.Common
          }
          catch { }
       }
+
+      private void SmsHist_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var sms = sender as SimpleButton;
+
+            string phon = "";
+            switch(sms.Tag.ToString())
+            {
+               case "Cell_Phon":
+                  phon = CellPhon01_Txt.Text;
+                  break;
+               case "Dad_Phon":
+                  phon = DadPhon01_Txt.Text;
+                  break;
+               case "Mom_Phon":
+                  phon = MomPhon01_Txt.Text;
+                  break;
+            }
+
+            if (phon == null || phon == "")
+               return;
+
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost", "DefaultGateway:Msgb", 07 /* Execute Send_Mesg_F */, SendType.Self)
+            );
+
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost", "DefaultGateway:Msgb:SEND_MESG_F", 10 /* Execute Actn_CalF_P */, SendType.SelfToUserInterface) { Input = new XElement("Message", new XAttribute("tab", "tp_004"), new XAttribute("filtering", "phonnumb"), new XAttribute("valu", phon)) }
+            );
+         }
+         catch (Exception)
+         {
+
+            throw;
+         }
+      }
    }
 }

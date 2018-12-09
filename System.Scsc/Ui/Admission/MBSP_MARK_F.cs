@@ -161,5 +161,27 @@ namespace System.Scsc.Ui.Admission
             MessageBox.Show(exc.Message);
          }
       }
+
+      private void SubmitChange_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            Mbsm_Gv.PostEditor();
+            MbsmBs1.EndEdit();
+
+            iScsc.SubmitChanges();
+            requery = true;
+         }
+         catch (Exception)
+         {
+            
+            throw;
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
    }
 }

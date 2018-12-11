@@ -167,9 +167,6 @@ namespace System.Scsc.Data
     partial void InsertAccount_Detail(Account_Detail instance);
     partial void UpdateAccount_Detail(Account_Detail instance);
     partial void DeleteAccount_Detail(Account_Detail instance);
-    partial void InsertPayment_Check(Payment_Check instance);
-    partial void UpdatePayment_Check(Payment_Check instance);
-    partial void DeletePayment_Check(Payment_Check instance);
     partial void InsertBuffet(Buffet instance);
     partial void UpdateBuffet(Buffet instance);
     partial void DeleteBuffet(Buffet instance);
@@ -246,10 +243,13 @@ namespace System.Scsc.Data
     partial void InsertMember_Ship_Mark(Member_Ship_Mark instance);
     partial void UpdateMember_Ship_Mark(Member_Ship_Mark instance);
     partial void DeleteMember_Ship_Mark(Member_Ship_Mark instance);
+    partial void InsertPayment_Check(Payment_Check instance);
+    partial void UpdatePayment_Check(Payment_Check instance);
+    partial void DeletePayment_Check(Payment_Check instance);
     #endregion
 		
 		public iScscDataContext() : 
-				base(global::System.Scsc.Properties.Settings.Default.iScscConnectionString, mappingSource)
+				base(global::System.Scsc.Properties.Settings.Default.iScscConnectionString1, mappingSource)
 		{
 			OnCreated();
 		}
@@ -1358,14 +1358,6 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		public System.Data.Linq.Table<Payment_Check> Payment_Checks
-		{
-			get
-			{
-				return this.GetTable<Payment_Check>();
-			}
-		}
-		
 		public System.Data.Linq.Table<D_CKTP> D_CKTPs
 		{
 			get
@@ -1747,6 +1739,22 @@ namespace System.Scsc.Data
 			get
 			{
 				return this.GetTable<Member_Ship_Mark>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Payment_Check> Payment_Checks
+		{
+			get
+			{
+				return this.GetTable<Payment_Check>();
+			}
+		}
+		
+		public System.Data.Linq.Table<D_CATP> D_CATPs
+		{
+			get
+			{
+				return this.GetTable<D_CATP>();
 			}
 		}
 		
@@ -27817,8 +27825,6 @@ namespace System.Scsc.Data
 		
 		private EntitySet<Finance_Document> _Finance_Documents;
 		
-		private EntitySet<Payment_Check> _Payment_Checks;
-		
 		private EntitySet<Payment_Detail> _Payment_Details;
 		
 		private EntitySet<Member_Ship> _Member_Ships;
@@ -27830,6 +27836,8 @@ namespace System.Scsc.Data
 		private EntitySet<Fighter_Public> _Fighter_Publics;
 		
 		private EntitySet<Payment_Expense> _Payment_Expenses;
+		
+		private EntitySet<Payment_Check> _Payment_Checks;
 		
 		private EntityRef<Region> _Region;
 		
@@ -27887,13 +27895,13 @@ namespace System.Scsc.Data
 			this._Body_Fitnesses = new EntitySet<Body_Fitness>(new Action<Body_Fitness>(this.attach_Body_Fitnesses), new Action<Body_Fitness>(this.detach_Body_Fitnesses));
 			this._Payment_Discounts = new EntitySet<Payment_Discount>(new Action<Payment_Discount>(this.attach_Payment_Discounts), new Action<Payment_Discount>(this.detach_Payment_Discounts));
 			this._Finance_Documents = new EntitySet<Finance_Document>(new Action<Finance_Document>(this.attach_Finance_Documents), new Action<Finance_Document>(this.detach_Finance_Documents));
-			this._Payment_Checks = new EntitySet<Payment_Check>(new Action<Payment_Check>(this.attach_Payment_Checks), new Action<Payment_Check>(this.detach_Payment_Checks));
 			this._Payment_Details = new EntitySet<Payment_Detail>(new Action<Payment_Detail>(this.attach_Payment_Details), new Action<Payment_Detail>(this.detach_Payment_Details));
 			this._Member_Ships = new EntitySet<Member_Ship>(new Action<Member_Ship>(this.attach_Member_Ships), new Action<Member_Ship>(this.detach_Member_Ships));
 			this._Gain_Loss_Rials = new EntitySet<Gain_Loss_Rial>(new Action<Gain_Loss_Rial>(this.attach_Gain_Loss_Rials), new Action<Gain_Loss_Rial>(this.detach_Gain_Loss_Rials));
 			this._Gain_Loss_Rials1 = new EntitySet<Gain_Loss_Rial>(new Action<Gain_Loss_Rial>(this.attach_Gain_Loss_Rials1), new Action<Gain_Loss_Rial>(this.detach_Gain_Loss_Rials1));
 			this._Fighter_Publics = new EntitySet<Fighter_Public>(new Action<Fighter_Public>(this.attach_Fighter_Publics), new Action<Fighter_Public>(this.detach_Fighter_Publics));
 			this._Payment_Expenses = new EntitySet<Payment_Expense>(new Action<Payment_Expense>(this.attach_Payment_Expenses), new Action<Payment_Expense>(this.detach_Payment_Expenses));
+			this._Payment_Checks = new EntitySet<Payment_Check>(new Action<Payment_Check>(this.attach_Payment_Checks), new Action<Payment_Check>(this.detach_Payment_Checks));
 			this._Region = default(EntityRef<Region>);
 			this._Requester_Type = default(EntityRef<Requester_Type>);
 			this._Request_Type = default(EntityRef<Request_Type>);
@@ -28346,19 +28354,6 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Request_Row_Payment_Check", Storage="_Payment_Checks", ThisKey="RQST_RQID,RWNO", OtherKey="RQRO_RQST_RQID,RQRO_RWNO")]
-		public EntitySet<Payment_Check> Payment_Checks
-		{
-			get
-			{
-				return this._Payment_Checks;
-			}
-			set
-			{
-				this._Payment_Checks.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Request_Row_Payment_Detail", Storage="_Payment_Details", ThisKey="RQST_RQID,RWNO", OtherKey="PYMT_RQST_RQID,RQRO_RWNO")]
 		public EntitySet<Payment_Detail> Payment_Details
 		{
@@ -28434,6 +28429,19 @@ namespace System.Scsc.Data
 			set
 			{
 				this._Payment_Expenses.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Request_Row_Payment_Check", Storage="_Payment_Checks", ThisKey="RQST_RQID,RWNO", OtherKey="RQRO_RQST_RQID,RQRO_RWNO")]
+		public EntitySet<Payment_Check> Payment_Checks
+		{
+			get
+			{
+				return this._Payment_Checks;
+			}
+			set
+			{
+				this._Payment_Checks.Assign(value);
 			}
 		}
 		
@@ -28775,18 +28783,6 @@ namespace System.Scsc.Data
 			entity.Request_Row = null;
 		}
 		
-		private void attach_Payment_Checks(Payment_Check entity)
-		{
-			this.SendPropertyChanging();
-			entity.Request_Row = this;
-		}
-		
-		private void detach_Payment_Checks(Payment_Check entity)
-		{
-			this.SendPropertyChanging();
-			entity.Request_Row = null;
-		}
-		
 		private void attach_Payment_Details(Payment_Detail entity)
 		{
 			this.SendPropertyChanging();
@@ -28854,6 +28850,18 @@ namespace System.Scsc.Data
 		}
 		
 		private void detach_Payment_Expenses(Payment_Expense entity)
+		{
+			this.SendPropertyChanging();
+			entity.Request_Row = null;
+		}
+		
+		private void attach_Payment_Checks(Payment_Check entity)
+		{
+			this.SendPropertyChanging();
+			entity.Request_Row = this;
+		}
+		
+		private void detach_Payment_Checks(Payment_Check entity)
 		{
 			this.SendPropertyChanging();
 			entity.Request_Row = null;
@@ -36499,522 +36507,6 @@ namespace System.Scsc.Data
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Payment_Check")]
-	public partial class Payment_Check : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private long _PYMT_CASH_CODE;
-		
-		private long _PYMT_RQST_RQID;
-		
-		private long _RQRO_RQST_RQID;
-		
-		private short _RQRO_RWNO;
-		
-		private short _RWNO;
-		
-		private System.Nullable<long> _AMNT;
-		
-		private string _CHEK_OWNR;
-		
-		private string _CHEK_NO;
-		
-		private System.Nullable<System.DateTime> _CHEK_DATE;
-		
-		private string _BANK;
-		
-		private System.Nullable<System.DateTime> _RCPT_DATE;
-		
-		private string _CHEK_TYPE;
-		
-		private string _CRET_BY;
-		
-		private System.Nullable<System.DateTime> _CRET_DATE;
-		
-		private string _MDFY_BY;
-		
-		private System.Nullable<System.DateTime> _MDFY_DATE;
-		
-		private EntityRef<Request_Row> _Request_Row;
-		
-		private EntityRef<Payment> _Payment;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnPYMT_CASH_CODEChanging(long value);
-    partial void OnPYMT_CASH_CODEChanged();
-    partial void OnPYMT_RQST_RQIDChanging(long value);
-    partial void OnPYMT_RQST_RQIDChanged();
-    partial void OnRQRO_RQST_RQIDChanging(long value);
-    partial void OnRQRO_RQST_RQIDChanged();
-    partial void OnRQRO_RWNOChanging(short value);
-    partial void OnRQRO_RWNOChanged();
-    partial void OnRWNOChanging(short value);
-    partial void OnRWNOChanged();
-    partial void OnAMNTChanging(System.Nullable<long> value);
-    partial void OnAMNTChanged();
-    partial void OnCHEK_OWNRChanging(string value);
-    partial void OnCHEK_OWNRChanged();
-    partial void OnCHEK_NOChanging(string value);
-    partial void OnCHEK_NOChanged();
-    partial void OnCHEK_DATEChanging(System.Nullable<System.DateTime> value);
-    partial void OnCHEK_DATEChanged();
-    partial void OnBANKChanging(string value);
-    partial void OnBANKChanged();
-    partial void OnRCPT_DATEChanging(System.Nullable<System.DateTime> value);
-    partial void OnRCPT_DATEChanged();
-    partial void OnCHEK_TYPEChanging(string value);
-    partial void OnCHEK_TYPEChanged();
-    partial void OnCRET_BYChanging(string value);
-    partial void OnCRET_BYChanged();
-    partial void OnCRET_DATEChanging(System.Nullable<System.DateTime> value);
-    partial void OnCRET_DATEChanged();
-    partial void OnMDFY_BYChanging(string value);
-    partial void OnMDFY_BYChanged();
-    partial void OnMDFY_DATEChanging(System.Nullable<System.DateTime> value);
-    partial void OnMDFY_DATEChanged();
-    #endregion
-		
-		public Payment_Check()
-		{
-			this._Request_Row = default(EntityRef<Request_Row>);
-			this._Payment = default(EntityRef<Payment>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PYMT_CASH_CODE", DbType="BigInt NOT NULL", IsPrimaryKey=true)]
-		public long PYMT_CASH_CODE
-		{
-			get
-			{
-				return this._PYMT_CASH_CODE;
-			}
-			set
-			{
-				if ((this._PYMT_CASH_CODE != value))
-				{
-					if (this._Payment.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnPYMT_CASH_CODEChanging(value);
-					this.SendPropertyChanging();
-					this._PYMT_CASH_CODE = value;
-					this.SendPropertyChanged("PYMT_CASH_CODE");
-					this.OnPYMT_CASH_CODEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PYMT_RQST_RQID", DbType="BigInt NOT NULL", IsPrimaryKey=true)]
-		public long PYMT_RQST_RQID
-		{
-			get
-			{
-				return this._PYMT_RQST_RQID;
-			}
-			set
-			{
-				if ((this._PYMT_RQST_RQID != value))
-				{
-					if (this._Payment.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnPYMT_RQST_RQIDChanging(value);
-					this.SendPropertyChanging();
-					this._PYMT_RQST_RQID = value;
-					this.SendPropertyChanged("PYMT_RQST_RQID");
-					this.OnPYMT_RQST_RQIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RQRO_RQST_RQID", DbType="BigInt NOT NULL", IsPrimaryKey=true)]
-		public long RQRO_RQST_RQID
-		{
-			get
-			{
-				return this._RQRO_RQST_RQID;
-			}
-			set
-			{
-				if ((this._RQRO_RQST_RQID != value))
-				{
-					if (this._Request_Row.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnRQRO_RQST_RQIDChanging(value);
-					this.SendPropertyChanging();
-					this._RQRO_RQST_RQID = value;
-					this.SendPropertyChanged("RQRO_RQST_RQID");
-					this.OnRQRO_RQST_RQIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RQRO_RWNO", DbType="SmallInt NOT NULL", IsPrimaryKey=true)]
-		public short RQRO_RWNO
-		{
-			get
-			{
-				return this._RQRO_RWNO;
-			}
-			set
-			{
-				if ((this._RQRO_RWNO != value))
-				{
-					if (this._Request_Row.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnRQRO_RWNOChanging(value);
-					this.SendPropertyChanging();
-					this._RQRO_RWNO = value;
-					this.SendPropertyChanged("RQRO_RWNO");
-					this.OnRQRO_RWNOChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RWNO", DbType="SmallInt NOT NULL", IsPrimaryKey=true)]
-		public short RWNO
-		{
-			get
-			{
-				return this._RWNO;
-			}
-			set
-			{
-				if ((this._RWNO != value))
-				{
-					this.OnRWNOChanging(value);
-					this.SendPropertyChanging();
-					this._RWNO = value;
-					this.SendPropertyChanged("RWNO");
-					this.OnRWNOChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AMNT", DbType="BigInt")]
-		public System.Nullable<long> AMNT
-		{
-			get
-			{
-				return this._AMNT;
-			}
-			set
-			{
-				if ((this._AMNT != value))
-				{
-					this.OnAMNTChanging(value);
-					this.SendPropertyChanging();
-					this._AMNT = value;
-					this.SendPropertyChanged("AMNT");
-					this.OnAMNTChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CHEK_OWNR", DbType="NVarChar(250)")]
-		public string CHEK_OWNR
-		{
-			get
-			{
-				return this._CHEK_OWNR;
-			}
-			set
-			{
-				if ((this._CHEK_OWNR != value))
-				{
-					this.OnCHEK_OWNRChanging(value);
-					this.SendPropertyChanging();
-					this._CHEK_OWNR = value;
-					this.SendPropertyChanged("CHEK_OWNR");
-					this.OnCHEK_OWNRChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CHEK_NO", DbType="VarChar(50)")]
-		public string CHEK_NO
-		{
-			get
-			{
-				return this._CHEK_NO;
-			}
-			set
-			{
-				if ((this._CHEK_NO != value))
-				{
-					this.OnCHEK_NOChanging(value);
-					this.SendPropertyChanging();
-					this._CHEK_NO = value;
-					this.SendPropertyChanged("CHEK_NO");
-					this.OnCHEK_NOChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CHEK_DATE", DbType="Date")]
-		public System.Nullable<System.DateTime> CHEK_DATE
-		{
-			get
-			{
-				return this._CHEK_DATE;
-			}
-			set
-			{
-				if ((this._CHEK_DATE != value))
-				{
-					this.OnCHEK_DATEChanging(value);
-					this.SendPropertyChanging();
-					this._CHEK_DATE = value;
-					this.SendPropertyChanged("CHEK_DATE");
-					this.OnCHEK_DATEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BANK", DbType="NVarChar(100)")]
-		public string BANK
-		{
-			get
-			{
-				return this._BANK;
-			}
-			set
-			{
-				if ((this._BANK != value))
-				{
-					this.OnBANKChanging(value);
-					this.SendPropertyChanging();
-					this._BANK = value;
-					this.SendPropertyChanged("BANK");
-					this.OnBANKChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RCPT_DATE", DbType="Date")]
-		public System.Nullable<System.DateTime> RCPT_DATE
-		{
-			get
-			{
-				return this._RCPT_DATE;
-			}
-			set
-			{
-				if ((this._RCPT_DATE != value))
-				{
-					this.OnRCPT_DATEChanging(value);
-					this.SendPropertyChanging();
-					this._RCPT_DATE = value;
-					this.SendPropertyChanged("RCPT_DATE");
-					this.OnRCPT_DATEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CHEK_TYPE", DbType="VarChar(3)")]
-		public string CHEK_TYPE
-		{
-			get
-			{
-				return this._CHEK_TYPE;
-			}
-			set
-			{
-				if ((this._CHEK_TYPE != value))
-				{
-					this.OnCHEK_TYPEChanging(value);
-					this.SendPropertyChanging();
-					this._CHEK_TYPE = value;
-					this.SendPropertyChanged("CHEK_TYPE");
-					this.OnCHEK_TYPEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_BY", DbType="VarChar(255)")]
-		public string CRET_BY
-		{
-			get
-			{
-				return this._CRET_BY;
-			}
-			set
-			{
-				if ((this._CRET_BY != value))
-				{
-					this.OnCRET_BYChanging(value);
-					this.SendPropertyChanging();
-					this._CRET_BY = value;
-					this.SendPropertyChanged("CRET_BY");
-					this.OnCRET_BYChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_DATE", DbType="DateTime")]
-		public System.Nullable<System.DateTime> CRET_DATE
-		{
-			get
-			{
-				return this._CRET_DATE;
-			}
-			set
-			{
-				if ((this._CRET_DATE != value))
-				{
-					this.OnCRET_DATEChanging(value);
-					this.SendPropertyChanging();
-					this._CRET_DATE = value;
-					this.SendPropertyChanged("CRET_DATE");
-					this.OnCRET_DATEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_BY", DbType="VarChar(255)")]
-		public string MDFY_BY
-		{
-			get
-			{
-				return this._MDFY_BY;
-			}
-			set
-			{
-				if ((this._MDFY_BY != value))
-				{
-					this.OnMDFY_BYChanging(value);
-					this.SendPropertyChanging();
-					this._MDFY_BY = value;
-					this.SendPropertyChanged("MDFY_BY");
-					this.OnMDFY_BYChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_DATE", DbType="DateTime")]
-		public System.Nullable<System.DateTime> MDFY_DATE
-		{
-			get
-			{
-				return this._MDFY_DATE;
-			}
-			set
-			{
-				if ((this._MDFY_DATE != value))
-				{
-					this.OnMDFY_DATEChanging(value);
-					this.SendPropertyChanging();
-					this._MDFY_DATE = value;
-					this.SendPropertyChanged("MDFY_DATE");
-					this.OnMDFY_DATEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Request_Row_Payment_Check", Storage="_Request_Row", ThisKey="RQRO_RQST_RQID,RQRO_RWNO", OtherKey="RQST_RQID,RWNO", IsForeignKey=true)]
-		public Request_Row Request_Row
-		{
-			get
-			{
-				return this._Request_Row.Entity;
-			}
-			set
-			{
-				Request_Row previousValue = this._Request_Row.Entity;
-				if (((previousValue != value) 
-							|| (this._Request_Row.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Request_Row.Entity = null;
-						previousValue.Payment_Checks.Remove(this);
-					}
-					this._Request_Row.Entity = value;
-					if ((value != null))
-					{
-						value.Payment_Checks.Add(this);
-						this._RQRO_RQST_RQID = value.RQST_RQID;
-						this._RQRO_RWNO = value.RWNO;
-					}
-					else
-					{
-						this._RQRO_RQST_RQID = default(long);
-						this._RQRO_RWNO = default(short);
-					}
-					this.SendPropertyChanged("Request_Row");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Payment_Payment_Check", Storage="_Payment", ThisKey="PYMT_CASH_CODE,PYMT_RQST_RQID", OtherKey="CASH_CODE,RQST_RQID", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
-		public Payment Payment
-		{
-			get
-			{
-				return this._Payment.Entity;
-			}
-			set
-			{
-				Payment previousValue = this._Payment.Entity;
-				if (((previousValue != value) 
-							|| (this._Payment.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Payment.Entity = null;
-						previousValue.Payment_Checks.Remove(this);
-					}
-					this._Payment.Entity = value;
-					if ((value != null))
-					{
-						value.Payment_Checks.Add(this);
-						this._PYMT_CASH_CODE = value.CASH_CODE;
-						this._PYMT_RQST_RQID = value.RQST_RQID;
-					}
-					else
-					{
-						this._PYMT_CASH_CODE = default(long);
-						this._PYMT_RQST_RQID = default(long);
-					}
-					this.SendPropertyChanged("Payment");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.D$CKTP")]
 	public partial class D_CKTP
 	{
@@ -40149,9 +39641,9 @@ namespace System.Scsc.Data
 		
 		private EntitySet<Account_Detail> _Account_Details;
 		
-		private EntitySet<Payment_Check> _Payment_Checks;
-		
 		private EntitySet<Payment_Detail> _Payment_Details;
+		
+		private EntitySet<Payment_Check> _Payment_Checks;
 		
 		private EntityRef<Cash> _Cash;
 		
@@ -40230,8 +39722,8 @@ namespace System.Scsc.Data
 			this._Payment_Methods = new EntitySet<Payment_Method>(new Action<Payment_Method>(this.attach_Payment_Methods), new Action<Payment_Method>(this.detach_Payment_Methods));
 			this._Payment_Discounts = new EntitySet<Payment_Discount>(new Action<Payment_Discount>(this.attach_Payment_Discounts), new Action<Payment_Discount>(this.detach_Payment_Discounts));
 			this._Account_Details = new EntitySet<Account_Detail>(new Action<Account_Detail>(this.attach_Account_Details), new Action<Account_Detail>(this.detach_Account_Details));
-			this._Payment_Checks = new EntitySet<Payment_Check>(new Action<Payment_Check>(this.attach_Payment_Checks), new Action<Payment_Check>(this.detach_Payment_Checks));
 			this._Payment_Details = new EntitySet<Payment_Detail>(new Action<Payment_Detail>(this.attach_Payment_Details), new Action<Payment_Detail>(this.detach_Payment_Details));
+			this._Payment_Checks = new EntitySet<Payment_Check>(new Action<Payment_Check>(this.attach_Payment_Checks), new Action<Payment_Check>(this.detach_Payment_Checks));
 			this._Cash = default(EntityRef<Cash>);
 			this._Regulation = default(EntityRef<Regulation>);
 			this._Request = default(EntityRef<Request>);
@@ -40878,19 +40370,6 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Payment_Payment_Check", Storage="_Payment_Checks", ThisKey="CASH_CODE,RQST_RQID", OtherKey="PYMT_CASH_CODE,PYMT_RQST_RQID")]
-		public EntitySet<Payment_Check> Payment_Checks
-		{
-			get
-			{
-				return this._Payment_Checks;
-			}
-			set
-			{
-				this._Payment_Checks.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Payment_Payment_Detail", Storage="_Payment_Details", ThisKey="CASH_CODE,RQST_RQID", OtherKey="PYMT_CASH_CODE,PYMT_RQST_RQID")]
 		public EntitySet<Payment_Detail> Payment_Details
 		{
@@ -40901,6 +40380,19 @@ namespace System.Scsc.Data
 			set
 			{
 				this._Payment_Details.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Payment_Payment_Check", Storage="_Payment_Checks", ThisKey="CASH_CODE,RQST_RQID", OtherKey="PYMT_CASH_CODE,PYMT_RQST_RQID")]
+		public EntitySet<Payment_Check> Payment_Checks
+		{
+			get
+			{
+				return this._Payment_Checks;
+			}
+			set
+			{
+				this._Payment_Checks.Assign(value);
 			}
 		}
 		
@@ -41098,18 +40590,6 @@ namespace System.Scsc.Data
 			entity.Payment = null;
 		}
 		
-		private void attach_Payment_Checks(Payment_Check entity)
-		{
-			this.SendPropertyChanging();
-			entity.Payment = this;
-		}
-		
-		private void detach_Payment_Checks(Payment_Check entity)
-		{
-			this.SendPropertyChanging();
-			entity.Payment = null;
-		}
-		
 		private void attach_Payment_Details(Payment_Detail entity)
 		{
 			this.SendPropertyChanging();
@@ -41117,6 +40597,18 @@ namespace System.Scsc.Data
 		}
 		
 		private void detach_Payment_Details(Payment_Detail entity)
+		{
+			this.SendPropertyChanging();
+			entity.Payment = null;
+		}
+		
+		private void attach_Payment_Checks(Payment_Check entity)
+		{
+			this.SendPropertyChanging();
+			entity.Payment = this;
+		}
+		
+		private void detach_Payment_Checks(Payment_Check entity)
 		{
 			this.SendPropertyChanging();
 			entity.Payment = null;
@@ -69729,6 +69221,591 @@ namespace System.Scsc.Data
 			if ((this.PropertyChanged != null))
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Payment_Check")]
+	public partial class Payment_Check : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private long _PYMT_CASH_CODE;
+		
+		private long _PYMT_RQST_RQID;
+		
+		private long _RQRO_RQST_RQID;
+		
+		private short _RQRO_RWNO;
+		
+		private short _RWNO;
+		
+		private System.Nullable<long> _AMNT;
+		
+		private string _AMNT_TYPE;
+		
+		private string _CHEK_OWNR;
+		
+		private string _CHEK_NO;
+		
+		private System.Nullable<System.DateTime> _CHEK_DATE;
+		
+		private string _BANK;
+		
+		private System.Nullable<System.DateTime> _RCPT_DATE;
+		
+		private string _CHEK_TYPE;
+		
+		private string _CRET_BY;
+		
+		private System.Nullable<System.DateTime> _CRET_DATE;
+		
+		private string _MDFY_BY;
+		
+		private System.Nullable<System.DateTime> _MDFY_DATE;
+		
+		private EntityRef<Payment> _Payment;
+		
+		private EntityRef<Request_Row> _Request_Row;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnPYMT_CASH_CODEChanging(long value);
+    partial void OnPYMT_CASH_CODEChanged();
+    partial void OnPYMT_RQST_RQIDChanging(long value);
+    partial void OnPYMT_RQST_RQIDChanged();
+    partial void OnRQRO_RQST_RQIDChanging(long value);
+    partial void OnRQRO_RQST_RQIDChanged();
+    partial void OnRQRO_RWNOChanging(short value);
+    partial void OnRQRO_RWNOChanged();
+    partial void OnRWNOChanging(short value);
+    partial void OnRWNOChanged();
+    partial void OnAMNTChanging(System.Nullable<long> value);
+    partial void OnAMNTChanged();
+    partial void OnAMNT_TYPEChanging(string value);
+    partial void OnAMNT_TYPEChanged();
+    partial void OnCHEK_OWNRChanging(string value);
+    partial void OnCHEK_OWNRChanged();
+    partial void OnCHEK_NOChanging(string value);
+    partial void OnCHEK_NOChanged();
+    partial void OnCHEK_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnCHEK_DATEChanged();
+    partial void OnBANKChanging(string value);
+    partial void OnBANKChanged();
+    partial void OnRCPT_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnRCPT_DATEChanged();
+    partial void OnCHEK_TYPEChanging(string value);
+    partial void OnCHEK_TYPEChanged();
+    partial void OnCRET_BYChanging(string value);
+    partial void OnCRET_BYChanged();
+    partial void OnCRET_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnCRET_DATEChanged();
+    partial void OnMDFY_BYChanging(string value);
+    partial void OnMDFY_BYChanged();
+    partial void OnMDFY_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnMDFY_DATEChanged();
+    #endregion
+		
+		public Payment_Check()
+		{
+			this._Payment = default(EntityRef<Payment>);
+			this._Request_Row = default(EntityRef<Request_Row>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PYMT_CASH_CODE", DbType="BigInt NOT NULL", IsPrimaryKey=true)]
+		public long PYMT_CASH_CODE
+		{
+			get
+			{
+				return this._PYMT_CASH_CODE;
+			}
+			set
+			{
+				if ((this._PYMT_CASH_CODE != value))
+				{
+					if (this._Payment.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnPYMT_CASH_CODEChanging(value);
+					this.SendPropertyChanging();
+					this._PYMT_CASH_CODE = value;
+					this.SendPropertyChanged("PYMT_CASH_CODE");
+					this.OnPYMT_CASH_CODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PYMT_RQST_RQID", DbType="BigInt NOT NULL", IsPrimaryKey=true)]
+		public long PYMT_RQST_RQID
+		{
+			get
+			{
+				return this._PYMT_RQST_RQID;
+			}
+			set
+			{
+				if ((this._PYMT_RQST_RQID != value))
+				{
+					if (this._Payment.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnPYMT_RQST_RQIDChanging(value);
+					this.SendPropertyChanging();
+					this._PYMT_RQST_RQID = value;
+					this.SendPropertyChanged("PYMT_RQST_RQID");
+					this.OnPYMT_RQST_RQIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RQRO_RQST_RQID", DbType="BigInt NOT NULL", IsPrimaryKey=true)]
+		public long RQRO_RQST_RQID
+		{
+			get
+			{
+				return this._RQRO_RQST_RQID;
+			}
+			set
+			{
+				if ((this._RQRO_RQST_RQID != value))
+				{
+					if (this._Request_Row.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnRQRO_RQST_RQIDChanging(value);
+					this.SendPropertyChanging();
+					this._RQRO_RQST_RQID = value;
+					this.SendPropertyChanged("RQRO_RQST_RQID");
+					this.OnRQRO_RQST_RQIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RQRO_RWNO", DbType="SmallInt NOT NULL", IsPrimaryKey=true)]
+		public short RQRO_RWNO
+		{
+			get
+			{
+				return this._RQRO_RWNO;
+			}
+			set
+			{
+				if ((this._RQRO_RWNO != value))
+				{
+					if (this._Request_Row.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnRQRO_RWNOChanging(value);
+					this.SendPropertyChanging();
+					this._RQRO_RWNO = value;
+					this.SendPropertyChanged("RQRO_RWNO");
+					this.OnRQRO_RWNOChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RWNO", DbType="SmallInt NOT NULL", IsPrimaryKey=true)]
+		public short RWNO
+		{
+			get
+			{
+				return this._RWNO;
+			}
+			set
+			{
+				if ((this._RWNO != value))
+				{
+					this.OnRWNOChanging(value);
+					this.SendPropertyChanging();
+					this._RWNO = value;
+					this.SendPropertyChanged("RWNO");
+					this.OnRWNOChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AMNT", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<long> AMNT
+		{
+			get
+			{
+				return this._AMNT;
+			}
+			set
+			{
+				if ((this._AMNT != value))
+				{
+					this.OnAMNTChanging(value);
+					this.SendPropertyChanging();
+					this._AMNT = value;
+					this.SendPropertyChanged("AMNT");
+					this.OnAMNTChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AMNT_TYPE", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		public string AMNT_TYPE
+		{
+			get
+			{
+				return this._AMNT_TYPE;
+			}
+			set
+			{
+				if ((this._AMNT_TYPE != value))
+				{
+					this.OnAMNT_TYPEChanging(value);
+					this.SendPropertyChanging();
+					this._AMNT_TYPE = value;
+					this.SendPropertyChanged("AMNT_TYPE");
+					this.OnAMNT_TYPEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CHEK_OWNR", DbType="NVarChar(250)", UpdateCheck=UpdateCheck.Never)]
+		public string CHEK_OWNR
+		{
+			get
+			{
+				return this._CHEK_OWNR;
+			}
+			set
+			{
+				if ((this._CHEK_OWNR != value))
+				{
+					this.OnCHEK_OWNRChanging(value);
+					this.SendPropertyChanging();
+					this._CHEK_OWNR = value;
+					this.SendPropertyChanged("CHEK_OWNR");
+					this.OnCHEK_OWNRChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CHEK_NO", DbType="VarChar(50)", UpdateCheck=UpdateCheck.Never)]
+		public string CHEK_NO
+		{
+			get
+			{
+				return this._CHEK_NO;
+			}
+			set
+			{
+				if ((this._CHEK_NO != value))
+				{
+					this.OnCHEK_NOChanging(value);
+					this.SendPropertyChanging();
+					this._CHEK_NO = value;
+					this.SendPropertyChanged("CHEK_NO");
+					this.OnCHEK_NOChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CHEK_DATE", DbType="Date", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<System.DateTime> CHEK_DATE
+		{
+			get
+			{
+				return this._CHEK_DATE;
+			}
+			set
+			{
+				if ((this._CHEK_DATE != value))
+				{
+					this.OnCHEK_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._CHEK_DATE = value;
+					this.SendPropertyChanged("CHEK_DATE");
+					this.OnCHEK_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BANK", DbType="NVarChar(100)", UpdateCheck=UpdateCheck.Never)]
+		public string BANK
+		{
+			get
+			{
+				return this._BANK;
+			}
+			set
+			{
+				if ((this._BANK != value))
+				{
+					this.OnBANKChanging(value);
+					this.SendPropertyChanging();
+					this._BANK = value;
+					this.SendPropertyChanged("BANK");
+					this.OnBANKChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RCPT_DATE", DbType="Date", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<System.DateTime> RCPT_DATE
+		{
+			get
+			{
+				return this._RCPT_DATE;
+			}
+			set
+			{
+				if ((this._RCPT_DATE != value))
+				{
+					this.OnRCPT_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._RCPT_DATE = value;
+					this.SendPropertyChanged("RCPT_DATE");
+					this.OnRCPT_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CHEK_TYPE", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		public string CHEK_TYPE
+		{
+			get
+			{
+				return this._CHEK_TYPE;
+			}
+			set
+			{
+				if ((this._CHEK_TYPE != value))
+				{
+					this.OnCHEK_TYPEChanging(value);
+					this.SendPropertyChanging();
+					this._CHEK_TYPE = value;
+					this.SendPropertyChanged("CHEK_TYPE");
+					this.OnCHEK_TYPEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_BY", DbType="VarChar(255)", UpdateCheck=UpdateCheck.Never)]
+		public string CRET_BY
+		{
+			get
+			{
+				return this._CRET_BY;
+			}
+			set
+			{
+				if ((this._CRET_BY != value))
+				{
+					this.OnCRET_BYChanging(value);
+					this.SendPropertyChanging();
+					this._CRET_BY = value;
+					this.SendPropertyChanged("CRET_BY");
+					this.OnCRET_BYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<System.DateTime> CRET_DATE
+		{
+			get
+			{
+				return this._CRET_DATE;
+			}
+			set
+			{
+				if ((this._CRET_DATE != value))
+				{
+					this.OnCRET_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._CRET_DATE = value;
+					this.SendPropertyChanged("CRET_DATE");
+					this.OnCRET_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_BY", DbType="VarChar(255)", UpdateCheck=UpdateCheck.Never)]
+		public string MDFY_BY
+		{
+			get
+			{
+				return this._MDFY_BY;
+			}
+			set
+			{
+				if ((this._MDFY_BY != value))
+				{
+					this.OnMDFY_BYChanging(value);
+					this.SendPropertyChanging();
+					this._MDFY_BY = value;
+					this.SendPropertyChanged("MDFY_BY");
+					this.OnMDFY_BYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<System.DateTime> MDFY_DATE
+		{
+			get
+			{
+				return this._MDFY_DATE;
+			}
+			set
+			{
+				if ((this._MDFY_DATE != value))
+				{
+					this.OnMDFY_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._MDFY_DATE = value;
+					this.SendPropertyChanged("MDFY_DATE");
+					this.OnMDFY_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Payment_Payment_Check", Storage="_Payment", ThisKey="PYMT_CASH_CODE,PYMT_RQST_RQID", OtherKey="CASH_CODE,RQST_RQID", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
+		public Payment Payment
+		{
+			get
+			{
+				return this._Payment.Entity;
+			}
+			set
+			{
+				Payment previousValue = this._Payment.Entity;
+				if (((previousValue != value) 
+							|| (this._Payment.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Payment.Entity = null;
+						previousValue.Payment_Checks.Remove(this);
+					}
+					this._Payment.Entity = value;
+					if ((value != null))
+					{
+						value.Payment_Checks.Add(this);
+						this._PYMT_CASH_CODE = value.CASH_CODE;
+						this._PYMT_RQST_RQID = value.RQST_RQID;
+					}
+					else
+					{
+						this._PYMT_CASH_CODE = default(long);
+						this._PYMT_RQST_RQID = default(long);
+					}
+					this.SendPropertyChanged("Payment");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Request_Row_Payment_Check", Storage="_Request_Row", ThisKey="RQRO_RQST_RQID,RQRO_RWNO", OtherKey="RQST_RQID,RWNO", IsForeignKey=true)]
+		public Request_Row Request_Row
+		{
+			get
+			{
+				return this._Request_Row.Entity;
+			}
+			set
+			{
+				Request_Row previousValue = this._Request_Row.Entity;
+				if (((previousValue != value) 
+							|| (this._Request_Row.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Request_Row.Entity = null;
+						previousValue.Payment_Checks.Remove(this);
+					}
+					this._Request_Row.Entity = value;
+					if ((value != null))
+					{
+						value.Payment_Checks.Add(this);
+						this._RQRO_RQST_RQID = value.RQST_RQID;
+						this._RQRO_RWNO = value.RWNO;
+					}
+					else
+					{
+						this._RQRO_RQST_RQID = default(long);
+						this._RQRO_RWNO = default(short);
+					}
+					this.SendPropertyChanged("Request_Row");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.D$CATP")]
+	public partial class D_CATP
+	{
+		
+		private string _VALU;
+		
+		private string _DOMN_DESC;
+		
+		public D_CATP()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VALU", DbType="VarChar(3) NOT NULL", CanBeNull=false)]
+		public string VALU
+		{
+			get
+			{
+				return this._VALU;
+			}
+			set
+			{
+				if ((this._VALU != value))
+				{
+					this._VALU = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DOMN_DESC", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
+		public string DOMN_DESC
+		{
+			get
+			{
+				return this._DOMN_DESC;
+			}
+			set
+			{
+				if ((this._DOMN_DESC != value))
+				{
+					this._DOMN_DESC = value;
+				}
 			}
 		}
 	}

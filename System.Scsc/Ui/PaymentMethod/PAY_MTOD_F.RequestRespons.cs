@@ -500,6 +500,7 @@ namespace System.Scsc.Ui.PaymentMethod
          DPydsBs2.DataSource = iScsc.D_PYDS;
          DActvBs2.DataSource = iScsc.D_ACTVs;
          DCktpBs4.DataSource = iScsc.D_CKTPs;
+         DCatpBs.DataSource = iScsc.D_CATPs;
          VPosBs1.DataSource = iScsc.V_Pos_Devices;
          if (VPosBs1.List.OfType<Data.V_Pos_Device>().FirstOrDefault(pos => pos.GTWY_MAC_ADRS == HostNameInfo.Attribute("cpu").Value) != null)
             Pos_Lov.EditValue = VPosBs1.List.OfType<Data.V_Pos_Device>().FirstOrDefault(pos => pos.GTWY_MAC_ADRS == HostNameInfo.Attribute("cpu").Value).PSID;

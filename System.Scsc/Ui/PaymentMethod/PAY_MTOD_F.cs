@@ -27,7 +27,7 @@ namespace System.Scsc.Ui.PaymentMethod
          iScsc = new Data.iScscDataContext(ConnectionString);
          PymtBs1.DataSource = iScsc.Payments.Where(p => p == PymtBs1.Current);
          PydtBs3.DataSource = iScsc.Payment_Details.Where(pd => pd.Payment == PymtBs1.Current && pd.ADD_QUTS == "002");
-         Te_TotlDebtAmnt.EditValue = (PymtBs1.Current as Data.Payment).SUM_EXPN_PRIC + (PymtBs1.Current as Data.Payment).SUM_EXPN_EXTR_PRCT - ((PymtBs1.Current as Data.Payment).SUM_PYMT_DSCN_DNRM ?? 0);
+         PymtAmnt_Txt.EditValue = Te_TotlDebtAmnt.EditValue = (PymtBs1.Current as Data.Payment).SUM_EXPN_PRIC + (PymtBs1.Current as Data.Payment).SUM_EXPN_EXTR_PRCT - ((PymtBs1.Current as Data.Payment).SUM_PYMT_DSCN_DNRM ?? 0);
          Te_TotlRemnAmnt.EditValue = (PymtBs1.Current as Data.Payment).SUM_EXPN_PRIC + (PymtBs1.Current as Data.Payment).SUM_EXPN_EXTR_PRCT - (((PymtBs1.Current as Data.Payment).SUM_PYMT_DSCN_DNRM ?? 0) + PmmtBs1.List.OfType<Data.Payment_Method>().Sum(pm => pm.AMNT));
          RemindAmnt_Txt002.EditValue = (long)DEBT_DNRMTextEdit.EditValue + Convert.ToInt64(CashByDeposit_Txt002.Text.Replace(",", "")) + PydsBs2.List.OfType<Data.Payment_Discount>().Where(pd => pd.STAT == "002" && pd.AMNT_TYPE == "003").Sum(pd => pd.AMNT);
       }

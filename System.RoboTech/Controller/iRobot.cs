@@ -18,6 +18,7 @@ using System.Text;
 using System.Xml.Serialization;
 using System.Threading;
 using DevExpress.XtraEditors;
+using Telegram.Bot.Types.InputFiles;
 
 
 namespace System.RoboTech.Controller
@@ -211,7 +212,8 @@ namespace System.RoboTech.Controller
                {
                   try
                   {
-                     FileToSend fts = new FileToSend(iRobotTech.Robots.FirstOrDefault(r => r.TKON_CODE == Token).BULD_FILE_ID);
+                     ///***FileToSend fts = new FileToSend(iRobotTech.Robots.FirstOrDefault(r => r.TKON_CODE == Token).BULD_FILE_ID);
+                     InputOnlineFile fts = new InputOnlineFile(iRobotTech.Robots.FirstOrDefault(r => r.TKON_CODE == Token).BULD_FILE_ID);
                      //string fileid = iRobotTech.Robots.FirstOrDefault(r => r.TKON_CODE == Token).BULD_FILE_ID;
                      await Bot.SendPhotoAsync(chat.Message.Chat.Id, fts, "کاربر گرامی نرم افزار در حال آماده سازی می باشد و هنوز یه مرحله نهایی نرسیده. بعداز اتمام از همین سامانه به شما اطلاع رسانی می شود");
                   }
@@ -223,15 +225,17 @@ namespace System.RoboTech.Controller
                   dynamic photo;
                   if (string.IsNullOrEmpty(pic.FILE_ID))
                   {
-                     photo = new FileToSend()
-                     {
-                        Content = new FileStream(pic.FILE_PATH, FileMode.Open, FileAccess.Read, FileShare.Read),
-                        Filename = pic.FILE_NAME
-                     };
+                     ///***photo = new FileToSend()
+                     ///***{
+                     ///***   Content = new FileStream(pic.FILE_PATH, FileMode.Open, FileAccess.Read, FileShare.Read),
+                     ///***   Filename = pic.FILE_NAME
+                     ///***};
+                     photo = new InputOnlineFile(new FileStream(pic.FILE_PATH, FileMode.Open, FileAccess.Read, FileShare.Read), pic.FILE_NAME);
                   }
                   else
                   {
-                     photo = new FileToSend(pic.FILE_ID);
+                     ///***photo = new FileToSend(pic.FILE_ID);
+                     photo = new InputOnlineFile(pic.FILE_ID);
                   }
                   try
                   {
@@ -275,10 +279,10 @@ namespace System.RoboTech.Controller
             if(chat.UssdCode != null)
                switch (message.Type)
                {
-                  case MessageType.ContactMessage:
+                  case MessageType.Contact:
                      message.Text = iRobotTech.Menu_Ussds.FirstOrDefault(m => m.ROBO_RBID == robot.RBID && m.Menu_Ussd1.USSD_CODE == chat.UssdCode && m.CMND_TYPE == "015").MENU_TEXT;
                      break;
-                  case MessageType.LocationMessage:
+                  case MessageType.Location:
                      message.Text = iRobotTech.Menu_Ussds.FirstOrDefault(m => m.ROBO_RBID == robot.RBID && m.Menu_Ussd1.USSD_CODE == chat.UssdCode && m.CMND_TYPE == "016").MENU_TEXT;
                      break;                  
                }
@@ -352,15 +356,17 @@ namespace System.RoboTech.Controller
                      dynamic photo;
                      if (string.IsNullOrEmpty(pic.FILE_ID))
                      {
-                        photo = new FileToSend()
-                        {
-                           Content = new FileStream(pic.FILE_PATH, FileMode.Open, FileAccess.Read, FileShare.Read),
-                           Filename = pic.FILE_NAME
-                        };
+                        ///***photo = new FileToSend()
+                        ///***{
+                        ///***   Content = new FileStream(pic.FILE_PATH, FileMode.Open, FileAccess.Read, FileShare.Read),
+                        ///***   Filename = pic.FILE_NAME
+                        ///***};
+                        photo = new InputOnlineFile(new FileStream(pic.FILE_PATH, FileMode.Open, FileAccess.Read, FileShare.Read), pic.FILE_NAME);
                      }
                      else
                      {
-                        photo = new FileToSend(pic.FILE_ID);
+                        ///***photo = new FileToSend(pic.FILE_ID);
+                        photo = new InputOnlineFile(pic.FILE_ID);
                      }
                      try
                      {
@@ -460,7 +466,7 @@ namespace System.RoboTech.Controller
                if (e.Message.Sticker != null)
                {
                   await Bot.SendTextMessageAsync(e.Message.Chat.Id, "Sticker :\n\r\n\r" + e.Message.Sticker.FileId);
-                  await Bot.SendStickerAsync(e.Message.Chat.Id, /*"BQADBAADOwMAAgXhMAewhyhhPvCl1QI"*/new FileToSend(e.Message.Sticker.FileId), false, e.Message.MessageId);
+                  await Bot.SendStickerAsync(e.Message.Chat.Id, /*"BQADBAADOwMAAgXhMAewhyhhPvCl1QI"*/new InputOnlineFile(e.Message.Sticker.FileId), false, e.Message.MessageId);
                   fileid = e.Message.Sticker.FileId;
                   filetype = "007";
                }
@@ -554,7 +560,9 @@ namespace System.RoboTech.Controller
                               //Bot.GetFileAsync(e.Message.Photo.Reverse().FirstOrDefault().FileId, System.IO.File.Create(fileupload + "\\" + filename + ".jpg"));
                            }
 
-                           await Bot.GetFileAsync(e.Message.Photo.Reverse().FirstOrDefault().FileId, System.IO.File.Create(fileupload + "\\" + filename + ".jpg"));
+                           ///***await Bot.GetFileAsync(e.Message.Photo.Reverse().FirstOrDefault().FileId, System.IO.File.Create(fileupload + "\\" + filename + ".jpg"));
+                           Telegram.Bot.Types.File file = await Bot.GetFileAsync(e.Message.Photo.Reverse().FirstOrDefault().FileId);
+                           file.FilePath = fileupload + "\\" + filename + ".jpg";
                            await Bot.SendTextMessageAsync(e.Message.Chat.Id, "فایل عکس شما با موفقیت ذخیره گردید 💾", ParseMode.Default, false, false, e.Message.MessageId, null);
                         }
                         catch(Exception ex) {
@@ -585,7 +593,9 @@ namespace System.RoboTech.Controller
                               //Bot.GetFile(e.Message.Video.FileId, System.IO.File.Create(fileupload + "\\" + /*chat.Message.Video.FileId*/ filename));
                            }
                            
-                           await Bot.GetFileAsync(e.Message.Video.FileId, System.IO.File.Create(fileupload + "\\" + /*chat.Message.Video.FileId*/ filename));
+                           ///***await Bot.GetFileAsync(e.Message.Video.FileId, System.IO.File.Create(fileupload + "\\" + /*chat.Message.Video.FileId*/ filename));
+                           Telegram.Bot.Types.File file = await Bot.GetFileAsync(e.Message.Video.FileId);
+                           file.FilePath = fileupload + "\\" + filename;
                            await Bot.SendTextMessageAsync(e.Message.Chat.Id, "فایل تصویری شما با موفقیت ذخیره گردید 💾", ParseMode.Default, false, false, e.Message.MessageId, null);
                         }
                         catch { }
@@ -611,7 +621,9 @@ namespace System.RoboTech.Controller
                               //Bot.SendTextMessageAsync(e.Message.Chat.Id, "فایل مستند شما با موفقیت ذخیره گردید 💾", false, false, e.Message.MessageId, null, ParseMode.Default);
                               //Bot.GetFile(e.Message.Document.FileId, System.IO.File.Create(fileupload + "\\" + /*chat.Message.Document.FileId*/ filename));
                            }
-                           await Bot.GetFileAsync(e.Message.Document.FileId, System.IO.File.Create(fileupload + "\\" + /*chat.Message.Document.FileId*/ filename));
+                           ///***await Bot.GetFileAsync(e.Message.Document.FileId, System.IO.File.Create(fileupload + "\\" + /*chat.Message.Document.FileId*/ filename));
+                           Telegram.Bot.Types.File file = await Bot.GetFileAsync(e.Message.Document.FileId);
+                           file.FilePath = fileupload + "\\" + filename;
                            await Bot.SendTextMessageAsync(e.Message.Chat.Id, "فایل مستند شما با موفقیت ذخیره گردید 💾", ParseMode.Default, false, false, e.Message.MessageId, null);                           
                         }
                         catch { }
@@ -638,7 +650,9 @@ namespace System.RoboTech.Controller
                               //Bot.SendTextMessageAsync(e.Message.Chat.Id, "فایل صوتی شما با موفقیت ذخیره گردید 💾", false, false, e.Message.MessageId, null, ParseMode.Default);
                               //Bot.GetFile(e.Message.Audio.FileId, System.IO.File.Create(fileupload + "\\" + /*chat.Message.Audio.FileId*/ filename));
                            }                           
-                           await Bot.GetFileAsync(e.Message.Audio.FileId, System.IO.File.Create(fileupload + "\\" + /*chat.Message.Audio.FileId*/ filename));
+                           ///***await Bot.GetFileAsync(e.Message.Audio.FileId, System.IO.File.Create(fileupload + "\\" + /*chat.Message.Audio.FileId*/ filename));
+                           Telegram.Bot.Types.File file = await Bot.GetFileAsync(e.Message.Audio.FileId);
+                           file.FilePath = fileupload + "\\" + filename;
                            await Bot.SendTextMessageAsync(e.Message.Chat.Id, "فایل صوتی شما با موفقیت ذخیره گردید 💾", ParseMode.Default, false, false, e.Message.MessageId, null);                                                      
                         }
                         catch { }
@@ -667,7 +681,9 @@ namespace System.RoboTech.Controller
                            }
                            
                            await Bot.SendTextMessageAsync(e.Message.Chat.Id, "فایل استیکر شما با موفقیت ذخیره گردید 💾", ParseMode.Default, false, false, e.Message.MessageId, null);
-                           await Bot.GetFileAsync(e.Message.Sticker.FileId, System.IO.File.Create(fileupload + "\\" + /*chat.Message.Sticker.FileId*/ filename));
+                           ///***await Bot.GetFileAsync(e.Message.Sticker.FileId, System.IO.File.Create(fileupload + "\\" + /*chat.Message.Sticker.FileId*/ filename));
+                           Telegram.Bot.Types.File file = await Bot.GetFileAsync(e.Message.Sticker.FileId);
+                           file.FilePath = fileupload + "\\" + filename;
                         }
                         catch { }
                      }
@@ -858,15 +874,17 @@ namespace System.RoboTech.Controller
                      dynamic photo;
                      if (string.IsNullOrEmpty(pic.FILE_ID))
                      {
-                        photo = new FileToSend()
-                        {
-                           Content = new FileStream(pic.FILE_PATH, FileMode.Open, FileAccess.Read, FileShare.Read),
-                           Filename = pic.FILE_NAME
-                        };
+                        ///***photo = new FileToSend()
+                        ///***{
+                        ///***   Content = new FileStream(pic.FILE_PATH, FileMode.Open, FileAccess.Read, FileShare.Read),
+                        ///***   Filename = pic.FILE_NAME
+                        ///***};
+                        photo = new InputOnlineFile(new FileStream(pic.FILE_PATH, FileMode.Open, FileAccess.Read, FileShare.Read), pic.FILE_NAME);
                      }
                      else
                      {
-                        photo = new FileToSend(pic.FILE_ID);
+                        ///***photo = new FileToSend(pic.FILE_ID);
+                        photo = new InputOnlineFile(pic.FILE_ID);
                      }
 
                      try
@@ -920,15 +938,17 @@ namespace System.RoboTech.Controller
                      dynamic photo;
                      if (string.IsNullOrEmpty(pic.FILE_ID))
                      {
-                        photo = new FileToSend()
-                        {
-                           Content = new FileStream(pic.FILE_PATH, FileMode.Open, FileAccess.Read, FileShare.Read),
-                           Filename = pic.FILE_NAME
-                        };
+                        ///***photo = new FileToSend()
+                        ///***{
+                        ///***   Content = new FileStream(pic.FILE_PATH, FileMode.Open, FileAccess.Read, FileShare.Read),
+                        ///***   Filename = pic.FILE_NAME
+                        ///***};
+                        photo = new InputOnlineFile(new FileStream(pic.FILE_PATH, FileMode.Open, FileAccess.Read, FileShare.Read), pic.FILE_NAME);
                      }
                      else
                      {
-                        photo = new FileToSend(pic.FILE_ID);
+                        ///***photo = new FileToSend(pic.FILE_ID);
+                        photo = new InputOnlineFile(pic.FILE_ID);
                      }
 
                      try
@@ -980,15 +1000,17 @@ namespace System.RoboTech.Controller
                      dynamic photo;
                      if (string.IsNullOrEmpty(pic.FILE_ID))
                      {
-                        photo = new FileToSend()
-                        {
-                           Content = new FileStream(pic.FILE_PATH, FileMode.Open, FileAccess.Read, FileShare.Read),
-                           Filename = pic.FILE_NAME
-                        };
+                        ///***photo = new FileToSend()
+                        ///***{
+                        ///***   Content = new FileStream(pic.FILE_PATH, FileMode.Open, FileAccess.Read, FileShare.Read),
+                        ///***   Filename = pic.FILE_NAME
+                        ///***};
+                        photo = new InputOnlineFile(new FileStream(pic.FILE_PATH, FileMode.Open, FileAccess.Read, FileShare.Read), pic.FILE_NAME);
                      }
                      else
                      {
-                        photo = new FileToSend(pic.FILE_ID);
+                        ///***photo = new FileToSend(pic.FILE_ID);
+                        photo = new InputOnlineFile(pic.FILE_ID);
                      }
 
                      try
@@ -1077,15 +1099,17 @@ namespace System.RoboTech.Controller
                      dynamic photo;
                      if (string.IsNullOrEmpty(pic.FILE_ID))
                      {
-                        photo = new FileToSend()
-                        {
-                           Content = new FileStream(pic.FILE_PATH, FileMode.Open, FileAccess.Read, FileShare.Read),
-                           Filename = pic.FILE_NAME
-                        };
+                        ///***photo = new FileToSend()
+                        ///***{
+                        ///***   Content = new FileStream(pic.FILE_PATH, FileMode.Open, FileAccess.Read, FileShare.Read),
+                        ///***   Filename = pic.FILE_NAME
+                        ///***};
+                        photo = new InputOnlineFile(new FileStream(pic.FILE_PATH, FileMode.Open, FileAccess.Read, FileShare.Read), pic.FILE_NAME);
                      }
                      else
                      {
-                        photo = new FileToSend(pic.FILE_ID);
+                        ///***photo = new FileToSend(pic.FILE_ID);
+                        photo = new InputOnlineFile(pic.FILE_ID);
                      }
 
                      try
@@ -1134,15 +1158,17 @@ namespace System.RoboTech.Controller
                      dynamic photo;
                      if (string.IsNullOrEmpty(video.FILE_ID))
                      {
-                        photo = new FileToSend()
-                        {
-                           Content = new FileStream(video.FILE_PATH, FileMode.Open, FileAccess.Read, FileShare.Read),
-                           Filename = video.FILE_NAME
-                        };
+                        ///***photo = new FileToSend()
+                        ///***{
+                        ///***   Content = new FileStream(video.FILE_PATH, FileMode.Open, FileAccess.Read, FileShare.Read),
+                        ///***   Filename = video.FILE_NAME
+                        ///***};
+                        photo = new InputOnlineFile(new FileStream(video.FILE_PATH, FileMode.Open, FileAccess.Read, FileShare.Read), video.FILE_NAME);
                      }
                      else
                      {
-                        photo = new FileToSend(video.FILE_ID);
+                        ///***photo = new FileToSend(video.FILE_ID);
+                        photo = new InputOnlineFile(video.FILE_ID);
                      }
 
                      try
@@ -1194,15 +1220,17 @@ namespace System.RoboTech.Controller
                      dynamic photo;
                      if (string.IsNullOrEmpty(pic.FILE_ID))
                      {
-                        photo = new FileToSend()
-                        {
-                           Content = new FileStream(pic.FILE_PATH, FileMode.Open, FileAccess.Read, FileShare.Read),
-                           Filename = pic.FILE_NAME
-                        };
+                        ///***photo = new FileToSend()
+                        ///***{
+                        ///***   Content = new FileStream(pic.FILE_PATH, FileMode.Open, FileAccess.Read, FileShare.Read),
+                        ///***   Filename = pic.FILE_NAME
+                        ///***};
+                        photo = new InputOnlineFile(new FileStream(pic.FILE_PATH, FileMode.Open, FileAccess.Read, FileShare.Read), pic.FILE_NAME);
                      }
                      else
                      {
-                        photo = new FileToSend(pic.FILE_ID);
+                        ///***photo = new FileToSend(pic.FILE_ID);
+                        photo = new InputOnlineFile(pic.FILE_ID);
                      }
 
                      try
@@ -1250,15 +1278,17 @@ namespace System.RoboTech.Controller
                      dynamic photo;
                      if (string.IsNullOrEmpty(video.FILE_ID))
                      {
-                        photo = new FileToSend()
-                        {
-                           Content = new FileStream(video.FILE_PATH, FileMode.Open, FileAccess.Read, FileShare.Read),
-                           Filename = video.FILE_NAME
-                        };
+                        ///***photo = new FileToSend()
+                        ///***{
+                        ///***   Content = new FileStream(video.FILE_PATH, FileMode.Open, FileAccess.Read, FileShare.Read),
+                        ///***   Filename = video.FILE_NAME
+                        ///***};
+                        photo = new InputOnlineFile(new FileStream(video.FILE_PATH, FileMode.Open, FileAccess.Read, FileShare.Read), video.FILE_NAME);
                      }
                      else
                      {
-                        photo = new FileToSend(video.FILE_ID);
+                        ///***photo = new FileToSend(video.FILE_ID);
+                        photo = new InputOnlineFile(video.FILE_ID);
                      }
 
                      try
@@ -1392,15 +1422,17 @@ namespace System.RoboTech.Controller
                      dynamic photo;
                      if (string.IsNullOrEmpty(pic.FILE_ID))
                      {
-                        photo = new FileToSend()
-                        {
-                           Content = new FileStream(pic.FILE_PATH, FileMode.Open, FileAccess.Read, FileShare.Read),
-                           Filename = pic.FILE_NAME
-                        };
+                        ///***photo = new FileToSend()
+                        ///***{
+                        ///***   Content = new FileStream(pic.FILE_PATH, FileMode.Open, FileAccess.Read, FileShare.Read),
+                        ///***   Filename = pic.FILE_NAME
+                        ///***};
+                        photo = new InputOnlineFile(new FileStream(pic.FILE_PATH, FileMode.Open, FileAccess.Read, FileShare.Read), pic.FILE_NAME);
                      }
                      else
                      {
-                        photo = new FileToSend(pic.FILE_ID);
+                        ///***photo = new FileToSend(pic.FILE_ID);
+                        photo = new InputOnlineFile(pic.FILE_ID);
                      }
 
                      try
@@ -1484,15 +1516,17 @@ namespace System.RoboTech.Controller
                      dynamic photo;
                      if (string.IsNullOrEmpty(pic.FILE_ID))
                      {
-                        photo = new FileToSend()
-                        {
-                           Content = new FileStream(pic.FILE_PATH, FileMode.Open, FileAccess.Read, FileShare.Read),
-                           Filename = pic.FILE_NAME
-                        };
+                        ///***photo = new FileToSend()
+                        ///***{
+                        ///***   Content = new FileStream(pic.FILE_PATH, FileMode.Open, FileAccess.Read, FileShare.Read),
+                        ///***   Filename = pic.FILE_NAME
+                        ///***};
+                        photo = new InputOnlineFile(new FileStream(pic.FILE_PATH, FileMode.Open, FileAccess.Read, FileShare.Read), pic.FILE_NAME);
                      }
                      else
                      {
-                        photo = new FileToSend(pic.FILE_ID);
+                        ///***photo = new FileToSend(pic.FILE_ID);
+                        photo = new InputOnlineFile(pic.FILE_ID);
                      }
 
                      try
@@ -1693,15 +1727,17 @@ namespace System.RoboTech.Controller
                      dynamic document;
                      if (string.IsNullOrEmpty(doc.FILE_ID))
                      {
-                        document = new FileToSend()
-                        {
-                           Content = new FileStream(doc.FILE_PATH, FileMode.Open, FileAccess.Read, FileShare.Read),
-                           Filename = doc.FILE_NAME
-                        };
+                        ///***document = new FileToSend()
+                        ///***{
+                        ///***   Content = new FileStream(doc.FILE_PATH, FileMode.Open, FileAccess.Read, FileShare.Read),
+                        ///***   Filename = doc.FILE_NAME
+                        ///***};
+                        document = new InputOnlineFile(new FileStream(doc.FILE_PATH, FileMode.Open, FileAccess.Read, FileShare.Read), doc.FILE_NAME);
                      }
                      else
                      {
-                        document = new FileToSend(doc.FILE_ID);
+                        ///***document = new FileToSend(doc.FILE_ID);
+                        document = new InputOnlineFile(doc.FILE_ID);
                      }
 
                      try
@@ -1753,15 +1789,17 @@ namespace System.RoboTech.Controller
                      dynamic photo;
                      if (string.IsNullOrEmpty(pic.FILE_ID))
                      {
-                        photo = new FileToSend()
-                        {
-                           Content = new FileStream(pic.FILE_PATH, FileMode.Open, FileAccess.Read, FileShare.Read),
-                           Filename = pic.FILE_NAME
-                        };
+                        ///***photo = new FileToSend()
+                        ///***{
+                        ///***   Content = new FileStream(pic.FILE_PATH, FileMode.Open, FileAccess.Read, FileShare.Read),
+                        ///***   Filename = pic.FILE_NAME
+                        ///***};
+                        photo = new InputOnlineFile(new FileStream(pic.FILE_PATH, FileMode.Open, FileAccess.Read, FileShare.Read), pic.FILE_NAME);
                      }
                      else
                      {
-                        photo = new FileToSend(pic.FILE_ID);
+                        ///***photo = new FileToSend(pic.FILE_ID);
+                        photo = new InputOnlineFile(pic.FILE_ID);
                      }
 
                      try
@@ -1844,20 +1882,22 @@ namespace System.RoboTech.Controller
                      dynamic photo;
                      if (string.IsNullOrEmpty(sound.FILE_ID))
                      {
-                        photo = new FileToSend()
-                        {
-                           Content = new FileStream(sound.FILE_PATH, FileMode.Open, FileAccess.Read, FileShare.Read),
-                           Filename = sound.FILE_NAME
-                        };
+                        ///***photo = new FileToSend()
+                        ///***{
+                        ///***   Content = new FileStream(sound.FILE_PATH, FileMode.Open, FileAccess.Read, FileShare.Read),
+                        ///***   Filename = sound.FILE_NAME
+                        ///***};
+                        photo = new InputOnlineFile(new FileStream(sound.FILE_PATH, FileMode.Open, FileAccess.Read, FileShare.Read), sound.FILE_NAME);
                      }
                      else
                      {
-                        photo = new FileToSend(sound.FILE_ID);
+                        ///***photo = new FileToSend(sound.FILE_ID);
+                        photo = new InputOnlineFile(sound.FILE_ID);
                      }
 
                      try
                      {
-                        await Bot.SendAudioAsync(chat.Message.Chat.Id, photo, "*", 0, sound.IMAG_DESC,"#",
+                        await Bot.SendAudioAsync(chat.Message.Chat.Id, photo, "*", 0, 0, sound.IMAG_DESC,"#",
                            replyToMessageId:
                            chat.Message.MessageId,
                            replyMarkup:
@@ -1924,15 +1964,17 @@ namespace System.RoboTech.Controller
                      dynamic photo;
                      if (string.IsNullOrEmpty(pic.FILE_ID))
                      {
-                        photo = new FileToSend()
-                        {
-                           Content = new FileStream(pic.FILE_PATH, FileMode.Open, FileAccess.Read, FileShare.Read),
-                           Filename = pic.FILE_NAME
-                        };
+                        ///***photo = new FileToSend()
+                        ///***{
+                        ///***   Content = new FileStream(pic.FILE_PATH, FileMode.Open, FileAccess.Read, FileShare.Read),
+                        ///***   Filename = pic.FILE_NAME
+                        ///***};
+                        photo = new InputOnlineFile(new FileStream(pic.FILE_PATH, FileMode.Open, FileAccess.Read, FileShare.Read), pic.FILE_NAME);
                      }
                      else
                      {
-                        photo = new FileToSend(pic.FILE_ID);
+                        ///***photo = new FileToSend(pic.FILE_ID);
+                        photo = new InputOnlineFile(pic.FILE_ID);
                      }
 
                      try
@@ -1981,15 +2023,17 @@ namespace System.RoboTech.Controller
                      dynamic document;
                      if (string.IsNullOrEmpty(doc.FILE_ID))
                      {
-                        document = new FileToSend()
-                        {
-                           Content = new FileStream(doc.FILE_PATH, FileMode.Open, FileAccess.Read, FileShare.Read),
-                           Filename = doc.FILE_NAME
-                        };
+                        ///***document = new FileToSend()
+                        ///***{
+                        ///***   Content = new FileStream(doc.FILE_PATH, FileMode.Open, FileAccess.Read, FileShare.Read),
+                        ///***   Filename = doc.FILE_NAME
+                        ///***};
+                        document = new InputOnlineFile(new FileStream(doc.FILE_PATH, FileMode.Open, FileAccess.Read, FileShare.Read), doc.FILE_NAME);
                      }
                      else
                      {
-                        document = new FileToSend(doc.FILE_ID);
+                        ///***document = new FileToSend(doc.FILE_ID);
+                        document = new InputOnlineFile(doc.FILE_ID);
                      }
 
                      try
@@ -2074,15 +2118,17 @@ namespace System.RoboTech.Controller
                      dynamic photo;
                      if (string.IsNullOrEmpty(pic.FILE_ID))
                      {
-                        photo = new FileToSend()
-                        {
-                           Content = new FileStream(pic.FILE_PATH, FileMode.Open, FileAccess.Read, FileShare.Read),
-                           Filename = pic.FILE_NAME
-                        };
+                        ///***photo = new FileToSend()
+                        ///***{
+                        ///***   Content = new FileStream(pic.FILE_PATH, FileMode.Open, FileAccess.Read, FileShare.Read),
+                        ///***   Filename = pic.FILE_NAME
+                        ///***};
+                        photo = new InputOnlineFile(new FileStream(pic.FILE_PATH, FileMode.Open, FileAccess.Read, FileShare.Read), pic.FILE_NAME);
                      }
                      else
                      {
-                        photo = new FileToSend(pic.FILE_ID);
+                        ///***photo = new FileToSend(pic.FILE_ID);
+                        photo = new InputOnlineFile(pic.FILE_ID);
                      }
 
                      try
@@ -2226,7 +2272,7 @@ namespace System.RoboTech.Controller
          XElement xret = null;
          switch (e.Message.Type)
          {
-            case MessageType.AudioMessage:
+            case MessageType.Audio:
                xret =
                   new XElement("AudioMessage",
                      new XAttribute("mimetype", e.Message.Audio.MimeType ?? ""),
@@ -2236,7 +2282,7 @@ namespace System.RoboTech.Controller
                      new XAttribute("caption", e.Message.Caption)
                   );
                break;
-            case MessageType.ContactMessage:
+            case MessageType.Contact:
                xret =
                   new XElement("ContactMessage",
                      new XAttribute("frstname", e.Message.Contact.FirstName ?? ""),
@@ -2244,7 +2290,7 @@ namespace System.RoboTech.Controller
                      new XAttribute("phonnumb", e.Message.Contact.PhoneNumber)
                   );
                break;
-            case MessageType.DocumentMessage:
+            case MessageType.Document:
                xret =
                   new XElement("DocumentMessage",
                      new XAttribute("mimetype", e.Message.Document.MimeType ?? ""),
@@ -2252,7 +2298,7 @@ namespace System.RoboTech.Controller
                      new XAttribute("caption", e.Message.Caption)
                   );
                break;
-            case MessageType.LocationMessage:
+            case MessageType.Location:
                xret =
                   new XElement("LocationMessage",
                      new XAttribute("latitude", e.Message.Location.Latitude),
@@ -2260,7 +2306,7 @@ namespace System.RoboTech.Controller
                      new XAttribute("caption", e.Message.Caption)
                   );
                break;
-            case MessageType.PhotoMessage:
+            case MessageType.Photo:
                xret =
                   new XElement("PhotoMessage",
                      new XAttribute("caption", e.Message.Caption ?? ""),
@@ -2268,44 +2314,44 @@ namespace System.RoboTech.Controller
                      new XAttribute("caption", e.Message.Caption)
                   );
                break;
-            case MessageType.ServiceMessage:
-               if(e.Message.NewChatMember != null)
-                  xret =
-                     new XElement("ServiceMessage",                       
-                        new XAttribute("joinleft", "join"),
-                        new XAttribute("frstname", e.Message.NewChatMember.FirstName ?? ""),
-                        new XAttribute("lastname", e.Message.NewChatMember.LastName ?? ""),
-                        new XAttribute("id", e.Message.NewChatMember.Id),
-                        new XAttribute("username", e.Message.NewChatMember.Username ?? "")
-                     );
-               else
-                  xret =
-                     new XElement("ServiceMessage",
-                        new XAttribute("joinleft", "left"),
-                        new XAttribute("frstname", e.Message.LeftChatMember.FirstName ?? ""),
-                        new XAttribute("lastname", e.Message.LeftChatMember.LastName ?? ""),
-                        new XAttribute("id", e.Message.LeftChatMember.Id),
-                        new XAttribute("username", e.Message.LeftChatMember.Username ?? "")
-                     );
-               break;
-            case MessageType.StickerMessage:
+            //case MessageType.Service:
+            //   if(e.Message.NewChatMembers != null)
+            //      xret =
+            //         new XElement("ServiceMessage",                       
+            //            new XAttribute("joinleft", "join"),
+            //            new XAttribute("frstname", e.Message.NewChatMember.FirstName ?? ""),
+            //            new XAttribute("lastname", e.Message.NewChatMember.LastName ?? ""),
+            //            new XAttribute("id", e.Message.NewChatMember.Id),
+            //            new XAttribute("username", e.Message.NewChatMember.Username ?? "")
+            //         );
+            //   else
+            //      xret =
+            //         new XElement("ServiceMessage",
+            //            new XAttribute("joinleft", "left"),
+            //            new XAttribute("frstname", e.Message.LeftChatMember.FirstName ?? ""),
+            //            new XAttribute("lastname", e.Message.LeftChatMember.LastName ?? ""),
+            //            new XAttribute("id", e.Message.LeftChatMember.Id),
+            //            new XAttribute("username", e.Message.LeftChatMember.Username ?? "")
+            //         );
+            //   break;
+            case MessageType.Sticker:
                xret =
                   new XElement("StickerMessage",
                      new XAttribute("emoji", e.Message.Sticker.Emoji ?? ""),
                      new XAttribute("fileid", e.Message.Sticker.FileId)
                   );
                break;
-            case MessageType.TextMessage:
+            case MessageType.Text:
                xret =
                   new XElement("TextMessage",
                      new XAttribute("text", e.Message.Text ?? "")
                   );
                break;
-            case MessageType.UnknownMessage:
+            case MessageType.Unknown:
                break;
-            case MessageType.VenueMessage:
+            case MessageType.Venue:
                break;
-            case MessageType.VideoMessage:
+            case MessageType.Video:
                xret =
                   new XElement("VideoMessage",
                      new XAttribute("mimetype", e.Message.Video.MimeType ?? ""),
@@ -2313,7 +2359,7 @@ namespace System.RoboTech.Controller
                      new XAttribute("caption", e.Message.Caption)
                   );
                break;
-            case MessageType.VoiceMessage:
+            case MessageType.Voice:
                xret =
                   new XElement("VoiceMessage",
                      new XAttribute("mimetype", e.Message.Voice.MimeType ?? ""),
@@ -2351,7 +2397,8 @@ namespace System.RoboTech.Controller
                try
                {
                   //string fileid = iRobotTech.Robots.FirstOrDefault(r => r.TKON_CODE == Token).BULD_FILE_ID;
-                  await Bot.SendPhotoAsync(chat.Message.Chat.Id, new FileToSend(iRobotTech.Robots.FirstOrDefault(r => r.TKON_CODE == Token).BULD_FILE_ID), "کاربر گرامی نرم افزار در حال آماده سازی می باشد و هنوز یه مرحله نهایی نرسیده. بعداز اتمام از همین سامانه به شما اطلاع رسانی می شود");
+                  ///***await Bot.SendPhotoAsync(chat.Message.Chat.Id, new FileToSend(iRobotTech.Robots.FirstOrDefault(r => r.TKON_CODE == Token).BULD_FILE_ID), "کاربر گرامی نرم افزار در حال آماده سازی می باشد و هنوز یه مرحله نهایی نرسیده. بعداز اتمام از همین سامانه به شما اطلاع رسانی می شود");
+                  await Bot.SendPhotoAsync(chat.Message.Chat.Id, new InputOnlineFile(iRobotTech.Robots.FirstOrDefault(r => r.TKON_CODE == Token).BULD_FILE_ID), "کاربر گرامی نرم افزار در حال آماده سازی می باشد و هنوز یه مرحله نهایی نرسیده. بعداز اتمام از همین سامانه به شما اطلاع رسانی می شود");
                }
                catch { }
             }
@@ -2361,15 +2408,17 @@ namespace System.RoboTech.Controller
                dynamic photo;
                if (string.IsNullOrEmpty(pic.FILE_ID))
                {
-                  photo = new FileToSend()
-                  {
-                     Content = new FileStream(pic.FILE_PATH, FileMode.Open, FileAccess.Read, FileShare.Read),
-                     Filename = pic.FILE_NAME
-                  };
+                  ///***photo = new FileToSend()
+                  ///***{
+                  ///***   Content = new FileStream(pic.FILE_PATH, FileMode.Open, FileAccess.Read, FileShare.Read),
+                  ///***   Filename = pic.FILE_NAME
+                  ///***};
+                  photo = new InputOnlineFile(new FileStream(pic.FILE_PATH, FileMode.Open, FileAccess.Read, FileShare.Read), pic.FILE_NAME);
                }
                else
                {
-                  photo = new FileToSend(pic.FILE_ID);
+                  ///***photo = new FileToSend(pic.FILE_ID);
+                  photo = new InputOnlineFile(pic.FILE_ID);
                }
                try
                {
@@ -2411,7 +2460,9 @@ namespace System.RoboTech.Controller
          switch (ordrtype)
          {
             case "002":
-               await Bot.GetFileAsync(fileid, System.IO.File.Create(destpath));
+               ///***await Bot.GetFileAsync(fileid, System.IO.File.Create(destpath));
+               Telegram.Bot.Types.File file = await Bot.GetFileAsync(fileid);
+               file.FilePath = destpath;
                break;
             case "003":
                break;
@@ -2426,11 +2477,13 @@ namespace System.RoboTech.Controller
       {
          try
          {
-            var photos = await Bot.GetUserProfilePhotosAsync(userid, null, 100);
+            var photos = await Bot.GetUserProfilePhotosAsync(userid, 0, 100);
             for (int i = 0; i < photos.TotalCount; i++)
             {
                var photo = photos.Photos[i].Reverse().FirstOrDefault();
-               await Bot.GetFileAsync(photo.FileId, System.IO.File.Create(destpath + "_" + i.ToString() +  ".jpg"));
+               ///***await Bot.GetFileAsync(photo.FileId, System.IO.File.Create(destpath + "_" + i.ToString() +  ".jpg"));
+               Telegram.Bot.Types.File file = await Bot.GetFileAsync(photo.FileId);
+               file.FilePath = destpath + "_" + i.ToString() + ".jpg";
             }
          }
          catch(Exception exc)
@@ -2471,15 +2524,17 @@ namespace System.RoboTech.Controller
             dynamic file = null;
             if (send.PAKT_TYPE != "001" && string.IsNullOrEmpty(send.FILE_ID))
             {
-               file = new FileToSend()
-               {
-                  Content = new FileStream(send.FILE_PATH, FileMode.Open, FileAccess.Read, FileShare.Read),
-                  Filename = send.FILE_PATH
-               };
+               ///***file = new FileToSend()
+               ///***{
+               ///***   Content = new FileStream(send.FILE_PATH, FileMode.Open, FileAccess.Read, FileShare.Read),
+               ///***   Filename = send.FILE_PATH
+               ///***};
+               file = new InputOnlineFile(new FileStream(send.FILE_PATH, FileMode.Open, FileAccess.Read, FileShare.Read), send.FILE_PATH);
             }
             else if (send.PAKT_TYPE != "001")
             {
-               file = new FileToSend(send.FILE_ID);
+               ///***file = new FileToSend(send.FILE_ID);
+               file = new InputOnlineFile(send.FILE_ID);
             }
 
             switch (send.PAKT_TYPE)
@@ -2673,7 +2728,7 @@ namespace System.RoboTech.Controller
                         {
                            try
                            {
-                              Bot.SendAudioAsync((long)s.CHAT_ID, file,send.TEXT_MESG ?? "No Audio Caption", 0, send.TEXT_MESG, "#");
+                              Bot.SendAudioAsync((long)s.CHAT_ID, file,send.TEXT_MESG ?? "No Audio Caption", 0, 0, send.TEXT_MESG, "#");
                               var srsa = new Data.Service_Robot_Send_Advertising()
                               {
                                  Service_Robot = s,
@@ -2745,25 +2800,27 @@ namespace System.RoboTech.Controller
                   dynamic photo;
                   if (string.IsNullOrEmpty(send.FILE_ID))
                   {
-                     photo = new FileToSend()
-                     {
-                        Content = new FileStream(send.FILE_PATH, FileMode.Open, FileAccess.Read, FileShare.Read),
-                        Filename = send.FILE_PATH.Substring(send.FILE_PATH.LastIndexOf('\\') + 1)
-                     };
+                     ///***photo = new FileToSend()
+                     ///***{
+                     ///***   Content = new FileStream(send.FILE_PATH, FileMode.Open, FileAccess.Read, FileShare.Read),
+                     ///***   Filename = send.FILE_PATH.Substring(send.FILE_PATH.LastIndexOf('\\') + 1)
+                     ///***};
+                     photo = new InputOnlineFile(new FileStream(send.FILE_PATH, FileMode.Open, FileAccess.Read, FileShare.Read), send.FILE_PATH.Substring(send.FILE_PATH.LastIndexOf('\\') + 1));
                   }
                   else
                   {
-                     photo = new FileToSend(send.FILE_ID);
+                     ///***photo = new FileToSend(send.FILE_ID);
+                     photo = new InputOnlineFile(send.FILE_ID);
                   }
 
                   if (send.MESG_TYPE == "002")
-                     await Bot.SendPhotoAsync((long)send.CHAT_ID, photo, send.MESG_TEXT ?? "😊", false, (int)(send.SRMG_MESG_ID_DNRM ?? 0));
+                     await Bot.SendPhotoAsync((long)send.CHAT_ID, photo, send.MESG_TEXT ?? "😊", ParseMode.Default, false, (int)(send.SRMG_MESG_ID_DNRM ?? 0));
                   else if(send.MESG_TYPE == "003")
                      await Bot.SendVideoAsync((long)send.CHAT_ID, photo, replyToMessageId: (int)(send.SRMG_MESG_ID_DNRM ?? 0));
                   else if (send.MESG_TYPE == "004")
                      await Bot.SendDocumentAsync((long)send.CHAT_ID, photo, send.MESG_TEXT ?? "😊", replyToMessageId: (int)(send.SRMG_MESG_ID_DNRM ?? 0));
                   else if (send.MESG_TYPE == "006")
-                     await Bot.SendAudioAsync((long)send.CHAT_ID, photo, "*", 0, "*", "#", replyToMessageId: (int)(send.SRMG_MESG_ID_DNRM ?? 0));
+                     await Bot.SendAudioAsync((long)send.CHAT_ID, photo, "*", 0, 0, "*", "#", replyToMessageId: (int)(send.SRMG_MESG_ID_DNRM ?? 0));
                   else if (send.MESG_TYPE == "007")
                      await Bot.SendStickerAsync((long)send.CHAT_ID, photo, replyToMessageId: (int)(send.SRMG_MESG_ID_DNRM ?? 0));
                   else if(send.MESG_TYPE == "009")
@@ -2825,7 +2882,9 @@ namespace System.RoboTech.Controller
                      {
                         try
                         {
-                           await Bot.GetFileAsync(ordt.ORDR_DESC, System.IO.File.Create(fileupload + "\\" + filename + ".jpg"));
+                           ///***await Bot.GetFileAsync(ordt.ORDR_DESC, System.IO.File.Create(fileupload + "\\" + filename + ".jpg"));
+                           Telegram.Bot.Types.File file = await Bot.GetFileAsync(ordt.ORDR_DESC);
+                           file.FilePath = fileupload + "\\" + filename + ".jpg";
                            ordt.IMAG_PATH = fileupload + "\\" + filename + ".jpg";
                         }
                         catch { }
@@ -2834,7 +2893,9 @@ namespace System.RoboTech.Controller
                      {
                         try
                         {
-                           await Bot.GetFileAsync(ordt.ORDR_DESC, System.IO.File.Create(fileupload + "\\" + /*chat.Message.Video.FileId*/ filename + "." + ordt.FILE_EXT));
+                           ///***await Bot.GetFileAsync(ordt.ORDR_DESC, System.IO.File.Create(fileupload + "\\" + /*chat.Message.Video.FileId*/ filename + "." + ordt.FILE_EXT));
+                           Telegram.Bot.Types.File file = await Bot.GetFileAsync(ordt.ORDR_DESC);
+                           file.FilePath = fileupload + "\\" + filename + "." + ordt.FILE_EXT;
                            ordt.IMAG_PATH = fileupload + "\\" + filename + "." + ordt.FILE_EXT;
                         }
                         catch { }
@@ -2843,7 +2904,9 @@ namespace System.RoboTech.Controller
                      {
                         try
                         {
-                           await Bot.GetFileAsync(ordt.ORDR_DESC, System.IO.File.Create(fileupload + "\\" + /*chat.Message.Document.FileId*/ filename+"." + ordt.FILE_EXT));
+                           ///***await Bot.GetFileAsync(ordt.ORDR_DESC, System.IO.File.Create(fileupload + "\\" + /*chat.Message.Document.FileId*/ filename+"." + ordt.FILE_EXT));
+                           Telegram.Bot.Types.File file = await Bot.GetFileAsync(ordt.ORDR_DESC);
+                           file.FilePath = fileupload + "\\" + filename + "." + ordt.FILE_EXT;
                            ordt.IMAG_PATH = fileupload + "\\" + filename + "." + ordt.FILE_EXT;
                         }
                         catch { }
@@ -2852,7 +2915,9 @@ namespace System.RoboTech.Controller
                      {
                         try
                         {
-                           await Bot.GetFileAsync(ordt.ORDR_DESC, System.IO.File.Create(fileupload + "\\" + /*chat.Message.Audio.FileId*/ filename + "." + ordt.FILE_EXT));
+                           ///***await Bot.GetFileAsync(ordt.ORDR_DESC, System.IO.File.Create(fileupload + "\\" + /*chat.Message.Audio.FileId*/ filename + "." + ordt.FILE_EXT));
+                           Telegram.Bot.Types.File file = await Bot.GetFileAsync(ordt.ORDR_DESC);
+                           file.FilePath = fileupload + "\\" + filename + "." + ordt.FILE_EXT;
                            ordt.IMAG_PATH = fileupload + "\\" + filename + "." + ordt.FILE_EXT;
                         }
                         catch { }
@@ -2861,7 +2926,9 @@ namespace System.RoboTech.Controller
                      {
                         try
                         {
-                           await Bot.GetFileAsync(ordt.ORDR_DESC, System.IO.File.Create(fileupload + "\\" + /*chat.Message.Sticker.FileId*/ filename + "." + ordt.FILE_EXT));
+                           ///***await Bot.GetFileAsync(ordt.ORDR_DESC, System.IO.File.Create(fileupload + "\\" + /*chat.Message.Sticker.FileId*/ filename + "." + ordt.FILE_EXT));
+                           Telegram.Bot.Types.File file = await Bot.GetFileAsync(ordt.ORDR_DESC);
+                           file.FilePath = fileupload + "\\" + filename + "." + ordt.FILE_EXT;
                            ordt.IMAG_PATH = fileupload + "\\" + filename + "." + ordt.FILE_EXT;
                         }
                         catch { }
@@ -2899,7 +2966,9 @@ namespace System.RoboTech.Controller
                      {
                         try
                         {
-                           await Bot.GetFileAsync(rsgm.FILE_ID, System.IO.File.Create(fileupload + "\\" + filename + ".jpg"));
+                           ///***await Bot.GetFileAsync(rsgm.FILE_ID, System.IO.File.Create(fileupload + "\\" + filename + ".jpg"));
+                           Telegram.Bot.Types.File file = await Bot.GetFileAsync(rsgm.FILE_ID);
+                           file.FilePath = fileupload + "\\" + filename + ".jpg";
                            rsgm.FILE_PATH = fileupload + "\\" + filename + ".jpg";
                         }
                         catch { }
@@ -2908,7 +2977,9 @@ namespace System.RoboTech.Controller
                      {
                         try
                         {
-                           await Bot.GetFileAsync(rsgm.FILE_ID, System.IO.File.Create(fileupload + "\\" + /*chat.Message.Video.FileId*/ filename));
+                           ///***await Bot.GetFileAsync(rsgm.FILE_ID, System.IO.File.Create(fileupload + "\\" + /*chat.Message.Video.FileId*/ filename));
+                           Telegram.Bot.Types.File file = await Bot.GetFileAsync(rsgm.FILE_ID);
+                           file.FilePath = fileupload + "\\" + filename;
                            rsgm.FILE_PATH = fileupload + "\\" + filename;
                         }
                         catch { }
@@ -2917,7 +2988,9 @@ namespace System.RoboTech.Controller
                      {
                         try
                         {
-                           await Bot.GetFileAsync(rsgm.FILE_ID, System.IO.File.Create(fileupload + "\\" + /*chat.Message.Document.FileId*/ filename));
+                           ///***await Bot.GetFileAsync(rsgm.FILE_ID, System.IO.File.Create(fileupload + "\\" + /*chat.Message.Document.FileId*/ filename));
+                           Telegram.Bot.Types.File file = await Bot.GetFileAsync(rsgm.FILE_ID);
+                           file.FilePath = fileupload + "\\" + filename;
                            rsgm.FILE_PATH = fileupload + "\\" + filename;
                         }
                         catch { }
@@ -2926,7 +2999,9 @@ namespace System.RoboTech.Controller
                      {
                         try
                         {
-                           await Bot.GetFileAsync(rsgm.FILE_ID, System.IO.File.Create(fileupload + "\\" + /*chat.Message.Audio.FileId*/ filename));
+                           ///***await Bot.GetFileAsync(rsgm.FILE_ID, System.IO.File.Create(fileupload + "\\" + /*chat.Message.Audio.FileId*/ filename));
+                           Telegram.Bot.Types.File file = await Bot.GetFileAsync(rsgm.FILE_ID);
+                           file.FilePath = fileupload + "\\" + filename;
                            rsgm.FILE_PATH = fileupload + "\\" + filename;
                         }
                         catch { }
@@ -2935,7 +3010,9 @@ namespace System.RoboTech.Controller
                      {
                         try
                         {
-                           await Bot.GetFileAsync(rsgm.FILE_ID, System.IO.File.Create(fileupload + "\\" + /*chat.Message.Sticker.FileId*/ filename));
+                           ///***await Bot.GetFileAsync(rsgm.FILE_ID, System.IO.File.Create(fileupload + "\\" + /*chat.Message.Sticker.FileId*/ filename));
+                           Telegram.Bot.Types.File file = await Bot.GetFileAsync(rsgm.FILE_ID);
+                           file.FilePath = fileupload + "\\" + filename;
                            rsgm.FILE_PATH = fileupload + "\\" + filename;
                         }
                         catch { }
@@ -3005,7 +3082,8 @@ namespace System.RoboTech.Controller
                         case "002":
                            await Bot.SendPhotoAsync(
                               (int)prjo.PRBT_CHAT_ID,
-                              new FileToSend(ordt.ORDR_DESC),
+                              ///***new FileToSend(ordt.ORDR_DESC),
+                              new InputOnlineFile(ordt.ORDR_DESC),
                               caption: ordt.ORDR_CMNT ?? "",
                               replyMarkup:
                               new ReplyKeyboardMarkup()
@@ -3018,7 +3096,8 @@ namespace System.RoboTech.Controller
                         case "003":
                            await Bot.SendVideoAsync(
                               (int)prjo.PRBT_CHAT_ID,
-                              new FileToSend(ordt.ORDR_DESC),
+                              ///***new FileToSend(ordt.ORDR_DESC),
+                              new InputOnlineFile(ordt.ORDR_DESC),
                               replyMarkup:
                               new ReplyKeyboardMarkup()
                               {
@@ -3030,7 +3109,8 @@ namespace System.RoboTech.Controller
                         case "004":
                            await Bot.SendDocumentAsync(
                               (int)prjo.PRBT_CHAT_ID,
-                              new FileToSend(ordt.ORDR_DESC),
+                              ///***new FileToSend(ordt.ORDR_DESC),
+                              new InputOnlineFile(ordt.ORDR_DESC),
                               replyMarkup:
                               new ReplyKeyboardMarkup()
                               {

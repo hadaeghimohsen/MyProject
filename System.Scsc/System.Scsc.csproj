@@ -969,6 +969,7 @@
     <None Include="Properties\DataSources\System.Scsc.Data.D_BLOD.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_BMIR.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_BODY.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.D_CATP.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_CETP.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_CKTP.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_CMLV.datasource" />

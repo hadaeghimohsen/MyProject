@@ -2749,7 +2749,7 @@
          this.OutCome_Lb.Name = "OutCome_Lb";
          this.OutCome_Lb.Size = new System.Drawing.Size(467, 36);
          this.OutCome_Lb.TabIndex = 30;
-         this.OutCome_Lb.Text = "هزینه های باشگاه";
+         this.OutCome_Lb.Text = "هزینه ها";
          // 
          // splitContainerControl4
          // 
@@ -3204,7 +3204,7 @@
          this.InCome_Lb.Name = "InCome_Lb";
          this.InCome_Lb.Size = new System.Drawing.Size(454, 36);
          this.InCome_Lb.TabIndex = 29;
-         this.InCome_Lb.Text = "درآمد های باشگاه";
+         this.InCome_Lb.Text = "درآمد ها";
          // 
          // ExpnItemTitl_Lb
          // 
@@ -6768,7 +6768,7 @@
          this.CochProFile1_Rb.HoverColorB = System.Drawing.Color.LightGray;
          this.CochProFile1_Rb.ImageProfile = global::System.Scsc.Properties.Resources.IMAGE_1482;
          this.CochProFile1_Rb.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-         this.CochProFile1_Rb.ImageVisiable = true;
+         this.CochProFile1_Rb.ImageVisiable = false;
          this.CochProFile1_Rb.Location = new System.Drawing.Point(676, 6);
          this.CochProFile1_Rb.Name = "CochProFile1_Rb";
          this.CochProFile1_Rb.NormalBorderColor = System.Drawing.Color.Black;

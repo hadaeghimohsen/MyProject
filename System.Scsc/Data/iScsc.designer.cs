@@ -249,7 +249,7 @@ namespace System.Scsc.Data
     #endregion
 		
 		public iScscDataContext() : 
-				base(global::System.Scsc.Properties.Settings.Default.iScscConnectionString1, mappingSource)
+				base(global::System.Scsc.Properties.Settings.Default.iScscConnectionString3, mappingSource)
 		{
 			OnCreated();
 		}
@@ -1742,19 +1742,19 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		public System.Data.Linq.Table<Payment_Check> Payment_Checks
-		{
-			get
-			{
-				return this.GetTable<Payment_Check>();
-			}
-		}
-		
 		public System.Data.Linq.Table<D_CATP> D_CATPs
 		{
 			get
 			{
 				return this.GetTable<D_CATP>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Payment_Check> Payment_Checks
+		{
+			get
+			{
+				return this.GetTable<Payment_Check>();
 			}
 		}
 		
@@ -4171,6 +4171,13 @@ namespace System.Scsc.Data
 		public int UPD_APBS_P([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Code", DbType="BigInt")] System.Nullable<long> code, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Titl_Desc", DbType="NVarChar(250)")] string titl_Desc, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Enty_Name", DbType="VarChar(250)")] string enty_Name, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ref_Code", DbType="BigInt")] System.Nullable<long> ref_Code, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Rwno", DbType="Int")] System.Nullable<int> rwno)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), code, titl_Desc, enty_Name, ref_Code, rwno);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.CRET_INST_P")]
+		public int CRET_INST_P([global::System.Data.Linq.Mapping.ParameterAttribute(Name="X", DbType="Xml")] System.Xml.Linq.XElement x)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), x);
 			return ((int)(result.ReturnValue));
 		}
 	}
@@ -69225,6 +69232,51 @@ namespace System.Scsc.Data
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.D$CATP")]
+	public partial class D_CATP
+	{
+		
+		private string _VALU;
+		
+		private string _DOMN_DESC;
+		
+		public D_CATP()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VALU", DbType="VarChar(3) NOT NULL", CanBeNull=false)]
+		public string VALU
+		{
+			get
+			{
+				return this._VALU;
+			}
+			set
+			{
+				if ((this._VALU != value))
+				{
+					this._VALU = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DOMN_DESC", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
+		public string DOMN_DESC
+		{
+			get
+			{
+				return this._DOMN_DESC;
+			}
+			set
+			{
+				if ((this._DOMN_DESC != value))
+				{
+					this._DOMN_DESC = value;
+				}
+			}
+		}
+	}
+	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Payment_Check")]
 	public partial class Payment_Check : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -69242,6 +69294,8 @@ namespace System.Scsc.Data
 		private short _RWNO;
 		
 		private System.Nullable<long> _AMNT;
+		
+		private System.Nullable<long> _DEBT_AMNT_DNRM;
 		
 		private string _AMNT_TYPE;
 		
@@ -69285,6 +69339,8 @@ namespace System.Scsc.Data
     partial void OnRWNOChanged();
     partial void OnAMNTChanging(System.Nullable<long> value);
     partial void OnAMNTChanged();
+    partial void OnDEBT_AMNT_DNRMChanging(System.Nullable<long> value);
+    partial void OnDEBT_AMNT_DNRMChanged();
     partial void OnAMNT_TYPEChanging(string value);
     partial void OnAMNT_TYPEChanged();
     partial void OnCHEK_OWNRChanging(string value);
@@ -69432,7 +69488,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AMNT", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AMNT", DbType="BigInt")]
 		public System.Nullable<long> AMNT
 		{
 			get
@@ -69452,7 +69508,27 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AMNT_TYPE", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DEBT_AMNT_DNRM", DbType="BigInt")]
+		public System.Nullable<long> DEBT_AMNT_DNRM
+		{
+			get
+			{
+				return this._DEBT_AMNT_DNRM;
+			}
+			set
+			{
+				if ((this._DEBT_AMNT_DNRM != value))
+				{
+					this.OnDEBT_AMNT_DNRMChanging(value);
+					this.SendPropertyChanging();
+					this._DEBT_AMNT_DNRM = value;
+					this.SendPropertyChanged("DEBT_AMNT_DNRM");
+					this.OnDEBT_AMNT_DNRMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AMNT_TYPE", DbType="VarChar(3)")]
 		public string AMNT_TYPE
 		{
 			get
@@ -69472,7 +69548,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CHEK_OWNR", DbType="NVarChar(250)", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CHEK_OWNR", DbType="NVarChar(250)")]
 		public string CHEK_OWNR
 		{
 			get
@@ -69492,7 +69568,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CHEK_NO", DbType="VarChar(50)", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CHEK_NO", DbType="VarChar(50)")]
 		public string CHEK_NO
 		{
 			get
@@ -69512,7 +69588,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CHEK_DATE", DbType="Date", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CHEK_DATE", DbType="Date")]
 		public System.Nullable<System.DateTime> CHEK_DATE
 		{
 			get
@@ -69532,7 +69608,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BANK", DbType="NVarChar(100)", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BANK", DbType="NVarChar(100)")]
 		public string BANK
 		{
 			get
@@ -69552,7 +69628,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RCPT_DATE", DbType="Date", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RCPT_DATE", DbType="Date")]
 		public System.Nullable<System.DateTime> RCPT_DATE
 		{
 			get
@@ -69572,7 +69648,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CHEK_TYPE", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CHEK_TYPE", DbType="VarChar(3)")]
 		public string CHEK_TYPE
 		{
 			get
@@ -69592,7 +69668,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_BY", DbType="VarChar(255)", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_BY", DbType="VarChar(255)")]
 		public string CRET_BY
 		{
 			get
@@ -69612,7 +69688,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_DATE", DbType="DateTime")]
 		public System.Nullable<System.DateTime> CRET_DATE
 		{
 			get
@@ -69632,7 +69708,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_BY", DbType="VarChar(255)", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_BY", DbType="VarChar(255)")]
 		public string MDFY_BY
 		{
 			get
@@ -69652,7 +69728,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_DATE", DbType="DateTime")]
 		public System.Nullable<System.DateTime> MDFY_DATE
 		{
 			get
@@ -69761,51 +69837,6 @@ namespace System.Scsc.Data
 			if ((this.PropertyChanged != null))
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.D$CATP")]
-	public partial class D_CATP
-	{
-		
-		private string _VALU;
-		
-		private string _DOMN_DESC;
-		
-		public D_CATP()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VALU", DbType="VarChar(3) NOT NULL", CanBeNull=false)]
-		public string VALU
-		{
-			get
-			{
-				return this._VALU;
-			}
-			set
-			{
-				if ((this._VALU != value))
-				{
-					this._VALU = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DOMN_DESC", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
-		public string DOMN_DESC
-		{
-			get
-			{
-				return this._DOMN_DESC;
-			}
-			set
-			{
-				if ((this._DOMN_DESC != value))
-				{
-					this._DOMN_DESC = value;
-				}
 			}
 		}
 	}

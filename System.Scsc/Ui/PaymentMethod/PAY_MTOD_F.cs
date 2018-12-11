@@ -25,11 +25,19 @@ namespace System.Scsc.Ui.PaymentMethod
       private void Execute_Query()
       {
          iScsc = new Data.iScscDataContext(ConnectionString);
+         int pymt = PymtBs1.Position;
+         int pydt = PydtBs3.Position;
+         int pmtc = PmtcBs4.Position;
          PymtBs1.DataSource = iScsc.Payments.Where(p => p == PymtBs1.Current);
          PydtBs3.DataSource = iScsc.Payment_Details.Where(pd => pd.Payment == PymtBs1.Current && pd.ADD_QUTS == "002");
-         PymtAmnt_Txt.EditValue = Te_TotlDebtAmnt.EditValue = (PymtBs1.Current as Data.Payment).SUM_EXPN_PRIC + (PymtBs1.Current as Data.Payment).SUM_EXPN_EXTR_PRCT - ((PymtBs1.Current as Data.Payment).SUM_PYMT_DSCN_DNRM ?? 0);
-         Te_TotlRemnAmnt.EditValue = (PymtBs1.Current as Data.Payment).SUM_EXPN_PRIC + (PymtBs1.Current as Data.Payment).SUM_EXPN_EXTR_PRCT - (((PymtBs1.Current as Data.Payment).SUM_PYMT_DSCN_DNRM ?? 0) + PmmtBs1.List.OfType<Data.Payment_Method>().Sum(pm => pm.AMNT));
+         PymtBs1.Position = pymt;
+         PydtBs3.Position = pydt;
+         PmtcBs4.Position = pmtc;
+
+         Te_TotlDebtAmnt.EditValue = (PymtBs1.Current as Data.Payment).SUM_EXPN_PRIC + (PymtBs1.Current as Data.Payment).SUM_EXPN_EXTR_PRCT - ((PymtBs1.Current as Data.Payment).SUM_PYMT_DSCN_DNRM ?? 0);
+         PymtAmnt_Txt.EditValue = Te_TotlRemnAmnt.EditValue = (PymtBs1.Current as Data.Payment).SUM_EXPN_PRIC + (PymtBs1.Current as Data.Payment).SUM_EXPN_EXTR_PRCT - (((PymtBs1.Current as Data.Payment).SUM_PYMT_DSCN_DNRM ?? 0) + PmmtBs1.List.OfType<Data.Payment_Method>().Sum(pm => pm.AMNT));
          RemindAmnt_Txt002.EditValue = (long)DEBT_DNRMTextEdit.EditValue + Convert.ToInt64(CashByDeposit_Txt002.Text.Replace(",", "")) + PydsBs2.List.OfType<Data.Payment_Discount>().Where(pd => pd.STAT == "002" && pd.AMNT_TYPE == "003").Sum(pd => pd.AMNT);
+
       }
 
       private void PmmtBn1_ButtonClick(object sender, NavigatorButtonClickEventArgs e)
@@ -494,11 +502,13 @@ namespace System.Scsc.Ui.PaymentMethod
             }
 
             pmtc.CHEK_TYPE = "002";
+            
 
             PmmtBs1.AddNew();
             var crntp = PmmtBs1.Current as Data.Payment_Method;
             crntp.AMNT = pmtc.AMNT;
-            crntp.RCPT_MTOD = "007";
+            if (RcptMtod1_Lov.EditValue == null || RcptMtod1_Lov.EditValue.ToString() == "") { crntp.RCPT_MTOD = "007"; }
+            else { crntp.RCPT_MTOD = RcptMtod1_Lov.EditValue.ToString(); }               
             crntp.ACTN_DATE = pmtc.RCPT_DATE;
             crntp.BANK = pmtc.BANK;
             crntp.CARD_NO = pmtc.CHEK_NO;
@@ -530,7 +540,8 @@ namespace System.Scsc.Ui.PaymentMethod
                            new XAttribute("cardno", (PmmtBs1.Current as Data.Payment_Method).CARD_NO ?? ""),
                            new XAttribute("bank", (PmmtBs1.Current as Data.Payment_Method).BANK ?? ""),
                            new XAttribute("flowno", (PmmtBs1.Current as Data.Payment_Method).FLOW_NO ?? ""),
-                           new XAttribute("refno", (PmmtBs1.Current as Data.Payment_Method).REF_NO ?? "")
+                           new XAttribute("refno", (PmmtBs1.Current as Data.Payment_Method).REF_NO ?? ""),
+                           new XAttribute("actndate", (PmmtBs1.Current as Data.Payment_Method).ACTN_DATE ?? DateTime.Now)
 
                         )
                      )
@@ -541,7 +552,8 @@ namespace System.Scsc.Ui.PaymentMethod
                            new XAttribute("cashcode", (PymtBs1.Current as Data.Payment).CASH_CODE),
                            new XAttribute("rqstrqid", (PymtBs1.Current as Data.Payment).RQST_RQID),
                            new XAttribute("rwno", (PmmtBs1.Current as Data.Payment_Method).RWNO),
-                           new XAttribute("amnt", (PmmtBs1.Current as Data.Payment_Method).AMNT ?? 0)
+                           new XAttribute("amnt", (PmmtBs1.Current as Data.Payment_Method).AMNT ?? 0),
+                           new XAttribute("actndate", (PmmtBs1.Current as Data.Payment_Method).ACTN_DATE ?? DateTime.Now)
                         )
                     ) : new XElement("Update")
 
@@ -703,6 +715,9 @@ namespace System.Scsc.Ui.PaymentMethod
             else if(pmmt.RWNO == 0 && e != null && e.NewValue.ToString() == "003")
                PosToolsVisiable(true); 
             else { PosToolsVisiable(false); }
+
+            var rcptmtod = sender as LookUpEdit;
+            rcptmtod.EditValue = e.NewValue;
          }
          catch (Exception exc)
          {
@@ -778,6 +793,61 @@ namespace System.Scsc.Ui.PaymentMethod
                   }
                )
             );
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void CreateInstall_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var pymt = PymtBs1.Current as Data.Payment;
+            if(pymt == null)return;
+
+            if (string.IsNullOrEmpty(CountInstall_Txt.Text.Trim())) { CountInstall_Txt.Focus(); return; }
+            if (string.IsNullOrEmpty(DayInstall_Txt.Text.Trim())) { DayInstall_Txt.Focus(); return; }
+
+            iScsc.CRET_INST_P(
+               new XElement("Installment",
+                  new XAttribute("rqid", pymt.RQST_RQID),
+                  new XAttribute("cont", CountInstall_Txt.Text),
+                  new XAttribute("day", DayInstall_Txt.EditValue ?? 30),
+                  new XAttribute("frstdate", FrstDate_dt.Value.HasValue ? FrstDate_dt.Value.Value.Date : DateTime.Now.Date)
+               )
+            );
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void PmtcBs4_ListChanged(object sender, ListChangedEventArgs e)
+      {
+         try
+         {
+            if (PmtcBs4.List.Count != 0)
+            {
+               PymtInstall_Txt.Text = PmtcBs4.List.OfType<Data.Payment_Check>().OrderBy(pc => pc.RWNO).FirstOrDefault().AMNT.ToString();
+               LastPymtInstall_Txt.Text = PmtcBs4.List.OfType<Data.Payment_Check>().OrderByDescending(pc => pc.RWNO).FirstOrDefault().AMNT.ToString();
+               LastDate_dt.Value = PmtcBs4.List.OfType<Data.Payment_Check>().OrderByDescending(pc => pc.RWNO).FirstOrDefault().CHEK_DATE;
+            }
+            else
+            {
+               PymtInstall_Txt.Text = "0";
+               LastPymtInstall_Txt.Text = "0";
+               LastDate_dt.Value = null;
+            }
          }
          catch (Exception exc)
          {

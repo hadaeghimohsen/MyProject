@@ -248,6 +248,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
          {
             if (posResult == null) return;
 
+            Threading.Thread.Sleep(1000);
             posResult = _PcPosFactory.PosStarterPurchase(Amnt_Txt.EditValue.ToString(), null, "", "", 0);
 
             Tlid = SamanPcPos_SaveTransactionLog(posResult);

@@ -503,7 +503,7 @@ namespace System.Scsc.Ui.PaymentMethod
          DCatpBs.DataSource = iScsc.D_CATPs;
          VPosBs1.DataSource = iScsc.V_Pos_Devices;
          if (VPosBs1.List.OfType<Data.V_Pos_Device>().FirstOrDefault(pos => pos.GTWY_MAC_ADRS == HostNameInfo.Attribute("cpu").Value) != null)
-            Pos_Lov.EditValue = VPosBs1.List.OfType<Data.V_Pos_Device>().FirstOrDefault(pos => pos.GTWY_MAC_ADRS == HostNameInfo.Attribute("cpu").Value).PSID;
+            Pos1_Lov.EditValue = Pos_Lov.EditValue = VPosBs1.List.OfType<Data.V_Pos_Device>().FirstOrDefault(pos => pos.GTWY_MAC_ADRS == HostNameInfo.Attribute("cpu").Value).PSID;
 
          DEBT_DNRMTextEdit.EditValue = p.Request.Request_Rows.FirstOrDefault().Fighter.DEBT_DNRM;
          if (p.Request.Request_Rows.FirstOrDefault().Fighter.DEBT_DNRM >= 0)
@@ -559,47 +559,100 @@ namespace System.Scsc.Ui.PaymentMethod
          {
             XElement RcevXData = job.Input as XElement;
 
-            var pymt = PymtBs1.Current as Data.Payment;
-            if (pymt == null) return;
+            if (tb_master.SelectedTab == tp_001)
+            {
+               var pymt = PymtBs1.Current as Data.Payment;
+               if (pymt == null) return;
 
-            var regl = iScsc.Regulations.FirstOrDefault(r => r.TYPE == "001" && r.REGL_STAT == "002");
+               var regl = iScsc.Regulations.FirstOrDefault(r => r.TYPE == "001" && r.REGL_STAT == "002");
 
-            var rqtpcode = pymt.Request.RQTP_CODE;//RcevXData.Element("PosRespons").Attribute("rqtpcode").Value;
-            var rqid = pymt.RQST_RQID;//RcevXData.Element("PosRespons").Attribute("rqid").Value;
-            //var fileno = pymt.Request.Request_Rows.FirstOrDefault().FIGH_FILE_NO;//RcevXData.Element("PosRespons").Attribute("fileno").Value;
-            var cashcode = pymt.CASH_CODE;//RcevXData.Element("PosRespons").Element("Payment").Attribute("cashcode").Value;
-            var amnt = Convert.ToInt64(RcevXData.Attribute("amnt").Value);
-            var termno = RcevXData.Attribute("termno").Value;
-            var tranno = RcevXData.Attribute("tranno").Value;
-            var cardno = RcevXData.Attribute("cardno").Value;
-            var flowno = RcevXData.Attribute("flowno").Value;
-            var refno = RcevXData.Attribute("refno").Value;
-            var actndate = RcevXData.Attribute("actndate").Value;
+               var rqtpcode = pymt.Request.RQTP_CODE;//RcevXData.Element("PosRespons").Attribute("rqtpcode").Value;
+               var rqid = pymt.RQST_RQID;//RcevXData.Element("PosRespons").Attribute("rqid").Value;
+               //var fileno = pymt.Request.Request_Rows.FirstOrDefault().FIGH_FILE_NO;//RcevXData.Element("PosRespons").Attribute("fileno").Value;
+               var cashcode = pymt.CASH_CODE;//RcevXData.Element("PosRespons").Element("Payment").Attribute("cashcode").Value;
+               var amnt = Convert.ToInt64(RcevXData.Attribute("amnt").Value);
+               var termno = RcevXData.Attribute("termno").Value;
+               var tranno = RcevXData.Attribute("tranno").Value;
+               var cardno = RcevXData.Attribute("cardno").Value;
+               var flowno = RcevXData.Attribute("flowno").Value;
+               var refno = RcevXData.Attribute("refno").Value;
+               var actndate = RcevXData.Attribute("actndate").Value;
 
-            if (regl.AMNT_TYPE == "002")
-               amnt /= 10;
+               if (regl.AMNT_TYPE == "002")
+                  amnt /= 10;
 
-            iScsc.PAY_MSAV_P(
-                  new XElement("Payment",
-                     new XAttribute("actntype", "InsertUpdate"),
-                     new XElement("Insert",
-                        new XElement("Payment_Method",
-                           new XAttribute("cashcode", cashcode),
-                           new XAttribute("rqstrqid", rqid),
-                           new XAttribute("rcptmtod", "003"),
-                           new XAttribute("amnt", amnt),
-                           new XAttribute("termno", termno),
-                           new XAttribute("tranno", tranno),
-                           new XAttribute("cardno", cardno),
-                           new XAttribute("flowno", flowno),
-                           new XAttribute("refno", refno),
-                           new XAttribute("actndate", actndate)
+               iScsc.PAY_MSAV_P(
+                     new XElement("Payment",
+                        new XAttribute("actntype", "InsertUpdate"),
+                        new XElement("Insert",
+                           new XElement("Payment_Method",
+                              new XAttribute("cashcode", cashcode),
+                              new XAttribute("rqstrqid", rqid),
+                              new XAttribute("rcptmtod", "003"),
+                              new XAttribute("amnt", amnt),
+                              new XAttribute("termno", termno),
+                              new XAttribute("tranno", tranno),
+                              new XAttribute("cardno", cardno),
+                              new XAttribute("flowno", flowno),
+                              new XAttribute("refno", refno),
+                              new XAttribute("actndate", actndate)
+                           )
                         )
                      )
-                  )
-               );
+                  );
+            }
+            else if(tb_master.SelectedTab == tp_004)
+            {
+               var pymt = PmtcBs4.Current as Data.Payment_Check;
+               if (pymt == null) return;
 
-            PosToolsVisiable(false);
+               var regl = iScsc.Regulations.FirstOrDefault(r => r.TYPE == "001" && r.REGL_STAT == "002");
+
+               var rqtpcode = pymt.Payment.Request.RQTP_CODE;//RcevXData.Element("PosRespons").Attribute("rqtpcode").Value;
+               var rqid = pymt.Payment.RQST_RQID;//RcevXData.Element("PosRespons").Attribute("rqid").Value;
+               //var fileno = pymt.Request.Request_Rows.FirstOrDefault().FIGH_FILE_NO;//RcevXData.Element("PosRespons").Attribute("fileno").Value;
+               var cashcode = pymt.Payment.CASH_CODE;//RcevXData.Element("PosRespons").Element("Payment").Attribute("cashcode").Value;
+               var amnt = Convert.ToInt64(RcevXData.Attribute("amnt").Value);
+               var termno = RcevXData.Attribute("termno").Value;
+               var tranno = RcevXData.Attribute("tranno").Value;
+               var cardno = RcevXData.Attribute("cardno").Value;
+               var flowno = RcevXData.Attribute("flowno").Value;
+               var refno = RcevXData.Attribute("refno").Value;
+               var actndate = RcevXData.Attribute("actndate").Value;
+
+               if (regl.AMNT_TYPE == "002")
+                  amnt /= 10;
+
+               iScsc.PAY_MSAV_P(
+                     new XElement("Payment",
+                        new XAttribute("actntype", "InsertUpdate"),
+                        new XElement("Insert",
+                           new XElement("Payment_Method",
+                              new XAttribute("cashcode", cashcode),
+                              new XAttribute("rqstrqid", rqid),
+                              new XAttribute("rcptmtod", "003"),
+                              new XAttribute("amnt", amnt),
+                              new XAttribute("termno", termno),
+                              new XAttribute("tranno", tranno),
+                              new XAttribute("cardno", cardno),
+                              new XAttribute("flowno", flowno),
+                              new XAttribute("refno", refno),
+                              new XAttribute("actndate", actndate)
+                           )
+                        )
+                     )
+                  );
+
+               var pmtc = PmtcBs4.Current as Data.Payment_Check;
+               pmtc.CHEK_TYPE = "002";
+               pmtc.RCPT_DATE = Convert.ToDateTime(actndate);
+
+               iScsc.SubmitChanges();
+               requery = true;
+            }
+
+            //PosToolsVisiable(false);
+            RcptMtod_Lov.EditValue = RcptMtod1_Lov.EditValue = null;
             requery = true;
          }
          catch (Exception ex)

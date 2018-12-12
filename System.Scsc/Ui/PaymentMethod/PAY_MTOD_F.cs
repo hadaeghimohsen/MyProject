@@ -497,12 +497,11 @@ namespace System.Scsc.Ui.PaymentMethod
             if(pmtc.CHEK_TYPE == "002")return;
             if(pmtc.RCPT_DATE == null)
             {
-               MessageBox.Show("تاریخ پرداخت چک مشخص نیست");
+               MessageBox.Show("تاریخ پرداخت مشخص نیست");
                return;
             }
 
-            pmtc.CHEK_TYPE = "002";
-            
+            pmtc.CHEK_TYPE = "002";            
 
             PmmtBs1.AddNew();
             var crntp = PmmtBs1.Current as Data.Payment_Method;
@@ -706,18 +705,29 @@ namespace System.Scsc.Ui.PaymentMethod
       private void RcptMtod_Lov_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
       {
          try
-         {            
-            var pmmt = PmmtBs1.Current as Data.Payment_Method;
-            if (pmmt == null) return;
+         {
+            if (tb_master.SelectedTab == tp_001)
+            {
+               var pmmt = PmmtBs1.Current as Data.Payment_Method;
+               if (pmmt == null) return;
 
-            if (pmmt.RWNO == 0 && e == null && RcptMtod_Lov.EditValue.ToString() == "003") 
-               PosToolsVisiable(true); 
-            else if(pmmt.RWNO == 0 && e != null && e.NewValue.ToString() == "003")
-               PosToolsVisiable(true); 
-            else { PosToolsVisiable(false); }
+               if (pmmt.RWNO == 0 && e == null && RcptMtod_Lov.EditValue.ToString() == "003")
+                  PosToolsVisiable(true);
+               else if (pmmt.RWNO == 0 && e != null && e.NewValue.ToString() == "003")
+                  PosToolsVisiable(true);
+               else { PosToolsVisiable(false); }
+            }
+            else if(tb_master.SelectedTab == tp_004)
+            {
+               var pmtc = PmtcBs4.Current as Data.Payment_Check;
+               if (pmtc == null) return;
 
-            var rcptmtod = sender as LookUpEdit;
-            rcptmtod.EditValue = e.NewValue;
+               if (e == null && RcptMtod1_Lov.EditValue.ToString() == "003")
+                  PosToolsVisiable(true);
+               else if (e != null && e.NewValue.ToString() == "003")
+                  PosToolsVisiable(true);
+               else { PosToolsVisiable(false); }
+            }
          }
          catch (Exception exc)
          {
@@ -727,7 +737,7 @@ namespace System.Scsc.Ui.PaymentMethod
 
       private void PosToolsVisiable(bool value)
       {
-         SendPos_Butn.Visible = value;
+         SendPos1_Butn.Visible = SendPos_Butn.Visible = value;
       }
 
       private void PosStng_Butn_Click(object sender, EventArgs e)
@@ -741,58 +751,117 @@ namespace System.Scsc.Ui.PaymentMethod
       {
          try
          {
-            var pymt = PymtBs1.Current as Data.Payment;
-            if(pymt == null)return;
-
-            if ((long)Amnt_Txt.EditValue == 0) return;
-
-            var regl = iScsc.Regulations.FirstOrDefault(r => r.TYPE == "001" && r.REGL_STAT == "002");
-
-            long psid;
-            if(Pos_Lov.EditValue == null)
+            if (tb_master.SelectedTab == tp_001)
             {
-               var posdflts = VPosBs1.List.OfType<Data.V_Pos_Device>().Where(p => p.POS_DFLT == "002");
-               if (posdflts.Count() == 1)
-                  Pos_Lov.EditValue = psid = posdflts.FirstOrDefault().PSID;
+               var pymt = PymtBs1.Current as Data.Payment;
+               if (pymt == null) return;
+
+               if ((long)Amnt_Txt.EditValue == 0) return;
+
+               var regl = iScsc.Regulations.FirstOrDefault(r => r.TYPE == "001" && r.REGL_STAT == "002");
+
+               long psid;
+               if (Pos_Lov.EditValue == null)
+               {
+                  var posdflts = VPosBs1.List.OfType<Data.V_Pos_Device>().Where(p => p.POS_DFLT == "002");
+                  if (posdflts.Count() == 1)
+                     Pos_Lov.EditValue = psid = posdflts.FirstOrDefault().PSID;
+                  else
+                  {
+                     Pos_Lov.Focus();
+                     return;
+                  }
+               }
                else
                {
-                  Pos_Lov.Focus();
-                  return;
+                  psid = (long)Pos_Lov.EditValue;
                }
-            }
-            else
-            {
-               psid = (long)Pos_Lov.EditValue;
-            }
 
-            if (regl.AMNT_TYPE == "002")
-               Amnt_Txt.EditValue = (long)Amnt_Txt.EditValue * 10;
-            
-            _DefaultGateway.Gateway(
-               new Job(SendType.External, "localhost",
-                  new List<Job>
-                  {
-                     new Job(SendType.External, "Commons",
-                        new List<Job>
-                        {
-                           new Job(SendType.Self, 34 /* Execute PosPayment */)
+               if (regl.AMNT_TYPE == "002")
+                  Amnt_Txt.EditValue = (long)Amnt_Txt.EditValue * 10;
+
+               _DefaultGateway.Gateway(
+                  new Job(SendType.External, "localhost",
+                     new List<Job>
+                     {
+                        new Job(SendType.External, "Commons",
+                           new List<Job>
                            {
-                              Input = 
-                                 new XElement("PosRequest",
-                                    new XAttribute("psid", psid),
-                                    new XAttribute("subsys", 5),
-                                    new XAttribute("rqid", pymt.RQST_RQID),
-                                    new XAttribute("rqtpcode", ""),
-                                    new XAttribute("router", GetType().Name),
-                                    new XAttribute("callback", 20),
-                                    new XAttribute("amnt", (long)Amnt_Txt.EditValue )
-                                 )
+                              new Job(SendType.Self, 34 /* Execute PosPayment */)
+                              {
+                                 Input = 
+                                    new XElement("PosRequest",
+                                       new XAttribute("psid", psid),
+                                       new XAttribute("subsys", 5),
+                                       new XAttribute("rqid", pymt.RQST_RQID),
+                                       new XAttribute("rqtpcode", ""),
+                                       new XAttribute("router", GetType().Name),
+                                       new XAttribute("callback", 20),
+                                       new XAttribute("amnt", (long)Amnt_Txt.EditValue )
+                                    )
+                              }
                            }
-                        }
-                     )                     
+                        )                     
+                     }
+                  )
+               );
+            }
+            else if(tb_master.SelectedTab == tp_004)
+            {
+               var pymt = PmtcBs4.Current as Data.Payment_Check;
+               if (pymt == null) return;
+
+               if (pymt.AMNT == 0 || pymt.CHEK_TYPE == "002") return;
+
+               var regl = iScsc.Regulations.FirstOrDefault(r => r.TYPE == "001" && r.REGL_STAT == "002");
+
+               long psid;
+               if (Pos_Lov.EditValue == null)
+               {
+                  var posdflts = VPosBs1.List.OfType<Data.V_Pos_Device>().Where(p => p.POS_DFLT == "002");
+                  if (posdflts.Count() == 1)
+                     Pos1_Lov.EditValue = psid = posdflts.FirstOrDefault().PSID;
+                  else
+                  {
+                     Pos1_Lov.Focus();
+                     return;
                   }
-               )
-            );
+               }
+               else
+               {
+                  psid = (long)Pos1_Lov.EditValue;
+               }
+
+               var amnt = pymt.AMNT;
+               if (regl.AMNT_TYPE == "002")
+                  amnt = amnt * 10;
+
+               _DefaultGateway.Gateway(
+                  new Job(SendType.External, "localhost",
+                     new List<Job>
+                     {
+                        new Job(SendType.External, "Commons",
+                           new List<Job>
+                           {
+                              new Job(SendType.Self, 34 /* Execute PosPayment */)
+                              {
+                                 Input = 
+                                    new XElement("PosRequest",
+                                       new XAttribute("psid", psid),
+                                       new XAttribute("subsys", 5),
+                                       new XAttribute("rqid", pymt.PYMT_RQST_RQID),
+                                       new XAttribute("rqtpcode", ""),
+                                       new XAttribute("router", GetType().Name),
+                                       new XAttribute("callback", 20),
+                                       new XAttribute("amnt", amnt )
+                                    )
+                              }
+                           }
+                        )                     
+                     }
+                  )
+               );
+            }
          }
          catch (Exception exc)
          {
@@ -841,12 +910,14 @@ namespace System.Scsc.Ui.PaymentMethod
                PymtInstall_Txt.Text = PmtcBs4.List.OfType<Data.Payment_Check>().OrderBy(pc => pc.RWNO).FirstOrDefault().AMNT.ToString();
                LastPymtInstall_Txt.Text = PmtcBs4.List.OfType<Data.Payment_Check>().OrderByDescending(pc => pc.RWNO).FirstOrDefault().AMNT.ToString();
                LastDate_dt.Value = PmtcBs4.List.OfType<Data.Payment_Check>().OrderByDescending(pc => pc.RWNO).FirstOrDefault().CHEK_DATE;
+               RcptAmnt_Txt.Text = PmtcBs4.List.OfType<Data.Payment_Check>().Where(pc => pc.CHEK_TYPE == "002").Sum(pc => pc.AMNT).ToString();
             }
             else
             {
                PymtInstall_Txt.Text = "0";
                LastPymtInstall_Txt.Text = "0";
                LastDate_dt.Value = null;
+               RcptAmnt_Txt.Text = "0";
             }
          }
          catch (Exception exc)

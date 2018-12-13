@@ -326,6 +326,7 @@ namespace System.Scsc.Ui.AggregateOperation
          try
          {
             var crnt = AodtBs1.Current as Data.Aggregation_Operation_Detail;
+            if (crnt == null) { Pn_MbspInfo.Visible = Gb_Expense.Visible = false; return; }
 
             RqstBs2.DataSource = iScsc.Requests.First(r => r == crnt.Request);
          }
@@ -472,6 +473,131 @@ namespace System.Scsc.Ui.AggregateOperation
       private void AgopBs1_CurrentChanged(object sender, EventArgs e)
       {
          CbmtNew_Lov_EditValueChanging(null, null);
+      }
+
+      private void CbmtCode_Lov_EditValueChanged(object sender, EventArgs e)
+      {
+         try
+         {
+            var cbmt = CbmtCode_Lov.EditValue;
+
+            if (cbmt == null || cbmt.ToString() == "") return;
+
+            var crntcbmt = CbmtBs1.List.OfType<Data.Club_Method>().FirstOrDefault(c => c.CODE == (long)cbmt);
+
+            CtgyBs2.DataSource = iScsc.Category_Belts.Where(c => c.MTOD_CODE == crntcbmt.MTOD_CODE && c.CTGY_STAT == "002");
+         }
+         catch (Exception)
+         {
+
+         }
+      }
+
+      private void AutoAttn_Btn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var adot = AodtBs1.Current as Data.Aggregation_Operation_Detail;
+            if (adot == null) return;
+
+            long ctgycode = (long)CtgyCode_LookupEdit003.EditValue;
+            string rqttcode = adot.Request.RQTT_CODE;
+            var expn = iScsc.Expenses.Where(exp => exp.Expense_Type.Request_Requester.RQTP_CODE == "009" && exp.Expense_Type.Request_Requester.RQTT_CODE == "001" && exp.Expense_Type.Request_Requester.Regulation.REGL_STAT == "002" && exp.Expense_Type.Request_Requester.Regulation.TYPE == "001" && exp.CTGY_CODE == ctgycode && exp.EXPN_STAT == "002").FirstOrDefault();
+
+            StrtDate_dt.Value = DateTime.Now;
+            EndDate_dt.Value = DateTime.Now.AddDays((double)(expn.NUMB_CYCL_DAY ?? 30));
+            NumbAttnMont_Txt.EditValue = expn.NUMB_OF_ATTN_MONT ?? 0;
+            NumbMontOfer_Txt.EditValue = expn.NUMB_MONT_OFER ?? 0;
+         }
+         catch (Exception)
+         {
+            MessageBox.Show("در آیین نامه نرخ و هزینه تعداد جلسات و اطلاعات اتوماتیک به درستی وارد نشده. لطفا آیین نامه را بررسی و اصلاح کنید");
+         }
+      }
+
+      private void RqstBs2_CurrentChanged(object sender, EventArgs e)
+      {
+         try
+         {
+            var rqst = RqstBs2.Current as Data.Request;
+            if (rqst == null) { Pn_MbspInfo.Visible = Gb_Expense.Visible = false; return; }
+
+            Pn_MbspInfo.Visible = true;
+
+            if (rqst.RQTT_CODE == "001")
+               Gb_Expense.Visible = true;
+            else
+               Gb_Expense.Visible = false;
+
+         }
+         catch
+         {
+
+         }
+      }
+
+      long rqstindex = 0;
+
+      private void SaveData_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var rqst = RqstBs2.Current as Data.Request;
+            rqstindex = RqstBs2.Position;
+
+            var aodt = AodtBs1.Current as Data.Aggregation_Operation_Detail;
+            
+            StrtDate_dt.CommitChanges();
+            EndDate_dt.CommitChanges();
+
+            if (!StrtDate_dt.Value.HasValue) { StrtDate_dt.Value = DateTime.Now; }
+            if (!EndDate_dt.Value.HasValue) { EndDate_dt.Value = DateTime.Now.AddDays(29); }
+
+            if (StrtDate_dt.Value.Value.Date > EndDate_dt.Value.Value.Date)
+            {
+               throw new Exception("تاریخ شروع باید از تاریخ پایان کوچکتر با مساوی باشد");
+            }
+
+            iScsc.UCC_TRQT_P(
+               new XElement("Process",
+                  new XElement("Request",
+                     new XAttribute("rqid", rqst == null ? 0 : rqst.RQID),
+                     new XAttribute("rqtpcode", "009"),
+                     new XAttribute("rqttcode", rqst.RQTT_CODE),
+                     new XElement("Request_Row",
+                        new XAttribute("fileno", aodt.FIGH_FILE_NO),
+                        new XElement("Fighter",
+                           new XAttribute("ctgycodednrm", CtgyCode_LookupEdit003.EditValue ?? ""),
+                           new XAttribute("cbmtcodednrm", CbmtCode_Lov.EditValue ?? "")
+                        ),
+                        new XElement("Member_Ship",
+                           new XAttribute("strtdate", StrtDate_dt.Value.HasValue ? StrtDate_dt.Value.Value.ToString("yyyy-MM-dd") : ""),
+                           new XAttribute("enddate", EndDate_dt.Value.HasValue ? EndDate_dt.Value.Value.ToString("yyyy-MM-dd") : ""),
+                           new XAttribute("prntcont", "1"),
+                           new XAttribute("numbmontofer", NumbMontOfer_Txt.Text ?? "0"),
+                           new XAttribute("numbofattnmont", NumbOfAttnMont_Txt.Text ?? "0"),
+                           new XAttribute("numbofattnweek", "0"),
+                           new XAttribute("attndaytype", "")
+                        )
+                     )
+                  )
+               )
+            );
+            //tabControl1.SelectedTab = tabPage3;
+            requery = true;
+         }
+         catch (Exception ex)
+         {
+            MessageBox.Show(ex.Message);
+         }
+         finally
+         {
+            if (requery)
+            {
+               Execute_Query();
+               requery = false;
+            }
+         }
       }
    }
 }

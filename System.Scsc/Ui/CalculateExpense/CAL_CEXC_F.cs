@@ -65,6 +65,8 @@ namespace System.Scsc.Ui.CalculateExpense
          {
             if (!Pde_FromDate.Value.HasValue) { Pde_FromDate.Focus(); return; }
             if (!Pde_ToDate.Value.HasValue) { Pde_ToDate.Focus(); return; }
+            
+            iScsc.CommandTimeout = 18000;
 
             iScsc.CALC_EXPN_P(
                new XElement("Process",

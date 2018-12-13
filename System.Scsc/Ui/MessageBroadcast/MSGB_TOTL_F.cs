@@ -347,7 +347,8 @@ namespace System.Scsc.Ui.MessageBroadcast
                      )
                   )
                ).ToList()
-               .Where(r => phonnumb.IsMatch(r.CELL_PHON_DNRM));
+               .Where(r => phonnumb.IsMatch(r.CELL_PHON_DNRM))
+               .OrderBy(f => f.NAME_DNRM);
          }
          catch { return null; }
       }

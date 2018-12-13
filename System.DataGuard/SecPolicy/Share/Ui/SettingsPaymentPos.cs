@@ -465,9 +465,9 @@ namespace System.DataGuard.SecPolicy.Share.Ui
 
             Tlid = MellatPcPos_SaveTransactionLog(null);
             NetworkStream stream = client.GetStream();
-            string str_comm = "" + "{\"ServiceCode\" :\"" + "1";
+            string str_comm = "" + "{\"ServiceCode\" : \"" + "1";
             if (Convert.ToInt64( Amnt_Txt.EditValue ) > 0)
-               str_comm += "\",\"Amount\":\"" + Amnt_Txt.EditValue.ToString();
+               str_comm += "\" ,\"Amount\" : \"" + Amnt_Txt.EditValue.ToString();
             //if (txtDebitPayerId.Text.Length > 0)
             //   str_comm += "\",\"PayerId\":\"" + txtDebitPayerId.Text;
             //if (txtDebitMsg.Text.Length > 0)

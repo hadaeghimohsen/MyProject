@@ -7723,7 +7723,7 @@
          this.tp_006.Size = new System.Drawing.Size(932, 641);
          this.tp_006.TabIndex = 5;
          this.tp_006.Tag = "6";
-         this.tp_006.Text = "برنامه ها و گروه بندی";
+         this.tp_006.Text = "مدیریت بخش ها";
          this.tp_006.UseVisualStyleBackColor = true;
          // 
          // PrintSettingClubMethod_Butn
@@ -9572,7 +9572,7 @@
          this.CbmtTitl_Lb.Name = "CbmtTitl_Lb";
          this.CbmtTitl_Lb.Size = new System.Drawing.Size(932, 36);
          this.CbmtTitl_Lb.TabIndex = 10;
-         this.CbmtTitl_Lb.Text = "برنامه ها و گروه بندی";
+         this.CbmtTitl_Lb.Text = "مدیریت بخش ها";
          // 
          // tp_007
          // 
@@ -11997,7 +11997,7 @@
          this.Club_Butn.Size = new System.Drawing.Size(231, 46);
          this.Club_Butn.TabIndex = 4;
          this.Club_Butn.Tag = "6";
-         this.Club_Butn.Text = "برنامه ها و گروه بندی";
+         this.Club_Butn.Text = "مدیریت بخش ها";
          this.Club_Butn.Click += new System.EventHandler(this.RightButns_Click);
          // 
          // HldyDay_Butn

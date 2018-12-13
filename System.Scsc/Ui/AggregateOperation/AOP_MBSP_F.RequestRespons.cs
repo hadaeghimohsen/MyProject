@@ -196,6 +196,7 @@ namespace System.Scsc.Ui.AggregateOperation
             CbmtBs1.DataSource = iScsc.Club_Methods.Where(c => c.MTOD_STAT == "002" && Fga_Uclb_U.Contains(c.CLUB_CODE));
             DDytpBs1.DataSource = iScsc.D_DYTPs;
             RqttBs1.DataSource = iScsc.Requester_Types.Where(rt => rt.CODE == "001" || rt.CODE == "004");
+            DAtypBs1.DataSource = iScsc.D_ATYPs;
             isFirstLoaded = true;
          }
          job.Status = StatusType.Successful;

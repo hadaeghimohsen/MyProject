@@ -195,6 +195,7 @@
          this.textEdit18 = new DevExpress.XtraEditors.TextEdit();
          this.dateTimeSelector6 = new Atf.UI.DateTimeSelector();
          this.Info_Gb = new System.Windows.Forms.GroupBox();
+         this.FNGR_PRNT_TextEdit = new DevExpress.XtraEditors.TextEdit();
          this.UserProFile_Rb = new System.MaxUi.RoundedButton();
          this.Pn_MbspInfo = new System.Windows.Forms.Panel();
          this.SaveAttn_PkBt = new System.MaxUi.NewPickBtn();
@@ -308,6 +309,7 @@
          this.colRegion1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colRequest2 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colSub_Unit = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.label1 = new System.Windows.Forms.Label();
          this.RqstBn3 = new System.Windows.Forms.BindingNavigator(this.components);
          this.RqstBnNew3 = new System.Windows.Forms.ToolStripButton();
          this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
@@ -341,8 +343,6 @@
          this.DCyclBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.MbspBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.RqroBs1 = new System.Windows.Forms.BindingSource(this.components);
-         this.FNGR_PRNT_TextEdit = new DevExpress.XtraEditors.TextEdit();
-         this.label1 = new System.Windows.Forms.Label();
          ((System.ComponentModel.ISupportInitialize)(this.RegnBs1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.PrvnBs1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.MtodBs2)).BeginInit();
@@ -380,6 +380,7 @@
          ((System.ComponentModel.ISupportInitialize)(this.textEdit16.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.textEdit18.Properties)).BeginInit();
          this.Info_Gb.SuspendLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.FNGR_PRNT_TextEdit.Properties)).BeginInit();
          this.Pn_MbspInfo.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.NumbOfAttnMont_TextEdit003.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.MbspBs3)).BeginInit();
@@ -407,7 +408,6 @@
          ((System.ComponentModel.ISupportInitialize)(this.DCyclBs1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.MbspBs1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.RqroBs1)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.FNGR_PRNT_TextEdit.Properties)).BeginInit();
          this.SuspendLayout();
          // 
          // RqttCode_Lb
@@ -2004,6 +2004,22 @@
          this.Info_Gb.TabStop = false;
          this.Info_Gb.Text = "مشخصات عمومی";
          // 
+         // FNGR_PRNT_TextEdit
+         // 
+         this.FNGR_PRNT_TextEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.FNGR_PRNT_TextEdit.EditValue = "";
+         this.FNGR_PRNT_TextEdit.Location = new System.Drawing.Point(165, 16);
+         this.FNGR_PRNT_TextEdit.Name = "FNGR_PRNT_TextEdit";
+         this.FNGR_PRNT_TextEdit.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.FNGR_PRNT_TextEdit.Properties.Appearance.Options.UseFont = true;
+         this.FNGR_PRNT_TextEdit.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+         this.FNGR_PRNT_TextEdit.Properties.AppearanceFocused.Options.UseBackColor = true;
+         this.FNGR_PRNT_TextEdit.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
+         this.FNGR_PRNT_TextEdit.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.FNGR_PRNT_TextEdit.Properties.ReadOnly = true;
+         this.FNGR_PRNT_TextEdit.Size = new System.Drawing.Size(100, 22);
+         this.FNGR_PRNT_TextEdit.TabIndex = 66;
+         // 
          // UserProFile_Rb
          // 
          this.UserProFile_Rb.Active = true;
@@ -3038,6 +3054,16 @@
          this.colSub_Unit.FieldName = "Sub_Unit";
          this.colSub_Unit.Name = "colSub_Unit";
          // 
+         // label1
+         // 
+         this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.label1.AutoSize = true;
+         this.label1.Location = new System.Drawing.Point(271, 19);
+         this.label1.Name = "label1";
+         this.label1.Size = new System.Drawing.Size(73, 14);
+         this.label1.TabIndex = 31;
+         this.label1.Text = "کد انگشتی :";
+         // 
          // RqstBn3
          // 
          this.RqstBn3.AddNewItem = this.RqstBnNew3;
@@ -3093,7 +3119,7 @@
          // toolStripLabel2
          // 
          this.toolStripLabel2.Name = "toolStripLabel2";
-         this.toolStripLabel2.Size = new System.Drawing.Size(35, 44);
+         this.toolStripLabel2.Size = new System.Drawing.Size(34, 44);
          this.toolStripLabel2.Text = "of {0}";
          this.toolStripLabel2.ToolTipText = "Total number of items";
          // 
@@ -3353,38 +3379,11 @@
          // 
          this.MbspBs1.DataSource = this.RqroBs1;
          // 
-         // FNGR_PRNT_TextEdit
-         // 
-         this.FNGR_PRNT_TextEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.FNGR_PRNT_TextEdit.EditValue = "";
-         this.FNGR_PRNT_TextEdit.Location = new System.Drawing.Point(165, 16);
-         this.FNGR_PRNT_TextEdit.Name = "FNGR_PRNT_TextEdit";
-         this.FNGR_PRNT_TextEdit.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.FNGR_PRNT_TextEdit.Properties.Appearance.Options.UseFont = true;
-         this.FNGR_PRNT_TextEdit.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-         this.FNGR_PRNT_TextEdit.Properties.AppearanceFocused.Options.UseBackColor = true;
-         this.FNGR_PRNT_TextEdit.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
-         this.FNGR_PRNT_TextEdit.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.FNGR_PRNT_TextEdit.Properties.ReadOnly = true;
-         this.FNGR_PRNT_TextEdit.Size = new System.Drawing.Size(100, 22);
-         this.FNGR_PRNT_TextEdit.TabIndex = 66;
-         // 
-         // label1
-         // 
-         this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.label1.AutoSize = true;
-         this.label1.Location = new System.Drawing.Point(271, 19);
-         this.label1.Name = "label1";
-         this.label1.Size = new System.Drawing.Size(73, 14);
-         this.label1.TabIndex = 31;
-         this.label1.Text = "کد انگشتی :";
-         // 
          // ADM_TOTL_F
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
          this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
          this.AutoScroll = true;
-         this.BackColor = System.Drawing.SystemColors.Control;
          this.Controls.Add(this.Gb_Expense3);
          this.Controls.Add(this.Info_Gb);
          this.Controls.Add(this.Gb_Rqst3);
@@ -3433,6 +3432,7 @@
          ((System.ComponentModel.ISupportInitialize)(this.textEdit18.Properties)).EndInit();
          this.Info_Gb.ResumeLayout(false);
          this.Info_Gb.PerformLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.FNGR_PRNT_TextEdit.Properties)).EndInit();
          this.Pn_MbspInfo.ResumeLayout(false);
          this.Pn_MbspInfo.PerformLayout();
          ((System.ComponentModel.ISupportInitialize)(this.NumbOfAttnMont_TextEdit003.Properties)).EndInit();
@@ -3462,7 +3462,6 @@
          ((System.ComponentModel.ISupportInitialize)(this.DCyclBs1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.MbspBs1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.RqroBs1)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.FNGR_PRNT_TextEdit.Properties)).EndInit();
          this.ResumeLayout(false);
          this.PerformLayout();
 

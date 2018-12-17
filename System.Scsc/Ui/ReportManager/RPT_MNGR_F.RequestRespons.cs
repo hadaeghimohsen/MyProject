@@ -356,6 +356,67 @@ namespace System.Scsc.Ui.ReportManager
             }
             #endregion
          }
+         else if (PrintType == "PrintAfterFinish")
+         {
+            #region Print After Finish
+            var DfltPrint = iScsc.Modual_Reports.Where(mr => mr.MDUL_NAME == ModualName && mr.SECT_NAME == SectionName && mr.STAT == "002" /*&& mr.DFLT == "002"*/ && mr.PRNT_AFTR_PAY == "002").SingleOrDefault();
+            if (DfltPrint != null)
+            {
+               if (DfltPrint.SHOW_PRVW == "002") // Yes
+               {
+                  Stimulsoft.Report.StiReport s = new Stimulsoft.Report.StiReport();
+                  s.Load(DfltPrint.RPRT_PATH);
+                  s.Dictionary.Databases.Clear();
+                  s.Dictionary.Databases.Add(new StiSqlDatabase("iScsc", ConnectionString));
+                  vc_reportviewer.Report = s;
+                  s.Dictionary.Variables.Add(new StiVariable("WhereClause", WhereClause));
+
+                  s.Compile();
+                  s.Render();
+
+                  _DefaultGateway.Gateway(
+                     new Job(SendType.External, "Localhost",
+                        new List<Job>
+                        {                        
+                           new Job(SendType.SelfToUserInterface, "RPT_MNGR_F", 03 /* Execute Paint */)                        
+                        })
+                   );
+               }
+               else // No
+               {
+                  Stimulsoft.Report.StiReport s = new Stimulsoft.Report.StiReport();
+                  s.Load(DfltPrint.RPRT_PATH);
+                  s.Dictionary.Databases.Clear();
+                  s.Dictionary.Databases.Add(new StiSqlDatabase("iScsc", ConnectionString));
+                  vc_reportviewer.Report = s;
+                  s.Dictionary.Variables.Add(new StiVariable("WhereClause", WhereClause));
+
+                  s.Compile();
+                  s.Render();
+                  s.Print(false);
+
+                  // 1397/01/08 * بازگشت سریع به فرم صدا کننده
+                  _DefaultGateway.Gateway(
+                     new Job(SendType.External, "localhost", GetType().Name, 00 /* Execute ProcessCmdKey */, SendType.SelfToUserInterface) { Input = Keys.Escape }
+                  );
+               }
+            }
+            //else
+            //{
+            //   if (iScsc.Modual_Reports.Where(mr => mr.MDUL_NAME == ModualName && mr.SECT_NAME == SectionName && mr.STAT == "002").Any())
+            //   {
+            //      Job _InteractWithScsc = new Job(SendType.External, "Localhost",
+            //         new List<Job>
+            //         {
+            //            new Job(SendType.Self, 85 /* Execute RPT_LRFM_F */){Input = job.Input}
+            //         });
+            //      _DefaultGateway.Gateway(_InteractWithScsc);
+            //   }
+            //   else
+            //      MessageBox.Show(this, "برای فرم جاری هیچگونه چاپ گزارش مشخص نشده، لطفا از طریق تنظیمات چاپ همین فرم برای مشخص کردن چاپ گزارش اقدام فرمایید", "مشخص نبودن چاپ فرم", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //}
+            #endregion
+         }
 
          job.Status = StatusType.Successful;
       }

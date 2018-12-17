@@ -5,14 +5,14 @@
     <Databases isList="true" count="1">
       <iScsc Ref="2" type="Stimulsoft.Report.Dictionary.StiSqlDatabase" isKey="true">
         <Alias>iScsc</Alias>
-        <ConnectionString>Password=hadaeghi1020_asrdb;Persist Security Info=True;Data Source=.;Integrated Security=False;Initial Catalog=iScsc;User ID=hadaeghi</ConnectionString>
+        <ConnectionString>User ID=hadaeghi;Integrated Security=True;Data Source=.;Initial Catalog=iScsc;Persist Security Info=False</ConnectionString>
         <Name>iScsc</Name>
       </iScsc>
     </Databases>
     <DataSources isList="true" count="1">
       <iQuery Ref="3" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
         <Alias>iQuery</Alias>
-        <Columns isList="true" count="22">
+        <Columns isList="true" count="25">
           <value>RQID,System.Int64</value>
           <value>PRNT_DESC,System.String</value>
           <value>RQST_DATE,System.String</value>
@@ -35,6 +35,9 @@
           <value>SUM_EXPN_PRIC_DESC,System.String</value>
           <value>CASH_DESC,System.String</value>
           <value>TOTL_DAY,System.Int32</value>
+          <value>AMNT_UNIT_TYPE_DESC,System.String</value>
+          <value>SUM_RCPT_EXPN_PRIC,System.Int32</value>
+          <value>SUM_PYMT_DSCN_DNRM,System.Int32</value>
         </Columns>
         <CommandTimeout>30</CommandTimeout>
         <Dictionary isRef="1" />
@@ -63,14 +66,17 @@
 	dbo.GET_CBMT_DESC(Fighter.CBMT_CODE_DNRM) AS CBMT_DESC,
 	N'پروفایل ' + D$SXDC.DOMN_DESC AS SEX_DESC,
     dbo.GET_NTOS_U(Payment.SUM_EXPN_PRIC + Payment.SUM_EXPN_EXTR_PRCT) AS SUM_EXPN_PRIC_DESC,
-(SELECT N' مبلغ ' + LEFT(CONVERT(VARCHAR, CAST(SUM(EXPN_PRIC + EXPN_EXTR_PRCT) AS MONEY), 1) ,LEN(CONVERT(VARCHAR, CAST(SUM(EXPN_PRIC + EXPN_EXTR_PRCT) AS MONEY))) - 2)  + N' ریال به ' + Cash.NAME + N', '
-	      FROM Payment_Detail, Cash
-	     WHERE Payment.CASH_CODE = Payment_Detail.PYMT_CASH_CODE
-	       AND Payment.RQST_RQID = Payment_Detail.PYMT_RQST_RQID
-	       AND Request_Row.RWNO  = Payment_Detail.RQRO_RWNO
-	       AND Payment_Detail.PYMT_CASH_CODE = Cash.CODE
-	  GROUP BY Cash.NAME
-	  FOR XML PATH('')) AS CASH_DESC
+    (SELECT N' مبلغ ' + LEFT(CONVERT(VARCHAR, CAST(SUM(EXPN_PRIC + EXPN_EXTR_PRCT) AS MONEY), 1) ,LEN(CONVERT(VARCHAR, CAST(SUM(EXPN_PRIC + EXPN_EXTR_PRCT) AS MONEY))) - 2)  + N' ' + D$ATYP.DOMN_DESC + N' به ' + Cash.NAME + N', '
+	   FROM Payment_Detail, Cash
+	  WHERE Payment.CASH_CODE = Payment_Detail.PYMT_CASH_CODE
+	    AND Payment.RQST_RQID = Payment_Detail.PYMT_RQST_RQID
+	    AND Request_Row.RWNO  = Payment_Detail.RQRO_RWNO
+	    AND Payment_Detail.PYMT_CASH_CODE = Cash.CODE
+   GROUP BY Cash.NAME
+  	    FOR XML PATH('')) AS CASH_DESC,
+    D$ATYP.DOMN_DESC AS AMNT_UNIT_TYPE_DESC,
+    Payment.SUM_RCPT_EXPN_PRIC,
+    Payment.SUM_PYMT_DSCN_DNRM
 FROM   Request INNER JOIN
        Request_Row ON Request.RQID = Request_Row.RQST_RQID INNER JOIN
        Request_Type ON Request.RQTP_CODE = Request_Type.CODE INNER JOIN
@@ -86,8 +92,9 @@ FROM   Request INNER JOIN
        Fighter.REGN_CODE = Region.CODE AND Club.REGN_PRVN_CNTY_CODE = Region.PRVN_CNTY_CODE AND 
        Club.REGN_PRVN_CODE = Region.PRVN_CODE AND Club.REGN_CODE = Region.CODE INNER JOIN
        Province ON Region.PRVN_CNTY_CODE = Province.CNTY_CODE AND Region.PRVN_CODE = Province.CODE INNER JOIN
-       D$SXDC ON Fighter.SEX_TYPE_DNRM = D$SXDC.VALU
-WHERE  Request.RQST_STAT = '001'
+       D$SXDC ON Fighter.SEX_TYPE_DNRM = D$SXDC.VALU INNER JOIN
+       D$ATYP ON Payment.AMNT_UNIT_TYPE_DNRM = D$ATYP.VALU
+WHERE  Request.RQST_STAT != '003'
   AND  {WhereClause}
   
   </SqlCommand>
@@ -186,7 +193,7 @@ WHERE  Request.RQST_STAT = '001'
             </Text5>
             <Text6 Ref="11" type="Text" isKey="true">
               <Brush>White</Brush>
-              <ClientRectangle>18,38,170,6</ClientRectangle>
+              <ClientRectangle>18,40,170,6</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Nazanin,13,Bold</Font>
               <HorAlignment>Right</HorAlignment>
@@ -231,7 +238,7 @@ WHERE  Request.RQST_STAT = '001'
             </BarCode1>
             <Text10 Ref="15" type="Text" isKey="true">
               <Brush>White</Brush>
-              <ClientRectangle>100,46,88,6</ClientRectangle>
+              <ClientRectangle>100,48,88,6</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Nazanin,12,Bold</Font>
               <Guid>386394452b29460f870c6c4a6015dc3e</Guid>
@@ -263,8 +270,9 @@ WHERE  Request.RQST_STAT = '001'
             </Text9>
             <Text12 Ref="17" type="Text" isKey="true">
               <Brush>White</Brush>
-              <ClientRectangle>26,46,74,6</ClientRectangle>
+              <ClientRectangle>26,48,74,6</ClientRectangle>
               <Conditions isList="true" count="0" />
+              <Enabled>False</Enabled>
               <Font>B Nazanin,12,Bold</Font>
               <Guid>4aab76f533094a09b65526fdf616a88b</Guid>
               <HorAlignment>Right</HorAlignment>
@@ -272,7 +280,8 @@ WHERE  Request.RQST_STAT = '001'
               <Name>Text12</Name>
               <Page isRef="4" />
               <Parent isRef="5" />
-              <Text>نام پدر : {iQuery.FATH_NAME_DNRM}</Text>
+              <Text>نام پدر : {(iQuery.FATH_NAME_DNRM == null || iQuery.FATH_NAME_DNRM == "") ? " --- " : iQuery.FATH_NAME_DNRM}
+</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
@@ -352,7 +361,7 @@ WHERE  Request.RQST_STAT = '001'
               <Name>Text19</Name>
               <Page isRef="4" />
               <Parent isRef="5" />
-              <Text>هزینه : {Format("{0:N0}", iQuery.SUM_EXPN_PRIC )} ریال</Text>
+              <Text>هزینه : {Format("{0:N0}", iQuery.SUM_EXPN_PRIC )} {iQuery.AMNT_UNIT_TYPE_DESC}</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
@@ -367,7 +376,7 @@ WHERE  Request.RQST_STAT = '001'
               <Name>Text20</Name>
               <Page isRef="4" />
               <Parent isRef="5" />
-              <Text>مبلغ به حروف : {iQuery.SUM_EXPN_PRIC_DESC}  ریال</Text>
+              <Text>مبلغ به حروف : {iQuery.SUM_EXPN_PRIC_DESC} {iQuery.AMNT_UNIT_TYPE_DESC}</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
@@ -383,7 +392,10 @@ WHERE  Request.RQST_STAT = '001'
               <Name>Text21</Name>
               <Page isRef="4" />
               <Parent isRef="5" />
-              <Text>وجه به صورت {iQuery.CASH_DESC} پرداخت شود.</Text>
+              <Text>مبلغ تخفیف : {Format("{0:N0}",iQuery.SUM_PYMT_DSCN_DNRM)} {iQuery.AMNT_UNIT_TYPE_DESC}
+مبلغ پرداختی : {Format("{0:N0}",iQuery.SUM_RCPT_EXPN_PRIC)} {iQuery.AMNT_UNIT_TYPE_DESC}
+مبلغ مانده : {Format("{0:N0}",(iQuery.SUM_EXPN_PRIC - (iQuery.SUM_RCPT_EXPN_PRIC + iQuery.SUM_PYMT_DSCN_DNRM)))} {iQuery.AMNT_UNIT_TYPE_DESC}
+</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
             </Text21>
@@ -713,10 +725,10 @@ WHERE  Request.RQST_STAT = '001'
     <value>Stimulsoft.Report.Dll</value>
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
-  <ReportChanged>1/7/2016 2:16:38 PM</ReportChanged>
+  <ReportChanged>12/17/2018 6:57:57 PM</ReportChanged>
   <ReportCreated>1/2/2016 4:35:07 PM</ReportCreated>
-  <ReportFile>\\192.168.1.149\Report Repository\RPT_ADM_003_FISH_R.mrt</ReportFile>
-  <ReportGuid>42087562c4b24fe59e56f67ac80abb67</ReportGuid>
+  <ReportFile>D:\Project\MyProject\Documents\Report Repository\RPT_ADM_003_FISH_R.mrt</ReportFile>
+  <ReportGuid>b7ab017e984e4308a86317981cf50018</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Millimeters</ReportUnit>
   <ReportVersion>2012.2.1304</ReportVersion>

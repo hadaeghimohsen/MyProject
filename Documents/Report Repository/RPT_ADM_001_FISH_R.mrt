@@ -5,14 +5,14 @@
     <Databases isList="true" count="1">
       <iScsc Ref="2" type="Stimulsoft.Report.Dictionary.StiSqlDatabase" isKey="true">
         <Alias>iScsc</Alias>
-        <ConnectionString>Password=hadaeghi1020_asrdb;Persist Security Info=True;Data Source=.;Integrated Security=False;Initial Catalog=iScsc;User ID=hadaeghi</ConnectionString>
+        <ConnectionString>User ID=hadaeghi;Integrated Security=True;Data Source=.;Initial Catalog=iScsc;Persist Security Info=False</ConnectionString>
         <Name>iScsc</Name>
       </iScsc>
     </Databases>
     <DataSources isList="true" count="1">
       <iQuery Ref="3" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
         <Alias>iQuery</Alias>
-        <Columns isList="true" count="22">
+        <Columns isList="true" count="25">
           <value>RQID,System.Int64</value>
           <value>PRNT_DESC,System.String</value>
           <value>RQST_DATE,System.String</value>
@@ -35,6 +35,9 @@
           <value>SUM_EXPN_PRIC_DESC,System.String</value>
           <value>CASH_DESC,System.String</value>
           <value>AGE,System.Int32</value>
+          <value>AMNT_UNIT_TYPE_DESC,System.String</value>
+          <value>SUM_RCPT_EXPN_PRIC,System.Int32</value>
+          <value>SUM_PYMT_DSCN_DNRM,System.Int32</value>
         </Columns>
         <CommandTimeout>30</CommandTimeout>
         <Dictionary isRef="1" />
@@ -62,14 +65,17 @@
 	dbo.GET_CBMT_DESC(Fighter_Public.CBMT_CODE) AS CBMT_DESC,
 	N'پروفایل ' + D$SXDC.DOMN_DESC AS SEX_DESC,
     dbo.GET_NTOS_U(Payment.SUM_EXPN_PRIC + Payment.SUM_EXPN_EXTR_PRCT) AS SUM_EXPN_PRIC_DESC,
-	(SELECT N' مبلغ ' + LEFT(CONVERT(VARCHAR, CAST(SUM(EXPN_PRIC + EXPN_EXTR_PRCT) AS MONEY), 1) ,LEN(CONVERT(VARCHAR, CAST(SUM(EXPN_PRIC + EXPN_EXTR_PRCT) AS MONEY))) - 2)  + N' ریال به ' + Cash.NAME + N', '
+	(SELECT N' مبلغ ' + LEFT(CONVERT(VARCHAR, CAST(SUM(EXPN_PRIC + EXPN_EXTR_PRCT) AS MONEY), 1) ,LEN(CONVERT(VARCHAR, CAST(SUM(EXPN_PRIC + EXPN_EXTR_PRCT) AS MONEY))) - 2) + N' ' + D$ATYP.DOMN_DESC + N' به ' + Cash.NAME + N', '
 	      FROM Payment_Detail, Cash
 	     WHERE Payment.CASH_CODE = Payment_Detail.PYMT_CASH_CODE
 	       AND Payment.RQST_RQID = Payment_Detail.PYMT_RQST_RQID
 	       AND Request_Row.RWNO  = Payment_Detail.RQRO_RWNO
 	       AND Payment_Detail.PYMT_CASH_CODE = Cash.CODE
 	  GROUP BY Cash.NAME
-	  FOR XML PATH('')) AS CASH_DESC
+	  FOR XML PATH('')) AS CASH_DESC,
+    D$ATYP.DOMN_DESC AS AMNT_UNIT_TYPE_DESC,
+    Payment.SUM_RCPT_EXPN_PRIC,
+    Payment.SUM_PYMT_DSCN_DNRM
 FROM   Request INNER JOIN
        Request_Row ON Request.RQID = Request_Row.RQST_RQID INNER JOIN
        Request_Type ON Request.RQTP_CODE = Request_Type.CODE INNER JOIN
@@ -86,8 +92,9 @@ FROM   Request INNER JOIN
        Fighter_Public.REGN_CODE = Region.CODE AND Club.REGN_PRVN_CNTY_CODE = Region.PRVN_CNTY_CODE AND 
        Club.REGN_PRVN_CODE = Region.PRVN_CODE AND Club.REGN_CODE = Region.CODE INNER JOIN
        Province ON Region.PRVN_CNTY_CODE = Province.CNTY_CODE AND Region.PRVN_CODE = Province.CODE INNER JOIN
-       D$SXDC ON Fighter_Public.SEX_TYPE = D$SXDC.VALU
-WHERE  Request.RQST_STAT = '001'
+       D$SXDC ON Fighter_Public.SEX_TYPE = D$SXDC.VALU INNER JOIN
+       D$ATYP ON Payment.Amnt_Unit_Type_Dnrm = D$ATYP.VALU
+WHERE  Request.RQST_STAT != '003'
   AND  {WhereClause}
   </SqlCommand>
       </iQuery>
@@ -184,9 +191,8 @@ WHERE  Request.RQST_STAT = '001'
               <VertAlignment>Center</VertAlignment>
             </Text5>
             <Text6 Ref="11" type="Text" isKey="true">
-              <Border>None;Black;1;Solid;False;4;Black</Border>
               <Brush>White</Brush>
-              <ClientRectangle>18,38,170,6</ClientRectangle>
+              <ClientRectangle>18,40,170,6</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Nazanin,14,Bold</Font>
               <HorAlignment>Right</HorAlignment>
@@ -231,7 +237,7 @@ WHERE  Request.RQST_STAT = '001'
             </BarCode1>
             <Text10 Ref="15" type="Text" isKey="true">
               <Brush>White</Brush>
-              <ClientRectangle>130,46,58,6</ClientRectangle>
+              <ClientRectangle>130,48,58,6</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Nazanin,12,Bold</Font>
               <Guid>386394452b29460f870c6c4a6015dc3e</Guid>
@@ -263,7 +269,7 @@ WHERE  Request.RQST_STAT = '001'
             </Text9>
             <Text11 Ref="17" type="Text" isKey="true">
               <Brush>White</Brush>
-              <ClientRectangle>66,46,60,6</ClientRectangle>
+              <ClientRectangle>66,48,60,6</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Nazanin,12,Bold</Font>
               <Guid>c8c7f637948d4bef86f311a492bad1bf</Guid>
@@ -279,8 +285,9 @@ WHERE  Request.RQST_STAT = '001'
             </Text11>
             <Text12 Ref="18" type="Text" isKey="true">
               <Brush>White</Brush>
-              <ClientRectangle>130,52,58,6</ClientRectangle>
+              <ClientRectangle>130,54,58,6</ClientRectangle>
               <Conditions isList="true" count="0" />
+              <Enabled>False</Enabled>
               <Font>B Nazanin,12,Bold</Font>
               <Guid>4aab76f533094a09b65526fdf616a88b</Guid>
               <HorAlignment>Right</HorAlignment>
@@ -288,14 +295,14 @@ WHERE  Request.RQST_STAT = '001'
               <Name>Text12</Name>
               <Page isRef="4" />
               <Parent isRef="5" />
-              <Text>نام پدر : {iQuery.FATH_NAME}</Text>
+              <Text>نام پدر : {IsNull(iQuery.FATH_NAME, ' --- ')}</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text12>
             <Text13 Ref="19" type="Text" isKey="true">
               <Brush>White</Brush>
-              <ClientRectangle>130,58,58,6</ClientRectangle>
+              <ClientRectangle>130,60,58,6</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Nazanin,12,Bold</Font>
               <Guid>d9252f93f8f24dcda30a18d637eb0ed2</Guid>
@@ -311,7 +318,7 @@ WHERE  Request.RQST_STAT = '001'
             </Text13>
             <Text14 Ref="20" type="Text" isKey="true">
               <Brush>White</Brush>
-              <ClientRectangle>114,52,12,6</ClientRectangle>
+              <ClientRectangle>114,54,12,6</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Nazanin,12,Bold</Font>
               <Guid>568c7564b6664100bfb5dcf8d82dfea9</Guid>
@@ -327,7 +334,7 @@ WHERE  Request.RQST_STAT = '001'
             </Text14>
             <Text15 Ref="21" type="Text" isKey="true">
               <Brush>White</Brush>
-              <ClientRectangle>172,66,16,6</ClientRectangle>
+              <ClientRectangle>172,68,16,6</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Nazanin,12,Bold</Font>
               <Guid>5cec1a568bad4cc2a4a179919a6f9f68</Guid>
@@ -343,7 +350,7 @@ WHERE  Request.RQST_STAT = '001'
             </Text15>
             <Text16 Ref="22" type="Text" isKey="true">
               <Brush>White</Brush>
-              <ClientRectangle>110,66,16,6</ClientRectangle>
+              <ClientRectangle>110,68,16,6</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Nazanin,12,Bold</Font>
               <Guid>dd8e544f51944e68b20d9f8d1fc26cdb</Guid>
@@ -359,7 +366,7 @@ WHERE  Request.RQST_STAT = '001'
             </Text16>
             <Text17 Ref="23" type="Text" isKey="true">
               <Brush>White</Brush>
-              <ClientRectangle>178,72,10,6</ClientRectangle>
+              <ClientRectangle>178,74,10,6</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Nazanin,12,Bold</Font>
               <Guid>76df62c24666453dbb59a6270d647281</Guid>
@@ -373,7 +380,6 @@ WHERE  Request.RQST_STAT = '001'
               <Type>Expression</Type>
             </Text17>
             <Text18 Ref="24" type="Text" isKey="true">
-              <Border>None;Black;1;Solid;False;4;Black</Border>
               <Brush>White</Brush>
               <ClientRectangle>18,92,170,8</ClientRectangle>
               <Conditions isList="true" count="0" />
@@ -400,13 +406,12 @@ WHERE  Request.RQST_STAT = '001'
               <Name>Text19</Name>
               <Page isRef="4" />
               <Parent isRef="5" />
-              <Text>هزینه : {Format("{0:N0}", iQuery.SUM_EXPN_PRIC )} ریال</Text>
+              <Text>هزینه : {Format("{0:N0}", iQuery.SUM_EXPN_PRIC )} {iQuery.AMNT_UNIT_TYPE_DESC}</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text19>
             <Text20 Ref="26" type="Text" isKey="true">
-              <Border>None;Black;1;Solid;False;4;Black</Border>
               <Brush>White</Brush>
               <ClientRectangle>10,104,90,6</ClientRectangle>
               <Conditions isList="true" count="0" />
@@ -416,7 +421,7 @@ WHERE  Request.RQST_STAT = '001'
               <Name>Text20</Name>
               <Page isRef="4" />
               <Parent isRef="5" />
-              <Text>مبلغ به حروف : {iQuery.SUM_EXPN_PRIC_DESC}  ریال</Text>
+              <Text>مبلغ به حروف : {iQuery.SUM_EXPN_PRIC_DESC}  {iQuery.AMNT_UNIT_TYPE_DESC}</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
@@ -432,13 +437,16 @@ WHERE  Request.RQST_STAT = '001'
               <Name>Text21</Name>
               <Page isRef="4" />
               <Parent isRef="5" />
-              <Text>وجه به صورت {iQuery.CASH_DESC} پرداخت شود.</Text>
+              <Text>مبلغ تخفیف : {Format("{0:N0}",iQuery.SUM_PYMT_DSCN_DNRM)} {iQuery.AMNT_UNIT_TYPE_DESC}
+مبلغ پرداختی : {Format("{0:N0}",iQuery.SUM_RCPT_EXPN_PRIC)} {iQuery.AMNT_UNIT_TYPE_DESC}
+مبلغ مانده : {Format("{0:N0}",(iQuery.SUM_EXPN_PRIC - (iQuery.SUM_RCPT_EXPN_PRIC + iQuery.SUM_PYMT_DSCN_DNRM)))} {iQuery.AMNT_UNIT_TYPE_DESC}
+</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
             </Text21>
             <Text22 Ref="28" type="Text" isKey="true">
               <Brush>White</Brush>
-              <ClientRectangle>66,58,60,6</ClientRectangle>
+              <ClientRectangle>66,60,60,6</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Nazanin,12,Bold</Font>
               <Guid>58a8cf07b0d44e7781b77b03edd32597</Guid>
@@ -471,7 +479,7 @@ WHERE  Request.RQST_STAT = '001'
             </Text23>
             <Text24 Ref="30" type="Text" isKey="true">
               <Brush>White</Brush>
-              <ClientRectangle>112,52,2,6</ClientRectangle>
+              <ClientRectangle>112,54,2,6</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Nazanin,12,Bold</Font>
               <Guid>93361a4022344392bada8ffdac94587e</Guid>
@@ -487,7 +495,7 @@ WHERE  Request.RQST_STAT = '001'
             </Text24>
             <Text25 Ref="31" type="Text" isKey="true">
               <Brush>White</Brush>
-              <ClientRectangle>66,52,46,6</ClientRectangle>
+              <ClientRectangle>66,54,46,6</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Nazanin,12,Bold</Font>
               <Guid>f1c8f2a6be8a4d9aae119d82c149389e</Guid>
@@ -503,7 +511,7 @@ WHERE  Request.RQST_STAT = '001'
             </Text25>
             <Text26 Ref="32" type="Text" isKey="true">
               <Brush>White</Brush>
-              <ClientRectangle>170,66,2,6</ClientRectangle>
+              <ClientRectangle>170,68,2,6</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Nazanin,12,Bold</Font>
               <Guid>3bfe8d8bdbe842f794f5162e7306a577</Guid>
@@ -519,7 +527,7 @@ WHERE  Request.RQST_STAT = '001'
             </Text26>
             <Text27 Ref="33" type="Text" isKey="true">
               <Brush>White</Brush>
-              <ClientRectangle>108,66,2,6</ClientRectangle>
+              <ClientRectangle>108,68,2,6</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Nazanin,12,Bold</Font>
               <Guid>6d41e9f0000546c4a544161d801a4e97</Guid>
@@ -535,7 +543,7 @@ WHERE  Request.RQST_STAT = '001'
             </Text27>
             <Text28 Ref="34" type="Text" isKey="true">
               <Brush>White</Brush>
-              <ClientRectangle>128,66,42,6</ClientRectangle>
+              <ClientRectangle>128,68,42,6</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Nazanin,12,Bold</Font>
               <Guid>60a89f596c364953b7423c69067ea443</Guid>
@@ -551,7 +559,7 @@ WHERE  Request.RQST_STAT = '001'
             </Text28>
             <Text29 Ref="35" type="Text" isKey="true">
               <Brush>White</Brush>
-              <ClientRectangle>66,66,42,6</ClientRectangle>
+              <ClientRectangle>66,68,42,6</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Nazanin,12,Bold</Font>
               <Guid>efb36594801244c58c2686d4dc84418d</Guid>
@@ -567,7 +575,7 @@ WHERE  Request.RQST_STAT = '001'
             </Text29>
             <Text30 Ref="36" type="Text" isKey="true">
               <Brush>White</Brush>
-              <ClientRectangle>18,78,170,12</ClientRectangle>
+              <ClientRectangle>18,80,170,10</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Nazanin,12,Bold</Font>
               <Guid>5a5a4e91addb4c218b136745648d6356</Guid>
@@ -582,7 +590,7 @@ WHERE  Request.RQST_STAT = '001'
             </Text30>
             <Text31 Ref="37" type="Text" isKey="true">
               <Brush>White</Brush>
-              <ClientRectangle>176,72,2,6</ClientRectangle>
+              <ClientRectangle>176,74,2,6</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Nazanin,12,Bold</Font>
               <Guid>8daeac9614c2479f988142ad442052eb</Guid>
@@ -625,7 +633,6 @@ WHERE  Request.RQST_STAT = '001'
               <Parent isRef="5" />
               <Text>بارکد هنرجو</Text>
               <TextBrush>Black</TextBrush>
-              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=False, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text32>
@@ -769,10 +776,10 @@ WHERE  Request.RQST_STAT = '001'
     <value>Stimulsoft.Report.Dll</value>
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
-  <ReportChanged>1/7/2016 8:44:44 AM</ReportChanged>
+  <ReportChanged>12/17/2018 6:59:43 PM</ReportChanged>
   <ReportCreated>1/2/2016 4:35:07 PM</ReportCreated>
-  <ReportFile>\\192.168.1.149\Report Repository\RPT_ADM_001_FISH_R.mrt</ReportFile>
-  <ReportGuid>52525449c0d4417ca8ff1a0efe68a28e</ReportGuid>
+  <ReportFile>D:\Project\MyProject\Documents\Report Repository\RPT_ADM_001_FISH_R.mrt</ReportFile>
+  <ReportGuid>bd7fd831551e409981104b1482c3152a</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Millimeters</ReportUnit>
   <ReportVersion>2012.2.1304</ReportVersion>

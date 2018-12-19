@@ -4053,13 +4053,6 @@ namespace System.Scsc.Data
 			return ((int)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.INS_ATTN_P")]
-		public int INS_ATTN_P([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Club_Code", DbType="BigInt")] System.Nullable<long> club_Code, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Figh_File_No", DbType="BigInt")] System.Nullable<long> figh_File_No, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Attn_Date", DbType="Date")] System.Nullable<System.DateTime> attn_Date, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CochFileNo", DbType="BigInt")] System.Nullable<long> cochFileNo, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Attn_TYPE", DbType="VarChar(3)")] string attn_TYPE, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Mbsp_Rwno", DbType="SmallInt")] System.Nullable<short> mbsp_Rwno)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), club_Code, figh_File_No, attn_Date, cochFileNo, attn_TYPE, mbsp_Rwno);
-			return ((int)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.UPD_AODT_P")]
 		public int UPD_AODT_P(
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Agop_Code", DbType="BigInt")] System.Nullable<long> agop_Code, 
@@ -4178,6 +4171,13 @@ namespace System.Scsc.Data
 		public int CRET_INST_P([global::System.Data.Linq.Mapping.ParameterAttribute(Name="X", DbType="Xml")] System.Xml.Linq.XElement x)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), x);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.INS_ATTN_P")]
+		public int INS_ATTN_P([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Club_Code", DbType="BigInt")] System.Nullable<long> club_Code, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Figh_File_No", DbType="BigInt")] System.Nullable<long> figh_File_No, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Attn_Date", DbType="Date")] System.Nullable<System.DateTime> attn_Date, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CochFileNo", DbType="BigInt")] System.Nullable<long> cochFileNo, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Attn_TYPE", DbType="VarChar(3)")] string attn_TYPE, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Mbsp_Rwno", DbType="SmallInt")] System.Nullable<short> mbsp_Rwno, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Attn_Sys_Type", DbType="VarChar(3)")] string attn_Sys_Type, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Attn_Ignr_Stat", DbType="VarChar(3)")] string attn_Ignr_Stat)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), club_Code, figh_File_No, attn_Date, cochFileNo, attn_TYPE, mbsp_Rwno, attn_Sys_Type, attn_Ignr_Stat);
 			return ((int)(result.ReturnValue));
 		}
 	}

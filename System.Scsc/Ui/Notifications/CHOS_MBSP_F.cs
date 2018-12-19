@@ -22,6 +22,7 @@ namespace System.Scsc.Ui.Notifications
       }
 
       //private bool requery = false;
+      private string attnsystype = "002";
 
       private void Execute_Query()
       {
@@ -133,7 +134,7 @@ namespace System.Scsc.Ui.Notifications
                   new List<Job>
                   {
                      new Job(SendType.Self, 88 /* Execute Ntf_Totl_F */){Input = new XElement("Request", new XAttribute("actntype", "JustRunInBackground"))},
-                     new Job(SendType.SelfToUserInterface, "NTF_TOTL_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "attn"), new XAttribute("enrollnumber", FngrPrnt_Lbl.Text), new XAttribute("mbsprwno", mbsp.RWNO))}
+                     new Job(SendType.SelfToUserInterface, "NTF_TOTL_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "attn"), new XAttribute("enrollnumber", FngrPrnt_Lbl.Text), new XAttribute("mbsprwno", mbsp.RWNO), new XAttribute("attnsystype", attnsystype))}
                   });
             _DefaultGateway.Gateway(_InteractWithScsc);
          }

@@ -136,6 +136,7 @@ namespace System.Scsc.Ui.MasterPage
             var fngrprnt = Microsoft.VisualBasic.Interaction.InputBox("EnrollNumber", "Input EnrollNumber");
 
             CardNumb_Text.Text = fngrprnt.ToString();
+            attnsystype = "002";
             axCZKEM1_OnAttTransactionEx(fngrprnt.ToString(), 1, 1, 1, 2016, 05, 10, 09, 31, 50, 20);
          }
          else if (keyData == Keys.Escape)
@@ -588,7 +589,12 @@ namespace System.Scsc.Ui.MasterPage
          {
             try
             {
+               if ((job.Input as XElement).Attribute("attnsystype") != null)
+                  attnsystype = (job.Input as XElement).Attribute("attnsystype").Value;
+               else
+                  attnsystype = "002";
                OnAttTransactionEx((job.Input as XElement).Attribute("fngrprnt").Value);
+               attnsystype = "002";
             }
             catch { }
          }

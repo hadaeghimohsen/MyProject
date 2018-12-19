@@ -165,14 +165,14 @@ namespace System.Scsc.Ui.Admission
             //   Btn_RqstSav1_Click(null, null);
             Btn_RqstSav3_Click(null, null);
          }
-         else if (keyData == (Keys.Control | Keys.P))
-         {
-            RqstBnDefaultPrint_Click(null, null);
-         }
-         else if (keyData == (Keys.Control | Keys.Shift | Keys.P))
-         {
-            RqstBnPrint_Click(null, null);
-         }
+         //else if (keyData == (Keys.Control | Keys.P))
+         //{
+         //   RqstBnDefaultPrint_Click(null, null);
+         //}
+         //else if (keyData == (Keys.Control | Keys.Shift | Keys.P))
+         //{
+         //   RqstBnPrint_Click(null, null);
+         //}
          job.Status = StatusType.Successful;
       }
 

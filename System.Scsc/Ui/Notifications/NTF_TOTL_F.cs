@@ -26,6 +26,8 @@ namespace System.Scsc.Ui.Notifications
       private bool requry = false;
       private short mbsprwno;
       private string compname = "", chckattnalrm = "";
+      private string attnsystype = "002";
+      private string attnignrtype = "001";
 
       private void Execute_Query()
       {
@@ -555,7 +557,7 @@ namespace System.Scsc.Ui.Notifications
                //}
                //else
                {
-                  iScsc.INS_ATTN_P(null, Convert.ToInt64(Nud_FileNo2.EditValue), Dt_CrntDate2R.Value.Value, null, "001", mbsprwno == 0 ? null : (short?)mbsprwno);
+                  iScsc.INS_ATTN_P(null, Convert.ToInt64(Nud_FileNo2.EditValue), Dt_CrntDate2R.Value.Value, null, "001", mbsprwno == 0 ? null : (short?)mbsprwno, attnsystype, attnignrtype);
                   fileno = Convert.ToInt64(Nud_FileNo2.EditValue);
                }
             }
@@ -585,7 +587,7 @@ namespace System.Scsc.Ui.Notifications
                   {
                      throw new Exception("اعضا گرامی دوره ای برای شما وجود ندارد یا دوره شما به پایان رسیده");
                   }
-                  iScsc.INS_ATTN_P(null, Convert.ToInt64(Lov_FileName2.EditValue), Dt_CrntDate2R.Value.Value, null, "001", mbsprwno == 0 ? null : (short?)mbsprwno);
+                  iScsc.INS_ATTN_P(null, Convert.ToInt64(Lov_FileName2.EditValue), Dt_CrntDate2R.Value.Value, null, "001", mbsprwno == 0 ? null : (short?)mbsprwno, attnsystype, attnignrtype);
                   fileno = Lov_FileName2.EditValue;
                }
             }
@@ -714,7 +716,7 @@ namespace System.Scsc.Ui.Notifications
                }
                else
                {
-                  iScsc.INS_ATTN_P(null, Convert.ToInt64(Nud_FileNo2.EditValue), Dt_CrntDate2R.Value, null, "002", mbsprwno == 0 ? null : (short?)mbsprwno);
+                  iScsc.INS_ATTN_P(null, Convert.ToInt64(Nud_FileNo2.EditValue), Dt_CrntDate2R.Value, null, "002", mbsprwno == 0 ? null : (short?)mbsprwno, attnsystype, attnignrtype);
                   fileno = Convert.ToInt64(Nud_FileNo2.EditValue);
                }
             }
@@ -744,7 +746,7 @@ namespace System.Scsc.Ui.Notifications
                   {
                      throw new Exception("اعضا گرامی دوره ای برای شما وجود ندارد یا دوره شما به پایان رسیده");
                   }
-                  iScsc.INS_ATTN_P(null, Convert.ToInt64(Lov_FileName2.EditValue), Dt_CrntDate2R.Value, null, "002", mbsprwno == 0 ? null : (short?)mbsprwno);
+                  iScsc.INS_ATTN_P(null, Convert.ToInt64(Lov_FileName2.EditValue), Dt_CrntDate2R.Value, null, "002", mbsprwno == 0 ? null : (short?)mbsprwno, attnsystype, attnignrtype);
                   fileno = Lov_FileName2.EditValue;
                }
             }
@@ -858,7 +860,7 @@ namespace System.Scsc.Ui.Notifications
                }
                else
                {
-                  iScsc.INS_ATTN_P(null, Convert.ToInt64(Nud_FileNo2.EditValue), Dt_CrntDate2R.Value.Value, null, "004", mbsprwno == 0 ? null : (short?)mbsprwno);
+                  iScsc.INS_ATTN_P(null, Convert.ToInt64(Nud_FileNo2.EditValue), Dt_CrntDate2R.Value.Value, null, "004", mbsprwno == 0 ? null : (short?)mbsprwno, attnsystype, attnignrtype);
                   fileno = Convert.ToInt64(Nud_FileNo2.EditValue);
                }
             }
@@ -888,7 +890,7 @@ namespace System.Scsc.Ui.Notifications
                   {
                      throw new Exception("اعضا گرامی دوره ای برای شما وجود ندارد یا دوره شما به پایان رسیده");
                   }
-                  iScsc.INS_ATTN_P(null, Convert.ToInt64(Lov_FileName2.EditValue), Dt_CrntDate2R.Value.Value, null, "004", mbsprwno == 0 ? null : (short?)mbsprwno);
+                  iScsc.INS_ATTN_P(null, Convert.ToInt64(Lov_FileName2.EditValue), Dt_CrntDate2R.Value.Value, null, "004", mbsprwno == 0 ? null : (short?)mbsprwno, attnsystype, attnignrtype);
                   fileno = Lov_FileName2.EditValue;
                }
             }
@@ -1001,7 +1003,7 @@ namespace System.Scsc.Ui.Notifications
                }
                else
                {
-                  iScsc.INS_ATTN_P(null, Convert.ToInt64(Nud_FileNo2.EditValue), Dt_CrntDate2R.Value.Value, (long)Lov_CochName2.EditValue, "005", mbsprwno == 0 ? null : (short?)mbsprwno);
+                  iScsc.INS_ATTN_P(null, Convert.ToInt64(Nud_FileNo2.EditValue), Dt_CrntDate2R.Value.Value, (long)Lov_CochName2.EditValue, "005", mbsprwno == 0 ? null : (short?)mbsprwno, attnsystype, attnignrtype);
                   fileno = Convert.ToInt64(Nud_FileNo2.EditValue);
                }
             }
@@ -1031,7 +1033,7 @@ namespace System.Scsc.Ui.Notifications
                   {
                      throw new Exception("اعضا گرامی دوره ای برای شما وجود ندارد یا دوره شما به پایان رسیده");
                   }
-                  iScsc.INS_ATTN_P(null, Convert.ToInt64(Lov_FileName2.EditValue), Dt_CrntDate2R.Value.Value, (long)Lov_CochName2.EditValue, "005", mbsprwno == 0 ? null : (short?)mbsprwno);
+                  iScsc.INS_ATTN_P(null, Convert.ToInt64(Lov_FileName2.EditValue), Dt_CrntDate2R.Value.Value, (long)Lov_CochName2.EditValue, "005", mbsprwno == 0 ? null : (short?)mbsprwno, attnsystype, attnignrtype);
                   fileno = Lov_FileName2.EditValue;
                }
             }
@@ -1292,7 +1294,7 @@ namespace System.Scsc.Ui.Notifications
                   if (attn.EXIT_TIME == null)
                   {
                      if (MessageBox.Show(this, "با خروج دستی مشتری موافق هستید؟", "خروجی دستی", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
-                     iScsc.INS_ATTN_P(attn.CLUB_CODE, attn.FIGH_FILE_NO, null, null, "003", mbsprwno == 0 ? null : (short?)mbsprwno);
+                     iScsc.INS_ATTN_P(attn.CLUB_CODE, attn.FIGH_FILE_NO, null, null, "003", mbsprwno == 0 ? null : (short?)mbsprwno, attnsystype, attnignrtype);
                      Btn_Search_Click(null, null);
                   }
                   break;

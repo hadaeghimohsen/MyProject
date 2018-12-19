@@ -153,14 +153,14 @@ namespace System.Scsc.Ui.Admission
          else if (keyData == Keys.F10)
          {
          }
-         else if (keyData == (Keys.Control | Keys.P))
-         {
-            RqstBnDefaultPrint_Click(null, null);
-         }
-         else if (keyData == (Keys.Control | Keys.Shift | Keys.P))
-         {
-            RqstBnPrint_Click(null, null);
-         }
+         //else if (keyData == (Keys.Control | Keys.P))
+         //{
+         //   RqstBnDefaultPrint_Click(null, null);
+         //}
+         //else if (keyData == (Keys.Control | Keys.Shift | Keys.P))
+         //{
+         //   RqstBnPrint_Click(null, null);
+         //}
          job.Status = StatusType.Successful;
       }
 

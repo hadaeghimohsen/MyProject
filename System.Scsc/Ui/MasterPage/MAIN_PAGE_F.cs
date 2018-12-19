@@ -22,6 +22,8 @@ namespace System.Scsc.Ui.MasterPage
          InitializeComponent();         
       }
 
+      private string attnsystype = "002";
+
       private bool CheckInternetConnection()
       {
          try
@@ -206,6 +208,9 @@ namespace System.Scsc.Ui.MasterPage
             if (enrollNumber.IndexOf(' ') != -1)
                enrollNumber = enrollNumber.Replace(" ", "");
 
+            //1397/09/28 * مشخص کردن نوع ثبت حضور و غیاب که با دستگاه یا دستی
+            attnsystype = "002";
+
             // 1397/05/08 * بررسی اینکه آیا در داده ورودی علاما غیرمجاز وجود دارد
             if (enrollNumber.Like("%?%"))
                return;
@@ -254,6 +259,10 @@ namespace System.Scsc.Ui.MasterPage
 
             if (enrollNumber.IndexOf(' ') != -1)
                enrollNumber = enrollNumber.Replace(" ", "");
+
+            //1397/09/28 * مشخص کردن نوع ثبت حضور و غیاب که با دستگاه یا دستی
+            attnsystype = "002";
+
 
             // 1397/05/08 * بررسی اینکه آیا در داده ورودی علاما غیرمجاز وجود دارد
             if (enrollNumber.Like("%?%"))
@@ -1170,7 +1179,7 @@ namespace System.Scsc.Ui.MasterPage
                         new List<Job>
                         {
                            new Job(SendType.Self, 88 /* Execute Ntf_Totl_F */){Input = new XElement("Request", new XAttribute("actntype", "JustRunInBackground"))},
-                           new Job(SendType.SelfToUserInterface, "NTF_TOTL_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "attn"), new XAttribute("enrollnumber", EnrollNumber), new XAttribute("mbsprwno", 1), new XAttribute("compname", xHost.Attribute("name").Value), new XAttribute("chckattnalrm", host.CHCK_ATTN_ALRM))}
+                           new Job(SendType.SelfToUserInterface, "NTF_TOTL_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "attn"), new XAttribute("enrollnumber", EnrollNumber), new XAttribute("mbsprwno", 1), new XAttribute("compname", xHost.Attribute("name").Value), new XAttribute("chckattnalrm", host.CHCK_ATTN_ALRM), new XAttribute("attnsystype", attnsystype))}
                         });
                   _DefaultGateway.Gateway(_InteractWithScsc);
                   return;
@@ -1189,7 +1198,8 @@ namespace System.Scsc.Ui.MasterPage
                               new XElement("Fighter",
                                  new XAttribute("fileno", figh.FILE_NO),
                                  new XAttribute("namednrm", figh.NAME_DNRM),
-                                 new XAttribute("fngrprnt", figh.FNGR_PRNT_DNRM)
+                                 new XAttribute("fngrprnt", figh.FNGR_PRNT_DNRM),
+                                 new XAttribute("attnsystype", attnsystype)
                               )
                            }
                         }
@@ -1225,7 +1235,7 @@ namespace System.Scsc.Ui.MasterPage
                         new List<Job>
                         {
                            new Job(SendType.Self, 88 /* Execute Ntf_Totl_F */){Input = new XElement("Request", new XAttribute("actntype", "JustRunInBackground"))},
-                           new Job(SendType.SelfToUserInterface, "NTF_TOTL_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "attn"), new XAttribute("enrollnumber", EnrollNumber), new XAttribute("mbsprwno", mbsp.Count() > 0 ? mbsp.FirstOrDefault().RWNO : 0), new XAttribute("compname", xHost.Attribute("name").Value), new XAttribute("chckattnalrm", host.CHCK_ATTN_ALRM))}
+                           new Job(SendType.SelfToUserInterface, "NTF_TOTL_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "attn"), new XAttribute("enrollnumber", EnrollNumber), new XAttribute("mbsprwno", mbsp.Count() > 0 ? mbsp.FirstOrDefault().RWNO : 0), new XAttribute("compname", xHost.Attribute("name").Value), new XAttribute("chckattnalrm", host.CHCK_ATTN_ALRM), new XAttribute("attnsystype", attnsystype))}
                         });
                   _DefaultGateway.Gateway(_InteractWithScsc);
                }

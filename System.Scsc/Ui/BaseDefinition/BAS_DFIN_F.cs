@@ -1978,6 +1978,28 @@ namespace System.Scsc.Ui.BaseDefinition
                   DelUnDelCoch_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1608;
                   break;
             }
+
+            try
+            {
+               CochProFile1_Rb.ImageVisiable = true;
+               CochProFile1_Rb.ImageProfile = null;
+               MemoryStream mStream = new MemoryStream();
+               byte[] pData = iScsc.GET_PIMG_U(new XElement("Fighter", new XAttribute("fileno", coch.FILE_NO))).ToArray();
+               mStream.Write(pData, 0, Convert.ToInt32(pData.Length));
+               Bitmap bm = new Bitmap(mStream, false);
+               mStream.Dispose();
+
+               //Pb_FighImg.Visible = true;
+
+               if (InvokeRequired)
+                  Invoke(new Action(() => CochProFile1_Rb.ImageProfile = bm));
+               else
+                  CochProFile1_Rb.ImageProfile = bm;
+            }
+            catch
+            { //Pb_FighImg.Visible = false;
+               CochProFile1_Rb.ImageProfile = global::System.Scsc.Properties.Resources.IMAGE_1482;
+            }
          }
          catch (Exception exc){}
       }
@@ -3190,6 +3212,8 @@ namespace System.Scsc.Ui.BaseDefinition
 
                if (!AttnDate_Dt.Value.HasValue)
                   date = AttnDate_Dt.Value = DateTime.Now;
+               else
+                  date = AttnDate1_Dt.Value;
             }
             else if(Tb_Master.SelectedTab == tp_005)
             {
@@ -3200,6 +3224,8 @@ namespace System.Scsc.Ui.BaseDefinition
 
                if (!AttnDate_Dt.Value.HasValue)
                   date = AttnDate1_Dt.Value = DateTime.Now;
+               else
+                  date = AttnDate1_Dt.Value;
             }
 
             Job _InteractWithScsc =
@@ -3357,27 +3383,7 @@ namespace System.Scsc.Ui.BaseDefinition
                ActvMembCount1_Lb.Text = listMbsp.Count().ToString();
                AgeMemb1_Lb.Text = string.Join(", ", listMbsp.Select(ms => (DateTime.Now.Year - ms.Fighter.BRTH_DATE_DNRM.Value.Year).ToString()).Distinct().OrderBy(f => f).ToList());
 
-               try
-               {
-                  CochProFile1_Rb.ImageVisiable = true;
-                  CochProFile1_Rb.ImageProfile = null;
-                  MemoryStream mStream = new MemoryStream();
-                  byte[] pData = iScsc.GET_PIMG_U(new XElement("Fighter", new XAttribute("fileno", cbmt.COCH_FILE_NO))).ToArray();
-                  mStream.Write(pData, 0, Convert.ToInt32(pData.Length));
-                  Bitmap bm = new Bitmap(mStream, false);
-                  mStream.Dispose();
-
-                  //Pb_FighImg.Visible = true;
-
-                  if (InvokeRequired)
-                     Invoke(new Action(() => CochProFile1_Rb.ImageProfile = bm));
-                  else
-                     CochProFile1_Rb.ImageProfile = bm;
-               }
-               catch
-               { //Pb_FighImg.Visible = false;
-                  CochProFile1_Rb.ImageProfile = global::System.Scsc.Properties.Resources.IMAGE_1482;
-               }
+               
             }
          }
          catch {}

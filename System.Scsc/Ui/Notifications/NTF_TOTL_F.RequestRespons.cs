@@ -216,6 +216,16 @@ namespace System.Scsc.Ui.Notifications
                else
                   mbsprwno = 0;
 
+               if (input.Attribute("attnsystype") != null)
+                  attnsystype = input.Attribute("attnsystype").Value;
+               else
+                  attnsystype = "002";
+
+               if (input.Attribute("attnignrtype") != null)
+                  attnignrtype = input.Attribute("attnignrtype").Value;
+               else
+                  attnignrtype = "001";
+
                if (input.Attribute("compname") != null)
                   compname = input.Attribute("compname").Value;
                else

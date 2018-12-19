@@ -262,6 +262,11 @@ namespace System.Scsc.Ui.Notifications
             FngrPrnt_Lbl.Text = xinput.Attribute("fngrprnt").Value;
             fileno = xinput.Attribute("fileno").Value;
 
+            if (xinput.Attribute("attnsystype") != null)
+               attnsystype = xinput.Attribute("attnsystype").Value;
+            else
+               attnsystype = "002";
+
             try
             {
                UserProFile_Rb.ImageProfile = null;

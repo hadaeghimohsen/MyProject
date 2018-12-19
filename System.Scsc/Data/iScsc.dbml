@@ -6044,15 +6044,6 @@
     <Parameter Name="Qnty" Parameter="qnty" Type="System.Double" DbType="Float" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Name="dbo.INS_ATTN_P" Method="INS_ATTN_P">
-    <Parameter Name="Club_Code" Parameter="club_Code" Type="System.Int64" DbType="BigInt" />
-    <Parameter Name="Figh_File_No" Parameter="figh_File_No" Type="System.Int64" DbType="BigInt" />
-    <Parameter Name="Attn_Date" Parameter="attn_Date" Type="System.DateTime" DbType="Date" />
-    <Parameter Name="CochFileNo" Parameter="cochFileNo" Type="System.Int64" DbType="BigInt" />
-    <Parameter Name="Attn_TYPE" Parameter="attn_TYPE" Type="System.String" DbType="VarChar(3)" />
-    <Parameter Name="Mbsp_Rwno" Parameter="mbsp_Rwno" Type="System.Int16" DbType="SmallInt" />
-    <Return Type="System.Int32" />
-  </Function>
   <Function Id="FunctionId71" Name="dbo.UPD_AODT_P" Method="UPD_AODT_P">
     <Parameter Name="Agop_Code" Parameter="agop_Code" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Rwno" Parameter="rwno" Type="System.Int32" DbType="Int" />
@@ -6173,6 +6164,17 @@
   </Function>
   <Function Name="dbo.CRET_INST_P" Method="CRET_INST_P">
     <Parameter Name="X" Parameter="x" Type="System.Xml.Linq.XElement" DbType="Xml" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.INS_ATTN_P" Method="INS_ATTN_P">
+    <Parameter Name="Club_Code" Parameter="club_Code" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Figh_File_No" Parameter="figh_File_No" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Attn_Date" Parameter="attn_Date" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="CochFileNo" Parameter="cochFileNo" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Attn_TYPE" Parameter="attn_TYPE" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="Mbsp_Rwno" Parameter="mbsp_Rwno" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="Attn_Sys_Type" Parameter="attn_Sys_Type" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="Attn_Ignr_Stat" Parameter="attn_Ignr_Stat" Type="System.String" DbType="VarChar(3)" />
     <Return Type="System.Int32" />
   </Function>
 </Database>

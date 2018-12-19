@@ -12,7 +12,7 @@
     <DataSources isList="true" count="1">
       <iQuery Ref="3" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
         <Alias>iQuery</Alias>
-        <Columns isList="true" count="25">
+        <Columns isList="true" count="33">
           <value>RQID,System.Int64</value>
           <value>PRNT_DESC,System.String</value>
           <value>RQST_DATE,System.String</value>
@@ -38,6 +38,14 @@
           <value>AMNT_UNIT_TYPE_DESC,System.String</value>
           <value>SUM_RCPT_EXPN_PRIC,System.Int32</value>
           <value>SUM_PYMT_DSCN_DNRM,System.Int32</value>
+          <value>MTOD_DESC,System.String</value>
+          <value>CTGY_DESC,System.String</value>
+          <value>CLUB_DESC,System.String</value>
+          <value>CLUB_CELL_PHON,System.String</value>
+          <value>CLUB_TELL_PHON,System.String</value>
+          <value>CLUB_POST_ADRS,System.String</value>
+          <value>CLUB_ZIP_CODE,System.String</value>
+          <value>CLUB_ECON_CODE,System.String</value>
         </Columns>
         <CommandTimeout>30</CommandTimeout>
         <Dictionary isRef="1" />
@@ -52,13 +60,19 @@
 	Province.NAME AS PRVN_NAME, 
 	Region.NAME AS REGN_NAME, 
 	Club.NAME AS CLUB_NAME,
+    Club.CLUB_DESC,
+    Club.CELL_PHON AS CLUB_CELL_PHON,
+    Club.TELL_PHON AS CLUB_TELL_PHON,
+    Club.POST_ADRS AS CLUB_POST_ADRS,
+    Club.ZIP_CODE AS CLUB_ZIP_CODE,
+    Club.ECON_CODE AS CLUB_ECON_CODE,
 	Fighter.NAME_DNRM, 
 	--Fighter_Public.LAST_NAME, 
 	Fighter.FATH_NAME_DNRM, 
 	dbo.GET_MTOS_U(Fighter.BRTH_DATE_DNRM) AS BRTH_DATE, 
 	dbo.GET_MTOS_U(Member_Ship.STRT_DATE) AS STRT_DATE, 
 	dbo.GET_MTOS_U(Member_Ship.END_DATE) AS END_DATE, 
-	DATEDIFF(YEAR, Member_Ship.STRT_DATE, Member_Ship.END_DATE) + 1 AS TOTL_DAY,
+	DATEDIFF(DAY, Member_Ship.STRT_DATE, Member_Ship.END_DATE) + 1 AS TOTL_DAY,
     DATEDIFF(YEAR, Fighter.BRTH_DATE_DNRM, GETDATE()) AS AGE,
 	Fighter.CELL_PHON_DNRM, 
 	Fighter.TELL_PHON_DNRM, 
@@ -76,7 +90,9 @@
   	    FOR XML PATH('')) AS CASH_DESC,
     D$ATYP.DOMN_DESC AS AMNT_UNIT_TYPE_DESC,
     Payment.SUM_RCPT_EXPN_PRIC,
-    Payment.SUM_PYMT_DSCN_DNRM
+    Payment.SUM_PYMT_DSCN_DNRM,
+    Method.MTOD_DESC,
+    Category_Belt.CTGY_DESC
 FROM   Request INNER JOIN
        Request_Row ON Request.RQID = Request_Row.RQST_RQID INNER JOIN
        Request_Type ON Request.RQTP_CODE = Request_Type.CODE INNER JOIN
@@ -92,6 +108,8 @@ FROM   Request INNER JOIN
        Fighter.REGN_CODE = Region.CODE AND Club.REGN_PRVN_CNTY_CODE = Region.PRVN_CNTY_CODE AND 
        Club.REGN_PRVN_CODE = Region.PRVN_CODE AND Club.REGN_CODE = Region.CODE INNER JOIN
        Province ON Region.PRVN_CNTY_CODE = Province.CNTY_CODE AND Region.PRVN_CODE = Province.CODE INNER JOIN
+       Method ON Fighter.Mtod_Code_Dnrm = Method.Code INNER JOIN
+       Category_Belt ON Fighter.Ctgy_Code_Dnrm = Category_Belt.Code AND Method.Code = Category_Belt.Mtod_Code INNER JOIN
        D$SXDC ON Fighter.SEX_TYPE_DNRM = D$SXDC.VALU INNER JOIN
        D$ATYP ON Payment.AMNT_UNIT_TYPE_DNRM = D$ATYP.VALU
 WHERE  Request.RQST_STAT != '003'
@@ -163,10 +181,10 @@ WHERE  Request.RQST_STAT != '003'
             </Text3>
             <Text4 Ref="9" type="Text" isKey="true">
               <Brush>White</Brush>
-              <ClientRectangle>60,4,84,6</ClientRectangle>
+              <ClientRectangle>148,28,40,8</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Nazanin,15,Bold</Font>
-              <HorAlignment>Center</HorAlignment>
+              <Font>B Nazanin,12,Bold</Font>
+              <HorAlignment>Right</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text4</Name>
               <Page isRef="4" />
@@ -177,19 +195,20 @@ WHERE  Request.RQST_STAT != '003'
             </Text4>
             <Text5 Ref="10" type="Text" isKey="true">
               <Brush>Transparent</Brush>
-              <ClientRectangle>76,12,50,6.1</ClientRectangle>
+              <ClientRectangle>60,4,96,18.1</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Nazanin,11,Bold</Font>
               <Guid>431ff796f84b4f02855fb3429785ff44</Guid>
-              <HorAlignment>Center</HorAlignment>
+              <HorAlignment>Right</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text5</Name>
               <Page isRef="4" />
               <Parent isRef="5" />
-              <Text>باشگاه {iQuery.CLUB_NAME}</Text>
+              <Text>{iQuery.CLUB_DESC}
+شماره تماس {iQuery.CLUB_CELL_PHON} - {iQuery.CLUB_TELL_PHON}
+{iQuery.CLUB_POST_ADRS} - کد پستی {iQuery.CLUB_ZIP_CODE}</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
-              <VertAlignment>Center</VertAlignment>
             </Text5>
             <Text6 Ref="11" type="Text" isKey="true">
               <Brush>White</Brush>
@@ -205,27 +224,11 @@ WHERE  Request.RQST_STAT != '003'
               <TextBrush>Black</TextBrush>
               <VertAlignment>Center</VertAlignment>
             </Text6>
-            <Text8 Ref="12" type="Text" isKey="true">
-              <Brush>White</Brush>
-              <ClientRectangle>76,18,50,6</ClientRectangle>
-              <Conditions isList="true" count="0" />
-              <Font>B Nazanin,12,Bold</Font>
-              <Guid>7bd13d669c554be78911b841784729c4</Guid>
-              <HorAlignment>Center</HorAlignment>
-              <Margins>0,0,0,0</Margins>
-              <Name>Text8</Name>
-              <Page isRef="4" />
-              <Parent isRef="5" />
-              <Text>{iQuery.PRVN_NAME}، {iQuery.REGN_NAME}</Text>
-              <TextBrush>Black</TextBrush>
-              <Type>Expression</Type>
-              <VertAlignment>Center</VertAlignment>
-            </Text8>
-            <BarCode1 Ref="13" type="Stimulsoft.Report.BarCodes.StiBarCode" isKey="true">
+            <BarCode1 Ref="12" type="Stimulsoft.Report.BarCodes.StiBarCode" isKey="true">
               <Angle>Angle90</Angle>
               <AutoScale>True</AutoScale>
               <BackColor>White</BackColor>
-              <BarCodeType Ref="14" type="Stimulsoft.Report.BarCodes.StiCode128AutoBarCodeType" isKey="true" />
+              <BarCodeType Ref="13" type="Stimulsoft.Report.BarCodes.StiCode128AutoBarCodeType" isKey="true" />
               <ClientRectangle>6,30,10,42</ClientRectangle>
               <Code>{iQuery.RQID}</Code>
               <Conditions isList="true" count="0" />
@@ -236,7 +239,7 @@ WHERE  Request.RQST_STAT != '003'
               <Parent isRef="5" />
               <ShowLabelText>False</ShowLabelText>
             </BarCode1>
-            <Text10 Ref="15" type="Text" isKey="true">
+            <Text10 Ref="14" type="Text" isKey="true">
               <Brush>White</Brush>
               <ClientRectangle>100,48,88,6</ClientRectangle>
               <Conditions isList="true" count="0" />
@@ -252,9 +255,9 @@ WHERE  Request.RQST_STAT != '003'
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text10>
-            <Text9 Ref="16" type="Text" isKey="true">
+            <Text9 Ref="15" type="Text" isKey="true">
               <Brush>White</Brush>
-              <ClientRectangle>126,28,62,8</ClientRectangle>
+              <ClientRectangle>90,28,56,8</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Nazanin,12,Bold</Font>
               <Guid>42bf55a5505b4a4d95368596a824d40b</Guid>
@@ -268,25 +271,7 @@ WHERE  Request.RQST_STAT != '003'
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text9>
-            <Text12 Ref="17" type="Text" isKey="true">
-              <Brush>White</Brush>
-              <ClientRectangle>26,48,74,6</ClientRectangle>
-              <Conditions isList="true" count="0" />
-              <Enabled>False</Enabled>
-              <Font>B Nazanin,12,Bold</Font>
-              <Guid>4aab76f533094a09b65526fdf616a88b</Guid>
-              <HorAlignment>Right</HorAlignment>
-              <Margins>0,0,0,0</Margins>
-              <Name>Text12</Name>
-              <Page isRef="4" />
-              <Parent isRef="5" />
-              <Text>نام پدر : {(iQuery.FATH_NAME_DNRM == null || iQuery.FATH_NAME_DNRM == "") ? " --- " : iQuery.FATH_NAME_DNRM}
-</Text>
-              <TextBrush>Black</TextBrush>
-              <Type>Expression</Type>
-              <VertAlignment>Center</VertAlignment>
-            </Text12>
-            <Text13 Ref="18" type="Text" isKey="true">
+            <Text13 Ref="16" type="Text" isKey="true">
               <Brush>White</Brush>
               <ClientRectangle>130,58,58,6</ClientRectangle>
               <Conditions isList="true" count="0" />
@@ -302,7 +287,7 @@ WHERE  Request.RQST_STAT != '003'
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text13>
-            <Text15 Ref="19" type="Text" isKey="true">
+            <Text15 Ref="17" type="Text" isKey="true">
               <Brush>White</Brush>
               <ClientRectangle>172,66,16,6</ClientRectangle>
               <Conditions isList="true" count="0" />
@@ -318,7 +303,7 @@ WHERE  Request.RQST_STAT != '003'
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text15>
-            <Text16 Ref="20" type="Text" isKey="true">
+            <Text16 Ref="18" type="Text" isKey="true">
               <Brush>White</Brush>
               <ClientRectangle>110,66,16,6</ClientRectangle>
               <Conditions isList="true" count="0" />
@@ -334,7 +319,7 @@ WHERE  Request.RQST_STAT != '003'
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text16>
-            <Text18 Ref="21" type="Text" isKey="true">
+            <Text18 Ref="19" type="Text" isKey="true">
               <Brush>White</Brush>
               <ClientRectangle>18,92,170,8</ClientRectangle>
               <Conditions isList="true" count="0" />
@@ -345,12 +330,12 @@ WHERE  Request.RQST_STAT != '003'
               <Name>Text18</Name>
               <Page isRef="4" />
               <Parent isRef="5" />
-              <Text>ساعت کلاسی : {iQuery.CBMT_DESC}</Text>
+              <Text>توضیحات : {iQuery.CBMT_DESC}</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text18>
-            <Text19 Ref="22" type="Text" isKey="true">
+            <Text19 Ref="20" type="Text" isKey="true">
               <Brush>White</Brush>
               <ClientRectangle>102,104,88,6</ClientRectangle>
               <Conditions isList="true" count="0" />
@@ -366,7 +351,7 @@ WHERE  Request.RQST_STAT != '003'
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text19>
-            <Text20 Ref="23" type="Text" isKey="true">
+            <Text20 Ref="21" type="Text" isKey="true">
               <Brush>White</Brush>
               <ClientRectangle>10,104,90,6</ClientRectangle>
               <Conditions isList="true" count="0" />
@@ -381,7 +366,7 @@ WHERE  Request.RQST_STAT != '003'
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text20>
-            <Text21 Ref="24" type="Text" isKey="true">
+            <Text21 Ref="22" type="Text" isKey="true">
               <Border>Top;Black;1;Solid;False;4;Black</Border>
               <Brush>White</Brush>
               <ClientRectangle>10,112,180,18</ClientRectangle>
@@ -399,7 +384,7 @@ WHERE  Request.RQST_STAT != '003'
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
             </Text21>
-            <Text22 Ref="25" type="Text" isKey="true">
+            <Text22 Ref="23" type="Text" isKey="true">
               <Brush>White</Brush>
               <ClientRectangle>66,58,60,6</ClientRectangle>
               <Conditions isList="true" count="0" />
@@ -415,7 +400,7 @@ WHERE  Request.RQST_STAT != '003'
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text22>
-            <Text23 Ref="26" type="Text" isKey="true">
+            <Text23 Ref="24" type="Text" isKey="true">
               <Border>Top;Black;1;Solid;False;4;Black</Border>
               <Brush>White</Brush>
               <ClientRectangle>4,74,14,26</ClientRectangle>
@@ -432,7 +417,7 @@ WHERE  Request.RQST_STAT != '003'
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text23>
-            <Text26 Ref="27" type="Text" isKey="true">
+            <Text26 Ref="25" type="Text" isKey="true">
               <Brush>White</Brush>
               <ClientRectangle>170,66,2,6</ClientRectangle>
               <Conditions isList="true" count="0" />
@@ -448,7 +433,7 @@ WHERE  Request.RQST_STAT != '003'
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text26>
-            <Text27 Ref="28" type="Text" isKey="true">
+            <Text27 Ref="26" type="Text" isKey="true">
               <Brush>White</Brush>
               <ClientRectangle>108,66,2,6</ClientRectangle>
               <Conditions isList="true" count="0" />
@@ -464,7 +449,7 @@ WHERE  Request.RQST_STAT != '003'
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text27>
-            <Text28 Ref="29" type="Text" isKey="true">
+            <Text28 Ref="27" type="Text" isKey="true">
               <Brush>White</Brush>
               <ClientRectangle>128,66,42,6</ClientRectangle>
               <Conditions isList="true" count="0" />
@@ -480,7 +465,7 @@ WHERE  Request.RQST_STAT != '003'
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text28>
-            <Text29 Ref="30" type="Text" isKey="true">
+            <Text29 Ref="28" type="Text" isKey="true">
               <Brush>White</Brush>
               <ClientRectangle>66,66,42,6</ClientRectangle>
               <Conditions isList="true" count="0" />
@@ -496,10 +481,10 @@ WHERE  Request.RQST_STAT != '003'
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text29>
-            <BarCode2 Ref="31" type="Stimulsoft.Report.BarCodes.StiBarCode" isKey="true">
+            <BarCode2 Ref="29" type="Stimulsoft.Report.BarCodes.StiBarCode" isKey="true">
               <AutoScale>True</AutoScale>
               <BackColor>White</BackColor>
-              <BarCodeType Ref="32" type="Stimulsoft.Report.BarCodes.StiCode128AutoBarCodeType" isKey="true" />
+              <BarCodeType Ref="30" type="Stimulsoft.Report.BarCodes.StiCode128AutoBarCodeType" isKey="true" />
               <ClientRectangle>40,28,48,8</ClientRectangle>
               <Code>{iQuery.FILE_NO}</Code>
               <Conditions isList="true" count="0" />
@@ -511,7 +496,7 @@ WHERE  Request.RQST_STAT != '003'
               <Parent isRef="5" />
               <ShowLabelText>False</ShowLabelText>
             </BarCode2>
-            <Text32 Ref="33" type="Text" isKey="true">
+            <Text32 Ref="31" type="Text" isKey="true">
               <Border>Right;Black;1;Solid;False;4;Black</Border>
               <Brush>White</Brush>
               <ClientRectangle>18,26,20,12</ClientRectangle>
@@ -528,9 +513,9 @@ WHERE  Request.RQST_STAT != '003'
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text32>
-            <Text11 Ref="34" type="Text" isKey="true">
+            <Text11 Ref="32" type="Text" isKey="true">
               <Brush>White</Brush>
-              <ClientRectangle>128,76,60,6</ClientRectangle>
+              <ClientRectangle>156,76,32,6</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Nazanin,11,Bold</Font>
               <HorAlignment>Right</HorAlignment>
@@ -543,9 +528,9 @@ WHERE  Request.RQST_STAT != '003'
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text11>
-            <Text30 Ref="35" type="Text" isKey="true">
+            <Text30 Ref="33" type="Text" isKey="true">
               <Brush>White</Brush>
-              <ClientRectangle>128,84,60,6</ClientRectangle>
+              <ClientRectangle>156,84,32,6</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Nazanin,11,Bold</Font>
               <HorAlignment>Right</HorAlignment>
@@ -558,9 +543,9 @@ WHERE  Request.RQST_STAT != '003'
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text30>
-            <Text17 Ref="36" type="Text" isKey="true">
+            <Text17 Ref="34" type="Text" isKey="true">
               <Brush>White</Brush>
-              <ClientRectangle>66,76,60,6</ClientRectangle>
+              <ClientRectangle>120,76,34,6</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Nazanin,11,Bold</Font>
               <HorAlignment>Right</HorAlignment>
@@ -572,6 +557,33 @@ WHERE  Request.RQST_STAT != '003'
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
             </Text17>
+            <Image1 Ref="35" type="Image" isKey="true">
+              <Border>None;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>156,0,40,26</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <File>\\localhost\Report Repository\Logo\Logo.jpeg</File>
+              <Name>Image1</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <Stretch>True</Stretch>
+            </Image1>
+            <Text7 Ref="36" type="Text" isKey="true">
+              <Brush>White</Brush>
+              <ClientRectangle>86,84,68,6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Nazanin,11,Bold</Font>
+              <Guid>f2028b370b8142f09b0f9c9c55f9ff77</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text7</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <Text>گروه : {iQuery.MTOD_DESC} , {iQuery.CTGY_DESC}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text7>
             <StartPointPrimitive1 Ref="37" type="Stimulsoft.Report.Components.StiStartPointPrimitive" isKey="true">
               <ClientRectangle>4,26,0,0</ClientRectangle>
               <Name>StartPointPrimitive1</Name>
@@ -725,10 +737,10 @@ WHERE  Request.RQST_STAT != '003'
     <value>Stimulsoft.Report.Dll</value>
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
-  <ReportChanged>12/17/2018 6:57:57 PM</ReportChanged>
+  <ReportChanged>12/19/2018 8:07:41 PM</ReportChanged>
   <ReportCreated>1/2/2016 4:35:07 PM</ReportCreated>
   <ReportFile>D:\Project\MyProject\Documents\Report Repository\RPT_ADM_003_FISH_R.mrt</ReportFile>
-  <ReportGuid>b7ab017e984e4308a86317981cf50018</ReportGuid>
+  <ReportGuid>76242aad364d460aacb9e9936d2403a9</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Millimeters</ReportUnit>
   <ReportVersion>2012.2.1304</ReportVersion>

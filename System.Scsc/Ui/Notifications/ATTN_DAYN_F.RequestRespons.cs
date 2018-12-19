@@ -319,8 +319,8 @@ namespace System.Scsc.Ui.Notifications
       {
          CbmtBs1.DataSource = iScsc.Club_Methods.Where(cbmt => cbmt.MTOD_STAT == "002" && Fga_Uclb_U.Contains(cbmt.CLUB_CODE) && Convert.ToInt32(cbmt.Fighter.ACTV_TAG_DNRM ?? "101") >= 101);
          CochBs.DataSource = iScsc.Fighters.Where(f => f.FGPB_TYPE_DNRM == "003" && Convert.ToInt32(f.ACTV_TAG_DNRM) >= 101);
-         MtodBs.DataSource = iScsc.Methods.Where(m => m.MTOD_STAT == "002");
-         CtgyBs.DataSource = iScsc.Category_Belts.Where(c => c.CTGY_STAT == "002");
+         MtodBs.DataSource = iScsc.Methods;//.Where(m => m.MTOD_STAT == "002");
+         CtgyBs.DataSource = iScsc.Category_Belts;//.Where(c => c.CTGY_STAT == "002");
          job.Status = StatusType.Successful;
       }
 

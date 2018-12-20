@@ -1,0 +1,1816 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<StiSerializer version="1.02" type="Net" application="StiReport">
+  <Dictionary Ref="1" type="Dictionary" isKey="true">
+    <BusinessObjects isList="true" count="0" />
+    <Databases isList="true" count="1">
+      <iScsc Ref="2" type="Stimulsoft.Report.Dictionary.StiSqlDatabase" isKey="true">
+        <Alias>iScsc</Alias>
+        <ConnectionString>User ID=artauser;Integrated Security=False;Data Source=.;Initial Catalog=iScsc;Password=artasport_anardb;Persist Security Info=True</ConnectionString>
+        <Name>iScsc</Name>
+      </iScsc>
+    </Databases>
+    <DataSources isList="true" count="13">
+      <Fighter Ref="3" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
+        <Alias>Fighter</Alias>
+        <Columns isList="true" count="77">
+          <value>CONF_STAT,System.String</value>
+          <value>REGN_PRVN_CNTY_CODE,System.String</value>
+          <value>REGN_PRVN_CODE,System.String</value>
+          <value>REGN_CODE,System.String</value>
+          <value>FILE_NO,System.Int64</value>
+          <value>FIGH_STAT,System.String</value>
+          <value>RQST_RQID,System.Int64</value>
+          <value>NAME_DNRM,System.String</value>
+          <value>FRST_NAME_DNRM,System.String</value>
+          <value>LAST_NAME_DNRM,System.String</value>
+          <value>FATH_NAME_DNRM,System.String</value>
+          <value>POST_ADRS_DNRM,System.String</value>
+          <value>SEX_TYPE_DNRM,System.String</value>
+          <value>BRTH_DATE_DNRM,System.DateTime</value>
+          <value>CELL_PHON_DNRM,System.String</value>
+          <value>TELL_PHON_DNRM,System.String</value>
+          <value>FGPB_TYPE_DNRM,System.String</value>
+          <value>INSR_NUMB_DNRM,System.String</value>
+          <value>INSR_DATE_DNRM,System.DateTime</value>
+          <value>TEST_DATE_DNRM,System.DateTime</value>
+          <value>CAMP_DATE_DNRM,System.DateTime</value>
+          <value>CTGY_CODE_DNRM,System.Int64</value>
+          <value>MTOD_CODE_DNRM,System.Int64</value>
+          <value>CLUB_CODE_DNRM,System.Int64</value>
+          <value>COCH_FILE_NO_DNRM,System.Int64</value>
+          <value>COCH_CRTF_YEAR_DNRM,System.Int64</value>
+          <value>CBMT_CODE_DNRM,System.Int64</value>
+          <value>DAY_TYPE_DNRM,System.String</value>
+          <value>ATTN_TIME_DNRM,System.String</value>
+          <value>ACTV_TAG_DNRM,System.String</value>
+          <value>BLOD_GROP_DNRM,System.String</value>
+          <value>FIGH_FILE_NO,System.Int64</value>
+          <value>IMAG_RCDC_RCID_DNRM,System.Int64</value>
+          <value>IMAG_RWNO_DNRM,System.Int64</value>
+          <value>CARD_NUMB_DNRM,System.String</value>
+          <value>FNGR_PRNT_DNRM,System.String</value>
+          <value>SUNT_BUNT_DEPT_ORGN_CODE_DNRM,System.String</value>
+          <value>SUNT_BUNT_DEPT_CODE_DNRM,System.String</value>
+          <value>SUNT_BUNT_CODE_DNRM,System.String</value>
+          <value>SUNT_CODE_DNRM,System.String</value>
+          <value>CORD_X_DNRM,System.Double</value>
+          <value>CORD_Y_DNRM,System.Double</value>
+          <value>SERV_NO_DNRM,System.String</value>
+          <value>NATL_CODE_DNRM,System.String</value>
+          <value>GLOB_CODE_DNRM,System.String</value>
+          <value>CHAT_ID_DNRM,System.Int64</value>
+          <value>FMLY_NUMB_DNRM,System.Int64</value>
+          <value>MOM_CELL_PHON_DNRM,System.String</value>
+          <value>MOM_TELL_PHON_DNRM,System.String</value>
+          <value>MOM_CHAT_ID_DNRM,System.Int64</value>
+          <value>DAD_CELL_PHON_DNRM,System.String</value>
+          <value>DAD_TELL_PHON_DNRM,System.String</value>
+          <value>DAD_CHAT_ID_DNRM,System.Int64</value>
+          <value>CRET_BY,System.String</value>
+          <value>CRET_DATE,System.DateTime</value>
+          <value>MDFY_BY,System.String</value>
+          <value>MDFY_DATE,System.DateTime</value>
+          <value>TARF_CODE_DNRM,System.String</value>
+          <value>MOST_DEBT_CLNG_DNRM,System.Int64</value>
+          <value>DEBT_DNRM,System.Int64</value>
+          <value>BUFE_DEBT_DNTM,System.Int64</value>
+          <value>DPST_AMNT_DNRM,System.Int64</value>
+          <value>FGPB_RWNO_DNRM,System.Int64</value>
+          <value>MBSP_RWNO_DNRM,System.Int64</value>
+          <value>MBCO_RWNO_DNRM,System.Int64</value>
+          <value>MBFZ_RWNO_DNRM,System.Int64</value>
+          <value>MBSM_RWNO_DNRM,System.Int64</value>
+          <value>CAMP_RWNO_DNRM,System.Int64</value>
+          <value>TEST_RWNO_DNRM,System.Int64</value>
+          <value>CLCL_RWNO_DNRM,System.Int64</value>
+          <value>HERT_RWNO_DNRM,System.Int64</value>
+          <value>PSFN_RWNO_DNRM,System.Int64</value>
+          <value>EXAM_RWNO_DNRM,System.Int64</value>
+          <value>BDFT_RWNO_DNRM,System.Int64</value>
+          <value>MBSP_STRT_DATE,System.String</value>
+          <value>MBSP_END_DATE,System.String</value>
+          <value>CONF_DATE,System.DateTime</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1" />
+        <Name>Fighter</Name>
+        <NameInSource>iScsc</NameInSource>
+        <Parameters isList="true" count="0" />
+        <SqlCommand>select * from Fighter</SqlCommand>
+      </Fighter>
+      <Payment Ref="4" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
+        <Alias>Payment</Alias>
+        <Columns isList="true" count="29">
+          <value>CASH_CODE,System.Int64</value>
+          <value>RQST_RQID,System.Int64</value>
+          <value>TYPE,System.String</value>
+          <value>RECV_TYPE,System.String</value>
+          <value>SUM_EXPN_PRIC,System.Int64</value>
+          <value>SUM_EXPN_EXTR_PRCT,System.Int64</value>
+          <value>SUM_REMN_PRIC,System.Int64</value>
+          <value>SUM_RCPT_EXPN_PRIC,System.Int64</value>
+          <value>SUM_RCPT_EXPN_EXTR_PRCT,System.Int64</value>
+          <value>SUM_RCPT_REMN_PRIC,System.Int64</value>
+          <value>SUM_PYMT_DSCN_DNRM,System.Int64</value>
+          <value>CASH_BY,System.String</value>
+          <value>CASH_DATE,System.DateTime</value>
+          <value>ANNC_TYPE,System.String</value>
+          <value>ANNC_DATE,System.DateTime</value>
+          <value>LETT_NO,System.String</value>
+          <value>LETT_DATE,System.DateTime</value>
+          <value>DELV_STAT,System.String</value>
+          <value>DELV_DATE,System.DateTime</value>
+          <value>DELV_BY,System.String</value>
+          <value>CLUB_CODE_DNRM,System.Int64</value>
+          <value>AMNT_UNIT_TYPE_DNRM,System.String</value>
+          <value>LOCK_DATE,System.DateTime</value>
+          <value>CRET_BY,System.String</value>
+          <value>CRET_DATE,System.DateTime</value>
+          <value>MDFY_BY,System.String</value>
+          <value>MDFY_DATE,System.DateTime</value>
+          <value>REGL_YEAR_DNRM,System.Int64</value>
+          <value>REGL_CODE_DNRM,System.Int64</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1" />
+        <Name>Payment</Name>
+        <NameInSource>iScsc</NameInSource>
+        <Parameters isList="true" count="0" />
+        <SqlCommand>select * from Payment</SqlCommand>
+      </Payment>
+      <Payment_Detail Ref="5" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
+        <Alias>Payment_Detail</Alias>
+        <Columns isList="true" count="33">
+          <value>CODE,System.Int64</value>
+          <value>PAY_STAT,System.String</value>
+          <value>EXPN_PRIC,System.Int64</value>
+          <value>EXPN_EXTR_PRCT,System.Int64</value>
+          <value>REMN_PRIC,System.Int64</value>
+          <value>QNTY,System.Int64</value>
+          <value>DOCM_NUMB,System.Int64</value>
+          <value>ISSU_DATE,System.DateTime</value>
+          <value>RCPT_MTOD,System.String</value>
+          <value>RECV_LETT_NO,System.String</value>
+          <value>RECV_LETT_DATE,System.DateTime</value>
+          <value>PYDT_DESC,System.String</value>
+          <value>ADD_QUTS,System.String</value>
+          <value>FIGH_FILE_NO,System.Int64</value>
+          <value>PRE_EXPN_STAT,System.String</value>
+          <value>CBMT_CODE_DNRM,System.Int64</value>
+          <value>MTOD_CODE_DNRM,System.Int64</value>
+          <value>CTGY_CODE_DNRM,System.Int64</value>
+          <value>TRAN_STAT,System.String</value>
+          <value>TRAN_BY,System.String</value>
+          <value>TRAN_DATE,System.DateTime</value>
+          <value>TRAN_CBMT_CODE,System.Int64</value>
+          <value>TRAN_MTOD_CODE,System.Int64</value>
+          <value>TRAN_CTGY_CODE,System.Int64</value>
+          <value>TRAN_EXPN_CODE,System.Int64</value>
+          <value>CRET_BY,System.String</value>
+          <value>CRET_DATE,System.DateTime</value>
+          <value>MDFY_BY,System.String</value>
+          <value>MDFY_DATE,System.DateTime</value>
+          <value>PYMT_CASH_CODE,System.Int64</value>
+          <value>PYMT_RQST_RQID,System.Int64</value>
+          <value>RQRO_RWNO,System.Int64</value>
+          <value>EXPN_CODE,System.Int64</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1" />
+        <Name>Payment_Detail</Name>
+        <NameInSource>iScsc</NameInSource>
+        <Parameters isList="true" count="0" />
+        <SqlCommand>select * from Payment_Detail</SqlCommand>
+      </Payment_Detail>
+      <Request Ref="6" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
+        <Alias>Request</Alias>
+        <Columns isList="true" count="29">
+          <value>REGN_PRVN_CNTY_CODE,System.String</value>
+          <value>REGN_PRVN_CODE,System.String</value>
+          <value>REGN_CODE,System.String</value>
+          <value>RQID,System.Int64</value>
+          <value>RQTP_CODE,System.String</value>
+          <value>RQTT_CODE,System.String</value>
+          <value>SUB_SYS,System.Int64</value>
+          <value>RQST_STAT,System.String</value>
+          <value>SSTT_MSTT_SUB_SYS,System.Int64</value>
+          <value>SSTT_MSTT_CODE,System.Int64</value>
+          <value>SSTT_CODE,System.Int64</value>
+          <value>YEAR,System.Int64</value>
+          <value>CYCL,System.String</value>
+          <value>SEND_EXPN,System.String</value>
+          <value>MDUL_NAME,System.String</value>
+          <value>SECT_NAME,System.String</value>
+          <value>RQST_NUMB,System.Int64</value>
+          <value>RQST_DESC,System.String</value>
+          <value>CRET_BY,System.String</value>
+          <value>CRET_DATE,System.DateTime</value>
+          <value>MDFY_BY,System.String</value>
+          <value>MDFY_DATE,System.DateTime</value>
+          <value>RQST_DATE,System.DateTime</value>
+          <value>SAVE_DATE,System.DateTime</value>
+          <value>LETT_NO,System.String</value>
+          <value>LETT_DATE,System.DateTime</value>
+          <value>LETT_OWNR,System.String</value>
+          <value>RQST_RQID,System.Int64</value>
+          <value>PERS_SAVE_DATE,System.String</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1" />
+        <Name>Request</Name>
+        <NameInSource>iScsc</NameInSource>
+        <Parameters isList="true" count="0" />
+        <SqlCommand>SELECT *, dbo.GET_MTOS_U(Request.SAVE_DATE) AS PERS_SAVE_DATE
+FROM Request 
+WHERE {WhereClause}</SqlCommand>
+      </Request>
+      <Request_Row Ref="7" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
+        <Alias>Request_Row</Alias>
+        <Columns isList="true" count="13">
+          <value>RQST_RQID,System.Int64</value>
+          <value>RWNO,System.Int64</value>
+          <value>FIGH_FILE_NO,System.Int64</value>
+          <value>RECD_STAT,System.String</value>
+          <value>CRET_BY,System.String</value>
+          <value>CRET_DATE,System.DateTime</value>
+          <value>MDFY_BY,System.String</value>
+          <value>MDFY_DATE,System.DateTime</value>
+          <value>REGN_PRVN_CNTY_CODE,System.String</value>
+          <value>REGN_PRVN_CODE,System.String</value>
+          <value>REGN_CODE,System.String</value>
+          <value>RQTP_CODE,System.String</value>
+          <value>RQTT_CODE,System.String</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1" />
+        <Name>Request_Row</Name>
+        <NameInSource>iScsc</NameInSource>
+        <Parameters isList="true" count="0" />
+        <SqlCommand>select * from Request_Row</SqlCommand>
+      </Request_Row>
+      <Club Ref="8" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
+        <Alias>Club</Alias>
+        <Columns isList="true" count="20">
+          <value>REGN_PRVN_CNTY_CODE,System.String</value>
+          <value>REGN_PRVN_CODE,System.String</value>
+          <value>REGN_CODE,System.String</value>
+          <value>CODE,System.Int64</value>
+          <value>NAME,System.String</value>
+          <value>POST_ADRS,System.String</value>
+          <value>EMAL_ADRS,System.String</value>
+          <value>WEB_SITE,System.String</value>
+          <value>CORD_X,System.Double</value>
+          <value>CORD_Y,System.Double</value>
+          <value>TELL_PHON,System.String</value>
+          <value>CELL_PHON,System.String</value>
+          <value>CLUB_CODE,System.Int64</value>
+          <value>ZIP_CODE,System.String</value>
+          <value>ECON_CODE,System.String</value>
+          <value>CLUB_DESC,System.String</value>
+          <value>CRET_BY,System.String</value>
+          <value>CRET_DATE,System.DateTime</value>
+          <value>MDFY_BY,System.String</value>
+          <value>MDFY_DATE,System.DateTime</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1" />
+        <Name>Club</Name>
+        <NameInSource>iScsc</NameInSource>
+        <Parameters isList="true" count="0" />
+        <SqlCommand>select * from Club </SqlCommand>
+      </Club>
+      <Expense Ref="9" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
+        <Alias>Expense</Alias>
+        <Columns isList="true" count="34">
+          <value>PRIC,System.Int64</value>
+          <value>EXTR_PRCT,System.Int64</value>
+          <value>CODE,System.Int64</value>
+          <value>EXPN_DESC,System.String</value>
+          <value>REGL_YEAR,System.Int64</value>
+          <value>REGL_CODE,System.Int64</value>
+          <value>EXTP_CODE,System.Int64</value>
+          <value>CTGY_CODE,System.Int64</value>
+          <value>MTOD_CODE,System.Int64</value>
+          <value>GROP_CODE,System.Int64</value>
+          <value>EXPN_STAT,System.String</value>
+          <value>ADD_QUTS,System.String</value>
+          <value>COVR_DSCT,System.String</value>
+          <value>EXPN_TYPE,System.String</value>
+          <value>BUY_PRIC,System.Int64</value>
+          <value>BUY_EXTR_PRCT,System.Int64</value>
+          <value>NUMB_OF_STOK,System.Int64</value>
+          <value>NUMB_OF_SALE,System.Int64</value>
+          <value>NUMB_OF_REMN_DNRM,System.Int64</value>
+          <value>ORDR_ITEM,System.Int64</value>
+          <value>COVR_TAX,System.String</value>
+          <value>NUMB_OF_ATTN_MONT,System.Int64</value>
+          <value>NUMB_OF_ATTN_WEEK,System.Int64</value>
+          <value>MODL_NUMB_BAR_CODE,System.String</value>
+          <value>PRVT_COCH_EXPN,System.String</value>
+          <value>MIN_NUMB,System.Int64</value>
+          <value>NUMB_CYCL_DAY,System.Int64</value>
+          <value>NUMB_MONT_OFER,System.Int64</value>
+          <value>MIN_TIME,System.DateTime</value>
+          <value>RELY_CMND,System.String</value>
+          <value>CRET_BY,System.String</value>
+          <value>CRET_DATE,System.DateTime</value>
+          <value>MDFY_BY,System.String</value>
+          <value>MDFY_DATE,System.DateTime</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1" />
+        <Name>Expense</Name>
+        <NameInSource>iScsc</NameInSource>
+        <Parameters isList="true" count="0" />
+        <SqlCommand>select * from Expense</SqlCommand>
+      </Expense>
+      <Expense_Item Ref="10" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
+        <Alias>Expense_Item</Alias>
+        <Columns isList="true" count="10">
+          <value>CODE,System.Int64</value>
+          <value>RQTP_CODE,System.String</value>
+          <value>RQTT_CODE,System.String</value>
+          <value>EPIT_DESC,System.String</value>
+          <value>TYPE,System.String</value>
+          <value>AUTO_GNRT,System.String</value>
+          <value>CRET_BY,System.String</value>
+          <value>CRET_DATE,System.DateTime</value>
+          <value>MDFY_BY,System.String</value>
+          <value>MDFY_DATE,System.DateTime</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1" />
+        <Name>Expense_Item</Name>
+        <NameInSource>iScsc</NameInSource>
+        <Parameters isList="true" count="0" />
+        <SqlCommand>select * from Expense_Item</SqlCommand>
+      </Expense_Item>
+      <Expense_Type Ref="11" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
+        <Alias>Expense_Type</Alias>
+        <Columns isList="true" count="9">
+          <value>RQRQ_CODE,System.Int64</value>
+          <value>EPIT_CODE,System.Int64</value>
+          <value>CODE,System.Int64</value>
+          <value>EXTP_DESC,System.String</value>
+          <value>CRET_BY,System.String</value>
+          <value>CRET_DATE,System.DateTime</value>
+          <value>MDFY_BY,System.String</value>
+          <value>MDFY_DATE,System.DateTime</value>
+          <value>EXTP_CODE,System.Int64</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1" />
+        <Name>Expense_Type</Name>
+        <NameInSource>iScsc</NameInSource>
+        <Parameters isList="true" count="0" />
+        <SqlCommand>select * from Expense_Type</SqlCommand>
+      </Expense_Type>
+      <Category_Belt Ref="12" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
+        <Alias>Category_Belt</Alias>
+        <Columns isList="true" count="21">
+          <value>CODE,System.Int64</value>
+          <value>CTGY_DESC,System.String</value>
+          <value>ORDR,System.Int64</value>
+          <value>RED,System.Int64</value>
+          <value>GREN,System.Int64</value>
+          <value>BLUE,System.Int64</value>
+          <value>NATL_CODE,System.String</value>
+          <value>EPIT_TYPE,System.String</value>
+          <value>CRET_BY,System.String</value>
+          <value>CRET_DATE,System.DateTime</value>
+          <value>MDFY_BY,System.String</value>
+          <value>MDFY_DATE,System.DateTime</value>
+          <value>NUMB_OF_ATTN_MONT,System.Int64</value>
+          <value>PRVT_COCH_EXPN,System.String</value>
+          <value>NUMB_CYCL_DAY,System.Int64</value>
+          <value>NUMB_MONT_OFER,System.Int64</value>
+          <value>PRIC,System.Int64</value>
+          <value>DFLT_STAT,System.String</value>
+          <value>CTGY_STAT,System.String</value>
+          <value>MTOD_CODE,System.Int64</value>
+          <value>NAME,System.String</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1" />
+        <Name>Category_Belt</Name>
+        <NameInSource>iScsc</NameInSource>
+        <Parameters isList="true" count="0" />
+        <SqlCommand>select * from Category_Belt</SqlCommand>
+      </Category_Belt>
+      <Method Ref="13" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
+        <Alias>Method</Alias>
+        <Columns isList="true" count="12">
+          <value>CODE,System.Int64</value>
+          <value>MTOD_DESC,System.String</value>
+          <value>MTOD_CODE,System.Int64</value>
+          <value>NATL_CODE,System.String</value>
+          <value>EPIT_TYPE,System.String</value>
+          <value>DFLT_STAT,System.String</value>
+          <value>MTOD_STAT,System.String</value>
+          <value>CHCK_ATTN_ALRM,System.String</value>
+          <value>CRET_BY,System.String</value>
+          <value>CRET_DATE,System.DateTime</value>
+          <value>MDFY_BY,System.String</value>
+          <value>MDFY_DATE,System.DateTime</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1" />
+        <Name>Method</Name>
+        <NameInSource>iScsc</NameInSource>
+        <Parameters isList="true" count="0" />
+        <SqlCommand>select * from Method</SqlCommand>
+      </Method>
+      <Fighter_Public Ref="14" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
+        <Alias>Fighter_Public</Alias>
+        <Columns isList="true" count="105">
+          <value>TYPE,System.String</value>
+          <value>FIGH_FILE_NO,System.Int64</value>
+          <value>RWNO,System.Int64</value>
+          <value>RECT_CODE,System.String</value>
+          <value>FRST_NAME,System.String</value>
+          <value>LAST_NAME,System.String</value>
+          <value>REGN_PRVN_CNTY_CODE,System.String</value>
+          <value>REGN_PRVN_CODE,System.String</value>
+          <value>REGN_CODE,System.String</value>
+          <value>DISE_CODE,System.Int64</value>
+          <value>MTOD_CODE,System.Int64</value>
+          <value>CTGY_CODE,System.Int64</value>
+          <value>CLUB_CODE,System.Int64</value>
+          <value>RQRO_RQST_RQID,System.Int64</value>
+          <value>RQRO_RWNO,System.Int64</value>
+          <value>FATH_NAME,System.String</value>
+          <value>SEX_TYPE,System.String</value>
+          <value>NATL_CODE,System.String</value>
+          <value>BRTH_DATE,System.DateTime</value>
+          <value>CELL_PHON,System.String</value>
+          <value>TELL_PHON,System.String</value>
+          <value>COCH_DEG,System.String</value>
+          <value>GUDG_DEG,System.String</value>
+          <value>GLOB_CODE,System.String</value>
+          <value>EDUC_DEG,System.String</value>
+          <value>POST_ADRS,System.String</value>
+          <value>EMAL_ADRS,System.String</value>
+          <value>INSR_NUMB,System.String</value>
+          <value>INSR_DATE,System.DateTime</value>
+          <value>COCH_FILE_NO,System.Int64</value>
+          <value>COCH_CRTF_DATE,System.String</value>
+          <value>CBMT_CODE,System.Int64</value>
+          <value>DAY_TYPE,System.String</value>
+          <value>ATTN_TIME,System.String</value>
+          <value>CALC_EXPN_TYPE,System.String</value>
+          <value>ACTV_TAG,System.String</value>
+          <value>BLOD_GROP,System.String</value>
+          <value>FNGR_PRNT,System.String</value>
+          <value>SUNT_BUNT_DEPT_ORGN_CODE,System.String</value>
+          <value>SUNT_BUNT_DEPT_CODE,System.String</value>
+          <value>SUNT_BUNT_CODE,System.String</value>
+          <value>SUNT_CODE,System.String</value>
+          <value>CORD_X,System.Double</value>
+          <value>CORD_Y,System.Double</value>
+          <value>MOST_DEBT_CLNG,System.Int64</value>
+          <value>SERV_NO,System.String</value>
+          <value>BRTH_PLAC,System.String</value>
+          <value>ISSU_PLAC,System.String</value>
+          <value>FATH_WORK,System.String</value>
+          <value>HIST_DESC,System.String</value>
+          <value>INTR_FILE_NO,System.Int64</value>
+          <value>CNTR_CODE,System.Int64</value>
+          <value>DPST_ACNT_SLRY_BANK,System.String</value>
+          <value>DPST_ACNT_SLRY,System.String</value>
+          <value>CHAT_ID,System.Int64</value>
+          <value>MOM_CELL_PHON,System.String</value>
+          <value>DAD_CELL_PHON,System.String</value>
+          <value>MOM_TELL_PHON,System.String</value>
+          <value>DAD_TELL_PHON,System.String</value>
+          <value>MOM_CHAT_ID,System.Int64</value>
+          <value>DAD_CHAT_ID,System.Int64</value>
+          <value>IDTY_NUMB,System.String</value>
+          <value>WATR_FABR_NUMB,System.String</value>
+          <value>GAS_FABR_NUMB,System.String</value>
+          <value>POWR_FABR_NUMB,System.String</value>
+          <value>BULD_AREA,System.Int64</value>
+          <value>CHLD_FMLY_NUMB,System.Int64</value>
+          <value>DPEN_FMLY_NUMB,System.Int64</value>
+          <value>FMLY_NUMB,System.Int64</value>
+          <value>HIRE_DATE,System.DateTime</value>
+          <value>HIRE_TYPE,System.String</value>
+          <value>HIRE_PLAC_CODE,System.Int64</value>
+          <value>HOME_TYPE,System.String</value>
+          <value>HIRE_CELL_PHON,System.String</value>
+          <value>HIRE_TELL_PHON,System.String</value>
+          <value>SALR_PLAC_CODE,System.Int64</value>
+          <value>UNIT_BLOK_CNDO_CODE,System.String</value>
+          <value>UNIT_BLOK_CODE,System.String</value>
+          <value>UNIT_CODE,System.String</value>
+          <value>PUNT_BLOK_CNDO_CODE,System.String</value>
+          <value>PUNT_BLOK_CODE,System.String</value>
+          <value>PUNT_CODE,System.String</value>
+          <value>PHAS_NUMB,System.Int64</value>
+          <value>HIRE_DEGR,System.String</value>
+          <value>HIRE_PLAC_DEGR,System.String</value>
+          <value>SCOR_NUMB,System.Int64</value>
+          <value>HOME_REGN_PRVN_CNTY_CODE,System.String</value>
+          <value>HOME_REGN_PRVN_CODE,System.String</value>
+          <value>HOME_REGN_CODE,System.String</value>
+          <value>HOME_POST_ADRS,System.String</value>
+          <value>HOME_CORD_X,System.Double</value>
+          <value>HOME_CORD_Y,System.Double</value>
+          <value>HOME_ZIP_CODE,System.String</value>
+          <value>ZIP_CODE,System.String</value>
+          <value>RISK_CODE,System.String</value>
+          <value>RISK_NUMB,System.Int64</value>
+          <value>WAR_DAY_NUMB,System.Int64</value>
+          <value>CPTV_DAY_NUMB,System.Int64</value>
+          <value>MRID_TYPE,System.String</value>
+          <value>JOB_TITL_CODE,System.Int64</value>
+          <value>CMNT,System.String</value>
+          <value>CRET_BY,System.String</value>
+          <value>CRET_DATE,System.DateTime</value>
+          <value>MDFY_BY,System.String</value>
+          <value>MDFY_DATE,System.DateTime</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1" />
+        <Name>Fighter_Public</Name>
+        <NameInSource>iScsc</NameInSource>
+        <Parameters isList="true" count="0" />
+        <SqlCommand>select * from Fighter_Public where rect_code = '004'</SqlCommand>
+      </Fighter_Public>
+      <Member_Ship Ref="15" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
+        <Alias>Member_Ship</Alias>
+        <Columns isList="true" count="29">
+          <value>FIGH_FILE_NO,System.Int64</value>
+          <value>RWNO,System.Int64</value>
+          <value>RECT_CODE,System.String</value>
+          <value>FGPB_RWNO_DNRM,System.Int64</value>
+          <value>FGPB_RECT_CODE_DNRM,System.String</value>
+          <value>TYPE,System.String</value>
+          <value>STRT_DATE,System.DateTime</value>
+          <value>END_DATE,System.DateTime</value>
+          <value>NUMB_OF_MONT_DNRM,System.Int64</value>
+          <value>NUMB_OF_DAYS_DNRM,System.Int64</value>
+          <value>NUMB_MONT_OFER,System.Int64</value>
+          <value>NUMB_OF_ATTN_MONT,System.Int64</value>
+          <value>NUMB_OF_ATTN_WEEK,System.Int64</value>
+          <value>SUM_ATTN_MONT_DNRM,System.Int64</value>
+          <value>SUM_ATTN_WEEK_DNRM,System.Int64</value>
+          <value>ATTN_DAY_TYPE,System.String</value>
+          <value>PRNT_CONT,System.Int64</value>
+          <value>SESN_MEET_DATE,System.DateTime</value>
+          <value>SESN_MEET_TYPE,System.String</value>
+          <value>SMS_SEND,System.String</value>
+          <value>VALD_TYPE,System.String</value>
+          <value>CRET_BY,System.String</value>
+          <value>CRET_DATE,System.DateTime</value>
+          <value>MDFY_BY,System.String</value>
+          <value>MDFY_DATE,System.DateTime</value>
+          <value>RQRO_RQST_RQID,System.Int64</value>
+          <value>RQRO_RWNO,System.Int64</value>
+          <value>PERS_STRT_DATE,System.String</value>
+          <value>PERS_END_DATE,System.String</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1" />
+        <Name>Member_Ship</Name>
+        <NameInSource>iScsc</NameInSource>
+        <Parameters isList="true" count="0" />
+        <SqlCommand>select *, dbo.GET_MTOS_U(STRT_DATE) AS PERS_STRT_DATE, dbo.GET_MTOS_U(END_DATE) AS PERS_END_DATE from Member_Ship where rect_code = '004'</SqlCommand>
+      </Member_Ship>
+    </DataSources>
+    <Relations isList="true" count="17">
+      <RQST_RQRO Ref="16" type="DataRelation" isKey="true">
+        <Alias>RQST_RQRO</Alias>
+        <ChildColumns isList="true" count="1">
+          <value>RQST_RQID</value>
+        </ChildColumns>
+        <ChildSource isRef="7" />
+        <Dictionary isRef="1" />
+        <Name>RQST_RQRO</Name>
+        <NameInSource>Relation</NameInSource>
+        <ParentColumns isList="true" count="1">
+          <value>RQID</value>
+        </ParentColumns>
+        <ParentSource isRef="6" />
+      </RQST_RQRO>
+      <RQRO_FIGH Ref="17" type="DataRelation" isKey="true">
+        <Alias>RQRO_FIGH</Alias>
+        <ChildColumns isList="true" count="1">
+          <value>FILE_NO</value>
+        </ChildColumns>
+        <ChildSource isRef="3" />
+        <Dictionary isRef="1" />
+        <Name>RQRO_FIGH</Name>
+        <NameInSource>Relation2</NameInSource>
+        <ParentColumns isList="true" count="1">
+          <value>FIGH_FILE_NO</value>
+        </ParentColumns>
+        <ParentSource isRef="7" />
+      </RQRO_FIGH>
+      <EPIT_EXTP Ref="18" type="DataRelation" isKey="true">
+        <Alias>EPIT_EXTP</Alias>
+        <ChildColumns isList="true" count="1">
+          <value>EPIT_CODE</value>
+        </ChildColumns>
+        <ChildSource isRef="11" />
+        <Dictionary isRef="1" />
+        <Name>EPIT_EXTP</Name>
+        <NameInSource>Relation4</NameInSource>
+        <ParentColumns isList="true" count="1">
+          <value>CODE</value>
+        </ParentColumns>
+        <ParentSource isRef="10" />
+      </EPIT_EXTP>
+      <EXTP_EXPN Ref="19" type="DataRelation" isKey="true">
+        <Alias>EXTP_EXPN</Alias>
+        <ChildColumns isList="true" count="1">
+          <value>EXTP_CODE</value>
+        </ChildColumns>
+        <ChildSource isRef="9" />
+        <Dictionary isRef="1" />
+        <Name>EXTP_EXPN</Name>
+        <NameInSource>Relation5</NameInSource>
+        <ParentColumns isList="true" count="1">
+          <value>CODE</value>
+        </ParentColumns>
+        <ParentSource isRef="11" />
+      </EXTP_EXPN>
+      <EXPN_PYDT Ref="20" type="DataRelation" isKey="true">
+        <Alias>EXPN_PYDT</Alias>
+        <ChildColumns isList="true" count="1">
+          <value>EXPN_CODE</value>
+        </ChildColumns>
+        <ChildSource isRef="5" />
+        <Dictionary isRef="1" />
+        <Name>EXPN_PYDT</Name>
+        <NameInSource>Relation6</NameInSource>
+        <ParentColumns isList="true" count="1">
+          <value>CODE</value>
+        </ParentColumns>
+        <ParentSource isRef="9" />
+      </EXPN_PYDT>
+      <RQRO_PYDT Ref="21" type="DataRelation" isKey="true">
+        <Alias>RQRO_PYDT</Alias>
+        <ChildColumns isList="true" count="2">
+          <value>PYMT_RQST_RQID</value>
+          <value>RQRO_RWNO</value>
+        </ChildColumns>
+        <ChildSource isRef="5" />
+        <Dictionary isRef="1" />
+        <Name>RQRO_PYDT</Name>
+        <NameInSource>Relation7</NameInSource>
+        <ParentColumns isList="true" count="2">
+          <value>RQST_RQID</value>
+          <value>RWNO</value>
+        </ParentColumns>
+        <ParentSource isRef="7" />
+      </RQRO_PYDT>
+      <RQST_PYMT Ref="22" type="DataRelation" isKey="true">
+        <Alias>RQST_PYMT</Alias>
+        <ChildColumns isList="true" count="1">
+          <value>RQST_RQID</value>
+        </ChildColumns>
+        <ChildSource isRef="4" />
+        <Dictionary isRef="1" />
+        <Name>RQST_PYMT</Name>
+        <NameInSource>Relation8</NameInSource>
+        <ParentColumns isList="true" count="1">
+          <value>RQID</value>
+        </ParentColumns>
+        <ParentSource isRef="6" />
+      </RQST_PYMT>
+      <PYMT_PYDT Ref="23" type="DataRelation" isKey="true">
+        <Alias>PYMT_PYDT</Alias>
+        <ChildColumns isList="true" count="2">
+          <value>PYMT_CASH_CODE</value>
+          <value>PYMT_RQST_RQID</value>
+        </ChildColumns>
+        <ChildSource isRef="5" />
+        <Dictionary isRef="1" />
+        <Name>PYMT_PYDT</Name>
+        <NameInSource>Relation9</NameInSource>
+        <ParentColumns isList="true" count="2">
+          <value>CASH_CODE</value>
+          <value>RQST_RQID</value>
+        </ParentColumns>
+        <ParentSource isRef="4" />
+      </PYMT_PYDT>
+      <FIGH_RQRO Ref="24" type="DataRelation" isKey="true">
+        <Alias>FIGH_RQRO</Alias>
+        <ChildColumns isList="true" count="1">
+          <value>FIGH_FILE_NO</value>
+        </ChildColumns>
+        <ChildSource isRef="7" />
+        <Dictionary isRef="1" />
+        <Name>FIGH_RQRO</Name>
+        <NameInSource>Relation14</NameInSource>
+        <ParentColumns isList="true" count="1">
+          <value>FILE_NO</value>
+        </ParentColumns>
+        <ParentSource isRef="3" />
+      </FIGH_RQRO>
+      <CLUB_FIGH Ref="25" type="DataRelation" isKey="true">
+        <Alias>CLUB_FIGH</Alias>
+        <ChildColumns isList="true" count="1">
+          <value>CLUB_CODE_DNRM</value>
+        </ChildColumns>
+        <ChildSource isRef="3" />
+        <Dictionary isRef="1" />
+        <Name>CLUB_FIGH</Name>
+        <NameInSource>Relation15</NameInSource>
+        <ParentColumns isList="true" count="1">
+          <value>CODE</value>
+        </ParentColumns>
+        <ParentSource isRef="8" />
+      </CLUB_FIGH>
+      <FGPB_CTGY Ref="26" type="DataRelation" isKey="true">
+        <Alias>FGPB_CTGY</Alias>
+        <ChildColumns isList="true" count="2">
+          <value>CTGY_CODE</value>
+          <value>MTOD_CODE</value>
+        </ChildColumns>
+        <ChildSource isRef="14" />
+        <Dictionary isRef="1" />
+        <Name>FGPB_CTGY</Name>
+        <NameInSource>Relation3</NameInSource>
+        <ParentColumns isList="true" count="2">
+          <value>CODE</value>
+          <value>MTOD_CODE</value>
+        </ParentColumns>
+        <ParentSource isRef="12" />
+      </FGPB_CTGY>
+      <FGPB_MTOD Ref="27" type="DataRelation" isKey="true">
+        <Alias>FGPB_MTOD</Alias>
+        <ChildColumns isList="true" count="1">
+          <value>MTOD_CODE</value>
+        </ChildColumns>
+        <ChildSource isRef="14" />
+        <Dictionary isRef="1" />
+        <Name>FGPB_MTOD</Name>
+        <NameInSource>Relation10</NameInSource>
+        <ParentColumns isList="true" count="1">
+          <value>CODE</value>
+        </ParentColumns>
+        <ParentSource isRef="13" />
+      </FGPB_MTOD>
+      <MBSP_FIGH Ref="28" type="DataRelation" isKey="true">
+        <Alias>MBSP_FIGH</Alias>
+        <ChildColumns isList="true" count="1">
+          <value>FIGH_FILE_NO</value>
+        </ChildColumns>
+        <ChildSource isRef="15" />
+        <Dictionary isRef="1" />
+        <Name>MBSP_FIGH</Name>
+        <NameInSource>Relation11</NameInSource>
+        <ParentColumns isList="true" count="1">
+          <value>FILE_NO</value>
+        </ParentColumns>
+        <ParentSource isRef="3" />
+      </MBSP_FIGH>
+      <FIGH_FGPB Ref="29" type="DataRelation" isKey="true">
+        <Alias>FIGH_FGPB</Alias>
+        <ChildColumns isList="true" count="1">
+          <value>FILE_NO</value>
+        </ChildColumns>
+        <ChildSource isRef="3" />
+        <Dictionary isRef="1" />
+        <Name>FIGH_FGPB</Name>
+        <NameInSource>Relation13</NameInSource>
+        <ParentColumns isList="true" count="1">
+          <value>FIGH_FILE_NO</value>
+        </ParentColumns>
+        <ParentSource isRef="14" />
+      </FIGH_FGPB>
+      <RQRO_MBSP Ref="30" type="DataRelation" isKey="true">
+        <Alias>RQRO_MBSP</Alias>
+        <ChildColumns isList="true" count="3">
+          <value>RQRO_RQST_RQID</value>
+          <value>RQRO_RWNO</value>
+          <value>FIGH_FILE_NO</value>
+        </ChildColumns>
+        <ChildSource isRef="15" />
+        <Dictionary isRef="1" />
+        <Name>RQRO_MBSP</Name>
+        <NameInSource>Relation12</NameInSource>
+        <ParentColumns isList="true" count="3">
+          <value>RQST_RQID</value>
+          <value>RWNO</value>
+          <value>FIGH_FILE_NO</value>
+        </ParentColumns>
+        <ParentSource isRef="7" />
+      </RQRO_MBSP>
+      <FGPB_MBSP Ref="31" type="DataRelation" isKey="true">
+        <Alias>FGPB_MBSP</Alias>
+        <ChildColumns isList="true" count="3">
+          <value>FIGH_FILE_NO</value>
+          <value>FGPB_RWNO_DNRM</value>
+          <value>FGPB_RECT_CODE_DNRM</value>
+        </ChildColumns>
+        <ChildSource isRef="15" />
+        <Dictionary isRef="1" />
+        <Name>FGPB_MBSP</Name>
+        <NameInSource>Relation16</NameInSource>
+        <ParentColumns isList="true" count="3">
+          <value>FIGH_FILE_NO</value>
+          <value>RWNO</value>
+          <value>RECT_CODE</value>
+        </ParentColumns>
+        <ParentSource isRef="14" />
+      </FGPB_MBSP>
+      <FGPB_CLUB Ref="32" type="DataRelation" isKey="true">
+        <Alias>FGPB_CLUB</Alias>
+        <ChildColumns isList="true" count="1">
+          <value>CLUB_CODE</value>
+        </ChildColumns>
+        <ChildSource isRef="14" />
+        <Dictionary isRef="1" />
+        <Name>FGPB_CLUB</Name>
+        <NameInSource>Relation17</NameInSource>
+        <ParentColumns isList="true" count="1">
+          <value>CODE</value>
+        </ParentColumns>
+        <ParentSource isRef="8" />
+      </FGPB_CLUB>
+    </Relations>
+    <Report isRef="0" />
+    <Variables isList="true" count="11">
+      <value>,SerialNumber,SerialNumber,System.String,,False,False</value>
+      <value>,Date,Date,System.String,,False,False</value>
+      <value>,Hour,Hour,System.String,,False,False</value>
+      <value>,TeacherName,TeacherName,System.String,,False,False</value>
+      <value>,Name,Name,System.String,,False,False</value>
+      <value>,Code,Code,System.String,,False,False</value>
+      <value>,ClassName,ClassName,System.String,,False,False</value>
+      <value>,SaloonNo,SaloonNo,System.String,,False,False</value>
+      <value>,Amount,Amount,System.String,,False,False</value>
+      <value>,EtebarDate,EtebarDate,System.String,,False,False</value>
+      <value>,EnrollUserName,EnrollUserName,System.String,,False,False</value>
+    </Variables>
+  </Dictionary>
+  <EngineVersion>EngineV2</EngineVersion>
+  <GlobalizationStrings isList="true" count="0" />
+  <MetaTags isList="true" count="0" />
+  <Pages isList="true" count="1">
+    <Page1 Ref="33" type="Page" isKey="true">
+      <Border>None;Black;3;Double;False;4;Black</Border>
+      <Brush>Transparent</Brush>
+      <Components isList="true" count="7">
+        <DataRequest Ref="34" type="DataBand" isKey="true">
+          <Border>All;Black;1;Solid;False;4;Black</Border>
+          <Brush>Transparent</Brush>
+          <BusinessObjectGuid isNull="true" />
+          <ClientRectangle>0,0.4,6,0.8</ClientRectangle>
+          <Components isList="true" count="6">
+            <Text1 Ref="35" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,0,2.4,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,8</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text1</Name>
+              <Page isRef="33" />
+              <Parent isRef="34" />
+              <Text>{Request.RQID}</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </Text1>
+            <Text3 Ref="36" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>4.4,0.4,1.6,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,8</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text3</Name>
+              <Page isRef="33" />
+              <Parent isRef="34" />
+              <Text>{Request.PERS_SAVE_DATE}</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </Text3>
+            <Text5 Ref="37" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>2.4,0.4,1.8,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,8</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text5</Name>
+              <Page isRef="33" />
+              <Parent isRef="34" />
+              <Text>{Request.SAVE_DATE}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="38" type="TimeFormat" isKey="true">
+                <StringFormat>HH:mm:ss</StringFormat>
+              </TextFormat>
+              <VertAlignment>Center</VertAlignment>
+            </Text5>
+            <Text6 Ref="39" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>4.2,0.4,0.2,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,8</Font>
+              <Guid>8cbcfa0655f748ba88c3a024015bd3d6</Guid>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text6</Name>
+              <Page isRef="33" />
+              <Parent isRef="34" />
+              <Text>-</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text6>
+            <Text7 Ref="40" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,0.4,2.4,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,8</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text7</Name>
+              <Page isRef="33" />
+              <Parent isRef="34" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{Request.MDFY_BY}</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </Text7>
+            <BarCode1 Ref="41" type="Stimulsoft.Report.BarCodes.StiBarCode" isKey="true">
+              <BackColor>Transparent</BackColor>
+              <BarCodeType Ref="42" type="Stimulsoft.Report.BarCodes.StiEAN13BarCodeType" isKey="true" />
+              <ClientRectangle>2.4,0,3.6,0.4</ClientRectangle>
+              <Code>{Request.RQID}</Code>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,8,Bold,Pixel</Font>
+              <ForeColor>Black</ForeColor>
+              <HorAlignment>Right</HorAlignment>
+              <Name>BarCode1</Name>
+              <Page isRef="33" />
+              <Parent isRef="34" />
+              <VertAlignment>Center</VertAlignment>
+            </BarCode1>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <DataRelationName isNull="true" />
+          <DataSourceName>Request</DataSourceName>
+          <Filters isList="true" count="0" />
+          <Name>DataRequest</Name>
+          <Page isRef="33" />
+          <Parent isRef="33" />
+          <Sort isList="true" count="0" />
+        </DataRequest>
+        <DataFighter Ref="43" type="DataBand" isKey="true">
+          <Border>All;Black;1;Solid;False;4;Black</Border>
+          <Brush>Transparent</Brush>
+          <BusinessObjectGuid isNull="true" />
+          <ClientRectangle>0,2,6,2.6</ClientRectangle>
+          <Components isList="true" count="10">
+            <DataFighter_FILE_NO Ref="44" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>0,2.2,1.8,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,6,Bold</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataFighter_FILE_NO</Name>
+              <Page isRef="33" />
+              <Parent isRef="43" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{Fighter.FNGR_PRNT_DNRM}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>DataColumn</Type>
+              <VertAlignment>Center</VertAlignment>
+            </DataFighter_FILE_NO>
+            <DataFighter_NAME_DNRM Ref="45" type="Text" isKey="true">
+              <Border>Top, Right, Bottom;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>1.8,2.2,4.2,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,6,Bold</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataFighter_NAME_DNRM</Name>
+              <Page isRef="33" />
+              <Parent isRef="43" />
+              <Text>{Fighter.NAME_DNRM}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>DataColumn</Type>
+              <VertAlignment>Center</VertAlignment>
+            </DataFighter_NAME_DNRM>
+            <DataClub_POST_ADRS Ref="46" type="Text" isKey="true">
+              <Border>Left, Right, Bottom;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>1.8,0.6,4.2,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,6,Bold</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataClub_POST_ADRS</Name>
+              <Page isRef="33" />
+              <Parent isRef="43" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{Fighter.FIGH_FGPB.FGPB_CLUB.POST_ADRS}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>DataColumn</Type>
+              <VertAlignment>Center</VertAlignment>
+            </DataClub_POST_ADRS>
+            <DataClub_CLUB_DESC Ref="47" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>1.8,0,4.2,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,6,Bold</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataClub_CLUB_DESC</Name>
+              <Page isRef="33" />
+              <Parent isRef="43" />
+              <Text>{Fighter.FIGH_FGPB.FGPB_CLUB.NAME}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>DataColumn</Type>
+              <VertAlignment>Center</VertAlignment>
+            </DataClub_CLUB_DESC>
+            <DataClub_CELL_PHON Ref="48" type="Text" isKey="true">
+              <Border>Left, Bottom;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>1.8,1.4,2.6,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,6,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataClub_CELL_PHON</Name>
+              <Page isRef="33" />
+              <Parent isRef="43" />
+              <Text>{Fighter.FIGH_FGPB.FGPB_CLUB.CELL_PHON}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>DataColumn</Type>
+              <VertAlignment>Center</VertAlignment>
+            </DataClub_CELL_PHON>
+            <DataClub_TELL_PHON Ref="49" type="Text" isKey="true">
+              <Border>Left, Bottom;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>1.8,1.8,2.6,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,6,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataClub_TELL_PHON</Name>
+              <Page isRef="33" />
+              <Parent isRef="43" />
+              <Text>{Fighter.FIGH_FGPB.FGPB_CLUB.TELL_PHON}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>DataColumn</Type>
+              <VertAlignment>Center</VertAlignment>
+            </DataClub_TELL_PHON>
+            <Text11 Ref="50" type="Text" isKey="true">
+              <Border>Left, Right, Bottom;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>4.4,1,1.6,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,6</Font>
+              <Guid>7df529ab2dcf4429bb3d902f5c9fb56c</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text11</Name>
+              <Page isRef="33" />
+              <Parent isRef="43" />
+              <Text>کد اقتصادی</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text11>
+            <Text12 Ref="51" type="Text" isKey="true">
+              <Border>Left, Right, Bottom;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>4.4,1.4,1.6,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,6</Font>
+              <Guid>2b846ba4b40a4bd6b10c7731691632a4</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text12</Name>
+              <Page isRef="33" />
+              <Parent isRef="43" />
+              <Text>شماره تماس</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text12>
+            <Image1 Ref="52" type="Image" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,0,1.8,2.2</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <File>\\localhost\Report Repository\Logo\Logo.jpeg</File>
+              <HorAlignment>Center</HorAlignment>
+              <Name>Image1</Name>
+              <Page isRef="33" />
+              <Parent isRef="43" />
+              <Stretch>True</Stretch>
+              <VertAlignment>Center</VertAlignment>
+            </Image1>
+            <DataClub_ECON_CODE Ref="53" type="Text" isKey="true">
+              <Border>Left, Bottom;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>1.8,1,2.6,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,6,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataClub_ECON_CODE</Name>
+              <Page isRef="33" />
+              <Parent isRef="43" />
+              <Text>{Fighter.FIGH_FGPB.FGPB_CLUB.ECON_CODE}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>DataColumn</Type>
+              <VertAlignment>Center</VertAlignment>
+            </DataClub_ECON_CODE>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <DataRelationName>Relation2</DataRelationName>
+          <DataSourceName>Fighter</DataSourceName>
+          <Filters isList="true" count="0" />
+          <MasterComponent isRef="34" />
+          <Name>DataFighter</Name>
+          <Page isRef="33" />
+          <Parent isRef="33" />
+          <Sort isList="true" count="0" />
+        </DataFighter>
+        <DataRequest_Row Ref="54" type="DataBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <BusinessObjectGuid isNull="true" />
+          <ClientRectangle>0,5.4,6,0.8</ClientRectangle>
+          <Components isList="true" count="3">
+            <DataRequest_Row_RQST_RQID Ref="55" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>0,0,2,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,8</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataRequest_Row_RQST_RQID</Name>
+              <Page isRef="33" />
+              <Parent isRef="54" />
+              <Text>{Request_Row.RQST_RQID}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </DataRequest_Row_RQST_RQID>
+            <DataRequest_Row_RWNO Ref="56" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>2,0,2,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,8</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataRequest_Row_RWNO</Name>
+              <Page isRef="33" />
+              <Parent isRef="54" />
+              <Text>{Request_Row.RWNO}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </DataRequest_Row_RWNO>
+            <DataRequest_Row_FIGH_FILE_NO Ref="57" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>4,0,2,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,8</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataRequest_Row_FIGH_FILE_NO</Name>
+              <Page isRef="33" />
+              <Parent isRef="54" />
+              <Text>{Request_Row.FIGH_FILE_NO}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </DataRequest_Row_FIGH_FILE_NO>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <DataRelationName>Relation</DataRelationName>
+          <DataSourceName>Request_Row</DataSourceName>
+          <Enabled>False</Enabled>
+          <Filters isList="true" count="0" />
+          <MasterComponent isRef="34" />
+          <Name>DataRequest_Row</Name>
+          <Page isRef="33" />
+          <Parent isRef="33" />
+          <Sort isList="true" count="0" />
+        </DataRequest_Row>
+        <DataMember_Ship Ref="58" type="DataBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <BusinessObjectGuid isNull="true" />
+          <ClientRectangle>0,7,6,0.8</ClientRectangle>
+          <Components isList="true" count="8">
+            <Text14 Ref="59" type="Text" isKey="true">
+              <Border>Left, Right, Bottom;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>4.4,0,1.6,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,6</Font>
+              <Guid>cbccf6dad66e450296c80ad9f610ee30</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text14</Name>
+              <Page isRef="33" />
+              <Parent isRef="58" />
+              <Text>تاریخ شروع</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text14>
+            <Text16 Ref="60" type="Text" isKey="true">
+              <Border>Left, Right, Bottom;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>4.4,0.4,1.6,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,6</Font>
+              <Guid>ce53c81b6a5f49498050172fb069e3de</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text16</Name>
+              <Page isRef="33" />
+              <Parent isRef="58" />
+              <Text>تاریخ پایان</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text16>
+            <Text17 Ref="61" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>3,0,1.4,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,6,Bold</Font>
+              <Guid>8f2acdbc9daf4838a78ef72d1570dc5c</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text17</Name>
+              <Page isRef="33" />
+              <Parent isRef="58" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{Member_Ship.PERS_STRT_DATE}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>DataColumn</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text17>
+            <Text18 Ref="62" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>3,0.4,1.4,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,6,Bold</Font>
+              <Guid>70696995d2e24de183a386c47614fd77</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text18</Name>
+              <Page isRef="33" />
+              <Parent isRef="58" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{Member_Ship.PERS_END_DATE}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>DataColumn</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text18>
+            <Text19 Ref="63" type="Text" isKey="true">
+              <Border>Left, Right, Bottom;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>2.4,0,0.6,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,6</Font>
+              <Guid>949bdbb772424aacb7462aa31407a197</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text19</Name>
+              <Page isRef="33" />
+              <Parent isRef="58" />
+              <Text>گروه</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text19>
+            <Text20 Ref="64" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>0,0.4,3,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,6,Bold</Font>
+              <Guid>fccc4d2a82fd4fd2988a00409390432b</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text20</Name>
+              <Page isRef="33" />
+              <Parent isRef="58" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{Member_Ship.FGPB_MBSP.FGPB_MTOD.MTOD_DESC} , {Member_Ship.FGPB_MBSP.FGPB_CTGY.CTGY_DESC}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text20>
+            <Text21 Ref="65" type="Text" isKey="true">
+              <Border>Left, Right, Bottom;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>1,0,1.4,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,6</Font>
+              <Guid>9af28570c42b445a893007479090c082</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text21</Name>
+              <Page isRef="33" />
+              <Parent isRef="58" />
+              <Text>تعداد جلسات</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text21>
+            <Text22 Ref="66" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>0,0,1,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,6,Bold</Font>
+              <Guid>768137045f6649fcaaa036b6723a1a4e</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text22</Name>
+              <Page isRef="33" />
+              <Parent isRef="58" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{Member_Ship.NUMB_OF_ATTN_MONT}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>DataColumn</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text22>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <DataRelationName>Relation12</DataRelationName>
+          <DataSourceName>Member_Ship</DataSourceName>
+          <Filters isList="true" count="0" />
+          <MasterComponent isRef="34" />
+          <Name>DataMember_Ship</Name>
+          <Page isRef="33" />
+          <Parent isRef="33" />
+          <Sort isList="true" count="0" />
+        </DataMember_Ship>
+        <HeaderPayment_Detail Ref="67" type="HeaderBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,8.6,6,0.8</ClientRectangle>
+          <Components isList="true" count="5">
+            <HeaderPayment_Detail_Relation6_Relation5_Relation4_EPIT_DESC Ref="68" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>3.4,0.4,2.6,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,6</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderPayment_Detail_Relation6_Relation5_Relation4_EPIT_DESC</Name>
+              <Page isRef="33" />
+              <Parent isRef="67" />
+              <Text>نام کالا / خدمات</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderPayment_Detail_Relation6_Relation5_Relation4_EPIT_DESC>
+            <HeaderPayment_Detail_QNTY Ref="69" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,0.4,0.6,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,6</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderPayment_Detail_QNTY</Name>
+              <Page isRef="33" />
+              <Parent isRef="67" />
+              <Text>تعداد</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderPayment_Detail_QNTY>
+            <HeaderPayment_Detail_EXPN_PRIC Ref="70" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>1.8,0.4,1.6,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,6</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderPayment_Detail_EXPN_PRIC</Name>
+              <Page isRef="33" />
+              <Parent isRef="67" />
+              <Text>مبلغ هزینه</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderPayment_Detail_EXPN_PRIC>
+            <HeaderPayment_Detail_EXPN_EXTR_PRCT Ref="71" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0.6,0.4,1.2,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,5</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderPayment_Detail_EXPN_EXTR_PRCT</Name>
+              <Page isRef="33" />
+              <Parent isRef="67" />
+              <Text>ارزش افزوده</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderPayment_Detail_EXPN_EXTR_PRCT>
+            <Text9 Ref="72" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,0,6,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,6</Font>
+              <Guid>8782d01a831e4a8bbc167120449917d4</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text9</Name>
+              <Page isRef="33" />
+              <Parent isRef="67" />
+              <Text>مشخصات ریز فاکتور</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text9>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <Name>HeaderPayment_Detail</Name>
+          <Page isRef="33" />
+          <Parent isRef="33" />
+        </HeaderPayment_Detail>
+        <DataPayment_Detail Ref="73" type="DataBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <BusinessObjectGuid isNull="true" />
+          <ClientRectangle>0,10.2,6,0.4</ClientRectangle>
+          <Components isList="true" count="4">
+            <DataPayment_Detail_QNTY Ref="74" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>0,0,0.6,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,6,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataPayment_Detail_QNTY</Name>
+              <Page isRef="33" />
+              <Parent isRef="73" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{Payment_Detail.QNTY}</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </DataPayment_Detail_QNTY>
+            <DataPayment_Detail_EXPN_PRIC Ref="75" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>1.8,0,1.6,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,6,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataPayment_Detail_EXPN_PRIC</Name>
+              <Page isRef="33" />
+              <Parent isRef="73" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{Payment_Detail.EXPN_PRIC}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="76" type="NumberFormat" isKey="true">
+                <DecimalDigits>0</DecimalDigits>
+                <GroupSeparator>,</GroupSeparator>
+                <NegativePattern>1</NegativePattern>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <VertAlignment>Center</VertAlignment>
+            </DataPayment_Detail_EXPN_PRIC>
+            <DataPayment_Detail_EXPN_EXTR_PRCT Ref="77" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>0.6,0,1.2,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,6,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataPayment_Detail_EXPN_EXTR_PRCT</Name>
+              <Page isRef="33" />
+              <Parent isRef="73" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{Payment_Detail.EXPN_EXTR_PRCT}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="78" type="NumberFormat" isKey="true">
+                <DecimalDigits>0</DecimalDigits>
+                <GroupSeparator>,</GroupSeparator>
+                <NegativePattern>1</NegativePattern>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <VertAlignment>Center</VertAlignment>
+            </DataPayment_Detail_EXPN_EXTR_PRCT>
+            <DataPayment_Detail_EXPN_CODE Ref="79" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>3.4,0,2.6,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,6,Bold</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataPayment_Detail_EXPN_CODE</Name>
+              <Page isRef="33" />
+              <Parent isRef="73" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{Payment_Detail.EXPN_PYDT.EXTP_EXPN.EPIT_EXTP.EPIT_DESC}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>DataColumn</Type>
+              <VertAlignment>Center</VertAlignment>
+            </DataPayment_Detail_EXPN_CODE>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <DataRelationName>Relation7</DataRelationName>
+          <DataSourceName>Payment_Detail</DataSourceName>
+          <Filters isList="true" count="0" />
+          <MasterComponent isRef="34" />
+          <Name>DataPayment_Detail</Name>
+          <Page isRef="33" />
+          <Parent isRef="33" />
+          <Sort isList="true" count="0" />
+        </DataPayment_Detail>
+        <DataPayment Ref="80" type="DataBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <BusinessObjectGuid isNull="true" />
+          <ClientRectangle>0,11.4,6,2.6</ClientRectangle>
+          <Components isList="true" count="9">
+            <DataPayment_SUM_EXPN_PRIC Ref="81" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>0,0.4,1.8,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,6</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataPayment_SUM_EXPN_PRIC</Name>
+              <Page isRef="33" />
+              <Parent isRef="80" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{Payment.SUM_EXPN_PRIC + Payment.SUM_EXPN_EXTR_PRCT}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="82" type="NumberFormat" isKey="true">
+                <DecimalDigits>0</DecimalDigits>
+                <GroupSeparator>,</GroupSeparator>
+                <NegativePattern>1</NegativePattern>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </DataPayment_SUM_EXPN_PRIC>
+            <DataPayment_SUM_RCPT_EXPN_PRIC Ref="83" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>0,1.2,1.8,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,6,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataPayment_SUM_RCPT_EXPN_PRIC</Name>
+              <Page isRef="33" />
+              <Parent isRef="80" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{Payment.SUM_RCPT_EXPN_PRIC}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="84" type="NumberFormat" isKey="true">
+                <DecimalDigits>0</DecimalDigits>
+                <GroupSeparator>,</GroupSeparator>
+                <NegativePattern>1</NegativePattern>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <VertAlignment>Center</VertAlignment>
+            </DataPayment_SUM_RCPT_EXPN_PRIC>
+            <DataPayment_SUM_PYMT_DSCN_DNRM Ref="85" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>0,0.8,1.8,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,6</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataPayment_SUM_PYMT_DSCN_DNRM</Name>
+              <Page isRef="33" />
+              <Parent isRef="80" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{Payment.SUM_PYMT_DSCN_DNRM}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="86" type="NumberFormat" isKey="true">
+                <DecimalDigits>0</DecimalDigits>
+                <GroupSeparator>,</GroupSeparator>
+                <NegativePattern>1</NegativePattern>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <VertAlignment>Center</VertAlignment>
+            </DataPayment_SUM_PYMT_DSCN_DNRM>
+            <Text2 Ref="87" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>1.8,0,4.2,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,6</Font>
+              <Guid>cdc577f829b443828fb2f4811c06e939</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text2</Name>
+              <Page isRef="33" />
+              <Parent isRef="80" />
+              <Text> تعداد کالا / خدمات</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text2>
+            <Text8 Ref="88" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>1.8,0.4,4.2,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,6</Font>
+              <Guid>2670f2de67e4403cbf78f767b81e69a5</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text8</Name>
+              <Page isRef="33" />
+              <Parent isRef="80" />
+              <Text>مجموع قیمت</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text8>
+            <Text13 Ref="89" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>1.8,0.8,4.2,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,6</Font>
+              <Guid>37bfca8315e34eedb866c12df2a1d2e7</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text13</Name>
+              <Page isRef="33" />
+              <Parent isRef="80" />
+              <Text>مجموع تخفیف * سود شما</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text13>
+            <Text15 Ref="90" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>1.8,1.2,4.2,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,6</Font>
+              <Guid>42ee5421f22447af9d44b0071981dc1f</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text15</Name>
+              <Page isRef="33" />
+              <Parent isRef="80" />
+              <Text>مجموع پرداختی</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text15>
+            <Text4 Ref="91" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,0,1.8,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,6</Font>
+              <Guid>f740c22cadb04cab916301d5e6d23498</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text4</Name>
+              <Page isRef="33" />
+              <Parent isRef="80" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{Sum(DataPayment_Detail,Payment_Detail.QNTY)}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Totals</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text4>
+            <Text10 Ref="92" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,1.6,6,1</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,8</Font>
+              <Guid>2c6dd800ad2e432d832ee552def8de00</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text10</Name>
+              <Page isRef="33" />
+              <Parent isRef="80" />
+              <Text>مدیریت آرتا از مجموعه نرم افزارهای انار
+09033927103 * 09333617031 * 09171015031</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text10>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <DataRelationName>Relation8</DataRelationName>
+          <DataSourceName>Payment</DataSourceName>
+          <Filters isList="true" count="0" />
+          <MasterComponent isRef="34" />
+          <Name>DataPayment</Name>
+          <Page isRef="33" />
+          <Parent isRef="33" />
+          <Sort isList="true" count="0" />
+        </DataPayment>
+      </Components>
+      <Conditions isList="true" count="0" />
+      <Guid>6098e725742243daa4a4fe2b67d4ebaf</Guid>
+      <Margins>0.5,0.5,0.5,0.5</Margins>
+      <Name>Page1</Name>
+      <PageHeight>15</PageHeight>
+      <PageWidth>7</PageWidth>
+      <Report isRef="0" />
+      <Watermark Ref="93" type="Stimulsoft.Report.Components.StiWatermark" isKey="true">
+        <Font>B Titr,12,Bold,Point,False,178</Font>
+        <TextBrush>[50:0:0:0]</TextBrush>
+      </Watermark>
+    </Page1>
+  </Pages>
+  <PrinterSettings Ref="94" type="Stimulsoft.Report.Print.StiPrinterSettings" isKey="true" />
+  <ReferencedAssemblies isList="true" count="8">
+    <value>System.Dll</value>
+    <value>System.Drawing.Dll</value>
+    <value>System.Windows.Forms.Dll</value>
+    <value>System.Data.Dll</value>
+    <value>System.Xml.Dll</value>
+    <value>Stimulsoft.Controls.Dll</value>
+    <value>Stimulsoft.Base.Dll</value>
+    <value>Stimulsoft.Report.Dll</value>
+  </ReferencedAssemblies>
+  <ReportAlias>Report</ReportAlias>
+  <ReportChanged>12/20/2018 1:18:01 PM</ReportChanged>
+  <ReportCreated>9/26/2011 12:44:57 PM</ReportCreated>
+  <ReportFile>D:\iData\Asre Andishe Project\MyProject\Documents\Report Repository\RPT_ADM_003_R.mrt</ReportFile>
+  <ReportGuid>94c02087dafd4cd59c6dc734ae1f4702</ReportGuid>
+  <ReportName>Report</ReportName>
+  <ReportUnit>Centimeters</ReportUnit>
+  <ReportVersion>2012.2.1304</ReportVersion>
+  <Script>using System;
+using System.Drawing;
+using System.Windows.Forms;
+using System.Data;
+using Stimulsoft.Controls;
+using Stimulsoft.Base.Drawing;
+using Stimulsoft.Report;
+using Stimulsoft.Report.Dialogs;
+using Stimulsoft.Report.Components;
+
+namespace Reports
+{
+    
+    public class Report : Stimulsoft.Report.StiReport
+    {
+        
+        public Report()
+        {
+            this.InitializeComponent();
+        }
+        #region StiReport Designer generated code - do not modify
+		#endregion StiReport Designer generated code - do not modify
+    }
+}
+</Script>
+  <ScriptLanguage>CSharp</ScriptLanguage>
+  <Styles isList="true" count="0" />
+</StiSerializer>

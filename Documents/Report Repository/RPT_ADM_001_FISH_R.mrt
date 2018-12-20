@@ -279,7 +279,7 @@ WHERE  Request.RQST_STAT != '003'
             </Text9>
             <Text11 Ref="16" type="Text" isKey="true">
               <Brush>White</Brush>
-              <ClientRectangle>126,48,30,6</ClientRectangle>
+              <ClientRectangle>118,48,38,6</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Nazanin,12,Bold</Font>
               <Guid>c8c7f637948d4bef86f311a492bad1bf</Guid>
@@ -632,7 +632,6 @@ WHERE  Request.RQST_STAT != '003'
               <VertAlignment>Center</VertAlignment>
             </Text32>
             <Image1 Ref="39" type="Image" isKey="true">
-              <Border>None;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <ClientRectangle>156,0,40,26</ClientRectangle>
               <Conditions isList="true" count="0" />
@@ -644,7 +643,6 @@ WHERE  Request.RQST_STAT != '003'
               <Stretch>True</Stretch>
             </Image1>
             <Text7 Ref="40" type="Text" isKey="true">
-              <Border>None;Black;1;Solid;False;4;Black</Border>
               <Brush>White</Brush>
               <ClientRectangle>156,76,32,6</ClientRectangle>
               <Conditions isList="true" count="0" />
@@ -661,7 +659,6 @@ WHERE  Request.RQST_STAT != '003'
               <VertAlignment>Center</VertAlignment>
             </Text7>
             <Text12 Ref="41" type="Text" isKey="true">
-              <Border>None;Black;1;Solid;False;4;Black</Border>
               <Brush>White</Brush>
               <ClientRectangle>156,84,32,6</ClientRectangle>
               <Conditions isList="true" count="0" />
@@ -693,7 +690,6 @@ WHERE  Request.RQST_STAT != '003'
               <Type>Expression</Type>
             </Text33>
             <Text34 Ref="43" type="Text" isKey="true">
-              <Border>None;Black;1;Solid;False;4;Black</Border>
               <Brush>White</Brush>
               <ClientRectangle>88,84,66,6</ClientRectangle>
               <Conditions isList="true" count="0" />
@@ -863,10 +859,10 @@ WHERE  Request.RQST_STAT != '003'
     <value>Stimulsoft.Report.Dll</value>
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
-  <ReportChanged>12/19/2018 8:08:51 PM</ReportChanged>
+  <ReportChanged>12/20/2018 12:53:29 PM</ReportChanged>
   <ReportCreated>1/2/2016 4:35:07 PM</ReportCreated>
-  <ReportFile>D:\Project\MyProject\Documents\Report Repository\RPT_ADM_001_FISH_R.mrt</ReportFile>
-  <ReportGuid>75f486b5614047c0afbb47008ddc1a62</ReportGuid>
+  <ReportFile>D:\iData\Asre Andishe Project\MyProject\Documents\Report Repository\RPT_ADM_001_FISH_R.mrt</ReportFile>
+  <ReportGuid>5f5a9ad3a3c24df184bf8041063dc8d1</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Millimeters</ReportUnit>
   <ReportVersion>2012.2.1304</ReportVersion>

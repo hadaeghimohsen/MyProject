@@ -312,12 +312,13 @@ namespace System.Scsc.Ui.Organ
       /// <param name="job"></param>
       private void LoadData(Job job)
       {
-         if (!isFirstLoaded)
+         //if (!isFirstLoaded)
          {
             EpitBs1.DataSource = iScsc.Expense_Items.Where(ep => ep.TYPE == "001");
             DCetpBs1.DataSource = iScsc.D_CETPs;
             DActvBs1.DataSource = iScsc.D_ACTVs;
             DDsatBs1.DataSource = iScsc.D_DSATs;
+            RqtpBs.DataSource = iScsc.Request_Types.Where(rt => rt.CODE == "001" || rt.CODE == "009" || rt.CODE == "016");
             isFirstLoaded = true;
          }
          job.Status = StatusType.Successful;

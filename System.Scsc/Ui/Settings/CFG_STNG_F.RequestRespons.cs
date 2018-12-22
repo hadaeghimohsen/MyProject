@@ -111,6 +111,16 @@ namespace System.Scsc.Ui.Settings
                         })
                   );
                   break;
+               case "MBSP_MARK_F":
+                  _DefaultGateway.Gateway(                     
+                     new Job(SendType.External, "localhost",
+                        new List<Job>
+                        {
+                           new Job(SendType.Self, 155 /* Execute Mbsp_Mark_F */)
+                        }
+                     )
+                  );
+                  break;
                default:
                   break;
             }

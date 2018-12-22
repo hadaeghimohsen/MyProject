@@ -36,12 +36,13 @@
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
-         this.DsctDesc_Lb = new System.Windows.Forms.Label();
-         this.FromDate_Lb = new System.Windows.Forms.Label();
-         this.ToDate_Lb = new System.Windows.Forms.Label();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
          this.DsctType_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
          this.Dstp_Lov = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
          this.DCetpBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.DsctDesc_Lb = new System.Windows.Forms.Label();
+         this.FromDate_Lb = new System.Windows.Forms.Label();
+         this.ToDate_Lb = new System.Windows.Forms.Label();
          this.Bcds_SpltCont = new System.Windows.Forms.SplitContainer();
          this.SuntCode_Gb = new System.Windows.Forms.GroupBox();
          this.gridControl3 = new DevExpress.XtraGrid.GridControl();
@@ -142,6 +143,9 @@
          this.ActnType_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
          this.Dsat_Lov = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
          this.DDsatBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.colRQTP_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.Rqtp_Lov = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+         this.RqtpBs = new System.Windows.Forms.BindingSource(this.components);
          this.BcdsDel_Butn = new System.MaxUi.NewMaxBtn();
          this.BcdsAdd_Butn = new System.MaxUi.NewMaxBtn();
          this.RqstBn1 = new System.Windows.Forms.BindingNavigator(this.components);
@@ -201,39 +205,11 @@
          ((System.ComponentModel.ISupportInitialize)(this.DActvBs1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.Dsat_Lov)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.DDsatBs1)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.Rqtp_Lov)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.RqtpBs)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.RqstBn1)).BeginInit();
          this.RqstBn1.SuspendLayout();
          this.SuspendLayout();
-         // 
-         // DsctDesc_Lb
-         // 
-         this.DsctDesc_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.DsctDesc_Lb.AutoSize = true;
-         this.DsctDesc_Lb.Location = new System.Drawing.Point(257, 30);
-         this.DsctDesc_Lb.Name = "DsctDesc_Lb";
-         this.DsctDesc_Lb.Size = new System.Drawing.Size(75, 14);
-         this.DsctDesc_Lb.TabIndex = 24;
-         this.DsctDesc_Lb.Text = "شرح تخفیف :";
-         // 
-         // FromDate_Lb
-         // 
-         this.FromDate_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.FromDate_Lb.AutoSize = true;
-         this.FromDate_Lb.Location = new System.Drawing.Point(257, 59);
-         this.FromDate_Lb.Name = "FromDate_Lb";
-         this.FromDate_Lb.Size = new System.Drawing.Size(48, 14);
-         this.FromDate_Lb.TabIndex = 27;
-         this.FromDate_Lb.Text = "از تاریخ :";
-         // 
-         // ToDate_Lb
-         // 
-         this.ToDate_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.ToDate_Lb.AutoSize = true;
-         this.ToDate_Lb.Location = new System.Drawing.Point(91, 59);
-         this.ToDate_Lb.Name = "ToDate_Lb";
-         this.ToDate_Lb.Size = new System.Drawing.Size(48, 14);
-         this.ToDate_Lb.TabIndex = 27;
-         this.ToDate_Lb.Text = "تا تاریخ :";
          // 
          // DsctType_Clm
          // 
@@ -263,6 +239,36 @@
          // 
          this.DCetpBs1.DataSource = typeof(System.Scsc.Data.D_CETP);
          // 
+         // DsctDesc_Lb
+         // 
+         this.DsctDesc_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.DsctDesc_Lb.AutoSize = true;
+         this.DsctDesc_Lb.Location = new System.Drawing.Point(326, 30);
+         this.DsctDesc_Lb.Name = "DsctDesc_Lb";
+         this.DsctDesc_Lb.Size = new System.Drawing.Size(75, 14);
+         this.DsctDesc_Lb.TabIndex = 24;
+         this.DsctDesc_Lb.Text = "شرح تخفیف :";
+         // 
+         // FromDate_Lb
+         // 
+         this.FromDate_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.FromDate_Lb.AutoSize = true;
+         this.FromDate_Lb.Location = new System.Drawing.Point(326, 59);
+         this.FromDate_Lb.Name = "FromDate_Lb";
+         this.FromDate_Lb.Size = new System.Drawing.Size(48, 14);
+         this.FromDate_Lb.TabIndex = 27;
+         this.FromDate_Lb.Text = "از تاریخ :";
+         // 
+         // ToDate_Lb
+         // 
+         this.ToDate_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.ToDate_Lb.AutoSize = true;
+         this.ToDate_Lb.Location = new System.Drawing.Point(160, 59);
+         this.ToDate_Lb.Name = "ToDate_Lb";
+         this.ToDate_Lb.Size = new System.Drawing.Size(48, 14);
+         this.ToDate_Lb.TabIndex = 27;
+         this.ToDate_Lb.Text = "تا تاریخ :";
+         // 
          // Bcds_SpltCont
          // 
          this.Bcds_SpltCont.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
@@ -283,8 +289,8 @@
          // 
          this.Bcds_SpltCont.Panel2.Controls.Add(this.Discount_Gb);
          this.Bcds_SpltCont.Panel2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-         this.Bcds_SpltCont.Size = new System.Drawing.Size(1072, 466);
-         this.Bcds_SpltCont.SplitterDistance = 665;
+         this.Bcds_SpltCont.Size = new System.Drawing.Size(1252, 466);
+         this.Bcds_SpltCont.SplitterDistance = 776;
          this.Bcds_SpltCont.TabIndex = 4;
          // 
          // SuntCode_Gb
@@ -294,7 +300,7 @@
          this.SuntCode_Gb.Controls.Add(this.SuntUpd_Butn);
          this.SuntCode_Gb.Controls.Add(this.SuntAdd_Butn);
          this.SuntCode_Gb.Controls.Add(this.SuntDel_Butn);
-         this.SuntCode_Gb.Location = new System.Drawing.Point(-93, 306);
+         this.SuntCode_Gb.Location = new System.Drawing.Point(25, 306);
          this.SuntCode_Gb.Name = "SuntCode_Gb";
          this.SuntCode_Gb.Size = new System.Drawing.Size(363, 285);
          this.SuntCode_Gb.TabIndex = 6;
@@ -517,7 +523,7 @@
          this.BuntCode_Gb.Controls.Add(this.BuntUpd_Butn);
          this.BuntCode_Gb.Controls.Add(this.BuntAdd_Butn);
          this.BuntCode_Gb.Controls.Add(this.BuntDel_Butn);
-         this.BuntCode_Gb.Location = new System.Drawing.Point(276, 306);
+         this.BuntCode_Gb.Location = new System.Drawing.Point(394, 306);
          this.BuntCode_Gb.Name = "BuntCode_Gb";
          this.BuntCode_Gb.Size = new System.Drawing.Size(348, 285);
          this.BuntCode_Gb.TabIndex = 5;
@@ -699,7 +705,7 @@
          this.DeptCode_Gb.Controls.Add(this.DeptUpd_Butn);
          this.DeptCode_Gb.Controls.Add(this.DeptAdd_Butn);
          this.DeptCode_Gb.Controls.Add(this.DeptDel_Butn);
-         this.DeptCode_Gb.Location = new System.Drawing.Point(-93, 10);
+         this.DeptCode_Gb.Location = new System.Drawing.Point(25, 10);
          this.DeptCode_Gb.Name = "DeptCode_Gb";
          this.DeptCode_Gb.Size = new System.Drawing.Size(363, 290);
          this.DeptCode_Gb.TabIndex = 4;
@@ -869,7 +875,7 @@
          this.OrgnCode_Gb.Controls.Add(this.OrgnUpd_Butn);
          this.OrgnCode_Gb.Controls.Add(this.OrgnAdd_Butn);
          this.OrgnCode_Gb.Controls.Add(this.OrgnDel_Butn);
-         this.OrgnCode_Gb.Location = new System.Drawing.Point(276, 10);
+         this.OrgnCode_Gb.Location = new System.Drawing.Point(394, 10);
          this.OrgnCode_Gb.Name = "OrgnCode_Gb";
          this.OrgnCode_Gb.Size = new System.Drawing.Size(348, 290);
          this.OrgnCode_Gb.TabIndex = 3;
@@ -1034,7 +1040,7 @@
          this.Discount_Gb.Controls.Add(this.BcdsAdd_Butn);
          this.Discount_Gb.Location = new System.Drawing.Point(13, 10);
          this.Discount_Gb.Name = "Discount_Gb";
-         this.Discount_Gb.Size = new System.Drawing.Size(376, 443);
+         this.Discount_Gb.Size = new System.Drawing.Size(445, 443);
          this.Discount_Gb.TabIndex = 4;
          this.Discount_Gb.TabStop = false;
          this.Discount_Gb.Text = "تخفیفات";
@@ -1074,7 +1080,7 @@
          this.DiscountInfo_Gb.Controls.Add(this.FromDate_Lb);
          this.DiscountInfo_Gb.Location = new System.Drawing.Point(20, 279);
          this.DiscountInfo_Gb.Name = "DiscountInfo_Gb";
-         this.DiscountInfo_Gb.Size = new System.Drawing.Size(341, 100);
+         this.DiscountInfo_Gb.Size = new System.Drawing.Size(410, 100);
          this.DiscountInfo_Gb.TabIndex = 1;
          this.DiscountInfo_Gb.TabStop = false;
          this.DiscountInfo_Gb.Text = "تخفیف مخصوص دوره ای یا بازه زمانی";
@@ -1085,7 +1091,7 @@
          this.dateTimeSelector1.CustomFormat = "dd/MM/yyyy";
          this.dateTimeSelector1.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.BcdsBs1, "TO_DATE", true));
          this.dateTimeSelector1.Format = Atf.UI.DateTimeSelectorFormat.Custom;
-         this.dateTimeSelector1.Location = new System.Drawing.Point(-15, 55);
+         this.dateTimeSelector1.Location = new System.Drawing.Point(54, 55);
          this.dateTimeSelector1.Name = "dateTimeSelector1";
          this.dateTimeSelector1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
          this.dateTimeSelector1.Size = new System.Drawing.Size(100, 23);
@@ -1108,7 +1114,7 @@
          this.dSCT_DESCTextEdit.Properties.Appearance.Options.UseFont = true;
          this.dSCT_DESCTextEdit.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
          this.dSCT_DESCTextEdit.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.dSCT_DESCTextEdit.Size = new System.Drawing.Size(234, 22);
+         this.dSCT_DESCTextEdit.Size = new System.Drawing.Size(303, 22);
          this.dSCT_DESCTextEdit.TabIndex = 25;
          // 
          // BRTH_DATE_PersianDateEdit
@@ -1117,7 +1123,7 @@
          this.BRTH_DATE_PersianDateEdit.CustomFormat = "dd/MM/yyyy";
          this.BRTH_DATE_PersianDateEdit.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.BcdsBs1, "FROM_DATE", true));
          this.BRTH_DATE_PersianDateEdit.Format = Atf.UI.DateTimeSelectorFormat.Custom;
-         this.BRTH_DATE_PersianDateEdit.Location = new System.Drawing.Point(151, 55);
+         this.BRTH_DATE_PersianDateEdit.Location = new System.Drawing.Point(220, 55);
          this.BRTH_DATE_PersianDateEdit.Name = "BRTH_DATE_PersianDateEdit";
          this.BRTH_DATE_PersianDateEdit.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
          this.BRTH_DATE_PersianDateEdit.Size = new System.Drawing.Size(100, 23);
@@ -1161,7 +1167,7 @@
          this.BcdsUpd_Butn.ImageIndex = 2;
          this.BcdsUpd_Butn.ImageList = this.imageList1;
          this.BcdsUpd_Butn.InToBold = false;
-         this.BcdsUpd_Butn.Location = new System.Drawing.Point(205, 389);
+         this.BcdsUpd_Butn.Location = new System.Drawing.Point(274, 389);
          this.BcdsUpd_Butn.Name = "BcdsUpd_Butn";
          this.BcdsUpd_Butn.Size = new System.Drawing.Size(48, 48);
          this.BcdsUpd_Butn.TabIndex = 1;
@@ -1185,8 +1191,9 @@
             this.Epit_Lov,
             this.Dstp_Lov,
             this.Stat_Lov,
-            this.Dsat_Lov});
-         this.gridControl4.Size = new System.Drawing.Size(341, 252);
+            this.Dsat_Lov,
+            this.Rqtp_Lov});
+         this.gridControl4.Size = new System.Drawing.Size(410, 252);
          this.gridControl4.TabIndex = 0;
          this.gridControl4.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView4});
@@ -1221,7 +1228,8 @@
             this.colExpense_Item,
             this.colRegulation,
             this.colSub_Unit,
-            this.ActnType_Clm});
+            this.ActnType_Clm,
+            this.colRQTP_CODE});
          styleFormatCondition1.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
          styleFormatCondition1.Appearance.Options.UseBackColor = true;
          styleFormatCondition1.Column = this.DsctType_Clm;
@@ -1269,7 +1277,7 @@
          this.ReglYear_Clm.FieldName = "REGL_YEAR";
          this.ReglYear_Clm.Name = "ReglYear_Clm";
          this.ReglYear_Clm.Visible = true;
-         this.ReglYear_Clm.VisibleIndex = 6;
+         this.ReglYear_Clm.VisibleIndex = 7;
          this.ReglYear_Clm.Width = 51;
          // 
          // ReglCode_Clm
@@ -1278,7 +1286,7 @@
          this.ReglCode_Clm.FieldName = "REGL_CODE";
          this.ReglCode_Clm.Name = "ReglCode_Clm";
          this.ReglCode_Clm.Visible = true;
-         this.ReglCode_Clm.VisibleIndex = 5;
+         this.ReglCode_Clm.VisibleIndex = 6;
          this.ReglCode_Clm.Width = 60;
          // 
          // Rwno_Clm
@@ -1288,7 +1296,7 @@
          this.Rwno_Clm.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Right;
          this.Rwno_Clm.Name = "Rwno_Clm";
          this.Rwno_Clm.Visible = true;
-         this.Rwno_Clm.VisibleIndex = 8;
+         this.Rwno_Clm.VisibleIndex = 9;
          this.Rwno_Clm.Width = 47;
          // 
          // EpitCode_Clm
@@ -1419,7 +1427,7 @@
          this.ActnType_Clm.FieldName = "ACTN_TYPE";
          this.ActnType_Clm.Name = "ActnType_Clm";
          this.ActnType_Clm.Visible = true;
-         this.ActnType_Clm.VisibleIndex = 7;
+         this.ActnType_Clm.VisibleIndex = 8;
          // 
          // Dsat_Lov
          // 
@@ -1439,6 +1447,32 @@
          // 
          this.DDsatBs1.DataSource = typeof(System.Scsc.Data.D_DSAT);
          // 
+         // colRQTP_CODE
+         // 
+         this.colRQTP_CODE.Caption = "نوع درخواست";
+         this.colRQTP_CODE.ColumnEdit = this.Rqtp_Lov;
+         this.colRQTP_CODE.FieldName = "RQTP_CODE";
+         this.colRQTP_CODE.Name = "colRQTP_CODE";
+         this.colRQTP_CODE.Visible = true;
+         this.colRQTP_CODE.VisibleIndex = 5;
+         // 
+         // Rqtp_Lov
+         // 
+         this.Rqtp_Lov.AutoHeight = false;
+         this.Rqtp_Lov.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, "", null, null, true)});
+         this.Rqtp_Lov.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("RQTP_DESC", "نوع درخواست", 69, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near)});
+         this.Rqtp_Lov.DataSource = this.RqtpBs;
+         this.Rqtp_Lov.DisplayMember = "RQTP_DESC";
+         this.Rqtp_Lov.Name = "Rqtp_Lov";
+         this.Rqtp_Lov.NullText = "---";
+         this.Rqtp_Lov.ValueMember = "CODE";
+         // 
+         // RqtpBs
+         // 
+         this.RqtpBs.DataSource = typeof(System.Scsc.Data.Request_Type);
+         // 
          // BcdsDel_Butn
          // 
          this.BcdsDel_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -1453,7 +1487,7 @@
          this.BcdsDel_Butn.ImageIndex = 1;
          this.BcdsDel_Butn.ImageList = this.imageList1;
          this.BcdsDel_Butn.InToBold = false;
-         this.BcdsDel_Butn.Location = new System.Drawing.Point(259, 389);
+         this.BcdsDel_Butn.Location = new System.Drawing.Point(328, 389);
          this.BcdsDel_Butn.Name = "BcdsDel_Butn";
          this.BcdsDel_Butn.Size = new System.Drawing.Size(48, 48);
          this.BcdsDel_Butn.TabIndex = 1;
@@ -1476,7 +1510,7 @@
          this.BcdsAdd_Butn.ImageIndex = 0;
          this.BcdsAdd_Butn.ImageList = this.imageList1;
          this.BcdsAdd_Butn.InToBold = false;
-         this.BcdsAdd_Butn.Location = new System.Drawing.Point(313, 389);
+         this.BcdsAdd_Butn.Location = new System.Drawing.Point(382, 389);
          this.BcdsAdd_Butn.Name = "BcdsAdd_Butn";
          this.BcdsAdd_Butn.Size = new System.Drawing.Size(48, 48);
          this.BcdsAdd_Butn.TabIndex = 1;
@@ -1520,7 +1554,7 @@
          this.RqstBn1.Name = "RqstBn1";
          this.RqstBn1.PositionItem = this.bindingNavigatorPositionItem;
          this.RqstBn1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-         this.RqstBn1.Size = new System.Drawing.Size(1072, 47);
+         this.RqstBn1.Size = new System.Drawing.Size(1252, 47);
          this.RqstBn1.TabIndex = 25;
          this.RqstBn1.Text = "bindingNavigator1";
          // 
@@ -1539,7 +1573,7 @@
          // bindingNavigatorCountItem
          // 
          this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-         this.bindingNavigatorCountItem.Size = new System.Drawing.Size(35, 44);
+         this.bindingNavigatorCountItem.Size = new System.Drawing.Size(34, 44);
          this.bindingNavigatorCountItem.Text = "of {0}";
          this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
          // 
@@ -1738,7 +1772,7 @@
          this.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.Name = "ORGN_TOTL_F";
          this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-         this.Size = new System.Drawing.Size(1072, 513);
+         this.Size = new System.Drawing.Size(1252, 513);
          ((System.ComponentModel.ISupportInitialize)(this.Dstp_Lov)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.DCetpBs1)).EndInit();
          this.Bcds_SpltCont.Panel1.ResumeLayout(false);
@@ -1774,6 +1808,8 @@
          ((System.ComponentModel.ISupportInitialize)(this.DActvBs1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.Dsat_Lov)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.DDsatBs1)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.Rqtp_Lov)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.RqtpBs)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.RqstBn1)).EndInit();
          this.RqstBn1.ResumeLayout(false);
          this.RqstBn1.PerformLayout();
@@ -1915,5 +1951,8 @@
       private Windows.Forms.Label DsctDesc_Lb;
       private Windows.Forms.Label FromDate_Lb;
       private Windows.Forms.Label ToDate_Lb;
+      private DevExpress.XtraGrid.Columns.GridColumn colRQTP_CODE;
+      private Windows.Forms.BindingSource RqtpBs;
+      private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit Rqtp_Lov;
    }
 }

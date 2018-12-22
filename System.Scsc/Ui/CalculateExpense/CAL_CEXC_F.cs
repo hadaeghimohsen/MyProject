@@ -63,6 +63,7 @@ namespace System.Scsc.Ui.CalculateExpense
       {
          try
          {
+            DateTime firsttime = DateTime.Now;
             if (!Pde_FromDate.Value.HasValue) { Pde_FromDate.Focus(); return; }
             if (!Pde_ToDate.Value.HasValue) { Pde_ToDate.Focus(); return; }
             
@@ -85,6 +86,8 @@ namespace System.Scsc.Ui.CalculateExpense
                   )
                )
             );
+
+            Stopwatch_Lb.Text = (DateTime.Now - firsttime).ToString();
             requery = true;
          }
          catch (Exception ex)

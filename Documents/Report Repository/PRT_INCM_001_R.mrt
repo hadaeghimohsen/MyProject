@@ -184,7 +184,7 @@
       </Payment_Detail>
       <Request Ref="6" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
         <Alias>Request</Alias>
-        <Columns isList="true" count="29">
+        <Columns isList="true" count="30">
           <value>REGN_PRVN_CNTY_CODE,System.String</value>
           <value>REGN_PRVN_CODE,System.String</value>
           <value>REGN_CODE,System.String</value>
@@ -214,13 +214,14 @@
           <value>LETT_OWNR,System.String</value>
           <value>RQST_RQID,System.Int64</value>
           <value>PERS_SAVE_DATE,System.String</value>
+          <value>PERS_RQST_DATE,System.String</value>
         </Columns>
         <CommandTimeout>30</CommandTimeout>
         <Dictionary isRef="1" />
         <Name>Request</Name>
         <NameInSource>iScsc</NameInSource>
         <Parameters isList="true" count="0" />
-        <SqlCommand>SELECT *, dbo.GET_MTOS_U(Request.SAVE_DATE) AS PERS_SAVE_DATE
+        <SqlCommand>SELECT *, dbo.GET_MTOS_U(Request.SAVE_DATE) AS PERS_SAVE_DATE, dbo.GET_MTOS_U(Request.RQST_DATE) AS PERS_RQST_DATE
 FROM Request 
 WHERE {WhereClause}</SqlCommand>
       </Request>
@@ -564,8 +565,9 @@ WHERE {WhereClause}</SqlCommand>
               <Name>Text3</Name>
               <Page isRef="22" />
               <Parent isRef="23" />
-              <Text>{Request.PERS_SAVE_DATE}</Text>
+              <Text>{Request.PERS_RQST_DATE}</Text>
               <TextBrush>Black</TextBrush>
+              <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
             </Text3>
             <Text5 Ref="26" type="Text" isKey="true">
@@ -578,11 +580,12 @@ WHERE {WhereClause}</SqlCommand>
               <Name>Text5</Name>
               <Page isRef="22" />
               <Parent isRef="23" />
-              <Text>{Request.SAVE_DATE}</Text>
+              <Text>{Request.RQST_DATE}</Text>
               <TextBrush>Black</TextBrush>
               <TextFormat Ref="27" type="TimeFormat" isKey="true">
                 <StringFormat>HH:mm:ss</StringFormat>
               </TextFormat>
+              <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
             </Text5>
             <Text6 Ref="28" type="Text" isKey="true">
@@ -1299,10 +1302,10 @@ WHERE {WhereClause}</SqlCommand>
     <value>Stimulsoft.Report.Dll</value>
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
-  <ReportChanged>12/13/2018 5:39:33 PM</ReportChanged>
+  <ReportChanged>12/20/2018 3:50:33 PM</ReportChanged>
   <ReportCreated>9/26/2011 12:44:57 PM</ReportCreated>
   <ReportFile>D:\Project\MyProject\Documents\Report Repository\PRT_INCM_001_R.mrt</ReportFile>
-  <ReportGuid>b630514cd0484d7db366b25ab1788a09</ReportGuid>
+  <ReportGuid>479c02d76a294a50a2b1dfe428cade7e</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Centimeters</ReportUnit>
   <ReportVersion>2012.2.1304</ReportVersion>

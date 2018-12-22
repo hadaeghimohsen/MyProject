@@ -135,7 +135,9 @@ namespace System.Scsc.Ui.Document
             if (requery)
             {
                iScsc = new Data.iScscDataContext(ConnectionString);
+               int recdoc = receive_DocumentBindingSource.Position;
                receive_DocumentBindingSource.DataSource = iScsc.Receive_Documents.Where(rc => rc.Request_Row == Rqro);
+               receive_DocumentBindingSource.Position = recdoc;
                requery = false;
             }
          }
@@ -202,7 +204,9 @@ namespace System.Scsc.Ui.Document
             if(requery)
             {
                iScsc = new Data.iScscDataContext(ConnectionString);
+               int recdoc = receive_DocumentBindingSource.Position;
                receive_DocumentBindingSource.DataSource = iScsc.Receive_Documents.Where(rc => rc.Request_Row == Rqro);
+               receive_DocumentBindingSource.Position = recdoc;
                requery = false;
             }
          }

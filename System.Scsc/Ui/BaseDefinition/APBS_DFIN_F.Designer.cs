@@ -28,12 +28,13 @@
       /// </summary>
       private void InitializeComponent()
       {
+         this.components = new System.ComponentModel.Container();
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(APBS_DFIN_F));
          this.tb_master = new C1.Win.C1Command.C1DockingTab();
          this.tp_001 = new C1.Win.C1Command.C1DockingTabPage();
          this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
          this.Apbs_Gc = new DevExpress.XtraGrid.GridControl();
-         this.ApbsBs = new System.Windows.Forms.BindingSource();
+         this.ApbsBs = new System.Windows.Forms.BindingSource(this.components);
          this.Apbs_Gv = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colCODE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colRWNO = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -45,7 +46,7 @@
          this.colMDFY_BY = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colMDFY_DATE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colApp_Base_Define1 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.ApbsBn = new System.Windows.Forms.BindingNavigator();
+         this.ApbsBn = new System.Windows.Forms.BindingNavigator(this.components);
          this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
          this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
          this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
@@ -59,7 +60,7 @@
          this.Tsb_DelApbs = new System.Windows.Forms.ToolStripButton();
          this.countryBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
          this.Sapb_Gc = new DevExpress.XtraGrid.GridControl();
-         this.SApbBs = new System.Windows.Forms.BindingSource();
+         this.SApbBs = new System.Windows.Forms.BindingSource(this.components);
          this.SApb_Gv = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colCODE1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colRWNO1 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -71,7 +72,7 @@
          this.colMDFY_BY1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colMDFY_DATE1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colApp_Base_Define11 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.SApbBn = new System.Windows.Forms.BindingNavigator();
+         this.SApbBn = new System.Windows.Forms.BindingNavigator(this.components);
          this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
          this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
          this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
@@ -101,6 +102,8 @@
          this.Back_Butn = new System.MaxUi.RoundedButton();
          this.labelControl15 = new DevExpress.XtraEditors.LabelControl();
          this.panel3 = new System.Windows.Forms.Panel();
+         this.colNUMB = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colUNIT = new DevExpress.XtraGrid.Columns.GridColumn();
          ((System.ComponentModel.ISupportInitialize)(this.tb_master)).BeginInit();
          this.tb_master.SuspendLayout();
          this.tp_001.SuspendLayout();
@@ -201,7 +204,9 @@
             this.colCRET_DATE,
             this.colMDFY_BY,
             this.colMDFY_DATE,
-            this.colApp_Base_Define1});
+            this.colApp_Base_Define1,
+            this.colNUMB,
+            this.colUNIT});
          this.Apbs_Gv.GridControl = this.Apbs_Gc;
          this.Apbs_Gv.Name = "Apbs_Gv";
          this.Apbs_Gv.OptionsSelection.EnableAppearanceFocusedCell = false;
@@ -223,7 +228,7 @@
          this.colRWNO.Name = "colRWNO";
          this.colRWNO.OptionsColumn.FixedWidth = true;
          this.colRWNO.Visible = true;
-         this.colRWNO.VisibleIndex = 1;
+         this.colRWNO.VisibleIndex = 3;
          this.colRWNO.Width = 56;
          // 
          // colTITL_DESC
@@ -232,7 +237,7 @@
          this.colTITL_DESC.FieldName = "TITL_DESC";
          this.colTITL_DESC.Name = "colTITL_DESC";
          this.colTITL_DESC.Visible = true;
-         this.colTITL_DESC.VisibleIndex = 0;
+         this.colTITL_DESC.VisibleIndex = 2;
          this.colTITL_DESC.Width = 326;
          // 
          // colENTY_NAME
@@ -306,7 +311,7 @@
          // bindingNavigatorCountItem
          // 
          this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-         this.bindingNavigatorCountItem.Size = new System.Drawing.Size(35, 22);
+         this.bindingNavigatorCountItem.Size = new System.Drawing.Size(34, 22);
          this.bindingNavigatorCountItem.Text = "of {0}";
          this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
          // 
@@ -543,7 +548,7 @@
          // toolStripLabel1
          // 
          this.toolStripLabel1.Name = "toolStripLabel1";
-         this.toolStripLabel1.Size = new System.Drawing.Size(35, 22);
+         this.toolStripLabel1.Size = new System.Drawing.Size(34, 22);
          this.toolStripLabel1.Text = "of {0}";
          this.toolStripLabel1.ToolTipText = "Total number of items";
          // 
@@ -802,6 +807,22 @@
          this.panel3.Size = new System.Drawing.Size(18, 491);
          this.panel3.TabIndex = 12;
          // 
+         // colNUMB
+         // 
+         this.colNUMB.Caption = "نمره";
+         this.colNUMB.FieldName = "NUMB";
+         this.colNUMB.Name = "colNUMB";
+         this.colNUMB.Visible = true;
+         this.colNUMB.VisibleIndex = 1;
+         // 
+         // colUNIT
+         // 
+         this.colUNIT.Caption = "واحد";
+         this.colUNIT.FieldName = "UNIT";
+         this.colUNIT.Name = "colUNIT";
+         this.colUNIT.Visible = true;
+         this.colUNIT.VisibleIndex = 0;
+         // 
          // APBS_DFIN_F
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -913,5 +934,7 @@
       private DevExpress.XtraGrid.Columns.GridColumn colApp_Base_Define11;
       private DevExpress.XtraEditors.SplitContainerControl splitContainerControl1;
       private Windows.Forms.Panel panel3;
+      private DevExpress.XtraGrid.Columns.GridColumn colNUMB;
+      private DevExpress.XtraGrid.Columns.GridColumn colUNIT;
    }
 }

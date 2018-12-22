@@ -126,6 +126,18 @@ namespace System.Scsc.Ui.Admission
                   iScsc.SubmitChanges();
                   requery = true;
                   break;
+               case 2:
+                  ApbsBs.List.OfType<Data.App_Base_Define>().ToList()
+                     .ForEach(ap =>
+                        {
+                           if(!MbsmBs1.List.OfType<Data.Member_Ship_Mark>().Any(ms => ms.MARK_CODE == ap.CODE))
+                           {
+                              iScsc.INS_MBSM_P(fileno, rwno, "004", ap.CODE, 0, "");
+                           }
+                        }
+                     );
+                  requery = true;
+                  break;
                default:
                   break;
             }
@@ -172,16 +184,60 @@ namespace System.Scsc.Ui.Admission
             iScsc.SubmitChanges();
             requery = true;
          }
-         catch (Exception)
+         catch (Exception exc)
          {
-            
-            throw;
+            MessageBox.Show(exc.Message);
          }
          finally
          {
             if (requery)
                Execute_Query();
          }
+      }
+
+      private void PrintSetting_Butn_Click(object sender, EventArgs e)
+      {
+         Back_Butn_Click(null, null);
+         Job _InteractWithScsc =
+              new Job(SendType.External, "Localhost",
+                 new List<Job>
+                  {
+                     new Job(SendType.Self, 81 /* Execute Cfg_Stng_F */),
+                     new Job(SendType.SelfToUserInterface, "CFG_STNG_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "ModualReport"), new XAttribute("modul", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_001_F"))}
+                  });
+         _DefaultGateway.Gateway(_InteractWithScsc);
+      }
+
+      private void Print_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            Back_Butn_Click(null, null);
+            Job _InteractWithScsc =
+                 new Job(SendType.External, "Localhost",
+                    new List<Job>
+                  {
+                     new Job(SendType.Self, 84 /* Execute Cfg_Stng_F */){Input = new XElement("Print", new XAttribute("type", "Selection"), new XAttribute("modual", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_001_F"), string.Format("Figh_File_No = {0} AND Rwno = {1} AND Rect_Code = '004'", fileno, rwno))}
+                  });
+            _DefaultGateway.Gateway(_InteractWithScsc);
+         }
+         catch (Exception exc) { MessageBox.Show(exc.Message); }
+      }
+
+      private void PrintDefault_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            Back_Butn_Click(null, null);
+            Job _InteractWithScsc =
+              new Job(SendType.External, "Localhost",
+                 new List<Job>
+                  {
+                     new Job(SendType.Self, 84 /* Execute Cfg_Stng_F */){Input = new XElement("Print", new XAttribute("type", "Default"), new XAttribute("modual", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_001_F"), string.Format("Figh_File_No = {0} AND Rwno = {1} AND Rect_Code = '004'", fileno, rwno))}
+                  });
+            _DefaultGateway.Gateway(_InteractWithScsc);
+         }
+         catch (Exception exc) { MessageBox.Show(exc.Message); }
       }
    }
 }

@@ -3388,5 +3388,33 @@ namespace System.Scsc.Ui.BaseDefinition
          }
          catch {}
       }
+
+      private void tb_cbmt1_SelectedIndexChanged(object sender, EventArgs e)
+      {
+         try
+         {
+            if(tb_cbmt1.SelectedTab == tp_0012)
+            {
+               AttnBs.List.Clear();
+               var cbmt = CbmtBs1.Current as Data.Club_Method;
+               if(cbmt == null)return;
+
+               var actvmbsp = 
+                  iScsc.VF_Coach_MemberShip(
+                     new XElement("Club_Method",
+                        new XAttribute("code", cbmt.CODE)
+                     )
+                  );
+
+               AttnBs.DataSource =
+                  iScsc.Attendances
+                  .Where(a => actvmbsp.Any(am => am.FILE_NO == a.FIGH_FILE_NO && am.RWNO == a.MBSP_RWNO_DNRM));                  
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
    }
 }

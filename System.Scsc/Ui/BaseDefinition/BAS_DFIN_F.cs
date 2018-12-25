@@ -1979,6 +1979,8 @@ namespace System.Scsc.Ui.BaseDefinition
                   break;
             }
 
+            tb_cbmt1_SelectedIndexChanged(null, null);
+
             try
             {
                CochProFile1_Rb.ImageVisiable = true;
@@ -2309,6 +2311,8 @@ namespace System.Scsc.Ui.BaseDefinition
                CochProFile_Rb.ImageProfile = global::System.Scsc.Properties.Resources.IMAGE_1482;
             }
          }
+
+         tb_cbmt2_SelectedIndexChanged(null, null);
       }
 
       private void SaveWkdy_Butn_Click(object sender, EventArgs e)
@@ -2499,6 +2503,7 @@ namespace System.Scsc.Ui.BaseDefinition
                   return;
                }
             }
+            tb_cbmt2_SelectedIndexChanged(null, null);
          }
          catch (Exception exc) { MessageBox.Show(exc.Message); }
       }
@@ -3210,10 +3215,10 @@ namespace System.Scsc.Ui.BaseDefinition
 
                cbmtcode = cbmt.CODE;
 
-               if (!AttnDate_Dt.Value.HasValue)
-                  date = AttnDate_Dt.Value = DateTime.Now;
+               if (!AttnDate6_Dt.Value.HasValue)
+                  date = AttnDate6_Dt.Value = DateTime.Now;
                else
-                  date = AttnDate1_Dt.Value;
+                  date = AttnDate6_Dt.Value;
             }
             else if(Tb_Master.SelectedTab == tp_005)
             {
@@ -3222,10 +3227,10 @@ namespace System.Scsc.Ui.BaseDefinition
 
                cbmtcode = cbmt.CODE;
 
-               if (!AttnDate_Dt.Value.HasValue)
-                  date = AttnDate1_Dt.Value = DateTime.Now;
+               if (!AttnDate5_Dt.Value.HasValue)
+                  date = AttnDate5_Dt.Value = DateTime.Now;
                else
-                  date = AttnDate1_Dt.Value;
+                  date = AttnDate5_Dt.Value;
             }
 
             Job _InteractWithScsc =
@@ -3260,8 +3265,10 @@ namespace System.Scsc.Ui.BaseDefinition
 
                cbmtcode = cbmt.CODE;
 
-               if (!AttnDate_Dt.Value.HasValue)
-                  date = AttnDate_Dt.Value = DateTime.Now;
+               if (!AttnDate6_Dt.Value.HasValue)
+                  date = AttnDate6_Dt.Value = DateTime.Now;
+               else
+                  date = AttnDate6_Dt.Value;
             }
             else if (Tb_Master.SelectedTab == tp_005)
             {
@@ -3270,8 +3277,10 @@ namespace System.Scsc.Ui.BaseDefinition
 
                cbmtcode = cbmt.CODE;
 
-               if (!AttnDate1_Dt.Value.HasValue)
-                  date = AttnDate1_Dt.Value = DateTime.Now;
+               if (!AttnDate5_Dt.Value.HasValue)
+                  date = AttnDate5_Dt.Value = DateTime.Now;
+               else
+                  date = AttnDate5_Dt.Value;
             }
 
             Job _InteractWithScsc =
@@ -3383,7 +3392,7 @@ namespace System.Scsc.Ui.BaseDefinition
                ActvMembCount1_Lb.Text = listMbsp.Count().ToString();
                AgeMemb1_Lb.Text = string.Join(", ", listMbsp.Select(ms => (DateTime.Now.Year - ms.Fighter.BRTH_DATE_DNRM.Value.Year).ToString()).Distinct().OrderBy(f => f).ToList());
 
-               
+               tb_cbmt1_SelectedIndexChanged(null, null);
             }
          }
          catch {}
@@ -3393,11 +3402,15 @@ namespace System.Scsc.Ui.BaseDefinition
       {
          try
          {
-            if(tb_cbmt1.SelectedTab == tp_0012)
+            if(tb_cbmt1.SelectedTab == tp_0052)
             {
-               AttnBs.List.Clear();
+               Attn5Bs.List.Clear();
                var cbmt = CbmtBs1.Current as Data.Club_Method;
                if(cbmt == null)return;
+
+               if (!ReloadAttn5_Cb.Checked) return;
+
+               iScsc.CommandTimeout = 18000;
 
                var actvmbsp = 
                   iScsc.VF_Coach_MemberShip(
@@ -3406,7 +3419,7 @@ namespace System.Scsc.Ui.BaseDefinition
                      )
                   );
 
-               AttnBs.DataSource =
+               Attn5Bs.DataSource =
                   iScsc.Attendances
                   .Where(a => actvmbsp.Any(am => am.FILE_NO == a.FIGH_FILE_NO && am.RWNO == a.MBSP_RWNO_DNRM));                  
             }
@@ -3415,6 +3428,85 @@ namespace System.Scsc.Ui.BaseDefinition
          {
             MessageBox.Show(exc.Message);
          }
+      }
+
+      private void NextCbmt1_Butn_Click(object sender, EventArgs e)
+      {
+         CbmtBs1.MoveNext();
+      }
+
+      private void BackCbmt1_Butn_Click(object sender, EventArgs e)
+      {
+         CbmtBs1.MovePrevious();
+      }
+
+      private void tb_cbmt2_SelectedIndexChanged(object sender, EventArgs e)
+      {
+         try
+         {
+            if (tb_cbmt2.SelectedTab == tp_0062)
+            {
+               Attn6Bs.List.Clear();
+               var cbmt = CbmtBs2.Current as Data.Club_Method;
+               if (cbmt == null) return;
+
+               if (!ReloadAttn6_Cb.Checked) return;
+
+               iScsc.CommandTimeout = 18000;
+
+               var actvmbsp =
+                  iScsc.VF_Coach_MemberShip(
+                     new XElement("Club_Method",
+                        new XAttribute("code", cbmt.CODE)
+                     )
+                  );
+
+               Attn6Bs.DataSource =
+                  iScsc.Attendances
+                  .Where(a => actvmbsp.Any(am => am.FILE_NO == a.FIGH_FILE_NO && am.RWNO == a.MBSP_RWNO_DNRM));
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void NextCbmt2_Butn_Click(object sender, EventArgs e)
+      {
+         CbmtBs2.MoveNext();
+      }
+
+      private void BackCbmt2_Butn_Click(object sender, EventArgs e)
+      {
+         CbmtBs2.MovePrevious();
+      }
+
+      private void AddSys_Butn_Click(object sender, EventArgs e)
+      {
+         _DefaultGateway.Gateway(
+            new Job(SendType.External, "localhost", "Commons", 24 /* Execute DoWork4GetHosInfo */, SendType.Self)
+            {
+               AfterChangedOutput =
+                  new Action<object>(
+                     (output) => {
+                        if (ComaBs.List.OfType<Data.Computer_Action>().Any(ca => ca.CODE == 0)) return;
+
+                        var hostinfo = output as XElement;
+
+                        if (ComaBs.List.OfType<Data.Computer_Action>().Any(ca => ca.COMP_NAME == hostinfo.Attribute("name").Value)) return;
+
+                        ComaBs.AddNew();
+                        var coma = ComaBs.Current as Data.Computer_Action;
+                        coma.COMP_NAME = hostinfo.Attribute("name").Value;
+                        coma.CHCK_ATTN_ALRM = "001";
+                        coma.CHCK_DOBL_ATTN_STAT = "001";
+
+                        SaveComa_Butn_Click(null, null);
+                     }
+                  )
+            }
+         );
       }
    }
 }

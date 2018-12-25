@@ -354,5 +354,22 @@ namespace System.Setup.Ui.LTR.Server
             PathTargetDbFile_Txt.Tag.ToString() + "001" :
             PathTargetDbFile_Txt.Tag.ToString();
       }
+
+      private void SetCurrentCompName_Butn_Click(object sender, EventArgs e)
+      {
+         _DefaultGateway.Gateway(
+            new Job(SendType.External, "localhost", "Commons", 24 /* Execute DoWork4GetHosInfo */, SendType.Self)
+            {
+               AfterChangedOutput =
+                  new Action<object>(
+                     (output) =>
+                     {
+                        var hostinfo = output as XElement;
+                        Server_Txt.Text = hostinfo.Attribute("name").Value;
+                     }
+                  )
+            }
+         );
+      }
    }
 }

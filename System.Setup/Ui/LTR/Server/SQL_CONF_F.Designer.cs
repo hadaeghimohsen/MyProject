@@ -29,9 +29,9 @@
       private void InitializeComponent()
       {
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SQL_CONF_F));
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
          this.panel1 = new System.Windows.Forms.Panel();
          this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
          this.Back_Butn = new DevExpress.XtraEditors.SimpleButton();
@@ -80,6 +80,7 @@
          this.SelectBackupFile_Ofd = new System.Windows.Forms.OpenFileDialog();
          this.SelectPathTargetDbFile_Fbd = new System.Windows.Forms.FolderBrowserDialog();
          this.SelectDatabaseFile_Ofd = new System.Windows.Forms.OpenFileDialog();
+         this.SetCurrentCompName_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.panel1.SuspendLayout();
          this.Tb_Master.SuspendLayout();
          this.tp_001.SuspendLayout();
@@ -158,6 +159,7 @@
          this.tp_001.Controls.Add(this.Username_Txt);
          this.tp_001.Controls.Add(this.WinAuth_Rb);
          this.tp_001.Controls.Add(this.SqlServerAuth_Rb);
+         this.tp_001.Controls.Add(this.SetCurrentCompName_Butn);
          this.tp_001.Controls.Add(this.Clear_Butn);
          this.tp_001.Controls.Add(this.CreateConnectionDatabaseInstance_Butn);
          this.tp_001.Controls.Add(this.AttachDatabaseFiles_Butn);
@@ -233,7 +235,7 @@
          this.Server_Txt.Properties.AppearanceFocused.Options.UseBorderColor = true;
          this.Server_Txt.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
          this.Server_Txt.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
          this.Server_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.Server_Txt.Properties.NullText = "---";
          this.Server_Txt.Properties.NullValuePrompt = "---";
@@ -566,7 +568,7 @@
          this.PathTargetDbFile_Txt.Properties.AppearanceFocused.Options.UseBorderColor = true;
          this.PathTargetDbFile_Txt.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
          this.PathTargetDbFile_Txt.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
          this.PathTargetDbFile_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.PathTargetDbFile_Txt.Properties.NullText = "---";
          this.PathTargetDbFile_Txt.Properties.NullValuePrompt = "---";
@@ -605,7 +607,7 @@
          this.BackupFile_Txt.Properties.AppearanceFocused.Options.UseBorderColor = true;
          this.BackupFile_Txt.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
          this.BackupFile_Txt.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject4, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject3, "", null, null, true)});
          this.BackupFile_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.BackupFile_Txt.Properties.NullText = "---";
          this.BackupFile_Txt.Properties.NullValuePrompt = "---";
@@ -854,6 +856,23 @@
          this.SelectDatabaseFile_Ofd.Filter = "Database File|*.*";
          this.SelectDatabaseFile_Ofd.Multiselect = true;
          // 
+         // SetCurrentCompName_Butn
+         // 
+         this.SetCurrentCompName_Butn.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.SetCurrentCompName_Butn.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+         this.SetCurrentCompName_Butn.Appearance.Options.UseFont = true;
+         this.SetCurrentCompName_Butn.Appearance.Options.UseForeColor = true;
+         this.SetCurrentCompName_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+         this.SetCurrentCompName_Butn.Location = new System.Drawing.Point(558, 48);
+         this.SetCurrentCompName_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.SetCurrentCompName_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.SetCurrentCompName_Butn.Name = "SetCurrentCompName_Butn";
+         this.SetCurrentCompName_Butn.Size = new System.Drawing.Size(184, 26);
+         this.SetCurrentCompName_Butn.TabIndex = 9;
+         this.SetCurrentCompName_Butn.Text = "Set Current Computer Name";
+         this.SetCurrentCompName_Butn.ToolTip = "پاک کردن اطلاعات پیش نویس";
+         this.SetCurrentCompName_Butn.Click += new System.EventHandler(this.SetCurrentCompName_Butn_Click);
+         // 
          // SQL_CONF_F
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -931,6 +950,7 @@
       private DevExpress.XtraEditors.LabelControl AttachRespons_Lb;
       private DevExpress.XtraEditors.LabelControl OdbcConnectionStatus_Lb;
       private DevExpress.XtraEditors.LabelControl RestoredbStatus_Lb;
+      private DevExpress.XtraEditors.SimpleButton SetCurrentCompName_Butn;
 
    }
 }

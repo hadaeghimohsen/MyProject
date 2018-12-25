@@ -466,6 +466,8 @@ namespace System.Scsc.Ui.AggregateOperation
                var rslt = ClubWkdy_Pn.Controls.OfType<SimpleButton>().FirstOrDefault(sb => sb.Tag != null && sb.Tag.ToString() == wkdy.WEEK_DAY);
                rslt.Appearance.BackColor = wkdy.STAT == "001" ? Color.LightGray : Color.GreenYellow;
             }
+
+            CtgyBs2.DataSource = iScsc.Category_Belts.Where(c => c.CTGY_STAT == "002" && c.MTOD_CODE == cbmt.MTOD_CODE);
          }
          catch { }
       }
@@ -598,6 +600,130 @@ namespace System.Scsc.Ui.AggregateOperation
                requery = false;
             }
          }
+      }
+
+      private void SavePyds_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            if (AllPydsRqro_Cb.Checked)
+            {
+               AodtBs1.List.OfType<Data.Aggregation_Operation_Detail>()
+                  .ToList()
+                  .ForEach(aod =>
+                  {
+                     if(aod.RQST_RQID != null)
+                     {
+                        var pymt = aod.Request.Payments.FirstOrDefault();
+                        if (pymt == null) return;
+
+                        int? amnt = null;
+                        switch (PydsType_Butn.Tag.ToString())
+                        {
+                           case "0":
+                              if (!(Convert.ToInt32(PydsAmnt_Txt.EditValue) >= 0 && Convert.ToInt32(PydsAmnt_Txt.EditValue) <= 100))
+                              {
+                                 PydsAmnt_Txt.EditValue = null;
+                                 PydsAmnt_Txt.Focus();
+                              }
+
+                              amnt = (pymt.SUM_EXPN_PRIC * Convert.ToInt32(PydsAmnt_Txt.EditValue)) / 100;
+                              break;
+                           case "1":
+                              amnt = Convert.ToInt32(PydsAmnt_Txt.EditValue);
+                              if (amnt == 0) return;
+                              break;
+                        }
+
+                        iScsc.INS_PYDS_P(pymt.CASH_CODE, pymt.RQST_RQID, (short?)1, null, amnt, "002", "002", PydsDesc_Txt.Text);
+                     }
+                  });
+            }
+            else
+            {
+               var pymt = PymtBs2.Current as Data.Payment;
+               if (pymt == null) return;
+
+               int? amnt = null;
+               switch (PydsType_Butn.Tag.ToString())
+               {
+                  case "0":
+                     if (!(Convert.ToInt32(PydsAmnt_Txt.EditValue) >= 0 && Convert.ToInt32(PydsAmnt_Txt.EditValue) <= 100))
+                     {
+                        PydsAmnt_Txt.EditValue = null;
+                        PydsAmnt_Txt.Focus();
+                     }
+
+                     amnt = (pymt.SUM_EXPN_PRIC * Convert.ToInt32(PydsAmnt_Txt.EditValue)) / 100;
+                     break;
+                  case "1":
+                     amnt = Convert.ToInt32(PydsAmnt_Txt.EditValue);
+                     if (amnt == 0) return;
+                     break;
+               }
+
+               iScsc.INS_PYDS_P(pymt.CASH_CODE, pymt.RQST_RQID, (short?)1, null, amnt, "002", "002", PydsDesc_Txt.Text);
+
+            }
+
+            PydsAmnt_Txt.EditValue = null;
+            PydsDesc_Txt.EditValue = null;
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void DeltPyds_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var pyds = PydsBs2.Current as Data.Payment_Discount;
+            if (pyds == null) return;
+
+            iScsc.DEL_PYDS_P(pyds.PYMT_CASH_CODE, pyds.PYMT_RQST_RQID, pyds.RQRO_RWNO, pyds.RWNO);
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void PydsType_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            PydsType_Butn.Text = PydsType_Butn.Tag.ToString() == "0" ? "مبلغی" : "درصدی";
+            PydsType_Butn.Tag = PydsType_Butn.Tag.ToString() == "0" ? "1" : "0";
+
+            if (PydsType_Butn.Tag.ToString() == "0")
+            {
+               PydsAmnt_Txt.Properties.NullText = PydsAmnt_Txt.Properties.NullValuePrompt = "درصد تخفیف";
+               PydsAmnt_Txt.Properties.MaxLength = 3;
+            }
+            else
+            {
+               PydsAmnt_Txt.Properties.NullText = PydsAmnt_Txt.Properties.NullValuePrompt = "مبلغ تخفیف";
+               PydsAmnt_Txt.Properties.MaxLength = 0;
+            }
+            PydsAmnt_Txt.Focus();
+
+         }
+         catch { }
       }
    }
 }

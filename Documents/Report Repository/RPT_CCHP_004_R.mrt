@@ -143,7 +143,7 @@
               <Name>Text12</Name>
               <Page isRef="4" />
               <Parent isRef="5" />
-              <Text>گزارش ماهیانه مالی مربیان</Text>
+              <Text>گزارش ماهیانه مالی</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <Type>Expression</Type>
@@ -270,7 +270,6 @@
           <ClientRectangle>0,2.4,19,0.8</ClientRectangle>
           <Components isList="true" count="4">
             <HeaderVF_Coach_Payment_MTOD_DESC Ref="18" type="Text" isKey="true">
-              <Border>None;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <ClientRectangle>15.4,0,3.6,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
@@ -280,7 +279,7 @@
               <Name>HeaderVF_Coach_Payment_MTOD_DESC</Name>
               <Page isRef="4" />
               <Parent isRef="17" />
-              <Text>سبک ورزشی</Text>
+              <Text>گروه</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <Type>Expression</Type>
@@ -621,12 +620,11 @@
           <Parent isRef="4" />
         </GroupFooterBand1>
         <ReportSummaryBand1 Ref="39" type="ReportSummaryBand" isKey="true">
-          <Border>Top, Bottom;Black;1;Solid;False;4;Black</Border>
+          <Border>All;Black;1;Solid;False;4;Black</Border>
           <Brush>[230:238:215]</Brush>
           <ClientRectangle>0,8.8,19,0.8</ClientRectangle>
           <Components isList="true" count="3">
             <Text1 Ref="40" type="Text" isKey="true">
-              <Border>None;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <ClientRectangle>15.4,0,3.6,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
@@ -644,7 +642,6 @@
               <VertAlignment>Center</VertAlignment>
             </Text1>
             <Text2 Ref="41" type="Text" isKey="true">
-              <Border>None;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <ClientRectangle>14,0,1.4,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
@@ -662,7 +659,6 @@
               <VertAlignment>Center</VertAlignment>
             </Text2>
             <Text3 Ref="42" type="Text" isKey="true">
-              <Border>None;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <ClientRectangle>11,0,3,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
@@ -719,10 +715,10 @@
     <value>Stimulsoft.Report.Dll</value>
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
-  <ReportChanged>5/22/2018 11:04:21 AM</ReportChanged>
+  <ReportChanged>12/26/2018 3:37:11 PM</ReportChanged>
   <ReportCreated>11/19/2017 1:40:49 PM</ReportCreated>
   <ReportFile>D:\iData\Asre Andishe Project\MyProject\Documents\Report Repository\RPT_CCHP_004_R.mrt</ReportFile>
-  <ReportGuid>a0e7549702a74dd0a4cf5d80e1ca5e19</ReportGuid>
+  <ReportGuid>4a3046eaff71414d8efb93bfe1e0abc4</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Centimeters</ReportUnit>
   <ReportVersion>2012.2.1304</ReportVersion>

@@ -143,7 +143,7 @@
               <Name>Text12</Name>
               <Page isRef="4" />
               <Parent isRef="5" />
-              <Text>گزارش ماهیانه مالی مربیان</Text>
+              <Text>گزارش ماهیانه مالی</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <Type>Expression</Type>
@@ -279,7 +279,7 @@
               <Name>HeaderVF_Coach_Payment_NAME_DNRM</Name>
               <Page isRef="4" />
               <Parent isRef="17" />
-              <Text>نام مربی</Text>
+              <Text>نام سرپرست</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <Type>Expression</Type>
@@ -324,7 +324,7 @@
               <Name>HeaderVF_Coach_Payment_MTOD_DESC</Name>
               <Page isRef="4" />
               <Parent isRef="20" />
-              <Text>سبک ورزشی</Text>
+              <Text>گروه</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <Type>Expression</Type>
@@ -358,7 +358,7 @@
               <Name>HeaderVF_Coach_Payment_CTGY_DESC</Name>
               <Page isRef="4" />
               <Parent isRef="20" />
-              <Text>رسته</Text>
+              <Text>زیر گروه</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <Type>Expression</Type>
@@ -969,10 +969,10 @@
     <value>Stimulsoft.Report.Dll</value>
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
-  <ReportChanged>11/22/2017 10:59:59 PM</ReportChanged>
+  <ReportChanged>12/26/2018 3:26:47 PM</ReportChanged>
   <ReportCreated>11/19/2017 1:40:49 PM</ReportCreated>
-  <ReportFile>D:\Project\MyProject\Documents\Report Repository\RPT_CCHP_002_R.mrt</ReportFile>
-  <ReportGuid>c4a5427f4c1a425c87cf4a16075c5c12</ReportGuid>
+  <ReportFile>D:\iData\Asre Andishe Project\MyProject\Documents\Report Repository\RPT_CCHP_002_R.mrt</ReportFile>
+  <ReportGuid>ab4ff2713b9f42b3b632fcc327bb1184</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Centimeters</ReportUnit>
   <ReportVersion>2012.2.1304</ReportVersion>

@@ -182,7 +182,7 @@
               <Name>HeaderVF_Club_Method_Fighter_COCH_NAME_DNRM</Name>
               <Page isRef="4" />
               <Parent isRef="11" />
-              <Text>نام مربی</Text>
+              <Text>سرپرست</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <Type>Expression</Type>
@@ -227,7 +227,7 @@
               <Name>HeaderVF_Club_Method_Fighter_MTOD_DESC</Name>
               <Page isRef="4" />
               <Parent isRef="14" />
-              <Text>نام کلاس</Text>
+              <Text>گروه</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <Type>Expression</Type>
@@ -591,7 +591,7 @@
               <Name>Text18</Name>
               <Page isRef="4" />
               <Parent isRef="14" />
-              <Text>رسته کلاسی</Text>
+              <Text>زیر گروه</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <Type>Expression</Type>
@@ -914,7 +914,7 @@
               <Name>Text13</Name>
               <Page isRef="4" />
               <Parent isRef="51" />
-              <Text>جمع کل بدهی کلاس</Text>
+              <Text>جمع کلی بدهی گروه</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <Type>Expression</Type>
@@ -1005,7 +1005,7 @@
               <Name>Text17</Name>
               <Page isRef="4" />
               <Parent isRef="57" />
-              <Text>جمع کل بدهی کلاس مربی</Text>
+              <Text>جمع کل بدهی گروه سرپرست</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <Type>Expression</Type>
@@ -1045,10 +1045,10 @@
     <value>Stimulsoft.Report.Dll</value>
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
-  <ReportChanged>11/19/2017 1:00:05 PM</ReportChanged>
+  <ReportChanged>12/26/2018 3:25:06 PM</ReportChanged>
   <ReportCreated>11/19/2017 10:20:29 AM</ReportCreated>
-  <ReportFile>D:\Project\MyProject\Documents\Report Repository\RPT_CBMF_001_R.mrt</ReportFile>
-  <ReportGuid>1b61df0177ff4b2381ecb52eb175ce17</ReportGuid>
+  <ReportFile>D:\iData\Asre Andishe Project\MyProject\Documents\Report Repository\RPT_CBMF_001_R.mrt</ReportFile>
+  <ReportGuid>84d3e5698e594d6aa565de42363c3540</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Centimeters</ReportUnit>
   <ReportVersion>2012.2.1304</ReportVersion>

@@ -992,6 +992,7 @@
     <None Include="Properties\DataSources\System.Scsc.Data.D_DSCT.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_DYTP.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_EDUC.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.D_EFDT.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_EXPT.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_EXTP.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_FGST.datasource" />
@@ -1106,6 +1107,7 @@
     <None Include="Properties\DataSources\System.Scsc.Data.VF_Cashier.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.VF_ClubsResult.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.VF_Club_MethodsResult.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.VF_Coach_MemberShipResult.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.VF_Current_RequestResult.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.VF_ExamResult.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.VF_FightersResult.datasource" />

@@ -3423,6 +3423,23 @@ namespace System.Scsc.Ui.BaseDefinition
                   iScsc.Attendances
                   .Where(a => actvmbsp.Any(am => am.FILE_NO == a.FIGH_FILE_NO && am.RWNO == a.MBSP_RWNO_DNRM));                  
             }
+            else if(tb_cbmt1.SelectedTab == tp_0053)
+            {
+               VCochMbsp5Bs.List.Clear();
+               var cbmt = CbmtBs1.Current as Data.Club_Method;
+               if (cbmt == null) return;
+
+               if (!ReloadMbsp5_Cb.Checked) return;
+
+               iScsc.CommandTimeout = 18000;
+
+               VCochMbsp5Bs.DataSource =
+                  iScsc.VF_Coach_MemberShip(
+                     new XElement("Club_Method",
+                        new XAttribute("code", cbmt.CODE)
+                     )
+                  );
+            }
          }
          catch (Exception exc)
          {
@@ -3464,6 +3481,23 @@ namespace System.Scsc.Ui.BaseDefinition
                Attn6Bs.DataSource =
                   iScsc.Attendances
                   .Where(a => actvmbsp.Any(am => am.FILE_NO == a.FIGH_FILE_NO && am.RWNO == a.MBSP_RWNO_DNRM));
+            }
+            else if(tb_cbmt2.SelectedTab == tp_0063)
+            {
+               Attn6Bs.List.Clear();
+               var cbmt = CbmtBs2.Current as Data.Club_Method;
+               if (cbmt == null) return;
+
+               if (!ReloadAttn6_Cb.Checked) return;
+
+               iScsc.CommandTimeout = 18000;
+
+               VCochMbsp6Bs.DataSource =
+                  iScsc.VF_Coach_MemberShip(
+                     new XElement("Club_Method",
+                        new XAttribute("code", cbmt.CODE)
+                     )
+                  );
             }
          }
          catch (Exception exc)

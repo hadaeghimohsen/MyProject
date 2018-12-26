@@ -222,7 +222,7 @@
               <Name>Text14</Name>
               <Page isRef="4" />
               <Parent isRef="9" />
-              <Text>رشته ورزشی</Text>
+              <Text>گروه</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
@@ -577,10 +577,10 @@
     <value>Stimulsoft.Report.Dll</value>
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
-  <ReportChanged>11/19/2017 4:16:25 PM</ReportChanged>
+  <ReportChanged>12/26/2018 3:19:41 PM</ReportChanged>
   <ReportCreated>11/17/2017 11:30:26 AM</ReportCreated>
-  <ReportFile>D:\Project\MyProject\Documents\Report Repository\RPT_SPSM_002_R.mrt</ReportFile>
-  <ReportGuid>c24d2b1fe48d4c9b8879adb493a026c4</ReportGuid>
+  <ReportFile>D:\iData\Asre Andishe Project\MyProject\Documents\Report Repository\RPT_SPSM_002_R.mrt</ReportFile>
+  <ReportGuid>cb2dafd2332645169a30ab40c5583498</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Centimeters</ReportUnit>
   <ReportVersion>2012.2.1304</ReportVersion>

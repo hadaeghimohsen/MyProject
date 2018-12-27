@@ -369,5 +369,37 @@ namespace System.Scsc.Ui.CalculateExpense
          }
          catch { }
       }
+
+      private void Epit1_Lov_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            var msex = MsexBs.Current as Data.Misc_Expense;
+            if (msex == null) return;
+
+            Msex_Gv.PostEditor();
+
+            switch (e.Button.Index)
+            {
+               case 1:
+                  MsexBs.List.OfType<Data.Misc_Expense>().ToList().ForEach(m => m.EPIT_CODE = msex.EPIT_CODE);
+                  break;
+               default:
+                  return;
+            }
+
+            iScsc.SubmitChanges();
+            requery = true;
+         }
+         catch ( Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
    }
 }

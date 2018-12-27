@@ -200,6 +200,7 @@ namespace System.Scsc.Ui.CalculateExpense
          MtodBs.DataSource = iScsc.Methods.Where(m => m.MTOD_STAT == "002");
          DegrBs.DataSource = iScsc.D_DEGRs;
          EpitBs.DataSource = iScsc.Expense_Items.Where(e => e.TYPE == "001");
+         EpitBs3.DataSource = iScsc.Expense_Items.Where(e => e.TYPE == "002");
          RqtpBs.DataSource = iScsc.Request_Types.Where(rt => rt.CODE == "001" || rt.CODE == "009" || rt.CODE == "016");
          job.Status = StatusType.Successful;
       }

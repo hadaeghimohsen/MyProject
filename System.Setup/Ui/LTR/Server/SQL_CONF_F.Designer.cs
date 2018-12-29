@@ -48,6 +48,7 @@
          this.Username_Txt = new DevExpress.XtraEditors.ButtonEdit();
          this.WinAuth_Rb = new System.Windows.Forms.RadioButton();
          this.SqlServerAuth_Rb = new System.Windows.Forms.RadioButton();
+         this.SetCurrentCompName_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.Clear_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.CreateConnectionDatabaseInstance_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.AttachDatabaseFiles_Butn = new DevExpress.XtraEditors.SimpleButton();
@@ -55,6 +56,7 @@
          this.Connect_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.tp_002 = new System.Windows.Forms.TabPage();
          this.RestoredbStatus_Lb = new DevExpress.XtraEditors.LabelControl();
+         this.EmptyDb_Cb = new System.Windows.Forms.CheckBox();
          this.CreateTestDemoDatabase_Cb = new System.Windows.Forms.CheckBox();
          this.InstallConfigDatabase_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.SelectPathTargetDbFile_Butn = new DevExpress.XtraEditors.SimpleButton();
@@ -80,7 +82,7 @@
          this.SelectBackupFile_Ofd = new System.Windows.Forms.OpenFileDialog();
          this.SelectPathTargetDbFile_Fbd = new System.Windows.Forms.FolderBrowserDialog();
          this.SelectDatabaseFile_Ofd = new System.Windows.Forms.OpenFileDialog();
-         this.SetCurrentCompName_Butn = new DevExpress.XtraEditors.SimpleButton();
+         this.AttachEmptydb_Cb = new System.Windows.Forms.CheckBox();
          this.panel1.SuspendLayout();
          this.Tb_Master.SuspendLayout();
          this.tp_001.SuspendLayout();
@@ -359,6 +361,23 @@
          this.SqlServerAuth_Rb.Text = "SQL Server Authentication";
          this.SqlServerAuth_Rb.UseVisualStyleBackColor = true;
          // 
+         // SetCurrentCompName_Butn
+         // 
+         this.SetCurrentCompName_Butn.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.SetCurrentCompName_Butn.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+         this.SetCurrentCompName_Butn.Appearance.Options.UseFont = true;
+         this.SetCurrentCompName_Butn.Appearance.Options.UseForeColor = true;
+         this.SetCurrentCompName_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+         this.SetCurrentCompName_Butn.Location = new System.Drawing.Point(558, 48);
+         this.SetCurrentCompName_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.SetCurrentCompName_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.SetCurrentCompName_Butn.Name = "SetCurrentCompName_Butn";
+         this.SetCurrentCompName_Butn.Size = new System.Drawing.Size(184, 26);
+         this.SetCurrentCompName_Butn.TabIndex = 9;
+         this.SetCurrentCompName_Butn.Text = "Set Current Computer Name";
+         this.SetCurrentCompName_Butn.ToolTip = "پاک کردن اطلاعات پیش نویس";
+         this.SetCurrentCompName_Butn.Click += new System.EventHandler(this.SetCurrentCompName_Butn_Click);
+         // 
          // Clear_Butn
          // 
          this.Clear_Butn.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
@@ -454,6 +473,7 @@
          // 
          this.tp_002.AutoScroll = true;
          this.tp_002.Controls.Add(this.RestoredbStatus_Lb);
+         this.tp_002.Controls.Add(this.EmptyDb_Cb);
          this.tp_002.Controls.Add(this.CreateTestDemoDatabase_Cb);
          this.tp_002.Controls.Add(this.InstallConfigDatabase_Butn);
          this.tp_002.Controls.Add(this.SelectPathTargetDbFile_Butn);
@@ -481,11 +501,24 @@
          this.RestoredbStatus_Lb.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
          this.RestoredbStatus_Lb.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.RestoredbStatus_Lb.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-         this.RestoredbStatus_Lb.Location = new System.Drawing.Point(164, 215);
+         this.RestoredbStatus_Lb.Location = new System.Drawing.Point(164, 239);
          this.RestoredbStatus_Lb.Name = "RestoredbStatus_Lb";
          this.RestoredbStatus_Lb.Size = new System.Drawing.Size(404, 38);
          this.RestoredbStatus_Lb.TabIndex = 69;
          this.RestoredbStatus_Lb.Text = "Ready For Restore Database!";
+         // 
+         // EmptyDb_Cb
+         // 
+         this.EmptyDb_Cb.AutoSize = true;
+         this.EmptyDb_Cb.Checked = true;
+         this.EmptyDb_Cb.CheckState = System.Windows.Forms.CheckState.Checked;
+         this.EmptyDb_Cb.Location = new System.Drawing.Point(164, 215);
+         this.EmptyDb_Cb.Name = "EmptyDb_Cb";
+         this.EmptyDb_Cb.Size = new System.Drawing.Size(115, 18);
+         this.EmptyDb_Cb.TabIndex = 68;
+         this.EmptyDb_Cb.Text = "Empty Database";
+         this.EmptyDb_Cb.UseVisualStyleBackColor = true;
+         this.EmptyDb_Cb.CheckedChanged += new System.EventHandler(this.CreateTestDemoDatabase_Cb_CheckedChanged);
          // 
          // CreateTestDemoDatabase_Cb
          // 
@@ -647,6 +680,7 @@
          // 
          // tp_003
          // 
+         this.tp_003.Controls.Add(this.AttachEmptydb_Cb);
          this.tp_003.Controls.Add(this.AttachRespons_Lb);
          this.tp_003.Controls.Add(this.AttachDatabaseFile_Butn);
          this.tp_003.Controls.Add(this.SelectDatabaseFile_Butn);
@@ -671,7 +705,7 @@
          this.AttachRespons_Lb.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
          this.AttachRespons_Lb.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.AttachRespons_Lb.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-         this.AttachRespons_Lb.Location = new System.Drawing.Point(176, 241);
+         this.AttachRespons_Lb.Location = new System.Drawing.Point(176, 265);
          this.AttachRespons_Lb.Name = "AttachRespons_Lb";
          this.AttachRespons_Lb.Size = new System.Drawing.Size(456, 38);
          this.AttachRespons_Lb.TabIndex = 82;
@@ -856,22 +890,17 @@
          this.SelectDatabaseFile_Ofd.Filter = "Database File|*.*";
          this.SelectDatabaseFile_Ofd.Multiselect = true;
          // 
-         // SetCurrentCompName_Butn
+         // AttachEmptydb_Cb
          // 
-         this.SetCurrentCompName_Butn.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.SetCurrentCompName_Butn.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-         this.SetCurrentCompName_Butn.Appearance.Options.UseFont = true;
-         this.SetCurrentCompName_Butn.Appearance.Options.UseForeColor = true;
-         this.SetCurrentCompName_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.SetCurrentCompName_Butn.Location = new System.Drawing.Point(558, 48);
-         this.SetCurrentCompName_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.SetCurrentCompName_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.SetCurrentCompName_Butn.Name = "SetCurrentCompName_Butn";
-         this.SetCurrentCompName_Butn.Size = new System.Drawing.Size(184, 26);
-         this.SetCurrentCompName_Butn.TabIndex = 9;
-         this.SetCurrentCompName_Butn.Text = "Set Current Computer Name";
-         this.SetCurrentCompName_Butn.ToolTip = "پاک کردن اطلاعات پیش نویس";
-         this.SetCurrentCompName_Butn.Click += new System.EventHandler(this.SetCurrentCompName_Butn_Click);
+         this.AttachEmptydb_Cb.AutoSize = true;
+         this.AttachEmptydb_Cb.Checked = true;
+         this.AttachEmptydb_Cb.CheckState = System.Windows.Forms.CheckState.Checked;
+         this.AttachEmptydb_Cb.Location = new System.Drawing.Point(176, 241);
+         this.AttachEmptydb_Cb.Name = "AttachEmptydb_Cb";
+         this.AttachEmptydb_Cb.Size = new System.Drawing.Size(115, 18);
+         this.AttachEmptydb_Cb.TabIndex = 83;
+         this.AttachEmptydb_Cb.Text = "Empty Database";
+         this.AttachEmptydb_Cb.UseVisualStyleBackColor = true;
          // 
          // SQL_CONF_F
          // 
@@ -895,6 +924,7 @@
          ((System.ComponentModel.ISupportInitialize)(this.PathTargetDbFile_Txt.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.BackupFile_Txt.Properties)).EndInit();
          this.tp_003.ResumeLayout(false);
+         this.tp_003.PerformLayout();
          this.tp_004.ResumeLayout(false);
          this.ResumeLayout(false);
 
@@ -951,6 +981,8 @@
       private DevExpress.XtraEditors.LabelControl OdbcConnectionStatus_Lb;
       private DevExpress.XtraEditors.LabelControl RestoredbStatus_Lb;
       private DevExpress.XtraEditors.SimpleButton SetCurrentCompName_Butn;
+      private Windows.Forms.CheckBox EmptyDb_Cb;
+      private Windows.Forms.CheckBox AttachEmptydb_Cb;
 
    }
 }

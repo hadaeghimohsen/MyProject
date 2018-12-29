@@ -213,6 +213,7 @@ namespace System.Setup.Ui.LTR.Server
                      new XElement("Params",
                         new XAttribute("databasetest", CreateTestDemoDatabase_Cb.Checked ? "002" : "001"),
                         new XAttribute("tinyserialno", _CheckTinyPlusSerialNoInstallation.Output.ToString()),
+                        new XAttribute("emptydb", EmptyDb_Cb.Checked ? "002" : "001"),
                         //new XAttribute("licensekey", (_CheckSubSysInstallation.Output as XElement).Attribute("key").Value),
                         _hostInfo.Output as XElement                        
                      ).ToString()
@@ -257,7 +258,7 @@ namespace System.Setup.Ui.LTR.Server
          }
          catch (Exception exc)
          {
-
+            MessageBox.Show(exc.Message);
          }
       }
 
@@ -288,11 +289,67 @@ namespace System.Setup.Ui.LTR.Server
             //StringCollection dbFilePath = new StringCollection();
             //dbFilePath.AddRange(DatabaseFiles_Lst.Items.OfType<string>().ToArray());
             //iServer.AttachDatabase(ChooseSubSys_Lov.SelectedItem.ToString(), dbFilePath);
+            SqlCommand attachdb =
+               new SqlCommand(
+                  string.Format(@"EXEC sp_attach_db @dbname = N'{0}',   
+                      @filename1 = N'{1}',   
+                      @filename2 = N'{2}',
+                      @filename3 = N'{3}'",
+                  ChooseSubSys_Lov.Text,
+                  DatabaseFiles_Lst.Items[0],
+                  DatabaseFiles_Lst.Items[1],
+                  DatabaseFiles_Lst.Items[2]),
+                  WinAuth_Rb.Checked ?
+                     new SqlConnection(string.Format("server={0};database=master;Integrated Security=True", Server_Txt.Text))
+                     :
+                     new SqlConnection(string.Format("server={0};database=master;Persist Security Info=True;User ID={1};Password={2}", Server_Txt.Text, Username_Txt.Text, Password_Txt.Text))
+               ) { CommandType = CommandType.Text };
+
+            attachdb.Connection.Open();
+            attachdb.ExecuteNonQuery();
+            attachdb.Connection.Close();
+
+            if (AttachEmptydb_Cb.Checked)
+            {
+
+               // 2nd Step Empty Database for Ready to Use
+               /// GET HOST INFO
+               var _hostInfo =
+                  new Job(SendType.External, "localhost", "DefaultGateway:DataGuard", 04 /* Execute GetHostInfo */, SendType.Self);
+               _DefaultGateway.Gateway(_hostInfo);
+
+               attachdb.CommandText = "AttachDatabase";
+               attachdb.CommandType = CommandType.StoredProcedure;
+               attachdb.Parameters.Add(
+                  new SqlParameter("@X", SqlDbType.Xml)
+                  {
+                     Value =
+                        new XElement("Params",
+                           new XAttribute("emptydb", EmptyDb_Cb.Checked ? "002" : "001"),
+                        //new XAttribute("licensekey", (_CheckSubSysInstallation.Output as XElement).Attribute("key").Value),
+                           _hostInfo.Output as XElement
+                        ).ToString()
+                  }
+               );
+               attachdb.Connection =
+                  WinAuth_Rb.Checked ?
+                        new SqlConnection(string.Format("server={0};database={1};Integrated Security=True", Server_Txt.Text, ChooseSubSys_Lov.Text))
+                        :
+                        new SqlConnection(string.Format("server={0};database={1};Persist Security Info=True;User ID={2};Password={3}", Server_Txt.Text, ChooseSubSys_Lov.Text, Username_Txt.Text, Password_Txt.Text));
+
+               attachdb.CommandTimeout = 18000;
+               attachdb.Connection.Open();
+               attachdb.ExecuteNonQuery();
+               attachdb.Connection.Close();
+            }
+
             AttachRespons_Lb.Text = "Attach database files successfully!";
+            AttachRespons_Lb.Appearance.Image = System.Setup.Properties.Resources.IMAGE_1609;
          }
          catch (Exception exc)
          {
             AttachRespons_Lb.Text = "Attach database files failed!";
+            AttachRespons_Lb.Appearance.Image = System.Setup.Properties.Resources.IMAGE_1608;
          }
       }
       #endregion

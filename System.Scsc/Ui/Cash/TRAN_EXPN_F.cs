@@ -232,7 +232,7 @@ namespace System.Scsc.Ui.Cash
          try
          {
             var cbmt = CbmtBs.List.OfType<Data.Club_Method>().FirstOrDefault(cm => cm.CODE == (long)e.NewValue);
-            CtgyBs.DataSource = iScsc.Category_Belts.Where(c => c.CTGY_STAT == "002" && c.MTOD_CODE == cbmt.MTOD_CODE);
+            CtgyBs.DataSource = iScsc.Category_Belts.Where(c => c.MTOD_CODE == cbmt.MTOD_CODE);
          }
          catch (Exception exc){}
       }

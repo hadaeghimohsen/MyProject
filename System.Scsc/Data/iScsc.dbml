@@ -1209,8 +1209,8 @@
       <Association Name="Expense_Item_Expense_Type" Member="Expense_Types" ThisKey="CODE" OtherKey="EPIT_CODE" Type="Expense_Type" />
       <Association Name="Expense_Item_Base_Calculate_Expense" Member="Base_Calculate_Expenses" ThisKey="CODE" OtherKey="EPIT_CODE" Type="Base_Calculate_Expense" />
       <Association Name="Expense_Item_Misc_Expense" Member="Misc_Expenses" ThisKey="CODE" OtherKey="EPIT_CODE" Type="Misc_Expense" />
-      <Association Name="Expense_Item_Basic_Calculate_Discount" Member="Basic_Calculate_Discounts" ThisKey="CODE" OtherKey="EPIT_CODE" Type="Basic_Calculate_Discount" />
       <Association Name="Expense_Item_Calculate_Expense_Coach" Member="Calculate_Expense_Coaches" ThisKey="CODE" OtherKey="EPIT_CODE" Type="Calculate_Expense_Coach" />
+      <Association Name="Expense_Item_Basic_Calculate_Discount" Member="Basic_Calculate_Discounts" ThisKey="CODE" OtherKey="EPIT_CODE" Type="Basic_Calculate_Discount" />
       <Association Name="Requester_Type_Expense_Item" Member="Requester_Type" ThisKey="RQTT_CODE" OtherKey="CODE" Type="Requester_Type" IsForeignKey="true" />
       <Association Name="Request_Type_Expense_Item" Member="Request_Type" ThisKey="RQTP_CODE" OtherKey="CODE" Type="Request_Type" IsForeignKey="true" />
     </Type>
@@ -2285,6 +2285,7 @@
       <Association Name="Category_Belt_Payment_Expense" Member="Payment_Expenses" ThisKey="CODE" OtherKey="CTGY_CODE" Type="Payment_Expense" />
       <Association Name="Category_Belt_Attendance" Member="Attendances" ThisKey="CODE" OtherKey="CTGY_CODE_DNRM" Type="Attendance" />
       <Association Name="Category_Belt_Calculate_Expense_Coach" Member="Calculate_Expense_Coaches" ThisKey="CODE" OtherKey="CTGY_CODE" Type="Calculate_Expense_Coach" />
+      <Association Name="Category_Belt_Basic_Calculate_Discount" Member="Basic_Calculate_Discounts" ThisKey="CODE" OtherKey="CTGY_CODE" Type="Basic_Calculate_Discount" />
       <Association Name="Method_Category_Belt" Member="Method" ThisKey="MTOD_CODE" OtherKey="CODE" Type="Method" IsForeignKey="true" DeleteRule="SET NULL" />
     </Type>
     <InsertFunction FunctionId="FunctionId57">
@@ -2447,6 +2448,7 @@
       <Association Name="Method_Payment_Expense" Member="Payment_Expenses" ThisKey="CODE" OtherKey="MTOD_CODE" Type="Payment_Expense" />
       <Association Name="Method_Attendance" Member="Attendances" ThisKey="CODE" OtherKey="MTOD_CODE_DNRM" Type="Attendance" />
       <Association Name="Method_Calculate_Expense_Coach" Member="Calculate_Expense_Coaches" ThisKey="CODE" OtherKey="MTOD_CODE" Type="Calculate_Expense_Coach" />
+      <Association Name="Method_Basic_Calculate_Discount" Member="Basic_Calculate_Discounts" ThisKey="CODE" OtherKey="MTOD_CODE" Type="Basic_Calculate_Discount" />
       <Association Name="Method_Method" Member="Method1" ThisKey="MTOD_CODE" OtherKey="CODE" Type="Method" IsForeignKey="true" />
     </Type>
     <InsertFunction FunctionId="FunctionId63">
@@ -3570,79 +3572,6 @@
       <Association Name="Request_Row_Payment_Check" Member="Request_Row" ThisKey="RQRO_RQST_RQID,RQRO_RWNO" OtherKey="RQST_RQID,RWNO" Type="Request_Row" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.Basic_Calculate_Discount" Member="Basic_Calculate_Discounts">
-    <Type Name="Basic_Calculate_Discount">
-      <Column Name="SUNT_BUNT_DEPT_ORGN_CODE" Type="System.String" DbType="VarChar(2) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="SUNT_BUNT_DEPT_CODE" Type="System.String" DbType="VarChar(2) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="SUNT_BUNT_CODE" Type="System.String" DbType="VarChar(2) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="SUNT_CODE" Type="System.String" DbType="VarChar(4) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="REGL_YEAR" Type="System.Int16" DbType="SmallInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="REGL_CODE" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="RWNO" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="EPIT_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="RQTP_CODE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="AMNT_DSCT" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="PRCT_DSCT" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="DSCT_TYPE" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
-      <Column Name="STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="ACTN_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="DSCT_DESC" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="FROM_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="TO_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
-      <Association Name="Expense_Item_Basic_Calculate_Discount" Member="Expense_Item" ThisKey="EPIT_CODE" OtherKey="CODE" Type="Expense_Item" IsForeignKey="true" />
-      <Association Name="Regulation_Basic_Calculate_Discount" Member="Regulation" ThisKey="REGL_YEAR,REGL_CODE" OtherKey="YEAR,CODE" Type="Regulation" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
-      <Association Name="Sub_Unit_Basic_Calculate_Discount" Member="Sub_Unit" ThisKey="SUNT_BUNT_DEPT_ORGN_CODE,SUNT_BUNT_DEPT_CODE,SUNT_BUNT_CODE,SUNT_CODE" OtherKey="BUNT_DEPT_ORGN_CODE,BUNT_DEPT_CODE,BUNT_CODE,CODE" Type="Sub_Unit" IsForeignKey="true" />
-    </Type>
-    <InsertFunction FunctionId="FunctionId82">
-      <Argument Parameter="sUNT_BUNT_DEPT_ORGN_CODE" Member="SUNT_BUNT_DEPT_ORGN_CODE" />
-      <Argument Parameter="sUNT_BUNT_DEPT_CODE" Member="SUNT_BUNT_DEPT_CODE" />
-      <Argument Parameter="sUNT_BUNT_CODE" Member="SUNT_BUNT_CODE" />
-      <Argument Parameter="sUNT_CODE" Member="SUNT_CODE" />
-      <Argument Parameter="rEGL_YEAR" Member="REGL_YEAR" />
-      <Argument Parameter="rEGL_CODE" Member="REGL_CODE" />
-      <Argument Parameter="ePIT_CODE" Member="EPIT_CODE" />
-      <Argument Parameter="rQTP_CODE" Member="RQTP_CODE" />
-      <Argument Parameter="aMNT_DSCT" Member="AMNT_DSCT" />
-      <Argument Parameter="pRCT_DSCT" Member="PRCT_DSCT" />
-      <Argument Parameter="dSCT_TYPE" Member="DSCT_TYPE" />
-      <Argument Parameter="aCTN_TYPE" Member="ACTN_TYPE" />
-      <Argument Parameter="dSCT_DESC" Member="DSCT_DESC" />
-      <Argument Parameter="fROM_DATE" Member="FROM_DATE" />
-      <Argument Parameter="tO_DATE" Member="TO_DATE" />
-    </InsertFunction>
-    <UpdateFunction FunctionId="FunctionId83">
-      <Argument Parameter="sUNT_BUNT_DEPT_ORGN_CODE" Member="SUNT_BUNT_DEPT_ORGN_CODE" />
-      <Argument Parameter="sUNT_BUNT_DEPT_CODE" Member="SUNT_BUNT_DEPT_CODE" />
-      <Argument Parameter="sUNT_BUNT_CODE" Member="SUNT_BUNT_CODE" />
-      <Argument Parameter="sUNT_CODE" Member="SUNT_CODE" />
-      <Argument Parameter="rEGL_YEAR" Member="REGL_YEAR" />
-      <Argument Parameter="rEGL_CODE" Member="REGL_CODE" />
-      <Argument Parameter="rwno" Member="RWNO" />
-      <Argument Parameter="ePIT_CODE" Member="EPIT_CODE" />
-      <Argument Parameter="rQTP_CODE" Member="RQTP_CODE" />
-      <Argument Parameter="aMNT_DSCT" Member="AMNT_DSCT" />
-      <Argument Parameter="pRCT_DSCT" Member="PRCT_DSCT" />
-      <Argument Parameter="dSCT_TYPE" Member="DSCT_TYPE" />
-      <Argument Parameter="stat" Member="STAT" />
-      <Argument Parameter="aCTN_TYPE" Member="ACTN_TYPE" />
-      <Argument Parameter="dSCT_DESC" Member="DSCT_DESC" />
-      <Argument Parameter="fROM_DATE" Member="FROM_DATE" />
-      <Argument Parameter="tO_DATE" Member="TO_DATE" />
-    </UpdateFunction>
-    <DeleteFunction FunctionId="FunctionId84">
-      <Argument Parameter="sUNT_BUNT_DEPT_ORGN_CODE" Member="SUNT_BUNT_DEPT_ORGN_CODE" />
-      <Argument Parameter="sUNT_BUNT_DEPT_CODE" Member="SUNT_BUNT_DEPT_CODE" />
-      <Argument Parameter="sUNT_BUNT_CODE" Member="SUNT_BUNT_CODE" />
-      <Argument Parameter="sUNT_CODE" Member="SUNT_CODE" />
-      <Argument Parameter="rEGL_YEAR" Member="REGL_YEAR" />
-      <Argument Parameter="rEGL_CODE" Member="REGL_CODE" />
-      <Argument Parameter="rwno" Member="RWNO" />
-    </DeleteFunction>
-  </Table>
   <Table Name="dbo.App_Base_Define" Member="App_Base_Defines">
     <Type Name="App_Base_Define">
       <Column Name="CODE" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -3663,7 +3592,7 @@
       <Association Name="App_Base_Define_App_Base_Define" Member="App_Base_Defines" ThisKey="CODE" OtherKey="REF_CODE" Type="App_Base_Define" />
       <Association Name="App_Base_Define_App_Base_Define" Member="App_Base_Define1" ThisKey="REF_CODE" OtherKey="CODE" Type="App_Base_Define" IsForeignKey="true" />
     </Type>
-    <InsertFunction FunctionId="FunctionId85">
+    <InsertFunction FunctionId="FunctionId82">
       <Argument Parameter="titl_Desc" Member="TITL_DESC" />
       <Argument Parameter="enty_Name" Member="ENTY_NAME" />
       <Argument Parameter="ref_Code" Member="REF_CODE" />
@@ -3671,7 +3600,7 @@
       <Argument Parameter="numb" Member="NUMB" />
       <Argument Parameter="unit" Member="UNIT" />
     </InsertFunction>
-    <UpdateFunction FunctionId="FunctionId86">
+    <UpdateFunction FunctionId="FunctionId83">
       <Argument Parameter="code" Member="CODE" />
       <Argument Parameter="titl_Desc" Member="TITL_DESC" />
       <Argument Parameter="enty_Name" Member="ENTY_NAME" />
@@ -3680,7 +3609,7 @@
       <Argument Parameter="numb" Member="NUMB" />
       <Argument Parameter="unit" Member="UNIT" />
     </UpdateFunction>
-    <DeleteFunction FunctionId="FunctionId87">
+    <DeleteFunction FunctionId="FunctionId84">
       <Argument Parameter="code" Member="CODE" />
     </DeleteFunction>
   </Table>
@@ -3780,7 +3709,7 @@
       <Association Name="Request_Type_Calculate_Expense_Coach" Member="Request_Type" ThisKey="RQTP_CODE" OtherKey="CODE" Type="Request_Type" IsForeignKey="true" />
       <Association Name="Requester_Type_Calculate_Expense_Coach" Member="Requester_Type" ThisKey="RQTT_CODE" OtherKey="CODE" Type="Requester_Type" IsForeignKey="true" />
     </Type>
-    <InsertFunction FunctionId="FunctionId88">
+    <InsertFunction FunctionId="FunctionId85">
       <Argument Parameter="coch_File_No" Member="COCH_FILE_NO" />
       <Argument Parameter="epit_Code" Member="EPIT_CODE" />
       <Argument Parameter="rqtt_Code" Member="RQTT_CODE" />
@@ -3800,7 +3729,7 @@
       <Argument Parameter="cbmt_Code" Member="CBMT_CODE" />
       <Argument Parameter="efct_Date_Type" Member="EFCT_DATE_TYPE" />
     </InsertFunction>
-    <UpdateFunction FunctionId="FunctionId89">
+    <UpdateFunction FunctionId="FunctionId86">
       <Argument Parameter="code" Member="CODE" />
       <Argument Parameter="coch_File_No" Member="COCH_FILE_NO" />
       <Argument Parameter="epit_Code" Member="EPIT_CODE" />
@@ -3821,8 +3750,87 @@
       <Argument Parameter="cbmt_Code" Member="CBMT_CODE" />
       <Argument Parameter="efct_Date_Type" Member="EFCT_DATE_TYPE" />
     </UpdateFunction>
-    <DeleteFunction FunctionId="FunctionId90">
+    <DeleteFunction FunctionId="FunctionId87">
       <Argument Parameter="code" Member="CODE" />
+    </DeleteFunction>
+  </Table>
+  <Table Name="dbo.Basic_Calculate_Discount" Member="Basic_Calculate_Discounts">
+    <Type Name="Basic_Calculate_Discount">
+      <Column Name="SUNT_BUNT_DEPT_ORGN_CODE" Type="System.String" DbType="VarChar(2) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SUNT_BUNT_DEPT_CODE" Type="System.String" DbType="VarChar(2) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SUNT_BUNT_CODE" Type="System.String" DbType="VarChar(2) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SUNT_CODE" Type="System.String" DbType="VarChar(4) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="REGL_YEAR" Type="System.Int16" DbType="SmallInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="REGL_CODE" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="RWNO" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="EPIT_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="RQTP_CODE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="AMNT_DSCT" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="PRCT_DSCT" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="DSCT_TYPE" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ACTN_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="DSCT_DESC" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="FROM_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="TO_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MTOD_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CTGY_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="Category_Belt_Basic_Calculate_Discount" Member="Category_Belt" ThisKey="CTGY_CODE" OtherKey="CODE" Type="Category_Belt" IsForeignKey="true" />
+      <Association Name="Expense_Item_Basic_Calculate_Discount" Member="Expense_Item" ThisKey="EPIT_CODE" OtherKey="CODE" Type="Expense_Item" IsForeignKey="true" />
+      <Association Name="Method_Basic_Calculate_Discount" Member="Method" ThisKey="MTOD_CODE" OtherKey="CODE" Type="Method" IsForeignKey="true" />
+      <Association Name="Regulation_Basic_Calculate_Discount" Member="Regulation" ThisKey="REGL_YEAR,REGL_CODE" OtherKey="YEAR,CODE" Type="Regulation" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="Sub_Unit_Basic_Calculate_Discount" Member="Sub_Unit" ThisKey="SUNT_BUNT_DEPT_ORGN_CODE,SUNT_BUNT_DEPT_CODE,SUNT_BUNT_CODE,SUNT_CODE" OtherKey="BUNT_DEPT_ORGN_CODE,BUNT_DEPT_CODE,BUNT_CODE,CODE" Type="Sub_Unit" IsForeignKey="true" />
+    </Type>
+    <InsertFunction FunctionId="FunctionId88">
+      <Argument Parameter="sUNT_BUNT_DEPT_ORGN_CODE" Member="SUNT_BUNT_DEPT_ORGN_CODE" />
+      <Argument Parameter="sUNT_BUNT_DEPT_CODE" Member="SUNT_BUNT_DEPT_CODE" />
+      <Argument Parameter="sUNT_BUNT_CODE" Member="SUNT_BUNT_CODE" />
+      <Argument Parameter="sUNT_CODE" Member="SUNT_CODE" />
+      <Argument Parameter="rEGL_YEAR" Member="REGL_YEAR" />
+      <Argument Parameter="rEGL_CODE" Member="REGL_CODE" />
+      <Argument Parameter="ePIT_CODE" Member="EPIT_CODE" />
+      <Argument Parameter="rQTP_CODE" Member="RQTP_CODE" />
+      <Argument Parameter="aMNT_DSCT" Member="AMNT_DSCT" />
+      <Argument Parameter="pRCT_DSCT" Member="PRCT_DSCT" />
+      <Argument Parameter="dSCT_TYPE" Member="DSCT_TYPE" />
+      <Argument Parameter="aCTN_TYPE" Member="ACTN_TYPE" />
+      <Argument Parameter="dSCT_DESC" Member="DSCT_DESC" />
+      <Argument Parameter="fROM_DATE" Member="FROM_DATE" />
+      <Argument Parameter="tO_DATE" Member="TO_DATE" />
+      <Argument Parameter="cTGY_CODE" Member="CTGY_CODE" />
+    </InsertFunction>
+    <UpdateFunction FunctionId="FunctionId89">
+      <Argument Parameter="sUNT_BUNT_DEPT_ORGN_CODE" Member="SUNT_BUNT_DEPT_ORGN_CODE" />
+      <Argument Parameter="sUNT_BUNT_DEPT_CODE" Member="SUNT_BUNT_DEPT_CODE" />
+      <Argument Parameter="sUNT_BUNT_CODE" Member="SUNT_BUNT_CODE" />
+      <Argument Parameter="sUNT_CODE" Member="SUNT_CODE" />
+      <Argument Parameter="rEGL_YEAR" Member="REGL_YEAR" />
+      <Argument Parameter="rEGL_CODE" Member="REGL_CODE" />
+      <Argument Parameter="rwno" Member="RWNO" />
+      <Argument Parameter="ePIT_CODE" Member="EPIT_CODE" />
+      <Argument Parameter="rQTP_CODE" Member="RQTP_CODE" />
+      <Argument Parameter="aMNT_DSCT" Member="AMNT_DSCT" />
+      <Argument Parameter="pRCT_DSCT" Member="PRCT_DSCT" />
+      <Argument Parameter="dSCT_TYPE" Member="DSCT_TYPE" />
+      <Argument Parameter="stat" Member="STAT" />
+      <Argument Parameter="aCTN_TYPE" Member="ACTN_TYPE" />
+      <Argument Parameter="dSCT_DESC" Member="DSCT_DESC" />
+      <Argument Parameter="fROM_DATE" Member="FROM_DATE" />
+      <Argument Parameter="tO_DATE" Member="TO_DATE" />
+      <Argument Parameter="cTGY_CODE" Member="CTGY_CODE" />
+    </UpdateFunction>
+    <DeleteFunction FunctionId="FunctionId90">
+      <Argument Parameter="sUNT_BUNT_DEPT_ORGN_CODE" Member="SUNT_BUNT_DEPT_ORGN_CODE" />
+      <Argument Parameter="sUNT_BUNT_DEPT_CODE" Member="SUNT_BUNT_DEPT_CODE" />
+      <Argument Parameter="sUNT_BUNT_CODE" Member="SUNT_BUNT_CODE" />
+      <Argument Parameter="sUNT_CODE" Member="SUNT_CODE" />
+      <Argument Parameter="rEGL_YEAR" Member="REGL_YEAR" />
+      <Argument Parameter="rEGL_CODE" Member="REGL_CODE" />
+      <Argument Parameter="rwno" Member="RWNO" />
     </DeleteFunction>
   </Table>
   <Function Name="dbo.VF$Saved_Request" Method="VF_Saved_Request" IsComposable="true">
@@ -4546,7 +4554,7 @@
     <Parameter Name="X" Parameter="x" Type="System.Xml.Linq.XElement" DbType="Xml" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId90" Name="dbo.DEL_CEXC_P" Method="DEL_CEXC_P">
+  <Function Id="FunctionId87" Name="dbo.DEL_CEXC_P" Method="DEL_CEXC_P">
     <Parameter Name="Code" Parameter="code" Type="System.Int64" DbType="BigInt" />
     <Return Type="System.Int32" />
   </Function>
@@ -5292,7 +5300,7 @@
       <Column Name="" Member="Column1" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
-  <Function Id="FunctionId84" Name="dbo.DEL_BCDS_P" Method="DEL_BCDS_P">
+  <Function Id="FunctionId90" Name="dbo.DEL_BCDS_P" Method="DEL_BCDS_P">
     <Parameter Name="SUNT_BUNT_DEPT_ORGN_CODE" Parameter="sUNT_BUNT_DEPT_ORGN_CODE" Type="System.String" DbType="VarChar(2)" />
     <Parameter Name="SUNT_BUNT_DEPT_CODE" Parameter="sUNT_BUNT_DEPT_CODE" Type="System.String" DbType="VarChar(2)" />
     <Parameter Name="SUNT_BUNT_CODE" Parameter="sUNT_BUNT_CODE" Type="System.String" DbType="VarChar(2)" />
@@ -6119,7 +6127,7 @@
     <Parameter Name="Club_Desc" Parameter="club_Desc" Type="System.String" DbType="NVarChar(100)" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId87" Name="dbo.DEL_APBS_P" Method="DEL_APBS_P">
+  <Function Id="FunctionId84" Name="dbo.DEL_APBS_P" Method="DEL_APBS_P">
     <Parameter Name="Code" Parameter="code" Type="System.Int64" DbType="BigInt" />
     <Return Type="System.Int32" />
   </Function>
@@ -6138,45 +6146,7 @@
     <Parameter Name="Attn_Ignr_Stat" Parameter="attn_Ignr_Stat" Type="System.String" DbType="VarChar(3)" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId82" Name="dbo.INS_BCDS_P" Method="INS_BCDS_P">
-    <Parameter Name="SUNT_BUNT_DEPT_ORGN_CODE" Parameter="sUNT_BUNT_DEPT_ORGN_CODE" Type="System.String" DbType="VarChar(2)" />
-    <Parameter Name="SUNT_BUNT_DEPT_CODE" Parameter="sUNT_BUNT_DEPT_CODE" Type="System.String" DbType="VarChar(2)" />
-    <Parameter Name="SUNT_BUNT_CODE" Parameter="sUNT_BUNT_CODE" Type="System.String" DbType="VarChar(2)" />
-    <Parameter Name="SUNT_CODE" Parameter="sUNT_CODE" Type="System.String" DbType="VarChar(4)" />
-    <Parameter Name="REGL_YEAR" Parameter="rEGL_YEAR" Type="System.Int16" DbType="SmallInt" />
-    <Parameter Name="REGL_CODE" Parameter="rEGL_CODE" Type="System.Int32" DbType="Int" />
-    <Parameter Name="EPIT_CODE" Parameter="ePIT_CODE" Type="System.Int64" DbType="BigInt" />
-    <Parameter Name="RQTP_CODE" Parameter="rQTP_CODE" Type="System.String" DbType="VarChar(3)" />
-    <Parameter Name="AMNT_DSCT" Parameter="aMNT_DSCT" Type="System.Int32" DbType="Int" />
-    <Parameter Name="PRCT_DSCT" Parameter="pRCT_DSCT" Type="System.Int32" DbType="Int" />
-    <Parameter Name="DSCT_TYPE" Parameter="dSCT_TYPE" Type="System.String" DbType="VarChar(3)" />
-    <Parameter Name="ACTN_TYPE" Parameter="aCTN_TYPE" Type="System.String" DbType="VarChar(3)" />
-    <Parameter Name="DSCT_DESC" Parameter="dSCT_DESC" Type="System.String" DbType="NVarChar(500)" />
-    <Parameter Name="FROM_DATE" Parameter="fROM_DATE" Type="System.DateTime" DbType="Date" />
-    <Parameter Name="TO_DATE" Parameter="tO_DATE" Type="System.DateTime" DbType="Date" />
-    <Return Type="System.Int32" />
-  </Function>
-  <Function Id="FunctionId83" Name="dbo.UPD_BCDS_P" Method="UPD_BCDS_P">
-    <Parameter Name="SUNT_BUNT_DEPT_ORGN_CODE" Parameter="sUNT_BUNT_DEPT_ORGN_CODE" Type="System.String" DbType="VarChar(2)" />
-    <Parameter Name="SUNT_BUNT_DEPT_CODE" Parameter="sUNT_BUNT_DEPT_CODE" Type="System.String" DbType="VarChar(2)" />
-    <Parameter Name="SUNT_BUNT_CODE" Parameter="sUNT_BUNT_CODE" Type="System.String" DbType="VarChar(2)" />
-    <Parameter Name="SUNT_CODE" Parameter="sUNT_CODE" Type="System.String" DbType="VarChar(4)" />
-    <Parameter Name="REGL_YEAR" Parameter="rEGL_YEAR" Type="System.Int16" DbType="SmallInt" />
-    <Parameter Name="REGL_CODE" Parameter="rEGL_CODE" Type="System.Int32" DbType="Int" />
-    <Parameter Name="Rwno" Parameter="rwno" Type="System.Int32" DbType="Int" />
-    <Parameter Name="EPIT_CODE" Parameter="ePIT_CODE" Type="System.Int64" DbType="BigInt" />
-    <Parameter Name="RQTP_CODE" Parameter="rQTP_CODE" Type="System.String" DbType="VarChar(3)" />
-    <Parameter Name="AMNT_DSCT" Parameter="aMNT_DSCT" Type="System.Int32" DbType="Int" />
-    <Parameter Name="PRCT_DSCT" Parameter="pRCT_DSCT" Type="System.Int32" DbType="Int" />
-    <Parameter Name="DSCT_TYPE" Parameter="dSCT_TYPE" Type="System.String" DbType="VarChar(3)" />
-    <Parameter Name="Stat" Parameter="stat" Type="System.String" DbType="VarChar(3)" />
-    <Parameter Name="ACTN_TYPE" Parameter="aCTN_TYPE" Type="System.String" DbType="VarChar(3)" />
-    <Parameter Name="DSCT_DESC" Parameter="dSCT_DESC" Type="System.String" DbType="NVarChar(500)" />
-    <Parameter Name="FROM_DATE" Parameter="fROM_DATE" Type="System.DateTime" DbType="Date" />
-    <Parameter Name="TO_DATE" Parameter="tO_DATE" Type="System.DateTime" DbType="Date" />
-    <Return Type="System.Int32" />
-  </Function>
-  <Function Id="FunctionId85" Name="dbo.INS_APBS_P" Method="INS_APBS_P">
+  <Function Id="FunctionId82" Name="dbo.INS_APBS_P" Method="INS_APBS_P">
     <Parameter Name="Titl_Desc" Parameter="titl_Desc" Type="System.String" DbType="NVarChar(250)" />
     <Parameter Name="Enty_Name" Parameter="enty_Name" Type="System.String" DbType="VarChar(250)" />
     <Parameter Name="Ref_Code" Parameter="ref_Code" Type="System.Int64" DbType="BigInt" />
@@ -6185,7 +6155,7 @@
     <Parameter Name="Unit" Parameter="unit" Type="System.Int16" DbType="SmallInt" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId86" Name="dbo.UPD_APBS_P" Method="UPD_APBS_P">
+  <Function Id="FunctionId83" Name="dbo.UPD_APBS_P" Method="UPD_APBS_P">
     <Parameter Name="Code" Parameter="code" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Titl_Desc" Parameter="titl_Desc" Type="System.String" DbType="NVarChar(250)" />
     <Parameter Name="Enty_Name" Parameter="enty_Name" Type="System.String" DbType="VarChar(250)" />
@@ -6245,7 +6215,7 @@
       <Column Name="COCH_NAME_DNRM" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
     </ElementType>
   </Function>
-  <Function Id="FunctionId88" Name="dbo.INS_CEXC_P" Method="INS_CEXC_P">
+  <Function Id="FunctionId85" Name="dbo.INS_CEXC_P" Method="INS_CEXC_P">
     <Parameter Name="Coch_File_No" Parameter="coch_File_No" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Epit_Code" Parameter="epit_Code" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Rqtt_Code" Parameter="rqtt_Code" Type="System.String" DbType="VarChar(3)" />
@@ -6266,7 +6236,7 @@
     <Parameter Name="Efct_Date_Type" Parameter="efct_Date_Type" Type="System.String" DbType="VarChar(3)" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId89" Name="dbo.UPD_CEXC_P" Method="UPD_CEXC_P">
+  <Function Id="FunctionId86" Name="dbo.UPD_CEXC_P" Method="UPD_CEXC_P">
     <Parameter Name="Code" Parameter="code" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Coch_File_No" Parameter="coch_File_No" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Epit_Code" Parameter="epit_Code" Type="System.Int64" DbType="BigInt" />
@@ -6286,6 +6256,46 @@
     <Parameter Name="Rduc_Amnt" Parameter="rduc_Amnt" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Cbmt_Code" Parameter="cbmt_Code" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Efct_Date_Type" Parameter="efct_Date_Type" Type="System.String" DbType="VarChar(3)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Id="FunctionId88" Name="dbo.INS_BCDS_P" Method="INS_BCDS_P">
+    <Parameter Name="SUNT_BUNT_DEPT_ORGN_CODE" Parameter="sUNT_BUNT_DEPT_ORGN_CODE" Type="System.String" DbType="VarChar(2)" />
+    <Parameter Name="SUNT_BUNT_DEPT_CODE" Parameter="sUNT_BUNT_DEPT_CODE" Type="System.String" DbType="VarChar(2)" />
+    <Parameter Name="SUNT_BUNT_CODE" Parameter="sUNT_BUNT_CODE" Type="System.String" DbType="VarChar(2)" />
+    <Parameter Name="SUNT_CODE" Parameter="sUNT_CODE" Type="System.String" DbType="VarChar(4)" />
+    <Parameter Name="REGL_YEAR" Parameter="rEGL_YEAR" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="REGL_CODE" Parameter="rEGL_CODE" Type="System.Int32" DbType="Int" />
+    <Parameter Name="EPIT_CODE" Parameter="ePIT_CODE" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="RQTP_CODE" Parameter="rQTP_CODE" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="AMNT_DSCT" Parameter="aMNT_DSCT" Type="System.Int32" DbType="Int" />
+    <Parameter Name="PRCT_DSCT" Parameter="pRCT_DSCT" Type="System.Int32" DbType="Int" />
+    <Parameter Name="DSCT_TYPE" Parameter="dSCT_TYPE" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="ACTN_TYPE" Parameter="aCTN_TYPE" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="DSCT_DESC" Parameter="dSCT_DESC" Type="System.String" DbType="NVarChar(500)" />
+    <Parameter Name="FROM_DATE" Parameter="fROM_DATE" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="TO_DATE" Parameter="tO_DATE" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="CTGY_CODE" Parameter="cTGY_CODE" Type="System.Int64" DbType="BigInt" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Id="FunctionId89" Name="dbo.UPD_BCDS_P" Method="UPD_BCDS_P">
+    <Parameter Name="SUNT_BUNT_DEPT_ORGN_CODE" Parameter="sUNT_BUNT_DEPT_ORGN_CODE" Type="System.String" DbType="VarChar(2)" />
+    <Parameter Name="SUNT_BUNT_DEPT_CODE" Parameter="sUNT_BUNT_DEPT_CODE" Type="System.String" DbType="VarChar(2)" />
+    <Parameter Name="SUNT_BUNT_CODE" Parameter="sUNT_BUNT_CODE" Type="System.String" DbType="VarChar(2)" />
+    <Parameter Name="SUNT_CODE" Parameter="sUNT_CODE" Type="System.String" DbType="VarChar(4)" />
+    <Parameter Name="REGL_YEAR" Parameter="rEGL_YEAR" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="REGL_CODE" Parameter="rEGL_CODE" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Rwno" Parameter="rwno" Type="System.Int32" DbType="Int" />
+    <Parameter Name="EPIT_CODE" Parameter="ePIT_CODE" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="RQTP_CODE" Parameter="rQTP_CODE" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="AMNT_DSCT" Parameter="aMNT_DSCT" Type="System.Int32" DbType="Int" />
+    <Parameter Name="PRCT_DSCT" Parameter="pRCT_DSCT" Type="System.Int32" DbType="Int" />
+    <Parameter Name="DSCT_TYPE" Parameter="dSCT_TYPE" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="Stat" Parameter="stat" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="ACTN_TYPE" Parameter="aCTN_TYPE" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="DSCT_DESC" Parameter="dSCT_DESC" Type="System.String" DbType="NVarChar(500)" />
+    <Parameter Name="FROM_DATE" Parameter="fROM_DATE" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="TO_DATE" Parameter="tO_DATE" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="CTGY_CODE" Parameter="cTGY_CODE" Type="System.Int64" DbType="BigInt" />
     <Return Type="System.Int32" />
   </Function>
 </Database>

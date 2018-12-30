@@ -22,10 +22,13 @@ namespace System.Scsc.Ui.Organ
       private void Execute_Query(bool runAllQuery)
       {
          iScsc = new Data.iScscDataContext(ConnectionString);
-         //if(tb_master.SelectedTab == tp_001)
-         {
-            OrgnBs1.DataSource = iScsc.Organs;
-         }
+         int orgn = OrgnBs1.Position;
+         int bcds = BcdsBs1.Position;
+         OrgnBs1.DataSource = iScsc.Organs;
+         OrgnBs1.Position = orgn;
+         BcdsBs1.Position = bcds;
+
+         requery = false;
       }
 
       private void Btn_Back_Click(object sender, EventArgs e)
@@ -69,6 +72,7 @@ namespace System.Scsc.Ui.Organ
       {
          try
          {
+            Orgn_Gv.PostEditor();
             iScsc.SubmitChanges();
             requery = true;
          }
@@ -120,6 +124,7 @@ namespace System.Scsc.Ui.Organ
       {
          try
          {
+            Dept_Gv.PostEditor();
             iScsc.SubmitChanges();
             requery = true;
          }
@@ -171,6 +176,7 @@ namespace System.Scsc.Ui.Organ
       {
          try
          {
+            Bunt_Gv.PostEditor();
             iScsc.SubmitChanges();
             requery = true;
          }
@@ -222,6 +228,7 @@ namespace System.Scsc.Ui.Organ
       {
          try
          {
+            Sunt_Gv.PostEditor();
             iScsc.SubmitChanges();
             requery = true;
          }
@@ -241,7 +248,14 @@ namespace System.Scsc.Ui.Organ
 
       private void BcdsAdd_Butn_Click(object sender, EventArgs e)
       {
+         var sunt = SuntBs1.Current as Data.Sub_Unit;
+         if (sunt == null) return;
+
+         if (BcdsBs1.List.OfType<Data.Basic_Calculate_Discount>().Any(b => b.RWNO == 0)) return;
          BcdsBs1.AddNew();
+         var bcds = BcdsBs1.Current as Data.Basic_Calculate_Discount;
+         bcds.Sub_Unit = sunt;
+         iScsc.Basic_Calculate_Discounts.InsertOnSubmit(bcds);
       }
 
       private void BcdsDel_Butn_Click(object sender, EventArgs e)
@@ -273,6 +287,9 @@ namespace System.Scsc.Ui.Organ
       {
          try
          {
+            BcdsBs1.EndEdit();
+            Bcds_Gv.PostEditor();
+
             iScsc.SubmitChanges();
             requery = true;
          }
@@ -298,6 +315,34 @@ namespace System.Scsc.Ui.Organ
       private void BcdsDecPn_Butn_Click(object sender, EventArgs e)
       {
          Bcds_SpltCont.SplitterDistance += 100;
+      }
+
+      private void SaveCtgyBcds_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var bcds = BcdsBs1.Current as Data.Basic_Calculate_Discount;
+            if (bcds == null) return;
+
+            var sunt = SuntBs1.Current as Data.Sub_Unit;
+
+            iScsc.Category_Belts.Where(c => c.CTGY_STAT == "002").ToList()
+               .ForEach(c =>
+               {
+                  if (!BcdsBs1.List.OfType<Data.Basic_Calculate_Discount>().Any(b => b.Sub_Unit == bcds.Sub_Unit && b.RQTP_CODE == bcds.RQTP_CODE && b.RWNO != 0 && b.CTGY_CODE == c.CODE))
+                     iScsc.INS_BCDS_P(sunt.BUNT_DEPT_ORGN_CODE, sunt.BUNT_DEPT_CODE, sunt.BUNT_CODE, sunt.CODE, null, null, bcds.EPIT_CODE, bcds.RQTP_CODE, bcds.AMNT_DSCT, bcds.PRCT_DSCT, bcds.DSCT_TYPE, bcds.ACTN_TYPE, bcds.DSCT_DESC, bcds.FROM_DATE, bcds.TO_DATE, c.CODE);
+               });
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query(true);
+         }
       }
    }
 }

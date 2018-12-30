@@ -252,6 +252,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
                   new SqlConnection(constr)
                );
 
+            sqlcom.CommandTimeout = 18000;
             sqlcom.Connection.Open();
             job.Output = sqlcom.ExecuteNonQuery();
             sqlcom.Connection.Close();
@@ -305,6 +306,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
                )
             );
 
+            SqlAdp.SelectCommand.CommandTimeout = 18000;
             DataSet ds = new DataSet();
             SqlAdp.Fill(ds);
 

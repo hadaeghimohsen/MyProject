@@ -319,6 +319,7 @@ namespace System.Scsc.Ui.Organ
             DActvBs1.DataSource = iScsc.D_ACTVs;
             DDsatBs1.DataSource = iScsc.D_DSATs;
             RqtpBs.DataSource = iScsc.Request_Types.Where(rt => rt.CODE == "001" || rt.CODE == "009" || rt.CODE == "016");
+            CtgyBs1.DataSource = iScsc.Category_Belts.Where(c => c.CTGY_STAT == "002");
             isFirstLoaded = true;
          }
          job.Status = StatusType.Successful;

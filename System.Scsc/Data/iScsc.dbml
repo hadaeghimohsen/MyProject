@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="iScsc" Class="iScscDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=localhost;Initial Catalog=iScsc;Integrated Security=True" SettingsObjectName="System.Scsc.Properties.Settings" SettingsPropertyName="iScscConnectionString1" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.;Initial Catalog=iScsc;Integrated Security=True" SettingsObjectName="System.Scsc.Properties.Settings" SettingsPropertyName="iScscConnectionString3" Provider="System.Data.SqlClient" />
   <Table Name="dbo.Campitition" Member="Campititions">
     <Type Name="Campitition">
       <Column Name="RQRO_RQST_RQID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
@@ -5841,100 +5841,6 @@
       <Column Name="DAD_CHAT_ID_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
     </ElementType>
   </Function>
-  <Function Name="dbo.VF$Last_Info_Fighter" Method="VF_Last_Info_Fighter" IsComposable="true">
-    <Parameter Name="FileNo" Parameter="fileNo" Type="System.Int64" DbType="BigInt" />
-    <Parameter Name="FrstName" Parameter="frstName" Type="System.String" DbType="NVarChar(250)" />
-    <Parameter Name="LastName" Parameter="lastName" Type="System.String" DbType="NVarChar(250)" />
-    <Parameter Name="NatlCode" Parameter="natlCode" Type="System.String" DbType="VarChar(10)" />
-    <Parameter Name="FngrPrnt" Parameter="fngrPrnt" Type="System.String" DbType="VarChar(20)" />
-    <Parameter Name="CellPhon" Parameter="cellPhon" Type="System.String" DbType="VarChar(11)" />
-    <Parameter Name="TellPhon" Parameter="tellPhon" Type="System.String" DbType="VarChar(11)" />
-    <Parameter Name="SexType" Parameter="sexType" Type="System.String" DbType="VarChar(3)" />
-    <Parameter Name="ServNo" Parameter="servNo" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="GlobCode" Parameter="globCode" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="MomCellPhon" Parameter="momCellPhon" Type="System.String" DbType="VarChar(11)" />
-    <Parameter Name="MomTellPhon" Parameter="momTellPhon" Type="System.String" DbType="VarChar(11)" />
-    <Parameter Name="DadCellPHon" Parameter="dadCellPHon" Type="System.String" DbType="VarChar(11)" />
-    <Parameter Name="DadTellPHon" Parameter="dadTellPHon" Type="System.String" DbType="VarChar(11)" />
-    <ElementType Name="VF_Last_Info_FighterResult">
-      <Column Name="FILE_NO" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
-      <Column Name="DEBT_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="DPST_AMNT_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="BUFE_DEBT_DNTM" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="REGN_PRVN_CODE" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
-      <Column Name="REGN_CODE" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
-      <Column Name="FGPB_RWNO_DNRM" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="MBSP_RWNO_DNRM" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
-      <Column Name="CAMP_RWNO_DNRM" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
-      <Column Name="TEST_RWNO_DNRM" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
-      <Column Name="CLCL_RWNO_DNRM" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
-      <Column Name="HERT_RWNO_DNRM" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
-      <Column Name="PSFN_RWNO_DNRM" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
-      <Column Name="CONF_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="RQST_RQID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="CHAT_ID_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="NAME_DNRM" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
-      <Column Name="FATH_NAME_DNRM" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
-      <Column Name="BRTH_DATE_DNRM" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="CELL_PHON_DNRM" Type="System.String" DbType="VarChar(11)" CanBeNull="true" />
-      <Column Name="TELL_PHON_DNRM" Type="System.String" DbType="VarChar(11)" CanBeNull="true" />
-      <Column Name="INSR_NUMB_DNRM" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
-      <Column Name="INSR_DATE_DNRM" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="TEST_DATE_DNRM" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="CAMP_DATE_DNRM" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="NATL_CODE" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
-      <Column Name="GLOB_CODE" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="FMLY_NUMB" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="POST_ADRS" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
-      <Column Name="FRST_NAME" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
-      <Column Name="LAST_NAME" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
-      <Column Name="TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="CBMT_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="EMAL_ADRS" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="DISE_DESC" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="CLUB_NAME" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="CLUB_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="TYPE_DESC" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
-      <Column Name="COCH_DEGR" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="COCH_FILE_NO" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="ACTV_TAG_DNRM" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="MOST_DEBT_CLNG_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="GUGD_DEGR" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="SEX_TYPE" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
-      <Column Name="FIGH_STAT" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
-      <Column Name="MTOD_DESC" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="CTGY_DESC" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="ACTV_TAG" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
-      <Column Name="REGN_NAME" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="PRVN_NAME" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="BLOD_GROP" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="RQTP_DESC" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="FNGR_PRNT_DNRM" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
-      <Column Name="SUNT_BUNT_DEPT_ORGN_CODE" Type="System.String" DbType="VarChar(2)" CanBeNull="true" />
-      <Column Name="SUNT_BUNT_DEPT_CODE" Type="System.String" DbType="VarChar(2)" CanBeNull="true" />
-      <Column Name="SUNT_BUNT_CODE" Type="System.String" DbType="VarChar(2)" CanBeNull="true" />
-      <Column Name="SUNT_CODE" Type="System.String" DbType="VarChar(4)" CanBeNull="true" />
-      <Column Name="ORGN_DESC" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="DEPT_DESC" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="BUNT_DESC" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="SUNT_DESC" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
-      <Column Name="STRT_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="END_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="NUMB_OF_MONT_DNRM" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="NUMB_OF_DAYS_DNRM" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="NUMB_MONT_OFER" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="NUMB_OF_ATTN_MONT" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="NUMB_OF_ATTN_WEEK" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="SUM_ATTN_MONT_DNRM" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="SUM_ATTN_WEEK_DNRM" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="MOM_CELL_PHON_DNRM" Type="System.String" DbType="VarChar(11)" CanBeNull="true" />
-      <Column Name="MOM_TELL_PHON_DNRM" Type="System.String" DbType="VarChar(11)" CanBeNull="true" />
-      <Column Name="MOM_CHAT_ID_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="DAD_CELL_PHON_DNRM" Type="System.String" DbType="VarChar(11)" CanBeNull="true" />
-      <Column Name="DAD_TELL_PHON_DNRM" Type="System.String" DbType="VarChar(11)" CanBeNull="true" />
-      <Column Name="DAD_CHAT_ID_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-    </ElementType>
-  </Function>
   <Function Name="dbo.VF$All_Info_Fighters" Method="VF_All_Info_Fighters" IsComposable="true">
     <Parameter Name="FileNo" Parameter="fileNo" Type="System.Int64" DbType="BigInt" />
     <ElementType Name="VF_All_Info_FightersResult">
@@ -6297,5 +6203,100 @@
     <Parameter Name="TO_DATE" Parameter="tO_DATE" Type="System.DateTime" DbType="Date" />
     <Parameter Name="CTGY_CODE" Parameter="cTGY_CODE" Type="System.Int64" DbType="BigInt" />
     <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.VF$Last_Info_Fighter" Method="VF_Last_Info_Fighter" IsComposable="true">
+    <Parameter Name="FileNo" Parameter="fileNo" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="FrstName" Parameter="frstName" Type="System.String" DbType="NVarChar(250)" />
+    <Parameter Name="LastName" Parameter="lastName" Type="System.String" DbType="NVarChar(250)" />
+    <Parameter Name="NatlCode" Parameter="natlCode" Type="System.String" DbType="VarChar(10)" />
+    <Parameter Name="FngrPrnt" Parameter="fngrPrnt" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="CellPhon" Parameter="cellPhon" Type="System.String" DbType="VarChar(11)" />
+    <Parameter Name="TellPhon" Parameter="tellPhon" Type="System.String" DbType="VarChar(11)" />
+    <Parameter Name="SexType" Parameter="sexType" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="ServNo" Parameter="servNo" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="GlobCode" Parameter="globCode" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="MomCellPhon" Parameter="momCellPhon" Type="System.String" DbType="VarChar(11)" />
+    <Parameter Name="MomTellPhon" Parameter="momTellPhon" Type="System.String" DbType="VarChar(11)" />
+    <Parameter Name="DadCellPHon" Parameter="dadCellPHon" Type="System.String" DbType="VarChar(11)" />
+    <Parameter Name="DadTellPHon" Parameter="dadTellPHon" Type="System.String" DbType="VarChar(11)" />
+    <Parameter Name="SuntCode" Parameter="suntCode" Type="System.String" DbType="VarChar(4)" />
+    <ElementType Name="VF_Last_Info_FighterResult">
+      <Column Name="FILE_NO" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="DEBT_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="DPST_AMNT_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="BUFE_DEBT_DNTM" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="REGN_PRVN_CODE" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="REGN_CODE" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="FGPB_RWNO_DNRM" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MBSP_RWNO_DNRM" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="CAMP_RWNO_DNRM" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="TEST_RWNO_DNRM" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="CLCL_RWNO_DNRM" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="HERT_RWNO_DNRM" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="PSFN_RWNO_DNRM" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="CONF_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="RQST_RQID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="CHAT_ID_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="NAME_DNRM" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="FATH_NAME_DNRM" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="BRTH_DATE_DNRM" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CELL_PHON_DNRM" Type="System.String" DbType="VarChar(11)" CanBeNull="true" />
+      <Column Name="TELL_PHON_DNRM" Type="System.String" DbType="VarChar(11)" CanBeNull="true" />
+      <Column Name="INSR_NUMB_DNRM" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="INSR_DATE_DNRM" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TEST_DATE_DNRM" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CAMP_DATE_DNRM" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="NATL_CODE" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="GLOB_CODE" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="FMLY_NUMB" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="POST_ADRS" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="FRST_NAME" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="LAST_NAME" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="CBMT_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="EMAL_ADRS" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DISE_DESC" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CLUB_NAME" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CLUB_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="TYPE_DESC" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="COCH_DEGR" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="COCH_FILE_NO" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="ACTV_TAG_DNRM" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="MOST_DEBT_CLNG_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="GUGD_DEGR" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SEX_TYPE" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="FIGH_STAT" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="MTOD_DESC" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CTGY_DESC" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ACTV_TAG" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="REGN_NAME" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PRVN_NAME" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BLOD_GROP" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="RQTP_DESC" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FNGR_PRNT_DNRM" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="SUNT_BUNT_DEPT_ORGN_CODE" Type="System.String" DbType="VarChar(2)" CanBeNull="true" />
+      <Column Name="SUNT_BUNT_DEPT_CODE" Type="System.String" DbType="VarChar(2)" CanBeNull="true" />
+      <Column Name="SUNT_BUNT_CODE" Type="System.String" DbType="VarChar(2)" CanBeNull="true" />
+      <Column Name="SUNT_CODE" Type="System.String" DbType="VarChar(4)" CanBeNull="true" />
+      <Column Name="ORGN_DESC" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DEPT_DESC" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BUNT_DESC" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SUNT_DESC" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="STRT_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="END_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="NUMB_OF_MONT_DNRM" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NUMB_OF_DAYS_DNRM" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NUMB_MONT_OFER" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NUMB_OF_ATTN_MONT" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NUMB_OF_ATTN_WEEK" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SUM_ATTN_MONT_DNRM" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SUM_ATTN_WEEK_DNRM" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MOM_CELL_PHON_DNRM" Type="System.String" DbType="VarChar(11)" CanBeNull="true" />
+      <Column Name="MOM_TELL_PHON_DNRM" Type="System.String" DbType="VarChar(11)" CanBeNull="true" />
+      <Column Name="MOM_CHAT_ID_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="DAD_CELL_PHON_DNRM" Type="System.String" DbType="VarChar(11)" CanBeNull="true" />
+      <Column Name="DAD_TELL_PHON_DNRM" Type="System.String" DbType="VarChar(11)" CanBeNull="true" />
+      <Column Name="DAD_CHAT_ID_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+    </ElementType>
   </Function>
 </Database>

@@ -243,7 +243,7 @@ namespace System.Scsc.Data
     #endregion
 		
 		public iScscDataContext() : 
-				base(global::System.Scsc.Properties.Settings.Default.iScscConnectionString1, mappingSource)
+				base(global::System.Scsc.Properties.Settings.Default.iScscConnectionString3, mappingSource)
 		{
 			OnCreated();
 		}
@@ -4008,12 +4008,6 @@ namespace System.Scsc.Data
 			return this.CreateMethodCallQuery<VF_Last_Info_Deleted_FighterResult>(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), fileNo, frstName, lastName, natlCode, fngrPrnt, cellPhon, tellPhon, sexType, servNo, globCode, momCellPhon, momTellPhon, dadCellPHon, dadTellPHon);
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.VF$Last_Info_Fighter", IsComposable=true)]
-		public IQueryable<VF_Last_Info_FighterResult> VF_Last_Info_Fighter([global::System.Data.Linq.Mapping.ParameterAttribute(Name="FileNo", DbType="BigInt")] System.Nullable<long> fileNo, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FrstName", DbType="NVarChar(250)")] string frstName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LastName", DbType="NVarChar(250)")] string lastName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NatlCode", DbType="VarChar(10)")] string natlCode, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FngrPrnt", DbType="VarChar(20)")] string fngrPrnt, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CellPhon", DbType="VarChar(11)")] string cellPhon, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TellPhon", DbType="VarChar(11)")] string tellPhon, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SexType", DbType="VarChar(3)")] string sexType, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ServNo", DbType="NVarChar(50)")] string servNo, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="GlobCode", DbType="NVarChar(50)")] string globCode, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MomCellPhon", DbType="VarChar(11)")] string momCellPhon, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MomTellPhon", DbType="VarChar(11)")] string momTellPhon, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DadCellPHon", DbType="VarChar(11)")] string dadCellPHon, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DadTellPHon", DbType="VarChar(11)")] string dadTellPHon)
-		{
-			return this.CreateMethodCallQuery<VF_Last_Info_FighterResult>(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), fileNo, frstName, lastName, natlCode, fngrPrnt, cellPhon, tellPhon, sexType, servNo, globCode, momCellPhon, momTellPhon, dadCellPHon, dadTellPHon);
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.VF$All_Info_Fighters", IsComposable=true)]
 		public IQueryable<VF_All_Info_FightersResult> VF_All_Info_Fighters([global::System.Data.Linq.Mapping.ParameterAttribute(Name="FileNo", DbType="BigInt")] System.Nullable<long> fileNo)
 		{
@@ -4258,6 +4252,12 @@ namespace System.Scsc.Data
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), sUNT_BUNT_DEPT_ORGN_CODE, sUNT_BUNT_DEPT_CODE, sUNT_BUNT_CODE, sUNT_CODE, rEGL_YEAR, rEGL_CODE, rwno, ePIT_CODE, rQTP_CODE, aMNT_DSCT, pRCT_DSCT, dSCT_TYPE, stat, aCTN_TYPE, dSCT_DESC, fROM_DATE, tO_DATE, cTGY_CODE);
 			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.VF$Last_Info_Fighter", IsComposable=true)]
+		public IQueryable<VF_Last_Info_FighterResult> VF_Last_Info_Fighter([global::System.Data.Linq.Mapping.ParameterAttribute(Name="FileNo", DbType="BigInt")] System.Nullable<long> fileNo, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FrstName", DbType="NVarChar(250)")] string frstName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LastName", DbType="NVarChar(250)")] string lastName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NatlCode", DbType="VarChar(10)")] string natlCode, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FngrPrnt", DbType="VarChar(20)")] string fngrPrnt, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CellPhon", DbType="VarChar(11)")] string cellPhon, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TellPhon", DbType="VarChar(11)")] string tellPhon, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SexType", DbType="VarChar(3)")] string sexType, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ServNo", DbType="NVarChar(50)")] string servNo, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="GlobCode", DbType="NVarChar(50)")] string globCode, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MomCellPhon", DbType="VarChar(11)")] string momCellPhon, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MomTellPhon", DbType="VarChar(11)")] string momTellPhon, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DadCellPHon", DbType="VarChar(11)")] string dadCellPHon, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DadTellPHon", DbType="VarChar(11)")] string dadTellPHon, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SuntCode", DbType="VarChar(4)")] string suntCode)
+		{
+			return this.CreateMethodCallQuery<VF_Last_Info_FighterResult>(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), fileNo, frstName, lastName, natlCode, fngrPrnt, cellPhon, tellPhon, sexType, servNo, globCode, momCellPhon, momTellPhon, dadCellPHon, dadTellPHon, suntCode);
 		}
 	}
 	
@@ -81173,1382 +81173,6 @@ namespace System.Scsc.Data
 		}
 	}
 	
-	public partial class VF_Last_Info_FighterResult
-	{
-		
-		private long _FILE_NO;
-		
-		private System.Nullable<long> _DEBT_DNRM;
-		
-		private System.Nullable<long> _DPST_AMNT_DNRM;
-		
-		private System.Nullable<long> _BUFE_DEBT_DNTM;
-		
-		private string _REGN_PRVN_CODE;
-		
-		private string _REGN_CODE;
-		
-		private System.Nullable<int> _FGPB_RWNO_DNRM;
-		
-		private System.Nullable<short> _MBSP_RWNO_DNRM;
-		
-		private System.Nullable<short> _CAMP_RWNO_DNRM;
-		
-		private System.Nullable<short> _TEST_RWNO_DNRM;
-		
-		private System.Nullable<short> _CLCL_RWNO_DNRM;
-		
-		private System.Nullable<short> _HERT_RWNO_DNRM;
-		
-		private System.Nullable<short> _PSFN_RWNO_DNRM;
-		
-		private System.Nullable<System.DateTime> _CONF_DATE;
-		
-		private System.Nullable<long> _RQST_RQID;
-		
-		private System.Nullable<long> _CHAT_ID_DNRM;
-		
-		private string _NAME_DNRM;
-		
-		private string _FATH_NAME_DNRM;
-		
-		private System.Nullable<System.DateTime> _BRTH_DATE_DNRM;
-		
-		private string _CELL_PHON_DNRM;
-		
-		private string _TELL_PHON_DNRM;
-		
-		private string _INSR_NUMB_DNRM;
-		
-		private System.Nullable<System.DateTime> _INSR_DATE_DNRM;
-		
-		private System.Nullable<System.DateTime> _TEST_DATE_DNRM;
-		
-		private System.Nullable<System.DateTime> _CAMP_DATE_DNRM;
-		
-		private string _NATL_CODE;
-		
-		private string _GLOB_CODE;
-		
-		private System.Nullable<int> _FMLY_NUMB;
-		
-		private string _POST_ADRS;
-		
-		private string _FRST_NAME;
-		
-		private string _LAST_NAME;
-		
-		private string _TYPE;
-		
-		private System.Nullable<long> _CBMT_CODE;
-		
-		private System.Nullable<int> _EMAL_ADRS;
-		
-		private System.Nullable<int> _DISE_DESC;
-		
-		private System.Nullable<int> _CLUB_NAME;
-		
-		private System.Nullable<long> _CLUB_CODE;
-		
-		private string _TYPE_DESC;
-		
-		private System.Nullable<int> _COCH_DEGR;
-		
-		private System.Nullable<long> _COCH_FILE_NO;
-		
-		private string _ACTV_TAG_DNRM;
-		
-		private System.Nullable<long> _MOST_DEBT_CLNG_DNRM;
-		
-		private System.Nullable<int> _GUGD_DEGR;
-		
-		private string _SEX_TYPE;
-		
-		private string _FIGH_STAT;
-		
-		private System.Nullable<int> _MTOD_DESC;
-		
-		private System.Nullable<int> _CTGY_DESC;
-		
-		private string _ACTV_TAG;
-		
-		private System.Nullable<int> _REGN_NAME;
-		
-		private System.Nullable<int> _PRVN_NAME;
-		
-		private System.Nullable<int> _BLOD_GROP;
-		
-		private System.Nullable<int> _RQTP_DESC;
-		
-		private string _FNGR_PRNT_DNRM;
-		
-		private string _SUNT_BUNT_DEPT_ORGN_CODE;
-		
-		private string _SUNT_BUNT_DEPT_CODE;
-		
-		private string _SUNT_BUNT_CODE;
-		
-		private string _SUNT_CODE;
-		
-		private System.Nullable<int> _ORGN_DESC;
-		
-		private System.Nullable<int> _DEPT_DESC;
-		
-		private System.Nullable<int> _BUNT_DESC;
-		
-		private string _SUNT_DESC;
-		
-		private System.Nullable<System.DateTime> _STRT_DATE;
-		
-		private System.Nullable<System.DateTime> _END_DATE;
-		
-		private int _NUMB_OF_MONT_DNRM;
-		
-		private int _NUMB_OF_DAYS_DNRM;
-		
-		private int _NUMB_MONT_OFER;
-		
-		private int _NUMB_OF_ATTN_MONT;
-		
-		private int _NUMB_OF_ATTN_WEEK;
-		
-		private int _SUM_ATTN_MONT_DNRM;
-		
-		private int _SUM_ATTN_WEEK_DNRM;
-		
-		private string _MOM_CELL_PHON_DNRM;
-		
-		private string _MOM_TELL_PHON_DNRM;
-		
-		private System.Nullable<long> _MOM_CHAT_ID_DNRM;
-		
-		private string _DAD_CELL_PHON_DNRM;
-		
-		private string _DAD_TELL_PHON_DNRM;
-		
-		private System.Nullable<long> _DAD_CHAT_ID_DNRM;
-		
-		public VF_Last_Info_FighterResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FILE_NO", DbType="BigInt NOT NULL")]
-		public long FILE_NO
-		{
-			get
-			{
-				return this._FILE_NO;
-			}
-			set
-			{
-				if ((this._FILE_NO != value))
-				{
-					this._FILE_NO = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DEBT_DNRM", DbType="BigInt")]
-		public System.Nullable<long> DEBT_DNRM
-		{
-			get
-			{
-				return this._DEBT_DNRM;
-			}
-			set
-			{
-				if ((this._DEBT_DNRM != value))
-				{
-					this._DEBT_DNRM = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DPST_AMNT_DNRM", DbType="BigInt")]
-		public System.Nullable<long> DPST_AMNT_DNRM
-		{
-			get
-			{
-				return this._DPST_AMNT_DNRM;
-			}
-			set
-			{
-				if ((this._DPST_AMNT_DNRM != value))
-				{
-					this._DPST_AMNT_DNRM = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BUFE_DEBT_DNTM", DbType="BigInt")]
-		public System.Nullable<long> BUFE_DEBT_DNTM
-		{
-			get
-			{
-				return this._BUFE_DEBT_DNTM;
-			}
-			set
-			{
-				if ((this._BUFE_DEBT_DNTM != value))
-				{
-					this._BUFE_DEBT_DNTM = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_REGN_PRVN_CODE", DbType="VarChar(3) NOT NULL", CanBeNull=false)]
-		public string REGN_PRVN_CODE
-		{
-			get
-			{
-				return this._REGN_PRVN_CODE;
-			}
-			set
-			{
-				if ((this._REGN_PRVN_CODE != value))
-				{
-					this._REGN_PRVN_CODE = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_REGN_CODE", DbType="VarChar(3) NOT NULL", CanBeNull=false)]
-		public string REGN_CODE
-		{
-			get
-			{
-				return this._REGN_CODE;
-			}
-			set
-			{
-				if ((this._REGN_CODE != value))
-				{
-					this._REGN_CODE = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FGPB_RWNO_DNRM", DbType="Int")]
-		public System.Nullable<int> FGPB_RWNO_DNRM
-		{
-			get
-			{
-				return this._FGPB_RWNO_DNRM;
-			}
-			set
-			{
-				if ((this._FGPB_RWNO_DNRM != value))
-				{
-					this._FGPB_RWNO_DNRM = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MBSP_RWNO_DNRM", DbType="SmallInt")]
-		public System.Nullable<short> MBSP_RWNO_DNRM
-		{
-			get
-			{
-				return this._MBSP_RWNO_DNRM;
-			}
-			set
-			{
-				if ((this._MBSP_RWNO_DNRM != value))
-				{
-					this._MBSP_RWNO_DNRM = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CAMP_RWNO_DNRM", DbType="SmallInt")]
-		public System.Nullable<short> CAMP_RWNO_DNRM
-		{
-			get
-			{
-				return this._CAMP_RWNO_DNRM;
-			}
-			set
-			{
-				if ((this._CAMP_RWNO_DNRM != value))
-				{
-					this._CAMP_RWNO_DNRM = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TEST_RWNO_DNRM", DbType="SmallInt")]
-		public System.Nullable<short> TEST_RWNO_DNRM
-		{
-			get
-			{
-				return this._TEST_RWNO_DNRM;
-			}
-			set
-			{
-				if ((this._TEST_RWNO_DNRM != value))
-				{
-					this._TEST_RWNO_DNRM = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CLCL_RWNO_DNRM", DbType="SmallInt")]
-		public System.Nullable<short> CLCL_RWNO_DNRM
-		{
-			get
-			{
-				return this._CLCL_RWNO_DNRM;
-			}
-			set
-			{
-				if ((this._CLCL_RWNO_DNRM != value))
-				{
-					this._CLCL_RWNO_DNRM = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HERT_RWNO_DNRM", DbType="SmallInt")]
-		public System.Nullable<short> HERT_RWNO_DNRM
-		{
-			get
-			{
-				return this._HERT_RWNO_DNRM;
-			}
-			set
-			{
-				if ((this._HERT_RWNO_DNRM != value))
-				{
-					this._HERT_RWNO_DNRM = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PSFN_RWNO_DNRM", DbType="SmallInt")]
-		public System.Nullable<short> PSFN_RWNO_DNRM
-		{
-			get
-			{
-				return this._PSFN_RWNO_DNRM;
-			}
-			set
-			{
-				if ((this._PSFN_RWNO_DNRM != value))
-				{
-					this._PSFN_RWNO_DNRM = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CONF_DATE", DbType="DateTime")]
-		public System.Nullable<System.DateTime> CONF_DATE
-		{
-			get
-			{
-				return this._CONF_DATE;
-			}
-			set
-			{
-				if ((this._CONF_DATE != value))
-				{
-					this._CONF_DATE = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RQST_RQID", DbType="BigInt")]
-		public System.Nullable<long> RQST_RQID
-		{
-			get
-			{
-				return this._RQST_RQID;
-			}
-			set
-			{
-				if ((this._RQST_RQID != value))
-				{
-					this._RQST_RQID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CHAT_ID_DNRM", DbType="BigInt")]
-		public System.Nullable<long> CHAT_ID_DNRM
-		{
-			get
-			{
-				return this._CHAT_ID_DNRM;
-			}
-			set
-			{
-				if ((this._CHAT_ID_DNRM != value))
-				{
-					this._CHAT_ID_DNRM = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NAME_DNRM", DbType="NVarChar(500)")]
-		public string NAME_DNRM
-		{
-			get
-			{
-				return this._NAME_DNRM;
-			}
-			set
-			{
-				if ((this._NAME_DNRM != value))
-				{
-					this._NAME_DNRM = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FATH_NAME_DNRM", DbType="NVarChar(250)")]
-		public string FATH_NAME_DNRM
-		{
-			get
-			{
-				return this._FATH_NAME_DNRM;
-			}
-			set
-			{
-				if ((this._FATH_NAME_DNRM != value))
-				{
-					this._FATH_NAME_DNRM = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BRTH_DATE_DNRM", DbType="DateTime")]
-		public System.Nullable<System.DateTime> BRTH_DATE_DNRM
-		{
-			get
-			{
-				return this._BRTH_DATE_DNRM;
-			}
-			set
-			{
-				if ((this._BRTH_DATE_DNRM != value))
-				{
-					this._BRTH_DATE_DNRM = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CELL_PHON_DNRM", DbType="VarChar(11)")]
-		public string CELL_PHON_DNRM
-		{
-			get
-			{
-				return this._CELL_PHON_DNRM;
-			}
-			set
-			{
-				if ((this._CELL_PHON_DNRM != value))
-				{
-					this._CELL_PHON_DNRM = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TELL_PHON_DNRM", DbType="VarChar(11)")]
-		public string TELL_PHON_DNRM
-		{
-			get
-			{
-				return this._TELL_PHON_DNRM;
-			}
-			set
-			{
-				if ((this._TELL_PHON_DNRM != value))
-				{
-					this._TELL_PHON_DNRM = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_INSR_NUMB_DNRM", DbType="VarChar(10)")]
-		public string INSR_NUMB_DNRM
-		{
-			get
-			{
-				return this._INSR_NUMB_DNRM;
-			}
-			set
-			{
-				if ((this._INSR_NUMB_DNRM != value))
-				{
-					this._INSR_NUMB_DNRM = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_INSR_DATE_DNRM", DbType="DateTime")]
-		public System.Nullable<System.DateTime> INSR_DATE_DNRM
-		{
-			get
-			{
-				return this._INSR_DATE_DNRM;
-			}
-			set
-			{
-				if ((this._INSR_DATE_DNRM != value))
-				{
-					this._INSR_DATE_DNRM = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TEST_DATE_DNRM", DbType="DateTime")]
-		public System.Nullable<System.DateTime> TEST_DATE_DNRM
-		{
-			get
-			{
-				return this._TEST_DATE_DNRM;
-			}
-			set
-			{
-				if ((this._TEST_DATE_DNRM != value))
-				{
-					this._TEST_DATE_DNRM = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CAMP_DATE_DNRM", DbType="DateTime")]
-		public System.Nullable<System.DateTime> CAMP_DATE_DNRM
-		{
-			get
-			{
-				return this._CAMP_DATE_DNRM;
-			}
-			set
-			{
-				if ((this._CAMP_DATE_DNRM != value))
-				{
-					this._CAMP_DATE_DNRM = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NATL_CODE", DbType="VarChar(10)")]
-		public string NATL_CODE
-		{
-			get
-			{
-				return this._NATL_CODE;
-			}
-			set
-			{
-				if ((this._NATL_CODE != value))
-				{
-					this._NATL_CODE = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GLOB_CODE", DbType="NVarChar(50)")]
-		public string GLOB_CODE
-		{
-			get
-			{
-				return this._GLOB_CODE;
-			}
-			set
-			{
-				if ((this._GLOB_CODE != value))
-				{
-					this._GLOB_CODE = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FMLY_NUMB", DbType="Int")]
-		public System.Nullable<int> FMLY_NUMB
-		{
-			get
-			{
-				return this._FMLY_NUMB;
-			}
-			set
-			{
-				if ((this._FMLY_NUMB != value))
-				{
-					this._FMLY_NUMB = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_POST_ADRS", DbType="NVarChar(1000)")]
-		public string POST_ADRS
-		{
-			get
-			{
-				return this._POST_ADRS;
-			}
-			set
-			{
-				if ((this._POST_ADRS != value))
-				{
-					this._POST_ADRS = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FRST_NAME", DbType="NVarChar(250)")]
-		public string FRST_NAME
-		{
-			get
-			{
-				return this._FRST_NAME;
-			}
-			set
-			{
-				if ((this._FRST_NAME != value))
-				{
-					this._FRST_NAME = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LAST_NAME", DbType="NVarChar(250)")]
-		public string LAST_NAME
-		{
-			get
-			{
-				return this._LAST_NAME;
-			}
-			set
-			{
-				if ((this._LAST_NAME != value))
-				{
-					this._LAST_NAME = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TYPE", DbType="VarChar(3)")]
-		public string TYPE
-		{
-			get
-			{
-				return this._TYPE;
-			}
-			set
-			{
-				if ((this._TYPE != value))
-				{
-					this._TYPE = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CBMT_CODE", DbType="BigInt")]
-		public System.Nullable<long> CBMT_CODE
-		{
-			get
-			{
-				return this._CBMT_CODE;
-			}
-			set
-			{
-				if ((this._CBMT_CODE != value))
-				{
-					this._CBMT_CODE = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EMAL_ADRS", DbType="Int")]
-		public System.Nullable<int> EMAL_ADRS
-		{
-			get
-			{
-				return this._EMAL_ADRS;
-			}
-			set
-			{
-				if ((this._EMAL_ADRS != value))
-				{
-					this._EMAL_ADRS = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DISE_DESC", DbType="Int")]
-		public System.Nullable<int> DISE_DESC
-		{
-			get
-			{
-				return this._DISE_DESC;
-			}
-			set
-			{
-				if ((this._DISE_DESC != value))
-				{
-					this._DISE_DESC = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CLUB_NAME", DbType="Int")]
-		public System.Nullable<int> CLUB_NAME
-		{
-			get
-			{
-				return this._CLUB_NAME;
-			}
-			set
-			{
-				if ((this._CLUB_NAME != value))
-				{
-					this._CLUB_NAME = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CLUB_CODE", DbType="BigInt")]
-		public System.Nullable<long> CLUB_CODE
-		{
-			get
-			{
-				return this._CLUB_CODE;
-			}
-			set
-			{
-				if ((this._CLUB_CODE != value))
-				{
-					this._CLUB_CODE = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TYPE_DESC", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
-		public string TYPE_DESC
-		{
-			get
-			{
-				return this._TYPE_DESC;
-			}
-			set
-			{
-				if ((this._TYPE_DESC != value))
-				{
-					this._TYPE_DESC = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_COCH_DEGR", DbType="Int")]
-		public System.Nullable<int> COCH_DEGR
-		{
-			get
-			{
-				return this._COCH_DEGR;
-			}
-			set
-			{
-				if ((this._COCH_DEGR != value))
-				{
-					this._COCH_DEGR = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_COCH_FILE_NO", DbType="BigInt")]
-		public System.Nullable<long> COCH_FILE_NO
-		{
-			get
-			{
-				return this._COCH_FILE_NO;
-			}
-			set
-			{
-				if ((this._COCH_FILE_NO != value))
-				{
-					this._COCH_FILE_NO = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ACTV_TAG_DNRM", DbType="VarChar(3)")]
-		public string ACTV_TAG_DNRM
-		{
-			get
-			{
-				return this._ACTV_TAG_DNRM;
-			}
-			set
-			{
-				if ((this._ACTV_TAG_DNRM != value))
-				{
-					this._ACTV_TAG_DNRM = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MOST_DEBT_CLNG_DNRM", DbType="BigInt")]
-		public System.Nullable<long> MOST_DEBT_CLNG_DNRM
-		{
-			get
-			{
-				return this._MOST_DEBT_CLNG_DNRM;
-			}
-			set
-			{
-				if ((this._MOST_DEBT_CLNG_DNRM != value))
-				{
-					this._MOST_DEBT_CLNG_DNRM = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GUGD_DEGR", DbType="Int")]
-		public System.Nullable<int> GUGD_DEGR
-		{
-			get
-			{
-				return this._GUGD_DEGR;
-			}
-			set
-			{
-				if ((this._GUGD_DEGR != value))
-				{
-					this._GUGD_DEGR = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SEX_TYPE", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
-		public string SEX_TYPE
-		{
-			get
-			{
-				return this._SEX_TYPE;
-			}
-			set
-			{
-				if ((this._SEX_TYPE != value))
-				{
-					this._SEX_TYPE = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FIGH_STAT", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
-		public string FIGH_STAT
-		{
-			get
-			{
-				return this._FIGH_STAT;
-			}
-			set
-			{
-				if ((this._FIGH_STAT != value))
-				{
-					this._FIGH_STAT = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MTOD_DESC", DbType="Int")]
-		public System.Nullable<int> MTOD_DESC
-		{
-			get
-			{
-				return this._MTOD_DESC;
-			}
-			set
-			{
-				if ((this._MTOD_DESC != value))
-				{
-					this._MTOD_DESC = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CTGY_DESC", DbType="Int")]
-		public System.Nullable<int> CTGY_DESC
-		{
-			get
-			{
-				return this._CTGY_DESC;
-			}
-			set
-			{
-				if ((this._CTGY_DESC != value))
-				{
-					this._CTGY_DESC = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ACTV_TAG", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
-		public string ACTV_TAG
-		{
-			get
-			{
-				return this._ACTV_TAG;
-			}
-			set
-			{
-				if ((this._ACTV_TAG != value))
-				{
-					this._ACTV_TAG = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_REGN_NAME", DbType="Int")]
-		public System.Nullable<int> REGN_NAME
-		{
-			get
-			{
-				return this._REGN_NAME;
-			}
-			set
-			{
-				if ((this._REGN_NAME != value))
-				{
-					this._REGN_NAME = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PRVN_NAME", DbType="Int")]
-		public System.Nullable<int> PRVN_NAME
-		{
-			get
-			{
-				return this._PRVN_NAME;
-			}
-			set
-			{
-				if ((this._PRVN_NAME != value))
-				{
-					this._PRVN_NAME = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BLOD_GROP", DbType="Int")]
-		public System.Nullable<int> BLOD_GROP
-		{
-			get
-			{
-				return this._BLOD_GROP;
-			}
-			set
-			{
-				if ((this._BLOD_GROP != value))
-				{
-					this._BLOD_GROP = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RQTP_DESC", DbType="Int")]
-		public System.Nullable<int> RQTP_DESC
-		{
-			get
-			{
-				return this._RQTP_DESC;
-			}
-			set
-			{
-				if ((this._RQTP_DESC != value))
-				{
-					this._RQTP_DESC = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FNGR_PRNT_DNRM", DbType="VarChar(20)")]
-		public string FNGR_PRNT_DNRM
-		{
-			get
-			{
-				return this._FNGR_PRNT_DNRM;
-			}
-			set
-			{
-				if ((this._FNGR_PRNT_DNRM != value))
-				{
-					this._FNGR_PRNT_DNRM = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SUNT_BUNT_DEPT_ORGN_CODE", DbType="VarChar(2)")]
-		public string SUNT_BUNT_DEPT_ORGN_CODE
-		{
-			get
-			{
-				return this._SUNT_BUNT_DEPT_ORGN_CODE;
-			}
-			set
-			{
-				if ((this._SUNT_BUNT_DEPT_ORGN_CODE != value))
-				{
-					this._SUNT_BUNT_DEPT_ORGN_CODE = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SUNT_BUNT_DEPT_CODE", DbType="VarChar(2)")]
-		public string SUNT_BUNT_DEPT_CODE
-		{
-			get
-			{
-				return this._SUNT_BUNT_DEPT_CODE;
-			}
-			set
-			{
-				if ((this._SUNT_BUNT_DEPT_CODE != value))
-				{
-					this._SUNT_BUNT_DEPT_CODE = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SUNT_BUNT_CODE", DbType="VarChar(2)")]
-		public string SUNT_BUNT_CODE
-		{
-			get
-			{
-				return this._SUNT_BUNT_CODE;
-			}
-			set
-			{
-				if ((this._SUNT_BUNT_CODE != value))
-				{
-					this._SUNT_BUNT_CODE = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SUNT_CODE", DbType="VarChar(4)")]
-		public string SUNT_CODE
-		{
-			get
-			{
-				return this._SUNT_CODE;
-			}
-			set
-			{
-				if ((this._SUNT_CODE != value))
-				{
-					this._SUNT_CODE = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ORGN_DESC", DbType="Int")]
-		public System.Nullable<int> ORGN_DESC
-		{
-			get
-			{
-				return this._ORGN_DESC;
-			}
-			set
-			{
-				if ((this._ORGN_DESC != value))
-				{
-					this._ORGN_DESC = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DEPT_DESC", DbType="Int")]
-		public System.Nullable<int> DEPT_DESC
-		{
-			get
-			{
-				return this._DEPT_DESC;
-			}
-			set
-			{
-				if ((this._DEPT_DESC != value))
-				{
-					this._DEPT_DESC = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BUNT_DESC", DbType="Int")]
-		public System.Nullable<int> BUNT_DESC
-		{
-			get
-			{
-				return this._BUNT_DESC;
-			}
-			set
-			{
-				if ((this._BUNT_DESC != value))
-				{
-					this._BUNT_DESC = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SUNT_DESC", DbType="NVarChar(250) NOT NULL", CanBeNull=false)]
-		public string SUNT_DESC
-		{
-			get
-			{
-				return this._SUNT_DESC;
-			}
-			set
-			{
-				if ((this._SUNT_DESC != value))
-				{
-					this._SUNT_DESC = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STRT_DATE", DbType="Date")]
-		public System.Nullable<System.DateTime> STRT_DATE
-		{
-			get
-			{
-				return this._STRT_DATE;
-			}
-			set
-			{
-				if ((this._STRT_DATE != value))
-				{
-					this._STRT_DATE = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_END_DATE", DbType="Date")]
-		public System.Nullable<System.DateTime> END_DATE
-		{
-			get
-			{
-				return this._END_DATE;
-			}
-			set
-			{
-				if ((this._END_DATE != value))
-				{
-					this._END_DATE = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NUMB_OF_MONT_DNRM", DbType="Int NOT NULL")]
-		public int NUMB_OF_MONT_DNRM
-		{
-			get
-			{
-				return this._NUMB_OF_MONT_DNRM;
-			}
-			set
-			{
-				if ((this._NUMB_OF_MONT_DNRM != value))
-				{
-					this._NUMB_OF_MONT_DNRM = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NUMB_OF_DAYS_DNRM", DbType="Int NOT NULL")]
-		public int NUMB_OF_DAYS_DNRM
-		{
-			get
-			{
-				return this._NUMB_OF_DAYS_DNRM;
-			}
-			set
-			{
-				if ((this._NUMB_OF_DAYS_DNRM != value))
-				{
-					this._NUMB_OF_DAYS_DNRM = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NUMB_MONT_OFER", DbType="Int NOT NULL")]
-		public int NUMB_MONT_OFER
-		{
-			get
-			{
-				return this._NUMB_MONT_OFER;
-			}
-			set
-			{
-				if ((this._NUMB_MONT_OFER != value))
-				{
-					this._NUMB_MONT_OFER = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NUMB_OF_ATTN_MONT", DbType="Int NOT NULL")]
-		public int NUMB_OF_ATTN_MONT
-		{
-			get
-			{
-				return this._NUMB_OF_ATTN_MONT;
-			}
-			set
-			{
-				if ((this._NUMB_OF_ATTN_MONT != value))
-				{
-					this._NUMB_OF_ATTN_MONT = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NUMB_OF_ATTN_WEEK", DbType="Int NOT NULL")]
-		public int NUMB_OF_ATTN_WEEK
-		{
-			get
-			{
-				return this._NUMB_OF_ATTN_WEEK;
-			}
-			set
-			{
-				if ((this._NUMB_OF_ATTN_WEEK != value))
-				{
-					this._NUMB_OF_ATTN_WEEK = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SUM_ATTN_MONT_DNRM", DbType="Int NOT NULL")]
-		public int SUM_ATTN_MONT_DNRM
-		{
-			get
-			{
-				return this._SUM_ATTN_MONT_DNRM;
-			}
-			set
-			{
-				if ((this._SUM_ATTN_MONT_DNRM != value))
-				{
-					this._SUM_ATTN_MONT_DNRM = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SUM_ATTN_WEEK_DNRM", DbType="Int NOT NULL")]
-		public int SUM_ATTN_WEEK_DNRM
-		{
-			get
-			{
-				return this._SUM_ATTN_WEEK_DNRM;
-			}
-			set
-			{
-				if ((this._SUM_ATTN_WEEK_DNRM != value))
-				{
-					this._SUM_ATTN_WEEK_DNRM = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MOM_CELL_PHON_DNRM", DbType="VarChar(11)")]
-		public string MOM_CELL_PHON_DNRM
-		{
-			get
-			{
-				return this._MOM_CELL_PHON_DNRM;
-			}
-			set
-			{
-				if ((this._MOM_CELL_PHON_DNRM != value))
-				{
-					this._MOM_CELL_PHON_DNRM = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MOM_TELL_PHON_DNRM", DbType="VarChar(11)")]
-		public string MOM_TELL_PHON_DNRM
-		{
-			get
-			{
-				return this._MOM_TELL_PHON_DNRM;
-			}
-			set
-			{
-				if ((this._MOM_TELL_PHON_DNRM != value))
-				{
-					this._MOM_TELL_PHON_DNRM = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MOM_CHAT_ID_DNRM", DbType="BigInt")]
-		public System.Nullable<long> MOM_CHAT_ID_DNRM
-		{
-			get
-			{
-				return this._MOM_CHAT_ID_DNRM;
-			}
-			set
-			{
-				if ((this._MOM_CHAT_ID_DNRM != value))
-				{
-					this._MOM_CHAT_ID_DNRM = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DAD_CELL_PHON_DNRM", DbType="VarChar(11)")]
-		public string DAD_CELL_PHON_DNRM
-		{
-			get
-			{
-				return this._DAD_CELL_PHON_DNRM;
-			}
-			set
-			{
-				if ((this._DAD_CELL_PHON_DNRM != value))
-				{
-					this._DAD_CELL_PHON_DNRM = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DAD_TELL_PHON_DNRM", DbType="VarChar(11)")]
-		public string DAD_TELL_PHON_DNRM
-		{
-			get
-			{
-				return this._DAD_TELL_PHON_DNRM;
-			}
-			set
-			{
-				if ((this._DAD_TELL_PHON_DNRM != value))
-				{
-					this._DAD_TELL_PHON_DNRM = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DAD_CHAT_ID_DNRM", DbType="BigInt")]
-		public System.Nullable<long> DAD_CHAT_ID_DNRM
-		{
-			get
-			{
-				return this._DAD_CHAT_ID_DNRM;
-			}
-			set
-			{
-				if ((this._DAD_CHAT_ID_DNRM != value))
-				{
-					this._DAD_CHAT_ID_DNRM = value;
-				}
-			}
-		}
-	}
-	
 	public partial class VF_All_Info_FightersResult
 	{
 		
@@ -84126,6 +82750,1382 @@ namespace System.Scsc.Data
 				if ((this._COCH_NAME_DNRM != value))
 				{
 					this._COCH_NAME_DNRM = value;
+				}
+			}
+		}
+	}
+	
+	public partial class VF_Last_Info_FighterResult
+	{
+		
+		private long _FILE_NO;
+		
+		private System.Nullable<long> _DEBT_DNRM;
+		
+		private System.Nullable<long> _DPST_AMNT_DNRM;
+		
+		private System.Nullable<long> _BUFE_DEBT_DNTM;
+		
+		private string _REGN_PRVN_CODE;
+		
+		private string _REGN_CODE;
+		
+		private System.Nullable<int> _FGPB_RWNO_DNRM;
+		
+		private System.Nullable<short> _MBSP_RWNO_DNRM;
+		
+		private System.Nullable<short> _CAMP_RWNO_DNRM;
+		
+		private System.Nullable<short> _TEST_RWNO_DNRM;
+		
+		private System.Nullable<short> _CLCL_RWNO_DNRM;
+		
+		private System.Nullable<short> _HERT_RWNO_DNRM;
+		
+		private System.Nullable<short> _PSFN_RWNO_DNRM;
+		
+		private System.Nullable<System.DateTime> _CONF_DATE;
+		
+		private System.Nullable<long> _RQST_RQID;
+		
+		private System.Nullable<long> _CHAT_ID_DNRM;
+		
+		private string _NAME_DNRM;
+		
+		private string _FATH_NAME_DNRM;
+		
+		private System.Nullable<System.DateTime> _BRTH_DATE_DNRM;
+		
+		private string _CELL_PHON_DNRM;
+		
+		private string _TELL_PHON_DNRM;
+		
+		private string _INSR_NUMB_DNRM;
+		
+		private System.Nullable<System.DateTime> _INSR_DATE_DNRM;
+		
+		private System.Nullable<System.DateTime> _TEST_DATE_DNRM;
+		
+		private System.Nullable<System.DateTime> _CAMP_DATE_DNRM;
+		
+		private string _NATL_CODE;
+		
+		private string _GLOB_CODE;
+		
+		private System.Nullable<int> _FMLY_NUMB;
+		
+		private string _POST_ADRS;
+		
+		private string _FRST_NAME;
+		
+		private string _LAST_NAME;
+		
+		private string _TYPE;
+		
+		private System.Nullable<long> _CBMT_CODE;
+		
+		private System.Nullable<int> _EMAL_ADRS;
+		
+		private System.Nullable<int> _DISE_DESC;
+		
+		private System.Nullable<int> _CLUB_NAME;
+		
+		private System.Nullable<long> _CLUB_CODE;
+		
+		private string _TYPE_DESC;
+		
+		private System.Nullable<int> _COCH_DEGR;
+		
+		private System.Nullable<long> _COCH_FILE_NO;
+		
+		private string _ACTV_TAG_DNRM;
+		
+		private System.Nullable<long> _MOST_DEBT_CLNG_DNRM;
+		
+		private System.Nullable<int> _GUGD_DEGR;
+		
+		private string _SEX_TYPE;
+		
+		private string _FIGH_STAT;
+		
+		private System.Nullable<int> _MTOD_DESC;
+		
+		private System.Nullable<int> _CTGY_DESC;
+		
+		private string _ACTV_TAG;
+		
+		private System.Nullable<int> _REGN_NAME;
+		
+		private System.Nullable<int> _PRVN_NAME;
+		
+		private System.Nullable<int> _BLOD_GROP;
+		
+		private System.Nullable<int> _RQTP_DESC;
+		
+		private string _FNGR_PRNT_DNRM;
+		
+		private string _SUNT_BUNT_DEPT_ORGN_CODE;
+		
+		private string _SUNT_BUNT_DEPT_CODE;
+		
+		private string _SUNT_BUNT_CODE;
+		
+		private string _SUNT_CODE;
+		
+		private System.Nullable<int> _ORGN_DESC;
+		
+		private System.Nullable<int> _DEPT_DESC;
+		
+		private System.Nullable<int> _BUNT_DESC;
+		
+		private string _SUNT_DESC;
+		
+		private System.Nullable<System.DateTime> _STRT_DATE;
+		
+		private System.Nullable<System.DateTime> _END_DATE;
+		
+		private int _NUMB_OF_MONT_DNRM;
+		
+		private int _NUMB_OF_DAYS_DNRM;
+		
+		private int _NUMB_MONT_OFER;
+		
+		private int _NUMB_OF_ATTN_MONT;
+		
+		private int _NUMB_OF_ATTN_WEEK;
+		
+		private int _SUM_ATTN_MONT_DNRM;
+		
+		private int _SUM_ATTN_WEEK_DNRM;
+		
+		private string _MOM_CELL_PHON_DNRM;
+		
+		private string _MOM_TELL_PHON_DNRM;
+		
+		private System.Nullable<long> _MOM_CHAT_ID_DNRM;
+		
+		private string _DAD_CELL_PHON_DNRM;
+		
+		private string _DAD_TELL_PHON_DNRM;
+		
+		private System.Nullable<long> _DAD_CHAT_ID_DNRM;
+		
+		public VF_Last_Info_FighterResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FILE_NO", DbType="BigInt NOT NULL")]
+		public long FILE_NO
+		{
+			get
+			{
+				return this._FILE_NO;
+			}
+			set
+			{
+				if ((this._FILE_NO != value))
+				{
+					this._FILE_NO = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DEBT_DNRM", DbType="BigInt")]
+		public System.Nullable<long> DEBT_DNRM
+		{
+			get
+			{
+				return this._DEBT_DNRM;
+			}
+			set
+			{
+				if ((this._DEBT_DNRM != value))
+				{
+					this._DEBT_DNRM = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DPST_AMNT_DNRM", DbType="BigInt")]
+		public System.Nullable<long> DPST_AMNT_DNRM
+		{
+			get
+			{
+				return this._DPST_AMNT_DNRM;
+			}
+			set
+			{
+				if ((this._DPST_AMNT_DNRM != value))
+				{
+					this._DPST_AMNT_DNRM = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BUFE_DEBT_DNTM", DbType="BigInt")]
+		public System.Nullable<long> BUFE_DEBT_DNTM
+		{
+			get
+			{
+				return this._BUFE_DEBT_DNTM;
+			}
+			set
+			{
+				if ((this._BUFE_DEBT_DNTM != value))
+				{
+					this._BUFE_DEBT_DNTM = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_REGN_PRVN_CODE", DbType="VarChar(3) NOT NULL", CanBeNull=false)]
+		public string REGN_PRVN_CODE
+		{
+			get
+			{
+				return this._REGN_PRVN_CODE;
+			}
+			set
+			{
+				if ((this._REGN_PRVN_CODE != value))
+				{
+					this._REGN_PRVN_CODE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_REGN_CODE", DbType="VarChar(3) NOT NULL", CanBeNull=false)]
+		public string REGN_CODE
+		{
+			get
+			{
+				return this._REGN_CODE;
+			}
+			set
+			{
+				if ((this._REGN_CODE != value))
+				{
+					this._REGN_CODE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FGPB_RWNO_DNRM", DbType="Int")]
+		public System.Nullable<int> FGPB_RWNO_DNRM
+		{
+			get
+			{
+				return this._FGPB_RWNO_DNRM;
+			}
+			set
+			{
+				if ((this._FGPB_RWNO_DNRM != value))
+				{
+					this._FGPB_RWNO_DNRM = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MBSP_RWNO_DNRM", DbType="SmallInt")]
+		public System.Nullable<short> MBSP_RWNO_DNRM
+		{
+			get
+			{
+				return this._MBSP_RWNO_DNRM;
+			}
+			set
+			{
+				if ((this._MBSP_RWNO_DNRM != value))
+				{
+					this._MBSP_RWNO_DNRM = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CAMP_RWNO_DNRM", DbType="SmallInt")]
+		public System.Nullable<short> CAMP_RWNO_DNRM
+		{
+			get
+			{
+				return this._CAMP_RWNO_DNRM;
+			}
+			set
+			{
+				if ((this._CAMP_RWNO_DNRM != value))
+				{
+					this._CAMP_RWNO_DNRM = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TEST_RWNO_DNRM", DbType="SmallInt")]
+		public System.Nullable<short> TEST_RWNO_DNRM
+		{
+			get
+			{
+				return this._TEST_RWNO_DNRM;
+			}
+			set
+			{
+				if ((this._TEST_RWNO_DNRM != value))
+				{
+					this._TEST_RWNO_DNRM = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CLCL_RWNO_DNRM", DbType="SmallInt")]
+		public System.Nullable<short> CLCL_RWNO_DNRM
+		{
+			get
+			{
+				return this._CLCL_RWNO_DNRM;
+			}
+			set
+			{
+				if ((this._CLCL_RWNO_DNRM != value))
+				{
+					this._CLCL_RWNO_DNRM = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HERT_RWNO_DNRM", DbType="SmallInt")]
+		public System.Nullable<short> HERT_RWNO_DNRM
+		{
+			get
+			{
+				return this._HERT_RWNO_DNRM;
+			}
+			set
+			{
+				if ((this._HERT_RWNO_DNRM != value))
+				{
+					this._HERT_RWNO_DNRM = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PSFN_RWNO_DNRM", DbType="SmallInt")]
+		public System.Nullable<short> PSFN_RWNO_DNRM
+		{
+			get
+			{
+				return this._PSFN_RWNO_DNRM;
+			}
+			set
+			{
+				if ((this._PSFN_RWNO_DNRM != value))
+				{
+					this._PSFN_RWNO_DNRM = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CONF_DATE", DbType="DateTime")]
+		public System.Nullable<System.DateTime> CONF_DATE
+		{
+			get
+			{
+				return this._CONF_DATE;
+			}
+			set
+			{
+				if ((this._CONF_DATE != value))
+				{
+					this._CONF_DATE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RQST_RQID", DbType="BigInt")]
+		public System.Nullable<long> RQST_RQID
+		{
+			get
+			{
+				return this._RQST_RQID;
+			}
+			set
+			{
+				if ((this._RQST_RQID != value))
+				{
+					this._RQST_RQID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CHAT_ID_DNRM", DbType="BigInt")]
+		public System.Nullable<long> CHAT_ID_DNRM
+		{
+			get
+			{
+				return this._CHAT_ID_DNRM;
+			}
+			set
+			{
+				if ((this._CHAT_ID_DNRM != value))
+				{
+					this._CHAT_ID_DNRM = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NAME_DNRM", DbType="NVarChar(500)")]
+		public string NAME_DNRM
+		{
+			get
+			{
+				return this._NAME_DNRM;
+			}
+			set
+			{
+				if ((this._NAME_DNRM != value))
+				{
+					this._NAME_DNRM = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FATH_NAME_DNRM", DbType="NVarChar(250)")]
+		public string FATH_NAME_DNRM
+		{
+			get
+			{
+				return this._FATH_NAME_DNRM;
+			}
+			set
+			{
+				if ((this._FATH_NAME_DNRM != value))
+				{
+					this._FATH_NAME_DNRM = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BRTH_DATE_DNRM", DbType="DateTime")]
+		public System.Nullable<System.DateTime> BRTH_DATE_DNRM
+		{
+			get
+			{
+				return this._BRTH_DATE_DNRM;
+			}
+			set
+			{
+				if ((this._BRTH_DATE_DNRM != value))
+				{
+					this._BRTH_DATE_DNRM = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CELL_PHON_DNRM", DbType="VarChar(11)")]
+		public string CELL_PHON_DNRM
+		{
+			get
+			{
+				return this._CELL_PHON_DNRM;
+			}
+			set
+			{
+				if ((this._CELL_PHON_DNRM != value))
+				{
+					this._CELL_PHON_DNRM = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TELL_PHON_DNRM", DbType="VarChar(11)")]
+		public string TELL_PHON_DNRM
+		{
+			get
+			{
+				return this._TELL_PHON_DNRM;
+			}
+			set
+			{
+				if ((this._TELL_PHON_DNRM != value))
+				{
+					this._TELL_PHON_DNRM = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_INSR_NUMB_DNRM", DbType="VarChar(10)")]
+		public string INSR_NUMB_DNRM
+		{
+			get
+			{
+				return this._INSR_NUMB_DNRM;
+			}
+			set
+			{
+				if ((this._INSR_NUMB_DNRM != value))
+				{
+					this._INSR_NUMB_DNRM = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_INSR_DATE_DNRM", DbType="DateTime")]
+		public System.Nullable<System.DateTime> INSR_DATE_DNRM
+		{
+			get
+			{
+				return this._INSR_DATE_DNRM;
+			}
+			set
+			{
+				if ((this._INSR_DATE_DNRM != value))
+				{
+					this._INSR_DATE_DNRM = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TEST_DATE_DNRM", DbType="DateTime")]
+		public System.Nullable<System.DateTime> TEST_DATE_DNRM
+		{
+			get
+			{
+				return this._TEST_DATE_DNRM;
+			}
+			set
+			{
+				if ((this._TEST_DATE_DNRM != value))
+				{
+					this._TEST_DATE_DNRM = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CAMP_DATE_DNRM", DbType="DateTime")]
+		public System.Nullable<System.DateTime> CAMP_DATE_DNRM
+		{
+			get
+			{
+				return this._CAMP_DATE_DNRM;
+			}
+			set
+			{
+				if ((this._CAMP_DATE_DNRM != value))
+				{
+					this._CAMP_DATE_DNRM = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NATL_CODE", DbType="VarChar(10)")]
+		public string NATL_CODE
+		{
+			get
+			{
+				return this._NATL_CODE;
+			}
+			set
+			{
+				if ((this._NATL_CODE != value))
+				{
+					this._NATL_CODE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GLOB_CODE", DbType="NVarChar(50)")]
+		public string GLOB_CODE
+		{
+			get
+			{
+				return this._GLOB_CODE;
+			}
+			set
+			{
+				if ((this._GLOB_CODE != value))
+				{
+					this._GLOB_CODE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FMLY_NUMB", DbType="Int")]
+		public System.Nullable<int> FMLY_NUMB
+		{
+			get
+			{
+				return this._FMLY_NUMB;
+			}
+			set
+			{
+				if ((this._FMLY_NUMB != value))
+				{
+					this._FMLY_NUMB = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_POST_ADRS", DbType="NVarChar(1000)")]
+		public string POST_ADRS
+		{
+			get
+			{
+				return this._POST_ADRS;
+			}
+			set
+			{
+				if ((this._POST_ADRS != value))
+				{
+					this._POST_ADRS = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FRST_NAME", DbType="NVarChar(250)")]
+		public string FRST_NAME
+		{
+			get
+			{
+				return this._FRST_NAME;
+			}
+			set
+			{
+				if ((this._FRST_NAME != value))
+				{
+					this._FRST_NAME = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LAST_NAME", DbType="NVarChar(250)")]
+		public string LAST_NAME
+		{
+			get
+			{
+				return this._LAST_NAME;
+			}
+			set
+			{
+				if ((this._LAST_NAME != value))
+				{
+					this._LAST_NAME = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TYPE", DbType="VarChar(3)")]
+		public string TYPE
+		{
+			get
+			{
+				return this._TYPE;
+			}
+			set
+			{
+				if ((this._TYPE != value))
+				{
+					this._TYPE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CBMT_CODE", DbType="BigInt")]
+		public System.Nullable<long> CBMT_CODE
+		{
+			get
+			{
+				return this._CBMT_CODE;
+			}
+			set
+			{
+				if ((this._CBMT_CODE != value))
+				{
+					this._CBMT_CODE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EMAL_ADRS", DbType="Int")]
+		public System.Nullable<int> EMAL_ADRS
+		{
+			get
+			{
+				return this._EMAL_ADRS;
+			}
+			set
+			{
+				if ((this._EMAL_ADRS != value))
+				{
+					this._EMAL_ADRS = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DISE_DESC", DbType="Int")]
+		public System.Nullable<int> DISE_DESC
+		{
+			get
+			{
+				return this._DISE_DESC;
+			}
+			set
+			{
+				if ((this._DISE_DESC != value))
+				{
+					this._DISE_DESC = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CLUB_NAME", DbType="Int")]
+		public System.Nullable<int> CLUB_NAME
+		{
+			get
+			{
+				return this._CLUB_NAME;
+			}
+			set
+			{
+				if ((this._CLUB_NAME != value))
+				{
+					this._CLUB_NAME = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CLUB_CODE", DbType="BigInt")]
+		public System.Nullable<long> CLUB_CODE
+		{
+			get
+			{
+				return this._CLUB_CODE;
+			}
+			set
+			{
+				if ((this._CLUB_CODE != value))
+				{
+					this._CLUB_CODE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TYPE_DESC", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
+		public string TYPE_DESC
+		{
+			get
+			{
+				return this._TYPE_DESC;
+			}
+			set
+			{
+				if ((this._TYPE_DESC != value))
+				{
+					this._TYPE_DESC = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_COCH_DEGR", DbType="Int")]
+		public System.Nullable<int> COCH_DEGR
+		{
+			get
+			{
+				return this._COCH_DEGR;
+			}
+			set
+			{
+				if ((this._COCH_DEGR != value))
+				{
+					this._COCH_DEGR = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_COCH_FILE_NO", DbType="BigInt")]
+		public System.Nullable<long> COCH_FILE_NO
+		{
+			get
+			{
+				return this._COCH_FILE_NO;
+			}
+			set
+			{
+				if ((this._COCH_FILE_NO != value))
+				{
+					this._COCH_FILE_NO = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ACTV_TAG_DNRM", DbType="VarChar(3)")]
+		public string ACTV_TAG_DNRM
+		{
+			get
+			{
+				return this._ACTV_TAG_DNRM;
+			}
+			set
+			{
+				if ((this._ACTV_TAG_DNRM != value))
+				{
+					this._ACTV_TAG_DNRM = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MOST_DEBT_CLNG_DNRM", DbType="BigInt")]
+		public System.Nullable<long> MOST_DEBT_CLNG_DNRM
+		{
+			get
+			{
+				return this._MOST_DEBT_CLNG_DNRM;
+			}
+			set
+			{
+				if ((this._MOST_DEBT_CLNG_DNRM != value))
+				{
+					this._MOST_DEBT_CLNG_DNRM = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GUGD_DEGR", DbType="Int")]
+		public System.Nullable<int> GUGD_DEGR
+		{
+			get
+			{
+				return this._GUGD_DEGR;
+			}
+			set
+			{
+				if ((this._GUGD_DEGR != value))
+				{
+					this._GUGD_DEGR = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SEX_TYPE", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
+		public string SEX_TYPE
+		{
+			get
+			{
+				return this._SEX_TYPE;
+			}
+			set
+			{
+				if ((this._SEX_TYPE != value))
+				{
+					this._SEX_TYPE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FIGH_STAT", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
+		public string FIGH_STAT
+		{
+			get
+			{
+				return this._FIGH_STAT;
+			}
+			set
+			{
+				if ((this._FIGH_STAT != value))
+				{
+					this._FIGH_STAT = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MTOD_DESC", DbType="Int")]
+		public System.Nullable<int> MTOD_DESC
+		{
+			get
+			{
+				return this._MTOD_DESC;
+			}
+			set
+			{
+				if ((this._MTOD_DESC != value))
+				{
+					this._MTOD_DESC = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CTGY_DESC", DbType="Int")]
+		public System.Nullable<int> CTGY_DESC
+		{
+			get
+			{
+				return this._CTGY_DESC;
+			}
+			set
+			{
+				if ((this._CTGY_DESC != value))
+				{
+					this._CTGY_DESC = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ACTV_TAG", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
+		public string ACTV_TAG
+		{
+			get
+			{
+				return this._ACTV_TAG;
+			}
+			set
+			{
+				if ((this._ACTV_TAG != value))
+				{
+					this._ACTV_TAG = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_REGN_NAME", DbType="Int")]
+		public System.Nullable<int> REGN_NAME
+		{
+			get
+			{
+				return this._REGN_NAME;
+			}
+			set
+			{
+				if ((this._REGN_NAME != value))
+				{
+					this._REGN_NAME = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PRVN_NAME", DbType="Int")]
+		public System.Nullable<int> PRVN_NAME
+		{
+			get
+			{
+				return this._PRVN_NAME;
+			}
+			set
+			{
+				if ((this._PRVN_NAME != value))
+				{
+					this._PRVN_NAME = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BLOD_GROP", DbType="Int")]
+		public System.Nullable<int> BLOD_GROP
+		{
+			get
+			{
+				return this._BLOD_GROP;
+			}
+			set
+			{
+				if ((this._BLOD_GROP != value))
+				{
+					this._BLOD_GROP = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RQTP_DESC", DbType="Int")]
+		public System.Nullable<int> RQTP_DESC
+		{
+			get
+			{
+				return this._RQTP_DESC;
+			}
+			set
+			{
+				if ((this._RQTP_DESC != value))
+				{
+					this._RQTP_DESC = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FNGR_PRNT_DNRM", DbType="VarChar(20)")]
+		public string FNGR_PRNT_DNRM
+		{
+			get
+			{
+				return this._FNGR_PRNT_DNRM;
+			}
+			set
+			{
+				if ((this._FNGR_PRNT_DNRM != value))
+				{
+					this._FNGR_PRNT_DNRM = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SUNT_BUNT_DEPT_ORGN_CODE", DbType="VarChar(2)")]
+		public string SUNT_BUNT_DEPT_ORGN_CODE
+		{
+			get
+			{
+				return this._SUNT_BUNT_DEPT_ORGN_CODE;
+			}
+			set
+			{
+				if ((this._SUNT_BUNT_DEPT_ORGN_CODE != value))
+				{
+					this._SUNT_BUNT_DEPT_ORGN_CODE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SUNT_BUNT_DEPT_CODE", DbType="VarChar(2)")]
+		public string SUNT_BUNT_DEPT_CODE
+		{
+			get
+			{
+				return this._SUNT_BUNT_DEPT_CODE;
+			}
+			set
+			{
+				if ((this._SUNT_BUNT_DEPT_CODE != value))
+				{
+					this._SUNT_BUNT_DEPT_CODE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SUNT_BUNT_CODE", DbType="VarChar(2)")]
+		public string SUNT_BUNT_CODE
+		{
+			get
+			{
+				return this._SUNT_BUNT_CODE;
+			}
+			set
+			{
+				if ((this._SUNT_BUNT_CODE != value))
+				{
+					this._SUNT_BUNT_CODE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SUNT_CODE", DbType="VarChar(4)")]
+		public string SUNT_CODE
+		{
+			get
+			{
+				return this._SUNT_CODE;
+			}
+			set
+			{
+				if ((this._SUNT_CODE != value))
+				{
+					this._SUNT_CODE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ORGN_DESC", DbType="Int")]
+		public System.Nullable<int> ORGN_DESC
+		{
+			get
+			{
+				return this._ORGN_DESC;
+			}
+			set
+			{
+				if ((this._ORGN_DESC != value))
+				{
+					this._ORGN_DESC = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DEPT_DESC", DbType="Int")]
+		public System.Nullable<int> DEPT_DESC
+		{
+			get
+			{
+				return this._DEPT_DESC;
+			}
+			set
+			{
+				if ((this._DEPT_DESC != value))
+				{
+					this._DEPT_DESC = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BUNT_DESC", DbType="Int")]
+		public System.Nullable<int> BUNT_DESC
+		{
+			get
+			{
+				return this._BUNT_DESC;
+			}
+			set
+			{
+				if ((this._BUNT_DESC != value))
+				{
+					this._BUNT_DESC = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SUNT_DESC", DbType="NVarChar(250) NOT NULL", CanBeNull=false)]
+		public string SUNT_DESC
+		{
+			get
+			{
+				return this._SUNT_DESC;
+			}
+			set
+			{
+				if ((this._SUNT_DESC != value))
+				{
+					this._SUNT_DESC = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STRT_DATE", DbType="Date")]
+		public System.Nullable<System.DateTime> STRT_DATE
+		{
+			get
+			{
+				return this._STRT_DATE;
+			}
+			set
+			{
+				if ((this._STRT_DATE != value))
+				{
+					this._STRT_DATE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_END_DATE", DbType="Date")]
+		public System.Nullable<System.DateTime> END_DATE
+		{
+			get
+			{
+				return this._END_DATE;
+			}
+			set
+			{
+				if ((this._END_DATE != value))
+				{
+					this._END_DATE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NUMB_OF_MONT_DNRM", DbType="Int NOT NULL")]
+		public int NUMB_OF_MONT_DNRM
+		{
+			get
+			{
+				return this._NUMB_OF_MONT_DNRM;
+			}
+			set
+			{
+				if ((this._NUMB_OF_MONT_DNRM != value))
+				{
+					this._NUMB_OF_MONT_DNRM = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NUMB_OF_DAYS_DNRM", DbType="Int NOT NULL")]
+		public int NUMB_OF_DAYS_DNRM
+		{
+			get
+			{
+				return this._NUMB_OF_DAYS_DNRM;
+			}
+			set
+			{
+				if ((this._NUMB_OF_DAYS_DNRM != value))
+				{
+					this._NUMB_OF_DAYS_DNRM = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NUMB_MONT_OFER", DbType="Int NOT NULL")]
+		public int NUMB_MONT_OFER
+		{
+			get
+			{
+				return this._NUMB_MONT_OFER;
+			}
+			set
+			{
+				if ((this._NUMB_MONT_OFER != value))
+				{
+					this._NUMB_MONT_OFER = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NUMB_OF_ATTN_MONT", DbType="Int NOT NULL")]
+		public int NUMB_OF_ATTN_MONT
+		{
+			get
+			{
+				return this._NUMB_OF_ATTN_MONT;
+			}
+			set
+			{
+				if ((this._NUMB_OF_ATTN_MONT != value))
+				{
+					this._NUMB_OF_ATTN_MONT = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NUMB_OF_ATTN_WEEK", DbType="Int NOT NULL")]
+		public int NUMB_OF_ATTN_WEEK
+		{
+			get
+			{
+				return this._NUMB_OF_ATTN_WEEK;
+			}
+			set
+			{
+				if ((this._NUMB_OF_ATTN_WEEK != value))
+				{
+					this._NUMB_OF_ATTN_WEEK = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SUM_ATTN_MONT_DNRM", DbType="Int NOT NULL")]
+		public int SUM_ATTN_MONT_DNRM
+		{
+			get
+			{
+				return this._SUM_ATTN_MONT_DNRM;
+			}
+			set
+			{
+				if ((this._SUM_ATTN_MONT_DNRM != value))
+				{
+					this._SUM_ATTN_MONT_DNRM = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SUM_ATTN_WEEK_DNRM", DbType="Int NOT NULL")]
+		public int SUM_ATTN_WEEK_DNRM
+		{
+			get
+			{
+				return this._SUM_ATTN_WEEK_DNRM;
+			}
+			set
+			{
+				if ((this._SUM_ATTN_WEEK_DNRM != value))
+				{
+					this._SUM_ATTN_WEEK_DNRM = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MOM_CELL_PHON_DNRM", DbType="VarChar(11)")]
+		public string MOM_CELL_PHON_DNRM
+		{
+			get
+			{
+				return this._MOM_CELL_PHON_DNRM;
+			}
+			set
+			{
+				if ((this._MOM_CELL_PHON_DNRM != value))
+				{
+					this._MOM_CELL_PHON_DNRM = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MOM_TELL_PHON_DNRM", DbType="VarChar(11)")]
+		public string MOM_TELL_PHON_DNRM
+		{
+			get
+			{
+				return this._MOM_TELL_PHON_DNRM;
+			}
+			set
+			{
+				if ((this._MOM_TELL_PHON_DNRM != value))
+				{
+					this._MOM_TELL_PHON_DNRM = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MOM_CHAT_ID_DNRM", DbType="BigInt")]
+		public System.Nullable<long> MOM_CHAT_ID_DNRM
+		{
+			get
+			{
+				return this._MOM_CHAT_ID_DNRM;
+			}
+			set
+			{
+				if ((this._MOM_CHAT_ID_DNRM != value))
+				{
+					this._MOM_CHAT_ID_DNRM = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DAD_CELL_PHON_DNRM", DbType="VarChar(11)")]
+		public string DAD_CELL_PHON_DNRM
+		{
+			get
+			{
+				return this._DAD_CELL_PHON_DNRM;
+			}
+			set
+			{
+				if ((this._DAD_CELL_PHON_DNRM != value))
+				{
+					this._DAD_CELL_PHON_DNRM = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DAD_TELL_PHON_DNRM", DbType="VarChar(11)")]
+		public string DAD_TELL_PHON_DNRM
+		{
+			get
+			{
+				return this._DAD_TELL_PHON_DNRM;
+			}
+			set
+			{
+				if ((this._DAD_TELL_PHON_DNRM != value))
+				{
+					this._DAD_TELL_PHON_DNRM = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DAD_CHAT_ID_DNRM", DbType="BigInt")]
+		public System.Nullable<long> DAD_CHAT_ID_DNRM
+		{
+			get
+			{
+				return this._DAD_CHAT_ID_DNRM;
+			}
+			set
+			{
+				if ((this._DAD_CHAT_ID_DNRM != value))
+				{
+					this._DAD_CHAT_ID_DNRM = value;
 				}
 			}
 		}

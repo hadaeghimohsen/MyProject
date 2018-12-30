@@ -23,6 +23,7 @@ namespace System.Scsc.Ui.Regulation
             RqdcBs2.EndEdit();
             RqrqBs.EndEdit();
             PexpBs1.EndEdit();
+            Bcds_Gv.PostEditor();
 
             iScsc.SubmitChanges();
             /*iScsc.Refresh(System.Data.Linq.RefreshMode.OverwriteCurrentValues, iScsc.Request_Requesters);            

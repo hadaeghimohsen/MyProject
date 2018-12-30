@@ -99,6 +99,7 @@ namespace System.Scsc.Ui.Common
          {
             FrstName_Txt.Focus();
             FrstName_Txt.Text = LastName_Txt.Text = NatlCode_Txt.Text = FngrPrnt_Txt.Text = TellPhon_Txt.Text = CellPhon_Txt.Text = GlobCode_Txt.Text = ServNo_Txt.Text = "";
+            SuntCode_Lov.EditValue = null;
             BothSex_Rb.Checked = true;
          }
          else if(keyData == (Keys.F11 | Keys.Control))
@@ -403,7 +404,7 @@ namespace System.Scsc.Ui.Common
       {         
          try
          {
-            if (isFirstLoaded) goto finishcommand;
+            //if (isFirstLoaded) goto finishcommand;
 
             //provinceBindingSource.DataSource = iScsc.Provinces.Where(p => Fga_Uprv_U.Split(',').Contains(p.CODE));
             //methodBindingSource.DataSource = iScsc.Methods;
@@ -411,11 +412,12 @@ namespace System.Scsc.Ui.Common
             //dFGTPBindingSource.DataSource = iScsc.D_FGTPs;
             //dFGSTBindingSource.DataSource = iScsc.D_FGSTs;
             CochBs1.DataSource = iScsc.Fighters.Where(c => c.FGPB_TYPE_DNRM == "003");
+            SuntBs1.DataSource = iScsc.Sub_Units;
 
             UserProFile_Rb.ImageVisiable = true;
-            isFirstLoaded = true;
+            //isFirstLoaded = true;
 
-            finishcommand:
+            //finishcommand:
 
             //if (InvokeRequired)
             //   Invoke(new Action(() => vF_Last_Info_FighterResultBindingSource.DataSource = iScsc.VF_Last_Info_Fighter(null).OrderBy(f => f.REGN_PRVN_CODE + f.REGN_CODE)));

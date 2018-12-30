@@ -20,6 +20,8 @@ namespace System.Scsc.Ui.Regulation
          InitializeComponent();
       }
 
+      private string rqtpcode = "";
+
       partial void SubmitRqrq_Click(object sender, EventArgs e);
 
       partial void SubmitRqdc_Click(object sender, EventArgs e);
@@ -424,6 +426,17 @@ namespace System.Scsc.Ui.Regulation
             if (expn == null) return;
 
             Grop_Lov.EditValue = expn.GROP_CODE;
+
+            // 1397/10/08 * بارگذاری اطلاعات مربوط به تخفیفات سیستم
+            BcdsBs1.DataSource = 
+               iScsc.Basic_Calculate_Discounts
+               .Where(
+                  b =>
+                     b.Regulation == expn.Regulation &&
+                     b.RQTP_CODE == rqtpcode &&
+                     b.Category_Belt == expn.Category_Belt &&
+                     b.Expense_Item == expn.Expense_Type.Expense_Item
+               );
          }
          catch { }
       }
@@ -474,6 +487,94 @@ namespace System.Scsc.Ui.Regulation
          {
             if(requery)
                Execute_Query();
+         }
+      }
+
+      private void AddBcds_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            if (BcdsBs1.List.OfType<Data.Basic_Calculate_Discount>().Any(b => b.RWNO == 0)) return;
+
+            var expn = ExpnBs.Current as Data.Expense;
+            if(expn == null)return;
+
+            var bcds = BcdsBs1.AddNew() as Data.Basic_Calculate_Discount;
+            bcds.REGL_YEAR = (short)expn.REGL_YEAR;
+            bcds.REGL_CODE = (short)expn.REGL_CODE;
+            bcds.CTGY_CODE = expn.CTGY_CODE;
+            bcds.MTOD_CODE = expn.MTOD_CODE;
+            bcds.RQTP_CODE = rqtpcode;
+            bcds.EPIT_CODE = expn.Expense_Type.EPIT_CODE;
+
+            iScsc.Basic_Calculate_Discounts.InsertOnSubmit(bcds);
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void DelBcds_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var crntobj = BcdsBs1.Current as Data.Basic_Calculate_Discount;
+            if (crntobj != null && MessageBox.Show(this, "آیا با حذف آیتم انتخاب شده موافقید؟", "عملیات حذف", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2, MessageBoxOptions.RtlReading) != DialogResult.Yes) return;
+
+            iScsc.Basic_Calculate_Discounts.DeleteOnSubmit(crntobj);
+            iScsc.SubmitChanges();
+            requery = true;
+         }
+         catch (Exception ex)
+         {
+            MessageBox.Show(ex.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void SaveBcds_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            SubmitRqrq_Click(null, null);
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void Sunt_Lov_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
+      {
+         try
+         {
+            var bcds = BcdsBs1.Current as Data.Basic_Calculate_Discount;
+            if (bcds == null) return;
+
+            var sunt = SuntBs1.List.OfType<Data.Sub_Unit>().FirstOrDefault(s => s.CODE == e.NewValue);
+            bcds.SUNT_BUNT_DEPT_ORGN_CODE = sunt.BUNT_DEPT_ORGN_CODE;
+            bcds.SUNT_BUNT_DEPT_CODE = sunt.BUNT_DEPT_CODE;
+            bcds.SUNT_BUNT_CODE = sunt.BUNT_CODE;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
          }
       }
    }

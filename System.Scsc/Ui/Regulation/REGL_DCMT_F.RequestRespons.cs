@@ -424,6 +424,9 @@ namespace System.Scsc.Ui.Regulation
          CashBs.DataSource = iScsc.Cashes;
          PrvnBs.DataSource = iScsc.Provinces.Where(p => Fga_Uprv_U.Split(',').Contains(p.CODE));
          GropBs.DataSource = iScsc.Group_Expenses;
+         DDsatBs1.DataSource = iScsc.D_DSATs;
+         SuntBs1.DataSource = iScsc.Sub_Units;
+         DCetpBs1.DataSource = iScsc.D_CETPs;
 
          SubmitRqrq_Click(null, null);
 
@@ -441,6 +444,7 @@ namespace System.Scsc.Ui.Regulation
          if (job.Input == null) { job.Status = StatusType.Successful; return; }
 
          var input = job.Input as XElement;
+         rqtpcode = input.Element("Request_Requester").Attribute("rqtpcode").Value;
          GV_RQRQ.ActiveFilterString = string.Format("RQTT_CODE != '002' AND RQTT_CODE != '006' AND RQTT_CODE != '008' AND Rqtp_Code = '{0}'", input.Element("Request_Requester").Attribute("rqtpcode").Value);
          job.Status = StatusType.Successful;
       }

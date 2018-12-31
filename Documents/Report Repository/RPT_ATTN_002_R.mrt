@@ -437,7 +437,7 @@
       <Border>None;Black;2;Solid;False;4;Black</Border>
       <Brush>Transparent</Brush>
       <Columns>1</Columns>
-      <Components isList="true" count="7">
+      <Components isList="true" count="8">
         <HeaderBand1 Ref="18" type="HeaderBand" isKey="true">
           <Border>All;Black;1;Solid;False;4;Black</Border>
           <Brush>Transparent</Brush>
@@ -799,6 +799,50 @@
           <Parent isRef="17" />
           <Sort isList="true" count="0" />
         </DataAttendance>
+        <FooterBand1 Ref="42" type="FooterBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,12.4,9.4,0.8</ClientRectangle>
+          <Components isList="true" count="2">
+            <Text18 Ref="43" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,0,2.4,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,10</Font>
+              <Guid>06e58c31840848e883ef408cbd0b46ce</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text18</Name>
+              <Page isRef="17" />
+              <Parent isRef="42" />
+              <Text>{Count()}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text18>
+            <Text19 Ref="44" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>2.4,0,7,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,10,Bold</Font>
+              <Guid>e8e5dc341bc94935a1fd5ca9fb54494b</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text19</Name>
+              <Page isRef="17" />
+              <Parent isRef="42" />
+              <Text>تعداد کل تردد ها</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text19>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <Name>FooterBand1</Name>
+          <Page isRef="17" />
+          <Parent isRef="17" />
+        </FooterBand1>
       </Components>
       <Conditions isList="true" count="0" />
       <Guid>bd9378b6e42842de9e2ee3f247c8554d</Guid>
@@ -808,13 +852,13 @@
       <PageWidth>11.4</PageWidth>
       <Report isRef="0" />
       <RightToLeft>True</RightToLeft>
-      <Watermark Ref="42" type="Stimulsoft.Report.Components.StiWatermark" isKey="true">
+      <Watermark Ref="45" type="Stimulsoft.Report.Components.StiWatermark" isKey="true">
         <Font>Tahoma,100</Font>
         <TextBrush>[50:0:0:0]</TextBrush>
       </Watermark>
     </Page1>
   </Pages>
-  <PrinterSettings Ref="43" type="Stimulsoft.Report.Print.StiPrinterSettings" isKey="true" />
+  <PrinterSettings Ref="46" type="Stimulsoft.Report.Print.StiPrinterSettings" isKey="true" />
   <ReferencedAssemblies isList="true" count="8">
     <value>System.Dll</value>
     <value>System.Drawing.Dll</value>
@@ -826,10 +870,10 @@
     <value>Stimulsoft.Report.Dll</value>
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
-  <ReportChanged>12/31/2018 4:13:49 PM</ReportChanged>
+  <ReportChanged>12/31/2018 4:21:05 PM</ReportChanged>
   <ReportCreated>12/31/2018 12:47:36 PM</ReportCreated>
   <ReportFile>D:\iData\Asre Andishe Project\MyProject\Documents\Report Repository\RPT_ATTN_002_R.mrt</ReportFile>
-  <ReportGuid>ce010713f5054ab5a4e6459f41e50912</ReportGuid>
+  <ReportGuid>becae3f0883048f1bcb234072b00c31c</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Centimeters</ReportUnit>
   <ReportVersion>2012.2.1304</ReportVersion>

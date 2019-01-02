@@ -196,9 +196,9 @@ namespace System.Scsc.Ui.Notifications
             Job _InteractWithScsc =
                  new Job(SendType.External, "Localhost",
                     new List<Job>
-                  {
-                     new Job(SendType.Self, 84 /* Execute Cfg_Stng_F */){Input = new XElement("Print", new XAttribute("type", "Selection"), new XAttribute("modual", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_001_F"), string.Format("Attn_Date BETWEEN '{0}' AND '{1}'", FromAttnDate_Date.Value.Value.Date.ToString("yyyy-MM-dd"), ToAttnDate_Date.Value.Value.Date.ToString("yyyy-MM-dd")))}
-                  });
+                    {
+                       new Job(SendType.Self, 84 /* Execute Cfg_Stng_F */){Input = new XElement("Print", new XAttribute("type", "Selection"), new XAttribute("modual", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_001_F"), string.Format("Attn_Date BETWEEN '{0}' AND '{1}'", FromAttnDate_Date.Value.Value.Date.ToString("yyyy-MM-dd"), ToAttnDate_Date.Value.Value.Date.ToString("yyyy-MM-dd")))}
+                    });
             _DefaultGateway.Gateway(_InteractWithScsc);
          }
          catch (Exception exc) { MessageBox.Show(exc.Message); }

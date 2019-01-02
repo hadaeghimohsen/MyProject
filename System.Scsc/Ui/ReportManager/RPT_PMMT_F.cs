@@ -117,8 +117,8 @@ namespace System.Scsc.Ui.ReportManager
                   .Where(me =>
                      me.VALD_TYPE == "002" &&
                      me.DELV_STAT == "002" &&
-                     me.CRET_DATE.Value.Date >= FromDate4_Date.Value.Value.Date &&
-                     me.CRET_DATE.Value.Date <= ToDate4_Date.Value.Value.Date  &&
+                     me.DELV_DATE.Value.Date >= FromDate4_Date.Value.Value.Date &&
+                     me.DELV_DATE.Value.Date <= ToDate4_Date.Value.Value.Date  &&
                      (Fga_Uclb_U.Contains(me.CLUB_CODE)) &&
                      // 1397/09/02 * اضافه شدن فیلتر مربوط به مربی
                      (cochfileno == null || me.COCH_FILE_NO == cochfileno)

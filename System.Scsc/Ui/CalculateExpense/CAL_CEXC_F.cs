@@ -327,7 +327,8 @@ namespace System.Scsc.Ui.CalculateExpense
             new Job(SendType.External, "Localhost",
                new List<Job>
                {
-                  new Job(SendType.Self, 90 /* Execute Cal_Cexc_F */)
+                  new Job(SendType.Self, 90 /* Execute Cal_Cexc_F */),
+                  new Job(SendType.SelfToUserInterface, "CAL_CEXC_P", 10 /* Execute Actn_Calf_P */)
                });
          _DefaultGateway.Gateway(_InteractWithScsc);
       }

@@ -64,6 +64,9 @@
          this.colExpense_Item = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colFighter = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colRegion = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colSERV_NO_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colDPST_ACNT_SLRY_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colDPST_ACNT_SLRY_BANK_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
          this.tabControl1 = new System.Windows.Forms.TabControl();
          this.tabPage1 = new System.Windows.Forms.TabPage();
          this.gridControl1 = new DevExpress.XtraGrid.GridControl();
@@ -131,6 +134,9 @@
          this.colSERV_NO = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colBANK = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colACNT_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colRECT_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.Rect_Lov = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+         this.DRectBs = new System.Windows.Forms.BindingSource(this.components);
          this.persianRepositoryItemDateEdit2 = new dxExample.PersianRepositoryItemDateEdit();
          this.groupBox1 = new System.Windows.Forms.GroupBox();
          this.Pdt_ToDate = new Atf.UI.DateTimeSelector();
@@ -145,9 +151,6 @@
          this.ExecQury_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.TitlForm_Lb = new DevExpress.XtraEditors.LabelControl();
          this.Back_Butn = new DevExpress.XtraEditors.SimpleButton();
-         this.colSERV_NO_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colDPST_ACNT_SLRY_BANK_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colDPST_ACNT_SLRY_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
          this.tb_master.SuspendLayout();
          this.tp_001.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
@@ -173,6 +176,8 @@
          ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.MsxdBs)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.Rect_Lov)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.DRectBs)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit2)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit2.CalendarTimeProperties)).BeginInit();
          this.groupBox1.SuspendLayout();
@@ -459,6 +464,30 @@
          // 
          this.colRegion.FieldName = "Region";
          this.colRegion.Name = "colRegion";
+         // 
+         // colSERV_NO_DNRM
+         // 
+         this.colSERV_NO_DNRM.Caption = "کد اشتراک";
+         this.colSERV_NO_DNRM.FieldName = "Fighter.SERV_NO_DNRM";
+         this.colSERV_NO_DNRM.Name = "colSERV_NO_DNRM";
+         this.colSERV_NO_DNRM.Visible = true;
+         this.colSERV_NO_DNRM.VisibleIndex = 4;
+         // 
+         // colDPST_ACNT_SLRY_DNRM
+         // 
+         this.colDPST_ACNT_SLRY_DNRM.Caption = "شماره حساب";
+         this.colDPST_ACNT_SLRY_DNRM.FieldName = "Fighter.DPST_ACNT_SLRY_DNRM";
+         this.colDPST_ACNT_SLRY_DNRM.Name = "colDPST_ACNT_SLRY_DNRM";
+         this.colDPST_ACNT_SLRY_DNRM.Visible = true;
+         this.colDPST_ACNT_SLRY_DNRM.VisibleIndex = 6;
+         // 
+         // colDPST_ACNT_SLRY_BANK_DNRM
+         // 
+         this.colDPST_ACNT_SLRY_BANK_DNRM.Caption = "بانک";
+         this.colDPST_ACNT_SLRY_BANK_DNRM.FieldName = "Fighter.DPST_ACNT_SLRY_BANK_DNRM";
+         this.colDPST_ACNT_SLRY_BANK_DNRM.Name = "colDPST_ACNT_SLRY_BANK_DNRM";
+         this.colDPST_ACNT_SLRY_BANK_DNRM.Visible = true;
+         this.colDPST_ACNT_SLRY_BANK_DNRM.VisibleIndex = 5;
          // 
          // tabControl1
          // 
@@ -1001,7 +1030,8 @@
          this.gridControl2.MainView = this.gridView2;
          this.gridControl2.Name = "gridControl2";
          this.gridControl2.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.persianRepositoryItemDateEdit2});
+            this.persianRepositoryItemDateEdit2,
+            this.Rect_Lov});
          this.gridControl2.Size = new System.Drawing.Size(1045, 225);
          this.gridControl2.TabIndex = 3;
          this.gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -1044,17 +1074,20 @@
             this.colMethod,
             this.colSERV_NO,
             this.colBANK,
-            this.colACNT_CODE});
+            this.colACNT_CODE,
+            this.colRECT_CODE});
          this.gridView2.GridControl = this.gridControl2;
          this.gridView2.Name = "gridView2";
          this.gridView2.OptionsBehavior.AutoExpandAllGroups = true;
+         this.gridView2.OptionsCustomization.AllowSort = false;
          this.gridView2.OptionsDetail.EnableMasterViewMode = false;
          this.gridView2.OptionsSelection.EnableAppearanceFocusedCell = false;
          this.gridView2.OptionsView.ShowFooter = true;
          this.gridView2.OptionsView.ShowGroupPanel = false;
          this.gridView2.OptionsView.ShowIndicator = false;
          this.gridView2.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
-            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colMTOD_CODE, DevExpress.Data.ColumnSortOrder.Ascending)});
+            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colMTOD_CODE, DevExpress.Data.ColumnSortOrder.Ascending),
+            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colRECT_CODE, DevExpress.Data.ColumnSortOrder.Ascending)});
          // 
          // colMSEX_CODE1
          // 
@@ -1083,8 +1116,8 @@
          this.colMTOD_CODE.OptionsColumn.AllowEdit = false;
          this.colMTOD_CODE.OptionsColumn.ReadOnly = true;
          this.colMTOD_CODE.Visible = true;
-         this.colMTOD_CODE.VisibleIndex = 6;
-         this.colMTOD_CODE.Width = 130;
+         this.colMTOD_CODE.VisibleIndex = 7;
+         this.colMTOD_CODE.Width = 103;
          // 
          // colACTN_CONT_DNRM
          // 
@@ -1099,7 +1132,7 @@
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Count)});
          this.colACTN_CONT_DNRM.Visible = true;
          this.colACTN_CONT_DNRM.VisibleIndex = 5;
-         this.colACTN_CONT_DNRM.Width = 63;
+         this.colACTN_CONT_DNRM.Width = 58;
          // 
          // colUNIT_AMNT_DNRM
          // 
@@ -1116,7 +1149,7 @@
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "UNIT_AMNT_DNRM", "{0:n0}")});
          this.colUNIT_AMNT_DNRM.Visible = true;
          this.colUNIT_AMNT_DNRM.VisibleIndex = 4;
-         this.colUNIT_AMNT_DNRM.Width = 69;
+         this.colUNIT_AMNT_DNRM.Width = 64;
          // 
          // colTOTL_AMNT_DNRM
          // 
@@ -1133,7 +1166,7 @@
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "TOTL_AMNT_DNRM", "{0:n0}")});
          this.colTOTL_AMNT_DNRM.Visible = true;
          this.colTOTL_AMNT_DNRM.VisibleIndex = 3;
-         this.colTOTL_AMNT_DNRM.Width = 211;
+         this.colTOTL_AMNT_DNRM.Width = 196;
          // 
          // colPRVS_DELV_AMNT_DNRM
          // 
@@ -1148,7 +1181,7 @@
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Max, "PRVS_DELV_AMNT_DNRM", "{0:n0}")});
          this.colPRVS_DELV_AMNT_DNRM.Visible = true;
          this.colPRVS_DELV_AMNT_DNRM.VisibleIndex = 2;
-         this.colPRVS_DELV_AMNT_DNRM.Width = 243;
+         this.colPRVS_DELV_AMNT_DNRM.Width = 226;
          // 
          // colCRNT_AMNT_DNRM
          // 
@@ -1161,7 +1194,7 @@
          this.colCRNT_AMNT_DNRM.Name = "colCRNT_AMNT_DNRM";
          this.colCRNT_AMNT_DNRM.Visible = true;
          this.colCRNT_AMNT_DNRM.VisibleIndex = 1;
-         this.colCRNT_AMNT_DNRM.Width = 175;
+         this.colCRNT_AMNT_DNRM.Width = 163;
          // 
          // colMAX_CNTR_AMNT_DNRM
          // 
@@ -1174,7 +1207,7 @@
          this.colMAX_CNTR_AMNT_DNRM.Name = "colMAX_CNTR_AMNT_DNRM";
          this.colMAX_CNTR_AMNT_DNRM.Visible = true;
          this.colMAX_CNTR_AMNT_DNRM.VisibleIndex = 0;
-         this.colMAX_CNTR_AMNT_DNRM.Width = 150;
+         this.colMAX_CNTR_AMNT_DNRM.Width = 139;
          // 
          // colCRET_BY1
          // 
@@ -1237,6 +1270,33 @@
          this.colACNT_CODE.OptionsColumn.AllowEdit = false;
          this.colACNT_CODE.OptionsColumn.ReadOnly = true;
          this.colACNT_CODE.Width = 94;
+         // 
+         // colRECT_CODE
+         // 
+         this.colRECT_CODE.Caption = "وضعیت رکورد";
+         this.colRECT_CODE.ColumnEdit = this.Rect_Lov;
+         this.colRECT_CODE.FieldName = "RECT_CODE";
+         this.colRECT_CODE.Name = "colRECT_CODE";
+         this.colRECT_CODE.OptionsColumn.AllowEdit = false;
+         this.colRECT_CODE.OptionsColumn.ReadOnly = true;
+         this.colRECT_CODE.Visible = true;
+         this.colRECT_CODE.VisibleIndex = 6;
+         this.colRECT_CODE.Width = 92;
+         // 
+         // Rect_Lov
+         // 
+         this.Rect_Lov.AutoHeight = false;
+         this.Rect_Lov.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+         this.Rect_Lov.DataSource = this.DRectBs;
+         this.Rect_Lov.DisplayMember = "DOMN_DESC";
+         this.Rect_Lov.Name = "Rect_Lov";
+         this.Rect_Lov.NullText = "";
+         this.Rect_Lov.ValueMember = "VALU";
+         // 
+         // DRectBs
+         // 
+         this.DRectBs.DataSource = typeof(System.Scsc.Data.D_RECT);
          // 
          // persianRepositoryItemDateEdit2
          // 
@@ -1426,30 +1486,6 @@
          this.Back_Butn.ToolTip = "بازگشت";
          this.Back_Butn.Click += new System.EventHandler(this.Btn_Back_Click);
          // 
-         // colSERV_NO_DNRM
-         // 
-         this.colSERV_NO_DNRM.Caption = "کد اشتراک";
-         this.colSERV_NO_DNRM.FieldName = "Fighter.SERV_NO_DNRM";
-         this.colSERV_NO_DNRM.Name = "colSERV_NO_DNRM";
-         this.colSERV_NO_DNRM.Visible = true;
-         this.colSERV_NO_DNRM.VisibleIndex = 4;
-         // 
-         // colDPST_ACNT_SLRY_BANK_DNRM
-         // 
-         this.colDPST_ACNT_SLRY_BANK_DNRM.Caption = "بانک";
-         this.colDPST_ACNT_SLRY_BANK_DNRM.FieldName = "Fighter.DPST_ACNT_SLRY_BANK_DNRM";
-         this.colDPST_ACNT_SLRY_BANK_DNRM.Name = "colDPST_ACNT_SLRY_BANK_DNRM";
-         this.colDPST_ACNT_SLRY_BANK_DNRM.Visible = true;
-         this.colDPST_ACNT_SLRY_BANK_DNRM.VisibleIndex = 5;
-         // 
-         // colDPST_ACNT_SLRY_DNRM
-         // 
-         this.colDPST_ACNT_SLRY_DNRM.Caption = "شماره حساب";
-         this.colDPST_ACNT_SLRY_DNRM.FieldName = "Fighter.DPST_ACNT_SLRY_DNRM";
-         this.colDPST_ACNT_SLRY_DNRM.Name = "colDPST_ACNT_SLRY_DNRM";
-         this.colDPST_ACNT_SLRY_DNRM.Visible = true;
-         this.colDPST_ACNT_SLRY_DNRM.VisibleIndex = 6;
-         // 
          // CAL_CEXC_P
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1486,6 +1522,8 @@
          ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.MsxdBs)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.Rect_Lov)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.DRectBs)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit2.CalendarTimeProperties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit2)).EndInit();
          this.groupBox1.ResumeLayout(false);
@@ -1611,5 +1649,8 @@
       private DevExpress.XtraGrid.Columns.GridColumn colSERV_NO_DNRM;
       private DevExpress.XtraGrid.Columns.GridColumn colDPST_ACNT_SLRY_DNRM;
       private DevExpress.XtraGrid.Columns.GridColumn colDPST_ACNT_SLRY_BANK_DNRM;
+      private DevExpress.XtraGrid.Columns.GridColumn colRECT_CODE;
+      private Windows.Forms.BindingSource DRectBs;
+      private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit Rect_Lov;
    }
 }

@@ -191,6 +191,7 @@ namespace System.Scsc.Ui.CalculateExpense
       {
          DCetpBs.DataSource = iScsc.D_CETPs;
          DCxtpBs.DataSource = iScsc.D_CXTPs;
+         DRectBs.DataSource = iScsc.D_RECTs;
          job.Status = StatusType.Successful;
       }
 

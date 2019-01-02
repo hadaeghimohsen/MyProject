@@ -1409,10 +1409,10 @@
     <value>Stimulsoft.Report.Dll</value>
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
-  <ReportChanged>1/2/2019 8:29:36 PM</ReportChanged>
+  <ReportChanged>1/2/2019 8:31:33 PM</ReportChanged>
   <ReportCreated>1/2/2019 6:53:58 PM</ReportCreated>
   <ReportFile>D:\Project\MyProject\Documents\Report Repository\RPT_CCHP_005_R.mrt</ReportFile>
-  <ReportGuid>b242c67a794948fb89cc9b697138604d</ReportGuid>
+  <ReportGuid>97d1c48edb9b491090b03341af42f355</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Inches</ReportUnit>
   <ReportVersion>2012.2.1304</ReportVersion>

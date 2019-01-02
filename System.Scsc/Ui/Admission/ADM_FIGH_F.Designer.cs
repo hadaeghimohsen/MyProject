@@ -28,6 +28,7 @@
       /// </summary>
       private void InitializeComponent()
       {
+         this.components = new System.ComponentModel.Container();
          System.Windows.Forms.Label label14;
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ADM_FIGH_F));
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
@@ -85,28 +86,28 @@
          this.GlobCode_Lb = new System.Windows.Forms.Label();
          this.ServNo_Lb = new System.Windows.Forms.Label();
          this.ChatId_Lb = new System.Windows.Forms.Label();
-         this.PydtsBs1 = new System.Windows.Forms.BindingSource();
-         this.PymtsBs1 = new System.Windows.Forms.BindingSource();
-         this.RqstBs1 = new System.Windows.Forms.BindingSource();
-         this.FighBs1 = new System.Windows.Forms.BindingSource();
-         this.SuntBs1 = new System.Windows.Forms.BindingSource();
-         this.BuntBs1 = new System.Windows.Forms.BindingSource();
-         this.DeptBs1 = new System.Windows.Forms.BindingSource();
-         this.OrgnBs1 = new System.Windows.Forms.BindingSource();
-         this.PrvnBs1 = new System.Windows.Forms.BindingSource();
-         this.RqttBs1 = new System.Windows.Forms.BindingSource();
-         this.DSxtpBs1 = new System.Windows.Forms.BindingSource();
-         this.RegnBs1 = new System.Windows.Forms.BindingSource();
-         this.CbmtBs1 = new System.Windows.Forms.BindingSource();
-         this.DDytpBs1 = new System.Windows.Forms.BindingSource();
-         this.im_images = new System.Windows.Forms.ImageList();
-         this.FighsBs1 = new System.Windows.Forms.BindingSource();
-         this.DRcmtBs1 = new System.Windows.Forms.BindingSource();
-         this.MbspBs1 = new System.Windows.Forms.BindingSource();
-         this.RqroBs1 = new System.Windows.Forms.BindingSource();
-         this.DCyclBs1 = new System.Windows.Forms.BindingSource();
-         this.FgpbsBs1 = new System.Windows.Forms.BindingSource();
-         this.miniToolStrip = new System.Windows.Forms.BindingNavigator();
+         this.PydtsBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.PymtsBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.RqstBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.FighBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.SuntBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.BuntBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.DeptBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.OrgnBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.PrvnBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.RqttBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.DSxtpBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.RegnBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.CbmtBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.DDytpBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.im_images = new System.Windows.Forms.ImageList(this.components);
+         this.FighsBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.DRcmtBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.MbspBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.RqroBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.DCyclBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.FgpbsBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.miniToolStrip = new System.Windows.Forms.BindingNavigator(this.components);
          this.colTARF_CODE_DNRM1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colMOST_DEBT_CLNG_DNRM1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colEXAM_RWNO_DNRM1 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -225,7 +226,7 @@
          this.UsePos_Cb = new System.Windows.Forms.CheckBox();
          this.PosStng_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.Pos_Lov = new DevExpress.XtraEditors.LookUpEdit();
-         this.VPosBs1 = new System.Windows.Forms.BindingSource();
+         this.VPosBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
          this.Pymt_Lb = new DevExpress.XtraEditors.LabelControl();
          this.TotlAmnt_Lb = new DevExpress.XtraEditors.LabelControl();
@@ -234,7 +235,7 @@
          this.tbn_CashPayment1 = new DevExpress.XtraEditors.SimpleButton();
          this.tbn_POSPayment1 = new DevExpress.XtraEditors.SimpleButton();
          this.gridControl2 = new DevExpress.XtraGrid.GridControl();
-         this.PmmtBs1 = new System.Windows.Forms.BindingSource();
+         this.PmmtBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.gridView5 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colPYMT_CASH_CODE2 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colPYMT_RQST_RQID2 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -260,7 +261,7 @@
          this.colPayment2 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colRequest_Row2 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-         this.PydsBs1 = new System.Windows.Forms.BindingSource();
+         this.PydsBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.gridView4 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colPYMT_CASH_CODE1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colPYMT_RQST_RQID1 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -312,7 +313,7 @@
          this.SumExpnExtrPrct_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colAMNT_UNIT_TYPE_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
          this.repositoryItemLookUpEdit4 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-         this.DAtypBs1 = new System.Windows.Forms.BindingSource();
+         this.DAtypBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.colREMN_AMNT = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colSUM_RCPT_AMNT = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colSUM_PYDS_AMNT = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -324,7 +325,7 @@
          this.SavePymt_Butn = new System.Windows.Forms.Button();
          this.SavePyds_Butn = new System.Windows.Forms.Button();
          this.PydsType_Lov = new DevExpress.XtraEditors.LookUpEdit();
-         this.DPydsBs1 = new System.Windows.Forms.BindingSource();
+         this.DPydsBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.PymtDate_DateTime001 = new Atf.UI.DateTimeSelector();
          this.SUNT_BUNT_DEPT_ORGN_CODELookUpEdit = new DevExpress.XtraEditors.LookUpEdit();
          this.SUNT_BUNT_CODELookUpEdit = new DevExpress.XtraEditors.LookUpEdit();
@@ -338,7 +339,7 @@
          this.EndDate_DateTime001 = new Atf.UI.DateTimeSelector();
          this.EndDate_RB001 = new System.Windows.Forms.RadioButton();
          this.CtgyCode_Lov = new DevExpress.XtraEditors.LookUpEdit();
-         this.CtgyBs1 = new System.Windows.Forms.BindingSource();
+         this.CtgyBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.Btn_AutoCalcAttn = new System.Windows.Forms.Button();
          this.CbmtCode_Lov = new DevExpress.XtraEditors.GridLookUpEdit();
          this.repositoryItemLookUpEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
@@ -375,7 +376,7 @@
          this.MaxF_Butn001 = new System.Windows.Forms.Button();
          this.CardNumb_Text = new DevExpress.XtraEditors.TextEdit();
          this.FNGR_PRNT_TextEdit = new DevExpress.XtraEditors.TextEdit();
-         this.RqstBn1 = new System.Windows.Forms.BindingNavigator();
+         this.RqstBn1 = new System.Windows.Forms.BindingNavigator(this.components);
          this.RqstBnNew1 = new System.Windows.Forms.ToolStripButton();
          this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
          this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
@@ -405,7 +406,7 @@
          this.RqstBnADoc1 = new System.Windows.Forms.ToolStripButton();
          this.RqstBnRegl01 = new System.Windows.Forms.ToolStripButton();
          this.RqstBnExit1 = new System.Windows.Forms.ToolStripButton();
-         this.toolTip1 = new System.Windows.Forms.ToolTip();
+         this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
          this.InsrInfo_Ckbx = new System.Windows.Forms.CheckBox();
          this.OthrExpnInfo_Ckbx = new System.Windows.Forms.CheckBox();
          this.OthrPblc_Ckbx = new System.Windows.Forms.CheckBox();
@@ -3288,7 +3289,7 @@
          // 
          // ClubCode_Clm
          // 
-         this.ClubCode_Clm.Caption = "باشگاه";
+         this.ClubCode_Clm.Caption = "بخش";
          this.ClubCode_Clm.FieldName = "Club.NAME";
          this.ClubCode_Clm.Name = "ClubCode_Clm";
          this.ClubCode_Clm.Visible = true;
@@ -3296,7 +3297,7 @@
          // 
          // MtodCode_Clm
          // 
-         this.MtodCode_Clm.Caption = "سبک";
+         this.MtodCode_Clm.Caption = "گروه";
          this.MtodCode_Clm.FieldName = "Method.MTOD_DESC";
          this.MtodCode_Clm.Name = "MtodCode_Clm";
          this.MtodCode_Clm.Visible = true;
@@ -3304,7 +3305,7 @@
          // 
          // CochFileNo_Clm
          // 
-         this.CochFileNo_Clm.Caption = "مربی";
+         this.CochFileNo_Clm.Caption = "سرپرست";
          this.CochFileNo_Clm.FieldName = "Fighter.NAME_DNRM";
          this.CochFileNo_Clm.Name = "CochFileNo_Clm";
          this.CochFileNo_Clm.Visible = true;
@@ -3382,7 +3383,7 @@
          // 
          // TimeDesc_Clm
          // 
-         this.TimeDesc_Clm.Caption = "زمان کلاس";
+         this.TimeDesc_Clm.Caption = "زمان";
          this.TimeDesc_Clm.FieldName = "TIME_DESC";
          this.TimeDesc_Clm.Name = "TimeDesc_Clm";
          this.TimeDesc_Clm.UnboundType = DevExpress.Data.UnboundColumnType.String;
@@ -3391,7 +3392,7 @@
          // 
          // CbmtDesc_Clm
          // 
-         this.CbmtDesc_Clm.Caption = "عنوان کلاس";
+         this.CbmtDesc_Clm.Caption = "توضیحات";
          this.CbmtDesc_Clm.FieldName = "CBMT_DESC";
          this.CbmtDesc_Clm.Name = "CbmtDesc_Clm";
          this.CbmtDesc_Clm.Visible = true;

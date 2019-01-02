@@ -2280,7 +2280,7 @@
          // 
          // ClubCode_Clm
          // 
-         this.ClubCode_Clm.Caption = "باشگاه";
+         this.ClubCode_Clm.Caption = "بخش";
          this.ClubCode_Clm.FieldName = "Club.NAME";
          this.ClubCode_Clm.Name = "ClubCode_Clm";
          this.ClubCode_Clm.Visible = true;
@@ -2288,7 +2288,7 @@
          // 
          // MtodCode_Clm
          // 
-         this.MtodCode_Clm.Caption = "سبک";
+         this.MtodCode_Clm.Caption = "گروه";
          this.MtodCode_Clm.FieldName = "Method.MTOD_DESC";
          this.MtodCode_Clm.Name = "MtodCode_Clm";
          this.MtodCode_Clm.Visible = true;
@@ -2296,7 +2296,7 @@
          // 
          // CochFileNo_Clm
          // 
-         this.CochFileNo_Clm.Caption = "مربی";
+         this.CochFileNo_Clm.Caption = "سرپرست";
          this.CochFileNo_Clm.FieldName = "Fighter.NAME_DNRM";
          this.CochFileNo_Clm.Name = "CochFileNo_Clm";
          this.CochFileNo_Clm.Visible = true;
@@ -2374,7 +2374,7 @@
          // 
          // TimeDesc_Clm
          // 
-         this.TimeDesc_Clm.Caption = "زمان کلاس";
+         this.TimeDesc_Clm.Caption = "زمان";
          this.TimeDesc_Clm.FieldName = "TIME_DESC";
          this.TimeDesc_Clm.Name = "TimeDesc_Clm";
          this.TimeDesc_Clm.UnboundType = DevExpress.Data.UnboundColumnType.String;
@@ -2383,7 +2383,7 @@
          // 
          // CbmtDesc_Clm
          // 
-         this.CbmtDesc_Clm.Caption = "شرح کلاس";
+         this.CbmtDesc_Clm.Caption = "توضیحات";
          this.CbmtDesc_Clm.FieldName = "CBMT_DESC";
          this.CbmtDesc_Clm.Name = "CbmtDesc_Clm";
          this.CbmtDesc_Clm.Visible = true;
@@ -3119,7 +3119,7 @@
          // toolStripLabel2
          // 
          this.toolStripLabel2.Name = "toolStripLabel2";
-         this.toolStripLabel2.Size = new System.Drawing.Size(34, 44);
+         this.toolStripLabel2.Size = new System.Drawing.Size(35, 44);
          this.toolStripLabel2.Text = "of {0}";
          this.toolStripLabel2.ToolTipText = "Total number of items";
          // 

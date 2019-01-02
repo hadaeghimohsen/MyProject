@@ -188,10 +188,9 @@ namespace System.Scsc.Ui.CalculateExpense
       /// </summary>
       /// <param name="job"></param>
       private void LoadData(Job job)
-      {         
-         Execute_Query();
-         EPIT_BindingSource.DataSource = iScsc.Expense_Items.Where(e => e.TYPE == "002");
-         FIGH_BindingSource.DataSource = iScsc.Fighters.Where(f => f.FGPB_TYPE_DNRM == "002" || f.FGPB_TYPE_DNRM == "003");
+      {
+         DCetpBs.DataSource = iScsc.D_CETPs;
+         DCxtpBs.DataSource = iScsc.D_CXTPs;
          job.Status = StatusType.Successful;
       }
 
@@ -201,21 +200,6 @@ namespace System.Scsc.Ui.CalculateExpense
       /// <param name="job"></param>
       private void Actn_CalF_F(Job job)
       {
-         tb_master.TabPages.Remove(tp_001);
-         tb_master.TabPages.Remove(tp_002);
-         var input = job.Input as XElement;
-         switch (input.Attribute("type").Value)
-         {
-            case "tp_001":
-               tb_master.TabPages.Add(tp_001);
-               tb_master.SelectedTab = tp_001;
-               //lbl_currentcash.Text = "صندوقدار جاری : " + iScsc.GET_CRNTUSER_U(new XElement("User", new XAttribute("actntype", "002")));
-               break;
-            case "tp_002":
-               tb_master.TabPages.Add(tp_002);
-               tb_master.SelectedTab = tp_002;
-               break;
-         }
          Execute_Query();
          job.Status = StatusType.Successful;
       }

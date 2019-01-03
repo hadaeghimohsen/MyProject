@@ -29,11 +29,11 @@
       private void InitializeComponent()
       {
          this.components = new System.ComponentModel.Container();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
-         System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CAL_CEXC_P));
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
+         System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CAL_CEXC_P));
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
          this.tb_master = new System.Windows.Forms.TabControl();
          this.tp_001 = new System.Windows.Forms.TabPage();
          this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
@@ -145,9 +145,9 @@
          this.label1 = new System.Windows.Forms.Label();
          this.panel1 = new System.Windows.Forms.Panel();
          this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
-         this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
-         this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
-         this.ConfExpn_Butn = new DevExpress.XtraEditors.SimpleButton();
+         this.DefaultPrint_Butn = new DevExpress.XtraEditors.SimpleButton();
+         this.Print_Butn = new DevExpress.XtraEditors.SimpleButton();
+         this.SettingPrint_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.ExecQury_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.TitlForm_Lb = new DevExpress.XtraEditors.LabelControl();
          this.Back_Butn = new DevExpress.XtraEditors.SimpleButton();
@@ -410,7 +410,7 @@
          // 
          this.persianRepositoryItemDateEdit1.AutoHeight = false;
          this.persianRepositoryItemDateEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject6, "", null, null, true)});
          this.persianRepositoryItemDateEdit1.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
          this.persianRepositoryItemDateEdit1.CalendarTimeProperties.CloseUpKey = new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.F4);
@@ -672,7 +672,7 @@
          // 
          this.persianRepositoryItemDateEdit3.AutoHeight = false;
          this.persianRepositoryItemDateEdit3.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject4, "", null, null, true)});
          this.persianRepositoryItemDateEdit3.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
          this.persianRepositoryItemDateEdit3.CalendarTimeProperties.CloseUpKey = new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.F4);
@@ -787,7 +787,7 @@
          // 
          this.Actn_Butn.AutoHeight = false;
          this.Actn_Butn.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("Actn_Butn.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject3, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("Actn_Butn.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, "", null, null, true)});
          this.Actn_Butn.Name = "Actn_Butn";
          this.Actn_Butn.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
          // 
@@ -1302,7 +1302,7 @@
          // 
          this.persianRepositoryItemDateEdit2.AutoHeight = false;
          this.persianRepositoryItemDateEdit2.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject4, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject8, "", null, null, true)});
          this.persianRepositoryItemDateEdit2.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
          this.persianRepositoryItemDateEdit2.CalendarTimeProperties.CloseUpKey = new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.F4);
@@ -1368,9 +1368,9 @@
          // panel1
          // 
          this.panel1.Controls.Add(this.simpleButton3);
-         this.panel1.Controls.Add(this.simpleButton2);
-         this.panel1.Controls.Add(this.simpleButton1);
-         this.panel1.Controls.Add(this.ConfExpn_Butn);
+         this.panel1.Controls.Add(this.DefaultPrint_Butn);
+         this.panel1.Controls.Add(this.Print_Butn);
+         this.panel1.Controls.Add(this.SettingPrint_Butn);
          this.panel1.Controls.Add(this.ExecQury_Butn);
          this.panel1.Controls.Add(this.TitlForm_Lb);
          this.panel1.Controls.Add(this.Back_Butn);
@@ -1394,51 +1394,55 @@
          this.simpleButton3.Size = new System.Drawing.Size(61, 59);
          this.simpleButton3.TabIndex = 10;
          this.simpleButton3.ToolTip = "تایید هزینه ها و بایگانی";
+         this.simpleButton3.Visible = false;
          // 
-         // simpleButton2
+         // DefaultPrint_Butn
          // 
-         this.simpleButton2.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-         this.simpleButton2.Appearance.Options.UseBackColor = true;
-         this.simpleButton2.Dock = System.Windows.Forms.DockStyle.Left;
-         this.simpleButton2.Image = global::System.Scsc.Properties.Resources.IMAGE_1059;
-         this.simpleButton2.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.simpleButton2.Location = new System.Drawing.Point(183, 0);
-         this.simpleButton2.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.simpleButton2.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.simpleButton2.Name = "simpleButton2";
-         this.simpleButton2.Size = new System.Drawing.Size(61, 59);
-         this.simpleButton2.TabIndex = 9;
-         this.simpleButton2.ToolTip = "تایید هزینه ها و بایگانی";
+         this.DefaultPrint_Butn.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+         this.DefaultPrint_Butn.Appearance.Options.UseBackColor = true;
+         this.DefaultPrint_Butn.Dock = System.Windows.Forms.DockStyle.Left;
+         this.DefaultPrint_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1059;
+         this.DefaultPrint_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+         this.DefaultPrint_Butn.Location = new System.Drawing.Point(183, 0);
+         this.DefaultPrint_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.DefaultPrint_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.DefaultPrint_Butn.Name = "DefaultPrint_Butn";
+         this.DefaultPrint_Butn.Size = new System.Drawing.Size(61, 59);
+         this.DefaultPrint_Butn.TabIndex = 9;
+         this.DefaultPrint_Butn.ToolTip = "تایید هزینه ها و بایگانی";
+         this.DefaultPrint_Butn.Click += new System.EventHandler(this.DefaultPrint_Butn_Click);
          // 
-         // simpleButton1
+         // Print_Butn
          // 
-         this.simpleButton1.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-         this.simpleButton1.Appearance.Options.UseBackColor = true;
-         this.simpleButton1.Dock = System.Windows.Forms.DockStyle.Left;
-         this.simpleButton1.Image = global::System.Scsc.Properties.Resources.IMAGE_1090;
-         this.simpleButton1.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.simpleButton1.Location = new System.Drawing.Point(122, 0);
-         this.simpleButton1.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.simpleButton1.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.simpleButton1.Name = "simpleButton1";
-         this.simpleButton1.Size = new System.Drawing.Size(61, 59);
-         this.simpleButton1.TabIndex = 8;
-         this.simpleButton1.ToolTip = "تایید هزینه ها و بایگانی";
+         this.Print_Butn.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+         this.Print_Butn.Appearance.Options.UseBackColor = true;
+         this.Print_Butn.Dock = System.Windows.Forms.DockStyle.Left;
+         this.Print_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1090;
+         this.Print_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+         this.Print_Butn.Location = new System.Drawing.Point(122, 0);
+         this.Print_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.Print_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.Print_Butn.Name = "Print_Butn";
+         this.Print_Butn.Size = new System.Drawing.Size(61, 59);
+         this.Print_Butn.TabIndex = 8;
+         this.Print_Butn.ToolTip = "تایید هزینه ها و بایگانی";
+         this.Print_Butn.Click += new System.EventHandler(this.Print_Butn_Click);
          // 
-         // ConfExpn_Butn
+         // SettingPrint_Butn
          // 
-         this.ConfExpn_Butn.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-         this.ConfExpn_Butn.Appearance.Options.UseBackColor = true;
-         this.ConfExpn_Butn.Dock = System.Windows.Forms.DockStyle.Left;
-         this.ConfExpn_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1091;
-         this.ConfExpn_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.ConfExpn_Butn.Location = new System.Drawing.Point(61, 0);
-         this.ConfExpn_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.ConfExpn_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.ConfExpn_Butn.Name = "ConfExpn_Butn";
-         this.ConfExpn_Butn.Size = new System.Drawing.Size(61, 59);
-         this.ConfExpn_Butn.TabIndex = 7;
-         this.ConfExpn_Butn.ToolTip = "تایید هزینه ها و بایگانی";
+         this.SettingPrint_Butn.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+         this.SettingPrint_Butn.Appearance.Options.UseBackColor = true;
+         this.SettingPrint_Butn.Dock = System.Windows.Forms.DockStyle.Left;
+         this.SettingPrint_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1091;
+         this.SettingPrint_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+         this.SettingPrint_Butn.Location = new System.Drawing.Point(61, 0);
+         this.SettingPrint_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.SettingPrint_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.SettingPrint_Butn.Name = "SettingPrint_Butn";
+         this.SettingPrint_Butn.Size = new System.Drawing.Size(61, 59);
+         this.SettingPrint_Butn.TabIndex = 7;
+         this.SettingPrint_Butn.ToolTip = "تایید هزینه ها و بایگانی";
+         this.SettingPrint_Butn.Click += new System.EventHandler(this.SettingPrint_Butn_Click);
          // 
          // ExecQury_Butn
          // 
@@ -1570,12 +1574,12 @@
       private Atf.UI.DateTimeSelector Pdt_ToDate;
       private Atf.UI.DateTimeSelector Pdt_FromDate;
       private Windows.Forms.Panel panel1;
-      private DevExpress.XtraEditors.SimpleButton ConfExpn_Butn;
+      private DevExpress.XtraEditors.SimpleButton SettingPrint_Butn;
       private DevExpress.XtraEditors.SimpleButton ExecQury_Butn;
       private DevExpress.XtraEditors.LabelControl TitlForm_Lb;
       private DevExpress.XtraEditors.SimpleButton Back_Butn;
-      private DevExpress.XtraEditors.SimpleButton simpleButton2;
-      private DevExpress.XtraEditors.SimpleButton simpleButton1;
+      private DevExpress.XtraEditors.SimpleButton DefaultPrint_Butn;
+      private DevExpress.XtraEditors.SimpleButton Print_Butn;
       private DevExpress.XtraEditors.SplitContainerControl splitContainerControl1;
       private Windows.Forms.TabControl tabControl1;
       private Windows.Forms.TabPage tabPage1;

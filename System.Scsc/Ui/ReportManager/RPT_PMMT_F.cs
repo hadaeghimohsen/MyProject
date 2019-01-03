@@ -112,7 +112,7 @@ namespace System.Scsc.Ui.ReportManager
             }
             else if(tc_master.SelectedTab == tp_004)
             {
-               MiscExpenseBs4.DataSource =
+               MsexBs4.DataSource =
                   iScsc.Misc_Expenses
                   .Where(me =>
                      me.VALD_TYPE == "002" &&
@@ -445,7 +445,7 @@ namespace System.Scsc.Ui.ReportManager
       {
          try
          {
-            var misxexpn = MiscExpenseBs4.Current as Data.Misc_Expense;
+            var misxexpn = MsexBs4.Current as Data.Misc_Expense;
             if (misxexpn == null) return;
 
             misxexpn.VALD_TYPE = "001";

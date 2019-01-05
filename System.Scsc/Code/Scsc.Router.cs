@@ -495,6 +495,9 @@ namespace System.Scsc.Code
             case 155:
                Mbsp_Mark_F(job);
                break;
+            case 156:
+               Aop_Incm_F(job);
+               break;
             default:
                job.Status = StatusType.Failed;
                break;
@@ -942,6 +945,9 @@ namespace System.Scsc.Code
                break;
             case "MBSP_MARK_F":
                _Mbsp_Mark_F.SendRequest(job);
+               break;
+            case "AOP_INCM_F":
+               _Aop_Incm_F.SendRequest(job);
                break;
 
             /* Show Changed */

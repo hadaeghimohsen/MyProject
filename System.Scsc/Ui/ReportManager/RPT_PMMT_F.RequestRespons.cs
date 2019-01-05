@@ -74,6 +74,10 @@ namespace System.Scsc.Ui.ReportManager
             if (!(Find_Butn.Focused || Back_Butn.Focused || Submit_Butn.Focused) )
                SendKeys.Send("{TAB}");
          }
+         else if (keyData == Keys.F5)
+         {
+            Execute_Query();
+         }
          job.Status = StatusType.Successful;
       }
 
@@ -681,6 +685,8 @@ namespace System.Scsc.Ui.ReportManager
          DsxtpBs2.DataSource = iScsc.D_SXTPs;
          DpydsBs2.DataSource = iScsc.D_PYDS;
          DDytpBs2.DataSource = iScsc.D_DYTPs;
+         DCatpBs2.DataSource = iScsc.D_CATPs;
+         DCktpBs2.DataSource = iScsc.D_CKTPs;
          RqtpBs1.DataSource = iScsc.Request_Types.Where(rt => rt.CODE == "001" || rt.CODE == "009" || rt.CODE == "016" || rt.CODE == "012");
          CbmtBs.DataSource = iScsc.Club_Methods.Where(cb => cb.MTOD_STAT == "002");
          FighBs1.DataSource = iScsc.Fighters.Where(f => f.CONF_STAT == "002" && f.FGPB_TYPE_DNRM == "003" /*&& f.FGPB_TYPE_DNRM != "007" && !f.NAME_DNRM.Contains("مشتری, جلسه ای")*/ && (Fga_Uclb_U.Contains(f.CLUB_CODE_DNRM) || (f.CLUB_CODE_DNRM == null ? f.Club_Methods.Where(cb => Fga_Uclb_U.Contains(cb.CLUB_CODE)).Any() : false)) && Convert.ToInt32(f.ACTV_TAG_DNRM ?? "101") >= 101);
@@ -704,11 +710,11 @@ namespace System.Scsc.Ui.ReportManager
                formName = "RPT_PMT2_F";
             if(xinput.Attribute("fromdate").Value != null)
             {
-               FromDate1_Date.Value = FromDate2_Date.Value = FromDate3_Date.Value = FromDate4_Date.Value = FromDate5_Date.Value = Convert.ToDateTime(xinput.Attribute("fromdate").Value);
+               FromDate1_Date.Value = FromDate2_Date.Value = FromDate3_Date.Value = FromDate4_Date.Value = FromDate5_Date.Value = FromDate6_Date.Value = Convert.ToDateTime(xinput.Attribute("fromdate").Value);
             }
             if (xinput.Attribute("todate").Value != null)
             {
-               ToDate1_Date.Value = ToDate2_Date.Value = ToDate3_Date.Value = ToDate4_Date.Value = ToDate5_Date.Value = Convert.ToDateTime(xinput.Attribute("todate").Value);
+               ToDate1_Date.Value = ToDate2_Date.Value = ToDate3_Date.Value = ToDate4_Date.Value = ToDate5_Date.Value = ToDate6_Date.Value = Convert.ToDateTime(xinput.Attribute("todate").Value);
             }
             if(xinput.Attribute("useraccount").Value != null)
             {

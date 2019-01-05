@@ -29,11 +29,11 @@
       private void InitializeComponent()
       {
          this.components = new System.ComponentModel.Container();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CAL_CEXC_P));
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
          this.tb_master = new System.Windows.Forms.TabControl();
          this.tp_001 = new System.Windows.Forms.TabPage();
          this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
@@ -139,8 +139,8 @@
          this.DRectBs = new System.Windows.Forms.BindingSource(this.components);
          this.persianRepositoryItemDateEdit2 = new dxExample.PersianRepositoryItemDateEdit();
          this.groupBox1 = new System.Windows.Forms.GroupBox();
-         this.Pdt_ToDate = new Atf.UI.DateTimeSelector();
-         this.Pdt_FromDate = new Atf.UI.DateTimeSelector();
+         this.Delv_ToDate = new Atf.UI.DateTimeSelector();
+         this.Delv_FromDate = new Atf.UI.DateTimeSelector();
          this.label2 = new System.Windows.Forms.Label();
          this.label1 = new System.Windows.Forms.Label();
          this.panel1 = new System.Windows.Forms.Panel();
@@ -410,7 +410,7 @@
          // 
          this.persianRepositoryItemDateEdit1.AutoHeight = false;
          this.persianRepositoryItemDateEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject6, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
          this.persianRepositoryItemDateEdit1.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
          this.persianRepositoryItemDateEdit1.CalendarTimeProperties.CloseUpKey = new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.F4);
@@ -672,7 +672,7 @@
          // 
          this.persianRepositoryItemDateEdit3.AutoHeight = false;
          this.persianRepositoryItemDateEdit3.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject4, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
          this.persianRepositoryItemDateEdit3.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
          this.persianRepositoryItemDateEdit3.CalendarTimeProperties.CloseUpKey = new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.F4);
@@ -787,7 +787,7 @@
          // 
          this.Actn_Butn.AutoHeight = false;
          this.Actn_Butn.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("Actn_Butn.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("Actn_Butn.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject3, "", null, null, true)});
          this.Actn_Butn.Name = "Actn_Butn";
          this.Actn_Butn.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
          // 
@@ -1129,7 +1129,7 @@
          this.colACTN_CONT_DNRM.OptionsColumn.AllowEdit = false;
          this.colACTN_CONT_DNRM.OptionsColumn.ReadOnly = true;
          this.colACTN_CONT_DNRM.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
-            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Count)});
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum)});
          this.colACTN_CONT_DNRM.Visible = true;
          this.colACTN_CONT_DNRM.VisibleIndex = 5;
          this.colACTN_CONT_DNRM.Width = 58;
@@ -1162,8 +1162,6 @@
          this.colTOTL_AMNT_DNRM.Name = "colTOTL_AMNT_DNRM";
          this.colTOTL_AMNT_DNRM.OptionsColumn.AllowEdit = false;
          this.colTOTL_AMNT_DNRM.OptionsColumn.ReadOnly = true;
-         this.colTOTL_AMNT_DNRM.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
-            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "TOTL_AMNT_DNRM", "{0:n0}")});
          this.colTOTL_AMNT_DNRM.Visible = true;
          this.colTOTL_AMNT_DNRM.VisibleIndex = 3;
          this.colTOTL_AMNT_DNRM.Width = 196;
@@ -1177,8 +1175,6 @@
          this.colPRVS_DELV_AMNT_DNRM.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
          this.colPRVS_DELV_AMNT_DNRM.FieldName = "PRVS_DELV_AMNT_DNRM";
          this.colPRVS_DELV_AMNT_DNRM.Name = "colPRVS_DELV_AMNT_DNRM";
-         this.colPRVS_DELV_AMNT_DNRM.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
-            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Max, "PRVS_DELV_AMNT_DNRM", "{0:n0}")});
          this.colPRVS_DELV_AMNT_DNRM.Visible = true;
          this.colPRVS_DELV_AMNT_DNRM.VisibleIndex = 2;
          this.colPRVS_DELV_AMNT_DNRM.Width = 226;
@@ -1302,7 +1298,7 @@
          // 
          this.persianRepositoryItemDateEdit2.AutoHeight = false;
          this.persianRepositoryItemDateEdit2.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject8, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject4, "", null, null, true)});
          this.persianRepositoryItemDateEdit2.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
          this.persianRepositoryItemDateEdit2.CalendarTimeProperties.CloseUpKey = new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.F4);
@@ -1311,8 +1307,8 @@
          // 
          // groupBox1
          // 
-         this.groupBox1.Controls.Add(this.Pdt_ToDate);
-         this.groupBox1.Controls.Add(this.Pdt_FromDate);
+         this.groupBox1.Controls.Add(this.Delv_ToDate);
+         this.groupBox1.Controls.Add(this.Delv_FromDate);
          this.groupBox1.Controls.Add(this.label2);
          this.groupBox1.Controls.Add(this.label1);
          this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -1323,27 +1319,27 @@
          this.groupBox1.TabStop = false;
          this.groupBox1.Text = "پارامتر :";
          // 
-         // Pdt_ToDate
+         // Delv_ToDate
          // 
-         this.Pdt_ToDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.Pdt_ToDate.CustomFormat = "dd/MM/yyyy";
-         this.Pdt_ToDate.Format = Atf.UI.DateTimeSelectorFormat.Custom;
-         this.Pdt_ToDate.Location = new System.Drawing.Point(740, 22);
-         this.Pdt_ToDate.Name = "Pdt_ToDate";
-         this.Pdt_ToDate.Size = new System.Drawing.Size(100, 23);
-         this.Pdt_ToDate.TabIndex = 24;
-         this.Pdt_ToDate.UsePersianFormat = true;
+         this.Delv_ToDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.Delv_ToDate.CustomFormat = "dd/MM/yyyy";
+         this.Delv_ToDate.Format = Atf.UI.DateTimeSelectorFormat.Custom;
+         this.Delv_ToDate.Location = new System.Drawing.Point(740, 22);
+         this.Delv_ToDate.Name = "Delv_ToDate";
+         this.Delv_ToDate.Size = new System.Drawing.Size(100, 23);
+         this.Delv_ToDate.TabIndex = 24;
+         this.Delv_ToDate.UsePersianFormat = true;
          // 
-         // Pdt_FromDate
+         // Delv_FromDate
          // 
-         this.Pdt_FromDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.Pdt_FromDate.CustomFormat = "dd/MM/yyyy";
-         this.Pdt_FromDate.Format = Atf.UI.DateTimeSelectorFormat.Custom;
-         this.Pdt_FromDate.Location = new System.Drawing.Point(902, 22);
-         this.Pdt_FromDate.Name = "Pdt_FromDate";
-         this.Pdt_FromDate.Size = new System.Drawing.Size(100, 23);
-         this.Pdt_FromDate.TabIndex = 23;
-         this.Pdt_FromDate.UsePersianFormat = true;
+         this.Delv_FromDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.Delv_FromDate.CustomFormat = "dd/MM/yyyy";
+         this.Delv_FromDate.Format = Atf.UI.DateTimeSelectorFormat.Custom;
+         this.Delv_FromDate.Location = new System.Drawing.Point(902, 22);
+         this.Delv_FromDate.Name = "Delv_FromDate";
+         this.Delv_FromDate.Size = new System.Drawing.Size(100, 23);
+         this.Delv_FromDate.TabIndex = 23;
+         this.Delv_FromDate.UsePersianFormat = true;
          // 
          // label2
          // 
@@ -1571,8 +1567,8 @@
       private DevExpress.XtraGrid.Columns.GridColumn colExpense_Item;
       private DevExpress.XtraGrid.Columns.GridColumn colFighter;
       private DevExpress.XtraGrid.Columns.GridColumn colRegion;
-      private Atf.UI.DateTimeSelector Pdt_ToDate;
-      private Atf.UI.DateTimeSelector Pdt_FromDate;
+      private Atf.UI.DateTimeSelector Delv_ToDate;
+      private Atf.UI.DateTimeSelector Delv_FromDate;
       private Windows.Forms.Panel panel1;
       private DevExpress.XtraEditors.SimpleButton SettingPrint_Butn;
       private DevExpress.XtraEditors.SimpleButton ExecQury_Butn;

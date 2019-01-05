@@ -2311,6 +2311,11 @@ namespace System.Scsc.Ui.MasterPage
                });
          _DefaultGateway.Gateway(_InteractWithScsc);
       }
+
+      private void bbi_incgbutn_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+      {
+
+      }      
       #endregion
 
       #region گزارشات
@@ -2983,6 +2988,6 @@ namespace System.Scsc.Ui.MasterPage
       private void bbi_aglsbutn_Mn_Click(object sender, EventArgs e)
       {
          bbi_aglsbutn_ItemClick(null, null);
-      }      
+      }
    }
 }

@@ -61,7 +61,7 @@
     <Reference Include="AForge.Video.DirectShow">
       <HintPath>..\packages\AForge.Video.DirectShow.2.2.5\lib\AForge.Video.DirectShow.dll</HintPath>
     </Reference>
-    <Reference Include="C1.Win.C1Command.2, Version=2.0.20152.67, Culture=neutral, PublicKeyToken=e808566f358766d8" />
+    <Reference Include="C1.Win.C1Command.2, Version=2.0.20152.67, Culture=neutral, PublicKeyToken=e808566f358766d8, processorArchitecture=MSIL" />
     <Reference Include="C1.Win.C1Input.2, Version=2.0.20152.67, Culture=neutral, PublicKeyToken=7e7ff60f0c214f9a, processorArchitecture=MSIL" />
     <Reference Include="C1.Win.C1TileControl.2, Version=2.0.20152.67, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL" />
     <Reference Include="DataEditShamsi">
@@ -205,12 +205,14 @@
     <Reference Include="System.Data.Linq">
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Data.OracleClient" />
     <Reference Include="System.Design">
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Drawing">
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
     <Reference Include="System.ServiceModel">
       <Private>True</Private>
     </Reference>
@@ -385,6 +387,15 @@
       <DependentUpon>AOP_ATTN_F.cs</DependentUpon>
     </Compile>
     <Compile Include="Ui\AggregateOperation\AOP_BUFE_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\AggregateOperation\AOP_INCM_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\AggregateOperation\AOP_INCM_F.Designer.cs">
+      <DependentUpon>AOP_INCM_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\AggregateOperation\AOP_INCM_F.RequestRespons.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Ui\AggregateOperation\AOP_MTOD_F.cs">
@@ -1208,6 +1219,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Ui\AggregateOperation\AOP_ATTN_F.resx">
       <DependentUpon>AOP_ATTN_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\AggregateOperation\AOP_INCM_F.resx">
+      <DependentUpon>AOP_INCM_F.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ui\AggregateOperation\AOP_MTOD_F.resx">
       <DependentUpon>AOP_MTOD_F.cs</DependentUpon>

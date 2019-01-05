@@ -8,15 +8,17 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
 
-namespace System.Scsc.Ui.CalculateExpense
+namespace System.Scsc.Ui.AggregateOperation
 {
-   partial class CAL_CEXC_P : ISendRequest
+   partial class AOP_INCM_F : ISendRequest
    {
       public IRouter _DefaultGateway { get; set; }
       private Data.iScscDataContext iScsc;
       private string ConnectionString;
       private string Fga_Uprv_U, Fga_Urgn_U;
       private List<long?> Fga_Uclb_U;
+      //private long Rqid, FileNo;
+      private bool isFirstLoaded = false;
 
       public void SendRequest(Job job)
       {
@@ -45,8 +47,11 @@ namespace System.Scsc.Ui.CalculateExpense
             case 07:
                LoadData(job);
                break;
+            case 08:
+               LoadDataSource(job);
+               break;
             case 10:
-               Actn_CalF_F(job);
+               Actn_CalF_P(job);
                break;
             default:
                break;
@@ -61,42 +66,13 @@ namespace System.Scsc.Ui.CalculateExpense
       {
          Keys keyData = (Keys)job.Input;
 
-         if (keyData == Keys.F1)
-         {
-            #region Key.F1
-            job.Next =
-               new Job(SendType.External, "Commons",
-                  new List<Job>
-                  {
-                     new Job(SendType.Self, 03 /* Execute DoWork4HelpHandling */)
-                     {
-                        Input = @"<HTML>
-                                    <body>
-                                       <p style=""float:right"">
-                                             <ol>
-                                                <li><font face=""verdana"" size=""3"" color=""red"">F10</font></li>
-                                                <ul>
-                                                   <li><font face=""Tahoma"" size=""3"" color=""green"">خروج از سیستم</font></li>
-                                                </ul>
-                                                <li><font face=""verdana"" size=""3"" color=""red"">F9</font></li>
-                                                <ul>
-                                                   <li><font face=""Tahoma"" size=""3"" color=""green"">خروج از محیط کاربری</font></li>
-                                                </ul>
-                                             </ol>
-                                       </p>
-                                    </body>
-                                    </HTML>"
-                     }
-                  });
-            #endregion
-         }
-         else if (keyData == Keys.Escape)
+         if (keyData == Keys.Escape)
          {
             job.Next =
                new Job(SendType.SelfToUserInterface, this.GetType().Name, 04 /* Execute UnPaint */);
          }
          else if (keyData == Keys.Enter)
-         {
+         {            
             SendKeys.Send("{TAB}");
          }
          job.Status = StatusType.Successful;
@@ -180,7 +156,30 @@ namespace System.Scsc.Ui.CalculateExpense
       /// <param name="job"></param>
       private void CheckSecurity(Job job)
       {
-         job.Status = StatusType.Successful;
+         Job _InteractWithJob =
+            new Job(SendType.External, "Localhost",
+               new List<Job>
+               {
+                  new Job(SendType.External, "Commons",
+                     new List<Job>
+                     {
+                        #region Access Privilege
+                        new Job(SendType.Self, 07 /* Execute DoWork4AccessPrivilege */)
+                        {
+                           Input = new List<string> {"<Privilege>206</Privilege><Sub_Sys>5</Sub_Sys>", "DataGuard"},
+                           AfterChangedOutput = new Action<object>((output) => {
+                              if ((bool)output)
+                                 return;
+                              #region Show Error
+                              job.Status = StatusType.Failed;
+                              MessageBox.Show(this, "خطا - عدم دسترسی به ردیف 206 امنیتی", "خطا دسترسی");
+                              #endregion                           
+                           })
+                        },
+                        #endregion                        
+                     })                     
+                  });
+         _DefaultGateway.Gateway(_InteractWithJob); 
       }
 
       /// <summary>
@@ -189,9 +188,25 @@ namespace System.Scsc.Ui.CalculateExpense
       /// <param name="job"></param>
       private void LoadData(Job job)
       {
-         DCetpBs.DataSource = iScsc.D_CETPs;
-         DCxtpBs.DataSource = iScsc.D_CXTPs;
-         DRectBs.DataSource = iScsc.D_RECTs;
+         //if (!isFirstLoaded)
+         {
+            RegnBs1.DataSource = iScsc.Regions.Where(r => Fga_Urgn_U.Split(',').Contains(r.PRVN_CODE + r.CODE) );
+            CtgyBs1.DataSource = iScsc.Category_Belts.Where(cb => cb.CTGY_STAT == "002");
+            CochBs1.DataSource = iScsc.Fighters.Where(f => Fga_Urgn_U.Split(',').Contains(f.REGN_PRVN_CODE + f.REGN_CODE) && (f.FGPB_TYPE_DNRM == "002" || f.FGPB_TYPE_DNRM == "003"));
+            CbmtBs1.DataSource = iScsc.Club_Methods.Where(c => c.MTOD_STAT == "002" && Fga_Uclb_U.Contains(c.CLUB_CODE));
+            DDytpBs1.DataSource = iScsc.D_DYTPs;
+            RqttBs1.DataSource = iScsc.Requester_Types.Where(rt => rt.CODE == "001" || rt.CODE == "004");
+            DAtypBs1.DataSource = iScsc.D_ATYPs;
+            isFirstLoaded = true;
+         }
+         job.Status = StatusType.Successful;
+      }
+
+      /// <summary>
+      /// Code 08
+      /// </summary>
+      private void LoadDataSource(Job job)
+      {
          job.Status = StatusType.Successful;
       }
 
@@ -199,10 +214,51 @@ namespace System.Scsc.Ui.CalculateExpense
       /// Code 10
       /// </summary>
       /// <param name="job"></param>
-      private void Actn_CalF_F(Job job)
+      private void Actn_CalF_P(Job job)
       {
-         Delv_FromDate.Value = Delv_ToDate.Value = DateTime.Now;
+         var xinput = job.Input as XElement;
+         if (xinput != null)
+         {
+            if (xinput.Attribute("cbmtcode") != null)
+               cbmtcode = Convert.ToInt64(xinput.Attribute("cbmtcode").Value);
+            else
+               cbmtcode = null;
+
+            if (xinput.Attribute("attndate") != null)
+               fromdate = Convert.ToDateTime(xinput.Attribute("attndate").Value);
+            else
+               fromdate = DateTime.Now;
+
+            if (cbmtcode != null)
+            {
+               if (!iScsc.Aggregation_Operations.Any(ao => ao.CBMT_CODE == cbmtcode && ao.FROM_DATE == fromdate.Value.Date && ao.OPRT_TYPE == "004" && (ao.OPRT_STAT == "001" || ao.OPRT_STAT == "002")))
+               {
+                  AgopBs1.AddNew();
+                  var agop = AgopBs1.Current as Data.Aggregation_Operation;
+
+                  agop.CBMT_CODE = cbmtcode;
+                  agop.FROM_DATE = fromdate;
+                  agop.TO_DATE = fromdate.Value.AddDays(29);
+                  agop.RQTT_CODE = "001";
+                  agop.NEW_CBMT_CODE = cbmtcode;
+
+                  Edit_Butn_Click(null, null);
+               }
+            }
+         }
+         else
+         {
+            cbmtcode = null;
+            fromdate = null;
+         }
+
          Execute_Query();
+
+         if (cbmtcode != null)
+         {
+            AgopBs1.Position = AgopBs1.IndexOf(AgopBs1.List.OfType<Data.Aggregation_Operation>().FirstOrDefault(ao => ao.CBMT_CODE == cbmtcode && ao.FROM_DATE == fromdate.Value.Date && ao.OPRT_TYPE == "001" && (ao.OPRT_STAT == "001" || ao.OPRT_STAT == "002")));
+         }
+
          job.Status = StatusType.Successful;
       }
    }

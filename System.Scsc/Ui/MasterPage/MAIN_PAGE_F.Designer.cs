@@ -28,6 +28,7 @@
       /// </summary>
       private void InitializeComponent()
       {
+         this.components = new System.ComponentModel.Container();
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MAIN_PAGE_F));
          DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
          DevExpress.Utils.ToolTipTitleItem toolTipTitleItem1 = new DevExpress.Utils.ToolTipTitleItem();
@@ -185,7 +186,7 @@
          this.TlgrmBot_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.BackGrnd_Butn = new System.MaxUi.RoundedButton();
          this.AttnType_Lov = new DevExpress.XtraEditors.LookUpEdit();
-         this.DaeatBs = new System.Windows.Forms.BindingSource();
+         this.DaeatBs = new System.Windows.Forms.BindingSource(this.components);
          this.AdjustDateTime_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.CardNumb_Text = new DevExpress.XtraEditors.ButtonEdit();
          this.FngrPrnt_Txt = new DevExpress.XtraEditors.TextEdit();
@@ -198,14 +199,14 @@
          this.AttendanceSystemAlert_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.ActionCenter_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.ShowDesktop_Butn = new DevExpress.XtraEditors.SimpleButton();
-         this.FighBs = new System.Windows.Forms.BindingSource();
-         this.Sp_Barcode = new System.IO.Ports.SerialPort();
-         this.Tm_FingerPrintWorker = new System.Windows.Forms.Timer();
+         this.FighBs = new System.Windows.Forms.BindingSource(this.components);
+         this.Sp_Barcode = new System.IO.Ports.SerialPort(this.components);
+         this.Tm_FingerPrintWorker = new System.Windows.Forms.Timer(this.components);
          this.ribbonPageGroup6 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-         this.Tm_ShowTime = new System.Windows.Forms.Timer();
-         this.Sp_GateAttn = new System.IO.Ports.SerialPort();
-         this.Sp_ExpnExtr = new System.IO.Ports.SerialPort();
-         this.AllMenu_Cmn = new System.Windows.Forms.ContextMenuStrip();
+         this.Tm_ShowTime = new System.Windows.Forms.Timer(this.components);
+         this.Sp_GateAttn = new System.IO.Ports.SerialPort(this.components);
+         this.Sp_ExpnExtr = new System.IO.Ports.SerialPort(this.components);
+         this.AllMenu_Cmn = new System.Windows.Forms.ContextMenuStrip(this.components);
          this.bbi_basdifnbutn_Mn = new System.Windows.Forms.ToolStripMenuItem();
          this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
          this.اطلاعاتثبتنامToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -239,6 +240,7 @@
          this.مدیریتسیستمToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
          this.bbi_bkupbutn_Mn = new System.Windows.Forms.ToolStripMenuItem();
          this.bbi_embkbutn_Mn = new System.Windows.Forms.ToolStripMenuItem();
+         this.bbi_incgbutn = new DevExpress.XtraBars.BarButtonItem();
          this.statusStrip1.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.spc_desktop)).BeginInit();
@@ -383,9 +385,10 @@
             this.bbi_fdlsbutn,
             this.bbi_embkbutn,
             this.bbi_basdifnbutn,
-            this.bbi_mbsnbutn});
+            this.bbi_mbsnbutn,
+            this.bbi_incgbutn});
          this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
-         this.ribbonControl1.MaxItemId = 94;
+         this.ribbonControl1.MaxItemId = 96;
          this.ribbonControl1.Name = "ribbonControl1";
          this.ribbonControl1.PageCategories.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageCategory[] {
             this.System_RPgc,
@@ -1447,8 +1450,9 @@
          this.AgrOprOption_RbGp.ItemLinks.Add(this.bbi_agcbbutn);
          this.AgrOprOption_RbGp.ItemLinks.Add(this.bbi_aglsbutn);
          this.AgrOprOption_RbGp.ItemLinks.Add(this.bbi_agmcbutn);
+         this.AgrOprOption_RbGp.ItemLinks.Add(this.bbi_incgbutn);
          this.AgrOprOption_RbGp.Name = "AgrOprOption_RbGp";
-         this.AgrOprOption_RbGp.Text = "عملکرد تجمعی سیستم";
+         this.AgrOprOption_RbGp.Text = "عملیات دوره ای";
          // 
          // Mngr_RPgc
          // 
@@ -2242,6 +2246,16 @@
          this.bbi_embkbutn_Mn.Text = "پشتیبان گیری اضطراری";
          this.bbi_embkbutn_Mn.Click += new System.EventHandler(this.bbi_embkbutn_Mn_Click);
          // 
+         // bbi_incgbutn
+         // 
+         this.bbi_incgbutn.Caption = "ثبت درآمد گروهی";
+         this.bbi_incgbutn.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
+         this.bbi_incgbutn.Glyph = ((System.Drawing.Image)(resources.GetObject("bbi_incgbutn.Glyph")));
+         this.bbi_incgbutn.Id = 94;
+         this.bbi_incgbutn.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbi_incgbutn.LargeGlyph")));
+         this.bbi_incgbutn.Name = "bbi_incgbutn";
+         this.bbi_incgbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_incgbutn_ItemClick);
+         // 
          // MAIN_PAGE_F
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -2455,5 +2469,6 @@
       private Windows.Forms.ToolStripMenuItem bbi_agmbbutn_Mn;
       private Windows.Forms.ToolStripMenuItem bbi_agcbbutn_Mn;
       private Windows.Forms.ToolStripMenuItem bbi_aglsbutn_Mn;
+      private DevExpress.XtraBars.BarButtonItem bbi_incgbutn;
    }
 }

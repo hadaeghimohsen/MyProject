@@ -150,6 +150,35 @@ namespace System.Scsc.Ui.ReportManager
                      (Fga_Uclb_U.Contains(pd.Payment.CLUB_CODE_DNRM))
                   );
             }
+            else if(tc_master.SelectedTab == tp_006)
+            {
+               PmckBs.DataSource =
+                  iScsc.Payment_Checks
+                  .Where(pc =>
+                     (
+                        PyckExpireDate_Rb.Checked ? 
+                        (pc.CHEK_DATE.Value.Date >= FromDate6_Date.Value.Value.Date && 
+                        pc.CHEK_DATE.Value.Date <= ToDate6_Date.Value.Value.Date)
+                        :
+                        true
+                     ) &&
+                     (
+                        PyckRcptDate_Rb.Checked ? 
+                        (pc.RCPT_DATE.Value.Date >= FromDate6_Date.Value.Value.Date && 
+                        pc.RCPT_DATE.Value.Date <= ToDate6_Date.Value.Value.Date)
+                        :
+                        true
+                     ) &&
+                     (PyckCheck_Rb.Checked ? 
+                        pc.AMNT_TYPE == "001" : 
+                        (PyckInstall_Rb.Checked ? 
+                        pc.AMNT_TYPE == "002" :
+                        true)
+                     ) &&
+                     pc.Request_Row.Request.RQST_STAT == "002" &&
+                     (Fga_Uclb_U.Contains(pc.Payment.CLUB_CODE_DNRM))
+                  );
+            }
          }
          catch { }
       }
@@ -161,8 +190,8 @@ namespace System.Scsc.Ui.ReportManager
             if (!FromDate1_Date.Value.HasValue) { MessageBox.Show("تاریخ شروع را مشخص کنید"); FromDate1_Date.Focus(); return; }
             if (!ToDate1_Date.Value.HasValue) { MessageBox.Show("تاریخ پایان را مشخص کنید"); ToDate1_Date.Focus(); return; }
 
-            FromDate2_Date.Value = FromDate3_Date.Value = FromDate4_Date.Value = FromDate5_Date.Value = FromDate1_Date.Value;
-            ToDate2_Date.Value = ToDate3_Date.Value = ToDate4_Date.Value = ToDate5_Date.Value = ToDate1_Date.Value;
+            FromDate6_Date.Value = FromDate2_Date.Value = FromDate3_Date.Value = FromDate4_Date.Value = FromDate5_Date.Value = FromDate1_Date.Value;
+            ToDate6_Date.Value = ToDate2_Date.Value = ToDate3_Date.Value = ToDate4_Date.Value = ToDate5_Date.Value = ToDate1_Date.Value;
 
             Rqtp_Lov5.EditValue = Rqtp_Lov2.EditValue = Rqtp_Lov3.EditValue = Rqtp_Lov.EditValue;
             Figh_Lov5.EditValue = Figh_Lov2.EditValue = Figh_Lov3.EditValue = Figh_Lov.EditValue;
@@ -173,8 +202,8 @@ namespace System.Scsc.Ui.ReportManager
             if (!FromDate2_Date.Value.HasValue) { MessageBox.Show("تاریخ شروع را مشخص کنید"); FromDate2_Date.Focus(); return; }
             if (!ToDate2_Date.Value.HasValue) { MessageBox.Show("تاریخ پایان را مشخص کنید"); ToDate2_Date.Focus(); return; }
 
-            FromDate1_Date.Value = FromDate3_Date.Value = FromDate4_Date.Value = FromDate5_Date.Value = FromDate2_Date.Value;
-            ToDate1_Date.Value = ToDate3_Date.Value = ToDate4_Date.Value = ToDate5_Date.Value = ToDate2_Date.Value;
+            FromDate6_Date.Value = FromDate1_Date.Value = FromDate3_Date.Value = FromDate4_Date.Value = FromDate5_Date.Value = FromDate2_Date.Value;
+            ToDate6_Date.Value = ToDate1_Date.Value = ToDate3_Date.Value = ToDate4_Date.Value = ToDate5_Date.Value = ToDate2_Date.Value;
             
             if(FromTime2_Te.EditValue == null)
                FromTime2_Te.EditValue = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 00, 00, 00);
@@ -190,8 +219,8 @@ namespace System.Scsc.Ui.ReportManager
             if (!FromDate3_Date.Value.HasValue) { MessageBox.Show("تاریخ شروع را مشخص کنید"); FromDate3_Date.Focus(); return; }
             if (!ToDate3_Date.Value.HasValue) { MessageBox.Show("تاریخ پایان را مشخص کنید"); ToDate3_Date.Focus(); return; }
 
-            FromDate1_Date.Value = FromDate2_Date.Value = FromDate4_Date.Value = FromDate3_Date.Value;
-            ToDate1_Date.Value = ToDate2_Date.Value = ToDate4_Date.Value = ToDate3_Date.Value;
+            FromDate6_Date.Value = FromDate1_Date.Value = FromDate2_Date.Value = FromDate4_Date.Value = FromDate3_Date.Value;
+            ToDate6_Date.Value = ToDate1_Date.Value = ToDate2_Date.Value = ToDate4_Date.Value = ToDate3_Date.Value;
 
             Rqtp_Lov5.EditValue = Rqtp_Lov2.EditValue = Rqtp_Lov.EditValue = Rqtp_Lov3.EditValue;
             Figh_Lov5.EditValue = Figh_Lov2.EditValue = Figh_Lov.EditValue = Figh_Lov3.EditValue;
@@ -202,20 +231,28 @@ namespace System.Scsc.Ui.ReportManager
             if (!FromDate4_Date.Value.HasValue) { MessageBox.Show("تاریخ شروع را مشخص کنید"); FromDate4_Date.Focus(); return; }
             if (!ToDate4_Date.Value.HasValue) { MessageBox.Show("تاریخ پایان را مشخص کنید"); ToDate4_Date.Focus(); return; }
 
-            FromDate1_Date.Value = FromDate2_Date.Value = FromDate3_Date.Value = FromDate5_Date.Value = FromDate4_Date.Value;
-            ToDate1_Date.Value = ToDate2_Date.Value = ToDate3_Date.Value = ToDate5_Date.Value = ToDate4_Date.Value;
+            FromDate6_Date.Value = FromDate1_Date.Value = FromDate2_Date.Value = FromDate3_Date.Value = FromDate5_Date.Value = FromDate4_Date.Value;
+            ToDate6_Date.Value = ToDate1_Date.Value = ToDate2_Date.Value = ToDate3_Date.Value = ToDate5_Date.Value = ToDate4_Date.Value;
          }
          else if (tc_master.SelectedTab == tp_005)
          {
             if (!FromDate5_Date.Value.HasValue) { MessageBox.Show("تاریخ شروع را مشخص کنید"); FromDate5_Date.Focus(); return; }
             if (!ToDate5_Date.Value.HasValue) { MessageBox.Show("تاریخ پایان را مشخص کنید"); ToDate5_Date.Focus(); return; }
 
-            FromDate1_Date.Value = FromDate2_Date.Value = FromDate4_Date.Value = FromDate3_Date.Value = FromDate5_Date.Value;
-            ToDate1_Date.Value = ToDate2_Date.Value = ToDate4_Date.Value = ToDate3_Date.Value = ToDate5_Date.Value;
+            FromDate6_Date.Value = FromDate1_Date.Value = FromDate2_Date.Value = FromDate4_Date.Value = FromDate3_Date.Value = FromDate5_Date.Value;
+            ToDate6_Date.Value = ToDate1_Date.Value = ToDate2_Date.Value = ToDate4_Date.Value = ToDate3_Date.Value = ToDate5_Date.Value;
 
             Rqtp_Lov2.EditValue = Rqtp_Lov.EditValue = Rqtp_Lov3.EditValue = Rqtp_Lov5.EditValue;
             Figh_Lov2.EditValue = Figh_Lov.EditValue = Figh_Lov3.EditValue = Figh_Lov5.EditValue;
             User_Lov2.EditValue = User_Lov.EditValue = User_Lov3.EditValue = User_Lov5.EditValue;
+         }
+         else if (tc_master.SelectedTab == tp_006)
+         {
+            if (!FromDate6_Date.Value.HasValue) { MessageBox.Show("تاریخ شروع را مشخص کنید"); FromDate5_Date.Focus(); return; }
+            if (!ToDate6_Date.Value.HasValue) { MessageBox.Show("تاریخ پایان را مشخص کنید"); ToDate5_Date.Focus(); return; }
+
+            FromDate1_Date.Value = FromDate2_Date.Value = FromDate4_Date.Value = FromDate3_Date.Value = FromDate5_Date.Value = FromDate6_Date.Value;
+            ToDate1_Date.Value = ToDate2_Date.Value = ToDate4_Date.Value = ToDate3_Date.Value = ToDate5_Date.Value = ToDate6_Date.Value;
          }
          Execute_Query();
       }
@@ -654,6 +691,21 @@ namespace System.Scsc.Ui.ReportManager
             );
          }
          catch { }
+      }
+
+      private void Actn6_Butn_ButtonClick(object sender, ButtonPressedEventArgs e)
+      {
+         try
+         {
+            var pmck = PmckBs.Current as Data.Payment_Check;
+            if (pmck == null) return;
+
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost", "", 46, SendType.Self) { Input = new XElement("Fighter", new XAttribute("fileno", pmck.Request_Row.FIGH_FILE_NO)) }
+            );
+         }
+         catch (Exception exc)
+         { MessageBox.Show(exc.Message); }
       }
    }
 }

@@ -673,23 +673,8 @@
          this.tp_006 = new System.Windows.Forms.TabPage();
          this.splitContainerControl6 = new DevExpress.XtraEditors.SplitContainerControl();
          this.gridControl4 = new DevExpress.XtraGrid.GridControl();
-         this.gridView9 = new DevExpress.XtraGrid.Views.Grid.GridView();
-         this.repositoryItemLookUpEdit7 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-         this.persianRepositoryItemDateEdit6 = new dxExample.PersianRepositoryItemDateEdit();
-         this.repositoryItemButtonEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
-         this.groupBox1 = new System.Windows.Forms.GroupBox();
-         this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
-         this.simpleButton4 = new DevExpress.XtraEditors.SimpleButton();
-         this.dateTimeSelector1 = new Atf.UI.DateTimeSelector();
-         this.label1 = new System.Windows.Forms.Label();
-         this.dateTimeSelector2 = new Atf.UI.DateTimeSelector();
-         this.label2 = new System.Windows.Forms.Label();
-         this.RqstBn1 = new System.Windows.Forms.BindingNavigator(this.components);
-         this.RqstBnDefaultPrint_Butn = new System.Windows.Forms.ToolStripButton();
-         this.RqstBnPrint_Butn = new System.Windows.Forms.ToolStripButton();
-         this.RqstBnSettingPrint_Butn = new System.Windows.Forms.ToolStripButton();
-         this.RqstBnExit1 = new System.Windows.Forms.ToolStripButton();
          this.PmckBs = new System.Windows.Forms.BindingSource(this.components);
+         this.gridView9 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colPYMT_CASH_CODE3 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colPYMT_RQST_RQID1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colRQRO_RQST_RQID = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -698,23 +683,46 @@
          this.colAMNT = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colDEBT_AMNT_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colAMNT_TYPE = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.Catp_Lov = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+         this.DCatpBs2 = new System.Windows.Forms.BindingSource(this.components);
          this.colCHEK_OWNR = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colCHEK_NO = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colCHEK_DATE = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.persianRepositoryItemDateEdit6 = new dxExample.PersianRepositoryItemDateEdit();
          this.colBANK1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colRCPT_DATE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colCHEK_TYPE = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.Cktp_Lov = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+         this.DCktpBs2 = new System.Windows.Forms.BindingSource(this.components);
          this.colCRET_BY = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colCRET_DATE3 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colMDFY_BY = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colMDFY_DATE6 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colPayment3 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colRequest_Row3 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.radioButton1 = new System.Windows.Forms.RadioButton();
-         this.radioButton2 = new System.Windows.Forms.RadioButton();
-         this.radioButton3 = new System.Windows.Forms.RadioButton();
+         this.Actn6_Butn = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+         this.groupBox1 = new System.Windows.Forms.GroupBox();
          this.groupBox2 = new System.Windows.Forms.GroupBox();
+         this.panel2 = new System.Windows.Forms.Panel();
+         this.PyckExpireDate_Rb = new System.Windows.Forms.RadioButton();
+         this.PyckRcptDate_Rb = new System.Windows.Forms.RadioButton();
          this.panel1 = new System.Windows.Forms.Panel();
+         this.PyckAll_Rb = new System.Windows.Forms.RadioButton();
+         this.PyckInstall_Rb = new System.Windows.Forms.RadioButton();
+         this.PyckCheck_Rb = new System.Windows.Forms.RadioButton();
+         this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+         this.Find6_Butn = new DevExpress.XtraEditors.SimpleButton();
+         this.ToDate6_Date = new Atf.UI.DateTimeSelector();
+         this.label1 = new System.Windows.Forms.Label();
+         this.FromDate6_Date = new Atf.UI.DateTimeSelector();
+         this.label2 = new System.Windows.Forms.Label();
+         this.RqstBn1 = new System.Windows.Forms.BindingNavigator(this.components);
+         this.RqstBnDefaultPrint_Butn = new System.Windows.Forms.ToolStripButton();
+         this.RqstBnPrint_Butn = new System.Windows.Forms.ToolStripButton();
+         this.RqstBnSettingPrint_Butn = new System.Windows.Forms.ToolStripButton();
+         this.RqstBnFind1 = new System.Windows.Forms.ToolStripButton();
+         this.RqstBnExit1 = new System.Windows.Forms.ToolStripButton();
+         this.colActn6 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.tc_master.SuspendLayout();
          this.tp_002.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl2)).BeginInit();
@@ -822,17 +830,21 @@
          ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl6)).BeginInit();
          this.splitContainerControl6.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.gridControl4)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.PmckBs)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.gridView9)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit7)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.Catp_Lov)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.DCatpBs2)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit6)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit6.CalendarTimeProperties)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit1)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.Cktp_Lov)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.DCktpBs2)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.Actn6_Butn)).BeginInit();
          this.groupBox1.SuspendLayout();
+         this.groupBox2.SuspendLayout();
+         this.panel2.SuspendLayout();
+         this.panel1.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.RqstBn1)).BeginInit();
          this.RqstBn1.SuspendLayout();
-         ((System.ComponentModel.ISupportInitialize)(this.PmckBs)).BeginInit();
-         this.groupBox2.SuspendLayout();
-         this.panel1.SuspendLayout();
          this.SuspendLayout();
          // 
          // FromDate1_Lb
@@ -2077,6 +2089,7 @@
          this.Back2_Butn.Size = new System.Drawing.Size(106, 34);
          this.Back2_Butn.TabIndex = 7;
          this.Back2_Butn.Text = "بازگشت";
+         this.Back2_Butn.Visible = false;
          this.Back2_Butn.Click += new System.EventHandler(this.Back_Butn_Click);
          // 
          // simpleButton2
@@ -2105,6 +2118,7 @@
          this.Find2_Butn.Size = new System.Drawing.Size(128, 34);
          this.Find2_Butn.TabIndex = 6;
          this.Find2_Butn.Text = "جستجو";
+         this.Find2_Butn.Visible = false;
          this.Find2_Butn.Click += new System.EventHandler(this.Find_Butn_Click);
          // 
          // Figh_Lov2
@@ -3082,6 +3096,7 @@
          this.Back_Butn.Size = new System.Drawing.Size(106, 34);
          this.Back_Butn.TabIndex = 7;
          this.Back_Butn.Text = "بازگشت";
+         this.Back_Butn.Visible = false;
          this.Back_Butn.Click += new System.EventHandler(this.Back_Butn_Click);
          // 
          // Submit_Butn
@@ -3111,6 +3126,7 @@
          this.Find_Butn.Size = new System.Drawing.Size(107, 34);
          this.Find_Butn.TabIndex = 6;
          this.Find_Butn.Text = "جستجو";
+         this.Find_Butn.Visible = false;
          this.Find_Butn.Click += new System.EventHandler(this.Find_Butn_Click);
          // 
          // Figh_Lov
@@ -4054,6 +4070,7 @@
          this.Back3_Butn.Size = new System.Drawing.Size(106, 34);
          this.Back3_Butn.TabIndex = 7;
          this.Back3_Butn.Text = "بازگشت";
+         this.Back3_Butn.Visible = false;
          this.Back3_Butn.Click += new System.EventHandler(this.Back_Butn_Click);
          // 
          // simpleButton3
@@ -4082,6 +4099,7 @@
          this.Find3_Butn.Size = new System.Drawing.Size(90, 34);
          this.Find3_Butn.TabIndex = 6;
          this.Find3_Butn.Text = "جستجو";
+         this.Find3_Butn.Visible = false;
          this.Find3_Butn.Click += new System.EventHandler(this.Find_Butn_Click);
          // 
          // Figh_Lov3
@@ -5013,6 +5031,7 @@
          this.Back5_Butn.Size = new System.Drawing.Size(106, 34);
          this.Back5_Butn.TabIndex = 7;
          this.Back5_Butn.Text = "بازگشت";
+         this.Back5_Butn.Visible = false;
          this.Back5_Butn.Click += new System.EventHandler(this.Back_Butn_Click);
          // 
          // Find5_Butn
@@ -5027,6 +5046,7 @@
          this.Find5_Butn.Size = new System.Drawing.Size(90, 34);
          this.Find5_Butn.TabIndex = 6;
          this.Find5_Butn.Text = "جستجو";
+         this.Find5_Butn.Visible = false;
          this.Find5_Butn.Click += new System.EventHandler(this.Find_Butn_Click);
          // 
          // ToDate4_Date
@@ -5569,6 +5589,7 @@
          this.Back4_Butn.Size = new System.Drawing.Size(106, 34);
          this.Back4_Butn.TabIndex = 7;
          this.Back4_Butn.Text = "بازگشت";
+         this.Back4_Butn.Visible = false;
          this.Back4_Butn.Click += new System.EventHandler(this.Back_Butn_Click);
          // 
          // simpleButton6
@@ -5597,6 +5618,7 @@
          this.Find4_Butn.Size = new System.Drawing.Size(90, 34);
          this.Find4_Butn.TabIndex = 6;
          this.Find4_Butn.Text = "جستجو";
+         this.Find4_Butn.Visible = false;
          this.Find4_Butn.Click += new System.EventHandler(this.Find_Butn_Click);
          // 
          // Figh_Lov5
@@ -6187,16 +6209,25 @@
          this.gridControl4.MainView = this.gridView9;
          this.gridControl4.Name = "gridControl4";
          this.gridControl4.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.repositoryItemLookUpEdit7,
+            this.Catp_Lov,
             this.persianRepositoryItemDateEdit6,
-            this.repositoryItemButtonEdit1});
+            this.Actn6_Butn,
+            this.Cktp_Lov});
          this.gridControl4.Size = new System.Drawing.Size(949, 510);
          this.gridControl4.TabIndex = 1;
          this.gridControl4.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView9});
          // 
+         // PmckBs
+         // 
+         this.PmckBs.DataSource = typeof(System.Scsc.Data.Payment_Check);
+         // 
          // gridView9
          // 
+         this.gridView9.Appearance.GroupRow.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.gridView9.Appearance.GroupRow.Options.UseFont = true;
+         this.gridView9.Appearance.GroupRow.Options.UseTextOptions = true;
+         this.gridView9.Appearance.GroupRow.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.gridView9.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.gridView9.Appearance.HeaderPanel.Options.UseFont = true;
          this.gridView9.Appearance.HeaderPanel.Options.UseTextOptions = true;
@@ -6225,7 +6256,8 @@
             this.colMDFY_BY,
             this.colMDFY_DATE6,
             this.colPayment3,
-            this.colRequest_Row3});
+            this.colRequest_Row3,
+            this.colActn6});
          this.gridView9.GridControl = this.gridControl4;
          this.gridView9.GroupCount = 2;
          this.gridView9.Name = "gridView9";
@@ -6239,19 +6271,138 @@
             new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colRQRO_RWNO, DevExpress.Data.ColumnSortOrder.Ascending),
             new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colRQRO_RQST_RQID, DevExpress.Data.ColumnSortOrder.Ascending)});
          // 
-         // repositoryItemLookUpEdit7
+         // colPYMT_CASH_CODE3
          // 
-         this.repositoryItemLookUpEdit7.AutoHeight = false;
-         this.repositoryItemLookUpEdit7.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+         this.colPYMT_CASH_CODE3.FieldName = "PYMT_CASH_CODE";
+         this.colPYMT_CASH_CODE3.Name = "colPYMT_CASH_CODE3";
+         // 
+         // colPYMT_RQST_RQID1
+         // 
+         this.colPYMT_RQST_RQID1.FieldName = "PYMT_RQST_RQID";
+         this.colPYMT_RQST_RQID1.Name = "colPYMT_RQST_RQID1";
+         // 
+         // colRQRO_RQST_RQID
+         // 
+         this.colRQRO_RQST_RQID.Caption = "نوع درخواست";
+         this.colRQRO_RQST_RQID.FieldName = "Request_Row.Request_Type.RQTP_DESC";
+         this.colRQRO_RQST_RQID.Name = "colRQRO_RQST_RQID";
+         this.colRQRO_RQST_RQID.OptionsColumn.AllowEdit = false;
+         this.colRQRO_RQST_RQID.OptionsColumn.ReadOnly = true;
+         this.colRQRO_RQST_RQID.Visible = true;
+         this.colRQRO_RQST_RQID.VisibleIndex = 0;
+         // 
+         // colRQRO_RWNO
+         // 
+         this.colRQRO_RWNO.Caption = "مشترک";
+         this.colRQRO_RWNO.FieldName = "Request_Row.Fighter.NAME_DNRM";
+         this.colRQRO_RWNO.Name = "colRQRO_RWNO";
+         this.colRQRO_RWNO.OptionsColumn.AllowEdit = false;
+         this.colRQRO_RWNO.OptionsColumn.ReadOnly = true;
+         this.colRQRO_RWNO.Visible = true;
+         this.colRQRO_RWNO.VisibleIndex = 0;
+         // 
+         // colRWNO2
+         // 
+         this.colRWNO2.FieldName = "RWNO";
+         this.colRWNO2.Name = "colRWNO2";
+         // 
+         // colAMNT
+         // 
+         this.colAMNT.AppearanceCell.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+         this.colAMNT.AppearanceCell.Options.UseBackColor = true;
+         this.colAMNT.Caption = "مبلغ";
+         this.colAMNT.DisplayFormat.FormatString = "{0:n0}";
+         this.colAMNT.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+         this.colAMNT.FieldName = "AMNT";
+         this.colAMNT.GroupFormat.FormatString = "{0:n0}";
+         this.colAMNT.GroupFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+         this.colAMNT.Name = "colAMNT";
+         this.colAMNT.OptionsColumn.AllowEdit = false;
+         this.colAMNT.OptionsColumn.ReadOnly = true;
+         this.colAMNT.Visible = true;
+         this.colAMNT.VisibleIndex = 12;
+         this.colAMNT.Width = 115;
+         // 
+         // colDEBT_AMNT_DNRM
+         // 
+         this.colDEBT_AMNT_DNRM.AppearanceCell.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+         this.colDEBT_AMNT_DNRM.AppearanceCell.Options.UseBackColor = true;
+         this.colDEBT_AMNT_DNRM.Caption = "مبلغ بدهی";
+         this.colDEBT_AMNT_DNRM.DisplayFormat.FormatString = "{0:n0}";
+         this.colDEBT_AMNT_DNRM.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+         this.colDEBT_AMNT_DNRM.FieldName = "DEBT_AMNT_DNRM";
+         this.colDEBT_AMNT_DNRM.GroupFormat.FormatString = "{0:n0}";
+         this.colDEBT_AMNT_DNRM.GroupFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+         this.colDEBT_AMNT_DNRM.Name = "colDEBT_AMNT_DNRM";
+         this.colDEBT_AMNT_DNRM.OptionsColumn.AllowEdit = false;
+         this.colDEBT_AMNT_DNRM.OptionsColumn.ReadOnly = true;
+         this.colDEBT_AMNT_DNRM.Visible = true;
+         this.colDEBT_AMNT_DNRM.VisibleIndex = 11;
+         this.colDEBT_AMNT_DNRM.Width = 67;
+         // 
+         // colAMNT_TYPE
+         // 
+         this.colAMNT_TYPE.Caption = "نوع مبلغ";
+         this.colAMNT_TYPE.ColumnEdit = this.Catp_Lov;
+         this.colAMNT_TYPE.FieldName = "AMNT_TYPE";
+         this.colAMNT_TYPE.Name = "colAMNT_TYPE";
+         this.colAMNT_TYPE.OptionsColumn.AllowEdit = false;
+         this.colAMNT_TYPE.OptionsColumn.ReadOnly = true;
+         this.colAMNT_TYPE.Visible = true;
+         this.colAMNT_TYPE.VisibleIndex = 10;
+         this.colAMNT_TYPE.Width = 67;
+         // 
+         // Catp_Lov
+         // 
+         this.Catp_Lov.AutoHeight = false;
+         this.Catp_Lov.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject35, "", null, null, true)});
-         this.repositoryItemLookUpEdit7.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+         this.Catp_Lov.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("NAME_DNRM", "نام مربی", 73, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("FATH_NAME_DNRM", "نام پدر", 105, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near)});
-         this.repositoryItemLookUpEdit7.DataSource = this.FighBs1;
-         this.repositoryItemLookUpEdit7.DisplayMember = "NAME_DNRM";
-         this.repositoryItemLookUpEdit7.Name = "repositoryItemLookUpEdit7";
-         this.repositoryItemLookUpEdit7.NullText = "";
-         this.repositoryItemLookUpEdit7.ValueMember = "FILE_NO";
+         this.Catp_Lov.DataSource = this.DCatpBs2;
+         this.Catp_Lov.DisplayMember = "DOMN_DESC";
+         this.Catp_Lov.Name = "Catp_Lov";
+         this.Catp_Lov.NullText = "";
+         this.Catp_Lov.ValueMember = "VALU";
+         // 
+         // DCatpBs2
+         // 
+         this.DCatpBs2.DataSource = typeof(System.Scsc.Data.D_CATP);
+         // 
+         // colCHEK_OWNR
+         // 
+         this.colCHEK_OWNR.Caption = "صاحب چک";
+         this.colCHEK_OWNR.FieldName = "CHEK_OWNR";
+         this.colCHEK_OWNR.Name = "colCHEK_OWNR";
+         this.colCHEK_OWNR.OptionsColumn.AllowEdit = false;
+         this.colCHEK_OWNR.OptionsColumn.ReadOnly = true;
+         this.colCHEK_OWNR.Visible = true;
+         this.colCHEK_OWNR.VisibleIndex = 9;
+         this.colCHEK_OWNR.Width = 67;
+         // 
+         // colCHEK_NO
+         // 
+         this.colCHEK_NO.Caption = "شماره چک";
+         this.colCHEK_NO.FieldName = "CHEK_NO";
+         this.colCHEK_NO.Name = "colCHEK_NO";
+         this.colCHEK_NO.OptionsColumn.AllowEdit = false;
+         this.colCHEK_NO.OptionsColumn.ReadOnly = true;
+         this.colCHEK_NO.Visible = true;
+         this.colCHEK_NO.VisibleIndex = 8;
+         this.colCHEK_NO.Width = 67;
+         // 
+         // colCHEK_DATE
+         // 
+         this.colCHEK_DATE.Caption = "تاریخ چک";
+         this.colCHEK_DATE.ColumnEdit = this.persianRepositoryItemDateEdit6;
+         this.colCHEK_DATE.FieldName = "CHEK_DATE";
+         this.colCHEK_DATE.Name = "colCHEK_DATE";
+         this.colCHEK_DATE.OptionsColumn.AllowEdit = false;
+         this.colCHEK_DATE.OptionsColumn.ReadOnly = true;
+         this.colCHEK_DATE.Visible = true;
+         this.colCHEK_DATE.VisibleIndex = 7;
+         this.colCHEK_DATE.Width = 67;
          // 
          // persianRepositoryItemDateEdit6
          // 
@@ -6264,22 +6415,129 @@
          this.persianRepositoryItemDateEdit6.CalendarTimeProperties.PopupBorderStyle = DevExpress.XtraEditors.Controls.PopupBorderStyles.Default;
          this.persianRepositoryItemDateEdit6.Name = "persianRepositoryItemDateEdit6";
          // 
-         // repositoryItemButtonEdit1
+         // colBANK1
          // 
-         this.repositoryItemButtonEdit1.AutoHeight = false;
-         this.repositoryItemButtonEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("repositoryItemButtonEdit1.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject37, "ویرایش هزینه", null, null, true)});
-         this.repositoryItemButtonEdit1.Name = "repositoryItemButtonEdit1";
-         this.repositoryItemButtonEdit1.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+         this.colBANK1.Caption = "بانک";
+         this.colBANK1.FieldName = "BANK";
+         this.colBANK1.Name = "colBANK1";
+         this.colBANK1.OptionsColumn.AllowEdit = false;
+         this.colBANK1.OptionsColumn.ReadOnly = true;
+         this.colBANK1.Visible = true;
+         this.colBANK1.VisibleIndex = 6;
+         this.colBANK1.Width = 67;
+         // 
+         // colRCPT_DATE
+         // 
+         this.colRCPT_DATE.Caption = "تاریخ پرداخت";
+         this.colRCPT_DATE.ColumnEdit = this.persianRepositoryItemDateEdit6;
+         this.colRCPT_DATE.FieldName = "RCPT_DATE";
+         this.colRCPT_DATE.Name = "colRCPT_DATE";
+         this.colRCPT_DATE.OptionsColumn.AllowEdit = false;
+         this.colRCPT_DATE.OptionsColumn.ReadOnly = true;
+         this.colRCPT_DATE.Visible = true;
+         this.colRCPT_DATE.VisibleIndex = 5;
+         this.colRCPT_DATE.Width = 67;
+         // 
+         // colCHEK_TYPE
+         // 
+         this.colCHEK_TYPE.Caption = "نوع";
+         this.colCHEK_TYPE.ColumnEdit = this.Cktp_Lov;
+         this.colCHEK_TYPE.FieldName = "CHEK_TYPE";
+         this.colCHEK_TYPE.Name = "colCHEK_TYPE";
+         this.colCHEK_TYPE.OptionsColumn.AllowEdit = false;
+         this.colCHEK_TYPE.OptionsColumn.ReadOnly = true;
+         this.colCHEK_TYPE.Visible = true;
+         this.colCHEK_TYPE.VisibleIndex = 4;
+         this.colCHEK_TYPE.Width = 67;
+         // 
+         // Cktp_Lov
+         // 
+         this.Cktp_Lov.AutoHeight = false;
+         this.Cktp_Lov.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+         this.Cktp_Lov.DataSource = this.DCktpBs2;
+         this.Cktp_Lov.DisplayMember = "DOMN_DESC";
+         this.Cktp_Lov.Name = "Cktp_Lov";
+         this.Cktp_Lov.NullText = "";
+         this.Cktp_Lov.ValueMember = "VALU";
+         // 
+         // DCktpBs2
+         // 
+         this.DCktpBs2.DataSource = typeof(System.Scsc.Data.D_CKTP);
+         // 
+         // colCRET_BY
+         // 
+         this.colCRET_BY.Caption = "کاربر ثبت کننده";
+         this.colCRET_BY.FieldName = "CRET_BY";
+         this.colCRET_BY.Name = "colCRET_BY";
+         this.colCRET_BY.OptionsColumn.AllowEdit = false;
+         this.colCRET_BY.OptionsColumn.ReadOnly = true;
+         this.colCRET_BY.Visible = true;
+         this.colCRET_BY.VisibleIndex = 3;
+         this.colCRET_BY.Width = 67;
+         // 
+         // colCRET_DATE3
+         // 
+         this.colCRET_DATE3.Caption = "تاریخ ثبت";
+         this.colCRET_DATE3.ColumnEdit = this.persianRepositoryItemDateEdit6;
+         this.colCRET_DATE3.FieldName = "CRET_DATE";
+         this.colCRET_DATE3.Name = "colCRET_DATE3";
+         this.colCRET_DATE3.OptionsColumn.AllowEdit = false;
+         this.colCRET_DATE3.OptionsColumn.ReadOnly = true;
+         this.colCRET_DATE3.Visible = true;
+         this.colCRET_DATE3.VisibleIndex = 2;
+         this.colCRET_DATE3.Width = 67;
+         // 
+         // colMDFY_BY
+         // 
+         this.colMDFY_BY.Caption = "کاربر ویرایش کننده";
+         this.colMDFY_BY.FieldName = "MDFY_BY";
+         this.colMDFY_BY.Name = "colMDFY_BY";
+         this.colMDFY_BY.OptionsColumn.AllowEdit = false;
+         this.colMDFY_BY.OptionsColumn.ReadOnly = true;
+         this.colMDFY_BY.Visible = true;
+         this.colMDFY_BY.VisibleIndex = 1;
+         this.colMDFY_BY.Width = 67;
+         // 
+         // colMDFY_DATE6
+         // 
+         this.colMDFY_DATE6.Caption = "تاریخ ویرایش";
+         this.colMDFY_DATE6.ColumnEdit = this.persianRepositoryItemDateEdit6;
+         this.colMDFY_DATE6.FieldName = "MDFY_DATE";
+         this.colMDFY_DATE6.Name = "colMDFY_DATE6";
+         this.colMDFY_DATE6.OptionsColumn.AllowEdit = false;
+         this.colMDFY_DATE6.OptionsColumn.ReadOnly = true;
+         this.colMDFY_DATE6.Visible = true;
+         this.colMDFY_DATE6.VisibleIndex = 0;
+         this.colMDFY_DATE6.Width = 67;
+         // 
+         // colPayment3
+         // 
+         this.colPayment3.FieldName = "Payment";
+         this.colPayment3.Name = "colPayment3";
+         // 
+         // colRequest_Row3
+         // 
+         this.colRequest_Row3.FieldName = "Request_Row";
+         this.colRequest_Row3.Name = "colRequest_Row3";
+         // 
+         // Actn6_Butn
+         // 
+         this.Actn6_Butn.AutoHeight = false;
+         this.Actn6_Butn.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("Actn6_Butn.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject37, "اطلاعات پرونده مشترک", null, null, true)});
+         this.Actn6_Butn.Name = "Actn6_Butn";
+         this.Actn6_Butn.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+         this.Actn6_Butn.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.Actn6_Butn_ButtonClick);
          // 
          // groupBox1
          // 
          this.groupBox1.Controls.Add(this.groupBox2);
          this.groupBox1.Controls.Add(this.simpleButton1);
-         this.groupBox1.Controls.Add(this.simpleButton4);
-         this.groupBox1.Controls.Add(this.dateTimeSelector1);
+         this.groupBox1.Controls.Add(this.Find6_Butn);
+         this.groupBox1.Controls.Add(this.ToDate6_Date);
          this.groupBox1.Controls.Add(this.label1);
-         this.groupBox1.Controls.Add(this.dateTimeSelector2);
+         this.groupBox1.Controls.Add(this.FromDate6_Date);
          this.groupBox1.Controls.Add(this.label2);
          this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
          this.groupBox1.Location = new System.Drawing.Point(0, 0);
@@ -6289,41 +6547,133 @@
          this.groupBox1.TabStop = false;
          this.groupBox1.Text = "اطلاعات پارامتری";
          // 
+         // groupBox2
+         // 
+         this.groupBox2.Controls.Add(this.panel2);
+         this.groupBox2.Controls.Add(this.panel1);
+         this.groupBox2.Location = new System.Drawing.Point(8, 79);
+         this.groupBox2.Name = "groupBox2";
+         this.groupBox2.Size = new System.Drawing.Size(264, 100);
+         this.groupBox2.TabIndex = 18;
+         this.groupBox2.TabStop = false;
+         this.groupBox2.Text = "چک / اقساط";
+         // 
+         // panel2
+         // 
+         this.panel2.Controls.Add(this.PyckExpireDate_Rb);
+         this.panel2.Controls.Add(this.PyckRcptDate_Rb);
+         this.panel2.Location = new System.Drawing.Point(6, 16);
+         this.panel2.Name = "panel2";
+         this.panel2.Size = new System.Drawing.Size(146, 78);
+         this.panel2.TabIndex = 20;
+         // 
+         // PyckExpireDate_Rb
+         // 
+         this.PyckExpireDate_Rb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.PyckExpireDate_Rb.AutoSize = true;
+         this.PyckExpireDate_Rb.Checked = true;
+         this.PyckExpireDate_Rb.Location = new System.Drawing.Point(33, 3);
+         this.PyckExpireDate_Rb.Name = "PyckExpireDate_Rb";
+         this.PyckExpireDate_Rb.Size = new System.Drawing.Size(110, 18);
+         this.PyckExpireDate_Rb.TabIndex = 17;
+         this.PyckExpireDate_Rb.TabStop = true;
+         this.PyckExpireDate_Rb.Text = "تاریخ چک / قسط";
+         this.PyckExpireDate_Rb.UseVisualStyleBackColor = true;
+         // 
+         // PyckRcptDate_Rb
+         // 
+         this.PyckRcptDate_Rb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.PyckRcptDate_Rb.AutoSize = true;
+         this.PyckRcptDate_Rb.Location = new System.Drawing.Point(56, 27);
+         this.PyckRcptDate_Rb.Name = "PyckRcptDate_Rb";
+         this.PyckRcptDate_Rb.Size = new System.Drawing.Size(87, 18);
+         this.PyckRcptDate_Rb.TabIndex = 17;
+         this.PyckRcptDate_Rb.Text = "تاریخ پرداخت";
+         this.PyckRcptDate_Rb.UseVisualStyleBackColor = true;
+         // 
+         // panel1
+         // 
+         this.panel1.Controls.Add(this.PyckAll_Rb);
+         this.panel1.Controls.Add(this.PyckInstall_Rb);
+         this.panel1.Controls.Add(this.PyckCheck_Rb);
+         this.panel1.Location = new System.Drawing.Point(158, 16);
+         this.panel1.Name = "panel1";
+         this.panel1.Size = new System.Drawing.Size(100, 78);
+         this.panel1.TabIndex = 19;
+         // 
+         // PyckAll_Rb
+         // 
+         this.PyckAll_Rb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.PyckAll_Rb.AutoSize = true;
+         this.PyckAll_Rb.Checked = true;
+         this.PyckAll_Rb.Location = new System.Drawing.Point(22, 3);
+         this.PyckAll_Rb.Name = "PyckAll_Rb";
+         this.PyckAll_Rb.Size = new System.Drawing.Size(75, 18);
+         this.PyckAll_Rb.TabIndex = 17;
+         this.PyckAll_Rb.TabStop = true;
+         this.PyckAll_Rb.Text = "همه موارد";
+         this.PyckAll_Rb.UseVisualStyleBackColor = true;
+         // 
+         // PyckInstall_Rb
+         // 
+         this.PyckInstall_Rb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.PyckInstall_Rb.AutoSize = true;
+         this.PyckInstall_Rb.Location = new System.Drawing.Point(39, 51);
+         this.PyckInstall_Rb.Name = "PyckInstall_Rb";
+         this.PyckInstall_Rb.Size = new System.Drawing.Size(58, 18);
+         this.PyckInstall_Rb.TabIndex = 17;
+         this.PyckInstall_Rb.Text = "اقساط";
+         this.PyckInstall_Rb.UseVisualStyleBackColor = true;
+         // 
+         // PyckCheck_Rb
+         // 
+         this.PyckCheck_Rb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.PyckCheck_Rb.AutoSize = true;
+         this.PyckCheck_Rb.Location = new System.Drawing.Point(52, 27);
+         this.PyckCheck_Rb.Name = "PyckCheck_Rb";
+         this.PyckCheck_Rb.Size = new System.Drawing.Size(45, 18);
+         this.PyckCheck_Rb.TabIndex = 17;
+         this.PyckCheck_Rb.Text = "چک";
+         this.PyckCheck_Rb.UseVisualStyleBackColor = true;
+         // 
          // simpleButton1
          // 
          this.simpleButton1.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.Image")));
-         this.simpleButton1.Location = new System.Drawing.Point(6, 199);
+         this.simpleButton1.Location = new System.Drawing.Point(6, 185);
          this.simpleButton1.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
          this.simpleButton1.LookAndFeel.UseDefaultLookAndFeel = false;
          this.simpleButton1.Name = "simpleButton1";
          this.simpleButton1.Size = new System.Drawing.Size(106, 34);
          this.simpleButton1.TabIndex = 7;
          this.simpleButton1.Text = "بازگشت";
+         this.simpleButton1.Visible = false;
          // 
-         // simpleButton4
+         // Find6_Butn
          // 
-         this.simpleButton4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+         this.Find6_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-         this.simpleButton4.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton4.Image")));
-         this.simpleButton4.Location = new System.Drawing.Point(118, 199);
-         this.simpleButton4.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
-         this.simpleButton4.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.simpleButton4.Name = "simpleButton4";
-         this.simpleButton4.Size = new System.Drawing.Size(90, 34);
-         this.simpleButton4.TabIndex = 6;
-         this.simpleButton4.Text = "جستجو";
+         this.Find6_Butn.Image = ((System.Drawing.Image)(resources.GetObject("Find6_Butn.Image")));
+         this.Find6_Butn.Location = new System.Drawing.Point(118, 185);
+         this.Find6_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
+         this.Find6_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.Find6_Butn.Name = "Find6_Butn";
+         this.Find6_Butn.Size = new System.Drawing.Size(90, 34);
+         this.Find6_Butn.TabIndex = 6;
+         this.Find6_Butn.Text = "جستجو";
+         this.Find6_Butn.Visible = false;
+         this.Find6_Butn.Click += new System.EventHandler(this.Find_Butn_Click);
          // 
-         // dateTimeSelector1
+         // ToDate6_Date
          // 
-         this.dateTimeSelector1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.dateTimeSelector1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-         this.dateTimeSelector1.CustomFormat = "dd/MM/yyyy";
-         this.dateTimeSelector1.Format = Atf.UI.DateTimeSelectorFormat.Custom;
-         this.dateTimeSelector1.Location = new System.Drawing.Point(108, 50);
-         this.dateTimeSelector1.Name = "dateTimeSelector1";
-         this.dateTimeSelector1.Size = new System.Drawing.Size(100, 23);
-         this.dateTimeSelector1.TabIndex = 1;
-         this.dateTimeSelector1.UsePersianFormat = true;
+         this.ToDate6_Date.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.ToDate6_Date.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+         this.ToDate6_Date.CustomFormat = "dd/MM/yyyy";
+         this.ToDate6_Date.Format = Atf.UI.DateTimeSelectorFormat.Custom;
+         this.ToDate6_Date.Location = new System.Drawing.Point(108, 50);
+         this.ToDate6_Date.Name = "ToDate6_Date";
+         this.ToDate6_Date.Size = new System.Drawing.Size(100, 23);
+         this.ToDate6_Date.TabIndex = 1;
+         this.ToDate6_Date.UsePersianFormat = true;
          // 
          // label1
          // 
@@ -6335,17 +6685,17 @@
          this.label1.TabIndex = 16;
          this.label1.Text = "تا تاریخ :";
          // 
-         // dateTimeSelector2
+         // FromDate6_Date
          // 
-         this.dateTimeSelector2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.dateTimeSelector2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-         this.dateTimeSelector2.CustomFormat = "dd/MM/yyyy";
-         this.dateTimeSelector2.Format = Atf.UI.DateTimeSelectorFormat.Custom;
-         this.dateTimeSelector2.Location = new System.Drawing.Point(108, 21);
-         this.dateTimeSelector2.Name = "dateTimeSelector2";
-         this.dateTimeSelector2.Size = new System.Drawing.Size(100, 23);
-         this.dateTimeSelector2.TabIndex = 0;
-         this.dateTimeSelector2.UsePersianFormat = true;
+         this.FromDate6_Date.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.FromDate6_Date.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+         this.FromDate6_Date.CustomFormat = "dd/MM/yyyy";
+         this.FromDate6_Date.Format = Atf.UI.DateTimeSelectorFormat.Custom;
+         this.FromDate6_Date.Location = new System.Drawing.Point(108, 21);
+         this.FromDate6_Date.Name = "FromDate6_Date";
+         this.FromDate6_Date.Size = new System.Drawing.Size(100, 23);
+         this.FromDate6_Date.TabIndex = 0;
+         this.FromDate6_Date.UsePersianFormat = true;
          // 
          // label2
          // 
@@ -6368,6 +6718,7 @@
             this.RqstBnDefaultPrint_Butn,
             this.RqstBnPrint_Butn,
             this.RqstBnSettingPrint_Butn,
+            this.RqstBnFind1,
             this.RqstBnExit1});
          this.RqstBn1.Location = new System.Drawing.Point(0, 0);
          this.RqstBn1.MoveFirstItem = null;
@@ -6417,6 +6768,17 @@
          this.RqstBnSettingPrint_Butn.ToolTipText = "تنظیمات گزارش";
          this.RqstBnSettingPrint_Butn.Click += new System.EventHandler(this.RqstBnSettingPrint_Click);
          // 
+         // RqstBnFind1
+         // 
+         this.RqstBnFind1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+         this.RqstBnFind1.Image = global::System.Scsc.Properties.Resources.IMAGE_1133;
+         this.RqstBnFind1.ImageTransparentColor = System.Drawing.Color.Magenta;
+         this.RqstBnFind1.Margin = new System.Windows.Forms.Padding(10, 1, 0, 2);
+         this.RqstBnFind1.Name = "RqstBnFind1";
+         this.RqstBnFind1.Size = new System.Drawing.Size(44, 44);
+         this.RqstBnFind1.ToolTipText = "جستجو ( F5 )";
+         this.RqstBnFind1.Click += new System.EventHandler(this.Find_Butn_Click);
+         // 
          // RqstBnExit1
          // 
          this.RqstBnExit1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -6429,209 +6791,14 @@
          this.RqstBnExit1.ToolTipText = "خروج";
          this.RqstBnExit1.Click += new System.EventHandler(this.Back_Butn_Click);
          // 
-         // PmckBs
+         // colActn6
          // 
-         this.PmckBs.DataSource = typeof(System.Scsc.Data.Payment_Check);
-         // 
-         // colPYMT_CASH_CODE3
-         // 
-         this.colPYMT_CASH_CODE3.FieldName = "PYMT_CASH_CODE";
-         this.colPYMT_CASH_CODE3.Name = "colPYMT_CASH_CODE3";
-         // 
-         // colPYMT_RQST_RQID1
-         // 
-         this.colPYMT_RQST_RQID1.FieldName = "PYMT_RQST_RQID";
-         this.colPYMT_RQST_RQID1.Name = "colPYMT_RQST_RQID1";
-         // 
-         // colRQRO_RQST_RQID
-         // 
-         this.colRQRO_RQST_RQID.Caption = "نوع درخواست";
-         this.colRQRO_RQST_RQID.FieldName = "Request_Row.Request_Type.RQTP_DESC";
-         this.colRQRO_RQST_RQID.Name = "colRQRO_RQST_RQID";
-         this.colRQRO_RQST_RQID.Visible = true;
-         this.colRQRO_RQST_RQID.VisibleIndex = 0;
-         // 
-         // colRQRO_RWNO
-         // 
-         this.colRQRO_RWNO.Caption = "مشترک";
-         this.colRQRO_RWNO.FieldName = "Request_Row.Fighter.NAME_DNRM";
-         this.colRQRO_RWNO.Name = "colRQRO_RWNO";
-         this.colRQRO_RWNO.Visible = true;
-         this.colRQRO_RWNO.VisibleIndex = 0;
-         // 
-         // colRWNO2
-         // 
-         this.colRWNO2.FieldName = "RWNO";
-         this.colRWNO2.Name = "colRWNO2";
-         // 
-         // colAMNT
-         // 
-         this.colAMNT.Caption = "مبلغ";
-         this.colAMNT.FieldName = "AMNT";
-         this.colAMNT.Name = "colAMNT";
-         this.colAMNT.Visible = true;
-         this.colAMNT.VisibleIndex = 12;
-         // 
-         // colDEBT_AMNT_DNRM
-         // 
-         this.colDEBT_AMNT_DNRM.Caption = "مبلغ بدهی";
-         this.colDEBT_AMNT_DNRM.FieldName = "DEBT_AMNT_DNRM";
-         this.colDEBT_AMNT_DNRM.Name = "colDEBT_AMNT_DNRM";
-         this.colDEBT_AMNT_DNRM.Visible = true;
-         this.colDEBT_AMNT_DNRM.VisibleIndex = 11;
-         // 
-         // colAMNT_TYPE
-         // 
-         this.colAMNT_TYPE.Caption = "نوع مبلغ";
-         this.colAMNT_TYPE.FieldName = "AMNT_TYPE";
-         this.colAMNT_TYPE.Name = "colAMNT_TYPE";
-         this.colAMNT_TYPE.Visible = true;
-         this.colAMNT_TYPE.VisibleIndex = 10;
-         // 
-         // colCHEK_OWNR
-         // 
-         this.colCHEK_OWNR.Caption = "صاحب چک";
-         this.colCHEK_OWNR.FieldName = "CHEK_OWNR";
-         this.colCHEK_OWNR.Name = "colCHEK_OWNR";
-         this.colCHEK_OWNR.Visible = true;
-         this.colCHEK_OWNR.VisibleIndex = 9;
-         // 
-         // colCHEK_NO
-         // 
-         this.colCHEK_NO.Caption = "شماره چک";
-         this.colCHEK_NO.FieldName = "CHEK_NO";
-         this.colCHEK_NO.Name = "colCHEK_NO";
-         this.colCHEK_NO.Visible = true;
-         this.colCHEK_NO.VisibleIndex = 8;
-         // 
-         // colCHEK_DATE
-         // 
-         this.colCHEK_DATE.Caption = "تاریخ چک";
-         this.colCHEK_DATE.FieldName = "CHEK_DATE";
-         this.colCHEK_DATE.Name = "colCHEK_DATE";
-         this.colCHEK_DATE.Visible = true;
-         this.colCHEK_DATE.VisibleIndex = 7;
-         // 
-         // colBANK1
-         // 
-         this.colBANK1.Caption = "بانک";
-         this.colBANK1.FieldName = "BANK";
-         this.colBANK1.Name = "colBANK1";
-         this.colBANK1.Visible = true;
-         this.colBANK1.VisibleIndex = 6;
-         // 
-         // colRCPT_DATE
-         // 
-         this.colRCPT_DATE.Caption = "تاریخ پرداخت";
-         this.colRCPT_DATE.FieldName = "RCPT_DATE";
-         this.colRCPT_DATE.Name = "colRCPT_DATE";
-         this.colRCPT_DATE.Visible = true;
-         this.colRCPT_DATE.VisibleIndex = 5;
-         // 
-         // colCHEK_TYPE
-         // 
-         this.colCHEK_TYPE.Caption = "نوع";
-         this.colCHEK_TYPE.FieldName = "CHEK_TYPE";
-         this.colCHEK_TYPE.Name = "colCHEK_TYPE";
-         this.colCHEK_TYPE.Visible = true;
-         this.colCHEK_TYPE.VisibleIndex = 4;
-         // 
-         // colCRET_BY
-         // 
-         this.colCRET_BY.Caption = "کاربر ثبت کننده";
-         this.colCRET_BY.FieldName = "CRET_BY";
-         this.colCRET_BY.Name = "colCRET_BY";
-         this.colCRET_BY.Visible = true;
-         this.colCRET_BY.VisibleIndex = 3;
-         // 
-         // colCRET_DATE3
-         // 
-         this.colCRET_DATE3.Caption = "تاریخ ثبت";
-         this.colCRET_DATE3.FieldName = "CRET_DATE";
-         this.colCRET_DATE3.Name = "colCRET_DATE3";
-         this.colCRET_DATE3.Visible = true;
-         this.colCRET_DATE3.VisibleIndex = 2;
-         // 
-         // colMDFY_BY
-         // 
-         this.colMDFY_BY.Caption = "کاربر ویرایش کننده";
-         this.colMDFY_BY.FieldName = "MDFY_BY";
-         this.colMDFY_BY.Name = "colMDFY_BY";
-         this.colMDFY_BY.Visible = true;
-         this.colMDFY_BY.VisibleIndex = 1;
-         // 
-         // colMDFY_DATE6
-         // 
-         this.colMDFY_DATE6.Caption = "تاریخ ویرایش";
-         this.colMDFY_DATE6.FieldName = "MDFY_DATE";
-         this.colMDFY_DATE6.Name = "colMDFY_DATE6";
-         this.colMDFY_DATE6.Visible = true;
-         this.colMDFY_DATE6.VisibleIndex = 0;
-         // 
-         // colPayment3
-         // 
-         this.colPayment3.FieldName = "Payment";
-         this.colPayment3.Name = "colPayment3";
-         // 
-         // colRequest_Row3
-         // 
-         this.colRequest_Row3.FieldName = "Request_Row";
-         this.colRequest_Row3.Name = "colRequest_Row3";
-         // 
-         // radioButton1
-         // 
-         this.radioButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.radioButton1.AutoSize = true;
-         this.radioButton1.Checked = true;
-         this.radioButton1.Location = new System.Drawing.Point(22, 3);
-         this.radioButton1.Name = "radioButton1";
-         this.radioButton1.Size = new System.Drawing.Size(75, 18);
-         this.radioButton1.TabIndex = 17;
-         this.radioButton1.TabStop = true;
-         this.radioButton1.Text = "همه موارد";
-         this.radioButton1.UseVisualStyleBackColor = true;
-         // 
-         // radioButton2
-         // 
-         this.radioButton2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.radioButton2.AutoSize = true;
-         this.radioButton2.Location = new System.Drawing.Point(52, 27);
-         this.radioButton2.Name = "radioButton2";
-         this.radioButton2.Size = new System.Drawing.Size(45, 18);
-         this.radioButton2.TabIndex = 17;
-         this.radioButton2.Text = "چک";
-         this.radioButton2.UseVisualStyleBackColor = true;
-         // 
-         // radioButton3
-         // 
-         this.radioButton3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.radioButton3.AutoSize = true;
-         this.radioButton3.Location = new System.Drawing.Point(39, 51);
-         this.radioButton3.Name = "radioButton3";
-         this.radioButton3.Size = new System.Drawing.Size(58, 18);
-         this.radioButton3.TabIndex = 17;
-         this.radioButton3.Text = "اقساط";
-         this.radioButton3.UseVisualStyleBackColor = true;
-         // 
-         // groupBox2
-         // 
-         this.groupBox2.Controls.Add(this.panel1);
-         this.groupBox2.Location = new System.Drawing.Point(8, 79);
-         this.groupBox2.Name = "groupBox2";
-         this.groupBox2.Size = new System.Drawing.Size(264, 100);
-         this.groupBox2.TabIndex = 18;
-         this.groupBox2.TabStop = false;
-         this.groupBox2.Text = "چک / اقساط";
-         // 
-         // panel1
-         // 
-         this.panel1.Controls.Add(this.radioButton1);
-         this.panel1.Controls.Add(this.radioButton3);
-         this.panel1.Controls.Add(this.radioButton2);
-         this.panel1.Location = new System.Drawing.Point(158, 16);
-         this.panel1.Name = "panel1";
-         this.panel1.Size = new System.Drawing.Size(100, 78);
-         this.panel1.TabIndex = 19;
+         this.colActn6.ColumnEdit = this.Actn6_Butn;
+         this.colActn6.Name = "colActn6";
+         this.colActn6.OptionsColumn.FixedWidth = true;
+         this.colActn6.Visible = true;
+         this.colActn6.VisibleIndex = 13;
+         this.colActn6.Width = 26;
          // 
          // RPT_PMMT_F
          // 
@@ -6755,20 +6922,25 @@
          ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl6)).EndInit();
          this.splitContainerControl6.ResumeLayout(false);
          ((System.ComponentModel.ISupportInitialize)(this.gridControl4)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.PmckBs)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.gridView9)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit7)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.Catp_Lov)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.DCatpBs2)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit6.CalendarTimeProperties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit6)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit1)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.Cktp_Lov)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.DCktpBs2)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.Actn6_Butn)).EndInit();
          this.groupBox1.ResumeLayout(false);
          this.groupBox1.PerformLayout();
+         this.groupBox2.ResumeLayout(false);
+         this.panel2.ResumeLayout(false);
+         this.panel2.PerformLayout();
+         this.panel1.ResumeLayout(false);
+         this.panel1.PerformLayout();
          ((System.ComponentModel.ISupportInitialize)(this.RqstBn1)).EndInit();
          this.RqstBn1.ResumeLayout(false);
          this.RqstBn1.PerformLayout();
-         ((System.ComponentModel.ISupportInitialize)(this.PmckBs)).EndInit();
-         this.groupBox2.ResumeLayout(false);
-         this.panel1.ResumeLayout(false);
-         this.panel1.PerformLayout();
          this.ResumeLayout(false);
          this.PerformLayout();
 
@@ -7389,15 +7561,15 @@
       private DevExpress.XtraEditors.SplitContainerControl splitContainerControl6;
       private DevExpress.XtraGrid.GridControl gridControl4;
       private DevExpress.XtraGrid.Views.Grid.GridView gridView9;
-      private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repositoryItemLookUpEdit7;
+      private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit Catp_Lov;
       private dxExample.PersianRepositoryItemDateEdit persianRepositoryItemDateEdit6;
-      private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit repositoryItemButtonEdit1;
+      private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit Actn6_Butn;
       private Windows.Forms.GroupBox groupBox1;
       private DevExpress.XtraEditors.SimpleButton simpleButton1;
-      private DevExpress.XtraEditors.SimpleButton simpleButton4;
-      private Atf.UI.DateTimeSelector dateTimeSelector1;
+      private DevExpress.XtraEditors.SimpleButton Find6_Butn;
+      private Atf.UI.DateTimeSelector ToDate6_Date;
       private Windows.Forms.Label label1;
-      private Atf.UI.DateTimeSelector dateTimeSelector2;
+      private Atf.UI.DateTimeSelector FromDate6_Date;
       private Windows.Forms.Label label2;
       private Windows.Forms.BindingSource PmckBs;
       private DevExpress.XtraGrid.Columns.GridColumn colPYMT_CASH_CODE3;
@@ -7422,8 +7594,16 @@
       private DevExpress.XtraGrid.Columns.GridColumn colRequest_Row3;
       private Windows.Forms.GroupBox groupBox2;
       private Windows.Forms.Panel panel1;
-      private Windows.Forms.RadioButton radioButton1;
-      private Windows.Forms.RadioButton radioButton3;
-      private Windows.Forms.RadioButton radioButton2;
+      private Windows.Forms.RadioButton PyckAll_Rb;
+      private Windows.Forms.RadioButton PyckInstall_Rb;
+      private Windows.Forms.RadioButton PyckCheck_Rb;
+      private Windows.Forms.Panel panel2;
+      private Windows.Forms.RadioButton PyckExpireDate_Rb;
+      private Windows.Forms.RadioButton PyckRcptDate_Rb;
+      private Windows.Forms.BindingSource DCatpBs2;
+      private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit Cktp_Lov;
+      private Windows.Forms.BindingSource DCktpBs2;
+      private Windows.Forms.ToolStripButton RqstBnFind1;
+      private DevExpress.XtraGrid.Columns.GridColumn colActn6;
    }
 }

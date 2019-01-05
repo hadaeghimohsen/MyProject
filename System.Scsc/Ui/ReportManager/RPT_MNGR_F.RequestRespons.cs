@@ -268,156 +268,166 @@ namespace System.Scsc.Ui.ReportManager
       /// <param name="job"></param>
       private void Do_Print(Job job)
       {
-         /*
-          * PrintType = {ShowDefault, ShowSelection}
-          * ModualName
-          * SectionName
-          * Stimulsoft Parameter(s) Report "@ParamName"
-          */
-         PrintType = (job.Input as XElement).Attribute("type").Value;
-         ModualName = (job.Input as XElement).Attribute("modual").Value;
-         SectionName = (job.Input as XElement).Attribute("section").Value;
-         WhereClause = (job.Input as XElement).Value;
-
-         if (PrintType == "Selection")
+         try
          {
-            #region Selection
-            if (iScsc.Modual_Reports.Where(mr => mr.MDUL_NAME == ModualName && mr.SECT_NAME == SectionName && mr.STAT == "002").Any())
+            /*
+             * PrintType = {ShowDefault, ShowSelection}
+             * ModualName
+             * SectionName
+             * Stimulsoft Parameter(s) Report "@ParamName"
+             */
+            PrintType = (job.Input as XElement).Attribute("type").Value;
+            ModualName = (job.Input as XElement).Attribute("modual").Value;
+            SectionName = (job.Input as XElement).Attribute("section").Value;
+            WhereClause = (job.Input as XElement).Value;
+
+            if (PrintType == "Selection")
             {
-               Job _InteractWithScsc = new Job(SendType.External, "Localhost",
-                  new List<Job>
-                  {
-                     new Job(SendType.Self, 85 /* Execute RPT_LRFM_F */){Input = job.Input}
-                  });
-               _DefaultGateway.Gateway(_InteractWithScsc);
-            }
-            else
-               MessageBox.Show(this,"برای فرم جاری هیچگونه چاپ گزارش مشخص نشده، لطفا از طریق تنظیمات چاپ همین فرم برای مشخص کردن چاپ گزارش اقدام فرمایید", "مشخص نبودن چاپ فرم", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            #endregion
-         }
-         else if (PrintType == "Default")
-         {
-            #region Default
-            var DfltPrint = iScsc.Modual_Reports.Where(mr => mr.MDUL_NAME == ModualName && mr.SECT_NAME == SectionName && mr.STAT == "002" && mr.DFLT == "002").SingleOrDefault();
-            if(DfltPrint != null)
-            {
-               if (DfltPrint.SHOW_PRVW == "002") // Yes
-               {
-                  Stimulsoft.Report.StiReport s = new Stimulsoft.Report.StiReport();
-                  s.Load(DfltPrint.RPRT_PATH);
-                  s.Dictionary.Databases.Clear();
-                  s.Dictionary.Databases.Add(new StiSqlDatabase("iScsc", ConnectionString));
-                  vc_reportviewer.Report = s;
-                  s.Dictionary.Variables.Add(new StiVariable("WhereClause", WhereClause));
-
-                  s.Compile();
-                  s.Render();
-
-                  _DefaultGateway.Gateway(
-                     new Job(SendType.External, "Localhost", 
-                        new List<Job>
-                        {                        
-                           new Job(SendType.SelfToUserInterface, "RPT_MNGR_F", 03 /* Execute Paint */)                        
-                        })
-                   );
-               }
-               else // No
-               {
-                  Stimulsoft.Report.StiReport s = new Stimulsoft.Report.StiReport();
-                  s.Load(DfltPrint.RPRT_PATH);
-                  s.Dictionary.Databases.Clear();
-                  s.Dictionary.Databases.Add(new StiSqlDatabase("iScsc", ConnectionString));
-                  vc_reportviewer.Report = s;
-                  s.Dictionary.Variables.Add(new StiVariable("WhereClause", WhereClause));
-
-                  s.Compile();
-                  s.Render();
-                  s.Print(false);
-
-                  // 1397/01/08 * بازگشت سریع به فرم صدا کننده
-                  _DefaultGateway.Gateway(
-                     new Job(SendType.External, "localhost", GetType().Name, 00 /* Execute ProcessCmdKey */, SendType.SelfToUserInterface) { Input = Keys.Escape }
-                  );
-               }
-            }
-            else
-            {
+               #region Selection
                if (iScsc.Modual_Reports.Where(mr => mr.MDUL_NAME == ModualName && mr.SECT_NAME == SectionName && mr.STAT == "002").Any())
                {
                   Job _InteractWithScsc = new Job(SendType.External, "Localhost",
                      new List<Job>
-                     {
-                        new Job(SendType.Self, 85 /* Execute RPT_LRFM_F */){Input = job.Input}
-                     });
+                  {
+                     new Job(SendType.Self, 85 /* Execute RPT_LRFM_F */){Input = job.Input}
+                  });
                   _DefaultGateway.Gateway(_InteractWithScsc);
                }
                else
                   MessageBox.Show(this, "برای فرم جاری هیچگونه چاپ گزارش مشخص نشده، لطفا از طریق تنظیمات چاپ همین فرم برای مشخص کردن چاپ گزارش اقدام فرمایید", "مشخص نبودن چاپ فرم", MessageBoxButtons.OK, MessageBoxIcon.Information);
+               #endregion
             }
-            #endregion
-         }
-         else if (PrintType == "PrintAfterFinish")
-         {
-            #region Print After Finish
-            var DfltPrint = iScsc.Modual_Reports.Where(mr => mr.MDUL_NAME == ModualName && mr.SECT_NAME == SectionName && mr.STAT == "002" /*&& mr.DFLT == "002"*/ && mr.PRNT_AFTR_PAY == "002").SingleOrDefault();
-            if (DfltPrint != null)
+            else if (PrintType == "Default")
             {
-               if (DfltPrint.SHOW_PRVW == "002") // Yes
+               #region Default
+               var DfltPrint = iScsc.Modual_Reports.Where(mr => mr.MDUL_NAME == ModualName && mr.SECT_NAME == SectionName && mr.STAT == "002" && mr.DFLT == "002").SingleOrDefault();
+               if (DfltPrint != null)
                {
-                  Stimulsoft.Report.StiReport s = new Stimulsoft.Report.StiReport();
-                  s.Load(DfltPrint.RPRT_PATH);
-                  s.Dictionary.Databases.Clear();
-                  s.Dictionary.Databases.Add(new StiSqlDatabase("iScsc", ConnectionString));
-                  vc_reportviewer.Report = s;
-                  s.Dictionary.Variables.Add(new StiVariable("WhereClause", WhereClause));
+                  if (DfltPrint.SHOW_PRVW == "002") // Yes
+                  {
+                     Stimulsoft.Report.StiReport s = new Stimulsoft.Report.StiReport();
+                     s.Load(DfltPrint.RPRT_PATH);
+                     s.Dictionary.Databases.Clear();
+                     s.Dictionary.Databases.Add(new StiSqlDatabase("iScsc", ConnectionString));
+                     vc_reportviewer.Report = s;
+                     s.Dictionary.Variables.Add(new StiVariable("WhereClause", WhereClause));
 
-                  s.Compile();
-                  s.Render();
+                     s.Compile();
+                     s.Render();
 
-                  _DefaultGateway.Gateway(
-                     new Job(SendType.External, "Localhost",
-                        new List<Job>
+                     _DefaultGateway.Gateway(
+                        new Job(SendType.External, "Localhost",
+                           new List<Job>
                         {                        
                            new Job(SendType.SelfToUserInterface, "RPT_MNGR_F", 03 /* Execute Paint */)                        
                         })
-                   );
+                      );
+                  }
+                  else // No
+                  {
+                     Stimulsoft.Report.StiReport s = new Stimulsoft.Report.StiReport();
+                     s.Load(DfltPrint.RPRT_PATH);
+                     s.Dictionary.Databases.Clear();
+                     s.Dictionary.Databases.Add(new StiSqlDatabase("iScsc", ConnectionString));
+                     vc_reportviewer.Report = s;
+                     s.Dictionary.Variables.Add(new StiVariable("WhereClause", WhereClause));
+
+                     s.Compile();
+                     s.Render();
+                     s.Print(false);
+
+                     // 1397/01/08 * بازگشت سریع به فرم صدا کننده
+                     _DefaultGateway.Gateway(
+                        new Job(SendType.External, "localhost", GetType().Name, 00 /* Execute ProcessCmdKey */, SendType.SelfToUserInterface) { Input = Keys.Escape }
+                     );
+                  }
                }
-               else // No
+               else
                {
-                  Stimulsoft.Report.StiReport s = new Stimulsoft.Report.StiReport();
-                  s.Load(DfltPrint.RPRT_PATH);
-                  s.Dictionary.Databases.Clear();
-                  s.Dictionary.Databases.Add(new StiSqlDatabase("iScsc", ConnectionString));
-                  vc_reportviewer.Report = s;
-                  s.Dictionary.Variables.Add(new StiVariable("WhereClause", WhereClause));
-
-                  s.Compile();
-                  s.Render();
-                  s.Print(false);
-
-                  // 1397/01/08 * بازگشت سریع به فرم صدا کننده
-                  _DefaultGateway.Gateway(
-                     new Job(SendType.External, "localhost", GetType().Name, 00 /* Execute ProcessCmdKey */, SendType.SelfToUserInterface) { Input = Keys.Escape }
-                  );
+                  if (iScsc.Modual_Reports.Where(mr => mr.MDUL_NAME == ModualName && mr.SECT_NAME == SectionName && mr.STAT == "002").Any())
+                  {
+                     Job _InteractWithScsc = new Job(SendType.External, "Localhost",
+                        new List<Job>
+                     {
+                        new Job(SendType.Self, 85 /* Execute RPT_LRFM_F */){Input = job.Input}
+                     });
+                     _DefaultGateway.Gateway(_InteractWithScsc);
+                  }
+                  else
+                     MessageBox.Show(this, "برای فرم جاری هیچگونه چاپ گزارش مشخص نشده، لطفا از طریق تنظیمات چاپ همین فرم برای مشخص کردن چاپ گزارش اقدام فرمایید", "مشخص نبودن چاپ فرم", MessageBoxButtons.OK, MessageBoxIcon.Information);
                }
+               #endregion
             }
-            //else
-            //{
-            //   if (iScsc.Modual_Reports.Where(mr => mr.MDUL_NAME == ModualName && mr.SECT_NAME == SectionName && mr.STAT == "002").Any())
-            //   {
-            //      Job _InteractWithScsc = new Job(SendType.External, "Localhost",
-            //         new List<Job>
-            //         {
-            //            new Job(SendType.Self, 85 /* Execute RPT_LRFM_F */){Input = job.Input}
-            //         });
-            //      _DefaultGateway.Gateway(_InteractWithScsc);
-            //   }
-            //   else
-            //      MessageBox.Show(this, "برای فرم جاری هیچگونه چاپ گزارش مشخص نشده، لطفا از طریق تنظیمات چاپ همین فرم برای مشخص کردن چاپ گزارش اقدام فرمایید", "مشخص نبودن چاپ فرم", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //}
-            #endregion
-         }
+            else if (PrintType == "PrintAfterFinish")
+            {
+               #region Print After Finish
+               var DfltPrint = iScsc.Modual_Reports.Where(mr => mr.MDUL_NAME == ModualName && mr.SECT_NAME == SectionName && mr.STAT == "002" /*&& mr.DFLT == "002"*/ && mr.PRNT_AFTR_PAY == "002").SingleOrDefault();
+               if (DfltPrint != null)
+               {
+                  if (DfltPrint.SHOW_PRVW == "002") // Yes
+                  {
+                     Stimulsoft.Report.StiReport s = new Stimulsoft.Report.StiReport();
+                     s.Load(DfltPrint.RPRT_PATH);
+                     s.Dictionary.Databases.Clear();
+                     s.Dictionary.Databases.Add(new StiSqlDatabase("iScsc", ConnectionString));
+                     vc_reportviewer.Report = s;
+                     s.Dictionary.Variables.Add(new StiVariable("WhereClause", WhereClause));
 
+                     s.Compile();
+                     s.Render();
+
+                     _DefaultGateway.Gateway(
+                        new Job(SendType.External, "Localhost",
+                           new List<Job>
+                        {                        
+                           new Job(SendType.SelfToUserInterface, "RPT_MNGR_F", 03 /* Execute Paint */)                        
+                        })
+                      );
+                  }
+                  else // No
+                  {
+                     Stimulsoft.Report.StiReport s = new Stimulsoft.Report.StiReport();
+                     s.Load(DfltPrint.RPRT_PATH);
+                     s.Dictionary.Databases.Clear();
+                     s.Dictionary.Databases.Add(new StiSqlDatabase("iScsc", ConnectionString));
+                     vc_reportviewer.Report = s;
+                     s.Dictionary.Variables.Add(new StiVariable("WhereClause", WhereClause));
+
+                     s.Compile();
+                     s.Render();
+                     s.Print(false);
+
+                     // 1397/01/08 * بازگشت سریع به فرم صدا کننده
+                     _DefaultGateway.Gateway(
+                        new Job(SendType.External, "localhost", GetType().Name, 00 /* Execute ProcessCmdKey */, SendType.SelfToUserInterface) { Input = Keys.Escape }
+                     );
+                  }
+               }
+               //else
+               //{
+               //   if (iScsc.Modual_Reports.Where(mr => mr.MDUL_NAME == ModualName && mr.SECT_NAME == SectionName && mr.STAT == "002").Any())
+               //   {
+               //      Job _InteractWithScsc = new Job(SendType.External, "Localhost",
+               //         new List<Job>
+               //         {
+               //            new Job(SendType.Self, 85 /* Execute RPT_LRFM_F */){Input = job.Input}
+               //         });
+               //      _DefaultGateway.Gateway(_InteractWithScsc);
+               //   }
+               //   else
+               //      MessageBox.Show(this, "برای فرم جاری هیچگونه چاپ گزارش مشخص نشده، لطفا از طریق تنظیمات چاپ همین فرم برای مشخص کردن چاپ گزارش اقدام فرمایید", "مشخص نبودن چاپ فرم", MessageBoxButtons.OK, MessageBoxIcon.Information);
+               //}
+               #endregion
+            }
+
+         }
+         catch(Exception exc)
+         {
+            MessageBox.Show(exc.InnerException.Message);
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost", GetType().Name, 11 /* Execute Do_Print */, SendType.SelfToUserInterface) { Input = job.Input }
+            );
+         }
          job.Status = StatusType.Successful;
       }
    }

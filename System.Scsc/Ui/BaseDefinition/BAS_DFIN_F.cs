@@ -3542,5 +3542,37 @@ namespace System.Scsc.Ui.BaseDefinition
             }
          );
       }
+
+      private void AddCndo_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var regn = RegnBs1.Current as Data.Region;
+            if (regn == null) return;
+
+            if (CndoBs1.List.OfType<Data.Cando>().Any(c => c.CRET_BY == null)) return;
+
+            CndoBs1.AddNew();
+
+            var cndo = CndoBs1.Current as Data.Cando;
+            iScsc.Candos.InsertOnSubmit(cndo);
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void SaveCndo_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
    }
 }

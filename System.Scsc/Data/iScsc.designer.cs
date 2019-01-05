@@ -210,15 +210,6 @@ namespace System.Scsc.Data
     partial void InsertFighter_Public(Fighter_Public instance);
     partial void UpdateFighter_Public(Fighter_Public instance);
     partial void DeleteFighter_Public(Fighter_Public instance);
-    partial void InsertCando(Cando instance);
-    partial void UpdateCando(Cando instance);
-    partial void DeleteCando(Cando instance);
-    partial void InsertCando_Block(Cando_Block instance);
-    partial void UpdateCando_Block(Cando_Block instance);
-    partial void DeleteCando_Block(Cando_Block instance);
-    partial void InsertCando_Block_Unit(Cando_Block_Unit instance);
-    partial void UpdateCando_Block_Unit(Cando_Block_Unit instance);
-    partial void DeleteCando_Block_Unit(Cando_Block_Unit instance);
     partial void InsertComputer_Action(Computer_Action instance);
     partial void UpdateComputer_Action(Computer_Action instance);
     partial void DeleteComputer_Action(Computer_Action instance);
@@ -2131,6 +2122,51 @@ namespace System.Scsc.Data
 		private void DeleteBase_Calculate_Expense(Base_Calculate_Expense obj)
 		{
 			this.DEL_BSEX_P(((System.Nullable<long>)(obj.CODE)));
+		}
+		
+		private void InsertCando(Cando obj)
+		{
+			this.INS_CNDO_P(obj.REGN_PRVN_CNTY_CODE, obj.REGN_PRVN_CODE, obj.REGN_CODE, obj.CODE, obj.NAME, obj.POST_ADRS, obj.CMNT, ((System.Nullable<double>)(obj.CORD_X)), ((System.Nullable<double>)(obj.CORD_Y)));
+		}
+		
+		private void UpdateCando(Cando obj)
+		{
+			this.UPD_CNDO_P(obj.REGN_PRVN_CNTY_CODE, obj.REGN_PRVN_CODE, obj.REGN_CODE, obj.CODE, obj.NAME, obj.POST_ADRS, obj.CMNT, ((System.Nullable<double>)(obj.CORD_X)), ((System.Nullable<double>)(obj.CORD_Y)));
+		}
+		
+		private void DeleteCando(Cando obj)
+		{
+			this.DEL_CNDO_P(obj.REGN_PRVN_CNTY_CODE, obj.REGN_PRVN_CODE, obj.REGN_CODE, obj.CODE);
+		}
+		
+		private void InsertCando_Block(Cando_Block obj)
+		{
+			this.INS_CBLK_P(obj.CNDO_CODE, obj.CODE, obj.NAME, obj.POST_ADRS, obj.CMNT, ((System.Nullable<double>)(obj.CORD_X)), ((System.Nullable<double>)(obj.CORD_Y)));
+		}
+		
+		private void UpdateCando_Block(Cando_Block obj)
+		{
+			this.UPD_CBLK_P(obj.CNDO_CODE, obj.CODE, obj.NAME, obj.POST_ADRS, obj.CMNT, ((System.Nullable<double>)(obj.CORD_X)), ((System.Nullable<double>)(obj.CORD_Y)));
+		}
+		
+		private void DeleteCando_Block(Cando_Block obj)
+		{
+			this.DEL_CBLK_P(obj.CNDO_CODE, obj.CODE);
+		}
+		
+		private void InsertCando_Block_Unit(Cando_Block_Unit obj)
+		{
+			this.INS_CUNT_P(obj.BLOK_CNDO_CODE, obj.BLOK_CODE, obj.CODE, obj.NAME, obj.POST_ADRS, obj.CMNT, ((System.Nullable<double>)(obj.CORD_X)), ((System.Nullable<double>)(obj.CORD_Y)));
+		}
+		
+		private void UpdateCando_Block_Unit(Cando_Block_Unit obj)
+		{
+			this.UPD_CUNT_P(obj.BLOK_CNDO_CODE, obj.BLOK_CODE, obj.CODE, obj.NAME, obj.POST_ADRS, obj.CMNT, ((System.Nullable<double>)(obj.CORD_X)), ((System.Nullable<double>)(obj.CORD_Y)));
+		}
+		
+		private void DeleteCando_Block_Unit(Cando_Block_Unit obj)
+		{
+			this.DEL_CUNT_P(obj.BLOK_CNDO_CODE, obj.BLOK_CODE, obj.CODE);
 		}
 		
 		private void InsertMisc_Expense(Misc_Expense obj)
@@ -4269,6 +4305,69 @@ namespace System.Scsc.Data
 		public IQueryable<VF_Last_Info_FighterResult> VF_Last_Info_Fighter([global::System.Data.Linq.Mapping.ParameterAttribute(Name="FileNo", DbType="BigInt")] System.Nullable<long> fileNo, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FrstName", DbType="NVarChar(250)")] string frstName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LastName", DbType="NVarChar(250)")] string lastName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NatlCode", DbType="VarChar(10)")] string natlCode, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FngrPrnt", DbType="VarChar(20)")] string fngrPrnt, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CellPhon", DbType="VarChar(11)")] string cellPhon, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TellPhon", DbType="VarChar(11)")] string tellPhon, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SexType", DbType="VarChar(3)")] string sexType, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ServNo", DbType="NVarChar(50)")] string servNo, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="GlobCode", DbType="NVarChar(50)")] string globCode, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MomCellPhon", DbType="VarChar(11)")] string momCellPhon, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MomTellPhon", DbType="VarChar(11)")] string momTellPhon, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DadCellPHon", DbType="VarChar(11)")] string dadCellPHon, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DadTellPHon", DbType="VarChar(11)")] string dadTellPHon, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SuntCode", DbType="VarChar(4)")] string suntCode)
 		{
 			return this.CreateMethodCallQuery<VF_Last_Info_FighterResult>(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), fileNo, frstName, lastName, natlCode, fngrPrnt, cellPhon, tellPhon, sexType, servNo, globCode, momCellPhon, momTellPhon, dadCellPHon, dadTellPHon, suntCode);
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.DEL_CNDO_P")]
+		public int DEL_CNDO_P([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Regn_Prvn_Cnty_Code", DbType="VarChar(3)")] string regn_Prvn_Cnty_Code, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Regn_Prvn_Code", DbType="VarChar(3)")] string regn_Prvn_Code, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Regn_Code", DbType="VarChar(3)")] string regn_Code, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Code", DbType="VarChar(3)")] string code)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), regn_Prvn_Cnty_Code, regn_Prvn_Code, regn_Code, code);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.DEL_CBLK_P")]
+		public int DEL_CBLK_P([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Cndo_Code", DbType="VarChar(3)")] string cndo_Code, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Code", DbType="VarChar(3)")] string code)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), cndo_Code, code);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.DEL_CUNT_P")]
+		public int DEL_CUNT_P([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Blok_Cndo_Code", DbType="VarChar(3)")] string blok_Cndo_Code, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Blok_Code", DbType="VarChar(3)")] string blok_Code, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Code", DbType="VarChar(3)")] string code)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), blok_Cndo_Code, blok_Code, code);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.INS_CNDO_P")]
+		public int INS_CNDO_P([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Regn_Prvn_Cnty_Code", DbType="VarChar(3)")] string regn_Prvn_Cnty_Code, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Regn_Prvn_Code", DbType="VarChar(3)")] string regn_Prvn_Code, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Regn_Code", DbType="VarChar(3)")] string regn_Code, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Code", DbType="VarChar(3)")] string code, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Name", DbType="NVarChar(250)")] string name, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Post_Adrs", DbType="NVarChar(500)")] string post_Adrs, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Cmnt", DbType="NVarChar(1000)")] string cmnt, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Cord_X", DbType="Float")] System.Nullable<double> cord_X, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Cord_Y", DbType="Float")] System.Nullable<double> cord_Y)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), regn_Prvn_Cnty_Code, regn_Prvn_Code, regn_Code, code, name, post_Adrs, cmnt, cord_X, cord_Y);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.INS_CBLK_P")]
+		public int INS_CBLK_P([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Cndo_Code", DbType="VarChar(3)")] string cndo_Code, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Code", DbType="VarChar(3)")] string code, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Name", DbType="NVarChar(250)")] string name, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Post_Adrs", DbType="NVarChar(500)")] string post_Adrs, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Cmnt", DbType="NVarChar(1000)")] string cmnt, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Cord_X", DbType="Float")] System.Nullable<double> cord_X, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Cord_Y", DbType="Float")] System.Nullable<double> cord_Y)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), cndo_Code, code, name, post_Adrs, cmnt, cord_X, cord_Y);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.INS_CUNT_P")]
+		public int INS_CUNT_P([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Blok_Cndo_Code", DbType="VarChar(3)")] string blok_Cndo_Code, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Blok_Code", DbType="VarChar(3)")] string blok_Code, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Code", DbType="VarChar(3)")] string code, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Name", DbType="NVarChar(250)")] string name, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Post_Adrs", DbType="NVarChar(500)")] string post_Adrs, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Cmnt", DbType="NVarChar(1000)")] string cmnt, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Cord_X", DbType="Float")] System.Nullable<double> cord_X, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Cord_Y", DbType="Float")] System.Nullable<double> cord_Y)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), blok_Cndo_Code, blok_Code, code, name, post_Adrs, cmnt, cord_X, cord_Y);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.UPD_CNDO_P")]
+		public int UPD_CNDO_P([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Regn_Prvn_Cnty_Code", DbType="VarChar(3)")] string regn_Prvn_Cnty_Code, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Regn_Prvn_Code", DbType="VarChar(3)")] string regn_Prvn_Code, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Regn_Code", DbType="VarChar(3)")] string regn_Code, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Code", DbType="VarChar(3)")] string code, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Name", DbType="NVarChar(250)")] string name, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Post_Adrs", DbType="NVarChar(500)")] string post_Adrs, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Cmnt", DbType="NVarChar(1000)")] string cmnt, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Cord_X", DbType="Float")] System.Nullable<double> cord_X, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Cord_Y", DbType="Float")] System.Nullable<double> cord_Y)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), regn_Prvn_Cnty_Code, regn_Prvn_Code, regn_Code, code, name, post_Adrs, cmnt, cord_X, cord_Y);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.UPD_CBLK_P")]
+		public int UPD_CBLK_P([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Cndo_Code", DbType="VarChar(3)")] string cndo_Code, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Code", DbType="VarChar(3)")] string code, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Name", DbType="NVarChar(250)")] string name, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Post_Adrs", DbType="NVarChar(500)")] string post_Adrs, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Cmnt", DbType="NVarChar(1000)")] string cmnt, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Cord_X", DbType="Float")] System.Nullable<double> cord_X, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Cord_Y", DbType="Float")] System.Nullable<double> cord_Y)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), cndo_Code, code, name, post_Adrs, cmnt, cord_X, cord_Y);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.UPD_CUNT_P")]
+		public int UPD_CUNT_P([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Blok_Cndo_Code", DbType="VarChar(3)")] string blok_Cndo_Code, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Blok_Code", DbType="VarChar(3)")] string blok_Code, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Code", DbType="VarChar(3)")] string code, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Name", DbType="NVarChar(250)")] string name, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Post_Adrs", DbType="NVarChar(500)")] string post_Adrs, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Cmnt", DbType="NVarChar(1000)")] string cmnt, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Cord_X", DbType="Float")] System.Nullable<double> cord_X, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Cord_Y", DbType="Float")] System.Nullable<double> cord_Y)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), blok_Cndo_Code, blok_Code, code, name, post_Adrs, cmnt, cord_X, cord_Y);
+			return ((int)(result.ReturnValue));
 		}
 	}
 	
@@ -55700,7 +55799,7 @@ namespace System.Scsc.Data
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_REGN_PRVN_CNTY_CODE", DbType="VarChar(3)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_REGN_PRVN_CNTY_CODE", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
 		public string REGN_PRVN_CNTY_CODE
 		{
 			get
@@ -55724,7 +55823,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_REGN_PRVN_CODE", DbType="VarChar(3)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_REGN_PRVN_CODE", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
 		public string REGN_PRVN_CODE
 		{
 			get
@@ -55748,7 +55847,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_REGN_CODE", DbType="VarChar(3)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_REGN_CODE", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
 		public string REGN_CODE
 		{
 			get
@@ -55792,7 +55891,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NAME", DbType="NVarChar(250)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NAME", DbType="NVarChar(250)", UpdateCheck=UpdateCheck.Never)]
 		public string NAME
 		{
 			get
@@ -55812,7 +55911,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_POST_ADRS", DbType="NVarChar(500)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_POST_ADRS", DbType="NVarChar(500)", UpdateCheck=UpdateCheck.Never)]
 		public string POST_ADRS
 		{
 			get
@@ -55832,7 +55931,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CMNT", DbType="NVarChar(1000)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CMNT", DbType="NVarChar(1000)", UpdateCheck=UpdateCheck.Never)]
 		public string CMNT
 		{
 			get
@@ -55852,7 +55951,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CORD_X", DbType="Float")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CORD_X", DbType="Float", UpdateCheck=UpdateCheck.Never)]
 		public System.Nullable<double> CORD_X
 		{
 			get
@@ -55872,7 +55971,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CORD_Y", DbType="Float")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CORD_Y", DbType="Float", UpdateCheck=UpdateCheck.Never)]
 		public System.Nullable<double> CORD_Y
 		{
 			get
@@ -55892,7 +55991,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_BY", DbType="VarChar(250)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_BY", DbType="VarChar(250)", UpdateCheck=UpdateCheck.Never)]
 		public string CRET_BY
 		{
 			get
@@ -55912,7 +56011,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_DATE", DbType="Date")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_DATE", DbType="Date", UpdateCheck=UpdateCheck.Never)]
 		public System.Nullable<System.DateTime> CRET_DATE
 		{
 			get
@@ -55932,7 +56031,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_BY", DbType="VarChar(250)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_BY", DbType="VarChar(250)", UpdateCheck=UpdateCheck.Never)]
 		public string MDFY_BY
 		{
 			get
@@ -55952,7 +56051,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_DATE", DbType="Date")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_DATE", DbType="Date", UpdateCheck=UpdateCheck.Never)]
 		public System.Nullable<System.DateTime> MDFY_DATE
 		{
 			get
@@ -56170,7 +56269,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NAME", DbType="NVarChar(250)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NAME", DbType="NVarChar(250)", UpdateCheck=UpdateCheck.Never)]
 		public string NAME
 		{
 			get
@@ -56190,7 +56289,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_POST_ADRS", DbType="NVarChar(250)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_POST_ADRS", DbType="NVarChar(250)", UpdateCheck=UpdateCheck.Never)]
 		public string POST_ADRS
 		{
 			get
@@ -56210,7 +56309,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CORD_X", DbType="Float")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CORD_X", DbType="Float", UpdateCheck=UpdateCheck.Never)]
 		public System.Nullable<double> CORD_X
 		{
 			get
@@ -56230,7 +56329,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CORD_Y", DbType="Float")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CORD_Y", DbType="Float", UpdateCheck=UpdateCheck.Never)]
 		public System.Nullable<double> CORD_Y
 		{
 			get
@@ -56250,7 +56349,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CMNT", DbType="NVarChar(1000)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CMNT", DbType="NVarChar(1000)", UpdateCheck=UpdateCheck.Never)]
 		public string CMNT
 		{
 			get
@@ -56270,7 +56369,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_BY", DbType="VarChar(250)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_BY", DbType="VarChar(250)", UpdateCheck=UpdateCheck.Never)]
 		public string CRET_BY
 		{
 			get
@@ -56290,7 +56389,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_DATE", DbType="DateTime")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
 		public System.Nullable<System.DateTime> CRET_DATE
 		{
 			get
@@ -56310,7 +56409,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_BY", DbType="VarChar(250)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_BY", DbType="VarChar(250)", UpdateCheck=UpdateCheck.Never)]
 		public string MDFY_BY
 		{
 			get
@@ -56330,7 +56429,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_DATE", DbType="Date")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_DATE", DbType="Date", UpdateCheck=UpdateCheck.Never)]
 		public System.Nullable<System.DateTime> MDFY_DATE
 		{
 			get
@@ -56594,7 +56693,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NAME", DbType="NVarChar(250)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NAME", DbType="NVarChar(250)", UpdateCheck=UpdateCheck.Never)]
 		public string NAME
 		{
 			get
@@ -56614,7 +56713,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_POST_ADRS", DbType="NVarChar(250)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_POST_ADRS", DbType="NVarChar(250)", UpdateCheck=UpdateCheck.Never)]
 		public string POST_ADRS
 		{
 			get
@@ -56634,7 +56733,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CORD_X", DbType="Float")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CORD_X", DbType="Float", UpdateCheck=UpdateCheck.Never)]
 		public System.Nullable<double> CORD_X
 		{
 			get
@@ -56654,7 +56753,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CORD_Y", DbType="Float")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CORD_Y", DbType="Float", UpdateCheck=UpdateCheck.Never)]
 		public System.Nullable<double> CORD_Y
 		{
 			get
@@ -56674,7 +56773,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CMNT", DbType="NVarChar(1000)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CMNT", DbType="NVarChar(1000)", UpdateCheck=UpdateCheck.Never)]
 		public string CMNT
 		{
 			get
@@ -56694,7 +56793,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_BY", DbType="VarChar(250)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_BY", DbType="VarChar(250)", UpdateCheck=UpdateCheck.Never)]
 		public string CRET_BY
 		{
 			get
@@ -56714,7 +56813,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_DATE", DbType="DateTime")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
 		public System.Nullable<System.DateTime> CRET_DATE
 		{
 			get
@@ -56734,7 +56833,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_BY", DbType="VarChar(250)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_BY", DbType="VarChar(250)", UpdateCheck=UpdateCheck.Never)]
 		public string MDFY_BY
 		{
 			get
@@ -56754,7 +56853,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_DATE", DbType="DateTime")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
 		public System.Nullable<System.DateTime> MDFY_DATE
 		{
 			get

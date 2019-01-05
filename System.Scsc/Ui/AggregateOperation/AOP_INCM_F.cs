@@ -136,7 +136,6 @@ namespace System.Scsc.Ui.AggregateOperation
 
          if (crnt == null) return;
 
-         FromDate_Dt.Value = null;
          crnt.FROM_DATE = null;
       }
 
@@ -145,8 +144,6 @@ namespace System.Scsc.Ui.AggregateOperation
          var crnt = AgopBs1.Current as Data.Aggregation_Operation;
 
          if (crnt == null) return;
-
-         ToDate_Dt.Value = null;
 
          crnt.TO_DATE = null;
       }
@@ -157,9 +154,6 @@ namespace System.Scsc.Ui.AggregateOperation
 
          if (crnt == null) return;
 
-         NumbMontOffr_Txt.EditValue = null;
-         NumbOfAttnMont_Txt.EditValue = null;
-
          crnt.NUMB_MONT_OFFR = null;
          crnt.NUMB_OF_ATTN_MONT = null;
       }
@@ -169,8 +163,6 @@ namespace System.Scsc.Ui.AggregateOperation
          var crnt = AgopBs1.Current as Data.Aggregation_Operation;
 
          if (crnt == null) return;
-
-         RqttCode_Lov.EditValue = null;
 
          crnt.RQTT_CODE = null;
       }
@@ -370,10 +362,6 @@ namespace System.Scsc.Ui.AggregateOperation
       {
          try
          {
-            var crnt = AodtBs1.Current as Data.Aggregation_Operation_Detail;
-            if (crnt == null) { Pn_MbspInfo.Visible = Gb_Expense.Visible = false; return; }
-
-            RqstBs2.DataSource = iScsc.Requests.First(r => r == crnt.Request);
          }
          catch { }
       }
@@ -434,7 +422,6 @@ namespace System.Scsc.Ui.AggregateOperation
 
          if (crnt == null) return;
 
-         CtgyNew_Lov.EditValue = null;
          crnt.NEW_MTOD_CODE = crnt.NEW_CTGY_CODE = null;
       }
 
@@ -444,7 +431,6 @@ namespace System.Scsc.Ui.AggregateOperation
 
          if (crnt == null) return;
 
-         CbmtNew_Lov.EditValue = null;
          crnt.NEW_CBMT_CODE = null;
       }
 
@@ -452,38 +438,7 @@ namespace System.Scsc.Ui.AggregateOperation
       {
          try
          {
-            var crnt = AgopBs1.Current as Data.Aggregation_Operation;
-
-            if (crnt == null) return;
-
-            //if (tb_master.SelectedTab == tp_001)
-            {
-               //var rqst = RqstBs1.Current as Data.Request;
-               //if (rqst == null) return;
-
-               //long mtodcode = 0;//(long)MtodCode_LookupEdit001.EditValue;
-               if (RqttCode_Lov.EditValue == null || RqttCode_Lov.EditValue.ToString() == "")
-                  RqttCode_Lov.EditValue = "001";
-
-               long ctgycode = (long)CtgyNew_Lov.EditValue;
-               string rqttcode = (string)RqttCode_Lov.EditValue;
-               var expn = iScsc.Expenses.Where(exp => exp.Expense_Type.Request_Requester.RQTP_CODE == "001" && exp.Expense_Type.Request_Requester.RQTT_CODE == "001" && exp.Expense_Type.Request_Requester.Regulation.REGL_STAT == "002" && exp.Expense_Type.Request_Requester.Regulation.TYPE == "001" && /*exp.MTOD_CODE == mtodcode &&*/ exp.CTGY_CODE == ctgycode && exp.EXPN_STAT == "002").FirstOrDefault();
-
-               FromDate_Dt.Value = DateTime.Now;
-               //if (MessageBox.Show(this, "تعداد جلسات با احتساب یک روز در میان می باشد؟", "مشخص شدن تاریخ پایان", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
-               //   EndDate_DateTime001.Value = DateTime.Now.AddDays((double)(2 * (expn.NUMB_OF_ATTN_MONT - 1)));
-               //else
-               //   EndDate_DateTime001.Value = DateTime.Now.AddDays((double)(expn.NUMB_OF_ATTN_MONT ?? 30));
-               ToDate_Dt.Value = DateTime.Now.AddDays((double)(expn.NUMB_CYCL_DAY ?? 30));
-               NumbOfAttnMont_Txt.Value = expn.NUMB_OF_ATTN_MONT ?? 0;
-               NumbMontOffr_Txt.Value = expn.NUMB_MONT_OFER ?? 0;
-
-               //crnt.RQTT_CODE = RqttCode_Lov.EditValue.ToString();
-               //crnt.FROM_DATE = FromDate_Dt.Value.Value.Date;
-               //crnt.TO_DATE = ToDate_Dt.Value.Value.Date;
-               //crnt.NUMB_MONT_OFFR = Convert.ToInt32(NumbMontOffr_Txt.Value);
-               //crnt.NUMB_OF_ATTN_MONT = Convert.ToInt32(NumbOfAttnMont_Txt.Value);
-            }
+            
          }
          catch (Exception)
          {
@@ -495,24 +450,7 @@ namespace System.Scsc.Ui.AggregateOperation
       {
          try
          {
-            var cbmt = iScsc.Club_Methods.First(cm => cm.CODE == (long)CbmtNew_Lov.EditValue);
-            if (cbmt == null) return;
-
-            var cmwk = cbmt.Club_Method_Weekdays.ToList();
-
-            if (cmwk.Count == 0)
-            {
-               ClubWkdy_Pn.Controls.OfType<SimpleButton>().Where(sb => sb.Tag != null).ToList().ForEach(sb => sb.Appearance.BackColor = Color.Gold);
-               return;
-            }
-
-            foreach (var wkdy in cmwk)
-            {
-               var rslt = ClubWkdy_Pn.Controls.OfType<SimpleButton>().FirstOrDefault(sb => sb.Tag != null && sb.Tag.ToString() == wkdy.WEEK_DAY);
-               rslt.Appearance.BackColor = wkdy.STAT == "001" ? Color.LightGray : Color.GreenYellow;
-            }
-
-            CtgyBs2.DataSource = iScsc.Category_Belts.Where(c => c.CTGY_STAT == "002" && c.MTOD_CODE == cbmt.MTOD_CODE);
+            
          }
          catch { }
       }
@@ -526,13 +464,6 @@ namespace System.Scsc.Ui.AggregateOperation
       {
          try
          {
-            var cbmt = CbmtCode_Lov.EditValue;
-
-            if (cbmt == null || cbmt.ToString() == "") return;
-
-            var crntcbmt = CbmtBs1.List.OfType<Data.Club_Method>().FirstOrDefault(c => c.CODE == (long)cbmt);
-
-            CtgyBs2.DataSource = iScsc.Category_Belts.Where(c => c.MTOD_CODE == crntcbmt.MTOD_CODE && c.CTGY_STAT == "002");
          }
          catch (Exception)
          {
@@ -544,17 +475,7 @@ namespace System.Scsc.Ui.AggregateOperation
       {
          try
          {
-            var adot = AodtBs1.Current as Data.Aggregation_Operation_Detail;
-            if (adot == null) return;
-
-            long ctgycode = (long)CtgyCode_LookupEdit003.EditValue;
-            string rqttcode = adot.Request.RQTT_CODE;
-            var expn = iScsc.Expenses.Where(exp => exp.Expense_Type.Request_Requester.RQTP_CODE == "009" && exp.Expense_Type.Request_Requester.RQTT_CODE == "001" && exp.Expense_Type.Request_Requester.Regulation.REGL_STAT == "002" && exp.Expense_Type.Request_Requester.Regulation.TYPE == "001" && exp.CTGY_CODE == ctgycode && exp.EXPN_STAT == "002").FirstOrDefault();
-
-            StrtDate_dt.Value = DateTime.Now;
-            EndDate_dt.Value = DateTime.Now.AddDays((double)(expn.NUMB_CYCL_DAY ?? 30));
-            NumbAttnMont_Txt.EditValue = expn.NUMB_OF_ATTN_MONT ?? 0;
-            NumbMontOfer_Txt.EditValue = expn.NUMB_MONT_OFER ?? 0;
+            
          }
          catch (Exception)
          {
@@ -566,16 +487,7 @@ namespace System.Scsc.Ui.AggregateOperation
       {
          try
          {
-            var rqst = RqstBs2.Current as Data.Request;
-            if (rqst == null) { Pn_MbspInfo.Visible = Gb_Expense.Visible = false; return; }
-
-            Pn_MbspInfo.Visible = true;
-
-            if (rqst.RQTT_CODE == "001")
-               Gb_Expense.Visible = true;
-            else
-               Gb_Expense.Visible = false;
-
+            
          }
          catch
          {
@@ -584,68 +496,6 @@ namespace System.Scsc.Ui.AggregateOperation
       }
 
       long rqstindex = 0;
-
-      private void SaveData_Butn_Click(object sender, EventArgs e)
-      {
-         try
-         {
-            var rqst = RqstBs2.Current as Data.Request;
-            rqstindex = RqstBs2.Position;
-
-            var aodt = AodtBs1.Current as Data.Aggregation_Operation_Detail;
-            
-            StrtDate_dt.CommitChanges();
-            EndDate_dt.CommitChanges();
-
-            if (!StrtDate_dt.Value.HasValue) { StrtDate_dt.Value = DateTime.Now; }
-            if (!EndDate_dt.Value.HasValue) { EndDate_dt.Value = DateTime.Now.AddDays(29); }
-
-            if (StrtDate_dt.Value.Value.Date > EndDate_dt.Value.Value.Date)
-            {
-               throw new Exception("تاریخ شروع باید از تاریخ پایان کوچکتر با مساوی باشد");
-            }
-
-            iScsc.UCC_TRQT_P(
-               new XElement("Process",
-                  new XElement("Request",
-                     new XAttribute("rqid", rqst == null ? 0 : rqst.RQID),
-                     new XAttribute("rqtpcode", "009"),
-                     new XAttribute("rqttcode", rqst.RQTT_CODE),
-                     new XElement("Request_Row",
-                        new XAttribute("fileno", aodt.FIGH_FILE_NO),
-                        new XElement("Fighter",
-                           new XAttribute("ctgycodednrm", CtgyCode_LookupEdit003.EditValue ?? ""),
-                           new XAttribute("cbmtcodednrm", CbmtCode_Lov.EditValue ?? "")
-                        ),
-                        new XElement("Member_Ship",
-                           new XAttribute("strtdate", StrtDate_dt.Value.HasValue ? StrtDate_dt.Value.Value.ToString("yyyy-MM-dd") : ""),
-                           new XAttribute("enddate", EndDate_dt.Value.HasValue ? EndDate_dt.Value.Value.ToString("yyyy-MM-dd") : ""),
-                           new XAttribute("prntcont", "1"),
-                           new XAttribute("numbmontofer", NumbMontOfer_Txt.Text ?? "0"),
-                           new XAttribute("numbofattnmont", NumbOfAttnMont_Txt.Text ?? "0"),
-                           new XAttribute("numbofattnweek", "0"),
-                           new XAttribute("attndaytype", "")
-                        )
-                     )
-                  )
-               )
-            );
-            //tabControl1.SelectedTab = tabPage3;
-            requery = true;
-         }
-         catch (Exception ex)
-         {
-            MessageBox.Show(ex.Message);
-         }
-         finally
-         {
-            if (requery)
-            {
-               Execute_Query();
-               requery = false;
-            }
-         }
-      }
 
       private void SavePyds_Butn_Click(object sender, EventArgs e)
       {

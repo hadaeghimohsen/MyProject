@@ -30,7 +30,7 @@ namespace System.Scsc.Ui.AggregateOperation
          iScsc = new Data.iScscDataContext(ConnectionString);
          agopindx = AgopBs1.Position;
          aodtindx = AodtBs1.Position;
-         AgopBs1.DataSource = iScsc.Aggregation_Operations.Where(a => a.OPRT_TYPE == "001" && (a.OPRT_STAT == "001" || a.OPRT_STAT == "002"));
+         AgopBs1.DataSource = iScsc.Aggregation_Operations.Where(a => a.OPRT_TYPE == "006" && (a.OPRT_STAT == "001" || a.OPRT_STAT == "002"));
          AgopBs1.Position = agopindx;
          AodtBs1.Position = aodtindx;
 
@@ -197,21 +197,16 @@ namespace System.Scsc.Ui.AggregateOperation
                      new XAttribute("regnprvncntycode", crnt.REGN_PRVN_CNTY_CODE ?? "001"),
                      new XAttribute("regnprvncode", crnt.REGN_PRVN_CODE ?? "017"),
                      new XAttribute("regncode", crnt.REGN_CODE ?? "001"),
-                     new XAttribute("rqtpcode", crnt.RQTP_CODE ?? "009"),
+                     new XAttribute("rqtpcode", crnt.RQTP_CODE ?? "016"),
                      new XAttribute("rqttcode", crnt.RQTT_CODE ?? "001"),
                      new XAttribute("mtodcode", crnt.MTOD_CODE ?? 0),
                      new XAttribute("ctgycode", crnt.CTGY_CODE ?? 0),
                      new XAttribute("cochfileno", crnt.COCH_FILE_NO ?? 0),
                      new XAttribute("cbmtcode", crnt.CBMT_CODE ?? 0),
-                     new XAttribute("oprttype", crnt.OPRT_TYPE ?? "001"),
+                     new XAttribute("oprttype", crnt.OPRT_TYPE ?? "006"),
                      new XAttribute("oprtstat", crnt.OPRT_STAT ?? "001"),
                      new XAttribute("fromdate", crnt.FROM_DATE.HasValue ? crnt.FROM_DATE.Value.ToString("yyyy-MM-dd") : ""),
-                     new XAttribute("todate", crnt.TO_DATE.HasValue ? crnt.TO_DATE.Value.ToString("yyyy-MM-dd") : ""),
-                     new XAttribute("numbmontoffr", crnt.NUMB_MONT_OFFR ?? 0),
-                     new XAttribute("numbofattnmont", crnt.NUMB_OF_ATTN_MONT ?? 0),
-                     new XAttribute("newmtodcode", crnt.NEW_MTOD_CODE ?? 0),
-                     new XAttribute("newctgycode", crnt.NEW_CTGY_CODE ?? 0),
-                     new XAttribute("newcbmtcode", crnt.NEW_CBMT_CODE ?? 0)
+                     new XAttribute("todate", crnt.TO_DATE.HasValue ? crnt.TO_DATE.Value.ToString("yyyy-MM-dd") : "")
                   )
                )
             );
@@ -247,18 +242,16 @@ namespace System.Scsc.Ui.AggregateOperation
                      new XAttribute("regnprvncntycode", crnt.REGN_PRVN_CNTY_CODE ?? "001"),
                      new XAttribute("regnprvncode", crnt.REGN_PRVN_CODE ?? "017"),
                      new XAttribute("regncode", crnt.REGN_CODE ?? "001"),
-                     new XAttribute("rqtpcode", crnt.RQTP_CODE ?? "009"),
+                     new XAttribute("rqtpcode", crnt.RQTP_CODE ?? "016"),
                      new XAttribute("rqttcode", crnt.RQTT_CODE ?? "001"),
                      new XAttribute("mtodcode", crnt.MTOD_CODE ?? 0),
                      new XAttribute("ctgycode", crnt.CTGY_CODE ?? 0),
                      new XAttribute("cochfileno", crnt.COCH_FILE_NO ?? 0),
                      new XAttribute("cbmtcode", crnt.CBMT_CODE ?? 0),
-                     new XAttribute("oprttype", crnt.OPRT_TYPE ?? "001"),
+                     new XAttribute("oprttype", crnt.OPRT_TYPE ?? "006"),
                      new XAttribute("oprtstat", "003"),
                      new XAttribute("fromdate", crnt.FROM_DATE.HasValue ? crnt.FROM_DATE.Value.ToString("yyyy-MM-dd") : ""),
-                     new XAttribute("todate", crnt.TO_DATE.HasValue ? crnt.TO_DATE.Value.ToString("yyyy-MM-dd") : ""),
-                     new XAttribute("numbmontoffr", crnt.NUMB_MONT_OFFR ?? 0),
-                     new XAttribute("numbofattnmont", crnt.NUMB_OF_ATTN_MONT ?? 0)
+                     new XAttribute("todate", crnt.TO_DATE.HasValue ? crnt.TO_DATE.Value.ToString("yyyy-MM-dd") : "")
                   )
                )
             );
@@ -296,21 +289,16 @@ namespace System.Scsc.Ui.AggregateOperation
                      new XAttribute("regnprvncntycode", crnt.REGN_PRVN_CNTY_CODE ?? "001"),
                      new XAttribute("regnprvncode", crnt.REGN_PRVN_CODE ?? "017"),
                      new XAttribute("regncode", crnt.REGN_CODE ?? "001"),
-                     new XAttribute("rqtpcode", crnt.RQTP_CODE ?? "009"),
+                     new XAttribute("rqtpcode", crnt.RQTP_CODE ?? "016"),
                      new XAttribute("rqttcode", crnt.RQTT_CODE ?? "001"),
                      new XAttribute("mtodcode", crnt.MTOD_CODE ?? 0),
                      new XAttribute("ctgycode", crnt.CTGY_CODE ?? 0),
                      new XAttribute("cochfileno", crnt.COCH_FILE_NO ?? 0),
                      new XAttribute("cbmtcode", crnt.CBMT_CODE ?? 0),
-                     new XAttribute("oprttype", crnt.OPRT_TYPE ?? "001"),
+                     new XAttribute("oprttype", crnt.OPRT_TYPE ?? "006"),
                      new XAttribute("oprtstat", "002"),
                      new XAttribute("fromdate", crnt.FROM_DATE.HasValue ? crnt.FROM_DATE.Value.ToString("yyyy-MM-dd") : ""),
-                     new XAttribute("todate", crnt.TO_DATE.HasValue ? crnt.TO_DATE.Value.ToString("yyyy-MM-dd") : ""),
-                     new XAttribute("numbmontoffr", crnt.NUMB_MONT_OFFR ?? 0),
-                     new XAttribute("numbofattnmont", crnt.NUMB_OF_ATTN_MONT ?? 0),
-                     new XAttribute("newmtodcode", crnt.NEW_MTOD_CODE ?? 0),
-                     new XAttribute("newctgycode", crnt.NEW_CTGY_CODE ?? 0),
-                     new XAttribute("newcbmtcode", crnt.NEW_CBMT_CODE ?? 0)
+                     new XAttribute("todate", crnt.TO_DATE.HasValue ? crnt.TO_DATE.Value.ToString("yyyy-MM-dd") : "")
                   )
                )
             );
@@ -381,21 +369,16 @@ namespace System.Scsc.Ui.AggregateOperation
                      new XAttribute("regnprvncntycode", crnt.REGN_PRVN_CNTY_CODE ?? "001"),
                      new XAttribute("regnprvncode", crnt.REGN_PRVN_CODE ?? "017"),
                      new XAttribute("regncode", crnt.REGN_CODE ?? "001"),
-                     new XAttribute("rqtpcode", crnt.RQTP_CODE ?? "009"),
+                     new XAttribute("rqtpcode", crnt.RQTP_CODE ?? "016"),
                      new XAttribute("rqttcode", crnt.RQTT_CODE ?? "001"),
                      new XAttribute("mtodcode", crnt.MTOD_CODE ?? 0),
                      new XAttribute("ctgycode", crnt.CTGY_CODE ?? 0),
                      new XAttribute("cochfileno", crnt.COCH_FILE_NO ?? 0),
                      new XAttribute("cbmtcode", crnt.CBMT_CODE ?? 0),
-                     new XAttribute("oprttype", crnt.OPRT_TYPE ?? "001"),
+                     new XAttribute("oprttype", crnt.OPRT_TYPE ?? "006"),
                      new XAttribute("oprtstat", "004"),
                      new XAttribute("fromdate", crnt.FROM_DATE.HasValue ? crnt.FROM_DATE.Value.ToString("yyyy-MM-dd") : ""),
-                     new XAttribute("todate", crnt.TO_DATE.HasValue ? crnt.TO_DATE.Value.ToString("yyyy-MM-dd") : ""),
-                     new XAttribute("numbmontoffr", crnt.NUMB_MONT_OFFR ?? 0),
-                     new XAttribute("numbofattnmont", crnt.NUMB_OF_ATTN_MONT ?? 0),
-                     new XAttribute("newmtodcode", crnt.NEW_MTOD_CODE ?? 0),
-                     new XAttribute("newctgycode", crnt.NEW_CTGY_CODE ?? 0),
-                     new XAttribute("newcbmtcode", crnt.NEW_CBMT_CODE ?? 0)
+                     new XAttribute("todate", crnt.TO_DATE.HasValue ? crnt.TO_DATE.Value.ToString("yyyy-MM-dd") : "")
                   )
                )
             );

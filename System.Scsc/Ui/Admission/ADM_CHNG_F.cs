@@ -147,8 +147,10 @@ namespace System.Scsc.Ui.Admission
                               new XElement("Dad_Chat_Id", DadChatId_Txt.EditValue ?? ""),
                               new XElement("Mom_Cell_Phon", MomCellPhon_Txt.EditValue ?? ""),
                               new XElement("Mom_Tell_Phon", MomTellPhon_Txt.EditValue ?? ""),
-                              new XElement("Mom_Chat_Id", MomChatId_Txt.EditValue ?? "")
-
+                              new XElement("Mom_Chat_Id", MomChatId_Txt.EditValue ?? ""),
+                              new XElement("Unit_Blok_Cndo_Code", Cndo_Lov.EditValue ?? ""),
+                              new XElement("Unit_Blok_Code", Cblk_Lov.EditValue ?? ""),
+                              new XElement("Unit_Code", Cunt_Lov.EditValue ?? "")
                            )
                         )
                      )
@@ -646,7 +648,71 @@ namespace System.Scsc.Ui.Admission
                }
             );
          }
-         catch (Exception exc) { }
+         catch { }
+      }
+
+      private void Cndo_Lov_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
+      {
+         try
+         {
+            var fgpb = FgpbsBs1.Current as Data.Fighter_Public;
+            if (fgpb == null) return;
+
+            CblkBs1.DataSource = iScsc.Cando_Blocks.Where(b => b.CNDO_CODE == e.NewValue.ToString());
+         }
+         catch { }
+      }
+
+      private void Cblk_Lov_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
+      {
+         try
+         {
+            var fgpb = FgpbsBs1.Current as Data.Fighter_Public;
+            if (fgpb == null) return;
+
+            CuntBs1.DataSource = iScsc.Cando_Block_Units.Where(u => u.BLOK_CNDO_CODE == fgpb.UNIT_BLOK_CNDO_CODE && u.BLOK_CODE == e.NewValue.ToString());
+         }
+         catch { }
+      }
+
+      private void Cunt_Lov_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
+      {
+         try
+         {
+            var fgpb = FgpbsBs1.Current as Data.Fighter_Public;
+            if (fgpb == null) return;
+
+            IDTY_TXT.Text = 
+               string.Format(
+               "{0}.{1}.{2}.{3}.{4}.{5}", 
+               fgpb.REGN_PRVN_CNTY_CODE, 
+               fgpb.REGN_PRVN_CODE,
+               fgpb.REGN_CODE,
+               fgpb.UNIT_BLOK_CNDO_CODE,
+               fgpb.UNIT_BLOK_CODE,
+               e.NewValue);
+         }
+         catch { IDTY_TXT.Text = "نامشخص"; }
+      }
+
+      private void FgpbsBs1_CurrentChanged(object sender, EventArgs e)
+      {
+         try
+         {
+            var fgpb = FgpbsBs1.Current as Data.Fighter_Public;
+            if (fgpb == null) return;
+
+            IDTY_TXT.Text =
+               string.Format(
+               "{0}.{1}.{2}.{3}.{4}.{5}",
+               fgpb.REGN_PRVN_CNTY_CODE,
+               fgpb.REGN_PRVN_CODE,
+               fgpb.REGN_CODE,
+               fgpb.UNIT_BLOK_CNDO_CODE ?? "---",
+               fgpb.UNIT_BLOK_CODE ?? "---",
+               fgpb.UNIT_CODE ?? "---");
+         }
+         catch { IDTY_TXT.Text = "نامشخص"; }
       }
    }
 }

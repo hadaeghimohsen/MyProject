@@ -144,6 +144,7 @@
          this.bbi_embkbutn = new DevExpress.XtraBars.BarButtonItem();
          this.bbi_basdifnbutn = new DevExpress.XtraBars.BarButtonItem();
          this.bbi_mbsnbutn = new DevExpress.XtraBars.BarButtonItem();
+         this.bbi_incgbutn = new DevExpress.XtraBars.BarButtonItem();
          this.System_RPgc = new DevExpress.XtraBars.Ribbon.RibbonPageCategory();
          this.Base_RbPg = new DevExpress.XtraBars.Ribbon.RibbonPage();
          this.Base_RbGp = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -240,7 +241,6 @@
          this.مدیریتسیستمToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
          this.bbi_bkupbutn_Mn = new System.Windows.Forms.ToolStripMenuItem();
          this.bbi_embkbutn_Mn = new System.Windows.Forms.ToolStripMenuItem();
-         this.bbi_incgbutn = new DevExpress.XtraBars.BarButtonItem();
          this.statusStrip1.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.spc_desktop)).BeginInit();
@@ -1234,6 +1234,16 @@
          this.bbi_mbsnbutn.Name = "bbi_mbsnbutn";
          this.bbi_mbsnbutn.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
          this.bbi_mbsnbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_mbsnbutn_ItemClick);
+         // 
+         // bbi_incgbutn
+         // 
+         this.bbi_incgbutn.Caption = "ثبت درآمد گروهی";
+         this.bbi_incgbutn.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
+         this.bbi_incgbutn.Glyph = ((System.Drawing.Image)(resources.GetObject("bbi_incgbutn.Glyph")));
+         this.bbi_incgbutn.Id = 94;
+         this.bbi_incgbutn.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbi_incgbutn.LargeGlyph")));
+         this.bbi_incgbutn.Name = "bbi_incgbutn";
+         this.bbi_incgbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_incgbutn_ItemClick);
          // 
          // System_RPgc
          // 
@@ -2245,16 +2255,6 @@
          this.bbi_embkbutn_Mn.Size = new System.Drawing.Size(185, 22);
          this.bbi_embkbutn_Mn.Text = "پشتیبان گیری اضطراری";
          this.bbi_embkbutn_Mn.Click += new System.EventHandler(this.bbi_embkbutn_Mn_Click);
-         // 
-         // bbi_incgbutn
-         // 
-         this.bbi_incgbutn.Caption = "ثبت درآمد گروهی";
-         this.bbi_incgbutn.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
-         this.bbi_incgbutn.Glyph = ((System.Drawing.Image)(resources.GetObject("bbi_incgbutn.Glyph")));
-         this.bbi_incgbutn.Id = 94;
-         this.bbi_incgbutn.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbi_incgbutn.LargeGlyph")));
-         this.bbi_incgbutn.Name = "bbi_incgbutn";
-         this.bbi_incgbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_incgbutn_ItemClick);
          // 
          // MAIN_PAGE_F
          // 

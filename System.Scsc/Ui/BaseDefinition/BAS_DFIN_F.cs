@@ -99,10 +99,16 @@ namespace System.Scsc.Ui.BaseDefinition
             int c = CntyBs1.Position;
             int p = PrvnBs1.Position;
             int r = RegnBs1.Position;
+            int d = CndoBs1.Position;
+            int b = CblkBs1.Position;
+            int u = CuntBs1.Position;
             CntyBs1.DataSource = iScsc.Countries;
             CntyBs1.Position = c;
             PrvnBs1.Position = p;
             RegnBs1.Position = r;
+            CndoBs1.Position = d;
+            CblkBs1.Position = b;
+            CuntBs1.Position = u;
          }
          else if(Tb_Master.SelectedTab == tp_005)
          {
@@ -3567,11 +3573,239 @@ namespace System.Scsc.Ui.BaseDefinition
       {
          try
          {
+            CndoBs1.EndEdit();
+            Cndo_Gv.PostEditor();
 
+            iScsc.SubmitChanges();
+            requery = true;
          }
          catch (Exception exc)
          {
             MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void DelCndo_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var cndo = CndoBs1.Current as Data.Cando;
+            if (cndo == null) return;
+
+            if (MessageBox.Show(this, "آیا با حذف رکورد موافق هستید؟", "عملیات حذف", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+
+            iScsc.DEL_CNDO_P(cndo.REGN_PRVN_CNTY_CODE, cndo.REGN_PRVN_CODE, cndo.REGN_CODE, cndo.CODE);
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void AddCndoBlok_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var cndo = CndoBs1.Current as Data.Cando;
+            if (cndo == null) return;
+
+            if (CblkBs1.List.OfType<Data.Cando_Block>().Any(b => b.CRET_BY == null)) return;
+
+            var cblk = CblkBs1.AddNew() as Data.Cando_Block;
+            iScsc.Cando_Blocks.InsertOnSubmit(cblk);
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void SaveCndoBlok_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            CblkBs1.EndEdit();
+            Cblk_Gv.PostEditor();
+
+            iScsc.SubmitChanges();
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void DelCndoBlok_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var cblk = CblkBs1.Current as Data.Cando_Block;
+            if (cblk == null) return;
+
+            if (MessageBox.Show(this, "آیا با حذف رکورد موافق هستید؟", "عملیات حذف", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+
+            iScsc.DEL_CBLK_P(cblk.CNDO_CODE, cblk.CODE);
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void AddCndoBlokUnit_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var cblk = CblkBs1.Current as Data.Cando_Block;
+            if (cblk == null) return;
+
+            if (CuntBs1.List.OfType<Data.Cando_Block_Unit>().Any(u => u.CRET_BY == null)) return;
+
+            var cunt = CuntBs1.AddNew() as Data.Cando_Block_Unit;
+            iScsc.Cando_Block_Units.InsertOnSubmit(cunt);
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void SaveCndoBlokUnit_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            CuntBs1.EndEdit();
+            Cunt_Gv.PostEditor();
+
+            iScsc.SubmitChanges();
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void DelCndoBlokUnit_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var cunt = CuntBs1.Current as Data.Cando_Block_Unit;
+            if (cunt == null) return;
+
+            if (MessageBox.Show(this, "آیا با حذف رکورد موافق هستید؟", "عملیات حذف", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+
+            iScsc.DEL_CUNT_P(cunt.BLOK_CNDO_CODE, cunt.BLOK_CODE, cunt.CODE);
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void BlokSubmit_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var cndo = CndoBs1.Current as Data.Cando;
+            if (cndo == null) return;
+
+            if (Blok_Txt.Text == "") { Blok_Txt.Focus(); return; }
+            /*if(CblkBs1.List.OfType<Data.Cando_Block>().Any(b => Convert.ToDecimal(b.CODE) >= MinBlok_Nud.Value && Convert.ToDecimal(b.CODE) <= MaxBlok_Nud.Value))
+            {
+               MessageBox.Show(this, "بازه ای که برای تعریف بلوک انتخاب کرده اید قبلا ثبت شده");
+            }*/
+
+            for (decimal i = MinBlok_Nud.Value; i < MaxBlok_Nud.Value; i++)
+            {
+               iScsc.INS_CBLK_P(cndo.CODE, i.ToString(), Blok_Txt.Text + " " + i.ToString(), null, null, null, null);
+            }
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void UnitSubmit_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            if (ModifierKeys.HasFlag(Keys.Control))
+            {
+               if (Unit_Txt.Text == "") { Unit_Txt.Focus(); return; }
+
+               CblkBs1.MoveFirst();
+               foreach (var cblk in CblkBs1.List.OfType<Data.Cando_Block>())
+               {
+                  for (decimal i = MinUnit_Nud.Value; i < MaxUnit_Nud.Value; i++)
+                  {
+                     iScsc.INS_CUNT_P(cblk.CNDO_CODE, cblk.CODE, i.ToString(), Unit_Txt.Text + " " + i.ToString(), null, null, null, null);
+                  }
+               }
+            }
+            else
+            {
+               var cblk = CblkBs1.Current as Data.Cando_Block;
+               if (cblk == null) return;
+
+               if (Unit_Txt.Text == "") { Unit_Txt.Focus(); return; }
+
+               for (decimal i = MinUnit_Nud.Value; i < MaxUnit_Nud.Value; i++)
+               {
+                  iScsc.INS_CUNT_P(cblk.CNDO_CODE, cblk.CODE, i.ToString(), Unit_Txt.Text + " " + i.ToString(), null, null, null, null);
+               }
+            }
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
          }
       }
    }

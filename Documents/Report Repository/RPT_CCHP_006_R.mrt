@@ -1,0 +1,1010 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<StiSerializer version="1.02" type="Net" application="StiReport">
+  <Dictionary Ref="1" type="Dictionary" isKey="true">
+    <BusinessObjects isList="true" count="0" />
+    <Databases isList="true" count="1">
+      <iScsc Ref="2" type="Stimulsoft.Report.Dictionary.StiSqlDatabase" isKey="true">
+        <Alias>iScsc</Alias>
+        <ConnectionString>Integrated Security=True;Data Source=.;Initial Catalog=iScsc;Persist Security Info=False</ConnectionString>
+        <Name>iScsc</Name>
+      </iScsc>
+    </Databases>
+    <DataSources isList="true" count="6">
+      <Club Ref="3" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
+        <Alias>Club</Alias>
+        <Columns isList="true" count="20">
+          <value>REGN_PRVN_CNTY_CODE,System.String</value>
+          <value>REGN_PRVN_CODE,System.String</value>
+          <value>REGN_CODE,System.String</value>
+          <value>CODE,System.Int64</value>
+          <value>NAME,System.String</value>
+          <value>POST_ADRS,System.String</value>
+          <value>EMAL_ADRS,System.String</value>
+          <value>WEB_SITE,System.String</value>
+          <value>CORD_X,System.Double</value>
+          <value>CORD_Y,System.Double</value>
+          <value>TELL_PHON,System.String</value>
+          <value>CELL_PHON,System.String</value>
+          <value>CLUB_CODE,System.Int64</value>
+          <value>ZIP_CODE,System.String</value>
+          <value>ECON_CODE,System.String</value>
+          <value>CLUB_DESC,System.String</value>
+          <value>CRET_BY,System.String</value>
+          <value>CRET_DATE,System.DateTime</value>
+          <value>MDFY_BY,System.String</value>
+          <value>MDFY_DATE,System.DateTime</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1" />
+        <Name>Club</Name>
+        <NameInSource>iScsc</NameInSource>
+        <Parameters isList="true" count="0" />
+        <SqlCommand>select TOP 1 * from Club</SqlCommand>
+      </Club>
+      <Fighter Ref="4" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
+        <Alias>Fighter</Alias>
+        <Columns isList="true" count="80">
+          <value>CONF_STAT,System.String</value>
+          <value>FIGH_STAT,System.String</value>
+          <value>REGN_PRVN_CNTY_CODE,System.String</value>
+          <value>REGN_PRVN_CODE,System.String</value>
+          <value>REGN_CODE,System.String</value>
+          <value>FILE_NO,System.Int64</value>
+          <value>TARF_CODE_DNRM,System.String</value>
+          <value>MOST_DEBT_CLNG_DNRM,System.Int64</value>
+          <value>DEBT_DNRM,System.Int64</value>
+          <value>BUFE_DEBT_DNTM,System.Int64</value>
+          <value>DPST_AMNT_DNRM,System.Int64</value>
+          <value>FGPB_RWNO_DNRM,System.Int64</value>
+          <value>MBSP_RWNO_DNRM,System.Int64</value>
+          <value>MBCO_RWNO_DNRM,System.Int64</value>
+          <value>MBFZ_RWNO_DNRM,System.Int64</value>
+          <value>MBSM_RWNO_DNRM,System.Int64</value>
+          <value>CAMP_RWNO_DNRM,System.Int64</value>
+          <value>TEST_RWNO_DNRM,System.Int64</value>
+          <value>CLCL_RWNO_DNRM,System.Int64</value>
+          <value>HERT_RWNO_DNRM,System.Int64</value>
+          <value>PSFN_RWNO_DNRM,System.Int64</value>
+          <value>EXAM_RWNO_DNRM,System.Int64</value>
+          <value>BDFT_RWNO_DNRM,System.Int64</value>
+          <value>MBSP_STRT_DATE,System.String</value>
+          <value>MBSP_END_DATE,System.String</value>
+          <value>RQST_RQID,System.Int64</value>
+          <value>NAME_DNRM,System.String</value>
+          <value>FRST_NAME_DNRM,System.String</value>
+          <value>LAST_NAME_DNRM,System.String</value>
+          <value>FATH_NAME_DNRM,System.String</value>
+          <value>POST_ADRS_DNRM,System.String</value>
+          <value>SEX_TYPE_DNRM,System.String</value>
+          <value>BRTH_DATE_DNRM,System.DateTime</value>
+          <value>CELL_PHON_DNRM,System.String</value>
+          <value>TELL_PHON_DNRM,System.String</value>
+          <value>FGPB_TYPE_DNRM,System.String</value>
+          <value>INSR_NUMB_DNRM,System.String</value>
+          <value>INSR_DATE_DNRM,System.DateTime</value>
+          <value>TEST_DATE_DNRM,System.DateTime</value>
+          <value>CAMP_DATE_DNRM,System.DateTime</value>
+          <value>CTGY_CODE_DNRM,System.Int64</value>
+          <value>MTOD_CODE_DNRM,System.Int64</value>
+          <value>CLUB_CODE_DNRM,System.Int64</value>
+          <value>COCH_FILE_NO_DNRM,System.Int64</value>
+          <value>COCH_CRTF_YEAR_DNRM,System.Int64</value>
+          <value>CBMT_CODE_DNRM,System.Int64</value>
+          <value>DAY_TYPE_DNRM,System.String</value>
+          <value>ATTN_TIME_DNRM,System.String</value>
+          <value>ACTV_TAG_DNRM,System.String</value>
+          <value>BLOD_GROP_DNRM,System.String</value>
+          <value>FIGH_FILE_NO,System.Int64</value>
+          <value>IMAG_RCDC_RCID_DNRM,System.Int64</value>
+          <value>IMAG_RWNO_DNRM,System.Int64</value>
+          <value>CARD_NUMB_DNRM,System.String</value>
+          <value>FNGR_PRNT_DNRM,System.String</value>
+          <value>SUNT_BUNT_DEPT_ORGN_CODE_DNRM,System.String</value>
+          <value>SUNT_BUNT_DEPT_CODE_DNRM,System.String</value>
+          <value>SUNT_BUNT_CODE_DNRM,System.String</value>
+          <value>SUNT_CODE_DNRM,System.String</value>
+          <value>CORD_X_DNRM,System.Double</value>
+          <value>CORD_Y_DNRM,System.Double</value>
+          <value>SERV_NO_DNRM,System.String</value>
+          <value>NATL_CODE_DNRM,System.String</value>
+          <value>GLOB_CODE_DNRM,System.String</value>
+          <value>CHAT_ID_DNRM,System.Int64</value>
+          <value>FMLY_NUMB_DNRM,System.Int64</value>
+          <value>MOM_CELL_PHON_DNRM,System.String</value>
+          <value>MOM_TELL_PHON_DNRM,System.String</value>
+          <value>MOM_CHAT_ID_DNRM,System.Int64</value>
+          <value>DAD_CELL_PHON_DNRM,System.String</value>
+          <value>DAD_TELL_PHON_DNRM,System.String</value>
+          <value>DAD_CHAT_ID_DNRM,System.Int64</value>
+          <value>DPST_ACNT_SLRY_BANK_DNRM,System.String</value>
+          <value>DPST_ACNT_SLRY_DNRM,System.String</value>
+          <value>CRET_BY,System.String</value>
+          <value>CRET_DATE,System.DateTime</value>
+          <value>MDFY_BY,System.String</value>
+          <value>MDFY_DATE,System.DateTime</value>
+          <value>CONF_DATE,System.DateTime</value>
+          <value>IMAG,System.Byte[]</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1" />
+        <Name>Fighter</Name>
+        <NameInSource>iScsc</NameInSource>
+        <Parameters isList="true" count="0" />
+        <SqlCommand>select *, dbo.GET_PIMG_U('&lt;Fighter fileno="' + CAST(Fighter.File_No AS VARCHAR(14)) + '"/&gt;') AS IMAG from Fighter</SqlCommand>
+      </Fighter>
+      <Method Ref="5" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
+        <Alias>Method</Alias>
+        <Columns isList="true" count="12">
+          <value>CODE,System.Int64</value>
+          <value>MTOD_DESC,System.String</value>
+          <value>MTOD_CODE,System.Int64</value>
+          <value>NATL_CODE,System.String</value>
+          <value>EPIT_TYPE,System.String</value>
+          <value>DFLT_STAT,System.String</value>
+          <value>MTOD_STAT,System.String</value>
+          <value>CHCK_ATTN_ALRM,System.String</value>
+          <value>CRET_BY,System.String</value>
+          <value>CRET_DATE,System.DateTime</value>
+          <value>MDFY_BY,System.String</value>
+          <value>MDFY_DATE,System.DateTime</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1" />
+        <Name>Method</Name>
+        <NameInSource>iScsc</NameInSource>
+        <Parameters isList="true" count="0" />
+        <SqlCommand>select * from Method</SqlCommand>
+      </Method>
+      <Misc_Expense Ref="6" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
+        <Alias>Misc_Expense</Alias>
+        <Columns isList="true" count="22">
+          <value>CODE,System.Int64</value>
+          <value>RWNO,System.Int64</value>
+          <value>VALD_TYPE,System.String</value>
+          <value>EXPN_AMNT,System.Int64</value>
+          <value>EXPN_DESC,System.String</value>
+          <value>CALC_EXPN_TYPE,System.String</value>
+          <value>DECR_PRCT,System.Double</value>
+          <value>DELV_STAT,System.String</value>
+          <value>DELV_DATE,System.String</value>
+          <value>DELV_BY,System.String</value>
+          <value>QNTY,System.Double</value>
+          <value>CRET_BY,System.String</value>
+          <value>CRET_DATE,System.DateTime</value>
+          <value>MDFY_BY,System.String</value>
+          <value>MDFY_DATE,System.DateTime</value>
+          <value>REGN_PRVN_CNTY_CODE,System.String</value>
+          <value>REGN_PRVN_CODE,System.String</value>
+          <value>REGN_CODE,System.String</value>
+          <value>CLUB_CODE,System.Int64</value>
+          <value>EPIT_CODE,System.Int64</value>
+          <value>COCH_FILE_NO,System.Int64</value>
+          <value>EXPN_AMNT_DESC,System.String</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1" />
+        <Name>Misc_Expense</Name>
+        <NameInSource>iScsc</NameInSource>
+        <Parameters isList="true" count="0" />
+        <SqlCommand>select *, dbo.GET_NTOS_U(EXPN_AMNT) AS EXPN_AMNT_DESC from Misc_Expense</SqlCommand>
+      </Misc_Expense>
+      <Misc_Expense_Detail Ref="7" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
+        <Alias>Misc_Expense_Detail</Alias>
+        <Columns isList="true" count="17">
+          <value>CODE,System.Int64</value>
+          <value>RECT_CODE,System.String</value>
+          <value>COCH_FILE_NO,System.Int64</value>
+          <value>MTOD_CODE,System.Int64</value>
+          <value>ACTN_CONT_DNRM,System.Int64</value>
+          <value>UNIT_AMNT_DNRM,System.Int64</value>
+          <value>TOTL_AMNT_DNRM,System.Int64</value>
+          <value>PRVS_DELV_AMNT_DNRM,System.Int64</value>
+          <value>CRNT_AMNT_DNRM,System.Int64</value>
+          <value>MAX_CNTR_AMNT_DNRM,System.Int64</value>
+          <value>STAT,System.String</value>
+          <value>ACTN_DATE,System.DateTime</value>
+          <value>CRET_BY,System.String</value>
+          <value>CRET_DATE,System.DateTime</value>
+          <value>MDFY_BY,System.String</value>
+          <value>MDFY_DATE,System.DateTime</value>
+          <value>MSEX_CODE,System.Int64</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1" />
+        <Name>Misc_Expense_Detail</Name>
+        <NameInSource>iScsc</NameInSource>
+        <Parameters isList="true" count="0" />
+        <SqlCommand>select * from Misc_Expense_Detail where rect_code = '004'</SqlCommand>
+      </Misc_Expense_Detail>
+      <D_x0024_SXTP Ref="8" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
+        <Alias>D$SXTP</Alias>
+        <Columns isList="true" count="2">
+          <value>VALU,System.String</value>
+          <value>DOMN_DESC,System.String</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1" />
+        <Name>D$SXTP</Name>
+        <NameInSource>iScsc</NameInSource>
+        <Parameters isList="true" count="0" />
+        <SqlCommand>select * from D$SXTP</SqlCommand>
+      </D_x0024_SXTP>
+    </DataSources>
+    <Relations isList="true" count="5">
+      <FIGH_MSXD Ref="9" type="DataRelation" isKey="true">
+        <Alias>FIGH_MSXD</Alias>
+        <ChildColumns isList="true" count="1">
+          <value>COCH_FILE_NO</value>
+        </ChildColumns>
+        <ChildSource isRef="7" />
+        <Dictionary isRef="1" />
+        <Name>FIGH_MSXD</Name>
+        <NameInSource>Relation</NameInSource>
+        <ParentColumns isList="true" count="1">
+          <value>FILE_NO</value>
+        </ParentColumns>
+        <ParentSource isRef="4" />
+      </FIGH_MSXD>
+      <MTOD_MSXD Ref="10" type="DataRelation" isKey="true">
+        <Alias>MTOD_MSXD</Alias>
+        <ChildColumns isList="true" count="1">
+          <value>MTOD_CODE</value>
+        </ChildColumns>
+        <ChildSource isRef="7" />
+        <Dictionary isRef="1" />
+        <Name>MTOD_MSXD</Name>
+        <NameInSource>Relation2</NameInSource>
+        <ParentColumns isList="true" count="1">
+          <value>CODE</value>
+        </ParentColumns>
+        <ParentSource isRef="5" />
+      </MTOD_MSXD>
+      <MSEX_MSXD Ref="11" type="DataRelation" isKey="true">
+        <Alias>MSEX_MSXD</Alias>
+        <ChildColumns isList="true" count="1">
+          <value>MSEX_CODE</value>
+        </ChildColumns>
+        <ChildSource isRef="7" />
+        <Dictionary isRef="1" />
+        <Name>MSEX_MSXD</Name>
+        <NameInSource>Relation3</NameInSource>
+        <ParentColumns isList="true" count="1">
+          <value>CODE</value>
+        </ParentColumns>
+        <ParentSource isRef="6" />
+      </MSEX_MSXD>
+      <FIGH_MSEX Ref="12" type="DataRelation" isKey="true">
+        <Alias>FIGH_MSEX</Alias>
+        <ChildColumns isList="true" count="1">
+          <value>COCH_FILE_NO</value>
+        </ChildColumns>
+        <ChildSource isRef="6" />
+        <Dictionary isRef="1" />
+        <Name>FIGH_MSEX</Name>
+        <NameInSource>Relation4</NameInSource>
+        <ParentColumns isList="true" count="1">
+          <value>FILE_NO</value>
+        </ParentColumns>
+        <ParentSource isRef="4" />
+      </FIGH_MSEX>
+      <DSEX_FIGH Ref="13" type="DataRelation" isKey="true">
+        <Alias>DSEX_FIGH</Alias>
+        <ChildColumns isList="true" count="1">
+          <value>SEX_TYPE_DNRM</value>
+        </ChildColumns>
+        <ChildSource isRef="4" />
+        <Dictionary isRef="1" />
+        <Name>DSEX_FIGH</Name>
+        <NameInSource>Relation5</NameInSource>
+        <ParentColumns isList="true" count="1">
+          <value>VALU</value>
+        </ParentColumns>
+        <ParentSource isRef="8" />
+      </DSEX_FIGH>
+    </Relations>
+    <Report isRef="0" />
+    <Variables isList="true" count="0" />
+  </Dictionary>
+  <EngineVersion>EngineV2</EngineVersion>
+  <GlobalizationStrings isList="true" count="0" />
+  <MetaTags isList="true" count="0" />
+  <Pages isList="true" count="1">
+    <Page1 Ref="14" type="Page" isKey="true">
+      <Border>None;Black;2;Solid;False;4;Black</Border>
+      <Brush>Transparent</Brush>
+      <Components isList="true" count="5">
+        <DataFighter Ref="15" type="DataBand" isKey="true">
+          <Border>Top, Left;Black;1;Solid;False;4;Black</Border>
+          <Brush>Transparent</Brush>
+          <BusinessObjectGuid isNull="true" />
+          <ClientRectangle>0,0.4,13.8,3.8</ClientRectangle>
+          <Components isList="true" count="19">
+            <DataClub_POST_ADRS Ref="16" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>2.4,0.8,9,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,8</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataClub_POST_ADRS</Name>
+              <Page isRef="14" />
+              <Parent isRef="15" />
+              <Text>{Club.POST_ADRS}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </DataClub_POST_ADRS>
+            <DataClub_WEB_SITE Ref="17" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>2.4,2,3.6,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,8</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataClub_WEB_SITE</Name>
+              <Page isRef="14" />
+              <Parent isRef="15" />
+              <Text>{Club.WEB_SITE}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </DataClub_WEB_SITE>
+            <DataClub_TELL_PHON Ref="18" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>6,1.4,3.6,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,8</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataClub_TELL_PHON</Name>
+              <Page isRef="14" />
+              <Parent isRef="15" />
+              <Text>{Club.TELL_PHON}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </DataClub_TELL_PHON>
+            <DataClub_CELL_PHON Ref="19" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>2.4,1.4,3.6,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,8</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataClub_CELL_PHON</Name>
+              <Page isRef="14" />
+              <Parent isRef="15" />
+              <Text>{Club.CELL_PHON}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </DataClub_CELL_PHON>
+            <DataClub_CLUB_DESC Ref="20" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>2.4,0,9,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,8,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataClub_CLUB_DESC</Name>
+              <Page isRef="14" />
+              <Parent isRef="15" />
+              <Text>{Club.CLUB_DESC}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </DataClub_CLUB_DESC>
+            <Image1 Ref="21" type="Image" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[223:216:231]</Brush>
+              <ClientRectangle>11.4,0,2.4,2.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <File>\\localhost\Report Repository\Logo\Logo.jpeg</File>
+              <Name>Image1</Name>
+              <Page isRef="14" />
+              <Parent isRef="15" />
+              <Stretch>True</Stretch>
+            </Image1>
+            <Image2 Ref="22" type="Image" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[223:216:231]</Brush>
+              <ClientRectangle>0,0,2.4,2.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <DataColumn>Fighter.IMAG</DataColumn>
+              <Guid>f4d6518706ca49fcac4d737db86c5cee</Guid>
+              <Name>Image2</Name>
+              <Page isRef="14" />
+              <Parent isRef="15" />
+              <Stretch>True</Stretch>
+            </Image2>
+            <DataClub_ZIP_CODE Ref="23" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>6,2,3.6,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,8</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataClub_ZIP_CODE</Name>
+              <Page isRef="14" />
+              <Parent isRef="15" />
+              <Text>{Club.ZIP_CODE}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </DataClub_ZIP_CODE>
+            <Text1 Ref="24" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[239:239:239]</Brush>
+              <ClientRectangle>9.6,1.4,1.8,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,8</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text1</Name>
+              <Page isRef="14" />
+              <Parent isRef="15" />
+              <Text>شماره تماس</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text1>
+            <Text2 Ref="25" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[239:239:239]</Brush>
+              <ClientRectangle>9.6,2,1.8,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,8</Font>
+              <Guid>e0f6be3e3ad64b93b8e109f68541dd1d</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text2</Name>
+              <Page isRef="14" />
+              <Parent isRef="15" />
+              <Text>کد پستی</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text2>
+            <Text3 Ref="26" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>0,2.6,4.2,1.2</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,8</Font>
+              <Guid>0eca4538c95e49259e1ee4fc96440ee7</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text3</Name>
+              <Page isRef="14" />
+              <Parent isRef="15" />
+              <Text>{Fighter.NAME_DNRM}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>DataColumn</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text3>
+            <Text4 Ref="27" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>4.2,2.6,3.2,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,8</Font>
+              <Guid>3e0bc84d20a14fc49dfcb61a49f64414</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text4</Name>
+              <Page isRef="14" />
+              <Parent isRef="15" />
+              <Text>{Fighter.GLOB_CODE_DNRM}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>DataColumn</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text4>
+            <Text5 Ref="28" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[239:239:239]</Brush>
+              <ClientRectangle>7.4,2.6,1.6,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,8</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text5</Name>
+              <Page isRef="14" />
+              <Parent isRef="15" />
+              <Text>کد پرسنلی</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text5>
+            <Text8 Ref="29" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>9,3.2,2.4,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,8</Font>
+              <Guid>3ddb675141ca4ed2800f0308c9343070</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text8</Name>
+              <Page isRef="14" />
+              <Parent isRef="15" />
+              <Text>{Fighter.FNGR_PRNT_DNRM}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>DataColumn</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text8>
+            <Text9 Ref="30" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[239:239:239]</Brush>
+              <ClientRectangle>11.4,3.2,2.4,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,8</Font>
+              <Guid>39192d0b8c4a49b7bd7d3328e8d24a34</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text9</Name>
+              <Page isRef="14" />
+              <Parent isRef="15" />
+              <Text>کد شناسایی</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text9>
+            <Text10 Ref="31" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[239:239:239]</Brush>
+              <ClientRectangle>7.4,3.2,1.6,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,8</Font>
+              <Guid>d99ada0810fc4412bbb6f4ba2a10a910</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text10</Name>
+              <Page isRef="14" />
+              <Parent isRef="15" />
+              <Text>تلفن همراه</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text10>
+            <Text11 Ref="32" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>4.2,3.2,3.2,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,8</Font>
+              <Guid>3961d9cc603f4aa6aba4ee5d0af0ba01</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text11</Name>
+              <Page isRef="14" />
+              <Parent isRef="15" />
+              <Text>{Fighter.CELL_PHON_DNRM}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>DataColumn</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text11>
+            <Text6 Ref="33" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>9,2.6,2.4,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,8</Font>
+              <Guid>2d03a8cc50d04b3ab42266231386c851</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text6</Name>
+              <Page isRef="14" />
+              <Parent isRef="15" />
+              <Text>{Fighter.NATL_CODE_DNRM}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>DataColumn</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text6>
+            <Text7 Ref="34" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[239:239:239]</Brush>
+              <ClientRectangle>11.4,2.6,2.4,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,8</Font>
+              <Guid>4b4a8ef19cc248b8890fa4603604ff66</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text7</Name>
+              <Page isRef="14" />
+              <Parent isRef="15" />
+              <Text>کد ملی</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text7>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <DataSourceName>Fighter</DataSourceName>
+          <Filters isList="true" count="0" />
+          <Name>DataFighter</Name>
+          <Page isRef="14" />
+          <Parent isRef="14" />
+          <PrintOnAllPages>True</PrintOnAllPages>
+          <Sort isList="true" count="0" />
+        </DataFighter>
+        <HeaderBand1 Ref="35" type="HeaderBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,5,13.8,0.2</ClientRectangle>
+          <Components isList="true" count="0" />
+          <Conditions isList="true" count="0" />
+          <Name>HeaderBand1</Name>
+          <Page isRef="14" />
+          <Parent isRef="14" />
+        </HeaderBand1>
+        <HeaderMisc_Expense_Detail Ref="36" type="HeaderBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,6,13.8,0.6</ClientRectangle>
+          <Components isList="true" count="2">
+            <HeaderMisc_Expense_Detail_Relation2_MTOD_DESC Ref="37" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[216:216:216]</Brush>
+              <ClientRectangle>4.2,0,9.6,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,8,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderMisc_Expense_Detail_Relation2_MTOD_DESC</Name>
+              <Page isRef="14" />
+              <Parent isRef="36" />
+              <Text>شرح</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderMisc_Expense_Detail_Relation2_MTOD_DESC>
+            <HeaderMisc_Expense_Detail_TOTL_AMNT_DNRM Ref="38" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[216:216:216]</Brush>
+              <ClientRectangle>0,0,4.2,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,8,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderMisc_Expense_Detail_TOTL_AMNT_DNRM</Name>
+              <Page isRef="14" />
+              <Parent isRef="36" />
+              <Text>مبلغ</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderMisc_Expense_Detail_TOTL_AMNT_DNRM>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <Name>HeaderMisc_Expense_Detail</Name>
+          <Page isRef="14" />
+          <Parent isRef="14" />
+        </HeaderMisc_Expense_Detail>
+        <DataMisc_Expense_Detail Ref="39" type="DataBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <BusinessObjectGuid isNull="true" />
+          <ClientRectangle>0,7.4,13.8,0.8</ClientRectangle>
+          <Components isList="true" count="2">
+            <DataMisc_Expense_Detail_TOTL_AMNT_DNRM Ref="40" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>0,0,4.2,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,8</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataMisc_Expense_Detail_TOTL_AMNT_DNRM</Name>
+              <Page isRef="14" />
+              <Parent isRef="39" />
+              <Text>{Misc_Expense_Detail.TOTL_AMNT_DNRM}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="41" type="NumberFormat" isKey="true">
+                <DecimalDigits>0</DecimalDigits>
+                <GroupSeparator>,</GroupSeparator>
+                <NegativePattern>1</NegativePattern>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </DataMisc_Expense_Detail_TOTL_AMNT_DNRM>
+            <DataMisc_Expense_Detail_Relation2_MTOD_DESC Ref="42" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>4.2,0,9.6,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,8,Bold</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataMisc_Expense_Detail_Relation2_MTOD_DESC</Name>
+              <Page isRef="14" />
+              <Parent isRef="39" />
+              <Text>{Misc_Expense_Detail.MTOD_MSXD.MTOD_DESC}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </DataMisc_Expense_Detail_Relation2_MTOD_DESC>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <DataRelationName>Relation</DataRelationName>
+          <DataSourceName>Misc_Expense_Detail</DataSourceName>
+          <Filters isList="true" count="0" />
+          <MasterComponent isRef="15" />
+          <Name>DataMisc_Expense_Detail</Name>
+          <Page isRef="14" />
+          <Parent isRef="14" />
+          <Sort isList="true" count="0" />
+        </DataMisc_Expense_Detail>
+        <FooterBand1 Ref="43" type="FooterBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,9,13.8,3.8</ClientRectangle>
+          <Components isList="true" count="10">
+            <Text12 Ref="44" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[230:238:215]</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>0,0,4.2,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,8,Bold</Font>
+              <Guid>652736d9734e418cb085cfa5a1e68b8b</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text12</Name>
+              <Page isRef="14" />
+              <Parent isRef="43" />
+              <Text>{Sum(DataMisc_Expense_Detail,Misc_Expense_Detail.TOTL_AMNT_DNRM)}</Text>
+              <TextBrush>[31:73:125]</TextBrush>
+              <TextFormat Ref="45" type="NumberFormat" isKey="true">
+                <DecimalDigits>0</DecimalDigits>
+                <GroupSeparator>,</GroupSeparator>
+                <NegativePattern>1</NegativePattern>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Totals</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text12>
+            <Text13 Ref="46" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[230:238:215]</Brush>
+              <ClientRectangle>11.4,0,2.4,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,8</Font>
+              <Guid>2df4df7b2690483fba6c994e47320a7c</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text13</Name>
+              <Page isRef="14" />
+              <Parent isRef="43" />
+              <Text>مبلغ پرداختی</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text13>
+            <Text14 Ref="47" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[230:238:215]</Brush>
+              <ClientRectangle>4.2,0,7.2,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,8</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text14</Name>
+              <Page isRef="14" />
+              <Parent isRef="43" />
+              <Text>{Misc_Expense.EXPN_AMNT_DESC}</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </Text14>
+            <Text15 Ref="48" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>11.4,0.6,2.4,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,8</Font>
+              <Guid>05b5e73af48f40dc9df27007fadca271</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text15</Name>
+              <Page isRef="14" />
+              <Parent isRef="43" />
+              <Text>بانک</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text15>
+            <Text16 Ref="49" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,0.6,11.4,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,8</Font>
+              <Guid>374aba7899714e3fb84fc7c8a31bbd89</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text16</Name>
+              <Page isRef="14" />
+              <Parent isRef="43" />
+              <Text>{Misc_Expense_Detail.FIGH_MSXD.DPST_ACNT_SLRY_BANK_DNRM}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>DataColumn</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text16>
+            <Text17 Ref="50" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>11.4,1.2,2.4,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,8</Font>
+              <Guid>9377af7356854dee9b0e7d751822a93b</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text17</Name>
+              <Page isRef="14" />
+              <Parent isRef="43" />
+              <Text>شماره حساب</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text17>
+            <Text18 Ref="51" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,1.2,11.4,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,8</Font>
+              <Guid>dd1d33508e3544508bce2fcccdaa4214</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text18</Name>
+              <Page isRef="14" />
+              <Parent isRef="43" />
+              <Text>{Misc_Expense_Detail.FIGH_MSXD.DPST_ACNT_SLRY_DNRM}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>DataColumn</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text18>
+            <Text19 Ref="52" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>9,1.8,4.8,2</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,8</Font>
+              <Guid>f9123bba2bc84adbac08fc7cb49ef9b9</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text19</Name>
+              <Page isRef="14" />
+              <Parent isRef="43" />
+              <Text>تاریخ
+امضا مدیریت</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+            </Text19>
+            <Text20 Ref="53" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>4.4,1.8,4.6,2</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,8</Font>
+              <Guid>3a23da0ddb394e99ab4cdbfee9caab62</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text20</Name>
+              <Page isRef="14" />
+              <Parent isRef="43" />
+              <Text>تاریخ
+امضا مدیر مالی</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+            </Text20>
+            <Text21 Ref="54" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,1.8,4.4,2</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,8</Font>
+              <Guid>48f89776b6b94cb2b7cace806a0bb4b5</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text21</Name>
+              <Page isRef="14" />
+              <Parent isRef="43" />
+              <Text>تاریخ
+امضا سرپرست</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+            </Text21>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <Name>FooterBand1</Name>
+          <Page isRef="14" />
+          <Parent isRef="14" />
+        </FooterBand1>
+      </Components>
+      <Conditions isList="true" count="0" />
+      <Guid>c2db7726f148426c934faaaead7bd522</Guid>
+      <Margins>0.5,0.5,0.5,0.5</Margins>
+      <Name>Page1</Name>
+      <PageHeight>21</PageHeight>
+      <PageWidth>14.8</PageWidth>
+      <PaperSize>A5</PaperSize>
+      <Report isRef="0" />
+      <Watermark Ref="55" type="Stimulsoft.Report.Components.StiWatermark" isKey="true">
+        <Font>Arial,100</Font>
+        <TextBrush>[50:0:0:0]</TextBrush>
+      </Watermark>
+    </Page1>
+  </Pages>
+  <PrinterSettings Ref="56" type="Stimulsoft.Report.Print.StiPrinterSettings" isKey="true" />
+  <ReferencedAssemblies isList="true" count="8">
+    <value>System.Dll</value>
+    <value>System.Drawing.Dll</value>
+    <value>System.Windows.Forms.Dll</value>
+    <value>System.Data.Dll</value>
+    <value>System.Xml.Dll</value>
+    <value>Stimulsoft.Controls.Dll</value>
+    <value>Stimulsoft.Base.Dll</value>
+    <value>Stimulsoft.Report.Dll</value>
+  </ReferencedAssemblies>
+  <ReportAlias>Report</ReportAlias>
+  <ReportChanged>1/7/2019 3:13:55 PM</ReportChanged>
+  <ReportCreated>1/7/2019 11:22:55 AM</ReportCreated>
+  <ReportFile>D:\iData\Asre Andishe Project\MyProject\Documents\Report Repository\RPT_CCHP_006_R.mrt</ReportFile>
+  <ReportGuid>191ea62e32fe4d5993627b070a8743ae</ReportGuid>
+  <ReportName>Report</ReportName>
+  <ReportUnit>Centimeters</ReportUnit>
+  <ReportVersion>2012.2.1304</ReportVersion>
+  <Script>using System;
+using System.Drawing;
+using System.Windows.Forms;
+using System.Data;
+using Stimulsoft.Controls;
+using Stimulsoft.Base.Drawing;
+using Stimulsoft.Report;
+using Stimulsoft.Report.Dialogs;
+using Stimulsoft.Report.Components;
+
+namespace Reports
+{
+    public class Report : Stimulsoft.Report.StiReport
+    {
+        public Report()        {
+            this.InitializeComponent();
+        }
+
+        #region StiReport Designer generated code - do not modify
+		#endregion StiReport Designer generated code - do not modify
+    }
+}
+</Script>
+  <ScriptLanguage>CSharp</ScriptLanguage>
+  <Styles isList="true" count="0" />
+</StiSerializer>

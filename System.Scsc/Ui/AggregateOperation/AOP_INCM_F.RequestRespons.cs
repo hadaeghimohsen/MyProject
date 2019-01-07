@@ -256,7 +256,7 @@ namespace System.Scsc.Ui.AggregateOperation
 
          if (cbmtcode != null)
          {
-            AgopBs1.Position = AgopBs1.IndexOf(AgopBs1.List.OfType<Data.Aggregation_Operation>().FirstOrDefault(ao => ao.CBMT_CODE == cbmtcode && ao.FROM_DATE == fromdate.Value.Date && ao.OPRT_TYPE == "001" && (ao.OPRT_STAT == "001" || ao.OPRT_STAT == "002")));
+            AgopBs1.Position = AgopBs1.IndexOf(AgopBs1.List.OfType<Data.Aggregation_Operation>().FirstOrDefault(ao => ao.CBMT_CODE == cbmtcode && ao.FROM_DATE == fromdate.Value.Date && ao.OPRT_TYPE == "006" && (ao.OPRT_STAT == "001" || ao.OPRT_STAT == "002")));
          }
 
          job.Status = StatusType.Successful;

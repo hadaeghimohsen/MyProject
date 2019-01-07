@@ -40,7 +40,7 @@ namespace System.Scsc.Ui.AggregateOperation
                ex.Expense_Type.Request_Requester.RQTP_CODE == "016" &&
                ex.Expense_Type.Request_Requester.RQTT_CODE == "001" &&
                ex.EXPN_STAT == "002" /* هزینه های فعال */
-            );
+            );        
 
          Grop_FLP.Controls.Clear();
          var allItems = new Button();
@@ -350,6 +350,10 @@ namespace System.Scsc.Ui.AggregateOperation
       {
          try
          {
+            var aodt = AodtBs1.Current as Data.Aggregation_Operation_Detail;
+            if(aodt == null)return;
+
+            RqstBs1.DataSource = aodt.Request;
          }
          catch { }
       }
@@ -429,18 +433,19 @@ namespace System.Scsc.Ui.AggregateOperation
          }
       }
 
-      private void CbmtNew_Lov_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
+      private void AgopBs1_CurrentChanged(object sender, EventArgs e)
       {
          try
          {
-            
+            if (AodtBs1.List.Count > 0)
+               Gb_Expense.Visible = true;
+            else
+               Gb_Expense.Visible = false;
          }
-         catch { }
-      }
-
-      private void AgopBs1_CurrentChanged(object sender, EventArgs e)
-      {
-         CbmtNew_Lov_EditValueChanging(null, null);
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
       }
 
       private void CbmtCode_Lov_EditValueChanged(object sender, EventArgs e)
@@ -466,7 +471,7 @@ namespace System.Scsc.Ui.AggregateOperation
          }
       }
 
-      private void RqstBs2_CurrentChanged(object sender, EventArgs e)
+      private void RqstBs1_CurrentChanged(object sender, EventArgs e)
       {
          try
          {
@@ -519,7 +524,7 @@ namespace System.Scsc.Ui.AggregateOperation
             }
             else
             {
-               var pymt = PymtBs2.Current as Data.Payment;
+               var pymt = PymtBs1.Current as Data.Payment;
                if (pymt == null) return;
 
                int? amnt = null;
@@ -563,7 +568,7 @@ namespace System.Scsc.Ui.AggregateOperation
       {
          try
          {
-            var pyds = PydsBs2.Current as Data.Payment_Discount;
+            var pyds = PydsBs1.Current as Data.Payment_Discount;
             if (pyds == null) return;
 
             iScsc.DEL_PYDS_P(pyds.PYMT_CASH_CODE, pyds.PYMT_RQST_RQID, pyds.RQRO_RWNO, pyds.RWNO);
@@ -607,6 +612,245 @@ namespace System.Scsc.Ui.AggregateOperation
       private void PydtBn1_ButtonClick(object sender, NavigatorButtonClickEventArgs e)
       {
 
+      }
+
+      private void AddItem_Butn_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            var expn = ExpnBs1.Current as Data.Expense;
+            foreach (var rqst in AodtBs1.List.OfType<Data.Aggregation_Operation_Detail>().Select(r => r.Request))
+            {
+               var pymt = rqst.Payments.FirstOrDefault();
+               if (!pymt.Payment_Details.Any(pd => pd.EXPN_CODE == expn.CODE))
+               {
+                  long? pydtcode = 0;
+                  iScsc.INS_PYDT_P(
+                    pymt.CASH_CODE,
+                    rqst.RQID,
+                    1,
+                    expn.CODE,
+                    "001",
+                    expn.PRIC,
+                    expn.EXTR_PRCT,
+                    null,
+                    1, null, null, null, null, null, expn.EXPN_DESC, null, null, null, null,
+                    ref pydtcode
+                  );
+               }
+               else
+               {
+                  var pydt = pymt.Payment_Details.FirstOrDefault(pd => pd.EXPN_CODE == expn.CODE);
+                  iScsc.UPD_SEXP_P(
+                      new XElement("Request",
+                        new XAttribute("rqid", pydt.PYMT_RQST_RQID),
+                        new XElement("Payment",
+                           new XAttribute("cashcode", pydt.PYMT_CASH_CODE),
+                           new XElement("Payment_Detail",
+                              new XAttribute("code", pydt.CODE),
+                              new XAttribute("expncode", pydt.EXPN_CODE),
+                              new XAttribute("expnpric", pydt.EXPN_PRIC),
+                              new XAttribute("pydtdesc", pydt.PYDT_DESC),
+                              new XAttribute("qnty", (pydt.QNTY ?? 1) + 1),
+                              new XAttribute("fighfileno", pydt.FIGH_FILE_NO ?? 0),
+                              new XAttribute("cbmtcodednrm", pydt.CBMT_CODE_DNRM ?? 0)
+                           )
+                        )
+                     )
+                  );
+               }
+            }
+            requery = true;
+         }
+         catch (Exception ex)
+         {
+            MessageBox.Show(ex.Message);
+         }
+         finally
+         {
+            if (requery)
+            {
+               Execute_Query();
+               requery = false;
+            }
+         }
+      }
+
+      private void RemoveExpn_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            if (MessageBox.Show(this, "آیا با پاک کردن هزینه درخواست موافقید؟", "حذف هزینه", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+            /* Do Delete Payment_Detail */
+            var Crnt = PydtsBs1.Current as Data.Payment_Detail;
+            var rqst = RqstBs1.Current as Data.Request;
+            iScsc.DEL_SEXP_P(
+               new XElement("Request",
+                  new XAttribute("rqid", rqst.RQID),
+                  new XElement("Payment",
+                     new XAttribute("cashcode", rqst.Payments.SingleOrDefault().CASH_CODE),
+                     new XElement("Payment_Detail",
+                        new XAttribute("code", Crnt.CODE)
+                     )
+                  )
+               )
+            );
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void SaveExpn_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            Pydt_Gv.PostEditor();
+            /* Do Something for insert or update Payment Detail Price */
+            var rqst = RqstBs1.Current as Data.Request;
+
+            PydtsBs1.List.OfType<Data.Payment_Detail>().Where(p => p.CRET_BY == null).ToList()
+               .ForEach(pd =>
+               {
+                  rqst = RqstBs1.Current as Data.Request;
+                  iScsc.INS_SEPD_P(
+                     new XElement("Request",
+                        new XAttribute("rqid", rqst.RQID),
+                        new XElement("Payment",
+                           new XAttribute("cashcode", rqst.Payments.SingleOrDefault().CASH_CODE),
+                           new XElement("Payment_Detail",
+                              new XAttribute("expncode", pd.EXPN_CODE),
+                              new XAttribute("expnpric", pd.EXPN_PRIC),
+                              new XAttribute("pydtdesc", pd.PYDT_DESC ?? ""),
+                              new XAttribute("qnty", pd.QNTY ?? 1),
+                              new XAttribute("fighfileno", pd.FIGH_FILE_NO ?? 0),
+                              new XAttribute("cbmtcodednrm", pd.CBMT_CODE_DNRM ?? 0)
+                           )
+                        )
+                     )
+                  );
+               }
+            );
+
+            PydtsBs1.List.OfType<Data.Payment_Detail>().Where(p => p.CODE != 0).ToList()
+               .ForEach(pd =>
+               {
+                  rqst = RqstBs1.Current as Data.Request;
+                  iScsc.UPD_SEXP_P(
+                     new XElement("Request",
+                        new XAttribute("rqid", rqst.RQID),
+                        new XElement("Payment",
+                           new XAttribute("cashcode", rqst.Payments.SingleOrDefault().CASH_CODE),
+                           new XElement("Payment_Detail",
+                              new XAttribute("code", pd.CODE),
+                              new XAttribute("expncode", pd.EXPN_CODE),
+                              new XAttribute("expnpric", pd.EXPN_PRIC),
+                              new XAttribute("pydtdesc", pd.PYDT_DESC),
+                              new XAttribute("qnty", pd.QNTY ?? 1),
+                              new XAttribute("fighfileno", pd.FIGH_FILE_NO ?? 0),
+                              new XAttribute("cbmtcodednrm", pd.CBMT_CODE_DNRM ?? 0)
+                           )
+                        )
+                     )
+                  );
+               }
+            );
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void CBMT_CODE_GridLookUpEdit_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
+      {
+         try
+         {
+            if (requery) { requery = false; return; }
+            var pydt = PydtsBs1.Current as Data.Payment_Detail;
+            if (pydt == null) return;
+
+            //pydt.Club_Method = iScsc.Club_Methods.FirstOrDefault(cm => cm.CODE == (long?)e.NewValue);
+            iScsc.UPD_SEXP_P(
+               new XElement("Request",
+                  new XAttribute("rqid", pydt.PYMT_RQST_RQID),
+                  new XElement("Payment",
+                     new XAttribute("cashcode", pydt.PYMT_CASH_CODE),
+                     new XElement("Payment_Detail",
+                        new XAttribute("code", pydt.CODE),
+                        new XAttribute("expncode", pydt.EXPN_CODE),
+                        new XAttribute("expnpric", pydt.EXPN_PRIC),
+                        new XAttribute("pydtdesc", pydt.PYDT_DESC),
+                        new XAttribute("qnty", pydt.QNTY ?? 1),
+                        new XAttribute("fighfileno", pydt.FIGH_FILE_NO ?? 0),
+                        new XAttribute("cbmtcodednrm", e.NewValue ?? 0)
+                     )
+                  )
+               )
+            );
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void SaveCbmtForAll_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var cbmt = CbmtAll_Lov.EditValue;
+            if (cbmt == null || cbmt.ToString() == "") return;
+
+            foreach (var rqst in AodtBs1.List.OfType<Data.Aggregation_Operation_Detail>().Select(r => r.Request))
+            {
+               var pymt = rqst.Payments.FirstOrDefault();
+
+               foreach (var pydt in pymt.Payment_Details)
+               {
+                  iScsc.UPD_SEXP_P(
+                     new XElement("Request",
+                        new XAttribute("rqid", pydt.PYMT_RQST_RQID),
+                        new XElement("Payment",
+                           new XAttribute("cashcode", pydt.PYMT_CASH_CODE),
+                           new XElement("Payment_Detail",
+                              new XAttribute("code", pydt.CODE),
+                              new XAttribute("expncode", pydt.EXPN_CODE),
+                              new XAttribute("expnpric", pydt.EXPN_PRIC),
+                              new XAttribute("pydtdesc", pydt.PYDT_DESC),
+                              new XAttribute("qnty", (pydt.QNTY ?? 1) + 1),
+                              new XAttribute("fighfileno", pydt.FIGH_FILE_NO ?? 0),
+                              new XAttribute("cbmtcodednrm", cbmt ?? 0)
+                           )
+                        )
+                     )
+                  );
+               }               
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
       }
    }
 }

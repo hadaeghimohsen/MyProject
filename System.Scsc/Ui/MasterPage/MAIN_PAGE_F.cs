@@ -2274,7 +2274,14 @@ namespace System.Scsc.Ui.MasterPage
             new Job(SendType.External, "Localhost",
                new List<Job>
                {                    
-                  new Job(SendType.Self, 121 /* Execute Aop_Mbsp_F */)
+                  new Job(SendType.Self, 121 /* Execute Aop_Mbsp_F */),
+                  new Job(SendType.SelfToUserInterface, "AOP_MBSP_F", 10 /* Execute Actn_Calf_F */)
+                     {
+                        Input = 
+                           new XElement("Member_Ship",                              
+                              new XAttribute("attndate", DateTime.Now)
+                           )
+                     }
                });
          _DefaultGateway.Gateway(_InteractWithScsc);
       }
@@ -2285,7 +2292,14 @@ namespace System.Scsc.Ui.MasterPage
             new Job(SendType.External, "Localhost",
                new List<Job>
                {                    
-                  new Job(SendType.Self, 126 /* Execute Aop_Attn_F */)
+                  new Job(SendType.Self, 126 /* Execute Aop_Attn_F */),
+                  new Job(SendType.SelfToUserInterface, "AOP_ATTN_F", 10 /* Execute Actn_Calf_F */)
+                     {
+                        Input = 
+                           new XElement("Attendance",                              
+                              new XAttribute("attndate", DateTime.Now)
+                           )
+                     }
                });
          _DefaultGateway.Gateway(_InteractWithScsc);
       }
@@ -2307,14 +2321,28 @@ namespace System.Scsc.Ui.MasterPage
             new Job(SendType.External, "Localhost",
                new List<Job>
                {                    
-                  new Job(SendType.Self, 125 /* Execute Aop_Mtod_F */)
+                  new Job(SendType.Self, 125 /* Execute Aop_Mtod_F */),
+                  new Job(SendType.SelfToUserInterface, "AOP_MTOD_F", 10 /* Execute Actn_Calf_F */)
                });
          _DefaultGateway.Gateway(_InteractWithScsc);
       }
 
       private void bbi_incgbutn_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
       {
-
+         Job _InteractWithScsc =
+            new Job(SendType.External, "Localhost",
+               new List<Job>
+               {                    
+                  new Job(SendType.Self, 156 /* Execute Aop_Incm_F */),
+                  new Job(SendType.SelfToUserInterface, "AOP_INCM_F", 10 /* Execute Actn_Calf_F */)
+                  {
+                     Input = 
+                        new XElement("Other_Income",                              
+                           new XAttribute("attndate", DateTime.Now)
+                        )
+                  }
+               });
+         _DefaultGateway.Gateway(_InteractWithScsc);
       }      
       #endregion
 

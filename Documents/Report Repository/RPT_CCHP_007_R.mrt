@@ -214,7 +214,7 @@
         <Name>Misc_Expense_Detail</Name>
         <NameInSource>iScsc</NameInSource>
         <Parameters isList="true" count="0" />
-        <SqlCommand>select * from Misc_Expense_Detail where rect_code = '004'</SqlCommand>
+        <SqlCommand>select * from Misc_Expense_Detail </SqlCommand>
       </Misc_Expense_Detail>
       <D_x0024_SXTP Ref="8" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
         <Alias>D$SXTP</Alias>
@@ -312,7 +312,7 @@
     <Page1 Ref="14" type="Page" isKey="true">
       <Border>None;Black;2;Solid;False;4;Black</Border>
       <Brush>Transparent</Brush>
-      <Components isList="true" count="5">
+      <Components isList="true" count="8">
         <DataFighter Ref="15" type="DataBand" isKey="true">
           <Border>Top, Left;Black;1;Solid;False;4;Black</Border>
           <Brush>Transparent</Brush>
@@ -644,9 +644,10 @@
           <DataSourceName>Fighter</DataSourceName>
           <Filters isList="true" count="0" />
           <Name>DataFighter</Name>
+          <NewPageBefore>True</NewPageBefore>
           <Page isRef="14" />
           <Parent isRef="14" />
-          <PrintOnAllPages>True</PrintOnAllPages>
+          <RightToLeft>True</RightToLeft>
           <Sort isList="true" count="0" />
         </DataFighter>
         <HeaderBand1 Ref="35" type="HeaderBand" isKey="true">
@@ -661,11 +662,11 @@
         <HeaderMisc_Expense_Detail Ref="36" type="HeaderBand" isKey="true">
           <Brush>Transparent</Brush>
           <ClientRectangle>0,6,13.8,0.6</ClientRectangle>
-          <Components isList="true" count="2">
+          <Components isList="true" count="4">
             <HeaderMisc_Expense_Detail_Relation2_MTOD_DESC Ref="37" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[216:216:216]</Brush>
-              <ClientRectangle>4.2,0,9.6,0.6</ClientRectangle>
+              <ClientRectangle>9,0,4.8,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>Tahoma,8,Bold</Font>
               <HorAlignment>Center</HorAlignment>
@@ -681,7 +682,7 @@
             <HeaderMisc_Expense_Detail_TOTL_AMNT_DNRM Ref="38" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[216:216:216]</Brush>
-              <ClientRectangle>0,0,4.2,0.6</ClientRectangle>
+              <ClientRectangle>4.2,0,3.2,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>Tahoma,8,Bold</Font>
               <HorAlignment>Center</HorAlignment>
@@ -694,32 +695,120 @@
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <VertAlignment>Center</VertAlignment>
             </HeaderMisc_Expense_Detail_TOTL_AMNT_DNRM>
+            <Text26 Ref="39" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[216:216:216]</Brush>
+              <ClientRectangle>7.4,0,1.6,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,8,Bold</Font>
+              <Guid>855a78f0d6084498bcbd4cad7afcaf1a</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text26</Name>
+              <Page isRef="14" />
+              <Parent isRef="36" />
+              <Text>تعداد</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </Text26>
+            <Text28 Ref="40" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[216:216:216]</Brush>
+              <ClientRectangle>0,0,4.2,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,8,Bold</Font>
+              <Guid>aa39b7cb0a664c6da71aff447b8a4866</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text28</Name>
+              <Page isRef="14" />
+              <Parent isRef="36" />
+              <Text>جمع کل</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </Text28>
           </Components>
           <Conditions isList="true" count="0" />
           <Name>HeaderMisc_Expense_Detail</Name>
           <Page isRef="14" />
           <Parent isRef="14" />
         </HeaderMisc_Expense_Detail>
-        <DataMisc_Expense_Detail Ref="39" type="DataBand" isKey="true">
+        <GroupHeaderBand1 Ref="41" type="GroupHeaderBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,7.4,13.8,0.8</ClientRectangle>
+          <Components isList="true" count="1">
+            <Text24 Ref="42" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[216:216:216]</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>0,0,13.8,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,8,Bold</Font>
+              <Guid>c6467f1fe2ec47bc8535d24786cad2d0</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text24</Name>
+              <Page isRef="14" />
+              <Parent isRef="41" />
+              <Text>{Misc_Expense_Detail.MTOD_MSXD.MTOD_DESC}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </Text24>
+          </Components>
+          <Condition>{Misc_Expense_Detail.MTOD_CODE}</Condition>
+          <Conditions isList="true" count="0" />
+          <Enabled>False</Enabled>
+          <Name>GroupHeaderBand1</Name>
+          <Page isRef="14" />
+          <Parent isRef="14" />
+        </GroupHeaderBand1>
+        <GroupHeaderBand3 Ref="43" type="GroupHeaderBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,9,13.8,0.8</ClientRectangle>
+          <Components isList="true" count="0" />
+          <Condition>{Misc_Expense_Detail.RECT_CODE}</Condition>
+          <Conditions isList="true" count="0" />
+          <Enabled>False</Enabled>
+          <Name>GroupHeaderBand3</Name>
+          <Page isRef="14" />
+          <Parent isRef="14" />
+        </GroupHeaderBand3>
+        <GroupHeaderBand2 Ref="44" type="GroupHeaderBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,10.6,13.8,0.8</ClientRectangle>
+          <Components isList="true" count="0" />
+          <Condition>{Misc_Expense_Detail.UNIT_AMNT_DNRM}</Condition>
+          <Conditions isList="true" count="0" />
+          <Enabled>False</Enabled>
+          <Name>GroupHeaderBand2</Name>
+          <Page isRef="14" />
+          <Parent isRef="14" />
+        </GroupHeaderBand2>
+        <DataMisc_Expense_Detail Ref="45" type="DataBand" isKey="true">
           <Brush>Transparent</Brush>
           <BusinessObjectGuid isNull="true" />
-          <ClientRectangle>0,7.4,13.8,0.8</ClientRectangle>
-          <Components isList="true" count="2">
-            <DataMisc_Expense_Detail_TOTL_AMNT_DNRM Ref="40" type="Text" isKey="true">
+          <ClientRectangle>0,12.2,13.8,0.8</ClientRectangle>
+          <Components isList="true" count="4">
+            <DataMisc_Expense_Detail_TOTL_AMNT_DNRM Ref="46" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <CanGrow>True</CanGrow>
-              <ClientRectangle>0,0,4.2,0.8</ClientRectangle>
-              <Conditions isList="true" count="0" />
+              <ClientRectangle>4.2,0,3.2,0.8</ClientRectangle>
+              <Conditions isList="true" count="1">
+                <value>Misc_Expense_Detail.RECT_CODE,EqualTo,_x0030_04,,String,Transparent,Gainsboro,Arial_x002C_8,True,False,,,Top_x002C__x0020_Left_x002C__x0020_Bottom</value>
+              </Conditions>
               <Font>Tahoma,8</Font>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>DataMisc_Expense_Detail_TOTL_AMNT_DNRM</Name>
               <Page isRef="14" />
-              <Parent isRef="39" />
+              <Parent isRef="45" />
               <Text>{Misc_Expense_Detail.TOTL_AMNT_DNRM}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="41" type="NumberFormat" isKey="true">
+              <TextFormat Ref="47" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -728,23 +817,81 @@
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <VertAlignment>Center</VertAlignment>
             </DataMisc_Expense_Detail_TOTL_AMNT_DNRM>
-            <DataMisc_Expense_Detail_Relation2_MTOD_DESC Ref="42" type="Text" isKey="true">
+            <DataMisc_Expense_Detail_Relation2_MTOD_DESC Ref="48" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <CanGrow>True</CanGrow>
-              <ClientRectangle>4.2,0,9.6,0.8</ClientRectangle>
+              <ClientRectangle>9,0,4.8,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>Tahoma,8,Bold</Font>
+              <Font>Tahoma,8</Font>
               <HorAlignment>Right</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>DataMisc_Expense_Detail_Relation2_MTOD_DESC</Name>
               <Page isRef="14" />
-              <Parent isRef="39" />
+              <Parent isRef="45" />
+              <ProcessingDuplicates>Merge</ProcessingDuplicates>
               <Text>{Misc_Expense_Detail.MTOD_MSXD.MTOD_DESC}</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <VertAlignment>Center</VertAlignment>
             </DataMisc_Expense_Detail_Relation2_MTOD_DESC>
+            <Text27 Ref="49" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>7.4,0,1.6,0.8</ClientRectangle>
+              <Conditions isList="true" count="1">
+                <value>Misc_Expense_Detail.RECT_CODE,EqualTo,_x0030_04,,String,Transparent,Gainsboro,Arial_x002C_8,True,False,,,Top_x002C__x0020_Right_x002C__x0020_Bottom</value>
+              </Conditions>
+              <Font>Tahoma,8</Font>
+              <Guid>40c943b671004b3094e67c8a0e7fbf83</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text27</Name>
+              <Page isRef="14" />
+              <Parent isRef="45" />
+              <Text>{Misc_Expense_Detail.ACTN_CONT_DNRM}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="50" type="NumberFormat" isKey="true">
+                <DecimalDigits>0</DecimalDigits>
+                <GroupSeparator>,</GroupSeparator>
+                <NegativePattern>1</NegativePattern>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>DataColumn</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text27>
+            <Text29 Ref="51" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>0,0,4.2,0.8</ClientRectangle>
+              <Conditions isList="true" count="1">
+                <value>Misc_Expense_Detail.RECT_CODE,EqualTo,_x0030_04,,String,Black,Gainsboro,Arial_x002C_8_x002C_Bold,True,False,,,All</value>
+              </Conditions>
+              <Font>Tahoma,8</Font>
+              <Guid>1adb7cd2a8554bf3b15b737c5878fe54</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text29</Name>
+              <Page isRef="14" />
+              <Parent isRef="45" />
+              <Text>{Switch(Misc_Expense_Detail.RECT_CODE == "001", 
+          Misc_Expense_Detail.ACTN_CONT_DNRM * Misc_Expense_Detail.UNIT_AMNT_DNRM, 
+        Misc_Expense_Detail.RECT_CODE == "004", 
+          Misc_Expense_Detail.TOTL_AMNT_DNRM)}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="52" type="NumberFormat" isKey="true">
+                <DecimalDigits>0</DecimalDigits>
+                <GroupSeparator>,</GroupSeparator>
+                <NegativePattern>1</NegativePattern>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text29>
           </Components>
           <Conditions isList="true" count="0" />
           <DataRelationName>Relation</DataRelationName>
@@ -756,11 +903,11 @@
           <Parent isRef="14" />
           <Sort isList="true" count="0" />
         </DataMisc_Expense_Detail>
-        <FooterBand1 Ref="43" type="FooterBand" isKey="true">
+        <FooterBand1 Ref="53" type="FooterBand" isKey="true">
           <Brush>Transparent</Brush>
-          <ClientRectangle>0,9,13.8,3.8</ClientRectangle>
+          <ClientRectangle>0,13.8,13.8,3.8</ClientRectangle>
           <Components isList="true" count="10">
-            <Text12 Ref="44" type="Text" isKey="true">
+            <Text12 Ref="54" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[230:238:215]</Brush>
               <CanGrow>True</CanGrow>
@@ -772,20 +919,20 @@
               <Margins>0,0,0,0</Margins>
               <Name>Text12</Name>
               <Page isRef="14" />
-              <Parent isRef="43" />
-              <Text>{Sum(DataMisc_Expense_Detail,Misc_Expense_Detail.TOTL_AMNT_DNRM)}</Text>
+              <Parent isRef="53" />
+              <Text>{Sum(DataMisc_Expense_Detail,Switch(Misc_Expense_Detail.RECT_CODE == "004", Misc_Expense_Detail.TOTL_AMNT_DNRM, Misc_Expense_Detail.RECT_CODE == "001", 0))}</Text>
               <TextBrush>[31:73:125]</TextBrush>
-              <TextFormat Ref="45" type="NumberFormat" isKey="true">
+              <TextFormat Ref="55" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
                 <UseLocalSetting>False</UseLocalSetting>
               </TextFormat>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
-              <Type>Totals</Type>
+              <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text12>
-            <Text13 Ref="46" type="Text" isKey="true">
+            <Text13 Ref="56" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[230:238:215]</Brush>
               <ClientRectangle>11.4,0,2.4,0.6</ClientRectangle>
@@ -796,14 +943,14 @@
               <Margins>0,0,0,0</Margins>
               <Name>Text13</Name>
               <Page isRef="14" />
-              <Parent isRef="43" />
+              <Parent isRef="53" />
               <Text>مبلغ پرداختی</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text13>
-            <Text14 Ref="47" type="Text" isKey="true">
+            <Text14 Ref="57" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[230:238:215]</Brush>
               <ClientRectangle>4.2,0,7.2,0.6</ClientRectangle>
@@ -813,12 +960,12 @@
               <Margins>0,0,0,0</Margins>
               <Name>Text14</Name>
               <Page isRef="14" />
-              <Parent isRef="43" />
+              <Parent isRef="53" />
               <Text>{Misc_Expense.EXPN_AMNT_DESC}</Text>
               <TextBrush>Black</TextBrush>
               <VertAlignment>Center</VertAlignment>
             </Text14>
-            <Text15 Ref="48" type="Text" isKey="true">
+            <Text15 Ref="58" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <ClientRectangle>11.4,0.6,2.4,0.6</ClientRectangle>
@@ -829,14 +976,14 @@
               <Margins>0,0,0,0</Margins>
               <Name>Text15</Name>
               <Page isRef="14" />
-              <Parent isRef="43" />
+              <Parent isRef="53" />
               <Text>بانک</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text15>
-            <Text16 Ref="49" type="Text" isKey="true">
+            <Text16 Ref="59" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <ClientRectangle>0,0.6,11.4,0.6</ClientRectangle>
@@ -847,13 +994,13 @@
               <Margins>0,0,0,0</Margins>
               <Name>Text16</Name>
               <Page isRef="14" />
-              <Parent isRef="43" />
+              <Parent isRef="53" />
               <Text>{Misc_Expense_Detail.FIGH_MSXD.DPST_ACNT_SLRY_BANK_DNRM}</Text>
               <TextBrush>Black</TextBrush>
               <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
             </Text16>
-            <Text17 Ref="50" type="Text" isKey="true">
+            <Text17 Ref="60" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <ClientRectangle>11.4,1.2,2.4,0.6</ClientRectangle>
@@ -864,14 +1011,14 @@
               <Margins>0,0,0,0</Margins>
               <Name>Text17</Name>
               <Page isRef="14" />
-              <Parent isRef="43" />
+              <Parent isRef="53" />
               <Text>شماره حساب</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text17>
-            <Text18 Ref="51" type="Text" isKey="true">
+            <Text18 Ref="61" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <ClientRectangle>0,1.2,11.4,0.6</ClientRectangle>
@@ -882,13 +1029,13 @@
               <Margins>0,0,0,0</Margins>
               <Name>Text18</Name>
               <Page isRef="14" />
-              <Parent isRef="43" />
+              <Parent isRef="53" />
               <Text>{Misc_Expense_Detail.FIGH_MSXD.DPST_ACNT_SLRY_DNRM}</Text>
               <TextBrush>Black</TextBrush>
               <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
             </Text18>
-            <Text19 Ref="52" type="Text" isKey="true">
+            <Text19 Ref="62" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <ClientRectangle>9,1.8,4.8,2</ClientRectangle>
@@ -899,14 +1046,14 @@
               <Margins>0,0,0,0</Margins>
               <Name>Text19</Name>
               <Page isRef="14" />
-              <Parent isRef="43" />
+              <Parent isRef="53" />
               <Text>تاریخ
 امضا مدیریت</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <Type>Expression</Type>
             </Text19>
-            <Text20 Ref="53" type="Text" isKey="true">
+            <Text20 Ref="63" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <ClientRectangle>4.4,1.8,4.6,2</ClientRectangle>
@@ -917,14 +1064,14 @@
               <Margins>0,0,0,0</Margins>
               <Name>Text20</Name>
               <Page isRef="14" />
-              <Parent isRef="43" />
+              <Parent isRef="53" />
               <Text>تاریخ
 امضا مدیر مالی</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <Type>Expression</Type>
             </Text20>
-            <Text21 Ref="54" type="Text" isKey="true">
+            <Text21 Ref="64" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <ClientRectangle>0,1.8,4.4,2</ClientRectangle>
@@ -935,7 +1082,7 @@
               <Margins>0,0,0,0</Margins>
               <Name>Text21</Name>
               <Page isRef="14" />
-              <Parent isRef="43" />
+              <Parent isRef="53" />
               <Text>تاریخ
 امضا سرپرست</Text>
               <TextBrush>Black</TextBrush>
@@ -957,13 +1104,13 @@
       <PageWidth>14.8</PageWidth>
       <PaperSize>A5</PaperSize>
       <Report isRef="0" />
-      <Watermark Ref="55" type="Stimulsoft.Report.Components.StiWatermark" isKey="true">
+      <Watermark Ref="65" type="Stimulsoft.Report.Components.StiWatermark" isKey="true">
         <Font>Arial,100</Font>
         <TextBrush>[50:0:0:0]</TextBrush>
       </Watermark>
     </Page1>
   </Pages>
-  <PrinterSettings Ref="56" type="Stimulsoft.Report.Print.StiPrinterSettings" isKey="true" />
+  <PrinterSettings Ref="66" type="Stimulsoft.Report.Print.StiPrinterSettings" isKey="true" />
   <ReferencedAssemblies isList="true" count="8">
     <value>System.Dll</value>
     <value>System.Drawing.Dll</value>
@@ -975,10 +1122,10 @@
     <value>Stimulsoft.Report.Dll</value>
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
-  <ReportChanged>1/8/2019 1:53:21 PM</ReportChanged>
+  <ReportChanged>1/8/2019 1:53:58 PM</ReportChanged>
   <ReportCreated>1/7/2019 11:22:55 AM</ReportCreated>
-  <ReportFile>D:\iData\Asre Andishe Project\MyProject\Documents\Report Repository\RPT_CCHP_006_R.mrt</ReportFile>
-  <ReportGuid>c8d3dd929abb4afab92734b02c5f81cb</ReportGuid>
+  <ReportFile>D:\iData\Asre Andishe Project\MyProject\Documents\Report Repository\RPT_CCHP_007_R.mrt</ReportFile>
+  <ReportGuid>b985ba70c54043b58732d08c12d7ed57</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Centimeters</ReportUnit>
   <ReportVersion>2012.2.1304</ReportVersion>

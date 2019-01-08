@@ -543,7 +543,7 @@
           <Components isList="true" count="12">
             <HeaderMisc_Expense_Detail_Relation3_NAME_DNRM Ref="29" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
-              <Brush>Transparent</Brush>
+              <Brush>[216:216:216]</Brush>
               <ClientRectangle>9.5,0,1,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>Tahoma,10,Bold</Font>
@@ -560,7 +560,7 @@
             </HeaderMisc_Expense_Detail_Relation3_NAME_DNRM>
             <HeaderMisc_Expense_Detail_Relation3_DPST_ACNT_SLRY_DNRM Ref="30" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
-              <Brush>Transparent</Brush>
+              <Brush>[216:216:216]</Brush>
               <ClientRectangle>0,0,1,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>Tahoma,10,Bold</Font>
@@ -577,7 +577,7 @@
             </HeaderMisc_Expense_Detail_Relation3_DPST_ACNT_SLRY_DNRM>
             <Text1 Ref="31" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
-              <Brush>Transparent</Brush>
+              <Brush>[216:216:216]</Brush>
               <ClientRectangle>10.5,0,0.4,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>Tahoma,10,Bold</Font>
@@ -595,7 +595,7 @@
             </Text1>
             <HeaderMisc_Expense_Detail_Relation3_SERV_NO_DNRM Ref="32" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
-              <Brush>Transparent</Brush>
+              <Brush>[216:216:216]</Brush>
               <ClientRectangle>8.5,0,1,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>Tahoma,10,Bold</Font>
@@ -612,7 +612,7 @@
             </HeaderMisc_Expense_Detail_Relation3_SERV_NO_DNRM>
             <HeaderMisc_Expense_Detail_Relation4_MTOD_DESC Ref="33" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
-              <Brush>Transparent</Brush>
+              <Brush>[216:216:216]</Brush>
               <ClientRectangle>7.5,0,1,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>Tahoma,10,Bold</Font>
@@ -629,7 +629,7 @@
             </HeaderMisc_Expense_Detail_Relation4_MTOD_DESC>
             <HeaderMisc_Expense_Detail_ACTN_CONT_DNRM Ref="34" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
-              <Brush>Transparent</Brush>
+              <Brush>[216:216:216]</Brush>
               <ClientRectangle>6.5,0,1,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>Tahoma,10,Bold</Font>
@@ -646,7 +646,7 @@
             </HeaderMisc_Expense_Detail_ACTN_CONT_DNRM>
             <HeaderMisc_Expense_Detail_UNIT_AMNT_DNRM Ref="35" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
-              <Brush>Transparent</Brush>
+              <Brush>[216:216:216]</Brush>
               <ClientRectangle>5.5,0,1,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>Tahoma,10,Bold</Font>
@@ -663,7 +663,7 @@
             </HeaderMisc_Expense_Detail_UNIT_AMNT_DNRM>
             <HeaderMisc_Expense_Detail_TOTL_AMNT_DNRM Ref="36" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
-              <Brush>Transparent</Brush>
+              <Brush>[216:216:216]</Brush>
               <ClientRectangle>4.5,0,1,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>Tahoma,10,Bold</Font>
@@ -680,7 +680,7 @@
             </HeaderMisc_Expense_Detail_TOTL_AMNT_DNRM>
             <HeaderMisc_Expense_Detail_PRVS_DELV_AMNT_DNRM Ref="37" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
-              <Brush>Transparent</Brush>
+              <Brush>[216:216:216]</Brush>
               <ClientRectangle>3.5,0,1,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>Tahoma,10,Bold</Font>
@@ -697,7 +697,7 @@
             </HeaderMisc_Expense_Detail_PRVS_DELV_AMNT_DNRM>
             <HeaderMisc_Expense_Detail_CRNT_AMNT_DNRM Ref="38" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
-              <Brush>Transparent</Brush>
+              <Brush>[216:216:216]</Brush>
               <ClientRectangle>2.5,0,1,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>Tahoma,10,Bold</Font>
@@ -714,7 +714,7 @@
             </HeaderMisc_Expense_Detail_CRNT_AMNT_DNRM>
             <HeaderMisc_Expense_Detail_MAX_CNTR_AMNT_DNRM Ref="39" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
-              <Brush>Transparent</Brush>
+              <Brush>[216:216:216]</Brush>
               <ClientRectangle>1.5,0,1,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>Tahoma,10,Bold</Font>
@@ -731,7 +731,7 @@
             </HeaderMisc_Expense_Detail_MAX_CNTR_AMNT_DNRM>
             <HeaderMisc_Expense_Detail_Relation3_DPST_ACNT_SLRY_BANK_DNRM Ref="40" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
-              <Brush>Transparent</Brush>
+              <Brush>[216:216:216]</Brush>
               <ClientRectangle>1,0,0.5,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>Tahoma,10,Bold</Font>
@@ -1409,10 +1409,10 @@
     <value>Stimulsoft.Report.Dll</value>
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
-  <ReportChanged>1/5/2019 11:43:01 AM</ReportChanged>
+  <ReportChanged>1/8/2019 1:35:47 PM</ReportChanged>
   <ReportCreated>1/2/2019 6:53:58 PM</ReportCreated>
   <ReportFile>D:\iData\Asre Andishe Project\MyProject\Documents\Report Repository\RPT_CCHP_005_R.mrt</ReportFile>
-  <ReportGuid>021c0ca4982f43cd98bf147b428a2199</ReportGuid>
+  <ReportGuid>d3cdf78097384a928acc1940bb1d92eb</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Inches</ReportUnit>
   <ReportVersion>2012.2.1304</ReportVersion>

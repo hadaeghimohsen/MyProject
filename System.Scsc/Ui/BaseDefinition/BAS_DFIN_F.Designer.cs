@@ -773,7 +773,7 @@
          this.gridColumn164 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.gridColumn165 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.gridColumn166 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.repositoryItemButtonEdit3 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+         this.FighMbsp5_Butn = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
          this.panel14 = new System.Windows.Forms.Panel();
          this.simpleButton11 = new DevExpress.XtraEditors.SimpleButton();
          this.simpleButton12 = new DevExpress.XtraEditors.SimpleButton();
@@ -959,7 +959,7 @@
          this.gridColumn136 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.gridColumn137 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colACTN = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.repositoryItemButtonEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+         this.FighMbsp6_Butn = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
          this.panel15 = new System.Windows.Forms.Panel();
          this.simpleButton13 = new DevExpress.XtraEditors.SimpleButton();
          this.simpleButton14 = new DevExpress.XtraEditors.SimpleButton();
@@ -1335,7 +1335,7 @@
          ((System.ComponentModel.ISupportInitialize)(this.gridControl18)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.VCochMbsp5Bs)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.gridView15)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit3)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.FighMbsp5_Butn)).BeginInit();
          this.panel14.SuspendLayout();
          this.tp_0052.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.gridControl16)).BeginInit();
@@ -1373,7 +1373,7 @@
          ((System.ComponentModel.ISupportInitialize)(this.gridControl19)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.VCochMbsp6Bs)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.gridView16)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit2)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.FighMbsp6_Butn)).BeginInit();
          this.panel15.SuspendLayout();
          this.tp_0062.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.gridControl17)).BeginInit();
@@ -8292,7 +8292,7 @@
          this.gridControl18.MainView = this.gridView15;
          this.gridControl18.Name = "gridControl18";
          this.gridControl18.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.repositoryItemButtonEdit3});
+            this.FighMbsp5_Butn});
          this.gridControl18.Size = new System.Drawing.Size(627, 305);
          this.gridControl18.TabIndex = 71;
          this.gridControl18.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -8605,21 +8605,22 @@
          // 
          // gridColumn166
          // 
-         this.gridColumn166.ColumnEdit = this.repositoryItemButtonEdit3;
+         this.gridColumn166.ColumnEdit = this.FighMbsp5_Butn;
          this.gridColumn166.Name = "gridColumn166";
          this.gridColumn166.OptionsColumn.FixedWidth = true;
          this.gridColumn166.Visible = true;
          this.gridColumn166.VisibleIndex = 8;
          this.gridColumn166.Width = 58;
          // 
-         // repositoryItemButtonEdit3
+         // FighMbsp5_Butn
          // 
-         this.repositoryItemButtonEdit3.AutoHeight = false;
-         this.repositoryItemButtonEdit3.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("repositoryItemButtonEdit3.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject19, "اطلاعات مشترک", null, null, true),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("repositoryItemButtonEdit3.Buttons1"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject20, "اصلاح دوره", null, null, true)});
-         this.repositoryItemButtonEdit3.Name = "repositoryItemButtonEdit3";
-         this.repositoryItemButtonEdit3.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+         this.FighMbsp5_Butn.AutoHeight = false;
+         this.FighMbsp5_Butn.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("FighMbsp5_Butn.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject19, "اطلاعات مشترک", null, null, true),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("FighMbsp5_Butn.Buttons1"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject20, "اصلاح دوره", null, null, true)});
+         this.FighMbsp5_Butn.Name = "FighMbsp5_Butn";
+         this.FighMbsp5_Butn.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+         this.FighMbsp5_Butn.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.FighMbsp5_Butn_ButtonClick);
          // 
          // panel14
          // 
@@ -10815,7 +10816,7 @@
          this.gridControl19.MainView = this.gridView16;
          this.gridControl19.Name = "gridControl19";
          this.gridControl19.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.repositoryItemButtonEdit2});
+            this.FighMbsp6_Butn});
          this.gridControl19.Size = new System.Drawing.Size(782, 296);
          this.gridControl19.TabIndex = 70;
          this.gridControl19.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -11128,21 +11129,22 @@
          // 
          // colACTN
          // 
-         this.colACTN.ColumnEdit = this.repositoryItemButtonEdit2;
+         this.colACTN.ColumnEdit = this.FighMbsp6_Butn;
          this.colACTN.Name = "colACTN";
          this.colACTN.OptionsColumn.FixedWidth = true;
          this.colACTN.Visible = true;
          this.colACTN.VisibleIndex = 8;
          this.colACTN.Width = 54;
          // 
-         // repositoryItemButtonEdit2
+         // FighMbsp6_Butn
          // 
-         this.repositoryItemButtonEdit2.AutoHeight = false;
-         this.repositoryItemButtonEdit2.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("repositoryItemButtonEdit2.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject28, "اطلاعات مشترک", null, null, true),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("repositoryItemButtonEdit2.Buttons1"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject29, "اصلاح دوره", null, null, true)});
-         this.repositoryItemButtonEdit2.Name = "repositoryItemButtonEdit2";
-         this.repositoryItemButtonEdit2.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+         this.FighMbsp6_Butn.AutoHeight = false;
+         this.FighMbsp6_Butn.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("FighMbsp6_Butn.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject28, "اطلاعات مشترک", null, null, true),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("FighMbsp6_Butn.Buttons1"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject29, "اصلاح دوره", null, null, true)});
+         this.FighMbsp6_Butn.Name = "FighMbsp6_Butn";
+         this.FighMbsp6_Butn.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+         this.FighMbsp6_Butn.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.FighMbsp5_Butn_ButtonClick);
          // 
          // panel15
          // 
@@ -14592,7 +14594,7 @@
          ((System.ComponentModel.ISupportInitialize)(this.gridControl18)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.VCochMbsp5Bs)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.gridView15)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit3)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.FighMbsp5_Butn)).EndInit();
          this.panel14.ResumeLayout(false);
          this.panel14.PerformLayout();
          this.tp_0052.ResumeLayout(false);
@@ -14632,7 +14634,7 @@
          ((System.ComponentModel.ISupportInitialize)(this.gridControl19)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.VCochMbsp6Bs)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.gridView16)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit2)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.FighMbsp6_Butn)).EndInit();
          this.panel15.ResumeLayout(false);
          this.panel15.PerformLayout();
          this.tp_0062.ResumeLayout(false);
@@ -15736,9 +15738,9 @@
       private DevExpress.XtraGrid.Columns.GridColumn gridColumn164;
       private DevExpress.XtraGrid.Columns.GridColumn gridColumn165;
       private DevExpress.XtraGrid.Columns.GridColumn gridColumn166;
-      private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit repositoryItemButtonEdit3;
+      private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit FighMbsp5_Butn;
       private DevExpress.XtraGrid.Columns.GridColumn colACTN;
-      private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit repositoryItemButtonEdit2;
+      private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit FighMbsp6_Butn;
       private DevExpress.XtraEditors.SplitContainerControl splitContainerControl12;
       private DevExpress.XtraEditors.SplitContainerControl splitContainerControl13;
       private DevExpress.XtraEditors.SplitContainerControl splitContainerControl14;

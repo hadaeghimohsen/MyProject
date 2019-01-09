@@ -167,6 +167,32 @@ namespace System.Scsc.Ui.AggregateOperation
          crnt.RQTT_CODE = null;
       }
 
+      private void ClerCndo_Butn_Click(object sender, EventArgs e)
+      {
+         var crnt = AgopBs1.Current as Data.Aggregation_Operation;
+         if (crnt == null) return;
+
+         Cndo_Lov.EditValue = null;
+         crnt.UNIT_BLOK_CNDO_CODE = null;
+      }
+
+      private void ClerBlok_Butn_Click(object sender, EventArgs e)
+      {
+         var crnt = AgopBs1.Current as Data.Aggregation_Operation;
+         if (crnt == null) return;
+
+         Cblk_Lov.EditValue = null;
+         crnt.UNIT_BLOK_CODE = null;
+      }
+
+      private void ClerUnit_Butn_Click(object sender, EventArgs e)
+      {
+         var crnt = AgopBs1.Current as Data.Aggregation_Operation;
+         if (crnt == null) return;
+
+         Cunt_Lov.EditValue = null;
+         crnt.UNIT_CODE = null;
+      }
 
       private void ClearAll_Butn_Click(object sender, EventArgs e)
       {
@@ -178,6 +204,9 @@ namespace System.Scsc.Ui.AggregateOperation
          ClerToDate_Butn_Click(sender, e);
          ClerNumMontOfer_Butn_Click(sender, e);
          ClerRqtt_Butn_Click(sender, e);
+         ClerCndo_Butn_Click(sender, e);
+         ClerBlok_Butn_Click(sender, e);
+         ClerUnit_Butn_Click(sender, e);
          // Clear All Detail Record
       }
 
@@ -206,7 +235,10 @@ namespace System.Scsc.Ui.AggregateOperation
                      new XAttribute("oprttype", crnt.OPRT_TYPE ?? "006"),
                      new XAttribute("oprtstat", crnt.OPRT_STAT ?? "001"),
                      new XAttribute("fromdate", crnt.FROM_DATE.HasValue ? crnt.FROM_DATE.Value.ToString("yyyy-MM-dd") : ""),
-                     new XAttribute("todate", crnt.TO_DATE.HasValue ? crnt.TO_DATE.Value.ToString("yyyy-MM-dd") : "")
+                     new XAttribute("todate", crnt.TO_DATE.HasValue ? crnt.TO_DATE.Value.ToString("yyyy-MM-dd") : ""),
+                     new XAttribute("unitblokcndocode", crnt.UNIT_BLOK_CNDO_CODE ?? ""),
+                     new XAttribute("unitblokcode", crnt.UNIT_BLOK_CODE ?? ""),
+                     new XAttribute("unitcode", crnt.UNIT_CODE ?? "")
                   )
                )
             );
@@ -251,7 +283,11 @@ namespace System.Scsc.Ui.AggregateOperation
                      new XAttribute("oprttype", crnt.OPRT_TYPE ?? "006"),
                      new XAttribute("oprtstat", "003"),
                      new XAttribute("fromdate", crnt.FROM_DATE.HasValue ? crnt.FROM_DATE.Value.ToString("yyyy-MM-dd") : ""),
-                     new XAttribute("todate", crnt.TO_DATE.HasValue ? crnt.TO_DATE.Value.ToString("yyyy-MM-dd") : "")
+                     new XAttribute("todate", crnt.TO_DATE.HasValue ? crnt.TO_DATE.Value.ToString("yyyy-MM-dd") : ""),
+                     new XAttribute("unitblokcndocode", crnt.UNIT_BLOK_CNDO_CODE ?? ""),
+                     new XAttribute("unitblokcode", crnt.UNIT_BLOK_CODE ?? ""),
+                     new XAttribute("unitcode", crnt.UNIT_CODE ?? "")
+
                   )
                )
             );
@@ -298,7 +334,11 @@ namespace System.Scsc.Ui.AggregateOperation
                      new XAttribute("oprttype", crnt.OPRT_TYPE ?? "006"),
                      new XAttribute("oprtstat", "002"),
                      new XAttribute("fromdate", crnt.FROM_DATE.HasValue ? crnt.FROM_DATE.Value.ToString("yyyy-MM-dd") : ""),
-                     new XAttribute("todate", crnt.TO_DATE.HasValue ? crnt.TO_DATE.Value.ToString("yyyy-MM-dd") : "")
+                     new XAttribute("todate", crnt.TO_DATE.HasValue ? crnt.TO_DATE.Value.ToString("yyyy-MM-dd") : ""),
+                     new XAttribute("unitblokcndocode", crnt.UNIT_BLOK_CNDO_CODE ?? ""),
+                     new XAttribute("unitblokcode", crnt.UNIT_BLOK_CODE ?? ""),
+                     new XAttribute("unitcode", crnt.UNIT_CODE ?? "")
+
                   )
                )
             );
@@ -852,5 +892,25 @@ namespace System.Scsc.Ui.AggregateOperation
             MessageBox.Show(exc.Message);
          }
       }
+
+      private void Cndo_Lov_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
+      {
+         try
+         {
+            CblkBs1.DataSource = iScsc.Cando_Blocks.Where(b => b.CNDO_CODE == e.NewValue.ToString());
+         }
+         catch { }
+      }
+
+      private void Cblk_Lov_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
+      {
+         try
+         {
+            CuntBs1.DataSource = iScsc.Cando_Block_Units.Where(u => u.BLOK_CNDO_CODE == Cndo_Lov.EditValue.ToString() && u.BLOK_CODE == e.NewValue.ToString());
+         }
+         catch { }
+      }
+
+      
    }
 }

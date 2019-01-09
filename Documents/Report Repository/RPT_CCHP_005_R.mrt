@@ -158,7 +158,7 @@
         <Name>Fighter</Name>
         <NameInSource>iScsc</NameInSource>
         <Parameters isList="true" count="0" />
-        <SqlCommand>select * from Fighter</SqlCommand>
+        <SqlCommand>select * from Fighter Where Fgpb_Type_Dnrm = '003'</SqlCommand>
       </Fighter>
       <Method Ref="6" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
         <Alias>Method</Alias>
@@ -1107,6 +1107,7 @@
             </DataMisc_Expense_Detail_Relation3_DPST_ACNT_SLRY_BANK_DNRM>
           </Components>
           <Conditions isList="true" count="0" />
+          <DataRelationName>Relation</DataRelationName>
           <DataSourceName>Misc_Expense_Detail</DataSourceName>
           <Filters isList="true" count="0" />
           <Name>DataMisc_Expense_Detail</Name>
@@ -1387,7 +1388,7 @@
       <Margins>0.39,0.39,0.39,0.39</Margins>
       <Name>Page1</Name>
       <Orientation>Landscape</Orientation>
-      <PageHeight>8.27</PageHeight>
+      <PageHeight>12</PageHeight>
       <PageWidth>11.69</PageWidth>
       <PaperSize>A4</PaperSize>
       <Report isRef="0" />
@@ -1409,10 +1410,10 @@
     <value>Stimulsoft.Report.Dll</value>
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
-  <ReportChanged>1/8/2019 1:35:47 PM</ReportChanged>
+  <ReportChanged>1/9/2019 10:15:31 AM</ReportChanged>
   <ReportCreated>1/2/2019 6:53:58 PM</ReportCreated>
   <ReportFile>D:\iData\Asre Andishe Project\MyProject\Documents\Report Repository\RPT_CCHP_005_R.mrt</ReportFile>
-  <ReportGuid>d3cdf78097384a928acc1940bb1d92eb</ReportGuid>
+  <ReportGuid>6fdbc0b755f946f694ef7d5ef810619a</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Inches</ReportUnit>
   <ReportVersion>2012.2.1304</ReportVersion>

@@ -217,7 +217,7 @@ namespace System.Scsc.Ui.Admission
                  new Job(SendType.External, "Localhost",
                     new List<Job>
                   {
-                     new Job(SendType.Self, 84 /* Execute Cfg_Stng_F */){Input = new XElement("Print", new XAttribute("type", "Selection"), new XAttribute("modual", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_001_F"), string.Format("Figh_File_No = {0} AND Rwno = {1} AND Rect_Code = '004'", fileno, rwno))}
+                     new Job(SendType.Self, 84 /* Execute Rpt_Mngr_F */){Input = new XElement("Print", new XAttribute("type", "Selection"), new XAttribute("modual", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_001_F"), string.Format("Figh_File_No = {0} AND Rwno = {1} AND Rect_Code = '004'", fileno, rwno))}
                   });
             _DefaultGateway.Gateway(_InteractWithScsc);
          }
@@ -233,7 +233,7 @@ namespace System.Scsc.Ui.Admission
               new Job(SendType.External, "Localhost",
                  new List<Job>
                   {
-                     new Job(SendType.Self, 84 /* Execute Cfg_Stng_F */){Input = new XElement("Print", new XAttribute("type", "Default"), new XAttribute("modual", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_001_F"), string.Format("Figh_File_No = {0} AND Rwno = {1} AND Rect_Code = '004'", fileno, rwno))}
+                     new Job(SendType.Self, 84 /* Execute Rpt_Mngr_F */){Input = new XElement("Print", new XAttribute("type", "Default"), new XAttribute("modual", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_001_F"), string.Format("Figh_File_No = {0} AND Rwno = {1} AND Rect_Code = '004'", fileno, rwno))}
                   });
             _DefaultGateway.Gateway(_InteractWithScsc);
          }

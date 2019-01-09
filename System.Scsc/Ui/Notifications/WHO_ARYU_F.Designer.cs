@@ -213,6 +213,15 @@
          label5.Text = "جلسه خصوصی\r\n با مربی";
          label5.TextAlign = System.Drawing.ContentAlignment.BottomRight;
          // 
+         // label8
+         // 
+         label8.Font = new System.Drawing.Font("B Nazanin", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         label8.Image = global::System.Scsc.Properties.Resources.IMAGE_1121;
+         label8.Location = new System.Drawing.Point(348, 258);
+         label8.Name = "label8";
+         label8.Size = new System.Drawing.Size(38, 41);
+         label8.TabIndex = 30;
+         // 
          // Mtod_Lb
          // 
          this.Mtod_Lb.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.AttnBs1, "Method.MTOD_DESC", true));
@@ -245,15 +254,6 @@
          this.Ctgy_Lb.TabIndex = 26;
          this.Ctgy_Lb.Text = "12 جلسه ای";
          this.Ctgy_Lb.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         // 
-         // label8
-         // 
-         label8.Font = new System.Drawing.Font("B Nazanin", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         label8.Image = global::System.Scsc.Properties.Resources.IMAGE_1121;
-         label8.Location = new System.Drawing.Point(348, 258);
-         label8.Name = "label8";
-         label8.Size = new System.Drawing.Size(38, 41);
-         label8.TabIndex = 30;
          // 
          // Lbl_AmntType
          // 
@@ -399,6 +399,7 @@
          this.dEBT_DNRMTextEdit.Properties.Mask.EditMask = "n0";
          this.dEBT_DNRMTextEdit.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
          this.dEBT_DNRMTextEdit.Properties.Mask.UseMaskAsDisplayFormat = true;
+         this.dEBT_DNRMTextEdit.Properties.ReadOnly = true;
          this.dEBT_DNRMTextEdit.Size = new System.Drawing.Size(178, 50);
          this.dEBT_DNRMTextEdit.TabIndex = 39;
          this.dEBT_DNRMTextEdit.ToolTip = "میزان بدهی";

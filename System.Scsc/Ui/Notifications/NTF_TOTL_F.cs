@@ -367,7 +367,7 @@ namespace System.Scsc.Ui.Notifications
          //     new Job(SendType.External, "Localhost",
          //        new List<Job>
          //         {
-         //            new Job(SendType.Self, 84 /* Execute Cfg_Stng_F */){Input = new XElement("Print", new XAttribute("type", "Default"), new XAttribute("modual", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_001_F"), string.Format("Member_Ship.End_Date <= {0}", Pb_ExpDate1.PickChecked ? (Dt_ExpDate1.Value ?? DateTime.Now ) : DateTime.Now.AddDays((double)Nud_ExpDay1.Value)))}
+         //            new Job(SendType.Self, 84 /* Execute Rpt_Mngr_F */){Input = new XElement("Print", new XAttribute("type", "Default"), new XAttribute("modual", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_001_F"), string.Format("Member_Ship.End_Date <= {0}", Pb_ExpDate1.PickChecked ? (Dt_ExpDate1.Value ?? DateTime.Now ) : DateTime.Now.AddDays((double)Nud_ExpDay1.Value)))}
          //         });
          //   _DefaultGateway.Gateway(_InteractWithScsc);
          //}
@@ -379,7 +379,7 @@ namespace System.Scsc.Ui.Notifications
          //     new Job(SendType.External, "Localhost",
          //        new List<Job>
          //         {
-         //            new Job(SendType.Self, 84 /* Execute Cfg_Stng_F */){Input = new XElement("Print", new XAttribute("type", "Default"), new XAttribute("modual", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_003_F"), string.Format("Member_Ship.End_Date <= {0}", Pb_ExpDate3.PickChecked ? (Dt_ExpDate2.Value ?? DateTime.Now ) : DateTime.Now.AddDays((double)Nud_ExpDay2.Value)))}
+         //            new Job(SendType.Self, 84 /* Execute Rpt_Mngr_F */){Input = new XElement("Print", new XAttribute("type", "Default"), new XAttribute("modual", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_003_F"), string.Format("Member_Ship.End_Date <= {0}", Pb_ExpDate3.PickChecked ? (Dt_ExpDate2.Value ?? DateTime.Now ) : DateTime.Now.AddDays((double)Nud_ExpDay2.Value)))}
          //         });
          //   _DefaultGateway.Gateway(_InteractWithScsc);
          //}
@@ -404,7 +404,7 @@ namespace System.Scsc.Ui.Notifications
                  new Job(SendType.External, "Localhost",
                     new List<Job>
                     {
-                       new Job(SendType.Self, 84 /* Execute Cfg_Stng_F */){Input = new XElement("Print", new XAttribute("type", "Default"), new XAttribute("modual", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_004_F"), string.Format("Fighter.File_No IN ( {0} )", filenos))}
+                       new Job(SendType.Self, 84 /* Execute Rpt_Mngr_F */){Input = new XElement("Print", new XAttribute("type", "Default"), new XAttribute("modual", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_004_F"), string.Format("Fighter.File_No IN ( {0} )", filenos))}
                     });
             }
             else
@@ -413,7 +413,7 @@ namespace System.Scsc.Ui.Notifications
                //  new Job(SendType.External, "Localhost",
                //     new List<Job>
                //   {
-               //      new Job(SendType.Self, 84 /* Execute Cfg_Stng_F */){Input = new XElement("Print", new XAttribute("type", "Default"), new XAttribute("modual", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_004_F"), string.Format("Fighter.Insr_Date_Dnrm <= {0}", Pb_ExpDate4.PickChecked ? (Dt_ExpDate4.Value ?? DateTime.Now ) : DateTime.Now.AddDays((double)Nud_ExpDay4.Value)))}
+               //      new Job(SendType.Self, 84 /* Execute Rpt_Mngr_F */){Input = new XElement("Print", new XAttribute("type", "Default"), new XAttribute("modual", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_004_F"), string.Format("Fighter.Insr_Date_Dnrm <= {0}", Pb_ExpDate4.PickChecked ? (Dt_ExpDate4.Value ?? DateTime.Now ) : DateTime.Now.AddDays((double)Nud_ExpDay4.Value)))}
                //   });
             }
             _DefaultGateway.Gateway(_InteractWithScsc);
@@ -428,7 +428,7 @@ namespace System.Scsc.Ui.Notifications
          //     new Job(SendType.External, "Localhost",
          //        new List<Job>
          //         {
-         //            new Job(SendType.Self, 84 /* Execute Cfg_Stng_F */){Input = new XElement("Print", new XAttribute("type", "Selection"), new XAttribute("modual", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_001_F"), string.Format("Member_Ship.End_Date <= {0}", Pb_ExpDate1.PickChecked ? (Dt_ExpDate1.Value ?? DateTime.Now ) : DateTime.Now.AddDays((double)Nud_ExpDay1.Value)))}
+         //            new Job(SendType.Self, 84 /* Execute Rpt_Mngr_F */){Input = new XElement("Print", new XAttribute("type", "Selection"), new XAttribute("modual", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_001_F"), string.Format("Member_Ship.End_Date <= {0}", Pb_ExpDate1.PickChecked ? (Dt_ExpDate1.Value ?? DateTime.Now ) : DateTime.Now.AddDays((double)Nud_ExpDay1.Value)))}
          //         });
          //   _DefaultGateway.Gateway(_InteractWithScsc);
          //}
@@ -440,7 +440,7 @@ namespace System.Scsc.Ui.Notifications
          //     new Job(SendType.External, "Localhost",
          //        new List<Job>
          //         {
-         //            new Job(SendType.Self, 84 /* Execute Cfg_Stng_F */){Input = new XElement("Print", new XAttribute("type", "Selection"), new XAttribute("modual", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_003_F"), string.Format("Member_Ship.End_Date <= {0}", Pb_ExpDate3.PickChecked ? (Dt_ExpDate2.Value ?? DateTime.Now ) : DateTime.Now.AddDays((double)Nud_ExpDay2.Value)))}
+         //            new Job(SendType.Self, 84 /* Execute Rpt_Mngr_F */){Input = new XElement("Print", new XAttribute("type", "Selection"), new XAttribute("modual", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_003_F"), string.Format("Member_Ship.End_Date <= {0}", Pb_ExpDate3.PickChecked ? (Dt_ExpDate2.Value ?? DateTime.Now ) : DateTime.Now.AddDays((double)Nud_ExpDay2.Value)))}
          //         });
          //   _DefaultGateway.Gateway(_InteractWithScsc);
          //}
@@ -465,7 +465,7 @@ namespace System.Scsc.Ui.Notifications
                  new Job(SendType.External, "Localhost",
                     new List<Job>
                     {
-                       new Job(SendType.Self, 84 /* Execute Cfg_Stng_F */){Input = new XElement("Print", new XAttribute("type", "Selection"), new XAttribute("modual", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_004_F"), string.Format("Fighter.File_No IN ( {0} )", filenos))}
+                       new Job(SendType.Self, 84 /* Execute Rpt_Mngr_F */){Input = new XElement("Print", new XAttribute("type", "Selection"), new XAttribute("modual", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_004_F"), string.Format("Fighter.File_No IN ( {0} )", filenos))}
                     });
             }
             else
@@ -473,7 +473,7 @@ namespace System.Scsc.Ui.Notifications
                new Job(SendType.External, "Localhost",
                   new List<Job>
                   {
-                     new Job(SendType.Self, 84 /* Execute Cfg_Stng_F */){Input = new XElement("Print", new XAttribute("type", "Selection"), new XAttribute("modual", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_004_F"), string.Format("Fighter.Insr_Date_Dnrm <= {0}", Pb_ExpDate4.PickChecked ? (Dt_ExpDate4.Value ?? DateTime.Now ) : DateTime.Now.AddDays((double)Nud_ExpDay4.Value)))}
+                     new Job(SendType.Self, 84 /* Execute Rpt_Mngr_F */){Input = new XElement("Print", new XAttribute("type", "Selection"), new XAttribute("modual", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_004_F"), string.Format("Fighter.Insr_Date_Dnrm <= {0}", Pb_ExpDate4.PickChecked ? (Dt_ExpDate4.Value ?? DateTime.Now ) : DateTime.Now.AddDays((double)Nud_ExpDay4.Value)))}
                   });
             }
             _DefaultGateway.Gateway(_InteractWithScsc);

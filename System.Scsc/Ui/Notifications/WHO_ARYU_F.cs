@@ -552,7 +552,7 @@ namespace System.Scsc.Ui.Notifications
                     new List<Job>
                     {
                        new Job(SendType.SelfToUserInterface, GetType().Name, 00 /* Execute ProccessCmdKey */){Input = Keys.Escape},
-                       new Job(SendType.Self, 84 /* Execute Cfg_Stng_F */){Input = new XElement("Print", new XAttribute("type", "Selection"), new XAttribute("modual", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_001_F"), string.Format("a.Code = {0}", attn.CODE))}
+                       new Job(SendType.Self, 84 /* Execute Rpt_Mngr_F */){Input = new XElement("Print", new XAttribute("type", "Selection"), new XAttribute("modual", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_001_F"), string.Format("a.Code = {0}", attn.CODE))}
                     });
             _DefaultGateway.Gateway(_InteractWithScsc);
             

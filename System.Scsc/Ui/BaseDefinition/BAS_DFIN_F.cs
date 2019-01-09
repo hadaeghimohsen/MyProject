@@ -1484,7 +1484,7 @@ namespace System.Scsc.Ui.BaseDefinition
                new Job(SendType.External, "Localhost",
                   new List<Job>
                   {
-                     new Job(SendType.Self, 84 /* Execute Cfg_Stng_F */)
+                     new Job(SendType.Self, 84 /* Execute Rpt_Mngr_F */)
                      {
                         Input = 
                            new XElement("Print", 
@@ -1527,7 +1527,7 @@ namespace System.Scsc.Ui.BaseDefinition
                  new Job(SendType.External, "Localhost",
                     new List<Job>
                   {
-                     new Job(SendType.Self, 84 /* Execute Cfg_Stng_F */)
+                     new Job(SendType.Self, 84 /* Execute Rpt_Mngr_F */)
                      {
                         Input = 
                            new XElement("Print", 
@@ -1713,7 +1713,7 @@ namespace System.Scsc.Ui.BaseDefinition
                new Job(SendType.External, "Localhost",
                   new List<Job>
                {
-                  new Job(SendType.Self, 84 /* Execute Cfg_Stng_F */)
+                  new Job(SendType.Self, 84 /* Execute Rpt_Mngr_F */)
                   {
                      Input = 
                         new XElement("Print", 
@@ -1744,7 +1744,7 @@ namespace System.Scsc.Ui.BaseDefinition
                  new Job(SendType.External, "Localhost",
                     new List<Job>
                   {
-                     new Job(SendType.Self, 84 /* Execute Cfg_Stng_F */)
+                     new Job(SendType.Self, 84 /* Execute Rpt_Mngr_F */)
                      {
                         Input = 
                            new XElement("Print", 
@@ -3807,6 +3807,74 @@ namespace System.Scsc.Ui.BaseDefinition
             if (requery)
                Execute_Query();
          }
+      }
+
+      private void FighMbsp5_Butn_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            dynamic vcochmbsp = null;
+            if(Tb_Master.SelectedTab == tp_005)
+               vcochmbsp = VCochMbsp5Bs.Current as Data.VF_Coach_MemberShipResult;
+            else
+               vcochmbsp = VCochMbsp6Bs.Current as Data.VF_Coach_MemberShipResult;
+
+            if (vcochmbsp == null) return;
+
+            switch (e.Button.Index)
+            {
+               case 0:
+                  _DefaultGateway.Gateway(
+                     new Job(SendType.External, "localhost", "", 46, SendType.Self) { Input = new XElement("Fighter", new XAttribute("fileno", vcochmbsp.FILE_NO)) }
+                  );
+                  break;
+               case 1:
+                  Job _InteractWithScsc =
+                     new Job(SendType.External, "Localhost",
+                        new List<Job>
+                        {
+                           new Job(SendType.External, "Commons",
+                              new List<Job>
+                              {
+                                 #region Access Privilege
+                                 new Job(SendType.Self, 07 /* Execute DoWork4AccessPrivilege */)
+                                 {
+                                    Input = new List<string> 
+                                    {
+                                       "<Privilege>231</Privilege><Sub_Sys>5</Sub_Sys>", 
+                                       "DataGuard"
+                                    },
+                                    AfterChangedOutput = new Action<object>((output) => {
+                                       if ((bool)output)
+                                          return;
+                                       MessageBox.Show("خطا - عدم دسترسی به ردیف 231 سطوح امینتی", "عدم دسترسی");
+                                    })
+                                 },
+                                 #endregion
+                              }),
+                           #region DoWork
+                              new Job(SendType.Self, 151 /* Execute Mbsp_Chng_F */),
+                              new Job(SendType.SelfToUserInterface, "MBSP_CHNG_F", 10 /* execute Actn_CalF_F */)
+                              {
+                                 Input = 
+                                    new XElement("Fighter",
+                                       new XAttribute("fileno", vcochmbsp.FILE_NO),
+                                       new XAttribute("mbsprwno", vcochmbsp.RWNO),
+                                       new XAttribute("formcaller", GetType().Name)
+                                    )
+                              }
+                           #endregion
+                        });
+                  _DefaultGateway.Gateway(_InteractWithScsc);
+                  break;
+               default:
+                  break;
+            }            
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }         
       }
    }
 }

@@ -75,7 +75,7 @@ namespace System.Scsc.Ui.CalculateExpense
                new Job(SendType.External, "Localhost",
                   new List<Job>
                   {
-                     new Job(SendType.Self, 84 /* Execute Cfg_Stng_F */){Input = new XElement("Print", new XAttribute("type", "Selection"), new XAttribute("modual", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_001_F"), string.Format("Misc_Expense.Delv_Date BETWEEN '{0}' AND '{1}'", Delv_FromDate.Value.Value.Date.ToString("yyyy-MM-dd"), Delv_ToDate.Value.Value.Date.ToString("yyyy-MM-dd")))}
+                     new Job(SendType.Self, 84 /* Execute Rpt_Mngr_F */){Input = new XElement("Print", new XAttribute("type", "Selection"), new XAttribute("modual", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_001_F"), string.Format("Delv_Date BETWEEN '{0}' AND '{1}'", Delv_FromDate.Value.Value.Date.ToString("yyyy-MM-dd"), Delv_ToDate.Value.Value.Date.ToString("yyyy-MM-dd")))}
                   });
             _DefaultGateway.Gateway(_InteractWithScsc);
          }
@@ -93,11 +93,70 @@ namespace System.Scsc.Ui.CalculateExpense
                new Job(SendType.External, "Localhost",
                   new List<Job>
                   {
-                     new Job(SendType.Self, 84 /* Execute Cfg_Stng_F */){Input = new XElement("Print", new XAttribute("type", "Default"), new XAttribute("modual", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_001_F"), string.Format("Misc_Expense.Delv_Date BETWEEN '{0}' AND '{1}'", Delv_FromDate.Value.Value.Date.ToString("yyyy-MM-dd"), Delv_ToDate.Value.Value.Date.ToString("yyyy-MM-dd")))}
+                     new Job(SendType.Self, 84 /* Execute Rpt_Mngr_F */){Input = new XElement("Print", new XAttribute("type", "Default"), new XAttribute("modual", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_001_F"), string.Format("Delv_Date BETWEEN '{0}' AND '{1}'", Delv_FromDate.Value.Value.Date.ToString("yyyy-MM-dd"), Delv_ToDate.Value.Value.Date.ToString("yyyy-MM-dd")))}
                   });
             _DefaultGateway.Gateway(_InteractWithScsc);
          }
          catch(Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void Coch_Butn_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            var msex = MsexBs.Current as Data.Misc_Expense;
+            if (msex == null) return;
+
+            switch (e.Button.Index)
+            {
+               case 0:
+                  _DefaultGateway.Gateway(
+                     new Job(SendType.External, "localhost", "", 46, SendType.Self) { Input = new XElement("Fighter", new XAttribute("fileno", msex.COCH_FILE_NO)) }
+                  );
+                  break;
+               case 1:                  
+                  _DefaultGateway.Gateway(
+                     new Job(SendType.External, "Localhost",
+                        new List<Job>
+                        {
+                           new Job(SendType.Self, 84 /* Execute Rpt_Mngr_F */){Input = new XElement("Print", new XAttribute("type", "Selection"), new XAttribute("modual", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_001_F"), string.Format("Coch_File_No = {2} AND Delv_Date BETWEEN '{0}' AND '{1}'", Delv_FromDate.Value.Value.Date.ToString("yyyy-MM-dd"), Delv_ToDate.Value.Value.Date.ToString("yyyy-MM-dd"), msex.COCH_FILE_NO))}
+                        })
+                  );
+                  break;
+               case 2:
+                  _DefaultGateway.Gateway(
+                     new Job(SendType.External, "Localhost",
+                        new List<Job>
+                        {
+                           new Job(SendType.Self, 84 /* Execute Rpt_Mngr_F */){Input = new XElement("Print", new XAttribute("type", "Default"), new XAttribute("modual", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_001_F"), string.Format("Coch_File_No = {2} AND Delv_Date BETWEEN '{0}' AND '{1}'", Delv_FromDate.Value.Value.Date.ToString("yyyy-MM-dd"), Delv_ToDate.Value.Value.Date.ToString("yyyy-MM-dd"), msex.COCH_FILE_NO))}
+                        })
+                  );
+                  break;
+               default:
+                  break;
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void Actn_Butn_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            var pyde = PydeBs.Current as Data.Payment_Expense;
+            if (pyde == null) return;
+
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost", "", 46, SendType.Self) { Input = new XElement("Fighter", new XAttribute("fileno", pyde.Payment_Detail.Request_Row.FIGH_FILE_NO)) }
+            );
+         }
+         catch (Exception exc)
          {
             MessageBox.Show(exc.Message);
          }

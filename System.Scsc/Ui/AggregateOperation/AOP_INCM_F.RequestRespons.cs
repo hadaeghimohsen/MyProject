@@ -197,6 +197,7 @@ namespace System.Scsc.Ui.AggregateOperation
             DDytpBs1.DataSource = iScsc.D_DYTPs;
             RqttBs1.DataSource = iScsc.Requester_Types.Where(rt => rt.CODE == "001" || rt.CODE == "004");
             DAtypBs1.DataSource = iScsc.D_ATYPs;
+            CndoBs1.DataSource = iScsc.Candos;
             isFirstLoaded = true;
          }
          job.Status = StatusType.Successful;

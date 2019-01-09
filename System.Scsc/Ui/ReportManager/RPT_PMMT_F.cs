@@ -408,7 +408,7 @@ namespace System.Scsc.Ui.ReportManager
               new Job(SendType.External, "Localhost",
                  new List<Job>
                   {
-                     new Job(SendType.Self, 84 /* Execute Cfg_Stng_F */)
+                     new Job(SendType.Self, 84 /* Execute Rpt_Mngr_F */)
                      {
                         Input = 
                            new XElement("Print", 
@@ -440,7 +440,7 @@ namespace System.Scsc.Ui.ReportManager
               new Job(SendType.External, "Localhost",
                  new List<Job>
                   {
-                     new Job(SendType.Self, 84 /* Execute Cfg_Stng_F */)
+                     new Job(SendType.Self, 84 /* Execute Rpt_Mngr_F */)
                      {
                         Input = 
                            new XElement("Print", 

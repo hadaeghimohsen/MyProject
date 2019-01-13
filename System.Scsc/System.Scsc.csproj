@@ -749,11 +749,20 @@
     <Compile Include="Ui\Organ\ORGN_TOTL_F.RequestRespons.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Ui\OtherIncome\KSK_INCM_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\OtherIncome\KSK_INCM_F.Designer.cs">
+      <DependentUpon>KSK_INCM_F.cs</DependentUpon>
+    </Compile>
     <Compile Include="Ui\OtherIncome\OIC_TOTL_F.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Ui\OtherIncome\OIC_TOTL_F.Designer.cs">
       <DependentUpon>OIC_TOTL_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\OtherIncome\KSK_INCM_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Ui\OtherIncome\OIC_TOTL_F.RequestRespons.cs">
       <SubType>UserControl</SubType>
@@ -1339,6 +1348,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Ui\Organ\ORGN_TOTL_F.resx">
       <DependentUpon>ORGN_TOTL_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\OtherIncome\KSK_INCM_F.resx">
+      <DependentUpon>KSK_INCM_F.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ui\OtherIncome\OIC_TOTL_F.resx">
       <DependentUpon>OIC_TOTL_F.cs</DependentUpon>

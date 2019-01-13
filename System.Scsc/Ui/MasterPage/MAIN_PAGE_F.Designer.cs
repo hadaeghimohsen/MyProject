@@ -241,6 +241,7 @@
          this.مدیریتسیستمToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
          this.bbi_bkupbutn_Mn = new System.Windows.Forms.ToolStripMenuItem();
          this.bbi_embkbutn_Mn = new System.Windows.Forms.ToolStripMenuItem();
+         this.ksk_incmbutn = new DevExpress.XtraBars.BarButtonItem();
          this.statusStrip1.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.spc_desktop)).BeginInit();
@@ -386,9 +387,10 @@
             this.bbi_embkbutn,
             this.bbi_basdifnbutn,
             this.bbi_mbsnbutn,
-            this.bbi_incgbutn});
+            this.bbi_incgbutn,
+            this.ksk_incmbutn});
          this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
-         this.ribbonControl1.MaxItemId = 96;
+         this.ribbonControl1.MaxItemId = 97;
          this.ribbonControl1.Name = "ribbonControl1";
          this.ribbonControl1.PageCategories.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageCategory[] {
             this.System_RPgc,
@@ -814,6 +816,7 @@
          this.bbi_attnbutn.Id = 42;
          this.bbi_attnbutn.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbi_attnbutn.LargeGlyph")));
          this.bbi_attnbutn.Name = "bbi_attnbutn";
+         this.bbi_attnbutn.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
          this.bbi_attnbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_attnbutn_ItemClick);
          // 
          // bbi_smsbbutn
@@ -1384,15 +1387,16 @@
          this.OthrOption_RbGp.ItemLinks.Add(this.bbi_cmanbutn);
          this.OthrOption_RbGp.ItemLinks.Add(this.bbi_exdsbutn);
          this.OthrOption_RbGp.ItemLinks.Add(this.bbi_fdbtbutn);
+         this.OthrOption_RbGp.ItemLinks.Add(this.ksk_incmbutn);
          this.OthrOption_RbGp.Name = "OthrOption_RbGp";
-         this.OthrOption_RbGp.Text = "درآمد باشگاه";
+         this.OthrOption_RbGp.Text = "درآمد";
          // 
          // OthrExpnOption_RbGp
          // 
          this.OthrExpnOption_RbGp.ItemLinks.Add(this.bbi_oexpbutn);
          this.OthrExpnOption_RbGp.ItemLinks.Add(this.bbi_cpaybutn);
          this.OthrExpnOption_RbGp.Name = "OthrExpnOption_RbGp";
-         this.OthrExpnOption_RbGp.Text = "هزینه های باشگاه";
+         this.OthrExpnOption_RbGp.Text = "هزینه";
          // 
          // ribbonPageGroup19
          // 
@@ -1532,7 +1536,7 @@
          this.SystemAdmin_RbGp.ItemLinks.Add(this.bbi_rstrbutn);
          this.SystemAdmin_RbGp.ItemLinks.Add(this.bbi_embkbutn);
          this.SystemAdmin_RbGp.Name = "SystemAdmin_RbGp";
-         this.SystemAdmin_RbGp.Text = "نگهداری از اطلاعات";
+         this.SystemAdmin_RbGp.Text = "حفاظت اطلاعات";
          // 
          // spc_desktop
          // 
@@ -2256,6 +2260,16 @@
          this.bbi_embkbutn_Mn.Text = "پشتیبان گیری اضطراری";
          this.bbi_embkbutn_Mn.Click += new System.EventHandler(this.bbi_embkbutn_Mn_Click);
          // 
+         // ksk_incmbutn
+         // 
+         this.ksk_incmbutn.Caption = "فروش از طریق پایانه فروش";
+         this.ksk_incmbutn.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
+         this.ksk_incmbutn.Glyph = ((System.Drawing.Image)(resources.GetObject("ksk_incmbutn.Glyph")));
+         this.ksk_incmbutn.Id = 96;
+         this.ksk_incmbutn.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("ksk_incmbutn.LargeGlyph")));
+         this.ksk_incmbutn.Name = "ksk_incmbutn";
+         this.ksk_incmbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.ksk_incmbutn_ItemClick);
+         // 
          // MAIN_PAGE_F
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -2470,5 +2484,6 @@
       private Windows.Forms.ToolStripMenuItem bbi_agcbbutn_Mn;
       private Windows.Forms.ToolStripMenuItem bbi_aglsbutn_Mn;
       private DevExpress.XtraBars.BarButtonItem bbi_incgbutn;
+      private DevExpress.XtraBars.BarButtonItem ksk_incmbutn;
    }
 }

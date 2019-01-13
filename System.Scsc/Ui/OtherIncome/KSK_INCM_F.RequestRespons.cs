@@ -110,22 +110,7 @@ namespace System.Scsc.Ui.OtherIncome
                   {
                      new Job(SendType.SelfToUserInterface, GetType().Name, 04 /* Execute UnPaint */)
                   })
-            );
-
-            switch (formCaller)
-            {
-               case "ADM_CHNG_F":
-                  _DefaultGateway.Gateway(
-                     new Job(SendType.External, "localhost", "", 46, SendType.Self) { Input = new XElement("Fighter", new XAttribute("fileno", fileno)) }
-                  );
-                  break;
-               default:
-                  break;
-            }
-            formCaller = "";
-
-            //job.Next =
-            //   new Job(SendType.SelfToUserInterface, GetType().Name, 04 /* Execute UnPaint */);
+            );            
          }
          else if (keyData == (Keys.Control | Keys.S))
          {
@@ -259,12 +244,21 @@ namespace System.Scsc.Ui.OtherIncome
       /// <param name="job"></param>
       private new void Paint(Job job)
       {
+         //Job _Paint = new Job(SendType.External, "Desktop",
+         //   new List<Job>
+         //   {
+         //      //new Job(SendType.SelfToUserInterface, "Wall", 20 /* Execute ResetUiWithoutEnabled */),
+         //      new Job(SendType.SelfToUserInterface, "Wall", 15 /* Execute Push */) {  Input = new List<object> { string.Format("Scsc:{0}", this.GetType().Name), this }  },
+         //      new Job(SendType.SelfToUserInterface, "MAIN_PAGE_F", 08 /* Execute PostOnWall */) {  Input = this }               
+         //   });
+         //_DefaultGateway.Gateway(_Paint);
+
          Job _Paint = new Job(SendType.External, "Desktop",
             new List<Job>
             {
-               //new Job(SendType.SelfToUserInterface, "Wall", 20 /* Execute ResetUiWithoutEnabled */),
-               new Job(SendType.SelfToUserInterface, "Wall", 15 /* Execute Push */) {  Input = new List<object> { string.Format("Scsc:{0}", this.GetType().Name), this }  },
-               new Job(SendType.SelfToUserInterface, "MAIN_PAGE_F", 08 /* Execute PostOnWall */) {  Input = this }               
+               new Job(SendType.SelfToUserInterface, "Wall", 17 /* Execute ResetUi */),
+               new Job(SendType.SelfToUserInterface, "Wall", 15 /* Execute Push */) {  Input = new List<object> {string.Format("Scsc:{0}", this.GetType().Name), this }  },
+               new Job(SendType.SelfToUserInterface, "Wall", 01 /* Execute PastManualOnWall */) { Input = this }               
             });
          _DefaultGateway.Gateway(_Paint);
 
@@ -278,15 +272,26 @@ namespace System.Scsc.Ui.OtherIncome
       /// <param name="job"></param>
       private void UnPaint(Job job)
       {
+         //_DefaultGateway.Gateway(
+         //   new Job(SendType.External, "Localhost",
+         //      new List<Job>
+         //      {
+         //         new Job(SendType.SelfToUserInterface, "Wall", 16 /* Execute Pop */),
+         //         new Job(SendType.SelfToUserInterface, "MAIN_PAGE_F", 09 /* Execute TakeOnWall */){Input = this},
+         //         //new Job(SendType.SelfToUserInterface, "Wall", 20 /* Execute ResetUiWithoutEnabled */)
+         //      })
+         //   );
+
          _DefaultGateway.Gateway(
             new Job(SendType.External, "Localhost",
                new List<Job>
                {
                   new Job(SendType.SelfToUserInterface, "Wall", 16 /* Execute Pop */),
-                  new Job(SendType.SelfToUserInterface, "MAIN_PAGE_F", 09 /* Execute TakeOnWall */){Input = this},
-                  //new Job(SendType.SelfToUserInterface, "Wall", 20 /* Execute ResetUiWithoutEnabled */)
+                  new Job(SendType.SelfToUserInterface, "Wall", 02 /* Execute RemoveFromWall */){Input = this},
+                  new Job(SendType.SelfToUserInterface, "Wall", 17 /* Execute ResetUi */)
                })
             );
+
 
          job.Status = StatusType.Successful;
       }
@@ -306,21 +311,12 @@ namespace System.Scsc.Ui.OtherIncome
       /// <param name="job"></param>
       private void LoadData(Job job)
       {
-         UserProFile_Rb.ImageVisiable = true;
+         Man_Rb.ImageVisiable = true;
          #region Rqsw block
          //FighsBs1.DataSource = iScsc.VF_Fighters(new XElement("Fighter")).Where(f => f.CONF_STAT == "002" && (f.FGPB_TYPE_DNRM == "001" || f.FGPB_TYPE_DNRM == "005" || f.FGPB_TYPE_DNRM == "006"));
          //FighsBs1.DataSource = iScsc.Fighters.Where(f => f.CONF_STAT == "002" /*&& (f.FGPB_TYPE_DNRM == "001" || f.FGPB_TYPE_DNRM == "004" || f.FGPB_TYPE_DNRM == "005" || f.FGPB_TYPE_DNRM == "006")*/ && (Fga_Uclb_U.Contains(f.CLUB_CODE_DNRM) || (f.CLUB_CODE_DNRM == null ? f.Club_Methods.Where(cb => Fga_Uclb_U.Contains(cb.CLUB_CODE)).Any() : false)) && Convert.ToInt32(f.ACTV_TAG_DNRM ?? "101") >= 101).OrderBy(f => f.FGPB_TYPE_DNRM);
-         RqttBs1.DataSource = iScsc.Requester_Types.Where(rqtt => rqtt.CODE == "001" || rqtt.CODE == "004");
-         DSxtpBs1.DataSource = iScsc.D_SXTPs;
-         DCyclBs1.DataSource = iScsc.D_CYCLs;
          DAtypBs1.DataSource = iScsc.D_ATYPs;
-         DRcmtBs1.DataSource = iScsc.D_RCMTs;
          //RQTT_CODE_LookUpEdit.EditValue = "001";
-         DYsnoBs1.DataSource = iScsc.D_YSNOs;
-         DDytpBs.DataSource = iScsc.D_DYTPs;
-         CbmtBs1.DataSource = iScsc.Club_Methods.Where(c => c.MTOD_STAT == "002");
-         SuntBs1.DataSource = iScsc.Sub_Units;
-         DPydsBs1.DataSource = iScsc.D_PYDS;
          VPosBs1.DataSource = iScsc.V_Pos_Devices;
          if (VPosBs1.List.OfType<Data.V_Pos_Device>().FirstOrDefault(p => p.GTWY_MAC_ADRS == HostNameInfo.Attribute("cpu").Value) != null)
             Pos_Lov.EditValue = VPosBs1.List.OfType<Data.V_Pos_Device>().FirstOrDefault(p => p.GTWY_MAC_ADRS == HostNameInfo.Attribute("cpu").Value).PSID;

@@ -909,8 +909,8 @@ namespace System.Scsc.Ui.AggregateOperation
             CuntBs1.DataSource = iScsc.Cando_Block_Units.Where(u => u.BLOK_CNDO_CODE == Cndo_Lov.EditValue.ToString() && u.BLOK_CODE == e.NewValue.ToString());
          }
          catch { }
-      }
+      }   
+   
 
-      
    }
 }

@@ -157,6 +157,9 @@ namespace System.Scsc.Code
       internal Ui.BaseDefinition.APBS_DFIN_F _Apbs_Dfin_F { get; set; }
       internal Ui.Admission.MBSP_MARK_F _Mbsp_Mark_F { get; set; }
       internal Ui.AggregateOperation.AOP_INCM_F _Aop_Incm_F { get; set; }
+      
+      /// Kiosk
+      internal Ui.OtherIncome.KSK_INCM_F _Ksk_Incm_F { get; set; }
 
       /// Show Change
       internal Ui.Admission.ShowChanges.SHOW_ATRQ_F _Show_Atrq_F { get; set; }

@@ -747,6 +747,11 @@ namespace System.Scsc.Code
             if (_Aop_Incm_F == null)
                _Aop_Incm_F = new Ui.AggregateOperation.AOP_INCM_F { _DefaultGateway = this };
          }
+         else if (value == "ksk_incm_f")
+         {
+            if (_Ksk_Incm_F == null)
+               _Ksk_Incm_F = new Ui.OtherIncome.KSK_INCM_F { _DefaultGateway = this };
+         }
 
          // فرم های نمایش تغییرات
          else if (value == "show_atrq_f")
@@ -4541,6 +4546,30 @@ namespace System.Scsc.Code
                   new Job(SendType.SelfToUserInterface, "AOP_INCM_F", 02 /* Execute Set */),                  
                   new Job(SendType.SelfToUserInterface, "AOP_INCM_F", 07 /* Execute Load_Data */),
                   new Job(SendType.SelfToUserInterface, "AOP_INCM_F", 03 /* Execute Paint */),
+               });
+         }
+         else if (job.Status == StatusType.SignalForPreconditions)
+         {
+            job.Status = StatusType.Successful;
+         }
+      }
+
+      /// <summary>
+      /// Code 157
+      /// </summary>
+      /// <param name="job"></param>
+      private void Ksk_Incm_F(Job job)
+      {
+         if (job.Status == StatusType.Running)
+         {
+            job.Status = StatusType.WaitForPreconditions;
+            job.OwnerDefineWorkWith.AddRange(
+               new List<Job>
+               {
+                  new Job(SendType.Self, 01 /* Execute GetUi */){Input = "ksk_incm_f"},
+                  new Job(SendType.SelfToUserInterface, "KSK_INCM_F", 02 /* Execute Set */),                  
+                  new Job(SendType.SelfToUserInterface, "KSK_INCM_F", 07 /* Execute Load_Data */),
+                  new Job(SendType.SelfToUserInterface, "KSK_INCM_F", 03 /* Execute Paint */),
                });
          }
          else if (job.Status == StatusType.SignalForPreconditions)

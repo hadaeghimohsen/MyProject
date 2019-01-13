@@ -498,6 +498,9 @@ namespace System.Scsc.Code
             case 156:
                Aop_Incm_F(job);
                break;
+            case 157:
+               Ksk_Incm_F(job);
+               break;
             default:
                job.Status = StatusType.Failed;
                break;
@@ -948,6 +951,9 @@ namespace System.Scsc.Code
                break;
             case "AOP_INCM_F":
                _Aop_Incm_F.SendRequest(job);
+               break;
+            case "KSK_INCM_F":
+               _Ksk_Incm_F.SendRequest(job);
                break;
 
             /* Show Changed */

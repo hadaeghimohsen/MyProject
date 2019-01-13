@@ -3017,5 +3017,17 @@ namespace System.Scsc.Ui.MasterPage
       {
          bbi_aglsbutn_ItemClick(null, null);
       }
+
+      private void ksk_incmbutn_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+      {
+         /// Must Be Change
+         Job _InteractWithScsc =
+              new Job(SendType.External, "Localhost",
+                 new List<Job>
+                  {                  
+                     new Job(SendType.Self, 157 /* Execute Ksk_Incm_F */)
+                  });
+         _DefaultGateway.Gateway(_InteractWithScsc);
+      }
    }
 }

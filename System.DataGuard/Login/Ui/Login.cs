@@ -137,6 +137,7 @@ namespace System.DataGuard.Login.Ui
                      }
                   })
             });
+         te_password.Tag = te_password.EditValue;
          te_password.EditValue = null;
          _DefaultGateway.Gateway(_Login);
       }

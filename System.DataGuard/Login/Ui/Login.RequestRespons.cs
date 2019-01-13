@@ -298,6 +298,12 @@ namespace System.DataGuard.Login.Ui
             case "changepassword":
                te_password.Text = input.Attribute("value").Value;
                break;
+            case "comparepassword":
+               if (te_password.Tag.ToString() == input.Attribute("value").Value)
+                  job.Output = true;
+               else
+                  job.Output = false;
+               break;
             default:
                break;
          }

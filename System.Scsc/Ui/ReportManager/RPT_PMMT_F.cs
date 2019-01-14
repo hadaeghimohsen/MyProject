@@ -58,8 +58,7 @@ namespace System.Scsc.Ui.ReportManager
                var rqtps = Rqtp_Lov2.Properties.Items.OfType<CheckedListBoxItem>().Where(i => i.CheckState == CheckState.Checked).Select(i => i.Value).ToList();
                var users = User_Lov2.Properties.Items.OfType<CheckedListBoxItem>().Where(i => i.CheckState == CheckState.Checked).Select(i => i.Value).ToList();
 
-               long? fileno = null;//, coch = null;
-               
+               long? fileno = null;//, coch = null;               
                if (Figh_Lov2.EditValue != null && Figh_Lov2.EditValue.ToString() != "")
                   fileno = (long?)Figh_Lov2.EditValue;
 
@@ -75,9 +74,10 @@ namespace System.Scsc.Ui.ReportManager
                      pd.Request_Row.Request.RQST_STAT == "002" &&
                      (rqtps.Count == 0 || rqtps.Contains(pd.Request_Row.RQTP_CODE)) &&
                      (users.Count == 0 || (users.Contains(pd.CRET_BY) || users.Contains(pd.MDFY_BY))) &&                     
-                     (pd.Request_Row.FIGH_FILE_NO == (fileno ?? pd.Request_Row.FIGH_FILE_NO)) &&
+                     //(pd.Request_Row.FIGH_FILE_NO == (fileno ?? pd.Request_Row.FIGH_FILE_NO)) &&
                      (Fga_Uclb_U.Contains(pd.Payment.CLUB_CODE_DNRM)) &&
                      // 1397/09/02 * اضافه شدن فیلتر مربوط به مربی
+                     (fileno == null || pd.FIGH_FILE_NO == fileno) &&
                      (cochfileno == null || pd.FIGH_FILE_NO == cochfileno) &&
                      (cbmtcode == null || pd.CBMT_CODE_DNRM == cbmtcode)
                   );
@@ -420,7 +420,7 @@ namespace System.Scsc.Ui.ReportManager
                                             FromDate2_Date.Value.Value.Date.ToString("yyyy-MM-dd"), 
                                             ToDate2_Date.Value.Value.Date.ToString("yyyy-MM-dd"), 
                                             User_Lov2.EditValue, 
-                                            /*Figh_Lov2.EditValue*/cochfileno, 
+                                            Figh_Lov2.EditValue/*cochfileno*/, 
                                             /*Cbmt_Lov2.EditValue*/cbmtcode, 
                                             Ctgy_lov2.EditValue )
                            )
@@ -447,7 +447,14 @@ namespace System.Scsc.Ui.ReportManager
                               new XAttribute("type", "Default"), 
                               new XAttribute("modual", /*GetType().Name*/ formName), 
                               new XAttribute("section", GetType().Name.Substring(0,3) + "_001_F"), 
-                              string.Format("<Request fromrqstdate=\"{0}\" torqstdate=\"{1}\" cretby=\"{2}\"><Club_Method cochfileno=\"{3}\" code=\"{4}\" ctgycode=\"{5}\"/></Request>", FromDate2_Date.Value.Value.Date.ToString("yyyy-MM-dd"), ToDate2_Date.Value.Value.Date.ToString("yyyy-MM-dd"), User_Lov2.EditValue, Figh_Lov2.EditValue, Cbmt_Lov2.EditValue, Ctgy_lov2.EditValue )
+                              string.Format("<Request fromrqstdate=\"{0}\" torqstdate=\"{1}\" cretby=\"{2}\"><Club_Method cochfileno=\"{3}\" code=\"{4}\" ctgycode=\"{5}\"/></Request>", 
+                                 FromDate2_Date.Value.Value.Date.ToString("yyyy-MM-dd"), 
+                                 ToDate2_Date.Value.Value.Date.ToString("yyyy-MM-dd"), 
+                                 User_Lov2.EditValue, 
+                                 Figh_Lov2.EditValue, 
+                                 /*Cbmt_Lov2.EditValue*/cbmtcode, 
+                                 Ctgy_lov2.EditValue 
+                              )
                            )
                      }
                   });
@@ -706,6 +713,15 @@ namespace System.Scsc.Ui.ReportManager
          }
          catch (Exception exc)
          { MessageBox.Show(exc.Message); }
+      }
+
+      private void Figh_Lov2_EditValueChanging(object sender, ChangingEventArgs e)
+      {
+         try
+         {
+            cochfileno = (long?)e.NewValue;
+         }
+         catch { }
       }
    }
 }

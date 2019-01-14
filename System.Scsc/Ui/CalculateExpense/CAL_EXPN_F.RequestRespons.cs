@@ -194,6 +194,7 @@ namespace System.Scsc.Ui.CalculateExpense
          //ExtpBs.DataSource = iScsc.Expense_Types.Where(ex => ex.Request_Requester.Regulation.REGL_STAT == "002" && ex.Request_Requester.Regulation.TYPE == "001");
          MtodBs.DataSource = iScsc.Methods.Where(m => m.MTOD_STAT == "002");
          CbmtBs1.DataSource = iScsc.Club_Methods.Where(cbmt => cbmt.MTOD_STAT == "002" && cbmt.Method.MTOD_STAT == "002" && cbmt.Fighter.ACTV_TAG_DNRM.CompareTo("101") >= 0);
+         tb_master.TabPages.Remove(tp_001);
          Execute_Query();
 
          job.Status = StatusType.Successful;

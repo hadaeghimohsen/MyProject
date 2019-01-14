@@ -700,6 +700,7 @@
          this.colMDFY_DATE6 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colPayment3 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colRequest_Row3 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colActn6 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.Actn6_Butn = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
          this.groupBox1 = new System.Windows.Forms.GroupBox();
          this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -722,7 +723,6 @@
          this.RqstBnSettingPrint_Butn = new System.Windows.Forms.ToolStripButton();
          this.RqstBnFind1 = new System.Windows.Forms.ToolStripButton();
          this.RqstBnExit1 = new System.Windows.Forms.ToolStripButton();
-         this.colActn6 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.tc_master.SuspendLayout();
          this.tp_002.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl2)).BeginInit();
@@ -871,7 +871,7 @@
          // 
          this.RqtpCode1_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.RqtpCode1_Lb.AutoSize = true;
-         this.RqtpCode1_Lb.Location = new System.Drawing.Point(204, 81);
+         this.RqtpCode1_Lb.Location = new System.Drawing.Point(204, 273);
          this.RqtpCode1_Lb.Name = "RqtpCode1_Lb";
          this.RqtpCode1_Lb.Size = new System.Drawing.Size(83, 14);
          this.RqtpCode1_Lb.TabIndex = 16;
@@ -882,7 +882,7 @@
          // 
          this.CochFileNo1_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.CochFileNo1_Lb.AutoSize = true;
-         this.CochFileNo1_Lb.Location = new System.Drawing.Point(204, 109);
+         this.CochFileNo1_Lb.Location = new System.Drawing.Point(204, 301);
          this.CochFileNo1_Lb.Name = "CochFileNo1_Lb";
          this.CochFileNo1_Lb.Size = new System.Drawing.Size(59, 14);
          this.CochFileNo1_Lb.TabIndex = 16;
@@ -893,17 +893,18 @@
          // 
          this.RcptMtod_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.RcptMtod_Lb.AutoSize = true;
-         this.RcptMtod_Lb.Location = new System.Drawing.Point(204, 137);
+         this.RcptMtod_Lb.Location = new System.Drawing.Point(204, 329);
          this.RcptMtod_Lb.Name = "RcptMtod_Lb";
          this.RcptMtod_Lb.Size = new System.Drawing.Size(75, 14);
          this.RcptMtod_Lb.TabIndex = 16;
          this.RcptMtod_Lb.Text = "نوع پرداختی :";
+         this.RcptMtod_Lb.Visible = false;
          // 
          // Cashier1_Lb
          // 
          this.Cashier1_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.Cashier1_Lb.AutoSize = true;
-         this.Cashier1_Lb.Location = new System.Drawing.Point(204, 165);
+         this.Cashier1_Lb.Location = new System.Drawing.Point(204, 81);
          this.Cashier1_Lb.Name = "Cashier1_Lb";
          this.Cashier1_Lb.Size = new System.Drawing.Size(59, 14);
          this.Cashier1_Lb.TabIndex = 16;
@@ -913,7 +914,7 @@
          // 
          this.Cashier3_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.Cashier3_Lb.AutoSize = true;
-         this.Cashier3_Lb.Location = new System.Drawing.Point(187, 137);
+         this.Cashier3_Lb.Location = new System.Drawing.Point(187, 81);
          this.Cashier3_Lb.Name = "Cashier3_Lb";
          this.Cashier3_Lb.Size = new System.Drawing.Size(59, 14);
          this.Cashier3_Lb.TabIndex = 16;
@@ -923,7 +924,7 @@
          // 
          this.CochFileNo3_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.CochFileNo3_Lb.AutoSize = true;
-         this.CochFileNo3_Lb.Location = new System.Drawing.Point(187, 109);
+         this.CochFileNo3_Lb.Location = new System.Drawing.Point(187, 297);
          this.CochFileNo3_Lb.Name = "CochFileNo3_Lb";
          this.CochFileNo3_Lb.Size = new System.Drawing.Size(59, 14);
          this.CochFileNo3_Lb.TabIndex = 16;
@@ -934,7 +935,7 @@
          // 
          this.RqtpCode3_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.RqtpCode3_Lb.AutoSize = true;
-         this.RqtpCode3_Lb.Location = new System.Drawing.Point(187, 81);
+         this.RqtpCode3_Lb.Location = new System.Drawing.Point(187, 269);
          this.RqtpCode3_Lb.Name = "RqtpCode3_Lb";
          this.RqtpCode3_Lb.Size = new System.Drawing.Size(83, 14);
          this.RqtpCode3_Lb.TabIndex = 16;
@@ -985,7 +986,7 @@
          // 
          this.Cashier5_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.Cashier5_Lb.AutoSize = true;
-         this.Cashier5_Lb.Location = new System.Drawing.Point(187, 137);
+         this.Cashier5_Lb.Location = new System.Drawing.Point(187, 81);
          this.Cashier5_Lb.Name = "Cashier5_Lb";
          this.Cashier5_Lb.Size = new System.Drawing.Size(59, 14);
          this.Cashier5_Lb.TabIndex = 16;
@@ -995,21 +996,23 @@
          // 
          this.CochFileNo5_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.CochFileNo5_Lb.AutoSize = true;
-         this.CochFileNo5_Lb.Location = new System.Drawing.Point(187, 109);
+         this.CochFileNo5_Lb.Location = new System.Drawing.Point(187, 329);
          this.CochFileNo5_Lb.Name = "CochFileNo5_Lb";
          this.CochFileNo5_Lb.Size = new System.Drawing.Size(59, 14);
          this.CochFileNo5_Lb.TabIndex = 16;
          this.CochFileNo5_Lb.Text = "نام مربی :";
+         this.CochFileNo5_Lb.Visible = false;
          // 
          // RqtpCode5_Lb
          // 
          this.RqtpCode5_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.RqtpCode5_Lb.AutoSize = true;
-         this.RqtpCode5_Lb.Location = new System.Drawing.Point(187, 81);
+         this.RqtpCode5_Lb.Location = new System.Drawing.Point(187, 301);
          this.RqtpCode5_Lb.Name = "RqtpCode5_Lb";
          this.RqtpCode5_Lb.Size = new System.Drawing.Size(83, 14);
          this.RqtpCode5_Lb.TabIndex = 16;
          this.RqtpCode5_Lb.Text = "نوع درخواست :";
+         this.RqtpCode5_Lb.Visible = false;
          // 
          // ToDate5_Lb
          // 
@@ -1035,7 +1038,7 @@
          // 
          this.Cashier2_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.Cashier2_Lb.AutoSize = true;
-         this.Cashier2_Lb.Location = new System.Drawing.Point(252, 137);
+         this.Cashier2_Lb.Location = new System.Drawing.Point(252, 81);
          this.Cashier2_Lb.Name = "Cashier2_Lb";
          this.Cashier2_Lb.Size = new System.Drawing.Size(59, 14);
          this.Cashier2_Lb.TabIndex = 16;
@@ -1047,16 +1050,15 @@
          this.CochFileNo2_Lb.AutoSize = true;
          this.CochFileNo2_Lb.Location = new System.Drawing.Point(252, 109);
          this.CochFileNo2_Lb.Name = "CochFileNo2_Lb";
-         this.CochFileNo2_Lb.Size = new System.Drawing.Size(59, 14);
+         this.CochFileNo2_Lb.Size = new System.Drawing.Size(81, 14);
          this.CochFileNo2_Lb.TabIndex = 16;
-         this.CochFileNo2_Lb.Text = "نام مربی :";
-         this.CochFileNo2_Lb.Visible = false;
+         this.CochFileNo2_Lb.Text = "نام سرپرست :";
          // 
          // RqtpCode2_Lb
          // 
          this.RqtpCode2_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.RqtpCode2_Lb.AutoSize = true;
-         this.RqtpCode2_Lb.Location = new System.Drawing.Point(252, 81);
+         this.RqtpCode2_Lb.Location = new System.Drawing.Point(252, 357);
          this.RqtpCode2_Lb.Name = "RqtpCode2_Lb";
          this.RqtpCode2_Lb.Size = new System.Drawing.Size(83, 14);
          this.RqtpCode2_Lb.TabIndex = 16;
@@ -1092,6 +1094,7 @@
          this.CbmtCode2_Lb.TabIndex = 20;
          this.CbmtCode2_Lb.Text = "برنامه کلاسی :\r\n\r\n رسته :";
          this.CbmtCode2_Lb.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+         this.CbmtCode2_Lb.Visible = false;
          // 
          // tc_master
          // 
@@ -1616,6 +1619,7 @@
          this.Btn_Cbmt2.TabIndex = 21;
          this.Btn_Cbmt2.Text = "...";
          this.Btn_Cbmt2.UseVisualStyleBackColor = true;
+         this.Btn_Cbmt2.Visible = false;
          this.Btn_Cbmt2.Click += new System.EventHandler(this.Btn_Cbmt2_Click);
          // 
          // Ctgy_lov2
@@ -1639,6 +1643,7 @@
          this.Ctgy_lov2.Properties.View = this.gridView8;
          this.Ctgy_lov2.Size = new System.Drawing.Size(240, 22);
          this.Ctgy_lov2.TabIndex = 19;
+         this.Ctgy_lov2.Visible = false;
          // 
          // CtgyBs
          // 
@@ -1830,6 +1835,7 @@
          this.Cbmt_Lov2.Properties.View = this.gridView2;
          this.Cbmt_Lov2.Size = new System.Drawing.Size(207, 22);
          this.Cbmt_Lov2.TabIndex = 19;
+         this.Cbmt_Lov2.Visible = false;
          this.Cbmt_Lov2.EditValueChanging += new DevExpress.XtraEditors.Controls.ChangingEventHandler(this.Cbmt_Lov2_EditValueChanging);
          // 
          // CbmtBs
@@ -2128,6 +2134,8 @@
          this.Figh_Lov2.EditValue = "";
          this.Figh_Lov2.Location = new System.Drawing.Point(6, 107);
          this.Figh_Lov2.Name = "Figh_Lov2";
+         this.Figh_Lov2.Properties.Appearance.Options.UseTextOptions = true;
+         this.Figh_Lov2.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.Figh_Lov2.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
          this.Figh_Lov2.Properties.AppearanceFocused.Options.UseBackColor = true;
          this.Figh_Lov2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -2142,7 +2150,7 @@
          this.Figh_Lov2.Properties.View = this.Figh_Gv2;
          this.Figh_Lov2.Size = new System.Drawing.Size(240, 22);
          this.Figh_Lov2.TabIndex = 3;
-         this.Figh_Lov2.Visible = false;
+         this.Figh_Lov2.EditValueChanging += new DevExpress.XtraEditors.Controls.ChangingEventHandler(this.Figh_Lov2_EditValueChanging);
          // 
          // FighBs1
          // 
@@ -2614,13 +2622,15 @@
          // 
          this.User_Lov2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-         this.User_Lov2.Location = new System.Drawing.Point(6, 135);
+         this.User_Lov2.Location = new System.Drawing.Point(6, 79);
          this.User_Lov2.Name = "User_Lov2";
          this.User_Lov2.Properties.AllowMultiSelect = true;
          this.User_Lov2.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
          this.User_Lov2.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.User_Lov2.Properties.Appearance.Options.UseBackColor = true;
          this.User_Lov2.Properties.Appearance.Options.UseFont = true;
+         this.User_Lov2.Properties.Appearance.Options.UseTextOptions = true;
+         this.User_Lov2.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.User_Lov2.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
          this.User_Lov2.Properties.AppearanceFocused.Options.UseBackColor = true;
          this.User_Lov2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -2642,7 +2652,7 @@
          // 
          this.Rqtp_Lov2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-         this.Rqtp_Lov2.Location = new System.Drawing.Point(6, 79);
+         this.Rqtp_Lov2.Location = new System.Drawing.Point(6, 355);
          this.Rqtp_Lov2.Name = "Rqtp_Lov2";
          this.Rqtp_Lov2.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
          this.Rqtp_Lov2.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -3134,7 +3144,7 @@
          this.Figh_Lov.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
          this.Figh_Lov.EditValue = "";
-         this.Figh_Lov.Location = new System.Drawing.Point(6, 107);
+         this.Figh_Lov.Location = new System.Drawing.Point(6, 299);
          this.Figh_Lov.Name = "Figh_Lov";
          this.Figh_Lov.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
          this.Figh_Lov.Properties.AppearanceFocused.Options.UseBackColor = true;
@@ -3618,7 +3628,7 @@
          // 
          this.User_Lov.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-         this.User_Lov.Location = new System.Drawing.Point(6, 163);
+         this.User_Lov.Location = new System.Drawing.Point(6, 79);
          this.User_Lov.Name = "User_Lov";
          this.User_Lov.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
          this.User_Lov.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -3640,7 +3650,7 @@
          // 
          this.Rcmt_Lov.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-         this.Rcmt_Lov.Location = new System.Drawing.Point(6, 135);
+         this.Rcmt_Lov.Location = new System.Drawing.Point(6, 327);
          this.Rcmt_Lov.Name = "Rcmt_Lov";
          this.Rcmt_Lov.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
          this.Rcmt_Lov.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -3657,12 +3667,13 @@
          this.Rcmt_Lov.Properties.ValueMember = "VALU";
          this.Rcmt_Lov.Size = new System.Drawing.Size(192, 22);
          this.Rcmt_Lov.TabIndex = 4;
+         this.Rcmt_Lov.Visible = false;
          // 
          // Rqtp_Lov
          // 
          this.Rqtp_Lov.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-         this.Rqtp_Lov.Location = new System.Drawing.Point(6, 79);
+         this.Rqtp_Lov.Location = new System.Drawing.Point(6, 271);
          this.Rqtp_Lov.Name = "Rqtp_Lov";
          this.Rqtp_Lov.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
          this.Rqtp_Lov.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -4053,7 +4064,7 @@
          // 
          this.Pyds004_Cb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.Pyds004_Cb.AutoSize = true;
-         this.Pyds004_Cb.Location = new System.Drawing.Point(34, 163);
+         this.Pyds004_Cb.Location = new System.Drawing.Point(34, 107);
          this.Pyds004_Cb.Name = "Pyds004_Cb";
          this.Pyds004_Cb.Size = new System.Drawing.Size(147, 18);
          this.Pyds004_Cb.TabIndex = 17;
@@ -4107,7 +4118,7 @@
          this.Figh_Lov3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
          this.Figh_Lov3.EditValue = "";
-         this.Figh_Lov3.Location = new System.Drawing.Point(6, 107);
+         this.Figh_Lov3.Location = new System.Drawing.Point(6, 295);
          this.Figh_Lov3.Name = "Figh_Lov3";
          this.Figh_Lov3.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
          this.Figh_Lov3.Properties.AppearanceFocused.Options.UseBackColor = true;
@@ -4591,7 +4602,7 @@
          // 
          this.User_Lov3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-         this.User_Lov3.Location = new System.Drawing.Point(6, 135);
+         this.User_Lov3.Location = new System.Drawing.Point(6, 79);
          this.User_Lov3.Name = "User_Lov3";
          this.User_Lov3.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
          this.User_Lov3.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -4613,7 +4624,7 @@
          // 
          this.Rqtp_Lov3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-         this.Rqtp_Lov3.Location = new System.Drawing.Point(6, 79);
+         this.Rqtp_Lov3.Location = new System.Drawing.Point(6, 267);
          this.Rqtp_Lov3.Name = "Rqtp_Lov3";
          this.Rqtp_Lov3.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
          this.Rqtp_Lov3.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -5626,7 +5637,7 @@
          this.Figh_Lov5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
          this.Figh_Lov5.EditValue = "";
-         this.Figh_Lov5.Location = new System.Drawing.Point(6, 107);
+         this.Figh_Lov5.Location = new System.Drawing.Point(6, 327);
          this.Figh_Lov5.Name = "Figh_Lov5";
          this.Figh_Lov5.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
          this.Figh_Lov5.Properties.AppearanceFocused.Options.UseBackColor = true;
@@ -5642,6 +5653,7 @@
          this.Figh_Lov5.Properties.View = this.gridView7;
          this.Figh_Lov5.Size = new System.Drawing.Size(175, 22);
          this.Figh_Lov5.TabIndex = 3;
+         this.Figh_Lov5.Visible = false;
          // 
          // gridView7
          // 
@@ -6109,7 +6121,7 @@
          // 
          this.User_Lov5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-         this.User_Lov5.Location = new System.Drawing.Point(6, 135);
+         this.User_Lov5.Location = new System.Drawing.Point(6, 79);
          this.User_Lov5.Name = "User_Lov5";
          this.User_Lov5.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
          this.User_Lov5.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -6131,7 +6143,7 @@
          // 
          this.Rqtp_Lov5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-         this.Rqtp_Lov5.Location = new System.Drawing.Point(6, 79);
+         this.Rqtp_Lov5.Location = new System.Drawing.Point(6, 299);
          this.Rqtp_Lov5.Name = "Rqtp_Lov5";
          this.Rqtp_Lov5.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
          this.Rqtp_Lov5.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -6148,6 +6160,7 @@
          this.Rqtp_Lov5.Properties.ValueMember = "CODE";
          this.Rqtp_Lov5.Size = new System.Drawing.Size(175, 22);
          this.Rqtp_Lov5.TabIndex = 2;
+         this.Rqtp_Lov5.Visible = false;
          // 
          // ToDate5_Date
          // 
@@ -6521,6 +6534,15 @@
          this.colRequest_Row3.FieldName = "Request_Row";
          this.colRequest_Row3.Name = "colRequest_Row3";
          // 
+         // colActn6
+         // 
+         this.colActn6.ColumnEdit = this.Actn6_Butn;
+         this.colActn6.Name = "colActn6";
+         this.colActn6.OptionsColumn.FixedWidth = true;
+         this.colActn6.Visible = true;
+         this.colActn6.VisibleIndex = 13;
+         this.colActn6.Width = 26;
+         // 
          // Actn6_Butn
          // 
          this.Actn6_Butn.AutoHeight = false;
@@ -6790,15 +6812,6 @@
          this.RqstBnExit1.Text = "toolStripButton3";
          this.RqstBnExit1.ToolTipText = "خروج";
          this.RqstBnExit1.Click += new System.EventHandler(this.Back_Butn_Click);
-         // 
-         // colActn6
-         // 
-         this.colActn6.ColumnEdit = this.Actn6_Butn;
-         this.colActn6.Name = "colActn6";
-         this.colActn6.OptionsColumn.FixedWidth = true;
-         this.colActn6.Visible = true;
-         this.colActn6.VisibleIndex = 13;
-         this.colActn6.Width = 26;
          // 
          // RPT_PMMT_F
          // 

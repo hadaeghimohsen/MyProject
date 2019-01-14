@@ -736,9 +736,9 @@ namespace System.Scsc.Ui.ReportManager
                }
             }
             if (xinput.Attribute("cochfileno") != null)
-               cochfileno = Convert.ToInt64(xinput.Attribute("cochfileno").Value);
+               Figh_Lov2.EditValue = cochfileno = Convert.ToInt64(xinput.Attribute("cochfileno").Value);
             else
-               cochfileno = null;
+               Figh_Lov2.EditValue = cochfileno = null;
 
             if (xinput.Attribute("cbmtcode") != null)
                cbmtcode = Convert.ToInt64(xinput.Attribute("cbmtcode").Value);

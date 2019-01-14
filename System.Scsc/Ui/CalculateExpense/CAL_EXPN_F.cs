@@ -414,6 +414,6 @@ namespace System.Scsc.Ui.CalculateExpense
             CexcBs.EndEdit();            
          }
          catch {}
-      }      
+      }
    }
 }

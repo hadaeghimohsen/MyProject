@@ -202,6 +202,7 @@ namespace System.Scsc.Ui.CalculateExpense
          EpitBs.DataSource = iScsc.Expense_Items.Where(e => e.TYPE == "001");
          EpitBs3.DataSource = iScsc.Expense_Items.Where(e => e.TYPE == "002");
          RqtpBs.DataSource = iScsc.Request_Types.Where(rt => rt.CODE == "001" || rt.CODE == "009" || rt.CODE == "016");
+         DRectBs.DataSource = iScsc.D_RECTs;
          job.Status = StatusType.Successful;
       }
 

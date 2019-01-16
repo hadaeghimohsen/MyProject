@@ -730,6 +730,7 @@ namespace System.Scsc.Ui.BaseDefinition
          DcxtpBs.DataSource = iScsc.D_CXTPs;
          DcetpBs.DataSource = iScsc.D_CETPs;
          DRectBs.DataSource = iScsc.D_RECTs;
+         DConfBs.DataSource = iScsc.D_CONFs;
 
          AttnComPortName_Lov.Items.Clear();
          GateComPortName_Lov.Items.Clear();

@@ -284,8 +284,10 @@
          // splitContainer1
          // 
          this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+         this.splitContainer1.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
          this.splitContainer1.Location = new System.Drawing.Point(0, 0);
          this.splitContainer1.Name = "splitContainer1";
+         this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
          // 
          // splitContainer1.Panel1
          // 
@@ -301,13 +303,13 @@
          this.splitContainer1.Panel2.Controls.Add(this.Gb_ExpenseItem);
          this.splitContainer1.Panel2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
          this.splitContainer1.Size = new System.Drawing.Size(1157, 532);
-         this.splitContainer1.SplitterDistance = 761;
+         this.splitContainer1.SplitterDistance = 406;
          this.splitContainer1.TabIndex = 0;
          // 
          // Back_Butn
          // 
          this.Back_Butn.Active = true;
-         this.Back_Butn.Anchor = System.Windows.Forms.AnchorStyles.Top;
+         this.Back_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.Back_Butn.ButtonStyle = System.MaxUi.RoundedButton.ButtonStyles.Ellipse;
          this.Back_Butn.Caption = "";
          this.Back_Butn.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold);
@@ -318,7 +320,7 @@
          this.Back_Butn.ImageProfile = global::System.Scsc.Properties.Resources.IMAGE_1371;
          this.Back_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
          this.Back_Butn.ImageVisiable = true;
-         this.Back_Butn.Location = new System.Drawing.Point(663, 18);
+         this.Back_Butn.Location = new System.Drawing.Point(1047, 14);
          this.Back_Butn.Name = "Back_Butn";
          this.Back_Butn.NormalBorderColor = System.Drawing.Color.Black;
          this.Back_Butn.NormalColorA = System.Drawing.Color.White;
@@ -344,7 +346,7 @@
          this.Woman_Rb.ImageProfile = global::System.Scsc.Properties.Resources.IMAGE_1148;
          this.Woman_Rb.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
          this.Woman_Rb.ImageVisiable = true;
-         this.Woman_Rb.Location = new System.Drawing.Point(419, 18);
+         this.Woman_Rb.Location = new System.Drawing.Point(617, 14);
          this.Woman_Rb.Name = "Woman_Rb";
          this.Woman_Rb.NormalBorderColor = System.Drawing.Color.Black;
          this.Woman_Rb.NormalColorA = System.Drawing.Color.White;
@@ -370,7 +372,7 @@
          this.Man_Rb.ImageProfile = global::System.Scsc.Properties.Resources.IMAGE_1149;
          this.Man_Rb.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
          this.Man_Rb.ImageVisiable = true;
-         this.Man_Rb.Location = new System.Drawing.Point(257, 18);
+         this.Man_Rb.Location = new System.Drawing.Point(455, 14);
          this.Man_Rb.Name = "Man_Rb";
          this.Man_Rb.NormalBorderColor = System.Drawing.Color.Black;
          this.Man_Rb.NormalColorA = System.Drawing.Color.White;
@@ -397,9 +399,9 @@
          this.Gb_Expense.Controls.Add(this.UsePos_Cb);
          this.Gb_Expense.Controls.Add(this.paymentsGridControl);
          this.Gb_Expense.Controls.Add(this.payment_DetailsGridControl);
-         this.Gb_Expense.Location = new System.Drawing.Point(12, 125);
+         this.Gb_Expense.Location = new System.Drawing.Point(12, 111);
          this.Gb_Expense.Name = "Gb_Expense";
-         this.Gb_Expense.Size = new System.Drawing.Size(736, 394);
+         this.Gb_Expense.Size = new System.Drawing.Size(1132, 268);
          this.Gb_Expense.TabIndex = 68;
          this.Gb_Expense.TabStop = false;
          this.Gb_Expense.Text = "اعلام هزینه";
@@ -407,11 +409,11 @@
          // 
          // RemnAmnt_Txt
          // 
-         this.RemnAmnt_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.RemnAmnt_Txt.Location = new System.Drawing.Point(16, 20);
+         this.RemnAmnt_Txt.Anchor = System.Windows.Forms.AnchorStyles.Top;
+         this.RemnAmnt_Txt.Location = new System.Drawing.Point(212, 20);
          this.RemnAmnt_Txt.Name = "RemnAmnt_Txt";
          this.RemnAmnt_Txt.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-         this.RemnAmnt_Txt.Properties.Appearance.Font = new System.Drawing.Font("Titr", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.RemnAmnt_Txt.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.RemnAmnt_Txt.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
          this.RemnAmnt_Txt.Properties.Appearance.Options.UseBackColor = true;
          this.RemnAmnt_Txt.Properties.Appearance.Options.UseFont = true;
@@ -423,12 +425,12 @@
          this.RemnAmnt_Txt.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
          this.RemnAmnt_Txt.Properties.Mask.UseMaskAsDisplayFormat = true;
          this.RemnAmnt_Txt.Properties.ReadOnly = true;
-         this.RemnAmnt_Txt.Size = new System.Drawing.Size(273, 62);
+         this.RemnAmnt_Txt.Size = new System.Drawing.Size(273, 44);
          this.RemnAmnt_Txt.TabIndex = 77;
          // 
          // RemoveAllExpn_Butn
          // 
-         this.RemoveAllExpn_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+         this.RemoveAllExpn_Butn.Anchor = System.Windows.Forms.AnchorStyles.Top;
          this.RemoveAllExpn_Butn.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
          this.RemoveAllExpn_Butn.Appearance.BorderColor = System.Drawing.Color.Gold;
          this.RemoveAllExpn_Butn.Appearance.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
@@ -442,7 +444,7 @@
          this.RemoveAllExpn_Butn.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
          this.RemoveAllExpn_Butn.Image = ((System.Drawing.Image)(resources.GetObject("RemoveAllExpn_Butn.Image")));
          this.RemoveAllExpn_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
-         this.RemoveAllExpn_Butn.Location = new System.Drawing.Point(16, 274);
+         this.RemoveAllExpn_Butn.Location = new System.Drawing.Point(212, 148);
          this.RemoveAllExpn_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.RemoveAllExpn_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.RemoveAllExpn_Butn.Name = "RemoveAllExpn_Butn";
@@ -455,7 +457,7 @@
          // 
          // RemoveExpn_Butn
          // 
-         this.RemoveExpn_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+         this.RemoveExpn_Butn.Anchor = System.Windows.Forms.AnchorStyles.Top;
          this.RemoveExpn_Butn.Appearance.BackColor = System.Drawing.Color.Yellow;
          this.RemoveExpn_Butn.Appearance.BorderColor = System.Drawing.Color.Gold;
          this.RemoveExpn_Butn.Appearance.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
@@ -469,7 +471,7 @@
          this.RemoveExpn_Butn.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
          this.RemoveExpn_Butn.Image = ((System.Drawing.Image)(resources.GetObject("RemoveExpn_Butn.Image")));
          this.RemoveExpn_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
-         this.RemoveExpn_Butn.Location = new System.Drawing.Point(16, 334);
+         this.RemoveExpn_Butn.Location = new System.Drawing.Point(212, 208);
          this.RemoveExpn_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.RemoveExpn_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.RemoveExpn_Butn.Name = "RemoveExpn_Butn";
@@ -481,7 +483,7 @@
          // 
          // tbn_POSPayment1
          // 
-         this.tbn_POSPayment1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.tbn_POSPayment1.Anchor = System.Windows.Forms.AnchorStyles.Top;
          this.tbn_POSPayment1.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
          this.tbn_POSPayment1.Appearance.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.tbn_POSPayment1.Appearance.ForeColor = System.Drawing.Color.Black;
@@ -493,7 +495,7 @@
          this.tbn_POSPayment1.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
          this.tbn_POSPayment1.Image = global::System.Scsc.Properties.Resources.IMAGE_1089;
          this.tbn_POSPayment1.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
-         this.tbn_POSPayment1.Location = new System.Drawing.Point(16, 88);
+         this.tbn_POSPayment1.Location = new System.Drawing.Point(212, 88);
          this.tbn_POSPayment1.LookAndFeel.SkinName = "Office 2010 Blue";
          this.tbn_POSPayment1.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.tbn_POSPayment1.LookAndFeel.UseDefaultLookAndFeel = false;
@@ -517,8 +519,8 @@
          // 
          // Pos_Lov
          // 
-         this.Pos_Lov.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-         this.Pos_Lov.Location = new System.Drawing.Point(167, 246);
+         this.Pos_Lov.Anchor = System.Windows.Forms.AnchorStyles.Top;
+         this.Pos_Lov.Location = new System.Drawing.Point(363, 120);
          this.Pos_Lov.Name = "Pos_Lov";
          this.Pos_Lov.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.Pos_Lov.Properties.Appearance.Options.UseFont = true;
@@ -556,13 +558,13 @@
          // 
          // PosStng_Butn
          // 
-         this.PosStng_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+         this.PosStng_Butn.Anchor = System.Windows.Forms.AnchorStyles.Top;
          this.PosStng_Butn.Appearance.BackColor = System.Drawing.Color.Transparent;
          this.PosStng_Butn.Appearance.Options.UseBackColor = true;
          this.PosStng_Butn.Enabled = false;
          this.PosStng_Butn.Image = ((System.Drawing.Image)(resources.GetObject("PosStng_Butn.Image")));
          this.PosStng_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.PosStng_Butn.Location = new System.Drawing.Point(271, 219);
+         this.PosStng_Butn.Location = new System.Drawing.Point(467, 93);
          this.PosStng_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.PosStng_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.PosStng_Butn.Name = "PosStng_Butn";
@@ -572,12 +574,12 @@
          // 
          // UsePos_Cb
          // 
-         this.UsePos_Cb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+         this.UsePos_Cb.Anchor = System.Windows.Forms.AnchorStyles.Top;
          this.UsePos_Cb.AutoSize = true;
          this.UsePos_Cb.Checked = true;
          this.UsePos_Cb.CheckState = System.Windows.Forms.CheckState.Checked;
          this.UsePos_Cb.Enabled = false;
-         this.UsePos_Cb.Location = new System.Drawing.Point(250, 223);
+         this.UsePos_Cb.Location = new System.Drawing.Point(446, 97);
          this.UsePos_Cb.Name = "UsePos_Cb";
          this.UsePos_Cb.Size = new System.Drawing.Size(15, 14);
          this.UsePos_Cb.TabIndex = 58;
@@ -585,9 +587,9 @@
          // 
          // paymentsGridControl
          // 
-         this.paymentsGridControl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.paymentsGridControl.Anchor = System.Windows.Forms.AnchorStyles.Top;
          this.paymentsGridControl.DataSource = this.PymtsBs1;
-         this.paymentsGridControl.Location = new System.Drawing.Point(295, 20);
+         this.paymentsGridControl.Location = new System.Drawing.Point(491, 20);
          this.paymentsGridControl.LookAndFeel.SkinName = "Office 2013 Dark Gray";
          this.paymentsGridControl.LookAndFeel.UseDefaultLookAndFeel = false;
          this.paymentsGridControl.MainView = this.gridView1;
@@ -746,10 +748,9 @@
          // 
          // payment_DetailsGridControl
          // 
-         this.payment_DetailsGridControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+         this.payment_DetailsGridControl.Anchor = System.Windows.Forms.AnchorStyles.Top;
          this.payment_DetailsGridControl.DataSource = this.PydtsBs1;
-         this.payment_DetailsGridControl.Location = new System.Drawing.Point(295, 88);
+         this.payment_DetailsGridControl.Location = new System.Drawing.Point(491, 88);
          this.payment_DetailsGridControl.LookAndFeel.SkinName = "Office 2013 Dark Gray";
          this.payment_DetailsGridControl.LookAndFeel.UseDefaultLookAndFeel = false;
          this.payment_DetailsGridControl.MainView = this.Pydt_Gv;
@@ -760,7 +761,7 @@
             this.repositoryItemSearchLookUpEdit1,
             this.Lov_YSNO,
             this.repositoryItemSearchLookUpEdit2});
-         this.payment_DetailsGridControl.Size = new System.Drawing.Size(429, 300);
+         this.payment_DetailsGridControl.Size = new System.Drawing.Size(429, 174);
          this.payment_DetailsGridControl.TabIndex = 1;
          this.payment_DetailsGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.Pydt_Gv});
@@ -1730,7 +1731,7 @@
          this.Gb_ExpenseItem.Dock = System.Windows.Forms.DockStyle.Fill;
          this.Gb_ExpenseItem.Location = new System.Drawing.Point(0, 0);
          this.Gb_ExpenseItem.Name = "Gb_ExpenseItem";
-         this.Gb_ExpenseItem.Size = new System.Drawing.Size(392, 532);
+         this.Gb_ExpenseItem.Size = new System.Drawing.Size(1157, 122);
          this.Gb_ExpenseItem.TabIndex = 4;
          this.Gb_ExpenseItem.TabStop = false;
          this.Gb_ExpenseItem.Text = "کالا و خدمات";
@@ -1746,7 +1747,7 @@
          this.splitContainerControl1.Panel1.Text = "Panel1";
          this.splitContainerControl1.Panel2.Controls.Add(this.gridControl1);
          this.splitContainerControl1.Panel2.Text = "Panel2";
-         this.splitContainerControl1.Size = new System.Drawing.Size(386, 512);
+         this.splitContainerControl1.Size = new System.Drawing.Size(1151, 102);
          this.splitContainerControl1.SplitterPosition = 51;
          this.splitContainerControl1.TabIndex = 3;
          this.splitContainerControl1.Text = "splitContainerControl1";
@@ -1757,12 +1758,12 @@
          this.Grop_FLP.Dock = System.Windows.Forms.DockStyle.Fill;
          this.Grop_FLP.Location = new System.Drawing.Point(0, 0);
          this.Grop_FLP.Name = "Grop_FLP";
-         this.Grop_FLP.Size = new System.Drawing.Size(386, 51);
+         this.Grop_FLP.Size = new System.Drawing.Size(1151, 51);
          this.Grop_FLP.TabIndex = 2;
          // 
          // button1
          // 
-         this.button1.Location = new System.Drawing.Point(262, 3);
+         this.button1.Location = new System.Drawing.Point(1027, 3);
          this.button1.Name = "button1";
          this.button1.Size = new System.Drawing.Size(121, 41);
          this.button1.TabIndex = 0;
@@ -1782,7 +1783,7 @@
          this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemLookUpEdit2,
             this.AddItem_Butn});
-         this.gridControl1.Size = new System.Drawing.Size(386, 456);
+         this.gridControl1.Size = new System.Drawing.Size(1151, 46);
          this.gridControl1.TabIndex = 1;
          this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.Expn_Gv});

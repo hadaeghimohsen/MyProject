@@ -723,6 +723,7 @@
          this.RqstBnSettingPrint_Butn = new System.Windows.Forms.ToolStripButton();
          this.RqstBnFind1 = new System.Windows.Forms.ToolStripButton();
          this.RqstBnExit1 = new System.Windows.Forms.ToolStripButton();
+         this.label3 = new System.Windows.Forms.Label();
          this.tc_master.SuspendLayout();
          this.tp_002.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl2)).BeginInit();
@@ -1583,6 +1584,7 @@
          // 
          // Parm2_Gb
          // 
+         this.Parm2_Gb.Controls.Add(this.label3);
          this.Parm2_Gb.Controls.Add(this.Btn_Cbmt2);
          this.Parm2_Gb.Controls.Add(this.Ctgy_lov2);
          this.Parm2_Gb.Controls.Add(this.Cbmt_Lov2);
@@ -1816,8 +1818,10 @@
          this.Cbmt_Lov2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
          this.Cbmt_Lov2.EditValue = "";
-         this.Cbmt_Lov2.Location = new System.Drawing.Point(39, 163);
+         this.Cbmt_Lov2.Location = new System.Drawing.Point(6, 135);
          this.Cbmt_Lov2.Name = "Cbmt_Lov2";
+         this.Cbmt_Lov2.Properties.Appearance.Options.UseTextOptions = true;
+         this.Cbmt_Lov2.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.Cbmt_Lov2.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
          this.Cbmt_Lov2.Properties.AppearanceFocused.Options.UseBackColor = true;
          this.Cbmt_Lov2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -1833,9 +1837,8 @@
             this.repositoryItemLookUpEdit6});
          this.Cbmt_Lov2.Properties.ValueMember = "CODE";
          this.Cbmt_Lov2.Properties.View = this.gridView2;
-         this.Cbmt_Lov2.Size = new System.Drawing.Size(207, 22);
+         this.Cbmt_Lov2.Size = new System.Drawing.Size(240, 22);
          this.Cbmt_Lov2.TabIndex = 19;
-         this.Cbmt_Lov2.Visible = false;
          this.Cbmt_Lov2.EditValueChanging += new DevExpress.XtraEditors.Controls.ChangingEventHandler(this.Cbmt_Lov2_EditValueChanging);
          // 
          // CbmtBs
@@ -6813,6 +6816,16 @@
          this.RqstBnExit1.ToolTipText = "خروج";
          this.RqstBnExit1.Click += new System.EventHandler(this.Back_Butn_Click);
          // 
+         // label3
+         // 
+         this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.label3.AutoSize = true;
+         this.label3.Location = new System.Drawing.Point(252, 138);
+         this.label3.Name = "label3";
+         this.label3.Size = new System.Drawing.Size(69, 14);
+         this.label3.TabIndex = 22;
+         this.label3.Text = "برنامه گروه :";
+         // 
          // RPT_PMMT_F
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -7618,5 +7631,6 @@
       private Windows.Forms.BindingSource DCktpBs2;
       private Windows.Forms.ToolStripButton RqstBnFind1;
       private DevExpress.XtraGrid.Columns.GridColumn colActn6;
+      private Windows.Forms.Label label3;
    }
 }

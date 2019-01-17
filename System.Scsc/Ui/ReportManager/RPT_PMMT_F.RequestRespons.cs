@@ -741,9 +741,9 @@ namespace System.Scsc.Ui.ReportManager
                Figh_Lov2.EditValue = cochfileno = null;
 
             if (xinput.Attribute("cbmtcode") != null)
-               cbmtcode = Convert.ToInt64(xinput.Attribute("cbmtcode").Value);
+               Cbmt_Lov2.EditValue = cbmtcode = Convert.ToInt64(xinput.Attribute("cbmtcode").Value);
             else
-               cbmtcode = null;
+               Cbmt_Lov2.EditValue = cbmtcode = null;
          }
          Execute_Query();
          job.Status = StatusType.Successful;

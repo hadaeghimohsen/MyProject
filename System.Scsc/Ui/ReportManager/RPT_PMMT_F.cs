@@ -421,7 +421,7 @@ namespace System.Scsc.Ui.ReportManager
                                             ToDate2_Date.Value.Value.Date.ToString("yyyy-MM-dd"), 
                                             User_Lov2.EditValue, 
                                             Figh_Lov2.EditValue/*cochfileno*/, 
-                                            /*Cbmt_Lov2.EditValue*/cbmtcode, 
+                                            Cbmt_Lov2.EditValue/*cbmtcode*/, 
                                             Ctgy_lov2.EditValue )
                            )
                      }
@@ -452,7 +452,7 @@ namespace System.Scsc.Ui.ReportManager
                                  ToDate2_Date.Value.Value.Date.ToString("yyyy-MM-dd"), 
                                  User_Lov2.EditValue, 
                                  Figh_Lov2.EditValue, 
-                                 /*Cbmt_Lov2.EditValue*/cbmtcode, 
+                                 Cbmt_Lov2.EditValue/*cbmtcode*/, 
                                  Ctgy_lov2.EditValue 
                               )
                            )

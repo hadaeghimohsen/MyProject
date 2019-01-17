@@ -131,6 +131,9 @@ namespace System.DataGuard.Self.Code
             case 32:
                DoWork4CheckInstallTinyLock(job);
                break;
+            case 33:
+               DoWork4GetLicenseDay(job);
+               break;
             default:
                break;
          }

@@ -115,9 +115,9 @@ namespace System.Scsc.Ui.Admission
                               new XElement("Insr_Numb", iNSR_NUMBTextEdit.Text ?? ""),
                               new XElement("Insr_Date", iNSR_DATEPersianDateEdit.Value == null ? "" : iNSR_DATEPersianDateEdit.Value.Value.ToString("yyyy-MM-dd")),
                               new XElement("Educ_Deg", EDUC_DEG_LookUpEdit.EditValue ?? ""),
-                              new XElement("Cbmt_Code", CBMT_CODE_GridLookUpEdit.EditValue ?? ""),
+                              //new XElement("Cbmt_Code", CBMT_CODE_GridLookUpEdit.EditValue ?? ""),
                               new XElement("Dise_Code", DISE_CODE_LookUpEdit.EditValue ?? ""),
-                              new XElement("Calc_Expn_Type", CALC_EXPN_TYPE_LookUpEdit.EditValue ?? ""),
+                              //new XElement("Calc_Expn_Type", CALC_EXPN_TYPE_LookUpEdit.EditValue ?? ""),
                               //new XElement("Mtod_Code", MTOD_CODE_LookUpEdit.EditValue),
                               //new XElement("Ctgy_Code", CTGY_CODE_LookUpEdit.EditValue),
                               new XElement("Coch_Deg", COCH_DEG_LookUpEdit.EditValue ?? ""),
@@ -126,13 +126,13 @@ namespace System.Scsc.Ui.Admission
                               new XElement("Glob_Code", GLOB_CODE_TextEdit.EditValue ?? ""),
                               new XElement("Blod_Grop", BLOD_GROPLookUpEdit.EditValue ?? ""),
                               new XElement("Fngr_Prnt", FNGR_PRNT_TextEdit.EditValue ?? ""),
-                              new XElement("Sunt_Bunt_Dept_Orgn_Code", SUNT_BUNT_DEPT_ORGN_CODELookUpEdit.EditValue ?? ""),
-                              new XElement("Sunt_Bunt_Dept_Code", SUNT_BUNT_DEPT_CODELookUpEdit.EditValue ?? ""),
-                              new XElement("Sunt_Bunt_Code", SUNT_BUNT_CODELookUpEdit.EditValue ?? ""),
+                              new XElement("Sunt_Bunt_Dept_Orgn_Code", "00"),
+                              new XElement("Sunt_Bunt_Dept_Code", "00"),
+                              new XElement("Sunt_Bunt_Code", "00"),
                               new XElement("Sunt_Code", SUNT_CODELookUpEdit.EditValue ?? ""),
                               new XElement("Cord_X", CORD_XTextEdit.EditValue ?? ""),
                               new XElement("Cord_Y", CORD_YTextEdit.EditValue ?? ""),
-                              new XElement("Most_Debt_Clng", SE_MostDebtClngAmnt.Value),
+                              //new XElement("Most_Debt_Clng", SE_MostDebtClngAmnt.Value),
                               new XElement("Serv_No", ServNo_Text.EditValue ?? ""),
                               new XElement("Brth_Plac", BrthPlac_TextEdit.EditValue ?? ""),
                               new XElement("Issu_Plac", IssuPlac_TextEdit.EditValue ?? ""),
@@ -150,7 +150,18 @@ namespace System.Scsc.Ui.Admission
                               new XElement("Mom_Chat_Id", MomChatId_Txt.EditValue ?? ""),
                               new XElement("Unit_Blok_Cndo_Code", Cndo_Lov.EditValue ?? ""),
                               new XElement("Unit_Blok_Code", Cblk_Lov.EditValue ?? ""),
-                              new XElement("Unit_Code", Cunt_Lov.EditValue ?? "")
+                              new XElement("Unit_Code", Cunt_Lov.EditValue ?? ""),
+                              new XElement("Idty_Numb", IdtyNumb_Txt.EditValue ?? ""),
+                              new XElement("Watr_Fabr_Numb", WatrFabrNumb_Txt.EditValue ?? ""),
+                              new XElement("Powr_Fabr_Numb", PowrFabrNumb_Txt.EditValue ?? ""),
+                              new XElement("Gas_Fabr_Numb", GasFabrNumb_Txt.EditValue ?? ""),
+                              new XElement("Buld_Area", BuldArea_Txt.EditValue ?? ""),
+                              new XElement("Home_Type", HomeType_Lov.EditValue ?? ""),
+                              new XElement("Zip_Code", ZipCode_Txt.EditValue ?? ""),
+                              new XElement("Pass_Word", Password_Txt.EditValue ?? ""),
+                              new XElement("Dpen_Fmly_Numb", DpenFmlyNumb_Txt.EditValue ?? ""),
+                              new XElement("Chld_Fmly_Numb", ChldFmlyNumb_Txt.EditValue ?? ""),
+                              new XElement("Fmly_Numb", FmlyNumb_Txt.EditValue ?? "")
                            )
                         )
                      )
@@ -494,39 +505,6 @@ namespace System.Scsc.Ui.Admission
                      new Job(SendType.SelfToUserInterface, "REGL_DCMT_F", 10 /* Execute Actn_CalF_P */){Input = new XElement("Regulation", new XElement("Request_Requester", new XAttribute("rqtpcode", "002")))}
                   })
                );
-         }
-      }
-
-      private void sUNT_BUNT_DEPT_ORGN_CODELookUpEdit_Popup(object sender, EventArgs e)
-      {
-         try
-         {
-            OrgnBs1.Position = SUNT_BUNT_DEPT_ORGN_CODELookUpEdit.Properties.GetDataSourceRowIndex(SUNT_BUNT_DEPT_ORGN_CODELookUpEdit.Properties.ValueMember, SUNT_BUNT_DEPT_ORGN_CODELookUpEdit.EditValue);
-         }
-         catch
-         {
-         }
-      }
-
-      private void sUNT_BUNT_DEPT_CODELookUpEdit_Popup(object sender, EventArgs e)
-      {
-         try
-         {
-            DeptBs1.Position = SUNT_BUNT_DEPT_CODELookUpEdit.Properties.GetDataSourceRowIndex(SUNT_BUNT_DEPT_CODELookUpEdit.Properties.ValueMember, SUNT_BUNT_DEPT_CODELookUpEdit.EditValue);
-         }
-         catch
-         {
-         }
-      }
-
-      private void sUNT_BUNT_CODELookUpEdit_Popup(object sender, EventArgs e)
-      {
-         try
-         {
-            BuntBs1.Position = SUNT_BUNT_CODELookUpEdit.Properties.GetDataSourceRowIndex(SUNT_BUNT_CODELookUpEdit.Properties.ValueMember, SUNT_BUNT_CODELookUpEdit.EditValue);
-         }
-         catch
-         {
          }
       }
 

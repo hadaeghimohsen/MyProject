@@ -159,6 +159,9 @@ namespace MyProject.Commons.Code
             case 36:
                DoWork4GetWindowsPlatform(job);
                break;
+            case 37:
+               DoWork4GetLicenseDay(job);
+               break;
             default:
                job.Status = StatusType.Failed;
                break;

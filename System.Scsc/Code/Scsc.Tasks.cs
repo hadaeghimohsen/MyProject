@@ -3708,6 +3708,7 @@ namespace System.Scsc.Code
                {
                   new Job(SendType.Self, 01 /* Execute GetUi */){Input = "main_page_f"},
                   new Job(SendType.SelfToUserInterface, "MAIN_PAGE_F", 05 /* Execute CheckSecurity */),                  
+                  new Job(SendType.SelfToUserInterface, "MAIN_PAGE_F", 01 /* Execute Get */),                  
                   new Job(SendType.SelfToUserInterface, "MAIN_PAGE_F", 02 /* Execute Set */),                  
                   new Job(SendType.SelfToUserInterface, "MAIN_PAGE_F", 07 /* Execute Load_Data */),
                   new Job(SendType.SelfToUserInterface, "MAIN_PAGE_F", 03 /* Execute Paint */),

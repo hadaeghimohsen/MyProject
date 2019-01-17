@@ -154,6 +154,42 @@ namespace System.Scsc.Ui.MasterPage
       /// <param name="job"></param>
       private void Get(Job job)
       {
+         try
+         {
+            /* Get License Days Remind */
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost", "Commons", 37 /* Execute DoWork4GetLicenseDay */, SendType.Self)
+               {
+                  Input =
+                     new XElement("SubSys",
+                        new XAttribute("type", "getlicenseday"),
+                        new XAttribute("subsys", "5")
+                     ),
+                  AfterChangedOutput =
+                     new Action<object>(
+                        (output) =>
+                        {
+                           var licndate = (DateTime)output;
+
+                           if((licndate.Date - DateTime.Now.Date).Days >= 15)
+                              Licnday_Lnk.Text = string.Format("پشتیبانی     ---     {0} روز", (licndate.Date - DateTime.Now.Date).Days);
+                           else if ((licndate.Date - DateTime.Now.Date).Days <= 15 && (licndate.Date - DateTime.Now.Date).Days >= 0)
+                              Licnday_Lnk.Text = "پشتیبانی رو به اتمام میباشد";
+                           else
+                              Licnday_Lnk.Text = string.Format("پشتیبانی به پایان رسیده است", (licndate.Date - DateTime.Now.Date).Days);
+
+                           if ((licndate.Date - DateTime.Now.Date).Days >= 15)
+                              CertificateLogo_Pb.Image = System.Scsc.Properties.Resources.IMAGE_1656;
+                           else if ((licndate.Date - DateTime.Now.Date).Days <= 15 && (licndate.Date - DateTime.Now.Date).Days >= 0)
+                              CertificateLogo_Pb.Image = System.Scsc.Properties.Resources.IMAGE_1658;
+                           else
+                              CertificateLogo_Pb.Image = System.Scsc.Properties.Resources.IMAGE_1657;
+                        }
+                     )
+               }
+            );
+         }
+         catch { }
          job.Status = StatusType.Successful;
       }
 

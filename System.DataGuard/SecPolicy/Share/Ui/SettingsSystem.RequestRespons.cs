@@ -196,14 +196,32 @@ namespace System.DataGuard.SecPolicy.Share.Ui
          var xinput = job.Input as XElement;
          if(xinput != null)
          {
-            switch(xinput.Attribute("tabmenu").Value)
+            if (xinput.Attribute("tabmenu") != null)
             {
-               case "job":
-                  SwitchButtonsTabPage(JobSchedule_Butn);
-                  break;
-               default:
-                  SwitchButtonsTabPage(Apps_Butn);
-                  break;
+               switch (xinput.Attribute("tabmenu").Value)
+               {
+                  case "job":
+                     SwitchButtonsTabPage(JobSchedule_Butn);
+                     break;
+                  default:
+                     SwitchButtonsTabPage(Apps_Butn);
+                     break;
+               }
+            }
+
+            if(xinput.Attribute("type") != null)
+            {
+               switch (xinput.Attribute("type").Value)
+               {
+                  case "getlicenseday":
+                     var subsys = Convert.ToInt32(xinput.Attribute("subsys").Value);
+                     var crntsubsys =
+                        iProject.Sub_Systems.FirstOrDefault(s => s.SUB_SYS == subsys);
+                     job.Output = crntsubsys.LICN_TRIL_DATE ?? DateTime.Now;
+                     break;
+                  default:
+                     break;
+               }
             }
          }
          else

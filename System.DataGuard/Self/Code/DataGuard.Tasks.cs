@@ -1017,5 +1017,28 @@ namespace System.DataGuard.Self.Code
          }
       }
 
+      /// <summary>
+      /// Code 33
+      /// </summary>
+      /// <param name="job"></param>
+      private void DoWork4GetLicenseDay(Job job)
+      {
+         if (job.Status == StatusType.Running)
+         {
+            job.Status = StatusType.WaitForPreconditions;
+            job.OwnerDefineWorkWith.Add(               
+               new Job(SendType.External, "SecurityPolicy",
+               new List<Job>
+                  {
+                     new Job(SendType.Self, 10 /* Execute DoWork4SettingsSystem */){Input = "SettingsSystem"},
+                     new Job(SendType.SelfToUserInterface, "SettingsSystem", 04 /* Execute UnPaint */),
+                     new Job(SendType.SelfToUserInterface, "SettingsSystem", 10 /* Execute ActionCallWindow */){Input = job.Input}                     
+                  }));
+         }
+         else if (job.Status == StatusType.SignalForPreconditions)
+         {
+            job.Status = StatusType.Successful;
+         }
+      }
    }
 }

@@ -252,11 +252,6 @@ namespace System.Scsc.Ui.Admission
                      //SexType_Lb.Text = control.LABL_TEXT; // ToolTip
                      //SexType_Lb.Text = control.LABL_TEXT; // Place Holder
                      break;
-                  case "calcexpntype_lb":
-                     CalcExpnType_Lb.Text = control.LABL_TEXT;
-                     //CalcExpnType_Lb.Text = control.LABL_TEXT; // ToolTip
-                     //CalcExpnType_Lb.Text = control.LABL_TEXT; // Place Holder
-                     break;
                   case "natlcode_lb":
                      NatlCode_Lb.Text = control.LABL_TEXT;
                      //NatlCode_Lb.Text = control.LABL_TEXT; // ToolTip
@@ -311,16 +306,6 @@ namespace System.Scsc.Ui.Admission
                      CordX_Lb.Text = control.LABL_TEXT;
                      //CordX_Lb.Text = control.LABL_TEXT; // ToolTip
                      //CordX_Lb.Text = control.LABL_TEXT; // Place Holder
-                     break;
-                  case "orgncode_lb":
-                     OrgnCode_Lb.Text = control.LABL_TEXT;
-                     //OrgnCode_Lb.Text = control.LABL_TEXT; // ToolTip
-                     //OrgnCode_Lb.Text = control.LABL_TEXT; // Place Holder
-                     break;
-                  case "buntcode_lb":
-                     BuntCode_Lb.Text = control.LABL_TEXT;
-                     //BuntCode_Lb.Text = control.LABL_TEXT; // ToolTip
-                     //BuntCode_Lb.Text = control.LABL_TEXT; // Place Holder
                      break;
                   case "brthplac_lb":
                      BrthPlac_Lb.Text = control.LABL_TEXT;
@@ -381,11 +366,6 @@ namespace System.Scsc.Ui.Admission
                      BlodGrop_Lb.Text = control.LABL_TEXT;
                      //BlodGrop_Lb.Text = control.LABL_TEXT; // ToolTip
                      //BlodGrop_Lb.Text = control.LABL_TEXT; // Place Holder
-                     break;
-                  case "deptcode_lb":
-                     DeptCode_Lb.Text = control.LABL_TEXT;
-                     //DeptCode_Lb.Text = control.LABL_TEXT; // ToolTip
-                     //DeptCode_Lb.Text = control.LABL_TEXT; // Place Holder
                      break;
                   case "suntcode_lb":
                      SuntCode_Lb.Text = control.LABL_TEXT;
@@ -528,15 +508,15 @@ namespace System.Scsc.Ui.Admission
             if (InvokeRequired)
                Invoke(new Action(() => 
                   {
-                     CbmtBs1.DataSource = iScsc.Club_Methods.Where(cbmt => cbmt.MTOD_STAT == "002" && Fga_Uclb_U.Contains(cbmt.CLUB_CODE) && Convert.ToInt32(cbmt.Fighter.ACTV_TAG_DNRM ?? "101") >= 101);
-                     OrgnBs1.DataSource = iScsc.Organs;
+                     //CbmtBs1.DataSource = iScsc.Club_Methods.Where(cbmt => cbmt.MTOD_STAT == "002" && Fga_Uclb_U.Contains(cbmt.CLUB_CODE) && Convert.ToInt32(cbmt.Fighter.ACTV_TAG_DNRM ?? "101") >= 101);
+                     SuntBs1.DataSource = iScsc.Sub_Units;
                      CndoBs1.DataSource = iScsc.Candos;
                   })
                );
             else
             {
-               CbmtBs1.DataSource = iScsc.Club_Methods.Where(cbmt => cbmt.MTOD_STAT == "002" && Fga_Uclb_U.Contains(cbmt.CLUB_CODE) && Convert.ToInt32(cbmt.Fighter.ACTV_TAG_DNRM ?? "101") >= 101);
-               OrgnBs1.DataSource = iScsc.Organs;
+               //CbmtBs1.DataSource = iScsc.Club_Methods.Where(cbmt => cbmt.MTOD_STAT == "002" && Fga_Uclb_U.Contains(cbmt.CLUB_CODE) && Convert.ToInt32(cbmt.Fighter.ACTV_TAG_DNRM ?? "101") >= 101);
+               SuntBs1.DataSource = iScsc.Sub_Units;
                CndoBs1.DataSource = iScsc.Candos;
             }
             

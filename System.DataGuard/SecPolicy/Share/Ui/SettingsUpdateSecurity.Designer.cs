@@ -28,7 +28,6 @@
       /// </summary>
       private void InitializeComponent()
       {
-         this.components = new System.ComponentModel.Container();
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingsUpdateSecurity));
          this.panel1 = new System.Windows.Forms.Panel();
          this.SubmitChange_Butn = new DevExpress.XtraEditors.SimpleButton();
@@ -69,7 +68,7 @@
          this.tp_006 = new System.Windows.Forms.TabPage();
          this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
          this.linkLabel9 = new System.Windows.Forms.LinkLabel();
-         this.UserGatewayBs = new System.Windows.Forms.BindingSource(this.components);
+         this.UserGatewayBs = new System.Windows.Forms.BindingSource();
          this.labelControl36 = new DevExpress.XtraEditors.LabelControl();
          this.linkLabel7 = new System.Windows.Forms.LinkLabel();
          this.linkLabel6 = new System.Windows.Forms.LinkLabel();
@@ -122,7 +121,7 @@
          this.colGateway = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colUser = new DevExpress.XtraGrid.Columns.GridColumn();
          this.gridControl3 = new DevExpress.XtraGrid.GridControl();
-         this.PackageUserGatewayBs = new System.Windows.Forms.BindingSource(this.components);
+         this.PackageUserGatewayBs = new System.Windows.Forms.BindingSource();
          this.gridView4 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colPKIN_PAKG_SUB_SYS = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colPKIN_PAKG_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -175,7 +174,7 @@
          this.VersionUpdate_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.Firewall_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.BackRestore_Butn = new DevExpress.XtraEditors.SimpleButton();
-         this.SecurityManagmentBs = new System.Windows.Forms.BindingSource(this.components);
+         this.SecurityManagmentBs = new System.Windows.Forms.BindingSource();
          this.panel1.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
          this.splitContainerControl1.SuspendLayout();
@@ -723,9 +722,9 @@
          // 
          this.tp_003.Controls.Add(this.splitContainerControl2);
          this.tp_003.Controls.Add(this.labelControl15);
-         this.tp_003.Location = new System.Drawing.Point(4, 22);
+         this.tp_003.Location = new System.Drawing.Point(4, 23);
          this.tp_003.Name = "tp_003";
-         this.tp_003.Size = new System.Drawing.Size(940, 562);
+         this.tp_003.Size = new System.Drawing.Size(940, 561);
          this.tp_003.TabIndex = 2;
          this.tp_003.Tag = "3";
          this.tp_003.Text = "پشتیبان گیری / بازگردانی";
@@ -742,7 +741,7 @@
          this.splitContainerControl2.Panel1.Text = "Panel1";
          this.splitContainerControl2.Panel2.Controls.Add(this.splitContainerControl5);
          this.splitContainerControl2.Panel2.Text = "Panel2";
-         this.splitContainerControl2.Size = new System.Drawing.Size(940, 526);
+         this.splitContainerControl2.Size = new System.Drawing.Size(940, 525);
          this.splitContainerControl2.SplitterPosition = 246;
          this.splitContainerControl2.TabIndex = 10;
          this.splitContainerControl2.Text = "splitContainerControl2";
@@ -756,7 +755,7 @@
          this.tabControl2.Name = "tabControl2";
          this.tabControl2.RightToLeftLayout = true;
          this.tabControl2.SelectedIndex = 0;
-         this.tabControl2.Size = new System.Drawing.Size(689, 526);
+         this.tabControl2.Size = new System.Drawing.Size(689, 525);
          this.tabControl2.TabIndex = 23;
          // 
          // tp_006
@@ -787,7 +786,7 @@
          this.tp_006.Name = "tp_006";
          this.tp_006.Padding = new System.Windows.Forms.Padding(3);
          this.tp_006.RightToLeft = System.Windows.Forms.RightToLeft.No;
-         this.tp_006.Size = new System.Drawing.Size(681, 499);
+         this.tp_006.Size = new System.Drawing.Size(681, 498);
          this.tp_006.TabIndex = 0;
          this.tp_006.Text = "تنظیمات عمومی";
          this.tp_006.UseVisualStyleBackColor = true;
@@ -803,7 +802,7 @@
          this.simpleButton1.Appearance.Options.UseForeColor = true;
          this.simpleButton1.Image = global::System.DataGuard.Properties.Resources.IMAGE_1435;
          this.simpleButton1.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.simpleButton1.Location = new System.Drawing.Point(215, 18);
+         this.simpleButton1.Location = new System.Drawing.Point(198, 18);
          this.simpleButton1.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.simpleButton1.LookAndFeel.UseDefaultLookAndFeel = false;
          this.simpleButton1.Name = "simpleButton1";
@@ -818,7 +817,7 @@
          this.linkLabel9.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.linkLabel9.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
          this.linkLabel9.LinkColor = System.Drawing.Color.RoyalBlue;
-         this.linkLabel9.Location = new System.Drawing.Point(258, 35);
+         this.linkLabel9.Location = new System.Drawing.Point(241, 35);
          this.linkLabel9.Name = "linkLabel9";
          this.linkLabel9.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
          this.linkLabel9.Size = new System.Drawing.Size(263, 14);
@@ -838,7 +837,7 @@
          this.labelControl36.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
          this.labelControl36.Appearance.Image = global::System.DataGuard.Properties.Resources.IMAGE_1415;
          this.labelControl36.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.labelControl36.Location = new System.Drawing.Point(527, 6);
+         this.labelControl36.Location = new System.Drawing.Point(510, 6);
          this.labelControl36.Name = "labelControl36";
          this.labelControl36.Size = new System.Drawing.Size(71, 51);
          this.labelControl36.TabIndex = 33;
@@ -1421,7 +1420,7 @@
          this.splitContainerControl5.Panel1.Text = "Panel1";
          this.splitContainerControl5.Panel2.Controls.Add(this.gridControl3);
          this.splitContainerControl5.Panel2.Text = "Panel2";
-         this.splitContainerControl5.Size = new System.Drawing.Size(246, 526);
+         this.splitContainerControl5.Size = new System.Drawing.Size(246, 525);
          this.splitContainerControl5.SplitterPosition = 196;
          this.splitContainerControl5.TabIndex = 4;
          this.splitContainerControl5.Text = "splitContainerControl5";
@@ -1531,7 +1530,7 @@
          this.gridControl3.LookAndFeel.UseDefaultLookAndFeel = false;
          this.gridControl3.MainView = this.gridView4;
          this.gridControl3.Name = "gridControl3";
-         this.gridControl3.Size = new System.Drawing.Size(246, 325);
+         this.gridControl3.Size = new System.Drawing.Size(246, 324);
          this.gridControl3.TabIndex = 1;
          this.gridControl3.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView4});

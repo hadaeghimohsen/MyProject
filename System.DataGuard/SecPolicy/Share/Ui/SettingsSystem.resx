@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <metadata name="SubSysBs.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
   <metadata name="PackageUserGatewayBs.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>348, 17</value>
   </metadata>
@@ -125,6 +128,9 @@
   </metadata>
   <metadata name="SubSysBs.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
+  </metadata>
+  <metadata name="UserGatewayBs.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>213, 17</value>
   </metadata>
   <data name="labelControl12.Text" xml:space="preserve">
     <value>کاربرانی که مایل باشند برای سرعت عمل بیشتر بعد از سپری کردن مرحله ورود و احراز هویت بخواند به صورت اتوماتیک یک مرحله سریع تر وارد گام بعدی شوند می توانند از این گزینه برای مشخص کردن نرم افزار پیش فرض خود استفاده کنند</value>
@@ -155,5 +161,25 @@
         7L1YiLXVETR6eKjZUxPQmtD4ZLW+mha5hn5jWhtPQHL5KUDfUuDtTwA+g5WYibEr0MND3c8A4iscxVJs
         BCcB1mj08Ly9goeQ6gPNQQ9PtxligDPtT/TJ/kpW/J5UPAHqlNsgGVS5xQAAAABJRU5ErkJggg==
 </value>
+  </data>
+  <data name="label1.Text" xml:space="preserve">
+    <value>ارائه خدمات پشتیبانی و نگهداری نرم افزار در ادامه استقرار و را اندازی  سیستم ها و به منظور حفظ کارائی سیستم ها و تداوم سرویس دهی آنها بوده که در قالب قراردادهای نگهداری و پشتیبانی و شامل موارد زیر میگردد
+-    برپانگهداشتن نرم افزار و رفع اشکالات بوجود آمده جهت بهره برداری مطلوب
+-    انجام تدابیر ضروری به منظور حفظ و نگهداری اطلاعات و ذخیره سازی مطمئن آنها
+-    ارایه آخرین ویرایش های نرم افزارکه توسط تیم فنی طراحی و پیاده سازی میگردد و نصب و راه اندازی این ویرایش ها برروی کامپیوترهای کارفرما
+-    انجام عملیات تکمیلی و ارتقاء نرم افزار به منظور پاسخگوئی به نیازهای جدید
+
+خدمات پشتیبانی و نگهداری با روش های زیر قابل ارایه خواهند بود
+-    پاسخگوئی از طریق تلفن
+-    پشتیبانی از طریق اینترنت و با برقراری ارتباط برخط(ONLINE) با کامپیوترهای کارفرما و رفع اشکال آنی
+-    حضور کارشناسان در محل کارفرما و رفع اشکال حضوری
+</value>
+  </data>
+  <data name="label2.Text" xml:space="preserve">
+    <value>-    مبلغ ایاب و ذهاب دورن شهری (شیراز) 30 هزار تومان میباشد. برای برون شهری بر اساس نرخ مصوب محاسبه میشود
+-    هزینه خدمات حسابرسی مالی ساعتی می باشد و هزینه هر ساعت 25 هزار تومان میباشد
+-    هزینه خدمات آموزش نرم افزار به صورت ساعتی می باشد و هزینه هر ساعت 45 هزار تومان می باشد
+-    هزینه خدمات راه اندازی پایانه فروش (پی سی پوز) نرم افزار و هزینه 50 هزار تومان می باشد
+-    هزینه خدمات راه اندازی سامانه پیامکی نرم افزار و هزینه 20 هزار تومان می باشد</value>
   </data>
 </root>

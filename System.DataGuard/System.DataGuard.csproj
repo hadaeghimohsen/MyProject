@@ -1544,6 +1544,18 @@
     <Content Include="..\System.Resource\Resources\IMAGE_1622.png">
       <Link>Resources\IMAGE_1622.png</Link>
     </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1656.jpg">
+      <Link>Resources\IMAGE_1656.jpg</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1657.png">
+      <Link>Resources\IMAGE_1657.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1658.jpg">
+      <Link>Resources\IMAGE_1658.jpg</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1659.png">
+      <Link>Resources\IMAGE_1659.png</Link>
+    </Content>
     <Content Include="License-LGPL.txt" />
   </ItemGroup>
   <ItemGroup>

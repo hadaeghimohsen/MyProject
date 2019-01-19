@@ -28,14 +28,13 @@
       /// </summary>
       private void InitializeComponent()
       {
-         this.components = new System.ComponentModel.Container();
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition1 = new DevExpress.XtraGrid.StyleFormatCondition();
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingsSystemTinyLock));
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition2 = new DevExpress.XtraGrid.StyleFormatCondition();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition3 = new DevExpress.XtraGrid.StyleFormatCondition();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition4 = new DevExpress.XtraGrid.StyleFormatCondition();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
          this.panel1 = new System.Windows.Forms.Panel();
          this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
          this.Back_Butn = new DevExpress.XtraEditors.SimpleButton();
@@ -44,7 +43,7 @@
          this.tp_001 = new System.Windows.Forms.TabPage();
          this.splitContainerControl2 = new DevExpress.XtraEditors.SplitContainerControl();
          this.Serv_Gc = new DevExpress.XtraGrid.GridControl();
-         this.ServBs = new System.Windows.Forms.BindingSource(this.components);
+         this.ServBs = new System.Windows.Forms.BindingSource();
          this.Serv_Gv = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colFILE_NO = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colFRST_NAME = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -58,7 +57,7 @@
          this.colCRET_DATE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colMDFY_BY = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colMDFY_DATE = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.ServBn = new System.Windows.Forms.BindingNavigator(this.components);
+         this.ServBn = new System.Windows.Forms.BindingNavigator();
          this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
          this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
          this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
@@ -74,11 +73,13 @@
          this.splitContainerControl3 = new DevExpress.XtraEditors.SplitContainerControl();
          this.splitContainerControl4 = new DevExpress.XtraEditors.SplitContainerControl();
          this.gridControl3 = new DevExpress.XtraGrid.GridControl();
-         this.TnssBs = new System.Windows.Forms.BindingSource(this.components);
-         this.TinyBs = new System.Windows.Forms.BindingSource(this.components);
-         this.OprtBs = new System.Windows.Forms.BindingSource(this.components);
+         this.TnssBs = new System.Windows.Forms.BindingSource();
+         this.TinyBs = new System.Windows.Forms.BindingSource();
+         this.OprtBs = new System.Windows.Forms.BindingSource();
          this.Tnss_Gv = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colTINY_TNID = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.SubSys_Lov = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+         this.SubSysBs = new System.Windows.Forms.BindingSource();
          this.colSUB_SYS = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colTSID = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colSTAT = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -88,7 +89,7 @@
          this.colMDFY_DATE3 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colSub_System = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colTiny_Lock = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.TnssBn = new System.Windows.Forms.BindingNavigator(this.components);
+         this.TnssBn = new System.Windows.Forms.BindingNavigator();
          this.toolStripButton16 = new System.Windows.Forms.ToolStripButton();
          this.toolStripLabel3 = new System.Windows.Forms.ToolStripLabel();
          this.toolStripButton17 = new System.Windows.Forms.ToolStripButton();
@@ -112,7 +113,7 @@
          this.colMDFY_DATE2 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colOpportunity = new DevExpress.XtraGrid.Columns.GridColumn();
          this.TinyHash_Txt = new DevExpress.XtraEditors.ButtonEdit();
-         this.TinyBn = new System.Windows.Forms.BindingNavigator(this.components);
+         this.TinyBn = new System.Windows.Forms.BindingNavigator();
          this.toolStripButton9 = new System.Windows.Forms.ToolStripButton();
          this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
          this.toolStripButton10 = new System.Windows.Forms.ToolStripButton();
@@ -137,7 +138,7 @@
          this.colMDFY_BY1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colMDFY_DATE1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colService = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.OprtBn = new System.Windows.Forms.BindingNavigator(this.components);
+         this.OprtBn = new System.Windows.Forms.BindingNavigator();
          this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
          this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
          this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
@@ -152,8 +153,6 @@
          this.toolStripButton8 = new System.Windows.Forms.ToolStripButton();
          this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
          this.AppsPackages_Butn = new DevExpress.XtraEditors.SimpleButton();
-         this.SubSysBs = new System.Windows.Forms.BindingSource(this.components);
-         this.SubSys_Lov = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
          this.panel1.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
          this.splitContainerControl1.SuspendLayout();
@@ -175,6 +174,8 @@
          ((System.ComponentModel.ISupportInitialize)(this.TinyBs)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.OprtBs)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.Tnss_Gv)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.SubSys_Lov)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.SubSysBs)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.TnssBn)).BeginInit();
          this.TnssBn.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).BeginInit();
@@ -189,8 +190,6 @@
          ((System.ComponentModel.ISupportInitialize)(this.OprtBn)).BeginInit();
          this.OprtBn.SuspendLayout();
          this.flowLayoutPanel1.SuspendLayout();
-         ((System.ComponentModel.ISupportInitialize)(this.SubSysBs)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.SubSys_Lov)).BeginInit();
          this.SuspendLayout();
          // 
          // panel1
@@ -200,7 +199,7 @@
          this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
          this.panel1.Location = new System.Drawing.Point(0, 0);
          this.panel1.Name = "panel1";
-         this.panel1.Size = new System.Drawing.Size(1240, 59);
+         this.panel1.Size = new System.Drawing.Size(1064, 59);
          this.panel1.TabIndex = 0;
          // 
          // labelControl1
@@ -212,7 +211,7 @@
          this.labelControl1.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl1.Dock = System.Windows.Forms.DockStyle.Right;
          this.labelControl1.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl1.Location = new System.Drawing.Point(920, 0);
+         this.labelControl1.Location = new System.Drawing.Point(744, 0);
          this.labelControl1.Name = "labelControl1";
          this.labelControl1.Size = new System.Drawing.Size(259, 59);
          this.labelControl1.TabIndex = 1;
@@ -225,7 +224,7 @@
          this.Back_Butn.Dock = System.Windows.Forms.DockStyle.Right;
          this.Back_Butn.Image = global::System.DataGuard.Properties.Resources.IMAGE_1371;
          this.Back_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.Back_Butn.Location = new System.Drawing.Point(1179, 0);
+         this.Back_Butn.Location = new System.Drawing.Point(1003, 0);
          this.Back_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.Back_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.Back_Butn.Name = "Back_Butn";
@@ -245,7 +244,7 @@
          this.splitContainerControl1.Panel1.Text = "Panel1";
          this.splitContainerControl1.Panel2.Controls.Add(this.flowLayoutPanel1);
          this.splitContainerControl1.Panel2.Text = "Panel2";
-         this.splitContainerControl1.Size = new System.Drawing.Size(1240, 399);
+         this.splitContainerControl1.Size = new System.Drawing.Size(1064, 399);
          this.splitContainerControl1.SplitterPosition = 219;
          this.splitContainerControl1.TabIndex = 1;
          this.splitContainerControl1.Text = "splitContainerControl1";
@@ -258,7 +257,7 @@
          this.Tb_Master.Name = "Tb_Master";
          this.Tb_Master.RightToLeftLayout = true;
          this.Tb_Master.SelectedIndex = 0;
-         this.Tb_Master.Size = new System.Drawing.Size(1016, 399);
+         this.Tb_Master.Size = new System.Drawing.Size(840, 399);
          this.Tb_Master.TabIndex = 0;
          // 
          // tp_001
@@ -267,7 +266,7 @@
          this.tp_001.Location = new System.Drawing.Point(4, 23);
          this.tp_001.Name = "tp_001";
          this.tp_001.Padding = new System.Windows.Forms.Padding(3);
-         this.tp_001.Size = new System.Drawing.Size(1008, 372);
+         this.tp_001.Size = new System.Drawing.Size(832, 372);
          this.tp_001.TabIndex = 0;
          this.tp_001.Tag = "1";
          this.tp_001.Text = "مدیریت قفل سخت افزاری";
@@ -285,7 +284,7 @@
          this.splitContainerControl2.Panel1.Text = "Panel1";
          this.splitContainerControl2.Panel2.Controls.Add(this.splitContainerControl3);
          this.splitContainerControl2.Panel2.Text = "Panel2";
-         this.splitContainerControl2.Size = new System.Drawing.Size(1002, 366);
+         this.splitContainerControl2.Size = new System.Drawing.Size(826, 366);
          this.splitContainerControl2.SplitterPosition = 220;
          this.splitContainerControl2.TabIndex = 2;
          this.splitContainerControl2.Text = "splitContainerControl2";
@@ -299,7 +298,7 @@
          this.Serv_Gc.LookAndFeel.UseDefaultLookAndFeel = false;
          this.Serv_Gc.MainView = this.Serv_Gv;
          this.Serv_Gc.Name = "Serv_Gc";
-         this.Serv_Gc.Size = new System.Drawing.Size(1002, 116);
+         this.Serv_Gc.Size = new System.Drawing.Size(826, 116);
          this.Serv_Gc.TabIndex = 1;
          this.Serv_Gc.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.Serv_Gv});
@@ -465,7 +464,7 @@
          this.ServBn.Name = "ServBn";
          this.ServBn.PositionItem = this.bindingNavigatorPositionItem;
          this.ServBn.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-         this.ServBn.Size = new System.Drawing.Size(1002, 25);
+         this.ServBn.Size = new System.Drawing.Size(826, 25);
          this.ServBn.TabIndex = 2;
          this.ServBn.Text = "bindingNavigator1";
          // 
@@ -481,7 +480,7 @@
          // bindingNavigatorCountItem
          // 
          this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-         this.bindingNavigatorCountItem.Size = new System.Drawing.Size(34, 22);
+         this.bindingNavigatorCountItem.Size = new System.Drawing.Size(35, 22);
          this.bindingNavigatorCountItem.Text = "of {0}";
          this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
          // 
@@ -574,8 +573,8 @@
          this.splitContainerControl3.Panel2.Controls.Add(this.gridControl1);
          this.splitContainerControl3.Panel2.Controls.Add(this.OprtBn);
          this.splitContainerControl3.Panel2.Text = "Panel2";
-         this.splitContainerControl3.Size = new System.Drawing.Size(1002, 220);
-         this.splitContainerControl3.SplitterPosition = 681;
+         this.splitContainerControl3.Size = new System.Drawing.Size(826, 220);
+         this.splitContainerControl3.SplitterPosition = 541;
          this.splitContainerControl3.TabIndex = 0;
          this.splitContainerControl3.Text = "splitContainerControl3";
          // 
@@ -591,8 +590,8 @@
          this.splitContainerControl4.Panel2.Controls.Add(this.TinyHash_Txt);
          this.splitContainerControl4.Panel2.Controls.Add(this.TinyBn);
          this.splitContainerControl4.Panel2.Text = "Panel2";
-         this.splitContainerControl4.Size = new System.Drawing.Size(681, 220);
-         this.splitContainerControl4.SplitterPosition = 335;
+         this.splitContainerControl4.Size = new System.Drawing.Size(541, 220);
+         this.splitContainerControl4.SplitterPosition = 260;
          this.splitContainerControl4.TabIndex = 0;
          this.splitContainerControl4.Text = "splitContainerControl4";
          // 
@@ -607,7 +606,7 @@
          this.gridControl3.Name = "gridControl3";
          this.gridControl3.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.SubSys_Lov});
-         this.gridControl3.Size = new System.Drawing.Size(335, 195);
+         this.gridControl3.Size = new System.Drawing.Size(260, 195);
          this.gridControl3.TabIndex = 4;
          this.gridControl3.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.Tnss_Gv});
@@ -675,6 +674,23 @@
          this.colTINY_TNID.ColumnEdit = this.SubSys_Lov;
          this.colTINY_TNID.FieldName = "TINY_TNID";
          this.colTINY_TNID.Name = "colTINY_TNID";
+         // 
+         // SubSys_Lov
+         // 
+         this.SubSys_Lov.AutoHeight = false;
+         this.SubSys_Lov.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
+         this.SubSys_Lov.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("DESC", "عنوان", 36, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near)});
+         this.SubSys_Lov.DataSource = this.SubSysBs;
+         this.SubSys_Lov.DisplayMember = "DESC";
+         this.SubSys_Lov.Name = "SubSys_Lov";
+         this.SubSys_Lov.NullText = "---";
+         this.SubSys_Lov.ValueMember = "SUB_SYS";
+         // 
+         // SubSysBs
+         // 
+         this.SubSysBs.DataSource = typeof(System.DataGuard.Data.Sub_System);
          // 
          // colSUB_SYS
          // 
@@ -753,7 +769,7 @@
          this.TnssBn.Name = "TnssBn";
          this.TnssBn.PositionItem = this.toolStripTextBox3;
          this.TnssBn.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-         this.TnssBn.Size = new System.Drawing.Size(335, 25);
+         this.TnssBn.Size = new System.Drawing.Size(260, 25);
          this.TnssBn.TabIndex = 5;
          this.TnssBn.Text = "bindingNavigator4";
          // 
@@ -769,7 +785,7 @@
          // toolStripLabel3
          // 
          this.toolStripLabel3.Name = "toolStripLabel3";
-         this.toolStripLabel3.Size = new System.Drawing.Size(34, 22);
+         this.toolStripLabel3.Size = new System.Drawing.Size(35, 22);
          this.toolStripLabel3.Text = "of {0}";
          this.toolStripLabel3.ToolTipText = "Total number of items";
          // 
@@ -861,7 +877,7 @@
          this.gridControl2.LookAndFeel.UseDefaultLookAndFeel = false;
          this.gridControl2.MainView = this.Tiny_Gv;
          this.gridControl2.Name = "gridControl2";
-         this.gridControl2.Size = new System.Drawing.Size(341, 167);
+         this.gridControl2.Size = new System.Drawing.Size(276, 167);
          this.gridControl2.TabIndex = 4;
          this.gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.Tiny_Gv});
@@ -974,7 +990,7 @@
          this.TinyHash_Txt.Properties.NullText = "---";
          this.TinyHash_Txt.Properties.NullValuePrompt = "---";
          this.TinyHash_Txt.Properties.NullValuePromptShowForEmptyValue = true;
-         this.TinyHash_Txt.Size = new System.Drawing.Size(341, 28);
+         this.TinyHash_Txt.Size = new System.Drawing.Size(276, 28);
          this.TinyHash_Txt.TabIndex = 6;
          // 
          // TinyBn
@@ -1004,7 +1020,7 @@
          this.TinyBn.Name = "TinyBn";
          this.TinyBn.PositionItem = this.toolStripTextBox2;
          this.TinyBn.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-         this.TinyBn.Size = new System.Drawing.Size(341, 25);
+         this.TinyBn.Size = new System.Drawing.Size(276, 25);
          this.TinyBn.TabIndex = 5;
          this.TinyBn.Text = "bindingNavigator3";
          // 
@@ -1020,7 +1036,7 @@
          // toolStripLabel2
          // 
          this.toolStripLabel2.Name = "toolStripLabel2";
-         this.toolStripLabel2.Size = new System.Drawing.Size(34, 22);
+         this.toolStripLabel2.Size = new System.Drawing.Size(35, 22);
          this.toolStripLabel2.Text = "of {0}";
          this.toolStripLabel2.ToolTipText = "Total number of items";
          // 
@@ -1114,7 +1130,7 @@
          this.gridControl1.Name = "gridControl1";
          this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.persianRepositoryItemDateEdit1});
-         this.gridControl1.Size = new System.Drawing.Size(316, 195);
+         this.gridControl1.Size = new System.Drawing.Size(280, 195);
          this.gridControl1.TabIndex = 2;
          this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.Oprt_Gv});
@@ -1256,7 +1272,7 @@
          this.OprtBn.Name = "OprtBn";
          this.OprtBn.PositionItem = this.toolStripTextBox1;
          this.OprtBn.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-         this.OprtBn.Size = new System.Drawing.Size(316, 25);
+         this.OprtBn.Size = new System.Drawing.Size(280, 25);
          this.OprtBn.TabIndex = 3;
          this.OprtBn.Text = "bindingNavigator2";
          // 
@@ -1272,7 +1288,7 @@
          // toolStripLabel1
          // 
          this.toolStripLabel1.Name = "toolStripLabel1";
-         this.toolStripLabel1.Size = new System.Drawing.Size(34, 22);
+         this.toolStripLabel1.Size = new System.Drawing.Size(35, 22);
          this.toolStripLabel1.Text = "of {0}";
          this.toolStripLabel1.ToolTipText = "Total number of items";
          // 
@@ -1387,23 +1403,6 @@
          this.AppsPackages_Butn.Text = "مدیریت قفل سخت افزاری";
          this.AppsPackages_Butn.Click += new System.EventHandler(this.RightButns_Click);
          // 
-         // SubSysBs
-         // 
-         this.SubSysBs.DataSource = typeof(System.DataGuard.Data.Sub_System);
-         // 
-         // SubSys_Lov
-         // 
-         this.SubSys_Lov.AutoHeight = false;
-         this.SubSys_Lov.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
-         this.SubSys_Lov.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("DESC", "عنوان", 36, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near)});
-         this.SubSys_Lov.DataSource = this.SubSysBs;
-         this.SubSys_Lov.DisplayMember = "DESC";
-         this.SubSys_Lov.Name = "SubSys_Lov";
-         this.SubSys_Lov.NullText = "---";
-         this.SubSys_Lov.ValueMember = "SUB_SYS";
-         // 
          // SettingsSystemTinyLock
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -1413,7 +1412,7 @@
          this.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.Name = "SettingsSystemTinyLock";
          this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-         this.Size = new System.Drawing.Size(1240, 458);
+         this.Size = new System.Drawing.Size(1064, 458);
          this.panel1.ResumeLayout(false);
          ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).EndInit();
          this.splitContainerControl1.ResumeLayout(false);
@@ -1436,6 +1435,8 @@
          ((System.ComponentModel.ISupportInitialize)(this.TinyBs)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.OprtBs)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.Tnss_Gv)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.SubSys_Lov)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.SubSysBs)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.TnssBn)).EndInit();
          this.TnssBn.ResumeLayout(false);
          this.TnssBn.PerformLayout();
@@ -1453,8 +1454,6 @@
          this.OprtBn.ResumeLayout(false);
          this.OprtBn.PerformLayout();
          this.flowLayoutPanel1.ResumeLayout(false);
-         ((System.ComponentModel.ISupportInitialize)(this.SubSysBs)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.SubSys_Lov)).EndInit();
          this.ResumeLayout(false);
 
       }

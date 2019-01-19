@@ -29,39 +29,39 @@
       private void InitializeComponent()
       {
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(STRT_MENU_F));
-         C1.Win.C1Tile.PanelElement panelElement1 = new C1.Win.C1Tile.PanelElement();
-         C1.Win.C1Tile.ImageElement imageElement1 = new C1.Win.C1Tile.ImageElement();
-         C1.Win.C1Tile.TextElement textElement1 = new C1.Win.C1Tile.TextElement();
-         C1.Win.C1Tile.PanelElement panelElement2 = new C1.Win.C1Tile.PanelElement();
-         C1.Win.C1Tile.PanelElement panelElement3 = new C1.Win.C1Tile.PanelElement();
-         C1.Win.C1Tile.TextElement textElement2 = new C1.Win.C1Tile.TextElement();
-         C1.Win.C1Tile.PanelElement panelElement4 = new C1.Win.C1Tile.PanelElement();
-         C1.Win.C1Tile.ImageElement imageElement2 = new C1.Win.C1Tile.ImageElement();
-         C1.Win.C1Tile.TextElement textElement3 = new C1.Win.C1Tile.TextElement();
-         C1.Win.C1Tile.PanelElement panelElement5 = new C1.Win.C1Tile.PanelElement();
-         C1.Win.C1Tile.ImageElement imageElement3 = new C1.Win.C1Tile.ImageElement();
-         C1.Win.C1Tile.TextElement textElement4 = new C1.Win.C1Tile.TextElement();
-         C1.Win.C1Tile.PanelElement panelElement6 = new C1.Win.C1Tile.PanelElement();
-         C1.Win.C1Tile.PanelElement panelElement7 = new C1.Win.C1Tile.PanelElement();
-         C1.Win.C1Tile.TextElement textElement5 = new C1.Win.C1Tile.TextElement();
-         C1.Win.C1Tile.PanelElement panelElement8 = new C1.Win.C1Tile.PanelElement();
-         C1.Win.C1Tile.ImageElement imageElement4 = new C1.Win.C1Tile.ImageElement();
-         C1.Win.C1Tile.TextElement textElement6 = new C1.Win.C1Tile.TextElement();
-         DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem1 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.ToolTipItem toolTipItem1 = new DevExpress.Utils.ToolTipItem();
-         DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem1 = new DevExpress.Utils.ToolTipSeparatorItem();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem2 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.SuperToolTip superToolTip2 = new DevExpress.Utils.SuperToolTip();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem3 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.ToolTipItem toolTipItem2 = new DevExpress.Utils.ToolTipItem();
-         DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem2 = new DevExpress.Utils.ToolTipSeparatorItem();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem4 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.SuperToolTip superToolTip3 = new DevExpress.Utils.SuperToolTip();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem5 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.ToolTipItem toolTipItem3 = new DevExpress.Utils.ToolTipItem();
-         DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem3 = new DevExpress.Utils.ToolTipSeparatorItem();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem6 = new DevExpress.Utils.ToolTipTitleItem();
+         C1.Win.C1Tile.PanelElement panelElement9 = new C1.Win.C1Tile.PanelElement();
+         C1.Win.C1Tile.ImageElement imageElement5 = new C1.Win.C1Tile.ImageElement();
+         C1.Win.C1Tile.TextElement textElement7 = new C1.Win.C1Tile.TextElement();
+         C1.Win.C1Tile.PanelElement panelElement10 = new C1.Win.C1Tile.PanelElement();
+         C1.Win.C1Tile.PanelElement panelElement11 = new C1.Win.C1Tile.PanelElement();
+         C1.Win.C1Tile.TextElement textElement8 = new C1.Win.C1Tile.TextElement();
+         C1.Win.C1Tile.PanelElement panelElement12 = new C1.Win.C1Tile.PanelElement();
+         C1.Win.C1Tile.ImageElement imageElement6 = new C1.Win.C1Tile.ImageElement();
+         C1.Win.C1Tile.TextElement textElement9 = new C1.Win.C1Tile.TextElement();
+         C1.Win.C1Tile.PanelElement panelElement13 = new C1.Win.C1Tile.PanelElement();
+         C1.Win.C1Tile.ImageElement imageElement7 = new C1.Win.C1Tile.ImageElement();
+         C1.Win.C1Tile.TextElement textElement10 = new C1.Win.C1Tile.TextElement();
+         C1.Win.C1Tile.PanelElement panelElement14 = new C1.Win.C1Tile.PanelElement();
+         C1.Win.C1Tile.PanelElement panelElement15 = new C1.Win.C1Tile.PanelElement();
+         C1.Win.C1Tile.TextElement textElement11 = new C1.Win.C1Tile.TextElement();
+         C1.Win.C1Tile.PanelElement panelElement16 = new C1.Win.C1Tile.PanelElement();
+         C1.Win.C1Tile.ImageElement imageElement8 = new C1.Win.C1Tile.ImageElement();
+         C1.Win.C1Tile.TextElement textElement12 = new C1.Win.C1Tile.TextElement();
+         DevExpress.Utils.SuperToolTip superToolTip4 = new DevExpress.Utils.SuperToolTip();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem7 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.ToolTipItem toolTipItem4 = new DevExpress.Utils.ToolTipItem();
+         DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem4 = new DevExpress.Utils.ToolTipSeparatorItem();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem8 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.SuperToolTip superToolTip5 = new DevExpress.Utils.SuperToolTip();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem9 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.ToolTipItem toolTipItem5 = new DevExpress.Utils.ToolTipItem();
+         DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem5 = new DevExpress.Utils.ToolTipSeparatorItem();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem10 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.SuperToolTip superToolTip6 = new DevExpress.Utils.SuperToolTip();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem11 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.ToolTipItem toolTipItem6 = new DevExpress.Utils.ToolTipItem();
+         DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem6 = new DevExpress.Utils.ToolTipSeparatorItem();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem12 = new DevExpress.Utils.ToolTipTitleItem();
          this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
          this.c1TileControl2 = new C1.Win.C1Tile.C1TileControl();
          this.group2 = new C1.Win.C1Tile.Group();
@@ -158,17 +158,17 @@
          // 
          // 
          // 
-         panelElement1.Alignment = System.Drawing.ContentAlignment.MiddleLeft;
-         imageElement1.FixedHeight = 40;
-         imageElement1.FixedWidth = 40;
-         imageElement1.ImageLayout = C1.Win.C1Tile.ForeImageLayout.Stretch;
-         textElement1.Alignment = System.Drawing.ContentAlignment.TopLeft;
-         textElement1.TextTrimming = C1.Win.C1Tile.TextTrimming.WordEllipsis;
-         panelElement1.Children.Add(imageElement1);
-         panelElement1.Children.Add(textElement1);
-         panelElement1.ChildSpacing = 10;
-         panelElement1.Padding = new System.Windows.Forms.Padding(8, 4, 6, 4);
-         this.c1TileControl2.DefaultTemplate.Elements.Add(panelElement1);
+         panelElement9.Alignment = System.Drawing.ContentAlignment.MiddleLeft;
+         imageElement5.FixedHeight = 40;
+         imageElement5.FixedWidth = 40;
+         imageElement5.ImageLayout = C1.Win.C1Tile.ForeImageLayout.Stretch;
+         textElement7.Alignment = System.Drawing.ContentAlignment.TopLeft;
+         textElement7.TextTrimming = C1.Win.C1Tile.TextTrimming.WordEllipsis;
+         panelElement9.Children.Add(imageElement5);
+         panelElement9.Children.Add(textElement7);
+         panelElement9.ChildSpacing = 10;
+         panelElement9.Padding = new System.Windows.Forms.Padding(8, 4, 6, 4);
+         this.c1TileControl2.DefaultTemplate.Elements.Add(panelElement9);
          this.c1TileControl2.Dock = System.Windows.Forms.DockStyle.Fill;
          this.c1TileControl2.Font = new System.Drawing.Font("Segoe UI", 11F);
          this.c1TileControl2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -217,19 +217,19 @@
          // template1
          // 
          this.template1.Description = "Subgroup";
-         panelElement2.AlignmentOfContents = System.Drawing.ContentAlignment.BottomLeft;
-         panelElement3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(92)))));
-         panelElement3.Dock = System.Windows.Forms.DockStyle.Bottom;
-         panelElement3.FixedHeight = 2;
-         textElement2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
-         textElement2.ForeColorSelector = C1.Win.C1Tile.ForeColorSelector.Unbound;
-         textElement2.Margin = new System.Windows.Forms.Padding(0, 0, 0, 6);
-         textElement2.SingleLine = true;
-         panelElement2.Children.Add(panelElement3);
-         panelElement2.Children.Add(textElement2);
-         panelElement2.Dock = System.Windows.Forms.DockStyle.Fill;
-         panelElement2.Padding = new System.Windows.Forms.Padding(8, 0, 8, 8);
-         this.template1.Elements.Add(panelElement2);
+         panelElement10.AlignmentOfContents = System.Drawing.ContentAlignment.BottomLeft;
+         panelElement11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(92)))));
+         panelElement11.Dock = System.Windows.Forms.DockStyle.Bottom;
+         panelElement11.FixedHeight = 2;
+         textElement8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
+         textElement8.ForeColorSelector = C1.Win.C1Tile.ForeColorSelector.Unbound;
+         textElement8.Margin = new System.Windows.Forms.Padding(0, 0, 0, 6);
+         textElement8.SingleLine = true;
+         panelElement10.Children.Add(panelElement11);
+         panelElement10.Children.Add(textElement8);
+         panelElement10.Dock = System.Windows.Forms.DockStyle.Fill;
+         panelElement10.Padding = new System.Windows.Forms.Padding(8, 0, 8, 8);
+         this.template1.Elements.Add(panelElement10);
          this.template1.Enabled = false;
          this.template1.Name = "template1";
          // 
@@ -328,17 +328,17 @@
          // template2
          // 
          this.template2.Description = "Win32";
-         panelElement4.Alignment = System.Drawing.ContentAlignment.MiddleLeft;
-         imageElement2.ColumnIndex = 10;
-         imageElement2.ColumnIndexSelector = C1.Win.C1Tile.IntValueSelector.Unbound;
-         imageElement2.ImageSelector = C1.Win.C1Tile.ImageSelector.CommonImage1;
-         textElement3.Alignment = System.Drawing.ContentAlignment.TopLeft;
-         textElement3.TextTrimming = C1.Win.C1Tile.TextTrimming.WordEllipsis;
-         panelElement4.Children.Add(imageElement2);
-         panelElement4.Children.Add(textElement3);
-         panelElement4.ChildSpacing = 10;
-         panelElement4.Padding = new System.Windows.Forms.Padding(8, 4, 6, 4);
-         this.template2.Elements.Add(panelElement4);
+         panelElement12.Alignment = System.Drawing.ContentAlignment.MiddleLeft;
+         imageElement6.ColumnIndex = 10;
+         imageElement6.ColumnIndexSelector = C1.Win.C1Tile.IntValueSelector.Unbound;
+         imageElement6.ImageSelector = C1.Win.C1Tile.ImageSelector.CommonImage1;
+         textElement9.Alignment = System.Drawing.ContentAlignment.TopLeft;
+         textElement9.TextTrimming = C1.Win.C1Tile.TextTrimming.WordEllipsis;
+         panelElement12.Children.Add(imageElement6);
+         panelElement12.Children.Add(textElement9);
+         panelElement12.ChildSpacing = 10;
+         panelElement12.Padding = new System.Windows.Forms.Padding(8, 4, 6, 4);
+         this.template2.Elements.Add(panelElement12);
          this.template2.Name = "template2";
          // 
          // tile34
@@ -445,17 +445,17 @@
          // 
          // 
          // 
-         panelElement5.Alignment = System.Drawing.ContentAlignment.MiddleLeft;
-         imageElement3.FixedHeight = 40;
-         imageElement3.FixedWidth = 40;
-         imageElement3.ImageLayout = C1.Win.C1Tile.ForeImageLayout.Stretch;
-         textElement4.Alignment = System.Drawing.ContentAlignment.TopLeft;
-         textElement4.TextTrimming = C1.Win.C1Tile.TextTrimming.WordEllipsis;
-         panelElement5.Children.Add(imageElement3);
-         panelElement5.Children.Add(textElement4);
-         panelElement5.ChildSpacing = 10;
-         panelElement5.Padding = new System.Windows.Forms.Padding(8, 4, 6, 4);
-         this.c1TileControl1.DefaultTemplate.Elements.Add(panelElement5);
+         panelElement13.Alignment = System.Drawing.ContentAlignment.MiddleLeft;
+         imageElement7.FixedHeight = 40;
+         imageElement7.FixedWidth = 40;
+         imageElement7.ImageLayout = C1.Win.C1Tile.ForeImageLayout.Stretch;
+         textElement10.Alignment = System.Drawing.ContentAlignment.TopLeft;
+         textElement10.TextTrimming = C1.Win.C1Tile.TextTrimming.WordEllipsis;
+         panelElement13.Children.Add(imageElement7);
+         panelElement13.Children.Add(textElement10);
+         panelElement13.ChildSpacing = 10;
+         panelElement13.Padding = new System.Windows.Forms.Padding(8, 4, 6, 4);
+         this.c1TileControl1.DefaultTemplate.Elements.Add(panelElement13);
          this.c1TileControl1.Dock = System.Windows.Forms.DockStyle.Fill;
          this.c1TileControl1.Font = new System.Drawing.Font("Segoe UI", 11F);
          this.c1TileControl1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -501,19 +501,19 @@
          // subgroupTemplate
          // 
          this.subgroupTemplate.Description = "Subgroup";
-         panelElement6.AlignmentOfContents = System.Drawing.ContentAlignment.BottomLeft;
-         panelElement7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(92)))));
-         panelElement7.Dock = System.Windows.Forms.DockStyle.Bottom;
-         panelElement7.FixedHeight = 2;
-         textElement5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
-         textElement5.ForeColorSelector = C1.Win.C1Tile.ForeColorSelector.Unbound;
-         textElement5.Margin = new System.Windows.Forms.Padding(0, 0, 0, 6);
-         textElement5.SingleLine = true;
-         panelElement6.Children.Add(panelElement7);
-         panelElement6.Children.Add(textElement5);
-         panelElement6.Dock = System.Windows.Forms.DockStyle.Fill;
-         panelElement6.Padding = new System.Windows.Forms.Padding(8, 0, 8, 8);
-         this.subgroupTemplate.Elements.Add(panelElement6);
+         panelElement14.AlignmentOfContents = System.Drawing.ContentAlignment.BottomLeft;
+         panelElement15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(92)))));
+         panelElement15.Dock = System.Windows.Forms.DockStyle.Bottom;
+         panelElement15.FixedHeight = 2;
+         textElement11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
+         textElement11.ForeColorSelector = C1.Win.C1Tile.ForeColorSelector.Unbound;
+         textElement11.Margin = new System.Windows.Forms.Padding(0, 0, 0, 6);
+         textElement11.SingleLine = true;
+         panelElement14.Children.Add(panelElement15);
+         panelElement14.Children.Add(textElement11);
+         panelElement14.Dock = System.Windows.Forms.DockStyle.Fill;
+         panelElement14.Padding = new System.Windows.Forms.Padding(8, 0, 8, 8);
+         this.subgroupTemplate.Elements.Add(panelElement14);
          this.subgroupTemplate.Enabled = false;
          this.subgroupTemplate.Name = "subgroupTemplate";
          // 
@@ -595,17 +595,17 @@
          // mapImgTemplate
          // 
          this.mapImgTemplate.Description = "Win32";
-         panelElement8.Alignment = System.Drawing.ContentAlignment.MiddleLeft;
-         imageElement4.ColumnIndex = 10;
-         imageElement4.ColumnIndexSelector = C1.Win.C1Tile.IntValueSelector.Unbound;
-         imageElement4.ImageSelector = C1.Win.C1Tile.ImageSelector.CommonImage1;
-         textElement6.Alignment = System.Drawing.ContentAlignment.TopLeft;
-         textElement6.TextTrimming = C1.Win.C1Tile.TextTrimming.WordEllipsis;
-         panelElement8.Children.Add(imageElement4);
-         panelElement8.Children.Add(textElement6);
-         panelElement8.ChildSpacing = 10;
-         panelElement8.Padding = new System.Windows.Forms.Padding(8, 4, 6, 4);
-         this.mapImgTemplate.Elements.Add(panelElement8);
+         panelElement16.Alignment = System.Drawing.ContentAlignment.MiddleLeft;
+         imageElement8.ColumnIndex = 10;
+         imageElement8.ColumnIndexSelector = C1.Win.C1Tile.IntValueSelector.Unbound;
+         imageElement8.ImageSelector = C1.Win.C1Tile.ImageSelector.CommonImage1;
+         textElement12.Alignment = System.Drawing.ContentAlignment.TopLeft;
+         textElement12.TextTrimming = C1.Win.C1Tile.TextTrimming.WordEllipsis;
+         panelElement16.Children.Add(imageElement8);
+         panelElement16.Children.Add(textElement12);
+         panelElement16.ChildSpacing = 10;
+         panelElement16.Padding = new System.Windows.Forms.Padding(8, 4, 6, 4);
+         this.mapImgTemplate.Elements.Add(panelElement16);
          this.mapImgTemplate.Name = "mapImgTemplate";
          // 
          // tile12
@@ -702,49 +702,49 @@
          // 
          this.StartFixMenu_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-         toolTipTitleItem1.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1215;
-         toolTipTitleItem1.Appearance.Options.UseImage = true;
-         toolTipTitleItem1.Image = global::System.Scsc.Properties.Resources.IMAGE_1215;
-         toolTipTitleItem1.Text = "اطلاعات کاربر جاری";
-         toolTipItem1.LeftIndent = 6;
-         toolTipItem1.Text = "برای مشاهده و تغییر اطلاعات و رمز کاربری می توانید از این گزینه استفاده کنید.";
-         toolTipTitleItem2.LeftIndent = 6;
-         toolTipTitleItem2.Text = "واحد تنظیمات و امنیت اطلاعات";
-         superToolTip1.Items.Add(toolTipTitleItem1);
-         superToolTip1.Items.Add(toolTipItem1);
-         superToolTip1.Items.Add(toolTipSeparatorItem1);
-         superToolTip1.Items.Add(toolTipTitleItem2);
-         toolTipTitleItem3.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1214;
-         toolTipTitleItem3.Appearance.Options.UseImage = true;
-         toolTipTitleItem3.Image = global::System.Scsc.Properties.Resources.IMAGE_1214;
-         toolTipTitleItem3.Text = "پنل کنترل";
-         toolTipItem2.LeftIndent = 6;
-         toolTipItem2.Text = "برای تنظیمات کلی نرم افزار ایجاد کاربری و سطوح دسترسی کاربران می توانید از این قس" +
+         toolTipTitleItem7.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1215;
+         toolTipTitleItem7.Appearance.Options.UseImage = true;
+         toolTipTitleItem7.Image = global::System.Scsc.Properties.Resources.IMAGE_1215;
+         toolTipTitleItem7.Text = "اطلاعات کاربر جاری";
+         toolTipItem4.LeftIndent = 6;
+         toolTipItem4.Text = "برای مشاهده و تغییر اطلاعات و رمز کاربری می توانید از این گزینه استفاده کنید.";
+         toolTipTitleItem8.LeftIndent = 6;
+         toolTipTitleItem8.Text = "واحد تنظیمات و امنیت اطلاعات";
+         superToolTip4.Items.Add(toolTipTitleItem7);
+         superToolTip4.Items.Add(toolTipItem4);
+         superToolTip4.Items.Add(toolTipSeparatorItem4);
+         superToolTip4.Items.Add(toolTipTitleItem8);
+         toolTipTitleItem9.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1214;
+         toolTipTitleItem9.Appearance.Options.UseImage = true;
+         toolTipTitleItem9.Image = global::System.Scsc.Properties.Resources.IMAGE_1214;
+         toolTipTitleItem9.Text = "پنل کنترل";
+         toolTipItem5.LeftIndent = 6;
+         toolTipItem5.Text = "برای تنظیمات کلی نرم افزار ایجاد کاربری و سطوح دسترسی کاربران می توانید از این قس" +
     "مت وارد شوید.";
-         toolTipTitleItem4.LeftIndent = 6;
-         toolTipTitleItem4.Text = "واحد تنظیمات و امتیت اطلاعات";
-         superToolTip2.Items.Add(toolTipTitleItem3);
-         superToolTip2.Items.Add(toolTipItem2);
-         superToolTip2.Items.Add(toolTipSeparatorItem2);
-         superToolTip2.Items.Add(toolTipTitleItem4);
-         toolTipTitleItem5.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1213;
-         toolTipTitleItem5.Appearance.Options.UseImage = true;
-         toolTipTitleItem5.Image = global::System.Scsc.Properties.Resources.IMAGE_1213;
-         toolTipTitleItem5.Text = "خروج از نرم افزار";
-         toolTipItem3.LeftIndent = 6;
-         toolTipItem3.Text = "برای پایان دادن کارهای نرم افزار و خروج از برنامه می توانید گزینه های متنوعی در م" +
+         toolTipTitleItem10.LeftIndent = 6;
+         toolTipTitleItem10.Text = "واحد تنظیمات و امتیت اطلاعات";
+         superToolTip5.Items.Add(toolTipTitleItem9);
+         superToolTip5.Items.Add(toolTipItem5);
+         superToolTip5.Items.Add(toolTipSeparatorItem5);
+         superToolTip5.Items.Add(toolTipTitleItem10);
+         toolTipTitleItem11.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1213;
+         toolTipTitleItem11.Appearance.Options.UseImage = true;
+         toolTipTitleItem11.Image = global::System.Scsc.Properties.Resources.IMAGE_1213;
+         toolTipTitleItem11.Text = "خروج از نرم افزار";
+         toolTipItem6.LeftIndent = 6;
+         toolTipItem6.Text = "برای پایان دادن کارهای نرم افزار و خروج از برنامه می توانید گزینه های متنوعی در م" +
     "ورد قبل از خروج اجرا کنید. مانند پشتیبان گیری از اطلاعات فعلی و یا تعویض کردن مد" +
     " کاربری.";
-         toolTipTitleItem6.LeftIndent = 6;
-         toolTipTitleItem6.Text = "واحد پشتیبان و امنیت اطلاعات";
-         superToolTip3.Items.Add(toolTipTitleItem5);
-         superToolTip3.Items.Add(toolTipItem3);
-         superToolTip3.Items.Add(toolTipSeparatorItem3);
-         superToolTip3.Items.Add(toolTipTitleItem6);
+         toolTipTitleItem12.LeftIndent = 6;
+         toolTipTitleItem12.Text = "واحد پشتیبان و امنیت اطلاعات";
+         superToolTip6.Items.Add(toolTipTitleItem11);
+         superToolTip6.Items.Add(toolTipItem6);
+         superToolTip6.Items.Add(toolTipSeparatorItem6);
+         superToolTip6.Items.Add(toolTipTitleItem12);
          this.StartFixMenu_Butn.Buttons.AddRange(new DevExpress.XtraEditors.ButtonPanel.IBaseButton[] {
-            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Button", global::System.Scsc.Properties.Resources.IMAGE_1215, -1, DevExpress.XtraBars.Docking2010.ImageLocation.Default, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", false, -1, true, superToolTip1, true, false, true, null, "1", -1, false, false),
-            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Button", global::System.Scsc.Properties.Resources.IMAGE_1214, -1, DevExpress.XtraBars.Docking2010.ImageLocation.Default, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", false, -1, true, superToolTip2, true, false, true, null, "2", -1, false, false),
-            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Button", global::System.Scsc.Properties.Resources.IMAGE_1213, -1, DevExpress.XtraBars.Docking2010.ImageLocation.Default, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", false, -1, true, superToolTip3, true, false, true, null, "3", -1, false, false),
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Button", global::System.Scsc.Properties.Resources.IMAGE_1215, -1, DevExpress.XtraBars.Docking2010.ImageLocation.Default, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", false, -1, true, superToolTip4, true, false, true, null, "1", -1, false, false),
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Button", global::System.Scsc.Properties.Resources.IMAGE_1214, -1, DevExpress.XtraBars.Docking2010.ImageLocation.Default, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", false, -1, true, superToolTip5, true, false, true, null, "2", -1, false, false),
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Button", global::System.Scsc.Properties.Resources.IMAGE_1213, -1, DevExpress.XtraBars.Docking2010.ImageLocation.Default, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", false, -1, true, superToolTip6, true, false, true, null, "3", -1, false, false),
             new DevExpress.XtraBars.Docking2010.WindowsUIButton("Button", ((System.Drawing.Image)(resources.GetObject("StartFixMenu_Butn.Buttons"))), -1, DevExpress.XtraBars.Docking2010.ImageLocation.Default, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "عملکرد کاربر", false, -1, true, null, true, false, true, null, "4", -1, false, false)});
          this.StartFixMenu_Butn.ContentAlignment = System.Drawing.ContentAlignment.TopCenter;
          this.StartFixMenu_Butn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;

@@ -212,10 +212,39 @@ namespace System.DataGuard.SecPolicy.Share.Ui
                      break;
                }
             }
+            else if(Tb_Master.SelectedTab == tp_006)
+            {
+               var licndate = subsys.LICN_TRIL_DATE;
+               if (licndate == null)
+                  licndate = DateTime.Now;
+
+               if ((licndate.Value.Date - DateTime.Now.Date).Days >= 15)
+                  Licnday_Lnk.Text = string.Format("پشتیبانی     ---     {0} روز", (licndate.Value.Date - DateTime.Now.Date).Days);
+               else if ((licndate.Value.Date - DateTime.Now.Date).Days <= 15 && (licndate.Value.Date - DateTime.Now.Date).Days >= 0)
+                  Licnday_Lnk.Text = "پشتیبانی رو به اتمام میباشد";
+               else
+                  Licnday_Lnk.Text = string.Format("پشتیبانی به پایان رسیده است", (licndate.Value.Date - DateTime.Now.Date).Days);
+
+               if ((licndate.Value.Date - DateTime.Now.Date).Days >= 15)
+               {
+                  PayExpnYear_Pn.Visible = false;
+                  CertificateLogo_Pb.Image = System.DataGuard.Properties.Resources.IMAGE_1656;
+               }
+               else if ((licndate.Value.Date - DateTime.Now.Date).Days <= 15 && (licndate.Value.Date - DateTime.Now.Date).Days >= 0)
+               {
+                  PayExpnYear_Pn.Visible = true;
+                  CertificateLogo_Pb.Image = System.DataGuard.Properties.Resources.IMAGE_1658;
+               }
+               else
+               {
+                  PayExpnYear_Pn.Visible = true;
+                  CertificateLogo_Pb.Image = System.DataGuard.Properties.Resources.IMAGE_1657;
+               }
+            }
          }
          catch (Exception exc)
          {
-
+            //MessageBox.Show(exc.Message);
          }
       }
 

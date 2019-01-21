@@ -214,21 +214,21 @@ namespace System.Scsc.Ui.OtherIncome
             {
                switch (control.CNTL_NAME.ToLower())
                {                  
-                  case "gb_expenseitem":
-                     Gb_ExpenseItem.Text = control.LABL_TEXT;
-                     //Gb_ExpenseItem.Text = control.LABL_TEXT; // ToolTip
-                     //Gb_ExpenseItem.Text = control.LABL_TEXT; // Place Holder
-                     break;
-                  case "selectexpense_clm":
-                     SelectExpense_Clm.Caption = control.LABL_TEXT;
-                     //SelectExpense_Clm.Text = control.LABL_TEXT; // ToolTip
-                     //SelectExpense_Clm.Text = control.LABL_TEXT; // Place Holder
-                     break;
-                  case "pric_clm":
-                     Pric_Clm.Caption = control.LABL_TEXT;
-                     //Pric_Clm.Text = control.LABL_TEXT; // ToolTip
-                     //Pric_Clm.Text = control.LABL_TEXT; // Place Holder
-                     break;                  
+                  //case "gb_expenseitem":
+                  //   Gb_ExpenseItem.Text = control.LABL_TEXT;
+                  //   //Gb_ExpenseItem.Text = control.LABL_TEXT; // ToolTip
+                  //   //Gb_ExpenseItem.Text = control.LABL_TEXT; // Place Holder
+                  //   break;
+                  //case "selectexpense_clm":
+                  //   SelectExpense_Clm.Caption = control.LABL_TEXT;
+                  //   //SelectExpense_Clm.Text = control.LABL_TEXT; // ToolTip
+                  //   //SelectExpense_Clm.Text = control.LABL_TEXT; // Place Holder
+                  //   break;
+                  //case "pric_clm":
+                  //   Pric_Clm.Caption = control.LABL_TEXT;
+                  //   //Pric_Clm.Text = control.LABL_TEXT; // ToolTip
+                  //   //Pric_Clm.Text = control.LABL_TEXT; // Place Holder
+                  //   break;                  
                }
             }
          }
@@ -311,7 +311,7 @@ namespace System.Scsc.Ui.OtherIncome
       /// <param name="job"></param>
       private void LoadData(Job job)
       {
-         Man_Rb.ImageVisiable = true;
+         frstload = false;
          #region Rqsw block
          //FighsBs1.DataSource = iScsc.VF_Fighters(new XElement("Fighter")).Where(f => f.CONF_STAT == "002" && (f.FGPB_TYPE_DNRM == "001" || f.FGPB_TYPE_DNRM == "005" || f.FGPB_TYPE_DNRM == "006"));
          //FighsBs1.DataSource = iScsc.Fighters.Where(f => f.CONF_STAT == "002" /*&& (f.FGPB_TYPE_DNRM == "001" || f.FGPB_TYPE_DNRM == "004" || f.FGPB_TYPE_DNRM == "005" || f.FGPB_TYPE_DNRM == "006")*/ && (Fga_Uclb_U.Contains(f.CLUB_CODE_DNRM) || (f.CLUB_CODE_DNRM == null ? f.Club_Methods.Where(cb => Fga_Uclb_U.Contains(cb.CLUB_CODE)).Any() : false)) && Convert.ToInt32(f.ACTV_TAG_DNRM ?? "101") >= 101).OrderBy(f => f.FGPB_TYPE_DNRM);

@@ -28,125 +28,116 @@
       /// </summary>
       private void InitializeComponent()
       {
-         DevExpress.Utils.SuperToolTip superToolTip18 = new DevExpress.Utils.SuperToolTip();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem35 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.ToolTipItem toolTipItem18 = new DevExpress.Utils.ToolTipItem();
-         DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem18 = new DevExpress.Utils.ToolTipSeparatorItem();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem36 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
-         System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(KSK_INCM_F));
+         this.components = new System.ComponentModel.Container();
+         DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem1 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.ToolTipItem toolTipItem1 = new DevExpress.Utils.ToolTipItem();
+         DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem1 = new DevExpress.Utils.ToolTipSeparatorItem();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem2 = new DevExpress.Utils.ToolTipTitleItem();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.Utils.SuperToolTip superToolTip19 = new DevExpress.Utils.SuperToolTip();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem37 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.ToolTipItem toolTipItem19 = new DevExpress.Utils.ToolTipItem();
-         DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem19 = new DevExpress.Utils.ToolTipSeparatorItem();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem38 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.SuperToolTip superToolTip20 = new DevExpress.Utils.SuperToolTip();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem39 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.ToolTipItem toolTipItem20 = new DevExpress.Utils.ToolTipItem();
-         DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem20 = new DevExpress.Utils.ToolTipSeparatorItem();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem40 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.SuperToolTip superToolTip21 = new DevExpress.Utils.SuperToolTip();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem41 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.ToolTipItem toolTipItem21 = new DevExpress.Utils.ToolTipItem();
-         DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem21 = new DevExpress.Utils.ToolTipSeparatorItem();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem42 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.SuperToolTip superToolTip22 = new DevExpress.Utils.SuperToolTip();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem43 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.ToolTipItem toolTipItem22 = new DevExpress.Utils.ToolTipItem();
-         DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem22 = new DevExpress.Utils.ToolTipSeparatorItem();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem44 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.SuperToolTip superToolTip23 = new DevExpress.Utils.SuperToolTip();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem45 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.ToolTipItem toolTipItem23 = new DevExpress.Utils.ToolTipItem();
-         DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem23 = new DevExpress.Utils.ToolTipSeparatorItem();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem46 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.SuperToolTip superToolTip24 = new DevExpress.Utils.SuperToolTip();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem47 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.ToolTipItem toolTipItem24 = new DevExpress.Utils.ToolTipItem();
-         DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem24 = new DevExpress.Utils.ToolTipSeparatorItem();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem48 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.SuperToolTip superToolTip25 = new DevExpress.Utils.SuperToolTip();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem49 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.ToolTipItem toolTipItem25 = new DevExpress.Utils.ToolTipItem();
-         DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem25 = new DevExpress.Utils.ToolTipSeparatorItem();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem50 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.SuperToolTip superToolTip26 = new DevExpress.Utils.SuperToolTip();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem51 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.ToolTipItem toolTipItem26 = new DevExpress.Utils.ToolTipItem();
-         DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem26 = new DevExpress.Utils.ToolTipSeparatorItem();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem52 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.SuperToolTip superToolTip27 = new DevExpress.Utils.SuperToolTip();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem53 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.ToolTipItem toolTipItem27 = new DevExpress.Utils.ToolTipItem();
-         DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem27 = new DevExpress.Utils.ToolTipSeparatorItem();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem54 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.SuperToolTip superToolTip28 = new DevExpress.Utils.SuperToolTip();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem55 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.ToolTipItem toolTipItem28 = new DevExpress.Utils.ToolTipItem();
-         DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem28 = new DevExpress.Utils.ToolTipSeparatorItem();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem56 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.SuperToolTip superToolTip29 = new DevExpress.Utils.SuperToolTip();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem57 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.ToolTipItem toolTipItem29 = new DevExpress.Utils.ToolTipItem();
-         DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem29 = new DevExpress.Utils.ToolTipSeparatorItem();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem58 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.SuperToolTip superToolTip30 = new DevExpress.Utils.SuperToolTip();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem59 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.ToolTipItem toolTipItem30 = new DevExpress.Utils.ToolTipItem();
-         DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem30 = new DevExpress.Utils.ToolTipSeparatorItem();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem60 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.SuperToolTip superToolTip31 = new DevExpress.Utils.SuperToolTip();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem61 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.ToolTipItem toolTipItem31 = new DevExpress.Utils.ToolTipItem();
-         DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem31 = new DevExpress.Utils.ToolTipSeparatorItem();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem62 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.SuperToolTip superToolTip32 = new DevExpress.Utils.SuperToolTip();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem63 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.ToolTipItem toolTipItem32 = new DevExpress.Utils.ToolTipItem();
-         DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem32 = new DevExpress.Utils.ToolTipSeparatorItem();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem64 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.SuperToolTip superToolTip33 = new DevExpress.Utils.SuperToolTip();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem65 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.ToolTipItem toolTipItem33 = new DevExpress.Utils.ToolTipItem();
-         DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem33 = new DevExpress.Utils.ToolTipSeparatorItem();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem66 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.SuperToolTip superToolTip34 = new DevExpress.Utils.SuperToolTip();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem67 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.ToolTipItem toolTipItem34 = new DevExpress.Utils.ToolTipItem();
-         DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem34 = new DevExpress.Utils.ToolTipSeparatorItem();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem68 = new DevExpress.Utils.ToolTipTitleItem();
+         System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(KSK_INCM_F));
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SuperToolTip superToolTip2 = new DevExpress.Utils.SuperToolTip();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem3 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.ToolTipItem toolTipItem2 = new DevExpress.Utils.ToolTipItem();
+         DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem2 = new DevExpress.Utils.ToolTipSeparatorItem();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem4 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.SuperToolTip superToolTip3 = new DevExpress.Utils.SuperToolTip();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem5 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.ToolTipItem toolTipItem3 = new DevExpress.Utils.ToolTipItem();
+         DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem3 = new DevExpress.Utils.ToolTipSeparatorItem();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem6 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.SuperToolTip superToolTip4 = new DevExpress.Utils.SuperToolTip();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem7 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.ToolTipItem toolTipItem4 = new DevExpress.Utils.ToolTipItem();
+         DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem4 = new DevExpress.Utils.ToolTipSeparatorItem();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem8 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.SuperToolTip superToolTip5 = new DevExpress.Utils.SuperToolTip();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem9 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.ToolTipItem toolTipItem5 = new DevExpress.Utils.ToolTipItem();
+         DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem5 = new DevExpress.Utils.ToolTipSeparatorItem();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem10 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.SuperToolTip superToolTip6 = new DevExpress.Utils.SuperToolTip();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem11 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.ToolTipItem toolTipItem6 = new DevExpress.Utils.ToolTipItem();
+         DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem6 = new DevExpress.Utils.ToolTipSeparatorItem();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem12 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.SuperToolTip superToolTip7 = new DevExpress.Utils.SuperToolTip();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem13 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.ToolTipItem toolTipItem7 = new DevExpress.Utils.ToolTipItem();
+         DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem7 = new DevExpress.Utils.ToolTipSeparatorItem();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem14 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.SuperToolTip superToolTip8 = new DevExpress.Utils.SuperToolTip();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem15 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.ToolTipItem toolTipItem8 = new DevExpress.Utils.ToolTipItem();
+         DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem8 = new DevExpress.Utils.ToolTipSeparatorItem();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem16 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.SuperToolTip superToolTip9 = new DevExpress.Utils.SuperToolTip();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem17 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.ToolTipItem toolTipItem9 = new DevExpress.Utils.ToolTipItem();
+         DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem9 = new DevExpress.Utils.ToolTipSeparatorItem();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem18 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.SuperToolTip superToolTip10 = new DevExpress.Utils.SuperToolTip();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem19 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.ToolTipItem toolTipItem10 = new DevExpress.Utils.ToolTipItem();
+         DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem10 = new DevExpress.Utils.ToolTipSeparatorItem();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem20 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.SuperToolTip superToolTip11 = new DevExpress.Utils.SuperToolTip();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem21 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.ToolTipItem toolTipItem11 = new DevExpress.Utils.ToolTipItem();
+         DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem11 = new DevExpress.Utils.ToolTipSeparatorItem();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem22 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.SuperToolTip superToolTip12 = new DevExpress.Utils.SuperToolTip();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem23 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.ToolTipItem toolTipItem12 = new DevExpress.Utils.ToolTipItem();
+         DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem12 = new DevExpress.Utils.ToolTipSeparatorItem();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem24 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.SuperToolTip superToolTip13 = new DevExpress.Utils.SuperToolTip();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem25 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.ToolTipItem toolTipItem13 = new DevExpress.Utils.ToolTipItem();
+         DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem13 = new DevExpress.Utils.ToolTipSeparatorItem();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem26 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.SuperToolTip superToolTip14 = new DevExpress.Utils.SuperToolTip();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem27 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.ToolTipItem toolTipItem14 = new DevExpress.Utils.ToolTipItem();
+         DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem14 = new DevExpress.Utils.ToolTipSeparatorItem();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem28 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.SuperToolTip superToolTip15 = new DevExpress.Utils.SuperToolTip();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem29 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.ToolTipItem toolTipItem15 = new DevExpress.Utils.ToolTipItem();
+         DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem15 = new DevExpress.Utils.ToolTipSeparatorItem();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem30 = new DevExpress.Utils.ToolTipTitleItem();
          this.RemnAmnt_Txt = new DevExpress.XtraEditors.TextEdit();
          this.tbn_POSPayment1 = new DevExpress.XtraEditors.SimpleButton();
          this.Pos_Lov = new DevExpress.XtraEditors.LookUpEdit();
-         this.VPosBs1 = new System.Windows.Forms.BindingSource();
+         this.VPosBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.PosStng_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.UsePos_Cb = new System.Windows.Forms.CheckBox();
          this.paymentsGridControl = new DevExpress.XtraGrid.GridControl();
-         this.PymtsBs1 = new System.Windows.Forms.BindingSource();
-         this.RqstBs1 = new System.Windows.Forms.BindingSource();
+         this.PymtsBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.RqstBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.CashCode_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
          this.SumExpnPric_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
          this.SumExpnExtrPrct_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colAMNT_UNIT_TYPE_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
          this.repositoryItemLookUpEdit5 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-         this.DAtypBs1 = new System.Windows.Forms.BindingSource();
+         this.DAtypBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.colREMN_AMNT = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colSUM_RCPT_AMNT = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colSUM_PYDS_AMNT = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colAmntUnitType = new DevExpress.XtraGrid.Columns.GridColumn();
          this.payment_DetailsGridControl = new DevExpress.XtraGrid.GridControl();
-         this.PydtsBs1 = new System.Windows.Forms.BindingSource();
+         this.PydtsBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.Pydt_Gv = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colPYMT_CASH_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colPYMT_RQST_RQID = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colRQRO_RWNO = new DevExpress.XtraGrid.Columns.GridColumn();
          this.ExpnCode_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
          this.LOV_EXPN = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-         this.ExpnBs1 = new System.Windows.Forms.BindingSource();
+         this.ExpnBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.colCODE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colPAY_STAT = new DevExpress.XtraGrid.Columns.GridColumn();
          this.ExpnPric_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -270,8 +261,8 @@
          this.colClub2 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colMethod3 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colFighter = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.RqroBs1 = new System.Windows.Forms.BindingSource();
-         this.FighBs1 = new System.Windows.Forms.BindingSource();
+         this.RqroBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.FighBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.panel1 = new System.Windows.Forms.Panel();
          this.simpleButton5 = new DevExpress.XtraEditors.SimpleButton();
          this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
@@ -280,20 +271,21 @@
          this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
          this.panel2 = new System.Windows.Forms.Panel();
          this.simpleButton6 = new DevExpress.XtraEditors.SimpleButton();
-         this.textEdit2 = new DevExpress.XtraEditors.TextEdit();
-         this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
-         this.simpleButton8 = new DevExpress.XtraEditors.SimpleButton();
-         this.simpleButton10 = new DevExpress.XtraEditors.SimpleButton();
-         this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-         this.simpleButton14 = new DevExpress.XtraEditors.SimpleButton();
+         this.CellPhon_Txt = new DevExpress.XtraEditors.TextEdit();
+         this.FgpbBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.NatlCode_Txt = new DevExpress.XtraEditors.TextEdit();
+         this.FreeSale4Woman_Butn = new DevExpress.XtraEditors.SimpleButton();
+         this.FreeSale4Man_Bytn = new DevExpress.XtraEditors.SimpleButton();
+         this.Expn_FLP = new System.Windows.Forms.FlowLayoutPanel();
+         this.ExpnSmpl_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.panel4 = new System.Windows.Forms.Panel();
-         this.simpleButton9 = new DevExpress.XtraEditors.SimpleButton();
-         this.simpleButton7 = new DevExpress.XtraEditors.SimpleButton();
+         this.ExpnBack_Butn = new DevExpress.XtraEditors.SimpleButton();
+         this.ExpnNext_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.panel6 = new System.Windows.Forms.Panel();
-         this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-         this.simpleButton13 = new DevExpress.XtraEditors.SimpleButton();
-         this.simpleButton11 = new DevExpress.XtraEditors.SimpleButton();
-         this.simpleButton12 = new DevExpress.XtraEditors.SimpleButton();
+         this.Grop_FLP = new System.Windows.Forms.FlowLayoutPanel();
+         this.GropSmpl_Butn = new DevExpress.XtraEditors.SimpleButton();
+         this.GropBack_Butn = new DevExpress.XtraEditors.SimpleButton();
+         this.GropNext_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.panel3 = new System.Windows.Forms.Panel();
          this.simpleButton15 = new DevExpress.XtraEditors.SimpleButton();
          this.panel5 = new System.Windows.Forms.Panel();
@@ -327,12 +319,13 @@
          ((System.ComponentModel.ISupportInitialize)(this.FighBs1)).BeginInit();
          this.panel1.SuspendLayout();
          this.panel2.SuspendLayout();
-         ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
-         this.flowLayoutPanel1.SuspendLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.CellPhon_Txt.Properties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.FgpbBs1)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.NatlCode_Txt.Properties)).BeginInit();
+         this.Expn_FLP.SuspendLayout();
          this.panel4.SuspendLayout();
          this.panel6.SuspendLayout();
-         this.flowLayoutPanel2.SuspendLayout();
+         this.Grop_FLP.SuspendLayout();
          this.panel3.SuspendLayout();
          this.panel5.SuspendLayout();
          this.panel7.SuspendLayout();
@@ -342,7 +335,7 @@
          // RemnAmnt_Txt
          // 
          this.RemnAmnt_Txt.Dock = System.Windows.Forms.DockStyle.Bottom;
-         this.RemnAmnt_Txt.Location = new System.Drawing.Point(0, 337);
+         this.RemnAmnt_Txt.Location = new System.Drawing.Point(0, 179);
          this.RemnAmnt_Txt.Name = "RemnAmnt_Txt";
          this.RemnAmnt_Txt.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
          this.RemnAmnt_Txt.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
@@ -357,7 +350,7 @@
          this.RemnAmnt_Txt.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
          this.RemnAmnt_Txt.Properties.Mask.UseMaskAsDisplayFormat = true;
          this.RemnAmnt_Txt.Properties.ReadOnly = true;
-         this.RemnAmnt_Txt.Size = new System.Drawing.Size(291, 44);
+         this.RemnAmnt_Txt.Size = new System.Drawing.Size(309, 44);
          this.RemnAmnt_Txt.TabIndex = 77;
          // 
          // tbn_POSPayment1
@@ -377,18 +370,18 @@
          this.tbn_POSPayment1.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.tbn_POSPayment1.LookAndFeel.UseDefaultLookAndFeel = false;
          this.tbn_POSPayment1.Name = "tbn_POSPayment1";
-         this.tbn_POSPayment1.Size = new System.Drawing.Size(259, 381);
-         toolTipTitleItem35.Text = "کاربر گرامی";
-         toolTipItem18.LeftIndent = 6;
-         toolTipItem18.Text = "برای هرچه بهتر شدن و بالا رفتن سرعت دریافت و پرداخت توسط کاربران امور و کمتر شدن " +
+         this.tbn_POSPayment1.Size = new System.Drawing.Size(288, 223);
+         toolTipTitleItem1.Text = "کاربر گرامی";
+         toolTipItem1.LeftIndent = 6;
+         toolTipItem1.Text = "برای هرچه بهتر شدن و بالا رفتن سرعت دریافت و پرداخت توسط کاربران امور و کمتر شدن " +
     "اشتباهات دریافت هزینه ها می توانید از پرداخت توسط دستگاه POS انجام دهید.";
-         toolTipTitleItem36.LeftIndent = 6;
-         toolTipTitleItem36.Text = "پرداخت از طریق دستگاه POS";
-         superToolTip18.Items.Add(toolTipTitleItem35);
-         superToolTip18.Items.Add(toolTipItem18);
-         superToolTip18.Items.Add(toolTipSeparatorItem18);
-         superToolTip18.Items.Add(toolTipTitleItem36);
-         this.tbn_POSPayment1.SuperTip = superToolTip18;
+         toolTipTitleItem2.LeftIndent = 6;
+         toolTipTitleItem2.Text = "پرداخت از طریق دستگاه POS";
+         superToolTip1.Items.Add(toolTipTitleItem1);
+         superToolTip1.Items.Add(toolTipItem1);
+         superToolTip1.Items.Add(toolTipSeparatorItem1);
+         superToolTip1.Items.Add(toolTipTitleItem2);
+         this.tbn_POSPayment1.SuperTip = superToolTip1;
          this.tbn_POSPayment1.TabIndex = 75;
          this.tbn_POSPayment1.Tag = "1";
          this.tbn_POSPayment1.Text = "پرداخت از طریق پایانه فروش";
@@ -408,7 +401,7 @@
          this.Pos_Lov.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
          this.Pos_Lov.Properties.AppearanceFocused.Options.UseBackColor = true;
          this.Pos_Lov.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
          this.Pos_Lov.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("PSID", "PSID", 49, DevExpress.Utils.FormatType.Numeric, "", false, DevExpress.Utils.HorzAlignment.Far),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("BANK_NAME", "بانک", 79, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near),
@@ -628,7 +621,7 @@
          // 
          this.payment_DetailsGridControl.DataSource = this.PydtsBs1;
          this.payment_DetailsGridControl.Dock = System.Windows.Forms.DockStyle.Right;
-         this.payment_DetailsGridControl.Location = new System.Drawing.Point(550, 37);
+         this.payment_DetailsGridControl.Location = new System.Drawing.Point(597, 37);
          this.payment_DetailsGridControl.LookAndFeel.SkinName = "Office 2013 Dark Gray";
          this.payment_DetailsGridControl.LookAndFeel.UseDefaultLookAndFeel = false;
          this.payment_DetailsGridControl.MainView = this.Pydt_Gv;
@@ -639,7 +632,7 @@
             this.repositoryItemSearchLookUpEdit1,
             this.Lov_YSNO,
             this.repositoryItemSearchLookUpEdit2});
-         this.payment_DetailsGridControl.Size = new System.Drawing.Size(362, 381);
+         this.payment_DetailsGridControl.Size = new System.Drawing.Size(315, 223);
          this.payment_DetailsGridControl.TabIndex = 1;
          this.payment_DetailsGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.Pydt_Gv});
@@ -653,11 +646,11 @@
          // 
          this.Pydt_Gv.Appearance.FooterPanel.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.Pydt_Gv.Appearance.FooterPanel.Options.UseFont = true;
-         this.Pydt_Gv.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.Pydt_Gv.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.Pydt_Gv.Appearance.HeaderPanel.Options.UseFont = true;
          this.Pydt_Gv.Appearance.HeaderPanel.Options.UseTextOptions = true;
          this.Pydt_Gv.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-         this.Pydt_Gv.Appearance.Row.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.Pydt_Gv.Appearance.Row.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.Pydt_Gv.Appearance.Row.Options.UseFont = true;
          this.Pydt_Gv.Appearance.Row.Options.UseTextOptions = true;
          this.Pydt_Gv.Appearance.Row.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
@@ -725,13 +718,13 @@
          this.ExpnCode_Clm.OptionsColumn.ReadOnly = true;
          this.ExpnCode_Clm.Visible = true;
          this.ExpnCode_Clm.VisibleIndex = 2;
-         this.ExpnCode_Clm.Width = 135;
+         this.ExpnCode_Clm.Width = 156;
          // 
          // LOV_EXPN
          // 
          this.LOV_EXPN.AutoHeight = false;
          this.LOV_EXPN.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
          this.LOV_EXPN.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("REGL_YEAR", "REGL_YEAR", 80, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("REGL_CODE", "REGL_CODE", 69, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),
@@ -781,11 +774,9 @@
          this.ExpnPric_Clm.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Right;
          this.ExpnPric_Clm.Name = "ExpnPric_Clm";
          this.ExpnPric_Clm.OptionsColumn.FixedWidth = true;
-         this.ExpnPric_Clm.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
-            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "EXPN_PRIC", "{0:N0}")});
          this.ExpnPric_Clm.Visible = true;
          this.ExpnPric_Clm.VisibleIndex = 1;
-         this.ExpnPric_Clm.Width = 107;
+         this.ExpnPric_Clm.Width = 105;
          // 
          // colEXPN_EXTR_PRCT
          // 
@@ -807,7 +798,7 @@
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum)});
          this.Qnty_Clm.Visible = true;
          this.Qnty_Clm.VisibleIndex = 0;
-         this.Qnty_Clm.Width = 54;
+         this.Qnty_Clm.Width = 45;
          // 
          // colDOCM_NUMB
          // 
@@ -833,7 +824,7 @@
          this.LOV_RCTP.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.LOV_RCTP.AutoHeight = false;
          this.LOV_RCTP.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject6, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject3, "", null, null, true)});
          this.LOV_RCTP.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("VALU", "VALU", 48, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("DOMN_DESC", "نوع پرداحت", 72, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near)});
@@ -906,7 +897,7 @@
          // 
          this.repositoryItemSearchLookUpEdit1.AutoHeight = false;
          this.repositoryItemSearchLookUpEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject7, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject4, "", null, null, true)});
          this.repositoryItemSearchLookUpEdit1.DisplayMember = "NAME_DNRM";
          this.repositoryItemSearchLookUpEdit1.Name = "repositoryItemSearchLookUpEdit1";
          this.repositoryItemSearchLookUpEdit1.NullText = "";
@@ -1607,7 +1598,6 @@
          // 
          this.RqroBs1.DataMember = "Request_Rows";
          this.RqroBs1.DataSource = this.RqstBs1;
-         this.RqroBs1.CurrentChanged += new System.EventHandler(this.RqroBs1_CurrentChanged);
          // 
          // FighBs1
          // 
@@ -1645,17 +1635,17 @@
          this.simpleButton5.LookAndFeel.UseDefaultLookAndFeel = false;
          this.simpleButton5.Name = "simpleButton5";
          this.simpleButton5.Size = new System.Drawing.Size(448, 37);
-         toolTipTitleItem37.Text = "کاربر گرامی";
-         toolTipItem19.LeftIndent = 6;
-         toolTipItem19.Text = "برای هرچه بهتر شدن و بالا رفتن سرعت دریافت و پرداخت توسط کاربران امور و کمتر شدن " +
+         toolTipTitleItem3.Text = "کاربر گرامی";
+         toolTipItem2.LeftIndent = 6;
+         toolTipItem2.Text = "برای هرچه بهتر شدن و بالا رفتن سرعت دریافت و پرداخت توسط کاربران امور و کمتر شدن " +
     "اشتباهات دریافت هزینه ها می توانید از پرداخت توسط دستگاه POS انجام دهید.";
-         toolTipTitleItem38.LeftIndent = 6;
-         toolTipTitleItem38.Text = "پرداخت از طریق دستگاه POS";
-         superToolTip19.Items.Add(toolTipTitleItem37);
-         superToolTip19.Items.Add(toolTipItem19);
-         superToolTip19.Items.Add(toolTipSeparatorItem19);
-         superToolTip19.Items.Add(toolTipTitleItem38);
-         this.simpleButton5.SuperTip = superToolTip19;
+         toolTipTitleItem4.LeftIndent = 6;
+         toolTipTitleItem4.Text = "پرداخت از طریق دستگاه POS";
+         superToolTip2.Items.Add(toolTipTitleItem3);
+         superToolTip2.Items.Add(toolTipItem2);
+         superToolTip2.Items.Add(toolTipSeparatorItem2);
+         superToolTip2.Items.Add(toolTipTitleItem4);
+         this.simpleButton5.SuperTip = superToolTip2;
          this.simpleButton5.TabIndex = 79;
          this.simpleButton5.Tag = "1";
          this.simpleButton5.Text = "انار شاپ";
@@ -1677,17 +1667,17 @@
          this.simpleButton3.LookAndFeel.UseDefaultLookAndFeel = false;
          this.simpleButton3.Name = "simpleButton3";
          this.simpleButton3.Size = new System.Drawing.Size(166, 37);
-         toolTipTitleItem39.Text = "کاربر گرامی";
-         toolTipItem20.LeftIndent = 6;
-         toolTipItem20.Text = "برای هرچه بهتر شدن و بالا رفتن سرعت دریافت و پرداخت توسط کاربران امور و کمتر شدن " +
+         toolTipTitleItem5.Text = "کاربر گرامی";
+         toolTipItem3.LeftIndent = 6;
+         toolTipItem3.Text = "برای هرچه بهتر شدن و بالا رفتن سرعت دریافت و پرداخت توسط کاربران امور و کمتر شدن " +
     "اشتباهات دریافت هزینه ها می توانید از پرداخت توسط دستگاه POS انجام دهید.";
-         toolTipTitleItem40.LeftIndent = 6;
-         toolTipTitleItem40.Text = "پرداخت از طریق دستگاه POS";
-         superToolTip20.Items.Add(toolTipTitleItem39);
-         superToolTip20.Items.Add(toolTipItem20);
-         superToolTip20.Items.Add(toolTipSeparatorItem20);
-         superToolTip20.Items.Add(toolTipTitleItem40);
-         this.simpleButton3.SuperTip = superToolTip20;
+         toolTipTitleItem6.LeftIndent = 6;
+         toolTipTitleItem6.Text = "پرداخت از طریق دستگاه POS";
+         superToolTip3.Items.Add(toolTipTitleItem5);
+         superToolTip3.Items.Add(toolTipItem3);
+         superToolTip3.Items.Add(toolTipSeparatorItem3);
+         superToolTip3.Items.Add(toolTipTitleItem6);
+         this.simpleButton3.SuperTip = superToolTip3;
          this.simpleButton3.TabIndex = 77;
          this.simpleButton3.Tag = "1";
          this.simpleButton3.Text = "www.AnarSoft.ir";
@@ -1709,17 +1699,17 @@
          this.simpleButton4.LookAndFeel.UseDefaultLookAndFeel = false;
          this.simpleButton4.Name = "simpleButton4";
          this.simpleButton4.Size = new System.Drawing.Size(66, 37);
-         toolTipTitleItem41.Text = "کاربر گرامی";
-         toolTipItem21.LeftIndent = 6;
-         toolTipItem21.Text = "برای هرچه بهتر شدن و بالا رفتن سرعت دریافت و پرداخت توسط کاربران امور و کمتر شدن " +
+         toolTipTitleItem7.Text = "کاربر گرامی";
+         toolTipItem4.LeftIndent = 6;
+         toolTipItem4.Text = "برای هرچه بهتر شدن و بالا رفتن سرعت دریافت و پرداخت توسط کاربران امور و کمتر شدن " +
     "اشتباهات دریافت هزینه ها می توانید از پرداخت توسط دستگاه POS انجام دهید.";
-         toolTipTitleItem42.LeftIndent = 6;
-         toolTipTitleItem42.Text = "پرداخت از طریق دستگاه POS";
-         superToolTip21.Items.Add(toolTipTitleItem41);
-         superToolTip21.Items.Add(toolTipItem21);
-         superToolTip21.Items.Add(toolTipSeparatorItem21);
-         superToolTip21.Items.Add(toolTipTitleItem42);
-         this.simpleButton4.SuperTip = superToolTip21;
+         toolTipTitleItem8.LeftIndent = 6;
+         toolTipTitleItem8.Text = "پرداخت از طریق دستگاه POS";
+         superToolTip4.Items.Add(toolTipTitleItem7);
+         superToolTip4.Items.Add(toolTipItem4);
+         superToolTip4.Items.Add(toolTipSeparatorItem4);
+         superToolTip4.Items.Add(toolTipTitleItem8);
+         this.simpleButton4.SuperTip = superToolTip4;
          this.simpleButton4.TabIndex = 78;
          this.simpleButton4.Tag = "1";
          this.simpleButton4.Text = "خروج";
@@ -1742,17 +1732,17 @@
          this.simpleButton2.LookAndFeel.UseDefaultLookAndFeel = false;
          this.simpleButton2.Name = "simpleButton2";
          this.simpleButton2.Size = new System.Drawing.Size(166, 37);
-         toolTipTitleItem43.Text = "کاربر گرامی";
-         toolTipItem22.LeftIndent = 6;
-         toolTipItem22.Text = "برای هرچه بهتر شدن و بالا رفتن سرعت دریافت و پرداخت توسط کاربران امور و کمتر شدن " +
+         toolTipTitleItem9.Text = "کاربر گرامی";
+         toolTipItem5.LeftIndent = 6;
+         toolTipItem5.Text = "برای هرچه بهتر شدن و بالا رفتن سرعت دریافت و پرداخت توسط کاربران امور و کمتر شدن " +
     "اشتباهات دریافت هزینه ها می توانید از پرداخت توسط دستگاه POS انجام دهید.";
-         toolTipTitleItem44.LeftIndent = 6;
-         toolTipTitleItem44.Text = "پرداخت از طریق دستگاه POS";
-         superToolTip22.Items.Add(toolTipTitleItem43);
-         superToolTip22.Items.Add(toolTipItem22);
-         superToolTip22.Items.Add(toolTipSeparatorItem22);
-         superToolTip22.Items.Add(toolTipTitleItem44);
-         this.simpleButton2.SuperTip = superToolTip22;
+         toolTipTitleItem10.LeftIndent = 6;
+         toolTipTitleItem10.Text = "پرداخت از طریق دستگاه POS";
+         superToolTip5.Items.Add(toolTipTitleItem9);
+         superToolTip5.Items.Add(toolTipItem5);
+         superToolTip5.Items.Add(toolTipSeparatorItem5);
+         superToolTip5.Items.Add(toolTipTitleItem10);
+         this.simpleButton2.SuperTip = superToolTip5;
          this.simpleButton2.TabIndex = 76;
          this.simpleButton2.Tag = "1";
          this.simpleButton2.Text = "1397/11/01 - 12:34 PM";
@@ -1774,17 +1764,17 @@
          this.simpleButton1.LookAndFeel.UseDefaultLookAndFeel = false;
          this.simpleButton1.Name = "simpleButton1";
          this.simpleButton1.Size = new System.Drawing.Size(66, 37);
-         toolTipTitleItem45.Text = "کاربر گرامی";
-         toolTipItem23.LeftIndent = 6;
-         toolTipItem23.Text = "برای هرچه بهتر شدن و بالا رفتن سرعت دریافت و پرداخت توسط کاربران امور و کمتر شدن " +
+         toolTipTitleItem11.Text = "کاربر گرامی";
+         toolTipItem6.LeftIndent = 6;
+         toolTipItem6.Text = "برای هرچه بهتر شدن و بالا رفتن سرعت دریافت و پرداخت توسط کاربران امور و کمتر شدن " +
     "اشتباهات دریافت هزینه ها می توانید از پرداخت توسط دستگاه POS انجام دهید.";
-         toolTipTitleItem46.LeftIndent = 6;
-         toolTipTitleItem46.Text = "پرداخت از طریق دستگاه POS";
-         superToolTip23.Items.Add(toolTipTitleItem45);
-         superToolTip23.Items.Add(toolTipItem23);
-         superToolTip23.Items.Add(toolTipSeparatorItem23);
-         superToolTip23.Items.Add(toolTipTitleItem46);
-         this.simpleButton1.SuperTip = superToolTip23;
+         toolTipTitleItem12.LeftIndent = 6;
+         toolTipTitleItem12.Text = "پرداخت از طریق دستگاه POS";
+         superToolTip6.Items.Add(toolTipTitleItem11);
+         superToolTip6.Items.Add(toolTipItem6);
+         superToolTip6.Items.Add(toolTipSeparatorItem6);
+         superToolTip6.Items.Add(toolTipTitleItem12);
+         this.simpleButton1.SuperTip = superToolTip6;
          this.simpleButton1.TabIndex = 75;
          this.simpleButton1.Tag = "1";
          this.simpleButton1.Text = "خروج";
@@ -1794,10 +1784,10 @@
          // 
          this.panel2.BackColor = System.Drawing.Color.White;
          this.panel2.Controls.Add(this.simpleButton6);
-         this.panel2.Controls.Add(this.textEdit2);
-         this.panel2.Controls.Add(this.textEdit1);
-         this.panel2.Controls.Add(this.simpleButton8);
-         this.panel2.Controls.Add(this.simpleButton10);
+         this.panel2.Controls.Add(this.CellPhon_Txt);
+         this.panel2.Controls.Add(this.NatlCode_Txt);
+         this.panel2.Controls.Add(this.FreeSale4Woman_Butn);
+         this.panel2.Controls.Add(this.FreeSale4Man_Bytn);
          this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
          this.panel2.Location = new System.Drawing.Point(0, 37);
          this.panel2.Name = "panel2";
@@ -1821,374 +1811,357 @@
          this.simpleButton6.LookAndFeel.UseDefaultLookAndFeel = false;
          this.simpleButton6.Name = "simpleButton6";
          this.simpleButton6.Size = new System.Drawing.Size(149, 37);
-         toolTipTitleItem47.Text = "کاربر گرامی";
-         toolTipItem24.LeftIndent = 6;
-         toolTipItem24.Text = "برای هرچه بهتر شدن و بالا رفتن سرعت دریافت و پرداخت توسط کاربران امور و کمتر شدن " +
+         toolTipTitleItem13.Text = "کاربر گرامی";
+         toolTipItem7.LeftIndent = 6;
+         toolTipItem7.Text = "برای هرچه بهتر شدن و بالا رفتن سرعت دریافت و پرداخت توسط کاربران امور و کمتر شدن " +
     "اشتباهات دریافت هزینه ها می توانید از پرداخت توسط دستگاه POS انجام دهید.";
-         toolTipTitleItem48.LeftIndent = 6;
-         toolTipTitleItem48.Text = "پرداخت از طریق دستگاه POS";
-         superToolTip24.Items.Add(toolTipTitleItem47);
-         superToolTip24.Items.Add(toolTipItem24);
-         superToolTip24.Items.Add(toolTipSeparatorItem24);
-         superToolTip24.Items.Add(toolTipTitleItem48);
-         this.simpleButton6.SuperTip = superToolTip24;
+         toolTipTitleItem14.LeftIndent = 6;
+         toolTipTitleItem14.Text = "پرداخت از طریق دستگاه POS";
+         superToolTip7.Items.Add(toolTipTitleItem13);
+         superToolTip7.Items.Add(toolTipItem7);
+         superToolTip7.Items.Add(toolTipSeparatorItem7);
+         superToolTip7.Items.Add(toolTipTitleItem14);
+         this.simpleButton6.SuperTip = superToolTip7;
          this.simpleButton6.TabIndex = 80;
          this.simpleButton6.Tag = "1";
          this.simpleButton6.Text = "ذخیره کردن اطلاعات";
+         this.simpleButton6.Click += new System.EventHandler(this.Btn_RqstBnARqt1_Click);
          // 
-         // textEdit2
+         // CellPhon_Txt
          // 
-         this.textEdit2.Dock = System.Windows.Forms.DockStyle.Right;
-         this.textEdit2.EditValue = "";
-         this.textEdit2.Location = new System.Drawing.Point(531, 0);
-         this.textEdit2.Name = "textEdit2";
-         this.textEdit2.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-         this.textEdit2.Properties.Appearance.Font = new System.Drawing.Font("Traffic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.textEdit2.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-         this.textEdit2.Properties.Appearance.Options.UseBackColor = true;
-         this.textEdit2.Properties.Appearance.Options.UseFont = true;
-         this.textEdit2.Properties.Appearance.Options.UseForeColor = true;
-         this.textEdit2.Properties.Appearance.Options.UseTextOptions = true;
-         this.textEdit2.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-         this.textEdit2.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-         this.textEdit2.Properties.Mask.EditMask = "d";
-         this.textEdit2.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-         this.textEdit2.Properties.Mask.UseMaskAsDisplayFormat = true;
-         this.textEdit2.Properties.NullText = "شماره موبایل";
-         this.textEdit2.Properties.NullValuePrompt = "شماره موبایل";
-         this.textEdit2.Properties.NullValuePromptShowForEmptyValue = true;
-         this.textEdit2.Properties.ReadOnly = true;
-         this.textEdit2.Size = new System.Drawing.Size(149, 36);
-         this.textEdit2.TabIndex = 92;
+         this.CellPhon_Txt.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.FgpbBs1, "CELL_PHON", true));
+         this.CellPhon_Txt.Dock = System.Windows.Forms.DockStyle.Right;
+         this.CellPhon_Txt.EditValue = "";
+         this.CellPhon_Txt.Location = new System.Drawing.Point(531, 0);
+         this.CellPhon_Txt.Name = "CellPhon_Txt";
+         this.CellPhon_Txt.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+         this.CellPhon_Txt.Properties.Appearance.Font = new System.Drawing.Font("IRANSans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.CellPhon_Txt.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+         this.CellPhon_Txt.Properties.Appearance.Options.UseBackColor = true;
+         this.CellPhon_Txt.Properties.Appearance.Options.UseFont = true;
+         this.CellPhon_Txt.Properties.Appearance.Options.UseForeColor = true;
+         this.CellPhon_Txt.Properties.Appearance.Options.UseTextOptions = true;
+         this.CellPhon_Txt.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+         this.CellPhon_Txt.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+         this.CellPhon_Txt.Properties.Mask.EditMask = "d";
+         this.CellPhon_Txt.Properties.Mask.UseMaskAsDisplayFormat = true;
+         this.CellPhon_Txt.Properties.NullText = "شماره موبایل";
+         this.CellPhon_Txt.Properties.NullValuePrompt = "شماره موبایل";
+         this.CellPhon_Txt.Properties.NullValuePromptShowForEmptyValue = true;
+         this.CellPhon_Txt.Size = new System.Drawing.Size(149, 36);
+         this.CellPhon_Txt.TabIndex = 92;
          // 
-         // textEdit1
+         // FgpbBs1
          // 
-         this.textEdit1.Dock = System.Windows.Forms.DockStyle.Left;
-         this.textEdit1.EditValue = "2372499424";
-         this.textEdit1.Location = new System.Drawing.Point(232, 0);
-         this.textEdit1.Name = "textEdit1";
-         this.textEdit1.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-         this.textEdit1.Properties.Appearance.Font = new System.Drawing.Font("Traffic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.textEdit1.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-         this.textEdit1.Properties.Appearance.Options.UseBackColor = true;
-         this.textEdit1.Properties.Appearance.Options.UseFont = true;
-         this.textEdit1.Properties.Appearance.Options.UseForeColor = true;
-         this.textEdit1.Properties.Appearance.Options.UseTextOptions = true;
-         this.textEdit1.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-         this.textEdit1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-         this.textEdit1.Properties.Mask.EditMask = "d";
-         this.textEdit1.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-         this.textEdit1.Properties.Mask.UseMaskAsDisplayFormat = true;
-         this.textEdit1.Properties.NullText = "کد ملی";
-         this.textEdit1.Properties.NullValuePrompt = "کد ملی";
-         this.textEdit1.Properties.NullValuePromptShowForEmptyValue = true;
-         this.textEdit1.Properties.ReadOnly = true;
-         this.textEdit1.Size = new System.Drawing.Size(150, 36);
-         this.textEdit1.TabIndex = 91;
+         this.FgpbBs1.DataMember = "Fighter_Publics";
+         this.FgpbBs1.DataSource = this.RqroBs1;
          // 
-         // simpleButton8
+         // NatlCode_Txt
          // 
-         this.simpleButton8.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-         this.simpleButton8.Appearance.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.simpleButton8.Appearance.ForeColor = System.Drawing.Color.Black;
-         this.simpleButton8.Appearance.Options.UseBackColor = true;
-         this.simpleButton8.Appearance.Options.UseFont = true;
-         this.simpleButton8.Appearance.Options.UseForeColor = true;
-         this.simpleButton8.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-         this.simpleButton8.Dock = System.Windows.Forms.DockStyle.Right;
-         this.simpleButton8.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
-         this.simpleButton8.Location = new System.Drawing.Point(680, 0);
-         this.simpleButton8.LookAndFeel.SkinName = "Office 2010 Blue";
-         this.simpleButton8.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.simpleButton8.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.simpleButton8.Name = "simpleButton8";
-         this.simpleButton8.Size = new System.Drawing.Size(232, 37);
-         toolTipTitleItem49.Text = "کاربر گرامی";
-         toolTipItem25.LeftIndent = 6;
-         toolTipItem25.Text = "برای هرچه بهتر شدن و بالا رفتن سرعت دریافت و پرداخت توسط کاربران امور و کمتر شدن " +
+         this.NatlCode_Txt.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.FgpbBs1, "NATL_CODE", true));
+         this.NatlCode_Txt.Dock = System.Windows.Forms.DockStyle.Left;
+         this.NatlCode_Txt.EditValue = "";
+         this.NatlCode_Txt.Location = new System.Drawing.Point(232, 0);
+         this.NatlCode_Txt.Name = "NatlCode_Txt";
+         this.NatlCode_Txt.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+         this.NatlCode_Txt.Properties.Appearance.Font = new System.Drawing.Font("IRANSans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.NatlCode_Txt.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+         this.NatlCode_Txt.Properties.Appearance.Options.UseBackColor = true;
+         this.NatlCode_Txt.Properties.Appearance.Options.UseFont = true;
+         this.NatlCode_Txt.Properties.Appearance.Options.UseForeColor = true;
+         this.NatlCode_Txt.Properties.Appearance.Options.UseTextOptions = true;
+         this.NatlCode_Txt.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+         this.NatlCode_Txt.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+         this.NatlCode_Txt.Properties.Mask.EditMask = "d";
+         this.NatlCode_Txt.Properties.Mask.UseMaskAsDisplayFormat = true;
+         this.NatlCode_Txt.Properties.NullText = "کد ملی";
+         this.NatlCode_Txt.Properties.NullValuePrompt = "کد ملی";
+         this.NatlCode_Txt.Properties.NullValuePromptShowForEmptyValue = true;
+         this.NatlCode_Txt.Size = new System.Drawing.Size(150, 36);
+         this.NatlCode_Txt.TabIndex = 91;
+         // 
+         // FreeSale4Woman_Butn
+         // 
+         this.FreeSale4Woman_Butn.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+         this.FreeSale4Woman_Butn.Appearance.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.FreeSale4Woman_Butn.Appearance.ForeColor = System.Drawing.Color.Black;
+         this.FreeSale4Woman_Butn.Appearance.Options.UseBackColor = true;
+         this.FreeSale4Woman_Butn.Appearance.Options.UseFont = true;
+         this.FreeSale4Woman_Butn.Appearance.Options.UseForeColor = true;
+         this.FreeSale4Woman_Butn.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+         this.FreeSale4Woman_Butn.Dock = System.Windows.Forms.DockStyle.Right;
+         this.FreeSale4Woman_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
+         this.FreeSale4Woman_Butn.Location = new System.Drawing.Point(680, 0);
+         this.FreeSale4Woman_Butn.LookAndFeel.SkinName = "Office 2010 Blue";
+         this.FreeSale4Woman_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.FreeSale4Woman_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.FreeSale4Woman_Butn.Name = "FreeSale4Woman_Butn";
+         this.FreeSale4Woman_Butn.Size = new System.Drawing.Size(232, 37);
+         toolTipTitleItem15.Text = "کاربر گرامی";
+         toolTipItem8.LeftIndent = 6;
+         toolTipItem8.Text = "برای هرچه بهتر شدن و بالا رفتن سرعت دریافت و پرداخت توسط کاربران امور و کمتر شدن " +
     "اشتباهات دریافت هزینه ها می توانید از پرداخت توسط دستگاه POS انجام دهید.";
-         toolTipTitleItem50.LeftIndent = 6;
-         toolTipTitleItem50.Text = "پرداخت از طریق دستگاه POS";
-         superToolTip25.Items.Add(toolTipTitleItem49);
-         superToolTip25.Items.Add(toolTipItem25);
-         superToolTip25.Items.Add(toolTipSeparatorItem25);
-         superToolTip25.Items.Add(toolTipTitleItem50);
-         this.simpleButton8.SuperTip = superToolTip25;
-         this.simpleButton8.TabIndex = 78;
-         this.simpleButton8.Tag = "Woman";
-         this.simpleButton8.Text = "بانوان";
-         this.simpleButton8.Click += new System.EventHandler(this.FreeSale_Rb_Click);
+         toolTipTitleItem16.LeftIndent = 6;
+         toolTipTitleItem16.Text = "پرداخت از طریق دستگاه POS";
+         superToolTip8.Items.Add(toolTipTitleItem15);
+         superToolTip8.Items.Add(toolTipItem8);
+         superToolTip8.Items.Add(toolTipSeparatorItem8);
+         superToolTip8.Items.Add(toolTipTitleItem16);
+         this.FreeSale4Woman_Butn.SuperTip = superToolTip8;
+         this.FreeSale4Woman_Butn.TabIndex = 78;
+         this.FreeSale4Woman_Butn.Tag = "Woman";
+         this.FreeSale4Woman_Butn.Text = "بانوان";
+         this.FreeSale4Woman_Butn.Click += new System.EventHandler(this.FreeSale_Rb_Click);
          // 
-         // simpleButton10
+         // FreeSale4Man_Bytn
          // 
-         this.simpleButton10.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-         this.simpleButton10.Appearance.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.simpleButton10.Appearance.ForeColor = System.Drawing.Color.Black;
-         this.simpleButton10.Appearance.Options.UseBackColor = true;
-         this.simpleButton10.Appearance.Options.UseFont = true;
-         this.simpleButton10.Appearance.Options.UseForeColor = true;
-         this.simpleButton10.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-         this.simpleButton10.Dock = System.Windows.Forms.DockStyle.Left;
-         this.simpleButton10.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
-         this.simpleButton10.Location = new System.Drawing.Point(0, 0);
-         this.simpleButton10.LookAndFeel.SkinName = "Office 2010 Blue";
-         this.simpleButton10.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.simpleButton10.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.simpleButton10.Name = "simpleButton10";
-         this.simpleButton10.Size = new System.Drawing.Size(232, 37);
-         toolTipTitleItem51.Text = "کاربر گرامی";
-         toolTipItem26.LeftIndent = 6;
-         toolTipItem26.Text = "برای هرچه بهتر شدن و بالا رفتن سرعت دریافت و پرداخت توسط کاربران امور و کمتر شدن " +
+         this.FreeSale4Man_Bytn.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+         this.FreeSale4Man_Bytn.Appearance.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.FreeSale4Man_Bytn.Appearance.ForeColor = System.Drawing.Color.Black;
+         this.FreeSale4Man_Bytn.Appearance.Options.UseBackColor = true;
+         this.FreeSale4Man_Bytn.Appearance.Options.UseFont = true;
+         this.FreeSale4Man_Bytn.Appearance.Options.UseForeColor = true;
+         this.FreeSale4Man_Bytn.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+         this.FreeSale4Man_Bytn.Dock = System.Windows.Forms.DockStyle.Left;
+         this.FreeSale4Man_Bytn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
+         this.FreeSale4Man_Bytn.Location = new System.Drawing.Point(0, 0);
+         this.FreeSale4Man_Bytn.LookAndFeel.SkinName = "Office 2010 Blue";
+         this.FreeSale4Man_Bytn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.FreeSale4Man_Bytn.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.FreeSale4Man_Bytn.Name = "FreeSale4Man_Bytn";
+         this.FreeSale4Man_Bytn.Size = new System.Drawing.Size(232, 37);
+         toolTipTitleItem17.Text = "کاربر گرامی";
+         toolTipItem9.LeftIndent = 6;
+         toolTipItem9.Text = "برای هرچه بهتر شدن و بالا رفتن سرعت دریافت و پرداخت توسط کاربران امور و کمتر شدن " +
     "اشتباهات دریافت هزینه ها می توانید از پرداخت توسط دستگاه POS انجام دهید.";
-         toolTipTitleItem52.LeftIndent = 6;
-         toolTipTitleItem52.Text = "پرداخت از طریق دستگاه POS";
-         superToolTip26.Items.Add(toolTipTitleItem51);
-         superToolTip26.Items.Add(toolTipItem26);
-         superToolTip26.Items.Add(toolTipSeparatorItem26);
-         superToolTip26.Items.Add(toolTipTitleItem52);
-         this.simpleButton10.SuperTip = superToolTip26;
-         this.simpleButton10.TabIndex = 75;
-         this.simpleButton10.Tag = "Man";
-         this.simpleButton10.Text = "اقایان";
-         this.simpleButton10.Click += new System.EventHandler(this.FreeSale_Rb_Click);
+         toolTipTitleItem18.LeftIndent = 6;
+         toolTipTitleItem18.Text = "پرداخت از طریق دستگاه POS";
+         superToolTip9.Items.Add(toolTipTitleItem17);
+         superToolTip9.Items.Add(toolTipItem9);
+         superToolTip9.Items.Add(toolTipSeparatorItem9);
+         superToolTip9.Items.Add(toolTipTitleItem18);
+         this.FreeSale4Man_Bytn.SuperTip = superToolTip9;
+         this.FreeSale4Man_Bytn.TabIndex = 75;
+         this.FreeSale4Man_Bytn.Tag = "Man";
+         this.FreeSale4Man_Bytn.Text = "اقایان";
+         this.FreeSale4Man_Bytn.Click += new System.EventHandler(this.FreeSale_Rb_Click);
          // 
-         // flowLayoutPanel1
+         // Expn_FLP
          // 
-         this.flowLayoutPanel1.AutoScroll = true;
-         this.flowLayoutPanel1.Controls.Add(this.simpleButton14);
-         this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-         this.flowLayoutPanel1.Location = new System.Drawing.Point(66, 0);
-         this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-         this.flowLayoutPanel1.Size = new System.Drawing.Size(780, 174);
-         this.flowLayoutPanel1.TabIndex = 91;
-         this.flowLayoutPanel1.WrapContents = false;
+         this.Expn_FLP.AutoScroll = true;
+         this.Expn_FLP.Controls.Add(this.ExpnSmpl_Butn);
+         this.Expn_FLP.Dock = System.Windows.Forms.DockStyle.Fill;
+         this.Expn_FLP.Location = new System.Drawing.Point(44, 0);
+         this.Expn_FLP.Name = "Expn_FLP";
+         this.Expn_FLP.Size = new System.Drawing.Size(827, 395);
+         this.Expn_FLP.TabIndex = 91;
+         this.Expn_FLP.WrapContents = false;
          // 
-         // simpleButton14
+         // ExpnSmpl_Butn
          // 
-         this.simpleButton14.Anchor = System.Windows.Forms.AnchorStyles.Top;
-         this.simpleButton14.Appearance.BackColor = System.Drawing.Color.Transparent;
-         this.simpleButton14.Appearance.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.simpleButton14.Appearance.ForeColor = System.Drawing.Color.Black;
-         this.simpleButton14.Appearance.Options.UseBackColor = true;
-         this.simpleButton14.Appearance.Options.UseFont = true;
-         this.simpleButton14.Appearance.Options.UseForeColor = true;
-         this.simpleButton14.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-         this.simpleButton14.Image = global::System.Scsc.Properties.Resources.IMAGE_1099;
-         this.simpleButton14.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter;
-         this.simpleButton14.Location = new System.Drawing.Point(640, 3);
-         this.simpleButton14.LookAndFeel.SkinName = "Office 2010 Blue";
-         this.simpleButton14.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.simpleButton14.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.simpleButton14.Name = "simpleButton14";
-         this.simpleButton14.Size = new System.Drawing.Size(137, 142);
-         toolTipTitleItem53.Text = "کاربر گرامی";
-         toolTipItem27.LeftIndent = 6;
-         toolTipItem27.Text = "برای هرچه بهتر شدن و بالا رفتن سرعت دریافت و پرداخت توسط کاربران امور و کمتر شدن " +
-    "اشتباهات دریافت هزینه ها می توانید از پرداخت توسط دستگاه POS انجام دهید.";
-         toolTipTitleItem54.LeftIndent = 6;
-         toolTipTitleItem54.Text = "پرداخت از طریق دستگاه POS";
-         superToolTip27.Items.Add(toolTipTitleItem53);
-         superToolTip27.Items.Add(toolTipItem27);
-         superToolTip27.Items.Add(toolTipSeparatorItem27);
-         superToolTip27.Items.Add(toolTipTitleItem54);
-         this.simpleButton14.SuperTip = superToolTip27;
-         this.simpleButton14.TabIndex = 99;
-         this.simpleButton14.Tag = "1";
-         this.simpleButton14.Text = "گروه الف";
+         this.ExpnSmpl_Butn.Anchor = System.Windows.Forms.AnchorStyles.Top;
+         this.ExpnSmpl_Butn.Appearance.BackColor = System.Drawing.Color.Transparent;
+         this.ExpnSmpl_Butn.Appearance.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.ExpnSmpl_Butn.Appearance.ForeColor = System.Drawing.Color.Black;
+         this.ExpnSmpl_Butn.Appearance.Options.UseBackColor = true;
+         this.ExpnSmpl_Butn.Appearance.Options.UseFont = true;
+         this.ExpnSmpl_Butn.Appearance.Options.UseForeColor = true;
+         this.ExpnSmpl_Butn.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+         this.ExpnSmpl_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1669;
+         this.ExpnSmpl_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter;
+         this.ExpnSmpl_Butn.Location = new System.Drawing.Point(711, 3);
+         this.ExpnSmpl_Butn.LookAndFeel.SkinName = "Office 2010 Blue";
+         this.ExpnSmpl_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.ExpnSmpl_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.ExpnSmpl_Butn.Name = "ExpnSmpl_Butn";
+         this.ExpnSmpl_Butn.Size = new System.Drawing.Size(113, 101);
+         this.ExpnSmpl_Butn.TabIndex = 99;
+         this.ExpnSmpl_Butn.Tag = "1";
+         this.ExpnSmpl_Butn.Text = "گروه الف";
          // 
          // panel4
          // 
-         this.panel4.Controls.Add(this.flowLayoutPanel1);
-         this.panel4.Controls.Add(this.simpleButton9);
-         this.panel4.Controls.Add(this.simpleButton7);
-         this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
-         this.panel4.Location = new System.Drawing.Point(0, 211);
+         this.panel4.Controls.Add(this.Expn_FLP);
+         this.panel4.Controls.Add(this.ExpnBack_Butn);
+         this.panel4.Controls.Add(this.ExpnNext_Butn);
+         this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
+         this.panel4.Location = new System.Drawing.Point(0, 149);
          this.panel4.Name = "panel4";
-         this.panel4.Size = new System.Drawing.Size(912, 174);
+         this.panel4.Size = new System.Drawing.Size(912, 395);
          this.panel4.TabIndex = 92;
          // 
-         // simpleButton9
+         // ExpnBack_Butn
          // 
-         this.simpleButton9.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-         this.simpleButton9.Appearance.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.simpleButton9.Appearance.ForeColor = System.Drawing.Color.Black;
-         this.simpleButton9.Appearance.Options.UseBackColor = true;
-         this.simpleButton9.Appearance.Options.UseFont = true;
-         this.simpleButton9.Appearance.Options.UseForeColor = true;
-         this.simpleButton9.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-         this.simpleButton9.Dock = System.Windows.Forms.DockStyle.Right;
-         this.simpleButton9.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
-         this.simpleButton9.Location = new System.Drawing.Point(846, 0);
-         this.simpleButton9.LookAndFeel.SkinName = "Office 2010 Blue";
-         this.simpleButton9.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.simpleButton9.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.simpleButton9.Name = "simpleButton9";
-         this.simpleButton9.Size = new System.Drawing.Size(66, 174);
-         toolTipTitleItem55.Text = "کاربر گرامی";
-         toolTipItem28.LeftIndent = 6;
-         toolTipItem28.Text = "برای هرچه بهتر شدن و بالا رفتن سرعت دریافت و پرداخت توسط کاربران امور و کمتر شدن " +
+         this.ExpnBack_Butn.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+         this.ExpnBack_Butn.Appearance.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.ExpnBack_Butn.Appearance.ForeColor = System.Drawing.Color.Black;
+         this.ExpnBack_Butn.Appearance.Options.UseBackColor = true;
+         this.ExpnBack_Butn.Appearance.Options.UseFont = true;
+         this.ExpnBack_Butn.Appearance.Options.UseForeColor = true;
+         this.ExpnBack_Butn.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+         this.ExpnBack_Butn.Dock = System.Windows.Forms.DockStyle.Right;
+         this.ExpnBack_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
+         this.ExpnBack_Butn.Location = new System.Drawing.Point(871, 0);
+         this.ExpnBack_Butn.LookAndFeel.SkinName = "Office 2010 Blue";
+         this.ExpnBack_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.ExpnBack_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.ExpnBack_Butn.Name = "ExpnBack_Butn";
+         this.ExpnBack_Butn.Size = new System.Drawing.Size(41, 395);
+         toolTipTitleItem19.Text = "کاربر گرامی";
+         toolTipItem10.LeftIndent = 6;
+         toolTipItem10.Text = "برای هرچه بهتر شدن و بالا رفتن سرعت دریافت و پرداخت توسط کاربران امور و کمتر شدن " +
     "اشتباهات دریافت هزینه ها می توانید از پرداخت توسط دستگاه POS انجام دهید.";
-         toolTipTitleItem56.LeftIndent = 6;
-         toolTipTitleItem56.Text = "پرداخت از طریق دستگاه POS";
-         superToolTip28.Items.Add(toolTipTitleItem55);
-         superToolTip28.Items.Add(toolTipItem28);
-         superToolTip28.Items.Add(toolTipSeparatorItem28);
-         superToolTip28.Items.Add(toolTipTitleItem56);
-         this.simpleButton9.SuperTip = superToolTip28;
-         this.simpleButton9.TabIndex = 93;
-         this.simpleButton9.Tag = "1";
-         this.simpleButton9.Text = "قبلی";
+         toolTipTitleItem20.LeftIndent = 6;
+         toolTipTitleItem20.Text = "پرداخت از طریق دستگاه POS";
+         superToolTip10.Items.Add(toolTipTitleItem19);
+         superToolTip10.Items.Add(toolTipItem10);
+         superToolTip10.Items.Add(toolTipSeparatorItem10);
+         superToolTip10.Items.Add(toolTipTitleItem20);
+         this.ExpnBack_Butn.SuperTip = superToolTip10;
+         this.ExpnBack_Butn.TabIndex = 93;
+         this.ExpnBack_Butn.Tag = "1";
+         this.ExpnBack_Butn.Text = "قبلی";
          // 
-         // simpleButton7
+         // ExpnNext_Butn
          // 
-         this.simpleButton7.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-         this.simpleButton7.Appearance.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.simpleButton7.Appearance.ForeColor = System.Drawing.Color.Black;
-         this.simpleButton7.Appearance.Options.UseBackColor = true;
-         this.simpleButton7.Appearance.Options.UseFont = true;
-         this.simpleButton7.Appearance.Options.UseForeColor = true;
-         this.simpleButton7.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-         this.simpleButton7.Dock = System.Windows.Forms.DockStyle.Left;
-         this.simpleButton7.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
-         this.simpleButton7.Location = new System.Drawing.Point(0, 0);
-         this.simpleButton7.LookAndFeel.SkinName = "Office 2010 Blue";
-         this.simpleButton7.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.simpleButton7.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.simpleButton7.Name = "simpleButton7";
-         this.simpleButton7.Size = new System.Drawing.Size(66, 174);
-         toolTipTitleItem57.Text = "کاربر گرامی";
-         toolTipItem29.LeftIndent = 6;
-         toolTipItem29.Text = "برای هرچه بهتر شدن و بالا رفتن سرعت دریافت و پرداخت توسط کاربران امور و کمتر شدن " +
+         this.ExpnNext_Butn.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+         this.ExpnNext_Butn.Appearance.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.ExpnNext_Butn.Appearance.ForeColor = System.Drawing.Color.Black;
+         this.ExpnNext_Butn.Appearance.Options.UseBackColor = true;
+         this.ExpnNext_Butn.Appearance.Options.UseFont = true;
+         this.ExpnNext_Butn.Appearance.Options.UseForeColor = true;
+         this.ExpnNext_Butn.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+         this.ExpnNext_Butn.Dock = System.Windows.Forms.DockStyle.Left;
+         this.ExpnNext_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
+         this.ExpnNext_Butn.Location = new System.Drawing.Point(0, 0);
+         this.ExpnNext_Butn.LookAndFeel.SkinName = "Office 2010 Blue";
+         this.ExpnNext_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.ExpnNext_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.ExpnNext_Butn.Name = "ExpnNext_Butn";
+         this.ExpnNext_Butn.Size = new System.Drawing.Size(44, 395);
+         toolTipTitleItem21.Text = "کاربر گرامی";
+         toolTipItem11.LeftIndent = 6;
+         toolTipItem11.Text = "برای هرچه بهتر شدن و بالا رفتن سرعت دریافت و پرداخت توسط کاربران امور و کمتر شدن " +
     "اشتباهات دریافت هزینه ها می توانید از پرداخت توسط دستگاه POS انجام دهید.";
-         toolTipTitleItem58.LeftIndent = 6;
-         toolTipTitleItem58.Text = "پرداخت از طریق دستگاه POS";
-         superToolTip29.Items.Add(toolTipTitleItem57);
-         superToolTip29.Items.Add(toolTipItem29);
-         superToolTip29.Items.Add(toolTipSeparatorItem29);
-         superToolTip29.Items.Add(toolTipTitleItem58);
-         this.simpleButton7.SuperTip = superToolTip29;
-         this.simpleButton7.TabIndex = 92;
-         this.simpleButton7.Tag = "1";
-         this.simpleButton7.Text = "بعدی";
+         toolTipTitleItem22.LeftIndent = 6;
+         toolTipTitleItem22.Text = "پرداخت از طریق دستگاه POS";
+         superToolTip11.Items.Add(toolTipTitleItem21);
+         superToolTip11.Items.Add(toolTipItem11);
+         superToolTip11.Items.Add(toolTipSeparatorItem11);
+         superToolTip11.Items.Add(toolTipTitleItem22);
+         this.ExpnNext_Butn.SuperTip = superToolTip11;
+         this.ExpnNext_Butn.TabIndex = 92;
+         this.ExpnNext_Butn.Tag = "1";
+         this.ExpnNext_Butn.Text = "بعدی";
          // 
          // panel6
          // 
-         this.panel6.Controls.Add(this.flowLayoutPanel2);
-         this.panel6.Controls.Add(this.simpleButton11);
-         this.panel6.Controls.Add(this.simpleButton12);
+         this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+         this.panel6.Controls.Add(this.Grop_FLP);
+         this.panel6.Controls.Add(this.GropBack_Butn);
+         this.panel6.Controls.Add(this.GropNext_Butn);
          this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
          this.panel6.Location = new System.Drawing.Point(0, 37);
          this.panel6.Name = "panel6";
-         this.panel6.Size = new System.Drawing.Size(912, 174);
+         this.panel6.Size = new System.Drawing.Size(912, 112);
          this.panel6.TabIndex = 93;
          // 
-         // flowLayoutPanel2
+         // Grop_FLP
          // 
-         this.flowLayoutPanel2.AutoScroll = true;
-         this.flowLayoutPanel2.Controls.Add(this.simpleButton13);
-         this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-         this.flowLayoutPanel2.Location = new System.Drawing.Point(66, 0);
-         this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-         this.flowLayoutPanel2.Size = new System.Drawing.Size(780, 174);
-         this.flowLayoutPanel2.TabIndex = 91;
-         this.flowLayoutPanel2.WrapContents = false;
+         this.Grop_FLP.AutoScroll = true;
+         this.Grop_FLP.Controls.Add(this.GropSmpl_Butn);
+         this.Grop_FLP.Dock = System.Windows.Forms.DockStyle.Fill;
+         this.Grop_FLP.Location = new System.Drawing.Point(44, 0);
+         this.Grop_FLP.Name = "Grop_FLP";
+         this.Grop_FLP.Size = new System.Drawing.Size(827, 112);
+         this.Grop_FLP.TabIndex = 91;
+         this.Grop_FLP.WrapContents = false;
          // 
-         // simpleButton13
+         // GropSmpl_Butn
          // 
-         this.simpleButton13.Anchor = System.Windows.Forms.AnchorStyles.Top;
-         this.simpleButton13.Appearance.BackColor = System.Drawing.Color.Transparent;
-         this.simpleButton13.Appearance.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.simpleButton13.Appearance.ForeColor = System.Drawing.Color.Black;
-         this.simpleButton13.Appearance.Options.UseBackColor = true;
-         this.simpleButton13.Appearance.Options.UseFont = true;
-         this.simpleButton13.Appearance.Options.UseForeColor = true;
-         this.simpleButton13.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-         this.simpleButton13.Image = global::System.Scsc.Properties.Resources.IMAGE_1099;
-         this.simpleButton13.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter;
-         this.simpleButton13.Location = new System.Drawing.Point(640, 3);
-         this.simpleButton13.LookAndFeel.SkinName = "Office 2010 Blue";
-         this.simpleButton13.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.simpleButton13.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.simpleButton13.Name = "simpleButton13";
-         this.simpleButton13.Size = new System.Drawing.Size(137, 142);
-         toolTipTitleItem59.Text = "کاربر گرامی";
-         toolTipItem30.LeftIndent = 6;
-         toolTipItem30.Text = "برای هرچه بهتر شدن و بالا رفتن سرعت دریافت و پرداخت توسط کاربران امور و کمتر شدن " +
+         this.GropSmpl_Butn.Anchor = System.Windows.Forms.AnchorStyles.Top;
+         this.GropSmpl_Butn.Appearance.BackColor = System.Drawing.Color.Transparent;
+         this.GropSmpl_Butn.Appearance.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.GropSmpl_Butn.Appearance.ForeColor = System.Drawing.Color.Black;
+         this.GropSmpl_Butn.Appearance.Options.UseBackColor = true;
+         this.GropSmpl_Butn.Appearance.Options.UseFont = true;
+         this.GropSmpl_Butn.Appearance.Options.UseForeColor = true;
+         this.GropSmpl_Butn.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+         this.GropSmpl_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1086;
+         this.GropSmpl_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter;
+         this.GropSmpl_Butn.Location = new System.Drawing.Point(711, 3);
+         this.GropSmpl_Butn.LookAndFeel.SkinName = "Office 2010 Blue";
+         this.GropSmpl_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.GropSmpl_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.GropSmpl_Butn.Name = "GropSmpl_Butn";
+         this.GropSmpl_Butn.Size = new System.Drawing.Size(113, 103);
+         this.GropSmpl_Butn.TabIndex = 98;
+         this.GropSmpl_Butn.Tag = "1";
+         this.GropSmpl_Butn.Text = "انار شاپ";
+         // 
+         // GropBack_Butn
+         // 
+         this.GropBack_Butn.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+         this.GropBack_Butn.Appearance.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.GropBack_Butn.Appearance.ForeColor = System.Drawing.Color.Black;
+         this.GropBack_Butn.Appearance.Options.UseBackColor = true;
+         this.GropBack_Butn.Appearance.Options.UseFont = true;
+         this.GropBack_Butn.Appearance.Options.UseForeColor = true;
+         this.GropBack_Butn.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+         this.GropBack_Butn.Dock = System.Windows.Forms.DockStyle.Right;
+         this.GropBack_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
+         this.GropBack_Butn.Location = new System.Drawing.Point(871, 0);
+         this.GropBack_Butn.LookAndFeel.SkinName = "Office 2010 Blue";
+         this.GropBack_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.GropBack_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.GropBack_Butn.Name = "GropBack_Butn";
+         this.GropBack_Butn.Size = new System.Drawing.Size(41, 112);
+         toolTipTitleItem23.Text = "کاربر گرامی";
+         toolTipItem12.LeftIndent = 6;
+         toolTipItem12.Text = "برای هرچه بهتر شدن و بالا رفتن سرعت دریافت و پرداخت توسط کاربران امور و کمتر شدن " +
     "اشتباهات دریافت هزینه ها می توانید از پرداخت توسط دستگاه POS انجام دهید.";
-         toolTipTitleItem60.LeftIndent = 6;
-         toolTipTitleItem60.Text = "پرداخت از طریق دستگاه POS";
-         superToolTip30.Items.Add(toolTipTitleItem59);
-         superToolTip30.Items.Add(toolTipItem30);
-         superToolTip30.Items.Add(toolTipSeparatorItem30);
-         superToolTip30.Items.Add(toolTipTitleItem60);
-         this.simpleButton13.SuperTip = superToolTip30;
-         this.simpleButton13.TabIndex = 98;
-         this.simpleButton13.Tag = "1";
-         this.simpleButton13.Text = "انار شاپ";
+         toolTipTitleItem24.LeftIndent = 6;
+         toolTipTitleItem24.Text = "پرداخت از طریق دستگاه POS";
+         superToolTip12.Items.Add(toolTipTitleItem23);
+         superToolTip12.Items.Add(toolTipItem12);
+         superToolTip12.Items.Add(toolTipSeparatorItem12);
+         superToolTip12.Items.Add(toolTipTitleItem24);
+         this.GropBack_Butn.SuperTip = superToolTip12;
+         this.GropBack_Butn.TabIndex = 93;
+         this.GropBack_Butn.Tag = "1";
+         this.GropBack_Butn.Text = "قبلی";
          // 
-         // simpleButton11
+         // GropNext_Butn
          // 
-         this.simpleButton11.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-         this.simpleButton11.Appearance.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.simpleButton11.Appearance.ForeColor = System.Drawing.Color.Black;
-         this.simpleButton11.Appearance.Options.UseBackColor = true;
-         this.simpleButton11.Appearance.Options.UseFont = true;
-         this.simpleButton11.Appearance.Options.UseForeColor = true;
-         this.simpleButton11.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-         this.simpleButton11.Dock = System.Windows.Forms.DockStyle.Right;
-         this.simpleButton11.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
-         this.simpleButton11.Location = new System.Drawing.Point(846, 0);
-         this.simpleButton11.LookAndFeel.SkinName = "Office 2010 Blue";
-         this.simpleButton11.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.simpleButton11.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.simpleButton11.Name = "simpleButton11";
-         this.simpleButton11.Size = new System.Drawing.Size(66, 174);
-         toolTipTitleItem61.Text = "کاربر گرامی";
-         toolTipItem31.LeftIndent = 6;
-         toolTipItem31.Text = "برای هرچه بهتر شدن و بالا رفتن سرعت دریافت و پرداخت توسط کاربران امور و کمتر شدن " +
+         this.GropNext_Butn.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+         this.GropNext_Butn.Appearance.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.GropNext_Butn.Appearance.ForeColor = System.Drawing.Color.Black;
+         this.GropNext_Butn.Appearance.Options.UseBackColor = true;
+         this.GropNext_Butn.Appearance.Options.UseFont = true;
+         this.GropNext_Butn.Appearance.Options.UseForeColor = true;
+         this.GropNext_Butn.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+         this.GropNext_Butn.Dock = System.Windows.Forms.DockStyle.Left;
+         this.GropNext_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
+         this.GropNext_Butn.Location = new System.Drawing.Point(0, 0);
+         this.GropNext_Butn.LookAndFeel.SkinName = "Office 2010 Blue";
+         this.GropNext_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.GropNext_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.GropNext_Butn.Name = "GropNext_Butn";
+         this.GropNext_Butn.Size = new System.Drawing.Size(44, 112);
+         toolTipTitleItem25.Text = "کاربر گرامی";
+         toolTipItem13.LeftIndent = 6;
+         toolTipItem13.Text = "برای هرچه بهتر شدن و بالا رفتن سرعت دریافت و پرداخت توسط کاربران امور و کمتر شدن " +
     "اشتباهات دریافت هزینه ها می توانید از پرداخت توسط دستگاه POS انجام دهید.";
-         toolTipTitleItem62.LeftIndent = 6;
-         toolTipTitleItem62.Text = "پرداخت از طریق دستگاه POS";
-         superToolTip31.Items.Add(toolTipTitleItem61);
-         superToolTip31.Items.Add(toolTipItem31);
-         superToolTip31.Items.Add(toolTipSeparatorItem31);
-         superToolTip31.Items.Add(toolTipTitleItem62);
-         this.simpleButton11.SuperTip = superToolTip31;
-         this.simpleButton11.TabIndex = 93;
-         this.simpleButton11.Tag = "1";
-         this.simpleButton11.Text = "قبلی";
-         // 
-         // simpleButton12
-         // 
-         this.simpleButton12.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-         this.simpleButton12.Appearance.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.simpleButton12.Appearance.ForeColor = System.Drawing.Color.Black;
-         this.simpleButton12.Appearance.Options.UseBackColor = true;
-         this.simpleButton12.Appearance.Options.UseFont = true;
-         this.simpleButton12.Appearance.Options.UseForeColor = true;
-         this.simpleButton12.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-         this.simpleButton12.Dock = System.Windows.Forms.DockStyle.Left;
-         this.simpleButton12.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
-         this.simpleButton12.Location = new System.Drawing.Point(0, 0);
-         this.simpleButton12.LookAndFeel.SkinName = "Office 2010 Blue";
-         this.simpleButton12.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.simpleButton12.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.simpleButton12.Name = "simpleButton12";
-         this.simpleButton12.Size = new System.Drawing.Size(66, 174);
-         toolTipTitleItem63.Text = "کاربر گرامی";
-         toolTipItem32.LeftIndent = 6;
-         toolTipItem32.Text = "برای هرچه بهتر شدن و بالا رفتن سرعت دریافت و پرداخت توسط کاربران امور و کمتر شدن " +
-    "اشتباهات دریافت هزینه ها می توانید از پرداخت توسط دستگاه POS انجام دهید.";
-         toolTipTitleItem64.LeftIndent = 6;
-         toolTipTitleItem64.Text = "پرداخت از طریق دستگاه POS";
-         superToolTip32.Items.Add(toolTipTitleItem63);
-         superToolTip32.Items.Add(toolTipItem32);
-         superToolTip32.Items.Add(toolTipSeparatorItem32);
-         superToolTip32.Items.Add(toolTipTitleItem64);
-         this.simpleButton12.SuperTip = superToolTip32;
-         this.simpleButton12.TabIndex = 92;
-         this.simpleButton12.Tag = "1";
-         this.simpleButton12.Text = "بعدی";
+         toolTipTitleItem26.LeftIndent = 6;
+         toolTipTitleItem26.Text = "پرداخت از طریق دستگاه POS";
+         superToolTip13.Items.Add(toolTipTitleItem25);
+         superToolTip13.Items.Add(toolTipItem13);
+         superToolTip13.Items.Add(toolTipSeparatorItem13);
+         superToolTip13.Items.Add(toolTipTitleItem26);
+         this.GropNext_Butn.SuperTip = superToolTip13;
+         this.GropNext_Butn.TabIndex = 92;
+         this.GropNext_Butn.Tag = "1";
+         this.GropNext_Butn.Text = "بعدی";
          // 
          // panel3
          // 
@@ -2198,7 +2171,7 @@
          this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
          this.panel3.Location = new System.Drawing.Point(0, 74);
          this.panel3.Name = "panel3";
-         this.panel3.Size = new System.Drawing.Size(912, 386);
+         this.panel3.Size = new System.Drawing.Size(912, 544);
          this.panel3.TabIndex = 94;
          // 
          // simpleButton15
@@ -2218,17 +2191,17 @@
          this.simpleButton15.LookAndFeel.UseDefaultLookAndFeel = false;
          this.simpleButton15.Name = "simpleButton15";
          this.simpleButton15.Size = new System.Drawing.Size(912, 37);
-         toolTipTitleItem65.Text = "کاربر گرامی";
-         toolTipItem33.LeftIndent = 6;
-         toolTipItem33.Text = "برای هرچه بهتر شدن و بالا رفتن سرعت دریافت و پرداخت توسط کاربران امور و کمتر شدن " +
+         toolTipTitleItem27.Text = "کاربر گرامی";
+         toolTipItem14.LeftIndent = 6;
+         toolTipItem14.Text = "برای هرچه بهتر شدن و بالا رفتن سرعت دریافت و پرداخت توسط کاربران امور و کمتر شدن " +
     "اشتباهات دریافت هزینه ها می توانید از پرداخت توسط دستگاه POS انجام دهید.";
-         toolTipTitleItem66.LeftIndent = 6;
-         toolTipTitleItem66.Text = "پرداخت از طریق دستگاه POS";
-         superToolTip33.Items.Add(toolTipTitleItem65);
-         superToolTip33.Items.Add(toolTipItem33);
-         superToolTip33.Items.Add(toolTipSeparatorItem33);
-         superToolTip33.Items.Add(toolTipTitleItem66);
-         this.simpleButton15.SuperTip = superToolTip33;
+         toolTipTitleItem28.LeftIndent = 6;
+         toolTipTitleItem28.Text = "پرداخت از طریق دستگاه POS";
+         superToolTip14.Items.Add(toolTipTitleItem27);
+         superToolTip14.Items.Add(toolTipItem14);
+         superToolTip14.Items.Add(toolTipSeparatorItem14);
+         superToolTip14.Items.Add(toolTipTitleItem28);
+         this.simpleButton15.SuperTip = superToolTip14;
          this.simpleButton15.TabIndex = 81;
          this.simpleButton15.Tag = "1";
          this.simpleButton15.Text = "اقلام فروشگاه";
@@ -2244,9 +2217,9 @@
          this.panel5.Controls.Add(this.UsePos_Cb);
          this.panel5.Controls.Add(this.PosStng_Butn);
          this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
-         this.panel5.Location = new System.Drawing.Point(0, 460);
+         this.panel5.Location = new System.Drawing.Point(0, 618);
          this.panel5.Name = "panel5";
-         this.panel5.Size = new System.Drawing.Size(912, 418);
+         this.panel5.Size = new System.Drawing.Size(912, 260);
          this.panel5.TabIndex = 95;
          // 
          // panel7
@@ -2255,18 +2228,18 @@
          this.panel7.Controls.Add(this.RemoveExpn_Butn);
          this.panel7.Controls.Add(this.RemnAmnt_Txt);
          this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
-         this.panel7.Location = new System.Drawing.Point(259, 37);
+         this.panel7.Location = new System.Drawing.Point(288, 37);
          this.panel7.Name = "panel7";
-         this.panel7.Size = new System.Drawing.Size(291, 381);
+         this.panel7.Size = new System.Drawing.Size(309, 223);
          this.panel7.TabIndex = 84;
          // 
          // pictureBox1
          // 
          this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
          this.pictureBox1.Image = global::System.Scsc.Properties.Resources.IMAGE_1667;
-         this.pictureBox1.Location = new System.Drawing.Point(0, 54);
+         this.pictureBox1.Location = new System.Drawing.Point(0, 48);
          this.pictureBox1.Name = "pictureBox1";
-         this.pictureBox1.Size = new System.Drawing.Size(291, 283);
+         this.pictureBox1.Size = new System.Drawing.Size(309, 131);
          this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
          this.pictureBox1.TabIndex = 83;
          this.pictureBox1.TabStop = false;
@@ -2289,10 +2262,11 @@
          this.RemoveExpn_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.RemoveExpn_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.RemoveExpn_Butn.Name = "RemoveExpn_Butn";
-         this.RemoveExpn_Butn.Size = new System.Drawing.Size(291, 54);
+         this.RemoveExpn_Butn.Size = new System.Drawing.Size(309, 48);
          this.RemoveExpn_Butn.TabIndex = 77;
          this.RemoveExpn_Butn.Text = "حذف آیتم خرید";
          this.RemoveExpn_Butn.ToolTip = "حذف رکورد";
+         this.RemoveExpn_Butn.Click += new System.EventHandler(this.RemoveExpn_Butn_Click);
          // 
          // simpleButton16
          // 
@@ -2311,17 +2285,17 @@
          this.simpleButton16.LookAndFeel.UseDefaultLookAndFeel = false;
          this.simpleButton16.Name = "simpleButton16";
          this.simpleButton16.Size = new System.Drawing.Size(912, 37);
-         toolTipTitleItem67.Text = "کاربر گرامی";
-         toolTipItem34.LeftIndent = 6;
-         toolTipItem34.Text = "برای هرچه بهتر شدن و بالا رفتن سرعت دریافت و پرداخت توسط کاربران امور و کمتر شدن " +
+         toolTipTitleItem29.Text = "کاربر گرامی";
+         toolTipItem15.LeftIndent = 6;
+         toolTipItem15.Text = "برای هرچه بهتر شدن و بالا رفتن سرعت دریافت و پرداخت توسط کاربران امور و کمتر شدن " +
     "اشتباهات دریافت هزینه ها می توانید از پرداخت توسط دستگاه POS انجام دهید.";
-         toolTipTitleItem68.LeftIndent = 6;
-         toolTipTitleItem68.Text = "پرداخت از طریق دستگاه POS";
-         superToolTip34.Items.Add(toolTipTitleItem67);
-         superToolTip34.Items.Add(toolTipItem34);
-         superToolTip34.Items.Add(toolTipSeparatorItem34);
-         superToolTip34.Items.Add(toolTipTitleItem68);
-         this.simpleButton16.SuperTip = superToolTip34;
+         toolTipTitleItem30.LeftIndent = 6;
+         toolTipTitleItem30.Text = "پرداخت از طریق دستگاه POS";
+         superToolTip15.Items.Add(toolTipTitleItem29);
+         superToolTip15.Items.Add(toolTipItem15);
+         superToolTip15.Items.Add(toolTipSeparatorItem15);
+         superToolTip15.Items.Add(toolTipTitleItem30);
+         this.simpleButton16.SuperTip = superToolTip15;
          this.simpleButton16.TabIndex = 82;
          this.simpleButton16.Tag = "1";
          this.simpleButton16.Text = "سبد خرید شما";
@@ -2365,12 +2339,13 @@
          ((System.ComponentModel.ISupportInitialize)(this.FighBs1)).EndInit();
          this.panel1.ResumeLayout(false);
          this.panel2.ResumeLayout(false);
-         ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
-         this.flowLayoutPanel1.ResumeLayout(false);
+         ((System.ComponentModel.ISupportInitialize)(this.CellPhon_Txt.Properties)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.FgpbBs1)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.NatlCode_Txt.Properties)).EndInit();
+         this.Expn_FLP.ResumeLayout(false);
          this.panel4.ResumeLayout(false);
          this.panel6.ResumeLayout(false);
-         this.flowLayoutPanel2.ResumeLayout(false);
+         this.Grop_FLP.ResumeLayout(false);
          this.panel3.ResumeLayout(false);
          this.panel5.ResumeLayout(false);
          this.panel5.PerformLayout();
@@ -2544,20 +2519,20 @@
       private DevExpress.XtraEditors.SimpleButton simpleButton1;
       private Windows.Forms.Panel panel2;
       private DevExpress.XtraEditors.SimpleButton simpleButton6;
-      private DevExpress.XtraEditors.TextEdit textEdit2;
-      private DevExpress.XtraEditors.TextEdit textEdit1;
-      private DevExpress.XtraEditors.SimpleButton simpleButton8;
-      private DevExpress.XtraEditors.SimpleButton simpleButton10;
-      private Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-      private DevExpress.XtraEditors.SimpleButton simpleButton14;
+      private DevExpress.XtraEditors.TextEdit CellPhon_Txt;
+      private DevExpress.XtraEditors.TextEdit NatlCode_Txt;
+      private DevExpress.XtraEditors.SimpleButton FreeSale4Woman_Butn;
+      private DevExpress.XtraEditors.SimpleButton FreeSale4Man_Bytn;
+      private Windows.Forms.FlowLayoutPanel Expn_FLP;
+      private DevExpress.XtraEditors.SimpleButton ExpnSmpl_Butn;
       private Windows.Forms.Panel panel4;
-      private DevExpress.XtraEditors.SimpleButton simpleButton9;
-      private DevExpress.XtraEditors.SimpleButton simpleButton7;
+      private DevExpress.XtraEditors.SimpleButton ExpnBack_Butn;
+      private DevExpress.XtraEditors.SimpleButton ExpnNext_Butn;
       private Windows.Forms.Panel panel6;
-      private Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
-      private DevExpress.XtraEditors.SimpleButton simpleButton13;
-      private DevExpress.XtraEditors.SimpleButton simpleButton11;
-      private DevExpress.XtraEditors.SimpleButton simpleButton12;
+      private Windows.Forms.FlowLayoutPanel Grop_FLP;
+      private DevExpress.XtraEditors.SimpleButton GropSmpl_Butn;
+      private DevExpress.XtraEditors.SimpleButton GropBack_Butn;
+      private DevExpress.XtraEditors.SimpleButton GropNext_Butn;
       private Windows.Forms.Panel panel3;
       private DevExpress.XtraEditors.SimpleButton simpleButton15;
       private Windows.Forms.Panel panel5;
@@ -2565,5 +2540,6 @@
       private DevExpress.XtraEditors.SimpleButton simpleButton16;
       private Windows.Forms.Panel panel7;
       private DevExpress.XtraEditors.SimpleButton RemoveExpn_Butn;
+      private Windows.Forms.BindingSource FgpbBs1;
    }
 }

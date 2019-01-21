@@ -25,6 +25,7 @@ namespace System.Scsc.Ui.OtherIncome
 
       private bool requery = default(bool);
       private string sextype = "001";
+      private bool frstload = false;
 
       private void Execute_Query()
       {
@@ -51,96 +52,227 @@ namespace System.Scsc.Ui.OtherIncome
                );
             RqstBs1.Position = rqstindx;
 
-            ExpnBs1.DataSource =
-            iScsc.Expenses.Where(ex =>
-               ex.Regulation.REGL_STAT == "002" /* آیین نامه فعال */ && ex.Regulation.TYPE == "001" /* آیین نامه هزینه */ &&
-               ex.Expense_Type.Request_Requester.RQTP_CODE == "016" &&
-               ex.Expense_Type.Request_Requester.RQTT_CODE == "001" &&
-               ex.EXPN_STAT == "002" /* هزینه های فعال */
-            );
 
             // 1397/05/15 * بدست آوردن شماره پرونده های درگیر در تمدید
-            FighBs1.DataSource = 
+            FighBs1.DataSource =
                iScsc.Fighters
-               .Where(f => 
+               .Where(f =>
                   f.CONF_STAT == "002" &&
                   Rqids.Contains((long)f.RQST_RQID) &&
-                  /*&& (f.FGPB_TYPE_DNRM == "001" || f.FGPB_TYPE_DNRM == "004" || 
-                   *    f.FGPB_TYPE_DNRM == "005" || f.FGPB_TYPE_DNRM == "006")*/ 
-                  /*(Fga_Uclb_U.Contains(f.CLUB_CODE_DNRM) || 
-                      (f.CLUB_CODE_DNRM == null ? f.Club_Methods.Where(cb => Fga_Uclb_U.Contains(cb.CLUB_CODE)).Any() : false)) &&*/
+                     /*&& (f.FGPB_TYPE_DNRM == "001" || f.FGPB_TYPE_DNRM == "004" || 
+                      *    f.FGPB_TYPE_DNRM == "005" || f.FGPB_TYPE_DNRM == "006")*/
+                     /*(Fga_Uclb_U.Contains(f.CLUB_CODE_DNRM) || 
+                         (f.CLUB_CODE_DNRM == null ? f.Club_Methods.Where(cb => Fga_Uclb_U.Contains(cb.CLUB_CODE)).Any() : false)) &&*/
                   Convert.ToInt32(f.ACTV_TAG_DNRM ?? "101") >= 101)
                .OrderBy(f => f.FGPB_TYPE_DNRM);
             //FighBs1.DataSource = iScsc.Fighters.Where(f => );
 
-            Grop_FLP.Controls.Clear();
-            var allItems = new Button();
+            if (!frstload)
+            {
+               ExpnBs1.DataSource =
+               iScsc.Expenses.Where(ex =>
+                  ex.Regulation.REGL_STAT == "002" /* آیین نامه فعال */ && ex.Regulation.TYPE == "001" /* آیین نامه هزینه */ &&
+                  ex.Expense_Type.Request_Requester.RQTP_CODE == "016" &&
+                  ex.Expense_Type.Request_Requester.RQTT_CODE == "001" &&
+                  ex.EXPN_STAT == "002" /* هزینه های فعال */
+               );
 
-            allItems.Text = "همه موارد";
-            allItems.Tag = 0;
-
-            allItems.Click += GropButn_Click;
-            Grop_FLP.Controls.Add(allItems);
-
-            ExpnBs1.List.OfType<Data.Expense>().OrderBy(e => e.GROP_CODE).GroupBy(e => e.Group_Expense).ToList().ForEach(
-               g =>
-               {
-                  var b = new Button();
-                  if (g.Key != null)
+               Expn_FLP.Controls.Clear();
+               ExpnBs1.List.OfType<Data.Expense>().ToList().ForEach(
+                  exp =>
                   {
-                     b.Text = g.Key.GROP_DESC;
-                     b.Tag = g.Key.CODE;
+                     var b = new SimpleButton();
+                     b.Anchor = System.Windows.Forms.AnchorStyles.Top;
+                     b.Appearance.BackColor = System.Drawing.Color.Transparent;
+                     b.Appearance.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+                     b.Appearance.ForeColor = System.Drawing.Color.Black;
+                     b.Appearance.Options.UseBackColor = true;
+                     b.Appearance.Options.UseFont = true;
+                     b.Appearance.Options.UseForeColor = true;
+                     b.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+                     if (exp.Expense_Type.Expense_Item.IMAG != null)
+                     {
+                        Byte[] img = ((System.Data.Linq.Binary)exp.Expense_Type.Expense_Item.IMAG).ToArray();
+
+                        MemoryStream ms = new MemoryStream();
+                        int offset = 0;
+                        ms.Write(img, offset, img.Length - offset);
+                        Bitmap bmp = new Bitmap(ms);
+                        ms.Close();
+
+                        b.Image = bmp;
+                     }
+                     else
+                     {
+                        b.Image = System.Scsc.Properties.Resources.IMAGE_1669;
+                     }
+                     b.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter;
+                     b.Location = new System.Drawing.Point(640, 3);
+                     b.LookAndFeel.SkinName = "Office 2010 Blue";
+                     b.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+                     b.LookAndFeel.UseDefaultLookAndFeel = false;
+                     b.Name = "GropSmpl_Butn";
+                     b.Size = new System.Drawing.Size(113, 101);
+                     b.TabIndex = 98;
+                     b.Tag = exp;
+                     b.Text = exp.EXPN_DESC;
+
+                     b.Click += ExpnButn_Click;
+
+                     Expn_FLP.Controls.Add(b);
                   }
-                  else
-                     b.Text = "سایر موارد";                  
-                  b.Click += GropButn_Click;
-                  Grop_FLP.Controls.Add(b);
-               }
-            );
+               );               
+
+               Grop_FLP.Controls.Clear();
+               var allItems = new SimpleButton();
+
+               allItems.Anchor = System.Windows.Forms.AnchorStyles.Top;
+               allItems.Appearance.BackColor = System.Drawing.Color.Transparent;
+               allItems.Appearance.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+               allItems.Appearance.ForeColor = System.Drawing.Color.Black;
+               allItems.Appearance.Options.UseBackColor = true;
+               allItems.Appearance.Options.UseFont = true;
+               allItems.Appearance.Options.UseForeColor = true;
+               allItems.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+               allItems.Image = global::System.Scsc.Properties.Resources.IMAGE_1086;
+               allItems.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter;
+               allItems.Location = new System.Drawing.Point(640, 3);
+               allItems.LookAndFeel.SkinName = "Office 2010 Blue";
+               allItems.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+               allItems.LookAndFeel.UseDefaultLookAndFeel = false;
+               allItems.Name = "GropSmpl_Butn";
+               allItems.Size = new System.Drawing.Size(113, 103);
+               allItems.TabIndex = 98;
+               allItems.Text = "همه موارد";
+               allItems.Tag = 0;
+
+               allItems.Click += GropButn_Click;
+               Grop_FLP.Controls.Add(allItems);
+
+               ExpnBs1.List.OfType<Data.Expense>().OrderBy(e => e.GROP_CODE).GroupBy(e => e.Group_Expense).ToList().ForEach(
+                  g =>
+                  {
+                     var b = new SimpleButton();
+                     b.Anchor = System.Windows.Forms.AnchorStyles.Top;
+                     b.Appearance.BackColor = System.Drawing.Color.Transparent;
+                     b.Appearance.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+                     b.Appearance.ForeColor = System.Drawing.Color.Black;
+                     b.Appearance.Options.UseBackColor = true;
+                     b.Appearance.Options.UseFont = true;
+                     b.Appearance.Options.UseForeColor = true;
+                     b.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+                     b.Image = global::System.Scsc.Properties.Resources.IMAGE_1086;
+                     b.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter;
+                     b.Location = new System.Drawing.Point(640, 3);
+                     b.LookAndFeel.SkinName = "Office 2010 Blue";
+                     b.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+                     b.LookAndFeel.UseDefaultLookAndFeel = false;
+                     b.Name = "GropSmpl_Butn";
+                     b.Size = new System.Drawing.Size(113, 103);
+                     b.TabIndex = 98;
+                     b.Tag = "1";
+                     b.Text = "انار شاپ";
+                     if (g.Key != null)
+                     {
+                        b.Text = g.Key.GROP_DESC;
+                        b.Tag = g.Key.CODE;
+                     }
+                     else
+                        b.Text = "سایر موارد";
+                     b.Click += GropButn_Click;
+                     Grop_FLP.Controls.Add(b);
+                  }
+               );
+
+               frstload = true;
+            }
 
             PydtsBs1.Position = pydt;
          }
          requery = false;
       }
 
-      void GropButn_Click(object sender, EventArgs e)
+      private void GropButn_Click(object sender, EventArgs e)
       {
-         Button b = (Button) sender;
-         if(b.Tag != null)
-            if(Convert.ToInt64(b.Tag) != 0)
-               Expn_Gv.ActiveFilterString = string.Format("GROP_CODE = {0}", b.Tag);
+         SimpleButton bg = (SimpleButton) sender;
+         if (bg.Tag != null)
+         {
+            var gropcode = Convert.ToInt64( bg.Tag );
+            if (gropcode != 0)
+               Expn_FLP.Controls.OfType<SimpleButton>().ToList()
+                  .ForEach(
+                     b =>
+                     {
+                        var exp = b.Tag as Data.Expense;
+                        if (exp.GROP_CODE == gropcode)
+                           b.Visible = true;
+                        else
+                           b.Visible = false;
+                     }
+                  );
             else
-               Expn_Gv.ActiveFilterString = "";
+               Expn_FLP.Controls.OfType<SimpleButton>().ToList()
+                  .ForEach(
+                     b =>
+                     {
+                        b.Visible = true;
+                     }
+                  );
+         }
          else
-            Expn_Gv.ActiveFilterString = "GROP_CODE IS NULL";
+            Expn_FLP.Controls.OfType<SimpleButton>().ToList()
+               .ForEach(
+                  b =>
+                  {
+                     var exp = b.Tag as Data.Expense;
+                     if (exp.GROP_CODE == null)
+                        b.Visible = true;
+                     else
+                        b.Visible = false;
+                  }
+               );
       }
 
-      private void RqroBs1_CurrentChanged(object sender, EventArgs e)
+      private void ExpnButn_Click(object sender, EventArgs e)
       {
          try
          {
-            var Rqst = RqstBs1.Current as Data.Request;
+            var rqst = RqstBs1.Current as Data.Request;
+            // اگر در جدول هزینه قبلا رکوردی درج شده باشد
+            if (rqst == null) return;
 
-            if (Rqst.SSTT_MSTT_CODE == 2 && (Rqst.SSTT_CODE == 1 || Rqst.SSTT_CODE == 2))
+            SimpleButton b = sender as SimpleButton;
+            var expn = b.Tag as Data.Expense;
+
+            // چک میکنیم که قبلا از این آیتم هزینه در جدول ریز هزینه وجود نداشته باشد
+            if (!PydtsBs1.List.OfType<Data.Payment_Detail>().Any(p => p.EXPN_CODE == expn.CODE))
             {
-               Gb_Expense.Visible = true;
-               Gb_ExpenseItem.Visible = true;
+               PydtsBs1.AddNew();
+               var pydt = PydtsBs1.Current as Data.Payment_Detail;
+               ExpnBs1.List.OfType<Data.Expense>().Where(ex => ex.CODE == expn.CODE).ToList().ForEach(ex => { pydt.EXPN_CODE = ex.CODE; pydt.EXPN_PRIC = ex.PRIC; pydt.EXPN_EXTR_PRCT = ex.EXTR_PRCT; pydt.QNTY = 1; pydt.PYDT_DESC = ex.EXPN_DESC; pydt.PAY_STAT = "001"; pydt.RQRO_RWNO = 1; pydt.MTOD_CODE_DNRM = expn.MTOD_CODE; pydt.CTGY_CODE_DNRM = expn.CTGY_CODE; });
             }
-            else if (!(Rqst.SSTT_MSTT_CODE == 2 && (Rqst.SSTT_CODE == 1 || Rqst.SSTT_CODE == 2)) && Rqst.RQID > 0)
+            else
             {
-               Gb_Expense.Visible = false;
-               Gb_ExpenseItem.Visible = true;
+               var pydt = PydtsBs1.List.OfType<Data.Payment_Detail>().Where(p => p.EXPN_CODE == expn.CODE).First();
+               ExpnBs1.List.OfType<Data.Expense>().Where(ex => ex.CODE == expn.CODE).ToList().ForEach(ex => { pydt.QNTY += 1; });
             }
-            else if (Rqst.RQID == 0)
-            {
-               Gb_Expense.Visible = false;
-               Gb_ExpenseItem.Visible = false;
-            }
+
+            PydtsBs1.EndEdit();
+            iScsc.SubmitChanges();
+
+            requery = true;
          }
-         catch
+         catch (Exception ex)
          {
-            Gb_Expense.Visible = false;
-            Gb_ExpenseItem.Visible = false;
+            MessageBox.Show(ex.Message);
+         }
+         finally
+         {
+            if (requery)
+            {
+               Execute_Query();
+               requery = false;
+            }
          }
       }
 
@@ -165,8 +297,8 @@ namespace System.Scsc.Ui.OtherIncome
                         new XElement("Fighter_Public", 
                            new XAttribute("frstname", ""),
                            new XAttribute("lastname", ""),
-                           new XAttribute("natlcode", ""),
-                           new XAttribute("cellphon", ""),
+                           new XAttribute("natlcode", NatlCode_Txt.EditValue ?? ""),
+                           new XAttribute("cellphon", CellPhon_Txt.EditValue ?? ""),
                            new XAttribute("suntcode", ""),
                            new XAttribute("servno", "")
                         )
@@ -687,6 +819,7 @@ namespace System.Scsc.Ui.OtherIncome
             //if (MessageBox.Show(this, "آیا با پاک کردن هزینه درخواست موافقید؟", "حذف هزینه", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
             /* Do Delete Payment_Detail */
             var Crnt = PydtsBs1.Current as Data.Payment_Detail;
+            if (Crnt == null) return;
             var rqst = RqstBs1.Current as Data.Request;
             iScsc.DEL_SEXP_P(
                new XElement("Request",
@@ -795,7 +928,7 @@ namespace System.Scsc.Ui.OtherIncome
       {
          try
          {
-            string sextypebutn = (sender as MaxUi.RoundedButton).Tag.ToString();
+            string sextypebutn = (sender as SimpleButton).Tag.ToString();
 
             switch (sextypebutn)
             {

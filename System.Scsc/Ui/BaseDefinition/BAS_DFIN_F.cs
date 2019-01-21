@@ -3897,7 +3897,7 @@ namespace System.Scsc.Ui.BaseDefinition
             byte[] arr;
             using (MemoryStream ms = new MemoryStream())
             {
-               img.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+               img.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
                arr = ms.ToArray();
             }
 

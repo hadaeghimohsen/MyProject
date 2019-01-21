@@ -2734,6 +2734,33 @@
     <Content Include="..\System.Resource\Resources\IMAGE_1659.png">
       <Link>Resources\IMAGE_1659.png</Link>
     </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1660.png">
+      <Link>Resources\IMAGE_1660.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1661.png">
+      <Link>Resources\IMAGE_1661.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1662.jpg">
+      <Link>Resources\IMAGE_1662.jpg</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1663.jpg">
+      <Link>Resources\IMAGE_1663.jpg</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1664.jpg">
+      <Link>Resources\IMAGE_1664.jpg</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1665.jpg">
+      <Link>Resources\IMAGE_1665.jpg</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1666.png">
+      <Link>Resources\IMAGE_1666.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1667.jpg">
+      <Link>Resources\IMAGE_1667.jpg</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1668.png">
+      <Link>Resources\IMAGE_1668.png</Link>
+    </Content>
     <Content Include="cvextern.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

@@ -28,6 +28,7 @@
       /// </summary>
       private void InitializeComponent()
       {
+         this.components = new System.ComponentModel.Container();
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingsSystem));
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition5 = new DevExpress.XtraGrid.StyleFormatCondition();
@@ -48,8 +49,8 @@
          this.tp_001 = new System.Windows.Forms.TabPage();
          this.splitContainerControl2 = new DevExpress.XtraEditors.SplitContainerControl();
          this.SubSysDesc_Text = new DevExpress.XtraEditors.MemoEdit();
-         this.PackageUserGatewayBs = new System.Windows.Forms.BindingSource();
-         this.UserGatewayBs = new System.Windows.Forms.BindingSource();
+         this.PackageUserGatewayBs = new System.Windows.Forms.BindingSource(this.components);
+         this.UserGatewayBs = new System.Windows.Forms.BindingSource(this.components);
          this.labelControl51 = new DevExpress.XtraEditors.LabelControl();
          this.RunScript_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.EmptyDatabase_Butn = new DevExpress.XtraEditors.SimpleButton();
@@ -62,13 +63,12 @@
          this.labelControl17 = new DevExpress.XtraEditors.LabelControl();
          this.LICN_TYPE_Lbl = new DevExpress.XtraEditors.LabelControl();
          this.DLL_NAME_Lbl = new DevExpress.XtraEditors.LabelControl();
-         this.SubSysBs = new System.Windows.Forms.BindingSource();
+         this.SubSysBs = new System.Windows.Forms.BindingSource(this.components);
          this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
          this.LICN_TRIL_DATE_Lbl = new DevExpress.XtraEditors.LabelControl();
          this.INST_DATE_Lbl = new DevExpress.XtraEditors.LabelControl();
          this.ClearSubSysDesc_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.SaveSubSys_Butn = new DevExpress.XtraEditors.SimpleButton();
-         this.LicnDateConfig_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.Shrinkdb_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.RefreshApp_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.labelControl16 = new DevExpress.XtraEditors.LabelControl();
@@ -118,7 +118,7 @@
          this.DisabledDefaultApp_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.SaveDefaultApp_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.searchLookUpEdit1 = new DevExpress.XtraEditors.SearchLookUpEdit();
-         this.UsersBs = new System.Windows.Forms.BindingSource();
+         this.UsersBs = new System.Windows.Forms.BindingSource(this.components);
          this.searchLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colSUB_SYS1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colDESC1 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -182,7 +182,7 @@
          this.linkLabel13 = new System.Windows.Forms.LinkLabel();
          this.splitContainerControl7 = new DevExpress.XtraEditors.SplitContainerControl();
          this.gridControl6 = new DevExpress.XtraGrid.GridControl();
-         this.PackageActivityBs = new System.Windows.Forms.BindingSource();
+         this.PackageActivityBs = new System.Windows.Forms.BindingSource(this.components);
          this.gridView7 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colSSIT_SUB_SYS = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colSSIT_RWNO = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -199,7 +199,7 @@
          this.colSub_System_Item = new DevExpress.XtraGrid.Columns.GridColumn();
          this.gridColumn73 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.gridControl4 = new DevExpress.XtraGrid.GridControl();
-         this.UserQiuckActionBs = new System.Windows.Forms.BindingSource();
+         this.UserQiuckActionBs = new System.Windows.Forms.BindingSource(this.components);
          this.gridView5 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colPIUG_PKIN_PAKG_SUB_SYS = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colPIUG_PKIN_PAKG_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -337,13 +337,16 @@
          this.labelControl19 = new DevExpress.XtraEditors.LabelControl();
          this.tp_006 = new System.Windows.Forms.TabPage();
          this.splitContainerControl9 = new DevExpress.XtraEditors.SplitContainerControl();
+         this.PayExpnYear_Pn = new System.Windows.Forms.Panel();
+         this.PayExpnYear_Butn = new DevExpress.XtraEditors.SimpleButton();
+         this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+         this.labelControl42 = new DevExpress.XtraEditors.LabelControl();
          this.labelControl40 = new DevExpress.XtraEditors.LabelControl();
          this.tabControl1 = new System.Windows.Forms.TabControl();
          this.tabPage1 = new System.Windows.Forms.TabPage();
          this.label1 = new System.Windows.Forms.Label();
          this.tabPage2 = new System.Windows.Forms.TabPage();
          this.label2 = new System.Windows.Forms.Label();
-         this.linkLabel1 = new System.Windows.Forms.LinkLabel();
          this.Licnday_Lnk = new System.Windows.Forms.LinkLabel();
          this.CertificateLogo_Pb = new System.Windows.Forms.PictureBox();
          this.labelControl49 = new DevExpress.XtraEditors.LabelControl();
@@ -374,9 +377,6 @@
          this.About_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.JobSchedule_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.LicnDateConf_Butn = new DevExpress.XtraEditors.SimpleButton();
-         this.labelControl42 = new DevExpress.XtraEditors.LabelControl();
-         this.PayExpnYear_Butn = new DevExpress.XtraEditors.SimpleButton();
-         this.PayExpnYear_Pn = new System.Windows.Forms.Panel();
          this.panel1.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
          this.splitContainerControl1.SuspendLayout();
@@ -435,6 +435,7 @@
          this.tp_006.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl9)).BeginInit();
          this.splitContainerControl9.SuspendLayout();
+         this.PayExpnYear_Pn.SuspendLayout();
          this.tabControl1.SuspendLayout();
          this.tabPage1.SuspendLayout();
          this.tabPage2.SuspendLayout();
@@ -442,7 +443,6 @@
          ((System.ComponentModel.ISupportInitialize)(this.gridControl7)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.gridView8)).BeginInit();
          this.flowLayoutPanel1.SuspendLayout();
-         this.PayExpnYear_Pn.SuspendLayout();
          this.SuspendLayout();
          // 
          // colDFLT_APP_STRT_STAT1
@@ -571,7 +571,6 @@
          this.splitContainerControl2.Panel1.Controls.Add(this.INST_DATE_Lbl);
          this.splitContainerControl2.Panel1.Controls.Add(this.ClearSubSysDesc_Butn);
          this.splitContainerControl2.Panel1.Controls.Add(this.SaveSubSys_Butn);
-         this.splitContainerControl2.Panel1.Controls.Add(this.LicnDateConfig_Butn);
          this.splitContainerControl2.Panel1.Controls.Add(this.Shrinkdb_Butn);
          this.splitContainerControl2.Panel1.Controls.Add(this.RefreshApp_Butn);
          this.splitContainerControl2.Panel1.Controls.Add(this.labelControl16);
@@ -871,7 +870,6 @@
          this.LICN_TRIL_DATE_Lbl.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
          this.LICN_TRIL_DATE_Lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
          this.LICN_TRIL_DATE_Lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.LICN_TRIL_DATE_Lbl.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.SubSysBs, "LICN_TRIL_DATE", true));
          this.LICN_TRIL_DATE_Lbl.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
          this.LICN_TRIL_DATE_Lbl.Location = new System.Drawing.Point(222, 359);
          this.LICN_TRIL_DATE_Lbl.Name = "LICN_TRIL_DATE_Lbl";
@@ -887,7 +885,6 @@
          this.INST_DATE_Lbl.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
          this.INST_DATE_Lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
          this.INST_DATE_Lbl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.INST_DATE_Lbl.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.SubSysBs, "INST_DATE", true));
          this.INST_DATE_Lbl.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
          this.INST_DATE_Lbl.Location = new System.Drawing.Point(222, 231);
          this.INST_DATE_Lbl.Name = "INST_DATE_Lbl";
@@ -933,26 +930,6 @@
          this.SaveSubSys_Butn.TabIndex = 6;
          this.SaveSubSys_Butn.ToolTip = "پاک کردن اطلاعات پیش نویس";
          this.SaveSubSys_Butn.Click += new System.EventHandler(this.SaveSubSys_Butn_Click);
-         // 
-         // LicnDateConfig_Butn
-         // 
-         this.LicnDateConfig_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.LicnDateConfig_Butn.Appearance.Font = new System.Drawing.Font("B Badr", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.LicnDateConfig_Butn.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-         this.LicnDateConfig_Butn.Appearance.Options.UseFont = true;
-         this.LicnDateConfig_Butn.Appearance.Options.UseForeColor = true;
-         this.LicnDateConfig_Butn.Appearance.Options.UseTextOptions = true;
-         this.LicnDateConfig_Butn.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-         this.LicnDateConfig_Butn.Image = global::System.DataGuard.Properties.Resources.IMAGE_1402;
-         this.LicnDateConfig_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.LicnDateConfig_Butn.Location = new System.Drawing.Point(168, 359);
-         this.LicnDateConfig_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.LicnDateConfig_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.LicnDateConfig_Butn.Name = "LicnDateConfig_Butn";
-         this.LicnDateConfig_Butn.Size = new System.Drawing.Size(47, 36);
-         this.LicnDateConfig_Butn.TabIndex = 6;
-         this.LicnDateConfig_Butn.ToolTip = "مدیریت اعتبار پشتیبانی";
-         this.LicnDateConfig_Butn.Click += new System.EventHandler(this.Shrinkdb_Butn_Click);
          // 
          // Shrinkdb_Butn
          // 
@@ -3666,6 +3643,72 @@
          this.splitContainerControl9.TabIndex = 23;
          this.splitContainerControl9.Text = "splitContainerControl9";
          // 
+         // PayExpnYear_Pn
+         // 
+         this.PayExpnYear_Pn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.PayExpnYear_Pn.Controls.Add(this.PayExpnYear_Butn);
+         this.PayExpnYear_Pn.Controls.Add(this.linkLabel1);
+         this.PayExpnYear_Pn.Controls.Add(this.labelControl42);
+         this.PayExpnYear_Pn.Controls.Add(this.labelControl40);
+         this.PayExpnYear_Pn.Location = new System.Drawing.Point(279, 369);
+         this.PayExpnYear_Pn.Name = "PayExpnYear_Pn";
+         this.PayExpnYear_Pn.Size = new System.Drawing.Size(195, 193);
+         this.PayExpnYear_Pn.TabIndex = 27;
+         this.PayExpnYear_Pn.Visible = false;
+         // 
+         // PayExpnYear_Butn
+         // 
+         this.PayExpnYear_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.PayExpnYear_Butn.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+         this.PayExpnYear_Butn.Appearance.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.PayExpnYear_Butn.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+         this.PayExpnYear_Butn.Appearance.Options.UseBackColor = true;
+         this.PayExpnYear_Butn.Appearance.Options.UseFont = true;
+         this.PayExpnYear_Butn.Appearance.Options.UseForeColor = true;
+         this.PayExpnYear_Butn.Appearance.Options.UseTextOptions = true;
+         this.PayExpnYear_Butn.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         this.PayExpnYear_Butn.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+         this.PayExpnYear_Butn.Image = global::System.DataGuard.Properties.Resources.IMAGE_1434;
+         this.PayExpnYear_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
+         this.PayExpnYear_Butn.Location = new System.Drawing.Point(14, 59);
+         this.PayExpnYear_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.PayExpnYear_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.PayExpnYear_Butn.Name = "PayExpnYear_Butn";
+         this.PayExpnYear_Butn.Size = new System.Drawing.Size(168, 44);
+         this.PayExpnYear_Butn.TabIndex = 26;
+         this.PayExpnYear_Butn.Text = "پرداخت هزینه";
+         this.PayExpnYear_Butn.ToolTip = "پاک کردن اطلاعات پیش نویس";
+         // 
+         // linkLabel1
+         // 
+         this.linkLabel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.linkLabel1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.SubSysBs, "SUPR_YEAR_PRIC", true));
+         this.linkLabel1.Font = new System.Drawing.Font("IRANSans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.linkLabel1.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+         this.linkLabel1.Location = new System.Drawing.Point(87, 34);
+         this.linkLabel1.Name = "linkLabel1";
+         this.linkLabel1.Size = new System.Drawing.Size(95, 22);
+         this.linkLabel1.TabIndex = 22;
+         this.linkLabel1.TabStop = true;
+         this.linkLabel1.Text = "250000";
+         this.linkLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         // 
+         // labelControl42
+         // 
+         this.labelControl42.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.labelControl42.Appearance.BackColor = System.Drawing.Color.Transparent;
+         this.labelControl42.Appearance.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.labelControl42.Appearance.ForeColor = System.Drawing.Color.Black;
+         this.labelControl42.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+         this.labelControl42.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         this.labelControl42.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+         this.labelControl42.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
+         this.labelControl42.Location = new System.Drawing.Point(50, 32);
+         this.labelControl42.Name = "labelControl42";
+         this.labelControl42.Size = new System.Drawing.Size(31, 24);
+         this.labelControl42.TabIndex = 24;
+         this.labelControl42.Text = "تومان";
+         // 
          // labelControl40
          // 
          this.labelControl40.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -3735,20 +3778,6 @@
          this.label2.Size = new System.Drawing.Size(638, 269);
          this.label2.TabIndex = 21;
          this.label2.Text = resources.GetString("label2.Text");
-         // 
-         // linkLabel1
-         // 
-         this.linkLabel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.linkLabel1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.SubSysBs, "SUPR_YEAR_PRIC", true));
-         this.linkLabel1.Font = new System.Drawing.Font("IRANSans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.linkLabel1.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-         this.linkLabel1.Location = new System.Drawing.Point(87, 34);
-         this.linkLabel1.Name = "linkLabel1";
-         this.linkLabel1.Size = new System.Drawing.Size(95, 22);
-         this.linkLabel1.TabIndex = 22;
-         this.linkLabel1.TabStop = true;
-         this.linkLabel1.Text = "250000";
-         this.linkLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
          // 
          // Licnday_Lnk
          // 
@@ -4090,58 +4119,6 @@
          this.LicnDateConf_Butn.Text = "وضعیت پشتیبانی نرم افزار";
          this.LicnDateConf_Butn.Click += new System.EventHandler(this.RightButns_Click);
          // 
-         // labelControl42
-         // 
-         this.labelControl42.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.labelControl42.Appearance.BackColor = System.Drawing.Color.Transparent;
-         this.labelControl42.Appearance.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.labelControl42.Appearance.ForeColor = System.Drawing.Color.Black;
-         this.labelControl42.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         this.labelControl42.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-         this.labelControl42.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-         this.labelControl42.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl42.Location = new System.Drawing.Point(50, 32);
-         this.labelControl42.Name = "labelControl42";
-         this.labelControl42.Size = new System.Drawing.Size(31, 24);
-         this.labelControl42.TabIndex = 24;
-         this.labelControl42.Text = "تومان";
-         // 
-         // PayExpnYear_Butn
-         // 
-         this.PayExpnYear_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.PayExpnYear_Butn.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-         this.PayExpnYear_Butn.Appearance.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.PayExpnYear_Butn.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-         this.PayExpnYear_Butn.Appearance.Options.UseBackColor = true;
-         this.PayExpnYear_Butn.Appearance.Options.UseFont = true;
-         this.PayExpnYear_Butn.Appearance.Options.UseForeColor = true;
-         this.PayExpnYear_Butn.Appearance.Options.UseTextOptions = true;
-         this.PayExpnYear_Butn.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-         this.PayExpnYear_Butn.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-         this.PayExpnYear_Butn.Image = global::System.DataGuard.Properties.Resources.IMAGE_1434;
-         this.PayExpnYear_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
-         this.PayExpnYear_Butn.Location = new System.Drawing.Point(14, 59);
-         this.PayExpnYear_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.PayExpnYear_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.PayExpnYear_Butn.Name = "PayExpnYear_Butn";
-         this.PayExpnYear_Butn.Size = new System.Drawing.Size(168, 44);
-         this.PayExpnYear_Butn.TabIndex = 26;
-         this.PayExpnYear_Butn.Text = "پرداخت هزینه";
-         this.PayExpnYear_Butn.ToolTip = "پاک کردن اطلاعات پیش نویس";
-         // 
-         // PayExpnYear_Pn
-         // 
-         this.PayExpnYear_Pn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.PayExpnYear_Pn.Controls.Add(this.PayExpnYear_Butn);
-         this.PayExpnYear_Pn.Controls.Add(this.linkLabel1);
-         this.PayExpnYear_Pn.Controls.Add(this.labelControl42);
-         this.PayExpnYear_Pn.Controls.Add(this.labelControl40);
-         this.PayExpnYear_Pn.Location = new System.Drawing.Point(279, 369);
-         this.PayExpnYear_Pn.Name = "PayExpnYear_Pn";
-         this.PayExpnYear_Pn.Size = new System.Drawing.Size(195, 193);
-         this.PayExpnYear_Pn.TabIndex = 27;
-         this.PayExpnYear_Pn.Visible = false;
-         // 
          // SettingsSystem
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -4211,6 +4188,8 @@
          this.tp_006.ResumeLayout(false);
          ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl9)).EndInit();
          this.splitContainerControl9.ResumeLayout(false);
+         this.PayExpnYear_Pn.ResumeLayout(false);
+         this.PayExpnYear_Pn.PerformLayout();
          this.tabControl1.ResumeLayout(false);
          this.tabPage1.ResumeLayout(false);
          this.tabPage2.ResumeLayout(false);
@@ -4218,8 +4197,6 @@
          ((System.ComponentModel.ISupportInitialize)(this.gridControl7)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.gridView8)).EndInit();
          this.flowLayoutPanel1.ResumeLayout(false);
-         this.PayExpnYear_Pn.ResumeLayout(false);
-         this.PayExpnYear_Pn.PerformLayout();
          this.ResumeLayout(false);
 
       }
@@ -4529,7 +4506,6 @@
       private DevExpress.XtraEditors.SimpleButton InstallApp_Butn;
       private DevExpress.XtraEditors.SimpleButton ConfigTinyLock_Butn;
       private DevExpress.XtraEditors.SimpleButton EmptyDatabase_Butn;
-      private DevExpress.XtraEditors.SimpleButton LicnDateConfig_Butn;
       private Windows.Forms.TabPage tp_006;
       private DevExpress.XtraEditors.SplitContainerControl splitContainerControl9;
       private Windows.Forms.Label label1;

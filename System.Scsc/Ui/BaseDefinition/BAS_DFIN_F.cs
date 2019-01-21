@@ -14,6 +14,7 @@ using System.IO;
 using System.Globalization;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraEditors.Repository;
+using System.Data.Linq;
 
 namespace System.Scsc.Ui.BaseDefinition
 {
@@ -263,6 +264,8 @@ namespace System.Scsc.Ui.BaseDefinition
          var incomeepit = InComeEpitBs1.Current as Data.Expense_Item;
          incomeepit.RQTT_CODE = "001";
          incomeepit.RQTP_CODE = "001";
+
+         iScsc.Expense_Items.InsertOnSubmit(incomeepit);
       }
 
       private void SaveInComeEpit_Butn_Click(object sender, EventArgs e)
@@ -271,9 +274,11 @@ namespace System.Scsc.Ui.BaseDefinition
          {
             var crnt = InComeEpitBs1.Current as Data.Expense_Item;
 
-            if (crnt.CRET_BY != null && MessageBox.Show(this, "آیا با ویرایش کردن رکورد جاری موافقید؟", "ویرایش اطلاعات", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+            InComeEpitBs1.EndEdit();
+            incepit_gv.PostEditor();
+            //if (crnt.CRET_BY != null && MessageBox.Show(this, "آیا با ویرایش کردن رکورد جاری موافقید؟", "ویرایش اطلاعات", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
 
-            iScsc.STNG_SAVE_P(
+            /*iScsc.STNG_SAVE_P(
                new XElement("Config",
                   new XAttribute("type", "010"),
                   InComeEpitBs1.List.OfType<Data.Expense_Item>().Where(c => c.CRET_BY == null).Select(c =>
@@ -300,7 +305,8 @@ namespace System.Scsc.Ui.BaseDefinition
                     ) : new XElement("Update")
 
                )
-            );
+            );*/
+            iScsc.SubmitChanges();
             requery = true;
          }
          catch (Exception exc)
@@ -310,10 +316,7 @@ namespace System.Scsc.Ui.BaseDefinition
          finally
          {
             if(requery)
-            {
                Execute_Query();
-               requery = false;
-            }
          }
       }
 
@@ -3875,6 +3878,62 @@ namespace System.Scsc.Ui.BaseDefinition
          {
             MessageBox.Show(exc.Message);
          }         
+      }
+
+      private void SelectedImage_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var epit = InComeEpitBs1.Current as Data.Expense_Item;
+            if (epit == null) return;
+
+            OpnFil_Ofd.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp;...";
+            if (OpnFil_Ofd.ShowDialog() != DialogResult.OK) return;
+
+            var img = Image.FromFile(OpnFil_Ofd.FileName);
+
+            IncEpitImag_Pb.Image = img;
+
+            byte[] arr;
+            using (MemoryStream ms = new MemoryStream())
+            {
+               img.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+               arr = ms.ToArray();
+            }
+
+            epit.IMAG = arr;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void InComeEpitBs1_CurrentChanged(object sender, EventArgs e)
+      {
+         try
+         {
+            IncEpitImag_Pb.Image = null;
+            var epit = InComeEpitBs1.Current as Data.Expense_Item;
+            if (epit == null) return;
+
+            if (epit.IMAG != null)
+            {
+               Byte[] img = ((System.Data.Linq.Binary)epit.IMAG).ToArray();
+
+               MemoryStream ms = new MemoryStream();
+               int offset = 0;
+               ms.Write(img, offset, img.Length - offset);
+               Bitmap bmp = new Bitmap(ms);
+               ms.Close();
+
+               IncEpitImag_Pb.Image = bmp;
+            }
+         }
+         catch (Exception)
+         {
+
+         }
       }
    }
 }

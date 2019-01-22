@@ -264,6 +264,8 @@ namespace System.Scsc.Ui.BaseDefinition
          var incomeepit = InComeEpitBs1.Current as Data.Expense_Item;
          incomeepit.RQTT_CODE = "001";
          incomeepit.RQTP_CODE = "001";
+         incomeepit.TYPE = "001";
+         incomeepit.AUTO_GNRT = "002";
 
          iScsc.Expense_Items.InsertOnSubmit(incomeepit);
       }

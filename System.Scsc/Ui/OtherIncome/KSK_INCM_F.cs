@@ -84,7 +84,7 @@ namespace System.Scsc.Ui.OtherIncome
                      var b = new SimpleButton();
                      b.Anchor = System.Windows.Forms.AnchorStyles.Top;
                      b.Appearance.BackColor = System.Drawing.Color.Transparent;
-                     b.Appearance.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+                     b.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
                      b.Appearance.ForeColor = System.Drawing.Color.Black;
                      b.Appearance.Options.UseBackColor = true;
                      b.Appearance.Options.UseFont = true;
@@ -115,7 +115,7 @@ namespace System.Scsc.Ui.OtherIncome
                      b.Size = new System.Drawing.Size(113, 101);
                      b.TabIndex = 98;
                      b.Tag = exp;
-                     b.Text = exp.EXPN_DESC;
+                     b.Text = string.Format("{1:n0}\n\r{0}", exp.EXPN_DESC, exp.PRIC + exp.EXTR_PRCT);
 
                      b.Click += ExpnButn_Click;
 

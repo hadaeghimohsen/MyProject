@@ -1,4 +1,4 @@
-﻿using System;
+﻿﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -34,6 +34,8 @@ namespace System.Scsc.Ui.OtherIncome
          {
             iScsc = new Data.iScscDataContext(ConnectionString);
             int pydt = PydtsBs1.Position;
+
+            FreeSale4Man_Butn.Appearance.BackColor = FreeSale4Woman_Butn.Appearance.BackColor = Color.Transparent;
 
             var Rqids = iScsc.VF_Requests(new XElement("Request", new XElement("Fighter", new XAttribute("sextype", sextype), new XAttribute("fgpbtype", "005"))))
                .Where(rqst =>
@@ -121,7 +123,7 @@ namespace System.Scsc.Ui.OtherIncome
 
                      Expn_FLP.Controls.Add(b);
                   }
-               );               
+               );
 
                Grop_FLP.Controls.Clear();
                var allItems = new SimpleButton();
@@ -194,10 +196,10 @@ namespace System.Scsc.Ui.OtherIncome
 
       private void GropButn_Click(object sender, EventArgs e)
       {
-         SimpleButton bg = (SimpleButton) sender;
+         SimpleButton bg = (SimpleButton)sender;
          if (bg.Tag != null)
          {
-            var gropcode = Convert.ToInt64( bg.Tag );
+            var gropcode = Convert.ToInt64(bg.Tag);
             if (gropcode != 0)
                Expn_FLP.Controls.OfType<SimpleButton>().ToList()
                   .ForEach(
@@ -294,7 +296,7 @@ namespace System.Scsc.Ui.OtherIncome
                      new XAttribute("rqstdesc", ""),
                      new XElement("Request_Row",
                         new XAttribute("fileno", fileno),
-                        new XElement("Fighter_Public", 
+                        new XElement("Fighter_Public",
                            new XAttribute("frstname", ""),
                            new XAttribute("lastname", ""),
                            new XAttribute("natlcode", NatlCode_Txt.EditValue ?? ""),
@@ -308,13 +310,13 @@ namespace System.Scsc.Ui.OtherIncome
             );
             requery = true;
          }
-         catch(Exception ex)
+         catch (Exception ex)
          {
             MessageBox.Show(ex.Message);
          }
          finally
          {
-            if(requery)
+            if (requery)
             {
                Execute_Query();
             }
@@ -339,13 +341,13 @@ namespace System.Scsc.Ui.OtherIncome
             //OldRecdBs1.List.Clear();
             requery = true;
          }
-         catch(Exception ex)
+         catch (Exception ex)
          {
             MessageBox.Show(ex.Message);
          }
          finally
          {
-            if(requery)
+            if (requery)
             {
                Execute_Query();
             }
@@ -378,18 +380,19 @@ namespace System.Scsc.Ui.OtherIncome
             );
             //OldRecdBs1.List.Clear();
             requery = true;
-         }catch(Exception ex)
+         }
+         catch (Exception ex)
          {
             MessageBox.Show(ex.Message);
          }
          finally
          {
-            if(requery)
+            if (requery)
             {
                Execute_Query();
             }
          }
-      }      
+      }
 
       private void RqstBnExit1_Click(object sender, EventArgs e)
       {
@@ -414,7 +417,7 @@ namespace System.Scsc.Ui.OtherIncome
             }
          );
 
-         if(result)
+         if (result)
             _DefaultGateway.Gateway(
                new Job(SendType.External, "localhost", GetType().Name, 00 /* Execute ProcessCmdKey */, SendType.SelfToUserInterface) { Input = Keys.Escape }
             );
@@ -706,7 +709,7 @@ namespace System.Scsc.Ui.OtherIncome
                      new Job(SendType.SelfToUserInterface, "REGL_DCMT_F", 10 /* Execute Actn_CalF_P */){Input = new XElement("Regulation", new XElement("Request_Requester", new XAttribute("rqtpcode", "016")))}
                   })
                );
-         }         
+         }
       }
       private bool setOnDebt = false;
       private void Btn_InDebt001_Click(object sender, EventArgs e)
@@ -802,9 +805,9 @@ namespace System.Scsc.Ui.OtherIncome
          {
             MessageBox.Show(ex.Message);
          }
-         finally 
-         { 
-            if(requery)
+         finally
+         {
+            if (requery)
             {
                Execute_Query();
                requery = false;
@@ -932,7 +935,7 @@ namespace System.Scsc.Ui.OtherIncome
       {
          AddItem_ButtonClick(null, null);
       }
-      
+
       private void FreeSale_Rb_Click(object sender, EventArgs e)
       {
          try
@@ -955,12 +958,12 @@ namespace System.Scsc.Ui.OtherIncome
             var figh = qury.FirstOrDefault();
             fileno = figh.FILE_NO.ToString();
 
-            if(figh.FIGH_STAT == "001")
+            if (figh.FIGH_STAT == "001")
             {
                // اگر قفل می باشد
                Execute_Query();
                // اگر ردیف خریدی در جدول وجود داشته باشد
-               if(PydtsBs1.List.Count > 0)
+               if (PydtsBs1.List.Count > 0)
                   switch (MessageBox.Show(this, "آیا همین درخواست را ادامه میدهید؟", "فاکتور", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
                   {
                      case DialogResult.No:
@@ -977,7 +980,7 @@ namespace System.Scsc.Ui.OtherIncome
                // اگر آزاد می باشد
                RqstBs1.AddNew();
                Btn_RqstBnARqt1_Click(null, null);
-            }            
+            }
          }
          catch (Exception exc)
          {
@@ -1002,6 +1005,24 @@ namespace System.Scsc.Ui.OtherIncome
          catch (Exception exc)
          {
             MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void RqroBs1_CurrentChanged(object sender, EventArgs e)
+      {
+         try
+         {
+            var rqro = RqroBs1.Current as Data.Request_Row;
+            if (rqro == null) return;
+
+            if (rqro.Fighter.SEX_TYPE_DNRM == "001")
+               FreeSale4Man_Butn.Appearance.BackColor = Color.FromArgb(255, 192, 128);
+            else
+               FreeSale4Woman_Butn.Appearance.BackColor = Color.FromArgb(255, 192, 128);            
+         }
+         catch (Exception)
+         {
+
          }
       }
    }

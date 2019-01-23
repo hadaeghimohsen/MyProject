@@ -1,34 +1,33 @@
-﻿namespace System.Scsc.Ui.OtherIncome
-{
-   partial class KSK_INCM_F
-   {
-      /// <summary> 
-      /// Required designer variable.
-      /// </summary>
-      private System.ComponentModel.IContainer components = null;
+﻿﻿namespace System.Scsc.Ui.OtherIncome
+ {
+    partial class KSK_INCM_F
+    {
+       /// <summary> 
+       /// Required designer variable.
+       /// </summary>
+       private System.ComponentModel.IContainer components = null;
 
-      /// <summary> 
-      /// Clean up any resources being used.
-      /// </summary>
-      /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-      protected override void Dispose(bool disposing)
-      {
-         if (disposing && (components != null))
-         {
-            components.Dispose();
-         }
-         base.Dispose(disposing);
-      }
+       /// <summary> 
+       /// Clean up any resources being used.
+       /// </summary>
+       /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+       protected override void Dispose(bool disposing)
+       {
+          if (disposing && (components != null))
+          {
+             components.Dispose();
+          }
+          base.Dispose(disposing);
+       }
 
-      #region Component Designer generated code
+       #region Component Designer generated code
 
-      /// <summary> 
-      /// Required method for Designer support - do not modify 
-      /// the contents of this method with the code editor.
-      /// </summary>
-      private void InitializeComponent()
-      {
-         this.components = new System.ComponentModel.Container();
+       /// <summary> 
+       /// Required method for Designer support - do not modify 
+       /// the contents of this method with the code editor.
+       /// </summary>
+       private void InitializeComponent()
+       {
          DevExpress.Utils.SuperToolTip superToolTip3 = new DevExpress.Utils.SuperToolTip();
          DevExpress.Utils.ToolTipTitleItem toolTipTitleItem5 = new DevExpress.Utils.ToolTipTitleItem();
          DevExpress.Utils.ToolTipItem toolTipItem3 = new DevExpress.Utils.ToolTipItem();
@@ -47,32 +46,32 @@
          this.RemnAmnt_Txt = new DevExpress.XtraEditors.TextEdit();
          this.tbn_POSPayment1 = new DevExpress.XtraEditors.SimpleButton();
          this.Pos_Lov = new DevExpress.XtraEditors.LookUpEdit();
-         this.VPosBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.VPosBs1 = new System.Windows.Forms.BindingSource();
          this.PosStng_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.UsePos_Cb = new System.Windows.Forms.CheckBox();
          this.paymentsGridControl = new DevExpress.XtraGrid.GridControl();
-         this.PymtsBs1 = new System.Windows.Forms.BindingSource(this.components);
-         this.RqstBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.PymtsBs1 = new System.Windows.Forms.BindingSource();
+         this.RqstBs1 = new System.Windows.Forms.BindingSource();
          this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.CashCode_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
          this.SumExpnPric_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
          this.SumExpnExtrPrct_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colAMNT_UNIT_TYPE_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
          this.repositoryItemLookUpEdit5 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-         this.DAtypBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.DAtypBs1 = new System.Windows.Forms.BindingSource();
          this.colREMN_AMNT = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colSUM_RCPT_AMNT = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colSUM_PYDS_AMNT = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colAmntUnitType = new DevExpress.XtraGrid.Columns.GridColumn();
          this.payment_DetailsGridControl = new DevExpress.XtraGrid.GridControl();
-         this.PydtsBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.PydtsBs1 = new System.Windows.Forms.BindingSource();
          this.Pydt_Gv = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colPYMT_CASH_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colPYMT_RQST_RQID = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colRQRO_RWNO = new DevExpress.XtraGrid.Columns.GridColumn();
          this.ExpnCode_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
          this.LOV_EXPN = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-         this.ExpnBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.ExpnBs1 = new System.Windows.Forms.BindingSource();
          this.colCODE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colPAY_STAT = new DevExpress.XtraGrid.Columns.GridColumn();
          this.ExpnPric_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -196,8 +195,8 @@
          this.colClub2 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colMethod3 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colFighter = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.RqroBs1 = new System.Windows.Forms.BindingSource(this.components);
-         this.FighBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.RqroBs1 = new System.Windows.Forms.BindingSource();
+         this.FighBs1 = new System.Windows.Forms.BindingSource();
          this.panel1 = new System.Windows.Forms.Panel();
          this.simpleButton5 = new DevExpress.XtraEditors.SimpleButton();
          this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
@@ -207,10 +206,10 @@
          this.panel2 = new System.Windows.Forms.Panel();
          this.simpleButton6 = new DevExpress.XtraEditors.SimpleButton();
          this.CellPhon_Txt = new DevExpress.XtraEditors.TextEdit();
-         this.FgpbBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.FgpbBs1 = new System.Windows.Forms.BindingSource();
          this.NatlCode_Txt = new DevExpress.XtraEditors.TextEdit();
          this.FreeSale4Woman_Butn = new DevExpress.XtraEditors.SimpleButton();
-         this.FreeSale4Man_Bytn = new DevExpress.XtraEditors.SimpleButton();
+         this.FreeSale4Man_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.Expn_FLP = new System.Windows.Forms.FlowLayoutPanel();
          this.ExpnSmpl_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.panel4 = new System.Windows.Forms.Panel();
@@ -270,7 +269,7 @@
          // RemnAmnt_Txt
          // 
          this.RemnAmnt_Txt.Dock = System.Windows.Forms.DockStyle.Bottom;
-         this.RemnAmnt_Txt.Location = new System.Drawing.Point(0, 179);
+         this.RemnAmnt_Txt.Location = new System.Drawing.Point(0, 180);
          this.RemnAmnt_Txt.Name = "RemnAmnt_Txt";
          this.RemnAmnt_Txt.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
          this.RemnAmnt_Txt.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
@@ -305,7 +304,7 @@
          this.tbn_POSPayment1.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.tbn_POSPayment1.LookAndFeel.UseDefaultLookAndFeel = false;
          this.tbn_POSPayment1.Name = "tbn_POSPayment1";
-         this.tbn_POSPayment1.Size = new System.Drawing.Size(288, 223);
+         this.tbn_POSPayment1.Size = new System.Drawing.Size(288, 224);
          toolTipTitleItem5.Text = "کاربر گرامی";
          toolTipItem3.LeftIndent = 6;
          toolTipItem3.Text = "برای هرچه بهتر شدن و بالا رفتن سرعت دریافت و پرداخت توسط کاربران امور و کمتر شدن " +
@@ -567,7 +566,7 @@
             this.repositoryItemSearchLookUpEdit1,
             this.Lov_YSNO,
             this.repositoryItemSearchLookUpEdit2});
-         this.payment_DetailsGridControl.Size = new System.Drawing.Size(315, 223);
+         this.payment_DetailsGridControl.Size = new System.Drawing.Size(315, 224);
          this.payment_DetailsGridControl.TabIndex = 1;
          this.payment_DetailsGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.Pydt_Gv});
@@ -1533,6 +1532,7 @@
          // 
          this.RqroBs1.DataMember = "Request_Rows";
          this.RqroBs1.DataSource = this.RqstBs1;
+         this.RqroBs1.CurrentChanged += new System.EventHandler(this.RqroBs1_CurrentChanged);
          // 
          // FighBs1
          // 
@@ -1669,7 +1669,7 @@
          this.simpleButton1.TabIndex = 75;
          this.simpleButton1.Tag = "1";
          this.simpleButton1.Text = "خروج";
-         this.simpleButton1.Click += new System.EventHandler(this.ntb_POSPayment1_Click);
+         this.simpleButton1.Click += new System.EventHandler(this.RqstBnExit1_Click);
          // 
          // panel2
          // 
@@ -1678,11 +1678,11 @@
          this.panel2.Controls.Add(this.CellPhon_Txt);
          this.panel2.Controls.Add(this.NatlCode_Txt);
          this.panel2.Controls.Add(this.FreeSale4Woman_Butn);
-         this.panel2.Controls.Add(this.FreeSale4Man_Bytn);
+         this.panel2.Controls.Add(this.FreeSale4Man_Butn);
          this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
          this.panel2.Location = new System.Drawing.Point(0, 37);
          this.panel2.Name = "panel2";
-         this.panel2.Size = new System.Drawing.Size(912, 37);
+         this.panel2.Size = new System.Drawing.Size(912, 36);
          this.panel2.TabIndex = 90;
          // 
          // simpleButton6
@@ -1701,7 +1701,7 @@
          this.simpleButton6.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.simpleButton6.LookAndFeel.UseDefaultLookAndFeel = false;
          this.simpleButton6.Name = "simpleButton6";
-         this.simpleButton6.Size = new System.Drawing.Size(149, 37);
+         this.simpleButton6.Size = new System.Drawing.Size(149, 36);
          this.simpleButton6.TabIndex = 80;
          this.simpleButton6.Tag = "1";
          this.simpleButton6.Text = "ذخیره کردن اطلاعات";
@@ -1776,33 +1776,33 @@
          this.FreeSale4Woman_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.FreeSale4Woman_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.FreeSale4Woman_Butn.Name = "FreeSale4Woman_Butn";
-         this.FreeSale4Woman_Butn.Size = new System.Drawing.Size(232, 37);
+         this.FreeSale4Woman_Butn.Size = new System.Drawing.Size(232, 36);
          this.FreeSale4Woman_Butn.TabIndex = 78;
          this.FreeSale4Woman_Butn.Tag = "Woman";
          this.FreeSale4Woman_Butn.Text = "بانوان";
          this.FreeSale4Woman_Butn.Click += new System.EventHandler(this.FreeSale_Rb_Click);
          // 
-         // FreeSale4Man_Bytn
+         // FreeSale4Man_Butn
          // 
-         this.FreeSale4Man_Bytn.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-         this.FreeSale4Man_Bytn.Appearance.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.FreeSale4Man_Bytn.Appearance.ForeColor = System.Drawing.Color.Black;
-         this.FreeSale4Man_Bytn.Appearance.Options.UseBackColor = true;
-         this.FreeSale4Man_Bytn.Appearance.Options.UseFont = true;
-         this.FreeSale4Man_Bytn.Appearance.Options.UseForeColor = true;
-         this.FreeSale4Man_Bytn.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-         this.FreeSale4Man_Bytn.Dock = System.Windows.Forms.DockStyle.Left;
-         this.FreeSale4Man_Bytn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
-         this.FreeSale4Man_Bytn.Location = new System.Drawing.Point(0, 0);
-         this.FreeSale4Man_Bytn.LookAndFeel.SkinName = "Office 2010 Blue";
-         this.FreeSale4Man_Bytn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.FreeSale4Man_Bytn.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.FreeSale4Man_Bytn.Name = "FreeSale4Man_Bytn";
-         this.FreeSale4Man_Bytn.Size = new System.Drawing.Size(232, 37);
-         this.FreeSale4Man_Bytn.TabIndex = 75;
-         this.FreeSale4Man_Bytn.Tag = "Man";
-         this.FreeSale4Man_Bytn.Text = "اقایان";
-         this.FreeSale4Man_Bytn.Click += new System.EventHandler(this.FreeSale_Rb_Click);
+         this.FreeSale4Man_Butn.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+         this.FreeSale4Man_Butn.Appearance.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.FreeSale4Man_Butn.Appearance.ForeColor = System.Drawing.Color.Black;
+         this.FreeSale4Man_Butn.Appearance.Options.UseBackColor = true;
+         this.FreeSale4Man_Butn.Appearance.Options.UseFont = true;
+         this.FreeSale4Man_Butn.Appearance.Options.UseForeColor = true;
+         this.FreeSale4Man_Butn.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+         this.FreeSale4Man_Butn.Dock = System.Windows.Forms.DockStyle.Left;
+         this.FreeSale4Man_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
+         this.FreeSale4Man_Butn.Location = new System.Drawing.Point(0, 0);
+         this.FreeSale4Man_Butn.LookAndFeel.SkinName = "Office 2010 Blue";
+         this.FreeSale4Man_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.FreeSale4Man_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.FreeSale4Man_Butn.Name = "FreeSale4Man_Butn";
+         this.FreeSale4Man_Butn.Size = new System.Drawing.Size(232, 36);
+         this.FreeSale4Man_Butn.TabIndex = 75;
+         this.FreeSale4Man_Butn.Tag = "Man";
+         this.FreeSale4Man_Butn.Text = "اقایان";
+         this.FreeSale4Man_Butn.Click += new System.EventHandler(this.FreeSale_Rb_Click);
          // 
          // Expn_FLP
          // 
@@ -1987,7 +1987,7 @@
          this.panel3.Controls.Add(this.panel6);
          this.panel3.Controls.Add(this.simpleButton15);
          this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-         this.panel3.Location = new System.Drawing.Point(0, 74);
+         this.panel3.Location = new System.Drawing.Point(0, 73);
          this.panel3.Name = "panel3";
          this.panel3.Size = new System.Drawing.Size(912, 544);
          this.panel3.TabIndex = 94;
@@ -2024,9 +2024,9 @@
          this.panel5.Controls.Add(this.UsePos_Cb);
          this.panel5.Controls.Add(this.PosStng_Butn);
          this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
-         this.panel5.Location = new System.Drawing.Point(0, 618);
+         this.panel5.Location = new System.Drawing.Point(0, 617);
          this.panel5.Name = "panel5";
-         this.panel5.Size = new System.Drawing.Size(912, 260);
+         this.panel5.Size = new System.Drawing.Size(912, 261);
          this.panel5.TabIndex = 95;
          // 
          // panel7
@@ -2037,7 +2037,7 @@
          this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
          this.panel7.Location = new System.Drawing.Point(288, 37);
          this.panel7.Name = "panel7";
-         this.panel7.Size = new System.Drawing.Size(309, 223);
+         this.panel7.Size = new System.Drawing.Size(309, 224);
          this.panel7.TabIndex = 84;
          // 
          // pictureBox1
@@ -2046,7 +2046,7 @@
          this.pictureBox1.Image = global::System.Scsc.Properties.Resources.IMAGE_1667;
          this.pictureBox1.Location = new System.Drawing.Point(0, 48);
          this.pictureBox1.Name = "pictureBox1";
-         this.pictureBox1.Size = new System.Drawing.Size(309, 131);
+         this.pictureBox1.Size = new System.Drawing.Size(309, 132);
          this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
          this.pictureBox1.TabIndex = 83;
          this.pictureBox1.TabStop = false;
@@ -2151,193 +2151,193 @@
          ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
          this.ResumeLayout(false);
 
-      }
+       }
 
-      #endregion
+       #endregion
 
-      private Windows.Forms.BindingSource RqstBs1;
-      private Windows.Forms.BindingSource RqroBs1;
-      private Windows.Forms.BindingSource PydtsBs1;
-      private Windows.Forms.BindingSource PymtsBs1;
-      private Windows.Forms.BindingSource FighBs1;
-      private Windows.Forms.BindingSource ExpnBs1;
-      private DevExpress.XtraGrid.GridControl payment_DetailsGridControl;
-      private DevExpress.XtraGrid.Views.Grid.GridView Pydt_Gv;
-      private DevExpress.XtraGrid.Columns.GridColumn colPYMT_CASH_CODE;
-      private DevExpress.XtraGrid.Columns.GridColumn colPYMT_RQST_RQID;
-      private DevExpress.XtraGrid.Columns.GridColumn colRQRO_RWNO;
-      private DevExpress.XtraGrid.Columns.GridColumn ExpnCode_Clm;
-      private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit LOV_EXPN;
-      private DevExpress.XtraGrid.Columns.GridColumn colCODE;
-      private DevExpress.XtraGrid.Columns.GridColumn colPAY_STAT;
-      private DevExpress.XtraGrid.Columns.GridColumn ExpnPric_Clm;
-      private DevExpress.XtraGrid.Columns.GridColumn colEXPN_EXTR_PRCT;
-      private DevExpress.XtraGrid.Columns.GridColumn colREMN_PRIC;
-      private DevExpress.XtraGrid.Columns.GridColumn Qnty_Clm;
-      private DevExpress.XtraGrid.Columns.GridColumn colDOCM_NUMB;
-      private DevExpress.XtraGrid.Columns.GridColumn colISSU_DATE;
-      private DevExpress.XtraGrid.Columns.GridColumn colRCPT_MTOD;
-      private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit LOV_RCTP;
-      private DevExpress.XtraGrid.Columns.GridColumn colRECV_LETT_NO;
-      private DevExpress.XtraGrid.Columns.GridColumn colRECV_LETT_DATE;
-      private DevExpress.XtraGrid.Columns.GridColumn colCRET_BY1;
-      private DevExpress.XtraGrid.Columns.GridColumn colCRET_DATE1;
-      private DevExpress.XtraGrid.Columns.GridColumn colMDFY_BY1;
-      private DevExpress.XtraGrid.Columns.GridColumn colMDFY_DATE1;
-      private DevExpress.XtraGrid.Columns.GridColumn colExpense;
-      private DevExpress.XtraGrid.Columns.GridColumn colRequest_Row;
-      private DevExpress.XtraGrid.Columns.GridColumn colPayment;
-      private DevExpress.XtraGrid.Columns.GridColumn colPYDT_DESC;
-      private DevExpress.XtraGrid.Columns.GridColumn colFIGH_FILE_NO1;
-      private DevExpress.XtraEditors.Repository.RepositoryItemSearchLookUpEdit repositoryItemSearchLookUpEdit1;
-      private DevExpress.XtraGrid.Views.Grid.GridView repositoryItemSearchLookUpEdit1View;
-      private DevExpress.XtraGrid.Columns.GridColumn colREGN_PRVN_CNTY_CODE1;
-      private DevExpress.XtraGrid.Columns.GridColumn colREGN_PRVN_CODE1;
-      private DevExpress.XtraGrid.Columns.GridColumn colREGN_CODE1;
-      private DevExpress.XtraGrid.Columns.GridColumn colFILE_NO1;
-      private DevExpress.XtraGrid.Columns.GridColumn colTARF_CODE_DNRM1;
-      private DevExpress.XtraGrid.Columns.GridColumn colMOST_DEBT_CLNG_DNRM1;
-      private DevExpress.XtraGrid.Columns.GridColumn colDEBT_DNRM1;
-      private DevExpress.XtraGrid.Columns.GridColumn colFGPB_RWNO_DNRM1;
-      private DevExpress.XtraGrid.Columns.GridColumn colMBSP_RWNO_DNRM1;
-      private DevExpress.XtraGrid.Columns.GridColumn colMBCO_RWNO_DNRM;
-      private DevExpress.XtraGrid.Columns.GridColumn colMBFZ_RWNO_DNRM;
-      private DevExpress.XtraGrid.Columns.GridColumn colMBSM_RWNO_DNRM;
-      private DevExpress.XtraGrid.Columns.GridColumn colCAMP_RWNO_DNRM1;
-      private DevExpress.XtraGrid.Columns.GridColumn colTEST_RWNO_DNRM1;
-      private DevExpress.XtraGrid.Columns.GridColumn colCLCL_RWNO_DNRM1;
-      private DevExpress.XtraGrid.Columns.GridColumn colHERT_RWNO_DNRM1;
-      private DevExpress.XtraGrid.Columns.GridColumn colPSFN_RWNO_DNRM1;
-      private DevExpress.XtraGrid.Columns.GridColumn colEXAM_RWNO_DNRM1;
-      private DevExpress.XtraGrid.Columns.GridColumn colBDFT_RWNO_DNRM1;
-      private DevExpress.XtraGrid.Columns.GridColumn colMBSP_STRT_DATE1;
-      private DevExpress.XtraGrid.Columns.GridColumn colMBSP_END_DATE1;
-      private DevExpress.XtraGrid.Columns.GridColumn colCONF_STAT1;
-      private DevExpress.XtraGrid.Columns.GridColumn colCONF_DATE1;
-      private DevExpress.XtraGrid.Columns.GridColumn colFIGH_STAT1;
-      private DevExpress.XtraGrid.Columns.GridColumn colRQST_RQID2;
-      private DevExpress.XtraGrid.Columns.GridColumn colNAME_DNRM1;
-      private DevExpress.XtraGrid.Columns.GridColumn colFATH_NAME_DNRM1;
-      private DevExpress.XtraGrid.Columns.GridColumn colPOST_ADRS_DNRM1;
-      private DevExpress.XtraGrid.Columns.GridColumn colSEX_TYPE_DNRM1;
-      private DevExpress.XtraGrid.Columns.GridColumn colBRTH_DATE_DNRM1;
-      private DevExpress.XtraGrid.Columns.GridColumn colCELL_PHON_DNRM1;
-      private DevExpress.XtraGrid.Columns.GridColumn colTELL_PHON_DNRM1;
-      private DevExpress.XtraGrid.Columns.GridColumn colFGPB_TYPE_DNRM1;
-      private DevExpress.XtraGrid.Columns.GridColumn colINSR_NUMB_DNRM1;
-      private DevExpress.XtraGrid.Columns.GridColumn colINSR_DATE_DNRM1;
-      private DevExpress.XtraGrid.Columns.GridColumn colTEST_DATE_DNRM1;
-      private DevExpress.XtraGrid.Columns.GridColumn colCAMP_DATE_DNRM1;
-      private DevExpress.XtraGrid.Columns.GridColumn colCTGY_CODE_DNRM1;
-      private DevExpress.XtraGrid.Columns.GridColumn colMTOD_CODE_DNRM1;
-      private DevExpress.XtraGrid.Columns.GridColumn colCLUB_CODE_DNRM1;
-      private DevExpress.XtraGrid.Columns.GridColumn colCOCH_FILE_NO_DNRM1;
-      private DevExpress.XtraGrid.Columns.GridColumn colCOCH_CRTF_YEAR_DNRM1;
-      private DevExpress.XtraGrid.Columns.GridColumn colCBMT_CODE_DNRM1;
-      private DevExpress.XtraGrid.Columns.GridColumn colDAY_TYPE_DNRM1;
-      private DevExpress.XtraGrid.Columns.GridColumn colATTN_TIME_DNRM1;
-      private DevExpress.XtraGrid.Columns.GridColumn colACTV_TAG_DNRM1;
-      private DevExpress.XtraGrid.Columns.GridColumn colBLOD_GROP_DNRM1;
-      private DevExpress.XtraGrid.Columns.GridColumn colFIGH_FILE_NO2;
-      private DevExpress.XtraGrid.Columns.GridColumn colIMAG_RCDC_RCID_DNRM1;
-      private DevExpress.XtraGrid.Columns.GridColumn colIMAG_RWNO_DNRM1;
-      private DevExpress.XtraGrid.Columns.GridColumn colCARD_NUMB_DNRM1;
-      private DevExpress.XtraGrid.Columns.GridColumn colFNGR_PRNT_DNRM1;
-      private DevExpress.XtraGrid.Columns.GridColumn colSUNT_BUNT_DEPT_ORGN_CODE_DNRM1;
-      private DevExpress.XtraGrid.Columns.GridColumn colSUNT_BUNT_DEPT_CODE_DNRM1;
-      private DevExpress.XtraGrid.Columns.GridColumn colSUNT_BUNT_CODE_DNRM1;
-      private DevExpress.XtraGrid.Columns.GridColumn colSUNT_CODE_DNRM1;
-      private DevExpress.XtraGrid.Columns.GridColumn colCORD_X_DNRM1;
-      private DevExpress.XtraGrid.Columns.GridColumn colCORD_Y_DNRM1;
-      private DevExpress.XtraGrid.Columns.GridColumn colSERV_NO_DNRM1;
-      private DevExpress.XtraGrid.Columns.GridColumn colCRET_BY4;
-      private DevExpress.XtraGrid.Columns.GridColumn colCRET_DATE4;
-      private DevExpress.XtraGrid.Columns.GridColumn colMDFY_BY4;
-      private DevExpress.XtraGrid.Columns.GridColumn colMDFY_DATE4;
-      private DevExpress.XtraGrid.Columns.GridColumn colClub1;
-      private DevExpress.XtraGrid.Columns.GridColumn colFighter11;
-      private DevExpress.XtraGrid.Columns.GridColumn colMethod2;
-      private DevExpress.XtraGrid.Columns.GridColumn colRegion1;
-      private DevExpress.XtraGrid.Columns.GridColumn colRequest2;
-      private DevExpress.XtraGrid.Columns.GridColumn colSub_Unit1;
-      private DevExpress.XtraGrid.Columns.GridColumn colCategory_Belt2;
-      private DevExpress.XtraGrid.Columns.GridColumn colPRE_EXPN_STAT;
-      private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit Lov_YSNO;
-      private DevExpress.XtraGrid.Columns.GridColumn colCBMT_CODE;
-      private DevExpress.XtraEditors.Repository.RepositoryItemSearchLookUpEdit repositoryItemSearchLookUpEdit2;
-      private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repositoryItemLookUpEdit3;
-      private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repositoryItemLookUpEdit4;
-      private DevExpress.XtraGrid.Views.Grid.GridView repositoryItemSearchLookUpEdit2View;
-      private DevExpress.XtraGrid.Columns.GridColumn colCLUB_CODE;
-      private DevExpress.XtraGrid.Columns.GridColumn colMTOD_CODE1;
-      private DevExpress.XtraGrid.Columns.GridColumn colCOCH_FILE_NO;
-      private DevExpress.XtraGrid.Columns.GridColumn colCODE2;
-      private DevExpress.XtraGrid.Columns.GridColumn colDAY_TYPE;
-      private DevExpress.XtraGrid.Columns.GridColumn colSTRT_TIME;
-      private DevExpress.XtraGrid.Columns.GridColumn colEND_TIME;
-      private DevExpress.XtraGrid.Columns.GridColumn colMTOD_STAT;
-      private DevExpress.XtraGrid.Columns.GridColumn colSEX_TYPE;
-      private DevExpress.XtraGrid.Columns.GridColumn colCBMT_DESC;
-      private DevExpress.XtraGrid.Columns.GridColumn colDFLT_STAT;
-      private DevExpress.XtraGrid.Columns.GridColumn colCPCT_NUMB;
-      private DevExpress.XtraGrid.Columns.GridColumn colCPCT_STAT;
-      private DevExpress.XtraGrid.Columns.GridColumn colCBMT_TIME;
-      private DevExpress.XtraGrid.Columns.GridColumn colCBMT_TIME_STAT;
-      private DevExpress.XtraGrid.Columns.GridColumn colCLAS_TIME;
-      private DevExpress.XtraGrid.Columns.GridColumn colCRET_BY5;
-      private DevExpress.XtraGrid.Columns.GridColumn colCRET_DATE5;
-      private DevExpress.XtraGrid.Columns.GridColumn colMDFY_BY5;
-      private DevExpress.XtraGrid.Columns.GridColumn colMDFY_DATE5;
-      private DevExpress.XtraGrid.Columns.GridColumn colClub2;
-      private DevExpress.XtraGrid.Columns.GridColumn colMethod3;
-      private DevExpress.XtraGrid.Columns.GridColumn colFighter;
-      private Windows.Forms.CheckBox UsePos_Cb;
-      private DevExpress.XtraEditors.SimpleButton PosStng_Butn;
-      private DevExpress.XtraEditors.LookUpEdit Pos_Lov;
-      private Windows.Forms.BindingSource VPosBs1;
-      private DevExpress.XtraGrid.GridControl paymentsGridControl;
-      private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
-      private DevExpress.XtraGrid.Columns.GridColumn CashCode_Clm;
-      private DevExpress.XtraGrid.Columns.GridColumn SumExpnPric_Clm;
-      private DevExpress.XtraGrid.Columns.GridColumn SumExpnExtrPrct_Clm;
-      private DevExpress.XtraGrid.Columns.GridColumn colAMNT_UNIT_TYPE_DNRM;
-      private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repositoryItemLookUpEdit5;
-      private Windows.Forms.BindingSource DAtypBs1;
-      private DevExpress.XtraGrid.Columns.GridColumn colREMN_AMNT;
-      private DevExpress.XtraGrid.Columns.GridColumn colSUM_RCPT_AMNT;
-      private DevExpress.XtraGrid.Columns.GridColumn colSUM_PYDS_AMNT;
-      private DevExpress.XtraEditors.SimpleButton tbn_POSPayment1;
-      private DevExpress.XtraEditors.TextEdit RemnAmnt_Txt;
-      private DevExpress.XtraGrid.Columns.GridColumn colAmntUnitType;
-      private Windows.Forms.Panel panel1;
-      private DevExpress.XtraEditors.SimpleButton simpleButton5;
-      private DevExpress.XtraEditors.SimpleButton simpleButton3;
-      private DevExpress.XtraEditors.SimpleButton simpleButton4;
-      private DevExpress.XtraEditors.SimpleButton simpleButton2;
-      private DevExpress.XtraEditors.SimpleButton simpleButton1;
-      private Windows.Forms.Panel panel2;
-      private DevExpress.XtraEditors.SimpleButton simpleButton6;
-      private DevExpress.XtraEditors.TextEdit CellPhon_Txt;
-      private DevExpress.XtraEditors.TextEdit NatlCode_Txt;
-      private DevExpress.XtraEditors.SimpleButton FreeSale4Woman_Butn;
-      private DevExpress.XtraEditors.SimpleButton FreeSale4Man_Bytn;
-      private Windows.Forms.FlowLayoutPanel Expn_FLP;
-      private DevExpress.XtraEditors.SimpleButton ExpnSmpl_Butn;
-      private Windows.Forms.Panel panel4;
-      private DevExpress.XtraEditors.SimpleButton ExpnBack_Butn;
-      private DevExpress.XtraEditors.SimpleButton ExpnNext_Butn;
-      private Windows.Forms.Panel panel6;
-      private Windows.Forms.FlowLayoutPanel Grop_FLP;
-      private DevExpress.XtraEditors.SimpleButton GropSmpl_Butn;
-      private DevExpress.XtraEditors.SimpleButton GropBack_Butn;
-      private DevExpress.XtraEditors.SimpleButton GropNext_Butn;
-      private Windows.Forms.Panel panel3;
-      private DevExpress.XtraEditors.SimpleButton simpleButton15;
-      private Windows.Forms.Panel panel5;
-      private Windows.Forms.PictureBox pictureBox1;
-      private DevExpress.XtraEditors.SimpleButton simpleButton16;
-      private Windows.Forms.Panel panel7;
-      private DevExpress.XtraEditors.SimpleButton RemoveExpn_Butn;
-      private Windows.Forms.BindingSource FgpbBs1;
-   }
-}
+       private Windows.Forms.BindingSource RqstBs1;
+       private Windows.Forms.BindingSource RqroBs1;
+       private Windows.Forms.BindingSource PydtsBs1;
+       private Windows.Forms.BindingSource PymtsBs1;
+       private Windows.Forms.BindingSource FighBs1;
+       private Windows.Forms.BindingSource ExpnBs1;
+       private DevExpress.XtraGrid.GridControl payment_DetailsGridControl;
+       private DevExpress.XtraGrid.Views.Grid.GridView Pydt_Gv;
+       private DevExpress.XtraGrid.Columns.GridColumn colPYMT_CASH_CODE;
+       private DevExpress.XtraGrid.Columns.GridColumn colPYMT_RQST_RQID;
+       private DevExpress.XtraGrid.Columns.GridColumn colRQRO_RWNO;
+       private DevExpress.XtraGrid.Columns.GridColumn ExpnCode_Clm;
+       private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit LOV_EXPN;
+       private DevExpress.XtraGrid.Columns.GridColumn colCODE;
+       private DevExpress.XtraGrid.Columns.GridColumn colPAY_STAT;
+       private DevExpress.XtraGrid.Columns.GridColumn ExpnPric_Clm;
+       private DevExpress.XtraGrid.Columns.GridColumn colEXPN_EXTR_PRCT;
+       private DevExpress.XtraGrid.Columns.GridColumn colREMN_PRIC;
+       private DevExpress.XtraGrid.Columns.GridColumn Qnty_Clm;
+       private DevExpress.XtraGrid.Columns.GridColumn colDOCM_NUMB;
+       private DevExpress.XtraGrid.Columns.GridColumn colISSU_DATE;
+       private DevExpress.XtraGrid.Columns.GridColumn colRCPT_MTOD;
+       private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit LOV_RCTP;
+       private DevExpress.XtraGrid.Columns.GridColumn colRECV_LETT_NO;
+       private DevExpress.XtraGrid.Columns.GridColumn colRECV_LETT_DATE;
+       private DevExpress.XtraGrid.Columns.GridColumn colCRET_BY1;
+       private DevExpress.XtraGrid.Columns.GridColumn colCRET_DATE1;
+       private DevExpress.XtraGrid.Columns.GridColumn colMDFY_BY1;
+       private DevExpress.XtraGrid.Columns.GridColumn colMDFY_DATE1;
+       private DevExpress.XtraGrid.Columns.GridColumn colExpense;
+       private DevExpress.XtraGrid.Columns.GridColumn colRequest_Row;
+       private DevExpress.XtraGrid.Columns.GridColumn colPayment;
+       private DevExpress.XtraGrid.Columns.GridColumn colPYDT_DESC;
+       private DevExpress.XtraGrid.Columns.GridColumn colFIGH_FILE_NO1;
+       private DevExpress.XtraEditors.Repository.RepositoryItemSearchLookUpEdit repositoryItemSearchLookUpEdit1;
+       private DevExpress.XtraGrid.Views.Grid.GridView repositoryItemSearchLookUpEdit1View;
+       private DevExpress.XtraGrid.Columns.GridColumn colREGN_PRVN_CNTY_CODE1;
+       private DevExpress.XtraGrid.Columns.GridColumn colREGN_PRVN_CODE1;
+       private DevExpress.XtraGrid.Columns.GridColumn colREGN_CODE1;
+       private DevExpress.XtraGrid.Columns.GridColumn colFILE_NO1;
+       private DevExpress.XtraGrid.Columns.GridColumn colTARF_CODE_DNRM1;
+       private DevExpress.XtraGrid.Columns.GridColumn colMOST_DEBT_CLNG_DNRM1;
+       private DevExpress.XtraGrid.Columns.GridColumn colDEBT_DNRM1;
+       private DevExpress.XtraGrid.Columns.GridColumn colFGPB_RWNO_DNRM1;
+       private DevExpress.XtraGrid.Columns.GridColumn colMBSP_RWNO_DNRM1;
+       private DevExpress.XtraGrid.Columns.GridColumn colMBCO_RWNO_DNRM;
+       private DevExpress.XtraGrid.Columns.GridColumn colMBFZ_RWNO_DNRM;
+       private DevExpress.XtraGrid.Columns.GridColumn colMBSM_RWNO_DNRM;
+       private DevExpress.XtraGrid.Columns.GridColumn colCAMP_RWNO_DNRM1;
+       private DevExpress.XtraGrid.Columns.GridColumn colTEST_RWNO_DNRM1;
+       private DevExpress.XtraGrid.Columns.GridColumn colCLCL_RWNO_DNRM1;
+       private DevExpress.XtraGrid.Columns.GridColumn colHERT_RWNO_DNRM1;
+       private DevExpress.XtraGrid.Columns.GridColumn colPSFN_RWNO_DNRM1;
+       private DevExpress.XtraGrid.Columns.GridColumn colEXAM_RWNO_DNRM1;
+       private DevExpress.XtraGrid.Columns.GridColumn colBDFT_RWNO_DNRM1;
+       private DevExpress.XtraGrid.Columns.GridColumn colMBSP_STRT_DATE1;
+       private DevExpress.XtraGrid.Columns.GridColumn colMBSP_END_DATE1;
+       private DevExpress.XtraGrid.Columns.GridColumn colCONF_STAT1;
+       private DevExpress.XtraGrid.Columns.GridColumn colCONF_DATE1;
+       private DevExpress.XtraGrid.Columns.GridColumn colFIGH_STAT1;
+       private DevExpress.XtraGrid.Columns.GridColumn colRQST_RQID2;
+       private DevExpress.XtraGrid.Columns.GridColumn colNAME_DNRM1;
+       private DevExpress.XtraGrid.Columns.GridColumn colFATH_NAME_DNRM1;
+       private DevExpress.XtraGrid.Columns.GridColumn colPOST_ADRS_DNRM1;
+       private DevExpress.XtraGrid.Columns.GridColumn colSEX_TYPE_DNRM1;
+       private DevExpress.XtraGrid.Columns.GridColumn colBRTH_DATE_DNRM1;
+       private DevExpress.XtraGrid.Columns.GridColumn colCELL_PHON_DNRM1;
+       private DevExpress.XtraGrid.Columns.GridColumn colTELL_PHON_DNRM1;
+       private DevExpress.XtraGrid.Columns.GridColumn colFGPB_TYPE_DNRM1;
+       private DevExpress.XtraGrid.Columns.GridColumn colINSR_NUMB_DNRM1;
+       private DevExpress.XtraGrid.Columns.GridColumn colINSR_DATE_DNRM1;
+       private DevExpress.XtraGrid.Columns.GridColumn colTEST_DATE_DNRM1;
+       private DevExpress.XtraGrid.Columns.GridColumn colCAMP_DATE_DNRM1;
+       private DevExpress.XtraGrid.Columns.GridColumn colCTGY_CODE_DNRM1;
+       private DevExpress.XtraGrid.Columns.GridColumn colMTOD_CODE_DNRM1;
+       private DevExpress.XtraGrid.Columns.GridColumn colCLUB_CODE_DNRM1;
+       private DevExpress.XtraGrid.Columns.GridColumn colCOCH_FILE_NO_DNRM1;
+       private DevExpress.XtraGrid.Columns.GridColumn colCOCH_CRTF_YEAR_DNRM1;
+       private DevExpress.XtraGrid.Columns.GridColumn colCBMT_CODE_DNRM1;
+       private DevExpress.XtraGrid.Columns.GridColumn colDAY_TYPE_DNRM1;
+       private DevExpress.XtraGrid.Columns.GridColumn colATTN_TIME_DNRM1;
+       private DevExpress.XtraGrid.Columns.GridColumn colACTV_TAG_DNRM1;
+       private DevExpress.XtraGrid.Columns.GridColumn colBLOD_GROP_DNRM1;
+       private DevExpress.XtraGrid.Columns.GridColumn colFIGH_FILE_NO2;
+       private DevExpress.XtraGrid.Columns.GridColumn colIMAG_RCDC_RCID_DNRM1;
+       private DevExpress.XtraGrid.Columns.GridColumn colIMAG_RWNO_DNRM1;
+       private DevExpress.XtraGrid.Columns.GridColumn colCARD_NUMB_DNRM1;
+       private DevExpress.XtraGrid.Columns.GridColumn colFNGR_PRNT_DNRM1;
+       private DevExpress.XtraGrid.Columns.GridColumn colSUNT_BUNT_DEPT_ORGN_CODE_DNRM1;
+       private DevExpress.XtraGrid.Columns.GridColumn colSUNT_BUNT_DEPT_CODE_DNRM1;
+       private DevExpress.XtraGrid.Columns.GridColumn colSUNT_BUNT_CODE_DNRM1;
+       private DevExpress.XtraGrid.Columns.GridColumn colSUNT_CODE_DNRM1;
+       private DevExpress.XtraGrid.Columns.GridColumn colCORD_X_DNRM1;
+       private DevExpress.XtraGrid.Columns.GridColumn colCORD_Y_DNRM1;
+       private DevExpress.XtraGrid.Columns.GridColumn colSERV_NO_DNRM1;
+       private DevExpress.XtraGrid.Columns.GridColumn colCRET_BY4;
+       private DevExpress.XtraGrid.Columns.GridColumn colCRET_DATE4;
+       private DevExpress.XtraGrid.Columns.GridColumn colMDFY_BY4;
+       private DevExpress.XtraGrid.Columns.GridColumn colMDFY_DATE4;
+       private DevExpress.XtraGrid.Columns.GridColumn colClub1;
+       private DevExpress.XtraGrid.Columns.GridColumn colFighter11;
+       private DevExpress.XtraGrid.Columns.GridColumn colMethod2;
+       private DevExpress.XtraGrid.Columns.GridColumn colRegion1;
+       private DevExpress.XtraGrid.Columns.GridColumn colRequest2;
+       private DevExpress.XtraGrid.Columns.GridColumn colSub_Unit1;
+       private DevExpress.XtraGrid.Columns.GridColumn colCategory_Belt2;
+       private DevExpress.XtraGrid.Columns.GridColumn colPRE_EXPN_STAT;
+       private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit Lov_YSNO;
+       private DevExpress.XtraGrid.Columns.GridColumn colCBMT_CODE;
+       private DevExpress.XtraEditors.Repository.RepositoryItemSearchLookUpEdit repositoryItemSearchLookUpEdit2;
+       private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repositoryItemLookUpEdit3;
+       private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repositoryItemLookUpEdit4;
+       private DevExpress.XtraGrid.Views.Grid.GridView repositoryItemSearchLookUpEdit2View;
+       private DevExpress.XtraGrid.Columns.GridColumn colCLUB_CODE;
+       private DevExpress.XtraGrid.Columns.GridColumn colMTOD_CODE1;
+       private DevExpress.XtraGrid.Columns.GridColumn colCOCH_FILE_NO;
+       private DevExpress.XtraGrid.Columns.GridColumn colCODE2;
+       private DevExpress.XtraGrid.Columns.GridColumn colDAY_TYPE;
+       private DevExpress.XtraGrid.Columns.GridColumn colSTRT_TIME;
+       private DevExpress.XtraGrid.Columns.GridColumn colEND_TIME;
+       private DevExpress.XtraGrid.Columns.GridColumn colMTOD_STAT;
+       private DevExpress.XtraGrid.Columns.GridColumn colSEX_TYPE;
+       private DevExpress.XtraGrid.Columns.GridColumn colCBMT_DESC;
+       private DevExpress.XtraGrid.Columns.GridColumn colDFLT_STAT;
+       private DevExpress.XtraGrid.Columns.GridColumn colCPCT_NUMB;
+       private DevExpress.XtraGrid.Columns.GridColumn colCPCT_STAT;
+       private DevExpress.XtraGrid.Columns.GridColumn colCBMT_TIME;
+       private DevExpress.XtraGrid.Columns.GridColumn colCBMT_TIME_STAT;
+       private DevExpress.XtraGrid.Columns.GridColumn colCLAS_TIME;
+       private DevExpress.XtraGrid.Columns.GridColumn colCRET_BY5;
+       private DevExpress.XtraGrid.Columns.GridColumn colCRET_DATE5;
+       private DevExpress.XtraGrid.Columns.GridColumn colMDFY_BY5;
+       private DevExpress.XtraGrid.Columns.GridColumn colMDFY_DATE5;
+       private DevExpress.XtraGrid.Columns.GridColumn colClub2;
+       private DevExpress.XtraGrid.Columns.GridColumn colMethod3;
+       private DevExpress.XtraGrid.Columns.GridColumn colFighter;
+       private Windows.Forms.CheckBox UsePos_Cb;
+       private DevExpress.XtraEditors.SimpleButton PosStng_Butn;
+       private DevExpress.XtraEditors.LookUpEdit Pos_Lov;
+       private Windows.Forms.BindingSource VPosBs1;
+       private DevExpress.XtraGrid.GridControl paymentsGridControl;
+       private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+       private DevExpress.XtraGrid.Columns.GridColumn CashCode_Clm;
+       private DevExpress.XtraGrid.Columns.GridColumn SumExpnPric_Clm;
+       private DevExpress.XtraGrid.Columns.GridColumn SumExpnExtrPrct_Clm;
+       private DevExpress.XtraGrid.Columns.GridColumn colAMNT_UNIT_TYPE_DNRM;
+       private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repositoryItemLookUpEdit5;
+       private Windows.Forms.BindingSource DAtypBs1;
+       private DevExpress.XtraGrid.Columns.GridColumn colREMN_AMNT;
+       private DevExpress.XtraGrid.Columns.GridColumn colSUM_RCPT_AMNT;
+       private DevExpress.XtraGrid.Columns.GridColumn colSUM_PYDS_AMNT;
+       private DevExpress.XtraEditors.SimpleButton tbn_POSPayment1;
+       private DevExpress.XtraEditors.TextEdit RemnAmnt_Txt;
+       private DevExpress.XtraGrid.Columns.GridColumn colAmntUnitType;
+       private Windows.Forms.Panel panel1;
+       private DevExpress.XtraEditors.SimpleButton simpleButton5;
+       private DevExpress.XtraEditors.SimpleButton simpleButton3;
+       private DevExpress.XtraEditors.SimpleButton simpleButton4;
+       private DevExpress.XtraEditors.SimpleButton simpleButton2;
+       private DevExpress.XtraEditors.SimpleButton simpleButton1;
+       private Windows.Forms.Panel panel2;
+       private DevExpress.XtraEditors.SimpleButton simpleButton6;
+       private DevExpress.XtraEditors.TextEdit CellPhon_Txt;
+       private DevExpress.XtraEditors.TextEdit NatlCode_Txt;
+       private DevExpress.XtraEditors.SimpleButton FreeSale4Woman_Butn;
+       private DevExpress.XtraEditors.SimpleButton FreeSale4Man_Butn;
+       private Windows.Forms.FlowLayoutPanel Expn_FLP;
+       private DevExpress.XtraEditors.SimpleButton ExpnSmpl_Butn;
+       private Windows.Forms.Panel panel4;
+       private DevExpress.XtraEditors.SimpleButton ExpnBack_Butn;
+       private DevExpress.XtraEditors.SimpleButton ExpnNext_Butn;
+       private Windows.Forms.Panel panel6;
+       private Windows.Forms.FlowLayoutPanel Grop_FLP;
+       private DevExpress.XtraEditors.SimpleButton GropSmpl_Butn;
+       private DevExpress.XtraEditors.SimpleButton GropBack_Butn;
+       private DevExpress.XtraEditors.SimpleButton GropNext_Butn;
+       private Windows.Forms.Panel panel3;
+       private DevExpress.XtraEditors.SimpleButton simpleButton15;
+       private Windows.Forms.Panel panel5;
+       private Windows.Forms.PictureBox pictureBox1;
+       private DevExpress.XtraEditors.SimpleButton simpleButton16;
+       private Windows.Forms.Panel panel7;
+       private DevExpress.XtraEditors.SimpleButton RemoveExpn_Butn;
+       private Windows.Forms.BindingSource FgpbBs1;
+    }
+ }

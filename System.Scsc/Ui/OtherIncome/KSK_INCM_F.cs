@@ -84,7 +84,7 @@ namespace System.Scsc.Ui.OtherIncome
                      var b = new SimpleButton();
                      b.Anchor = System.Windows.Forms.AnchorStyles.Top;
                      b.Appearance.BackColor = System.Drawing.Color.Transparent;
-                     b.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+                     b.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
                      b.Appearance.ForeColor = System.Drawing.Color.Black;
                      b.Appearance.Options.UseBackColor = true;
                      b.Appearance.Options.UseFont = true;
@@ -820,18 +820,27 @@ namespace System.Scsc.Ui.OtherIncome
             /* Do Delete Payment_Detail */
             var Crnt = PydtsBs1.Current as Data.Payment_Detail;
             if (Crnt == null) return;
-            var rqst = RqstBs1.Current as Data.Request;
-            iScsc.DEL_SEXP_P(
-               new XElement("Request",
-                  new XAttribute("rqid", rqst.RQID),
-                  new XElement("Payment",
-                     new XAttribute("cashcode", rqst.Payments.SingleOrDefault().CASH_CODE),
-                     new XElement("Payment_Detail",
-                        new XAttribute("code", Crnt.CODE)
+            if (Crnt.QNTY > 1)
+            {
+               Crnt.QNTY--;
+               PydtsBs1.EndEdit();
+               iScsc.SubmitChanges();
+            }
+            else
+            {
+               var rqst = RqstBs1.Current as Data.Request;
+               iScsc.DEL_SEXP_P(
+                  new XElement("Request",
+                     new XAttribute("rqid", rqst.RQID),
+                     new XElement("Payment",
+                        new XAttribute("cashcode", rqst.Payments.SingleOrDefault().CASH_CODE),
+                        new XElement("Payment_Detail",
+                           new XAttribute("code", Crnt.CODE)
+                        )
                      )
                   )
-               )
-            );
+               );
+            }
             requery = true;
          }
          catch (Exception exc)

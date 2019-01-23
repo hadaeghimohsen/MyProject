@@ -237,7 +237,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
          }
          catch (Exception exc)
          {
-            MessageBox.Show(exc.Message);
+            //MessageBox.Show(exc.Message);
             PayResult_Lb.Appearance.Image = System.DataGuard.Properties.Resources.IMAGE_1577;
          }
       }

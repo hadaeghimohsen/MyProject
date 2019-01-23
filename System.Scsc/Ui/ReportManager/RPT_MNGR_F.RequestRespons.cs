@@ -241,7 +241,13 @@ namespace System.Scsc.Ui.ReportManager
                s.Print(false);
             }
          }
-         catch (Exception exc) { MessageBox.Show(exc.Message); }
+         catch (Exception exc)
+         {
+            //MessageBox.Show(exc.Message); 
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost", GetType().Name, 07 /* Execute Load_Data */, SendType.SelfToUserInterface) { Input = job.Input }
+            );
+         }
          job.Status = StatusType.Successful;
       }
 
@@ -423,7 +429,7 @@ namespace System.Scsc.Ui.ReportManager
          }
          catch(Exception exc)
          {
-            MessageBox.Show(exc.InnerException.Message);
+            //MessageBox.Show(exc.InnerException.Message);
             _DefaultGateway.Gateway(
                new Job(SendType.External, "localhost", GetType().Name, 11 /* Execute Do_Print */, SendType.SelfToUserInterface) { Input = job.Input }
             );

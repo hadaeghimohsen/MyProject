@@ -1032,6 +1032,7 @@
     <None Include="Properties\DataSources\System.Scsc.Data.D_MSTP.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_MTTP.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_OPTP.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.D_OWNR.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_PERM.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_PMTP.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_PRST.datasource" />

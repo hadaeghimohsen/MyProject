@@ -3969,6 +3969,12 @@
       <Argument Parameter="code" Member="CODE" />
     </DeleteFunction>
   </Table>
+  <Table Name="dbo.D$OWNR" Member="D_OWNRs">
+    <Type Name="D_OWNR">
+      <Column Name="VALU" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="DOMN_DESC" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
   <Function Name="dbo.VF$Saved_Request" Method="VF_Saved_Request" IsComposable="true">
     <Parameter Name="Rqid" Parameter="rqid" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="RqtpCode" Parameter="rqtpCode" Type="System.String" DbType="VarChar(3)" />

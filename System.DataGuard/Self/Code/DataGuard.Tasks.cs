@@ -1040,5 +1040,26 @@ namespace System.DataGuard.Self.Code
             job.Status = StatusType.Successful;
          }
       }
+
+      /// <summary>
+      /// Code 34
+      /// </summary>
+      /// <param name="job"></param>
+      private void DoWork4Backup(Job job)
+      {
+         try
+         {
+            if (iProject == null)
+               iProject = new Data.iProjectDataContext(ConnectionString);
+
+            iProject.TakedbBackup(new XElement("Backup", ""));
+            job.Status = StatusType.Successful;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+            job.Status = StatusType.Failed;
+         }
+      }
    }
 }

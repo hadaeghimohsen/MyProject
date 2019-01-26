@@ -1249,4 +1249,8 @@
     <Parameter Name="Freq_Intr" Parameter="freq_Intr" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
   </Function>
+  <Function Name="DataGuard.TakedbBackup" Method="TakedbBackup">
+    <Parameter Name="X" Parameter="x" Type="System.Xml.Linq.XElement" DbType="Xml" />
+    <Return Type="System.Int32" />
+  </Function>
 </Database>

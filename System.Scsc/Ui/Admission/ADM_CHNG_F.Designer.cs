@@ -42,10 +42,10 @@
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject9 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject10 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject11 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject13 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject14 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject11 = new DevExpress.Utils.SerializableAppearanceObject();
          this.DiseCode_Lb = new System.Windows.Forms.Label();
          this.InsrDate_Lb = new System.Windows.Forms.Label();
          this.InsrNumb_Lb = new System.Windows.Forms.Label();
@@ -91,8 +91,6 @@
          this.Gb_Rqst = new System.Windows.Forms.GroupBox();
          this.ShowRqst_PickButn = new System.MaxUi.NewPickBtn();
          this.lookUpEdit9 = new DevExpress.XtraEditors.LookUpEdit();
-         this.RqstBs1 = new System.Windows.Forms.BindingSource(this.components);
-         this.DCyclBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
          this.textEdit6 = new DevExpress.XtraEditors.TextEdit();
          this.dateTimeSelector4 = new Atf.UI.DateTimeSelector();
@@ -104,7 +102,6 @@
          this.Gb_Info = new System.Windows.Forms.GroupBox();
          this.FILE_NO_LookUpEdit = new DevExpress.XtraEditors.LookUpEdit();
          this.FighBs1 = new System.Windows.Forms.BindingSource(this.components);
-         this.FighsBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.OthrExpnInfo_Ckbx = new System.Windows.Forms.CheckBox();
          this.DpstAcntSlry_Text2 = new DevExpress.XtraEditors.TextEdit();
          this.FgpbsBs1 = new System.Windows.Forms.BindingSource(this.components);
@@ -118,19 +115,14 @@
          this.HistDesc_TextEdit = new DevExpress.XtraEditors.TextEdit();
          this.CardNumb_Text = new DevExpress.XtraEditors.TextEdit();
          this.SUNT_CODELookUpEdit = new DevExpress.XtraEditors.LookUpEdit();
-         this.SuntBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.MaxF_Butn001 = new System.Windows.Forms.Button();
          this.EDUC_DEG_LookUpEdit = new DevExpress.XtraEditors.LookUpEdit();
-         this.DEducBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.FNGR_PRNT_TextEdit = new DevExpress.XtraEditors.TextEdit();
          this.COCH_DEG_LookUpEdit = new DevExpress.XtraEditors.LookUpEdit();
-         this.DDegrBs2 = new System.Windows.Forms.BindingSource(this.components);
          this.CORD_YTextEdit = new DevExpress.XtraEditors.TextEdit();
          this.BRTH_DATE_PersianDateEdit = new Atf.UI.DateTimeSelector();
          this.FathWork_TextEdit = new DevExpress.XtraEditors.TextEdit();
-         this.DCetpBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.TYPE_LookUpEdit = new DevExpress.XtraEditors.LookUpEdit();
-         this.DFgtpBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.CORD_XTextEdit = new DevExpress.XtraEditors.TextEdit();
          this.Chat_Id_TextEdit = new DevExpress.XtraEditors.TextEdit();
          this.GetMap_Butn = new System.Windows.Forms.Button();
@@ -139,13 +131,9 @@
          this.FRST_NAME_TextEdit = new DevExpress.XtraEditors.TextEdit();
          this.EMAL_ADRS_TextEdit = new DevExpress.XtraEditors.TextEdit();
          this.NATL_CODE_TextEdit = new DevExpress.XtraEditors.TextEdit();
-         this.CbmtBs1 = new System.Windows.Forms.BindingSource(this.components);
-         this.DDytpBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.SEX_TYPE_LookUpEdit = new DevExpress.XtraEditors.LookUpEdit();
-         this.DSxtpBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.FATH_NAME_TextEdit = new DevExpress.XtraEditors.TextEdit();
          this.BLOD_GROPLookUpEdit = new DevExpress.XtraEditors.LookUpEdit();
-         this.DBlodBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.label6 = new System.Windows.Forms.Label();
          this.label3 = new System.Windows.Forms.Label();
          this.label5 = new System.Windows.Forms.Label();
@@ -161,7 +149,6 @@
          this.CELL_PHON_TextEdit = new DevExpress.XtraEditors.TextEdit();
          this.MomChatId_Txt = new DevExpress.XtraEditors.TextEdit();
          this.DISE_CODE_LookUpEdit = new DevExpress.XtraEditors.LookUpEdit();
-         this.DstpBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.MomTellPhon_Txt = new DevExpress.XtraEditors.TextEdit();
          this.DadChatId_Txt = new DevExpress.XtraEditors.TextEdit();
          this.DadTellPhon_Txt = new DevExpress.XtraEditors.TextEdit();
@@ -199,14 +186,27 @@
          this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
          this.tabControl1 = new System.Windows.Forms.TabControl();
          this.tabPage1 = new System.Windows.Forms.TabPage();
+         this.IdtyNumb_Txt = new DevExpress.XtraEditors.TextEdit();
+         this.label15 = new System.Windows.Forms.Label();
          this.tabPage2 = new System.Windows.Forms.TabPage();
+         this.HomeType_Lov = new DevExpress.XtraEditors.LookUpEdit();
+         this.label27 = new System.Windows.Forms.Label();
          this.label13 = new System.Windows.Forms.Label();
          this.IDTY_TXT = new System.Windows.Forms.Label();
          this.label12 = new System.Windows.Forms.Label();
+         this.ZipCode_Txt = new DevExpress.XtraEditors.TextEdit();
+         this.BuldArea_Txt = new DevExpress.XtraEditors.TextEdit();
+         this.WatrFabrNumb_Txt = new DevExpress.XtraEditors.TextEdit();
+         this.GasFabrNumb_Txt = new DevExpress.XtraEditors.TextEdit();
+         this.label28 = new System.Windows.Forms.Label();
+         this.PowrFabrNumb_Txt = new DevExpress.XtraEditors.TextEdit();
+         this.label19 = new System.Windows.Forms.Label();
+         this.label17 = new System.Windows.Forms.Label();
+         this.label18 = new System.Windows.Forms.Label();
+         this.label16 = new System.Windows.Forms.Label();
          this.Cunt_Lov = new DevExpress.XtraEditors.SearchLookUpEdit();
          this.CuntBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.CblkBs1 = new System.Windows.Forms.BindingSource(this.components);
-         this.CndoBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colCODE3 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colNAME2 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -222,40 +222,39 @@
          this.colCODE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colNAME = new DevExpress.XtraGrid.Columns.GridColumn();
          this.tabPage3 = new System.Windows.Forms.TabPage();
+         this.label22 = new System.Windows.Forms.Label();
+         this.label14 = new System.Windows.Forms.Label();
+         this.label21 = new System.Windows.Forms.Label();
+         this.DpenFmlyNumb_Txt = new DevExpress.XtraEditors.TextEdit();
+         this.Password_Txt = new DevExpress.XtraEditors.TextEdit();
+         this.ChldFmlyNumb_Txt = new DevExpress.XtraEditors.TextEdit();
+         this.FmlyNumb_Txt = new DevExpress.XtraEditors.TextEdit();
+         this.label20 = new System.Windows.Forms.Label();
          this.tabPage4 = new System.Windows.Forms.TabPage();
          this.tabPage5 = new System.Windows.Forms.TabPage();
-         this.label9 = new System.Windows.Forms.Label();
-         this.Password_Txt = new DevExpress.XtraEditors.TextEdit();
-         this.label14 = new System.Windows.Forms.Label();
-         this.label15 = new System.Windows.Forms.Label();
-         this.IdtyNumb_Txt = new DevExpress.XtraEditors.TextEdit();
-         this.label16 = new System.Windows.Forms.Label();
-         this.label17 = new System.Windows.Forms.Label();
-         this.PowrFabrNumb_Txt = new DevExpress.XtraEditors.TextEdit();
-         this.WatrFabrNumb_Txt = new DevExpress.XtraEditors.TextEdit();
-         this.label18 = new System.Windows.Forms.Label();
-         this.GasFabrNumb_Txt = new DevExpress.XtraEditors.TextEdit();
-         this.label19 = new System.Windows.Forms.Label();
-         this.BuldArea_Txt = new DevExpress.XtraEditors.TextEdit();
-         this.label20 = new System.Windows.Forms.Label();
-         this.FmlyNumb_Txt = new DevExpress.XtraEditors.TextEdit();
-         this.ChldFmlyNumb_Txt = new DevExpress.XtraEditors.TextEdit();
-         this.DpenFmlyNumb_Txt = new DevExpress.XtraEditors.TextEdit();
-         this.label21 = new System.Windows.Forms.Label();
-         this.label22 = new System.Windows.Forms.Label();
-         this.HomeType_Lov = new DevExpress.XtraEditors.LookUpEdit();
-         this.label27 = new System.Windows.Forms.Label();
-         this.label28 = new System.Windows.Forms.Label();
-         this.ZipCode_Txt = new DevExpress.XtraEditors.TextEdit();
          this.label29 = new System.Windows.Forms.Label();
          this.textEdit17 = new DevExpress.XtraEditors.TextEdit();
+         this.label9 = new System.Windows.Forms.Label();
+         this.RqstBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.DFgtpBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.DEducBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.DSxtpBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.DstpBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.DBlodBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.CndoBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.SuntBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.DDegrBs2 = new System.Windows.Forms.BindingSource(this.components);
+         this.DCyclBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.FighsBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.DCetpBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.CbmtBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.DDytpBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.DOwnrBs1 = new System.Windows.Forms.BindingSource(this.components);
          label10 = new System.Windows.Forms.Label();
          label7 = new System.Windows.Forms.Label();
          label8 = new System.Windows.Forms.Label();
          this.Gb_Rqst.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit9.Properties)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.RqstBs1)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.DCyclBs1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.textEdit6.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.textEdit7.Properties)).BeginInit();
@@ -265,7 +264,6 @@
          this.Gb_Info.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.FILE_NO_LookUpEdit.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.FighBs1)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.FighsBs1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.DpstAcntSlry_Text2.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.FgpbsBs1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.RqroBs1)).BeginInit();
@@ -276,17 +274,12 @@
          ((System.ComponentModel.ISupportInitialize)(this.HistDesc_TextEdit.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.CardNumb_Text.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.SUNT_CODELookUpEdit.Properties)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.SuntBs1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.EDUC_DEG_LookUpEdit.Properties)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.DEducBs1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.FNGR_PRNT_TextEdit.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.COCH_DEG_LookUpEdit.Properties)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.DDegrBs2)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.CORD_YTextEdit.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.FathWork_TextEdit.Properties)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.DCetpBs1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.TYPE_LookUpEdit.Properties)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.DFgtpBs1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.CORD_XTextEdit.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.Chat_Id_TextEdit.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.LAST_NAME_TextEdit.Properties)).BeginInit();
@@ -294,13 +287,9 @@
          ((System.ComponentModel.ISupportInitialize)(this.FRST_NAME_TextEdit.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.EMAL_ADRS_TextEdit.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.NATL_CODE_TextEdit.Properties)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.CbmtBs1)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.DDytpBs1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.SEX_TYPE_LookUpEdit.Properties)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.DSxtpBs1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.FATH_NAME_TextEdit.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.BLOD_GROPLookUpEdit.Properties)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.DBlodBs1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.GLOB_CODE_TextEdit.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.iNSR_NUMBTextEdit.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.MomCellPhon_Txt.Properties)).BeginInit();
@@ -308,7 +297,6 @@
          ((System.ComponentModel.ISupportInitialize)(this.CELL_PHON_TextEdit.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.MomChatId_Txt.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.DISE_CODE_LookUpEdit.Properties)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.DstpBs1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.MomTellPhon_Txt.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.DadChatId_Txt.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.DadTellPhon_Txt.Properties)).BeginInit();
@@ -318,31 +306,45 @@
          this.RqstBn1.SuspendLayout();
          this.tabControl1.SuspendLayout();
          this.tabPage1.SuspendLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.IdtyNumb_Txt.Properties)).BeginInit();
          this.tabPage2.SuspendLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.HomeType_Lov.Properties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.ZipCode_Txt.Properties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.BuldArea_Txt.Properties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.WatrFabrNumb_Txt.Properties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.GasFabrNumb_Txt.Properties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.PowrFabrNumb_Txt.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.Cunt_Lov.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.CuntBs1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.CblkBs1)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.CndoBs1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.Cblk_Lov.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.Cndo_Lov.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).BeginInit();
          this.tabPage3.SuspendLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.DpenFmlyNumb_Txt.Properties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.Password_Txt.Properties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.ChldFmlyNumb_Txt.Properties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.FmlyNumb_Txt.Properties)).BeginInit();
          this.tabPage4.SuspendLayout();
          this.tabPage5.SuspendLayout();
-         ((System.ComponentModel.ISupportInitialize)(this.Password_Txt.Properties)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.IdtyNumb_Txt.Properties)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.PowrFabrNumb_Txt.Properties)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.WatrFabrNumb_Txt.Properties)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.GasFabrNumb_Txt.Properties)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.BuldArea_Txt.Properties)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.FmlyNumb_Txt.Properties)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.ChldFmlyNumb_Txt.Properties)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.DpenFmlyNumb_Txt.Properties)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.HomeType_Lov.Properties)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.ZipCode_Txt.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.textEdit17.Properties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.RqstBs1)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.DFgtpBs1)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.DEducBs1)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.DSxtpBs1)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.DstpBs1)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.DBlodBs1)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.CndoBs1)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.SuntBs1)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.DDegrBs2)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.DCyclBs1)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.FighsBs1)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.DCetpBs1)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.CbmtBs1)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.DDytpBs1)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.DOwnrBs1)).BeginInit();
          this.SuspendLayout();
          // 
          // label10
@@ -895,14 +897,6 @@
          this.lookUpEdit9.Size = new System.Drawing.Size(130, 22);
          this.lookUpEdit9.TabIndex = 30;
          // 
-         // RqstBs1
-         // 
-         this.RqstBs1.DataSource = typeof(System.Scsc.Data.Request);
-         // 
-         // DCyclBs1
-         // 
-         this.DCyclBs1.DataSource = typeof(System.Scsc.Data.D_CYCL);
-         // 
          // textEdit1
          // 
          this.textEdit1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -1135,10 +1129,6 @@
          this.FighBs1.DataMember = "Fighters";
          this.FighBs1.DataSource = this.RqstBs1;
          // 
-         // FighsBs1
-         // 
-         this.FighsBs1.DataSource = typeof(System.Scsc.Data.Fighter);
-         // 
          // OthrExpnInfo_Ckbx
          // 
          this.OthrExpnInfo_Ckbx.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -1351,10 +1341,6 @@
          this.SUNT_CODELookUpEdit.Size = new System.Drawing.Size(118, 22);
          this.SUNT_CODELookUpEdit.TabIndex = 0;
          // 
-         // SuntBs1
-         // 
-         this.SuntBs1.DataSource = typeof(System.Scsc.Data.Sub_Unit);
-         // 
          // MaxF_Butn001
          // 
          this.MaxF_Butn001.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -1393,10 +1379,6 @@
          this.EDUC_DEG_LookUpEdit.Properties.ValueMember = "VALU";
          this.EDUC_DEG_LookUpEdit.Size = new System.Drawing.Size(118, 22);
          this.EDUC_DEG_LookUpEdit.TabIndex = 16;
-         // 
-         // DEducBs1
-         // 
-         this.DEducBs1.DataSource = typeof(System.Scsc.Data.D_EDUC);
          // 
          // FNGR_PRNT_TextEdit
          // 
@@ -1445,10 +1427,6 @@
          this.COCH_DEG_LookUpEdit.Size = new System.Drawing.Size(142, 22);
          this.COCH_DEG_LookUpEdit.TabIndex = 4;
          // 
-         // DDegrBs2
-         // 
-         this.DDegrBs2.DataSource = typeof(System.Scsc.Data.D_DEGR);
-         // 
          // CORD_YTextEdit
          // 
          this.CORD_YTextEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -1495,10 +1473,6 @@
          this.FathWork_TextEdit.Size = new System.Drawing.Size(117, 22);
          this.FathWork_TextEdit.TabIndex = 17;
          // 
-         // DCetpBs1
-         // 
-         this.DCetpBs1.DataSource = typeof(System.Scsc.Data.D_CETP);
-         // 
          // TYPE_LookUpEdit
          // 
          this.TYPE_LookUpEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -1527,10 +1501,6 @@
          this.TYPE_LookUpEdit.Properties.ValueMember = "VALU";
          this.TYPE_LookUpEdit.Size = new System.Drawing.Size(117, 22);
          this.TYPE_LookUpEdit.TabIndex = 0;
-         // 
-         // DFgtpBs1
-         // 
-         this.DFgtpBs1.DataSource = typeof(System.Scsc.Data.D_FGTP);
          // 
          // CORD_XTextEdit
          // 
@@ -1664,14 +1634,6 @@
          this.NATL_CODE_TextEdit.Size = new System.Drawing.Size(117, 22);
          this.NATL_CODE_TextEdit.TabIndex = 13;
          // 
-         // CbmtBs1
-         // 
-         this.CbmtBs1.DataSource = typeof(System.Scsc.Data.Club_Method);
-         // 
-         // DDytpBs1
-         // 
-         this.DDytpBs1.DataSource = typeof(System.Scsc.Data.D_DYTP);
-         // 
          // SEX_TYPE_LookUpEdit
          // 
          this.SEX_TYPE_LookUpEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -1700,10 +1662,6 @@
          this.SEX_TYPE_LookUpEdit.Properties.ValueMember = "VALU";
          this.SEX_TYPE_LookUpEdit.Size = new System.Drawing.Size(117, 22);
          this.SEX_TYPE_LookUpEdit.TabIndex = 12;
-         // 
-         // DSxtpBs1
-         // 
-         this.DSxtpBs1.DataSource = typeof(System.Scsc.Data.D_SXTP);
          // 
          // FATH_NAME_TextEdit
          // 
@@ -1747,10 +1705,6 @@
          this.BLOD_GROPLookUpEdit.Properties.ValueMember = "VALU";
          this.BLOD_GROPLookUpEdit.Size = new System.Drawing.Size(142, 22);
          this.BLOD_GROPLookUpEdit.TabIndex = 2;
-         // 
-         // DBlodBs1
-         // 
-         this.DBlodBs1.DataSource = typeof(System.Scsc.Data.D_BLOD);
          // 
          // label6
          // 
@@ -1970,10 +1924,6 @@
          this.DISE_CODE_LookUpEdit.Properties.ValueMember = "CODE";
          this.DISE_CODE_LookUpEdit.Size = new System.Drawing.Size(118, 22);
          this.DISE_CODE_LookUpEdit.TabIndex = 18;
-         // 
-         // DstpBs1
-         // 
-         this.DstpBs1.DataSource = typeof(System.Scsc.Data.Diseases_Type);
          // 
          // MomTellPhon_Txt
          // 
@@ -2229,7 +2179,7 @@
          // 
          this.RqstBnEnrollFngrPrnt1.Image = global::System.Scsc.Properties.Resources.IMAGE_1201;
          this.RqstBnEnrollFngrPrnt1.Name = "RqstBnEnrollFngrPrnt1";
-         this.RqstBnEnrollFngrPrnt1.Size = new System.Drawing.Size(245, 46);
+         this.RqstBnEnrollFngrPrnt1.Size = new System.Drawing.Size(221, 22);
          this.RqstBnEnrollFngrPrnt1.Text = "تعریف کد انگشتی";
          this.RqstBnEnrollFngrPrnt1.Click += new System.EventHandler(this.RqstBnEnrollFngrPrnt1_Click);
          // 
@@ -2237,21 +2187,21 @@
          // 
          this.RqstBnDeleteFngrPrnt1.Image = global::System.Scsc.Properties.Resources.IMAGE_1057;
          this.RqstBnDeleteFngrPrnt1.Name = "RqstBnDeleteFngrPrnt1";
-         this.RqstBnDeleteFngrPrnt1.Size = new System.Drawing.Size(245, 46);
+         this.RqstBnDeleteFngrPrnt1.Size = new System.Drawing.Size(221, 22);
          this.RqstBnDeleteFngrPrnt1.Text = "حذف کد انگشتی";
          this.RqstBnDeleteFngrPrnt1.Click += new System.EventHandler(this.RqstBnDeleteFngrPrnt1_Click);
          // 
          // toolStripMenuItem2
          // 
          this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-         this.toolStripMenuItem2.Size = new System.Drawing.Size(242, 6);
+         this.toolStripMenuItem2.Size = new System.Drawing.Size(218, 6);
          // 
          // RqstBnEnrollFngrPrnt2
          // 
          this.RqstBnEnrollFngrPrnt2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
          this.RqstBnEnrollFngrPrnt2.Image = global::System.Scsc.Properties.Resources.IMAGE_1201;
          this.RqstBnEnrollFngrPrnt2.Name = "RqstBnEnrollFngrPrnt2";
-         this.RqstBnEnrollFngrPrnt2.Size = new System.Drawing.Size(245, 46);
+         this.RqstBnEnrollFngrPrnt2.Size = new System.Drawing.Size(221, 22);
          this.RqstBnEnrollFngrPrnt2.Text = "تعریف اثر انگشت دستگاه انار";
          this.RqstBnEnrollFngrPrnt2.Click += new System.EventHandler(this.RqstBnEnrollFngrPrnt2_Click);
          // 
@@ -2260,7 +2210,7 @@
          this.RqstBnDeleteFngrPrnt2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
          this.RqstBnDeleteFngrPrnt2.Image = global::System.Scsc.Properties.Resources.IMAGE_1143;
          this.RqstBnDeleteFngrPrnt2.Name = "RqstBnDeleteFngrPrnt2";
-         this.RqstBnDeleteFngrPrnt2.Size = new System.Drawing.Size(245, 46);
+         this.RqstBnDeleteFngrPrnt2.Size = new System.Drawing.Size(221, 22);
          this.RqstBnDeleteFngrPrnt2.Text = "حذف کد انگشتی از دستگاه انار";
          this.RqstBnDeleteFngrPrnt2.Click += new System.EventHandler(this.RqstBnDeleteFngrPrnt2_Click);
          // 
@@ -2283,7 +2233,7 @@
          this.RqstBnDefaultPrint1.Image = global::System.Scsc.Properties.Resources.IMAGE_1059;
          this.RqstBnDefaultPrint1.Name = "RqstBnDefaultPrint1";
          this.RqstBnDefaultPrint1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P)));
-         this.RqstBnDefaultPrint1.Size = new System.Drawing.Size(227, 46);
+         this.RqstBnDefaultPrint1.Size = new System.Drawing.Size(203, 22);
          this.RqstBnDefaultPrint1.Text = "چاپ پیش فرض";
          this.RqstBnDefaultPrint1.Click += new System.EventHandler(this.RqstBnDefaultPrint_Click);
          // 
@@ -2293,20 +2243,20 @@
          this.RqstBnPrint1.Name = "RqstBnPrint1";
          this.RqstBnPrint1.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
             | System.Windows.Forms.Keys.P)));
-         this.RqstBnPrint1.Size = new System.Drawing.Size(227, 46);
+         this.RqstBnPrint1.Size = new System.Drawing.Size(203, 22);
          this.RqstBnPrint1.Text = "انتخاب چاپ";
          this.RqstBnPrint1.Click += new System.EventHandler(this.RqstBnPrint_Click);
          // 
          // toolStripMenuItem1
          // 
          this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-         this.toolStripMenuItem1.Size = new System.Drawing.Size(224, 6);
+         this.toolStripMenuItem1.Size = new System.Drawing.Size(200, 6);
          // 
          // RqstBnSettingPrint1
          // 
          this.RqstBnSettingPrint1.Image = global::System.Scsc.Properties.Resources.IMAGE_1091;
          this.RqstBnSettingPrint1.Name = "RqstBnSettingPrint1";
-         this.RqstBnSettingPrint1.Size = new System.Drawing.Size(227, 46);
+         this.RqstBnSettingPrint1.Size = new System.Drawing.Size(203, 22);
          this.RqstBnSettingPrint1.Text = "تنظیمات چاپ";
          this.RqstBnSettingPrint1.Click += new System.EventHandler(this.RqstBnSettingPrint_Click);
          // 
@@ -2436,6 +2386,35 @@
          this.tabPage1.Text = "مشخصات مشترک";
          this.tabPage1.UseVisualStyleBackColor = true;
          // 
+         // IdtyNumb_Txt
+         // 
+         this.IdtyNumb_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.IdtyNumb_Txt.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.FgpbsBs1, "IDTY_NUMB", true));
+         this.IdtyNumb_Txt.Location = new System.Drawing.Point(117, 202);
+         this.IdtyNumb_Txt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+         this.IdtyNumb_Txt.Name = "IdtyNumb_Txt";
+         this.IdtyNumb_Txt.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+         this.IdtyNumb_Txt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.IdtyNumb_Txt.Properties.Appearance.Options.UseBackColor = true;
+         this.IdtyNumb_Txt.Properties.Appearance.Options.UseFont = true;
+         this.IdtyNumb_Txt.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+         this.IdtyNumb_Txt.Properties.AppearanceFocused.Options.UseBackColor = true;
+         this.IdtyNumb_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
+         this.IdtyNumb_Txt.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.IdtyNumb_Txt.Size = new System.Drawing.Size(117, 22);
+         this.IdtyNumb_Txt.TabIndex = 14;
+         // 
+         // label15
+         // 
+         this.label15.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.label15.AutoSize = true;
+         this.label15.ForeColor = System.Drawing.Color.Fuchsia;
+         this.label15.Location = new System.Drawing.Point(240, 205);
+         this.label15.Name = "label15";
+         this.label15.Size = new System.Drawing.Size(105, 14);
+         this.label15.TabIndex = 12;
+         this.label15.Text = "شماره شناسنامه :";
+         // 
          // tabPage2
          // 
          this.tabPage2.Controls.Add(this.HomeType_Lov);
@@ -2475,6 +2454,43 @@
          this.tabPage2.Text = "آدرس و نشانی";
          this.tabPage2.UseVisualStyleBackColor = true;
          // 
+         // HomeType_Lov
+         // 
+         this.HomeType_Lov.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.HomeType_Lov.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.FgpbsBs1, "HOME_TYPE", true));
+         this.HomeType_Lov.Location = new System.Drawing.Point(326, 166);
+         this.HomeType_Lov.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+         this.HomeType_Lov.Name = "HomeType_Lov";
+         this.HomeType_Lov.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.HomeType_Lov.Properties.Appearance.Options.UseFont = true;
+         this.HomeType_Lov.Properties.Appearance.Options.UseTextOptions = true;
+         this.HomeType_Lov.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         this.HomeType_Lov.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+         this.HomeType_Lov.Properties.AppearanceFocused.Options.UseBackColor = true;
+         this.HomeType_Lov.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject11, "", null, null, true)});
+         this.HomeType_Lov.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("VALU", "VALU", 48, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("DOMN_DESC", "گروه خونی", 72, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near)});
+         this.HomeType_Lov.Properties.DataSource = this.DOwnrBs1;
+         this.HomeType_Lov.Properties.DisplayMember = "DOMN_DESC";
+         this.HomeType_Lov.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
+         this.HomeType_Lov.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.HomeType_Lov.Properties.NullText = "";
+         this.HomeType_Lov.Properties.ValueMember = "VALU";
+         this.HomeType_Lov.Size = new System.Drawing.Size(117, 22);
+         this.HomeType_Lov.TabIndex = 12;
+         // 
+         // label27
+         // 
+         this.label27.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.label27.AutoSize = true;
+         this.label27.Location = new System.Drawing.Point(448, 169);
+         this.label27.Name = "label27";
+         this.label27.Size = new System.Drawing.Size(68, 14);
+         this.label27.TabIndex = 78;
+         this.label27.Text = "نوع مالکیت :";
+         // 
          // label13
          // 
          this.label13.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -2506,6 +2522,146 @@
          this.label12.Size = new System.Drawing.Size(119, 14);
          this.label12.TabIndex = 73;
          this.label12.Text = "مجتمع / بلوک / واحد :";
+         // 
+         // ZipCode_Txt
+         // 
+         this.ZipCode_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.ZipCode_Txt.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.FgpbsBs1, "ZIP_CODE", true));
+         this.ZipCode_Txt.Location = new System.Drawing.Point(103, 165);
+         this.ZipCode_Txt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+         this.ZipCode_Txt.Name = "ZipCode_Txt";
+         this.ZipCode_Txt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.ZipCode_Txt.Properties.Appearance.Options.UseFont = true;
+         this.ZipCode_Txt.Properties.Appearance.Options.UseTextOptions = true;
+         this.ZipCode_Txt.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         this.ZipCode_Txt.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+         this.ZipCode_Txt.Properties.AppearanceFocused.Options.UseBackColor = true;
+         this.ZipCode_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
+         this.ZipCode_Txt.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.ZipCode_Txt.Size = new System.Drawing.Size(117, 22);
+         this.ZipCode_Txt.TabIndex = 13;
+         // 
+         // BuldArea_Txt
+         // 
+         this.BuldArea_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.BuldArea_Txt.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.FgpbsBs1, "BULD_AREA", true));
+         this.BuldArea_Txt.Location = new System.Drawing.Point(575, 167);
+         this.BuldArea_Txt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+         this.BuldArea_Txt.Name = "BuldArea_Txt";
+         this.BuldArea_Txt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.BuldArea_Txt.Properties.Appearance.Options.UseFont = true;
+         this.BuldArea_Txt.Properties.Appearance.Options.UseTextOptions = true;
+         this.BuldArea_Txt.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         this.BuldArea_Txt.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+         this.BuldArea_Txt.Properties.AppearanceFocused.Options.UseBackColor = true;
+         this.BuldArea_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
+         this.BuldArea_Txt.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.BuldArea_Txt.Size = new System.Drawing.Size(118, 22);
+         this.BuldArea_Txt.TabIndex = 11;
+         // 
+         // WatrFabrNumb_Txt
+         // 
+         this.WatrFabrNumb_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.WatrFabrNumb_Txt.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.FgpbsBs1, "WATR_FABR_NUMB", true));
+         this.WatrFabrNumb_Txt.Location = new System.Drawing.Point(575, 137);
+         this.WatrFabrNumb_Txt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+         this.WatrFabrNumb_Txt.Name = "WatrFabrNumb_Txt";
+         this.WatrFabrNumb_Txt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.WatrFabrNumb_Txt.Properties.Appearance.Options.UseFont = true;
+         this.WatrFabrNumb_Txt.Properties.Appearance.Options.UseTextOptions = true;
+         this.WatrFabrNumb_Txt.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         this.WatrFabrNumb_Txt.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+         this.WatrFabrNumb_Txt.Properties.AppearanceFocused.Options.UseBackColor = true;
+         this.WatrFabrNumb_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
+         this.WatrFabrNumb_Txt.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.WatrFabrNumb_Txt.Size = new System.Drawing.Size(118, 22);
+         this.WatrFabrNumb_Txt.TabIndex = 8;
+         // 
+         // GasFabrNumb_Txt
+         // 
+         this.GasFabrNumb_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.GasFabrNumb_Txt.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.FgpbsBs1, "GAS_FABR_NUMB", true));
+         this.GasFabrNumb_Txt.Location = new System.Drawing.Point(103, 136);
+         this.GasFabrNumb_Txt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+         this.GasFabrNumb_Txt.Name = "GasFabrNumb_Txt";
+         this.GasFabrNumb_Txt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.GasFabrNumb_Txt.Properties.Appearance.Options.UseFont = true;
+         this.GasFabrNumb_Txt.Properties.Appearance.Options.UseTextOptions = true;
+         this.GasFabrNumb_Txt.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         this.GasFabrNumb_Txt.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+         this.GasFabrNumb_Txt.Properties.AppearanceFocused.Options.UseBackColor = true;
+         this.GasFabrNumb_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
+         this.GasFabrNumb_Txt.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.GasFabrNumb_Txt.Size = new System.Drawing.Size(117, 22);
+         this.GasFabrNumb_Txt.TabIndex = 10;
+         // 
+         // label28
+         // 
+         this.label28.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.label28.AutoSize = true;
+         this.label28.Location = new System.Drawing.Point(227, 168);
+         this.label28.Name = "label28";
+         this.label28.Size = new System.Drawing.Size(64, 14);
+         this.label28.TabIndex = 71;
+         this.label28.Text = "کد پستی :";
+         // 
+         // PowrFabrNumb_Txt
+         // 
+         this.PowrFabrNumb_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.PowrFabrNumb_Txt.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.FgpbsBs1, "POWR_FABR_NUMB", true));
+         this.PowrFabrNumb_Txt.Location = new System.Drawing.Point(326, 136);
+         this.PowrFabrNumb_Txt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+         this.PowrFabrNumb_Txt.Name = "PowrFabrNumb_Txt";
+         this.PowrFabrNumb_Txt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.PowrFabrNumb_Txt.Properties.Appearance.Options.UseFont = true;
+         this.PowrFabrNumb_Txt.Properties.Appearance.Options.UseTextOptions = true;
+         this.PowrFabrNumb_Txt.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         this.PowrFabrNumb_Txt.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+         this.PowrFabrNumb_Txt.Properties.AppearanceFocused.Options.UseBackColor = true;
+         this.PowrFabrNumb_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
+         this.PowrFabrNumb_Txt.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.PowrFabrNumb_Txt.Size = new System.Drawing.Size(117, 22);
+         this.PowrFabrNumb_Txt.TabIndex = 9;
+         // 
+         // label19
+         // 
+         this.label19.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.label19.AutoSize = true;
+         this.label19.Location = new System.Drawing.Point(700, 170);
+         this.label19.Name = "label19";
+         this.label19.Size = new System.Drawing.Size(37, 14);
+         this.label19.TabIndex = 71;
+         this.label19.Text = "متراز :";
+         // 
+         // label17
+         // 
+         this.label17.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.label17.AutoSize = true;
+         this.label17.Location = new System.Drawing.Point(700, 140);
+         this.label17.Name = "label17";
+         this.label17.Size = new System.Drawing.Size(92, 14);
+         this.label17.TabIndex = 71;
+         this.label17.Text = "شماره کنتور آب :";
+         // 
+         // label18
+         // 
+         this.label18.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.label18.AutoSize = true;
+         this.label18.Location = new System.Drawing.Point(227, 140);
+         this.label18.Name = "label18";
+         this.label18.Size = new System.Drawing.Size(93, 14);
+         this.label18.TabIndex = 70;
+         this.label18.Text = "شماره کنتور گاز :";
+         // 
+         // label16
+         // 
+         this.label16.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.label16.AutoSize = true;
+         this.label16.Location = new System.Drawing.Point(450, 140);
+         this.label16.Name = "label16";
+         this.label16.Size = new System.Drawing.Size(97, 14);
+         this.label16.TabIndex = 70;
+         this.label16.Text = "شماره کنتور برق :";
          // 
          // Cunt_Lov
          // 
@@ -2546,10 +2702,6 @@
          // 
          this.CblkBs1.DataMember = "Cando_Blocks";
          this.CblkBs1.DataSource = this.CndoBs1;
-         // 
-         // CndoBs1
-         // 
-         this.CndoBs1.DataSource = typeof(System.Scsc.Data.Cando);
          // 
          // gridView2
          // 
@@ -2764,6 +2916,120 @@
          this.tabPage3.Text = "وابستگی";
          this.tabPage3.UseVisualStyleBackColor = true;
          // 
+         // label22
+         // 
+         this.label22.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.label22.AutoSize = true;
+         this.label22.Location = new System.Drawing.Point(705, 85);
+         this.label22.Name = "label22";
+         this.label22.Size = new System.Drawing.Size(131, 14);
+         this.label22.TabIndex = 70;
+         this.label22.Text = "تعداد اعضای تحت تکفل :";
+         // 
+         // label14
+         // 
+         this.label14.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.label14.AutoSize = true;
+         this.label14.Location = new System.Drawing.Point(260, 54);
+         this.label14.Name = "label14";
+         this.label14.Size = new System.Drawing.Size(54, 14);
+         this.label14.TabIndex = 70;
+         this.label14.Text = "رمز عبور :";
+         // 
+         // label21
+         // 
+         this.label21.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.label21.AutoSize = true;
+         this.label21.Location = new System.Drawing.Point(389, 84);
+         this.label21.Name = "label21";
+         this.label21.Size = new System.Drawing.Size(79, 14);
+         this.label21.TabIndex = 70;
+         this.label21.Text = "تعداد فرزندان :";
+         // 
+         // DpenFmlyNumb_Txt
+         // 
+         this.DpenFmlyNumb_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.DpenFmlyNumb_Txt.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.FgpbsBs1, "DPEN_FMLY_NUMB", true));
+         this.DpenFmlyNumb_Txt.Location = new System.Drawing.Point(650, 81);
+         this.DpenFmlyNumb_Txt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+         this.DpenFmlyNumb_Txt.Name = "DpenFmlyNumb_Txt";
+         this.DpenFmlyNumb_Txt.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
+         this.DpenFmlyNumb_Txt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.DpenFmlyNumb_Txt.Properties.Appearance.Options.UseBackColor = true;
+         this.DpenFmlyNumb_Txt.Properties.Appearance.Options.UseFont = true;
+         this.DpenFmlyNumb_Txt.Properties.Appearance.Options.UseTextOptions = true;
+         this.DpenFmlyNumb_Txt.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         this.DpenFmlyNumb_Txt.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+         this.DpenFmlyNumb_Txt.Properties.AppearanceFocused.Options.UseBackColor = true;
+         this.DpenFmlyNumb_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
+         this.DpenFmlyNumb_Txt.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.DpenFmlyNumb_Txt.Size = new System.Drawing.Size(49, 22);
+         this.DpenFmlyNumb_Txt.TabIndex = 4;
+         // 
+         // Password_Txt
+         // 
+         this.Password_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.Password_Txt.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.FgpbsBs1, "PASS_WORD", true));
+         this.Password_Txt.Location = new System.Drawing.Point(114, 50);
+         this.Password_Txt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+         this.Password_Txt.Name = "Password_Txt";
+         this.Password_Txt.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+         this.Password_Txt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.Password_Txt.Properties.Appearance.Options.UseBackColor = true;
+         this.Password_Txt.Properties.Appearance.Options.UseFont = true;
+         this.Password_Txt.Properties.Appearance.Options.UseTextOptions = true;
+         this.Password_Txt.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         this.Password_Txt.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+         this.Password_Txt.Properties.AppearanceFocused.Options.UseBackColor = true;
+         this.Password_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
+         this.Password_Txt.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.Password_Txt.Size = new System.Drawing.Size(140, 22);
+         this.Password_Txt.TabIndex = 3;
+         // 
+         // ChldFmlyNumb_Txt
+         // 
+         this.ChldFmlyNumb_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.ChldFmlyNumb_Txt.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.FgpbsBs1, "CHLD_FMLY_NUMB", true));
+         this.ChldFmlyNumb_Txt.Location = new System.Drawing.Point(334, 80);
+         this.ChldFmlyNumb_Txt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+         this.ChldFmlyNumb_Txt.Name = "ChldFmlyNumb_Txt";
+         this.ChldFmlyNumb_Txt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.ChldFmlyNumb_Txt.Properties.Appearance.Options.UseFont = true;
+         this.ChldFmlyNumb_Txt.Properties.Appearance.Options.UseTextOptions = true;
+         this.ChldFmlyNumb_Txt.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         this.ChldFmlyNumb_Txt.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+         this.ChldFmlyNumb_Txt.Properties.AppearanceFocused.Options.UseBackColor = true;
+         this.ChldFmlyNumb_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
+         this.ChldFmlyNumb_Txt.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.ChldFmlyNumb_Txt.Size = new System.Drawing.Size(49, 22);
+         this.ChldFmlyNumb_Txt.TabIndex = 6;
+         // 
+         // FmlyNumb_Txt
+         // 
+         this.FmlyNumb_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.FmlyNumb_Txt.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.FgpbsBs1, "FMLY_NUMB", true));
+         this.FmlyNumb_Txt.Location = new System.Drawing.Point(480, 81);
+         this.FmlyNumb_Txt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+         this.FmlyNumb_Txt.Name = "FmlyNumb_Txt";
+         this.FmlyNumb_Txt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.FmlyNumb_Txt.Properties.Appearance.Options.UseFont = true;
+         this.FmlyNumb_Txt.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+         this.FmlyNumb_Txt.Properties.AppearanceFocused.Options.UseBackColor = true;
+         this.FmlyNumb_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
+         this.FmlyNumb_Txt.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.FmlyNumb_Txt.Size = new System.Drawing.Size(49, 22);
+         this.FmlyNumb_Txt.TabIndex = 5;
+         // 
+         // label20
+         // 
+         this.label20.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.label20.AutoSize = true;
+         this.label20.Location = new System.Drawing.Point(535, 84);
+         this.label20.Name = "label20";
+         this.label20.Size = new System.Drawing.Size(106, 14);
+         this.label20.TabIndex = 37;
+         this.label20.Text = "تعداد اعضا خانواده :";
+         // 
          // tabPage4
          // 
          this.tabPage4.Controls.Add(this.EMAL_ADRS_TextEdit);
@@ -2809,336 +3075,6 @@
          this.tabPage5.Text = "سایر اطلاعات";
          this.tabPage5.UseVisualStyleBackColor = true;
          // 
-         // label9
-         // 
-         this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.label9.AutoSize = true;
-         this.label9.Location = new System.Drawing.Point(487, 134);
-         this.label9.Name = "label9";
-         this.label9.Size = new System.Drawing.Size(87, 14);
-         this.label9.TabIndex = 30;
-         this.label9.Text = "شماره حساب :";
-         // 
-         // Password_Txt
-         // 
-         this.Password_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.Password_Txt.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.FgpbsBs1, "PASS_WORD", true));
-         this.Password_Txt.Location = new System.Drawing.Point(114, 50);
-         this.Password_Txt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-         this.Password_Txt.Name = "Password_Txt";
-         this.Password_Txt.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-         this.Password_Txt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.Password_Txt.Properties.Appearance.Options.UseBackColor = true;
-         this.Password_Txt.Properties.Appearance.Options.UseFont = true;
-         this.Password_Txt.Properties.Appearance.Options.UseTextOptions = true;
-         this.Password_Txt.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-         this.Password_Txt.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-         this.Password_Txt.Properties.AppearanceFocused.Options.UseBackColor = true;
-         this.Password_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
-         this.Password_Txt.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.Password_Txt.Size = new System.Drawing.Size(140, 22);
-         this.Password_Txt.TabIndex = 3;
-         // 
-         // label14
-         // 
-         this.label14.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.label14.AutoSize = true;
-         this.label14.Location = new System.Drawing.Point(260, 54);
-         this.label14.Name = "label14";
-         this.label14.Size = new System.Drawing.Size(54, 14);
-         this.label14.TabIndex = 70;
-         this.label14.Text = "رمز عبور :";
-         // 
-         // label15
-         // 
-         this.label15.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.label15.AutoSize = true;
-         this.label15.ForeColor = System.Drawing.Color.Fuchsia;
-         this.label15.Location = new System.Drawing.Point(240, 205);
-         this.label15.Name = "label15";
-         this.label15.Size = new System.Drawing.Size(105, 14);
-         this.label15.TabIndex = 12;
-         this.label15.Text = "شماره شناسنامه :";
-         // 
-         // IdtyNumb_Txt
-         // 
-         this.IdtyNumb_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.IdtyNumb_Txt.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.FgpbsBs1, "IDTY_NUMB", true));
-         this.IdtyNumb_Txt.Location = new System.Drawing.Point(117, 202);
-         this.IdtyNumb_Txt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-         this.IdtyNumb_Txt.Name = "IdtyNumb_Txt";
-         this.IdtyNumb_Txt.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-         this.IdtyNumb_Txt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.IdtyNumb_Txt.Properties.Appearance.Options.UseBackColor = true;
-         this.IdtyNumb_Txt.Properties.Appearance.Options.UseFont = true;
-         this.IdtyNumb_Txt.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-         this.IdtyNumb_Txt.Properties.AppearanceFocused.Options.UseBackColor = true;
-         this.IdtyNumb_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
-         this.IdtyNumb_Txt.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.IdtyNumb_Txt.Size = new System.Drawing.Size(117, 22);
-         this.IdtyNumb_Txt.TabIndex = 14;
-         // 
-         // label16
-         // 
-         this.label16.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.label16.AutoSize = true;
-         this.label16.Location = new System.Drawing.Point(450, 140);
-         this.label16.Name = "label16";
-         this.label16.Size = new System.Drawing.Size(97, 14);
-         this.label16.TabIndex = 70;
-         this.label16.Text = "شماره کنتور برق :";
-         // 
-         // label17
-         // 
-         this.label17.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.label17.AutoSize = true;
-         this.label17.Location = new System.Drawing.Point(700, 140);
-         this.label17.Name = "label17";
-         this.label17.Size = new System.Drawing.Size(92, 14);
-         this.label17.TabIndex = 71;
-         this.label17.Text = "شماره کنتور آب :";
-         // 
-         // PowrFabrNumb_Txt
-         // 
-         this.PowrFabrNumb_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.PowrFabrNumb_Txt.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.FgpbsBs1, "POWR_FABR_NUMB", true));
-         this.PowrFabrNumb_Txt.Location = new System.Drawing.Point(326, 136);
-         this.PowrFabrNumb_Txt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-         this.PowrFabrNumb_Txt.Name = "PowrFabrNumb_Txt";
-         this.PowrFabrNumb_Txt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.PowrFabrNumb_Txt.Properties.Appearance.Options.UseFont = true;
-         this.PowrFabrNumb_Txt.Properties.Appearance.Options.UseTextOptions = true;
-         this.PowrFabrNumb_Txt.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-         this.PowrFabrNumb_Txt.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-         this.PowrFabrNumb_Txt.Properties.AppearanceFocused.Options.UseBackColor = true;
-         this.PowrFabrNumb_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
-         this.PowrFabrNumb_Txt.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.PowrFabrNumb_Txt.Size = new System.Drawing.Size(117, 22);
-         this.PowrFabrNumb_Txt.TabIndex = 9;
-         // 
-         // WatrFabrNumb_Txt
-         // 
-         this.WatrFabrNumb_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.WatrFabrNumb_Txt.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.FgpbsBs1, "WATR_FABR_NUMB", true));
-         this.WatrFabrNumb_Txt.Location = new System.Drawing.Point(575, 137);
-         this.WatrFabrNumb_Txt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-         this.WatrFabrNumb_Txt.Name = "WatrFabrNumb_Txt";
-         this.WatrFabrNumb_Txt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.WatrFabrNumb_Txt.Properties.Appearance.Options.UseFont = true;
-         this.WatrFabrNumb_Txt.Properties.Appearance.Options.UseTextOptions = true;
-         this.WatrFabrNumb_Txt.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-         this.WatrFabrNumb_Txt.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-         this.WatrFabrNumb_Txt.Properties.AppearanceFocused.Options.UseBackColor = true;
-         this.WatrFabrNumb_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
-         this.WatrFabrNumb_Txt.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.WatrFabrNumb_Txt.Size = new System.Drawing.Size(118, 22);
-         this.WatrFabrNumb_Txt.TabIndex = 8;
-         // 
-         // label18
-         // 
-         this.label18.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.label18.AutoSize = true;
-         this.label18.Location = new System.Drawing.Point(227, 140);
-         this.label18.Name = "label18";
-         this.label18.Size = new System.Drawing.Size(93, 14);
-         this.label18.TabIndex = 70;
-         this.label18.Text = "شماره کنتور گاز :";
-         // 
-         // GasFabrNumb_Txt
-         // 
-         this.GasFabrNumb_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.GasFabrNumb_Txt.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.FgpbsBs1, "GAS_FABR_NUMB", true));
-         this.GasFabrNumb_Txt.Location = new System.Drawing.Point(103, 136);
-         this.GasFabrNumb_Txt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-         this.GasFabrNumb_Txt.Name = "GasFabrNumb_Txt";
-         this.GasFabrNumb_Txt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.GasFabrNumb_Txt.Properties.Appearance.Options.UseFont = true;
-         this.GasFabrNumb_Txt.Properties.Appearance.Options.UseTextOptions = true;
-         this.GasFabrNumb_Txt.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-         this.GasFabrNumb_Txt.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-         this.GasFabrNumb_Txt.Properties.AppearanceFocused.Options.UseBackColor = true;
-         this.GasFabrNumb_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
-         this.GasFabrNumb_Txt.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.GasFabrNumb_Txt.Size = new System.Drawing.Size(117, 22);
-         this.GasFabrNumb_Txt.TabIndex = 10;
-         // 
-         // label19
-         // 
-         this.label19.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.label19.AutoSize = true;
-         this.label19.Location = new System.Drawing.Point(700, 170);
-         this.label19.Name = "label19";
-         this.label19.Size = new System.Drawing.Size(37, 14);
-         this.label19.TabIndex = 71;
-         this.label19.Text = "متراز :";
-         // 
-         // BuldArea_Txt
-         // 
-         this.BuldArea_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.BuldArea_Txt.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.FgpbsBs1, "BULD_AREA", true));
-         this.BuldArea_Txt.Location = new System.Drawing.Point(575, 167);
-         this.BuldArea_Txt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-         this.BuldArea_Txt.Name = "BuldArea_Txt";
-         this.BuldArea_Txt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.BuldArea_Txt.Properties.Appearance.Options.UseFont = true;
-         this.BuldArea_Txt.Properties.Appearance.Options.UseTextOptions = true;
-         this.BuldArea_Txt.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-         this.BuldArea_Txt.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-         this.BuldArea_Txt.Properties.AppearanceFocused.Options.UseBackColor = true;
-         this.BuldArea_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
-         this.BuldArea_Txt.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.BuldArea_Txt.Size = new System.Drawing.Size(118, 22);
-         this.BuldArea_Txt.TabIndex = 11;
-         // 
-         // label20
-         // 
-         this.label20.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.label20.AutoSize = true;
-         this.label20.Location = new System.Drawing.Point(535, 84);
-         this.label20.Name = "label20";
-         this.label20.Size = new System.Drawing.Size(106, 14);
-         this.label20.TabIndex = 37;
-         this.label20.Text = "تعداد اعضا خانواده :";
-         // 
-         // FmlyNumb_Txt
-         // 
-         this.FmlyNumb_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.FmlyNumb_Txt.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.FgpbsBs1, "FMLY_NUMB", true));
-         this.FmlyNumb_Txt.Location = new System.Drawing.Point(480, 81);
-         this.FmlyNumb_Txt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-         this.FmlyNumb_Txt.Name = "FmlyNumb_Txt";
-         this.FmlyNumb_Txt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.FmlyNumb_Txt.Properties.Appearance.Options.UseFont = true;
-         this.FmlyNumb_Txt.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-         this.FmlyNumb_Txt.Properties.AppearanceFocused.Options.UseBackColor = true;
-         this.FmlyNumb_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
-         this.FmlyNumb_Txt.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.FmlyNumb_Txt.Size = new System.Drawing.Size(49, 22);
-         this.FmlyNumb_Txt.TabIndex = 5;
-         // 
-         // ChldFmlyNumb_Txt
-         // 
-         this.ChldFmlyNumb_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.ChldFmlyNumb_Txt.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.FgpbsBs1, "CHLD_FMLY_NUMB", true));
-         this.ChldFmlyNumb_Txt.Location = new System.Drawing.Point(334, 80);
-         this.ChldFmlyNumb_Txt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-         this.ChldFmlyNumb_Txt.Name = "ChldFmlyNumb_Txt";
-         this.ChldFmlyNumb_Txt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.ChldFmlyNumb_Txt.Properties.Appearance.Options.UseFont = true;
-         this.ChldFmlyNumb_Txt.Properties.Appearance.Options.UseTextOptions = true;
-         this.ChldFmlyNumb_Txt.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-         this.ChldFmlyNumb_Txt.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-         this.ChldFmlyNumb_Txt.Properties.AppearanceFocused.Options.UseBackColor = true;
-         this.ChldFmlyNumb_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
-         this.ChldFmlyNumb_Txt.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.ChldFmlyNumb_Txt.Size = new System.Drawing.Size(49, 22);
-         this.ChldFmlyNumb_Txt.TabIndex = 6;
-         // 
-         // DpenFmlyNumb_Txt
-         // 
-         this.DpenFmlyNumb_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.DpenFmlyNumb_Txt.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.FgpbsBs1, "DPEN_FMLY_NUMB", true));
-         this.DpenFmlyNumb_Txt.Location = new System.Drawing.Point(650, 81);
-         this.DpenFmlyNumb_Txt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-         this.DpenFmlyNumb_Txt.Name = "DpenFmlyNumb_Txt";
-         this.DpenFmlyNumb_Txt.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
-         this.DpenFmlyNumb_Txt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.DpenFmlyNumb_Txt.Properties.Appearance.Options.UseBackColor = true;
-         this.DpenFmlyNumb_Txt.Properties.Appearance.Options.UseFont = true;
-         this.DpenFmlyNumb_Txt.Properties.Appearance.Options.UseTextOptions = true;
-         this.DpenFmlyNumb_Txt.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-         this.DpenFmlyNumb_Txt.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-         this.DpenFmlyNumb_Txt.Properties.AppearanceFocused.Options.UseBackColor = true;
-         this.DpenFmlyNumb_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
-         this.DpenFmlyNumb_Txt.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.DpenFmlyNumb_Txt.Size = new System.Drawing.Size(49, 22);
-         this.DpenFmlyNumb_Txt.TabIndex = 4;
-         // 
-         // label21
-         // 
-         this.label21.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.label21.AutoSize = true;
-         this.label21.Location = new System.Drawing.Point(389, 84);
-         this.label21.Name = "label21";
-         this.label21.Size = new System.Drawing.Size(79, 14);
-         this.label21.TabIndex = 70;
-         this.label21.Text = "تعداد فرزندان :";
-         // 
-         // label22
-         // 
-         this.label22.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.label22.AutoSize = true;
-         this.label22.Location = new System.Drawing.Point(705, 85);
-         this.label22.Name = "label22";
-         this.label22.Size = new System.Drawing.Size(131, 14);
-         this.label22.TabIndex = 70;
-         this.label22.Text = "تعداد اعضای تحت تکفل :";
-         // 
-         // HomeType_Lov
-         // 
-         this.HomeType_Lov.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.HomeType_Lov.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.FgpbsBs1, "HOME_TYPE", true));
-         this.HomeType_Lov.Location = new System.Drawing.Point(326, 166);
-         this.HomeType_Lov.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-         this.HomeType_Lov.Name = "HomeType_Lov";
-         this.HomeType_Lov.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.HomeType_Lov.Properties.Appearance.Options.UseFont = true;
-         this.HomeType_Lov.Properties.Appearance.Options.UseTextOptions = true;
-         this.HomeType_Lov.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-         this.HomeType_Lov.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-         this.HomeType_Lov.Properties.AppearanceFocused.Options.UseBackColor = true;
-         this.HomeType_Lov.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject11, "", null, null, true)});
-         this.HomeType_Lov.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("VALU", "VALU", 48, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("DOMN_DESC", "گروه خونی", 72, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near)});
-         this.HomeType_Lov.Properties.DataSource = this.DBlodBs1;
-         this.HomeType_Lov.Properties.DisplayMember = "DOMN_DESC";
-         this.HomeType_Lov.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
-         this.HomeType_Lov.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.HomeType_Lov.Properties.NullText = "";
-         this.HomeType_Lov.Properties.ValueMember = "VALU";
-         this.HomeType_Lov.Size = new System.Drawing.Size(117, 22);
-         this.HomeType_Lov.TabIndex = 12;
-         // 
-         // label27
-         // 
-         this.label27.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.label27.AutoSize = true;
-         this.label27.Location = new System.Drawing.Point(448, 169);
-         this.label27.Name = "label27";
-         this.label27.Size = new System.Drawing.Size(68, 14);
-         this.label27.TabIndex = 78;
-         this.label27.Text = "نوع مالکیت :";
-         // 
-         // label28
-         // 
-         this.label28.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.label28.AutoSize = true;
-         this.label28.Location = new System.Drawing.Point(227, 168);
-         this.label28.Name = "label28";
-         this.label28.Size = new System.Drawing.Size(64, 14);
-         this.label28.TabIndex = 71;
-         this.label28.Text = "کد پستی :";
-         // 
-         // ZipCode_Txt
-         // 
-         this.ZipCode_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.ZipCode_Txt.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.FgpbsBs1, "ZIP_CODE", true));
-         this.ZipCode_Txt.Location = new System.Drawing.Point(103, 165);
-         this.ZipCode_Txt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-         this.ZipCode_Txt.Name = "ZipCode_Txt";
-         this.ZipCode_Txt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.ZipCode_Txt.Properties.Appearance.Options.UseFont = true;
-         this.ZipCode_Txt.Properties.Appearance.Options.UseTextOptions = true;
-         this.ZipCode_Txt.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-         this.ZipCode_Txt.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-         this.ZipCode_Txt.Properties.AppearanceFocused.Options.UseBackColor = true;
-         this.ZipCode_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
-         this.ZipCode_Txt.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.ZipCode_Txt.Size = new System.Drawing.Size(117, 22);
-         this.ZipCode_Txt.TabIndex = 13;
-         // 
          // label29
          // 
          this.label29.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -3165,6 +3101,76 @@
          this.textEdit17.Size = new System.Drawing.Size(665, 22);
          this.textEdit17.TabIndex = 1;
          // 
+         // label9
+         // 
+         this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.label9.AutoSize = true;
+         this.label9.Location = new System.Drawing.Point(487, 134);
+         this.label9.Name = "label9";
+         this.label9.Size = new System.Drawing.Size(87, 14);
+         this.label9.TabIndex = 30;
+         this.label9.Text = "شماره حساب :";
+         // 
+         // RqstBs1
+         // 
+         this.RqstBs1.DataSource = typeof(System.Scsc.Data.Request);
+         // 
+         // DFgtpBs1
+         // 
+         this.DFgtpBs1.DataSource = typeof(System.Scsc.Data.D_FGTP);
+         // 
+         // DEducBs1
+         // 
+         this.DEducBs1.DataSource = typeof(System.Scsc.Data.D_EDUC);
+         // 
+         // DSxtpBs1
+         // 
+         this.DSxtpBs1.DataSource = typeof(System.Scsc.Data.D_SXTP);
+         // 
+         // DstpBs1
+         // 
+         this.DstpBs1.DataSource = typeof(System.Scsc.Data.Diseases_Type);
+         // 
+         // DBlodBs1
+         // 
+         this.DBlodBs1.DataSource = typeof(System.Scsc.Data.D_BLOD);
+         // 
+         // CndoBs1
+         // 
+         this.CndoBs1.DataSource = typeof(System.Scsc.Data.Cando);
+         // 
+         // SuntBs1
+         // 
+         this.SuntBs1.DataSource = typeof(System.Scsc.Data.Sub_Unit);
+         // 
+         // DDegrBs2
+         // 
+         this.DDegrBs2.DataSource = typeof(System.Scsc.Data.D_DEGR);
+         // 
+         // DCyclBs1
+         // 
+         this.DCyclBs1.DataSource = typeof(System.Scsc.Data.D_CYCL);
+         // 
+         // FighsBs1
+         // 
+         this.FighsBs1.DataSource = typeof(System.Scsc.Data.Fighter);
+         // 
+         // DCetpBs1
+         // 
+         this.DCetpBs1.DataSource = typeof(System.Scsc.Data.D_CETP);
+         // 
+         // CbmtBs1
+         // 
+         this.CbmtBs1.DataSource = typeof(System.Scsc.Data.Club_Method);
+         // 
+         // DDytpBs1
+         // 
+         this.DDytpBs1.DataSource = typeof(System.Scsc.Data.D_DYTP);
+         // 
+         // DOwnrBs1
+         // 
+         this.DOwnrBs1.DataSource = typeof(System.Scsc.Data.D_OWNR);
+         // 
          // ADM_CHNG_F
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -3183,8 +3189,6 @@
          this.Gb_Rqst.ResumeLayout(false);
          this.Gb_Rqst.PerformLayout();
          ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit9.Properties)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.RqstBs1)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.DCyclBs1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.textEdit6.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.textEdit7.Properties)).EndInit();
@@ -3195,7 +3199,6 @@
          this.Gb_Info.PerformLayout();
          ((System.ComponentModel.ISupportInitialize)(this.FILE_NO_LookUpEdit.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.FighBs1)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.FighsBs1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.DpstAcntSlry_Text2.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.FgpbsBs1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.RqroBs1)).EndInit();
@@ -3206,17 +3209,12 @@
          ((System.ComponentModel.ISupportInitialize)(this.HistDesc_TextEdit.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.CardNumb_Text.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.SUNT_CODELookUpEdit.Properties)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.SuntBs1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.EDUC_DEG_LookUpEdit.Properties)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.DEducBs1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.FNGR_PRNT_TextEdit.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.COCH_DEG_LookUpEdit.Properties)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.DDegrBs2)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.CORD_YTextEdit.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.FathWork_TextEdit.Properties)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.DCetpBs1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.TYPE_LookUpEdit.Properties)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.DFgtpBs1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.CORD_XTextEdit.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.Chat_Id_TextEdit.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.LAST_NAME_TextEdit.Properties)).EndInit();
@@ -3224,13 +3222,9 @@
          ((System.ComponentModel.ISupportInitialize)(this.FRST_NAME_TextEdit.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.EMAL_ADRS_TextEdit.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.NATL_CODE_TextEdit.Properties)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.CbmtBs1)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.DDytpBs1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.SEX_TYPE_LookUpEdit.Properties)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.DSxtpBs1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.FATH_NAME_TextEdit.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.BLOD_GROPLookUpEdit.Properties)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.DBlodBs1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.GLOB_CODE_TextEdit.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.iNSR_NUMBTextEdit.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.MomCellPhon_Txt.Properties)).EndInit();
@@ -3238,7 +3232,6 @@
          ((System.ComponentModel.ISupportInitialize)(this.CELL_PHON_TextEdit.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.MomChatId_Txt.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.DISE_CODE_LookUpEdit.Properties)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.DstpBs1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.MomTellPhon_Txt.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.DadChatId_Txt.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.DadTellPhon_Txt.Properties)).EndInit();
@@ -3250,12 +3243,18 @@
          this.tabControl1.ResumeLayout(false);
          this.tabPage1.ResumeLayout(false);
          this.tabPage1.PerformLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.IdtyNumb_Txt.Properties)).EndInit();
          this.tabPage2.ResumeLayout(false);
          this.tabPage2.PerformLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.HomeType_Lov.Properties)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.ZipCode_Txt.Properties)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.BuldArea_Txt.Properties)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.WatrFabrNumb_Txt.Properties)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.GasFabrNumb_Txt.Properties)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.PowrFabrNumb_Txt.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.Cunt_Lov.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.CuntBs1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.CblkBs1)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.CndoBs1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.Cblk_Lov.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
@@ -3263,22 +3262,30 @@
          ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).EndInit();
          this.tabPage3.ResumeLayout(false);
          this.tabPage3.PerformLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.DpenFmlyNumb_Txt.Properties)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.Password_Txt.Properties)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.ChldFmlyNumb_Txt.Properties)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.FmlyNumb_Txt.Properties)).EndInit();
          this.tabPage4.ResumeLayout(false);
          this.tabPage4.PerformLayout();
          this.tabPage5.ResumeLayout(false);
          this.tabPage5.PerformLayout();
-         ((System.ComponentModel.ISupportInitialize)(this.Password_Txt.Properties)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.IdtyNumb_Txt.Properties)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.PowrFabrNumb_Txt.Properties)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.WatrFabrNumb_Txt.Properties)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.GasFabrNumb_Txt.Properties)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.BuldArea_Txt.Properties)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.FmlyNumb_Txt.Properties)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.ChldFmlyNumb_Txt.Properties)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.DpenFmlyNumb_Txt.Properties)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.HomeType_Lov.Properties)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.ZipCode_Txt.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.textEdit17.Properties)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.RqstBs1)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.DFgtpBs1)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.DEducBs1)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.DSxtpBs1)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.DstpBs1)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.DBlodBs1)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.CndoBs1)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.SuntBs1)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.DDegrBs2)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.DCyclBs1)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.FighsBs1)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.DCetpBs1)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.CbmtBs1)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.DDytpBs1)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.DOwnrBs1)).EndInit();
          this.ResumeLayout(false);
          this.PerformLayout();
 
@@ -3489,5 +3496,6 @@
       private Windows.Forms.Label label28;
       private Windows.Forms.Label label29;
       private DevExpress.XtraEditors.TextEdit textEdit17;
+      private Windows.Forms.BindingSource DOwnrBs1;
    }
 }

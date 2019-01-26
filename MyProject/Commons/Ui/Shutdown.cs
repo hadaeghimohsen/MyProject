@@ -43,5 +43,19 @@ namespace MyProject.Commons.Ui
             });
          _DefaultGateway.Gateway(_Logout);
       }
+
+      private void Backup_Butn_Click(object sender, EventArgs e)
+      {
+         Job _Logout = new Job(SendType.External, "Localhost",
+            new List<Job>
+            {
+               new Job(SendType.SelfToUserInterface, GetType().Name, 04 /* Execute UnPaint */),
+               new Job(SendType.External, "Program","DataGuard", 34 /* Execute DoWork4Backup */, SendType.Self),
+               //new Job(SendType.External, "Program", "", 03 /* Execute Stop_Service_Component */, SendType.Self)               
+            });
+         _DefaultGateway.Gateway(_Logout);
+
+         Shutdown_Butn_Click(null, null);
+      }
    }
 }

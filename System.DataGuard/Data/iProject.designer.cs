@@ -1038,6 +1038,13 @@ namespace System.DataGuard.Data
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), sub_Sys, stat, inst_Stat, inst_Date, licn_Type, licn_Tril_Date, clnt_Licn_Desc, srvr_Licn_Desc, sub_Desc, jobs_Stat, freq_Intr);
 			return ((int)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="DataGuard.TakedbBackup")]
+		public int TakedbBackup([global::System.Data.Linq.Mapping.ParameterAttribute(Name="X", DbType="Xml")] System.Xml.Linq.XElement x)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), x);
+			return ((int)(result.ReturnValue));
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="DataGuard.Gateway")]

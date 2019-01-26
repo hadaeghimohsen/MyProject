@@ -134,6 +134,9 @@ namespace System.DataGuard.Self.Code
             case 33:
                DoWork4GetLicenseDay(job);
                break;
+            case 34:
+               DoWork4Backup(job);
+               break;
             default:
                break;
          }

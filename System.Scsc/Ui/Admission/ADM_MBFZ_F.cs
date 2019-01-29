@@ -182,7 +182,8 @@ namespace System.Scsc.Ui.Admission
                         new XElement("Member_Ship",
                            new XAttribute("strtdate", StrtDate_DateTime003.Value.HasValue ? StrtDate_DateTime003.Value.Value.ToString("yyyy-MM-dd") : DateTime.Now.ToString("yyyy-MM-dd")),
                            new XAttribute("enddate", EndDate_DateTime003.Value.HasValue ? EndDate_DateTime003.Value.Value.ToString("yyyy-MM-dd") : DateTime.Now.AddDays(7).ToString("yyyy-MM-dd")),
-                           new XAttribute("prntcont", "1")
+                           new XAttribute("prntcont", "1"),
+                           new XAttribute("numbmontofer", "0")
                         )
                      )
                   )

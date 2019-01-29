@@ -161,6 +161,10 @@ namespace System.Scsc.Code
       /// Kiosk
       internal Ui.OtherIncome.KSK_INCM_F _Ksk_Incm_F { get; set; }
 
+
+      /// Dashboard
+      internal Ui.DataAnalysis.DAP_DSBR_F _Dap_Dsbr_F { get; set; }
+
       /// Show Change
       internal Ui.Admission.ShowChanges.SHOW_ATRQ_F _Show_Atrq_F { get; set; }
       internal Ui.Admission.ShowChanges.SHOW_ACRQ_F _Show_Acrq_F { get; set; }

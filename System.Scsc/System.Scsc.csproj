@@ -591,6 +591,15 @@
     <Compile Include="Ui\Common\LSI_FLDF_F.RequestRespons.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Ui\DataAnalysis\DAP_DSBR_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\DataAnalysis\DAP_DSBR_F.Designer.cs">
+      <DependentUpon>DAP_DSBR_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\DataAnalysis\DAP_DSBR_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Ui\DebitsList\DEBT_LIST_F.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -1299,6 +1308,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Ui\Common\LSI_FLDF_F.resx">
       <DependentUpon>LSI_FLDF_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\DataAnalysis\DAP_DSBR_F.resx">
+      <DependentUpon>DAP_DSBR_F.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ui\DebitsList\DEBT_LIST_F.resx">
       <DependentUpon>DEBT_LIST_F.cs</DependentUpon>
@@ -2802,7 +2814,6 @@
     <Folder Include="Ui\ChangeRials\ShowChanges\" />
     <Folder Include="Ui\Club\" />
     <Folder Include="Ui\Committee\" />
-    <Folder Include="Ui\DataAnalysis\" />
     <Folder Include="Ui\DebitsList\ShowChanges\" />
     <Folder Include="Ui\Exam\" />
     <Folder Include="Ui\FighterPublic\" />

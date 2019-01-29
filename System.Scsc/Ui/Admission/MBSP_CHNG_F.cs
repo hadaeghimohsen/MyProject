@@ -100,6 +100,7 @@ namespace System.Scsc.Ui.Admission
                            new XAttribute("strtdate", StrtDate_DateTime002.Value.HasValue ? StrtDate_DateTime002.Value.Value.ToString("yyyy-MM-dd") : ""),
                            new XAttribute("enddate", EndDate_DateTime002.Value.HasValue ? EndDate_DateTime002.Value.Value.ToString("yyyy-MM-dd") : ""),
                            new XAttribute("prntcont", "1"),
+                           new XAttribute("numbmontofer", 0),
                            new XAttribute("numbofattnmont", NumbAttnMont_TextEdit002.Text ?? "0"),
                            new XAttribute("sumnumbattnmont", SumNumbAttnMont_TextEdit002.Text ?? "0")
                         )

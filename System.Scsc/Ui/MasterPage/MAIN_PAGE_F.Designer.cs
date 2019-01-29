@@ -1176,6 +1176,7 @@
          this.bbi_dsrdbutn.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
          this.bbi_dsrdbutn.Id = 87;
          this.bbi_dsrdbutn.Name = "bbi_dsrdbutn";
+         this.bbi_dsrdbutn.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
          this.bbi_dsrdbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_dsrdbutn_ItemClick);
          // 
          // bbi_dshbbutn
@@ -1507,13 +1508,13 @@
             this.ribbonPageGroup20});
          this.ribbonPage8.Name = "ribbonPage8";
          this.ribbonPage8.Text = "داشبورد";
-         this.ribbonPage8.Visible = false;
          // 
          // ribbonPageGroup20
          // 
          this.ribbonPageGroup20.ItemLinks.Add(this.bbi_dsrdbutn);
          this.ribbonPageGroup20.ItemLinks.Add(this.bbi_dshbbutn);
          this.ribbonPageGroup20.Name = "ribbonPageGroup20";
+         this.ribbonPageGroup20.Text = "گزارشات راهبردی";
          // 
          // SystemAdmin_RPgc
          // 
@@ -1595,7 +1596,7 @@
          this.ShopStore_Lnk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
          this.ShopStore_Lnk.Font = new System.Drawing.Font("IRANSans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.ShopStore_Lnk.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-         this.ShopStore_Lnk.Location = new System.Drawing.Point(5, 481);
+         this.ShopStore_Lnk.Location = new System.Drawing.Point(5, 413);
          this.ShopStore_Lnk.Name = "ShopStore_Lnk";
          this.ShopStore_Lnk.Size = new System.Drawing.Size(189, 22);
          this.ShopStore_Lnk.TabIndex = 1;
@@ -1620,7 +1621,7 @@
          this.ShoppingStore_Pb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
          this.ShoppingStore_Pb.Cursor = System.Windows.Forms.Cursors.Hand;
          this.ShoppingStore_Pb.Image = global::System.Scsc.Properties.Resources.IMAGE_1659;
-         this.ShoppingStore_Pb.Location = new System.Drawing.Point(5, 319);
+         this.ShoppingStore_Pb.Location = new System.Drawing.Point(5, 251);
          this.ShoppingStore_Pb.Name = "ShoppingStore_Pb";
          this.ShoppingStore_Pb.Size = new System.Drawing.Size(189, 159);
          this.ShoppingStore_Pb.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;

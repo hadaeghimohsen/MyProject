@@ -2541,8 +2541,10 @@ namespace System.Scsc.Ui.MasterPage
                         #endregion
                      }),
                   #region DoWork
-                  new Job(SendType.Self, 139 /* Execute Dap_Dshb_F */),
-                  new Job(SendType.SelfToUserInterface, "DAP_DSHB_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "tp_001"))}
+                  //new Job(SendType.Self, 139 /* Execute Dap_Dshb_F */),
+                  //new Job(SendType.SelfToUserInterface, "DAP_DSHB_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "tp_001"))}
+                  new Job(SendType.Self, 158 /* Execute Dap_Dsbr_F */),
+                  new Job(SendType.SelfToUserInterface, "DAP_DSBR_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "tp_001"))}
                   #endregion
                });
          _DefaultGateway.Gateway(_InteractWithScsc);

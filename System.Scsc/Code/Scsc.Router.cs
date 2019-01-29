@@ -501,6 +501,9 @@ namespace System.Scsc.Code
             case 157:
                Ksk_Incm_F(job);
                break;
+            case 158:
+               Dap_Dsbr_F(job);
+               break;
             default:
                job.Status = StatusType.Failed;
                break;
@@ -954,6 +957,9 @@ namespace System.Scsc.Code
                break;
             case "KSK_INCM_F":
                _Ksk_Incm_F.SendRequest(job);
+               break;
+            case "DAP_DSBR_F":
+               _Dap_Dsbr_F.SendRequest(job);
                break;
 
             /* Show Changed */

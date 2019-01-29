@@ -752,6 +752,11 @@ namespace System.Scsc.Code
             if (_Ksk_Incm_F == null)
                _Ksk_Incm_F = new Ui.OtherIncome.KSK_INCM_F { _DefaultGateway = this };
          }
+         else if (value == "dap_dsbr_f")
+         {
+            if (_Dap_Dsbr_F == null)
+               _Dap_Dsbr_F = new Ui.DataAnalysis.DAP_DSBR_F { _DefaultGateway = this };
+         }
 
          // فرم های نمایش تغییرات
          else if (value == "show_atrq_f")
@@ -4579,5 +4584,28 @@ namespace System.Scsc.Code
          }
       }
 
+      /// <summary>
+      /// Code 158
+      /// </summary>
+      /// <param name="job"></param>
+      private void Dap_Dsbr_F(Job job)
+      {
+         if (job.Status == StatusType.Running)
+         {
+            job.Status = StatusType.WaitForPreconditions;
+            job.OwnerDefineWorkWith.AddRange(
+               new List<Job>
+               {
+                  new Job(SendType.Self, 01 /* Execute GetUi */){Input = "dap_dsbr_f"},
+                  new Job(SendType.SelfToUserInterface, "DAP_DSBR_F", 02 /* Execute Set */),                  
+                  new Job(SendType.SelfToUserInterface, "DAP_DSBR_F", 07 /* Execute Load_Data */),
+                  new Job(SendType.SelfToUserInterface, "DAP_DSBR_F", 03 /* Execute Paint */),
+               });
+         }
+         else if (job.Status == StatusType.SignalForPreconditions)
+         {
+            job.Status = StatusType.Successful;
+         }
+      }
    }
 }

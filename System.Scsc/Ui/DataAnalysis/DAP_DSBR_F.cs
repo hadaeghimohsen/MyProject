@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using DevExpress.DashboardCommon;
 using DevExpress.DataAccess;
 using System.JobRouting.Jobs;
+using System.Globalization;
 
 namespace System.Scsc.Ui.DataAnalysis
 {
@@ -206,20 +207,22 @@ namespace System.Scsc.Ui.DataAnalysis
          #region آمار حضور و غیاب
          TotlAttn_Lb.Text = AttnBs.List.OfType<Data.Attendance>().Count().ToString();
 
-         TotlCrntYear_Lb.Text = AttnBs.List.OfType<Data.Attendance>().Where(a => a.ATTN_DATE.Date.Year == DateTime.Now.Date.Year).Count().ToString();
-         TotlPrvsYear_Lb.Text = AttnBs.List.OfType<Data.Attendance>().Where(a => a.ATTN_DATE.Date.Year == (DateTime.Now.Date.Year - 1)).Count().ToString();
-         TotlManCrntYear_Lb.Text = AttnBs.List.OfType<Data.Attendance>().Where(a => a.Fighter1.SEX_TYPE_DNRM == "001" && a.ATTN_DATE.Date.Year == DateTime.Now.Date.Year).Count().ToString();
-         TotlMenCrntYear_Lb.Text = AttnBs.List.OfType<Data.Attendance>().Where(a => a.Fighter1.SEX_TYPE_DNRM == "002" && a.ATTN_DATE.Date.Year == DateTime.Now.Date.Year).Count().ToString();
+         PersianCalendar pc = new PersianCalendar();
+
+         TotlCrntYear_Lb.Text = AttnBs.List.OfType<Data.Attendance>().Where(a => pc.GetYear(a.ATTN_DATE) == pc.GetYear(DateTime.Now)).Count().ToString();
+         TotlPrvsYear_Lb.Text = AttnBs.List.OfType<Data.Attendance>().Where(a => pc.GetYear(a.ATTN_DATE) == (pc.GetYear(DateTime.Now) - 1)).Count().ToString();
+         TotlManCrntYear_Lb.Text = AttnBs.List.OfType<Data.Attendance>().Where(a => a.Fighter1.SEX_TYPE_DNRM == "001" && pc.GetYear(a.ATTN_DATE) == pc.GetYear(DateTime.Now)).Count().ToString();
+         TotlMenCrntYear_Lb.Text = AttnBs.List.OfType<Data.Attendance>().Where(a => a.Fighter1.SEX_TYPE_DNRM == "002" && pc.GetYear(a.ATTN_DATE) == pc.GetYear(DateTime.Now)).Count().ToString();
          TotlManCrntDay_Lb.Text = AttnBs.List.OfType<Data.Attendance>().Where(a => a.Fighter1.SEX_TYPE_DNRM == "001" && a.ATTN_DATE.Date == DateTime.Now.Date).Count().ToString();
          TotlMenCrntDay_Lb.Text = AttnBs.List.OfType<Data.Attendance>().Where(a => a.Fighter1.SEX_TYPE_DNRM == "002" && a.ATTN_DATE.Date == DateTime.Now.Date).Count().ToString();
 
 
-         TotlAttnLine_Cc.DataSource = new BindingSource(
-               new BindingList<Data.Attendance>(
-                  AttnBs.List.OfType<Data.Attendance>()
-                  .ToList()
-            ), null
-         );
+         //TotlAttnLine_Cc.DataSource = new BindingSource(
+         //      new BindingList<Data.Attendance>(
+         //         AttnBs.List.OfType<Data.Attendance>()
+         //         .ToList()
+         //   ), null
+         //);
          
          #endregion         
       }

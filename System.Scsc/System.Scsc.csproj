@@ -178,24 +178,20 @@
     <Reference Include="SamanPcToPos">
       <HintPath>..\..\..\Utility\MicrosoftComponents\Visual Studio Collection\PC-POS PaX\Dot NET\SamanPcToPos.dll</HintPath>
     </Reference>
-    <Reference Include="Stimulsoft.Base, Version=2012.2.1304.0, Culture=neutral, PublicKeyToken=ebe6666cba19647a, processorArchitecture=MSIL">
+    <Reference Include="Stimulsoft.Base, Version=2012.2.1304.0, Culture=neutral, PublicKeyToken=ebe6666cba19647a">
       <Private>True</Private>
     </Reference>
     <Reference Include="Stimulsoft.Controls, Version=2012.2.1304.0, Culture=neutral, PublicKeyToken=ebe6666cba19647a">
       <Private>True</Private>
-      <EmbedInteropTypes>False</EmbedInteropTypes>
     </Reference>
     <Reference Include="Stimulsoft.Controls.Win, Version=2012.2.1304.0, Culture=neutral, PublicKeyToken=ebe6666cba19647a">
       <Private>True</Private>
-      <EmbedInteropTypes>False</EmbedInteropTypes>
     </Reference>
     <Reference Include="Stimulsoft.Report, Version=2012.2.1304.0, Culture=neutral, PublicKeyToken=ebe6666cba19647a">
       <Private>True</Private>
-      <EmbedInteropTypes>False</EmbedInteropTypes>
     </Reference>
     <Reference Include="Stimulsoft.Report.Win, Version=2012.2.1304.0, Culture=neutral, PublicKeyToken=ebe6666cba19647a, processorArchitecture=MSIL">
       <Private>True</Private>
-      <EmbedInteropTypes>False</EmbedInteropTypes>
     </Reference>
     <Reference Include="System">
       <Private>True</Private>
@@ -223,6 +219,7 @@
     <Reference Include="System.Windows.Forms">
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq">
       <Private>True</Private>
     </Reference>
@@ -1041,7 +1038,6 @@
     <None Include="Properties\DataSources\System.Scsc.Data.D_MSTP.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_MTTP.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_OPTP.datasource" />
-    <None Include="Properties\DataSources\System.Scsc.Data.D_OWNR.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_PERM.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_PMTP.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_PRST.datasource" />
@@ -2738,48 +2734,6 @@
     </Content>
     <Content Include="..\System.Resource\Resources\IMAGE_1655.png">
       <Link>Resources\IMAGE_1655.png</Link>
-    </Content>
-    <Content Include="..\System.Resource\Resources\IMAGE_1656.jpg">
-      <Link>Resources\IMAGE_1656.jpg</Link>
-    </Content>
-    <Content Include="..\System.Resource\Resources\IMAGE_1657.png">
-      <Link>Resources\IMAGE_1657.png</Link>
-    </Content>
-    <Content Include="..\System.Resource\Resources\IMAGE_1658.jpg">
-      <Link>Resources\IMAGE_1658.jpg</Link>
-    </Content>
-    <Content Include="..\System.Resource\Resources\IMAGE_1659.png">
-      <Link>Resources\IMAGE_1659.png</Link>
-    </Content>
-    <Content Include="..\System.Resource\Resources\IMAGE_1660.png">
-      <Link>Resources\IMAGE_1660.png</Link>
-    </Content>
-    <Content Include="..\System.Resource\Resources\IMAGE_1661.png">
-      <Link>Resources\IMAGE_1661.png</Link>
-    </Content>
-    <Content Include="..\System.Resource\Resources\IMAGE_1662.jpg">
-      <Link>Resources\IMAGE_1662.jpg</Link>
-    </Content>
-    <Content Include="..\System.Resource\Resources\IMAGE_1663.jpg">
-      <Link>Resources\IMAGE_1663.jpg</Link>
-    </Content>
-    <Content Include="..\System.Resource\Resources\IMAGE_1664.jpg">
-      <Link>Resources\IMAGE_1664.jpg</Link>
-    </Content>
-    <Content Include="..\System.Resource\Resources\IMAGE_1665.jpg">
-      <Link>Resources\IMAGE_1665.jpg</Link>
-    </Content>
-    <Content Include="..\System.Resource\Resources\IMAGE_1666.png">
-      <Link>Resources\IMAGE_1666.png</Link>
-    </Content>
-    <Content Include="..\System.Resource\Resources\IMAGE_1667.jpg">
-      <Link>Resources\IMAGE_1667.jpg</Link>
-    </Content>
-    <Content Include="..\System.Resource\Resources\IMAGE_1668.png">
-      <Link>Resources\IMAGE_1668.png</Link>
-    </Content>
-    <Content Include="..\System.Resource\Resources\IMAGE_1669.png">
-      <Link>Resources\IMAGE_1669.png</Link>
     </Content>
     <Content Include="cvextern.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

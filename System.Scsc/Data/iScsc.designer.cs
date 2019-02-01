@@ -50783,7 +50783,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LINE_TYPE", DbType="VarChar(3)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LINE_TYPE", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
 		public string LINE_TYPE
 		{
 			get
@@ -50803,7 +50803,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MSGB_TYPE", DbType="VarChar(3)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MSGB_TYPE", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
 		public string MSGB_TYPE
 		{
 			get
@@ -50823,7 +50823,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STAT", DbType="VarChar(3)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STAT", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
 		public string STAT
 		{
 			get
@@ -50843,7 +50843,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TELG_STAT", DbType="VarChar(3)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TELG_STAT", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
 		public string TELG_STAT
 		{
 			get
@@ -50863,7 +50863,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_INSR_FNAM_STAT", DbType="VarChar(3)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_INSR_FNAM_STAT", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
 		public string INSR_FNAM_STAT
 		{
 			get
@@ -50883,7 +50883,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_INSR_CNAM_STAT", DbType="VarChar(3)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_INSR_CNAM_STAT", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
 		public string INSR_CNAM_STAT
 		{
 			get
@@ -50903,7 +50903,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CLUB_CODE", DbType="BigInt")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CLUB_CODE", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
 		public System.Nullable<long> CLUB_CODE
 		{
 			get
@@ -50927,7 +50927,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CLUB_NAME", DbType="NVarChar(250)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CLUB_NAME", DbType="NVarChar(250)", UpdateCheck=UpdateCheck.Never)]
 		public string CLUB_NAME
 		{
 			get
@@ -50947,7 +50947,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DEBT_PRIC", DbType="BigInt")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DEBT_PRIC", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
 		public System.Nullable<long> DEBT_PRIC
 		{
 			get
@@ -50967,7 +50967,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MSGB_TEXT", DbType="NVarChar(MAX)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MSGB_TEXT", DbType="NVarChar(MAX)", UpdateCheck=UpdateCheck.Never)]
 		public string MSGB_TEXT
 		{
 			get
@@ -50987,7 +50987,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FROM_DATE", DbType="Date")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FROM_DATE", DbType="Date", UpdateCheck=UpdateCheck.Never)]
 		public System.Nullable<System.DateTime> FROM_DATE
 		{
 			get
@@ -51007,7 +51007,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TO_DATE", DbType="Date")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TO_DATE", DbType="Date", UpdateCheck=UpdateCheck.Never)]
 		public System.Nullable<System.DateTime> TO_DATE
 		{
 			get
@@ -51027,7 +51027,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MIN_NUMB_ATTN_RMND", DbType="Int")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MIN_NUMB_ATTN_RMND", DbType="Int", UpdateCheck=UpdateCheck.Never)]
 		public System.Nullable<int> MIN_NUMB_ATTN_RMND
 		{
 			get
@@ -51047,7 +51047,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MIN_NUMB_DAY_RMND", DbType="Int")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MIN_NUMB_DAY_RMND", DbType="Int", UpdateCheck=UpdateCheck.Never)]
 		public System.Nullable<int> MIN_NUMB_DAY_RMND
 		{
 			get
@@ -51067,7 +51067,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_BY", DbType="VarChar(250)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_BY", DbType="VarChar(250)", UpdateCheck=UpdateCheck.Never)]
 		public string CRET_BY
 		{
 			get
@@ -51087,7 +51087,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_DATE", DbType="DateTime")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
 		public System.Nullable<System.DateTime> CRET_DATE
 		{
 			get
@@ -51107,7 +51107,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_BY", DbType="VarChar(250)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_BY", DbType="VarChar(250)", UpdateCheck=UpdateCheck.Never)]
 		public string MDFY_BY
 		{
 			get
@@ -51127,7 +51127,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_DATE", DbType="DateTime")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
 		public System.Nullable<System.DateTime> MDFY_DATE
 		{
 			get

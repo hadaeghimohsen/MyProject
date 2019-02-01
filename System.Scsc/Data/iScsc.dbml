@@ -2800,24 +2800,24 @@
   <Table Name="dbo.Message_Broadcast" Member="Message_Broadcasts">
     <Type Name="Message_Broadcast">
       <Column Name="CODE" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="LINE_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="MSGB_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="TELG_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="INSR_FNAM_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="INSR_CNAM_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="CLUB_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="CLUB_NAME" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
-      <Column Name="DEBT_PRIC" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="MSGB_TEXT" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="FROM_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="TO_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="MIN_NUMB_ATTN_RMND" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="MIN_NUMB_DAY_RMND" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LINE_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MSGB_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="TELG_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="INSR_FNAM_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="INSR_CNAM_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CLUB_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CLUB_NAME" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="DEBT_PRIC" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MSGB_TEXT" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="FROM_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="TO_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MIN_NUMB_ATTN_RMND" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MIN_NUMB_DAY_RMND" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
       <Association Name="Club_Message_Broadcast" Member="Club" ThisKey="CLUB_CODE" OtherKey="CODE" Type="Club" IsForeignKey="true" />
     </Type>
   </Table>

@@ -605,21 +605,21 @@ namespace System.Scsc.Ui.MasterPage
       /// <param name="job"></param>
       private void Actn_CalF_P(Job job)
       {
-         if (iScsc.Settings.Where(s => Fga_Uclb_U.Contains(s.CLUB_CODE) && s.NOTF_STAT == "002" && (s.NOTF_VIST_DATE.HasValue ? s.NOTF_VIST_DATE.Value : DateTime.Now.AddDays(-1)) != DateTime.Now).Count() >= 1)
-         {
-            var expday = iScsc.Settings.Where(s => Fga_Uclb_U.Contains(s.CLUB_CODE) && s.NOTF_STAT == "002" && (s.NOTF_VIST_DATE.HasValue ? s.NOTF_VIST_DATE.Value : DateTime.Now.AddDays(-1)) != DateTime.Now).ToList();
-            expday.ForEach(s => s.NOTF_VIST_DATE = DateTime.Now);
-            iScsc.SubmitChanges();
+         //if (iScsc.Settings.Where(s => Fga_Uclb_U.Contains(s.CLUB_CODE) && s.NOTF_STAT == "002" && (s.NOTF_VIST_DATE.HasValue ? s.NOTF_VIST_DATE.Value : DateTime.Now.AddDays(-1)) != DateTime.Now).Count() >= 1)
+         //{
+         //   var expday = iScsc.Settings.Where(s => Fga_Uclb_U.Contains(s.CLUB_CODE) && s.NOTF_STAT == "002" && (s.NOTF_VIST_DATE.HasValue ? s.NOTF_VIST_DATE.Value : DateTime.Now.AddDays(-1)) != DateTime.Now).ToList();
+         //   expday.ForEach(s => s.NOTF_VIST_DATE = DateTime.Now);
+         //   iScsc.SubmitChanges();
 
-            Job _InteractWithScsc =
-            new Job(SendType.External, "Localhost",
-               new List<Job>
-               {
-                  new Job(SendType.Self, 88 /* Execute Ntf_Totl_F */),
-                  new Job(SendType.SelfToUserInterface, "NTF_TOTL_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "endfigh"), new XAttribute("expday", expday.Max(s => s.NOTF_EXP_DAY)))}
-               });
-            _DefaultGateway.Gateway(_InteractWithScsc);
-         }
+         //   Job _InteractWithScsc =
+         //   new Job(SendType.External, "Localhost",
+         //      new List<Job>
+         //      {
+         //         new Job(SendType.Self, 88 /* Execute Ntf_Totl_F */),
+         //         new Job(SendType.SelfToUserInterface, "NTF_TOTL_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "endfigh"), new XAttribute("expday", expday.Max(s => s.NOTF_EXP_DAY)))}
+         //      });
+         //   _DefaultGateway.Gateway(_InteractWithScsc);
+         //}
 
          if(job.Input != null && (job.Input as XElement).Attribute("type").Value == "accesscontrol")
          {

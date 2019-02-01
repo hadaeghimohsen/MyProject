@@ -3973,5 +3973,44 @@ namespace System.Scsc.Ui.BaseDefinition
                Execute_Query();
          }
       }
+
+      private void A0FC_REST_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            Job _InteractWithScsc =
+            new Job(SendType.External, "Localhost",
+               new List<Job>
+               {
+                  new Job(SendType.External, "Commons",
+                     new List<Job>
+                     {
+                        #region Access Privilege
+                        new Job(SendType.Self, 07 /* Execute DoWork4AccessPrivilege */)
+                        {
+                           Input = new List<string> 
+                           {
+                              "<Privilege>225</Privilege><Sub_Sys>5</Sub_Sys>", 
+                              "DataGuard"
+                           },
+                           AfterChangedOutput = new Action<object>((output) => {
+                              if ((bool)output)
+                                 return;
+                              MessageBox.Show("خطا - عدم دسترسی به ردیف 225 سطوح امینتی", "عدم دسترسی");
+                           })
+                        },
+                        #endregion
+                     }),
+                  #region DoWork                  
+                  new Job(SendType.SelfToUserInterface, "MAIN_PAGE_F", 10 /* Actn_Calf_p */){Input = new XElement("DeviceControlFunction", new XAttribute("type", "fngrprntdev"), new XAttribute("fngractn", "truncate"))}
+                  #endregion
+               });
+            _DefaultGateway.Gateway(_InteractWithScsc);
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
    }
 }

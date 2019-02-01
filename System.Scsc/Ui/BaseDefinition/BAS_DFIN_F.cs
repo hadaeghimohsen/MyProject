@@ -3937,5 +3937,41 @@ namespace System.Scsc.Ui.BaseDefinition
 
          }
       }
+
+      private void RunInsTime_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var cbmt = CbmtBs1.Current as Data.Club_Method;            
+            if (cbmt == null) return;            
+
+            var strt = ((DateTime)StrtTime_Tspn.EditValue).TimeOfDay;
+            var end = ((DateTime)EndTime_Tspn.EditValue).TimeOfDay;
+            var priod = Convert.ToInt32( Time_Tspn.EditValue );
+
+            var i = strt;
+
+            while(i <= end)
+            {
+               if(!CbmtBs1.List.OfType<Data.Club_Method>().Any(t => t.MTOD_CODE == cbmt.MTOD_CODE && t.DAY_TYPE == cbmt.DAY_TYPE && t.STRT_TIME == i && t.END_TIME == i.Add(new TimeSpan(0, priod, 0))))
+               {
+                  iScsc.INS_CBMT_P(cbmt.CLUB_CODE, cbmt.MTOD_CODE, cbmt.COCH_FILE_NO, cbmt.DAY_TYPE, i, i.Add(new TimeSpan(0, priod, 0)), cbmt.SEX_TYPE, cbmt.CBMT_DESC, cbmt.DFLT_STAT, cbmt.CPCT_NUMB, cbmt.CPCT_STAT, cbmt.CBMT_TIME, cbmt.CBMT_TIME_STAT, cbmt.CLAS_TIME, cbmt.AMNT);
+               }
+
+               i = i.Add(new TimeSpan(0, priod, 0));
+            }
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if(requery)
+               Execute_Query();
+         }
+      }
    }
 }

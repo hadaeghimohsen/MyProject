@@ -1312,6 +1312,12 @@
          this.SoftStng_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.CbmtwkdyBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.OpnFil_Ofd = new System.Windows.Forms.OpenFileDialog();
+         this.StrtTime_Tspn = new DevExpress.XtraEditors.TimeEdit();
+         this.EndTime_Tspn = new DevExpress.XtraEditors.TimeEdit();
+         this.Time_Tspn = new DevExpress.XtraEditors.SpinEdit();
+         this.RunInsTime_Butn = new DevExpress.XtraEditors.SimpleButton();
+         this.panel19 = new System.Windows.Forms.Panel();
+         this.labelControl17 = new DevExpress.XtraEditors.LabelControl();
          label5 = new System.Windows.Forms.Label();
          label6 = new System.Windows.Forms.Label();
          CashToDate_Lb = new System.Windows.Forms.Label();
@@ -1640,6 +1646,10 @@
          ((System.ComponentModel.ISupportInitialize)(this.spinEdit2.Properties)).BeginInit();
          this.flowLayoutPanel1.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.CbmtwkdyBs1)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.StrtTime_Tspn.Properties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.EndTime_Tspn.Properties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.Time_Tspn.Properties)).BeginInit();
+         this.panel19.SuspendLayout();
          this.SuspendLayout();
          // 
          // label5
@@ -8095,6 +8105,7 @@
          // tp_0051
          // 
          this.tp_0051.Controls.Add(this.gridControl8);
+         this.tp_0051.Controls.Add(this.panel19);
          this.tp_0051.Location = new System.Drawing.Point(4, 22);
          this.tp_0051.Name = "tp_0051";
          this.tp_0051.Padding = new System.Windows.Forms.Padding(3);
@@ -8119,7 +8130,7 @@
             this.repositoryItemLookUpEdit12,
             this.repositoryItemLookUpEdit13,
             this.repositoryItemButtonEdit1});
-         this.gridControl8.Size = new System.Drawing.Size(627, 332);
+         this.gridControl8.Size = new System.Drawing.Size(627, 299);
          this.gridControl8.TabIndex = 65;
          this.gridControl8.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.CbmtCoch_Gv});
@@ -16075,6 +16086,107 @@
          // 
          this.OpnFil_Ofd.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.gif;*.tif;...";
          // 
+         // StrtTime_Tspn
+         // 
+         this.StrtTime_Tspn.EditValue = new System.DateTime(2019, 2, 1, 9, 0, 0, 0);
+         this.StrtTime_Tspn.Location = new System.Drawing.Point(154, 6);
+         this.StrtTime_Tspn.Name = "StrtTime_Tspn";
+         this.StrtTime_Tspn.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+         this.StrtTime_Tspn.Properties.CloseUpKey = new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.F4);
+         this.StrtTime_Tspn.Properties.DisplayFormat.FormatString = "HH:mm";
+         this.StrtTime_Tspn.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+         this.StrtTime_Tspn.Properties.EditFormat.FormatString = "HH:mm";
+         this.StrtTime_Tspn.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+         this.StrtTime_Tspn.Properties.Mask.EditMask = "t";
+         this.StrtTime_Tspn.Properties.PopupBorderStyle = DevExpress.XtraEditors.Controls.PopupBorderStyles.Default;
+         this.StrtTime_Tspn.Size = new System.Drawing.Size(54, 20);
+         this.StrtTime_Tspn.TabIndex = 41;
+         this.StrtTime_Tspn.ToolTip = "ساعت شروع";
+         // 
+         // EndTime_Tspn
+         // 
+         this.EndTime_Tspn.EditValue = new System.DateTime(2019, 2, 1, 21, 0, 0, 0);
+         this.EndTime_Tspn.Location = new System.Drawing.Point(214, 6);
+         this.EndTime_Tspn.Name = "EndTime_Tspn";
+         this.EndTime_Tspn.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+         this.EndTime_Tspn.Properties.CloseUpKey = new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.F4);
+         this.EndTime_Tspn.Properties.DisplayFormat.FormatString = "HH:mm";
+         this.EndTime_Tspn.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+         this.EndTime_Tspn.Properties.EditFormat.FormatString = "HH:mm";
+         this.EndTime_Tspn.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+         this.EndTime_Tspn.Properties.Mask.EditMask = "t";
+         this.EndTime_Tspn.Properties.PopupBorderStyle = DevExpress.XtraEditors.Controls.PopupBorderStyles.Default;
+         this.EndTime_Tspn.Size = new System.Drawing.Size(56, 20);
+         this.EndTime_Tspn.TabIndex = 41;
+         this.EndTime_Tspn.ToolTip = "ساعت پایان";
+         // 
+         // Time_Tspn
+         // 
+         this.Time_Tspn.EditValue = new decimal(new int[] {
+            30,
+            0,
+            0,
+            0});
+         this.Time_Tspn.Location = new System.Drawing.Point(276, 6);
+         this.Time_Tspn.Name = "Time_Tspn";
+         this.Time_Tspn.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+         this.Time_Tspn.Properties.Mask.EditMask = "d";
+         this.Time_Tspn.Size = new System.Drawing.Size(48, 20);
+         this.Time_Tspn.TabIndex = 42;
+         this.Time_Tspn.ToolTip = "مدت زمان";
+         // 
+         // RunInsTime_Butn
+         // 
+         this.RunInsTime_Butn.Appearance.BackColor = System.Drawing.SystemColors.Control;
+         this.RunInsTime_Butn.Appearance.BorderColor = System.Drawing.Color.LightGray;
+         this.RunInsTime_Butn.Appearance.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.RunInsTime_Butn.Appearance.ForeColor = System.Drawing.Color.Black;
+         this.RunInsTime_Butn.Appearance.Options.UseBackColor = true;
+         this.RunInsTime_Butn.Appearance.Options.UseBorderColor = true;
+         this.RunInsTime_Butn.Appearance.Options.UseFont = true;
+         this.RunInsTime_Butn.Appearance.Options.UseForeColor = true;
+         this.RunInsTime_Butn.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
+         this.RunInsTime_Butn.Image = ((System.Drawing.Image)(resources.GetObject("RunInsTime_Butn.Image")));
+         this.RunInsTime_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
+         this.RunInsTime_Butn.Location = new System.Drawing.Point(330, 6);
+         this.RunInsTime_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.RunInsTime_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.RunInsTime_Butn.Name = "RunInsTime_Butn";
+         this.RunInsTime_Butn.Size = new System.Drawing.Size(24, 20);
+         this.RunInsTime_Butn.TabIndex = 39;
+         this.RunInsTime_Butn.ToolTip = "نمونه برداری";
+         this.RunInsTime_Butn.Click += new System.EventHandler(this.RunInsTime_Butn_Click);
+         // 
+         // panel19
+         // 
+         this.panel19.Controls.Add(this.Time_Tspn);
+         this.panel19.Controls.Add(this.StrtTime_Tspn);
+         this.panel19.Controls.Add(this.EndTime_Tspn);
+         this.panel19.Controls.Add(this.RunInsTime_Butn);
+         this.panel19.Controls.Add(this.labelControl17);
+         this.panel19.Dock = System.Windows.Forms.DockStyle.Bottom;
+         this.panel19.Location = new System.Drawing.Point(3, 302);
+         this.panel19.Name = "panel19";
+         this.panel19.Size = new System.Drawing.Size(627, 33);
+         this.panel19.TabIndex = 66;
+         // 
+         // labelControl17
+         // 
+         this.labelControl17.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.labelControl17.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+         this.labelControl17.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+         this.labelControl17.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Top;
+         this.labelControl17.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+         this.labelControl17.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
+         this.labelControl17.Location = new System.Drawing.Point(12, 9);
+         this.labelControl17.Name = "labelControl17";
+         this.labelControl17.Size = new System.Drawing.Size(136, 13);
+         this.labelControl17.TabIndex = 73;
+         this.labelControl17.Text = "نمونه برداری ساعت کلاسی :";
+         // 
          // BAS_DFIN_F
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -16426,6 +16538,11 @@
          ((System.ComponentModel.ISupportInitialize)(this.spinEdit2.Properties)).EndInit();
          this.flowLayoutPanel1.ResumeLayout(false);
          ((System.ComponentModel.ISupportInitialize)(this.CbmtwkdyBs1)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.StrtTime_Tspn.Properties)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.EndTime_Tspn.Properties)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.Time_Tspn.Properties)).EndInit();
+         this.panel19.ResumeLayout(false);
+         this.panel19.PerformLayout();
          this.ResumeLayout(false);
 
       }
@@ -17597,6 +17714,12 @@
       private DevExpress.XtraEditors.SimpleButton SelectedImage_Butn;
       private Windows.Forms.Label label10;
       private Windows.Forms.OpenFileDialog OpnFil_Ofd;
+      private DevExpress.XtraEditors.SpinEdit Time_Tspn;
+      private DevExpress.XtraEditors.TimeEdit EndTime_Tspn;
+      private DevExpress.XtraEditors.TimeEdit StrtTime_Tspn;
+      private DevExpress.XtraEditors.SimpleButton RunInsTime_Butn;
+      private Windows.Forms.Panel panel19;
+      private DevExpress.XtraEditors.LabelControl labelControl17;
 
    }
 }

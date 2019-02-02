@@ -29,59 +29,59 @@
       private void InitializeComponent()
       {
          this.components = new System.ComponentModel.Container();
-         DevExpress.Utils.SuperToolTip superToolTip2 = new DevExpress.Utils.SuperToolTip();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem3 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.ToolTipItem toolTipItem2 = new DevExpress.Utils.ToolTipItem();
+         DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem1 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.ToolTipItem toolTipItem1 = new DevExpress.Utils.ToolTipItem();
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DAP_DSBR_F));
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem4 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.XtraCharts.SimpleDiagram simpleDiagram7 = new DevExpress.XtraCharts.SimpleDiagram();
-         DevExpress.XtraCharts.Series series7 = new DevExpress.XtraCharts.Series();
-         DevExpress.XtraCharts.DoughnutSeriesLabel doughnutSeriesLabel13 = new DevExpress.XtraCharts.DoughnutSeriesLabel();
-         DevExpress.XtraCharts.PiePointOptions piePointOptions13 = new DevExpress.XtraCharts.PiePointOptions();
-         DevExpress.XtraCharts.DoughnutSeriesView doughnutSeriesView13 = new DevExpress.XtraCharts.DoughnutSeriesView();
-         DevExpress.XtraCharts.DoughnutSeriesLabel doughnutSeriesLabel14 = new DevExpress.XtraCharts.DoughnutSeriesLabel();
-         DevExpress.XtraCharts.PiePointOptions piePointOptions14 = new DevExpress.XtraCharts.PiePointOptions();
-         DevExpress.XtraCharts.DoughnutSeriesView doughnutSeriesView14 = new DevExpress.XtraCharts.DoughnutSeriesView();
-         DevExpress.XtraCharts.SimpleDiagram simpleDiagram8 = new DevExpress.XtraCharts.SimpleDiagram();
-         DevExpress.XtraCharts.Series series8 = new DevExpress.XtraCharts.Series();
-         DevExpress.XtraCharts.DoughnutSeriesLabel doughnutSeriesLabel15 = new DevExpress.XtraCharts.DoughnutSeriesLabel();
-         DevExpress.XtraCharts.PiePointOptions piePointOptions15 = new DevExpress.XtraCharts.PiePointOptions();
-         DevExpress.XtraCharts.DoughnutSeriesView doughnutSeriesView15 = new DevExpress.XtraCharts.DoughnutSeriesView();
-         DevExpress.XtraCharts.DoughnutSeriesLabel doughnutSeriesLabel16 = new DevExpress.XtraCharts.DoughnutSeriesLabel();
-         DevExpress.XtraCharts.PiePointOptions piePointOptions16 = new DevExpress.XtraCharts.PiePointOptions();
-         DevExpress.XtraCharts.DoughnutSeriesView doughnutSeriesView16 = new DevExpress.XtraCharts.DoughnutSeriesView();
-         DevExpress.XtraCharts.SimpleDiagram simpleDiagram9 = new DevExpress.XtraCharts.SimpleDiagram();
-         DevExpress.XtraCharts.Series series9 = new DevExpress.XtraCharts.Series();
-         DevExpress.XtraCharts.DoughnutSeriesLabel doughnutSeriesLabel17 = new DevExpress.XtraCharts.DoughnutSeriesLabel();
-         DevExpress.XtraCharts.PiePointOptions piePointOptions17 = new DevExpress.XtraCharts.PiePointOptions();
-         DevExpress.XtraCharts.DoughnutSeriesView doughnutSeriesView17 = new DevExpress.XtraCharts.DoughnutSeriesView();
-         DevExpress.XtraCharts.DoughnutSeriesLabel doughnutSeriesLabel18 = new DevExpress.XtraCharts.DoughnutSeriesLabel();
-         DevExpress.XtraCharts.PiePointOptions piePointOptions18 = new DevExpress.XtraCharts.PiePointOptions();
-         DevExpress.XtraCharts.DoughnutSeriesView doughnutSeriesView18 = new DevExpress.XtraCharts.DoughnutSeriesView();
-         DevExpress.XtraCharts.SimpleDiagram simpleDiagram10 = new DevExpress.XtraCharts.SimpleDiagram();
-         DevExpress.XtraCharts.Series series10 = new DevExpress.XtraCharts.Series();
-         DevExpress.XtraCharts.DoughnutSeriesLabel doughnutSeriesLabel19 = new DevExpress.XtraCharts.DoughnutSeriesLabel();
-         DevExpress.XtraCharts.PiePointOptions piePointOptions19 = new DevExpress.XtraCharts.PiePointOptions();
-         DevExpress.XtraCharts.DoughnutSeriesView doughnutSeriesView19 = new DevExpress.XtraCharts.DoughnutSeriesView();
-         DevExpress.XtraCharts.DoughnutSeriesLabel doughnutSeriesLabel20 = new DevExpress.XtraCharts.DoughnutSeriesLabel();
-         DevExpress.XtraCharts.PiePointOptions piePointOptions20 = new DevExpress.XtraCharts.PiePointOptions();
-         DevExpress.XtraCharts.DoughnutSeriesView doughnutSeriesView20 = new DevExpress.XtraCharts.DoughnutSeriesView();
-         DevExpress.XtraCharts.SimpleDiagram simpleDiagram11 = new DevExpress.XtraCharts.SimpleDiagram();
-         DevExpress.XtraCharts.Series series11 = new DevExpress.XtraCharts.Series();
-         DevExpress.XtraCharts.DoughnutSeriesLabel doughnutSeriesLabel21 = new DevExpress.XtraCharts.DoughnutSeriesLabel();
-         DevExpress.XtraCharts.PiePointOptions piePointOptions21 = new DevExpress.XtraCharts.PiePointOptions();
-         DevExpress.XtraCharts.DoughnutSeriesView doughnutSeriesView21 = new DevExpress.XtraCharts.DoughnutSeriesView();
-         DevExpress.XtraCharts.DoughnutSeriesLabel doughnutSeriesLabel22 = new DevExpress.XtraCharts.DoughnutSeriesLabel();
-         DevExpress.XtraCharts.PiePointOptions piePointOptions22 = new DevExpress.XtraCharts.PiePointOptions();
-         DevExpress.XtraCharts.DoughnutSeriesView doughnutSeriesView22 = new DevExpress.XtraCharts.DoughnutSeriesView();
-         DevExpress.XtraCharts.SimpleDiagram simpleDiagram12 = new DevExpress.XtraCharts.SimpleDiagram();
-         DevExpress.XtraCharts.Series series12 = new DevExpress.XtraCharts.Series();
-         DevExpress.XtraCharts.DoughnutSeriesLabel doughnutSeriesLabel23 = new DevExpress.XtraCharts.DoughnutSeriesLabel();
-         DevExpress.XtraCharts.PiePointOptions piePointOptions23 = new DevExpress.XtraCharts.PiePointOptions();
-         DevExpress.XtraCharts.DoughnutSeriesView doughnutSeriesView23 = new DevExpress.XtraCharts.DoughnutSeriesView();
-         DevExpress.XtraCharts.DoughnutSeriesLabel doughnutSeriesLabel24 = new DevExpress.XtraCharts.DoughnutSeriesLabel();
-         DevExpress.XtraCharts.PiePointOptions piePointOptions24 = new DevExpress.XtraCharts.PiePointOptions();
-         DevExpress.XtraCharts.DoughnutSeriesView doughnutSeriesView24 = new DevExpress.XtraCharts.DoughnutSeriesView();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem2 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.XtraCharts.SimpleDiagram simpleDiagram1 = new DevExpress.XtraCharts.SimpleDiagram();
+         DevExpress.XtraCharts.Series series1 = new DevExpress.XtraCharts.Series();
+         DevExpress.XtraCharts.DoughnutSeriesLabel doughnutSeriesLabel1 = new DevExpress.XtraCharts.DoughnutSeriesLabel();
+         DevExpress.XtraCharts.PiePointOptions piePointOptions1 = new DevExpress.XtraCharts.PiePointOptions();
+         DevExpress.XtraCharts.DoughnutSeriesView doughnutSeriesView1 = new DevExpress.XtraCharts.DoughnutSeriesView();
+         DevExpress.XtraCharts.DoughnutSeriesLabel doughnutSeriesLabel2 = new DevExpress.XtraCharts.DoughnutSeriesLabel();
+         DevExpress.XtraCharts.PiePointOptions piePointOptions2 = new DevExpress.XtraCharts.PiePointOptions();
+         DevExpress.XtraCharts.DoughnutSeriesView doughnutSeriesView2 = new DevExpress.XtraCharts.DoughnutSeriesView();
+         DevExpress.XtraCharts.SimpleDiagram simpleDiagram2 = new DevExpress.XtraCharts.SimpleDiagram();
+         DevExpress.XtraCharts.Series series2 = new DevExpress.XtraCharts.Series();
+         DevExpress.XtraCharts.DoughnutSeriesLabel doughnutSeriesLabel3 = new DevExpress.XtraCharts.DoughnutSeriesLabel();
+         DevExpress.XtraCharts.PiePointOptions piePointOptions3 = new DevExpress.XtraCharts.PiePointOptions();
+         DevExpress.XtraCharts.DoughnutSeriesView doughnutSeriesView3 = new DevExpress.XtraCharts.DoughnutSeriesView();
+         DevExpress.XtraCharts.DoughnutSeriesLabel doughnutSeriesLabel4 = new DevExpress.XtraCharts.DoughnutSeriesLabel();
+         DevExpress.XtraCharts.PiePointOptions piePointOptions4 = new DevExpress.XtraCharts.PiePointOptions();
+         DevExpress.XtraCharts.DoughnutSeriesView doughnutSeriesView4 = new DevExpress.XtraCharts.DoughnutSeriesView();
+         DevExpress.XtraCharts.SimpleDiagram simpleDiagram3 = new DevExpress.XtraCharts.SimpleDiagram();
+         DevExpress.XtraCharts.Series series3 = new DevExpress.XtraCharts.Series();
+         DevExpress.XtraCharts.DoughnutSeriesLabel doughnutSeriesLabel5 = new DevExpress.XtraCharts.DoughnutSeriesLabel();
+         DevExpress.XtraCharts.PiePointOptions piePointOptions5 = new DevExpress.XtraCharts.PiePointOptions();
+         DevExpress.XtraCharts.DoughnutSeriesView doughnutSeriesView5 = new DevExpress.XtraCharts.DoughnutSeriesView();
+         DevExpress.XtraCharts.DoughnutSeriesLabel doughnutSeriesLabel6 = new DevExpress.XtraCharts.DoughnutSeriesLabel();
+         DevExpress.XtraCharts.PiePointOptions piePointOptions6 = new DevExpress.XtraCharts.PiePointOptions();
+         DevExpress.XtraCharts.DoughnutSeriesView doughnutSeriesView6 = new DevExpress.XtraCharts.DoughnutSeriesView();
+         DevExpress.XtraCharts.SimpleDiagram simpleDiagram4 = new DevExpress.XtraCharts.SimpleDiagram();
+         DevExpress.XtraCharts.Series series4 = new DevExpress.XtraCharts.Series();
+         DevExpress.XtraCharts.DoughnutSeriesLabel doughnutSeriesLabel7 = new DevExpress.XtraCharts.DoughnutSeriesLabel();
+         DevExpress.XtraCharts.PiePointOptions piePointOptions7 = new DevExpress.XtraCharts.PiePointOptions();
+         DevExpress.XtraCharts.DoughnutSeriesView doughnutSeriesView7 = new DevExpress.XtraCharts.DoughnutSeriesView();
+         DevExpress.XtraCharts.DoughnutSeriesLabel doughnutSeriesLabel8 = new DevExpress.XtraCharts.DoughnutSeriesLabel();
+         DevExpress.XtraCharts.PiePointOptions piePointOptions8 = new DevExpress.XtraCharts.PiePointOptions();
+         DevExpress.XtraCharts.DoughnutSeriesView doughnutSeriesView8 = new DevExpress.XtraCharts.DoughnutSeriesView();
+         DevExpress.XtraCharts.SimpleDiagram simpleDiagram5 = new DevExpress.XtraCharts.SimpleDiagram();
+         DevExpress.XtraCharts.Series series5 = new DevExpress.XtraCharts.Series();
+         DevExpress.XtraCharts.DoughnutSeriesLabel doughnutSeriesLabel9 = new DevExpress.XtraCharts.DoughnutSeriesLabel();
+         DevExpress.XtraCharts.PiePointOptions piePointOptions9 = new DevExpress.XtraCharts.PiePointOptions();
+         DevExpress.XtraCharts.DoughnutSeriesView doughnutSeriesView9 = new DevExpress.XtraCharts.DoughnutSeriesView();
+         DevExpress.XtraCharts.DoughnutSeriesLabel doughnutSeriesLabel10 = new DevExpress.XtraCharts.DoughnutSeriesLabel();
+         DevExpress.XtraCharts.PiePointOptions piePointOptions10 = new DevExpress.XtraCharts.PiePointOptions();
+         DevExpress.XtraCharts.DoughnutSeriesView doughnutSeriesView10 = new DevExpress.XtraCharts.DoughnutSeriesView();
+         DevExpress.XtraCharts.SimpleDiagram simpleDiagram6 = new DevExpress.XtraCharts.SimpleDiagram();
+         DevExpress.XtraCharts.Series series6 = new DevExpress.XtraCharts.Series();
+         DevExpress.XtraCharts.DoughnutSeriesLabel doughnutSeriesLabel11 = new DevExpress.XtraCharts.DoughnutSeriesLabel();
+         DevExpress.XtraCharts.PiePointOptions piePointOptions11 = new DevExpress.XtraCharts.PiePointOptions();
+         DevExpress.XtraCharts.DoughnutSeriesView doughnutSeriesView11 = new DevExpress.XtraCharts.DoughnutSeriesView();
+         DevExpress.XtraCharts.DoughnutSeriesLabel doughnutSeriesLabel12 = new DevExpress.XtraCharts.DoughnutSeriesLabel();
+         DevExpress.XtraCharts.PiePointOptions piePointOptions12 = new DevExpress.XtraCharts.PiePointOptions();
+         DevExpress.XtraCharts.DoughnutSeriesView doughnutSeriesView12 = new DevExpress.XtraCharts.DoughnutSeriesView();
          this.panel1 = new System.Windows.Forms.Panel();
          this.ExecuteQuery_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.Tilt_Lb = new DevExpress.XtraEditors.LabelControl();
@@ -166,19 +166,70 @@
          this.TotlInsr_Lb = new System.Windows.Forms.Label();
          this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
          this.tp_003 = new DevExpress.XtraTab.XtraTabPage();
+         this.groupControl11 = new DevExpress.XtraEditors.GroupControl();
+         this.labelControl23 = new DevExpress.XtraEditors.LabelControl();
+         this.labelControl27 = new DevExpress.XtraEditors.LabelControl();
+         this.label47 = new System.Windows.Forms.Label();
+         this.labelControl26 = new DevExpress.XtraEditors.LabelControl();
+         this.label49 = new System.Windows.Forms.Label();
+         this.label71 = new System.Windows.Forms.Label();
+         this.label52 = new System.Windows.Forms.Label();
+         this.label70 = new System.Windows.Forms.Label();
+         this.label54 = new System.Windows.Forms.Label();
+         this.label56 = new System.Windows.Forms.Label();
+         this.label69 = new System.Windows.Forms.Label();
+         this.label59 = new System.Windows.Forms.Label();
+         this.label68 = new System.Windows.Forms.Label();
+         this.label61 = new System.Windows.Forms.Label();
+         this.label63 = new System.Windows.Forms.Label();
+         this.label64 = new System.Windows.Forms.Label();
+         this.label67 = new System.Windows.Forms.Label();
+         this.label65 = new System.Windows.Forms.Label();
+         this.label62 = new System.Windows.Forms.Label();
+         this.label66 = new System.Windows.Forms.Label();
+         this.labelControl28 = new DevExpress.XtraEditors.LabelControl();
+         this.groupControl10 = new DevExpress.XtraEditors.GroupControl();
+         this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
+         this.simpleButton6 = new DevExpress.XtraEditors.SimpleButton();
+         this.simpleButton7 = new DevExpress.XtraEditors.SimpleButton();
+         this.simpleButton8 = new DevExpress.XtraEditors.SimpleButton();
+         this.simpleButton9 = new DevExpress.XtraEditors.SimpleButton();
+         this.simpleButton10 = new DevExpress.XtraEditors.SimpleButton();
+         this.simpleButton11 = new DevExpress.XtraEditors.SimpleButton();
+         this.simpleButton12 = new DevExpress.XtraEditors.SimpleButton();
+         this.simpleButton13 = new DevExpress.XtraEditors.SimpleButton();
+         this.simpleButton14 = new DevExpress.XtraEditors.SimpleButton();
+         this.simpleButton15 = new DevExpress.XtraEditors.SimpleButton();
+         this.simpleButton16 = new DevExpress.XtraEditors.SimpleButton();
+         this.simpleButton17 = new DevExpress.XtraEditors.SimpleButton();
+         this.simpleButton19 = new DevExpress.XtraEditors.SimpleButton();
+         this.groupControl9 = new DevExpress.XtraEditors.GroupControl();
+         this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+         this.simpleButton18 = new DevExpress.XtraEditors.SimpleButton();
          this.groupControl8 = new DevExpress.XtraEditors.GroupControl();
+         this.label43 = new System.Windows.Forms.Label();
+         this.label60 = new System.Windows.Forms.Label();
          this.label11 = new System.Windows.Forms.Label();
-         this.AttnBs = new System.Windows.Forms.BindingSource(this.components);
+         this.labelControl25 = new DevExpress.XtraEditors.LabelControl();
          this.labelControl18 = new DevExpress.XtraEditors.LabelControl();
+         this.label58 = new System.Windows.Forms.Label();
+         this.label51 = new System.Windows.Forms.Label();
+         this.label50 = new System.Windows.Forms.Label();
+         this.label45 = new System.Windows.Forms.Label();
+         this.labelControl24 = new DevExpress.XtraEditors.LabelControl();
          this.labelControl22 = new DevExpress.XtraEditors.LabelControl();
+         this.label48 = new System.Windows.Forms.Label();
+         this.label44 = new System.Windows.Forms.Label();
          this.labelControl21 = new DevExpress.XtraEditors.LabelControl();
          this.labelControl17 = new DevExpress.XtraEditors.LabelControl();
          this.labelControl19 = new DevExpress.XtraEditors.LabelControl();
+         this.label57 = new System.Windows.Forms.Label();
          this.label42 = new System.Windows.Forms.Label();
          this.label38 = new System.Windows.Forms.Label();
          this.label21 = new System.Windows.Forms.Label();
          this.label10 = new System.Windows.Forms.Label();
          this.label22 = new System.Windows.Forms.Label();
+         this.label55 = new System.Windows.Forms.Label();
          this.label40 = new System.Windows.Forms.Label();
          this.label37 = new System.Windows.Forms.Label();
          this.label20 = new System.Windows.Forms.Label();
@@ -186,6 +237,7 @@
          this.label16 = new System.Windows.Forms.Label();
          this.label30 = new System.Windows.Forms.Label();
          this.label24 = new System.Windows.Forms.Label();
+         this.label53 = new System.Windows.Forms.Label();
          this.label39 = new System.Windows.Forms.Label();
          this.label36 = new System.Windows.Forms.Label();
          this.label12 = new System.Windows.Forms.Label();
@@ -206,6 +258,7 @@
          this.TotlManCrntDay_Lb = new System.Windows.Forms.Label();
          this.label7 = new System.Windows.Forms.Label();
          this.TotlAttn_Cc = new DevExpress.XtraCharts.ChartControl();
+         this.AttnBs = new System.Windows.Forms.BindingSource(this.components);
          this.labelControl12 = new DevExpress.XtraEditors.LabelControl();
          this.labelControl14 = new DevExpress.XtraEditors.LabelControl();
          this.TotlMenCrntYear_Lb = new System.Windows.Forms.Label();
@@ -218,64 +271,7 @@
          this.label17 = new System.Windows.Forms.Label();
          this.TotlAttn_Lb = new System.Windows.Forms.Label();
          this.labelControl15 = new DevExpress.XtraEditors.LabelControl();
-         this.groupControl9 = new DevExpress.XtraEditors.GroupControl();
-         this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-         this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
-         this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
-         this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
-         this.simpleButton4 = new DevExpress.XtraEditors.SimpleButton();
-         this.simpleButton5 = new DevExpress.XtraEditors.SimpleButton();
-         this.groupControl10 = new DevExpress.XtraEditors.GroupControl();
-         this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
-         this.simpleButton6 = new DevExpress.XtraEditors.SimpleButton();
-         this.simpleButton7 = new DevExpress.XtraEditors.SimpleButton();
-         this.simpleButton8 = new DevExpress.XtraEditors.SimpleButton();
-         this.simpleButton9 = new DevExpress.XtraEditors.SimpleButton();
-         this.simpleButton10 = new DevExpress.XtraEditors.SimpleButton();
-         this.simpleButton11 = new DevExpress.XtraEditors.SimpleButton();
-         this.simpleButton12 = new DevExpress.XtraEditors.SimpleButton();
-         this.simpleButton13 = new DevExpress.XtraEditors.SimpleButton();
-         this.simpleButton14 = new DevExpress.XtraEditors.SimpleButton();
-         this.simpleButton15 = new DevExpress.XtraEditors.SimpleButton();
-         this.simpleButton16 = new DevExpress.XtraEditors.SimpleButton();
-         this.simpleButton17 = new DevExpress.XtraEditors.SimpleButton();
-         this.simpleButton18 = new DevExpress.XtraEditors.SimpleButton();
-         this.simpleButton19 = new DevExpress.XtraEditors.SimpleButton();
-         this.groupControl11 = new DevExpress.XtraEditors.GroupControl();
-         this.labelControl23 = new DevExpress.XtraEditors.LabelControl();
-         this.labelControl27 = new DevExpress.XtraEditors.LabelControl();
-         this.label47 = new System.Windows.Forms.Label();
-         this.label49 = new System.Windows.Forms.Label();
-         this.label52 = new System.Windows.Forms.Label();
-         this.label54 = new System.Windows.Forms.Label();
-         this.label56 = new System.Windows.Forms.Label();
-         this.label59 = new System.Windows.Forms.Label();
-         this.label61 = new System.Windows.Forms.Label();
-         this.label63 = new System.Windows.Forms.Label();
-         this.label64 = new System.Windows.Forms.Label();
-         this.label65 = new System.Windows.Forms.Label();
-         this.label66 = new System.Windows.Forms.Label();
-         this.labelControl28 = new DevExpress.XtraEditors.LabelControl();
-         this.label44 = new System.Windows.Forms.Label();
-         this.label45 = new System.Windows.Forms.Label();
-         this.label48 = new System.Windows.Forms.Label();
-         this.label50 = new System.Windows.Forms.Label();
-         this.label51 = new System.Windows.Forms.Label();
-         this.label53 = new System.Windows.Forms.Label();
-         this.label55 = new System.Windows.Forms.Label();
-         this.label57 = new System.Windows.Forms.Label();
-         this.labelControl24 = new DevExpress.XtraEditors.LabelControl();
-         this.label58 = new System.Windows.Forms.Label();
-         this.label60 = new System.Windows.Forms.Label();
-         this.labelControl25 = new DevExpress.XtraEditors.LabelControl();
-         this.label43 = new System.Windows.Forms.Label();
-         this.label62 = new System.Windows.Forms.Label();
-         this.label67 = new System.Windows.Forms.Label();
-         this.label68 = new System.Windows.Forms.Label();
-         this.label69 = new System.Windows.Forms.Label();
-         this.label70 = new System.Windows.Forms.Label();
-         this.label71 = new System.Windows.Forms.Label();
-         this.labelControl26 = new DevExpress.XtraEditors.LabelControl();
+         this.vSaleBs = new System.Windows.Forms.BindingSource(this.components);
          this.panel1.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.Tc_Master)).BeginInit();
          this.Tc_Master.SuspendLayout();
@@ -284,72 +280,73 @@
          ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
          this.groupControl1.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.TotlServ_Cc)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(simpleDiagram7)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(series7)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesLabel13)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesView13)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesLabel14)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesView14)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(simpleDiagram1)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(series1)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesLabel1)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesView1)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesLabel2)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesView2)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.FighBs)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.groupControl4)).BeginInit();
          this.groupControl4.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.CellPhonServ_Cc)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(simpleDiagram8)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(series8)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesLabel15)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesView15)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesLabel16)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesView16)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(simpleDiagram2)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(series2)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesLabel3)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesView3)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesLabel4)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesView4)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.groupControl5)).BeginInit();
          this.groupControl5.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.TellPhonServ_Cc)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(simpleDiagram9)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(series9)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesLabel17)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesView17)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesLabel18)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesView18)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(simpleDiagram3)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(series3)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesLabel5)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesView5)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesLabel6)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesView6)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
          this.groupControl2.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.CochServ_Cc)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(simpleDiagram10)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(series10)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesLabel19)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesView19)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesLabel20)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesView20)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(simpleDiagram4)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(series4)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesLabel7)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesView7)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesLabel8)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesView8)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).BeginInit();
          this.groupControl3.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.InsrServ_Cc)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(simpleDiagram11)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(series11)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesLabel21)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesView21)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesLabel22)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesView22)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(simpleDiagram5)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(series5)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesLabel9)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesView9)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesLabel10)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesView10)).BeginInit();
          this.tp_003.SuspendLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.groupControl11)).BeginInit();
+         this.groupControl11.SuspendLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.groupControl10)).BeginInit();
+         this.groupControl10.SuspendLayout();
+         this.flowLayoutPanel3.SuspendLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.groupControl9)).BeginInit();
+         this.groupControl9.SuspendLayout();
+         this.flowLayoutPanel2.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.groupControl8)).BeginInit();
          this.groupControl8.SuspendLayout();
-         ((System.ComponentModel.ISupportInitialize)(this.AttnBs)).BeginInit();
          this.tp_002.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.groupControl7)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.groupControl6)).BeginInit();
          this.groupControl6.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.TotlAttn_Cc)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(simpleDiagram12)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(series12)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesLabel23)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesView23)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesLabel24)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesView24)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.groupControl9)).BeginInit();
-         this.groupControl9.SuspendLayout();
-         this.flowLayoutPanel2.SuspendLayout();
-         ((System.ComponentModel.ISupportInitialize)(this.groupControl10)).BeginInit();
-         this.groupControl10.SuspendLayout();
-         this.flowLayoutPanel3.SuspendLayout();
-         ((System.ComponentModel.ISupportInitialize)(this.groupControl11)).BeginInit();
-         this.groupControl11.SuspendLayout();
+         ((System.ComponentModel.ISupportInitialize)(simpleDiagram6)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(series6)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesLabel11)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesView11)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesLabel12)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesView12)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.AttnBs)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.vSaleBs)).BeginInit();
          this.SuspendLayout();
          // 
          // panel1
@@ -375,19 +372,19 @@
          this.ExecuteQuery_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.ExecuteQuery_Butn.Name = "ExecuteQuery_Butn";
          this.ExecuteQuery_Butn.Size = new System.Drawing.Size(61, 59);
-         toolTipTitleItem3.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1133;
-         toolTipTitleItem3.Appearance.Options.UseImage = true;
-         toolTipTitleItem3.Image = global::System.Scsc.Properties.Resources.IMAGE_1133;
-         toolTipTitleItem3.Text = "جستجو مشترک";
-         toolTipItem2.LeftIndent = 6;
-         toolTipItem2.Text = resources.GetString("toolTipItem2.Text");
-         toolTipTitleItem4.LeftIndent = 6;
-         toolTipTitleItem4.Text = "این گزینه بیشتر برای جاهایی می باشد که اطلاعات مشترکین شما بیش از 10 هزار نفر می " +
+         toolTipTitleItem1.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1133;
+         toolTipTitleItem1.Appearance.Options.UseImage = true;
+         toolTipTitleItem1.Image = global::System.Scsc.Properties.Resources.IMAGE_1133;
+         toolTipTitleItem1.Text = "جستجو مشترک";
+         toolTipItem1.LeftIndent = 6;
+         toolTipItem1.Text = resources.GetString("toolTipItem1.Text");
+         toolTipTitleItem2.LeftIndent = 6;
+         toolTipTitleItem2.Text = "این گزینه بیشتر برای جاهایی می باشد که اطلاعات مشترکین شما بیش از 10 هزار نفر می " +
     "باشد";
-         superToolTip2.Items.Add(toolTipTitleItem3);
-         superToolTip2.Items.Add(toolTipItem2);
-         superToolTip2.Items.Add(toolTipTitleItem4);
-         this.ExecuteQuery_Butn.SuperTip = superToolTip2;
+         superToolTip1.Items.Add(toolTipTitleItem1);
+         superToolTip1.Items.Add(toolTipItem1);
+         superToolTip1.Items.Add(toolTipTitleItem2);
+         this.ExecuteQuery_Butn.SuperTip = superToolTip1;
          this.ExecuteQuery_Butn.TabIndex = 18;
          this.ExecuteQuery_Butn.Click += new System.EventHandler(this.ExecuteQuery_Butn_Click);
          // 
@@ -497,38 +494,38 @@
          // 
          this.TotlServ_Cc.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.TotlServ_Cc.DataSource = this.FighBs;
-         simpleDiagram7.EqualPieSize = false;
-         this.TotlServ_Cc.Diagram = simpleDiagram7;
+         simpleDiagram1.EqualPieSize = false;
+         this.TotlServ_Cc.Diagram = simpleDiagram1;
          this.TotlServ_Cc.Legend.Visible = false;
          this.TotlServ_Cc.Location = new System.Drawing.Point(5, 313);
          this.TotlServ_Cc.LookAndFeel.SkinName = "Office 2010 Silver";
          this.TotlServ_Cc.LookAndFeel.UseDefaultLookAndFeel = false;
          this.TotlServ_Cc.Name = "TotlServ_Cc";
          this.TotlServ_Cc.PaletteBaseColorNumber = 4;
-         series7.ArgumentDataMember = "SEX_TYPE_DNRM";
-         series7.ArgumentScaleType = DevExpress.XtraCharts.ScaleType.Qualitative;
-         doughnutSeriesLabel13.LineVisible = true;
-         piePointOptions13.PercentOptions.ValueAsPercent = false;
-         piePointOptions13.ValueNumericOptions.Format = DevExpress.XtraCharts.NumericFormat.Number;
-         piePointOptions13.ValueNumericOptions.Precision = 0;
-         doughnutSeriesLabel13.PointOptions = piePointOptions13;
-         doughnutSeriesLabel13.Position = DevExpress.XtraCharts.PieSeriesLabelPosition.Radial;
-         series7.Label = doughnutSeriesLabel13;
-         series7.LabelsVisibility = DevExpress.Utils.DefaultBoolean.False;
-         series7.LegendText = "آمار کلی مشترکین";
-         series7.Name = "آمار کلی مشترکین به تفکیک حنسیت";
-         series7.SummaryFunction = "COUNT()";
-         series7.TopNOptions.Enabled = true;
-         doughnutSeriesView13.RuntimeExploding = false;
-         series7.View = doughnutSeriesView13;
+         series1.ArgumentDataMember = "SEX_TYPE_DNRM";
+         series1.ArgumentScaleType = DevExpress.XtraCharts.ScaleType.Qualitative;
+         doughnutSeriesLabel1.LineVisible = true;
+         piePointOptions1.PercentOptions.ValueAsPercent = false;
+         piePointOptions1.ValueNumericOptions.Format = DevExpress.XtraCharts.NumericFormat.Number;
+         piePointOptions1.ValueNumericOptions.Precision = 0;
+         doughnutSeriesLabel1.PointOptions = piePointOptions1;
+         doughnutSeriesLabel1.Position = DevExpress.XtraCharts.PieSeriesLabelPosition.Radial;
+         series1.Label = doughnutSeriesLabel1;
+         series1.LabelsVisibility = DevExpress.Utils.DefaultBoolean.False;
+         series1.LegendText = "آمار کلی مشترکین";
+         series1.Name = "آمار کلی مشترکین به تفکیک حنسیت";
+         series1.SummaryFunction = "COUNT()";
+         series1.TopNOptions.Enabled = true;
+         doughnutSeriesView1.RuntimeExploding = false;
+         series1.View = doughnutSeriesView1;
          this.TotlServ_Cc.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
-        series7};
-         doughnutSeriesLabel14.LineVisible = true;
-         piePointOptions14.ValueNumericOptions.Format = DevExpress.XtraCharts.NumericFormat.General;
-         doughnutSeriesLabel14.PointOptions = piePointOptions14;
-         this.TotlServ_Cc.SeriesTemplate.Label = doughnutSeriesLabel14;
-         doughnutSeriesView14.RuntimeExploding = false;
-         this.TotlServ_Cc.SeriesTemplate.View = doughnutSeriesView14;
+        series1};
+         doughnutSeriesLabel2.LineVisible = true;
+         piePointOptions2.ValueNumericOptions.Format = DevExpress.XtraCharts.NumericFormat.General;
+         doughnutSeriesLabel2.PointOptions = piePointOptions2;
+         this.TotlServ_Cc.SeriesTemplate.Label = doughnutSeriesLabel2;
+         doughnutSeriesView2.RuntimeExploding = false;
+         this.TotlServ_Cc.SeriesTemplate.View = doughnutSeriesView2;
          this.TotlServ_Cc.Size = new System.Drawing.Size(191, 191);
          this.TotlServ_Cc.TabIndex = 4;
          // 
@@ -753,37 +750,37 @@
          // 
          this.CellPhonServ_Cc.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.CellPhonServ_Cc.DataSource = this.FighBs;
-         simpleDiagram8.EqualPieSize = false;
-         this.CellPhonServ_Cc.Diagram = simpleDiagram8;
+         simpleDiagram2.EqualPieSize = false;
+         this.CellPhonServ_Cc.Diagram = simpleDiagram2;
          this.CellPhonServ_Cc.Legend.Visible = false;
          this.CellPhonServ_Cc.Location = new System.Drawing.Point(5, 313);
          this.CellPhonServ_Cc.LookAndFeel.SkinName = "Office 2010 Silver";
          this.CellPhonServ_Cc.LookAndFeel.UseDefaultLookAndFeel = false;
          this.CellPhonServ_Cc.Name = "CellPhonServ_Cc";
          this.CellPhonServ_Cc.PaletteBaseColorNumber = 6;
-         series8.ArgumentDataMember = "SEX_TYPE_DNRM";
-         series8.ArgumentScaleType = DevExpress.XtraCharts.ScaleType.Qualitative;
-         doughnutSeriesLabel15.LineVisible = true;
-         piePointOptions15.PercentOptions.ValueAsPercent = false;
-         piePointOptions15.ValueNumericOptions.Format = DevExpress.XtraCharts.NumericFormat.Number;
-         piePointOptions15.ValueNumericOptions.Precision = 0;
-         doughnutSeriesLabel15.PointOptions = piePointOptions15;
-         series8.Label = doughnutSeriesLabel15;
-         series8.LabelsVisibility = DevExpress.Utils.DefaultBoolean.False;
-         series8.LegendText = "آمار موبایل مشترکین";
-         series8.Name = "آمار موبایل مشترکین";
-         series8.SummaryFunction = "COUNT()";
-         series8.TopNOptions.Enabled = true;
-         doughnutSeriesView15.RuntimeExploding = false;
-         series8.View = doughnutSeriesView15;
+         series2.ArgumentDataMember = "SEX_TYPE_DNRM";
+         series2.ArgumentScaleType = DevExpress.XtraCharts.ScaleType.Qualitative;
+         doughnutSeriesLabel3.LineVisible = true;
+         piePointOptions3.PercentOptions.ValueAsPercent = false;
+         piePointOptions3.ValueNumericOptions.Format = DevExpress.XtraCharts.NumericFormat.Number;
+         piePointOptions3.ValueNumericOptions.Precision = 0;
+         doughnutSeriesLabel3.PointOptions = piePointOptions3;
+         series2.Label = doughnutSeriesLabel3;
+         series2.LabelsVisibility = DevExpress.Utils.DefaultBoolean.False;
+         series2.LegendText = "آمار موبایل مشترکین";
+         series2.Name = "آمار موبایل مشترکین";
+         series2.SummaryFunction = "COUNT()";
+         series2.TopNOptions.Enabled = true;
+         doughnutSeriesView3.RuntimeExploding = false;
+         series2.View = doughnutSeriesView3;
          this.CellPhonServ_Cc.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
-        series8};
-         doughnutSeriesLabel16.LineVisible = true;
-         piePointOptions16.ValueNumericOptions.Format = DevExpress.XtraCharts.NumericFormat.General;
-         doughnutSeriesLabel16.PointOptions = piePointOptions16;
-         this.CellPhonServ_Cc.SeriesTemplate.Label = doughnutSeriesLabel16;
-         doughnutSeriesView16.RuntimeExploding = false;
-         this.CellPhonServ_Cc.SeriesTemplate.View = doughnutSeriesView16;
+        series2};
+         doughnutSeriesLabel4.LineVisible = true;
+         piePointOptions4.ValueNumericOptions.Format = DevExpress.XtraCharts.NumericFormat.General;
+         doughnutSeriesLabel4.PointOptions = piePointOptions4;
+         this.CellPhonServ_Cc.SeriesTemplate.Label = doughnutSeriesLabel4;
+         doughnutSeriesView4.RuntimeExploding = false;
+         this.CellPhonServ_Cc.SeriesTemplate.View = doughnutSeriesView4;
          this.CellPhonServ_Cc.Size = new System.Drawing.Size(191, 191);
          this.CellPhonServ_Cc.TabIndex = 5;
          // 
@@ -999,35 +996,35 @@
          // 
          this.TellPhonServ_Cc.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.TellPhonServ_Cc.DataSource = this.FighBs;
-         simpleDiagram9.EqualPieSize = false;
-         this.TellPhonServ_Cc.Diagram = simpleDiagram9;
+         simpleDiagram3.EqualPieSize = false;
+         this.TellPhonServ_Cc.Diagram = simpleDiagram3;
          this.TellPhonServ_Cc.Legend.Visible = false;
          this.TellPhonServ_Cc.Location = new System.Drawing.Point(5, 313);
          this.TellPhonServ_Cc.LookAndFeel.SkinName = "Office 2010 Silver";
          this.TellPhonServ_Cc.LookAndFeel.UseDefaultLookAndFeel = false;
          this.TellPhonServ_Cc.Name = "TellPhonServ_Cc";
          this.TellPhonServ_Cc.PaletteBaseColorNumber = 5;
-         series9.ArgumentDataMember = "SEX_TYPE_DNRM";
-         series9.ArgumentScaleType = DevExpress.XtraCharts.ScaleType.Qualitative;
-         doughnutSeriesLabel17.LineVisible = true;
-         piePointOptions17.ValueNumericOptions.Format = DevExpress.XtraCharts.NumericFormat.General;
-         doughnutSeriesLabel17.PointOptions = piePointOptions17;
-         series9.Label = doughnutSeriesLabel17;
-         series9.LabelsVisibility = DevExpress.Utils.DefaultBoolean.False;
-         series9.LegendText = "آمار کلی مشترکین";
-         series9.Name = "آمار کلی مشترکین";
-         series9.SummaryFunction = "COUNT()";
-         series9.TopNOptions.Enabled = true;
-         doughnutSeriesView17.RuntimeExploding = false;
-         series9.View = doughnutSeriesView17;
+         series3.ArgumentDataMember = "SEX_TYPE_DNRM";
+         series3.ArgumentScaleType = DevExpress.XtraCharts.ScaleType.Qualitative;
+         doughnutSeriesLabel5.LineVisible = true;
+         piePointOptions5.ValueNumericOptions.Format = DevExpress.XtraCharts.NumericFormat.General;
+         doughnutSeriesLabel5.PointOptions = piePointOptions5;
+         series3.Label = doughnutSeriesLabel5;
+         series3.LabelsVisibility = DevExpress.Utils.DefaultBoolean.False;
+         series3.LegendText = "آمار کلی مشترکین";
+         series3.Name = "آمار کلی مشترکین";
+         series3.SummaryFunction = "COUNT()";
+         series3.TopNOptions.Enabled = true;
+         doughnutSeriesView5.RuntimeExploding = false;
+         series3.View = doughnutSeriesView5;
          this.TellPhonServ_Cc.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
-        series9};
-         doughnutSeriesLabel18.LineVisible = true;
-         piePointOptions18.ValueNumericOptions.Format = DevExpress.XtraCharts.NumericFormat.General;
-         doughnutSeriesLabel18.PointOptions = piePointOptions18;
-         this.TellPhonServ_Cc.SeriesTemplate.Label = doughnutSeriesLabel18;
-         doughnutSeriesView18.RuntimeExploding = false;
-         this.TellPhonServ_Cc.SeriesTemplate.View = doughnutSeriesView18;
+        series3};
+         doughnutSeriesLabel6.LineVisible = true;
+         piePointOptions6.ValueNumericOptions.Format = DevExpress.XtraCharts.NumericFormat.General;
+         doughnutSeriesLabel6.PointOptions = piePointOptions6;
+         this.TellPhonServ_Cc.SeriesTemplate.Label = doughnutSeriesLabel6;
+         doughnutSeriesView6.RuntimeExploding = false;
+         this.TellPhonServ_Cc.SeriesTemplate.View = doughnutSeriesView6;
          this.TellPhonServ_Cc.Size = new System.Drawing.Size(191, 191);
          this.TellPhonServ_Cc.TabIndex = 5;
          // 
@@ -1232,35 +1229,35 @@
          // 
          this.CochServ_Cc.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.CochServ_Cc.DataSource = this.FighBs;
-         simpleDiagram10.EqualPieSize = false;
-         this.CochServ_Cc.Diagram = simpleDiagram10;
+         simpleDiagram4.EqualPieSize = false;
+         this.CochServ_Cc.Diagram = simpleDiagram4;
          this.CochServ_Cc.Legend.Visible = false;
          this.CochServ_Cc.Location = new System.Drawing.Point(5, 313);
          this.CochServ_Cc.LookAndFeel.SkinName = "Office 2010 Silver";
          this.CochServ_Cc.LookAndFeel.UseDefaultLookAndFeel = false;
          this.CochServ_Cc.Name = "CochServ_Cc";
          this.CochServ_Cc.PaletteBaseColorNumber = 3;
-         series10.ArgumentDataMember = "SEX_TYPE_DNRM";
-         series10.ArgumentScaleType = DevExpress.XtraCharts.ScaleType.Qualitative;
-         doughnutSeriesLabel19.LineVisible = true;
-         piePointOptions19.ValueNumericOptions.Format = DevExpress.XtraCharts.NumericFormat.General;
-         doughnutSeriesLabel19.PointOptions = piePointOptions19;
-         series10.Label = doughnutSeriesLabel19;
-         series10.LabelsVisibility = DevExpress.Utils.DefaultBoolean.False;
-         series10.LegendText = "آمار کلی مشترکین";
-         series10.Name = "آمار کلی مشترکین";
-         series10.SummaryFunction = "COUNT()";
-         series10.TopNOptions.Enabled = true;
-         doughnutSeriesView19.RuntimeExploding = false;
-         series10.View = doughnutSeriesView19;
+         series4.ArgumentDataMember = "SEX_TYPE_DNRM";
+         series4.ArgumentScaleType = DevExpress.XtraCharts.ScaleType.Qualitative;
+         doughnutSeriesLabel7.LineVisible = true;
+         piePointOptions7.ValueNumericOptions.Format = DevExpress.XtraCharts.NumericFormat.General;
+         doughnutSeriesLabel7.PointOptions = piePointOptions7;
+         series4.Label = doughnutSeriesLabel7;
+         series4.LabelsVisibility = DevExpress.Utils.DefaultBoolean.False;
+         series4.LegendText = "آمار کلی مشترکین";
+         series4.Name = "آمار کلی مشترکین";
+         series4.SummaryFunction = "COUNT()";
+         series4.TopNOptions.Enabled = true;
+         doughnutSeriesView7.RuntimeExploding = false;
+         series4.View = doughnutSeriesView7;
          this.CochServ_Cc.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
-        series10};
-         doughnutSeriesLabel20.LineVisible = true;
-         piePointOptions20.ValueNumericOptions.Format = DevExpress.XtraCharts.NumericFormat.General;
-         doughnutSeriesLabel20.PointOptions = piePointOptions20;
-         this.CochServ_Cc.SeriesTemplate.Label = doughnutSeriesLabel20;
-         doughnutSeriesView20.RuntimeExploding = false;
-         this.CochServ_Cc.SeriesTemplate.View = doughnutSeriesView20;
+        series4};
+         doughnutSeriesLabel8.LineVisible = true;
+         piePointOptions8.ValueNumericOptions.Format = DevExpress.XtraCharts.NumericFormat.General;
+         doughnutSeriesLabel8.PointOptions = piePointOptions8;
+         this.CochServ_Cc.SeriesTemplate.Label = doughnutSeriesLabel8;
+         doughnutSeriesView8.RuntimeExploding = false;
+         this.CochServ_Cc.SeriesTemplate.View = doughnutSeriesView8;
          this.CochServ_Cc.Size = new System.Drawing.Size(191, 191);
          this.CochServ_Cc.TabIndex = 3;
          // 
@@ -1421,35 +1418,35 @@
          // 
          this.InsrServ_Cc.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.InsrServ_Cc.DataSource = this.FighBs;
-         simpleDiagram11.EqualPieSize = false;
-         this.InsrServ_Cc.Diagram = simpleDiagram11;
+         simpleDiagram5.EqualPieSize = false;
+         this.InsrServ_Cc.Diagram = simpleDiagram5;
          this.InsrServ_Cc.Legend.Visible = false;
          this.InsrServ_Cc.Location = new System.Drawing.Point(5, 313);
          this.InsrServ_Cc.LookAndFeel.SkinName = "Office 2010 Silver";
          this.InsrServ_Cc.LookAndFeel.UseDefaultLookAndFeel = false;
          this.InsrServ_Cc.Name = "InsrServ_Cc";
          this.InsrServ_Cc.PaletteBaseColorNumber = 2;
-         series11.ArgumentDataMember = "SEX_TYPE_DNRM";
-         series11.ArgumentScaleType = DevExpress.XtraCharts.ScaleType.Qualitative;
-         doughnutSeriesLabel21.LineVisible = true;
-         piePointOptions21.ValueNumericOptions.Format = DevExpress.XtraCharts.NumericFormat.General;
-         doughnutSeriesLabel21.PointOptions = piePointOptions21;
-         series11.Label = doughnutSeriesLabel21;
-         series11.LabelsVisibility = DevExpress.Utils.DefaultBoolean.False;
-         series11.LegendText = "آمار کلی مشترکین";
-         series11.Name = "آمار کلی مشترکین";
-         series11.SummaryFunction = "COUNT()";
-         series11.TopNOptions.Enabled = true;
-         doughnutSeriesView21.RuntimeExploding = false;
-         series11.View = doughnutSeriesView21;
+         series5.ArgumentDataMember = "SEX_TYPE_DNRM";
+         series5.ArgumentScaleType = DevExpress.XtraCharts.ScaleType.Qualitative;
+         doughnutSeriesLabel9.LineVisible = true;
+         piePointOptions9.ValueNumericOptions.Format = DevExpress.XtraCharts.NumericFormat.General;
+         doughnutSeriesLabel9.PointOptions = piePointOptions9;
+         series5.Label = doughnutSeriesLabel9;
+         series5.LabelsVisibility = DevExpress.Utils.DefaultBoolean.False;
+         series5.LegendText = "آمار کلی مشترکین";
+         series5.Name = "آمار کلی مشترکین";
+         series5.SummaryFunction = "COUNT()";
+         series5.TopNOptions.Enabled = true;
+         doughnutSeriesView9.RuntimeExploding = false;
+         series5.View = doughnutSeriesView9;
          this.InsrServ_Cc.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
-        series11};
-         doughnutSeriesLabel22.LineVisible = true;
-         piePointOptions22.ValueNumericOptions.Format = DevExpress.XtraCharts.NumericFormat.General;
-         doughnutSeriesLabel22.PointOptions = piePointOptions22;
-         this.InsrServ_Cc.SeriesTemplate.Label = doughnutSeriesLabel22;
-         doughnutSeriesView22.RuntimeExploding = false;
-         this.InsrServ_Cc.SeriesTemplate.View = doughnutSeriesView22;
+        series5};
+         doughnutSeriesLabel10.LineVisible = true;
+         piePointOptions10.ValueNumericOptions.Format = DevExpress.XtraCharts.NumericFormat.General;
+         doughnutSeriesLabel10.PointOptions = piePointOptions10;
+         this.InsrServ_Cc.SeriesTemplate.Label = doughnutSeriesLabel10;
+         doughnutSeriesView10.RuntimeExploding = false;
+         this.InsrServ_Cc.SeriesTemplate.View = doughnutSeriesView10;
          this.InsrServ_Cc.Size = new System.Drawing.Size(191, 191);
          this.InsrServ_Cc.TabIndex = 4;
          // 
@@ -1546,831 +1543,294 @@
          this.tp_003.Size = new System.Drawing.Size(1101, 552);
          this.tp_003.Text = "آمار مالی";
          // 
-         // groupControl8
-         // 
-         this.groupControl8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.groupControl8.AppearanceCaption.Font = new System.Drawing.Font("IRANSans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.groupControl8.AppearanceCaption.Options.UseFont = true;
-         this.groupControl8.AppearanceCaption.Options.UseTextOptions = true;
-         this.groupControl8.AppearanceCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-         this.groupControl8.Controls.Add(this.label43);
-         this.groupControl8.Controls.Add(this.label60);
-         this.groupControl8.Controls.Add(this.label11);
-         this.groupControl8.Controls.Add(this.labelControl25);
-         this.groupControl8.Controls.Add(this.labelControl18);
-         this.groupControl8.Controls.Add(this.label58);
-         this.groupControl8.Controls.Add(this.label51);
-         this.groupControl8.Controls.Add(this.label50);
-         this.groupControl8.Controls.Add(this.label45);
-         this.groupControl8.Controls.Add(this.labelControl24);
-         this.groupControl8.Controls.Add(this.labelControl22);
-         this.groupControl8.Controls.Add(this.label48);
-         this.groupControl8.Controls.Add(this.label44);
-         this.groupControl8.Controls.Add(this.labelControl21);
-         this.groupControl8.Controls.Add(this.labelControl17);
-         this.groupControl8.Controls.Add(this.labelControl19);
-         this.groupControl8.Controls.Add(this.label57);
-         this.groupControl8.Controls.Add(this.label42);
-         this.groupControl8.Controls.Add(this.label38);
-         this.groupControl8.Controls.Add(this.label21);
-         this.groupControl8.Controls.Add(this.label10);
-         this.groupControl8.Controls.Add(this.label22);
-         this.groupControl8.Controls.Add(this.label55);
-         this.groupControl8.Controls.Add(this.label40);
-         this.groupControl8.Controls.Add(this.label37);
-         this.groupControl8.Controls.Add(this.label20);
-         this.groupControl8.Controls.Add(this.label5);
-         this.groupControl8.Controls.Add(this.label16);
-         this.groupControl8.Controls.Add(this.label30);
-         this.groupControl8.Controls.Add(this.label24);
-         this.groupControl8.Controls.Add(this.label53);
-         this.groupControl8.Controls.Add(this.label39);
-         this.groupControl8.Controls.Add(this.label36);
-         this.groupControl8.Controls.Add(this.label12);
-         this.groupControl8.Controls.Add(this.label1);
-         this.groupControl8.Controls.Add(this.label25);
-         this.groupControl8.Controls.Add(this.label29);
-         this.groupControl8.Controls.Add(this.label26);
-         this.groupControl8.Controls.Add(this.label34);
-         this.groupControl8.Controls.Add(this.label31);
-         this.groupControl8.Controls.Add(this.label27);
-         this.groupControl8.Controls.Add(this.labelControl20);
-         this.groupControl8.Location = new System.Drawing.Point(359, 3);
-         this.groupControl8.LookAndFeel.SkinName = "Office 2010 Silver";
-         this.groupControl8.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.groupControl8.Name = "groupControl8";
-         this.groupControl8.Size = new System.Drawing.Size(588, 346);
-         this.groupControl8.TabIndex = 2;
-         this.groupControl8.Text = "درآمد سیستم";
-         // 
-         // label11
-         // 
-         this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.label11.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.label11.Location = new System.Drawing.Point(502, 264);
-         this.label11.Name = "label11";
-         this.label11.Size = new System.Drawing.Size(81, 32);
-         this.label11.TabIndex = 8;
-         this.label11.Text = "تخفیف";
-         this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         // 
-         // AttnBs
-         // 
-         this.AttnBs.DataSource = typeof(System.Scsc.Data.Attendance);
-         // 
-         // labelControl18
-         // 
-         this.labelControl18.AllowHtmlString = true;
-         this.labelControl18.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.labelControl18.Appearance.Font = new System.Drawing.Font("Iranian Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.labelControl18.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-         this.labelControl18.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.labelControl18.LineOrientation = DevExpress.XtraEditors.LabelLineOrientation.Vertical;
-         this.labelControl18.LineStyle = System.Drawing.Drawing2D.DashStyle.DashDot;
-         this.labelControl18.LineVisible = true;
-         this.labelControl18.Location = new System.Drawing.Point(483, 84);
-         this.labelControl18.LookAndFeel.SkinName = "Office 2010 Blue";
-         this.labelControl18.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.labelControl18.Name = "labelControl18";
-         this.labelControl18.Size = new System.Drawing.Size(13, 256);
-         this.labelControl18.TabIndex = 1;
-         // 
-         // labelControl22
-         // 
-         this.labelControl22.AllowHtmlString = true;
-         this.labelControl22.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.labelControl22.Appearance.Font = new System.Drawing.Font("Iranian Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.labelControl22.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-         this.labelControl22.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.labelControl22.LineStyle = System.Drawing.Drawing2D.DashStyle.DashDot;
-         this.labelControl22.LineVisible = true;
-         this.labelControl22.Location = new System.Drawing.Point(5, 254);
-         this.labelControl22.LookAndFeel.SkinName = "Office 2010 Blue";
-         this.labelControl22.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.labelControl22.Name = "labelControl22";
-         this.labelControl22.Size = new System.Drawing.Size(486, 7);
-         this.labelControl22.TabIndex = 2;
-         // 
-         // labelControl21
-         // 
-         this.labelControl21.AllowHtmlString = true;
-         this.labelControl21.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.labelControl21.Appearance.Font = new System.Drawing.Font("Iranian Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.labelControl21.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-         this.labelControl21.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.labelControl21.LineStyle = System.Drawing.Drawing2D.DashStyle.DashDot;
-         this.labelControl21.LineVisible = true;
-         this.labelControl21.Location = new System.Drawing.Point(5, 209);
-         this.labelControl21.LookAndFeel.SkinName = "Office 2010 Blue";
-         this.labelControl21.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.labelControl21.Name = "labelControl21";
-         this.labelControl21.Size = new System.Drawing.Size(486, 7);
-         this.labelControl21.TabIndex = 2;
-         // 
-         // labelControl17
-         // 
-         this.labelControl17.AllowHtmlString = true;
-         this.labelControl17.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.labelControl17.Appearance.Font = new System.Drawing.Font("Iranian Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.labelControl17.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-         this.labelControl17.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.labelControl17.LineStyle = System.Drawing.Drawing2D.DashStyle.DashDot;
-         this.labelControl17.LineVisible = true;
-         this.labelControl17.Location = new System.Drawing.Point(5, 164);
-         this.labelControl17.LookAndFeel.SkinName = "Office 2010 Blue";
-         this.labelControl17.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.labelControl17.Name = "labelControl17";
-         this.labelControl17.Size = new System.Drawing.Size(486, 7);
-         this.labelControl17.TabIndex = 2;
-         // 
-         // labelControl19
-         // 
-         this.labelControl19.AllowHtmlString = true;
-         this.labelControl19.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.labelControl19.Appearance.Font = new System.Drawing.Font("Iranian Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.labelControl19.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-         this.labelControl19.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.labelControl19.LineStyle = System.Drawing.Drawing2D.DashStyle.DashDot;
-         this.labelControl19.LineVisible = true;
-         this.labelControl19.Location = new System.Drawing.Point(5, 119);
-         this.labelControl19.LookAndFeel.SkinName = "Office 2010 Blue";
-         this.labelControl19.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.labelControl19.Name = "labelControl19";
-         this.labelControl19.Size = new System.Drawing.Size(486, 7);
-         this.labelControl19.TabIndex = 2;
-         // 
-         // label42
-         // 
-         this.label42.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.label42.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.label42.Location = new System.Drawing.Point(123, 264);
-         this.label42.Name = "label42";
-         this.label42.Size = new System.Drawing.Size(97, 32);
-         this.label42.TabIndex = 1;
-         this.label42.Text = "154";
-         this.label42.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         // 
-         // label38
-         // 
-         this.label38.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.label38.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.label38.Location = new System.Drawing.Point(123, 219);
-         this.label38.Name = "label38";
-         this.label38.Size = new System.Drawing.Size(97, 32);
-         this.label38.TabIndex = 1;
-         this.label38.Text = "154";
-         this.label38.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         // 
-         // label21
-         // 
-         this.label21.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.label21.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.label21.Location = new System.Drawing.Point(123, 174);
-         this.label21.Name = "label21";
-         this.label21.Size = new System.Drawing.Size(97, 32);
-         this.label21.TabIndex = 1;
-         this.label21.Text = "154";
-         this.label21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         // 
-         // label10
-         // 
-         this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.label10.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.label10.Location = new System.Drawing.Point(123, 129);
-         this.label10.Name = "label10";
-         this.label10.Size = new System.Drawing.Size(97, 32);
-         this.label10.TabIndex = 1;
-         this.label10.Text = "154";
-         this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         // 
-         // label22
-         // 
-         this.label22.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.label22.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.label22.Location = new System.Drawing.Point(123, 84);
-         this.label22.Name = "label22";
-         this.label22.Size = new System.Drawing.Size(97, 32);
-         this.label22.TabIndex = 1;
-         this.label22.Text = "154";
-         this.label22.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         // 
-         // label40
-         // 
-         this.label40.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.label40.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.label40.Location = new System.Drawing.Point(276, 264);
-         this.label40.Name = "label40";
-         this.label40.Size = new System.Drawing.Size(81, 32);
-         this.label40.TabIndex = 1;
-         this.label40.Text = "154";
-         this.label40.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         // 
-         // label37
-         // 
-         this.label37.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.label37.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.label37.Location = new System.Drawing.Point(276, 219);
-         this.label37.Name = "label37";
-         this.label37.Size = new System.Drawing.Size(81, 32);
-         this.label37.TabIndex = 1;
-         this.label37.Text = "154";
-         this.label37.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         // 
-         // label20
-         // 
-         this.label20.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.label20.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.label20.Location = new System.Drawing.Point(276, 174);
-         this.label20.Name = "label20";
-         this.label20.Size = new System.Drawing.Size(81, 32);
-         this.label20.TabIndex = 1;
-         this.label20.Text = "154";
-         this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         // 
-         // label5
-         // 
-         this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.label5.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.label5.Location = new System.Drawing.Point(276, 129);
-         this.label5.Name = "label5";
-         this.label5.Size = new System.Drawing.Size(81, 32);
-         this.label5.TabIndex = 1;
-         this.label5.Text = "154";
-         this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         // 
-         // label16
-         // 
-         this.label16.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.label16.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.label16.Location = new System.Drawing.Point(276, 84);
-         this.label16.Name = "label16";
-         this.label16.Size = new System.Drawing.Size(81, 32);
-         this.label16.TabIndex = 1;
-         this.label16.Text = "154";
-         this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         // 
-         // label30
-         // 
-         this.label30.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.label30.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.label30.Location = new System.Drawing.Point(502, 219);
-         this.label30.Name = "label30";
-         this.label30.Size = new System.Drawing.Size(81, 32);
-         this.label30.TabIndex = 1;
-         this.label30.Text = "درصد";
-         this.label30.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         // 
-         // label24
-         // 
-         this.label24.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.label24.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.label24.Location = new System.Drawing.Point(502, 174);
-         this.label24.Name = "label24";
-         this.label24.Size = new System.Drawing.Size(81, 32);
-         this.label24.TabIndex = 1;
-         this.label24.Text = "وصول";
-         this.label24.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         // 
-         // label39
-         // 
-         this.label39.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.label39.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.label39.Location = new System.Drawing.Point(401, 264);
-         this.label39.Name = "label39";
-         this.label39.Size = new System.Drawing.Size(81, 32);
-         this.label39.TabIndex = 1;
-         this.label39.Text = "12000";
-         this.label39.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         // 
-         // label36
-         // 
-         this.label36.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.label36.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.label36.Location = new System.Drawing.Point(401, 219);
-         this.label36.Name = "label36";
-         this.label36.Size = new System.Drawing.Size(81, 32);
-         this.label36.TabIndex = 1;
-         this.label36.Text = "12000";
-         this.label36.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         // 
-         // label12
-         // 
-         this.label12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.label12.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.label12.Location = new System.Drawing.Point(401, 174);
-         this.label12.Name = "label12";
-         this.label12.Size = new System.Drawing.Size(81, 32);
-         this.label12.TabIndex = 1;
-         this.label12.Text = "12000";
-         this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         // 
-         // label1
-         // 
-         this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.label1.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.label1.Location = new System.Drawing.Point(401, 129);
-         this.label1.Name = "label1";
-         this.label1.Size = new System.Drawing.Size(81, 32);
-         this.label1.TabIndex = 1;
-         this.label1.Text = "12000";
-         this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         // 
-         // label25
-         // 
-         this.label25.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.label25.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.label25.Location = new System.Drawing.Point(401, 84);
-         this.label25.Name = "label25";
-         this.label25.Size = new System.Drawing.Size(81, 32);
-         this.label25.TabIndex = 1;
-         this.label25.Text = "12000";
-         this.label25.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         // 
-         // label29
-         // 
-         this.label29.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.label29.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.label29.Location = new System.Drawing.Point(502, 130);
-         this.label29.Name = "label29";
-         this.label29.Size = new System.Drawing.Size(81, 32);
-         this.label29.TabIndex = 1;
-         this.label29.Text = "فروش";
-         this.label29.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         // 
-         // label26
-         // 
-         this.label26.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.label26.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.label26.Location = new System.Drawing.Point(502, 84);
-         this.label26.Name = "label26";
-         this.label26.Size = new System.Drawing.Size(81, 32);
-         this.label26.TabIndex = 1;
-         this.label26.Text = "تعداد";
-         this.label26.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         // 
-         // label34
-         // 
-         this.label34.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.label34.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Bold);
-         this.label34.Location = new System.Drawing.Point(123, 39);
-         this.label34.Name = "label34";
-         this.label34.Size = new System.Drawing.Size(97, 32);
-         this.label34.TabIndex = 1;
-         this.label34.Text = "درآمد متفرقه";
-         this.label34.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         // 
-         // label31
-         // 
-         this.label31.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.label31.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Bold);
-         this.label31.Location = new System.Drawing.Point(276, 39);
-         this.label31.Name = "label31";
-         this.label31.Size = new System.Drawing.Size(81, 32);
-         this.label31.TabIndex = 1;
-         this.label31.Text = "تمدید";
-         this.label31.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         // 
-         // label27
-         // 
-         this.label27.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.label27.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Bold);
-         this.label27.Location = new System.Drawing.Point(401, 39);
-         this.label27.Name = "label27";
-         this.label27.Size = new System.Drawing.Size(81, 32);
-         this.label27.TabIndex = 1;
-         this.label27.Text = "ثبت نام";
-         this.label27.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         // 
-         // labelControl20
-         // 
-         this.labelControl20.AllowHtmlString = true;
-         this.labelControl20.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.labelControl20.Appearance.Font = new System.Drawing.Font("Iranian Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.labelControl20.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-         this.labelControl20.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.labelControl20.LineStyle = System.Drawing.Drawing2D.DashStyle.DashDot;
-         this.labelControl20.LineVisible = true;
-         this.labelControl20.Location = new System.Drawing.Point(5, 74);
-         this.labelControl20.LookAndFeel.SkinName = "Office 2010 Blue";
-         this.labelControl20.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.labelControl20.Name = "labelControl20";
-         this.labelControl20.Size = new System.Drawing.Size(576, 7);
-         this.labelControl20.TabIndex = 0;
-         // 
-         // tp_002
-         // 
-         this.tp_002.Controls.Add(this.groupControl7);
-         this.tp_002.Controls.Add(this.groupControl6);
-         this.tp_002.Name = "tp_002";
-         this.tp_002.Size = new System.Drawing.Size(1101, 552);
-         this.tp_002.Text = "آمار تردد";
-         // 
-         // groupControl7
-         // 
-         this.groupControl7.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-         this.groupControl7.AppearanceCaption.Font = new System.Drawing.Font("IRANSans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.groupControl7.AppearanceCaption.Options.UseFont = true;
-         this.groupControl7.AppearanceCaption.Options.UseTextOptions = true;
-         this.groupControl7.AppearanceCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-         this.groupControl7.Location = new System.Drawing.Point(3, 3);
-         this.groupControl7.LookAndFeel.SkinName = "Office 2010 Silver";
-         this.groupControl7.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.groupControl7.Name = "groupControl7";
-         this.groupControl7.Size = new System.Drawing.Size(888, 535);
-         this.groupControl7.TabIndex = 10;
-         this.groupControl7.Text = "ساعت اوج تردد";
-         // 
-         // groupControl6
-         // 
-         this.groupControl6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.groupControl6.AppearanceCaption.Font = new System.Drawing.Font("IRANSans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.groupControl6.AppearanceCaption.Options.UseFont = true;
-         this.groupControl6.AppearanceCaption.Options.UseTextOptions = true;
-         this.groupControl6.AppearanceCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-         this.groupControl6.Controls.Add(this.labelControl16);
-         this.groupControl6.Controls.Add(this.TotlMenCrntDay_Lb);
-         this.groupControl6.Controls.Add(this.label4);
-         this.groupControl6.Controls.Add(this.TotlManCrntDay_Lb);
-         this.groupControl6.Controls.Add(this.label7);
-         this.groupControl6.Controls.Add(this.TotlAttn_Cc);
-         this.groupControl6.Controls.Add(this.labelControl12);
-         this.groupControl6.Controls.Add(this.labelControl14);
-         this.groupControl6.Controls.Add(this.TotlMenCrntYear_Lb);
-         this.groupControl6.Controls.Add(this.TotlPrvsYear_Lb);
-         this.groupControl6.Controls.Add(this.label9);
-         this.groupControl6.Controls.Add(this.TotlManCrntYear_Lb);
-         this.groupControl6.Controls.Add(this.label13);
-         this.groupControl6.Controls.Add(this.label14);
-         this.groupControl6.Controls.Add(this.TotlCrntYear_Lb);
-         this.groupControl6.Controls.Add(this.label17);
-         this.groupControl6.Controls.Add(this.TotlAttn_Lb);
-         this.groupControl6.Controls.Add(this.labelControl15);
-         this.groupControl6.Location = new System.Drawing.Point(897, 3);
-         this.groupControl6.LookAndFeel.SkinName = "Office 2010 Silver";
-         this.groupControl6.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.groupControl6.Name = "groupControl6";
-         this.groupControl6.Size = new System.Drawing.Size(201, 535);
-         this.groupControl6.TabIndex = 1;
-         this.groupControl6.Text = "کل تردد";
-         // 
-         // labelControl16
-         // 
-         this.labelControl16.AllowHtmlString = true;
-         this.labelControl16.Appearance.Font = new System.Drawing.Font("Iranian Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.labelControl16.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-         this.labelControl16.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.labelControl16.LineStyle = System.Drawing.Drawing2D.DashStyle.DashDot;
-         this.labelControl16.LineVisible = true;
-         this.labelControl16.Location = new System.Drawing.Point(5, 246);
-         this.labelControl16.LookAndFeel.SkinName = "Office 2010 Blue";
-         this.labelControl16.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.labelControl16.Name = "labelControl16";
-         this.labelControl16.Size = new System.Drawing.Size(191, 7);
-         this.labelControl16.TabIndex = 9;
-         // 
-         // TotlMenCrntDay_Lb
-         // 
-         this.TotlMenCrntDay_Lb.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.TotlMenCrntDay_Lb.Location = new System.Drawing.Point(5, 297);
-         this.TotlMenCrntDay_Lb.Name = "TotlMenCrntDay_Lb";
-         this.TotlMenCrntDay_Lb.Size = new System.Drawing.Size(81, 32);
-         this.TotlMenCrntDay_Lb.TabIndex = 5;
-         this.TotlMenCrntDay_Lb.Text = "5154";
-         this.TotlMenCrntDay_Lb.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         // 
-         // label4
-         // 
-         this.label4.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.label4.Location = new System.Drawing.Point(5, 256);
-         this.label4.Name = "label4";
-         this.label4.Size = new System.Drawing.Size(81, 32);
-         this.label4.TabIndex = 6;
-         this.label4.Text = "امروز";
-         this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         // 
-         // TotlManCrntDay_Lb
-         // 
-         this.TotlManCrntDay_Lb.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.TotlManCrntDay_Lb.Location = new System.Drawing.Point(115, 297);
-         this.TotlManCrntDay_Lb.Name = "TotlManCrntDay_Lb";
-         this.TotlManCrntDay_Lb.Size = new System.Drawing.Size(81, 32);
-         this.TotlManCrntDay_Lb.TabIndex = 7;
-         this.TotlManCrntDay_Lb.Text = "7000";
-         this.TotlManCrntDay_Lb.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         // 
-         // label7
-         // 
-         this.label7.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.label7.Location = new System.Drawing.Point(115, 256);
-         this.label7.Name = "label7";
-         this.label7.Size = new System.Drawing.Size(81, 32);
-         this.label7.TabIndex = 8;
-         this.label7.Text = "امروز";
-         this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         // 
-         // TotlAttn_Cc
-         // 
-         this.TotlAttn_Cc.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-         this.TotlAttn_Cc.DataSource = this.AttnBs;
-         simpleDiagram12.EqualPieSize = false;
-         this.TotlAttn_Cc.Diagram = simpleDiagram12;
-         this.TotlAttn_Cc.Legend.Visible = false;
-         this.TotlAttn_Cc.Location = new System.Drawing.Point(5, 339);
-         this.TotlAttn_Cc.LookAndFeel.SkinName = "Office 2010 Silver";
-         this.TotlAttn_Cc.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.TotlAttn_Cc.Name = "TotlAttn_Cc";
-         this.TotlAttn_Cc.PaletteBaseColorNumber = 4;
-         series12.ArgumentDataMember = "Fighter1.SEX_TYPE_DNRM";
-         series12.ArgumentScaleType = DevExpress.XtraCharts.ScaleType.Qualitative;
-         doughnutSeriesLabel23.LineVisible = true;
-         piePointOptions23.PercentOptions.ValueAsPercent = false;
-         piePointOptions23.ValueNumericOptions.Format = DevExpress.XtraCharts.NumericFormat.Number;
-         piePointOptions23.ValueNumericOptions.Precision = 0;
-         doughnutSeriesLabel23.PointOptions = piePointOptions23;
-         doughnutSeriesLabel23.Position = DevExpress.XtraCharts.PieSeriesLabelPosition.Radial;
-         series12.Label = doughnutSeriesLabel23;
-         series12.LabelsVisibility = DevExpress.Utils.DefaultBoolean.False;
-         series12.LegendText = "آمار کلی مشترکین";
-         series12.Name = "آمار کلی مشترکین به تفکیک حنسیت";
-         series12.SummaryFunction = "COUNT()";
-         series12.TopNOptions.Enabled = true;
-         doughnutSeriesView23.RuntimeExploding = false;
-         series12.View = doughnutSeriesView23;
-         this.TotlAttn_Cc.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
-        series12};
-         doughnutSeriesLabel24.LineVisible = true;
-         piePointOptions24.ValueNumericOptions.Format = DevExpress.XtraCharts.NumericFormat.General;
-         doughnutSeriesLabel24.PointOptions = piePointOptions24;
-         this.TotlAttn_Cc.SeriesTemplate.Label = doughnutSeriesLabel24;
-         doughnutSeriesView24.RuntimeExploding = false;
-         this.TotlAttn_Cc.SeriesTemplate.View = doughnutSeriesView24;
-         this.TotlAttn_Cc.Size = new System.Drawing.Size(191, 191);
-         this.TotlAttn_Cc.TabIndex = 4;
-         // 
-         // labelControl12
-         // 
-         this.labelControl12.AllowHtmlString = true;
-         this.labelControl12.Anchor = System.Windows.Forms.AnchorStyles.Top;
-         this.labelControl12.Appearance.Font = new System.Drawing.Font("Iranian Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.labelControl12.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-         this.labelControl12.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.labelControl12.LineOrientation = DevExpress.XtraEditors.LabelLineOrientation.Vertical;
-         this.labelControl12.LineStyle = System.Drawing.Drawing2D.DashStyle.DashDot;
-         this.labelControl12.LineVisible = true;
-         this.labelControl12.Location = new System.Drawing.Point(92, 84);
-         this.labelControl12.LookAndFeel.SkinName = "Office 2010 Blue";
-         this.labelControl12.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.labelControl12.Name = "labelControl12";
-         this.labelControl12.Size = new System.Drawing.Size(13, 245);
-         this.labelControl12.TabIndex = 1;
-         // 
-         // labelControl14
-         // 
-         this.labelControl14.AllowHtmlString = true;
-         this.labelControl14.Appearance.Font = new System.Drawing.Font("Iranian Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.labelControl14.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-         this.labelControl14.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.labelControl14.LineStyle = System.Drawing.Drawing2D.DashStyle.DashDot;
-         this.labelControl14.LineVisible = true;
-         this.labelControl14.Location = new System.Drawing.Point(5, 160);
-         this.labelControl14.LookAndFeel.SkinName = "Office 2010 Blue";
-         this.labelControl14.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.labelControl14.Name = "labelControl14";
-         this.labelControl14.Size = new System.Drawing.Size(191, 7);
-         this.labelControl14.TabIndex = 2;
-         // 
-         // TotlMenCrntYear_Lb
-         // 
-         this.TotlMenCrntYear_Lb.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.TotlMenCrntYear_Lb.Location = new System.Drawing.Point(5, 211);
-         this.TotlMenCrntYear_Lb.Name = "TotlMenCrntYear_Lb";
-         this.TotlMenCrntYear_Lb.Size = new System.Drawing.Size(81, 32);
-         this.TotlMenCrntYear_Lb.TabIndex = 1;
-         this.TotlMenCrntYear_Lb.Text = "5154";
-         this.TotlMenCrntYear_Lb.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         // 
-         // TotlPrvsYear_Lb
-         // 
-         this.TotlPrvsYear_Lb.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.TotlPrvsYear_Lb.Location = new System.Drawing.Point(5, 125);
-         this.TotlPrvsYear_Lb.Name = "TotlPrvsYear_Lb";
-         this.TotlPrvsYear_Lb.Size = new System.Drawing.Size(81, 32);
-         this.TotlPrvsYear_Lb.TabIndex = 1;
-         this.TotlPrvsYear_Lb.Text = "154";
-         this.TotlPrvsYear_Lb.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         // 
-         // label9
-         // 
-         this.label9.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.label9.Location = new System.Drawing.Point(5, 170);
-         this.label9.Name = "label9";
-         this.label9.Size = new System.Drawing.Size(81, 32);
-         this.label9.TabIndex = 1;
-         this.label9.Text = "بانوان";
-         this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         // 
-         // TotlManCrntYear_Lb
-         // 
-         this.TotlManCrntYear_Lb.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.TotlManCrntYear_Lb.Location = new System.Drawing.Point(115, 211);
-         this.TotlManCrntYear_Lb.Name = "TotlManCrntYear_Lb";
-         this.TotlManCrntYear_Lb.Size = new System.Drawing.Size(81, 32);
-         this.TotlManCrntYear_Lb.TabIndex = 1;
-         this.TotlManCrntYear_Lb.Text = "7000";
-         this.TotlManCrntYear_Lb.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         // 
-         // label13
-         // 
-         this.label13.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.label13.Location = new System.Drawing.Point(5, 84);
-         this.label13.Name = "label13";
-         this.label13.Size = new System.Drawing.Size(81, 32);
-         this.label13.TabIndex = 1;
-         this.label13.Text = "سال پیش";
-         this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         // 
-         // label14
-         // 
-         this.label14.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.label14.Location = new System.Drawing.Point(115, 170);
-         this.label14.Name = "label14";
-         this.label14.Size = new System.Drawing.Size(81, 32);
-         this.label14.TabIndex = 1;
-         this.label14.Text = "آقایان";
-         this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         // 
-         // TotlCrntYear_Lb
-         // 
-         this.TotlCrntYear_Lb.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.TotlCrntYear_Lb.Location = new System.Drawing.Point(115, 125);
-         this.TotlCrntYear_Lb.Name = "TotlCrntYear_Lb";
-         this.TotlCrntYear_Lb.Size = new System.Drawing.Size(81, 32);
-         this.TotlCrntYear_Lb.TabIndex = 1;
-         this.TotlCrntYear_Lb.Text = "12000";
-         this.TotlCrntYear_Lb.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         // 
-         // label17
-         // 
-         this.label17.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.label17.Location = new System.Drawing.Point(115, 84);
-         this.label17.Name = "label17";
-         this.label17.Size = new System.Drawing.Size(81, 32);
-         this.label17.TabIndex = 1;
-         this.label17.Text = "امسال";
-         this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         // 
-         // TotlAttn_Lb
-         // 
-         this.TotlAttn_Lb.Font = new System.Drawing.Font("IRANSans", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.TotlAttn_Lb.Location = new System.Drawing.Point(5, 39);
-         this.TotlAttn_Lb.Name = "TotlAttn_Lb";
-         this.TotlAttn_Lb.Size = new System.Drawing.Size(191, 32);
-         this.TotlAttn_Lb.TabIndex = 1;
-         this.TotlAttn_Lb.Text = "12154";
-         this.TotlAttn_Lb.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         // 
-         // labelControl15
-         // 
-         this.labelControl15.AllowHtmlString = true;
-         this.labelControl15.Appearance.Font = new System.Drawing.Font("Iranian Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.labelControl15.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-         this.labelControl15.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.labelControl15.LineStyle = System.Drawing.Drawing2D.DashStyle.DashDot;
-         this.labelControl15.LineVisible = true;
-         this.labelControl15.Location = new System.Drawing.Point(5, 74);
-         this.labelControl15.LookAndFeel.SkinName = "Office 2010 Blue";
-         this.labelControl15.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.labelControl15.Name = "labelControl15";
-         this.labelControl15.Size = new System.Drawing.Size(191, 7);
-         this.labelControl15.TabIndex = 0;
-         // 
-         // groupControl9
-         // 
-         this.groupControl9.AppearanceCaption.Font = new System.Drawing.Font("IRANSans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.groupControl9.AppearanceCaption.Options.UseFont = true;
-         this.groupControl9.AppearanceCaption.Options.UseTextOptions = true;
-         this.groupControl9.AppearanceCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-         this.groupControl9.Controls.Add(this.flowLayoutPanel2);
-         this.groupControl9.Dock = System.Windows.Forms.DockStyle.Right;
-         this.groupControl9.Location = new System.Drawing.Point(1032, 0);
-         this.groupControl9.LookAndFeel.SkinName = "Office 2010 Silver";
-         this.groupControl9.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.groupControl9.Name = "groupControl9";
-         this.groupControl9.Size = new System.Drawing.Size(69, 552);
-         this.groupControl9.TabIndex = 2;
-         this.groupControl9.Text = "سال";
-         // 
-         // flowLayoutPanel2
-         // 
-         this.flowLayoutPanel2.Controls.Add(this.simpleButton1);
-         this.flowLayoutPanel2.Controls.Add(this.simpleButton2);
-         this.flowLayoutPanel2.Controls.Add(this.simpleButton3);
-         this.flowLayoutPanel2.Controls.Add(this.simpleButton4);
-         this.flowLayoutPanel2.Controls.Add(this.simpleButton5);
-         this.flowLayoutPanel2.Controls.Add(this.simpleButton18);
-         this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-         this.flowLayoutPanel2.Location = new System.Drawing.Point(2, 30);
-         this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
-         this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-         this.flowLayoutPanel2.Size = new System.Drawing.Size(65, 520);
-         this.flowLayoutPanel2.TabIndex = 0;
-         // 
-         // simpleButton1
-         // 
-         this.simpleButton1.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-         this.simpleButton1.Appearance.Font = new System.Drawing.Font("Iranian Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.simpleButton1.Appearance.Options.UseBackColor = true;
-         this.simpleButton1.Appearance.Options.UseFont = true;
-         this.simpleButton1.Appearance.Options.UseTextOptions = true;
-         this.simpleButton1.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-         this.simpleButton1.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-         this.simpleButton1.Location = new System.Drawing.Point(2, 2);
-         this.simpleButton1.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.simpleButton1.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.simpleButton1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 0);
-         this.simpleButton1.Name = "simpleButton1";
-         this.simpleButton1.Size = new System.Drawing.Size(61, 35);
-         this.simpleButton1.TabIndex = 3;
-         this.simpleButton1.Text = "1393";
-         this.simpleButton1.ToolTip = "بازگشت";
-         // 
-         // simpleButton2
-         // 
-         this.simpleButton2.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-         this.simpleButton2.Appearance.Font = new System.Drawing.Font("Iranian Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.simpleButton2.Appearance.Options.UseBackColor = true;
-         this.simpleButton2.Appearance.Options.UseFont = true;
-         this.simpleButton2.Appearance.Options.UseTextOptions = true;
-         this.simpleButton2.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-         this.simpleButton2.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-         this.simpleButton2.Location = new System.Drawing.Point(2, 39);
-         this.simpleButton2.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.simpleButton2.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.simpleButton2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 0);
-         this.simpleButton2.Name = "simpleButton2";
-         this.simpleButton2.Size = new System.Drawing.Size(61, 35);
-         this.simpleButton2.TabIndex = 4;
-         this.simpleButton2.Text = "1394";
-         this.simpleButton2.ToolTip = "بازگشت";
-         // 
-         // simpleButton3
-         // 
-         this.simpleButton3.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-         this.simpleButton3.Appearance.Font = new System.Drawing.Font("Iranian Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.simpleButton3.Appearance.Options.UseBackColor = true;
-         this.simpleButton3.Appearance.Options.UseFont = true;
-         this.simpleButton3.Appearance.Options.UseTextOptions = true;
-         this.simpleButton3.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-         this.simpleButton3.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-         this.simpleButton3.Location = new System.Drawing.Point(2, 76);
-         this.simpleButton3.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.simpleButton3.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.simpleButton3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 0);
-         this.simpleButton3.Name = "simpleButton3";
-         this.simpleButton3.Size = new System.Drawing.Size(61, 35);
-         this.simpleButton3.TabIndex = 5;
-         this.simpleButton3.Text = "1395";
-         this.simpleButton3.ToolTip = "بازگشت";
-         // 
-         // simpleButton4
-         // 
-         this.simpleButton4.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-         this.simpleButton4.Appearance.Font = new System.Drawing.Font("Iranian Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.simpleButton4.Appearance.Options.UseBackColor = true;
-         this.simpleButton4.Appearance.Options.UseFont = true;
-         this.simpleButton4.Appearance.Options.UseTextOptions = true;
-         this.simpleButton4.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-         this.simpleButton4.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-         this.simpleButton4.Location = new System.Drawing.Point(2, 113);
-         this.simpleButton4.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.simpleButton4.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.simpleButton4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 0);
-         this.simpleButton4.Name = "simpleButton4";
-         this.simpleButton4.Size = new System.Drawing.Size(61, 35);
-         this.simpleButton4.TabIndex = 6;
-         this.simpleButton4.Text = "1396";
-         this.simpleButton4.ToolTip = "بازگشت";
-         // 
-         // simpleButton5
-         // 
-         this.simpleButton5.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-         this.simpleButton5.Appearance.Font = new System.Drawing.Font("Iranian Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.simpleButton5.Appearance.Options.UseBackColor = true;
-         this.simpleButton5.Appearance.Options.UseFont = true;
-         this.simpleButton5.Appearance.Options.UseTextOptions = true;
-         this.simpleButton5.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-         this.simpleButton5.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-         this.simpleButton5.Location = new System.Drawing.Point(2, 150);
-         this.simpleButton5.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.simpleButton5.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.simpleButton5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 0);
-         this.simpleButton5.Name = "simpleButton5";
-         this.simpleButton5.Size = new System.Drawing.Size(61, 35);
-         this.simpleButton5.TabIndex = 7;
-         this.simpleButton5.Text = "1397";
-         this.simpleButton5.ToolTip = "بازگشت";
+         // groupControl11
+         // 
+         this.groupControl11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.groupControl11.AppearanceCaption.Font = new System.Drawing.Font("IRANSans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.groupControl11.AppearanceCaption.Options.UseFont = true;
+         this.groupControl11.AppearanceCaption.Options.UseTextOptions = true;
+         this.groupControl11.AppearanceCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+         this.groupControl11.Controls.Add(this.labelControl23);
+         this.groupControl11.Controls.Add(this.labelControl27);
+         this.groupControl11.Controls.Add(this.label47);
+         this.groupControl11.Controls.Add(this.labelControl26);
+         this.groupControl11.Controls.Add(this.label49);
+         this.groupControl11.Controls.Add(this.label71);
+         this.groupControl11.Controls.Add(this.label52);
+         this.groupControl11.Controls.Add(this.label70);
+         this.groupControl11.Controls.Add(this.label54);
+         this.groupControl11.Controls.Add(this.label56);
+         this.groupControl11.Controls.Add(this.label69);
+         this.groupControl11.Controls.Add(this.label59);
+         this.groupControl11.Controls.Add(this.label68);
+         this.groupControl11.Controls.Add(this.label61);
+         this.groupControl11.Controls.Add(this.label63);
+         this.groupControl11.Controls.Add(this.label64);
+         this.groupControl11.Controls.Add(this.label67);
+         this.groupControl11.Controls.Add(this.label65);
+         this.groupControl11.Controls.Add(this.label62);
+         this.groupControl11.Controls.Add(this.label66);
+         this.groupControl11.Controls.Add(this.labelControl28);
+         this.groupControl11.Location = new System.Drawing.Point(359, 355);
+         this.groupControl11.LookAndFeel.SkinName = "Office 2010 Silver";
+         this.groupControl11.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.groupControl11.Name = "groupControl11";
+         this.groupControl11.Size = new System.Drawing.Size(588, 171);
+         this.groupControl11.TabIndex = 9;
+         this.groupControl11.Text = "سپرده گذاری";
+         // 
+         // labelControl23
+         // 
+         this.labelControl23.AllowHtmlString = true;
+         this.labelControl23.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.labelControl23.Appearance.Font = new System.Drawing.Font("Iranian Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.labelControl23.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+         this.labelControl23.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+         this.labelControl23.LineOrientation = DevExpress.XtraEditors.LabelLineOrientation.Vertical;
+         this.labelControl23.LineStyle = System.Drawing.Drawing2D.DashStyle.DashDot;
+         this.labelControl23.LineVisible = true;
+         this.labelControl23.Location = new System.Drawing.Point(483, 84);
+         this.labelControl23.LookAndFeel.SkinName = "Office 2010 Blue";
+         this.labelControl23.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.labelControl23.Name = "labelControl23";
+         this.labelControl23.Size = new System.Drawing.Size(13, 79);
+         this.labelControl23.TabIndex = 1;
+         // 
+         // labelControl27
+         // 
+         this.labelControl27.AllowHtmlString = true;
+         this.labelControl27.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.labelControl27.Appearance.Font = new System.Drawing.Font("Iranian Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.labelControl27.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+         this.labelControl27.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+         this.labelControl27.LineStyle = System.Drawing.Drawing2D.DashStyle.DashDot;
+         this.labelControl27.LineVisible = true;
+         this.labelControl27.Location = new System.Drawing.Point(5, 119);
+         this.labelControl27.LookAndFeel.SkinName = "Office 2010 Blue";
+         this.labelControl27.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.labelControl27.Name = "labelControl27";
+         this.labelControl27.Size = new System.Drawing.Size(486, 7);
+         this.labelControl27.TabIndex = 2;
+         // 
+         // label47
+         // 
+         this.label47.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.label47.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.label47.Location = new System.Drawing.Point(5, 131);
+         this.label47.Name = "label47";
+         this.label47.Size = new System.Drawing.Size(97, 32);
+         this.label47.TabIndex = 1;
+         this.label47.Text = "154";
+         this.label47.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         // 
+         // labelControl26
+         // 
+         this.labelControl26.AllowHtmlString = true;
+         this.labelControl26.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.labelControl26.Appearance.Font = new System.Drawing.Font("Iranian Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.labelControl26.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+         this.labelControl26.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+         this.labelControl26.LineOrientation = DevExpress.XtraEditors.LabelLineOrientation.Vertical;
+         this.labelControl26.LineStyle = System.Drawing.Drawing2D.DashStyle.DashDot;
+         this.labelControl26.LineVisible = true;
+         this.labelControl26.Location = new System.Drawing.Point(96, 47);
+         this.labelControl26.LookAndFeel.SkinName = "Office 2010 Blue";
+         this.labelControl26.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.labelControl26.Name = "labelControl26";
+         this.labelControl26.Size = new System.Drawing.Size(13, 119);
+         this.labelControl26.TabIndex = 1;
+         // 
+         // label49
+         // 
+         this.label49.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.label49.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.label49.Location = new System.Drawing.Point(5, 84);
+         this.label49.Name = "label49";
+         this.label49.Size = new System.Drawing.Size(97, 32);
+         this.label49.TabIndex = 1;
+         this.label49.Text = "154";
+         this.label49.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         // 
+         // label71
+         // 
+         this.label71.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.label71.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.label71.Location = new System.Drawing.Point(139, 131);
+         this.label71.Name = "label71";
+         this.label71.Size = new System.Drawing.Size(81, 32);
+         this.label71.TabIndex = 1;
+         this.label71.Text = "154";
+         this.label71.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         // 
+         // label52
+         // 
+         this.label52.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.label52.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.label52.Location = new System.Drawing.Point(314, 131);
+         this.label52.Name = "label52";
+         this.label52.Size = new System.Drawing.Size(81, 32);
+         this.label52.TabIndex = 1;
+         this.label52.Text = "154";
+         this.label52.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         // 
+         // label70
+         // 
+         this.label70.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.label70.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.label70.Location = new System.Drawing.Point(139, 84);
+         this.label70.Name = "label70";
+         this.label70.Size = new System.Drawing.Size(81, 32);
+         this.label70.TabIndex = 1;
+         this.label70.Text = "154";
+         this.label70.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         // 
+         // label54
+         // 
+         this.label54.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.label54.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.label54.Location = new System.Drawing.Point(314, 84);
+         this.label54.Name = "label54";
+         this.label54.Size = new System.Drawing.Size(81, 32);
+         this.label54.TabIndex = 1;
+         this.label54.Text = "154";
+         this.label54.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         // 
+         // label56
+         // 
+         this.label56.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.label56.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.label56.Location = new System.Drawing.Point(502, 131);
+         this.label56.Name = "label56";
+         this.label56.Size = new System.Drawing.Size(81, 32);
+         this.label56.TabIndex = 1;
+         this.label56.Text = "وصول";
+         this.label56.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         // 
+         // label69
+         // 
+         this.label69.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.label69.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.label69.Location = new System.Drawing.Point(226, 131);
+         this.label69.Name = "label69";
+         this.label69.Size = new System.Drawing.Size(81, 32);
+         this.label69.TabIndex = 1;
+         this.label69.Text = "12000";
+         this.label69.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         // 
+         // label59
+         // 
+         this.label59.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.label59.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.label59.Location = new System.Drawing.Point(401, 131);
+         this.label59.Name = "label59";
+         this.label59.Size = new System.Drawing.Size(81, 32);
+         this.label59.TabIndex = 1;
+         this.label59.Text = "12000";
+         this.label59.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         // 
+         // label68
+         // 
+         this.label68.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.label68.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.label68.Location = new System.Drawing.Point(226, 84);
+         this.label68.Name = "label68";
+         this.label68.Size = new System.Drawing.Size(81, 32);
+         this.label68.TabIndex = 1;
+         this.label68.Text = "12000";
+         this.label68.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         // 
+         // label61
+         // 
+         this.label61.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.label61.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.label61.Location = new System.Drawing.Point(401, 84);
+         this.label61.Name = "label61";
+         this.label61.Size = new System.Drawing.Size(81, 32);
+         this.label61.TabIndex = 1;
+         this.label61.Text = "12000";
+         this.label61.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         // 
+         // label63
+         // 
+         this.label63.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.label63.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.label63.Location = new System.Drawing.Point(502, 84);
+         this.label63.Name = "label63";
+         this.label63.Size = new System.Drawing.Size(81, 32);
+         this.label63.TabIndex = 1;
+         this.label63.Text = "تعداد";
+         this.label63.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         // 
+         // label64
+         // 
+         this.label64.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.label64.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Bold);
+         this.label64.Location = new System.Drawing.Point(5, 39);
+         this.label64.Name = "label64";
+         this.label64.Size = new System.Drawing.Size(97, 32);
+         this.label64.TabIndex = 1;
+         this.label64.Text = "جمع کل";
+         this.label64.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         // 
+         // label67
+         // 
+         this.label67.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.label67.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Bold);
+         this.label67.Location = new System.Drawing.Point(139, 39);
+         this.label67.Name = "label67";
+         this.label67.Size = new System.Drawing.Size(81, 32);
+         this.label67.TabIndex = 1;
+         this.label67.Text = "POS";
+         this.label67.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         // 
+         // label65
+         // 
+         this.label65.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.label65.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Bold);
+         this.label65.Location = new System.Drawing.Point(314, 39);
+         this.label65.Name = "label65";
+         this.label65.Size = new System.Drawing.Size(81, 32);
+         this.label65.TabIndex = 1;
+         this.label65.Text = "بانوان";
+         this.label65.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         // 
+         // label62
+         // 
+         this.label62.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.label62.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Bold);
+         this.label62.Location = new System.Drawing.Point(226, 39);
+         this.label62.Name = "label62";
+         this.label62.Size = new System.Drawing.Size(81, 32);
+         this.label62.TabIndex = 1;
+         this.label62.Text = "نقدی";
+         this.label62.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         // 
+         // label66
+         // 
+         this.label66.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.label66.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Bold);
+         this.label66.Location = new System.Drawing.Point(401, 39);
+         this.label66.Name = "label66";
+         this.label66.Size = new System.Drawing.Size(81, 32);
+         this.label66.TabIndex = 1;
+         this.label66.Text = "آقایان";
+         this.label66.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         // 
+         // labelControl28
+         // 
+         this.labelControl28.AllowHtmlString = true;
+         this.labelControl28.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.labelControl28.Appearance.Font = new System.Drawing.Font("Iranian Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.labelControl28.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+         this.labelControl28.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+         this.labelControl28.LineStyle = System.Drawing.Drawing2D.DashStyle.DashDot;
+         this.labelControl28.LineVisible = true;
+         this.labelControl28.Location = new System.Drawing.Point(5, 74);
+         this.labelControl28.LookAndFeel.SkinName = "Office 2010 Blue";
+         this.labelControl28.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.labelControl28.Name = "labelControl28";
+         this.labelControl28.Size = new System.Drawing.Size(576, 7);
+         this.labelControl28.TabIndex = 0;
          // 
          // groupControl10
          // 
@@ -2638,25 +2098,6 @@
          this.simpleButton17.Text = "اسفند";
          this.simpleButton17.ToolTip = "بازگشت";
          // 
-         // simpleButton18
-         // 
-         this.simpleButton18.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-         this.simpleButton18.Appearance.Font = new System.Drawing.Font("Iranian Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.simpleButton18.Appearance.Options.UseBackColor = true;
-         this.simpleButton18.Appearance.Options.UseFont = true;
-         this.simpleButton18.Appearance.Options.UseTextOptions = true;
-         this.simpleButton18.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-         this.simpleButton18.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-         this.simpleButton18.Location = new System.Drawing.Point(2, 187);
-         this.simpleButton18.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.simpleButton18.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.simpleButton18.Margin = new System.Windows.Forms.Padding(2, 2, 2, 0);
-         this.simpleButton18.Name = "simpleButton18";
-         this.simpleButton18.Size = new System.Drawing.Size(61, 35);
-         this.simpleButton18.TabIndex = 8;
-         this.simpleButton18.Text = "همه";
-         this.simpleButton18.ToolTip = "بازگشت";
-         // 
          // simpleButton19
          // 
          this.simpleButton19.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
@@ -2676,326 +2117,118 @@
          this.simpleButton19.Text = "همه";
          this.simpleButton19.ToolTip = "بازگشت";
          // 
-         // groupControl11
+         // groupControl9
          // 
-         this.groupControl11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.groupControl11.AppearanceCaption.Font = new System.Drawing.Font("IRANSans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.groupControl11.AppearanceCaption.Options.UseFont = true;
-         this.groupControl11.AppearanceCaption.Options.UseTextOptions = true;
-         this.groupControl11.AppearanceCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-         this.groupControl11.Controls.Add(this.labelControl23);
-         this.groupControl11.Controls.Add(this.labelControl27);
-         this.groupControl11.Controls.Add(this.label47);
-         this.groupControl11.Controls.Add(this.labelControl26);
-         this.groupControl11.Controls.Add(this.label49);
-         this.groupControl11.Controls.Add(this.label71);
-         this.groupControl11.Controls.Add(this.label52);
-         this.groupControl11.Controls.Add(this.label70);
-         this.groupControl11.Controls.Add(this.label54);
-         this.groupControl11.Controls.Add(this.label56);
-         this.groupControl11.Controls.Add(this.label69);
-         this.groupControl11.Controls.Add(this.label59);
-         this.groupControl11.Controls.Add(this.label68);
-         this.groupControl11.Controls.Add(this.label61);
-         this.groupControl11.Controls.Add(this.label63);
-         this.groupControl11.Controls.Add(this.label64);
-         this.groupControl11.Controls.Add(this.label67);
-         this.groupControl11.Controls.Add(this.label65);
-         this.groupControl11.Controls.Add(this.label62);
-         this.groupControl11.Controls.Add(this.label66);
-         this.groupControl11.Controls.Add(this.labelControl28);
-         this.groupControl11.Location = new System.Drawing.Point(359, 355);
-         this.groupControl11.LookAndFeel.SkinName = "Office 2010 Silver";
-         this.groupControl11.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.groupControl11.Name = "groupControl11";
-         this.groupControl11.Size = new System.Drawing.Size(588, 171);
-         this.groupControl11.TabIndex = 9;
-         this.groupControl11.Text = "سپرده گذاری";
+         this.groupControl9.AppearanceCaption.Font = new System.Drawing.Font("IRANSans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.groupControl9.AppearanceCaption.Options.UseFont = true;
+         this.groupControl9.AppearanceCaption.Options.UseTextOptions = true;
+         this.groupControl9.AppearanceCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+         this.groupControl9.Controls.Add(this.flowLayoutPanel2);
+         this.groupControl9.Dock = System.Windows.Forms.DockStyle.Right;
+         this.groupControl9.Location = new System.Drawing.Point(1032, 0);
+         this.groupControl9.LookAndFeel.SkinName = "Office 2010 Silver";
+         this.groupControl9.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.groupControl9.Name = "groupControl9";
+         this.groupControl9.Size = new System.Drawing.Size(69, 552);
+         this.groupControl9.TabIndex = 2;
+         this.groupControl9.Text = "سال";
          // 
-         // labelControl23
+         // flowLayoutPanel2
          // 
-         this.labelControl23.AllowHtmlString = true;
-         this.labelControl23.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.labelControl23.Appearance.Font = new System.Drawing.Font("Iranian Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.labelControl23.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-         this.labelControl23.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.labelControl23.LineOrientation = DevExpress.XtraEditors.LabelLineOrientation.Vertical;
-         this.labelControl23.LineStyle = System.Drawing.Drawing2D.DashStyle.DashDot;
-         this.labelControl23.LineVisible = true;
-         this.labelControl23.Location = new System.Drawing.Point(483, 84);
-         this.labelControl23.LookAndFeel.SkinName = "Office 2010 Blue";
-         this.labelControl23.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.labelControl23.Name = "labelControl23";
-         this.labelControl23.Size = new System.Drawing.Size(13, 79);
-         this.labelControl23.TabIndex = 1;
+         this.flowLayoutPanel2.Controls.Add(this.simpleButton18);
+         this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+         this.flowLayoutPanel2.Location = new System.Drawing.Point(2, 30);
+         this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
+         this.flowLayoutPanel2.Name = "flowLayoutPanel2";
+         this.flowLayoutPanel2.Size = new System.Drawing.Size(65, 520);
+         this.flowLayoutPanel2.TabIndex = 0;
          // 
-         // labelControl27
+         // simpleButton18
          // 
-         this.labelControl27.AllowHtmlString = true;
-         this.labelControl27.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.labelControl27.Appearance.Font = new System.Drawing.Font("Iranian Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.labelControl27.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-         this.labelControl27.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.labelControl27.LineStyle = System.Drawing.Drawing2D.DashStyle.DashDot;
-         this.labelControl27.LineVisible = true;
-         this.labelControl27.Location = new System.Drawing.Point(5, 119);
-         this.labelControl27.LookAndFeel.SkinName = "Office 2010 Blue";
-         this.labelControl27.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.labelControl27.Name = "labelControl27";
-         this.labelControl27.Size = new System.Drawing.Size(486, 7);
-         this.labelControl27.TabIndex = 2;
+         this.simpleButton18.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+         this.simpleButton18.Appearance.Font = new System.Drawing.Font("Iranian Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.simpleButton18.Appearance.Options.UseBackColor = true;
+         this.simpleButton18.Appearance.Options.UseFont = true;
+         this.simpleButton18.Appearance.Options.UseTextOptions = true;
+         this.simpleButton18.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+         this.simpleButton18.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+         this.simpleButton18.Location = new System.Drawing.Point(2, 2);
+         this.simpleButton18.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.simpleButton18.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.simpleButton18.Margin = new System.Windows.Forms.Padding(2, 2, 2, 0);
+         this.simpleButton18.Name = "simpleButton18";
+         this.simpleButton18.Size = new System.Drawing.Size(61, 35);
+         this.simpleButton18.TabIndex = 8;
+         this.simpleButton18.Text = "همه";
+         this.simpleButton18.ToolTip = "بازگشت";
          // 
-         // label47
+         // groupControl8
          // 
-         this.label47.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.label47.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.label47.Location = new System.Drawing.Point(5, 131);
-         this.label47.Name = "label47";
-         this.label47.Size = new System.Drawing.Size(97, 32);
-         this.label47.TabIndex = 1;
-         this.label47.Text = "154";
-         this.label47.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         this.groupControl8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.groupControl8.AppearanceCaption.Font = new System.Drawing.Font("IRANSans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.groupControl8.AppearanceCaption.Options.UseFont = true;
+         this.groupControl8.AppearanceCaption.Options.UseTextOptions = true;
+         this.groupControl8.AppearanceCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+         this.groupControl8.Controls.Add(this.label43);
+         this.groupControl8.Controls.Add(this.label60);
+         this.groupControl8.Controls.Add(this.label11);
+         this.groupControl8.Controls.Add(this.labelControl25);
+         this.groupControl8.Controls.Add(this.labelControl18);
+         this.groupControl8.Controls.Add(this.label58);
+         this.groupControl8.Controls.Add(this.label51);
+         this.groupControl8.Controls.Add(this.label50);
+         this.groupControl8.Controls.Add(this.label45);
+         this.groupControl8.Controls.Add(this.labelControl24);
+         this.groupControl8.Controls.Add(this.labelControl22);
+         this.groupControl8.Controls.Add(this.label48);
+         this.groupControl8.Controls.Add(this.label44);
+         this.groupControl8.Controls.Add(this.labelControl21);
+         this.groupControl8.Controls.Add(this.labelControl17);
+         this.groupControl8.Controls.Add(this.labelControl19);
+         this.groupControl8.Controls.Add(this.label57);
+         this.groupControl8.Controls.Add(this.label42);
+         this.groupControl8.Controls.Add(this.label38);
+         this.groupControl8.Controls.Add(this.label21);
+         this.groupControl8.Controls.Add(this.label10);
+         this.groupControl8.Controls.Add(this.label22);
+         this.groupControl8.Controls.Add(this.label55);
+         this.groupControl8.Controls.Add(this.label40);
+         this.groupControl8.Controls.Add(this.label37);
+         this.groupControl8.Controls.Add(this.label20);
+         this.groupControl8.Controls.Add(this.label5);
+         this.groupControl8.Controls.Add(this.label16);
+         this.groupControl8.Controls.Add(this.label30);
+         this.groupControl8.Controls.Add(this.label24);
+         this.groupControl8.Controls.Add(this.label53);
+         this.groupControl8.Controls.Add(this.label39);
+         this.groupControl8.Controls.Add(this.label36);
+         this.groupControl8.Controls.Add(this.label12);
+         this.groupControl8.Controls.Add(this.label1);
+         this.groupControl8.Controls.Add(this.label25);
+         this.groupControl8.Controls.Add(this.label29);
+         this.groupControl8.Controls.Add(this.label26);
+         this.groupControl8.Controls.Add(this.label34);
+         this.groupControl8.Controls.Add(this.label31);
+         this.groupControl8.Controls.Add(this.label27);
+         this.groupControl8.Controls.Add(this.labelControl20);
+         this.groupControl8.Location = new System.Drawing.Point(359, 3);
+         this.groupControl8.LookAndFeel.SkinName = "Office 2010 Silver";
+         this.groupControl8.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.groupControl8.Name = "groupControl8";
+         this.groupControl8.Size = new System.Drawing.Size(588, 346);
+         this.groupControl8.TabIndex = 2;
+         this.groupControl8.Text = "درآمد سیستم";
          // 
-         // label49
+         // label43
          // 
-         this.label49.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.label49.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.label49.Location = new System.Drawing.Point(5, 84);
-         this.label49.Name = "label49";
-         this.label49.Size = new System.Drawing.Size(97, 32);
-         this.label49.TabIndex = 1;
-         this.label49.Text = "154";
-         this.label49.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         // 
-         // label52
-         // 
-         this.label52.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.label52.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.label52.Location = new System.Drawing.Point(314, 131);
-         this.label52.Name = "label52";
-         this.label52.Size = new System.Drawing.Size(81, 32);
-         this.label52.TabIndex = 1;
-         this.label52.Text = "154";
-         this.label52.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         // 
-         // label54
-         // 
-         this.label54.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.label54.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.label54.Location = new System.Drawing.Point(314, 84);
-         this.label54.Name = "label54";
-         this.label54.Size = new System.Drawing.Size(81, 32);
-         this.label54.TabIndex = 1;
-         this.label54.Text = "154";
-         this.label54.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         // 
-         // label56
-         // 
-         this.label56.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.label56.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.label56.Location = new System.Drawing.Point(502, 131);
-         this.label56.Name = "label56";
-         this.label56.Size = new System.Drawing.Size(81, 32);
-         this.label56.TabIndex = 1;
-         this.label56.Text = "وصول";
-         this.label56.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         // 
-         // label59
-         // 
-         this.label59.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.label59.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.label59.Location = new System.Drawing.Point(401, 131);
-         this.label59.Name = "label59";
-         this.label59.Size = new System.Drawing.Size(81, 32);
-         this.label59.TabIndex = 1;
-         this.label59.Text = "12000";
-         this.label59.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         // 
-         // label61
-         // 
-         this.label61.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.label61.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.label61.Location = new System.Drawing.Point(401, 84);
-         this.label61.Name = "label61";
-         this.label61.Size = new System.Drawing.Size(81, 32);
-         this.label61.TabIndex = 1;
-         this.label61.Text = "12000";
-         this.label61.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         // 
-         // label63
-         // 
-         this.label63.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.label63.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.label63.Location = new System.Drawing.Point(502, 84);
-         this.label63.Name = "label63";
-         this.label63.Size = new System.Drawing.Size(81, 32);
-         this.label63.TabIndex = 1;
-         this.label63.Text = "تعداد";
-         this.label63.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         // 
-         // label64
-         // 
-         this.label64.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.label64.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Bold);
-         this.label64.Location = new System.Drawing.Point(5, 39);
-         this.label64.Name = "label64";
-         this.label64.Size = new System.Drawing.Size(97, 32);
-         this.label64.TabIndex = 1;
-         this.label64.Text = "جمع کل";
-         this.label64.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         // 
-         // label65
-         // 
-         this.label65.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.label65.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Bold);
-         this.label65.Location = new System.Drawing.Point(314, 39);
-         this.label65.Name = "label65";
-         this.label65.Size = new System.Drawing.Size(81, 32);
-         this.label65.TabIndex = 1;
-         this.label65.Text = "بانوان";
-         this.label65.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         // 
-         // label66
-         // 
-         this.label66.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.label66.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Bold);
-         this.label66.Location = new System.Drawing.Point(401, 39);
-         this.label66.Name = "label66";
-         this.label66.Size = new System.Drawing.Size(81, 32);
-         this.label66.TabIndex = 1;
-         this.label66.Text = "آقایان";
-         this.label66.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         // 
-         // labelControl28
-         // 
-         this.labelControl28.AllowHtmlString = true;
-         this.labelControl28.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.labelControl28.Appearance.Font = new System.Drawing.Font("Iranian Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.labelControl28.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-         this.labelControl28.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.labelControl28.LineStyle = System.Drawing.Drawing2D.DashStyle.DashDot;
-         this.labelControl28.LineVisible = true;
-         this.labelControl28.Location = new System.Drawing.Point(5, 74);
-         this.labelControl28.LookAndFeel.SkinName = "Office 2010 Blue";
-         this.labelControl28.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.labelControl28.Name = "labelControl28";
-         this.labelControl28.Size = new System.Drawing.Size(576, 7);
-         this.labelControl28.TabIndex = 0;
-         // 
-         // label44
-         // 
-         this.label44.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.label44.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.label44.Location = new System.Drawing.Point(5, 84);
-         this.label44.Name = "label44";
-         this.label44.Size = new System.Drawing.Size(92, 32);
-         this.label44.TabIndex = 1;
-         this.label44.Text = "154";
-         this.label44.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         // 
-         // label45
-         // 
-         this.label45.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.label45.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.label45.Location = new System.Drawing.Point(5, 131);
-         this.label45.Name = "label45";
-         this.label45.Size = new System.Drawing.Size(92, 32);
-         this.label45.TabIndex = 1;
-         this.label45.Text = "154";
-         this.label45.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         // 
-         // label48
-         // 
-         this.label48.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.label48.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.label48.Location = new System.Drawing.Point(5, 174);
-         this.label48.Name = "label48";
-         this.label48.Size = new System.Drawing.Size(92, 32);
-         this.label48.TabIndex = 1;
-         this.label48.Text = "154";
-         this.label48.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         // 
-         // label50
-         // 
-         this.label50.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.label50.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.label50.Location = new System.Drawing.Point(5, 221);
-         this.label50.Name = "label50";
-         this.label50.Size = new System.Drawing.Size(92, 32);
-         this.label50.TabIndex = 1;
-         this.label50.Text = "154";
-         this.label50.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         // 
-         // label51
-         // 
-         this.label51.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.label51.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.label51.Location = new System.Drawing.Point(5, 263);
-         this.label51.Name = "label51";
-         this.label51.Size = new System.Drawing.Size(92, 32);
-         this.label51.TabIndex = 1;
-         this.label51.Text = "154";
-         this.label51.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         // 
-         // label53
-         // 
-         this.label53.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.label53.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.label53.Location = new System.Drawing.Point(401, 309);
-         this.label53.Name = "label53";
-         this.label53.Size = new System.Drawing.Size(81, 32);
-         this.label53.TabIndex = 1;
-         this.label53.Text = "12000";
-         this.label53.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         // 
-         // label55
-         // 
-         this.label55.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.label55.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.label55.Location = new System.Drawing.Point(276, 309);
-         this.label55.Name = "label55";
-         this.label55.Size = new System.Drawing.Size(81, 32);
-         this.label55.TabIndex = 1;
-         this.label55.Text = "154";
-         this.label55.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         // 
-         // label57
-         // 
-         this.label57.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.label57.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.label57.Location = new System.Drawing.Point(123, 309);
-         this.label57.Name = "label57";
-         this.label57.Size = new System.Drawing.Size(97, 32);
-         this.label57.TabIndex = 1;
-         this.label57.Text = "154";
-         this.label57.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         // 
-         // labelControl24
-         // 
-         this.labelControl24.AllowHtmlString = true;
-         this.labelControl24.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.labelControl24.Appearance.Font = new System.Drawing.Font("Iranian Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.labelControl24.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-         this.labelControl24.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.labelControl24.LineStyle = System.Drawing.Drawing2D.DashStyle.DashDot;
-         this.labelControl24.LineVisible = true;
-         this.labelControl24.Location = new System.Drawing.Point(5, 299);
-         this.labelControl24.LookAndFeel.SkinName = "Office 2010 Blue";
-         this.labelControl24.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.labelControl24.Name = "labelControl24";
-         this.labelControl24.Size = new System.Drawing.Size(576, 7);
-         this.labelControl24.TabIndex = 2;
-         // 
-         // label58
-         // 
-         this.label58.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.label58.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.label58.Location = new System.Drawing.Point(5, 308);
-         this.label58.Name = "label58";
-         this.label58.Size = new System.Drawing.Size(92, 32);
-         this.label58.TabIndex = 1;
-         this.label58.Text = "154";
-         this.label58.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         this.label43.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.label43.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.label43.Location = new System.Drawing.Point(5, 39);
+         this.label43.Name = "label43";
+         this.label43.Size = new System.Drawing.Size(92, 32);
+         this.label43.TabIndex = 8;
+         this.label43.Text = "جمع کل";
+         this.label43.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
          // 
          // label60
          // 
@@ -3007,6 +2240,17 @@
          this.label60.TabIndex = 8;
          this.label60.Text = "جمع کل";
          this.label60.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         // 
+         // label11
+         // 
+         this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.label11.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.label11.Location = new System.Drawing.Point(502, 264);
+         this.label11.Name = "label11";
+         this.label11.Size = new System.Drawing.Size(81, 32);
+         this.label11.TabIndex = 8;
+         this.label11.Text = "تخفیف";
+         this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
          // 
          // labelControl25
          // 
@@ -3025,99 +2269,756 @@
          this.labelControl25.Size = new System.Drawing.Size(13, 308);
          this.labelControl25.TabIndex = 1;
          // 
-         // label43
+         // labelControl18
          // 
-         this.label43.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.label43.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.label43.Location = new System.Drawing.Point(5, 39);
-         this.label43.Name = "label43";
-         this.label43.Size = new System.Drawing.Size(92, 32);
-         this.label43.TabIndex = 8;
-         this.label43.Text = "جمع کل";
-         this.label43.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         this.labelControl18.AllowHtmlString = true;
+         this.labelControl18.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.labelControl18.Appearance.Font = new System.Drawing.Font("Iranian Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.labelControl18.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+         this.labelControl18.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+         this.labelControl18.LineOrientation = DevExpress.XtraEditors.LabelLineOrientation.Vertical;
+         this.labelControl18.LineStyle = System.Drawing.Drawing2D.DashStyle.DashDot;
+         this.labelControl18.LineVisible = true;
+         this.labelControl18.Location = new System.Drawing.Point(483, 84);
+         this.labelControl18.LookAndFeel.SkinName = "Office 2010 Blue";
+         this.labelControl18.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.labelControl18.Name = "labelControl18";
+         this.labelControl18.Size = new System.Drawing.Size(13, 256);
+         this.labelControl18.TabIndex = 1;
          // 
-         // label62
+         // label58
          // 
-         this.label62.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.label62.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Bold);
-         this.label62.Location = new System.Drawing.Point(226, 39);
-         this.label62.Name = "label62";
-         this.label62.Size = new System.Drawing.Size(81, 32);
-         this.label62.TabIndex = 1;
-         this.label62.Text = "نقدی";
-         this.label62.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         this.label58.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.label58.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.label58.Location = new System.Drawing.Point(5, 308);
+         this.label58.Name = "label58";
+         this.label58.Size = new System.Drawing.Size(92, 32);
+         this.label58.TabIndex = 1;
+         this.label58.Text = "154";
+         this.label58.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
          // 
-         // label67
+         // label51
          // 
-         this.label67.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.label67.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Bold);
-         this.label67.Location = new System.Drawing.Point(139, 39);
-         this.label67.Name = "label67";
-         this.label67.Size = new System.Drawing.Size(81, 32);
-         this.label67.TabIndex = 1;
-         this.label67.Text = "POS";
-         this.label67.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         this.label51.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.label51.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.label51.Location = new System.Drawing.Point(5, 263);
+         this.label51.Name = "label51";
+         this.label51.Size = new System.Drawing.Size(92, 32);
+         this.label51.TabIndex = 1;
+         this.label51.Text = "154";
+         this.label51.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
          // 
-         // label68
+         // label50
          // 
-         this.label68.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.label68.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.label68.Location = new System.Drawing.Point(226, 84);
-         this.label68.Name = "label68";
-         this.label68.Size = new System.Drawing.Size(81, 32);
-         this.label68.TabIndex = 1;
-         this.label68.Text = "12000";
-         this.label68.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         this.label50.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.label50.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.label50.Location = new System.Drawing.Point(5, 221);
+         this.label50.Name = "label50";
+         this.label50.Size = new System.Drawing.Size(92, 32);
+         this.label50.TabIndex = 1;
+         this.label50.Text = "154";
+         this.label50.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
          // 
-         // label69
+         // label45
          // 
-         this.label69.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.label69.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.label69.Location = new System.Drawing.Point(226, 131);
-         this.label69.Name = "label69";
-         this.label69.Size = new System.Drawing.Size(81, 32);
-         this.label69.TabIndex = 1;
-         this.label69.Text = "12000";
-         this.label69.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         this.label45.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.label45.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.label45.Location = new System.Drawing.Point(5, 131);
+         this.label45.Name = "label45";
+         this.label45.Size = new System.Drawing.Size(92, 32);
+         this.label45.TabIndex = 1;
+         this.label45.Text = "154";
+         this.label45.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
          // 
-         // label70
+         // labelControl24
          // 
-         this.label70.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.label70.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.label70.Location = new System.Drawing.Point(139, 84);
-         this.label70.Name = "label70";
-         this.label70.Size = new System.Drawing.Size(81, 32);
-         this.label70.TabIndex = 1;
-         this.label70.Text = "154";
-         this.label70.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         this.labelControl24.AllowHtmlString = true;
+         this.labelControl24.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.labelControl24.Appearance.Font = new System.Drawing.Font("Iranian Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.labelControl24.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+         this.labelControl24.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+         this.labelControl24.LineStyle = System.Drawing.Drawing2D.DashStyle.DashDot;
+         this.labelControl24.LineVisible = true;
+         this.labelControl24.Location = new System.Drawing.Point(5, 299);
+         this.labelControl24.LookAndFeel.SkinName = "Office 2010 Blue";
+         this.labelControl24.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.labelControl24.Name = "labelControl24";
+         this.labelControl24.Size = new System.Drawing.Size(576, 7);
+         this.labelControl24.TabIndex = 2;
          // 
-         // label71
+         // labelControl22
          // 
-         this.label71.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.label71.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.label71.Location = new System.Drawing.Point(139, 131);
-         this.label71.Name = "label71";
-         this.label71.Size = new System.Drawing.Size(81, 32);
-         this.label71.TabIndex = 1;
-         this.label71.Text = "154";
-         this.label71.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         this.labelControl22.AllowHtmlString = true;
+         this.labelControl22.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.labelControl22.Appearance.Font = new System.Drawing.Font("Iranian Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.labelControl22.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+         this.labelControl22.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+         this.labelControl22.LineStyle = System.Drawing.Drawing2D.DashStyle.DashDot;
+         this.labelControl22.LineVisible = true;
+         this.labelControl22.Location = new System.Drawing.Point(5, 254);
+         this.labelControl22.LookAndFeel.SkinName = "Office 2010 Blue";
+         this.labelControl22.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.labelControl22.Name = "labelControl22";
+         this.labelControl22.Size = new System.Drawing.Size(486, 7);
+         this.labelControl22.TabIndex = 2;
          // 
-         // labelControl26
+         // label48
          // 
-         this.labelControl26.AllowHtmlString = true;
-         this.labelControl26.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.labelControl26.Appearance.Font = new System.Drawing.Font("Iranian Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.labelControl26.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-         this.labelControl26.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.labelControl26.LineOrientation = DevExpress.XtraEditors.LabelLineOrientation.Vertical;
-         this.labelControl26.LineStyle = System.Drawing.Drawing2D.DashStyle.DashDot;
-         this.labelControl26.LineVisible = true;
-         this.labelControl26.Location = new System.Drawing.Point(96, 47);
-         this.labelControl26.LookAndFeel.SkinName = "Office 2010 Blue";
-         this.labelControl26.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.labelControl26.Name = "labelControl26";
-         this.labelControl26.Size = new System.Drawing.Size(13, 119);
-         this.labelControl26.TabIndex = 1;
+         this.label48.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.label48.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.label48.Location = new System.Drawing.Point(5, 174);
+         this.label48.Name = "label48";
+         this.label48.Size = new System.Drawing.Size(92, 32);
+         this.label48.TabIndex = 1;
+         this.label48.Text = "154";
+         this.label48.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         // 
+         // label44
+         // 
+         this.label44.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.label44.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.label44.Location = new System.Drawing.Point(5, 84);
+         this.label44.Name = "label44";
+         this.label44.Size = new System.Drawing.Size(92, 32);
+         this.label44.TabIndex = 1;
+         this.label44.Text = "154";
+         this.label44.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         // 
+         // labelControl21
+         // 
+         this.labelControl21.AllowHtmlString = true;
+         this.labelControl21.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.labelControl21.Appearance.Font = new System.Drawing.Font("Iranian Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.labelControl21.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+         this.labelControl21.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+         this.labelControl21.LineStyle = System.Drawing.Drawing2D.DashStyle.DashDot;
+         this.labelControl21.LineVisible = true;
+         this.labelControl21.Location = new System.Drawing.Point(5, 209);
+         this.labelControl21.LookAndFeel.SkinName = "Office 2010 Blue";
+         this.labelControl21.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.labelControl21.Name = "labelControl21";
+         this.labelControl21.Size = new System.Drawing.Size(486, 7);
+         this.labelControl21.TabIndex = 2;
+         // 
+         // labelControl17
+         // 
+         this.labelControl17.AllowHtmlString = true;
+         this.labelControl17.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.labelControl17.Appearance.Font = new System.Drawing.Font("Iranian Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.labelControl17.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+         this.labelControl17.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+         this.labelControl17.LineStyle = System.Drawing.Drawing2D.DashStyle.DashDot;
+         this.labelControl17.LineVisible = true;
+         this.labelControl17.Location = new System.Drawing.Point(5, 164);
+         this.labelControl17.LookAndFeel.SkinName = "Office 2010 Blue";
+         this.labelControl17.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.labelControl17.Name = "labelControl17";
+         this.labelControl17.Size = new System.Drawing.Size(486, 7);
+         this.labelControl17.TabIndex = 2;
+         // 
+         // labelControl19
+         // 
+         this.labelControl19.AllowHtmlString = true;
+         this.labelControl19.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.labelControl19.Appearance.Font = new System.Drawing.Font("Iranian Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.labelControl19.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+         this.labelControl19.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+         this.labelControl19.LineStyle = System.Drawing.Drawing2D.DashStyle.DashDot;
+         this.labelControl19.LineVisible = true;
+         this.labelControl19.Location = new System.Drawing.Point(5, 119);
+         this.labelControl19.LookAndFeel.SkinName = "Office 2010 Blue";
+         this.labelControl19.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.labelControl19.Name = "labelControl19";
+         this.labelControl19.Size = new System.Drawing.Size(486, 7);
+         this.labelControl19.TabIndex = 2;
+         // 
+         // label57
+         // 
+         this.label57.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.label57.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.label57.Location = new System.Drawing.Point(123, 309);
+         this.label57.Name = "label57";
+         this.label57.Size = new System.Drawing.Size(97, 32);
+         this.label57.TabIndex = 1;
+         this.label57.Text = "154";
+         this.label57.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         // 
+         // label42
+         // 
+         this.label42.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.label42.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.label42.Location = new System.Drawing.Point(123, 264);
+         this.label42.Name = "label42";
+         this.label42.Size = new System.Drawing.Size(97, 32);
+         this.label42.TabIndex = 1;
+         this.label42.Text = "154";
+         this.label42.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         // 
+         // label38
+         // 
+         this.label38.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.label38.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.label38.Location = new System.Drawing.Point(123, 219);
+         this.label38.Name = "label38";
+         this.label38.Size = new System.Drawing.Size(97, 32);
+         this.label38.TabIndex = 1;
+         this.label38.Text = "154";
+         this.label38.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         // 
+         // label21
+         // 
+         this.label21.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.label21.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.label21.Location = new System.Drawing.Point(123, 174);
+         this.label21.Name = "label21";
+         this.label21.Size = new System.Drawing.Size(97, 32);
+         this.label21.TabIndex = 1;
+         this.label21.Text = "154";
+         this.label21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         // 
+         // label10
+         // 
+         this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.label10.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.label10.Location = new System.Drawing.Point(123, 129);
+         this.label10.Name = "label10";
+         this.label10.Size = new System.Drawing.Size(97, 32);
+         this.label10.TabIndex = 1;
+         this.label10.Text = "154";
+         this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         // 
+         // label22
+         // 
+         this.label22.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.label22.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.label22.Location = new System.Drawing.Point(123, 84);
+         this.label22.Name = "label22";
+         this.label22.Size = new System.Drawing.Size(97, 32);
+         this.label22.TabIndex = 1;
+         this.label22.Text = "154";
+         this.label22.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         // 
+         // label55
+         // 
+         this.label55.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.label55.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.label55.Location = new System.Drawing.Point(276, 309);
+         this.label55.Name = "label55";
+         this.label55.Size = new System.Drawing.Size(81, 32);
+         this.label55.TabIndex = 1;
+         this.label55.Text = "154";
+         this.label55.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         // 
+         // label40
+         // 
+         this.label40.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.label40.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.label40.Location = new System.Drawing.Point(276, 264);
+         this.label40.Name = "label40";
+         this.label40.Size = new System.Drawing.Size(81, 32);
+         this.label40.TabIndex = 1;
+         this.label40.Text = "154";
+         this.label40.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         // 
+         // label37
+         // 
+         this.label37.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.label37.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.label37.Location = new System.Drawing.Point(276, 219);
+         this.label37.Name = "label37";
+         this.label37.Size = new System.Drawing.Size(81, 32);
+         this.label37.TabIndex = 1;
+         this.label37.Text = "154";
+         this.label37.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         // 
+         // label20
+         // 
+         this.label20.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.label20.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.label20.Location = new System.Drawing.Point(276, 174);
+         this.label20.Name = "label20";
+         this.label20.Size = new System.Drawing.Size(81, 32);
+         this.label20.TabIndex = 1;
+         this.label20.Text = "154";
+         this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         // 
+         // label5
+         // 
+         this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.label5.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.label5.Location = new System.Drawing.Point(276, 129);
+         this.label5.Name = "label5";
+         this.label5.Size = new System.Drawing.Size(81, 32);
+         this.label5.TabIndex = 1;
+         this.label5.Text = "154";
+         this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         // 
+         // label16
+         // 
+         this.label16.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.label16.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.label16.Location = new System.Drawing.Point(276, 84);
+         this.label16.Name = "label16";
+         this.label16.Size = new System.Drawing.Size(81, 32);
+         this.label16.TabIndex = 1;
+         this.label16.Text = "154";
+         this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         // 
+         // label30
+         // 
+         this.label30.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.label30.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.label30.Location = new System.Drawing.Point(502, 219);
+         this.label30.Name = "label30";
+         this.label30.Size = new System.Drawing.Size(81, 32);
+         this.label30.TabIndex = 1;
+         this.label30.Text = "درصد";
+         this.label30.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         // 
+         // label24
+         // 
+         this.label24.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.label24.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.label24.Location = new System.Drawing.Point(502, 174);
+         this.label24.Name = "label24";
+         this.label24.Size = new System.Drawing.Size(81, 32);
+         this.label24.TabIndex = 1;
+         this.label24.Text = "وصول";
+         this.label24.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         // 
+         // label53
+         // 
+         this.label53.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.label53.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.label53.Location = new System.Drawing.Point(401, 309);
+         this.label53.Name = "label53";
+         this.label53.Size = new System.Drawing.Size(81, 32);
+         this.label53.TabIndex = 1;
+         this.label53.Text = "12000";
+         this.label53.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         // 
+         // label39
+         // 
+         this.label39.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.label39.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.label39.Location = new System.Drawing.Point(401, 264);
+         this.label39.Name = "label39";
+         this.label39.Size = new System.Drawing.Size(81, 32);
+         this.label39.TabIndex = 1;
+         this.label39.Text = "12000";
+         this.label39.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         // 
+         // label36
+         // 
+         this.label36.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.label36.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.label36.Location = new System.Drawing.Point(401, 219);
+         this.label36.Name = "label36";
+         this.label36.Size = new System.Drawing.Size(81, 32);
+         this.label36.TabIndex = 1;
+         this.label36.Text = "12000";
+         this.label36.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         // 
+         // label12
+         // 
+         this.label12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.label12.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.label12.Location = new System.Drawing.Point(401, 174);
+         this.label12.Name = "label12";
+         this.label12.Size = new System.Drawing.Size(81, 32);
+         this.label12.TabIndex = 1;
+         this.label12.Text = "12000";
+         this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         // 
+         // label1
+         // 
+         this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.label1.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.label1.Location = new System.Drawing.Point(401, 129);
+         this.label1.Name = "label1";
+         this.label1.Size = new System.Drawing.Size(81, 32);
+         this.label1.TabIndex = 1;
+         this.label1.Text = "12000";
+         this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         // 
+         // label25
+         // 
+         this.label25.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.label25.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.label25.Location = new System.Drawing.Point(401, 84);
+         this.label25.Name = "label25";
+         this.label25.Size = new System.Drawing.Size(81, 32);
+         this.label25.TabIndex = 1;
+         this.label25.Text = "12000";
+         this.label25.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         // 
+         // label29
+         // 
+         this.label29.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.label29.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.label29.Location = new System.Drawing.Point(502, 130);
+         this.label29.Name = "label29";
+         this.label29.Size = new System.Drawing.Size(81, 32);
+         this.label29.TabIndex = 1;
+         this.label29.Text = "فروش";
+         this.label29.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         // 
+         // label26
+         // 
+         this.label26.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.label26.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.label26.Location = new System.Drawing.Point(502, 84);
+         this.label26.Name = "label26";
+         this.label26.Size = new System.Drawing.Size(81, 32);
+         this.label26.TabIndex = 1;
+         this.label26.Text = "تعداد";
+         this.label26.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         // 
+         // label34
+         // 
+         this.label34.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.label34.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Bold);
+         this.label34.Location = new System.Drawing.Point(123, 39);
+         this.label34.Name = "label34";
+         this.label34.Size = new System.Drawing.Size(97, 32);
+         this.label34.TabIndex = 1;
+         this.label34.Text = "درآمد متفرقه";
+         this.label34.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         // 
+         // label31
+         // 
+         this.label31.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.label31.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Bold);
+         this.label31.Location = new System.Drawing.Point(276, 39);
+         this.label31.Name = "label31";
+         this.label31.Size = new System.Drawing.Size(81, 32);
+         this.label31.TabIndex = 1;
+         this.label31.Text = "تمدید";
+         this.label31.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         // 
+         // label27
+         // 
+         this.label27.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.label27.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Bold);
+         this.label27.Location = new System.Drawing.Point(401, 39);
+         this.label27.Name = "label27";
+         this.label27.Size = new System.Drawing.Size(81, 32);
+         this.label27.TabIndex = 1;
+         this.label27.Text = "ثبت نام";
+         this.label27.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         // 
+         // labelControl20
+         // 
+         this.labelControl20.AllowHtmlString = true;
+         this.labelControl20.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.labelControl20.Appearance.Font = new System.Drawing.Font("Iranian Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.labelControl20.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+         this.labelControl20.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+         this.labelControl20.LineStyle = System.Drawing.Drawing2D.DashStyle.DashDot;
+         this.labelControl20.LineVisible = true;
+         this.labelControl20.Location = new System.Drawing.Point(5, 74);
+         this.labelControl20.LookAndFeel.SkinName = "Office 2010 Blue";
+         this.labelControl20.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.labelControl20.Name = "labelControl20";
+         this.labelControl20.Size = new System.Drawing.Size(576, 7);
+         this.labelControl20.TabIndex = 0;
+         // 
+         // tp_002
+         // 
+         this.tp_002.Controls.Add(this.groupControl7);
+         this.tp_002.Controls.Add(this.groupControl6);
+         this.tp_002.Name = "tp_002";
+         this.tp_002.Size = new System.Drawing.Size(1101, 552);
+         this.tp_002.Text = "آمار تردد";
+         // 
+         // groupControl7
+         // 
+         this.groupControl7.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+         this.groupControl7.AppearanceCaption.Font = new System.Drawing.Font("IRANSans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.groupControl7.AppearanceCaption.Options.UseFont = true;
+         this.groupControl7.AppearanceCaption.Options.UseTextOptions = true;
+         this.groupControl7.AppearanceCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+         this.groupControl7.Location = new System.Drawing.Point(3, 3);
+         this.groupControl7.LookAndFeel.SkinName = "Office 2010 Silver";
+         this.groupControl7.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.groupControl7.Name = "groupControl7";
+         this.groupControl7.Size = new System.Drawing.Size(888, 535);
+         this.groupControl7.TabIndex = 10;
+         this.groupControl7.Text = "ساعت اوج تردد";
+         // 
+         // groupControl6
+         // 
+         this.groupControl6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.groupControl6.AppearanceCaption.Font = new System.Drawing.Font("IRANSans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.groupControl6.AppearanceCaption.Options.UseFont = true;
+         this.groupControl6.AppearanceCaption.Options.UseTextOptions = true;
+         this.groupControl6.AppearanceCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+         this.groupControl6.Controls.Add(this.labelControl16);
+         this.groupControl6.Controls.Add(this.TotlMenCrntDay_Lb);
+         this.groupControl6.Controls.Add(this.label4);
+         this.groupControl6.Controls.Add(this.TotlManCrntDay_Lb);
+         this.groupControl6.Controls.Add(this.label7);
+         this.groupControl6.Controls.Add(this.TotlAttn_Cc);
+         this.groupControl6.Controls.Add(this.labelControl12);
+         this.groupControl6.Controls.Add(this.labelControl14);
+         this.groupControl6.Controls.Add(this.TotlMenCrntYear_Lb);
+         this.groupControl6.Controls.Add(this.TotlPrvsYear_Lb);
+         this.groupControl6.Controls.Add(this.label9);
+         this.groupControl6.Controls.Add(this.TotlManCrntYear_Lb);
+         this.groupControl6.Controls.Add(this.label13);
+         this.groupControl6.Controls.Add(this.label14);
+         this.groupControl6.Controls.Add(this.TotlCrntYear_Lb);
+         this.groupControl6.Controls.Add(this.label17);
+         this.groupControl6.Controls.Add(this.TotlAttn_Lb);
+         this.groupControl6.Controls.Add(this.labelControl15);
+         this.groupControl6.Location = new System.Drawing.Point(897, 3);
+         this.groupControl6.LookAndFeel.SkinName = "Office 2010 Silver";
+         this.groupControl6.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.groupControl6.Name = "groupControl6";
+         this.groupControl6.Size = new System.Drawing.Size(201, 535);
+         this.groupControl6.TabIndex = 1;
+         this.groupControl6.Text = "کل تردد";
+         // 
+         // labelControl16
+         // 
+         this.labelControl16.AllowHtmlString = true;
+         this.labelControl16.Appearance.Font = new System.Drawing.Font("Iranian Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.labelControl16.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+         this.labelControl16.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+         this.labelControl16.LineStyle = System.Drawing.Drawing2D.DashStyle.DashDot;
+         this.labelControl16.LineVisible = true;
+         this.labelControl16.Location = new System.Drawing.Point(5, 246);
+         this.labelControl16.LookAndFeel.SkinName = "Office 2010 Blue";
+         this.labelControl16.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.labelControl16.Name = "labelControl16";
+         this.labelControl16.Size = new System.Drawing.Size(191, 7);
+         this.labelControl16.TabIndex = 9;
+         // 
+         // TotlMenCrntDay_Lb
+         // 
+         this.TotlMenCrntDay_Lb.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.TotlMenCrntDay_Lb.Location = new System.Drawing.Point(5, 297);
+         this.TotlMenCrntDay_Lb.Name = "TotlMenCrntDay_Lb";
+         this.TotlMenCrntDay_Lb.Size = new System.Drawing.Size(81, 32);
+         this.TotlMenCrntDay_Lb.TabIndex = 5;
+         this.TotlMenCrntDay_Lb.Text = "5154";
+         this.TotlMenCrntDay_Lb.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         // 
+         // label4
+         // 
+         this.label4.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.label4.Location = new System.Drawing.Point(5, 256);
+         this.label4.Name = "label4";
+         this.label4.Size = new System.Drawing.Size(81, 32);
+         this.label4.TabIndex = 6;
+         this.label4.Text = "امروز";
+         this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         // 
+         // TotlManCrntDay_Lb
+         // 
+         this.TotlManCrntDay_Lb.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.TotlManCrntDay_Lb.Location = new System.Drawing.Point(115, 297);
+         this.TotlManCrntDay_Lb.Name = "TotlManCrntDay_Lb";
+         this.TotlManCrntDay_Lb.Size = new System.Drawing.Size(81, 32);
+         this.TotlManCrntDay_Lb.TabIndex = 7;
+         this.TotlManCrntDay_Lb.Text = "7000";
+         this.TotlManCrntDay_Lb.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         // 
+         // label7
+         // 
+         this.label7.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.label7.Location = new System.Drawing.Point(115, 256);
+         this.label7.Name = "label7";
+         this.label7.Size = new System.Drawing.Size(81, 32);
+         this.label7.TabIndex = 8;
+         this.label7.Text = "امروز";
+         this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         // 
+         // TotlAttn_Cc
+         // 
+         this.TotlAttn_Cc.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+         this.TotlAttn_Cc.DataSource = this.AttnBs;
+         simpleDiagram6.EqualPieSize = false;
+         this.TotlAttn_Cc.Diagram = simpleDiagram6;
+         this.TotlAttn_Cc.Legend.Visible = false;
+         this.TotlAttn_Cc.Location = new System.Drawing.Point(5, 339);
+         this.TotlAttn_Cc.LookAndFeel.SkinName = "Office 2010 Silver";
+         this.TotlAttn_Cc.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.TotlAttn_Cc.Name = "TotlAttn_Cc";
+         this.TotlAttn_Cc.PaletteBaseColorNumber = 4;
+         series6.ArgumentDataMember = "Fighter1.SEX_TYPE_DNRM";
+         series6.ArgumentScaleType = DevExpress.XtraCharts.ScaleType.Qualitative;
+         doughnutSeriesLabel11.LineVisible = true;
+         piePointOptions11.PercentOptions.ValueAsPercent = false;
+         piePointOptions11.ValueNumericOptions.Format = DevExpress.XtraCharts.NumericFormat.Number;
+         piePointOptions11.ValueNumericOptions.Precision = 0;
+         doughnutSeriesLabel11.PointOptions = piePointOptions11;
+         doughnutSeriesLabel11.Position = DevExpress.XtraCharts.PieSeriesLabelPosition.Radial;
+         series6.Label = doughnutSeriesLabel11;
+         series6.LabelsVisibility = DevExpress.Utils.DefaultBoolean.False;
+         series6.LegendText = "آمار کلی مشترکین";
+         series6.Name = "آمار کلی مشترکین به تفکیک حنسیت";
+         series6.SummaryFunction = "COUNT()";
+         series6.TopNOptions.Enabled = true;
+         doughnutSeriesView11.RuntimeExploding = false;
+         series6.View = doughnutSeriesView11;
+         this.TotlAttn_Cc.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
+        series6};
+         doughnutSeriesLabel12.LineVisible = true;
+         piePointOptions12.ValueNumericOptions.Format = DevExpress.XtraCharts.NumericFormat.General;
+         doughnutSeriesLabel12.PointOptions = piePointOptions12;
+         this.TotlAttn_Cc.SeriesTemplate.Label = doughnutSeriesLabel12;
+         doughnutSeriesView12.RuntimeExploding = false;
+         this.TotlAttn_Cc.SeriesTemplate.View = doughnutSeriesView12;
+         this.TotlAttn_Cc.Size = new System.Drawing.Size(191, 191);
+         this.TotlAttn_Cc.TabIndex = 4;
+         // 
+         // AttnBs
+         // 
+         this.AttnBs.DataSource = typeof(System.Scsc.Data.Attendance);
+         // 
+         // labelControl12
+         // 
+         this.labelControl12.AllowHtmlString = true;
+         this.labelControl12.Anchor = System.Windows.Forms.AnchorStyles.Top;
+         this.labelControl12.Appearance.Font = new System.Drawing.Font("Iranian Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.labelControl12.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+         this.labelControl12.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+         this.labelControl12.LineOrientation = DevExpress.XtraEditors.LabelLineOrientation.Vertical;
+         this.labelControl12.LineStyle = System.Drawing.Drawing2D.DashStyle.DashDot;
+         this.labelControl12.LineVisible = true;
+         this.labelControl12.Location = new System.Drawing.Point(92, 84);
+         this.labelControl12.LookAndFeel.SkinName = "Office 2010 Blue";
+         this.labelControl12.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.labelControl12.Name = "labelControl12";
+         this.labelControl12.Size = new System.Drawing.Size(13, 245);
+         this.labelControl12.TabIndex = 1;
+         // 
+         // labelControl14
+         // 
+         this.labelControl14.AllowHtmlString = true;
+         this.labelControl14.Appearance.Font = new System.Drawing.Font("Iranian Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.labelControl14.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+         this.labelControl14.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+         this.labelControl14.LineStyle = System.Drawing.Drawing2D.DashStyle.DashDot;
+         this.labelControl14.LineVisible = true;
+         this.labelControl14.Location = new System.Drawing.Point(5, 160);
+         this.labelControl14.LookAndFeel.SkinName = "Office 2010 Blue";
+         this.labelControl14.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.labelControl14.Name = "labelControl14";
+         this.labelControl14.Size = new System.Drawing.Size(191, 7);
+         this.labelControl14.TabIndex = 2;
+         // 
+         // TotlMenCrntYear_Lb
+         // 
+         this.TotlMenCrntYear_Lb.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.TotlMenCrntYear_Lb.Location = new System.Drawing.Point(5, 211);
+         this.TotlMenCrntYear_Lb.Name = "TotlMenCrntYear_Lb";
+         this.TotlMenCrntYear_Lb.Size = new System.Drawing.Size(81, 32);
+         this.TotlMenCrntYear_Lb.TabIndex = 1;
+         this.TotlMenCrntYear_Lb.Text = "5154";
+         this.TotlMenCrntYear_Lb.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         // 
+         // TotlPrvsYear_Lb
+         // 
+         this.TotlPrvsYear_Lb.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.TotlPrvsYear_Lb.Location = new System.Drawing.Point(5, 125);
+         this.TotlPrvsYear_Lb.Name = "TotlPrvsYear_Lb";
+         this.TotlPrvsYear_Lb.Size = new System.Drawing.Size(81, 32);
+         this.TotlPrvsYear_Lb.TabIndex = 1;
+         this.TotlPrvsYear_Lb.Text = "154";
+         this.TotlPrvsYear_Lb.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         // 
+         // label9
+         // 
+         this.label9.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.label9.Location = new System.Drawing.Point(5, 170);
+         this.label9.Name = "label9";
+         this.label9.Size = new System.Drawing.Size(81, 32);
+         this.label9.TabIndex = 1;
+         this.label9.Text = "بانوان";
+         this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         // 
+         // TotlManCrntYear_Lb
+         // 
+         this.TotlManCrntYear_Lb.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.TotlManCrntYear_Lb.Location = new System.Drawing.Point(115, 211);
+         this.TotlManCrntYear_Lb.Name = "TotlManCrntYear_Lb";
+         this.TotlManCrntYear_Lb.Size = new System.Drawing.Size(81, 32);
+         this.TotlManCrntYear_Lb.TabIndex = 1;
+         this.TotlManCrntYear_Lb.Text = "7000";
+         this.TotlManCrntYear_Lb.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         // 
+         // label13
+         // 
+         this.label13.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.label13.Location = new System.Drawing.Point(5, 84);
+         this.label13.Name = "label13";
+         this.label13.Size = new System.Drawing.Size(81, 32);
+         this.label13.TabIndex = 1;
+         this.label13.Text = "سال پیش";
+         this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         // 
+         // label14
+         // 
+         this.label14.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.label14.Location = new System.Drawing.Point(115, 170);
+         this.label14.Name = "label14";
+         this.label14.Size = new System.Drawing.Size(81, 32);
+         this.label14.TabIndex = 1;
+         this.label14.Text = "آقایان";
+         this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         // 
+         // TotlCrntYear_Lb
+         // 
+         this.TotlCrntYear_Lb.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.TotlCrntYear_Lb.Location = new System.Drawing.Point(115, 125);
+         this.TotlCrntYear_Lb.Name = "TotlCrntYear_Lb";
+         this.TotlCrntYear_Lb.Size = new System.Drawing.Size(81, 32);
+         this.TotlCrntYear_Lb.TabIndex = 1;
+         this.TotlCrntYear_Lb.Text = "12000";
+         this.TotlCrntYear_Lb.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         // 
+         // label17
+         // 
+         this.label17.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.label17.Location = new System.Drawing.Point(115, 84);
+         this.label17.Name = "label17";
+         this.label17.Size = new System.Drawing.Size(81, 32);
+         this.label17.TabIndex = 1;
+         this.label17.Text = "امسال";
+         this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         // 
+         // TotlAttn_Lb
+         // 
+         this.TotlAttn_Lb.Font = new System.Drawing.Font("IRANSans", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.TotlAttn_Lb.Location = new System.Drawing.Point(5, 39);
+         this.TotlAttn_Lb.Name = "TotlAttn_Lb";
+         this.TotlAttn_Lb.Size = new System.Drawing.Size(191, 32);
+         this.TotlAttn_Lb.TabIndex = 1;
+         this.TotlAttn_Lb.Text = "12154";
+         this.TotlAttn_Lb.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         // 
+         // labelControl15
+         // 
+         this.labelControl15.AllowHtmlString = true;
+         this.labelControl15.Appearance.Font = new System.Drawing.Font("Iranian Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.labelControl15.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+         this.labelControl15.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+         this.labelControl15.LineStyle = System.Drawing.Drawing2D.DashStyle.DashDot;
+         this.labelControl15.LineVisible = true;
+         this.labelControl15.Location = new System.Drawing.Point(5, 74);
+         this.labelControl15.LookAndFeel.SkinName = "Office 2010 Blue";
+         this.labelControl15.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.labelControl15.Name = "labelControl15";
+         this.labelControl15.Size = new System.Drawing.Size(191, 7);
+         this.labelControl15.TabIndex = 0;
+         // 
+         // vSaleBs
+         // 
+         this.vSaleBs.DataSource = typeof(System.Scsc.Data.V_Sale);
          // 
          // DAP_DSBR_F
          // 
@@ -3136,73 +3037,74 @@
          this.flowLayoutPanel1.ResumeLayout(false);
          ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
          this.groupControl1.ResumeLayout(false);
-         ((System.ComponentModel.ISupportInitialize)(simpleDiagram7)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesLabel13)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesView13)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(series7)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesLabel14)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesView14)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(simpleDiagram1)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesLabel1)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesView1)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(series1)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesLabel2)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesView2)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.TotlServ_Cc)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.FighBs)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.groupControl4)).EndInit();
          this.groupControl4.ResumeLayout(false);
-         ((System.ComponentModel.ISupportInitialize)(simpleDiagram8)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesLabel15)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesView15)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(series8)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesLabel16)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesView16)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(simpleDiagram2)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesLabel3)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesView3)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(series2)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesLabel4)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesView4)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.CellPhonServ_Cc)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.groupControl5)).EndInit();
          this.groupControl5.ResumeLayout(false);
-         ((System.ComponentModel.ISupportInitialize)(simpleDiagram9)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesLabel17)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesView17)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(series9)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesLabel18)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesView18)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(simpleDiagram3)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesLabel5)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesView5)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(series3)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesLabel6)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesView6)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.TellPhonServ_Cc)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).EndInit();
          this.groupControl2.ResumeLayout(false);
-         ((System.ComponentModel.ISupportInitialize)(simpleDiagram10)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesLabel19)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesView19)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(series10)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesLabel20)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesView20)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(simpleDiagram4)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesLabel7)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesView7)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(series4)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesLabel8)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesView8)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.CochServ_Cc)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).EndInit();
          this.groupControl3.ResumeLayout(false);
-         ((System.ComponentModel.ISupportInitialize)(simpleDiagram11)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesLabel21)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesView21)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(series11)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesLabel22)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesView22)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(simpleDiagram5)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesLabel9)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesView9)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(series5)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesLabel10)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesView10)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.InsrServ_Cc)).EndInit();
          this.tp_003.ResumeLayout(false);
+         ((System.ComponentModel.ISupportInitialize)(this.groupControl11)).EndInit();
+         this.groupControl11.ResumeLayout(false);
+         ((System.ComponentModel.ISupportInitialize)(this.groupControl10)).EndInit();
+         this.groupControl10.ResumeLayout(false);
+         this.flowLayoutPanel3.ResumeLayout(false);
+         ((System.ComponentModel.ISupportInitialize)(this.groupControl9)).EndInit();
+         this.groupControl9.ResumeLayout(false);
+         this.flowLayoutPanel2.ResumeLayout(false);
          ((System.ComponentModel.ISupportInitialize)(this.groupControl8)).EndInit();
          this.groupControl8.ResumeLayout(false);
-         ((System.ComponentModel.ISupportInitialize)(this.AttnBs)).EndInit();
          this.tp_002.ResumeLayout(false);
          ((System.ComponentModel.ISupportInitialize)(this.groupControl7)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.groupControl6)).EndInit();
          this.groupControl6.ResumeLayout(false);
-         ((System.ComponentModel.ISupportInitialize)(simpleDiagram12)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesLabel23)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesView23)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(series12)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesLabel24)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesView24)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(simpleDiagram6)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesLabel11)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesView11)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(series6)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesLabel12)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesView12)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.TotlAttn_Cc)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.groupControl9)).EndInit();
-         this.groupControl9.ResumeLayout(false);
-         this.flowLayoutPanel2.ResumeLayout(false);
-         ((System.ComponentModel.ISupportInitialize)(this.groupControl10)).EndInit();
-         this.groupControl10.ResumeLayout(false);
-         this.flowLayoutPanel3.ResumeLayout(false);
-         ((System.ComponentModel.ISupportInitialize)(this.groupControl11)).EndInit();
-         this.groupControl11.ResumeLayout(false);
+         ((System.ComponentModel.ISupportInitialize)(this.AttnBs)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.vSaleBs)).EndInit();
          this.ResumeLayout(false);
 
       }
@@ -3347,11 +3249,6 @@
       private DevExpress.XtraEditors.LabelControl labelControl20;
       private DevExpress.XtraEditors.GroupControl groupControl9;
       private Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
-      private DevExpress.XtraEditors.SimpleButton simpleButton1;
-      private DevExpress.XtraEditors.SimpleButton simpleButton2;
-      private DevExpress.XtraEditors.SimpleButton simpleButton3;
-      private DevExpress.XtraEditors.SimpleButton simpleButton4;
-      private DevExpress.XtraEditors.SimpleButton simpleButton5;
       private DevExpress.XtraEditors.GroupControl groupControl10;
       private Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
       private DevExpress.XtraEditors.SimpleButton simpleButton6;
@@ -3403,6 +3300,7 @@
       private Windows.Forms.Label label57;
       private Windows.Forms.Label label55;
       private Windows.Forms.Label label53;
+      private Windows.Forms.BindingSource vSaleBs;
 
    }
 }

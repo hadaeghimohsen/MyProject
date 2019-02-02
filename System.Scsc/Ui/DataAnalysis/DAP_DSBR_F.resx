@@ -117,7 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="toolTipItem2.Text" xml:space="preserve">
+  <data name="toolTipItem1.Text" xml:space="preserve">
     <value>شما با وارد کردن اطلاعات فردی مشتری می توانید با زدن دکمه 
 CTRL + F11 
 اطلاعات مشتری خود را جستجو کنید.
@@ -130,5 +130,8 @@ F11
   </metadata>
   <metadata name="AttnBs.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>104, 17</value>
+  </metadata>
+  <metadata name="vSaleBs.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>191, 17</value>
   </metadata>
 </root>

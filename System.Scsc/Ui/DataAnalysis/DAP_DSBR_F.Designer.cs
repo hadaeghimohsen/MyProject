@@ -31,9 +31,6 @@
          this.components = new System.ComponentModel.Container();
          DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
          DevExpress.Utils.ToolTipTitleItem toolTipTitleItem1 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.ToolTipItem toolTipItem1 = new DevExpress.Utils.ToolTipItem();
-         System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DAP_DSBR_F));
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem2 = new DevExpress.Utils.ToolTipTitleItem();
          DevExpress.XtraCharts.SimpleDiagram simpleDiagram1 = new DevExpress.XtraCharts.SimpleDiagram();
          DevExpress.XtraCharts.Series series1 = new DevExpress.XtraCharts.Series();
          DevExpress.XtraCharts.DoughnutSeriesLabel doughnutSeriesLabel1 = new DevExpress.XtraCharts.DoughnutSeriesLabel();
@@ -74,6 +71,7 @@
          DevExpress.XtraCharts.DoughnutSeriesLabel doughnutSeriesLabel10 = new DevExpress.XtraCharts.DoughnutSeriesLabel();
          DevExpress.XtraCharts.PiePointOptions piePointOptions10 = new DevExpress.XtraCharts.PiePointOptions();
          DevExpress.XtraCharts.DoughnutSeriesView doughnutSeriesView10 = new DevExpress.XtraCharts.DoughnutSeriesView();
+         System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DAP_DSBR_F));
          DevExpress.XtraCharts.SimpleDiagram simpleDiagram6 = new DevExpress.XtraCharts.SimpleDiagram();
          DevExpress.XtraCharts.Series series6 = new DevExpress.XtraCharts.Series();
          DevExpress.XtraCharts.DoughnutSeriesLabel doughnutSeriesLabel11 = new DevExpress.XtraCharts.DoughnutSeriesLabel();
@@ -167,20 +165,21 @@
          this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
          this.tp_003 = new DevExpress.XtraTab.XtraTabPage();
          this.groupControl11 = new DevExpress.XtraEditors.GroupControl();
+         this.YearCyclFltr2_Lb = new DevExpress.XtraEditors.LabelControl();
          this.labelControl23 = new DevExpress.XtraEditors.LabelControl();
          this.labelControl27 = new DevExpress.XtraEditors.LabelControl();
          this.label47 = new System.Windows.Forms.Label();
          this.labelControl26 = new DevExpress.XtraEditors.LabelControl();
          this.label49 = new System.Windows.Forms.Label();
-         this.label71 = new System.Windows.Forms.Label();
-         this.label52 = new System.Windows.Forms.Label();
-         this.label70 = new System.Windows.Forms.Label();
-         this.label54 = new System.Windows.Forms.Label();
+         this.Rqtp020PosAmnt_Lb = new System.Windows.Forms.Label();
+         this.Rqtp020MenAmnt_Lb = new System.Windows.Forms.Label();
+         this.Rqtp020PosCont_Lb = new System.Windows.Forms.Label();
+         this.Rqtp020MenCont_Lb = new System.Windows.Forms.Label();
          this.label56 = new System.Windows.Forms.Label();
-         this.label69 = new System.Windows.Forms.Label();
-         this.label59 = new System.Windows.Forms.Label();
-         this.label68 = new System.Windows.Forms.Label();
-         this.label61 = new System.Windows.Forms.Label();
+         this.Rqtp020CashAmnt_Lb = new System.Windows.Forms.Label();
+         this.Rqtp020ManAmnt_Lb = new System.Windows.Forms.Label();
+         this.Rqtp020CashCont_Lb = new System.Windows.Forms.Label();
+         this.Rqtp020ManCont_Lb = new System.Windows.Forms.Label();
          this.label63 = new System.Windows.Forms.Label();
          this.label64 = new System.Windows.Forms.Label();
          this.label67 = new System.Windows.Forms.Label();
@@ -204,45 +203,39 @@
          this.simpleButton17 = new DevExpress.XtraEditors.SimpleButton();
          this.simpleButton19 = new DevExpress.XtraEditors.SimpleButton();
          this.groupControl9 = new DevExpress.XtraEditors.GroupControl();
-         this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-         this.simpleButton18 = new DevExpress.XtraEditors.SimpleButton();
+         this.SaleYear_Flp = new System.Windows.Forms.FlowLayoutPanel();
+         this.AllYear_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.groupControl8 = new DevExpress.XtraEditors.GroupControl();
+         this.YearCyclFltr1_Lb = new DevExpress.XtraEditors.LabelControl();
          this.label43 = new System.Windows.Forms.Label();
-         this.label60 = new System.Windows.Forms.Label();
          this.label11 = new System.Windows.Forms.Label();
          this.labelControl25 = new DevExpress.XtraEditors.LabelControl();
          this.labelControl18 = new DevExpress.XtraEditors.LabelControl();
-         this.label58 = new System.Windows.Forms.Label();
-         this.label51 = new System.Windows.Forms.Label();
-         this.label50 = new System.Windows.Forms.Label();
-         this.label45 = new System.Windows.Forms.Label();
-         this.labelControl24 = new DevExpress.XtraEditors.LabelControl();
+         this.SumHDscnAmnt_Lb = new System.Windows.Forms.Label();
+         this.SumHSaleAmnt_Lb = new System.Windows.Forms.Label();
          this.labelControl22 = new DevExpress.XtraEditors.LabelControl();
-         this.label48 = new System.Windows.Forms.Label();
-         this.label44 = new System.Windows.Forms.Label();
+         this.SumHRcptAmnt_Lb = new System.Windows.Forms.Label();
+         this.SumHCont_Lb = new System.Windows.Forms.Label();
          this.labelControl21 = new DevExpress.XtraEditors.LabelControl();
          this.labelControl17 = new DevExpress.XtraEditors.LabelControl();
          this.labelControl19 = new DevExpress.XtraEditors.LabelControl();
-         this.label57 = new System.Windows.Forms.Label();
-         this.label42 = new System.Windows.Forms.Label();
-         this.label38 = new System.Windows.Forms.Label();
-         this.label21 = new System.Windows.Forms.Label();
-         this.label10 = new System.Windows.Forms.Label();
-         this.label22 = new System.Windows.Forms.Label();
-         this.label55 = new System.Windows.Forms.Label();
-         this.label40 = new System.Windows.Forms.Label();
-         this.label37 = new System.Windows.Forms.Label();
-         this.label20 = new System.Windows.Forms.Label();
-         this.label5 = new System.Windows.Forms.Label();
-         this.label16 = new System.Windows.Forms.Label();
+         this.Rqtp016DscnAmnt_Lb = new System.Windows.Forms.Label();
+         this.Rqtp016PrctAmnt_Lb = new System.Windows.Forms.Label();
+         this.Rqtp016RcptAmnt_Lb = new System.Windows.Forms.Label();
+         this.Rqtp016SaleAmnt_Lb = new System.Windows.Forms.Label();
+         this.Rqtp016Cont_Lb = new System.Windows.Forms.Label();
+         this.Rqtp009DscnAmnt_Lb = new System.Windows.Forms.Label();
+         this.Rqtp009PrctAmnt_Lb = new System.Windows.Forms.Label();
+         this.Rqtp009RcptAmnt_Lb = new System.Windows.Forms.Label();
+         this.Rqtp009SaleAmnt_Lb = new System.Windows.Forms.Label();
+         this.Rqtp009Cont_Lb = new System.Windows.Forms.Label();
          this.label30 = new System.Windows.Forms.Label();
          this.label24 = new System.Windows.Forms.Label();
-         this.label53 = new System.Windows.Forms.Label();
-         this.label39 = new System.Windows.Forms.Label();
-         this.label36 = new System.Windows.Forms.Label();
-         this.label12 = new System.Windows.Forms.Label();
-         this.label1 = new System.Windows.Forms.Label();
-         this.label25 = new System.Windows.Forms.Label();
+         this.Rqtp001DscnAmnt_Lb = new System.Windows.Forms.Label();
+         this.Rqtp001PrctAmnt_Lb = new System.Windows.Forms.Label();
+         this.Rqtp001RcptAmnt_Lb = new System.Windows.Forms.Label();
+         this.Rqtp001SaleAmnt_Lb = new System.Windows.Forms.Label();
+         this.Rqtp001Cont_Lb = new System.Windows.Forms.Label();
          this.label29 = new System.Windows.Forms.Label();
          this.label26 = new System.Windows.Forms.Label();
          this.label34 = new System.Windows.Forms.Label();
@@ -272,6 +265,9 @@
          this.TotlAttn_Lb = new System.Windows.Forms.Label();
          this.labelControl15 = new DevExpress.XtraEditors.LabelControl();
          this.vSaleBs = new System.Windows.Forms.BindingSource(this.components);
+         this.vRcptBs = new System.Windows.Forms.BindingSource(this.components);
+         this.vDscnBs = new System.Windows.Forms.BindingSource(this.components);
+         this.VGnLsBs = new System.Windows.Forms.BindingSource(this.components);
          this.panel1.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.Tc_Master)).BeginInit();
          this.Tc_Master.SuspendLayout();
@@ -331,7 +327,7 @@
          this.flowLayoutPanel3.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.groupControl9)).BeginInit();
          this.groupControl9.SuspendLayout();
-         this.flowLayoutPanel2.SuspendLayout();
+         this.SaleYear_Flp.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.groupControl8)).BeginInit();
          this.groupControl8.SuspendLayout();
          this.tp_002.SuspendLayout();
@@ -347,6 +343,9 @@
          ((System.ComponentModel.ISupportInitialize)(doughnutSeriesView12)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.AttnBs)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.vSaleBs)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.vRcptBs)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.vDscnBs)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.VGnLsBs)).BeginInit();
          this.SuspendLayout();
          // 
          // panel1
@@ -375,17 +374,11 @@
          toolTipTitleItem1.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1133;
          toolTipTitleItem1.Appearance.Options.UseImage = true;
          toolTipTitleItem1.Image = global::System.Scsc.Properties.Resources.IMAGE_1133;
-         toolTipTitleItem1.Text = "جستجو مشترک";
-         toolTipItem1.LeftIndent = 6;
-         toolTipItem1.Text = resources.GetString("toolTipItem1.Text");
-         toolTipTitleItem2.LeftIndent = 6;
-         toolTipTitleItem2.Text = "این گزینه بیشتر برای جاهایی می باشد که اطلاعات مشترکین شما بیش از 10 هزار نفر می " +
-    "باشد";
+         toolTipTitleItem1.Text = "نمایش آمار";
          superToolTip1.Items.Add(toolTipTitleItem1);
-         superToolTip1.Items.Add(toolTipItem1);
-         superToolTip1.Items.Add(toolTipTitleItem2);
          this.ExecuteQuery_Butn.SuperTip = superToolTip1;
          this.ExecuteQuery_Butn.TabIndex = 18;
+         this.ExecuteQuery_Butn.Tag = "00";
          this.ExecuteQuery_Butn.Click += new System.EventHandler(this.ExecuteQuery_Butn_Click);
          // 
          // Tilt_Lb
@@ -1550,20 +1543,21 @@
          this.groupControl11.AppearanceCaption.Options.UseFont = true;
          this.groupControl11.AppearanceCaption.Options.UseTextOptions = true;
          this.groupControl11.AppearanceCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+         this.groupControl11.Controls.Add(this.YearCyclFltr2_Lb);
          this.groupControl11.Controls.Add(this.labelControl23);
          this.groupControl11.Controls.Add(this.labelControl27);
          this.groupControl11.Controls.Add(this.label47);
          this.groupControl11.Controls.Add(this.labelControl26);
          this.groupControl11.Controls.Add(this.label49);
-         this.groupControl11.Controls.Add(this.label71);
-         this.groupControl11.Controls.Add(this.label52);
-         this.groupControl11.Controls.Add(this.label70);
-         this.groupControl11.Controls.Add(this.label54);
+         this.groupControl11.Controls.Add(this.Rqtp020PosAmnt_Lb);
+         this.groupControl11.Controls.Add(this.Rqtp020MenAmnt_Lb);
+         this.groupControl11.Controls.Add(this.Rqtp020PosCont_Lb);
+         this.groupControl11.Controls.Add(this.Rqtp020MenCont_Lb);
          this.groupControl11.Controls.Add(this.label56);
-         this.groupControl11.Controls.Add(this.label69);
-         this.groupControl11.Controls.Add(this.label59);
-         this.groupControl11.Controls.Add(this.label68);
-         this.groupControl11.Controls.Add(this.label61);
+         this.groupControl11.Controls.Add(this.Rqtp020CashAmnt_Lb);
+         this.groupControl11.Controls.Add(this.Rqtp020ManAmnt_Lb);
+         this.groupControl11.Controls.Add(this.Rqtp020CashCont_Lb);
+         this.groupControl11.Controls.Add(this.Rqtp020ManCont_Lb);
          this.groupControl11.Controls.Add(this.label63);
          this.groupControl11.Controls.Add(this.label64);
          this.groupControl11.Controls.Add(this.label67);
@@ -1571,13 +1565,26 @@
          this.groupControl11.Controls.Add(this.label62);
          this.groupControl11.Controls.Add(this.label66);
          this.groupControl11.Controls.Add(this.labelControl28);
-         this.groupControl11.Location = new System.Drawing.Point(359, 355);
+         this.groupControl11.Location = new System.Drawing.Point(359, 313);
          this.groupControl11.LookAndFeel.SkinName = "Office 2010 Silver";
          this.groupControl11.LookAndFeel.UseDefaultLookAndFeel = false;
          this.groupControl11.Name = "groupControl11";
          this.groupControl11.Size = new System.Drawing.Size(588, 171);
          this.groupControl11.TabIndex = 9;
          this.groupControl11.Text = "سپرده گذاری";
+         // 
+         // YearCyclFltr2_Lb
+         // 
+         this.YearCyclFltr2_Lb.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.YearCyclFltr2_Lb.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("YearCyclFltr2_Lb.Appearance.Image")));
+         this.YearCyclFltr2_Lb.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+         this.YearCyclFltr2_Lb.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         this.YearCyclFltr2_Lb.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+         this.YearCyclFltr2_Lb.Location = new System.Drawing.Point(502, 39);
+         this.YearCyclFltr2_Lb.Name = "YearCyclFltr2_Lb";
+         this.YearCyclFltr2_Lb.Size = new System.Drawing.Size(81, 32);
+         this.YearCyclFltr2_Lb.TabIndex = 9;
+         this.YearCyclFltr2_Lb.Text = "*/*";
          // 
          // labelControl23
          // 
@@ -1651,49 +1658,49 @@
          this.label49.Text = "154";
          this.label49.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
          // 
-         // label71
+         // Rqtp020PosAmnt_Lb
          // 
-         this.label71.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.label71.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.label71.Location = new System.Drawing.Point(139, 131);
-         this.label71.Name = "label71";
-         this.label71.Size = new System.Drawing.Size(81, 32);
-         this.label71.TabIndex = 1;
-         this.label71.Text = "154";
-         this.label71.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         this.Rqtp020PosAmnt_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.Rqtp020PosAmnt_Lb.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.Rqtp020PosAmnt_Lb.Location = new System.Drawing.Point(247, 131);
+         this.Rqtp020PosAmnt_Lb.Name = "Rqtp020PosAmnt_Lb";
+         this.Rqtp020PosAmnt_Lb.Size = new System.Drawing.Size(53, 32);
+         this.Rqtp020PosAmnt_Lb.TabIndex = 1;
+         this.Rqtp020PosAmnt_Lb.Text = "154";
+         this.Rqtp020PosAmnt_Lb.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
          // 
-         // label52
+         // Rqtp020MenAmnt_Lb
          // 
-         this.label52.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.label52.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.label52.Location = new System.Drawing.Point(314, 131);
-         this.label52.Name = "label52";
-         this.label52.Size = new System.Drawing.Size(81, 32);
-         this.label52.TabIndex = 1;
-         this.label52.Text = "154";
-         this.label52.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         this.Rqtp020MenAmnt_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.Rqtp020MenAmnt_Lb.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.Rqtp020MenAmnt_Lb.Location = new System.Drawing.Point(369, 131);
+         this.Rqtp020MenAmnt_Lb.Name = "Rqtp020MenAmnt_Lb";
+         this.Rqtp020MenAmnt_Lb.Size = new System.Drawing.Size(53, 32);
+         this.Rqtp020MenAmnt_Lb.TabIndex = 1;
+         this.Rqtp020MenAmnt_Lb.Text = "154";
+         this.Rqtp020MenAmnt_Lb.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
          // 
-         // label70
+         // Rqtp020PosCont_Lb
          // 
-         this.label70.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.label70.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.label70.Location = new System.Drawing.Point(139, 84);
-         this.label70.Name = "label70";
-         this.label70.Size = new System.Drawing.Size(81, 32);
-         this.label70.TabIndex = 1;
-         this.label70.Text = "154";
-         this.label70.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         this.Rqtp020PosCont_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.Rqtp020PosCont_Lb.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.Rqtp020PosCont_Lb.Location = new System.Drawing.Point(247, 84);
+         this.Rqtp020PosCont_Lb.Name = "Rqtp020PosCont_Lb";
+         this.Rqtp020PosCont_Lb.Size = new System.Drawing.Size(53, 32);
+         this.Rqtp020PosCont_Lb.TabIndex = 1;
+         this.Rqtp020PosCont_Lb.Text = "154";
+         this.Rqtp020PosCont_Lb.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
          // 
-         // label54
+         // Rqtp020MenCont_Lb
          // 
-         this.label54.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.label54.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.label54.Location = new System.Drawing.Point(314, 84);
-         this.label54.Name = "label54";
-         this.label54.Size = new System.Drawing.Size(81, 32);
-         this.label54.TabIndex = 1;
-         this.label54.Text = "154";
-         this.label54.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         this.Rqtp020MenCont_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.Rqtp020MenCont_Lb.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.Rqtp020MenCont_Lb.Location = new System.Drawing.Point(369, 84);
+         this.Rqtp020MenCont_Lb.Name = "Rqtp020MenCont_Lb";
+         this.Rqtp020MenCont_Lb.Size = new System.Drawing.Size(53, 32);
+         this.Rqtp020MenCont_Lb.TabIndex = 1;
+         this.Rqtp020MenCont_Lb.Text = "154";
+         this.Rqtp020MenCont_Lb.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
          // 
          // label56
          // 
@@ -1706,49 +1713,49 @@
          this.label56.Text = "وصول";
          this.label56.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
          // 
-         // label69
+         // Rqtp020CashAmnt_Lb
          // 
-         this.label69.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.label69.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.label69.Location = new System.Drawing.Point(226, 131);
-         this.label69.Name = "label69";
-         this.label69.Size = new System.Drawing.Size(81, 32);
-         this.label69.TabIndex = 1;
-         this.label69.Text = "12000";
-         this.label69.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         this.Rqtp020CashAmnt_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.Rqtp020CashAmnt_Lb.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.Rqtp020CashAmnt_Lb.Location = new System.Drawing.Point(308, 131);
+         this.Rqtp020CashAmnt_Lb.Name = "Rqtp020CashAmnt_Lb";
+         this.Rqtp020CashAmnt_Lb.Size = new System.Drawing.Size(53, 32);
+         this.Rqtp020CashAmnt_Lb.TabIndex = 1;
+         this.Rqtp020CashAmnt_Lb.Text = "12000";
+         this.Rqtp020CashAmnt_Lb.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
          // 
-         // label59
+         // Rqtp020ManAmnt_Lb
          // 
-         this.label59.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.label59.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.label59.Location = new System.Drawing.Point(401, 131);
-         this.label59.Name = "label59";
-         this.label59.Size = new System.Drawing.Size(81, 32);
-         this.label59.TabIndex = 1;
-         this.label59.Text = "12000";
-         this.label59.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         this.Rqtp020ManAmnt_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.Rqtp020ManAmnt_Lb.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.Rqtp020ManAmnt_Lb.Location = new System.Drawing.Point(430, 131);
+         this.Rqtp020ManAmnt_Lb.Name = "Rqtp020ManAmnt_Lb";
+         this.Rqtp020ManAmnt_Lb.Size = new System.Drawing.Size(53, 32);
+         this.Rqtp020ManAmnt_Lb.TabIndex = 1;
+         this.Rqtp020ManAmnt_Lb.Text = "12000";
+         this.Rqtp020ManAmnt_Lb.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
          // 
-         // label68
+         // Rqtp020CashCont_Lb
          // 
-         this.label68.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.label68.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.label68.Location = new System.Drawing.Point(226, 84);
-         this.label68.Name = "label68";
-         this.label68.Size = new System.Drawing.Size(81, 32);
-         this.label68.TabIndex = 1;
-         this.label68.Text = "12000";
-         this.label68.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         this.Rqtp020CashCont_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.Rqtp020CashCont_Lb.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.Rqtp020CashCont_Lb.Location = new System.Drawing.Point(308, 84);
+         this.Rqtp020CashCont_Lb.Name = "Rqtp020CashCont_Lb";
+         this.Rqtp020CashCont_Lb.Size = new System.Drawing.Size(53, 32);
+         this.Rqtp020CashCont_Lb.TabIndex = 1;
+         this.Rqtp020CashCont_Lb.Text = "12000";
+         this.Rqtp020CashCont_Lb.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
          // 
-         // label61
+         // Rqtp020ManCont_Lb
          // 
-         this.label61.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.label61.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.label61.Location = new System.Drawing.Point(401, 84);
-         this.label61.Name = "label61";
-         this.label61.Size = new System.Drawing.Size(81, 32);
-         this.label61.TabIndex = 1;
-         this.label61.Text = "12000";
-         this.label61.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         this.Rqtp020ManCont_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.Rqtp020ManCont_Lb.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.Rqtp020ManCont_Lb.Location = new System.Drawing.Point(430, 84);
+         this.Rqtp020ManCont_Lb.Name = "Rqtp020ManCont_Lb";
+         this.Rqtp020ManCont_Lb.Size = new System.Drawing.Size(53, 32);
+         this.Rqtp020ManCont_Lb.TabIndex = 1;
+         this.Rqtp020ManCont_Lb.Text = "12000";
+         this.Rqtp020ManCont_Lb.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
          // 
          // label63
          // 
@@ -1776,9 +1783,9 @@
          // 
          this.label67.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.label67.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Bold);
-         this.label67.Location = new System.Drawing.Point(139, 39);
+         this.label67.Location = new System.Drawing.Point(247, 39);
          this.label67.Name = "label67";
-         this.label67.Size = new System.Drawing.Size(81, 32);
+         this.label67.Size = new System.Drawing.Size(53, 32);
          this.label67.TabIndex = 1;
          this.label67.Text = "POS";
          this.label67.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1787,9 +1794,9 @@
          // 
          this.label65.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.label65.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Bold);
-         this.label65.Location = new System.Drawing.Point(314, 39);
+         this.label65.Location = new System.Drawing.Point(369, 39);
          this.label65.Name = "label65";
-         this.label65.Size = new System.Drawing.Size(81, 32);
+         this.label65.Size = new System.Drawing.Size(53, 32);
          this.label65.TabIndex = 1;
          this.label65.Text = "بانوان";
          this.label65.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1798,9 +1805,9 @@
          // 
          this.label62.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.label62.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Bold);
-         this.label62.Location = new System.Drawing.Point(226, 39);
+         this.label62.Location = new System.Drawing.Point(308, 39);
          this.label62.Name = "label62";
-         this.label62.Size = new System.Drawing.Size(81, 32);
+         this.label62.Size = new System.Drawing.Size(53, 32);
          this.label62.TabIndex = 1;
          this.label62.Text = "نقدی";
          this.label62.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1809,9 +1816,9 @@
          // 
          this.label66.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.label66.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Bold);
-         this.label66.Location = new System.Drawing.Point(401, 39);
+         this.label66.Location = new System.Drawing.Point(430, 39);
          this.label66.Name = "label66";
-         this.label66.Size = new System.Drawing.Size(81, 32);
+         this.label66.Size = new System.Drawing.Size(53, 32);
          this.label66.TabIndex = 1;
          this.label66.Text = "آقایان";
          this.label66.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1886,8 +1893,10 @@
          this.simpleButton6.Name = "simpleButton6";
          this.simpleButton6.Size = new System.Drawing.Size(71, 35);
          this.simpleButton6.TabIndex = 3;
+         this.simpleButton6.Tag = "01";
          this.simpleButton6.Text = "فروردین";
          this.simpleButton6.ToolTip = "بازگشت";
+         this.simpleButton6.Click += new System.EventHandler(this.MontData_Butn_Click);
          // 
          // simpleButton7
          // 
@@ -1905,8 +1914,10 @@
          this.simpleButton7.Name = "simpleButton7";
          this.simpleButton7.Size = new System.Drawing.Size(71, 35);
          this.simpleButton7.TabIndex = 4;
+         this.simpleButton7.Tag = "02";
          this.simpleButton7.Text = "اردیبهشت";
          this.simpleButton7.ToolTip = "بازگشت";
+         this.simpleButton7.Click += new System.EventHandler(this.MontData_Butn_Click);
          // 
          // simpleButton8
          // 
@@ -1924,8 +1935,10 @@
          this.simpleButton8.Name = "simpleButton8";
          this.simpleButton8.Size = new System.Drawing.Size(71, 35);
          this.simpleButton8.TabIndex = 5;
+         this.simpleButton8.Tag = "03";
          this.simpleButton8.Text = "خرداد";
          this.simpleButton8.ToolTip = "بازگشت";
+         this.simpleButton8.Click += new System.EventHandler(this.MontData_Butn_Click);
          // 
          // simpleButton9
          // 
@@ -1943,8 +1956,10 @@
          this.simpleButton9.Name = "simpleButton9";
          this.simpleButton9.Size = new System.Drawing.Size(71, 35);
          this.simpleButton9.TabIndex = 6;
+         this.simpleButton9.Tag = "04";
          this.simpleButton9.Text = "تیر";
          this.simpleButton9.ToolTip = "بازگشت";
+         this.simpleButton9.Click += new System.EventHandler(this.MontData_Butn_Click);
          // 
          // simpleButton10
          // 
@@ -1962,8 +1977,10 @@
          this.simpleButton10.Name = "simpleButton10";
          this.simpleButton10.Size = new System.Drawing.Size(71, 35);
          this.simpleButton10.TabIndex = 7;
+         this.simpleButton10.Tag = "05";
          this.simpleButton10.Text = "مرداد";
          this.simpleButton10.ToolTip = "بازگشت";
+         this.simpleButton10.Click += new System.EventHandler(this.MontData_Butn_Click);
          // 
          // simpleButton11
          // 
@@ -1981,8 +1998,10 @@
          this.simpleButton11.Name = "simpleButton11";
          this.simpleButton11.Size = new System.Drawing.Size(71, 35);
          this.simpleButton11.TabIndex = 8;
+         this.simpleButton11.Tag = "06";
          this.simpleButton11.Text = "شهریور";
          this.simpleButton11.ToolTip = "بازگشت";
+         this.simpleButton11.Click += new System.EventHandler(this.MontData_Butn_Click);
          // 
          // simpleButton12
          // 
@@ -2000,8 +2019,10 @@
          this.simpleButton12.Name = "simpleButton12";
          this.simpleButton12.Size = new System.Drawing.Size(71, 35);
          this.simpleButton12.TabIndex = 9;
+         this.simpleButton12.Tag = "07";
          this.simpleButton12.Text = "مهر";
          this.simpleButton12.ToolTip = "بازگشت";
+         this.simpleButton12.Click += new System.EventHandler(this.MontData_Butn_Click);
          // 
          // simpleButton13
          // 
@@ -2019,8 +2040,10 @@
          this.simpleButton13.Name = "simpleButton13";
          this.simpleButton13.Size = new System.Drawing.Size(71, 35);
          this.simpleButton13.TabIndex = 10;
+         this.simpleButton13.Tag = "08";
          this.simpleButton13.Text = "آبان";
          this.simpleButton13.ToolTip = "بازگشت";
+         this.simpleButton13.Click += new System.EventHandler(this.MontData_Butn_Click);
          // 
          // simpleButton14
          // 
@@ -2038,8 +2061,10 @@
          this.simpleButton14.Name = "simpleButton14";
          this.simpleButton14.Size = new System.Drawing.Size(71, 35);
          this.simpleButton14.TabIndex = 11;
+         this.simpleButton14.Tag = "09";
          this.simpleButton14.Text = "آذر";
          this.simpleButton14.ToolTip = "بازگشت";
+         this.simpleButton14.Click += new System.EventHandler(this.MontData_Butn_Click);
          // 
          // simpleButton15
          // 
@@ -2057,8 +2082,10 @@
          this.simpleButton15.Name = "simpleButton15";
          this.simpleButton15.Size = new System.Drawing.Size(71, 35);
          this.simpleButton15.TabIndex = 12;
+         this.simpleButton15.Tag = "10";
          this.simpleButton15.Text = "دی";
          this.simpleButton15.ToolTip = "بازگشت";
+         this.simpleButton15.Click += new System.EventHandler(this.MontData_Butn_Click);
          // 
          // simpleButton16
          // 
@@ -2076,8 +2103,10 @@
          this.simpleButton16.Name = "simpleButton16";
          this.simpleButton16.Size = new System.Drawing.Size(71, 35);
          this.simpleButton16.TabIndex = 13;
+         this.simpleButton16.Tag = "11";
          this.simpleButton16.Text = "بهمن";
          this.simpleButton16.ToolTip = "بازگشت";
+         this.simpleButton16.Click += new System.EventHandler(this.MontData_Butn_Click);
          // 
          // simpleButton17
          // 
@@ -2095,8 +2124,10 @@
          this.simpleButton17.Name = "simpleButton17";
          this.simpleButton17.Size = new System.Drawing.Size(71, 35);
          this.simpleButton17.TabIndex = 14;
+         this.simpleButton17.Tag = "12";
          this.simpleButton17.Text = "اسفند";
          this.simpleButton17.ToolTip = "بازگشت";
+         this.simpleButton17.Click += new System.EventHandler(this.MontData_Butn_Click);
          // 
          // simpleButton19
          // 
@@ -2114,8 +2145,10 @@
          this.simpleButton19.Name = "simpleButton19";
          this.simpleButton19.Size = new System.Drawing.Size(71, 35);
          this.simpleButton19.TabIndex = 15;
+         this.simpleButton19.Tag = "*";
          this.simpleButton19.Text = "همه";
          this.simpleButton19.ToolTip = "بازگشت";
+         this.simpleButton19.Click += new System.EventHandler(this.MontData_Butn_Click);
          // 
          // groupControl9
          // 
@@ -2123,7 +2156,7 @@
          this.groupControl9.AppearanceCaption.Options.UseFont = true;
          this.groupControl9.AppearanceCaption.Options.UseTextOptions = true;
          this.groupControl9.AppearanceCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-         this.groupControl9.Controls.Add(this.flowLayoutPanel2);
+         this.groupControl9.Controls.Add(this.SaleYear_Flp);
          this.groupControl9.Dock = System.Windows.Forms.DockStyle.Right;
          this.groupControl9.Location = new System.Drawing.Point(1032, 0);
          this.groupControl9.LookAndFeel.SkinName = "Office 2010 Silver";
@@ -2133,34 +2166,35 @@
          this.groupControl9.TabIndex = 2;
          this.groupControl9.Text = "سال";
          // 
-         // flowLayoutPanel2
+         // SaleYear_Flp
          // 
-         this.flowLayoutPanel2.Controls.Add(this.simpleButton18);
-         this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-         this.flowLayoutPanel2.Location = new System.Drawing.Point(2, 30);
-         this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
-         this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-         this.flowLayoutPanel2.Size = new System.Drawing.Size(65, 520);
-         this.flowLayoutPanel2.TabIndex = 0;
+         this.SaleYear_Flp.Controls.Add(this.AllYear_Butn);
+         this.SaleYear_Flp.Dock = System.Windows.Forms.DockStyle.Fill;
+         this.SaleYear_Flp.Location = new System.Drawing.Point(2, 30);
+         this.SaleYear_Flp.Margin = new System.Windows.Forms.Padding(0);
+         this.SaleYear_Flp.Name = "SaleYear_Flp";
+         this.SaleYear_Flp.Size = new System.Drawing.Size(65, 520);
+         this.SaleYear_Flp.TabIndex = 0;
          // 
-         // simpleButton18
+         // AllYear_Butn
          // 
-         this.simpleButton18.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-         this.simpleButton18.Appearance.Font = new System.Drawing.Font("Iranian Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.simpleButton18.Appearance.Options.UseBackColor = true;
-         this.simpleButton18.Appearance.Options.UseFont = true;
-         this.simpleButton18.Appearance.Options.UseTextOptions = true;
-         this.simpleButton18.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-         this.simpleButton18.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-         this.simpleButton18.Location = new System.Drawing.Point(2, 2);
-         this.simpleButton18.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.simpleButton18.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.simpleButton18.Margin = new System.Windows.Forms.Padding(2, 2, 2, 0);
-         this.simpleButton18.Name = "simpleButton18";
-         this.simpleButton18.Size = new System.Drawing.Size(61, 35);
-         this.simpleButton18.TabIndex = 8;
-         this.simpleButton18.Text = "همه";
-         this.simpleButton18.ToolTip = "بازگشت";
+         this.AllYear_Butn.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+         this.AllYear_Butn.Appearance.Font = new System.Drawing.Font("Iranian Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.AllYear_Butn.Appearance.Options.UseBackColor = true;
+         this.AllYear_Butn.Appearance.Options.UseFont = true;
+         this.AllYear_Butn.Appearance.Options.UseTextOptions = true;
+         this.AllYear_Butn.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+         this.AllYear_Butn.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+         this.AllYear_Butn.Location = new System.Drawing.Point(2, 2);
+         this.AllYear_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.AllYear_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.AllYear_Butn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 0);
+         this.AllYear_Butn.Name = "AllYear_Butn";
+         this.AllYear_Butn.Size = new System.Drawing.Size(61, 35);
+         this.AllYear_Butn.TabIndex = 8;
+         this.AllYear_Butn.Tag = "*";
+         this.AllYear_Butn.Text = "همه";
+         this.AllYear_Butn.Click += new System.EventHandler(this.YearData_Butn_Click);
          // 
          // groupControl8
          // 
@@ -2169,42 +2203,36 @@
          this.groupControl8.AppearanceCaption.Options.UseFont = true;
          this.groupControl8.AppearanceCaption.Options.UseTextOptions = true;
          this.groupControl8.AppearanceCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+         this.groupControl8.Controls.Add(this.YearCyclFltr1_Lb);
          this.groupControl8.Controls.Add(this.label43);
-         this.groupControl8.Controls.Add(this.label60);
          this.groupControl8.Controls.Add(this.label11);
          this.groupControl8.Controls.Add(this.labelControl25);
          this.groupControl8.Controls.Add(this.labelControl18);
-         this.groupControl8.Controls.Add(this.label58);
-         this.groupControl8.Controls.Add(this.label51);
-         this.groupControl8.Controls.Add(this.label50);
-         this.groupControl8.Controls.Add(this.label45);
-         this.groupControl8.Controls.Add(this.labelControl24);
+         this.groupControl8.Controls.Add(this.SumHDscnAmnt_Lb);
+         this.groupControl8.Controls.Add(this.SumHSaleAmnt_Lb);
          this.groupControl8.Controls.Add(this.labelControl22);
-         this.groupControl8.Controls.Add(this.label48);
-         this.groupControl8.Controls.Add(this.label44);
+         this.groupControl8.Controls.Add(this.SumHRcptAmnt_Lb);
+         this.groupControl8.Controls.Add(this.SumHCont_Lb);
          this.groupControl8.Controls.Add(this.labelControl21);
          this.groupControl8.Controls.Add(this.labelControl17);
          this.groupControl8.Controls.Add(this.labelControl19);
-         this.groupControl8.Controls.Add(this.label57);
-         this.groupControl8.Controls.Add(this.label42);
-         this.groupControl8.Controls.Add(this.label38);
-         this.groupControl8.Controls.Add(this.label21);
-         this.groupControl8.Controls.Add(this.label10);
-         this.groupControl8.Controls.Add(this.label22);
-         this.groupControl8.Controls.Add(this.label55);
-         this.groupControl8.Controls.Add(this.label40);
-         this.groupControl8.Controls.Add(this.label37);
-         this.groupControl8.Controls.Add(this.label20);
-         this.groupControl8.Controls.Add(this.label5);
-         this.groupControl8.Controls.Add(this.label16);
+         this.groupControl8.Controls.Add(this.Rqtp016DscnAmnt_Lb);
+         this.groupControl8.Controls.Add(this.Rqtp016PrctAmnt_Lb);
+         this.groupControl8.Controls.Add(this.Rqtp016RcptAmnt_Lb);
+         this.groupControl8.Controls.Add(this.Rqtp016SaleAmnt_Lb);
+         this.groupControl8.Controls.Add(this.Rqtp016Cont_Lb);
+         this.groupControl8.Controls.Add(this.Rqtp009DscnAmnt_Lb);
+         this.groupControl8.Controls.Add(this.Rqtp009PrctAmnt_Lb);
+         this.groupControl8.Controls.Add(this.Rqtp009RcptAmnt_Lb);
+         this.groupControl8.Controls.Add(this.Rqtp009SaleAmnt_Lb);
+         this.groupControl8.Controls.Add(this.Rqtp009Cont_Lb);
          this.groupControl8.Controls.Add(this.label30);
          this.groupControl8.Controls.Add(this.label24);
-         this.groupControl8.Controls.Add(this.label53);
-         this.groupControl8.Controls.Add(this.label39);
-         this.groupControl8.Controls.Add(this.label36);
-         this.groupControl8.Controls.Add(this.label12);
-         this.groupControl8.Controls.Add(this.label1);
-         this.groupControl8.Controls.Add(this.label25);
+         this.groupControl8.Controls.Add(this.Rqtp001DscnAmnt_Lb);
+         this.groupControl8.Controls.Add(this.Rqtp001PrctAmnt_Lb);
+         this.groupControl8.Controls.Add(this.Rqtp001RcptAmnt_Lb);
+         this.groupControl8.Controls.Add(this.Rqtp001SaleAmnt_Lb);
+         this.groupControl8.Controls.Add(this.Rqtp001Cont_Lb);
          this.groupControl8.Controls.Add(this.label29);
          this.groupControl8.Controls.Add(this.label26);
          this.groupControl8.Controls.Add(this.label34);
@@ -2215,9 +2243,22 @@
          this.groupControl8.LookAndFeel.SkinName = "Office 2010 Silver";
          this.groupControl8.LookAndFeel.UseDefaultLookAndFeel = false;
          this.groupControl8.Name = "groupControl8";
-         this.groupControl8.Size = new System.Drawing.Size(588, 346);
+         this.groupControl8.Size = new System.Drawing.Size(588, 304);
          this.groupControl8.TabIndex = 2;
          this.groupControl8.Text = "درآمد سیستم";
+         // 
+         // YearCyclFltr1_Lb
+         // 
+         this.YearCyclFltr1_Lb.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.YearCyclFltr1_Lb.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("YearCyclFltr1_Lb.Appearance.Image")));
+         this.YearCyclFltr1_Lb.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+         this.YearCyclFltr1_Lb.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         this.YearCyclFltr1_Lb.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+         this.YearCyclFltr1_Lb.Location = new System.Drawing.Point(502, 39);
+         this.YearCyclFltr1_Lb.Name = "YearCyclFltr1_Lb";
+         this.YearCyclFltr1_Lb.Size = new System.Drawing.Size(81, 32);
+         this.YearCyclFltr1_Lb.TabIndex = 9;
+         this.YearCyclFltr1_Lb.Text = "*/*";
          // 
          // label43
          // 
@@ -2229,17 +2270,6 @@
          this.label43.TabIndex = 8;
          this.label43.Text = "جمع کل";
          this.label43.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         // 
-         // label60
-         // 
-         this.label60.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.label60.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.label60.Location = new System.Drawing.Point(502, 309);
-         this.label60.Name = "label60";
-         this.label60.Size = new System.Drawing.Size(81, 32);
-         this.label60.TabIndex = 8;
-         this.label60.Text = "جمع کل";
-         this.label60.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
          // 
          // label11
          // 
@@ -2266,7 +2296,7 @@
          this.labelControl25.LookAndFeel.SkinName = "Office 2010 Blue";
          this.labelControl25.LookAndFeel.UseDefaultLookAndFeel = false;
          this.labelControl25.Name = "labelControl25";
-         this.labelControl25.Size = new System.Drawing.Size(13, 308);
+         this.labelControl25.Size = new System.Drawing.Size(13, 264);
          this.labelControl25.TabIndex = 1;
          // 
          // labelControl18
@@ -2283,68 +2313,30 @@
          this.labelControl18.LookAndFeel.SkinName = "Office 2010 Blue";
          this.labelControl18.LookAndFeel.UseDefaultLookAndFeel = false;
          this.labelControl18.Name = "labelControl18";
-         this.labelControl18.Size = new System.Drawing.Size(13, 256);
+         this.labelControl18.Size = new System.Drawing.Size(13, 212);
          this.labelControl18.TabIndex = 1;
          // 
-         // label58
+         // SumHDscnAmnt_Lb
          // 
-         this.label58.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.label58.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.label58.Location = new System.Drawing.Point(5, 308);
-         this.label58.Name = "label58";
-         this.label58.Size = new System.Drawing.Size(92, 32);
-         this.label58.TabIndex = 1;
-         this.label58.Text = "154";
-         this.label58.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         this.SumHDscnAmnt_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.SumHDscnAmnt_Lb.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.SumHDscnAmnt_Lb.Location = new System.Drawing.Point(5, 263);
+         this.SumHDscnAmnt_Lb.Name = "SumHDscnAmnt_Lb";
+         this.SumHDscnAmnt_Lb.Size = new System.Drawing.Size(92, 32);
+         this.SumHDscnAmnt_Lb.TabIndex = 1;
+         this.SumHDscnAmnt_Lb.Text = "154";
+         this.SumHDscnAmnt_Lb.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
          // 
-         // label51
+         // SumHSaleAmnt_Lb
          // 
-         this.label51.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.label51.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.label51.Location = new System.Drawing.Point(5, 263);
-         this.label51.Name = "label51";
-         this.label51.Size = new System.Drawing.Size(92, 32);
-         this.label51.TabIndex = 1;
-         this.label51.Text = "154";
-         this.label51.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         // 
-         // label50
-         // 
-         this.label50.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.label50.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.label50.Location = new System.Drawing.Point(5, 221);
-         this.label50.Name = "label50";
-         this.label50.Size = new System.Drawing.Size(92, 32);
-         this.label50.TabIndex = 1;
-         this.label50.Text = "154";
-         this.label50.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         // 
-         // label45
-         // 
-         this.label45.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.label45.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.label45.Location = new System.Drawing.Point(5, 131);
-         this.label45.Name = "label45";
-         this.label45.Size = new System.Drawing.Size(92, 32);
-         this.label45.TabIndex = 1;
-         this.label45.Text = "154";
-         this.label45.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         // 
-         // labelControl24
-         // 
-         this.labelControl24.AllowHtmlString = true;
-         this.labelControl24.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.labelControl24.Appearance.Font = new System.Drawing.Font("Iranian Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.labelControl24.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-         this.labelControl24.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.labelControl24.LineStyle = System.Drawing.Drawing2D.DashStyle.DashDot;
-         this.labelControl24.LineVisible = true;
-         this.labelControl24.Location = new System.Drawing.Point(5, 299);
-         this.labelControl24.LookAndFeel.SkinName = "Office 2010 Blue";
-         this.labelControl24.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.labelControl24.Name = "labelControl24";
-         this.labelControl24.Size = new System.Drawing.Size(576, 7);
-         this.labelControl24.TabIndex = 2;
+         this.SumHSaleAmnt_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.SumHSaleAmnt_Lb.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.SumHSaleAmnt_Lb.Location = new System.Drawing.Point(5, 131);
+         this.SumHSaleAmnt_Lb.Name = "SumHSaleAmnt_Lb";
+         this.SumHSaleAmnt_Lb.Size = new System.Drawing.Size(92, 32);
+         this.SumHSaleAmnt_Lb.TabIndex = 1;
+         this.SumHSaleAmnt_Lb.Text = "154";
+         this.SumHSaleAmnt_Lb.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
          // 
          // labelControl22
          // 
@@ -2359,30 +2351,30 @@
          this.labelControl22.LookAndFeel.SkinName = "Office 2010 Blue";
          this.labelControl22.LookAndFeel.UseDefaultLookAndFeel = false;
          this.labelControl22.Name = "labelControl22";
-         this.labelControl22.Size = new System.Drawing.Size(486, 7);
+         this.labelControl22.Size = new System.Drawing.Size(575, 7);
          this.labelControl22.TabIndex = 2;
          // 
-         // label48
+         // SumHRcptAmnt_Lb
          // 
-         this.label48.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.label48.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.label48.Location = new System.Drawing.Point(5, 174);
-         this.label48.Name = "label48";
-         this.label48.Size = new System.Drawing.Size(92, 32);
-         this.label48.TabIndex = 1;
-         this.label48.Text = "154";
-         this.label48.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         this.SumHRcptAmnt_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.SumHRcptAmnt_Lb.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.SumHRcptAmnt_Lb.Location = new System.Drawing.Point(5, 174);
+         this.SumHRcptAmnt_Lb.Name = "SumHRcptAmnt_Lb";
+         this.SumHRcptAmnt_Lb.Size = new System.Drawing.Size(92, 32);
+         this.SumHRcptAmnt_Lb.TabIndex = 1;
+         this.SumHRcptAmnt_Lb.Text = "154";
+         this.SumHRcptAmnt_Lb.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
          // 
-         // label44
+         // SumHCont_Lb
          // 
-         this.label44.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.label44.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.label44.Location = new System.Drawing.Point(5, 84);
-         this.label44.Name = "label44";
-         this.label44.Size = new System.Drawing.Size(92, 32);
-         this.label44.TabIndex = 1;
-         this.label44.Text = "154";
-         this.label44.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         this.SumHCont_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.SumHCont_Lb.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.SumHCont_Lb.Location = new System.Drawing.Point(5, 84);
+         this.SumHCont_Lb.Name = "SumHCont_Lb";
+         this.SumHCont_Lb.Size = new System.Drawing.Size(92, 32);
+         this.SumHCont_Lb.TabIndex = 1;
+         this.SumHCont_Lb.Text = "154";
+         this.SumHCont_Lb.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
          // 
          // labelControl21
          // 
@@ -2397,7 +2389,7 @@
          this.labelControl21.LookAndFeel.SkinName = "Office 2010 Blue";
          this.labelControl21.LookAndFeel.UseDefaultLookAndFeel = false;
          this.labelControl21.Name = "labelControl21";
-         this.labelControl21.Size = new System.Drawing.Size(486, 7);
+         this.labelControl21.Size = new System.Drawing.Size(575, 7);
          this.labelControl21.TabIndex = 2;
          // 
          // labelControl17
@@ -2413,7 +2405,7 @@
          this.labelControl17.LookAndFeel.SkinName = "Office 2010 Blue";
          this.labelControl17.LookAndFeel.UseDefaultLookAndFeel = false;
          this.labelControl17.Name = "labelControl17";
-         this.labelControl17.Size = new System.Drawing.Size(486, 7);
+         this.labelControl17.Size = new System.Drawing.Size(575, 7);
          this.labelControl17.TabIndex = 2;
          // 
          // labelControl19
@@ -2429,140 +2421,118 @@
          this.labelControl19.LookAndFeel.SkinName = "Office 2010 Blue";
          this.labelControl19.LookAndFeel.UseDefaultLookAndFeel = false;
          this.labelControl19.Name = "labelControl19";
-         this.labelControl19.Size = new System.Drawing.Size(486, 7);
+         this.labelControl19.Size = new System.Drawing.Size(575, 7);
          this.labelControl19.TabIndex = 2;
          // 
-         // label57
+         // Rqtp016DscnAmnt_Lb
          // 
-         this.label57.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.label57.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.label57.Location = new System.Drawing.Point(123, 309);
-         this.label57.Name = "label57";
-         this.label57.Size = new System.Drawing.Size(97, 32);
-         this.label57.TabIndex = 1;
-         this.label57.Text = "154";
-         this.label57.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         this.Rqtp016DscnAmnt_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.Rqtp016DscnAmnt_Lb.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.Rqtp016DscnAmnt_Lb.Location = new System.Drawing.Point(123, 264);
+         this.Rqtp016DscnAmnt_Lb.Name = "Rqtp016DscnAmnt_Lb";
+         this.Rqtp016DscnAmnt_Lb.Size = new System.Drawing.Size(97, 32);
+         this.Rqtp016DscnAmnt_Lb.TabIndex = 1;
+         this.Rqtp016DscnAmnt_Lb.Text = "154";
+         this.Rqtp016DscnAmnt_Lb.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
          // 
-         // label42
+         // Rqtp016PrctAmnt_Lb
          // 
-         this.label42.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.label42.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.label42.Location = new System.Drawing.Point(123, 264);
-         this.label42.Name = "label42";
-         this.label42.Size = new System.Drawing.Size(97, 32);
-         this.label42.TabIndex = 1;
-         this.label42.Text = "154";
-         this.label42.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         this.Rqtp016PrctAmnt_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.Rqtp016PrctAmnt_Lb.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.Rqtp016PrctAmnt_Lb.Location = new System.Drawing.Point(123, 219);
+         this.Rqtp016PrctAmnt_Lb.Name = "Rqtp016PrctAmnt_Lb";
+         this.Rqtp016PrctAmnt_Lb.Size = new System.Drawing.Size(97, 32);
+         this.Rqtp016PrctAmnt_Lb.TabIndex = 1;
+         this.Rqtp016PrctAmnt_Lb.Text = "154";
+         this.Rqtp016PrctAmnt_Lb.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
          // 
-         // label38
+         // Rqtp016RcptAmnt_Lb
          // 
-         this.label38.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.label38.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.label38.Location = new System.Drawing.Point(123, 219);
-         this.label38.Name = "label38";
-         this.label38.Size = new System.Drawing.Size(97, 32);
-         this.label38.TabIndex = 1;
-         this.label38.Text = "154";
-         this.label38.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         this.Rqtp016RcptAmnt_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.Rqtp016RcptAmnt_Lb.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.Rqtp016RcptAmnt_Lb.Location = new System.Drawing.Point(123, 174);
+         this.Rqtp016RcptAmnt_Lb.Name = "Rqtp016RcptAmnt_Lb";
+         this.Rqtp016RcptAmnt_Lb.Size = new System.Drawing.Size(97, 32);
+         this.Rqtp016RcptAmnt_Lb.TabIndex = 1;
+         this.Rqtp016RcptAmnt_Lb.Text = "154";
+         this.Rqtp016RcptAmnt_Lb.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
          // 
-         // label21
+         // Rqtp016SaleAmnt_Lb
          // 
-         this.label21.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.label21.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.label21.Location = new System.Drawing.Point(123, 174);
-         this.label21.Name = "label21";
-         this.label21.Size = new System.Drawing.Size(97, 32);
-         this.label21.TabIndex = 1;
-         this.label21.Text = "154";
-         this.label21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         this.Rqtp016SaleAmnt_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.Rqtp016SaleAmnt_Lb.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.Rqtp016SaleAmnt_Lb.Location = new System.Drawing.Point(123, 129);
+         this.Rqtp016SaleAmnt_Lb.Name = "Rqtp016SaleAmnt_Lb";
+         this.Rqtp016SaleAmnt_Lb.Size = new System.Drawing.Size(97, 32);
+         this.Rqtp016SaleAmnt_Lb.TabIndex = 1;
+         this.Rqtp016SaleAmnt_Lb.Text = "154";
+         this.Rqtp016SaleAmnt_Lb.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
          // 
-         // label10
+         // Rqtp016Cont_Lb
          // 
-         this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.label10.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.label10.Location = new System.Drawing.Point(123, 129);
-         this.label10.Name = "label10";
-         this.label10.Size = new System.Drawing.Size(97, 32);
-         this.label10.TabIndex = 1;
-         this.label10.Text = "154";
-         this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         this.Rqtp016Cont_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.Rqtp016Cont_Lb.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.Rqtp016Cont_Lb.Location = new System.Drawing.Point(123, 84);
+         this.Rqtp016Cont_Lb.Name = "Rqtp016Cont_Lb";
+         this.Rqtp016Cont_Lb.Size = new System.Drawing.Size(97, 32);
+         this.Rqtp016Cont_Lb.TabIndex = 1;
+         this.Rqtp016Cont_Lb.Text = "154";
+         this.Rqtp016Cont_Lb.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
          // 
-         // label22
+         // Rqtp009DscnAmnt_Lb
          // 
-         this.label22.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.label22.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.label22.Location = new System.Drawing.Point(123, 84);
-         this.label22.Name = "label22";
-         this.label22.Size = new System.Drawing.Size(97, 32);
-         this.label22.TabIndex = 1;
-         this.label22.Text = "154";
-         this.label22.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         this.Rqtp009DscnAmnt_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.Rqtp009DscnAmnt_Lb.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.Rqtp009DscnAmnt_Lb.Location = new System.Drawing.Point(276, 264);
+         this.Rqtp009DscnAmnt_Lb.Name = "Rqtp009DscnAmnt_Lb";
+         this.Rqtp009DscnAmnt_Lb.Size = new System.Drawing.Size(81, 32);
+         this.Rqtp009DscnAmnt_Lb.TabIndex = 1;
+         this.Rqtp009DscnAmnt_Lb.Text = "154";
+         this.Rqtp009DscnAmnt_Lb.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
          // 
-         // label55
+         // Rqtp009PrctAmnt_Lb
          // 
-         this.label55.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.label55.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.label55.Location = new System.Drawing.Point(276, 309);
-         this.label55.Name = "label55";
-         this.label55.Size = new System.Drawing.Size(81, 32);
-         this.label55.TabIndex = 1;
-         this.label55.Text = "154";
-         this.label55.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         this.Rqtp009PrctAmnt_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.Rqtp009PrctAmnt_Lb.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.Rqtp009PrctAmnt_Lb.Location = new System.Drawing.Point(276, 219);
+         this.Rqtp009PrctAmnt_Lb.Name = "Rqtp009PrctAmnt_Lb";
+         this.Rqtp009PrctAmnt_Lb.Size = new System.Drawing.Size(81, 32);
+         this.Rqtp009PrctAmnt_Lb.TabIndex = 1;
+         this.Rqtp009PrctAmnt_Lb.Text = "154";
+         this.Rqtp009PrctAmnt_Lb.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
          // 
-         // label40
+         // Rqtp009RcptAmnt_Lb
          // 
-         this.label40.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.label40.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.label40.Location = new System.Drawing.Point(276, 264);
-         this.label40.Name = "label40";
-         this.label40.Size = new System.Drawing.Size(81, 32);
-         this.label40.TabIndex = 1;
-         this.label40.Text = "154";
-         this.label40.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         this.Rqtp009RcptAmnt_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.Rqtp009RcptAmnt_Lb.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.Rqtp009RcptAmnt_Lb.Location = new System.Drawing.Point(276, 174);
+         this.Rqtp009RcptAmnt_Lb.Name = "Rqtp009RcptAmnt_Lb";
+         this.Rqtp009RcptAmnt_Lb.Size = new System.Drawing.Size(81, 32);
+         this.Rqtp009RcptAmnt_Lb.TabIndex = 1;
+         this.Rqtp009RcptAmnt_Lb.Text = "154";
+         this.Rqtp009RcptAmnt_Lb.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
          // 
-         // label37
+         // Rqtp009SaleAmnt_Lb
          // 
-         this.label37.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.label37.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.label37.Location = new System.Drawing.Point(276, 219);
-         this.label37.Name = "label37";
-         this.label37.Size = new System.Drawing.Size(81, 32);
-         this.label37.TabIndex = 1;
-         this.label37.Text = "154";
-         this.label37.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         this.Rqtp009SaleAmnt_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.Rqtp009SaleAmnt_Lb.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.Rqtp009SaleAmnt_Lb.Location = new System.Drawing.Point(276, 129);
+         this.Rqtp009SaleAmnt_Lb.Name = "Rqtp009SaleAmnt_Lb";
+         this.Rqtp009SaleAmnt_Lb.Size = new System.Drawing.Size(81, 32);
+         this.Rqtp009SaleAmnt_Lb.TabIndex = 1;
+         this.Rqtp009SaleAmnt_Lb.Text = "154";
+         this.Rqtp009SaleAmnt_Lb.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
          // 
-         // label20
+         // Rqtp009Cont_Lb
          // 
-         this.label20.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.label20.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.label20.Location = new System.Drawing.Point(276, 174);
-         this.label20.Name = "label20";
-         this.label20.Size = new System.Drawing.Size(81, 32);
-         this.label20.TabIndex = 1;
-         this.label20.Text = "154";
-         this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         // 
-         // label5
-         // 
-         this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.label5.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.label5.Location = new System.Drawing.Point(276, 129);
-         this.label5.Name = "label5";
-         this.label5.Size = new System.Drawing.Size(81, 32);
-         this.label5.TabIndex = 1;
-         this.label5.Text = "154";
-         this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         // 
-         // label16
-         // 
-         this.label16.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.label16.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.label16.Location = new System.Drawing.Point(276, 84);
-         this.label16.Name = "label16";
-         this.label16.Size = new System.Drawing.Size(81, 32);
-         this.label16.TabIndex = 1;
-         this.label16.Text = "154";
-         this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         this.Rqtp009Cont_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.Rqtp009Cont_Lb.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.Rqtp009Cont_Lb.Location = new System.Drawing.Point(276, 84);
+         this.Rqtp009Cont_Lb.Name = "Rqtp009Cont_Lb";
+         this.Rqtp009Cont_Lb.Size = new System.Drawing.Size(81, 32);
+         this.Rqtp009Cont_Lb.TabIndex = 1;
+         this.Rqtp009Cont_Lb.Text = "154";
+         this.Rqtp009Cont_Lb.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
          // 
          // label30
          // 
@@ -2586,71 +2556,60 @@
          this.label24.Text = "وصول";
          this.label24.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
          // 
-         // label53
+         // Rqtp001DscnAmnt_Lb
          // 
-         this.label53.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.label53.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.label53.Location = new System.Drawing.Point(401, 309);
-         this.label53.Name = "label53";
-         this.label53.Size = new System.Drawing.Size(81, 32);
-         this.label53.TabIndex = 1;
-         this.label53.Text = "12000";
-         this.label53.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         this.Rqtp001DscnAmnt_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.Rqtp001DscnAmnt_Lb.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.Rqtp001DscnAmnt_Lb.Location = new System.Drawing.Point(401, 264);
+         this.Rqtp001DscnAmnt_Lb.Name = "Rqtp001DscnAmnt_Lb";
+         this.Rqtp001DscnAmnt_Lb.Size = new System.Drawing.Size(81, 32);
+         this.Rqtp001DscnAmnt_Lb.TabIndex = 1;
+         this.Rqtp001DscnAmnt_Lb.Text = "12000";
+         this.Rqtp001DscnAmnt_Lb.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
          // 
-         // label39
+         // Rqtp001PrctAmnt_Lb
          // 
-         this.label39.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.label39.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.label39.Location = new System.Drawing.Point(401, 264);
-         this.label39.Name = "label39";
-         this.label39.Size = new System.Drawing.Size(81, 32);
-         this.label39.TabIndex = 1;
-         this.label39.Text = "12000";
-         this.label39.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         this.Rqtp001PrctAmnt_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.Rqtp001PrctAmnt_Lb.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.Rqtp001PrctAmnt_Lb.Location = new System.Drawing.Point(401, 219);
+         this.Rqtp001PrctAmnt_Lb.Name = "Rqtp001PrctAmnt_Lb";
+         this.Rqtp001PrctAmnt_Lb.Size = new System.Drawing.Size(81, 32);
+         this.Rqtp001PrctAmnt_Lb.TabIndex = 1;
+         this.Rqtp001PrctAmnt_Lb.Text = "12000";
+         this.Rqtp001PrctAmnt_Lb.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
          // 
-         // label36
+         // Rqtp001RcptAmnt_Lb
          // 
-         this.label36.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.label36.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.label36.Location = new System.Drawing.Point(401, 219);
-         this.label36.Name = "label36";
-         this.label36.Size = new System.Drawing.Size(81, 32);
-         this.label36.TabIndex = 1;
-         this.label36.Text = "12000";
-         this.label36.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         this.Rqtp001RcptAmnt_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.Rqtp001RcptAmnt_Lb.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.Rqtp001RcptAmnt_Lb.Location = new System.Drawing.Point(401, 174);
+         this.Rqtp001RcptAmnt_Lb.Name = "Rqtp001RcptAmnt_Lb";
+         this.Rqtp001RcptAmnt_Lb.Size = new System.Drawing.Size(81, 32);
+         this.Rqtp001RcptAmnt_Lb.TabIndex = 1;
+         this.Rqtp001RcptAmnt_Lb.Text = "12000";
+         this.Rqtp001RcptAmnt_Lb.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
          // 
-         // label12
+         // Rqtp001SaleAmnt_Lb
          // 
-         this.label12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.label12.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.label12.Location = new System.Drawing.Point(401, 174);
-         this.label12.Name = "label12";
-         this.label12.Size = new System.Drawing.Size(81, 32);
-         this.label12.TabIndex = 1;
-         this.label12.Text = "12000";
-         this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         this.Rqtp001SaleAmnt_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.Rqtp001SaleAmnt_Lb.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.Rqtp001SaleAmnt_Lb.Location = new System.Drawing.Point(401, 129);
+         this.Rqtp001SaleAmnt_Lb.Name = "Rqtp001SaleAmnt_Lb";
+         this.Rqtp001SaleAmnt_Lb.Size = new System.Drawing.Size(81, 32);
+         this.Rqtp001SaleAmnt_Lb.TabIndex = 1;
+         this.Rqtp001SaleAmnt_Lb.Text = "12000";
+         this.Rqtp001SaleAmnt_Lb.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
          // 
-         // label1
+         // Rqtp001Cont_Lb
          // 
-         this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.label1.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.label1.Location = new System.Drawing.Point(401, 129);
-         this.label1.Name = "label1";
-         this.label1.Size = new System.Drawing.Size(81, 32);
-         this.label1.TabIndex = 1;
-         this.label1.Text = "12000";
-         this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         // 
-         // label25
-         // 
-         this.label25.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.label25.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.label25.Location = new System.Drawing.Point(401, 84);
-         this.label25.Name = "label25";
-         this.label25.Size = new System.Drawing.Size(81, 32);
-         this.label25.TabIndex = 1;
-         this.label25.Text = "12000";
-         this.label25.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         this.Rqtp001Cont_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.Rqtp001Cont_Lb.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.Rqtp001Cont_Lb.Location = new System.Drawing.Point(401, 84);
+         this.Rqtp001Cont_Lb.Name = "Rqtp001Cont_Lb";
+         this.Rqtp001Cont_Lb.Size = new System.Drawing.Size(81, 32);
+         this.Rqtp001Cont_Lb.TabIndex = 1;
+         this.Rqtp001Cont_Lb.Text = "12000";
+         this.Rqtp001Cont_Lb.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
          // 
          // label29
          // 
@@ -3020,6 +2979,18 @@
          // 
          this.vSaleBs.DataSource = typeof(System.Scsc.Data.V_Sale);
          // 
+         // vRcptBs
+         // 
+         this.vRcptBs.DataSource = typeof(System.Scsc.Data.V_ReceiptPayment);
+         // 
+         // vDscnBs
+         // 
+         this.vDscnBs.DataSource = typeof(System.Scsc.Data.V_DiscountPayment);
+         // 
+         // VGnLsBs
+         // 
+         this.VGnLsBs.DataSource = typeof(System.Scsc.Data.V_GainLoss);
+         // 
          // DAP_DSBR_F
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -3089,7 +3060,7 @@
          this.flowLayoutPanel3.ResumeLayout(false);
          ((System.ComponentModel.ISupportInitialize)(this.groupControl9)).EndInit();
          this.groupControl9.ResumeLayout(false);
-         this.flowLayoutPanel2.ResumeLayout(false);
+         this.SaleYear_Flp.ResumeLayout(false);
          ((System.ComponentModel.ISupportInitialize)(this.groupControl8)).EndInit();
          this.groupControl8.ResumeLayout(false);
          this.tp_002.ResumeLayout(false);
@@ -3105,6 +3076,9 @@
          ((System.ComponentModel.ISupportInitialize)(this.TotlAttn_Cc)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.AttnBs)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.vSaleBs)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.vRcptBs)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.vDscnBs)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.VGnLsBs)).EndInit();
          this.ResumeLayout(false);
 
       }
@@ -3224,23 +3198,23 @@
       private DevExpress.XtraEditors.LabelControl labelControl21;
       private DevExpress.XtraEditors.LabelControl labelControl17;
       private DevExpress.XtraEditors.LabelControl labelControl19;
-      private Windows.Forms.Label label42;
-      private Windows.Forms.Label label38;
-      private Windows.Forms.Label label21;
-      private Windows.Forms.Label label10;
-      private Windows.Forms.Label label22;
-      private Windows.Forms.Label label40;
-      private Windows.Forms.Label label37;
-      private Windows.Forms.Label label20;
-      private Windows.Forms.Label label5;
-      private Windows.Forms.Label label16;
+      private Windows.Forms.Label Rqtp016DscnAmnt_Lb;
+      private Windows.Forms.Label Rqtp016PrctAmnt_Lb;
+      private Windows.Forms.Label Rqtp016RcptAmnt_Lb;
+      private Windows.Forms.Label Rqtp016SaleAmnt_Lb;
+      private Windows.Forms.Label Rqtp016Cont_Lb;
+      private Windows.Forms.Label Rqtp009DscnAmnt_Lb;
+      private Windows.Forms.Label Rqtp009PrctAmnt_Lb;
+      private Windows.Forms.Label Rqtp009RcptAmnt_Lb;
+      private Windows.Forms.Label Rqtp009SaleAmnt_Lb;
+      private Windows.Forms.Label Rqtp009Cont_Lb;
       private Windows.Forms.Label label30;
       private Windows.Forms.Label label24;
-      private Windows.Forms.Label label39;
-      private Windows.Forms.Label label36;
-      private Windows.Forms.Label label12;
-      private Windows.Forms.Label label1;
-      private Windows.Forms.Label label25;
+      private Windows.Forms.Label Rqtp001DscnAmnt_Lb;
+      private Windows.Forms.Label Rqtp001PrctAmnt_Lb;
+      private Windows.Forms.Label Rqtp001RcptAmnt_Lb;
+      private Windows.Forms.Label Rqtp001SaleAmnt_Lb;
+      private Windows.Forms.Label Rqtp001Cont_Lb;
       private Windows.Forms.Label label29;
       private Windows.Forms.Label label26;
       private Windows.Forms.Label label34;
@@ -3248,7 +3222,7 @@
       private Windows.Forms.Label label27;
       private DevExpress.XtraEditors.LabelControl labelControl20;
       private DevExpress.XtraEditors.GroupControl groupControl9;
-      private Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
+      private Windows.Forms.FlowLayoutPanel SaleYear_Flp;
       private DevExpress.XtraEditors.GroupControl groupControl10;
       private Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
       private DevExpress.XtraEditors.SimpleButton simpleButton6;
@@ -3269,15 +3243,15 @@
       private Windows.Forms.Label label47;
       private DevExpress.XtraEditors.LabelControl labelControl26;
       private Windows.Forms.Label label49;
-      private Windows.Forms.Label label71;
-      private Windows.Forms.Label label52;
-      private Windows.Forms.Label label70;
-      private Windows.Forms.Label label54;
+      private Windows.Forms.Label Rqtp020PosAmnt_Lb;
+      private Windows.Forms.Label Rqtp020MenAmnt_Lb;
+      private Windows.Forms.Label Rqtp020PosCont_Lb;
+      private Windows.Forms.Label Rqtp020MenCont_Lb;
       private Windows.Forms.Label label56;
-      private Windows.Forms.Label label69;
-      private Windows.Forms.Label label59;
-      private Windows.Forms.Label label68;
-      private Windows.Forms.Label label61;
+      private Windows.Forms.Label Rqtp020CashAmnt_Lb;
+      private Windows.Forms.Label Rqtp020ManAmnt_Lb;
+      private Windows.Forms.Label Rqtp020CashCont_Lb;
+      private Windows.Forms.Label Rqtp020ManCont_Lb;
       private Windows.Forms.Label label63;
       private Windows.Forms.Label label64;
       private Windows.Forms.Label label67;
@@ -3286,21 +3260,19 @@
       private Windows.Forms.Label label66;
       private DevExpress.XtraEditors.LabelControl labelControl28;
       private DevExpress.XtraEditors.SimpleButton simpleButton19;
-      private DevExpress.XtraEditors.SimpleButton simpleButton18;
+      private DevExpress.XtraEditors.SimpleButton AllYear_Butn;
       private Windows.Forms.Label label43;
-      private Windows.Forms.Label label60;
       private DevExpress.XtraEditors.LabelControl labelControl25;
-      private Windows.Forms.Label label58;
-      private Windows.Forms.Label label51;
-      private Windows.Forms.Label label50;
-      private Windows.Forms.Label label45;
-      private DevExpress.XtraEditors.LabelControl labelControl24;
-      private Windows.Forms.Label label48;
-      private Windows.Forms.Label label44;
-      private Windows.Forms.Label label57;
-      private Windows.Forms.Label label55;
-      private Windows.Forms.Label label53;
+      private Windows.Forms.Label SumHDscnAmnt_Lb;
+      private Windows.Forms.Label SumHSaleAmnt_Lb;
+      private Windows.Forms.Label SumHRcptAmnt_Lb;
+      private Windows.Forms.Label SumHCont_Lb;
       private Windows.Forms.BindingSource vSaleBs;
+      private Windows.Forms.BindingSource vRcptBs;
+      private Windows.Forms.BindingSource vDscnBs;
+      private DevExpress.XtraEditors.LabelControl YearCyclFltr2_Lb;
+      private DevExpress.XtraEditors.LabelControl YearCyclFltr1_Lb;
+      private Windows.Forms.BindingSource VGnLsBs;
 
    }
 }

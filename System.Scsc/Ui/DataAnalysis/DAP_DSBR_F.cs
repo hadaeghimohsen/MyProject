@@ -11,6 +11,7 @@ using DevExpress.DashboardCommon;
 using DevExpress.DataAccess;
 using System.JobRouting.Jobs;
 using System.Globalization;
+using DevExpress.XtraEditors;
 
 namespace System.Scsc.Ui.DataAnalysis
 {
@@ -44,6 +45,7 @@ namespace System.Scsc.Ui.DataAnalysis
                new Threading.Thread(TabPage002_Starting).Start();
                break;
             case "tp_003":
+               new Threading.Thread(TabPage003_Starting).Start();
                break;
             default:
                break;
@@ -227,5 +229,169 @@ namespace System.Scsc.Ui.DataAnalysis
          #endregion         
       }
       #endregion
+
+      #region Tab Page 003
+      string yearFltr = "*", monthFltr = "*";
+
+      private void TabPage003_Starting()
+      {
+         try
+         {
+            vSaleBs.DataSource = iScsc.V_Sales;
+            vRcptBs.DataSource = iScsc.V_ReceiptPayments;
+            vDscnBs.DataSource = iScsc.V_DiscountPayments;
+            VGnLsBs.DataSource = iScsc.V_GainLosses;
+
+            if (InvokeRequired)
+            {
+               Invoke(new Action(() => TabPage003_Filling()));
+            }
+            else
+            {
+               TabPage003_Filling();
+            }
+         }
+         catch { }
+      }
+
+      private void TabPage003_Filling()
+      {
+         #region Load All Sale
+         var minYear = vSaleBs.List.OfType<Data.V_Sale>().Min(s => s.YEAR);
+         var maxYear = vSaleBs.List.OfType<Data.V_Sale>().Max(s => s.YEAR);
+
+         YearCyclFltr1_Lb.Text = "*/*";
+
+         SaleYear_Flp.Controls.OfType<SimpleButton>().Where(y => y.Tag.ToString() != "*").ToList().ForEach(y => SaleYear_Flp.Controls.Remove(y));
+
+         for (int i = (int)minYear; i <= maxYear; i++)
+         {
+            SimpleButton year = new SimpleButton();
+            year.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            year.Appearance.Font = new System.Drawing.Font("Iranian Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            year.Appearance.Options.UseBackColor = true;
+            year.Appearance.Options.UseFont = true;
+            year.Appearance.Options.UseTextOptions = true;
+            year.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            year.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+            year.Location = new System.Drawing.Point(2, 2);
+            year.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+            year.LookAndFeel.UseDefaultLookAndFeel = false;
+            year.Margin = new System.Windows.Forms.Padding(2, 2, 2, 0);
+            year.Name = "Year_Butn";
+            year.Size = new System.Drawing.Size(61, 35);
+            year.TabIndex = 8;
+            year.Text = i.ToString();
+            year.Tag = i;
+            year.Click += YearData_Butn_Click;
+
+            SaleYear_Flp.Controls.Add(year);
+         }
+         #endregion
+      }
+      #endregion
+
+      private void YearData_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var yb = (sender as SimpleButton).Tag;
+            
+            if(yb == null)
+            {
+               yearFltr = "*";
+               // All Year Data
+               CalculateData003(yearFltr, monthFltr);
+            }
+            else
+            {
+               yearFltr = yb.ToString();
+               CalculateData003(yearFltr, monthFltr);
+            }
+            YearCyclFltr1_Lb.Text = YearCyclFltr2_Lb.Text = string.Format("{0}/{1}", yearFltr, monthFltr);
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void MontData_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var mb = (sender as SimpleButton).Tag;
+
+            if (mb == null)
+            {
+               monthFltr = "*";
+               // All Year Data
+               CalculateData003(yearFltr, monthFltr);
+            }
+            else
+            {
+               monthFltr = mb.ToString();
+               CalculateData003(yearFltr, monthFltr);
+            }
+            YearCyclFltr1_Lb.Text = string.Format("{0}/{1}", yearFltr, monthFltr);
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void CalculateData003(object yb, object mb)
+      {
+         try
+         {
+            #region Group 
+            // Record 1 # Count
+            Rqtp001Cont_Lb.Text = vSaleBs.List.OfType<Data.V_Sale>().Where(s => s.YEAR == Convert.ToInt16(yb.ToString() == "*" ? s.YEAR : yb) && s.CYCL == (mb.ToString() == "*" ? s.CYCL : mb.ToString()) && s.RQTP_CODE == "001").Count().ToString();
+            Rqtp009Cont_Lb.Text = vSaleBs.List.OfType<Data.V_Sale>().Where(s => s.YEAR == Convert.ToInt16(yb.ToString() == "*" ? s.YEAR : yb) && s.CYCL == (mb.ToString() == "*" ? s.CYCL : mb.ToString()) && s.RQTP_CODE == "009").Count().ToString();
+            Rqtp016Cont_Lb.Text = vSaleBs.List.OfType<Data.V_Sale>().Where(s => s.YEAR == Convert.ToInt16(yb.ToString() == "*" ? s.YEAR : yb) && s.CYCL == (mb.ToString() == "*" ? s.CYCL : mb.ToString()) && s.RQTP_CODE == "016").Count().ToString();
+            SumHCont_Lb.Text = vSaleBs.List.OfType<Data.V_Sale>().Where(s => s.YEAR == Convert.ToInt16(yb.ToString() == "*" ? s.YEAR : yb) && s.CYCL == (mb.ToString() == "*" ? s.CYCL : mb.ToString())).Count().ToString();
+
+            // Record 2 # Sale
+            Rqtp001SaleAmnt_Lb.Text = ((long)(vSaleBs.List.OfType<Data.V_Sale>().Where(s => s.YEAR == Convert.ToInt16(yb.ToString() == "*" ? s.YEAR : yb) && s.CYCL == (mb.ToString() == "*" ? s.CYCL : mb.ToString()) && s.RQTP_CODE == "001").Sum(s => (s.EXPN_PRIC + s.EXPN_EXTR_PRCT) * s.QNTY))).ToString("0,0");
+            Rqtp009SaleAmnt_Lb.Text = ((long)(vSaleBs.List.OfType<Data.V_Sale>().Where(s => s.YEAR == Convert.ToInt16(yb.ToString() == "*" ? s.YEAR : yb) && s.CYCL == (mb.ToString() == "*" ? s.CYCL : mb.ToString()) && s.RQTP_CODE == "009").Sum(s => (s.EXPN_PRIC + s.EXPN_EXTR_PRCT) * s.QNTY))).ToString("0,0");
+            Rqtp016SaleAmnt_Lb.Text = ((long)(vSaleBs.List.OfType<Data.V_Sale>().Where(s => s.YEAR == Convert.ToInt16(yb.ToString() == "*" ? s.YEAR : yb) && s.CYCL == (mb.ToString() == "*" ? s.CYCL : mb.ToString()) && s.RQTP_CODE == "016").Sum(s => (s.EXPN_PRIC + s.EXPN_EXTR_PRCT) * s.QNTY))).ToString("0,0");
+            SumHSaleAmnt_Lb.Text = ((long)(vSaleBs.List.OfType<Data.V_Sale>().Where(s => s.YEAR == Convert.ToInt16(yb.ToString() == "*" ? s.YEAR : yb) && s.CYCL == (mb.ToString() == "*" ? s.CYCL : mb.ToString())).Sum(s => (s.EXPN_PRIC + s.EXPN_EXTR_PRCT)))).ToString("0,0");
+
+            // Record 3 # Rcpt
+            Rqtp001RcptAmnt_Lb.Text = ((long)(vRcptBs.List.OfType<Data.V_ReceiptPayment>().Where(r => r.YEAR == (yb.ToString() == "*" ? r.YEAR : yb.ToString()) && r.CYCL == (mb.ToString() == "*" ? r.CYCL : mb.ToString()) && r.RQTP_CODE == "001").Sum(r => r.AMNT))).ToString("0,0");
+            Rqtp009RcptAmnt_Lb.Text = ((long)(vRcptBs.List.OfType<Data.V_ReceiptPayment>().Where(r => r.YEAR == (yb.ToString() == "*" ? r.YEAR : yb.ToString()) && r.CYCL == (mb.ToString() == "*" ? r.CYCL : mb.ToString()) && r.RQTP_CODE == "009").Sum(r => r.AMNT))).ToString("0,0");
+            Rqtp016RcptAmnt_Lb.Text = ((long)(vRcptBs.List.OfType<Data.V_ReceiptPayment>().Where(r => r.YEAR == (yb.ToString() == "*" ? r.YEAR : yb.ToString()) && r.CYCL == (mb.ToString() == "*" ? r.CYCL : mb.ToString()) && r.RQTP_CODE == "016").Sum(r => r.AMNT))).ToString("0,0");
+            SumHRcptAmnt_Lb.Text = ((long)(vRcptBs.List.OfType<Data.V_ReceiptPayment>().Where(r => r.YEAR == (yb.ToString() == "*" ? r.YEAR : yb.ToString()) && r.CYCL == (mb.ToString() == "*" ? r.CYCL : mb.ToString())).Sum(r => r.AMNT))).ToString("0,0");
+
+            // Record 4 # %
+            if (Convert.ToDouble(Rqtp001RcptAmnt_Lb.Text) != 0)
+               Rqtp001PrctAmnt_Lb.Text = ((Convert.ToDouble(Rqtp001RcptAmnt_Lb.Text) / Convert.ToDouble(Rqtp001SaleAmnt_Lb.Text)) * 100).ToString("0.00");
+            else
+               Rqtp001PrctAmnt_Lb.Text = "0";
+            
+            if(Convert.ToDouble(Rqtp009RcptAmnt_Lb.Text) != 0)            
+               Rqtp009PrctAmnt_Lb.Text = ((Convert.ToDouble(Rqtp009RcptAmnt_Lb.Text) / Convert.ToDouble(Rqtp009SaleAmnt_Lb.Text)) * 100).ToString("0.00");
+            else
+               Rqtp009PrctAmnt_Lb.Text = "0";
+
+            if(Convert.ToDouble(Rqtp016RcptAmnt_Lb.Text) != 0)
+               Rqtp016PrctAmnt_Lb.Text = ((Convert.ToDouble(Rqtp016RcptAmnt_Lb.Text) / Convert.ToDouble(Rqtp016SaleAmnt_Lb.Text)) * 100).ToString("0.00");
+            else
+               Rqtp016PrctAmnt_Lb.Text = "0";
+
+            // Record 5 # Dscn
+            Rqtp001DscnAmnt_Lb.Text = ((long)(vDscnBs.List.OfType<Data.V_DiscountPayment>().Where(d => d.YEAR == (yb.ToString() == "*" ? d.YEAR : yb.ToString()) && d.CYCL == (mb.ToString() == "*" ? d.CYCL : mb.ToString()) && d.RQTP_CODE == "001").Sum(d => d.AMNT))).ToString("0,0");
+            Rqtp009DscnAmnt_Lb.Text = ((long)(vDscnBs.List.OfType<Data.V_DiscountPayment>().Where(d => d.YEAR == (yb.ToString() == "*" ? d.YEAR : yb.ToString()) && d.CYCL == (mb.ToString() == "*" ? d.CYCL : mb.ToString()) && d.RQTP_CODE == "009").Sum(d => d.AMNT))).ToString("0,0");
+            Rqtp016DscnAmnt_Lb.Text = ((long)(vDscnBs.List.OfType<Data.V_DiscountPayment>().Where(d => d.YEAR == (yb.ToString() == "*" ? d.YEAR : yb.ToString()) && d.CYCL == (mb.ToString() == "*" ? d.CYCL : mb.ToString()) && d.RQTP_CODE == "016").Sum(d => d.AMNT))).ToString("0,0");
+            SumHDscnAmnt_Lb.Text = ((long)(vDscnBs.List.OfType<Data.V_DiscountPayment>().Where(d => d.YEAR == (yb.ToString() == "*" ? d.YEAR : yb.ToString()) && d.CYCL == (mb.ToString() == "*" ? d.CYCL : mb.ToString())).Sum(d => d.AMNT))).ToString("0,0");
+
+            // Record 
+         }
+         catch(Exception)
+         {
+
+         }
+      }
    }
 }

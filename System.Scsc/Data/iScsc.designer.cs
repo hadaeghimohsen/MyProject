@@ -1775,6 +1775,30 @@ namespace System.Scsc.Data
 			}
 		}
 		
+		public System.Data.Linq.Table<V_StatisticDiscount> V_StatisticDiscounts
+		{
+			get
+			{
+				return this.GetTable<V_StatisticDiscount>();
+			}
+		}
+		
+		public System.Data.Linq.Table<V_StatisticReceipt> V_StatisticReceipts
+		{
+			get
+			{
+				return this.GetTable<V_StatisticReceipt>();
+			}
+		}
+		
+		public System.Data.Linq.Table<V_StatisticSale> V_StatisticSales
+		{
+			get
+			{
+				return this.GetTable<V_StatisticSale>();
+			}
+		}
+		
 		private void InsertCountry(Country obj)
 		{
 			this.INS_CNTY_P(obj.CODE, obj.NAME);
@@ -71821,6 +71845,267 @@ namespace System.Scsc.Data
 				if ((this._CASH_AMNT != value))
 				{
 					this._CASH_AMNT = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.V#StatisticDiscount")]
+	public partial class V_StatisticDiscount
+	{
+		
+		private string _YEAR;
+		
+		private string _CYCL;
+		
+		private string _RQTP_CODE;
+		
+		private System.Nullable<int> _AMNT;
+		
+		public V_StatisticDiscount()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_YEAR", DbType="VarChar(4)")]
+		public string YEAR
+		{
+			get
+			{
+				return this._YEAR;
+			}
+			set
+			{
+				if ((this._YEAR != value))
+				{
+					this._YEAR = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CYCL", DbType="VarChar(2)")]
+		public string CYCL
+		{
+			get
+			{
+				return this._CYCL;
+			}
+			set
+			{
+				if ((this._CYCL != value))
+				{
+					this._CYCL = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RQTP_CODE", DbType="VarChar(3) NOT NULL", CanBeNull=false)]
+		public string RQTP_CODE
+		{
+			get
+			{
+				return this._RQTP_CODE;
+			}
+			set
+			{
+				if ((this._RQTP_CODE != value))
+				{
+					this._RQTP_CODE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AMNT", DbType="Int")]
+		public System.Nullable<int> AMNT
+		{
+			get
+			{
+				return this._AMNT;
+			}
+			set
+			{
+				if ((this._AMNT != value))
+				{
+					this._AMNT = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.V#StatisticReceipt")]
+	public partial class V_StatisticReceipt
+	{
+		
+		private string _YEAR;
+		
+		private string _CYCL;
+		
+		private string _RQTP_CODE;
+		
+		private System.Nullable<long> _AMNT;
+		
+		public V_StatisticReceipt()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_YEAR", DbType="VarChar(4)")]
+		public string YEAR
+		{
+			get
+			{
+				return this._YEAR;
+			}
+			set
+			{
+				if ((this._YEAR != value))
+				{
+					this._YEAR = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CYCL", DbType="VarChar(2)")]
+		public string CYCL
+		{
+			get
+			{
+				return this._CYCL;
+			}
+			set
+			{
+				if ((this._CYCL != value))
+				{
+					this._CYCL = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RQTP_CODE", DbType="VarChar(3) NOT NULL", CanBeNull=false)]
+		public string RQTP_CODE
+		{
+			get
+			{
+				return this._RQTP_CODE;
+			}
+			set
+			{
+				if ((this._RQTP_CODE != value))
+				{
+					this._RQTP_CODE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AMNT", DbType="BigInt")]
+		public System.Nullable<long> AMNT
+		{
+			get
+			{
+				return this._AMNT;
+			}
+			set
+			{
+				if ((this._AMNT != value))
+				{
+					this._AMNT = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.V#StatisticSales")]
+	public partial class V_StatisticSale
+	{
+		
+		private System.Nullable<short> _YEAR;
+		
+		private string _CYCL;
+		
+		private string _RQTP_CODE;
+		
+		private System.Nullable<int> _CONT;
+		
+		private System.Nullable<long> _AMNT;
+		
+		public V_StatisticSale()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_YEAR", DbType="SmallInt")]
+		public System.Nullable<short> YEAR
+		{
+			get
+			{
+				return this._YEAR;
+			}
+			set
+			{
+				if ((this._YEAR != value))
+				{
+					this._YEAR = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CYCL", DbType="VarChar(2)")]
+		public string CYCL
+		{
+			get
+			{
+				return this._CYCL;
+			}
+			set
+			{
+				if ((this._CYCL != value))
+				{
+					this._CYCL = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RQTP_CODE", DbType="VarChar(3) NOT NULL", CanBeNull=false)]
+		public string RQTP_CODE
+		{
+			get
+			{
+				return this._RQTP_CODE;
+			}
+			set
+			{
+				if ((this._RQTP_CODE != value))
+				{
+					this._RQTP_CODE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CONT", DbType="Int")]
+		public System.Nullable<int> CONT
+		{
+			get
+			{
+				return this._CONT;
+			}
+			set
+			{
+				if ((this._CONT != value))
+				{
+					this._CONT = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AMNT", DbType="BigInt")]
+		public System.Nullable<long> AMNT
+		{
+			get
+			{
+				return this._AMNT;
+			}
+			set
+			{
+				if ((this._AMNT != value))
+				{
+					this._AMNT = value;
 				}
 			}
 		}

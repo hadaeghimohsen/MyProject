@@ -6578,4 +6578,66 @@
     <Parameter Name="Imag" Parameter="imag" Type="System.Data.Linq.Binary" DbType="Image" />
     <Return Type="System.Int32" />
   </Function>
+  <Function Name="dbo.VF$StatisticAttendance" Method="VF_StatisticAttendance" IsComposable="true">
+    <Parameter Name="FileNo" Parameter="fileNo" Type="System.Int64" DbType="BigInt" />
+    <ElementType Name="VF_StatisticAttendanceResult">
+      <Column Name="YEAR" Type="System.String" DbType="VarChar(4)" CanBeNull="true" />
+      <Column Name="CYCL" Type="System.String" DbType="VarChar(2)" CanBeNull="true" />
+      <Column Name="SEX_TYPE_DNRM" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="[_06_CONT]" Member="_06_CONT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[_06_TOTL_MINT]" Member="_06_TOTL_MINT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[_06_AVG_MINT]" Member="_06_AVG_MINT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[_07_CONT]" Member="_07_CONT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[_07_TOTL_MINT]" Member="_07_TOTL_MINT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[_07_AVG_MINT]" Member="_07_AVG_MINT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[_08_CONT]" Member="_08_CONT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[_08_TOTL_MINT]" Member="_08_TOTL_MINT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[_08_AVG_MINT]" Member="_08_AVG_MINT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[_09_CONT]" Member="_09_CONT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[_09_TOTL_MINT]" Member="_09_TOTL_MINT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[_09_AVG_MINT]" Member="_09_AVG_MINT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[_10_CONT]" Member="_10_CONT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[_10_TOTL_MINT]" Member="_10_TOTL_MINT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[_10_AVG_MINT]" Member="_10_AVG_MINT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[_11_CONT]" Member="_11_CONT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[_11_TOTL_MINT]" Member="_11_TOTL_MINT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[_11_AVG_MINT]" Member="_11_AVG_MINT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[_12_CONT]" Member="_12_CONT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[_12_TOTL_MINT]" Member="_12_TOTL_MINT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[_12_AVG_MINT]" Member="_12_AVG_MINT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[_13_CONT]" Member="_13_CONT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[_13_TOTL_MINT]" Member="_13_TOTL_MINT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[_13_AVG_MINT]" Member="_13_AVG_MINT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[_14_CONT]" Member="_14_CONT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[_14_TOTL_MINT]" Member="_14_TOTL_MINT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[_14_AVG_MINT]" Member="_14_AVG_MINT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[_15_CONT]" Member="_15_CONT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[_15_TOTL_MINT]" Member="_15_TOTL_MINT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[_15_AVG_MINT]" Member="_15_AVG_MINT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[_16_CONT]" Member="_16_CONT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[_16_TOTL_MINT]" Member="_16_TOTL_MINT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[_16_AVG_MINT]" Member="_16_AVG_MINT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[_17_CONT]" Member="_17_CONT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[_17_TOTL_MINT]" Member="_17_TOTL_MINT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[_17_AVG_MINT]" Member="_17_AVG_MINT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[_18_CONT]" Member="_18_CONT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[_18_TOTL_MINT]" Member="_18_TOTL_MINT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[_18_AVG_MINT]" Member="_18_AVG_MINT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[_19_CONT]" Member="_19_CONT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[_19_TOTL_MINT]" Member="_19_TOTL_MINT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[_19_AVG_MINT]" Member="_19_AVG_MINT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[_20_CONT]" Member="_20_CONT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[_20_TOTL_MINT]" Member="_20_TOTL_MINT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[_20_AVG_MINT]" Member="_20_AVG_MINT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[_21_CONT]" Member="_21_CONT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[_21_TOTL_MINT]" Member="_21_TOTL_MINT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[_21_AVG_MINT]" Member="_21_AVG_MINT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[_22_CONT]" Member="_22_CONT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[_22_TOTL_MINT]" Member="_22_TOTL_MINT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[_22_AVG_MINT]" Member="_22_AVG_MINT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[_23_CONT]" Member="_23_CONT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[_23_TOTL_MINT]" Member="_23_TOTL_MINT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[_23_AVG_MINT]" Member="_23_AVG_MINT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
 </Database>

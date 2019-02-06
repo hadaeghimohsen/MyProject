@@ -28,57 +28,50 @@
       /// </summary>
       private void InitializeComponent()
       {
-         DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem1 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.XtraCharts.SimpleDiagram simpleDiagram1 = new DevExpress.XtraCharts.SimpleDiagram();
-         DevExpress.XtraCharts.Series series1 = new DevExpress.XtraCharts.Series();
-         DevExpress.XtraCharts.DoughnutSeriesLabel doughnutSeriesLabel1 = new DevExpress.XtraCharts.DoughnutSeriesLabel();
-         DevExpress.XtraCharts.PiePointOptions piePointOptions1 = new DevExpress.XtraCharts.PiePointOptions();
-         DevExpress.XtraCharts.DoughnutSeriesView doughnutSeriesView1 = new DevExpress.XtraCharts.DoughnutSeriesView();
-         DevExpress.XtraCharts.DoughnutSeriesLabel doughnutSeriesLabel2 = new DevExpress.XtraCharts.DoughnutSeriesLabel();
-         DevExpress.XtraCharts.PiePointOptions piePointOptions2 = new DevExpress.XtraCharts.PiePointOptions();
-         DevExpress.XtraCharts.DoughnutSeriesView doughnutSeriesView2 = new DevExpress.XtraCharts.DoughnutSeriesView();
-         DevExpress.XtraCharts.SimpleDiagram simpleDiagram2 = new DevExpress.XtraCharts.SimpleDiagram();
-         DevExpress.XtraCharts.Series series2 = new DevExpress.XtraCharts.Series();
-         DevExpress.XtraCharts.DoughnutSeriesLabel doughnutSeriesLabel3 = new DevExpress.XtraCharts.DoughnutSeriesLabel();
-         DevExpress.XtraCharts.PiePointOptions piePointOptions3 = new DevExpress.XtraCharts.PiePointOptions();
-         DevExpress.XtraCharts.DoughnutSeriesView doughnutSeriesView3 = new DevExpress.XtraCharts.DoughnutSeriesView();
-         DevExpress.XtraCharts.DoughnutSeriesLabel doughnutSeriesLabel4 = new DevExpress.XtraCharts.DoughnutSeriesLabel();
-         DevExpress.XtraCharts.PiePointOptions piePointOptions4 = new DevExpress.XtraCharts.PiePointOptions();
-         DevExpress.XtraCharts.DoughnutSeriesView doughnutSeriesView4 = new DevExpress.XtraCharts.DoughnutSeriesView();
-         DevExpress.XtraCharts.SimpleDiagram simpleDiagram3 = new DevExpress.XtraCharts.SimpleDiagram();
-         DevExpress.XtraCharts.Series series3 = new DevExpress.XtraCharts.Series();
-         DevExpress.XtraCharts.DoughnutSeriesLabel doughnutSeriesLabel5 = new DevExpress.XtraCharts.DoughnutSeriesLabel();
-         DevExpress.XtraCharts.PiePointOptions piePointOptions5 = new DevExpress.XtraCharts.PiePointOptions();
-         DevExpress.XtraCharts.DoughnutSeriesView doughnutSeriesView5 = new DevExpress.XtraCharts.DoughnutSeriesView();
-         DevExpress.XtraCharts.DoughnutSeriesLabel doughnutSeriesLabel6 = new DevExpress.XtraCharts.DoughnutSeriesLabel();
-         DevExpress.XtraCharts.PiePointOptions piePointOptions6 = new DevExpress.XtraCharts.PiePointOptions();
-         DevExpress.XtraCharts.DoughnutSeriesView doughnutSeriesView6 = new DevExpress.XtraCharts.DoughnutSeriesView();
-         DevExpress.XtraCharts.SimpleDiagram simpleDiagram4 = new DevExpress.XtraCharts.SimpleDiagram();
-         DevExpress.XtraCharts.Series series4 = new DevExpress.XtraCharts.Series();
-         DevExpress.XtraCharts.DoughnutSeriesLabel doughnutSeriesLabel7 = new DevExpress.XtraCharts.DoughnutSeriesLabel();
-         DevExpress.XtraCharts.PiePointOptions piePointOptions7 = new DevExpress.XtraCharts.PiePointOptions();
-         DevExpress.XtraCharts.DoughnutSeriesView doughnutSeriesView7 = new DevExpress.XtraCharts.DoughnutSeriesView();
-         DevExpress.XtraCharts.DoughnutSeriesLabel doughnutSeriesLabel8 = new DevExpress.XtraCharts.DoughnutSeriesLabel();
-         DevExpress.XtraCharts.PiePointOptions piePointOptions8 = new DevExpress.XtraCharts.PiePointOptions();
-         DevExpress.XtraCharts.DoughnutSeriesView doughnutSeriesView8 = new DevExpress.XtraCharts.DoughnutSeriesView();
-         DevExpress.XtraCharts.SimpleDiagram simpleDiagram5 = new DevExpress.XtraCharts.SimpleDiagram();
-         DevExpress.XtraCharts.Series series5 = new DevExpress.XtraCharts.Series();
-         DevExpress.XtraCharts.DoughnutSeriesLabel doughnutSeriesLabel9 = new DevExpress.XtraCharts.DoughnutSeriesLabel();
-         DevExpress.XtraCharts.PiePointOptions piePointOptions9 = new DevExpress.XtraCharts.PiePointOptions();
-         DevExpress.XtraCharts.DoughnutSeriesView doughnutSeriesView9 = new DevExpress.XtraCharts.DoughnutSeriesView();
-         DevExpress.XtraCharts.DoughnutSeriesLabel doughnutSeriesLabel10 = new DevExpress.XtraCharts.DoughnutSeriesLabel();
-         DevExpress.XtraCharts.PiePointOptions piePointOptions10 = new DevExpress.XtraCharts.PiePointOptions();
-         DevExpress.XtraCharts.DoughnutSeriesView doughnutSeriesView10 = new DevExpress.XtraCharts.DoughnutSeriesView();
+         this.components = new System.ComponentModel.Container();
+         DevExpress.Utils.SuperToolTip superToolTip3 = new DevExpress.Utils.SuperToolTip();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem3 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.XtraCharts.SimpleDiagram simpleDiagram11 = new DevExpress.XtraCharts.SimpleDiagram();
+         DevExpress.XtraCharts.Series series11 = new DevExpress.XtraCharts.Series();
+         DevExpress.XtraCharts.DoughnutSeriesLabel doughnutSeriesLabel21 = new DevExpress.XtraCharts.DoughnutSeriesLabel();
+         DevExpress.XtraCharts.PiePointOptions piePointOptions21 = new DevExpress.XtraCharts.PiePointOptions();
+         DevExpress.XtraCharts.DoughnutSeriesView doughnutSeriesView21 = new DevExpress.XtraCharts.DoughnutSeriesView();
+         DevExpress.XtraCharts.DoughnutSeriesLabel doughnutSeriesLabel22 = new DevExpress.XtraCharts.DoughnutSeriesLabel();
+         DevExpress.XtraCharts.PiePointOptions piePointOptions22 = new DevExpress.XtraCharts.PiePointOptions();
+         DevExpress.XtraCharts.DoughnutSeriesView doughnutSeriesView22 = new DevExpress.XtraCharts.DoughnutSeriesView();
+         DevExpress.XtraCharts.SimpleDiagram simpleDiagram12 = new DevExpress.XtraCharts.SimpleDiagram();
+         DevExpress.XtraCharts.Series series12 = new DevExpress.XtraCharts.Series();
+         DevExpress.XtraCharts.DoughnutSeriesLabel doughnutSeriesLabel23 = new DevExpress.XtraCharts.DoughnutSeriesLabel();
+         DevExpress.XtraCharts.PiePointOptions piePointOptions23 = new DevExpress.XtraCharts.PiePointOptions();
+         DevExpress.XtraCharts.DoughnutSeriesView doughnutSeriesView23 = new DevExpress.XtraCharts.DoughnutSeriesView();
+         DevExpress.XtraCharts.DoughnutSeriesLabel doughnutSeriesLabel24 = new DevExpress.XtraCharts.DoughnutSeriesLabel();
+         DevExpress.XtraCharts.PiePointOptions piePointOptions24 = new DevExpress.XtraCharts.PiePointOptions();
+         DevExpress.XtraCharts.DoughnutSeriesView doughnutSeriesView24 = new DevExpress.XtraCharts.DoughnutSeriesView();
+         DevExpress.XtraCharts.SimpleDiagram simpleDiagram13 = new DevExpress.XtraCharts.SimpleDiagram();
+         DevExpress.XtraCharts.Series series13 = new DevExpress.XtraCharts.Series();
+         DevExpress.XtraCharts.DoughnutSeriesLabel doughnutSeriesLabel25 = new DevExpress.XtraCharts.DoughnutSeriesLabel();
+         DevExpress.XtraCharts.PiePointOptions piePointOptions25 = new DevExpress.XtraCharts.PiePointOptions();
+         DevExpress.XtraCharts.DoughnutSeriesView doughnutSeriesView25 = new DevExpress.XtraCharts.DoughnutSeriesView();
+         DevExpress.XtraCharts.DoughnutSeriesLabel doughnutSeriesLabel26 = new DevExpress.XtraCharts.DoughnutSeriesLabel();
+         DevExpress.XtraCharts.PiePointOptions piePointOptions26 = new DevExpress.XtraCharts.PiePointOptions();
+         DevExpress.XtraCharts.DoughnutSeriesView doughnutSeriesView26 = new DevExpress.XtraCharts.DoughnutSeriesView();
+         DevExpress.XtraCharts.SimpleDiagram simpleDiagram14 = new DevExpress.XtraCharts.SimpleDiagram();
+         DevExpress.XtraCharts.Series series14 = new DevExpress.XtraCharts.Series();
+         DevExpress.XtraCharts.DoughnutSeriesLabel doughnutSeriesLabel27 = new DevExpress.XtraCharts.DoughnutSeriesLabel();
+         DevExpress.XtraCharts.PiePointOptions piePointOptions27 = new DevExpress.XtraCharts.PiePointOptions();
+         DevExpress.XtraCharts.DoughnutSeriesView doughnutSeriesView27 = new DevExpress.XtraCharts.DoughnutSeriesView();
+         DevExpress.XtraCharts.DoughnutSeriesLabel doughnutSeriesLabel28 = new DevExpress.XtraCharts.DoughnutSeriesLabel();
+         DevExpress.XtraCharts.PiePointOptions piePointOptions28 = new DevExpress.XtraCharts.PiePointOptions();
+         DevExpress.XtraCharts.DoughnutSeriesView doughnutSeriesView28 = new DevExpress.XtraCharts.DoughnutSeriesView();
+         DevExpress.XtraCharts.SimpleDiagram simpleDiagram15 = new DevExpress.XtraCharts.SimpleDiagram();
+         DevExpress.XtraCharts.Series series15 = new DevExpress.XtraCharts.Series();
+         DevExpress.XtraCharts.DoughnutSeriesLabel doughnutSeriesLabel29 = new DevExpress.XtraCharts.DoughnutSeriesLabel();
+         DevExpress.XtraCharts.PiePointOptions piePointOptions29 = new DevExpress.XtraCharts.PiePointOptions();
+         DevExpress.XtraCharts.DoughnutSeriesView doughnutSeriesView29 = new DevExpress.XtraCharts.DoughnutSeriesView();
+         DevExpress.XtraCharts.DoughnutSeriesLabel doughnutSeriesLabel30 = new DevExpress.XtraCharts.DoughnutSeriesLabel();
+         DevExpress.XtraCharts.PiePointOptions piePointOptions30 = new DevExpress.XtraCharts.PiePointOptions();
+         DevExpress.XtraCharts.DoughnutSeriesView doughnutSeriesView30 = new DevExpress.XtraCharts.DoughnutSeriesView();
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DAP_DSBR_F));
-         DevExpress.XtraCharts.SimpleDiagram simpleDiagram6 = new DevExpress.XtraCharts.SimpleDiagram();
-         DevExpress.XtraCharts.Series series6 = new DevExpress.XtraCharts.Series();
-         DevExpress.XtraCharts.DoughnutSeriesLabel doughnutSeriesLabel11 = new DevExpress.XtraCharts.DoughnutSeriesLabel();
-         DevExpress.XtraCharts.PiePointOptions piePointOptions11 = new DevExpress.XtraCharts.PiePointOptions();
-         DevExpress.XtraCharts.DoughnutSeriesView doughnutSeriesView11 = new DevExpress.XtraCharts.DoughnutSeriesView();
-         DevExpress.XtraCharts.DoughnutSeriesLabel doughnutSeriesLabel12 = new DevExpress.XtraCharts.DoughnutSeriesLabel();
-         DevExpress.XtraCharts.PiePointOptions piePointOptions12 = new DevExpress.XtraCharts.PiePointOptions();
-         DevExpress.XtraCharts.DoughnutSeriesView doughnutSeriesView12 = new DevExpress.XtraCharts.DoughnutSeriesView();
          this.panel1 = new System.Windows.Forms.Panel();
          this.ExecuteQuery_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.Tilt_Lb = new DevExpress.XtraEditors.LabelControl();
@@ -88,7 +81,7 @@
          this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
          this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
          this.TotlServ_Cc = new DevExpress.XtraCharts.ChartControl();
-         this.FighBs = new System.Windows.Forms.BindingSource();
+         this.FighBs = new System.Windows.Forms.BindingSource(this.components);
          this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
          this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
          this.TotlDactMen_Lb = new System.Windows.Forms.Label();
@@ -163,7 +156,6 @@
          this.TotlInsr_Lb = new System.Windows.Forms.Label();
          this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
          this.tp_003 = new DevExpress.XtraTab.XtraTabPage();
-         this.Stopwatch3_Lb = new DevExpress.XtraEditors.LabelControl();
          this.groupControl13 = new DevExpress.XtraEditors.GroupControl();
          this.NetPrct_Prg = new DevExpress.XtraEditors.ProgressBarControl();
          this.ExpnPrct_Prg = new DevExpress.XtraEditors.ProgressBarControl();
@@ -279,14 +271,46 @@
          this.labelControl20 = new DevExpress.XtraEditors.LabelControl();
          this.tp_002 = new DevExpress.XtraTab.XtraTabPage();
          this.groupControl7 = new DevExpress.XtraEditors.GroupControl();
-         this.groupControl6 = new DevExpress.XtraEditors.GroupControl();
+         this._23_Prct_Prg = new DevExpress.XtraEditors.ProgressBarControl();
+         this._21_Prct_Prg = new DevExpress.XtraEditors.ProgressBarControl();
+         this._19_Prct_Prg = new DevExpress.XtraEditors.ProgressBarControl();
+         this._17_Prct_Prg = new DevExpress.XtraEditors.ProgressBarControl();
+         this._15_Prct_Prg = new DevExpress.XtraEditors.ProgressBarControl();
+         this._13_Prct_Prg = new DevExpress.XtraEditors.ProgressBarControl();
+         this._11_Prct_Prg = new DevExpress.XtraEditors.ProgressBarControl();
+         this._9_Prct_Prg = new DevExpress.XtraEditors.ProgressBarControl();
+         this._7_Prct_Prg = new DevExpress.XtraEditors.ProgressBarControl();
+         this._22_Prct_Prg = new DevExpress.XtraEditors.ProgressBarControl();
+         this._20_Prct_Prg = new DevExpress.XtraEditors.ProgressBarControl();
+         this._18_Prct_Prg = new DevExpress.XtraEditors.ProgressBarControl();
+         this._16_Prct_Prg = new DevExpress.XtraEditors.ProgressBarControl();
+         this._14_Prct_Prg = new DevExpress.XtraEditors.ProgressBarControl();
+         this._12_Prct_Prg = new DevExpress.XtraEditors.ProgressBarControl();
+         this._10_Prct_Prg = new DevExpress.XtraEditors.ProgressBarControl();
+         this._8_Prct_Prg = new DevExpress.XtraEditors.ProgressBarControl();
+         this._6_Prct_Prg = new DevExpress.XtraEditors.ProgressBarControl();
+         this.labelControl40 = new DevExpress.XtraEditors.LabelControl();
          this.labelControl16 = new DevExpress.XtraEditors.LabelControl();
-         this.TotlMenCrntDay_Lb = new System.Windows.Forms.Label();
-         this.label4 = new System.Windows.Forms.Label();
-         this.TotlManCrntDay_Lb = new System.Windows.Forms.Label();
+         this.label54 = new System.Windows.Forms.Label();
+         this.label53 = new System.Windows.Forms.Label();
+         this.label52 = new System.Windows.Forms.Label();
+         this.label51 = new System.Windows.Forms.Label();
+         this.label50 = new System.Windows.Forms.Label();
+         this.label49 = new System.Windows.Forms.Label();
+         this.label48 = new System.Windows.Forms.Label();
+         this.label47 = new System.Windows.Forms.Label();
+         this.label45 = new System.Windows.Forms.Label();
+         this.label44 = new System.Windows.Forms.Label();
+         this.label42 = new System.Windows.Forms.Label();
+         this.label40 = new System.Windows.Forms.Label();
+         this.label39 = new System.Windows.Forms.Label();
+         this.label38 = new System.Windows.Forms.Label();
+         this.label22 = new System.Windows.Forms.Label();
          this.label7 = new System.Windows.Forms.Label();
-         this.TotlAttn_Cc = new DevExpress.XtraCharts.ChartControl();
-         this.AttnBs = new System.Windows.Forms.BindingSource();
+         this.label4 = new System.Windows.Forms.Label();
+         this.label55 = new System.Windows.Forms.Label();
+         this.label1 = new System.Windows.Forms.Label();
+         this.groupControl6 = new DevExpress.XtraEditors.GroupControl();
          this.labelControl12 = new DevExpress.XtraEditors.LabelControl();
          this.labelControl14 = new DevExpress.XtraEditors.LabelControl();
          this.TotlMenCrntYear_Lb = new System.Windows.Forms.Label();
@@ -299,11 +323,13 @@
          this.label17 = new System.Windows.Forms.Label();
          this.TotlAttn_Lb = new System.Windows.Forms.Label();
          this.labelControl15 = new DevExpress.XtraEditors.LabelControl();
-         this.vSaleBs = new System.Windows.Forms.BindingSource();
-         this.vRcptBs = new System.Windows.Forms.BindingSource();
-         this.vDscnBs = new System.Windows.Forms.BindingSource();
-         this.VGnLsBs = new System.Windows.Forms.BindingSource();
-         this.VExpnBs = new System.Windows.Forms.BindingSource();
+         this.AttnBs = new System.Windows.Forms.BindingSource(this.components);
+         this.vSaleBs = new System.Windows.Forms.BindingSource(this.components);
+         this.vRcptBs = new System.Windows.Forms.BindingSource(this.components);
+         this.vDscnBs = new System.Windows.Forms.BindingSource(this.components);
+         this.VGnLsBs = new System.Windows.Forms.BindingSource(this.components);
+         this.VExpnBs = new System.Windows.Forms.BindingSource(this.components);
+         this.label57 = new System.Windows.Forms.Label();
          this.panel1.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.Tc_Master)).BeginInit();
          this.Tc_Master.SuspendLayout();
@@ -312,49 +338,49 @@
          ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
          this.groupControl1.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.TotlServ_Cc)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(simpleDiagram1)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(series1)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesLabel1)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesView1)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesLabel2)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesView2)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(simpleDiagram11)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(series11)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesLabel21)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesView21)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesLabel22)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesView22)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.FighBs)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.groupControl4)).BeginInit();
          this.groupControl4.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.CellPhonServ_Cc)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(simpleDiagram2)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(series2)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesLabel3)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesView3)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesLabel4)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesView4)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(simpleDiagram12)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(series12)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesLabel23)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesView23)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesLabel24)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesView24)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.groupControl5)).BeginInit();
          this.groupControl5.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.TellPhonServ_Cc)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(simpleDiagram3)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(series3)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesLabel5)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesView5)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesLabel6)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesView6)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(simpleDiagram13)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(series13)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesLabel25)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesView25)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesLabel26)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesView26)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
          this.groupControl2.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.CochServ_Cc)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(simpleDiagram4)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(series4)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesLabel7)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesView7)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesLabel8)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesView8)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(simpleDiagram14)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(series14)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesLabel27)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesView27)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesLabel28)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesView28)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).BeginInit();
          this.groupControl3.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.InsrServ_Cc)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(simpleDiagram5)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(series5)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesLabel9)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesView9)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesLabel10)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesView10)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(simpleDiagram15)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(series15)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesLabel29)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesView29)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesLabel30)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesView30)).BeginInit();
          this.tp_003.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.groupControl13)).BeginInit();
          this.groupControl13.SuspendLayout();
@@ -375,15 +401,27 @@
          this.groupControl8.SuspendLayout();
          this.tp_002.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.groupControl7)).BeginInit();
+         this.groupControl7.SuspendLayout();
+         ((System.ComponentModel.ISupportInitialize)(this._23_Prct_Prg.Properties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this._21_Prct_Prg.Properties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this._19_Prct_Prg.Properties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this._17_Prct_Prg.Properties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this._15_Prct_Prg.Properties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this._13_Prct_Prg.Properties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this._11_Prct_Prg.Properties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this._9_Prct_Prg.Properties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this._7_Prct_Prg.Properties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this._22_Prct_Prg.Properties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this._20_Prct_Prg.Properties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this._18_Prct_Prg.Properties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this._16_Prct_Prg.Properties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this._14_Prct_Prg.Properties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this._12_Prct_Prg.Properties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this._10_Prct_Prg.Properties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this._8_Prct_Prg.Properties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this._6_Prct_Prg.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.groupControl6)).BeginInit();
          this.groupControl6.SuspendLayout();
-         ((System.ComponentModel.ISupportInitialize)(this.TotlAttn_Cc)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(simpleDiagram6)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(series6)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesLabel11)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesView11)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesLabel12)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesView12)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.AttnBs)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.vSaleBs)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.vRcptBs)).BeginInit();
@@ -415,12 +453,12 @@
          this.ExecuteQuery_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.ExecuteQuery_Butn.Name = "ExecuteQuery_Butn";
          this.ExecuteQuery_Butn.Size = new System.Drawing.Size(61, 59);
-         toolTipTitleItem1.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1133;
-         toolTipTitleItem1.Appearance.Options.UseImage = true;
-         toolTipTitleItem1.Image = global::System.Scsc.Properties.Resources.IMAGE_1133;
-         toolTipTitleItem1.Text = "نمایش آمار";
-         superToolTip1.Items.Add(toolTipTitleItem1);
-         this.ExecuteQuery_Butn.SuperTip = superToolTip1;
+         toolTipTitleItem3.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1133;
+         toolTipTitleItem3.Appearance.Options.UseImage = true;
+         toolTipTitleItem3.Image = global::System.Scsc.Properties.Resources.IMAGE_1133;
+         toolTipTitleItem3.Text = "نمایش آمار";
+         superToolTip3.Items.Add(toolTipTitleItem3);
+         this.ExecuteQuery_Butn.SuperTip = superToolTip3;
          this.ExecuteQuery_Butn.TabIndex = 18;
          this.ExecuteQuery_Butn.Tag = "00";
          this.ExecuteQuery_Butn.Click += new System.EventHandler(this.ExecuteQuery_Butn_Click);
@@ -532,38 +570,38 @@
          // 
          this.TotlServ_Cc.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.TotlServ_Cc.DataSource = this.FighBs;
-         simpleDiagram1.EqualPieSize = false;
-         this.TotlServ_Cc.Diagram = simpleDiagram1;
+         simpleDiagram11.EqualPieSize = false;
+         this.TotlServ_Cc.Diagram = simpleDiagram11;
          this.TotlServ_Cc.Legend.Visible = false;
          this.TotlServ_Cc.Location = new System.Drawing.Point(5, 313);
          this.TotlServ_Cc.LookAndFeel.SkinName = "Office 2010 Silver";
          this.TotlServ_Cc.LookAndFeel.UseDefaultLookAndFeel = false;
          this.TotlServ_Cc.Name = "TotlServ_Cc";
          this.TotlServ_Cc.PaletteBaseColorNumber = 4;
-         series1.ArgumentDataMember = "SEX_TYPE_DNRM";
-         series1.ArgumentScaleType = DevExpress.XtraCharts.ScaleType.Qualitative;
-         doughnutSeriesLabel1.LineVisible = true;
-         piePointOptions1.PercentOptions.ValueAsPercent = false;
-         piePointOptions1.ValueNumericOptions.Format = DevExpress.XtraCharts.NumericFormat.Number;
-         piePointOptions1.ValueNumericOptions.Precision = 0;
-         doughnutSeriesLabel1.PointOptions = piePointOptions1;
-         doughnutSeriesLabel1.Position = DevExpress.XtraCharts.PieSeriesLabelPosition.Radial;
-         series1.Label = doughnutSeriesLabel1;
-         series1.LabelsVisibility = DevExpress.Utils.DefaultBoolean.False;
-         series1.LegendText = "آمار کلی مشترکین";
-         series1.Name = "آمار کلی مشترکین به تفکیک حنسیت";
-         series1.SummaryFunction = "COUNT()";
-         series1.TopNOptions.Enabled = true;
-         doughnutSeriesView1.RuntimeExploding = false;
-         series1.View = doughnutSeriesView1;
+         series11.ArgumentDataMember = "SEX_TYPE_DNRM";
+         series11.ArgumentScaleType = DevExpress.XtraCharts.ScaleType.Qualitative;
+         doughnutSeriesLabel21.LineVisible = true;
+         piePointOptions21.PercentOptions.ValueAsPercent = false;
+         piePointOptions21.ValueNumericOptions.Format = DevExpress.XtraCharts.NumericFormat.Number;
+         piePointOptions21.ValueNumericOptions.Precision = 0;
+         doughnutSeriesLabel21.PointOptions = piePointOptions21;
+         doughnutSeriesLabel21.Position = DevExpress.XtraCharts.PieSeriesLabelPosition.Radial;
+         series11.Label = doughnutSeriesLabel21;
+         series11.LabelsVisibility = DevExpress.Utils.DefaultBoolean.False;
+         series11.LegendText = "آمار کلی مشترکین";
+         series11.Name = "آمار کلی مشترکین به تفکیک حنسیت";
+         series11.SummaryFunction = "COUNT()";
+         series11.TopNOptions.Enabled = true;
+         doughnutSeriesView21.RuntimeExploding = false;
+         series11.View = doughnutSeriesView21;
          this.TotlServ_Cc.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
-        series1};
-         doughnutSeriesLabel2.LineVisible = true;
-         piePointOptions2.ValueNumericOptions.Format = DevExpress.XtraCharts.NumericFormat.General;
-         doughnutSeriesLabel2.PointOptions = piePointOptions2;
-         this.TotlServ_Cc.SeriesTemplate.Label = doughnutSeriesLabel2;
-         doughnutSeriesView2.RuntimeExploding = false;
-         this.TotlServ_Cc.SeriesTemplate.View = doughnutSeriesView2;
+        series11};
+         doughnutSeriesLabel22.LineVisible = true;
+         piePointOptions22.ValueNumericOptions.Format = DevExpress.XtraCharts.NumericFormat.General;
+         doughnutSeriesLabel22.PointOptions = piePointOptions22;
+         this.TotlServ_Cc.SeriesTemplate.Label = doughnutSeriesLabel22;
+         doughnutSeriesView22.RuntimeExploding = false;
+         this.TotlServ_Cc.SeriesTemplate.View = doughnutSeriesView22;
          this.TotlServ_Cc.Size = new System.Drawing.Size(191, 191);
          this.TotlServ_Cc.TabIndex = 4;
          // 
@@ -788,37 +826,37 @@
          // 
          this.CellPhonServ_Cc.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.CellPhonServ_Cc.DataSource = this.FighBs;
-         simpleDiagram2.EqualPieSize = false;
-         this.CellPhonServ_Cc.Diagram = simpleDiagram2;
+         simpleDiagram12.EqualPieSize = false;
+         this.CellPhonServ_Cc.Diagram = simpleDiagram12;
          this.CellPhonServ_Cc.Legend.Visible = false;
          this.CellPhonServ_Cc.Location = new System.Drawing.Point(5, 313);
          this.CellPhonServ_Cc.LookAndFeel.SkinName = "Office 2010 Silver";
          this.CellPhonServ_Cc.LookAndFeel.UseDefaultLookAndFeel = false;
          this.CellPhonServ_Cc.Name = "CellPhonServ_Cc";
          this.CellPhonServ_Cc.PaletteBaseColorNumber = 6;
-         series2.ArgumentDataMember = "SEX_TYPE_DNRM";
-         series2.ArgumentScaleType = DevExpress.XtraCharts.ScaleType.Qualitative;
-         doughnutSeriesLabel3.LineVisible = true;
-         piePointOptions3.PercentOptions.ValueAsPercent = false;
-         piePointOptions3.ValueNumericOptions.Format = DevExpress.XtraCharts.NumericFormat.Number;
-         piePointOptions3.ValueNumericOptions.Precision = 0;
-         doughnutSeriesLabel3.PointOptions = piePointOptions3;
-         series2.Label = doughnutSeriesLabel3;
-         series2.LabelsVisibility = DevExpress.Utils.DefaultBoolean.False;
-         series2.LegendText = "آمار موبایل مشترکین";
-         series2.Name = "آمار موبایل مشترکین";
-         series2.SummaryFunction = "COUNT()";
-         series2.TopNOptions.Enabled = true;
-         doughnutSeriesView3.RuntimeExploding = false;
-         series2.View = doughnutSeriesView3;
+         series12.ArgumentDataMember = "SEX_TYPE_DNRM";
+         series12.ArgumentScaleType = DevExpress.XtraCharts.ScaleType.Qualitative;
+         doughnutSeriesLabel23.LineVisible = true;
+         piePointOptions23.PercentOptions.ValueAsPercent = false;
+         piePointOptions23.ValueNumericOptions.Format = DevExpress.XtraCharts.NumericFormat.Number;
+         piePointOptions23.ValueNumericOptions.Precision = 0;
+         doughnutSeriesLabel23.PointOptions = piePointOptions23;
+         series12.Label = doughnutSeriesLabel23;
+         series12.LabelsVisibility = DevExpress.Utils.DefaultBoolean.False;
+         series12.LegendText = "آمار موبایل مشترکین";
+         series12.Name = "آمار موبایل مشترکین";
+         series12.SummaryFunction = "COUNT()";
+         series12.TopNOptions.Enabled = true;
+         doughnutSeriesView23.RuntimeExploding = false;
+         series12.View = doughnutSeriesView23;
          this.CellPhonServ_Cc.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
-        series2};
-         doughnutSeriesLabel4.LineVisible = true;
-         piePointOptions4.ValueNumericOptions.Format = DevExpress.XtraCharts.NumericFormat.General;
-         doughnutSeriesLabel4.PointOptions = piePointOptions4;
-         this.CellPhonServ_Cc.SeriesTemplate.Label = doughnutSeriesLabel4;
-         doughnutSeriesView4.RuntimeExploding = false;
-         this.CellPhonServ_Cc.SeriesTemplate.View = doughnutSeriesView4;
+        series12};
+         doughnutSeriesLabel24.LineVisible = true;
+         piePointOptions24.ValueNumericOptions.Format = DevExpress.XtraCharts.NumericFormat.General;
+         doughnutSeriesLabel24.PointOptions = piePointOptions24;
+         this.CellPhonServ_Cc.SeriesTemplate.Label = doughnutSeriesLabel24;
+         doughnutSeriesView24.RuntimeExploding = false;
+         this.CellPhonServ_Cc.SeriesTemplate.View = doughnutSeriesView24;
          this.CellPhonServ_Cc.Size = new System.Drawing.Size(191, 191);
          this.CellPhonServ_Cc.TabIndex = 5;
          // 
@@ -1034,35 +1072,35 @@
          // 
          this.TellPhonServ_Cc.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.TellPhonServ_Cc.DataSource = this.FighBs;
-         simpleDiagram3.EqualPieSize = false;
-         this.TellPhonServ_Cc.Diagram = simpleDiagram3;
+         simpleDiagram13.EqualPieSize = false;
+         this.TellPhonServ_Cc.Diagram = simpleDiagram13;
          this.TellPhonServ_Cc.Legend.Visible = false;
          this.TellPhonServ_Cc.Location = new System.Drawing.Point(5, 313);
          this.TellPhonServ_Cc.LookAndFeel.SkinName = "Office 2010 Silver";
          this.TellPhonServ_Cc.LookAndFeel.UseDefaultLookAndFeel = false;
          this.TellPhonServ_Cc.Name = "TellPhonServ_Cc";
          this.TellPhonServ_Cc.PaletteBaseColorNumber = 5;
-         series3.ArgumentDataMember = "SEX_TYPE_DNRM";
-         series3.ArgumentScaleType = DevExpress.XtraCharts.ScaleType.Qualitative;
-         doughnutSeriesLabel5.LineVisible = true;
-         piePointOptions5.ValueNumericOptions.Format = DevExpress.XtraCharts.NumericFormat.General;
-         doughnutSeriesLabel5.PointOptions = piePointOptions5;
-         series3.Label = doughnutSeriesLabel5;
-         series3.LabelsVisibility = DevExpress.Utils.DefaultBoolean.False;
-         series3.LegendText = "آمار کلی مشترکین";
-         series3.Name = "آمار کلی مشترکین";
-         series3.SummaryFunction = "COUNT()";
-         series3.TopNOptions.Enabled = true;
-         doughnutSeriesView5.RuntimeExploding = false;
-         series3.View = doughnutSeriesView5;
+         series13.ArgumentDataMember = "SEX_TYPE_DNRM";
+         series13.ArgumentScaleType = DevExpress.XtraCharts.ScaleType.Qualitative;
+         doughnutSeriesLabel25.LineVisible = true;
+         piePointOptions25.ValueNumericOptions.Format = DevExpress.XtraCharts.NumericFormat.General;
+         doughnutSeriesLabel25.PointOptions = piePointOptions25;
+         series13.Label = doughnutSeriesLabel25;
+         series13.LabelsVisibility = DevExpress.Utils.DefaultBoolean.False;
+         series13.LegendText = "آمار کلی مشترکین";
+         series13.Name = "آمار کلی مشترکین";
+         series13.SummaryFunction = "COUNT()";
+         series13.TopNOptions.Enabled = true;
+         doughnutSeriesView25.RuntimeExploding = false;
+         series13.View = doughnutSeriesView25;
          this.TellPhonServ_Cc.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
-        series3};
-         doughnutSeriesLabel6.LineVisible = true;
-         piePointOptions6.ValueNumericOptions.Format = DevExpress.XtraCharts.NumericFormat.General;
-         doughnutSeriesLabel6.PointOptions = piePointOptions6;
-         this.TellPhonServ_Cc.SeriesTemplate.Label = doughnutSeriesLabel6;
-         doughnutSeriesView6.RuntimeExploding = false;
-         this.TellPhonServ_Cc.SeriesTemplate.View = doughnutSeriesView6;
+        series13};
+         doughnutSeriesLabel26.LineVisible = true;
+         piePointOptions26.ValueNumericOptions.Format = DevExpress.XtraCharts.NumericFormat.General;
+         doughnutSeriesLabel26.PointOptions = piePointOptions26;
+         this.TellPhonServ_Cc.SeriesTemplate.Label = doughnutSeriesLabel26;
+         doughnutSeriesView26.RuntimeExploding = false;
+         this.TellPhonServ_Cc.SeriesTemplate.View = doughnutSeriesView26;
          this.TellPhonServ_Cc.Size = new System.Drawing.Size(191, 191);
          this.TellPhonServ_Cc.TabIndex = 5;
          // 
@@ -1267,35 +1305,35 @@
          // 
          this.CochServ_Cc.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.CochServ_Cc.DataSource = this.FighBs;
-         simpleDiagram4.EqualPieSize = false;
-         this.CochServ_Cc.Diagram = simpleDiagram4;
+         simpleDiagram14.EqualPieSize = false;
+         this.CochServ_Cc.Diagram = simpleDiagram14;
          this.CochServ_Cc.Legend.Visible = false;
          this.CochServ_Cc.Location = new System.Drawing.Point(5, 313);
          this.CochServ_Cc.LookAndFeel.SkinName = "Office 2010 Silver";
          this.CochServ_Cc.LookAndFeel.UseDefaultLookAndFeel = false;
          this.CochServ_Cc.Name = "CochServ_Cc";
          this.CochServ_Cc.PaletteBaseColorNumber = 3;
-         series4.ArgumentDataMember = "SEX_TYPE_DNRM";
-         series4.ArgumentScaleType = DevExpress.XtraCharts.ScaleType.Qualitative;
-         doughnutSeriesLabel7.LineVisible = true;
-         piePointOptions7.ValueNumericOptions.Format = DevExpress.XtraCharts.NumericFormat.General;
-         doughnutSeriesLabel7.PointOptions = piePointOptions7;
-         series4.Label = doughnutSeriesLabel7;
-         series4.LabelsVisibility = DevExpress.Utils.DefaultBoolean.False;
-         series4.LegendText = "آمار کلی مشترکین";
-         series4.Name = "آمار کلی مشترکین";
-         series4.SummaryFunction = "COUNT()";
-         series4.TopNOptions.Enabled = true;
-         doughnutSeriesView7.RuntimeExploding = false;
-         series4.View = doughnutSeriesView7;
+         series14.ArgumentDataMember = "SEX_TYPE_DNRM";
+         series14.ArgumentScaleType = DevExpress.XtraCharts.ScaleType.Qualitative;
+         doughnutSeriesLabel27.LineVisible = true;
+         piePointOptions27.ValueNumericOptions.Format = DevExpress.XtraCharts.NumericFormat.General;
+         doughnutSeriesLabel27.PointOptions = piePointOptions27;
+         series14.Label = doughnutSeriesLabel27;
+         series14.LabelsVisibility = DevExpress.Utils.DefaultBoolean.False;
+         series14.LegendText = "آمار کلی مشترکین";
+         series14.Name = "آمار کلی مشترکین";
+         series14.SummaryFunction = "COUNT()";
+         series14.TopNOptions.Enabled = true;
+         doughnutSeriesView27.RuntimeExploding = false;
+         series14.View = doughnutSeriesView27;
          this.CochServ_Cc.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
-        series4};
-         doughnutSeriesLabel8.LineVisible = true;
-         piePointOptions8.ValueNumericOptions.Format = DevExpress.XtraCharts.NumericFormat.General;
-         doughnutSeriesLabel8.PointOptions = piePointOptions8;
-         this.CochServ_Cc.SeriesTemplate.Label = doughnutSeriesLabel8;
-         doughnutSeriesView8.RuntimeExploding = false;
-         this.CochServ_Cc.SeriesTemplate.View = doughnutSeriesView8;
+        series14};
+         doughnutSeriesLabel28.LineVisible = true;
+         piePointOptions28.ValueNumericOptions.Format = DevExpress.XtraCharts.NumericFormat.General;
+         doughnutSeriesLabel28.PointOptions = piePointOptions28;
+         this.CochServ_Cc.SeriesTemplate.Label = doughnutSeriesLabel28;
+         doughnutSeriesView28.RuntimeExploding = false;
+         this.CochServ_Cc.SeriesTemplate.View = doughnutSeriesView28;
          this.CochServ_Cc.Size = new System.Drawing.Size(191, 191);
          this.CochServ_Cc.TabIndex = 3;
          // 
@@ -1456,35 +1494,35 @@
          // 
          this.InsrServ_Cc.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.InsrServ_Cc.DataSource = this.FighBs;
-         simpleDiagram5.EqualPieSize = false;
-         this.InsrServ_Cc.Diagram = simpleDiagram5;
+         simpleDiagram15.EqualPieSize = false;
+         this.InsrServ_Cc.Diagram = simpleDiagram15;
          this.InsrServ_Cc.Legend.Visible = false;
          this.InsrServ_Cc.Location = new System.Drawing.Point(5, 313);
          this.InsrServ_Cc.LookAndFeel.SkinName = "Office 2010 Silver";
          this.InsrServ_Cc.LookAndFeel.UseDefaultLookAndFeel = false;
          this.InsrServ_Cc.Name = "InsrServ_Cc";
          this.InsrServ_Cc.PaletteBaseColorNumber = 2;
-         series5.ArgumentDataMember = "SEX_TYPE_DNRM";
-         series5.ArgumentScaleType = DevExpress.XtraCharts.ScaleType.Qualitative;
-         doughnutSeriesLabel9.LineVisible = true;
-         piePointOptions9.ValueNumericOptions.Format = DevExpress.XtraCharts.NumericFormat.General;
-         doughnutSeriesLabel9.PointOptions = piePointOptions9;
-         series5.Label = doughnutSeriesLabel9;
-         series5.LabelsVisibility = DevExpress.Utils.DefaultBoolean.False;
-         series5.LegendText = "آمار کلی مشترکین";
-         series5.Name = "آمار کلی مشترکین";
-         series5.SummaryFunction = "COUNT()";
-         series5.TopNOptions.Enabled = true;
-         doughnutSeriesView9.RuntimeExploding = false;
-         series5.View = doughnutSeriesView9;
+         series15.ArgumentDataMember = "SEX_TYPE_DNRM";
+         series15.ArgumentScaleType = DevExpress.XtraCharts.ScaleType.Qualitative;
+         doughnutSeriesLabel29.LineVisible = true;
+         piePointOptions29.ValueNumericOptions.Format = DevExpress.XtraCharts.NumericFormat.General;
+         doughnutSeriesLabel29.PointOptions = piePointOptions29;
+         series15.Label = doughnutSeriesLabel29;
+         series15.LabelsVisibility = DevExpress.Utils.DefaultBoolean.False;
+         series15.LegendText = "آمار کلی مشترکین";
+         series15.Name = "آمار کلی مشترکین";
+         series15.SummaryFunction = "COUNT()";
+         series15.TopNOptions.Enabled = true;
+         doughnutSeriesView29.RuntimeExploding = false;
+         series15.View = doughnutSeriesView29;
          this.InsrServ_Cc.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
-        series5};
-         doughnutSeriesLabel10.LineVisible = true;
-         piePointOptions10.ValueNumericOptions.Format = DevExpress.XtraCharts.NumericFormat.General;
-         doughnutSeriesLabel10.PointOptions = piePointOptions10;
-         this.InsrServ_Cc.SeriesTemplate.Label = doughnutSeriesLabel10;
-         doughnutSeriesView10.RuntimeExploding = false;
-         this.InsrServ_Cc.SeriesTemplate.View = doughnutSeriesView10;
+        series15};
+         doughnutSeriesLabel30.LineVisible = true;
+         piePointOptions30.ValueNumericOptions.Format = DevExpress.XtraCharts.NumericFormat.General;
+         doughnutSeriesLabel30.PointOptions = piePointOptions30;
+         this.InsrServ_Cc.SeriesTemplate.Label = doughnutSeriesLabel30;
+         doughnutSeriesView30.RuntimeExploding = false;
+         this.InsrServ_Cc.SeriesTemplate.View = doughnutSeriesView30;
          this.InsrServ_Cc.Size = new System.Drawing.Size(191, 191);
          this.InsrServ_Cc.TabIndex = 4;
          // 
@@ -1573,7 +1611,6 @@
          // tp_003
          // 
          this.tp_003.AutoScroll = true;
-         this.tp_003.Controls.Add(this.Stopwatch3_Lb);
          this.tp_003.Controls.Add(this.groupControl13);
          this.tp_003.Controls.Add(this.groupControl12);
          this.tp_003.Controls.Add(this.groupControl11);
@@ -1583,19 +1620,6 @@
          this.tp_003.Name = "tp_003";
          this.tp_003.Size = new System.Drawing.Size(1168, 552);
          this.tp_003.Text = "آمار مالی";
-         // 
-         // Stopwatch3_Lb
-         // 
-         this.Stopwatch3_Lb.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("Stopwatch3_Lb.Appearance.Image")));
-         this.Stopwatch3_Lb.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         this.Stopwatch3_Lb.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.Stopwatch3_Lb.Dock = System.Windows.Forms.DockStyle.Top;
-         this.Stopwatch3_Lb.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.Stopwatch3_Lb.Location = new System.Drawing.Point(0, 0);
-         this.Stopwatch3_Lb.Name = "Stopwatch3_Lb";
-         this.Stopwatch3_Lb.Size = new System.Drawing.Size(1020, 40);
-         this.Stopwatch3_Lb.TabIndex = 11;
-         this.Stopwatch3_Lb.Text = "00:00:07.154587";
          // 
          // groupControl13
          // 
@@ -1623,7 +1647,7 @@
          this.groupControl13.Controls.Add(this.labelControl38);
          this.groupControl13.Controls.Add(this.labelControl36);
          this.groupControl13.Controls.Add(this.labelControl34);
-         this.groupControl13.Location = new System.Drawing.Point(38, 223);
+         this.groupControl13.Location = new System.Drawing.Point(38, 183);
          this.groupControl13.LookAndFeel.SkinName = "Office 2010 Silver";
          this.groupControl13.LookAndFeel.UseDefaultLookAndFeel = false;
          this.groupControl13.Name = "groupControl13";
@@ -1888,7 +1912,7 @@
          this.groupControl12.Controls.Add(this.label36);
          this.groupControl12.Controls.Add(this.label37);
          this.groupControl12.Controls.Add(this.labelControl32);
-         this.groupControl12.Location = new System.Drawing.Point(38, 46);
+         this.groupControl12.Location = new System.Drawing.Point(38, 6);
          this.groupControl12.LookAndFeel.SkinName = "Office 2010 Silver";
          this.groupControl12.LookAndFeel.UseDefaultLookAndFeel = false;
          this.groupControl12.Name = "groupControl12";
@@ -2123,7 +2147,7 @@
          this.groupControl11.Controls.Add(this.label62);
          this.groupControl11.Controls.Add(this.label66);
          this.groupControl11.Controls.Add(this.labelControl28);
-         this.groupControl11.Location = new System.Drawing.Point(426, 356);
+         this.groupControl11.Location = new System.Drawing.Point(426, 316);
          this.groupControl11.LookAndFeel.SkinName = "Office 2010 Silver";
          this.groupControl11.LookAndFeel.UseDefaultLookAndFeel = false;
          this.groupControl11.Name = "groupControl11";
@@ -2775,7 +2799,7 @@
          this.groupControl8.Controls.Add(this.label31);
          this.groupControl8.Controls.Add(this.label27);
          this.groupControl8.Controls.Add(this.labelControl20);
-         this.groupControl8.Location = new System.Drawing.Point(426, 46);
+         this.groupControl8.Location = new System.Drawing.Point(426, 6);
          this.groupControl8.LookAndFeel.SkinName = "Office 2010 Silver";
          this.groupControl8.LookAndFeel.UseDefaultLookAndFeel = false;
          this.groupControl8.Name = "groupControl8";
@@ -3228,19 +3252,590 @@
          // 
          // groupControl7
          // 
-         this.groupControl7.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+         this.groupControl7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.groupControl7.AppearanceCaption.Font = new System.Drawing.Font("IRANSans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.groupControl7.AppearanceCaption.Options.UseFont = true;
          this.groupControl7.AppearanceCaption.Options.UseTextOptions = true;
          this.groupControl7.AppearanceCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-         this.groupControl7.Location = new System.Drawing.Point(75, 3);
+         this.groupControl7.Controls.Add(this._23_Prct_Prg);
+         this.groupControl7.Controls.Add(this._21_Prct_Prg);
+         this.groupControl7.Controls.Add(this._19_Prct_Prg);
+         this.groupControl7.Controls.Add(this._17_Prct_Prg);
+         this.groupControl7.Controls.Add(this._15_Prct_Prg);
+         this.groupControl7.Controls.Add(this._13_Prct_Prg);
+         this.groupControl7.Controls.Add(this._11_Prct_Prg);
+         this.groupControl7.Controls.Add(this._9_Prct_Prg);
+         this.groupControl7.Controls.Add(this._7_Prct_Prg);
+         this.groupControl7.Controls.Add(this._22_Prct_Prg);
+         this.groupControl7.Controls.Add(this._20_Prct_Prg);
+         this.groupControl7.Controls.Add(this._18_Prct_Prg);
+         this.groupControl7.Controls.Add(this._16_Prct_Prg);
+         this.groupControl7.Controls.Add(this._14_Prct_Prg);
+         this.groupControl7.Controls.Add(this._12_Prct_Prg);
+         this.groupControl7.Controls.Add(this._10_Prct_Prg);
+         this.groupControl7.Controls.Add(this._8_Prct_Prg);
+         this.groupControl7.Controls.Add(this._6_Prct_Prg);
+         this.groupControl7.Controls.Add(this.labelControl40);
+         this.groupControl7.Controls.Add(this.labelControl16);
+         this.groupControl7.Controls.Add(this.label54);
+         this.groupControl7.Controls.Add(this.label53);
+         this.groupControl7.Controls.Add(this.label52);
+         this.groupControl7.Controls.Add(this.label51);
+         this.groupControl7.Controls.Add(this.label50);
+         this.groupControl7.Controls.Add(this.label49);
+         this.groupControl7.Controls.Add(this.label48);
+         this.groupControl7.Controls.Add(this.label47);
+         this.groupControl7.Controls.Add(this.label45);
+         this.groupControl7.Controls.Add(this.label44);
+         this.groupControl7.Controls.Add(this.label42);
+         this.groupControl7.Controls.Add(this.label40);
+         this.groupControl7.Controls.Add(this.label39);
+         this.groupControl7.Controls.Add(this.label38);
+         this.groupControl7.Controls.Add(this.label22);
+         this.groupControl7.Controls.Add(this.label7);
+         this.groupControl7.Controls.Add(this.label4);
+         this.groupControl7.Controls.Add(this.label57);
+         this.groupControl7.Controls.Add(this.label55);
+         this.groupControl7.Controls.Add(this.label1);
+         this.groupControl7.Location = new System.Drawing.Point(239, 3);
          this.groupControl7.LookAndFeel.SkinName = "Office 2010 Silver";
          this.groupControl7.LookAndFeel.UseDefaultLookAndFeel = false;
          this.groupControl7.Name = "groupControl7";
-         this.groupControl7.Size = new System.Drawing.Size(888, 535);
+         this.groupControl7.Size = new System.Drawing.Size(719, 249);
          this.groupControl7.TabIndex = 10;
          this.groupControl7.Text = "ساعت اوج تردد";
+         // 
+         // _23_Prct_Prg
+         // 
+         this._23_Prct_Prg.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+         this._23_Prct_Prg.EditValue = "72";
+         this._23_Prct_Prg.Location = new System.Drawing.Point(682, 55);
+         this._23_Prct_Prg.Name = "_23_Prct_Prg";
+         this._23_Prct_Prg.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
+         this._23_Prct_Prg.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+         this._23_Prct_Prg.Properties.LookAndFeel.SkinName = "Office 2013";
+         this._23_Prct_Prg.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
+         this._23_Prct_Prg.Properties.ProgressKind = DevExpress.XtraEditors.Controls.ProgressKind.Vertical;
+         this._23_Prct_Prg.Properties.Step = 1;
+         this._23_Prct_Prg.Size = new System.Drawing.Size(10, 131);
+         this._23_Prct_Prg.TabIndex = 14;
+         // 
+         // _21_Prct_Prg
+         // 
+         this._21_Prct_Prg.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+         this._21_Prct_Prg.EditValue = "70";
+         this._21_Prct_Prg.Location = new System.Drawing.Point(608, 55);
+         this._21_Prct_Prg.Name = "_21_Prct_Prg";
+         this._21_Prct_Prg.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
+         this._21_Prct_Prg.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+         this._21_Prct_Prg.Properties.LookAndFeel.SkinName = "Office 2013";
+         this._21_Prct_Prg.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
+         this._21_Prct_Prg.Properties.ProgressKind = DevExpress.XtraEditors.Controls.ProgressKind.Vertical;
+         this._21_Prct_Prg.Properties.Step = 1;
+         this._21_Prct_Prg.Size = new System.Drawing.Size(10, 131);
+         this._21_Prct_Prg.TabIndex = 14;
+         // 
+         // _19_Prct_Prg
+         // 
+         this._19_Prct_Prg.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+         this._19_Prct_Prg.EditValue = "66";
+         this._19_Prct_Prg.Location = new System.Drawing.Point(536, 55);
+         this._19_Prct_Prg.Name = "_19_Prct_Prg";
+         this._19_Prct_Prg.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
+         this._19_Prct_Prg.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+         this._19_Prct_Prg.Properties.LookAndFeel.SkinName = "Office 2013";
+         this._19_Prct_Prg.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
+         this._19_Prct_Prg.Properties.ProgressKind = DevExpress.XtraEditors.Controls.ProgressKind.Vertical;
+         this._19_Prct_Prg.Properties.Step = 1;
+         this._19_Prct_Prg.Size = new System.Drawing.Size(10, 131);
+         this._19_Prct_Prg.TabIndex = 14;
+         // 
+         // _17_Prct_Prg
+         // 
+         this._17_Prct_Prg.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+         this._17_Prct_Prg.EditValue = "77";
+         this._17_Prct_Prg.Location = new System.Drawing.Point(464, 55);
+         this._17_Prct_Prg.Name = "_17_Prct_Prg";
+         this._17_Prct_Prg.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
+         this._17_Prct_Prg.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+         this._17_Prct_Prg.Properties.LookAndFeel.SkinName = "Office 2013";
+         this._17_Prct_Prg.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
+         this._17_Prct_Prg.Properties.ProgressKind = DevExpress.XtraEditors.Controls.ProgressKind.Vertical;
+         this._17_Prct_Prg.Properties.Step = 1;
+         this._17_Prct_Prg.Size = new System.Drawing.Size(10, 131);
+         this._17_Prct_Prg.TabIndex = 14;
+         // 
+         // _15_Prct_Prg
+         // 
+         this._15_Prct_Prg.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+         this._15_Prct_Prg.EditValue = "25";
+         this._15_Prct_Prg.Location = new System.Drawing.Point(392, 55);
+         this._15_Prct_Prg.Name = "_15_Prct_Prg";
+         this._15_Prct_Prg.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
+         this._15_Prct_Prg.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+         this._15_Prct_Prg.Properties.LookAndFeel.SkinName = "Office 2013";
+         this._15_Prct_Prg.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
+         this._15_Prct_Prg.Properties.ProgressKind = DevExpress.XtraEditors.Controls.ProgressKind.Vertical;
+         this._15_Prct_Prg.Properties.Step = 1;
+         this._15_Prct_Prg.Size = new System.Drawing.Size(10, 131);
+         this._15_Prct_Prg.TabIndex = 14;
+         // 
+         // _13_Prct_Prg
+         // 
+         this._13_Prct_Prg.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+         this._13_Prct_Prg.EditValue = "40";
+         this._13_Prct_Prg.Location = new System.Drawing.Point(320, 55);
+         this._13_Prct_Prg.Name = "_13_Prct_Prg";
+         this._13_Prct_Prg.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
+         this._13_Prct_Prg.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+         this._13_Prct_Prg.Properties.LookAndFeel.SkinName = "Office 2013";
+         this._13_Prct_Prg.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
+         this._13_Prct_Prg.Properties.ProgressKind = DevExpress.XtraEditors.Controls.ProgressKind.Vertical;
+         this._13_Prct_Prg.Properties.Step = 1;
+         this._13_Prct_Prg.Size = new System.Drawing.Size(10, 131);
+         this._13_Prct_Prg.TabIndex = 14;
+         // 
+         // _11_Prct_Prg
+         // 
+         this._11_Prct_Prg.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+         this._11_Prct_Prg.EditValue = "55";
+         this._11_Prct_Prg.Location = new System.Drawing.Point(249, 55);
+         this._11_Prct_Prg.Name = "_11_Prct_Prg";
+         this._11_Prct_Prg.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
+         this._11_Prct_Prg.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+         this._11_Prct_Prg.Properties.LookAndFeel.SkinName = "Office 2013";
+         this._11_Prct_Prg.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
+         this._11_Prct_Prg.Properties.ProgressKind = DevExpress.XtraEditors.Controls.ProgressKind.Vertical;
+         this._11_Prct_Prg.Properties.Step = 1;
+         this._11_Prct_Prg.Size = new System.Drawing.Size(10, 131);
+         this._11_Prct_Prg.TabIndex = 14;
+         // 
+         // _9_Prct_Prg
+         // 
+         this._9_Prct_Prg.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+         this._9_Prct_Prg.EditValue = "40";
+         this._9_Prct_Prg.Location = new System.Drawing.Point(179, 55);
+         this._9_Prct_Prg.Name = "_9_Prct_Prg";
+         this._9_Prct_Prg.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
+         this._9_Prct_Prg.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+         this._9_Prct_Prg.Properties.LookAndFeel.SkinName = "Office 2013";
+         this._9_Prct_Prg.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
+         this._9_Prct_Prg.Properties.ProgressKind = DevExpress.XtraEditors.Controls.ProgressKind.Vertical;
+         this._9_Prct_Prg.Properties.Step = 1;
+         this._9_Prct_Prg.Size = new System.Drawing.Size(10, 131);
+         this._9_Prct_Prg.TabIndex = 14;
+         // 
+         // _7_Prct_Prg
+         // 
+         this._7_Prct_Prg.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+         this._7_Prct_Prg.EditValue = "30";
+         this._7_Prct_Prg.Location = new System.Drawing.Point(109, 55);
+         this._7_Prct_Prg.Name = "_7_Prct_Prg";
+         this._7_Prct_Prg.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
+         this._7_Prct_Prg.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+         this._7_Prct_Prg.Properties.LookAndFeel.SkinName = "Office 2013";
+         this._7_Prct_Prg.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
+         this._7_Prct_Prg.Properties.ProgressKind = DevExpress.XtraEditors.Controls.ProgressKind.Vertical;
+         this._7_Prct_Prg.Properties.Step = 1;
+         this._7_Prct_Prg.Size = new System.Drawing.Size(10, 131);
+         this._7_Prct_Prg.TabIndex = 14;
+         // 
+         // _22_Prct_Prg
+         // 
+         this._22_Prct_Prg.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+         this._22_Prct_Prg.EditValue = "80";
+         this._22_Prct_Prg.Location = new System.Drawing.Point(644, 55);
+         this._22_Prct_Prg.Name = "_22_Prct_Prg";
+         this._22_Prct_Prg.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
+         this._22_Prct_Prg.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+         this._22_Prct_Prg.Properties.LookAndFeel.SkinName = "Office 2013";
+         this._22_Prct_Prg.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
+         this._22_Prct_Prg.Properties.ProgressKind = DevExpress.XtraEditors.Controls.ProgressKind.Vertical;
+         this._22_Prct_Prg.Properties.Step = 1;
+         this._22_Prct_Prg.Size = new System.Drawing.Size(10, 131);
+         this._22_Prct_Prg.TabIndex = 14;
+         // 
+         // _20_Prct_Prg
+         // 
+         this._20_Prct_Prg.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+         this._20_Prct_Prg.EditValue = "45";
+         this._20_Prct_Prg.Location = new System.Drawing.Point(572, 55);
+         this._20_Prct_Prg.Name = "_20_Prct_Prg";
+         this._20_Prct_Prg.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
+         this._20_Prct_Prg.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+         this._20_Prct_Prg.Properties.LookAndFeel.SkinName = "Office 2013";
+         this._20_Prct_Prg.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
+         this._20_Prct_Prg.Properties.ProgressKind = DevExpress.XtraEditors.Controls.ProgressKind.Vertical;
+         this._20_Prct_Prg.Properties.Step = 1;
+         this._20_Prct_Prg.Size = new System.Drawing.Size(10, 131);
+         this._20_Prct_Prg.TabIndex = 14;
+         // 
+         // _18_Prct_Prg
+         // 
+         this._18_Prct_Prg.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+         this._18_Prct_Prg.EditValue = "68";
+         this._18_Prct_Prg.Location = new System.Drawing.Point(500, 55);
+         this._18_Prct_Prg.Name = "_18_Prct_Prg";
+         this._18_Prct_Prg.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
+         this._18_Prct_Prg.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+         this._18_Prct_Prg.Properties.LookAndFeel.SkinName = "Office 2013";
+         this._18_Prct_Prg.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
+         this._18_Prct_Prg.Properties.ProgressKind = DevExpress.XtraEditors.Controls.ProgressKind.Vertical;
+         this._18_Prct_Prg.Properties.Step = 1;
+         this._18_Prct_Prg.Size = new System.Drawing.Size(10, 131);
+         this._18_Prct_Prg.TabIndex = 14;
+         // 
+         // _16_Prct_Prg
+         // 
+         this._16_Prct_Prg.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+         this._16_Prct_Prg.EditValue = "33";
+         this._16_Prct_Prg.Location = new System.Drawing.Point(428, 55);
+         this._16_Prct_Prg.Name = "_16_Prct_Prg";
+         this._16_Prct_Prg.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
+         this._16_Prct_Prg.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+         this._16_Prct_Prg.Properties.LookAndFeel.SkinName = "Office 2013";
+         this._16_Prct_Prg.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
+         this._16_Prct_Prg.Properties.ProgressKind = DevExpress.XtraEditors.Controls.ProgressKind.Vertical;
+         this._16_Prct_Prg.Properties.Step = 1;
+         this._16_Prct_Prg.Size = new System.Drawing.Size(10, 131);
+         this._16_Prct_Prg.TabIndex = 14;
+         // 
+         // _14_Prct_Prg
+         // 
+         this._14_Prct_Prg.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+         this._14_Prct_Prg.EditValue = "30";
+         this._14_Prct_Prg.Location = new System.Drawing.Point(356, 55);
+         this._14_Prct_Prg.Name = "_14_Prct_Prg";
+         this._14_Prct_Prg.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
+         this._14_Prct_Prg.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+         this._14_Prct_Prg.Properties.LookAndFeel.SkinName = "Office 2013";
+         this._14_Prct_Prg.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
+         this._14_Prct_Prg.Properties.ProgressKind = DevExpress.XtraEditors.Controls.ProgressKind.Vertical;
+         this._14_Prct_Prg.Properties.Step = 1;
+         this._14_Prct_Prg.Size = new System.Drawing.Size(10, 131);
+         this._14_Prct_Prg.TabIndex = 14;
+         // 
+         // _12_Prct_Prg
+         // 
+         this._12_Prct_Prg.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+         this._12_Prct_Prg.EditValue = "60";
+         this._12_Prct_Prg.Location = new System.Drawing.Point(284, 55);
+         this._12_Prct_Prg.Name = "_12_Prct_Prg";
+         this._12_Prct_Prg.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
+         this._12_Prct_Prg.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+         this._12_Prct_Prg.Properties.LookAndFeel.SkinName = "Office 2013";
+         this._12_Prct_Prg.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
+         this._12_Prct_Prg.Properties.ProgressKind = DevExpress.XtraEditors.Controls.ProgressKind.Vertical;
+         this._12_Prct_Prg.Properties.Step = 1;
+         this._12_Prct_Prg.Size = new System.Drawing.Size(10, 131);
+         this._12_Prct_Prg.TabIndex = 14;
+         // 
+         // _10_Prct_Prg
+         // 
+         this._10_Prct_Prg.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+         this._10_Prct_Prg.EditValue = "47";
+         this._10_Prct_Prg.Location = new System.Drawing.Point(214, 55);
+         this._10_Prct_Prg.Name = "_10_Prct_Prg";
+         this._10_Prct_Prg.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
+         this._10_Prct_Prg.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+         this._10_Prct_Prg.Properties.LookAndFeel.SkinName = "Office 2013";
+         this._10_Prct_Prg.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
+         this._10_Prct_Prg.Properties.ProgressKind = DevExpress.XtraEditors.Controls.ProgressKind.Vertical;
+         this._10_Prct_Prg.Properties.Step = 1;
+         this._10_Prct_Prg.Size = new System.Drawing.Size(10, 131);
+         this._10_Prct_Prg.TabIndex = 14;
+         // 
+         // _8_Prct_Prg
+         // 
+         this._8_Prct_Prg.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+         this._8_Prct_Prg.EditValue = "35";
+         this._8_Prct_Prg.Location = new System.Drawing.Point(144, 55);
+         this._8_Prct_Prg.Name = "_8_Prct_Prg";
+         this._8_Prct_Prg.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
+         this._8_Prct_Prg.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+         this._8_Prct_Prg.Properties.LookAndFeel.SkinName = "Office 2013";
+         this._8_Prct_Prg.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
+         this._8_Prct_Prg.Properties.ProgressKind = DevExpress.XtraEditors.Controls.ProgressKind.Vertical;
+         this._8_Prct_Prg.Properties.Step = 1;
+         this._8_Prct_Prg.Size = new System.Drawing.Size(10, 131);
+         this._8_Prct_Prg.TabIndex = 14;
+         // 
+         // _6_Prct_Prg
+         // 
+         this._6_Prct_Prg.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+         this._6_Prct_Prg.EditValue = "10";
+         this._6_Prct_Prg.Location = new System.Drawing.Point(74, 55);
+         this._6_Prct_Prg.Name = "_6_Prct_Prg";
+         this._6_Prct_Prg.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
+         this._6_Prct_Prg.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+         this._6_Prct_Prg.Properties.LookAndFeel.SkinName = "Office 2013";
+         this._6_Prct_Prg.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
+         this._6_Prct_Prg.Properties.ProgressKind = DevExpress.XtraEditors.Controls.ProgressKind.Vertical;
+         this._6_Prct_Prg.Properties.Step = 1;
+         this._6_Prct_Prg.Size = new System.Drawing.Size(10, 131);
+         this._6_Prct_Prg.TabIndex = 14;
+         // 
+         // labelControl40
+         // 
+         this.labelControl40.AllowHtmlString = true;
+         this.labelControl40.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+         this.labelControl40.Appearance.Font = new System.Drawing.Font("Iranian Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.labelControl40.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+         this.labelControl40.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+         this.labelControl40.LineOrientation = DevExpress.XtraEditors.LabelLineOrientation.Vertical;
+         this.labelControl40.LineStyle = System.Drawing.Drawing2D.DashStyle.DashDot;
+         this.labelControl40.LineVisible = true;
+         this.labelControl40.Location = new System.Drawing.Point(46, 39);
+         this.labelControl40.LookAndFeel.SkinName = "Office 2010 Blue";
+         this.labelControl40.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.labelControl40.Name = "labelControl40";
+         this.labelControl40.Size = new System.Drawing.Size(13, 205);
+         this.labelControl40.TabIndex = 1;
+         // 
+         // labelControl16
+         // 
+         this.labelControl16.AllowHtmlString = true;
+         this.labelControl16.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+         this.labelControl16.Appearance.Font = new System.Drawing.Font("Iranian Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.labelControl16.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+         this.labelControl16.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+         this.labelControl16.LineStyle = System.Drawing.Drawing2D.DashStyle.DashDot;
+         this.labelControl16.LineVisible = true;
+         this.labelControl16.Location = new System.Drawing.Point(5, 192);
+         this.labelControl16.LookAndFeel.SkinName = "Office 2010 Blue";
+         this.labelControl16.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.labelControl16.Name = "labelControl16";
+         this.labelControl16.Size = new System.Drawing.Size(709, 10);
+         this.labelControl16.TabIndex = 0;
+         // 
+         // label54
+         // 
+         this.label54.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+         this.label54.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.label54.Location = new System.Drawing.Point(671, 205);
+         this.label54.Name = "label54";
+         this.label54.Size = new System.Drawing.Size(33, 32);
+         this.label54.TabIndex = 1;
+         this.label54.Text = "23";
+         this.label54.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         // 
+         // label53
+         // 
+         this.label53.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+         this.label53.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.label53.Location = new System.Drawing.Point(634, 205);
+         this.label53.Name = "label53";
+         this.label53.Size = new System.Drawing.Size(31, 32);
+         this.label53.TabIndex = 1;
+         this.label53.Text = "22";
+         this.label53.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         // 
+         // label52
+         // 
+         this.label52.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+         this.label52.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.label52.Location = new System.Drawing.Point(598, 205);
+         this.label52.Name = "label52";
+         this.label52.Size = new System.Drawing.Size(30, 32);
+         this.label52.TabIndex = 1;
+         this.label52.Text = "21";
+         this.label52.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         // 
+         // label51
+         // 
+         this.label51.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+         this.label51.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.label51.Location = new System.Drawing.Point(562, 205);
+         this.label51.Name = "label51";
+         this.label51.Size = new System.Drawing.Size(30, 32);
+         this.label51.TabIndex = 1;
+         this.label51.Text = "20";
+         this.label51.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         // 
+         // label50
+         // 
+         this.label50.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+         this.label50.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.label50.Location = new System.Drawing.Point(526, 205);
+         this.label50.Name = "label50";
+         this.label50.Size = new System.Drawing.Size(30, 32);
+         this.label50.TabIndex = 1;
+         this.label50.Text = "19";
+         this.label50.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         // 
+         // label49
+         // 
+         this.label49.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+         this.label49.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.label49.Location = new System.Drawing.Point(490, 205);
+         this.label49.Name = "label49";
+         this.label49.Size = new System.Drawing.Size(30, 32);
+         this.label49.TabIndex = 1;
+         this.label49.Text = "18";
+         this.label49.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         // 
+         // label48
+         // 
+         this.label48.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+         this.label48.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.label48.Location = new System.Drawing.Point(454, 205);
+         this.label48.Name = "label48";
+         this.label48.Size = new System.Drawing.Size(30, 32);
+         this.label48.TabIndex = 1;
+         this.label48.Text = "17";
+         this.label48.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         // 
+         // label47
+         // 
+         this.label47.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+         this.label47.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.label47.Location = new System.Drawing.Point(418, 205);
+         this.label47.Name = "label47";
+         this.label47.Size = new System.Drawing.Size(30, 32);
+         this.label47.TabIndex = 1;
+         this.label47.Text = "16";
+         this.label47.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         // 
+         // label45
+         // 
+         this.label45.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+         this.label45.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.label45.Location = new System.Drawing.Point(382, 205);
+         this.label45.Name = "label45";
+         this.label45.Size = new System.Drawing.Size(30, 32);
+         this.label45.TabIndex = 1;
+         this.label45.Text = "15";
+         this.label45.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         // 
+         // label44
+         // 
+         this.label44.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+         this.label44.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.label44.Location = new System.Drawing.Point(346, 205);
+         this.label44.Name = "label44";
+         this.label44.Size = new System.Drawing.Size(30, 32);
+         this.label44.TabIndex = 1;
+         this.label44.Text = "14";
+         this.label44.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         // 
+         // label42
+         // 
+         this.label42.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+         this.label42.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.label42.Location = new System.Drawing.Point(310, 205);
+         this.label42.Name = "label42";
+         this.label42.Size = new System.Drawing.Size(30, 32);
+         this.label42.TabIndex = 1;
+         this.label42.Text = "13";
+         this.label42.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         // 
+         // label40
+         // 
+         this.label40.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+         this.label40.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.label40.Location = new System.Drawing.Point(275, 205);
+         this.label40.Name = "label40";
+         this.label40.Size = new System.Drawing.Size(29, 32);
+         this.label40.TabIndex = 1;
+         this.label40.Text = "12";
+         this.label40.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         // 
+         // label39
+         // 
+         this.label39.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+         this.label39.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.label39.Location = new System.Drawing.Point(240, 205);
+         this.label39.Name = "label39";
+         this.label39.Size = new System.Drawing.Size(29, 32);
+         this.label39.TabIndex = 1;
+         this.label39.Text = "11";
+         this.label39.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         // 
+         // label38
+         // 
+         this.label38.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+         this.label38.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.label38.Location = new System.Drawing.Point(205, 205);
+         this.label38.Name = "label38";
+         this.label38.Size = new System.Drawing.Size(29, 32);
+         this.label38.TabIndex = 1;
+         this.label38.Text = "10";
+         this.label38.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         // 
+         // label22
+         // 
+         this.label22.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+         this.label22.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.label22.Location = new System.Drawing.Point(170, 205);
+         this.label22.Name = "label22";
+         this.label22.Size = new System.Drawing.Size(29, 32);
+         this.label22.TabIndex = 1;
+         this.label22.Text = "9";
+         this.label22.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         // 
+         // label7
+         // 
+         this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+         this.label7.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.label7.Location = new System.Drawing.Point(135, 205);
+         this.label7.Name = "label7";
+         this.label7.Size = new System.Drawing.Size(29, 32);
+         this.label7.TabIndex = 1;
+         this.label7.Text = "8";
+         this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         // 
+         // label4
+         // 
+         this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+         this.label4.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.label4.Location = new System.Drawing.Point(100, 205);
+         this.label4.Name = "label4";
+         this.label4.Size = new System.Drawing.Size(29, 32);
+         this.label4.TabIndex = 1;
+         this.label4.Text = "7";
+         this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         // 
+         // label55
+         // 
+         this.label55.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+         this.label55.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.label55.Location = new System.Drawing.Point(6, 153);
+         this.label55.Name = "label55";
+         this.label55.Size = new System.Drawing.Size(39, 32);
+         this.label55.TabIndex = 1;
+         this.label55.Text = "0";
+         this.label55.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         // 
+         // label1
+         // 
+         this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+         this.label1.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.label1.Location = new System.Drawing.Point(65, 205);
+         this.label1.Name = "label1";
+         this.label1.Size = new System.Drawing.Size(29, 32);
+         this.label1.TabIndex = 1;
+         this.label1.Text = "6";
+         this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
          // 
          // groupControl6
          // 
@@ -3249,12 +3844,6 @@
          this.groupControl6.AppearanceCaption.Options.UseFont = true;
          this.groupControl6.AppearanceCaption.Options.UseTextOptions = true;
          this.groupControl6.AppearanceCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-         this.groupControl6.Controls.Add(this.labelControl16);
-         this.groupControl6.Controls.Add(this.TotlMenCrntDay_Lb);
-         this.groupControl6.Controls.Add(this.label4);
-         this.groupControl6.Controls.Add(this.TotlManCrntDay_Lb);
-         this.groupControl6.Controls.Add(this.label7);
-         this.groupControl6.Controls.Add(this.TotlAttn_Cc);
          this.groupControl6.Controls.Add(this.labelControl12);
          this.groupControl6.Controls.Add(this.labelControl14);
          this.groupControl6.Controls.Add(this.TotlMenCrntYear_Lb);
@@ -3271,108 +3860,9 @@
          this.groupControl6.LookAndFeel.SkinName = "Office 2010 Silver";
          this.groupControl6.LookAndFeel.UseDefaultLookAndFeel = false;
          this.groupControl6.Name = "groupControl6";
-         this.groupControl6.Size = new System.Drawing.Size(201, 535);
+         this.groupControl6.Size = new System.Drawing.Size(201, 249);
          this.groupControl6.TabIndex = 1;
          this.groupControl6.Text = "کل تردد";
-         // 
-         // labelControl16
-         // 
-         this.labelControl16.AllowHtmlString = true;
-         this.labelControl16.Appearance.Font = new System.Drawing.Font("Iranian Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.labelControl16.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-         this.labelControl16.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.labelControl16.LineStyle = System.Drawing.Drawing2D.DashStyle.DashDot;
-         this.labelControl16.LineVisible = true;
-         this.labelControl16.Location = new System.Drawing.Point(5, 246);
-         this.labelControl16.LookAndFeel.SkinName = "Office 2010 Blue";
-         this.labelControl16.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.labelControl16.Name = "labelControl16";
-         this.labelControl16.Size = new System.Drawing.Size(191, 7);
-         this.labelControl16.TabIndex = 9;
-         // 
-         // TotlMenCrntDay_Lb
-         // 
-         this.TotlMenCrntDay_Lb.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.TotlMenCrntDay_Lb.Location = new System.Drawing.Point(5, 297);
-         this.TotlMenCrntDay_Lb.Name = "TotlMenCrntDay_Lb";
-         this.TotlMenCrntDay_Lb.Size = new System.Drawing.Size(81, 32);
-         this.TotlMenCrntDay_Lb.TabIndex = 5;
-         this.TotlMenCrntDay_Lb.Text = "5154";
-         this.TotlMenCrntDay_Lb.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         // 
-         // label4
-         // 
-         this.label4.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.label4.Location = new System.Drawing.Point(5, 256);
-         this.label4.Name = "label4";
-         this.label4.Size = new System.Drawing.Size(81, 32);
-         this.label4.TabIndex = 6;
-         this.label4.Text = "امروز";
-         this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         // 
-         // TotlManCrntDay_Lb
-         // 
-         this.TotlManCrntDay_Lb.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.TotlManCrntDay_Lb.Location = new System.Drawing.Point(115, 297);
-         this.TotlManCrntDay_Lb.Name = "TotlManCrntDay_Lb";
-         this.TotlManCrntDay_Lb.Size = new System.Drawing.Size(81, 32);
-         this.TotlManCrntDay_Lb.TabIndex = 7;
-         this.TotlManCrntDay_Lb.Text = "7000";
-         this.TotlManCrntDay_Lb.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         // 
-         // label7
-         // 
-         this.label7.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.label7.Location = new System.Drawing.Point(115, 256);
-         this.label7.Name = "label7";
-         this.label7.Size = new System.Drawing.Size(81, 32);
-         this.label7.TabIndex = 8;
-         this.label7.Text = "امروز";
-         this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         // 
-         // TotlAttn_Cc
-         // 
-         this.TotlAttn_Cc.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-         this.TotlAttn_Cc.DataSource = this.AttnBs;
-         simpleDiagram6.EqualPieSize = false;
-         this.TotlAttn_Cc.Diagram = simpleDiagram6;
-         this.TotlAttn_Cc.Legend.Visible = false;
-         this.TotlAttn_Cc.Location = new System.Drawing.Point(5, 339);
-         this.TotlAttn_Cc.LookAndFeel.SkinName = "Office 2010 Silver";
-         this.TotlAttn_Cc.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.TotlAttn_Cc.Name = "TotlAttn_Cc";
-         this.TotlAttn_Cc.PaletteBaseColorNumber = 4;
-         series6.ArgumentDataMember = "Fighter1.SEX_TYPE_DNRM";
-         series6.ArgumentScaleType = DevExpress.XtraCharts.ScaleType.Qualitative;
-         doughnutSeriesLabel11.LineVisible = true;
-         piePointOptions11.PercentOptions.ValueAsPercent = false;
-         piePointOptions11.ValueNumericOptions.Format = DevExpress.XtraCharts.NumericFormat.Number;
-         piePointOptions11.ValueNumericOptions.Precision = 0;
-         doughnutSeriesLabel11.PointOptions = piePointOptions11;
-         doughnutSeriesLabel11.Position = DevExpress.XtraCharts.PieSeriesLabelPosition.Radial;
-         series6.Label = doughnutSeriesLabel11;
-         series6.LabelsVisibility = DevExpress.Utils.DefaultBoolean.False;
-         series6.LegendText = "آمار کلی مشترکین";
-         series6.Name = "آمار کلی مشترکین به تفکیک حنسیت";
-         series6.SummaryFunction = "COUNT()";
-         series6.TopNOptions.Enabled = true;
-         doughnutSeriesView11.RuntimeExploding = false;
-         series6.View = doughnutSeriesView11;
-         this.TotlAttn_Cc.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
-        series6};
-         doughnutSeriesLabel12.LineVisible = true;
-         piePointOptions12.ValueNumericOptions.Format = DevExpress.XtraCharts.NumericFormat.General;
-         doughnutSeriesLabel12.PointOptions = piePointOptions12;
-         this.TotlAttn_Cc.SeriesTemplate.Label = doughnutSeriesLabel12;
-         doughnutSeriesView12.RuntimeExploding = false;
-         this.TotlAttn_Cc.SeriesTemplate.View = doughnutSeriesView12;
-         this.TotlAttn_Cc.Size = new System.Drawing.Size(191, 191);
-         this.TotlAttn_Cc.TabIndex = 4;
-         // 
-         // AttnBs
-         // 
-         this.AttnBs.DataSource = typeof(System.Scsc.Data.Attendance);
          // 
          // labelControl12
          // 
@@ -3388,7 +3878,7 @@
          this.labelControl12.LookAndFeel.SkinName = "Office 2010 Blue";
          this.labelControl12.LookAndFeel.UseDefaultLookAndFeel = false;
          this.labelControl12.Name = "labelControl12";
-         this.labelControl12.Size = new System.Drawing.Size(13, 245);
+         this.labelControl12.Size = new System.Drawing.Size(13, 159);
          this.labelControl12.TabIndex = 1;
          // 
          // labelControl14
@@ -3413,7 +3903,7 @@
          this.TotlMenCrntYear_Lb.Name = "TotlMenCrntYear_Lb";
          this.TotlMenCrntYear_Lb.Size = new System.Drawing.Size(81, 32);
          this.TotlMenCrntYear_Lb.TabIndex = 1;
-         this.TotlMenCrntYear_Lb.Text = "5154";
+         this.TotlMenCrntYear_Lb.Text = "0";
          this.TotlMenCrntYear_Lb.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
          // 
          // TotlPrvsYear_Lb
@@ -3423,7 +3913,7 @@
          this.TotlPrvsYear_Lb.Name = "TotlPrvsYear_Lb";
          this.TotlPrvsYear_Lb.Size = new System.Drawing.Size(81, 32);
          this.TotlPrvsYear_Lb.TabIndex = 1;
-         this.TotlPrvsYear_Lb.Text = "154";
+         this.TotlPrvsYear_Lb.Text = "0";
          this.TotlPrvsYear_Lb.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
          // 
          // label9
@@ -3443,7 +3933,7 @@
          this.TotlManCrntYear_Lb.Name = "TotlManCrntYear_Lb";
          this.TotlManCrntYear_Lb.Size = new System.Drawing.Size(81, 32);
          this.TotlManCrntYear_Lb.TabIndex = 1;
-         this.TotlManCrntYear_Lb.Text = "7000";
+         this.TotlManCrntYear_Lb.Text = "0";
          this.TotlManCrntYear_Lb.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
          // 
          // label13
@@ -3473,7 +3963,7 @@
          this.TotlCrntYear_Lb.Name = "TotlCrntYear_Lb";
          this.TotlCrntYear_Lb.Size = new System.Drawing.Size(81, 32);
          this.TotlCrntYear_Lb.TabIndex = 1;
-         this.TotlCrntYear_Lb.Text = "12000";
+         this.TotlCrntYear_Lb.Text = "0";
          this.TotlCrntYear_Lb.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
          // 
          // label17
@@ -3493,7 +3983,7 @@
          this.TotlAttn_Lb.Name = "TotlAttn_Lb";
          this.TotlAttn_Lb.Size = new System.Drawing.Size(191, 32);
          this.TotlAttn_Lb.TabIndex = 1;
-         this.TotlAttn_Lb.Text = "12154";
+         this.TotlAttn_Lb.Text = "0";
          this.TotlAttn_Lb.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
          // 
          // labelControl15
@@ -3510,6 +4000,10 @@
          this.labelControl15.Name = "labelControl15";
          this.labelControl15.Size = new System.Drawing.Size(191, 7);
          this.labelControl15.TabIndex = 0;
+         // 
+         // AttnBs
+         // 
+         this.AttnBs.DataSource = typeof(System.Scsc.Data.VF_StatisticAttendanceResult);
          // 
          // vSaleBs
          // 
@@ -3531,6 +4025,17 @@
          // 
          this.VExpnBs.DataSource = typeof(System.Scsc.Data.Misc_Expense);
          // 
+         // label57
+         // 
+         this.label57.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+         this.label57.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.label57.Location = new System.Drawing.Point(6, 39);
+         this.label57.Name = "label57";
+         this.label57.Size = new System.Drawing.Size(39, 32);
+         this.label57.TabIndex = 1;
+         this.label57.Text = "100";
+         this.label57.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         // 
          // DAP_DSBR_F
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -3548,49 +4053,49 @@
          this.flowLayoutPanel1.ResumeLayout(false);
          ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
          this.groupControl1.ResumeLayout(false);
-         ((System.ComponentModel.ISupportInitialize)(simpleDiagram1)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesLabel1)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesView1)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(series1)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesLabel2)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesView2)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(simpleDiagram11)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesLabel21)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesView21)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(series11)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesLabel22)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesView22)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.TotlServ_Cc)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.FighBs)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.groupControl4)).EndInit();
          this.groupControl4.ResumeLayout(false);
-         ((System.ComponentModel.ISupportInitialize)(simpleDiagram2)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesLabel3)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesView3)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(series2)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesLabel4)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesView4)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(simpleDiagram12)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesLabel23)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesView23)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(series12)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesLabel24)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesView24)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.CellPhonServ_Cc)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.groupControl5)).EndInit();
          this.groupControl5.ResumeLayout(false);
-         ((System.ComponentModel.ISupportInitialize)(simpleDiagram3)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesLabel5)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesView5)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(series3)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesLabel6)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesView6)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(simpleDiagram13)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesLabel25)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesView25)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(series13)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesLabel26)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesView26)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.TellPhonServ_Cc)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).EndInit();
          this.groupControl2.ResumeLayout(false);
-         ((System.ComponentModel.ISupportInitialize)(simpleDiagram4)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesLabel7)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesView7)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(series4)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesLabel8)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesView8)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(simpleDiagram14)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesLabel27)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesView27)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(series14)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesLabel28)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesView28)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.CochServ_Cc)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).EndInit();
          this.groupControl3.ResumeLayout(false);
-         ((System.ComponentModel.ISupportInitialize)(simpleDiagram5)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesLabel9)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesView9)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(series5)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesLabel10)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesView10)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(simpleDiagram15)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesLabel29)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesView29)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(series15)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesLabel30)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesView30)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.InsrServ_Cc)).EndInit();
          this.tp_003.ResumeLayout(false);
          ((System.ComponentModel.ISupportInitialize)(this.groupControl13)).EndInit();
@@ -3612,15 +4117,27 @@
          this.groupControl8.ResumeLayout(false);
          this.tp_002.ResumeLayout(false);
          ((System.ComponentModel.ISupportInitialize)(this.groupControl7)).EndInit();
+         this.groupControl7.ResumeLayout(false);
+         ((System.ComponentModel.ISupportInitialize)(this._23_Prct_Prg.Properties)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this._21_Prct_Prg.Properties)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this._19_Prct_Prg.Properties)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this._17_Prct_Prg.Properties)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this._15_Prct_Prg.Properties)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this._13_Prct_Prg.Properties)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this._11_Prct_Prg.Properties)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this._9_Prct_Prg.Properties)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this._7_Prct_Prg.Properties)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this._22_Prct_Prg.Properties)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this._20_Prct_Prg.Properties)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this._18_Prct_Prg.Properties)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this._16_Prct_Prg.Properties)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this._14_Prct_Prg.Properties)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this._12_Prct_Prg.Properties)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this._10_Prct_Prg.Properties)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this._8_Prct_Prg.Properties)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this._6_Prct_Prg.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.groupControl6)).EndInit();
          this.groupControl6.ResumeLayout(false);
-         ((System.ComponentModel.ISupportInitialize)(simpleDiagram6)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesLabel11)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesView11)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(series6)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesLabel12)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(doughnutSeriesView12)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.TotlAttn_Cc)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.AttnBs)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.vSaleBs)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.vRcptBs)).EndInit();
@@ -3720,7 +4237,6 @@
       private Windows.Forms.Label TotlActvManInsr_Lb;
       private Windows.Forms.BindingSource AttnBs;
       private DevExpress.XtraEditors.GroupControl groupControl6;
-      private DevExpress.XtraCharts.ChartControl TotlAttn_Cc;
       private DevExpress.XtraEditors.LabelControl labelControl12;
       private DevExpress.XtraEditors.LabelControl labelControl14;
       private Windows.Forms.Label TotlMenCrntYear_Lb;
@@ -3733,11 +4249,6 @@
       private Windows.Forms.Label label17;
       private Windows.Forms.Label TotlAttn_Lb;
       private DevExpress.XtraEditors.LabelControl labelControl15;
-      private DevExpress.XtraEditors.LabelControl labelControl16;
-      private Windows.Forms.Label TotlMenCrntDay_Lb;
-      private Windows.Forms.Label label4;
-      private Windows.Forms.Label TotlManCrntDay_Lb;
-      private Windows.Forms.Label label7;
       private DevExpress.XtraEditors.GroupControl groupControl7;
       private DevExpress.XtraEditors.GroupControl groupControl8;
       private Windows.Forms.Label label11;
@@ -3857,7 +4368,46 @@
       private DevExpress.XtraEditors.ProgressBarControl NetPrct_Prg;
       private DevExpress.XtraEditors.ProgressBarControl ExpnPrct_Prg;
       private DevExpress.XtraEditors.ProgressBarControl RcptPrct_Prg;
-      private DevExpress.XtraEditors.LabelControl Stopwatch3_Lb;
+      private DevExpress.XtraEditors.LabelControl labelControl40;
+      private DevExpress.XtraEditors.LabelControl labelControl16;
+      private Windows.Forms.Label label54;
+      private Windows.Forms.Label label53;
+      private Windows.Forms.Label label52;
+      private Windows.Forms.Label label51;
+      private Windows.Forms.Label label50;
+      private Windows.Forms.Label label49;
+      private Windows.Forms.Label label48;
+      private Windows.Forms.Label label47;
+      private Windows.Forms.Label label45;
+      private Windows.Forms.Label label44;
+      private Windows.Forms.Label label42;
+      private Windows.Forms.Label label40;
+      private Windows.Forms.Label label39;
+      private Windows.Forms.Label label38;
+      private Windows.Forms.Label label22;
+      private Windows.Forms.Label label7;
+      private Windows.Forms.Label label4;
+      private Windows.Forms.Label label1;
+      private DevExpress.XtraEditors.ProgressBarControl _23_Prct_Prg;
+      private DevExpress.XtraEditors.ProgressBarControl _21_Prct_Prg;
+      private DevExpress.XtraEditors.ProgressBarControl _19_Prct_Prg;
+      private DevExpress.XtraEditors.ProgressBarControl _17_Prct_Prg;
+      private DevExpress.XtraEditors.ProgressBarControl _15_Prct_Prg;
+      private DevExpress.XtraEditors.ProgressBarControl _13_Prct_Prg;
+      private DevExpress.XtraEditors.ProgressBarControl _11_Prct_Prg;
+      private DevExpress.XtraEditors.ProgressBarControl _9_Prct_Prg;
+      private DevExpress.XtraEditors.ProgressBarControl _7_Prct_Prg;
+      private DevExpress.XtraEditors.ProgressBarControl _22_Prct_Prg;
+      private DevExpress.XtraEditors.ProgressBarControl _20_Prct_Prg;
+      private DevExpress.XtraEditors.ProgressBarControl _18_Prct_Prg;
+      private DevExpress.XtraEditors.ProgressBarControl _16_Prct_Prg;
+      private DevExpress.XtraEditors.ProgressBarControl _14_Prct_Prg;
+      private DevExpress.XtraEditors.ProgressBarControl _12_Prct_Prg;
+      private DevExpress.XtraEditors.ProgressBarControl _10_Prct_Prg;
+      private DevExpress.XtraEditors.ProgressBarControl _8_Prct_Prg;
+      private DevExpress.XtraEditors.ProgressBarControl _6_Prct_Prg;
+      private Windows.Forms.Label label55;
+      private Windows.Forms.Label label57;
 
    }
 }

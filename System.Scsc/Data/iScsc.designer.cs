@@ -4423,6 +4423,12 @@ namespace System.Scsc.Data
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), epit_Desc, type, rqtp_Code, rqtt_Code, imag);
 			return ((int)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.VF$StatisticAttendance", IsComposable=true)]
+		public IQueryable<VF_StatisticAttendanceResult> VF_StatisticAttendance([global::System.Data.Linq.Mapping.ParameterAttribute(Name="FileNo", DbType="BigInt")] System.Nullable<long> fileNo)
+		{
+			return this.CreateMethodCallQuery<VF_StatisticAttendanceResult>(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), fileNo);
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Campitition")]
@@ -85918,6 +85924,1040 @@ namespace System.Scsc.Data
 				if ((this._DAD_CHAT_ID_DNRM != value))
 				{
 					this._DAD_CHAT_ID_DNRM = value;
+				}
+			}
+		}
+	}
+	
+	public partial class VF_StatisticAttendanceResult
+	{
+		
+		private string _YEAR;
+		
+		private string _CYCL;
+		
+		private string _SEX_TYPE_DNRM;
+		
+		private System.Nullable<int> @__06_CONT;
+		
+		private System.Nullable<int> @__06_TOTL_MINT;
+		
+		private System.Nullable<int> @__06_AVG_MINT;
+		
+		private System.Nullable<int> @__07_CONT;
+		
+		private System.Nullable<int> @__07_TOTL_MINT;
+		
+		private System.Nullable<int> @__07_AVG_MINT;
+		
+		private System.Nullable<int> @__08_CONT;
+		
+		private System.Nullable<int> @__08_TOTL_MINT;
+		
+		private System.Nullable<int> @__08_AVG_MINT;
+		
+		private System.Nullable<int> @__09_CONT;
+		
+		private System.Nullable<int> @__09_TOTL_MINT;
+		
+		private System.Nullable<int> @__09_AVG_MINT;
+		
+		private System.Nullable<int> @__10_CONT;
+		
+		private System.Nullable<int> @__10_TOTL_MINT;
+		
+		private System.Nullable<int> @__10_AVG_MINT;
+		
+		private System.Nullable<int> @__11_CONT;
+		
+		private System.Nullable<int> @__11_TOTL_MINT;
+		
+		private System.Nullable<int> @__11_AVG_MINT;
+		
+		private System.Nullable<int> @__12_CONT;
+		
+		private System.Nullable<int> @__12_TOTL_MINT;
+		
+		private System.Nullable<int> @__12_AVG_MINT;
+		
+		private System.Nullable<int> @__13_CONT;
+		
+		private System.Nullable<int> @__13_TOTL_MINT;
+		
+		private System.Nullable<int> @__13_AVG_MINT;
+		
+		private System.Nullable<int> @__14_CONT;
+		
+		private System.Nullable<int> @__14_TOTL_MINT;
+		
+		private System.Nullable<int> @__14_AVG_MINT;
+		
+		private System.Nullable<int> @__15_CONT;
+		
+		private System.Nullable<int> @__15_TOTL_MINT;
+		
+		private System.Nullable<int> @__15_AVG_MINT;
+		
+		private System.Nullable<int> @__16_CONT;
+		
+		private System.Nullable<int> @__16_TOTL_MINT;
+		
+		private System.Nullable<int> @__16_AVG_MINT;
+		
+		private System.Nullable<int> @__17_CONT;
+		
+		private System.Nullable<int> @__17_TOTL_MINT;
+		
+		private System.Nullable<int> @__17_AVG_MINT;
+		
+		private System.Nullable<int> @__18_CONT;
+		
+		private System.Nullable<int> @__18_TOTL_MINT;
+		
+		private System.Nullable<int> @__18_AVG_MINT;
+		
+		private System.Nullable<int> @__19_CONT;
+		
+		private System.Nullable<int> @__19_TOTL_MINT;
+		
+		private System.Nullable<int> @__19_AVG_MINT;
+		
+		private System.Nullable<int> @__20_CONT;
+		
+		private System.Nullable<int> @__20_TOTL_MINT;
+		
+		private System.Nullable<int> @__20_AVG_MINT;
+		
+		private System.Nullable<int> @__21_CONT;
+		
+		private System.Nullable<int> @__21_TOTL_MINT;
+		
+		private System.Nullable<int> @__21_AVG_MINT;
+		
+		private System.Nullable<int> @__22_CONT;
+		
+		private System.Nullable<int> @__22_TOTL_MINT;
+		
+		private System.Nullable<int> @__22_AVG_MINT;
+		
+		private System.Nullable<int> @__23_CONT;
+		
+		private System.Nullable<int> @__23_TOTL_MINT;
+		
+		private System.Nullable<int> @__23_AVG_MINT;
+		
+		public VF_StatisticAttendanceResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_YEAR", DbType="VarChar(4)")]
+		public string YEAR
+		{
+			get
+			{
+				return this._YEAR;
+			}
+			set
+			{
+				if ((this._YEAR != value))
+				{
+					this._YEAR = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CYCL", DbType="VarChar(2)")]
+		public string CYCL
+		{
+			get
+			{
+				return this._CYCL;
+			}
+			set
+			{
+				if ((this._CYCL != value))
+				{
+					this._CYCL = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SEX_TYPE_DNRM", DbType="VarChar(3)")]
+		public string SEX_TYPE_DNRM
+		{
+			get
+			{
+				return this._SEX_TYPE_DNRM;
+			}
+			set
+			{
+				if ((this._SEX_TYPE_DNRM != value))
+				{
+					this._SEX_TYPE_DNRM = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[_06_CONT]", Storage="__06_CONT", DbType="Int")]
+		public System.Nullable<int> _06_CONT
+		{
+			get
+			{
+				return this.@__06_CONT;
+			}
+			set
+			{
+				if ((this.@__06_CONT != value))
+				{
+					this.@__06_CONT = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[_06_TOTL_MINT]", Storage="__06_TOTL_MINT", DbType="Int")]
+		public System.Nullable<int> _06_TOTL_MINT
+		{
+			get
+			{
+				return this.@__06_TOTL_MINT;
+			}
+			set
+			{
+				if ((this.@__06_TOTL_MINT != value))
+				{
+					this.@__06_TOTL_MINT = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[_06_AVG_MINT]", Storage="__06_AVG_MINT", DbType="Int")]
+		public System.Nullable<int> _06_AVG_MINT
+		{
+			get
+			{
+				return this.@__06_AVG_MINT;
+			}
+			set
+			{
+				if ((this.@__06_AVG_MINT != value))
+				{
+					this.@__06_AVG_MINT = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[_07_CONT]", Storage="__07_CONT", DbType="Int")]
+		public System.Nullable<int> _07_CONT
+		{
+			get
+			{
+				return this.@__07_CONT;
+			}
+			set
+			{
+				if ((this.@__07_CONT != value))
+				{
+					this.@__07_CONT = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[_07_TOTL_MINT]", Storage="__07_TOTL_MINT", DbType="Int")]
+		public System.Nullable<int> _07_TOTL_MINT
+		{
+			get
+			{
+				return this.@__07_TOTL_MINT;
+			}
+			set
+			{
+				if ((this.@__07_TOTL_MINT != value))
+				{
+					this.@__07_TOTL_MINT = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[_07_AVG_MINT]", Storage="__07_AVG_MINT", DbType="Int")]
+		public System.Nullable<int> _07_AVG_MINT
+		{
+			get
+			{
+				return this.@__07_AVG_MINT;
+			}
+			set
+			{
+				if ((this.@__07_AVG_MINT != value))
+				{
+					this.@__07_AVG_MINT = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[_08_CONT]", Storage="__08_CONT", DbType="Int")]
+		public System.Nullable<int> _08_CONT
+		{
+			get
+			{
+				return this.@__08_CONT;
+			}
+			set
+			{
+				if ((this.@__08_CONT != value))
+				{
+					this.@__08_CONT = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[_08_TOTL_MINT]", Storage="__08_TOTL_MINT", DbType="Int")]
+		public System.Nullable<int> _08_TOTL_MINT
+		{
+			get
+			{
+				return this.@__08_TOTL_MINT;
+			}
+			set
+			{
+				if ((this.@__08_TOTL_MINT != value))
+				{
+					this.@__08_TOTL_MINT = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[_08_AVG_MINT]", Storage="__08_AVG_MINT", DbType="Int")]
+		public System.Nullable<int> _08_AVG_MINT
+		{
+			get
+			{
+				return this.@__08_AVG_MINT;
+			}
+			set
+			{
+				if ((this.@__08_AVG_MINT != value))
+				{
+					this.@__08_AVG_MINT = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[_09_CONT]", Storage="__09_CONT", DbType="Int")]
+		public System.Nullable<int> _09_CONT
+		{
+			get
+			{
+				return this.@__09_CONT;
+			}
+			set
+			{
+				if ((this.@__09_CONT != value))
+				{
+					this.@__09_CONT = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[_09_TOTL_MINT]", Storage="__09_TOTL_MINT", DbType="Int")]
+		public System.Nullable<int> _09_TOTL_MINT
+		{
+			get
+			{
+				return this.@__09_TOTL_MINT;
+			}
+			set
+			{
+				if ((this.@__09_TOTL_MINT != value))
+				{
+					this.@__09_TOTL_MINT = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[_09_AVG_MINT]", Storage="__09_AVG_MINT", DbType="Int")]
+		public System.Nullable<int> _09_AVG_MINT
+		{
+			get
+			{
+				return this.@__09_AVG_MINT;
+			}
+			set
+			{
+				if ((this.@__09_AVG_MINT != value))
+				{
+					this.@__09_AVG_MINT = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[_10_CONT]", Storage="__10_CONT", DbType="Int")]
+		public System.Nullable<int> _10_CONT
+		{
+			get
+			{
+				return this.@__10_CONT;
+			}
+			set
+			{
+				if ((this.@__10_CONT != value))
+				{
+					this.@__10_CONT = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[_10_TOTL_MINT]", Storage="__10_TOTL_MINT", DbType="Int")]
+		public System.Nullable<int> _10_TOTL_MINT
+		{
+			get
+			{
+				return this.@__10_TOTL_MINT;
+			}
+			set
+			{
+				if ((this.@__10_TOTL_MINT != value))
+				{
+					this.@__10_TOTL_MINT = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[_10_AVG_MINT]", Storage="__10_AVG_MINT", DbType="Int")]
+		public System.Nullable<int> _10_AVG_MINT
+		{
+			get
+			{
+				return this.@__10_AVG_MINT;
+			}
+			set
+			{
+				if ((this.@__10_AVG_MINT != value))
+				{
+					this.@__10_AVG_MINT = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[_11_CONT]", Storage="__11_CONT", DbType="Int")]
+		public System.Nullable<int> _11_CONT
+		{
+			get
+			{
+				return this.@__11_CONT;
+			}
+			set
+			{
+				if ((this.@__11_CONT != value))
+				{
+					this.@__11_CONT = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[_11_TOTL_MINT]", Storage="__11_TOTL_MINT", DbType="Int")]
+		public System.Nullable<int> _11_TOTL_MINT
+		{
+			get
+			{
+				return this.@__11_TOTL_MINT;
+			}
+			set
+			{
+				if ((this.@__11_TOTL_MINT != value))
+				{
+					this.@__11_TOTL_MINT = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[_11_AVG_MINT]", Storage="__11_AVG_MINT", DbType="Int")]
+		public System.Nullable<int> _11_AVG_MINT
+		{
+			get
+			{
+				return this.@__11_AVG_MINT;
+			}
+			set
+			{
+				if ((this.@__11_AVG_MINT != value))
+				{
+					this.@__11_AVG_MINT = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[_12_CONT]", Storage="__12_CONT", DbType="Int")]
+		public System.Nullable<int> _12_CONT
+		{
+			get
+			{
+				return this.@__12_CONT;
+			}
+			set
+			{
+				if ((this.@__12_CONT != value))
+				{
+					this.@__12_CONT = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[_12_TOTL_MINT]", Storage="__12_TOTL_MINT", DbType="Int")]
+		public System.Nullable<int> _12_TOTL_MINT
+		{
+			get
+			{
+				return this.@__12_TOTL_MINT;
+			}
+			set
+			{
+				if ((this.@__12_TOTL_MINT != value))
+				{
+					this.@__12_TOTL_MINT = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[_12_AVG_MINT]", Storage="__12_AVG_MINT", DbType="Int")]
+		public System.Nullable<int> _12_AVG_MINT
+		{
+			get
+			{
+				return this.@__12_AVG_MINT;
+			}
+			set
+			{
+				if ((this.@__12_AVG_MINT != value))
+				{
+					this.@__12_AVG_MINT = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[_13_CONT]", Storage="__13_CONT", DbType="Int")]
+		public System.Nullable<int> _13_CONT
+		{
+			get
+			{
+				return this.@__13_CONT;
+			}
+			set
+			{
+				if ((this.@__13_CONT != value))
+				{
+					this.@__13_CONT = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[_13_TOTL_MINT]", Storage="__13_TOTL_MINT", DbType="Int")]
+		public System.Nullable<int> _13_TOTL_MINT
+		{
+			get
+			{
+				return this.@__13_TOTL_MINT;
+			}
+			set
+			{
+				if ((this.@__13_TOTL_MINT != value))
+				{
+					this.@__13_TOTL_MINT = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[_13_AVG_MINT]", Storage="__13_AVG_MINT", DbType="Int")]
+		public System.Nullable<int> _13_AVG_MINT
+		{
+			get
+			{
+				return this.@__13_AVG_MINT;
+			}
+			set
+			{
+				if ((this.@__13_AVG_MINT != value))
+				{
+					this.@__13_AVG_MINT = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[_14_CONT]", Storage="__14_CONT", DbType="Int")]
+		public System.Nullable<int> _14_CONT
+		{
+			get
+			{
+				return this.@__14_CONT;
+			}
+			set
+			{
+				if ((this.@__14_CONT != value))
+				{
+					this.@__14_CONT = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[_14_TOTL_MINT]", Storage="__14_TOTL_MINT", DbType="Int")]
+		public System.Nullable<int> _14_TOTL_MINT
+		{
+			get
+			{
+				return this.@__14_TOTL_MINT;
+			}
+			set
+			{
+				if ((this.@__14_TOTL_MINT != value))
+				{
+					this.@__14_TOTL_MINT = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[_14_AVG_MINT]", Storage="__14_AVG_MINT", DbType="Int")]
+		public System.Nullable<int> _14_AVG_MINT
+		{
+			get
+			{
+				return this.@__14_AVG_MINT;
+			}
+			set
+			{
+				if ((this.@__14_AVG_MINT != value))
+				{
+					this.@__14_AVG_MINT = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[_15_CONT]", Storage="__15_CONT", DbType="Int")]
+		public System.Nullable<int> _15_CONT
+		{
+			get
+			{
+				return this.@__15_CONT;
+			}
+			set
+			{
+				if ((this.@__15_CONT != value))
+				{
+					this.@__15_CONT = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[_15_TOTL_MINT]", Storage="__15_TOTL_MINT", DbType="Int")]
+		public System.Nullable<int> _15_TOTL_MINT
+		{
+			get
+			{
+				return this.@__15_TOTL_MINT;
+			}
+			set
+			{
+				if ((this.@__15_TOTL_MINT != value))
+				{
+					this.@__15_TOTL_MINT = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[_15_AVG_MINT]", Storage="__15_AVG_MINT", DbType="Int")]
+		public System.Nullable<int> _15_AVG_MINT
+		{
+			get
+			{
+				return this.@__15_AVG_MINT;
+			}
+			set
+			{
+				if ((this.@__15_AVG_MINT != value))
+				{
+					this.@__15_AVG_MINT = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[_16_CONT]", Storage="__16_CONT", DbType="Int")]
+		public System.Nullable<int> _16_CONT
+		{
+			get
+			{
+				return this.@__16_CONT;
+			}
+			set
+			{
+				if ((this.@__16_CONT != value))
+				{
+					this.@__16_CONT = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[_16_TOTL_MINT]", Storage="__16_TOTL_MINT", DbType="Int")]
+		public System.Nullable<int> _16_TOTL_MINT
+		{
+			get
+			{
+				return this.@__16_TOTL_MINT;
+			}
+			set
+			{
+				if ((this.@__16_TOTL_MINT != value))
+				{
+					this.@__16_TOTL_MINT = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[_16_AVG_MINT]", Storage="__16_AVG_MINT", DbType="Int")]
+		public System.Nullable<int> _16_AVG_MINT
+		{
+			get
+			{
+				return this.@__16_AVG_MINT;
+			}
+			set
+			{
+				if ((this.@__16_AVG_MINT != value))
+				{
+					this.@__16_AVG_MINT = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[_17_CONT]", Storage="__17_CONT", DbType="Int")]
+		public System.Nullable<int> _17_CONT
+		{
+			get
+			{
+				return this.@__17_CONT;
+			}
+			set
+			{
+				if ((this.@__17_CONT != value))
+				{
+					this.@__17_CONT = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[_17_TOTL_MINT]", Storage="__17_TOTL_MINT", DbType="Int")]
+		public System.Nullable<int> _17_TOTL_MINT
+		{
+			get
+			{
+				return this.@__17_TOTL_MINT;
+			}
+			set
+			{
+				if ((this.@__17_TOTL_MINT != value))
+				{
+					this.@__17_TOTL_MINT = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[_17_AVG_MINT]", Storage="__17_AVG_MINT", DbType="Int")]
+		public System.Nullable<int> _17_AVG_MINT
+		{
+			get
+			{
+				return this.@__17_AVG_MINT;
+			}
+			set
+			{
+				if ((this.@__17_AVG_MINT != value))
+				{
+					this.@__17_AVG_MINT = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[_18_CONT]", Storage="__18_CONT", DbType="Int")]
+		public System.Nullable<int> _18_CONT
+		{
+			get
+			{
+				return this.@__18_CONT;
+			}
+			set
+			{
+				if ((this.@__18_CONT != value))
+				{
+					this.@__18_CONT = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[_18_TOTL_MINT]", Storage="__18_TOTL_MINT", DbType="Int")]
+		public System.Nullable<int> _18_TOTL_MINT
+		{
+			get
+			{
+				return this.@__18_TOTL_MINT;
+			}
+			set
+			{
+				if ((this.@__18_TOTL_MINT != value))
+				{
+					this.@__18_TOTL_MINT = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[_18_AVG_MINT]", Storage="__18_AVG_MINT", DbType="Int")]
+		public System.Nullable<int> _18_AVG_MINT
+		{
+			get
+			{
+				return this.@__18_AVG_MINT;
+			}
+			set
+			{
+				if ((this.@__18_AVG_MINT != value))
+				{
+					this.@__18_AVG_MINT = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[_19_CONT]", Storage="__19_CONT", DbType="Int")]
+		public System.Nullable<int> _19_CONT
+		{
+			get
+			{
+				return this.@__19_CONT;
+			}
+			set
+			{
+				if ((this.@__19_CONT != value))
+				{
+					this.@__19_CONT = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[_19_TOTL_MINT]", Storage="__19_TOTL_MINT", DbType="Int")]
+		public System.Nullable<int> _19_TOTL_MINT
+		{
+			get
+			{
+				return this.@__19_TOTL_MINT;
+			}
+			set
+			{
+				if ((this.@__19_TOTL_MINT != value))
+				{
+					this.@__19_TOTL_MINT = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[_19_AVG_MINT]", Storage="__19_AVG_MINT", DbType="Int")]
+		public System.Nullable<int> _19_AVG_MINT
+		{
+			get
+			{
+				return this.@__19_AVG_MINT;
+			}
+			set
+			{
+				if ((this.@__19_AVG_MINT != value))
+				{
+					this.@__19_AVG_MINT = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[_20_CONT]", Storage="__20_CONT", DbType="Int")]
+		public System.Nullable<int> _20_CONT
+		{
+			get
+			{
+				return this.@__20_CONT;
+			}
+			set
+			{
+				if ((this.@__20_CONT != value))
+				{
+					this.@__20_CONT = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[_20_TOTL_MINT]", Storage="__20_TOTL_MINT", DbType="Int")]
+		public System.Nullable<int> _20_TOTL_MINT
+		{
+			get
+			{
+				return this.@__20_TOTL_MINT;
+			}
+			set
+			{
+				if ((this.@__20_TOTL_MINT != value))
+				{
+					this.@__20_TOTL_MINT = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[_20_AVG_MINT]", Storage="__20_AVG_MINT", DbType="Int")]
+		public System.Nullable<int> _20_AVG_MINT
+		{
+			get
+			{
+				return this.@__20_AVG_MINT;
+			}
+			set
+			{
+				if ((this.@__20_AVG_MINT != value))
+				{
+					this.@__20_AVG_MINT = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[_21_CONT]", Storage="__21_CONT", DbType="Int")]
+		public System.Nullable<int> _21_CONT
+		{
+			get
+			{
+				return this.@__21_CONT;
+			}
+			set
+			{
+				if ((this.@__21_CONT != value))
+				{
+					this.@__21_CONT = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[_21_TOTL_MINT]", Storage="__21_TOTL_MINT", DbType="Int")]
+		public System.Nullable<int> _21_TOTL_MINT
+		{
+			get
+			{
+				return this.@__21_TOTL_MINT;
+			}
+			set
+			{
+				if ((this.@__21_TOTL_MINT != value))
+				{
+					this.@__21_TOTL_MINT = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[_21_AVG_MINT]", Storage="__21_AVG_MINT", DbType="Int")]
+		public System.Nullable<int> _21_AVG_MINT
+		{
+			get
+			{
+				return this.@__21_AVG_MINT;
+			}
+			set
+			{
+				if ((this.@__21_AVG_MINT != value))
+				{
+					this.@__21_AVG_MINT = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[_22_CONT]", Storage="__22_CONT", DbType="Int")]
+		public System.Nullable<int> _22_CONT
+		{
+			get
+			{
+				return this.@__22_CONT;
+			}
+			set
+			{
+				if ((this.@__22_CONT != value))
+				{
+					this.@__22_CONT = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[_22_TOTL_MINT]", Storage="__22_TOTL_MINT", DbType="Int")]
+		public System.Nullable<int> _22_TOTL_MINT
+		{
+			get
+			{
+				return this.@__22_TOTL_MINT;
+			}
+			set
+			{
+				if ((this.@__22_TOTL_MINT != value))
+				{
+					this.@__22_TOTL_MINT = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[_22_AVG_MINT]", Storage="__22_AVG_MINT", DbType="Int")]
+		public System.Nullable<int> _22_AVG_MINT
+		{
+			get
+			{
+				return this.@__22_AVG_MINT;
+			}
+			set
+			{
+				if ((this.@__22_AVG_MINT != value))
+				{
+					this.@__22_AVG_MINT = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[_23_CONT]", Storage="__23_CONT", DbType="Int")]
+		public System.Nullable<int> _23_CONT
+		{
+			get
+			{
+				return this.@__23_CONT;
+			}
+			set
+			{
+				if ((this.@__23_CONT != value))
+				{
+					this.@__23_CONT = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[_23_TOTL_MINT]", Storage="__23_TOTL_MINT", DbType="Int")]
+		public System.Nullable<int> _23_TOTL_MINT
+		{
+			get
+			{
+				return this.@__23_TOTL_MINT;
+			}
+			set
+			{
+				if ((this.@__23_TOTL_MINT != value))
+				{
+					this.@__23_TOTL_MINT = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[_23_AVG_MINT]", Storage="__23_AVG_MINT", DbType="Int")]
+		public System.Nullable<int> _23_AVG_MINT
+		{
+			get
+			{
+				return this.@__23_AVG_MINT;
+			}
+			set
+			{
+				if ((this.@__23_AVG_MINT != value))
+				{
+					this.@__23_AVG_MINT = value;
 				}
 			}
 		}

@@ -190,7 +190,7 @@ namespace System.Scsc.Ui.DataAnalysis
       {
          try
          {
-            //AttnBs.DataSource = iScsc.Attendances.Where(a => a.ATTN_DATE.Date.Year == DateTime.Now.Date.Year || a.ATTN_DATE.Date.Year == (DateTime.Now.Date.Year - 1));
+            AttnBs.DataSource = iScsc.VF_StatisticAttendance(null);
 
             if (InvokeRequired)
             {
@@ -207,17 +207,35 @@ namespace System.Scsc.Ui.DataAnalysis
       private void TabPage002_Filling()
       {
          #region آمار حضور و غیاب
-         TotlAttn_Lb.Text = AttnBs.List.OfType<Data.Attendance>().Count().ToString();
+         TotlAttn_Lb.Text = AttnBs.List.OfType<Data.VF_StatisticAttendanceResult>().Sum(a => ((a._06_CONT ?? 0) + (a._07_CONT ?? 0) + (a._08_CONT ?? 0) + (a._09_CONT ?? 0) + (a._10_CONT ?? 0) + (a._11_CONT ?? 0) + (a._12_CONT ?? 0) + (a._13_CONT ?? 0) + (a._14_CONT ?? 0) + (a._15_CONT ?? 0) + (a._16_CONT ?? 0) + (a._17_CONT ?? 0) + (a._18_CONT ?? 0) + (a._19_CONT ?? 0) + (a._20_CONT ?? 0) + (a._21_CONT ?? 0) + (a._22_CONT ?? 0) + (a._23_CONT ?? 0))).ToString();
 
          PersianCalendar pc = new PersianCalendar();
 
-         TotlCrntYear_Lb.Text = AttnBs.List.OfType<Data.Attendance>().Where(a => pc.GetYear(a.ATTN_DATE) == pc.GetYear(DateTime.Now)).Count().ToString();
-         TotlPrvsYear_Lb.Text = AttnBs.List.OfType<Data.Attendance>().Where(a => pc.GetYear(a.ATTN_DATE) == (pc.GetYear(DateTime.Now) - 1)).Count().ToString();
-         TotlManCrntYear_Lb.Text = AttnBs.List.OfType<Data.Attendance>().Where(a => a.Fighter1.SEX_TYPE_DNRM == "001" && pc.GetYear(a.ATTN_DATE) == pc.GetYear(DateTime.Now)).Count().ToString();
-         TotlMenCrntYear_Lb.Text = AttnBs.List.OfType<Data.Attendance>().Where(a => a.Fighter1.SEX_TYPE_DNRM == "002" && pc.GetYear(a.ATTN_DATE) == pc.GetYear(DateTime.Now)).Count().ToString();
-         TotlManCrntDay_Lb.Text = AttnBs.List.OfType<Data.Attendance>().Where(a => a.Fighter1.SEX_TYPE_DNRM == "001" && a.ATTN_DATE.Date == DateTime.Now.Date).Count().ToString();
-         TotlMenCrntDay_Lb.Text = AttnBs.List.OfType<Data.Attendance>().Where(a => a.Fighter1.SEX_TYPE_DNRM == "002" && a.ATTN_DATE.Date == DateTime.Now.Date).Count().ToString();
+         TotlCrntYear_Lb.Text = AttnBs.List.OfType<Data.VF_StatisticAttendanceResult>().Where(a => a.YEAR == pc.GetYear(DateTime.Now).ToString()).Sum(a => ((a._06_CONT ?? 0) + (a._07_CONT ?? 0) + (a._08_CONT ?? 0) + (a._09_CONT ?? 0) + (a._10_CONT ?? 0) + (a._11_CONT ?? 0) + (a._12_CONT ?? 0) + (a._13_CONT ?? 0) + (a._14_CONT ?? 0) + (a._15_CONT ?? 0) + (a._16_CONT ?? 0) + (a._17_CONT ?? 0) + (a._18_CONT ?? 0) + (a._19_CONT ?? 0) + (a._20_CONT ?? 0) + (a._21_CONT ?? 0) + (a._22_CONT ?? 0) + (a._23_CONT ?? 0))).ToString();
+         TotlPrvsYear_Lb.Text = AttnBs.List.OfType<Data.VF_StatisticAttendanceResult>().Where(a => a.YEAR == (pc.GetYear(DateTime.Now) - 1).ToString()).Sum(a => ((a._06_CONT ?? 0) + (a._07_CONT ?? 0) + (a._08_CONT ?? 0) + (a._09_CONT ?? 0) + (a._10_CONT ?? 0) + (a._11_CONT ?? 0) + (a._12_CONT ?? 0) + (a._13_CONT ?? 0) + (a._14_CONT ?? 0) + (a._15_CONT ?? 0) + (a._16_CONT ?? 0) + (a._17_CONT ?? 0) + (a._18_CONT ?? 0) + (a._19_CONT ?? 0) + (a._20_CONT ?? 0) + (a._21_CONT ?? 0) + (a._22_CONT ?? 0) + (a._23_CONT ?? 0))).ToString();
+         TotlManCrntYear_Lb.Text = AttnBs.List.OfType<Data.VF_StatisticAttendanceResult>().Where(a => a.SEX_TYPE_DNRM == "001" && a.YEAR == pc.GetYear(DateTime.Now).ToString()).Sum(a => ((a._06_CONT ?? 0) + (a._07_CONT ?? 0) + (a._08_CONT ?? 0) + (a._09_CONT ?? 0) + (a._10_CONT ?? 0) + (a._11_CONT ?? 0) + (a._12_CONT ?? 0) + (a._13_CONT ?? 0) + (a._14_CONT ?? 0) + (a._15_CONT ?? 0) + (a._16_CONT ?? 0) + (a._17_CONT ?? 0) + (a._18_CONT ?? 0) + (a._19_CONT ?? 0) + (a._20_CONT ?? 0) + (a._21_CONT ?? 0) + (a._22_CONT ?? 0) + (a._23_CONT ?? 0))).ToString();
+         TotlMenCrntYear_Lb.Text = AttnBs.List.OfType<Data.VF_StatisticAttendanceResult>().Where(a => a.SEX_TYPE_DNRM == "002" && a.YEAR == pc.GetYear(DateTime.Now).ToString()).Sum(a => ((a._06_CONT ?? 0) + (a._07_CONT ?? 0) + (a._08_CONT ?? 0) + (a._09_CONT ?? 0) + (a._10_CONT ?? 0) + (a._11_CONT ?? 0) + (a._12_CONT ?? 0) + (a._13_CONT ?? 0) + (a._14_CONT ?? 0) + (a._15_CONT ?? 0) + (a._16_CONT ?? 0) + (a._17_CONT ?? 0) + (a._18_CONT ?? 0) + (a._19_CONT ?? 0) + (a._20_CONT ?? 0) + (a._21_CONT ?? 0) + (a._22_CONT ?? 0) + (a._23_CONT ?? 0))).ToString();
+         //TotlManCrntDay_Lb.Text = AttnBs.List.OfType<Data.VF_StatisticAttendanceResult>().Where(a => a.Fighter1.SEX_TYPE_DNRM == "001" && a.ATTN_DATE.Date == DateTime.Now.Date).Count().ToString();
+         //TotlMenCrntDay_Lb.Text = AttnBs.List.OfType<Data.VF_StatisticAttendanceResult>().Where(a => a.Fighter1.SEX_TYPE_DNRM == "002" && a.ATTN_DATE.Date == DateTime.Now.Date).Count().ToString();
 
+         _6_Prct_Prg.EditValue = (AttnBs.List.OfType<Data.VF_StatisticAttendanceResult>().Where(a => a.YEAR == pc.GetYear(DateTime.Now).ToString()).Sum(a => (a._06_CONT ?? 0)) / Convert.ToDouble(TotlCrntYear_Lb.Text)) * 100;
+         _7_Prct_Prg.EditValue = (AttnBs.List.OfType<Data.VF_StatisticAttendanceResult>().Where(a => a.YEAR == pc.GetYear(DateTime.Now).ToString()).Sum(a => (a._07_CONT ?? 0)) / Convert.ToDouble(TotlCrntYear_Lb.Text)) * 100;
+         _8_Prct_Prg.EditValue = (AttnBs.List.OfType<Data.VF_StatisticAttendanceResult>().Where(a => a.YEAR == pc.GetYear(DateTime.Now).ToString()).Sum(a => (a._08_CONT ?? 0)) / Convert.ToDouble(TotlCrntYear_Lb.Text)) * 100;
+         _9_Prct_Prg.EditValue = (AttnBs.List.OfType<Data.VF_StatisticAttendanceResult>().Where(a => a.YEAR == pc.GetYear(DateTime.Now).ToString()).Sum(a => (a._09_CONT ?? 0)) / Convert.ToDouble(TotlCrntYear_Lb.Text)) * 100;
+         _10_Prct_Prg.EditValue = (AttnBs.List.OfType<Data.VF_StatisticAttendanceResult>().Where(a => a.YEAR == pc.GetYear(DateTime.Now).ToString()).Sum(a => (a._10_CONT ?? 0)) / Convert.ToDouble(TotlCrntYear_Lb.Text)) * 100;
+         _11_Prct_Prg.EditValue = (AttnBs.List.OfType<Data.VF_StatisticAttendanceResult>().Where(a => a.YEAR == pc.GetYear(DateTime.Now).ToString()).Sum(a => (a._11_CONT ?? 0)) / Convert.ToDouble(TotlCrntYear_Lb.Text)) * 100;
+         _12_Prct_Prg.EditValue = (AttnBs.List.OfType<Data.VF_StatisticAttendanceResult>().Where(a => a.YEAR == pc.GetYear(DateTime.Now).ToString()).Sum(a => (a._12_CONT ?? 0)) / Convert.ToDouble(TotlCrntYear_Lb.Text)) * 100;
+         _13_Prct_Prg.EditValue = (AttnBs.List.OfType<Data.VF_StatisticAttendanceResult>().Where(a => a.YEAR == pc.GetYear(DateTime.Now).ToString()).Sum(a => (a._13_CONT ?? 0)) / Convert.ToDouble(TotlCrntYear_Lb.Text)) * 100;
+         _14_Prct_Prg.EditValue = (AttnBs.List.OfType<Data.VF_StatisticAttendanceResult>().Where(a => a.YEAR == pc.GetYear(DateTime.Now).ToString()).Sum(a => (a._14_CONT ?? 0)) / Convert.ToDouble(TotlCrntYear_Lb.Text)) * 100;
+         _15_Prct_Prg.EditValue = (AttnBs.List.OfType<Data.VF_StatisticAttendanceResult>().Where(a => a.YEAR == pc.GetYear(DateTime.Now).ToString()).Sum(a => (a._15_CONT ?? 0)) / Convert.ToDouble(TotlCrntYear_Lb.Text)) * 100;
+         _16_Prct_Prg.EditValue = (AttnBs.List.OfType<Data.VF_StatisticAttendanceResult>().Where(a => a.YEAR == pc.GetYear(DateTime.Now).ToString()).Sum(a => (a._16_CONT ?? 0)) / Convert.ToDouble(TotlCrntYear_Lb.Text)) * 100;
+         _17_Prct_Prg.EditValue = (AttnBs.List.OfType<Data.VF_StatisticAttendanceResult>().Where(a => a.YEAR == pc.GetYear(DateTime.Now).ToString()).Sum(a => (a._17_CONT ?? 0)) / Convert.ToDouble(TotlCrntYear_Lb.Text)) * 100;
+         _18_Prct_Prg.EditValue = (AttnBs.List.OfType<Data.VF_StatisticAttendanceResult>().Where(a => a.YEAR == pc.GetYear(DateTime.Now).ToString()).Sum(a => (a._18_CONT ?? 0)) / Convert.ToDouble(TotlCrntYear_Lb.Text)) * 100;
+         _19_Prct_Prg.EditValue = (AttnBs.List.OfType<Data.VF_StatisticAttendanceResult>().Where(a => a.YEAR == pc.GetYear(DateTime.Now).ToString()).Sum(a => (a._19_CONT ?? 0)) / Convert.ToDouble(TotlCrntYear_Lb.Text)) * 100;
+         _20_Prct_Prg.EditValue = (AttnBs.List.OfType<Data.VF_StatisticAttendanceResult>().Where(a => a.YEAR == pc.GetYear(DateTime.Now).ToString()).Sum(a => (a._20_CONT ?? 0)) / Convert.ToDouble(TotlCrntYear_Lb.Text)) * 100;
+         _21_Prct_Prg.EditValue = (AttnBs.List.OfType<Data.VF_StatisticAttendanceResult>().Where(a => a.YEAR == pc.GetYear(DateTime.Now).ToString()).Sum(a => (a._21_CONT ?? 0)) / Convert.ToDouble(TotlCrntYear_Lb.Text)) * 100;
+         _22_Prct_Prg.EditValue = (AttnBs.List.OfType<Data.VF_StatisticAttendanceResult>().Where(a => a.YEAR == pc.GetYear(DateTime.Now).ToString()).Sum(a => (a._22_CONT ?? 0)) / Convert.ToDouble(TotlCrntYear_Lb.Text)) * 100;
+         _23_Prct_Prg.EditValue = (AttnBs.List.OfType<Data.VF_StatisticAttendanceResult>().Where(a => a.YEAR == pc.GetYear(DateTime.Now).ToString()).Sum(a => (a._23_CONT ?? 0)) / Convert.ToDouble(TotlCrntYear_Lb.Text)) * 100;
 
          //TotlAttnLine_Cc.DataSource = new BindingSource(
          //      new BindingList<Data.Attendance>(
@@ -348,7 +366,7 @@ namespace System.Scsc.Ui.DataAnalysis
       {
          try
          {
-            DateTime firsttime = DateTime.Now;
+            //DateTime firsttime = DateTime.Now;
             #region Group SRD
             // Record 1 # Count
             Rqtp001Cont_Lb.Text = vSaleBs.List.OfType<Data.V_StatisticSale>().Where(s => s.YEAR == Convert.ToInt16(yb.ToString() == "*" ? s.YEAR : yb) && s.CYCL == (mb.ToString() == "*" ? s.CYCL : mb.ToString()) && s.RQTP_CODE == "001").Sum(s => s.CONT).ToString();
@@ -429,7 +447,7 @@ namespace System.Scsc.Ui.DataAnalysis
                NetPrct_Prg.EditValue = Convert.ToDouble(RcptPrct_Prg.EditValue) - Convert.ToDouble(ExpnPrct_Prg.EditValue);            
             #endregion
 
-            Stopwatch3_Lb.Text = (DateTime.Now - firsttime).ToString();
+            //Stopwatch3_Lb.Text = (DateTime.Now - firsttime).ToString();
          }
          catch(Exception exc)
          {

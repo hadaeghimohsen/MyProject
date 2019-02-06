@@ -1159,6 +1159,7 @@
     <None Include="Properties\DataSources\System.Scsc.Data.VF_Request_HistoryResult.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.VF_Saved_RequestResult.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.VF_Save_PaymentsResult.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.VF_StatisticAttendanceResult.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.VF_TestResult.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.V_Computer.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.V_DiscountPayment.datasource" />

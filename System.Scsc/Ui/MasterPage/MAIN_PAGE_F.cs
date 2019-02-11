@@ -920,7 +920,19 @@ namespace System.Scsc.Ui.MasterPage
          try
          {
             if (AttnType_Lov.EditValue == null) { AttnType_Lov.EditValue = "003"; }
-            if (AttnType_Lov.EditValue.ToString() != "001") { FngrPrnt_Txt.Text = EnrollNumber; if (AttnType_Lov.EditValue.ToString() == "003") { ShowInfo_Butn_Click(null, null); } return; }
+            if (AttnType_Lov.EditValue.ToString() != "001") 
+            { 
+               FngrPrnt_Txt.Text = EnrollNumber; 
+               if (AttnType_Lov.EditValue.ToString() == "003") 
+               { 
+                  ShowInfo_Butn_Click(null, null); 
+               } 
+               else if (AttnType_Lov.EditValue.ToString() == "005")
+               {
+                  CardNumb_Text_Properties_ButtonClick(null, new DevExpress.XtraEditors.Controls.ButtonPressedEventArgs(CardNumb_Text.Properties.Buttons[4]));
+               }
+               return; 
+            }
 
             // 1396/10/26 * اگر سیستم به صورتی باشد که نرم افزار اپراتور پشت آن قرار ندارد            
             if(iScsc.Computer_Actions.FirstOrDefault(ca => ca.COMP_NAME == xHost.Attribute("name").Value).CHCK_DOBL_ATTN_STAT == "002")
@@ -1263,6 +1275,61 @@ namespace System.Scsc.Ui.MasterPage
          Start_ExpnExtr();
          Start_TlgrmBot();
          Tm_FingerPrintWorker.Enabled = false;
+      }
+
+      private bool Start_Enroll_Finger(string enrollid)
+      {
+         try
+         {
+            var result = axCZKEM1.SSR_SetUserInfo(1, enrollid, enrollid, "", 0, true);
+            if(axCZKEM1.StartEnrollEx(enrollid, 0, 0))
+            {
+               BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.BlanchedAlmond;
+            }
+            return true;
+         }
+         catch (Exception exc)
+         {
+            BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Red;
+            MessageBox.Show(exc.Message);
+            return false;
+         }
+      }
+      
+      private bool Delete_Enroll_Finger(string enrollid)
+      {
+         try
+         {
+            axCZKEM1.SSR_DelUserTmpExt(1, enrollid, 0);
+            axCZKEM1.DeleteUserInfoEx(1, Convert.ToInt32(enrollid));
+            axCZKEM1.ClearSLog(1);
+
+            BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Green;
+            return true;
+         }
+         catch (Exception exc)
+         {
+            BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Red;
+            MessageBox.Show(exc.Message);
+            return false;
+         }
+      }
+
+      private bool Truncate_Enroll_Fingers()
+      {
+         try
+         {
+            var result = axCZKEM1.ClearKeeperData(1);
+
+            BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Green;
+            return true;
+         }
+         catch (Exception exc)
+         {
+            BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Red;
+            MessageBox.Show(exc.Message);
+            return false;
+         }
       }
       #endregion
 
@@ -3030,6 +3097,22 @@ namespace System.Scsc.Ui.MasterPage
                      new Job(SendType.Self, 157 /* Execute Ksk_Incm_F */)
                   });
          _DefaultGateway.Gateway(_InteractWithScsc);
+      }
+
+      private void button4_Click(object sender, EventArgs e)
+      {
+         // تعریف کد انگشتی در دستگاه
+         //bool result = axCZKEM1.SSR_SetUserInfo(1, "1", "محسن حدایقی", "", 0, true);
+         //if(axCZKEM1.StartEnrollEx("1", 0, 0))
+         //{
+         //   MessageBox.Show("OK Fuck You");
+         //}
+         string tmpData = "";
+         int tmplen = 0;
+         int flag = 0;
+         var result = axCZKEM1.GetUserTmpExStr(1, "1", 0, out flag, out tmpData, out tmplen );
+         result = axCZKEM1.SSR_SetUserInfo(1, "2", "Mohsen Hadaeghi", "", 0, true);
+         axCZKEM1.SetUserTmpExStr(1, "2", 0, flag, tmpData);
       }
    }
 }

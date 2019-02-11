@@ -767,23 +767,22 @@ namespace System.Scsc.Ui.MasterPage
                   case "5.5.1": // ClearAdministrators
                      result = axCZKEM1.ClearAdministrators(iMachineNumber);
                      break;
-                  case "5.5.2":
-
-                     break;
-                  case "5.2.3.10":
-                     result = axCZKEM1.DeleteUserInfoEx(iMachineNumber, Convert.ToInt32(xinput.Attribute("enrollnumb").Value));
+                  case "5.2.3.5":
+                     result = Delete_Enroll_Finger(xinput.Attribute("enrollnumb").Value);
                      break;
                   case "5.2.3.8":                     
-                     result = axCZKEM1.SSR_SetUserInfo(iMachineNumber, "1", "Mohsen Hadaeghi", "", 0, true);
-
+                     result = Start_Enroll_Finger(xinput.Attribute("enrollnumb").Value);
                      break;
+                  case "5.2.7.1":
+                     result = Truncate_Enroll_Fingers();
+                     break;                     
                }
 
-               if (result) MessageBox.Show(this, "عملیات با موفقیت انجام شد", "نتجیه عملیات", MessageBoxButtons.OK, MessageBoxIcon.Information);
-               else
-               {
-                  MessageBox.Show(this, "عملیات با شکست مواجه شد", "نتجیه عملیات", MessageBoxButtons.OK, MessageBoxIcon.Error);
-               }
+               //if (result) MessageBox.Show(this, "عملیات با موفقیت انجام شد", "نتجیه عملیات", MessageBoxButtons.OK, MessageBoxIcon.Information);
+               //else
+               //{
+               //   MessageBox.Show(this, "عملیات با شکست مواجه شد", "نتجیه عملیات", MessageBoxButtons.OK, MessageBoxIcon.Error);
+               //}
 
                goto L_End;
             }

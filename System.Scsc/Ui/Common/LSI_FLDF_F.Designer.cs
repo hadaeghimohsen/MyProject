@@ -2852,7 +2852,7 @@
             this.toolStripMenuItem35});
          this.AllMenu_Cmn.Name = "AllMenu_Cmn";
          this.AllMenu_Cmn.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-         this.AllMenu_Cmn.Size = new System.Drawing.Size(198, 104);
+         this.AllMenu_Cmn.Size = new System.Drawing.Size(198, 126);
          // 
          // RqstBnFignInfo_Lb
          // 
@@ -2905,33 +2905,37 @@
          // 
          this.RqstBnEnrollFngrPrnt1.Image = global::System.Scsc.Properties.Resources.IMAGE_1201;
          this.RqstBnEnrollFngrPrnt1.Name = "RqstBnEnrollFngrPrnt1";
-         this.RqstBnEnrollFngrPrnt1.Size = new System.Drawing.Size(218, 22);
+         this.RqstBnEnrollFngrPrnt1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F4)));
+         this.RqstBnEnrollFngrPrnt1.Size = new System.Drawing.Size(264, 22);
          this.RqstBnEnrollFngrPrnt1.Text = "تعریف کد انگشتی";
          // 
          // RqstBnDeleteFngrPrnt1
          // 
          this.RqstBnDeleteFngrPrnt1.Image = global::System.Scsc.Properties.Resources.IMAGE_1196;
          this.RqstBnDeleteFngrPrnt1.Name = "RqstBnDeleteFngrPrnt1";
-         this.RqstBnDeleteFngrPrnt1.Size = new System.Drawing.Size(218, 22);
+         this.RqstBnDeleteFngrPrnt1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F5)));
+         this.RqstBnDeleteFngrPrnt1.Size = new System.Drawing.Size(264, 22);
          this.RqstBnDeleteFngrPrnt1.Text = "حذف کد انگشتی";
          // 
          // toolStripMenuItem1
          // 
          this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-         this.toolStripMenuItem1.Size = new System.Drawing.Size(215, 6);
+         this.toolStripMenuItem1.Size = new System.Drawing.Size(261, 6);
          // 
          // RqstBnEnrollFngrPrnt2
          // 
          this.RqstBnEnrollFngrPrnt2.Image = global::System.Scsc.Properties.Resources.IMAGE_1201;
          this.RqstBnEnrollFngrPrnt2.Name = "RqstBnEnrollFngrPrnt2";
-         this.RqstBnEnrollFngrPrnt2.Size = new System.Drawing.Size(218, 22);
+         this.RqstBnEnrollFngrPrnt2.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F2)));
+         this.RqstBnEnrollFngrPrnt2.Size = new System.Drawing.Size(264, 22);
          this.RqstBnEnrollFngrPrnt2.Text = "تعریف کد انگشتی دستگاه انار";
          // 
          // RqstBnDeleteFngrPrnt2
          // 
          this.RqstBnDeleteFngrPrnt2.Image = global::System.Scsc.Properties.Resources.IMAGE_1196;
          this.RqstBnDeleteFngrPrnt2.Name = "RqstBnDeleteFngrPrnt2";
-         this.RqstBnDeleteFngrPrnt2.Size = new System.Drawing.Size(218, 22);
+         this.RqstBnDeleteFngrPrnt2.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F3)));
+         this.RqstBnDeleteFngrPrnt2.Size = new System.Drawing.Size(264, 22);
          this.RqstBnDeleteFngrPrnt2.Text = "حذف کد انگشتی دستگاه انار";
          // 
          // toolStripMenuItem4

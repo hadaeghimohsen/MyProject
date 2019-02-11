@@ -53,6 +53,9 @@ namespace System.Scsc.Ui.Common
             case 10:
                Actn_CalF_P(job);
                break;
+            case 20:
+               Pay_Oprt_F(job);
+               break;
             default:
                break;
          }
@@ -1197,6 +1200,89 @@ namespace System.Scsc.Ui.Common
                tb_master.SelectedTab = tp_003;
             }
          }
+      }
+
+      /// <summary>
+      /// Code 20
+      /// </summary>
+      /// <param name="job"></param>
+      private void Pay_Oprt_F(Job job)
+      {
+         try
+         {
+            XElement RcevXData = job.Input as XElement;
+
+            var rqst = vF_SavePaymentsBs.Current as Data.VF_Save_PaymentsResult;
+            if (rqst == null) return;
+
+            var regl = iScsc.Regulations.FirstOrDefault(r => r.TYPE == "001" && r.REGL_STAT == "002");
+
+            //var rqtpcode = rqst.RQTP_CODE;//RcevXData.Element("PosRespons").Attribute("rqtpcode").Value;
+            var rqid = rqst.RQID;//RcevXData.Element("PosRespons").Attribute("rqid").Value;
+            var fileno = rqst.FIGH_FILE_NO;//RcevXData.Element("PosRespons").Attribute("fileno").Value;
+            var cashcode = rqst.CASH_CODE;//RcevXData.Element("PosRespons").Element("Payment").Attribute("cashcode").Value;
+            var amnt = Convert.ToInt64(RcevXData.Attribute("amnt").Value);
+            var termno = RcevXData.Attribute("termno").Value;
+            var tranno = RcevXData.Attribute("tranno").Value;
+            var cardno = RcevXData.Attribute("cardno").Value;
+            var flowno = RcevXData.Attribute("flowno").Value;
+            var refno = RcevXData.Attribute("refno").Value;
+            var actndate = RcevXData.Attribute("actndate").Value;
+
+            if (regl.AMNT_TYPE == "002")
+               amnt /= 10;
+
+            // این گزینه برای حالتی می باشد که کل مبلغ پرداخت به صورت کامل روی دستگاه پایانه فروش قرار میگیرد
+            if (UsePos_Cb.Checked)
+            {
+               iScsc.PAY_MSAV_P(
+                  new XElement("Payment",
+                     new XAttribute("actntype", "CheckoutWithPOS"),
+                     new XElement("Insert",
+                        new XElement("Payment_Method",
+                           new XAttribute("cashcode", cashcode),
+                           new XAttribute("rqstrqid", rqid),
+                           new XAttribute("amnt", amnt),
+                           new XAttribute("termno", termno),
+                           new XAttribute("tranno", tranno),
+                           new XAttribute("cardno", cardno),
+                           new XAttribute("flowno", flowno),
+                           new XAttribute("refno", refno),
+                           new XAttribute("actndate", actndate)
+                        )
+                     )
+                  )
+               );
+            }
+            // این گزینه برای پرداختی پایانه ای هست که به صورت کامل پرداخت نمی شود
+            else
+            {
+               iScsc.PAY_MSAV_P(
+                  new XElement("Payment",
+                     new XAttribute("actntype", "InsertUpdate"),
+                     new XElement("Insert",
+                        new XElement("Payment_Method",
+                           new XAttribute("cashcode", cashcode),
+                           new XAttribute("rqstrqid", rqid),
+                           new XAttribute("rcptmtod", "003"),
+                           new XAttribute("amnt", amnt),
+                           new XAttribute("termno", termno),
+                           new XAttribute("tranno", tranno),
+                           new XAttribute("cardno", cardno),
+                           new XAttribute("flowno", flowno),
+                           new XAttribute("refno", refno),
+                           new XAttribute("actndate", actndate)
+                        )
+                     )
+                  )
+               );
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         job.Status = StatusType.Successful;
       }
    }
 }

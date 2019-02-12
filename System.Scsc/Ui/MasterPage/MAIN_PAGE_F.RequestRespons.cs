@@ -683,13 +683,13 @@ namespace System.Scsc.Ui.MasterPage
       /// <param name="job"></param>
       private void SetCardinDevice(Job job)
       {
-         if (bIsConnected == false)
+         if (Fp1DevIsConnected == false)
          {
             //MessageBox.Show("Please connect the device first!", "Error");
             return;
          }
 
-         if (!bIsConnected) return;
+         if (!Fp1DevIsConnected) return;
 
          string EnrollNumber, CardNumber, NameDnrm;
          EnrollNumber = (job.Input as XElement).Attribute("enrollnumb").Value;
@@ -730,7 +730,7 @@ namespace System.Scsc.Ui.MasterPage
       {
          var message = (job.Input as XElement).Value;
          // بررسی اینکه آیا دستگاه انگشتی متصل می باشد
-         if (bIsConnected)
+         if (Fp1DevIsConnected)
          {
             //axCZKEM1.ClearLCD();
             //axCZKEM1.WriteLCD(0, 0, message);
@@ -758,7 +758,7 @@ namespace System.Scsc.Ui.MasterPage
          {
             var xinput = job.Input as XElement;
             // بررسی اینکه آیا دستگاه انگشتی متصل می باشد
-            if (bIsConnected)
+            if (Fp1DevIsConnected)
             {
                var result = false;
                int iMachineNumber = 1;//In fact,when you are using the tcp/ip communication,this parameter will be ignored,that is any integer will all right.Here we use 1.

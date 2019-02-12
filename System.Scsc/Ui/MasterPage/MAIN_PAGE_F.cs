@@ -362,7 +362,7 @@ namespace System.Scsc.Ui.MasterPage
                SuperToolTipAttnButn(
                   new XElement("System",
                      new XAttribute("device", "Gate"),
-                     new XAttribute("stat", bIsConnected)
+                     new XAttribute("stat", Fp1DevIsConnected)
                   )
                );
          }
@@ -687,7 +687,10 @@ namespace System.Scsc.Ui.MasterPage
 
       #region Finger Print
       public zkemkeeper.CZKEMClass axCZKEM1 = new zkemkeeper.CZKEMClass();
-      bool bIsConnected = false;
+      public zkemkeeper.CZKEMClass axCZKEM2 = new zkemkeeper.CZKEMClass();
+      //public zkemkeeper.CZKEMClass axCZKEM3 = new zkemkeeper.CZKEMClass();
+      bool Fp1DevIsConnected = false;
+      bool Fp2DevIsConnected = false;
       XElement xHost = null;
       void Start_FingerPrint()
       {
@@ -719,16 +722,16 @@ namespace System.Scsc.Ui.MasterPage
                               this.AttendanceSystemAlert_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1218;
                               Tsp_AttnSys.ForeColor = SystemColors.ControlText;
 
-                              if (!bIsConnected)
+                              if (!Fp1DevIsConnected)
                               {
                                  AttnType_Lov.EditValue = "001";
-                                 bIsConnected = axCZKEM1.Connect_Net(fingerPrintSetting.IP_ADDR, Convert.ToInt32(fingerPrintSetting.PORT_NUMB));
+                                 Fp1DevIsConnected = axCZKEM1.Connect_Net(fingerPrintSetting.IP_ADDR, Convert.ToInt32(fingerPrintSetting.PORT_NUMB));
                                  // fire event for fetch 
                                  axCZKEM1.OnAttTransactionEx += axCZKEM1_OnAttTransactionEx;
                                  // New code 
                                  axCZKEM1.OnHIDNum += axCZKEM1_OnHIDNum;
                               }
-                              if (bIsConnected == true)
+                              if (Fp1DevIsConnected == true)
                               {
                                  Tsp_AttnSys.Text = "دستگاه حضور غیاب فعال می باشد";
                                  this.AttendanceSystemAlert_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1219;
@@ -748,7 +751,7 @@ namespace System.Scsc.Ui.MasterPage
                                     new XElement("System",
                                        new XAttribute("device", "Attn"),
                                        new XAttribute("ip", fingerPrintSetting.IP_ADDR),
-                                       new XAttribute("stat", bIsConnected),
+                                       new XAttribute("stat", Fp1DevIsConnected),
                                        host
                                     )
                                  );
@@ -770,22 +773,22 @@ namespace System.Scsc.Ui.MasterPage
                               this.AttendanceSystemAlert_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1218;
                               Tsp_AttnSys.ForeColor = SystemColors.ControlText;
 
-                              if (!bIsConnected)
+                              if (!Fp2DevIsConnected)
                               {
                                  AttnType_Lov.EditValue = "001";
-                                 bIsConnected = axCZKEM1.Connect_Net(fingerPrintSetting.IP_ADR2, Convert.ToInt32(fingerPrintSetting.PORT_NUM2));
+                                 Fp2DevIsConnected = axCZKEM2.Connect_Net(fingerPrintSetting.IP_ADR2, Convert.ToInt32(fingerPrintSetting.PORT_NUM2));
                                  // fire event for fetch 
-                                 axCZKEM1.OnAttTransactionEx += axCZKEM1_OnAttTransactionEx;
+                                 axCZKEM2.OnAttTransactionEx += axCZKEM1_OnAttTransactionEx;
                                  // New code 
-                                 axCZKEM1.OnHIDNum += axCZKEM1_OnHIDNum;
+                                 axCZKEM2.OnHIDNum += axCZKEM1_OnHIDNum;
                               }
-                              if (bIsConnected == true)
+                              if (Fp2DevIsConnected == true)
                               {
                                  Tsp_AttnSys.Text = "دستگاه حضور غیاب فعال می باشد";
                                  this.AttendanceSystemAlert_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1219;
                                  Tsp_AttnSys.ForeColor = Color.Green;
                                  int iMachineNumber = 1;//In fact,when you are using the tcp/ip communication,this parameter will be ignored,that is any integer will all right.Here we use 1.
-                                 axCZKEM1.RegEvent(iMachineNumber, 65535);//Here you can register the realtime events that you want to be triggered(the parameters 65535 means registering all)
+                                 axCZKEM2.RegEvent(iMachineNumber, 65535);//Here you can register the realtime events that you want to be triggered(the parameters 65535 means registering all)
                               }
                               else
                               {
@@ -799,7 +802,7 @@ namespace System.Scsc.Ui.MasterPage
                                     new XElement("System",
                                        new XAttribute("device", "Attn"),
                                        new XAttribute("ip", fingerPrintSetting.IP_ADR2),
-                                       new XAttribute("stat", bIsConnected),
+                                       new XAttribute("stat", Fp1DevIsConnected),
                                        host
                                     )
                                  );
@@ -821,15 +824,15 @@ namespace System.Scsc.Ui.MasterPage
                               this.AttendanceSystemAlert_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1218;
                               Tsp_AttnSys.ForeColor = SystemColors.ControlText;
 
-                              if (!bIsConnected)
+                              if (!Fp1DevIsConnected)
                               {
-                                 bIsConnected = axCZKEM1.Connect_Net(fingerPrintSetting.IP_ADDR, Convert.ToInt32(fingerPrintSetting.PORT_NUMB));
+                                 Fp1DevIsConnected = axCZKEM1.Connect_Net(fingerPrintSetting.IP_ADDR, Convert.ToInt32(fingerPrintSetting.PORT_NUMB));
                                  // fire event for fetch 
                                  axCZKEM1.OnAttTransactionEx += axCZKEM1_OnAttTransactionEx;
                                  // New code 
                                  axCZKEM1.OnHIDNum += axCZKEM1_OnHIDNum;
                               }
-                              if (bIsConnected == true)
+                              if (Fp1DevIsConnected == true)
                               {
                                  AttnType_Lov.EditValue = "002";
                                  Tsp_AttnSys.Text = "دستگاه حضور غیاب فعال می باشد";
@@ -851,7 +854,7 @@ namespace System.Scsc.Ui.MasterPage
                                     new XElement("System",
                                        new XAttribute("device", "Attn"),
                                        new XAttribute("ip", fingerPrintSetting.IP_ADDR),
-                                       new XAttribute("stat", bIsConnected),
+                                       new XAttribute("stat", Fp1DevIsConnected),
                                        host
                                     )
                                  );
@@ -1259,10 +1262,10 @@ namespace System.Scsc.Ui.MasterPage
 
       void Stop_FingerPrint()
       {
-         if (bIsConnected)
+         if (Fp1DevIsConnected)
          {
             axCZKEM1.Disconnect();
-            bIsConnected = false;
+            Fp1DevIsConnected = false;
             Tsp_AttnSys.Text = "دستگاه حضورغیاب غیرفعال شد";
          }
       }

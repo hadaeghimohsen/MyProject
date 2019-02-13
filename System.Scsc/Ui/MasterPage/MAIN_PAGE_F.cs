@@ -1358,7 +1358,7 @@ namespace System.Scsc.Ui.MasterPage
       }
       #endregion
 
-      #region اطلاعات پایه
+      #region Base Info
       private void bbi_basdifnbutn_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
       {
          /// Must Be Change
@@ -1666,7 +1666,7 @@ namespace System.Scsc.Ui.MasterPage
       }
       #endregion
 
-      #region اطلاعات ثبت نام
+      #region Admission Info
       private void bbi_adm1butn_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
       {
          Job _InteractWithScsc =
@@ -1973,7 +1973,7 @@ namespace System.Scsc.Ui.MasterPage
       }      
       #endregion
 
-      #region ثبت نام متفرقه
+      #region Misc InCome
       private void bbi_hoicbutn_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
       {
          Job _InteractWithScsc =
@@ -1999,7 +1999,7 @@ namespace System.Scsc.Ui.MasterPage
       }
       #endregion
 
-      #region آمارها
+      #region Statistics
       private void bbi_attnbutn_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
       {
          Job _InteractWithScsc =
@@ -2089,7 +2089,7 @@ namespace System.Scsc.Ui.MasterPage
 
       #endregion
 
-      #region تنظیمات نرم افزار
+      #region Settings
       private void bbi_bkupbutn_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
       {
          /// Must Be Change
@@ -2139,7 +2139,7 @@ namespace System.Scsc.Ui.MasterPage
 
       #endregion
 
-      #region گزینه های متفرقه باشگاه
+      #region Other Operation
       private void bbi_oincbutn_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
       {
          /// Must Be Change
@@ -2258,7 +2258,7 @@ namespace System.Scsc.Ui.MasterPage
 
       #endregion
 
-      #region شاخص مربیان
+      #region Coach
       private void bbi_testbutn_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
       {         
          Job _InteractWithScsc =
@@ -2348,7 +2348,7 @@ namespace System.Scsc.Ui.MasterPage
       }
       #endregion
 
-      #region گزینه کارهای تجمعی
+      #region Aggregate Operation
       private void bbi_smsbbutn_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
       {
          Job _InteractWithScsc =
@@ -2438,7 +2438,7 @@ namespace System.Scsc.Ui.MasterPage
       }      
       #endregion
 
-      #region گزارشات
+      #region Report
       private void bbi_acntbutn_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
       {
          Job _InteractWithScsc =
@@ -2559,7 +2559,7 @@ namespace System.Scsc.Ui.MasterPage
       }
       #endregion
 
-      #region داشبورد
+      #region Dashboard
       private void bbi_bislbutn_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
       {
          Job _InteractWithScsc =

@@ -12,6 +12,7 @@ using System.Security.Cryptography;
 using System.Windows.Forms;
 using System.Net.NetworkInformation;
 using System.Diagnostics;
+using System.Threading;
 
 namespace System.DataGuard.Self.Code
 {
@@ -1052,7 +1053,18 @@ namespace System.DataGuard.Self.Code
             if (iProject == null)
                iProject = new Data.iProjectDataContext(ConnectionString);
 
-            iProject.TakedbBackup(new XElement("Backup", ""));
+            var xinput = job.Input as XElement;
+
+            switch(xinput.Attribute("type").Value)
+            { 
+               case "exit":
+                  if (iProject.Sub_Systems.Any(s => s.STAT == "002" && s.INST_STAT == "002" && s.BACK_UP_APP_EXIT == "002"))
+                     iProject.TakedbBackup(new XElement("Backup", ""));
+                  break;
+               case "immediate":
+                  iProject.TakedbBackup(new XElement("Backup", ""));
+                  break;
+            }
             job.Status = StatusType.Successful;
          }
          catch (Exception exc)

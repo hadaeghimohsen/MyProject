@@ -444,11 +444,20 @@
     <Compile Include="Ui\BaseDefinition\APBS_DFIN_F.RequestRespons.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Ui\BaseDefinition\BAS_CBMT_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\BaseDefinition\BAS_CBMT_F.Designer.cs">
+      <DependentUpon>BAS_CBMT_F.cs</DependentUpon>
+    </Compile>
     <Compile Include="Ui\BaseDefinition\BAS_WKDY_F.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Ui\BaseDefinition\BAS_WKDY_F.Designer.cs">
       <DependentUpon>BAS_WKDY_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\BaseDefinition\BAS_CBMT_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Ui\BaseDefinition\BAS_WKDY_F.RequestRespons.cs">
       <SubType>UserControl</SubType>
@@ -1261,6 +1270,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Ui\BaseDefinition\APBS_DFIN_F.resx">
       <DependentUpon>APBS_DFIN_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\BaseDefinition\BAS_CBMT_F.resx">
+      <DependentUpon>BAS_CBMT_F.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ui\BaseDefinition\BAS_WKDY_F.resx">
       <DependentUpon>BAS_WKDY_F.cs</DependentUpon>

@@ -757,6 +757,11 @@ namespace System.Scsc.Code
             if (_Dap_Dsbr_F == null)
                _Dap_Dsbr_F = new Ui.DataAnalysis.DAP_DSBR_F { _DefaultGateway = this };
          }
+         else if (value == "bas_cbmt_f")
+         {
+            if (_Bas_Cbmt_F == null)
+               _Bas_Cbmt_F = new Ui.BaseDefinition.BAS_CBMT_F { _DefaultGateway = this };
+         }
 
          // فرم های نمایش تغییرات
          else if (value == "show_atrq_f")
@@ -4600,6 +4605,30 @@ namespace System.Scsc.Code
                   new Job(SendType.SelfToUserInterface, "DAP_DSBR_F", 02 /* Execute Set */),                  
                   new Job(SendType.SelfToUserInterface, "DAP_DSBR_F", 07 /* Execute Load_Data */),
                   new Job(SendType.SelfToUserInterface, "DAP_DSBR_F", 03 /* Execute Paint */),
+               });
+         }
+         else if (job.Status == StatusType.SignalForPreconditions)
+         {
+            job.Status = StatusType.Successful;
+         }
+      }
+
+      /// <summary>
+      /// Code 159
+      /// </summary>
+      /// <param name="job"></param>
+      private void Bas_Cbmt_F(Job job)
+      {
+         if (job.Status == StatusType.Running)
+         {
+            job.Status = StatusType.WaitForPreconditions;
+            job.OwnerDefineWorkWith.AddRange(
+               new List<Job>
+               {
+                  new Job(SendType.Self, 01 /* Execute GetUi */){Input = "bas_cbmt_f"},
+                  new Job(SendType.SelfToUserInterface, "BAS_CBMT_F", 02 /* Execute Set */),                  
+                  new Job(SendType.SelfToUserInterface, "BAS_CBMT_F", 07 /* Execute Load_Data */),
+                  new Job(SendType.SelfToUserInterface, "BAS_CBMT_F", 03 /* Execute Paint */),
                });
          }
          else if (job.Status == StatusType.SignalForPreconditions)

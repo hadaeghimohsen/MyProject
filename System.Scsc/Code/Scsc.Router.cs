@@ -504,6 +504,9 @@ namespace System.Scsc.Code
             case 158:
                Dap_Dsbr_F(job);
                break;
+            case 159:
+               Bas_Cbmt_F(job);
+               break;
             default:
                job.Status = StatusType.Failed;
                break;
@@ -960,6 +963,9 @@ namespace System.Scsc.Code
                break;
             case "DAP_DSBR_F":
                _Dap_Dsbr_F.SendRequest(job);
+               break;
+            case "BAS_CBMT_F":
+               _Bas_Cbmt_F.SendRequest(job);
                break;
 
             /* Show Changed */

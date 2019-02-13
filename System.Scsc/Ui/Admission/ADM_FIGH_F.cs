@@ -1487,6 +1487,25 @@ namespace System.Scsc.Ui.Admission
          }
       }
 
-      
+      private void CbmtCode_Lov_ButtonPressed(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            //long code = (long)CbmtCode_Lov.EditValue;
+            if (e.Button.Index == 1)
+            {
+               _DefaultGateway.Gateway(
+                  new Job(SendType.External, "localhost",
+                     new List<Job>
+                     {
+                        new Job(SendType.Self, 159 /* Execute Bas_Cbmt_F */),
+                        new Job(SendType.SelfToUserInterface,"BAS_CBMT_F",  10 /* Execute Actn_CalF_F */){Input = new XElement("Club_Method", new XAttribute("formcaller", GetType().Name))}
+                     }
+                  )
+               );
+            }
+         }
+         catch { }
+      }    
    }
 }

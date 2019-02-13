@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.JobRouting.Jobs;
 using System.Diagnostics;
+using System.Xml.Linq;
 
 namespace MyProject.Commons.Ui
 {
@@ -28,6 +29,22 @@ namespace MyProject.Commons.Ui
 
       private void Shutdown_Butn_Click(object sender, EventArgs e)
       {
+         // 1397/11/24 * اگر که در زمان خروج نیاز به پشتیبان گیری باشد برنامه اتومات پشتیبان گیری انجام میدهد
+         Job _BackupAfterShutdown = new Job(SendType.External, "Localhost",
+            new List<Job>
+            {
+               new Job(SendType.SelfToUserInterface, GetType().Name, 04 /* Execute UnPaint */),
+               new Job(SendType.External, "Program","DataGuard", 34 /* Execute DoWork4Backup */, SendType.Self)
+               {
+                  //Executive = ExecutiveType.Asynchronous, 
+                  Input = 
+                     new XElement("Backup",
+                        new XAttribute("type", "exit")
+                     )
+               },
+            });
+         _DefaultGateway.Gateway(_BackupAfterShutdown);
+
          Application.Exit();
          Process.GetCurrentProcess().Kill();
       }
@@ -46,16 +63,23 @@ namespace MyProject.Commons.Ui
 
       private void Backup_Butn_Click(object sender, EventArgs e)
       {
-         Job _Logout = new Job(SendType.External, "Localhost",
+         Job _ImmediateBackup = new Job(SendType.External, "Localhost",
             new List<Job>
             {
                new Job(SendType.SelfToUserInterface, GetType().Name, 04 /* Execute UnPaint */),
-               new Job(SendType.External, "Program","DataGuard", 34 /* Execute DoWork4Backup */, SendType.Self),
-               //new Job(SendType.External, "Program", "", 03 /* Execute Stop_Service_Component */, SendType.Self)               
+               new Job(SendType.External, "Program","DataGuard", 34 /* Execute DoWork4Backup */, SendType.Self)
+               {
+                  Executive = ExecutiveType.Asynchronous, 
+                  Input = 
+                     new XElement("Backup",
+                        new XAttribute("type", "immediate")
+                     )
+               }               
             });
-         _DefaultGateway.Gateway(_Logout);
+         _DefaultGateway.Gateway(_ImmediateBackup);
 
-         Shutdown_Butn_Click(null, null);
+         //Shutdown_Butn_Click(null, null);
+         Cancl_Butn_Clicked(null, null);
       }
    }
 }

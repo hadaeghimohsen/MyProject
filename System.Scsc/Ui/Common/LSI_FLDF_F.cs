@@ -589,19 +589,17 @@ namespace System.Scsc.Ui.Common
       {
          try
          {
-            //if (FNGR_PRNT_TextEdit.Text == "") { FNGR_PRNT_TextEdit.Focus(); return; }
+            var figh = vF_Fighs.Current as Data.VF_Last_Info_FighterResult;
+            if (figh == null) return;
+            if (figh.FNGR_PRNT_DNRM == "") { return; }
 
-            //_DefaultGateway.Gateway(
-            //   new Job(SendType.External, "localhost", "MAIN_PAGE_F", 10 /* Execute actn_Calf_F */, SendType.SelfToUserInterface)
-            //   {
-            //      Input =
-            //         new XElement("Command",
-            //            new XAttribute("type", "fngrprntdev"),
-            //            new XAttribute("fngractn", "enroll"),
-            //            new XAttribute("fngrprnt", FNGR_PRNT_TextEdit.Text)
-            //         )
-            //   }
-            //);
+            Job _InteractWithScsc =
+               new Job(SendType.External, "Localhost",
+                  new List<Job>
+                  {                  
+                     new Job(SendType.SelfToUserInterface, "MAIN_PAGE_F", 43 /* DeviceControlFunction */){Input = new XElement("DeviceControlFunction", new XAttribute("functype", "5.2.3.8"), new XAttribute("funcdesc", "Add User Info"), new XAttribute("enrollnumb", figh.FNGR_PRNT_DNRM))}
+                  });
+            _DefaultGateway.Gateway(_InteractWithScsc);
          }
          catch (Exception exc) { }
       }
@@ -610,19 +608,36 @@ namespace System.Scsc.Ui.Common
       {
          try
          {
-            //if (FNGR_PRNT_TextEdit.Text == "") { FNGR_PRNT_TextEdit.Focus(); return; }
+            var figh = vF_Fighs.Current as Data.VF_Last_Info_FighterResult;
+            if (figh == null) return;
+            if (figh.FNGR_PRNT_DNRM == "") { return; }
 
-            //_DefaultGateway.Gateway(
-            //   new Job(SendType.External, "localhost", "MAIN_PAGE_F", 10 /* Execute actn_Calf_F */, SendType.SelfToUserInterface)
-            //   {
-            //      Input =
-            //         new XElement("Command",
-            //            new XAttribute("type", "fngrprntdev"),
-            //            new XAttribute("fngractn", "enroll"),
-            //            new XAttribute("fngrprnt", FNGR_PRNT_TextEdit.Text)
-            //         )
-            //   }
-            //);
+            Job _InteractWithScsc =
+               new Job(SendType.External, "Localhost",
+                  new List<Job>
+                  {                  
+                     new Job(SendType.SelfToUserInterface, "MAIN_PAGE_F", 43 /* DeviceControlFunction */){Input = new XElement("DeviceControlFunction", new XAttribute("functype", "5.2.3.5"), new XAttribute("funcdesc", "Delete User Info"), new XAttribute("enrollnumb", figh.FNGR_PRNT_DNRM))}
+                  });
+            _DefaultGateway.Gateway(_InteractWithScsc);
+         }
+         catch (Exception exc) { }
+      }
+
+      private void RqstBnDuplicateFngrPrnt1_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var figh = vF_Fighs.Current as Data.VF_Last_Info_FighterResult;
+            if (figh == null) return;
+            if (figh.FNGR_PRNT_DNRM == "") { return; }
+
+            Job _InteractWithScsc =
+            new Job(SendType.External, "Localhost",
+               new List<Job>
+               {                  
+                  new Job(SendType.SelfToUserInterface, "MAIN_PAGE_F", 43 /* DeviceControlFunction */){Input = new XElement("DeviceControlFunction", new XAttribute("functype", "5.2.7.2"), new XAttribute("funcdesc", "Duplicate User Info Into All Device"), new XAttribute("enrollnumb", figh.FNGR_PRNT_DNRM))}
+               });
+            _DefaultGateway.Gateway(_InteractWithScsc);
          }
          catch (Exception exc) { }
       }

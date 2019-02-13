@@ -775,7 +775,10 @@ namespace System.Scsc.Ui.MasterPage
                      break;
                   case "5.2.7.1":
                      result = Truncate_Enroll_Fingers();
-                     break;                     
+                     break;
+                  case "5.2.7.2":
+                     result = Duplicate_Enroll_Fingers(xinput.Attribute("enrollnumb").Value);
+                     break;
                }
 
                //if (result) MessageBox.Show(this, "عملیات با موفقیت انجام شد", "نتجیه عملیات", MessageBoxButtons.OK, MessageBoxIcon.Information);

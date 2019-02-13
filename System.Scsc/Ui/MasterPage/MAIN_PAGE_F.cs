@@ -759,7 +759,7 @@ namespace System.Scsc.Ui.MasterPage
                         }
                         #endregion
                         #region 2nd Device
-                        else if (iScsc.Settings.Any(s => Fga_Uclb_U.Contains(s.CLUB_CODE) && s.ATTN_COMP_CNC2 == host.Attribute("cpu").Value))
+                        if (iScsc.Settings.Any(s => Fga_Uclb_U.Contains(s.CLUB_CODE) && s.ATTN_COMP_CNC2 == host.Attribute("cpu").Value))
                         {
                            var fingerPrintSetting = iScsc.Settings.Where(s => Fga_Uclb_U.Contains(s.CLUB_CODE) && s.ATTN_COMP_CNC2 == host.Attribute("cpu").Value).FirstOrDefault();
 
@@ -1285,7 +1285,7 @@ namespace System.Scsc.Ui.MasterPage
          try
          {
             var result = axCZKEM1.SSR_SetUserInfo(1, enrollid, enrollid, "", 0, true);
-            if(axCZKEM1.StartEnrollEx(enrollid, 0, 0))
+            if(axCZKEM1.StartEnrollEx(enrollid, 6, 0))
             {
                BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.BlanchedAlmond;
             }
@@ -1303,7 +1303,7 @@ namespace System.Scsc.Ui.MasterPage
       {
          try
          {
-            axCZKEM1.SSR_DelUserTmpExt(1, enrollid, 0);
+            axCZKEM1.SSR_DelUserTmpExt(1, enrollid, 6);
             axCZKEM1.DeleteUserInfoEx(1, Convert.ToInt32(enrollid));
             axCZKEM1.ClearSLog(1);
 
@@ -1330,6 +1330,28 @@ namespace System.Scsc.Ui.MasterPage
          catch (Exception exc)
          {
             BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Red;
+            MessageBox.Show(exc.Message);
+            return false;
+         }
+      }
+
+      private bool Duplicate_Enroll_Fingers(string enrollid)
+      {
+         try
+         {
+            string tmpData = "";
+            int tmplen = 0;
+            int flag = 0;
+            var result = axCZKEM1.GetUserTmpExStr(1, enrollid, 6, out flag, out tmpData, out tmplen);
+            if (Fp2DevIsConnected)
+            {
+               result = axCZKEM2.SSR_SetUserInfo(1, enrollid, "", "", 0, true);
+               result = axCZKEM2.SetUserTmpExStr(1, enrollid, 6, flag, tmpData);
+            }
+            return true;
+         }
+         catch(Exception exc)
+         {
             MessageBox.Show(exc.Message);
             return false;
          }

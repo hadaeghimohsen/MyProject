@@ -568,19 +568,30 @@ namespace System.Scsc.Ui.Admission
          {
             if (FNGR_PRNT_TextEdit.Text == "") { FNGR_PRNT_TextEdit.Focus(); return; }
 
-            try
-            {
-               if (FNGR_PRNT_TextEdit.Text == "") { FNGR_PRNT_TextEdit.Focus(); return; }
+            Job _InteractWithScsc =
+            new Job(SendType.External, "Localhost",
+               new List<Job>
+               {                  
+                  new Job(SendType.SelfToUserInterface, "MAIN_PAGE_F", 43 /* DeviceControlFunction */){Input = new XElement("DeviceControlFunction", new XAttribute("functype", "5.2.3.5"), new XAttribute("funcdesc", "Delete User Info"), new XAttribute("enrollnumb", FNGR_PRNT_TextEdit.Text))}
+               });
+            _DefaultGateway.Gateway(_InteractWithScsc);
+         }
+         catch (Exception exc) { }
+      }
 
-               Job _InteractWithScsc =
-               new Job(SendType.External, "Localhost",
-                  new List<Job>
-                  {                  
-                     new Job(SendType.SelfToUserInterface, "MAIN_PAGE_F", 43 /* DeviceControlFunction */){Input = new XElement("DeviceControlFunction", new XAttribute("functype", "5.2.3.5"), new XAttribute("funcdesc", "Delete User Info"), new XAttribute("enrollnumb", FNGR_PRNT_TextEdit.Text))}
-                  });
-               _DefaultGateway.Gateway(_InteractWithScsc);
-            }
-            catch (Exception exc) { }
+      private void RqstBnDuplicateFngrPrnt1_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            if (FNGR_PRNT_TextEdit.Text == "") { FNGR_PRNT_TextEdit.Focus(); return; }
+
+            Job _InteractWithScsc =
+            new Job(SendType.External, "Localhost",
+               new List<Job>
+               {                  
+                  new Job(SendType.SelfToUserInterface, "MAIN_PAGE_F", 43 /* DeviceControlFunction */){Input = new XElement("DeviceControlFunction", new XAttribute("functype", "5.2.7.2"), new XAttribute("funcdesc", "Duplicate User Info Into All Device"), new XAttribute("enrollnumb", FNGR_PRNT_TextEdit.Text))}
+               });
+            _DefaultGateway.Gateway(_InteractWithScsc);
          }
          catch (Exception exc) { }
       }
@@ -690,5 +701,7 @@ namespace System.Scsc.Ui.Admission
          }
          catch { IDTY_TXT.Text = "نامشخص"; }
       }
+
+      
    }
 }

@@ -685,6 +685,7 @@ namespace System.Scsc.Ui.MasterPage
       }
       #endregion
 
+      
       #region Finger Print
       public zkemkeeper.CZKEMClass axCZKEM1 = new zkemkeeper.CZKEMClass();
       public zkemkeeper.CZKEMClass axCZKEM2 = new zkemkeeper.CZKEMClass();

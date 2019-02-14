@@ -222,7 +222,9 @@ namespace System.Scsc.Ui.BaseDefinition
       private void LoadData(Job job)
       {  
          DSxtpBs1.DataSource = iScsc.D_SXTPs;
-         DdytpBs1.DataSource = iScsc.D_DYTPs;         
+         DdytpBs1.DataSource = iScsc.D_DYTPs;
+         DActvBs1.DataSource = iScsc.D_ACTVs;
+         DAttpBs.DataSource = iScsc.D_ATTPs;
 
          job.Status = StatusType.Successful;
       }

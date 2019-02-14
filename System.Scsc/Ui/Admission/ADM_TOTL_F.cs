@@ -25,6 +25,7 @@ namespace System.Scsc.Ui.Admission
 
       private bool requery = default(bool);
       private int rqstindex = default(int);
+      private long? cbmtcode = null, ctgycode = null;
 
       private void Execute_Query()
       {
@@ -97,7 +98,7 @@ namespace System.Scsc.Ui.Admission
       private void DefaultTabPage003()
       {
          /* تنظیم کردن ناحیه و استان قابل دسترس */
-         RQTT_CODE_LookUpEdit3.EditValue = "001";
+         RqttCode_Lov.EditValue = "001";
       }
 
       private void DefaultTabPage002()
@@ -163,7 +164,7 @@ namespace System.Scsc.Ui.Admission
          //else if (tb_master.SelectedTab == tp_003)
          {
             RqstBs3.AddNew();
-            RQTT_CODE_LookUpEdit3.Focus();
+            RqttCode_Lov.Focus();
          }
       }
 
@@ -806,13 +807,13 @@ namespace System.Scsc.Ui.Admission
                   new XElement("Request",
                      new XAttribute("rqid", Rqst == null ? 0 : Rqst.RQID),
                      new XAttribute("rqtpcode", "009"),
-                     new XAttribute("rqttcode", RQTT_CODE_LookUpEdit3.EditValue),
+                     new XAttribute("rqttcode", RqttCode_Lov.EditValue),
                      new XElement("Request_Row",
                         new XAttribute("fileno", Figh_Lov.EditValue),
                         new XElement("Fighter",
                            //new XAttribute("mtodcodednrm", MtodCode_LookupEdit003.EditValue ?? ""),
-                           new XAttribute("ctgycodednrm", CtgyCode_LookupEdit003.EditValue ?? ""),
-                           new XAttribute("cbmtcodednrm", CBMT_CODE_GridLookUpEdit003.EditValue ?? "")
+                           new XAttribute("ctgycodednrm", CtgyCode_Lov.EditValue ?? ""),
+                           new XAttribute("cbmtcodednrm", CbmtCode_Lov.EditValue ?? "")
                         ),
                         new XElement("Member_Ship",
                            new XAttribute("strtdate", StrtDate_DateTime003.Value.HasValue ? StrtDate_DateTime003.Value.Value.ToString("yyyy-MM-dd") : ""),
@@ -1860,8 +1861,8 @@ namespace System.Scsc.Ui.Admission
                //var rqst = RqstBs3.Current as Data.Request;
                //if (rqst == null) return;
 
-               long ctgycode = (long)CtgyCode_LookupEdit003.EditValue;
-               string rqttcode = (string)RQTT_CODE_LookUpEdit3.EditValue;
+               long ctgycode = (long)CtgyCode_Lov.EditValue;
+               string rqttcode = (string)RqttCode_Lov.EditValue;
                var expn = iScsc.Expenses.Where(exp => exp.Expense_Type.Request_Requester.RQTP_CODE == "009" && exp.Expense_Type.Request_Requester.RQTT_CODE == "001" && exp.Expense_Type.Request_Requester.Regulation.REGL_STAT == "002" && exp.Expense_Type.Request_Requester.Regulation.TYPE == "001" && exp.CTGY_CODE == ctgycode && exp.EXPN_STAT == "002").FirstOrDefault();
 
                StrtDate_DateTime003.Value = DateTime.Now;
@@ -1944,8 +1945,8 @@ namespace System.Scsc.Ui.Admission
 
             var figh = FighBs3.List.OfType<Data.Fighter>().FirstOrDefault(f => f.FILE_NO == Convert.ToInt64(Figh_Lov.EditValue));//iScsc.Fighters.First(f => f.FIGH_FILE_NO == Convert.ToInt64(FIGH_FILE_NOLookUpEdit.EditValue));
 
-            CBMT_CODE_GridLookUpEdit003.EditValue = figh.CBMT_CODE_DNRM;
-            CtgyCode_LookupEdit003.EditValue = figh.CTGY_CODE_DNRM;
+            CbmtCode_Lov.EditValue = figh.CBMT_CODE_DNRM;
+            CtgyCode_Lov.EditValue = figh.CTGY_CODE_DNRM;
          }
          catch 
          {
@@ -1961,7 +1962,7 @@ namespace System.Scsc.Ui.Admission
       {
          try
          {
-            long code = (long)CBMT_CODE_GridLookUpEdit003.EditValue;
+            long code = (long)CbmtCode_Lov.EditValue;
 
             _DefaultGateway.Gateway(
                new Job(SendType.External, "localhost",
@@ -2006,9 +2007,9 @@ namespace System.Scsc.Ui.Admission
 
          var figh = rqst.Request_Rows.FirstOrDefault().Fighter;
          //MtodCode_LookupEdit003.EditValue = figh.MTOD_CODE_DNRM;
-         CtgyCode_LookupEdit003.EditValue = figh.CTGY_CODE_DNRM;
+         CtgyCode_Lov.EditValue = figh.CTGY_CODE_DNRM;
          //CtgyBs2.Position = CtgyBs2.List.OfType<Data.Category_Belt>().ToList().FindIndex(c => c.CODE == figh.CTGY_CODE_DNRM);//CtgyCode_LookupEdit003.Properties.GetDataSourceRowIndex(CtgyCode_LookupEdit003.Properties.ValueMember, CtgyCode_LookupEdit003.EditValue);
-         CBMT_CODE_GridLookUpEdit003.EditValue = figh.CBMT_CODE_DNRM;
+         CbmtCode_Lov.EditValue = figh.CBMT_CODE_DNRM;
          FNGR_PRNT_TextEdit.EditValue = figh.FNGR_PRNT_DNRM;
       }
 
@@ -2276,7 +2277,7 @@ namespace System.Scsc.Ui.Admission
       {
          try
          {
-            var cbmt = CBMT_CODE_GridLookUpEdit003.EditValue;
+            var cbmt = CbmtCode_Lov.EditValue;
 
             if (cbmt == null || cbmt.ToString() == "") return;
 
@@ -2290,23 +2291,20 @@ namespace System.Scsc.Ui.Admission
          }
       }
 
+      #region Finger Print Device Operation
       private void RqstBnEnrollFngrPrnt1_Click(object sender, EventArgs e)
       {
          try
          {
             if (FNGR_PRNT_TextEdit.Text == "") { FNGR_PRNT_TextEdit.Focus(); return; }
 
-            //_DefaultGateway.Gateway(
-            //   new Job(SendType.External, "localhost", "MAIN_PAGE_F", 10 /* Execute actn_Calf_F */, SendType.SelfToUserInterface)
-            //   {
-            //      Input =
-            //         new XElement("Command",
-            //            new XAttribute("type", "fngrprntdev"),
-            //            new XAttribute("fngractn", "enroll"),
-            //            new XAttribute("fngrprnt", FNGR_PRNT_TextEdit.Text)
-            //         )
-            //   }
-            //);
+            Job _InteractWithScsc =
+            new Job(SendType.External, "Localhost",
+               new List<Job>
+               {                  
+                  new Job(SendType.SelfToUserInterface, "MAIN_PAGE_F", 43 /* DeviceControlFunction */){Input = new XElement("DeviceControlFunction", new XAttribute("functype", "5.2.3.8"), new XAttribute("funcdesc", "Add User Info"), new XAttribute("enrollnumb", FNGR_PRNT_TextEdit.Text))}
+               });
+            _DefaultGateway.Gateway(_InteractWithScsc);
          }
          catch (Exception exc) { }
       }
@@ -2317,17 +2315,30 @@ namespace System.Scsc.Ui.Admission
          {
             if (FNGR_PRNT_TextEdit.Text == "") { FNGR_PRNT_TextEdit.Focus(); return; }
 
-            //_DefaultGateway.Gateway(
-            //   new Job(SendType.External, "localhost", "MAIN_PAGE_F", 10 /* Execute actn_Calf_F */, SendType.SelfToUserInterface)
-            //   {
-            //      Input =
-            //         new XElement("Command",
-            //            new XAttribute("type", "fngrprntdev"),
-            //            new XAttribute("fngractn", "enroll"),
-            //            new XAttribute("fngrprnt", FNGR_PRNT_TextEdit.Text)
-            //         )
-            //   }
-            //);
+            Job _InteractWithScsc =
+               new Job(SendType.External, "Localhost",
+                  new List<Job>
+                     {                  
+                        new Job(SendType.SelfToUserInterface, "MAIN_PAGE_F", 43 /* DeviceControlFunction */){Input = new XElement("DeviceControlFunction", new XAttribute("functype", "5.2.3.5"), new XAttribute("funcdesc", "Delete User Info"), new XAttribute("enrollnumb", FNGR_PRNT_TextEdit.Text))}
+                     });
+            _DefaultGateway.Gateway(_InteractWithScsc);
+         }
+         catch (Exception exc) { }
+      }
+
+      private void RqstBnDuplicateFngrPrnt1_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            if (FNGR_PRNT_TextEdit.Text == "") { FNGR_PRNT_TextEdit.Focus(); return; }
+
+            Job _InteractWithScsc =
+            new Job(SendType.External, "Localhost",
+               new List<Job>
+               {                  
+                  new Job(SendType.SelfToUserInterface, "MAIN_PAGE_F", 43 /* DeviceControlFunction */){Input = new XElement("DeviceControlFunction", new XAttribute("functype", "5.2.7.2"), new XAttribute("funcdesc", "Duplicate User Info Into All Device"), new XAttribute("enrollnumb", FNGR_PRNT_TextEdit.Text))}
+               });
+            _DefaultGateway.Gateway(_InteractWithScsc);
          }
          catch (Exception exc) { }
       }
@@ -2373,6 +2384,27 @@ namespace System.Scsc.Ui.Admission
          }
          catch (Exception exc) { }
       }
+      #endregion
 
+      private void CbmtCode_Lov_ButtonPressed(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            //long code = (long)CbmtCode_Lov.EditValue;
+            if (e.Button.Index == 1)
+            {
+               _DefaultGateway.Gateway(
+                  new Job(SendType.External, "localhost",
+                     new List<Job>
+                     {
+                        new Job(SendType.Self, 159 /* Execute Bas_Cbmt_F */),
+                        new Job(SendType.SelfToUserInterface,"BAS_CBMT_F",  10 /* Execute Actn_CalF_F */){Input = new XElement("Club_Method", new XAttribute("formcaller", GetType().Name))}
+                     }
+                  )
+               );
+            }
+         }
+         catch { }
+      }
    }
 }

@@ -3827,53 +3827,56 @@
          // 
          // RqstBnEnrollFngrPrnt1
          // 
+         this.RqstBnEnrollFngrPrnt1.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.RqstBnEnrollFngrPrnt1.Image = global::System.Scsc.Properties.Resources.IMAGE_1201;
          this.RqstBnEnrollFngrPrnt1.Name = "RqstBnEnrollFngrPrnt1";
          this.RqstBnEnrollFngrPrnt1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F4)));
-         this.RqstBnEnrollFngrPrnt1.Size = new System.Drawing.Size(293, 46);
+         this.RqstBnEnrollFngrPrnt1.Size = new System.Drawing.Size(343, 46);
          this.RqstBnEnrollFngrPrnt1.Text = "تعریف کد انگشتی";
          this.RqstBnEnrollFngrPrnt1.Click += new System.EventHandler(this.RqstBnEnrollFngrPrnt1_Click);
          // 
          // RqstBnDeleteFngrPrnt1
          // 
+         this.RqstBnDeleteFngrPrnt1.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.RqstBnDeleteFngrPrnt1.Image = global::System.Scsc.Properties.Resources.IMAGE_1057;
          this.RqstBnDeleteFngrPrnt1.Name = "RqstBnDeleteFngrPrnt1";
          this.RqstBnDeleteFngrPrnt1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F5)));
-         this.RqstBnDeleteFngrPrnt1.Size = new System.Drawing.Size(293, 46);
+         this.RqstBnDeleteFngrPrnt1.Size = new System.Drawing.Size(343, 46);
          this.RqstBnDeleteFngrPrnt1.Text = "حذف کد انگشتی";
          this.RqstBnDeleteFngrPrnt1.Click += new System.EventHandler(this.RqstBnDeleteFngrPrnt1_Click);
          // 
          // RqstBnDuplicateFngrPrnt1
          // 
+         this.RqstBnDuplicateFngrPrnt1.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.RqstBnDuplicateFngrPrnt1.Image = global::System.Scsc.Properties.Resources.IMAGE_1101;
          this.RqstBnDuplicateFngrPrnt1.Name = "RqstBnDuplicateFngrPrnt1";
          this.RqstBnDuplicateFngrPrnt1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F6)));
-         this.RqstBnDuplicateFngrPrnt1.Size = new System.Drawing.Size(293, 46);
+         this.RqstBnDuplicateFngrPrnt1.Size = new System.Drawing.Size(343, 46);
          this.RqstBnDuplicateFngrPrnt1.Text = "یکسان سازی تمام دستگاه ها";
          this.RqstBnDuplicateFngrPrnt1.Click += new System.EventHandler(this.RqstBnDuplicateFngrPrnt1_Click);
          // 
          // toolStripMenuItem2
          // 
          this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-         this.toolStripMenuItem2.Size = new System.Drawing.Size(290, 6);
+         this.toolStripMenuItem2.Size = new System.Drawing.Size(340, 6);
          // 
          // RqstBnEnrollFngrPrnt2
          // 
-         this.RqstBnEnrollFngrPrnt2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+         this.RqstBnEnrollFngrPrnt2.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.RqstBnEnrollFngrPrnt2.Image = global::System.Scsc.Properties.Resources.IMAGE_1201;
          this.RqstBnEnrollFngrPrnt2.Name = "RqstBnEnrollFngrPrnt2";
          this.RqstBnEnrollFngrPrnt2.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F2)));
-         this.RqstBnEnrollFngrPrnt2.Size = new System.Drawing.Size(293, 46);
+         this.RqstBnEnrollFngrPrnt2.Size = new System.Drawing.Size(343, 46);
          this.RqstBnEnrollFngrPrnt2.Text = "تعریف اثر انگشت دستگاه انار";
          this.RqstBnEnrollFngrPrnt2.Click += new System.EventHandler(this.RqstBnEnrollFngrPrnt2_Click);
          // 
          // RqstBnDeleteFngrPrnt2
          // 
-         this.RqstBnDeleteFngrPrnt2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+         this.RqstBnDeleteFngrPrnt2.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.RqstBnDeleteFngrPrnt2.Image = global::System.Scsc.Properties.Resources.IMAGE_1143;
          this.RqstBnDeleteFngrPrnt2.Name = "RqstBnDeleteFngrPrnt2";
          this.RqstBnDeleteFngrPrnt2.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F3)));
-         this.RqstBnDeleteFngrPrnt2.Size = new System.Drawing.Size(293, 46);
+         this.RqstBnDeleteFngrPrnt2.Size = new System.Drawing.Size(343, 46);
          this.RqstBnDeleteFngrPrnt2.Text = "حذف کد انگشتی از دستگاه انار";
          this.RqstBnDeleteFngrPrnt2.Click += new System.EventHandler(this.RqstBnDeleteFngrPrnt2_Click);
          // 

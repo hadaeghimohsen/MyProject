@@ -165,6 +165,26 @@ namespace System.Scsc.Ui.Admission
             //   Btn_RqstSav1_Click(null, null);
             Btn_RqstSav3_Click(null, null);
          }
+         else if (keyData == (Keys.Control | Keys.F2))
+         {
+            RqstBnEnrollFngrPrnt2_Click(null, null);
+         }
+         else if (keyData == (Keys.Control | Keys.F3))
+         {
+            RqstBnDeleteFngrPrnt2_Click(null, null);
+         }
+         else if (keyData == (Keys.Control | Keys.F4))
+         {
+            RqstBnEnrollFngrPrnt1_Click(null, null);
+         }
+         else if (keyData == (Keys.Control | Keys.F5))
+         {
+            RqstBnDeleteFngrPrnt1_Click(null, null);
+         }
+         else if (keyData == (Keys.Control | Keys.F6))
+         {
+            RqstBnDuplicateFngrPrnt1_Click(null, null);
+         }
          //else if (keyData == (Keys.Control | Keys.P))
          //{
          //   RqstBnDefaultPrint_Click(null, null);
@@ -551,7 +571,7 @@ namespace System.Scsc.Ui.Admission
 
                   var figh = iScsc.Fighters.Where(f => f.FNGR_PRNT_DNRM == xinput.Attribute("enrollnumber").Value).FirstOrDefault();
                   Figh_Lov.EditValue = figh.FILE_NO;
-                  RQTT_CODE_LookUpEdit3.EditValue = "001";//figh.FGPB_TYPE_DNRM;
+                  RqttCode_Lov.EditValue = "001";//figh.FGPB_TYPE_DNRM;
                   Btn_RqstRqt3_Click(null, null);
 
                   // 1396/11/04
@@ -573,6 +593,30 @@ namespace System.Scsc.Ui.Admission
                {
                   ShowRqst_PickButn.PickChecked = false;
                   RqstBs3.Position = RqstBs3.IndexOf(RqstBs3.List.OfType<Data.Request>().FirstOrDefault(r => r.RQID == Convert.ToInt64(xinput.Attribute("rqid").Value)));
+               }
+               else if (xinput.Attribute("type").Value == "admcbmt")
+               {
+                  if (xinput.Attribute("cbmtcode") != null)
+                     cbmtcode = Convert.ToInt64(xinput.Attribute("cbmtcode").Value);
+                  else
+                     cbmtcode = null;
+
+                  if (xinput.Attribute("ctgycode") != null)
+                     ctgycode = Convert.ToInt64(xinput.Attribute("ctgycode").Value);
+                  else
+                     ctgycode = null;
+
+                  //Execute_Query();
+
+                  //if (RqstBs3.List.Count >= 1)
+                     //RqstBs3.AddNew();
+
+                  CbmtCode_Lov.EditValue = cbmtcode;
+                  CtgyCode_Lov.EditValue = ctgycode;
+
+                  Btn_AutoCalcAttn_Click(null, null);
+
+                  Btn_RqstRqt3_Click(null, null);
                }
             }
             else

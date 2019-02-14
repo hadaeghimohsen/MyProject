@@ -1324,6 +1324,7 @@ namespace System.Scsc.Ui.MasterPage
          try
          {
             var result = axCZKEM1.ClearKeeperData(1);
+            result = axCZKEM2.ClearKeeperData(1);
 
             BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Green;
             return true;

@@ -68,7 +68,7 @@ namespace System.Scsc.Ui.BaseDefinition
             if (weekdays.Count == 0)
             {
                CbmtBs1.DataSource =
-                  iScsc.Club_Methods.Where(cm => cm.MTOD_STAT == "002");               
+                  iScsc.Club_Methods.Where(cm => true == false);               
                return;
             }
             else
@@ -101,7 +101,7 @@ namespace System.Scsc.Ui.BaseDefinition
          catch (Exception exc) { MessageBox.Show(exc.Message); }
       }
 
-      private void CbmtBs2_CurrentChanged(object sender, EventArgs e)
+      private void CbmtBs1_CurrentChanged(object sender, EventArgs e)
       {
          var cbmt = CbmtBs1.Current as Data.Club_Method;
          if (cbmt == null) return;
@@ -111,6 +111,19 @@ namespace System.Scsc.Ui.BaseDefinition
             CochName_Lb.Text = cbmt.Fighter.NAME_DNRM;
             FngrPrnt_Lb.Text = cbmt.Fighter.FNGR_PRNT_DNRM == "" ? "نامشخص" : cbmt.Fighter.FNGR_PRNT_DNRM;
 
+            CbmtwkdyBs1.DataSource = cbmt.Club_Method_Weekdays.ToList();
+
+            if (CbmtwkdyBs1.List.Count == 0)
+            {
+               ClubWkdy1_Spn.Panel2.Controls.OfType<SimpleButton>().Where(sb => sb.Tag != null).ToList().ForEach(sb => sb.Appearance.BackColor = Color.Gold);
+               return;
+            }
+
+            foreach (var wkdy in CbmtwkdyBs1.List.OfType<Data.Club_Method_Weekday>())
+            {
+               var rslt = ClubWkdy1_Spn.Panel2.Controls.OfType<SimpleButton>().FirstOrDefault(sb => sb.Tag != null && sb.Tag.ToString() == wkdy.WEEK_DAY);
+               rslt.Appearance.BackColor = wkdy.STAT == "001" ? Color.LightGray : Color.GreenYellow;
+            }
 
             CtgyBs1.DataSource = iScsc.Category_Belts.Where(cb => cb.MTOD_CODE == cbmt.MTOD_CODE && cb.CTGY_STAT == "002");
 
@@ -152,6 +165,46 @@ namespace System.Scsc.Ui.BaseDefinition
          }
 
          tb_cbmt1_SelectedIndexChanged(null, null);
+      }
+
+      private void Cbmt_Gv_CustomUnboundColumnData(object sender, DevExpress.XtraGrid.Views.Base.CustomColumnDataEventArgs e)
+      {
+         try
+         {
+            if (e.Column.FieldName == "colUbStrtTime")
+            {
+               var row = e.Row as Data.Club_Method;
+               if (e.IsGetData)
+               {
+                  if (row.STRT_TIME == null)
+                     e.Value = new DateTime();
+                  else
+                     e.Value = new DateTime(((TimeSpan)row.STRT_TIME).Ticks);
+               }
+               if (e.IsSetData)
+               {
+                  if (e.Value is DateTime)
+                     row.STRT_TIME = new TimeSpan(((DateTime)e.Value).Ticks);
+               }
+            }
+            else if (e.Column.FieldName == "colUbEndTime")
+            {
+               var row = e.Row as Data.Club_Method;
+               if (e.IsGetData)
+               {
+                  if (row.END_TIME == null)
+                     e.Value = new DateTime();
+                  else
+                     e.Value = new DateTime(((TimeSpan)row.END_TIME).Ticks);
+               }
+               if (e.IsSetData)
+               {
+                  if (e.Value is DateTime)
+                     row.END_TIME = new TimeSpan(((DateTime)e.Value).Ticks);
+               }
+            }
+         }
+         catch { }
       }
 
       private void tb_cbmt1_SelectedIndexChanged(object sender, EventArgs e)
@@ -361,6 +414,8 @@ namespace System.Scsc.Ui.BaseDefinition
                      }
                   });
             _DefaultGateway.Gateway(_InteractWithScsc);
+
+            Back_Butn_Click(null, null);
          }
          catch { }
       }
@@ -369,5 +424,155 @@ namespace System.Scsc.Ui.BaseDefinition
       {
          CommandCbmt_Pnl.Controls.OfType<SimpleButton>()/*.Where(sb => sb.Tag != null && sb.Appearance.BackColor == Color.GreenYellow)*/.ToList().ForEach(sb => sb.Appearance.BackColor = Color.LightGray);
       }
+
+      private void SelectAllParm_Butn_Click(object sender, EventArgs e)
+      {
+         CommandCbmt_Pnl.Controls.OfType<SimpleButton>()/*.Where(sb => sb.Tag != null && sb.Appearance.BackColor == Color.GreenYellow)*/.ToList().ForEach(sb => sb.Appearance.BackColor = Color.GreenYellow);
+      }
+
+      private void SaveWkdy_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            Data.Club_Method c = null;
+            if (Tb_Master.SelectedTab == tp_001)
+               c = CbmtBs1.Current as Data.Club_Method;
+
+            iScsc.STNG_SAVE_P(
+               new XElement("Config",
+                  new XAttribute("type", "005"),
+                     new XElement("Update",
+                        new XElement("Club_Method",
+                           new XAttribute("code", c.CODE),
+                           new XAttribute("clubcode", c.CLUB_CODE),
+                           new XAttribute("mtodcode", c.MTOD_CODE),
+                           new XAttribute("cochfileno", c.COCH_FILE_NO),
+                           new XAttribute("daytype", c.DAY_TYPE),
+                           new XAttribute("strttime", c.STRT_TIME.ToString()),
+                           new XAttribute("endtime", c.END_TIME.ToString()),
+                           new XAttribute("mtodstat", c.MTOD_STAT),
+                           new XAttribute("sextype", c.SEX_TYPE),
+                           new XAttribute("cbmtdesc", c.CBMT_DESC ?? ""),
+                           new XAttribute("dfltstat", c.DFLT_STAT ?? "001"),
+                           new XAttribute("cpctnumb", c.CPCT_NUMB ?? 0),
+                           new XAttribute("cpctstat", c.CPCT_STAT ?? "001"),
+                           new XAttribute("cbmttime", c.CBMT_TIME ?? 0),
+                           new XAttribute("cbmttimestat", c.CBMT_TIME_STAT ?? "001"),
+                           new XAttribute("clastime", c.CLAS_TIME ?? 90),
+                           new XElement("Club_Method_Weekdays",
+                              CbmtwkdyBs1.List.OfType<Data.Club_Method_Weekday>().Select(cbmw =>
+                                 new XElement("Club_Method_Weekday",
+                                    new XAttribute("code", cbmw.CODE),
+                                    new XAttribute("weekday", cbmw.WEEK_DAY),
+                                    new XAttribute("stat", cbmw.STAT)
+                                 )
+                              )
+                           )
+                        )
+                     )
+               )
+            );
+
+            requery = true;
+         }
+         catch (Exception ex)
+         {
+            MessageBox.Show(ex.Message);
+         }
+         finally
+         {
+            if (requery)
+            {
+               Execute_Query();
+            }
+         }
+      }
+
+      private void FighMbsp5_Butn_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            dynamic vcochmbsp = null;
+            if (tb_cbmt2.SelectedTab == tp_0063)
+               vcochmbsp = VCochMbspBs1.Current as Data.VF_Coach_MemberShipResult;
+
+            if (vcochmbsp == null) return;
+
+            switch (e.Button.Index)
+            {
+               case 0:
+                  _DefaultGateway.Gateway(
+                     new Job(SendType.External, "localhost", "", 46, SendType.Self) { Input = new XElement("Fighter", new XAttribute("fileno", vcochmbsp.FILE_NO)) }
+                  );
+                  break;
+               case 1:
+                  Job _InteractWithScsc =
+                     new Job(SendType.External, "Localhost",
+                        new List<Job>
+                        {
+                           new Job(SendType.External, "Commons",
+                              new List<Job>
+                              {
+                                 #region Access Privilege
+                                 new Job(SendType.Self, 07 /* Execute DoWork4AccessPrivilege */)
+                                 {
+                                    Input = new List<string> 
+                                    {
+                                       "<Privilege>231</Privilege><Sub_Sys>5</Sub_Sys>", 
+                                       "DataGuard"
+                                    },
+                                    AfterChangedOutput = new Action<object>((output) => {
+                                       if ((bool)output)
+                                          return;
+                                       MessageBox.Show("خطا - عدم دسترسی به ردیف 231 سطوح امینتی", "عدم دسترسی");
+                                    })
+                                 },
+                                 #endregion
+                              }),
+                           #region DoWork
+                              new Job(SendType.Self, 151 /* Execute Mbsp_Chng_F */),
+                              new Job(SendType.SelfToUserInterface, "MBSP_CHNG_F", 10 /* execute Actn_CalF_F */)
+                              {
+                                 Input = 
+                                    new XElement("Fighter",
+                                       new XAttribute("fileno", vcochmbsp.FILE_NO),
+                                       new XAttribute("mbsprwno", vcochmbsp.RWNO),
+                                       new XAttribute("formcaller", GetType().Name)
+                                    )
+                              }
+                           #endregion
+                        });
+                  _DefaultGateway.Gateway(_InteractWithScsc);
+                  break;
+               default:
+                  break;
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void Wkdy00i_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            SimpleButton sb = sender as SimpleButton;
+
+            if (CbmtwkdyBs1.List.OfType<Data.Club_Method_Weekday>().FirstOrDefault(w => w.WEEK_DAY == sb.Tag.ToString()).STAT == "001")
+            {
+               CbmtwkdyBs1.List.OfType<Data.Club_Method_Weekday>().FirstOrDefault(w => w.WEEK_DAY == sb.Tag.ToString()).STAT = "002";
+               sb.Appearance.BackColor = Color.GreenYellow;
+            }
+            else
+            {
+               CbmtwkdyBs1.List.OfType<Data.Club_Method_Weekday>().FirstOrDefault(w => w.WEEK_DAY == sb.Tag.ToString()).STAT = "001";
+               sb.Appearance.BackColor = Color.LightGray;
+            }
+         }
+         catch { }
+      }
+
    }
 }

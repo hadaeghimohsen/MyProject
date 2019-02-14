@@ -2555,34 +2555,68 @@ namespace System.Scsc.Ui.BaseDefinition
 
       private void ATIP_REST_Butn_Click(object sender, EventArgs e)
       {
-         Job _InteractWithScsc =
-            new Job(SendType.External, "Localhost",
-               new List<Job>
-               {
-                  new Job(SendType.External, "Commons",
-                     new List<Job>
+         if (ModifierKeys.HasFlag(Keys.Control))
+         {
+            Job _InteractWithScsc =
+               new Job(SendType.External, "Localhost",
+                  new List<Job>
                      {
-                        #region Access Privilege
-                        new Job(SendType.Self, 07 /* Execute DoWork4AccessPrivilege */)
-                        {
-                           Input = new List<string> 
+                        new Job(SendType.External, "Commons",
+                           new List<Job>
                            {
-                              "<Privilege>225</Privilege><Sub_Sys>5</Sub_Sys>", 
-                              "DataGuard"
-                           },
-                           AfterChangedOutput = new Action<object>((output) => {
-                              if ((bool)output)
-                                 return;
-                              MessageBox.Show("خطا - عدم دسترسی به ردیف 225 سطوح امینتی", "عدم دسترسی");
-                           })
-                        },
+                              #region Access Privilege
+                              new Job(SendType.Self, 07 /* Execute DoWork4AccessPrivilege */)
+                              {
+                                 Input = new List<string> 
+                                 {
+                                    "<Privilege>225</Privilege><Sub_Sys>5</Sub_Sys>", 
+                                    "DataGuard"
+                                 },
+                                 AfterChangedOutput = new Action<object>((output) => {
+                                    if ((bool)output)
+                                       return;
+                                    MessageBox.Show("خطا - عدم دسترسی به ردیف 225 سطوح امینتی", "عدم دسترسی");
+                                 })
+                              },
+                              #endregion
+                           }),
+                        #region DoWork
+                        new Job(SendType.SelfToUserInterface, "MAIN_PAGE_F", 43 /* DeviceControlFunction */){Input = new XElement("DeviceControlFunction", new XAttribute("functype", "5.2.7.1"))}
                         #endregion
-                     }),
-                  #region DoWork                  
-                  new Job(SendType.SelfToUserInterface, "MAIN_PAGE_F", 43 /* DeviceControlFunction */){Input = new XElement("DeviceControlFunction", new XAttribute("functype", "5.5.1"), new XAttribute("funcdesc", "ClearAdministrators"))}
-                  #endregion
-               });
-         _DefaultGateway.Gateway(_InteractWithScsc);
+                     });
+            _DefaultGateway.Gateway(_InteractWithScsc);
+         }
+         else
+         {
+            Job _InteractWithScsc =
+               new Job(SendType.External, "Localhost",
+                  new List<Job>
+                  {
+                     new Job(SendType.External, "Commons",
+                        new List<Job>
+                        {
+                           #region Access Privilege
+                           new Job(SendType.Self, 07 /* Execute DoWork4AccessPrivilege */)
+                           {
+                              Input = new List<string> 
+                              {
+                                 "<Privilege>225</Privilege><Sub_Sys>5</Sub_Sys>", 
+                                 "DataGuard"
+                              },
+                              AfterChangedOutput = new Action<object>((output) => {
+                                 if ((bool)output)
+                                    return;
+                                 MessageBox.Show("خطا - عدم دسترسی به ردیف 225 سطوح امینتی", "عدم دسترسی");
+                              })
+                           },
+                           #endregion
+                        }),
+                     #region DoWork
+                     new Job(SendType.SelfToUserInterface, "MAIN_PAGE_F", 43 /* DeviceControlFunction */){Input = new XElement("DeviceControlFunction", new XAttribute("functype", "5.5.1"), new XAttribute("funcdesc", "ClearAdministrators"))}
+                     #endregion
+                  });
+            _DefaultGateway.Gateway(_InteractWithScsc);
+         }
       }
 
       private void DeleteComputer1_Butn_Click(object sender, EventArgs e)
@@ -2701,17 +2735,13 @@ namespace System.Scsc.Ui.BaseDefinition
                if (FngrPrnt == "") return;
             }
 
-            //_DefaultGateway.Gateway(
-            //   new Job(SendType.External, "localhost", "MAIN_PAGE_F", 10 /* Execute actn_Calf_F */, SendType.SelfToUserInterface)
-            //   {
-            //      Input =
-            //         new XElement("Command",
-            //            new XAttribute("type", "fngrprntdev"),
-            //            new XAttribute("fngractn", "enroll"),
-            //            new XAttribute("fngrprnt", FNGR_PRNT_TextEdit.Text)
-            //         )
-            //   }
-            //);
+            Job _InteractWithScsc =
+            new Job(SendType.External, "Localhost",
+               new List<Job>
+               {                  
+                  new Job(SendType.SelfToUserInterface, "MAIN_PAGE_F", 43 /* DeviceControlFunction */){Input = new XElement("DeviceControlFunction", new XAttribute("functype", "5.2.3.8"), new XAttribute("funcdesc", "Add User Info"), new XAttribute("enrollnumb", FngrPrnt))}
+               });
+            _DefaultGateway.Gateway(_InteractWithScsc);
          }
          catch { }
       }
@@ -2738,19 +2768,48 @@ namespace System.Scsc.Ui.BaseDefinition
                if (FngrPrnt == "") return;
             }
 
-            //_DefaultGateway.Gateway(
-            //   new Job(SendType.External, "localhost", "MAIN_PAGE_F", 10 /* Execute actn_Calf_F */, SendType.SelfToUserInterface)
-            //   {
-            //      Input =
-            //         new XElement("Command",
-            //            new XAttribute("type", "fngrprntdev"),
-            //            new XAttribute("fngractn", "enroll"),
-            //            new XAttribute("fngrprnt", FNGR_PRNT_TextEdit.Text)
-            //         )
-            //   }
-            //);
+            Job _InteractWithScsc =
+            new Job(SendType.External, "Localhost",
+               new List<Job>
+               {                  
+                  new Job(SendType.SelfToUserInterface, "MAIN_PAGE_F", 43 /* DeviceControlFunction */){Input = new XElement("DeviceControlFunction", new XAttribute("functype", "5.2.3.5"), new XAttribute("funcdesc", "Delete User Info"), new XAttribute("enrollnumb", FngrPrnt))}
+               });
+            _DefaultGateway.Gateway(_InteractWithScsc);
          }
          catch { }
+      }
+
+      private void RqstBnDuplicateFngrPrnt1_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            string FngrPrnt = "";
+            if (Tb_Master.SelectedTab == tp_005)
+            {
+               var coch = CochBs1.Current as Data.Fighter;
+               if (coch == null) return;
+               FngrPrnt = coch.FNGR_PRNT_DNRM;
+
+               if (FngrPrnt == "") return;
+            }
+            else if (Tb_Master.SelectedTab == tp_006)
+            {
+               var cbmt = CbmtBs2.Current as Data.Club_Method;
+               if (cbmt == null) return;
+               FngrPrnt = cbmt.Fighter.FNGR_PRNT_DNRM;
+
+               if (FngrPrnt == "") return;
+            }
+
+            Job _InteractWithScsc =
+               new Job(SendType.External, "Localhost",
+                  new List<Job>
+                  {                  
+                     new Job(SendType.SelfToUserInterface, "MAIN_PAGE_F", 43 /* DeviceControlFunction */){Input = new XElement("DeviceControlFunction", new XAttribute("functype", "5.2.7.2"), new XAttribute("funcdesc", "Duplicate User Info Into All Device"), new XAttribute("enrollnumb", FngrPrnt))}
+                  });
+            _DefaultGateway.Gateway(_InteractWithScsc);
+         }
+         catch (Exception exc) { }
       }
 
       private void RqstBnEnrollFngrPrnt2_Click(object sender, EventArgs e)
@@ -3978,39 +4037,42 @@ namespace System.Scsc.Ui.BaseDefinition
       {
          try
          {
+            
             Job _InteractWithScsc =
-            new Job(SendType.External, "Localhost",
-               new List<Job>
-               {
-                  new Job(SendType.External, "Commons",
-                     new List<Job>
-                     {
-                        #region Access Privilege
-                        new Job(SendType.Self, 07 /* Execute DoWork4AccessPrivilege */)
+               new Job(SendType.External, "Localhost",
+                  new List<Job>
+                  {
+                     new Job(SendType.External, "Commons",
+                        new List<Job>
                         {
-                           Input = new List<string> 
+                           #region Access Privilege
+                           new Job(SendType.Self, 07 /* Execute DoWork4AccessPrivilege */)
                            {
-                              "<Privilege>225</Privilege><Sub_Sys>5</Sub_Sys>", 
-                              "DataGuard"
+                              Input = new List<string> 
+                              {
+                                 "<Privilege>225</Privilege><Sub_Sys>5</Sub_Sys>", 
+                                 "DataGuard"
+                              },
+                              AfterChangedOutput = new Action<object>((output) => {
+                                 if ((bool)output)
+                                    return;
+                                 MessageBox.Show("خطا - عدم دسترسی به ردیف 225 سطوح امینتی", "عدم دسترسی");
+                              })
                            },
-                           AfterChangedOutput = new Action<object>((output) => {
-                              if ((bool)output)
-                                 return;
-                              MessageBox.Show("خطا - عدم دسترسی به ردیف 225 سطوح امینتی", "عدم دسترسی");
-                           })
-                        },
-                        #endregion
-                     }),
-                  #region DoWork                  
-                  new Job(SendType.SelfToUserInterface, "MAIN_PAGE_F", 10 /* Actn_Calf_p */){Input = new XElement("DeviceControlFunction", new XAttribute("type", "fngrprntdev"), new XAttribute("fngractn", "truncate"))}
-                  #endregion
-               });
+                           #endregion
+                        }),
+                     #region DoWork
+                     new Job(SendType.SelfToUserInterface, "MAIN_PAGE_F", 10 /* Actn_Calf_p */){Input = new XElement("DeviceControlFunction", new XAttribute("type", "fngrprntdev"), new XAttribute("fngractn", "truncate"))}
+                     #endregion
+                  });
             _DefaultGateway.Gateway(_InteractWithScsc);
+            
          }
          catch (Exception exc)
          {
             MessageBox.Show(exc.Message);
          }
       }
+
    }
 }

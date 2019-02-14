@@ -1506,6 +1506,6 @@ namespace System.Scsc.Ui.Admission
             }
          }
          catch { }
-      }    
+      }
    }
 }

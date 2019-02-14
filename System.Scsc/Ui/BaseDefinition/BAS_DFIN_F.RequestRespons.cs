@@ -72,6 +72,26 @@ namespace System.Scsc.Ui.BaseDefinition
          {
             SendKeys.Send("{TAB}");
          }
+         else if (keyData == (Keys.Control | Keys.F2))
+         {
+            RqstBnEnrollFngrPrnt2_Click(null, null);
+         }
+         else if (keyData == (Keys.Control | Keys.F3))
+         {
+            RqstBnDeleteFngrPrnt2_Click(null, null);
+         }
+         else if (keyData == (Keys.Control | Keys.F4))
+         {
+            RqstBnEnrollFngrPrnt1_Click(null, null);
+         }
+         else if (keyData == (Keys.Control | Keys.F5))
+         {
+            RqstBnDeleteFngrPrnt1_Click(null, null);
+         }
+         else if (keyData == (Keys.Control | Keys.F6))
+         {
+            RqstBnDuplicateFngrPrnt1_Click(null, null);
+         }
 
 
          job.Status = StatusType.Successful;

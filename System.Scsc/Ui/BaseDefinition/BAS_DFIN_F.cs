@@ -115,7 +115,9 @@ namespace System.Scsc.Ui.BaseDefinition
          {
             if (fetchagine)
             {
+               int cbmt = CbmtBs1.Position;
                CochBs1.DataSource = iScsc.Fighters.Where(c => c.FGPB_TYPE_DNRM == "003");
+               CbmtBs1.Position = cbmt;
                MtodBs1.DataSource = iScsc.Methods;
                ClubBs1.DataSource = iScsc.Clubs;
                //CreateCoachMenu();

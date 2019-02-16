@@ -16,6 +16,7 @@ namespace System.Scsc.Ui.BaseDefinition
       private Data.iScscDataContext iScsc;
       private string ConnectionString;
       private string CurrentUser;
+      private List<long?> Fga_Uclb_U;
       private string RegnLang = "054";
 
 
@@ -106,6 +107,7 @@ namespace System.Scsc.Ui.BaseDefinition
          ConnectionString = GetConnectionString.Output.ToString();
          iScsc = new Data.iScscDataContext(GetConnectionString.Output.ToString());
 
+         Fga_Uclb_U = (iScsc.FGA_UCLB_U() ?? "").Split(',').Select(c => (long?)Int64.Parse(c)).ToList();
 
          #region Set Localization
          var regnlang = iScsc.V_User_Localization_Forms.Where(rl => rl.FORM_NAME == GetType().Name);
@@ -225,6 +227,9 @@ namespace System.Scsc.Ui.BaseDefinition
          DdytpBs1.DataSource = iScsc.D_DYTPs;
          DActvBs1.DataSource = iScsc.D_ACTVs;
          DAttpBs.DataSource = iScsc.D_ATTPs;
+         CochBs1.DataSource = iScsc.Fighters.Where(f => f.FGPB_TYPE_DNRM == "003" && f.ACTV_TAG_DNRM.CompareTo("101") >= 0);
+         MtodBs1.DataSource = iScsc.Methods.Where(m => m.MTOD_STAT == "002");
+         ClubBs1.DataSource = iScsc.Clubs.Where(c => Fga_Uclb_U.Contains(c.CODE));
 
          job.Status = StatusType.Successful;
       }

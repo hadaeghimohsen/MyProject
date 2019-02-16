@@ -6640,4 +6640,8 @@
       <Column Name="[_23_AVG_MINT]" Member="_23_AVG_MINT" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </ElementType>
   </Function>
+  <Function Name="dbo.IEXL_CBMT_P" Method="IEXL_CBMT_P">
+    <Parameter Name="X" Parameter="x" Type="System.Xml.Linq.XElement" DbType="Xml" />
+    <Return Type="System.Int32" />
+  </Function>
 </Database>

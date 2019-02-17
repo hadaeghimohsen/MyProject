@@ -73,6 +73,9 @@ namespace System.Scsc.Ui.BaseDefinition
 
             ClubWkdy2_Spn.Panel2.Controls.OfType<SimpleButton>().Where(sb => sb.Tag != null).ToList().ForEach(sb => sb.Appearance.BackColor = Color.Gold);
             ClubWkdy1_Spn.Panel2.Controls.OfType<SimpleButton>().Where(sb => sb.Tag != null).ToList().ForEach(sb => sb.Appearance.BackColor = Color.Gold);
+            CtgyBs1.List.Clear();
+            AttnBs1.List.Clear();
+            VCochMbspBs1.List.Clear();
 
             if (weekdays.Count == 0)
             {
@@ -249,7 +252,7 @@ namespace System.Scsc.Ui.BaseDefinition
       {
          try
          {
-            if (tb_cbmt2.SelectedTab == tp_0062)
+            if (tb_cbmt1.SelectedTab == tp_0012 || tb_cbmt2.SelectedTab == tp_0022)
             {
                AttnBs1.List.Clear();
                var cbmt = CbmtBs1.Current as Data.Club_Method;
@@ -270,7 +273,7 @@ namespace System.Scsc.Ui.BaseDefinition
                   iScsc.Attendances
                   .Where(a => actvmbsp.Any(am => am.FILE_NO == a.FIGH_FILE_NO && am.RWNO == a.MBSP_RWNO_DNRM));
             }
-            else if (tb_cbmt2.SelectedTab == tp_0063)
+            else if (tb_cbmt1.SelectedTab == tp_0013 || tb_cbmt2.SelectedTab == tp_0023)
             {
                AttnBs1.List.Clear();
                var cbmt = CbmtBs1.Current as Data.Club_Method;
@@ -485,7 +488,7 @@ namespace System.Scsc.Ui.BaseDefinition
          try
          {
             Data.Club_Method c = null;
-            if (Tb_Master.SelectedTab == tp_001)
+            if (Tb_Master.SelectedTab == tp_001 || Tb_Master.SelectedTab == tp_002)
                c = CbmtBs1.Current as Data.Club_Method;
 
             iScsc.STNG_SAVE_P(
@@ -543,7 +546,7 @@ namespace System.Scsc.Ui.BaseDefinition
          try
          {
             dynamic vcochmbsp = null;
-            if (tb_cbmt2.SelectedTab == tp_0063)
+            if (tb_cbmt1.SelectedTab == tp_0013)
                vcochmbsp = VCochMbspBs1.Current as Data.VF_Coach_MemberShipResult;
 
             if (vcochmbsp == null) return;
@@ -708,6 +711,39 @@ namespace System.Scsc.Ui.BaseDefinition
          AgeMemb2_Lb.Text = "";
          //ClubWkdy2_Spn.Panel2.Controls.OfType<SimpleButton>().Where(sb => sb.Tag != null).ToList().ForEach(sb => sb.Appearance.BackColor = Color.Gold);
          Execute_Query();
+      }
+
+      private void DeleteTime_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var rows = Cbmt2_Gv.GetSelectedRows();
+
+            foreach (var r in rows)
+            {
+               var row = (Data.Club_Method)Cbmt2_Gv.GetRow(r);
+               iScsc.STNG_SAVE_P(
+                  new XElement("Config",
+                     new XAttribute("type", "005"),
+                     new XElement("Delete",
+                        new XElement("Club_Method",
+                           new XAttribute("code", row.CODE)
+                        )
+                     )
+                  )
+               );
+            }
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
       }
    }
 }

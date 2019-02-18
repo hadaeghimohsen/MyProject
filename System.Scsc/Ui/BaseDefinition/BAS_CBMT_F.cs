@@ -719,20 +719,18 @@ namespace System.Scsc.Ui.BaseDefinition
          {
             var rows = Cbmt2_Gv.GetSelectedRows();
 
-            foreach (var r in rows)
-            {
-               var row = (Data.Club_Method)Cbmt2_Gv.GetRow(r);
-               iScsc.STNG_SAVE_P(
-                  new XElement("Config",
-                     new XAttribute("type", "005"),
-                     new XElement("Delete",
+            iScsc.STNG_SAVE_P(
+               new XElement("Config",
+                  new XAttribute("type", "005"),
+                  new XElement("Delete",
+                     rows.OfType<int>().Select(cm =>
                         new XElement("Club_Method",
-                           new XAttribute("code", row.CODE)
+                           new XAttribute("code", ((Data.Club_Method)Cbmt2_Gv.GetRow(cm)).CODE)
                         )
                      )
                   )
-               );
-            }
+               )
+            );
             requery = true;
          }
          catch (Exception exc)

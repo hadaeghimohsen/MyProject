@@ -12,6 +12,8 @@ using System.Xml.Linq;
 using System.Net.NetworkInformation;
 using System.Net;
 using System.Scsc.ExtCode;
+using DevExpress.XtraBars;
+using System.Diagnostics;
 
 namespace System.Scsc.Ui.MasterPage
 {
@@ -684,7 +686,6 @@ namespace System.Scsc.Ui.MasterPage
          Sp_Barcode.Write("empty");
       }
       #endregion
-
       
       #region Finger Print
       public zkemkeeper.CZKEMClass axCZKEM1 = new zkemkeeper.CZKEMClass();
@@ -3140,6 +3141,56 @@ namespace System.Scsc.Ui.MasterPage
          var result = axCZKEM1.GetUserTmpExStr(1, "1", 0, out flag, out tmpData, out tmplen );
          result = axCZKEM1.SSR_SetUserInfo(1, "2", "Mohsen Hadaeghi", "", 0, true);
          axCZKEM1.SetUserTmpExStr(1, "2", 0, flag, tmpData);
+      }
+
+      private void tol_ibutn_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+      {
+         try
+         {
+            //var butn = sender as BarButtonItem;
+            switch (e.Item.Tag.ToString())
+            {
+               case "calc":
+                  Process.Start("calc.exe");
+                  break;
+               case "devicemanager":
+                  Process.Start("devmgmt.msc");
+                  break;
+               case "localservices":
+                  Process.Start("services.msc");
+                  break;
+               case "sharefolder":
+                  Process.Start("explorer.exe", @"\\localhost");
+                  break;
+               case "appfolder":
+                  Process.Start("explorer.exe", Environment.CurrentDirectory);
+                  break;
+               case "ssms":
+                  Process.Start("ssms.exe");
+                  break;
+               case "mstsc":
+                  Process.Start("mstsc.exe");
+                  break;
+               case "magnifire":
+                  Process.Start("magnify.exe");
+                  break;
+               case "controlpanel":
+                  Process.Start("control.exe");
+                  break;
+               case "cmd":
+                  Process.Start("cmd.exe");
+                  break;
+               case "anydesk":
+                  Process.Start(@"C:\Program Files (x86)\AnyDesk\AnyDesk.exe");
+                  break;
+               default:
+                  break;
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
       }
    }
 }

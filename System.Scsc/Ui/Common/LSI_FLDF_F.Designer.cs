@@ -399,6 +399,11 @@
          this.toolStripMenuItem64 = new System.Windows.Forms.ToolStripMenuItem();
          this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
          this.toolStripMenuItem65 = new System.Windows.Forms.ToolStripMenuItem();
+         this.toolStripMenuItem66 = new System.Windows.Forms.ToolStripSeparator();
+         this.استثنائاتToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+         this.حضوروغیابToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+         this.ExcpAttnActv_Butn = new System.Windows.Forms.ToolStripMenuItem();
+         this.ExcpAttnDact_Butn = new System.Windows.Forms.ToolStripMenuItem();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit1.CalendarTimeProperties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.AttnMbsp_Butn)).BeginInit();
@@ -2870,7 +2875,9 @@
             this.ارسالپیامکToolStripMenuItem,
             this.TlgrmMesgBnEntrClub,
             this.toolStripMenuItem6,
-            this.PymtBnDebt});
+            this.PymtBnDebt,
+            this.toolStripMenuItem66,
+            this.استثنائاتToolStripMenuItem});
          this.RqstBnFignInfo_Lb.Image = global::System.Scsc.Properties.Resources.IMAGE_1115;
          this.RqstBnFignInfo_Lb.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
          this.RqstBnFignInfo_Lb.Name = "RqstBnFignInfo_Lb";
@@ -3695,6 +3702,48 @@
          this.toolStripMenuItem65.Size = new System.Drawing.Size(163, 22);
          this.toolStripMenuItem65.Text = "سایر";
          // 
+         // toolStripMenuItem66
+         // 
+         this.toolStripMenuItem66.Name = "toolStripMenuItem66";
+         this.toolStripMenuItem66.Size = new System.Drawing.Size(238, 6);
+         // 
+         // استثنائاتToolStripMenuItem
+         // 
+         this.استثنائاتToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.حضوروغیابToolStripMenuItem1});
+         this.استثنائاتToolStripMenuItem.Image = global::System.Scsc.Properties.Resources.IMAGE_1111;
+         this.استثنائاتToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+         this.استثنائاتToolStripMenuItem.Name = "استثنائاتToolStripMenuItem";
+         this.استثنائاتToolStripMenuItem.Size = new System.Drawing.Size(241, 54);
+         this.استثنائاتToolStripMenuItem.Text = "استثنائات";
+         // 
+         // حضوروغیابToolStripMenuItem1
+         // 
+         this.حضوروغیابToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ExcpAttnActv_Butn,
+            this.ExcpAttnDact_Butn});
+         this.حضوروغیابToolStripMenuItem1.Image = global::System.Scsc.Properties.Resources.IMAGE_1201;
+         this.حضوروغیابToolStripMenuItem1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+         this.حضوروغیابToolStripMenuItem1.Name = "حضوروغیابToolStripMenuItem1";
+         this.حضوروغیابToolStripMenuItem1.Size = new System.Drawing.Size(184, 54);
+         this.حضوروغیابToolStripMenuItem1.Text = "حضور و غیاب";
+         // 
+         // ExcpAttnActv_Butn
+         // 
+         this.ExcpAttnActv_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1204;
+         this.ExcpAttnActv_Butn.Name = "ExcpAttnActv_Butn";
+         this.ExcpAttnActv_Butn.Size = new System.Drawing.Size(152, 22);
+         this.ExcpAttnActv_Butn.Text = "فعال";
+         this.ExcpAttnActv_Butn.Click += new System.EventHandler(this.ExcpAttnActv_Butn_Click);
+         // 
+         // ExcpAttnDact_Butn
+         // 
+         this.ExcpAttnDact_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1196;
+         this.ExcpAttnDact_Butn.Name = "ExcpAttnDact_Butn";
+         this.ExcpAttnDact_Butn.Size = new System.Drawing.Size(152, 22);
+         this.ExcpAttnDact_Butn.Text = "غیرفعال";
+         this.ExcpAttnDact_Butn.Click += new System.EventHandler(this.ExcpAttnDact_Butn_Click);
+         // 
          // LSI_FLDF_F
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -4045,5 +4094,10 @@
       private DevExpress.XtraGrid.Columns.GridColumn colCODE;
       private DevExpress.XtraGrid.Columns.GridColumn colSUNT_DESC1;
       private Windows.Forms.ToolStripMenuItem RqstBnDuplicateFngrPrnt1;
+      private Windows.Forms.ToolStripSeparator toolStripMenuItem66;
+      private Windows.Forms.ToolStripMenuItem استثنائاتToolStripMenuItem;
+      private Windows.Forms.ToolStripMenuItem حضوروغیابToolStripMenuItem1;
+      private Windows.Forms.ToolStripMenuItem ExcpAttnActv_Butn;
+      private Windows.Forms.ToolStripMenuItem ExcpAttnDact_Butn;
    }
 }

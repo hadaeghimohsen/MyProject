@@ -146,6 +146,16 @@
          this.bbi_mbsnbutn = new DevExpress.XtraBars.BarButtonItem();
          this.bbi_incgbutn = new DevExpress.XtraBars.BarButtonItem();
          this.ksk_incmbutn = new DevExpress.XtraBars.BarButtonItem();
+         this.tol_calcbutn = new DevExpress.XtraBars.BarButtonItem();
+         this.tol_devmngrbutn = new DevExpress.XtraBars.BarButtonItem();
+         this.tol_servbutn = new DevExpress.XtraBars.BarButtonItem();
+         this.tol_sharfldrbutn = new DevExpress.XtraBars.BarButtonItem();
+         this.tol_appfldrbutn = new DevExpress.XtraBars.BarButtonItem();
+         this.tol_ssmsbutn = new DevExpress.XtraBars.BarButtonItem();
+         this.tol_rmotdeskbutn = new DevExpress.XtraBars.BarButtonItem();
+         this.tol_magnfirebutn = new DevExpress.XtraBars.BarButtonItem();
+         this.tol_cntlpnelbutn = new DevExpress.XtraBars.BarButtonItem();
+         this.tol_cmdbutn = new DevExpress.XtraBars.BarButtonItem();
          this.System_RPgc = new DevExpress.XtraBars.Ribbon.RibbonPageCategory();
          this.Base_RbPg = new DevExpress.XtraBars.Ribbon.RibbonPage();
          this.Base_RbGp = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -180,6 +190,8 @@
          this.SystemAdmin_RPgc = new DevExpress.XtraBars.Ribbon.RibbonPageCategory();
          this.SystemAdmin_RbPg = new DevExpress.XtraBars.Ribbon.RibbonPage();
          this.SystemAdmin_RbGp = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+         this.Tools_RbPg = new DevExpress.XtraBars.Ribbon.RibbonPage();
+         this.Tools_RbGg = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
          this.spc_desktop = new System.Windows.Forms.SplitContainer();
          this.ShopStore_Lnk = new System.Windows.Forms.LinkLabel();
          this.Licnday_Lnk = new System.Windows.Forms.LinkLabel();
@@ -247,6 +259,7 @@
          this.مدیریتسیستمToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
          this.bbi_bkupbutn_Mn = new System.Windows.Forms.ToolStripMenuItem();
          this.bbi_embkbutn_Mn = new System.Windows.Forms.ToolStripMenuItem();
+         this.tol_anydeskbutn = new DevExpress.XtraBars.BarButtonItem();
          this.statusStrip1.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.spc_desktop)).BeginInit();
@@ -396,9 +409,20 @@
             this.bbi_basdifnbutn,
             this.bbi_mbsnbutn,
             this.bbi_incgbutn,
-            this.ksk_incmbutn});
+            this.ksk_incmbutn,
+            this.tol_calcbutn,
+            this.tol_devmngrbutn,
+            this.tol_servbutn,
+            this.tol_sharfldrbutn,
+            this.tol_appfldrbutn,
+            this.tol_ssmsbutn,
+            this.tol_rmotdeskbutn,
+            this.tol_magnfirebutn,
+            this.tol_cntlpnelbutn,
+            this.tol_cmdbutn,
+            this.tol_anydeskbutn});
          this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
-         this.ribbonControl1.MaxItemId = 97;
+         this.ribbonControl1.MaxItemId = 109;
          this.ribbonControl1.Name = "ribbonControl1";
          this.ribbonControl1.PageCategories.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageCategory[] {
             this.System_RPgc,
@@ -1251,6 +1275,111 @@
          this.ksk_incmbutn.Name = "ksk_incmbutn";
          this.ksk_incmbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.ksk_incmbutn_ItemClick);
          // 
+         // tol_calcbutn
+         // 
+         this.tol_calcbutn.Caption = "ماشین حساب";
+         this.tol_calcbutn.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
+         this.tol_calcbutn.Id = 97;
+         this.tol_calcbutn.LargeGlyph = global::System.Scsc.Properties.Resources.IMAGE_1080;
+         this.tol_calcbutn.Name = "tol_calcbutn";
+         this.tol_calcbutn.Tag = "calc";
+         this.tol_calcbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.tol_ibutn_ItemClick);
+         // 
+         // tol_devmngrbutn
+         // 
+         this.tol_devmngrbutn.Caption = "Device Manager";
+         this.tol_devmngrbutn.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
+         this.tol_devmngrbutn.Id = 98;
+         this.tol_devmngrbutn.LargeGlyph = global::System.Scsc.Properties.Resources.IMAGE_1067;
+         this.tol_devmngrbutn.Name = "tol_devmngrbutn";
+         this.tol_devmngrbutn.Tag = "devicemanager";
+         this.tol_devmngrbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.tol_ibutn_ItemClick);
+         // 
+         // tol_servbutn
+         // 
+         this.tol_servbutn.Caption = "Local Services";
+         this.tol_servbutn.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
+         this.tol_servbutn.Glyph = ((System.Drawing.Image)(resources.GetObject("tol_servbutn.Glyph")));
+         this.tol_servbutn.Id = 99;
+         this.tol_servbutn.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("tol_servbutn.LargeGlyph")));
+         this.tol_servbutn.Name = "tol_servbutn";
+         this.tol_servbutn.Tag = "localservices";
+         this.tol_servbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.tol_ibutn_ItemClick);
+         // 
+         // tol_sharfldrbutn
+         // 
+         this.tol_sharfldrbutn.Caption = "Share Folder";
+         this.tol_sharfldrbutn.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
+         this.tol_sharfldrbutn.Glyph = ((System.Drawing.Image)(resources.GetObject("tol_sharfldrbutn.Glyph")));
+         this.tol_sharfldrbutn.Id = 100;
+         this.tol_sharfldrbutn.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("tol_sharfldrbutn.LargeGlyph")));
+         this.tol_sharfldrbutn.Name = "tol_sharfldrbutn";
+         this.tol_sharfldrbutn.Tag = "sharefolder";
+         this.tol_sharfldrbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.tol_ibutn_ItemClick);
+         // 
+         // tol_appfldrbutn
+         // 
+         this.tol_appfldrbutn.Caption = "App Folder";
+         this.tol_appfldrbutn.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
+         this.tol_appfldrbutn.Glyph = ((System.Drawing.Image)(resources.GetObject("tol_appfldrbutn.Glyph")));
+         this.tol_appfldrbutn.Id = 101;
+         this.tol_appfldrbutn.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("tol_appfldrbutn.LargeGlyph")));
+         this.tol_appfldrbutn.Name = "tol_appfldrbutn";
+         this.tol_appfldrbutn.Tag = "appfolder";
+         this.tol_appfldrbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.tol_ibutn_ItemClick);
+         // 
+         // tol_ssmsbutn
+         // 
+         this.tol_ssmsbutn.Caption = "Sql Server";
+         this.tol_ssmsbutn.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
+         this.tol_ssmsbutn.Glyph = ((System.Drawing.Image)(resources.GetObject("tol_ssmsbutn.Glyph")));
+         this.tol_ssmsbutn.Id = 102;
+         this.tol_ssmsbutn.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("tol_ssmsbutn.LargeGlyph")));
+         this.tol_ssmsbutn.Name = "tol_ssmsbutn";
+         this.tol_ssmsbutn.Tag = "ssms";
+         this.tol_ssmsbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.tol_ibutn_ItemClick);
+         // 
+         // tol_rmotdeskbutn
+         // 
+         this.tol_rmotdeskbutn.Caption = "Remote Desktop";
+         this.tol_rmotdeskbutn.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
+         this.tol_rmotdeskbutn.Id = 103;
+         this.tol_rmotdeskbutn.LargeGlyph = global::System.Scsc.Properties.Resources.IMAGE_1101;
+         this.tol_rmotdeskbutn.Name = "tol_rmotdeskbutn";
+         this.tol_rmotdeskbutn.Tag = "mstsc";
+         this.tol_rmotdeskbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.tol_ibutn_ItemClick);
+         // 
+         // tol_magnfirebutn
+         // 
+         this.tol_magnfirebutn.Caption = "ضربه بین";
+         this.tol_magnfirebutn.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
+         this.tol_magnfirebutn.Id = 104;
+         this.tol_magnfirebutn.LargeGlyph = global::System.Scsc.Properties.Resources.IMAGE_1069;
+         this.tol_magnfirebutn.Name = "tol_magnfirebutn";
+         this.tol_magnfirebutn.Tag = "magnifire";
+         this.tol_magnfirebutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.tol_ibutn_ItemClick);
+         // 
+         // tol_cntlpnelbutn
+         // 
+         this.tol_cntlpnelbutn.Caption = "Control Panel";
+         this.tol_cntlpnelbutn.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
+         this.tol_cntlpnelbutn.Glyph = ((System.Drawing.Image)(resources.GetObject("tol_cntlpnelbutn.Glyph")));
+         this.tol_cntlpnelbutn.Id = 105;
+         this.tol_cntlpnelbutn.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("tol_cntlpnelbutn.LargeGlyph")));
+         this.tol_cntlpnelbutn.Name = "tol_cntlpnelbutn";
+         this.tol_cntlpnelbutn.Tag = "controlpanel";
+         this.tol_cntlpnelbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.tol_ibutn_ItemClick);
+         // 
+         // tol_cmdbutn
+         // 
+         this.tol_cmdbutn.Caption = "Command Prompt";
+         this.tol_cmdbutn.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
+         this.tol_cmdbutn.Id = 106;
+         this.tol_cmdbutn.LargeGlyph = global::System.Scsc.Properties.Resources.IMAGE_1181;
+         this.tol_cmdbutn.Name = "tol_cmdbutn";
+         this.tol_cmdbutn.Tag = "cmd";
+         this.tol_cmdbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.tol_ibutn_ItemClick);
+         // 
          // System_RPgc
          // 
          this.System_RPgc.Color = System.Drawing.Color.Empty;
@@ -1523,7 +1652,8 @@
          this.SystemAdmin_RPgc.Color = System.Drawing.Color.Empty;
          this.SystemAdmin_RPgc.Name = "SystemAdmin_RPgc";
          this.SystemAdmin_RPgc.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
-            this.SystemAdmin_RbPg});
+            this.SystemAdmin_RbPg,
+            this.Tools_RbPg});
          this.SystemAdmin_RPgc.Text = "مدیریت سیستم";
          // 
          // SystemAdmin_RbPg
@@ -1540,6 +1670,29 @@
          this.SystemAdmin_RbGp.ItemLinks.Add(this.bbi_embkbutn);
          this.SystemAdmin_RbGp.Name = "SystemAdmin_RbGp";
          this.SystemAdmin_RbGp.Text = "حفاظت اطلاعات";
+         // 
+         // Tools_RbPg
+         // 
+         this.Tools_RbPg.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.Tools_RbGg});
+         this.Tools_RbPg.Name = "Tools_RbPg";
+         this.Tools_RbPg.Text = "ابزار های مفید";
+         // 
+         // Tools_RbGg
+         // 
+         this.Tools_RbGg.ItemLinks.Add(this.tol_calcbutn);
+         this.Tools_RbGg.ItemLinks.Add(this.tol_devmngrbutn);
+         this.Tools_RbGg.ItemLinks.Add(this.tol_servbutn);
+         this.Tools_RbGg.ItemLinks.Add(this.tol_sharfldrbutn);
+         this.Tools_RbGg.ItemLinks.Add(this.tol_appfldrbutn);
+         this.Tools_RbGg.ItemLinks.Add(this.tol_ssmsbutn);
+         this.Tools_RbGg.ItemLinks.Add(this.tol_rmotdeskbutn);
+         this.Tools_RbGg.ItemLinks.Add(this.tol_magnfirebutn);
+         this.Tools_RbGg.ItemLinks.Add(this.tol_cntlpnelbutn);
+         this.Tools_RbGg.ItemLinks.Add(this.tol_cmdbutn);
+         this.Tools_RbGg.ItemLinks.Add(this.tol_anydeskbutn);
+         this.Tools_RbGg.Name = "Tools_RbGg";
+         this.Tools_RbGg.Text = "ابزارهای مفید";
          // 
          // spc_desktop
          // 
@@ -1599,7 +1752,7 @@
          this.ShopStore_Lnk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
          this.ShopStore_Lnk.Font = new System.Drawing.Font("IRANSans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.ShopStore_Lnk.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-         this.ShopStore_Lnk.Location = new System.Drawing.Point(5, 463);
+         this.ShopStore_Lnk.Location = new System.Drawing.Point(5, 498);
          this.ShopStore_Lnk.Name = "ShopStore_Lnk";
          this.ShopStore_Lnk.Size = new System.Drawing.Size(189, 22);
          this.ShopStore_Lnk.TabIndex = 1;
@@ -1624,7 +1777,7 @@
          this.ShoppingStore_Pb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
          this.ShoppingStore_Pb.Cursor = System.Windows.Forms.Cursors.Hand;
          this.ShoppingStore_Pb.Image = global::System.Scsc.Properties.Resources.IMAGE_1659;
-         this.ShoppingStore_Pb.Location = new System.Drawing.Point(5, 301);
+         this.ShoppingStore_Pb.Location = new System.Drawing.Point(5, 336);
          this.ShoppingStore_Pb.Name = "ShoppingStore_Pb";
          this.ShoppingStore_Pb.Size = new System.Drawing.Size(189, 159);
          this.ShoppingStore_Pb.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -2309,6 +2462,17 @@
          this.bbi_embkbutn_Mn.Text = "پشتیبان گیری اضطراری";
          this.bbi_embkbutn_Mn.Click += new System.EventHandler(this.bbi_embkbutn_Mn_Click);
          // 
+         // tol_anydeskbutn
+         // 
+         this.tol_anydeskbutn.Caption = "AnyDesk";
+         this.tol_anydeskbutn.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
+         this.tol_anydeskbutn.Glyph = ((System.Drawing.Image)(resources.GetObject("tol_anydeskbutn.Glyph")));
+         this.tol_anydeskbutn.Id = 108;
+         this.tol_anydeskbutn.LargeGlyph = global::System.Scsc.Properties.Resources.IMAGE_1092;
+         this.tol_anydeskbutn.Name = "tol_anydeskbutn";
+         this.tol_anydeskbutn.Tag = "anydesk";
+         this.tol_anydeskbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.tol_ibutn_ItemClick);
+         // 
          // MAIN_PAGE_F
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -2532,5 +2696,18 @@
       private Windows.Forms.PictureBox ShoppingStore_Pb;
       private Windows.Forms.LinkLabel Licnday_Lnk;
       private Windows.Forms.Button button4;
+      private DevExpress.XtraBars.BarButtonItem tol_calcbutn;
+      private DevExpress.XtraBars.BarButtonItem tol_devmngrbutn;
+      private DevExpress.XtraBars.BarButtonItem tol_servbutn;
+      private DevExpress.XtraBars.BarButtonItem tol_sharfldrbutn;
+      private DevExpress.XtraBars.BarButtonItem tol_appfldrbutn;
+      private DevExpress.XtraBars.BarButtonItem tol_ssmsbutn;
+      private DevExpress.XtraBars.BarButtonItem tol_rmotdeskbutn;
+      private DevExpress.XtraBars.BarButtonItem tol_magnfirebutn;
+      private DevExpress.XtraBars.BarButtonItem tol_cntlpnelbutn;
+      private DevExpress.XtraBars.BarButtonItem tol_cmdbutn;
+      private DevExpress.XtraBars.Ribbon.RibbonPage Tools_RbPg;
+      private DevExpress.XtraBars.Ribbon.RibbonPageGroup Tools_RbGg;
+      private DevExpress.XtraBars.BarButtonItem tol_anydeskbutn;
    }
 }

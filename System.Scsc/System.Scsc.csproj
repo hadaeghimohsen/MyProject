@@ -1032,6 +1032,7 @@
     <None Include="Properties\DataSources\System.Scsc.Data.D_DYTP.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_EDUC.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_EFDT.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.D_EXCT.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_EXPT.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_EXTP.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_FGST.datasource" />

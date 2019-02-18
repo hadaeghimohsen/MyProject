@@ -811,5 +811,63 @@ namespace System.Scsc.Ui.Common
             throw;
          }
       }
+
+      private void ExcpAttnActv_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            dynamic figh = vF_Fighs.Current as Data.VF_Last_Info_FighterResult;
+            if (figh == null)
+               figh = vF_Fighs.Current as Data.VF_Last_Info_Deleted_FighterResult;
+
+            iScsc.ExecuteCommand(
+               string.Format(
+                  @"MERGE dbo.Exception_Operation T
+                    USING (SELECT {0} AS FILE_NO, '001' AS EXCP_TYPE) S
+                    ON (T.FIGH_FILE_NO = S.FILE_NO AND 
+                        T.EXCP_TYPE = S.EXCP_TYPE)
+                    WHEN NOT MATCHED THEN
+                       INSERT (FIGH_FILE_NO, EXCP_TYPE, STAT, CODE)
+                       VALUES (S.FILE_NO, S.EXCP_TYPE, '002', 0)
+                    WHEN MATCHED THEN
+                       UPDATE SET T.STAT = '002';", figh.FILE_NO
+               )
+            );
+            MessageBox.Show("عملیات استثناء ورود با موفقیت فعال شد");
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void ExcpAttnDact_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            dynamic figh = vF_Fighs.Current as Data.VF_Last_Info_FighterResult;
+            if (figh == null)
+               figh = vF_Fighs.Current as Data.VF_Last_Info_Deleted_FighterResult;
+
+            iScsc.ExecuteCommand(
+               string.Format(
+                  @"MERGE dbo.Exception_Operation T
+                    USING (SELECT {0} AS FILE_NO, '001' AS EXCP_TYPE) S
+                    ON (T.FIGH_FILE_NO = S.FILE_NO AND 
+                        T.EXCP_TYPE = S.EXCP_TYPE)
+                    WHEN NOT MATCHED THEN
+                       INSERT (FIGH_FILE_NO, EXCP_TYPE, STAT, CODE)
+                       VALUES (S.FILE_NO, S.EXCP_TYPE, '001', 0)
+                    WHEN MATCHED THEN
+                       UPDATE SET T.STAT = '001';", figh.FILE_NO
+               )
+            );
+            MessageBox.Show("عملیات استثناء ورود با موفقیت غیرفعال شد");
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
    }
 }

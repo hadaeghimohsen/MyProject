@@ -1077,6 +1077,7 @@
     <None Include="Properties\DataSources\System.Scsc.Data.Fighter.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Fighter_Public.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Finance_Document.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.Gain_Loss_Rail_Detail.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Gain_Loss_Rial.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Group_Expense.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Heart_Zone.datasource" />

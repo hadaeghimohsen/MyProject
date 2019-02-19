@@ -41,6 +41,7 @@ namespace System.Scsc.Ui.ReportManager
                PmmtBs1.DataSource =
                   iScsc.Payment_Methods
                   .Where(pm =>
+                     (pm.RCPT_MTOD != "005") &&
                      (pm.ACTN_DATE.Value.Date >= FromDate1_Date.Value.Value.Date ) &&
                      (pm.ACTN_DATE.Value.Date <= ToDate1_Date.Value.Value.Date ) &&
                      (rqtps.Count == 0 || rqtps.Contains(pm.Request_Row.RQTP_CODE)) &&
@@ -51,6 +52,16 @@ namespace System.Scsc.Ui.ReportManager
                      // 1397/09/02 * اضافه شدن فیلتر مربوط به مربی
                      (cochfileno == null || pm.Payment.Payment_Details.Any(pd => pd.FIGH_FILE_NO == cochfileno)) &&
                      (cbmtcode == null || pm.Payment.Payment_Details.Any(pd => pd.CBMT_CODE_DNRM == cbmtcode))
+                  );
+
+               GlrdBs1.DataSource =
+                  iScsc.Gain_Loss_Rail_Details
+                  .Where(gd =>
+                     gd.Gain_Loss_Rial.CONF_STAT == "002" &&
+                     (gd.Gain_Loss_Rial.PAID_DATE.Value.Date >= FromDate1_Date.Value.Value.Date ) &&
+                     (gd.Gain_Loss_Rial.PAID_DATE.Value.Date <= ToDate1_Date.Value.Value.Date ) &&
+                     (users.Count == 0 || (users.Contains(gd.CRET_BY) || users.Contains(gd.MDFY_BY))) &&
+                     (Fga_Uclb_U.Contains(gd.Gain_Loss_Rial.Fighter.CLUB_CODE_DNRM))
                   );
             }
             else if(tc_master.SelectedTab == tp_002)
@@ -722,6 +733,23 @@ namespace System.Scsc.Ui.ReportManager
             cochfileno = (long?)e.NewValue;
          }
          catch { }
+      }
+
+      private void Glrd_Butn_ButtonClick(object sender, ButtonPressedEventArgs e)
+      {
+         try
+         {
+            var glrd = GlrdBs1.Current as Data.Gain_Loss_Rail_Detail;
+
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost", "", 46, SendType.Self) { Input = new XElement("Fighter", new XAttribute("fileno", glrd.Gain_Loss_Rial.FIGH_FILE_NO)) }
+            );
+         }
+         catch (Exception exc)
+         {
+
+            throw;
+         }
       }
    }
 }

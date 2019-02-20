@@ -1807,6 +1807,14 @@ namespace System.Scsc.Data
 			}
 		}
 		
+		public System.Data.Linq.Table<V_Inventory> V_Inventories
+		{
+			get
+			{
+				return this.GetTable<V_Inventory>();
+			}
+		}
+		
 		private void InsertCountry(Country obj)
 		{
 			this.INS_CNTY_P(obj.CODE, obj.NAME);
@@ -72172,6 +72180,123 @@ namespace System.Scsc.Data
 				if ((this._DOMN_DESC != value))
 				{
 					this._DOMN_DESC = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.V#Inventory")]
+	public partial class V_Inventory
+	{
+		
+		private string _EPIT_DESC;
+		
+		private long _CODE;
+		
+		private System.Nullable<double> _IN_CONT;
+		
+		private System.Nullable<long> _IN_AMNT;
+		
+		private System.Nullable<int> _OUT_CONT;
+		
+		private System.Nullable<int> _OUT_AMNT;
+		
+		public V_Inventory()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EPIT_DESC", DbType="NVarChar(250)")]
+		public string EPIT_DESC
+		{
+			get
+			{
+				return this._EPIT_DESC;
+			}
+			set
+			{
+				if ((this._EPIT_DESC != value))
+				{
+					this._EPIT_DESC = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CODE", DbType="BigInt NOT NULL")]
+		public long CODE
+		{
+			get
+			{
+				return this._CODE;
+			}
+			set
+			{
+				if ((this._CODE != value))
+				{
+					this._CODE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IN_CONT", DbType="Float")]
+		public System.Nullable<double> IN_CONT
+		{
+			get
+			{
+				return this._IN_CONT;
+			}
+			set
+			{
+				if ((this._IN_CONT != value))
+				{
+					this._IN_CONT = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IN_AMNT", DbType="BigInt")]
+		public System.Nullable<long> IN_AMNT
+		{
+			get
+			{
+				return this._IN_AMNT;
+			}
+			set
+			{
+				if ((this._IN_AMNT != value))
+				{
+					this._IN_AMNT = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OUT_CONT", DbType="Int")]
+		public System.Nullable<int> OUT_CONT
+		{
+			get
+			{
+				return this._OUT_CONT;
+			}
+			set
+			{
+				if ((this._OUT_CONT != value))
+				{
+					this._OUT_CONT = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OUT_AMNT", DbType="Int")]
+		public System.Nullable<int> OUT_AMNT
+		{
+			get
+			{
+				return this._OUT_AMNT;
+			}
+			set
+			{
+				if ((this._OUT_AMNT != value))
+				{
+					this._OUT_AMNT = value;
 				}
 			}
 		}

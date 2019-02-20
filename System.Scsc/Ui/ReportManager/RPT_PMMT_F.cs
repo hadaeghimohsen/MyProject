@@ -190,6 +190,10 @@ namespace System.Scsc.Ui.ReportManager
                      (Fga_Uclb_U.Contains(pc.Payment.CLUB_CODE_DNRM))
                   );
             }
+            else if(tc_master.SelectedTab == tp_007)
+            {
+               VInvtBs1.DataSource = iScsc.V_Inventories;
+            }
          }
          catch { }
       }

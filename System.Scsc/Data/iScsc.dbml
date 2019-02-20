@@ -4028,6 +4028,16 @@
       <Column Name="DOMN_DESC" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
+  <Table Name="dbo.V#Inventory" Member="V_Inventories">
+    <Type Name="V_Inventory">
+      <Column Name="EPIT_DESC" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="CODE" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="IN_CONT" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="IN_AMNT" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="OUT_CONT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OUT_AMNT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
   <Function Name="dbo.VF$Saved_Request" Method="VF_Saved_Request" IsComposable="true">
     <Parameter Name="Rqid" Parameter="rqid" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="RqtpCode" Parameter="rqtpCode" Type="System.String" DbType="VarChar(3)" />

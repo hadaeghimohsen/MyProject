@@ -2702,7 +2702,9 @@ namespace System.Scsc.Ui.BaseDefinition
                      new XAttribute("sharmbspstat", Stng.SHAR_MBSP_STAT ?? "001"),
                      new XAttribute("runrbot", Stng.RUN_RBOT ?? "001"),
                      new XAttribute("clerzero", Stng.CLER_ZERO ?? "001"),
-                     new XAttribute("hldycont", Stng.HLDY_CONT ?? 1)
+                     new XAttribute("hldycont", Stng.HLDY_CONT ?? 1),
+                     new XAttribute("duplnatlcode", Stng.DUPL_NATL_CODE ?? "002"),
+                     new XAttribute("duplcellphon", Stng.DUPL_CELL_PHON ?? "002")
                   )
                )
             );

@@ -956,8 +956,8 @@
     <None Include="app.config" />
     <None Include="Data\iScsc.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
-      <LastGenOutput>iScsc.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>iScsc1.designer.cs</LastGenOutput>
     </None>
     <None Include="OpenTK.dll.config" />
     <None Include="packages.config" />

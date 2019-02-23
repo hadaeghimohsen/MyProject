@@ -867,8 +867,11 @@ namespace System.Scsc.Ui.MasterPage
                         #endregion
                         else
                         {
-                           this.AttendanceSystemAlert_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1227;
-                           Tsp_AttnSys.Text = "***";
+                           if (!Fp1DevIsConnected && !Fp2DevIsConnected)
+                           {
+                              this.AttendanceSystemAlert_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1227;
+                              Tsp_AttnSys.Text = "***";
+                           }
                         }
                      })
                   }
@@ -1288,10 +1291,21 @@ namespace System.Scsc.Ui.MasterPage
       {
          try
          {
-            var result = axCZKEM1.SSR_SetUserInfo(1, enrollid, enrollid, "", 0, true);
-            if(axCZKEM1.StartEnrollEx(enrollid, 6, 0))
+            if (Fp1DevIsConnected)
             {
-               BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.BlanchedAlmond;
+               var result = axCZKEM1.SSR_SetUserInfo(1, enrollid, enrollid, "", 0, true);
+               if (axCZKEM1.StartEnrollEx(enrollid, 6, 0))
+               {
+                  BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.BlanchedAlmond;
+               }
+            }
+            else if(Fp2DevIsConnected)
+            {
+               var result = axCZKEM2.SSR_SetUserInfo(1, enrollid, enrollid, "", 0, true);
+               if (axCZKEM2.StartEnrollEx(enrollid, 6, 0))
+               {
+                  BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.BlanchedAlmond;
+               }
             }
             return true;
          }
@@ -1307,11 +1321,22 @@ namespace System.Scsc.Ui.MasterPage
       {
          try
          {
-            axCZKEM1.SSR_DelUserTmpExt(1, enrollid, 6);
-            axCZKEM1.DeleteUserInfoEx(1, Convert.ToInt32(enrollid));
-            axCZKEM1.ClearSLog(1);
+            if (Fp1DevIsConnected)
+            {
+               axCZKEM1.SSR_DelUserTmpExt(1, enrollid, 6);
+               axCZKEM1.DeleteUserInfoEx(1, Convert.ToInt32(enrollid));
+               axCZKEM1.ClearSLog(1);
 
-            BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Green;
+               BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Green;
+            }
+            else if(Fp2DevIsConnected)
+            {
+               axCZKEM2.SSR_DelUserTmpExt(1, enrollid, 6);
+               axCZKEM2.DeleteUserInfoEx(1, Convert.ToInt32(enrollid));
+               axCZKEM2.ClearSLog(1);
+
+               BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Green;
+            }
             return true;
          }
          catch (Exception exc)
@@ -1326,10 +1351,18 @@ namespace System.Scsc.Ui.MasterPage
       {
          try
          {
-            var result = axCZKEM1.ClearKeeperData(1);
-            result = axCZKEM2.ClearKeeperData(1);
+            if (Fp1DevIsConnected)
+            {
+               var result = axCZKEM1.ClearKeeperData(1);
 
-            BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Green;
+               BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Green;
+            }
+            if(Fp2DevIsConnected)
+            {
+               var result = axCZKEM2.ClearKeeperData(1);
+
+               BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Green;
+            }
             return true;
          }
          catch (Exception exc)

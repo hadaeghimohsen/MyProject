@@ -14,6 +14,8 @@ using System.Net;
 using System.Scsc.ExtCode;
 using DevExpress.XtraBars;
 using System.Diagnostics;
+using System.Net.Http;
+using System.IO;
 
 namespace System.Scsc.Ui.MasterPage
 {
@@ -3135,12 +3137,42 @@ namespace System.Scsc.Ui.MasterPage
          //{
          //   MessageBox.Show("OK Fuck You");
          //}
-         string tmpData = "";
-         int tmplen = 0;
-         int flag = 0;
-         var result = axCZKEM1.GetUserTmpExStr(1, "1", 0, out flag, out tmpData, out tmplen );
-         result = axCZKEM1.SSR_SetUserInfo(1, "2", "Mohsen Hadaeghi", "", 0, true);
-         axCZKEM1.SetUserTmpExStr(1, "2", 0, flag, tmpData);
+         //string tmpData = "";
+         //int tmplen = 0;
+         //int flag = 0;
+         //var result = axCZKEM1.GetUserTmpExStr(1, "1", 0, out flag, out tmpData, out tmplen );
+         //result = axCZKEM1.SSR_SetUserInfo(1, "2", "Mohsen Hadaeghi", "", 0, true);
+         //axCZKEM1.SetUserTmpExStr(1, "2", 0, flag, tmpData);
+         //using (HttpClient client = new HttpClient())
+         //{
+         //   var resp = client.GetStringAsync("http://192.168.1.30/on");
+         //}
+         // Create a request for the URL.   
+         new Threading.Thread( OpenHttpClient ).Start();  
+
+      }
+
+      private static void OpenHttpClient()
+      {
+         WebRequest request = WebRequest.Create(
+           "http://192.168.1.30/on");
+         // If required by the server, set the credentials.  
+         request.Credentials = CredentialCache.DefaultCredentials;
+         // Get the response.  
+         WebResponse response = request.GetResponse();
+         // Display the status.  
+         Console.WriteLine(((HttpWebResponse)response).StatusDescription);
+         // Get the stream containing content returned by the server.  
+         Stream dataStream = response.GetResponseStream();
+         // Open the stream using a StreamReader for easy access.  
+         StreamReader reader = new StreamReader(dataStream);
+         // Read the content.  
+         string responseFromServer = reader.ReadToEnd();
+         // Display the content.  
+         Console.WriteLine(responseFromServer);
+         // Clean up the streams and the response.  
+         reader.Close();
+         response.Close();
       }
 
       private void tol_ibutn_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

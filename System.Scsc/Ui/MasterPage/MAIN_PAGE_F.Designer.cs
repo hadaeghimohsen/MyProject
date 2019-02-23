@@ -156,6 +156,7 @@
          this.tol_magnfirebutn = new DevExpress.XtraBars.BarButtonItem();
          this.tol_cntlpnelbutn = new DevExpress.XtraBars.BarButtonItem();
          this.tol_cmdbutn = new DevExpress.XtraBars.BarButtonItem();
+         this.tol_anydeskbutn = new DevExpress.XtraBars.BarButtonItem();
          this.System_RPgc = new DevExpress.XtraBars.Ribbon.RibbonPageCategory();
          this.Base_RbPg = new DevExpress.XtraBars.Ribbon.RibbonPage();
          this.Base_RbGp = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -259,7 +260,6 @@
          this.مدیریتسیستمToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
          this.bbi_bkupbutn_Mn = new System.Windows.Forms.ToolStripMenuItem();
          this.bbi_embkbutn_Mn = new System.Windows.Forms.ToolStripMenuItem();
-         this.tol_anydeskbutn = new DevExpress.XtraBars.BarButtonItem();
          this.statusStrip1.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.spc_desktop)).BeginInit();
@@ -1380,6 +1380,17 @@
          this.tol_cmdbutn.Tag = "cmd";
          this.tol_cmdbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.tol_ibutn_ItemClick);
          // 
+         // tol_anydeskbutn
+         // 
+         this.tol_anydeskbutn.Caption = "AnyDesk";
+         this.tol_anydeskbutn.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
+         this.tol_anydeskbutn.Glyph = ((System.Drawing.Image)(resources.GetObject("tol_anydeskbutn.Glyph")));
+         this.tol_anydeskbutn.Id = 108;
+         this.tol_anydeskbutn.LargeGlyph = global::System.Scsc.Properties.Resources.IMAGE_1092;
+         this.tol_anydeskbutn.Name = "tol_anydeskbutn";
+         this.tol_anydeskbutn.Tag = "anydesk";
+         this.tol_anydeskbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.tol_ibutn_ItemClick);
+         // 
          // System_RPgc
          // 
          this.System_RPgc.Color = System.Drawing.Color.Empty;
@@ -1752,7 +1763,7 @@
          this.ShopStore_Lnk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
          this.ShopStore_Lnk.Font = new System.Drawing.Font("IRANSans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.ShopStore_Lnk.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-         this.ShopStore_Lnk.Location = new System.Drawing.Point(5, 498);
+         this.ShopStore_Lnk.Location = new System.Drawing.Point(5, 430);
          this.ShopStore_Lnk.Name = "ShopStore_Lnk";
          this.ShopStore_Lnk.Size = new System.Drawing.Size(189, 22);
          this.ShopStore_Lnk.TabIndex = 1;
@@ -1777,7 +1788,7 @@
          this.ShoppingStore_Pb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
          this.ShoppingStore_Pb.Cursor = System.Windows.Forms.Cursors.Hand;
          this.ShoppingStore_Pb.Image = global::System.Scsc.Properties.Resources.IMAGE_1659;
-         this.ShoppingStore_Pb.Location = new System.Drawing.Point(5, 336);
+         this.ShoppingStore_Pb.Location = new System.Drawing.Point(5, 268);
          this.ShoppingStore_Pb.Name = "ShoppingStore_Pb";
          this.ShoppingStore_Pb.Size = new System.Drawing.Size(189, 159);
          this.ShoppingStore_Pb.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -2461,17 +2472,6 @@
          this.bbi_embkbutn_Mn.Size = new System.Drawing.Size(185, 22);
          this.bbi_embkbutn_Mn.Text = "پشتیبان گیری اضطراری";
          this.bbi_embkbutn_Mn.Click += new System.EventHandler(this.bbi_embkbutn_Mn_Click);
-         // 
-         // tol_anydeskbutn
-         // 
-         this.tol_anydeskbutn.Caption = "AnyDesk";
-         this.tol_anydeskbutn.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
-         this.tol_anydeskbutn.Glyph = ((System.Drawing.Image)(resources.GetObject("tol_anydeskbutn.Glyph")));
-         this.tol_anydeskbutn.Id = 108;
-         this.tol_anydeskbutn.LargeGlyph = global::System.Scsc.Properties.Resources.IMAGE_1092;
-         this.tol_anydeskbutn.Name = "tol_anydeskbutn";
-         this.tol_anydeskbutn.Tag = "anydesk";
-         this.tol_anydeskbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.tol_ibutn_ItemClick);
          // 
          // MAIN_PAGE_F
          // 

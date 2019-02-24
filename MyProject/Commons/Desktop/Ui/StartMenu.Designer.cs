@@ -496,6 +496,7 @@
          this.Btn_ControlPanel.TabIndex = 2;
          this.Btn_ControlPanel.Tag = "1";
          this.Btn_ControlPanel.Text = "تعاریف اولیه نرم افزار";
+         this.Btn_ControlPanel.Visible = false;
          // 
          // simpleButton9
          // 
@@ -521,6 +522,7 @@
          this.simpleButton9.TabIndex = 3;
          this.simpleButton9.Tag = "1";
          this.simpleButton9.Text = "واحد گزارشات و آمار نرم افزار";
+         this.simpleButton9.Visible = false;
          // 
          // simpleButton10
          // 
@@ -546,6 +548,7 @@
          this.simpleButton10.TabIndex = 4;
          this.simpleButton10.Tag = "1";
          this.simpleButton10.Text = "نرم افزار مدیریتی آرتا";
+         this.simpleButton10.Visible = false;
          // 
          // simpleButton11
          // 
@@ -571,6 +574,7 @@
          this.simpleButton11.TabIndex = 5;
          this.simpleButton11.Tag = "1";
          this.simpleButton11.Text = "نرم افزار خدمات مشترکین";
+         this.simpleButton11.Visible = false;
          // 
          // simpleButton12
          // 
@@ -596,6 +600,7 @@
          this.simpleButton12.TabIndex = 6;
          this.simpleButton12.Tag = "1";
          this.simpleButton12.Text = "سامانه مدیریتی اطلاع رسانی";
+         this.simpleButton12.Visible = false;
          // 
          // simpleButton13
          // 
@@ -673,6 +678,7 @@
          this.simpleButton15.TabIndex = 7;
          this.simpleButton15.Tag = "1";
          this.simpleButton15.Text = "اطلاعات مشترکین اینترنت";
+         this.simpleButton15.Visible = false;
          // 
          // simpleButton16
          // 
@@ -698,6 +704,7 @@
          this.simpleButton16.TabIndex = 8;
          this.simpleButton16.Tag = "1";
          this.simpleButton16.Text = "نرم افزار مدیریت ارتباط با مشتری";
+         this.simpleButton16.Visible = false;
          // 
          // simpleButton17
          // 
@@ -723,6 +730,7 @@
          this.simpleButton17.TabIndex = 8;
          this.simpleButton17.Tag = "1";
          this.simpleButton17.Text = "نرم افزار مدیریت شبکه های اجتماعی";
+         this.simpleButton17.Visible = false;
          // 
          // StartMenu
          // 

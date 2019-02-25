@@ -80,7 +80,34 @@ namespace System.MessageBroadcast.Code
 
                   // Check Line Type is Active
                   if (smsConf.FirstOrDefault(sc => sc.LINE_TYPE == sms.LINE_TYPE && sc.BGWK_STAT == "002") == null) continue;
-                  
+
+                  // 1397/12/06 * چک کردن گزینه اینکه قبل از ارسال بررسی کنیم که شارژ داریم یا خیر
+                  #region Check Sms Server
+                  var xsmsserver = _GetSmsServerStatus();
+                  var SendCredit = Convert.ToInt32(xsmsserver.Descendants("SendCredit").FirstOrDefault().Value);
+                  if(smsConf.FirstOrDefault(smst => smst.TYPE == "001" && smst.BGWK_STAT == "002").ALRM_MIN_REMN_CHRG <= SendCredit)
+                  {
+                     // اگر میزان شارژ باقیمانده کمتر تعداد مشخص شده باشد دیگر پیامک ارسال نمیشود
+                     // ارسال پیامک به کاربری که باید اطلاع رسانی شود
+                     // To Do List
+
+                     if(smsConf.FirstOrDefault(smst => smst.TYPE == "001" && smst.BGWK_STAT == "002").MIN_STOP_CHRG <= SendCredit)
+                     {
+                        // اگر میزان شارژ کمتر میزان باشد سامانه پیامکی باید غیر فعال شود
+                        _DefaultGateway.Gateway(
+                           new Job(SendType.External, "localhost", "MSTR_PAGE_F", 10 /* Execute Actn_Calf_P */, SendType.SelfToUserInterface)
+                           {
+                              Input = new XElement("SmsConf", new XAttribute("actntype", "SmsServerWorkerOff"))
+                           }
+                        );
+                        //SmsWorkerStat = false;
+                        //_SenderBgwk.Enabled = false;
+                        //_SenderBgwk.Stop();
+                        continue;
+                     }
+                  }
+                  #endregion
+
                   // Send Sms For Phone Number
                   XDocument xmsRespons = XDocument.Parse(
                      SmsClient.XmsRequest(
@@ -132,6 +159,49 @@ namespace System.MessageBroadcast.Code
          );
          ConnectionString = GetConnectionString.Output.ToString();
          iProject = new Data.iProjectDataContext(GetConnectionString.Output.ToString());
+      }
+
+      XDocument _GetSmsServerStatus()
+      {
+         try
+         {
+            var xoutput = new XDocument("SmsServer");
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost",
+                  new List<Job>
+                  {
+                     new Job(SendType.External, "Msgb",
+                        new List<Job>
+                        {
+                           new Job(SendType.SelfToUserInterface, "MSTR_PAGE_F", 10 /* Execuet Actn_Calf_F */)
+                           {
+                              Input =
+                                 new XElement("SmsConf",
+                                    new XAttribute("actntype", "getcredit")
+                                 ),
+                              AfterChangedOutput =
+                                 new Action<object>((output) =>
+                                 {
+                                    xoutput = output as XDocument;
+                                    //SendCreditCount_Txt.Text = xoutput.Descendants("SendCredit").FirstOrDefault().Value;
+                                    //SendCreditAmnt_Txt.Text = xoutput.Descendants("SMS_SendFee").FirstOrDefault().Value;
+                                    //ReceiveCreditCount_Txt.Text = xoutput.Descendants("RecieveCredit").FirstOrDefault().Value;
+                                    //ReceiveCreditAmnt_Txt.Text = xoutput.Descendants("SMS_RecieveFee").FirstOrDefault().Value;                                                
+                                 })
+                           }
+                        }
+                     )
+                  }
+               )
+            );
+
+            return xoutput;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+            return null;
+         }
       }
       #endregion
    }

@@ -292,6 +292,7 @@
       <Association Name="Region_Region" Member="Regions" ThisKey="PRVN_CNTY_CODE,PRVN_CODE,CODE" OtherKey="PRVN_CNTY_CODE,PRVN_CODE,REGN_CODE" Type="Region" />
       <Association Name="Region_Package_Instance_User_Gateway" Member="Package_Instance_User_Gateways" ThisKey="PRVN_CNTY_CODE,PRVN_CODE,CODE" OtherKey="REGN_PRVN_CNTY_CODE,REGN_PRVN_CODE,REGN_CODE" Type="Package_Instance_User_Gateway" />
       <Association Name="Region_User" Member="Users" ThisKey="PRVN_CNTY_CODE,PRVN_CODE,CODE" OtherKey="REGN_PRVN_CNTY_CODE,REGN_PRVN_CODE,REGN_CODE" Type="User" />
+      <Association Name="Region_Request_Parameter" Member="Request_Parameters" ThisKey="PRVN_CNTY_CODE,PRVN_CODE,CODE" OtherKey="REGN_PRVN_CNTY_CODE,REGN_PRVN_CODE,REGN_CODE" Type="Request_Parameter" />
       <Association Name="Province_Region" Member="Province" ThisKey="PRVN_CNTY_CODE,PRVN_CODE" OtherKey="CNTY_CODE,CODE" Type="Province" IsForeignKey="true" />
       <Association Name="Region_Region" Member="Region1" ThisKey="PRVN_CNTY_CODE,PRVN_CODE,REGN_CODE" OtherKey="PRVN_CNTY_CODE,PRVN_CODE,CODE" Type="Region" IsForeignKey="true" />
     </Type>
@@ -807,6 +808,7 @@
       <Association Name="User_User_Privilege" Member="User_Privileges" ThisKey="ID" OtherKey="UserID" Type="User_Privilege" />
       <Association Name="User_Role_User" Member="Role_Users" ThisKey="ID" OtherKey="UserID" Type="Role_User" />
       <Association Name="User_Access_User_Datasource" Member="Access_User_Datasources" ThisKey="ID" OtherKey="USER_ID" Type="Access_User_Datasource" />
+      <Association Name="User_Message_Broad_Setting" Member="Message_Broad_Settings" ThisKey="ID" OtherKey="ALRM_TO_USER_ID" Type="Message_Broad_Setting" />
       <Association Name="Region_User" Member="Region" ThisKey="REGN_PRVN_CNTY_CODE,REGN_PRVN_CODE,REGN_CODE" OtherKey="PRVN_CNTY_CODE,PRVN_CODE,CODE" Type="Region" IsForeignKey="true" />
     </Type>
   </Table>
@@ -1015,29 +1017,6 @@
       <Association Name="Sub_System_Tiny_Sub_System" Member="Sub_System" ThisKey="SUB_SYS" OtherKey="SUB_SYS" Type="Sub_System" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="Msgb.Message_Broad_Settings" Member="Message_Broad_Settings">
-    <Type Name="Message_Broad_Setting">
-      <Column Name="MBID" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="BGWK_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="BGWK_INTR" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="CUST_BGWK_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="CUST_BGWK_INTR" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="USER_NAME" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="PASS_WORD" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="WEB_SITE_LOGN" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="WEB_SITE_PSWD" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="LINE_NUMB" Type="System.String" DbType="VarChar(30)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="LINE_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="DFLT_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="LAST_ROW_FTCH" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="FTCH_ROW" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
-    </Type>
-  </Table>
   <Table Name="DataGuard.Sub_System" Member="Sub_Systems">
     <Type Name="Sub_System">
       <Column Name="SUB_SYS" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -1082,6 +1061,150 @@
       <Association Name="Sub_System_Form" Member="Forms" ThisKey="SUB_SYS" OtherKey="SUB_SYS" Type="Form" />
       <Association Name="Sub_System_Script" Member="Scripts" ThisKey="SUB_SYS" OtherKey="SUB_SYS" Type="Script" />
       <Association Name="Sub_System_Tiny_Sub_System" Member="Tiny_Sub_Systems" ThisKey="SUB_SYS" OtherKey="SUB_SYS" Type="Tiny_Sub_System" />
+    </Type>
+  </Table>
+  <Table Name="Msgb.Message_Broad_Settings" Member="Message_Broad_Settings">
+    <Type Name="Message_Broad_Setting">
+      <Column Name="MBID" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="BGWK_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="BGWK_INTR" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CUST_BGWK_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CUST_BGWK_INTR" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="USER_NAME" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="PASS_WORD" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="WEB_SITE_LOGN" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="WEB_SITE_PSWD" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="LINE_NUMB" Type="System.String" DbType="VarChar(30)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="LINE_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="DFLT_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="LAST_ROW_FTCH" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="FTCH_ROW" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ALRM_TO_USER_ID" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ALRM_MIN_REMN_CHRG" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MIN_STOP_CHRG" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ALRM_DESC" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="User_Message_Broad_Setting" Member="User" ThisKey="ALRM_TO_USER_ID" OtherKey="ID" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="Global.Request_Parameter" Member="Request_Parameters">
+    <Type Name="Request_Parameter">
+      <Column Name="REGN_PRVN_CNTY_CODE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="REGN_PRVN_CODE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="REGN_CODE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="WENG_WEID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="RPID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="RQPM_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Request_Parameter_Current" Member="Currents" ThisKey="RPID" OtherKey="RQPM_RPID" Type="Current" />
+      <Association Name="Region_Request_Parameter" Member="Region" ThisKey="REGN_PRVN_CNTY_CODE,REGN_PRVN_CODE,REGN_CODE" OtherKey="PRVN_CNTY_CODE,PRVN_CODE,CODE" Type="Region" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="Global.[Current]" Member="Currents">
+    <Type Name="Current">
+      <Column Name="RQPM_RPID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="CRID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="LAST_UPDT_EPCH" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LAST_UPDT" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TEMP_C" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="TEMP_F" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="COND_TEXT" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="COND_ICON" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="COND_CODE" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="WIND_MPH" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="WIND_KPH" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="WIND_DEGR" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="WIND_DIR" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="PSUR_MB" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="PSUR_IN" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="PCIP_MM" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="PCIP_IN" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="HUMD" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CLUD" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FEEL_SLIK_C" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="FEEL_SLIK_F" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Current_Forecastday" Member="Forecastdays" ThisKey="CRID" OtherKey="CRNT_CRID" Type="Forecastday" />
+      <Association Name="Request_Parameter_Current" Member="Request_Parameter" ThisKey="RQPM_RPID" OtherKey="RPID" Type="Request_Parameter" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="Global.Forecastday" Member="Forecastdays">
+    <Type Name="Forecastday">
+      <Column Name="CRNT_CRID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="FCID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="LAST_UPDT" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LAST_UPDT_EPCH" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MAX_TEMP_C" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="MAX_TEMP_F" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="MIN_TEMP_C" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="MIN_TEMP_F" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="AVG_TEMP_C" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="AVG_TEMP_F" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="MAX_WIND_MPH" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="MAX_WIN_KPH" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="TOTL_PCIP_MM" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="TOTL_PCIP_IN" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="COND_TEXT" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="COND_ICON" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="COND_CODE" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SUN_RISE" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="SUN_SET" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="MOON_RISE" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="MOON_SET" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Forecastday_Forecastday_Hour" Member="Forecastday_Hours" ThisKey="FCID" OtherKey="FCDY_FCID" Type="Forecastday_Hour" />
+      <Association Name="Current_Forecastday" Member="Current" ThisKey="CRNT_CRID" OtherKey="CRID" Type="Current" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="Global.Forecastday_Hour" Member="Forecastday_Hours">
+    <Type Name="Forecastday_Hour">
+      <Column Name="FCDY_FCID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="HRID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="LAST_UPDT" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LAST_UPDT_EPCH" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TEMP_C" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="TEMP_F" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="COND_TEXT" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="COND_ICON" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="COND_CODE" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="WIND_MPH" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="WIND_KPH" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="WIND_DEGR" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="WIND_DIR" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="PSUR_MB" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="PSUR_IN" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="PCIP_MM" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="PCIP_IN" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="HUMD" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CLUD" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FEEL_SLIK_C" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="FEEL_SLIK_F" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="WIND_CHIL_C" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="WIND_CHIL_F" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="HEAT_INDX_C" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="HEAT_INDX_F" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="DEW_PONT_C" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="DEW_PONT_F" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="WILL_IT_RAIN" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="WILL_IT_SNOW" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Forecastday_Forecastday_Hour" Member="Forecastday" ThisKey="FCDY_FCID" OtherKey="FCID" Type="Forecastday" IsForeignKey="true" />
     </Type>
   </Table>
   <Function Name="DataGuard.SaveHostInfo" Method="SaveHostInfo">

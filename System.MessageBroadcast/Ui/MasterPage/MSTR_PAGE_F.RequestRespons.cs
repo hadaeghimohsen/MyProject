@@ -185,6 +185,26 @@ namespace System.MessageBroadcast.Ui.MasterPage
                case "getcredit":
                   Btn_SmsServerRefresh_Click(null, null);
                   break;
+               case "SmsWorkerOff":
+                  Ts_SmsWorkerStat.IsOn = false;
+                  break;
+               case "SmsWorkerOn":
+                  Ts_SmsWorkerStat.IsOn = true;
+                  break;
+               case "SmsServerOff":
+                  Ts_SmsBgwkStat.IsOn = false;
+                  break;
+               case "SmsServerOn":
+                  Ts_SmsBgwkStat.IsOn = true;
+                  break;
+               case "SmsServerWorkerOff":
+                  Ts_SmsWorkerStat.IsOn = false;
+                  Ts_SmsBgwkStat.IsOn = false;
+                  break;
+               case "SmsServerWorkerOn":
+                  Ts_SmsWorkerStat.IsOn = true;
+                  Ts_SmsBgwkStat.IsOn = true;
+                  break;
             }
          }
          job.Status = StatusType.Successful;

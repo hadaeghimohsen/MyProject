@@ -70,6 +70,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
          else if(Tb_Master.SelectedTab == tp_002)
          {
             SmsConfBs.DataSource = iProject.Message_Broad_Settings;
+            UserBs.DataSource = iProject.Users;
          }
       }
 

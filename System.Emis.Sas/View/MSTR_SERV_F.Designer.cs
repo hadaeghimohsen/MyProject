@@ -54,8 +54,9 @@
          System.Windows.Forms.Label sSTT_ROW_NOLabel;
          System.Windows.Forms.Label label6;
          System.Windows.Forms.Label label7;
-         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition1 = new DevExpress.XtraGrid.StyleFormatCondition();
-         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition2 = new DevExpress.XtraGrid.StyleFormatCondition();
+         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition3 = new DevExpress.XtraGrid.StyleFormatCondition();
+         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition4 = new DevExpress.XtraGrid.StyleFormatCondition();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject24 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
@@ -70,8 +71,8 @@
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject13 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject14 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject15 = new DevExpress.Utils.SerializableAppearanceObject();
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MSTR_SERV_F));
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject15 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject16 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject17 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject18 = new DevExpress.Utils.SerializableAppearanceObject();
@@ -79,7 +80,6 @@
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject20 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject21 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject22 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject23 = new DevExpress.Utils.SerializableAppearanceObject();
          this.colCUST_STAT = new DevExpress.XtraGrid.Columns.GridColumn();
          this.repositoryItemLookUpEdit7 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
          this.YesNoBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -966,19 +966,19 @@
             this.colREGION,
             this.colREQUEST_ROW3,
             this.colBILL});
-         styleFormatCondition1.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-         styleFormatCondition1.Appearance.Options.UseBackColor = true;
-         styleFormatCondition1.Column = this.colCUST_STAT;
-         styleFormatCondition1.Condition = DevExpress.XtraGrid.FormatConditionEnum.Expression;
-         styleFormatCondition1.Expression = "[CUST_STAT] == \'1\'";
-         styleFormatCondition2.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-         styleFormatCondition2.Appearance.Options.UseBackColor = true;
-         styleFormatCondition2.Column = this.colCYCL_STAT;
-         styleFormatCondition2.Condition = DevExpress.XtraGrid.FormatConditionEnum.Expression;
-         styleFormatCondition2.Expression = "[CYCL_STAT] >= \'3\'";
+         styleFormatCondition3.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+         styleFormatCondition3.Appearance.Options.UseBackColor = true;
+         styleFormatCondition3.Column = this.colCUST_STAT;
+         styleFormatCondition3.Condition = DevExpress.XtraGrid.FormatConditionEnum.Expression;
+         styleFormatCondition3.Expression = "[CUST_STAT] == \'1\'";
+         styleFormatCondition4.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+         styleFormatCondition4.Appearance.Options.UseBackColor = true;
+         styleFormatCondition4.Column = this.colCYCL_STAT;
+         styleFormatCondition4.Condition = DevExpress.XtraGrid.FormatConditionEnum.Expression;
+         styleFormatCondition4.Expression = "[CYCL_STAT] >= \'3\'";
          this.gridView17.FormatConditions.AddRange(new DevExpress.XtraGrid.StyleFormatCondition[] {
-            styleFormatCondition1,
-            styleFormatCondition2});
+            styleFormatCondition3,
+            styleFormatCondition4});
          this.gridView17.GridControl = this.ServiceDataGridView;
          this.gridView17.Name = "gridView17";
          this.gridView17.OptionsBehavior.Editable = false;
@@ -1698,7 +1698,7 @@
          this.Cmb_RqstStat.Properties.Appearance.Options.UseTextOptions = true;
          this.Cmb_RqstStat.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.Cmb_RqstStat.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject24, "", null, null, true)});
          this.Cmb_RqstStat.Properties.DataSource = this.RqstStat_BindingSource;
          this.Cmb_RqstStat.Properties.DisplayMember = "RV_MEANING";
          this.Cmb_RqstStat.Properties.NullText = "";
@@ -1766,7 +1766,7 @@
          this.Cmb_RqtpCode.Properties.Appearance.Options.UseTextOptions = true;
          this.Cmb_RqtpCode.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.Cmb_RqtpCode.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
          this.Cmb_RqtpCode.Properties.DataSource = this.RqtpCode_BindingSource;
          this.Cmb_RqtpCode.Properties.DisplayMember = "RQTP_DESC";
          this.Cmb_RqtpCode.Properties.NullText = "";
@@ -2196,10 +2196,10 @@
          this.Cmb_ConfStat.Properties.Appearance.Options.UseTextOptions = true;
          this.Cmb_ConfStat.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.Cmb_ConfStat.Properties.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
-         serializableAppearanceObject3.Options.UseTextOptions = true;
-         serializableAppearanceObject3.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         serializableAppearanceObject2.Options.UseTextOptions = true;
+         serializableAppearanceObject2.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.Cmb_ConfStat.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject3, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
          this.Cmb_ConfStat.Properties.DataSource = this.YesNoBindingSource;
          this.Cmb_ConfStat.Properties.DisplayMember = "RV_MEANING";
          this.Cmb_ConfStat.Properties.NullText = "";
@@ -2258,10 +2258,10 @@
          this.Cmb_BrncType.Properties.Appearance.Options.UseTextOptions = true;
          this.Cmb_BrncType.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.Cmb_BrncType.Properties.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
-         serializableAppearanceObject4.Options.UseTextOptions = true;
-         serializableAppearanceObject4.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         serializableAppearanceObject3.Options.UseTextOptions = true;
+         serializableAppearanceObject3.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.Cmb_BrncType.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject4, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject3, "", null, null, true)});
          this.Cmb_BrncType.Properties.DataSource = this.BrncType_BindingSource;
          this.Cmb_BrncType.Properties.DisplayMember = "RV_MEANING";
          this.Cmb_BrncType.Properties.NullText = "";
@@ -2320,10 +2320,10 @@
          this.Cmb_MetrType.Properties.Appearance.Options.UseTextOptions = true;
          this.Cmb_MetrType.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.Cmb_MetrType.Properties.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
-         serializableAppearanceObject5.Options.UseTextOptions = true;
-         serializableAppearanceObject5.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         serializableAppearanceObject4.Options.UseTextOptions = true;
+         serializableAppearanceObject4.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.Cmb_MetrType.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject4, "", null, null, true)});
          this.Cmb_MetrType.Properties.DataSource = this.MetrType_BindingSource;
          this.Cmb_MetrType.Properties.DisplayMember = "RV_MEANING";
          this.Cmb_MetrType.Properties.NullText = "";
@@ -2386,10 +2386,10 @@
          this.Cmb_Phas.Properties.Appearance.Options.UseTextOptions = true;
          this.Cmb_Phas.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.Cmb_Phas.Properties.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
-         serializableAppearanceObject6.Options.UseTextOptions = true;
-         serializableAppearanceObject6.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         serializableAppearanceObject5.Options.UseTextOptions = true;
+         serializableAppearanceObject5.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.Cmb_Phas.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject6, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, "", null, null, true)});
          this.Cmb_Phas.Properties.DataSource = this.Phas_BindingSource;
          this.Cmb_Phas.Properties.DisplayMember = "RV_MEANING";
          this.Cmb_Phas.Properties.NullText = "";
@@ -2452,10 +2452,10 @@
          this.Cmb_ConsCode.Properties.Appearance.Options.UseTextOptions = true;
          this.Cmb_ConsCode.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.Cmb_ConsCode.Properties.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
-         serializableAppearanceObject7.Options.UseTextOptions = true;
-         serializableAppearanceObject7.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         serializableAppearanceObject6.Options.UseTextOptions = true;
+         serializableAppearanceObject6.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.Cmb_ConsCode.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject7, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject6, "", null, null, true)});
          this.Cmb_ConsCode.Properties.DataSource = this.ConsCode_BindingSource;
          this.Cmb_ConsCode.Properties.DisplayMember = "RV_MEANING";
          this.Cmb_ConsCode.Properties.NullText = "";
@@ -2514,10 +2514,10 @@
          this.Cmb_ReadStat.Properties.Appearance.Options.UseTextOptions = true;
          this.Cmb_ReadStat.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.Cmb_ReadStat.Properties.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
-         serializableAppearanceObject8.Options.UseTextOptions = true;
-         serializableAppearanceObject8.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         serializableAppearanceObject7.Options.UseTextOptions = true;
+         serializableAppearanceObject7.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.Cmb_ReadStat.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject8, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject7, "", null, null, true)});
          this.Cmb_ReadStat.Properties.DataSource = this.ReadStat_BindingSource;
          this.Cmb_ReadStat.Properties.DisplayMember = "RV_MEANING";
          this.Cmb_ReadStat.Properties.NullText = "";
@@ -2576,10 +2576,10 @@
          this.Cmb_ZoneCode.Properties.Appearance.Options.UseTextOptions = true;
          this.Cmb_ZoneCode.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.Cmb_ZoneCode.Properties.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
-         serializableAppearanceObject9.Options.UseTextOptions = true;
-         serializableAppearanceObject9.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         serializableAppearanceObject8.Options.UseTextOptions = true;
+         serializableAppearanceObject8.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.Cmb_ZoneCode.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject8, "", null, null, true)});
          this.Cmb_ZoneCode.Properties.DataSource = this.ZoneCode_BindingSource;
          this.Cmb_ZoneCode.Properties.DisplayMember = "RV_MEANING";
          this.Cmb_ZoneCode.Properties.NullText = "";
@@ -2638,10 +2638,10 @@
          this.Cmb_ServType.Properties.Appearance.Options.UseTextOptions = true;
          this.Cmb_ServType.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.Cmb_ServType.Properties.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
-         serializableAppearanceObject10.Options.UseTextOptions = true;
-         serializableAppearanceObject10.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         serializableAppearanceObject9.Options.UseTextOptions = true;
+         serializableAppearanceObject9.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.Cmb_ServType.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject10, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, "", null, null, true)});
          this.Cmb_ServType.Properties.DataSource = this.ServType_BindingSource;
          this.Cmb_ServType.Properties.DisplayMember = "RV_MEANING";
          this.Cmb_ServType.Properties.NullText = "";
@@ -2700,10 +2700,10 @@
          this.Cmb_OnofTag.Properties.Appearance.Options.UseTextOptions = true;
          this.Cmb_OnofTag.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.Cmb_OnofTag.Properties.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
-         serializableAppearanceObject11.Options.UseTextOptions = true;
-         serializableAppearanceObject11.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         serializableAppearanceObject10.Options.UseTextOptions = true;
+         serializableAppearanceObject10.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.Cmb_OnofTag.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject11, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject10, "", null, null, true)});
          this.Cmb_OnofTag.Properties.DataSource = this.OnofTag_BindingSource;
          this.Cmb_OnofTag.Properties.DisplayMember = "RV_MEANING";
          this.Cmb_OnofTag.Properties.NullText = "";
@@ -2765,10 +2765,10 @@
          this.Cmb_CyclStat.Properties.Appearance.Options.UseTextOptions = true;
          this.Cmb_CyclStat.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.Cmb_CyclStat.Properties.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
-         serializableAppearanceObject12.Options.UseTextOptions = true;
-         serializableAppearanceObject12.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         serializableAppearanceObject11.Options.UseTextOptions = true;
+         serializableAppearanceObject11.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.Cmb_CyclStat.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject12, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject11, "", null, null, true)});
          this.Cmb_CyclStat.Properties.DataSource = this.CyclStat_BindingSource;
          this.Cmb_CyclStat.Properties.DisplayMember = "RV_MEANING";
          this.Cmb_CyclStat.Properties.NullText = "";
@@ -2833,7 +2833,7 @@
          this.Txt_RegnCode.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.Txt_RegnCode.Properties.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
          this.Txt_RegnCode.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject13, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject12, "", null, null, true)});
          this.Txt_RegnCode.Properties.DataSource = this.Region_BindingSource;
          this.Txt_RegnCode.Properties.DisplayMember = "NAME";
          this.Txt_RegnCode.Properties.NullText = "";
@@ -3141,7 +3141,7 @@
          this.Pdat_InstDate.Properties.Appearance.Options.UseTextOptions = true;
          this.Pdat_InstDate.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.Pdat_InstDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject14, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject13, "", null, null, true)});
          this.Pdat_InstDate.Properties.CalendarTimeEditing = DevExpress.Utils.DefaultBoolean.True;
          this.Pdat_InstDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -3166,7 +3166,7 @@
          this.Pdat_LastReadDate.Properties.Appearance.Options.UseTextOptions = true;
          this.Pdat_LastReadDate.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.Pdat_LastReadDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject15, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject14, "", null, null, true)});
          this.Pdat_LastReadDate.Properties.CalendarTimeEditing = DevExpress.Utils.DefaultBoolean.True;
          this.Pdat_LastReadDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -3249,7 +3249,7 @@
          this.eFCT_RQST_TYPE_DNRMSpinEdit.Location = new System.Drawing.Point(394, 116);
          this.eFCT_RQST_TYPE_DNRMSpinEdit.Name = "eFCT_RQST_TYPE_DNRMSpinEdit";
          this.eFCT_RQST_TYPE_DNRMSpinEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject16, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject15, "", null, null, true)});
          this.eFCT_RQST_TYPE_DNRMSpinEdit.Properties.DataSource = this.RqtpCode_BindingSource;
          this.eFCT_RQST_TYPE_DNRMSpinEdit.Properties.DisplayMember = "RQTP_DESC";
          this.eFCT_RQST_TYPE_DNRMSpinEdit.Properties.NullText = "";
@@ -3464,7 +3464,7 @@
          this.rQST_DATEDateEdit.Location = new System.Drawing.Point(479, 45);
          this.rQST_DATEDateEdit.Name = "rQST_DATEDateEdit";
          this.rQST_DATEDateEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject17, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject16, "", null, null, true)});
          this.rQST_DATEDateEdit.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
          this.rQST_DATEDateEdit.Properties.CalendarTimeProperties.CloseUpKey = new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.F4);
@@ -3484,7 +3484,7 @@
          this.rQST_STATTextEdit.Properties.AppearanceReadOnly.Options.UseTextOptions = true;
          this.rQST_STATTextEdit.Properties.AppearanceReadOnly.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.rQST_STATTextEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject18, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject17, "", null, null, true)});
          this.rQST_STATTextEdit.Properties.DataSource = this.RqstStat_BindingSource;
          this.rQST_STATTextEdit.Properties.DisplayMember = "RV_MEANING";
          this.rQST_STATTextEdit.Properties.NullText = "";
@@ -3513,7 +3513,7 @@
          this.rQTP_CODESpinEdit.Location = new System.Drawing.Point(479, 97);
          this.rQTP_CODESpinEdit.Name = "rQTP_CODESpinEdit";
          this.rQTP_CODESpinEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject19, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject18, "", null, null, true)});
          this.rQTP_CODESpinEdit.Properties.DataSource = this.RqtpCode_BindingSource;
          this.rQTP_CODESpinEdit.Properties.DisplayMember = "RQTP_DESC";
          this.rQTP_CODESpinEdit.Properties.NullText = "";
@@ -3543,7 +3543,7 @@
          this.rQTT_CODESpinEdit.Location = new System.Drawing.Point(479, 123);
          this.rQTT_CODESpinEdit.Name = "rQTT_CODESpinEdit";
          this.rQTT_CODESpinEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject20, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject19, "", null, null, true)});
          this.rQTT_CODESpinEdit.Properties.DataSource = this.RqttCode_BindingSource;
          this.rQTT_CODESpinEdit.Properties.DisplayMember = "RQTT_DESC";
          this.rQTT_CODESpinEdit.Properties.NullText = "";
@@ -3592,7 +3592,7 @@
          this.lETT_DATEDateEdit.Location = new System.Drawing.Point(191, 71);
          this.lETT_DATEDateEdit.Name = "lETT_DATEDateEdit";
          this.lETT_DATEDateEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject21, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject20, "", null, null, true)});
          this.lETT_DATEDateEdit.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
          this.lETT_DATEDateEdit.Properties.CalendarTimeProperties.CloseUpKey = new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.F4);
@@ -3611,7 +3611,7 @@
          this.cRET_DATEDateEdit.Location = new System.Drawing.Point(191, 149);
          this.cRET_DATEDateEdit.Name = "cRET_DATEDateEdit";
          this.cRET_DATEDateEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject22, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject21, "", null, null, true)});
          this.cRET_DATEDateEdit.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
          this.cRET_DATEDateEdit.Properties.CalendarTimeProperties.CloseUpKey = new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.F4);
@@ -3630,7 +3630,7 @@
          this.mDFY_DATEDateEdit.Location = new System.Drawing.Point(191, 201);
          this.mDFY_DATEDateEdit.Name = "mDFY_DATEDateEdit";
          this.mDFY_DATEDateEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject23, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject22, "", null, null, true)});
          this.mDFY_DATEDateEdit.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
          this.mDFY_DATEDateEdit.Properties.CalendarTimeProperties.CloseUpKey = new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.F4);

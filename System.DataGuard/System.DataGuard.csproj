@@ -34,10 +34,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="APIXULib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Debug\APIXULib.dll</HintPath>
-    </Reference>
     <Reference Include="DataAccess, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\Debug\DataAccess.dll</HintPath>
@@ -1037,6 +1033,7 @@
     <None Include="Properties\DataSources\System.DataGuard.Data.V_TopNActiveSessionCurrentGateway.datasource" />
     <None Include="Properties\DataSources\System.DataGuard.Data.V_Top_Active_Session.datasource" />
     <None Include="Properties\DataSources\System.DataGuard.Data.V_User.datasource" />
+    <None Include="Properties\DataSources\System.DataGuard.Data.Wheater_Engine.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

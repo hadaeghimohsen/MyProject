@@ -186,6 +186,9 @@ namespace System.DataGuard.Data
     partial void InsertForecastday_Hour(Forecastday_Hour instance);
     partial void UpdateForecastday_Hour(Forecastday_Hour instance);
     partial void DeleteForecastday_Hour(Forecastday_Hour instance);
+    partial void InsertWheater_Engine(Wheater_Engine instance);
+    partial void UpdateWheater_Engine(Wheater_Engine instance);
+    partial void DeleteWheater_Engine(Wheater_Engine instance);
     #endregion
 		
 		public iProjectDataContext() : 
@@ -847,6 +850,14 @@ namespace System.DataGuard.Data
 			get
 			{
 				return this.GetTable<Forecastday_Hour>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Wheater_Engine> Wheater_Engines
+		{
+			get
+			{
+				return this.GetTable<Wheater_Engine>();
 			}
 		}
 		
@@ -22895,6 +22906,8 @@ namespace System.DataGuard.Data
 		
 		private EntityRef<Region> _Region;
 		
+		private EntityRef<Wheater_Engine> _Wheater_Engine;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -22925,6 +22938,7 @@ namespace System.DataGuard.Data
 		{
 			this._Currents = new EntitySet<Current>(new Action<Current>(this.attach_Currents), new Action<Current>(this.detach_Currents));
 			this._Region = default(EntityRef<Region>);
+			this._Wheater_Engine = default(EntityRef<Wheater_Engine>);
 			OnCreated();
 		}
 		
@@ -23011,6 +23025,10 @@ namespace System.DataGuard.Data
 			{
 				if ((this._WENG_WEID != value))
 				{
+					if (this._Wheater_Engine.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
 					this.OnWENG_WEIDChanging(value);
 					this.SendPropertyChanging();
 					this._WENG_WEID = value;
@@ -23187,6 +23205,40 @@ namespace System.DataGuard.Data
 						this._REGN_CODE = default(string);
 					}
 					this.SendPropertyChanged("Region");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Wheater_Engine_Request_Parameter", Storage="_Wheater_Engine", ThisKey="WENG_WEID", OtherKey="WEID", IsForeignKey=true)]
+		public Wheater_Engine Wheater_Engine
+		{
+			get
+			{
+				return this._Wheater_Engine.Entity;
+			}
+			set
+			{
+				Wheater_Engine previousValue = this._Wheater_Engine.Entity;
+				if (((previousValue != value) 
+							|| (this._Wheater_Engine.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Wheater_Engine.Entity = null;
+						previousValue.Request_Parameters.Remove(this);
+					}
+					this._Wheater_Engine.Entity = value;
+					if ((value != null))
+					{
+						value.Request_Parameters.Add(this);
+						this._WENG_WEID = value.WEID;
+					}
+					else
+					{
+						this._WENG_WEID = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("Wheater_Engine");
 				}
 			}
 		}
@@ -25506,6 +25558,408 @@ namespace System.DataGuard.Data
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="Global.Wheater_Engine")]
+	public partial class Wheater_Engine : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private long _WEID;
+		
+		private string _WEB_SITE;
+		
+		private string _FULL_NAME;
+		
+		private string _USER_NAME;
+		
+		private string _PASS_WORD;
+		
+		private string _EMIL_ADDR;
+		
+		private string _API_KEY;
+		
+		private string _PRTC_TYPE;
+		
+		private string _FRMT_TYPE;
+		
+		private string _STAT;
+		
+		private string _CRET_BY;
+		
+		private System.Nullable<System.DateTime> _CRET_DATE;
+		
+		private string _MDFY_BY;
+		
+		private System.Nullable<System.DateTime> _MDFY_DATE;
+		
+		private EntitySet<Request_Parameter> _Request_Parameters;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnWEIDChanging(long value);
+    partial void OnWEIDChanged();
+    partial void OnWEB_SITEChanging(string value);
+    partial void OnWEB_SITEChanged();
+    partial void OnFULL_NAMEChanging(string value);
+    partial void OnFULL_NAMEChanged();
+    partial void OnUSER_NAMEChanging(string value);
+    partial void OnUSER_NAMEChanged();
+    partial void OnPASS_WORDChanging(string value);
+    partial void OnPASS_WORDChanged();
+    partial void OnEMIL_ADDRChanging(string value);
+    partial void OnEMIL_ADDRChanged();
+    partial void OnAPI_KEYChanging(string value);
+    partial void OnAPI_KEYChanged();
+    partial void OnPRTC_TYPEChanging(string value);
+    partial void OnPRTC_TYPEChanged();
+    partial void OnFRMT_TYPEChanging(string value);
+    partial void OnFRMT_TYPEChanged();
+    partial void OnSTATChanging(string value);
+    partial void OnSTATChanged();
+    partial void OnCRET_BYChanging(string value);
+    partial void OnCRET_BYChanged();
+    partial void OnCRET_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnCRET_DATEChanged();
+    partial void OnMDFY_BYChanging(string value);
+    partial void OnMDFY_BYChanged();
+    partial void OnMDFY_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnMDFY_DATEChanged();
+    #endregion
+		
+		public Wheater_Engine()
+		{
+			this._Request_Parameters = new EntitySet<Request_Parameter>(new Action<Request_Parameter>(this.attach_Request_Parameters), new Action<Request_Parameter>(this.detach_Request_Parameters));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WEID", AutoSync=AutoSync.OnInsert, DbType="BigInt NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public long WEID
+		{
+			get
+			{
+				return this._WEID;
+			}
+			set
+			{
+				if ((this._WEID != value))
+				{
+					this.OnWEIDChanging(value);
+					this.SendPropertyChanging();
+					this._WEID = value;
+					this.SendPropertyChanged("WEID");
+					this.OnWEIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WEB_SITE", DbType="VarChar(1000)")]
+		public string WEB_SITE
+		{
+			get
+			{
+				return this._WEB_SITE;
+			}
+			set
+			{
+				if ((this._WEB_SITE != value))
+				{
+					this.OnWEB_SITEChanging(value);
+					this.SendPropertyChanging();
+					this._WEB_SITE = value;
+					this.SendPropertyChanged("WEB_SITE");
+					this.OnWEB_SITEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FULL_NAME", DbType="VarChar(250)")]
+		public string FULL_NAME
+		{
+			get
+			{
+				return this._FULL_NAME;
+			}
+			set
+			{
+				if ((this._FULL_NAME != value))
+				{
+					this.OnFULL_NAMEChanging(value);
+					this.SendPropertyChanging();
+					this._FULL_NAME = value;
+					this.SendPropertyChanged("FULL_NAME");
+					this.OnFULL_NAMEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_USER_NAME", DbType="VarChar(250)")]
+		public string USER_NAME
+		{
+			get
+			{
+				return this._USER_NAME;
+			}
+			set
+			{
+				if ((this._USER_NAME != value))
+				{
+					this.OnUSER_NAMEChanging(value);
+					this.SendPropertyChanging();
+					this._USER_NAME = value;
+					this.SendPropertyChanged("USER_NAME");
+					this.OnUSER_NAMEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PASS_WORD", DbType="NVarChar(250)")]
+		public string PASS_WORD
+		{
+			get
+			{
+				return this._PASS_WORD;
+			}
+			set
+			{
+				if ((this._PASS_WORD != value))
+				{
+					this.OnPASS_WORDChanging(value);
+					this.SendPropertyChanging();
+					this._PASS_WORD = value;
+					this.SendPropertyChanged("PASS_WORD");
+					this.OnPASS_WORDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EMIL_ADDR", DbType="VarChar(250)")]
+		public string EMIL_ADDR
+		{
+			get
+			{
+				return this._EMIL_ADDR;
+			}
+			set
+			{
+				if ((this._EMIL_ADDR != value))
+				{
+					this.OnEMIL_ADDRChanging(value);
+					this.SendPropertyChanging();
+					this._EMIL_ADDR = value;
+					this.SendPropertyChanged("EMIL_ADDR");
+					this.OnEMIL_ADDRChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_API_KEY", DbType="VarChar(100)")]
+		public string API_KEY
+		{
+			get
+			{
+				return this._API_KEY;
+			}
+			set
+			{
+				if ((this._API_KEY != value))
+				{
+					this.OnAPI_KEYChanging(value);
+					this.SendPropertyChanging();
+					this._API_KEY = value;
+					this.SendPropertyChanged("API_KEY");
+					this.OnAPI_KEYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PRTC_TYPE", DbType="VarChar(3)")]
+		public string PRTC_TYPE
+		{
+			get
+			{
+				return this._PRTC_TYPE;
+			}
+			set
+			{
+				if ((this._PRTC_TYPE != value))
+				{
+					this.OnPRTC_TYPEChanging(value);
+					this.SendPropertyChanging();
+					this._PRTC_TYPE = value;
+					this.SendPropertyChanged("PRTC_TYPE");
+					this.OnPRTC_TYPEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FRMT_TYPE", DbType="VarChar(3)")]
+		public string FRMT_TYPE
+		{
+			get
+			{
+				return this._FRMT_TYPE;
+			}
+			set
+			{
+				if ((this._FRMT_TYPE != value))
+				{
+					this.OnFRMT_TYPEChanging(value);
+					this.SendPropertyChanging();
+					this._FRMT_TYPE = value;
+					this.SendPropertyChanged("FRMT_TYPE");
+					this.OnFRMT_TYPEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STAT", DbType="VarChar(3)")]
+		public string STAT
+		{
+			get
+			{
+				return this._STAT;
+			}
+			set
+			{
+				if ((this._STAT != value))
+				{
+					this.OnSTATChanging(value);
+					this.SendPropertyChanging();
+					this._STAT = value;
+					this.SendPropertyChanged("STAT");
+					this.OnSTATChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_BY", DbType="VarChar(250)")]
+		public string CRET_BY
+		{
+			get
+			{
+				return this._CRET_BY;
+			}
+			set
+			{
+				if ((this._CRET_BY != value))
+				{
+					this.OnCRET_BYChanging(value);
+					this.SendPropertyChanging();
+					this._CRET_BY = value;
+					this.SendPropertyChanged("CRET_BY");
+					this.OnCRET_BYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_DATE", DbType="DateTime")]
+		public System.Nullable<System.DateTime> CRET_DATE
+		{
+			get
+			{
+				return this._CRET_DATE;
+			}
+			set
+			{
+				if ((this._CRET_DATE != value))
+				{
+					this.OnCRET_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._CRET_DATE = value;
+					this.SendPropertyChanged("CRET_DATE");
+					this.OnCRET_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_BY", DbType="VarChar(250)")]
+		public string MDFY_BY
+		{
+			get
+			{
+				return this._MDFY_BY;
+			}
+			set
+			{
+				if ((this._MDFY_BY != value))
+				{
+					this.OnMDFY_BYChanging(value);
+					this.SendPropertyChanging();
+					this._MDFY_BY = value;
+					this.SendPropertyChanged("MDFY_BY");
+					this.OnMDFY_BYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_DATE", DbType="DateTime")]
+		public System.Nullable<System.DateTime> MDFY_DATE
+		{
+			get
+			{
+				return this._MDFY_DATE;
+			}
+			set
+			{
+				if ((this._MDFY_DATE != value))
+				{
+					this.OnMDFY_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._MDFY_DATE = value;
+					this.SendPropertyChanged("MDFY_DATE");
+					this.OnMDFY_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Wheater_Engine_Request_Parameter", Storage="_Request_Parameters", ThisKey="WEID", OtherKey="WENG_WEID")]
+		public EntitySet<Request_Parameter> Request_Parameters
+		{
+			get
+			{
+				return this._Request_Parameters;
+			}
+			set
+			{
+				this._Request_Parameters.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Request_Parameters(Request_Parameter entity)
+		{
+			this.SendPropertyChanging();
+			entity.Wheater_Engine = this;
+		}
+		
+		private void detach_Request_Parameters(Request_Parameter entity)
+		{
+			this.SendPropertyChanging();
+			entity.Wheater_Engine = null;
 		}
 	}
 	

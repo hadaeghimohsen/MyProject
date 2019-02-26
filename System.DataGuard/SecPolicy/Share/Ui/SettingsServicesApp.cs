@@ -171,5 +171,28 @@ namespace System.DataGuard.SecPolicy.Share.Ui
             SmsResult_Lb.Appearance.Image = System.DataGuard.Properties.Resources.IMAGE_1577;            
          }
       }
+
+      #region Wheater
+      private void ShowRespons_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            //var wthrengn = iProject.Wheater_Engines.FirstOrDefault();
+            //string key = wthrengn.API_KEY; 
+            //IRepository repo = new Repository(); 
+            //var GetCityForecastWeatherResult = repo.GetWeatherData(key, GetBy.CityName, RegnName_Txt.Text, Days.Three); 
+            //var GetByLatLongForecastWeatherResult = repo.GetWeatherDataByLatLong(key, "30.2669444", "-97.7427778", Days.Three); 
+            //var GetByIPForecastWeatherResult = repo.GetWeatherDataByAutoIP(key, Days.Three); 
+
+            //var GetCityCurrentWeatherResult = repo.GetWeatherData( key, GetBy.CityName, RegnName_Txt.Text); 
+            //var GetByLatLongCurrentWeatherResult = repo.GetWeatherDataByLatLong( key, "30.2669444", "-97.7427778"); 
+            //var GetByIPCurrentWeatherResult = repo.GetWeatherDataByAutoIP( key); 
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+      #endregion
    }
 }

@@ -1105,6 +1105,7 @@
       <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Association Name="Request_Parameter_Current" Member="Currents" ThisKey="RPID" OtherKey="RQPM_RPID" Type="Current" />
       <Association Name="Region_Request_Parameter" Member="Region" ThisKey="REGN_PRVN_CNTY_CODE,REGN_PRVN_CODE,REGN_CODE" OtherKey="PRVN_CNTY_CODE,PRVN_CODE,CODE" Type="Region" IsForeignKey="true" />
+      <Association Name="Wheater_Engine_Request_Parameter" Member="Wheater_Engine" ThisKey="WENG_WEID" OtherKey="WEID" Type="Wheater_Engine" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="Global.[Current]" Member="Currents">
@@ -1205,6 +1206,25 @@
       <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
       <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Association Name="Forecastday_Forecastday_Hour" Member="Forecastday" ThisKey="FCDY_FCID" OtherKey="FCID" Type="Forecastday" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="Global.Wheater_Engine" Member="Wheater_Engines">
+    <Type Name="Wheater_Engine">
+      <Column Name="WEID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="WEB_SITE" Type="System.String" DbType="VarChar(1000)" CanBeNull="true" />
+      <Column Name="FULL_NAME" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="USER_NAME" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="PASS_WORD" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="EMIL_ADDR" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="API_KEY" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="PRTC_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="FRMT_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Wheater_Engine_Request_Parameter" Member="Request_Parameters" ThisKey="WEID" OtherKey="WENG_WEID" Type="Request_Parameter" />
     </Type>
   </Table>
   <Function Name="DataGuard.SaveHostInfo" Method="SaveHostInfo">

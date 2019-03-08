@@ -857,6 +857,7 @@ namespace System.Scsc.Ui.Admission
             {
                CbmtBs1.DataSource = iScsc.Club_Methods.Where(cbmt => Fga_Uclb_U.Contains(cbmt.CLUB_CODE) && cbmt.MTOD_STAT == "002" && Convert.ToInt32(cbmt.Fighter.ACTV_TAG_DNRM ?? "101") >= 101 && (cbmt.Club.REGN_PRVN_CODE + cbmt.Club.REGN_CODE).Contains(Rqst.REGN_PRVN_CODE + Rqst.REGN_CODE))/*.OrderBy(cm => new { cm.CLUB_CODE, cm.COCH_FILE_NO, cm.DAY_TYPE, cm.STRT_TIME })*/;
                Gb_Expense3.Visible = true;
+               Gb_MemberShip3.Visible = true;
 
                RqstBnDelete3.Enabled = true;
                RqstBnASav3.Enabled = false;
@@ -890,11 +891,15 @@ namespace System.Scsc.Ui.Admission
                { //Pb_FighImg.Visible = false;
                   UserProFile_Rb.ImageProfile = global::System.Scsc.Properties.Resources.IMAGE_1482;               
                }
+
+               // 1397/12/18 * نمایش اطلاعات دوره های قبلی مشتری
+               MbspBs.DataSource = iScsc.Member_Ships.Where(mb => mb.FIGH_FILE_NO == Rqst.Request_Rows.FirstOrDefault().FIGH_FILE_NO && mb.RECT_CODE == "004" && (mb.TYPE == "001" || mb.TYPE == "005"));
             }
             else if (!(Rqst.SSTT_MSTT_CODE == 2 && (Rqst.SSTT_CODE == 1 || Rqst.SSTT_CODE == 2)) && Rqst.RQID > 0)
             {
                CbmtBs1.DataSource = iScsc.Club_Methods.Where(cbmt => Fga_Uclb_U.Contains(cbmt.CLUB_CODE) && cbmt.MTOD_STAT == "002" && Convert.ToInt32(cbmt.Fighter.ACTV_TAG_DNRM ?? "101") >= 101 && (cbmt.Club.REGN_PRVN_CODE + cbmt.Club.REGN_CODE).Contains(Rqst.REGN_PRVN_CODE + Rqst.REGN_CODE))/*.OrderBy(cm => new { cm.CLUB_CODE, cm.COCH_FILE_NO, cm.DAY_TYPE, cm.STRT_TIME })*/;
                Gb_Expense3.Visible = false;
+               Gb_MemberShip3.Visible = true;
 
                //Btn_RqstDelete3.Visible = Btn_RqstSav3.Visible = true;
 
@@ -926,10 +931,14 @@ namespace System.Scsc.Ui.Admission
                { //Pb_FighImg.Visible = false;
                   UserProFile_Rb.ImageProfile = global::System.Scsc.Properties.Resources.IMAGE_1482;               
                }
+
+               // 1397/12/18 * نمایش اطلاعات دوره های قبلی مشتری
+               MbspBs.DataSource = iScsc.Member_Ships.Where(mb => mb.FIGH_FILE_NO == Rqst.Request_Rows.FirstOrDefault().FIGH_FILE_NO && mb.RECT_CODE == "004" && (mb.TYPE == "001" || mb.TYPE == "005"));
             }
             else if (Rqst.RQID == 0)
             {
                Gb_Expense3.Visible = false;
+               Gb_MemberShip3.Visible = false;
 
                //Btn_RqstDelete3.Visible = Btn_RqstSav3.Visible = false;
 
@@ -938,18 +947,23 @@ namespace System.Scsc.Ui.Admission
                Pn_MbspInfo.Visible = false;
                DefaultTabPage003();
 
-               UserProFile_Rb.ImageProfile = global::System.Scsc.Properties.Resources.IMAGE_1482;               
+               UserProFile_Rb.ImageProfile = global::System.Scsc.Properties.Resources.IMAGE_1482;
+               FNGR_PRNT_TextEdit.Text = "";
             }
          }
          catch
          {
             Gb_Expense3.Visible = false;
+            Gb_MemberShip3.Visible = false;
             //Btn_RqstDelete3.Visible = Btn_RqstSav3.Visible = false;
 
             RqstBnDelete3.Enabled = RqstBnASav3.Enabled = false;
 
             Pn_MbspInfo.Visible = false;
             DefaultTabPage003();
+
+            UserProFile_Rb.ImageProfile = global::System.Scsc.Properties.Resources.IMAGE_1482;
+            FNGR_PRNT_TextEdit.Text = "";
          }
       }
 
@@ -2405,6 +2419,30 @@ namespace System.Scsc.Ui.Admission
             }
          }
          catch { }
+      }
+
+      private void MbspBs_CurrentChanged(object sender, EventArgs e)
+      {
+         try
+         {
+            var mbsp = MbspBs.Current as Data.Member_Ship;
+            if (mbsp == null) return;            
+
+            long? rqid = 0;
+            if (mbsp.RWNO == 1)
+               rqid = mbsp.Request_Row.Request.Request1.RQID;
+            else
+               rqid = mbsp.RQRO_RQST_RQID;
+
+            MbspValdType_Butn.Text = mbsp.VALD_TYPE == "001" ? "فعال کردن" : "غیرفعال کردن";
+
+            ExpnAmnt_Txt.EditValue = iScsc.Payment_Details.Where(pd => pd.PYMT_RQST_RQID == rqid).Sum(pd => (pd.EXPN_PRIC + pd.EXPN_EXTR_PRCT) * pd.QNTY);
+            DscnAmnt_Txt.EditValue = iScsc.Payment_Discounts.Where(pd => pd.PYMT_RQST_RQID == rqid).Sum(pd => pd.AMNT);
+            PymtAmnt1_Txt.EditValue = iScsc.Payment_Methods.Where(pd => pd.PYMT_RQST_RQID == rqid).Sum(pd => pd.AMNT);
+         }
+         catch
+         {
+         }
       }
    }
 }

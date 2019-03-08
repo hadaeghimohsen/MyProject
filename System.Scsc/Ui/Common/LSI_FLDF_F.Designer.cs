@@ -293,6 +293,7 @@
          this.RqstBnEnrollFngrPrnt1 = new System.Windows.Forms.ToolStripMenuItem();
          this.RqstBnDeleteFngrPrnt1 = new System.Windows.Forms.ToolStripMenuItem();
          this.RqstBnDuplicateFngrPrnt1 = new System.Windows.Forms.ToolStripMenuItem();
+         this.RqstBnDeleteFngrNewEnrollPrnt1 = new System.Windows.Forms.ToolStripMenuItem();
          this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
          this.RqstBnEnrollFngrPrnt2 = new System.Windows.Forms.ToolStripMenuItem();
          this.RqstBnDeleteFngrPrnt2 = new System.Windows.Forms.ToolStripMenuItem();
@@ -334,6 +335,11 @@
          this.TlgrmMesgBnOthr = new System.Windows.Forms.ToolStripMenuItem();
          this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripSeparator();
          this.PymtBnDebt = new System.Windows.Forms.ToolStripMenuItem();
+         this.toolStripMenuItem66 = new System.Windows.Forms.ToolStripSeparator();
+         this.استثنائاتToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+         this.حضوروغیابToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+         this.ExcpAttnActv_Butn = new System.Windows.Forms.ToolStripMenuItem();
+         this.ExcpAttnDact_Butn = new System.Windows.Forms.ToolStripMenuItem();
          this.toolStripMenuItem7 = new System.Windows.Forms.ToolStripSeparator();
          this.RqstBnFind = new System.Windows.Forms.ToolStripMenuItem();
          this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripSeparator();
@@ -399,11 +405,6 @@
          this.toolStripMenuItem64 = new System.Windows.Forms.ToolStripMenuItem();
          this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
          this.toolStripMenuItem65 = new System.Windows.Forms.ToolStripMenuItem();
-         this.toolStripMenuItem66 = new System.Windows.Forms.ToolStripSeparator();
-         this.استثنائاتToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-         this.حضوروغیابToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-         this.ExcpAttnActv_Butn = new System.Windows.Forms.ToolStripMenuItem();
-         this.ExcpAttnDact_Butn = new System.Windows.Forms.ToolStripMenuItem();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit1.CalendarTimeProperties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.AttnMbsp_Butn)).BeginInit();
@@ -2577,6 +2578,7 @@
          // 
          // simpleButton4
          // 
+         this.simpleButton4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.simpleButton4.Appearance.BackColor = System.Drawing.Color.Gainsboro;
          this.simpleButton4.Appearance.Options.UseBackColor = true;
          this.simpleButton4.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
@@ -2603,6 +2605,7 @@
          // 
          // simpleButton3
          // 
+         this.simpleButton3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.simpleButton3.Appearance.BackColor = System.Drawing.Color.Gainsboro;
          this.simpleButton3.Appearance.Options.UseBackColor = true;
          this.simpleButton3.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
@@ -2629,6 +2632,7 @@
          // 
          // SmsHist_Butn
          // 
+         this.SmsHist_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.SmsHist_Butn.Appearance.BackColor = System.Drawing.Color.Gainsboro;
          this.SmsHist_Butn.Appearance.Options.UseBackColor = true;
          this.SmsHist_Butn.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
@@ -2902,6 +2906,7 @@
             this.RqstBnEnrollFngrPrnt1,
             this.RqstBnDeleteFngrPrnt1,
             this.RqstBnDuplicateFngrPrnt1,
+            this.RqstBnDeleteFngrNewEnrollPrnt1,
             this.toolStripMenuItem1,
             this.RqstBnEnrollFngrPrnt2,
             this.RqstBnDeleteFngrPrnt2});
@@ -2917,7 +2922,7 @@
          this.RqstBnEnrollFngrPrnt1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
          this.RqstBnEnrollFngrPrnt1.Name = "RqstBnEnrollFngrPrnt1";
          this.RqstBnEnrollFngrPrnt1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F4)));
-         this.RqstBnEnrollFngrPrnt1.Size = new System.Drawing.Size(296, 54);
+         this.RqstBnEnrollFngrPrnt1.Size = new System.Drawing.Size(318, 54);
          this.RqstBnEnrollFngrPrnt1.Text = "تعریف کد انگشتی";
          this.RqstBnEnrollFngrPrnt1.Click += new System.EventHandler(this.RqstBnEnrollFngrPrnt1_Click);
          // 
@@ -2927,7 +2932,7 @@
          this.RqstBnDeleteFngrPrnt1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
          this.RqstBnDeleteFngrPrnt1.Name = "RqstBnDeleteFngrPrnt1";
          this.RqstBnDeleteFngrPrnt1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F5)));
-         this.RqstBnDeleteFngrPrnt1.Size = new System.Drawing.Size(296, 54);
+         this.RqstBnDeleteFngrPrnt1.Size = new System.Drawing.Size(318, 54);
          this.RqstBnDeleteFngrPrnt1.Text = "حذف کد انگشتی";
          this.RqstBnDeleteFngrPrnt1.Click += new System.EventHandler(this.RqstBnDeleteFngrPrnt1_Click);
          // 
@@ -2937,14 +2942,24 @@
          this.RqstBnDuplicateFngrPrnt1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
          this.RqstBnDuplicateFngrPrnt1.Name = "RqstBnDuplicateFngrPrnt1";
          this.RqstBnDuplicateFngrPrnt1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F6)));
-         this.RqstBnDuplicateFngrPrnt1.Size = new System.Drawing.Size(296, 54);
+         this.RqstBnDuplicateFngrPrnt1.Size = new System.Drawing.Size(318, 54);
          this.RqstBnDuplicateFngrPrnt1.Text = "یکسان سازی تمام دستگاه ها";
          this.RqstBnDuplicateFngrPrnt1.Click += new System.EventHandler(this.RqstBnDuplicateFngrPrnt1_Click);
+         // 
+         // RqstBnDeleteFngrNewEnrollPrnt1
+         // 
+         this.RqstBnDeleteFngrNewEnrollPrnt1.Image = global::System.Scsc.Properties.Resources.IMAGE_1054;
+         this.RqstBnDeleteFngrNewEnrollPrnt1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+         this.RqstBnDeleteFngrNewEnrollPrnt1.Name = "RqstBnDeleteFngrNewEnrollPrnt1";
+         this.RqstBnDeleteFngrNewEnrollPrnt1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F7)));
+         this.RqstBnDeleteFngrNewEnrollPrnt1.Size = new System.Drawing.Size(318, 54);
+         this.RqstBnDeleteFngrNewEnrollPrnt1.Text = "اختصاص کد انگشتی به کاربر جدید";
+         this.RqstBnDeleteFngrNewEnrollPrnt1.Click += new System.EventHandler(this.RqstBnDeleteFngrNewEnrollPrnt1_Click);
          // 
          // toolStripMenuItem1
          // 
          this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-         this.toolStripMenuItem1.Size = new System.Drawing.Size(293, 6);
+         this.toolStripMenuItem1.Size = new System.Drawing.Size(315, 6);
          // 
          // RqstBnEnrollFngrPrnt2
          // 
@@ -2952,7 +2967,7 @@
          this.RqstBnEnrollFngrPrnt2.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
          this.RqstBnEnrollFngrPrnt2.Name = "RqstBnEnrollFngrPrnt2";
          this.RqstBnEnrollFngrPrnt2.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F2)));
-         this.RqstBnEnrollFngrPrnt2.Size = new System.Drawing.Size(296, 54);
+         this.RqstBnEnrollFngrPrnt2.Size = new System.Drawing.Size(318, 54);
          this.RqstBnEnrollFngrPrnt2.Text = "تعریف کد انگشتی دستگاه انار";
          this.RqstBnEnrollFngrPrnt2.Click += new System.EventHandler(this.RqstBnEnrollFngrPrnt2_Click);
          // 
@@ -2962,7 +2977,7 @@
          this.RqstBnDeleteFngrPrnt2.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
          this.RqstBnDeleteFngrPrnt2.Name = "RqstBnDeleteFngrPrnt2";
          this.RqstBnDeleteFngrPrnt2.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F3)));
-         this.RqstBnDeleteFngrPrnt2.Size = new System.Drawing.Size(296, 54);
+         this.RqstBnDeleteFngrPrnt2.Size = new System.Drawing.Size(318, 54);
          this.RqstBnDeleteFngrPrnt2.Text = "حذف کد انگشتی دستگاه انار";
          this.RqstBnDeleteFngrPrnt2.Click += new System.EventHandler(this.RqstBnDeleteFngrPrnt2_Click);
          // 
@@ -3239,6 +3254,48 @@
          this.PymtBnDebt.Size = new System.Drawing.Size(241, 54);
          this.PymtBnDebt.Text = "صورتحساب ها";
          this.PymtBnDebt.Click += new System.EventHandler(this.PymtBnDebt_Click);
+         // 
+         // toolStripMenuItem66
+         // 
+         this.toolStripMenuItem66.Name = "toolStripMenuItem66";
+         this.toolStripMenuItem66.Size = new System.Drawing.Size(238, 6);
+         // 
+         // استثنائاتToolStripMenuItem
+         // 
+         this.استثنائاتToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.حضوروغیابToolStripMenuItem1});
+         this.استثنائاتToolStripMenuItem.Image = global::System.Scsc.Properties.Resources.IMAGE_1111;
+         this.استثنائاتToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+         this.استثنائاتToolStripMenuItem.Name = "استثنائاتToolStripMenuItem";
+         this.استثنائاتToolStripMenuItem.Size = new System.Drawing.Size(241, 54);
+         this.استثنائاتToolStripMenuItem.Text = "استثنائات";
+         // 
+         // حضوروغیابToolStripMenuItem1
+         // 
+         this.حضوروغیابToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ExcpAttnActv_Butn,
+            this.ExcpAttnDact_Butn});
+         this.حضوروغیابToolStripMenuItem1.Image = global::System.Scsc.Properties.Resources.IMAGE_1201;
+         this.حضوروغیابToolStripMenuItem1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+         this.حضوروغیابToolStripMenuItem1.Name = "حضوروغیابToolStripMenuItem1";
+         this.حضوروغیابToolStripMenuItem1.Size = new System.Drawing.Size(173, 54);
+         this.حضوروغیابToolStripMenuItem1.Text = "حضور و غیاب";
+         // 
+         // ExcpAttnActv_Butn
+         // 
+         this.ExcpAttnActv_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1204;
+         this.ExcpAttnActv_Butn.Name = "ExcpAttnActv_Butn";
+         this.ExcpAttnActv_Butn.Size = new System.Drawing.Size(113, 22);
+         this.ExcpAttnActv_Butn.Text = "فعال";
+         this.ExcpAttnActv_Butn.Click += new System.EventHandler(this.ExcpAttnActv_Butn_Click);
+         // 
+         // ExcpAttnDact_Butn
+         // 
+         this.ExcpAttnDact_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1196;
+         this.ExcpAttnDact_Butn.Name = "ExcpAttnDact_Butn";
+         this.ExcpAttnDact_Butn.Size = new System.Drawing.Size(113, 22);
+         this.ExcpAttnDact_Butn.Text = "غیرفعال";
+         this.ExcpAttnDact_Butn.Click += new System.EventHandler(this.ExcpAttnDact_Butn_Click);
          // 
          // toolStripMenuItem7
          // 
@@ -3702,48 +3759,6 @@
          this.toolStripMenuItem65.Size = new System.Drawing.Size(163, 22);
          this.toolStripMenuItem65.Text = "سایر";
          // 
-         // toolStripMenuItem66
-         // 
-         this.toolStripMenuItem66.Name = "toolStripMenuItem66";
-         this.toolStripMenuItem66.Size = new System.Drawing.Size(238, 6);
-         // 
-         // استثنائاتToolStripMenuItem
-         // 
-         this.استثنائاتToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.حضوروغیابToolStripMenuItem1});
-         this.استثنائاتToolStripMenuItem.Image = global::System.Scsc.Properties.Resources.IMAGE_1111;
-         this.استثنائاتToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-         this.استثنائاتToolStripMenuItem.Name = "استثنائاتToolStripMenuItem";
-         this.استثنائاتToolStripMenuItem.Size = new System.Drawing.Size(241, 54);
-         this.استثنائاتToolStripMenuItem.Text = "استثنائات";
-         // 
-         // حضوروغیابToolStripMenuItem1
-         // 
-         this.حضوروغیابToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ExcpAttnActv_Butn,
-            this.ExcpAttnDact_Butn});
-         this.حضوروغیابToolStripMenuItem1.Image = global::System.Scsc.Properties.Resources.IMAGE_1201;
-         this.حضوروغیابToolStripMenuItem1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-         this.حضوروغیابToolStripMenuItem1.Name = "حضوروغیابToolStripMenuItem1";
-         this.حضوروغیابToolStripMenuItem1.Size = new System.Drawing.Size(184, 54);
-         this.حضوروغیابToolStripMenuItem1.Text = "حضور و غیاب";
-         // 
-         // ExcpAttnActv_Butn
-         // 
-         this.ExcpAttnActv_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1204;
-         this.ExcpAttnActv_Butn.Name = "ExcpAttnActv_Butn";
-         this.ExcpAttnActv_Butn.Size = new System.Drawing.Size(152, 22);
-         this.ExcpAttnActv_Butn.Text = "فعال";
-         this.ExcpAttnActv_Butn.Click += new System.EventHandler(this.ExcpAttnActv_Butn_Click);
-         // 
-         // ExcpAttnDact_Butn
-         // 
-         this.ExcpAttnDact_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1196;
-         this.ExcpAttnDact_Butn.Name = "ExcpAttnDact_Butn";
-         this.ExcpAttnDact_Butn.Size = new System.Drawing.Size(152, 22);
-         this.ExcpAttnDact_Butn.Text = "غیرفعال";
-         this.ExcpAttnDact_Butn.Click += new System.EventHandler(this.ExcpAttnDact_Butn_Click);
-         // 
          // LSI_FLDF_F
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -4099,5 +4114,6 @@
       private Windows.Forms.ToolStripMenuItem حضوروغیابToolStripMenuItem1;
       private Windows.Forms.ToolStripMenuItem ExcpAttnActv_Butn;
       private Windows.Forms.ToolStripMenuItem ExcpAttnDact_Butn;
+      private Windows.Forms.ToolStripMenuItem RqstBnDeleteFngrNewEnrollPrnt1;
    }
 }

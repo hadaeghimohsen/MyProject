@@ -84,14 +84,15 @@ namespace System.MessageBroadcast.Code
                   // 1397/12/06 * چک کردن گزینه اینکه قبل از ارسال بررسی کنیم که شارژ داریم یا خیر
                   #region Check Sms Server
                   var xsmsserver = _GetSmsServerStatus();
-                  var SendCredit = Convert.ToInt32(xsmsserver.Descendants("SendCredit").FirstOrDefault().Value);
-                  if(smsConf.FirstOrDefault(smst => smst.TYPE == "001" && smst.BGWK_STAT == "002").ALRM_MIN_REMN_CHRG <= SendCredit)
+                  if (xsmsserver == null) return;
+                  var SendCredit = Convert.ToInt32(xsmsserver.Descendants("SendCredit").FirstOrDefault().Value.Split('.')[0]);
+                  if(smsConf.FirstOrDefault(smst => smst.TYPE == "001" && smst.BGWK_STAT == "002").ALRM_MIN_REMN_CHRG >= SendCredit)
                   {
                      // اگر میزان شارژ باقیمانده کمتر تعداد مشخص شده باشد دیگر پیامک ارسال نمیشود
                      // ارسال پیامک به کاربری که باید اطلاع رسانی شود
                      // To Do List
 
-                     if(smsConf.FirstOrDefault(smst => smst.TYPE == "001" && smst.BGWK_STAT == "002").MIN_STOP_CHRG <= SendCredit)
+                     if(smsConf.FirstOrDefault(smst => smst.TYPE == "001" && smst.BGWK_STAT == "002").MIN_STOP_CHRG >= SendCredit)
                      {
                         // اگر میزان شارژ کمتر میزان باشد سامانه پیامکی باید غیر فعال شود
                         _DefaultGateway.Gateway(
@@ -165,37 +166,66 @@ namespace System.MessageBroadcast.Code
       {
          try
          {
-            var xoutput = new XDocument("SmsServer");
-            _DefaultGateway.Gateway(
-               new Job(SendType.External, "localhost",
-                  new List<Job>
-                  {
-                     new Job(SendType.External, "Msgb",
-                        new List<Job>
-                        {
-                           new Job(SendType.SelfToUserInterface, "MSTR_PAGE_F", 10 /* Execuet Actn_Calf_F */)
-                           {
-                              Input =
-                                 new XElement("SmsConf",
-                                    new XAttribute("actntype", "getcredit")
-                                 ),
-                              AfterChangedOutput =
-                                 new Action<object>((output) =>
-                                 {
-                                    xoutput = output as XDocument;
-                                    //SendCreditCount_Txt.Text = xoutput.Descendants("SendCredit").FirstOrDefault().Value;
-                                    //SendCreditAmnt_Txt.Text = xoutput.Descendants("SMS_SendFee").FirstOrDefault().Value;
-                                    //ReceiveCreditCount_Txt.Text = xoutput.Descendants("RecieveCredit").FirstOrDefault().Value;
-                                    //ReceiveCreditAmnt_Txt.Text = xoutput.Descendants("SMS_RecieveFee").FirstOrDefault().Value;                                                
-                                 })
-                           }
-                        }
-                     )
-                  }
-               )
+            XDocument xoutput = new XDocument();
+            
+            //_DefaultGateway.Gateway(
+            //   new Job(SendType.External, "localhost",
+            //      new List<Job>
+            //      {
+            //         new Job(SendType.External, "Msgb",
+            //            new List<Job>
+            //            {
+            //               new Job(SendType.SelfToUserInterface, "MSTR_PAGE_F", 10 /* Execuet Actn_Calf_F */)
+            //               {
+            //                  Input =
+            //                     new XElement("SmsConf",
+            //                        new XAttribute("actntype", "getcredit")
+            //                     ),
+            //                  AfterChangedOutput =
+            //                     new Action<object>((output) =>
+            //                     {
+            //                        xoutput = output as XDocument;
+            //                        //SendCreditCount_Txt.Text = xoutput.Descendants("SendCredit").FirstOrDefault().Value;
+            //                        //SendCreditAmnt_Txt.Text = xoutput.Descendants("SMS_SendFee").FirstOrDefault().Value;
+            //                        //ReceiveCreditCount_Txt.Text = xoutput.Descendants("RecieveCredit").FirstOrDefault().Value;
+            //                        //ReceiveCreditAmnt_Txt.Text = xoutput.Descendants("SMS_RecieveFee").FirstOrDefault().Value;                                                
+            //                     })
+            //               }
+            //            }
+            //         )
+            //      }
+            //   )
+            //);
+
+            var smsConf = iProject.Message_Broad_Settings;
+
+            if (SmsClient == null)
+               SmsClient = new SmsService.Sms();
+
+            XDocument xmsRespons = null;
+
+            // Check Credit money for sms
+            var crntsms = smsConf.FirstOrDefault();
+
+            xmsRespons = XDocument.Parse(
+               SmsClient.XmsRequest(
+                  new XElement("xmsrequest",
+                     new XElement("userid", smsConf.FirstOrDefault(sc => sc.LINE_TYPE == crntsms.LINE_TYPE).USER_NAME),
+                     new XElement("password", smsConf.FirstOrDefault(sc => sc.LINE_TYPE == crntsms.LINE_TYPE).PASS_WORD),
+                     new XElement("action", "getcredit"),
+                     new XElement("body", "")
+                  ).ToString()
+               ).ToString()
             );
 
-            return xoutput;
+            if (xmsRespons.Descendants("SendCredit").Count() > 0)
+            {
+               xoutput = xmsRespons;
+               return xoutput;
+            }
+            else return null;
+
+            //return xoutput;
          }
          catch (Exception exc)
          {

@@ -642,6 +642,38 @@ namespace System.Scsc.Ui.Common
          catch (Exception exc) { }
       }
 
+      private void RqstBnDeleteFngrNewEnrollPrnt1_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            if (MessageBox.Show(this, "آیا با حذف اثر انگشت از مشتری و اختصاص برای کاربر جدید موافق هستید؟", "هشدار", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+
+            var figh = vF_Fighs.Current as Data.VF_Last_Info_FighterResult;
+            if (figh == null) return;
+            if (figh.FNGR_PRNT_DNRM == "") { return; }
+
+            // اثر انگشت را از دستگاه پاک میکنیم
+            RqstBnDeleteFngrPrnt1_Click(null, null);
+
+            // ابتدا کد انگشتی را از مشتری میگیریم
+            ClearFingerPrint_Butn_Click(null, null);
+
+            // باز کردن فرم ثبت نام برای مشتری جدید
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "Localhost",
+                  new List<Job>
+                  {
+                     new Job(SendType.Self, 123 /* Execute Adm_Figh_F */),
+                     new Job(SendType.SelfToUserInterface, "ADM_FIGH_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "setcard"), new XAttribute("value", figh.FNGR_PRNT_DNRM))}
+                  })
+            );
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
       private void RqstBnEnrollFngrPrnt2_Click(object sender, EventArgs e)
       {
          try
@@ -688,6 +720,31 @@ namespace System.Scsc.Ui.Common
          catch { }
       }
       #endregion
+
+      private void ClearFingerPrint_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var figh = vF_Fighs.Current as Data.VF_Last_Info_FighterResult;
+            if (figh == null) return;
+            if (figh.FNGR_PRNT_DNRM == "") { return; }
+
+            iScsc.SCV_PBLC_P(
+               new XElement("Process",
+                  new XElement("Fighter",
+                     new XAttribute("fileno", figh.FILE_NO),
+                     new XAttribute("columnname", "FNGR_PRNT"),
+                     new XAttribute("newvalue", "")
+                  )
+               )
+            );
+            Search_Butn_Click(null, null);
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }         
+      }
 
       private void RqstBnNewMbsp_Click(object sender, EventArgs e)
       {
@@ -869,5 +926,6 @@ namespace System.Scsc.Ui.Common
             MessageBox.Show(exc.Message);
          }
       }
+
    }
 }

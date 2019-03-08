@@ -129,7 +129,8 @@ namespace System.MessageBroadcast.Ui.MasterPage
                });
 
             Thread _tmpWorker = new Thread(new ThreadStart(smsServerRefresh));
-            _tmpWorker.Start();            
+            _tmpWorker.Start();
+            //_tmpWorker.Join();
          }
          catch { }
       }

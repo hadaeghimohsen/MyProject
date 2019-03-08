@@ -117,33 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="VInvtBs1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>982, 56</value>
-  </metadata>
-  <metadata name="DCatpBs2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="repositoryItemButtonEdit1.Buttons" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAADJ0RVh0VGl0
-        bGUAQ3VzdG9tZXI7RW1wbG95ZWU7UGVyc29uO0NvbnRhY3Q7VXNlcjtDbGllbnR+ETboAAADOUlEQVQ4
-        T3WSZ0zTQRjGD0vFqi2oERUcoQwHooCLKpFS2n+tgkIQEpCgUUEKuAiWQB0oLgyjlSIYSEANASNRVBwQ
-        CeIIYTQEEDA4on5QagQBgxocj3eIWj54yZPLve/7/O69QVJTU//qz5BKpRbrpOt4crmcr5Qp+ZyUs6Qx
-        Houz/BiP+SIkJISZx9WcCHJtzgisqDu2vu2mRoaiKElHRqhHTqzCY2pAQICFuWcMQKlUjrulVQYYMzYN
-        vKs6AlPNSfQ9ykR32QHcTQtFkty5ViVTWZp7xgBoy5YVib7PXxUG445WBaMuGO3ZG1Gn8cb1eAkSfMTg
-        fDm+uWcMQCaT8S9ES4bL4r1h6qrGnSw19OGeOBnoCl3Qgp9xkrnDCoXi/wD5Wjk/M2Tpm9ytXvjW34Fv
-        va341GLAi9LdOMQ5Yaen3Rt2seYe0pXi+FeUzkuUu5zRR3h9/fy6Gt/f1mCwIQPPStQ4zIm/hLnOyKVd
-        8to1YtJ6gCrR4R+gM9mRvYKFQCAQ6SK8HnZfS8ZQsw49lUlo0ofhqMqpkeVYTfP+eaSJqnHfPELaksSk
-        TeNAfnZnkQtqGXtmq5QNi+LKExToKopCZ+F2lMRIEL/abi/NTTjuZ09+1MeQh7FzyAP1bEKMCb9pdLBP
-        wrscMcuzKtahufJoEAxhnsgOXoy8cA9UbLM3GgKnr2QbsDpWX7XDjpDHcZRCA9e2zvK+F21/syHZDa2G
-        QHQW78KTkgTUpkfiSow3bu9fjto9TigPt63W+0/jRkEjP5N3I3Kmtj7FHW+vbsNwUyIGyjeg8eASVEY5
-        40qkGFXxLjAV+2DoVihe5ktRrXZAnv+U09Q7ngHGV2yxNQ3ei8LQ9Y0YvLQKAxdXYqBoBfqLlqG/0AMf
-        C9zRl78EvXlu6C1Yhp4CLxT42/RR72QGsCrdPA1GrQueprngZfoCfDi3GB8MC/H+7HyYdE7oyXJET6YY
-        XYfnoEVjj/uxM2CQC0G9QgbgpfkIfXUK0dkcTlSTw1m35ylFyFWIYFAIkeMnhN5vMrJlk3Bq7cTOtDWC
-        Ou0qwfloNysV9Y4cYeT2RxcTqCZRMbKIynpUNqMzi7G2BVR8QojFLxErpYC5aZnAAAAAAElFTkSuQmCC
-</value>
-  </data>
   <metadata name="PydtBs2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>933, 17</value>
   </metadata>
@@ -153,6 +126,7 @@
   <metadata name="DsxtpBs2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>227, 17</value>
   </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="Pydt_Butn.Buttons" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAADJ0RVh0VGl0
@@ -215,23 +189,11 @@
   <metadata name="DrcmtBs1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>537, 17</value>
   </metadata>
-  <metadata name="DysnoBs2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 56</value>
-  </metadata>
-  <metadata name="DsxtpBs2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>227, 17</value>
-  </metadata>
-  <metadata name="DrcmtBs1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>537, 17</value>
-  </metadata>
   <metadata name="CtgyBs.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>602, 56</value>
   </metadata>
   <metadata name="CbmtBs.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>508, 56</value>
-  </metadata>
-  <metadata name="DDytpBs2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>122, 17</value>
   </metadata>
   <metadata name="DDytpBs2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>122, 17</value>
@@ -618,6 +580,9 @@
         qy3lS/H/Rm5QvyqWfPjLAcv+Bd859emhr0AKAAAAAElFTkSuQmCC
 </value>
   </data>
+  <metadata name="DrcmtBs1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>537, 17</value>
+  </metadata>
   <metadata name="PydsBs3.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>122, 56</value>
   </metadata>
@@ -682,9 +647,6 @@
         cZc33HRnhB93fhOWwlD5clb62IopyuF/1GFFjYjGMDUAAAAASUVORK5CYII=
 </value>
   </data>
-  <metadata name="DpydsBs2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>329, 17</value>
-  </metadata>
   <data name="Back3_Butn.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAA90RVh0VGl0
@@ -1163,6 +1125,9 @@
   <metadata name="PmckBs.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>691, 56</value>
   </metadata>
+  <metadata name="DCatpBs2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
   <metadata name="DCktpBs2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>784, 56</value>
   </metadata>
@@ -1186,9 +1151,6 @@
         Ou0qwfloNysV9Y4cYeT2RxcTqCZRMbKIynpUNqMzi7G2BVR8QojFLxErpYC5aZnAAAAAAElFTkSuQmCC
 </value>
   </data>
-  <metadata name="DCktpBs2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>784, 56</value>
-  </metadata>
   <data name="simpleButton1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAA90RVh0VGl0
@@ -1286,6 +1248,44 @@
         f9moomYYtXX3sfZtGhbYqm4GFbXD7R9v2R/z0trXPiAcGrlycqU/Y0xVJPgdAZ2EqqSJhn5qGwioI92z
         H96GlUb79Bl9R69plEs/sTcJ3iKg49AD+2P+T005EBVCV4RGRUH79NmPOi7a//rTSCnoGM/i/9QoaSk8
         qy3lS/H/Rm5QvyqWfPjLAcv+Bd859emhr0AKAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <metadata name="DysnoBs2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 56</value>
+  </metadata>
+  <metadata name="DsxtpBs2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>227, 17</value>
+  </metadata>
+  <metadata name="DDytpBs2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>122, 17</value>
+  </metadata>
+  <metadata name="DpydsBs2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>329, 17</value>
+  </metadata>
+  <metadata name="DCktpBs2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>784, 56</value>
+  </metadata>
+  <metadata name="VInvtBs1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>982, 56</value>
+  </metadata>
+  <data name="repositoryItemButtonEdit1.Buttons" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAADJ0RVh0VGl0
+        bGUAQ3VzdG9tZXI7RW1wbG95ZWU7UGVyc29uO0NvbnRhY3Q7VXNlcjtDbGllbnR+ETboAAADOUlEQVQ4
+        T3WSZ0zTQRjGD0vFqi2oERUcoQwHooCLKpFS2n+tgkIQEpCgUUEKuAiWQB0oLgyjlSIYSEANASNRVBwQ
+        CeIIYTQEEDA4on5QagQBgxocj3eIWj54yZPLve/7/O69QVJTU//qz5BKpRbrpOt4crmcr5Qp+ZyUs6Qx
+        Houz/BiP+SIkJISZx9WcCHJtzgisqDu2vu2mRoaiKElHRqhHTqzCY2pAQICFuWcMQKlUjrulVQYYMzYN
+        vKs6AlPNSfQ9ykR32QHcTQtFkty5ViVTWZp7xgBoy5YVib7PXxUG445WBaMuGO3ZG1Gn8cb1eAkSfMTg
+        fDm+uWcMQCaT8S9ES4bL4r1h6qrGnSw19OGeOBnoCl3Qgp9xkrnDCoXi/wD5Wjk/M2Tpm9ytXvjW34Fv
+        va341GLAi9LdOMQ5Yaen3Rt2seYe0pXi+FeUzkuUu5zRR3h9/fy6Gt/f1mCwIQPPStQ4zIm/hLnOyKVd
+        8to1YtJ6gCrR4R+gM9mRvYKFQCAQ6SK8HnZfS8ZQsw49lUlo0ofhqMqpkeVYTfP+eaSJqnHfPELaksSk
+        TeNAfnZnkQtqGXtmq5QNi+LKExToKopCZ+F2lMRIEL/abi/NTTjuZ09+1MeQh7FzyAP1bEKMCb9pdLBP
+        wrscMcuzKtahufJoEAxhnsgOXoy8cA9UbLM3GgKnr2QbsDpWX7XDjpDHcZRCA9e2zvK+F21/syHZDa2G
+        QHQW78KTkgTUpkfiSow3bu9fjto9TigPt63W+0/jRkEjP5N3I3Kmtj7FHW+vbsNwUyIGyjeg8eASVEY5
+        40qkGFXxLjAV+2DoVihe5ktRrXZAnv+U09Q7ngHGV2yxNQ3ei8LQ9Y0YvLQKAxdXYqBoBfqLlqG/0AMf
+        C9zRl78EvXlu6C1Yhp4CLxT42/RR72QGsCrdPA1GrQueprngZfoCfDi3GB8MC/H+7HyYdE7oyXJET6YY
+        XYfnoEVjj/uxM2CQC0G9QgbgpfkIfXUK0dkcTlSTw1m35ylFyFWIYFAIkeMnhN5vMrJlk3Bq7cTOtDWC
+        Ou0qwfloNysV9Y4cYeT2RxcTqCZRMbKIynpUNqMzi7G2BVR8QojFLxErpYC5aZnAAAAAAElFTkSuQmCC
 </value>
   </data>
   <metadata name="RqstBn1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">

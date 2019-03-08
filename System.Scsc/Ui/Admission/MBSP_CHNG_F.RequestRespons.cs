@@ -459,31 +459,51 @@ namespace System.Scsc.Ui.Admission
          var xinput = job.Input as XElement;
          if(xinput != null)
          {
-            fileno = Convert.ToInt64(xinput.Attribute("fileno").Value);
-            mbsprwno = Convert.ToInt16(xinput.Attribute("mbsprwno").Value);
-
-            try
+            // 1397/12/15 * اضافه کردن گزینه جدید برای انتخاب از طریق برنامه گروه
+            if (xinput != null && (xinput.Attribute("type") != null && xinput.Attribute("type").Value == "admcbmt"))
             {
-               UserProFile_Rb.ImageProfile = null;
-               MemoryStream mStream = new MemoryStream();
-               byte[] pData = iScsc.GET_PIMG_U(new XElement("Fighter", new XAttribute("fileno", fileno))).ToArray();
-               mStream.Write(pData, 0, Convert.ToInt32(pData.Length));
-               Bitmap bm = new Bitmap(mStream, false);
-               mStream.Dispose();
-
-               //Pb_FighImg.Visible = true;
-
-               if (InvokeRequired)
-                  Invoke(new Action(() => UserProFile_Rb.ImageProfile = bm));
+               if (xinput.Attribute("cbmtcode") != null)
+                  CBMT_CODE_GridLookUpEdit.EditValue = Convert.ToInt64(xinput.Attribute("cbmtcode").Value);
                else
-                  UserProFile_Rb.ImageProfile = bm;
+                  CBMT_CODE_GridLookUpEdit.EditValue = null;
+
+               if (xinput.Attribute("ctgycode") != null)
+                  CtgyCode_LookupEdit001.EditValue = Convert.ToInt64(xinput.Attribute("ctgycode").Value);
+               else
+                  CtgyCode_LookupEdit001.EditValue = null;
             }
-            catch
-            { //Pb_FighImg.Visible = false;
-               UserProFile_Rb.ImageProfile = global::System.Scsc.Properties.Resources.IMAGE_1482;
+            else
+            {
+               fileno = Convert.ToInt64(xinput.Attribute("fileno").Value);
+               mbsprwno = Convert.ToInt16(xinput.Attribute("mbsprwno").Value);
+
+               Execute_Query();
+
+               try
+               {
+                  UserProFile_Rb.ImageProfile = null;
+                  MemoryStream mStream = new MemoryStream();
+                  byte[] pData = iScsc.GET_PIMG_U(new XElement("Fighter", new XAttribute("fileno", fileno))).ToArray();
+                  mStream.Write(pData, 0, Convert.ToInt32(pData.Length));
+                  Bitmap bm = new Bitmap(mStream, false);
+                  mStream.Dispose();
+
+                  //Pb_FighImg.Visible = true;
+
+                  if (InvokeRequired)
+                     Invoke(new Action(() => UserProFile_Rb.ImageProfile = bm));
+                  else
+                     UserProFile_Rb.ImageProfile = bm;
+               }
+               catch
+               { //Pb_FighImg.Visible = false;
+                  UserProFile_Rb.ImageProfile = global::System.Scsc.Properties.Resources.IMAGE_1482;
+               }
             }
          }
-         Execute_Query();
+         
+
+         
 
          // 1396/11/04
          if ((job.Input as XElement).Attribute("formcaller") != null)

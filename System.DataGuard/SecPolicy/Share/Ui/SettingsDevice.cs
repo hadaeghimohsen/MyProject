@@ -11,6 +11,7 @@ using System.JobRouting.Jobs;
 using DevExpress.XtraEditors;
 using System.Globalization;
 using System.Xml.Linq;
+using zkemkeeper;
 
 namespace System.DataGuard.SecPolicy.Share.Ui
 {
@@ -196,6 +197,160 @@ namespace System.DataGuard.SecPolicy.Share.Ui
                }
             )
          );
+      }
+
+      #region دستگاه های متصل
+      public class DeviceInfo
+      {
+         public string IP { get; set; }
+         public int Port { get; set; }
+         public string Status { get; set; }
+         public DateTime StartDateTime { get; set; }
+         public DateTime EndDateTime { get; set; }
+      }
+
+      private CZKEMClass iFngrMstr = new CZKEMClass();
+      private CZKEMClass iFngrSlav = new CZKEMClass();
+      private bool iFgnrMstrIsCnct = false;
+      private bool iFngrSlavIsCnct = false;
+      private void ConnectToDev_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            if(Network_Rb.Checked)
+            {
+               iFgnrMstrIsCnct = iFngrMstr.Connect_Net(MasterDeviceIP_Txt.Text, Convert.ToInt32(MasterDevicePort_Txt.Text));
+
+               if (iFgnrMstrIsCnct)
+                  MessageBox.Show(this, "برقراری ارتباط با دستگاه با موفقیت انجام شد!", "Devicec", MessageBoxButtons.OK, MessageBoxIcon.Information);
+               else
+                  MessageBox.Show(this, "عدم برقراری با دستگاه!", "Devicec", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+            }
+            else if(Usb_Rb.Checked)
+            {
+               iFgnrMstrIsCnct = iFngrMstr.Connect_USB(0);
+               if (iFgnrMstrIsCnct)
+                  MessageBox.Show(this, "برقراری ارتباط با دستگاه با موفقیت انجام شد!", "Devicec", MessageBoxButtons.OK, MessageBoxIcon.Information);
+               else
+                  MessageBox.Show(this, "عدم برقراری با دستگاه!", "Devicec", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      #endregion
+
+      private void AddDev_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            if (DevInfoBs.List.OfType<DeviceInfo>().Any(d => d.IP == SlaveDeviceIP_Txt.Text)) return;
+
+            var dev = DevInfoBs.AddNew() as DeviceInfo;
+            dev.IP = SlaveDeviceIP_Txt.Text;
+            dev.Port = Convert.ToInt32(SlaveDevicePort_Txt.Text);
+            dev.Status = "No Connected";
+
+            SlaveDeviceIP_Txt.Text = SlaveDevicePort_Txt.Text = "";
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void ReadFromFile_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            if (IPDev_Ofd.ShowDialog() != System.Windows.Forms.DialogResult.OK) return;
+
+            // Read the file and display it line by line.              
+            System.IO.StreamReader file =
+                new System.IO.StreamReader(IPDev_Ofd.FileName);
+            string line;
+            while ((line = file.ReadLine()) != null)
+            {
+               SlaveDeviceIP_Txt.Text = line.Split(':')[0];
+               SlaveDevicePort_Txt.Text = line.Split(':')[1];
+
+               AddDev_Butn_Click(null, null);
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void DelDev_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            DevInfoBs.RemoveCurrent();
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void NewEnroll_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            if (iFgnrMstrIsCnct)
+            {
+               var result = iFngrMstr.SSR_SetUserInfo(1, UserId_Txt.Text, UserId_Txt.Text, "", 0, true);
+               if (iFngrMstr.StartEnrollEx(UserId_Txt.Text, 6, 0))
+               {
+                  MessageBox.Show("لطفا 3 باراثر انگشت خود را روی سنسور قرار دهید");
+               }
+               else
+               {
+                  iFngrMstr.SSR_DelUserTmpExt(1, UserId_Txt.Text, 6);
+                  iFngrMstr.DeleteUserInfoEx(1, Convert.ToInt32(UserId_Txt.Text));
+                  MessageBox.Show("دوباره امتحان کنید");
+               }
+            }            
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void SyncAllDev_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            string tmpData = "";
+            int tmplen = 0;
+            int flag = 0;
+
+            if (iFgnrMstrIsCnct)
+            {               
+               var result = iFngrMstr.GetUserTmpExStr(1, UserId_Txt.Text, 6, out flag, out tmpData, out tmplen);
+            }
+            foreach (var dev in DevInfoBs.List.OfType<DeviceInfo>())
+            {
+               iFngrSlavIsCnct = iFngrSlav.Connect_Net(dev.IP, dev.Port);
+               if(iFngrSlavIsCnct)
+               {
+                  dev.Status = "Connected";
+                  var result = iFngrSlav.SSR_SetUserInfo(1, UserId_Txt.Text, "", "", 0, true);
+                  result = iFngrSlav.SetUserTmpExStr(1, UserId_Txt.Text, 6, flag, tmpData);
+               }
+            }
+            MessageBox.Show("ارسال اثر انگشت با موفقیت انجام شد");
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
       }
 
    }

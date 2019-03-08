@@ -228,7 +228,7 @@ namespace System.Scsc.Ui.Notifications
             {
                new Job(SendType.SelfToUserInterface, "Wall", 17 /* Execute ResetUi */),
                new Job(SendType.SelfToUserInterface, "Wall", 15 /* Execute Push */) {  Input = new List<object> { string.Format("Scsc:{0}",GetType().Name), this }  },
-               new Job(SendType.SelfToUserInterface, "Wall", 0 /* Execute PastManualOnWall */) {  Input = new List<object> {this, "left:in-screen:normal:center"} }               
+               new Job(SendType.SelfToUserInterface, "Wall", 0 /* Execute PastManualOnWall */) {  Input = new List<object> {this, "left:in-screen:default:center"} }               
             });
          _DefaultGateway.Gateway(_Paint);
 

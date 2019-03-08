@@ -1764,6 +1764,36 @@ namespace System.Scsc.Ui.Common
          catch (Exception exc) { }
       }
 
+      private void RqstBnDeleteFngrNewEnrollPrnt1_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            if (MessageBox.Show(this, "آیا با حذف اثر انگشت از مشتری و اختصاص برای کاربر جدید موافق هستید؟", "هشدار", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+
+            var fngrprnt = FNGR_PRNT_TextEdit.Text;
+
+            // اثر انگشت را از دستگاه پاک میکنیم
+            RqstBnDeleteFngrPrnt1_Click(null, null);
+
+            // ابتدا کد انگشتی را از مشتری میگیریم
+            ClearFingerPrint_Butn_Click(null, null);
+
+            // باز کردن فرم ثبت نام برای مشتری جدید
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "Localhost",
+                  new List<Job>
+                  {
+                     new Job(SendType.Self, 123 /* Execute Adm_Figh_F */),
+                     new Job(SendType.SelfToUserInterface, "ADM_FIGH_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "setcard"), new XAttribute("value", fngrprnt))}
+                  })
+            );
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
       private void RqstBnEnrollFngrPrnt2_Click(object sender, EventArgs e)
       {
          try
@@ -1971,5 +2001,7 @@ namespace System.Scsc.Ui.Common
             MessageBox.Show(exc.Message);
          }         
       }
+
+      
    }
 }

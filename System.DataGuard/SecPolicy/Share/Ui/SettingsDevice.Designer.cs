@@ -28,6 +28,10 @@
       /// </summary>
       private void InitializeComponent()
       {
+         this.components = new System.ComponentModel.Container();
+         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition1 = new DevExpress.XtraGrid.StyleFormatCondition();
+         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition2 = new DevExpress.XtraGrid.StyleFormatCondition();
+         this.colStatus = new DevExpress.XtraGrid.Columns.GridColumn();
          this.panel1 = new System.Windows.Forms.Panel();
          this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
          this.Back_Butn = new DevExpress.XtraEditors.SimpleButton();
@@ -37,6 +41,44 @@
          this.ActiveSessionList_Flp = new System.Windows.Forms.FlowLayoutPanel();
          this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
          this.tp_002 = new System.Windows.Forms.TabPage();
+         this.groupBox2 = new System.Windows.Forms.GroupBox();
+         this.SyncAllDev_Butn = new System.Windows.Forms.Button();
+         this.DelDev_Butn = new System.Windows.Forms.Button();
+         this.gridControl1 = new DevExpress.XtraGrid.GridControl();
+         this.DevInfoBs = new System.Windows.Forms.BindingSource(this.components);
+         this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+         this.colIP = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colPORT = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colStartDateTime = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.repositoryItemTimeEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTimeEdit();
+         this.colEndDateTime = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.label14 = new System.Windows.Forms.Label();
+         this.label12 = new System.Windows.Forms.Label();
+         this.ReadFromFile_Butn = new System.Windows.Forms.Button();
+         this.AddDev_Butn = new System.Windows.Forms.Button();
+         this.SlaveDeviceIP_Txt = new System.Windows.Forms.TextBox();
+         this.SlaveDevicePort_Txt = new System.Windows.Forms.TextBox();
+         this.label6 = new System.Windows.Forms.Label();
+         this.label7 = new System.Windows.Forms.Label();
+         this.groupBox1 = new System.Windows.Forms.GroupBox();
+         this.ConnectToDev_Butn = new System.Windows.Forms.Button();
+         this.FngrIndx_Txt = new System.Windows.Forms.TextBox();
+         this.NewEnroll_Butn = new System.Windows.Forms.Button();
+         this.label11 = new System.Windows.Forms.Label();
+         this.label10 = new System.Windows.Forms.Label();
+         this.label9 = new System.Windows.Forms.Label();
+         this.panel2 = new System.Windows.Forms.Panel();
+         this.MasterDeviceIP_Txt = new System.Windows.Forms.TextBox();
+         this.MasterDevicePort_Txt = new System.Windows.Forms.TextBox();
+         this.label2 = new System.Windows.Forms.Label();
+         this.label3 = new System.Windows.Forms.Label();
+         this.label8 = new System.Windows.Forms.Label();
+         this.label5 = new System.Windows.Forms.Label();
+         this.label1 = new System.Windows.Forms.Label();
+         this.UserId_Txt = new System.Windows.Forms.TextBox();
+         this.label4 = new System.Windows.Forms.Label();
+         this.Usb_Rb = new System.Windows.Forms.RadioButton();
+         this.Network_Rb = new System.Windows.Forms.RadioButton();
          this.tp_003 = new System.Windows.Forms.TabPage();
          this.NewPos_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
@@ -50,20 +92,37 @@
          this.ClientList_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.OtherDevice_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.Pos_Butn = new DevExpress.XtraEditors.SimpleButton();
-         this.ActiveSessionBs = new System.Windows.Forms.BindingSource();
-         this.PosBs = new System.Windows.Forms.BindingSource();
+         this.ActiveSessionBs = new System.Windows.Forms.BindingSource(this.components);
+         this.PosBs = new System.Windows.Forms.BindingSource(this.components);
+         this.IPDev_Ofd = new System.Windows.Forms.OpenFileDialog();
          this.panel1.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
          this.splitContainerControl1.SuspendLayout();
          this.Tb_Master.SuspendLayout();
          this.tp_001.SuspendLayout();
          this.ActiveSessionList_Flp.SuspendLayout();
+         this.tp_002.SuspendLayout();
+         this.groupBox2.SuspendLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.DevInfoBs)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTimeEdit1)).BeginInit();
+         this.groupBox1.SuspendLayout();
+         this.panel2.SuspendLayout();
          this.tp_003.SuspendLayout();
          this.PosList_Flp.SuspendLayout();
          this.flowLayoutPanel1.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.ActiveSessionBs)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.PosBs)).BeginInit();
          this.SuspendLayout();
+         // 
+         // colStatus
+         // 
+         this.colStatus.FieldName = "Status";
+         this.colStatus.Name = "colStatus";
+         this.colStatus.Visible = true;
+         this.colStatus.VisibleIndex = 2;
+         this.colStatus.Width = 119;
          // 
          // panel1
          // 
@@ -181,6 +240,8 @@
          // 
          // tp_002
          // 
+         this.tp_002.Controls.Add(this.groupBox2);
+         this.tp_002.Controls.Add(this.groupBox1);
          this.tp_002.Location = new System.Drawing.Point(4, 23);
          this.tp_002.Name = "tp_002";
          this.tp_002.Padding = new System.Windows.Forms.Padding(3);
@@ -189,6 +250,430 @@
          this.tp_002.Tag = "2";
          this.tp_002.Text = "دستگاه های جانبی متصل";
          this.tp_002.UseVisualStyleBackColor = true;
+         // 
+         // groupBox2
+         // 
+         this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+         this.groupBox2.BackColor = System.Drawing.Color.Transparent;
+         this.groupBox2.Controls.Add(this.SyncAllDev_Butn);
+         this.groupBox2.Controls.Add(this.DelDev_Butn);
+         this.groupBox2.Controls.Add(this.gridControl1);
+         this.groupBox2.Controls.Add(this.label14);
+         this.groupBox2.Controls.Add(this.label12);
+         this.groupBox2.Controls.Add(this.ReadFromFile_Butn);
+         this.groupBox2.Controls.Add(this.AddDev_Butn);
+         this.groupBox2.Controls.Add(this.SlaveDeviceIP_Txt);
+         this.groupBox2.Controls.Add(this.SlaveDevicePort_Txt);
+         this.groupBox2.Controls.Add(this.label6);
+         this.groupBox2.Controls.Add(this.label7);
+         this.groupBox2.Location = new System.Drawing.Point(67, 6);
+         this.groupBox2.Name = "groupBox2";
+         this.groupBox2.RightToLeft = System.Windows.Forms.RightToLeft.No;
+         this.groupBox2.Size = new System.Drawing.Size(609, 390);
+         this.groupBox2.TabIndex = 1;
+         this.groupBox2.TabStop = false;
+         this.groupBox2.Text = "دستگاه های زیر مجموعه";
+         // 
+         // SyncAllDev_Butn
+         // 
+         this.SyncAllDev_Butn.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.SyncAllDev_Butn.Location = new System.Drawing.Point(43, 323);
+         this.SyncAllDev_Butn.Name = "SyncAllDev_Butn";
+         this.SyncAllDev_Butn.Size = new System.Drawing.Size(471, 48);
+         this.SyncAllDev_Butn.TabIndex = 6;
+         this.SyncAllDev_Butn.Text = "ارسال اثر انگشت";
+         this.SyncAllDev_Butn.UseVisualStyleBackColor = true;
+         this.SyncAllDev_Butn.Click += new System.EventHandler(this.SyncAllDev_Butn_Click);
+         // 
+         // DelDev_Butn
+         // 
+         this.DelDev_Butn.Location = new System.Drawing.Point(43, 294);
+         this.DelDev_Butn.Name = "DelDev_Butn";
+         this.DelDev_Butn.Size = new System.Drawing.Size(96, 23);
+         this.DelDev_Butn.TabIndex = 10;
+         this.DelDev_Butn.Text = "حذف دستگاه";
+         this.DelDev_Butn.UseVisualStyleBackColor = true;
+         this.DelDev_Butn.Click += new System.EventHandler(this.DelDev_Butn_Click);
+         // 
+         // gridControl1
+         // 
+         this.gridControl1.DataSource = this.DevInfoBs;
+         this.gridControl1.Location = new System.Drawing.Point(43, 49);
+         this.gridControl1.MainView = this.gridView1;
+         this.gridControl1.Name = "gridControl1";
+         this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.repositoryItemTimeEdit1});
+         this.gridControl1.Size = new System.Drawing.Size(549, 239);
+         this.gridControl1.TabIndex = 9;
+         this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView1});
+         // 
+         // DevInfoBs
+         // 
+         this.DevInfoBs.DataSource = typeof(System.DataGuard.SecPolicy.Share.Ui.SettingsDevice.DeviceInfo);
+         // 
+         // gridView1
+         // 
+         this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colIP,
+            this.colPORT,
+            this.colStatus,
+            this.colStartDateTime,
+            this.colEndDateTime});
+         styleFormatCondition1.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+         styleFormatCondition1.Appearance.Options.UseBackColor = true;
+         styleFormatCondition1.ApplyToRow = true;
+         styleFormatCondition1.Column = this.colStatus;
+         styleFormatCondition1.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
+         styleFormatCondition1.Value1 = "Connected";
+         styleFormatCondition2.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+         styleFormatCondition2.Appearance.Options.UseBackColor = true;
+         styleFormatCondition2.ApplyToRow = true;
+         styleFormatCondition2.Column = this.colStatus;
+         styleFormatCondition2.Condition = DevExpress.XtraGrid.FormatConditionEnum.NotEqual;
+         styleFormatCondition2.Value1 = "Connected";
+         this.gridView1.FormatConditions.AddRange(new DevExpress.XtraGrid.StyleFormatCondition[] {
+            styleFormatCondition1,
+            styleFormatCondition2});
+         this.gridView1.GridControl = this.gridControl1;
+         this.gridView1.Name = "gridView1";
+         this.gridView1.OptionsView.ShowGroupPanel = false;
+         // 
+         // colIP
+         // 
+         this.colIP.FieldName = "IP";
+         this.colIP.Name = "colIP";
+         this.colIP.Visible = true;
+         this.colIP.VisibleIndex = 0;
+         this.colIP.Width = 106;
+         // 
+         // colPORT
+         // 
+         this.colPORT.FieldName = "Port";
+         this.colPORT.Name = "colPORT";
+         this.colPORT.Visible = true;
+         this.colPORT.VisibleIndex = 1;
+         this.colPORT.Width = 66;
+         // 
+         // colStartDateTime
+         // 
+         this.colStartDateTime.Caption = "Start Time";
+         this.colStartDateTime.ColumnEdit = this.repositoryItemTimeEdit1;
+         this.colStartDateTime.FieldName = "StartDateTime";
+         this.colStartDateTime.Name = "colStartDateTime";
+         this.colStartDateTime.Width = 119;
+         // 
+         // repositoryItemTimeEdit1
+         // 
+         this.repositoryItemTimeEdit1.AutoHeight = false;
+         this.repositoryItemTimeEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+         this.repositoryItemTimeEdit1.CloseUpKey = new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.F4);
+         this.repositoryItemTimeEdit1.Name = "repositoryItemTimeEdit1";
+         this.repositoryItemTimeEdit1.PopupBorderStyle = DevExpress.XtraEditors.Controls.PopupBorderStyles.Default;
+         // 
+         // colEndDateTime
+         // 
+         this.colEndDateTime.Caption = "End Time";
+         this.colEndDateTime.ColumnEdit = this.repositoryItemTimeEdit1;
+         this.colEndDateTime.FieldName = "EndDateTime";
+         this.colEndDateTime.Name = "colEndDateTime";
+         this.colEndDateTime.Width = 121;
+         // 
+         // label14
+         // 
+         this.label14.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.label14.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.label14.ForeColor = System.Drawing.Color.Green;
+         this.label14.Location = new System.Drawing.Point(520, 323);
+         this.label14.Name = "label14";
+         this.label14.Size = new System.Drawing.Size(72, 48);
+         this.label14.TabIndex = 1;
+         this.label14.Text = "گام ششم";
+         this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         // 
+         // label12
+         // 
+         this.label12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.label12.AutoSize = true;
+         this.label12.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.label12.ForeColor = System.Drawing.Color.Green;
+         this.label12.Location = new System.Drawing.Point(531, 24);
+         this.label12.Name = "label12";
+         this.label12.Size = new System.Drawing.Size(57, 14);
+         this.label12.TabIndex = 1;
+         this.label12.Text = "گام پنجم";
+         this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         // 
+         // ReadFromFile_Butn
+         // 
+         this.ReadFromFile_Butn.Location = new System.Drawing.Point(327, 20);
+         this.ReadFromFile_Butn.Name = "ReadFromFile_Butn";
+         this.ReadFromFile_Butn.Size = new System.Drawing.Size(91, 23);
+         this.ReadFromFile_Butn.TabIndex = 7;
+         this.ReadFromFile_Butn.Text = "خواندن از فایل";
+         this.ReadFromFile_Butn.UseVisualStyleBackColor = true;
+         this.ReadFromFile_Butn.Click += new System.EventHandler(this.ReadFromFile_Butn_Click);
+         // 
+         // AddDev_Butn
+         // 
+         this.AddDev_Butn.Location = new System.Drawing.Point(246, 20);
+         this.AddDev_Butn.Name = "AddDev_Butn";
+         this.AddDev_Butn.Size = new System.Drawing.Size(75, 23);
+         this.AddDev_Butn.TabIndex = 8;
+         this.AddDev_Butn.Text = "اضافه کردن";
+         this.AddDev_Butn.UseVisualStyleBackColor = true;
+         this.AddDev_Butn.Click += new System.EventHandler(this.AddDev_Butn_Click);
+         // 
+         // SlaveDeviceIP_Txt
+         // 
+         this.SlaveDeviceIP_Txt.Location = new System.Drawing.Point(43, 21);
+         this.SlaveDeviceIP_Txt.Name = "SlaveDeviceIP_Txt";
+         this.SlaveDeviceIP_Txt.Size = new System.Drawing.Size(100, 22);
+         this.SlaveDeviceIP_Txt.TabIndex = 3;
+         this.SlaveDeviceIP_Txt.Text = "192.168.1.101";
+         // 
+         // SlaveDevicePort_Txt
+         // 
+         this.SlaveDevicePort_Txt.Location = new System.Drawing.Point(200, 21);
+         this.SlaveDevicePort_Txt.Name = "SlaveDevicePort_Txt";
+         this.SlaveDevicePort_Txt.Size = new System.Drawing.Size(40, 22);
+         this.SlaveDevicePort_Txt.TabIndex = 4;
+         this.SlaveDevicePort_Txt.Text = "4370";
+         // 
+         // label6
+         // 
+         this.label6.AutoSize = true;
+         this.label6.Location = new System.Drawing.Point(153, 24);
+         this.label6.Name = "label6";
+         this.label6.Size = new System.Drawing.Size(46, 14);
+         this.label6.TabIndex = 5;
+         this.label6.Text = "PORT :";
+         // 
+         // label7
+         // 
+         this.label7.AutoSize = true;
+         this.label7.Location = new System.Drawing.Point(13, 24);
+         this.label7.Name = "label7";
+         this.label7.Size = new System.Drawing.Size(26, 14);
+         this.label7.TabIndex = 6;
+         this.label7.Text = "IP :";
+         // 
+         // groupBox1
+         // 
+         this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+         this.groupBox1.BackColor = System.Drawing.Color.WhiteSmoke;
+         this.groupBox1.Controls.Add(this.ConnectToDev_Butn);
+         this.groupBox1.Controls.Add(this.FngrIndx_Txt);
+         this.groupBox1.Controls.Add(this.NewEnroll_Butn);
+         this.groupBox1.Controls.Add(this.label11);
+         this.groupBox1.Controls.Add(this.label10);
+         this.groupBox1.Controls.Add(this.label9);
+         this.groupBox1.Controls.Add(this.panel2);
+         this.groupBox1.Controls.Add(this.label5);
+         this.groupBox1.Controls.Add(this.label1);
+         this.groupBox1.Controls.Add(this.UserId_Txt);
+         this.groupBox1.Controls.Add(this.label4);
+         this.groupBox1.Controls.Add(this.Usb_Rb);
+         this.groupBox1.Controls.Add(this.Network_Rb);
+         this.groupBox1.Location = new System.Drawing.Point(682, 6);
+         this.groupBox1.Name = "groupBox1";
+         this.groupBox1.Size = new System.Drawing.Size(264, 390);
+         this.groupBox1.TabIndex = 0;
+         this.groupBox1.TabStop = false;
+         this.groupBox1.Text = "دستگاه اصلی";
+         // 
+         // ConnectToDev_Butn
+         // 
+         this.ConnectToDev_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.ConnectToDev_Butn.Location = new System.Drawing.Point(69, 183);
+         this.ConnectToDev_Butn.Name = "ConnectToDev_Butn";
+         this.ConnectToDev_Butn.Size = new System.Drawing.Size(100, 23);
+         this.ConnectToDev_Butn.TabIndex = 5;
+         this.ConnectToDev_Butn.Text = "برقراری ارتباط";
+         this.ConnectToDev_Butn.UseVisualStyleBackColor = true;
+         this.ConnectToDev_Butn.Click += new System.EventHandler(this.ConnectToDev_Butn_Click);
+         // 
+         // FngrIndx_Txt
+         // 
+         this.FngrIndx_Txt.Location = new System.Drawing.Point(69, 271);
+         this.FngrIndx_Txt.Name = "FngrIndx_Txt";
+         this.FngrIndx_Txt.Size = new System.Drawing.Size(100, 22);
+         this.FngrIndx_Txt.TabIndex = 2;
+         this.FngrIndx_Txt.Visible = false;
+         // 
+         // NewEnroll_Butn
+         // 
+         this.NewEnroll_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.NewEnroll_Butn.Location = new System.Drawing.Point(69, 299);
+         this.NewEnroll_Butn.Name = "NewEnroll_Butn";
+         this.NewEnroll_Butn.Size = new System.Drawing.Size(100, 23);
+         this.NewEnroll_Butn.TabIndex = 5;
+         this.NewEnroll_Butn.Text = "ثبت انگشت";
+         this.NewEnroll_Butn.UseVisualStyleBackColor = true;
+         this.NewEnroll_Butn.Click += new System.EventHandler(this.NewEnroll_Butn_Click);
+         // 
+         // label11
+         // 
+         this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.label11.AutoSize = true;
+         this.label11.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.label11.ForeColor = System.Drawing.Color.Green;
+         this.label11.Location = new System.Drawing.Point(174, 303);
+         this.label11.Name = "label11";
+         this.label11.Size = new System.Drawing.Size(64, 14);
+         this.label11.TabIndex = 1;
+         this.label11.Text = "گام چهارم";
+         this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         // 
+         // label10
+         // 
+         this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.label10.AutoSize = true;
+         this.label10.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.label10.ForeColor = System.Drawing.Color.Green;
+         this.label10.Location = new System.Drawing.Point(9, 246);
+         this.label10.Name = "label10";
+         this.label10.Size = new System.Drawing.Size(58, 14);
+         this.label10.TabIndex = 1;
+         this.label10.Text = "گام سوم";
+         this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         // 
+         // label9
+         // 
+         this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.label9.AutoSize = true;
+         this.label9.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.label9.ForeColor = System.Drawing.Color.Green;
+         this.label9.Location = new System.Drawing.Point(180, 187);
+         this.label9.Name = "label9";
+         this.label9.Size = new System.Drawing.Size(52, 14);
+         this.label9.TabIndex = 1;
+         this.label9.Text = "گام دوم";
+         this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         // 
+         // panel2
+         // 
+         this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.panel2.Controls.Add(this.MasterDeviceIP_Txt);
+         this.panel2.Controls.Add(this.MasterDevicePort_Txt);
+         this.panel2.Controls.Add(this.label2);
+         this.panel2.Controls.Add(this.label3);
+         this.panel2.Controls.Add(this.label8);
+         this.panel2.Location = new System.Drawing.Point(9, 78);
+         this.panel2.Name = "panel2";
+         this.panel2.Size = new System.Drawing.Size(249, 75);
+         this.panel2.TabIndex = 3;
+         // 
+         // MasterDeviceIP_Txt
+         // 
+         this.MasterDeviceIP_Txt.Location = new System.Drawing.Point(60, 14);
+         this.MasterDeviceIP_Txt.Name = "MasterDeviceIP_Txt";
+         this.MasterDeviceIP_Txt.RightToLeft = System.Windows.Forms.RightToLeft.No;
+         this.MasterDeviceIP_Txt.Size = new System.Drawing.Size(100, 22);
+         this.MasterDeviceIP_Txt.TabIndex = 2;
+         this.MasterDeviceIP_Txt.Text = "192.168.2.201";
+         // 
+         // MasterDevicePort_Txt
+         // 
+         this.MasterDevicePort_Txt.Location = new System.Drawing.Point(60, 42);
+         this.MasterDevicePort_Txt.Name = "MasterDevicePort_Txt";
+         this.MasterDevicePort_Txt.RightToLeft = System.Windows.Forms.RightToLeft.No;
+         this.MasterDevicePort_Txt.Size = new System.Drawing.Size(100, 22);
+         this.MasterDevicePort_Txt.TabIndex = 2;
+         this.MasterDevicePort_Txt.Text = "4370";
+         // 
+         // label2
+         // 
+         this.label2.AutoSize = true;
+         this.label2.Location = new System.Drawing.Point(35, 17);
+         this.label2.Name = "label2";
+         this.label2.Size = new System.Drawing.Size(18, 14);
+         this.label2.TabIndex = 1;
+         this.label2.Text = "IP";
+         // 
+         // label3
+         // 
+         this.label3.AutoSize = true;
+         this.label3.Location = new System.Drawing.Point(23, 46);
+         this.label3.Name = "label3";
+         this.label3.Size = new System.Drawing.Size(30, 14);
+         this.label3.TabIndex = 1;
+         this.label3.Text = "Port";
+         // 
+         // label8
+         // 
+         this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.label8.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.label8.ForeColor = System.Drawing.Color.Green;
+         this.label8.Location = new System.Drawing.Point(171, 14);
+         this.label8.Name = "label8";
+         this.label8.Size = new System.Drawing.Size(52, 50);
+         this.label8.TabIndex = 1;
+         this.label8.Text = "گام اول";
+         this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         // 
+         // label5
+         // 
+         this.label5.AutoSize = true;
+         this.label5.Location = new System.Drawing.Point(175, 274);
+         this.label5.Name = "label5";
+         this.label5.Size = new System.Drawing.Size(88, 14);
+         this.label5.TabIndex = 1;
+         this.label5.Text = "شماره انگشت :";
+         this.label5.Visible = false;
+         // 
+         // label1
+         // 
+         this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.label1.AutoSize = true;
+         this.label1.Location = new System.Drawing.Point(195, 26);
+         this.label1.Name = "label1";
+         this.label1.Size = new System.Drawing.Size(52, 14);
+         this.label1.TabIndex = 1;
+         this.label1.Text = "نوع ارتباط";
+         // 
+         // UserId_Txt
+         // 
+         this.UserId_Txt.Location = new System.Drawing.Point(69, 243);
+         this.UserId_Txt.Name = "UserId_Txt";
+         this.UserId_Txt.Size = new System.Drawing.Size(100, 22);
+         this.UserId_Txt.TabIndex = 2;
+         // 
+         // label4
+         // 
+         this.label4.AutoSize = true;
+         this.label4.Location = new System.Drawing.Point(175, 246);
+         this.label4.Name = "label4";
+         this.label4.Size = new System.Drawing.Size(64, 14);
+         this.label4.TabIndex = 1;
+         this.label4.Text = "کد کاربری :";
+         // 
+         // Usb_Rb
+         // 
+         this.Usb_Rb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.Usb_Rb.AutoSize = true;
+         this.Usb_Rb.Location = new System.Drawing.Point(182, 159);
+         this.Usb_Rb.Name = "Usb_Rb";
+         this.Usb_Rb.Size = new System.Drawing.Size(47, 18);
+         this.Usb_Rb.TabIndex = 0;
+         this.Usb_Rb.Text = "USB";
+         this.Usb_Rb.UseVisualStyleBackColor = true;
+         // 
+         // Network_Rb
+         // 
+         this.Network_Rb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.Network_Rb.AutoSize = true;
+         this.Network_Rb.Checked = true;
+         this.Network_Rb.Location = new System.Drawing.Point(157, 54);
+         this.Network_Rb.Name = "Network_Rb";
+         this.Network_Rb.Size = new System.Drawing.Size(72, 18);
+         this.Network_Rb.TabIndex = 0;
+         this.Network_Rb.TabStop = true;
+         this.Network_Rb.Text = "Network";
+         this.Network_Rb.UseVisualStyleBackColor = true;
          // 
          // tp_003
          // 
@@ -472,6 +957,10 @@
          // 
          this.PosBs.DataSource = typeof(System.DataGuard.Data.Pos_Device);
          // 
+         // IPDev_Ofd
+         // 
+         this.IPDev_Ofd.Filter = "Text File|*.txt";
+         // 
          // SettingsDevice
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -488,6 +977,17 @@
          this.Tb_Master.ResumeLayout(false);
          this.tp_001.ResumeLayout(false);
          this.ActiveSessionList_Flp.ResumeLayout(false);
+         this.tp_002.ResumeLayout(false);
+         this.groupBox2.ResumeLayout(false);
+         this.groupBox2.PerformLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.DevInfoBs)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTimeEdit1)).EndInit();
+         this.groupBox1.ResumeLayout(false);
+         this.groupBox1.PerformLayout();
+         this.panel2.ResumeLayout(false);
+         this.panel2.PerformLayout();
          this.tp_003.ResumeLayout(false);
          this.PosList_Flp.ResumeLayout(false);
          this.flowLayoutPanel1.ResumeLayout(false);
@@ -523,6 +1023,46 @@
       private DevExpress.XtraEditors.SimpleButton simpleButton4;
       private DevExpress.XtraEditors.SimpleButton simpleButton5;
       private Windows.Forms.BindingSource PosBs;
+      private Windows.Forms.GroupBox groupBox1;
+      private Windows.Forms.TextBox FngrIndx_Txt;
+      private Windows.Forms.Label label5;
+      private Windows.Forms.TextBox UserId_Txt;
+      private Windows.Forms.Label label4;
+      private Windows.Forms.Panel panel2;
+      private Windows.Forms.TextBox MasterDeviceIP_Txt;
+      private Windows.Forms.TextBox MasterDevicePort_Txt;
+      private Windows.Forms.Label label2;
+      private Windows.Forms.Label label3;
+      private Windows.Forms.Label label1;
+      private Windows.Forms.RadioButton Usb_Rb;
+      private Windows.Forms.RadioButton Network_Rb;
+      private Windows.Forms.Button ConnectToDev_Butn;
+      private Windows.Forms.GroupBox groupBox2;
+      private Windows.Forms.Button SyncAllDev_Butn;
+      private Windows.Forms.Button ReadFromFile_Butn;
+      private Windows.Forms.Button AddDev_Butn;
+      private Windows.Forms.TextBox SlaveDeviceIP_Txt;
+      private Windows.Forms.TextBox SlaveDevicePort_Txt;
+      private Windows.Forms.Label label6;
+      private Windows.Forms.Label label7;
+      private Windows.Forms.BindingSource DevInfoBs;
+      private Windows.Forms.OpenFileDialog IPDev_Ofd;
+      private DevExpress.XtraGrid.GridControl gridControl1;
+      private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+      private DevExpress.XtraGrid.Columns.GridColumn colIP;
+      private DevExpress.XtraGrid.Columns.GridColumn colPORT;
+      private DevExpress.XtraGrid.Columns.GridColumn colStatus;
+      private DevExpress.XtraGrid.Columns.GridColumn colStartDateTime;
+      private DevExpress.XtraEditors.Repository.RepositoryItemTimeEdit repositoryItemTimeEdit1;
+      private DevExpress.XtraGrid.Columns.GridColumn colEndDateTime;
+      private Windows.Forms.Button DelDev_Butn;
+      private Windows.Forms.Button NewEnroll_Butn;
+      private Windows.Forms.Label label14;
+      private Windows.Forms.Label label12;
+      private Windows.Forms.Label label11;
+      private Windows.Forms.Label label10;
+      private Windows.Forms.Label label9;
+      private Windows.Forms.Label label8;
 
    }
 }

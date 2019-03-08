@@ -11,6 +11,8 @@ using System.JobRouting.Jobs;
 using System.Xml.Linq;
 using System.IO;
 using System.MaxUi;
+using System.Globalization;
+using DevExpress.XtraEditors;
 
 namespace System.Scsc.Ui.Notifications
 {
@@ -113,15 +115,15 @@ namespace System.Scsc.Ui.Notifications
 
          if (attn.EXIT_TIME != null)
          {
-            Lbl_AccessControl.Text = "خروج از باشگاه";
-            Lbl_AccessControl.ForeColor = Color.White;
+            //Lbl_AccessControl.Text = "خروج از باشگاه";
+            //Lbl_AccessControl.ForeColor = Color.White;
             DRES_NUMB_Txt.Properties.ReadOnly = true;
             DresNumb_Butn.Enabled = false;
          }
          else
          {
-            Lbl_AccessControl.Text = "ورود مجاز است";
-            Lbl_AccessControl.ForeColor = Color.GreenYellow;
+            //Lbl_AccessControl.Text = "ورود مجاز است";
+            //Lbl_AccessControl.ForeColor = Color.GreenYellow;
             DRES_NUMB_Txt.Properties.ReadOnly = false;
             DresNumb_Butn.Enabled = true;
 
@@ -193,7 +195,12 @@ namespace System.Scsc.Ui.Notifications
             Pb_FighImg.Image = null;
          }
 
-         if (iScsc.GET_MTOS_U((DateTime?)attn.ATTN_DATE.Date).Substring(5) == Brth_Date_PersianDateEdit2.GetText("MM/dd"))
+         PersianCalendar pc = new PersianCalendar();
+         StrtDate_Txt.Text = string.Format("{0}/{1}/{2}", pc.GetYear((DateTime)attn.MBSP_STRT_DATE_DNRM), pc.GetMonth((DateTime)attn.MBSP_STRT_DATE_DNRM), pc.GetDayOfMonth((DateTime)attn.MBSP_STRT_DATE_DNRM));
+         EndDate_Txt.Text = string.Format("{0}/{1}/{2}", pc.GetYear((DateTime)attn.MBSP_END_DATE_DNRM), pc.GetMonth((DateTime)attn.MBSP_END_DATE_DNRM), pc.GetDayOfMonth((DateTime)attn.MBSP_END_DATE_DNRM));
+         BrthDate_Txt.Text = string.Format("{0}/{1}/{2}", pc.GetYear((DateTime)attn.BRTH_DATE_DNRM), pc.GetMonth((DateTime)attn.BRTH_DATE_DNRM), pc.GetDayOfMonth((DateTime)attn.BRTH_DATE_DNRM));
+
+         if (iScsc.GET_MTOS_U((DateTime?)attn.ATTN_DATE.Date).Substring(5) == BrthDate_Txt.Text.Substring(5))
             HappyBirthDate_Lab.Visible = true;
          else
             HappyBirthDate_Lab.Visible = false;
@@ -214,12 +221,12 @@ namespace System.Scsc.Ui.Notifications
             //***FighterType_Lab.ImageKey = "IMAGE_1126.png";
             //Figh00156.Visible = false;
             //Sesn_Pn.Visible = false;
-            PrivSesn_Pn.Visible = false;
+            //PrivSesn_Pn.Visible = false;
             //PrivateSession_Lab.Visible = false;
             //PrivateSession_Lab.Image = null;
             if (attn.FGPB_TYPE_DNRM == "002")
             {
-               panel1.Visible = false;
+               //panel1.Visible = false;
                return;
             }
             Ctgy_Lb.Visible = false;
@@ -232,7 +239,7 @@ namespace System.Scsc.Ui.Notifications
          //***   FighterType_Lab.ImageKey = "IMAGE_1087.png";
          //***else
          //***   FighterType_Lab.ImageKey = "IMAGE_1115.png";
-         panel1.Visible = true;
+         //panel1.Visible = true;
          //Figh00156.Visible = true;
          //Sesn_Pn.Visible = false;
          
@@ -244,20 +251,20 @@ namespace System.Scsc.Ui.Notifications
             {
                //PrivateSession_Lab.Visible = true;
                //PrivateSession_Lab.Image = System.Scsc.Properties.Resources.IMAGE_1007;
-               PrivSesn_Pn.Visible = true;
-               StrtPrivSesn_Date.Value = mbco.STRT_DATE;
-               EndPrivSesn_Date.Value = mbco.END_DATE;
+               //PrivSesn_Pn.Visible = true;
+               //StrtPrivSesn_Date.Value = mbco.STRT_DATE;
+               //EndPrivSesn_Date.Value = mbco.END_DATE;
             }
             else
             {
-               PrivSesn_Pn.Visible = false;
+               //PrivSesn_Pn.Visible = false;
                //PrivateSession_Lab.Visible = false;
                //PrivateSession_Lab.Image = null;
             }
          }
          else
          {
-            PrivSesn_Pn.Visible = false;
+            //PrivSesn_Pn.Visible = false;
             //PrivateSession_Lab.Visible = false;
             //PrivateSession_Lab.Image = null;
          }
@@ -281,32 +288,85 @@ namespace System.Scsc.Ui.Notifications
             Lbl_Dresser.Text = "";
          }*/
 
-         dateTimeSelector3.BackColor = Color.DimGray;
-         if (attn.MBSP_END_DATE_DNRM.Value.AddDays(1).Date == DateTime.Now.Date)
-            dateTimeSelector3.BackColor = Color.Yellow;
-         else if (attn.MBSP_END_DATE_DNRM.Value.Date == DateTime.Now.Date)
-            dateTimeSelector3.BackColor = Color.Red;
+         //dateTimeSelector3.BackColor = Color.DimGray;
+         //if (attn.MBSP_END_DATE_DNRM.Value.AddDays(1).Date == DateTime.Now.Date)
+         //   dateTimeSelector3.BackColor = Color.Yellow;
+         //else if (attn.MBSP_END_DATE_DNRM.Value.Date == DateTime.Now.Date)
+         //   dateTimeSelector3.BackColor = Color.Red;
          ///***
          //if(attn.Member_Ship.Sessions.Any())
          //   SesnBs1.DataSource =
          //      iScsc.Sessions
          //      .Where(s => s.Member_Ship == attn.Member_Ship);
 
-         if(attn.EXIT_TIME != null)
+         //if(attn.EXIT_TIME != null)
+         //{
+         //   var diff = attn.EXIT_TIME.Value.Subtract(attn.ENTR_TIME.Value);
+         //   TotlAttnTime_Lbl.Text = string.Format("{0}:{1}", diff.Hours, diff.Minutes); ;
+         //}
+         //else
+         //{
+         //   var diff = DateTime.Now.Subtract(attn.ENTR_TIME.Value);
+         //   TotlAttnTime_Lbl.Text = string.Format("{0}:{1}",  diff.Hour, diff.Minute);
+         //}
+         if (attn.COCH_FILE_NO != null)
+            CochName_Lb.Text = attn.Fighter.NAME_DNRM;
+         else
+            CochName_Lb.Text = "";
+         if(attn.CBMT_CODE_DNRM != null)
          {
-            var diff = attn.EXIT_TIME.Value.Subtract(attn.ENTR_TIME.Value);
-            TotlAttnTime_Lbl.Text = string.Format("{0}:{1}", diff.Hours, diff.Minutes); ;
+            var cmbt = iScsc.Club_Methods.FirstOrDefault(cm => cm.CODE == attn.CBMT_CODE_DNRM);
+            StrtTime_Txt.Text = cmbt.STRT_TIME.ToString().Substring(0, 5);
+            EndTime_Txt.Text = cmbt.END_TIME.ToString().Substring(0, 5);
+
+            CbmtwkdyBs1.DataSource = iScsc.Club_Method_Weekdays.Where(cm => cm.CBMT_CODE == attn.CBMT_CODE_DNRM).ToList();
+
+            foreach (var wkdy in CbmtwkdyBs1.List.OfType<Data.Club_Method_Weekday>())
+            {
+               var rslt = panel1.Controls.OfType<SimpleButton>().FirstOrDefault(sb => sb.Tag.ToString() == wkdy.WEEK_DAY);
+               rslt.Appearance.BackColor = wkdy.STAT == "001" ? Color.LightGray : Color.GreenYellow;
+            }
+
+            Controls.OfType<Label>().Where(l => l.Name.StartsWith("QWkdy")).ToList().ForEach(l => l.Visible = false);
+
+            switch (attn.ATTN_DATE.DayOfWeek)
+            {
+               case DayOfWeek.Saturday:
+                  QWkdy007_Lb.Visible = true;
+                  break;
+               case DayOfWeek.Sunday:
+                  QWkdy001_Lb.Visible = true;
+                  break;
+               case DayOfWeek.Monday:
+                  QWkdy002_Lb.Visible = true;
+                  break;
+               case DayOfWeek.Tuesday:
+                  QWkdy003_Lb.Visible = true;
+                  break;
+               case DayOfWeek.Wednesday:
+                  QWkdy004_Lb.Visible = true;
+                  break;
+               case DayOfWeek.Thursday:
+                  QWkdy005_Lb.Visible = true;
+                  break;
+               case DayOfWeek.Friday:
+                  QWkdy006_Lb.Visible = true;
+                  break;
+               default:
+                  break;
+            }
          }
          else
          {
-            var diff = DateTime.Now.Subtract(attn.ENTR_TIME.Value);
-            TotlAttnTime_Lbl.Text = string.Format("{0}:{1}",  diff.Hour, diff.Minute);
+            StrtTime_Txt.Text = "";
+            EndTime_Txt.Text = "";
          }
+
 
          DRES_NUMB_Txt.Focus();
 
-         RemindAttn_Txt.EditValue = attn.NUMB_OF_ATTN_MONT - attn.SUM_ATTN_MONT_DNRM;
-
+         RemindAttn_Txt.EditValue = Math.Abs( (int)(attn.NUMB_OF_ATTN_MONT - attn.SUM_ATTN_MONT_DNRM) );
+         DayRmnd_Txt.Text = (attn.MBSP_END_DATE_DNRM.Value.Date - DateTime.Now.Date).Days.ToString();
       }
 
       private void RqstBnExit1_Click(object sender, EventArgs e)

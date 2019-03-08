@@ -123,6 +123,10 @@ namespace System.Scsc.Ui.Common
          {
             RqstBnDuplicateFngrPrnt1_Click(null, null);
          }
+         else if (keyData == (Keys.Control | Keys.F7))
+         {
+            RqstBnDeleteFngrNewEnrollPrnt1_Click(null, null);
+         }
 
          job.Status = StatusType.Successful;
       }

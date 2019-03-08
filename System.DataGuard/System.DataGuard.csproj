@@ -1034,6 +1034,7 @@
     <None Include="Properties\DataSources\System.DataGuard.Data.V_Top_Active_Session.datasource" />
     <None Include="Properties\DataSources\System.DataGuard.Data.V_User.datasource" />
     <None Include="Properties\DataSources\System.DataGuard.Data.Wheater_Engine.datasource" />
+    <None Include="Properties\DataSources\System.DataGuard.SecPolicy.Share.Ui.SettingsDevice+DeviceInfo.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -1603,6 +1604,15 @@
       <WrapperTool>primary</WrapperTool>
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="zkemkeeper">
+      <Guid>{FE9DED34-E159-408E-8490-B720A5E632C7}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
     </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

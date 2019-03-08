@@ -299,5 +299,27 @@ namespace System.Scsc.Ui.Admission
             MessageBox.Show(exc.Message);
          }
       }
+
+      private void CBMT_CODE_GridLookUpEdit_ButtonPressed(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            //long code = (long)CbmtCode_Lov.EditValue;
+            if (e.Button.Index == 1)
+            {
+               _DefaultGateway.Gateway(
+                  new Job(SendType.External, "localhost",
+                     new List<Job>
+                     {
+                        new Job(SendType.Self, 159 /* Execute Bas_Cbmt_F */),
+                        new Job(SendType.SelfToUserInterface,"BAS_CBMT_F",  10 /* Execute Actn_CalF_F */){Input = new XElement("Club_Method", new XAttribute("formcaller", GetType().Name))},
+                        new Job(SendType.SelfToUserInterface, GetType().Name, 0 /* Execute ProccessCmdKey */){Input = Keys.Escape}
+                     }
+                  )
+               );
+            }
+         }
+         catch { }
+      }
    }
 }

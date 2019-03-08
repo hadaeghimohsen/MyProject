@@ -125,6 +125,13 @@ namespace System.Scsc.Ui.BaseDefinition
                          (cm.STRT_TIME.CompareTo(strttime) >= 0 && cm.STRT_TIME.CompareTo(endtime) <= 0))
                      );
                }
+               else if(Tb_Master.SelectedTab == tp_003)
+               {
+                  var coch = CochBs1.Current as Data.Fighter;
+                  if (coch == null) return;
+                  
+                  MtodBs3.DataSource = iScsc.Methods.Where(m => m.Club_Methods.Where(cm => cm.COCH_FILE_NO == coch.FILE_NO && cm.MTOD_STAT == "002").Count() > 0);
+               }
                var cbmt = CbmtBs1.Current as Data.Club_Method;
                if (cbmt == null)
                {
@@ -463,7 +470,8 @@ namespace System.Scsc.Ui.BaseDefinition
                               new XAttribute("type", "admcbmt"),
                               new XAttribute("cbmtcode", cbmtcode),
                               new XAttribute("ctgycode", ctgycode)
-                           )
+                           ),
+                        Next = (formCaller == "MBSP_CHNG_F" ? new Job(SendType.SelfToUserInterface, formCaller, 03 /* Execute Paint */) : null)
                      }
                   });
             _DefaultGateway.Gateway(_InteractWithScsc);
@@ -741,6 +749,35 @@ namespace System.Scsc.Ui.BaseDefinition
          {
             if (requery)
                Execute_Query();
+         }
+      }
+
+      private void MtodBs3_CurrentChanged(object sender, EventArgs e)
+      {
+         try
+         {
+            var mtod = MtodBs3.Current as Data.Method;
+            if (mtod == null) return;
+
+            var coch = CochBs1.Current as Data.Fighter;
+            if(coch == null) return;
+
+            var club = ClubBs1.Current as Data.Club;
+            if(club == null)return;
+
+            FighsBs3.DataSource =
+               iScsc.Fighters
+               .Where(f => f.CONF_STAT == "002" &&
+                           f.ACTV_TAG_DNRM.CompareTo("101") >= 0 &&
+                           f.Member_Ships.Any(ms => ms.RECT_CODE == "004" &&
+                                                    ms.VALD_TYPE == "002" &&
+                                                    ms.Fighter_Public.CLUB_CODE == club.CODE &&
+                                                    ms.Fighter_Public.MTOD_CODE == mtod.CODE &&
+                                                    ms.Fighter_Public.COCH_FILE_NO == coch.FILE_NO ));
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
          }
       }
    }

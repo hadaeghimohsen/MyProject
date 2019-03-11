@@ -683,7 +683,9 @@ namespace System.Scsc.Ui.Admission
             }
             else if (xinput.Attribute("type").Value == "setcard")
             {
-               FNGR_PRNT_TextEdit.Text = CardNumb_Text.Text = xinput.Attribute("value").Value;
+               //FNGR_PRNT_TextEdit.Text = 
+               MaxF_Butn001_Click(null, null);
+               CardNumb_Text.Text = xinput.Attribute("value").Value;
             }
             else if (xinput.Attribute("type").Value == "refresh")
                Execute_Query();

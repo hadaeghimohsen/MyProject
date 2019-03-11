@@ -183,6 +183,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
       /// <param name="job"></param>
       private void LoadData(Job job)
       {
+         FormHandle = this.Handle;
          job.Status = StatusType.Successful;
       }
 

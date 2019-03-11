@@ -12,11 +12,42 @@ using DevExpress.XtraEditors;
 using System.Globalization;
 using System.Xml.Linq;
 using zkemkeeper;
+using System.Runtime.InteropServices;
+using libzkfpcsharp;
+using System.Threading;
+using System.IO;
 
 namespace System.DataGuard.SecPolicy.Share.Ui
 {
    public partial class SettingsDevice : UserControl
    {
+      IntPtr mDevHandle = IntPtr.Zero;
+      IntPtr mDBHandle = IntPtr.Zero;
+      IntPtr FormHandle = IntPtr.Zero;
+      bool bIsTimeToDie = false;
+      bool IsRegister = false;
+      bool bIdentify = true;
+      byte[] FPBuffer;
+      int RegisterCount = 0;
+      const int REGISTER_FINGER_COUNT = 3;
+
+      byte[][] RegTmps = new byte[3][];
+      byte[] RegTmp = new byte[2048];
+      byte[] CapTmp = new byte[2048];
+
+      int cbCapTmp = 2048;
+      int cbRegTmp = 0;
+      int iFid = 1;
+
+      private int mfpWidth = 0;
+      private int mfpHeight = 0;
+      private int mfpDpi = 0;
+
+      const int MESSAGE_CAPTURED_OK = 0x0400 + 6;
+
+      [DllImport("user32.dll", EntryPoint = "SendMessageA")]
+      public static extern int SendMessage(IntPtr hwnd, int wMsg, IntPtr wParam, IntPtr lParam);
+
       public SettingsDevice()
       {
          InitializeComponent();
@@ -228,11 +259,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
             }
             else if(Usb_Rb.Checked)
             {
-               iFgnrMstrIsCnct = iFngrMstr.Connect_USB(0);
-               if (iFgnrMstrIsCnct)
-                  MessageBox.Show(this, "برقراری ارتباط با دستگاه با موفقیت انجام شد!", "Devicec", MessageBoxButtons.OK, MessageBoxIcon.Information);
-               else
-                  MessageBox.Show(this, "عدم برقراری با دستگاه!", "Devicec", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+               bnInit_Click(null , null);                
             }
          }
          catch (Exception exc)
@@ -241,7 +268,38 @@ namespace System.DataGuard.SecPolicy.Share.Ui
          }
       }
 
-      #endregion
+      private void DisConnectFromDev_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            if (Network_Rb.Checked)
+            {
+               iFngrMstr.Disconnect();               
+            }
+            else if (Usb_Rb.Checked)
+            {
+               bnClose_Click(null, null);               
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void Usb_Rb_CheckedChanged(object sender, EventArgs e)
+      {
+         if (Network_Rb.Checked)
+         {
+            panel2.Visible = true;
+            panel3.Visible = false;
+         }
+         else if (Usb_Rb.Checked)
+         {
+            panel2.Visible = false;
+            panel3.Visible = true;
+         }
+      }
 
       private void AddDev_Butn_Click(object sender, EventArgs e)
       {
@@ -305,7 +363,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
             if (iFgnrMstrIsCnct)
             {
                var result = iFngrMstr.SSR_SetUserInfo(1, UserId_Txt.Text, UserId_Txt.Text, "", 0, true);
-               if (iFngrMstr.StartEnrollEx(UserId_Txt.Text, 6, 0))
+               if (iFngrMstr.StartEnrollEx(UserId_Txt.Text, Convert.ToInt32(FngrIndx_Txt.Text), 0))
                {
                   MessageBox.Show("لطفا 3 باراثر انگشت خود را روی سنسور قرار دهید");
                }
@@ -353,5 +411,506 @@ namespace System.DataGuard.SecPolicy.Share.Ui
          }
       }
 
+      #region ZkFinger4500K
+      private void bnInit_Click(object sender, EventArgs e)
+      {
+         cmbIdx.Items.Clear();
+         int ret = zkfperrdef.ZKFP_ERR_OK;
+         if ((ret = zkfp2.Init()) == zkfperrdef.ZKFP_ERR_OK)
+         {
+            int nCount = zkfp2.GetDeviceCount();
+            if (nCount > 0)
+            {
+               for (int i = 0; i < nCount; i++)
+               {
+                  cmbIdx.Items.Add(i.ToString());
+               }
+               cmbIdx.SelectedIndex = 0;
+               bnOpen_Click(null, null);
+            }
+            else
+            {
+               zkfp2.Terminate();
+               MessageBox.Show("No device connected!");
+            }
+         }
+         else
+         {
+            MessageBox.Show("Initialize fail, ret=" + ret + " !");
+         }
+      }
+
+      private void bnFree_Click(object sender, EventArgs e)
+      {
+         zkfp2.Terminate();
+         cbRegTmp = 0;         
+      }
+
+      private void bnOpen_Click(object sender, EventArgs e)
+      {
+         int ret = zkfp.ZKFP_ERR_OK;
+         if (IntPtr.Zero == (mDevHandle = zkfp2.OpenDevice(cmbIdx.SelectedIndex)))
+         {
+            MessageBox.Show("OpenDevice fail");
+            return;
+         }
+         if (IntPtr.Zero == (mDBHandle = zkfp2.DBInit()))
+         {
+            MessageBox.Show("Init DB fail");
+            zkfp2.CloseDevice(mDevHandle);
+            mDevHandle = IntPtr.Zero;
+            return;
+         }         
+         RegisterCount = 0;
+         cbRegTmp = 0;
+         iFid = 1;
+         for (int i = 0; i < 3; i++)
+         {
+            RegTmps[i] = new byte[2048];
+         }
+         byte[] paramValue = new byte[4];
+         int size = 4;
+         zkfp2.GetParameters(mDevHandle, 1, paramValue, ref size);
+         zkfp2.ByteArray2Int(paramValue, ref mfpWidth);
+
+         size = 4;
+         zkfp2.GetParameters(mDevHandle, 2, paramValue, ref size);
+         zkfp2.ByteArray2Int(paramValue, ref mfpHeight);
+
+         FPBuffer = new byte[mfpWidth * mfpHeight];
+
+         size = 4;
+         zkfp2.GetParameters(mDevHandle, 3, paramValue, ref size);
+         zkfp2.ByteArray2Int(paramValue, ref mfpDpi);
+
+         textRes.AppendText("reader parameter, image width:" + mfpWidth + ", height:" + mfpHeight + ", dpi:" + mfpDpi + "\n");
+
+         Thread captureThread = new Thread(new ThreadStart(DoCapture));
+         captureThread.IsBackground = true;
+         captureThread.Start();
+         bIsTimeToDie = false;
+         textRes.AppendText("Open succ\n");
+
+      }
+
+      private void bnClose_Click(object sender, EventArgs e)
+      {
+         bIsTimeToDie = true;
+         RegisterCount = 0;
+         Thread.Sleep(1000);
+         zkfp2.CloseDevice(mDevHandle);
+         bnFree_Click(null, null);
+      }
+
+      private void DoCapture()
+      {
+         while (!bIsTimeToDie)
+         {
+            cbCapTmp = 2048;
+            int ret = zkfp2.AcquireFingerprint(mDevHandle, FPBuffer, CapTmp, ref cbCapTmp);
+            if (ret == zkfp.ZKFP_ERR_OK)
+            {
+               SendMessage(FormHandle, MESSAGE_CAPTURED_OK, IntPtr.Zero, IntPtr.Zero);
+            }
+            Thread.Sleep(200);
+         }
+      }
+
+      protected override void DefWndProc(ref Message m)
+      {
+         switch (m.Msg)
+         {
+            case MESSAGE_CAPTURED_OK:
+               {
+                  MemoryStream ms = new MemoryStream();
+                  BitmapFormat.GetBitmap(FPBuffer, mfpWidth, mfpHeight, ref ms);
+                  Bitmap bmp = new Bitmap(ms);
+                  this.picFPImg.Image = bmp;
+
+
+                  String strShow = zkfp2.BlobToBase64(CapTmp, cbCapTmp);
+                  //textRes.AppendText("capture template data:" + strShow + "\n");
+                  textFngr.Text = strShow;
+
+                  if (IsRegister)
+                  {
+                     int ret = zkfp.ZKFP_ERR_OK;
+                     int fid = 0, score = 0;
+                     ret = zkfp2.DBIdentify(mDBHandle, CapTmp, ref fid, ref score);
+                     if (zkfp.ZKFP_ERR_OK == ret)
+                     {
+                        textRes.AppendText("This finger was already register by " + fid + "!\n");
+                        return;
+                     }
+
+                     if (RegisterCount > 0 && zkfp2.DBMatch(mDBHandle, CapTmp, RegTmps[RegisterCount - 1]) <= 0)
+                     {
+                        textRes.AppendText("Please press the same finger 3 times for the enrollment.\n");
+                        return;
+                     }
+
+                     Array.Copy(CapTmp, RegTmps[RegisterCount], cbCapTmp);
+                     String strBase64 = zkfp2.BlobToBase64(CapTmp, cbCapTmp);
+                     byte[] blob = zkfp2.Base64ToBlob(strBase64);
+                     RegisterCount++;
+                     if (RegisterCount >= REGISTER_FINGER_COUNT)
+                     {
+                        RegisterCount = 0;
+                        if (zkfp.ZKFP_ERR_OK == (ret = zkfp2.DBMerge(mDBHandle, RegTmps[0], RegTmps[1], RegTmps[2], RegTmp, ref cbRegTmp)) &&
+                               zkfp.ZKFP_ERR_OK == (ret = zkfp2.DBAdd(mDBHandle, iFid, RegTmp)))
+                        {
+                           iFid++;
+                           textRes.AppendText("enroll succ\n");
+                        }
+                        else
+                        {
+                           textRes.AppendText("enroll fail, error code=" + ret + "\n");
+                        }
+                        IsRegister = false;
+                        return;
+                     }
+                     else
+                     {
+                        textRes.AppendText("You need to press the " + (REGISTER_FINGER_COUNT - RegisterCount) + " times fingerprint\n");
+                     }
+                  }
+                  else
+                  {
+                     if (cbRegTmp <= 0)
+                     {
+                        textRes.AppendText("Please register your finger first!\n");
+                        return;
+                     }
+                     if (bIdentify)
+                     {
+                        int ret = zkfp.ZKFP_ERR_OK;
+                        int fid = 0, score = 0;
+                        ret = zkfp2.DBIdentify(mDBHandle, CapTmp, ref fid, ref score);
+                        if (zkfp.ZKFP_ERR_OK == ret)
+                        {
+                           textRes.AppendText("Identify succ, fid= " + fid + ",score=" + score + "!\n");
+                           return;
+                        }
+                        else
+                        {
+                           textRes.AppendText("Identify fail, ret= " + ret + "\n");
+                           return;
+                        }
+                     }
+                     else
+                     {
+                        int ret = zkfp2.DBMatch(mDBHandle, CapTmp, RegTmp);
+                        if (0 < ret)
+                        {
+                           textRes.AppendText("Match finger succ, score=" + ret + "!\n");
+                           return;
+                        }
+                        else
+                        {
+                           textRes.AppendText("Match finger fail, ret= " + ret + "\n");
+                           return;
+                        }
+                     }
+                  }
+               }
+               break;
+
+            default:
+               base.DefWndProc(ref m);
+               break;
+         }
+      }
+
+      public class BitmapFormat
+      {
+         public struct BITMAPFILEHEADER
+         {
+            public ushort bfType;
+            public int bfSize;
+            public ushort bfReserved1;
+            public ushort bfReserved2;
+            public int bfOffBits;
+         }
+
+         public struct MASK
+         {
+            public byte redmask;
+            public byte greenmask;
+            public byte bluemask;
+            public byte rgbReserved;
+         }
+
+         public struct BITMAPINFOHEADER
+         {
+            public int biSize;
+            public int biWidth;
+            public int biHeight;
+            public ushort biPlanes;
+            public ushort biBitCount;
+            public int biCompression;
+            public int biSizeImage;
+            public int biXPelsPerMeter;
+            public int biYPelsPerMeter;
+            public int biClrUsed;
+            public int biClrImportant;
+         }
+
+         /*******************************************
+         * ؛¯ت‎أû³ئ£؛RotatePic       
+         * ؛¯ت‎¹¦ؤـ£؛ذ‎×ھح¼ئ¬£¬ؤ؟µؤتا±£´و؛حدشت¾µؤح¼ئ¬سë°´µؤض¸خئ·½دٍ²»ح¬     
+         * ؛¯ت‎بë²خ£؛BmpBuf---ذ‎×ھا°µؤض¸خئ×ض·û´®
+         * ؛¯ت‎³ِ²خ£؛ResBuf---ذ‎×ھ؛َµؤض¸خئ×ض·û´®
+         * ؛¯ت‎·µ»ط£؛خق
+         *********************************************/
+         public static void RotatePic(byte[] BmpBuf, int width, int height, ref byte[] ResBuf)
+         {
+            int RowLoop = 0;
+            int ColLoop = 0;
+            int BmpBuflen = width * height;
+
+            try
+            {
+               for (RowLoop = 0; RowLoop < BmpBuflen; )
+               {
+                  for (ColLoop = 0; ColLoop < width; ColLoop++)
+                  {
+                     ResBuf[RowLoop + ColLoop] = BmpBuf[BmpBuflen - RowLoop - width + ColLoop];
+                  }
+
+                  RowLoop = RowLoop + width;
+               }
+            }
+            catch (Exception ex)
+            {
+               //ZKCE.SysException.ZKCELogger logger = new ZKCE.SysException.ZKCELogger(ex);
+               //logger.Append();
+            }
+         }
+
+         /*******************************************
+         * ؛¯ت‎أû³ئ£؛StructToBytes       
+         * ؛¯ت‎¹¦ؤـ£؛½«½ل¹¹جه×ھ»¯³ةخق·û؛إ×ض·û´®ت‎×é     
+         * ؛¯ت‎بë²خ£؛StructObj---±»×ھ»¯µؤ½ل¹¹جه
+         *           Size---±»×ھ»¯µؤ½ل¹¹جهµؤ´َذ،
+         * ؛¯ت‎³ِ²خ£؛خق
+         * ؛¯ت‎·µ»ط£؛½ل¹¹جه×ھ»¯؛َµؤت‎×é
+         *********************************************/
+         public static byte[] StructToBytes(object StructObj, int Size)
+         {
+            int StructSize = Marshal.SizeOf(StructObj);
+            byte[] GetBytes = new byte[StructSize];
+
+            try
+            {
+               IntPtr StructPtr = Marshal.AllocHGlobal(StructSize);
+               Marshal.StructureToPtr(StructObj, StructPtr, false);
+               Marshal.Copy(StructPtr, GetBytes, 0, StructSize);
+               Marshal.FreeHGlobal(StructPtr);
+
+               if (Size == 14)
+               {
+                  byte[] NewBytes = new byte[Size];
+                  int Count = 0;
+                  int Loop = 0;
+
+                  for (Loop = 0; Loop < StructSize; Loop++)
+                  {
+                     if (Loop != 2 && Loop != 3)
+                     {
+                        NewBytes[Count] = GetBytes[Loop];
+                        Count++;
+                     }
+                  }
+
+                  return NewBytes;
+               }
+               else
+               {
+                  return GetBytes;
+               }
+            }
+            catch (Exception ex)
+            {
+               //ZKCE.SysException.ZKCELogger logger = new ZKCE.SysException.ZKCELogger(ex);
+               //logger.Append();
+
+               return GetBytes;
+            }
+         }
+
+         /*******************************************
+         * ؛¯ت‎أû³ئ£؛GetBitmap       
+         * ؛¯ت‎¹¦ؤـ£؛½«´«½ّہ´µؤت‎¾ف±£´وخھح¼ئ¬     
+         * ؛¯ت‎بë²خ£؛buffer---ح¼ئ¬ت‎¾ف
+         *           nWidth---ح¼ئ¬µؤ؟ي¶ب
+         *           nHeight---ح¼ئ¬µؤ¸ك¶ب
+         * ؛¯ت‎³ِ²خ£؛خق
+         * ؛¯ت‎·µ»ط£؛خق
+         *********************************************/
+         public static void GetBitmap(byte[] buffer, int nWidth, int nHeight, ref MemoryStream ms)
+         {
+            int ColorIndex = 0;
+            ushort m_nBitCount = 8;
+            int m_nColorTableEntries = 256;
+            byte[] ResBuf = new byte[nWidth * nHeight * 2];
+
+            try
+            {
+               BITMAPFILEHEADER BmpHeader = new BITMAPFILEHEADER();
+               BITMAPINFOHEADER BmpInfoHeader = new BITMAPINFOHEADER();
+               MASK[] ColorMask = new MASK[m_nColorTableEntries];
+
+               int w = (((nWidth + 3) / 4) * 4);
+
+               //ح¼ئ¬ح·ذإد¢
+               BmpInfoHeader.biSize = Marshal.SizeOf(BmpInfoHeader);
+               BmpInfoHeader.biWidth = nWidth;
+               BmpInfoHeader.biHeight = nHeight;
+               BmpInfoHeader.biPlanes = 1;
+               BmpInfoHeader.biBitCount = m_nBitCount;
+               BmpInfoHeader.biCompression = 0;
+               BmpInfoHeader.biSizeImage = 0;
+               BmpInfoHeader.biXPelsPerMeter = 0;
+               BmpInfoHeader.biYPelsPerMeter = 0;
+               BmpInfoHeader.biClrUsed = m_nColorTableEntries;
+               BmpInfoHeader.biClrImportant = m_nColorTableEntries;
+
+               //خؤ¼‏ح·ذإد¢
+               BmpHeader.bfType = 0x4D42;
+               BmpHeader.bfOffBits = 14 + Marshal.SizeOf(BmpInfoHeader) + BmpInfoHeader.biClrUsed * 4;
+               BmpHeader.bfSize = BmpHeader.bfOffBits + ((((w * BmpInfoHeader.biBitCount + 31) / 32) * 4) * BmpInfoHeader.biHeight);
+               BmpHeader.bfReserved1 = 0;
+               BmpHeader.bfReserved2 = 0;
+
+               ms.Write(StructToBytes(BmpHeader, 14), 0, 14);
+               ms.Write(StructToBytes(BmpInfoHeader, Marshal.SizeOf(BmpInfoHeader)), 0, Marshal.SizeOf(BmpInfoHeader));
+
+               //µ÷تش°هذإد¢
+               for (ColorIndex = 0; ColorIndex < m_nColorTableEntries; ColorIndex++)
+               {
+                  ColorMask[ColorIndex].redmask = (byte)ColorIndex;
+                  ColorMask[ColorIndex].greenmask = (byte)ColorIndex;
+                  ColorMask[ColorIndex].bluemask = (byte)ColorIndex;
+                  ColorMask[ColorIndex].rgbReserved = 0;
+
+                  ms.Write(StructToBytes(ColorMask[ColorIndex], Marshal.SizeOf(ColorMask[ColorIndex])), 0, Marshal.SizeOf(ColorMask[ColorIndex]));
+               }
+
+               //ح¼ئ¬ذ‎×ھ£¬½â¾ِض¸خئح¼ئ¬µ¹ء¢µؤختجâ
+               RotatePic(buffer, nWidth, nHeight, ref ResBuf);
+
+               byte[] filter = null;
+               if (w - nWidth > 0)
+               {
+                  filter = new byte[w - nWidth];
+               }
+               for (int i = 0; i < nHeight; i++)
+               {
+                  ms.Write(ResBuf, i * nWidth, nWidth);
+                  if (w - nWidth > 0)
+                  {
+                     ms.Write(ResBuf, 0, w - nWidth);
+                  }
+               }
+            }
+            catch (Exception ex)
+            {
+               // ZKCE.SysException.ZKCELogger logger = new ZKCE.SysException.ZKCELogger(ex);
+               // logger.Append();
+            }
+         }
+
+         /*******************************************
+         * ؛¯ت‎أû³ئ£؛WriteBitmap       
+         * ؛¯ت‎¹¦ؤـ£؛½«´«½ّہ´µؤت‎¾ف±£´وخھح¼ئ¬     
+         * ؛¯ت‎بë²خ£؛buffer---ح¼ئ¬ت‎¾ف
+         *           nWidth---ح¼ئ¬µؤ؟ي¶ب
+         *           nHeight---ح¼ئ¬µؤ¸ك¶ب
+         * ؛¯ت‎³ِ²خ£؛خق
+         * ؛¯ت‎·µ»ط£؛خق
+         *********************************************/
+         public static void WriteBitmap(byte[] buffer, int nWidth, int nHeight)
+         {
+            int ColorIndex = 0;
+            ushort m_nBitCount = 8;
+            int m_nColorTableEntries = 256;
+            byte[] ResBuf = new byte[nWidth * nHeight];
+
+            try
+            {
+
+               BITMAPFILEHEADER BmpHeader = new BITMAPFILEHEADER();
+               BITMAPINFOHEADER BmpInfoHeader = new BITMAPINFOHEADER();
+               MASK[] ColorMask = new MASK[m_nColorTableEntries];
+               int w = (((nWidth + 3) / 4) * 4);
+               //ح¼ئ¬ح·ذإد¢
+               BmpInfoHeader.biSize = Marshal.SizeOf(BmpInfoHeader);
+               BmpInfoHeader.biWidth = nWidth;
+               BmpInfoHeader.biHeight = nHeight;
+               BmpInfoHeader.biPlanes = 1;
+               BmpInfoHeader.biBitCount = m_nBitCount;
+               BmpInfoHeader.biCompression = 0;
+               BmpInfoHeader.biSizeImage = 0;
+               BmpInfoHeader.biXPelsPerMeter = 0;
+               BmpInfoHeader.biYPelsPerMeter = 0;
+               BmpInfoHeader.biClrUsed = m_nColorTableEntries;
+               BmpInfoHeader.biClrImportant = m_nColorTableEntries;
+
+               //خؤ¼‏ح·ذإد¢
+               BmpHeader.bfType = 0x4D42;
+               BmpHeader.bfOffBits = 14 + Marshal.SizeOf(BmpInfoHeader) + BmpInfoHeader.biClrUsed * 4;
+               BmpHeader.bfSize = BmpHeader.bfOffBits + ((((w * BmpInfoHeader.biBitCount + 31) / 32) * 4) * BmpInfoHeader.biHeight);
+               BmpHeader.bfReserved1 = 0;
+               BmpHeader.bfReserved2 = 0;
+
+               Stream FileStream = File.Open("finger.bmp", FileMode.Create, FileAccess.Write);
+               BinaryWriter TmpBinaryWriter = new BinaryWriter(FileStream);
+
+               TmpBinaryWriter.Write(StructToBytes(BmpHeader, 14));
+               TmpBinaryWriter.Write(StructToBytes(BmpInfoHeader, Marshal.SizeOf(BmpInfoHeader)));
+
+               //µ÷تش°هذإد¢
+               for (ColorIndex = 0; ColorIndex < m_nColorTableEntries; ColorIndex++)
+               {
+                  ColorMask[ColorIndex].redmask = (byte)ColorIndex;
+                  ColorMask[ColorIndex].greenmask = (byte)ColorIndex;
+                  ColorMask[ColorIndex].bluemask = (byte)ColorIndex;
+                  ColorMask[ColorIndex].rgbReserved = 0;
+
+                  TmpBinaryWriter.Write(StructToBytes(ColorMask[ColorIndex], Marshal.SizeOf(ColorMask[ColorIndex])));
+               }
+
+               //ح¼ئ¬ذ‎×ھ£¬½â¾ِض¸خئح¼ئ¬µ¹ء¢µؤختجâ
+               RotatePic(buffer, nWidth, nHeight, ref ResBuf);
+
+               //ذ´ح¼ئ¬
+               //TmpBinaryWriter.Write(ResBuf);
+               byte[] filter = null;
+               if (w - nWidth > 0)
+               {
+                  filter = new byte[w - nWidth];
+               }
+               for (int i = 0; i < nHeight; i++)
+               {
+                  TmpBinaryWriter.Write(ResBuf, i * nWidth, nWidth);
+                  if (w - nWidth > 0)
+                  {
+                     TmpBinaryWriter.Write(ResBuf, 0, w - nWidth);
+                  }
+               }
+
+               FileStream.Close();
+               TmpBinaryWriter.Close();
+            }
+            catch (Exception ex)
+            {
+               //ZKCE.SysException.ZKCELogger logger = new ZKCE.SysException.ZKCELogger(ex);
+               //logger.Append();
+            }
+         }
+      }
+
+      #endregion
+      #endregion
    }
 }

@@ -604,10 +604,11 @@ namespace System.Scsc.Ui.Admission
                      followups = "";
                }
                break;
-            case "setcard":
-               FNGR_PRNT_TextEdit.EditValue = (job.Input as XElement).Attribute("value").Value;
-               if (AutoTrans_Cb.Checked)
-                  CardNumb_Text.EditValue = FNGR_PRNT_TextEdit.EditValue;
+            case "setcard":               
+               CardNumb_Text.Text = (job.Input as XElement).Attribute("value").Value;
+               //FNGR_PRNT_TextEdit.EditValue = (job.Input as XElement).Attribute("value").Value;   
+               //if (AutoTrans_Cb.Checked)
+               //CardNumb_Text.EditValue = FNGR_PRNT_TextEdit.EditValue;
                break;
             case "rqidfocus":               
                ShowRqst_PickButn.PickChecked = false;

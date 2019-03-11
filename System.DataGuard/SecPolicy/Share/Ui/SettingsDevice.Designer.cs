@@ -61,6 +61,14 @@
          this.label6 = new System.Windows.Forms.Label();
          this.label7 = new System.Windows.Forms.Label();
          this.groupBox1 = new System.Windows.Forms.GroupBox();
+         this.panel3 = new System.Windows.Forms.Panel();
+         this.picFPImg = new System.Windows.Forms.PictureBox();
+         this.textRes = new System.Windows.Forms.RichTextBox();
+         this.textFngr = new System.Windows.Forms.RichTextBox();
+         this.cmbIdx = new System.Windows.Forms.ComboBox();
+         this.label15 = new System.Windows.Forms.Label();
+         this.label13 = new System.Windows.Forms.Label();
+         this.DisConnectFromDev_Butn = new System.Windows.Forms.Button();
          this.ConnectToDev_Butn = new System.Windows.Forms.Button();
          this.FngrIndx_Txt = new System.Windows.Forms.TextBox();
          this.NewEnroll_Butn = new System.Windows.Forms.Button();
@@ -76,6 +84,7 @@
          this.label5 = new System.Windows.Forms.Label();
          this.label1 = new System.Windows.Forms.Label();
          this.UserId_Txt = new System.Windows.Forms.TextBox();
+         this.label16 = new System.Windows.Forms.Label();
          this.label4 = new System.Windows.Forms.Label();
          this.Usb_Rb = new System.Windows.Forms.RadioButton();
          this.Network_Rb = new System.Windows.Forms.RadioButton();
@@ -108,6 +117,8 @@
          ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTimeEdit1)).BeginInit();
          this.groupBox1.SuspendLayout();
+         this.panel3.SuspendLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.picFPImg)).BeginInit();
          this.panel2.SuspendLayout();
          this.tp_003.SuspendLayout();
          this.PosList_Flp.SuspendLayout();
@@ -176,7 +187,7 @@
          this.splitContainerControl1.Panel1.Text = "Panel1";
          this.splitContainerControl1.Panel2.Controls.Add(this.flowLayoutPanel1);
          this.splitContainerControl1.Panel2.Text = "Panel2";
-         this.splitContainerControl1.Size = new System.Drawing.Size(1184, 429);
+         this.splitContainerControl1.Size = new System.Drawing.Size(1184, 663);
          this.splitContainerControl1.SplitterPosition = 219;
          this.splitContainerControl1.TabIndex = 1;
          this.splitContainerControl1.Text = "splitContainerControl1";
@@ -191,7 +202,7 @@
          this.Tb_Master.Name = "Tb_Master";
          this.Tb_Master.RightToLeftLayout = true;
          this.Tb_Master.SelectedIndex = 0;
-         this.Tb_Master.Size = new System.Drawing.Size(960, 429);
+         this.Tb_Master.Size = new System.Drawing.Size(960, 663);
          this.Tb_Master.TabIndex = 0;
          // 
          // tp_001
@@ -200,7 +211,7 @@
          this.tp_001.Location = new System.Drawing.Point(4, 23);
          this.tp_001.Name = "tp_001";
          this.tp_001.Padding = new System.Windows.Forms.Padding(3);
-         this.tp_001.Size = new System.Drawing.Size(952, 402);
+         this.tp_001.Size = new System.Drawing.Size(952, 636);
          this.tp_001.TabIndex = 0;
          this.tp_001.Tag = "1";
          this.tp_001.Text = "سیستم های متصل";
@@ -212,7 +223,7 @@
          this.ActiveSessionList_Flp.Dock = System.Windows.Forms.DockStyle.Fill;
          this.ActiveSessionList_Flp.Location = new System.Drawing.Point(3, 3);
          this.ActiveSessionList_Flp.Name = "ActiveSessionList_Flp";
-         this.ActiveSessionList_Flp.Size = new System.Drawing.Size(946, 396);
+         this.ActiveSessionList_Flp.Size = new System.Drawing.Size(946, 630);
          this.ActiveSessionList_Flp.TabIndex = 1;
          // 
          // simpleButton1
@@ -245,7 +256,7 @@
          this.tp_002.Location = new System.Drawing.Point(4, 23);
          this.tp_002.Name = "tp_002";
          this.tp_002.Padding = new System.Windows.Forms.Padding(3);
-         this.tp_002.Size = new System.Drawing.Size(952, 402);
+         this.tp_002.Size = new System.Drawing.Size(952, 636);
          this.tp_002.TabIndex = 1;
          this.tp_002.Tag = "2";
          this.tp_002.Text = "دستگاه های جانبی متصل";
@@ -270,7 +281,7 @@
          this.groupBox2.Location = new System.Drawing.Point(67, 6);
          this.groupBox2.Name = "groupBox2";
          this.groupBox2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-         this.groupBox2.Size = new System.Drawing.Size(609, 390);
+         this.groupBox2.Size = new System.Drawing.Size(609, 624);
          this.groupBox2.TabIndex = 1;
          this.groupBox2.TabStop = false;
          this.groupBox2.Text = "دستگاه های زیر مجموعه";
@@ -465,6 +476,8 @@
          this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
          this.groupBox1.BackColor = System.Drawing.Color.WhiteSmoke;
+         this.groupBox1.Controls.Add(this.panel3);
+         this.groupBox1.Controls.Add(this.DisConnectFromDev_Butn);
          this.groupBox1.Controls.Add(this.ConnectToDev_Butn);
          this.groupBox1.Controls.Add(this.FngrIndx_Txt);
          this.groupBox1.Controls.Add(this.NewEnroll_Butn);
@@ -475,22 +488,102 @@
          this.groupBox1.Controls.Add(this.label5);
          this.groupBox1.Controls.Add(this.label1);
          this.groupBox1.Controls.Add(this.UserId_Txt);
+         this.groupBox1.Controls.Add(this.label16);
          this.groupBox1.Controls.Add(this.label4);
          this.groupBox1.Controls.Add(this.Usb_Rb);
          this.groupBox1.Controls.Add(this.Network_Rb);
          this.groupBox1.Location = new System.Drawing.Point(682, 6);
          this.groupBox1.Name = "groupBox1";
-         this.groupBox1.Size = new System.Drawing.Size(264, 390);
+         this.groupBox1.Size = new System.Drawing.Size(264, 624);
          this.groupBox1.TabIndex = 0;
          this.groupBox1.TabStop = false;
          this.groupBox1.Text = "دستگاه اصلی";
          // 
+         // panel3
+         // 
+         this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+         this.panel3.Controls.Add(this.picFPImg);
+         this.panel3.Controls.Add(this.textRes);
+         this.panel3.Controls.Add(this.textFngr);
+         this.panel3.Controls.Add(this.cmbIdx);
+         this.panel3.Controls.Add(this.label15);
+         this.panel3.Controls.Add(this.label13);
+         this.panel3.Location = new System.Drawing.Point(9, 237);
+         this.panel3.Name = "panel3";
+         this.panel3.Size = new System.Drawing.Size(249, 290);
+         this.panel3.TabIndex = 6;
+         // 
+         // picFPImg
+         // 
+         this.picFPImg.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+         this.picFPImg.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+         this.picFPImg.Location = new System.Drawing.Point(30, 41);
+         this.picFPImg.Name = "picFPImg";
+         this.picFPImg.Size = new System.Drawing.Size(100, 103);
+         this.picFPImg.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+         this.picFPImg.TabIndex = 19;
+         this.picFPImg.TabStop = false;
+         // 
+         // textRes
+         // 
+         this.textRes.Location = new System.Drawing.Point(140, 69);
+         this.textRes.Name = "textRes";
+         this.textRes.Size = new System.Drawing.Size(106, 75);
+         this.textRes.TabIndex = 18;
+         this.textRes.Text = "";
+         // 
+         // textFngr
+         // 
+         this.textFngr.Location = new System.Drawing.Point(3, 150);
+         this.textFngr.Name = "textFngr";
+         this.textFngr.Size = new System.Drawing.Size(243, 137);
+         this.textFngr.TabIndex = 18;
+         this.textFngr.Text = "";
+         // 
+         // cmbIdx
+         // 
+         this.cmbIdx.FormattingEnabled = true;
+         this.cmbIdx.Location = new System.Drawing.Point(30, 13);
+         this.cmbIdx.Name = "cmbIdx";
+         this.cmbIdx.Size = new System.Drawing.Size(100, 22);
+         this.cmbIdx.TabIndex = 16;
+         // 
+         // label15
+         // 
+         this.label15.AutoSize = true;
+         this.label15.Location = new System.Drawing.Point(140, 42);
+         this.label15.Name = "label15";
+         this.label15.Size = new System.Drawing.Size(98, 14);
+         this.label15.TabIndex = 15;
+         this.label15.Text = "قالب اثر انگشتی :";
+         // 
+         // label13
+         // 
+         this.label13.AutoSize = true;
+         this.label13.Location = new System.Drawing.Point(140, 16);
+         this.label13.Name = "label13";
+         this.label13.Size = new System.Drawing.Size(90, 14);
+         this.label13.TabIndex = 15;
+         this.label13.Text = "شماره دستگاه :";
+         // 
+         // DisConnectFromDev_Butn
+         // 
+         this.DisConnectFromDev_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.DisConnectFromDev_Butn.Location = new System.Drawing.Point(39, 208);
+         this.DisConnectFromDev_Butn.Name = "DisConnectFromDev_Butn";
+         this.DisConnectFromDev_Butn.Size = new System.Drawing.Size(100, 23);
+         this.DisConnectFromDev_Butn.TabIndex = 5;
+         this.DisConnectFromDev_Butn.Text = "قطع ارتباط";
+         this.DisConnectFromDev_Butn.UseVisualStyleBackColor = true;
+         this.DisConnectFromDev_Butn.Click += new System.EventHandler(this.DisConnectFromDev_Butn_Click);
+         // 
          // ConnectToDev_Butn
          // 
          this.ConnectToDev_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.ConnectToDev_Butn.Location = new System.Drawing.Point(69, 183);
+         this.ConnectToDev_Butn.Location = new System.Drawing.Point(140, 208);
          this.ConnectToDev_Butn.Name = "ConnectToDev_Butn";
-         this.ConnectToDev_Butn.Size = new System.Drawing.Size(100, 23);
+         this.ConnectToDev_Butn.Size = new System.Drawing.Size(85, 23);
          this.ConnectToDev_Butn.TabIndex = 5;
          this.ConnectToDev_Butn.Text = "برقراری ارتباط";
          this.ConnectToDev_Butn.UseVisualStyleBackColor = true;
@@ -498,16 +591,17 @@
          // 
          // FngrIndx_Txt
          // 
-         this.FngrIndx_Txt.Location = new System.Drawing.Point(69, 271);
+         this.FngrIndx_Txt.Location = new System.Drawing.Point(147, 561);
          this.FngrIndx_Txt.Name = "FngrIndx_Txt";
-         this.FngrIndx_Txt.Size = new System.Drawing.Size(100, 22);
+         this.FngrIndx_Txt.Size = new System.Drawing.Size(22, 22);
          this.FngrIndx_Txt.TabIndex = 2;
-         this.FngrIndx_Txt.Visible = false;
+         this.FngrIndx_Txt.Text = "6";
+         this.FngrIndx_Txt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
          // 
          // NewEnroll_Butn
          // 
          this.NewEnroll_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.NewEnroll_Butn.Location = new System.Drawing.Point(69, 299);
+         this.NewEnroll_Butn.Location = new System.Drawing.Point(69, 589);
          this.NewEnroll_Butn.Name = "NewEnroll_Butn";
          this.NewEnroll_Butn.Size = new System.Drawing.Size(100, 23);
          this.NewEnroll_Butn.TabIndex = 5;
@@ -521,7 +615,7 @@
          this.label11.AutoSize = true;
          this.label11.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.label11.ForeColor = System.Drawing.Color.Green;
-         this.label11.Location = new System.Drawing.Point(174, 303);
+         this.label11.Location = new System.Drawing.Point(174, 593);
          this.label11.Name = "label11";
          this.label11.Size = new System.Drawing.Size(64, 14);
          this.label11.TabIndex = 1;
@@ -534,7 +628,7 @@
          this.label10.AutoSize = true;
          this.label10.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.label10.ForeColor = System.Drawing.Color.Green;
-         this.label10.Location = new System.Drawing.Point(9, 246);
+         this.label10.Location = new System.Drawing.Point(9, 536);
          this.label10.Name = "label10";
          this.label10.Size = new System.Drawing.Size(58, 14);
          this.label10.TabIndex = 1;
@@ -618,12 +712,11 @@
          // label5
          // 
          this.label5.AutoSize = true;
-         this.label5.Location = new System.Drawing.Point(175, 274);
+         this.label5.Location = new System.Drawing.Point(175, 564);
          this.label5.Name = "label5";
          this.label5.Size = new System.Drawing.Size(88, 14);
          this.label5.TabIndex = 1;
          this.label5.Text = "شماره انگشت :";
-         this.label5.Visible = false;
          // 
          // label1
          // 
@@ -637,15 +730,24 @@
          // 
          // UserId_Txt
          // 
-         this.UserId_Txt.Location = new System.Drawing.Point(69, 243);
+         this.UserId_Txt.Location = new System.Drawing.Point(69, 533);
          this.UserId_Txt.Name = "UserId_Txt";
          this.UserId_Txt.Size = new System.Drawing.Size(100, 22);
          this.UserId_Txt.TabIndex = 2;
          // 
+         // label16
+         // 
+         this.label16.AutoSize = true;
+         this.label16.Location = new System.Drawing.Point(91, 564);
+         this.label16.Name = "label16";
+         this.label16.Size = new System.Drawing.Size(51, 14);
+         this.label16.TabIndex = 1;
+         this.label16.Text = "( 9 - 0 )";
+         // 
          // label4
          // 
          this.label4.AutoSize = true;
-         this.label4.Location = new System.Drawing.Point(175, 246);
+         this.label4.Location = new System.Drawing.Point(175, 536);
          this.label4.Name = "label4";
          this.label4.Size = new System.Drawing.Size(64, 14);
          this.label4.TabIndex = 1;
@@ -655,23 +757,24 @@
          // 
          this.Usb_Rb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.Usb_Rb.AutoSize = true;
+         this.Usb_Rb.Checked = true;
          this.Usb_Rb.Location = new System.Drawing.Point(182, 159);
          this.Usb_Rb.Name = "Usb_Rb";
          this.Usb_Rb.Size = new System.Drawing.Size(47, 18);
          this.Usb_Rb.TabIndex = 0;
+         this.Usb_Rb.TabStop = true;
          this.Usb_Rb.Text = "USB";
          this.Usb_Rb.UseVisualStyleBackColor = true;
+         this.Usb_Rb.CheckedChanged += new System.EventHandler(this.Usb_Rb_CheckedChanged);
          // 
          // Network_Rb
          // 
          this.Network_Rb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.Network_Rb.AutoSize = true;
-         this.Network_Rb.Checked = true;
          this.Network_Rb.Location = new System.Drawing.Point(157, 54);
          this.Network_Rb.Name = "Network_Rb";
          this.Network_Rb.Size = new System.Drawing.Size(72, 18);
          this.Network_Rb.TabIndex = 0;
-         this.Network_Rb.TabStop = true;
          this.Network_Rb.Text = "Network";
          this.Network_Rb.UseVisualStyleBackColor = true;
          // 
@@ -684,7 +787,7 @@
          this.tp_003.Location = new System.Drawing.Point(4, 23);
          this.tp_003.Name = "tp_003";
          this.tp_003.Padding = new System.Windows.Forms.Padding(3);
-         this.tp_003.Size = new System.Drawing.Size(952, 402);
+         this.tp_003.Size = new System.Drawing.Size(952, 636);
          this.tp_003.TabIndex = 2;
          this.tp_003.Tag = "3";
          this.tp_003.Text = "POS";
@@ -880,7 +983,7 @@
          this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
          this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
          this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-         this.flowLayoutPanel1.Size = new System.Drawing.Size(219, 429);
+         this.flowLayoutPanel1.Size = new System.Drawing.Size(219, 663);
          this.flowLayoutPanel1.TabIndex = 1;
          // 
          // ClientList_Butn
@@ -970,7 +1073,7 @@
          this.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.Name = "SettingsDevice";
          this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-         this.Size = new System.Drawing.Size(1184, 488);
+         this.Size = new System.Drawing.Size(1184, 722);
          this.panel1.ResumeLayout(false);
          ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).EndInit();
          this.splitContainerControl1.ResumeLayout(false);
@@ -986,6 +1089,9 @@
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTimeEdit1)).EndInit();
          this.groupBox1.ResumeLayout(false);
          this.groupBox1.PerformLayout();
+         this.panel3.ResumeLayout(false);
+         this.panel3.PerformLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.picFPImg)).EndInit();
          this.panel2.ResumeLayout(false);
          this.panel2.PerformLayout();
          this.tp_003.ResumeLayout(false);
@@ -1063,6 +1169,15 @@
       private Windows.Forms.Label label10;
       private Windows.Forms.Label label9;
       private Windows.Forms.Label label8;
+      private Windows.Forms.Panel panel3;
+      private Windows.Forms.RichTextBox textFngr;
+      private Windows.Forms.ComboBox cmbIdx;
+      private Windows.Forms.Label label15;
+      private Windows.Forms.Label label13;
+      private Windows.Forms.Button DisConnectFromDev_Butn;
+      private Windows.Forms.Label label16;
+      private Windows.Forms.PictureBox picFPImg;
+      private Windows.Forms.RichTextBox textRes;
 
    }
 }

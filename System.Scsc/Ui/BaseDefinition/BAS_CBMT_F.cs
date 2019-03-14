@@ -780,5 +780,166 @@ namespace System.Scsc.Ui.BaseDefinition
             MessageBox.Show(exc.Message);
          }
       }
+
+      private void HL_INVSFILENO_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            var CrntFigh = FighsBs3.Current as Data.Fighter;
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost", "", 46, SendType.Self) { Input = new XElement("Fighter", new XAttribute("fileno", CrntFigh.FILE_NO)) }
+            );
+         }
+         catch { }
+      }
+
+      private void vF_Last_Info_FighterResultGridControl_DoubleClick(object sender, EventArgs e)
+      {
+         HL_INVSFILENO_ButtonClick(null, null);
+      }
+
+      private void colActn_Butn_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         var index = FighsBs3.Position;
+         var figh = FighsBs3.Current as Data.Fighter;
+         switch (e.Button.Index)
+         {
+            case 0:
+               _DefaultGateway.Gateway(
+                  new Job(SendType.External, "Localhost",
+                       new List<Job>
+                        {                  
+                           new Job(SendType.Self, 92 /* Execute Oic_Totl_F */),
+                           new Job(SendType.SelfToUserInterface, "OIC_TOTL_F", 10 /* Execute Actn_CalF_F */){Input = new XElement("Request", new XAttribute("type", "01"), new XElement("Request_Row", new XAttribute("fileno", figh.FILE_NO)))}
+                        })
+               );
+               break;
+            case 1:
+               if (iScsc.Fighters.FirstOrDefault(f => f.FILE_NO == figh.FILE_NO && (f.FGPB_TYPE_DNRM == "001" || f.FGPB_TYPE_DNRM == "005" || f.FGPB_TYPE_DNRM == "006")) == null) return;
+
+               // 1396/10/14 * بررسی اینکه آیا مشتری چند کلاس ثبت نام کرده است
+               //if (iScsc.Member_Ships.Where(mb => mb.FIGH_FILE_NO == figh.FILE_NO && mb.RECT_CODE == "004" && mb.TYPE == "001" && mb.END_DATE.Value.Date >= DateTime.Now.Date && (mb.RWNO == 1 || mb.Request_Row.RQTT_CODE == "001") && (mb.NUMB_OF_ATTN_MONT > 0 && mb.NUMB_OF_ATTN_MONT > mb.SUM_ATTN_MONT_DNRM)).Count() >= 2)
+               //{
+               //   _DefaultGateway.Gateway(
+               //      new Job(SendType.External, "localhost",
+               //         new List<Job>
+               //         {
+               //            new Job(SendType.Self, 152 /* Execute Chos_Mbsp_F */),
+               //            new Job(SendType.SelfToUserInterface, "CHOS_MBSP_F", 10 /* Execute Actn_CalF_F*/ )
+               //            {
+               //               Input = 
+               //               new XElement("Fighter",
+               //                  new XAttribute("fileno", figh.FILE_NO),
+               //                  new XAttribute("namednrm", figh.NAME_DNRM),
+               //                  new XAttribute("fngrprnt", figh.FNGR_PRNT_DNRM)
+               //               )
+               //            }
+               //         }
+               //      )
+               //   );
+               //}
+               //else
+               //   _DefaultGateway.Gateway(
+               //      new Job(SendType.External, "Localhost",
+               //         new List<Job>
+               //         {
+               //            new Job(SendType.Self, 64 /* Execute Adm_Totl_F */),
+               //            new Job(SendType.SelfToUserInterface, "ADM_TOTL_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "renewcontract"), new XAttribute("enrollnumber", figh.FNGR_PRNT_DNRM))}
+               //         })
+               //   );
+               break;
+            case 2:
+               if (MessageBox.Show(this, "آیا با حذف مشتری موافق هستید؟", "عملیات حذف موقت مشتری", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) != DialogResult.Yes) return;
+               _DefaultGateway.Gateway(
+                  new Job(SendType.External, "Localhost",
+                     new List<Job>
+                     {
+                        new Job(SendType.Self, 01 /* Execute GetUi */){Input = "adm_ends_f"},
+                        new Job(SendType.SelfToUserInterface, "ADM_ENDS_F", 02 /* Execute Set */),
+                        new Job(SendType.SelfToUserInterface, "ADM_ENDS_F", 07 /* Execute Load_Data */),                        
+                        new Job(SendType.SelfToUserInterface, "ADM_ENDS_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("fileno", figh.FILE_NO), new XAttribute("auto", "true"))},
+                        new Job(SendType.SelfToUserInterface, "LSI_FLDF_F", 07 /* Execute Load_Data */){Input = new XElement("LoadData", new XAttribute("requery", "1"))},
+                     })
+               );
+               break;
+            case 3:
+               _DefaultGateway.Gateway(
+                  new Job(SendType.External, "Localhost",
+                     new List<Job>
+                     {
+                        new Job(SendType.Self, 70 /* Execute Adm_Chng_F */),
+                        new Job(SendType.SelfToUserInterface, "ADM_CHNG_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "changeinfo"), new XAttribute("fileno", figh.FILE_NO), new XAttribute("auto", "true"))}
+                     })
+               );
+               break;
+            case 4:
+               if (figh.FNGR_PRNT_DNRM == "" && !(figh.FGPB_TYPE_DNRM == "002" || figh.FGPB_TYPE_DNRM == "003")) { MessageBox.Show(this, "برای عضو مورد نظر هیچ کد انگشتی وارد نشده، لطفا کد عضو را از طریق تغییرات مشخصات عمومی تغییر لازم را اعمال کنید"); return; }
+               if (figh.COCH_FILE_NO_DNRM == null && !(figh.FGPB_TYPE_DNRM == "009" || figh.FGPB_TYPE_DNRM == "002" || figh.FGPB_TYPE_DNRM == "003" || figh.FGPB_TYPE_DNRM == "004")) { MessageBox.Show(this, "برای عضو شما مربی و ساعت کلاسی مشخصی وجود ندارد که مشخص کنیم در چه کلاس حضوری ثبت کنیم"); return; }
+               _DefaultGateway.Gateway(
+                  new Job(SendType.External, "Localhost",
+                     new List<Job>
+                     {                        
+                        new Job(SendType.SelfToUserInterface, "MAIN_PAGE_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "accesscontrol"), new XAttribute("fngrprnt", figh.FNGR_PRNT_DNRM), new XAttribute("attnsystype", "001"))}
+                     })
+               );
+               break;
+            case 5:
+               if (figh.FNGR_PRNT_DNRM == "" && !(figh.FGPB_TYPE_DNRM == "002" || figh.FGPB_TYPE_DNRM == "003")) { MessageBox.Show(this, "برای عضو مورد نظر هیچ کد انگشتی وارد نشده، لطفا کد عضو را از طریق تغییرات مشخصات عمومی تغییر لازم را اعمال کنید"); return; }
+               if (figh.COCH_FILE_NO_DNRM == null && !(figh.FGPB_TYPE_DNRM == "009" || figh.FGPB_TYPE_DNRM == "002" || figh.FGPB_TYPE_DNRM == "003" || figh.FGPB_TYPE_DNRM == "004")) { MessageBox.Show(this, "برای عضو شما مربی و ساعت کلاسی مشخصی وجود ندارد که مشخص کنیم در چه کلاس حضوری ثبت کنیم"); return; }
+
+               /* 1395/03/15 * اگر سیستم بتواند حضوری را برای فرد ذخیره کند باید عملیات نمایش ورود فرد را آماده کنیم. */
+               var attnNotfSetting = iScsc.Settings.Where(s => Fga_Uclb_U.Contains(s.CLUB_CODE) && s.ATTN_NOTF_STAT == "002").FirstOrDefault();
+               if (attnNotfSetting != null && attnNotfSetting.ATTN_NOTF_STAT == "002" && figh.FILE_NO != 0 && iScsc.Attendances.Any(a => figh.FILE_NO == a.FIGH_FILE_NO && a.ATTN_DATE.Date == DateTime.Now.Date))
+               {
+                  _DefaultGateway.Gateway(
+                     new Job(SendType.External, "localhost",
+                        new List<Job>
+                        {
+                           new Job(SendType.Self, 110 /* Execute WHO_ARYU_F */),
+                           new Job(SendType.SelfToUserInterface, "WHO_ARYU_F", 10 /* Execute Actn_CalF_F*/ )
+                           {
+                              Input = 
+                              new XElement("Fighter",
+                                 new XAttribute("fileno", figh.FILE_NO),
+                                 new XAttribute("attndate", DateTime.Now)
+                              )
+                           }
+                        })
+                  );
+               }
+               break;
+            case 6:
+               try
+               {
+                  _DefaultGateway.Gateway(
+                     new Job(SendType.External, "localhost",
+                        new List<Job>
+                        {
+                           new Job(SendType.Self, 46 /* Execute All_Fldf_F */){
+                              Input = 
+                                 new XElement("Fighter",
+                                    new XAttribute("fileno", figh.FILE_NO)                               
+                                 )
+                           },
+                           new Job(SendType.SelfToUserInterface, "ALL_FLDF_F", 10 /* Execute Actn_CalF_F*/ )
+                           {
+                              Input = 
+                              new XElement("Fighter",
+                                 new XAttribute("fileno", figh.FILE_NO),
+                                 new XAttribute("type", "refresh"),
+                                 new XAttribute("tabfocued", "tp_003")
+                              )
+                           }
+                        })
+                  );
+               }
+               catch { }
+               break;
+            default:
+               break;
+         }
+
+         FighsBs3.Position = index;
+      }
    }
 }

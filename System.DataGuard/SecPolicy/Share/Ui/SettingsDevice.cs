@@ -261,6 +261,8 @@ namespace System.DataGuard.SecPolicy.Share.Ui
             {
                bnInit_Click(null , null);                
             }
+            DisConnectFromDev_Butn.Enabled = true;
+            ConnectToDev_Butn.Enabled = false;
          }
          catch (Exception exc)
          {
@@ -280,6 +282,8 @@ namespace System.DataGuard.SecPolicy.Share.Ui
             {
                bnClose_Click(null, null);               
             }
+            ConnectToDev_Butn.Enabled = true;
+            DisConnectFromDev_Butn.Enabled = false;
          }
          catch (Exception exc)
          {
@@ -293,11 +297,13 @@ namespace System.DataGuard.SecPolicy.Share.Ui
          {
             panel2.Visible = true;
             panel3.Visible = false;
+            NewEnroll_Butn.Visible = true;
          }
          else if (Usb_Rb.Checked)
          {
             panel2.Visible = false;
             panel3.Visible = true;
+            NewEnroll_Butn.Visible = false;
          }
       }
 
@@ -389,9 +395,13 @@ namespace System.DataGuard.SecPolicy.Share.Ui
             int tmplen = 0;
             int flag = 0;
 
-            if (iFgnrMstrIsCnct)
-            {               
-               var result = iFngrMstr.GetUserTmpExStr(1, UserId_Txt.Text, 6, out flag, out tmpData, out tmplen);
+            if (Network_Rb.Checked && iFgnrMstrIsCnct)
+            {
+               var result = iFngrMstr.GetUserTmpExStr(1, UserId_Txt.Text, 6, out flag, out tmpData, out tmplen);               
+            }
+            else if (Usb_Rb.Checked)
+            {
+               tmpData = textFngr.Text;
             }
             foreach (var dev in DevInfoBs.List.OfType<DeviceInfo>())
             {
@@ -399,8 +409,12 @@ namespace System.DataGuard.SecPolicy.Share.Ui
                if(iFngrSlavIsCnct)
                {
                   dev.Status = "Connected";
-                  var result = iFngrSlav.SSR_SetUserInfo(1, UserId_Txt.Text, "", "", 0, true);
-                  result = iFngrSlav.SetUserTmpExStr(1, UserId_Txt.Text, 6, flag, tmpData);
+                  var result = iFngrSlav.SSR_SetUserInfo(1, UserId_Txt.Text, UserName_Txt.Text, "", 0, true);
+                  result = iFngrSlav.SetUserTmpExStr(1, UserId_Txt.Text, Convert.ToInt32(FngrIndx_Txt.Text), flag, tmpData);
+                  if(result)
+                  {
+                     MessageBox.Show("Enroll Successfully  done");
+                  }
                }
             }
             MessageBox.Show("ارسال اثر انگشت با موفقیت انجام شد");

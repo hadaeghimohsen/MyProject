@@ -56,6 +56,9 @@ namespace System.Scsc.Ui.Common
             case 20:
                Pay_Oprt_F(job);
                break;
+            case 21:
+               Payg_Oprt_F(job);
+               break;
             default:
                break;
          }
@@ -127,6 +130,19 @@ namespace System.Scsc.Ui.Common
          {
             RqstBnDeleteFngrNewEnrollPrnt1_Click(null, null);
          }
+         else if(keyData == (Keys.Control | Keys.Alt | Keys.F5))
+         {
+            PayCashDebt_Butn_Click(null, null);
+         }
+         else if (keyData == (Keys.Control | Keys.Alt | Keys.F6))
+         {
+            PayPosDebt_Butn_Click(null, null);
+         }
+         else if(keyData == Keys.F8)
+         {
+            PymtBnDebt_Click(null, null);
+         }
+
 
          job.Status = StatusType.Successful;
       }
@@ -1169,6 +1185,9 @@ namespace System.Scsc.Ui.Common
 
             // 1396/10/13 * نمایش لیست دوره های ثبت نام شده
             MbspBs.DataSource = iScsc.Member_Ships.Where(mb => mb.FIGH_FILE_NO == fileno && mb.RECT_CODE == "004" && (mb.TYPE == "001" || mb.TYPE == "005"));
+            
+            // مبلغ بدهی
+            PayDebtAmnt_Txt.Text = DebtDnrm_TextBox.Text;
 
             if(isFirstLoaded) goto commandfinished;
 
@@ -1183,7 +1202,7 @@ namespace System.Scsc.Ui.Common
             if (VPosBs1.List.OfType<Data.V_Pos_Device>().FirstOrDefault(p => p.GTWY_MAC_ADRS == HostNameInfo.Attribute("cpu").Value) != null)
                Pos_Lov.EditValue = VPosBs1.List.OfType<Data.V_Pos_Device>().FirstOrDefault(p => p.GTWY_MAC_ADRS == HostNameInfo.Attribute("cpu").Value).PSID;
 
-
+            
             /*vF_TestBs.DataSource = iScsc.VF_Test(fileno);
             vF_CampititionBs.DataSource = iScsc.VF_Campitition(fileno);
             vF_Physical_FitnessBs.DataSource = iScsc.VF_Physical_Fitness(fileno).OrderByDescending(p => p.RWNO);
@@ -1301,6 +1320,117 @@ namespace System.Scsc.Ui.Common
                   )
                );
             }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         job.Status = StatusType.Successful;
+      }
+
+      /// <summary>
+      /// Code 21
+      /// </summary>
+      /// <param name="job"></param>
+      private void Payg_Oprt_F(Job job)
+      {
+         try
+         {
+            XElement RcevXData = job.Input as XElement;            
+
+            var regl = iScsc.Regulations.FirstOrDefault(r => r.TYPE == "001" && r.REGL_STAT == "002");
+
+            var paydebt = Convert.ToInt64(RcevXData.Attribute("amnt").Value);
+            var termno = RcevXData.Attribute("termno").Value;
+            var tranno = RcevXData.Attribute("tranno").Value;
+            var cardno = RcevXData.Attribute("cardno").Value;
+            var flowno = RcevXData.Attribute("flowno").Value;
+            var refno = RcevXData.Attribute("refno").Value;
+            var actndate = RcevXData.Attribute("actndate").Value;
+
+            if (regl.AMNT_TYPE == "002")
+               paydebt /= 10;
+
+            foreach (var pymt in vF_SavePaymentsBs.List.OfType<Data.VF_Save_PaymentsResult>().Where(p => ((p.SUM_EXPN_PRIC + p.SUM_EXPN_EXTR_PRCT) - (p.SUM_RCPT_EXPN_PRIC + p.SUM_PYMT_DSCN_DNRM)) > 0).OrderBy(p => p.PYMT_CRET_DATE.Value.Date))
+            {
+               var debt = (long)((pymt.SUM_EXPN_PRIC + pymt.SUM_EXPN_EXTR_PRCT) - (pymt.SUM_RCPT_EXPN_PRIC + pymt.SUM_PYMT_DSCN_DNRM));
+               long amnt = 0;
+
+               if (debt > paydebt)
+                  // اگر بدهی صورتحساب بیشتر از مبلغ پرداخت مشتری باشد
+                  amnt = paydebt;
+               else
+                  // اگر بدهی صورتحساب با مبلغ پرداخت مشتری مساوی یا کمتر باشد
+                  amnt = debt;
+
+               iScsc.PAY_MSAV_P(
+                  new XElement("Payment",
+                     new XAttribute("actntype", "CheckoutWithPOS"),
+                     new XElement("Insert",
+                        new XElement("Payment_Method",
+                           new XAttribute("cashcode", pymt.CASH_CODE),
+                           new XAttribute("rqstrqid", pymt.RQID),
+                           new XAttribute("amnt", amnt),
+                           new XAttribute("rcptmtod", "003"),
+                           new XAttribute("termno", termno),
+                           new XAttribute("tranno", tranno),
+                           new XAttribute("cardno", cardno),
+                           new XAttribute("flowno", flowno),
+                           new XAttribute("refno", refno),
+                           new XAttribute("actndate", actndate)
+                        )
+                     )
+                  )
+               );
+
+               paydebt -= amnt;
+               if (paydebt == 0) break;
+            } 
+            //// این گزینه برای حالتی می باشد که کل مبلغ پرداخت به صورت کامل روی دستگاه پایانه فروش قرار میگیرد
+            //if (UsePos_Cb.Checked)
+            //{
+            //   iScsc.PAY_MSAV_P(
+            //      new XElement("Payment",
+            //         new XAttribute("actntype", "CheckoutWithPOS"),
+            //         new XElement("Insert",
+            //            new XElement("Payment_Method",
+            //               new XAttribute("cashcode", cashcode),
+            //               new XAttribute("rqstrqid", rqid),
+            //               new XAttribute("amnt", amnt),
+            //               new XAttribute("termno", termno),
+            //               new XAttribute("tranno", tranno),
+            //               new XAttribute("cardno", cardno),
+            //               new XAttribute("flowno", flowno),
+            //               new XAttribute("refno", refno),
+            //               new XAttribute("actndate", actndate)
+            //            )
+            //         )
+            //      )
+            //   );
+            //}
+            //// این گزینه برای پرداختی پایانه ای هست که به صورت کامل پرداخت نمی شود
+            //else
+            //{
+            //   iScsc.PAY_MSAV_P(
+            //      new XElement("Payment",
+            //         new XAttribute("actntype", "InsertUpdate"),
+            //         new XElement("Insert",
+            //            new XElement("Payment_Method",
+            //               new XAttribute("cashcode", cashcode),
+            //               new XAttribute("rqstrqid", rqid),
+            //               new XAttribute("rcptmtod", "003"),
+            //               new XAttribute("amnt", amnt),
+            //               new XAttribute("termno", termno),
+            //               new XAttribute("tranno", tranno),
+            //               new XAttribute("cardno", cardno),
+            //               new XAttribute("flowno", flowno),
+            //               new XAttribute("refno", refno),
+            //               new XAttribute("actndate", actndate)
+            //            )
+            //         )
+            //      )
+            //   );
+            //}
          }
          catch (Exception exc)
          {

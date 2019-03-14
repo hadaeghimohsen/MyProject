@@ -78,7 +78,7 @@ namespace MyProject.Commons.Ui
             if (!Stuff.PingNetwork("pingtest.com"))
             {
                MainMap.Manager.Mode = AccessMode.CacheOnly;
-               MessageBox.Show("شبکه اینرنتی شما غیرفعال می باشد، برای نمایش نقشه از اطلاعات از پیش ثبت شده استفاده کنید", "GMap.NET", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+               //MessageBox.Show("شبکه اینرنتی شما غیرفعال می باشد، برای نمایش نقشه از اطلاعات از پیش ثبت شده استفاده کنید", "GMap.NET", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
             // config map         

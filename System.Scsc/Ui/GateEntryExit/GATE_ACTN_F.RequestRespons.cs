@@ -116,7 +116,7 @@ namespace System.Scsc.Ui.GateEntryExit
                switch (control.CNTL_NAME.ToLower())
                {
                   case "gateactntitl_lb":
-                     GateActnTitl_Lb.Text = control.LABL_TEXT;
+                     //GateActnTitl_Lb.Text = control.LABL_TEXT;
                      //GateActnTitl_Lb.Text = control.LABL_TEXT; // ToolTip
                      //GateActnTitl_Lb.Text = control.LABL_TEXT; // Place Holder
                      break;
@@ -131,7 +131,7 @@ namespace System.Scsc.Ui.GateEntryExit
                      //CloseGate_Butn.Text = control.LABL_TEXT; // Place Holder
                      break;
                   case "back_butn":
-                     Back_Butn.Text = control.LABL_TEXT;
+                     //Back_Butn.Text = control.LABL_TEXT;
                      //Back_Butn.Text = control.LABL_TEXT; // ToolTip
                      //Back_Butn.Text = control.LABL_TEXT; // Place Holder
                      break;

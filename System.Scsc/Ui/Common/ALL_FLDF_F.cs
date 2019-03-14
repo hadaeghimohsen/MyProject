@@ -1999,9 +1999,174 @@ namespace System.Scsc.Ui.Common
          catch (Exception exc)
          {
             MessageBox.Show(exc.Message);
-         }         
+         }
       }
 
-      
+      private void PayCashDebt_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var figh = iScsc.Fighters.FirstOrDefault(f => f.FILE_NO == fileno);
+            // اگر مشترکی وجود نداشته باشد
+            if (figh == null) return;
+            // اگر مشتری بدهی نداشته باشد
+            if (figh.DEBT_DNRM == 0) return;
+            // اگر مشتری در فرآیندی قفل باشد اجازه پرداخت بدهی وجود ندارد
+            if (figh.FIGH_STAT == "001") return;
+            
+            var paydebt = Convert.ToInt64(PayDebtAmnt_Txt.Text.Replace(",", ""));
+            // مبلغ پرداخت بیشتر از مبلغ بدهی می باشد
+            if (paydebt > figh.DEBT_DNRM) return;
+
+
+            foreach (var pymt in vF_SavePaymentsBs.List.OfType<Data.VF_Save_PaymentsResult>().Where(p => ((p.SUM_EXPN_PRIC + p.SUM_EXPN_EXTR_PRCT) - (p.SUM_RCPT_EXPN_PRIC + p.SUM_PYMT_DSCN_DNRM)) > 0).OrderBy(p => p.PYMT_CRET_DATE.Value.Date))
+            {
+               var debt = (long)((pymt.SUM_EXPN_PRIC + pymt.SUM_EXPN_EXTR_PRCT) - (pymt.SUM_RCPT_EXPN_PRIC + pymt.SUM_PYMT_DSCN_DNRM));
+               long amnt = 0;
+               
+               if (debt > paydebt)
+                  // اگر بدهی صورتحساب بیشتر از مبلغ پرداخت مشتری باشد
+                  amnt = paydebt;
+               else
+                  // اگر بدهی صورتحساب با مبلغ پرداخت مشتری مساوی یا کمتر باشد
+                  amnt = debt;
+
+               iScsc.PAY_MSAV_P(
+                  new XElement("Payment",
+                     new XAttribute("actntype", "InsertUpdate"),
+                     new XElement("Insert",
+                        new XElement("Payment_Method",
+                           new XAttribute("cashcode", pymt.CASH_CODE),
+                           new XAttribute("rqstrqid", pymt.RQID),
+                           new XAttribute("amnt", amnt),
+                           new XAttribute("rcptmtod", "001"),
+                           new XAttribute("actndate", DateTime.Now.Date.ToString("yyyy-MM-dd"))
+                        )
+                     )
+                  )
+               );
+
+               paydebt -= amnt;
+               if (paydebt == 0) break;
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void PayPosDebt_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var figh = iScsc.Fighters.FirstOrDefault(f => f.FILE_NO == fileno);
+            // اگر مشترکی وجود نداشته باشد
+            if (figh == null) return;
+            // اگر مشتری بدهی نداشته باشد
+            if (figh.DEBT_DNRM == 0) return;
+            // اگر مشتری در فرآیندی قفل باشد اجازه پرداخت بدهی وجود ندارد
+            if (figh.FIGH_STAT == "001") return;
+
+            var paydebt = Convert.ToInt64(PayDebtAmnt_Txt.Text.Replace(",", ""));
+            // مبلغ پرداخت بیشتر از مبلغ بدهی می باشد
+            if (paydebt > figh.DEBT_DNRM) return;
+
+            if (VPosBs1.List.Count == 0) UsePos_Cb.Checked = false;
+
+            if (UsePos_Cb.Checked)
+            {
+               var regl = iScsc.Regulations.FirstOrDefault(r => r.TYPE == "001" && r.REGL_STAT == "002");
+
+               long psid;
+               if (Pos_Lov.EditValue == null)
+               {
+                  var posdflts = VPosBs1.List.OfType<Data.V_Pos_Device>().Where(p => p.POS_DFLT == "002");
+                  if (posdflts.Count() == 1)
+                     Pos_Lov.EditValue = psid = posdflts.FirstOrDefault().PSID;
+                  else
+                  {
+                     Pos_Lov.Focus();
+                     return;
+                  }
+               }
+               else
+               {
+                  psid = (long)Pos_Lov.EditValue;
+               }
+
+               if (regl.AMNT_TYPE == "002")
+                  paydebt = paydebt * 10;
+
+               // از این گزینه برای این استفاده میکنیم که بعد از پرداخت نباید درخواست ثبت نام پایانی شود
+               UsePos_Cb.Checked = false;
+
+               _DefaultGateway.Gateway(
+                  new Job(SendType.External, "localhost",
+                     new List<Job>
+                     {
+                        new Job(SendType.External, "Commons",
+                           new List<Job>
+                           {
+                              new Job(SendType.Self, 34 /* Execute PosPayment */)
+                              {
+                                 Input = 
+                                    new XElement("PosRequest",
+                                       new XAttribute("psid", psid),
+                                       new XAttribute("subsys", 5),
+                                       new XAttribute("rqid", 0),
+                                       new XAttribute("rqtpcode", ""),
+                                       new XAttribute("router", GetType().Name),
+                                       new XAttribute("callback", 21),
+                                       new XAttribute("amnt", paydebt )
+                                    )
+                              }
+                           }
+                        )
+                     }
+                  )
+               );
+
+               UsePos_Cb.Checked = true;
+            }
+            else
+            {
+               foreach (var pymt in vF_SavePaymentsBs.List.OfType<Data.VF_Save_PaymentsResult>().Where(p => ((p.SUM_EXPN_PRIC + p.SUM_EXPN_EXTR_PRCT) - (p.SUM_RCPT_EXPN_PRIC + p.SUM_PYMT_DSCN_DNRM)) > 0).OrderBy(p => p.PYMT_CRET_DATE.Value.Date))
+               {
+                  var debt = (long)((pymt.SUM_EXPN_PRIC + pymt.SUM_EXPN_EXTR_PRCT) - (pymt.SUM_RCPT_EXPN_PRIC + pymt.SUM_PYMT_DSCN_DNRM));
+                  long amnt = 0;
+
+                  if (debt > paydebt)
+                     // اگر بدهی صورتحساب بیشتر از مبلغ پرداخت مشتری باشد
+                     amnt = paydebt;
+                  else
+                     // اگر بدهی صورتحساب با مبلغ پرداخت مشتری مساوی یا کمتر باشد
+                     amnt = debt;
+
+                  iScsc.PAY_MSAV_P(
+                     new XElement("Payment",
+                        new XAttribute("actntype", "InsertUpdate"),
+                        new XElement("Insert",
+                           new XElement("Payment_Method",
+                              new XAttribute("cashcode", pymt.CASH_CODE),
+                              new XAttribute("rqstrqid", pymt.RQID),
+                              new XAttribute("amnt", amnt),
+                              new XAttribute("rcptmtod", "003"),
+                              new XAttribute("actndate", DateTime.Now.Date.ToString("yyyy-MM-dd"))
+                           )
+                        )
+                     )
+                  );
+
+                  paydebt -= amnt;
+                  if (paydebt == 0) break;
+               }               
+            }            
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }      
    }
 }

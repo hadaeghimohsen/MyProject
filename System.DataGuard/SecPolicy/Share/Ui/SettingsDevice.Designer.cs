@@ -71,8 +71,6 @@
          this.DisConnectFromDev_Butn = new System.Windows.Forms.Button();
          this.ConnectToDev_Butn = new System.Windows.Forms.Button();
          this.FngrIndx_Txt = new System.Windows.Forms.TextBox();
-         this.NewEnroll_Butn = new System.Windows.Forms.Button();
-         this.label11 = new System.Windows.Forms.Label();
          this.label10 = new System.Windows.Forms.Label();
          this.label9 = new System.Windows.Forms.Label();
          this.panel2 = new System.Windows.Forms.Panel();
@@ -80,10 +78,12 @@
          this.MasterDevicePort_Txt = new System.Windows.Forms.TextBox();
          this.label2 = new System.Windows.Forms.Label();
          this.label3 = new System.Windows.Forms.Label();
+         this.NewEnroll_Butn = new System.Windows.Forms.Button();
          this.label8 = new System.Windows.Forms.Label();
          this.label5 = new System.Windows.Forms.Label();
-         this.label1 = new System.Windows.Forms.Label();
+         this.UserName_Txt = new System.Windows.Forms.TextBox();
          this.UserId_Txt = new System.Windows.Forms.TextBox();
+         this.label1 = new System.Windows.Forms.Label();
          this.label16 = new System.Windows.Forms.Label();
          this.label4 = new System.Windows.Forms.Label();
          this.Usb_Rb = new System.Windows.Forms.RadioButton();
@@ -289,9 +289,9 @@
          // SyncAllDev_Butn
          // 
          this.SyncAllDev_Butn.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.SyncAllDev_Butn.Location = new System.Drawing.Point(43, 323);
+         this.SyncAllDev_Butn.Location = new System.Drawing.Point(16, 323);
          this.SyncAllDev_Butn.Name = "SyncAllDev_Butn";
-         this.SyncAllDev_Butn.Size = new System.Drawing.Size(471, 48);
+         this.SyncAllDev_Butn.Size = new System.Drawing.Size(498, 48);
          this.SyncAllDev_Butn.TabIndex = 6;
          this.SyncAllDev_Butn.Text = "ارسال اثر انگشت";
          this.SyncAllDev_Butn.UseVisualStyleBackColor = true;
@@ -299,9 +299,9 @@
          // 
          // DelDev_Butn
          // 
-         this.DelDev_Butn.Location = new System.Drawing.Point(43, 294);
+         this.DelDev_Butn.Location = new System.Drawing.Point(16, 294);
          this.DelDev_Butn.Name = "DelDev_Butn";
-         this.DelDev_Butn.Size = new System.Drawing.Size(96, 23);
+         this.DelDev_Butn.Size = new System.Drawing.Size(123, 23);
          this.DelDev_Butn.TabIndex = 10;
          this.DelDev_Butn.Text = "حذف دستگاه";
          this.DelDev_Butn.UseVisualStyleBackColor = true;
@@ -310,12 +310,12 @@
          // gridControl1
          // 
          this.gridControl1.DataSource = this.DevInfoBs;
-         this.gridControl1.Location = new System.Drawing.Point(43, 49);
+         this.gridControl1.Location = new System.Drawing.Point(16, 49);
          this.gridControl1.MainView = this.gridView1;
          this.gridControl1.Name = "gridControl1";
          this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemTimeEdit1});
-         this.gridControl1.Size = new System.Drawing.Size(549, 239);
+         this.gridControl1.Size = new System.Drawing.Size(576, 239);
          this.gridControl1.TabIndex = 9;
          this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -401,7 +401,7 @@
          this.label14.Name = "label14";
          this.label14.Size = new System.Drawing.Size(72, 48);
          this.label14.TabIndex = 1;
-         this.label14.Text = "گام ششم";
+         this.label14.Text = "گام پنجم";
          this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
          // 
          // label12
@@ -412,9 +412,9 @@
          this.label12.ForeColor = System.Drawing.Color.Green;
          this.label12.Location = new System.Drawing.Point(531, 24);
          this.label12.Name = "label12";
-         this.label12.Size = new System.Drawing.Size(57, 14);
+         this.label12.Size = new System.Drawing.Size(64, 14);
          this.label12.TabIndex = 1;
-         this.label12.Text = "گام پنجم";
+         this.label12.Text = "گام چهارم";
          this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
          // 
          // ReadFromFile_Butn
@@ -480,14 +480,13 @@
          this.groupBox1.Controls.Add(this.DisConnectFromDev_Butn);
          this.groupBox1.Controls.Add(this.ConnectToDev_Butn);
          this.groupBox1.Controls.Add(this.FngrIndx_Txt);
-         this.groupBox1.Controls.Add(this.NewEnroll_Butn);
-         this.groupBox1.Controls.Add(this.label11);
          this.groupBox1.Controls.Add(this.label10);
          this.groupBox1.Controls.Add(this.label9);
          this.groupBox1.Controls.Add(this.panel2);
          this.groupBox1.Controls.Add(this.label5);
-         this.groupBox1.Controls.Add(this.label1);
+         this.groupBox1.Controls.Add(this.UserName_Txt);
          this.groupBox1.Controls.Add(this.UserId_Txt);
+         this.groupBox1.Controls.Add(this.label1);
          this.groupBox1.Controls.Add(this.label16);
          this.groupBox1.Controls.Add(this.label4);
          this.groupBox1.Controls.Add(this.Usb_Rb);
@@ -509,7 +508,7 @@
          this.panel3.Controls.Add(this.cmbIdx);
          this.panel3.Controls.Add(this.label15);
          this.panel3.Controls.Add(this.label13);
-         this.panel3.Location = new System.Drawing.Point(9, 237);
+         this.panel3.Location = new System.Drawing.Point(9, 182);
          this.panel3.Name = "panel3";
          this.panel3.Size = new System.Drawing.Size(249, 290);
          this.panel3.TabIndex = 6;
@@ -570,7 +569,8 @@
          // DisConnectFromDev_Butn
          // 
          this.DisConnectFromDev_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.DisConnectFromDev_Butn.Location = new System.Drawing.Point(39, 208);
+         this.DisConnectFromDev_Butn.Enabled = false;
+         this.DisConnectFromDev_Butn.Location = new System.Drawing.Point(11, 153);
          this.DisConnectFromDev_Butn.Name = "DisConnectFromDev_Butn";
          this.DisConnectFromDev_Butn.Size = new System.Drawing.Size(100, 23);
          this.DisConnectFromDev_Butn.TabIndex = 5;
@@ -581,7 +581,7 @@
          // ConnectToDev_Butn
          // 
          this.ConnectToDev_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.ConnectToDev_Butn.Location = new System.Drawing.Point(140, 208);
+         this.ConnectToDev_Butn.Location = new System.Drawing.Point(112, 153);
          this.ConnectToDev_Butn.Name = "ConnectToDev_Butn";
          this.ConnectToDev_Butn.Size = new System.Drawing.Size(85, 23);
          this.ConnectToDev_Butn.TabIndex = 5;
@@ -591,36 +591,12 @@
          // 
          // FngrIndx_Txt
          // 
-         this.FngrIndx_Txt.Location = new System.Drawing.Point(147, 561);
+         this.FngrIndx_Txt.Location = new System.Drawing.Point(147, 506);
          this.FngrIndx_Txt.Name = "FngrIndx_Txt";
          this.FngrIndx_Txt.Size = new System.Drawing.Size(22, 22);
          this.FngrIndx_Txt.TabIndex = 2;
          this.FngrIndx_Txt.Text = "6";
          this.FngrIndx_Txt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-         // 
-         // NewEnroll_Butn
-         // 
-         this.NewEnroll_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.NewEnroll_Butn.Location = new System.Drawing.Point(69, 589);
-         this.NewEnroll_Butn.Name = "NewEnroll_Butn";
-         this.NewEnroll_Butn.Size = new System.Drawing.Size(100, 23);
-         this.NewEnroll_Butn.TabIndex = 5;
-         this.NewEnroll_Butn.Text = "ثبت انگشت";
-         this.NewEnroll_Butn.UseVisualStyleBackColor = true;
-         this.NewEnroll_Butn.Click += new System.EventHandler(this.NewEnroll_Butn_Click);
-         // 
-         // label11
-         // 
-         this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.label11.AutoSize = true;
-         this.label11.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.label11.ForeColor = System.Drawing.Color.Green;
-         this.label11.Location = new System.Drawing.Point(174, 593);
-         this.label11.Name = "label11";
-         this.label11.Size = new System.Drawing.Size(64, 14);
-         this.label11.TabIndex = 1;
-         this.label11.Text = "گام چهارم";
-         this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
          // 
          // label10
          // 
@@ -628,11 +604,11 @@
          this.label10.AutoSize = true;
          this.label10.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.label10.ForeColor = System.Drawing.Color.Green;
-         this.label10.Location = new System.Drawing.Point(9, 536);
+         this.label10.Location = new System.Drawing.Point(9, 481);
          this.label10.Name = "label10";
-         this.label10.Size = new System.Drawing.Size(58, 14);
+         this.label10.Size = new System.Drawing.Size(52, 14);
          this.label10.TabIndex = 1;
-         this.label10.Text = "گام سوم";
+         this.label10.Text = "گام دوم";
          this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
          // 
          // label9
@@ -641,11 +617,11 @@
          this.label9.AutoSize = true;
          this.label9.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.label9.ForeColor = System.Drawing.Color.Green;
-         this.label9.Location = new System.Drawing.Point(180, 187);
+         this.label9.Location = new System.Drawing.Point(203, 157);
          this.label9.Name = "label9";
-         this.label9.Size = new System.Drawing.Size(52, 14);
+         this.label9.Size = new System.Drawing.Size(50, 14);
          this.label9.TabIndex = 1;
-         this.label9.Text = "گام دوم";
+         this.label9.Text = "گام اول";
          this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
          // 
          // panel2
@@ -655,11 +631,13 @@
          this.panel2.Controls.Add(this.MasterDevicePort_Txt);
          this.panel2.Controls.Add(this.label2);
          this.panel2.Controls.Add(this.label3);
+         this.panel2.Controls.Add(this.NewEnroll_Butn);
          this.panel2.Controls.Add(this.label8);
-         this.panel2.Location = new System.Drawing.Point(9, 78);
+         this.panel2.Location = new System.Drawing.Point(9, 48);
          this.panel2.Name = "panel2";
          this.panel2.Size = new System.Drawing.Size(249, 75);
          this.panel2.TabIndex = 3;
+         this.panel2.Visible = false;
          // 
          // MasterDeviceIP_Txt
          // 
@@ -697,14 +675,26 @@
          this.label3.TabIndex = 1;
          this.label3.Text = "Port";
          // 
+         // NewEnroll_Butn
+         // 
+         this.NewEnroll_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.NewEnroll_Butn.Location = new System.Drawing.Point(166, 41);
+         this.NewEnroll_Butn.Name = "NewEnroll_Butn";
+         this.NewEnroll_Butn.Size = new System.Drawing.Size(77, 24);
+         this.NewEnroll_Butn.TabIndex = 5;
+         this.NewEnroll_Butn.Text = "ثبت انگشت";
+         this.NewEnroll_Butn.UseVisualStyleBackColor = true;
+         this.NewEnroll_Butn.Visible = false;
+         this.NewEnroll_Butn.Click += new System.EventHandler(this.NewEnroll_Butn_Click);
+         // 
          // label8
          // 
          this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.label8.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.label8.ForeColor = System.Drawing.Color.Green;
-         this.label8.Location = new System.Drawing.Point(171, 14);
+         this.label8.Location = new System.Drawing.Point(194, 14);
          this.label8.Name = "label8";
-         this.label8.Size = new System.Drawing.Size(52, 50);
+         this.label8.Size = new System.Drawing.Size(52, 22);
          this.label8.TabIndex = 1;
          this.label8.Text = "گام اول";
          this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -712,33 +702,39 @@
          // label5
          // 
          this.label5.AutoSize = true;
-         this.label5.Location = new System.Drawing.Point(175, 564);
+         this.label5.Location = new System.Drawing.Point(175, 509);
          this.label5.Name = "label5";
          this.label5.Size = new System.Drawing.Size(88, 14);
          this.label5.TabIndex = 1;
          this.label5.Text = "شماره انگشت :";
          // 
-         // label1
+         // UserName_Txt
          // 
-         this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.label1.AutoSize = true;
-         this.label1.Location = new System.Drawing.Point(195, 26);
-         this.label1.Name = "label1";
-         this.label1.Size = new System.Drawing.Size(52, 14);
-         this.label1.TabIndex = 1;
-         this.label1.Text = "نوع ارتباط";
+         this.UserName_Txt.Location = new System.Drawing.Point(12, 534);
+         this.UserName_Txt.Name = "UserName_Txt";
+         this.UserName_Txt.Size = new System.Drawing.Size(157, 22);
+         this.UserName_Txt.TabIndex = 2;
          // 
          // UserId_Txt
          // 
-         this.UserId_Txt.Location = new System.Drawing.Point(69, 533);
+         this.UserId_Txt.Location = new System.Drawing.Point(69, 478);
          this.UserId_Txt.Name = "UserId_Txt";
          this.UserId_Txt.Size = new System.Drawing.Size(100, 22);
          this.UserId_Txt.TabIndex = 2;
          // 
+         // label1
+         // 
+         this.label1.AutoSize = true;
+         this.label1.Location = new System.Drawing.Point(175, 537);
+         this.label1.Name = "label1";
+         this.label1.Size = new System.Drawing.Size(65, 14);
+         this.label1.TabIndex = 1;
+         this.label1.Text = "نام کاربری :";
+         // 
          // label16
          // 
          this.label16.AutoSize = true;
-         this.label16.Location = new System.Drawing.Point(91, 564);
+         this.label16.Location = new System.Drawing.Point(91, 509);
          this.label16.Name = "label16";
          this.label16.Size = new System.Drawing.Size(51, 14);
          this.label16.TabIndex = 1;
@@ -747,7 +743,7 @@
          // label4
          // 
          this.label4.AutoSize = true;
-         this.label4.Location = new System.Drawing.Point(175, 536);
+         this.label4.Location = new System.Drawing.Point(175, 481);
          this.label4.Name = "label4";
          this.label4.Size = new System.Drawing.Size(64, 14);
          this.label4.TabIndex = 1;
@@ -758,7 +754,7 @@
          this.Usb_Rb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.Usb_Rb.AutoSize = true;
          this.Usb_Rb.Checked = true;
-         this.Usb_Rb.Location = new System.Drawing.Point(182, 159);
+         this.Usb_Rb.Location = new System.Drawing.Point(182, 129);
          this.Usb_Rb.Name = "Usb_Rb";
          this.Usb_Rb.Size = new System.Drawing.Size(47, 18);
          this.Usb_Rb.TabIndex = 0;
@@ -771,12 +767,13 @@
          // 
          this.Network_Rb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.Network_Rb.AutoSize = true;
-         this.Network_Rb.Location = new System.Drawing.Point(157, 54);
+         this.Network_Rb.Location = new System.Drawing.Point(157, 24);
          this.Network_Rb.Name = "Network_Rb";
          this.Network_Rb.Size = new System.Drawing.Size(72, 18);
          this.Network_Rb.TabIndex = 0;
          this.Network_Rb.Text = "Network";
          this.Network_Rb.UseVisualStyleBackColor = true;
+         this.Network_Rb.CheckedChanged += new System.EventHandler(this.Usb_Rb_CheckedChanged);
          // 
          // tp_003
          // 
@@ -1139,7 +1136,6 @@
       private Windows.Forms.TextBox MasterDevicePort_Txt;
       private Windows.Forms.Label label2;
       private Windows.Forms.Label label3;
-      private Windows.Forms.Label label1;
       private Windows.Forms.RadioButton Usb_Rb;
       private Windows.Forms.RadioButton Network_Rb;
       private Windows.Forms.Button ConnectToDev_Butn;
@@ -1165,7 +1161,6 @@
       private Windows.Forms.Button NewEnroll_Butn;
       private Windows.Forms.Label label14;
       private Windows.Forms.Label label12;
-      private Windows.Forms.Label label11;
       private Windows.Forms.Label label10;
       private Windows.Forms.Label label9;
       private Windows.Forms.Label label8;
@@ -1178,6 +1173,8 @@
       private Windows.Forms.Label label16;
       private Windows.Forms.PictureBox picFPImg;
       private Windows.Forms.RichTextBox textRes;
+      private Windows.Forms.TextBox UserName_Txt;
+      private Windows.Forms.Label label1;
 
    }
 }

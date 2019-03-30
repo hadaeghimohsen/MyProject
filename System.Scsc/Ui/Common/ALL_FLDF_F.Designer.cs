@@ -7372,7 +7372,7 @@
          this.RqstBnEditPblc.Image = global::System.Scsc.Properties.Resources.IMAGE_1055;
          this.RqstBnEditPblc.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
          this.RqstBnEditPblc.Name = "RqstBnEditPblc";
-         this.RqstBnEditPblc.ShortcutKeys = System.Windows.Forms.Keys.F3;
+         this.RqstBnEditPblc.ShortcutKeys = System.Windows.Forms.Keys.F4;
          this.RqstBnEditPblc.Size = new System.Drawing.Size(263, 54);
          this.RqstBnEditPblc.Text = "اصلاح اطلاعات";
          this.RqstBnEditPblc.Click += new System.EventHandler(this.Btn_Pblc_Click);
@@ -7709,7 +7709,7 @@
          this.حضوروغیابToolStripMenuItem1.Image = global::System.Scsc.Properties.Resources.IMAGE_1201;
          this.حضوروغیابToolStripMenuItem1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
          this.حضوروغیابToolStripMenuItem1.Name = "حضوروغیابToolStripMenuItem1";
-         this.حضوروغیابToolStripMenuItem1.Size = new System.Drawing.Size(184, 54);
+         this.حضوروغیابToolStripMenuItem1.Size = new System.Drawing.Size(173, 54);
          this.حضوروغیابToolStripMenuItem1.Text = "حضور و غیاب";
          // 
          // ExcpAttnActv_Butn

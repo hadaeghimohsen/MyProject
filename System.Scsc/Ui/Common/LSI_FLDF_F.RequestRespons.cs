@@ -151,6 +151,14 @@ namespace System.Scsc.Ui.Common
          {
             PymtBnDebt_Click(null, null);
          }
+         else if(keyData == Keys.F5)
+         {
+            RqstBnNewMbsp_Click(null, null);
+         }
+         else if(keyData == Keys.F4)
+         {
+            RqstBnEditPblc_Click(null, null);
+         }
 
          job.Status = StatusType.Successful;
       }

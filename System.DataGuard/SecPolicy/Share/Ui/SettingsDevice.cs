@@ -411,10 +411,10 @@ namespace System.DataGuard.SecPolicy.Share.Ui
                   dev.Status = "Connected";
                   var result = iFngrSlav.SSR_SetUserInfo(1, UserId_Txt.Text, UserName_Txt.Text, "", 0, true);
                   result = iFngrSlav.SetUserTmpExStr(1, UserId_Txt.Text, Convert.ToInt32(FngrIndx_Txt.Text), flag, tmpData);
-                  if(result)
-                  {
-                     MessageBox.Show("Enroll Successfully  done");
-                  }
+                  //if(result)
+                  //{
+                  //   MessageBox.Show("Enroll Successfully  done");
+                  //}
                }
             }
             MessageBox.Show("ارسال اثر انگشت با موفقیت انجام شد");

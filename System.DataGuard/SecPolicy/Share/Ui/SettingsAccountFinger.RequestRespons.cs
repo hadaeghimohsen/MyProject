@@ -4,18 +4,20 @@ using System.JobRouting.Jobs;
 using System.JobRouting.Routering;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
 
-namespace System.DataGuard.Login.Ui
+namespace System.DataGuard.SecPolicy.Share.Ui
 {
-   partial class LastUserLogin : ISendRequest
+   partial class SettingsAccountFinger : ISendRequest
    {
       public IRouter _DefaultGateway { get; set; }
-      private string ConnectionString;
       private Data.iProjectDataContext iProject;
+      private string ConnectionString;
       private string CurrentUser;
+
 
       public void SendRequest(Job job)
       {
@@ -37,16 +39,13 @@ namespace System.DataGuard.Login.Ui
                UnPaint(job);
                break;
             case 05:
-            case 06:
+               CheckSecurity(job);
                break;
             case 07:
                LoadData(job);
                break;
-            case 08:
-               LoadDataAsync(job);
-               break;
             case 10:
-               ActionCallForm(job);
+               ActionCallWindow(job);
                break;
             default:
                break;
@@ -63,29 +62,20 @@ namespace System.DataGuard.Login.Ui
 
          if (keyData == Keys.F1)
          {
-            job.Next =
-               new Job(SendType.External, "Commons",
-                  new List<Job>
-                  {
-                     new Job(SendType.Self, 03 /* Execute DoWork4HelpHandling */)
-                     {
-                        Input = @".\Document\Login\Login.html"
-                     }
-                  });
+
          }
-         else if (keyData == Keys.F2)
+         else if (keyData == Keys.Escape)
          {
-            job.Next =
-               new Job(SendType.SelfToUserInterface, "Login", 02 /* Execute Set */);
+            Ts_FingerDeviceStat.IsOn = false;
+
+            job.Next = new Job(SendType.SelfToUserInterface, GetType().Name, 04 /* Execute UnPaint */);
+               //new Job(SendType.SelfToUserInterface, GetType().Name, 06 /* Execute CloseDrawer */)
+               //{
+               //   Next = new Job(SendType.SelfToUserInterface, GetType().Name, 04 /* Execute UnPaint */)
+               //};
          }
-         else if(keyData == (Keys.Control | Keys.Back))
-         {
-            SwitchUser_RondButn_Click(null, null);
-         }
-         //else if (keyData == Keys.Escape)
-         //{
-         //   job.Next = new Job(SendType.SelfToUserInterface, GetType().Name, 04 /* Execute UnPaint */);            
-         //}
+
+
          job.Status = StatusType.Successful;
       }
 
@@ -94,8 +84,17 @@ namespace System.DataGuard.Login.Ui
       /// </summary>
       /// <param name="job"></param>
       private void Get(Job job)
-      {         
-
+      {
+         var xinput = job.Input as XElement;
+         if (xinput != null)
+         {
+            switch (xinput.Attribute("need").Value)
+            {
+               case "imageprofile":
+                  job.Output = ImageAccount_Pb.Image;
+                  break;
+            }
+         }
          job.Status = StatusType.Successful;
       }
 
@@ -111,16 +110,17 @@ namespace System.DataGuard.Login.Ui
          _DefaultGateway.Gateway(
             GetConnectionString
          );
-         
-         CurrentUser = "scott";
+
+         var GetUserAccount =
+            new Job(SendType.External, "Localhost", "Commons", 12 /* Execute DoWork4RoleSettings4CurrentUser */, SendType.Self);
+
+         _DefaultGateway.Gateway(
+            GetUserAccount
+         );
+         CurrentUser = GetUserAccount.Output.ToString();
 
          ConnectionString = GetConnectionString.Output.ToString();
          iProject = new Data.iProjectDataContext(GetConnectionString.Output.ToString());
-
-         _DefaultGateway.Gateway(
-            new Job(SendType.External, "Localhost", "Commons", 09 /* Execute LangChangToEnglish */, SendType.Self)
-         );
-
          job.Status = StatusType.Successful;
       }
 
@@ -134,13 +134,12 @@ namespace System.DataGuard.Login.Ui
             new List<Job>
             {
                new Job(SendType.SelfToUserInterface, "Wall", 17 /* Execute ResetUi */),
-               new Job(SendType.SelfToUserInterface, "Wall", 15 /* Execute Push */) {  Input = new List<object> { "DataGuard:Login:" + GetType().Name, this }  },
+               new Job(SendType.SelfToUserInterface, "Wall", 15 /* Execute Push */) {  Input = new List<object> { "DataGuard:SecurityPolicy:" + GetType().Name, this }  },
                new Job(SendType.SelfToUserInterface, "Wall", 01 /* Execute PastOnWall */){ Input = this }               
             });
          _DefaultGateway.Gateway(_Paint);
 
          Enabled = true;
-
          job.Status = StatusType.Successful;
       }
 
@@ -159,73 +158,54 @@ namespace System.DataGuard.Login.Ui
       }
 
       /// <summary>
+      /// Code 05
+      /// </summary>
+      /// <param name="job"></param>
+      private void CheckSecurity(Job job)
+      {
+         Job _InteractWithJob =
+            new Job(SendType.External, "Localhost",
+               new List<Job>
+               {
+                  new Job(SendType.External, "Commons",
+                     new List<Job>
+                     {
+                        #region Access Privilege
+                        new Job(SendType.Self, 07 /* Execute DoWork4AccessPrivilege */)
+                        {
+                           Input = new List<string> {"<Privilege>34</Privilege><Sub_Sys>0</Sub_Sys>", "DataGuard"},
+                           AfterChangedOutput = new Action<object>((output) => {
+                              if ((bool)output)
+                                 return;
+                              #region Show Error
+                              job.Status = StatusType.Failed;
+                              MessageBox.Show(this, "خطا - عدم دسترسی به ردیف 34 امنیتی", "خطا دسترسی");
+                              #endregion                           
+                           })
+                        },
+                        #endregion                        
+                     })                     
+                  });
+         _DefaultGateway.Gateway(_InteractWithJob);
+      }
+
+      /// <summary>
       /// Code 07
       /// </summary>
       /// <param name="job"></param>
       private void LoadData(Job job)
       {
-         /* Get Mac Address And Send to database for save */
-         _DefaultGateway.Gateway(
-            new Job(SendType.External, "Localhost", "", 03 /* Execute DoWork4SaveHostInfo */, SendType.Self)
-         );         
-      }
-
-      /// <summary>
-      /// Code 08
-      /// </summary>
-      /// <param name="job"></param>
-      private void LoadDataAsync(Job job)
-      {
-         var users = iProject.Users.Where(u => iProject.V_TopNActiveSessionCurrentGateways.Any(a => a.USER_ID == u.ID));
-         int i = 0;
-
          FormHandle = this.Handle;
-         try { bnInit_Click(null, null); }
-         catch { FngrDev_Pb.Visible = false; }
-
-         if(InvokeRequired)
-         {
-            Invoke(
-               new Action(
-                  () =>
-                  {
-                     i = SetUserList(users, i);
-
-                     try
-                     {
-                        Lb_ShowLoginDesc.Text =
-                           iProject.Sub_Systems
-                           .FirstOrDefault(s => s.SUB_SYS == 0
-                           ).SUB_DESC ?? "";
-                     }
-                     catch { Lb_ShowLoginDesc.Text = ""; }
-                  }
-               )
-            );
-         }
-         else
-         {
-            i = SetUserList(users, i);
-            try
-            {
-               Lb_ShowLoginDesc.Text =
-                  iProject.Sub_Systems
-                  .FirstOrDefault(s => s.SUB_SYS == 0
-                  ).SUB_DESC ?? "";
-            }
-            catch { Lb_ShowLoginDesc.Text = ""; }
-         }
          job.Status = StatusType.Successful;
       }
-
-
 
       /// <summary>
       /// Code 10
       /// </summary>
       /// <param name="job"></param>
-      private void ActionCallForm(Job job)
+      private void ActionCallWindow(Job job)
       {
+         SwitchButtonsTabPage(MyUserAccount_Butn);
          job.Status = StatusType.Successful;
       }
    }

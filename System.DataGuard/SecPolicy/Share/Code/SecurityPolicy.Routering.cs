@@ -162,6 +162,9 @@ namespace System.DataGuard.SecPolicy.Share.Code
             case 42:
                DoWork4SettingsSystemTinyLock(job);
                break;
+            case 43:
+               DoWork4SettingsAccountFinger(job);
+               break;
             default:
                job.Status = StatusType.Failed;
                break;
@@ -297,6 +300,9 @@ namespace System.DataGuard.SecPolicy.Share.Code
                break;
             case "SettingsSystemTinyLock":
                _SettingsSystemTinyLock.SendRequest(job);
+               break;
+            case "SettingsAccountFinger":
+               _SettingsAccountFinger.SendRequest(job);
                break;
             default:
                job.Status = StatusType.Failed;

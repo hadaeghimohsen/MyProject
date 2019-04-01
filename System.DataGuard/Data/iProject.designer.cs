@@ -189,6 +189,9 @@ namespace System.DataGuard.Data
     partial void InsertWheater_Engine(Wheater_Engine instance);
     partial void UpdateWheater_Engine(Wheater_Engine instance);
     partial void DeleteWheater_Engine(Wheater_Engine instance);
+    partial void InsertUser_Finger(User_Finger instance);
+    partial void UpdateUser_Finger(User_Finger instance);
+    partial void DeleteUser_Finger(User_Finger instance);
     #endregion
 		
 		public iProjectDataContext() : 
@@ -858,6 +861,14 @@ namespace System.DataGuard.Data
 			get
 			{
 				return this.GetTable<Wheater_Engine>();
+			}
+		}
+		
+		public System.Data.Linq.Table<User_Finger> User_Fingers
+		{
+			get
+			{
+				return this.GetTable<User_Finger>();
 			}
 		}
 		
@@ -16083,6 +16094,8 @@ namespace System.DataGuard.Data
 		
 		private EntitySet<Message_Broad_Setting> _Message_Broad_Settings;
 		
+		private EntitySet<User_Finger> _User_Fingers;
+		
 		private EntityRef<Region> _Region;
 		
     #region Extensibility Method Definitions
@@ -16184,6 +16197,7 @@ namespace System.DataGuard.Data
 			this._Role_Users = new EntitySet<Role_User>(new Action<Role_User>(this.attach_Role_Users), new Action<Role_User>(this.detach_Role_Users));
 			this._Access_User_Datasources = new EntitySet<Access_User_Datasource>(new Action<Access_User_Datasource>(this.attach_Access_User_Datasources), new Action<Access_User_Datasource>(this.detach_Access_User_Datasources));
 			this._Message_Broad_Settings = new EntitySet<Message_Broad_Setting>(new Action<Message_Broad_Setting>(this.attach_Message_Broad_Settings), new Action<Message_Broad_Setting>(this.detach_Message_Broad_Settings));
+			this._User_Fingers = new EntitySet<User_Finger>(new Action<User_Finger>(this.attach_User_Fingers), new Action<User_Finger>(this.detach_User_Fingers));
 			this._Region = default(EntityRef<Region>);
 			OnCreated();
 		}
@@ -17125,6 +17139,19 @@ namespace System.DataGuard.Data
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="User_User_Finger", Storage="_User_Fingers", ThisKey="ID", OtherKey="USER_ID")]
+		public EntitySet<User_Finger> User_Fingers
+		{
+			get
+			{
+				return this._User_Fingers;
+			}
+			set
+			{
+				this._User_Fingers.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Region_User", Storage="_Region", ThisKey="REGN_PRVN_CNTY_CODE,REGN_PRVN_CODE,REGN_CODE", OtherKey="PRVN_CNTY_CODE,PRVN_CODE,CODE", IsForeignKey=true)]
 		public Region Region
 		{
@@ -17238,6 +17265,18 @@ namespace System.DataGuard.Data
 		}
 		
 		private void detach_Message_Broad_Settings(Message_Broad_Setting entity)
+		{
+			this.SendPropertyChanging();
+			entity.User = null;
+		}
+		
+		private void attach_User_Fingers(User_Finger entity)
+		{
+			this.SendPropertyChanging();
+			entity.User = this;
+		}
+		
+		private void detach_User_Fingers(User_Finger entity)
 		{
 			this.SendPropertyChanging();
 			entity.User = null;
@@ -25960,6 +25999,301 @@ namespace System.DataGuard.Data
 		{
 			this.SendPropertyChanging();
 			entity.Wheater_Engine = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="DataGuard.User_Finger")]
+	public partial class User_Finger : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private System.Nullable<long> _USER_ID;
+		
+		private long _CODE;
+		
+		private System.Nullable<short> _FNGR_INDX;
+		
+		private System.Data.Linq.Binary _IMAG;
+		
+		private string _FNGR_TMPL;
+		
+		private string _CRET_BY;
+		
+		private System.Nullable<System.DateTime> _CRET_DATE;
+		
+		private string _MDFY_BY;
+		
+		private System.Nullable<System.DateTime> _MDFY_DATE;
+		
+		private EntityRef<User> _User;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnUSER_IDChanging(System.Nullable<long> value);
+    partial void OnUSER_IDChanged();
+    partial void OnCODEChanging(long value);
+    partial void OnCODEChanged();
+    partial void OnFNGR_INDXChanging(System.Nullable<short> value);
+    partial void OnFNGR_INDXChanged();
+    partial void OnIMAGChanging(System.Data.Linq.Binary value);
+    partial void OnIMAGChanged();
+    partial void OnFNGR_TMPLChanging(string value);
+    partial void OnFNGR_TMPLChanged();
+    partial void OnCRET_BYChanging(string value);
+    partial void OnCRET_BYChanged();
+    partial void OnCRET_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnCRET_DATEChanged();
+    partial void OnMDFY_BYChanging(string value);
+    partial void OnMDFY_BYChanged();
+    partial void OnMDFY_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnMDFY_DATEChanged();
+    #endregion
+		
+		public User_Finger()
+		{
+			this._User = default(EntityRef<User>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_USER_ID", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<long> USER_ID
+		{
+			get
+			{
+				return this._USER_ID;
+			}
+			set
+			{
+				if ((this._USER_ID != value))
+				{
+					if (this._User.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnUSER_IDChanging(value);
+					this.SendPropertyChanging();
+					this._USER_ID = value;
+					this.SendPropertyChanged("USER_ID");
+					this.OnUSER_IDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CODE", DbType="BigInt NOT NULL", IsPrimaryKey=true)]
+		public long CODE
+		{
+			get
+			{
+				return this._CODE;
+			}
+			set
+			{
+				if ((this._CODE != value))
+				{
+					this.OnCODEChanging(value);
+					this.SendPropertyChanging();
+					this._CODE = value;
+					this.SendPropertyChanged("CODE");
+					this.OnCODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FNGR_INDX", DbType="SmallInt", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<short> FNGR_INDX
+		{
+			get
+			{
+				return this._FNGR_INDX;
+			}
+			set
+			{
+				if ((this._FNGR_INDX != value))
+				{
+					this.OnFNGR_INDXChanging(value);
+					this.SendPropertyChanging();
+					this._FNGR_INDX = value;
+					this.SendPropertyChanged("FNGR_INDX");
+					this.OnFNGR_INDXChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IMAG", DbType="Image", UpdateCheck=UpdateCheck.Never)]
+		public System.Data.Linq.Binary IMAG
+		{
+			get
+			{
+				return this._IMAG;
+			}
+			set
+			{
+				if ((this._IMAG != value))
+				{
+					this.OnIMAGChanging(value);
+					this.SendPropertyChanging();
+					this._IMAG = value;
+					this.SendPropertyChanged("IMAG");
+					this.OnIMAGChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FNGR_TMPL", DbType="VarChar(MAX)", UpdateCheck=UpdateCheck.Never)]
+		public string FNGR_TMPL
+		{
+			get
+			{
+				return this._FNGR_TMPL;
+			}
+			set
+			{
+				if ((this._FNGR_TMPL != value))
+				{
+					this.OnFNGR_TMPLChanging(value);
+					this.SendPropertyChanging();
+					this._FNGR_TMPL = value;
+					this.SendPropertyChanged("FNGR_TMPL");
+					this.OnFNGR_TMPLChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_BY", DbType="VarChar(250)", UpdateCheck=UpdateCheck.Never)]
+		public string CRET_BY
+		{
+			get
+			{
+				return this._CRET_BY;
+			}
+			set
+			{
+				if ((this._CRET_BY != value))
+				{
+					this.OnCRET_BYChanging(value);
+					this.SendPropertyChanging();
+					this._CRET_BY = value;
+					this.SendPropertyChanged("CRET_BY");
+					this.OnCRET_BYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<System.DateTime> CRET_DATE
+		{
+			get
+			{
+				return this._CRET_DATE;
+			}
+			set
+			{
+				if ((this._CRET_DATE != value))
+				{
+					this.OnCRET_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._CRET_DATE = value;
+					this.SendPropertyChanged("CRET_DATE");
+					this.OnCRET_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_BY", DbType="VarChar(250)", UpdateCheck=UpdateCheck.Never)]
+		public string MDFY_BY
+		{
+			get
+			{
+				return this._MDFY_BY;
+			}
+			set
+			{
+				if ((this._MDFY_BY != value))
+				{
+					this.OnMDFY_BYChanging(value);
+					this.SendPropertyChanging();
+					this._MDFY_BY = value;
+					this.SendPropertyChanged("MDFY_BY");
+					this.OnMDFY_BYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<System.DateTime> MDFY_DATE
+		{
+			get
+			{
+				return this._MDFY_DATE;
+			}
+			set
+			{
+				if ((this._MDFY_DATE != value))
+				{
+					this.OnMDFY_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._MDFY_DATE = value;
+					this.SendPropertyChanged("MDFY_DATE");
+					this.OnMDFY_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="User_User_Finger", Storage="_User", ThisKey="USER_ID", OtherKey="ID", IsForeignKey=true, DeleteRule="CASCADE")]
+		public User User
+		{
+			get
+			{
+				return this._User.Entity;
+			}
+			set
+			{
+				User previousValue = this._User.Entity;
+				if (((previousValue != value) 
+							|| (this._User.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._User.Entity = null;
+						previousValue.User_Fingers.Remove(this);
+					}
+					this._User.Entity = value;
+					if ((value != null))
+					{
+						value.User_Fingers.Add(this);
+						this._USER_ID = value.ID;
+					}
+					else
+					{
+						this._USER_ID = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("User");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
 		}
 	}
 	

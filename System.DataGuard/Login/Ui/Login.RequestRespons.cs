@@ -8,6 +8,7 @@ using System.JobRouting.Routering;
 using System.Windows.Forms;
 using System.Data;
 using System.Xml.Linq;
+using System.Threading;
 
 namespace System.DataGuard.Login.Ui
 {
@@ -140,6 +141,10 @@ namespace System.DataGuard.Login.Ui
             new Job(SendType.External, "Localhost", "Commons", 09 /* Execute LangChangToEnglish */, SendType.Self)
          );
 
+         FormHandle = this.Handle;
+         try { bnInit_Click(null, null); }
+         catch { FngrDev_Pb.Visible = false; }
+
          job.Status = StatusType.Successful;
       }
 
@@ -205,9 +210,7 @@ namespace System.DataGuard.Login.Ui
          /* Get Mac Address And Send to database for save */
          _DefaultGateway.Gateway(
             new Job(SendType.External, "Localhost", "", 03 /* Execute DoWork4SaveHostInfo */, SendType.Self) 
-         );
-
-
+         );         
 
          if(te_username.Text.Trim() != "")
          {
@@ -303,6 +306,13 @@ namespace System.DataGuard.Login.Ui
                   job.Output = true;
                else
                   job.Output = false;
+               break;
+            case "autologin":
+               te_username.Text = input.Attribute("usr").Value;
+               te_password.Text = input.Attribute("pwd").Value;
+               Thread captureThread = new Thread(new ThreadStart(new Action(() => GotoValidation(null, null))));
+               captureThread.IsBackground = true;
+               captureThread.Start();
                break;
             default:
                break;

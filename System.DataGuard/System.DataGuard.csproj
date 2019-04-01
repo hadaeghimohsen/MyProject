@@ -284,6 +284,15 @@
     <Compile Include="SecPolicy\Share\Ui\ActionCenter.Designer.cs">
       <DependentUpon>ActionCenter.cs</DependentUpon>
     </Compile>
+    <Compile Include="SecPolicy\Share\Ui\SettingsAccountFinger.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SecPolicy\Share\Ui\SettingsAccountFinger.Designer.cs">
+      <DependentUpon>SettingsAccountFinger.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SecPolicy\Share\Ui\SettingsAccountFinger.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="SecPolicy\Share\Ui\SettingsRegion.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -821,6 +830,9 @@
     <EmbeddedResource Include="SecPolicy\Share\Ui\Settings.resx">
       <DependentUpon>Settings.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="SecPolicy\Share\Ui\SettingsAccountFinger.resx">
+      <DependentUpon>SettingsAccountFinger.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SecPolicy\Share\Ui\SettingsRegion.resx">
       <DependentUpon>SettingsRegion.cs</DependentUpon>
     </EmbeddedResource>
@@ -1028,6 +1040,7 @@
     <None Include="Properties\DataSources\System.DataGuard.Data.Tiny_Sub_System.datasource" />
     <None Include="Properties\DataSources\System.DataGuard.Data.Transaction_Log.datasource" />
     <None Include="Properties\DataSources\System.DataGuard.Data.User.datasource" />
+    <None Include="Properties\DataSources\System.DataGuard.Data.User_Finger.datasource" />
     <None Include="Properties\DataSources\System.DataGuard.Data.User_Gateway.datasource" />
     <None Include="Properties\DataSources\System.DataGuard.Data.User_Privilege.datasource" />
     <None Include="Properties\DataSources\System.DataGuard.Data.V_Computer.datasource" />
@@ -1566,6 +1579,24 @@
     </Content>
     <Content Include="..\System.Resource\Resources\IMAGE_1659.png">
       <Link>Resources\IMAGE_1659.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1671.png">
+      <Link>Resources\IMAGE_1671.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1672.png">
+      <Link>Resources\IMAGE_1672.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1673.png">
+      <Link>Resources\IMAGE_1673.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1674.png">
+      <Link>Resources\IMAGE_1674.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1675.png">
+      <Link>Resources\IMAGE_1675.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1676.png">
+      <Link>Resources\IMAGE_1676.png</Link>
     </Content>
     <Content Include="License-LGPL.txt" />
   </ItemGroup>

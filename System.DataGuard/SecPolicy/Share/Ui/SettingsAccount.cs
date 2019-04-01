@@ -384,5 +384,21 @@ namespace System.DataGuard.SecPolicy.Share.Ui
             )
          );
       }
+
+      private void ChangeFinger_Butn_Click(object sender, EventArgs e)
+      {
+         var user = UserBs.Current as Data.User;
+         if (user == null) return;
+
+         _DefaultGateway.Gateway(
+            new Job(SendType.External, "localhost",
+               new List<Job>
+               {
+                  new Job(SendType.Self, 43 /* Execute DoWork4SettingsAccountFinger */),
+                  new Job(SendType.SelfToUserInterface, "SettingsAccountFinger", 10 /* Execute ActionCallWindow */){Input = user}
+               }
+            )
+         );
+      }
    }
 }

@@ -85,9 +85,12 @@
          this.labelControl24 = new DevExpress.XtraEditors.LabelControl();
          this.labelControl23 = new DevExpress.XtraEditors.LabelControl();
          this.labelControl15 = new DevExpress.XtraEditors.LabelControl();
+         this.labelControl30 = new DevExpress.XtraEditors.LabelControl();
          this.labelControl13 = new DevExpress.XtraEditors.LabelControl();
          this.labelControl16 = new DevExpress.XtraEditors.LabelControl();
          this.labelControl14 = new DevExpress.XtraEditors.LabelControl();
+         this.labelControl29 = new DevExpress.XtraEditors.LabelControl();
+         this.ChangeFinger_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
          this.ChangePassword_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
@@ -113,7 +116,7 @@
          // 
          // Back_Butn
          // 
-         this.Back_Butn.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(36)))), ((int)(((byte)(248)))));
+         this.Back_Butn.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
          this.Back_Butn.Appearance.Options.UseBackColor = true;
          this.Back_Butn.Dock = System.Windows.Forms.DockStyle.Right;
          this.Back_Butn.Image = global::System.DataGuard.Properties.Resources.IMAGE_1371;
@@ -752,9 +755,12 @@
          this.tp_003.Controls.Add(this.labelControl24);
          this.tp_003.Controls.Add(this.labelControl23);
          this.tp_003.Controls.Add(this.labelControl15);
+         this.tp_003.Controls.Add(this.labelControl30);
          this.tp_003.Controls.Add(this.labelControl13);
          this.tp_003.Controls.Add(this.labelControl16);
          this.tp_003.Controls.Add(this.labelControl14);
+         this.tp_003.Controls.Add(this.labelControl29);
+         this.tp_003.Controls.Add(this.ChangeFinger_Butn);
          this.tp_003.Controls.Add(this.labelControl9);
          this.tp_003.Controls.Add(this.ChangePassword_Butn);
          this.tp_003.Controls.Add(this.labelControl10);
@@ -1030,6 +1036,22 @@
          this.labelControl15.TabIndex = 15;
          this.labelControl15.Text = "اطلاعات جزئی تر کاربری در صفحه ورود قابل نمایش باشد( مانند آدرس ایمیل و ... )";
          // 
+         // labelControl30
+         // 
+         this.labelControl30.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.labelControl30.Appearance.BackColor = System.Drawing.Color.Transparent;
+         this.labelControl30.Appearance.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.labelControl30.Appearance.ForeColor = System.Drawing.Color.Gray;
+         this.labelControl30.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+         this.labelControl30.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         this.labelControl30.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+         this.labelControl30.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
+         this.labelControl30.Location = new System.Drawing.Point(366, 191);
+         this.labelControl30.Name = "labelControl30";
+         this.labelControl30.Size = new System.Drawing.Size(167, 26);
+         this.labelControl30.TabIndex = 15;
+         this.labelControl30.Text = "ثبت و تغییر اثر انگشتان کاربر";
+         // 
          // labelControl13
          // 
          this.labelControl13.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -1077,6 +1099,42 @@
          this.labelControl14.Size = new System.Drawing.Size(69, 38);
          this.labelControl14.TabIndex = 15;
          this.labelControl14.Text = "خصوصی";
+         // 
+         // labelControl29
+         // 
+         this.labelControl29.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.labelControl29.Appearance.BackColor = System.Drawing.Color.Transparent;
+         this.labelControl29.Appearance.Font = new System.Drawing.Font("B Traffic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.labelControl29.Appearance.ForeColor = System.Drawing.Color.Black;
+         this.labelControl29.Appearance.Image = global::System.DataGuard.Properties.Resources.IMAGE_1211;
+         this.labelControl29.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+         this.labelControl29.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         this.labelControl29.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+         this.labelControl29.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
+         this.labelControl29.Location = new System.Drawing.Point(412, 147);
+         this.labelControl29.Name = "labelControl29";
+         this.labelControl29.Size = new System.Drawing.Size(121, 38);
+         this.labelControl29.TabIndex = 15;
+         this.labelControl29.Text = "اثر انگشت";
+         // 
+         // ChangeFinger_Butn
+         // 
+         this.ChangeFinger_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.ChangeFinger_Butn.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+         this.ChangeFinger_Butn.Appearance.Font = new System.Drawing.Font("B Traffic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.ChangeFinger_Butn.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+         this.ChangeFinger_Butn.Appearance.Options.UseBackColor = true;
+         this.ChangeFinger_Butn.Appearance.Options.UseFont = true;
+         this.ChangeFinger_Butn.Appearance.Options.UseForeColor = true;
+         this.ChangeFinger_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
+         this.ChangeFinger_Butn.Location = new System.Drawing.Point(379, 223);
+         this.ChangeFinger_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.ChangeFinger_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.ChangeFinger_Butn.Name = "ChangeFinger_Butn";
+         this.ChangeFinger_Butn.Size = new System.Drawing.Size(154, 38);
+         this.ChangeFinger_Butn.TabIndex = 14;
+         this.ChangeFinger_Butn.Text = "ثبت / تغییر اثر انگشت";
+         this.ChangeFinger_Butn.Click += new System.EventHandler(this.ChangeFinger_Butn_Click);
          // 
          // labelControl9
          // 
@@ -1241,6 +1299,9 @@
       private DevExpress.XtraEditors.LabelControl labelControl26;
       private DevExpress.XtraEditors.LabelControl labelControl28;
       private DevExpress.XtraEditors.SimpleButton DuplicateUser_Butn;
+      private DevExpress.XtraEditors.LabelControl labelControl30;
+      private DevExpress.XtraEditors.LabelControl labelControl29;
+      private DevExpress.XtraEditors.SimpleButton ChangeFinger_Butn;
 
    }
 }

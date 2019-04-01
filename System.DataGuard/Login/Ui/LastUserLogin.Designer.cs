@@ -46,8 +46,10 @@
          this.User1_RondButn = new System.MaxUi.RoundedButton();
          this.User2_RondButn = new System.MaxUi.RoundedButton();
          this.label2 = new System.Windows.Forms.Label();
+         this.FngrDev_Pb = new System.Windows.Forms.PictureBox();
          ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.FngrDev_Pb)).BeginInit();
          this.SuspendLayout();
          // 
          // User2_Txt
@@ -344,6 +346,18 @@
          this.label2.Text = "Power By : Job Routing 1.0";
          this.label2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
          // 
+         // FngrDev_Pb
+         // 
+         this.FngrDev_Pb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+         this.FngrDev_Pb.Image = global::System.DataGuard.Properties.Resources.IMAGE_1211;
+         this.FngrDev_Pb.Location = new System.Drawing.Point(708, 601);
+         this.FngrDev_Pb.Name = "FngrDev_Pb";
+         this.FngrDev_Pb.Size = new System.Drawing.Size(40, 40);
+         this.FngrDev_Pb.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+         this.FngrDev_Pb.TabIndex = 7;
+         this.FngrDev_Pb.TabStop = false;
+         this.FngrDev_Pb.Visible = false;
+         // 
          // LastUserLogin
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -353,6 +367,7 @@
          this.Controls.Add(this.User4_Txt);
          this.Controls.Add(this.User5_RondButn);
          this.Controls.Add(this.User4_RondButn);
+         this.Controls.Add(this.FngrDev_Pb);
          this.Controls.Add(this.pictureBox2);
          this.Controls.Add(this.pictureBox1);
          this.Controls.Add(this.User3_Txt);
@@ -371,6 +386,7 @@
          this.Size = new System.Drawing.Size(762, 660);
          ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.FngrDev_Pb)).EndInit();
          this.ResumeLayout(false);
          this.PerformLayout();
 
@@ -396,6 +412,7 @@
         private MaxUi.RoundedButton User4_RondButn;
         private Windows.Forms.PictureBox pictureBox2;
         private Windows.Forms.Label label2;
+        private Windows.Forms.PictureBox FngrDev_Pb;
 
 
 

@@ -45,9 +45,11 @@
          this.SwitchUser_RondButn = new System.MaxUi.RoundedButton();
          this.pictureBox2 = new System.Windows.Forms.PictureBox();
          this.User_RondButn = new System.MaxUi.RoundedButton();
+         this.FngrDev_Pb = new System.Windows.Forms.PictureBox();
          ((System.ComponentModel.ISupportInitialize)(this.te_username.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.te_password.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.FngrDev_Pb)).BeginInit();
          this.SuspendLayout();
          // 
          // te_username
@@ -185,7 +187,7 @@
          this.linkLabel4.Font = new System.Drawing.Font("Segoe UI", 9F);
          this.linkLabel4.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
          this.linkLabel4.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-         this.linkLabel4.Location = new System.Drawing.Point(743, 593);
+         this.linkLabel4.Location = new System.Drawing.Point(697, 593);
          this.linkLabel4.Name = "linkLabel4";
          this.linkLabel4.RightToLeft = System.Windows.Forms.RightToLeft.No;
          this.linkLabel4.Size = new System.Drawing.Size(57, 15);
@@ -202,7 +204,7 @@
          this.linkLabel5.Font = new System.Drawing.Font("Segoe UI", 9F);
          this.linkLabel5.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
          this.linkLabel5.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-         this.linkLabel5.Location = new System.Drawing.Point(665, 593);
+         this.linkLabel5.Location = new System.Drawing.Point(619, 593);
          this.linkLabel5.Name = "linkLabel5";
          this.linkLabel5.RightToLeft = System.Windows.Forms.RightToLeft.No;
          this.linkLabel5.Size = new System.Drawing.Size(70, 15);
@@ -218,7 +220,7 @@
          this.label4.Font = new System.Drawing.Font("Segoe UI", 9F);
          this.label4.Location = new System.Drawing.Point(13, 593);
          this.label4.Name = "label4";
-         this.label4.Size = new System.Drawing.Size(172, 15);
+         this.label4.Size = new System.Drawing.Size(170, 15);
          this.label4.TabIndex = 9;
          this.label4.Text = "© 1392 Anar Team Corporation";
          // 
@@ -319,11 +321,24 @@
          this.User_RondButn.TabIndex = 12;
          this.User_RondButn.Tooltip = null;
          // 
+         // FngrDev_Pb
+         // 
+         this.FngrDev_Pb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+         this.FngrDev_Pb.Image = global::System.DataGuard.Properties.Resources.IMAGE_1211;
+         this.FngrDev_Pb.Location = new System.Drawing.Point(764, 568);
+         this.FngrDev_Pb.Name = "FngrDev_Pb";
+         this.FngrDev_Pb.Size = new System.Drawing.Size(40, 40);
+         this.FngrDev_Pb.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+         this.FngrDev_Pb.TabIndex = 19;
+         this.FngrDev_Pb.TabStop = false;
+         this.FngrDev_Pb.Visible = false;
+         // 
          // Login
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
          this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
          this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+         this.Controls.Add(this.FngrDev_Pb);
          this.Controls.Add(this.SwitchUser_RondButn);
          this.Controls.Add(this.Cancel_Lbl);
          this.Controls.Add(this.pictureBox2);
@@ -347,6 +362,7 @@
          ((System.ComponentModel.ISupportInitialize)(this.te_username.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.te_password.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.FngrDev_Pb)).EndInit();
          this.ResumeLayout(false);
          this.PerformLayout();
 
@@ -371,5 +387,6 @@
       private MaxUi.RoundedButton User_RondButn;
       private Windows.Forms.Label Cancel_Lbl;
       private MaxUi.RoundedButton SwitchUser_RondButn;
+      private Windows.Forms.PictureBox FngrDev_Pb;
    }
 }

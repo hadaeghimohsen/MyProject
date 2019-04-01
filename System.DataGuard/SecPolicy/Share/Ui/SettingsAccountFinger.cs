@@ -8,207 +8,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.JobRouting.Jobs;
+using DevExpress.XtraEditors;
 using System.IO;
 using System.Drawing.Imaging;
-using System.MaxUi;
+using System.Xml.Linq;
 using System.Runtime.InteropServices;
 using libzkfpcsharp;
 using System.Threading;
-using System.Xml.Linq;
 
-namespace System.DataGuard.Login.Ui
+namespace System.DataGuard.SecPolicy.Share.Ui
 {
-   public partial class LastUserLogin : UserControl
+   public partial class SettingsAccountFinger : UserControl
    {
-      public LastUserLogin()
-      {
-         InitializeComponent();
-      }
-
-      private void SwitchUser_RondButn_Click(object sender, EventArgs e)
-      {
-         try { bnClose_Click(null, null); }
-         catch { }
-
-         _DefaultGateway.Gateway(
-             new Job(SendType.External, "localhost", GetType().Name, 00 /* Execute DoWork4LastUserLogin */, SendType.SelfToUserInterface) { Input = Keys.Escape }
-          );
-
-         Job _SwitchUser =
-            new Job(SendType.External, "Program", "DataGuard:Login", 02 /* Execute DoWork4Login */, SendType.Self);
-         _DefaultGateway.Gateway(_SwitchUser);
-      }
-
-      private void User_RondButn_Click(object sender, EventArgs e)
-      {
-         // Get User Info
-         RoundedButton rb = (RoundedButton)sender;
-         if (rb.Tag != null)
-         {
-            Job _SelectedUser =
-               new Job(SendType.External, "Localhost",
-                 new List<Job>
-                   {
-                      new Job(SendType.Self, 06 /* Execute DoWork4SelectedLastUserLogin */){Input = rb.Tag}
-                   });
-            _DefaultGateway.Gateway(_SelectedUser);
-         }
-         else
-         {
-            // Guest User
-         }
-      }
-
-      private Image GetUserImage(Data.User user)
-      {
-         if (user == null)
-         {
-            return global::System.DataGuard.Properties.Resources.IMAGE_1482;
-         }
-         else if (user.USER_IMAG == null)
-         {
-            return global::System.DataGuard.Properties.Resources.IMAGE_1429;
-         }
-         else
-         {
-            var stream = new MemoryStream(user.USER_IMAG.ToArray());
-            return Image.FromStream(stream);
-         }
-      }
-
-      private int SetUserList(IQueryable<Data.User> users, int i)
-      {
-         switch (users.Count())
-         {
-            case 1:
-               User2_RondButn.Visible = User3_RondButn.Visible = User2_Txt.Visible = User3_Txt.Visible = true;
-               User4_RondButn.Visible = User1_RondButn.Visible = User4_Txt.Visible = User1_Txt.Visible = User5_RondButn.Visible = User5_Txt.Visible = false;
-
-               User2_RondButn.ImageProfile = GetUserImage(users.First());
-               User2_Txt.Text = users.First().USERDB;
-               User2_RondButn.Tag = users.First();
-               User2_Txt.Tag = "realuser";
-
-               User3_RondButn.ImageProfile = GetUserImage(null);
-               User3_Txt.Text = "Guest User";
-               User3_RondButn.Tag = null;
-               User3_Txt.Tag = "guestuser";
-
-               break;
-            case 2:
-               User1_RondButn.Visible = User2_RondButn.Visible = User3_RondButn.Visible = User1_Txt.Visible = User2_Txt.Visible = User3_Txt.Visible = true;
-               User4_RondButn.Visible = User4_Txt.Visible = User5_RondButn.Visible = User5_Txt.Visible = false;
-
-               foreach (Data.User user in users)
-               {
-                  if (i == 0)
-                  {
-                     User2_RondButn.ImageProfile = GetUserImage(user);
-                     User2_Txt.Text = user.USERDB;
-                     User2_RondButn.Tag = user;
-                     User2_Txt.Tag = "realuser";
-                     ++i;
-                  }
-                  else if (i == 1)
-                  {
-                     User1_RondButn.ImageProfile = GetUserImage(user);
-                     User1_Txt.Text = user.USERDB;
-                     User1_RondButn.Tag = user;
-                     User1_Txt.Tag = "realuser";
-                     ++i;
-                  }
-               }
-               User3_RondButn.ImageProfile = GetUserImage(null);
-               User3_Txt.Text = "Guest User";
-               User3_RondButn.Tag = null;
-               User3_Txt.Tag = "guestuser";
-               break;
-            case 3:
-               User5_RondButn.Visible = User2_RondButn.Visible = User3_RondButn.Visible = User4_RondButn.Visible = User2_Txt.Visible = User3_Txt.Visible = User4_Txt.Visible = User5_Txt.Visible = true;
-               User1_RondButn.Visible = User1_Txt.Visible = false;
-
-               foreach (Data.User user in users)
-               {
-                  if (i == 0)
-                  {
-                     User4_RondButn.ImageProfile = GetUserImage(user);
-                     User4_Txt.Text = user.USERDB;
-                     User4_RondButn.Tag = user;
-                     User4_Txt.Tag = "realuser";
-                     ++i;
-                  }
-                  else if (i == 1)
-                  {
-                     User2_RondButn.ImageProfile = GetUserImage(user);
-                     User2_Txt.Text = user.USERDB;
-                     User2_RondButn.Tag = user;
-                     User2_Txt.Tag = "realuser";
-                     ++i;
-                  }
-                  else if (i == 2)
-                  {
-                     User3_RondButn.ImageProfile = GetUserImage(user);
-                     User3_Txt.Text = user.USERDB;
-                     User3_RondButn.Tag = user;
-                     User3_Txt.Tag = "realuser";
-                     ++i;
-                  }
-               }
-               User5_RondButn.ImageProfile = GetUserImage(null);
-               User5_Txt.Text = "Guest User";
-               User5_RondButn.Tag = null;
-               User5_Txt.Tag = "guestuser";
-
-               break;
-            case 4:
-               User1_RondButn.Visible = User2_RondButn.Visible = User3_RondButn.Visible = User4_RondButn.Visible = User5_RondButn.Visible = User1_Txt.Visible = User2_Txt.Visible = User3_Txt.Visible = User4_Txt.Visible = User5_Txt.Visible = true;
-               foreach (Data.User user in users)
-               {
-                  if (i == 0)
-                  {
-                     User4_RondButn.ImageProfile = GetUserImage(user);
-                     User4_Txt.Text = user.USERDB;
-                     User4_RondButn.Tag = user;
-                     User4_Txt.Tag = "realuser";
-                     ++i;
-                  }
-                  else if (i == 1)
-                  {
-                     User2_RondButn.ImageProfile = GetUserImage(user);
-                     User2_Txt.Text = user.USERDB;
-                     User2_RondButn.Tag = user;
-                     User2_Txt.Tag = "realuser";
-                     ++i;
-                  }
-                  else if (i == 2)
-                  {
-                     User3_RondButn.ImageProfile = GetUserImage(user);
-                     User3_Txt.Text = user.USERDB;
-                     User3_RondButn.Tag = user;
-                     User3_Txt.Tag = "realuser";
-                     ++i;
-                  }
-                  else if (i == 3)
-                  {
-                     User1_RondButn.ImageProfile = GetUserImage(user);
-                     User1_Txt.Text = user.USERDB;
-                     User1_RondButn.Tag = user;
-                     User1_Txt.Tag = "realuser";
-                     ++i;
-                  }
-               }
-               User5_RondButn.ImageProfile = GetUserImage(null);
-               User5_Txt.Text = "Guest User";
-               User5_RondButn.Tag = null;
-               User5_Txt.Tag = "guestuser";
-               break;
-            default:
-               break;
-         }
-         return i;
-      }
-
-      #region FingerPrint
       IntPtr mDevHandle = IntPtr.Zero;
       IntPtr mDBHandle = IntPtr.Zero;
       IntPtr FormHandle = IntPtr.Zero;
@@ -235,6 +46,189 @@ namespace System.DataGuard.Login.Ui
 
       [DllImport("user32.dll", EntryPoint = "SendMessageA")]
       public static extern int SendMessage(IntPtr hwnd, int wMsg, IntPtr wParam, IntPtr lParam);
+
+      public SettingsAccountFinger()
+      {
+         InitializeComponent();
+
+         System.Drawing.Drawing2D.GraphicsPath gp = new System.Drawing.Drawing2D.GraphicsPath();
+         gp.AddEllipse(0, 0, ImageAccount_Pb.Width, ImageAccount_Pb.Height);
+         System.Drawing.Region rg = new System.Drawing.Region(gp);
+         ImageAccount_Pb.Region = rg;
+      }
+
+      private void Back_Butn_Click(object sender, EventArgs e)
+      {
+         _DefaultGateway.Gateway(
+            new Job(SendType.External, "localhost", GetType().Name, 00 /* Execute DoWork4Settings */, SendType.SelfToUserInterface) { Input = Keys.Escape }
+         );
+      }
+
+      List<TabPage> listTabPages;
+      private void SwitchButtonsTabPage(object sender)
+      {
+         try
+         {
+            #region Action on Buttons
+            SimpleButton butn = sender as SimpleButton;
+            var flowlayout = butn.Parent as FlowLayoutPanel;
+            foreach (SimpleButton b in flowlayout.Controls)
+            {
+               b.ForeColor = Color.FromArgb(64, 64, 64);
+            }
+            butn.ForeColor = Color.DodgerBlue;
+            #endregion
+            #region Action on TabControl
+            if (listTabPages == null)
+               listTabPages = Tb_Master.TabPages.OfType<TabPage>().ToList();
+
+            var selectedtabpage = listTabPages.Where(t => t.Tag == butn.Tag).First();
+            Tb_Master.TabPages.Clear();
+            Tb_Master.TabPages.Add(selectedtabpage);
+            #endregion
+         }
+         catch { }
+         finally { Execute_Query(); }
+      }
+
+      private void RightButns_Click(object sender, EventArgs e)
+      {
+         SwitchButtonsTabPage(sender);
+      }
+
+      private void Execute_Query()
+      {
+         iProject = new Data.iProjectDataContext(ConnectionString);
+         UserBs.DataSource = iProject.Users.Where(u => u.USERDB.ToUpper() == CurrentUser.ToUpper());
+      }
+
+      private void UserBs_ListChanged(object sender, ListChangedEventArgs e)
+      {
+         SubmitChange_Butn.Visible = true;
+      }
+
+      private void UserBs_CurrentChanged(object sender, EventArgs e)
+      {
+         var user = UserBs.Current as Data.User;
+         if (user == null) return;
+
+         if (user.USER_IMAG == null)
+         {
+            byte[] bytes = null;
+            MemoryStream ms = new MemoryStream();
+            Image img = global::System.DataGuard.Properties.Resources.IMAGE_1429;
+            img.Save(ms, ImageFormat.Bmp);
+            bytes = ms.ToArray();
+
+            user.USER_IMAG = bytes;
+            ImageAccount_Pb.Image = global::System.DataGuard.Properties.Resources.IMAGE_1429;
+         }
+         else
+         {
+            var stream = new MemoryStream(user.USER_IMAG.ToArray());
+            ImageAccount_Pb.Image = Image.FromStream(stream);
+         }
+
+         if(UsrfBs.List.Count > 0)
+         {
+            foreach (var fngr in UsrfBs.List.OfType<Data.User_Finger>())
+            {
+               if(fngr.IMAG != null)
+               {
+                  var uf = tp_001.Controls.OfType<MaxUi.RoundedButton>().FirstOrDefault(f => f.Caption == fngr.FNGR_INDX.ToString());
+                  uf.NormalColorA = uf.NormalColorB = Color.YellowGreen;
+               }
+               else
+               {
+                  var uf = tp_001.Controls.OfType<MaxUi.RoundedButton>().FirstOrDefault(f => f.Caption == fngr.FNGR_INDX.ToString());
+                  uf.NormalColorA = uf.NormalColorB = Color.White;
+               }
+            }
+         }
+      }
+
+      private void SubmitChange_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            UsrfBs.EndEdit();
+            iProject.SubmitChanges();
+            SubmitChange_Butn.Visible = false;
+         }
+         catch { }
+         finally
+         {
+            Execute_Query();
+         }
+      }
+
+      private void Ts_FingerDeviceStat_Toggled(object sender, EventArgs e)
+      {
+         try
+         {
+            if (Ts_FingerDeviceStat.IsOn)
+            {               
+               bnInit_Click(null, null);
+               FngrDevStat_Pb.Image = Properties.Resources.IMAGE_1671;
+               FngrDevStat_Pn.Visible = true;
+            }
+            else
+            {
+               bnClose_Click(null, null);
+               FngrDevStat_Pb.Image = Properties.Resources.IMAGE_1674;
+               FngrDevStat_Pn.Visible = false;
+               StrLen_Lbl.Text = "0";
+            }
+         }
+         catch { FngrDevStat_Pb.Image = Properties.Resources.IMAGE_1674; Ts_FingerDeviceStat.IsOn = false; FngrDevStat_Pn.Visible = false; }
+      }
+
+      private void Ts_IdentifyFingerDeviceStat_Toggled(object sender, EventArgs e)
+      {
+
+      }
+
+      private void FngrIndxi_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var fngrindxb = sender as MaxUi.RoundedButton;
+            var fngrindx = UsrfBs.List.OfType<Data.User_Finger>().FirstOrDefault(f => f.FNGR_INDX.ToString() == fngrindxb.Caption);
+
+            if(fngrindx != null)
+            {
+               if(fngrindx.IMAG != null)
+               {
+                  var ms = new MemoryStream(fngrindx.IMAG.ToArray());
+                  //BitmapFormat.GetBitmap(fngrindx.IMAG.ToArray(), mfpWidth, mfpHeight, ref ms);
+                  Bitmap bmp = new Bitmap(ms);
+                  this.picFPImg.Image = bmp;                  
+               }
+               else
+               {
+                  picFPImg.Image = System.DataGuard.Properties.Resources.IMAGE_1675;
+               }
+
+               textFngr.Text = fngrindx.FNGR_TMPL;
+               StrLen_Lbl.Text = textFngr.TextLength.ToString();
+               UsrfBs.Position = UsrfBs.IndexOf(fngrindx);
+            }
+            else
+            {
+               if (UsrfBs.List.OfType<Data.User_Finger>().Any(uf => uf.CODE == 0)) return;
+
+               var newobj = UsrfBs.AddNew() as Data.User_Finger;
+               newobj.FNGR_INDX = Convert.ToInt16(fngrindxb.Caption);
+               iProject.User_Fingers.InsertOnSubmit(newobj);
+
+               UsrfBs.Position = UsrfBs.IndexOf(newobj);
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
 
       #region ZkFinger4500K
       private void bnInit_Click(object sender, EventArgs e)
@@ -309,14 +303,13 @@ namespace System.DataGuard.Login.Ui
          zkfp2.GetParameters(mDevHandle, 3, paramValue, ref size);
          zkfp2.ByteArray2Int(paramValue, ref mfpDpi);
 
-         //textRes.AppendText("reader parameter, image width:" + mfpWidth + ", height:" + mfpHeight + ", dpi:" + mfpDpi + "\n");
-         FngrDev_Pb.Visible = true;
+         textRes.AppendText("reader parameter, image width:" + mfpWidth + ", height:" + mfpHeight + ", dpi:" + mfpDpi + "\n");
 
          Thread captureThread = new Thread(new ThreadStart(DoCapture));
          captureThread.IsBackground = true;
          captureThread.Start();
          bIsTimeToDie = false;
-         //textRes.AppendText("Open succ\n");
+         textRes.AppendText("Open succ\n");
       }
 
       private void bnClose_Click(object sender, EventArgs e)
@@ -348,29 +341,130 @@ namespace System.DataGuard.Login.Ui
          {
             case MESSAGE_CAPTURED_OK:
                {
-                  String strShow = zkfp2.BlobToBase64(CapTmp, cbCapTmp);
-
-                  byte[] blob2 = Convert.FromBase64String(strShow.Trim());
-
-                  foreach (var fngr in iProject.User_Fingers.Where(f => f.FNGR_TMPL != null && !f.User.IsLock))
+                  if (Ts_FingerDeviceStat.IsOn && !Ts_IdentifyFingerDeviceStat.IsOn)
                   {
-                     byte[] blob1 = Convert.FromBase64String(fngr.FNGR_TMPL.Trim());
-                     int ret = zkfp2.DBMatch(mDBHandle, blob1, blob2);
-                     //textRes.AppendText("Fngr id : ( " + fngr.FNGR_INDX.ToString() + " ), Match score=" + ret + "!\n");
-                     if (ret >= 80 && ret <= 100)
+                     MemoryStream ms = new MemoryStream();
+                     BitmapFormat.GetBitmap(FPBuffer, mfpWidth, mfpHeight, ref ms);
+                     Bitmap bmp = new Bitmap(ms);
+                     this.picFPImg.Image = bmp;
+
+                     String strShow = zkfp2.BlobToBase64(CapTmp, cbCapTmp);
+                     //textRes.AppendText("capture template data:" + strShow + "\n");
+                     textFngr.Text = strShow;
+                     StrLen_Lbl.Text = strShow.Length.ToString();
+
+                     var fngrindx = UsrfBs.Current as Data.User_Finger;
+                     byte[] bytes = null;
+                     bmp.Save(ms, ImageFormat.Bmp);
+                     bytes = ms.ToArray();
+                     //fngrindx.IMAG = FPBuffer;//bytes;
+                     fngrindx.IMAG = bytes;
+                     fngrindx.FNGR_TMPL = strShow;
+
+                     if (IsRegister)
                      {
-                        bnClose_Click(null, null);
-                        _DefaultGateway.Gateway(
-                           new Job(SendType.External, "localhost",
-                              new List<Job>
-                              {
-                                 new Job(SendType.SelfToUserInterface, GetType().Name, 00 /* Execute ProcessCmdKey */) { Input = Keys.Escape },
-                                 new Job(SendType.Self, 02 /*Execute DoWork4Login */),
-                                 new Job(SendType.SelfToUserInterface, "Login", 10 /* Execute ActionCallForm */) { Input = new XElement("Login", new XAttribute("type", "autologin"), new XAttribute("usr", fngr.User.TitleEn), new XAttribute("pwd", fngr.User.Password))}
-                              }
-                           )
-                        );                        
-                        break;
+                        int ret = zkfp.ZKFP_ERR_OK;
+                        int fid = 0, score = 0;
+                        ret = zkfp2.DBIdentify(mDBHandle, CapTmp, ref fid, ref score);
+                        if (zkfp.ZKFP_ERR_OK == ret)
+                        {
+                           textRes.AppendText("This finger was already register by " + fid + "!\n");
+                           return;
+                        }
+
+                        if (RegisterCount > 0 && zkfp2.DBMatch(mDBHandle, CapTmp, RegTmps[RegisterCount - 1]) <= 0)
+                        {
+                           textRes.AppendText("Please press the same finger 3 times for the enrollment.\n");
+                           return;
+                        }
+
+                        Array.Copy(CapTmp, RegTmps[RegisterCount], cbCapTmp);
+                        String strBase64 = zkfp2.BlobToBase64(CapTmp, cbCapTmp);
+                        byte[] blob = zkfp2.Base64ToBlob(strBase64);
+                        RegisterCount++;
+                        if (RegisterCount >= REGISTER_FINGER_COUNT)
+                        {
+                           RegisterCount = 0;
+                           if (zkfp.ZKFP_ERR_OK == (ret = zkfp2.DBMerge(mDBHandle, RegTmps[0], RegTmps[1], RegTmps[2], RegTmp, ref cbRegTmp)) &&
+                                  zkfp.ZKFP_ERR_OK == (ret = zkfp2.DBAdd(mDBHandle, iFid, RegTmp)))
+                           {
+                              iFid++;
+                              textRes.AppendText("enroll succ\n");
+                           }
+                           else
+                           {
+                              textRes.AppendText("enroll fail, error code=" + ret + "\n");
+                           }
+                           IsRegister = false;
+                           return;
+                        }
+                        else
+                        {
+                           textRes.AppendText("You need to press the " + (REGISTER_FINGER_COUNT - RegisterCount) + " times fingerprint\n");
+                        }
+                     }
+                     else
+                     {
+                        if (cbRegTmp <= 0)
+                        {
+                           //textRes.AppendText("Please register your finger first!\n");
+                           textRes.AppendText("Read your finger successfully!\n");
+                           return;
+                        }
+                        if (bIdentify)
+                        {
+                           int ret = zkfp.ZKFP_ERR_OK;
+                           int fid = 0, score = 0;
+                           ret = zkfp2.DBIdentify(mDBHandle, CapTmp, ref fid, ref score);
+                           if (zkfp.ZKFP_ERR_OK == ret)
+                           {
+                              textRes.AppendText("Identify succ, fid= " + fid + ",score=" + score + "!\n");
+                              return;
+                           }
+                           else
+                           {
+                              textRes.AppendText("Identify fail, ret= " + ret + "\n");
+                              return;
+                           }
+                        }
+                        else
+                        {
+                           int ret = zkfp2.DBMatch(mDBHandle, CapTmp, RegTmp);
+                           if (0 < ret)
+                           {
+                              textRes.AppendText("Match finger succ, score=" + ret + "!\n");
+                              return;
+                           }
+                           else
+                           {
+                              textRes.AppendText("Match finger fail, ret= " + ret + "\n");
+                              return;
+                           }
+                        }
+                     }
+                  }
+                  else
+                  {
+                     String strShow = zkfp2.BlobToBase64(CapTmp, cbCapTmp);
+                     textFngrTemp.Text = strShow;
+
+                     textRes.Text = "";
+                     
+                     byte[] blob2 = Convert.FromBase64String(textFngrTemp.Text.Trim());
+
+                     IdentifyFingerIndex_Lb.Text = "";
+                     foreach (var fngr in UsrfBs.List.OfType<Data.User_Finger>().Where(f => f.FNGR_TMPL != null))
+                     {
+                        byte[] blob1 = Convert.FromBase64String(fngr.FNGR_TMPL.Trim());
+                        int ret = zkfp2.DBMatch(mDBHandle, blob1, blob2);
+                        textRes.AppendText("Fngr id : ( " + fngr.FNGR_INDX.ToString() + " ), Match score=" + ret + "!\n");
+                        if(ret >= 80 && ret <= 100)
+                           IdentifyFingerIndex_Lb.Text = fngr.FNGR_INDX.ToString();
+                     }
+
+                     if(IdentifyFingerIndex_Lb.Text == "")
+                     {
+                        IdentifyFingerIndex_Lb.Text = "شناسایی انجام نشد";
                      }
                   }
                }
@@ -671,6 +765,5 @@ namespace System.DataGuard.Login.Ui
          }
       }
       #endregion           
-      #endregion
    }
 }

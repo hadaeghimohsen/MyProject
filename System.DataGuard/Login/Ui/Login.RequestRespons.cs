@@ -141,9 +141,9 @@ namespace System.DataGuard.Login.Ui
             new Job(SendType.External, "Localhost", "Commons", 09 /* Execute LangChangToEnglish */, SendType.Self)
          );
 
-         FormHandle = this.Handle;
-         try { bnInit_Click(null, null); }
-         catch { FngrDev_Pb.Visible = false; }
+         //FormHandle = this.Handle;
+         //try { bnInit_Click(null, null); }
+         //catch { FngrDev_Pb.Visible = false; }
 
          job.Status = StatusType.Successful;
       }
@@ -307,13 +307,13 @@ namespace System.DataGuard.Login.Ui
                else
                   job.Output = false;
                break;
-            case "autologin":
-               te_username.Text = input.Attribute("usr").Value;
-               te_password.Text = input.Attribute("pwd").Value;
-               Thread captureThread = new Thread(new ThreadStart(new Action(() => GotoValidation(null, null))));
-               captureThread.IsBackground = true;
-               captureThread.Start();
-               break;
+            //case "autologin":
+            //   te_username.Text = input.Attribute("usr").Value;
+            //   te_password.Text = input.Attribute("pwd").Value;
+            //   Thread captureThread = new Thread(new ThreadStart(new Action(() => GotoValidation(null, null))));
+            //   captureThread.IsBackground = true;
+            //   captureThread.Start();
+            //   break;
             default:
                break;
          }

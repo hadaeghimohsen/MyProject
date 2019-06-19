@@ -42,10 +42,6 @@
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject9 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject10 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject11 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject13 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject14 = new DevExpress.Utils.SerializableAppearanceObject();
          this.DiseCode_Lb = new System.Windows.Forms.Label();
          this.InsrDate_Lb = new System.Windows.Forms.Label();
          this.InsrNumb_Lb = new System.Windows.Forms.Label();
@@ -200,49 +196,15 @@
          this.IdtyNumb_Txt = new DevExpress.XtraEditors.TextEdit();
          this.label15 = new System.Windows.Forms.Label();
          this.tabPage2 = new System.Windows.Forms.TabPage();
-         this.HomeType_Lov = new DevExpress.XtraEditors.LookUpEdit();
          this.DOwnrBs1 = new System.Windows.Forms.BindingSource(this.components);
-         this.label27 = new System.Windows.Forms.Label();
-         this.label13 = new System.Windows.Forms.Label();
-         this.IDTY_TXT = new System.Windows.Forms.Label();
-         this.label12 = new System.Windows.Forms.Label();
          this.ZipCode_Txt = new DevExpress.XtraEditors.TextEdit();
-         this.BuldArea_Txt = new DevExpress.XtraEditors.TextEdit();
-         this.WatrFabrNumb_Txt = new DevExpress.XtraEditors.TextEdit();
-         this.GasFabrNumb_Txt = new DevExpress.XtraEditors.TextEdit();
          this.label28 = new System.Windows.Forms.Label();
-         this.PowrFabrNumb_Txt = new DevExpress.XtraEditors.TextEdit();
-         this.label19 = new System.Windows.Forms.Label();
-         this.label17 = new System.Windows.Forms.Label();
-         this.label18 = new System.Windows.Forms.Label();
-         this.label16 = new System.Windows.Forms.Label();
-         this.Cunt_Lov = new DevExpress.XtraEditors.SearchLookUpEdit();
          this.CuntBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.CblkBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.CndoBs1 = new System.Windows.Forms.BindingSource(this.components);
-         this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
-         this.colCODE3 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colNAME2 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.Cblk_Lov = new DevExpress.XtraEditors.SearchLookUpEdit();
-         this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-         this.colCODE2 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colNAME1 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.Cndo_Lov = new DevExpress.XtraEditors.SearchLookUpEdit();
-         this.searchLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
-         this.colREGN_PRVN_CNTY_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colREGN_PRVN_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colREGN_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colCODE = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colNAME = new DevExpress.XtraGrid.Columns.GridColumn();
          this.tabPage3 = new System.Windows.Forms.TabPage();
-         this.label22 = new System.Windows.Forms.Label();
          this.label14 = new System.Windows.Forms.Label();
-         this.label21 = new System.Windows.Forms.Label();
-         this.DpenFmlyNumb_Txt = new DevExpress.XtraEditors.TextEdit();
          this.Password_Txt = new DevExpress.XtraEditors.TextEdit();
-         this.ChldFmlyNumb_Txt = new DevExpress.XtraEditors.TextEdit();
-         this.FmlyNumb_Txt = new DevExpress.XtraEditors.TextEdit();
-         this.label20 = new System.Windows.Forms.Label();
          this.tabPage4 = new System.Windows.Forms.TabPage();
          this.tabPage5 = new System.Windows.Forms.TabPage();
          this.label29 = new System.Windows.Forms.Label();
@@ -319,27 +281,13 @@
          this.tabPage1.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.IdtyNumb_Txt.Properties)).BeginInit();
          this.tabPage2.SuspendLayout();
-         ((System.ComponentModel.ISupportInitialize)(this.HomeType_Lov.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.DOwnrBs1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.ZipCode_Txt.Properties)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.BuldArea_Txt.Properties)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.WatrFabrNumb_Txt.Properties)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.GasFabrNumb_Txt.Properties)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.PowrFabrNumb_Txt.Properties)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.Cunt_Lov.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.CuntBs1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.CblkBs1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.CndoBs1)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.Cblk_Lov.Properties)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.Cndo_Lov.Properties)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).BeginInit();
          this.tabPage3.SuspendLayout();
-         ((System.ComponentModel.ISupportInitialize)(this.DpenFmlyNumb_Txt.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.Password_Txt.Properties)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.ChldFmlyNumb_Txt.Properties)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.FmlyNumb_Txt.Properties)).BeginInit();
          this.tabPage4.SuspendLayout();
          this.tabPage5.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.textEdit17.Properties)).BeginInit();
@@ -2113,7 +2061,7 @@
          // bindingNavigatorCountItem
          // 
          this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-         this.bindingNavigatorCountItem.Size = new System.Drawing.Size(35, 44);
+         this.bindingNavigatorCountItem.Size = new System.Drawing.Size(34, 44);
          this.bindingNavigatorCountItem.Text = "of {0}";
          this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
          // 
@@ -2475,23 +2423,10 @@
          // 
          // tabPage2
          // 
-         this.tabPage2.Controls.Add(this.HomeType_Lov);
-         this.tabPage2.Controls.Add(this.label27);
-         this.tabPage2.Controls.Add(this.label13);
-         this.tabPage2.Controls.Add(this.IDTY_TXT);
-         this.tabPage2.Controls.Add(this.label12);
          this.tabPage2.Controls.Add(this.ZipCode_Txt);
-         this.tabPage2.Controls.Add(this.BuldArea_Txt);
-         this.tabPage2.Controls.Add(this.WatrFabrNumb_Txt);
-         this.tabPage2.Controls.Add(this.GasFabrNumb_Txt);
          this.tabPage2.Controls.Add(this.label28);
-         this.tabPage2.Controls.Add(this.PowrFabrNumb_Txt);
-         this.tabPage2.Controls.Add(this.label19);
          this.tabPage2.Controls.Add(this.BrthPlac_TextEdit);
-         this.tabPage2.Controls.Add(this.label17);
-         this.tabPage2.Controls.Add(this.label18);
          this.tabPage2.Controls.Add(this.IssuPlac_TextEdit);
-         this.tabPage2.Controls.Add(this.label16);
          this.tabPage2.Controls.Add(this.BrthPlac_Lb);
          this.tabPage2.Controls.Add(this.IssuPlac_Lb);
          this.tabPage2.Controls.Add(this.CORD_YTextEdit);
@@ -2501,9 +2436,6 @@
          this.tabPage2.Controls.Add(this.GetMap_Butn);
          this.tabPage2.Controls.Add(this.PostAdrs_Lb);
          this.tabPage2.Controls.Add(this.POST_ADRS_TextEdit);
-         this.tabPage2.Controls.Add(this.Cunt_Lov);
-         this.tabPage2.Controls.Add(this.Cblk_Lov);
-         this.tabPage2.Controls.Add(this.Cndo_Lov);
          this.tabPage2.Location = new System.Drawing.Point(4, 23);
          this.tabPage2.Name = "tabPage2";
          this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -2512,84 +2444,15 @@
          this.tabPage2.Text = "آدرس و نشانی";
          this.tabPage2.UseVisualStyleBackColor = true;
          // 
-         // HomeType_Lov
-         // 
-         this.HomeType_Lov.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.HomeType_Lov.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.FgpbsBs1, "HOME_TYPE", true));
-         this.HomeType_Lov.Location = new System.Drawing.Point(326, 166);
-         this.HomeType_Lov.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-         this.HomeType_Lov.Name = "HomeType_Lov";
-         this.HomeType_Lov.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.HomeType_Lov.Properties.Appearance.Options.UseFont = true;
-         this.HomeType_Lov.Properties.Appearance.Options.UseTextOptions = true;
-         this.HomeType_Lov.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-         this.HomeType_Lov.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-         this.HomeType_Lov.Properties.AppearanceFocused.Options.UseBackColor = true;
-         this.HomeType_Lov.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject11, "", null, null, true)});
-         this.HomeType_Lov.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("VALU", "VALU", 48, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("DOMN_DESC", "گروه خونی", 72, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near)});
-         this.HomeType_Lov.Properties.DataSource = this.DOwnrBs1;
-         this.HomeType_Lov.Properties.DisplayMember = "DOMN_DESC";
-         this.HomeType_Lov.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
-         this.HomeType_Lov.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.HomeType_Lov.Properties.NullText = "";
-         this.HomeType_Lov.Properties.ValueMember = "VALU";
-         this.HomeType_Lov.Size = new System.Drawing.Size(117, 22);
-         this.HomeType_Lov.TabIndex = 12;
-         // 
          // DOwnrBs1
          // 
          this.DOwnrBs1.DataSource = typeof(System.Scsc.Data.D_OWNR);
-         // 
-         // label27
-         // 
-         this.label27.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.label27.AutoSize = true;
-         this.label27.Location = new System.Drawing.Point(448, 169);
-         this.label27.Name = "label27";
-         this.label27.Size = new System.Drawing.Size(68, 14);
-         this.label27.TabIndex = 78;
-         this.label27.Text = "نوع مالکیت :";
-         // 
-         // label13
-         // 
-         this.label13.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.label13.AutoSize = true;
-         this.label13.Location = new System.Drawing.Point(227, 112);
-         this.label13.Name = "label13";
-         this.label13.Size = new System.Drawing.Size(83, 14);
-         this.label13.TabIndex = 76;
-         this.label13.Text = "کد شناسایی :";
-         // 
-         // IDTY_TXT
-         // 
-         this.IDTY_TXT.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.IDTY_TXT.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-         this.IDTY_TXT.Location = new System.Drawing.Point(64, 111);
-         this.IDTY_TXT.Name = "IDTY_TXT";
-         this.IDTY_TXT.RightToLeft = System.Windows.Forms.RightToLeft.No;
-         this.IDTY_TXT.Size = new System.Drawing.Size(156, 17);
-         this.IDTY_TXT.TabIndex = 75;
-         this.IDTY_TXT.Text = "001.017.001.001.001.015";
-         this.IDTY_TXT.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         // 
-         // label12
-         // 
-         this.label12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.label12.AutoSize = true;
-         this.label12.Location = new System.Drawing.Point(701, 112);
-         this.label12.Name = "label12";
-         this.label12.Size = new System.Drawing.Size(119, 14);
-         this.label12.TabIndex = 73;
-         this.label12.Text = "مجتمع / بلوک / واحد :";
          // 
          // ZipCode_Txt
          // 
          this.ZipCode_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.ZipCode_Txt.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.FgpbsBs1, "ZIP_CODE", true));
-         this.ZipCode_Txt.Location = new System.Drawing.Point(103, 165);
+         this.ZipCode_Txt.Location = new System.Drawing.Point(576, 109);
          this.ZipCode_Txt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
          this.ZipCode_Txt.Name = "ZipCode_Txt";
          this.ZipCode_Txt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -2603,157 +2466,15 @@
          this.ZipCode_Txt.Size = new System.Drawing.Size(117, 22);
          this.ZipCode_Txt.TabIndex = 13;
          // 
-         // BuldArea_Txt
-         // 
-         this.BuldArea_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.BuldArea_Txt.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.FgpbsBs1, "BULD_AREA", true));
-         this.BuldArea_Txt.Location = new System.Drawing.Point(575, 167);
-         this.BuldArea_Txt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-         this.BuldArea_Txt.Name = "BuldArea_Txt";
-         this.BuldArea_Txt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.BuldArea_Txt.Properties.Appearance.Options.UseFont = true;
-         this.BuldArea_Txt.Properties.Appearance.Options.UseTextOptions = true;
-         this.BuldArea_Txt.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-         this.BuldArea_Txt.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-         this.BuldArea_Txt.Properties.AppearanceFocused.Options.UseBackColor = true;
-         this.BuldArea_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
-         this.BuldArea_Txt.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.BuldArea_Txt.Size = new System.Drawing.Size(118, 22);
-         this.BuldArea_Txt.TabIndex = 11;
-         // 
-         // WatrFabrNumb_Txt
-         // 
-         this.WatrFabrNumb_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.WatrFabrNumb_Txt.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.FgpbsBs1, "WATR_FABR_NUMB", true));
-         this.WatrFabrNumb_Txt.Location = new System.Drawing.Point(575, 137);
-         this.WatrFabrNumb_Txt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-         this.WatrFabrNumb_Txt.Name = "WatrFabrNumb_Txt";
-         this.WatrFabrNumb_Txt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.WatrFabrNumb_Txt.Properties.Appearance.Options.UseFont = true;
-         this.WatrFabrNumb_Txt.Properties.Appearance.Options.UseTextOptions = true;
-         this.WatrFabrNumb_Txt.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-         this.WatrFabrNumb_Txt.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-         this.WatrFabrNumb_Txt.Properties.AppearanceFocused.Options.UseBackColor = true;
-         this.WatrFabrNumb_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
-         this.WatrFabrNumb_Txt.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.WatrFabrNumb_Txt.Size = new System.Drawing.Size(118, 22);
-         this.WatrFabrNumb_Txt.TabIndex = 8;
-         // 
-         // GasFabrNumb_Txt
-         // 
-         this.GasFabrNumb_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.GasFabrNumb_Txt.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.FgpbsBs1, "GAS_FABR_NUMB", true));
-         this.GasFabrNumb_Txt.Location = new System.Drawing.Point(103, 136);
-         this.GasFabrNumb_Txt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-         this.GasFabrNumb_Txt.Name = "GasFabrNumb_Txt";
-         this.GasFabrNumb_Txt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.GasFabrNumb_Txt.Properties.Appearance.Options.UseFont = true;
-         this.GasFabrNumb_Txt.Properties.Appearance.Options.UseTextOptions = true;
-         this.GasFabrNumb_Txt.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-         this.GasFabrNumb_Txt.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-         this.GasFabrNumb_Txt.Properties.AppearanceFocused.Options.UseBackColor = true;
-         this.GasFabrNumb_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
-         this.GasFabrNumb_Txt.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.GasFabrNumb_Txt.Size = new System.Drawing.Size(117, 22);
-         this.GasFabrNumb_Txt.TabIndex = 10;
-         // 
          // label28
          // 
          this.label28.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.label28.AutoSize = true;
-         this.label28.Location = new System.Drawing.Point(227, 168);
+         this.label28.Location = new System.Drawing.Point(700, 112);
          this.label28.Name = "label28";
          this.label28.Size = new System.Drawing.Size(64, 14);
          this.label28.TabIndex = 71;
          this.label28.Text = "کد پستی :";
-         // 
-         // PowrFabrNumb_Txt
-         // 
-         this.PowrFabrNumb_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.PowrFabrNumb_Txt.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.FgpbsBs1, "POWR_FABR_NUMB", true));
-         this.PowrFabrNumb_Txt.Location = new System.Drawing.Point(326, 136);
-         this.PowrFabrNumb_Txt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-         this.PowrFabrNumb_Txt.Name = "PowrFabrNumb_Txt";
-         this.PowrFabrNumb_Txt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.PowrFabrNumb_Txt.Properties.Appearance.Options.UseFont = true;
-         this.PowrFabrNumb_Txt.Properties.Appearance.Options.UseTextOptions = true;
-         this.PowrFabrNumb_Txt.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-         this.PowrFabrNumb_Txt.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-         this.PowrFabrNumb_Txt.Properties.AppearanceFocused.Options.UseBackColor = true;
-         this.PowrFabrNumb_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
-         this.PowrFabrNumb_Txt.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.PowrFabrNumb_Txt.Size = new System.Drawing.Size(117, 22);
-         this.PowrFabrNumb_Txt.TabIndex = 9;
-         // 
-         // label19
-         // 
-         this.label19.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.label19.AutoSize = true;
-         this.label19.Location = new System.Drawing.Point(700, 170);
-         this.label19.Name = "label19";
-         this.label19.Size = new System.Drawing.Size(37, 14);
-         this.label19.TabIndex = 71;
-         this.label19.Text = "متراز :";
-         // 
-         // label17
-         // 
-         this.label17.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.label17.AutoSize = true;
-         this.label17.Location = new System.Drawing.Point(700, 140);
-         this.label17.Name = "label17";
-         this.label17.Size = new System.Drawing.Size(92, 14);
-         this.label17.TabIndex = 71;
-         this.label17.Text = "شماره کنتور آب :";
-         // 
-         // label18
-         // 
-         this.label18.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.label18.AutoSize = true;
-         this.label18.Location = new System.Drawing.Point(227, 140);
-         this.label18.Name = "label18";
-         this.label18.Size = new System.Drawing.Size(93, 14);
-         this.label18.TabIndex = 70;
-         this.label18.Text = "شماره کنتور گاز :";
-         // 
-         // label16
-         // 
-         this.label16.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.label16.AutoSize = true;
-         this.label16.Location = new System.Drawing.Point(450, 140);
-         this.label16.Name = "label16";
-         this.label16.Size = new System.Drawing.Size(97, 14);
-         this.label16.TabIndex = 70;
-         this.label16.Text = "شماره کنتور برق :";
-         // 
-         // Cunt_Lov
-         // 
-         this.Cunt_Lov.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.Cunt_Lov.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.FgpbsBs1, "UNIT_CODE", true));
-         this.Cunt_Lov.Location = new System.Drawing.Point(326, 108);
-         this.Cunt_Lov.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-         this.Cunt_Lov.Name = "Cunt_Lov";
-         this.Cunt_Lov.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.Cunt_Lov.Properties.Appearance.Options.UseFont = true;
-         this.Cunt_Lov.Properties.Appearance.Options.UseTextOptions = true;
-         this.Cunt_Lov.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-         this.Cunt_Lov.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.Cunt_Lov.Properties.AppearanceDropDown.Options.UseFont = true;
-         this.Cunt_Lov.Properties.AppearanceDropDown.Options.UseTextOptions = true;
-         this.Cunt_Lov.Properties.AppearanceDropDown.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-         this.Cunt_Lov.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-         this.Cunt_Lov.Properties.AppearanceFocused.Options.UseBackColor = true;
-         this.Cunt_Lov.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject12, "", null, null, true)});
-         this.Cunt_Lov.Properties.DataSource = this.CuntBs1;
-         this.Cunt_Lov.Properties.DisplayMember = "NAME";
-         this.Cunt_Lov.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
-         this.Cunt_Lov.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.Cunt_Lov.Properties.NullText = "";
-         this.Cunt_Lov.Properties.ValueMember = "CODE";
-         this.Cunt_Lov.Properties.View = this.gridView2;
-         this.Cunt_Lov.Size = new System.Drawing.Size(117, 22);
-         this.Cunt_Lov.TabIndex = 7;
-         this.Cunt_Lov.EditValueChanging += new DevExpress.XtraEditors.Controls.ChangingEventHandler(this.Cunt_Lov_EditValueChanging);
          // 
          // CuntBs1
          // 
@@ -2769,209 +2490,14 @@
          // 
          this.CndoBs1.DataSource = typeof(System.Scsc.Data.Cando);
          // 
-         // gridView2
-         // 
-         this.gridView2.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 9F);
-         this.gridView2.Appearance.HeaderPanel.Options.UseFont = true;
-         this.gridView2.Appearance.HeaderPanel.Options.UseTextOptions = true;
-         this.gridView2.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-         this.gridView2.Appearance.Row.Font = new System.Drawing.Font("Tahoma", 9F);
-         this.gridView2.Appearance.Row.Options.UseFont = true;
-         this.gridView2.Appearance.Row.Options.UseTextOptions = true;
-         this.gridView2.Appearance.Row.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-         this.gridView2.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colCODE3,
-            this.colNAME2});
-         this.gridView2.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-         this.gridView2.Name = "gridView2";
-         this.gridView2.OptionsSelection.EnableAppearanceFocusedCell = false;
-         this.gridView2.OptionsView.ShowGroupPanel = false;
-         // 
-         // colCODE3
-         // 
-         this.colCODE3.Caption = "کد";
-         this.colCODE3.FieldName = "CODE";
-         this.colCODE3.Name = "colCODE3";
-         this.colCODE3.Visible = true;
-         this.colCODE3.VisibleIndex = 1;
-         // 
-         // colNAME2
-         // 
-         this.colNAME2.Caption = "نام واحد";
-         this.colNAME2.FieldName = "NAME";
-         this.colNAME2.Name = "colNAME2";
-         this.colNAME2.Visible = true;
-         this.colNAME2.VisibleIndex = 0;
-         // 
-         // Cblk_Lov
-         // 
-         this.Cblk_Lov.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.Cblk_Lov.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.FgpbsBs1, "UNIT_BLOK_CODE", true));
-         this.Cblk_Lov.Location = new System.Drawing.Point(449, 108);
-         this.Cblk_Lov.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-         this.Cblk_Lov.Name = "Cblk_Lov";
-         this.Cblk_Lov.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.Cblk_Lov.Properties.Appearance.Options.UseFont = true;
-         this.Cblk_Lov.Properties.Appearance.Options.UseTextOptions = true;
-         this.Cblk_Lov.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-         this.Cblk_Lov.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.Cblk_Lov.Properties.AppearanceDropDown.Options.UseFont = true;
-         this.Cblk_Lov.Properties.AppearanceDropDown.Options.UseTextOptions = true;
-         this.Cblk_Lov.Properties.AppearanceDropDown.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-         this.Cblk_Lov.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-         this.Cblk_Lov.Properties.AppearanceFocused.Options.UseBackColor = true;
-         this.Cblk_Lov.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject13, "", null, null, true)});
-         this.Cblk_Lov.Properties.DataSource = this.CblkBs1;
-         this.Cblk_Lov.Properties.DisplayMember = "NAME";
-         this.Cblk_Lov.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
-         this.Cblk_Lov.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.Cblk_Lov.Properties.NullText = "";
-         this.Cblk_Lov.Properties.ValueMember = "CODE";
-         this.Cblk_Lov.Properties.View = this.gridView1;
-         this.Cblk_Lov.Size = new System.Drawing.Size(120, 22);
-         this.Cblk_Lov.TabIndex = 6;
-         this.Cblk_Lov.EditValueChanging += new DevExpress.XtraEditors.Controls.ChangingEventHandler(this.Cblk_Lov_EditValueChanging);
-         // 
-         // gridView1
-         // 
-         this.gridView1.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 9F);
-         this.gridView1.Appearance.HeaderPanel.Options.UseFont = true;
-         this.gridView1.Appearance.HeaderPanel.Options.UseTextOptions = true;
-         this.gridView1.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-         this.gridView1.Appearance.Row.Font = new System.Drawing.Font("Tahoma", 9F);
-         this.gridView1.Appearance.Row.Options.UseFont = true;
-         this.gridView1.Appearance.Row.Options.UseTextOptions = true;
-         this.gridView1.Appearance.Row.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-         this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colCODE2,
-            this.colNAME1});
-         this.gridView1.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-         this.gridView1.Name = "gridView1";
-         this.gridView1.OptionsSelection.EnableAppearanceFocusedCell = false;
-         this.gridView1.OptionsView.ShowGroupPanel = false;
-         // 
-         // colCODE2
-         // 
-         this.colCODE2.Caption = "کد";
-         this.colCODE2.FieldName = "CODE";
-         this.colCODE2.Name = "colCODE2";
-         this.colCODE2.Visible = true;
-         this.colCODE2.VisibleIndex = 1;
-         // 
-         // colNAME1
-         // 
-         this.colNAME1.Caption = "نام بلوک";
-         this.colNAME1.FieldName = "NAME";
-         this.colNAME1.Name = "colNAME1";
-         this.colNAME1.Visible = true;
-         this.colNAME1.VisibleIndex = 0;
-         // 
-         // Cndo_Lov
-         // 
-         this.Cndo_Lov.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.Cndo_Lov.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.FgpbsBs1, "UNIT_BLOK_CNDO_CODE", true));
-         this.Cndo_Lov.Location = new System.Drawing.Point(576, 108);
-         this.Cndo_Lov.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-         this.Cndo_Lov.Name = "Cndo_Lov";
-         this.Cndo_Lov.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.Cndo_Lov.Properties.Appearance.Options.UseFont = true;
-         this.Cndo_Lov.Properties.Appearance.Options.UseTextOptions = true;
-         this.Cndo_Lov.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-         this.Cndo_Lov.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.Cndo_Lov.Properties.AppearanceDropDown.Options.UseFont = true;
-         this.Cndo_Lov.Properties.AppearanceDropDown.Options.UseTextOptions = true;
-         this.Cndo_Lov.Properties.AppearanceDropDown.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-         this.Cndo_Lov.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-         this.Cndo_Lov.Properties.AppearanceFocused.Options.UseBackColor = true;
-         this.Cndo_Lov.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject14, "", null, null, true)});
-         this.Cndo_Lov.Properties.DataSource = this.CndoBs1;
-         this.Cndo_Lov.Properties.DisplayMember = "NAME";
-         this.Cndo_Lov.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
-         this.Cndo_Lov.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.Cndo_Lov.Properties.NullText = "";
-         this.Cndo_Lov.Properties.ValueMember = "CODE";
-         this.Cndo_Lov.Properties.View = this.searchLookUpEdit1View;
-         this.Cndo_Lov.Size = new System.Drawing.Size(117, 22);
-         this.Cndo_Lov.TabIndex = 5;
-         this.Cndo_Lov.EditValueChanging += new DevExpress.XtraEditors.Controls.ChangingEventHandler(this.Cndo_Lov_EditValueChanging);
-         // 
-         // searchLookUpEdit1View
-         // 
-         this.searchLookUpEdit1View.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 9F);
-         this.searchLookUpEdit1View.Appearance.HeaderPanel.Options.UseFont = true;
-         this.searchLookUpEdit1View.Appearance.HeaderPanel.Options.UseTextOptions = true;
-         this.searchLookUpEdit1View.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-         this.searchLookUpEdit1View.Appearance.Row.Font = new System.Drawing.Font("Tahoma", 9F);
-         this.searchLookUpEdit1View.Appearance.Row.Options.UseFont = true;
-         this.searchLookUpEdit1View.Appearance.Row.Options.UseTextOptions = true;
-         this.searchLookUpEdit1View.Appearance.Row.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-         this.searchLookUpEdit1View.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colREGN_PRVN_CNTY_CODE,
-            this.colREGN_PRVN_CODE,
-            this.colREGN_CODE,
-            this.colCODE,
-            this.colNAME});
-         this.searchLookUpEdit1View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-         this.searchLookUpEdit1View.Name = "searchLookUpEdit1View";
-         this.searchLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
-         this.searchLookUpEdit1View.OptionsView.ShowGroupPanel = false;
-         // 
-         // colREGN_PRVN_CNTY_CODE
-         // 
-         this.colREGN_PRVN_CNTY_CODE.Caption = "کشور";
-         this.colREGN_PRVN_CNTY_CODE.FieldName = "Region.Province.Country.NAME";
-         this.colREGN_PRVN_CNTY_CODE.Name = "colREGN_PRVN_CNTY_CODE";
-         this.colREGN_PRVN_CNTY_CODE.Visible = true;
-         this.colREGN_PRVN_CNTY_CODE.VisibleIndex = 4;
-         // 
-         // colREGN_PRVN_CODE
-         // 
-         this.colREGN_PRVN_CODE.Caption = "استان";
-         this.colREGN_PRVN_CODE.FieldName = "Region.Province.NAME";
-         this.colREGN_PRVN_CODE.Name = "colREGN_PRVN_CODE";
-         this.colREGN_PRVN_CODE.Visible = true;
-         this.colREGN_PRVN_CODE.VisibleIndex = 3;
-         // 
-         // colREGN_CODE
-         // 
-         this.colREGN_CODE.Caption = "ناحیه";
-         this.colREGN_CODE.FieldName = "Region.NAME";
-         this.colREGN_CODE.Name = "colREGN_CODE";
-         this.colREGN_CODE.Visible = true;
-         this.colREGN_CODE.VisibleIndex = 2;
-         // 
-         // colCODE
-         // 
-         this.colCODE.Caption = "کد";
-         this.colCODE.FieldName = "CODE";
-         this.colCODE.Name = "colCODE";
-         this.colCODE.Visible = true;
-         this.colCODE.VisibleIndex = 1;
-         // 
-         // colNAME
-         // 
-         this.colNAME.Caption = "نام مجتمع";
-         this.colNAME.FieldName = "NAME";
-         this.colNAME.Name = "colNAME";
-         this.colNAME.Visible = true;
-         this.colNAME.VisibleIndex = 0;
-         // 
          // tabPage3
          // 
-         this.tabPage3.Controls.Add(this.label22);
          this.tabPage3.Controls.Add(this.label14);
-         this.tabPage3.Controls.Add(this.label21);
          this.tabPage3.Controls.Add(this.ServNo_Lb);
-         this.tabPage3.Controls.Add(this.DpenFmlyNumb_Txt);
          this.tabPage3.Controls.Add(this.Password_Txt);
-         this.tabPage3.Controls.Add(this.ChldFmlyNumb_Txt);
          this.tabPage3.Controls.Add(this.ServNo_Text);
          this.tabPage3.Controls.Add(this.SUNT_CODELookUpEdit);
          this.tabPage3.Controls.Add(this.SuntCode_Lb);
-         this.tabPage3.Controls.Add(this.FmlyNumb_Txt);
-         this.tabPage3.Controls.Add(this.label20);
          this.tabPage3.Controls.Add(this.GLOB_CODE_TextEdit);
          this.tabPage3.Controls.Add(this.GlobCode_Lb);
          this.tabPage3.Location = new System.Drawing.Point(4, 23);
@@ -2982,16 +2508,6 @@
          this.tabPage3.Text = "وابستگی";
          this.tabPage3.UseVisualStyleBackColor = true;
          // 
-         // label22
-         // 
-         this.label22.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.label22.AutoSize = true;
-         this.label22.Location = new System.Drawing.Point(705, 85);
-         this.label22.Name = "label22";
-         this.label22.Size = new System.Drawing.Size(131, 14);
-         this.label22.TabIndex = 70;
-         this.label22.Text = "تعداد اعضای تحت تکفل :";
-         // 
          // label14
          // 
          this.label14.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -3001,36 +2517,6 @@
          this.label14.Size = new System.Drawing.Size(54, 14);
          this.label14.TabIndex = 70;
          this.label14.Text = "رمز عبور :";
-         // 
-         // label21
-         // 
-         this.label21.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.label21.AutoSize = true;
-         this.label21.Location = new System.Drawing.Point(389, 84);
-         this.label21.Name = "label21";
-         this.label21.Size = new System.Drawing.Size(79, 14);
-         this.label21.TabIndex = 70;
-         this.label21.Text = "تعداد فرزندان :";
-         // 
-         // DpenFmlyNumb_Txt
-         // 
-         this.DpenFmlyNumb_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.DpenFmlyNumb_Txt.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.FgpbsBs1, "DPEN_FMLY_NUMB", true));
-         this.DpenFmlyNumb_Txt.Location = new System.Drawing.Point(650, 81);
-         this.DpenFmlyNumb_Txt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-         this.DpenFmlyNumb_Txt.Name = "DpenFmlyNumb_Txt";
-         this.DpenFmlyNumb_Txt.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
-         this.DpenFmlyNumb_Txt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.DpenFmlyNumb_Txt.Properties.Appearance.Options.UseBackColor = true;
-         this.DpenFmlyNumb_Txt.Properties.Appearance.Options.UseFont = true;
-         this.DpenFmlyNumb_Txt.Properties.Appearance.Options.UseTextOptions = true;
-         this.DpenFmlyNumb_Txt.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-         this.DpenFmlyNumb_Txt.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-         this.DpenFmlyNumb_Txt.Properties.AppearanceFocused.Options.UseBackColor = true;
-         this.DpenFmlyNumb_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
-         this.DpenFmlyNumb_Txt.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.DpenFmlyNumb_Txt.Size = new System.Drawing.Size(49, 22);
-         this.DpenFmlyNumb_Txt.TabIndex = 4;
          // 
          // Password_Txt
          // 
@@ -3051,50 +2537,6 @@
          this.Password_Txt.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
          this.Password_Txt.Size = new System.Drawing.Size(140, 22);
          this.Password_Txt.TabIndex = 3;
-         // 
-         // ChldFmlyNumb_Txt
-         // 
-         this.ChldFmlyNumb_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.ChldFmlyNumb_Txt.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.FgpbsBs1, "CHLD_FMLY_NUMB", true));
-         this.ChldFmlyNumb_Txt.Location = new System.Drawing.Point(334, 80);
-         this.ChldFmlyNumb_Txt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-         this.ChldFmlyNumb_Txt.Name = "ChldFmlyNumb_Txt";
-         this.ChldFmlyNumb_Txt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.ChldFmlyNumb_Txt.Properties.Appearance.Options.UseFont = true;
-         this.ChldFmlyNumb_Txt.Properties.Appearance.Options.UseTextOptions = true;
-         this.ChldFmlyNumb_Txt.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-         this.ChldFmlyNumb_Txt.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-         this.ChldFmlyNumb_Txt.Properties.AppearanceFocused.Options.UseBackColor = true;
-         this.ChldFmlyNumb_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
-         this.ChldFmlyNumb_Txt.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.ChldFmlyNumb_Txt.Size = new System.Drawing.Size(49, 22);
-         this.ChldFmlyNumb_Txt.TabIndex = 6;
-         // 
-         // FmlyNumb_Txt
-         // 
-         this.FmlyNumb_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.FmlyNumb_Txt.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.FgpbsBs1, "FMLY_NUMB", true));
-         this.FmlyNumb_Txt.Location = new System.Drawing.Point(480, 81);
-         this.FmlyNumb_Txt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-         this.FmlyNumb_Txt.Name = "FmlyNumb_Txt";
-         this.FmlyNumb_Txt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.FmlyNumb_Txt.Properties.Appearance.Options.UseFont = true;
-         this.FmlyNumb_Txt.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-         this.FmlyNumb_Txt.Properties.AppearanceFocused.Options.UseBackColor = true;
-         this.FmlyNumb_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
-         this.FmlyNumb_Txt.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.FmlyNumb_Txt.Size = new System.Drawing.Size(49, 22);
-         this.FmlyNumb_Txt.TabIndex = 5;
-         // 
-         // label20
-         // 
-         this.label20.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.label20.AutoSize = true;
-         this.label20.Location = new System.Drawing.Point(535, 84);
-         this.label20.Name = "label20";
-         this.label20.Size = new System.Drawing.Size(106, 14);
-         this.label20.TabIndex = 37;
-         this.label20.Text = "تعداد اعضا خانواده :";
          // 
          // tabPage4
          // 
@@ -3274,28 +2716,14 @@
          ((System.ComponentModel.ISupportInitialize)(this.IdtyNumb_Txt.Properties)).EndInit();
          this.tabPage2.ResumeLayout(false);
          this.tabPage2.PerformLayout();
-         ((System.ComponentModel.ISupportInitialize)(this.HomeType_Lov.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.DOwnrBs1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.ZipCode_Txt.Properties)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.BuldArea_Txt.Properties)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.WatrFabrNumb_Txt.Properties)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.GasFabrNumb_Txt.Properties)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.PowrFabrNumb_Txt.Properties)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.Cunt_Lov.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.CuntBs1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.CblkBs1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.CndoBs1)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.Cblk_Lov.Properties)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.Cndo_Lov.Properties)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).EndInit();
          this.tabPage3.ResumeLayout(false);
          this.tabPage3.PerformLayout();
-         ((System.ComponentModel.ISupportInitialize)(this.DpenFmlyNumb_Txt.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.Password_Txt.Properties)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.ChldFmlyNumb_Txt.Properties)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.FmlyNumb_Txt.Properties)).EndInit();
          this.tabPage4.ResumeLayout(false);
          this.tabPage4.PerformLayout();
          this.tabPage5.ResumeLayout(false);
@@ -3469,47 +2897,13 @@
       private Windows.Forms.TabPage tabPage4;
       private Windows.Forms.TabPage tabPage5;
       private Windows.Forms.Label label9;
-      private Windows.Forms.Label label12;
-      private DevExpress.XtraEditors.SearchLookUpEdit Cunt_Lov;
       private Windows.Forms.BindingSource CuntBs1;
       private Windows.Forms.BindingSource CblkBs1;
       private Windows.Forms.BindingSource CndoBs1;
-      private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
-      private DevExpress.XtraGrid.Columns.GridColumn colCODE3;
-      private DevExpress.XtraGrid.Columns.GridColumn colNAME2;
-      private DevExpress.XtraEditors.SearchLookUpEdit Cblk_Lov;
-      private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
-      private DevExpress.XtraGrid.Columns.GridColumn colCODE2;
-      private DevExpress.XtraGrid.Columns.GridColumn colNAME1;
-      private DevExpress.XtraEditors.SearchLookUpEdit Cndo_Lov;
-      private DevExpress.XtraGrid.Views.Grid.GridView searchLookUpEdit1View;
-      private DevExpress.XtraGrid.Columns.GridColumn colREGN_PRVN_CNTY_CODE;
-      private DevExpress.XtraGrid.Columns.GridColumn colREGN_PRVN_CODE;
-      private DevExpress.XtraGrid.Columns.GridColumn colREGN_CODE;
-      private DevExpress.XtraGrid.Columns.GridColumn colCODE;
-      private DevExpress.XtraGrid.Columns.GridColumn colNAME;
-      private Windows.Forms.Label label13;
-      private Windows.Forms.Label IDTY_TXT;
       private Windows.Forms.Label label14;
       private DevExpress.XtraEditors.TextEdit Password_Txt;
       private DevExpress.XtraEditors.TextEdit IdtyNumb_Txt;
       private Windows.Forms.Label label15;
-      private DevExpress.XtraEditors.TextEdit WatrFabrNumb_Txt;
-      private DevExpress.XtraEditors.TextEdit GasFabrNumb_Txt;
-      private DevExpress.XtraEditors.TextEdit PowrFabrNumb_Txt;
-      private Windows.Forms.Label label17;
-      private Windows.Forms.Label label18;
-      private Windows.Forms.Label label16;
-      private DevExpress.XtraEditors.TextEdit BuldArea_Txt;
-      private Windows.Forms.Label label19;
-      private Windows.Forms.Label label22;
-      private Windows.Forms.Label label21;
-      private DevExpress.XtraEditors.TextEdit DpenFmlyNumb_Txt;
-      private DevExpress.XtraEditors.TextEdit ChldFmlyNumb_Txt;
-      private DevExpress.XtraEditors.TextEdit FmlyNumb_Txt;
-      private Windows.Forms.Label label20;
-      private DevExpress.XtraEditors.LookUpEdit HomeType_Lov;
-      private Windows.Forms.Label label27;
       private DevExpress.XtraEditors.TextEdit ZipCode_Txt;
       private Windows.Forms.Label label28;
       private Windows.Forms.Label label29;

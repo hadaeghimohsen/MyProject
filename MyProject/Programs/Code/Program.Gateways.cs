@@ -15,6 +15,7 @@ using ISP = System.ISP;
 using CRM = System.CRM;
 using RoboTech = System.RoboTech;
 using Setup = System.Setup;
+using GateControl = System.GateControl;
 
 namespace MyProject.Programs.Code
 {
@@ -33,5 +34,6 @@ namespace MyProject.Programs.Code
       internal CRM.Code.CRM _CRM { get; set; }
       internal RoboTech.Code.RoboTech _RoboTech { get; set; }
       internal Setup.Code.Setup _Setup { get; set; }
+      internal GateControl.Code.GateControl _GateControl {get; set;}
    }
 }

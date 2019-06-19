@@ -163,6 +163,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>C:\Emgu\emgucv-windesktop 3.1.0.2282\bin\Emgu.CV.World.dll</HintPath>
     </Reference>
+    <Reference Include="libzkfpcsharp, Version=1.0.0.1, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\libzkfpcsharp.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.QualityTools.Testing.Fakes, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.VisualBasic">
       <Private>True</Private>
@@ -435,6 +439,15 @@
     </Compile>
     <Compile Include="Ui\AggregateOperation\TBL_ITEM_F.Designer.cs">
       <DependentUpon>TBL_ITEM_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\Attendance\MNGR_DRES_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Attendance\MNGR_DRES_F.Designer.cs">
+      <DependentUpon>MNGR_DRES_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\Attendance\MNGR_DRES_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Ui\BaseDefinition\APBS_DFIN_F.cs">
       <SubType>UserControl</SubType>
@@ -1272,6 +1285,9 @@
     <EmbeddedResource Include="Ui\AggregateOperation\TBL_ITEM_F.resx">
       <DependentUpon>TBL_ITEM_F.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Ui\Attendance\MNGR_DRES_F.resx">
+      <DependentUpon>MNGR_DRES_F.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Ui\BaseDefinition\APBS_DFIN_F.resx">
       <DependentUpon>APBS_DFIN_F.cs</DependentUpon>
     </EmbeddedResource>
@@ -1870,6 +1886,9 @@
     </Content>
     <Content Include="..\System.Resource\Resources\IMAGE_1210.png">
       <Link>Resources\IMAGE_1210.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1211.png">
+      <Link>Resources\IMAGE_1211.png</Link>
     </Content>
     <Content Include="..\System.Resource\Resources\IMAGE_1212.png">
       <Link>Resources\IMAGE_1212.png</Link>
@@ -2786,7 +2805,6 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Ui\Attendance\" />
     <Folder Include="Ui\CalculateCalorie\" />
     <Folder Include="Ui\Campitition\" />
     <Folder Include="Ui\ChangeRials\ShowChanges\" />

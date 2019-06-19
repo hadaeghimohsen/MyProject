@@ -30,6 +30,7 @@
       {
          this.components = new System.ComponentModel.Container();
          System.Windows.Forms.Label label13;
+         System.Windows.Forms.Label label2;
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WHO_ARYU_F));
          DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
          DevExpress.Utils.ToolTipTitleItem toolTipTitleItem1 = new DevExpress.Utils.ToolTipTitleItem();
@@ -37,7 +38,6 @@
          DevExpress.Utils.SuperToolTip superToolTip2 = new DevExpress.Utils.SuperToolTip();
          DevExpress.Utils.ToolTipTitleItem toolTipTitleItem2 = new DevExpress.Utils.ToolTipTitleItem();
          DevExpress.Utils.ToolTipItem toolTipItem2 = new DevExpress.Utils.ToolTipItem();
-         System.Windows.Forms.Label label2;
          this.Mtod_Lb = new System.Windows.Forms.Label();
          this.AttnBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.Ctgy_Lb = new System.Windows.Forms.Label();
@@ -86,8 +86,8 @@
          this.panel4 = new System.Windows.Forms.Panel();
          this.AttnPartner_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.MoreInfo_Butn = new DevExpress.XtraEditors.SimpleButton();
-         this.panel5 = new System.Windows.Forms.Panel();
          this.SaveAttnDesc_Txt = new DevExpress.XtraEditors.SimpleButton();
+         this.panel5 = new System.Windows.Forms.Panel();
          this.BrthDate_Txt = new DevExpress.XtraEditors.TextEdit();
          this.StrtTime_Txt = new DevExpress.XtraEditors.TextEdit();
          this.EndTime_Txt = new DevExpress.XtraEditors.TextEdit();
@@ -109,6 +109,7 @@
          this.QWkdy006_Lb = new System.Windows.Forms.Label();
          this.CbmtwkdyBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.panel1 = new System.Windows.Forms.Panel();
+         this.MbspStat_Rb = new System.MaxUi.RoundedButton();
          label13 = new System.Windows.Forms.Label();
          label2 = new System.Windows.Forms.Label();
          ((System.ComponentModel.ISupportInitialize)(this.AttnBs1)).BeginInit();
@@ -146,6 +147,15 @@
          label13.Name = "label13";
          label13.Size = new System.Drawing.Size(36, 44);
          label13.TabIndex = 26;
+         // 
+         // label2
+         // 
+         label2.Font = new System.Drawing.Font("B Nazanin", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         label2.Image = global::System.Scsc.Properties.Resources.IMAGE_1088;
+         label2.Location = new System.Drawing.Point(299, 456);
+         label2.Name = "label2";
+         label2.Size = new System.Drawing.Size(36, 44);
+         label2.TabIndex = 26;
          // 
          // Mtod_Lb
          // 
@@ -620,7 +630,6 @@
          this.EndDate_Txt.Properties.ReadOnly = true;
          this.EndDate_Txt.Size = new System.Drawing.Size(150, 46);
          this.EndDate_Txt.TabIndex = 1;
-         this.EndDate_Txt.ToolTip = "تعداد جلسات باقیمانده";
          // 
          // StrtDate_Txt
          // 
@@ -643,7 +652,6 @@
          this.StrtDate_Txt.Properties.ReadOnly = true;
          this.StrtDate_Txt.Size = new System.Drawing.Size(150, 46);
          this.StrtDate_Txt.TabIndex = 1;
-         this.StrtDate_Txt.ToolTip = "تعداد جلسات باقیمانده";
          // 
          // DayRmnd_Txt
          // 
@@ -825,17 +833,6 @@
          this.MoreInfo_Butn.ToolTip = "اطلاعات عضو";
          this.MoreInfo_Butn.Click += new System.EventHandler(this.MoreInfo_Butn_Click);
          // 
-         // panel5
-         // 
-         this.panel5.BackColor = System.Drawing.Color.Transparent;
-         this.panel5.Controls.Add(this.Lbl_Dresser);
-         this.panel5.Controls.Add(this.DRES_NUMB_Txt);
-         this.panel5.Controls.Add(this.DresNumb_Butn);
-         this.panel5.Location = new System.Drawing.Point(380, 380);
-         this.panel5.Name = "panel5";
-         this.panel5.Size = new System.Drawing.Size(206, 62);
-         this.panel5.TabIndex = 88;
-         // 
          // SaveAttnDesc_Txt
          // 
          this.SaveAttnDesc_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -863,6 +860,17 @@
          this.SaveAttnDesc_Txt.Visible = false;
          this.SaveAttnDesc_Txt.Click += new System.EventHandler(this.SaveAttnDesc_Txt_Click);
          // 
+         // panel5
+         // 
+         this.panel5.BackColor = System.Drawing.Color.Transparent;
+         this.panel5.Controls.Add(this.Lbl_Dresser);
+         this.panel5.Controls.Add(this.DRES_NUMB_Txt);
+         this.panel5.Controls.Add(this.DresNumb_Butn);
+         this.panel5.Location = new System.Drawing.Point(380, 380);
+         this.panel5.Name = "panel5";
+         this.panel5.Size = new System.Drawing.Size(206, 62);
+         this.panel5.TabIndex = 88;
+         // 
          // BrthDate_Txt
          // 
          this.BrthDate_Txt.EditValue = "1365/10/26";
@@ -884,7 +892,6 @@
          this.BrthDate_Txt.Properties.ReadOnly = true;
          this.BrthDate_Txt.Size = new System.Drawing.Size(158, 52);
          this.BrthDate_Txt.TabIndex = 1;
-         this.BrthDate_Txt.ToolTip = "تعداد جلسات باقیمانده";
          // 
          // StrtTime_Txt
          // 
@@ -907,7 +914,6 @@
          this.StrtTime_Txt.Properties.ReadOnly = true;
          this.StrtTime_Txt.Size = new System.Drawing.Size(76, 46);
          this.StrtTime_Txt.TabIndex = 1;
-         this.StrtTime_Txt.ToolTip = "تعداد جلسات باقیمانده";
          // 
          // EndTime_Txt
          // 
@@ -930,7 +936,6 @@
          this.EndTime_Txt.Properties.ReadOnly = true;
          this.EndTime_Txt.Size = new System.Drawing.Size(76, 46);
          this.EndTime_Txt.TabIndex = 1;
-         this.EndTime_Txt.ToolTip = "تعداد جلسات باقیمانده";
          // 
          // label1
          // 
@@ -1202,6 +1207,7 @@
          // panel1
          // 
          this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(99)))), ((int)(((byte)(99)))));
+         this.panel1.Controls.Add(this.MbspStat_Rb);
          this.panel1.Controls.Add(this.Mtod_Lb);
          this.panel1.Controls.Add(this.panel5);
          this.panel1.Controls.Add(this.AttnDate_Date);
@@ -1237,14 +1243,28 @@
          this.panel1.Size = new System.Drawing.Size(662, 516);
          this.panel1.TabIndex = 96;
          // 
-         // label2
+         // MbspStat_Rb
          // 
-         label2.Font = new System.Drawing.Font("B Nazanin", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         label2.Image = global::System.Scsc.Properties.Resources.IMAGE_1088;
-         label2.Location = new System.Drawing.Point(299, 456);
-         label2.Name = "label2";
-         label2.Size = new System.Drawing.Size(36, 44);
-         label2.TabIndex = 26;
+         this.MbspStat_Rb.Active = true;
+         this.MbspStat_Rb.ButtonStyle = System.MaxUi.RoundedButton.ButtonStyles.Ellipse;
+         this.MbspStat_Rb.Caption = "";
+         this.MbspStat_Rb.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold);
+         this.MbspStat_Rb.GradientStyle = System.MaxUi.RoundedButton.GradientStyles.Vertical;
+         this.MbspStat_Rb.HoverBorderColor = System.Drawing.Color.Gold;
+         this.MbspStat_Rb.HoverColorA = System.Drawing.Color.LightGray;
+         this.MbspStat_Rb.HoverColorB = System.Drawing.Color.LightGray;
+         this.MbspStat_Rb.ImageProfile = null;
+         this.MbspStat_Rb.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.Normal;
+         this.MbspStat_Rb.ImageVisiable = true;
+         this.MbspStat_Rb.Location = new System.Drawing.Point(590, 246);
+         this.MbspStat_Rb.Name = "MbspStat_Rb";
+         this.MbspStat_Rb.NormalBorderColor = System.Drawing.Color.Black;
+         this.MbspStat_Rb.NormalColorA = System.Drawing.Color.White;
+         this.MbspStat_Rb.NormalColorB = System.Drawing.Color.White;
+         this.MbspStat_Rb.Size = new System.Drawing.Size(65, 65);
+         this.MbspStat_Rb.SmoothingQuality = System.MaxUi.RoundedButton.SmoothingQualities.AntiAlias;
+         this.MbspStat_Rb.TabIndex = 96;
+         this.MbspStat_Rb.Tooltip = null;
          // 
          // WHO_ARYU_F
          // 
@@ -1377,6 +1397,7 @@
       private Windows.Forms.Label QWkdy006_Lb;
       private Windows.Forms.BindingSource CbmtwkdyBs1;
       private Windows.Forms.Panel panel1;
+      private MaxUi.RoundedButton MbspStat_Rb;
 
    }
 }

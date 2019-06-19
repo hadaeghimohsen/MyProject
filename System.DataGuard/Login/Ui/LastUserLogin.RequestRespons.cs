@@ -179,9 +179,9 @@ namespace System.DataGuard.Login.Ui
          var users = iProject.Users.Where(u => iProject.V_TopNActiveSessionCurrentGateways.Any(a => a.USER_ID == u.ID));
          int i = 0;
 
-         FormHandle = this.Handle;
-         try { bnInit_Click(null, null); }
-         catch { FngrDev_Pb.Visible = false; }
+         //FormHandle = this.Handle;
+         //try { bnInit_Click(null, null); }
+         //catch { FngrDev_Pb.Visible = false; }
 
          if(InvokeRequired)
          {

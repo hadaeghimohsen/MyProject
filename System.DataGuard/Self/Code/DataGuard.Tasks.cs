@@ -206,7 +206,9 @@ namespace System.DataGuard.Self.Code
             foreach (ManagementObject mo in mbsList)
             {
                cpu = mo["ProcessorID"].ToString();
-            }            
+            }
+            string cpuID = string.Empty;
+            
 
             job.Output =
                new XElement("Computer",

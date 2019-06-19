@@ -1403,6 +1403,16 @@ namespace System.Scsc.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap IMAGE_1211 {
+            get {
+                object obj = ResourceManager.GetObject("IMAGE_1211", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap IMAGE_1212 {
             get {
                 object obj = ResourceManager.GetObject("IMAGE_1212", resourceCulture);

@@ -464,6 +464,7 @@
          this.repositoryItemLookUpEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
          this.RqttBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.DCyclBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.Accept_Cb = new System.Windows.Forms.CheckBox();
          ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
          this.splitContainer1.Panel1.SuspendLayout();
          this.splitContainer1.Panel2.SuspendLayout();
@@ -707,6 +708,7 @@
          this.Gb_Expense.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
          this.Gb_Expense.BackColor = System.Drawing.Color.PaleGoldenrod;
+         this.Gb_Expense.Controls.Add(this.Accept_Cb);
          this.Gb_Expense.Controls.Add(this.simpleButton1);
          this.Gb_Expense.Controls.Add(this.tbn_CashPayment1);
          this.Gb_Expense.Controls.Add(this.tbn_POSPayment1);
@@ -3845,7 +3847,7 @@
          // bindingNavigatorCountItem
          // 
          this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-         this.bindingNavigatorCountItem.Size = new System.Drawing.Size(35, 44);
+         this.bindingNavigatorCountItem.Size = new System.Drawing.Size(34, 44);
          this.bindingNavigatorCountItem.Text = "of {0}";
          this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
          // 
@@ -4379,6 +4381,18 @@
          // 
          this.DCyclBs1.DataSource = typeof(System.Scsc.Data.D_CYCL);
          // 
+         // Accept_Cb
+         // 
+         this.Accept_Cb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.Accept_Cb.AutoSize = true;
+         this.Accept_Cb.Checked = true;
+         this.Accept_Cb.CheckState = System.Windows.Forms.CheckState.Checked;
+         this.Accept_Cb.Location = new System.Drawing.Point(216, 111);
+         this.Accept_Cb.Name = "Accept_Cb";
+         this.Accept_Cb.Size = new System.Drawing.Size(15, 14);
+         this.Accept_Cb.TabIndex = 77;
+         this.Accept_Cb.UseVisualStyleBackColor = true;
+         // 
          // OIC_TOTL_F
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -4886,5 +4900,6 @@
       private DevExpress.XtraEditors.SimpleButton tbn_CashPayment1;
       private DevExpress.XtraEditors.SimpleButton tbn_POSPayment1;
       private Windows.Forms.BindingSource DPydsBs1;
+      private Windows.Forms.CheckBox Accept_Cb;
    }
 }

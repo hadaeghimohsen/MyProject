@@ -544,6 +544,7 @@ namespace System.Scsc.Ui.MasterPage
          catch { }
          //FighBs.DataSource = iScsc.Fighters.Where(f => f.CONF_STAT == "002" && f.FGPB_TYPE_DNRM != "007" /*&& !f.NAME_DNRM.Contains("مشتری, جلسه ای")*/ && (Fga_Uclb_U.Contains(f.CLUB_CODE_DNRM) || (f.CLUB_CODE_DNRM == null ? f.Club_Methods.Where(cb => Fga_Uclb_U.Contains(cb.CLUB_CODE)).Any() : false)) && Convert.ToInt32(f.ACTV_TAG_DNRM ?? "101") >= 101);
          DaeatBs.DataSource = iScsc.D_AEATs;
+         FormHandle = this.Handle;
          job.Status = StatusType.Successful;
       }
 
@@ -663,6 +664,27 @@ namespace System.Scsc.Ui.MasterPage
             {
                Truncate_Finger();
             }
+         }
+         else if (job.Input != null && (job.Input as XElement).Attribute("type").Value == "zktfngrprnt")
+         {
+            if ((job.Input as XElement).Attribute("fngractn").Value == "enroll")
+            {
+               //Enroll_Finger((job.Input as XElement).Attribute("fngrprnt").Value);
+               ZktFpAttnStat = "enroll";
+            }
+            else if ((job.Input as XElement).Attribute("fngractn").Value == "attendance")
+            {
+               //Truncate_Finger();
+               ZktFpAttnStat = "attendance";
+            }
+            else if ((job.Input as XElement).Attribute("fngractn").Value == "delete")
+            {
+               //Delete_Finger((job.Input as XElement).Attribute("fngrprnt").Value);
+            }
+            else if ((job.Input as XElement).Attribute("fngractn").Value == "truncate")
+            {
+               //Truncate_Finger();
+            }            
          }
          job.Status = StatusType.Successful;
       }

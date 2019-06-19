@@ -10,6 +10,7 @@ using System.Xml.Linq;
 using AForge.Video;
 using AForge.Video.DirectShow;
 using Emgu.CV;
+using System.Drawing;
 
 namespace System.Scsc.Ui.Document
 {
@@ -106,6 +107,25 @@ namespace System.Scsc.Ui.Document
          }
          else if (keyData == Keys.Escape)
          {
+            // 1398/01/12 * if ZKTFingerPrintSensor Is Active
+            if (RcvdBs.List.OfType<Data.Receive_Document>().Any(rd => rd.Request_Document.DCMT_DSID == 13980505495708))
+            {
+               _DefaultGateway.Gateway(
+                  new Job(SendType.External, "localhost",
+                     new List<Job>
+                     {
+                        new Job(SendType.SelfToUserInterface, "MAIN_PAGE_F", 10 /* Execute Actn_Calf_P */){
+                           Input = 
+                              new XElement("ZktFingerPrint",
+                                 new XAttribute("type", "zktfngrprnt"),
+                                 new XAttribute("fngractn", "attendance")
+                              )
+                        }
+                     }
+                  )
+               );
+            }
+
             Tb_StartStopVideo.PickChecked = false;
             if (capture != null)
             {
@@ -376,12 +396,12 @@ namespace System.Scsc.Ui.Document
                )
             );
 
-            receive_DocumentBindingSource.DataSource = iScsc.Receive_Documents.Where(rd => rd.Request_Row == Rqro);
-            dDCNDBindingSource.DataSource = iScsc.D_DCNDs;
-            dDCTPBindingSource.DataSource = iScsc.D_DCTPs;
-            dYSNOBindingSource.DataSource = iScsc.D_YSNOs;
-            dDCMTBindingSource.DataSource = iScsc.D_DCMTs;
-            dPRSTBindingSource.DataSource = iScsc.D_PRSTs;
+            RcvdBs.DataSource = iScsc.Receive_Documents.Where(rd => rd.Request_Row == Rqro);
+            DdcndBs.DataSource = iScsc.D_DCNDs;
+            DdctpBs.DataSource = iScsc.D_DCTPs;
+            DysnoBs.DataSource = iScsc.D_YSNOs;
+            DdcmtBs.DataSource = iScsc.D_DCMTs;
+            DprstBs.DataSource = iScsc.D_PRSTs;
 
             /* Load Video Capture */
             filterInfoCollection = new FilterInfoCollection(FilterCategory.VideoInputDevice);
@@ -407,28 +427,44 @@ namespace System.Scsc.Ui.Document
       /// <param name="job"></param>
       private void Actn_CalF_P(Job job)
       {
-         var xdata = job.Input as XElement;
-         var rcid = Convert.ToInt64(xdata.Element("Document").Attribute("rcid").Value);
-         for (int i = 0; i < receive_DocumentBindingSource.Count; i++)
+         picFPImg.Image = System.Scsc.Properties.Resources.IMAGE_1201;
+         textFngr.Text = "";
+         if (job.Input is XElement)
          {
-            if(rcid == (receive_DocumentBindingSource.List[i] as Data.Receive_Document).RCID)
+            var xdata = job.Input as XElement;
+            var rcid = Convert.ToInt64(xdata.Element("Document").Attribute("rcid").Value);
+            for (int i = 0; i < RcvdBs.Count; i++)
             {
-               receive_DocumentBindingSource.Position = i;
-               break;
+               if (rcid == (RcvdBs.List[i] as Data.Receive_Document).RCID)
+               {
+                  RcvdBs.Position = i;
+                  break;
+               }
+            }
+            switch (xdata.Attribute("type").Value)
+            {
+               case "001": // فعال سازی عکس برای مشتری
+                  TC_Dcmt.SelectedTab = tp_003;
+                  if (filterInfoCollection.Count > 0)
+                  {
+                     LOV_VideoSrc.ItemIndex = 0;
+                     Tb_StartStopVideo.PickChecked = true;
+                  }
+                  break;
+               default:
+                  break;
             }
          }
-         switch (xdata.Attribute("type").Value)
+         else if (job.Input is List<object>)
          {
-            case "001": // فعال سازی عکس برای مشتری
-               TC_Dcmt.SelectedTab = tp_003;
-               if(filterInfoCollection.Count > 0)
-               {
-                  LOV_VideoSrc.ItemIndex = 0;
-                  Tb_StartStopVideo.PickChecked = true;
-               }
-               break;
-            default:
-               break;
+            var fngr_img_tmpl = job.Input as List<object>;
+            TC_Dcmt.SelectedTab = tp_004;
+            var img = RcvdBs.List.OfType<Data.Receive_Document>().FirstOrDefault(f => f.Request_Document.DCMT_DSID == 13980505495708).Image_Documents.FirstOrDefault();
+            picFPImg.Image = (Image)fngr_img_tmpl[0];
+            textFngr.Text = (string)fngr_img_tmpl[1];
+            img.IMAG = textFngr.Text;
+            img.MDFY_STAT = 1;
+            StrLen_Lbl.Text = textFngr.Text.Length.ToString();
          }
          job.Status = StatusType.Successful;
       }

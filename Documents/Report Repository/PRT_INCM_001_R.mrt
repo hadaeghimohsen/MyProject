@@ -1066,7 +1066,7 @@ WHERE {WhereClause}</SqlCommand>
               <Page isRef="22" />
               <Parent isRef="53" />
               <ShrinkFontToFit>True</ShrinkFontToFit>
-              <Text>{Payment_Detail.EXPN_PYDT.EXTP_EXPN.EPIT_EXTP.EPIT_DESC}</Text>
+              <Text>{Payment_Detail.EXPN_PYDT.EXPN_DESC}</Text>
               <TextBrush>Black</TextBrush>
               <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
@@ -1302,10 +1302,10 @@ WHERE {WhereClause}</SqlCommand>
     <value>Stimulsoft.Report.Dll</value>
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
-  <ReportChanged>12/20/2018 3:50:33 PM</ReportChanged>
+  <ReportChanged>6/16/2019 3:06:56 PM</ReportChanged>
   <ReportCreated>9/26/2011 12:44:57 PM</ReportCreated>
   <ReportFile>D:\Project\MyProject\Documents\Report Repository\PRT_INCM_001_R.mrt</ReportFile>
-  <ReportGuid>479c02d76a294a50a2b1dfe428cade7e</ReportGuid>
+  <ReportGuid>512a790ead124e0e942546d697df6d2b</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Centimeters</ReportUnit>
   <ReportVersion>2012.2.1304</ReportVersion>

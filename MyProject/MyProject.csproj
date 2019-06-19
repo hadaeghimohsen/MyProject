@@ -506,6 +506,10 @@
       <Project>{924e3ee6-cc2f-4982-ae88-665dabe8c68b}</Project>
       <Name>System.Gas</Name>
     </ProjectReference>
+    <ProjectReference Include="..\System.GateControl\System.GateControl.csproj">
+      <Project>{a167db7c-08c6-40d9-8561-2816e20239f1}</Project>
+      <Name>System.GateControl</Name>
+    </ProjectReference>
     <ProjectReference Include="..\System.ISP\System.ISP.csproj">
       <Project>{ad309c0f-b2a3-440c-a5f2-49dc2e7fef35}</Project>
       <Name>System.ISP</Name>

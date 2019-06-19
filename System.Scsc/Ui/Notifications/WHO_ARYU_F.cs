@@ -288,11 +288,19 @@ namespace System.Scsc.Ui.Notifications
             Lbl_Dresser.Text = "";
          }*/
 
-         //dateTimeSelector3.BackColor = Color.DimGray;
-         //if (attn.MBSP_END_DATE_DNRM.Value.AddDays(1).Date == DateTime.Now.Date)
-         //   dateTimeSelector3.BackColor = Color.Yellow;
-         //else if (attn.MBSP_END_DATE_DNRM.Value.Date == DateTime.Now.Date)
-         //   dateTimeSelector3.BackColor = Color.Red;
+         MbspStat_Rb.NormalColorA = Color.GreenYellow;
+         MbspStat_Rb.NormalColorB = Color.GreenYellow;
+         if (attn.MBSP_END_DATE_DNRM.Value.AddDays(-1).Date >= DateTime.Now.Date &&
+            attn.MBSP_END_DATE_DNRM.Value.AddDays(-3).Date <= DateTime.Now.Date)
+         {
+            MbspStat_Rb.NormalColorA = Color.Yellow;
+            MbspStat_Rb.NormalColorB = Color.Yellow;
+         }
+         else if (attn.MBSP_END_DATE_DNRM.Value.Date == DateTime.Now.Date)
+         {
+            MbspStat_Rb.NormalColorA = Color.Red;
+            MbspStat_Rb.NormalColorB = Color.Red;
+         }
          ///***
          //if(attn.Member_Ship.Sessions.Any())
          //   SesnBs1.DataSource =

@@ -48,12 +48,13 @@
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SuperToolTip superToolTip6 = new DevExpress.Utils.SuperToolTip();
          DevExpress.Utils.ToolTipTitleItem toolTipTitleItem6 = new DevExpress.Utils.ToolTipTitleItem();
          DevExpress.Utils.ToolTipItem toolTipItem6 = new DevExpress.Utils.ToolTipItem();
          DevExpress.Utils.ToolTipTitleItem toolTipTitleItem7 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SuperToolTip superToolTip7 = new DevExpress.Utils.SuperToolTip();
          DevExpress.Utils.ToolTipTitleItem toolTipTitleItem8 = new DevExpress.Utils.ToolTipTitleItem();
          DevExpress.Utils.ToolTipItem toolTipItem7 = new DevExpress.Utils.ToolTipItem();
@@ -198,6 +199,7 @@
          this.Licnday_Lnk = new System.Windows.Forms.LinkLabel();
          this.ShoppingStore_Pb = new System.Windows.Forms.PictureBox();
          this.CertificateLogo_Pb = new System.Windows.Forms.PictureBox();
+         this.OnlineDres_Butn = new DevExpress.XtraEditors.ButtonEdit();
          this.button4 = new System.Windows.Forms.Button();
          this.button3 = new System.Windows.Forms.Button();
          this.button2 = new System.Windows.Forms.Button();
@@ -268,6 +270,7 @@
          this.spc_desktop.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.ShoppingStore_Pb)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.CertificateLogo_Pb)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.OnlineDres_Butn.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.AttnType_Lov.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.DaeatBs)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.CardNumb_Text.Properties)).BeginInit();
@@ -431,7 +434,7 @@
             this.AgrActn_RPgc,
             this.Mngr_RPgc,
             this.SystemAdmin_RPgc});
-         this.ribbonControl1.Size = new System.Drawing.Size(1057, 142);
+         this.ribbonControl1.Size = new System.Drawing.Size(1249, 142);
          // 
          // bbi_epitbutn
          // 
@@ -1732,6 +1735,7 @@
          this.spc_desktop.Panel2.AutoScroll = true;
          this.spc_desktop.Panel2.BackColor = System.Drawing.Color.Gainsboro;
          this.spc_desktop.Panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+         this.spc_desktop.Panel2.Controls.Add(this.OnlineDres_Butn);
          this.spc_desktop.Panel2.Controls.Add(this.button4);
          this.spc_desktop.Panel2.Controls.Add(this.button3);
          this.spc_desktop.Panel2.Controls.Add(this.button2);
@@ -1754,8 +1758,8 @@
          this.spc_desktop.Panel2.Controls.Add(this.ShowDesktop_Butn);
          this.spc_desktop.Panel2.Padding = new System.Windows.Forms.Padding(5);
          this.spc_desktop.Panel2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-         this.spc_desktop.Size = new System.Drawing.Size(1057, 581);
-         this.spc_desktop.SplitterDistance = 540;
+         this.spc_desktop.Size = new System.Drawing.Size(1249, 490);
+         this.spc_desktop.SplitterDistance = 449;
          this.spc_desktop.TabIndex = 3;
          // 
          // ShopStore_Lnk
@@ -1763,13 +1767,14 @@
          this.ShopStore_Lnk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
          this.ShopStore_Lnk.Font = new System.Drawing.Font("IRANSans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.ShopStore_Lnk.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-         this.ShopStore_Lnk.Location = new System.Drawing.Point(5, 497);
+         this.ShopStore_Lnk.Location = new System.Drawing.Point(5, 338);
          this.ShopStore_Lnk.Name = "ShopStore_Lnk";
          this.ShopStore_Lnk.Size = new System.Drawing.Size(189, 22);
          this.ShopStore_Lnk.TabIndex = 1;
          this.ShopStore_Lnk.TabStop = true;
          this.ShopStore_Lnk.Text = "بازارچه خرید";
          this.ShopStore_Lnk.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         this.ShopStore_Lnk.Visible = false;
          // 
          // Licnday_Lnk
          // 
@@ -1788,12 +1793,13 @@
          this.ShoppingStore_Pb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
          this.ShoppingStore_Pb.Cursor = System.Windows.Forms.Cursors.Hand;
          this.ShoppingStore_Pb.Image = global::System.Scsc.Properties.Resources.IMAGE_1659;
-         this.ShoppingStore_Pb.Location = new System.Drawing.Point(5, 335);
+         this.ShoppingStore_Pb.Location = new System.Drawing.Point(5, 176);
          this.ShoppingStore_Pb.Name = "ShoppingStore_Pb";
          this.ShoppingStore_Pb.Size = new System.Drawing.Size(189, 159);
          this.ShoppingStore_Pb.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
          this.ShoppingStore_Pb.TabIndex = 0;
          this.ShoppingStore_Pb.TabStop = false;
+         this.ShoppingStore_Pb.Visible = false;
          // 
          // CertificateLogo_Pb
          // 
@@ -1805,6 +1811,26 @@
          this.CertificateLogo_Pb.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
          this.CertificateLogo_Pb.TabIndex = 0;
          this.CertificateLogo_Pb.TabStop = false;
+         // 
+         // OnlineDres_Butn
+         // 
+         this.OnlineDres_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.OnlineDres_Butn.Location = new System.Drawing.Point(803, 5);
+         this.OnlineDres_Butn.MenuManager = this.ribbonControl1;
+         this.OnlineDres_Butn.Name = "OnlineDres_Butn";
+         this.OnlineDres_Butn.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.OnlineDres_Butn.Properties.Appearance.Options.UseFont = true;
+         this.OnlineDres_Butn.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+         this.OnlineDres_Butn.Properties.AppearanceFocused.Options.UseBackColor = true;
+         this.OnlineDres_Butn.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("OnlineDres_Butn.Properties.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "مدریت کمد های انلاین", null, null, true)});
+         this.OnlineDres_Butn.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
+         this.OnlineDres_Butn.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.OnlineDres_Butn.Properties.NullValuePromptShowForEmptyValue = true;
+         this.OnlineDres_Butn.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.CardNumb_Text_Properties_ButtonClick);
+         this.OnlineDres_Butn.Size = new System.Drawing.Size(69, 24);
+         this.OnlineDres_Butn.TabIndex = 22;
+         this.OnlineDres_Butn.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.OnlineDres_Butn_ButtonClick);
          // 
          // button4
          // 
@@ -1879,7 +1905,7 @@
          this.TlgrmBot_Butn.Dock = System.Windows.Forms.DockStyle.Right;
          this.TlgrmBot_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1616;
          this.TlgrmBot_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.TlgrmBot_Butn.Location = new System.Drawing.Point(711, 5);
+         this.TlgrmBot_Butn.Location = new System.Drawing.Point(903, 5);
          this.TlgrmBot_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.TlgrmBot_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.TlgrmBot_Butn.Name = "TlgrmBot_Butn";
@@ -1902,7 +1928,7 @@
          this.BackGrnd_Butn.ImageProfile = null;
          this.BackGrnd_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.Normal;
          this.BackGrnd_Butn.ImageVisiable = false;
-         this.BackGrnd_Butn.Location = new System.Drawing.Point(685, 8);
+         this.BackGrnd_Butn.Location = new System.Drawing.Point(877, 8);
          this.BackGrnd_Butn.Name = "BackGrnd_Butn";
          this.BackGrnd_Butn.NormalBorderColor = System.Drawing.Color.Black;
          this.BackGrnd_Butn.NormalColorA = System.Drawing.Color.DimGray;
@@ -1948,7 +1974,7 @@
          this.AdjustDateTime_Butn.Dock = System.Windows.Forms.DockStyle.Right;
          this.AdjustDateTime_Butn.Image = ((System.Drawing.Image)(resources.GetObject("AdjustDateTime_Butn.Image")));
          this.AdjustDateTime_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
-         this.AdjustDateTime_Butn.Location = new System.Drawing.Point(741, 5);
+         this.AdjustDateTime_Butn.Location = new System.Drawing.Point(933, 5);
          this.AdjustDateTime_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.AdjustDateTime_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.AdjustDateTime_Butn.Name = "AdjustDateTime_Butn";
@@ -1982,11 +2008,11 @@
          superToolTip6.Items.Add(toolTipItem6);
          superToolTip6.Items.Add(toolTipTitleItem7);
          this.CardNumb_Text.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("CardNumb_Text.Properties.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "ثبت نام", null, null, true),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("CardNumb_Text.Properties.Buttons1"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "تعویض کارت", null, null, true),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("CardNumb_Text.Properties.Buttons2"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject3, "", null, superToolTip6, true),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("CardNumb_Text.Properties.Buttons3"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject4, "حضور و غیاب دستی", null, null, true),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, global::System.Scsc.Properties.Resources.IMAGE_1223, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, "خرید فروشگاهی", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("CardNumb_Text.Properties.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "ثبت نام", null, null, true),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("CardNumb_Text.Properties.Buttons1"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject3, "تعویض کارت", null, null, true),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("CardNumb_Text.Properties.Buttons2"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject4, "", null, superToolTip6, true),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("CardNumb_Text.Properties.Buttons3"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, "حضور و غیاب دستی", null, null, true),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, global::System.Scsc.Properties.Resources.IMAGE_1223, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject6, "خرید فروشگاهی", null, null, true)});
          this.CardNumb_Text.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
          this.CardNumb_Text.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
          this.CardNumb_Text.Properties.NullValuePromptShowForEmptyValue = true;
@@ -2060,7 +2086,7 @@
          this.More_Butn.Dock = System.Windows.Forms.DockStyle.Right;
          this.More_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1189;
          this.More_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.More_Butn.Location = new System.Drawing.Point(827, 5);
+         this.More_Butn.Location = new System.Drawing.Point(1019, 5);
          this.More_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.More_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.More_Butn.Name = "More_Butn";
@@ -2078,7 +2104,7 @@
          this.SrvrPing_Butn.Dock = System.Windows.Forms.DockStyle.Right;
          this.SrvrPing_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1408;
          this.SrvrPing_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.SrvrPing_Butn.Location = new System.Drawing.Point(857, 5);
+         this.SrvrPing_Butn.Location = new System.Drawing.Point(1049, 5);
          this.SrvrPing_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.SrvrPing_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.SrvrPing_Butn.Name = "SrvrPing_Butn";
@@ -2095,7 +2121,7 @@
          this.GameHours_Butn.Dock = System.Windows.Forms.DockStyle.Right;
          this.GameHours_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1428;
          this.GameHours_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.GameHours_Butn.Location = new System.Drawing.Point(887, 5);
+         this.GameHours_Butn.Location = new System.Drawing.Point(1079, 5);
          this.GameHours_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.GameHours_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.GameHours_Butn.Name = "GameHours_Butn";
@@ -2112,7 +2138,7 @@
          this.GateAttn_Butn.Dock = System.Windows.Forms.DockStyle.Right;
          this.GateAttn_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1561;
          this.GateAttn_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.GateAttn_Butn.Location = new System.Drawing.Point(917, 5);
+         this.GateAttn_Butn.Location = new System.Drawing.Point(1109, 5);
          this.GateAttn_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.GateAttn_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.GateAttn_Butn.Name = "GateAttn_Butn";
@@ -2130,7 +2156,7 @@
          this.AttendanceSystemAlert_Butn.Dock = System.Windows.Forms.DockStyle.Right;
          this.AttendanceSystemAlert_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1227;
          this.AttendanceSystemAlert_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.AttendanceSystemAlert_Butn.Location = new System.Drawing.Point(947, 5);
+         this.AttendanceSystemAlert_Butn.Location = new System.Drawing.Point(1139, 5);
          this.AttendanceSystemAlert_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.AttendanceSystemAlert_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.AttendanceSystemAlert_Butn.Name = "AttendanceSystemAlert_Butn";
@@ -2160,7 +2186,7 @@
          this.ActionCenter_Butn.Dock = System.Windows.Forms.DockStyle.Right;
          this.ActionCenter_Butn.Image = ((System.Drawing.Image)(resources.GetObject("ActionCenter_Butn.Image")));
          this.ActionCenter_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.ActionCenter_Butn.Location = new System.Drawing.Point(986, 5);
+         this.ActionCenter_Butn.Location = new System.Drawing.Point(1178, 5);
          this.ActionCenter_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.ActionCenter_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.ActionCenter_Butn.Name = "ActionCenter_Butn";
@@ -2179,7 +2205,7 @@
          this.ShowDesktop_Butn.Dock = System.Windows.Forms.DockStyle.Right;
          this.ShowDesktop_Butn.Image = ((System.Drawing.Image)(resources.GetObject("ShowDesktop_Butn.Image")));
          this.ShowDesktop_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.ShowDesktop_Butn.Location = new System.Drawing.Point(1028, 5);
+         this.ShowDesktop_Butn.Location = new System.Drawing.Point(1220, 5);
          this.ShowDesktop_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.ShowDesktop_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.ShowDesktop_Butn.Name = "ShowDesktop_Butn";
@@ -2484,7 +2510,7 @@
          this.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.Name = "MAIN_PAGE_F";
          this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-         this.Size = new System.Drawing.Size(1057, 723);
+         this.Size = new System.Drawing.Size(1249, 632);
          this.statusStrip1.ResumeLayout(false);
          this.statusStrip1.PerformLayout();
          ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();
@@ -2494,6 +2520,7 @@
          this.spc_desktop.ResumeLayout(false);
          ((System.ComponentModel.ISupportInitialize)(this.ShoppingStore_Pb)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.CertificateLogo_Pb)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.OnlineDres_Butn.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.AttnType_Lov.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.DaeatBs)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.CardNumb_Text.Properties)).EndInit();
@@ -2709,5 +2736,6 @@
       private DevExpress.XtraBars.Ribbon.RibbonPage Tools_RbPg;
       private DevExpress.XtraBars.Ribbon.RibbonPageGroup Tools_RbGg;
       private DevExpress.XtraBars.BarButtonItem tol_anydeskbutn;
+      private DevExpress.XtraEditors.ButtonEdit OnlineDres_Butn;
    }
 }

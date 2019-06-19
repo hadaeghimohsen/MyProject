@@ -2704,7 +2704,12 @@ namespace System.Scsc.Ui.BaseDefinition
                      new XAttribute("clerzero", Stng.CLER_ZERO ?? "001"),
                      new XAttribute("hldycont", Stng.HLDY_CONT ?? 1),
                      new XAttribute("duplnatlcode", Stng.DUPL_NATL_CODE ?? "002"),
-                     new XAttribute("duplcellphon", Stng.DUPL_CELL_PHON ?? "002")
+                     new XAttribute("duplcellphon", Stng.DUPL_CELL_PHON ?? "002"),
+
+                     new XAttribute("ipadr3", Stng.IP_ADR3 ?? ""),
+                     new XAttribute("portnum3", Stng.PORT_NUM3 ?? 0),
+                     new XAttribute("attncompcnc3", Stng.ATTN_COMP_CNC3 ?? ""),
+                     new XAttribute("atn4evntactntype", Stng.ATN4_EVNT_ACTN_TYPE ?? "001")
                   )
                )
             );

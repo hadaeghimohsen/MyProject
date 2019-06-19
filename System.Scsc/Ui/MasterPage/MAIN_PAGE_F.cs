@@ -16,6 +16,11 @@ using DevExpress.XtraBars;
 using System.Diagnostics;
 using System.Net.Http;
 using System.IO;
+using System.Runtime.InteropServices;
+using libzkfpcsharp;
+using System.Threading;
+using System.Drawing.Imaging;
+using System.IO.Ports;
 
 namespace System.Scsc.Ui.MasterPage
 {
@@ -688,13 +693,526 @@ namespace System.Scsc.Ui.MasterPage
          Sp_Barcode.Write("empty");
       }
       #endregion
-      
+
+      #region ZKT Finger Print Sensor
+      private void Start_ZKTFPSensor()
+      {
+         try
+         {  
+            var ZKTFPSetting = iScsc.Settings.Where(s => Fga_Uclb_U.Contains(s.CLUB_CODE)).FirstOrDefault();
+
+            if (ZKTFPSetting == null) return;
+
+            if (ZKTFPSetting.ATTN_SYST_TYPE.NotIn("005")) return;
+
+            this.AttendanceSystemAlert_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1218;
+
+            bnInit_Click(null, null);
+
+            AttnType_Lov.EditValue = ZKTFPSetting.ATN3_EVNT_ACTN_TYPE;
+         }
+         catch
+         {
+            this.AttendanceSystemAlert_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1196;
+            //MessageBox.Show(ex.Message);
+            Tsp_AttnSys.Text = "سیستم سنسور انگشتی غیرفعال";
+            Tsp_AttnSys.ForeColor = Color.Red;
+         }
+      }
+
+      IntPtr mDevHandle = IntPtr.Zero;
+      IntPtr mDBHandle = IntPtr.Zero;
+      IntPtr FormHandle = IntPtr.Zero;
+      bool bIsTimeToDie = false;
+      bool IsRegister = false;
+      bool bIdentify = true;
+      byte[] FPBuffer;
+      int RegisterCount = 0;
+      const int REGISTER_FINGER_COUNT = 3;
+
+      byte[][] RegTmps = new byte[3][];
+      byte[] RegTmp = new byte[2048];
+      byte[] CapTmp = new byte[2048];
+
+      int cbCapTmp = 2048;
+      int cbRegTmp = 0;
+      int iFid = 1;
+
+      private int mfpWidth = 0;
+      private int mfpHeight = 0;
+      private int mfpDpi = 0;
+
+      const int MESSAGE_CAPTURED_OK = 0x0400 + 6;
+      private string ZktFpAttnStat = "attendance";
+
+      [DllImport("user32.dll", EntryPoint = "SendMessageA")]
+      public static extern int SendMessage(IntPtr hwnd, int wMsg, IntPtr wParam, IntPtr lParam);
+
+      #region ZkFinger4500K
+      private void bnInit_Click(object sender, EventArgs e)
+      {
+         //cmbIdx.Items.Clear();
+         int ret = zkfperrdef.ZKFP_ERR_OK;
+         if ((ret = zkfp2.Init()).In(zkfperrdef.ZKFP_ERR_OK /*, zkfperrdef.ZKFP_ERR_ALREADY_INIT*/))
+         {
+            int nCount = zkfp2.GetDeviceCount();
+            if (nCount > 0)
+            {
+               //for (int i = 0; i < nCount; i++)
+               //{
+               //   cmbIdx.Items.Add(i.ToString());
+               //}
+               //cmbIdx.SelectedIndex = 0;
+               bnOpen_Click(null, null);
+            }
+            else
+            {
+               zkfp2.Terminate();
+               MessageBox.Show("No device connected!");
+               this.AttendanceSystemAlert_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1196;
+            }
+         }
+         else
+         {
+            //MessageBox.Show("Initialize fail, ret=" + ret + " !");
+            //throw new Exception("Error");
+            this.AttendanceSystemAlert_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1196;
+         }
+      }
+
+      private void bnFree_Click(object sender, EventArgs e)
+      {
+         zkfp2.Terminate();
+         cbRegTmp = 0;
+      }
+
+      private void bnOpen_Click(object sender, EventArgs e)
+      {
+         int ret = zkfp.ZKFP_ERR_OK;
+         if (IntPtr.Zero == (mDevHandle = zkfp2.OpenDevice(0)))
+         {
+            MessageBox.Show("OpenDevice fail");
+            this.AttendanceSystemAlert_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1196;
+            return;
+         }
+         if (IntPtr.Zero == (mDBHandle = zkfp2.DBInit()))
+         {
+            MessageBox.Show("Init DB fail");
+            this.AttendanceSystemAlert_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1196;
+            zkfp2.CloseDevice(mDevHandle);
+            mDevHandle = IntPtr.Zero;
+            return;
+         }
+         RegisterCount = 0;
+         cbRegTmp = 0;
+         iFid = 1;
+         //for (int i = 0; i < 3; i++)
+         //{
+         //   RegTmps[i] = new byte[2048];
+         //}
+         byte[] paramValue = new byte[4];
+         int size = 4;
+         zkfp2.GetParameters(mDevHandle, 1, paramValue, ref size);
+         zkfp2.ByteArray2Int(paramValue, ref mfpWidth);
+
+         size = 4;
+         zkfp2.GetParameters(mDevHandle, 2, paramValue, ref size);
+         zkfp2.ByteArray2Int(paramValue, ref mfpHeight);
+
+         FPBuffer = new byte[mfpWidth * mfpHeight];
+
+         size = 4;
+         zkfp2.GetParameters(mDevHandle, 3, paramValue, ref size);
+         zkfp2.ByteArray2Int(paramValue, ref mfpDpi);
+
+         //textRes.AppendText("reader parameter, image width:" + mfpWidth + ", height:" + mfpHeight + ", dpi:" + mfpDpi + "\n");
+         //FngrDev_Pb.Visible = true;
+
+         Thread captureThread = new Thread(new ThreadStart(DoCapture));
+         captureThread.IsBackground = true;
+         captureThread.Start();
+         bIsTimeToDie = false;
+         this.AttendanceSystemAlert_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1211;
+         //textRes.AppendText("Open succ\n");
+      }
+
+      private void bnClose_Click(object sender, EventArgs e)
+      {
+         bIsTimeToDie = true;
+         RegisterCount = 0;
+         Thread.Sleep(1000);
+         zkfp2.CloseDevice(mDevHandle);
+         bnFree_Click(null, null);
+      }
+
+      private void DoCapture()
+      {
+         while (!bIsTimeToDie)
+         {
+            cbCapTmp = 2048;
+            int ret = zkfp2.AcquireFingerprint(mDevHandle, FPBuffer, CapTmp, ref cbCapTmp);
+            if (ret == zkfp.ZKFP_ERR_OK)
+            {
+               SendMessage(FormHandle, MESSAGE_CAPTURED_OK, IntPtr.Zero, IntPtr.Zero);
+            }
+            Thread.Sleep(200);
+         }
+      }
+
+      protected override void DefWndProc(ref Message m)
+      {
+         switch (m.Msg)
+         {
+            case MESSAGE_CAPTURED_OK:
+               {
+                  String fngrTmpl = zkfp2.BlobToBase64(CapTmp, cbCapTmp);
+
+                  byte[] blob2 = Convert.FromBase64String(fngrTmpl.Trim());
+
+                  if(ZktFpAttnStat == "enroll")
+                  {
+                     MemoryStream ms = new MemoryStream();
+                     BitmapFormat.GetBitmap(FPBuffer, mfpWidth, mfpHeight, ref ms);
+                     Bitmap fngrImg = new Bitmap(ms);
+                     
+                     var fngr_img_tmpl = new List<object>();
+                     fngr_img_tmpl.Add(fngrImg);
+                     fngr_img_tmpl.Add(fngrTmpl);
+
+                     _DefaultGateway.Gateway(
+                        new Job(SendType.External, "localhost",
+                           new List<Job>
+                           {
+                              new Job(SendType.SelfToUserInterface, "CMN_DCMT_F", 10 /* Execute Actn_Calf_P */)
+                              {
+                                 Input = fngr_img_tmpl                                    
+                              }
+                           }
+                        )
+                     );
+                  }
+                  else if(ZktFpAttnStat == "attendance")
+                  {
+                     iScsc = new Data.iScscDataContext(ConnectionString);
+                     foreach (var fngr in iScsc.Image_Documents.Where(f => f.Receive_Document.Request_Document.DCMT_DSID == 13980505495708 && f.IMAG != null))
+                     {
+                        byte[] blob1 = Convert.FromBase64String(fngr.IMAG.Trim());
+                        int ret = zkfp2.DBMatch(mDBHandle, blob1, blob2);
+                        //textRes.AppendText("Fngr id : ( " + fngr.FNGR_INDX.ToString() + " ), Match score=" + ret + "!\n");
+                        if (ret >= 80 && ret <= 100)
+                        {
+                           axCZKEM1_OnAttTransactionEx(fngr.Receive_Document.Request_Row.Fighter.FNGR_PRNT_DNRM, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);                           
+                           break;
+                        }
+                     }
+                  }                  
+               }
+               break;
+
+            default:
+               base.DefWndProc(ref m);
+               break;
+         }
+      }
+
+      public class BitmapFormat
+      {
+         public struct BITMAPFILEHEADER
+         {
+            public ushort bfType;
+            public int bfSize;
+            public ushort bfReserved1;
+            public ushort bfReserved2;
+            public int bfOffBits;
+         }
+
+         public struct MASK
+         {
+            public byte redmask;
+            public byte greenmask;
+            public byte bluemask;
+            public byte rgbReserved;
+         }
+
+         public struct BITMAPINFOHEADER
+         {
+            public int biSize;
+            public int biWidth;
+            public int biHeight;
+            public ushort biPlanes;
+            public ushort biBitCount;
+            public int biCompression;
+            public int biSizeImage;
+            public int biXPelsPerMeter;
+            public int biYPelsPerMeter;
+            public int biClrUsed;
+            public int biClrImportant;
+         }
+
+         /*******************************************
+         * ؛¯ت‎أû³ئ£؛RotatePic       
+         * ؛¯ت‎¹¦ؤـ£؛ذ‎×ھح¼ئ¬£¬ؤ؟µؤتا±£´و؛حدشت¾µؤح¼ئ¬سë°´µؤض¸خئ·½دٍ²»ح¬     
+         * ؛¯ت‎بë²خ£؛BmpBuf---ذ‎×ھا°µؤض¸خئ×ض·û´®
+         * ؛¯ت‎³ِ²خ£؛ResBuf---ذ‎×ھ؛َµؤض¸خئ×ض·û´®
+         * ؛¯ت‎·µ»ط£؛خق
+         *********************************************/
+         public static void RotatePic(byte[] BmpBuf, int width, int height, ref byte[] ResBuf)
+         {
+            int RowLoop = 0;
+            int ColLoop = 0;
+            int BmpBuflen = width * height;
+
+            try
+            {
+               for (RowLoop = 0; RowLoop < BmpBuflen; )
+               {
+                  for (ColLoop = 0; ColLoop < width; ColLoop++)
+                  {
+                     ResBuf[RowLoop + ColLoop] = BmpBuf[BmpBuflen - RowLoop - width + ColLoop];
+                  }
+
+                  RowLoop = RowLoop + width;
+               }
+            }
+            catch (Exception ex)
+            {
+               //ZKCE.SysException.ZKCELogger logger = new ZKCE.SysException.ZKCELogger(ex);
+               //logger.Append();
+            }
+         }
+
+         /*******************************************
+         * ؛¯ت‎أû³ئ£؛StructToBytes       
+         * ؛¯ت‎¹¦ؤـ£؛½«½ل¹¹جه×ھ»¯³ةخق·û؛إ×ض·û´®ت‎×é     
+         * ؛¯ت‎بë²خ£؛StructObj---±»×ھ»¯µؤ½ل¹¹جه
+         *           Size---±»×ھ»¯µؤ½ل¹¹جهµؤ´َذ،
+         * ؛¯ت‎³ِ²خ£؛خق
+         * ؛¯ت‎·µ»ط£؛½ل¹¹جه×ھ»¯؛َµؤت‎×é
+         *********************************************/
+         public static byte[] StructToBytes(object StructObj, int Size)
+         {
+            int StructSize = Marshal.SizeOf(StructObj);
+            byte[] GetBytes = new byte[StructSize];
+
+            try
+            {
+               IntPtr StructPtr = Marshal.AllocHGlobal(StructSize);
+               Marshal.StructureToPtr(StructObj, StructPtr, false);
+               Marshal.Copy(StructPtr, GetBytes, 0, StructSize);
+               Marshal.FreeHGlobal(StructPtr);
+
+               if (Size == 14)
+               {
+                  byte[] NewBytes = new byte[Size];
+                  int Count = 0;
+                  int Loop = 0;
+
+                  for (Loop = 0; Loop < StructSize; Loop++)
+                  {
+                     if (Loop != 2 && Loop != 3)
+                     {
+                        NewBytes[Count] = GetBytes[Loop];
+                        Count++;
+                     }
+                  }
+
+                  return NewBytes;
+               }
+               else
+               {
+                  return GetBytes;
+               }
+            }
+            catch (Exception ex)
+            {
+               //ZKCE.SysException.ZKCELogger logger = new ZKCE.SysException.ZKCELogger(ex);
+               //logger.Append();
+
+               return GetBytes;
+            }
+         }
+
+         /*******************************************
+         * ؛¯ت‎أû³ئ£؛GetBitmap       
+         * ؛¯ت‎¹¦ؤـ£؛½«´«½ّہ´µؤت‎¾ف±£´وخھح¼ئ¬     
+         * ؛¯ت‎بë²خ£؛buffer---ح¼ئ¬ت‎¾ف
+         *           nWidth---ح¼ئ¬µؤ؟ي¶ب
+         *           nHeight---ح¼ئ¬µؤ¸ك¶ب
+         * ؛¯ت‎³ِ²خ£؛خق
+         * ؛¯ت‎·µ»ط£؛خق
+         *********************************************/
+         public static void GetBitmap(byte[] buffer, int nWidth, int nHeight, ref MemoryStream ms)
+         {
+            int ColorIndex = 0;
+            ushort m_nBitCount = 8;
+            int m_nColorTableEntries = 256;
+            byte[] ResBuf = new byte[nWidth * nHeight * 2];
+
+            try
+            {
+               BITMAPFILEHEADER BmpHeader = new BITMAPFILEHEADER();
+               BITMAPINFOHEADER BmpInfoHeader = new BITMAPINFOHEADER();
+               MASK[] ColorMask = new MASK[m_nColorTableEntries];
+
+               int w = (((nWidth + 3) / 4) * 4);
+
+               //ح¼ئ¬ح·ذإد¢
+               BmpInfoHeader.biSize = Marshal.SizeOf(BmpInfoHeader);
+               BmpInfoHeader.biWidth = nWidth;
+               BmpInfoHeader.biHeight = nHeight;
+               BmpInfoHeader.biPlanes = 1;
+               BmpInfoHeader.biBitCount = m_nBitCount;
+               BmpInfoHeader.biCompression = 0;
+               BmpInfoHeader.biSizeImage = 0;
+               BmpInfoHeader.biXPelsPerMeter = 0;
+               BmpInfoHeader.biYPelsPerMeter = 0;
+               BmpInfoHeader.biClrUsed = m_nColorTableEntries;
+               BmpInfoHeader.biClrImportant = m_nColorTableEntries;
+
+               //خؤ¼‏ح·ذإد¢
+               BmpHeader.bfType = 0x4D42;
+               BmpHeader.bfOffBits = 14 + Marshal.SizeOf(BmpInfoHeader) + BmpInfoHeader.biClrUsed * 4;
+               BmpHeader.bfSize = BmpHeader.bfOffBits + ((((w * BmpInfoHeader.biBitCount + 31) / 32) * 4) * BmpInfoHeader.biHeight);
+               BmpHeader.bfReserved1 = 0;
+               BmpHeader.bfReserved2 = 0;
+
+               ms.Write(StructToBytes(BmpHeader, 14), 0, 14);
+               ms.Write(StructToBytes(BmpInfoHeader, Marshal.SizeOf(BmpInfoHeader)), 0, Marshal.SizeOf(BmpInfoHeader));
+
+               //µ÷تش°هذإد¢
+               for (ColorIndex = 0; ColorIndex < m_nColorTableEntries; ColorIndex++)
+               {
+                  ColorMask[ColorIndex].redmask = (byte)ColorIndex;
+                  ColorMask[ColorIndex].greenmask = (byte)ColorIndex;
+                  ColorMask[ColorIndex].bluemask = (byte)ColorIndex;
+                  ColorMask[ColorIndex].rgbReserved = 0;
+
+                  ms.Write(StructToBytes(ColorMask[ColorIndex], Marshal.SizeOf(ColorMask[ColorIndex])), 0, Marshal.SizeOf(ColorMask[ColorIndex]));
+               }
+
+               //ح¼ئ¬ذ‎×ھ£¬½â¾ِض¸خئح¼ئ¬µ¹ء¢µؤختجâ
+               RotatePic(buffer, nWidth, nHeight, ref ResBuf);
+
+               byte[] filter = null;
+               if (w - nWidth > 0)
+               {
+                  filter = new byte[w - nWidth];
+               }
+               for (int i = 0; i < nHeight; i++)
+               {
+                  ms.Write(ResBuf, i * nWidth, nWidth);
+                  if (w - nWidth > 0)
+                  {
+                     ms.Write(ResBuf, 0, w - nWidth);
+                  }
+               }
+            }
+            catch (Exception ex)
+            {
+               // ZKCE.SysException.ZKCELogger logger = new ZKCE.SysException.ZKCELogger(ex);
+               // logger.Append();
+            }
+         }
+
+         /*******************************************
+         * ؛¯ت‎أû³ئ£؛WriteBitmap       
+         * ؛¯ت‎¹¦ؤـ£؛½«´«½ّہ´µؤت‎¾ف±£´وخھح¼ئ¬     
+         * ؛¯ت‎بë²خ£؛buffer---ح¼ئ¬ت‎¾ف
+         *           nWidth---ح¼ئ¬µؤ؟ي¶ب
+         *           nHeight---ح¼ئ¬µؤ¸ك¶ب
+         * ؛¯ت‎³ِ²خ£؛خق
+         * ؛¯ت‎·µ»ط£؛خق
+         *********************************************/
+         public static void WriteBitmap(byte[] buffer, int nWidth, int nHeight)
+         {
+            int ColorIndex = 0;
+            ushort m_nBitCount = 8;
+            int m_nColorTableEntries = 256;
+            byte[] ResBuf = new byte[nWidth * nHeight];
+
+            try
+            {
+
+               BITMAPFILEHEADER BmpHeader = new BITMAPFILEHEADER();
+               BITMAPINFOHEADER BmpInfoHeader = new BITMAPINFOHEADER();
+               MASK[] ColorMask = new MASK[m_nColorTableEntries];
+               int w = (((nWidth + 3) / 4) * 4);
+               //ح¼ئ¬ح·ذإد¢
+               BmpInfoHeader.biSize = Marshal.SizeOf(BmpInfoHeader);
+               BmpInfoHeader.biWidth = nWidth;
+               BmpInfoHeader.biHeight = nHeight;
+               BmpInfoHeader.biPlanes = 1;
+               BmpInfoHeader.biBitCount = m_nBitCount;
+               BmpInfoHeader.biCompression = 0;
+               BmpInfoHeader.biSizeImage = 0;
+               BmpInfoHeader.biXPelsPerMeter = 0;
+               BmpInfoHeader.biYPelsPerMeter = 0;
+               BmpInfoHeader.biClrUsed = m_nColorTableEntries;
+               BmpInfoHeader.biClrImportant = m_nColorTableEntries;
+
+               //خؤ¼‏ح·ذإد¢
+               BmpHeader.bfType = 0x4D42;
+               BmpHeader.bfOffBits = 14 + Marshal.SizeOf(BmpInfoHeader) + BmpInfoHeader.biClrUsed * 4;
+               BmpHeader.bfSize = BmpHeader.bfOffBits + ((((w * BmpInfoHeader.biBitCount + 31) / 32) * 4) * BmpInfoHeader.biHeight);
+               BmpHeader.bfReserved1 = 0;
+               BmpHeader.bfReserved2 = 0;
+
+               Stream FileStream = File.Open("finger.bmp", FileMode.Create, FileAccess.Write);
+               BinaryWriter TmpBinaryWriter = new BinaryWriter(FileStream);
+
+               TmpBinaryWriter.Write(StructToBytes(BmpHeader, 14));
+               TmpBinaryWriter.Write(StructToBytes(BmpInfoHeader, Marshal.SizeOf(BmpInfoHeader)));
+
+               //µ÷تش°هذإد¢
+               for (ColorIndex = 0; ColorIndex < m_nColorTableEntries; ColorIndex++)
+               {
+                  ColorMask[ColorIndex].redmask = (byte)ColorIndex;
+                  ColorMask[ColorIndex].greenmask = (byte)ColorIndex;
+                  ColorMask[ColorIndex].bluemask = (byte)ColorIndex;
+                  ColorMask[ColorIndex].rgbReserved = 0;
+
+                  TmpBinaryWriter.Write(StructToBytes(ColorMask[ColorIndex], Marshal.SizeOf(ColorMask[ColorIndex])));
+               }
+
+               //ح¼ئ¬ذ‎×ھ£¬½â¾ِض¸خئح¼ئ¬µ¹ء¢µؤختجâ
+               RotatePic(buffer, nWidth, nHeight, ref ResBuf);
+
+               //ذ´ح¼ئ¬
+               //TmpBinaryWriter.Write(ResBuf);
+               byte[] filter = null;
+               if (w - nWidth > 0)
+               {
+                  filter = new byte[w - nWidth];
+               }
+               for (int i = 0; i < nHeight; i++)
+               {
+                  TmpBinaryWriter.Write(ResBuf, i * nWidth, nWidth);
+                  if (w - nWidth > 0)
+                  {
+                     TmpBinaryWriter.Write(ResBuf, 0, w - nWidth);
+                  }
+               }
+
+               FileStream.Close();
+               TmpBinaryWriter.Close();
+            }
+            catch (Exception ex)
+            {
+               //ZKCE.SysException.ZKCELogger logger = new ZKCE.SysException.ZKCELogger(ex);
+               //logger.Append();
+            }
+         }
+      }
+      #endregion
+      #endregion
+
       #region Finger Print
       public zkemkeeper.CZKEMClass axCZKEM1 = new zkemkeeper.CZKEMClass();
       public zkemkeeper.CZKEMClass axCZKEM2 = new zkemkeeper.CZKEMClass();
-      //public zkemkeeper.CZKEMClass axCZKEM3 = new zkemkeeper.CZKEMClass();
+      public zkemkeeper.CZKEMClass axCZKEM3 = new zkemkeeper.CZKEMClass();
       bool Fp1DevIsConnected = false;
       bool Fp2DevIsConnected = false;
+      bool Fp3DevIsConnected = false;
       XElement xHost = null;
       void Start_FingerPrint()
       {
@@ -889,16 +1407,20 @@ namespace System.Scsc.Ui.MasterPage
             //if (control == null) return;
             //if (control.Name == "ADM_FIGH_F" || control.Name == "ADM_CHNG_F" || control.Name == "BAS_ADCH_F" || control.Name == "OIC_SMSN_F")
 
-            Job _InteractWithScsc =
-               new Job(SendType.External, "Localhost",
-                  new List<Job>
-                  {
-                     //new Job(SendType.SelfToUserInterface, control.Name, 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "setcard"), new XAttribute("value", CardNumber))}
-                     new Job(SendType.Self, 123 /* Execute Adm_Figh_F */),
-                     new Job(SendType.SelfToUserInterface, "ADM_FIGH_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "setcard"), new XAttribute("value", CardNumb_Text.Text))},
-                     new Job(SendType.SelfToUserInterface, "ADM_CHNG_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "setcard"), new XAttribute("value", CardNumb_Text.Text))}                     
-                  });
-            _DefaultGateway.Gateway(_InteractWithScsc);
+            // اگر کارت در سیستم قبلا ثبت شده باشد
+            if (!iScsc.Fighters.Any(f => f.FNGR_PRNT_DNRM == CardNumb_Text.Text))
+            {
+               Job _InteractWithScsc =
+                  new Job(SendType.External, "Localhost",
+                     new List<Job>
+                     {
+                        //new Job(SendType.SelfToUserInterface, control.Name, 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "setcard"), new XAttribute("value", CardNumber))}
+                        new Job(SendType.Self, 123 /* Execute Adm_Figh_F */),
+                        new Job(SendType.SelfToUserInterface, "ADM_FIGH_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "setcard"), new XAttribute("value", CardNumb_Text.Text))},
+                        new Job(SendType.SelfToUserInterface, "ADM_CHNG_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "setcard"), new XAttribute("value", CardNumb_Text.Text))}                     
+                     });
+                  _DefaultGateway.Gateway(_InteractWithScsc);
+            }
          }
          catch (Exception exc) { /*MessageBox.Show(exc.Message);*/ }
       }
@@ -920,6 +1442,19 @@ namespace System.Scsc.Ui.MasterPage
                Invoke(new Action(() => OnAttTransactionEx(EnrollNumber)));
             else
                OnAttTransactionEx(EnrollNumber);
+            return;
+         }
+         catch (Exception exc) { MessageBox.Show(exc.Message); }
+      }
+
+      private void axCZKEM3_OnAttTransactionEx(string EnrollNumber, int IsInValid, int AttState, int VerifyMethod, int Year, int Month, int Day, int Hour, int Minute, int Second, int WorkCode)
+      {
+         try
+         {
+            if (InvokeRequired)
+               Invoke(new Action(() => OnOpenDresser(EnrollNumber)));
+            else
+               OnOpenDresser(EnrollNumber);
             return;
          }
          catch (Exception exc) { MessageBox.Show(exc.Message); }
@@ -1267,6 +1802,35 @@ namespace System.Scsc.Ui.MasterPage
          catch (Exception exc) { MessageBox.Show(exc.Message); }
       }
 
+      private void OnOpenDresser(string EnrollNumber)
+      {
+         try
+         {
+            // شماره کد انگشتی را وارد باکس میکنیم
+            OnlineDres_Butn.Text = EnrollNumber;
+
+            // ابتدا پیدا میکنیم که امروز کدام ردیف حضور و غیاب را داریم
+            var attncode = iScsc.Attendances.Where(a => a.FNGR_PRNT_DNRM == EnrollNumber && a.ATTN_DATE.Date == DateTime.Now.Date && a.EXIT_TIME == null).Max(a => a.CODE);
+
+            // ثبت ساعت باز کردن کمد            
+            iScsc.INS_DART_P(attncode, null);
+
+            // اینجا باید شماره سریال پورت را پیدا کنیم و پیام را بهش ارسال کنیم
+            var dresrattn = iScsc.Dresser_Attendances.FirstOrDefault(da => da.ATTN_CODE == attncode);
+
+            // پیدا کردن پورت برای ارسال
+            var ports = OnlineDres_Butn.Tag as List<SerialPort>;
+            var port = ports.FirstOrDefault(p => p.PortName == dresrattn.Dresser.COMM_PORT);
+            port.Write(dresrattn.Attendance.DERS_NUMB.ToString());
+
+            BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Green;
+         }
+         catch (Exception exc)
+         {
+            BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Red;
+         }
+      }
+
       void Stop_FingerPrint()
       {
          if (Fp1DevIsConnected)
@@ -1280,10 +1844,12 @@ namespace System.Scsc.Ui.MasterPage
       private void Tm_FingerPrintWorker_Tick(object sender, EventArgs e)
       {
          Start_FingerPrint();
+         Start_OnlineDresser();
          Start_BarCode();
          Start_GateAttn();
          Start_ExpnExtr();
          Start_TlgrmBot();
+         Start_ZKTFPSensor();
          Tm_FingerPrintWorker.Enabled = false;
       }
 
@@ -1298,6 +1864,7 @@ namespace System.Scsc.Ui.MasterPage
                {
                   BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.BlanchedAlmond;
                }
+               else { BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Red; }
             }
             else if(Fp2DevIsConnected)
             {
@@ -1306,6 +1873,16 @@ namespace System.Scsc.Ui.MasterPage
                {
                   BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.BlanchedAlmond;
                }
+               else { BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Red; }
+            }
+            else if (Fp3DevIsConnected)
+            {
+               var result = axCZKEM3.SSR_SetUserInfo(1, enrollid, enrollid, "", 0, true);
+               if (axCZKEM3.StartEnrollEx(enrollid, 6, 0))
+               {
+                  BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.BlanchedAlmond;
+               }
+               else { BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Red; }
             }
             return true;
          }
@@ -1337,6 +1914,14 @@ namespace System.Scsc.Ui.MasterPage
 
                BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Green;
             }
+            else if (Fp3DevIsConnected)
+            {
+               axCZKEM3.SSR_DelUserTmpExt(1, enrollid, 6);
+               axCZKEM3.DeleteUserInfoEx(1, Convert.ToInt32(enrollid));
+               axCZKEM3.ClearSLog(1);
+
+               BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Green;
+            }
             return true;
          }
          catch (Exception exc)
@@ -1363,6 +1948,12 @@ namespace System.Scsc.Ui.MasterPage
 
                BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Green;
             }
+            if (Fp3DevIsConnected)
+            {
+               var result = axCZKEM3.ClearKeeperData(1);
+
+               BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Green;
+            }
             return true;
          }
          catch (Exception exc)
@@ -1386,6 +1977,11 @@ namespace System.Scsc.Ui.MasterPage
                result = axCZKEM2.SSR_SetUserInfo(1, enrollid, "", "", 0, true);
                result = axCZKEM2.SetUserTmpExStr(1, enrollid, 6, flag, tmpData);
             }
+            if (Fp3DevIsConnected)
+            {
+               result = axCZKEM3.SSR_SetUserInfo(1, enrollid, "", "", 0, true);
+               result = axCZKEM3.SetUserTmpExStr(1, enrollid, 6, flag, tmpData);
+            }
             return true;
          }
          catch(Exception exc)
@@ -1393,6 +1989,87 @@ namespace System.Scsc.Ui.MasterPage
             MessageBox.Show(exc.Message);
             return false;
          }
+      }
+      #endregion
+
+      #region Online Dresser
+      // فعال سازی سیستم قفل کمد های انلاین
+      private void Start_OnlineDresser()
+      {
+         try
+         {
+            _DefaultGateway.Gateway(
+                  new Job(SendType.External, "Localhost", "DefaultGateway:DataGuard", 04 /* Execute DoWork4GetHostInfo */, SendType.Self)
+                  {
+                     AfterChangedOutput =
+                     new Action<object>((output) =>
+                     {
+                        var host = output as XElement;
+
+                        xHost = host;
+                        #region 3st Device
+                        if (iScsc.Settings.Any(s => Fga_Uclb_U.Contains(s.CLUB_CODE) && s.ATTN_COMP_CNC3 == host.Attribute("cpu").Value))
+                        {
+                           var fingerPrintSetting = iScsc.Settings.Where(s => Fga_Uclb_U.Contains(s.CLUB_CODE) && s.ATTN_COMP_CNC3 == host.Attribute("cpu").Value).FirstOrDefault();
+
+                           if (fingerPrintSetting == null) return;
+
+                           // اگر حضور غیاب با دستگاه انگشتی نباشد
+                           if (fingerPrintSetting.ATTN_SYST_TYPE != "002") return;
+
+                           // اگر حضور و غیاب با دستگاه انگشتی باشد و ارتباط را چک میکنیم
+                           if (fingerPrintSetting.IP_ADR3 != null && fingerPrintSetting.PORT_NUM3 != null)
+                           {
+                              if (!Fp3DevIsConnected)
+                              {                                 
+                                 Fp3DevIsConnected = axCZKEM3.Connect_Net(fingerPrintSetting.IP_ADR3, Convert.ToInt32(fingerPrintSetting.PORT_NUM3));
+                                 // fire event for fetch 
+                                 axCZKEM3.OnAttTransactionEx += axCZKEM3_OnAttTransactionEx;                                 
+                              }
+                              if (Fp3DevIsConnected == true)
+                              {
+                                 OnlineDres_Butn.ToolTip = "سیستم کمد های انلاین فعال می باشد";
+                                 int iMachineNumber = 1;//In fact,when you are using the tcp/ip communication,this parameter will be ignored,that is any integer will all right.Here we use 1.
+                                 axCZKEM3.RegEvent(iMachineNumber, 65535);//Here you can register the realtime events that you want to be triggered(the parameters 65535 means registering all)
+
+                                 // فعال سازی گزینه پورت های سریال برای مدیریت کمد
+                                 // ابتدا متوجه میشویم که این کامپیوتر به کدام پورت ها دسترسی دارد آنها رو فعال میکنیم
+                                 var onLineDresserPorts = iScsc.Dressers.Where(d => d.Computer_Action.COMP_NAME == host.Attribute("name").Value).Select(d => new { Com_Port = d.COMM_PORT, Band_Rate = d.BAND_RATE }).Distinct();
+                                 OnlineDres_Butn.ToolTip += Environment.NewLine + string.Format("{0} -=> ( {1} )", "تعداد مرکز کنترل ها", onLineDresserPorts.Count());
+                                 
+                                 List<SerialPort> onLinePorts = new List<SerialPort>();
+                                 foreach (var port in onLineDresserPorts)
+                                 {
+                                    var p = new SerialPort(port.Com_Port, (int)port.Band_Rate);
+                                    try
+                                    {                                       
+                                       p.Open();
+                                       onLinePorts.Add(p);
+
+                                       OnlineDres_Butn.ToolTip += Environment.NewLine + string.Format("{0} ( {1} ) -=> {2}", "مرکز کنترل شماره", p.PortName, "Enabled");
+                                    }
+                                    catch {
+                                       OnlineDres_Butn.ToolTip += Environment.NewLine + string.Format("{0} ( {1} ) -=> {2}", "مرکز کنترل شماره", p.PortName, "Disabled");
+                                    }
+                                 }
+
+                                 // شماره پورت را به تگ اضافه میکنیم
+                                 OnlineDres_Butn.Tag = onLinePorts;
+
+                                 BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Green;
+                              }
+                              else
+                              {
+                                 OnlineDres_Butn.ToolTip = "سیستم کمد های انلاین غیرفعال می باشد";
+                              }
+                           }
+                        }
+                        #endregion
+                     })
+                  }
+               );
+         }
+         catch { BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Red; }
       }
       #endregion
 
@@ -3181,14 +3858,14 @@ namespace System.Scsc.Ui.MasterPage
          //   var resp = client.GetStringAsync("http://192.168.1.30/on");
          //}
          // Create a request for the URL.   
-         new Threading.Thread( OpenHttpClient ).Start();  
-
+         //new Threading.Thread( OpenHttpClient ).Start();           
+         axCZKEM3.RegEvent(0, 10);
       }
 
       private static void OpenHttpClient()
       {
          WebRequest request = WebRequest.Create(
-           "http://192.168.1.30/on");
+           "http://192.168.1.11/1");
          // If required by the server, set the credentials.  
          request.Credentials = CredentialCache.DefaultCredentials;
          // Get the response.  
@@ -3249,6 +3926,31 @@ namespace System.Scsc.Ui.MasterPage
                   Process.Start(@"C:\Program Files (x86)\AnyDesk\AnyDesk.exe");
                   break;
                default:
+                  break;
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void OnlineDres_Butn_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            switch(e.Button.Index)
+            {
+               case 0:
+                  _DefaultGateway.Gateway(
+                     new Job(SendType.External, "Localhost",
+                        new List<Job>
+                        {
+                           new Job(SendType.Self, 160 /* Execute Mngr_Dres_F */),                           
+                        })
+                  );
+                  break;
+               case 1:
                   break;
             }
          }

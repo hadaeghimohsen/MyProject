@@ -520,6 +520,9 @@
   <data name="IMAGE_1210" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\..\system.resource\resources\image_1210.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="IMAGE_1211" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\..\system.resource\resources\image_1211.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="IMAGE_1212" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\..\system.resource\resources\image_1212.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>

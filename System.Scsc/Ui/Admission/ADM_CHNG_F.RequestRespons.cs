@@ -538,7 +538,7 @@ namespace System.Scsc.Ui.Admission
             {
                //CbmtBs1.DataSource = iScsc.Club_Methods.Where(cbmt => cbmt.MTOD_STAT == "002" && Fga_Uclb_U.Contains(cbmt.CLUB_CODE) && Convert.ToInt32(cbmt.Fighter.ACTV_TAG_DNRM ?? "101") >= 101);
                SuntBs1.DataSource = iScsc.Sub_Units;
-               CndoBs1.DataSource = iScsc.Candos;
+               //CndoBs1.DataSource = iScsc.Candos;
             }
             
 
@@ -606,7 +606,7 @@ namespace System.Scsc.Ui.Admission
                break;
             case "setcard":               
                CardNumb_Text.Text = (job.Input as XElement).Attribute("value").Value;
-               //FNGR_PRNT_TextEdit.EditValue = (job.Input as XElement).Attribute("value").Value;   
+               FNGR_PRNT_TextEdit.EditValue = (job.Input as XElement).Attribute("value").Value;   
                //if (AutoTrans_Cb.Checked)
                //CardNumb_Text.EditValue = FNGR_PRNT_TextEdit.EditValue;
                break;

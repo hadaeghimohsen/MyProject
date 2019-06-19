@@ -288,7 +288,7 @@ namespace System.Scsc.Ui.CalculateExpense
          {
             var fileno = Convert.ToInt64(cOCH_FILE_NOSearchLookUpEdit.EditValue);
 
-            var pers = iScsc.Fighters.FirstOrDefault(f => f.FILE_NO == fileno && f.Fighter_Publics.Any(fp => fp.RWNO == f.FGPB_RWNO_DNRM && fp.RECT_CODE == "004" && fp.CNTR_CODE != null));
+            var pers = iScsc.Fighters.FirstOrDefault(f => f.FILE_NO == fileno && f.Fighter_Publics.Any(fp => fp.RWNO == f.FGPB_RWNO_DNRM && fp.RECT_CODE == "004" /*&& fp.CNTR_CODE != null*/));
 
             if(pers == null)
             {
@@ -298,7 +298,7 @@ namespace System.Scsc.Ui.CalculateExpense
 
             MosxBs2.AddNew();
 
-            long? cnrtcode = pers.Fighter_Publics.FirstOrDefault(fp => fp.RWNO == pers.FGPB_RWNO_DNRM && fp.RECT_CODE == "004").CNTR_CODE;
+            long? cnrtcode = null;// pers.Fighter_Publics.FirstOrDefault(fp => fp.RWNO == pers.FGPB_RWNO_DNRM && fp.RECT_CODE == "004").CNTR_CODE;
             var crnt = MosxBs2.Current as Data.Misc_Expense;
             crnt.EXPN_AMNT = iScsc.Payment_Details.Where(pd => pd.PYMT_RQST_RQID == cnrtcode).Sum(pd => pd.EXPN_PRIC ?? 0);
             crnt.EXPN_DESC = "حقوق و دستمزد";

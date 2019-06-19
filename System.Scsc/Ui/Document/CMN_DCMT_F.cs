@@ -59,7 +59,7 @@ namespace System.Scsc.Ui.Document
          img.Save(ms, ImageFormat.Bmp);
          bytes = ms.ToArray();
 
-         var CrntRcdc = (receive_DocumentBindingSource.Current as Data.Receive_Document);
+         var CrntRcdc = (RcvdBs.Current as Data.Receive_Document);
          CrntRcdc.Image_Documents.Single().IMAG = Convert.ToBase64String(bytes);
          CrntRcdc.Image_Documents.Single().FILE_NAME = FILE_NAME_TextBox.Text;
          CrntRcdc.Image_Documents.Single().MDFY_STAT = 1;
@@ -97,7 +97,7 @@ namespace System.Scsc.Ui.Document
          {
             try
             {
-               var CrntRcdc = (receive_DocumentBindingSource.Current as Data.Receive_Document);
+               var CrntRcdc = (RcvdBs.Current as Data.Receive_Document);
                byte[] bytes = null;
                bytes = Convert.FromBase64String(CrntRcdc.Image_Documents.Single().IMAG);
                MemoryStream ms = new MemoryStream(bytes);
@@ -105,6 +105,27 @@ namespace System.Scsc.Ui.Document
                PE_ImageShow.Image = img;
             }
             catch { PE_ImageShow.Image = null; }
+         }
+         if (RcvdBs.List.OfType<Data.Receive_Document>().Any(rd => rd.Request_Document.DCMT_DSID == 13980505495708))
+         {
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost",
+                  new List<Job>
+                  {
+                     new Job(SendType.SelfToUserInterface, "MAIN_PAGE_F", 10 /* Execute Actn_Calf_P */){
+                        Input = 
+                           new XElement("ZktFingerPrint",
+                              new XAttribute("type", "zktfngrprnt"),
+                              new XAttribute("fngractn", (TC_Dcmt.SelectedIndex == 3 ? "enroll" : "attendance"))
+                           )
+                     }
+                  }
+               )
+            );
+         }
+         else if(TC_Dcmt.SelectedTab == tp_004)
+         {
+            MessageBox.Show(this, "در این قسمت مدرک اثر انگشت تعریف نشده");
          }
       }
 
@@ -114,7 +135,7 @@ namespace System.Scsc.Ui.Document
 
          try
          {
-            var CrntRcdc = (receive_DocumentBindingSource.Current as Data.Receive_Document);
+            var CrntRcdc = (RcvdBs.Current as Data.Receive_Document);
             iScsc.DEL_DIMG_P(
                new XElement("Process",
                   new XElement("Image_Document",
@@ -135,9 +156,9 @@ namespace System.Scsc.Ui.Document
             if (requery)
             {
                iScsc = new Data.iScscDataContext(ConnectionString);
-               int recdoc = receive_DocumentBindingSource.Position;
-               receive_DocumentBindingSource.DataSource = iScsc.Receive_Documents.Where(rc => rc.Request_Row == Rqro);
-               receive_DocumentBindingSource.Position = recdoc;
+               int recdoc = RcvdBs.Position;
+               RcvdBs.DataSource = iScsc.Receive_Documents.Where(rc => rc.Request_Row == Rqro);
+               RcvdBs.Position = recdoc;
                requery = false;
             }
          }
@@ -148,12 +169,12 @@ namespace System.Scsc.Ui.Document
          try
          {
             Validate();
-            receive_DocumentBindingSource.EndEdit();
+            RcvdBs.EndEdit();
             iScsc.CommandTimeout = 180;
 
             iScsc.DCT_SAVE_P(
                new XElement("Prcess",
-                  receive_DocumentBindingSource.List.OfType<Data.Receive_Document>()                  
+                  RcvdBs.List.OfType<Data.Receive_Document>()                  
                   .ToList()
                   .Select(rc => 
                      new XElement("Receive_Document", 
@@ -169,11 +190,11 @@ namespace System.Scsc.Ui.Document
                )
             );
 
-            if (receive_DocumentBindingSource.List.OfType<Data.Receive_Document>()
+            if (RcvdBs.List.OfType<Data.Receive_Document>()
                   .Where(rd => rd.Image_Documents.Single().MDFY_STAT == 1).Count() >= 1)
                iScsc.DCT_SAVE_P(
                   new XElement("Prcess",
-                     receive_DocumentBindingSource.List.OfType<Data.Receive_Document>()
+                     RcvdBs.List.OfType<Data.Receive_Document>()
                      .Where(rd => rd.Image_Documents.Single().MDFY_STAT == 1)
                      .ToList()
                      .Select(rc =>
@@ -204,9 +225,9 @@ namespace System.Scsc.Ui.Document
             if(requery)
             {
                iScsc = new Data.iScscDataContext(ConnectionString);
-               int recdoc = receive_DocumentBindingSource.Position;
-               receive_DocumentBindingSource.DataSource = iScsc.Receive_Documents.Where(rc => rc.Request_Row == Rqro);
-               receive_DocumentBindingSource.Position = recdoc;
+               int recdoc = RcvdBs.Position;
+               RcvdBs.DataSource = iScsc.Receive_Documents.Where(rc => rc.Request_Row == Rqro);
+               RcvdBs.Position = recdoc;
                requery = false;
             }
          }
@@ -311,7 +332,7 @@ namespace System.Scsc.Ui.Document
 
       private void mb_back_Click(object sender, EventArgs e)
       {
-         _DefaultGateway.Gateway(new Job(SendType.External, "Localhost", GetType().Name, 04 /* Execute Un_Paint */, SendType.SelfToUserInterface));
+         _DefaultGateway.Gateway(new Job(SendType.External, "Localhost", GetType().Name, 00 /* Execute ProcessCmdKey Un_Paint */, SendType.SelfToUserInterface) { Input = Keys.Escape});
       }
 
       private void Btn_AcceptPicture_Click(object sender, EventArgs e)
@@ -329,7 +350,7 @@ namespace System.Scsc.Ui.Document
          img.Save(ms, ImageFormat.Bmp);
          bytes = ms.ToArray();
 
-         var CrntRcdc = (receive_DocumentBindingSource.Current as Data.Receive_Document);
+         var CrntRcdc = (RcvdBs.Current as Data.Receive_Document);
          CrntRcdc.Image_Documents.Single().IMAG = Convert.ToBase64String(bytes);
          CrntRcdc.Image_Documents.Single().FILE_NAME = FILE_NAME_TextBox.Text;
          CrntRcdc.Image_Documents.Single().MDFY_STAT = 1;

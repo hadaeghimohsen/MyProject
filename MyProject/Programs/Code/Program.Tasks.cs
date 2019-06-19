@@ -44,11 +44,12 @@ namespace MyProject.Programs.Code
             _Reporting = new System.Reporting.Self.Code.Reporting(_Commons, _Wall) { _DefaultGateway = this };
             //_Gas = new System.Gas.Self.Code.Gas(_Commons, _Wall) { _DefaultGateway = this };
             _Scsc = new System.Scsc.Code.Scsc(_Commons, _Wall) { _DefaultGateway = this };
-            _Sas = new System.Emis.Sas.Controller.Sas(_Commons, _Wall) { _DefaultGateway = this };
+            //_Sas = new System.Emis.Sas.Controller.Sas(_Commons, _Wall) { _DefaultGateway = this };
             _Msgb = new System.MessageBroadcast.Code.Msgb(_Commons, _Wall) { _DefaultGateway = this };
-            _ISP = new System.ISP.Code.ISP(_Commons, _Wall) { _DefaultGateway = this };
+            //_ISP = new System.ISP.Code.ISP(_Commons, _Wall) { _DefaultGateway = this };
             _CRM = new System.CRM.Code.CRM(_Commons, _Wall) { _DefaultGateway = this };
             _RoboTech = new System.RoboTech.Code.RoboTech(_Commons, _Wall) { _DefaultGateway = this };
+            _GateControl = new System.GateControl.Code.GateControl(_Commons, _Wall) { _DefaultGateway = this };
          }
          else
          {

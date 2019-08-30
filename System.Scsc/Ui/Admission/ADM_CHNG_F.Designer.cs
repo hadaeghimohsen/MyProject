@@ -196,12 +196,8 @@
          this.IdtyNumb_Txt = new DevExpress.XtraEditors.TextEdit();
          this.label15 = new System.Windows.Forms.Label();
          this.tabPage2 = new System.Windows.Forms.TabPage();
-         this.DOwnrBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.ZipCode_Txt = new DevExpress.XtraEditors.TextEdit();
          this.label28 = new System.Windows.Forms.Label();
-         this.CuntBs1 = new System.Windows.Forms.BindingSource(this.components);
-         this.CblkBs1 = new System.Windows.Forms.BindingSource(this.components);
-         this.CndoBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.tabPage3 = new System.Windows.Forms.TabPage();
          this.label14 = new System.Windows.Forms.Label();
          this.Password_Txt = new DevExpress.XtraEditors.TextEdit();
@@ -210,6 +206,10 @@
          this.label29 = new System.Windows.Forms.Label();
          this.textEdit17 = new DevExpress.XtraEditors.TextEdit();
          this.label9 = new System.Windows.Forms.Label();
+         this.DOwnrBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.CuntBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.CblkBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.CndoBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.DCetpBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.CbmtBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.DDytpBs1 = new System.Windows.Forms.BindingSource(this.components);
@@ -281,16 +281,16 @@
          this.tabPage1.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.IdtyNumb_Txt.Properties)).BeginInit();
          this.tabPage2.SuspendLayout();
-         ((System.ComponentModel.ISupportInitialize)(this.DOwnrBs1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.ZipCode_Txt.Properties)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.CuntBs1)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.CblkBs1)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.CndoBs1)).BeginInit();
          this.tabPage3.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.Password_Txt.Properties)).BeginInit();
          this.tabPage4.SuspendLayout();
          this.tabPage5.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.textEdit17.Properties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.DOwnrBs1)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.CuntBs1)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.CblkBs1)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.CndoBs1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.DCetpBs1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.CbmtBs1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.DDytpBs1)).BeginInit();
@@ -551,9 +551,9 @@
          this.FngrPrnt_Lb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
          this.FngrPrnt_Lb.Location = new System.Drawing.Point(498, 84);
          this.FngrPrnt_Lb.Name = "FngrPrnt_Lb";
-         this.FngrPrnt_Lb.Size = new System.Drawing.Size(94, 14);
+         this.FngrPrnt_Lb.Size = new System.Drawing.Size(90, 14);
          this.FngrPrnt_Lb.TabIndex = 37;
-         this.FngrPrnt_Lb.Text = "کد حضور غیاب *:";
+         this.FngrPrnt_Lb.Text = "کد شناسایی *:";
          // 
          // CordY_Lb
          // 
@@ -2444,10 +2444,6 @@
          this.tabPage2.Text = "آدرس و نشانی";
          this.tabPage2.UseVisualStyleBackColor = true;
          // 
-         // DOwnrBs1
-         // 
-         this.DOwnrBs1.DataSource = typeof(System.Scsc.Data.D_OWNR);
-         // 
          // ZipCode_Txt
          // 
          this.ZipCode_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -2475,20 +2471,6 @@
          this.label28.Size = new System.Drawing.Size(64, 14);
          this.label28.TabIndex = 71;
          this.label28.Text = "کد پستی :";
-         // 
-         // CuntBs1
-         // 
-         this.CuntBs1.DataMember = "Cando_Block_Units";
-         this.CuntBs1.DataSource = this.CblkBs1;
-         // 
-         // CblkBs1
-         // 
-         this.CblkBs1.DataMember = "Cando_Blocks";
-         this.CblkBs1.DataSource = this.CndoBs1;
-         // 
-         // CndoBs1
-         // 
-         this.CndoBs1.DataSource = typeof(System.Scsc.Data.Cando);
          // 
          // tabPage3
          // 
@@ -2619,6 +2601,24 @@
          this.label9.TabIndex = 30;
          this.label9.Text = "شماره حساب :";
          // 
+         // DOwnrBs1
+         // 
+         this.DOwnrBs1.DataSource = typeof(System.Scsc.Data.D_OWNR);
+         // 
+         // CuntBs1
+         // 
+         this.CuntBs1.DataMember = "Cando_Block_Units";
+         this.CuntBs1.DataSource = this.CblkBs1;
+         // 
+         // CblkBs1
+         // 
+         this.CblkBs1.DataMember = "Cando_Blocks";
+         this.CblkBs1.DataSource = this.CndoBs1;
+         // 
+         // CndoBs1
+         // 
+         this.CndoBs1.DataSource = typeof(System.Scsc.Data.Cando);
+         // 
          // DCetpBs1
          // 
          this.DCetpBs1.DataSource = typeof(System.Scsc.Data.D_CETP);
@@ -2716,11 +2716,7 @@
          ((System.ComponentModel.ISupportInitialize)(this.IdtyNumb_Txt.Properties)).EndInit();
          this.tabPage2.ResumeLayout(false);
          this.tabPage2.PerformLayout();
-         ((System.ComponentModel.ISupportInitialize)(this.DOwnrBs1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.ZipCode_Txt.Properties)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.CuntBs1)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.CblkBs1)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.CndoBs1)).EndInit();
          this.tabPage3.ResumeLayout(false);
          this.tabPage3.PerformLayout();
          ((System.ComponentModel.ISupportInitialize)(this.Password_Txt.Properties)).EndInit();
@@ -2729,6 +2725,10 @@
          this.tabPage5.ResumeLayout(false);
          this.tabPage5.PerformLayout();
          ((System.ComponentModel.ISupportInitialize)(this.textEdit17.Properties)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.DOwnrBs1)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.CuntBs1)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.CblkBs1)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.CndoBs1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.DCetpBs1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.CbmtBs1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.DDytpBs1)).EndInit();

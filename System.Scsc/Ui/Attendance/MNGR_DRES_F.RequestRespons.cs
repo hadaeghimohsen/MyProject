@@ -91,6 +91,7 @@ namespace System.Scsc.Ui.Attendance
          }
          else if (keyData == Keys.Enter)
          {
+            SendKeys.Send("{TAB}");
          }
          //else if (keyData == Keys.F11)
          //{
@@ -792,9 +793,11 @@ namespace System.Scsc.Ui.Attendance
       {
          if (!isFirstLoaded)
          {
+            DActvBs1.DataSource = iScsc.D_ACTVs;
             isFirstLoaded = true;
          }
 
+         FromAttnDate_Date.Value = ToAttnDate_Date.Value = DateTime.Now;
          Execute_Query();
          job.Status = StatusType.Successful;
       }
@@ -813,6 +816,7 @@ namespace System.Scsc.Ui.Attendance
       /// <param name="job"></param>
       private void Actn_CalF_P(Job job)
       {
+         
          job.Status = StatusType.Successful;
       }
    }

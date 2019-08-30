@@ -75,6 +75,11 @@ namespace System.RoboTech.Ui.DevelopmentApplication
 
             Menus_TreeList.PostEditor();
 
+            Grop_Gv.PostEditor();
+            Srgp_Gv.PostEditor();
+            Rbmd_Gv.PostEditor();
+            Rbdc_Gv.PostEditor();
+            
             OrgnBs.EndEdit();
             RoboBs.EndEdit();
             JobBs.EndEdit();
@@ -402,7 +407,7 @@ namespace System.RoboTech.Ui.DevelopmentApplication
          {
             if (MessageBox.Show(this, "آیا تغییرات ذخیره گردد؟", "ثبت نتایج تغییرات", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
 
-            var srgp = GrmuBs.Current as Data.Service_Robot_Group;
+            var srgp = SrgpBs.Current as Data.Service_Robot_Group;
 
             iRoboTech.DEL_SRGP_P(srgp.GROP_GPID, srgp.SRBT_SERV_FILE_NO, srgp.SRBT_ROBO_RBID);
             requery = true;
@@ -582,7 +587,7 @@ namespace System.RoboTech.Ui.DevelopmentApplication
             {
                case 0:
                   #region Organ Description
-                  gridView16.ActiveFilterString = string.Format("[USSD_CODE] = '{0}'", ussdcode);
+                  Rbdc_Gv.ActiveFilterString = string.Format("[USSD_CODE] = '{0}'", ussdcode);
                   tb_master.SelectedTab = tp_006;
                   if (MessageBox.Show(this, "آیا مایل به اضافه کردن رکورد هستید؟", "ایجاد رکورد", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
                   {
@@ -622,7 +627,7 @@ namespace System.RoboTech.Ui.DevelopmentApplication
                   break;
                case 1:
                   #region Organ Media
-                  gridView18.ActiveFilterString = string.Format("[USSD_CODE] = '{0}'", ussdcode);
+                  Rbmd_Gv.ActiveFilterString = string.Format("[USSD_CODE] = '{0}'", ussdcode);
                   tb_master.SelectedTab = tp_006;
                   if (MessageBox.Show(this, "آیا مایل به اضافه کردن رکورد هستید؟", "ایجاد رکورد", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
                   {
@@ -846,6 +851,47 @@ namespace System.RoboTech.Ui.DevelopmentApplication
             if (FilePath_Fbd.ShowDialog() != DialogResult.OK) return;
 
             robo.DOWN_LOAD_FILE_PATH = FilePath_Fbd.SelectedPath;
+         }
+         catch (Exception exc)
+         { }
+         finally { RoboBs.EndEdit(); }
+      }
+
+      private void GropActn_Butn_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            var srbt = SrbtBs.Current as Data.Service_Robot;
+            if (srbt == null) return;
+
+            var grop = GropBs.Current as Data.Group;
+            if (grop == null) return;
+
+            iRoboTech.INS_SRGP_P(grop.GPID, srbt.SERV_FILE_NO, srbt.ROBO_RBID, "002");
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void UpLoad_Lov_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            var robo = RoboBs.Current as Data.Robot;
+            if (robo == null) return;
+
+            if (FilePath_Fbd.ShowDialog() != DialogResult.OK) return;
+
+            robo.UP_LOAD_FILE_PATH = FilePath_Fbd.SelectedPath;
          }
          catch (Exception exc)
          { }

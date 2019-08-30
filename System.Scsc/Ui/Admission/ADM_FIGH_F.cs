@@ -317,6 +317,7 @@ namespace System.Scsc.Ui.Admission
                if (OthrExpnInfo_Ckbx.Checked)
                   followups += "OIC_TOTL_F;";
 
+               #region 3th
                if (InsrInfo_Ckbx.Checked)
                   _DefaultGateway.Gateway(
                      new Job(SendType.External, "Localhost",
@@ -375,6 +376,20 @@ namespace System.Scsc.Ui.Admission
                               }
                            })
                   );
+               #endregion
+
+               // 1398/05/10 * ثبت پکیج کلاس ها به صورت گروهی
+               if(GustSaveRqst_PickButn.PickChecked)
+               {
+                  _DefaultGateway.Gateway(
+                     new Job(SendType.External, "Localhost",
+                        new List<Job>
+                        {
+                           new Job(SendType.Self, 64 /* Execute Adm_Totl_F */),
+                           new Job(SendType.SelfToUserInterface, "ADM_TOTL_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "renewcontract"), new XAttribute("enrollnumber", FNGR_PRNT_TextEdit.Text), new XAttribute("formcaller", GetType().Name))}
+                        })
+                  );
+               }
             }
          }
          catch (Exception ex)

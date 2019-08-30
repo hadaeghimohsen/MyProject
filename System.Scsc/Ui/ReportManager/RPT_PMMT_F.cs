@@ -200,10 +200,20 @@ namespace System.Scsc.Ui.ReportManager
 
       private void Find_Butn_Click(object sender, EventArgs e)
       {
+         FromDate1_Date.CommitChanges(); ToDate1_Date.CommitChanges();
+         FromDate2_Date.CommitChanges(); ToDate2_Date.CommitChanges();
+         FromDate3_Date.CommitChanges(); ToDate3_Date.CommitChanges();
+         FromDate4_Date.CommitChanges(); ToDate4_Date.CommitChanges();
+         FromDate5_Date.CommitChanges(); ToDate5_Date.CommitChanges();
+         FromDate6_Date.CommitChanges(); ToDate6_Date.CommitChanges();
+
          if (tc_master.SelectedTab == tp_001)
          {
             if (!FromDate1_Date.Value.HasValue) { MessageBox.Show("تاریخ شروع را مشخص کنید"); FromDate1_Date.Focus(); return; }
             if (!ToDate1_Date.Value.HasValue) { MessageBox.Show("تاریخ پایان را مشخص کنید"); ToDate1_Date.Focus(); return; }
+
+            // 1398/05/20 * بررسی اینکه کاربر اجازه اجرا کردن گزارش در هر تاریخی را دارد یا خیر
+            if(!checkValidateDate(FromDate1_Date.Value.Value.Date))return;
 
             FromDate6_Date.Value = FromDate2_Date.Value = FromDate3_Date.Value = FromDate4_Date.Value = FromDate5_Date.Value = FromDate1_Date.Value;
             ToDate6_Date.Value = ToDate2_Date.Value = ToDate3_Date.Value = ToDate4_Date.Value = ToDate5_Date.Value = ToDate1_Date.Value;
@@ -216,6 +226,9 @@ namespace System.Scsc.Ui.ReportManager
          {
             if (!FromDate2_Date.Value.HasValue) { MessageBox.Show("تاریخ شروع را مشخص کنید"); FromDate2_Date.Focus(); return; }
             if (!ToDate2_Date.Value.HasValue) { MessageBox.Show("تاریخ پایان را مشخص کنید"); ToDate2_Date.Focus(); return; }
+
+            // 1398/05/20 * بررسی اینکه کاربر اجازه اجرا کردن گزارش در هر تاریخی را دارد یا خیر
+            if (!checkValidateDate(FromDate2_Date.Value.Value.Date)) return;
 
             FromDate6_Date.Value = FromDate1_Date.Value = FromDate3_Date.Value = FromDate4_Date.Value = FromDate5_Date.Value = FromDate2_Date.Value;
             ToDate6_Date.Value = ToDate1_Date.Value = ToDate3_Date.Value = ToDate4_Date.Value = ToDate5_Date.Value = ToDate2_Date.Value;
@@ -234,6 +247,9 @@ namespace System.Scsc.Ui.ReportManager
             if (!FromDate3_Date.Value.HasValue) { MessageBox.Show("تاریخ شروع را مشخص کنید"); FromDate3_Date.Focus(); return; }
             if (!ToDate3_Date.Value.HasValue) { MessageBox.Show("تاریخ پایان را مشخص کنید"); ToDate3_Date.Focus(); return; }
 
+            // 1398/05/20 * بررسی اینکه کاربر اجازه اجرا کردن گزارش در هر تاریخی را دارد یا خیر
+            if (!checkValidateDate(FromDate3_Date.Value.Value.Date)) return;
+
             FromDate6_Date.Value = FromDate1_Date.Value = FromDate2_Date.Value = FromDate4_Date.Value = FromDate3_Date.Value;
             ToDate6_Date.Value = ToDate1_Date.Value = ToDate2_Date.Value = ToDate4_Date.Value = ToDate3_Date.Value;
 
@@ -246,6 +262,9 @@ namespace System.Scsc.Ui.ReportManager
             if (!FromDate4_Date.Value.HasValue) { MessageBox.Show("تاریخ شروع را مشخص کنید"); FromDate4_Date.Focus(); return; }
             if (!ToDate4_Date.Value.HasValue) { MessageBox.Show("تاریخ پایان را مشخص کنید"); ToDate4_Date.Focus(); return; }
 
+            // 1398/05/20 * بررسی اینکه کاربر اجازه اجرا کردن گزارش در هر تاریخی را دارد یا خیر
+            if (!checkValidateDate(FromDate4_Date.Value.Value.Date)) return;
+
             FromDate6_Date.Value = FromDate1_Date.Value = FromDate2_Date.Value = FromDate3_Date.Value = FromDate5_Date.Value = FromDate4_Date.Value;
             ToDate6_Date.Value = ToDate1_Date.Value = ToDate2_Date.Value = ToDate3_Date.Value = ToDate5_Date.Value = ToDate4_Date.Value;
          }
@@ -253,6 +272,9 @@ namespace System.Scsc.Ui.ReportManager
          {
             if (!FromDate5_Date.Value.HasValue) { MessageBox.Show("تاریخ شروع را مشخص کنید"); FromDate5_Date.Focus(); return; }
             if (!ToDate5_Date.Value.HasValue) { MessageBox.Show("تاریخ پایان را مشخص کنید"); ToDate5_Date.Focus(); return; }
+
+            // 1398/05/20 * بررسی اینکه کاربر اجازه اجرا کردن گزارش در هر تاریخی را دارد یا خیر
+            if (!checkValidateDate(FromDate5_Date.Value.Value.Date)) return;
 
             FromDate6_Date.Value = FromDate1_Date.Value = FromDate2_Date.Value = FromDate4_Date.Value = FromDate3_Date.Value = FromDate5_Date.Value;
             ToDate6_Date.Value = ToDate1_Date.Value = ToDate2_Date.Value = ToDate4_Date.Value = ToDate3_Date.Value = ToDate5_Date.Value;
@@ -266,10 +288,50 @@ namespace System.Scsc.Ui.ReportManager
             if (!FromDate6_Date.Value.HasValue) { MessageBox.Show("تاریخ شروع را مشخص کنید"); FromDate5_Date.Focus(); return; }
             if (!ToDate6_Date.Value.HasValue) { MessageBox.Show("تاریخ پایان را مشخص کنید"); ToDate5_Date.Focus(); return; }
 
+            // 1398/05/20 * بررسی اینکه کاربر اجازه اجرا کردن گزارش در هر تاریخی را دارد یا خیر
+            if (!checkValidateDate(FromDate6_Date.Value.Value.Date)) return;
+
             FromDate1_Date.Value = FromDate2_Date.Value = FromDate4_Date.Value = FromDate3_Date.Value = FromDate5_Date.Value = FromDate6_Date.Value;
             ToDate1_Date.Value = ToDate2_Date.Value = ToDate4_Date.Value = ToDate3_Date.Value = ToDate5_Date.Value = ToDate6_Date.Value;
          }
          Execute_Query();
+      }
+
+      private bool checkValidateDate(DateTime dateTime)
+      {
+         bool result = false;
+         if (dateTime.Date == DateTime.Now.Date) return true;
+
+         Job _InteractWithScsc =
+            new Job(SendType.External, "Localhost",
+               new List<Job>
+               {
+                  new Job(SendType.External, "Commons",
+                     new List<Job>
+                     {
+                        #region Access Privilege
+                        new Job(SendType.Self, 07 /* Execute DoWork4AccessPrivilege */)
+                        {
+                           Input = new List<string> 
+                           {
+                              "<Privilege>240</Privilege><Sub_Sys>5</Sub_Sys>", 
+                              "DataGuard"
+                           },
+                           AfterChangedOutput = new Action<object>((output) => {
+                              if ((bool)output) {
+                                 result = true;
+                                 return;
+                              }
+                              MessageBox.Show("خطا - عدم دسترسی به ردیف 240 سطوح امینتی", "عدم دسترسی");
+                              result = false;
+                           })
+                        },
+                        #endregion
+                     })
+               });
+         _DefaultGateway.Gateway(_InteractWithScsc);
+
+         return result;
       }
 
       private void Submit_Butn_Click(object sender, EventArgs e)

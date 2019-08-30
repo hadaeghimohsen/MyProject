@@ -56,6 +56,11 @@ namespace System.RoboTech.Ui.DevelopmentApplication
 
             Invalidate();
 
+            Srbt01_Gv.PostEditor();
+            Srbt02_Gv.PostEditor();
+            Srbt03_Gv.PostEditor();
+            Sdad_Gv.PostEditor();
+
             SrbtBs.EndEdit();
             SdadBs.EndEdit();
 
@@ -162,6 +167,7 @@ namespace System.RoboTech.Ui.DevelopmentApplication
       {
          try
          {
+            Srrm_Gv.PostEditor();
             SrrmBs.EndEdit();
             // if need insert data
             foreach (var srrm in SrrmBs.List.OfType<Data.Service_Robot_Replay_Message>().Where(s => s.CRET_BY == null))

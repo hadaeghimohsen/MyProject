@@ -47,6 +47,7 @@
          this.Tg_Stat = new DevExpress.XtraEditors.ToggleSwitch();
          this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
          this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
+         this.labelControl16 = new DevExpress.XtraEditors.LabelControl();
          this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
          this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
          this.labelControl12 = new DevExpress.XtraEditors.LabelControl();
@@ -57,6 +58,7 @@
          this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
          this.buttonEdit5 = new DevExpress.XtraEditors.ButtonEdit();
          this.MenuBs = new System.Windows.Forms.BindingSource(this.components);
+         this.buttonEdit9 = new DevExpress.XtraEditors.ButtonEdit();
          this.buttonEdit1 = new DevExpress.XtraEditors.ButtonEdit();
          this.buttonEdit7 = new DevExpress.XtraEditors.ButtonEdit();
          this.buttonEdit8 = new DevExpress.XtraEditors.ButtonEdit();
@@ -79,6 +81,7 @@
          ((System.ComponentModel.ISupportInitialize)(this.Tg_Stat.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.buttonEdit5.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.MenuBs)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.buttonEdit9.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.buttonEdit1.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.buttonEdit7.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.buttonEdit8.Properties)).BeginInit();
@@ -122,7 +125,7 @@
          this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
          this.panel3.Location = new System.Drawing.Point(516, 0);
          this.panel3.Name = "panel3";
-         this.panel3.Size = new System.Drawing.Size(18, 543);
+         this.panel3.Size = new System.Drawing.Size(18, 585);
          this.panel3.TabIndex = 11;
          // 
          // panelControl8
@@ -140,6 +143,7 @@
          this.panelControl8.Controls.Add(this.Tg_Stat);
          this.panelControl8.Controls.Add(this.labelControl2);
          this.panelControl8.Controls.Add(this.labelControl11);
+         this.panelControl8.Controls.Add(this.labelControl16);
          this.panelControl8.Controls.Add(this.labelControl4);
          this.panelControl8.Controls.Add(this.labelControl3);
          this.panelControl8.Controls.Add(this.labelControl12);
@@ -149,6 +153,7 @@
          this.panelControl8.Controls.Add(this.labelControl6);
          this.panelControl8.Controls.Add(this.labelControl1);
          this.panelControl8.Controls.Add(this.buttonEdit5);
+         this.panelControl8.Controls.Add(this.buttonEdit9);
          this.panelControl8.Controls.Add(this.buttonEdit1);
          this.panelControl8.Controls.Add(this.buttonEdit7);
          this.panelControl8.Controls.Add(this.buttonEdit8);
@@ -163,7 +168,7 @@
          this.panelControl8.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
          this.panelControl8.LookAndFeel.UseDefaultLookAndFeel = false;
          this.panelControl8.Name = "panelControl8";
-         this.panelControl8.Size = new System.Drawing.Size(516, 461);
+         this.panelControl8.Size = new System.Drawing.Size(516, 499);
          this.panelControl8.TabIndex = 13;
          // 
          // Tg_StepBack
@@ -315,6 +320,20 @@
          this.labelControl11.TabIndex = 5;
          this.labelControl11.Text = "<color=red>*</color> تعداد ستون زیر منو";
          // 
+         // labelControl16
+         // 
+         this.labelControl16.AllowHtmlString = true;
+         this.labelControl16.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.labelControl16.Appearance.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.labelControl16.Appearance.ImageAlign = System.Drawing.ContentAlignment.TopRight;
+         this.labelControl16.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+         this.labelControl16.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
+         this.labelControl16.Location = new System.Drawing.Point(383, 461);
+         this.labelControl16.Name = "labelControl16";
+         this.labelControl16.Size = new System.Drawing.Size(126, 27);
+         this.labelControl16.TabIndex = 5;
+         this.labelControl16.Text = "<color=red>*</color> موجودی";
+         // 
          // labelControl4
          // 
          this.labelControl4.AllowHtmlString = true;
@@ -457,6 +476,32 @@
          // 
          this.MenuBs.DataSource = typeof(System.RoboTech.Data.Menu_Ussd);
          this.MenuBs.CurrentChanged += new System.EventHandler(this.MenuBs_CurrentChanged);
+         // 
+         // buttonEdit9
+         // 
+         this.buttonEdit9.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+         this.buttonEdit9.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.MenuBs, "EXST_NUMB", true));
+         this.buttonEdit9.EditValue = "";
+         this.buttonEdit9.Location = new System.Drawing.Point(292, 459);
+         this.buttonEdit9.Name = "buttonEdit9";
+         this.buttonEdit9.Properties.Appearance.BackColor = System.Drawing.Color.White;
+         this.buttonEdit9.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+         this.buttonEdit9.Properties.Appearance.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.buttonEdit9.Properties.Appearance.Options.UseBackColor = true;
+         this.buttonEdit9.Properties.Appearance.Options.UseBorderColor = true;
+         this.buttonEdit9.Properties.Appearance.Options.UseFont = true;
+         this.buttonEdit9.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+         this.buttonEdit9.Properties.AppearanceFocused.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+         this.buttonEdit9.Properties.AppearanceFocused.Options.UseBackColor = true;
+         this.buttonEdit9.Properties.AppearanceFocused.Options.UseBorderColor = true;
+         this.buttonEdit9.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+         this.buttonEdit9.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.buttonEdit9.Properties.NullText = "موجودی";
+         this.buttonEdit9.Properties.NullValuePrompt = "موجودی";
+         this.buttonEdit9.Properties.NullValuePromptShowForEmptyValue = true;
+         this.buttonEdit9.Size = new System.Drawing.Size(85, 32);
+         this.buttonEdit9.TabIndex = 14;
          // 
          // buttonEdit1
          // 
@@ -699,7 +744,7 @@
          this.Save_Butn.Appearance.Options.UseForeColor = true;
          this.Save_Butn.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
          this.Save_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
-         this.Save_Butn.Location = new System.Drawing.Point(3, 504);
+         this.Save_Butn.Location = new System.Drawing.Point(3, 546);
          this.Save_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.Save_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.Save_Butn.Name = "Save_Butn";
@@ -720,7 +765,7 @@
          this.Cancel_Butn.Appearance.Options.UseFont = true;
          this.Cancel_Butn.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
          this.Cancel_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
-         this.Cancel_Butn.Location = new System.Drawing.Point(112, 504);
+         this.Cancel_Butn.Location = new System.Drawing.Point(112, 546);
          this.Cancel_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.Cancel_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.Cancel_Butn.Name = "Cancel_Butn";
@@ -742,7 +787,7 @@
          this.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.Name = "RBMN_DVLP_F";
          this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-         this.Size = new System.Drawing.Size(534, 543);
+         this.Size = new System.Drawing.Size(534, 585);
          ((System.ComponentModel.ISupportInitialize)(this.panelControl5)).EndInit();
          this.panelControl5.ResumeLayout(false);
          ((System.ComponentModel.ISupportInitialize)(this.panelControl8)).EndInit();
@@ -754,6 +799,7 @@
          ((System.ComponentModel.ISupportInitialize)(this.Tg_Stat.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.buttonEdit5.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.MenuBs)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.buttonEdit9.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.buttonEdit1.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.buttonEdit7.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.buttonEdit8.Properties)).EndInit();
@@ -805,6 +851,8 @@
       private DevExpress.XtraEditors.SimpleButton Cancel_Butn;
       private Windows.Forms.BindingSource MenuBs;
       private Windows.Forms.BindingSource DcmtpBs;
+      private DevExpress.XtraEditors.LabelControl labelControl16;
+      private DevExpress.XtraEditors.ButtonEdit buttonEdit9;
 
    }
 }

@@ -144,7 +144,7 @@ namespace System.MessageBroadcast.Code
             if (xinput == null) return;
 
             _GetConnectionString();
-            var smsConf = iProject.Message_Broad_Settings;
+            var smsConf = iProject.Message_Broad_Settings.Where(m => m.DFLT_STAT == "002");
 
             var subsys = Convert.ToInt32(xinput.Attribute("subsys").Value);
             var rfid = Convert.ToInt32(xinput.Attribute("rfid").Value);
@@ -164,32 +164,59 @@ namespace System.MessageBroadcast.Code
                return;
             }
 
-            if (SmsClient == null)
-               SmsClient = new SmsService.Sms();
+            //1398/06/08 * مشخص کردن نوع سامانه خدماتی
+            if (smsConf.FirstOrDefault().SERV_TYPE == "001")
+            {
+               // Sms Call Provider
+               if (SmsClient == null)
+                  SmsClient = new SmsService.Sms();
+            }
+            else if(smsConf.FirstOrDefault().SERV_TYPE == "002")
+            {
+               // iNoti Sms Provider
+               if (iNotiSmsClient == null)
+                  iNotiSmsClient = new iNotiSmsService.iNotiSMS();
+            }
 
-            XDocument xmsRespons = XDocument.Parse(
-               SmsClient.XmsRequest(
-                  new XElement("xmsrequest",
-                     new XElement("userid", smsConf.FirstOrDefault(sc => sc.LINE_TYPE == sms.LINE_TYPE).USER_NAME),
-                     new XElement("password", smsConf.FirstOrDefault(sc => sc.LINE_TYPE == sms.LINE_TYPE).PASS_WORD),
-                     new XElement("action", "smsstatus"),
-                     new XElement("body",
-                        new XElement("message", sms.MESG_ID)                        
-                     )
+            // 1398/06/08 * مشخص کردن سامانه پیامکی
+            if (smsConf.FirstOrDefault().SERV_TYPE == "001")
+            {
+               XDocument xmsRespons = XDocument.Parse(
+                  SmsClient.XmsRequest(
+                     new XElement("xmsrequest",
+                        new XElement("userid", smsConf.FirstOrDefault(sc => sc.LINE_TYPE == sms.LINE_TYPE).USER_NAME),
+                        new XElement("password", smsConf.FirstOrDefault(sc => sc.LINE_TYPE == sms.LINE_TYPE).PASS_WORD),
+                        new XElement("action", "smsstatus"),
+                        new XElement("body",
+                           new XElement("message", sms.MESG_ID)
+                        )
+                     ).ToString()
                   ).ToString()
-               ).ToString()
-            );
+               );
 
-            sms.SRVR_SEND_DATE = Convert.ToDateTime(xmsRespons.Descendants("message").Attributes("startdate").First().Value);
-            sms.MESG_LENT = Convert.ToInt32(xmsRespons.Descendants("message").Attributes("messagelength").First().Value);
+               sms.SRVR_SEND_DATE = Convert.ToDateTime(xmsRespons.Descendants("message").Attributes("startdate").First().Value);
+               sms.MESG_LENT = Convert.ToInt32(xmsRespons.Descendants("message").Attributes("messagelength").First().Value);
 
-            job.Output =
-                  new XElement("Message",
-                     xmsRespons.Descendants("message"),
-                     new XElement("Result",
-                        new XAttribute("code", "100"),
-                        "اطلاعات با موفقیت به شما برگشت داده شد")
-                  );
+               job.Output =
+                     new XElement("Message",
+                        xmsRespons.Descendants("message"),
+                        new XElement("Result",
+                           new XAttribute("code", "100"),
+                           "اطلاعات با موفقیت به شما برگشت داده شد")
+                     );
+            }
+            else if(smsConf.FirstOrDefault().SERV_TYPE == "002")
+            {
+               var rslt = iNotiSmsClient.DeliverSMS(smsConf.FirstOrDefault().USER_NAME, smsConf.FirstOrDefault().PASS_WORD, smsConf.FirstOrDefault().LINE_NUMB, sms.PHON_NUMB, sms.MESG_ID);
+
+               job.Output =
+                     new XElement("Message",
+                        rslt,
+                        new XElement("Result",
+                           new XAttribute("code", "100"),
+                           "اطلاعات با موفقیت به شما برگشت داده شد")
+                     );
+            }
             job.Status = StatusType.Successful;
 
             iProject.SubmitChanges();
@@ -214,32 +241,56 @@ namespace System.MessageBroadcast.Code
             _GetConnectionString();
             var smsConf = iProject.Message_Broad_Settings.FirstOrDefault(sc => sc.DFLT_STAT == "002");
 
-            if (SmsClient == null)
-               SmsClient = new SmsService.Sms();
+            // 1398/06/08 * مشخص کردن سامانه پیامکی
+            if (smsConf.SERV_TYPE == "001")
+            {
+               // Sms Call Provider
+               if (SmsClient == null)
+                  SmsClient = new SmsService.Sms();
+            }
+            else if(smsConf.SERV_TYPE == "002")
+            {
+               // iNoti Sms Provider
+               if (iNotiSmsClient == null)
+                  iNotiSmsClient = new iNotiSmsService.iNotiSMS();
+            }
 
-            XDocument xmsRespons = XDocument.Parse(
-               SmsClient.XmsRequest(
-                  new XElement("xmsrequest",
-                     new XElement("userid", smsConf.USER_NAME),
-                     new XElement("password", smsConf.PASS_WORD),
-                     new XElement("action", "smsreceive"),
-                     new XElement("body",
-                        new XElement("lastsmsid", smsConf.LAST_ROW_FTCH),
-                        new XElement("count", smsConf.FTCH_ROW)
-                     )
+            if (smsConf.SERV_TYPE == "001")
+            {
+               XDocument xmsRespons = XDocument.Parse(
+                  SmsClient.XmsRequest(
+                     new XElement("xmsrequest",
+                        new XElement("userid", smsConf.USER_NAME),
+                        new XElement("password", smsConf.PASS_WORD),
+                        new XElement("action", "smsreceive"),
+                        new XElement("body",
+                           new XElement("lastsmsid", smsConf.LAST_ROW_FTCH),
+                           new XElement("count", smsConf.FTCH_ROW)
+                        )
+                     ).ToString()
                   ).ToString()
-               ).ToString()
-            );
+               );
 
-            smsConf.LAST_ROW_FTCH = Convert.ToInt64(xmsRespons.Descendants("message").Attributes("id").First().Value);
+               smsConf.LAST_ROW_FTCH = Convert.ToInt64(xmsRespons.Descendants("message").Attributes("id").First().Value);
 
-            job.Output =
-                  new XElement("Message",
-                     xmsRespons.Descendants("message"),
-                     new XElement("Result",
-                        new XAttribute("code", "100"),
-                        "اطلاعات با موفقیت به شما برگشت داده شد")
-                  );
+               job.Output =
+                     new XElement("Message",
+                        xmsRespons.Descendants("message"),
+                        new XElement("Result",
+                           new XAttribute("code", "100"),
+                           "اطلاعات با موفقیت به شما برگشت داده شد")
+                     );
+            }
+            else if(smsConf.SERV_TYPE == "002")
+            {
+               job.Output =
+                     new XElement("Message",
+                        "بدون عملیات از سمت سرور",
+                        new XElement("Result",
+                           new XAttribute("code", "100"),
+                           "اطلاعات با موفقیت به شما برگشت داده شد")
+                     );
+            }
             job.Status = StatusType.Successful;
 
             iProject.SubmitChanges();
@@ -264,31 +315,55 @@ namespace System.MessageBroadcast.Code
             _GetConnectionString();
             var smsConf = iProject.Message_Broad_Settings.FirstOrDefault(sc => sc.DFLT_STAT == "002");
 
-            if (SmsClient == null)
-               SmsClient = new SmsService.Sms();
+            // 1398/06/08 * مشخص کردن سامانه پیامکی
+            if (smsConf.SERV_TYPE == "001")
+            {
+               // Sms Call Provider
+               if (SmsClient == null)
+                  SmsClient = new SmsService.Sms();
+            }
+            else if (smsConf.SERV_TYPE == "002")
+            {
+               // iNoti Sms Provider
+               if (iNotiSmsClient == null)
+                  iNotiSmsClient = new iNotiSmsService.iNotiSMS();
+            }
 
-            XDocument xmsRespons = XDocument.Parse(
-               SmsClient.XmsRequest(
-                  new XElement("xmsrequest",
-                     new XElement("userid", smsConf.USER_NAME),
-                     new XElement("password", smsConf.PASS_WORD),
-                     new XElement("action", "treenodes"),
-                     new XElement("body",
-                        new XElement("node",
-                           new XAttribute("id", 5000000)
-                        )                        
-                     )
+            if (smsConf.SERV_TYPE == "001")
+            {
+               XDocument xmsRespons = XDocument.Parse(
+                  SmsClient.XmsRequest(
+                     new XElement("xmsrequest",
+                        new XElement("userid", smsConf.USER_NAME),
+                        new XElement("password", smsConf.PASS_WORD),
+                        new XElement("action", "treenodes"),
+                        new XElement("body",
+                           new XElement("node",
+                              new XAttribute("id", 5000000)
+                           )
+                        )
+                     ).ToString()
                   ).ToString()
-               ).ToString()
-            );            
+               );
 
-            job.Output =
-                  new XElement("Message",
-                     xmsRespons.Descendants("message"),
-                     new XElement("Result",
-                        new XAttribute("code", "100"),
-                        "اطلاعات با موفقیت به شما برگشت داده شد")
-                  );
+               job.Output =
+                     new XElement("Message",
+                        xmsRespons.Descendants("message"),
+                        new XElement("Result",
+                           new XAttribute("code", "100"),
+                           "اطلاعات با موفقیت به شما برگشت داده شد")
+                     );
+            }
+            else if(smsConf.SERV_TYPE == "002")
+            {
+               job.Output =
+                     new XElement("Message",
+                        "بدون عملیات از سمت سرور",
+                        new XElement("Result",
+                           new XAttribute("code", "100"),
+                           "اطلاعات با موفقیت به شما برگشت داده شد")
+                     );
+            }
             job.Status = StatusType.Successful;
 
             iProject.SubmitChanges();

@@ -81,7 +81,7 @@
          this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
          this.countryGridControl = new DevExpress.XtraGrid.GridControl();
          this.OrgnBs = new System.Windows.Forms.BindingSource(this.components);
-         this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+         this.Orgn_Gv = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colREGN_PRVN_CNTY_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.Cnty_Lov = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
          this.CntyBs = new System.Windows.Forms.BindingSource(this.components);
@@ -121,7 +121,7 @@
          this.splitContainerControl2 = new DevExpress.XtraEditors.SplitContainerControl();
          this.gridControl1 = new DevExpress.XtraGrid.GridControl();
          this.RoboBs = new System.Windows.Forms.BindingSource(this.components);
-         this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
+         this.Robo_Gv = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colORGN_OGID = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colRBID = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colNAME1 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -147,7 +147,7 @@
          this.gridControl5 = new DevExpress.XtraGrid.GridControl();
          this.PrjbBs = new System.Windows.Forms.BindingSource(this.components);
          this.JobBs = new System.Windows.Forms.BindingSource(this.components);
-         this.gridView6 = new DevExpress.XtraGrid.Views.Grid.GridView();
+         this.Prjb_Gv = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colPRBT_SERV_FILE_NO = new DevExpress.XtraGrid.Columns.GridColumn();
          this.repositoryItemSearchLookUpEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemSearchLookUpEdit();
          this.ServPrjbBs = new System.Windows.Forms.BindingSource(this.components);
@@ -177,7 +177,7 @@
          this.groupBox7 = new System.Windows.Forms.GroupBox();
          this.gridControl6 = new DevExpress.XtraGrid.GridControl();
          this.PjsrBs = new System.Windows.Forms.BindingSource(this.components);
-         this.gridView8 = new DevExpress.XtraGrid.Views.Grid.GridView();
+         this.Pjsr_Gv = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colPRJB_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colSRBT_SERV_FILE_NO = new DevExpress.XtraGrid.Columns.GridColumn();
          this.repositoryItemSearchLookUpEdit3 = new DevExpress.XtraEditors.Repository.RepositoryItemSearchLookUpEdit();
@@ -231,7 +231,7 @@
          this.splitContainerControl4 = new DevExpress.XtraEditors.SplitContainerControl();
          this.groupBox4 = new System.Windows.Forms.GroupBox();
          this.gridControl3 = new DevExpress.XtraGrid.GridControl();
-         this.gridView4 = new DevExpress.XtraGrid.Views.Grid.GridView();
+         this.Job_Gv = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colROBO_RBID = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colCODE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colORDR_TYPE = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -257,7 +257,7 @@
          this.Tsb_SubmitChangeJob = new System.Windows.Forms.ToolStripButton();
          this.groupBox5 = new System.Windows.Forms.GroupBox();
          this.gridControl4 = new DevExpress.XtraGrid.GridControl();
-         this.gridView5 = new DevExpress.XtraGrid.Views.Grid.GridView();
+         this.Prbt_Gv = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colSERV_FILE_NO = new DevExpress.XtraGrid.Columns.GridColumn();
          this.repositoryItemSearchLookUpEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemSearchLookUpEdit();
          this.repositoryItemSearchLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -300,7 +300,7 @@
          this.groupBox3 = new System.Windows.Forms.GroupBox();
          this.gridControl2 = new DevExpress.XtraGrid.GridControl();
          this.UserOrgnBs = new System.Windows.Forms.BindingSource(this.components);
-         this.gridView3 = new DevExpress.XtraGrid.Views.Grid.GridView();
+         this.Uorg_Gv = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colFGA_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colORGN_OGID1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colSYS_USER = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -351,7 +351,7 @@
          this.splitContainerControl1.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.countryGridControl)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.OrgnBs)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.Orgn_Gv)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.Cnty_Lov)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.CntyBs)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.Prvn_Lov)).BeginInit();
@@ -369,7 +369,7 @@
          this.splitContainerControl2.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.RoboBs)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.Robo_Gv)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.Buld_Lov)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.DbuldBs)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit6)).BeginInit();
@@ -386,7 +386,7 @@
          ((System.ComponentModel.ISupportInitialize)(this.gridControl5)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.PrjbBs)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.JobBs)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.gridView6)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.Prjb_Gv)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSearchLookUpEdit2)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.ServPrjbBs)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit4)).BeginInit();
@@ -398,7 +398,7 @@
          this.groupBox7.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.gridControl6)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.PjsrBs)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.gridView8)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.Pjsr_Gv)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSearchLookUpEdit3)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.ServPrbtBs)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.gridView9)).BeginInit();
@@ -414,7 +414,7 @@
          this.splitContainerControl4.SuspendLayout();
          this.groupBox4.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.gridControl3)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.gridView4)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.Job_Gv)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.Job_Lov)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.DordtBs)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.Actv_Lov4)).BeginInit();
@@ -424,7 +424,7 @@
          this.JobBn.SuspendLayout();
          this.groupBox5.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.gridControl4)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.gridView5)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.Prbt_Gv)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSearchLookUpEdit1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSearchLookUpEdit1View)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.Actv_Lov5)).BeginInit();
@@ -435,7 +435,7 @@
          this.groupBox3.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.UserOrgnBs)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.gridView3)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.Uorg_Gv)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.User_Lov)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.vUserBs)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit1)).BeginInit();
@@ -598,7 +598,7 @@
          this.countryGridControl.Location = new System.Drawing.Point(0, 0);
          this.countryGridControl.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
          this.countryGridControl.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.countryGridControl.MainView = this.gridView1;
+         this.countryGridControl.MainView = this.Orgn_Gv;
          this.countryGridControl.Name = "countryGridControl";
          this.countryGridControl.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.Actv_Lov,
@@ -609,23 +609,23 @@
          this.countryGridControl.Size = new System.Drawing.Size(1153, 218);
          this.countryGridControl.TabIndex = 1;
          this.countryGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView1});
+            this.Orgn_Gv});
          // 
          // OrgnBs
          // 
          this.OrgnBs.DataSource = typeof(System.RoboTech.Data.Organ);
          // 
-         // gridView1
+         // Orgn_Gv
          // 
-         this.gridView1.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 9F);
-         this.gridView1.Appearance.HeaderPanel.Options.UseFont = true;
-         this.gridView1.Appearance.HeaderPanel.Options.UseTextOptions = true;
-         this.gridView1.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-         this.gridView1.Appearance.Row.Font = new System.Drawing.Font("Tahoma", 9F);
-         this.gridView1.Appearance.Row.Options.UseFont = true;
-         this.gridView1.Appearance.Row.Options.UseTextOptions = true;
-         this.gridView1.Appearance.Row.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-         this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+         this.Orgn_Gv.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 9F);
+         this.Orgn_Gv.Appearance.HeaderPanel.Options.UseFont = true;
+         this.Orgn_Gv.Appearance.HeaderPanel.Options.UseTextOptions = true;
+         this.Orgn_Gv.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         this.Orgn_Gv.Appearance.Row.Font = new System.Drawing.Font("Tahoma", 9F);
+         this.Orgn_Gv.Appearance.Row.Options.UseFont = true;
+         this.Orgn_Gv.Appearance.Row.Options.UseTextOptions = true;
+         this.Orgn_Gv.Appearance.Row.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         this.Orgn_Gv.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colREGN_PRVN_CNTY_CODE,
             this.colREGN_PRVN_CODE,
             this.colREGN_CODE,
@@ -651,17 +651,17 @@
          styleFormatCondition2.Column = this.colSTAT;
          styleFormatCondition2.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
          styleFormatCondition2.Value1 = "002";
-         this.gridView1.FormatConditions.AddRange(new DevExpress.XtraGrid.StyleFormatCondition[] {
+         this.Orgn_Gv.FormatConditions.AddRange(new DevExpress.XtraGrid.StyleFormatCondition[] {
             styleFormatCondition1,
             styleFormatCondition2});
-         this.gridView1.GridControl = this.countryGridControl;
-         this.gridView1.Name = "gridView1";
-         this.gridView1.OptionsFind.AlwaysVisible = true;
-         this.gridView1.OptionsFind.FindDelay = 100;
-         this.gridView1.OptionsSelection.EnableAppearanceFocusedCell = false;
-         this.gridView1.OptionsView.ShowDetailButtons = false;
-         this.gridView1.OptionsView.ShowGroupPanel = false;
-         this.gridView1.OptionsView.ShowIndicator = false;
+         this.Orgn_Gv.GridControl = this.countryGridControl;
+         this.Orgn_Gv.Name = "Orgn_Gv";
+         this.Orgn_Gv.OptionsFind.AlwaysVisible = true;
+         this.Orgn_Gv.OptionsFind.FindDelay = 100;
+         this.Orgn_Gv.OptionsSelection.EnableAppearanceFocusedCell = false;
+         this.Orgn_Gv.OptionsView.ShowDetailButtons = false;
+         this.Orgn_Gv.OptionsView.ShowGroupPanel = false;
+         this.Orgn_Gv.OptionsView.ShowIndicator = false;
          // 
          // colREGN_PRVN_CNTY_CODE
          // 
@@ -921,7 +921,7 @@
          // bindingNavigatorCountItem
          // 
          this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-         this.bindingNavigatorCountItem.Size = new System.Drawing.Size(35, 22);
+         this.bindingNavigatorCountItem.Size = new System.Drawing.Size(34, 22);
          this.bindingNavigatorCountItem.Text = "of {0}";
          this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
          // 
@@ -1048,7 +1048,7 @@
          this.gridControl1.Location = new System.Drawing.Point(0, 0);
          this.gridControl1.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
          this.gridControl1.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.gridControl1.MainView = this.gridView2;
+         this.gridControl1.MainView = this.Robo_Gv;
          this.gridControl1.Name = "gridControl1";
          this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.Actv_Lov2,
@@ -1058,7 +1058,7 @@
          this.gridControl1.Size = new System.Drawing.Size(1159, 155);
          this.gridControl1.TabIndex = 1;
          this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView2});
+            this.Robo_Gv});
          // 
          // RoboBs
          // 
@@ -1066,17 +1066,17 @@
          this.RoboBs.DataSource = this.OrgnBs;
          this.RoboBs.CurrentChanged += new System.EventHandler(this.RoboBs_CurrentChanged);
          // 
-         // gridView2
+         // Robo_Gv
          // 
-         this.gridView2.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 9F);
-         this.gridView2.Appearance.HeaderPanel.Options.UseFont = true;
-         this.gridView2.Appearance.HeaderPanel.Options.UseTextOptions = true;
-         this.gridView2.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-         this.gridView2.Appearance.Row.Font = new System.Drawing.Font("Tahoma", 9F);
-         this.gridView2.Appearance.Row.Options.UseFont = true;
-         this.gridView2.Appearance.Row.Options.UseTextOptions = true;
-         this.gridView2.Appearance.Row.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-         this.gridView2.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+         this.Robo_Gv.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 9F);
+         this.Robo_Gv.Appearance.HeaderPanel.Options.UseFont = true;
+         this.Robo_Gv.Appearance.HeaderPanel.Options.UseTextOptions = true;
+         this.Robo_Gv.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         this.Robo_Gv.Appearance.Row.Font = new System.Drawing.Font("Tahoma", 9F);
+         this.Robo_Gv.Appearance.Row.Options.UseFont = true;
+         this.Robo_Gv.Appearance.Row.Options.UseTextOptions = true;
+         this.Robo_Gv.Appearance.Row.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         this.Robo_Gv.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colORGN_OGID,
             this.colRBID,
             this.colNAME1,
@@ -1103,16 +1103,16 @@
          styleFormatCondition4.Column = this.colSTAT1;
          styleFormatCondition4.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
          styleFormatCondition4.Value1 = "002";
-         this.gridView2.FormatConditions.AddRange(new DevExpress.XtraGrid.StyleFormatCondition[] {
+         this.Robo_Gv.FormatConditions.AddRange(new DevExpress.XtraGrid.StyleFormatCondition[] {
             styleFormatCondition3,
             styleFormatCondition4});
-         this.gridView2.GridControl = this.gridControl1;
-         this.gridView2.Name = "gridView2";
-         this.gridView2.OptionsFind.FindDelay = 100;
-         this.gridView2.OptionsSelection.EnableAppearanceFocusedCell = false;
-         this.gridView2.OptionsView.ShowDetailButtons = false;
-         this.gridView2.OptionsView.ShowGroupPanel = false;
-         this.gridView2.OptionsView.ShowIndicator = false;
+         this.Robo_Gv.GridControl = this.gridControl1;
+         this.Robo_Gv.Name = "Robo_Gv";
+         this.Robo_Gv.OptionsFind.FindDelay = 100;
+         this.Robo_Gv.OptionsSelection.EnableAppearanceFocusedCell = false;
+         this.Robo_Gv.OptionsView.ShowDetailButtons = false;
+         this.Robo_Gv.OptionsView.ShowGroupPanel = false;
+         this.Robo_Gv.OptionsView.ShowIndicator = false;
          // 
          // colORGN_OGID
          // 
@@ -1334,7 +1334,7 @@
          this.gridControl5.Location = new System.Drawing.Point(0, 0);
          this.gridControl5.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
          this.gridControl5.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.gridControl5.MainView = this.gridView6;
+         this.gridControl5.MainView = this.Prjb_Gv;
          this.gridControl5.Name = "gridControl5";
          this.gridControl5.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.Actv_Lov6,
@@ -1343,7 +1343,7 @@
          this.gridControl5.Size = new System.Drawing.Size(318, 172);
          this.gridControl5.TabIndex = 3;
          this.gridControl5.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView6});
+            this.Prjb_Gv});
          // 
          // PrjbBs
          // 
@@ -1355,17 +1355,17 @@
          this.JobBs.DataMember = "Jobs";
          this.JobBs.DataSource = this.RoboBs;
          // 
-         // gridView6
+         // Prjb_Gv
          // 
-         this.gridView6.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 9F);
-         this.gridView6.Appearance.HeaderPanel.Options.UseFont = true;
-         this.gridView6.Appearance.HeaderPanel.Options.UseTextOptions = true;
-         this.gridView6.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-         this.gridView6.Appearance.Row.Font = new System.Drawing.Font("Tahoma", 9F);
-         this.gridView6.Appearance.Row.Options.UseFont = true;
-         this.gridView6.Appearance.Row.Options.UseTextOptions = true;
-         this.gridView6.Appearance.Row.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-         this.gridView6.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+         this.Prjb_Gv.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 9F);
+         this.Prjb_Gv.Appearance.HeaderPanel.Options.UseFont = true;
+         this.Prjb_Gv.Appearance.HeaderPanel.Options.UseTextOptions = true;
+         this.Prjb_Gv.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         this.Prjb_Gv.Appearance.Row.Font = new System.Drawing.Font("Tahoma", 9F);
+         this.Prjb_Gv.Appearance.Row.Options.UseFont = true;
+         this.Prjb_Gv.Appearance.Row.Options.UseTextOptions = true;
+         this.Prjb_Gv.Appearance.Row.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         this.Prjb_Gv.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colPRBT_SERV_FILE_NO,
             this.colPRBT_ROBO_RBID,
             this.colJOB_CODE,
@@ -1389,16 +1389,16 @@
          styleFormatCondition8.ApplyToRow = true;
          styleFormatCondition8.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
          styleFormatCondition8.Value1 = "002";
-         this.gridView6.FormatConditions.AddRange(new DevExpress.XtraGrid.StyleFormatCondition[] {
+         this.Prjb_Gv.FormatConditions.AddRange(new DevExpress.XtraGrid.StyleFormatCondition[] {
             styleFormatCondition7,
             styleFormatCondition8});
-         this.gridView6.GridControl = this.gridControl5;
-         this.gridView6.Name = "gridView6";
-         this.gridView6.OptionsFind.FindDelay = 100;
-         this.gridView6.OptionsSelection.EnableAppearanceFocusedCell = false;
-         this.gridView6.OptionsView.ShowDetailButtons = false;
-         this.gridView6.OptionsView.ShowGroupPanel = false;
-         this.gridView6.OptionsView.ShowIndicator = false;
+         this.Prjb_Gv.GridControl = this.gridControl5;
+         this.Prjb_Gv.Name = "Prjb_Gv";
+         this.Prjb_Gv.OptionsFind.FindDelay = 100;
+         this.Prjb_Gv.OptionsSelection.EnableAppearanceFocusedCell = false;
+         this.Prjb_Gv.OptionsView.ShowDetailButtons = false;
+         this.Prjb_Gv.OptionsView.ShowGroupPanel = false;
+         this.Prjb_Gv.OptionsView.ShowIndicator = false;
          // 
          // colPRBT_SERV_FILE_NO
          // 
@@ -1646,7 +1646,7 @@
          this.gridControl6.Location = new System.Drawing.Point(3, 43);
          this.gridControl6.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
          this.gridControl6.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.gridControl6.MainView = this.gridView8;
+         this.gridControl6.MainView = this.Pjsr_Gv;
          this.gridControl6.Name = "gridControl6";
          this.gridControl6.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemLookUpEdit1,
@@ -1655,24 +1655,24 @@
          this.gridControl6.Size = new System.Drawing.Size(312, 140);
          this.gridControl6.TabIndex = 4;
          this.gridControl6.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView8});
+            this.Pjsr_Gv});
          // 
          // PjsrBs
          // 
          this.PjsrBs.DataMember = "Personal_Robot_Job_Service_Robots";
          this.PjsrBs.DataSource = this.PrjbBs;
          // 
-         // gridView8
+         // Pjsr_Gv
          // 
-         this.gridView8.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 9F);
-         this.gridView8.Appearance.HeaderPanel.Options.UseFont = true;
-         this.gridView8.Appearance.HeaderPanel.Options.UseTextOptions = true;
-         this.gridView8.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-         this.gridView8.Appearance.Row.Font = new System.Drawing.Font("Tahoma", 9F);
-         this.gridView8.Appearance.Row.Options.UseFont = true;
-         this.gridView8.Appearance.Row.Options.UseTextOptions = true;
-         this.gridView8.Appearance.Row.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-         this.gridView8.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+         this.Pjsr_Gv.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 9F);
+         this.Pjsr_Gv.Appearance.HeaderPanel.Options.UseFont = true;
+         this.Pjsr_Gv.Appearance.HeaderPanel.Options.UseTextOptions = true;
+         this.Pjsr_Gv.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         this.Pjsr_Gv.Appearance.Row.Font = new System.Drawing.Font("Tahoma", 9F);
+         this.Pjsr_Gv.Appearance.Row.Options.UseFont = true;
+         this.Pjsr_Gv.Appearance.Row.Options.UseTextOptions = true;
+         this.Pjsr_Gv.Appearance.Row.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         this.Pjsr_Gv.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colPRJB_CODE,
             this.colSRBT_SERV_FILE_NO,
             this.colSRBT_ROBO_RBID,
@@ -1694,16 +1694,16 @@
          styleFormatCondition12.ApplyToRow = true;
          styleFormatCondition12.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
          styleFormatCondition12.Value1 = "002";
-         this.gridView8.FormatConditions.AddRange(new DevExpress.XtraGrid.StyleFormatCondition[] {
+         this.Pjsr_Gv.FormatConditions.AddRange(new DevExpress.XtraGrid.StyleFormatCondition[] {
             styleFormatCondition11,
             styleFormatCondition12});
-         this.gridView8.GridControl = this.gridControl6;
-         this.gridView8.Name = "gridView8";
-         this.gridView8.OptionsFind.FindDelay = 100;
-         this.gridView8.OptionsSelection.EnableAppearanceFocusedCell = false;
-         this.gridView8.OptionsView.ShowDetailButtons = false;
-         this.gridView8.OptionsView.ShowGroupPanel = false;
-         this.gridView8.OptionsView.ShowIndicator = false;
+         this.Pjsr_Gv.GridControl = this.gridControl6;
+         this.Pjsr_Gv.Name = "Pjsr_Gv";
+         this.Pjsr_Gv.OptionsFind.FindDelay = 100;
+         this.Pjsr_Gv.OptionsSelection.EnableAppearanceFocusedCell = false;
+         this.Pjsr_Gv.OptionsView.ShowDetailButtons = false;
+         this.Pjsr_Gv.OptionsView.ShowGroupPanel = false;
+         this.Pjsr_Gv.OptionsView.ShowIndicator = false;
          // 
          // colPRJB_CODE
          // 
@@ -1957,7 +1957,7 @@
          // toolStripLabel6
          // 
          this.toolStripLabel6.Name = "toolStripLabel6";
-         this.toolStripLabel6.Size = new System.Drawing.Size(35, 22);
+         this.toolStripLabel6.Size = new System.Drawing.Size(34, 22);
          this.toolStripLabel6.Text = "of {0}";
          this.toolStripLabel6.ToolTipText = "Total number of items";
          // 
@@ -2083,7 +2083,7 @@
          // toolStripLabel5
          // 
          this.toolStripLabel5.Name = "toolStripLabel5";
-         this.toolStripLabel5.Size = new System.Drawing.Size(35, 22);
+         this.toolStripLabel5.Size = new System.Drawing.Size(34, 22);
          this.toolStripLabel5.Text = "of {0}";
          this.toolStripLabel5.ToolTipText = "Total number of items";
          // 
@@ -2200,7 +2200,7 @@
          this.gridControl3.Location = new System.Drawing.Point(3, 43);
          this.gridControl3.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
          this.gridControl3.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.gridControl3.MainView = this.gridView4;
+         this.gridControl3.MainView = this.Job_Gv;
          this.gridControl3.Name = "gridControl3";
          this.gridControl3.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.Actv_Lov4,
@@ -2209,19 +2209,19 @@
          this.gridControl3.Size = new System.Drawing.Size(528, 123);
          this.gridControl3.TabIndex = 3;
          this.gridControl3.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView4});
+            this.Job_Gv});
          // 
-         // gridView4
+         // Job_Gv
          // 
-         this.gridView4.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 9F);
-         this.gridView4.Appearance.HeaderPanel.Options.UseFont = true;
-         this.gridView4.Appearance.HeaderPanel.Options.UseTextOptions = true;
-         this.gridView4.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-         this.gridView4.Appearance.Row.Font = new System.Drawing.Font("Tahoma", 9F);
-         this.gridView4.Appearance.Row.Options.UseFont = true;
-         this.gridView4.Appearance.Row.Options.UseTextOptions = true;
-         this.gridView4.Appearance.Row.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-         this.gridView4.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+         this.Job_Gv.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 9F);
+         this.Job_Gv.Appearance.HeaderPanel.Options.UseFont = true;
+         this.Job_Gv.Appearance.HeaderPanel.Options.UseTextOptions = true;
+         this.Job_Gv.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         this.Job_Gv.Appearance.Row.Font = new System.Drawing.Font("Tahoma", 9F);
+         this.Job_Gv.Appearance.Row.Options.UseFont = true;
+         this.Job_Gv.Appearance.Row.Options.UseTextOptions = true;
+         this.Job_Gv.Appearance.Row.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         this.Job_Gv.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colROBO_RBID,
             this.colCODE,
             this.colORDR_TYPE,
@@ -2238,16 +2238,16 @@
          styleFormatCondition14.ApplyToRow = true;
          styleFormatCondition14.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
          styleFormatCondition14.Value1 = "002";
-         this.gridView4.FormatConditions.AddRange(new DevExpress.XtraGrid.StyleFormatCondition[] {
+         this.Job_Gv.FormatConditions.AddRange(new DevExpress.XtraGrid.StyleFormatCondition[] {
             styleFormatCondition13,
             styleFormatCondition14});
-         this.gridView4.GridControl = this.gridControl3;
-         this.gridView4.Name = "gridView4";
-         this.gridView4.OptionsFind.FindDelay = 100;
-         this.gridView4.OptionsSelection.EnableAppearanceFocusedCell = false;
-         this.gridView4.OptionsView.ShowDetailButtons = false;
-         this.gridView4.OptionsView.ShowGroupPanel = false;
-         this.gridView4.OptionsView.ShowIndicator = false;
+         this.Job_Gv.GridControl = this.gridControl3;
+         this.Job_Gv.Name = "Job_Gv";
+         this.Job_Gv.OptionsFind.FindDelay = 100;
+         this.Job_Gv.OptionsSelection.EnableAppearanceFocusedCell = false;
+         this.Job_Gv.OptionsView.ShowDetailButtons = false;
+         this.Job_Gv.OptionsView.ShowGroupPanel = false;
+         this.Job_Gv.OptionsView.ShowIndicator = false;
          // 
          // colROBO_RBID
          // 
@@ -2375,7 +2375,7 @@
          // toolStripLabel3
          // 
          this.toolStripLabel3.Name = "toolStripLabel3";
-         this.toolStripLabel3.Size = new System.Drawing.Size(35, 22);
+         this.toolStripLabel3.Size = new System.Drawing.Size(34, 22);
          this.toolStripLabel3.Text = "of {0}";
          this.toolStripLabel3.ToolTipText = "Total number of items";
          // 
@@ -2477,7 +2477,7 @@
          this.gridControl4.Location = new System.Drawing.Point(3, 43);
          this.gridControl4.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
          this.gridControl4.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.gridControl4.MainView = this.gridView5;
+         this.gridControl4.MainView = this.Prbt_Gv;
          this.gridControl4.Name = "gridControl4";
          this.gridControl4.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.Actv_Lov5,
@@ -2486,19 +2486,19 @@
          this.gridControl4.Size = new System.Drawing.Size(528, 189);
          this.gridControl4.TabIndex = 3;
          this.gridControl4.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView5});
+            this.Prbt_Gv});
          // 
-         // gridView5
+         // Prbt_Gv
          // 
-         this.gridView5.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 9F);
-         this.gridView5.Appearance.HeaderPanel.Options.UseFont = true;
-         this.gridView5.Appearance.HeaderPanel.Options.UseTextOptions = true;
-         this.gridView5.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-         this.gridView5.Appearance.Row.Font = new System.Drawing.Font("Tahoma", 9F);
-         this.gridView5.Appearance.Row.Options.UseFont = true;
-         this.gridView5.Appearance.Row.Options.UseTextOptions = true;
-         this.gridView5.Appearance.Row.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-         this.gridView5.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+         this.Prbt_Gv.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 9F);
+         this.Prbt_Gv.Appearance.HeaderPanel.Options.UseFont = true;
+         this.Prbt_Gv.Appearance.HeaderPanel.Options.UseTextOptions = true;
+         this.Prbt_Gv.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         this.Prbt_Gv.Appearance.Row.Font = new System.Drawing.Font("Tahoma", 9F);
+         this.Prbt_Gv.Appearance.Row.Options.UseFont = true;
+         this.Prbt_Gv.Appearance.Row.Options.UseTextOptions = true;
+         this.Prbt_Gv.Appearance.Row.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         this.Prbt_Gv.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colSERV_FILE_NO,
             this.colROBO_RBID1,
             this.colSTAT2,
@@ -2524,18 +2524,18 @@
          styleFormatCondition18.ApplyToRow = true;
          styleFormatCondition18.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
          styleFormatCondition18.Value1 = "002";
-         this.gridView5.FormatConditions.AddRange(new DevExpress.XtraGrid.StyleFormatCondition[] {
+         this.Prbt_Gv.FormatConditions.AddRange(new DevExpress.XtraGrid.StyleFormatCondition[] {
             styleFormatCondition17,
             styleFormatCondition18});
-         this.gridView5.GridControl = this.gridControl4;
-         this.gridView5.Name = "gridView5";
-         this.gridView5.OptionsFind.AlwaysVisible = true;
-         this.gridView5.OptionsFind.FindDelay = 100;
-         this.gridView5.OptionsSelection.EnableAppearanceFocusedCell = false;
-         this.gridView5.OptionsView.ShowDetailButtons = false;
-         this.gridView5.OptionsView.ShowGroupPanel = false;
-         this.gridView5.OptionsView.ShowIndicator = false;
-         this.gridView5.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
+         this.Prbt_Gv.GridControl = this.gridControl4;
+         this.Prbt_Gv.Name = "Prbt_Gv";
+         this.Prbt_Gv.OptionsFind.AlwaysVisible = true;
+         this.Prbt_Gv.OptionsFind.FindDelay = 100;
+         this.Prbt_Gv.OptionsSelection.EnableAppearanceFocusedCell = false;
+         this.Prbt_Gv.OptionsView.ShowDetailButtons = false;
+         this.Prbt_Gv.OptionsView.ShowGroupPanel = false;
+         this.Prbt_Gv.OptionsView.ShowIndicator = false;
+         this.Prbt_Gv.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
             new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.gridColumn4, DevExpress.Data.ColumnSortOrder.Ascending)});
          // 
          // colSERV_FILE_NO
@@ -2831,7 +2831,7 @@
          // toolStripLabel4
          // 
          this.toolStripLabel4.Name = "toolStripLabel4";
-         this.toolStripLabel4.Size = new System.Drawing.Size(35, 22);
+         this.toolStripLabel4.Size = new System.Drawing.Size(34, 22);
          this.toolStripLabel4.Text = "of {0}";
          this.toolStripLabel4.ToolTipText = "Total number of items";
          // 
@@ -2933,7 +2933,7 @@
          this.gridControl2.Location = new System.Drawing.Point(3, 43);
          this.gridControl2.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
          this.gridControl2.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.gridControl2.MainView = this.gridView3;
+         this.gridControl2.MainView = this.Uorg_Gv;
          this.gridControl2.Name = "gridControl2";
          this.gridControl2.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.Actv_Lov3,
@@ -2942,24 +2942,24 @@
          this.gridControl2.Size = new System.Drawing.Size(285, 363);
          this.gridControl2.TabIndex = 2;
          this.gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView3});
+            this.Uorg_Gv});
          // 
          // UserOrgnBs
          // 
          this.UserOrgnBs.DataMember = "User_Organ_Fgacs";
          this.UserOrgnBs.DataSource = this.OrgnBs;
          // 
-         // gridView3
+         // Uorg_Gv
          // 
-         this.gridView3.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 9F);
-         this.gridView3.Appearance.HeaderPanel.Options.UseFont = true;
-         this.gridView3.Appearance.HeaderPanel.Options.UseTextOptions = true;
-         this.gridView3.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-         this.gridView3.Appearance.Row.Font = new System.Drawing.Font("Tahoma", 9F);
-         this.gridView3.Appearance.Row.Options.UseFont = true;
-         this.gridView3.Appearance.Row.Options.UseTextOptions = true;
-         this.gridView3.Appearance.Row.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-         this.gridView3.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+         this.Uorg_Gv.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 9F);
+         this.Uorg_Gv.Appearance.HeaderPanel.Options.UseFont = true;
+         this.Uorg_Gv.Appearance.HeaderPanel.Options.UseTextOptions = true;
+         this.Uorg_Gv.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         this.Uorg_Gv.Appearance.Row.Font = new System.Drawing.Font("Tahoma", 9F);
+         this.Uorg_Gv.Appearance.Row.Options.UseFont = true;
+         this.Uorg_Gv.Appearance.Row.Options.UseTextOptions = true;
+         this.Uorg_Gv.Appearance.Row.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         this.Uorg_Gv.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colFGA_CODE,
             this.colORGN_OGID1,
             this.colSYS_USER,
@@ -2982,16 +2982,16 @@
          styleFormatCondition20.Column = this.colREC_STAT;
          styleFormatCondition20.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
          styleFormatCondition20.Value1 = "002";
-         this.gridView3.FormatConditions.AddRange(new DevExpress.XtraGrid.StyleFormatCondition[] {
+         this.Uorg_Gv.FormatConditions.AddRange(new DevExpress.XtraGrid.StyleFormatCondition[] {
             styleFormatCondition19,
             styleFormatCondition20});
-         this.gridView3.GridControl = this.gridControl2;
-         this.gridView3.Name = "gridView3";
-         this.gridView3.OptionsFind.FindDelay = 100;
-         this.gridView3.OptionsSelection.EnableAppearanceFocusedCell = false;
-         this.gridView3.OptionsView.ShowDetailButtons = false;
-         this.gridView3.OptionsView.ShowGroupPanel = false;
-         this.gridView3.OptionsView.ShowIndicator = false;
+         this.Uorg_Gv.GridControl = this.gridControl2;
+         this.Uorg_Gv.Name = "Uorg_Gv";
+         this.Uorg_Gv.OptionsFind.FindDelay = 100;
+         this.Uorg_Gv.OptionsSelection.EnableAppearanceFocusedCell = false;
+         this.Uorg_Gv.OptionsView.ShowDetailButtons = false;
+         this.Uorg_Gv.OptionsView.ShowGroupPanel = false;
+         this.Uorg_Gv.OptionsView.ShowIndicator = false;
          // 
          // colFGA_CODE
          // 
@@ -3135,7 +3135,7 @@
          // toolStripLabel2
          // 
          this.toolStripLabel2.Name = "toolStripLabel2";
-         this.toolStripLabel2.Size = new System.Drawing.Size(35, 22);
+         this.toolStripLabel2.Size = new System.Drawing.Size(34, 22);
          this.toolStripLabel2.Text = "of {0}";
          this.toolStripLabel2.ToolTipText = "Total number of items";
          // 
@@ -3262,7 +3262,7 @@
          // toolStripLabel1
          // 
          this.toolStripLabel1.Name = "toolStripLabel1";
-         this.toolStripLabel1.Size = new System.Drawing.Size(35, 22);
+         this.toolStripLabel1.Size = new System.Drawing.Size(34, 22);
          this.toolStripLabel1.Text = "of {0}";
          this.toolStripLabel1.ToolTipText = "Total number of items";
          // 
@@ -3378,7 +3378,7 @@
          this.splitContainerControl1.ResumeLayout(false);
          ((System.ComponentModel.ISupportInitialize)(this.countryGridControl)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.OrgnBs)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.Orgn_Gv)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.Cnty_Lov)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.CntyBs)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.Prvn_Lov)).EndInit();
@@ -3397,7 +3397,7 @@
          this.splitContainerControl2.ResumeLayout(false);
          ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.RoboBs)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.Robo_Gv)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.Buld_Lov)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.DbuldBs)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit6.CalendarTimeProperties)).EndInit();
@@ -3414,7 +3414,7 @@
          ((System.ComponentModel.ISupportInitialize)(this.gridControl5)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.PrjbBs)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.JobBs)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.gridView6)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.Prjb_Gv)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSearchLookUpEdit2)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.ServPrjbBs)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit4.CalendarTimeProperties)).EndInit();
@@ -3426,7 +3426,7 @@
          this.groupBox7.ResumeLayout(false);
          ((System.ComponentModel.ISupportInitialize)(this.gridControl6)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.PjsrBs)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.gridView8)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.Pjsr_Gv)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSearchLookUpEdit3)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.ServPrbtBs)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.gridView9)).EndInit();
@@ -3444,7 +3444,7 @@
          this.splitContainerControl4.ResumeLayout(false);
          this.groupBox4.ResumeLayout(false);
          ((System.ComponentModel.ISupportInitialize)(this.gridControl3)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.gridView4)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.Job_Gv)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.Job_Lov)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.DordtBs)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.Actv_Lov4)).EndInit();
@@ -3455,7 +3455,7 @@
          this.JobBn.PerformLayout();
          this.groupBox5.ResumeLayout(false);
          ((System.ComponentModel.ISupportInitialize)(this.gridControl4)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.gridView5)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.Prbt_Gv)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSearchLookUpEdit1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSearchLookUpEdit1View)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.Actv_Lov5)).EndInit();
@@ -3467,7 +3467,7 @@
          this.groupBox3.ResumeLayout(false);
          ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.UserOrgnBs)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.gridView3)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.Uorg_Gv)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.User_Lov)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.vUserBs)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit1.CalendarTimeProperties)).EndInit();
@@ -3489,7 +3489,7 @@
       private Windows.Forms.TabPage tp_001;
       private Windows.Forms.GroupBox groupBox1;
       private DevExpress.XtraGrid.GridControl countryGridControl;
-      private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+      private DevExpress.XtraGrid.Views.Grid.GridView Orgn_Gv;
       private Windows.Forms.BindingNavigator OrgnBn;
       private Windows.Forms.ToolStripButton bindingNavigatorAddNewItem;
       private Windows.Forms.ToolStripLabel bindingNavigatorCountItem;
@@ -3535,7 +3535,7 @@
       private DevExpress.XtraEditors.SplitContainerControl splitContainerControl2;
       private DevExpress.XtraGrid.GridControl gridControl1;
       private Windows.Forms.BindingSource RoboBs;
-      private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
+      private DevExpress.XtraGrid.Views.Grid.GridView Robo_Gv;
       private DevExpress.XtraGrid.Columns.GridColumn colORGN_OGID;
       private DevExpress.XtraGrid.Columns.GridColumn colRBID;
       private DevExpress.XtraGrid.Columns.GridColumn colNAME1;
@@ -3563,7 +3563,7 @@
       private Windows.Forms.BindingSource DbuldBs;
       private DevExpress.XtraGrid.GridControl gridControl2;
       private Windows.Forms.BindingSource UserOrgnBs;
-      private DevExpress.XtraGrid.Views.Grid.GridView gridView3;
+      private DevExpress.XtraGrid.Views.Grid.GridView Uorg_Gv;
       private DevExpress.XtraGrid.Columns.GridColumn colFGA_CODE;
       private DevExpress.XtraGrid.Columns.GridColumn colORGN_OGID1;
       private DevExpress.XtraGrid.Columns.GridColumn colSYS_USER;
@@ -3596,7 +3596,7 @@
       private Windows.Forms.GroupBox groupBox4;
       private DevExpress.XtraGrid.GridControl gridControl3;
       private Windows.Forms.BindingSource JobBs;
-      private DevExpress.XtraGrid.Views.Grid.GridView gridView4;
+      private DevExpress.XtraGrid.Views.Grid.GridView Job_Gv;
       private DevExpress.XtraGrid.Columns.GridColumn colROBO_RBID;
       private DevExpress.XtraGrid.Columns.GridColumn colCODE;
       private DevExpress.XtraGrid.Columns.GridColumn colORDR_TYPE;
@@ -3622,7 +3622,7 @@
       private Windows.Forms.GroupBox groupBox5;
       private DevExpress.XtraGrid.GridControl gridControl4;
       private Windows.Forms.BindingSource PrbtBs;
-      private DevExpress.XtraGrid.Views.Grid.GridView gridView5;
+      private DevExpress.XtraGrid.Views.Grid.GridView Prbt_Gv;
       private DevExpress.XtraGrid.Columns.GridColumn colSERV_FILE_NO;
       private DevExpress.XtraEditors.Repository.RepositoryItemSearchLookUpEdit repositoryItemSearchLookUpEdit1;
       private Windows.Forms.BindingSource ServPrbtBs;
@@ -3655,7 +3655,7 @@
       private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;
       private Windows.Forms.GroupBox groupBox6;
       private DevExpress.XtraGrid.GridControl gridControl5;
-      private DevExpress.XtraGrid.Views.Grid.GridView gridView6;
+      private DevExpress.XtraGrid.Views.Grid.GridView Prjb_Gv;
       private DevExpress.XtraEditors.Repository.RepositoryItemSearchLookUpEdit repositoryItemSearchLookUpEdit2;
       private DevExpress.XtraGrid.Views.Grid.GridView gridView7;
       private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit Actv_Lov6;
@@ -3715,7 +3715,7 @@
       private Windows.Forms.GroupBox groupBox7;
       private DevExpress.XtraGrid.GridControl gridControl6;
       private Windows.Forms.BindingSource PjsrBs;
-      private DevExpress.XtraGrid.Views.Grid.GridView gridView8;
+      private DevExpress.XtraGrid.Views.Grid.GridView Pjsr_Gv;
       private DevExpress.XtraGrid.Columns.GridColumn colPRJB_CODE;
       private DevExpress.XtraGrid.Columns.GridColumn colSRBT_SERV_FILE_NO;
       private DevExpress.XtraEditors.Repository.RepositoryItemSearchLookUpEdit repositoryItemSearchLookUpEdit3;

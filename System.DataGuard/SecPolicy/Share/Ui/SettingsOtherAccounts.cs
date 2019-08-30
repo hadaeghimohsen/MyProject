@@ -78,12 +78,19 @@ namespace System.DataGuard.SecPolicy.Share.Ui
             int privilege = PrivilegeBs.Position;
             int boxp = BoxBs.Position;
             int pbox = BoxPrivilegeBs.Position;
+            int rp = RolePrivilegeBs.Position;
+            int ru = RoleUserBs.Position;
+            int up = UserPrivilegeBs.Position;
             SubSysBs.DataSource = iProject.Sub_Systems.Where(s => s.INST_STAT == "002");
             SubSysBs.Position = subsys;
             RoleBs.Position = role;
             PrivilegeBs.Position = privilege;
             BoxBs.Position = boxp;
             BoxPrivilegeBs.Position = pbox;
+            RolePrivilegeBs.Position = rp;
+            RoleUserBs.Position = ru;
+            UserPrivilegeBs.Position = up;
+
             if (Tb_Master.SelectedTab == tp_004 || Tb_Master.SelectedTab == tp_005)
             {
                int user = UserBs.Position;
@@ -976,6 +983,56 @@ namespace System.DataGuard.SecPolicy.Share.Ui
                Execute_Query();
                requery = false;
             }
+         }
+      }
+
+      private void Up_Butn_Click(object sender, EventArgs e)
+      {
+         var butn = sender as SimpleButton;
+         if (butn == null) return;
+
+         switch(butn.Name)
+         {
+            case "UpRoleBsTp3_Butn":
+               RoleBs.MoveNext();
+               break;
+            case "UpBoxBsTp3_Butn":
+               BoxBs.MoveNext();
+               break;
+            case "UpRolePrivilegeBsTp3_Butn":
+               RolePrivilegeBs.MoveNext();
+               break;
+            case "UpUserBsTp4_Butn":
+               UserBs.MoveNext();
+               break;
+            case "UpRoleUserBsTp4_Butn":
+               RoleUserBs.MoveNext();
+               break;
+         }
+      }
+
+      private void Dn_Butn_Click(object sender, EventArgs e)
+      {
+         var butn = sender as SimpleButton;
+         if (butn == null) return;
+
+         switch (butn.Name)
+         {
+            case "DnRoleBsTp3_Butn":
+               RoleBs.MovePrevious();
+               break;
+            case "DnBoxBsTp3_Butn":
+               BoxBs.MovePrevious();
+               break;
+            case "DnRolePrivilegeBsTp3_Butn":
+               RolePrivilegeBs.MovePrevious();
+               break;
+            case "DnUserBsTp4_Butn":
+               UserBs.MovePrevious();
+               break;
+            case "DnRoleUserBsTp4_Butn":
+               RoleUserBs.MovePrevious();
+               break;
          }
       }
 

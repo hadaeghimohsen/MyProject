@@ -13,5 +13,8 @@
     <Setting Name="System_MessageBroadcast_SmsService_Sms" Type="(Web Service URL)" Scope="Application">
       <Value Profile="(Default)">http://ws.smscall.ir/ws/sms.asmx</Value>
     </Setting>
+    <Setting Name="System_MessageBroadcast_iNotiSmsService_iNotiSMS" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">https://login.inoti.com/_Services/iNotiSMS.asmx</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

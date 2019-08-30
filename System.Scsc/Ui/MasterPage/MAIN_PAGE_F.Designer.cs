@@ -28,7 +28,6 @@
       /// </summary>
       private void InitializeComponent()
       {
-         this.components = new System.ComponentModel.Container();
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MAIN_PAGE_F));
          DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
          DevExpress.Utils.ToolTipTitleItem toolTipTitleItem1 = new DevExpress.Utils.ToolTipTitleItem();
@@ -55,6 +54,8 @@
          DevExpress.Utils.ToolTipTitleItem toolTipTitleItem7 = new DevExpress.Utils.ToolTipTitleItem();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SuperToolTip superToolTip7 = new DevExpress.Utils.SuperToolTip();
          DevExpress.Utils.ToolTipTitleItem toolTipTitleItem8 = new DevExpress.Utils.ToolTipTitleItem();
          DevExpress.Utils.ToolTipItem toolTipItem7 = new DevExpress.Utils.ToolTipItem();
@@ -158,6 +159,8 @@
          this.tol_cntlpnelbutn = new DevExpress.XtraBars.BarButtonItem();
          this.tol_cmdbutn = new DevExpress.XtraBars.BarButtonItem();
          this.tol_anydeskbutn = new DevExpress.XtraBars.BarButtonItem();
+         this.tol_opengatebutn = new DevExpress.XtraBars.BarButtonItem();
+         this.tol_closegatebutn = new DevExpress.XtraBars.BarButtonItem();
          this.System_RPgc = new DevExpress.XtraBars.Ribbon.RibbonPageCategory();
          this.Base_RbPg = new DevExpress.XtraBars.Ribbon.RibbonPage();
          this.Base_RbGp = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -194,6 +197,7 @@
          this.SystemAdmin_RbGp = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
          this.Tools_RbPg = new DevExpress.XtraBars.Ribbon.RibbonPage();
          this.Tools_RbGg = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+         this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
          this.spc_desktop = new System.Windows.Forms.SplitContainer();
          this.ShopStore_Lnk = new System.Windows.Forms.LinkLabel();
          this.Licnday_Lnk = new System.Windows.Forms.LinkLabel();
@@ -208,7 +212,7 @@
          this.TlgrmBot_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.BackGrnd_Butn = new System.MaxUi.RoundedButton();
          this.AttnType_Lov = new DevExpress.XtraEditors.LookUpEdit();
-         this.DaeatBs = new System.Windows.Forms.BindingSource(this.components);
+         this.DaeatBs = new System.Windows.Forms.BindingSource();
          this.AdjustDateTime_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.CardNumb_Text = new DevExpress.XtraEditors.ButtonEdit();
          this.FngrPrnt_Txt = new DevExpress.XtraEditors.TextEdit();
@@ -221,14 +225,14 @@
          this.AttendanceSystemAlert_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.ActionCenter_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.ShowDesktop_Butn = new DevExpress.XtraEditors.SimpleButton();
-         this.FighBs = new System.Windows.Forms.BindingSource(this.components);
-         this.Sp_Barcode = new System.IO.Ports.SerialPort(this.components);
-         this.Tm_FingerPrintWorker = new System.Windows.Forms.Timer(this.components);
+         this.FighBs = new System.Windows.Forms.BindingSource();
+         this.Sp_Barcode = new System.IO.Ports.SerialPort();
+         this.Tm_FingerPrintWorker = new System.Windows.Forms.Timer();
          this.ribbonPageGroup6 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-         this.Tm_ShowTime = new System.Windows.Forms.Timer(this.components);
-         this.Sp_GateAttn = new System.IO.Ports.SerialPort(this.components);
-         this.Sp_ExpnExtr = new System.IO.Ports.SerialPort(this.components);
-         this.AllMenu_Cmn = new System.Windows.Forms.ContextMenuStrip(this.components);
+         this.Tm_ShowTime = new System.Windows.Forms.Timer();
+         this.Sp_GateAttn = new System.IO.Ports.SerialPort();
+         this.Sp_ExpnExtr = new System.IO.Ports.SerialPort();
+         this.AllMenu_Cmn = new System.Windows.Forms.ContextMenuStrip();
          this.bbi_basdifnbutn_Mn = new System.Windows.Forms.ToolStripMenuItem();
          this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
          this.اطلاعاتثبتنامToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -262,6 +266,9 @@
          this.مدیریتسیستمToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
          this.bbi_bkupbutn_Mn = new System.Windows.Forms.ToolStripMenuItem();
          this.bbi_embkbutn_Mn = new System.Windows.Forms.ToolStripMenuItem();
+         this.toolStripMenuItem11 = new System.Windows.Forms.ToolStripSeparator();
+         this.OpenGate_Tsm = new System.Windows.Forms.ToolStripMenuItem();
+         this.CloseGate_Tsm = new System.Windows.Forms.ToolStripMenuItem();
          this.statusStrip1.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.spc_desktop)).BeginInit();
@@ -423,9 +430,11 @@
             this.tol_magnfirebutn,
             this.tol_cntlpnelbutn,
             this.tol_cmdbutn,
-            this.tol_anydeskbutn});
+            this.tol_anydeskbutn,
+            this.tol_opengatebutn,
+            this.tol_closegatebutn});
          this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
-         this.ribbonControl1.MaxItemId = 109;
+         this.ribbonControl1.MaxItemId = 111;
          this.ribbonControl1.Name = "ribbonControl1";
          this.ribbonControl1.PageCategories.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageCategory[] {
             this.System_RPgc,
@@ -1394,6 +1403,26 @@
          this.tol_anydeskbutn.Tag = "anydesk";
          this.tol_anydeskbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.tol_ibutn_ItemClick);
          // 
+         // tol_opengatebutn
+         // 
+         this.tol_opengatebutn.Caption = "OPEN";
+         this.tol_opengatebutn.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
+         this.tol_opengatebutn.Glyph = ((System.Drawing.Image)(resources.GetObject("tol_opengatebutn.Glyph")));
+         this.tol_opengatebutn.Id = 109;
+         this.tol_opengatebutn.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("tol_opengatebutn.LargeGlyph")));
+         this.tol_opengatebutn.Name = "tol_opengatebutn";
+         this.tol_opengatebutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.tol_opengatebutn_ItemClick);
+         // 
+         // tol_closegatebutn
+         // 
+         this.tol_closegatebutn.Caption = "CLOSE";
+         this.tol_closegatebutn.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
+         this.tol_closegatebutn.Glyph = ((System.Drawing.Image)(resources.GetObject("tol_closegatebutn.Glyph")));
+         this.tol_closegatebutn.Id = 110;
+         this.tol_closegatebutn.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("tol_closegatebutn.LargeGlyph")));
+         this.tol_closegatebutn.Name = "tol_closegatebutn";
+         this.tol_closegatebutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.tol_closegatebutn_ItemClick);
+         // 
          // System_RPgc
          // 
          this.System_RPgc.Color = System.Drawing.Color.Empty;
@@ -1688,7 +1717,8 @@
          // Tools_RbPg
          // 
          this.Tools_RbPg.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.Tools_RbGg});
+            this.Tools_RbGg,
+            this.ribbonPageGroup1});
          this.Tools_RbPg.Name = "Tools_RbPg";
          this.Tools_RbPg.Text = "ابزار های مفید";
          // 
@@ -1707,6 +1737,13 @@
          this.Tools_RbGg.ItemLinks.Add(this.tol_anydeskbutn);
          this.Tools_RbGg.Name = "Tools_RbGg";
          this.Tools_RbGg.Text = "ابزارهای مفید";
+         // 
+         // ribbonPageGroup1
+         // 
+         this.ribbonPageGroup1.ItemLinks.Add(this.tol_closegatebutn);
+         this.ribbonPageGroup1.ItemLinks.Add(this.tol_opengatebutn);
+         this.ribbonPageGroup1.Name = "ribbonPageGroup1";
+         this.ribbonPageGroup1.Text = "کنترل تردد گیت";
          // 
          // spc_desktop
          // 
@@ -1834,7 +1871,7 @@
          // 
          // button4
          // 
-         this.button4.Location = new System.Drawing.Point(573, 6);
+         this.button4.Location = new System.Drawing.Point(727, 6);
          this.button4.Name = "button4";
          this.button4.Size = new System.Drawing.Size(33, 23);
          this.button4.TabIndex = 21;
@@ -1845,7 +1882,7 @@
          // 
          // button3
          // 
-         this.button3.Location = new System.Drawing.Point(534, 5);
+         this.button3.Location = new System.Drawing.Point(688, 5);
          this.button3.Name = "button3";
          this.button3.Size = new System.Drawing.Size(33, 23);
          this.button3.TabIndex = 21;
@@ -1856,7 +1893,7 @@
          // 
          // button2
          // 
-         this.button2.Location = new System.Drawing.Point(495, 5);
+         this.button2.Location = new System.Drawing.Point(649, 5);
          this.button2.Name = "button2";
          this.button2.Size = new System.Drawing.Size(33, 23);
          this.button2.TabIndex = 21;
@@ -1867,7 +1904,7 @@
          // 
          // button1
          // 
-         this.button1.Location = new System.Drawing.Point(456, 5);
+         this.button1.Location = new System.Drawing.Point(610, 5);
          this.button1.Name = "button1";
          this.button1.Size = new System.Drawing.Size(33, 23);
          this.button1.TabIndex = 21;
@@ -1886,7 +1923,7 @@
          this.ChngAttnActn_Butn.Dock = System.Windows.Forms.DockStyle.Left;
          this.ChngAttnActn_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1609;
          this.ChngAttnActn_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.ChngAttnActn_Butn.Location = new System.Drawing.Point(420, 5);
+         this.ChngAttnActn_Butn.Location = new System.Drawing.Point(483, 5);
          this.ChngAttnActn_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.ChngAttnActn_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.ChngAttnActn_Butn.Name = "ChngAttnActn_Butn";
@@ -1941,7 +1978,7 @@
          // AttnType_Lov
          // 
          this.AttnType_Lov.Dock = System.Windows.Forms.DockStyle.Left;
-         this.AttnType_Lov.Location = new System.Drawing.Point(345, 5);
+         this.AttnType_Lov.Location = new System.Drawing.Point(408, 5);
          this.AttnType_Lov.MenuManager = this.ribbonControl1;
          this.AttnType_Lov.Name = "AttnType_Lov";
          this.AttnType_Lov.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -2012,12 +2049,14 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("CardNumb_Text.Properties.Buttons1"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject3, "تعویض کارت", null, null, true),
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("CardNumb_Text.Properties.Buttons2"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject4, "", null, superToolTip6, true),
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("CardNumb_Text.Properties.Buttons3"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, "حضور و غیاب دستی", null, null, true),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, global::System.Scsc.Properties.Resources.IMAGE_1223, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject6, "خرید فروشگاهی", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, global::System.Scsc.Properties.Resources.IMAGE_1223, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject6, "خرید فروشگاهی", null, null, true),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, global::System.Scsc.Properties.Resources.IMAGE_1620, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject7, "مهمان آزاد آقایان", null, null, true),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, global::System.Scsc.Properties.Resources.IMAGE_1621, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject8, "مهمان آزاد بانوان", null, null, true)});
          this.CardNumb_Text.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
          this.CardNumb_Text.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
          this.CardNumb_Text.Properties.NullValuePromptShowForEmptyValue = true;
          this.CardNumb_Text.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.CardNumb_Text_Properties_ButtonClick);
-         this.CardNumb_Text.Size = new System.Drawing.Size(196, 24);
+         this.CardNumb_Text.Size = new System.Drawing.Size(259, 28);
          this.CardNumb_Text.TabIndex = 11;
          this.CardNumb_Text.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CardNumb_Text_KeyDown);
          // 
@@ -2480,7 +2519,10 @@
          // 
          this.مدیریتسیستمToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.bbi_bkupbutn_Mn,
-            this.bbi_embkbutn_Mn});
+            this.bbi_embkbutn_Mn,
+            this.toolStripMenuItem11,
+            this.OpenGate_Tsm,
+            this.CloseGate_Tsm});
          this.مدیریتسیستمToolStripMenuItem.Name = "مدیریتسیستمToolStripMenuItem";
          this.مدیریتسیستمToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
          this.مدیریتسیستمToolStripMenuItem.Text = "مدیریت سیستم";
@@ -2488,16 +2530,39 @@
          // bbi_bkupbutn_Mn
          // 
          this.bbi_bkupbutn_Mn.Name = "bbi_bkupbutn_Mn";
-         this.bbi_bkupbutn_Mn.Size = new System.Drawing.Size(185, 22);
+         this.bbi_bkupbutn_Mn.Size = new System.Drawing.Size(198, 22);
          this.bbi_bkupbutn_Mn.Text = "تنظیمات پشتیبان گیری";
          this.bbi_bkupbutn_Mn.Click += new System.EventHandler(this.bbi_bkupbutn_Mn_Click);
          // 
          // bbi_embkbutn_Mn
          // 
          this.bbi_embkbutn_Mn.Name = "bbi_embkbutn_Mn";
-         this.bbi_embkbutn_Mn.Size = new System.Drawing.Size(185, 22);
+         this.bbi_embkbutn_Mn.Size = new System.Drawing.Size(198, 22);
          this.bbi_embkbutn_Mn.Text = "پشتیبان گیری اضطراری";
          this.bbi_embkbutn_Mn.Click += new System.EventHandler(this.bbi_embkbutn_Mn_Click);
+         // 
+         // toolStripMenuItem11
+         // 
+         this.toolStripMenuItem11.Name = "toolStripMenuItem11";
+         this.toolStripMenuItem11.Size = new System.Drawing.Size(195, 6);
+         // 
+         // OpenGate_Tsm
+         // 
+         this.OpenGate_Tsm.Image = global::System.Scsc.Properties.Resources.IMAGE_1061;
+         this.OpenGate_Tsm.Name = "OpenGate_Tsm";
+         this.OpenGate_Tsm.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Right)));
+         this.OpenGate_Tsm.Size = new System.Drawing.Size(198, 22);
+         this.OpenGate_Tsm.Text = "OPEN GATE";
+         this.OpenGate_Tsm.Click += new System.EventHandler(this.OpenGate_Tsm_Click);
+         // 
+         // CloseGate_Tsm
+         // 
+         this.CloseGate_Tsm.Image = global::System.Scsc.Properties.Resources.IMAGE_1060;
+         this.CloseGate_Tsm.Name = "CloseGate_Tsm";
+         this.CloseGate_Tsm.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Left)));
+         this.CloseGate_Tsm.Size = new System.Drawing.Size(198, 22);
+         this.CloseGate_Tsm.Text = "CLOSE GATE";
+         this.CloseGate_Tsm.Click += new System.EventHandler(this.CloseGate_Tsm_Click);
          // 
          // MAIN_PAGE_F
          // 
@@ -2737,5 +2802,11 @@
       private DevExpress.XtraBars.Ribbon.RibbonPageGroup Tools_RbGg;
       private DevExpress.XtraBars.BarButtonItem tol_anydeskbutn;
       private DevExpress.XtraEditors.ButtonEdit OnlineDres_Butn;
+      private DevExpress.XtraBars.BarButtonItem tol_opengatebutn;
+      private DevExpress.XtraBars.BarButtonItem tol_closegatebutn;
+      private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
+      private Windows.Forms.ToolStripSeparator toolStripMenuItem11;
+      private Windows.Forms.ToolStripMenuItem OpenGate_Tsm;
+      private Windows.Forms.ToolStripMenuItem CloseGate_Tsm;
    }
 }

@@ -29,22 +29,22 @@
       private void InitializeComponent()
       {
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingsOtherAccounts));
-         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition3 = new DevExpress.XtraGrid.StyleFormatCondition();
-         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition4 = new DevExpress.XtraGrid.StyleFormatCondition();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject25 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject26 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition1 = new DevExpress.XtraGrid.StyleFormatCondition();
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition2 = new DevExpress.XtraGrid.StyleFormatCondition();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition3 = new DevExpress.XtraGrid.StyleFormatCondition();
+         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition4 = new DevExpress.XtraGrid.StyleFormatCondition();
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition5 = new DevExpress.XtraGrid.StyleFormatCondition();
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition6 = new DevExpress.XtraGrid.StyleFormatCondition();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject27 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject28 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition11 = new DevExpress.XtraGrid.StyleFormatCondition();
-         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition12 = new DevExpress.XtraGrid.StyleFormatCondition();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition7 = new DevExpress.XtraGrid.StyleFormatCondition();
+         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition8 = new DevExpress.XtraGrid.StyleFormatCondition();
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition9 = new DevExpress.XtraGrid.StyleFormatCondition();
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition10 = new DevExpress.XtraGrid.StyleFormatCondition();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject29 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject30 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
          this.colIsActive1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colIsActive = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colIsVisible4 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -78,6 +78,7 @@
          this.colMDFY_BY1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colMDFY_DATE1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colSub_System = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
          this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
          this.AddBoxPrivilege_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.DeleteBoxPrivilege_Butn = new DevExpress.XtraEditors.SimpleButton();
@@ -92,6 +93,7 @@
          this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
          this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
          this.AddPrivilegeToBox_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.DeletePrivilegeFromBox_Butn = new DevExpress.XtraEditors.SimpleButton();
@@ -105,6 +107,7 @@
          this.colTitleEn = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colIsVisible = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colBox_Privilege = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
          this.sub_SystemGridControl = new DevExpress.XtraGrid.GridControl();
          this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colSUB_SYS = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -124,6 +127,7 @@
          this.colCRET_DATE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colMDFY_BY = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colMDFY_DATE = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
          this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
          this.tp_003 = new System.Windows.Forms.TabPage();
          this.splitContainerControl5 = new DevExpress.XtraEditors.SplitContainerControl();
@@ -144,6 +148,7 @@
          this.colSub_System2 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.repositoryItemLookUpEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+         this.labelControl15 = new DevExpress.XtraEditors.LabelControl();
          this.flowLayoutPanel7 = new System.Windows.Forms.FlowLayoutPanel();
          this.EnableDisabledRolePrivilege_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.splitContainerControl7 = new DevExpress.XtraEditors.SplitContainerControl();
@@ -159,6 +164,7 @@
          this.colIsDefualt = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colIsVisible1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colSub_System1 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.labelControl13 = new DevExpress.XtraEditors.LabelControl();
          this.flowLayoutPanel5 = new System.Windows.Forms.FlowLayoutPanel();
          this.AddNewRole_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.DeleteRole_Butn = new DevExpress.XtraEditors.SimpleButton();
@@ -174,6 +180,7 @@
          this.colMDFY_BY2 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colMDFY_DATE2 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colSub_System3 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.labelControl14 = new DevExpress.XtraEditors.LabelControl();
          this.flowLayoutPanel6 = new System.Windows.Forms.FlowLayoutPanel();
          this.GrantBoxPrivilegeToRole_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.RevokeBoxPrivilegeFromRole_Butn = new DevExpress.XtraEditors.SimpleButton();
@@ -196,6 +203,7 @@
          this.gridColumn44 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.gridColumn45 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.gridColumn46 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.labelControl12 = new DevExpress.XtraEditors.LabelControl();
          this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
          this.tp_004 = new System.Windows.Forms.TabPage();
          this.splitContainerControl8 = new DevExpress.XtraEditors.SplitContainerControl();
@@ -211,6 +219,7 @@
          this.colUser = new DevExpress.XtraGrid.Columns.GridColumn();
          this.repositoryItemLookUpEdit3 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
          this.repositoryItemLookUpEdit4 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+         this.labelControl19 = new DevExpress.XtraEditors.LabelControl();
          this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
          this.EnableDisabledRoleUser_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.splitContainerControl10 = new DevExpress.XtraEditors.SplitContainerControl();
@@ -225,6 +234,7 @@
          this.gridColumn27 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.gridColumn28 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.gridColumn47 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.labelControl17 = new DevExpress.XtraEditors.LabelControl();
          this.gridControl10 = new DevExpress.XtraGrid.GridControl();
          this.UserBs = new System.Windows.Forms.BindingSource();
          this.gridView11 = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -259,6 +269,7 @@
          this.colMDFY_BY3 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colMDFY_DATE3 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colRegion = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.labelControl18 = new DevExpress.XtraEditors.LabelControl();
          this.flowLayoutPanel9 = new System.Windows.Forms.FlowLayoutPanel();
          this.GrantRoleUser_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.gridControl11 = new DevExpress.XtraGrid.GridControl();
@@ -280,6 +291,7 @@
          this.gridColumn70 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.gridColumn71 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.gridColumn72 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.labelControl16 = new DevExpress.XtraEditors.LabelControl();
          this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
          this.tp_005 = new System.Windows.Forms.TabPage();
          this.splitContainerControl11 = new DevExpress.XtraEditors.SplitContainerControl();
@@ -296,6 +308,7 @@
          this.colIsVisible5 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.repositoryItemLookUpEdit6 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+         this.labelControl23 = new DevExpress.XtraEditors.LabelControl();
          this.flowLayoutPanel8 = new System.Windows.Forms.FlowLayoutPanel();
          this.EnableDisabledUserPrivilege_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.splitContainerControl13 = new DevExpress.XtraEditors.SplitContainerControl();
@@ -332,6 +345,7 @@
          this.colMDFY_BY4 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colMDFY_DATE4 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colRegion1 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.labelControl21 = new DevExpress.XtraEditors.LabelControl();
          this.gridControl13 = new DevExpress.XtraGrid.GridControl();
          this.gridView14 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.gridColumn48 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -342,6 +356,7 @@
          this.gridColumn53 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.gridColumn54 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.gridColumn55 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.labelControl22 = new DevExpress.XtraEditors.LabelControl();
          this.flowLayoutPanel11 = new System.Windows.Forms.FlowLayoutPanel();
          this.GrantBoxPrivilegeToUser_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.RevokeBoxPrivilegeFromUser_Butn = new DevExpress.XtraEditors.SimpleButton();
@@ -364,6 +379,7 @@
          this.gridColumn97 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.gridColumn98 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.gridColumn99 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.labelControl20 = new DevExpress.XtraEditors.LabelControl();
          this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
          this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
          this.UserList_Butn = new DevExpress.XtraEditors.SimpleButton();
@@ -371,22 +387,20 @@
          this.RoleDef_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.UserRole_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.AccessUser_Butn = new DevExpress.XtraEditors.SimpleButton();
-         this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
-         this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
-         this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
-         this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
-         this.labelControl12 = new DevExpress.XtraEditors.LabelControl();
-         this.labelControl13 = new DevExpress.XtraEditors.LabelControl();
-         this.labelControl14 = new DevExpress.XtraEditors.LabelControl();
-         this.labelControl15 = new DevExpress.XtraEditors.LabelControl();
-         this.labelControl16 = new DevExpress.XtraEditors.LabelControl();
-         this.labelControl17 = new DevExpress.XtraEditors.LabelControl();
-         this.labelControl18 = new DevExpress.XtraEditors.LabelControl();
-         this.labelControl19 = new DevExpress.XtraEditors.LabelControl();
-         this.labelControl20 = new DevExpress.XtraEditors.LabelControl();
-         this.labelControl21 = new DevExpress.XtraEditors.LabelControl();
-         this.labelControl22 = new DevExpress.XtraEditors.LabelControl();
-         this.labelControl23 = new DevExpress.XtraEditors.LabelControl();
+         this.UpBoxBsTp3_Butn = new DevExpress.XtraEditors.SimpleButton();
+         this.DnBoxBsTp3_Butn = new DevExpress.XtraEditors.SimpleButton();
+         this.UpRolePrivilegeBsTp3_Butn = new DevExpress.XtraEditors.SimpleButton();
+         this.DnRolePrivilegeBsTp3_Butn = new DevExpress.XtraEditors.SimpleButton();
+         this.UpRoleBsTp3_Butn = new DevExpress.XtraEditors.SimpleButton();
+         this.DnRoleBsTp3_Butn = new DevExpress.XtraEditors.SimpleButton();
+         this.UpRoleUserBsTp4_Butn = new DevExpress.XtraEditors.SimpleButton();
+         this.DnRoleUserBsTp4_Butn = new DevExpress.XtraEditors.SimpleButton();
+         this.UpUserBsTp4_Butn = new DevExpress.XtraEditors.SimpleButton();
+         this.DnUserBsTp4_Butn = new DevExpress.XtraEditors.SimpleButton();
+         this.simpleButton13 = new DevExpress.XtraEditors.SimpleButton();
+         this.simpleButton14 = new DevExpress.XtraEditors.SimpleButton();
+         this.simpleButton15 = new DevExpress.XtraEditors.SimpleButton();
+         this.simpleButton16 = new DevExpress.XtraEditors.SimpleButton();
          this.panel1.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
          this.splitContainerControl1.SuspendLayout();
@@ -531,7 +545,7 @@
          // 
          // Back_Butn
          // 
-         this.Back_Butn.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(36)))), ((int)(((byte)(248)))));
+         this.Back_Butn.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
          this.Back_Butn.Appearance.Options.UseBackColor = true;
          this.Back_Butn.Dock = System.Windows.Forms.DockStyle.Right;
          this.Back_Butn.Image = global::System.DataGuard.Properties.Resources.IMAGE_1371;
@@ -863,6 +877,21 @@
          this.colSub_System.FieldName = "Sub_System";
          this.colSub_System.Name = "colSub_System";
          // 
+         // labelControl10
+         // 
+         this.labelControl10.Appearance.BackColor = System.Drawing.SystemColors.Control;
+         this.labelControl10.Appearance.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.labelControl10.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+         this.labelControl10.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+         this.labelControl10.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+         this.labelControl10.Dock = System.Windows.Forms.DockStyle.Top;
+         this.labelControl10.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
+         this.labelControl10.Location = new System.Drawing.Point(0, 0);
+         this.labelControl10.Name = "labelControl10";
+         this.labelControl10.Size = new System.Drawing.Size(268, 24);
+         this.labelControl10.TabIndex = 12;
+         this.labelControl10.Text = "بسته های دسترسی سیستم";
+         // 
          // flowLayoutPanel3
          // 
          this.flowLayoutPanel3.Controls.Add(this.AddBoxPrivilege_Butn);
@@ -1026,6 +1055,21 @@
          this.gridColumn7.FieldName = "Box_Privilege";
          this.gridColumn7.Name = "gridColumn7";
          // 
+         // labelControl11
+         // 
+         this.labelControl11.Appearance.BackColor = System.Drawing.SystemColors.Control;
+         this.labelControl11.Appearance.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.labelControl11.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+         this.labelControl11.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+         this.labelControl11.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+         this.labelControl11.Dock = System.Windows.Forms.DockStyle.Top;
+         this.labelControl11.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
+         this.labelControl11.Location = new System.Drawing.Point(0, 0);
+         this.labelControl11.Name = "labelControl11";
+         this.labelControl11.Size = new System.Drawing.Size(268, 24);
+         this.labelControl11.TabIndex = 12;
+         this.labelControl11.Text = "دسترسی های بسته";
+         // 
          // flowLayoutPanel4
          // 
          this.flowLayoutPanel4.Controls.Add(this.AddPrivilegeToBox_Butn);
@@ -1166,6 +1210,21 @@
          this.colBox_Privilege.FieldName = "Box_Privilege";
          this.colBox_Privilege.Name = "colBox_Privilege";
          // 
+         // labelControl9
+         // 
+         this.labelControl9.Appearance.BackColor = System.Drawing.SystemColors.Control;
+         this.labelControl9.Appearance.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.labelControl9.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+         this.labelControl9.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+         this.labelControl9.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+         this.labelControl9.Dock = System.Windows.Forms.DockStyle.Top;
+         this.labelControl9.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
+         this.labelControl9.Location = new System.Drawing.Point(0, 0);
+         this.labelControl9.Name = "labelControl9";
+         this.labelControl9.Size = new System.Drawing.Size(257, 24);
+         this.labelControl9.TabIndex = 12;
+         this.labelControl9.Text = "ریز دسترسی های سیستم";
+         // 
          // sub_SystemGridControl
          // 
          this.sub_SystemGridControl.DataSource = this.SubSysBs;
@@ -1303,6 +1362,21 @@
          this.colMDFY_DATE.FieldName = "MDFY_DATE";
          this.colMDFY_DATE.Name = "colMDFY_DATE";
          // 
+         // labelControl8
+         // 
+         this.labelControl8.Appearance.BackColor = System.Drawing.SystemColors.Control;
+         this.labelControl8.Appearance.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.labelControl8.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+         this.labelControl8.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+         this.labelControl8.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+         this.labelControl8.Dock = System.Windows.Forms.DockStyle.Top;
+         this.labelControl8.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
+         this.labelControl8.Location = new System.Drawing.Point(0, 0);
+         this.labelControl8.Name = "labelControl8";
+         this.labelControl8.Size = new System.Drawing.Size(207, 24);
+         this.labelControl8.TabIndex = 11;
+         this.labelControl8.Text = "زیر سیستم ها";
+         // 
          // labelControl7
          // 
          this.labelControl7.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -1405,21 +1479,21 @@
             this.colRole,
             this.colSub_System2,
             this.gridColumn8});
-         styleFormatCondition3.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-         styleFormatCondition3.Appearance.Options.UseBackColor = true;
-         styleFormatCondition3.ApplyToRow = true;
-         styleFormatCondition3.Column = this.colIsActive1;
-         styleFormatCondition3.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
-         styleFormatCondition3.Value1 = true;
-         styleFormatCondition4.Appearance.BackColor = System.Drawing.Color.LightGray;
-         styleFormatCondition4.Appearance.Options.UseBackColor = true;
-         styleFormatCondition4.ApplyToRow = true;
-         styleFormatCondition4.Column = this.colIsActive1;
-         styleFormatCondition4.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
-         styleFormatCondition4.Value1 = false;
+         styleFormatCondition1.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+         styleFormatCondition1.Appearance.Options.UseBackColor = true;
+         styleFormatCondition1.ApplyToRow = true;
+         styleFormatCondition1.Column = this.colIsActive1;
+         styleFormatCondition1.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
+         styleFormatCondition1.Value1 = true;
+         styleFormatCondition2.Appearance.BackColor = System.Drawing.Color.LightGray;
+         styleFormatCondition2.Appearance.Options.UseBackColor = true;
+         styleFormatCondition2.ApplyToRow = true;
+         styleFormatCondition2.Column = this.colIsActive1;
+         styleFormatCondition2.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
+         styleFormatCondition2.Value1 = false;
          this.gridView7.FormatConditions.AddRange(new DevExpress.XtraGrid.StyleFormatCondition[] {
-            styleFormatCondition3,
-            styleFormatCondition4});
+            styleFormatCondition1,
+            styleFormatCondition2});
          this.gridView7.GridControl = this.gridControl6;
          this.gridView7.Name = "gridView7";
          this.gridView7.OptionsBehavior.Editable = false;
@@ -1463,7 +1537,7 @@
          // 
          this.repositoryItemLookUpEdit1.AutoHeight = false;
          this.repositoryItemLookUpEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject25, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
          this.repositoryItemLookUpEdit1.DataSource = this.PrivilegeBs;
          this.repositoryItemLookUpEdit1.DisplayMember = "TitleFa";
          this.repositoryItemLookUpEdit1.Name = "repositoryItemLookUpEdit1";
@@ -1514,16 +1588,33 @@
          // 
          this.repositoryItemLookUpEdit2.AutoHeight = false;
          this.repositoryItemLookUpEdit2.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject26, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
          this.repositoryItemLookUpEdit2.DataSource = this.PrivilegeBs;
          this.repositoryItemLookUpEdit2.DisplayMember = "ShortCut";
          this.repositoryItemLookUpEdit2.Name = "repositoryItemLookUpEdit2";
          this.repositoryItemLookUpEdit2.NullText = "";
          this.repositoryItemLookUpEdit2.ValueMember = "ID";
          // 
+         // labelControl15
+         // 
+         this.labelControl15.Appearance.BackColor = System.Drawing.SystemColors.Control;
+         this.labelControl15.Appearance.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.labelControl15.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+         this.labelControl15.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+         this.labelControl15.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+         this.labelControl15.Dock = System.Windows.Forms.DockStyle.Top;
+         this.labelControl15.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
+         this.labelControl15.Location = new System.Drawing.Point(0, 0);
+         this.labelControl15.Name = "labelControl15";
+         this.labelControl15.Size = new System.Drawing.Size(268, 24);
+         this.labelControl15.TabIndex = 12;
+         this.labelControl15.Text = "زیر دسترسی های گروه";
+         // 
          // flowLayoutPanel7
          // 
          this.flowLayoutPanel7.Controls.Add(this.EnableDisabledRolePrivilege_Butn);
+         this.flowLayoutPanel7.Controls.Add(this.UpRolePrivilegeBsTp3_Butn);
+         this.flowLayoutPanel7.Controls.Add(this.DnRolePrivilegeBsTp3_Butn);
          this.flowLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Bottom;
          this.flowLayoutPanel7.Location = new System.Drawing.Point(0, 498);
          this.flowLayoutPanel7.Margin = new System.Windows.Forms.Padding(1, 1, 3, 3);
@@ -1610,21 +1701,21 @@
             this.colIsVisible1,
             this.colIsActive,
             this.colSub_System1});
-         styleFormatCondition1.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-         styleFormatCondition1.Appearance.Options.UseBackColor = true;
-         styleFormatCondition1.ApplyToRow = true;
-         styleFormatCondition1.Column = this.colIsActive;
-         styleFormatCondition1.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
-         styleFormatCondition1.Value1 = true;
-         styleFormatCondition2.Appearance.BackColor = System.Drawing.Color.LightGray;
-         styleFormatCondition2.Appearance.Options.UseBackColor = true;
-         styleFormatCondition2.ApplyToRow = true;
-         styleFormatCondition2.Column = this.colIsActive;
-         styleFormatCondition2.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
-         styleFormatCondition2.Value1 = false;
+         styleFormatCondition3.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+         styleFormatCondition3.Appearance.Options.UseBackColor = true;
+         styleFormatCondition3.ApplyToRow = true;
+         styleFormatCondition3.Column = this.colIsActive;
+         styleFormatCondition3.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
+         styleFormatCondition3.Value1 = true;
+         styleFormatCondition4.Appearance.BackColor = System.Drawing.Color.LightGray;
+         styleFormatCondition4.Appearance.Options.UseBackColor = true;
+         styleFormatCondition4.ApplyToRow = true;
+         styleFormatCondition4.Column = this.colIsActive;
+         styleFormatCondition4.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
+         styleFormatCondition4.Value1 = false;
          this.gridView5.FormatConditions.AddRange(new DevExpress.XtraGrid.StyleFormatCondition[] {
-            styleFormatCondition1,
-            styleFormatCondition2});
+            styleFormatCondition3,
+            styleFormatCondition4});
          this.gridView5.GridControl = this.gridControl4;
          this.gridView5.Name = "gridView5";
          this.gridView5.OptionsSelection.EnableAppearanceFocusedCell = false;
@@ -1690,12 +1781,29 @@
          this.colSub_System1.FieldName = "Sub_System";
          this.colSub_System1.Name = "colSub_System1";
          // 
+         // labelControl13
+         // 
+         this.labelControl13.Appearance.BackColor = System.Drawing.SystemColors.Control;
+         this.labelControl13.Appearance.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.labelControl13.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+         this.labelControl13.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+         this.labelControl13.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+         this.labelControl13.Dock = System.Windows.Forms.DockStyle.Top;
+         this.labelControl13.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
+         this.labelControl13.Location = new System.Drawing.Point(0, 0);
+         this.labelControl13.Name = "labelControl13";
+         this.labelControl13.Size = new System.Drawing.Size(190, 24);
+         this.labelControl13.TabIndex = 12;
+         this.labelControl13.Text = "گروه های دسترسی سیستم";
+         // 
          // flowLayoutPanel5
          // 
          this.flowLayoutPanel5.Controls.Add(this.AddNewRole_Butn);
          this.flowLayoutPanel5.Controls.Add(this.DeleteRole_Butn);
          this.flowLayoutPanel5.Controls.Add(this.SaveRole_Butn);
          this.flowLayoutPanel5.Controls.Add(this.EnableDisabledRole_Butn);
+         this.flowLayoutPanel5.Controls.Add(this.UpRoleBsTp3_Butn);
+         this.flowLayoutPanel5.Controls.Add(this.DnRoleBsTp3_Butn);
          this.flowLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Bottom;
          this.flowLayoutPanel5.Location = new System.Drawing.Point(0, 226);
          this.flowLayoutPanel5.Margin = new System.Windows.Forms.Padding(1, 1, 3, 3);
@@ -1871,12 +1979,28 @@
          this.colSub_System3.FieldName = "Sub_System";
          this.colSub_System3.Name = "colSub_System3";
          // 
+         // labelControl14
+         // 
+         this.labelControl14.Appearance.BackColor = System.Drawing.SystemColors.Control;
+         this.labelControl14.Appearance.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.labelControl14.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+         this.labelControl14.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+         this.labelControl14.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+         this.labelControl14.Dock = System.Windows.Forms.DockStyle.Top;
+         this.labelControl14.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
+         this.labelControl14.Location = new System.Drawing.Point(0, 0);
+         this.labelControl14.Name = "labelControl14";
+         this.labelControl14.Size = new System.Drawing.Size(190, 24);
+         this.labelControl14.TabIndex = 12;
+         this.labelControl14.Text = "بسته های دسترسی سیستم";
+         // 
          // flowLayoutPanel6
          // 
-         this.flowLayoutPanel6.Controls.Add(this.GrantBoxPrivilegeToRole_Butn);
          this.flowLayoutPanel6.Controls.Add(this.RevokeBoxPrivilegeFromRole_Butn);
+         this.flowLayoutPanel6.Controls.Add(this.GrantBoxPrivilegeToRole_Butn);
+         this.flowLayoutPanel6.Controls.Add(this.UpBoxBsTp3_Butn);
+         this.flowLayoutPanel6.Controls.Add(this.DnBoxBsTp3_Butn);
          this.flowLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Bottom;
-         this.flowLayoutPanel6.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
          this.flowLayoutPanel6.Location = new System.Drawing.Point(0, 237);
          this.flowLayoutPanel6.Margin = new System.Windows.Forms.Padding(1, 1, 3, 3);
          this.flowLayoutPanel6.Name = "flowLayoutPanel6";
@@ -1894,7 +2018,7 @@
          this.GrantBoxPrivilegeToRole_Butn.Appearance.Options.UseForeColor = true;
          this.GrantBoxPrivilegeToRole_Butn.Image = global::System.DataGuard.Properties.Resources.IMAGE_1422;
          this.GrantBoxPrivilegeToRole_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.GrantBoxPrivilegeToRole_Butn.Location = new System.Drawing.Point(1, 3);
+         this.GrantBoxPrivilegeToRole_Butn.Location = new System.Drawing.Point(133, 3);
          this.GrantBoxPrivilegeToRole_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.GrantBoxPrivilegeToRole_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.GrantBoxPrivilegeToRole_Butn.Margin = new System.Windows.Forms.Padding(1, 3, 1, 3);
@@ -1915,7 +2039,7 @@
          this.RevokeBoxPrivilegeFromRole_Butn.Appearance.Options.UseForeColor = true;
          this.RevokeBoxPrivilegeFromRole_Butn.Image = global::System.DataGuard.Properties.Resources.IMAGE_1418;
          this.RevokeBoxPrivilegeFromRole_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.RevokeBoxPrivilegeFromRole_Butn.Location = new System.Drawing.Point(30, 3);
+         this.RevokeBoxPrivilegeFromRole_Butn.Location = new System.Drawing.Point(162, 3);
          this.RevokeBoxPrivilegeFromRole_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.RevokeBoxPrivilegeFromRole_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.RevokeBoxPrivilegeFromRole_Butn.Margin = new System.Windows.Forms.Padding(1, 3, 1, 3);
@@ -2061,6 +2185,21 @@
          // 
          this.gridColumn46.FieldName = "MDFY_DATE";
          this.gridColumn46.Name = "gridColumn46";
+         // 
+         // labelControl12
+         // 
+         this.labelControl12.Appearance.BackColor = System.Drawing.SystemColors.Control;
+         this.labelControl12.Appearance.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.labelControl12.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+         this.labelControl12.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+         this.labelControl12.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+         this.labelControl12.Dock = System.Windows.Forms.DockStyle.Top;
+         this.labelControl12.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
+         this.labelControl12.Location = new System.Drawing.Point(0, 0);
+         this.labelControl12.Name = "labelControl12";
+         this.labelControl12.Size = new System.Drawing.Size(274, 24);
+         this.labelControl12.TabIndex = 12;
+         this.labelControl12.Text = "زیر سیستم ها";
          // 
          // labelControl3
          // 
@@ -2224,7 +2363,7 @@
          // 
          this.repositoryItemLookUpEdit3.AutoHeight = false;
          this.repositoryItemLookUpEdit3.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject27, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject3, "", null, null, true)});
          this.repositoryItemLookUpEdit3.DataSource = this.PrivilegeBs;
          this.repositoryItemLookUpEdit3.DisplayMember = "TitleFa";
          this.repositoryItemLookUpEdit3.Name = "repositoryItemLookUpEdit3";
@@ -2235,16 +2374,33 @@
          // 
          this.repositoryItemLookUpEdit4.AutoHeight = false;
          this.repositoryItemLookUpEdit4.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject28, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject4, "", null, null, true)});
          this.repositoryItemLookUpEdit4.DataSource = this.PrivilegeBs;
          this.repositoryItemLookUpEdit4.DisplayMember = "ShortCut";
          this.repositoryItemLookUpEdit4.Name = "repositoryItemLookUpEdit4";
          this.repositoryItemLookUpEdit4.NullText = "";
          this.repositoryItemLookUpEdit4.ValueMember = "ID";
          // 
+         // labelControl19
+         // 
+         this.labelControl19.Appearance.BackColor = System.Drawing.SystemColors.Control;
+         this.labelControl19.Appearance.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.labelControl19.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+         this.labelControl19.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+         this.labelControl19.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+         this.labelControl19.Dock = System.Windows.Forms.DockStyle.Top;
+         this.labelControl19.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
+         this.labelControl19.Location = new System.Drawing.Point(0, 0);
+         this.labelControl19.Name = "labelControl19";
+         this.labelControl19.Size = new System.Drawing.Size(268, 24);
+         this.labelControl19.TabIndex = 13;
+         this.labelControl19.Text = "کاربران عضو گروه دسترسی";
+         // 
          // flowLayoutPanel2
          // 
          this.flowLayoutPanel2.Controls.Add(this.EnableDisabledRoleUser_Butn);
+         this.flowLayoutPanel2.Controls.Add(this.UpRoleUserBsTp4_Butn);
+         this.flowLayoutPanel2.Controls.Add(this.DnRoleUserBsTp4_Butn);
          this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Bottom;
          this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 498);
          this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(1, 1, 3, 3);
@@ -2324,21 +2480,21 @@
             this.gridColumn28,
             this.gridColumn29,
             this.gridColumn47});
-         styleFormatCondition11.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-         styleFormatCondition11.Appearance.Options.UseBackColor = true;
-         styleFormatCondition11.ApplyToRow = true;
-         styleFormatCondition11.Column = this.gridColumn29;
-         styleFormatCondition11.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
-         styleFormatCondition11.Value1 = true;
-         styleFormatCondition12.Appearance.BackColor = System.Drawing.Color.LightGray;
-         styleFormatCondition12.Appearance.Options.UseBackColor = true;
-         styleFormatCondition12.ApplyToRow = true;
-         styleFormatCondition12.Column = this.gridColumn29;
-         styleFormatCondition12.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
-         styleFormatCondition12.Value1 = false;
+         styleFormatCondition7.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+         styleFormatCondition7.Appearance.Options.UseBackColor = true;
+         styleFormatCondition7.ApplyToRow = true;
+         styleFormatCondition7.Column = this.gridColumn29;
+         styleFormatCondition7.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
+         styleFormatCondition7.Value1 = true;
+         styleFormatCondition8.Appearance.BackColor = System.Drawing.Color.LightGray;
+         styleFormatCondition8.Appearance.Options.UseBackColor = true;
+         styleFormatCondition8.ApplyToRow = true;
+         styleFormatCondition8.Column = this.gridColumn29;
+         styleFormatCondition8.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
+         styleFormatCondition8.Value1 = false;
          this.gridView10.FormatConditions.AddRange(new DevExpress.XtraGrid.StyleFormatCondition[] {
-            styleFormatCondition11,
-            styleFormatCondition12});
+            styleFormatCondition7,
+            styleFormatCondition8});
          this.gridView10.GridControl = this.gridControl9;
          this.gridView10.Name = "gridView10";
          this.gridView10.OptionsSelection.EnableAppearanceFocusedCell = false;
@@ -2403,6 +2559,21 @@
          // 
          this.gridColumn47.FieldName = "Sub_System";
          this.gridColumn47.Name = "gridColumn47";
+         // 
+         // labelControl17
+         // 
+         this.labelControl17.Appearance.BackColor = System.Drawing.SystemColors.Control;
+         this.labelControl17.Appearance.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.labelControl17.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+         this.labelControl17.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+         this.labelControl17.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+         this.labelControl17.Dock = System.Windows.Forms.DockStyle.Top;
+         this.labelControl17.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
+         this.labelControl17.Location = new System.Drawing.Point(0, 0);
+         this.labelControl17.Name = "labelControl17";
+         this.labelControl17.Size = new System.Drawing.Size(190, 24);
+         this.labelControl17.TabIndex = 13;
+         this.labelControl17.Text = "گروه های دسترسی سیستم";
          // 
          // gridControl10
          // 
@@ -2631,11 +2802,27 @@
          this.colRegion.FieldName = "Region";
          this.colRegion.Name = "colRegion";
          // 
+         // labelControl18
+         // 
+         this.labelControl18.Appearance.BackColor = System.Drawing.SystemColors.Control;
+         this.labelControl18.Appearance.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.labelControl18.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+         this.labelControl18.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+         this.labelControl18.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+         this.labelControl18.Dock = System.Windows.Forms.DockStyle.Top;
+         this.labelControl18.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
+         this.labelControl18.Location = new System.Drawing.Point(0, 0);
+         this.labelControl18.Name = "labelControl18";
+         this.labelControl18.Size = new System.Drawing.Size(190, 24);
+         this.labelControl18.TabIndex = 13;
+         this.labelControl18.Text = "کاربران سیستم";
+         // 
          // flowLayoutPanel9
          // 
          this.flowLayoutPanel9.Controls.Add(this.GrantRoleUser_Butn);
+         this.flowLayoutPanel9.Controls.Add(this.UpUserBsTp4_Butn);
+         this.flowLayoutPanel9.Controls.Add(this.DnUserBsTp4_Butn);
          this.flowLayoutPanel9.Dock = System.Windows.Forms.DockStyle.Bottom;
-         this.flowLayoutPanel9.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
          this.flowLayoutPanel9.Location = new System.Drawing.Point(0, 237);
          this.flowLayoutPanel9.Margin = new System.Windows.Forms.Padding(1, 1, 3, 3);
          this.flowLayoutPanel9.Name = "flowLayoutPanel9";
@@ -2653,7 +2840,7 @@
          this.GrantRoleUser_Butn.Appearance.Options.UseForeColor = true;
          this.GrantRoleUser_Butn.Image = global::System.DataGuard.Properties.Resources.IMAGE_1422;
          this.GrantRoleUser_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.GrantRoleUser_Butn.Location = new System.Drawing.Point(1, 3);
+         this.GrantRoleUser_Butn.Location = new System.Drawing.Point(162, 3);
          this.GrantRoleUser_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.GrantRoleUser_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.GrantRoleUser_Butn.Margin = new System.Windows.Forms.Padding(1, 3, 1, 3);
@@ -2799,6 +2986,21 @@
          // 
          this.gridColumn72.FieldName = "MDFY_DATE";
          this.gridColumn72.Name = "gridColumn72";
+         // 
+         // labelControl16
+         // 
+         this.labelControl16.Appearance.BackColor = System.Drawing.SystemColors.Control;
+         this.labelControl16.Appearance.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.labelControl16.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+         this.labelControl16.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+         this.labelControl16.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+         this.labelControl16.Dock = System.Windows.Forms.DockStyle.Top;
+         this.labelControl16.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
+         this.labelControl16.Location = new System.Drawing.Point(0, 0);
+         this.labelControl16.Name = "labelControl16";
+         this.labelControl16.Size = new System.Drawing.Size(274, 24);
+         this.labelControl16.TabIndex = 13;
+         this.labelControl16.Text = "زیر سیستم ها";
          // 
          // labelControl4
          // 
@@ -2953,7 +3155,7 @@
          // 
          this.repositoryItemLookUpEdit5.AutoHeight = false;
          this.repositoryItemLookUpEdit5.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject29, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, "", null, null, true)});
          this.repositoryItemLookUpEdit5.DataSource = this.PrivilegeBs;
          this.repositoryItemLookUpEdit5.DisplayMember = "TitleFa";
          this.repositoryItemLookUpEdit5.Name = "repositoryItemLookUpEdit5";
@@ -2984,16 +3186,33 @@
          // 
          this.repositoryItemLookUpEdit6.AutoHeight = false;
          this.repositoryItemLookUpEdit6.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject30, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject6, "", null, null, true)});
          this.repositoryItemLookUpEdit6.DataSource = this.PrivilegeBs;
          this.repositoryItemLookUpEdit6.DisplayMember = "ShortCut";
          this.repositoryItemLookUpEdit6.Name = "repositoryItemLookUpEdit6";
          this.repositoryItemLookUpEdit6.NullText = "";
          this.repositoryItemLookUpEdit6.ValueMember = "ID";
          // 
+         // labelControl23
+         // 
+         this.labelControl23.Appearance.BackColor = System.Drawing.SystemColors.Control;
+         this.labelControl23.Appearance.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.labelControl23.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+         this.labelControl23.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+         this.labelControl23.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+         this.labelControl23.Dock = System.Windows.Forms.DockStyle.Top;
+         this.labelControl23.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
+         this.labelControl23.Location = new System.Drawing.Point(0, 0);
+         this.labelControl23.Name = "labelControl23";
+         this.labelControl23.Size = new System.Drawing.Size(268, 24);
+         this.labelControl23.TabIndex = 13;
+         this.labelControl23.Text = "دسترسی های مخصوص کاربر";
+         // 
          // flowLayoutPanel8
          // 
          this.flowLayoutPanel8.Controls.Add(this.EnableDisabledUserPrivilege_Butn);
+         this.flowLayoutPanel8.Controls.Add(this.simpleButton15);
+         this.flowLayoutPanel8.Controls.Add(this.simpleButton16);
          this.flowLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Bottom;
          this.flowLayoutPanel8.Location = new System.Drawing.Point(0, 498);
          this.flowLayoutPanel8.Margin = new System.Windows.Forms.Padding(1, 1, 3, 3);
@@ -3261,6 +3480,21 @@
          this.colRegion1.FieldName = "Region";
          this.colRegion1.Name = "colRegion1";
          // 
+         // labelControl21
+         // 
+         this.labelControl21.Appearance.BackColor = System.Drawing.SystemColors.Control;
+         this.labelControl21.Appearance.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.labelControl21.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+         this.labelControl21.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+         this.labelControl21.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+         this.labelControl21.Dock = System.Windows.Forms.DockStyle.Top;
+         this.labelControl21.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
+         this.labelControl21.Location = new System.Drawing.Point(0, 0);
+         this.labelControl21.Name = "labelControl21";
+         this.labelControl21.Size = new System.Drawing.Size(190, 24);
+         this.labelControl21.TabIndex = 13;
+         this.labelControl21.Text = "کاربران سیستم";
+         // 
          // gridControl13
          // 
          this.gridControl13.DataSource = this.BoxPrivilegeBs;
@@ -3345,12 +3579,28 @@
          this.gridColumn55.FieldName = "Sub_System";
          this.gridColumn55.Name = "gridColumn55";
          // 
+         // labelControl22
+         // 
+         this.labelControl22.Appearance.BackColor = System.Drawing.SystemColors.Control;
+         this.labelControl22.Appearance.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.labelControl22.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+         this.labelControl22.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+         this.labelControl22.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+         this.labelControl22.Dock = System.Windows.Forms.DockStyle.Top;
+         this.labelControl22.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
+         this.labelControl22.Location = new System.Drawing.Point(0, 0);
+         this.labelControl22.Name = "labelControl22";
+         this.labelControl22.Size = new System.Drawing.Size(190, 24);
+         this.labelControl22.TabIndex = 13;
+         this.labelControl22.Text = "بسته های دسترسی";
+         // 
          // flowLayoutPanel11
          // 
          this.flowLayoutPanel11.Controls.Add(this.GrantBoxPrivilegeToUser_Butn);
          this.flowLayoutPanel11.Controls.Add(this.RevokeBoxPrivilegeFromUser_Butn);
+         this.flowLayoutPanel11.Controls.Add(this.simpleButton13);
+         this.flowLayoutPanel11.Controls.Add(this.simpleButton14);
          this.flowLayoutPanel11.Dock = System.Windows.Forms.DockStyle.Bottom;
-         this.flowLayoutPanel11.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
          this.flowLayoutPanel11.Location = new System.Drawing.Point(0, 237);
          this.flowLayoutPanel11.Margin = new System.Windows.Forms.Padding(1, 1, 3, 3);
          this.flowLayoutPanel11.Name = "flowLayoutPanel11";
@@ -3368,7 +3618,7 @@
          this.GrantBoxPrivilegeToUser_Butn.Appearance.Options.UseForeColor = true;
          this.GrantBoxPrivilegeToUser_Butn.Image = global::System.DataGuard.Properties.Resources.IMAGE_1422;
          this.GrantBoxPrivilegeToUser_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.GrantBoxPrivilegeToUser_Butn.Location = new System.Drawing.Point(1, 3);
+         this.GrantBoxPrivilegeToUser_Butn.Location = new System.Drawing.Point(162, 3);
          this.GrantBoxPrivilegeToUser_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.GrantBoxPrivilegeToUser_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.GrantBoxPrivilegeToUser_Butn.Margin = new System.Windows.Forms.Padding(1, 3, 1, 3);
@@ -3389,7 +3639,7 @@
          this.RevokeBoxPrivilegeFromUser_Butn.Appearance.Options.UseForeColor = true;
          this.RevokeBoxPrivilegeFromUser_Butn.Image = global::System.DataGuard.Properties.Resources.IMAGE_1418;
          this.RevokeBoxPrivilegeFromUser_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.RevokeBoxPrivilegeFromUser_Butn.Location = new System.Drawing.Point(30, 3);
+         this.RevokeBoxPrivilegeFromUser_Butn.Location = new System.Drawing.Point(133, 3);
          this.RevokeBoxPrivilegeFromUser_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.RevokeBoxPrivilegeFromUser_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.RevokeBoxPrivilegeFromUser_Butn.Margin = new System.Windows.Forms.Padding(1, 3, 1, 3);
@@ -3536,6 +3786,21 @@
          this.gridColumn99.FieldName = "MDFY_DATE";
          this.gridColumn99.Name = "gridColumn99";
          // 
+         // labelControl20
+         // 
+         this.labelControl20.Appearance.BackColor = System.Drawing.SystemColors.Control;
+         this.labelControl20.Appearance.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.labelControl20.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+         this.labelControl20.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+         this.labelControl20.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+         this.labelControl20.Dock = System.Windows.Forms.DockStyle.Top;
+         this.labelControl20.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
+         this.labelControl20.Location = new System.Drawing.Point(0, 0);
+         this.labelControl20.Name = "labelControl20";
+         this.labelControl20.Size = new System.Drawing.Size(274, 24);
+         this.labelControl20.TabIndex = 13;
+         this.labelControl20.Text = "گروه های دسترسی سیستم";
+         // 
          // labelControl6
          // 
          this.labelControl6.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -3674,245 +3939,299 @@
          this.AccessUser_Butn.Text = "دسترسی کاربران خاص";
          this.AccessUser_Butn.Click += new System.EventHandler(this.RightButns_Click);
          // 
-         // labelControl8
+         // UpBoxBsTp3_Butn
          // 
-         this.labelControl8.Appearance.BackColor = System.Drawing.SystemColors.Control;
-         this.labelControl8.Appearance.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.labelControl8.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         this.labelControl8.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-         this.labelControl8.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.labelControl8.Dock = System.Windows.Forms.DockStyle.Top;
-         this.labelControl8.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl8.Location = new System.Drawing.Point(0, 0);
-         this.labelControl8.Name = "labelControl8";
-         this.labelControl8.Size = new System.Drawing.Size(207, 24);
-         this.labelControl8.TabIndex = 11;
-         this.labelControl8.Text = "زیر سیستم ها";
+         this.UpBoxBsTp3_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.UpBoxBsTp3_Butn.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+         this.UpBoxBsTp3_Butn.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.UpBoxBsTp3_Butn.Appearance.ForeColor = System.Drawing.Color.White;
+         this.UpBoxBsTp3_Butn.Appearance.Options.UseBackColor = true;
+         this.UpBoxBsTp3_Butn.Appearance.Options.UseFont = true;
+         this.UpBoxBsTp3_Butn.Appearance.Options.UseForeColor = true;
+         this.UpBoxBsTp3_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+         this.UpBoxBsTp3_Butn.Location = new System.Drawing.Point(104, 3);
+         this.UpBoxBsTp3_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.UpBoxBsTp3_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.UpBoxBsTp3_Butn.Margin = new System.Windows.Forms.Padding(1, 3, 1, 3);
+         this.UpBoxBsTp3_Butn.Name = "UpBoxBsTp3_Butn";
+         this.UpBoxBsTp3_Butn.Size = new System.Drawing.Size(27, 24);
+         this.UpBoxBsTp3_Butn.TabIndex = 21;
+         this.UpBoxBsTp3_Butn.Text = "Up";
+         this.UpBoxBsTp3_Butn.ToolTip = "پاک کردن اطلاعات پیش نویس";
+         this.UpBoxBsTp3_Butn.Click += new System.EventHandler(this.Up_Butn_Click);
          // 
-         // labelControl9
+         // DnBoxBsTp3_Butn
          // 
-         this.labelControl9.Appearance.BackColor = System.Drawing.SystemColors.Control;
-         this.labelControl9.Appearance.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.labelControl9.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         this.labelControl9.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-         this.labelControl9.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.labelControl9.Dock = System.Windows.Forms.DockStyle.Top;
-         this.labelControl9.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl9.Location = new System.Drawing.Point(0, 0);
-         this.labelControl9.Name = "labelControl9";
-         this.labelControl9.Size = new System.Drawing.Size(257, 24);
-         this.labelControl9.TabIndex = 12;
-         this.labelControl9.Text = "ریز دسترسی های سیستم";
+         this.DnBoxBsTp3_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.DnBoxBsTp3_Butn.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+         this.DnBoxBsTp3_Butn.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.DnBoxBsTp3_Butn.Appearance.ForeColor = System.Drawing.Color.Black;
+         this.DnBoxBsTp3_Butn.Appearance.Options.UseBackColor = true;
+         this.DnBoxBsTp3_Butn.Appearance.Options.UseFont = true;
+         this.DnBoxBsTp3_Butn.Appearance.Options.UseForeColor = true;
+         this.DnBoxBsTp3_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+         this.DnBoxBsTp3_Butn.Location = new System.Drawing.Point(75, 3);
+         this.DnBoxBsTp3_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.DnBoxBsTp3_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.DnBoxBsTp3_Butn.Margin = new System.Windows.Forms.Padding(1, 3, 1, 3);
+         this.DnBoxBsTp3_Butn.Name = "DnBoxBsTp3_Butn";
+         this.DnBoxBsTp3_Butn.Size = new System.Drawing.Size(27, 24);
+         this.DnBoxBsTp3_Butn.TabIndex = 22;
+         this.DnBoxBsTp3_Butn.Text = "Dn";
+         this.DnBoxBsTp3_Butn.ToolTip = "پاک کردن اطلاعات پیش نویس";
+         this.DnBoxBsTp3_Butn.Click += new System.EventHandler(this.Dn_Butn_Click);
          // 
-         // labelControl10
+         // UpRolePrivilegeBsTp3_Butn
          // 
-         this.labelControl10.Appearance.BackColor = System.Drawing.SystemColors.Control;
-         this.labelControl10.Appearance.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.labelControl10.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         this.labelControl10.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-         this.labelControl10.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.labelControl10.Dock = System.Windows.Forms.DockStyle.Top;
-         this.labelControl10.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl10.Location = new System.Drawing.Point(0, 0);
-         this.labelControl10.Name = "labelControl10";
-         this.labelControl10.Size = new System.Drawing.Size(268, 24);
-         this.labelControl10.TabIndex = 12;
-         this.labelControl10.Text = "بسته های دسترسی سیستم";
+         this.UpRolePrivilegeBsTp3_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.UpRolePrivilegeBsTp3_Butn.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+         this.UpRolePrivilegeBsTp3_Butn.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.UpRolePrivilegeBsTp3_Butn.Appearance.ForeColor = System.Drawing.Color.White;
+         this.UpRolePrivilegeBsTp3_Butn.Appearance.Options.UseBackColor = true;
+         this.UpRolePrivilegeBsTp3_Butn.Appearance.Options.UseFont = true;
+         this.UpRolePrivilegeBsTp3_Butn.Appearance.Options.UseForeColor = true;
+         this.UpRolePrivilegeBsTp3_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+         this.UpRolePrivilegeBsTp3_Butn.Location = new System.Drawing.Point(211, 3);
+         this.UpRolePrivilegeBsTp3_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.UpRolePrivilegeBsTp3_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.UpRolePrivilegeBsTp3_Butn.Margin = new System.Windows.Forms.Padding(1, 3, 1, 3);
+         this.UpRolePrivilegeBsTp3_Butn.Name = "UpRolePrivilegeBsTp3_Butn";
+         this.UpRolePrivilegeBsTp3_Butn.Size = new System.Drawing.Size(27, 24);
+         this.UpRolePrivilegeBsTp3_Butn.TabIndex = 23;
+         this.UpRolePrivilegeBsTp3_Butn.Text = "Up";
+         this.UpRolePrivilegeBsTp3_Butn.ToolTip = "پاک کردن اطلاعات پیش نویس";
+         this.UpRolePrivilegeBsTp3_Butn.Click += new System.EventHandler(this.Up_Butn_Click);
          // 
-         // labelControl11
+         // DnRolePrivilegeBsTp3_Butn
          // 
-         this.labelControl11.Appearance.BackColor = System.Drawing.SystemColors.Control;
-         this.labelControl11.Appearance.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.labelControl11.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         this.labelControl11.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-         this.labelControl11.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.labelControl11.Dock = System.Windows.Forms.DockStyle.Top;
-         this.labelControl11.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl11.Location = new System.Drawing.Point(0, 0);
-         this.labelControl11.Name = "labelControl11";
-         this.labelControl11.Size = new System.Drawing.Size(268, 24);
-         this.labelControl11.TabIndex = 12;
-         this.labelControl11.Text = "دسترسی های بسته";
+         this.DnRolePrivilegeBsTp3_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.DnRolePrivilegeBsTp3_Butn.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+         this.DnRolePrivilegeBsTp3_Butn.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.DnRolePrivilegeBsTp3_Butn.Appearance.ForeColor = System.Drawing.Color.Black;
+         this.DnRolePrivilegeBsTp3_Butn.Appearance.Options.UseBackColor = true;
+         this.DnRolePrivilegeBsTp3_Butn.Appearance.Options.UseFont = true;
+         this.DnRolePrivilegeBsTp3_Butn.Appearance.Options.UseForeColor = true;
+         this.DnRolePrivilegeBsTp3_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+         this.DnRolePrivilegeBsTp3_Butn.Location = new System.Drawing.Point(182, 3);
+         this.DnRolePrivilegeBsTp3_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.DnRolePrivilegeBsTp3_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.DnRolePrivilegeBsTp3_Butn.Margin = new System.Windows.Forms.Padding(1, 3, 1, 3);
+         this.DnRolePrivilegeBsTp3_Butn.Name = "DnRolePrivilegeBsTp3_Butn";
+         this.DnRolePrivilegeBsTp3_Butn.Size = new System.Drawing.Size(27, 24);
+         this.DnRolePrivilegeBsTp3_Butn.TabIndex = 24;
+         this.DnRolePrivilegeBsTp3_Butn.Text = "Dn";
+         this.DnRolePrivilegeBsTp3_Butn.ToolTip = "پاک کردن اطلاعات پیش نویس";
+         this.DnRolePrivilegeBsTp3_Butn.Click += new System.EventHandler(this.Dn_Butn_Click);
          // 
-         // labelControl12
+         // UpRoleBsTp3_Butn
          // 
-         this.labelControl12.Appearance.BackColor = System.Drawing.SystemColors.Control;
-         this.labelControl12.Appearance.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.labelControl12.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         this.labelControl12.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-         this.labelControl12.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.labelControl12.Dock = System.Windows.Forms.DockStyle.Top;
-         this.labelControl12.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl12.Location = new System.Drawing.Point(0, 0);
-         this.labelControl12.Name = "labelControl12";
-         this.labelControl12.Size = new System.Drawing.Size(274, 24);
-         this.labelControl12.TabIndex = 12;
-         this.labelControl12.Text = "زیر سیستم ها";
+         this.UpRoleBsTp3_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.UpRoleBsTp3_Butn.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+         this.UpRoleBsTp3_Butn.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.UpRoleBsTp3_Butn.Appearance.ForeColor = System.Drawing.Color.White;
+         this.UpRoleBsTp3_Butn.Appearance.Options.UseBackColor = true;
+         this.UpRoleBsTp3_Butn.Appearance.Options.UseFont = true;
+         this.UpRoleBsTp3_Butn.Appearance.Options.UseForeColor = true;
+         this.UpRoleBsTp3_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+         this.UpRoleBsTp3_Butn.Location = new System.Drawing.Point(46, 3);
+         this.UpRoleBsTp3_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.UpRoleBsTp3_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.UpRoleBsTp3_Butn.Margin = new System.Windows.Forms.Padding(1, 3, 1, 3);
+         this.UpRoleBsTp3_Butn.Name = "UpRoleBsTp3_Butn";
+         this.UpRoleBsTp3_Butn.Size = new System.Drawing.Size(27, 24);
+         this.UpRoleBsTp3_Butn.TabIndex = 24;
+         this.UpRoleBsTp3_Butn.Text = "Up";
+         this.UpRoleBsTp3_Butn.ToolTip = "پاک کردن اطلاعات پیش نویس";
+         this.UpRoleBsTp3_Butn.Click += new System.EventHandler(this.Up_Butn_Click);
          // 
-         // labelControl13
+         // DnRoleBsTp3_Butn
          // 
-         this.labelControl13.Appearance.BackColor = System.Drawing.SystemColors.Control;
-         this.labelControl13.Appearance.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.labelControl13.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         this.labelControl13.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-         this.labelControl13.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.labelControl13.Dock = System.Windows.Forms.DockStyle.Top;
-         this.labelControl13.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl13.Location = new System.Drawing.Point(0, 0);
-         this.labelControl13.Name = "labelControl13";
-         this.labelControl13.Size = new System.Drawing.Size(190, 24);
-         this.labelControl13.TabIndex = 12;
-         this.labelControl13.Text = "گروه های دسترسی سیستم";
+         this.DnRoleBsTp3_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.DnRoleBsTp3_Butn.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+         this.DnRoleBsTp3_Butn.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.DnRoleBsTp3_Butn.Appearance.ForeColor = System.Drawing.Color.Black;
+         this.DnRoleBsTp3_Butn.Appearance.Options.UseBackColor = true;
+         this.DnRoleBsTp3_Butn.Appearance.Options.UseFont = true;
+         this.DnRoleBsTp3_Butn.Appearance.Options.UseForeColor = true;
+         this.DnRoleBsTp3_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+         this.DnRoleBsTp3_Butn.Location = new System.Drawing.Point(17, 3);
+         this.DnRoleBsTp3_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.DnRoleBsTp3_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.DnRoleBsTp3_Butn.Margin = new System.Windows.Forms.Padding(1, 3, 1, 3);
+         this.DnRoleBsTp3_Butn.Name = "DnRoleBsTp3_Butn";
+         this.DnRoleBsTp3_Butn.Size = new System.Drawing.Size(27, 24);
+         this.DnRoleBsTp3_Butn.TabIndex = 25;
+         this.DnRoleBsTp3_Butn.Text = "Dn";
+         this.DnRoleBsTp3_Butn.ToolTip = "پاک کردن اطلاعات پیش نویس";
+         this.DnRoleBsTp3_Butn.Click += new System.EventHandler(this.Dn_Butn_Click);
          // 
-         // labelControl14
+         // UpRoleUserBsTp4_Butn
          // 
-         this.labelControl14.Appearance.BackColor = System.Drawing.SystemColors.Control;
-         this.labelControl14.Appearance.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.labelControl14.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         this.labelControl14.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-         this.labelControl14.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.labelControl14.Dock = System.Windows.Forms.DockStyle.Top;
-         this.labelControl14.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl14.Location = new System.Drawing.Point(0, 0);
-         this.labelControl14.Name = "labelControl14";
-         this.labelControl14.Size = new System.Drawing.Size(190, 24);
-         this.labelControl14.TabIndex = 12;
-         this.labelControl14.Text = "بسته های دسترسی سیستم";
+         this.UpRoleUserBsTp4_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.UpRoleUserBsTp4_Butn.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+         this.UpRoleUserBsTp4_Butn.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.UpRoleUserBsTp4_Butn.Appearance.ForeColor = System.Drawing.Color.White;
+         this.UpRoleUserBsTp4_Butn.Appearance.Options.UseBackColor = true;
+         this.UpRoleUserBsTp4_Butn.Appearance.Options.UseFont = true;
+         this.UpRoleUserBsTp4_Butn.Appearance.Options.UseForeColor = true;
+         this.UpRoleUserBsTp4_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+         this.UpRoleUserBsTp4_Butn.Location = new System.Drawing.Point(211, 3);
+         this.UpRoleUserBsTp4_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.UpRoleUserBsTp4_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.UpRoleUserBsTp4_Butn.Margin = new System.Windows.Forms.Padding(1, 3, 1, 3);
+         this.UpRoleUserBsTp4_Butn.Name = "UpRoleUserBsTp4_Butn";
+         this.UpRoleUserBsTp4_Butn.Size = new System.Drawing.Size(27, 24);
+         this.UpRoleUserBsTp4_Butn.TabIndex = 23;
+         this.UpRoleUserBsTp4_Butn.Text = "Up";
+         this.UpRoleUserBsTp4_Butn.ToolTip = "پاک کردن اطلاعات پیش نویس";
+         this.UpRoleUserBsTp4_Butn.Click += new System.EventHandler(this.Up_Butn_Click);
          // 
-         // labelControl15
+         // DnRoleUserBsTp4_Butn
          // 
-         this.labelControl15.Appearance.BackColor = System.Drawing.SystemColors.Control;
-         this.labelControl15.Appearance.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.labelControl15.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         this.labelControl15.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-         this.labelControl15.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.labelControl15.Dock = System.Windows.Forms.DockStyle.Top;
-         this.labelControl15.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl15.Location = new System.Drawing.Point(0, 0);
-         this.labelControl15.Name = "labelControl15";
-         this.labelControl15.Size = new System.Drawing.Size(268, 24);
-         this.labelControl15.TabIndex = 12;
-         this.labelControl15.Text = "زیر دسترسی های گروه";
+         this.DnRoleUserBsTp4_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.DnRoleUserBsTp4_Butn.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+         this.DnRoleUserBsTp4_Butn.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.DnRoleUserBsTp4_Butn.Appearance.ForeColor = System.Drawing.Color.Black;
+         this.DnRoleUserBsTp4_Butn.Appearance.Options.UseBackColor = true;
+         this.DnRoleUserBsTp4_Butn.Appearance.Options.UseFont = true;
+         this.DnRoleUserBsTp4_Butn.Appearance.Options.UseForeColor = true;
+         this.DnRoleUserBsTp4_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+         this.DnRoleUserBsTp4_Butn.Location = new System.Drawing.Point(182, 3);
+         this.DnRoleUserBsTp4_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.DnRoleUserBsTp4_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.DnRoleUserBsTp4_Butn.Margin = new System.Windows.Forms.Padding(1, 3, 1, 3);
+         this.DnRoleUserBsTp4_Butn.Name = "DnRoleUserBsTp4_Butn";
+         this.DnRoleUserBsTp4_Butn.Size = new System.Drawing.Size(27, 24);
+         this.DnRoleUserBsTp4_Butn.TabIndex = 24;
+         this.DnRoleUserBsTp4_Butn.Text = "Dn";
+         this.DnRoleUserBsTp4_Butn.ToolTip = "پاک کردن اطلاعات پیش نویس";
+         this.DnRoleUserBsTp4_Butn.Click += new System.EventHandler(this.Dn_Butn_Click);
          // 
-         // labelControl16
+         // UpUserBsTp4_Butn
          // 
-         this.labelControl16.Appearance.BackColor = System.Drawing.SystemColors.Control;
-         this.labelControl16.Appearance.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.labelControl16.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         this.labelControl16.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-         this.labelControl16.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.labelControl16.Dock = System.Windows.Forms.DockStyle.Top;
-         this.labelControl16.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl16.Location = new System.Drawing.Point(0, 0);
-         this.labelControl16.Name = "labelControl16";
-         this.labelControl16.Size = new System.Drawing.Size(274, 24);
-         this.labelControl16.TabIndex = 13;
-         this.labelControl16.Text = "زیر سیستم ها";
+         this.UpUserBsTp4_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.UpUserBsTp4_Butn.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+         this.UpUserBsTp4_Butn.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.UpUserBsTp4_Butn.Appearance.ForeColor = System.Drawing.Color.White;
+         this.UpUserBsTp4_Butn.Appearance.Options.UseBackColor = true;
+         this.UpUserBsTp4_Butn.Appearance.Options.UseFont = true;
+         this.UpUserBsTp4_Butn.Appearance.Options.UseForeColor = true;
+         this.UpUserBsTp4_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+         this.UpUserBsTp4_Butn.Location = new System.Drawing.Point(133, 3);
+         this.UpUserBsTp4_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.UpUserBsTp4_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.UpUserBsTp4_Butn.Margin = new System.Windows.Forms.Padding(1, 3, 1, 3);
+         this.UpUserBsTp4_Butn.Name = "UpUserBsTp4_Butn";
+         this.UpUserBsTp4_Butn.Size = new System.Drawing.Size(27, 24);
+         this.UpUserBsTp4_Butn.TabIndex = 23;
+         this.UpUserBsTp4_Butn.Text = "Up";
+         this.UpUserBsTp4_Butn.ToolTip = "پاک کردن اطلاعات پیش نویس";
+         this.UpUserBsTp4_Butn.Click += new System.EventHandler(this.Up_Butn_Click);
          // 
-         // labelControl17
+         // DnUserBsTp4_Butn
          // 
-         this.labelControl17.Appearance.BackColor = System.Drawing.SystemColors.Control;
-         this.labelControl17.Appearance.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.labelControl17.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         this.labelControl17.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-         this.labelControl17.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.labelControl17.Dock = System.Windows.Forms.DockStyle.Top;
-         this.labelControl17.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl17.Location = new System.Drawing.Point(0, 0);
-         this.labelControl17.Name = "labelControl17";
-         this.labelControl17.Size = new System.Drawing.Size(190, 24);
-         this.labelControl17.TabIndex = 13;
-         this.labelControl17.Text = "گروه های دسترسی سیستم";
+         this.DnUserBsTp4_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.DnUserBsTp4_Butn.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+         this.DnUserBsTp4_Butn.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.DnUserBsTp4_Butn.Appearance.ForeColor = System.Drawing.Color.Black;
+         this.DnUserBsTp4_Butn.Appearance.Options.UseBackColor = true;
+         this.DnUserBsTp4_Butn.Appearance.Options.UseFont = true;
+         this.DnUserBsTp4_Butn.Appearance.Options.UseForeColor = true;
+         this.DnUserBsTp4_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+         this.DnUserBsTp4_Butn.Location = new System.Drawing.Point(104, 3);
+         this.DnUserBsTp4_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.DnUserBsTp4_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.DnUserBsTp4_Butn.Margin = new System.Windows.Forms.Padding(1, 3, 1, 3);
+         this.DnUserBsTp4_Butn.Name = "DnUserBsTp4_Butn";
+         this.DnUserBsTp4_Butn.Size = new System.Drawing.Size(27, 24);
+         this.DnUserBsTp4_Butn.TabIndex = 24;
+         this.DnUserBsTp4_Butn.Text = "Dn";
+         this.DnUserBsTp4_Butn.ToolTip = "پاک کردن اطلاعات پیش نویس";
+         this.DnUserBsTp4_Butn.Click += new System.EventHandler(this.Dn_Butn_Click);
          // 
-         // labelControl18
+         // simpleButton13
          // 
-         this.labelControl18.Appearance.BackColor = System.Drawing.SystemColors.Control;
-         this.labelControl18.Appearance.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.labelControl18.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         this.labelControl18.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-         this.labelControl18.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.labelControl18.Dock = System.Windows.Forms.DockStyle.Top;
-         this.labelControl18.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl18.Location = new System.Drawing.Point(0, 0);
-         this.labelControl18.Name = "labelControl18";
-         this.labelControl18.Size = new System.Drawing.Size(190, 24);
-         this.labelControl18.TabIndex = 13;
-         this.labelControl18.Text = "کاربران سیستم";
+         this.simpleButton13.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.simpleButton13.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+         this.simpleButton13.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.simpleButton13.Appearance.ForeColor = System.Drawing.Color.White;
+         this.simpleButton13.Appearance.Options.UseBackColor = true;
+         this.simpleButton13.Appearance.Options.UseFont = true;
+         this.simpleButton13.Appearance.Options.UseForeColor = true;
+         this.simpleButton13.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+         this.simpleButton13.Location = new System.Drawing.Point(104, 3);
+         this.simpleButton13.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.simpleButton13.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.simpleButton13.Margin = new System.Windows.Forms.Padding(1, 3, 1, 3);
+         this.simpleButton13.Name = "simpleButton13";
+         this.simpleButton13.Size = new System.Drawing.Size(27, 24);
+         this.simpleButton13.TabIndex = 25;
+         this.simpleButton13.Text = "Up";
+         this.simpleButton13.ToolTip = "پاک کردن اطلاعات پیش نویس";
+         this.simpleButton13.Visible = false;
          // 
-         // labelControl19
+         // simpleButton14
          // 
-         this.labelControl19.Appearance.BackColor = System.Drawing.SystemColors.Control;
-         this.labelControl19.Appearance.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.labelControl19.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         this.labelControl19.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-         this.labelControl19.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.labelControl19.Dock = System.Windows.Forms.DockStyle.Top;
-         this.labelControl19.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl19.Location = new System.Drawing.Point(0, 0);
-         this.labelControl19.Name = "labelControl19";
-         this.labelControl19.Size = new System.Drawing.Size(268, 24);
-         this.labelControl19.TabIndex = 13;
-         this.labelControl19.Text = "کاربران عضو گروه دسترسی";
+         this.simpleButton14.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.simpleButton14.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+         this.simpleButton14.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.simpleButton14.Appearance.ForeColor = System.Drawing.Color.Black;
+         this.simpleButton14.Appearance.Options.UseBackColor = true;
+         this.simpleButton14.Appearance.Options.UseFont = true;
+         this.simpleButton14.Appearance.Options.UseForeColor = true;
+         this.simpleButton14.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+         this.simpleButton14.Location = new System.Drawing.Point(75, 3);
+         this.simpleButton14.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.simpleButton14.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.simpleButton14.Margin = new System.Windows.Forms.Padding(1, 3, 1, 3);
+         this.simpleButton14.Name = "simpleButton14";
+         this.simpleButton14.Size = new System.Drawing.Size(27, 24);
+         this.simpleButton14.TabIndex = 26;
+         this.simpleButton14.Text = "Dn";
+         this.simpleButton14.ToolTip = "پاک کردن اطلاعات پیش نویس";
+         this.simpleButton14.Visible = false;
          // 
-         // labelControl20
+         // simpleButton15
          // 
-         this.labelControl20.Appearance.BackColor = System.Drawing.SystemColors.Control;
-         this.labelControl20.Appearance.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.labelControl20.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         this.labelControl20.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-         this.labelControl20.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.labelControl20.Dock = System.Windows.Forms.DockStyle.Top;
-         this.labelControl20.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl20.Location = new System.Drawing.Point(0, 0);
-         this.labelControl20.Name = "labelControl20";
-         this.labelControl20.Size = new System.Drawing.Size(274, 24);
-         this.labelControl20.TabIndex = 13;
-         this.labelControl20.Text = "گروه های دسترسی سیستم";
+         this.simpleButton15.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.simpleButton15.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+         this.simpleButton15.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.simpleButton15.Appearance.ForeColor = System.Drawing.Color.White;
+         this.simpleButton15.Appearance.Options.UseBackColor = true;
+         this.simpleButton15.Appearance.Options.UseFont = true;
+         this.simpleButton15.Appearance.Options.UseForeColor = true;
+         this.simpleButton15.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+         this.simpleButton15.Location = new System.Drawing.Point(211, 3);
+         this.simpleButton15.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.simpleButton15.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.simpleButton15.Margin = new System.Windows.Forms.Padding(1, 3, 1, 3);
+         this.simpleButton15.Name = "simpleButton15";
+         this.simpleButton15.Size = new System.Drawing.Size(27, 24);
+         this.simpleButton15.TabIndex = 25;
+         this.simpleButton15.Text = "Up";
+         this.simpleButton15.ToolTip = "پاک کردن اطلاعات پیش نویس";
+         this.simpleButton15.Visible = false;
          // 
-         // labelControl21
+         // simpleButton16
          // 
-         this.labelControl21.Appearance.BackColor = System.Drawing.SystemColors.Control;
-         this.labelControl21.Appearance.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.labelControl21.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         this.labelControl21.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-         this.labelControl21.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.labelControl21.Dock = System.Windows.Forms.DockStyle.Top;
-         this.labelControl21.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl21.Location = new System.Drawing.Point(0, 0);
-         this.labelControl21.Name = "labelControl21";
-         this.labelControl21.Size = new System.Drawing.Size(190, 24);
-         this.labelControl21.TabIndex = 13;
-         this.labelControl21.Text = "کاربران سیستم";
-         // 
-         // labelControl22
-         // 
-         this.labelControl22.Appearance.BackColor = System.Drawing.SystemColors.Control;
-         this.labelControl22.Appearance.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.labelControl22.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         this.labelControl22.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-         this.labelControl22.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.labelControl22.Dock = System.Windows.Forms.DockStyle.Top;
-         this.labelControl22.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl22.Location = new System.Drawing.Point(0, 0);
-         this.labelControl22.Name = "labelControl22";
-         this.labelControl22.Size = new System.Drawing.Size(190, 24);
-         this.labelControl22.TabIndex = 13;
-         this.labelControl22.Text = "بسته های دسترسی";
-         // 
-         // labelControl23
-         // 
-         this.labelControl23.Appearance.BackColor = System.Drawing.SystemColors.Control;
-         this.labelControl23.Appearance.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.labelControl23.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         this.labelControl23.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-         this.labelControl23.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.labelControl23.Dock = System.Windows.Forms.DockStyle.Top;
-         this.labelControl23.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl23.Location = new System.Drawing.Point(0, 0);
-         this.labelControl23.Name = "labelControl23";
-         this.labelControl23.Size = new System.Drawing.Size(268, 24);
-         this.labelControl23.TabIndex = 13;
-         this.labelControl23.Text = "دسترسی های مخصوص کاربر";
+         this.simpleButton16.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.simpleButton16.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+         this.simpleButton16.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.simpleButton16.Appearance.ForeColor = System.Drawing.Color.Black;
+         this.simpleButton16.Appearance.Options.UseBackColor = true;
+         this.simpleButton16.Appearance.Options.UseFont = true;
+         this.simpleButton16.Appearance.Options.UseForeColor = true;
+         this.simpleButton16.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+         this.simpleButton16.Location = new System.Drawing.Point(182, 3);
+         this.simpleButton16.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.simpleButton16.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.simpleButton16.Margin = new System.Windows.Forms.Padding(1, 3, 1, 3);
+         this.simpleButton16.Name = "simpleButton16";
+         this.simpleButton16.Size = new System.Drawing.Size(27, 24);
+         this.simpleButton16.TabIndex = 26;
+         this.simpleButton16.Text = "Dn";
+         this.simpleButton16.ToolTip = "پاک کردن اطلاعات پیش نویس";
+         this.simpleButton16.Visible = false;
          // 
          // SettingsOtherAccounts
          // 
@@ -4363,6 +4682,20 @@
       private DevExpress.XtraEditors.LabelControl labelControl21;
       private DevExpress.XtraEditors.LabelControl labelControl22;
       private DevExpress.XtraEditors.LabelControl labelControl20;
+      private DevExpress.XtraEditors.SimpleButton UpBoxBsTp3_Butn;
+      private DevExpress.XtraEditors.SimpleButton DnBoxBsTp3_Butn;
+      private DevExpress.XtraEditors.SimpleButton UpRolePrivilegeBsTp3_Butn;
+      private DevExpress.XtraEditors.SimpleButton DnRolePrivilegeBsTp3_Butn;
+      private DevExpress.XtraEditors.SimpleButton UpRoleBsTp3_Butn;
+      private DevExpress.XtraEditors.SimpleButton DnRoleBsTp3_Butn;
+      private DevExpress.XtraEditors.SimpleButton UpRoleUserBsTp4_Butn;
+      private DevExpress.XtraEditors.SimpleButton DnRoleUserBsTp4_Butn;
+      private DevExpress.XtraEditors.SimpleButton UpUserBsTp4_Butn;
+      private DevExpress.XtraEditors.SimpleButton DnUserBsTp4_Butn;
+      private DevExpress.XtraEditors.SimpleButton simpleButton15;
+      private DevExpress.XtraEditors.SimpleButton simpleButton16;
+      private DevExpress.XtraEditors.SimpleButton simpleButton13;
+      private DevExpress.XtraEditors.SimpleButton simpleButton14;
 
    }
 }

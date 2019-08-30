@@ -42,5 +42,15 @@ namespace System.MessageBroadcast.Properties {
                 return ((string)(this["System_MessageBroadcast_SmsService_Sms"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://login.inoti.com/_Services/iNotiSMS.asmx")]
+        public string System_MessageBroadcast_iNotiSmsService_iNotiSMS {
+            get {
+                return ((string)(this["System_MessageBroadcast_iNotiSmsService_iNotiSMS"]));
+            }
+        }
     }
 }

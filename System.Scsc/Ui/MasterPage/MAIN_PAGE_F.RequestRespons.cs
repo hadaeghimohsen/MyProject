@@ -144,7 +144,15 @@ namespace System.Scsc.Ui.MasterPage
             job.Next =
                new Job(SendType.SelfToUserInterface, this.GetType().Name, 04 /* Execute UnPaint */);
          }
-
+         else if (keyData.ToString() == "Right, Control")
+         {
+            Open_Gate();            
+         }
+         else if (keyData.ToString() == "Left, Control")
+         {
+            Close_Gate();
+         }
+         
          job.Status = StatusType.Successful;
       }
 
@@ -685,6 +693,13 @@ namespace System.Scsc.Ui.MasterPage
             {
                //Truncate_Finger();
             }            
+         }
+         else if (job.Input != null && (job.Input as XElement).Attribute("type").Value == "sendoprtdres")
+         {
+            var portName = (job.Input as XElement).Attribute("portname").Value;
+            var cmndname = (job.Input as XElement).Attribute("cmndname").Value;
+
+            SendOprtDresser(portName, cmndname);
          }
          job.Status = StatusType.Successful;
       }

@@ -1356,9 +1356,9 @@
          this.FngrPrnt_Lb.AutoSize = true;
          this.FngrPrnt_Lb.Location = new System.Drawing.Point(200, 138);
          this.FngrPrnt_Lb.Name = "FngrPrnt_Lb";
-         this.FngrPrnt_Lb.Size = new System.Drawing.Size(73, 14);
+         this.FngrPrnt_Lb.Size = new System.Drawing.Size(83, 14);
          this.FngrPrnt_Lb.TabIndex = 19;
-         this.FngrPrnt_Lb.Text = "کد انگشتی :";
+         this.FngrPrnt_Lb.Text = "کد شناسایی :";
          // 
          // FngrPrnt1_lb
          // 
@@ -1366,9 +1366,9 @@
          this.FngrPrnt1_lb.AutoSize = true;
          this.FngrPrnt1_lb.Location = new System.Drawing.Point(515, 232);
          this.FngrPrnt1_lb.Name = "FngrPrnt1_lb";
-         this.FngrPrnt1_lb.Size = new System.Drawing.Size(73, 14);
+         this.FngrPrnt1_lb.Size = new System.Drawing.Size(83, 14);
          this.FngrPrnt1_lb.TabIndex = 13;
-         this.FngrPrnt1_lb.Text = "کد انگشتی :";
+         this.FngrPrnt1_lb.Text = "کد شناسایی :";
          // 
          // BuntCode_Lb
          // 
@@ -7268,7 +7268,7 @@
          this.AllMenu_Cmn.Name = "AllMenu_Cmn";
          this.AllMenu_Cmn.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
          this.AllMenu_Cmn.ShowCheckMargin = true;
-         this.AllMenu_Cmn.Size = new System.Drawing.Size(264, 590);
+         this.AllMenu_Cmn.Size = new System.Drawing.Size(264, 568);
          this.AllMenu_Cmn.Text = "کنترل دستگاه حضور و غیاب";
          // 
          // کنترلدستگاهحضوروغیابToolStripMenuItem

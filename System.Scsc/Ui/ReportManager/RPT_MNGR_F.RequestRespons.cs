@@ -193,8 +193,32 @@ namespace System.Scsc.Ui.ReportManager
       /// <param name="job"></param>
       private void CheckSecurity(Job job)
       {
-
-         job.Status = StatusType.Successful;
+         Job _CheckSecurity =
+            new Job(SendType.External, "Localhost",
+               new List<Job>
+               {
+                  new Job(SendType.External, "Commons",
+                     new List<Job>
+                     {
+                        #region Access Privilege
+                        new Job(SendType.Self, 07 /* Execute DoWork4AccessPrivilege */)
+                        {
+                           Input = new List<string> 
+                           {
+                              "<Privilege>238</Privilege><Sub_Sys>5</Sub_Sys>", 
+                              "DataGuard"
+                           },
+                           AfterChangedOutput = new Action<object>((output) => {
+                              if ((bool)output)
+                                 return;
+                              MessageBox.Show("خطا - عدم دسترسی به ردیف 238 سطوح امینتی");
+                           })
+                        },
+                        #endregion
+                     }),
+               });
+         _DefaultGateway.Gateway(_CheckSecurity);
+         job.Status = _CheckSecurity.Status;
       }
 
       /// <summary>
@@ -324,9 +348,9 @@ namespace System.Scsc.Ui.ReportManager
                      _DefaultGateway.Gateway(
                         new Job(SendType.External, "Localhost",
                            new List<Job>
-                        {                        
-                           new Job(SendType.SelfToUserInterface, "RPT_MNGR_F", 03 /* Execute Paint */)                        
-                        })
+                           {                        
+                              new Job(SendType.SelfToUserInterface, "RPT_MNGR_F", 03 /* Execute Paint */)                        
+                           })
                       );
                   }
                   else // No
@@ -342,6 +366,14 @@ namespace System.Scsc.Ui.ReportManager
                      s.Render();
                      s.Print(false);
 
+                     _DefaultGateway.Gateway(
+                        new Job(SendType.External, "Localhost",
+                           new List<Job>
+                           {                        
+                              new Job(SendType.SelfToUserInterface, "RPT_MNGR_F", 03 /* Execute Paint */)                        
+                           })
+                      );
+
                      // 1397/01/08 * بازگشت سریع به فرم صدا کننده
                      _DefaultGateway.Gateway(
                         new Job(SendType.External, "localhost", GetType().Name, 00 /* Execute ProcessCmdKey */, SendType.SelfToUserInterface) { Input = Keys.Escape }
@@ -354,9 +386,9 @@ namespace System.Scsc.Ui.ReportManager
                   {
                      Job _InteractWithScsc = new Job(SendType.External, "Localhost",
                         new List<Job>
-                     {
-                        new Job(SendType.Self, 85 /* Execute RPT_LRFM_F */){Input = job.Input}
-                     });
+                        {
+                           new Job(SendType.Self, 85 /* Execute RPT_LRFM_F */){Input = job.Input}
+                        });
                      _DefaultGateway.Gateway(_InteractWithScsc);
                   }
                   else
@@ -385,9 +417,9 @@ namespace System.Scsc.Ui.ReportManager
                      _DefaultGateway.Gateway(
                         new Job(SendType.External, "Localhost",
                            new List<Job>
-                        {                        
-                           new Job(SendType.SelfToUserInterface, "RPT_MNGR_F", 03 /* Execute Paint */)                        
-                        })
+                           {                        
+                              new Job(SendType.SelfToUserInterface, "RPT_MNGR_F", 03 /* Execute Paint */)                        
+                           })
                       );
                   }
                   else // No
@@ -402,6 +434,14 @@ namespace System.Scsc.Ui.ReportManager
                      s.Compile();
                      s.Render();
                      s.Print(false);
+
+                     _DefaultGateway.Gateway(
+                        new Job(SendType.External, "Localhost",
+                           new List<Job>
+                           {                        
+                              new Job(SendType.SelfToUserInterface, "RPT_MNGR_F", 03 /* Execute Paint */)                        
+                           })
+                      );
 
                      // 1397/01/08 * بازگشت سریع به فرم صدا کننده
                      _DefaultGateway.Gateway(

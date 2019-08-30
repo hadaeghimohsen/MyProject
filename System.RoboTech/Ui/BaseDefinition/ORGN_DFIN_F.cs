@@ -44,6 +44,14 @@ namespace System.RoboTech.Ui.BaseDefinition
          {
             if (MessageBox.Show(this, "آیا تغییرات ذخیره گردد؟", "ثبت نتایج تغییرات", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
 
+            Orgn_Gv.PostEditor();
+            Robo_Gv.PostEditor();
+            Uorg_Gv.PostEditor();
+            Job_Gv.PostEditor();
+            Prbt_Gv.PostEditor();
+            Pjsr_Gv.PostEditor();
+            Prjb_Gv.PostEditor();
+
             OrgnBs.EndEdit();
             RoboBs.EndEdit();
             UserOrgnBs.EndEdit();

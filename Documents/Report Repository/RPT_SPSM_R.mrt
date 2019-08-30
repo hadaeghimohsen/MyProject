@@ -63,8 +63,8 @@ FROM VF$SystemPaymentSummery('{WhereClause}')
         <PageHeaderBand1 Ref="5" type="PageHeaderBand" isKey="true">
           <Border>All;Black;1;Solid;False;4;Black</Border>
           <Brush>Transparent</Brush>
-          <ClientRectangle>0,0.4,40,1.2</ClientRectangle>
-          <Components isList="true" count="2">
+          <ClientRectangle>0,0.4,40,0.8</ClientRectangle>
+          <Components isList="true" count="1">
             <Text1 Ref="6" type="Text" isKey="true">
               <Brush>Transparent</Brush>
               <ClientRectangle>17.6,0,4.4,0.8</ClientRectangle>
@@ -79,23 +79,6 @@ FROM VF$SystemPaymentSummery('{WhereClause}')
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
             </Text1>
-            <Text3 Ref="7" type="Text" isKey="true">
-              <Brush>Transparent</Brush>
-              <ClientRectangle>0,0,5.6,1.2</ClientRectangle>
-              <Conditions isList="true" count="0" />
-              <Font>IRANSans,9.25,Regular,Point,False,0</Font>
-              <Guid>b9fc30b13a2c44009a4ac5cf10c64441</Guid>
-              <HorAlignment>Center</HorAlignment>
-              <Margins>0,0,0,0</Margins>
-              <Name>Text3</Name>
-              <Page isRef="4" />
-              <Parent isRef="5" />
-              <Text>اطلاعات گزارش : محسن حدایقی
-1396/05/10</Text>
-              <TextBrush>Black</TextBrush>
-              <Type>Expression</Type>
-              <VertAlignment>Center</VertAlignment>
-            </Text3>
           </Components>
           <Conditions isList="true" count="0" />
           <Name>PageHeaderBand1</Name>
@@ -103,12 +86,12 @@ FROM VF$SystemPaymentSummery('{WhereClause}')
           <Parent isRef="4" />
           <PrintOn>OnlyFirstPage</PrintOn>
         </PageHeaderBand1>
-        <HeaderVF_SystemPaymentSummery Ref="8" type="HeaderBand" isKey="true">
+        <HeaderVF_SystemPaymentSummery Ref="7" type="HeaderBand" isKey="true">
           <Border>All;Black;1;Solid;False;4;Black</Border>
           <Brush>Transparent</Brush>
-          <ClientRectangle>0,2.4,40,0.8</ClientRectangle>
+          <ClientRectangle>0,2,40,0.8</ClientRectangle>
           <Components isList="true" count="15">
-            <HeaderVF_SystemPaymentSummery_PERS_SAVE_DATE Ref="9" type="Text" isKey="true">
+            <HeaderVF_SystemPaymentSummery_PERS_SAVE_DATE Ref="8" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <ClientRectangle>36.6,0,2.2,0.8</ClientRectangle>
@@ -118,14 +101,14 @@ FROM VF$SystemPaymentSummery('{WhereClause}')
               <Margins>0,0,0,0</Margins>
               <Name>HeaderVF_SystemPaymentSummery_PERS_SAVE_DATE</Name>
               <Page isRef="4" />
-              <Parent isRef="8" />
+              <Parent isRef="7" />
               <Text>تاریخ</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </HeaderVF_SystemPaymentSummery_PERS_SAVE_DATE>
-            <Text2 Ref="10" type="Text" isKey="true">
+            <Text2 Ref="9" type="Text" isKey="true">
               <Border>Top, Left, Bottom;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <ClientRectangle>38.8,0,1.2,0.8</ClientRectangle>
@@ -136,14 +119,14 @@ FROM VF$SystemPaymentSummery('{WhereClause}')
               <Margins>0,0,0,0</Margins>
               <Name>Text2</Name>
               <Page isRef="4" />
-              <Parent isRef="8" />
+              <Parent isRef="7" />
               <Text>ردیف</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text2>
-            <HeaderVF_SystemPaymentSummery_NAME_DNRM Ref="11" type="Text" isKey="true">
+            <HeaderVF_SystemPaymentSummery_NAME_DNRM Ref="10" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <ClientRectangle>34.4,0,2.2,0.8</ClientRectangle>
@@ -153,14 +136,14 @@ FROM VF$SystemPaymentSummery('{WhereClause}')
               <Margins>0,0,0,0</Margins>
               <Name>HeaderVF_SystemPaymentSummery_NAME_DNRM</Name>
               <Page isRef="4" />
-              <Parent isRef="8" />
+              <Parent isRef="7" />
               <Text>نام اعضا</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </HeaderVF_SystemPaymentSummery_NAME_DNRM>
-            <HeaderVF_SystemPaymentSummery_FNGR_PRNT_DNRM Ref="12" type="Text" isKey="true">
+            <HeaderVF_SystemPaymentSummery_FNGR_PRNT_DNRM Ref="11" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <ClientRectangle>31.6,0,2.8,0.8</ClientRectangle>
@@ -170,14 +153,14 @@ FROM VF$SystemPaymentSummery('{WhereClause}')
               <Margins>0,0,0,0</Margins>
               <Name>HeaderVF_SystemPaymentSummery_FNGR_PRNT_DNRM</Name>
               <Page isRef="4" />
-              <Parent isRef="8" />
+              <Parent isRef="7" />
               <Text>کد</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </HeaderVF_SystemPaymentSummery_FNGR_PRNT_DNRM>
-            <HeaderVF_SystemPaymentSummery_CELL_PHON_DNRM Ref="13" type="Text" isKey="true">
+            <HeaderVF_SystemPaymentSummery_CELL_PHON_DNRM Ref="12" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <ClientRectangle>29.4,0,2.2,0.8</ClientRectangle>
@@ -187,14 +170,14 @@ FROM VF$SystemPaymentSummery('{WhereClause}')
               <Margins>0,0,0,0</Margins>
               <Name>HeaderVF_SystemPaymentSummery_CELL_PHON_DNRM</Name>
               <Page isRef="4" />
-              <Parent isRef="8" />
+              <Parent isRef="7" />
               <Text>شماره تلفن</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </HeaderVF_SystemPaymentSummery_CELL_PHON_DNRM>
-            <HeaderVF_SystemPaymentSummery_EXPN_DESC Ref="14" type="Text" isKey="true">
+            <HeaderVF_SystemPaymentSummery_EXPN_DESC Ref="13" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <ClientRectangle>25.2,0,4.2,0.8</ClientRectangle>
@@ -204,14 +187,14 @@ FROM VF$SystemPaymentSummery('{WhereClause}')
               <Margins>0,0,0,0</Margins>
               <Name>HeaderVF_SystemPaymentSummery_EXPN_DESC</Name>
               <Page isRef="4" />
-              <Parent isRef="8" />
+              <Parent isRef="7" />
               <Text>نوع آیتم هزینه</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </HeaderVF_SystemPaymentSummery_EXPN_DESC>
-            <HeaderVF_SystemPaymentSummery_TOTL_AMNT Ref="15" type="Text" isKey="true">
+            <HeaderVF_SystemPaymentSummery_TOTL_AMNT Ref="14" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <ClientRectangle>22,0,3.2,0.8</ClientRectangle>
@@ -221,14 +204,14 @@ FROM VF$SystemPaymentSummery('{WhereClause}')
               <Margins>0,0,0,0</Margins>
               <Name>HeaderVF_SystemPaymentSummery_TOTL_AMNT</Name>
               <Page isRef="4" />
-              <Parent isRef="8" />
+              <Parent isRef="7" />
               <Text>مبلغ قابل پرداخت</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </HeaderVF_SystemPaymentSummery_TOTL_AMNT>
-            <HeaderVF_SystemPaymentSummery_SUM_PYMT_DSCN_DNRM Ref="16" type="Text" isKey="true">
+            <HeaderVF_SystemPaymentSummery_SUM_PYMT_DSCN_DNRM Ref="15" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <ClientRectangle>20.4,0,1.6,0.8</ClientRectangle>
@@ -238,14 +221,14 @@ FROM VF$SystemPaymentSummery('{WhereClause}')
               <Margins>0,0,0,0</Margins>
               <Name>HeaderVF_SystemPaymentSummery_SUM_PYMT_DSCN_DNRM</Name>
               <Page isRef="4" />
-              <Parent isRef="8" />
+              <Parent isRef="7" />
               <Text>تخفیف</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </HeaderVF_SystemPaymentSummery_SUM_PYMT_DSCN_DNRM>
-            <HeaderVF_SystemPaymentSummery_PYMT_AMNT Ref="17" type="Text" isKey="true">
+            <HeaderVF_SystemPaymentSummery_PYMT_AMNT Ref="16" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <ClientRectangle>15.8,0,4.6,0.8</ClientRectangle>
@@ -255,14 +238,14 @@ FROM VF$SystemPaymentSummery('{WhereClause}')
               <Margins>0,0,0,0</Margins>
               <Name>HeaderVF_SystemPaymentSummery_PYMT_AMNT</Name>
               <Page isRef="4" />
-              <Parent isRef="8" />
+              <Parent isRef="7" />
               <Text>قابل پرداخت پس از تخفیف</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </HeaderVF_SystemPaymentSummery_PYMT_AMNT>
-            <HeaderVF_SystemPaymentSummery_DEBT_AMNT Ref="18" type="Text" isKey="true">
+            <HeaderVF_SystemPaymentSummery_DEBT_AMNT Ref="17" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <ClientRectangle>13.4,0,2.4,0.8</ClientRectangle>
@@ -272,14 +255,14 @@ FROM VF$SystemPaymentSummery('{WhereClause}')
               <Margins>0,0,0,0</Margins>
               <Name>HeaderVF_SystemPaymentSummery_DEBT_AMNT</Name>
               <Page isRef="4" />
-              <Parent isRef="8" />
+              <Parent isRef="7" />
               <Text>مبلغ پرداختی</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </HeaderVF_SystemPaymentSummery_DEBT_AMNT>
-            <Text5 Ref="19" type="Text" isKey="true">
+            <Text5 Ref="18" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <ClientRectangle>11.2,0,2.2,0.8</ClientRectangle>
@@ -290,14 +273,14 @@ FROM VF$SystemPaymentSummery('{WhereClause}')
               <Margins>0,0,0,0</Margins>
               <Name>Text5</Name>
               <Page isRef="4" />
-              <Parent isRef="8" />
+              <Parent isRef="7" />
               <Text>مانده بدهی</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text5>
-            <HeaderVF_SystemPaymentSummery_RQTP_DESC Ref="20" type="Text" isKey="true">
+            <HeaderVF_SystemPaymentSummery_RQTP_DESC Ref="19" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <ClientRectangle>5.8,0,3.8,0.8</ClientRectangle>
@@ -307,14 +290,14 @@ FROM VF$SystemPaymentSummery('{WhereClause}')
               <Margins>0,0,0,0</Margins>
               <Name>HeaderVF_SystemPaymentSummery_RQTP_DESC</Name>
               <Page isRef="4" />
-              <Parent isRef="8" />
+              <Parent isRef="7" />
               <Text>نوع درخواست</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </HeaderVF_SystemPaymentSummery_RQTP_DESC>
-            <HeaderVF_SystemPaymentSummery_RQTT_DESC Ref="21" type="Text" isKey="true">
+            <HeaderVF_SystemPaymentSummery_RQTT_DESC Ref="20" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <ClientRectangle>2.6,0,3.2,0.8</ClientRectangle>
@@ -324,14 +307,14 @@ FROM VF$SystemPaymentSummery('{WhereClause}')
               <Margins>0,0,0,0</Margins>
               <Name>HeaderVF_SystemPaymentSummery_RQTT_DESC</Name>
               <Page isRef="4" />
-              <Parent isRef="8" />
+              <Parent isRef="7" />
               <Text>نوع متقاضی</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </HeaderVF_SystemPaymentSummery_RQTT_DESC>
-            <HeaderVF_SystemPaymentSummery_COCH_NAME Ref="22" type="Text" isKey="true">
+            <HeaderVF_SystemPaymentSummery_COCH_NAME Ref="21" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <ClientRectangle>0,0,2.6,0.8</ClientRectangle>
@@ -341,14 +324,14 @@ FROM VF$SystemPaymentSummery('{WhereClause}')
               <Margins>0,0,0,0</Margins>
               <Name>HeaderVF_SystemPaymentSummery_COCH_NAME</Name>
               <Page isRef="4" />
-              <Parent isRef="8" />
+              <Parent isRef="7" />
               <Text>نام مربی</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </HeaderVF_SystemPaymentSummery_COCH_NAME>
-            <Text7 Ref="23" type="Text" isKey="true">
+            <Text7 Ref="22" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <ClientRectangle>9.6,0,1.6,0.8</ClientRectangle>
@@ -359,7 +342,7 @@ FROM VF$SystemPaymentSummery('{WhereClause}')
               <Margins>0,0,0,0</Margins>
               <Name>Text7</Name>
               <Page isRef="4" />
-              <Parent isRef="8" />
+              <Parent isRef="7" />
               <Text>واحد پولی</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
@@ -373,13 +356,13 @@ FROM VF$SystemPaymentSummery('{WhereClause}')
           <Parent isRef="4" />
           <PrintOn>OnlyFirstPage</PrintOn>
         </HeaderVF_SystemPaymentSummery>
-        <DataVF_x0024_SystemPaymentSummery Ref="24" type="DataBand" isKey="true">
+        <DataVF_x0024_SystemPaymentSummery Ref="23" type="DataBand" isKey="true">
           <Border>All;Black;1;Solid;False;4;Black</Border>
           <Brush>Transparent</Brush>
           <BusinessObjectGuid isNull="true" />
-          <ClientRectangle>0,4,40,0.8</ClientRectangle>
+          <ClientRectangle>0,3.6,40,0.8</ClientRectangle>
           <Components isList="true" count="15">
-            <DataVF_SystemPaymentSummery_PERS_SAVE_DATE Ref="25" type="Text" isKey="true">
+            <DataVF_SystemPaymentSummery_PERS_SAVE_DATE Ref="24" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <CanGrow>True</CanGrow>
@@ -390,14 +373,14 @@ FROM VF$SystemPaymentSummery('{WhereClause}')
               <Margins>0,0,0,0</Margins>
               <Name>DataVF_SystemPaymentSummery_PERS_SAVE_DATE</Name>
               <Page isRef="4" />
-              <Parent isRef="24" />
+              <Parent isRef="23" />
               <Text>{VF_SystemPaymentSummery.PERS_SAVE_DATE}</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=True, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
             </DataVF_SystemPaymentSummery_PERS_SAVE_DATE>
-            <Text4 Ref="26" type="Text" isKey="true">
+            <Text4 Ref="25" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <CanGrow>True</CanGrow>
@@ -409,14 +392,14 @@ FROM VF$SystemPaymentSummery('{WhereClause}')
               <Margins>0,0,0,0</Margins>
               <Name>Text4</Name>
               <Page isRef="4" />
-              <Parent isRef="24" />
+              <Parent isRef="23" />
               <Text>{VF_SystemPaymentSummery.RWNO}</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
             </Text4>
-            <DataVF_SystemPaymentSummery_NAME_DNRM Ref="27" type="Text" isKey="true">
+            <DataVF_SystemPaymentSummery_NAME_DNRM Ref="26" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <CanGrow>True</CanGrow>
@@ -427,13 +410,13 @@ FROM VF$SystemPaymentSummery('{WhereClause}')
               <Margins>0,0,0,0</Margins>
               <Name>DataVF_SystemPaymentSummery_NAME_DNRM</Name>
               <Page isRef="4" />
-              <Parent isRef="24" />
+              <Parent isRef="23" />
               <ShrinkFontToFit>True</ShrinkFontToFit>
               <Text>{VF_SystemPaymentSummery.NAME_DNRM}</Text>
               <TextBrush>Black</TextBrush>
               <VertAlignment>Center</VertAlignment>
             </DataVF_SystemPaymentSummery_NAME_DNRM>
-            <DataVF_SystemPaymentSummery_FNGR_PRNT_DNRM Ref="28" type="Text" isKey="true">
+            <DataVF_SystemPaymentSummery_FNGR_PRNT_DNRM Ref="27" type="Text" isKey="true">
               <Brush>Transparent</Brush>
               <CanGrow>True</CanGrow>
               <ClientRectangle>31.6,0,2.8,0.8</ClientRectangle>
@@ -443,14 +426,13 @@ FROM VF$SystemPaymentSummery('{WhereClause}')
               <Margins>0,0,0,0</Margins>
               <Name>DataVF_SystemPaymentSummery_FNGR_PRNT_DNRM</Name>
               <Page isRef="4" />
-              <Parent isRef="24" />
+              <Parent isRef="23" />
               <ShrinkFontToFit>True</ShrinkFontToFit>
               <Text>{VF_SystemPaymentSummery.FNGR_PRNT_DNRM}</Text>
               <TextBrush>Black</TextBrush>
-              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <VertAlignment>Center</VertAlignment>
             </DataVF_SystemPaymentSummery_FNGR_PRNT_DNRM>
-            <DataVF_SystemPaymentSummery_CELL_PHON_DNRM Ref="29" type="Text" isKey="true">
+            <DataVF_SystemPaymentSummery_CELL_PHON_DNRM Ref="28" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <CanGrow>True</CanGrow>
@@ -461,13 +443,13 @@ FROM VF$SystemPaymentSummery('{WhereClause}')
               <Margins>0,0,0,0</Margins>
               <Name>DataVF_SystemPaymentSummery_CELL_PHON_DNRM</Name>
               <Page isRef="4" />
-              <Parent isRef="24" />
+              <Parent isRef="23" />
               <ShrinkFontToFit>True</ShrinkFontToFit>
               <Text>{VF_SystemPaymentSummery.CELL_PHON_DNRM}</Text>
               <TextBrush>Black</TextBrush>
               <VertAlignment>Center</VertAlignment>
             </DataVF_SystemPaymentSummery_CELL_PHON_DNRM>
-            <DataVF_SystemPaymentSummery_EXPN_DESC Ref="30" type="Text" isKey="true">
+            <DataVF_SystemPaymentSummery_EXPN_DESC Ref="29" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <CanGrow>True</CanGrow>
@@ -478,13 +460,13 @@ FROM VF$SystemPaymentSummery('{WhereClause}')
               <Margins>0,0,0,0</Margins>
               <Name>DataVF_SystemPaymentSummery_EXPN_DESC</Name>
               <Page isRef="4" />
-              <Parent isRef="24" />
+              <Parent isRef="23" />
               <ShrinkFontToFit>True</ShrinkFontToFit>
               <Text>{VF_SystemPaymentSummery.EXPN_DESC}</Text>
               <TextBrush>Black</TextBrush>
               <VertAlignment>Center</VertAlignment>
             </DataVF_SystemPaymentSummery_EXPN_DESC>
-            <DataVF_SystemPaymentSummery_TOTL_AMNT Ref="31" type="Text" isKey="true">
+            <DataVF_SystemPaymentSummery_TOTL_AMNT Ref="30" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <CanGrow>True</CanGrow>
@@ -495,10 +477,10 @@ FROM VF$SystemPaymentSummery('{WhereClause}')
               <Margins>0,0,0,0</Margins>
               <Name>DataVF_SystemPaymentSummery_TOTL_AMNT</Name>
               <Page isRef="4" />
-              <Parent isRef="24" />
+              <Parent isRef="23" />
               <Text>{VF_SystemPaymentSummery.TOTL_AMNT}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="32" type="NumberFormat" isKey="true">
+              <TextFormat Ref="31" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -507,7 +489,7 @@ FROM VF$SystemPaymentSummery('{WhereClause}')
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <VertAlignment>Center</VertAlignment>
             </DataVF_SystemPaymentSummery_TOTL_AMNT>
-            <DataVF_SystemPaymentSummery_SUM_PYMT_DSCN_DNRM Ref="33" type="Text" isKey="true">
+            <DataVF_SystemPaymentSummery_SUM_PYMT_DSCN_DNRM Ref="32" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <CanGrow>True</CanGrow>
@@ -521,10 +503,10 @@ FROM VF$SystemPaymentSummery('{WhereClause}')
               <Margins>0,0,0,0</Margins>
               <Name>DataVF_SystemPaymentSummery_SUM_PYMT_DSCN_DNRM</Name>
               <Page isRef="4" />
-              <Parent isRef="24" />
+              <Parent isRef="23" />
               <Text>{VF_SystemPaymentSummery.SUM_PYMT_DSCN_DNRM}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="34" type="NumberFormat" isKey="true">
+              <TextFormat Ref="33" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -533,7 +515,7 @@ FROM VF$SystemPaymentSummery('{WhereClause}')
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <VertAlignment>Center</VertAlignment>
             </DataVF_SystemPaymentSummery_SUM_PYMT_DSCN_DNRM>
-            <DataVF_SystemPaymentSummery_PYMT_AMNT Ref="35" type="Text" isKey="true">
+            <DataVF_SystemPaymentSummery_PYMT_AMNT Ref="34" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <CanGrow>True</CanGrow>
@@ -544,10 +526,10 @@ FROM VF$SystemPaymentSummery('{WhereClause}')
               <Margins>0,0,0,0</Margins>
               <Name>DataVF_SystemPaymentSummery_PYMT_AMNT</Name>
               <Page isRef="4" />
-              <Parent isRef="24" />
+              <Parent isRef="23" />
               <Text>{VF_SystemPaymentSummery.PYMT_AMNT}</Text>
               <TextBrush>[34:177:76]</TextBrush>
-              <TextFormat Ref="36" type="NumberFormat" isKey="true">
+              <TextFormat Ref="35" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -556,7 +538,7 @@ FROM VF$SystemPaymentSummery('{WhereClause}')
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <VertAlignment>Center</VertAlignment>
             </DataVF_SystemPaymentSummery_PYMT_AMNT>
-            <Text6 Ref="37" type="Text" isKey="true">
+            <Text6 Ref="36" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <CanGrow>True</CanGrow>
@@ -570,10 +552,10 @@ FROM VF$SystemPaymentSummery('{WhereClause}')
               <Margins>0,0,0,0</Margins>
               <Name>Text6</Name>
               <Page isRef="4" />
-              <Parent isRef="24" />
+              <Parent isRef="23" />
               <Text>{VF_SystemPaymentSummery.GET_PYMT_AMNT}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="38" type="NumberFormat" isKey="true">
+              <TextFormat Ref="37" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -583,7 +565,7 @@ FROM VF$SystemPaymentSummery('{WhereClause}')
               <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
             </Text6>
-            <DataVF_SystemPaymentSummery_DEBT_AMNT Ref="39" type="Text" isKey="true">
+            <DataVF_SystemPaymentSummery_DEBT_AMNT Ref="38" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <CanGrow>True</CanGrow>
@@ -596,10 +578,10 @@ FROM VF$SystemPaymentSummery('{WhereClause}')
               <Margins>0,0,0,0</Margins>
               <Name>DataVF_SystemPaymentSummery_DEBT_AMNT</Name>
               <Page isRef="4" />
-              <Parent isRef="24" />
+              <Parent isRef="23" />
               <Text>{VF_SystemPaymentSummery.DEBT_AMNT}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="40" type="NumberFormat" isKey="true">
+              <TextFormat Ref="39" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -608,7 +590,7 @@ FROM VF$SystemPaymentSummery('{WhereClause}')
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <VertAlignment>Center</VertAlignment>
             </DataVF_SystemPaymentSummery_DEBT_AMNT>
-            <DataVF_SystemPaymentSummery_RQTP_DESC Ref="41" type="Text" isKey="true">
+            <DataVF_SystemPaymentSummery_RQTP_DESC Ref="40" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <CanGrow>True</CanGrow>
@@ -619,14 +601,14 @@ FROM VF$SystemPaymentSummery('{WhereClause}')
               <Margins>0,0,0,0</Margins>
               <Name>DataVF_SystemPaymentSummery_RQTP_DESC</Name>
               <Page isRef="4" />
-              <Parent isRef="24" />
+              <Parent isRef="23" />
               <ShrinkFontToFit>True</ShrinkFontToFit>
               <Text>{VF_SystemPaymentSummery.RQTP_DESC}</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <VertAlignment>Center</VertAlignment>
             </DataVF_SystemPaymentSummery_RQTP_DESC>
-            <DataVF_SystemPaymentSummery_RQTT_DESC Ref="42" type="Text" isKey="true">
+            <DataVF_SystemPaymentSummery_RQTT_DESC Ref="41" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <CanGrow>True</CanGrow>
@@ -637,14 +619,14 @@ FROM VF$SystemPaymentSummery('{WhereClause}')
               <Margins>0,0,0,0</Margins>
               <Name>DataVF_SystemPaymentSummery_RQTT_DESC</Name>
               <Page isRef="4" />
-              <Parent isRef="24" />
+              <Parent isRef="23" />
               <ShrinkFontToFit>True</ShrinkFontToFit>
               <Text>{VF_SystemPaymentSummery.RQTT_DESC}</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <VertAlignment>Center</VertAlignment>
             </DataVF_SystemPaymentSummery_RQTT_DESC>
-            <DataVF_SystemPaymentSummery_COCH_NAME Ref="43" type="Text" isKey="true">
+            <DataVF_SystemPaymentSummery_COCH_NAME Ref="42" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <CanGrow>True</CanGrow>
@@ -655,14 +637,14 @@ FROM VF$SystemPaymentSummery('{WhereClause}')
               <Margins>0,0,0,0</Margins>
               <Name>DataVF_SystemPaymentSummery_COCH_NAME</Name>
               <Page isRef="4" />
-              <Parent isRef="24" />
+              <Parent isRef="23" />
               <ShrinkFontToFit>True</ShrinkFontToFit>
               <Text>{VF_SystemPaymentSummery.COCH_NAME}</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <VertAlignment>Center</VertAlignment>
             </DataVF_SystemPaymentSummery_COCH_NAME>
-            <Text8 Ref="44" type="Text" isKey="true">
+            <Text8 Ref="43" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <CanGrow>True</CanGrow>
@@ -674,10 +656,10 @@ FROM VF$SystemPaymentSummery('{WhereClause}')
               <Margins>0,0,0,0</Margins>
               <Name>Text8</Name>
               <Page isRef="4" />
-              <Parent isRef="24" />
+              <Parent isRef="23" />
               <Text>{VF_SystemPaymentSummery.AMNT_TYPE_DESC}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="45" type="NumberFormat" isKey="true">
+              <TextFormat Ref="44" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -696,12 +678,12 @@ FROM VF$SystemPaymentSummery('{WhereClause}')
           <Parent isRef="4" />
           <Sort isList="true" count="0" />
         </DataVF_x0024_SystemPaymentSummery>
-        <FooterVF_SystemPaymentSummery Ref="46" type="FooterBand" isKey="true">
+        <FooterVF_SystemPaymentSummery Ref="45" type="FooterBand" isKey="true">
           <Border>All;Black;1;Solid;False;4;Black</Border>
           <Brush>[216:216:216]</Brush>
-          <ClientRectangle>0,5.6,40,0.8</ClientRectangle>
+          <ClientRectangle>0,5.2,40,0.8</ClientRectangle>
           <Components isList="true" count="6">
-            <FooterVF_SystemPaymentSummery_NAME_DNRM Ref="47" type="Text" isKey="true">
+            <FooterVF_SystemPaymentSummery_NAME_DNRM Ref="46" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <ClientRectangle>11.2,0,2.2,0.8</ClientRectangle>
@@ -711,10 +693,10 @@ FROM VF$SystemPaymentSummery('{WhereClause}')
               <Margins>0,0,0,0</Margins>
               <Name>FooterVF_SystemPaymentSummery_NAME_DNRM</Name>
               <Page isRef="4" />
-              <Parent isRef="46" />
+              <Parent isRef="45" />
               <Text>{Sum(DataVF_SystemPaymentSummery,VF_SystemPaymentSummery.DEBT_AMNT)}</Text>
               <TextBrush>[237:28:36]</TextBrush>
-              <TextFormat Ref="48" type="NumberFormat" isKey="true">
+              <TextFormat Ref="47" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -724,7 +706,7 @@ FROM VF$SystemPaymentSummery('{WhereClause}')
               <Type>Totals</Type>
               <VertAlignment>Center</VertAlignment>
             </FooterVF_SystemPaymentSummery_NAME_DNRM>
-            <FooterVF_SystemPaymentSummery_FNGR_PRNT_DNRM Ref="49" type="Text" isKey="true">
+            <FooterVF_SystemPaymentSummery_FNGR_PRNT_DNRM Ref="48" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[230:238:215]</Brush>
               <ClientRectangle>13.4,0,2.4,0.8</ClientRectangle>
@@ -734,10 +716,10 @@ FROM VF$SystemPaymentSummery('{WhereClause}')
               <Margins>0,0,0,0</Margins>
               <Name>FooterVF_SystemPaymentSummery_FNGR_PRNT_DNRM</Name>
               <Page isRef="4" />
-              <Parent isRef="46" />
+              <Parent isRef="45" />
               <Text>{Sum(DataVF_SystemPaymentSummery,VF_SystemPaymentSummery.GET_PYMT_AMNT)}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="50" type="NumberFormat" isKey="true">
+              <TextFormat Ref="49" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -747,7 +729,7 @@ FROM VF$SystemPaymentSummery('{WhereClause}')
               <Type>Totals</Type>
               <VertAlignment>Center</VertAlignment>
             </FooterVF_SystemPaymentSummery_FNGR_PRNT_DNRM>
-            <FooterVF_SystemPaymentSummery_CELL_PHON_DNRM Ref="51" type="Text" isKey="true">
+            <FooterVF_SystemPaymentSummery_CELL_PHON_DNRM Ref="50" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <ClientRectangle>15.8,0,4.6,0.8</ClientRectangle>
@@ -757,10 +739,10 @@ FROM VF$SystemPaymentSummery('{WhereClause}')
               <Margins>0,0,0,0</Margins>
               <Name>FooterVF_SystemPaymentSummery_CELL_PHON_DNRM</Name>
               <Page isRef="4" />
-              <Parent isRef="46" />
+              <Parent isRef="45" />
               <Text>{Sum(DataVF_SystemPaymentSummery,VF_SystemPaymentSummery.PYMT_AMNT)}</Text>
               <TextBrush>[34:177:76]</TextBrush>
-              <TextFormat Ref="52" type="NumberFormat" isKey="true">
+              <TextFormat Ref="51" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -770,7 +752,7 @@ FROM VF$SystemPaymentSummery('{WhereClause}')
               <Type>Totals</Type>
               <VertAlignment>Center</VertAlignment>
             </FooterVF_SystemPaymentSummery_CELL_PHON_DNRM>
-            <FooterVF_SystemPaymentSummery_CASH_DESC Ref="53" type="Text" isKey="true">
+            <FooterVF_SystemPaymentSummery_CASH_DESC Ref="52" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <ClientRectangle>20.4,0,1.6,0.8</ClientRectangle>
@@ -780,10 +762,10 @@ FROM VF$SystemPaymentSummery('{WhereClause}')
               <Margins>0,0,0,0</Margins>
               <Name>FooterVF_SystemPaymentSummery_CASH_DESC</Name>
               <Page isRef="4" />
-              <Parent isRef="46" />
+              <Parent isRef="45" />
               <Text>{Sum(DataVF_SystemPaymentSummery,VF_SystemPaymentSummery.SUM_PYMT_DSCN_DNRM)}</Text>
               <TextBrush>[255:147:147]</TextBrush>
-              <TextFormat Ref="54" type="NumberFormat" isKey="true">
+              <TextFormat Ref="53" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -793,7 +775,7 @@ FROM VF$SystemPaymentSummery('{WhereClause}')
               <Type>Totals</Type>
               <VertAlignment>Center</VertAlignment>
             </FooterVF_SystemPaymentSummery_CASH_DESC>
-            <FooterVF_SystemPaymentSummery_EXPN_DESC Ref="55" type="Text" isKey="true">
+            <FooterVF_SystemPaymentSummery_EXPN_DESC Ref="54" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <ClientRectangle>22,0,3.2,0.8</ClientRectangle>
@@ -803,10 +785,10 @@ FROM VF$SystemPaymentSummery('{WhereClause}')
               <Margins>0,0,0,0</Margins>
               <Name>FooterVF_SystemPaymentSummery_EXPN_DESC</Name>
               <Page isRef="4" />
-              <Parent isRef="46" />
+              <Parent isRef="45" />
               <Text>{Sum(DataVF_SystemPaymentSummery,VF_SystemPaymentSummery.TOTL_AMNT)}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="56" type="NumberFormat" isKey="true">
+              <TextFormat Ref="55" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -816,7 +798,7 @@ FROM VF$SystemPaymentSummery('{WhereClause}')
               <Type>Totals</Type>
               <VertAlignment>Center</VertAlignment>
             </FooterVF_SystemPaymentSummery_EXPN_DESC>
-            <FooterVF_SystemPaymentSummery_COCH_NAME Ref="57" type="Text" isKey="true">
+            <FooterVF_SystemPaymentSummery_COCH_NAME Ref="56" type="Text" isKey="true">
               <Brush>Transparent</Brush>
               <ClientRectangle>38.8,0,1.2,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
@@ -825,7 +807,7 @@ FROM VF$SystemPaymentSummery('{WhereClause}')
               <Margins>0,0,0,0</Margins>
               <Name>FooterVF_SystemPaymentSummery_COCH_NAME</Name>
               <Page isRef="4" />
-              <Parent isRef="46" />
+              <Parent isRef="45" />
               <Text>{Count(DataVF_SystemPaymentSummery)}</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
@@ -849,13 +831,13 @@ FROM VF$SystemPaymentSummery('{WhereClause}')
       <PageWidth>42</PageWidth>
       <PaperSize>A3</PaperSize>
       <Report isRef="0" />
-      <Watermark Ref="58" type="Stimulsoft.Report.Components.StiWatermark" isKey="true">
+      <Watermark Ref="57" type="Stimulsoft.Report.Components.StiWatermark" isKey="true">
         <Font>Arial,100</Font>
         <TextBrush>[50:0:0:0]</TextBrush>
       </Watermark>
     </Page1>
   </Pages>
-  <PrinterSettings Ref="59" type="Stimulsoft.Report.Print.StiPrinterSettings" isKey="true" />
+  <PrinterSettings Ref="58" type="Stimulsoft.Report.Print.StiPrinterSettings" isKey="true" />
   <ReferencedAssemblies isList="true" count="8">
     <value>System.Dll</value>
     <value>System.Drawing.Dll</value>
@@ -867,10 +849,10 @@ FROM VF$SystemPaymentSummery('{WhereClause}')
     <value>Stimulsoft.Report.Dll</value>
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
-  <ReportChanged>8/3/2017 6:24:29 PM</ReportChanged>
+  <ReportChanged>7/25/2019 9:58:48 AM</ReportChanged>
   <ReportCreated>8/1/2017 3:08:42 PM</ReportCreated>
-  <ReportFile>D:\iData\Asre Andishe Project\MyProject\Documents\Report Repository\RPT_SPSM_R.mrt</ReportFile>
-  <ReportGuid>b070728f0acf40f5aaad34ea37ba8a42</ReportGuid>
+  <ReportFile>D:\Project\MyProject\Documents\Report Repository\RPT_SPSM_R.mrt</ReportFile>
+  <ReportGuid>159deba219074467bf022662d05082b8</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Centimeters</ReportUnit>
   <ReportVersion>2012.2.1304</ReportVersion>

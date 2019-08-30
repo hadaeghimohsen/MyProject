@@ -74,34 +74,6 @@
       <Association Name="Sub_System_Sms_Message_Box" Member="Sms_Message_Boxes" ThisKey="SUB_SYS" OtherKey="SUB_SYS" Type="Sms_Message_Box" />
     </Type>
   </Table>
-  <Table Name="Msgb.Message_Broad_Settings" Member="Message_Broad_Settings">
-    <Type Name="Message_Broad_Setting">
-      <Column Name="MBID" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="BGWK_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="BGWK_INTR" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="CUST_BGWK_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="CUST_BGWK_INTR" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="USER_NAME" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="PASS_WORD" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="WEB_SITE_LOGN" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="WEB_SITE_PSWD" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="LINE_NUMB" Type="System.String" DbType="VarChar(30)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="LINE_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="DFLT_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="LAST_ROW_FTCH" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="FTCH_ROW" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="ALRM_TO_USER_ID" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="ALRM_MIN_REMN_CHRG" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="MIN_STOP_CHRG" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="ALRM_DESC" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
-      <Association Name="User_Message_Broad_Setting" Member="User" ThisKey="ALRM_TO_USER_ID" OtherKey="ID" Type="User" IsForeignKey="true" />
-    </Type>
-  </Table>
   <Table Name="DataGuard.[User]" Member="Users">
     <Type Name="User">
       <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -148,6 +120,72 @@
       <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
       <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Association Name="User_Message_Broad_Setting" Member="Message_Broad_Settings" ThisKey="ID" OtherKey="ALRM_TO_USER_ID" Type="Message_Broad_Setting" />
+    </Type>
+  </Table>
+  <Table Name="DataGuard.D$SMSP" Member="D_SMSPs">
+    <Type Name="D_SMSP">
+      <Column Name="VALU" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="DOMN_DESC" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="DataGuard.Gateway" Member="Gateways">
+    <Type Name="Gateway">
+      <Column Name="MAC_ADRS" Type="System.String" DbType="VarChar(17) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CONF_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CONF_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="GWPB_RWNO_DNRM" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IP_DNRM" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="COMP_NAME_DNRM" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CPU_SRNO_DNRM" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="NAME_DNRM" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="DFLT_FACT_DNRM" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="VALD_TYPE_DNRM" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="AUTH_TYPE_DNRM" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="PORT_DNRM" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="RQST_JBQU_NUMB_DNRM" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="RQST_SEND_DNRM" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="RQST_RCIV_DNRM" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="UPDT_NEW_SERV_PRVD_DNRM" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="CYCL_GET_CACH_SERV_PRVD_DNRM" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UPDT_NEW_CLNT_PRVD_DNRM" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="CYCL_SEND_INFO_PRVD_CLNT_DNRM" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CNTR_PART_DNRM" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Gateway_Message_Broad_Setting" Member="Message_Broad_Settings" ThisKey="MAC_ADRS" OtherKey="GTWY_MAC_ADRS" Type="Message_Broad_Setting" />
+    </Type>
+  </Table>
+  <Table Name="Msgb.Message_Broad_Settings" Member="Message_Broad_Settings">
+    <Type Name="Message_Broad_Setting">
+      <Column Name="MBID" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="BGWK_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="BGWK_INTR" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CUST_BGWK_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CUST_BGWK_INTR" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="USER_NAME" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="PASS_WORD" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="WEB_SITE_LOGN" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="WEB_SITE_PSWD" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="LINE_NUMB" Type="System.String" DbType="VarChar(30)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="LINE_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="DFLT_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="LAST_ROW_FTCH" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="FTCH_ROW" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ALRM_TO_USER_ID" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ALRM_MIN_REMN_CHRG" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MIN_STOP_CHRG" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ALRM_DESC" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="SERV_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="GTWY_MAC_ADRS" Type="System.String" DbType="VarChar(17)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="Gateway_Message_Broad_Setting" Member="Gateway" ThisKey="GTWY_MAC_ADRS" OtherKey="MAC_ADRS" Type="Gateway" IsForeignKey="true" DeleteRule="CASCADE" />
+      <Association Name="User_Message_Broad_Setting" Member="User" ThisKey="ALRM_TO_USER_ID" OtherKey="ID" Type="User" IsForeignKey="true" />
     </Type>
   </Table>
   <Function Name="Msgb.PrepareSendCustSms" Method="PrepareSendCustSms">

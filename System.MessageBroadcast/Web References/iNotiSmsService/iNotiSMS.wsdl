@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="SendSingleSMS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LineNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MobileNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendSingleSMSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SendSingleSMSResult" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendBatchSMS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LineNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MobileNumbers" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SendBatchSMSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SendBatchSMSResult" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeliverSMS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LineNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MobileNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BulkID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeliverSMSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeliverSMSResult" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeliverBatchSMS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LineNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BulkID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeliverBatchSMSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeliverBatchSMSResult" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="ResultList" type="tns:ArrayOfDeliveryList" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfDeliveryList">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DeliveryList" type="tns:DeliveryList" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DeliveryList">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Mobile" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Status" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="LastDeliverDateTime" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetChargeRemaining">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetChargeRemainingResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetChargeRemainingResult" type="s:float" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendP2PSMS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LineNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MobileNumbers" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="Message" type="tns:ArrayOfString" />
+            <s:element minOccurs="1" maxOccurs="1" name="TotalPart" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendP2PSMSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SendP2PSMSResult" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="SMSIDs" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="SendSingleSMSSoapIn">
+    <wsdl:part name="parameters" element="tns:SendSingleSMS" />
+  </wsdl:message>
+  <wsdl:message name="SendSingleSMSSoapOut">
+    <wsdl:part name="parameters" element="tns:SendSingleSMSResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendBatchSMSSoapIn">
+    <wsdl:part name="parameters" element="tns:SendBatchSMS" />
+  </wsdl:message>
+  <wsdl:message name="SendBatchSMSSoapOut">
+    <wsdl:part name="parameters" element="tns:SendBatchSMSResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeliverSMSSoapIn">
+    <wsdl:part name="parameters" element="tns:DeliverSMS" />
+  </wsdl:message>
+  <wsdl:message name="DeliverSMSSoapOut">
+    <wsdl:part name="parameters" element="tns:DeliverSMSResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeliverBatchSMSSoapIn">
+    <wsdl:part name="parameters" element="tns:DeliverBatchSMS" />
+  </wsdl:message>
+  <wsdl:message name="DeliverBatchSMSSoapOut">
+    <wsdl:part name="parameters" element="tns:DeliverBatchSMSResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetChargeRemainingSoapIn">
+    <wsdl:part name="parameters" element="tns:GetChargeRemaining" />
+  </wsdl:message>
+  <wsdl:message name="GetChargeRemainingSoapOut">
+    <wsdl:part name="parameters" element="tns:GetChargeRemainingResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendP2PSMSSoapIn">
+    <wsdl:part name="parameters" element="tns:SendP2PSMS" />
+  </wsdl:message>
+  <wsdl:message name="SendP2PSMSSoapOut">
+    <wsdl:part name="parameters" element="tns:SendP2PSMSResponse" />
+  </wsdl:message>
+  <wsdl:portType name="iNotiSMSSoap">
+    <wsdl:operation name="SendSingleSMS">
+      <wsdl:input message="tns:SendSingleSMSSoapIn" />
+      <wsdl:output message="tns:SendSingleSMSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendBatchSMS">
+      <wsdl:input message="tns:SendBatchSMSSoapIn" />
+      <wsdl:output message="tns:SendBatchSMSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeliverSMS">
+      <wsdl:input message="tns:DeliverSMSSoapIn" />
+      <wsdl:output message="tns:DeliverSMSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeliverBatchSMS">
+      <wsdl:input message="tns:DeliverBatchSMSSoapIn" />
+      <wsdl:output message="tns:DeliverBatchSMSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetChargeRemaining">
+      <wsdl:input message="tns:GetChargeRemainingSoapIn" />
+      <wsdl:output message="tns:GetChargeRemainingSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendP2PSMS">
+      <wsdl:input message="tns:SendP2PSMSSoapIn" />
+      <wsdl:output message="tns:SendP2PSMSSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="iNotiSMSSoap" type="tns:iNotiSMSSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SendSingleSMS">
+      <soap:operation soapAction="http://tempuri.org/SendSingleSMS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendBatchSMS">
+      <soap:operation soapAction="http://tempuri.org/SendBatchSMS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeliverSMS">
+      <soap:operation soapAction="http://tempuri.org/DeliverSMS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeliverBatchSMS">
+      <soap:operation soapAction="http://tempuri.org/DeliverBatchSMS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetChargeRemaining">
+      <soap:operation soapAction="http://tempuri.org/GetChargeRemaining" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendP2PSMS">
+      <soap:operation soapAction="http://tempuri.org/SendP2PSMS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="iNotiSMSSoap12" type="tns:iNotiSMSSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SendSingleSMS">
+      <soap12:operation soapAction="http://tempuri.org/SendSingleSMS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendBatchSMS">
+      <soap12:operation soapAction="http://tempuri.org/SendBatchSMS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeliverSMS">
+      <soap12:operation soapAction="http://tempuri.org/DeliverSMS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeliverBatchSMS">
+      <soap12:operation soapAction="http://tempuri.org/DeliverBatchSMS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetChargeRemaining">
+      <soap12:operation soapAction="http://tempuri.org/GetChargeRemaining" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendP2PSMS">
+      <soap12:operation soapAction="http://tempuri.org/SendP2PSMS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="iNotiSMS">
+    <wsdl:port name="iNotiSMSSoap" binding="tns:iNotiSMSSoap">
+      <soap:address location="https://login.inoti.com/_Services/iNotiSMS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="iNotiSMSSoap12" binding="tns:iNotiSMSSoap12">
+      <soap12:address location="https://login.inoti.com/_Services/iNotiSMS.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

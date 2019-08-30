@@ -28,15 +28,16 @@
       /// </summary>
       private void InitializeComponent()
       {
+         this.components = new System.ComponentModel.Container();
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MSTR_PAGE_F));
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
          this.label12 = new System.Windows.Forms.Label();
          this.Btn_SmsServerRefresh = new System.MaxUi.NewToolBtn();
-         this.imageList1 = new System.Windows.Forms.ImageList();
+         this.imageList1 = new System.Windows.Forms.ImageList(this.components);
          this.LL_SmsSendCredit = new System.Windows.Forms.LinkLabel();
          this.LL_SmsSendWebService = new System.Windows.Forms.LinkLabel();
-         this.SmsBn = new System.Windows.Forms.BindingNavigator();
+         this.SmsBn = new System.Windows.Forms.BindingNavigator(this.components);
          this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
-         this.SmsBs = new System.Windows.Forms.BindingSource();
          this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
          this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
          this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
@@ -67,14 +68,21 @@
          this.linkLabel1 = new System.Windows.Forms.LinkLabel();
          this.SmsApp_Butn = new System.Windows.Forms.PictureBox();
          this.Btn_Back = new System.MaxUi.NewMaxBtn();
-         this.TelegramBs = new System.Windows.Forms.BindingSource();
+         this.SmsBs = new System.Windows.Forms.BindingSource(this.components);
+         this.TelegramBs = new System.Windows.Forms.BindingSource(this.components);
+         this.label6 = new System.Windows.Forms.Label();
+         this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
+         this.Host_Lov = new DevExpress.XtraEditors.LookUpEdit();
+         this.HostBs = new System.Windows.Forms.BindingSource(this.components);
          ((System.ComponentModel.ISupportInitialize)(this.SmsBn)).BeginInit();
          this.SmsBn.SuspendLayout();
-         ((System.ComponentModel.ISupportInitialize)(this.SmsBs)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.Ts_SmsWorkerStat.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.Ts_SmsBgwkStat.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.SmsApp_Butn)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.SmsBs)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.TelegramBs)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.Host_Lov.Properties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.HostBs)).BeginInit();
          this.SuspendLayout();
          // 
          // label12
@@ -165,7 +173,7 @@
             this.bindingNavigatorSeparator2,
             this.bindingNavigatorAddNewItem,
             this.bindingNavigatorDeleteItem});
-         this.SmsBn.Location = new System.Drawing.Point(633, 106);
+         this.SmsBn.Location = new System.Drawing.Point(634, 106);
          this.SmsBn.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
          this.SmsBn.MoveLastItem = this.bindingNavigatorMoveLastItem;
          this.SmsBn.MoveNextItem = this.bindingNavigatorMoveNextItem;
@@ -174,7 +182,7 @@
          this.SmsBn.PositionItem = this.bindingNavigatorPositionItem;
          this.SmsBn.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
          this.SmsBn.RightToLeft = System.Windows.Forms.RightToLeft.No;
-         this.SmsBn.Size = new System.Drawing.Size(148, 25);
+         this.SmsBn.Size = new System.Drawing.Size(147, 25);
          this.SmsBn.TabIndex = 7;
          // 
          // bindingNavigatorAddNewItem
@@ -187,15 +195,10 @@
          this.bindingNavigatorAddNewItem.Text = "Add new";
          this.bindingNavigatorAddNewItem.Visible = false;
          // 
-         // SmsBs
-         // 
-         this.SmsBs.DataSource = typeof(System.MessageBroadcast.Data.Message_Broad_Setting);
-         this.SmsBs.CurrentChanged += new System.EventHandler(this.SmsBs_CurrentChanged);
-         // 
          // bindingNavigatorCountItem
          // 
          this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-         this.bindingNavigatorCountItem.Size = new System.Drawing.Size(35, 22);
+         this.bindingNavigatorCountItem.Size = new System.Drawing.Size(34, 22);
          this.bindingNavigatorCountItem.Text = "of {0}";
          this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
          // 
@@ -546,15 +549,72 @@
          this.Btn_Back.TextFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)), true);
          this.Btn_Back.Click += new System.EventHandler(this.Btn_Back_Click);
          // 
+         // SmsBs
+         // 
+         this.SmsBs.DataSource = typeof(System.MessageBroadcast.Data.Message_Broad_Setting);
+         this.SmsBs.CurrentChanged += new System.EventHandler(this.SmsBs_CurrentChanged);
+         // 
          // TelegramBs
          // 
          this.TelegramBs.DataSource = typeof(System.MessageBroadcast.Data.Message_Broad_Setting);
+         // 
+         // label6
+         // 
+         this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.label6.Location = new System.Drawing.Point(535, 451);
+         this.label6.Name = "label6";
+         this.label6.Size = new System.Drawing.Size(476, 42);
+         this.label6.TabIndex = 4;
+         this.label6.Text = "سیستمی که اجازه ارسال پیامک را دارد را مشخص کنید";
+         // 
+         // labelControl4
+         // 
+         this.labelControl4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.labelControl4.Appearance.Font = new System.Drawing.Font("B Kamran", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.labelControl4.Appearance.Image = global::System.MessageBroadcast.Properties.Resources.IMAGE_1361;
+         this.labelControl4.Appearance.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
+         this.labelControl4.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+         this.labelControl4.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
+         this.labelControl4.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+         this.labelControl4.LineLocation = DevExpress.XtraEditors.LineLocation.Bottom;
+         this.labelControl4.LineVisible = true;
+         this.labelControl4.Location = new System.Drawing.Point(538, 496);
+         this.labelControl4.Name = "labelControl4";
+         this.labelControl4.Size = new System.Drawing.Size(473, 59);
+         this.labelControl4.TabIndex = 3;
+         this.labelControl4.Text = "سیستم ارسال پیامک را مشخص کنید";
+         // 
+         // Host_Lov
+         // 
+         this.Host_Lov.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.Host_Lov.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.SmsBs, "GTWY_MAC_ADRS", true));
+         this.Host_Lov.Location = new System.Drawing.Point(538, 515);
+         this.Host_Lov.Name = "Host_Lov";
+         this.Host_Lov.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
+         this.Host_Lov.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("IP_DNRM", "IP Address", 55, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("COMP_NAME_DNRM", "Computer Name", 108, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near)});
+         this.Host_Lov.Properties.DataSource = this.HostBs;
+         this.Host_Lov.Properties.DisplayMember = "COMP_NAME_DNRM";
+         this.Host_Lov.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
+         this.Host_Lov.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.Host_Lov.Properties.NullText = "";
+         this.Host_Lov.Properties.ValueMember = "MAC_ADRS";
+         this.Host_Lov.Size = new System.Drawing.Size(160, 22);
+         this.Host_Lov.TabIndex = 26;
+         this.Host_Lov.EditValueChanging += new DevExpress.XtraEditors.Controls.ChangingEventHandler(this.Host_Lov_EditValueChanging);
+         // 
+         // HostBs
+         // 
+         this.HostBs.DataSource = typeof(System.MessageBroadcast.Data.Gateway);
          // 
          // MSTR_PAGE_F
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
          this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
          this.BackColor = System.Drawing.Color.LightGray;
+         this.Controls.Add(this.Host_Lov);
          this.Controls.Add(this.label12);
          this.Controls.Add(this.Ts_SmsBgwkStat);
          this.Controls.Add(this.Btn_SmsServerRefresh);
@@ -568,6 +628,7 @@
          this.Controls.Add(this.label11);
          this.Controls.Add(this.labelControl7);
          this.Controls.Add(this.LL_SmsSended);
+         this.Controls.Add(this.labelControl4);
          this.Controls.Add(this.labelControl3);
          this.Controls.Add(this.LL_SmsTotal);
          this.Controls.Add(this.labelControl2);
@@ -577,6 +638,7 @@
          this.Controls.Add(this.LB_SmsLineType);
          this.Controls.Add(this.label3);
          this.Controls.Add(this.labelControl8);
+         this.Controls.Add(this.label6);
          this.Controls.Add(this.label2);
          this.Controls.Add(this.Btn_Back);
          this.Controls.Add(this.SmsApp_Butn);
@@ -587,11 +649,13 @@
          ((System.ComponentModel.ISupportInitialize)(this.SmsBn)).EndInit();
          this.SmsBn.ResumeLayout(false);
          this.SmsBn.PerformLayout();
-         ((System.ComponentModel.ISupportInitialize)(this.SmsBs)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.Ts_SmsWorkerStat.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.Ts_SmsBgwkStat.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.SmsApp_Butn)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.SmsBs)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.TelegramBs)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.Host_Lov.Properties)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.HostBs)).EndInit();
          this.ResumeLayout(false);
          this.PerformLayout();
 
@@ -638,5 +702,9 @@
       private Windows.Forms.Label label12;
       private Windows.Forms.LinkLabel LL_SmsSendCredit;
       private DevExpress.XtraEditors.LabelControl labelControl8;
+      private Windows.Forms.Label label6;
+      private DevExpress.XtraEditors.LabelControl labelControl4;
+      private DevExpress.XtraEditors.LookUpEdit Host_Lov;
+      private Windows.Forms.BindingSource HostBs;
    }
 }

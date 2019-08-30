@@ -76,7 +76,8 @@ namespace System.Scsc.Ui.ReportManager
          }
          else if (keyData == Keys.F5)
          {
-            Execute_Query();
+            //Execute_Query();
+            Find_Butn_Click(null, null);
          }
          job.Status = StatusType.Successful;
       }

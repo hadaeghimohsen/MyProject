@@ -651,6 +651,8 @@ namespace System.Scsc.Ui.BaseDefinition
                   new XAttribute("strttime", StrtTime_Tspn.Time),
                   new XAttribute("endtime", EndTime_Tspn.Time),
                   new XAttribute("pridtime", PridTime_Tspn.EditValue ?? 0),
+                  new XAttribute("sextype", SexType_Lov.EditValue ?? "001"),
+                  new XAttribute("daytype", DayType_Lov.EditValue ?? "001"),
                   new XAttribute("satday", QWkdy007_Butn.Appearance.BackColor == Color.GreenYellow ? "002" : "001"),
                   new XAttribute("sunday", QWkdy001_Butn.Appearance.BackColor == Color.GreenYellow ? "002" : "001"),
                   new XAttribute("monday", QWkdy002_Butn.Appearance.BackColor == Color.GreenYellow ? "002" : "001"),

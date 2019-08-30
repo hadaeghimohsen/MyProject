@@ -745,7 +745,7 @@
          // 
          // FngrPrnt_Clm
          // 
-         this.FngrPrnt_Clm.Caption = "کد انگشتی";
+         this.FngrPrnt_Clm.Caption = "کد شناسایی";
          this.FngrPrnt_Clm.FieldName = "FNGR_PRNT_DNRM";
          this.FngrPrnt_Clm.Name = "FngrPrnt_Clm";
          this.FngrPrnt_Clm.OptionsColumn.AllowEdit = false;
@@ -1469,9 +1469,9 @@
          this.FngrPrnt_Lb.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.FngrPrnt_Lb.Location = new System.Drawing.Point(781, 35);
          this.FngrPrnt_Lb.Name = "FngrPrnt_Lb";
-         this.FngrPrnt_Lb.Size = new System.Drawing.Size(73, 14);
+         this.FngrPrnt_Lb.Size = new System.Drawing.Size(83, 14);
          this.FngrPrnt_Lb.TabIndex = 2;
-         this.FngrPrnt_Lb.Text = "کد انگشتی :";
+         this.FngrPrnt_Lb.Text = "کد شناسایی :";
          // 
          // CellPhon_Lb
          // 
@@ -1510,9 +1510,9 @@
          // 
          this.LastName_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.LastName_Txt.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.LastName_Txt.Location = new System.Drawing.Point(859, 32);
+         this.LastName_Txt.Location = new System.Drawing.Point(870, 32);
          this.LastName_Txt.Name = "LastName_Txt";
-         this.LastName_Txt.Size = new System.Drawing.Size(144, 22);
+         this.LastName_Txt.Size = new System.Drawing.Size(133, 22);
          this.LastName_Txt.TabIndex = 1;
          // 
          // TellPhon_Txt
@@ -1555,9 +1555,9 @@
          // 
          this.FrstName_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.FrstName_Txt.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.FrstName_Txt.Location = new System.Drawing.Point(859, 4);
+         this.FrstName_Txt.Location = new System.Drawing.Point(870, 4);
          this.FrstName_Txt.Name = "FrstName_Txt";
-         this.FrstName_Txt.Size = new System.Drawing.Size(144, 22);
+         this.FrstName_Txt.Size = new System.Drawing.Size(133, 22);
          this.FrstName_Txt.TabIndex = 0;
          // 
          // LSI_FDLF_F

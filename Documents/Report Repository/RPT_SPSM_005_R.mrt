@@ -65,7 +65,7 @@
     <Page1 Ref="4" type="Page" isKey="true">
       <Border>None;Black;2;Solid;False;4;Black</Border>
       <Brush>Transparent</Brush>
-      <Components isList="true" count="6">
+      <Components isList="true" count="9">
         <ACTN_DATE_GROP Ref="5" type="GroupHeaderBand" isKey="true">
           <Border>All;Black;1;Solid;False;4;Black</Border>
           <Brush>Transparent</Brush>
@@ -106,6 +106,7 @@
               <Brush>Transparent</Brush>
               <ClientRectangle>0,0.6,4.2,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
+              <Enabled>False</Enabled>
               <Font>IRANSans,9</Font>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
@@ -235,7 +236,7 @@
           <Parent isRef="4" />
         </CRET_BY_GROP>
         <MTOD_CODE_GROP Ref="16" type="GroupHeaderBand" isKey="true">
-          <Brush>Transparent</Brush>
+          <Brush>[239:211:210]</Brush>
           <ClientRectangle>0,4.4,12.2,0.6</ClientRectangle>
           <Components isList="true" count="4">
             <Text2 Ref="17" type="Text" isKey="true">
@@ -331,25 +332,183 @@
           <Page isRef="4" />
           <Parent isRef="4" />
         </MTOD_CODE_GROP>
-        <DataPayment_Method Ref="24" type="DataBand" isKey="true">
+        <GroupHeaderBand1 Ref="24" type="GroupHeaderBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,5.8,12.2,0.6</ClientRectangle>
+          <Components isList="true" count="4">
+            <Text21 Ref="25" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[214:224:236]</Brush>
+              <ClientRectangle>9.4,0,2.8,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,8,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text21</Name>
+              <Page isRef="4" />
+              <Parent isRef="24" />
+              <Text>زمان</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text21>
+            <Text23 Ref="26" type="Text" isKey="true">
+              <Border>Top, Right, Bottom;Black;1;Solid;False;4;Black</Border>
+              <Brush>[214:224:236]</Brush>
+              <ClientRectangle>6.4,0,3,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,8,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text23</Name>
+              <Page isRef="4" />
+              <Parent isRef="24" />
+              <Text>مبلغ</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text23>
+            <Text25 Ref="27" type="Text" isKey="true">
+              <Border>Top, Right, Bottom;Black;1;Solid;False;4;Black</Border>
+              <Brush>[214:224:236]</Brush>
+              <ClientRectangle>3,0,3.4,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,8,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text25</Name>
+              <Page isRef="4" />
+              <Parent isRef="24" />
+              <Text>نوع پرداخت</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text25>
+            <Text13 Ref="28" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[214:224:236]</Brush>
+              <ClientRectangle>0,0,3,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,8,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text13</Name>
+              <Page isRef="4" />
+              <Parent isRef="24" />
+              <Text>نوع هزینه</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text13>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <KeepGroupHeaderTogether>False</KeepGroupHeaderTogether>
+          <Name>GroupHeaderBand1</Name>
+          <Page isRef="4" />
+          <Parent isRef="4" />
+        </GroupHeaderBand1>
+        <DataPayment_Method Ref="29" type="DataBand" isKey="true">
           <Brush>Transparent</Brush>
           <BusinessObjectGuid isNull="true" />
           <CalcInvisible>True</CalcInvisible>
-          <ClientRectangle>0,5.8,12.2,0.8</ClientRectangle>
-          <Components isList="true" count="0" />
+          <ClientRectangle>0,7.2,12.2,0.6</ClientRectangle>
+          <Components isList="true" count="4">
+            <Text15 Ref="30" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>9.4,0,2.8,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,8</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text15</Name>
+              <Page isRef="4" />
+              <Parent isRef="29" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{Payment_Method.ACTN_TIME}</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </Text15>
+            <Text22 Ref="31" type="Text" isKey="true">
+              <Border>Top, Right, Bottom;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>6.4,0,3,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,8</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text22</Name>
+              <Page isRef="4" />
+              <Parent isRef="29" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{Payment_Method.AMNT}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="32" type="NumberFormat" isKey="true">
+                <DecimalDigits>0</DecimalDigits>
+                <GroupSeparator>,</GroupSeparator>
+                <NegativePattern>1</NegativePattern>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <VertAlignment>Center</VertAlignment>
+            </Text22>
+            <Text24 Ref="33" type="Text" isKey="true">
+              <Border>Top, Right, Bottom;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>3,0,3.4,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,8</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text24</Name>
+              <Page isRef="4" />
+              <Parent isRef="29" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{Payment_Method.RCPT_DESC}</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </Text24>
+            <Text9 Ref="34" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,0,3,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,8</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text9</Name>
+              <Page isRef="4" />
+              <Parent isRef="29" />
+              <Text>{Payment_Method.RQTP_DESC}</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </Text9>
+          </Components>
           <Conditions isList="true" count="0" />
           <DataRelationName isNull="true" />
           <DataSourceName>Payment_Method</DataSourceName>
-          <Enabled>False</Enabled>
           <Filters isList="true" count="0" />
           <Name>DataPayment_Method</Name>
           <Page isRef="4" />
           <Parent isRef="4" />
-          <Sort isList="true" count="0" />
+          <Sort isList="true" count="2">
+            <value>ASC</value>
+            <value>ACTN_TIME</value>
+          </Sort>
         </DataPayment_Method>
-        <GroupFooterBand1 Ref="25" type="GroupFooterBand" isKey="true">
+        <GroupFooterBand3 Ref="35" type="GroupFooterBand" isKey="true">
           <Brush>Transparent</Brush>
-          <ClientRectangle>0,7.4,12.2,0.6</ClientRectangle>
+          <ClientRectangle>0,8.6,12.2,0.8</ClientRectangle>
+          <Components isList="true" count="0" />
+          <Conditions isList="true" count="0" />
+          <Enabled>False</Enabled>
+          <KeepGroupFooterTogether>False</KeepGroupFooterTogether>
+          <Name>GroupFooterBand3</Name>
+          <Page isRef="4" />
+          <Parent isRef="4" />
+        </GroupFooterBand3>
+        <GroupFooterBand1 Ref="36" type="GroupFooterBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,10.2,12.2,0.6</ClientRectangle>
           <Components isList="true" count="0" />
           <Conditions isList="true" count="0" />
           <Enabled>False</Enabled>
@@ -358,11 +517,11 @@
           <Page isRef="4" />
           <Parent isRef="4" />
         </GroupFooterBand1>
-        <GroupFooterBand2 Ref="26" type="GroupFooterBand" isKey="true">
+        <GroupFooterBand2 Ref="37" type="GroupFooterBand" isKey="true">
           <Brush>Transparent</Brush>
-          <ClientRectangle>0,8.8,12.2,0.6</ClientRectangle>
+          <ClientRectangle>0,11.6,12.2,0.6</ClientRectangle>
           <Components isList="true" count="4">
-            <Text18 Ref="27" type="Text" isKey="true">
+            <Text18 Ref="38" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[250:243:232]</Brush>
               <ClientRectangle>0,0,3,0.6</ClientRectangle>
@@ -373,10 +532,10 @@
               <Margins>0,0,0,0</Margins>
               <Name>Text18</Name>
               <Page isRef="4" />
-              <Parent isRef="26" />
+              <Parent isRef="37" />
               <Text>{Sum(CRET_BY_GROP,Payment_Method.AMNT)}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="28" type="NumberFormat" isKey="true">
+              <TextFormat Ref="39" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>3</NegativePattern>
@@ -385,7 +544,7 @@
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text18>
-            <Text17 Ref="29" type="Text" isKey="true">
+            <Text17 Ref="40" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[250:243:232]</Brush>
               <ClientRectangle>3,0,3.4,0.6</ClientRectangle>
@@ -396,10 +555,10 @@
               <Margins>0,0,0,0</Margins>
               <Name>Text17</Name>
               <Page isRef="4" />
-              <Parent isRef="26" />
+              <Parent isRef="37" />
               <Text>{SumIf(CRET_BY_GROP,Payment_Method.AMNT,Payment_Method.RCPT_MTOD == "003")}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="30" type="NumberFormat" isKey="true">
+              <TextFormat Ref="41" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>3</NegativePattern>
@@ -408,7 +567,7 @@
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text17>
-            <Text16 Ref="31" type="Text" isKey="true">
+            <Text16 Ref="42" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[250:243:232]</Brush>
               <ClientRectangle>6.4,0,3,0.6</ClientRectangle>
@@ -419,10 +578,10 @@
               <Margins>0,0,0,0</Margins>
               <Name>Text16</Name>
               <Page isRef="4" />
-              <Parent isRef="26" />
+              <Parent isRef="37" />
               <Text>{SumIf(CRET_BY_GROP,Payment_Method.AMNT,Payment_Method.RCPT_MTOD == "001")}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="32" type="NumberFormat" isKey="true">
+              <TextFormat Ref="43" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>3</NegativePattern>
@@ -431,7 +590,7 @@
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text16>
-            <Text19 Ref="33" type="Text" isKey="true">
+            <Text19 Ref="44" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[250:243:232]</Brush>
               <ClientRectangle>9.4,0,2.8,0.6</ClientRectangle>
@@ -442,7 +601,7 @@
               <Margins>0,0,0,0</Margins>
               <Name>Text19</Name>
               <Page isRef="4" />
-              <Parent isRef="26" />
+              <Parent isRef="37" />
               <Text>{Payment_Method.CRET_BY}</Text>
               <TextBrush>Black</TextBrush>
               <Type>DataColumn</Type>
@@ -450,10 +609,162 @@
             </Text19>
           </Components>
           <Conditions isList="true" count="0" />
+          <KeepGroupFooterTogether>False</KeepGroupFooterTogether>
           <Name>GroupFooterBand2</Name>
           <Page isRef="4" />
           <Parent isRef="4" />
         </GroupFooterBand2>
+        <GroupFooterBand4 Ref="45" type="GroupFooterBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,13,12.2,2.2</ClientRectangle>
+          <Components isList="true" count="7">
+            <Text28 Ref="46" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[250:243:232]</Brush>
+              <ClientRectangle>0,1.4,4.2,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,9</Font>
+              <Guid>bd3b411c320d47a4b3760e97fe89129b</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text28</Name>
+              <Page isRef="4" />
+              <Parent isRef="45" />
+              <Text>{Sum(ACTN_DATE_GROP,Payment_Method.AMNT)}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="47" type="NumberFormat" isKey="true">
+                <DecimalDigits>0</DecimalDigits>
+                <GroupSeparator>,</GroupSeparator>
+                <NegativePattern>3</NegativePattern>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text28>
+            <Text29 Ref="48" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[250:243:232]</Brush>
+              <ClientRectangle>4.2,1.4,4,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,9</Font>
+              <Guid>fb5ac055301c48179f67e2b279d3df93</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text29</Name>
+              <Page isRef="4" />
+              <Parent isRef="45" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{SumIf(ACTN_DATE_GROP,Payment_Method.AMNT,Payment_Method.RCPT_MTOD == "003")}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="49" type="NumberFormat" isKey="true">
+                <DecimalDigits>0</DecimalDigits>
+                <GroupSeparator>,</GroupSeparator>
+                <NegativePattern>3</NegativePattern>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text29>
+            <Text32 Ref="50" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[250:243:232]</Brush>
+              <ClientRectangle>8.2,1.4,4,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,9</Font>
+              <Guid>38d3caca7ba44a608b0bce6e6b82837c</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text32</Name>
+              <Page isRef="4" />
+              <Parent isRef="45" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{SumIf(ACTN_DATE_GROP,Payment_Method.AMNT,Payment_Method.RCPT_MTOD == "001")}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="51" type="NumberFormat" isKey="true">
+                <DecimalDigits>0</DecimalDigits>
+                <GroupSeparator>,</GroupSeparator>
+                <NegativePattern>3</NegativePattern>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text32>
+            <Text26 Ref="52" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[214:224:236]</Brush>
+              <ClientRectangle>8.2,0.8,4,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,8,Bold</Font>
+              <Guid>08f670c7216240558e7f5e6e233f37a0</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text26</Name>
+              <Page isRef="4" />
+              <Parent isRef="45" />
+              <Text>نقدی</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text26>
+            <Text27 Ref="53" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[214:224:236]</Brush>
+              <ClientRectangle>4.2,0.8,4,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,8,Bold</Font>
+              <Guid>bd4d61e38c334cb5b6fa20d503c6550d</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text27</Name>
+              <Page isRef="4" />
+              <Parent isRef="45" />
+              <Text>غیرنقدی</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text27>
+            <Text30 Ref="54" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[214:224:236]</Brush>
+              <ClientRectangle>0,0.8,4.2,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,8,Bold</Font>
+              <Guid>8e5d3143d9ac49f5ab67778b72ab4a2d</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text30</Name>
+              <Page isRef="4" />
+              <Parent isRef="45" />
+              <Text>جمع صندوق</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text30>
+            <Text31 Ref="55" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[120:192:212]</Brush>
+              <ClientRectangle>0,0.2,12.2,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,9</Font>
+              <Guid>2a880517797347c88ccebc2ac95604d2</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text31</Name>
+              <Page isRef="4" />
+              <Parent isRef="45" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{Payment_Method.PERS_ACTN_DATE}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text31>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <Guid>413de5e8aeea4c18a6d6ca19c111f7b4</Guid>
+          <Name>GroupFooterBand4</Name>
+          <Page isRef="4" />
+          <Parent isRef="4" />
+        </GroupFooterBand4>
       </Components>
       <Conditions isList="true" count="0" />
       <Guid>4a5695fa731348eb8108d93ee8fcb124</Guid>
@@ -462,13 +773,13 @@
       <PageHeight>29.7</PageHeight>
       <PageWidth>14.2</PageWidth>
       <Report isRef="0" />
-      <Watermark Ref="34" type="Stimulsoft.Report.Components.StiWatermark" isKey="true">
+      <Watermark Ref="56" type="Stimulsoft.Report.Components.StiWatermark" isKey="true">
         <Font>Arial,100</Font>
         <TextBrush>[50:0:0:0]</TextBrush>
       </Watermark>
     </Page1>
   </Pages>
-  <PrinterSettings Ref="35" type="Stimulsoft.Report.Print.StiPrinterSettings" isKey="true" />
+  <PrinterSettings Ref="57" type="Stimulsoft.Report.Print.StiPrinterSettings" isKey="true" />
   <ReferencedAssemblies isList="true" count="8">
     <value>System.Dll</value>
     <value>System.Drawing.Dll</value>
@@ -480,10 +791,10 @@
     <value>Stimulsoft.Report.Dll</value>
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
-  <ReportChanged>4/11/2019 11:06:48 AM</ReportChanged>
+  <ReportChanged>8/1/2019 12:55:49 AM</ReportChanged>
   <ReportCreated>11/17/2017 11:30:26 AM</ReportCreated>
   <ReportFile>D:\Project\MyProject\Documents\Report Repository\RPT_SPSM_005_R.mrt</ReportFile>
-  <ReportGuid>c365e874cc37412cafc43fa64820d0d5</ReportGuid>
+  <ReportGuid>391fa987d21440d0a2efefd7a27b3a64</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Centimeters</ReportUnit>
   <ReportVersion>2012.2.1304</ReportVersion>

@@ -162,10 +162,11 @@ namespace System.Scsc.Ui.Admission
          //   RQTT_CODE_LookUpEdit2.Focus();
          //}
          //else if (tb_master.SelectedTab == tp_003)
-         {
-            RqstBs3.AddNew();
-            RqttCode_Lov.Focus();
-         }
+         if(!GustSaveRqst_PickButn.PickChecked)
+            RqstBs3.AddNew();            
+
+         RqttCode_Lov.Focus();
+
       }
 
       //private void LL_MoreInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -801,6 +802,11 @@ namespace System.Scsc.Ui.Admission
             {
                throw new Exception("تاریخ شروع باید از تاریخ پایان کوچکتر با مساوی باشد");
             }
+
+            if (Rqst != null && Rqst.RQID != 0 && NewFngrPrnt_Cb.Checked && NewFngrPrnt_Txt.Text == "")
+            {
+               throw new Exception("کد شناسایی جدید وارد نشده");
+            }
    
             iScsc.UCC_TRQT_P(
                new XElement("Process",
@@ -822,7 +828,8 @@ namespace System.Scsc.Ui.Admission
                            new XAttribute("numbmontofer", NumbMontOfer_TextEdit003.Text ?? "0"),
                            new XAttribute("numbofattnmont", NumbOfAttnMont_TextEdit003.Text ?? "0"),
                            new XAttribute("numbofattnweek", "0"),
-                           new XAttribute("attndaytype", "")
+                           new XAttribute("attndaytype", ""),
+                           new XAttribute("newfngrprnt", NewFngrPrnt_Cb.Checked ? NewFngrPrnt_Txt.Text : "")
                         )
                      )
                   )
@@ -987,6 +994,21 @@ namespace System.Scsc.Ui.Admission
             // ثبت حضوری به صورت اتوماتیک
             if (SaveAttn_PkBt.PickChecked)
                AutoAttn();
+
+            NewFngrPrnt_Cb.Checked = false;
+
+            // 1398/05/10 * ثبت پکیج کلاس ها به صورت گروهی
+            if (GustSaveRqst_PickButn.PickChecked)
+            {
+               _DefaultGateway.Gateway(
+                  new Job(SendType.External, "Localhost",
+                     new List<Job>
+                        {
+                           // new Job(SendType.Self, 64 /* Execute Adm_Totl_F */),
+                           new Job(SendType.SelfToUserInterface, "ADM_TOTL_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "renewcontract"), new XAttribute("enrollnumber", FNGR_PRNT_TextEdit.Text), new XAttribute("formcaller", GetType().Name))}
+                        })
+               );
+            }
 
             requery = true;
          }
@@ -2446,6 +2468,11 @@ namespace System.Scsc.Ui.Admission
          catch
          {
          }
+      }
+
+      private void NewFngrPrnt_Cb_CheckedChanged(object sender, EventArgs e)
+      {
+         NewFngrPrnt_Txt.Visible = NewFngrPrnt_Cb.Checked;
       }
    }
 }

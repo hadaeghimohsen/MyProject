@@ -99,6 +99,7 @@ namespace System.RoboTech.Controller
          throw new NotImplementedException();
       }
 
+
       private async void BotOnMessageReceived(object sender, MessageEventArgs e)
       {         
          if (/*robot.SPY_TYPE == "001"*/ e.Message.Chat.Id > 0)
@@ -136,6 +137,8 @@ namespace System.RoboTech.Controller
 
             if (chat.Message.Chat.Id < 0)
                return;
+
+            //await Bot.SendStickerAsync(chat.Message.Chat.Id, new InputOnlineFile("CAADAgADfQADMNSdEbNrlQPvmhk8FgQ"));
 
 #if DEBUG
             try
@@ -417,7 +420,8 @@ namespace System.RoboTech.Controller
 
             #region Developer Monitor
             if ((chat.Message.Caption != null && (chat.Message.Caption == "*#" || chat.Message.Caption.Substring(0, 2) == "*#")) ||
-               (chat.Message.Text != null && chat.Message.Text.Length >= 2 && (chat.Message.Text == "*#" || chat.Message.Text.Substring(0, 2) == "*#")))
+               (chat.Message.Text != null && chat.Message.Text.Length >= 2 && (chat.Message.Text == "*#" || chat.Message.Text.Substring(0, 2) == "*#")) ||
+               (chat.Message.Sticker != null))
             {
                string fileid = "";
                string filetype = "";
@@ -798,7 +802,7 @@ namespace System.RoboTech.Controller
                   //chat.Runed = true;
                }
             }
-            else if (menucmndtype != null && menucmndtype.CMND_TYPE != null && new List<string> { "001", "002", "003", "004", "005", "006", "007", "008", "009", "010", "011", "012", "013", "014", "015", "016", "017","018", "019", "020" }.Contains(menucmndtype.CMND_TYPE))
+            else if (menucmndtype != null && menucmndtype.CMND_TYPE != null && new List<string> { "001", "002", "003", "004", "005", "006", "007", "008", "009", "010", "011", "012", "013", "014", "015", "016", "017","018", "019", "020", "021", "022", "023", "024", "025" }.Contains(menucmndtype.CMND_TYPE))
             {
                /*
                 * 001 - Location
@@ -821,6 +825,11 @@ namespace System.RoboTech.Controller
                 * 018 - Upload
                 * 019 - Show Upload
                 * 020 - Invite Friend
+                * 021 - Download
+                * 022 - Stickers
+                * 023 - Stickers & Info Text
+                * 024 - Stickers & Image
+                * 025 - Stickers & Image & Info Text
                 */
                if (menucmndtype.CMND_TYPE == "001")
                {
@@ -2178,6 +2187,449 @@ namespace System.RoboTech.Controller
                            });
                   #endregion
                }
+               else if (menucmndtype.CMND_TYPE == "021")
+               {
+                  #region Download
+                  // ارسال فایل عکس
+                  await Bot.SendPhotoAsync(e.Message.Chat.Id,
+                     new InputOnlineFile(new FileStream(string.Format(@"{0}\{1}\{1}.jpg", robot.UP_LOAD_FILE_PATH, e.Message.Chat.Id), FileMode.Open, FileAccess.Read, FileShare.Read), e.Message.Chat.Id.ToString())
+                  );
+                  #endregion
+               }
+               else if (menucmndtype.CMND_TYPE == "022")
+               {
+                  #region Stickers
+                  // 022 - Stickers
+                  chat.Runed = false;
+                  var pics = (from o in iRobotTech.Organs
+                              join r in iRobotTech.Robots on o.OGID equals r.ORGN_OGID
+                              join p in iRobotTech.Organ_Medias on o.OGID equals p.ORGN_OGID
+                              where o.STAT == "002"
+                                    && r.STAT == "002"
+                                    && p.STAT == "002"
+                                    && p.USSD_CODE == menucmndtype.USSD_CODE
+                                    && r.TKON_CODE == Token
+                                    && p.IMAG_TYPE == "007"
+                              orderby p.ORDR
+                              select new { p.FILE_NAME, p.FILE_PATH, p.IMAG_DESC, p.FILE_ID, p.OPID }).ToList();
+
+                  foreach (var pic in pics)
+                  {
+                     dynamic sticker;
+                     if (string.IsNullOrEmpty(pic.FILE_ID))
+                     {
+                        ///***photo = new FileToSend()
+                        ///***{
+                        ///***   Content = new FileStream(pic.FILE_PATH, FileMode.Open, FileAccess.Read, FileShare.Read),
+                        ///***   Filename = pic.FILE_NAME
+                        ///***};
+                        sticker = new InputOnlineFile(new FileStream(pic.FILE_PATH, FileMode.Open, FileAccess.Read, FileShare.Read), pic.FILE_NAME);
+                     }
+                     else
+                     {
+                        ///***photo = new FileToSend(pic.FILE_ID);
+                        sticker = new InputOnlineFile(pic.FILE_ID);
+                     }
+
+                     try
+                     {
+                        //RobotClient.SendChatAction(chat.Message.Chat.Id, ChatActions.Upload_photo);
+                        await Bot.SendStickerAsync(chat.Message.Chat.Id, sticker,
+                           replyToMessageId: chat.Message.MessageId,
+                           replyMarkup:
+                           new ReplyKeyboardMarkup()
+                           {
+                              Keyboard = keyBoardMarkup,
+                              ResizeKeyboard = true,
+                              Selective = true
+                           });
+                     }
+                     catch
+                     {
+                        /*Bot.SendTextMessage(chat.Message.Chat.Id, "ارسال عکس مورد نظر با اشکال مواجه شد. لطفا به بخش پشتیبانی با شماره 09333617031 تماس بگیرید", 
+                           replyToMessageId:
+                           chat.Message.MessageId,
+                           replyMarkup:
+                           new ReplyKeyboardMarkup()
+                           {
+                              Keyboard = keyBoardMarkup,
+                              ResizeKeyboard = true,
+                              Selective = true
+                           });*/
+                     }
+                  }
+                  #endregion
+               }
+               else if (menucmndtype.CMND_TYPE == "023")
+               {
+                  #region Stickers
+                  // 023 - Stickers & Text
+                  chat.Runed = false;
+                  var pics = (from o in iRobotTech.Organs
+                              join r in iRobotTech.Robots on o.OGID equals r.ORGN_OGID
+                              join p in iRobotTech.Organ_Medias on o.OGID equals p.ORGN_OGID
+                              where o.STAT == "002"
+                                    && r.STAT == "002"
+                                    && p.STAT == "002"
+                                    && p.USSD_CODE == menucmndtype.USSD_CODE
+                                    && r.TKON_CODE == Token
+                                    && p.IMAG_TYPE == "007"
+                              orderby p.ORDR
+                              select new { p.FILE_NAME, p.FILE_PATH, p.IMAG_DESC, p.FILE_ID }).ToList();
+
+                  foreach (var pic in pics)
+                  {
+                     dynamic sticker;
+                     if (string.IsNullOrEmpty(pic.FILE_ID))
+                     {
+                        ///***photo = new FileToSend()
+                        ///***{
+                        ///***   Content = new FileStream(pic.FILE_PATH, FileMode.Open, FileAccess.Read, FileShare.Read),
+                        ///***   Filename = pic.FILE_NAME
+                        ///***};
+                        sticker = new InputOnlineFile(new FileStream(pic.FILE_PATH, FileMode.Open, FileAccess.Read, FileShare.Read), pic.FILE_NAME);
+                     }
+                     else
+                     {
+                        ///***photo = new FileToSend(pic.FILE_ID);
+                        sticker = new InputOnlineFile(pic.FILE_ID);
+                     }
+
+                     try
+                     {
+                        await Bot.SendStickerAsync(chat.Message.Chat.Id, sticker,
+                           replyToMessageId: chat.Message.MessageId,
+                           replyMarkup:
+                           new ReplyKeyboardMarkup()
+                           {
+                              Keyboard = keyBoardMarkup,
+                              ResizeKeyboard = true,
+                              Selective = true
+                           });
+                     }
+                     catch
+                     {
+                        //RobotClient.SendMessage(chat.Message.Chat.Id, "ارسال عکس مورد نظر با اشکال مواجه شد. لطفا به بخش پشتیبانی با شماره 09333617031 تماس بگیرید", null, chat.Message.MessageId,
+                        //new ReplyKeyboardMarkup()
+                        //{
+                        //   Keyboard = keyBoardMarkup,
+                        //   ResizeKeyboard = true,
+                        //   Selective = true
+                        //});
+                     }
+                  }
+                  #endregion
+                  #region Info Text
+                  // 005 - Info Text
+                  chat.Runed = false;
+                  var desc = (from o in iRobotTech.Organs
+                              join r in iRobotTech.Robots on o.OGID equals r.ORGN_OGID
+                              join p in iRobotTech.Organ_Descriptions on o.OGID equals p.ORGN_OGID
+                              where o.STAT == "002"
+                                    && r.STAT == "002"
+                                    && p.STAT == "002"
+                                    && p.USSD_CODE == menucmndtype.USSD_CODE
+                                    && r.TKON_CODE == Token
+                                    && p.ITEM_DESC != null
+                              orderby p.ORDR
+                              select new { p.ITEM_VALU, p.ITEM_DESC }).ToList();
+                  string textmsg = "";
+                  foreach (var d in desc)
+                  {
+                     textmsg += string.Format("{1} : {0} \n\r", d.ITEM_VALU, d.ITEM_DESC);
+                     if (keyBoardMarkup != null)
+                        await Bot.SendTextMessageAsync(
+                           chat.Message.Chat.Id,
+                           textmsg,
+                           replyToMessageId:
+                           chat.Message.MessageId,
+                           replyMarkup:
+                           new ReplyKeyboardMarkup()
+                           {
+                              Keyboard = keyBoardMarkup,
+                              ResizeKeyboard = true,
+                              Selective = true
+                           });
+                     textmsg = "";
+                  }
+                  #endregion
+               }
+               else if (menucmndtype.CMND_TYPE == "024")
+               {
+                  #region Stickers
+                  // 024 - Stickers & Image
+                  chat.Runed = false;
+                  var stickers = (from o in iRobotTech.Organs
+                              join r in iRobotTech.Robots on o.OGID equals r.ORGN_OGID
+                              join p in iRobotTech.Organ_Medias on o.OGID equals p.ORGN_OGID
+                              where o.STAT == "002"
+                                    && r.STAT == "002"
+                                    && p.STAT == "002"
+                                    && p.USSD_CODE == menucmndtype.USSD_CODE
+                                    && r.TKON_CODE == Token
+                                    && p.IMAG_TYPE == "007"
+                              orderby p.ORDR
+                              select new { p.FILE_NAME, p.FILE_PATH, p.IMAG_DESC, p.FILE_ID, p.OPID }).ToList();
+
+                  foreach (var pic in stickers)
+                  {
+                     dynamic sticker;
+                     if (string.IsNullOrEmpty(pic.FILE_ID))
+                     {
+                        ///***photo = new FileToSend()
+                        ///***{
+                        ///***   Content = new FileStream(pic.FILE_PATH, FileMode.Open, FileAccess.Read, FileShare.Read),
+                        ///***   Filename = pic.FILE_NAME
+                        ///***};
+                        sticker = new InputOnlineFile(new FileStream(pic.FILE_PATH, FileMode.Open, FileAccess.Read, FileShare.Read), pic.FILE_NAME);
+                     }
+                     else
+                     {
+                        ///***photo = new FileToSend(pic.FILE_ID);
+                        sticker = new InputOnlineFile(pic.FILE_ID);
+                     }
+
+                     try
+                     {
+                        //RobotClient.SendChatAction(chat.Message.Chat.Id, ChatActions.Upload_photo);
+                        await Bot.SendStickerAsync(chat.Message.Chat.Id, sticker,
+                           replyToMessageId: chat.Message.MessageId,
+                           replyMarkup:
+                           new ReplyKeyboardMarkup()
+                           {
+                              Keyboard = keyBoardMarkup,
+                              ResizeKeyboard = true,
+                              Selective = true
+                           });
+                     }
+                     catch
+                     {
+                        /*Bot.SendTextMessage(chat.Message.Chat.Id, "ارسال عکس مورد نظر با اشکال مواجه شد. لطفا به بخش پشتیبانی با شماره 09333617031 تماس بگیرید", 
+                           replyToMessageId:
+                           chat.Message.MessageId,
+                           replyMarkup:
+                           new ReplyKeyboardMarkup()
+                           {
+                              Keyboard = keyBoardMarkup,
+                              ResizeKeyboard = true,
+                              Selective = true
+                           });*/
+                     }
+                  }
+                  #endregion
+                  #region Image
+                  var pics = (from o in iRobotTech.Organs
+                              join r in iRobotTech.Robots on o.OGID equals r.ORGN_OGID
+                              join p in iRobotTech.Organ_Medias on o.OGID equals p.ORGN_OGID
+                              where o.STAT == "002"
+                                    && r.STAT == "002"
+                                    && p.STAT == "002"
+                                    && p.USSD_CODE == menucmndtype.USSD_CODE
+                                    && r.TKON_CODE == Token
+                                    && p.IMAG_DESC != null
+                              orderby p.ORDR
+                              select new { p.FILE_NAME, p.FILE_PATH, p.IMAG_DESC, p.FILE_ID, p.OPID }).ToList();
+
+                  foreach (var pic in pics)
+                  {
+                     dynamic sticker;
+                     if (string.IsNullOrEmpty(pic.FILE_ID))
+                     {
+                        ///***photo = new FileToSend()
+                        ///***{
+                        ///***   Content = new FileStream(pic.FILE_PATH, FileMode.Open, FileAccess.Read, FileShare.Read),
+                        ///***   Filename = pic.FILE_NAME
+                        ///***};
+                        sticker = new InputOnlineFile(new FileStream(pic.FILE_PATH, FileMode.Open, FileAccess.Read, FileShare.Read), pic.FILE_NAME);
+                     }
+                     else
+                     {
+                        ///***photo = new FileToSend(pic.FILE_ID);
+                        sticker = new InputOnlineFile(pic.FILE_ID);
+                     }
+
+                     try
+                     {
+                        //RobotClient.SendChatAction(chat.Message.Chat.Id, ChatActions.Upload_photo);
+                        await Bot.SendPhotoAsync(chat.Message.Chat.Id, sticker, pic.IMAG_DESC,
+                           replyToMessageId: chat.Message.MessageId,
+                           replyMarkup:
+                           new ReplyKeyboardMarkup()
+                           {
+                              Keyboard = keyBoardMarkup,
+                              ResizeKeyboard = true,
+                              Selective = true
+                           });
+                     }
+                     catch
+                     {
+                        /*Bot.SendTextMessage(chat.Message.Chat.Id, "ارسال عکس مورد نظر با اشکال مواجه شد. لطفا به بخش پشتیبانی با شماره 09333617031 تماس بگیرید", 
+                           replyToMessageId:
+                           chat.Message.MessageId,
+                           replyMarkup:
+                           new ReplyKeyboardMarkup()
+                           {
+                              Keyboard = keyBoardMarkup,
+                              ResizeKeyboard = true,
+                              Selective = true
+                           });*/
+                     }
+                  }
+                  #endregion
+               }
+               else if (menucmndtype.CMND_TYPE == "025")
+               {
+                  #region Stickers
+                  // 025 - Stickers & Image & Text
+                  chat.Runed = false;
+                  var stickers = (from o in iRobotTech.Organs
+                              join r in iRobotTech.Robots on o.OGID equals r.ORGN_OGID
+                              join p in iRobotTech.Organ_Medias on o.OGID equals p.ORGN_OGID
+                              where o.STAT == "002"
+                                    && r.STAT == "002"
+                                    && p.STAT == "002"
+                                    && p.USSD_CODE == menucmndtype.USSD_CODE
+                                    && r.TKON_CODE == Token
+                                    && p.IMAG_TYPE == "007"
+                              orderby p.ORDR
+                              select new { p.FILE_NAME, p.FILE_PATH, p.IMAG_DESC, p.FILE_ID }).ToList();
+
+                  foreach (var pic in stickers)
+                  {
+                     dynamic sticker;
+                     if (string.IsNullOrEmpty(pic.FILE_ID))
+                     {
+                        ///***photo = new FileToSend()
+                        ///***{
+                        ///***   Content = new FileStream(pic.FILE_PATH, FileMode.Open, FileAccess.Read, FileShare.Read),
+                        ///***   Filename = pic.FILE_NAME
+                        ///***};
+                        sticker = new InputOnlineFile(new FileStream(pic.FILE_PATH, FileMode.Open, FileAccess.Read, FileShare.Read), pic.FILE_NAME);
+                     }
+                     else
+                     {
+                        ///***photo = new FileToSend(pic.FILE_ID);
+                        sticker = new InputOnlineFile(pic.FILE_ID);
+                     }
+
+                     try
+                     {
+                        await Bot.SendStickerAsync(chat.Message.Chat.Id, sticker,
+                           replyToMessageId: chat.Message.MessageId,
+                           replyMarkup:
+                           new ReplyKeyboardMarkup()
+                           {
+                              Keyboard = keyBoardMarkup,
+                              ResizeKeyboard = true,
+                              Selective = true
+                           });
+                     }
+                     catch
+                     {
+                        //RobotClient.SendMessage(chat.Message.Chat.Id, "ارسال عکس مورد نظر با اشکال مواجه شد. لطفا به بخش پشتیبانی با شماره 09333617031 تماس بگیرید", null, chat.Message.MessageId,
+                        //new ReplyKeyboardMarkup()
+                        //{
+                        //   Keyboard = keyBoardMarkup,
+                        //   ResizeKeyboard = true,
+                        //   Selective = true
+                        //});
+                     }
+                  }
+                  #endregion
+                  #region Image
+                  var pics = (from o in iRobotTech.Organs
+                          join r in iRobotTech.Robots on o.OGID equals r.ORGN_OGID
+                          join p in iRobotTech.Organ_Medias on o.OGID equals p.ORGN_OGID
+                          where o.STAT == "002"
+                                && r.STAT == "002"
+                                && p.STAT == "002"
+                                && p.USSD_CODE == menucmndtype.USSD_CODE
+                                && r.TKON_CODE == Token
+                                && p.IMAG_DESC != null
+                          orderby p.ORDR
+                          select new { p.FILE_NAME, p.FILE_PATH, p.IMAG_DESC, p.FILE_ID, p.OPID }).ToList();
+
+                  foreach (var pic in pics)
+                  {
+                     dynamic sticker;
+                     if (string.IsNullOrEmpty(pic.FILE_ID))
+                     {
+                        ///***photo = new FileToSend()
+                        ///***{
+                        ///***   Content = new FileStream(pic.FILE_PATH, FileMode.Open, FileAccess.Read, FileShare.Read),
+                        ///***   Filename = pic.FILE_NAME
+                        ///***};
+                        sticker = new InputOnlineFile(new FileStream(pic.FILE_PATH, FileMode.Open, FileAccess.Read, FileShare.Read), pic.FILE_NAME);
+                     }
+                     else
+                     {
+                        ///***photo = new FileToSend(pic.FILE_ID);
+                        sticker = new InputOnlineFile(pic.FILE_ID);
+                     }
+
+                     try
+                     {
+                        //RobotClient.SendChatAction(chat.Message.Chat.Id, ChatActions.Upload_photo);
+                        await Bot.SendPhotoAsync(chat.Message.Chat.Id, sticker, pic.IMAG_DESC,
+                           replyToMessageId: chat.Message.MessageId,
+                           replyMarkup:
+                           new ReplyKeyboardMarkup()
+                           {
+                              Keyboard = keyBoardMarkup,
+                              ResizeKeyboard = true,
+                              Selective = true
+                           });
+                     }
+                     catch
+                     {
+                        /*Bot.SendTextMessage(chat.Message.Chat.Id, "ارسال عکس مورد نظر با اشکال مواجه شد. لطفا به بخش پشتیبانی با شماره 09333617031 تماس بگیرید", 
+                           replyToMessageId:
+                           chat.Message.MessageId,
+                           replyMarkup:
+                           new ReplyKeyboardMarkup()
+                           {
+                              Keyboard = keyBoardMarkup,
+                              ResizeKeyboard = true,
+                              Selective = true
+                           });*/
+                     }
+                  }
+                  #endregion
+                  #region Info Text
+                  // 005 - Info Text
+                  chat.Runed = false;
+                  var desc = (from o in iRobotTech.Organs
+                              join r in iRobotTech.Robots on o.OGID equals r.ORGN_OGID
+                              join p in iRobotTech.Organ_Descriptions on o.OGID equals p.ORGN_OGID
+                              where o.STAT == "002"
+                                    && r.STAT == "002"
+                                    && p.STAT == "002"
+                                    && p.USSD_CODE == menucmndtype.USSD_CODE
+                                    && r.TKON_CODE == Token
+                                    && p.ITEM_DESC != null
+                              orderby p.ORDR
+                              select new { p.ITEM_VALU, p.ITEM_DESC }).ToList();
+                  string textmsg = "";
+                  foreach (var d in desc)
+                  {
+                     textmsg += string.Format("{1} : {0} \n\r", d.ITEM_VALU, d.ITEM_DESC);
+                     if (keyBoardMarkup != null)
+                        await Bot.SendTextMessageAsync(
+                           chat.Message.Chat.Id,
+                           textmsg,
+                           replyToMessageId:
+                           chat.Message.MessageId,
+                           replyMarkup:
+                           new ReplyKeyboardMarkup()
+                           {
+                              Keyboard = keyBoardMarkup,
+                              ResizeKeyboard = true,
+                              Selective = true
+                           });
+                     textmsg = "";
+                  }
+                  #endregion
+               }
             }
             else
             {
@@ -3308,7 +3760,9 @@ namespace System.RoboTech.Controller
             }
          }
       }
-      /*private static void BotOnReceiveError(object sender, ReceiveErrorEventArgs receiveErrorEventArgs)
+      
+      /*
+      private static void BotOnReceiveError(object sender, ReceiveErrorEventArgs receiveErrorEventArgs)
       {
          Debugger.Break();
       }
@@ -3317,7 +3771,7 @@ namespace System.RoboTech.Controller
       {
          //Console.WriteLine($"Received choosen inline result: {chosenInlineResultEventArgs.ChosenInlineResult.ResultId}");
       }
-
+      
       private async void BotOnInlineQueryReceived(object sender, InlineQueryEventArgs inlineQueryEventArgs)
       {
          InlineQueryResult[] results = {
@@ -3350,12 +3804,12 @@ namespace System.RoboTech.Controller
 
          await Bot.AnswerInlineQueryAsync(inlineQueryEventArgs.InlineQuery.Id, results, isPersonal: true, cacheTime: 0);
       }
-
+      
       private async void BotOnMessageReceived(object sender, MessageEventArgs messageEventArgs)
       {
          var message = messageEventArgs.Message;
 
-         if (message == null || message.Type != MessageType.TextMessage) return;
+         if (message == null || message.Type != MessageType.Text) return;
 
          if (message.Text.StartsWith("/inline")) // send inline keyboard
          {

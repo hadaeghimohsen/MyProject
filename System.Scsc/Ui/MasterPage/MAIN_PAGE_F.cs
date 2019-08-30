@@ -21,6 +21,7 @@ using libzkfpcsharp;
 using System.Threading;
 using System.Drawing.Imaging;
 using System.IO.Ports;
+using System.Text.RegularExpressions;
 
 namespace System.Scsc.Ui.MasterPage
 {
@@ -209,6 +210,7 @@ namespace System.Scsc.Ui.MasterPage
             iScsc = new Data.iScscDataContext(ConnectionString);
             var barCodeSetting = iScsc.Settings.Where(s => Fga_Uclb_U.Contains(s.CLUB_CODE)).FirstOrDefault();
             var enrollNumber = Sp_Barcode.ReadLine();
+            
             if (enrollNumber.IndexOf('\r') != -1)
                enrollNumber = enrollNumber.Substring(0, enrollNumber.IndexOf('\r')).ToUpper();
             else
@@ -216,6 +218,8 @@ namespace System.Scsc.Ui.MasterPage
 
             if (enrollNumber.IndexOf(' ') != -1)
                enrollNumber = enrollNumber.Replace(" ", "");
+
+            //enrollNumber = Regex.Replace(enrollNumber, "[^a-zA-Z][^0-9]", "");
 
             //1397/09/28 * مشخص کردن نوع ثبت حضور و غیاب که با دستگاه یا دستی
             attnsystype = "002";
@@ -261,6 +265,7 @@ namespace System.Scsc.Ui.MasterPage
             iScsc = new Data.iScscDataContext(ConnectionString);
             var barCodeSetting = iScsc.Settings.Where(s => Fga_Uclb_U.Contains(s.CLUB_CODE)).FirstOrDefault();
             var enrollNumber = Sp_GateAttn.ReadLine();
+            
             if (enrollNumber.IndexOf('\r') != -1)
                enrollNumber = enrollNumber.Substring(0, enrollNumber.IndexOf('\r')).ToUpper();
             else
@@ -268,6 +273,8 @@ namespace System.Scsc.Ui.MasterPage
 
             if (enrollNumber.IndexOf(' ') != -1)
                enrollNumber = enrollNumber.Replace(" ", "");
+
+            //enrollNumber = Regex.Replace(enrollNumber, "[^a-zA-Z][^0-9]", "");
 
             //1397/09/28 * مشخص کردن نوع ثبت حضور و غیاب که با دستگاه یا دستی
             attnsystype = "002";
@@ -1447,19 +1454,6 @@ namespace System.Scsc.Ui.MasterPage
          catch (Exception exc) { MessageBox.Show(exc.Message); }
       }
 
-      private void axCZKEM3_OnAttTransactionEx(string EnrollNumber, int IsInValid, int AttState, int VerifyMethod, int Year, int Month, int Day, int Hour, int Minute, int Second, int WorkCode)
-      {
-         try
-         {
-            if (InvokeRequired)
-               Invoke(new Action(() => OnOpenDresser(EnrollNumber)));
-            else
-               OnOpenDresser(EnrollNumber);
-            return;
-         }
-         catch (Exception exc) { MessageBox.Show(exc.Message); }
-      }
-
       private void OnAttTransactionEx(string EnrollNumber)
       {
          try
@@ -1802,35 +1796,6 @@ namespace System.Scsc.Ui.MasterPage
          catch (Exception exc) { MessageBox.Show(exc.Message); }
       }
 
-      private void OnOpenDresser(string EnrollNumber)
-      {
-         try
-         {
-            // شماره کد انگشتی را وارد باکس میکنیم
-            OnlineDres_Butn.Text = EnrollNumber;
-
-            // ابتدا پیدا میکنیم که امروز کدام ردیف حضور و غیاب را داریم
-            var attncode = iScsc.Attendances.Where(a => a.FNGR_PRNT_DNRM == EnrollNumber && a.ATTN_DATE.Date == DateTime.Now.Date && a.EXIT_TIME == null).Max(a => a.CODE);
-
-            // ثبت ساعت باز کردن کمد            
-            iScsc.INS_DART_P(attncode, null);
-
-            // اینجا باید شماره سریال پورت را پیدا کنیم و پیام را بهش ارسال کنیم
-            var dresrattn = iScsc.Dresser_Attendances.FirstOrDefault(da => da.ATTN_CODE == attncode);
-
-            // پیدا کردن پورت برای ارسال
-            var ports = OnlineDres_Butn.Tag as List<SerialPort>;
-            var port = ports.FirstOrDefault(p => p.PortName == dresrattn.Dresser.COMM_PORT);
-            port.Write(dresrattn.Attendance.DERS_NUMB.ToString());
-
-            BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Green;
-         }
-         catch (Exception exc)
-         {
-            BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Red;
-         }
-      }
-
       void Stop_FingerPrint()
       {
          if (Fp1DevIsConnected)
@@ -1974,11 +1939,13 @@ namespace System.Scsc.Ui.MasterPage
             var result = axCZKEM1.GetUserTmpExStr(1, enrollid, 6, out flag, out tmpData, out tmplen);
             if (Fp2DevIsConnected)
             {
+               //MessageBox.Show("2nd Device Enrolling");
                result = axCZKEM2.SSR_SetUserInfo(1, enrollid, "", "", 0, true);
                result = axCZKEM2.SetUserTmpExStr(1, enrollid, 6, flag, tmpData);
             }
             if (Fp3DevIsConnected)
             {
+               //MessageBox.Show("3rd Device Enrolling");
                result = axCZKEM3.SSR_SetUserInfo(1, enrollid, "", "", 0, true);
                result = axCZKEM3.SetUserTmpExStr(1, enrollid, 6, flag, tmpData);
             }
@@ -2070,6 +2037,66 @@ namespace System.Scsc.Ui.MasterPage
                );
          }
          catch { BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Red; }
+      }
+
+      private void OnOpenDresser(string EnrollNumber)
+      {
+         try
+         {            
+            // شماره کد انگشتی را وارد باکس میکنیم
+            OnlineDres_Butn.Focus();
+            OnlineDres_Butn.Text = EnrollNumber;
+
+            // ابتدا پیدا میکنیم که امروز کدام ردیف حضور و غیاب را داریم
+            var attncode = iScsc.Attendances.Where(a => a.FNGR_PRNT_DNRM == EnrollNumber && a.ATTN_DATE.Date == DateTime.Now.Date && a.EXIT_TIME == null).Max(a => a.CODE);
+
+            // ثبت ساعت باز کردن کمد            
+            iScsc.INS_DART_P(attncode, null);
+
+            // اینجا باید شماره سریال پورت را پیدا کنیم و پیام را بهش ارسال کنیم
+            var dresrattn = iScsc.Dresser_Attendances.FirstOrDefault(da => da.ATTN_CODE == attncode);
+
+            // پیدا کردن پورت برای ارسال
+            var ports = OnlineDres_Butn.Tag as List<SerialPort>;
+            var port = ports.FirstOrDefault(p => p.PortName == dresrattn.Dresser.COMM_PORT);
+            port.Write(dresrattn.Attendance.DERS_NUMB.ToString());
+
+            BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Green;
+         }
+         catch (Exception exc)
+         {
+            BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Red;
+         }
+      }
+
+      private void axCZKEM3_OnAttTransactionEx(string EnrollNumber, int IsInValid, int AttState, int VerifyMethod, int Year, int Month, int Day, int Hour, int Minute, int Second, int WorkCode)
+      {
+         try
+         {
+            if (InvokeRequired)
+               Invoke(new Action(() => OnOpenDresser(EnrollNumber)));
+            else
+               OnOpenDresser(EnrollNumber);
+            return;
+         }
+         catch (Exception exc) { MessageBox.Show(exc.Message); }
+      }
+
+      private void SendOprtDresser(string portName, string cmndName)
+      {
+         try
+         {
+            // پیدا کردن پورت برای ارسال
+            var ports = OnlineDres_Butn.Tag as List<SerialPort>;
+            var port = ports.FirstOrDefault(p => p.PortName == portName);
+            port.Write(cmndName);
+
+            BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Green;
+         }
+         catch (Exception exc)
+         {
+            BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Red;
+         }
       }
       #endregion
 
@@ -3483,6 +3510,43 @@ namespace System.Scsc.Ui.MasterPage
          try
          {
 
+            #region ShortCut InCome 
+            // Men
+            if (e.Button.Index == 5)
+            {
+               var figh = iScsc.Fighters.FirstOrDefault(f => f.FGPB_TYPE_DNRM == "005" && f.SEX_TYPE_DNRM == "001" && f.FIGH_STAT == "002");
+
+               if (figh == null) return;
+
+               _DefaultGateway.Gateway(
+                  new Job(SendType.External, "Localhost",
+                        new List<Job>
+                        {                  
+                           new Job(SendType.Self, 92 /* Execute Oic_Totl_F */),
+                           new Job(SendType.SelfToUserInterface, "OIC_TOTL_F", 10 /* Execute Actn_CalF_F */){Input = new XElement("Request", new XAttribute("type", "01"), new XElement("Request_Row", new XAttribute("fileno", figh.FILE_NO)))}
+                        })
+               );
+               return;
+            }
+            // Women
+            else if (e.Button.Index == 6)
+            {
+               var figh = iScsc.Fighters.FirstOrDefault(f => f.FGPB_TYPE_DNRM == "005" && f.SEX_TYPE_DNRM == "002" && f.FIGH_STAT == "002");
+
+               if (figh == null) return;
+
+               _DefaultGateway.Gateway(
+                  new Job(SendType.External, "Localhost",
+                        new List<Job>
+                        {                  
+                           new Job(SendType.Self, 92 /* Execute Oic_Totl_F */),
+                           new Job(SendType.SelfToUserInterface, "OIC_TOTL_F", 10 /* Execute Actn_CalF_F */){Input = new XElement("Request", new XAttribute("type", "01"), new XElement("Request_Row", new XAttribute("fileno", figh.FILE_NO)))}
+                        })
+               );
+               return;
+            }
+            #endregion
+
             if (CardNumb_Text.Text == "")
             {
                if (FngrPrnt_Txt.Text == "") return;
@@ -3536,7 +3600,7 @@ namespace System.Scsc.Ui.MasterPage
                            new Job(SendType.SelfToUserInterface, "OIC_TOTL_F", 10 /* Execute Actn_CalF_F */){Input = new XElement("Request", new XAttribute("type", "01"), new XElement("Request_Row", new XAttribute("fileno", figh.FILE_NO)))}
                         })
                );
-            }
+            }            
          }
          catch (Exception )
          { CardNumb_Text.Text = ""; }
@@ -3946,7 +4010,8 @@ namespace System.Scsc.Ui.MasterPage
                      new Job(SendType.External, "Localhost",
                         new List<Job>
                         {
-                           new Job(SendType.Self, 160 /* Execute Mngr_Dres_F */),                           
+                           new Job(SendType.Self, 160 /* Execute Mngr_Dres_F */),
+                           new Job(SendType.SelfToUserInterface, "MNGR_DRES_F", 10 /* Execute MNGR_DRES_F*/ )
                         })
                   );
                   break;
@@ -3958,6 +4023,56 @@ namespace System.Scsc.Ui.MasterPage
          {
             MessageBox.Show(exc.Message);
          }
+      }
+
+      private void tol_closegatebutn_ItemClick(object sender, ItemClickEventArgs e)
+      {
+         _DefaultGateway.Gateway(
+            new Job(SendType.External, "localhost",
+               new List<Job>
+               {
+                  //new Job(SendType.SelfToUserInterface, GetType().Name, 00 /* Execute ProcessCmdKey */){Input = Keys.Escape},
+                  new Job(SendType.SelfToUserInterface, GetType().Name, 10 /* Execute Actn_CalF_F */)
+                  {
+                     Input = 
+                        new XElement("MainPage",
+                           new XAttribute("type", "gatecontrol"),
+                           new XAttribute("gateactn", "close")
+                        )
+                  }
+               }
+            )
+         );
+      }
+
+      private void tol_opengatebutn_ItemClick(object sender, ItemClickEventArgs e)
+      {
+         _DefaultGateway.Gateway(
+            new Job(SendType.External, "localhost",
+               new List<Job>
+               {
+                  //new Job(SendType.SelfToUserInterface, GetType().Name, 00 /* Execute ProcessCmdKey */){Input = Keys.Escape},
+                  new Job(SendType.SelfToUserInterface, GetType().Name, 10 /* Execute Actn_CalF_F */)
+                  {
+                     Input = 
+                        new XElement("MainPage",
+                           new XAttribute("type", "gatecontrol"),
+                           new XAttribute("gateactn", "open")
+                        )
+                  }
+               }
+            )
+         );
+      }
+
+      private void OpenGate_Tsm_Click(object sender, EventArgs e)
+      {
+         tol_opengatebutn_ItemClick(null, null);
+      }
+
+      private void CloseGate_Tsm_Click(object sender, EventArgs e)
+      {
+         tol_closegatebutn_ItemClick(null, null);
       }
    }
 }

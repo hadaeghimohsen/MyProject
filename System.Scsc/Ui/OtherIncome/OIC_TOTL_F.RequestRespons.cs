@@ -23,6 +23,7 @@ namespace System.Scsc.Ui.OtherIncome
       private string formCaller = "";
       private long rqstRqid = 0;
       string fileno = "";
+      private string CurrentUser;
 
       public void SendRequest(Job job)
       {
@@ -211,6 +212,7 @@ namespace System.Scsc.Ui.OtherIncome
          Fga_Uprv_U = iScsc.FGA_UPRV_U() ?? "";
          Fga_Urgn_U = iScsc.FGA_URGN_U() ?? "";
          Fga_Uclb_U = (iScsc.FGA_UCLB_U() ?? "").Split(',').Select(c => (long?)Int64.Parse(c)).ToList();
+         CurrentUser = iScsc.GET_CRNTUSER_U(new XElement("User", new XAttribute("actntype", "001")));
 
          var GetHostInfo = new Job(SendType.External, "Localhost", "Commons", 24 /* Execute DoWork4GetHosInfo */, SendType.Self);
          _DefaultGateway.Gateway(GetHostInfo);

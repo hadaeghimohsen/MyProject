@@ -33,7 +33,7 @@ namespace System.Scsc.Ui.OtherIncome
             iScsc = new Data.iScscDataContext(ConnectionString);
             int pydt = PydtsBs1.Position;
 
-            var Rqids = iScsc.VF_Requests(new XElement("Request"))
+            var Rqids = iScsc.VF_Requests(new XElement("Request", new XAttribute("cretby", ShowRqst_PickButn.PickChecked ? CurrentUser : "")))
                .Where(rqst =>
                      rqst.RQTP_CODE == "016" &&
                      rqst.RQST_STAT == "001" &&
@@ -292,6 +292,21 @@ namespace System.Scsc.Ui.OtherIncome
                )
             );
             //OldRecdBs1.List.Clear();
+            // 1398/04/03 * به درخواست باشگاه بهاران خانم نقیبی قرار شد برای مشتریان مهمان گزینه ای اضافه کنیم که مدام بعد از اتمام درخواست از فرم خارج نشوند
+            //  برای اینکار ما بایستی گزینه ای طراحی کنیم که اگر فعال باشد بتوانیم مشخص کنیم که اگر هنرجو مهمان هست دوباره درخواست دیگیری برای ان ثبت شود
+            if(GustSaveRqst_PickButn.PickChecked)
+            {
+               if(FighsBs1.List.OfType<Data.Fighter>().Any(f => f.FILE_NO ==  Rqst.Request_Rows.FirstOrDefault().FIGH_FILE_NO && f.FGPB_TYPE_DNRM == "005"))
+               {
+                  if (RqstBs1.Count > 0)
+                     RqstBs1.AddNew();
+
+                  FILE_NO_LookUpEdit.EditValue = Rqst.Request_Rows.FirstOrDefault().FIGH_FILE_NO;
+
+                  Btn_RqstBnARqt1_Click(null, null);
+               }
+            }
+
             requery = true;
          }catch(Exception ex)
          {
@@ -308,7 +323,10 @@ namespace System.Scsc.Ui.OtherIncome
                if (RqstBs1.List.Count == 0)
                   RqstBnExit1_Click(null, null);
                else
-                  Create_Record();
+               {
+                  if(!GustSaveRqst_PickButn.PickChecked)
+                     Create_Record();
+               }
                requery = false;
             }
          }
@@ -497,6 +515,13 @@ namespace System.Scsc.Ui.OtherIncome
                   MessageBox.Show(this, "تمام هزینه های بدهی مشتری پرداخت شده");
                   return;
                }*/
+
+               // 1398/04/03 * اگر فاکتور فاقد آیتم هزینه باشد اجازه ثبت در سیستم را نداریم
+               if(PydtsBs1.List.Count == 0)
+               {
+                  MessageBox.Show(this, "فاکتور بدون آیتم هزینه می باشد، لطفا آیتم مورد نظر خود را انتخاب کنید");
+                  return;
+               }
 
                foreach (Data.Payment pymt in PymtsBs1)
                {
@@ -696,6 +721,13 @@ namespace System.Scsc.Ui.OtherIncome
 
                if (VPosBs1.List.Count == 0)
                   UsePos_Cb.Checked = false;
+
+               // 1398/04/03 * اگر فاکتور فاقد آیتم هزینه باشد اجازه ثبت در سیستم را نداریم
+               if (PydtsBs1.List.Count == 0)
+               {
+                  MessageBox.Show(this, "فاکتور بدون آیتم هزینه می باشد، لطفا آیتم مورد نظر خود را انتخاب کنید");
+                  return;
+               }
 
                if (UsePos_Cb.Checked)
                {
@@ -899,6 +931,12 @@ namespace System.Scsc.Ui.OtherIncome
                if (rqst == null) return;
                var pymt = PymtsBs1.Current as Data.Payment;
 
+               // 1398/04/03 * اگر فاکتور فاقد آیتم هزینه باشد اجازه ثبت در سیستم را نداریم
+               if (PydtsBs1.List.Count == 0)
+               {
+                  MessageBox.Show(this, "فاکتور بدون آیتم هزینه می باشد، لطفا آیتم مورد نظر خود را انتخاب کنید");
+                  return;
+               }
 
                /* Loop For Print After Pay */
                RqstBnPrintAfterPay_Click(null, null);
@@ -1653,6 +1691,11 @@ namespace System.Scsc.Ui.OtherIncome
       private void Expn_Gv_DoubleClick(object sender, EventArgs e)
       {
          AddItem_ButtonClick(null, null);
+      }
+
+      private void ShowRqst_PickButn_PickCheckedChange(object sender)
+      {
+         Execute_Query();
       }
    }
 }

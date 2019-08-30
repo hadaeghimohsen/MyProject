@@ -113,7 +113,7 @@ namespace System.Scsc.Ui.Common
          else if (keyData == Keys.Escape)
          {
             job.Next =
-               new Job(SendType.SelfToUserInterface, "LSI_FLDF_F", 04 /* Execute UnPaint */);
+               new Job(SendType.SelfToUserInterface, /*"LSI_FLDF_F"*/GetType().Name, 04 /* Execute UnPaint */);
          }
          else if (keyData == (Keys.Control | Keys.F2))
          {

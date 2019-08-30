@@ -465,6 +465,12 @@ namespace MyProject.Programs.Ui
       {
          List<object> input = job.Input as List<object>;
 
+         if(_ActiveUI.Count == 0)
+         {
+            job.Status = StatusType.Successful;
+            return;
+         }
+         
          var crntobj = _ActiveUI.FirstOrDefault().Ui;
          if (crntobj == input[1] as UserControl)
          {

@@ -38,6 +38,7 @@
          this.LL_SmsSendWebService = new System.Windows.Forms.LinkLabel();
          this.SmsBn = new System.Windows.Forms.BindingNavigator(this.components);
          this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
+         this.SmsBs = new System.Windows.Forms.BindingSource(this.components);
          this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
          this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
          this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
@@ -68,7 +69,6 @@
          this.linkLabel1 = new System.Windows.Forms.LinkLabel();
          this.SmsApp_Butn = new System.Windows.Forms.PictureBox();
          this.Btn_Back = new System.MaxUi.NewMaxBtn();
-         this.SmsBs = new System.Windows.Forms.BindingSource(this.components);
          this.TelegramBs = new System.Windows.Forms.BindingSource(this.components);
          this.label6 = new System.Windows.Forms.Label();
          this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
@@ -76,10 +76,10 @@
          this.HostBs = new System.Windows.Forms.BindingSource(this.components);
          ((System.ComponentModel.ISupportInitialize)(this.SmsBn)).BeginInit();
          this.SmsBn.SuspendLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.SmsBs)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.Ts_SmsWorkerStat.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.Ts_SmsBgwkStat.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.SmsApp_Butn)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.SmsBs)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.TelegramBs)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.Host_Lov.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.HostBs)).BeginInit();
@@ -194,6 +194,11 @@
          this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
          this.bindingNavigatorAddNewItem.Text = "Add new";
          this.bindingNavigatorAddNewItem.Visible = false;
+         // 
+         // SmsBs
+         // 
+         this.SmsBs.DataSource = typeof(System.MessageBroadcast.Data.Message_Broad_Setting);
+         this.SmsBs.CurrentChanged += new System.EventHandler(this.SmsBs_CurrentChanged);
          // 
          // bindingNavigatorCountItem
          // 
@@ -549,11 +554,6 @@
          this.Btn_Back.TextFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)), true);
          this.Btn_Back.Click += new System.EventHandler(this.Btn_Back_Click);
          // 
-         // SmsBs
-         // 
-         this.SmsBs.DataSource = typeof(System.MessageBroadcast.Data.Message_Broad_Setting);
-         this.SmsBs.CurrentChanged += new System.EventHandler(this.SmsBs_CurrentChanged);
-         // 
          // TelegramBs
          // 
          this.TelegramBs.DataSource = typeof(System.MessageBroadcast.Data.Message_Broad_Setting);
@@ -649,10 +649,10 @@
          ((System.ComponentModel.ISupportInitialize)(this.SmsBn)).EndInit();
          this.SmsBn.ResumeLayout(false);
          this.SmsBn.PerformLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.SmsBs)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.Ts_SmsWorkerStat.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.Ts_SmsBgwkStat.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.SmsApp_Butn)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.SmsBs)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.TelegramBs)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.Host_Lov.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.HostBs)).EndInit();

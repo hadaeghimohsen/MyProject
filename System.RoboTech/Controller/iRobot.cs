@@ -2190,9 +2190,9 @@ namespace System.RoboTech.Controller
                else if (menucmndtype.CMND_TYPE == "021")
                {
                   #region Download
-                  // ارسال فایل عکس
-                  await Bot.SendPhotoAsync(e.Message.Chat.Id,
-                     new InputOnlineFile(new FileStream(string.Format(@"{0}\{1}\{1}.jpg", robot.UP_LOAD_FILE_PATH, e.Message.Chat.Id), FileMode.Open, FileAccess.Read, FileShare.Read), e.Message.Chat.Id.ToString())
+                  // ارسال فایل
+                  await Bot.SendDocumentAsync(e.Message.Chat.Id,
+                     new InputOnlineFile(new FileStream(string.Format(@"{0}\{1}\{1}.pdf", robot.UP_LOAD_FILE_PATH, e.Message.Chat.Id), FileMode.Open, FileAccess.Read, FileShare.Read), e.Message.Chat.Id.ToString())
                   );
                   #endregion
                }

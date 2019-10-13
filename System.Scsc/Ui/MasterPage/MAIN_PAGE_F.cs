@@ -219,7 +219,7 @@ namespace System.Scsc.Ui.MasterPage
             if (enrollNumber.IndexOf(' ') != -1)
                enrollNumber = enrollNumber.Replace(" ", "");
 
-            //enrollNumber = Regex.Replace(enrollNumber, "[^a-zA-Z][^0-9]", "");
+            enrollNumber = Regex.Replace(enrollNumber, "[^a-zA-Z][^0-9]", "");
 
             //1397/09/28 * مشخص کردن نوع ثبت حضور و غیاب که با دستگاه یا دستی
             attnsystype = "002";
@@ -274,7 +274,7 @@ namespace System.Scsc.Ui.MasterPage
             if (enrollNumber.IndexOf(' ') != -1)
                enrollNumber = enrollNumber.Replace(" ", "");
 
-            //enrollNumber = Regex.Replace(enrollNumber, "[^a-zA-Z][^0-9]", "");
+            enrollNumber = Regex.Replace(enrollNumber, "[^a-zA-Z][^0-9]", "");
 
             //1397/09/28 * مشخص کردن نوع ثبت حضور و غیاب که با دستگاه یا دستی
             attnsystype = "002";

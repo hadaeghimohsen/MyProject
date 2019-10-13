@@ -812,6 +812,7 @@ namespace System.Scsc.Ui.MessageBroadcast
             CochBs1.DataSource = iScsc.Fighters.Where(c => c.CONF_STAT == "002" && (c.FGPB_TYPE_DNRM == "002" || c.FGPB_TYPE_DNRM == "003"));
             //FighBs1.DataSource = iScsc.Fighters.Where(f => f.CONF_STAT == "002" && !(f.FGPB_TYPE_DNRM == "002" || f.FGPB_TYPE_DNRM == "003") && Convert.ToInt32(f.ACTV_TAG_DNRM) >= 101);
             MtodBs1.DataSource = iScsc.Methods;
+            AmntTypeDesc_Lb.Text = iScsc.D_ATYPs.FirstOrDefault(d => d.VALU == iScsc.Regulations.Where(rg => rg.REGL_STAT == "002" && rg.TYPE == "001").FirstOrDefault().AMNT_TYPE).DOMN_DESC;
             isFirstLoaded = true;
          }
 

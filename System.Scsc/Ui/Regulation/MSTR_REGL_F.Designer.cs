@@ -130,6 +130,7 @@
          this.RqstBnAResn1 = new System.Windows.Forms.ToolStripButton();
          this.RqstBnADoc1 = new System.Windows.Forms.ToolStripButton();
          this.RqstBnRegl01 = new System.Windows.Forms.ToolStripButton();
+         this.InsrPric_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
          ((System.ComponentModel.ISupportInitialize)(this.dRGTPBindingSource)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.regulationBindingSource)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.dACTVBindingSource)).BeginInit();
@@ -280,7 +281,7 @@
          this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
          this.label4.BackColor = System.Drawing.Color.Orange;
          this.label4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-         this.label4.Location = new System.Drawing.Point(459, 464);
+         this.label4.Location = new System.Drawing.Point(408, 464);
          this.label4.Name = "label4";
          this.label4.Size = new System.Drawing.Size(20, 20);
          this.label4.TabIndex = 14;
@@ -290,7 +291,7 @@
          this.ReglAcnt_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
          this.ReglAcnt_Lb.AutoSize = true;
          this.ReglAcnt_Lb.BackColor = System.Drawing.Color.Transparent;
-         this.ReglAcnt_Lb.Location = new System.Drawing.Point(349, 446);
+         this.ReglAcnt_Lb.Location = new System.Drawing.Point(298, 446);
          this.ReglAcnt_Lb.Name = "ReglAcnt_Lb";
          this.ReglAcnt_Lb.Size = new System.Drawing.Size(104, 13);
          this.ReglAcnt_Lb.TabIndex = 12;
@@ -301,7 +302,7 @@
          this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
          this.label2.BackColor = System.Drawing.Color.Lime;
          this.label2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-         this.label2.Location = new System.Drawing.Point(459, 441);
+         this.label2.Location = new System.Drawing.Point(408, 441);
          this.label2.Name = "label2";
          this.label2.Size = new System.Drawing.Size(20, 20);
          this.label2.TabIndex = 15;
@@ -311,7 +312,7 @@
          this.ReglPymt_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
          this.ReglPymt_Lb.AutoSize = true;
          this.ReglPymt_Lb.BackColor = System.Drawing.Color.Transparent;
-         this.ReglPymt_Lb.Location = new System.Drawing.Point(356, 468);
+         this.ReglPymt_Lb.Location = new System.Drawing.Point(305, 468);
          this.ReglPymt_Lb.Name = "ReglPymt_Lb";
          this.ReglPymt_Lb.Size = new System.Drawing.Size(97, 13);
          this.ReglPymt_Lb.TabIndex = 13;
@@ -338,7 +339,7 @@
             this.LV_REGLSTAT,
             this.HL_INVSREGL,
             this.repositoryItemLookUpEdit1});
-         this.regulationGridControl.Size = new System.Drawing.Size(1186, 216);
+         this.regulationGridControl.Size = new System.Drawing.Size(1135, 216);
          this.regulationGridControl.TabIndex = 9;
          this.regulationGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.GV_REGL});
@@ -369,7 +370,8 @@
             this.MdfyBy_Clm,
             this.MdfyDate_Clm,
             this.colINVS_REGL,
-            this.AmntType_Clm});
+            this.AmntType_Clm,
+            this.InsrPric_Clm});
          styleFormatCondition1.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
          styleFormatCondition1.Appearance.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
          styleFormatCondition1.Appearance.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
@@ -624,7 +626,7 @@
          this.CretBy_Clm.FieldName = "CRET_BY";
          this.CretBy_Clm.Name = "CretBy_Clm";
          this.CretBy_Clm.Visible = true;
-         this.CretBy_Clm.VisibleIndex = 13;
+         this.CretBy_Clm.VisibleIndex = 14;
          this.CretBy_Clm.Width = 90;
          // 
          // CretDate_Clm
@@ -634,7 +636,7 @@
          this.CretDate_Clm.FieldName = "CRET_DATE";
          this.CretDate_Clm.Name = "CretDate_Clm";
          this.CretDate_Clm.Visible = true;
-         this.CretDate_Clm.VisibleIndex = 14;
+         this.CretDate_Clm.VisibleIndex = 15;
          this.CretDate_Clm.Width = 90;
          // 
          // PDT_CRETDATE
@@ -655,7 +657,7 @@
          this.MdfyBy_Clm.FieldName = "MDFY_BY";
          this.MdfyBy_Clm.Name = "MdfyBy_Clm";
          this.MdfyBy_Clm.Visible = true;
-         this.MdfyBy_Clm.VisibleIndex = 15;
+         this.MdfyBy_Clm.VisibleIndex = 16;
          this.MdfyBy_Clm.Width = 102;
          // 
          // MdfyDate_Clm
@@ -665,7 +667,7 @@
          this.MdfyDate_Clm.FieldName = "MDFY_DATE";
          this.MdfyDate_Clm.Name = "MdfyDate_Clm";
          this.MdfyDate_Clm.Visible = true;
-         this.MdfyDate_Clm.VisibleIndex = 16;
+         this.MdfyDate_Clm.VisibleIndex = 17;
          this.MdfyDate_Clm.Width = 76;
          // 
          // PDT_MDFYDATE
@@ -759,7 +761,7 @@
          this.PNL_REGL.Controls.Add(this.Spn_Year);
          this.PNL_REGL.Controls.Add(this.Dat_LettDate);
          this.PNL_REGL.Controls.Add(this.Lov_ReglType);
-         this.PNL_REGL.Location = new System.Drawing.Point(485, 331);
+         this.PNL_REGL.Location = new System.Drawing.Point(434, 331);
          this.PNL_REGL.Name = "PNL_REGL";
          this.PNL_REGL.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
          this.PNL_REGL.Size = new System.Drawing.Size(704, 156);
@@ -1012,7 +1014,7 @@
          this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
          this.panel1.Location = new System.Drawing.Point(0, 0);
          this.panel1.Name = "panel1";
-         this.panel1.Size = new System.Drawing.Size(1192, 59);
+         this.panel1.Size = new System.Drawing.Size(1141, 59);
          this.panel1.TabIndex = 19;
          // 
          // TitlForm_Lb
@@ -1023,9 +1025,9 @@
          this.TitlForm_Lb.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.TitlForm_Lb.Dock = System.Windows.Forms.DockStyle.Right;
          this.TitlForm_Lb.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.TitlForm_Lb.Location = new System.Drawing.Point(778, 0);
+         this.TitlForm_Lb.Location = new System.Drawing.Point(920, 0);
          this.TitlForm_Lb.Name = "TitlForm_Lb";
-         this.TitlForm_Lb.Size = new System.Drawing.Size(353, 59);
+         this.TitlForm_Lb.Size = new System.Drawing.Size(160, 59);
          this.TitlForm_Lb.TabIndex = 1;
          this.TitlForm_Lb.Text = "آیین نامه";
          // 
@@ -1036,7 +1038,7 @@
          this.Back_Butn.Dock = System.Windows.Forms.DockStyle.Right;
          this.Back_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1371;
          this.Back_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.Back_Butn.Location = new System.Drawing.Point(1131, 0);
+         this.Back_Butn.Location = new System.Drawing.Point(1080, 0);
          this.Back_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.Back_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.Back_Butn.Name = "Back_Butn";
@@ -1078,7 +1080,7 @@
          this.RqstBn1.Name = "RqstBn1";
          this.RqstBn1.PositionItem = this.toolStripTextBox1;
          this.RqstBn1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-         this.RqstBn1.Size = new System.Drawing.Size(1192, 47);
+         this.RqstBn1.Size = new System.Drawing.Size(1141, 47);
          this.RqstBn1.TabIndex = 27;
          this.RqstBn1.Text = "bindingNavigator1";
          // 
@@ -1096,7 +1098,7 @@
          // toolStripLabel1
          // 
          this.toolStripLabel1.Name = "toolStripLabel1";
-         this.toolStripLabel1.Size = new System.Drawing.Size(35, 44);
+         this.toolStripLabel1.Size = new System.Drawing.Size(34, 44);
          this.toolStripLabel1.Text = "of {0}";
          this.toolStripLabel1.ToolTipText = "Total number of items";
          // 
@@ -1273,6 +1275,14 @@
          this.RqstBnRegl01.Text = "toolStripButton1";
          this.RqstBnRegl01.Visible = false;
          // 
+         // InsrPric_Clm
+         // 
+         this.InsrPric_Clm.Caption = "مبلغ بیمه";
+         this.InsrPric_Clm.FieldName = "INSR_PRIC";
+         this.InsrPric_Clm.Name = "InsrPric_Clm";
+         this.InsrPric_Clm.Visible = true;
+         this.InsrPric_Clm.VisibleIndex = 13;
+         // 
          // MSTR_REGL_F
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1291,7 +1301,7 @@
          this.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.Name = "MSTR_REGL_F";
          this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-         this.Size = new System.Drawing.Size(1192, 495);
+         this.Size = new System.Drawing.Size(1141, 495);
          ((System.ComponentModel.ISupportInitialize)(this.dRGTPBindingSource)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.regulationBindingSource)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.dACTVBindingSource)).EndInit();
@@ -1431,5 +1441,6 @@
       private Windows.Forms.Label LettOwnr_Lb;
       private Windows.Forms.Label LettNo_Lb;
       private Windows.Forms.Label Year_Lb;
+      private DevExpress.XtraGrid.Columns.GridColumn InsrPric_Clm;
    }
 }

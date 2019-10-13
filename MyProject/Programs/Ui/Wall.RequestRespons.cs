@@ -81,6 +81,9 @@ namespace MyProject.Programs.Ui
             case 21:
                GetToggleStat(job);
                break;
+            case 22:
+               SetSystemNotification(job);
+               break;
             default: break;
          }
       }
@@ -563,6 +566,23 @@ namespace MyProject.Programs.Ui
       private void GetToggleStat(Job job)
       {
          job.Output = toggleMode;
+         job.Status = StatusType.Successful;
+      }
+
+      /// <summary>
+      /// Code 22
+      /// </summary>
+      /// <param name="job"></param>
+      private void SetSystemNotification(Job job)
+      {
+         var ntfydata = job.Input as List<object>;
+
+         SysNtfy_Ni.BalloonTipIcon = (ToolTipIcon)ntfydata[0];
+         SysNtfy_Ni.BalloonTipTitle = ntfydata[1].ToString();
+         SysNtfy_Ni.BalloonTipText = ntfydata[2].ToString();
+         SysNtfy_Ni.Visible = true;
+         SysNtfy_Ni.ShowBalloonTip((int)ntfydata[3]);         
+
          job.Status = StatusType.Successful;
       }
 

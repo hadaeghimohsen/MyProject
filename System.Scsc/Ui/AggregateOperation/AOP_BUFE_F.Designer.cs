@@ -1845,7 +1845,7 @@
          // bindingNavigatorCountItem
          // 
          this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-         this.bindingNavigatorCountItem.Size = new System.Drawing.Size(35, 22);
+         this.bindingNavigatorCountItem.Size = new System.Drawing.Size(34, 22);
          this.bindingNavigatorCountItem.Text = "of {0}";
          this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
          // 
@@ -4190,7 +4190,7 @@
          this.Cash_Butn.Name = "Cash_Butn";
          this.Cash_Butn.Size = new System.Drawing.Size(42, 41);
          this.Cash_Butn.TabIndex = 74;
-         this.Cash_Butn.ToolTip = "ذخیره کردن ساعت شروع و پایان و مبلغ میز";
+         this.Cash_Butn.ToolTip = "پرداخت نقدی";
          this.Cash_Butn.Click += new System.EventHandler(this.Cash_Butn_Click);
          // 
          // Pos_Butn
@@ -4207,7 +4207,7 @@
          this.Pos_Butn.Name = "Pos_Butn";
          this.Pos_Butn.Size = new System.Drawing.Size(42, 41);
          this.Pos_Butn.TabIndex = 74;
-         this.Pos_Butn.ToolTip = "ذخیره کردن ساعت شروع و پایان و مبلغ میز";
+         this.Pos_Butn.ToolTip = "پرداخت پوز";
          this.Pos_Butn.Click += new System.EventHandler(this.Pos_Butn_Click);
          // 
          // splitContainerControl2

@@ -575,7 +575,7 @@
          // bindingNavigatorCountItem
          // 
          this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-         this.bindingNavigatorCountItem.Size = new System.Drawing.Size(35, 44);
+         this.bindingNavigatorCountItem.Size = new System.Drawing.Size(34, 44);
          this.bindingNavigatorCountItem.Text = "of {0}";
          this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
          // 
@@ -748,7 +748,7 @@
          this.RqstBnRegl01.ImageTransparentColor = System.Drawing.Color.Magenta;
          this.RqstBnRegl01.Name = "RqstBnRegl01";
          this.RqstBnRegl01.Size = new System.Drawing.Size(44, 44);
-         this.RqstBnRegl01.Text = "toolStripButton1";
+         this.RqstBnRegl01.ToolTipText = "دوره مالی";
          this.RqstBnRegl01.Click += new System.EventHandler(this.RqstBnRegl01_Click);
          // 
          // RqstBnExit1

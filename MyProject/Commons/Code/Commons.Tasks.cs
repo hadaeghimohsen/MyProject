@@ -8,6 +8,7 @@ using System.Globalization;
 using System.Windows.Forms;
 using System.Xml.Linq;
 using Itenso.TimePeriod;
+using System.Net.NetworkInformation;
 
 namespace MyProject.Commons.Code
 {
@@ -1079,6 +1080,33 @@ namespace MyProject.Commons.Code
          else if (job.Status == StatusType.SignalForPreconditions)
          {
             job.Status = StatusType.Successful;
+         }
+      }
+
+      /// <summary>
+      /// Code 38
+      /// </summary>
+      /// <param name="job"></param>
+      private void DoWork4PingNetwork(Job job)
+      {
+         bool pingStatus = false;
+
+         using (Ping p = new Ping())
+         {
+            byte[] buffer = Encoding.ASCII.GetBytes("Hello World!");
+            int timeout = 4444; // 4s
+
+            try
+            {
+               PingReply reply = p.Send(job.Input.ToString(), timeout, buffer);
+               job.Output = pingStatus = (reply.Status == IPStatus.Success);
+               job.Status = StatusType.Successful;
+            }
+            catch (Exception)
+            {
+               job.Output = pingStatus = false;
+               job.Status = StatusType.Successful;
+            }
          }
       }
    }

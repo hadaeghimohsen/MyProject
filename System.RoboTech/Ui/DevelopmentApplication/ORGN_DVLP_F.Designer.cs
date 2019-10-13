@@ -189,6 +189,8 @@
          this.colDOWN_LOAD_FILE_PATH = new DevExpress.XtraGrid.Columns.GridColumn();
          this.DownLoad_Lov = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
          this.gridColumn38 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colUP_LOAD_FILE_PATH = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.UpLoad_Lov = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
          this.memoEdit14 = new DevExpress.XtraEditors.MemoEdit();
          this.splitContainerControl5 = new DevExpress.XtraEditors.SplitContainerControl();
          this.groupBox6 = new System.Windows.Forms.GroupBox();
@@ -522,7 +524,6 @@
          this.toolStripButton63 = new System.Windows.Forms.ToolStripButton();
          this.toolStripButton21 = new System.Windows.Forms.ToolStripButton();
          this.toolStripButton22 = new System.Windows.Forms.ToolStripButton();
-         this.splitContainerControl16 = new DevExpress.XtraEditors.SplitContainerControl();
          this.groupBox9 = new System.Windows.Forms.GroupBox();
          this.gridControl7 = new DevExpress.XtraGrid.GridControl();
          this.GrmuBs = new System.Windows.Forms.BindingSource(this.components);
@@ -862,8 +863,6 @@
          this.vUserBs = new System.Windows.Forms.BindingSource(this.components);
          this.Btn_Back = new C1.Win.C1Input.C1Button();
          this.FilePath_Fbd = new System.Windows.Forms.FolderBrowserDialog();
-         this.colUP_LOAD_FILE_PATH = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.UpLoad_Lov = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
          ((System.ComponentModel.ISupportInitialize)(this.Actv_Lov)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.DactvBs)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.Actv_Lov2)).BeginInit();
@@ -906,6 +905,7 @@
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit6)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit6.CalendarTimeProperties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.DownLoad_Lov)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.UpLoad_Lov)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.memoEdit14.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl5)).BeginInit();
          this.splitContainerControl5.SuspendLayout();
@@ -1018,8 +1018,6 @@
          ((System.ComponentModel.ISupportInitialize)(this.memoEdit11.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.RmnusTreeBs)).BeginInit();
          this.RmnusTreeBs.SuspendLayout();
-         ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl16)).BeginInit();
-         this.splitContainerControl16.SuspendLayout();
          this.groupBox9.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.gridControl7)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.GrmuBs)).BeginInit();
@@ -1113,7 +1111,6 @@
          this.RbmdBn.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.vUserBs)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.Btn_Back)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.UpLoad_Lov)).BeginInit();
          this.SuspendLayout();
          // 
          // colSTAT
@@ -2106,6 +2103,24 @@
          this.gridColumn38.Visible = true;
          this.gridColumn38.VisibleIndex = 1;
          this.gridColumn38.Width = 413;
+         // 
+         // colUP_LOAD_FILE_PATH
+         // 
+         this.colUP_LOAD_FILE_PATH.Caption = "آدرس فایلهای ذخیره شده برای مشتری";
+         this.colUP_LOAD_FILE_PATH.ColumnEdit = this.UpLoad_Lov;
+         this.colUP_LOAD_FILE_PATH.FieldName = "UP_LOAD_FILE_PATH";
+         this.colUP_LOAD_FILE_PATH.Name = "colUP_LOAD_FILE_PATH";
+         this.colUP_LOAD_FILE_PATH.Visible = true;
+         this.colUP_LOAD_FILE_PATH.VisibleIndex = 2;
+         this.colUP_LOAD_FILE_PATH.Width = 229;
+         // 
+         // UpLoad_Lov
+         // 
+         this.UpLoad_Lov.AutoHeight = false;
+         this.UpLoad_Lov.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+         this.UpLoad_Lov.Name = "UpLoad_Lov";
+         this.UpLoad_Lov.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.UpLoad_Lov_ButtonClick);
          // 
          // memoEdit14
          // 
@@ -4854,10 +4869,10 @@
          this.splitContainerControl8.Name = "splitContainerControl8";
          this.splitContainerControl8.Panel1.Controls.Add(this.groupBox8);
          this.splitContainerControl8.Panel1.Text = "Panel1";
-         this.splitContainerControl8.Panel2.Controls.Add(this.splitContainerControl16);
+         this.splitContainerControl8.Panel2.Controls.Add(this.groupBox9);
          this.splitContainerControl8.Panel2.Text = "Panel2";
          this.splitContainerControl8.Size = new System.Drawing.Size(1159, 472);
-         this.splitContainerControl8.SplitterPosition = 336;
+         this.splitContainerControl8.SplitterPosition = 365;
          this.splitContainerControl8.TabIndex = 0;
          this.splitContainerControl8.Text = "splitContainerControl8";
          // 
@@ -4868,7 +4883,7 @@
          this.groupBox8.Dock = System.Windows.Forms.DockStyle.Fill;
          this.groupBox8.Location = new System.Drawing.Point(0, 0);
          this.groupBox8.Name = "groupBox8";
-         this.groupBox8.Size = new System.Drawing.Size(1159, 336);
+         this.groupBox8.Size = new System.Drawing.Size(1159, 365);
          this.groupBox8.TabIndex = 1;
          this.groupBox8.TabStop = false;
          this.groupBox8.Text = "منو";
@@ -4883,7 +4898,7 @@
          this.splitContainerControl13.Panel1.Text = "Panel1";
          this.splitContainerControl13.Panel2.Controls.Add(this.splitContainerControl14);
          this.splitContainerControl13.Panel2.Text = "Panel2";
-         this.splitContainerControl13.Size = new System.Drawing.Size(1153, 290);
+         this.splitContainerControl13.Size = new System.Drawing.Size(1153, 319);
          this.splitContainerControl13.SplitterPosition = 188;
          this.splitContainerControl13.TabIndex = 4;
          this.splitContainerControl13.Text = "splitContainerControl13";
@@ -5231,7 +5246,7 @@
          this.splitContainerControl14.Panel1.Text = "Panel1";
          this.splitContainerControl14.Panel2.Controls.Add(this.splitContainerControl15);
          this.splitContainerControl14.Panel2.Text = "Panel2";
-         this.splitContainerControl14.Size = new System.Drawing.Size(1153, 97);
+         this.splitContainerControl14.Size = new System.Drawing.Size(1153, 126);
          this.splitContainerControl14.SplitterPosition = 29;
          this.splitContainerControl14.TabIndex = 3;
          this.splitContainerControl14.Text = "splitContainerControl14";
@@ -5294,7 +5309,7 @@
          this.splitContainerControl15.Panel1.Text = "Panel1";
          this.splitContainerControl15.Panel2.Controls.Add(this.memoEdit11);
          this.splitContainerControl15.Panel2.Text = "Panel2";
-         this.splitContainerControl15.Size = new System.Drawing.Size(1153, 63);
+         this.splitContainerControl15.Size = new System.Drawing.Size(1153, 92);
          this.splitContainerControl15.SplitterPosition = 26;
          this.splitContainerControl15.TabIndex = 3;
          this.splitContainerControl15.Text = "splitContainerControl15";
@@ -5332,7 +5347,7 @@
          this.memoEdit11.Properties.Appearance.Options.UseFont = true;
          this.memoEdit11.Properties.NullValuePrompt = "منو ارجاعی به Ussd_Code";
          this.memoEdit11.Properties.NullValuePromptShowForEmptyValue = true;
-         this.memoEdit11.Size = new System.Drawing.Size(1153, 32);
+         this.memoEdit11.Size = new System.Drawing.Size(1153, 61);
          this.memoEdit11.TabIndex = 2;
          // 
          // RmnusTreeBs
@@ -5516,19 +5531,6 @@
          this.toolStripButton22.ToolTipText = "F9";
          this.toolStripButton22.Click += new System.EventHandler(this.Tsb_SearchInMenu_Click);
          // 
-         // splitContainerControl16
-         // 
-         this.splitContainerControl16.Dock = System.Windows.Forms.DockStyle.Fill;
-         this.splitContainerControl16.Location = new System.Drawing.Point(0, 0);
-         this.splitContainerControl16.Name = "splitContainerControl16";
-         this.splitContainerControl16.Panel1.Text = "Panel1";
-         this.splitContainerControl16.Panel2.Controls.Add(this.groupBox9);
-         this.splitContainerControl16.Panel2.Text = "Panel2";
-         this.splitContainerControl16.Size = new System.Drawing.Size(1159, 131);
-         this.splitContainerControl16.SplitterPosition = 659;
-         this.splitContainerControl16.TabIndex = 1;
-         this.splitContainerControl16.Text = "splitContainerControl16";
-         // 
          // groupBox9
          // 
          this.groupBox9.Controls.Add(this.gridControl7);
@@ -5536,7 +5538,7 @@
          this.groupBox9.Dock = System.Windows.Forms.DockStyle.Fill;
          this.groupBox9.Location = new System.Drawing.Point(0, 0);
          this.groupBox9.Name = "groupBox9";
-         this.groupBox9.Size = new System.Drawing.Size(495, 131);
+         this.groupBox9.Size = new System.Drawing.Size(1159, 102);
          this.groupBox9.TabIndex = 2;
          this.groupBox9.TabStop = false;
          this.groupBox9.Text = "دسترسی گروه ها به منو";
@@ -5556,7 +5558,7 @@
             this.Grop_Lov,
             this.repositoryItemSearchLookUpEdit5,
             this.repositoryItemLookUpEdit3});
-         this.gridControl7.Size = new System.Drawing.Size(489, 85);
+         this.gridControl7.Size = new System.Drawing.Size(1153, 56);
          this.gridControl7.TabIndex = 9;
          this.gridControl7.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView10});
@@ -5895,7 +5897,7 @@
          this.GpmuBn.MovePreviousItem = this.toolStripButton44;
          this.GpmuBn.Name = "GpmuBn";
          this.GpmuBn.PositionItem = this.toolStripTextBox8;
-         this.GpmuBn.Size = new System.Drawing.Size(489, 25);
+         this.GpmuBn.Size = new System.Drawing.Size(1153, 25);
          this.GpmuBn.TabIndex = 2;
          // 
          // toolStripButton42
@@ -8663,24 +8665,6 @@
          // 
          this.FilePath_Fbd.SelectedPath = "\\\\localhost";
          // 
-         // colUP_LOAD_FILE_PATH
-         // 
-         this.colUP_LOAD_FILE_PATH.Caption = "آدرس فایلهای ذخیره شده برای مشتری";
-         this.colUP_LOAD_FILE_PATH.ColumnEdit = this.UpLoad_Lov;
-         this.colUP_LOAD_FILE_PATH.FieldName = "UP_LOAD_FILE_PATH";
-         this.colUP_LOAD_FILE_PATH.Name = "colUP_LOAD_FILE_PATH";
-         this.colUP_LOAD_FILE_PATH.Visible = true;
-         this.colUP_LOAD_FILE_PATH.VisibleIndex = 2;
-         this.colUP_LOAD_FILE_PATH.Width = 229;
-         // 
-         // UpLoad_Lov
-         // 
-         this.UpLoad_Lov.AutoHeight = false;
-         this.UpLoad_Lov.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
-         this.UpLoad_Lov.Name = "UpLoad_Lov";
-         this.UpLoad_Lov.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.UpLoad_Lov_ButtonClick);
-         // 
          // ORGN_DVLP_F
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -8735,6 +8719,7 @@
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit6.CalendarTimeProperties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit6)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.DownLoad_Lov)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.UpLoad_Lov)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.memoEdit14.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl5)).EndInit();
          this.splitContainerControl5.ResumeLayout(false);
@@ -8854,8 +8839,6 @@
          ((System.ComponentModel.ISupportInitialize)(this.RmnusTreeBs)).EndInit();
          this.RmnusTreeBs.ResumeLayout(false);
          this.RmnusTreeBs.PerformLayout();
-         ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl16)).EndInit();
-         this.splitContainerControl16.ResumeLayout(false);
          this.groupBox9.ResumeLayout(false);
          ((System.ComponentModel.ISupportInitialize)(this.gridControl7)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.GrmuBs)).EndInit();
@@ -8955,7 +8938,6 @@
          this.RbmdBn.PerformLayout();
          ((System.ComponentModel.ISupportInitialize)(this.vUserBs)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.Btn_Back)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.UpLoad_Lov)).EndInit();
          this.ResumeLayout(false);
 
       }
@@ -9346,7 +9328,6 @@
       private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit Actv_Lov8;
       private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit Ysno_Lov2;
       private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit Cmtp_Lov1;
-      private DevExpress.XtraEditors.SplitContainerControl splitContainerControl16;
       private Windows.Forms.GroupBox groupBox9;
       private DevExpress.XtraGrid.GridControl gridControl7;
       private Windows.Forms.BindingSource GrmuBs;

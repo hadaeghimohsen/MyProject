@@ -162,6 +162,9 @@ namespace MyProject.Commons.Code
             case 37:
                DoWork4GetLicenseDay(job);
                break;
+            case 38:
+               DoWork4PingNetwork(job);
+               break;
             default:
                job.Status = StatusType.Failed;
                break;

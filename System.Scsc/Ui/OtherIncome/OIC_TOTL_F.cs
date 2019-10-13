@@ -966,7 +966,7 @@ namespace System.Scsc.Ui.OtherIncome
             {
                PydtsBs1.AddNew();
                var pydt = PydtsBs1.Current as Data.Payment_Detail;
-               ExpnBs1.List.OfType<Data.Expense>().Where(ex => ex.CODE == expn.CODE).ToList().ForEach(ex => { pydt.EXPN_CODE = ex.CODE; pydt.EXPN_PRIC = ex.PRIC; pydt.EXPN_EXTR_PRCT = ex.EXTR_PRCT; pydt.QNTY = 1; pydt.PYDT_DESC = ex.EXPN_DESC; pydt.PAY_STAT = "001"; pydt.RQRO_RWNO = 1; pydt.MTOD_CODE_DNRM = expn.MTOD_CODE; pydt.CTGY_CODE_DNRM = expn.CTGY_CODE; });
+               ExpnBs1.List.OfType<Data.Expense>().Where(ex => ex.CODE == expn.CODE).ToList().ForEach(ex => { pydt.EXPN_CODE = ex.CODE; pydt.EXPN_PRIC = ex.PRIC; pydt.EXPN_EXTR_PRCT = ex.EXTR_PRCT; pydt.QNTY = 1; pydt.PYDT_DESC = ex.EXPN_DESC; pydt.PAY_STAT = "001"; pydt.RQRO_RWNO = 1; pydt.MTOD_CODE_DNRM = expn.MTOD_CODE; pydt.CTGY_CODE_DNRM = expn.CTGY_CODE; pydt.EXPR_DATE = DateTime.Now.AddDays((int)expn.NUMB_CYCL_DAY); });
             }
             else
             {
@@ -1328,7 +1328,8 @@ namespace System.Scsc.Ui.OtherIncome
                               new XAttribute("pydtdesc", pd.PYDT_DESC ?? ""),
                               new XAttribute("qnty", pd.QNTY ?? 1),
                               new XAttribute("fighfileno", pd.FIGH_FILE_NO ?? 0),
-                              new XAttribute("cbmtcodednrm", pd.CBMT_CODE_DNRM ?? 0)
+                              new XAttribute("cbmtcodednrm", pd.CBMT_CODE_DNRM ?? 0),
+                              new XAttribute("exprdate", pd.EXPR_DATE == null ? "" : pd.EXPR_DATE.Value.ToString("yyyy-MM-dd"))
                            )
                         )
                      )
@@ -1352,7 +1353,8 @@ namespace System.Scsc.Ui.OtherIncome
                               new XAttribute("pydtdesc", pd.PYDT_DESC),
                               new XAttribute("qnty", pd.QNTY ?? 1),
                               new XAttribute("fighfileno", pd.FIGH_FILE_NO ?? 0),
-                              new XAttribute("cbmtcodednrm", pd.CBMT_CODE_DNRM ?? 0)
+                              new XAttribute("cbmtcodednrm", pd.CBMT_CODE_DNRM ?? 0),
+                              new XAttribute("exprdate", pd.EXPR_DATE == null ? "" : pd.EXPR_DATE.Value.ToString("yyyy-MM-dd"))
                            )
                         )
                      )
@@ -1696,6 +1698,32 @@ namespace System.Scsc.Ui.OtherIncome
       private void ShowRqst_PickButn_PickCheckedChange(object sender)
       {
          Execute_Query();
+      }
+
+      private void LOV_EXPRDATE_ButtonPressed(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            if (e.Button.Index == 1)
+            {
+               Pydt_Gv.PostEditor();
+               var pydt = PydtsBs1.Current as Data.Payment_Detail;
+               if(pydt.EXPR_DATE == null && MessageBox.Show(this, "تاریخ خالی می باشد آیا میخواهید تاریخ اعتبار همگی خالی شود؟", "هشدار", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+               {
+                  PydtsBs1.List.OfType<Data.Payment_Detail>().ToList().ForEach(p => p.EXPR_DATE = null);
+               }
+               else
+               {
+                  PydtsBs1.List.OfType<Data.Payment_Detail>().ToList().ForEach(p => p.EXPR_DATE = pydt.EXPR_DATE);
+               }
+
+               SaveExpn_Butn_Click(null, null);
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
       }
    }
 }

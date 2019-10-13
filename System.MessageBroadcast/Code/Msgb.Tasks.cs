@@ -118,6 +118,9 @@ namespace System.MessageBroadcast.Code
                         break;
                   }
                   break;
+               case "004":
+                  _SenderBgwk.Interval = Convert.ToInt32(action.Element("Action").Attribute("value").Value);
+                  break;
                default:
                   break;
             }

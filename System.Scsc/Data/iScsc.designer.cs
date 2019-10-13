@@ -195,9 +195,6 @@ namespace System.Scsc.Data
       partial void UpdateRequest(Request instance);
       partial void DeleteRequest(Request instance);
       partial void InsertAggregation_Operation_Detail(Aggregation_Operation_Detail instance);
-      partial void InsertMessage_Broadcast(Message_Broadcast instance);
-      partial void UpdateMessage_Broadcast(Message_Broadcast instance);
-      partial void DeleteMessage_Broadcast(Message_Broadcast instance);
       partial void InsertComputer_Action(Computer_Action instance);
       partial void UpdateComputer_Action(Computer_Action instance);
       partial void DeleteComputer_Action(Computer_Action instance);
@@ -231,6 +228,9 @@ namespace System.Scsc.Data
       partial void InsertMember_Ship(Member_Ship instance);
       partial void UpdateMember_Ship(Member_Ship instance);
       partial void DeleteMember_Ship(Member_Ship instance);
+      partial void InsertMessage_Broadcast(Message_Broadcast instance);
+      partial void UpdateMessage_Broadcast(Message_Broadcast instance);
+      partial void DeleteMessage_Broadcast(Message_Broadcast instance);
       #endregion
 
       public iScscDataContext() :
@@ -1391,14 +1391,6 @@ namespace System.Scsc.Data
          }
       }
 
-      public System.Data.Linq.Table<Regulation> Regulations
-      {
-         get
-         {
-            return this.GetTable<Regulation>();
-         }
-      }
-
       public System.Data.Linq.Table<Payment> Payments
       {
          get
@@ -1420,14 +1412,6 @@ namespace System.Scsc.Data
          get
          {
             return this.GetTable<D_AEAT>();
-         }
-      }
-
-      public System.Data.Linq.Table<Payment_Detail> Payment_Details
-      {
-         get
-         {
-            return this.GetTable<Payment_Detail>();
          }
       }
 
@@ -1508,14 +1492,6 @@ namespace System.Scsc.Data
          get
          {
             return this.GetTable<Aggregation_Operation_Detail>();
-         }
-      }
-
-      public System.Data.Linq.Table<Message_Broadcast> Message_Broadcasts
-      {
-         get
-         {
-            return this.GetTable<Message_Broadcast>();
          }
       }
 
@@ -1815,6 +1791,30 @@ namespace System.Scsc.Data
          }
       }
 
+      public System.Data.Linq.Table<Regulation> Regulations
+      {
+         get
+         {
+            return this.GetTable<Regulation>();
+         }
+      }
+
+      public System.Data.Linq.Table<Message_Broadcast> Message_Broadcasts
+      {
+         get
+         {
+            return this.GetTable<Message_Broadcast>();
+         }
+      }
+
+      public System.Data.Linq.Table<Payment_Detail> Payment_Details
+      {
+         get
+         {
+            return this.GetTable<Payment_Detail>();
+         }
+      }
+
       private void InsertCountry(Country obj)
       {
          this.INS_CNTY_P(obj.CODE, obj.NAME);
@@ -2075,41 +2075,9 @@ namespace System.Scsc.Data
          this.DEL_RQTP_P(obj.CODE);
       }
 
-      private void InsertRegulation(Regulation obj)
-      {
-         this.INS_REGL_P(((System.Nullable<short>)(obj.YEAR)), obj.TYPE, obj.LETT_NO, ((System.Nullable<System.DateTime>)(obj.LETT_DATE)), obj.LETT_OWNR, ((System.Nullable<System.DateTime>)(obj.STRT_DATE)), ((System.Nullable<System.DateTime>)(obj.END_DATE)), ((System.Nullable<float>)(obj.TAX_PRCT)), ((System.Nullable<float>)(obj.DUTY_PRCT)), obj.AMNT_TYPE);
-      }
-
-      private void UpdateRegulation(Regulation obj)
-      {
-         this.UPD_REGL_P(((System.Nullable<short>)(obj.YEAR)), ((System.Nullable<int>)(obj.CODE)), obj.TYPE, obj.REGL_STAT, obj.LETT_NO, ((System.Nullable<System.DateTime>)(obj.LETT_DATE)), obj.LETT_OWNR, ((System.Nullable<System.DateTime>)(obj.STRT_DATE)), ((System.Nullable<System.DateTime>)(obj.END_DATE)), ((System.Nullable<float>)(obj.TAX_PRCT)), ((System.Nullable<float>)(obj.DUTY_PRCT)), obj.AMNT_TYPE);
-      }
-
-      private void DeleteRegulation(Regulation obj)
-      {
-         this.DEL_REGL_P(((System.Nullable<short>)(obj.YEAR)), ((System.Nullable<int>)(obj.CODE)));
-      }
-
       private void UpdateExpense(Expense obj)
       {
          this.UPD_EXPN_P(((System.Nullable<long>)(obj.CODE)), ((System.Nullable<int>)(obj.PRIC)), obj.EXPN_STAT, obj.ADD_QUTS, obj.COVR_DSCT, obj.EXPN_TYPE, ((System.Nullable<int>)(obj.BUY_PRIC)), ((System.Nullable<int>)(obj.BUY_EXTR_PRCT)), ((System.Nullable<int>)(obj.NUMB_OF_STOK)), ((System.Nullable<int>)(obj.NUMB_OF_SALE)), obj.COVR_TAX, ((System.Nullable<int>)(obj.NUMB_OF_ATTN_MONT)), ((System.Nullable<int>)(obj.NUMB_OF_ATTN_WEEK)), obj.MODL_NUMB_BAR_CODE, obj.PRVT_COCH_EXPN, ((System.Nullable<int>)(obj.NUMB_CYCL_DAY)), ((System.Nullable<int>)(obj.NUMB_MONT_OFER)), ((System.Nullable<int>)(obj.MIN_NUMB)), ((System.Nullable<long>)(obj.GROP_CODE)), obj.EXPN_DESC, ((System.Nullable<System.DateTime>)(obj.MIN_TIME)), obj.RELY_CMND);
-      }
-
-      private void InsertPayment_Detail(Payment_Detail obj)
-      {
-         System.Nullable<long> p1 = obj.CODE;
-         this.INS_PYDT_P(((System.Nullable<long>)(obj.PYMT_CASH_CODE)), ((System.Nullable<long>)(obj.PYMT_RQST_RQID)), ((System.Nullable<short>)(obj.RQRO_RWNO)), ((System.Nullable<long>)(obj.EXPN_CODE)), obj.PAY_STAT, ((System.Nullable<int>)(obj.EXPN_PRIC)), ((System.Nullable<int>)(obj.EXPN_EXTR_PRCT)), ((System.Nullable<int>)(obj.REMN_PRIC)), ((System.Nullable<short>)(obj.QNTY)), ((System.Nullable<long>)(obj.DOCM_NUMB)), ((System.Nullable<System.DateTime>)(obj.ISSU_DATE)), obj.RCPT_MTOD, obj.RECV_LETT_NO, ((System.Nullable<System.DateTime>)(obj.RECV_LETT_DATE)), obj.PYDT_DESC, obj.ADD_QUTS, ((System.Nullable<long>)(obj.FIGH_FILE_NO)), obj.PRE_EXPN_STAT, ((System.Nullable<long>)(obj.CBMT_CODE_DNRM)), ref p1);
-         obj.CODE = p1.GetValueOrDefault();
-      }
-
-      private void UpdatePayment_Detail(Payment_Detail obj)
-      {
-         this.UPD_PYDT_T(((System.Nullable<long>)(obj.CODE)), ((System.Nullable<long>)(obj.PYMT_CASH_CODE)), ((System.Nullable<long>)(obj.PYMT_RQST_RQID)), ((System.Nullable<short>)(obj.RQRO_RWNO)), ((System.Nullable<long>)(obj.EXPN_CODE)), obj.PAY_STAT, ((System.Nullable<int>)(obj.EXPN_PRIC)), ((System.Nullable<int>)(obj.EXPN_EXTR_PRCT)), ((System.Nullable<int>)(obj.REMN_PRIC)), ((System.Nullable<short>)(obj.QNTY)), ((System.Nullable<long>)(obj.DOCM_NUMB)), ((System.Nullable<System.DateTime>)(obj.ISSU_DATE)), obj.RCPT_MTOD, obj.RECV_LETT_NO, ((System.Nullable<System.DateTime>)(obj.RECV_LETT_DATE)), obj.PYDT_DESC, obj.ADD_QUTS, ((System.Nullable<long>)(obj.FIGH_FILE_NO)), obj.PRE_EXPN_STAT, ((System.Nullable<long>)(obj.CBMT_CODE_DNRM)));
-      }
-
-      private void DeletePayment_Detail(Payment_Detail obj)
-      {
-         this.DEL_PYDT_P(((System.Nullable<long>)(obj.CODE)), ((System.Nullable<long>)(obj.PYMT_CASH_CODE)), ((System.Nullable<long>)(obj.PYMT_RQST_RQID)), ((System.Nullable<short>)(obj.RQRO_RWNO)), ((System.Nullable<long>)(obj.EXPN_CODE)));
       }
 
       private void InsertMethod(Method obj)
@@ -2325,6 +2293,38 @@ namespace System.Scsc.Data
       private void DeleteCategory_Belt(Category_Belt obj)
       {
          this.DEL_CTGY_P(((System.Nullable<long>)(obj.CODE)));
+      }
+
+      private void InsertRegulation(Regulation obj)
+      {
+         this.INS_REGL_P(((System.Nullable<short>)(obj.YEAR)), obj.TYPE, obj.LETT_NO, ((System.Nullable<System.DateTime>)(obj.LETT_DATE)), obj.LETT_OWNR, ((System.Nullable<System.DateTime>)(obj.STRT_DATE)), ((System.Nullable<System.DateTime>)(obj.END_DATE)), ((System.Nullable<float>)(obj.TAX_PRCT)), ((System.Nullable<float>)(obj.DUTY_PRCT)), obj.AMNT_TYPE, ((System.Nullable<long>)(obj.INSR_PRIC)));
+      }
+
+      private void UpdateRegulation(Regulation obj)
+      {
+         this.UPD_REGL_P(((System.Nullable<short>)(obj.YEAR)), ((System.Nullable<int>)(obj.CODE)), obj.TYPE, obj.REGL_STAT, obj.LETT_NO, ((System.Nullable<System.DateTime>)(obj.LETT_DATE)), obj.LETT_OWNR, ((System.Nullable<System.DateTime>)(obj.STRT_DATE)), ((System.Nullable<System.DateTime>)(obj.END_DATE)), ((System.Nullable<float>)(obj.TAX_PRCT)), ((System.Nullable<float>)(obj.DUTY_PRCT)), obj.AMNT_TYPE, ((System.Nullable<long>)(obj.INSR_PRIC)));
+      }
+
+      private void DeleteRegulation(Regulation obj)
+      {
+         this.DEL_REGL_P(((System.Nullable<short>)(obj.YEAR)), ((System.Nullable<int>)(obj.CODE)));
+      }
+
+      private void InsertPayment_Detail(Payment_Detail obj)
+      {
+         System.Nullable<long> p1 = obj.CODE;
+         this.INS_PYDT_P(((System.Nullable<long>)(obj.PYMT_CASH_CODE)), ((System.Nullable<long>)(obj.PYMT_RQST_RQID)), ((System.Nullable<short>)(obj.RQRO_RWNO)), ((System.Nullable<long>)(obj.EXPN_CODE)), obj.PAY_STAT, ((System.Nullable<int>)(obj.EXPN_PRIC)), ((System.Nullable<int>)(obj.EXPN_EXTR_PRCT)), ((System.Nullable<int>)(obj.REMN_PRIC)), ((System.Nullable<short>)(obj.QNTY)), ((System.Nullable<long>)(obj.DOCM_NUMB)), ((System.Nullable<System.DateTime>)(obj.ISSU_DATE)), obj.RCPT_MTOD, obj.RECV_LETT_NO, ((System.Nullable<System.DateTime>)(obj.RECV_LETT_DATE)), obj.PYDT_DESC, obj.ADD_QUTS, ((System.Nullable<long>)(obj.FIGH_FILE_NO)), obj.PRE_EXPN_STAT, ((System.Nullable<long>)(obj.CBMT_CODE_DNRM)), ((System.Nullable<System.DateTime>)(obj.EXPR_DATE)), ref p1);
+         obj.CODE = p1.GetValueOrDefault();
+      }
+
+      private void UpdatePayment_Detail(Payment_Detail obj)
+      {
+         this.UPD_PYDT_T(((System.Nullable<long>)(obj.CODE)), ((System.Nullable<long>)(obj.PYMT_CASH_CODE)), ((System.Nullable<long>)(obj.PYMT_RQST_RQID)), ((System.Nullable<short>)(obj.RQRO_RWNO)), ((System.Nullable<long>)(obj.EXPN_CODE)), obj.PAY_STAT, ((System.Nullable<int>)(obj.EXPN_PRIC)), ((System.Nullable<int>)(obj.EXPN_EXTR_PRCT)), ((System.Nullable<int>)(obj.REMN_PRIC)), ((System.Nullable<short>)(obj.QNTY)), ((System.Nullable<long>)(obj.DOCM_NUMB)), ((System.Nullable<System.DateTime>)(obj.ISSU_DATE)), obj.RCPT_MTOD, obj.RECV_LETT_NO, ((System.Nullable<System.DateTime>)(obj.RECV_LETT_DATE)), obj.PYDT_DESC, obj.ADD_QUTS, ((System.Nullable<long>)(obj.FIGH_FILE_NO)), obj.PRE_EXPN_STAT, ((System.Nullable<long>)(obj.CBMT_CODE_DNRM)));
+      }
+
+      private void DeletePayment_Detail(Payment_Detail obj)
+      {
+         this.DEL_PYDT_P(((System.Nullable<long>)(obj.CODE)), ((System.Nullable<long>)(obj.PYMT_CASH_CODE)), ((System.Nullable<long>)(obj.PYMT_RQST_RQID)), ((System.Nullable<short>)(obj.RQRO_RWNO)), ((System.Nullable<long>)(obj.EXPN_CODE)));
       }
 
       [global::System.Data.Linq.Mapping.FunctionAttribute(Name = "dbo.VF$Saved_Request", IsComposable = true)]
@@ -3840,20 +3840,6 @@ namespace System.Scsc.Data
          return ((int)(result.ReturnValue));
       }
 
-      [global::System.Data.Linq.Mapping.FunctionAttribute(Name = "dbo.INS_REGL_P")]
-      public int INS_REGL_P([global::System.Data.Linq.Mapping.ParameterAttribute(Name = "Year", DbType = "SmallInt")] System.Nullable<short> year, [global::System.Data.Linq.Mapping.ParameterAttribute(Name = "Type", DbType = "VarChar(3)")] string type, [global::System.Data.Linq.Mapping.ParameterAttribute(Name = "LettNo", DbType = "VarChar(15)")] string lettNo, [global::System.Data.Linq.Mapping.ParameterAttribute(Name = "LettDate", DbType = "DateTime")] System.Nullable<System.DateTime> lettDate, [global::System.Data.Linq.Mapping.ParameterAttribute(Name = "LettOwnr", DbType = "NVarChar(250)")] string lettOwnr, [global::System.Data.Linq.Mapping.ParameterAttribute(Name = "StrtDate", DbType = "DateTime")] System.Nullable<System.DateTime> strtDate, [global::System.Data.Linq.Mapping.ParameterAttribute(Name = "EndDate", DbType = "DateTime")] System.Nullable<System.DateTime> endDate, [global::System.Data.Linq.Mapping.ParameterAttribute(Name = "TaxPrct", DbType = "Real")] System.Nullable<float> taxPrct, [global::System.Data.Linq.Mapping.ParameterAttribute(Name = "DutyPrct", DbType = "Real")] System.Nullable<float> dutyPrct, [global::System.Data.Linq.Mapping.ParameterAttribute(Name = "AmntType", DbType = "VarChar(3)")] string amntType)
-      {
-         IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), year, type, lettNo, lettDate, lettOwnr, strtDate, endDate, taxPrct, dutyPrct, amntType);
-         return ((int)(result.ReturnValue));
-      }
-
-      [global::System.Data.Linq.Mapping.FunctionAttribute(Name = "dbo.UPD_REGL_P")]
-      public int UPD_REGL_P([global::System.Data.Linq.Mapping.ParameterAttribute(Name = "Year", DbType = "SmallInt")] System.Nullable<short> year, [global::System.Data.Linq.Mapping.ParameterAttribute(Name = "Code", DbType = "Int")] System.Nullable<int> code, [global::System.Data.Linq.Mapping.ParameterAttribute(Name = "Type", DbType = "VarChar(3)")] string type, [global::System.Data.Linq.Mapping.ParameterAttribute(Name = "ReglStat", DbType = "VarChar(3)")] string reglStat, [global::System.Data.Linq.Mapping.ParameterAttribute(Name = "LettNo", DbType = "VarChar(15)")] string lettNo, [global::System.Data.Linq.Mapping.ParameterAttribute(Name = "LettDate", DbType = "DateTime")] System.Nullable<System.DateTime> lettDate, [global::System.Data.Linq.Mapping.ParameterAttribute(Name = "LettOwnr", DbType = "NVarChar(250)")] string lettOwnr, [global::System.Data.Linq.Mapping.ParameterAttribute(Name = "StrtDate", DbType = "DateTime")] System.Nullable<System.DateTime> strtDate, [global::System.Data.Linq.Mapping.ParameterAttribute(Name = "EndDate", DbType = "DateTime")] System.Nullable<System.DateTime> endDate, [global::System.Data.Linq.Mapping.ParameterAttribute(Name = "TaxPrct", DbType = "Real")] System.Nullable<float> taxPrct, [global::System.Data.Linq.Mapping.ParameterAttribute(Name = "DutyPrct", DbType = "Real")] System.Nullable<float> dutyPrct, [global::System.Data.Linq.Mapping.ParameterAttribute(Name = "AmntType", DbType = "VarChar(3)")] string amntType)
-      {
-         IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), year, code, type, reglStat, lettNo, lettDate, lettOwnr, strtDate, endDate, taxPrct, dutyPrct, amntType);
-         return ((int)(result.ReturnValue));
-      }
-
       [global::System.Data.Linq.Mapping.FunctionAttribute(Name = "dbo.INS_AODT_P")]
       public int INS_AODT_P(
                [global::System.Data.Linq.Mapping.ParameterAttribute(Name = "Agop_Code", DbType = "BigInt")] System.Nullable<long> agop_Code,
@@ -3931,34 +3917,6 @@ namespace System.Scsc.Data
                [global::System.Data.Linq.Mapping.ParameterAttribute(Name = "RELY_CMND", DbType = "VarChar(50)")] string rELY_CMND)
       {
          IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), cODE, pRIC, eXPN_STAT, aDD_QUTS, cOVR_DSCT, eXPN_TYPE, bUY_PRIC, bUY_EXTR_PRCT, nUMB_OF_STOK, nUMB_OF_SALE, cOVR_TAX, nUMB_OF_ATTN_MONT, nUMB_OF_ATTN_WEEK, mODL_NUMB_BAR_CODE, pRVT_COCH_EXPN, nUMB_CYCL_DAY, nUMB_MONT_OFER, mIN_NUMB, gROP_CODE, eXPN_DESC, mIN_TIME, rELY_CMND);
-         return ((int)(result.ReturnValue));
-      }
-
-      [global::System.Data.Linq.Mapping.FunctionAttribute(Name = "dbo.INS_PYDT_P")]
-      public int INS_PYDT_P(
-               [global::System.Data.Linq.Mapping.ParameterAttribute(Name = "PYMT_CASH_CODE", DbType = "BigInt")] System.Nullable<long> pYMT_CASH_CODE,
-               [global::System.Data.Linq.Mapping.ParameterAttribute(Name = "PYMT_RQST_RQID", DbType = "BigInt")] System.Nullable<long> pYMT_RQST_RQID,
-               [global::System.Data.Linq.Mapping.ParameterAttribute(Name = "RQRO_RWNO", DbType = "SmallInt")] System.Nullable<short> rQRO_RWNO,
-               [global::System.Data.Linq.Mapping.ParameterAttribute(Name = "EXPN_CODE", DbType = "BigInt")] System.Nullable<long> eXPN_CODE,
-               [global::System.Data.Linq.Mapping.ParameterAttribute(Name = "PAY_STAT", DbType = "VarChar(3)")] string pAY_STAT,
-               [global::System.Data.Linq.Mapping.ParameterAttribute(Name = "EXPN_PRIC", DbType = "Int")] System.Nullable<int> eXPN_PRIC,
-               [global::System.Data.Linq.Mapping.ParameterAttribute(Name = "EXPN_EXTR_PRCT", DbType = "Int")] System.Nullable<int> eXPN_EXTR_PRCT,
-               [global::System.Data.Linq.Mapping.ParameterAttribute(Name = "REMN_PRIC", DbType = "Int")] System.Nullable<int> rEMN_PRIC,
-               [global::System.Data.Linq.Mapping.ParameterAttribute(Name = "QNTY", DbType = "SmallInt")] System.Nullable<short> qNTY,
-               [global::System.Data.Linq.Mapping.ParameterAttribute(Name = "DOCM_NUMB", DbType = "BigInt")] System.Nullable<long> dOCM_NUMB,
-               [global::System.Data.Linq.Mapping.ParameterAttribute(Name = "ISSU_DATE", DbType = "DateTime")] System.Nullable<System.DateTime> iSSU_DATE,
-               [global::System.Data.Linq.Mapping.ParameterAttribute(Name = "RCPT_MTOD", DbType = "VarChar(3)")] string rCPT_MTOD,
-               [global::System.Data.Linq.Mapping.ParameterAttribute(Name = "RECV_LETT_NO", DbType = "VarChar(15)")] string rECV_LETT_NO,
-               [global::System.Data.Linq.Mapping.ParameterAttribute(Name = "RECV_LETT_DATE", DbType = "DateTime")] System.Nullable<System.DateTime> rECV_LETT_DATE,
-               [global::System.Data.Linq.Mapping.ParameterAttribute(Name = "PYDT_DESC", DbType = "NVarChar(250)")] string pYDT_DESC,
-               [global::System.Data.Linq.Mapping.ParameterAttribute(Name = "ADD_QUTS", DbType = "VarChar(3)")] string aDD_QUTS,
-               [global::System.Data.Linq.Mapping.ParameterAttribute(Name = "Figh_File_No", DbType = "BigInt")] System.Nullable<long> figh_File_No,
-               [global::System.Data.Linq.Mapping.ParameterAttribute(Name = "PRE_EXPN_STAT", DbType = "VarChar(3)")] string pRE_EXPN_STAT,
-               [global::System.Data.Linq.Mapping.ParameterAttribute(Name = "CBMT_CODE_DNRM", DbType = "BigInt")] System.Nullable<long> cBMT_CODE_DNRM,
-               [global::System.Data.Linq.Mapping.ParameterAttribute(Name = "CODE", DbType = "BigInt")] ref System.Nullable<long> cODE)
-      {
-         IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), pYMT_CASH_CODE, pYMT_RQST_RQID, rQRO_RWNO, eXPN_CODE, pAY_STAT, eXPN_PRIC, eXPN_EXTR_PRCT, rEMN_PRIC, qNTY, dOCM_NUMB, iSSU_DATE, rCPT_MTOD, rECV_LETT_NO, rECV_LETT_DATE, pYDT_DESC, aDD_QUTS, figh_File_No, pRE_EXPN_STAT, cBMT_CODE_DNRM, cODE);
-         cODE = ((System.Nullable<long>)(result.GetParameterValue(19)));
          return ((int)(result.ReturnValue));
       }
 
@@ -4450,6 +4408,49 @@ namespace System.Scsc.Data
       public int INS_DART_P([global::System.Data.Linq.Mapping.ParameterAttribute(Name = "AttnCode", DbType = "BigInt")] System.Nullable<long> attnCode, [global::System.Data.Linq.Mapping.ParameterAttribute(Name = "ComaCode", DbType = "BigInt")] System.Nullable<long> comaCode)
       {
          IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), attnCode, comaCode);
+         return ((int)(result.ReturnValue));
+      }
+
+      [global::System.Data.Linq.Mapping.FunctionAttribute(Name = "dbo.INS_REGL_P")]
+      public int INS_REGL_P([global::System.Data.Linq.Mapping.ParameterAttribute(Name = "Year", DbType = "SmallInt")] System.Nullable<short> year, [global::System.Data.Linq.Mapping.ParameterAttribute(Name = "Type", DbType = "VarChar(3)")] string type, [global::System.Data.Linq.Mapping.ParameterAttribute(Name = "LettNo", DbType = "VarChar(15)")] string lettNo, [global::System.Data.Linq.Mapping.ParameterAttribute(Name = "LettDate", DbType = "DateTime")] System.Nullable<System.DateTime> lettDate, [global::System.Data.Linq.Mapping.ParameterAttribute(Name = "LettOwnr", DbType = "NVarChar(250)")] string lettOwnr, [global::System.Data.Linq.Mapping.ParameterAttribute(Name = "StrtDate", DbType = "DateTime")] System.Nullable<System.DateTime> strtDate, [global::System.Data.Linq.Mapping.ParameterAttribute(Name = "EndDate", DbType = "DateTime")] System.Nullable<System.DateTime> endDate, [global::System.Data.Linq.Mapping.ParameterAttribute(Name = "TaxPrct", DbType = "Real")] System.Nullable<float> taxPrct, [global::System.Data.Linq.Mapping.ParameterAttribute(Name = "DutyPrct", DbType = "Real")] System.Nullable<float> dutyPrct, [global::System.Data.Linq.Mapping.ParameterAttribute(Name = "AmntType", DbType = "VarChar(3)")] string amntType, [global::System.Data.Linq.Mapping.ParameterAttribute(Name = "InsrPric", DbType = "BigInt")] System.Nullable<long> insrPric)
+      {
+         IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), year, type, lettNo, lettDate, lettOwnr, strtDate, endDate, taxPrct, dutyPrct, amntType, insrPric);
+         return ((int)(result.ReturnValue));
+      }
+
+      [global::System.Data.Linq.Mapping.FunctionAttribute(Name = "dbo.UPD_REGL_P")]
+      public int UPD_REGL_P([global::System.Data.Linq.Mapping.ParameterAttribute(Name = "Year", DbType = "SmallInt")] System.Nullable<short> year, [global::System.Data.Linq.Mapping.ParameterAttribute(Name = "Code", DbType = "Int")] System.Nullable<int> code, [global::System.Data.Linq.Mapping.ParameterAttribute(Name = "Type", DbType = "VarChar(3)")] string type, [global::System.Data.Linq.Mapping.ParameterAttribute(Name = "ReglStat", DbType = "VarChar(3)")] string reglStat, [global::System.Data.Linq.Mapping.ParameterAttribute(Name = "LettNo", DbType = "VarChar(15)")] string lettNo, [global::System.Data.Linq.Mapping.ParameterAttribute(Name = "LettDate", DbType = "DateTime")] System.Nullable<System.DateTime> lettDate, [global::System.Data.Linq.Mapping.ParameterAttribute(Name = "LettOwnr", DbType = "NVarChar(250)")] string lettOwnr, [global::System.Data.Linq.Mapping.ParameterAttribute(Name = "StrtDate", DbType = "DateTime")] System.Nullable<System.DateTime> strtDate, [global::System.Data.Linq.Mapping.ParameterAttribute(Name = "EndDate", DbType = "DateTime")] System.Nullable<System.DateTime> endDate, [global::System.Data.Linq.Mapping.ParameterAttribute(Name = "TaxPrct", DbType = "Real")] System.Nullable<float> taxPrct, [global::System.Data.Linq.Mapping.ParameterAttribute(Name = "DutyPrct", DbType = "Real")] System.Nullable<float> dutyPrct, [global::System.Data.Linq.Mapping.ParameterAttribute(Name = "AmntType", DbType = "VarChar(3)")] string amntType, [global::System.Data.Linq.Mapping.ParameterAttribute(Name = "InsrPric", DbType = "BigInt")] System.Nullable<long> insrPric)
+      {
+         IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), year, code, type, reglStat, lettNo, lettDate, lettOwnr, strtDate, endDate, taxPrct, dutyPrct, amntType, insrPric);
+         return ((int)(result.ReturnValue));
+      }
+
+      [global::System.Data.Linq.Mapping.FunctionAttribute(Name = "dbo.INS_PYDT_P")]
+      public int INS_PYDT_P(
+               [global::System.Data.Linq.Mapping.ParameterAttribute(Name = "PYMT_CASH_CODE", DbType = "BigInt")] System.Nullable<long> pYMT_CASH_CODE,
+               [global::System.Data.Linq.Mapping.ParameterAttribute(Name = "PYMT_RQST_RQID", DbType = "BigInt")] System.Nullable<long> pYMT_RQST_RQID,
+               [global::System.Data.Linq.Mapping.ParameterAttribute(Name = "RQRO_RWNO", DbType = "SmallInt")] System.Nullable<short> rQRO_RWNO,
+               [global::System.Data.Linq.Mapping.ParameterAttribute(Name = "EXPN_CODE", DbType = "BigInt")] System.Nullable<long> eXPN_CODE,
+               [global::System.Data.Linq.Mapping.ParameterAttribute(Name = "PAY_STAT", DbType = "VarChar(3)")] string pAY_STAT,
+               [global::System.Data.Linq.Mapping.ParameterAttribute(Name = "EXPN_PRIC", DbType = "Int")] System.Nullable<int> eXPN_PRIC,
+               [global::System.Data.Linq.Mapping.ParameterAttribute(Name = "EXPN_EXTR_PRCT", DbType = "Int")] System.Nullable<int> eXPN_EXTR_PRCT,
+               [global::System.Data.Linq.Mapping.ParameterAttribute(Name = "REMN_PRIC", DbType = "Int")] System.Nullable<int> rEMN_PRIC,
+               [global::System.Data.Linq.Mapping.ParameterAttribute(Name = "QNTY", DbType = "SmallInt")] System.Nullable<short> qNTY,
+               [global::System.Data.Linq.Mapping.ParameterAttribute(Name = "DOCM_NUMB", DbType = "BigInt")] System.Nullable<long> dOCM_NUMB,
+               [global::System.Data.Linq.Mapping.ParameterAttribute(Name = "ISSU_DATE", DbType = "DateTime")] System.Nullable<System.DateTime> iSSU_DATE,
+               [global::System.Data.Linq.Mapping.ParameterAttribute(Name = "RCPT_MTOD", DbType = "VarChar(3)")] string rCPT_MTOD,
+               [global::System.Data.Linq.Mapping.ParameterAttribute(Name = "RECV_LETT_NO", DbType = "VarChar(15)")] string rECV_LETT_NO,
+               [global::System.Data.Linq.Mapping.ParameterAttribute(Name = "RECV_LETT_DATE", DbType = "DateTime")] System.Nullable<System.DateTime> rECV_LETT_DATE,
+               [global::System.Data.Linq.Mapping.ParameterAttribute(Name = "PYDT_DESC", DbType = "NVarChar(250)")] string pYDT_DESC,
+               [global::System.Data.Linq.Mapping.ParameterAttribute(Name = "ADD_QUTS", DbType = "VarChar(3)")] string aDD_QUTS,
+               [global::System.Data.Linq.Mapping.ParameterAttribute(Name = "Figh_File_No", DbType = "BigInt")] System.Nullable<long> figh_File_No,
+               [global::System.Data.Linq.Mapping.ParameterAttribute(Name = "PRE_EXPN_STAT", DbType = "VarChar(3)")] string pRE_EXPN_STAT,
+               [global::System.Data.Linq.Mapping.ParameterAttribute(Name = "CBMT_CODE_DNRM", DbType = "BigInt")] System.Nullable<long> cBMT_CODE_DNRM,
+               [global::System.Data.Linq.Mapping.ParameterAttribute(Name = "EXPR_DATE", DbType = "Date")] System.Nullable<System.DateTime> eXPR_DATE,
+               [global::System.Data.Linq.Mapping.ParameterAttribute(Name = "CODE", DbType = "BigInt")] ref System.Nullable<long> cODE)
+      {
+         IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), pYMT_CASH_CODE, pYMT_RQST_RQID, rQRO_RWNO, eXPN_CODE, pAY_STAT, eXPN_PRIC, eXPN_EXTR_PRCT, rEMN_PRIC, qNTY, dOCM_NUMB, iSSU_DATE, rCPT_MTOD, rECV_LETT_NO, rECV_LETT_DATE, pYDT_DESC, aDD_QUTS, figh_File_No, pRE_EXPN_STAT, cBMT_CODE_DNRM, eXPR_DATE, cODE);
+         cODE = ((System.Nullable<long>)(result.GetParameterValue(20)));
          return ((int)(result.ReturnValue));
       }
    }
@@ -8991,9 +8992,9 @@ namespace System.Scsc.Data
 
       private System.Nullable<System.DateTime> _MDFY_DATE;
 
-      private EntityRef<Regulation> _Regulation;
-
       private EntityRef<Request> _Request;
+
+      private EntityRef<Regulation> _Regulation;
 
       #region Extensibility Method Definitions
       partial void OnLoaded();
@@ -9019,8 +9020,8 @@ namespace System.Scsc.Data
 
       public Request_Regulation_History()
       {
-         this._Regulation = default(EntityRef<Regulation>);
          this._Request = default(EntityRef<Request>);
+         this._Regulation = default(EntityRef<Regulation>);
          OnCreated();
       }
 
@@ -9196,6 +9197,40 @@ namespace System.Scsc.Data
          }
       }
 
+      [global::System.Data.Linq.Mapping.AssociationAttribute(Name = "Request_Request_Regulation_History", Storage = "_Request", ThisKey = "RQST_RQID", OtherKey = "RQID", IsForeignKey = true, DeleteOnNull = true, DeleteRule = "CASCADE")]
+      public Request Request
+      {
+         get
+         {
+            return this._Request.Entity;
+         }
+         set
+         {
+            Request previousValue = this._Request.Entity;
+            if (((previousValue != value)
+                     || (this._Request.HasLoadedOrAssignedValue == false)))
+            {
+               this.SendPropertyChanging();
+               if ((previousValue != null))
+               {
+                  this._Request.Entity = null;
+                  previousValue.Request_Regulation_Histories.Remove(this);
+               }
+               this._Request.Entity = value;
+               if ((value != null))
+               {
+                  value.Request_Regulation_Histories.Add(this);
+                  this._RQST_RQID = value.RQID;
+               }
+               else
+               {
+                  this._RQST_RQID = default(long);
+               }
+               this.SendPropertyChanged("Request");
+            }
+         }
+      }
+
       [global::System.Data.Linq.Mapping.AssociationAttribute(Name = "Regulation_Request_Regulation_History", Storage = "_Regulation", ThisKey = "REGL_YEAR,REGL_CODE", OtherKey = "YEAR,CODE", IsForeignKey = true, DeleteOnNull = true, DeleteRule = "CASCADE")]
       public Regulation Regulation
       {
@@ -9228,40 +9263,6 @@ namespace System.Scsc.Data
                   this._REGL_CODE = default(int);
                }
                this.SendPropertyChanged("Regulation");
-            }
-         }
-      }
-
-      [global::System.Data.Linq.Mapping.AssociationAttribute(Name = "Request_Request_Regulation_History", Storage = "_Request", ThisKey = "RQST_RQID", OtherKey = "RQID", IsForeignKey = true, DeleteOnNull = true, DeleteRule = "CASCADE")]
-      public Request Request
-      {
-         get
-         {
-            return this._Request.Entity;
-         }
-         set
-         {
-            Request previousValue = this._Request.Entity;
-            if (((previousValue != value)
-                     || (this._Request.HasLoadedOrAssignedValue == false)))
-            {
-               this.SendPropertyChanging();
-               if ((previousValue != null))
-               {
-                  this._Request.Entity = null;
-                  previousValue.Request_Regulation_Histories.Remove(this);
-               }
-               this._Request.Entity = value;
-               if ((value != null))
-               {
-                  value.Request_Regulation_Histories.Add(this);
-                  this._RQST_RQID = value.RQID;
-               }
-               else
-               {
-                  this._RQST_RQID = default(long);
-               }
-               this.SendPropertyChanged("Request");
             }
          }
       }
@@ -27281,8 +27282,6 @@ namespace System.Scsc.Data
 
       private EntitySet<Finance_Document> _Finance_Documents;
 
-      private EntitySet<Payment_Detail> _Payment_Details;
-
       private EntitySet<Gain_Loss_Rial> _Gain_Loss_Rials;
 
       private EntitySet<Gain_Loss_Rial> _Gain_Loss_Rials1;
@@ -27294,6 +27293,8 @@ namespace System.Scsc.Data
       private EntitySet<Fighter_Public> _Fighter_Publics;
 
       private EntitySet<Member_Ship> _Member_Ships;
+
+      private EntitySet<Payment_Detail> _Payment_Details;
 
       private EntityRef<Region> _Region;
 
@@ -27351,13 +27352,13 @@ namespace System.Scsc.Data
          this._Body_Fitnesses = new EntitySet<Body_Fitness>(new Action<Body_Fitness>(this.attach_Body_Fitnesses), new Action<Body_Fitness>(this.detach_Body_Fitnesses));
          this._Payment_Discounts = new EntitySet<Payment_Discount>(new Action<Payment_Discount>(this.attach_Payment_Discounts), new Action<Payment_Discount>(this.detach_Payment_Discounts));
          this._Finance_Documents = new EntitySet<Finance_Document>(new Action<Finance_Document>(this.attach_Finance_Documents), new Action<Finance_Document>(this.detach_Finance_Documents));
-         this._Payment_Details = new EntitySet<Payment_Detail>(new Action<Payment_Detail>(this.attach_Payment_Details), new Action<Payment_Detail>(this.detach_Payment_Details));
          this._Gain_Loss_Rials = new EntitySet<Gain_Loss_Rial>(new Action<Gain_Loss_Rial>(this.attach_Gain_Loss_Rials), new Action<Gain_Loss_Rial>(this.detach_Gain_Loss_Rials));
          this._Gain_Loss_Rials1 = new EntitySet<Gain_Loss_Rial>(new Action<Gain_Loss_Rial>(this.attach_Gain_Loss_Rials1), new Action<Gain_Loss_Rial>(this.detach_Gain_Loss_Rials1));
          this._Payment_Checks = new EntitySet<Payment_Check>(new Action<Payment_Check>(this.attach_Payment_Checks), new Action<Payment_Check>(this.detach_Payment_Checks));
          this._Payment_Expenses = new EntitySet<Payment_Expense>(new Action<Payment_Expense>(this.attach_Payment_Expenses), new Action<Payment_Expense>(this.detach_Payment_Expenses));
          this._Fighter_Publics = new EntitySet<Fighter_Public>(new Action<Fighter_Public>(this.attach_Fighter_Publics), new Action<Fighter_Public>(this.detach_Fighter_Publics));
          this._Member_Ships = new EntitySet<Member_Ship>(new Action<Member_Ship>(this.attach_Member_Ships), new Action<Member_Ship>(this.detach_Member_Ships));
+         this._Payment_Details = new EntitySet<Payment_Detail>(new Action<Payment_Detail>(this.attach_Payment_Details), new Action<Payment_Detail>(this.detach_Payment_Details));
          this._Region = default(EntityRef<Region>);
          this._Requester_Type = default(EntityRef<Requester_Type>);
          this._Request_Type = default(EntityRef<Request_Type>);
@@ -27810,19 +27811,6 @@ namespace System.Scsc.Data
          }
       }
 
-      [global::System.Data.Linq.Mapping.AssociationAttribute(Name = "Request_Row_Payment_Detail", Storage = "_Payment_Details", ThisKey = "RQST_RQID,RWNO", OtherKey = "PYMT_RQST_RQID,RQRO_RWNO")]
-      public EntitySet<Payment_Detail> Payment_Details
-      {
-         get
-         {
-            return this._Payment_Details;
-         }
-         set
-         {
-            this._Payment_Details.Assign(value);
-         }
-      }
-
       [global::System.Data.Linq.Mapping.AssociationAttribute(Name = "Request_Row_Gain_Loss_Rial", Storage = "_Gain_Loss_Rials", ThisKey = "RQST_RQID,RWNO", OtherKey = "RQRO_RQST_RQID_DNRM,RQRO_RWNO_DNRM")]
       public EntitySet<Gain_Loss_Rial> Gain_Loss_Rials
       {
@@ -27898,6 +27886,19 @@ namespace System.Scsc.Data
          set
          {
             this._Member_Ships.Assign(value);
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.AssociationAttribute(Name = "Request_Row_Payment_Detail", Storage = "_Payment_Details", ThisKey = "RQST_RQID,RWNO", OtherKey = "PYMT_RQST_RQID,RQRO_RWNO")]
+      public EntitySet<Payment_Detail> Payment_Details
+      {
+         get
+         {
+            return this._Payment_Details;
+         }
+         set
+         {
+            this._Payment_Details.Assign(value);
          }
       }
 
@@ -28239,18 +28240,6 @@ namespace System.Scsc.Data
          entity.Request_Row = null;
       }
 
-      private void attach_Payment_Details(Payment_Detail entity)
-      {
-         this.SendPropertyChanging();
-         entity.Request_Row = this;
-      }
-
-      private void detach_Payment_Details(Payment_Detail entity)
-      {
-         this.SendPropertyChanging();
-         entity.Request_Row = null;
-      }
-
       private void attach_Gain_Loss_Rials(Gain_Loss_Rial entity)
       {
          this.SendPropertyChanging();
@@ -28318,6 +28307,18 @@ namespace System.Scsc.Data
       }
 
       private void detach_Member_Ships(Member_Ship entity)
+      {
+         this.SendPropertyChanging();
+         entity.Request_Row = null;
+      }
+
+      private void attach_Payment_Details(Payment_Detail entity)
+      {
+         this.SendPropertyChanging();
+         entity.Request_Row = this;
+      }
+
+      private void detach_Payment_Details(Payment_Detail entity)
       {
          this.SendPropertyChanging();
          entity.Request_Row = null;
@@ -36675,676 +36676,6 @@ namespace System.Scsc.Data
       }
    }
 
-   [global::System.Data.Linq.Mapping.TableAttribute(Name = "dbo.Regulation")]
-   public partial class Regulation : INotifyPropertyChanging, INotifyPropertyChanged
-   {
-
-      private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-
-      private short _YEAR;
-
-      private int _CODE;
-
-      private short _SUB_SYS;
-
-      private string _TYPE;
-
-      private string _REGL_STAT;
-
-      private string _LETT_NO;
-
-      private System.Nullable<System.DateTime> _LETT_DATE;
-
-      private string _LETT_OWNR;
-
-      private System.DateTime _STRT_DATE;
-
-      private System.DateTime _END_DATE;
-
-      private System.Nullable<float> _TAX_PRCT;
-
-      private System.Nullable<float> _DUTY_PRCT;
-
-      private string _AMNT_TYPE;
-
-      private string _CRET_BY;
-
-      private System.Nullable<System.DateTime> _CRET_DATE;
-
-      private string _MDFY_BY;
-
-      private System.Nullable<System.DateTime> _MDFY_DATE;
-
-      private EntitySet<Request_Regulation_History> _Request_Regulation_Histories;
-
-      private EntitySet<Expense_Cash> _Expense_Cashes;
-
-      private EntitySet<Request_Requester> _Request_Requesters;
-
-      private EntitySet<Finance_Document> _Finance_Documents;
-
-      private EntitySet<Payment> _Payments;
-
-      private EntitySet<Expense> _Expenses;
-
-      private EntitySet<Basic_Calculate_Discount> _Basic_Calculate_Discounts;
-
-      private EntitySet<Aggregation_Operation> _Aggregation_Operations;
-
-      #region Extensibility Method Definitions
-      partial void OnLoaded();
-      partial void OnValidate(System.Data.Linq.ChangeAction action);
-      partial void OnCreated();
-      partial void OnYEARChanging(short value);
-      partial void OnYEARChanged();
-      partial void OnCODEChanging(int value);
-      partial void OnCODEChanged();
-      partial void OnSUB_SYSChanging(short value);
-      partial void OnSUB_SYSChanged();
-      partial void OnTYPEChanging(string value);
-      partial void OnTYPEChanged();
-      partial void OnREGL_STATChanging(string value);
-      partial void OnREGL_STATChanged();
-      partial void OnLETT_NOChanging(string value);
-      partial void OnLETT_NOChanged();
-      partial void OnLETT_DATEChanging(System.Nullable<System.DateTime> value);
-      partial void OnLETT_DATEChanged();
-      partial void OnLETT_OWNRChanging(string value);
-      partial void OnLETT_OWNRChanged();
-      partial void OnSTRT_DATEChanging(System.DateTime value);
-      partial void OnSTRT_DATEChanged();
-      partial void OnEND_DATEChanging(System.DateTime value);
-      partial void OnEND_DATEChanged();
-      partial void OnTAX_PRCTChanging(System.Nullable<float> value);
-      partial void OnTAX_PRCTChanged();
-      partial void OnDUTY_PRCTChanging(System.Nullable<float> value);
-      partial void OnDUTY_PRCTChanged();
-      partial void OnAMNT_TYPEChanging(string value);
-      partial void OnAMNT_TYPEChanged();
-      partial void OnCRET_BYChanging(string value);
-      partial void OnCRET_BYChanged();
-      partial void OnCRET_DATEChanging(System.Nullable<System.DateTime> value);
-      partial void OnCRET_DATEChanged();
-      partial void OnMDFY_BYChanging(string value);
-      partial void OnMDFY_BYChanged();
-      partial void OnMDFY_DATEChanging(System.Nullable<System.DateTime> value);
-      partial void OnMDFY_DATEChanged();
-      #endregion
-
-      public Regulation()
-      {
-         this._Request_Regulation_Histories = new EntitySet<Request_Regulation_History>(new Action<Request_Regulation_History>(this.attach_Request_Regulation_Histories), new Action<Request_Regulation_History>(this.detach_Request_Regulation_Histories));
-         this._Expense_Cashes = new EntitySet<Expense_Cash>(new Action<Expense_Cash>(this.attach_Expense_Cashes), new Action<Expense_Cash>(this.detach_Expense_Cashes));
-         this._Request_Requesters = new EntitySet<Request_Requester>(new Action<Request_Requester>(this.attach_Request_Requesters), new Action<Request_Requester>(this.detach_Request_Requesters));
-         this._Finance_Documents = new EntitySet<Finance_Document>(new Action<Finance_Document>(this.attach_Finance_Documents), new Action<Finance_Document>(this.detach_Finance_Documents));
-         this._Payments = new EntitySet<Payment>(new Action<Payment>(this.attach_Payments), new Action<Payment>(this.detach_Payments));
-         this._Expenses = new EntitySet<Expense>(new Action<Expense>(this.attach_Expenses), new Action<Expense>(this.detach_Expenses));
-         this._Basic_Calculate_Discounts = new EntitySet<Basic_Calculate_Discount>(new Action<Basic_Calculate_Discount>(this.attach_Basic_Calculate_Discounts), new Action<Basic_Calculate_Discount>(this.detach_Basic_Calculate_Discounts));
-         this._Aggregation_Operations = new EntitySet<Aggregation_Operation>(new Action<Aggregation_Operation>(this.attach_Aggregation_Operations), new Action<Aggregation_Operation>(this.detach_Aggregation_Operations));
-         OnCreated();
-      }
-
-      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_YEAR", DbType = "SmallInt NOT NULL", IsPrimaryKey = true)]
-      public short YEAR
-      {
-         get
-         {
-            return this._YEAR;
-         }
-         set
-         {
-            if ((this._YEAR != value))
-            {
-               this.OnYEARChanging(value);
-               this.SendPropertyChanging();
-               this._YEAR = value;
-               this.SendPropertyChanged("YEAR");
-               this.OnYEARChanged();
-            }
-         }
-      }
-
-      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_CODE", DbType = "Int NOT NULL", IsPrimaryKey = true)]
-      public int CODE
-      {
-         get
-         {
-            return this._CODE;
-         }
-         set
-         {
-            if ((this._CODE != value))
-            {
-               this.OnCODEChanging(value);
-               this.SendPropertyChanging();
-               this._CODE = value;
-               this.SendPropertyChanged("CODE");
-               this.OnCODEChanged();
-            }
-         }
-      }
-
-      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_SUB_SYS", DbType = "SmallInt NOT NULL")]
-      public short SUB_SYS
-      {
-         get
-         {
-            return this._SUB_SYS;
-         }
-         set
-         {
-            if ((this._SUB_SYS != value))
-            {
-               this.OnSUB_SYSChanging(value);
-               this.SendPropertyChanging();
-               this._SUB_SYS = value;
-               this.SendPropertyChanged("SUB_SYS");
-               this.OnSUB_SYSChanged();
-            }
-         }
-      }
-
-      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_TYPE", DbType = "VarChar(3) NOT NULL", CanBeNull = false)]
-      public string TYPE
-      {
-         get
-         {
-            return this._TYPE;
-         }
-         set
-         {
-            if ((this._TYPE != value))
-            {
-               this.OnTYPEChanging(value);
-               this.SendPropertyChanging();
-               this._TYPE = value;
-               this.SendPropertyChanged("TYPE");
-               this.OnTYPEChanged();
-            }
-         }
-      }
-
-      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_REGL_STAT", DbType = "VarChar(3) NOT NULL", CanBeNull = false)]
-      public string REGL_STAT
-      {
-         get
-         {
-            return this._REGL_STAT;
-         }
-         set
-         {
-            if ((this._REGL_STAT != value))
-            {
-               this.OnREGL_STATChanging(value);
-               this.SendPropertyChanging();
-               this._REGL_STAT = value;
-               this.SendPropertyChanged("REGL_STAT");
-               this.OnREGL_STATChanged();
-            }
-         }
-      }
-
-      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_LETT_NO", DbType = "VarChar(15)")]
-      public string LETT_NO
-      {
-         get
-         {
-            return this._LETT_NO;
-         }
-         set
-         {
-            if ((this._LETT_NO != value))
-            {
-               this.OnLETT_NOChanging(value);
-               this.SendPropertyChanging();
-               this._LETT_NO = value;
-               this.SendPropertyChanged("LETT_NO");
-               this.OnLETT_NOChanged();
-            }
-         }
-      }
-
-      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_LETT_DATE", DbType = "DateTime")]
-      public System.Nullable<System.DateTime> LETT_DATE
-      {
-         get
-         {
-            return this._LETT_DATE;
-         }
-         set
-         {
-            if ((this._LETT_DATE != value))
-            {
-               this.OnLETT_DATEChanging(value);
-               this.SendPropertyChanging();
-               this._LETT_DATE = value;
-               this.SendPropertyChanged("LETT_DATE");
-               this.OnLETT_DATEChanged();
-            }
-         }
-      }
-
-      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_LETT_OWNR", DbType = "NVarChar(250)")]
-      public string LETT_OWNR
-      {
-         get
-         {
-            return this._LETT_OWNR;
-         }
-         set
-         {
-            if ((this._LETT_OWNR != value))
-            {
-               this.OnLETT_OWNRChanging(value);
-               this.SendPropertyChanging();
-               this._LETT_OWNR = value;
-               this.SendPropertyChanged("LETT_OWNR");
-               this.OnLETT_OWNRChanged();
-            }
-         }
-      }
-
-      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_STRT_DATE", DbType = "DateTime NOT NULL")]
-      public System.DateTime STRT_DATE
-      {
-         get
-         {
-            return this._STRT_DATE;
-         }
-         set
-         {
-            if ((this._STRT_DATE != value))
-            {
-               this.OnSTRT_DATEChanging(value);
-               this.SendPropertyChanging();
-               this._STRT_DATE = value;
-               this.SendPropertyChanged("STRT_DATE");
-               this.OnSTRT_DATEChanged();
-            }
-         }
-      }
-
-      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_END_DATE", DbType = "DateTime NOT NULL")]
-      public System.DateTime END_DATE
-      {
-         get
-         {
-            return this._END_DATE;
-         }
-         set
-         {
-            if ((this._END_DATE != value))
-            {
-               this.OnEND_DATEChanging(value);
-               this.SendPropertyChanging();
-               this._END_DATE = value;
-               this.SendPropertyChanged("END_DATE");
-               this.OnEND_DATEChanged();
-            }
-         }
-      }
-
-      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_TAX_PRCT", DbType = "Real")]
-      public System.Nullable<float> TAX_PRCT
-      {
-         get
-         {
-            return this._TAX_PRCT;
-         }
-         set
-         {
-            if ((this._TAX_PRCT != value))
-            {
-               this.OnTAX_PRCTChanging(value);
-               this.SendPropertyChanging();
-               this._TAX_PRCT = value;
-               this.SendPropertyChanged("TAX_PRCT");
-               this.OnTAX_PRCTChanged();
-            }
-         }
-      }
-
-      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_DUTY_PRCT", DbType = "Real")]
-      public System.Nullable<float> DUTY_PRCT
-      {
-         get
-         {
-            return this._DUTY_PRCT;
-         }
-         set
-         {
-            if ((this._DUTY_PRCT != value))
-            {
-               this.OnDUTY_PRCTChanging(value);
-               this.SendPropertyChanging();
-               this._DUTY_PRCT = value;
-               this.SendPropertyChanged("DUTY_PRCT");
-               this.OnDUTY_PRCTChanged();
-            }
-         }
-      }
-
-      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_AMNT_TYPE", DbType = "VarChar(3)")]
-      public string AMNT_TYPE
-      {
-         get
-         {
-            return this._AMNT_TYPE;
-         }
-         set
-         {
-            if ((this._AMNT_TYPE != value))
-            {
-               this.OnAMNT_TYPEChanging(value);
-               this.SendPropertyChanging();
-               this._AMNT_TYPE = value;
-               this.SendPropertyChanged("AMNT_TYPE");
-               this.OnAMNT_TYPEChanged();
-            }
-         }
-      }
-
-      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_CRET_BY", DbType = "VarChar(250)")]
-      public string CRET_BY
-      {
-         get
-         {
-            return this._CRET_BY;
-         }
-         set
-         {
-            if ((this._CRET_BY != value))
-            {
-               this.OnCRET_BYChanging(value);
-               this.SendPropertyChanging();
-               this._CRET_BY = value;
-               this.SendPropertyChanged("CRET_BY");
-               this.OnCRET_BYChanged();
-            }
-         }
-      }
-
-      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_CRET_DATE", DbType = "DateTime")]
-      public System.Nullable<System.DateTime> CRET_DATE
-      {
-         get
-         {
-            return this._CRET_DATE;
-         }
-         set
-         {
-            if ((this._CRET_DATE != value))
-            {
-               this.OnCRET_DATEChanging(value);
-               this.SendPropertyChanging();
-               this._CRET_DATE = value;
-               this.SendPropertyChanged("CRET_DATE");
-               this.OnCRET_DATEChanged();
-            }
-         }
-      }
-
-      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_MDFY_BY", DbType = "VarChar(250)")]
-      public string MDFY_BY
-      {
-         get
-         {
-            return this._MDFY_BY;
-         }
-         set
-         {
-            if ((this._MDFY_BY != value))
-            {
-               this.OnMDFY_BYChanging(value);
-               this.SendPropertyChanging();
-               this._MDFY_BY = value;
-               this.SendPropertyChanged("MDFY_BY");
-               this.OnMDFY_BYChanged();
-            }
-         }
-      }
-
-      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_MDFY_DATE", DbType = "DateTime")]
-      public System.Nullable<System.DateTime> MDFY_DATE
-      {
-         get
-         {
-            return this._MDFY_DATE;
-         }
-         set
-         {
-            if ((this._MDFY_DATE != value))
-            {
-               this.OnMDFY_DATEChanging(value);
-               this.SendPropertyChanging();
-               this._MDFY_DATE = value;
-               this.SendPropertyChanged("MDFY_DATE");
-               this.OnMDFY_DATEChanged();
-            }
-         }
-      }
-
-      [global::System.Data.Linq.Mapping.AssociationAttribute(Name = "Regulation_Request_Regulation_History", Storage = "_Request_Regulation_Histories", ThisKey = "YEAR,CODE", OtherKey = "REGL_YEAR,REGL_CODE")]
-      public EntitySet<Request_Regulation_History> Request_Regulation_Histories
-      {
-         get
-         {
-            return this._Request_Regulation_Histories;
-         }
-         set
-         {
-            this._Request_Regulation_Histories.Assign(value);
-         }
-      }
-
-      [global::System.Data.Linq.Mapping.AssociationAttribute(Name = "Regulation_Expense_Cash", Storage = "_Expense_Cashes", ThisKey = "YEAR,CODE", OtherKey = "REGL_YEAR,REGL_CODE")]
-      public EntitySet<Expense_Cash> Expense_Cashes
-      {
-         get
-         {
-            return this._Expense_Cashes;
-         }
-         set
-         {
-            this._Expense_Cashes.Assign(value);
-         }
-      }
-
-      [global::System.Data.Linq.Mapping.AssociationAttribute(Name = "Regulation_Request_Requester", Storage = "_Request_Requesters", ThisKey = "YEAR,CODE", OtherKey = "REGL_YEAR,REGL_CODE")]
-      public EntitySet<Request_Requester> Request_Requesters
-      {
-         get
-         {
-            return this._Request_Requesters;
-         }
-         set
-         {
-            this._Request_Requesters.Assign(value);
-         }
-      }
-
-      [global::System.Data.Linq.Mapping.AssociationAttribute(Name = "Regulation_Finance_Document", Storage = "_Finance_Documents", ThisKey = "YEAR,CODE", OtherKey = "REGL_YEAR_DNRM,REGL_CODE_DNRM")]
-      public EntitySet<Finance_Document> Finance_Documents
-      {
-         get
-         {
-            return this._Finance_Documents;
-         }
-         set
-         {
-            this._Finance_Documents.Assign(value);
-         }
-      }
-
-      [global::System.Data.Linq.Mapping.AssociationAttribute(Name = "Regulation_Payment", Storage = "_Payments", ThisKey = "YEAR,CODE", OtherKey = "REGL_YEAR_DNRM,REGL_CODE_DNRM")]
-      public EntitySet<Payment> Payments
-      {
-         get
-         {
-            return this._Payments;
-         }
-         set
-         {
-            this._Payments.Assign(value);
-         }
-      }
-
-      [global::System.Data.Linq.Mapping.AssociationAttribute(Name = "Regulation_Expense", Storage = "_Expenses", ThisKey = "YEAR,CODE", OtherKey = "REGL_YEAR,REGL_CODE")]
-      public EntitySet<Expense> Expenses
-      {
-         get
-         {
-            return this._Expenses;
-         }
-         set
-         {
-            this._Expenses.Assign(value);
-         }
-      }
-
-      [global::System.Data.Linq.Mapping.AssociationAttribute(Name = "Regulation_Basic_Calculate_Discount", Storage = "_Basic_Calculate_Discounts", ThisKey = "YEAR,CODE", OtherKey = "REGL_YEAR,REGL_CODE")]
-      public EntitySet<Basic_Calculate_Discount> Basic_Calculate_Discounts
-      {
-         get
-         {
-            return this._Basic_Calculate_Discounts;
-         }
-         set
-         {
-            this._Basic_Calculate_Discounts.Assign(value);
-         }
-      }
-
-      [global::System.Data.Linq.Mapping.AssociationAttribute(Name = "Regulation_Aggregation_Operation", Storage = "_Aggregation_Operations", ThisKey = "YEAR,CODE", OtherKey = "REGL_YEAR,REGL_CODE")]
-      public EntitySet<Aggregation_Operation> Aggregation_Operations
-      {
-         get
-         {
-            return this._Aggregation_Operations;
-         }
-         set
-         {
-            this._Aggregation_Operations.Assign(value);
-         }
-      }
-
-      public event PropertyChangingEventHandler PropertyChanging;
-
-      public event PropertyChangedEventHandler PropertyChanged;
-
-      protected virtual void SendPropertyChanging()
-      {
-         if ((this.PropertyChanging != null))
-         {
-            this.PropertyChanging(this, emptyChangingEventArgs);
-         }
-      }
-
-      protected virtual void SendPropertyChanged(String propertyName)
-      {
-         if ((this.PropertyChanged != null))
-         {
-            this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-         }
-      }
-
-      private void attach_Request_Regulation_Histories(Request_Regulation_History entity)
-      {
-         this.SendPropertyChanging();
-         entity.Regulation = this;
-      }
-
-      private void detach_Request_Regulation_Histories(Request_Regulation_History entity)
-      {
-         this.SendPropertyChanging();
-         entity.Regulation = null;
-      }
-
-      private void attach_Expense_Cashes(Expense_Cash entity)
-      {
-         this.SendPropertyChanging();
-         entity.Regulation = this;
-      }
-
-      private void detach_Expense_Cashes(Expense_Cash entity)
-      {
-         this.SendPropertyChanging();
-         entity.Regulation = null;
-      }
-
-      private void attach_Request_Requesters(Request_Requester entity)
-      {
-         this.SendPropertyChanging();
-         entity.Regulation = this;
-      }
-
-      private void detach_Request_Requesters(Request_Requester entity)
-      {
-         this.SendPropertyChanging();
-         entity.Regulation = null;
-      }
-
-      private void attach_Finance_Documents(Finance_Document entity)
-      {
-         this.SendPropertyChanging();
-         entity.Regulation = this;
-      }
-
-      private void detach_Finance_Documents(Finance_Document entity)
-      {
-         this.SendPropertyChanging();
-         entity.Regulation = null;
-      }
-
-      private void attach_Payments(Payment entity)
-      {
-         this.SendPropertyChanging();
-         entity.Regulation = this;
-      }
-
-      private void detach_Payments(Payment entity)
-      {
-         this.SendPropertyChanging();
-         entity.Regulation = null;
-      }
-
-      private void attach_Expenses(Expense entity)
-      {
-         this.SendPropertyChanging();
-         entity.Regulation = this;
-      }
-
-      private void detach_Expenses(Expense entity)
-      {
-         this.SendPropertyChanging();
-         entity.Regulation = null;
-      }
-
-      private void attach_Basic_Calculate_Discounts(Basic_Calculate_Discount entity)
-      {
-         this.SendPropertyChanging();
-         entity.Regulation = this;
-      }
-
-      private void detach_Basic_Calculate_Discounts(Basic_Calculate_Discount entity)
-      {
-         this.SendPropertyChanging();
-         entity.Regulation = null;
-      }
-
-      private void attach_Aggregation_Operations(Aggregation_Operation entity)
-      {
-         this.SendPropertyChanging();
-         entity.Regulation = this;
-      }
-
-      private void detach_Aggregation_Operations(Aggregation_Operation entity)
-      {
-         this.SendPropertyChanging();
-         entity.Regulation = null;
-      }
-   }
-
    [global::System.Data.Linq.Mapping.TableAttribute(Name = "dbo.Payment")]
    public partial class Payment : INotifyPropertyChanging, INotifyPropertyChanged
    {
@@ -37415,17 +36746,17 @@ namespace System.Scsc.Data
 
       private EntitySet<Account_Detail> _Account_Details;
 
-      private EntitySet<Payment_Detail> _Payment_Details;
-
       private EntitySet<Payment_Check> _Payment_Checks;
 
-      private EntityRef<Cash> _Cash;
+      private EntitySet<Payment_Detail> _Payment_Details;
 
-      private EntityRef<Regulation> _Regulation;
+      private EntityRef<Cash> _Cash;
 
       private EntityRef<Request> _Request;
 
       private EntityRef<Club> _Club;
+
+      private EntityRef<Regulation> _Regulation;
 
       #region Extensibility Method Definitions
       partial void OnLoaded();
@@ -37496,12 +36827,12 @@ namespace System.Scsc.Data
          this._Payment_Methods = new EntitySet<Payment_Method>(new Action<Payment_Method>(this.attach_Payment_Methods), new Action<Payment_Method>(this.detach_Payment_Methods));
          this._Payment_Discounts = new EntitySet<Payment_Discount>(new Action<Payment_Discount>(this.attach_Payment_Discounts), new Action<Payment_Discount>(this.detach_Payment_Discounts));
          this._Account_Details = new EntitySet<Account_Detail>(new Action<Account_Detail>(this.attach_Account_Details), new Action<Account_Detail>(this.detach_Account_Details));
-         this._Payment_Details = new EntitySet<Payment_Detail>(new Action<Payment_Detail>(this.attach_Payment_Details), new Action<Payment_Detail>(this.detach_Payment_Details));
          this._Payment_Checks = new EntitySet<Payment_Check>(new Action<Payment_Check>(this.attach_Payment_Checks), new Action<Payment_Check>(this.detach_Payment_Checks));
+         this._Payment_Details = new EntitySet<Payment_Detail>(new Action<Payment_Detail>(this.attach_Payment_Details), new Action<Payment_Detail>(this.detach_Payment_Details));
          this._Cash = default(EntityRef<Cash>);
-         this._Regulation = default(EntityRef<Regulation>);
          this._Request = default(EntityRef<Request>);
          this._Club = default(EntityRef<Club>);
+         this._Regulation = default(EntityRef<Regulation>);
          OnCreated();
       }
 
@@ -38144,19 +37475,6 @@ namespace System.Scsc.Data
          }
       }
 
-      [global::System.Data.Linq.Mapping.AssociationAttribute(Name = "Payment_Payment_Detail", Storage = "_Payment_Details", ThisKey = "CASH_CODE,RQST_RQID", OtherKey = "PYMT_CASH_CODE,PYMT_RQST_RQID")]
-      public EntitySet<Payment_Detail> Payment_Details
-      {
-         get
-         {
-            return this._Payment_Details;
-         }
-         set
-         {
-            this._Payment_Details.Assign(value);
-         }
-      }
-
       [global::System.Data.Linq.Mapping.AssociationAttribute(Name = "Payment_Payment_Check", Storage = "_Payment_Checks", ThisKey = "CASH_CODE,RQST_RQID", OtherKey = "PYMT_CASH_CODE,PYMT_RQST_RQID")]
       public EntitySet<Payment_Check> Payment_Checks
       {
@@ -38167,6 +37485,19 @@ namespace System.Scsc.Data
          set
          {
             this._Payment_Checks.Assign(value);
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.AssociationAttribute(Name = "Payment_Payment_Detail", Storage = "_Payment_Details", ThisKey = "CASH_CODE,RQST_RQID", OtherKey = "PYMT_CASH_CODE,PYMT_RQST_RQID")]
+      public EntitySet<Payment_Detail> Payment_Details
+      {
+         get
+         {
+            return this._Payment_Details;
+         }
+         set
+         {
+            this._Payment_Details.Assign(value);
          }
       }
 
@@ -38200,42 +37531,6 @@ namespace System.Scsc.Data
                   this._CASH_CODE = default(long);
                }
                this.SendPropertyChanged("Cash");
-            }
-         }
-      }
-
-      [global::System.Data.Linq.Mapping.AssociationAttribute(Name = "Regulation_Payment", Storage = "_Regulation", ThisKey = "REGL_YEAR_DNRM,REGL_CODE_DNRM", OtherKey = "YEAR,CODE", IsForeignKey = true)]
-      public Regulation Regulation
-      {
-         get
-         {
-            return this._Regulation.Entity;
-         }
-         set
-         {
-            Regulation previousValue = this._Regulation.Entity;
-            if (((previousValue != value)
-                     || (this._Regulation.HasLoadedOrAssignedValue == false)))
-            {
-               this.SendPropertyChanging();
-               if ((previousValue != null))
-               {
-                  this._Regulation.Entity = null;
-                  previousValue.Payments.Remove(this);
-               }
-               this._Regulation.Entity = value;
-               if ((value != null))
-               {
-                  value.Payments.Add(this);
-                  this._REGL_YEAR_DNRM = value.YEAR;
-                  this._REGL_CODE_DNRM = value.CODE;
-               }
-               else
-               {
-                  this._REGL_YEAR_DNRM = default(Nullable<short>);
-                  this._REGL_CODE_DNRM = default(Nullable<int>);
-               }
-               this.SendPropertyChanged("Regulation");
             }
          }
       }
@@ -38308,6 +37603,42 @@ namespace System.Scsc.Data
          }
       }
 
+      [global::System.Data.Linq.Mapping.AssociationAttribute(Name = "Regulation_Payment", Storage = "_Regulation", ThisKey = "REGL_YEAR_DNRM,REGL_CODE_DNRM", OtherKey = "YEAR,CODE", IsForeignKey = true)]
+      public Regulation Regulation
+      {
+         get
+         {
+            return this._Regulation.Entity;
+         }
+         set
+         {
+            Regulation previousValue = this._Regulation.Entity;
+            if (((previousValue != value)
+                     || (this._Regulation.HasLoadedOrAssignedValue == false)))
+            {
+               this.SendPropertyChanging();
+               if ((previousValue != null))
+               {
+                  this._Regulation.Entity = null;
+                  previousValue.Payments.Remove(this);
+               }
+               this._Regulation.Entity = value;
+               if ((value != null))
+               {
+                  value.Payments.Add(this);
+                  this._REGL_YEAR_DNRM = value.YEAR;
+                  this._REGL_CODE_DNRM = value.CODE;
+               }
+               else
+               {
+                  this._REGL_YEAR_DNRM = default(Nullable<short>);
+                  this._REGL_CODE_DNRM = default(Nullable<int>);
+               }
+               this.SendPropertyChanged("Regulation");
+            }
+         }
+      }
+
       public event PropertyChangingEventHandler PropertyChanging;
 
       public event PropertyChangedEventHandler PropertyChanged;
@@ -38364,18 +37695,6 @@ namespace System.Scsc.Data
          entity.Payment = null;
       }
 
-      private void attach_Payment_Details(Payment_Detail entity)
-      {
-         this.SendPropertyChanging();
-         entity.Payment = this;
-      }
-
-      private void detach_Payment_Details(Payment_Detail entity)
-      {
-         this.SendPropertyChanging();
-         entity.Payment = null;
-      }
-
       private void attach_Payment_Checks(Payment_Check entity)
       {
          this.SendPropertyChanging();
@@ -38383,6 +37702,18 @@ namespace System.Scsc.Data
       }
 
       private void detach_Payment_Checks(Payment_Check entity)
+      {
+         this.SendPropertyChanging();
+         entity.Payment = null;
+      }
+
+      private void attach_Payment_Details(Payment_Detail entity)
+      {
+         this.SendPropertyChanging();
+         entity.Payment = this;
+      }
+
+      private void detach_Payment_Details(Payment_Detail entity)
       {
          this.SendPropertyChanging();
          entity.Payment = null;
@@ -38477,19 +37808,19 @@ namespace System.Scsc.Data
 
       private EntitySet<Pre_Expense> _Pre_Expenses1;
 
-      private EntitySet<Payment_Detail> _Payment_Details;
-
       private EntitySet<Aggregation_Operation_Detail> _Aggregation_Operation_Details;
+
+      private EntitySet<Payment_Detail> _Payment_Details;
 
       private EntityRef<Expense_Type> _Expense_Type;
 
       private EntityRef<Group_Expense> _Group_Expense;
 
-      private EntityRef<Regulation> _Regulation;
-
       private EntityRef<Method> _Method;
 
       private EntityRef<Category_Belt> _Category_Belt;
+
+      private EntityRef<Regulation> _Regulation;
 
       #region Extensibility Method Definitions
       partial void OnLoaded();
@@ -38574,13 +37905,13 @@ namespace System.Scsc.Data
          this._Buffets = new EntitySet<Buffet>(new Action<Buffet>(this.attach_Buffets), new Action<Buffet>(this.detach_Buffets));
          this._Pre_Expenses = new EntitySet<Pre_Expense>(new Action<Pre_Expense>(this.attach_Pre_Expenses), new Action<Pre_Expense>(this.detach_Pre_Expenses));
          this._Pre_Expenses1 = new EntitySet<Pre_Expense>(new Action<Pre_Expense>(this.attach_Pre_Expenses1), new Action<Pre_Expense>(this.detach_Pre_Expenses1));
-         this._Payment_Details = new EntitySet<Payment_Detail>(new Action<Payment_Detail>(this.attach_Payment_Details), new Action<Payment_Detail>(this.detach_Payment_Details));
          this._Aggregation_Operation_Details = new EntitySet<Aggregation_Operation_Detail>(new Action<Aggregation_Operation_Detail>(this.attach_Aggregation_Operation_Details), new Action<Aggregation_Operation_Detail>(this.detach_Aggregation_Operation_Details));
+         this._Payment_Details = new EntitySet<Payment_Detail>(new Action<Payment_Detail>(this.attach_Payment_Details), new Action<Payment_Detail>(this.detach_Payment_Details));
          this._Expense_Type = default(EntityRef<Expense_Type>);
          this._Group_Expense = default(EntityRef<Group_Expense>);
-         this._Regulation = default(EntityRef<Regulation>);
          this._Method = default(EntityRef<Method>);
          this._Category_Belt = default(EntityRef<Category_Belt>);
+         this._Regulation = default(EntityRef<Regulation>);
          OnCreated();
       }
 
@@ -39379,19 +38710,6 @@ namespace System.Scsc.Data
          }
       }
 
-      [global::System.Data.Linq.Mapping.AssociationAttribute(Name = "Expense_Payment_Detail", Storage = "_Payment_Details", ThisKey = "CODE", OtherKey = "EXPN_CODE")]
-      public EntitySet<Payment_Detail> Payment_Details
-      {
-         get
-         {
-            return this._Payment_Details;
-         }
-         set
-         {
-            this._Payment_Details.Assign(value);
-         }
-      }
-
       [global::System.Data.Linq.Mapping.AssociationAttribute(Name = "Expense_Aggregation_Operation_Detail", Storage = "_Aggregation_Operation_Details", ThisKey = "CODE", OtherKey = "EXPN_CODE")]
       public EntitySet<Aggregation_Operation_Detail> Aggregation_Operation_Details
       {
@@ -39402,6 +38720,19 @@ namespace System.Scsc.Data
          set
          {
             this._Aggregation_Operation_Details.Assign(value);
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.AssociationAttribute(Name = "Expense_Payment_Detail", Storage = "_Payment_Details", ThisKey = "CODE", OtherKey = "EXPN_CODE")]
+      public EntitySet<Payment_Detail> Payment_Details
+      {
+         get
+         {
+            return this._Payment_Details;
+         }
+         set
+         {
+            this._Payment_Details.Assign(value);
          }
       }
 
@@ -39473,42 +38804,6 @@ namespace System.Scsc.Data
          }
       }
 
-      [global::System.Data.Linq.Mapping.AssociationAttribute(Name = "Regulation_Expense", Storage = "_Regulation", ThisKey = "REGL_YEAR,REGL_CODE", OtherKey = "YEAR,CODE", IsForeignKey = true, DeleteRule = "SET NULL")]
-      public Regulation Regulation
-      {
-         get
-         {
-            return this._Regulation.Entity;
-         }
-         set
-         {
-            Regulation previousValue = this._Regulation.Entity;
-            if (((previousValue != value)
-                     || (this._Regulation.HasLoadedOrAssignedValue == false)))
-            {
-               this.SendPropertyChanging();
-               if ((previousValue != null))
-               {
-                  this._Regulation.Entity = null;
-                  previousValue.Expenses.Remove(this);
-               }
-               this._Regulation.Entity = value;
-               if ((value != null))
-               {
-                  value.Expenses.Add(this);
-                  this._REGL_YEAR = value.YEAR;
-                  this._REGL_CODE = value.CODE;
-               }
-               else
-               {
-                  this._REGL_YEAR = default(Nullable<short>);
-                  this._REGL_CODE = default(Nullable<int>);
-               }
-               this.SendPropertyChanged("Regulation");
-            }
-         }
-      }
-
       [global::System.Data.Linq.Mapping.AssociationAttribute(Name = "Method_Expense", Storage = "_Method", ThisKey = "MTOD_CODE", OtherKey = "CODE", IsForeignKey = true, DeleteRule = "SET NULL")]
       public Method Method
       {
@@ -39573,6 +38868,42 @@ namespace System.Scsc.Data
                   this._CTGY_CODE = default(Nullable<long>);
                }
                this.SendPropertyChanged("Category_Belt");
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.AssociationAttribute(Name = "Regulation_Expense", Storage = "_Regulation", ThisKey = "REGL_YEAR,REGL_CODE", OtherKey = "YEAR,CODE", IsForeignKey = true, DeleteRule = "SET NULL")]
+      public Regulation Regulation
+      {
+         get
+         {
+            return this._Regulation.Entity;
+         }
+         set
+         {
+            Regulation previousValue = this._Regulation.Entity;
+            if (((previousValue != value)
+                     || (this._Regulation.HasLoadedOrAssignedValue == false)))
+            {
+               this.SendPropertyChanging();
+               if ((previousValue != null))
+               {
+                  this._Regulation.Entity = null;
+                  previousValue.Expenses.Remove(this);
+               }
+               this._Regulation.Entity = value;
+               if ((value != null))
+               {
+                  value.Expenses.Add(this);
+                  this._REGL_YEAR = value.YEAR;
+                  this._REGL_CODE = value.CODE;
+               }
+               else
+               {
+                  this._REGL_YEAR = default(Nullable<short>);
+                  this._REGL_CODE = default(Nullable<int>);
+               }
+               this.SendPropertyChanged("Regulation");
             }
          }
       }
@@ -39681,18 +39012,6 @@ namespace System.Scsc.Data
          entity.Expense1 = null;
       }
 
-      private void attach_Payment_Details(Payment_Detail entity)
-      {
-         this.SendPropertyChanging();
-         entity.Expense = this;
-      }
-
-      private void detach_Payment_Details(Payment_Detail entity)
-      {
-         this.SendPropertyChanging();
-         entity.Expense = null;
-      }
-
       private void attach_Aggregation_Operation_Details(Aggregation_Operation_Detail entity)
       {
          this.SendPropertyChanging();
@@ -39700,6 +39019,18 @@ namespace System.Scsc.Data
       }
 
       private void detach_Aggregation_Operation_Details(Aggregation_Operation_Detail entity)
+      {
+         this.SendPropertyChanging();
+         entity.Expense = null;
+      }
+
+      private void attach_Payment_Details(Payment_Detail entity)
+      {
+         this.SendPropertyChanging();
+         entity.Expense = this;
+      }
+
+      private void detach_Payment_Details(Payment_Detail entity)
       {
          this.SendPropertyChanging();
          entity.Expense = null;
@@ -39751,1224 +39082,6 @@ namespace System.Scsc.Data
       }
    }
 
-   [global::System.Data.Linq.Mapping.TableAttribute(Name = "dbo.Payment_Detail")]
-   public partial class Payment_Detail : INotifyPropertyChanging, INotifyPropertyChanged
-   {
-
-      private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-
-      private System.Nullable<long> _PYMT_CASH_CODE;
-
-      private System.Nullable<long> _PYMT_RQST_RQID;
-
-      private System.Nullable<short> _RQRO_RWNO;
-
-      private System.Nullable<long> _EXPN_CODE;
-
-      private long _CODE;
-
-      private string _PAY_STAT;
-
-      private System.Nullable<int> _EXPN_PRIC;
-
-      private System.Nullable<int> _EXPN_EXTR_PRCT;
-
-      private System.Nullable<int> _REMN_PRIC;
-
-      private System.Nullable<short> _QNTY;
-
-      private System.Nullable<long> _DOCM_NUMB;
-
-      private System.Nullable<System.DateTime> _ISSU_DATE;
-
-      private string _RCPT_MTOD;
-
-      private string _RECV_LETT_NO;
-
-      private System.Nullable<System.DateTime> _RECV_LETT_DATE;
-
-      private string _PYDT_DESC;
-
-      private string _ADD_QUTS;
-
-      private System.Nullable<long> _FIGH_FILE_NO;
-
-      private string _PRE_EXPN_STAT;
-
-      private System.Nullable<long> _CBMT_CODE_DNRM;
-
-      private System.Nullable<long> _MTOD_CODE_DNRM;
-
-      private System.Nullable<long> _CTGY_CODE_DNRM;
-
-      private string _TRAN_STAT;
-
-      private string _TRAN_BY;
-
-      private System.Nullable<System.DateTime> _TRAN_DATE;
-
-      private System.Nullable<long> _TRAN_CBMT_CODE;
-
-      private System.Nullable<long> _TRAN_MTOD_CODE;
-
-      private System.Nullable<long> _TRAN_CTGY_CODE;
-
-      private System.Nullable<long> _TRAN_EXPN_CODE;
-
-      private string _CRET_BY;
-
-      private System.Nullable<System.DateTime> _CRET_DATE;
-
-      private string _MDFY_BY;
-
-      private System.Nullable<System.DateTime> _MDFY_DATE;
-
-      private EntitySet<Refunds_Payment_Detail> _Refunds_Payment_Details;
-
-      private EntitySet<Payment_Expense> _Payment_Expenses;
-
-      private EntityRef<Cash> _Cash;
-
-      private EntityRef<Expense> _Expense;
-
-      private EntityRef<Payment> _Payment;
-
-      private EntityRef<Request_Row> _Request_Row;
-
-      private EntityRef<Method> _Method;
-
-      private EntityRef<Club_Method> _Club_Method;
-
-      private EntityRef<Fighter> _Fighter;
-
-      private EntityRef<Category_Belt> _Category_Belt;
-
-      #region Extensibility Method Definitions
-      partial void OnLoaded();
-      partial void OnValidate(System.Data.Linq.ChangeAction action);
-      partial void OnCreated();
-      partial void OnPYMT_CASH_CODEChanging(System.Nullable<long> value);
-      partial void OnPYMT_CASH_CODEChanged();
-      partial void OnPYMT_RQST_RQIDChanging(System.Nullable<long> value);
-      partial void OnPYMT_RQST_RQIDChanged();
-      partial void OnRQRO_RWNOChanging(System.Nullable<short> value);
-      partial void OnRQRO_RWNOChanged();
-      partial void OnEXPN_CODEChanging(System.Nullable<long> value);
-      partial void OnEXPN_CODEChanged();
-      partial void OnCODEChanging(long value);
-      partial void OnCODEChanged();
-      partial void OnPAY_STATChanging(string value);
-      partial void OnPAY_STATChanged();
-      partial void OnEXPN_PRICChanging(System.Nullable<int> value);
-      partial void OnEXPN_PRICChanged();
-      partial void OnEXPN_EXTR_PRCTChanging(System.Nullable<int> value);
-      partial void OnEXPN_EXTR_PRCTChanged();
-      partial void OnREMN_PRICChanging(System.Nullable<int> value);
-      partial void OnREMN_PRICChanged();
-      partial void OnQNTYChanging(System.Nullable<short> value);
-      partial void OnQNTYChanged();
-      partial void OnDOCM_NUMBChanging(System.Nullable<long> value);
-      partial void OnDOCM_NUMBChanged();
-      partial void OnISSU_DATEChanging(System.Nullable<System.DateTime> value);
-      partial void OnISSU_DATEChanged();
-      partial void OnRCPT_MTODChanging(string value);
-      partial void OnRCPT_MTODChanged();
-      partial void OnRECV_LETT_NOChanging(string value);
-      partial void OnRECV_LETT_NOChanged();
-      partial void OnRECV_LETT_DATEChanging(System.Nullable<System.DateTime> value);
-      partial void OnRECV_LETT_DATEChanged();
-      partial void OnPYDT_DESCChanging(string value);
-      partial void OnPYDT_DESCChanged();
-      partial void OnADD_QUTSChanging(string value);
-      partial void OnADD_QUTSChanged();
-      partial void OnFIGH_FILE_NOChanging(System.Nullable<long> value);
-      partial void OnFIGH_FILE_NOChanged();
-      partial void OnPRE_EXPN_STATChanging(string value);
-      partial void OnPRE_EXPN_STATChanged();
-      partial void OnCBMT_CODE_DNRMChanging(System.Nullable<long> value);
-      partial void OnCBMT_CODE_DNRMChanged();
-      partial void OnMTOD_CODE_DNRMChanging(System.Nullable<long> value);
-      partial void OnMTOD_CODE_DNRMChanged();
-      partial void OnCTGY_CODE_DNRMChanging(System.Nullable<long> value);
-      partial void OnCTGY_CODE_DNRMChanged();
-      partial void OnTRAN_STATChanging(string value);
-      partial void OnTRAN_STATChanged();
-      partial void OnTRAN_BYChanging(string value);
-      partial void OnTRAN_BYChanged();
-      partial void OnTRAN_DATEChanging(System.Nullable<System.DateTime> value);
-      partial void OnTRAN_DATEChanged();
-      partial void OnTRAN_CBMT_CODEChanging(System.Nullable<long> value);
-      partial void OnTRAN_CBMT_CODEChanged();
-      partial void OnTRAN_MTOD_CODEChanging(System.Nullable<long> value);
-      partial void OnTRAN_MTOD_CODEChanged();
-      partial void OnTRAN_CTGY_CODEChanging(System.Nullable<long> value);
-      partial void OnTRAN_CTGY_CODEChanged();
-      partial void OnTRAN_EXPN_CODEChanging(System.Nullable<long> value);
-      partial void OnTRAN_EXPN_CODEChanged();
-      partial void OnCRET_BYChanging(string value);
-      partial void OnCRET_BYChanged();
-      partial void OnCRET_DATEChanging(System.Nullable<System.DateTime> value);
-      partial void OnCRET_DATEChanged();
-      partial void OnMDFY_BYChanging(string value);
-      partial void OnMDFY_BYChanged();
-      partial void OnMDFY_DATEChanging(System.Nullable<System.DateTime> value);
-      partial void OnMDFY_DATEChanged();
-      #endregion
-
-      public Payment_Detail()
-      {
-         this._Refunds_Payment_Details = new EntitySet<Refunds_Payment_Detail>(new Action<Refunds_Payment_Detail>(this.attach_Refunds_Payment_Details), new Action<Refunds_Payment_Detail>(this.detach_Refunds_Payment_Details));
-         this._Payment_Expenses = new EntitySet<Payment_Expense>(new Action<Payment_Expense>(this.attach_Payment_Expenses), new Action<Payment_Expense>(this.detach_Payment_Expenses));
-         this._Cash = default(EntityRef<Cash>);
-         this._Expense = default(EntityRef<Expense>);
-         this._Payment = default(EntityRef<Payment>);
-         this._Request_Row = default(EntityRef<Request_Row>);
-         this._Method = default(EntityRef<Method>);
-         this._Club_Method = default(EntityRef<Club_Method>);
-         this._Fighter = default(EntityRef<Fighter>);
-         this._Category_Belt = default(EntityRef<Category_Belt>);
-         OnCreated();
-      }
-
-      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_PYMT_CASH_CODE", DbType = "BigInt")]
-      public System.Nullable<long> PYMT_CASH_CODE
-      {
-         get
-         {
-            return this._PYMT_CASH_CODE;
-         }
-         set
-         {
-            if ((this._PYMT_CASH_CODE != value))
-            {
-               if ((this._Cash.HasLoadedOrAssignedValue || this._Payment.HasLoadedOrAssignedValue))
-               {
-                  throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-               }
-               this.OnPYMT_CASH_CODEChanging(value);
-               this.SendPropertyChanging();
-               this._PYMT_CASH_CODE = value;
-               this.SendPropertyChanged("PYMT_CASH_CODE");
-               this.OnPYMT_CASH_CODEChanged();
-            }
-         }
-      }
-
-      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_PYMT_RQST_RQID", DbType = "BigInt")]
-      public System.Nullable<long> PYMT_RQST_RQID
-      {
-         get
-         {
-            return this._PYMT_RQST_RQID;
-         }
-         set
-         {
-            if ((this._PYMT_RQST_RQID != value))
-            {
-               if ((this._Payment.HasLoadedOrAssignedValue || this._Request_Row.HasLoadedOrAssignedValue))
-               {
-                  throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-               }
-               this.OnPYMT_RQST_RQIDChanging(value);
-               this.SendPropertyChanging();
-               this._PYMT_RQST_RQID = value;
-               this.SendPropertyChanged("PYMT_RQST_RQID");
-               this.OnPYMT_RQST_RQIDChanged();
-            }
-         }
-      }
-
-      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_RQRO_RWNO", DbType = "SmallInt")]
-      public System.Nullable<short> RQRO_RWNO
-      {
-         get
-         {
-            return this._RQRO_RWNO;
-         }
-         set
-         {
-            if ((this._RQRO_RWNO != value))
-            {
-               if (this._Request_Row.HasLoadedOrAssignedValue)
-               {
-                  throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-               }
-               this.OnRQRO_RWNOChanging(value);
-               this.SendPropertyChanging();
-               this._RQRO_RWNO = value;
-               this.SendPropertyChanged("RQRO_RWNO");
-               this.OnRQRO_RWNOChanged();
-            }
-         }
-      }
-
-      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_EXPN_CODE", DbType = "BigInt")]
-      public System.Nullable<long> EXPN_CODE
-      {
-         get
-         {
-            return this._EXPN_CODE;
-         }
-         set
-         {
-            if ((this._EXPN_CODE != value))
-            {
-               if (this._Expense.HasLoadedOrAssignedValue)
-               {
-                  throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-               }
-               this.OnEXPN_CODEChanging(value);
-               this.SendPropertyChanging();
-               this._EXPN_CODE = value;
-               this.SendPropertyChanged("EXPN_CODE");
-               this.OnEXPN_CODEChanged();
-            }
-         }
-      }
-
-      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_CODE", DbType = "BigInt NOT NULL", IsPrimaryKey = true)]
-      public long CODE
-      {
-         get
-         {
-            return this._CODE;
-         }
-         set
-         {
-            if ((this._CODE != value))
-            {
-               this.OnCODEChanging(value);
-               this.SendPropertyChanging();
-               this._CODE = value;
-               this.SendPropertyChanged("CODE");
-               this.OnCODEChanged();
-            }
-         }
-      }
-
-      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_PAY_STAT", DbType = "VarChar(3) NOT NULL", CanBeNull = false)]
-      public string PAY_STAT
-      {
-         get
-         {
-            return this._PAY_STAT;
-         }
-         set
-         {
-            if ((this._PAY_STAT != value))
-            {
-               this.OnPAY_STATChanging(value);
-               this.SendPropertyChanging();
-               this._PAY_STAT = value;
-               this.SendPropertyChanged("PAY_STAT");
-               this.OnPAY_STATChanged();
-            }
-         }
-      }
-
-      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_EXPN_PRIC", DbType = "Int")]
-      public System.Nullable<int> EXPN_PRIC
-      {
-         get
-         {
-            return this._EXPN_PRIC;
-         }
-         set
-         {
-            if ((this._EXPN_PRIC != value))
-            {
-               this.OnEXPN_PRICChanging(value);
-               this.SendPropertyChanging();
-               this._EXPN_PRIC = value;
-               this.SendPropertyChanged("EXPN_PRIC");
-               this.OnEXPN_PRICChanged();
-            }
-         }
-      }
-
-      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_EXPN_EXTR_PRCT", DbType = "Int")]
-      public System.Nullable<int> EXPN_EXTR_PRCT
-      {
-         get
-         {
-            return this._EXPN_EXTR_PRCT;
-         }
-         set
-         {
-            if ((this._EXPN_EXTR_PRCT != value))
-            {
-               this.OnEXPN_EXTR_PRCTChanging(value);
-               this.SendPropertyChanging();
-               this._EXPN_EXTR_PRCT = value;
-               this.SendPropertyChanged("EXPN_EXTR_PRCT");
-               this.OnEXPN_EXTR_PRCTChanged();
-            }
-         }
-      }
-
-      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_REMN_PRIC", DbType = "Int")]
-      public System.Nullable<int> REMN_PRIC
-      {
-         get
-         {
-            return this._REMN_PRIC;
-         }
-         set
-         {
-            if ((this._REMN_PRIC != value))
-            {
-               this.OnREMN_PRICChanging(value);
-               this.SendPropertyChanging();
-               this._REMN_PRIC = value;
-               this.SendPropertyChanged("REMN_PRIC");
-               this.OnREMN_PRICChanged();
-            }
-         }
-      }
-
-      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_QNTY", DbType = "SmallInt")]
-      public System.Nullable<short> QNTY
-      {
-         get
-         {
-            return this._QNTY;
-         }
-         set
-         {
-            if ((this._QNTY != value))
-            {
-               this.OnQNTYChanging(value);
-               this.SendPropertyChanging();
-               this._QNTY = value;
-               this.SendPropertyChanged("QNTY");
-               this.OnQNTYChanged();
-            }
-         }
-      }
-
-      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_DOCM_NUMB", DbType = "BigInt")]
-      public System.Nullable<long> DOCM_NUMB
-      {
-         get
-         {
-            return this._DOCM_NUMB;
-         }
-         set
-         {
-            if ((this._DOCM_NUMB != value))
-            {
-               this.OnDOCM_NUMBChanging(value);
-               this.SendPropertyChanging();
-               this._DOCM_NUMB = value;
-               this.SendPropertyChanged("DOCM_NUMB");
-               this.OnDOCM_NUMBChanged();
-            }
-         }
-      }
-
-      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_ISSU_DATE", DbType = "DateTime")]
-      public System.Nullable<System.DateTime> ISSU_DATE
-      {
-         get
-         {
-            return this._ISSU_DATE;
-         }
-         set
-         {
-            if ((this._ISSU_DATE != value))
-            {
-               this.OnISSU_DATEChanging(value);
-               this.SendPropertyChanging();
-               this._ISSU_DATE = value;
-               this.SendPropertyChanged("ISSU_DATE");
-               this.OnISSU_DATEChanged();
-            }
-         }
-      }
-
-      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_RCPT_MTOD", DbType = "VarChar(3)")]
-      public string RCPT_MTOD
-      {
-         get
-         {
-            return this._RCPT_MTOD;
-         }
-         set
-         {
-            if ((this._RCPT_MTOD != value))
-            {
-               this.OnRCPT_MTODChanging(value);
-               this.SendPropertyChanging();
-               this._RCPT_MTOD = value;
-               this.SendPropertyChanged("RCPT_MTOD");
-               this.OnRCPT_MTODChanged();
-            }
-         }
-      }
-
-      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_RECV_LETT_NO", DbType = "VarChar(15)")]
-      public string RECV_LETT_NO
-      {
-         get
-         {
-            return this._RECV_LETT_NO;
-         }
-         set
-         {
-            if ((this._RECV_LETT_NO != value))
-            {
-               this.OnRECV_LETT_NOChanging(value);
-               this.SendPropertyChanging();
-               this._RECV_LETT_NO = value;
-               this.SendPropertyChanged("RECV_LETT_NO");
-               this.OnRECV_LETT_NOChanged();
-            }
-         }
-      }
-
-      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_RECV_LETT_DATE", DbType = "DateTime")]
-      public System.Nullable<System.DateTime> RECV_LETT_DATE
-      {
-         get
-         {
-            return this._RECV_LETT_DATE;
-         }
-         set
-         {
-            if ((this._RECV_LETT_DATE != value))
-            {
-               this.OnRECV_LETT_DATEChanging(value);
-               this.SendPropertyChanging();
-               this._RECV_LETT_DATE = value;
-               this.SendPropertyChanged("RECV_LETT_DATE");
-               this.OnRECV_LETT_DATEChanged();
-            }
-         }
-      }
-
-      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_PYDT_DESC", DbType = "NVarChar(250)")]
-      public string PYDT_DESC
-      {
-         get
-         {
-            return this._PYDT_DESC;
-         }
-         set
-         {
-            if ((this._PYDT_DESC != value))
-            {
-               this.OnPYDT_DESCChanging(value);
-               this.SendPropertyChanging();
-               this._PYDT_DESC = value;
-               this.SendPropertyChanged("PYDT_DESC");
-               this.OnPYDT_DESCChanged();
-            }
-         }
-      }
-
-      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_ADD_QUTS", DbType = "VarChar(3)")]
-      public string ADD_QUTS
-      {
-         get
-         {
-            return this._ADD_QUTS;
-         }
-         set
-         {
-            if ((this._ADD_QUTS != value))
-            {
-               this.OnADD_QUTSChanging(value);
-               this.SendPropertyChanging();
-               this._ADD_QUTS = value;
-               this.SendPropertyChanged("ADD_QUTS");
-               this.OnADD_QUTSChanged();
-            }
-         }
-      }
-
-      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_FIGH_FILE_NO", DbType = "BigInt")]
-      public System.Nullable<long> FIGH_FILE_NO
-      {
-         get
-         {
-            return this._FIGH_FILE_NO;
-         }
-         set
-         {
-            if ((this._FIGH_FILE_NO != value))
-            {
-               if (this._Fighter.HasLoadedOrAssignedValue)
-               {
-                  throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-               }
-               this.OnFIGH_FILE_NOChanging(value);
-               this.SendPropertyChanging();
-               this._FIGH_FILE_NO = value;
-               this.SendPropertyChanged("FIGH_FILE_NO");
-               this.OnFIGH_FILE_NOChanged();
-            }
-         }
-      }
-
-      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_PRE_EXPN_STAT", DbType = "VarChar(3)")]
-      public string PRE_EXPN_STAT
-      {
-         get
-         {
-            return this._PRE_EXPN_STAT;
-         }
-         set
-         {
-            if ((this._PRE_EXPN_STAT != value))
-            {
-               this.OnPRE_EXPN_STATChanging(value);
-               this.SendPropertyChanging();
-               this._PRE_EXPN_STAT = value;
-               this.SendPropertyChanged("PRE_EXPN_STAT");
-               this.OnPRE_EXPN_STATChanged();
-            }
-         }
-      }
-
-      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_CBMT_CODE_DNRM", DbType = "BigInt")]
-      public System.Nullable<long> CBMT_CODE_DNRM
-      {
-         get
-         {
-            return this._CBMT_CODE_DNRM;
-         }
-         set
-         {
-            if ((this._CBMT_CODE_DNRM != value))
-            {
-               if (this._Club_Method.HasLoadedOrAssignedValue)
-               {
-                  throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-               }
-               this.OnCBMT_CODE_DNRMChanging(value);
-               this.SendPropertyChanging();
-               this._CBMT_CODE_DNRM = value;
-               this.SendPropertyChanged("CBMT_CODE_DNRM");
-               this.OnCBMT_CODE_DNRMChanged();
-            }
-         }
-      }
-
-      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_MTOD_CODE_DNRM", DbType = "BigInt")]
-      public System.Nullable<long> MTOD_CODE_DNRM
-      {
-         get
-         {
-            return this._MTOD_CODE_DNRM;
-         }
-         set
-         {
-            if ((this._MTOD_CODE_DNRM != value))
-            {
-               if (this._Method.HasLoadedOrAssignedValue)
-               {
-                  throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-               }
-               this.OnMTOD_CODE_DNRMChanging(value);
-               this.SendPropertyChanging();
-               this._MTOD_CODE_DNRM = value;
-               this.SendPropertyChanged("MTOD_CODE_DNRM");
-               this.OnMTOD_CODE_DNRMChanged();
-            }
-         }
-      }
-
-      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_CTGY_CODE_DNRM", DbType = "BigInt")]
-      public System.Nullable<long> CTGY_CODE_DNRM
-      {
-         get
-         {
-            return this._CTGY_CODE_DNRM;
-         }
-         set
-         {
-            if ((this._CTGY_CODE_DNRM != value))
-            {
-               if (this._Category_Belt.HasLoadedOrAssignedValue)
-               {
-                  throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-               }
-               this.OnCTGY_CODE_DNRMChanging(value);
-               this.SendPropertyChanging();
-               this._CTGY_CODE_DNRM = value;
-               this.SendPropertyChanged("CTGY_CODE_DNRM");
-               this.OnCTGY_CODE_DNRMChanged();
-            }
-         }
-      }
-
-      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_TRAN_STAT", DbType = "VarChar(3)")]
-      public string TRAN_STAT
-      {
-         get
-         {
-            return this._TRAN_STAT;
-         }
-         set
-         {
-            if ((this._TRAN_STAT != value))
-            {
-               this.OnTRAN_STATChanging(value);
-               this.SendPropertyChanging();
-               this._TRAN_STAT = value;
-               this.SendPropertyChanged("TRAN_STAT");
-               this.OnTRAN_STATChanged();
-            }
-         }
-      }
-
-      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_TRAN_BY", DbType = "VarChar(250)")]
-      public string TRAN_BY
-      {
-         get
-         {
-            return this._TRAN_BY;
-         }
-         set
-         {
-            if ((this._TRAN_BY != value))
-            {
-               this.OnTRAN_BYChanging(value);
-               this.SendPropertyChanging();
-               this._TRAN_BY = value;
-               this.SendPropertyChanged("TRAN_BY");
-               this.OnTRAN_BYChanged();
-            }
-         }
-      }
-
-      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_TRAN_DATE", DbType = "DateTime")]
-      public System.Nullable<System.DateTime> TRAN_DATE
-      {
-         get
-         {
-            return this._TRAN_DATE;
-         }
-         set
-         {
-            if ((this._TRAN_DATE != value))
-            {
-               this.OnTRAN_DATEChanging(value);
-               this.SendPropertyChanging();
-               this._TRAN_DATE = value;
-               this.SendPropertyChanged("TRAN_DATE");
-               this.OnTRAN_DATEChanged();
-            }
-         }
-      }
-
-      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_TRAN_CBMT_CODE", DbType = "BigInt")]
-      public System.Nullable<long> TRAN_CBMT_CODE
-      {
-         get
-         {
-            return this._TRAN_CBMT_CODE;
-         }
-         set
-         {
-            if ((this._TRAN_CBMT_CODE != value))
-            {
-               this.OnTRAN_CBMT_CODEChanging(value);
-               this.SendPropertyChanging();
-               this._TRAN_CBMT_CODE = value;
-               this.SendPropertyChanged("TRAN_CBMT_CODE");
-               this.OnTRAN_CBMT_CODEChanged();
-            }
-         }
-      }
-
-      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_TRAN_MTOD_CODE", DbType = "BigInt")]
-      public System.Nullable<long> TRAN_MTOD_CODE
-      {
-         get
-         {
-            return this._TRAN_MTOD_CODE;
-         }
-         set
-         {
-            if ((this._TRAN_MTOD_CODE != value))
-            {
-               this.OnTRAN_MTOD_CODEChanging(value);
-               this.SendPropertyChanging();
-               this._TRAN_MTOD_CODE = value;
-               this.SendPropertyChanged("TRAN_MTOD_CODE");
-               this.OnTRAN_MTOD_CODEChanged();
-            }
-         }
-      }
-
-      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_TRAN_CTGY_CODE", DbType = "BigInt")]
-      public System.Nullable<long> TRAN_CTGY_CODE
-      {
-         get
-         {
-            return this._TRAN_CTGY_CODE;
-         }
-         set
-         {
-            if ((this._TRAN_CTGY_CODE != value))
-            {
-               this.OnTRAN_CTGY_CODEChanging(value);
-               this.SendPropertyChanging();
-               this._TRAN_CTGY_CODE = value;
-               this.SendPropertyChanged("TRAN_CTGY_CODE");
-               this.OnTRAN_CTGY_CODEChanged();
-            }
-         }
-      }
-
-      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_TRAN_EXPN_CODE", DbType = "BigInt")]
-      public System.Nullable<long> TRAN_EXPN_CODE
-      {
-         get
-         {
-            return this._TRAN_EXPN_CODE;
-         }
-         set
-         {
-            if ((this._TRAN_EXPN_CODE != value))
-            {
-               this.OnTRAN_EXPN_CODEChanging(value);
-               this.SendPropertyChanging();
-               this._TRAN_EXPN_CODE = value;
-               this.SendPropertyChanged("TRAN_EXPN_CODE");
-               this.OnTRAN_EXPN_CODEChanged();
-            }
-         }
-      }
-
-      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_CRET_BY", DbType = "VarChar(250)")]
-      public string CRET_BY
-      {
-         get
-         {
-            return this._CRET_BY;
-         }
-         set
-         {
-            if ((this._CRET_BY != value))
-            {
-               this.OnCRET_BYChanging(value);
-               this.SendPropertyChanging();
-               this._CRET_BY = value;
-               this.SendPropertyChanged("CRET_BY");
-               this.OnCRET_BYChanged();
-            }
-         }
-      }
-
-      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_CRET_DATE", DbType = "DateTime")]
-      public System.Nullable<System.DateTime> CRET_DATE
-      {
-         get
-         {
-            return this._CRET_DATE;
-         }
-         set
-         {
-            if ((this._CRET_DATE != value))
-            {
-               this.OnCRET_DATEChanging(value);
-               this.SendPropertyChanging();
-               this._CRET_DATE = value;
-               this.SendPropertyChanged("CRET_DATE");
-               this.OnCRET_DATEChanged();
-            }
-         }
-      }
-
-      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_MDFY_BY", DbType = "VarChar(250)")]
-      public string MDFY_BY
-      {
-         get
-         {
-            return this._MDFY_BY;
-         }
-         set
-         {
-            if ((this._MDFY_BY != value))
-            {
-               this.OnMDFY_BYChanging(value);
-               this.SendPropertyChanging();
-               this._MDFY_BY = value;
-               this.SendPropertyChanged("MDFY_BY");
-               this.OnMDFY_BYChanged();
-            }
-         }
-      }
-
-      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_MDFY_DATE", DbType = "DateTime")]
-      public System.Nullable<System.DateTime> MDFY_DATE
-      {
-         get
-         {
-            return this._MDFY_DATE;
-         }
-         set
-         {
-            if ((this._MDFY_DATE != value))
-            {
-               this.OnMDFY_DATEChanging(value);
-               this.SendPropertyChanging();
-               this._MDFY_DATE = value;
-               this.SendPropertyChanged("MDFY_DATE");
-               this.OnMDFY_DATEChanged();
-            }
-         }
-      }
-
-      [global::System.Data.Linq.Mapping.AssociationAttribute(Name = "Payment_Detail_Refunds_Payment_Detail", Storage = "_Refunds_Payment_Details", ThisKey = "CODE", OtherKey = "PYDT_CODE")]
-      public EntitySet<Refunds_Payment_Detail> Refunds_Payment_Details
-      {
-         get
-         {
-            return this._Refunds_Payment_Details;
-         }
-         set
-         {
-            this._Refunds_Payment_Details.Assign(value);
-         }
-      }
-
-      [global::System.Data.Linq.Mapping.AssociationAttribute(Name = "Payment_Detail_Payment_Expense", Storage = "_Payment_Expenses", ThisKey = "CODE", OtherKey = "PYDT_CODE")]
-      public EntitySet<Payment_Expense> Payment_Expenses
-      {
-         get
-         {
-            return this._Payment_Expenses;
-         }
-         set
-         {
-            this._Payment_Expenses.Assign(value);
-         }
-      }
-
-      [global::System.Data.Linq.Mapping.AssociationAttribute(Name = "Cash_Payment_Detail", Storage = "_Cash", ThisKey = "PYMT_CASH_CODE", OtherKey = "CODE", IsForeignKey = true)]
-      public Cash Cash
-      {
-         get
-         {
-            return this._Cash.Entity;
-         }
-         set
-         {
-            Cash previousValue = this._Cash.Entity;
-            if (((previousValue != value)
-                     || (this._Cash.HasLoadedOrAssignedValue == false)))
-            {
-               this.SendPropertyChanging();
-               if ((previousValue != null))
-               {
-                  this._Cash.Entity = null;
-                  previousValue.Payment_Details.Remove(this);
-               }
-               this._Cash.Entity = value;
-               if ((value != null))
-               {
-                  value.Payment_Details.Add(this);
-                  this._PYMT_CASH_CODE = value.CODE;
-               }
-               else
-               {
-                  this._PYMT_CASH_CODE = default(Nullable<long>);
-               }
-               this.SendPropertyChanged("Cash");
-            }
-         }
-      }
-
-      [global::System.Data.Linq.Mapping.AssociationAttribute(Name = "Expense_Payment_Detail", Storage = "_Expense", ThisKey = "EXPN_CODE", OtherKey = "CODE", IsForeignKey = true)]
-      public Expense Expense
-      {
-         get
-         {
-            return this._Expense.Entity;
-         }
-         set
-         {
-            Expense previousValue = this._Expense.Entity;
-            if (((previousValue != value)
-                     || (this._Expense.HasLoadedOrAssignedValue == false)))
-            {
-               this.SendPropertyChanging();
-               if ((previousValue != null))
-               {
-                  this._Expense.Entity = null;
-                  previousValue.Payment_Details.Remove(this);
-               }
-               this._Expense.Entity = value;
-               if ((value != null))
-               {
-                  value.Payment_Details.Add(this);
-                  this._EXPN_CODE = value.CODE;
-               }
-               else
-               {
-                  this._EXPN_CODE = default(Nullable<long>);
-               }
-               this.SendPropertyChanged("Expense");
-            }
-         }
-      }
-
-      [global::System.Data.Linq.Mapping.AssociationAttribute(Name = "Payment_Payment_Detail", Storage = "_Payment", ThisKey = "PYMT_CASH_CODE,PYMT_RQST_RQID", OtherKey = "CASH_CODE,RQST_RQID", IsForeignKey = true, DeleteRule = "CASCADE")]
-      public Payment Payment
-      {
-         get
-         {
-            return this._Payment.Entity;
-         }
-         set
-         {
-            Payment previousValue = this._Payment.Entity;
-            if (((previousValue != value)
-                     || (this._Payment.HasLoadedOrAssignedValue == false)))
-            {
-               this.SendPropertyChanging();
-               if ((previousValue != null))
-               {
-                  this._Payment.Entity = null;
-                  previousValue.Payment_Details.Remove(this);
-               }
-               this._Payment.Entity = value;
-               if ((value != null))
-               {
-                  value.Payment_Details.Add(this);
-                  this._PYMT_CASH_CODE = value.CASH_CODE;
-                  this._PYMT_RQST_RQID = value.RQST_RQID;
-               }
-               else
-               {
-                  this._PYMT_CASH_CODE = default(Nullable<long>);
-                  this._PYMT_RQST_RQID = default(Nullable<long>);
-               }
-               this.SendPropertyChanged("Payment");
-            }
-         }
-      }
-
-      [global::System.Data.Linq.Mapping.AssociationAttribute(Name = "Request_Row_Payment_Detail", Storage = "_Request_Row", ThisKey = "PYMT_RQST_RQID,RQRO_RWNO", OtherKey = "RQST_RQID,RWNO", IsForeignKey = true)]
-      public Request_Row Request_Row
-      {
-         get
-         {
-            return this._Request_Row.Entity;
-         }
-         set
-         {
-            Request_Row previousValue = this._Request_Row.Entity;
-            if (((previousValue != value)
-                     || (this._Request_Row.HasLoadedOrAssignedValue == false)))
-            {
-               this.SendPropertyChanging();
-               if ((previousValue != null))
-               {
-                  this._Request_Row.Entity = null;
-                  previousValue.Payment_Details.Remove(this);
-               }
-               this._Request_Row.Entity = value;
-               if ((value != null))
-               {
-                  value.Payment_Details.Add(this);
-                  this._PYMT_RQST_RQID = value.RQST_RQID;
-                  this._RQRO_RWNO = value.RWNO;
-               }
-               else
-               {
-                  this._PYMT_RQST_RQID = default(Nullable<long>);
-                  this._RQRO_RWNO = default(Nullable<short>);
-               }
-               this.SendPropertyChanged("Request_Row");
-            }
-         }
-      }
-
-      [global::System.Data.Linq.Mapping.AssociationAttribute(Name = "Method_Payment_Detail", Storage = "_Method", ThisKey = "MTOD_CODE_DNRM", OtherKey = "CODE", IsForeignKey = true)]
-      public Method Method
-      {
-         get
-         {
-            return this._Method.Entity;
-         }
-         set
-         {
-            Method previousValue = this._Method.Entity;
-            if (((previousValue != value)
-                     || (this._Method.HasLoadedOrAssignedValue == false)))
-            {
-               this.SendPropertyChanging();
-               if ((previousValue != null))
-               {
-                  this._Method.Entity = null;
-                  previousValue.Payment_Details.Remove(this);
-               }
-               this._Method.Entity = value;
-               if ((value != null))
-               {
-                  value.Payment_Details.Add(this);
-                  this._MTOD_CODE_DNRM = value.CODE;
-               }
-               else
-               {
-                  this._MTOD_CODE_DNRM = default(Nullable<long>);
-               }
-               this.SendPropertyChanged("Method");
-            }
-         }
-      }
-
-      [global::System.Data.Linq.Mapping.AssociationAttribute(Name = "Club_Method_Payment_Detail", Storage = "_Club_Method", ThisKey = "CBMT_CODE_DNRM", OtherKey = "CODE", IsForeignKey = true)]
-      public Club_Method Club_Method
-      {
-         get
-         {
-            return this._Club_Method.Entity;
-         }
-         set
-         {
-            Club_Method previousValue = this._Club_Method.Entity;
-            if (((previousValue != value)
-                     || (this._Club_Method.HasLoadedOrAssignedValue == false)))
-            {
-               this.SendPropertyChanging();
-               if ((previousValue != null))
-               {
-                  this._Club_Method.Entity = null;
-                  previousValue.Payment_Details.Remove(this);
-               }
-               this._Club_Method.Entity = value;
-               if ((value != null))
-               {
-                  value.Payment_Details.Add(this);
-                  this._CBMT_CODE_DNRM = value.CODE;
-               }
-               else
-               {
-                  this._CBMT_CODE_DNRM = default(Nullable<long>);
-               }
-               this.SendPropertyChanged("Club_Method");
-            }
-         }
-      }
-
-      [global::System.Data.Linq.Mapping.AssociationAttribute(Name = "Fighter_Payment_Detail", Storage = "_Fighter", ThisKey = "FIGH_FILE_NO", OtherKey = "FILE_NO", IsForeignKey = true)]
-      public Fighter Fighter
-      {
-         get
-         {
-            return this._Fighter.Entity;
-         }
-         set
-         {
-            Fighter previousValue = this._Fighter.Entity;
-            if (((previousValue != value)
-                     || (this._Fighter.HasLoadedOrAssignedValue == false)))
-            {
-               this.SendPropertyChanging();
-               if ((previousValue != null))
-               {
-                  this._Fighter.Entity = null;
-                  previousValue.Payment_Details.Remove(this);
-               }
-               this._Fighter.Entity = value;
-               if ((value != null))
-               {
-                  value.Payment_Details.Add(this);
-                  this._FIGH_FILE_NO = value.FILE_NO;
-               }
-               else
-               {
-                  this._FIGH_FILE_NO = default(Nullable<long>);
-               }
-               this.SendPropertyChanged("Fighter");
-            }
-         }
-      }
-
-      [global::System.Data.Linq.Mapping.AssociationAttribute(Name = "Category_Belt_Payment_Detail", Storage = "_Category_Belt", ThisKey = "CTGY_CODE_DNRM", OtherKey = "CODE", IsForeignKey = true)]
-      public Category_Belt Category_Belt
-      {
-         get
-         {
-            return this._Category_Belt.Entity;
-         }
-         set
-         {
-            Category_Belt previousValue = this._Category_Belt.Entity;
-            if (((previousValue != value)
-                     || (this._Category_Belt.HasLoadedOrAssignedValue == false)))
-            {
-               this.SendPropertyChanging();
-               if ((previousValue != null))
-               {
-                  this._Category_Belt.Entity = null;
-                  previousValue.Payment_Details.Remove(this);
-               }
-               this._Category_Belt.Entity = value;
-               if ((value != null))
-               {
-                  value.Payment_Details.Add(this);
-                  this._CTGY_CODE_DNRM = value.CODE;
-               }
-               else
-               {
-                  this._CTGY_CODE_DNRM = default(Nullable<long>);
-               }
-               this.SendPropertyChanged("Category_Belt");
-            }
-         }
-      }
-
-      public event PropertyChangingEventHandler PropertyChanging;
-
-      public event PropertyChangedEventHandler PropertyChanged;
-
-      protected virtual void SendPropertyChanging()
-      {
-         if ((this.PropertyChanging != null))
-         {
-            this.PropertyChanging(this, emptyChangingEventArgs);
-         }
-      }
-
-      protected virtual void SendPropertyChanged(String propertyName)
-      {
-         if ((this.PropertyChanged != null))
-         {
-            this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-         }
-      }
-
-      private void attach_Refunds_Payment_Details(Refunds_Payment_Detail entity)
-      {
-         this.SendPropertyChanging();
-         entity.Payment_Detail = this;
-      }
-
-      private void detach_Refunds_Payment_Details(Refunds_Payment_Detail entity)
-      {
-         this.SendPropertyChanging();
-         entity.Payment_Detail = null;
-      }
-
-      private void attach_Payment_Expenses(Payment_Expense entity)
-      {
-         this.SendPropertyChanging();
-         entity.Payment_Detail = this;
-      }
-
-      private void detach_Payment_Expenses(Payment_Expense entity)
-      {
-         this.SendPropertyChanging();
-         entity.Payment_Detail = null;
-      }
-   }
-
    [global::System.Data.Linq.Mapping.TableAttribute(Name = "dbo.Method")]
    public partial class Method : INotifyPropertyChanging, INotifyPropertyChanged
    {
@@ -41007,8 +39120,6 @@ namespace System.Scsc.Data
 
       private EntitySet<Expense> _Expenses;
 
-      private EntitySet<Payment_Detail> _Payment_Details;
-
       private EntitySet<Method> _Methods;
 
       private EntitySet<Club_Method> _Club_Methods;
@@ -41034,6 +39145,8 @@ namespace System.Scsc.Data
       private EntitySet<Category_Belt> _Category_Belts;
 
       private EntitySet<Fighter_Public> _Fighter_Publics;
+
+      private EntitySet<Payment_Detail> _Payment_Details;
 
       private EntityRef<Method> _Method1;
 
@@ -41073,7 +39186,6 @@ namespace System.Scsc.Data
          this._Session_Meetings = new EntitySet<Session_Meeting>(new Action<Session_Meeting>(this.attach_Session_Meetings), new Action<Session_Meeting>(this.detach_Session_Meetings));
          this._Sessions = new EntitySet<Session>(new Action<Session>(this.attach_Sessions), new Action<Session>(this.detach_Sessions));
          this._Expenses = new EntitySet<Expense>(new Action<Expense>(this.attach_Expenses), new Action<Expense>(this.detach_Expenses));
-         this._Payment_Details = new EntitySet<Payment_Detail>(new Action<Payment_Detail>(this.attach_Payment_Details), new Action<Payment_Detail>(this.detach_Payment_Details));
          this._Methods = new EntitySet<Method>(new Action<Method>(this.attach_Methods), new Action<Method>(this.detach_Methods));
          this._Club_Methods = new EntitySet<Club_Method>(new Action<Club_Method>(this.attach_Club_Methods), new Action<Club_Method>(this.detach_Club_Methods));
          this._Base_Calculate_Expenses = new EntitySet<Base_Calculate_Expense>(new Action<Base_Calculate_Expense>(this.attach_Base_Calculate_Expenses), new Action<Base_Calculate_Expense>(this.detach_Base_Calculate_Expenses));
@@ -41087,6 +39199,7 @@ namespace System.Scsc.Data
          this._Payment_Expenses = new EntitySet<Payment_Expense>(new Action<Payment_Expense>(this.attach_Payment_Expenses), new Action<Payment_Expense>(this.detach_Payment_Expenses));
          this._Category_Belts = new EntitySet<Category_Belt>(new Action<Category_Belt>(this.attach_Category_Belts), new Action<Category_Belt>(this.detach_Category_Belts));
          this._Fighter_Publics = new EntitySet<Fighter_Public>(new Action<Fighter_Public>(this.attach_Fighter_Publics), new Action<Fighter_Public>(this.detach_Fighter_Publics));
+         this._Payment_Details = new EntitySet<Payment_Detail>(new Action<Payment_Detail>(this.attach_Payment_Details), new Action<Payment_Detail>(this.detach_Payment_Details));
          this._Method1 = default(EntityRef<Method>);
          OnCreated();
       }
@@ -41387,19 +39500,6 @@ namespace System.Scsc.Data
          }
       }
 
-      [global::System.Data.Linq.Mapping.AssociationAttribute(Name = "Method_Payment_Detail", Storage = "_Payment_Details", ThisKey = "CODE", OtherKey = "MTOD_CODE_DNRM")]
-      public EntitySet<Payment_Detail> Payment_Details
-      {
-         get
-         {
-            return this._Payment_Details;
-         }
-         set
-         {
-            this._Payment_Details.Assign(value);
-         }
-      }
-
       [global::System.Data.Linq.Mapping.AssociationAttribute(Name = "Method_Method", Storage = "_Methods", ThisKey = "CODE", OtherKey = "MTOD_CODE")]
       public EntitySet<Method> Methods
       {
@@ -41569,6 +39669,19 @@ namespace System.Scsc.Data
          }
       }
 
+      [global::System.Data.Linq.Mapping.AssociationAttribute(Name = "Method_Payment_Detail", Storage = "_Payment_Details", ThisKey = "CODE", OtherKey = "MTOD_CODE_DNRM")]
+      public EntitySet<Payment_Detail> Payment_Details
+      {
+         get
+         {
+            return this._Payment_Details;
+         }
+         set
+         {
+            this._Payment_Details.Assign(value);
+         }
+      }
+
       [global::System.Data.Linq.Mapping.AssociationAttribute(Name = "Method_Method", Storage = "_Method1", ThisKey = "MTOD_CODE", OtherKey = "CODE", IsForeignKey = true)]
       public Method Method1
       {
@@ -41666,18 +39779,6 @@ namespace System.Scsc.Data
       }
 
       private void detach_Expenses(Expense entity)
-      {
-         this.SendPropertyChanging();
-         entity.Method = null;
-      }
-
-      private void attach_Payment_Details(Payment_Detail entity)
-      {
-         this.SendPropertyChanging();
-         entity.Method = this;
-      }
-
-      private void detach_Payment_Details(Payment_Detail entity)
       {
          this.SendPropertyChanging();
          entity.Method = null;
@@ -41834,6 +39935,18 @@ namespace System.Scsc.Data
       }
 
       private void detach_Fighter_Publics(Fighter_Public entity)
+      {
+         this.SendPropertyChanging();
+         entity.Method = null;
+      }
+
+      private void attach_Payment_Details(Payment_Detail entity)
+      {
+         this.SendPropertyChanging();
+         entity.Method = this;
+      }
+
+      private void detach_Payment_Details(Payment_Detail entity)
       {
          this.SendPropertyChanging();
          entity.Method = null;
@@ -43833,8 +41946,6 @@ namespace System.Scsc.Data
 
       private EntitySet<Club_Method_Weekday> _Club_Method_Weekdays;
 
-      private EntitySet<Payment_Detail> _Payment_Details;
-
       private EntitySet<Aggregation_Operation> _Aggregation_Operations;
 
       private EntitySet<Calculate_Expense_Coach> _Calculate_Expense_Coaches;
@@ -43842,6 +41953,8 @@ namespace System.Scsc.Data
       private EntitySet<Payment_Expense> _Payment_Expenses;
 
       private EntitySet<Fighter_Public> _Fighter_Publics;
+
+      private EntitySet<Payment_Detail> _Payment_Details;
 
       private EntityRef<Method> _Method;
 
@@ -43902,11 +42015,11 @@ namespace System.Scsc.Data
          this._Session_Meetings = new EntitySet<Session_Meeting>(new Action<Session_Meeting>(this.attach_Session_Meetings), new Action<Session_Meeting>(this.detach_Session_Meetings));
          this._Sessions = new EntitySet<Session>(new Action<Session>(this.attach_Sessions), new Action<Session>(this.detach_Sessions));
          this._Club_Method_Weekdays = new EntitySet<Club_Method_Weekday>(new Action<Club_Method_Weekday>(this.attach_Club_Method_Weekdays), new Action<Club_Method_Weekday>(this.detach_Club_Method_Weekdays));
-         this._Payment_Details = new EntitySet<Payment_Detail>(new Action<Payment_Detail>(this.attach_Payment_Details), new Action<Payment_Detail>(this.detach_Payment_Details));
          this._Aggregation_Operations = new EntitySet<Aggregation_Operation>(new Action<Aggregation_Operation>(this.attach_Aggregation_Operations), new Action<Aggregation_Operation>(this.detach_Aggregation_Operations));
          this._Calculate_Expense_Coaches = new EntitySet<Calculate_Expense_Coach>(new Action<Calculate_Expense_Coach>(this.attach_Calculate_Expense_Coaches), new Action<Calculate_Expense_Coach>(this.detach_Calculate_Expense_Coaches));
          this._Payment_Expenses = new EntitySet<Payment_Expense>(new Action<Payment_Expense>(this.attach_Payment_Expenses), new Action<Payment_Expense>(this.detach_Payment_Expenses));
          this._Fighter_Publics = new EntitySet<Fighter_Public>(new Action<Fighter_Public>(this.attach_Fighter_Publics), new Action<Fighter_Public>(this.detach_Fighter_Publics));
+         this._Payment_Details = new EntitySet<Payment_Detail>(new Action<Payment_Detail>(this.attach_Payment_Details), new Action<Payment_Detail>(this.detach_Payment_Details));
          this._Method = default(EntityRef<Method>);
          this._Club = default(EntityRef<Club>);
          this._Fighter = default(EntityRef<Fighter>);
@@ -44384,19 +42497,6 @@ namespace System.Scsc.Data
          }
       }
 
-      [global::System.Data.Linq.Mapping.AssociationAttribute(Name = "Club_Method_Payment_Detail", Storage = "_Payment_Details", ThisKey = "CODE", OtherKey = "CBMT_CODE_DNRM")]
-      public EntitySet<Payment_Detail> Payment_Details
-      {
-         get
-         {
-            return this._Payment_Details;
-         }
-         set
-         {
-            this._Payment_Details.Assign(value);
-         }
-      }
-
       [global::System.Data.Linq.Mapping.AssociationAttribute(Name = "Club_Method_Aggregation_Operation", Storage = "_Aggregation_Operations", ThisKey = "CODE", OtherKey = "CBMT_CODE")]
       public EntitySet<Aggregation_Operation> Aggregation_Operations
       {
@@ -44446,6 +42546,19 @@ namespace System.Scsc.Data
          set
          {
             this._Fighter_Publics.Assign(value);
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.AssociationAttribute(Name = "Club_Method_Payment_Detail", Storage = "_Payment_Details", ThisKey = "CODE", OtherKey = "CBMT_CODE_DNRM")]
+      public EntitySet<Payment_Detail> Payment_Details
+      {
+         get
+         {
+            return this._Payment_Details;
+         }
+         set
+         {
+            this._Payment_Details.Assign(value);
          }
       }
 
@@ -44607,18 +42720,6 @@ namespace System.Scsc.Data
          entity.Club_Method = null;
       }
 
-      private void attach_Payment_Details(Payment_Detail entity)
-      {
-         this.SendPropertyChanging();
-         entity.Club_Method = this;
-      }
-
-      private void detach_Payment_Details(Payment_Detail entity)
-      {
-         this.SendPropertyChanging();
-         entity.Club_Method = null;
-      }
-
       private void attach_Aggregation_Operations(Aggregation_Operation entity)
       {
          this.SendPropertyChanging();
@@ -44662,6 +42763,18 @@ namespace System.Scsc.Data
       }
 
       private void detach_Fighter_Publics(Fighter_Public entity)
+      {
+         this.SendPropertyChanging();
+         entity.Club_Method = null;
+      }
+
+      private void attach_Payment_Details(Payment_Detail entity)
+      {
+         this.SendPropertyChanging();
+         entity.Club_Method = this;
+      }
+
+      private void detach_Payment_Details(Payment_Detail entity)
       {
          this.SendPropertyChanging();
          entity.Club_Method = null;
@@ -47394,541 +45507,6 @@ namespace System.Scsc.Data
       }
    }
 
-   [global::System.Data.Linq.Mapping.TableAttribute(Name = "dbo.Message_Broadcast")]
-   public partial class Message_Broadcast : INotifyPropertyChanging, INotifyPropertyChanged
-   {
-
-      private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-
-      private long _CODE;
-
-      private string _LINE_TYPE;
-
-      private string _MSGB_TYPE;
-
-      private string _STAT;
-
-      private string _TELG_STAT;
-
-      private string _INSR_FNAM_STAT;
-
-      private string _INSR_CNAM_STAT;
-
-      private System.Nullable<long> _CLUB_CODE;
-
-      private string _CLUB_NAME;
-
-      private System.Nullable<long> _DEBT_PRIC;
-
-      private string _MSGB_TEXT;
-
-      private System.Nullable<System.DateTime> _FROM_DATE;
-
-      private System.Nullable<System.DateTime> _TO_DATE;
-
-      private System.Nullable<int> _MIN_NUMB_ATTN_RMND;
-
-      private System.Nullable<int> _MIN_NUMB_DAY_RMND;
-
-      private string _CRET_BY;
-
-      private System.Nullable<System.DateTime> _CRET_DATE;
-
-      private string _MDFY_BY;
-
-      private System.Nullable<System.DateTime> _MDFY_DATE;
-
-      private EntityRef<Club> _Club;
-
-      #region Extensibility Method Definitions
-      partial void OnLoaded();
-      partial void OnValidate(System.Data.Linq.ChangeAction action);
-      partial void OnCreated();
-      partial void OnCODEChanging(long value);
-      partial void OnCODEChanged();
-      partial void OnLINE_TYPEChanging(string value);
-      partial void OnLINE_TYPEChanged();
-      partial void OnMSGB_TYPEChanging(string value);
-      partial void OnMSGB_TYPEChanged();
-      partial void OnSTATChanging(string value);
-      partial void OnSTATChanged();
-      partial void OnTELG_STATChanging(string value);
-      partial void OnTELG_STATChanged();
-      partial void OnINSR_FNAM_STATChanging(string value);
-      partial void OnINSR_FNAM_STATChanged();
-      partial void OnINSR_CNAM_STATChanging(string value);
-      partial void OnINSR_CNAM_STATChanged();
-      partial void OnCLUB_CODEChanging(System.Nullable<long> value);
-      partial void OnCLUB_CODEChanged();
-      partial void OnCLUB_NAMEChanging(string value);
-      partial void OnCLUB_NAMEChanged();
-      partial void OnDEBT_PRICChanging(System.Nullable<long> value);
-      partial void OnDEBT_PRICChanged();
-      partial void OnMSGB_TEXTChanging(string value);
-      partial void OnMSGB_TEXTChanged();
-      partial void OnFROM_DATEChanging(System.Nullable<System.DateTime> value);
-      partial void OnFROM_DATEChanged();
-      partial void OnTO_DATEChanging(System.Nullable<System.DateTime> value);
-      partial void OnTO_DATEChanged();
-      partial void OnMIN_NUMB_ATTN_RMNDChanging(System.Nullable<int> value);
-      partial void OnMIN_NUMB_ATTN_RMNDChanged();
-      partial void OnMIN_NUMB_DAY_RMNDChanging(System.Nullable<int> value);
-      partial void OnMIN_NUMB_DAY_RMNDChanged();
-      partial void OnCRET_BYChanging(string value);
-      partial void OnCRET_BYChanged();
-      partial void OnCRET_DATEChanging(System.Nullable<System.DateTime> value);
-      partial void OnCRET_DATEChanged();
-      partial void OnMDFY_BYChanging(string value);
-      partial void OnMDFY_BYChanged();
-      partial void OnMDFY_DATEChanging(System.Nullable<System.DateTime> value);
-      partial void OnMDFY_DATEChanged();
-      #endregion
-
-      public Message_Broadcast()
-      {
-         this._Club = default(EntityRef<Club>);
-         OnCreated();
-      }
-
-      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_CODE", DbType = "BigInt NOT NULL", IsPrimaryKey = true)]
-      public long CODE
-      {
-         get
-         {
-            return this._CODE;
-         }
-         set
-         {
-            if ((this._CODE != value))
-            {
-               this.OnCODEChanging(value);
-               this.SendPropertyChanging();
-               this._CODE = value;
-               this.SendPropertyChanged("CODE");
-               this.OnCODEChanged();
-            }
-         }
-      }
-
-      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_LINE_TYPE", DbType = "VarChar(3)", UpdateCheck = UpdateCheck.Never)]
-      public string LINE_TYPE
-      {
-         get
-         {
-            return this._LINE_TYPE;
-         }
-         set
-         {
-            if ((this._LINE_TYPE != value))
-            {
-               this.OnLINE_TYPEChanging(value);
-               this.SendPropertyChanging();
-               this._LINE_TYPE = value;
-               this.SendPropertyChanged("LINE_TYPE");
-               this.OnLINE_TYPEChanged();
-            }
-         }
-      }
-
-      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_MSGB_TYPE", DbType = "VarChar(3)", UpdateCheck = UpdateCheck.Never)]
-      public string MSGB_TYPE
-      {
-         get
-         {
-            return this._MSGB_TYPE;
-         }
-         set
-         {
-            if ((this._MSGB_TYPE != value))
-            {
-               this.OnMSGB_TYPEChanging(value);
-               this.SendPropertyChanging();
-               this._MSGB_TYPE = value;
-               this.SendPropertyChanged("MSGB_TYPE");
-               this.OnMSGB_TYPEChanged();
-            }
-         }
-      }
-
-      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_STAT", DbType = "VarChar(3)", UpdateCheck = UpdateCheck.Never)]
-      public string STAT
-      {
-         get
-         {
-            return this._STAT;
-         }
-         set
-         {
-            if ((this._STAT != value))
-            {
-               this.OnSTATChanging(value);
-               this.SendPropertyChanging();
-               this._STAT = value;
-               this.SendPropertyChanged("STAT");
-               this.OnSTATChanged();
-            }
-         }
-      }
-
-      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_TELG_STAT", DbType = "VarChar(3)", UpdateCheck = UpdateCheck.Never)]
-      public string TELG_STAT
-      {
-         get
-         {
-            return this._TELG_STAT;
-         }
-         set
-         {
-            if ((this._TELG_STAT != value))
-            {
-               this.OnTELG_STATChanging(value);
-               this.SendPropertyChanging();
-               this._TELG_STAT = value;
-               this.SendPropertyChanged("TELG_STAT");
-               this.OnTELG_STATChanged();
-            }
-         }
-      }
-
-      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_INSR_FNAM_STAT", DbType = "VarChar(3)", UpdateCheck = UpdateCheck.Never)]
-      public string INSR_FNAM_STAT
-      {
-         get
-         {
-            return this._INSR_FNAM_STAT;
-         }
-         set
-         {
-            if ((this._INSR_FNAM_STAT != value))
-            {
-               this.OnINSR_FNAM_STATChanging(value);
-               this.SendPropertyChanging();
-               this._INSR_FNAM_STAT = value;
-               this.SendPropertyChanged("INSR_FNAM_STAT");
-               this.OnINSR_FNAM_STATChanged();
-            }
-         }
-      }
-
-      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_INSR_CNAM_STAT", DbType = "VarChar(3)", UpdateCheck = UpdateCheck.Never)]
-      public string INSR_CNAM_STAT
-      {
-         get
-         {
-            return this._INSR_CNAM_STAT;
-         }
-         set
-         {
-            if ((this._INSR_CNAM_STAT != value))
-            {
-               this.OnINSR_CNAM_STATChanging(value);
-               this.SendPropertyChanging();
-               this._INSR_CNAM_STAT = value;
-               this.SendPropertyChanged("INSR_CNAM_STAT");
-               this.OnINSR_CNAM_STATChanged();
-            }
-         }
-      }
-
-      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_CLUB_CODE", DbType = "BigInt", UpdateCheck = UpdateCheck.Never)]
-      public System.Nullable<long> CLUB_CODE
-      {
-         get
-         {
-            return this._CLUB_CODE;
-         }
-         set
-         {
-            if ((this._CLUB_CODE != value))
-            {
-               if (this._Club.HasLoadedOrAssignedValue)
-               {
-                  throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-               }
-               this.OnCLUB_CODEChanging(value);
-               this.SendPropertyChanging();
-               this._CLUB_CODE = value;
-               this.SendPropertyChanged("CLUB_CODE");
-               this.OnCLUB_CODEChanged();
-            }
-         }
-      }
-
-      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_CLUB_NAME", DbType = "NVarChar(250)", UpdateCheck = UpdateCheck.Never)]
-      public string CLUB_NAME
-      {
-         get
-         {
-            return this._CLUB_NAME;
-         }
-         set
-         {
-            if ((this._CLUB_NAME != value))
-            {
-               this.OnCLUB_NAMEChanging(value);
-               this.SendPropertyChanging();
-               this._CLUB_NAME = value;
-               this.SendPropertyChanged("CLUB_NAME");
-               this.OnCLUB_NAMEChanged();
-            }
-         }
-      }
-
-      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_DEBT_PRIC", DbType = "BigInt", UpdateCheck = UpdateCheck.Never)]
-      public System.Nullable<long> DEBT_PRIC
-      {
-         get
-         {
-            return this._DEBT_PRIC;
-         }
-         set
-         {
-            if ((this._DEBT_PRIC != value))
-            {
-               this.OnDEBT_PRICChanging(value);
-               this.SendPropertyChanging();
-               this._DEBT_PRIC = value;
-               this.SendPropertyChanged("DEBT_PRIC");
-               this.OnDEBT_PRICChanged();
-            }
-         }
-      }
-
-      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_MSGB_TEXT", DbType = "NVarChar(MAX)", UpdateCheck = UpdateCheck.Never)]
-      public string MSGB_TEXT
-      {
-         get
-         {
-            return this._MSGB_TEXT;
-         }
-         set
-         {
-            if ((this._MSGB_TEXT != value))
-            {
-               this.OnMSGB_TEXTChanging(value);
-               this.SendPropertyChanging();
-               this._MSGB_TEXT = value;
-               this.SendPropertyChanged("MSGB_TEXT");
-               this.OnMSGB_TEXTChanged();
-            }
-         }
-      }
-
-      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_FROM_DATE", DbType = "Date", UpdateCheck = UpdateCheck.Never)]
-      public System.Nullable<System.DateTime> FROM_DATE
-      {
-         get
-         {
-            return this._FROM_DATE;
-         }
-         set
-         {
-            if ((this._FROM_DATE != value))
-            {
-               this.OnFROM_DATEChanging(value);
-               this.SendPropertyChanging();
-               this._FROM_DATE = value;
-               this.SendPropertyChanged("FROM_DATE");
-               this.OnFROM_DATEChanged();
-            }
-         }
-      }
-
-      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_TO_DATE", DbType = "Date", UpdateCheck = UpdateCheck.Never)]
-      public System.Nullable<System.DateTime> TO_DATE
-      {
-         get
-         {
-            return this._TO_DATE;
-         }
-         set
-         {
-            if ((this._TO_DATE != value))
-            {
-               this.OnTO_DATEChanging(value);
-               this.SendPropertyChanging();
-               this._TO_DATE = value;
-               this.SendPropertyChanged("TO_DATE");
-               this.OnTO_DATEChanged();
-            }
-         }
-      }
-
-      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_MIN_NUMB_ATTN_RMND", DbType = "Int", UpdateCheck = UpdateCheck.Never)]
-      public System.Nullable<int> MIN_NUMB_ATTN_RMND
-      {
-         get
-         {
-            return this._MIN_NUMB_ATTN_RMND;
-         }
-         set
-         {
-            if ((this._MIN_NUMB_ATTN_RMND != value))
-            {
-               this.OnMIN_NUMB_ATTN_RMNDChanging(value);
-               this.SendPropertyChanging();
-               this._MIN_NUMB_ATTN_RMND = value;
-               this.SendPropertyChanged("MIN_NUMB_ATTN_RMND");
-               this.OnMIN_NUMB_ATTN_RMNDChanged();
-            }
-         }
-      }
-
-      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_MIN_NUMB_DAY_RMND", DbType = "Int", UpdateCheck = UpdateCheck.Never)]
-      public System.Nullable<int> MIN_NUMB_DAY_RMND
-      {
-         get
-         {
-            return this._MIN_NUMB_DAY_RMND;
-         }
-         set
-         {
-            if ((this._MIN_NUMB_DAY_RMND != value))
-            {
-               this.OnMIN_NUMB_DAY_RMNDChanging(value);
-               this.SendPropertyChanging();
-               this._MIN_NUMB_DAY_RMND = value;
-               this.SendPropertyChanged("MIN_NUMB_DAY_RMND");
-               this.OnMIN_NUMB_DAY_RMNDChanged();
-            }
-         }
-      }
-
-      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_CRET_BY", DbType = "VarChar(250)", UpdateCheck = UpdateCheck.Never)]
-      public string CRET_BY
-      {
-         get
-         {
-            return this._CRET_BY;
-         }
-         set
-         {
-            if ((this._CRET_BY != value))
-            {
-               this.OnCRET_BYChanging(value);
-               this.SendPropertyChanging();
-               this._CRET_BY = value;
-               this.SendPropertyChanged("CRET_BY");
-               this.OnCRET_BYChanged();
-            }
-         }
-      }
-
-      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_CRET_DATE", DbType = "DateTime", UpdateCheck = UpdateCheck.Never)]
-      public System.Nullable<System.DateTime> CRET_DATE
-      {
-         get
-         {
-            return this._CRET_DATE;
-         }
-         set
-         {
-            if ((this._CRET_DATE != value))
-            {
-               this.OnCRET_DATEChanging(value);
-               this.SendPropertyChanging();
-               this._CRET_DATE = value;
-               this.SendPropertyChanged("CRET_DATE");
-               this.OnCRET_DATEChanged();
-            }
-         }
-      }
-
-      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_MDFY_BY", DbType = "VarChar(250)", UpdateCheck = UpdateCheck.Never)]
-      public string MDFY_BY
-      {
-         get
-         {
-            return this._MDFY_BY;
-         }
-         set
-         {
-            if ((this._MDFY_BY != value))
-            {
-               this.OnMDFY_BYChanging(value);
-               this.SendPropertyChanging();
-               this._MDFY_BY = value;
-               this.SendPropertyChanged("MDFY_BY");
-               this.OnMDFY_BYChanged();
-            }
-         }
-      }
-
-      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_MDFY_DATE", DbType = "DateTime", UpdateCheck = UpdateCheck.Never)]
-      public System.Nullable<System.DateTime> MDFY_DATE
-      {
-         get
-         {
-            return this._MDFY_DATE;
-         }
-         set
-         {
-            if ((this._MDFY_DATE != value))
-            {
-               this.OnMDFY_DATEChanging(value);
-               this.SendPropertyChanging();
-               this._MDFY_DATE = value;
-               this.SendPropertyChanged("MDFY_DATE");
-               this.OnMDFY_DATEChanged();
-            }
-         }
-      }
-
-      [global::System.Data.Linq.Mapping.AssociationAttribute(Name = "Club_Message_Broadcast", Storage = "_Club", ThisKey = "CLUB_CODE", OtherKey = "CODE", IsForeignKey = true)]
-      public Club Club
-      {
-         get
-         {
-            return this._Club.Entity;
-         }
-         set
-         {
-            Club previousValue = this._Club.Entity;
-            if (((previousValue != value)
-                     || (this._Club.HasLoadedOrAssignedValue == false)))
-            {
-               this.SendPropertyChanging();
-               if ((previousValue != null))
-               {
-                  this._Club.Entity = null;
-                  previousValue.Message_Broadcasts.Remove(this);
-               }
-               this._Club.Entity = value;
-               if ((value != null))
-               {
-                  value.Message_Broadcasts.Add(this);
-                  this._CLUB_CODE = value.CODE;
-               }
-               else
-               {
-                  this._CLUB_CODE = default(Nullable<long>);
-               }
-               this.SendPropertyChanged("Club");
-            }
-         }
-      }
-
-      public event PropertyChangingEventHandler PropertyChanging;
-
-      public event PropertyChangedEventHandler PropertyChanged;
-
-      protected virtual void SendPropertyChanging()
-      {
-         if ((this.PropertyChanging != null))
-         {
-            this.PropertyChanging(this, emptyChangingEventArgs);
-         }
-      }
-
-      protected virtual void SendPropertyChanged(String propertyName)
-      {
-         if ((this.PropertyChanged != null))
-         {
-            this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-         }
-      }
-   }
-
    [global::System.Data.Linq.Mapping.TableAttribute(Name = "dbo.D$CXTP")]
    public partial class D_CXTP
    {
@@ -50248,8 +47826,6 @@ namespace System.Scsc.Data
 
       private EntitySet<Club_Method> _Club_Methods;
 
-      private EntitySet<Message_Broadcast> _Message_Broadcasts;
-
       private EntitySet<Club> _Clubs;
 
       private EntitySet<Attendance> _Attendances;
@@ -50263,6 +47839,8 @@ namespace System.Scsc.Data
       private EntitySet<Fighter_Public> _Fighter_Publics;
 
       private EntitySet<Setting> _Settings;
+
+      private EntitySet<Message_Broadcast> _Message_Broadcasts;
 
       private EntityRef<Club> _Club1;
 
@@ -50321,7 +47899,6 @@ namespace System.Scsc.Data
          this._Account_Details = new EntitySet<Account_Detail>(new Action<Account_Detail>(this.attach_Account_Details), new Action<Account_Detail>(this.detach_Account_Details));
          this._Payments = new EntitySet<Payment>(new Action<Payment>(this.attach_Payments), new Action<Payment>(this.detach_Payments));
          this._Club_Methods = new EntitySet<Club_Method>(new Action<Club_Method>(this.attach_Club_Methods), new Action<Club_Method>(this.detach_Club_Methods));
-         this._Message_Broadcasts = new EntitySet<Message_Broadcast>(new Action<Message_Broadcast>(this.attach_Message_Broadcasts), new Action<Message_Broadcast>(this.detach_Message_Broadcasts));
          this._Clubs = new EntitySet<Club>(new Action<Club>(this.attach_Clubs), new Action<Club>(this.detach_Clubs));
          this._Attendances = new EntitySet<Attendance>(new Action<Attendance>(this.attach_Attendances), new Action<Attendance>(this.detach_Attendances));
          this._Fighters = new EntitySet<Fighter>(new Action<Fighter>(this.attach_Fighters), new Action<Fighter>(this.detach_Fighters));
@@ -50329,6 +47906,7 @@ namespace System.Scsc.Data
          this._Misc_Expenses = new EntitySet<Misc_Expense>(new Action<Misc_Expense>(this.attach_Misc_Expenses), new Action<Misc_Expense>(this.detach_Misc_Expenses));
          this._Fighter_Publics = new EntitySet<Fighter_Public>(new Action<Fighter_Public>(this.attach_Fighter_Publics), new Action<Fighter_Public>(this.detach_Fighter_Publics));
          this._Settings = new EntitySet<Setting>(new Action<Setting>(this.attach_Settings), new Action<Setting>(this.detach_Settings));
+         this._Message_Broadcasts = new EntitySet<Message_Broadcast>(new Action<Message_Broadcast>(this.attach_Message_Broadcasts), new Action<Message_Broadcast>(this.detach_Message_Broadcasts));
          this._Club1 = default(EntityRef<Club>);
          this._Region = default(EntityRef<Region>);
          OnCreated();
@@ -50815,19 +48393,6 @@ namespace System.Scsc.Data
          }
       }
 
-      [global::System.Data.Linq.Mapping.AssociationAttribute(Name = "Club_Message_Broadcast", Storage = "_Message_Broadcasts", ThisKey = "CODE", OtherKey = "CLUB_CODE")]
-      public EntitySet<Message_Broadcast> Message_Broadcasts
-      {
-         get
-         {
-            return this._Message_Broadcasts;
-         }
-         set
-         {
-            this._Message_Broadcasts.Assign(value);
-         }
-      }
-
       [global::System.Data.Linq.Mapping.AssociationAttribute(Name = "Club_Club", Storage = "_Clubs", ThisKey = "CODE", OtherKey = "CLUB_CODE")]
       public EntitySet<Club> Clubs
       {
@@ -50916,6 +48481,19 @@ namespace System.Scsc.Data
          set
          {
             this._Settings.Assign(value);
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.AssociationAttribute(Name = "Club_Message_Broadcast", Storage = "_Message_Broadcasts", ThisKey = "CODE", OtherKey = "CLUB_CODE")]
+      public EntitySet<Message_Broadcast> Message_Broadcasts
+      {
+         get
+         {
+            return this._Message_Broadcasts;
+         }
+         set
+         {
+            this._Message_Broadcasts.Assign(value);
          }
       }
 
@@ -51071,18 +48649,6 @@ namespace System.Scsc.Data
          entity.Club = null;
       }
 
-      private void attach_Message_Broadcasts(Message_Broadcast entity)
-      {
-         this.SendPropertyChanging();
-         entity.Club = this;
-      }
-
-      private void detach_Message_Broadcasts(Message_Broadcast entity)
-      {
-         this.SendPropertyChanging();
-         entity.Club = null;
-      }
-
       private void attach_Clubs(Club entity)
       {
          this.SendPropertyChanging();
@@ -51162,6 +48728,18 @@ namespace System.Scsc.Data
       }
 
       private void detach_Settings(Setting entity)
+      {
+         this.SendPropertyChanging();
+         entity.Club = null;
+      }
+
+      private void attach_Message_Broadcasts(Message_Broadcast entity)
+      {
+         this.SendPropertyChanging();
+         entity.Club = this;
+      }
+
+      private void detach_Message_Broadcasts(Message_Broadcast entity)
       {
          this.SendPropertyChanging();
          entity.Club = null;
@@ -54068,13 +51646,13 @@ namespace System.Scsc.Data
 
       private EntityRef<Method> _Method;
 
-      private EntityRef<Regulation> _Regulation;
-
       private EntityRef<Sub_Unit> _Sub_Unit;
 
       private EntityRef<Expense_Item> _Expense_Item;
 
       private EntityRef<Category_Belt> _Category_Belt;
+
+      private EntityRef<Regulation> _Regulation;
 
       #region Extensibility Method Definitions
       partial void OnLoaded();
@@ -54131,10 +51709,10 @@ namespace System.Scsc.Data
       public Basic_Calculate_Discount()
       {
          this._Method = default(EntityRef<Method>);
-         this._Regulation = default(EntityRef<Regulation>);
          this._Sub_Unit = default(EntityRef<Sub_Unit>);
          this._Expense_Item = default(EntityRef<Expense_Item>);
          this._Category_Belt = default(EntityRef<Category_Belt>);
+         this._Regulation = default(EntityRef<Regulation>);
          OnCreated();
       }
 
@@ -54668,42 +52246,6 @@ namespace System.Scsc.Data
          }
       }
 
-      [global::System.Data.Linq.Mapping.AssociationAttribute(Name = "Regulation_Basic_Calculate_Discount", Storage = "_Regulation", ThisKey = "REGL_YEAR,REGL_CODE", OtherKey = "YEAR,CODE", IsForeignKey = true, DeleteOnNull = true, DeleteRule = "CASCADE")]
-      public Regulation Regulation
-      {
-         get
-         {
-            return this._Regulation.Entity;
-         }
-         set
-         {
-            Regulation previousValue = this._Regulation.Entity;
-            if (((previousValue != value)
-                     || (this._Regulation.HasLoadedOrAssignedValue == false)))
-            {
-               this.SendPropertyChanging();
-               if ((previousValue != null))
-               {
-                  this._Regulation.Entity = null;
-                  previousValue.Basic_Calculate_Discounts.Remove(this);
-               }
-               this._Regulation.Entity = value;
-               if ((value != null))
-               {
-                  value.Basic_Calculate_Discounts.Add(this);
-                  this._REGL_YEAR = value.YEAR;
-                  this._REGL_CODE = value.CODE;
-               }
-               else
-               {
-                  this._REGL_YEAR = default(short);
-                  this._REGL_CODE = default(int);
-               }
-               this.SendPropertyChanged("Regulation");
-            }
-         }
-      }
-
       [global::System.Data.Linq.Mapping.AssociationAttribute(Name = "Sub_Unit_Basic_Calculate_Discount", Storage = "_Sub_Unit", ThisKey = "SUNT_BUNT_DEPT_ORGN_CODE,SUNT_BUNT_DEPT_CODE,SUNT_BUNT_CODE,SUNT_CODE", OtherKey = "BUNT_DEPT_ORGN_CODE,BUNT_DEPT_CODE,BUNT_CODE,CODE", IsForeignKey = true)]
       public Sub_Unit Sub_Unit
       {
@@ -54808,6 +52350,42 @@ namespace System.Scsc.Data
                   this._CTGY_CODE = default(Nullable<long>);
                }
                this.SendPropertyChanged("Category_Belt");
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.AssociationAttribute(Name = "Regulation_Basic_Calculate_Discount", Storage = "_Regulation", ThisKey = "REGL_YEAR,REGL_CODE", OtherKey = "YEAR,CODE", IsForeignKey = true, DeleteOnNull = true, DeleteRule = "CASCADE")]
+      public Regulation Regulation
+      {
+         get
+         {
+            return this._Regulation.Entity;
+         }
+         set
+         {
+            Regulation previousValue = this._Regulation.Entity;
+            if (((previousValue != value)
+                     || (this._Regulation.HasLoadedOrAssignedValue == false)))
+            {
+               this.SendPropertyChanging();
+               if ((previousValue != null))
+               {
+                  this._Regulation.Entity = null;
+                  previousValue.Basic_Calculate_Discounts.Remove(this);
+               }
+               this._Regulation.Entity = value;
+               if ((value != null))
+               {
+                  value.Basic_Calculate_Discounts.Add(this);
+                  this._REGL_YEAR = value.YEAR;
+                  this._REGL_CODE = value.CODE;
+               }
+               else
+               {
+                  this._REGL_YEAR = default(short);
+                  this._REGL_CODE = default(int);
+               }
+               this.SendPropertyChanged("Regulation");
             }
          }
       }
@@ -55017,8 +52595,6 @@ namespace System.Scsc.Data
 
       private EntitySet<Session> _Sessions;
 
-      private EntitySet<Payment_Detail> _Payment_Details;
-
       private EntitySet<Gain_Loss_Rial> _Gain_Loss_Rials;
 
       private EntitySet<Club_Method> _Club_Methods;
@@ -55044,6 +52620,8 @@ namespace System.Scsc.Data
       private EntitySet<Fighter_Public> _Fighter_Publics;
 
       private EntitySet<Member_Ship> _Member_Ships;
+
+      private EntitySet<Payment_Detail> _Payment_Details;
 
       private EntityRef<Club> _Club;
 
@@ -55234,7 +52812,6 @@ namespace System.Scsc.Data
          this._Request_Rows = new EntitySet<Request_Row>(new Action<Request_Row>(this.attach_Request_Rows), new Action<Request_Row>(this.detach_Request_Rows));
          this._Session_Meetings = new EntitySet<Session_Meeting>(new Action<Session_Meeting>(this.attach_Session_Meetings), new Action<Session_Meeting>(this.detach_Session_Meetings));
          this._Sessions = new EntitySet<Session>(new Action<Session>(this.attach_Sessions), new Action<Session>(this.detach_Sessions));
-         this._Payment_Details = new EntitySet<Payment_Detail>(new Action<Payment_Detail>(this.attach_Payment_Details), new Action<Payment_Detail>(this.detach_Payment_Details));
          this._Gain_Loss_Rials = new EntitySet<Gain_Loss_Rial>(new Action<Gain_Loss_Rial>(this.attach_Gain_Loss_Rials), new Action<Gain_Loss_Rial>(this.detach_Gain_Loss_Rials));
          this._Club_Methods = new EntitySet<Club_Method>(new Action<Club_Method>(this.attach_Club_Methods), new Action<Club_Method>(this.detach_Club_Methods));
          this._Aggregation_Operation_Details = new EntitySet<Aggregation_Operation_Detail>(new Action<Aggregation_Operation_Detail>(this.attach_Aggregation_Operation_Details), new Action<Aggregation_Operation_Detail>(this.detach_Aggregation_Operation_Details));
@@ -55248,6 +52825,7 @@ namespace System.Scsc.Data
          this._Misc_Expenses = new EntitySet<Misc_Expense>(new Action<Misc_Expense>(this.attach_Misc_Expenses), new Action<Misc_Expense>(this.detach_Misc_Expenses));
          this._Fighter_Publics = new EntitySet<Fighter_Public>(new Action<Fighter_Public>(this.attach_Fighter_Publics), new Action<Fighter_Public>(this.detach_Fighter_Publics));
          this._Member_Ships = new EntitySet<Member_Ship>(new Action<Member_Ship>(this.attach_Member_Ships), new Action<Member_Ship>(this.detach_Member_Ships));
+         this._Payment_Details = new EntitySet<Payment_Detail>(new Action<Payment_Detail>(this.attach_Payment_Details), new Action<Payment_Detail>(this.detach_Payment_Details));
          this._Club = default(EntityRef<Club>);
          this._Fighter1 = default(EntityRef<Fighter>);
          this._Method = default(EntityRef<Method>);
@@ -57009,19 +54587,6 @@ namespace System.Scsc.Data
          }
       }
 
-      [global::System.Data.Linq.Mapping.AssociationAttribute(Name = "Fighter_Payment_Detail", Storage = "_Payment_Details", ThisKey = "FILE_NO", OtherKey = "FIGH_FILE_NO")]
-      public EntitySet<Payment_Detail> Payment_Details
-      {
-         get
-         {
-            return this._Payment_Details;
-         }
-         set
-         {
-            this._Payment_Details.Assign(value);
-         }
-      }
-
       [global::System.Data.Linq.Mapping.AssociationAttribute(Name = "Fighter_Gain_Loss_Rial", Storage = "_Gain_Loss_Rials", ThisKey = "FILE_NO", OtherKey = "FIGH_FILE_NO")]
       public EntitySet<Gain_Loss_Rial> Gain_Loss_Rials
       {
@@ -57188,6 +54753,19 @@ namespace System.Scsc.Data
          set
          {
             this._Member_Ships.Assign(value);
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.AssociationAttribute(Name = "Fighter_Payment_Detail", Storage = "_Payment_Details", ThisKey = "FILE_NO", OtherKey = "FIGH_FILE_NO")]
+      public EntitySet<Payment_Detail> Payment_Details
+      {
+         get
+         {
+            return this._Payment_Details;
+         }
+         set
+         {
+            this._Payment_Details.Assign(value);
          }
       }
 
@@ -57592,18 +55170,6 @@ namespace System.Scsc.Data
          entity.Fighter = null;
       }
 
-      private void attach_Payment_Details(Payment_Detail entity)
-      {
-         this.SendPropertyChanging();
-         entity.Fighter = this;
-      }
-
-      private void detach_Payment_Details(Payment_Detail entity)
-      {
-         this.SendPropertyChanging();
-         entity.Fighter = null;
-      }
-
       private void attach_Gain_Loss_Rials(Gain_Loss_Rial entity)
       {
          this.SendPropertyChanging();
@@ -57755,6 +55321,18 @@ namespace System.Scsc.Data
       }
 
       private void detach_Member_Ships(Member_Ship entity)
+      {
+         this.SendPropertyChanging();
+         entity.Fighter = null;
+      }
+
+      private void attach_Payment_Details(Payment_Detail entity)
+      {
+         this.SendPropertyChanging();
+         entity.Fighter = this;
+      }
+
+      private void detach_Payment_Details(Payment_Detail entity)
       {
          this.SendPropertyChanging();
          entity.Fighter = null;
@@ -58402,8 +55980,6 @@ namespace System.Scsc.Data
 
       private EntityRef<Method> _Method;
 
-      private EntityRef<Regulation> _Regulation;
-
       private EntityRef<Region> _Region;
 
       private EntityRef<Request_Type> _Request_Type;
@@ -58411,6 +55987,8 @@ namespace System.Scsc.Data
       private EntityRef<Requester_Type> _Requester_Type;
 
       private EntityRef<Category_Belt> _Category_Belt;
+
+      private EntityRef<Regulation> _Regulation;
 
       #region Extensibility Method Definitions
       partial void OnLoaded();
@@ -58482,11 +56060,11 @@ namespace System.Scsc.Data
          this._Club_Method = default(EntityRef<Club_Method>);
          this._Fighter = default(EntityRef<Fighter>);
          this._Method = default(EntityRef<Method>);
-         this._Regulation = default(EntityRef<Regulation>);
          this._Region = default(EntityRef<Region>);
          this._Request_Type = default(EntityRef<Request_Type>);
          this._Requester_Type = default(EntityRef<Requester_Type>);
          this._Category_Belt = default(EntityRef<Category_Belt>);
+         this._Regulation = default(EntityRef<Regulation>);
          OnCreated();
       }
 
@@ -59229,42 +56807,6 @@ namespace System.Scsc.Data
          }
       }
 
-      [global::System.Data.Linq.Mapping.AssociationAttribute(Name = "Regulation_Aggregation_Operation", Storage = "_Regulation", ThisKey = "REGL_YEAR,REGL_CODE", OtherKey = "YEAR,CODE", IsForeignKey = true)]
-      public Regulation Regulation
-      {
-         get
-         {
-            return this._Regulation.Entity;
-         }
-         set
-         {
-            Regulation previousValue = this._Regulation.Entity;
-            if (((previousValue != value)
-                     || (this._Regulation.HasLoadedOrAssignedValue == false)))
-            {
-               this.SendPropertyChanging();
-               if ((previousValue != null))
-               {
-                  this._Regulation.Entity = null;
-                  previousValue.Aggregation_Operations.Remove(this);
-               }
-               this._Regulation.Entity = value;
-               if ((value != null))
-               {
-                  value.Aggregation_Operations.Add(this);
-                  this._REGL_YEAR = value.YEAR;
-                  this._REGL_CODE = value.CODE;
-               }
-               else
-               {
-                  this._REGL_YEAR = default(Nullable<short>);
-                  this._REGL_CODE = default(Nullable<int>);
-               }
-               this.SendPropertyChanged("Regulation");
-            }
-         }
-      }
-
       [global::System.Data.Linq.Mapping.AssociationAttribute(Name = "Region_Aggregation_Operation", Storage = "_Region", ThisKey = "REGN_PRVN_CNTY_CODE,REGN_PRVN_CODE,REGN_CODE", OtherKey = "PRVN_CNTY_CODE,PRVN_CODE,CODE", IsForeignKey = true)]
       public Region Region
       {
@@ -59401,6 +56943,42 @@ namespace System.Scsc.Data
                   this._CTGY_CODE = default(Nullable<long>);
                }
                this.SendPropertyChanged("Category_Belt");
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.AssociationAttribute(Name = "Regulation_Aggregation_Operation", Storage = "_Regulation", ThisKey = "REGL_YEAR,REGL_CODE", OtherKey = "YEAR,CODE", IsForeignKey = true)]
+      public Regulation Regulation
+      {
+         get
+         {
+            return this._Regulation.Entity;
+         }
+         set
+         {
+            Regulation previousValue = this._Regulation.Entity;
+            if (((previousValue != value)
+                     || (this._Regulation.HasLoadedOrAssignedValue == false)))
+            {
+               this.SendPropertyChanging();
+               if ((previousValue != null))
+               {
+                  this._Regulation.Entity = null;
+                  previousValue.Aggregation_Operations.Remove(this);
+               }
+               this._Regulation.Entity = value;
+               if ((value != null))
+               {
+                  value.Aggregation_Operations.Add(this);
+                  this._REGL_YEAR = value.YEAR;
+                  this._REGL_CODE = value.CODE;
+               }
+               else
+               {
+                  this._REGL_YEAR = default(Nullable<short>);
+                  this._REGL_CODE = default(Nullable<int>);
+               }
+               this.SendPropertyChanged("Regulation");
             }
          }
       }
@@ -60482,8 +58060,6 @@ namespace System.Scsc.Data
 
       private EntityRef<Method> _Method;
 
-      private EntityRef<Payment_Detail> _Payment_Detail;
-
       private EntityRef<Request_Row> _Request_Row;
 
       private EntityRef<Request_Type> _Request_Type;
@@ -60493,6 +58069,8 @@ namespace System.Scsc.Data
       private EntityRef<Category_Belt> _Category_Belt;
 
       private EntityRef<Member_Ship> _Member_Ship;
+
+      private EntityRef<Payment_Detail> _Payment_Detail;
 
       #region Extensibility Method Definitions
       partial void OnLoaded();
@@ -60594,12 +58172,12 @@ namespace System.Scsc.Data
          this._Club = default(EntityRef<Club>);
          this._Fighter = default(EntityRef<Fighter>);
          this._Method = default(EntityRef<Method>);
-         this._Payment_Detail = default(EntityRef<Payment_Detail>);
          this._Request_Row = default(EntityRef<Request_Row>);
          this._Request_Type = default(EntityRef<Request_Type>);
          this._Misc_Expense = default(EntityRef<Misc_Expense>);
          this._Category_Belt = default(EntityRef<Category_Belt>);
          this._Member_Ship = default(EntityRef<Member_Ship>);
+         this._Payment_Detail = default(EntityRef<Payment_Detail>);
          OnCreated();
       }
 
@@ -61671,40 +59249,6 @@ namespace System.Scsc.Data
          }
       }
 
-      [global::System.Data.Linq.Mapping.AssociationAttribute(Name = "Payment_Detail_Payment_Expense", Storage = "_Payment_Detail", ThisKey = "PYDT_CODE", OtherKey = "CODE", IsForeignKey = true)]
-      public Payment_Detail Payment_Detail
-      {
-         get
-         {
-            return this._Payment_Detail.Entity;
-         }
-         set
-         {
-            Payment_Detail previousValue = this._Payment_Detail.Entity;
-            if (((previousValue != value)
-                     || (this._Payment_Detail.HasLoadedOrAssignedValue == false)))
-            {
-               this.SendPropertyChanging();
-               if ((previousValue != null))
-               {
-                  this._Payment_Detail.Entity = null;
-                  previousValue.Payment_Expenses.Remove(this);
-               }
-               this._Payment_Detail.Entity = value;
-               if ((value != null))
-               {
-                  value.Payment_Expenses.Add(this);
-                  this._PYDT_CODE = value.CODE;
-               }
-               else
-               {
-                  this._PYDT_CODE = default(Nullable<long>);
-               }
-               this.SendPropertyChanged("Payment_Detail");
-            }
-         }
-      }
-
       [global::System.Data.Linq.Mapping.AssociationAttribute(Name = "Request_Row_Payment_Expense", Storage = "_Request_Row", ThisKey = "RQRO_RQST_RQID,RQRO_RWNO", OtherKey = "RQST_RQID,RWNO", IsForeignKey = true)]
       public Request_Row Request_Row
       {
@@ -61877,6 +59421,40 @@ namespace System.Scsc.Data
                   this._MBSP_RWNO = default(Nullable<short>);
                }
                this.SendPropertyChanged("Member_Ship");
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.AssociationAttribute(Name = "Payment_Detail_Payment_Expense", Storage = "_Payment_Detail", ThisKey = "PYDT_CODE", OtherKey = "CODE", IsForeignKey = true)]
+      public Payment_Detail Payment_Detail
+      {
+         get
+         {
+            return this._Payment_Detail.Entity;
+         }
+         set
+         {
+            Payment_Detail previousValue = this._Payment_Detail.Entity;
+            if (((previousValue != value)
+                     || (this._Payment_Detail.HasLoadedOrAssignedValue == false)))
+            {
+               this.SendPropertyChanging();
+               if ((previousValue != null))
+               {
+                  this._Payment_Detail.Entity = null;
+                  previousValue.Payment_Expenses.Remove(this);
+               }
+               this._Payment_Detail.Entity = value;
+               if ((value != null))
+               {
+                  value.Payment_Expenses.Add(this);
+                  this._PYDT_CODE = value.CODE;
+               }
+               else
+               {
+                  this._PYDT_CODE = default(Nullable<long>);
+               }
+               this.SendPropertyChanged("Payment_Detail");
             }
          }
       }
@@ -65156,8 +62734,6 @@ namespace System.Scsc.Data
 
       private EntitySet<Expense> _Expenses;
 
-      private EntitySet<Payment_Detail> _Payment_Details;
-
       private EntitySet<Base_Calculate_Expense> _Base_Calculate_Expenses;
 
       private EntitySet<Attendance> _Attendances;
@@ -65173,6 +62749,8 @@ namespace System.Scsc.Data
       private EntitySet<Payment_Expense> _Payment_Expenses;
 
       private EntitySet<Fighter_Public> _Fighter_Publics;
+
+      private EntitySet<Payment_Detail> _Payment_Details;
 
       private EntityRef<Method> _Method;
 
@@ -65234,7 +62812,6 @@ namespace System.Scsc.Data
          this._Session_Meetings = new EntitySet<Session_Meeting>(new Action<Session_Meeting>(this.attach_Session_Meetings), new Action<Session_Meeting>(this.detach_Session_Meetings));
          this._Sessions = new EntitySet<Session>(new Action<Session>(this.attach_Sessions), new Action<Session>(this.detach_Sessions));
          this._Expenses = new EntitySet<Expense>(new Action<Expense>(this.attach_Expenses), new Action<Expense>(this.detach_Expenses));
-         this._Payment_Details = new EntitySet<Payment_Detail>(new Action<Payment_Detail>(this.attach_Payment_Details), new Action<Payment_Detail>(this.detach_Payment_Details));
          this._Base_Calculate_Expenses = new EntitySet<Base_Calculate_Expense>(new Action<Base_Calculate_Expense>(this.attach_Base_Calculate_Expenses), new Action<Base_Calculate_Expense>(this.detach_Base_Calculate_Expenses));
          this._Attendances = new EntitySet<Attendance>(new Action<Attendance>(this.attach_Attendances), new Action<Attendance>(this.detach_Attendances));
          this._Basic_Calculate_Discounts = new EntitySet<Basic_Calculate_Discount>(new Action<Basic_Calculate_Discount>(this.attach_Basic_Calculate_Discounts), new Action<Basic_Calculate_Discount>(this.detach_Basic_Calculate_Discounts));
@@ -65243,6 +62820,7 @@ namespace System.Scsc.Data
          this._Calculate_Expense_Coaches = new EntitySet<Calculate_Expense_Coach>(new Action<Calculate_Expense_Coach>(this.attach_Calculate_Expense_Coaches), new Action<Calculate_Expense_Coach>(this.detach_Calculate_Expense_Coaches));
          this._Payment_Expenses = new EntitySet<Payment_Expense>(new Action<Payment_Expense>(this.attach_Payment_Expenses), new Action<Payment_Expense>(this.detach_Payment_Expenses));
          this._Fighter_Publics = new EntitySet<Fighter_Public>(new Action<Fighter_Public>(this.attach_Fighter_Publics), new Action<Fighter_Public>(this.detach_Fighter_Publics));
+         this._Payment_Details = new EntitySet<Payment_Detail>(new Action<Payment_Detail>(this.attach_Payment_Details), new Action<Payment_Detail>(this.detach_Payment_Details));
          this._Method = default(EntityRef<Method>);
          OnCreated();
       }
@@ -65769,19 +63347,6 @@ namespace System.Scsc.Data
          }
       }
 
-      [global::System.Data.Linq.Mapping.AssociationAttribute(Name = "Category_Belt_Payment_Detail", Storage = "_Payment_Details", ThisKey = "CODE", OtherKey = "CTGY_CODE_DNRM")]
-      public EntitySet<Payment_Detail> Payment_Details
-      {
-         get
-         {
-            return this._Payment_Details;
-         }
-         set
-         {
-            this._Payment_Details.Assign(value);
-         }
-      }
-
       [global::System.Data.Linq.Mapping.AssociationAttribute(Name = "Category_Belt_Base_Calculate_Expense", Storage = "_Base_Calculate_Expenses", ThisKey = "CODE", OtherKey = "CTGY_CODE")]
       public EntitySet<Base_Calculate_Expense> Base_Calculate_Expenses
       {
@@ -65883,6 +63448,19 @@ namespace System.Scsc.Data
          set
          {
             this._Fighter_Publics.Assign(value);
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.AssociationAttribute(Name = "Category_Belt_Payment_Detail", Storage = "_Payment_Details", ThisKey = "CODE", OtherKey = "CTGY_CODE_DNRM")]
+      public EntitySet<Payment_Detail> Payment_Details
+      {
+         get
+         {
+            return this._Payment_Details;
+         }
+         set
+         {
+            this._Payment_Details.Assign(value);
          }
       }
 
@@ -66012,18 +63590,6 @@ namespace System.Scsc.Data
          entity.Category_Belt = null;
       }
 
-      private void attach_Payment_Details(Payment_Detail entity)
-      {
-         this.SendPropertyChanging();
-         entity.Category_Belt = this;
-      }
-
-      private void detach_Payment_Details(Payment_Detail entity)
-      {
-         this.SendPropertyChanging();
-         entity.Category_Belt = null;
-      }
-
       private void attach_Base_Calculate_Expenses(Base_Calculate_Expense entity)
       {
          this.SendPropertyChanging();
@@ -66115,6 +63681,18 @@ namespace System.Scsc.Data
       }
 
       private void detach_Fighter_Publics(Fighter_Public entity)
+      {
+         this.SendPropertyChanging();
+         entity.Category_Belt = null;
+      }
+
+      private void attach_Payment_Details(Payment_Detail entity)
+      {
+         this.SendPropertyChanging();
+         entity.Category_Belt = this;
+      }
+
+      private void detach_Payment_Details(Payment_Detail entity)
       {
          this.SendPropertyChanging();
          entity.Category_Belt = null;
@@ -71102,6 +68680,2693 @@ namespace System.Scsc.Data
       {
          this.SendPropertyChanging();
          entity.Member_Ship = null;
+      }
+   }
+
+   [global::System.Data.Linq.Mapping.TableAttribute(Name = "dbo.Regulation")]
+   public partial class Regulation : INotifyPropertyChanging, INotifyPropertyChanged
+   {
+
+      private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+
+      private short _YEAR;
+
+      private int _CODE;
+
+      private short _SUB_SYS;
+
+      private string _TYPE;
+
+      private string _REGL_STAT;
+
+      private string _LETT_NO;
+
+      private System.Nullable<System.DateTime> _LETT_DATE;
+
+      private string _LETT_OWNR;
+
+      private System.DateTime _STRT_DATE;
+
+      private System.DateTime _END_DATE;
+
+      private System.Nullable<float> _TAX_PRCT;
+
+      private System.Nullable<float> _DUTY_PRCT;
+
+      private string _AMNT_TYPE;
+
+      private System.Nullable<long> _INSR_PRIC;
+
+      private string _CRET_BY;
+
+      private System.Nullable<System.DateTime> _CRET_DATE;
+
+      private string _MDFY_BY;
+
+      private System.Nullable<System.DateTime> _MDFY_DATE;
+
+      private EntitySet<Request_Regulation_History> _Request_Regulation_Histories;
+
+      private EntitySet<Expense_Cash> _Expense_Cashes;
+
+      private EntitySet<Request_Requester> _Request_Requesters;
+
+      private EntitySet<Finance_Document> _Finance_Documents;
+
+      private EntitySet<Payment> _Payments;
+
+      private EntitySet<Expense> _Expenses;
+
+      private EntitySet<Basic_Calculate_Discount> _Basic_Calculate_Discounts;
+
+      private EntitySet<Aggregation_Operation> _Aggregation_Operations;
+
+      #region Extensibility Method Definitions
+      partial void OnLoaded();
+      partial void OnValidate(System.Data.Linq.ChangeAction action);
+      partial void OnCreated();
+      partial void OnYEARChanging(short value);
+      partial void OnYEARChanged();
+      partial void OnCODEChanging(int value);
+      partial void OnCODEChanged();
+      partial void OnSUB_SYSChanging(short value);
+      partial void OnSUB_SYSChanged();
+      partial void OnTYPEChanging(string value);
+      partial void OnTYPEChanged();
+      partial void OnREGL_STATChanging(string value);
+      partial void OnREGL_STATChanged();
+      partial void OnLETT_NOChanging(string value);
+      partial void OnLETT_NOChanged();
+      partial void OnLETT_DATEChanging(System.Nullable<System.DateTime> value);
+      partial void OnLETT_DATEChanged();
+      partial void OnLETT_OWNRChanging(string value);
+      partial void OnLETT_OWNRChanged();
+      partial void OnSTRT_DATEChanging(System.DateTime value);
+      partial void OnSTRT_DATEChanged();
+      partial void OnEND_DATEChanging(System.DateTime value);
+      partial void OnEND_DATEChanged();
+      partial void OnTAX_PRCTChanging(System.Nullable<float> value);
+      partial void OnTAX_PRCTChanged();
+      partial void OnDUTY_PRCTChanging(System.Nullable<float> value);
+      partial void OnDUTY_PRCTChanged();
+      partial void OnAMNT_TYPEChanging(string value);
+      partial void OnAMNT_TYPEChanged();
+      partial void OnINSR_PRICChanging(System.Nullable<long> value);
+      partial void OnINSR_PRICChanged();
+      partial void OnCRET_BYChanging(string value);
+      partial void OnCRET_BYChanged();
+      partial void OnCRET_DATEChanging(System.Nullable<System.DateTime> value);
+      partial void OnCRET_DATEChanged();
+      partial void OnMDFY_BYChanging(string value);
+      partial void OnMDFY_BYChanged();
+      partial void OnMDFY_DATEChanging(System.Nullable<System.DateTime> value);
+      partial void OnMDFY_DATEChanged();
+      #endregion
+
+      public Regulation()
+      {
+         this._Request_Regulation_Histories = new EntitySet<Request_Regulation_History>(new Action<Request_Regulation_History>(this.attach_Request_Regulation_Histories), new Action<Request_Regulation_History>(this.detach_Request_Regulation_Histories));
+         this._Expense_Cashes = new EntitySet<Expense_Cash>(new Action<Expense_Cash>(this.attach_Expense_Cashes), new Action<Expense_Cash>(this.detach_Expense_Cashes));
+         this._Request_Requesters = new EntitySet<Request_Requester>(new Action<Request_Requester>(this.attach_Request_Requesters), new Action<Request_Requester>(this.detach_Request_Requesters));
+         this._Finance_Documents = new EntitySet<Finance_Document>(new Action<Finance_Document>(this.attach_Finance_Documents), new Action<Finance_Document>(this.detach_Finance_Documents));
+         this._Payments = new EntitySet<Payment>(new Action<Payment>(this.attach_Payments), new Action<Payment>(this.detach_Payments));
+         this._Expenses = new EntitySet<Expense>(new Action<Expense>(this.attach_Expenses), new Action<Expense>(this.detach_Expenses));
+         this._Basic_Calculate_Discounts = new EntitySet<Basic_Calculate_Discount>(new Action<Basic_Calculate_Discount>(this.attach_Basic_Calculate_Discounts), new Action<Basic_Calculate_Discount>(this.detach_Basic_Calculate_Discounts));
+         this._Aggregation_Operations = new EntitySet<Aggregation_Operation>(new Action<Aggregation_Operation>(this.attach_Aggregation_Operations), new Action<Aggregation_Operation>(this.detach_Aggregation_Operations));
+         OnCreated();
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_YEAR", DbType = "SmallInt NOT NULL", IsPrimaryKey = true)]
+      public short YEAR
+      {
+         get
+         {
+            return this._YEAR;
+         }
+         set
+         {
+            if ((this._YEAR != value))
+            {
+               this.OnYEARChanging(value);
+               this.SendPropertyChanging();
+               this._YEAR = value;
+               this.SendPropertyChanged("YEAR");
+               this.OnYEARChanged();
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_CODE", DbType = "Int NOT NULL", IsPrimaryKey = true)]
+      public int CODE
+      {
+         get
+         {
+            return this._CODE;
+         }
+         set
+         {
+            if ((this._CODE != value))
+            {
+               this.OnCODEChanging(value);
+               this.SendPropertyChanging();
+               this._CODE = value;
+               this.SendPropertyChanged("CODE");
+               this.OnCODEChanged();
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_SUB_SYS", DbType = "SmallInt NOT NULL")]
+      public short SUB_SYS
+      {
+         get
+         {
+            return this._SUB_SYS;
+         }
+         set
+         {
+            if ((this._SUB_SYS != value))
+            {
+               this.OnSUB_SYSChanging(value);
+               this.SendPropertyChanging();
+               this._SUB_SYS = value;
+               this.SendPropertyChanged("SUB_SYS");
+               this.OnSUB_SYSChanged();
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_TYPE", DbType = "VarChar(3) NOT NULL", CanBeNull = false)]
+      public string TYPE
+      {
+         get
+         {
+            return this._TYPE;
+         }
+         set
+         {
+            if ((this._TYPE != value))
+            {
+               this.OnTYPEChanging(value);
+               this.SendPropertyChanging();
+               this._TYPE = value;
+               this.SendPropertyChanged("TYPE");
+               this.OnTYPEChanged();
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_REGL_STAT", DbType = "VarChar(3) NOT NULL", CanBeNull = false)]
+      public string REGL_STAT
+      {
+         get
+         {
+            return this._REGL_STAT;
+         }
+         set
+         {
+            if ((this._REGL_STAT != value))
+            {
+               this.OnREGL_STATChanging(value);
+               this.SendPropertyChanging();
+               this._REGL_STAT = value;
+               this.SendPropertyChanged("REGL_STAT");
+               this.OnREGL_STATChanged();
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_LETT_NO", DbType = "VarChar(15)")]
+      public string LETT_NO
+      {
+         get
+         {
+            return this._LETT_NO;
+         }
+         set
+         {
+            if ((this._LETT_NO != value))
+            {
+               this.OnLETT_NOChanging(value);
+               this.SendPropertyChanging();
+               this._LETT_NO = value;
+               this.SendPropertyChanged("LETT_NO");
+               this.OnLETT_NOChanged();
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_LETT_DATE", DbType = "DateTime")]
+      public System.Nullable<System.DateTime> LETT_DATE
+      {
+         get
+         {
+            return this._LETT_DATE;
+         }
+         set
+         {
+            if ((this._LETT_DATE != value))
+            {
+               this.OnLETT_DATEChanging(value);
+               this.SendPropertyChanging();
+               this._LETT_DATE = value;
+               this.SendPropertyChanged("LETT_DATE");
+               this.OnLETT_DATEChanged();
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_LETT_OWNR", DbType = "NVarChar(250)")]
+      public string LETT_OWNR
+      {
+         get
+         {
+            return this._LETT_OWNR;
+         }
+         set
+         {
+            if ((this._LETT_OWNR != value))
+            {
+               this.OnLETT_OWNRChanging(value);
+               this.SendPropertyChanging();
+               this._LETT_OWNR = value;
+               this.SendPropertyChanged("LETT_OWNR");
+               this.OnLETT_OWNRChanged();
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_STRT_DATE", DbType = "DateTime NOT NULL")]
+      public System.DateTime STRT_DATE
+      {
+         get
+         {
+            return this._STRT_DATE;
+         }
+         set
+         {
+            if ((this._STRT_DATE != value))
+            {
+               this.OnSTRT_DATEChanging(value);
+               this.SendPropertyChanging();
+               this._STRT_DATE = value;
+               this.SendPropertyChanged("STRT_DATE");
+               this.OnSTRT_DATEChanged();
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_END_DATE", DbType = "DateTime NOT NULL")]
+      public System.DateTime END_DATE
+      {
+         get
+         {
+            return this._END_DATE;
+         }
+         set
+         {
+            if ((this._END_DATE != value))
+            {
+               this.OnEND_DATEChanging(value);
+               this.SendPropertyChanging();
+               this._END_DATE = value;
+               this.SendPropertyChanged("END_DATE");
+               this.OnEND_DATEChanged();
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_TAX_PRCT", DbType = "Real")]
+      public System.Nullable<float> TAX_PRCT
+      {
+         get
+         {
+            return this._TAX_PRCT;
+         }
+         set
+         {
+            if ((this._TAX_PRCT != value))
+            {
+               this.OnTAX_PRCTChanging(value);
+               this.SendPropertyChanging();
+               this._TAX_PRCT = value;
+               this.SendPropertyChanged("TAX_PRCT");
+               this.OnTAX_PRCTChanged();
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_DUTY_PRCT", DbType = "Real")]
+      public System.Nullable<float> DUTY_PRCT
+      {
+         get
+         {
+            return this._DUTY_PRCT;
+         }
+         set
+         {
+            if ((this._DUTY_PRCT != value))
+            {
+               this.OnDUTY_PRCTChanging(value);
+               this.SendPropertyChanging();
+               this._DUTY_PRCT = value;
+               this.SendPropertyChanged("DUTY_PRCT");
+               this.OnDUTY_PRCTChanged();
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_AMNT_TYPE", DbType = "VarChar(3)")]
+      public string AMNT_TYPE
+      {
+         get
+         {
+            return this._AMNT_TYPE;
+         }
+         set
+         {
+            if ((this._AMNT_TYPE != value))
+            {
+               this.OnAMNT_TYPEChanging(value);
+               this.SendPropertyChanging();
+               this._AMNT_TYPE = value;
+               this.SendPropertyChanged("AMNT_TYPE");
+               this.OnAMNT_TYPEChanged();
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_INSR_PRIC", DbType = "BigInt")]
+      public System.Nullable<long> INSR_PRIC
+      {
+         get
+         {
+            return this._INSR_PRIC;
+         }
+         set
+         {
+            if ((this._INSR_PRIC != value))
+            {
+               this.OnINSR_PRICChanging(value);
+               this.SendPropertyChanging();
+               this._INSR_PRIC = value;
+               this.SendPropertyChanged("INSR_PRIC");
+               this.OnINSR_PRICChanged();
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_CRET_BY", DbType = "VarChar(250)")]
+      public string CRET_BY
+      {
+         get
+         {
+            return this._CRET_BY;
+         }
+         set
+         {
+            if ((this._CRET_BY != value))
+            {
+               this.OnCRET_BYChanging(value);
+               this.SendPropertyChanging();
+               this._CRET_BY = value;
+               this.SendPropertyChanged("CRET_BY");
+               this.OnCRET_BYChanged();
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_CRET_DATE", DbType = "DateTime")]
+      public System.Nullable<System.DateTime> CRET_DATE
+      {
+         get
+         {
+            return this._CRET_DATE;
+         }
+         set
+         {
+            if ((this._CRET_DATE != value))
+            {
+               this.OnCRET_DATEChanging(value);
+               this.SendPropertyChanging();
+               this._CRET_DATE = value;
+               this.SendPropertyChanged("CRET_DATE");
+               this.OnCRET_DATEChanged();
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_MDFY_BY", DbType = "VarChar(250)")]
+      public string MDFY_BY
+      {
+         get
+         {
+            return this._MDFY_BY;
+         }
+         set
+         {
+            if ((this._MDFY_BY != value))
+            {
+               this.OnMDFY_BYChanging(value);
+               this.SendPropertyChanging();
+               this._MDFY_BY = value;
+               this.SendPropertyChanged("MDFY_BY");
+               this.OnMDFY_BYChanged();
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_MDFY_DATE", DbType = "DateTime")]
+      public System.Nullable<System.DateTime> MDFY_DATE
+      {
+         get
+         {
+            return this._MDFY_DATE;
+         }
+         set
+         {
+            if ((this._MDFY_DATE != value))
+            {
+               this.OnMDFY_DATEChanging(value);
+               this.SendPropertyChanging();
+               this._MDFY_DATE = value;
+               this.SendPropertyChanged("MDFY_DATE");
+               this.OnMDFY_DATEChanged();
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.AssociationAttribute(Name = "Regulation_Request_Regulation_History", Storage = "_Request_Regulation_Histories", ThisKey = "YEAR,CODE", OtherKey = "REGL_YEAR,REGL_CODE")]
+      public EntitySet<Request_Regulation_History> Request_Regulation_Histories
+      {
+         get
+         {
+            return this._Request_Regulation_Histories;
+         }
+         set
+         {
+            this._Request_Regulation_Histories.Assign(value);
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.AssociationAttribute(Name = "Regulation_Expense_Cash", Storage = "_Expense_Cashes", ThisKey = "YEAR,CODE", OtherKey = "REGL_YEAR,REGL_CODE")]
+      public EntitySet<Expense_Cash> Expense_Cashes
+      {
+         get
+         {
+            return this._Expense_Cashes;
+         }
+         set
+         {
+            this._Expense_Cashes.Assign(value);
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.AssociationAttribute(Name = "Regulation_Request_Requester", Storage = "_Request_Requesters", ThisKey = "YEAR,CODE", OtherKey = "REGL_YEAR,REGL_CODE")]
+      public EntitySet<Request_Requester> Request_Requesters
+      {
+         get
+         {
+            return this._Request_Requesters;
+         }
+         set
+         {
+            this._Request_Requesters.Assign(value);
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.AssociationAttribute(Name = "Regulation_Finance_Document", Storage = "_Finance_Documents", ThisKey = "YEAR,CODE", OtherKey = "REGL_YEAR_DNRM,REGL_CODE_DNRM")]
+      public EntitySet<Finance_Document> Finance_Documents
+      {
+         get
+         {
+            return this._Finance_Documents;
+         }
+         set
+         {
+            this._Finance_Documents.Assign(value);
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.AssociationAttribute(Name = "Regulation_Payment", Storage = "_Payments", ThisKey = "YEAR,CODE", OtherKey = "REGL_YEAR_DNRM,REGL_CODE_DNRM")]
+      public EntitySet<Payment> Payments
+      {
+         get
+         {
+            return this._Payments;
+         }
+         set
+         {
+            this._Payments.Assign(value);
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.AssociationAttribute(Name = "Regulation_Expense", Storage = "_Expenses", ThisKey = "YEAR,CODE", OtherKey = "REGL_YEAR,REGL_CODE")]
+      public EntitySet<Expense> Expenses
+      {
+         get
+         {
+            return this._Expenses;
+         }
+         set
+         {
+            this._Expenses.Assign(value);
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.AssociationAttribute(Name = "Regulation_Basic_Calculate_Discount", Storage = "_Basic_Calculate_Discounts", ThisKey = "YEAR,CODE", OtherKey = "REGL_YEAR,REGL_CODE")]
+      public EntitySet<Basic_Calculate_Discount> Basic_Calculate_Discounts
+      {
+         get
+         {
+            return this._Basic_Calculate_Discounts;
+         }
+         set
+         {
+            this._Basic_Calculate_Discounts.Assign(value);
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.AssociationAttribute(Name = "Regulation_Aggregation_Operation", Storage = "_Aggregation_Operations", ThisKey = "YEAR,CODE", OtherKey = "REGL_YEAR,REGL_CODE")]
+      public EntitySet<Aggregation_Operation> Aggregation_Operations
+      {
+         get
+         {
+            return this._Aggregation_Operations;
+         }
+         set
+         {
+            this._Aggregation_Operations.Assign(value);
+         }
+      }
+
+      public event PropertyChangingEventHandler PropertyChanging;
+
+      public event PropertyChangedEventHandler PropertyChanged;
+
+      protected virtual void SendPropertyChanging()
+      {
+         if ((this.PropertyChanging != null))
+         {
+            this.PropertyChanging(this, emptyChangingEventArgs);
+         }
+      }
+
+      protected virtual void SendPropertyChanged(String propertyName)
+      {
+         if ((this.PropertyChanged != null))
+         {
+            this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+         }
+      }
+
+      private void attach_Request_Regulation_Histories(Request_Regulation_History entity)
+      {
+         this.SendPropertyChanging();
+         entity.Regulation = this;
+      }
+
+      private void detach_Request_Regulation_Histories(Request_Regulation_History entity)
+      {
+         this.SendPropertyChanging();
+         entity.Regulation = null;
+      }
+
+      private void attach_Expense_Cashes(Expense_Cash entity)
+      {
+         this.SendPropertyChanging();
+         entity.Regulation = this;
+      }
+
+      private void detach_Expense_Cashes(Expense_Cash entity)
+      {
+         this.SendPropertyChanging();
+         entity.Regulation = null;
+      }
+
+      private void attach_Request_Requesters(Request_Requester entity)
+      {
+         this.SendPropertyChanging();
+         entity.Regulation = this;
+      }
+
+      private void detach_Request_Requesters(Request_Requester entity)
+      {
+         this.SendPropertyChanging();
+         entity.Regulation = null;
+      }
+
+      private void attach_Finance_Documents(Finance_Document entity)
+      {
+         this.SendPropertyChanging();
+         entity.Regulation = this;
+      }
+
+      private void detach_Finance_Documents(Finance_Document entity)
+      {
+         this.SendPropertyChanging();
+         entity.Regulation = null;
+      }
+
+      private void attach_Payments(Payment entity)
+      {
+         this.SendPropertyChanging();
+         entity.Regulation = this;
+      }
+
+      private void detach_Payments(Payment entity)
+      {
+         this.SendPropertyChanging();
+         entity.Regulation = null;
+      }
+
+      private void attach_Expenses(Expense entity)
+      {
+         this.SendPropertyChanging();
+         entity.Regulation = this;
+      }
+
+      private void detach_Expenses(Expense entity)
+      {
+         this.SendPropertyChanging();
+         entity.Regulation = null;
+      }
+
+      private void attach_Basic_Calculate_Discounts(Basic_Calculate_Discount entity)
+      {
+         this.SendPropertyChanging();
+         entity.Regulation = this;
+      }
+
+      private void detach_Basic_Calculate_Discounts(Basic_Calculate_Discount entity)
+      {
+         this.SendPropertyChanging();
+         entity.Regulation = null;
+      }
+
+      private void attach_Aggregation_Operations(Aggregation_Operation entity)
+      {
+         this.SendPropertyChanging();
+         entity.Regulation = this;
+      }
+
+      private void detach_Aggregation_Operations(Aggregation_Operation entity)
+      {
+         this.SendPropertyChanging();
+         entity.Regulation = null;
+      }
+   }
+
+   [global::System.Data.Linq.Mapping.TableAttribute(Name = "dbo.Message_Broadcast")]
+   public partial class Message_Broadcast : INotifyPropertyChanging, INotifyPropertyChanged
+   {
+
+      private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+
+      private long _CODE;
+
+      private string _LINE_TYPE;
+
+      private string _MSGB_TYPE;
+
+      private string _STAT;
+
+      private string _TELG_STAT;
+
+      private string _INSR_FNAM_STAT;
+
+      private string _INSR_CNAM_STAT;
+
+      private System.Nullable<long> _CLUB_CODE;
+
+      private string _CLUB_NAME;
+
+      private System.Nullable<long> _DEBT_PRIC;
+
+      private string _MSGB_TEXT;
+
+      private System.Nullable<System.DateTime> _FROM_DATE;
+
+      private System.Nullable<System.DateTime> _TO_DATE;
+
+      private System.Nullable<int> _MIN_NUMB_ATTN_RMND;
+
+      private System.Nullable<int> _MIN_NUMB_DAY_RMND;
+
+      private string _SEND_INFO;
+
+      private string _CEL1_PHON;
+
+      private string _CEL2_PHON;
+
+      private string _CEL3_PHON;
+
+      private string _CEL4_PHON;
+
+      private string _CEL5_PHON;
+
+      private System.Nullable<System.DateTime> _SCDL_DATE;
+
+      private System.Nullable<int> _BTCH_NUMB;
+
+      private System.Nullable<int> _STEP_MIN;
+
+      private string _CRET_BY;
+
+      private System.Nullable<System.DateTime> _CRET_DATE;
+
+      private string _MDFY_BY;
+
+      private System.Nullable<System.DateTime> _MDFY_DATE;
+
+      private EntityRef<Club> _Club;
+
+      #region Extensibility Method Definitions
+      partial void OnLoaded();
+      partial void OnValidate(System.Data.Linq.ChangeAction action);
+      partial void OnCreated();
+      partial void OnCODEChanging(long value);
+      partial void OnCODEChanged();
+      partial void OnLINE_TYPEChanging(string value);
+      partial void OnLINE_TYPEChanged();
+      partial void OnMSGB_TYPEChanging(string value);
+      partial void OnMSGB_TYPEChanged();
+      partial void OnSTATChanging(string value);
+      partial void OnSTATChanged();
+      partial void OnTELG_STATChanging(string value);
+      partial void OnTELG_STATChanged();
+      partial void OnINSR_FNAM_STATChanging(string value);
+      partial void OnINSR_FNAM_STATChanged();
+      partial void OnINSR_CNAM_STATChanging(string value);
+      partial void OnINSR_CNAM_STATChanged();
+      partial void OnCLUB_CODEChanging(System.Nullable<long> value);
+      partial void OnCLUB_CODEChanged();
+      partial void OnCLUB_NAMEChanging(string value);
+      partial void OnCLUB_NAMEChanged();
+      partial void OnDEBT_PRICChanging(System.Nullable<long> value);
+      partial void OnDEBT_PRICChanged();
+      partial void OnMSGB_TEXTChanging(string value);
+      partial void OnMSGB_TEXTChanged();
+      partial void OnFROM_DATEChanging(System.Nullable<System.DateTime> value);
+      partial void OnFROM_DATEChanged();
+      partial void OnTO_DATEChanging(System.Nullable<System.DateTime> value);
+      partial void OnTO_DATEChanged();
+      partial void OnMIN_NUMB_ATTN_RMNDChanging(System.Nullable<int> value);
+      partial void OnMIN_NUMB_ATTN_RMNDChanged();
+      partial void OnMIN_NUMB_DAY_RMNDChanging(System.Nullable<int> value);
+      partial void OnMIN_NUMB_DAY_RMNDChanged();
+      partial void OnSEND_INFOChanging(string value);
+      partial void OnSEND_INFOChanged();
+      partial void OnCEL1_PHONChanging(string value);
+      partial void OnCEL1_PHONChanged();
+      partial void OnCEL2_PHONChanging(string value);
+      partial void OnCEL2_PHONChanged();
+      partial void OnCEL3_PHONChanging(string value);
+      partial void OnCEL3_PHONChanged();
+      partial void OnCEL4_PHONChanging(string value);
+      partial void OnCEL4_PHONChanged();
+      partial void OnCEL5_PHONChanging(string value);
+      partial void OnCEL5_PHONChanged();
+      partial void OnSCDL_DATEChanging(System.Nullable<System.DateTime> value);
+      partial void OnSCDL_DATEChanged();
+      partial void OnBTCH_NUMBChanging(System.Nullable<int> value);
+      partial void OnBTCH_NUMBChanged();
+      partial void OnSTEP_MINChanging(System.Nullable<int> value);
+      partial void OnSTEP_MINChanged();
+      partial void OnCRET_BYChanging(string value);
+      partial void OnCRET_BYChanged();
+      partial void OnCRET_DATEChanging(System.Nullable<System.DateTime> value);
+      partial void OnCRET_DATEChanged();
+      partial void OnMDFY_BYChanging(string value);
+      partial void OnMDFY_BYChanged();
+      partial void OnMDFY_DATEChanging(System.Nullable<System.DateTime> value);
+      partial void OnMDFY_DATEChanged();
+      #endregion
+
+      public Message_Broadcast()
+      {
+         this._Club = default(EntityRef<Club>);
+         OnCreated();
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_CODE", DbType = "BigInt NOT NULL", IsPrimaryKey = true)]
+      public long CODE
+      {
+         get
+         {
+            return this._CODE;
+         }
+         set
+         {
+            if ((this._CODE != value))
+            {
+               this.OnCODEChanging(value);
+               this.SendPropertyChanging();
+               this._CODE = value;
+               this.SendPropertyChanged("CODE");
+               this.OnCODEChanged();
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_LINE_TYPE", DbType = "VarChar(3)", UpdateCheck = UpdateCheck.Never)]
+      public string LINE_TYPE
+      {
+         get
+         {
+            return this._LINE_TYPE;
+         }
+         set
+         {
+            if ((this._LINE_TYPE != value))
+            {
+               this.OnLINE_TYPEChanging(value);
+               this.SendPropertyChanging();
+               this._LINE_TYPE = value;
+               this.SendPropertyChanged("LINE_TYPE");
+               this.OnLINE_TYPEChanged();
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_MSGB_TYPE", DbType = "VarChar(3)", UpdateCheck = UpdateCheck.Never)]
+      public string MSGB_TYPE
+      {
+         get
+         {
+            return this._MSGB_TYPE;
+         }
+         set
+         {
+            if ((this._MSGB_TYPE != value))
+            {
+               this.OnMSGB_TYPEChanging(value);
+               this.SendPropertyChanging();
+               this._MSGB_TYPE = value;
+               this.SendPropertyChanged("MSGB_TYPE");
+               this.OnMSGB_TYPEChanged();
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_STAT", DbType = "VarChar(3)", UpdateCheck = UpdateCheck.Never)]
+      public string STAT
+      {
+         get
+         {
+            return this._STAT;
+         }
+         set
+         {
+            if ((this._STAT != value))
+            {
+               this.OnSTATChanging(value);
+               this.SendPropertyChanging();
+               this._STAT = value;
+               this.SendPropertyChanged("STAT");
+               this.OnSTATChanged();
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_TELG_STAT", DbType = "VarChar(3)", UpdateCheck = UpdateCheck.Never)]
+      public string TELG_STAT
+      {
+         get
+         {
+            return this._TELG_STAT;
+         }
+         set
+         {
+            if ((this._TELG_STAT != value))
+            {
+               this.OnTELG_STATChanging(value);
+               this.SendPropertyChanging();
+               this._TELG_STAT = value;
+               this.SendPropertyChanged("TELG_STAT");
+               this.OnTELG_STATChanged();
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_INSR_FNAM_STAT", DbType = "VarChar(3)", UpdateCheck = UpdateCheck.Never)]
+      public string INSR_FNAM_STAT
+      {
+         get
+         {
+            return this._INSR_FNAM_STAT;
+         }
+         set
+         {
+            if ((this._INSR_FNAM_STAT != value))
+            {
+               this.OnINSR_FNAM_STATChanging(value);
+               this.SendPropertyChanging();
+               this._INSR_FNAM_STAT = value;
+               this.SendPropertyChanged("INSR_FNAM_STAT");
+               this.OnINSR_FNAM_STATChanged();
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_INSR_CNAM_STAT", DbType = "VarChar(3)", UpdateCheck = UpdateCheck.Never)]
+      public string INSR_CNAM_STAT
+      {
+         get
+         {
+            return this._INSR_CNAM_STAT;
+         }
+         set
+         {
+            if ((this._INSR_CNAM_STAT != value))
+            {
+               this.OnINSR_CNAM_STATChanging(value);
+               this.SendPropertyChanging();
+               this._INSR_CNAM_STAT = value;
+               this.SendPropertyChanged("INSR_CNAM_STAT");
+               this.OnINSR_CNAM_STATChanged();
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_CLUB_CODE", DbType = "BigInt", UpdateCheck = UpdateCheck.Never)]
+      public System.Nullable<long> CLUB_CODE
+      {
+         get
+         {
+            return this._CLUB_CODE;
+         }
+         set
+         {
+            if ((this._CLUB_CODE != value))
+            {
+               if (this._Club.HasLoadedOrAssignedValue)
+               {
+                  throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+               }
+               this.OnCLUB_CODEChanging(value);
+               this.SendPropertyChanging();
+               this._CLUB_CODE = value;
+               this.SendPropertyChanged("CLUB_CODE");
+               this.OnCLUB_CODEChanged();
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_CLUB_NAME", DbType = "NVarChar(250)", UpdateCheck = UpdateCheck.Never)]
+      public string CLUB_NAME
+      {
+         get
+         {
+            return this._CLUB_NAME;
+         }
+         set
+         {
+            if ((this._CLUB_NAME != value))
+            {
+               this.OnCLUB_NAMEChanging(value);
+               this.SendPropertyChanging();
+               this._CLUB_NAME = value;
+               this.SendPropertyChanged("CLUB_NAME");
+               this.OnCLUB_NAMEChanged();
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_DEBT_PRIC", DbType = "BigInt", UpdateCheck = UpdateCheck.Never)]
+      public System.Nullable<long> DEBT_PRIC
+      {
+         get
+         {
+            return this._DEBT_PRIC;
+         }
+         set
+         {
+            if ((this._DEBT_PRIC != value))
+            {
+               this.OnDEBT_PRICChanging(value);
+               this.SendPropertyChanging();
+               this._DEBT_PRIC = value;
+               this.SendPropertyChanged("DEBT_PRIC");
+               this.OnDEBT_PRICChanged();
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_MSGB_TEXT", DbType = "NVarChar(MAX)", UpdateCheck = UpdateCheck.Never)]
+      public string MSGB_TEXT
+      {
+         get
+         {
+            return this._MSGB_TEXT;
+         }
+         set
+         {
+            if ((this._MSGB_TEXT != value))
+            {
+               this.OnMSGB_TEXTChanging(value);
+               this.SendPropertyChanging();
+               this._MSGB_TEXT = value;
+               this.SendPropertyChanged("MSGB_TEXT");
+               this.OnMSGB_TEXTChanged();
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_FROM_DATE", DbType = "Date", UpdateCheck = UpdateCheck.Never)]
+      public System.Nullable<System.DateTime> FROM_DATE
+      {
+         get
+         {
+            return this._FROM_DATE;
+         }
+         set
+         {
+            if ((this._FROM_DATE != value))
+            {
+               this.OnFROM_DATEChanging(value);
+               this.SendPropertyChanging();
+               this._FROM_DATE = value;
+               this.SendPropertyChanged("FROM_DATE");
+               this.OnFROM_DATEChanged();
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_TO_DATE", DbType = "Date", UpdateCheck = UpdateCheck.Never)]
+      public System.Nullable<System.DateTime> TO_DATE
+      {
+         get
+         {
+            return this._TO_DATE;
+         }
+         set
+         {
+            if ((this._TO_DATE != value))
+            {
+               this.OnTO_DATEChanging(value);
+               this.SendPropertyChanging();
+               this._TO_DATE = value;
+               this.SendPropertyChanged("TO_DATE");
+               this.OnTO_DATEChanged();
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_MIN_NUMB_ATTN_RMND", DbType = "Int", UpdateCheck = UpdateCheck.Never)]
+      public System.Nullable<int> MIN_NUMB_ATTN_RMND
+      {
+         get
+         {
+            return this._MIN_NUMB_ATTN_RMND;
+         }
+         set
+         {
+            if ((this._MIN_NUMB_ATTN_RMND != value))
+            {
+               this.OnMIN_NUMB_ATTN_RMNDChanging(value);
+               this.SendPropertyChanging();
+               this._MIN_NUMB_ATTN_RMND = value;
+               this.SendPropertyChanged("MIN_NUMB_ATTN_RMND");
+               this.OnMIN_NUMB_ATTN_RMNDChanged();
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_MIN_NUMB_DAY_RMND", DbType = "Int", UpdateCheck = UpdateCheck.Never)]
+      public System.Nullable<int> MIN_NUMB_DAY_RMND
+      {
+         get
+         {
+            return this._MIN_NUMB_DAY_RMND;
+         }
+         set
+         {
+            if ((this._MIN_NUMB_DAY_RMND != value))
+            {
+               this.OnMIN_NUMB_DAY_RMNDChanging(value);
+               this.SendPropertyChanging();
+               this._MIN_NUMB_DAY_RMND = value;
+               this.SendPropertyChanged("MIN_NUMB_DAY_RMND");
+               this.OnMIN_NUMB_DAY_RMNDChanged();
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_SEND_INFO", DbType = "VarChar(3)", UpdateCheck = UpdateCheck.Never)]
+      public string SEND_INFO
+      {
+         get
+         {
+            return this._SEND_INFO;
+         }
+         set
+         {
+            if ((this._SEND_INFO != value))
+            {
+               this.OnSEND_INFOChanging(value);
+               this.SendPropertyChanging();
+               this._SEND_INFO = value;
+               this.SendPropertyChanged("SEND_INFO");
+               this.OnSEND_INFOChanged();
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_CEL1_PHON", DbType = "VarChar(11)", UpdateCheck = UpdateCheck.Never)]
+      public string CEL1_PHON
+      {
+         get
+         {
+            return this._CEL1_PHON;
+         }
+         set
+         {
+            if ((this._CEL1_PHON != value))
+            {
+               this.OnCEL1_PHONChanging(value);
+               this.SendPropertyChanging();
+               this._CEL1_PHON = value;
+               this.SendPropertyChanged("CEL1_PHON");
+               this.OnCEL1_PHONChanged();
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_CEL2_PHON", DbType = "VarChar(11)", UpdateCheck = UpdateCheck.Never)]
+      public string CEL2_PHON
+      {
+         get
+         {
+            return this._CEL2_PHON;
+         }
+         set
+         {
+            if ((this._CEL2_PHON != value))
+            {
+               this.OnCEL2_PHONChanging(value);
+               this.SendPropertyChanging();
+               this._CEL2_PHON = value;
+               this.SendPropertyChanged("CEL2_PHON");
+               this.OnCEL2_PHONChanged();
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_CEL3_PHON", DbType = "VarChar(11)", UpdateCheck = UpdateCheck.Never)]
+      public string CEL3_PHON
+      {
+         get
+         {
+            return this._CEL3_PHON;
+         }
+         set
+         {
+            if ((this._CEL3_PHON != value))
+            {
+               this.OnCEL3_PHONChanging(value);
+               this.SendPropertyChanging();
+               this._CEL3_PHON = value;
+               this.SendPropertyChanged("CEL3_PHON");
+               this.OnCEL3_PHONChanged();
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_CEL4_PHON", DbType = "VarChar(11)", UpdateCheck = UpdateCheck.Never)]
+      public string CEL4_PHON
+      {
+         get
+         {
+            return this._CEL4_PHON;
+         }
+         set
+         {
+            if ((this._CEL4_PHON != value))
+            {
+               this.OnCEL4_PHONChanging(value);
+               this.SendPropertyChanging();
+               this._CEL4_PHON = value;
+               this.SendPropertyChanged("CEL4_PHON");
+               this.OnCEL4_PHONChanged();
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_CEL5_PHON", DbType = "VarChar(11)", UpdateCheck = UpdateCheck.Never)]
+      public string CEL5_PHON
+      {
+         get
+         {
+            return this._CEL5_PHON;
+         }
+         set
+         {
+            if ((this._CEL5_PHON != value))
+            {
+               this.OnCEL5_PHONChanging(value);
+               this.SendPropertyChanging();
+               this._CEL5_PHON = value;
+               this.SendPropertyChanged("CEL5_PHON");
+               this.OnCEL5_PHONChanged();
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_SCDL_DATE", DbType = "DateTime", UpdateCheck = UpdateCheck.Never)]
+      public System.Nullable<System.DateTime> SCDL_DATE
+      {
+         get
+         {
+            return this._SCDL_DATE;
+         }
+         set
+         {
+            if ((this._SCDL_DATE != value))
+            {
+               this.OnSCDL_DATEChanging(value);
+               this.SendPropertyChanging();
+               this._SCDL_DATE = value;
+               this.SendPropertyChanged("SCDL_DATE");
+               this.OnSCDL_DATEChanged();
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_BTCH_NUMB", DbType = "Int", UpdateCheck = UpdateCheck.Never)]
+      public System.Nullable<int> BTCH_NUMB
+      {
+         get
+         {
+            return this._BTCH_NUMB;
+         }
+         set
+         {
+            if ((this._BTCH_NUMB != value))
+            {
+               this.OnBTCH_NUMBChanging(value);
+               this.SendPropertyChanging();
+               this._BTCH_NUMB = value;
+               this.SendPropertyChanged("BTCH_NUMB");
+               this.OnBTCH_NUMBChanged();
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_STEP_MIN", DbType = "Int", UpdateCheck = UpdateCheck.Never)]
+      public System.Nullable<int> STEP_MIN
+      {
+         get
+         {
+            return this._STEP_MIN;
+         }
+         set
+         {
+            if ((this._STEP_MIN != value))
+            {
+               this.OnSTEP_MINChanging(value);
+               this.SendPropertyChanging();
+               this._STEP_MIN = value;
+               this.SendPropertyChanged("STEP_MIN");
+               this.OnSTEP_MINChanged();
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_CRET_BY", DbType = "VarChar(250)", UpdateCheck = UpdateCheck.Never)]
+      public string CRET_BY
+      {
+         get
+         {
+            return this._CRET_BY;
+         }
+         set
+         {
+            if ((this._CRET_BY != value))
+            {
+               this.OnCRET_BYChanging(value);
+               this.SendPropertyChanging();
+               this._CRET_BY = value;
+               this.SendPropertyChanged("CRET_BY");
+               this.OnCRET_BYChanged();
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_CRET_DATE", DbType = "DateTime", UpdateCheck = UpdateCheck.Never)]
+      public System.Nullable<System.DateTime> CRET_DATE
+      {
+         get
+         {
+            return this._CRET_DATE;
+         }
+         set
+         {
+            if ((this._CRET_DATE != value))
+            {
+               this.OnCRET_DATEChanging(value);
+               this.SendPropertyChanging();
+               this._CRET_DATE = value;
+               this.SendPropertyChanged("CRET_DATE");
+               this.OnCRET_DATEChanged();
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_MDFY_BY", DbType = "VarChar(250)", UpdateCheck = UpdateCheck.Never)]
+      public string MDFY_BY
+      {
+         get
+         {
+            return this._MDFY_BY;
+         }
+         set
+         {
+            if ((this._MDFY_BY != value))
+            {
+               this.OnMDFY_BYChanging(value);
+               this.SendPropertyChanging();
+               this._MDFY_BY = value;
+               this.SendPropertyChanged("MDFY_BY");
+               this.OnMDFY_BYChanged();
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_MDFY_DATE", DbType = "DateTime", UpdateCheck = UpdateCheck.Never)]
+      public System.Nullable<System.DateTime> MDFY_DATE
+      {
+         get
+         {
+            return this._MDFY_DATE;
+         }
+         set
+         {
+            if ((this._MDFY_DATE != value))
+            {
+               this.OnMDFY_DATEChanging(value);
+               this.SendPropertyChanging();
+               this._MDFY_DATE = value;
+               this.SendPropertyChanged("MDFY_DATE");
+               this.OnMDFY_DATEChanged();
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.AssociationAttribute(Name = "Club_Message_Broadcast", Storage = "_Club", ThisKey = "CLUB_CODE", OtherKey = "CODE", IsForeignKey = true)]
+      public Club Club
+      {
+         get
+         {
+            return this._Club.Entity;
+         }
+         set
+         {
+            Club previousValue = this._Club.Entity;
+            if (((previousValue != value)
+                     || (this._Club.HasLoadedOrAssignedValue == false)))
+            {
+               this.SendPropertyChanging();
+               if ((previousValue != null))
+               {
+                  this._Club.Entity = null;
+                  previousValue.Message_Broadcasts.Remove(this);
+               }
+               this._Club.Entity = value;
+               if ((value != null))
+               {
+                  value.Message_Broadcasts.Add(this);
+                  this._CLUB_CODE = value.CODE;
+               }
+               else
+               {
+                  this._CLUB_CODE = default(Nullable<long>);
+               }
+               this.SendPropertyChanged("Club");
+            }
+         }
+      }
+
+      public event PropertyChangingEventHandler PropertyChanging;
+
+      public event PropertyChangedEventHandler PropertyChanged;
+
+      protected virtual void SendPropertyChanging()
+      {
+         if ((this.PropertyChanging != null))
+         {
+            this.PropertyChanging(this, emptyChangingEventArgs);
+         }
+      }
+
+      protected virtual void SendPropertyChanged(String propertyName)
+      {
+         if ((this.PropertyChanged != null))
+         {
+            this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+         }
+      }
+   }
+
+   [global::System.Data.Linq.Mapping.TableAttribute(Name = "dbo.Payment_Detail")]
+   public partial class Payment_Detail : INotifyPropertyChanging, INotifyPropertyChanged
+   {
+
+      private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+
+      private System.Nullable<long> _PYMT_CASH_CODE;
+
+      private System.Nullable<long> _PYMT_RQST_RQID;
+
+      private System.Nullable<short> _RQRO_RWNO;
+
+      private System.Nullable<long> _EXPN_CODE;
+
+      private long _CODE;
+
+      private string _PAY_STAT;
+
+      private System.Nullable<int> _EXPN_PRIC;
+
+      private System.Nullable<int> _EXPN_EXTR_PRCT;
+
+      private System.Nullable<int> _REMN_PRIC;
+
+      private System.Nullable<short> _QNTY;
+
+      private System.Nullable<long> _DOCM_NUMB;
+
+      private System.Nullable<System.DateTime> _ISSU_DATE;
+
+      private string _RCPT_MTOD;
+
+      private string _RECV_LETT_NO;
+
+      private System.Nullable<System.DateTime> _RECV_LETT_DATE;
+
+      private string _PYDT_DESC;
+
+      private string _ADD_QUTS;
+
+      private System.Nullable<long> _FIGH_FILE_NO;
+
+      private string _PRE_EXPN_STAT;
+
+      private System.Nullable<long> _CBMT_CODE_DNRM;
+
+      private System.Nullable<long> _MTOD_CODE_DNRM;
+
+      private System.Nullable<long> _CTGY_CODE_DNRM;
+
+      private string _TRAN_STAT;
+
+      private string _TRAN_BY;
+
+      private System.Nullable<System.DateTime> _TRAN_DATE;
+
+      private System.Nullable<long> _TRAN_CBMT_CODE;
+
+      private System.Nullable<long> _TRAN_MTOD_CODE;
+
+      private System.Nullable<long> _TRAN_CTGY_CODE;
+
+      private System.Nullable<long> _TRAN_EXPN_CODE;
+
+      private System.Nullable<System.DateTime> _EXPR_DATE;
+
+      private string _CRET_BY;
+
+      private System.Nullable<System.DateTime> _CRET_DATE;
+
+      private string _MDFY_BY;
+
+      private System.Nullable<System.DateTime> _MDFY_DATE;
+
+      private EntitySet<Refunds_Payment_Detail> _Refunds_Payment_Details;
+
+      private EntitySet<Payment_Expense> _Payment_Expenses;
+
+      private EntityRef<Cash> _Cash;
+
+      private EntityRef<Club_Method> _Club_Method;
+
+      private EntityRef<Category_Belt> _Category_Belt;
+
+      private EntityRef<Expense> _Expense;
+
+      private EntityRef<Fighter> _Fighter;
+
+      private EntityRef<Method> _Method;
+
+      private EntityRef<Payment> _Payment;
+
+      private EntityRef<Request_Row> _Request_Row;
+
+      #region Extensibility Method Definitions
+      partial void OnLoaded();
+      partial void OnValidate(System.Data.Linq.ChangeAction action);
+      partial void OnCreated();
+      partial void OnPYMT_CASH_CODEChanging(System.Nullable<long> value);
+      partial void OnPYMT_CASH_CODEChanged();
+      partial void OnPYMT_RQST_RQIDChanging(System.Nullable<long> value);
+      partial void OnPYMT_RQST_RQIDChanged();
+      partial void OnRQRO_RWNOChanging(System.Nullable<short> value);
+      partial void OnRQRO_RWNOChanged();
+      partial void OnEXPN_CODEChanging(System.Nullable<long> value);
+      partial void OnEXPN_CODEChanged();
+      partial void OnCODEChanging(long value);
+      partial void OnCODEChanged();
+      partial void OnPAY_STATChanging(string value);
+      partial void OnPAY_STATChanged();
+      partial void OnEXPN_PRICChanging(System.Nullable<int> value);
+      partial void OnEXPN_PRICChanged();
+      partial void OnEXPN_EXTR_PRCTChanging(System.Nullable<int> value);
+      partial void OnEXPN_EXTR_PRCTChanged();
+      partial void OnREMN_PRICChanging(System.Nullable<int> value);
+      partial void OnREMN_PRICChanged();
+      partial void OnQNTYChanging(System.Nullable<short> value);
+      partial void OnQNTYChanged();
+      partial void OnDOCM_NUMBChanging(System.Nullable<long> value);
+      partial void OnDOCM_NUMBChanged();
+      partial void OnISSU_DATEChanging(System.Nullable<System.DateTime> value);
+      partial void OnISSU_DATEChanged();
+      partial void OnRCPT_MTODChanging(string value);
+      partial void OnRCPT_MTODChanged();
+      partial void OnRECV_LETT_NOChanging(string value);
+      partial void OnRECV_LETT_NOChanged();
+      partial void OnRECV_LETT_DATEChanging(System.Nullable<System.DateTime> value);
+      partial void OnRECV_LETT_DATEChanged();
+      partial void OnPYDT_DESCChanging(string value);
+      partial void OnPYDT_DESCChanged();
+      partial void OnADD_QUTSChanging(string value);
+      partial void OnADD_QUTSChanged();
+      partial void OnFIGH_FILE_NOChanging(System.Nullable<long> value);
+      partial void OnFIGH_FILE_NOChanged();
+      partial void OnPRE_EXPN_STATChanging(string value);
+      partial void OnPRE_EXPN_STATChanged();
+      partial void OnCBMT_CODE_DNRMChanging(System.Nullable<long> value);
+      partial void OnCBMT_CODE_DNRMChanged();
+      partial void OnMTOD_CODE_DNRMChanging(System.Nullable<long> value);
+      partial void OnMTOD_CODE_DNRMChanged();
+      partial void OnCTGY_CODE_DNRMChanging(System.Nullable<long> value);
+      partial void OnCTGY_CODE_DNRMChanged();
+      partial void OnTRAN_STATChanging(string value);
+      partial void OnTRAN_STATChanged();
+      partial void OnTRAN_BYChanging(string value);
+      partial void OnTRAN_BYChanged();
+      partial void OnTRAN_DATEChanging(System.Nullable<System.DateTime> value);
+      partial void OnTRAN_DATEChanged();
+      partial void OnTRAN_CBMT_CODEChanging(System.Nullable<long> value);
+      partial void OnTRAN_CBMT_CODEChanged();
+      partial void OnTRAN_MTOD_CODEChanging(System.Nullable<long> value);
+      partial void OnTRAN_MTOD_CODEChanged();
+      partial void OnTRAN_CTGY_CODEChanging(System.Nullable<long> value);
+      partial void OnTRAN_CTGY_CODEChanged();
+      partial void OnTRAN_EXPN_CODEChanging(System.Nullable<long> value);
+      partial void OnTRAN_EXPN_CODEChanged();
+      partial void OnEXPR_DATEChanging(System.Nullable<System.DateTime> value);
+      partial void OnEXPR_DATEChanged();
+      partial void OnCRET_BYChanging(string value);
+      partial void OnCRET_BYChanged();
+      partial void OnCRET_DATEChanging(System.Nullable<System.DateTime> value);
+      partial void OnCRET_DATEChanged();
+      partial void OnMDFY_BYChanging(string value);
+      partial void OnMDFY_BYChanged();
+      partial void OnMDFY_DATEChanging(System.Nullable<System.DateTime> value);
+      partial void OnMDFY_DATEChanged();
+      #endregion
+
+      public Payment_Detail()
+      {
+         this._Refunds_Payment_Details = new EntitySet<Refunds_Payment_Detail>(new Action<Refunds_Payment_Detail>(this.attach_Refunds_Payment_Details), new Action<Refunds_Payment_Detail>(this.detach_Refunds_Payment_Details));
+         this._Payment_Expenses = new EntitySet<Payment_Expense>(new Action<Payment_Expense>(this.attach_Payment_Expenses), new Action<Payment_Expense>(this.detach_Payment_Expenses));
+         this._Cash = default(EntityRef<Cash>);
+         this._Club_Method = default(EntityRef<Club_Method>);
+         this._Category_Belt = default(EntityRef<Category_Belt>);
+         this._Expense = default(EntityRef<Expense>);
+         this._Fighter = default(EntityRef<Fighter>);
+         this._Method = default(EntityRef<Method>);
+         this._Payment = default(EntityRef<Payment>);
+         this._Request_Row = default(EntityRef<Request_Row>);
+         OnCreated();
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_PYMT_CASH_CODE", DbType = "BigInt", UpdateCheck = UpdateCheck.Never)]
+      public System.Nullable<long> PYMT_CASH_CODE
+      {
+         get
+         {
+            return this._PYMT_CASH_CODE;
+         }
+         set
+         {
+            if ((this._PYMT_CASH_CODE != value))
+            {
+               if ((this._Cash.HasLoadedOrAssignedValue || this._Payment.HasLoadedOrAssignedValue))
+               {
+                  throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+               }
+               this.OnPYMT_CASH_CODEChanging(value);
+               this.SendPropertyChanging();
+               this._PYMT_CASH_CODE = value;
+               this.SendPropertyChanged("PYMT_CASH_CODE");
+               this.OnPYMT_CASH_CODEChanged();
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_PYMT_RQST_RQID", DbType = "BigInt", UpdateCheck = UpdateCheck.Never)]
+      public System.Nullable<long> PYMT_RQST_RQID
+      {
+         get
+         {
+            return this._PYMT_RQST_RQID;
+         }
+         set
+         {
+            if ((this._PYMT_RQST_RQID != value))
+            {
+               if ((this._Payment.HasLoadedOrAssignedValue || this._Request_Row.HasLoadedOrAssignedValue))
+               {
+                  throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+               }
+               this.OnPYMT_RQST_RQIDChanging(value);
+               this.SendPropertyChanging();
+               this._PYMT_RQST_RQID = value;
+               this.SendPropertyChanged("PYMT_RQST_RQID");
+               this.OnPYMT_RQST_RQIDChanged();
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_RQRO_RWNO", DbType = "SmallInt", UpdateCheck = UpdateCheck.Never)]
+      public System.Nullable<short> RQRO_RWNO
+      {
+         get
+         {
+            return this._RQRO_RWNO;
+         }
+         set
+         {
+            if ((this._RQRO_RWNO != value))
+            {
+               if (this._Request_Row.HasLoadedOrAssignedValue)
+               {
+                  throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+               }
+               this.OnRQRO_RWNOChanging(value);
+               this.SendPropertyChanging();
+               this._RQRO_RWNO = value;
+               this.SendPropertyChanged("RQRO_RWNO");
+               this.OnRQRO_RWNOChanged();
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_EXPN_CODE", DbType = "BigInt", UpdateCheck = UpdateCheck.Never)]
+      public System.Nullable<long> EXPN_CODE
+      {
+         get
+         {
+            return this._EXPN_CODE;
+         }
+         set
+         {
+            if ((this._EXPN_CODE != value))
+            {
+               if (this._Expense.HasLoadedOrAssignedValue)
+               {
+                  throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+               }
+               this.OnEXPN_CODEChanging(value);
+               this.SendPropertyChanging();
+               this._EXPN_CODE = value;
+               this.SendPropertyChanged("EXPN_CODE");
+               this.OnEXPN_CODEChanged();
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_CODE", DbType = "BigInt NOT NULL", IsPrimaryKey = true)]
+      public long CODE
+      {
+         get
+         {
+            return this._CODE;
+         }
+         set
+         {
+            if ((this._CODE != value))
+            {
+               this.OnCODEChanging(value);
+               this.SendPropertyChanging();
+               this._CODE = value;
+               this.SendPropertyChanged("CODE");
+               this.OnCODEChanged();
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_PAY_STAT", DbType = "VarChar(3) NOT NULL", CanBeNull = false, UpdateCheck = UpdateCheck.Never)]
+      public string PAY_STAT
+      {
+         get
+         {
+            return this._PAY_STAT;
+         }
+         set
+         {
+            if ((this._PAY_STAT != value))
+            {
+               this.OnPAY_STATChanging(value);
+               this.SendPropertyChanging();
+               this._PAY_STAT = value;
+               this.SendPropertyChanged("PAY_STAT");
+               this.OnPAY_STATChanged();
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_EXPN_PRIC", DbType = "Int", UpdateCheck = UpdateCheck.Never)]
+      public System.Nullable<int> EXPN_PRIC
+      {
+         get
+         {
+            return this._EXPN_PRIC;
+         }
+         set
+         {
+            if ((this._EXPN_PRIC != value))
+            {
+               this.OnEXPN_PRICChanging(value);
+               this.SendPropertyChanging();
+               this._EXPN_PRIC = value;
+               this.SendPropertyChanged("EXPN_PRIC");
+               this.OnEXPN_PRICChanged();
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_EXPN_EXTR_PRCT", DbType = "Int", UpdateCheck = UpdateCheck.Never)]
+      public System.Nullable<int> EXPN_EXTR_PRCT
+      {
+         get
+         {
+            return this._EXPN_EXTR_PRCT;
+         }
+         set
+         {
+            if ((this._EXPN_EXTR_PRCT != value))
+            {
+               this.OnEXPN_EXTR_PRCTChanging(value);
+               this.SendPropertyChanging();
+               this._EXPN_EXTR_PRCT = value;
+               this.SendPropertyChanged("EXPN_EXTR_PRCT");
+               this.OnEXPN_EXTR_PRCTChanged();
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_REMN_PRIC", DbType = "Int", UpdateCheck = UpdateCheck.Never)]
+      public System.Nullable<int> REMN_PRIC
+      {
+         get
+         {
+            return this._REMN_PRIC;
+         }
+         set
+         {
+            if ((this._REMN_PRIC != value))
+            {
+               this.OnREMN_PRICChanging(value);
+               this.SendPropertyChanging();
+               this._REMN_PRIC = value;
+               this.SendPropertyChanged("REMN_PRIC");
+               this.OnREMN_PRICChanged();
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_QNTY", DbType = "SmallInt", UpdateCheck = UpdateCheck.Never)]
+      public System.Nullable<short> QNTY
+      {
+         get
+         {
+            return this._QNTY;
+         }
+         set
+         {
+            if ((this._QNTY != value))
+            {
+               this.OnQNTYChanging(value);
+               this.SendPropertyChanging();
+               this._QNTY = value;
+               this.SendPropertyChanged("QNTY");
+               this.OnQNTYChanged();
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_DOCM_NUMB", DbType = "BigInt", UpdateCheck = UpdateCheck.Never)]
+      public System.Nullable<long> DOCM_NUMB
+      {
+         get
+         {
+            return this._DOCM_NUMB;
+         }
+         set
+         {
+            if ((this._DOCM_NUMB != value))
+            {
+               this.OnDOCM_NUMBChanging(value);
+               this.SendPropertyChanging();
+               this._DOCM_NUMB = value;
+               this.SendPropertyChanged("DOCM_NUMB");
+               this.OnDOCM_NUMBChanged();
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_ISSU_DATE", DbType = "DateTime", UpdateCheck = UpdateCheck.Never)]
+      public System.Nullable<System.DateTime> ISSU_DATE
+      {
+         get
+         {
+            return this._ISSU_DATE;
+         }
+         set
+         {
+            if ((this._ISSU_DATE != value))
+            {
+               this.OnISSU_DATEChanging(value);
+               this.SendPropertyChanging();
+               this._ISSU_DATE = value;
+               this.SendPropertyChanged("ISSU_DATE");
+               this.OnISSU_DATEChanged();
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_RCPT_MTOD", DbType = "VarChar(3)", UpdateCheck = UpdateCheck.Never)]
+      public string RCPT_MTOD
+      {
+         get
+         {
+            return this._RCPT_MTOD;
+         }
+         set
+         {
+            if ((this._RCPT_MTOD != value))
+            {
+               this.OnRCPT_MTODChanging(value);
+               this.SendPropertyChanging();
+               this._RCPT_MTOD = value;
+               this.SendPropertyChanged("RCPT_MTOD");
+               this.OnRCPT_MTODChanged();
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_RECV_LETT_NO", DbType = "VarChar(15)", UpdateCheck = UpdateCheck.Never)]
+      public string RECV_LETT_NO
+      {
+         get
+         {
+            return this._RECV_LETT_NO;
+         }
+         set
+         {
+            if ((this._RECV_LETT_NO != value))
+            {
+               this.OnRECV_LETT_NOChanging(value);
+               this.SendPropertyChanging();
+               this._RECV_LETT_NO = value;
+               this.SendPropertyChanged("RECV_LETT_NO");
+               this.OnRECV_LETT_NOChanged();
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_RECV_LETT_DATE", DbType = "DateTime", UpdateCheck = UpdateCheck.Never)]
+      public System.Nullable<System.DateTime> RECV_LETT_DATE
+      {
+         get
+         {
+            return this._RECV_LETT_DATE;
+         }
+         set
+         {
+            if ((this._RECV_LETT_DATE != value))
+            {
+               this.OnRECV_LETT_DATEChanging(value);
+               this.SendPropertyChanging();
+               this._RECV_LETT_DATE = value;
+               this.SendPropertyChanged("RECV_LETT_DATE");
+               this.OnRECV_LETT_DATEChanged();
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_PYDT_DESC", DbType = "NVarChar(250)", UpdateCheck = UpdateCheck.Never)]
+      public string PYDT_DESC
+      {
+         get
+         {
+            return this._PYDT_DESC;
+         }
+         set
+         {
+            if ((this._PYDT_DESC != value))
+            {
+               this.OnPYDT_DESCChanging(value);
+               this.SendPropertyChanging();
+               this._PYDT_DESC = value;
+               this.SendPropertyChanged("PYDT_DESC");
+               this.OnPYDT_DESCChanged();
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_ADD_QUTS", DbType = "VarChar(3)", UpdateCheck = UpdateCheck.Never)]
+      public string ADD_QUTS
+      {
+         get
+         {
+            return this._ADD_QUTS;
+         }
+         set
+         {
+            if ((this._ADD_QUTS != value))
+            {
+               this.OnADD_QUTSChanging(value);
+               this.SendPropertyChanging();
+               this._ADD_QUTS = value;
+               this.SendPropertyChanged("ADD_QUTS");
+               this.OnADD_QUTSChanged();
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_FIGH_FILE_NO", DbType = "BigInt", UpdateCheck = UpdateCheck.Never)]
+      public System.Nullable<long> FIGH_FILE_NO
+      {
+         get
+         {
+            return this._FIGH_FILE_NO;
+         }
+         set
+         {
+            if ((this._FIGH_FILE_NO != value))
+            {
+               if (this._Fighter.HasLoadedOrAssignedValue)
+               {
+                  throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+               }
+               this.OnFIGH_FILE_NOChanging(value);
+               this.SendPropertyChanging();
+               this._FIGH_FILE_NO = value;
+               this.SendPropertyChanged("FIGH_FILE_NO");
+               this.OnFIGH_FILE_NOChanged();
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_PRE_EXPN_STAT", DbType = "VarChar(3)", UpdateCheck = UpdateCheck.Never)]
+      public string PRE_EXPN_STAT
+      {
+         get
+         {
+            return this._PRE_EXPN_STAT;
+         }
+         set
+         {
+            if ((this._PRE_EXPN_STAT != value))
+            {
+               this.OnPRE_EXPN_STATChanging(value);
+               this.SendPropertyChanging();
+               this._PRE_EXPN_STAT = value;
+               this.SendPropertyChanged("PRE_EXPN_STAT");
+               this.OnPRE_EXPN_STATChanged();
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_CBMT_CODE_DNRM", DbType = "BigInt", UpdateCheck = UpdateCheck.Never)]
+      public System.Nullable<long> CBMT_CODE_DNRM
+      {
+         get
+         {
+            return this._CBMT_CODE_DNRM;
+         }
+         set
+         {
+            if ((this._CBMT_CODE_DNRM != value))
+            {
+               if (this._Club_Method.HasLoadedOrAssignedValue)
+               {
+                  throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+               }
+               this.OnCBMT_CODE_DNRMChanging(value);
+               this.SendPropertyChanging();
+               this._CBMT_CODE_DNRM = value;
+               this.SendPropertyChanged("CBMT_CODE_DNRM");
+               this.OnCBMT_CODE_DNRMChanged();
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_MTOD_CODE_DNRM", DbType = "BigInt", UpdateCheck = UpdateCheck.Never)]
+      public System.Nullable<long> MTOD_CODE_DNRM
+      {
+         get
+         {
+            return this._MTOD_CODE_DNRM;
+         }
+         set
+         {
+            if ((this._MTOD_CODE_DNRM != value))
+            {
+               if (this._Method.HasLoadedOrAssignedValue)
+               {
+                  throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+               }
+               this.OnMTOD_CODE_DNRMChanging(value);
+               this.SendPropertyChanging();
+               this._MTOD_CODE_DNRM = value;
+               this.SendPropertyChanged("MTOD_CODE_DNRM");
+               this.OnMTOD_CODE_DNRMChanged();
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_CTGY_CODE_DNRM", DbType = "BigInt", UpdateCheck = UpdateCheck.Never)]
+      public System.Nullable<long> CTGY_CODE_DNRM
+      {
+         get
+         {
+            return this._CTGY_CODE_DNRM;
+         }
+         set
+         {
+            if ((this._CTGY_CODE_DNRM != value))
+            {
+               if (this._Category_Belt.HasLoadedOrAssignedValue)
+               {
+                  throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+               }
+               this.OnCTGY_CODE_DNRMChanging(value);
+               this.SendPropertyChanging();
+               this._CTGY_CODE_DNRM = value;
+               this.SendPropertyChanged("CTGY_CODE_DNRM");
+               this.OnCTGY_CODE_DNRMChanged();
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_TRAN_STAT", DbType = "VarChar(3)", UpdateCheck = UpdateCheck.Never)]
+      public string TRAN_STAT
+      {
+         get
+         {
+            return this._TRAN_STAT;
+         }
+         set
+         {
+            if ((this._TRAN_STAT != value))
+            {
+               this.OnTRAN_STATChanging(value);
+               this.SendPropertyChanging();
+               this._TRAN_STAT = value;
+               this.SendPropertyChanged("TRAN_STAT");
+               this.OnTRAN_STATChanged();
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_TRAN_BY", DbType = "VarChar(250)", UpdateCheck = UpdateCheck.Never)]
+      public string TRAN_BY
+      {
+         get
+         {
+            return this._TRAN_BY;
+         }
+         set
+         {
+            if ((this._TRAN_BY != value))
+            {
+               this.OnTRAN_BYChanging(value);
+               this.SendPropertyChanging();
+               this._TRAN_BY = value;
+               this.SendPropertyChanged("TRAN_BY");
+               this.OnTRAN_BYChanged();
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_TRAN_DATE", DbType = "DateTime", UpdateCheck = UpdateCheck.Never)]
+      public System.Nullable<System.DateTime> TRAN_DATE
+      {
+         get
+         {
+            return this._TRAN_DATE;
+         }
+         set
+         {
+            if ((this._TRAN_DATE != value))
+            {
+               this.OnTRAN_DATEChanging(value);
+               this.SendPropertyChanging();
+               this._TRAN_DATE = value;
+               this.SendPropertyChanged("TRAN_DATE");
+               this.OnTRAN_DATEChanged();
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_TRAN_CBMT_CODE", DbType = "BigInt", UpdateCheck = UpdateCheck.Never)]
+      public System.Nullable<long> TRAN_CBMT_CODE
+      {
+         get
+         {
+            return this._TRAN_CBMT_CODE;
+         }
+         set
+         {
+            if ((this._TRAN_CBMT_CODE != value))
+            {
+               this.OnTRAN_CBMT_CODEChanging(value);
+               this.SendPropertyChanging();
+               this._TRAN_CBMT_CODE = value;
+               this.SendPropertyChanged("TRAN_CBMT_CODE");
+               this.OnTRAN_CBMT_CODEChanged();
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_TRAN_MTOD_CODE", DbType = "BigInt", UpdateCheck = UpdateCheck.Never)]
+      public System.Nullable<long> TRAN_MTOD_CODE
+      {
+         get
+         {
+            return this._TRAN_MTOD_CODE;
+         }
+         set
+         {
+            if ((this._TRAN_MTOD_CODE != value))
+            {
+               this.OnTRAN_MTOD_CODEChanging(value);
+               this.SendPropertyChanging();
+               this._TRAN_MTOD_CODE = value;
+               this.SendPropertyChanged("TRAN_MTOD_CODE");
+               this.OnTRAN_MTOD_CODEChanged();
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_TRAN_CTGY_CODE", DbType = "BigInt", UpdateCheck = UpdateCheck.Never)]
+      public System.Nullable<long> TRAN_CTGY_CODE
+      {
+         get
+         {
+            return this._TRAN_CTGY_CODE;
+         }
+         set
+         {
+            if ((this._TRAN_CTGY_CODE != value))
+            {
+               this.OnTRAN_CTGY_CODEChanging(value);
+               this.SendPropertyChanging();
+               this._TRAN_CTGY_CODE = value;
+               this.SendPropertyChanged("TRAN_CTGY_CODE");
+               this.OnTRAN_CTGY_CODEChanged();
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_TRAN_EXPN_CODE", DbType = "BigInt", UpdateCheck = UpdateCheck.Never)]
+      public System.Nullable<long> TRAN_EXPN_CODE
+      {
+         get
+         {
+            return this._TRAN_EXPN_CODE;
+         }
+         set
+         {
+            if ((this._TRAN_EXPN_CODE != value))
+            {
+               this.OnTRAN_EXPN_CODEChanging(value);
+               this.SendPropertyChanging();
+               this._TRAN_EXPN_CODE = value;
+               this.SendPropertyChanged("TRAN_EXPN_CODE");
+               this.OnTRAN_EXPN_CODEChanged();
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_EXPR_DATE", DbType = "Date", UpdateCheck = UpdateCheck.Never)]
+      public System.Nullable<System.DateTime> EXPR_DATE
+      {
+         get
+         {
+            return this._EXPR_DATE;
+         }
+         set
+         {
+            if ((this._EXPR_DATE != value))
+            {
+               this.OnEXPR_DATEChanging(value);
+               this.SendPropertyChanging();
+               this._EXPR_DATE = value;
+               this.SendPropertyChanged("EXPR_DATE");
+               this.OnEXPR_DATEChanged();
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_CRET_BY", DbType = "VarChar(250)", UpdateCheck = UpdateCheck.Never)]
+      public string CRET_BY
+      {
+         get
+         {
+            return this._CRET_BY;
+         }
+         set
+         {
+            if ((this._CRET_BY != value))
+            {
+               this.OnCRET_BYChanging(value);
+               this.SendPropertyChanging();
+               this._CRET_BY = value;
+               this.SendPropertyChanged("CRET_BY");
+               this.OnCRET_BYChanged();
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_CRET_DATE", DbType = "DateTime", UpdateCheck = UpdateCheck.Never)]
+      public System.Nullable<System.DateTime> CRET_DATE
+      {
+         get
+         {
+            return this._CRET_DATE;
+         }
+         set
+         {
+            if ((this._CRET_DATE != value))
+            {
+               this.OnCRET_DATEChanging(value);
+               this.SendPropertyChanging();
+               this._CRET_DATE = value;
+               this.SendPropertyChanged("CRET_DATE");
+               this.OnCRET_DATEChanged();
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_MDFY_BY", DbType = "VarChar(250)", UpdateCheck = UpdateCheck.Never)]
+      public string MDFY_BY
+      {
+         get
+         {
+            return this._MDFY_BY;
+         }
+         set
+         {
+            if ((this._MDFY_BY != value))
+            {
+               this.OnMDFY_BYChanging(value);
+               this.SendPropertyChanging();
+               this._MDFY_BY = value;
+               this.SendPropertyChanged("MDFY_BY");
+               this.OnMDFY_BYChanged();
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_MDFY_DATE", DbType = "DateTime", UpdateCheck = UpdateCheck.Never)]
+      public System.Nullable<System.DateTime> MDFY_DATE
+      {
+         get
+         {
+            return this._MDFY_DATE;
+         }
+         set
+         {
+            if ((this._MDFY_DATE != value))
+            {
+               this.OnMDFY_DATEChanging(value);
+               this.SendPropertyChanging();
+               this._MDFY_DATE = value;
+               this.SendPropertyChanged("MDFY_DATE");
+               this.OnMDFY_DATEChanged();
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.AssociationAttribute(Name = "Payment_Detail_Refunds_Payment_Detail", Storage = "_Refunds_Payment_Details", ThisKey = "CODE", OtherKey = "PYDT_CODE")]
+      public EntitySet<Refunds_Payment_Detail> Refunds_Payment_Details
+      {
+         get
+         {
+            return this._Refunds_Payment_Details;
+         }
+         set
+         {
+            this._Refunds_Payment_Details.Assign(value);
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.AssociationAttribute(Name = "Payment_Detail_Payment_Expense", Storage = "_Payment_Expenses", ThisKey = "CODE", OtherKey = "PYDT_CODE")]
+      public EntitySet<Payment_Expense> Payment_Expenses
+      {
+         get
+         {
+            return this._Payment_Expenses;
+         }
+         set
+         {
+            this._Payment_Expenses.Assign(value);
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.AssociationAttribute(Name = "Cash_Payment_Detail", Storage = "_Cash", ThisKey = "PYMT_CASH_CODE", OtherKey = "CODE", IsForeignKey = true)]
+      public Cash Cash
+      {
+         get
+         {
+            return this._Cash.Entity;
+         }
+         set
+         {
+            Cash previousValue = this._Cash.Entity;
+            if (((previousValue != value)
+                     || (this._Cash.HasLoadedOrAssignedValue == false)))
+            {
+               this.SendPropertyChanging();
+               if ((previousValue != null))
+               {
+                  this._Cash.Entity = null;
+                  previousValue.Payment_Details.Remove(this);
+               }
+               this._Cash.Entity = value;
+               if ((value != null))
+               {
+                  value.Payment_Details.Add(this);
+                  this._PYMT_CASH_CODE = value.CODE;
+               }
+               else
+               {
+                  this._PYMT_CASH_CODE = default(Nullable<long>);
+               }
+               this.SendPropertyChanged("Cash");
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.AssociationAttribute(Name = "Club_Method_Payment_Detail", Storage = "_Club_Method", ThisKey = "CBMT_CODE_DNRM", OtherKey = "CODE", IsForeignKey = true)]
+      public Club_Method Club_Method
+      {
+         get
+         {
+            return this._Club_Method.Entity;
+         }
+         set
+         {
+            Club_Method previousValue = this._Club_Method.Entity;
+            if (((previousValue != value)
+                     || (this._Club_Method.HasLoadedOrAssignedValue == false)))
+            {
+               this.SendPropertyChanging();
+               if ((previousValue != null))
+               {
+                  this._Club_Method.Entity = null;
+                  previousValue.Payment_Details.Remove(this);
+               }
+               this._Club_Method.Entity = value;
+               if ((value != null))
+               {
+                  value.Payment_Details.Add(this);
+                  this._CBMT_CODE_DNRM = value.CODE;
+               }
+               else
+               {
+                  this._CBMT_CODE_DNRM = default(Nullable<long>);
+               }
+               this.SendPropertyChanged("Club_Method");
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.AssociationAttribute(Name = "Category_Belt_Payment_Detail", Storage = "_Category_Belt", ThisKey = "CTGY_CODE_DNRM", OtherKey = "CODE", IsForeignKey = true)]
+      public Category_Belt Category_Belt
+      {
+         get
+         {
+            return this._Category_Belt.Entity;
+         }
+         set
+         {
+            Category_Belt previousValue = this._Category_Belt.Entity;
+            if (((previousValue != value)
+                     || (this._Category_Belt.HasLoadedOrAssignedValue == false)))
+            {
+               this.SendPropertyChanging();
+               if ((previousValue != null))
+               {
+                  this._Category_Belt.Entity = null;
+                  previousValue.Payment_Details.Remove(this);
+               }
+               this._Category_Belt.Entity = value;
+               if ((value != null))
+               {
+                  value.Payment_Details.Add(this);
+                  this._CTGY_CODE_DNRM = value.CODE;
+               }
+               else
+               {
+                  this._CTGY_CODE_DNRM = default(Nullable<long>);
+               }
+               this.SendPropertyChanged("Category_Belt");
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.AssociationAttribute(Name = "Expense_Payment_Detail", Storage = "_Expense", ThisKey = "EXPN_CODE", OtherKey = "CODE", IsForeignKey = true)]
+      public Expense Expense
+      {
+         get
+         {
+            return this._Expense.Entity;
+         }
+         set
+         {
+            Expense previousValue = this._Expense.Entity;
+            if (((previousValue != value)
+                     || (this._Expense.HasLoadedOrAssignedValue == false)))
+            {
+               this.SendPropertyChanging();
+               if ((previousValue != null))
+               {
+                  this._Expense.Entity = null;
+                  previousValue.Payment_Details.Remove(this);
+               }
+               this._Expense.Entity = value;
+               if ((value != null))
+               {
+                  value.Payment_Details.Add(this);
+                  this._EXPN_CODE = value.CODE;
+               }
+               else
+               {
+                  this._EXPN_CODE = default(Nullable<long>);
+               }
+               this.SendPropertyChanged("Expense");
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.AssociationAttribute(Name = "Fighter_Payment_Detail", Storage = "_Fighter", ThisKey = "FIGH_FILE_NO", OtherKey = "FILE_NO", IsForeignKey = true)]
+      public Fighter Fighter
+      {
+         get
+         {
+            return this._Fighter.Entity;
+         }
+         set
+         {
+            Fighter previousValue = this._Fighter.Entity;
+            if (((previousValue != value)
+                     || (this._Fighter.HasLoadedOrAssignedValue == false)))
+            {
+               this.SendPropertyChanging();
+               if ((previousValue != null))
+               {
+                  this._Fighter.Entity = null;
+                  previousValue.Payment_Details.Remove(this);
+               }
+               this._Fighter.Entity = value;
+               if ((value != null))
+               {
+                  value.Payment_Details.Add(this);
+                  this._FIGH_FILE_NO = value.FILE_NO;
+               }
+               else
+               {
+                  this._FIGH_FILE_NO = default(Nullable<long>);
+               }
+               this.SendPropertyChanged("Fighter");
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.AssociationAttribute(Name = "Method_Payment_Detail", Storage = "_Method", ThisKey = "MTOD_CODE_DNRM", OtherKey = "CODE", IsForeignKey = true)]
+      public Method Method
+      {
+         get
+         {
+            return this._Method.Entity;
+         }
+         set
+         {
+            Method previousValue = this._Method.Entity;
+            if (((previousValue != value)
+                     || (this._Method.HasLoadedOrAssignedValue == false)))
+            {
+               this.SendPropertyChanging();
+               if ((previousValue != null))
+               {
+                  this._Method.Entity = null;
+                  previousValue.Payment_Details.Remove(this);
+               }
+               this._Method.Entity = value;
+               if ((value != null))
+               {
+                  value.Payment_Details.Add(this);
+                  this._MTOD_CODE_DNRM = value.CODE;
+               }
+               else
+               {
+                  this._MTOD_CODE_DNRM = default(Nullable<long>);
+               }
+               this.SendPropertyChanged("Method");
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.AssociationAttribute(Name = "Payment_Payment_Detail", Storage = "_Payment", ThisKey = "PYMT_CASH_CODE,PYMT_RQST_RQID", OtherKey = "CASH_CODE,RQST_RQID", IsForeignKey = true, DeleteRule = "CASCADE")]
+      public Payment Payment
+      {
+         get
+         {
+            return this._Payment.Entity;
+         }
+         set
+         {
+            Payment previousValue = this._Payment.Entity;
+            if (((previousValue != value)
+                     || (this._Payment.HasLoadedOrAssignedValue == false)))
+            {
+               this.SendPropertyChanging();
+               if ((previousValue != null))
+               {
+                  this._Payment.Entity = null;
+                  previousValue.Payment_Details.Remove(this);
+               }
+               this._Payment.Entity = value;
+               if ((value != null))
+               {
+                  value.Payment_Details.Add(this);
+                  this._PYMT_CASH_CODE = value.CASH_CODE;
+                  this._PYMT_RQST_RQID = value.RQST_RQID;
+               }
+               else
+               {
+                  this._PYMT_CASH_CODE = default(Nullable<long>);
+                  this._PYMT_RQST_RQID = default(Nullable<long>);
+               }
+               this.SendPropertyChanged("Payment");
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.AssociationAttribute(Name = "Request_Row_Payment_Detail", Storage = "_Request_Row", ThisKey = "PYMT_RQST_RQID,RQRO_RWNO", OtherKey = "RQST_RQID,RWNO", IsForeignKey = true)]
+      public Request_Row Request_Row
+      {
+         get
+         {
+            return this._Request_Row.Entity;
+         }
+         set
+         {
+            Request_Row previousValue = this._Request_Row.Entity;
+            if (((previousValue != value)
+                     || (this._Request_Row.HasLoadedOrAssignedValue == false)))
+            {
+               this.SendPropertyChanging();
+               if ((previousValue != null))
+               {
+                  this._Request_Row.Entity = null;
+                  previousValue.Payment_Details.Remove(this);
+               }
+               this._Request_Row.Entity = value;
+               if ((value != null))
+               {
+                  value.Payment_Details.Add(this);
+                  this._PYMT_RQST_RQID = value.RQST_RQID;
+                  this._RQRO_RWNO = value.RWNO;
+               }
+               else
+               {
+                  this._PYMT_RQST_RQID = default(Nullable<long>);
+                  this._RQRO_RWNO = default(Nullable<short>);
+               }
+               this.SendPropertyChanged("Request_Row");
+            }
+         }
+      }
+
+      public event PropertyChangingEventHandler PropertyChanging;
+
+      public event PropertyChangedEventHandler PropertyChanged;
+
+      protected virtual void SendPropertyChanging()
+      {
+         if ((this.PropertyChanging != null))
+         {
+            this.PropertyChanging(this, emptyChangingEventArgs);
+         }
+      }
+
+      protected virtual void SendPropertyChanged(String propertyName)
+      {
+         if ((this.PropertyChanged != null))
+         {
+            this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+         }
+      }
+
+      private void attach_Refunds_Payment_Details(Refunds_Payment_Detail entity)
+      {
+         this.SendPropertyChanging();
+         entity.Payment_Detail = this;
+      }
+
+      private void detach_Refunds_Payment_Details(Refunds_Payment_Detail entity)
+      {
+         this.SendPropertyChanging();
+         entity.Payment_Detail = null;
+      }
+
+      private void attach_Payment_Expenses(Payment_Expense entity)
+      {
+         this.SendPropertyChanging();
+         entity.Payment_Detail = this;
+      }
+
+      private void detach_Payment_Expenses(Payment_Expense entity)
+      {
+         this.SendPropertyChanging();
+         entity.Payment_Detail = null;
       }
    }
 

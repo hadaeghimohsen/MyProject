@@ -577,5 +577,18 @@ namespace System.Scsc.Ui.Regulation
             MessageBox.Show(exc.Message);
          }
       }
+
+      private void BaseInfo_Butn_Click(object sender, EventArgs e)
+      {
+         /// Must Be Change
+         Job _InteractWithScsc =
+           new Job(SendType.External, "Localhost",
+              new List<Job>
+              {                  
+                new Job(SendType.Self, 144 /* Execute Bas_Dfin_F */),
+                new Job(SendType.SelfToUserInterface, "BAS_DFIN_F", 10 /* Actn_CalF_P */)
+              });
+         _DefaultGateway.Gateway(_InteractWithScsc);
+      }
    }
 }

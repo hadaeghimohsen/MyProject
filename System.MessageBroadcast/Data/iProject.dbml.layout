@@ -20,25 +20,12 @@
         <elementListCompartment Id="2cd7ac29-7787-43fb-8768-bb95e26cba8b" absoluteBounds="0.51499999999999968, 3.71, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="26da8301-9823-45a8-965e-2269e9b3fcf6" absoluteBounds="3.375, 1.875, 2, 4.2708154296875">
-      <DataClassMoniker Name="/iProjectDataContext/Sms_Message_Box" />
-      <nestedChildShapes>
-        <elementListCompartment Id="8e4c8053-9760-49fe-adf0-7aab3358f71c" absoluteBounds="3.3899999999999997, 2.335, 1.9700000000000002, 3.7108154296875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
     <classShape Id="11b3a422-ef7d-4ace-a7d1-c08f4bbea160" absoluteBounds="6.75, 0.75, 2, 6.1938297526041657">
       <DataClassMoniker Name="/iProjectDataContext/Sub_System" />
       <nestedChildShapes>
         <elementListCompartment Id="091579ec-455b-4e0c-b6ec-7045144c9703" absoluteBounds="6.7650000000000006, 1.21, 1.9700000000000002, 5.6338297526041661" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(6.75 : 4.01040771484375); (5.375 : 4.01040771484375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
-      <AssociationMoniker Name="/iProjectDataContext/Sub_System/Sub_System_Sms_Message_Box" />
-      <nodes>
-        <classShapeMoniker Id="11b3a422-ef7d-4ace-a7d1-c08f4bbea160" />
-        <classShapeMoniker Id="26da8301-9823-45a8-965e-2269e9b3fcf6" />
-      </nodes>
-    </associationConnector>
     <classShape Id="46268428-6f8d-4af1-812c-d0ae84f845d4" absoluteBounds="3.375, 6.5, 2, 9.0783512369791648">
       <DataClassMoniker Name="/iProjectDataContext/User" />
       <nestedChildShapes>
@@ -63,18 +50,31 @@
         <elementListCompartment Id="1cced370-cc97-4235-b93d-299692d20c71" absoluteBounds="6.765, 7.7100000000000009, 1.9700000000000002, 5.0569254557291661" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(10.25 : 9.96231201171875); (8.75 : 9.96231201171875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(10.25 : 9.96231201171875); (8.75 : 9.96231201171875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iProjectDataContext/Gateway/Gateway_Message_Broad_Setting" />
       <nodes>
         <classShapeMoniker Id="84f963e7-8d54-406a-ba74-4ebe3999bc0a" />
         <classShapeMoniker Id="672a63e6-38c0-4293-a9f8-40dd614f39b4" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(5.375 : 10.0584627278646); (6.75 : 10.0584627278646)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(5.375 : 10.0584627278646); (6.75 : 10.0584627278646)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iProjectDataContext/User/User_Message_Broad_Setting" />
       <nodes>
         <classShapeMoniker Id="46268428-6f8d-4af1-812c-d0ae84f845d4" />
         <classShapeMoniker Id="672a63e6-38c0-4293-a9f8-40dd614f39b4" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="13293241-fe34-4465-a515-d6a47a33a2ae" absoluteBounds="3.375, 1.75, 2, 4.6554182942708326">
+      <DataClassMoniker Name="/iProjectDataContext/Sms_Message_Box" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ca49d7b1-a309-495b-9e13-9d168a6c54f4" absoluteBounds="3.3899999999999997, 2.21, 1.9700000000000002, 4.095418294270833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(6.75 : 4.07770914713542); (5.375 : 4.07770914713542)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/iProjectDataContext/Sub_System/Sub_System_Sms_Message_Box" />
+      <nodes>
+        <classShapeMoniker Id="11b3a422-ef7d-4ace-a7d1-c08f4bbea160" />
+        <classShapeMoniker Id="13293241-fe34-4465-a515-d6a47a33a2ae" />
       </nodes>
     </associationConnector>
   </nestedChildShapes>

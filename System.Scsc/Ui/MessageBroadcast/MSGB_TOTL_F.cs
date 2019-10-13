@@ -37,15 +37,45 @@ namespace System.Scsc.Ui.MessageBroadcast
       {
          iScsc = new Data.iScscDataContext(ConnectionString);
          MsgbBs1.DataSource = iScsc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "001");
-         MsgbBs2.DataSource = iScsc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "003");
-         MsgbBs3.DataSource = iScsc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "004");
          MsgbBs4.DataSource = iScsc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "002");
+         MsgbBs2.DataSource = iScsc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "003");
+         MsgbBs3.DataSource = iScsc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "004");         
          MsgbBs5.DataSource = iScsc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "005");
          MsgbBs6.DataSource = iScsc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "006");
          MsgbBs7.DataSource = iScsc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "007");
          MsgbBs8.DataSource = iScsc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "008");
          MsgbBs9.DataSource = iScsc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "009");
          MsgbBs10.DataSource = iScsc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "010");
+         MsgbBs11.DataSource = iScsc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "011");
+         MsgbBs12.DataSource = iScsc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "012");
+         MsgbBs13.DataSource = iScsc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "013");
+         MsgbBs14.DataSource = iScsc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "014");
+         MsgbBs15.DataSource = iScsc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "015");
+         MsgbBs16.DataSource = iScsc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "016");
+         MsgbBs17.DataSource = iScsc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "017");
+         MsgbBs18.DataSource = iScsc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "018");
+         MsgbBs19.DataSource = iScsc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "019");
+         MsgbBs20.DataSource = iScsc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "020");
+         MsgbBs21.DataSource = iScsc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "021");
+         MsgbBs22.DataSource = iScsc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "022");
+         MsgbBs23.DataSource = iScsc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "023");
+         MsgbBs24.DataSource = iScsc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "024");
+         MsgbBs25.DataSource = iScsc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "025");
+         MsgbBs26.DataSource = iScsc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "026");
+         MsgbBs27.DataSource = iScsc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "027");
+         MsgbBs28.DataSource = iScsc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "028");
+         MsgbBs29.DataSource = iScsc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "029");
+         MsgbBs30.DataSource = iScsc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "030");
+         MsgbBs31.DataSource = iScsc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "031");
+         MsgbBs32.DataSource = iScsc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "032");
+         MsgbBs33.DataSource = iScsc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "033");
+         MsgbBs34.DataSource = iScsc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "034");
+         MsgbBs35.DataSource = iScsc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "035");
+         MsgbBs36.DataSource = iScsc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "036");
+         MsgbBs37.DataSource = iScsc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "037");
+         MsgbBs38.DataSource = iScsc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "038");
+         MsgbBs39.DataSource = iScsc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "039");
+
          requery = false;
       }
 
@@ -85,6 +115,94 @@ namespace System.Scsc.Ui.MessageBroadcast
             case "Msgb_Text010":
                Msg_Count_Char010_Txt.Text = obj.Text.Length.ToString();
                break;
+            case "Msgb_Text011":
+               Msg_Count_Char011_Txt.Text = obj.Text.Length.ToString();
+               break;
+            case "Msgb_Text012":
+               Msg_Count_Char012_Txt.Text = obj.Text.Length.ToString();
+               break;
+            case "Msgb_Text013":
+               Msg_Count_Char013_Txt.Text = obj.Text.Length.ToString();
+               break;
+            case "Msgb_Text014":
+               Msg_Count_Char014_Txt.Text = obj.Text.Length.ToString();
+               break;
+            case "Msgb_Text015":
+               Msg_Count_Char015_Txt.Text = obj.Text.Length.ToString();
+               break;
+            case "Msgb_Text016":
+               Msg_Count_Char016_Txt.Text = obj.Text.Length.ToString();
+               break;
+            case "Msgb_Text017":
+               Msg_Count_Char017_Txt.Text = obj.Text.Length.ToString();
+               break;
+            case "Msgb_Text018":
+               Msg_Count_Char018_Txt.Text = obj.Text.Length.ToString();
+               break;
+            case "Msgb_Text019":
+               Msg_Count_Char019_Txt.Text = obj.Text.Length.ToString();
+               break;
+            case "Msgb_Text020":
+               Msg_Count_Char020_Txt.Text = obj.Text.Length.ToString();
+               break;
+            case "Msgb_Text021":
+               Msg_Count_Char021_Txt.Text = obj.Text.Length.ToString();
+               break;
+            case "Msgb_Text022":
+               Msg_Count_Char022_Txt.Text = obj.Text.Length.ToString();
+               break;
+            case "Msgb_Text023":
+               Msg_Count_Char023_Txt.Text = obj.Text.Length.ToString();
+               break;
+            case "Msgb_Text024":
+               Msg_Count_Char024_Txt.Text = obj.Text.Length.ToString();
+               break;
+            case "Msgb_Text025":
+               Msg_Count_Char025_Txt.Text = obj.Text.Length.ToString();
+               break;
+            case "Msgb_Text026":
+               Msg_Count_Char026_Txt.Text = obj.Text.Length.ToString();
+               break;
+            case "Msgb_Text027":
+               Msg_Count_Char027_Txt.Text = obj.Text.Length.ToString();
+               break;
+            case "Msgb_Text028":
+               Msg_Count_Char028_Txt.Text = obj.Text.Length.ToString();
+               break;
+            case "Msgb_Text029":
+               Msg_Count_Char029_Txt.Text = obj.Text.Length.ToString();
+               break;
+            case "Msgb_Text030":
+               Msg_Count_Char030_Txt.Text = obj.Text.Length.ToString();
+               break;
+            case "Msgb_Text031":
+               Msg_Count_Char031_Txt.Text = obj.Text.Length.ToString();
+               break;
+            case "Msgb_Text032":
+               Msg_Count_Char032_Txt.Text = obj.Text.Length.ToString();
+               break;
+            case "Msgb_Text033":
+               Msg_Count_Char033_Txt.Text = obj.Text.Length.ToString();
+               break;
+            case "Msgb_Text034":
+               Msg_Count_Char034_Txt.Text = obj.Text.Length.ToString();
+               break;
+            case "Msgb_Text035":
+               Msg_Count_Char035_Txt.Text = obj.Text.Length.ToString();
+               break;
+            case "Msgb_Text036":
+               Msg_Count_Char036_Txt.Text = obj.Text.Length.ToString();
+               break;
+            case "Msgb_Text037":
+               Msg_Count_Char037_Txt.Text = obj.Text.Length.ToString();
+               break;
+            case "Msgb_Text038":
+               Msg_Count_Char038_Txt.Text = obj.Text.Length.ToString();
+               break;
+            case "Msgb_Text039":
+               Msg_Count_Char039_Txt.Text = obj.Text.Length.ToString();
+               break;
+
             default:
                break;
          }
@@ -483,6 +601,35 @@ namespace System.Scsc.Ui.MessageBroadcast
             MsgbBs8.EndEdit();
             MsgbBs9.EndEdit();
             MsgbBs10.EndEdit();
+            MsgbBs11.EndEdit();
+            MsgbBs12.EndEdit();
+            MsgbBs13.EndEdit();
+            MsgbBs14.EndEdit();
+            MsgbBs15.EndEdit();
+            MsgbBs16.EndEdit();
+            MsgbBs17.EndEdit();
+            MsgbBs18.EndEdit();
+            MsgbBs19.EndEdit();
+            MsgbBs20.EndEdit();
+            MsgbBs21.EndEdit();
+            MsgbBs22.EndEdit();
+            MsgbBs23.EndEdit();
+            MsgbBs24.EndEdit();
+            MsgbBs25.EndEdit();
+            MsgbBs26.EndEdit();
+            MsgbBs27.EndEdit();
+            MsgbBs28.EndEdit();
+            MsgbBs29.EndEdit();
+            MsgbBs30.EndEdit();
+            MsgbBs31.EndEdit();
+            MsgbBs32.EndEdit();
+            MsgbBs33.EndEdit();
+            MsgbBs34.EndEdit();
+            MsgbBs35.EndEdit();
+            MsgbBs36.EndEdit();
+            MsgbBs37.EndEdit();
+            MsgbBs38.EndEdit();
+            MsgbBs39.EndEdit();
 
             iScsc.SubmitChanges();
             requery = true;
@@ -751,7 +898,7 @@ namespace System.Scsc.Ui.MessageBroadcast
             {
                if (crnt.CLUB_NAME.Trim().Length == 0 && crnt.CLUB_CODE == null)
                {
-                  MessageBox.Show("نام باشگاه مشخص نشده است");
+                  MessageBox.Show("نام بخش مشخص نشده است");
                   return;
                }
                if (crnt.CLUB_NAME.Trim().Length > 0)
@@ -762,6 +909,8 @@ namespace System.Scsc.Ui.MessageBroadcast
             #endregion
 
             if (MessageBox.Show(this, "آیا با ارسال پیامک موافق هستین؟", "مجوز ارسال پیامک", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2, MessageBoxOptions.RtlReading) != DialogResult.Yes) return;
+
+            int i = 0;
 
             if (Rb_PhoneNumberFromFile.Checked)
             {
@@ -777,6 +926,11 @@ namespace System.Scsc.Ui.MessageBroadcast
                               new XAttribute("phonnumb", pn.Description),
                               new XElement("Message",
                                  new XAttribute("type", crnt.MSGB_TYPE),
+                                 new XAttribute("scdldate", (crnt.SCDL_DATE == null ? DateTime.Now : (crnt.SCDL_DATE.Value.Date < DateTime.Now.Date ? DateTime.Now : (DateTime)crnt.SCDL_DATE))),
+                                 new XAttribute("btchnumb", crnt.BTCH_NUMB ?? 0),
+                                 new XAttribute("stepmin", crnt.STEP_MIN ?? 0),
+                                 //new XAttribute("actndate", GetActnDate(ref i, (crnt.SCDL_DATE == null ? DateTime.Now : (crnt.SCDL_DATE.Value.Date < DateTime.Now.Date ? DateTime.Now : (DateTime)crnt.SCDL_DATE)), (int)crnt.BTCH_NUMB, (int)crnt.STEP_MIN)),
+                                 new XAttribute("sendtype", "002"), // Bulk Send
                                  string.Format("{0}{1}", msg, clubname)
                               )
                            )
@@ -799,6 +953,11 @@ namespace System.Scsc.Ui.MessageBroadcast
                               new XAttribute("phonnumb", FighBs5.List.OfType<Data.Fighter>().First(f => (long)pn.Value == f.FILE_NO).CELL_PHON_DNRM),
                               new XElement("Message",
                                  new XAttribute("type", crnt.MSGB_TYPE),
+                                 new XAttribute("sendtype", crnt.INSR_FNAM_STAT == "002" ? "001" : "002"),
+                                 new XAttribute("scdldate", (crnt.SCDL_DATE == null ? DateTime.Now : (crnt.SCDL_DATE.Value.Date < DateTime.Now.Date ? DateTime.Now : (DateTime)crnt.SCDL_DATE))),
+                                 new XAttribute("btchnumb", crnt.BTCH_NUMB ?? 0),
+                                 new XAttribute("stepmin", crnt.STEP_MIN ?? 0),
+                                 //new XAttribute("actndate", GetActnDate(ref i, (crnt.SCDL_DATE == null ? DateTime.Now : (crnt.SCDL_DATE.Value < DateTime.Now ? DateTime.Now : (DateTime)crnt.SCDL_DATE)) , (int)crnt.BTCH_NUMB, (int)crnt.STEP_MIN)),
                                  crnt.INSR_FNAM_STAT == "002" ? (
                                     FighBs5.List.OfType<Data.Fighter>().First(f => (long)pn.Value == f.FILE_NO).SEX_TYPE_DNRM == "001" ? (
                                        string.Format("{0} {1}\n{2}{3}", "آقای", pn.Description, msg, clubname)

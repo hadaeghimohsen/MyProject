@@ -674,7 +674,7 @@ namespace System.Scsc.Ui.AggregateOperation
                     expn.PRIC,
                     expn.EXTR_PRCT,
                     null,
-                    1, null, null, null, null, null, expn.EXPN_DESC, null, null, null, null,
+                    1, null, null, null, null, null, expn.EXPN_DESC, null, null, null, null, null,
                     ref pydtcode
                   );
                }

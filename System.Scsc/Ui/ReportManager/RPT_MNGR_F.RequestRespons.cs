@@ -86,6 +86,9 @@ namespace System.Scsc.Ui.ReportManager
                         })
                   );
                   break;
+               case "OIC_TOTL_F":
+                  // Nothing
+                  break;
                default:
                   job.Next =
                      new Job(SendType.SelfToUserInterface, GetType().Name, 04 /* Execute UnPaint */);

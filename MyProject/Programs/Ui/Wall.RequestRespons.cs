@@ -491,7 +491,8 @@ namespace MyProject.Programs.Ui
       /// <param name="job"></param>
       private void Pop(Job job)
       {
-         job.Output = _ActiveUI.Pop();
+         if(_ActiveUI.Count >= 1)
+            job.Output = _ActiveUI.Pop();
          job.Status = StatusType.Successful;
       }
 

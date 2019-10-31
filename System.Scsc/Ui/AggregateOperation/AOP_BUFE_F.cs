@@ -1030,5 +1030,76 @@ namespace System.Scsc.Ui.AggregateOperation
             }
          }
       }
+
+      private void ExpnDesk_GridLookUpEdit_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         if (e.Button.Index == 1)
+         {
+            if (e.Button.Caption == "خودکار")
+            {
+               e.Button.Caption = "دستی";
+               e.Button.Tag = "manual";
+            }
+            else
+            {
+               e.Button.Caption = "خودکار";
+               e.Button.Tag = "auto";
+            }
+         }
+      }
+
+      private void ExpnDesk_GridLookUpEdit_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
+      {
+         if(e.NewValue != null && ExpnDesk_GridLookUpEdit.Properties.Buttons[1].Tag.ToString() == "auto")
+         {
+            //OpenDesk_Butn_Click(null, null);
+
+            try
+            {
+               var agop = AgopBs1.Current as Data.Aggregation_Operation;
+
+               if (agop == null)
+               {
+                  MessageBox.Show("لیست دفتر امروز باز نشده");
+                  return;
+               }
+
+               if (agop.FROM_DATE.Value.Date != DateTime.Now.Date && MessageBox.Show(this, "ایا میز مورد نظر در تاریخ دیگری می خواهید باز کنید", "باز شدن میز در تاریخ غیر از امروز", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+
+               //if (e.NewValue.ToString() == "") { MessageBox.Show("میزی انتخاب نشده"); return; }
+               var desk = Convert.ToInt64(e.NewValue);
+
+               long? fileno = null;
+
+               if (FIGH_FILE_NOLookUpEdit.EditValue != null && FIGH_FILE_NOLookUpEdit.EditValue.ToString() != "")
+               {
+                  fileno = Convert.ToInt64(FIGH_FILE_NOLookUpEdit.EditValue);
+               }
+               if (TableCloseOpen)
+               {
+                  // 1395/12/27 * میز هابه صورت پشت سر هم قرار میگیرند تا تسویه حساب شود
+                  var aodt = AodtBs1.Current as Data.Aggregation_Operation_Detail;
+                  iScsc.INS_AODT_P(agop.CODE, 1, aodt.AGOP_CODE, aodt.RWNO, fileno, null, null, null, "002", "001", desk, null, null, null, null, null, null, null);
+               }
+               else
+                  iScsc.INS_AODT_P(agop.CODE, 1, null, null, fileno, null, null, null, "002", "001", desk, null, null, null, null, null, null, null);
+
+               FIGH_FILE_NOLookUpEdit.EditValue = null;
+               requery = true;
+            }
+            catch
+            {
+            }
+            finally
+            {
+               if (requery)
+               {
+                  Execute_Query();
+                  requery = false;
+                  AodtBs1.MoveLast();
+               }
+            }
+         }
+      }
    }
 }

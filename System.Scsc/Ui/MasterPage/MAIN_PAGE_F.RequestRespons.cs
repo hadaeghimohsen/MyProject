@@ -596,14 +596,24 @@ namespace System.Scsc.Ui.MasterPage
          try
          {
             UserControl obj = (UserControl)job.Input;
-            Invoke(new Action<UserControl>(c => spc_desktop.Panel1.Controls.Remove(c)), obj);
+            Invoke(new Action<UserControl>(c =>
+               {
+                  if(spc_desktop.Panel1.Controls.IndexOf(c) >= 0)
+                     spc_desktop.Panel1.Controls.Remove(c);
+               }
+            ), obj);
             this.Focus();
             job.Status = StatusType.Successful;
          }
          catch
          {
             job.Status = StatusType.Successful; UserControl obj = (UserControl)job.Input;
-            Invoke(new Action<UserControl>(c => spc_desktop.Panel1.Controls.Remove(c)), obj);
+            Invoke(new Action<UserControl>(c =>
+               {
+                  if (spc_desktop.Panel1.Controls.IndexOf(c) >= 0)
+                     spc_desktop.Panel1.Controls.Remove(c);
+               }
+               ), obj);
             this.Focus();
          }
       }

@@ -2191,9 +2191,17 @@ namespace System.RoboTech.Controller
                {
                   #region Download
                   // ارسال فایل
-                  await Bot.SendDocumentAsync(e.Message.Chat.Id,
-                     new InputOnlineFile(new FileStream(string.Format(@"{0}\{1}\{1}.pdf", robot.UP_LOAD_FILE_PATH, e.Message.Chat.Id), FileMode.Open, FileAccess.Read, FileShare.Read), e.Message.Chat.Id.ToString())
-                  );
+                  foreach (var file in Directory.GetFiles(string.Format(@"{0}\{1}\", robot.UP_LOAD_FILE_PATH, e.Message.Chat.Id)))
+                  {
+                     await Bot.SendDocumentAsync(e.Message.Chat.Id,
+                        new InputOnlineFile(new FileStream(file, FileMode.Open, FileAccess.Read, FileShare.Read), /*e.Message.Chat.Id.ToString()*/file)
+                     );
+
+                     //await Bot.SendDocumentAsync(e.Message.Chat.Id,
+                     //   new InputOnlineFile(new FileStream(string.Format(@"{0}\{1}\{1}.pdf", robot.UP_LOAD_FILE_PATH, e.Message.Chat.Id), FileMode.Open, FileAccess.Read, FileShare.Read), e.Message.Chat.Id.ToString())
+                     //);
+                  }
+                  
                   #endregion
                }
                else if (menucmndtype.CMND_TYPE == "022")
@@ -3732,6 +3740,18 @@ namespace System.RoboTech.Controller
                   #region Image
                   foreach (string innerorder in xelement.Elements().Attributes("order").OrderBy(o => o.Value))
                   {
+                     var xinnerelement = xelement.Elements().Where(x => x.Attribute("order").Value == innerorder).First();
+
+                     await Bot.SendPhotoAsync(chat.Message.Chat.Id, new InputOnlineFile(xinnerelement.Attribute("fileid").Value), xinnerelement.Attribute("caption").Value,
+                        replyToMessageId:
+                        chat.Message.MessageId,
+                        replyMarkup:
+                        new ReplyKeyboardMarkup()
+                        {
+                           Keyboard = keyBoardMarkup,
+                           ResizeKeyboard = true,
+                           Selective = true
+                        });
                   }
                   #endregion
                }

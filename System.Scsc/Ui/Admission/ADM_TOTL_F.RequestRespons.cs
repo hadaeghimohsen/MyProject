@@ -575,6 +575,16 @@ namespace System.Scsc.Ui.Admission
                   RqttCode_Lov.EditValue = "001";//figh.FGPB_TYPE_DNRM;
                   Btn_RqstRqt3_Click(null, null);
 
+                  // اولین گام این هست که ببینیم آیا ما توانسته ایم برای مشترک درخواست درآمد متفرقه ثبت کنیم یا خیر
+                  var fg = iScsc.Fighters.FirstOrDefault(f => f.FILE_NO == figh.FILE_NO);
+                  if (!(fg.FIGH_STAT == "001" && fg.RQST_RQID != null && fg.Request.RQTP_CODE == "009"))
+                  {
+                     MessageBox.Show("ثبت درخواست برای مشتری با مشکلی مواجه شده است، لطفا بررسی کنید");
+                     return;
+                  }
+                  // 1398/09/07 * پیدا کردن درخواست برای مشتری
+                  RqstBs3.Position = RqstBs3.IndexOf(RqstBs3.List.OfType<Data.Request>().FirstOrDefault(r => r.Request_Rows.Any(rr => rr.Fighter.FILE_NO == figh.FILE_NO)));
+
                   // 1396/11/04
                   if (xinput.Attribute("formcaller") != null)
                      formCaller = xinput.Attribute("formcaller").Value;

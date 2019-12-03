@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.JobRouting.Jobs;
 using System.Xml.Linq;
 using DevExpress.XtraEditors;
+using System.Scsc.ExtCode;
 
 namespace System.Scsc.Ui.AggregateOperation
 {
@@ -22,7 +23,7 @@ namespace System.Scsc.Ui.AggregateOperation
 
       private bool requery = false, setondebt = false;
       private int agopindx = 0, aodtindx = 0;
-      private string stat, macadrs;
+      private string stat, macadrs, fngrprnt;
 
       private void Execute_Query()
       {
@@ -61,6 +62,276 @@ namespace System.Scsc.Ui.AggregateOperation
          );
       }
 
+      #region Print Configuration
+      #region Agop
+      private void AgopBnSettingPrint_Click(object sender, EventArgs e)
+      {
+         //if (tb_master.SelectedTab == tp_001)
+         {
+            Job _InteractWithScsc =
+              new Job(SendType.External, "Localhost",
+                 new List<Job>
+                  {
+                     new Job(SendType.Self, 81 /* Execute Cfg_Stng_F */),
+                     new Job(SendType.SelfToUserInterface, "CFG_STNG_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "ModualReport"), new XAttribute("modul", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_001_F"))}
+                  });
+            _DefaultGateway.Gateway(_InteractWithScsc);
+         }
+      }
+
+      private void AgopBnPrint_Click(object sender, EventArgs e)
+      {
+         //if (tb_master.SelectedTab == tp_001)
+         {
+            if (AgopBs1.Current == null) return;
+            var crnt = AgopBs1.Current as Data.Aggregation_Operation;
+
+            Job _InteractWithScsc =
+              new Job(SendType.External, "Localhost",
+                 new List<Job>
+                  {
+                     new Job(SendType.Self, 84 /* Execute Rpt_Mngr_F */){Input = new XElement("Print", new XAttribute("type", "Selection"), new XAttribute("modual", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_001_F"), string.Format("Aggregation_Operation.Code = {0}", crnt.CODE))}
+                  });
+            _DefaultGateway.Gateway(_InteractWithScsc);
+         }
+      }
+
+      private void AgopBnDefaultPrint_Click(object sender, EventArgs e)
+      {
+         //if (tb_master.SelectedTab == tp_001)
+         {
+            if (AgopBs1.Current == null) return;
+            var crnt = AgopBs1.Current as Data.Aggregation_Operation;
+
+            Job _InteractWithScsc =
+              new Job(SendType.External, "Localhost",
+                 new List<Job>
+                  {
+                     new Job(SendType.Self, 84 /* Execute Rpt_Mngr_F */){Input = new XElement("Print", new XAttribute("type", "Default"), new XAttribute("modual", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_001_F"), string.Format("Aggregation_Operation.Code = {0}", crnt.CODE))}
+                  });
+            _DefaultGateway.Gateway(_InteractWithScsc);
+         }
+      }
+
+      private void AgopBnPrintAfterPay_Click(object sender, EventArgs e)
+      {
+         //if (tb_master.SelectedTab == tp_001)
+         {
+            if (AgopBs1.Current == null) return;
+            var crnt = AgopBs1.Current as Data.Aggregation_Operation;
+
+            Job _InteractWithScsc =
+              new Job(SendType.External, "Localhost",
+                 new List<Job>
+                  {
+                     new Job(SendType.Self, 84 /* Execute Rpt_Mngr_F */){Input = new XElement("Print", new XAttribute("type", "PrintAfterFinish"), new XAttribute("modual", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_001_F"), string.Format("Aggregation_Operation.Code = {0}", crnt.CODE))}
+                  });
+            _DefaultGateway.Gateway(_InteractWithScsc);
+         }
+      }
+      #endregion
+      #region Figh
+      private void FighBnSettingPrint_Click(object sender, EventArgs e)
+      {
+         //if (tb_master.SelectedTab == tp_001)
+         {
+            Job _InteractWithScsc =
+              new Job(SendType.External, "Localhost",
+                 new List<Job>
+                  {
+                     new Job(SendType.Self, 81 /* Execute Cfg_Stng_F */),
+                     new Job(SendType.SelfToUserInterface, "CFG_STNG_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "ModualReport"), new XAttribute("modul", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_002_F"))}
+                  });
+            _DefaultGateway.Gateway(_InteractWithScsc);
+         }
+      }
+
+      private void FighBnPrint_Click(object sender, EventArgs e)
+      {
+         //if (tb_master.SelectedTab == tp_001)
+         {
+            if (Figh_Lov.EditValue == null || Figh_Lov.EditValue.ToString() == "") return;
+            var crnt = FighBs.List.OfType<Data.Fighter>().FirstOrDefault(f => f.FILE_NO == (long)Figh_Lov.EditValue);
+
+            Job _InteractWithScsc =
+              new Job(SendType.External, "Localhost",
+                 new List<Job>
+                  {
+                     new Job(SendType.Self, 84 /* Execute Rpt_Mngr_F */){Input = new XElement("Print", new XAttribute("type", "Selection"), new XAttribute("modual", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_002_F"), string.Format("Fighter.File_No = {0}", crnt.FILE_NO))}
+                  });
+            _DefaultGateway.Gateway(_InteractWithScsc);
+         }
+      }
+
+      private void FighBnDefaultPrint_Click(object sender, EventArgs e)
+      {
+         //if (tb_master.SelectedTab == tp_001)
+         {
+            if (Figh_Lov.EditValue == null || Figh_Lov.EditValue.ToString() == "") return;
+            var crnt = FighBs.List.OfType<Data.Fighter>().FirstOrDefault(f => f.FILE_NO == (long)Figh_Lov.EditValue);
+
+            Job _InteractWithScsc =
+              new Job(SendType.External, "Localhost",
+                 new List<Job>
+                  {
+                     new Job(SendType.Self, 84 /* Execute Rpt_Mngr_F */){Input = new XElement("Print", new XAttribute("type", "Default"), new XAttribute("modual", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_002_F"), string.Format("Fighter.File_No = {0}", crnt.FILE_NO))}
+                  });
+            _DefaultGateway.Gateway(_InteractWithScsc);
+         }
+      }
+
+      private void FighBnPrintAfterPay_Click(object sender, EventArgs e)
+      {
+         //if (tb_master.SelectedTab == tp_001)
+         {
+            if (Figh_Lov.EditValue == null || Figh_Lov.EditValue.ToString() == "") return;
+            var crnt = FighBs.List.OfType<Data.Fighter>().FirstOrDefault(f => f.FILE_NO == (long)Figh_Lov.EditValue);
+
+            Job _InteractWithScsc =
+              new Job(SendType.External, "Localhost",
+                 new List<Job>
+                  {
+                     new Job(SendType.Self, 84 /* Execute Rpt_Mngr_F */){Input = new XElement("Print", new XAttribute("type", "PrintAfterFinish"), new XAttribute("modual", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_002_F"), string.Format("Fighter.File_No = {0}", crnt.FILE_NO))}
+                  });
+            _DefaultGateway.Gateway(_InteractWithScsc);
+         }
+      }
+      #endregion
+      #region Aodt
+      private void AodtBnSettingPrint_Click(object sender, EventArgs e)
+      {
+         //if (tb_master.SelectedTab == tp_001)
+         {
+            Job _InteractWithScsc =
+              new Job(SendType.External, "Localhost",
+                 new List<Job>
+                  {
+                     new Job(SendType.Self, 81 /* Execute Cfg_Stng_F */),
+                     new Job(SendType.SelfToUserInterface, "CFG_STNG_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "ModualReport"), new XAttribute("modul", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_003_F"))}
+                  });
+            _DefaultGateway.Gateway(_InteractWithScsc);
+         }
+      }
+
+      private void AodtBnPrint_Click(object sender, EventArgs e)
+      {
+         //if (tb_master.SelectedTab == tp_001)
+         {
+            if (AodtBs1.Current == null) return;
+            var crnt = AodtBs1.Current as Data.Aggregation_Operation_Detail;
+
+            Job _InteractWithScsc =
+              new Job(SendType.External, "Localhost",
+                 new List<Job>
+                  {
+                     new Job(SendType.Self, 84 /* Execute Rpt_Mngr_F */){Input = new XElement("Print", new XAttribute("type", "Selection"), new XAttribute("modual", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_003_F"), string.Format("Aggregation_Operation_Detail.Agop_Code = {0} AND Aggregation_Operation_Detail.Rwno = {1}", crnt.AGOP_CODE, crnt.RWNO))}
+                  });
+            _DefaultGateway.Gateway(_InteractWithScsc);
+         }
+      }
+
+      private void AodtBnDefaultPrint_Click(object sender, EventArgs e)
+      {
+         //if (tb_master.SelectedTab == tp_001)
+         {
+            if (AodtBs1.Current == null) return;
+            var crnt = AodtBs1.Current as Data.Aggregation_Operation_Detail;
+
+            Job _InteractWithScsc =
+              new Job(SendType.External, "Localhost",
+                 new List<Job>
+                  {
+                     new Job(SendType.Self, 84 /* Execute Rpt_Mngr_F */){Input = new XElement("Print", new XAttribute("type", "Default"), new XAttribute("modual", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_003_F"), string.Format("Aggregation_Operation_Detail.Agop_Code = {0} AND Aggregation_Operation_Detail.Rwno = {1}", crnt.AGOP_CODE, crnt.RWNO))}
+                  });
+            _DefaultGateway.Gateway(_InteractWithScsc);
+         }
+      }
+
+      private void AodtBnPrintAfterPay_Click(object sender, EventArgs e)
+      {
+         //if (tb_master.SelectedTab == tp_001)
+         {
+            if (AodtBs1.Current == null) return;
+            var crnt = AodtBs1.Current as Data.Aggregation_Operation_Detail;
+
+            Job _InteractWithScsc =
+              new Job(SendType.External, "Localhost",
+                 new List<Job>
+                  {
+                     new Job(SendType.Self, 84 /* Execute Rpt_Mngr_F */){Input = new XElement("Print", new XAttribute("type", "PrintAfterFinish"), new XAttribute("modual", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_003_F"), string.Format("Aggregation_Operation_Detail.Agop_Code = {0} AND Aggregation_Operation_Detail.Rwno = {1}", crnt.AGOP_CODE, crnt.RWNO))}
+                  });
+            _DefaultGateway.Gateway(_InteractWithScsc);
+         }
+      }
+      #endregion
+      #region Expn
+      private void ExpnBnSettingPrint_Click(object sender, EventArgs e)
+      {
+         //if (tb_master.SelectedTab == tp_001)
+         {
+            Job _InteractWithScsc =
+              new Job(SendType.External, "Localhost",
+                 new List<Job>
+                  {
+                     new Job(SendType.Self, 81 /* Execute Cfg_Stng_F */),
+                     new Job(SendType.SelfToUserInterface, "CFG_STNG_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "ModualReport"), new XAttribute("modul", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_004_F"))}
+                  });
+            _DefaultGateway.Gateway(_InteractWithScsc);
+         }
+      }
+
+      private void ExpnBnPrint_Click(object sender, EventArgs e)
+      {
+         //if (tb_master.SelectedTab == tp_001)
+         {
+            if (ExpnBufeBs1.Current == null) return;
+            var crnt = ExpnBufeBs1.Current as Data.Expense;
+
+            Job _InteractWithScsc =
+              new Job(SendType.External, "Localhost",
+                 new List<Job>
+                  {
+                     new Job(SendType.Self, 84 /* Execute Rpt_Mngr_F */){Input = new XElement("Print", new XAttribute("type", "Selection"), new XAttribute("modual", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_004_F"), string.Format("Expense.Code = {0}", crnt.CODE))}
+                  });
+            _DefaultGateway.Gateway(_InteractWithScsc);
+         }
+      }
+
+      private void ExpnBnDefaultPrint_Click(object sender, EventArgs e)
+      {
+         //if (tb_master.SelectedTab == tp_001)
+         {
+            if (ExpnBufeBs1.Current == null) return;
+            var crnt = ExpnBufeBs1.Current as Data.Expense;
+
+            Job _InteractWithScsc =
+              new Job(SendType.External, "Localhost",
+                 new List<Job>
+                  {
+                     new Job(SendType.Self, 84 /* Execute Rpt_Mngr_F */){Input = new XElement("Print", new XAttribute("type", "Default"), new XAttribute("modual", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_004_F"), string.Format("Expense.Code = {0}", crnt.CODE))}
+                  });
+            _DefaultGateway.Gateway(_InteractWithScsc);
+         }
+      }
+
+      private void ExpnBnPrintAfterPay_Click(object sender, EventArgs e)
+      {
+         //if (tb_master.SelectedTab == tp_001)
+         {
+            if (ExpnBufeBs1.Current == null) return;
+            var crnt = ExpnBufeBs1.Current as Data.Expense;
+
+            Job _InteractWithScsc =
+              new Job(SendType.External, "Localhost",
+                 new List<Job>
+                  {
+                     new Job(SendType.Self, 84 /* Execute Rpt_Mngr_F */){Input = new XElement("Print", new XAttribute("type", "PrintAfterFinish"), new XAttribute("modual", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_004_F"), string.Format("Expense.Code = {0}", crnt.CODE))}
+                  });
+            _DefaultGateway.Gateway(_InteractWithScsc);
+         }
+      }
+      #endregion
+      #endregion
       private void ClerFromDate_Butn_Click(object sender, EventArgs e)
       {
          var crnt = AgopBs1.Current as Data.Aggregation_Operation;
@@ -195,7 +466,7 @@ namespace System.Scsc.Ui.AggregateOperation
                   crnt.END_TIME = DateTime.Now;
                   break;
                case 3:
-                  if (crnt.TOTL_AMNT_DNRM > /*crnt.Payment_Row_Types.Sum(a => a.AMNT)*/ ((crnt.CASH_AMNT ?? 0) + (crnt.POS_AMNT ?? 0)))
+                  if (crnt.TOTL_AMNT_DNRM > ((crnt.CASH_AMNT ?? 0) + (crnt.POS_AMNT ?? 0) + (crnt.PYDS_AMNT ?? 0) + (crnt.DPST_AMNT ?? 0)))
                      setondebt = true;
                   else
                      setondebt = false;
@@ -204,6 +475,9 @@ namespace System.Scsc.Ui.AggregateOperation
                   {
                      MessageBox.Show(this, "میز بسته نشده لطفا دکمه بسته شدن میز را فشار دهید تا هزینه میز محاسبه شود");
                      return;
+                     //if (MessageBox.Show(this, "میز بسته نشده! آیا میخواهید میز بسته شود؟", "میز بسته نشده", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes)
+                     //   return;
+                     //DeskClose_Butn_Click(null, null);
                   }
 
                   var unitamnt = iScsc.D_ATYPs.FirstOrDefault(d => d.VALU == crnt.Aggregation_Operation.Regulation.AMNT_TYPE);
@@ -212,7 +486,7 @@ namespace System.Scsc.Ui.AggregateOperation
                      MessageBox.Show(this, 
                         string.Format("مشترک هزینه میز به مبلغ" + " " + "{0}" + " " + "{1}" + " بدهکار می باشد! " + "\n\r" + 
                         "آیا عملیات ثبت بدهی انجام شود؟",
-                        crnt.TOTL_AMNT_DNRM - (crnt.CASH_AMNT + crnt.POS_AMNT),
+                        crnt.TOTL_AMNT_DNRM - (crnt.CASH_AMNT + crnt.POS_AMNT + crnt.PYDS_AMNT + crnt.DPST_AMNT),
                         unitamnt.DOMN_DESC
                         ), 
                         "ثبت هزینه در حساب دفتری مشترک", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes)
@@ -224,7 +498,8 @@ namespace System.Scsc.Ui.AggregateOperation
                   //   MessageBox.Show("برای هزینه هایی که در حالت بدهی ثبت می شوند باید شماره تلفن تماس ثبت گردد");
                   //   return;
                   //}
-
+                  // اگر تغییری در اطلاعات به وجود آماده باشد تغییرات به صورت کلی ذخیره شود
+                  iScsc.SubmitChanges();
                   iScsc.ENDO_RSBU_P(
                      new XElement("Aggregation_Operation_Detail",
                         new XAttribute("fileno", crnt.FIGH_FILE_NO),
@@ -233,6 +508,11 @@ namespace System.Scsc.Ui.AggregateOperation
                         new XAttribute("setondebt", setondebt)
                      )
                   );
+
+                  if(PrintExpnStat_Tsmi.CheckState == CheckState.Checked){
+                     AodtBnPrintAfterPay_Click(null, null);
+                  }
+
                   break;               
                default:
                   break;
@@ -264,6 +544,14 @@ namespace System.Scsc.Ui.AggregateOperation
             var crnt = AgopBs1.Current as Data.Aggregation_Operation;
 
             if (crnt != null && MessageBox.Show(this, "آیا با بستن دفتر فعلی موافق هستید؟", "بستن دفتر", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+
+            // اگر میزی باز باشد که بسته نشده باشد
+            // اگر میزی بسته شده باشد که برای مهمان آزاد باشد
+            if(AodtBs1.List.OfType<Data.Aggregation_Operation_Detail>().Any(a => a.STAT == "001" || (a.STAT == "003" && a.Fighter.FGPB_TYPE_DNRM == "005" && a.CELL_PHON.Length == 0)))
+            {
+               MessageBox.Show("میزهای باز مانده یا میز های بسته شده که متعلق به مشتری آزاد میباشد که تسویه حساب نکرده اند باید تکلیف آنها را مشخص کنید");
+               return;
+            }
 
             iScsc.INS_AGOP_P(
                new XElement("Process",
@@ -327,19 +615,19 @@ namespace System.Scsc.Ui.AggregateOperation
             }
             else if(e.Button.Index == 6) // مشخص کردن مشتری مهمان
             {
-               if (FIGH_FILE_NOLookUpEdit.EditValue == null || FIGH_FILE_NOLookUpEdit.EditValue.ToString() == "") return;
+               if (Figh_Lov.EditValue == null || Figh_Lov.EditValue.ToString() == "") return;
 
                _DefaultGateway.Gateway(
                   new Job(SendType.External, "Localhost",
                      new List<Job>
                      {
                         new Job(SendType.Self, 70 /* Execute Adm_Chng_F */),
-                        new Job(SendType.SelfToUserInterface, "ADM_CHNG_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "changeinfo"), new XAttribute("fileno", FIGH_FILE_NOLookUpEdit.EditValue), new XAttribute("auto", "true"))}
+                        new Job(SendType.SelfToUserInterface, "ADM_CHNG_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "changeinfo"), new XAttribute("fileno", Figh_Lov.EditValue), new XAttribute("auto", "true"))}
                      })
                );
             }
 
-            var fileno = Convert.ToInt64(FIGH_FILE_NOLookUpEdit.EditValue);
+            var fileno = Convert.ToInt64(Figh_Lov.EditValue);
 
             switch (e.Button.Index)
             {
@@ -446,7 +734,7 @@ namespace System.Scsc.Ui.AggregateOperation
             }
             else
             {
-               var bufe = BufeBs1.Current as Data.Buffet;
+               var bufe = BufeBs1.List.OfType<Data.Buffet>().FirstOrDefault(b => b.EXPN_CODE == expn.CODE);
                bufe.QNTY += 1;
             }
 
@@ -493,8 +781,8 @@ namespace System.Scsc.Ui.AggregateOperation
 
             requery = true;
          }
-         catch
-         { }
+         catch(Exception exc)
+         { MessageBox.Show(exc.Message); }
          finally
          {
             if (requery)
@@ -543,7 +831,6 @@ namespace System.Scsc.Ui.AggregateOperation
             if (requery)
             {
                Execute_Query();
-               requery = false;
             }
          }
       }
@@ -552,6 +839,7 @@ namespace System.Scsc.Ui.AggregateOperation
       {
          try
          {
+            apdt_gv.PostEditor();
             var aodt = AodtBs1.Current as Data.Aggregation_Operation_Detail;
 
             if (aodt == null) return;
@@ -591,6 +879,8 @@ namespace System.Scsc.Ui.AggregateOperation
       {
          try
          {
+            apdt_gv.PostEditor();
+
             var aodt = AodtBs1.Current as Data.Aggregation_Operation_Detail;
 
             if (aodt == null) return;
@@ -601,9 +891,10 @@ namespace System.Scsc.Ui.AggregateOperation
             if (aodt.END_TIME == null)
             {
                aodt.END_TIME = DateTime.Now;
-               AodtBs1.EndEdit();
-               iScsc.SubmitChanges();
-            }            
+            }
+
+            AodtBs1.EndEdit();
+            iScsc.SubmitChanges();
 
             iScsc.CALC_APDT_P(aodt.AGOP_CODE, aodt.RWNO);
             requery = true;
@@ -630,13 +921,15 @@ namespace System.Scsc.Ui.AggregateOperation
       {
          try
          {
+            apdt_gv.PostEditor();
+
             var aodt = AodtBs1.Current as Data.Aggregation_Operation_Detail;
 
-            if (aodt.STAT == "002") { MessageBox.Show("میز هایی که بسته و تسویه یا دفتری حساب کرده اند دیگر قادر به ویرایش نیستید"); return; }
+            if (aodt.STAT == "002") { MessageBox.Show("میز هایی که بسته و تسویه یا دفتری حساب کرده اند دیگر قادر به ویرایش نیستید"); Execute_Query(); return; }
 
             AodtBs1.EndEdit();
 
-            iScsc.UPD_AODT_P(aodt.AGOP_CODE, aodt.RWNO, aodt.AODT_AGOP_CODE, aodt.AODT_RWNO, aodt.FIGH_FILE_NO, aodt.RQST_RQID, aodt.ATTN_CODE, aodt.COCH_FILE_NO, aodt.REC_STAT, aodt.STAT, aodt.EXPN_CODE, aodt.MIN_MINT_STEP, aodt.STRT_TIME, aodt.END_TIME, aodt.EXPN_PRIC, aodt.EXPN_EXTR_PRCT, aodt.CUST_NAME, aodt.CELL_PHON, aodt.CASH_AMNT, aodt.POS_AMNT, aodt.NUMB, aodt.AODT_DESC, aodt.ATTN_TYPE);
+            iScsc.UPD_AODT_P(aodt.AGOP_CODE, aodt.RWNO, aodt.AODT_AGOP_CODE, aodt.AODT_RWNO, aodt.FIGH_FILE_NO, aodt.RQST_RQID, aodt.ATTN_CODE, aodt.COCH_FILE_NO, aodt.REC_STAT, aodt.STAT, aodt.EXPN_CODE, aodt.MIN_MINT_STEP, aodt.STRT_TIME, aodt.END_TIME, aodt.EXPN_PRIC, aodt.EXPN_EXTR_PRCT, aodt.CUST_NAME, aodt.CELL_PHON, aodt.CASH_AMNT, aodt.POS_AMNT, aodt.NUMB, aodt.AODT_DESC, aodt.ATTN_TYPE, aodt.PYDS_AMNT, aodt.DPST_AMNT, aodt.BCDS_CODE);
             requery = true;
 
             if (aodt.END_TIME != null)
@@ -661,11 +954,13 @@ namespace System.Scsc.Ui.AggregateOperation
       {
          try
          {
+            ServName_Tsmi.Text = "نامشخص";
+            ServName_Tsmi.Enabled = false;
             var aodt = AodtBs1.Current as Data.Aggregation_Operation_Detail;
 
             if (aodt == null) return;
 
-            PosAmnt_Txt.EditValue = aodt.TOTL_AMNT_DNRM - ((aodt.CASH_AMNT ?? 0) + (aodt.POS_AMNT ?? 0));
+            PosAmnt_Txt.EditValue = aodt.TOTL_AMNT_DNRM - ((aodt.CASH_AMNT ?? 0) + (aodt.POS_AMNT ?? 0) + (aodt.PYDS_AMNT ?? 0) + (aodt.DPST_AMNT ?? 0));
 
             if (aodt.END_TIME == null)
                TotlMint_Txt.Text = "";
@@ -683,11 +978,21 @@ namespace System.Scsc.Ui.AggregateOperation
                   Bufe_GridControl.Visible = true;
                else
                   Bufe_GridControl.Visible = false;
+
+               Pos_Butn.Enabled = Cash_Butn.Enabled = false;
             }
             else
             {
                Pyrt_GridControl.Visible = Bufe_GridControl.Visible = true;
+               Pos_Butn.Enabled = Cash_Butn.Enabled = true;
             }
+
+            // 1398/08/19 * قرار دادن مبلغ و تایم بازی در منوی بازشو
+            ExpnPric_Tsmi.Text = aodt.Expense.PRIC.ToString();
+            ExpnMinTime_Tsmi.Text = aodt.Expense.MIN_TIME.Value.ToString("HH:mm");
+            ServName_Tsmi.Text = aodt.Fighter.NAME_DNRM;
+            ServName_Tsmi.Enabled = true;
+            PayDebtAmnt1_Tsmi.Text = aodt.Fighter.DEBT_DNRM.ToString();
          }
          catch
          {
@@ -713,9 +1018,9 @@ namespace System.Scsc.Ui.AggregateOperation
 
             long? fileno = null;
 
-            if (FIGH_FILE_NOLookUpEdit.EditValue != null && FIGH_FILE_NOLookUpEdit.EditValue.ToString() != "")
+            if (Figh_Lov.EditValue != null && Figh_Lov.EditValue.ToString() != "")
             {
-               fileno = Convert.ToInt64(FIGH_FILE_NOLookUpEdit.EditValue);
+               fileno = Convert.ToInt64(Figh_Lov.EditValue);
             }
             if(TableCloseOpen)
             {
@@ -726,7 +1031,7 @@ namespace System.Scsc.Ui.AggregateOperation
             else
                iScsc.INS_AODT_P(agop.CODE, 1, null, null, fileno, null, null, null, "002", "001", desk, null, null, null, null, null, null, null);
 
-            FIGH_FILE_NOLookUpEdit.EditValue = null;
+            Figh_Lov.EditValue = null;
             requery = true;
          }
          catch
@@ -803,13 +1108,15 @@ namespace System.Scsc.Ui.AggregateOperation
       {
          try
          {
+            apdt_gv.PostEditor();
+
             var aodt = AodtBs1.Current as Data.Aggregation_Operation_Detail;            
             if (aodt == null) return;
 
             TableCloseOpen = true;
             DeskClose_Butn_Click(null, null);
             ExpnDesk_GridLookUpEdit.EditValue = aodt.EXPN_CODE;
-            FIGH_FILE_NOLookUpEdit.EditValue = null;
+            Figh_Lov.EditValue = null;
             OpenDesk_Butn_Click(null, null);
             TableCloseOpen = false;
             requery = true;
@@ -862,6 +1169,9 @@ namespace System.Scsc.Ui.AggregateOperation
       {
          try
          {
+            apdt_gv.PostEditor();
+            iScsc.SubmitChanges();
+
             var aodt = AodtBs1.Current as Data.Aggregation_Operation_Detail;
             if (aodt == null) return;
 
@@ -961,7 +1271,7 @@ namespace System.Scsc.Ui.AggregateOperation
             TotlRcptAmnt_Txt.Text = agop.Aggregation_Operation_Details.Where(d => d.REC_STAT == "002").Sum(d => d.POS_AMNT + d.CASH_AMNT).ToString();
             TotlCashAmnt_Txt.Text = agop.Aggregation_Operation_Details.Where(d => d.REC_STAT == "002").Sum(d => d.CASH_AMNT).ToString();
             TotlPosAmnt_Txt.Text = agop.Aggregation_Operation_Details.Where(d => d.REC_STAT == "002").Sum(d => d.POS_AMNT).ToString();
-            TotlRemnAmnt_Txt.Text = (agop.Aggregation_Operation_Details.Where(d => d.REC_STAT == "002").Sum(d => d.TOTL_AMNT_DNRM) - agop.Aggregation_Operation_Details.Where(d => d.REC_STAT == "002").Sum(d => d.POS_AMNT + d.CASH_AMNT)).ToString();
+            TotlRemnAmnt_Txt.Text = (agop.Aggregation_Operation_Details.Where(d => d.REC_STAT == "002").Sum(d => d.TOTL_AMNT_DNRM) - agop.Aggregation_Operation_Details.Where(d => d.REC_STAT == "002").Sum(d => d.POS_AMNT + d.CASH_AMNT + d.PYDS_AMNT + d.DPST_AMNT)).ToString();
          }
          catch (Exception exc)
          {
@@ -1001,17 +1311,20 @@ namespace System.Scsc.Ui.AggregateOperation
       {
          try
          {
+            apdt_gv.PostEditor();
+            iScsc.SubmitChanges();
+
             var aodt = AodtBs1.Current as Data.Aggregation_Operation_Detail;
             if (aodt == null) return;
 
             var amnt = Convert.ToInt64(PosAmnt_Txt.EditValue);
             if (amnt == 0) return;
 
-            aodt.CASH_AMNT = amnt;
+            aodt.CASH_AMNT += amnt;
 
             AodtBs1.EndEdit();
 
-            iScsc.UPD_AODT_P(aodt.AGOP_CODE, aodt.RWNO, aodt.AODT_AGOP_CODE, aodt.AODT_RWNO, aodt.FIGH_FILE_NO, aodt.RQST_RQID, aodt.ATTN_CODE, aodt.COCH_FILE_NO, aodt.REC_STAT, aodt.STAT, aodt.EXPN_CODE, aodt.MIN_MINT_STEP, aodt.STRT_TIME, aodt.END_TIME, aodt.EXPN_PRIC, aodt.EXPN_EXTR_PRCT, aodt.CUST_NAME, aodt.CELL_PHON, aodt.CASH_AMNT, aodt.POS_AMNT, aodt.NUMB, aodt.AODT_DESC, aodt.ATTN_TYPE);
+            iScsc.UPD_AODT_P(aodt.AGOP_CODE, aodt.RWNO, aodt.AODT_AGOP_CODE, aodt.AODT_RWNO, aodt.FIGH_FILE_NO, aodt.RQST_RQID, aodt.ATTN_CODE, aodt.COCH_FILE_NO, aodt.REC_STAT, aodt.STAT, aodt.EXPN_CODE, aodt.MIN_MINT_STEP, aodt.STRT_TIME, aodt.END_TIME, aodt.EXPN_PRIC, aodt.EXPN_EXTR_PRCT, aodt.CUST_NAME, aodt.CELL_PHON, aodt.CASH_AMNT, aodt.POS_AMNT, aodt.NUMB, aodt.AODT_DESC, aodt.ATTN_TYPE, aodt.PYDS_AMNT, aodt.DPST_AMNT, aodt.BCDS_CODE);
             requery = true;
 
             if (aodt.END_TIME != null)
@@ -1060,8 +1373,10 @@ namespace System.Scsc.Ui.AggregateOperation
 
                if (agop == null)
                {
-                  MessageBox.Show("لیست دفتر امروز باز نشده");
-                  return;
+                  if(MessageBox.Show(this, "دفتر لیست امروز باز نشده! آیا به صورت خودکار دفتر لیست باز شود؟", "دفتر لیست", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes)return;
+                  AgopBs1.AddNew();
+                  Edit_Butn_Click(null, null);
+                  agop = AgopBs1.Current as Data.Aggregation_Operation;
                }
 
                if (agop.FROM_DATE.Value.Date != DateTime.Now.Date && MessageBox.Show(this, "ایا میز مورد نظر در تاریخ دیگری می خواهید باز کنید", "باز شدن میز در تاریخ غیر از امروز", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
@@ -1071,9 +1386,9 @@ namespace System.Scsc.Ui.AggregateOperation
 
                long? fileno = null;
 
-               if (FIGH_FILE_NOLookUpEdit.EditValue != null && FIGH_FILE_NOLookUpEdit.EditValue.ToString() != "")
+               if (Figh_Lov.EditValue != null && Figh_Lov.EditValue.ToString() != "")
                {
-                  fileno = Convert.ToInt64(FIGH_FILE_NOLookUpEdit.EditValue);
+                  fileno = Convert.ToInt64(Figh_Lov.EditValue);
                }
                if (TableCloseOpen)
                {
@@ -1084,7 +1399,7 @@ namespace System.Scsc.Ui.AggregateOperation
                else
                   iScsc.INS_AODT_P(agop.CODE, 1, null, null, fileno, null, null, null, "002", "001", desk, null, null, null, null, null, null, null);
 
-               FIGH_FILE_NOLookUpEdit.EditValue = null;
+               Figh_Lov.EditValue = null;
                requery = true;
             }
             catch
@@ -1099,6 +1414,1411 @@ namespace System.Scsc.Ui.AggregateOperation
                   AodtBs1.MoveLast();
                }
             }
+         }
+      }
+
+      private void QuickFindCellPhon_Tsmi_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            apdt_gv.PostEditor();
+            var aodt = AodtBs1.Current as Data.Aggregation_Operation_Detail;
+            if (aodt == null) return;
+
+            var fighs = iScsc.Fighters.Where(f => f.CELL_PHON_DNRM == aodt.CELL_PHON && f.CONF_STAT == "002" && f.ACTV_TAG_DNRM.CompareTo("101") >= 0);
+            if(fighs.Count() == 0)
+            {
+               MessageBox.Show("مشتری با این شماره تلفن یافت نشد");
+               return;
+            }
+            else if(fighs.Count() > 1)
+            {
+               if(MessageBox.Show(this, "با این شماره تعدادی مشتری مشاهده شد! آیا مایل به بررسی هستید؟", "رکورد تکراری", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+               {
+                  Job _InteractWithScsc =
+                     new Job(SendType.External, "Localhost",
+                        new List<Job>
+                        {                  
+                           new Job(SendType.Self, 45 /* Execute Lsi_Fldf_F */),
+                           new Job(SendType.SelfToUserInterface, "LSI_FLDF_F", 10 /* Actn_CalF_P */){Input = new XElement("Fighter", new XAttribute("showlist", "001"), new XAttribute("filtering", "cellphon"), new XAttribute("filter_value", aodt.CELL_PHON))}
+                        });
+                  _DefaultGateway.Gateway(_InteractWithScsc);
+               }
+            }
+            else
+            {
+               iScsc.UPD_AODT_P(aodt.AGOP_CODE, aodt.RWNO, aodt.AODT_AGOP_CODE, aodt.AODT_RWNO, fighs.FirstOrDefault().FILE_NO, aodt.RQST_RQID, aodt.ATTN_CODE, aodt.COCH_FILE_NO, aodt.REC_STAT, aodt.STAT, aodt.EXPN_CODE, aodt.MIN_MINT_STEP, aodt.STRT_TIME, aodt.END_TIME, aodt.EXPN_PRIC, aodt.EXPN_EXTR_PRCT, aodt.CUST_NAME, aodt.CELL_PHON, aodt.CASH_AMNT, aodt.POS_AMNT, aodt.NUMB, aodt.AODT_DESC, aodt.ATTN_TYPE, aodt.PYDS_AMNT, aodt.DPST_AMNT, aodt.BCDS_CODE);
+            }
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void ExpnEdit_Tsmi_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var aodt = AodtBs1.Current as Data.Aggregation_Operation_Detail;
+            if (aodt == null) return;
+
+            var expn = aodt.Expense;
+            expn.PRIC = Convert.ToInt32(ExpnPric_Tsmi.Text);
+            expn.MIN_TIME = DateTime.ParseExact(ExpnMinTime_Tsmi.Text, "hh:mm", System.Globalization.CultureInfo.CurrentCulture);
+
+            iScsc.SubmitChanges();
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void ExpnDup_Tsmi_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var aodt = AodtBs1.Current as Data.Aggregation_Operation_Detail;
+            if (aodt == null) return;
+
+            var expn = aodt.Expense;
+
+            iScsc.DUP_EXPN_P(
+               new XElement("Expense",
+                  new XAttribute("code", expn.CODE),
+                  new XAttribute("rqtpcode", expn.Expense_Type.Request_Requester.RQTP_CODE),
+                  new XAttribute("rqttcode", expn.Expense_Type.Request_Requester.RQTT_CODE),
+                  new XAttribute("desc", DupExpnDesc_Tsmi.Text),
+                  new XAttribute("pric", DupExpnPric_Tsmi.Text),
+                  new XAttribute("mintime", DupExpnMinTime_Tsmi.Text)
+               )
+            );
+
+            DupExpnPric_Tsmi.Text = DupExpnDesc_Tsmi.Text = DupExpnMinTime_Tsmi.Text = "";
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void NewExpn_Tsmi_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var aodt = AodtBs1.Current as Data.Aggregation_Operation_Detail;
+            if (aodt == null) return;
+
+            var expn = aodt.Expense;
+
+            iScsc.DUP_EXPN_P(
+               new XElement("Expense",
+                  new XAttribute("code", ""),
+                  new XAttribute("rqtpcode", expn.Expense_Type.Request_Requester.RQTP_CODE),
+                  new XAttribute("rqttcode", expn.Expense_Type.Request_Requester.RQTT_CODE),
+                  new XAttribute("desc", NewExpnDesc_Tsmi.Text),
+                  new XAttribute("pric", NewExpnPric_Tsmi.Text),
+                  new XAttribute("mintime", NewExpnMinTime_Tsmi.Text)
+               )
+            );
+
+            NewExpnPric_Tsmi.Text = NewExpnDesc_Tsmi.Text = NewExpnMinTime_Tsmi.Text = "";
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void FIGH_FILE_NOLookUpEdit_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
+      {
+         try
+         {
+            ServInfo2_Tsmi.Text = "نامشخص";
+            if (e.NewValue == null || e.NewValue.ToString() == "") return;
+
+            var figh = FighBs.List.OfType<Data.Fighter>().FirstOrDefault(f => f.FILE_NO == (long)e.NewValue);
+
+            ServInfo2_Tsmi.Text = figh.NAME_DNRM;
+            PayDebtAmnt2_Tsmi.Text = figh.DEBT_DNRM.ToString();
+         }
+         catch (Exception exc)
+         {
+            //MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void ServInfo1_Tsmi_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var aodt = AodtBs1.Current as Data.Aggregation_Operation_Detail;
+            if (aodt == null) return;
+
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost", "", 46, SendType.Self) { Input = new XElement("Fighter", new XAttribute("fileno", aodt.FIGH_FILE_NO)) }
+            );
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void ServEdit1_Tsmi_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var aodt = AodtBs1.Current as Data.Aggregation_Operation_Detail;
+            if (aodt == null) return;
+
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "Localhost",
+                  new List<Job>
+                  {
+                     new Job(SendType.Self, 70 /* Execute Adm_Chng_F */),
+                     new Job(SendType.SelfToUserInterface, "ADM_CHNG_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "changeinfo"), new XAttribute("fileno", aodt.FIGH_FILE_NO), new XAttribute("auto", "true"), new XAttribute("formcaller", GetType().Name))}
+                  })
+            );
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      #region پرداخت بدهی
+      private void PayCashDebt1_Tsmi_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var aodt = AodtBs1.Current as Data.Aggregation_Operation_Detail;
+
+            // اگر مشترکی وجود نداشته باشد
+            if (aodt == null) return;
+            // اگر مشتری بدهی نداشته باشد
+            if (aodt.Fighter.DEBT_DNRM == 0) return;
+            // اگر مشتری در فرآیندی قفل باشد اجازه پرداخت بدهی وجود ندارد
+            if (aodt.Fighter.FIGH_STAT == "001") return;
+
+            var paydebt = Convert.ToInt64(PayDebtAmnt1_Tsmi.Text.Replace(",", ""));
+            // مبلغ پرداخت بیشتر از مبلغ بدهی می باشد
+            if (paydebt > aodt.Fighter.DEBT_DNRM) return;
+
+            var vf_SavePayment =
+               iScsc.VF_Save_Payments(null, aodt.FIGH_FILE_NO)
+               .Where(p => ((p.SUM_EXPN_PRIC + p.SUM_EXPN_EXTR_PRCT) - (p.SUM_RCPT_EXPN_PRIC + p.SUM_PYMT_DSCN_DNRM)) > 0).OrderBy(p => p.PYMT_CRET_DATE.Value.Date);
+            foreach (var pymt in vf_SavePayment)
+            {
+               var debt = (long)((pymt.SUM_EXPN_PRIC + pymt.SUM_EXPN_EXTR_PRCT) - (pymt.SUM_RCPT_EXPN_PRIC + pymt.SUM_PYMT_DSCN_DNRM));
+               long amnt = 0;
+
+               if (debt > paydebt)
+                  // اگر بدهی صورتحساب بیشتر از مبلغ پرداخت مشتری باشد
+                  amnt = paydebt;
+               else
+                  // اگر بدهی صورتحساب با مبلغ پرداخت مشتری مساوی یا کمتر باشد
+                  amnt = debt;
+
+               iScsc.PAY_MSAV_P(
+                  new XElement("Payment",
+                     new XAttribute("actntype", "InsertUpdate"),
+                     new XElement("Insert",
+                        new XElement("Payment_Method",
+                           new XAttribute("cashcode", pymt.CASH_CODE),
+                           new XAttribute("rqstrqid", pymt.RQID),
+                           new XAttribute("amnt", amnt),
+                           new XAttribute("rcptmtod", "001"),
+                           new XAttribute("actndate", DateTime.Now.Date.ToString("yyyy-MM-dd"))
+                        )
+                     )
+                  )
+               );
+
+               paydebt -= amnt;
+               if (paydebt == 0) break;
+            }
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void PayPosDebt1_Tsmi_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var aodt = AodtBs1.Current as Data.Aggregation_Operation_Detail;
+
+            // اگر مشترکی وجود نداشته باشد
+            if (aodt == null) return;
+            // اگر مشتری بدهی نداشته باشد
+            if (aodt.Fighter.DEBT_DNRM == 0) return;
+            // اگر مشتری در فرآیندی قفل باشد اجازه پرداخت بدهی وجود ندارد
+            if (aodt.Fighter.FIGH_STAT == "001") return;
+
+            var paydebt = Convert.ToInt64(PayDebtAmnt1_Tsmi.Text.Replace(",", ""));
+            // مبلغ پرداخت بیشتر از مبلغ بدهی می باشد
+            if (paydebt > aodt.Fighter.DEBT_DNRM) return;
+
+            var vf_SavePayment =
+               iScsc.VF_Save_Payments(null, aodt.FIGH_FILE_NO)
+               .Where(p => ((p.SUM_EXPN_PRIC + p.SUM_EXPN_EXTR_PRCT) - (p.SUM_RCPT_EXPN_PRIC + p.SUM_PYMT_DSCN_DNRM)) > 0).OrderBy(p => p.PYMT_CRET_DATE.Value.Date);
+            foreach (var pymt in vf_SavePayment)
+            {
+               var debt = (long)((pymt.SUM_EXPN_PRIC + pymt.SUM_EXPN_EXTR_PRCT) - (pymt.SUM_RCPT_EXPN_PRIC + pymt.SUM_PYMT_DSCN_DNRM));
+               long amnt = 0;
+
+               if (debt > paydebt)
+                  // اگر بدهی صورتحساب بیشتر از مبلغ پرداخت مشتری باشد
+                  amnt = paydebt;
+               else
+                  // اگر بدهی صورتحساب با مبلغ پرداخت مشتری مساوی یا کمتر باشد
+                  amnt = debt;
+
+               iScsc.PAY_MSAV_P(
+                  new XElement("Payment",
+                     new XAttribute("actntype", "InsertUpdate"),
+                     new XElement("Insert",
+                        new XElement("Payment_Method",
+                           new XAttribute("cashcode", pymt.CASH_CODE),
+                           new XAttribute("rqstrqid", pymt.RQID),
+                           new XAttribute("amnt", amnt),
+                           new XAttribute("rcptmtod", "003"),
+                           new XAttribute("actndate", DateTime.Now.Date.ToString("yyyy-MM-dd"))
+                        )
+                     )
+                  )
+               );
+
+               paydebt -= amnt;
+               if (paydebt == 0) break;
+            }
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void PayDepositeDebt1_Tsmi_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var aodt = AodtBs1.Current as Data.Aggregation_Operation_Detail;
+
+            // اگر مشترکی وجود نداشته باشد
+            if (aodt == null) return;
+            // اگر مشتری بدهی نداشته باشد
+            if (aodt.Fighter.DEBT_DNRM == 0) return;
+            // اگر مشتری در فرآیندی قفل باشد اجازه پرداخت بدهی وجود ندارد
+            if (aodt.Fighter.FIGH_STAT == "001") return;
+
+            var paydebt = Convert.ToInt64(PayDebtAmnt1_Tsmi.Text.Replace(",", ""));
+            // مبلغ پرداخت بیشتر از مبلغ بدهی می باشد
+            if (paydebt > aodt.Fighter.DEBT_DNRM) return;
+            // اگر مبلغ پرداخت از مبلغ سپرده بیشتر باشد
+            if (paydebt > aodt.Fighter.DPST_AMNT_DNRM) return;
+
+            var vf_SavePayment =
+               iScsc.VF_Save_Payments(null, aodt.FIGH_FILE_NO)
+               .Where(p => ((p.SUM_EXPN_PRIC + p.SUM_EXPN_EXTR_PRCT) - (p.SUM_RCPT_EXPN_PRIC + p.SUM_PYMT_DSCN_DNRM)) > 0).OrderBy(p => p.PYMT_CRET_DATE.Value.Date);
+            foreach (var pymt in vf_SavePayment)
+            {
+               var debt = (long)((pymt.SUM_EXPN_PRIC + pymt.SUM_EXPN_EXTR_PRCT) - (pymt.SUM_RCPT_EXPN_PRIC + pymt.SUM_PYMT_DSCN_DNRM));
+               long amnt = 0;
+
+               if (debt > paydebt)
+                  // اگر بدهی صورتحساب بیشتر از مبلغ پرداخت مشتری باشد
+                  amnt = paydebt;
+               else
+                  // اگر بدهی صورتحساب با مبلغ پرداخت مشتری مساوی یا کمتر باشد
+                  amnt = debt;
+
+               iScsc.PAY_MSAV_P(
+                  new XElement("Payment",
+                     new XAttribute("actntype", "InsertUpdate"),
+                     new XElement("Insert",
+                        new XElement("Payment_Method",
+                           new XAttribute("cashcode", pymt.CASH_CODE),
+                           new XAttribute("rqstrqid", pymt.RQID),
+                           new XAttribute("amnt", amnt),
+                           new XAttribute("rcptmtod", "005"),
+                           new XAttribute("actndate", DateTime.Now.Date.ToString("yyyy-MM-dd"))
+                        )
+                     )
+                  )
+               );
+
+               paydebt -= amnt;
+               if (paydebt == 0) break;
+            }
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+      #endregion
+
+      #region افزایش سپرده
+      private void PayCashDepositeAmnt1_Tsmi_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var aodt = AodtBs1.Current as Data.Aggregation_Operation_Detail;
+            if (aodt == null) return;
+
+            // اگر مشتری در فرآیندی قفل باشد اجازه پرداخت بدهی وجود ندارد
+            if (aodt.Fighter.FIGH_STAT == "001") return;
+            var paydeposite = Convert.ToInt64(PayDepositeAmnt1_Tsmi.Text.Replace(",", ""));
+            if (paydeposite == 0) return;
+
+            iScsc.GLR_TRQT_P(
+               new XElement("Process",
+                  new XElement("Request",
+                     new XAttribute("rqid", 0),
+                     new XAttribute("mdulname", GetType().Name),
+                     new XAttribute("sctnname", GetType().Name.Substring(0, 3) + "_001_F"),
+                     new XElement("Request_Row",
+                        new XAttribute("fighfileno", aodt.FIGH_FILE_NO)
+                     ),
+                     new XElement("Gain_Loss_Rials",
+                        new XAttribute("glid", 0),
+                        new XAttribute("type", "002" /* روش جدید برای ذخیره سازی اطلاعات */),
+                        new XAttribute("amnt", paydeposite),
+                        new XAttribute("paiddate", ""),
+                        new XAttribute("dpststat", "002"),
+                        new XAttribute("resndesc", "افزایش سپرده در فرم کنترل میز"),
+                        new XElement("Gain_Loss_Rial_Detials",                           
+                           new XElement("Gain_Loss_Rial_Detial",
+                              new XAttribute("rwno", 1),
+                              new XAttribute("amnt", paydeposite),
+                              new XAttribute("rcptmtod", "001")
+                           )
+                        )
+                     )
+                  )
+               )
+            );
+
+            var Rqids = iScsc.VF_Requests(new XElement("Request"))
+                  .Where(rqst =>
+                        rqst.RQTP_CODE == "020" &&
+                        rqst.RQST_STAT == "001" &&
+                        rqst.RQTT_CODE == "004" &&
+                        rqst.CRET_BY == CurrentUser &&
+                        rqst.SUB_SYS == 1).Select(r => r.RQID).ToList();
+
+             var Rqst =
+               iScsc.Requests
+               .Where(
+                  rqst =>
+                     Rqids.Contains(rqst.RQID)
+               ).FirstOrDefault();
+
+            iScsc.GLR_TSAV_P(
+               new XElement("Process",
+                  new XElement("Request",
+                     new XAttribute("rqid", Rqst.RQID)
+                  )
+               )
+            );
+
+            PayDepositeAmnt1_Tsmi.Text = "0";
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void PayPosDepositeAmnt1_Tsmi_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var aodt = AodtBs1.Current as Data.Aggregation_Operation_Detail;
+            if (aodt == null) return;
+
+            // اگر مشتری در فرآیندی قفل باشد اجازه پرداخت بدهی وجود ندارد
+            if (aodt.Fighter.FIGH_STAT == "001") return;
+            var paydeposite = Convert.ToInt64(PayDepositeAmnt1_Tsmi.Text.Replace(",", ""));
+            if (paydeposite == 0) return;
+
+            iScsc.GLR_TRQT_P(
+               new XElement("Process",
+                  new XElement("Request",
+                     new XAttribute("rqid", 0),
+                     new XAttribute("mdulname", GetType().Name),
+                     new XAttribute("sctnname", GetType().Name.Substring(0, 3) + "_001_F"),
+                     new XElement("Request_Row",
+                        new XAttribute("fighfileno", aodt.FIGH_FILE_NO)
+                     ),
+                     new XElement("Gain_Loss_Rials",
+                        new XAttribute("glid", 0),
+                        new XAttribute("type", "002" /* روش جدید برای ذخیره سازی اطلاعات */),
+                        new XAttribute("amnt", paydeposite),
+                        new XAttribute("paiddate", ""),
+                        new XAttribute("dpststat", "002"),
+                        new XAttribute("resndesc", "افزایش سپرده در فرم کنترل میز"),
+                        new XElement("Gain_Loss_Rial_Detials",
+                           new XElement("Gain_Loss_Rial_Detial",
+                              new XAttribute("rwno", 1),
+                              new XAttribute("amnt", paydeposite),
+                              new XAttribute("rcptmtod", "003")
+                           )
+                        )
+                     )
+                  )
+               )
+            );
+
+            var Rqids = iScsc.VF_Requests(new XElement("Request"))
+                  .Where(rqst =>
+                        rqst.RQTP_CODE == "020" &&
+                        rqst.RQST_STAT == "001" &&
+                        rqst.RQTT_CODE == "004" &&
+                        rqst.CRET_BY == CurrentUser &&
+                        rqst.SUB_SYS == 1).Select(r => r.RQID).ToList();
+
+            var Rqst =
+              iScsc.Requests
+              .Where(
+                 rqst =>
+                    Rqids.Contains(rqst.RQID)
+              ).FirstOrDefault();
+
+            iScsc.GLR_TSAV_P(
+               new XElement("Process",
+                  new XElement("Request",
+                     new XAttribute("rqid", Rqst.RQID)
+                  )
+               )
+            );
+
+            PayDepositeAmnt1_Tsmi.Text = "0";
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+      #endregion
+
+      private void ServPymt1_Tsmi_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var aodt = AodtBs1.Current as Data.Aggregation_Operation_Detail;
+            if (aodt == null) return;
+
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost",
+                  new List<Job>
+                  {
+                     new Job(SendType.Self, 46 /* Execute All_Fldf_F */){
+                        Input = 
+                           new XElement("Fighter",
+                              new XAttribute("fileno", aodt.FIGH_FILE_NO)
+                           )
+                     },
+                     new Job(SendType.SelfToUserInterface, "ALL_FLDF_F", 10 /* Execute Actn_CalF_F*/ )
+                     {
+                        Input = 
+                        new XElement("Fighter",
+                           new XAttribute("fileno", aodt.FIGH_FILE_NO),
+                           new XAttribute("type", "refresh"),
+                           new XAttribute("tabfocued", "tp_003")
+                        )
+                     }
+                  })
+            );
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void SaveServ1_Tsmi_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            iScsc.BYR_TRQT_P(
+               new XElement("Process",
+                  new XElement("Request",
+                     new XAttribute("rqid", 0),
+                     new XAttribute("rqtpcode", "025"),
+                     new XAttribute("rqttcode", "004"),
+                     new XAttribute("prvncode", "017"),
+                     new XAttribute("regncode", "001"),
+                     new XElement("Fighter",
+                        new XAttribute("fileno", 0),
+                        new XElement("Frst_Name", FrstName1_Tsmi.Text),
+                        new XElement("Last_Name", LastName1_Tsmi.Text),
+                        new XElement("Fath_Name", ""),
+                        new XElement("Sex_Type", "001"),
+                        new XElement("Cell_Phon", CellPhon1_Tsmi.Text),
+                        new XElement("Type", "001"),
+                        new XElement("Fngr_Prnt", 
+                           iScsc.Fighters
+                            .Where(f => f.FNGR_PRNT_DNRM != null && f.FNGR_PRNT_DNRM.Length > 0)
+                            .Select(f => f.FNGR_PRNT_DNRM)
+                            .ToList()
+                            .Where(f => f.All(char.IsDigit))
+                            .Max(f => Convert.ToInt64(f)) + 1)
+                     ),
+                     new XElement("Member_Ship",
+                        new XAttribute("strtdate", DateTime.Now.ToString("yyyy-MM-dd")),
+                        new XAttribute("enddate", DateTime.Now.AddYears(120).ToString("yyyy-MM-dd"))
+                     )
+                  )
+               )
+            );
+
+            var Rqids = iScsc.VF_Requests(new XElement("Request"))
+                  .Where(rqst =>
+                        rqst.RQTP_CODE == "025" &&
+                        rqst.RQST_STAT == "001" &&
+                        rqst.RQTT_CODE == "004" &&
+                        rqst.CRET_BY == CurrentUser &&
+                        rqst.SUB_SYS == 1).Select(r => r.RQID).ToList();
+
+            var Rqst = 
+               iScsc.Requests
+               .Where(
+                  rqst =>
+                     Rqids.Contains(rqst.RQID)
+               ).FirstOrDefault();
+
+            iScsc.BYR_TSAV_F(
+                  new XElement("Process",
+                     new XElement("Request",
+                        new XAttribute("rqid", Rqst.RQID),
+                        new XAttribute("prvncode", Rqst.REGN_PRVN_CODE),
+                        new XAttribute("regncode", Rqst.REGN_CODE),
+                        new XElement("Fighter",
+                           new XAttribute("fileno", Rqst.Fighters.FirstOrDefault().FILE_NO)
+                        )
+                     )
+                  )
+               );
+
+            FrstName1_Tsmi.Text = LastName1_Tsmi.Text = CellPhon1_Tsmi.Text = "";
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      #region Service Popup Menu 2
+      private void ServInfo2_Tsmi_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var fileno = Figh_Lov.EditValue;
+            if (fileno == null) return;
+
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost", "", 46, SendType.Self) { Input = new XElement("Fighter", new XAttribute("fileno", fileno)) }
+            );
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void ServEdit2_Tsmi_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var fileno = Figh_Lov.EditValue;
+            if (fileno == null) return;
+
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "Localhost",
+                  new List<Job>
+                  {
+                     new Job(SendType.Self, 70 /* Execute Adm_Chng_F */),
+                     new Job(SendType.SelfToUserInterface, "ADM_CHNG_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "changeinfo"), new XAttribute("fileno", fileno), new XAttribute("auto", "true"), new XAttribute("formcaller", GetType().Name))}
+                  })
+            );
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      #region پرداخت بدهی قبلی
+      private void PayCashDebt2_Tsmi_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var fileno = Figh_Lov.EditValue;
+            if (fileno == null) return;
+
+            var figh = FighBs.List.OfType<Data.Fighter>().FirstOrDefault(f => f.FILE_NO == (long)fileno);
+
+            // اگر مشترکی وجود نداشته باشد
+            if (figh == null) return;
+            // اگر مشتری بدهی نداشته باشد
+            if (figh.DEBT_DNRM == 0) return;
+            // اگر مشتری در فرآیندی قفل باشد اجازه پرداخت بدهی وجود ندارد
+            if (figh.FIGH_STAT == "001") return;
+
+            var paydebt = Convert.ToInt64(PayDebtAmnt2_Tsmi.Text.Replace(",", ""));
+            // مبلغ پرداخت بیشتر از مبلغ بدهی می باشد
+            if (paydebt > figh.DEBT_DNRM) return;
+
+            var vf_SavePayment =
+               iScsc.VF_Save_Payments(null, figh.FILE_NO)
+               .Where(p => ((p.SUM_EXPN_PRIC + p.SUM_EXPN_EXTR_PRCT) - (p.SUM_RCPT_EXPN_PRIC + p.SUM_PYMT_DSCN_DNRM)) > 0).OrderBy(p => p.PYMT_CRET_DATE.Value.Date);
+            foreach (var pymt in vf_SavePayment)
+            {
+               var debt = (long)((pymt.SUM_EXPN_PRIC + pymt.SUM_EXPN_EXTR_PRCT) - (pymt.SUM_RCPT_EXPN_PRIC + pymt.SUM_PYMT_DSCN_DNRM));
+               long amnt = 0;
+
+               if (debt > paydebt)
+                  // اگر بدهی صورتحساب بیشتر از مبلغ پرداخت مشتری باشد
+                  amnt = paydebt;
+               else
+                  // اگر بدهی صورتحساب با مبلغ پرداخت مشتری مساوی یا کمتر باشد
+                  amnt = debt;
+
+               iScsc.PAY_MSAV_P(
+                  new XElement("Payment",
+                     new XAttribute("actntype", "InsertUpdate"),
+                     new XElement("Insert",
+                        new XElement("Payment_Method",
+                           new XAttribute("cashcode", pymt.CASH_CODE),
+                           new XAttribute("rqstrqid", pymt.RQID),
+                           new XAttribute("amnt", amnt),
+                           new XAttribute("rcptmtod", "001"),
+                           new XAttribute("actndate", DateTime.Now.Date.ToString("yyyy-MM-dd"))
+                        )
+                     )
+                  )
+               );
+
+               paydebt -= amnt;
+               if (paydebt == 0) break;
+            }
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void PayPosDebt2_Tsmi_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var fileno = Figh_Lov.EditValue;
+            if (fileno == null) return;
+
+            var figh = FighBs.List.OfType<Data.Fighter>().FirstOrDefault(f => f.FILE_NO == (long)fileno);
+
+            // اگر مشترکی وجود نداشته باشد
+            if (figh == null) return;
+            // اگر مشتری بدهی نداشته باشد
+            if (figh.DEBT_DNRM == 0) return;
+            // اگر مشتری در فرآیندی قفل باشد اجازه پرداخت بدهی وجود ندارد
+            if (figh.FIGH_STAT == "001") return;
+
+            var paydebt = Convert.ToInt64(PayDebtAmnt2_Tsmi.Text.Replace(",", ""));
+            // مبلغ پرداخت بیشتر از مبلغ بدهی می باشد
+            if (paydebt > figh.DEBT_DNRM) return;
+
+            var vf_SavePayment =
+               iScsc.VF_Save_Payments(null, figh.FILE_NO)
+               .Where(p => ((p.SUM_EXPN_PRIC + p.SUM_EXPN_EXTR_PRCT) - (p.SUM_RCPT_EXPN_PRIC + p.SUM_PYMT_DSCN_DNRM)) > 0).OrderBy(p => p.PYMT_CRET_DATE.Value.Date);
+            foreach (var pymt in vf_SavePayment)
+            {
+               var debt = (long)((pymt.SUM_EXPN_PRIC + pymt.SUM_EXPN_EXTR_PRCT) - (pymt.SUM_RCPT_EXPN_PRIC + pymt.SUM_PYMT_DSCN_DNRM));
+               long amnt = 0;
+
+               if (debt > paydebt)
+                  // اگر بدهی صورتحساب بیشتر از مبلغ پرداخت مشتری باشد
+                  amnt = paydebt;
+               else
+                  // اگر بدهی صورتحساب با مبلغ پرداخت مشتری مساوی یا کمتر باشد
+                  amnt = debt;
+
+               iScsc.PAY_MSAV_P(
+                  new XElement("Payment",
+                     new XAttribute("actntype", "InsertUpdate"),
+                     new XElement("Insert",
+                        new XElement("Payment_Method",
+                           new XAttribute("cashcode", pymt.CASH_CODE),
+                           new XAttribute("rqstrqid", pymt.RQID),
+                           new XAttribute("amnt", amnt),
+                           new XAttribute("rcptmtod", "003"),
+                           new XAttribute("actndate", DateTime.Now.Date.ToString("yyyy-MM-dd"))
+                        )
+                     )
+                  )
+               );
+
+               paydebt -= amnt;
+               if (paydebt == 0) break;
+            }
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void PayDepositeDebt2_Tsmi_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var fileno = Figh_Lov.EditValue;
+            if (fileno == null) return;
+
+            var figh = FighBs.List.OfType<Data.Fighter>().FirstOrDefault(f => f.FILE_NO == (long)fileno);
+
+            // اگر مشترکی وجود نداشته باشد
+            if (figh == null) return;
+            // اگر مشتری بدهی نداشته باشد
+            if (figh.DEBT_DNRM == 0) return;
+            // اگر مشتری در فرآیندی قفل باشد اجازه پرداخت بدهی وجود ندارد
+            if (figh.FIGH_STAT == "001") return;
+
+            var paydebt = Convert.ToInt64(PayDebtAmnt2_Tsmi.Text.Replace(",", ""));
+            // مبلغ پرداخت بیشتر از مبلغ بدهی می باشد
+            if (paydebt > figh.DEBT_DNRM) return;
+
+            var vf_SavePayment =
+               iScsc.VF_Save_Payments(null, figh.FILE_NO)
+               .Where(p => ((p.SUM_EXPN_PRIC + p.SUM_EXPN_EXTR_PRCT) - (p.SUM_RCPT_EXPN_PRIC + p.SUM_PYMT_DSCN_DNRM)) > 0).OrderBy(p => p.PYMT_CRET_DATE.Value.Date);
+            foreach (var pymt in vf_SavePayment)
+            {
+               var debt = (long)((pymt.SUM_EXPN_PRIC + pymt.SUM_EXPN_EXTR_PRCT) - (pymt.SUM_RCPT_EXPN_PRIC + pymt.SUM_PYMT_DSCN_DNRM));
+               long amnt = 0;
+
+               if (debt > paydebt)
+                  // اگر بدهی صورتحساب بیشتر از مبلغ پرداخت مشتری باشد
+                  amnt = paydebt;
+               else
+                  // اگر بدهی صورتحساب با مبلغ پرداخت مشتری مساوی یا کمتر باشد
+                  amnt = debt;
+
+               iScsc.PAY_MSAV_P(
+                  new XElement("Payment",
+                     new XAttribute("actntype", "InsertUpdate"),
+                     new XElement("Insert",
+                        new XElement("Payment_Method",
+                           new XAttribute("cashcode", pymt.CASH_CODE),
+                           new XAttribute("rqstrqid", pymt.RQID),
+                           new XAttribute("amnt", amnt),
+                           new XAttribute("rcptmtod", "005"),
+                           new XAttribute("actndate", DateTime.Now.Date.ToString("yyyy-MM-dd"))
+                        )
+                     )
+                  )
+               );
+
+               paydebt -= amnt;
+               if (paydebt == 0) break;
+            }
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+      #endregion
+
+      #region سپرده گذاری سیستم
+      private void PayCashDepositeAmnt2_Tsmi_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var fileno = Figh_Lov.EditValue;
+            if (fileno == null) return;
+
+            var figh = FighBs.List.OfType<Data.Fighter>().FirstOrDefault(f => f.FILE_NO == (long)fileno);
+
+            // اگر مشتری در فرآیندی قفل باشد اجازه پرداخت بدهی وجود ندارد
+            if (figh.FIGH_STAT == "001") return;
+            var paydeposite = Convert.ToInt64(PayDepositeAmnt2_Tsmi.Text.Replace(",", ""));
+            if (paydeposite == 0) return;
+
+            iScsc.GLR_TRQT_P(
+               new XElement("Process",
+                  new XElement("Request",
+                     new XAttribute("rqid", 0),
+                     new XAttribute("mdulname", GetType().Name),
+                     new XAttribute("sctnname", GetType().Name.Substring(0, 3) + "_001_F"),
+                     new XElement("Request_Row",
+                        new XAttribute("fighfileno", figh.FILE_NO)
+                     ),
+                     new XElement("Gain_Loss_Rials",
+                        new XAttribute("glid", 0),
+                        new XAttribute("type", "002" /* روش جدید برای ذخیره سازی اطلاعات */),
+                        new XAttribute("amnt", paydeposite),
+                        new XAttribute("paiddate", ""),
+                        new XAttribute("dpststat", "002"),
+                        new XAttribute("resndesc", "افزایش سپرده در فرم کنترل میز"),
+                        new XElement("Gain_Loss_Rial_Detials",
+                           new XElement("Gain_Loss_Rial_Detial",
+                              new XAttribute("rwno", 1),
+                              new XAttribute("amnt", paydeposite),
+                              new XAttribute("rcptmtod", "001")
+                           )
+                        )
+                     )
+                  )
+               )
+            );
+
+            var Rqids = iScsc.VF_Requests(new XElement("Request"))
+                  .Where(rqst =>
+                        rqst.RQTP_CODE == "020" &&
+                        rqst.RQST_STAT == "001" &&
+                        rqst.RQTT_CODE == "004" &&
+                        rqst.CRET_BY == CurrentUser &&
+                        rqst.SUB_SYS == 1).Select(r => r.RQID).ToList();
+
+            var Rqst =
+              iScsc.Requests
+              .Where(
+                 rqst =>
+                    Rqids.Contains(rqst.RQID)
+              ).FirstOrDefault();
+
+            iScsc.GLR_TSAV_P(
+               new XElement("Process",
+                  new XElement("Request",
+                     new XAttribute("rqid", Rqst.RQID)
+                  )
+               )
+            );
+
+            PayDepositeAmnt2_Tsmi.Text = "0";
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void PayPosDepositeAmnt2_Tsmi_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var fileno = Figh_Lov.EditValue;
+            if (fileno == null) return;
+
+            var figh = FighBs.List.OfType<Data.Fighter>().FirstOrDefault(f => f.FILE_NO == (long)fileno);
+
+            // اگر مشتری در فرآیندی قفل باشد اجازه پرداخت بدهی وجود ندارد
+            if (figh.FIGH_STAT == "001") return;
+            var paydeposite = Convert.ToInt64(PayDepositeAmnt2_Tsmi.Text.Replace(",", ""));
+            if (paydeposite == 0) return;
+
+            iScsc.GLR_TRQT_P(
+               new XElement("Process",
+                  new XElement("Request",
+                     new XAttribute("rqid", 0),
+                     new XAttribute("mdulname", GetType().Name),
+                     new XAttribute("sctnname", GetType().Name.Substring(0, 3) + "_001_F"),
+                     new XElement("Request_Row",
+                        new XAttribute("fighfileno", figh.FILE_NO)
+                     ),
+                     new XElement("Gain_Loss_Rials",
+                        new XAttribute("glid", 0),
+                        new XAttribute("type", "002" /* روش جدید برای ذخیره سازی اطلاعات */),
+                        new XAttribute("amnt", paydeposite),
+                        new XAttribute("paiddate", ""),
+                        new XAttribute("dpststat", "002"),
+                        new XAttribute("resndesc", "افزایش سپرده در فرم کنترل میز"),
+                        new XElement("Gain_Loss_Rial_Detials",
+                           new XElement("Gain_Loss_Rial_Detial",
+                              new XAttribute("rwno", 1),
+                              new XAttribute("amnt", paydeposite),
+                              new XAttribute("rcptmtod", "003")
+                           )
+                        )
+                     )
+                  )
+               )
+            );
+
+            var Rqids = iScsc.VF_Requests(new XElement("Request"))
+                  .Where(rqst =>
+                        rqst.RQTP_CODE == "020" &&
+                        rqst.RQST_STAT == "001" &&
+                        rqst.RQTT_CODE == "004" &&
+                        rqst.CRET_BY == CurrentUser &&
+                        rqst.SUB_SYS == 1).Select(r => r.RQID).ToList();
+
+            var Rqst =
+              iScsc.Requests
+              .Where(
+                 rqst =>
+                    Rqids.Contains(rqst.RQID)
+              ).FirstOrDefault();
+
+            iScsc.GLR_TSAV_P(
+               new XElement("Process",
+                  new XElement("Request",
+                     new XAttribute("rqid", Rqst.RQID)
+                  )
+               )
+            );
+
+            PayDepositeAmnt2_Tsmi.Text = "0";
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+      #endregion
+
+      private void ServPymt2_Tsmi_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var fileno = Figh_Lov.EditValue;
+            if (fileno == null) return;
+
+            var figh = FighBs.List.OfType<Data.Fighter>().FirstOrDefault(f => f.FILE_NO == (long)fileno);
+
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost",
+                  new List<Job>
+                  {
+                     new Job(SendType.Self, 46 /* Execute All_Fldf_F */){
+                        Input = 
+                           new XElement("Fighter",
+                              new XAttribute("fileno", figh.FILE_NO)
+                           )
+                     },
+                     new Job(SendType.SelfToUserInterface, "ALL_FLDF_F", 10 /* Execute Actn_CalF_F*/ )
+                     {
+                        Input = 
+                        new XElement("Fighter",
+                           new XAttribute("fileno", figh.FILE_NO),
+                           new XAttribute("type", "refresh"),
+                           new XAttribute("tabfocued", "tp_003")
+                        )
+                     }
+                  })
+            );
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void SaveServ2_Tsmi_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            iScsc.BYR_TRQT_P(
+               new XElement("Process",
+                  new XElement("Request",
+                     new XAttribute("rqid", 0),
+                     new XAttribute("rqtpcode", "025"),
+                     new XAttribute("rqttcode", "004"),
+                     new XAttribute("prvncode", "017"),
+                     new XAttribute("regncode", "001"),
+                     new XElement("Fighter",
+                        new XAttribute("fileno", 0),
+                        new XElement("Frst_Name", FrstName2_Tsmi.Text),
+                        new XElement("Last_Name", LastName2_Tsmi.Text),
+                        new XElement("Fath_Name", ""),
+                        new XElement("Sex_Type", "001"),
+                        new XElement("Cell_Phon", CellPhon2_Tsmi.Text),
+                        new XElement("Type", "001"),
+                        new XElement("Fngr_Prnt",
+                           iScsc.Fighters
+                            .Where(f => f.FNGR_PRNT_DNRM != null && f.FNGR_PRNT_DNRM.Length > 0)
+                            .Select(f => f.FNGR_PRNT_DNRM)
+                            .ToList()
+                            .Where(f => f.All(char.IsDigit))
+                            .Max(f => Convert.ToInt64(f)) + 1)
+                     ),
+                     new XElement("Member_Ship",
+                        new XAttribute("strtdate", DateTime.Now.ToString("yyyy-MM-dd")),
+                        new XAttribute("enddate", DateTime.Now.AddYears(120).ToString("yyyy-MM-dd"))
+                     )
+                  )
+               )
+            );
+
+            var Rqids = iScsc.VF_Requests(new XElement("Request"))
+                  .Where(rqst =>
+                        rqst.RQTP_CODE == "025" &&
+                        rqst.RQST_STAT == "001" &&
+                        rqst.RQTT_CODE == "004" &&
+                        rqst.CRET_BY == CurrentUser &&
+                        rqst.SUB_SYS == 1).Select(r => r.RQID).ToList();
+
+            var Rqst =
+               iScsc.Requests
+               .Where(
+                  rqst =>
+                     Rqids.Contains(rqst.RQID)
+               ).FirstOrDefault();
+
+            iScsc.BYR_TSAV_F(
+                  new XElement("Process",
+                     new XElement("Request",
+                        new XAttribute("rqid", Rqst.RQID),
+                        new XAttribute("prvncode", Rqst.REGN_PRVN_CODE),
+                        new XAttribute("regncode", Rqst.REGN_CODE),
+                        new XElement("Fighter",
+                           new XAttribute("fileno", Rqst.Fighters.FirstOrDefault().FILE_NO)
+                        )
+                     )
+                  )
+               );
+
+            FrstName2_Tsmi.Text = LastName2_Tsmi.Text = CellPhon2_Tsmi.Text = "";
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+      #endregion
+
+      private void ExpnBufeBs1_CurrentChanged(object sender, EventArgs e)
+      {
+         try
+         {
+            var expn = ExpnBufeBs1.Current as Data.Expense;
+            if (expn == null) return;
+
+            ExpnItem3_Tsmi.Text = ExpnDesc3_Tsmi.Text = expn.EXPN_DESC;
+            ExpnPric3_Tsmi.Text = expn.PRIC.ToString();
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void ExpnItem3_Tsmi_Click(object sender, EventArgs e)
+      {
+         AddItem_Butn_ButtonClick(null, null);
+         ExpnBufe_Gc.Focus();
+      }
+
+      private void ExpnEdit3_Tsmi_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var expn = ExpnBufeBs1.Current as Data.Expense;
+            if (expn == null) return;
+
+            expn.EXPN_DESC = ExpnDesc3_Tsmi.Text;
+            expn.PRIC = Convert.ToInt32(ExpnPric3_Tsmi.Text);
+
+            iScsc.SubmitChanges();
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void DupExpn3_Tsmi_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var expn = ExpnBufeBs1.Current as Data.Expense;
+            if (expn == null) return;
+
+            iScsc.DUP_EXPN_P(
+               new XElement("Expense",
+                  new XAttribute("code", expn.CODE),
+                  new XAttribute("rqtpcode", expn.Expense_Type.Request_Requester.RQTP_CODE),
+                  new XAttribute("rqttcode", expn.Expense_Type.Request_Requester.RQTT_CODE),
+                  new XAttribute("desc", DupExpnText3_Tsmi.Text),
+                  new XAttribute("pric", DupExpnPric3_Tsmi.Text)
+               )
+            );
+
+            DupExpnPric3_Tsmi.Text = DupExpnText3_Tsmi.Text = "";
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void OffExpn3_Tsmi_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var expn = ExpnBufeBs1.Current as Data.Expense;
+            if (expn == null) return;
+
+            expn.EXPN_STAT = "001";
+            iScsc.SubmitChanges();
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void NewExpn3_Tsmi_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var expn = ExpnBufeBs1.Current as Data.Expense;
+            if (expn == null) return;
+
+            iScsc.DUP_EXPN_P(
+               new XElement("Expense",
+                  new XAttribute("code", ""),
+                  new XAttribute("rqtpcode", expn.Expense_Type.Request_Requester.RQTP_CODE),
+                  new XAttribute("rqttcode", expn.Expense_Type.Request_Requester.RQTT_CODE),
+                  new XAttribute("desc", NewExpnText3_Tsmi.Text),
+                  new XAttribute("pric", NewExpnPric3_Tsmi.Text)
+               )
+            );
+
+            NewExpnPric3_Tsmi.Text = NewExpnText3_Tsmi.Text = "";
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void RecalcDesks_Tsmi_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var crntdesk = AodtBs1.Current as Data.Aggregation_Operation_Detail;
+            if (crntdesk == null) return;
+
+            var desks = AodtBs1.List.OfType<Data.Aggregation_Operation_Detail>().Where(d => d.STAT != "002");
+            int value = 100 / desks.Count();
+            RecalcDesk_Pgb.Visible = true;
+            RecalcDesk_Pgb.Value = 0;
+            foreach (var desk in desks)
+            {
+               AodtBs1.Position = AodtBs1.IndexOf(AodtBs1.List.OfType<Data.Aggregation_Operation_Detail>().FirstOrDefault(d => d.AGOP_CODE == desk.AGOP_CODE && d.RWNO == desk.RWNO));
+               CalcDesk_Butn_Click(null, null);
+               RecalcDesk_Pgb.Value += value;
+            }
+
+            RecalcDesk_Pgb.Value = 100;
+            AodtBs1.Position = AodtBs1.IndexOf(AodtBs1.List.OfType<Data.Aggregation_Operation_Detail>().FirstOrDefault(d => d.AGOP_CODE == crntdesk.AGOP_CODE && d.RWNO == crntdesk.RWNO));
+         }
+         catch (Exception exc)
+         {            
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            RecalcDesk_Pgb.Visible = false;
+         }
+      }
+
+      private void CloseDesk_Tsmi_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var crntdesk = AodtBs1.Current as Data.Aggregation_Operation_Detail;
+            if (crntdesk == null) return;
+
+            var desks = AodtBs1.List.OfType<Data.Aggregation_Operation_Detail>().Where(d => d.STAT != "002");
+            foreach (var desk in desks)
+            {
+               AodtBs1.Position = AodtBs1.IndexOf(AodtBs1.List.OfType<Data.Aggregation_Operation_Detail>().FirstOrDefault(d => d.AGOP_CODE == desk.AGOP_CODE && d.RWNO == desk.RWNO));
+               DeskClose_Butn_Click(null, null);
+            }
+
+            AodtBs1.Position = AodtBs1.IndexOf(AodtBs1.List.OfType<Data.Aggregation_Operation_Detail>().FirstOrDefault(d => d.AGOP_CODE == crntdesk.AGOP_CODE && d.RWNO == crntdesk.RWNO));
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         } 
+      }
+
+      private void AutoRecalc_Tsmi_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            switch (AutoRecalc_Tsmi.CheckState)
+            {
+               case CheckState.Checked:
+                  AutoRecalc_Tsmi.CheckState = CheckState.Unchecked;
+                  AutoRecalc_Tmr.Enabled = IntervalRecalc_Tsmi.Enabled = false;
+                  break;
+               case CheckState.Unchecked:
+                  AutoRecalc_Tsmi.CheckState = CheckState.Checked;
+                  AutoRecalc_Tmr.Interval = Convert.ToInt32(IntervalRecalc_Tsmi.Text) * 60000;
+                  AutoRecalc_Tmr.Enabled = IntervalRecalc_Tsmi.Enabled = true;                  
+                  break;
+            }
+         }
+         catch (Exception exc) { MessageBox.Show(exc.Message); }
+      }
+
+      private void PrintExpnStat_Tsmi_Click(object sender, EventArgs e)
+      {
+         switch(PrintExpnStat_Tsmi.CheckState)
+         {
+            case CheckState.Checked:
+               PrintExpnStat_Tsmi.CheckState = CheckState.Unchecked;
+               break;
+            case CheckState.Unchecked:
+               PrintExpnStat_Tsmi.CheckState = CheckState.Checked;
+               break;
          }
       }
    }

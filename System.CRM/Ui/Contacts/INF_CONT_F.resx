@@ -749,7 +749,7 @@
 </value>
   </data>
   <metadata name="MesgBs.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>113, 56</value>
+    <value>1058, 17</value>
   </metadata>
   <data name="colTime_Period_Message.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1224,19 +1224,19 @@
 </value>
   </data>
   <metadata name="RqstProjBs.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>396, 56</value>
+    <value>1341, 17</value>
   </metadata>
   <metadata name="ShidBs.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>505, 56</value>
+    <value>17, 56</value>
   </metadata>
   <metadata name="ShisBs.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>593, 56</value>
+    <value>105, 56</value>
   </metadata>
   <metadata name="SsttBs.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>768, 56</value>
+    <value>280, 56</value>
   </metadata>
   <metadata name="MsttBs.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>679, 56</value>
+    <value>191, 56</value>
   </metadata>
   <data name="labelControl12.Appearance.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1328,7 +1328,7 @@
 </value>
   </data>
   <metadata name="DPstgBs.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 56</value>
+    <value>962, 17</value>
   </metadata>
   <data name="colPYMT_STAG.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1439,22 +1439,22 @@
 </value>
   </data>
   <metadata name="DSxtpBs.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>852, 56</value>
+    <value>364, 56</value>
   </metadata>
   <metadata name="RegnBs.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 95</value>
+    <value>460, 56</value>
   </metadata>
   <metadata name="PrvnBs.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>109, 95</value>
+    <value>552, 56</value>
   </metadata>
   <metadata name="CntyBs.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>197, 95</value>
+    <value>640, 56</value>
   </metadata>
   <metadata name="DsdstBs.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>207, 56</value>
+    <value>1152, 17</value>
   </metadata>
   <metadata name="DsdrcBs.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>301, 56</value>
+    <value>1246, 17</value>
   </metadata>
   <data name="colSEND_DATE1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

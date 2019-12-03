@@ -1470,6 +1470,72 @@ namespace System.Scsc.Ui.MasterPage
                {
                   CardNumb_Text_Properties_ButtonClick(null, new DevExpress.XtraEditors.Controls.ButtonPressedEventArgs(CardNumb_Text.Properties.Buttons[4]));
                }
+               else if (AttnType_Lov.EditValue.ToString() == "006")
+               {
+                  string stat = "START"
+                        ,macadrs = "DEFAULT";
+
+                  if (iScsc.Aggregation_Operation_Details.Any(a => a.Fighter.FNGR_PRNT_DNRM == EnrollNumber && a.STRT_TIME.Value.Date == DateTime.Now.Date && (a.STAT != "002" && a.STAT != "003")))
+                     stat = "STOP";
+                  else
+                     stat = "START";
+
+                  #region Open Table Expense
+                  Job _GetAopBufeF =
+                     new Job(SendType.External, "localhost",
+                        new List<Job>
+                        {
+                           new Job(SendType.Self, 01 /* Execute GetUi */){Input = "aop_bufe_f"}
+                        }
+                     );
+                  _DefaultGateway.Gateway(_GetAopBufeF);
+
+                  if (_GetAopBufeF.Output != null)
+                  {
+                     if (frstVistTablCntlF)
+                     {
+                        _DefaultGateway.Gateway(
+                           new Job(SendType.External, "Localhost",
+                              new List<Job>
+                                 {
+                                    new Job(SendType.SelfToUserInterface, "AOP_BUFE_F", 10 /* Actn_CalF_P */){
+                                       Input = 
+                                          new XElement("Request", 
+                                             new XAttribute("type", "tp_001"),
+                                             new XAttribute("stat", stat),
+                                             new XAttribute("macadrs", macadrs),
+                                             new XAttribute("fngrprnt", EnrollNumber)
+                                          )
+                                    }
+                                 }
+                           )
+                        );
+                     }
+                     else
+                     {
+                        frstVistTablCntlF = true;
+                        _DefaultGateway.Gateway(
+                           new Job(SendType.External, "Localhost",
+                              new List<Job>
+                                 {
+                                    new Job(SendType.Self, 131 /* Execute Aop_Bufe_F */),
+                                    new Job(SendType.SelfToUserInterface, "AOP_BUFE_F", 10 /* Actn_CalF_P */){
+                                       Input = 
+                                          new XElement("Request", 
+                                             new XAttribute("type", "tp_001"),
+                                             new XAttribute("stat", stat),
+                                             new XAttribute("macadrs", macadrs),
+                                             new XAttribute("fngrprnt", EnrollNumber)
+                                          )
+                                    }
+                                 }
+                           )
+                        );
+                     }
+                  }
+                  #endregion
+                  
+               }
                return; 
             }
 

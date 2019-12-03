@@ -330,7 +330,7 @@ namespace System.Scsc.Ui.Organ
                .ForEach(c =>
                {
                   if (!BcdsBs1.List.OfType<Data.Basic_Calculate_Discount>().Any(b => b.Sub_Unit == bcds.Sub_Unit && b.RQTP_CODE == bcds.RQTP_CODE && b.RWNO != 0 && b.CTGY_CODE == c.CODE))
-                     iScsc.INS_BCDS_P(sunt.BUNT_DEPT_ORGN_CODE, sunt.BUNT_DEPT_CODE, sunt.BUNT_CODE, sunt.CODE, null, null, bcds.EPIT_CODE, bcds.RQTP_CODE, bcds.AMNT_DSCT, bcds.PRCT_DSCT, bcds.DSCT_TYPE, bcds.ACTN_TYPE, bcds.DSCT_DESC, bcds.FROM_DATE, bcds.TO_DATE, c.CODE);
+                     iScsc.INS_BCDS_P(sunt.BUNT_DEPT_ORGN_CODE, sunt.BUNT_DEPT_CODE, sunt.BUNT_CODE, sunt.CODE, null, null, bcds.EPIT_CODE, bcds.RQTP_CODE, bcds.RQTT_CODE, bcds.AMNT_DSCT, bcds.PRCT_DSCT, bcds.DSCT_TYPE, bcds.ACTN_TYPE, bcds.DSCT_DESC, bcds.FROM_DATE, bcds.TO_DATE, c.CODE);
                });
             requery = true;
          }

@@ -1277,21 +1277,48 @@ namespace System.Scsc.Ui.OtherIncome
       {
          try
          {
-            if (MessageBox.Show(this, "آیا با پاک کردن هزینه درخواست موافقید؟", "حذف هزینه", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+            //if (MessageBox.Show(this, "آیا با پاک کردن هزینه درخواست موافقید؟", "حذف هزینه", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+            ///* Do Delete Payment_Detail */
+            //var Crnt = PydtsBs1.Current as Data.Payment_Detail;
+            //var rqst = RqstBs1.Current as Data.Request;
+            //iScsc.DEL_SEXP_P(
+            //   new XElement("Request",
+            //      new XAttribute("rqid", rqst.RQID),
+            //      new XElement("Payment",
+            //         new XAttribute("cashcode", rqst.Payments.SingleOrDefault().CASH_CODE),
+            //         new XElement("Payment_Detail",
+            //            new XAttribute("code", Crnt.CODE)
+            //         )
+            //      )
+            //   )
+            //);
+
+
+            //if (MessageBox.Show(this, "آیا با پاک کردن هزینه درخواست موافقید؟", "حذف هزینه", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
             /* Do Delete Payment_Detail */
             var Crnt = PydtsBs1.Current as Data.Payment_Detail;
-            var rqst = RqstBs1.Current as Data.Request;
-            iScsc.DEL_SEXP_P(
-               new XElement("Request",
-                  new XAttribute("rqid", rqst.RQID),
-                  new XElement("Payment",
-                     new XAttribute("cashcode", rqst.Payments.SingleOrDefault().CASH_CODE),
-                     new XElement("Payment_Detail",
-                        new XAttribute("code", Crnt.CODE)
+            if (Crnt == null) return;
+            if (Crnt.QNTY > 1)
+            {
+               Crnt.QNTY--;
+               PydtsBs1.EndEdit();
+               iScsc.SubmitChanges();
+            }
+            else
+            {
+               var rqst = RqstBs1.Current as Data.Request;
+               iScsc.DEL_SEXP_P(
+                  new XElement("Request",
+                     new XAttribute("rqid", rqst.RQID),
+                     new XElement("Payment",
+                        new XAttribute("cashcode", rqst.Payments.SingleOrDefault().CASH_CODE),
+                        new XElement("Payment_Detail",
+                           new XAttribute("code", Crnt.CODE)
+                        )
                      )
                   )
-               )
-            );
+               );
+            }
             requery = true;
          }
          catch (Exception exc)
@@ -1719,6 +1746,606 @@ namespace System.Scsc.Ui.OtherIncome
 
                SaveExpn_Butn_Click(null, null);
             }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void SubmitExpiDate_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var pymt = PymtsBs1.Current as Data.Payment;
+            if (pymt == null || pymt.Payment_Details.Count == 0) return;
+
+            if (SlctAllPydt_Cb.Checked)
+            {
+               if (NumbDay_Txt.Text == "0" && NumbMonth_Txt.Text == "0")
+               {
+                  PydtsBs1.List.OfType<Data.Payment_Detail>().ToList().ForEach(pd => pd.EXPR_DATE = null);
+               }
+               else
+               {
+                  PydtsBs1.List.OfType<Data.Payment_Detail>().ToList().ForEach(pd => pd.EXPR_DATE = DateTime.Now.AddDays(Convert.ToDouble( NumbDay_Txt.Text)).AddMonths(Convert.ToInt32(NumbMonth_Txt.Text)));
+               }
+            }
+            else
+            {
+               var pydt = PydtsBs1.Current as Data.Payment_Detail;
+               if (pydt == null) return;
+               if (NumbDay_Txt.Text == "0" && NumbMonth_Txt.Text == "0")
+               {
+                  pydt.EXPR_DATE = null;
+               }
+               else
+               {
+                  pydt.EXPR_DATE = DateTime.Now.AddDays(Convert.ToDouble(NumbDay_Txt.Text)).AddMonths(Convert.ToInt32(NumbMonth_Txt.Text));
+               }
+            }
+
+            SaveExpn_Butn_Click(null, null);
+         }
+         catch ( Exception exp)
+         {
+            MessageBox.Show(exp.Message);
+         }
+      }
+
+      private void ExpnBs1_CurrentChanged(object sender, EventArgs e)
+      {
+         try
+         {
+            var expn = ExpnBs1.Current as Data.Expense;
+            if(expn == null) return;
+
+            ExpnItem_Tsmi.Text = ExpnDesc_Tsmi.Text = expn.EXPN_DESC;
+            ExpnPric_Tsmi.Text = expn.PRIC.ToString();            
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void ExpnItem_Tsmi_Click(object sender, EventArgs e)
+      {
+         AddItem_ButtonClick(null, null);
+         Expn_Gc.Focus();
+      }
+
+      private void ExpnEdit_Tsmi_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var expn = ExpnBs1.Current as Data.Expense;
+            if (expn == null) return;
+
+            expn.EXPN_DESC = ExpnDesc_Tsmi.Text;
+            expn.PRIC = Convert.ToInt32(ExpnPric_Tsmi.Text);
+
+            iScsc.SubmitChanges();
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void DupExpn_Tsmi_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var expn = ExpnBs1.Current as Data.Expense;
+            if (expn == null) return;
+
+            iScsc.DUP_EXPN_P(
+               new XElement("Expense",
+                  new XAttribute("code", expn.CODE),
+                  new XAttribute("rqtpcode", expn.Expense_Type.Request_Requester.RQTP_CODE),
+                  new XAttribute("rqttcode", expn.Expense_Type.Request_Requester.RQTT_CODE),
+                  new XAttribute("desc", DupExpnText_Tsmi.Text),
+                  new XAttribute("pric", DupExpnPric_Tsmi.Text)
+               )
+            );
+
+            DupExpnPric_Tsmi.Text = DupExpnText_Tsmi.Text = "";
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void OffExpn_Tsmi_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var expn = ExpnBs1.Current as Data.Expense;
+            if (expn == null) return;
+
+            expn.EXPN_STAT = "001";
+            iScsc.SubmitChanges();
+            requery = true;               
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if(requery)
+               Execute_Query();
+         }
+      }
+
+      private void NewExpn_Tsmi_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var expn = ExpnBs1.Current as Data.Expense;
+            if (expn == null) return;
+
+            iScsc.DUP_EXPN_P(
+               new XElement("Expense",
+                  new XAttribute("code", ""),
+                  new XAttribute("rqtpcode", expn.Expense_Type.Request_Requester.RQTP_CODE),
+                  new XAttribute("rqttcode", expn.Expense_Type.Request_Requester.RQTT_CODE),
+                  new XAttribute("desc", NewExpnText_Tsmi.Text),
+                  new XAttribute("pric", NewExpnPric_Tsmi.Text)
+               )
+            );
+
+            NewExpnPric_Tsmi.Text = NewExpnText_Tsmi.Text = "";
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void ServFind_Tsmi_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            ServFind_Tsmi.Text = "جستجوی مشتری";
+
+            var fighs = iScsc.Fighters.Where(f => f.CONF_STAT == "002" && f.ACTV_TAG_DNRM.CompareTo("101") >= 0 && f.CELL_PHON_DNRM.Contains(CellPhonFind_Tsmi.Text));
+            if(fighs.Count() == 0)
+               return;
+
+            if(fighs.Count() == 1)
+            {
+               ServFind_Tsmi.Text = string.Format("{0} : {1}", "جستجوی مشتری", fighs.FirstOrDefault().NAME_DNRM);
+
+               if(SaveAutoRqst_Tsmi.CheckState == CheckState.Checked)
+               {
+                  // Create Request for Service
+                  _DefaultGateway.Gateway(
+                     new Job(SendType.External, "Localhost",
+                        new List<Job>
+                        {                  
+                           new Job(SendType.Self, 92 /* Execute Oic_Totl_F */),
+                           new Job(SendType.SelfToUserInterface, "OIC_TOTL_F", 10 /* Execute Actn_CalF_F */){Input = new XElement("Request", new XAttribute("type", "01"), new XElement("Request_Row", new XAttribute("fileno", fighs.FirstOrDefault().FILE_NO)))}
+                        })
+                  );
+
+                  // اولین گام این هست که ببینیم آیا ما توانسته ایم برای مشترک درخواست درآمد متفرقه ثبت کنیم یا خیر
+                  fighs = iScsc.Fighters.Where(f => f.CONF_STAT == "002" && f.ACTV_TAG_DNRM.CompareTo("101") >= 0 && f.CELL_PHON_DNRM.Contains(CellPhonFind_Tsmi.Text));
+                  var figh = fighs.FirstOrDefault();
+                  if(!(figh.FIGH_STAT == "001" && figh.RQST_RQID != null && figh.Request.RQTP_CODE == "016" && figh.Request.RQTT_CODE == "001"))
+                  {
+                     MessageBox.Show("ثبت درخواست برای مشتری با مشکلی مواجه شده است، لطفا بررسی کنید");
+                     return;
+                  }
+
+                  // Find Request for Service
+                  RqstBs1.Position = RqstBs1.IndexOf(RqstBs1.List.OfType<Data.Request>().FirstOrDefault(r => r.Request_Rows.Any(rr => rr.Fighter.FILE_NO == fighs.FirstOrDefault().FILE_NO)));
+               }
+
+               // مبلغ بدهی مشتری
+               PayDebtAmnt2_Tsmi.Text = fighs.FirstOrDefault().DEBT_DNRM.ToString();
+
+               DebtMenu_Tsmi.Enabled = ServPymt_Tsmi.Enabled = true;
+            }
+            else
+            {
+               ServFind_Tsmi.Text = string.Format("{0} : {1} {2}", "جستجوی مشتری", fighs.Count(), "مشتری پیدا شد");
+               // مبلغ بدهی مشتری
+               PayDebtAmnt2_Tsmi.Text = "0";
+
+               DebtMenu_Tsmi.Enabled = ServPymt_Tsmi.Enabled = false;
+            }
+
+            Serv_Cms.Show();
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void SaveAutoRqst_Tsmi_Click(object sender, EventArgs e)
+      {
+         switch (SaveAutoRqst_Tsmi.CheckState)
+         {
+            case CheckState.Checked:
+               SaveAutoRqst_Tsmi.CheckState = CheckState.Unchecked;
+               break;
+            case CheckState.Unchecked:
+               SaveAutoRqst_Tsmi.CheckState = CheckState.Checked;
+               break;
+         }
+
+         Serv_Cms.Show();
+      }
+
+      private void FindResult_Tsmi_Click(object sender, EventArgs e)
+      {
+         Job _InteractWithScsc =
+            new Job(SendType.External, "Localhost",
+               new List<Job>
+               {                  
+                  new Job(SendType.Self, 45 /* Execute Lsi_Fldf_F */),
+                  new Job(SendType.SelfToUserInterface, "LSI_FLDF_F", 10 /* Actn_CalF_P */){Input = new XElement("Fighter", new XAttribute("showlist", "001"), new XAttribute("filtering", "cellphon"), new XAttribute("filter_value", CellPhonFind_Tsmi.Text))}
+               });
+         _DefaultGateway.Gateway(_InteractWithScsc);
+      }
+
+      #region پرداخت بدهی قبلی
+      private void PayCashDebt2_Tsmi_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var fileno = iScsc.Fighters.Where(f => f.CONF_STAT == "002" && f.ACTV_TAG_DNRM.CompareTo("101") >= 0 && f.CELL_PHON_DNRM.Contains(CellPhonFind_Tsmi.Text)).FirstOrDefault().FILE_NO;
+
+            var figh = FighBs1.List.OfType<Data.Fighter>().FirstOrDefault(f => f.FILE_NO == (long)fileno);
+
+            // اگر مشترکی وجود نداشته باشد
+            if (figh == null) return;
+            // اگر مشتری بدهی نداشته باشد
+            if (figh.DEBT_DNRM == 0) return;
+            // اگر مشتری در فرآیندی قفل باشد اجازه پرداخت بدهی وجود ندارد
+            //if (figh.FIGH_STAT == "001") return;
+
+            var paydebt = Convert.ToInt64(PayDebtAmnt2_Tsmi.Text.Replace(",", ""));
+            // مبلغ پرداخت بیشتر از مبلغ بدهی می باشد
+            if (paydebt > figh.DEBT_DNRM) return;
+
+            var vf_SavePayment =
+               iScsc.VF_Save_Payments(null, figh.FILE_NO)
+               .Where(p => ((p.SUM_EXPN_PRIC + p.SUM_EXPN_EXTR_PRCT) - (p.SUM_RCPT_EXPN_PRIC + p.SUM_PYMT_DSCN_DNRM)) > 0).OrderBy(p => p.PYMT_CRET_DATE.Value.Date);
+            foreach (var pymt in vf_SavePayment)
+            {
+               var debt = (long)((pymt.SUM_EXPN_PRIC + pymt.SUM_EXPN_EXTR_PRCT) - (pymt.SUM_RCPT_EXPN_PRIC + pymt.SUM_PYMT_DSCN_DNRM));
+               long amnt = 0;
+
+               if (debt > paydebt)
+                  // اگر بدهی صورتحساب بیشتر از مبلغ پرداخت مشتری باشد
+                  amnt = paydebt;
+               else
+                  // اگر بدهی صورتحساب با مبلغ پرداخت مشتری مساوی یا کمتر باشد
+                  amnt = debt;
+
+               iScsc.PAY_MSAV_P(
+                  new XElement("Payment",
+                     new XAttribute("actntype", "InsertUpdate"),
+                     new XElement("Insert",
+                        new XElement("Payment_Method",
+                           new XAttribute("cashcode", pymt.CASH_CODE),
+                           new XAttribute("rqstrqid", pymt.RQID),
+                           new XAttribute("amnt", amnt),
+                           new XAttribute("rcptmtod", "001"),
+                           new XAttribute("actndate", DateTime.Now.Date.ToString("yyyy-MM-dd"))
+                        )
+                     )
+                  )
+               );
+
+               paydebt -= amnt;
+               if (paydebt == 0) break;
+            }
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void PayPosDebt2_Tsmi_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var fileno = iScsc.Fighters.Where(f => f.CONF_STAT == "002" && f.ACTV_TAG_DNRM.CompareTo("101") >= 0 && f.CELL_PHON_DNRM.Contains(CellPhonFind_Tsmi.Text)).FirstOrDefault().FILE_NO;
+
+            var figh = FighBs1.List.OfType<Data.Fighter>().FirstOrDefault(f => f.FILE_NO == (long)fileno);
+
+            // اگر مشترکی وجود نداشته باشد
+            if (figh == null) return;
+            // اگر مشتری بدهی نداشته باشد
+            if (figh.DEBT_DNRM == 0) return;
+            // اگر مشتری در فرآیندی قفل باشد اجازه پرداخت بدهی وجود ندارد
+            //if (figh.FIGH_STAT == "001") return;
+
+            var paydebt = Convert.ToInt64(PayDebtAmnt2_Tsmi.Text.Replace(",", ""));
+            // مبلغ پرداخت بیشتر از مبلغ بدهی می باشد
+            if (paydebt > figh.DEBT_DNRM) return;
+
+            var vf_SavePayment =
+               iScsc.VF_Save_Payments(null, figh.FILE_NO)
+               .Where(p => ((p.SUM_EXPN_PRIC + p.SUM_EXPN_EXTR_PRCT) - (p.SUM_RCPT_EXPN_PRIC + p.SUM_PYMT_DSCN_DNRM)) > 0).OrderBy(p => p.PYMT_CRET_DATE.Value.Date);
+            foreach (var pymt in vf_SavePayment)
+            {
+               var debt = (long)((pymt.SUM_EXPN_PRIC + pymt.SUM_EXPN_EXTR_PRCT) - (pymt.SUM_RCPT_EXPN_PRIC + pymt.SUM_PYMT_DSCN_DNRM));
+               long amnt = 0;
+
+               if (debt > paydebt)
+                  // اگر بدهی صورتحساب بیشتر از مبلغ پرداخت مشتری باشد
+                  amnt = paydebt;
+               else
+                  // اگر بدهی صورتحساب با مبلغ پرداخت مشتری مساوی یا کمتر باشد
+                  amnt = debt;
+
+               iScsc.PAY_MSAV_P(
+                  new XElement("Payment",
+                     new XAttribute("actntype", "InsertUpdate"),
+                     new XElement("Insert",
+                        new XElement("Payment_Method",
+                           new XAttribute("cashcode", pymt.CASH_CODE),
+                           new XAttribute("rqstrqid", pymt.RQID),
+                           new XAttribute("amnt", amnt),
+                           new XAttribute("rcptmtod", "003"),
+                           new XAttribute("actndate", DateTime.Now.Date.ToString("yyyy-MM-dd"))
+                        )
+                     )
+                  )
+               );
+
+               paydebt -= amnt;
+               if (paydebt == 0) break;
+            }
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void PayDepositeDebt2_Tsmi_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var fileno = iScsc.Fighters.Where(f => f.CONF_STAT == "002" && f.ACTV_TAG_DNRM.CompareTo("101") >= 0 && f.CELL_PHON_DNRM.Contains(CellPhonFind_Tsmi.Text)).FirstOrDefault().FILE_NO;
+
+            var figh = FighBs1.List.OfType<Data.Fighter>().FirstOrDefault(f => f.FILE_NO == (long)fileno);
+
+            // اگر مشترکی وجود نداشته باشد
+            if (figh == null) return;
+            // اگر مشتری بدهی نداشته باشد
+            if (figh.DEBT_DNRM == 0) return;
+            // اگر مشتری در فرآیندی قفل باشد اجازه پرداخت بدهی وجود ندارد
+            //if (figh.FIGH_STAT == "001") return;
+
+            var paydebt = Convert.ToInt64(PayDebtAmnt2_Tsmi.Text.Replace(",", ""));
+            // مبلغ پرداخت بیشتر از مبلغ بدهی می باشد
+            if (paydebt > figh.DEBT_DNRM) return;
+
+            var vf_SavePayment =
+               iScsc.VF_Save_Payments(null, figh.FILE_NO)
+               .Where(p => ((p.SUM_EXPN_PRIC + p.SUM_EXPN_EXTR_PRCT) - (p.SUM_RCPT_EXPN_PRIC + p.SUM_PYMT_DSCN_DNRM)) > 0).OrderBy(p => p.PYMT_CRET_DATE.Value.Date);
+            foreach (var pymt in vf_SavePayment)
+            {
+               var debt = (long)((pymt.SUM_EXPN_PRIC + pymt.SUM_EXPN_EXTR_PRCT) - (pymt.SUM_RCPT_EXPN_PRIC + pymt.SUM_PYMT_DSCN_DNRM));
+               long amnt = 0;
+
+               if (debt > paydebt)
+                  // اگر بدهی صورتحساب بیشتر از مبلغ پرداخت مشتری باشد
+                  amnt = paydebt;
+               else
+                  // اگر بدهی صورتحساب با مبلغ پرداخت مشتری مساوی یا کمتر باشد
+                  amnt = debt;
+
+               iScsc.PAY_MSAV_P(
+                  new XElement("Payment",
+                     new XAttribute("actntype", "InsertUpdate"),
+                     new XElement("Insert",
+                        new XElement("Payment_Method",
+                           new XAttribute("cashcode", pymt.CASH_CODE),
+                           new XAttribute("rqstrqid", pymt.RQID),
+                           new XAttribute("amnt", amnt),
+                           new XAttribute("rcptmtod", "005"),
+                           new XAttribute("actndate", DateTime.Now.Date.ToString("yyyy-MM-dd"))
+                        )
+                     )
+                  )
+               );
+
+               paydebt -= amnt;
+               if (paydebt == 0) break;
+            }
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+      #endregion
+
+      private void SaveServ2_Tsmi_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            iScsc.BYR_TRQT_P(
+               new XElement("Process",
+                  new XElement("Request",
+                     new XAttribute("rqid", 0),
+                     new XAttribute("rqtpcode", "025"),
+                     new XAttribute("rqttcode", "004"),
+                     new XAttribute("prvncode", "017"),
+                     new XAttribute("regncode", "001"),
+                     new XElement("Fighter",
+                        new XAttribute("fileno", 0),
+                        new XElement("Frst_Name", FrstName2_Tsmi.Text),
+                        new XElement("Last_Name", LastName2_Tsmi.Text),
+                        new XElement("Fath_Name", ""),
+                        new XElement("Sex_Type", "001"),
+                        new XElement("Cell_Phon", CellPhon2_Tsmi.Text),
+                        new XElement("Type", "001"),
+                        new XElement("Fngr_Prnt",
+                           iScsc.Fighters
+                            .Where(f => f.FNGR_PRNT_DNRM != null && f.FNGR_PRNT_DNRM.Length > 0)
+                            .Select(f => f.FNGR_PRNT_DNRM)
+                            .ToList()
+                            .Where(f => f.All(char.IsDigit))
+                            .Max(f => Convert.ToInt64(f)) + 1)
+                     ),
+                     new XElement("Member_Ship",
+                        new XAttribute("strtdate", DateTime.Now.ToString("yyyy-MM-dd")),
+                        new XAttribute("enddate", DateTime.Now.AddYears(120).ToString("yyyy-MM-dd"))
+                     )
+                  )
+               )
+            );
+
+            var Rqids = iScsc.VF_Requests(new XElement("Request"))
+                  .Where(rqst =>
+                        rqst.RQTP_CODE == "025" &&
+                        rqst.RQST_STAT == "001" &&
+                        rqst.RQTT_CODE == "004" &&
+                        rqst.CRET_BY == CurrentUser &&
+                        rqst.SUB_SYS == 1).Select(r => r.RQID).ToList();
+
+            var Rqst =
+               iScsc.Requests
+               .Where(
+                  rqst =>
+                     Rqids.Contains(rqst.RQID)
+               ).FirstOrDefault();
+
+            iScsc.BYR_TSAV_F(
+                  new XElement("Process",
+                     new XElement("Request",
+                        new XAttribute("rqid", Rqst.RQID),
+                        new XAttribute("prvncode", Rqst.REGN_PRVN_CODE),
+                        new XAttribute("regncode", Rqst.REGN_CODE),
+                        new XElement("Fighter",
+                           new XAttribute("fileno", Rqst.Fighters.FirstOrDefault().FILE_NO)
+                        )
+                     )
+                  )
+               );
+
+            FrstName2_Tsmi.Text = LastName2_Tsmi.Text = CellPhon2_Tsmi.Text = "";
+
+            var figh = Rqst.Fighters.FirstOrDefault();
+
+            if (SaveAutoRqst_Tsmi.CheckState == CheckState.Checked)
+            {
+               // Create Request for Service
+               _DefaultGateway.Gateway(
+                  new Job(SendType.External, "Localhost",
+                     new List<Job>
+                        {                  
+                           new Job(SendType.Self, 92 /* Execute Oic_Totl_F */),
+                           new Job(SendType.SelfToUserInterface, "OIC_TOTL_F", 10 /* Execute Actn_CalF_F */){Input = new XElement("Request", new XAttribute("type", "01"), new XElement("Request_Row", new XAttribute("fileno", figh.FILE_NO)))}
+                        })
+               );
+
+               // اولین گام این هست که ببینیم آیا ما توانسته ایم برای مشترک درخواست درآمد متفرقه ثبت کنیم یا خیر
+               figh = iScsc.Fighters.Where(f => f.FILE_NO == figh.FILE_NO).FirstOrDefault();
+               if (!(figh.FIGH_STAT == "001" && figh.RQST_RQID != null && figh.Request.RQTP_CODE == "016" && figh.Request.RQTT_CODE == "001"))
+               {
+                  MessageBox.Show("ثبت درخواست برای مشتری با مشکلی مواجه شده است، لطفا بررسی کنید");
+                  return;
+               }
+
+               // Find Request for Service
+               RqstBs1.Position = RqstBs1.IndexOf(RqstBs1.List.OfType<Data.Request>().FirstOrDefault(r => r.Request_Rows.Any(rr => rr.Fighter.FILE_NO == figh.FILE_NO)));
+            }
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void ServPymt_Tsmi_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var fileno = iScsc.Fighters.Where(f => f.CONF_STAT == "002" && f.ACTV_TAG_DNRM.CompareTo("101") >= 0 && f.CELL_PHON_DNRM.Contains(CellPhonFind_Tsmi.Text)).FirstOrDefault().FILE_NO;
+
+            var figh = FighBs1.List.OfType<Data.Fighter>().FirstOrDefault(f => f.FILE_NO == (long)fileno);
+
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost",
+                  new List<Job>
+                  {
+                     new Job(SendType.Self, 46 /* Execute All_Fldf_F */){
+                        Input = 
+                           new XElement("Fighter",
+                              new XAttribute("fileno", figh.FILE_NO)
+                           )
+                     },
+                     new Job(SendType.SelfToUserInterface, "ALL_FLDF_F", 10 /* Execute Actn_CalF_F*/ )
+                     {
+                        Input = 
+                        new XElement("Fighter",
+                           new XAttribute("fileno", figh.FILE_NO),
+                           new XAttribute("type", "refresh"),
+                           new XAttribute("tabfocued", "tp_003")
+                        )
+                     }
+                  })
+            );
          }
          catch (Exception exc)
          {

@@ -20,6 +20,8 @@ namespace System.Scsc.Ui.AggregateOperation
       private List<long?> Fga_Uclb_U;
       //private long Rqid, FileNo;
       private bool isFirstLoaded = false;
+      private XElement HostNameInfo;
+      private string CurrentUser;
 
       public void SendRequest(Job job)
       {
@@ -129,9 +131,14 @@ namespace System.Scsc.Ui.AggregateOperation
          ConnectionString = GetConnectionString.Output.ToString();
          iScsc = new Data.iScscDataContext(GetConnectionString.Output.ToString());
 
+         var GetHostInfo = new Job(SendType.External, "Localhost", "Commons", 24 /* Execute DoWork4GetHosInfo */, SendType.Self);
+         _DefaultGateway.Gateway(GetHostInfo);
+         HostNameInfo = (XElement)GetHostInfo.Output;
+
          Fga_Uprv_U = iScsc.FGA_UPRV_U() ?? "";
          Fga_Urgn_U = iScsc.FGA_URGN_U() ?? "";
          Fga_Uclb_U = (iScsc.FGA_UCLB_U() ?? "").Split(',').Select(c => (long?)Int64.Parse(c)).ToList();
+         CurrentUser = iScsc.GET_CRNTUSER_U(new XElement("User", new XAttribute("actntype", "001")));
 
          _DefaultGateway.Gateway(
             new Job(SendType.External, "Localhost", "Commons", 08 /* Execute LangChangToFarsi */, SendType.Self)
@@ -218,10 +225,10 @@ namespace System.Scsc.Ui.AggregateOperation
       {
          if (!isFirstLoaded)
          {
-            DRcmtBs1.DataSource = iScsc.D_RCMTs.Where(c => c.VALU == "001" || c.VALU == "003");
+            DRcmtBs1.DataSource = iScsc.D_RCMTs.Where(c => c.VALU == "001" || c.VALU == "003" || c.VALU == "005");
             isFirstLoaded = true;
          }
-         FighBs.DataSource = iScsc.Fighters.Where(f => f.CONF_STAT == "002" && f.FGPB_TYPE_DNRM != "007" /*&& !f.NAME_DNRM.Contains("مشتری, جلسه ای")*/ && (Fga_Uclb_U.Contains(f.CLUB_CODE_DNRM) || (f.CLUB_CODE_DNRM == null ? f.Club_Methods.Where(cb => Fga_Uclb_U.Contains(cb.CLUB_CODE)).Any() : false)) && Convert.ToInt32(f.ACTV_TAG_DNRM ?? "101") >= 101);
+         //FighBs.DataSource = iScsc.Fighters.Where(f => f.CONF_STAT == "002" && f.FGPB_TYPE_DNRM != "007" /*&& !f.NAME_DNRM.Contains("مشتری, جلسه ای")*/ && (Fga_Uclb_U.Contains(f.CLUB_CODE_DNRM) || (f.CLUB_CODE_DNRM == null ? f.Club_Methods.Where(cb => Fga_Uclb_U.Contains(cb.CLUB_CODE)).Any() : false)) && Convert.ToInt32(f.ACTV_TAG_DNRM ?? "101") >= 101);
          VPosBs1.DataSource = iScsc.V_Pos_Devices;
          job.Status = StatusType.Successful;
       }
@@ -252,11 +259,21 @@ namespace System.Scsc.Ui.AggregateOperation
          else
             macadrs = null;
 
+         if (xinput.Attribute("fngrprnt") != null)
+            fngrprnt = xinput.Attribute("fngrprnt").Value;
+         else
+            fngrprnt = null;
+
          Execute_Query();
+
+         #region Set FileNo In Lookup
+         if (fngrprnt != null)
+            Figh_Lov.EditValue = FighBs.List.OfType<Data.Fighter>().FirstOrDefault(f => f.FNGR_PRNT_DNRM == fngrprnt && f.CONF_STAT == "002").FILE_NO;
+         #endregion
 
          #region Device Input
          if (stat != null)
-         {
+         {            
             if (!AgopBs1.List.OfType<Data.Aggregation_Operation>().Any(a => a.FROM_DATE.Value.Date == DateTime.Now.Date))
             {
                AgopBs1.AddNew();
@@ -298,7 +315,10 @@ namespace System.Scsc.Ui.AggregateOperation
                switch (stat)
                {
                   case "START":
-                     if(AodtBs1.List.OfType<Data.Aggregation_Operation_Detail>().Any(a => a.EXPN_CODE == expn.CODE && a.STAT == "001"))
+                     if( 
+                         (fngrprnt != null && AodtBs1.List.OfType<Data.Aggregation_Operation_Detail>().Any(a => a.EXPN_CODE == expn.CODE && a.STAT == "001" && a.Fighter.FNGR_PRNT_DNRM == fngrprnt)) ||
+                         (fngrprnt == null && AodtBs1.List.OfType<Data.Aggregation_Operation_Detail>().Any(a => a.EXPN_CODE == expn.CODE && a.STAT == "001"))
+                       )
                      {
                         int lastPosition = AodtBs1.Position;
                         var filterType = AllRcrd_Lbl.Tag;
@@ -313,14 +333,33 @@ namespace System.Scsc.Ui.AggregateOperation
                      }
                      else
                      {
+                        bool visited = false;
+                        if (fngrprnt != null && ExpnDesk_GridLookUpEdit.Properties.Buttons[1].Tag.ToString() == "auto")
+                        {
+                           visited = true;
+                           ExpnDesk_GridLookUpEdit_ButtonClick(null, new DevExpress.XtraEditors.Controls.ButtonPressedEventArgs(ExpnDesk_GridLookUpEdit.Properties.Buttons[1]));
+                        }
+
                         ExpnDesk_GridLookUpEdit.EditValue = expn.CODE;
                         OpenDesk_Butn_Click(null, null);
+                        
+                        if(visited)
+                        {
+                           visited = false;
+                           ExpnDesk_GridLookUpEdit_ButtonClick(null, new DevExpress.XtraEditors.Controls.ButtonPressedEventArgs(ExpnDesk_GridLookUpEdit.Properties.Buttons[1]));
+                        }
                      }
                      break;
                   case "STOP":
-                     if (AodtBs1.List.OfType<Data.Aggregation_Operation_Detail>().Any(a => a.EXPN_CODE == expn.CODE && a.STAT == "001"))
+                     if (
+                           (fngrprnt != null && (AodtBs1.List.OfType<Data.Aggregation_Operation_Detail>().Any(a => a.EXPN_CODE == expn.CODE && a.STAT == "001" && a.Fighter.FNGR_PRNT_DNRM == fngrprnt))) ||
+                           (fngrprnt == null && (AodtBs1.List.OfType<Data.Aggregation_Operation_Detail>().Any(a => a.EXPN_CODE == expn.CODE && a.STAT == "001")))
+                        )
                      {
-                        AodtBs1.Position = AodtBs1.IndexOf(AodtBs1.List.OfType<Data.Aggregation_Operation_Detail>().FirstOrDefault(a => a.EXPN_CODE == expn.CODE && a.STAT == "001"));
+                        if(fngrprnt == null)
+                           AodtBs1.Position = AodtBs1.IndexOf(AodtBs1.List.OfType<Data.Aggregation_Operation_Detail>().FirstOrDefault(a => a.EXPN_CODE == expn.CODE && a.STAT == "001"));
+                        else
+                           AodtBs1.Position = AodtBs1.IndexOf(AodtBs1.List.OfType<Data.Aggregation_Operation_Detail>().FirstOrDefault(a => a.EXPN_CODE == expn.CODE && a.STAT == "001" && a.Fighter.FNGR_PRNT_DNRM == fngrprnt));
                         DeskClose_Butn_Click(null, null);
                      }
                      break;

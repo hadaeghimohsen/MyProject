@@ -510,6 +510,21 @@ namespace System.Scsc.Ui.Common
                break;
          }
 
+         // 1398/08/24 * اعمال فیلترینگ بر روی داده ها
+         if(x.Attribute("filtering") != null)
+         {
+            switch (x.Attribute("filtering").Value)
+            {
+               case "cellphon":
+                  CellPhon_Txt.Text = x.Attribute("filter_value").Value;
+                  break;
+               default:
+                  break;
+            }
+            Search_Butn_Click(null, null);
+         }
+
+
       }
 
       /// <summary>

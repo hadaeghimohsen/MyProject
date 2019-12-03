@@ -329,12 +329,21 @@ namespace System.Scsc.Ui.Settings
       /// <param name="job"></param>
       private new void Paint(Job job)
       {
+         //Job _Paint = new Job(SendType.External, "Desktop",
+         //   new List<Job>
+         //   {
+         //      //new Job(SendType.SelfToUserInterface, "Wall", 20 /* Execute ResetUiWithoutEnabled */),
+         //      new Job(SendType.SelfToUserInterface, "Wall", 15 /* Execute Push */) {  Input = new List<object> { string.Format("Scsc:{0}", this.GetType().Name), this }  },
+         //      new Job(SendType.SelfToUserInterface, "MAIN_PAGE_F", 08 /* Execute PostOnWall */) {  Input = this }               
+         //   });
+         //_DefaultGateway.Gateway(_Paint);
+
          Job _Paint = new Job(SendType.External, "Desktop",
             new List<Job>
             {
-               //new Job(SendType.SelfToUserInterface, "Wall", 20 /* Execute ResetUiWithoutEnabled */),
+               new Job(SendType.SelfToUserInterface, "Wall", 17 /* Execute ResetUi */),
                new Job(SendType.SelfToUserInterface, "Wall", 15 /* Execute Push */) {  Input = new List<object> { string.Format("Scsc:{0}", this.GetType().Name), this }  },
-               new Job(SendType.SelfToUserInterface, "MAIN_PAGE_F", 08 /* Execute PostOnWall */) {  Input = this }               
+               new Job(SendType.SelfToUserInterface, "Wall", 00 /* Execute PastManualOnWall */) {  Input = new List<object> { this, "left:in-screen:stretch:center" } }               
             });
          _DefaultGateway.Gateway(_Paint);
 
@@ -348,15 +357,20 @@ namespace System.Scsc.Ui.Settings
       /// <param name="job"></param>
       private void UnPaint(Job job)
       {
-         _DefaultGateway.Gateway(
-            new Job(SendType.External, "Localhost",
-               new List<Job>
-               {
-                  new Job(SendType.SelfToUserInterface, "Wall", 16 /* Execute Pop */),
-                  new Job(SendType.SelfToUserInterface, "MAIN_PAGE_F", 09 /* Execute TakeOnWall */){Input = this},
-                  //new Job(SendType.SelfToUserInterface, "Wall", 20 /* Execute ResetUiWithoutEnabled */)
-               })
-            );
+         //_DefaultGateway.Gateway(
+         //   new Job(SendType.External, "Localhost",
+         //      new List<Job>
+         //      {
+         //         new Job(SendType.SelfToUserInterface, "Wall", 16 /* Execute Pop */),
+         //         new Job(SendType.SelfToUserInterface, "MAIN_PAGE_F", 09 /* Execute TakeOnWall */){Input = this},
+         //         //new Job(SendType.SelfToUserInterface, "Wall", 20 /* Execute ResetUiWithoutEnabled */)
+         //      })
+         //   );
+
+         job.Next =
+            new Job(SendType.SelfToUserInterface, "Wall", 16 /* Execute Pop */,
+               new Job(SendType.SelfToUserInterface, "Wall", 02 /* Execute RemoveFromWall */,
+                  new Job(SendType.SelfToUserInterface, "Wall", 17 /* Execute ResetUi */)) { Input = this });
 
          job.Status = StatusType.Successful;
       }

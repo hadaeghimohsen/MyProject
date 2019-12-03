@@ -434,6 +434,7 @@ namespace System.Scsc.Ui.Regulation
                   b =>
                      b.Regulation == expn.Regulation &&
                      b.RQTP_CODE == rqtpcode &&
+                     b.RQTT_CODE == expn.Expense_Type.Request_Requester.RQTT_CODE &&
                      b.Category_Belt == expn.Category_Belt &&
                      b.Expense_Item == expn.Expense_Type.Expense_Item
                );
@@ -505,6 +506,7 @@ namespace System.Scsc.Ui.Regulation
             bcds.CTGY_CODE = expn.CTGY_CODE;
             bcds.MTOD_CODE = expn.MTOD_CODE;
             bcds.RQTP_CODE = rqtpcode;
+            bcds.RQTT_CODE = expn.Expense_Type.Request_Requester.RQTT_CODE;
             bcds.EPIT_CODE = expn.Expense_Type.EPIT_CODE;
 
             iScsc.Basic_Calculate_Discounts.InsertOnSubmit(bcds);

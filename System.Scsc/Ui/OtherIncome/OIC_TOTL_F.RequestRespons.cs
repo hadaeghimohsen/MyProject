@@ -488,6 +488,16 @@ namespace System.Scsc.Ui.OtherIncome
 
                   Btn_RqstBnARqt1_Click(null, null);
 
+                  // اولین گام این هست که ببینیم آیا ما توانسته ایم برای مشترک درخواست درآمد متفرقه ثبت کنیم یا خیر
+                  var fg = iScsc.Fighters.FirstOrDefault(f => f.FILE_NO == Convert.ToInt64(fileno));
+                  if (!(fg.FIGH_STAT == "001" && fg.RQST_RQID != null && fg.Request.RQTP_CODE == "016" && fg.Request.RQTT_CODE == "001"))
+                  {
+                     MessageBox.Show("ثبت درخواست برای مشتری با مشکلی مواجه شده است، لطفا بررسی کنید");
+                     return;
+                  }
+                  // 1398/09/07 * پیدا کردن درخواست برای مشتری
+                  RqstBs1.Position = RqstBs1.IndexOf(RqstBs1.List.OfType<Data.Request>().FirstOrDefault(r => r.Request_Rows.Any(rr => rr.Fighter.FILE_NO == Convert.ToInt64(fileno))));
+
                   // 1397/05/16
                   if (xinput.Attribute("formcaller") != null)
                      formCaller = xinput.Attribute("formcaller").Value;

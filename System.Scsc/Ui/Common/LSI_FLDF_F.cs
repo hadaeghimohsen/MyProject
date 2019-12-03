@@ -939,7 +939,7 @@ namespace System.Scsc.Ui.Common
             // اگر مشتری بدهی نداشته باشد
             if (figh.DEBT_DNRM == 0) return;
             // اگر مشتری در فرآیندی قفل باشد اجازه پرداخت بدهی وجود ندارد
-            if (figh.FIGH_STAT == "001") return;
+            //if (figh.FIGH_STAT == "001") return;
 
             var paydebt = Convert.ToInt64(PayDebtAmnt_Txt.Text.Replace(",", ""));
             // مبلغ پرداخت بیشتر از مبلغ بدهی می باشد
@@ -983,6 +983,10 @@ namespace System.Scsc.Ui.Common
          {
             MessageBox.Show(exc.Message);
          }
+         finally
+         {
+            Search_Butn_Click(null, null);
+         }
       }
 
       private void PayPosDebt_Butn_Click(object sender, EventArgs e)
@@ -995,7 +999,7 @@ namespace System.Scsc.Ui.Common
             // اگر مشتری بدهی نداشته باشد
             if (figh.DEBT_DNRM == 0) return;
             // اگر مشتری در فرآیندی قفل باشد اجازه پرداخت بدهی وجود ندارد
-            if (figh.FIGH_STAT == "001") return;
+            //if (figh.FIGH_STAT == "001") return;
 
             var paydebt = Convert.ToInt64(PayDebtAmnt_Txt.Text.Replace(",", ""));
             // مبلغ پرداخت بیشتر از مبلغ بدهی می باشد
@@ -1106,6 +1110,71 @@ namespace System.Scsc.Ui.Common
          catch (Exception exc)
          {
             MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            Search_Butn_Click(null, null);
+         }
+      }
+
+      private void PayDepositeDebt_Tsmi_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var figh = vF_Fighs.Current as Data.VF_Last_Info_FighterResult;
+
+            // اگر مشترکی وجود نداشته باشد
+            if (figh == null) return;
+            // اگر مشتری بدهی نداشته باشد
+            if (figh.DEBT_DNRM == 0) return;
+            // اگر مشتری در فرآیندی قفل باشد اجازه پرداخت بدهی وجود ندارد
+            //if (figh.FIGH_STAT == "001") return;
+
+            var paydebt = Convert.ToInt64(PayDebtAmnt_Txt.Text.Replace(",", ""));
+            // مبلغ پرداخت بیشتر از مبلغ بدهی می باشد
+            if (paydebt > figh.DEBT_DNRM) return;
+
+            var vf_SavePayment =
+               iScsc.VF_Save_Payments(null, figh.FILE_NO)
+               .Where(p => ((p.SUM_EXPN_PRIC + p.SUM_EXPN_EXTR_PRCT) - (p.SUM_RCPT_EXPN_PRIC + p.SUM_PYMT_DSCN_DNRM)) > 0).OrderBy(p => p.PYMT_CRET_DATE.Value.Date);
+            foreach (var pymt in vf_SavePayment)
+            {
+               var debt = (long)((pymt.SUM_EXPN_PRIC + pymt.SUM_EXPN_EXTR_PRCT) - (pymt.SUM_RCPT_EXPN_PRIC + pymt.SUM_PYMT_DSCN_DNRM));
+               long amnt = 0;
+
+               if (debt > paydebt)
+                  // اگر بدهی صورتحساب بیشتر از مبلغ پرداخت مشتری باشد
+                  amnt = paydebt;
+               else
+                  // اگر بدهی صورتحساب با مبلغ پرداخت مشتری مساوی یا کمتر باشد
+                  amnt = debt;
+
+               iScsc.PAY_MSAV_P(
+                  new XElement("Payment",
+                     new XAttribute("actntype", "InsertUpdate"),
+                     new XElement("Insert",
+                        new XElement("Payment_Method",
+                           new XAttribute("cashcode", pymt.CASH_CODE),
+                           new XAttribute("rqstrqid", pymt.RQID),
+                           new XAttribute("amnt", amnt),
+                           new XAttribute("rcptmtod", "005"),
+                           new XAttribute("actndate", DateTime.Now.Date.ToString("yyyy-MM-dd"))
+                        )
+                     )
+                  )
+               );
+
+               paydebt -= amnt;
+               if (paydebt == 0) break;
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            Search_Butn_Click(null, null);
          }
       }      
 

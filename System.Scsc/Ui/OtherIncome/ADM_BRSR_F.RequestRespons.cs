@@ -20,6 +20,7 @@ namespace System.Scsc.Ui.OtherIncome
       private List<long?> Fga_Uclb_U;
       private string formCaller;
       private bool isFirstLoaded = false;
+      private string CurrentUser;
 
 
       public void SendRequest(Job job)
@@ -181,6 +182,7 @@ namespace System.Scsc.Ui.OtherIncome
          Fga_Uprv_U = iScsc.FGA_UPRV_U() ?? "";
          Fga_Urgn_U = iScsc.FGA_URGN_U() ?? "";
          Fga_Uclb_U = (iScsc.FGA_UCLB_U() ?? "").Split(',').Select(c => (long?)Int64.Parse(c)).ToList();
+         CurrentUser = iScsc.GET_CRNTUSER_U(new XElement("User", new XAttribute("actntype", "001")));
 
          _DefaultGateway.Gateway(
             new Job(SendType.External, "Localhost", "Commons", 08 /* Execute LangChangToFarsi */, SendType.Self)

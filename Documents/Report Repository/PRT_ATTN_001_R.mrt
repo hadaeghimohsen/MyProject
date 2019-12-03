@@ -9,10 +9,10 @@
         <Name>iScsc</Name>
       </iScsc>
     </Databases>
-    <DataSources isList="true" count="1">
+    <DataSources isList="true" count="2">
       <Attendance Ref="3" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
         <Alias>Attendance</Alias>
-        <Columns isList="true" count="13">
+        <Columns isList="true" count="14">
           <value>NAME_DNRM,System.String</value>
           <value>FNGR_PRNT_DNRM,System.String</value>
           <value>DEBT_DNRM,System.Int64</value>
@@ -26,13 +26,14 @@
           <value>COCH_NAME_DNRM,System.String</value>
           <value>CRET_BY,System.String</value>
           <value>RMND_ATTN_MONT,System.Int32</value>
+          <value>CLUB_CODE,System.Int64</value>
         </Columns>
         <CommandTimeout>30</CommandTimeout>
         <Dictionary isRef="1" />
         <Name>Attendance</Name>
         <NameInSource>iScsc</NameInSource>
         <Parameters isList="true" count="0" />
-        <SqlCommand>SELECT a.NAME_DNRM, A.FNGR_PRNT_DNRM, A.DEBT_DNRM, A.NUMB_OF_ATTN_MONT,
+        <SqlCommand>SELECT a.CLUB_CODE, a.NAME_DNRM, A.FNGR_PRNT_DNRM, A.DEBT_DNRM, A.NUMB_OF_ATTN_MONT,
   A.SUM_ATTN_MONT_DNRM, A.ENTR_TIME, DBO.GET_MTOS_U(A.ATTN_DATE) AS ATTN_DATE,
   M.MTOD_DESC, CB.CTGY_DESC, DBO.GET_MTOS_U(A.MBSP_END_DATE_DNRM) AS
   MBSP_END_DATE, CO.NAME_DNRM AS COCH_NAME_DNRM,
@@ -45,8 +46,54 @@ FROM Attendance a INNER JOIN
 WHERE {WhereClause}
 </SqlCommand>
       </Attendance>
+      <Club Ref="4" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
+        <Alias>Club</Alias>
+        <Columns isList="true" count="20">
+          <value>REGN_PRVN_CNTY_CODE,System.String</value>
+          <value>REGN_PRVN_CODE,System.String</value>
+          <value>REGN_CODE,System.String</value>
+          <value>CODE,System.Int64</value>
+          <value>NAME,System.String</value>
+          <value>POST_ADRS,System.String</value>
+          <value>EMAL_ADRS,System.String</value>
+          <value>WEB_SITE,System.String</value>
+          <value>CORD_X,System.Double</value>
+          <value>CORD_Y,System.Double</value>
+          <value>TELL_PHON,System.String</value>
+          <value>CELL_PHON,System.String</value>
+          <value>CLUB_CODE,System.Int64</value>
+          <value>ZIP_CODE,System.String</value>
+          <value>ECON_CODE,System.String</value>
+          <value>CLUB_DESC,System.String</value>
+          <value>CRET_BY,System.String</value>
+          <value>CRET_DATE,System.DateTime</value>
+          <value>MDFY_BY,System.String</value>
+          <value>MDFY_DATE,System.DateTime</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1" />
+        <Name>Club</Name>
+        <NameInSource>iScsc</NameInSource>
+        <Parameters isList="true" count="0" />
+        <SqlCommand>select * from Club</SqlCommand>
+      </Club>
     </DataSources>
-    <Relations isList="true" count="0" />
+    <Relations isList="true" count="1">
+      <ATTN_CLUB_FK Ref="5" type="DataRelation" isKey="true">
+        <Alias>ATTN_CLUB_FK</Alias>
+        <ChildColumns isList="true" count="1">
+          <value>CLUB_CODE</value>
+        </ChildColumns>
+        <ChildSource isRef="3" />
+        <Dictionary isRef="1" />
+        <Name>ATTN_CLUB_FK</Name>
+        <NameInSource>ATTN_CLUB_FK</NameInSource>
+        <ParentColumns isList="true" count="1">
+          <value>CODE</value>
+        </ParentColumns>
+        <ParentSource isRef="4" />
+      </ATTN_CLUB_FK>
+    </Relations>
     <Report isRef="0" />
     <Variables isList="true" count="11">
       <value>,SerialNumber,SerialNumber,System.String,,False,False</value>
@@ -66,11 +113,11 @@ WHERE {WhereClause}
   <GlobalizationStrings isList="true" count="0" />
   <MetaTags isList="true" count="0" />
   <Pages isList="true" count="1">
-    <Page1 Ref="4" type="Page" isKey="true">
+    <Page1 Ref="6" type="Page" isKey="true">
       <Border>None;Black;3;Double;False;4;Black</Border>
       <Brush>Transparent</Brush>
       <Components isList="true" count="3">
-        <Text9 Ref="5" type="Text" isKey="true">
+        <Text9 Ref="7" type="Text" isKey="true">
           <Brush>Transparent</Brush>
           <ClientRectangle>0,-0.4,6,0.4</ClientRectangle>
           <Conditions isList="true" count="0" />
@@ -79,18 +126,19 @@ WHERE {WhereClause}
           <HorAlignment>Center</HorAlignment>
           <Margins>0,0,0,0</Margins>
           <Name>Text9</Name>
-          <Page isRef="4" />
-          <Parent isRef="4" />
-          <Text>مجتمع فرهنگی و ورزشی شرکت مخابرات استان فارس</Text>
+          <Page isRef="6" />
+          <Parent isRef="6" />
+          <Text>{Attendance.ATTN_CLUB_FK.CLUB_DESC}</Text>
           <TextBrush>Black</TextBrush>
+          <Type>DataColumn</Type>
           <VertAlignment>Center</VertAlignment>
         </Text9>
-        <DataAttendance Ref="6" type="DataBand" isKey="true">
+        <DataAttendance Ref="8" type="DataBand" isKey="true">
           <Brush>Transparent</Brush>
           <BusinessObjectGuid isNull="true" />
           <ClientRectangle>0,0.4,6,5.6</ClientRectangle>
           <Components isList="true" count="21">
-            <Text8 Ref="7" type="Text" isKey="true">
+            <Text8 Ref="9" type="Text" isKey="true">
               <Brush>Transparent</Brush>
               <ClientRectangle>4,0,2,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
@@ -98,13 +146,13 @@ WHERE {WhereClause}
               <Guid>502c05c0eef74be8af351890e2571b4f</Guid>
               <Margins>0,0,0,0</Margins>
               <Name>Text8</Name>
-              <Page isRef="4" />
-              <Parent isRef="6" />
+              <Page isRef="6" />
+              <Parent isRef="8" />
               <Text>شماره سریال :</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=True, Trimming=None, WordWrap=False, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
             </Text8>
-            <Text11 Ref="8" type="Text" isKey="true">
+            <Text11 Ref="10" type="Text" isKey="true">
               <Brush>Transparent</Brush>
               <ClientRectangle>0,0,4,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
@@ -112,15 +160,15 @@ WHERE {WhereClause}
               <Guid>aaa793a291124164b2eeb393a1b28b7c</Guid>
               <Margins>0,0,0,0</Margins>
               <Name>Text11</Name>
-              <Page isRef="4" />
-              <Parent isRef="6" />
+              <Page isRef="6" />
+              <Parent isRef="8" />
               <Text>{Attendance.FNGR_PRNT_DNRM}</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=True, Trimming=None, WordWrap=False, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
             </Text11>
-            <Text6 Ref="9" type="Text" isKey="true">
+            <Text6 Ref="11" type="Text" isKey="true">
               <Brush>Transparent</Brush>
               <ClientRectangle>5,0.6,1,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
@@ -128,13 +176,13 @@ WHERE {WhereClause}
               <Guid>853a72783ae64d77af500b2d3da9b098</Guid>
               <Margins>0,0,0,0</Margins>
               <Name>Text6</Name>
-              <Page isRef="4" />
-              <Parent isRef="6" />
+              <Page isRef="6" />
+              <Parent isRef="8" />
               <Text>تاریخ :</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=True, Trimming=None, WordWrap=False, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
             </Text6>
-            <Text12 Ref="10" type="Text" isKey="true">
+            <Text12 Ref="12" type="Text" isKey="true">
               <Brush>Transparent</Brush>
               <ClientRectangle>2.8,0.6,2.2,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
@@ -142,15 +190,15 @@ WHERE {WhereClause}
               <Guid>f274633d4e194abfa44a3c9bf1c3d6d1</Guid>
               <Margins>0,0,0,0</Margins>
               <Name>Text12</Name>
-              <Page isRef="4" />
-              <Parent isRef="6" />
+              <Page isRef="6" />
+              <Parent isRef="8" />
               <Text>{Attendance.ATTN_DATE}</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=True, Trimming=None, WordWrap=False, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
             </Text12>
-            <Text5 Ref="11" type="Text" isKey="true">
+            <Text5 Ref="13" type="Text" isKey="true">
               <Brush>Transparent</Brush>
               <ClientRectangle>1.6,0.6,1.2,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
@@ -158,13 +206,13 @@ WHERE {WhereClause}
               <Guid>cee62930328c406786979404d0b9e13f</Guid>
               <Margins>0,0,0,0</Margins>
               <Name>Text5</Name>
-              <Page isRef="4" />
-              <Parent isRef="6" />
+              <Page isRef="6" />
+              <Parent isRef="8" />
               <Text>ساعت :</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=True, Trimming=None, WordWrap=False, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
             </Text5>
-            <Text13 Ref="12" type="Text" isKey="true">
+            <Text13 Ref="14" type="Text" isKey="true">
               <Brush>Transparent</Brush>
               <ClientRectangle>0,0.6,1.6,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
@@ -172,15 +220,15 @@ WHERE {WhereClause}
               <Guid>b2844bebca784d64a69260134858f879</Guid>
               <Margins>0,0,0,0</Margins>
               <Name>Text13</Name>
-              <Page isRef="4" />
-              <Parent isRef="6" />
+              <Page isRef="6" />
+              <Parent isRef="8" />
               <Text>{Attendance.ENTR_TIME}</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=True, Trimming=None, WordWrap=False, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
             </Text13>
-            <Text1 Ref="13" type="Text" isKey="true">
+            <Text1 Ref="15" type="Text" isKey="true">
               <Brush>Transparent</Brush>
               <ClientRectangle>4,2.2,2,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
@@ -189,14 +237,14 @@ WHERE {WhereClause}
               <HorAlignment>Right</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text1</Name>
-              <Page isRef="4" />
-              <Parent isRef="6" />
+              <Page isRef="6" />
+              <Parent isRef="8" />
               <Text>نام و نام خانوادگی :</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=True, Trimming=None, WordWrap=False, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <VertAlignment>Center</VertAlignment>
             </Text1>
-            <Text7 Ref="14" type="Text" isKey="true">
+            <Text7 Ref="16" type="Text" isKey="true">
               <Brush>Transparent</Brush>
               <ClientRectangle>4,1.6,1,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
@@ -205,14 +253,14 @@ WHERE {WhereClause}
               <HorAlignment>Right</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text7</Name>
-              <Page isRef="4" />
-              <Parent isRef="6" />
+              <Page isRef="6" />
+              <Parent isRef="8" />
               <Text>نام مربی :</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=True, Trimming=None, WordWrap=False, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <VertAlignment>Center</VertAlignment>
             </Text7>
-            <Text14 Ref="15" type="Text" isKey="true">
+            <Text14 Ref="17" type="Text" isKey="true">
               <Brush>Transparent</Brush>
               <ClientRectangle>0,1.6,4,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
@@ -220,15 +268,15 @@ WHERE {WhereClause}
               <Guid>90f5e65ba07d41e084164ac129e13e29</Guid>
               <Margins>0,0,0,0</Margins>
               <Name>Text14</Name>
-              <Page isRef="4" />
-              <Parent isRef="6" />
+              <Page isRef="6" />
+              <Parent isRef="8" />
               <Text>{Attendance.COCH_NAME_DNRM}</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=True, Trimming=None, WordWrap=False, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
             </Text14>
-            <Text15 Ref="16" type="Text" isKey="true">
+            <Text15 Ref="18" type="Text" isKey="true">
               <Brush>Transparent</Brush>
               <ClientRectangle>0,2.2,4,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
@@ -236,15 +284,15 @@ WHERE {WhereClause}
               <Guid>846902315471416fa7eea08cc6c4ea90</Guid>
               <Margins>0,0,0,0</Margins>
               <Name>Text15</Name>
-              <Page isRef="4" />
-              <Parent isRef="6" />
+              <Page isRef="6" />
+              <Parent isRef="8" />
               <Text>{Attendance.NAME_DNRM}</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=True, Trimming=None, WordWrap=False, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
             </Text15>
-            <Text3 Ref="17" type="Text" isKey="true">
+            <Text3 Ref="19" type="Text" isKey="true">
               <Brush>Transparent</Brush>
               <ClientRectangle>4,2.8,1.6,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
@@ -253,14 +301,14 @@ WHERE {WhereClause}
               <HorAlignment>Right</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text3</Name>
-              <Page isRef="4" />
-              <Parent isRef="6" />
+              <Page isRef="6" />
+              <Parent isRef="8" />
               <Text>رشته ورزشی :</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=True, Trimming=None, WordWrap=False, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <VertAlignment>Center</VertAlignment>
             </Text3>
-            <Text17 Ref="18" type="Text" isKey="true">
+            <Text17 Ref="20" type="Text" isKey="true">
               <Brush>Transparent</Brush>
               <ClientRectangle>0,2.8,4,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
@@ -268,15 +316,15 @@ WHERE {WhereClause}
               <Guid>11fa27e088874119a425fb9b7e07906a</Guid>
               <Margins>0,0,0,0</Margins>
               <Name>Text17</Name>
-              <Page isRef="4" />
-              <Parent isRef="6" />
+              <Page isRef="6" />
+              <Parent isRef="8" />
               <Text>{Attendance.MTOD_DESC}</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=True, Trimming=None, WordWrap=False, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
             </Text17>
-            <Text2 Ref="19" type="Text" isKey="true">
+            <Text2 Ref="21" type="Text" isKey="true">
               <Brush>Transparent</Brush>
               <ClientRectangle>4,3.4,1.6,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
@@ -285,15 +333,15 @@ WHERE {WhereClause}
               <HorAlignment>Right</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text2</Name>
-              <Page isRef="4" />
-              <Parent isRef="6" />
+              <Page isRef="6" />
+              <Parent isRef="8" />
               <Text>رسته ورزشی :</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=True, Trimming=None, WordWrap=False, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text2>
-            <Text4 Ref="20" type="Text" isKey="true">
+            <Text4 Ref="22" type="Text" isKey="true">
               <Brush>Transparent</Brush>
               <ClientRectangle>0,3.4,4,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
@@ -301,15 +349,15 @@ WHERE {WhereClause}
               <Guid>b7dcda564d8c4763a22d419b35c10560</Guid>
               <Margins>0,0,0,0</Margins>
               <Name>Text4</Name>
-              <Page isRef="4" />
-              <Parent isRef="6" />
+              <Page isRef="6" />
+              <Parent isRef="8" />
               <Text>{Attendance.CTGY_DESC}</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=True, Trimming=None, WordWrap=False, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
             </Text4>
-            <Text19 Ref="21" type="Text" isKey="true">
+            <Text19 Ref="23" type="Text" isKey="true">
               <Brush>Transparent</Brush>
               <ClientRectangle>4.2,4.6,1.8,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
@@ -318,14 +366,14 @@ WHERE {WhereClause}
               <HorAlignment>Right</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text19</Name>
-              <Page isRef="4" />
-              <Parent isRef="6" />
+              <Page isRef="6" />
+              <Parent isRef="8" />
               <Text>جلسات باقیمانده :</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=True, Trimming=None, WordWrap=False, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <VertAlignment>Center</VertAlignment>
             </Text19>
-            <Text21 Ref="22" type="Text" isKey="true">
+            <Text21 Ref="24" type="Text" isKey="true">
               <Brush>Transparent</Brush>
               <ClientRectangle>1.8,4.6,1.4,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
@@ -334,14 +382,14 @@ WHERE {WhereClause}
               <HorAlignment>Right</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text21</Name>
-              <Page isRef="4" />
-              <Parent isRef="6" />
+              <Page isRef="6" />
+              <Parent isRef="8" />
               <Text>اعتبار کلاس :</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=True, Trimming=None, WordWrap=False, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <VertAlignment>Center</VertAlignment>
             </Text21>
-            <Text22 Ref="23" type="Text" isKey="true">
+            <Text22 Ref="25" type="Text" isKey="true">
               <Brush>Transparent</Brush>
               <ClientRectangle>0,4.6,1.8,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
@@ -349,15 +397,15 @@ WHERE {WhereClause}
               <Guid>2b7c0b56531f4774ba36ab88b185c76d</Guid>
               <Margins>0,0,0,0</Margins>
               <Name>Text22</Name>
-              <Page isRef="4" />
-              <Parent isRef="6" />
+              <Page isRef="6" />
+              <Parent isRef="8" />
               <Text>{Attendance.MBSP_END_DATE}</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=True, Trimming=None, WordWrap=False, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
             </Text22>
-            <Text20 Ref="24" type="Text" isKey="true">
+            <Text20 Ref="26" type="Text" isKey="true">
               <Brush>Transparent</Brush>
               <ClientRectangle>3.2,4.6,1,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
@@ -365,15 +413,15 @@ WHERE {WhereClause}
               <Guid>d6ed23e3772445e997d554b54d3d7630</Guid>
               <Margins>0,0,0,0</Margins>
               <Name>Text20</Name>
-              <Page isRef="4" />
-              <Parent isRef="6" />
+              <Page isRef="6" />
+              <Parent isRef="8" />
               <Text>{Attendance.RMND_ATTN_MONT}</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=True, Trimming=None, WordWrap=False, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
             </Text20>
-            <Text23 Ref="25" type="Text" isKey="true">
+            <Text23 Ref="27" type="Text" isKey="true">
               <Brush>Transparent</Brush>
               <ClientRectangle>0,4,3.6,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
@@ -381,15 +429,15 @@ WHERE {WhereClause}
               <Guid>c7f9a360682f422faedee46cb4b43d68</Guid>
               <Margins>0,0,0,0</Margins>
               <Name>Text23</Name>
-              <Page isRef="4" />
-              <Parent isRef="6" />
+              <Page isRef="6" />
+              <Parent isRef="8" />
               <Text>{Attendance.CRET_BY}</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=True, Trimming=None, WordWrap=False, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
             </Text23>
-            <Text24 Ref="26" type="Text" isKey="true">
+            <Text24 Ref="28" type="Text" isKey="true">
               <Brush>Transparent</Brush>
               <ClientRectangle>3.6,4,2,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
@@ -397,14 +445,14 @@ WHERE {WhereClause}
               <Guid>9e35701c937443c29da2739a6e21fe00</Guid>
               <Margins>0,0,0,0</Margins>
               <Name>Text24</Name>
-              <Page isRef="4" />
-              <Parent isRef="6" />
+              <Page isRef="6" />
+              <Parent isRef="8" />
               <Text>نام متصدی پذیرش :</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=True, Trimming=None, WordWrap=False, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <VertAlignment>Center</VertAlignment>
             </Text24>
-            <Text10 Ref="27" type="Text" isKey="true">
+            <Text10 Ref="29" type="Text" isKey="true">
               <Brush>Transparent</Brush>
               <ClientRectangle>0,5.4,6,0.4</ClientRectangle>
               <Conditions isList="true" count="0" />
@@ -413,8 +461,8 @@ WHERE {WhereClause}
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text10</Name>
-              <Page isRef="4" />
-              <Parent isRef="6" />
+              <Page isRef="6" />
+              <Parent isRef="8" />
               <Text>طراحی : شرکت مهندسی انار تماس : 09033927103</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
@@ -425,21 +473,21 @@ WHERE {WhereClause}
           <DataSourceName>Attendance</DataSourceName>
           <Filters isList="true" count="0" />
           <Name>DataAttendance</Name>
-          <Page isRef="4" />
-          <Parent isRef="4" />
+          <Page isRef="6" />
+          <Parent isRef="6" />
           <Sort isList="true" count="0" />
         </DataAttendance>
-        <HorizontalLine3 Ref="28" type="HorizontalLinePrimitive" isKey="true">
+        <HorizontalLine3 Ref="30" type="HorizontalLinePrimitive" isKey="true">
           <ClientRectangle>0,6.2,6,0.0254</ClientRectangle>
           <Color>Black</Color>
-          <EndCap Ref="29" type="Cap" isKey="true">
+          <EndCap Ref="31" type="Cap" isKey="true">
             <Color>Black</Color>
           </EndCap>
           <Guid>b62784717a4147f38e89db1fac7fec73</Guid>
           <Name>HorizontalLine3</Name>
-          <Page isRef="4" />
-          <Parent isRef="4" />
-          <StartCap Ref="30" type="Cap" isKey="true">
+          <Page isRef="6" />
+          <Parent isRef="6" />
+          <StartCap Ref="32" type="Cap" isKey="true">
             <Color>Black</Color>
           </StartCap>
           <Style>Dash</Style>
@@ -452,13 +500,13 @@ WHERE {WhereClause}
       <PageHeight>7</PageHeight>
       <PageWidth>7</PageWidth>
       <Report isRef="0" />
-      <Watermark Ref="31" type="Stimulsoft.Report.Components.StiWatermark" isKey="true">
+      <Watermark Ref="33" type="Stimulsoft.Report.Components.StiWatermark" isKey="true">
         <Font>B Titr,12,Bold,Point,False,178</Font>
         <TextBrush>[50:0:0:0]</TextBrush>
       </Watermark>
     </Page1>
   </Pages>
-  <PrinterSettings Ref="32" type="Stimulsoft.Report.Print.StiPrinterSettings" isKey="true" />
+  <PrinterSettings Ref="34" type="Stimulsoft.Report.Print.StiPrinterSettings" isKey="true" />
   <ReferencedAssemblies isList="true" count="8">
     <value>System.Dll</value>
     <value>System.Drawing.Dll</value>
@@ -470,10 +518,10 @@ WHERE {WhereClause}
     <value>Stimulsoft.Report.Dll</value>
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
-  <ReportChanged>1/8/2018 12:40:51 PM</ReportChanged>
+  <ReportChanged>11/26/2019 6:43:16 PM</ReportChanged>
   <ReportCreated>9/26/2011 12:44:57 PM</ReportCreated>
-  <ReportFile>D:\iData\Asre Andishe Project\MyProject\Documents\Report Repository\PRT_ATTN_001_R.mrt</ReportFile>
-  <ReportGuid>b62bd90221f84735bdb167b4e19d0167</ReportGuid>
+  <ReportFile>D:\Project\MyProject\Documents\Report Repository\PRT_ATTN_001_R.mrt</ReportFile>
+  <ReportGuid>dd19907abbe8400b9379ed6e56d50d4c</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Centimeters</ReportUnit>
   <ReportVersion>2012.2.1304</ReportVersion>

@@ -1393,7 +1393,9 @@ namespace System.Scsc.Ui.Common
 
                paydebt -= amnt;
                if (paydebt == 0) break;
-            } 
+            }
+
+            Refresh_Butn_Click(null, null);
             //// این گزینه برای حالتی می باشد که کل مبلغ پرداخت به صورت کامل روی دستگاه پایانه فروش قرار میگیرد
             //if (UsePos_Cb.Checked)
             //{

@@ -87,6 +87,7 @@ namespace System.Scsc.Ui.ReportManager
                   );
                   break;
                case "OIC_TOTL_F":
+               case "AOP_BUFE_F":
                   // Nothing
                   break;
                default:

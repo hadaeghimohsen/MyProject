@@ -15292,7 +15292,7 @@
          this.tp_027.Padding = new System.Windows.Forms.Padding(3);
          this.tp_027.Size = new System.Drawing.Size(1190, 522);
          this.tp_027.TabIndex = 26;
-         this.tp_027.Text = "پیامک مهمان آزاد";
+         this.tp_027.Text = "پیامک درآمد متفرقه";
          // 
          // label126
          // 

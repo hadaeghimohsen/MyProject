@@ -2012,7 +2012,7 @@ namespace System.Scsc.Ui.Common
             // اگر مشتری بدهی نداشته باشد
             if (figh.DEBT_DNRM == 0) return;
             // اگر مشتری در فرآیندی قفل باشد اجازه پرداخت بدهی وجود ندارد
-            if (figh.FIGH_STAT == "001") return;
+            //if (figh.FIGH_STAT == "001") return;
             
             var paydebt = Convert.ToInt64(PayDebtAmnt_Txt.Text.Replace(",", ""));
             // مبلغ پرداخت بیشتر از مبلغ بدهی می باشد
@@ -2049,6 +2049,8 @@ namespace System.Scsc.Ui.Common
                paydebt -= amnt;
                if (paydebt == 0) break;
             }
+
+            Refresh_Butn_Click(null, null);
          }
          catch (Exception exc)
          {
@@ -2066,7 +2068,7 @@ namespace System.Scsc.Ui.Common
             // اگر مشتری بدهی نداشته باشد
             if (figh.DEBT_DNRM == 0) return;
             // اگر مشتری در فرآیندی قفل باشد اجازه پرداخت بدهی وجود ندارد
-            if (figh.FIGH_STAT == "001") return;
+            //if (figh.FIGH_STAT == "001") return;
 
             var paydebt = Convert.ToInt64(PayDebtAmnt_Txt.Text.Replace(",", ""));
             // مبلغ پرداخت بیشتر از مبلغ بدهی می باشد
@@ -2160,7 +2162,9 @@ namespace System.Scsc.Ui.Common
 
                   paydebt -= amnt;
                   if (paydebt == 0) break;
-               }               
+               }
+
+               Refresh_Butn_Click(null, null);
             }            
          }
          catch (Exception exc)

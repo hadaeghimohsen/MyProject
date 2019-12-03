@@ -210,6 +210,8 @@
          this.textEdit18 = new DevExpress.XtraEditors.TextEdit();
          this.dateTimeSelector6 = new Atf.UI.DateTimeSelector();
          this.Info_Gb = new System.Windows.Forms.GroupBox();
+         this.GustSaveRqst_PickButn = new System.MaxUi.NewPickBtn();
+         this.imageList1 = new System.Windows.Forms.ImageList(this.components);
          this.FNGR_PRNT_TextEdit = new DevExpress.XtraEditors.TextEdit();
          this.UserProFile_Rb = new System.MaxUi.RoundedButton();
          this.Pn_MbspInfo = new System.Windows.Forms.Panel();
@@ -386,8 +388,6 @@
          this.CyclDiscountAmnt_Lb = new System.Windows.Forms.Label();
          this.MbspValdType_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.CyclTotlAmnt_Lb = new System.Windows.Forms.Label();
-         this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-         this.GustSaveRqst_PickButn = new System.MaxUi.NewPickBtn();
          ((System.ComponentModel.ISupportInitialize)(this.RegnBs1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.PrvnBs1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.MtodBs2)).BeginInit();
@@ -2086,6 +2086,42 @@
          this.Info_Gb.TabStop = false;
          this.Info_Gb.Text = "مشخصات عمومی";
          // 
+         // GustSaveRqst_PickButn
+         // 
+         this.GustSaveRqst_PickButn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.GustSaveRqst_PickButn.BackColor = System.Drawing.Color.LightGray;
+         this.GustSaveRqst_PickButn.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+         this.GustSaveRqst_PickButn.Disabled = false;
+         this.GustSaveRqst_PickButn.First = null;
+         this.GustSaveRqst_PickButn.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.GustSaveRqst_PickButn.ForceSelect = false;
+         this.GustSaveRqst_PickButn.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         this.GustSaveRqst_PickButn.ImageIndexPickDown = 2;
+         this.GustSaveRqst_PickButn.ImageIndexPickUp = 3;
+         this.GustSaveRqst_PickButn.ImageList = this.imageList1;
+         this.GustSaveRqst_PickButn.Location = new System.Drawing.Point(132, 13);
+         this.GustSaveRqst_PickButn.Name = "GustSaveRqst_PickButn";
+         this.GustSaveRqst_PickButn.Next = null;
+         this.GustSaveRqst_PickButn.PickChecked = false;
+         this.GustSaveRqst_PickButn.PickDownFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.GustSaveRqst_PickButn.PickDownText = "";
+         this.GustSaveRqst_PickButn.PickDownTextColor = System.Drawing.Color.Empty;
+         this.GustSaveRqst_PickButn.PickUpFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.GustSaveRqst_PickButn.PickUpText = "";
+         this.GustSaveRqst_PickButn.PickUpTextColor = System.Drawing.Color.Empty;
+         this.GustSaveRqst_PickButn.Size = new System.Drawing.Size(27, 25);
+         this.GustSaveRqst_PickButn.TabIndex = 91;
+         this.GustSaveRqst_PickButn.TextAligns = System.Drawing.ContentAlignment.MiddleCenter;
+         // 
+         // imageList1
+         // 
+         this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+         this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+         this.imageList1.Images.SetKeyName(0, "IMAGE_1001.png");
+         this.imageList1.Images.SetKeyName(1, "IMAGE_1003.png");
+         this.imageList1.Images.SetKeyName(2, "IMAGE_1205.png");
+         this.imageList1.Images.SetKeyName(3, "IMAGE_1217.png");
+         // 
          // FNGR_PRNT_TextEdit
          // 
          this.FNGR_PRNT_TextEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -2576,8 +2612,6 @@
          this.NewFngrPrnt_Txt.Properties.AppearanceFocused.Options.UseBackColor = true;
          this.NewFngrPrnt_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
          this.NewFngrPrnt_Txt.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.NewFngrPrnt_Txt.Properties.Mask.EditMask = "n0";
-         this.NewFngrPrnt_Txt.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
          this.NewFngrPrnt_Txt.Size = new System.Drawing.Size(80, 22);
          this.NewFngrPrnt_Txt.TabIndex = 9;
          this.NewFngrPrnt_Txt.Visible = false;
@@ -3904,42 +3938,6 @@
          this.CyclTotlAmnt_Lb.Size = new System.Drawing.Size(79, 13);
          this.CyclTotlAmnt_Lb.TabIndex = 19;
          this.CyclTotlAmnt_Lb.Text = "کل مبلغ هزینه :";
-         // 
-         // imageList1
-         // 
-         this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-         this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-         this.imageList1.Images.SetKeyName(0, "IMAGE_1001.png");
-         this.imageList1.Images.SetKeyName(1, "IMAGE_1003.png");
-         this.imageList1.Images.SetKeyName(2, "IMAGE_1205.png");
-         this.imageList1.Images.SetKeyName(3, "IMAGE_1217.png");
-         // 
-         // GustSaveRqst_PickButn
-         // 
-         this.GustSaveRqst_PickButn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.GustSaveRqst_PickButn.BackColor = System.Drawing.Color.LightGray;
-         this.GustSaveRqst_PickButn.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-         this.GustSaveRqst_PickButn.Disabled = false;
-         this.GustSaveRqst_PickButn.First = null;
-         this.GustSaveRqst_PickButn.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.GustSaveRqst_PickButn.ForceSelect = false;
-         this.GustSaveRqst_PickButn.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         this.GustSaveRqst_PickButn.ImageIndexPickDown = 2;
-         this.GustSaveRqst_PickButn.ImageIndexPickUp = 3;
-         this.GustSaveRqst_PickButn.ImageList = this.imageList1;
-         this.GustSaveRqst_PickButn.Location = new System.Drawing.Point(132, 13);
-         this.GustSaveRqst_PickButn.Name = "GustSaveRqst_PickButn";
-         this.GustSaveRqst_PickButn.Next = null;
-         this.GustSaveRqst_PickButn.PickChecked = false;
-         this.GustSaveRqst_PickButn.PickDownFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.GustSaveRqst_PickButn.PickDownText = "";
-         this.GustSaveRqst_PickButn.PickDownTextColor = System.Drawing.Color.Empty;
-         this.GustSaveRqst_PickButn.PickUpFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.GustSaveRqst_PickButn.PickUpText = "";
-         this.GustSaveRqst_PickButn.PickUpTextColor = System.Drawing.Color.Empty;
-         this.GustSaveRqst_PickButn.Size = new System.Drawing.Size(27, 25);
-         this.GustSaveRqst_PickButn.TabIndex = 91;
-         this.GustSaveRqst_PickButn.TextAligns = System.Drawing.ContentAlignment.MiddleCenter;
          // 
          // ADM_TOTL_F
          // 

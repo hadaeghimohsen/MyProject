@@ -28,17 +28,16 @@
       /// </summary>
       private void InitializeComponent()
       {
-         this.components = new System.ComponentModel.Container();
          System.Windows.Forms.Label label13;
          System.Windows.Forms.Label label14;
          System.Windows.Forms.Label label17;
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
          this.Dflt_Lb = new System.Windows.Forms.Label();
          this.Stat_Lb = new System.Windows.Forms.Label();
          this.ShowPrvw_Lb = new System.Windows.Forms.Label();
@@ -49,27 +48,24 @@
          this.SectDesc_Lb = new System.Windows.Forms.Label();
          this.SectName_Lb = new System.Windows.Forms.Label();
          this.AfterPrntPay_Lb = new System.Windows.Forms.Label();
-         this.DActvBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.DActvBs1 = new System.Windows.Forms.BindingSource();
          this.tc_Settings = new System.Windows.Forms.TabControl();
          this.tp_backuprestore = new System.Windows.Forms.TabPage();
-         this.GB_BACK_UP_OPTN_PATH_ADRS = new System.MaxUi.GroupBox();
-         this.Btn_DeleteBackup = new System.MaxUi.NewMaxBtn();
+         this.groupBox1 = new System.Windows.Forms.GroupBox();
+         this.Txt_BACK_UP_OPTN_PATH_ADRS = new System.Windows.Forms.TextBox();
+         this.StngBs1 = new System.Windows.Forms.BindingSource();
+         this.Btn_BackupOptnPathAdrs = new System.MaxUi.NewMaxBtn();
+         this.OptionPath_Lb = new System.Windows.Forms.Label();
+         this.Btn_TakeBackup = new System.MaxUi.NewMaxBtn();
+         this.Btn_APPLY = new System.MaxUi.NewMaxBtn();
          this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-         this.RestBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.RestBs1 = new System.Windows.Forms.BindingSource();
          this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.FileName_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
          this.Directory_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.Btn_QueryBackupFile = new System.MaxUi.NewMaxBtn();
-         this.Btn_RestoreDb = new System.MaxUi.NewMaxBtn();
-         this.Btn_APPLY = new System.MaxUi.NewMaxBtn();
-         this.Btn_TakeBackup = new System.MaxUi.NewMaxBtn();
-         this.Txt_BACK_UP_OPTN_PATH_ADRS = new System.Windows.Forms.TextBox();
-         this.StngBs1 = new System.Windows.Forms.BindingSource(this.components);
-         this.OptionPath_Lb = new System.Windows.Forms.Label();
-         this.Btn_BackupOptnPathAdrs = new System.MaxUi.NewMaxBtn();
          this.tp_printmodual = new System.Windows.Forms.TabPage();
          this.sECT_DESCTextEdit = new DevExpress.XtraEditors.TextEdit();
-         this.MdrpBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.MdrpBs1 = new System.Windows.Forms.BindingSource();
          this.modual_ReportGridControl = new DevExpress.XtraGrid.GridControl();
          this.gridView11 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colCODE7 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -82,7 +78,7 @@
          this.repositoryItemLookUpEdit6 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
          this.colDFLT = new DevExpress.XtraGrid.Columns.GridColumn();
          this.repositoryItemLookUpEdit5 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-         this.DYsnoBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.DYsnoBs1 = new System.Windows.Forms.BindingSource();
          this.colSTAT = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colCRET_BY9 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colCRET_DATE9 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -102,8 +98,8 @@
          this.sTATLookUpEdit = new DevExpress.XtraEditors.LookUpEdit();
          this.sHOW_PRVWLookUpEdit = new DevExpress.XtraEditors.LookUpEdit();
          this.lookUpEdit1 = new DevExpress.XtraEditors.LookUpEdit();
-         this.ClubBs1 = new System.Windows.Forms.BindingSource(this.components);
-         this.Mc_Base = new System.Windows.Forms.ContextMenuStrip(this.components);
+         this.ClubBs1 = new System.Windows.Forms.BindingSource();
+         this.Mc_Base = new System.Windows.Forms.ContextMenuStrip();
          this.tsm_bas_close = new System.Windows.Forms.ToolStripMenuItem();
          this.tsm_bas_open = new System.Windows.Forms.ToolStripMenuItem();
          this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
@@ -111,8 +107,8 @@
          this.tsm_bas_R2 = new System.Windows.Forms.ToolStripMenuItem();
          this.tsm_bas_R3 = new System.Windows.Forms.ToolStripMenuItem();
          this.tsm_bas_R4 = new System.Windows.Forms.ToolStripMenuItem();
-         this.vCompBs1 = new System.Windows.Forms.BindingSource(this.components);
-         this.DBcdtBs4 = new System.Windows.Forms.BindingSource(this.components);
+         this.vCompBs1 = new System.Windows.Forms.BindingSource();
+         this.DBcdtBs4 = new System.Windows.Forms.BindingSource();
          this.Ofd_BackupOptnPathAdrs = new System.Windows.Forms.FolderBrowserDialog();
          this.Ofd_ReportFiles = new System.Windows.Forms.OpenFileDialog();
          this.Auto_Gnrt_LOV = new DevExpress.XtraEditors.LookUpEdit();
@@ -122,17 +118,20 @@
          this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
          this.TitlForm_Lb = new DevExpress.XtraEditors.LabelControl();
          this.Back_Butn = new DevExpress.XtraEditors.SimpleButton();
+         this.Btn_RestoreDb = new System.Windows.Forms.Button();
+         this.Btn_DeleteBackup = new System.Windows.Forms.Button();
+         this.Btn_QueryBackupFile = new System.Windows.Forms.Button();
          label13 = new System.Windows.Forms.Label();
          label14 = new System.Windows.Forms.Label();
          label17 = new System.Windows.Forms.Label();
          ((System.ComponentModel.ISupportInitialize)(this.DActvBs1)).BeginInit();
          this.tc_Settings.SuspendLayout();
          this.tp_backuprestore.SuspendLayout();
-         this.GB_BACK_UP_OPTN_PATH_ADRS.SuspendLayout();
+         this.groupBox1.SuspendLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.StngBs1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.RestBs1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.StngBs1)).BeginInit();
          this.tp_printmodual.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.sECT_DESCTextEdit.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.MdrpBs1)).BeginInit();
@@ -194,7 +193,7 @@
          // 
          this.Dflt_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.Dflt_Lb.AutoSize = true;
-         this.Dflt_Lb.Location = new System.Drawing.Point(592, 168);
+         this.Dflt_Lb.Location = new System.Drawing.Point(114, 168);
          this.Dflt_Lb.Name = "Dflt_Lb";
          this.Dflt_Lb.Size = new System.Drawing.Size(103, 13);
          this.Dflt_Lb.TabIndex = 26;
@@ -204,7 +203,7 @@
          // 
          this.Stat_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.Stat_Lb.AutoSize = true;
-         this.Stat_Lb.Location = new System.Drawing.Point(879, 168);
+         this.Stat_Lb.Location = new System.Drawing.Point(401, 168);
          this.Stat_Lb.Name = "Stat_Lb";
          this.Stat_Lb.Size = new System.Drawing.Size(70, 13);
          this.Stat_Lb.TabIndex = 24;
@@ -214,7 +213,7 @@
          // 
          this.ShowPrvw_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.ShowPrvw_Lb.AutoSize = true;
-         this.ShowPrvw_Lb.Location = new System.Drawing.Point(592, 9);
+         this.ShowPrvw_Lb.Location = new System.Drawing.Point(114, 9);
          this.ShowPrvw_Lb.Name = "ShowPrvw_Lb";
          this.ShowPrvw_Lb.Size = new System.Drawing.Size(131, 13);
          this.ShowPrvw_Lb.TabIndex = 22;
@@ -224,7 +223,7 @@
          // 
          this.RprtDesc_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.RprtDesc_Lb.AutoSize = true;
-         this.RprtDesc_Lb.Location = new System.Drawing.Point(879, 142);
+         this.RprtDesc_Lb.Location = new System.Drawing.Point(401, 142);
          this.RprtDesc_Lb.Name = "RprtDesc_Lb";
          this.RprtDesc_Lb.Size = new System.Drawing.Size(98, 13);
          this.RprtDesc_Lb.TabIndex = 20;
@@ -234,7 +233,7 @@
          // 
          this.RprtPath_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.RprtPath_Lb.AutoSize = true;
-         this.RprtPath_Lb.Location = new System.Drawing.Point(879, 117);
+         this.RprtPath_Lb.Location = new System.Drawing.Point(401, 117);
          this.RprtPath_Lb.Name = "RprtPath_Lb";
          this.RprtPath_Lb.Size = new System.Drawing.Size(91, 13);
          this.RprtPath_Lb.TabIndex = 18;
@@ -244,7 +243,7 @@
          // 
          this.MudlDesc_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.MudlDesc_Lb.AutoSize = true;
-         this.MudlDesc_Lb.Location = new System.Drawing.Point(879, 35);
+         this.MudlDesc_Lb.Location = new System.Drawing.Point(401, 35);
          this.MudlDesc_Lb.Name = "MudlDesc_Lb";
          this.MudlDesc_Lb.Size = new System.Drawing.Size(80, 13);
          this.MudlDesc_Lb.TabIndex = 16;
@@ -254,7 +253,7 @@
          // 
          this.MudlName_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.MudlName_Lb.AutoSize = true;
-         this.MudlName_Lb.Location = new System.Drawing.Point(879, 9);
+         this.MudlName_Lb.Location = new System.Drawing.Point(401, 9);
          this.MudlName_Lb.Name = "MudlName_Lb";
          this.MudlName_Lb.Size = new System.Drawing.Size(47, 13);
          this.MudlName_Lb.TabIndex = 14;
@@ -264,7 +263,7 @@
          // 
          this.SectDesc_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.SectDesc_Lb.AutoSize = true;
-         this.SectDesc_Lb.Location = new System.Drawing.Point(879, 89);
+         this.SectDesc_Lb.Location = new System.Drawing.Point(401, 89);
          this.SectDesc_Lb.Name = "SectDesc_Lb";
          this.SectDesc_Lb.Size = new System.Drawing.Size(91, 13);
          this.SectDesc_Lb.TabIndex = 29;
@@ -274,7 +273,7 @@
          // 
          this.SectName_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.SectName_Lb.AutoSize = true;
-         this.SectName_Lb.Location = new System.Drawing.Point(879, 63);
+         this.SectName_Lb.Location = new System.Drawing.Point(401, 63);
          this.SectName_Lb.Name = "SectName_Lb";
          this.SectName_Lb.Size = new System.Drawing.Size(75, 13);
          this.SectName_Lb.TabIndex = 27;
@@ -284,7 +283,7 @@
          // 
          this.AfterPrntPay_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.AfterPrntPay_Lb.AutoSize = true;
-         this.AfterPrntPay_Lb.Location = new System.Drawing.Point(592, 61);
+         this.AfterPrntPay_Lb.Location = new System.Drawing.Point(114, 61);
          this.AfterPrntPay_Lb.Name = "AfterPrntPay_Lb";
          this.AfterPrntPay_Lb.Size = new System.Drawing.Size(150, 13);
          this.AfterPrntPay_Lb.TabIndex = 22;
@@ -304,74 +303,143 @@
          this.tc_Settings.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
          this.tc_Settings.RightToLeftLayout = true;
          this.tc_Settings.SelectedIndex = 0;
-         this.tc_Settings.Size = new System.Drawing.Size(995, 625);
+         this.tc_Settings.Size = new System.Drawing.Size(517, 625);
          this.tc_Settings.TabIndex = 0;
          // 
          // tp_backuprestore
          // 
          this.tp_backuprestore.BackColor = System.Drawing.SystemColors.Control;
-         this.tp_backuprestore.Controls.Add(this.GB_BACK_UP_OPTN_PATH_ADRS);
+         this.tp_backuprestore.Controls.Add(this.groupBox1);
          this.tp_backuprestore.Location = new System.Drawing.Point(4, 22);
          this.tp_backuprestore.Name = "tp_backuprestore";
          this.tp_backuprestore.Padding = new System.Windows.Forms.Padding(3);
-         this.tp_backuprestore.Size = new System.Drawing.Size(987, 599);
+         this.tp_backuprestore.Size = new System.Drawing.Size(509, 599);
          this.tp_backuprestore.TabIndex = 1;
          this.tp_backuprestore.Text = "پشتیبان گیری / بازگردانی داده";
          // 
-         // GB_BACK_UP_OPTN_PATH_ADRS
+         // groupBox1
          // 
-         this.GB_BACK_UP_OPTN_PATH_ADRS.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.GB_BACK_UP_OPTN_PATH_ADRS.BackColor = System.Drawing.Color.Transparent;
-         this.GB_BACK_UP_OPTN_PATH_ADRS.Caption = "";
-         this.GB_BACK_UP_OPTN_PATH_ADRS.CaptionFont = new System.Drawing.Font("Tahoma", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.GB_BACK_UP_OPTN_PATH_ADRS.Controls.Add(this.Btn_DeleteBackup);
-         this.GB_BACK_UP_OPTN_PATH_ADRS.Controls.Add(this.gridControl1);
-         this.GB_BACK_UP_OPTN_PATH_ADRS.Controls.Add(this.Btn_QueryBackupFile);
-         this.GB_BACK_UP_OPTN_PATH_ADRS.Controls.Add(this.Btn_RestoreDb);
-         this.GB_BACK_UP_OPTN_PATH_ADRS.Controls.Add(this.Btn_APPLY);
-         this.GB_BACK_UP_OPTN_PATH_ADRS.Controls.Add(this.Btn_TakeBackup);
-         this.GB_BACK_UP_OPTN_PATH_ADRS.Controls.Add(this.Txt_BACK_UP_OPTN_PATH_ADRS);
-         this.GB_BACK_UP_OPTN_PATH_ADRS.Controls.Add(this.OptionPath_Lb);
-         this.GB_BACK_UP_OPTN_PATH_ADRS.Controls.Add(this.Btn_BackupOptnPathAdrs);
-         this.GB_BACK_UP_OPTN_PATH_ADRS.FullHeader = false;
-         this.GB_BACK_UP_OPTN_PATH_ADRS.Location = new System.Drawing.Point(480, 3);
-         this.GB_BACK_UP_OPTN_PATH_ADRS.Name = "GB_BACK_UP_OPTN_PATH_ADRS";
-         this.GB_BACK_UP_OPTN_PATH_ADRS.Size = new System.Drawing.Size(501, 332);
-         this.GB_BACK_UP_OPTN_PATH_ADRS.Style = System.MaxUi.GroupBox.StyleBorder.Windows98;
-         this.GB_BACK_UP_OPTN_PATH_ADRS.TabIndex = 7;
+         this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+         this.groupBox1.Controls.Add(this.Btn_QueryBackupFile);
+         this.groupBox1.Controls.Add(this.Btn_DeleteBackup);
+         this.groupBox1.Controls.Add(this.Btn_RestoreDb);
+         this.groupBox1.Controls.Add(this.Txt_BACK_UP_OPTN_PATH_ADRS);
+         this.groupBox1.Controls.Add(this.Btn_BackupOptnPathAdrs);
+         this.groupBox1.Controls.Add(this.OptionPath_Lb);
+         this.groupBox1.Controls.Add(this.Btn_TakeBackup);
+         this.groupBox1.Controls.Add(this.Btn_APPLY);
+         this.groupBox1.Controls.Add(this.gridControl1);
+         this.groupBox1.Location = new System.Drawing.Point(6, 6);
+         this.groupBox1.Name = "groupBox1";
+         this.groupBox1.Size = new System.Drawing.Size(497, 587);
+         this.groupBox1.TabIndex = 8;
+         this.groupBox1.TabStop = false;
          // 
-         // Btn_DeleteBackup
+         // Txt_BACK_UP_OPTN_PATH_ADRS
          // 
-         this.Btn_DeleteBackup.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.Btn_DeleteBackup.BackColor = System.Drawing.Color.Gainsboro;
-         this.Btn_DeleteBackup.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-         this.Btn_DeleteBackup.Caption = "حذف فایل پشتیبان";
-         this.Btn_DeleteBackup.Disabled = false;
-         this.Btn_DeleteBackup.EnterColor = System.Drawing.Color.Transparent;
-         this.Btn_DeleteBackup.ForeColor = System.Drawing.SystemColors.ControlText;
-         this.Btn_DeleteBackup.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         this.Btn_DeleteBackup.ImageIndex = -1;
-         this.Btn_DeleteBackup.ImageList = null;
-         this.Btn_DeleteBackup.InToBold = false;
-         this.Btn_DeleteBackup.Location = new System.Drawing.Point(271, 462);
-         this.Btn_DeleteBackup.Name = "Btn_DeleteBackup";
-         this.Btn_DeleteBackup.Size = new System.Drawing.Size(107, 27);
-         this.Btn_DeleteBackup.TabIndex = 0;
-         this.Btn_DeleteBackup.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         this.Btn_DeleteBackup.TextColor = System.Drawing.Color.Black;
-         this.Btn_DeleteBackup.TextFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)), true);
-         this.Btn_DeleteBackup.Click += new System.EventHandler(this.Btn_DeleteBackup_Click);
+         this.Txt_BACK_UP_OPTN_PATH_ADRS.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+         this.Txt_BACK_UP_OPTN_PATH_ADRS.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.StngBs1, "BACK_UP_OPTN_PATH_ADRS", true));
+         this.Txt_BACK_UP_OPTN_PATH_ADRS.Location = new System.Drawing.Point(50, 20);
+         this.Txt_BACK_UP_OPTN_PATH_ADRS.Name = "Txt_BACK_UP_OPTN_PATH_ADRS";
+         this.Txt_BACK_UP_OPTN_PATH_ADRS.Size = new System.Drawing.Size(366, 21);
+         this.Txt_BACK_UP_OPTN_PATH_ADRS.TabIndex = 7;
+         this.Txt_BACK_UP_OPTN_PATH_ADRS.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+         // 
+         // StngBs1
+         // 
+         this.StngBs1.DataSource = typeof(System.Scsc.Data.Setting);
+         // 
+         // Btn_BackupOptnPathAdrs
+         // 
+         this.Btn_BackupOptnPathAdrs.BackColor = System.Drawing.Color.Gainsboro;
+         this.Btn_BackupOptnPathAdrs.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
+         this.Btn_BackupOptnPathAdrs.Caption = "...";
+         this.Btn_BackupOptnPathAdrs.Disabled = false;
+         this.Btn_BackupOptnPathAdrs.EnterColor = System.Drawing.Color.Transparent;
+         this.Btn_BackupOptnPathAdrs.ForeColor = System.Drawing.SystemColors.ControlText;
+         this.Btn_BackupOptnPathAdrs.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         this.Btn_BackupOptnPathAdrs.ImageIndex = -1;
+         this.Btn_BackupOptnPathAdrs.ImageList = null;
+         this.Btn_BackupOptnPathAdrs.InToBold = false;
+         this.Btn_BackupOptnPathAdrs.Location = new System.Drawing.Point(7, 20);
+         this.Btn_BackupOptnPathAdrs.Name = "Btn_BackupOptnPathAdrs";
+         this.Btn_BackupOptnPathAdrs.Size = new System.Drawing.Size(37, 21);
+         this.Btn_BackupOptnPathAdrs.TabIndex = 0;
+         this.Btn_BackupOptnPathAdrs.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         this.Btn_BackupOptnPathAdrs.TextColor = System.Drawing.Color.Black;
+         this.Btn_BackupOptnPathAdrs.TextFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)), true);
+         this.Btn_BackupOptnPathAdrs.Click += new System.EventHandler(this.Btn_BackupOptnPathAdrs_Click);
+         // 
+         // OptionPath_Lb
+         // 
+         this.OptionPath_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.OptionPath_Lb.AutoSize = true;
+         this.OptionPath_Lb.Location = new System.Drawing.Point(422, 23);
+         this.OptionPath_Lb.Name = "OptionPath_Lb";
+         this.OptionPath_Lb.Size = new System.Drawing.Size(63, 13);
+         this.OptionPath_Lb.TabIndex = 6;
+         this.OptionPath_Lb.Text = "مسیر فایل :";
+         // 
+         // Btn_TakeBackup
+         // 
+         this.Btn_TakeBackup.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.Btn_TakeBackup.BackColor = System.Drawing.Color.Gainsboro;
+         this.Btn_TakeBackup.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
+         this.Btn_TakeBackup.Caption = "پشتیبان اضطراری";
+         this.Btn_TakeBackup.Disabled = false;
+         this.Btn_TakeBackup.EnterColor = System.Drawing.Color.Transparent;
+         this.Btn_TakeBackup.ForeColor = System.Drawing.SystemColors.ControlText;
+         this.Btn_TakeBackup.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         this.Btn_TakeBackup.ImageIndex = -1;
+         this.Btn_TakeBackup.ImageList = null;
+         this.Btn_TakeBackup.InToBold = false;
+         this.Btn_TakeBackup.Location = new System.Drawing.Point(396, 47);
+         this.Btn_TakeBackup.Name = "Btn_TakeBackup";
+         this.Btn_TakeBackup.Size = new System.Drawing.Size(93, 27);
+         this.Btn_TakeBackup.TabIndex = 0;
+         this.Btn_TakeBackup.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         this.Btn_TakeBackup.TextColor = System.Drawing.Color.Black;
+         this.Btn_TakeBackup.TextFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)), true);
+         this.Btn_TakeBackup.Click += new System.EventHandler(this.Btn_TakeBackup_Click);
+         // 
+         // Btn_APPLY
+         // 
+         this.Btn_APPLY.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.Btn_APPLY.BackColor = System.Drawing.Color.Gainsboro;
+         this.Btn_APPLY.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
+         this.Btn_APPLY.Caption = "ثبت تنظیمات";
+         this.Btn_APPLY.Disabled = false;
+         this.Btn_APPLY.EnterColor = System.Drawing.Color.Transparent;
+         this.Btn_APPLY.ForeColor = System.Drawing.SystemColors.ControlText;
+         this.Btn_APPLY.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         this.Btn_APPLY.ImageIndex = -1;
+         this.Btn_APPLY.ImageList = null;
+         this.Btn_APPLY.InToBold = false;
+         this.Btn_APPLY.Location = new System.Drawing.Point(297, 47);
+         this.Btn_APPLY.Name = "Btn_APPLY";
+         this.Btn_APPLY.Size = new System.Drawing.Size(93, 27);
+         this.Btn_APPLY.TabIndex = 0;
+         this.Btn_APPLY.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         this.Btn_APPLY.TextColor = System.Drawing.Color.Black;
+         this.Btn_APPLY.TextFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)), true);
+         this.Btn_APPLY.Visible = false;
+         this.Btn_APPLY.Click += new System.EventHandler(this.Btn_APPLY_Click);
          // 
          // gridControl1
          // 
-         this.gridControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.gridControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
          this.gridControl1.DataSource = this.RestBs1;
-         this.gridControl1.Location = new System.Drawing.Point(9, 81);
+         this.gridControl1.Location = new System.Drawing.Point(7, 80);
          this.gridControl1.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
          this.gridControl1.LookAndFeel.UseDefaultLookAndFeel = false;
          this.gridControl1.MainView = this.gridView1;
          this.gridControl1.Name = "gridControl1";
-         this.gridControl1.Size = new System.Drawing.Size(482, 240);
+         this.gridControl1.Size = new System.Drawing.Size(482, 501);
          this.gridControl1.TabIndex = 2;
          this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -418,141 +486,6 @@
          this.Directory_Clm.VisibleIndex = 0;
          this.Directory_Clm.Width = 168;
          // 
-         // Btn_QueryBackupFile
-         // 
-         this.Btn_QueryBackupFile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.Btn_QueryBackupFile.BackColor = System.Drawing.Color.Gainsboro;
-         this.Btn_QueryBackupFile.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
-         this.Btn_QueryBackupFile.Caption = "بروزرسانی فایل ها";
-         this.Btn_QueryBackupFile.Disabled = false;
-         this.Btn_QueryBackupFile.EnterColor = System.Drawing.Color.Transparent;
-         this.Btn_QueryBackupFile.ForeColor = System.Drawing.SystemColors.ControlText;
-         this.Btn_QueryBackupFile.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         this.Btn_QueryBackupFile.ImageIndex = -1;
-         this.Btn_QueryBackupFile.ImageList = null;
-         this.Btn_QueryBackupFile.InToBold = false;
-         this.Btn_QueryBackupFile.Location = new System.Drawing.Point(158, 462);
-         this.Btn_QueryBackupFile.Name = "Btn_QueryBackupFile";
-         this.Btn_QueryBackupFile.Size = new System.Drawing.Size(107, 27);
-         this.Btn_QueryBackupFile.TabIndex = 0;
-         this.Btn_QueryBackupFile.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         this.Btn_QueryBackupFile.TextColor = System.Drawing.Color.Black;
-         this.Btn_QueryBackupFile.TextFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)), true);
-         this.Btn_QueryBackupFile.Click += new System.EventHandler(this.Btn_QueryBackupFile_Click);
-         // 
-         // Btn_RestoreDb
-         // 
-         this.Btn_RestoreDb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.Btn_RestoreDb.BackColor = System.Drawing.Color.Gainsboro;
-         this.Btn_RestoreDb.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
-         this.Btn_RestoreDb.Caption = "بازگردانی داده";
-         this.Btn_RestoreDb.Disabled = false;
-         this.Btn_RestoreDb.EnterColor = System.Drawing.Color.Transparent;
-         this.Btn_RestoreDb.ForeColor = System.Drawing.SystemColors.ControlText;
-         this.Btn_RestoreDb.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         this.Btn_RestoreDb.ImageIndex = -1;
-         this.Btn_RestoreDb.ImageList = null;
-         this.Btn_RestoreDb.InToBold = false;
-         this.Btn_RestoreDb.Location = new System.Drawing.Point(384, 462);
-         this.Btn_RestoreDb.Name = "Btn_RestoreDb";
-         this.Btn_RestoreDb.Size = new System.Drawing.Size(107, 27);
-         this.Btn_RestoreDb.TabIndex = 0;
-         this.Btn_RestoreDb.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         this.Btn_RestoreDb.TextColor = System.Drawing.Color.Black;
-         this.Btn_RestoreDb.TextFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)), true);
-         this.Btn_RestoreDb.Click += new System.EventHandler(this.Btn_RestoreDb_Click);
-         // 
-         // Btn_APPLY
-         // 
-         this.Btn_APPLY.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.Btn_APPLY.BackColor = System.Drawing.Color.Gainsboro;
-         this.Btn_APPLY.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
-         this.Btn_APPLY.Caption = "ثبت تنظیمات";
-         this.Btn_APPLY.Disabled = false;
-         this.Btn_APPLY.EnterColor = System.Drawing.Color.Transparent;
-         this.Btn_APPLY.ForeColor = System.Drawing.SystemColors.ControlText;
-         this.Btn_APPLY.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         this.Btn_APPLY.ImageIndex = -1;
-         this.Btn_APPLY.ImageList = null;
-         this.Btn_APPLY.InToBold = false;
-         this.Btn_APPLY.Location = new System.Drawing.Point(240, 48);
-         this.Btn_APPLY.Name = "Btn_APPLY";
-         this.Btn_APPLY.Size = new System.Drawing.Size(93, 27);
-         this.Btn_APPLY.TabIndex = 0;
-         this.Btn_APPLY.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         this.Btn_APPLY.TextColor = System.Drawing.Color.Black;
-         this.Btn_APPLY.TextFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)), true);
-         this.Btn_APPLY.Visible = false;
-         this.Btn_APPLY.Click += new System.EventHandler(this.Btn_APPLY_Click);
-         // 
-         // Btn_TakeBackup
-         // 
-         this.Btn_TakeBackup.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.Btn_TakeBackup.BackColor = System.Drawing.Color.Gainsboro;
-         this.Btn_TakeBackup.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
-         this.Btn_TakeBackup.Caption = "پشتیبان اضطراری";
-         this.Btn_TakeBackup.Disabled = false;
-         this.Btn_TakeBackup.EnterColor = System.Drawing.Color.Transparent;
-         this.Btn_TakeBackup.ForeColor = System.Drawing.SystemColors.ControlText;
-         this.Btn_TakeBackup.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         this.Btn_TakeBackup.ImageIndex = -1;
-         this.Btn_TakeBackup.ImageList = null;
-         this.Btn_TakeBackup.InToBold = false;
-         this.Btn_TakeBackup.Location = new System.Drawing.Point(339, 48);
-         this.Btn_TakeBackup.Name = "Btn_TakeBackup";
-         this.Btn_TakeBackup.Size = new System.Drawing.Size(93, 27);
-         this.Btn_TakeBackup.TabIndex = 0;
-         this.Btn_TakeBackup.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         this.Btn_TakeBackup.TextColor = System.Drawing.Color.Black;
-         this.Btn_TakeBackup.TextFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)), true);
-         this.Btn_TakeBackup.Click += new System.EventHandler(this.Btn_TakeBackup_Click);
-         // 
-         // Txt_BACK_UP_OPTN_PATH_ADRS
-         // 
-         this.Txt_BACK_UP_OPTN_PATH_ADRS.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-         this.Txt_BACK_UP_OPTN_PATH_ADRS.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.StngBs1, "BACK_UP_OPTN_PATH_ADRS", true));
-         this.Txt_BACK_UP_OPTN_PATH_ADRS.Location = new System.Drawing.Point(52, 21);
-         this.Txt_BACK_UP_OPTN_PATH_ADRS.Name = "Txt_BACK_UP_OPTN_PATH_ADRS";
-         this.Txt_BACK_UP_OPTN_PATH_ADRS.Size = new System.Drawing.Size(380, 21);
-         this.Txt_BACK_UP_OPTN_PATH_ADRS.TabIndex = 7;
-         this.Txt_BACK_UP_OPTN_PATH_ADRS.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-         // 
-         // StngBs1
-         // 
-         this.StngBs1.DataSource = typeof(System.Scsc.Data.Setting);
-         // 
-         // OptionPath_Lb
-         // 
-         this.OptionPath_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.OptionPath_Lb.AutoSize = true;
-         this.OptionPath_Lb.Location = new System.Drawing.Point(438, 24);
-         this.OptionPath_Lb.Name = "OptionPath_Lb";
-         this.OptionPath_Lb.Size = new System.Drawing.Size(63, 13);
-         this.OptionPath_Lb.TabIndex = 6;
-         this.OptionPath_Lb.Text = "مسیر فایل :";
-         // 
-         // Btn_BackupOptnPathAdrs
-         // 
-         this.Btn_BackupOptnPathAdrs.BackColor = System.Drawing.Color.Gainsboro;
-         this.Btn_BackupOptnPathAdrs.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
-         this.Btn_BackupOptnPathAdrs.Caption = "...";
-         this.Btn_BackupOptnPathAdrs.Disabled = false;
-         this.Btn_BackupOptnPathAdrs.EnterColor = System.Drawing.Color.Transparent;
-         this.Btn_BackupOptnPathAdrs.ForeColor = System.Drawing.SystemColors.ControlText;
-         this.Btn_BackupOptnPathAdrs.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         this.Btn_BackupOptnPathAdrs.ImageIndex = -1;
-         this.Btn_BackupOptnPathAdrs.ImageList = null;
-         this.Btn_BackupOptnPathAdrs.InToBold = false;
-         this.Btn_BackupOptnPathAdrs.Location = new System.Drawing.Point(9, 21);
-         this.Btn_BackupOptnPathAdrs.Name = "Btn_BackupOptnPathAdrs";
-         this.Btn_BackupOptnPathAdrs.Size = new System.Drawing.Size(37, 21);
-         this.Btn_BackupOptnPathAdrs.TabIndex = 0;
-         this.Btn_BackupOptnPathAdrs.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         this.Btn_BackupOptnPathAdrs.TextColor = System.Drawing.Color.Black;
-         this.Btn_BackupOptnPathAdrs.TextFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)), true);
-         this.Btn_BackupOptnPathAdrs.Click += new System.EventHandler(this.Btn_BackupOptnPathAdrs_Click);
-         // 
          // tp_printmodual
          // 
          this.tp_printmodual.BackColor = System.Drawing.SystemColors.Control;
@@ -582,7 +515,7 @@
          this.tp_printmodual.Location = new System.Drawing.Point(4, 22);
          this.tp_printmodual.Name = "tp_printmodual";
          this.tp_printmodual.Padding = new System.Windows.Forms.Padding(3);
-         this.tp_printmodual.Size = new System.Drawing.Size(987, 599);
+         this.tp_printmodual.Size = new System.Drawing.Size(509, 599);
          this.tp_printmodual.TabIndex = 2;
          this.tp_printmodual.Text = "تنظمیات چاپ";
          // 
@@ -590,7 +523,7 @@
          // 
          this.sECT_DESCTextEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.sECT_DESCTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.MdrpBs1, "SECT_DESC", true));
-         this.sECT_DESCTextEdit.Location = new System.Drawing.Point(486, 86);
+         this.sECT_DESCTextEdit.Location = new System.Drawing.Point(8, 86);
          this.sECT_DESCTextEdit.Name = "sECT_DESCTextEdit";
          this.sECT_DESCTextEdit.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.sECT_DESCTextEdit.Properties.Appearance.Options.UseFont = true;
@@ -609,7 +542,7 @@
          // 
          this.modual_ReportGridControl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.modual_ReportGridControl.DataSource = this.MdrpBs1;
-         this.modual_ReportGridControl.Location = new System.Drawing.Point(486, 223);
+         this.modual_ReportGridControl.Location = new System.Drawing.Point(8, 223);
          this.modual_ReportGridControl.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
          this.modual_ReportGridControl.LookAndFeel.UseDefaultLookAndFeel = false;
          this.modual_ReportGridControl.MainView = this.gridView11;
@@ -813,7 +746,7 @@
          this.MDUL_NAME_TextEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.MDUL_NAME_TextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.MdrpBs1, "MDUL_NAME", true));
          this.MDUL_NAME_TextEdit.EditValue = "";
-         this.MDUL_NAME_TextEdit.Location = new System.Drawing.Point(792, 6);
+         this.MDUL_NAME_TextEdit.Location = new System.Drawing.Point(314, 6);
          this.MDUL_NAME_TextEdit.Name = "MDUL_NAME_TextEdit";
          this.MDUL_NAME_TextEdit.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.MDUL_NAME_TextEdit.Properties.Appearance.Options.UseFont = true;
@@ -829,7 +762,7 @@
          // 
          this.SECT_NAME_TextEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.SECT_NAME_TextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.MdrpBs1, "SECT_NAME", true));
-         this.SECT_NAME_TextEdit.Location = new System.Drawing.Point(792, 60);
+         this.SECT_NAME_TextEdit.Location = new System.Drawing.Point(314, 60);
          this.SECT_NAME_TextEdit.Name = "SECT_NAME_TextEdit";
          this.SECT_NAME_TextEdit.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.SECT_NAME_TextEdit.Properties.Appearance.Options.UseFont = true;
@@ -846,7 +779,7 @@
          this.MdrpBn1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.MdrpBn1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
          this.MdrpBn1.DataSource = this.MdrpBs1;
-         this.MdrpBn1.Location = new System.Drawing.Point(486, 193);
+         this.MdrpBn1.Location = new System.Drawing.Point(8, 193);
          this.MdrpBn1.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
          this.MdrpBn1.LookAndFeel.UseDefaultLookAndFeel = false;
          this.MdrpBn1.Name = "MdrpBn1";
@@ -860,7 +793,7 @@
          this.mDUL_DESCTextEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.mDUL_DESCTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.MdrpBs1, "MDUL_DESC", true));
          this.mDUL_DESCTextEdit.EditValue = "";
-         this.mDUL_DESCTextEdit.Location = new System.Drawing.Point(486, 32);
+         this.mDUL_DESCTextEdit.Location = new System.Drawing.Point(8, 32);
          this.mDUL_DESCTextEdit.Name = "mDUL_DESCTextEdit";
          this.mDUL_DESCTextEdit.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.mDUL_DESCTextEdit.Properties.Appearance.Options.UseFont = true;
@@ -884,7 +817,7 @@
          this.mb_ReportBrowser.ImageIndex = -1;
          this.mb_ReportBrowser.ImageList = null;
          this.mb_ReportBrowser.InToBold = false;
-         this.mb_ReportBrowser.Location = new System.Drawing.Point(486, 114);
+         this.mb_ReportBrowser.Location = new System.Drawing.Point(8, 114);
          this.mb_ReportBrowser.Name = "mb_ReportBrowser";
          this.mb_ReportBrowser.Size = new System.Drawing.Size(23, 22);
          this.mb_ReportBrowser.TabIndex = 8;
@@ -898,7 +831,7 @@
          this.RPRT_PATHTextEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.RPRT_PATHTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.MdrpBs1, "RPRT_PATH", true));
          this.RPRT_PATHTextEdit.EditValue = "C:\\";
-         this.RPRT_PATHTextEdit.Location = new System.Drawing.Point(515, 114);
+         this.RPRT_PATHTextEdit.Location = new System.Drawing.Point(37, 114);
          this.RPRT_PATHTextEdit.Name = "RPRT_PATHTextEdit";
          this.RPRT_PATHTextEdit.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.RPRT_PATHTextEdit.Properties.Appearance.Options.UseFont = true;
@@ -914,7 +847,7 @@
          // 
          this.dFLTLookUpEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.dFLTLookUpEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.MdrpBs1, "DFLT", true));
-         this.dFLTLookUpEdit.Location = new System.Drawing.Point(486, 165);
+         this.dFLTLookUpEdit.Location = new System.Drawing.Point(8, 165);
          this.dFLTLookUpEdit.Name = "dFLTLookUpEdit";
          this.dFLTLookUpEdit.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.dFLTLookUpEdit.Properties.Appearance.Options.UseFont = true;
@@ -923,7 +856,7 @@
          this.dFLTLookUpEdit.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
          this.dFLTLookUpEdit.Properties.AppearanceFocused.Options.UseBackColor = true;
          this.dFLTLookUpEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject6, "", null, null, true)});
          this.dFLTLookUpEdit.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("VALU", "VALU", 48, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("DOMN_DESC", "پیش فرض", 72, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near)});
@@ -941,7 +874,7 @@
          this.rPRT_DESCTextEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.rPRT_DESCTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.MdrpBs1, "RPRT_DESC", true));
          this.rPRT_DESCTextEdit.EditValue = "";
-         this.rPRT_DESCTextEdit.Location = new System.Drawing.Point(486, 139);
+         this.rPRT_DESCTextEdit.Location = new System.Drawing.Point(8, 139);
          this.rPRT_DESCTextEdit.Name = "rPRT_DESCTextEdit";
          this.rPRT_DESCTextEdit.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.rPRT_DESCTextEdit.Properties.Appearance.Options.UseFont = true;
@@ -956,7 +889,7 @@
          // 
          this.sTATLookUpEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.sTATLookUpEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.MdrpBs1, "STAT", true));
-         this.sTATLookUpEdit.Location = new System.Drawing.Point(773, 165);
+         this.sTATLookUpEdit.Location = new System.Drawing.Point(295, 165);
          this.sTATLookUpEdit.Name = "sTATLookUpEdit";
          this.sTATLookUpEdit.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.sTATLookUpEdit.Properties.Appearance.Options.UseFont = true;
@@ -965,7 +898,7 @@
          this.sTATLookUpEdit.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
          this.sTATLookUpEdit.Properties.AppearanceFocused.Options.UseBackColor = true;
          this.sTATLookUpEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject7, "", null, null, true)});
          this.sTATLookUpEdit.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("VALU", "VALU", 48, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("DOMN_DESC", "وضعیت چاپ", 72, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near)});
@@ -982,7 +915,7 @@
          // 
          this.sHOW_PRVWLookUpEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.sHOW_PRVWLookUpEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.MdrpBs1, "SHOW_PRVW", true));
-         this.sHOW_PRVWLookUpEdit.Location = new System.Drawing.Point(486, 6);
+         this.sHOW_PRVWLookUpEdit.Location = new System.Drawing.Point(8, 6);
          this.sHOW_PRVWLookUpEdit.Name = "sHOW_PRVWLookUpEdit";
          this.sHOW_PRVWLookUpEdit.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.sHOW_PRVWLookUpEdit.Properties.Appearance.Options.UseFont = true;
@@ -991,7 +924,7 @@
          this.sHOW_PRVWLookUpEdit.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
          this.sHOW_PRVWLookUpEdit.Properties.AppearanceFocused.Options.UseBackColor = true;
          this.sHOW_PRVWLookUpEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject3, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject8, "", null, null, true)});
          this.sHOW_PRVWLookUpEdit.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("VALU", "VALU", 48, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("DOMN_DESC", "نمایش فرم چاپ", 72, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near)});
@@ -1008,7 +941,7 @@
          // 
          this.lookUpEdit1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.lookUpEdit1.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.MdrpBs1, "PRNT_AFTR_PAY", true));
-         this.lookUpEdit1.Location = new System.Drawing.Point(486, 58);
+         this.lookUpEdit1.Location = new System.Drawing.Point(8, 58);
          this.lookUpEdit1.Name = "lookUpEdit1";
          this.lookUpEdit1.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.lookUpEdit1.Properties.Appearance.Options.UseFont = true;
@@ -1017,7 +950,7 @@
          this.lookUpEdit1.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
          this.lookUpEdit1.Properties.AppearanceFocused.Options.UseBackColor = true;
          this.lookUpEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject4, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
          this.lookUpEdit1.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("VALU", "VALU", 48, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("DOMN_DESC", "بلی / خیر", 72, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near)});
@@ -1114,7 +1047,7 @@
          this.Auto_Gnrt_LOV.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
          this.Auto_Gnrt_LOV.Properties.AppearanceFocused.Options.UseBackColor = true;
          this.Auto_Gnrt_LOV.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
          this.Auto_Gnrt_LOV.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("VALU", "VALU", 48, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("DOMN_DESC", "", 72, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near)});
@@ -1139,7 +1072,7 @@
          this.EPIT_RQTP_CODE_LOV.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
          this.EPIT_RQTP_CODE_LOV.Properties.AppearanceFocused.Options.UseBackColor = true;
          this.EPIT_RQTP_CODE_LOV.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject6, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject3, "", null, null, true)});
          this.EPIT_RQTP_CODE_LOV.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("CODE", "CODE", 54, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("SUB_SYS", "SUB_SYS", 61, DevExpress.Utils.FormatType.Numeric, "", false, DevExpress.Utils.HorzAlignment.Far),
@@ -1170,7 +1103,7 @@
          this.EPIT_RQTT_CODE_LOV.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
          this.EPIT_RQTT_CODE_LOV.Properties.AppearanceFocused.Options.UseBackColor = true;
          this.EPIT_RQTT_CODE_LOV.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject7, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject4, "", null, null, true)});
          this.EPIT_RQTT_CODE_LOV.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("CODE", "CODE", 54, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("SUB_SYS", "SUB_SYS", 61, DevExpress.Utils.FormatType.Numeric, "", false, DevExpress.Utils.HorzAlignment.Far),
@@ -1196,7 +1129,7 @@
          this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
          this.panel1.Location = new System.Drawing.Point(0, 0);
          this.panel1.Name = "panel1";
-         this.panel1.Size = new System.Drawing.Size(995, 59);
+         this.panel1.Size = new System.Drawing.Size(517, 59);
          this.panel1.TabIndex = 1;
          // 
          // simpleButton1
@@ -1212,7 +1145,7 @@
          this.simpleButton1.Name = "simpleButton1";
          this.simpleButton1.Size = new System.Drawing.Size(61, 59);
          this.simpleButton1.TabIndex = 2;
-         this.simpleButton1.ToolTip = "بازگشت";
+         this.simpleButton1.ToolTip = "ذخیره اطلاعات";
          this.simpleButton1.Click += new System.EventHandler(this.Btn_OK_Click);
          // 
          // TitlForm_Lb
@@ -1223,9 +1156,9 @@
          this.TitlForm_Lb.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.TitlForm_Lb.Dock = System.Windows.Forms.DockStyle.Right;
          this.TitlForm_Lb.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.TitlForm_Lb.Location = new System.Drawing.Point(434, 0);
+         this.TitlForm_Lb.Location = new System.Drawing.Point(181, 0);
          this.TitlForm_Lb.Name = "TitlForm_Lb";
-         this.TitlForm_Lb.Size = new System.Drawing.Size(500, 59);
+         this.TitlForm_Lb.Size = new System.Drawing.Size(275, 59);
          this.TitlForm_Lb.TabIndex = 1;
          this.TitlForm_Lb.Text = "تنظیمات چاپ و پشتیبان گیری";
          // 
@@ -1236,7 +1169,7 @@
          this.Back_Butn.Dock = System.Windows.Forms.DockStyle.Right;
          this.Back_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1371;
          this.Back_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.Back_Butn.Location = new System.Drawing.Point(934, 0);
+         this.Back_Butn.Location = new System.Drawing.Point(456, 0);
          this.Back_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.Back_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.Back_Butn.Name = "Back_Butn";
@@ -1244,6 +1177,36 @@
          this.Back_Butn.TabIndex = 0;
          this.Back_Butn.ToolTip = "بازگشت";
          this.Back_Butn.Click += new System.EventHandler(this.Btn_Back_Click);
+         // 
+         // Btn_RestoreDb
+         // 
+         this.Btn_RestoreDb.Location = new System.Drawing.Point(7, 47);
+         this.Btn_RestoreDb.Name = "Btn_RestoreDb";
+         this.Btn_RestoreDb.Size = new System.Drawing.Size(89, 27);
+         this.Btn_RestoreDb.TabIndex = 8;
+         this.Btn_RestoreDb.Text = "بازیابی اطلاعات";
+         this.Btn_RestoreDb.UseVisualStyleBackColor = true;
+         this.Btn_RestoreDb.Click += new System.EventHandler(this.Btn_RestoreDb_Click);
+         // 
+         // Btn_DeleteBackup
+         // 
+         this.Btn_DeleteBackup.Location = new System.Drawing.Point(102, 47);
+         this.Btn_DeleteBackup.Name = "Btn_DeleteBackup";
+         this.Btn_DeleteBackup.Size = new System.Drawing.Size(66, 27);
+         this.Btn_DeleteBackup.TabIndex = 8;
+         this.Btn_DeleteBackup.Text = "حذف فایل";
+         this.Btn_DeleteBackup.UseVisualStyleBackColor = true;
+         this.Btn_DeleteBackup.Click += new System.EventHandler(this.Btn_DeleteBackup_Click);
+         // 
+         // Btn_QueryBackupFile
+         // 
+         this.Btn_QueryBackupFile.Location = new System.Drawing.Point(171, 47);
+         this.Btn_QueryBackupFile.Name = "Btn_QueryBackupFile";
+         this.Btn_QueryBackupFile.Size = new System.Drawing.Size(83, 27);
+         this.Btn_QueryBackupFile.TabIndex = 8;
+         this.Btn_QueryBackupFile.Text = "نمایش فایل ها";
+         this.Btn_QueryBackupFile.UseVisualStyleBackColor = true;
+         this.Btn_QueryBackupFile.Click += new System.EventHandler(this.Btn_QueryBackupFile_Click);
          // 
          // CFG_STNG_F
          // 
@@ -1255,16 +1218,16 @@
          this.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.Name = "CFG_STNG_F";
          this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-         this.Size = new System.Drawing.Size(995, 684);
+         this.Size = new System.Drawing.Size(517, 684);
          ((System.ComponentModel.ISupportInitialize)(this.DActvBs1)).EndInit();
          this.tc_Settings.ResumeLayout(false);
          this.tp_backuprestore.ResumeLayout(false);
-         this.GB_BACK_UP_OPTN_PATH_ADRS.ResumeLayout(false);
-         this.GB_BACK_UP_OPTN_PATH_ADRS.PerformLayout();
+         this.groupBox1.ResumeLayout(false);
+         this.groupBox1.PerformLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.StngBs1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.RestBs1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.StngBs1)).EndInit();
          this.tp_printmodual.ResumeLayout(false);
          this.tp_printmodual.PerformLayout();
          ((System.ComponentModel.ISupportInitialize)(this.sECT_DESCTextEdit.Properties)).EndInit();
@@ -1300,21 +1263,17 @@
       private Windows.Forms.TabControl tc_Settings;
       private Windows.Forms.TabPage tp_backuprestore;
       private MaxUi.NewMaxBtn Btn_TakeBackup;
-      private MaxUi.GroupBox GB_BACK_UP_OPTN_PATH_ADRS;
       private Windows.Forms.TextBox Txt_BACK_UP_OPTN_PATH_ADRS;
       private Windows.Forms.Label OptionPath_Lb;
       private MaxUi.NewMaxBtn Btn_BackupOptnPathAdrs;
       private MaxUi.NewMaxBtn Btn_APPLY;
       private Windows.Forms.BindingSource RestBs1;
-      private MaxUi.NewMaxBtn Btn_RestoreDb;
-      private MaxUi.NewMaxBtn Btn_QueryBackupFile;
       private DevExpress.XtraGrid.GridControl gridControl1;
       private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
       private DevExpress.XtraGrid.Columns.GridColumn FileName_Clm;
       private DevExpress.XtraGrid.Columns.GridColumn Directory_Clm;
       private Windows.Forms.BindingSource StngBs1;
       private Windows.Forms.FolderBrowserDialog Ofd_BackupOptnPathAdrs;
-      private MaxUi.NewMaxBtn Btn_DeleteBackup;
       private Windows.Forms.BindingSource ClubBs1;
       private Windows.Forms.TabPage tp_printmodual;
       private Windows.Forms.BindingSource DActvBs1;
@@ -1380,6 +1339,10 @@
       private Windows.Forms.Label SectDesc_Lb;
       private Windows.Forms.Label SectName_Lb;
       private Windows.Forms.Label AfterPrntPay_Lb;
+      private Windows.Forms.GroupBox groupBox1;
+      private Windows.Forms.Button Btn_RestoreDb;
+      private Windows.Forms.Button Btn_DeleteBackup;
+      private Windows.Forms.Button Btn_QueryBackupFile;
 
 
 

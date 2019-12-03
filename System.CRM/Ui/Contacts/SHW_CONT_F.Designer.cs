@@ -169,6 +169,8 @@
             styleFormatCondition1});
          this.Serv_Gv.GridControl = this.Serv_Gc;
          this.Serv_Gv.Name = "Serv_Gv";
+         this.Serv_Gv.OptionsBehavior.Editable = false;
+         this.Serv_Gv.OptionsBehavior.ReadOnly = true;
          this.Serv_Gv.OptionsFind.AlwaysVisible = true;
          this.Serv_Gv.OptionsFind.FindDelay = 100;
          this.Serv_Gv.OptionsSelection.EnableAppearanceFocusedCell = false;

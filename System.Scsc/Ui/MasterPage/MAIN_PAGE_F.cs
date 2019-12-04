@@ -1881,6 +1881,7 @@ namespace System.Scsc.Ui.MasterPage
          Start_ExpnExtr();
          Start_TlgrmBot();
          Start_ZKTFPSensor();
+         Start_DetectExternalDevice();
          Tm_FingerPrintWorker.Enabled = false;
       }
 
@@ -2021,6 +2022,136 @@ namespace System.Scsc.Ui.MasterPage
          {
             MessageBox.Show(exc.Message);
             return false;
+         }
+      }
+      #endregion
+
+      #region External_Device
+      List<SerialPort> Exdvs = new List<SerialPort>();
+      private void Start_DetectExternalDevice()
+      {
+         try
+         {
+            var devs = iScsc.External_Devices.Where(ed => ed.STAT == "002");
+
+            #region Saela Company
+            #region card reader
+            foreach (var cardreader in devs.Where(d => d.DEV_COMP_TYPE == "001" && d.DEV_TYPE == "001"))
+            {
+               // Create Serial Port Instance
+               SerialPort sp = new SerialPort(cardreader.PORT_NAME, (int)cardreader.BAND_RATE) { DataBits = 8, StopBits = StopBits.One, Handshake = Handshake.None, Parity = Parity.None };
+               
+               // Port Open
+               sp.Open();
+
+               Exdvs.Add(sp);
+
+               #region Device Stat
+               if (sp.IsOpen)
+               {
+                  AttnType_Lov.EditValue = "001";
+                  this.AttendanceSystemAlert_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1212;
+                  Tsp_AttnSys.Text = "سیستم کارت خوان  صائلا فعال";
+                  Tsp_AttnSys.ForeColor = Color.Green;
+                  AttendanceSystemAlert_Butn.Tag = "001";
+               }
+               else
+               {
+                  AttnType_Lov.EditValue = null;
+                  this.AttendanceSystemAlert_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1196;
+                  Tsp_AttnSys.Text = "سیستم کارت خوان صائلا غیرفعال";
+                  Tsp_AttnSys.ForeColor = Color.Red;
+               }
+               #endregion
+
+               if (cardreader.CYCL_READ == "001")
+               {
+                  // Normal Card Reader
+               }
+               else if(cardreader.CYCL_READ == "002")
+               {
+                  // Encoder Reader
+                  sp.DataReceived += SaelaEncoderDevice_DataReceivedHandler;
+                  Tm_Exdv.Enabled = true;
+               }
+            }
+            #endregion
+
+            #region gate control
+            foreach (var gate in devs.Where(d => d.DEV_COMP_TYPE == "001" && d.DEV_TYPE == "006"))
+            {
+
+            }
+            #endregion
+            #endregion
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void Tm_Exdv_Tick(object sender, EventArgs e)
+      {
+         try
+         {
+            byte[] data = new byte[] { 0xaa, 0x00, 0x03, 0x25, 0x26, 0x00, 0x00, 0xbb };
+            // Listener Encoders
+            foreach (var encoder in Exdvs)
+            {
+               // Request to Encoder for set card on device
+               encoder.Write(data, 0, data.Length);               
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void SaelaEncoderDevice_DataReceivedHandler(object sender, SerialDataReceivedEventArgs e)
+      {
+         try
+         {
+            SerialPort sp = sender as SerialPort;
+            // Response from Encoder
+            Thread.Sleep(500);
+            byte[] recieve = new byte[sp.BytesToRead];
+            sp.Read(recieve, 0, recieve.Length);            
+
+            // Analysis Encoder data received
+            
+            // if card not in encoder
+            if (recieve.Length < 10)
+               return;
+
+            // if data is ok
+            var recieveStr = BitConverter.ToString(recieve).Split('-');
+            string enrollNumber = "";
+            for (int i = recieveStr.Count() - 6; i < recieveStr.Count() - 2; i++)
+			   {
+               enrollNumber += recieveStr[i];
+			   }
+            
+            if (InvokeRequired)
+               Invoke(new Action(() =>
+                  {
+                     // اگر کارت قبلا خوانده شده
+                     if (FngrPrnt_Txt.Text == enrollNumber) return;
+
+                     axCZKEM1_OnAttTransactionEx(enrollNumber, 0, 0, 0, 1395, 1, 1, 1, 1, 1, 1);
+                  }));
+            else
+            {
+               // اگر کارت قبلا خوانده شده
+               if (FngrPrnt_Txt.Text == enrollNumber) return;
+
+               axCZKEM1_OnAttTransactionEx(enrollNumber, 0, 0, 0, 1395, 1, 1, 1, 1, 1, 1);
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
          }
       }
       #endregion
@@ -4140,5 +4271,6 @@ namespace System.Scsc.Ui.MasterPage
       {
          tol_closegatebutn_ItemClick(null, null);
       }
+
    }
 }

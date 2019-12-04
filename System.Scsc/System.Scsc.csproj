@@ -1030,9 +1030,11 @@
     <None Include="Properties\DataSources\System.Scsc.Data.D_CNGR.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_CNGT.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_CONF.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.D_CONN.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_CSTP.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_CXTP.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_CYCL.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.D_CYCR.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_DCKI.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_DCMT.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_DCND.datasource" />
@@ -1041,6 +1043,7 @@
     <None Include="Properties\DataSources\System.Scsc.Data.D_DCTY.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_DEBT.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_DEGR.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.D_DEVC.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_DSAT.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_DSCT.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_DYTP.datasource" />
@@ -1088,6 +1091,7 @@
     <None Include="Properties\DataSources\System.Scsc.Data.Expense_Cash.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Expense_Item.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Expense_Type.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.External_Device.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Fighter.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Fighter_Public.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Finance_Document.datasource" />

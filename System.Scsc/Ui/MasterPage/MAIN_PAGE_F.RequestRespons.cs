@@ -711,6 +711,10 @@ namespace System.Scsc.Ui.MasterPage
 
             SendOprtDresser(portName, cmndname);
          }
+         else if(job.Input != null && (job.Input as XElement).Attribute("type").Value == "extdev")
+         {
+            OprtExtDev(job.Input as XElement);
+         }
          job.Status = StatusType.Successful;
       }
 

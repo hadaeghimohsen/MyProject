@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.JobRouting.Jobs;
 using System.Xml.Linq;
 using DevExpress.XtraEditors;
+using System.Scsc.ExtCode;
 
 namespace System.Scsc.Ui.Common
 {
@@ -545,11 +546,19 @@ namespace System.Scsc.Ui.Common
             {
                GustInfo_Pn.Visible = false;
             }
-         }
-         catch (Exception )
-         {
 
+            // 1398/10/02 * بررسی اینکه چه صورتحساب هایی قادر به عملیات ابطال هستند
+            CnclPymt_Tsmi.Enabled = EditPymt_Tsmi.Enabled = false;
+            if(pymt.RQTP_CODE.In("001", "009"))
+            {
+               CnclPymt_Tsmi.Enabled = EditPymt_Tsmi.Enabled = true;
+            }
+            else if(pymt.RQTP_CODE.In("012", "016"))
+            {
+               CnclPymt_Tsmi.Enabled = true;
+            }            
          }
+         catch {}
       }
 
       private void CnclRqst_Butn_Click(object sender, EventArgs e)
@@ -1240,6 +1249,7 @@ namespace System.Scsc.Ui.Common
             ExpnAmnt_Txt.EditValue = iScsc.Payment_Details.Where(pd => pd.PYMT_RQST_RQID == rqid).Sum(pd => (pd.EXPN_PRIC + pd.EXPN_EXTR_PRCT) * pd.QNTY);
             DscnAmnt_Txt.EditValue = iScsc.Payment_Discounts.Where(pd => pd.PYMT_RQST_RQID == rqid).Sum(pd => pd.AMNT);
             PymtAmnt1_Txt.EditValue = iScsc.Payment_Methods.Where(pd => pd.PYMT_RQST_RQID == rqid).Sum(pd => pd.AMNT);
+            DebtPymtAmnt1_Txt.EditValue = Convert.ToInt64(ExpnAmnt_Txt.EditValue) - (Convert.ToInt64(PymtAmnt1_Txt.EditValue) + Convert.ToInt64(DscnAmnt_Txt.EditValue));
          }
          catch{
          }
@@ -2171,6 +2181,212 @@ namespace System.Scsc.Ui.Common
          {
             MessageBox.Show(exc.Message);
          }
+      }
+
+      private void NewMbsp_Tsm_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var mbsp = MbspBs.Current as Data.Member_Ship;
+            if (mbsp == null) return;
+
+            
+            var fp = mbsp.Fighter_Public;
+            iScsc.ExecuteCommand(string.Format("UPDATE Fighter SET Mtod_Code_Dnrm = {0}, Ctgy_Code_Dnrm = {1}, Cbmt_Code_Dnrm = {2} WHERE File_No = {3};", fp.MTOD_CODE, fp.CTGY_CODE, fp.CBMT_CODE, fp.FIGH_FILE_NO));
+
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "Localhost",
+                  new List<Job>
+                  {
+                     new Job(SendType.Self, 64 /* Execute Adm_Totl_F */),
+                     new Job(SendType.SelfToUserInterface, "ADM_TOTL_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "renewcontract"), new XAttribute("enrollnumber", fp.FNGR_PRNT), new XAttribute("formcaller", GetType().Name))}
+                  })
+            );
+         }
+         catch (Exception exc) { MessageBox.Show(exc.Message); }
+      }
+
+      private void RecalcPymt_Tsm_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var mbsp = MbspBs.Current as Data.Member_Ship;
+            if (mbsp == null) return;
+
+            iScsc.CALC_SEXP_P(
+               new XElement("Request",
+                  new XAttribute("rqid", mbsp.RQRO_RQST_RQID)
+               )
+            );
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void CnclPymt_Tsm_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var mbsp = MbspBs.Current as Data.Member_Ship;
+            if (mbsp == null) return;
+
+            iScsc.CNCL_PYMT_P(
+               new XElement("Payment", 
+                  new XAttribute("rqid", mbsp.RQRO_RQST_RQID),
+                  new XAttribute("cncltype", "001") // ابطال عادی صورتحساب
+               )
+            );
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void EditPymt_Tsm_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var mbsp = MbspBs.Current as Data.Member_Ship;
+            if (mbsp == null) return;
+
+            iScsc.CNCL_PYMT_P(
+               new XElement("Payment",
+                  new XAttribute("rqid", mbsp.RQRO_RQST_RQID),
+                  new XAttribute("cncltype", "002") // صدور صورتحساب اصلاحی
+               )
+            );
+
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "Localhost",
+                  new List<Job>
+                  {
+                     new Job(SendType.Self, 64 /* Execute Adm_Totl_F */),
+                     new Job(SendType.SelfToUserInterface, "ADM_TOTL_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "search"), new XAttribute("enrollnumber", mbsp.Fighter.FNGR_PRNT_DNRM), new XAttribute("formcaller", GetType().Name))}
+                  })
+            );
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void CnclPymt_Tsmi_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var pymt = vF_SavePaymentsBs.Current as Data.VF_Save_PaymentsResult;
+            if (pymt == null) return;
+
+            if(pymt.RQTP_CODE.In("001", "009", "012", "016"))
+            {
+               iScsc.CNCL_PYMT_P(
+                  new XElement("Payment",
+                     new XAttribute("rqid", pymt.RQID),
+                     new XAttribute("cncltype", "001") // ابطال عادی صورتحساب
+                  )
+               );
+            }
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+            {
+               Execute_Query();
+               tb_master.SelectedTab = tp_003;
+            }
+         }
+      }
+
+      private void EditPymt_Tsmi_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var pymt = vF_SavePaymentsBs.Current as Data.VF_Save_PaymentsResult;
+            if (pymt == null) return;
+
+            if (pymt.RQTP_CODE.In("001", "009"))
+            {
+               iScsc.CNCL_PYMT_P(
+                  new XElement("Payment",
+                     new XAttribute("rqid", pymt.RQID),
+                     new XAttribute("cncltype", "002") // صدور صورتحساب اصلاحی
+                  )
+               );
+
+               _DefaultGateway.Gateway(
+                  new Job(SendType.External, "Localhost",
+                     new List<Job>
+                     {
+                        new Job(SendType.Self, 64 /* Execute Adm_Totl_F */),
+                        new Job(SendType.SelfToUserInterface, "ADM_TOTL_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "search"), new XAttribute("enrollnumber", FNGR_PRNT_TextEdit.Text), new XAttribute("formcaller", GetType().Name))}
+                     })
+               );
+            }
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+            {
+               Execute_Query();
+               tb_master.SelectedTab = tp_003;
+            }
+         }
+      }
+
+      private void DelPymt_Tsmi_Click(object sender, EventArgs e)
+      {
+
+      }
+
+      private void AcptPymt_Tsmi_Click(object sender, EventArgs e)
+      {
+
+      }
+
+      private void BlokPymt_Tsmi_Click(object sender, EventArgs e)
+      {
+
+      }
+
+      private void UnBlokPymt_Tsmi_Click(object sender, EventArgs e)
+      {
+
       }      
    }
 }

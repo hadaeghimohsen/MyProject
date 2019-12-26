@@ -28,6 +28,7 @@
       /// </summary>
       private void InitializeComponent()
       {
+         this.components = new System.ComponentModel.Container();
          System.Windows.Forms.Label rEGL_YEARLabel;
          System.Windows.Forms.Label rEGL_CODELabel;
          System.Windows.Forms.Label SaleDate_Lb;
@@ -125,7 +126,7 @@
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject32 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject33 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject34 = new DevExpress.Utils.SerializableAppearanceObject();
-         this.Serv_Cms = new System.Windows.Forms.ContextMenuStrip();
+         this.Serv_Cms = new System.Windows.Forms.ContextMenuStrip(this.components);
          this.ServInfo2_Tsmi = new System.Windows.Forms.ToolStripMenuItem();
          this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
          this.ServEdit2_Tsmi = new System.Windows.Forms.ToolStripMenuItem();
@@ -168,7 +169,7 @@
          this.colATTN_TYPE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colATTN_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.Master_Tc = new System.Windows.Forms.TabControl();
-         this.RootMenu_Cms = new System.Windows.Forms.ContextMenuStrip();
+         this.RootMenu_Cms = new System.Windows.Forms.ContextMenuStrip(this.components);
          this.NewListDay_Tsmi = new System.Windows.Forms.ToolStripMenuItem();
          this.ذخیرهکردناطلاعاتلیسنروزانهToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
          this.بستنلیستروزانهToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -187,9 +188,9 @@
          this.tabPage1 = new System.Windows.Forms.TabPage();
          this.splitContainer1 = new System.Windows.Forms.SplitContainer();
          this.InfoParm_Gb = new System.Windows.Forms.GroupBox();
-         this.AgopBn1 = new System.Windows.Forms.BindingNavigator();
+         this.AgopBn1 = new System.Windows.Forms.BindingNavigator(this.components);
          this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
-         this.AgopBs1 = new System.Windows.Forms.BindingSource();
+         this.AgopBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
          this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
          this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
@@ -209,7 +210,7 @@
          this.TablOpen_Lbl = new DevExpress.XtraEditors.LabelControl();
          this.aGOP_DESCTextBox = new System.Windows.Forms.TextBox();
          this.ExpnDesk_GridLookUpEdit = new DevExpress.XtraEditors.GridLookUpEdit();
-         this.ExpnDeskBs1 = new System.Windows.Forms.BindingSource();
+         this.ExpnDeskBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colREGL_YEAR1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colREGL_CODE1 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -246,7 +247,7 @@
          this.colMethod3 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colRegulation1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.Figh_Lov = new DevExpress.XtraEditors.GridLookUpEdit();
-         this.FighBs = new System.Windows.Forms.BindingSource();
+         this.FighBs = new System.Windows.Forms.BindingSource(this.components);
          this.gridLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.gridColumn15 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.gridColumn19 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -271,7 +272,7 @@
          this.RecalcDesk_Pgb = new System.Windows.Forms.ProgressBar();
          this.F5Desc_Lb = new DevExpress.XtraEditors.LabelControl();
          this.dateTimeSelector2 = new Atf.UI.DateTimeSelector();
-         this.AodtBs1 = new System.Windows.Forms.BindingSource();
+         this.AodtBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.dateTimeSelector1 = new Atf.UI.DateTimeSelector();
          this.timeEdit2 = new DevExpress.XtraEditors.TimeEdit();
          this.timeEdit1 = new DevExpress.XtraEditors.TimeEdit();
@@ -351,7 +352,7 @@
          this.gridColumn108 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.Txt_CbmtStrtTime = new System.Windows.Forms.MaskedTextBox();
          this.Aodt_Gc = new DevExpress.XtraGrid.GridControl();
-         this.Expn_Cms = new System.Windows.Forms.ContextMenuStrip();
+         this.Expn_Cms = new System.Windows.Forms.ContextMenuStrip(this.components);
          this.هزینههاToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
          this.ServName_Tsmi = new System.Windows.Forms.ToolStripMenuItem();
          this.ServInfo1_Tsmi = new System.Windows.Forms.ToolStripMenuItem();
@@ -524,7 +525,7 @@
          this.repositoryItemTimeEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTimeEdit();
          this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
          this.Pyrt_GridControl = new DevExpress.XtraGrid.GridControl();
-         this.PyrtBs1 = new System.Windows.Forms.BindingSource();
+         this.PyrtBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.gridView3 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colAPDT_AGOP_CODE1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colAPDT_RWNO1 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -532,7 +533,7 @@
          this.Amnt1_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
          this.RcptMtod_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
          this.repositoryItemLookUpEdit3 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-         this.DRcmtBs1 = new System.Windows.Forms.BindingSource();
+         this.DRcmtBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.colACTN_DATE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.persianRepositoryItemDateEdit1 = new dxExample.PersianRepositoryItemDateEdit();
          this.colCRET_BY3 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -549,13 +550,13 @@
          this.UsePos_Cb = new System.Windows.Forms.CheckBox();
          this.PosStng_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.Pos_Lov = new DevExpress.XtraEditors.LookUpEdit();
-         this.VPosBs1 = new System.Windows.Forms.BindingSource();
+         this.VPosBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.PosAmnt_Txt = new DevExpress.XtraEditors.TextEdit();
          this.Cash_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.Pos_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.splitContainerControl2 = new DevExpress.XtraEditors.SplitContainerControl();
          this.Bufe_GridControl = new DevExpress.XtraGrid.GridControl();
-         this.BufeBs1 = new System.Windows.Forms.BindingSource();
+         this.BufeBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colAPDT_AGOP_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colAPDT_RWNO = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -574,7 +575,7 @@
          this.ExpnPric1_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
          this.panel1 = new System.Windows.Forms.Panel();
          this.ExpnBufe_Gc = new DevExpress.XtraGrid.GridControl();
-         this.ExpnBufe_Cms = new System.Windows.Forms.ContextMenuStrip();
+         this.ExpnBufe_Cms = new System.Windows.Forms.ContextMenuStrip(this.components);
          this.ExpnItem3_Tsmi = new System.Windows.Forms.ToolStripMenuItem();
          this.toolStripSeparator14 = new System.Windows.Forms.ToolStripSeparator();
          this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
@@ -601,7 +602,7 @@
          this.toolStripMenuItem36 = new System.Windows.Forms.ToolStripMenuItem();
          this.toolStripMenuItem37 = new System.Windows.Forms.ToolStripMenuItem();
          this.toolStripMenuItem38 = new System.Windows.Forms.ToolStripMenuItem();
-         this.ExpnBufeBs1 = new System.Windows.Forms.BindingSource();
+         this.ExpnBufeBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.advBandedGridView1 = new DevExpress.XtraGrid.Views.BandedGrid.AdvBandedGridView();
          this.GoodList_Clm = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
          this.colREGL_YEAR = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
@@ -628,7 +629,7 @@
          this.AddItem_Butn = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
          this.colEXTR_PRCT = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
          this.bandedGridColumn3 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-         this.AutoRecalc_Tmr = new System.Windows.Forms.Timer();
+         this.AutoRecalc_Tmr = new System.Windows.Forms.Timer(this.components);
          rEGL_YEARLabel = new System.Windows.Forms.Label();
          rEGL_CODELabel = new System.Windows.Forms.Label();
          SaleDate_Lb = new System.Windows.Forms.Label();
@@ -804,7 +805,7 @@
             this.toolStripMenuItem30});
          this.Serv_Cms.Name = "Serv_Cms";
          this.Serv_Cms.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-         this.Serv_Cms.Size = new System.Drawing.Size(180, 466);
+         this.Serv_Cms.Size = new System.Drawing.Size(185, 488);
          // 
          // ServInfo2_Tsmi
          // 
@@ -812,28 +813,28 @@
          this.ServInfo2_Tsmi.Image = global::System.Scsc.Properties.Resources.IMAGE_1115;
          this.ServInfo2_Tsmi.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
          this.ServInfo2_Tsmi.Name = "ServInfo2_Tsmi";
-         this.ServInfo2_Tsmi.Size = new System.Drawing.Size(179, 54);
+         this.ServInfo2_Tsmi.Size = new System.Drawing.Size(184, 54);
          this.ServInfo2_Tsmi.Text = "نامشخص";
          this.ServInfo2_Tsmi.Click += new System.EventHandler(this.ServInfo2_Tsmi_Click);
          // 
          // toolStripSeparator6
          // 
          this.toolStripSeparator6.Name = "toolStripSeparator6";
-         this.toolStripSeparator6.Size = new System.Drawing.Size(176, 6);
+         this.toolStripSeparator6.Size = new System.Drawing.Size(181, 6);
          // 
          // ServEdit2_Tsmi
          // 
          this.ServEdit2_Tsmi.Image = global::System.Scsc.Properties.Resources.IMAGE_1055;
          this.ServEdit2_Tsmi.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
          this.ServEdit2_Tsmi.Name = "ServEdit2_Tsmi";
-         this.ServEdit2_Tsmi.Size = new System.Drawing.Size(179, 54);
+         this.ServEdit2_Tsmi.Size = new System.Drawing.Size(184, 54);
          this.ServEdit2_Tsmi.Text = "اصلاح اطلاعات";
          this.ServEdit2_Tsmi.Click += new System.EventHandler(this.ServEdit2_Tsmi_Click);
          // 
          // toolStripMenuItem5
          // 
          this.toolStripMenuItem5.Name = "toolStripMenuItem5";
-         this.toolStripMenuItem5.Size = new System.Drawing.Size(176, 6);
+         this.toolStripMenuItem5.Size = new System.Drawing.Size(181, 6);
          // 
          // ارسالپیامکToolStripMenuItem
          // 
@@ -843,7 +844,7 @@
          this.ارسالپیامکToolStripMenuItem.Image = global::System.Scsc.Properties.Resources.IMAGE_1154;
          this.ارسالپیامکToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
          this.ارسالپیامکToolStripMenuItem.Name = "ارسالپیامکToolStripMenuItem";
-         this.ارسالپیامکToolStripMenuItem.Size = new System.Drawing.Size(179, 54);
+         this.ارسالپیامکToolStripMenuItem.Size = new System.Drawing.Size(184, 54);
          this.ارسالپیامکToolStripMenuItem.Text = "ارسال پیامک";
          // 
          // SmsBnDebt
@@ -861,7 +862,7 @@
          // toolStripMenuItem6
          // 
          this.toolStripMenuItem6.Name = "toolStripMenuItem6";
-         this.toolStripMenuItem6.Size = new System.Drawing.Size(176, 6);
+         this.toolStripMenuItem6.Size = new System.Drawing.Size(181, 6);
          // 
          // پرداختبدهیToolStripMenuItem
          // 
@@ -875,7 +876,7 @@
          this.پرداختبدهیToolStripMenuItem.Image = global::System.Scsc.Properties.Resources.IMAGE_1088;
          this.پرداختبدهیToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
          this.پرداختبدهیToolStripMenuItem.Name = "پرداختبدهیToolStripMenuItem";
-         this.پرداختبدهیToolStripMenuItem.Size = new System.Drawing.Size(179, 54);
+         this.پرداختبدهیToolStripMenuItem.Size = new System.Drawing.Size(184, 54);
          this.پرداختبدهیToolStripMenuItem.Text = "پرداخت بدهی";
          // 
          // مبلغقابلپرداختToolStripMenuItem
@@ -943,7 +944,7 @@
          this.افزایشسپردهToolStripMenuItem.Image = global::System.Scsc.Properties.Resources.IMAGE_1652;
          this.افزایشسپردهToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
          this.افزایشسپردهToolStripMenuItem.Name = "افزایشسپردهToolStripMenuItem";
-         this.افزایشسپردهToolStripMenuItem.Size = new System.Drawing.Size(179, 54);
+         this.افزایشسپردهToolStripMenuItem.Size = new System.Drawing.Size(184, 54);
          this.افزایشسپردهToolStripMenuItem.Text = "افزایش سپرده";
          // 
          // مبلغسپردهگذاریToolStripMenuItem
@@ -993,14 +994,14 @@
          this.ServPymt2_Tsmi.Image = global::System.Scsc.Properties.Resources.IMAGE_1103;
          this.ServPymt2_Tsmi.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
          this.ServPymt2_Tsmi.Name = "ServPymt2_Tsmi";
-         this.ServPymt2_Tsmi.Size = new System.Drawing.Size(179, 54);
+         this.ServPymt2_Tsmi.Size = new System.Drawing.Size(184, 54);
          this.ServPymt2_Tsmi.Text = "صورتحساب ها";
          this.ServPymt2_Tsmi.Click += new System.EventHandler(this.ServPymt2_Tsmi_Click);
          // 
          // toolStripMenuItem24
          // 
          this.toolStripMenuItem24.Name = "toolStripMenuItem24";
-         this.toolStripMenuItem24.Size = new System.Drawing.Size(176, 6);
+         this.toolStripMenuItem24.Size = new System.Drawing.Size(181, 6);
          // 
          // مشتریجدیدToolStripMenuItem
          // 
@@ -1015,7 +1016,7 @@
          this.مشتریجدیدToolStripMenuItem.Image = global::System.Scsc.Properties.Resources.IMAGE_1054;
          this.مشتریجدیدToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
          this.مشتریجدیدToolStripMenuItem.Name = "مشتریجدیدToolStripMenuItem";
-         this.مشتریجدیدToolStripMenuItem.Size = new System.Drawing.Size(179, 54);
+         this.مشتریجدیدToolStripMenuItem.Size = new System.Drawing.Size(184, 54);
          this.مشتریجدیدToolStripMenuItem.Text = "مشتری جدید";
          // 
          // نامToolStripMenuItem
@@ -1068,7 +1069,7 @@
          // toolStripMenuItem22
          // 
          this.toolStripMenuItem22.Name = "toolStripMenuItem22";
-         this.toolStripMenuItem22.Size = new System.Drawing.Size(176, 6);
+         this.toolStripMenuItem22.Size = new System.Drawing.Size(181, 6);
          // 
          // toolStripMenuItem30
          // 
@@ -1079,7 +1080,7 @@
          this.toolStripMenuItem30.Image = global::System.Scsc.Properties.Resources.IMAGE_1059;
          this.toolStripMenuItem30.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
          this.toolStripMenuItem30.Name = "toolStripMenuItem30";
-         this.toolStripMenuItem30.Size = new System.Drawing.Size(179, 54);
+         this.toolStripMenuItem30.Size = new System.Drawing.Size(184, 54);
          this.toolStripMenuItem30.Text = "چاپ / گزارش";
          // 
          // toolStripMenuItem31

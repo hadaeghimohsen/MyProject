@@ -748,8 +748,8 @@
       <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
       <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Association Name="Gateway_Transaction_Log" Member="Gateway" ThisKey="GTWY_MAC_ADRS" OtherKey="MAC_ADRS" Type="Gateway" IsForeignKey="true" />
-      <Association Name="Pos_Device_Transaction_Log" Member="Pos_Device" ThisKey="POSD_PSID" OtherKey="PSID" Type="Pos_Device" IsForeignKey="true" />
       <Association Name="Sub_System_Transaction_Log" Member="Sub_System" ThisKey="SUB_SYS" OtherKey="SUB_SYS" Type="Sub_System" IsForeignKey="true" />
+      <Association Name="Pos_Device_Transaction_Log" Member="Pos_Device" ThisKey="POSD_PSID" OtherKey="PSID" Type="Pos_Device" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="DataGuard.D$REGN" Member="D_REGNs">
@@ -810,35 +810,8 @@
       <Association Name="User_Access_User_Datasource" Member="Access_User_Datasources" ThisKey="ID" OtherKey="USER_ID" Type="Access_User_Datasource" />
       <Association Name="User_Message_Broad_Setting" Member="Message_Broad_Settings" ThisKey="ID" OtherKey="ALRM_TO_USER_ID" Type="Message_Broad_Setting" />
       <Association Name="User_User_Finger" Member="User_Fingers" ThisKey="ID" OtherKey="USER_ID" Type="User_Finger" />
+      <Association Name="User_User_Access_Po" Member="User_Access_Pos" ThisKey="ID" OtherKey="USER_ID" Type="User_Access_Po" />
       <Association Name="Region_User" Member="Region" ThisKey="REGN_PRVN_CNTY_CODE,REGN_PRVN_CODE,REGN_CODE" OtherKey="PRVN_CNTY_CODE,PRVN_CODE,CODE" Type="Region" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="Global.Pos_Device" Member="Pos_Devices">
-    <Type Name="Pos_Device">
-      <Column Name="PSID" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="BANK_TYPE" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
-      <Column Name="BNKB_CODE" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
-      <Column Name="BNKA_ACNT_NUMB" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
-      <Column Name="SHBA_CODE" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="POS_DESC" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
-      <Column Name="POS_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="POS_DFLT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="SEND_AMNT_EDIT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="SEND_DATA_ON_DEVC" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="FILL_RSLT_DATA" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="POS_CNCT_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="IP_ADRS" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
-      <Column Name="COMM_PORT" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
-      <Column Name="BAND_RATE" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="PRNT_SALE" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
-      <Column Name="PRNT_CUST" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
-      <Column Name="AUTO_COMM" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="GTWY_MAC_ADRS" Type="System.String" DbType="VarChar(17)" CanBeNull="true" />
-      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="CRET_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Association Name="Pos_Device_Transaction_Log" Member="Transaction_Logs" ThisKey="PSID" OtherKey="POSD_PSID" Type="Transaction_Log" />
     </Type>
   </Table>
   <Table Name="Global.Localization" Member="Localizations">
@@ -1240,6 +1213,65 @@
       <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
       <Association Name="User_User_Finger" Member="User" ThisKey="USER_ID" OtherKey="ID" Type="User" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="DataGuard.D$CSTP" Member="D_CSTPs">
+    <Type Name="D_CSTP">
+      <Column Name="VALU" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="DOMN_DESC" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="Global.Pos_Device" Member="Pos_Devices">
+    <Type Name="Pos_Device">
+      <Column Name="PSID" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="BANK_TYPE" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="BNKB_CODE" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="BNKA_ACNT_NUMB" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="SHBA_CODE" Type="System.String" DbType="VarChar(50)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="POS_DESC" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="POS_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="POS_DFLT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="SEND_AMNT_EDIT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="SEND_DATA_ON_DEVC" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="FILL_RSLT_DATA" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="POS_CNCT_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="IP_ADRS" Type="System.String" DbType="VarChar(15)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="COMM_PORT" Type="System.String" DbType="VarChar(15)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="BAND_RATE" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="PRNT_SALE" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="PRNT_CUST" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="AUTO_COMM" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="GTWY_MAC_ADRS" Type="System.String" DbType="VarChar(17)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ACTN_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="BILL_FIND_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="BILL_NO" Type="System.String" DbType="VarChar(50)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="Pos_Device_Transaction_Log" Member="Transaction_Logs" ThisKey="PSID" OtherKey="POSD_PSID" Type="Transaction_Log" />
+      <Association Name="Pos_Device_User_Access_Po" Member="User_Access_Pos" ThisKey="PSID" OtherKey="POSD_PSID" Type="User_Access_Po" />
+    </Type>
+  </Table>
+  <Table Name="Global.User_Access_Pos" Member="User_Access_Pos">
+    <Type Name="User_Access_Po">
+      <Column Name="USER_ID" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="POSD_PSID" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="UPID" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="BILL_NO" Type="System.String" DbType="VarChar(50)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="Pos_Device_User_Access_Po" Member="Pos_Device" ThisKey="POSD_PSID" OtherKey="PSID" Type="Pos_Device" IsForeignKey="true" DeleteRule="CASCADE" />
+      <Association Name="User_User_Access_Po" Member="User" ThisKey="USER_ID" OtherKey="ID" Type="User" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="DataGuard.D$BFTP" Member="D_BFTPs">
+    <Type Name="D_BFTP">
+      <Column Name="VALU" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="DOMN_DESC" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
   <Function Name="DataGuard.SaveHostInfo" Method="SaveHostInfo">

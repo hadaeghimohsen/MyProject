@@ -20,6 +20,7 @@ namespace System.Scsc.Ui.Common
       private bool isFirstLoaded = false;
       private string RegnLang = "054";
       private XElement HostNameInfo;
+      private string CurrentUser;
 
 
       public void SendRequest(Job job)
@@ -189,10 +190,12 @@ namespace System.Scsc.Ui.Common
          var GetHostInfo = new Job(SendType.External, "Localhost", "Commons", 24 /* Execute DoWork4GetHosInfo */, SendType.Self);
          _DefaultGateway.Gateway(GetHostInfo);
          HostNameInfo = (XElement)GetHostInfo.Output;
+         CurrentUser = iScsc.GET_CRNTUSER_U(new XElement("User", new XAttribute("actntype", "001")));
 
          Fga_Uprv_U = iScsc.FGA_UPRV_U() ?? "";
          Fga_Urgn_U = iScsc.FGA_URGN_U() ?? "";
          Fga_Uclb_U = (iScsc.FGA_UCLB_U() ?? "").Split(',').Select(c => (long?)Int64.Parse(c)).ToList();
+
          _DefaultGateway.Gateway(
             new Job(SendType.External, "Localhost", "Commons", 08 /* Execute LangChangToFarsi */, SendType.Self)
          );

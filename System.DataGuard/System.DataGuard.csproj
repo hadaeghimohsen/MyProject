@@ -131,8 +131,9 @@
     <Reference Include="POS_PC">
       <HintPath>..\..\..\Utility\Tools\POS\Melat\Simulator &amp; DLL\Simulator\POS_PC.dll</HintPath>
     </Reference>
-    <Reference Include="SSP1126.PcPos">
-      <HintPath>..\..\..\Utility\Tools\POS\Saman\PC to POS Saman 96-05-19\PC to POS Saman 96-05-19\SSP1126\SSP1126 - 1.3.0.0-960320\SSP1126 - 1.3.0.0 - 960320\Tester Source Code\bin\Debug\SSP1126.PcPos.dll</HintPath>
+    <Reference Include="SSP1126.PcPos, Version=1.4.7.7, Culture=neutral, PublicKeyToken=0316bed5306dcd90, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\SSP1126.PcPos.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -985,9 +986,11 @@
     <None Include="Properties\DataSources\System.DataGuard.Data.D_ACTV.datasource" />
     <None Include="Properties\DataSources\System.DataGuard.Data.D_AUTP.datasource" />
     <None Include="Properties\DataSources\System.DataGuard.Data.D_BANK.datasource" />
+    <None Include="Properties\DataSources\System.DataGuard.Data.D_BFTP.datasource" />
     <None Include="Properties\DataSources\System.DataGuard.Data.D_BKGT.datasource" />
     <None Include="Properties\DataSources\System.DataGuard.Data.D_BMPL.datasource" />
     <None Include="Properties\DataSources\System.DataGuard.Data.D_CNTP.datasource" />
+    <None Include="Properties\DataSources\System.DataGuard.Data.D_CSTP.datasource" />
     <None Include="Properties\DataSources\System.DataGuard.Data.D_DLMT.datasource" />
     <None Include="Properties\DataSources\System.DataGuard.Data.D_ESRV.datasource" />
     <None Include="Properties\DataSources\System.DataGuard.Data.D_LNTP.datasource" />
@@ -1040,6 +1043,7 @@
     <None Include="Properties\DataSources\System.DataGuard.Data.Tiny_Sub_System.datasource" />
     <None Include="Properties\DataSources\System.DataGuard.Data.Transaction_Log.datasource" />
     <None Include="Properties\DataSources\System.DataGuard.Data.User.datasource" />
+    <None Include="Properties\DataSources\System.DataGuard.Data.User_Access_Po.datasource" />
     <None Include="Properties\DataSources\System.DataGuard.Data.User_Finger.datasource" />
     <None Include="Properties\DataSources\System.DataGuard.Data.User_Gateway.datasource" />
     <None Include="Properties\DataSources\System.DataGuard.Data.User_Privilege.datasource" />

@@ -56,7 +56,7 @@
         <Parameters isList="true" count="0" />
         <SqlCommand>SELECT *
 	FROM VF$Payment_Method('{WhereClause}')
-</SqlCommand>
+WHERE Rqtp_Code != '012'</SqlCommand>
       </Payment_Method>
     </DataSources>
     <Relations isList="true" count="0" />
@@ -816,10 +816,10 @@
     <value>Stimulsoft.Report.Dll</value>
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
-  <ReportChanged>8/16/2019 9:56:31 AM</ReportChanged>
+  <ReportChanged>12/15/2019 12:43:11 PM</ReportChanged>
   <ReportCreated>11/17/2017 11:30:26 AM</ReportCreated>
   <ReportFile>D:\Project\MyProject\Documents\Report Repository\RPT_SPSM_003_R.mrt</ReportFile>
-  <ReportGuid>5e6cebee0f314df985fa866c27458658</ReportGuid>
+  <ReportGuid>c297ae18da6d4c00a04eebe32c055ec2</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Centimeters</ReportUnit>
   <ReportVersion>2012.2.1304</ReportVersion>

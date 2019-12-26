@@ -156,6 +156,25 @@ namespace System.Scsc.Ui.BaseDefinition
          {
             ClubBs3.DataSource = iScsc.Clubs;
          }
+         else if(Tb_Master.SelectedTab == tp_010)
+         {
+            int exdv = ExdvBs.Position;
+            ExdvBs.DataSource = iScsc.External_Devices;
+            ExdvBs.Position = exdv;
+
+            DDevcBs.DataSource = iScsc.D_DEVCs;
+            DConnBs.DataSource = iScsc.D_CONNs;
+            DCycrBs.DataSource = iScsc.D_CYCRs;
+            MtodBs1.DataSource = iScsc.Methods.Where(m => m.MTOD_STAT == "002");
+
+            ExpnBs.DataSource =
+            iScsc.Expenses.Where(ex =>
+               ex.Regulation.REGL_STAT == "002" /* آیین نامه فعال */ && ex.Regulation.TYPE == "001" /* آیین نامه هزینه */ &&
+               ex.Expense_Type.Request_Requester.RQTP_CODE == "016" &&
+               ex.Expense_Type.Request_Requester.RQTT_CODE == "001" &&
+               ex.EXPN_STAT == "002" /* هزینه های فعال */
+            );
+         }
 
          requery = false;
       }
@@ -4137,5 +4156,222 @@ namespace System.Scsc.Ui.BaseDefinition
          }
       }
 
+      #region TabPage 010
+      private void AddNew_Exdv_Butn_Click(object sender, EventArgs e)
+      {
+         if (ExdvBs.List.OfType<Data.External_Device>().Any(ex => ex.CODE == 0)) return;
+
+         var exdv = ExdvBs.AddNew() as Data.External_Device;
+
+         iScsc.External_Devices.InsertOnSubmit(exdv);
+      }
+
+      private void Save_Exdv_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            ExdvBs.EndEdit();
+            Exdv_Gv.PostEditor();
+
+            iScsc.SubmitChanges();
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void Refresh_Exdv_Butn_Click(object sender, EventArgs e)
+      {
+         Execute_Query();
+      }
+
+      private void ExdvBs_CurrentChanged(object sender, EventArgs e)
+      {
+         try
+         {
+            var exdv = ExdvBs.Current as Data.External_Device;
+            if (exdv == null) return;
+
+            DevName_Tsm.Text = exdv.DEV_NAME;
+
+            if (exdv.DEV_TYPE == "001")
+            {
+               Gate_Tsm.Enabled = false;
+            }
+            else if (exdv.DEV_TYPE == "006")
+            {
+               Gate_Tsm.Enabled = true;
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void Gate_Test_Tsm_Click(object sender, EventArgs e)
+      {
+         var dev = ExdvBs.Current as Data.External_Device;
+         if (dev == null && dev.DEV_TYPE != "006") return;
+
+         _DefaultGateway.Gateway(
+            new Job(SendType.External, "localhost",
+               new List<Job>
+               {
+                  new Job(SendType.SelfToUserInterface, "MAIN_PAGE_F", 10 /* Execute Actn_CalF_F */)
+                  {
+                     Input = 
+                        new XElement("MainPage",
+                           new XAttribute("type", "extdev"),
+                           new XAttribute("devtype", "006"),
+                           new XAttribute("contype", "002"),
+                           new XAttribute("cmdtype", "test"),
+                           new XAttribute("ip", dev.IP_ADRS),
+                           new XAttribute("sendport", dev.PORT_SEND)
+                        )
+                  }
+               }
+            )
+         );
+      }
+
+      private void Gate_OnLineMode_Tsm_Click(object sender, EventArgs e)
+      {
+         var dev = ExdvBs.Current as Data.External_Device;
+         if (dev == null && dev.DEV_TYPE != "006") return;
+
+         _DefaultGateway.Gateway(
+            new Job(SendType.External, "localhost",
+               new List<Job>
+               {
+                  new Job(SendType.SelfToUserInterface, "MAIN_PAGE_F", 10 /* Execute Actn_CalF_F */)
+                  {
+                     Input = 
+                        new XElement("MainPage",
+                           new XAttribute("type", "extdev"),
+                           new XAttribute("devtype", "006"),
+                           new XAttribute("contype", "002"),
+                           new XAttribute("cmdtype", "gotoonline"),
+                           new XAttribute("ip", dev.IP_ADRS),
+                           new XAttribute("sendport", dev.PORT_SEND)
+                        )
+                  }
+               }
+            )
+         );
+      }
+
+      private void Gate_OffLineMode_Tsm_Click(object sender, EventArgs e)
+      {
+         var dev = ExdvBs.Current as Data.External_Device;
+         if (dev == null && dev.DEV_TYPE != "006") return;
+
+         _DefaultGateway.Gateway(
+            new Job(SendType.External, "localhost",
+               new List<Job>
+               {
+                  new Job(SendType.SelfToUserInterface, "MAIN_PAGE_F", 10 /* Execute Actn_CalF_F */)
+                  {
+                     Input = 
+                        new XElement("MainPage",
+                           new XAttribute("type", "extdev"),
+                           new XAttribute("devtype", "006"),
+                           new XAttribute("contype", "002"),
+                           new XAttribute("cmdtype", "gotooffline"),
+                           new XAttribute("ip", dev.IP_ADRS),
+                           new XAttribute("sendport", dev.PORT_SEND)
+                        )
+                  }
+               }
+            )
+         );
+      }
+
+      private void Gate_Open_Tsm_Click(object sender, EventArgs e)
+      {
+         var dev = ExdvBs.Current as Data.External_Device;
+         if (dev == null && dev.DEV_TYPE != "006") return;
+
+         _DefaultGateway.Gateway(
+            new Job(SendType.External, "localhost",
+               new List<Job>
+               {
+                  new Job(SendType.SelfToUserInterface, "MAIN_PAGE_F", 10 /* Execute Actn_CalF_F */)
+                  {
+                     Input = 
+                        new XElement("MainPage",
+                           new XAttribute("type", "extdev"),
+                           new XAttribute("devtype", "006"),
+                           new XAttribute("contype", "002"),
+                           new XAttribute("cmdtype", "open"),
+                           new XAttribute("ip", dev.IP_ADRS),
+                           new XAttribute("sendport", dev.PORT_SEND)
+                        )
+                  }
+               }
+            )
+         );
+      }
+
+      private void Gate_Close_Tsm_Click(object sender, EventArgs e)
+      {
+         var dev = ExdvBs.Current as Data.External_Device;
+         if (dev == null && dev.DEV_TYPE != "006") return;
+
+         _DefaultGateway.Gateway(
+            new Job(SendType.External, "localhost",
+               new List<Job>
+               {
+                  new Job(SendType.SelfToUserInterface, "MAIN_PAGE_F", 10 /* Execute Actn_CalF_F */)
+                  {
+                     Input = 
+                        new XElement("MainPage",
+                           new XAttribute("type", "extdev"),
+                           new XAttribute("devtype", "006"),
+                           new XAttribute("contype", "002"),
+                           new XAttribute("cmdtype", "close"),
+                           new XAttribute("ip", dev.IP_ADRS),
+                           new XAttribute("sendport", dev.PORT_SEND)
+                        )
+                  }
+               }
+            )
+         );
+      }
+
+      private void Gate_Error_Tsm_Click(object sender, EventArgs e)
+      {
+         var dev = ExdvBs.Current as Data.External_Device;
+         if (dev == null && dev.DEV_TYPE != "006") return;
+
+         _DefaultGateway.Gateway(
+            new Job(SendType.External, "localhost",
+               new List<Job>
+               {
+                  new Job(SendType.SelfToUserInterface, "MAIN_PAGE_F", 10 /* Execute Actn_CalF_F */)
+                  {
+                     Input = 
+                        new XElement("MainPage",
+                           new XAttribute("type", "extdev"),
+                           new XAttribute("devtype", "006"),
+                           new XAttribute("contype", "002"),
+                           new XAttribute("cmdtype", "error"),
+                           new XAttribute("ip", dev.IP_ADRS),
+                           new XAttribute("sendport", dev.PORT_SEND)
+                        )
+                  }
+               }
+            )
+         );
+      }      
+      #endregion
    }
 }

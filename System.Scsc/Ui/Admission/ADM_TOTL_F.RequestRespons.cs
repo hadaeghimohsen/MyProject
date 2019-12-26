@@ -591,7 +591,21 @@ namespace System.Scsc.Ui.Admission
                   else
                      formCaller = "";
                }
+               else if(xinput.Attribute("type").Value == "search")
+               {
+                  // 1398/10/01 
+                  Execute_Query();                  
+                  var figh = iScsc.Fighters.Where(f => f.FNGR_PRNT_DNRM == xinput.Attribute("enrollnumber").Value).FirstOrDefault();
 
+                  // 1398/10/01 * پیدا کردن درخواست برای مشتری
+                  RqstBs3.Position = RqstBs3.IndexOf(RqstBs3.List.OfType<Data.Request>().FirstOrDefault(r => r.Request_Rows.Any(rr => rr.Fighter.FILE_NO == figh.FILE_NO)));
+
+                  // 1398/10/01
+                  if (xinput.Attribute("formcaller") != null)
+                     formCaller = xinput.Attribute("formcaller").Value;
+                  else
+                     formCaller = "";
+               }
             }
             else if (xinput.Attribute("type") != null)
             {

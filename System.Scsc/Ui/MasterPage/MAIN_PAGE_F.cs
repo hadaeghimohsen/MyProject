@@ -22,6 +22,11 @@ using System.Threading;
 using System.Drawing.Imaging;
 using System.IO.Ports;
 using System.Text.RegularExpressions;
+using WebSocket4Net;
+using SuperSocket.WebSocket;
+using SuperSocket.SocketBase;
+using System.Net.Sockets;
+
 
 namespace System.Scsc.Ui.MasterPage
 {
@@ -219,7 +224,7 @@ namespace System.Scsc.Ui.MasterPage
             if (enrollNumber.IndexOf(' ') != -1)
                enrollNumber = enrollNumber.Replace(" ", "");
 
-            enrollNumber = Regex.Replace(enrollNumber, "[^a-zA-Z][^0-9]", "");
+            //enrollNumber = Regex.Replace(enrollNumber, "[^a-zA-Z][^0-9]", "");
 
             //1397/09/28 * مشخص کردن نوع ثبت حضور و غیاب که با دستگاه یا دستی
             attnsystype = "002";
@@ -250,6 +255,16 @@ namespace System.Scsc.Ui.MasterPage
                catch { MessageBox.Show("داده خوانده شده از دستگاه قابل تبدیل به عددی را ندارد"); }
             }                       
 
+            // 1398/10/03 * سیستم کدینگ کارت برای نرم افزار برای مشتریان چموش
+            if(iScsc.Card_Datasources.Any())
+            {
+               if(!iScsc.Card_Datasources.Any(cd => cd.FNGR_PRNT == enrollNumber))
+               {
+                  AlarmShow();
+                  return;
+               }
+            }
+
             if (InvokeRequired)
                Invoke(new Action(() => axCZKEM1_OnAttTransactionEx(enrollNumber, 0, 0, 0, 1395, 1, 1, 1, 1, 1, 1)));
             else 
@@ -274,7 +289,7 @@ namespace System.Scsc.Ui.MasterPage
             if (enrollNumber.IndexOf(' ') != -1)
                enrollNumber = enrollNumber.Replace(" ", "");
 
-            enrollNumber = Regex.Replace(enrollNumber, "[^a-zA-Z][^0-9]", "");
+            //enrollNumber = Regex.Replace(enrollNumber, "[^a-zA-Z][^0-9]", "");
 
             //1397/09/28 * مشخص کردن نوع ثبت حضور و غیاب که با دستگاه یا دستی
             attnsystype = "002";
@@ -331,6 +346,16 @@ namespace System.Scsc.Ui.MasterPage
             //}
 
             //MessageBox.Show(enrollNumber);
+
+            // 1398/10/03 * سیستم کدینگ کارت برای نرم افزار برای مشتریان چموش
+            if (iScsc.Card_Datasources.Any())
+            {
+               if (!iScsc.Card_Datasources.Any(cd => cd.FNGR_PRNT == enrollNumber))
+               {
+                  AlarmShow();
+                  return;
+               }
+            }
 
             if (InvokeRequired)
                Invoke(new Action(() => axCZKEM1_OnAttTransactionEx(enrollNumber, 0, 0, 0, 1395, 1, 1, 1, 1, 1, 1)));
@@ -2038,41 +2063,45 @@ namespace System.Scsc.Ui.MasterPage
             #region card reader
             foreach (var cardreader in devs.Where(d => d.DEV_COMP_TYPE == "001" && d.DEV_TYPE == "001"))
             {
-               // Create Serial Port Instance
-               SerialPort sp = new SerialPort(cardreader.PORT_NAME, (int)cardreader.BAND_RATE) { DataBits = 8, StopBits = StopBits.One, Handshake = Handshake.None, Parity = Parity.None };
-               
-               // Port Open
-               sp.Open();
+               // IF NOT EXISTS SERIAL PORT IN COMPUTER OR NOT PLUGED CARD READER IN DEVICE
+               if (SerialPort.GetPortNames().Any(p => p == cardreader.PORT_NAME))
+               {
+                  // Create Serial Port Instance
+                  SerialPort sp = new SerialPort(cardreader.PORT_NAME, (int)cardreader.BAND_RATE) { DataBits = 8, StopBits = StopBits.One, Handshake = Handshake.None, Parity = Parity.None };
 
-               Exdvs.Add(sp);
+                  // Port Open
+                  sp.Open();
 
-               #region Device Stat
-               if (sp.IsOpen)
-               {
-                  AttnType_Lov.EditValue = "001";
-                  this.AttendanceSystemAlert_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1212;
-                  Tsp_AttnSys.Text = "سیستم کارت خوان  صائلا فعال";
-                  Tsp_AttnSys.ForeColor = Color.Green;
-                  AttendanceSystemAlert_Butn.Tag = "001";
-               }
-               else
-               {
-                  AttnType_Lov.EditValue = null;
-                  this.AttendanceSystemAlert_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1196;
-                  Tsp_AttnSys.Text = "سیستم کارت خوان صائلا غیرفعال";
-                  Tsp_AttnSys.ForeColor = Color.Red;
-               }
-               #endregion
+                  Exdvs.Add(sp);
 
-               if (cardreader.CYCL_READ == "001")
-               {
-                  // Normal Card Reader
-               }
-               else if(cardreader.CYCL_READ == "002")
-               {
-                  // Encoder Reader
-                  sp.DataReceived += SaelaEncoderDevice_DataReceivedHandler;
-                  Tm_Exdv.Enabled = true;
+                  #region Device Stat
+                  if (sp.IsOpen)
+                  {
+                     AttnType_Lov.EditValue = "001";
+                     this.AttendanceSystemAlert_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1212;
+                     Tsp_AttnSys.Text = "سیستم کارت خوان  صائلا فعال";
+                     Tsp_AttnSys.ForeColor = Color.Green;
+                     AttendanceSystemAlert_Butn.Tag = "001";
+                  }
+                  else
+                  {
+                     AttnType_Lov.EditValue = null;
+                     this.AttendanceSystemAlert_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1196;
+                     Tsp_AttnSys.Text = "سیستم کارت خوان صائلا غیرفعال";
+                     Tsp_AttnSys.ForeColor = Color.Red;
+                  }
+                  #endregion
+
+                  if (cardreader.CYCL_READ == "001")
+                  {
+                     // Normal Card Reader
+                  }
+                  else if (cardreader.CYCL_READ == "002")
+                  {
+                     // Encoder Reader
+                     sp.DataReceived += SaelaEncoderDevice_DataReceivedHandler;
+                     Tm_Exdv.Enabled = true;
+                  }
                }
             }
             #endregion
@@ -2080,8 +2109,27 @@ namespace System.Scsc.Ui.MasterPage
             #region gate control
             foreach (var gate in devs.Where(d => d.DEV_COMP_TYPE == "001" && d.DEV_TYPE == "006"))
             {
+               if(gate.DEV_CON == "001")
+               {
 
+               }
+               else if(gate.DEV_CON == "002")
+               {
+                  // IP Address Setting
+                  var lsgate = new TcpListenerX((int)gate.PORT_RECV);
+
+                  // Init Send Instance                  
+                  lsgate.StartListening();
+                  lsgate.OnDataRecived += LsGate_OnDataRecived;
+
+                  //var cmd = new byte[] { 0xCC, 0x0D, 0x40, 0x28, 0x6B, 0xFA, 0x00, 0x00, 0x00, 0x00, 0x23, 0x00, 0x03, 0x00, 0x00, 0xd4, 0xDD };
+                  //SendCommand("192.168.1.200", 6070, cmd);
+                  //SendCommand("192.168.1.201", 6070, cmd);
+
+                  //MessageBox.Show(gate.PORT_RECV.ToString() + " is OK");
+               }
             }
+
             #endregion
             #endregion
          }
@@ -2091,13 +2139,14 @@ namespace System.Scsc.Ui.MasterPage
          }
       }
 
+      #region CardReader
       private void Tm_Exdv_Tick(object sender, EventArgs e)
       {
          try
          {
             byte[] data = new byte[] { 0xaa, 0x00, 0x03, 0x25, 0x26, 0x00, 0x00, 0xbb };
             // Listener Encoders
-            foreach (var encoder in Exdvs)
+            foreach (var encoder in Exdvs.Where(ed => ed.IsOpen))
             {
                // Request to Encoder for set card on device
                encoder.Write(data, 0, data.Length);               
@@ -2122,7 +2171,7 @@ namespace System.Scsc.Ui.MasterPage
             // Analysis Encoder data received
             
             // if card not in encoder
-            if (recieve.Length < 10)
+            if (recieve.Length < 10 || recieve.Length > 11)
                return;
 
             // if data is ok
@@ -2154,6 +2203,270 @@ namespace System.Scsc.Ui.MasterPage
             MessageBox.Show(exc.Message);
          }
       }
+      #endregion
+      #region Gate Send To Server
+      public class TcpListenerX
+      {
+         #region (Private Properties)
+
+         TcpListener server = null;
+         IPAddress localAddr;
+         Byte[] bytes;
+         NetworkStream stream;
+         #endregion
+         public bool IsEnable { set; get; }
+         public delegate void DataRecived(int port, byte[] data);
+         public event DataRecived OnDataRecived;
+
+         public TcpListenerX(/*string IP,*/ int Port)
+         {
+            try
+            {
+               localAddr = IPAddress.Any;//IPAddress.Parse(IP);
+               server = new TcpListener(localAddr, Port);
+               IsEnable = false;
+               server.Start();
+               TcpClient client = server.AcceptTcpClient();
+               stream = client.GetStream();
+            }
+            catch (Exception exc)
+            {
+               MessageBox.Show(string.Format("{0}\n\r{1}", "TcpListenerX", exc.Message));
+            }
+         }
+
+         public void StartListening()
+         {
+            try
+            {
+               IsEnable = true;
+               bytes = new Byte[17];
+               stream.BeginRead(bytes, 0, bytes.Length, Callback, null);
+            }
+            catch (Exception exc)
+            {
+               MessageBox.Show(string.Format("{0}\n\r{1}", "Start Listening", exc.Message));
+            }
+         }
+
+         private void Callback(IAsyncResult ar)
+         {
+            try
+            {               
+               if (!IsEnable)
+                  return;
+               OnDataRecived(Convert.ToInt32(server.LocalEndpoint.ToString().Split(':')[1]), bytes);
+               stream.BeginRead(bytes, 0, bytes.Length, Callback, null);
+            }
+            catch(Exception exc)
+            {
+               MessageBox.Show(string.Format("{0}\n\r{1}", "CallBack", exc.Message));
+            }
+         }
+
+         public void StopListening()
+         {
+            IsEnable = false;
+         }
+      }
+
+      WMPLib.WindowsMediaPlayer wplayer = new WMPLib.WindowsMediaPlayer();
+      private void AlarmShow()
+      {
+         if (InvokeRequired)
+         {
+            try
+            {
+               wplayer.URL = @".\Media\SubSys\Kernel\Desktop\Sounds\Popcorn.mp3";
+               wplayer.controls.play();
+            }
+            catch { }
+
+            var tempcolor = BackGrnd_Butn.NormalColorA;
+            for (int i = 0; i < 5; i++)
+            {
+               if (i % 2 == 0)
+                  BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.YellowGreen;
+               else
+                  BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.LimeGreen;
+
+               Thread.Sleep(100);
+            }
+            BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = tempcolor;
+         }
+      }
+
+      private void LsGate_OnDataRecived(int port, byte[] recieve)
+      {
+         try
+         {
+            // if data is ok
+            var recieveStr = BitConverter.ToString(recieve).Split('-');
+            string enrollNumber = "";
+            for (int i = recieveStr.Count() - 6; i < recieveStr.Count() - 2; i++)
+            {
+               enrollNumber += recieveStr[i];
+            }
+
+            // IF NOT VALID ENROLCODE
+            if(enrollNumber.In("0004000", "00010000")) return;
+
+            // Alarm 
+            new Thread(AlarmShow).Start();
+
+            iScsc = new Data.iScscDataContext(ConnectionString);
+
+            if (InvokeRequired)
+               Invoke(new Action(() =>
+               {
+                  // اگر کارت قبلا خوانده شده
+                  if (FngrPrnt_Txt.Text == enrollNumber) return;
+                  FngrPrnt_Txt.Text = enrollNumber;
+               }));
+            else
+            {
+               // اگر کارت قبلا خوانده شده
+               if (FngrPrnt_Txt.Text == enrollNumber) return;
+               FngrPrnt_Txt.Text = enrollNumber;
+            }
+
+            var gate = iScsc.External_Devices.Where(ed => ed.STAT == "002" && ed.PORT_RECV == port).FirstOrDefault();
+
+            // IF NOT EXISTS ANY SERVICE RETURN AND STOPED!!
+            if (!iScsc.Fighters.Any(f => f.FNGR_PRNT_DNRM == enrollNumber))
+            {
+               var cmd = new byte[] { 0xCC, 0x0D, 0x40, 0x28, 0x6B, 0xFA, 0x00, 0x00, 0x00, 0x00, 0x21, 0x00, 0x04, 0x00, 0x00, 0xD1, 0xDD };
+               SendCommand(gate.IP_ADRS, (int)gate.PORT_SEND, cmd);
+               return;
+            }            
+
+            var mbsp =
+               iScsc.Member_Ships
+               .Where( ms => 
+                  ms.Fighter.FNGR_PRNT_DNRM == enrollNumber &&
+                  ms.Fighter_Public.MTOD_CODE == gate.MTOD_CODE &&
+                  ms.VALD_TYPE == "002" &&
+                  ms.RECT_CODE == "004" &&
+                  ms.STRT_DATE <= DateTime.Now.Date &&
+                  ms.END_DATE >= DateTime.Now.Date &&
+                  (ms.NUMB_OF_ATTN_MONT == 0 || ms.NUMB_OF_ATTN_MONT > ms.SUM_ATTN_MONT_DNRM)
+               ).FirstOrDefault();
+
+            if(mbsp == null)
+            {
+               var cmd = new byte[] { 0xCC, 0x0D, 0x40, 0x28, 0x6B, 0xFA, 0x00, 0x00, 0x00, 0x00, 0x21, 0x00, 0x04, 0x00, 0x00, 0xD1, 0xDD };
+               SendCommand(gate.IP_ADRS, (int)gate.PORT_SEND, cmd);
+               return;
+            }
+
+            iScsc.INS_ATTN_P(null, mbsp.FIGH_FILE_NO, DateTime.Now, null, "001", mbsp.RWNO, "001", "002");
+
+            // Find Attendance in today
+            var attn = iScsc.Attendances.Where(a => a.FIGH_FILE_NO == mbsp.FIGH_FILE_NO && a.MBSP_RWNO_DNRM == mbsp.RWNO && a.ATTN_DATE == DateTime.Now.Date).OrderByDescending(a => a.ENTR_TIME).FirstOrDefault();
+            
+            // Send Command for Open OR Close
+            if (attn == null || attn.EXIT_TIME == null)
+            {
+               var cmd = new byte[] { 0xCC, 0x0D, 0x40, 0x28, 0x6B, 0xFA, 0x00, 0x00, 0x00, 0x00, 0x0C, 0x08, 0x00, 0x00, 0x00, 0xf0, 0xDD };
+
+               //byte xorByte = 0;
+               //for (int i = 1; i <= cmd.Length - 3; i++)
+               //   xorByte ^= cmd[i];
+               //cmd[cmd.Length - 2] = xorByte;
+
+               SendCommand(gate.IP_ADRS, (int)gate.PORT_SEND, cmd);
+            }
+            else
+            {
+               var cmd = new byte[] { 0xCC, 0x0D, 0x40, 0x28, 0x6B, 0xFA, 0x00, 0x00, 0x00, 0x00, 0x0b, 0x08, 0x00, 0x00, 0x00, 0xf7, 0xDD };               
+               SendCommand(gate.IP_ADRS, (int)gate.PORT_SEND, cmd);
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void SendCommand(String server, int port, byte[] message)
+      {
+         try
+         {
+            //Int32 port = 6070;
+            TcpClient client = new TcpClient(server, port);
+
+            NetworkStream stream = client.GetStream();
+
+            stream.Write(message, 0, message.Length);
+
+            //var data = new Byte[17];
+
+            //// String to store the response ASCII representation.
+            //String responseData = String.Empty;
+
+            //// Read the first batch of the TcpServer response bytes.
+            //Int32 bytes = stream.Read(data, 0, data.Length);
+
+            stream.Close();
+            client.Close();
+         }
+         catch(Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void OprtExtDev(XElement xextdev)
+      {
+         var devtype = xextdev.Attribute("devtype").Value;
+         var contype = xextdev.Attribute("contype").Value;
+         var cmdtype = xextdev.Attribute("cmdtype").Value;
+
+         if(devtype == "001")
+         {
+            // Card Reader
+         }
+         else if(devtype == "006")
+         {
+            // Gate Device
+            if(contype == "001")
+            {
+               // Usb Cable
+            }
+            else if(contype == "002")
+            {
+               // Lan Cable
+               var ip = xextdev.Attribute("ip").Value;
+               var sendport = Convert.ToInt32(xextdev.Attribute("sendport").Value);
+
+               byte[] cmdbyte = null;
+
+               switch (cmdtype)
+               {
+                  case "test":
+                     cmdbyte = new byte[] { 0xCC, 0x0D, 0x40, 0x28, 0x6B, 0xFA, 0x00, 0x00, 0x00, 0x00, 0x0F, 0x00, 0x00, 0x00, 0x00, 0xFB, 0xDD };
+                     break;
+                  case "gotoonline":
+                     cmdbyte = new byte[]{ 0xCC, 0x0D, 0x40, 0x28, 0x6B, 0xFA, 0x00, 0x00, 0x00, 0x00, 0x23, 0x00, 0x03, 0x00, 0x00, 0xd4, 0xDD };
+                     break;
+                  case "gotooffline":
+                     break;
+                  case "open":
+                     cmdbyte = new byte[] { 0xCC, 0x0D, 0x40, 0x28, 0x6B, 0xFA, 0x00, 0x00, 0x00, 0x00, 0x0C, 0x08, 0x00, 0x00, 0x00, 0xf0, 0xDD };
+                     break;
+                  case "close":
+                     cmdbyte = new byte[] { 0xCC, 0x0D, 0x40, 0x28, 0x6B, 0xFA, 0x00, 0x00, 0x00, 0x00, 0x0b, 0x08, 0x00, 0x00, 0x00, 0xf7, 0xDD };               
+                     break;  
+                  case "error":
+                     cmdbyte = new byte[] { 0xCC, 0x0D, 0x40, 0x28, 0x6B, 0xFA, 0x00, 0x00, 0x00, 0x00, 0x21, 0x00, 0x04, 0x00, 0x00, 0xD1, 0xDD };
+                     break;
+               }
+
+               SendCommand(ip, sendport, cmdbyte);
+            }
+         }
+      }
+      #endregion
       #endregion
 
       #region Online Dresser
@@ -4271,6 +4584,5 @@ namespace System.Scsc.Ui.MasterPage
       {
          tol_closegatebutn_ItemClick(null, null);
       }
-
    }
 }

@@ -22,6 +22,7 @@ namespace System.Scsc.Ui.Common
       }
 
       int index = 0;
+      private bool requery = false;
 
       private void HL_INVSFILENO_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
       {
@@ -302,6 +303,8 @@ namespace System.Scsc.Ui.Common
 
             vF_Fighs.DataSource = iScsc.VF_Last_Info_Fighter(null, FrstName_Txt.Text, LastName_Txt.Text, NatlCode_Txt.Text, FngrPrnt_Txt.Text, CellPhon_Txt.Text, TellPhon_Txt.Text, (Men_Rb.Checked ? "001" : Women_Rb.Checked ? "002" : null), ServNo_Txt.Text, GlobCode_Txt.Text, null, null, null, null, SuntCode);
             vF_Last_Info_FighterResultGridControl.Focus();
+
+            requery = false;
          }
          catch (Exception exc) { MessageBox.Show(exc.Message); }
       }
@@ -357,6 +360,7 @@ namespace System.Scsc.Ui.Common
             ExpnAmnt_Txt.EditValue = iScsc.Payment_Details.Where(pd => pd.PYMT_RQST_RQID == rqid).Sum(pd => (pd.EXPN_PRIC + pd.EXPN_EXTR_PRCT) * pd.QNTY);
             DscnAmnt_Txt.EditValue = iScsc.Payment_Discounts.Where(pd => pd.PYMT_RQST_RQID == rqid).Sum(pd => pd.AMNT);
             PymtAmnt_Txt.EditValue = iScsc.Payment_Methods.Where(pd => pd.PYMT_RQST_RQID == rqid).Sum(pd => pd.AMNT);
+            DebtPymtAmnt_Txt.EditValue = Convert.ToInt64(ExpnAmnt_Txt.EditValue) - (Convert.ToInt64(PymtAmnt_Txt.EditValue) + Convert.ToInt64(DscnAmnt_Txt.EditValue));
          }
          catch
          {
@@ -1175,6 +1179,162 @@ namespace System.Scsc.Ui.Common
          finally
          {
             Search_Butn_Click(null, null);
+         }
+      }
+
+      private void PayCashDepositeAmnt_Tsmi_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var figh = vF_Fighs.Current as Data.VF_Last_Info_FighterResult;
+            if (figh == null) return;            
+
+            // اگر مشتری در فرآیندی قفل باشد اجازه پرداخت بدهی وجود ندارد
+            if (figh.FIGH_STAT == "001") return;
+            var paydeposite = Convert.ToInt64(PayDepositeAmnt_Tsmi.Text.Replace(",", ""));
+            if (paydeposite == 0) return;
+
+            iScsc.GLR_TRQT_P(
+               new XElement("Process",
+                  new XElement("Request",
+                     new XAttribute("rqid", 0),
+                     new XAttribute("mdulname", GetType().Name),
+                     new XAttribute("sctnname", GetType().Name.Substring(0, 3) + "_001_F"),
+                     new XElement("Request_Row",
+                        new XAttribute("fighfileno", figh.FILE_NO)
+                     ),
+                     new XElement("Gain_Loss_Rials",
+                        new XAttribute("glid", 0),
+                        new XAttribute("type", "002" /* روش جدید برای ذخیره سازی اطلاعات */),
+                        new XAttribute("amnt", paydeposite),
+                        new XAttribute("paiddate", ""),
+                        new XAttribute("dpststat", "002"),
+                        new XAttribute("resndesc", "افزایش سپرده در فرم کنترل میز"),
+                        new XElement("Gain_Loss_Rial_Detials",
+                           new XElement("Gain_Loss_Rial_Detial",
+                              new XAttribute("rwno", 1),
+                              new XAttribute("amnt", paydeposite),
+                              new XAttribute("rcptmtod", "001")
+                           )
+                        )
+                     )
+                  )
+               )
+            );
+
+            var Rqids = iScsc.VF_Requests(new XElement("Request"))
+                  .Where(rqst =>
+                        rqst.RQTP_CODE == "020" &&
+                        rqst.RQST_STAT == "001" &&
+                        rqst.RQTT_CODE == "004" &&
+                        rqst.CRET_BY == CurrentUser &&
+                        rqst.SUB_SYS == 1).Select(r => r.RQID).ToList();
+
+            var Rqst =
+              iScsc.Requests
+              .Where(
+                 rqst =>
+                    Rqids.Contains(rqst.RQID)
+              ).FirstOrDefault();
+
+            iScsc.GLR_TSAV_P(
+               new XElement("Process",
+                  new XElement("Request",
+                     new XAttribute("rqid", Rqst.RQID)
+                  )
+               )
+            );
+
+            PayDepositeAmnt_Tsmi.Text = "0";
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Search_Butn_Click(null, null);
+         }
+      }
+
+      private void PayPosDepositeAmnt_Tsmi_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var figh = vF_Fighs.Current as Data.VF_Last_Info_FighterResult;
+            if (figh == null) return;            
+
+            // اگر مشتری در فرآیندی قفل باشد اجازه پرداخت بدهی وجود ندارد
+            if (figh.FIGH_STAT == "001") return;
+            var paydeposite = Convert.ToInt64(PayDepositeAmnt_Tsmi.Text.Replace(",", ""));
+            if (paydeposite == 0) return;
+
+            iScsc.GLR_TRQT_P(
+               new XElement("Process",
+                  new XElement("Request",
+                     new XAttribute("rqid", 0),
+                     new XAttribute("mdulname", GetType().Name),
+                     new XAttribute("sctnname", GetType().Name.Substring(0, 3) + "_001_F"),
+                     new XElement("Request_Row",
+                        new XAttribute("fighfileno", figh.FILE_NO)
+                     ),
+                     new XElement("Gain_Loss_Rials",
+                        new XAttribute("glid", 0),
+                        new XAttribute("type", "002" /* روش جدید برای ذخیره سازی اطلاعات */),
+                        new XAttribute("amnt", paydeposite),
+                        new XAttribute("paiddate", ""),
+                        new XAttribute("dpststat", "002"),
+                        new XAttribute("resndesc", "افزایش سپرده در فرم کنترل میز"),
+                        new XElement("Gain_Loss_Rial_Detials",
+                           new XElement("Gain_Loss_Rial_Detial",
+                              new XAttribute("rwno", 1),
+                              new XAttribute("amnt", paydeposite),
+                              new XAttribute("rcptmtod", "003")
+                           )
+                        )
+                     )
+                  )
+               )
+            );
+
+            var Rqids = iScsc.VF_Requests(new XElement("Request"))
+                  .Where(rqst =>
+                        rqst.RQTP_CODE == "020" &&
+                        rqst.RQST_STAT == "001" &&
+                        rqst.RQTT_CODE == "004" &&
+                        rqst.CRET_BY == CurrentUser &&
+                        rqst.SUB_SYS == 1).Select(r => r.RQID).ToList();
+
+            var Rqst =
+              iScsc.Requests
+              .Where(
+                 rqst =>
+                    Rqids.Contains(rqst.RQID)
+              ).FirstOrDefault();
+
+            iScsc.GLR_TSAV_P(
+               new XElement("Process",
+                  new XElement("Request",
+                     new XAttribute("rqid", Rqst.RQID)
+                  )
+               )
+            );
+
+            PayDepositeAmnt_Tsmi.Text = "0";
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Search_Butn_Click(null, null);
          }
       }      
 

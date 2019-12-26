@@ -188,7 +188,10 @@ namespace System.DataGuard.SecPolicy.Share.Ui
          DActvBs.DataSource = iProject.D_ACTVs;
          DYsnoBs.DataSource = iProject.D_YSNOs;
          DCntpBs.DataSource = iProject.D_CNTPs;
+         DCstpBs.DataSource = iProject.D_CSTPs;
+         DBftpBs.DataSource = iProject.D_BFTPs;
          vCompBs.DataSource = iProject.V_Computers;
+         ComPortName_Lov.Items.Clear();
          ComPortName_Lov.Items.AddRange(SerialPort.GetPortNames());
 
          PosBs.List.Clear();

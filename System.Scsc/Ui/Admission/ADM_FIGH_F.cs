@@ -503,38 +503,177 @@ namespace System.Scsc.Ui.Admission
       {
          try
          {
-            //if (tb_master.SelectedTab == tp_001)
+            var rqst = RqstBs1.Current as Data.Request;
+            if (rqst == null) return;
+
+            if (Accept_Cb.Checked)
             {
-               if(Accept_Cb.Checked)
-                  if (MessageBox.Show(this, "عملیات پرداخت به صورت نقدی و ذخیره نهایی کردن انجام شود؟", "پرداخت و ذخیره نهایی", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+               var pymt = PymtsBs1.Current as Data.Payment;
+               if (pymt == null) return;
 
-               var rqst = RqstBs1.Current as Data.Request;
-               if (rqst == null) return;
+               var debtamnt = (pymt.SUM_EXPN_PRIC + pymt.SUM_EXPN_EXTR_PRCT) - (pymt.SUM_RCPT_EXPN_PRIC + pymt.SUM_PYMT_DSCN_DNRM);
 
+               string mesg = "";
+               if(debtamnt > 0)
+               {
+                  mesg = 
+                     string.Format(
+                        ">> مبلغ {0} {1} به صورت >> نقدی << در تاریخ {2} در صندوق کاربر {3}  قرار میگیرد", 
+                        string.Format("{0:n0}",debtamnt), 
+                        DAtypBs1.List.OfType<Data.D_ATYP>().FirstOrDefault(d => d.VALU == pymt.AMNT_UNIT_TYPE_DNRM).DOMN_DESC, 
+                        "امروز", 
+                        CurrentUser);
+                  mesg += Environment.NewLine;
+               }
+               mesg += ">> ذخیره و پایان درخواست";
+
+               if (MessageBox.Show(this, mesg, "عملیات ثبت نام", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2, MessageBoxOptions.RtlReading) != DialogResult.Yes) return;
+            }
+
+            foreach (Data.Payment pymt in PymtsBs1)
+            {
+               iScsc.PAY_MSAV_P(
+                  new XElement("Payment",
+                     new XAttribute("actntype", "CheckoutWithoutPOS"),
+                     new XElement("Insert",
+                        new XElement("Payment_Method",
+                           new XAttribute("cashcode", pymt.CASH_CODE),
+                           new XAttribute("rqstrqid", pymt.RQST_RQID)
+                     //new XAttribute("amnt", (pymt.SUM_EXPN_PRIC + pymt.SUM_EXPN_EXTR_PRCT) - pymt.Payment_Methods.Sum(pm => pm.AMNT))
+                        )
+                     )
+                  )
+               );
+            }
+            //var pymt = PymtsBs1.Current as Data.Payment;
+
+            /*if ((pymt.SUM_EXPN_PRIC + pymt.SUM_EXPN_EXTR_PRCT) - pymt.Payment_Methods.Sum(pm => pm.AMNT) <= 0)
+            {
+               MessageBox.Show(this, "تمام هزینه های بدهی مشتری پرداخت شده");
+               return;
+            }*/
+
+               
+
+            /* Loop For Print After Pay */
+            RqstBnPrintAfterPay_Click(null, null);
+
+            /* End Request */
+            Btn_RqstSav1_Click(null, null);
+         }
+         catch (SqlException se)
+         {
+            MessageBox.Show(se.Message);
+         }
+      }
+
+      private void tbn_POSPayment1_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var rqst = RqstBs1.Current as Data.Request;
+            if (rqst == null) return;
+
+            if (Accept_Cb.Checked)
+            {
+               var pymt = PymtsBs1.Current as Data.Payment;
+               if (pymt == null) return;
+
+               var debtamnt = (pymt.SUM_EXPN_PRIC + pymt.SUM_EXPN_EXTR_PRCT) - (pymt.SUM_RCPT_EXPN_PRIC + pymt.SUM_PYMT_DSCN_DNRM);
+
+               string mesg = "";
+               if (debtamnt > 0)
+               {
+                  mesg =
+                     string.Format(
+                        ">> مبلغ {0} {1} به صورت >> کارتخوان << در تاریخ {2} در صندوق کاربر {3}  قرار میگیرد",
+                        string.Format("{0:n0}", debtamnt), 
+                        DAtypBs1.List.OfType<Data.D_ATYP>().FirstOrDefault(d => d.VALU == pymt.AMNT_UNIT_TYPE_DNRM).DOMN_DESC,
+                        "امروز",
+                        CurrentUser);
+                  mesg += Environment.NewLine;
+               }
+               mesg += ">> ذخیره و پایان درخواست";
+
+               if (MessageBox.Show(this, mesg, "عملیات ثبت نام", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2, MessageBoxOptions.RtlReading) != DialogResult.Yes) return;
+            }
+
+            if (VPosBs1.List.Count == 0)
+               UsePos_Cb.Checked = false;
+
+            if (UsePos_Cb.Checked)
+            {
+               foreach (Data.Payment pymt in PymtsBs1)
+               {
+                  var amnt = ((pymt.SUM_EXPN_PRIC + pymt.SUM_EXPN_EXTR_PRCT) - (pymt.SUM_RCPT_EXPN_PRIC + pymt.SUM_PYMT_DSCN_DNRM));
+                  if ( amnt== 0) return;
+
+                  var regl = iScsc.Regulations.FirstOrDefault(r => r.TYPE == "001" && r.REGL_STAT == "002");
+
+                  long psid;
+                  if (Pos_Lov.EditValue == null)
+                  {
+                     var posdflts = VPosBs1.List.OfType<Data.V_Pos_Device>().Where(p => p.POS_DFLT == "002");
+                     if (posdflts.Count() == 1)
+                        Pos_Lov.EditValue = psid = posdflts.FirstOrDefault().PSID;
+                     else
+                     {
+                        Pos_Lov.Focus();
+                        return;
+                     }
+                  }
+                  else
+                  {
+                     psid = (long)Pos_Lov.EditValue;
+                  }
+
+                  if (regl.AMNT_TYPE == "002")
+                     amnt *= 10;
+
+                  _DefaultGateway.Gateway(
+                     new Job(SendType.External, "localhost",
+                        new List<Job>
+                        {
+                           new Job(SendType.External, "Commons",
+                              new List<Job>
+                              {
+                                 new Job(SendType.Self, 34 /* Execute PosPayment */)
+                                 {
+                                    Input = 
+                                       new XElement("PosRequest",
+                                          new XAttribute("psid", psid),
+                                          new XAttribute("subsys", 5),
+                                          new XAttribute("rqid", pymt.RQST_RQID),
+                                          new XAttribute("rqtpcode", ""),
+                                          new XAttribute("router", GetType().Name),
+                                          new XAttribute("callback", 20),
+                                          new XAttribute("amnt", amnt)
+                                       )
+                                 }
+                              }
+                           )                     
+                        }
+                     )
+                  );
+               }
+            }
+            else
+            {
+               // 1397/01/07 * ثبت دستی مبلغ به صورت پایانه فروش
                foreach (Data.Payment pymt in PymtsBs1)
                {
                   iScsc.PAY_MSAV_P(
                      new XElement("Payment",
-                        new XAttribute("actntype", "CheckoutWithoutPOS"),
+                        new XAttribute("actntype", "CheckoutWithPOS"),
                         new XElement("Insert",
                            new XElement("Payment_Method",
                               new XAttribute("cashcode", pymt.CASH_CODE),
                               new XAttribute("rqstrqid", pymt.RQST_RQID)
-                        //new XAttribute("amnt", (pymt.SUM_EXPN_PRIC + pymt.SUM_EXPN_EXTR_PRCT) - pymt.Payment_Methods.Sum(pm => pm.AMNT))
                            )
                         )
                      )
                   );
                }
-               //var pymt = PymtsBs1.Current as Data.Payment;
-
-               /*if ((pymt.SUM_EXPN_PRIC + pymt.SUM_EXPN_EXTR_PRCT) - pymt.Payment_Methods.Sum(pm => pm.AMNT) <= 0)
-               {
-                  MessageBox.Show(this, "تمام هزینه های بدهی مشتری پرداخت شده");
-                  return;
-               }*/
-
-               
 
                /* Loop For Print After Pay */
                RqstBnPrintAfterPay_Click(null, null);
@@ -549,115 +688,12 @@ namespace System.Scsc.Ui.Admission
          }
       }
 
-      private void tbn_POSPayment1_Click(object sender, EventArgs e)
-      {
-         try
-         {
-            //if (tb_master.SelectedTab == tp_001)
-            {
-               if (Accept_Cb.Checked)
-                  if(MessageBox.Show(this, "عملیات پرداخت توسط کارتخوان و ذخیره نهایی کردن انجام شود؟", "پرداخت و ذخیره نهایی", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
-
-               var rqst = RqstBs1.Current as Data.Request;
-               if (rqst == null) return;
-
-               if (VPosBs1.List.Count == 0)
-                  UsePos_Cb.Checked = false;
-
-               if (UsePos_Cb.Checked)
-               {
-                  foreach (Data.Payment pymt in PymtsBs1)
-                  {
-                     var amnt = ((pymt.SUM_EXPN_PRIC + pymt.SUM_EXPN_EXTR_PRCT) - (pymt.SUM_RCPT_EXPN_PRIC + pymt.SUM_PYMT_DSCN_DNRM));
-                     if ( amnt== 0) return;
-
-                     var regl = iScsc.Regulations.FirstOrDefault(r => r.TYPE == "001" && r.REGL_STAT == "002");
-
-                     long psid;
-                     if (Pos_Lov.EditValue == null)
-                     {
-                        var posdflts = VPosBs1.List.OfType<Data.V_Pos_Device>().Where(p => p.POS_DFLT == "002");
-                        if (posdflts.Count() == 1)
-                           Pos_Lov.EditValue = psid = posdflts.FirstOrDefault().PSID;
-                        else
-                        {
-                           Pos_Lov.Focus();
-                           return;
-                        }
-                     }
-                     else
-                     {
-                        psid = (long)Pos_Lov.EditValue;
-                     }
-
-                     if (regl.AMNT_TYPE == "002")
-                        amnt *= 10;
-
-                     _DefaultGateway.Gateway(
-                        new Job(SendType.External, "localhost",
-                           new List<Job>
-                           {
-                              new Job(SendType.External, "Commons",
-                                 new List<Job>
-                                 {
-                                    new Job(SendType.Self, 34 /* Execute PosPayment */)
-                                    {
-                                       Input = 
-                                          new XElement("PosRequest",
-                                             new XAttribute("psid", psid),
-                                             new XAttribute("subsys", 5),
-                                             new XAttribute("rqid", pymt.RQST_RQID),
-                                             new XAttribute("rqtpcode", ""),
-                                             new XAttribute("router", GetType().Name),
-                                             new XAttribute("callback", 20),
-                                             new XAttribute("amnt", amnt)
-                                          )
-                                    }
-                                 }
-                              )                     
-                           }
-                        )
-                     );
-                  }
-               }
-               else
-               {
-                  // 1397/01/07 * ثبت دستی مبلغ به صورت پایانه فروش
-                  foreach (Data.Payment pymt in PymtsBs1)
-                  {
-                     iScsc.PAY_MSAV_P(
-                        new XElement("Payment",
-                           new XAttribute("actntype", "CheckoutWithPOS"),
-                           new XElement("Insert",
-                              new XElement("Payment_Method",
-                                 new XAttribute("cashcode", pymt.CASH_CODE),
-                                 new XAttribute("rqstrqid", pymt.RQST_RQID)
-                              )
-                           )
-                        )
-                     );
-                  }
-
-                  /* Loop For Print After Pay */
-                  RqstBnPrintAfterPay_Click(null, null);
-
-                  /* End Request */
-                  Btn_RqstSav1_Click(null, null);
-               }
-            }
-         }
-         catch (SqlException se)
-         {
-            MessageBox.Show(se.Message);
-         }
-      }
-
       private void Btn_InDebt001_Click(object sender, EventArgs e)
       {
          try
          {
             setOnDebt = true;
-
+            // بررسی دسترسی کاربر به بدهکاری ثبت کردن
             _DefaultGateway.Gateway(
               new Job(SendType.External, "Localhost",
                  new List<Job>
@@ -690,39 +726,62 @@ namespace System.Scsc.Ui.Admission
 
             if (setOnDebt == false) return;
 
-            //if (tb_master.SelectedTab == tp_001)
+            var rqst = RqstBs1.Current as Data.Request;
+            if (rqst == null) return;
+
+            if (Accept_Cb.Checked)
             {
-               if(Accept_Cb.Checked)
-                  if (MessageBox.Show(this, "عملیات بدهکاری و ذخیره نهایی کردن انجام شود؟", "بدهکاری و ذخیره نهایی", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
-
-               var rqst = RqstBs1.Current as Data.Request;
-               if (rqst == null) return;
                var pymt = PymtsBs1.Current as Data.Payment;
+               if (pymt == null) return;
 
-               /*if ((pymt.SUM_EXPN_PRIC + pymt.SUM_EXPN_EXTR_PRCT) - pymt.Payment_Methods.Sum(pm => pm.AMNT) <= 0)
+               var debtamnt = (pymt.SUM_EXPN_PRIC + pymt.SUM_EXPN_EXTR_PRCT) - (pymt.SUM_RCPT_EXPN_PRIC + pymt.SUM_PYMT_DSCN_DNRM);
+
+               string mesg = "";
+               if (debtamnt > 0)
                {
-                  MessageBox.Show(this, "تمام هزینه های بدهی مشتری پرداخت شده");
-                  return;
-               }*/
+                  mesg =
+                     string.Format(
+                        ">> مبلغ {0} {1} به صورت >> بدهکار << در تاریخ {2} در صندوق کاربر {3}  قرار میگیرد",
+                        string.Format("{0:n0}", debtamnt), 
+                        DAtypBs1.List.OfType<Data.D_ATYP>().FirstOrDefault(d => d.VALU == pymt.AMNT_UNIT_TYPE_DNRM).DOMN_DESC,
+                        "امروز",
+                        CurrentUser);
+                  mesg += Environment.NewLine;
+               }
+               else
+                  setOnDebt = false;
 
-               /*iScsc.PAY_MSAV_P(
-                  new XElement("Payment",
-                     new XAttribute("actntype", "CheckoutWithoutPOS"),
-                     new XElement("Insert",
-                        new XElement("Payment_Method",
-                           new XAttribute("cashcode", pymt.CASH_CODE),
-                           new XAttribute("rqstrqid", pymt.RQST_RQID)                  
-                        )
+               mesg += ">> ذخیره و پایان درخواست";
+
+               if (MessageBox.Show(this, mesg, "عملیات ثبت نام", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2, MessageBoxOptions.RtlReading) != DialogResult.Yes) return;
+            }
+            //var rqst = RqstBs1.Current as Data.Request;
+            //if (rqst == null) return;
+            //var pymt = PymtsBs1.Current as Data.Payment;
+
+            /*if ((pymt.SUM_EXPN_PRIC + pymt.SUM_EXPN_EXTR_PRCT) - pymt.Payment_Methods.Sum(pm => pm.AMNT) <= 0)
+            {
+               MessageBox.Show(this, "تمام هزینه های بدهی مشتری پرداخت شده");
+               return;
+            }*/
+
+            /*iScsc.PAY_MSAV_P(
+               new XElement("Payment",
+                  new XAttribute("actntype", "CheckoutWithoutPOS"),
+                  new XElement("Insert",
+                     new XElement("Payment_Method",
+                        new XAttribute("cashcode", pymt.CASH_CODE),
+                        new XAttribute("rqstrqid", pymt.RQST_RQID)                  
                      )
                   )
-               );*/
+               )
+            );*/
 
-               /* Loop For Print After Pay */
-               RqstBnPrintAfterPay_Click(null, null);
+            /* Loop For Print After Pay */
+            RqstBnPrintAfterPay_Click(null, null);
 
-               /* End Request */
-               Btn_RqstSav1_Click(null, null);
-            }
+            /* End Request */
+            Btn_RqstSav1_Click(null, null);
          }
          catch (SqlException se)
          {

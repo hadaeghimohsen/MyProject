@@ -169,6 +169,8 @@ namespace System.DataGuard.SecPolicy.Share.Ui
          {
             var tlog = iProject.Transaction_Logs.FirstOrDefault(t => t.TLID == Tlid);
 
+            if (router == null || callback == null) return;
+
             _DefaultGateway.Gateway(
                new Job(SendType.External, "localhost", string.Format("DataGuard:Program:{0}:{1}", iProject.Sub_Systems.FirstOrDefault(s => s.SUB_SYS == subsys).SCHM_NAME, router), (int)callback /* Execute CallBack Method  */, SendType.SelfToUserInterface)
                {
@@ -248,8 +250,35 @@ namespace System.DataGuard.SecPolicy.Share.Ui
          {
             if (posResult == null) return;
 
-            Threading.Thread.Sleep(1000);
-            posResult = _PcPosFactory.PosStarterPurchase(Amnt_Txt.EditValue.ToString(), null, "", "", 0);
+            var pos = PosBs.Current as Data.Pos_Device;
+            if(pos.ACTN_TYPE == "001")
+            {
+               // حساب شخصی
+               Threading.Thread.Sleep(1000);
+               
+               posResult = _PcPosFactory.PosStarterPurchase(Amnt_Txt.EditValue.ToString(), null, "", "", 0, "", "", null, -1, null, -1);
+            }
+            else
+            {
+               // حساب دولتی
+               if(pos.BILL_FIND_TYPE == "001")
+               {
+                  // شناسه مشترک
+                  Threading.Thread.Sleep(1000);
+                  
+                  posResult = _PcPosFactory.PosStarterPurchase(Amnt_Txt.EditValue.ToString(), null, "", "", 0, "", pos.BILL_NO, null, -1, null, -1);
+               }
+               else
+               {
+                  // شناسه متفاوت
+                  var useraccesspos = iProject.User_Access_Pos.FirstOrDefault(uap => uap.User.USERDB.ToUpper() == CurrentUser.ToUpper() && uap.POSD_PSID == pos.PSID);
+                  if ((useraccesspos.BILL_NO ?? "") == "")
+                     useraccesspos.BILL_NO = pos.BILL_NO;
+                  Threading.Thread.Sleep(1000);
+                  //posResult = _PcPosFactory.PosStarterPurchase(Amnt_Txt.EditValue.ToString(), null, "", "", 0);
+                  posResult = _PcPosFactory.PosStarterPurchase(Amnt_Txt.EditValue.ToString(), null, "", "", 0, "", useraccesspos.BILL_NO, null, -1, null, -1);
+               }
+            }            
 
             Tlid = SamanPcPos_SaveTransactionLog(posResult);
 

@@ -70,7 +70,10 @@ namespace System.DataGuard.SecPolicy.Share.Ui
                   new XAttribute("prntsale", PrntSale_Txt.Text),
                   new XAttribute("prntcust", PrntCust_Txt.Text),
                   new XAttribute("autocomm", AutoComm_Lov.EditValue),
-                  new XAttribute("gtwymacadrs", Comp_Lov.EditValue)
+                  new XAttribute("gtwymacadrs", Comp_Lov.EditValue),
+                  new XAttribute("billno", BillNo_Txt.EditValue),
+                  new XAttribute("actntype", ActnType_Lov.EditValue),
+                  new XAttribute("billfindtype", BillFindType_Lov.EditValue)
                )
             );
 
@@ -83,6 +86,9 @@ namespace System.DataGuard.SecPolicy.Share.Ui
                )
             );
             Back_Butn_Click(null, null);
+
+            UserAccessPos_Gv.PostEditor();
+            iProject.SubmitChanges();
          }
          catch (Exception exc)
          {
@@ -93,6 +99,23 @@ namespace System.DataGuard.SecPolicy.Share.Ui
       private void ComPortName_Lov_SelectedIndexChanged(object sender, EventArgs e)
       {
          ComPortName_Txt.Text = ComPortName_Lov.Text;
+      }
+
+      private void GetHost_Butn_Click(object sender, EventArgs e)
+      {
+         _DefaultGateway.Gateway(
+            new Job(SendType.External, "localhost", "Commons", 24 /* Execute DoWork4GetHosInfo */, SendType.Self)
+            {
+               AfterChangedOutput =
+                  new Action<object>(
+                     (output) =>
+                     {
+                        var hostinfo = output as XElement;
+                        Comp_Lov.EditValue = hostinfo.Attribute("cpu").Value;
+                     }
+                  )
+            }
+         );
       }
    }
 }

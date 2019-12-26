@@ -503,11 +503,32 @@ namespace System.Scsc.Ui.OtherIncome
          {
             //if (tb_master.SelectedTab == tp_001)
             {
-               if (Accept_Cb.Checked)
-                  if (MessageBox.Show(this, "عملیات پرداخت به صورت نقدی و ذخیره نهایی کردن انجام شود؟", "پرداخت و ذخیره نهایی", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
-
                var rqst = RqstBs1.Current as Data.Request;
                if (rqst == null) return;
+
+               if (Accept_Cb.Checked)
+               {
+                  var pymt = PymtsBs1.Current as Data.Payment;
+                  if (pymt == null) return;
+
+                  var debtamnt = (pymt.SUM_EXPN_PRIC + pymt.SUM_EXPN_EXTR_PRCT) - (pymt.SUM_RCPT_EXPN_PRIC + pymt.SUM_PYMT_DSCN_DNRM);
+
+                  string mesg = "";
+                  if (debtamnt > 0)
+                  {
+                     mesg =
+                        string.Format(
+                           ">> مبلغ {0} {1} به صورت >> نقدی << در تاریخ {2} در صندوق کاربر {3}  قرار میگیرد",
+                           string.Format("{0:n0}", debtamnt),
+                           DAtypBs1.List.OfType<Data.D_ATYP>().FirstOrDefault(d => d.VALU == pymt.AMNT_UNIT_TYPE_DNRM).DOMN_DESC,
+                           "امروز",
+                           CurrentUser);
+                     mesg += Environment.NewLine;
+                  }
+                  mesg += ">> ذخیره و پایان درخواست";
+
+                  if (MessageBox.Show(this, mesg, "عملیات ثبت نام", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2, MessageBoxOptions.RtlReading) != DialogResult.Yes) return;
+               }
                //var pymt = PymtsBs1.Current as Data.Payment;
 
                /*if ((pymt.SUM_EXPN_PRIC + pymt.SUM_EXPN_EXTR_PRCT) - pymt.Payment_Methods.Sum(pm => pm.AMNT) <= 0)
@@ -713,11 +734,32 @@ namespace System.Scsc.Ui.OtherIncome
          {
             //if (tb_master.SelectedTab == tp_001)
             {
-               if (Accept_Cb.Checked)
-                  if (MessageBox.Show(this, "عملیات پرداخت توسط کارتخوان و ذخیره نهایی کردن انجام شود؟", "پرداخت و ذخیره نهایی", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
-
                var rqst = RqstBs1.Current as Data.Request;
                if (rqst == null) return;
+
+               if (Accept_Cb.Checked)
+               {
+                  var pymt = PymtsBs1.Current as Data.Payment;
+                  if (pymt == null) return;
+
+                  var debtamnt = (pymt.SUM_EXPN_PRIC + pymt.SUM_EXPN_EXTR_PRCT) - (pymt.SUM_RCPT_EXPN_PRIC + pymt.SUM_PYMT_DSCN_DNRM);
+
+                  string mesg = "";
+                  if (debtamnt > 0)
+                  {
+                     mesg =
+                        string.Format(
+                           ">> مبلغ {0} {1} به صورت >> کارتخوان << در تاریخ {2} در صندوق کاربر {3}  قرار میگیرد",
+                           string.Format("{0:n0}", debtamnt),
+                           DAtypBs1.List.OfType<Data.D_ATYP>().FirstOrDefault(d => d.VALU == pymt.AMNT_UNIT_TYPE_DNRM).DOMN_DESC,
+                           "امروز",
+                           CurrentUser);
+                     mesg += Environment.NewLine;
+                  }
+                  mesg += ">> ذخیره و پایان درخواست";
+
+                  if (MessageBox.Show(this, mesg, "عملیات ثبت نام", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2, MessageBoxOptions.RtlReading) != DialogResult.Yes) return;
+               }
 
                if (VPosBs1.List.Count == 0)
                   UsePos_Cb.Checked = false;
@@ -924,12 +966,35 @@ namespace System.Scsc.Ui.OtherIncome
             //if (tb_master.SelectedTab == tp_001)
             {
 
-               if (Accept_Cb.Checked)
-                  if (MessageBox.Show(this, "عملیات بدهکاری و ذخیره نهایی کردن انجام شود؟", "بدهکاری و ذخیره نهایی", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
-
                var rqst = RqstBs1.Current as Data.Request;
                if (rqst == null) return;
-               var pymt = PymtsBs1.Current as Data.Payment;
+
+               if (Accept_Cb.Checked)
+               {
+                  var pymt = PymtsBs1.Current as Data.Payment;
+                  if (pymt == null) return;
+
+                  var debtamnt = (pymt.SUM_EXPN_PRIC + pymt.SUM_EXPN_EXTR_PRCT) - (pymt.SUM_RCPT_EXPN_PRIC + pymt.SUM_PYMT_DSCN_DNRM);
+
+                  string mesg = "";
+                  if (debtamnt > 0)
+                  {
+                     mesg =
+                        string.Format(
+                           ">> مبلغ {0} {1} به صورت >> بدهکار << در تاریخ {2} در صندوق کاربر {3}  قرار میگیرد",
+                           string.Format("{0:n0}", debtamnt),
+                           DAtypBs1.List.OfType<Data.D_ATYP>().FirstOrDefault(d => d.VALU == pymt.AMNT_UNIT_TYPE_DNRM).DOMN_DESC,
+                           "امروز",
+                           CurrentUser);
+                     mesg += Environment.NewLine;
+                  }
+                  else
+                     setOnDebt = false;
+
+                  mesg += ">> ذخیره و پایان درخواست";
+
+                  if (MessageBox.Show(this, mesg, "عملیات ثبت نام", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2, MessageBoxOptions.RtlReading) != DialogResult.Yes) return;
+               }
 
                // 1398/04/03 * اگر فاکتور فاقد آیتم هزینه باشد اجازه ثبت در سیستم را نداریم
                if (PydtsBs1.List.Count == 0)

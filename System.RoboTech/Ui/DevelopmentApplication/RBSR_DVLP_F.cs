@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using System.JobRouting.Jobs;
 using System.RoboTech.ExceptionHandlings;
 using System.Xml.Linq;
+using System.IO;
+using System.Diagnostics;
 
 namespace System.RoboTech.Ui.DevelopmentApplication
 {
@@ -455,6 +457,19 @@ namespace System.RoboTech.Ui.DevelopmentApplication
                      }
                   )
                );                  
+               break;
+            case 1:
+               var robot = RoboBs.Current as Data.Robot;
+               if (robot == null || robot.UP_LOAD_FILE_PATH == null || !Directory.Exists(robot.UP_LOAD_FILE_PATH)) return;               
+
+               var serv = SrbtBs.Current as Data.Service_Robot;
+               if (serv == null) return;
+               if (!Directory.Exists(robot.UP_LOAD_FILE_PATH + @"\" + serv.CHAT_ID.ToString()))
+                  Directory.CreateDirectory(robot.UP_LOAD_FILE_PATH + @"\" + serv.CHAT_ID.ToString());
+               
+               // Open Service's Share Folder
+               Process.Start("explorer.exe", robot.UP_LOAD_FILE_PATH + @"\" + serv.CHAT_ID.ToString());
+
                break;
          }
       }

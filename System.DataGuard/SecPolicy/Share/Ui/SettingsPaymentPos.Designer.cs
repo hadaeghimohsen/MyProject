@@ -28,6 +28,7 @@
       /// </summary>
       private void InitializeComponent()
       {
+         this.components = new System.ComponentModel.Container();
          System.Windows.Forms.Label label6;
          System.Windows.Forms.Label label1;
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingsPaymentPos));
@@ -43,11 +44,11 @@
          this.Header_Txt = new DevExpress.XtraEditors.LabelControl();
          this.Back_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.BnkbCode_Txt = new DevExpress.XtraEditors.ButtonEdit();
-         this.PosBs = new System.Windows.Forms.BindingSource();
+         this.PosBs = new System.Windows.Forms.BindingSource(this.components);
          this.BnkaAcntNumb_Txt = new DevExpress.XtraEditors.ButtonEdit();
          this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
          this.BankType_Lov = new DevExpress.XtraEditors.LookUpEdit();
-         this.DBankBs = new System.Windows.Forms.BindingSource();
+         this.DBankBs = new System.Windows.Forms.BindingSource(this.components);
          this.PosDesc_Txt = new DevExpress.XtraEditors.ButtonEdit();
          this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
          this.PosPymt_Butn = new DevExpress.XtraEditors.SimpleButton();
@@ -63,7 +64,7 @@
          this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
          this.tp_002 = new System.Windows.Forms.TabPage();
          this.sub_SystemGridControl = new DevExpress.XtraGrid.GridControl();
-         this.TranBs = new System.Windows.Forms.BindingSource();
+         this.TranBs = new System.Windows.Forms.BindingSource(this.components);
          this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colPOSD_PSID = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colSUB_SYS = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -559,13 +560,11 @@
          this.labelControl5.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Top;
          this.labelControl5.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
          this.labelControl5.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.labelControl5.Location = new System.Drawing.Point(120, 45);
+         this.labelControl5.Location = new System.Drawing.Point(411, 45);
          this.labelControl5.Name = "labelControl5";
-         this.labelControl5.Size = new System.Drawing.Size(700, 57);
+         this.labelControl5.Size = new System.Drawing.Size(409, 57);
          this.labelControl5.TabIndex = 11;
-         this.labelControl5.Text = "ایجاد و نمونه برداری از کاربران برای کاربران جدید که بتوانند درون سیستم دسترسی ها" +
-    "ی لازم را داشته باشند و فعالیت های سیستمی خود را از سر بگیرند و با نرم افزار های" +
-    " مختلف کار کنند";
+         this.labelControl5.Text = "برای انجام عملیات پرداخت کافیست مبلغ و دکمه پرداخت را فشار دهید";
          // 
          // labelControl2
          // 

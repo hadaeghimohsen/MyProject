@@ -510,6 +510,12 @@ namespace System.Scsc.Code
             case 160:
                Mngr_Dres_F(job);
                break;
+            case 161:
+               Bas_Prod_F(job);
+               break;
+            case 162:
+               Wrn_Serv_F(job);
+               break;
             default:
                job.Status = StatusType.Failed;
                break;
@@ -972,6 +978,12 @@ namespace System.Scsc.Code
                break;
             case "MNGR_DRES_F":
                _Mngr_Dres_F.SendRequest(job);
+               break;
+            case "BAS_PROD_F":
+               _Bas_Prod_F.SendRequest(job);
+               break;
+            case "WRN_SERV_F":
+               _Wrn_Serv_F.SendRequest(job);
                break;
 
             /* Show Changed */

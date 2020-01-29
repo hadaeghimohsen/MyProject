@@ -28,23 +28,23 @@
       /// </summary>
       private void InitializeComponent()
       {
-         System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingsOtherAccounts));
-         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition1 = new DevExpress.XtraGrid.StyleFormatCondition();
-         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition2 = new DevExpress.XtraGrid.StyleFormatCondition();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition3 = new DevExpress.XtraGrid.StyleFormatCondition();
-         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition4 = new DevExpress.XtraGrid.StyleFormatCondition();
-         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition5 = new DevExpress.XtraGrid.StyleFormatCondition();
-         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition6 = new DevExpress.XtraGrid.StyleFormatCondition();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition7 = new DevExpress.XtraGrid.StyleFormatCondition();
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition8 = new DevExpress.XtraGrid.StyleFormatCondition();
-         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition9 = new DevExpress.XtraGrid.StyleFormatCondition();
-         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition10 = new DevExpress.XtraGrid.StyleFormatCondition();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject9 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject10 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition1 = new DevExpress.XtraGrid.StyleFormatCondition();
+         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition2 = new DevExpress.XtraGrid.StyleFormatCondition();
+         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition11 = new DevExpress.XtraGrid.StyleFormatCondition();
+         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition12 = new DevExpress.XtraGrid.StyleFormatCondition();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition5 = new DevExpress.XtraGrid.StyleFormatCondition();
+         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition6 = new DevExpress.XtraGrid.StyleFormatCondition();
+         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition3 = new DevExpress.XtraGrid.StyleFormatCondition();
+         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition4 = new DevExpress.XtraGrid.StyleFormatCondition();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject11 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
+         System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingsOtherAccounts));
          this.colIsActive1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colIsActive = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colIsVisible4 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -151,6 +151,8 @@
          this.labelControl15 = new DevExpress.XtraEditors.LabelControl();
          this.flowLayoutPanel7 = new System.Windows.Forms.FlowLayoutPanel();
          this.EnableDisabledRolePrivilege_Butn = new DevExpress.XtraEditors.SimpleButton();
+         this.UpRolePrivilegeBsTp3_Butn = new DevExpress.XtraEditors.SimpleButton();
+         this.DnRolePrivilegeBsTp3_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.splitContainerControl7 = new DevExpress.XtraEditors.SplitContainerControl();
          this.gridControl4 = new DevExpress.XtraGrid.GridControl();
          this.RoleBs = new System.Windows.Forms.BindingSource();
@@ -170,6 +172,8 @@
          this.DeleteRole_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.SaveRole_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.EnableDisabledRole_Butn = new DevExpress.XtraEditors.SimpleButton();
+         this.UpRoleBsTp3_Butn = new DevExpress.XtraEditors.SimpleButton();
+         this.DnRoleBsTp3_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.gridControl5 = new DevExpress.XtraGrid.GridControl();
          this.gridView6 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colSUB_SYS4 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -182,8 +186,10 @@
          this.colSub_System3 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.labelControl14 = new DevExpress.XtraEditors.LabelControl();
          this.flowLayoutPanel6 = new System.Windows.Forms.FlowLayoutPanel();
-         this.GrantBoxPrivilegeToRole_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.RevokeBoxPrivilegeFromRole_Butn = new DevExpress.XtraEditors.SimpleButton();
+         this.GrantBoxPrivilegeToRole_Butn = new DevExpress.XtraEditors.SimpleButton();
+         this.UpBoxBsTp3_Butn = new DevExpress.XtraEditors.SimpleButton();
+         this.DnBoxBsTp3_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.gridControl7 = new DevExpress.XtraGrid.GridControl();
          this.gridView8 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.gridColumn30 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -222,6 +228,8 @@
          this.labelControl19 = new DevExpress.XtraEditors.LabelControl();
          this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
          this.EnableDisabledRoleUser_Butn = new DevExpress.XtraEditors.SimpleButton();
+         this.UpRoleUserBsTp4_Butn = new DevExpress.XtraEditors.SimpleButton();
+         this.DnRoleUserBsTp4_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.splitContainerControl10 = new DevExpress.XtraEditors.SplitContainerControl();
          this.gridControl9 = new DevExpress.XtraGrid.GridControl();
          this.gridView10 = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -272,6 +280,8 @@
          this.labelControl18 = new DevExpress.XtraEditors.LabelControl();
          this.flowLayoutPanel9 = new System.Windows.Forms.FlowLayoutPanel();
          this.GrantRoleUser_Butn = new DevExpress.XtraEditors.SimpleButton();
+         this.UpUserBsTp4_Butn = new DevExpress.XtraEditors.SimpleButton();
+         this.DnUserBsTp4_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.gridControl11 = new DevExpress.XtraGrid.GridControl();
          this.gridView12 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.gridColumn56 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -311,6 +321,8 @@
          this.labelControl23 = new DevExpress.XtraEditors.LabelControl();
          this.flowLayoutPanel8 = new System.Windows.Forms.FlowLayoutPanel();
          this.EnableDisabledUserPrivilege_Butn = new DevExpress.XtraEditors.SimpleButton();
+         this.simpleButton15 = new DevExpress.XtraEditors.SimpleButton();
+         this.simpleButton16 = new DevExpress.XtraEditors.SimpleButton();
          this.splitContainerControl13 = new DevExpress.XtraEditors.SplitContainerControl();
          this.gridControl14 = new DevExpress.XtraGrid.GridControl();
          this.gridView15 = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -360,6 +372,8 @@
          this.flowLayoutPanel11 = new System.Windows.Forms.FlowLayoutPanel();
          this.GrantBoxPrivilegeToUser_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.RevokeBoxPrivilegeFromUser_Butn = new DevExpress.XtraEditors.SimpleButton();
+         this.simpleButton13 = new DevExpress.XtraEditors.SimpleButton();
+         this.simpleButton14 = new DevExpress.XtraEditors.SimpleButton();
          this.gridControl15 = new DevExpress.XtraGrid.GridControl();
          this.gridView16 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.gridColumn83 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -387,20 +401,9 @@
          this.RoleDef_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.UserRole_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.AccessUser_Butn = new DevExpress.XtraEditors.SimpleButton();
-         this.UpBoxBsTp3_Butn = new DevExpress.XtraEditors.SimpleButton();
-         this.DnBoxBsTp3_Butn = new DevExpress.XtraEditors.SimpleButton();
-         this.UpRolePrivilegeBsTp3_Butn = new DevExpress.XtraEditors.SimpleButton();
-         this.DnRolePrivilegeBsTp3_Butn = new DevExpress.XtraEditors.SimpleButton();
-         this.UpRoleBsTp3_Butn = new DevExpress.XtraEditors.SimpleButton();
-         this.DnRoleBsTp3_Butn = new DevExpress.XtraEditors.SimpleButton();
-         this.UpRoleUserBsTp4_Butn = new DevExpress.XtraEditors.SimpleButton();
-         this.DnRoleUserBsTp4_Butn = new DevExpress.XtraEditors.SimpleButton();
-         this.UpUserBsTp4_Butn = new DevExpress.XtraEditors.SimpleButton();
-         this.DnUserBsTp4_Butn = new DevExpress.XtraEditors.SimpleButton();
-         this.simpleButton13 = new DevExpress.XtraEditors.SimpleButton();
-         this.simpleButton14 = new DevExpress.XtraEditors.SimpleButton();
-         this.simpleButton15 = new DevExpress.XtraEditors.SimpleButton();
-         this.simpleButton16 = new DevExpress.XtraEditors.SimpleButton();
+         this.JoinBoxBsTp3_Butn = new DevExpress.XtraEditors.SimpleButton();
+         this.JoinUserBsTp4_Butn = new DevExpress.XtraEditors.SimpleButton();
+         this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
          this.panel1.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
          this.splitContainerControl1.SuspendLayout();
@@ -1479,21 +1482,21 @@
             this.colRole,
             this.colSub_System2,
             this.gridColumn8});
-         styleFormatCondition1.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-         styleFormatCondition1.Appearance.Options.UseBackColor = true;
-         styleFormatCondition1.ApplyToRow = true;
-         styleFormatCondition1.Column = this.colIsActive1;
-         styleFormatCondition1.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
-         styleFormatCondition1.Value1 = true;
-         styleFormatCondition2.Appearance.BackColor = System.Drawing.Color.LightGray;
-         styleFormatCondition2.Appearance.Options.UseBackColor = true;
-         styleFormatCondition2.ApplyToRow = true;
-         styleFormatCondition2.Column = this.colIsActive1;
-         styleFormatCondition2.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
-         styleFormatCondition2.Value1 = false;
+         styleFormatCondition7.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+         styleFormatCondition7.Appearance.Options.UseBackColor = true;
+         styleFormatCondition7.ApplyToRow = true;
+         styleFormatCondition7.Column = this.colIsActive1;
+         styleFormatCondition7.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
+         styleFormatCondition7.Value1 = true;
+         styleFormatCondition8.Appearance.BackColor = System.Drawing.Color.LightGray;
+         styleFormatCondition8.Appearance.Options.UseBackColor = true;
+         styleFormatCondition8.ApplyToRow = true;
+         styleFormatCondition8.Column = this.colIsActive1;
+         styleFormatCondition8.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
+         styleFormatCondition8.Value1 = false;
          this.gridView7.FormatConditions.AddRange(new DevExpress.XtraGrid.StyleFormatCondition[] {
-            styleFormatCondition1,
-            styleFormatCondition2});
+            styleFormatCondition7,
+            styleFormatCondition8});
          this.gridView7.GridControl = this.gridControl6;
          this.gridView7.Name = "gridView7";
          this.gridView7.OptionsBehavior.Editable = false;
@@ -1537,7 +1540,7 @@
          // 
          this.repositoryItemLookUpEdit1.AutoHeight = false;
          this.repositoryItemLookUpEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, "", null, null, true)});
          this.repositoryItemLookUpEdit1.DataSource = this.PrivilegeBs;
          this.repositoryItemLookUpEdit1.DisplayMember = "TitleFa";
          this.repositoryItemLookUpEdit1.Name = "repositoryItemLookUpEdit1";
@@ -1588,7 +1591,7 @@
          // 
          this.repositoryItemLookUpEdit2.AutoHeight = false;
          this.repositoryItemLookUpEdit2.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject10, "", null, null, true)});
          this.repositoryItemLookUpEdit2.DataSource = this.PrivilegeBs;
          this.repositoryItemLookUpEdit2.DisplayMember = "ShortCut";
          this.repositoryItemLookUpEdit2.Name = "repositoryItemLookUpEdit2";
@@ -1642,6 +1645,50 @@
          this.EnableDisabledRolePrivilege_Butn.TabIndex = 21;
          this.EnableDisabledRolePrivilege_Butn.ToolTip = "پاک کردن اطلاعات پیش نویس";
          this.EnableDisabledRolePrivilege_Butn.Click += new System.EventHandler(this.EnableDisabledRolePrivilege_Butn_Click);
+         // 
+         // UpRolePrivilegeBsTp3_Butn
+         // 
+         this.UpRolePrivilegeBsTp3_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.UpRolePrivilegeBsTp3_Butn.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+         this.UpRolePrivilegeBsTp3_Butn.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.UpRolePrivilegeBsTp3_Butn.Appearance.ForeColor = System.Drawing.Color.White;
+         this.UpRolePrivilegeBsTp3_Butn.Appearance.Options.UseBackColor = true;
+         this.UpRolePrivilegeBsTp3_Butn.Appearance.Options.UseFont = true;
+         this.UpRolePrivilegeBsTp3_Butn.Appearance.Options.UseForeColor = true;
+         this.UpRolePrivilegeBsTp3_Butn.Image = ((System.Drawing.Image)(resources.GetObject("UpRolePrivilegeBsTp3_Butn.Image")));
+         this.UpRolePrivilegeBsTp3_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+         this.UpRolePrivilegeBsTp3_Butn.Location = new System.Drawing.Point(211, 3);
+         this.UpRolePrivilegeBsTp3_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.UpRolePrivilegeBsTp3_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.UpRolePrivilegeBsTp3_Butn.Margin = new System.Windows.Forms.Padding(1, 3, 1, 3);
+         this.UpRolePrivilegeBsTp3_Butn.Name = "UpRolePrivilegeBsTp3_Butn";
+         this.UpRolePrivilegeBsTp3_Butn.Size = new System.Drawing.Size(27, 24);
+         this.UpRolePrivilegeBsTp3_Butn.TabIndex = 23;
+         this.UpRolePrivilegeBsTp3_Butn.Text = "Up";
+         this.UpRolePrivilegeBsTp3_Butn.ToolTip = "پاک کردن اطلاعات پیش نویس";
+         this.UpRolePrivilegeBsTp3_Butn.Click += new System.EventHandler(this.Up_Butn_Click);
+         // 
+         // DnRolePrivilegeBsTp3_Butn
+         // 
+         this.DnRolePrivilegeBsTp3_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.DnRolePrivilegeBsTp3_Butn.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+         this.DnRolePrivilegeBsTp3_Butn.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.DnRolePrivilegeBsTp3_Butn.Appearance.ForeColor = System.Drawing.Color.Black;
+         this.DnRolePrivilegeBsTp3_Butn.Appearance.Options.UseBackColor = true;
+         this.DnRolePrivilegeBsTp3_Butn.Appearance.Options.UseFont = true;
+         this.DnRolePrivilegeBsTp3_Butn.Appearance.Options.UseForeColor = true;
+         this.DnRolePrivilegeBsTp3_Butn.Image = ((System.Drawing.Image)(resources.GetObject("DnRolePrivilegeBsTp3_Butn.Image")));
+         this.DnRolePrivilegeBsTp3_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+         this.DnRolePrivilegeBsTp3_Butn.Location = new System.Drawing.Point(182, 3);
+         this.DnRolePrivilegeBsTp3_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.DnRolePrivilegeBsTp3_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.DnRolePrivilegeBsTp3_Butn.Margin = new System.Windows.Forms.Padding(1, 3, 1, 3);
+         this.DnRolePrivilegeBsTp3_Butn.Name = "DnRolePrivilegeBsTp3_Butn";
+         this.DnRolePrivilegeBsTp3_Butn.Size = new System.Drawing.Size(27, 24);
+         this.DnRolePrivilegeBsTp3_Butn.TabIndex = 24;
+         this.DnRolePrivilegeBsTp3_Butn.Text = "Dn";
+         this.DnRolePrivilegeBsTp3_Butn.ToolTip = "پاک کردن اطلاعات پیش نویس";
+         this.DnRolePrivilegeBsTp3_Butn.Click += new System.EventHandler(this.Dn_Butn_Click);
          // 
          // splitContainerControl7
          // 
@@ -1701,21 +1748,21 @@
             this.colIsVisible1,
             this.colIsActive,
             this.colSub_System1});
-         styleFormatCondition3.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-         styleFormatCondition3.Appearance.Options.UseBackColor = true;
-         styleFormatCondition3.ApplyToRow = true;
-         styleFormatCondition3.Column = this.colIsActive;
-         styleFormatCondition3.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
-         styleFormatCondition3.Value1 = true;
-         styleFormatCondition4.Appearance.BackColor = System.Drawing.Color.LightGray;
-         styleFormatCondition4.Appearance.Options.UseBackColor = true;
-         styleFormatCondition4.ApplyToRow = true;
-         styleFormatCondition4.Column = this.colIsActive;
-         styleFormatCondition4.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
-         styleFormatCondition4.Value1 = false;
+         styleFormatCondition1.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+         styleFormatCondition1.Appearance.Options.UseBackColor = true;
+         styleFormatCondition1.ApplyToRow = true;
+         styleFormatCondition1.Column = this.colIsActive;
+         styleFormatCondition1.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
+         styleFormatCondition1.Value1 = true;
+         styleFormatCondition2.Appearance.BackColor = System.Drawing.Color.LightGray;
+         styleFormatCondition2.Appearance.Options.UseBackColor = true;
+         styleFormatCondition2.ApplyToRow = true;
+         styleFormatCondition2.Column = this.colIsActive;
+         styleFormatCondition2.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
+         styleFormatCondition2.Value1 = false;
          this.gridView5.FormatConditions.AddRange(new DevExpress.XtraGrid.StyleFormatCondition[] {
-            styleFormatCondition3,
-            styleFormatCondition4});
+            styleFormatCondition1,
+            styleFormatCondition2});
          this.gridView5.GridControl = this.gridControl4;
          this.gridView5.Name = "gridView5";
          this.gridView5.OptionsSelection.EnableAppearanceFocusedCell = false;
@@ -1895,6 +1942,50 @@
          this.EnableDisabledRole_Butn.ToolTip = "پاک کردن اطلاعات پیش نویس";
          this.EnableDisabledRole_Butn.Click += new System.EventHandler(this.EnableDisabledRole_Butn_Click);
          // 
+         // UpRoleBsTp3_Butn
+         // 
+         this.UpRoleBsTp3_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.UpRoleBsTp3_Butn.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+         this.UpRoleBsTp3_Butn.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.UpRoleBsTp3_Butn.Appearance.ForeColor = System.Drawing.Color.White;
+         this.UpRoleBsTp3_Butn.Appearance.Options.UseBackColor = true;
+         this.UpRoleBsTp3_Butn.Appearance.Options.UseFont = true;
+         this.UpRoleBsTp3_Butn.Appearance.Options.UseForeColor = true;
+         this.UpRoleBsTp3_Butn.Image = ((System.Drawing.Image)(resources.GetObject("UpRoleBsTp3_Butn.Image")));
+         this.UpRoleBsTp3_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+         this.UpRoleBsTp3_Butn.Location = new System.Drawing.Point(46, 3);
+         this.UpRoleBsTp3_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.UpRoleBsTp3_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.UpRoleBsTp3_Butn.Margin = new System.Windows.Forms.Padding(1, 3, 1, 3);
+         this.UpRoleBsTp3_Butn.Name = "UpRoleBsTp3_Butn";
+         this.UpRoleBsTp3_Butn.Size = new System.Drawing.Size(27, 24);
+         this.UpRoleBsTp3_Butn.TabIndex = 24;
+         this.UpRoleBsTp3_Butn.Text = "Up";
+         this.UpRoleBsTp3_Butn.ToolTip = "پاک کردن اطلاعات پیش نویس";
+         this.UpRoleBsTp3_Butn.Click += new System.EventHandler(this.Up_Butn_Click);
+         // 
+         // DnRoleBsTp3_Butn
+         // 
+         this.DnRoleBsTp3_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.DnRoleBsTp3_Butn.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+         this.DnRoleBsTp3_Butn.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.DnRoleBsTp3_Butn.Appearance.ForeColor = System.Drawing.Color.Black;
+         this.DnRoleBsTp3_Butn.Appearance.Options.UseBackColor = true;
+         this.DnRoleBsTp3_Butn.Appearance.Options.UseFont = true;
+         this.DnRoleBsTp3_Butn.Appearance.Options.UseForeColor = true;
+         this.DnRoleBsTp3_Butn.Image = ((System.Drawing.Image)(resources.GetObject("DnRoleBsTp3_Butn.Image")));
+         this.DnRoleBsTp3_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+         this.DnRoleBsTp3_Butn.Location = new System.Drawing.Point(17, 3);
+         this.DnRoleBsTp3_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.DnRoleBsTp3_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.DnRoleBsTp3_Butn.Margin = new System.Windows.Forms.Padding(1, 3, 1, 3);
+         this.DnRoleBsTp3_Butn.Name = "DnRoleBsTp3_Butn";
+         this.DnRoleBsTp3_Butn.Size = new System.Drawing.Size(27, 24);
+         this.DnRoleBsTp3_Butn.TabIndex = 25;
+         this.DnRoleBsTp3_Butn.Text = "Dn";
+         this.DnRoleBsTp3_Butn.ToolTip = "پاک کردن اطلاعات پیش نویس";
+         this.DnRoleBsTp3_Butn.Click += new System.EventHandler(this.Dn_Butn_Click);
+         // 
          // gridControl5
          // 
          this.gridControl5.DataSource = this.BoxBs;
@@ -2000,12 +2091,34 @@
          this.flowLayoutPanel6.Controls.Add(this.GrantBoxPrivilegeToRole_Butn);
          this.flowLayoutPanel6.Controls.Add(this.UpBoxBsTp3_Butn);
          this.flowLayoutPanel6.Controls.Add(this.DnBoxBsTp3_Butn);
+         this.flowLayoutPanel6.Controls.Add(this.JoinBoxBsTp3_Butn);
          this.flowLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Bottom;
          this.flowLayoutPanel6.Location = new System.Drawing.Point(0, 237);
          this.flowLayoutPanel6.Margin = new System.Windows.Forms.Padding(1, 1, 3, 3);
          this.flowLayoutPanel6.Name = "flowLayoutPanel6";
          this.flowLayoutPanel6.Size = new System.Drawing.Size(190, 30);
          this.flowLayoutPanel6.TabIndex = 5;
+         // 
+         // RevokeBoxPrivilegeFromRole_Butn
+         // 
+         this.RevokeBoxPrivilegeFromRole_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.RevokeBoxPrivilegeFromRole_Butn.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+         this.RevokeBoxPrivilegeFromRole_Butn.Appearance.Font = new System.Drawing.Font("B Compset", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.RevokeBoxPrivilegeFromRole_Butn.Appearance.ForeColor = System.Drawing.Color.Black;
+         this.RevokeBoxPrivilegeFromRole_Butn.Appearance.Options.UseBackColor = true;
+         this.RevokeBoxPrivilegeFromRole_Butn.Appearance.Options.UseFont = true;
+         this.RevokeBoxPrivilegeFromRole_Butn.Appearance.Options.UseForeColor = true;
+         this.RevokeBoxPrivilegeFromRole_Butn.Image = global::System.DataGuard.Properties.Resources.IMAGE_1418;
+         this.RevokeBoxPrivilegeFromRole_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+         this.RevokeBoxPrivilegeFromRole_Butn.Location = new System.Drawing.Point(162, 3);
+         this.RevokeBoxPrivilegeFromRole_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.RevokeBoxPrivilegeFromRole_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.RevokeBoxPrivilegeFromRole_Butn.Margin = new System.Windows.Forms.Padding(1, 3, 1, 3);
+         this.RevokeBoxPrivilegeFromRole_Butn.Name = "RevokeBoxPrivilegeFromRole_Butn";
+         this.RevokeBoxPrivilegeFromRole_Butn.Size = new System.Drawing.Size(27, 24);
+         this.RevokeBoxPrivilegeFromRole_Butn.TabIndex = 20;
+         this.RevokeBoxPrivilegeFromRole_Butn.ToolTip = "پاک کردن اطلاعات پیش نویس";
+         this.RevokeBoxPrivilegeFromRole_Butn.Click += new System.EventHandler(this.RevokeBoxPrivilegeFromRole_Butn_Click);
          // 
          // GrantBoxPrivilegeToRole_Butn
          // 
@@ -2028,26 +2141,48 @@
          this.GrantBoxPrivilegeToRole_Butn.ToolTip = "پاک کردن اطلاعات پیش نویس";
          this.GrantBoxPrivilegeToRole_Butn.Click += new System.EventHandler(this.GrantBoxPrivilegeToRole_Butn_Click);
          // 
-         // RevokeBoxPrivilegeFromRole_Butn
+         // UpBoxBsTp3_Butn
          // 
-         this.RevokeBoxPrivilegeFromRole_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.RevokeBoxPrivilegeFromRole_Butn.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-         this.RevokeBoxPrivilegeFromRole_Butn.Appearance.Font = new System.Drawing.Font("B Compset", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.RevokeBoxPrivilegeFromRole_Butn.Appearance.ForeColor = System.Drawing.Color.Black;
-         this.RevokeBoxPrivilegeFromRole_Butn.Appearance.Options.UseBackColor = true;
-         this.RevokeBoxPrivilegeFromRole_Butn.Appearance.Options.UseFont = true;
-         this.RevokeBoxPrivilegeFromRole_Butn.Appearance.Options.UseForeColor = true;
-         this.RevokeBoxPrivilegeFromRole_Butn.Image = global::System.DataGuard.Properties.Resources.IMAGE_1418;
-         this.RevokeBoxPrivilegeFromRole_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.RevokeBoxPrivilegeFromRole_Butn.Location = new System.Drawing.Point(162, 3);
-         this.RevokeBoxPrivilegeFromRole_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.RevokeBoxPrivilegeFromRole_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.RevokeBoxPrivilegeFromRole_Butn.Margin = new System.Windows.Forms.Padding(1, 3, 1, 3);
-         this.RevokeBoxPrivilegeFromRole_Butn.Name = "RevokeBoxPrivilegeFromRole_Butn";
-         this.RevokeBoxPrivilegeFromRole_Butn.Size = new System.Drawing.Size(27, 24);
-         this.RevokeBoxPrivilegeFromRole_Butn.TabIndex = 20;
-         this.RevokeBoxPrivilegeFromRole_Butn.ToolTip = "پاک کردن اطلاعات پیش نویس";
-         this.RevokeBoxPrivilegeFromRole_Butn.Click += new System.EventHandler(this.RevokeBoxPrivilegeFromRole_Butn_Click);
+         this.UpBoxBsTp3_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.UpBoxBsTp3_Butn.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+         this.UpBoxBsTp3_Butn.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.UpBoxBsTp3_Butn.Appearance.ForeColor = System.Drawing.Color.White;
+         this.UpBoxBsTp3_Butn.Appearance.Options.UseBackColor = true;
+         this.UpBoxBsTp3_Butn.Appearance.Options.UseFont = true;
+         this.UpBoxBsTp3_Butn.Appearance.Options.UseForeColor = true;
+         this.UpBoxBsTp3_Butn.Image = ((System.Drawing.Image)(resources.GetObject("UpBoxBsTp3_Butn.Image")));
+         this.UpBoxBsTp3_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+         this.UpBoxBsTp3_Butn.Location = new System.Drawing.Point(104, 3);
+         this.UpBoxBsTp3_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.UpBoxBsTp3_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.UpBoxBsTp3_Butn.Margin = new System.Windows.Forms.Padding(1, 3, 1, 3);
+         this.UpBoxBsTp3_Butn.Name = "UpBoxBsTp3_Butn";
+         this.UpBoxBsTp3_Butn.Size = new System.Drawing.Size(27, 24);
+         this.UpBoxBsTp3_Butn.TabIndex = 21;
+         this.UpBoxBsTp3_Butn.ToolTip = "پاک کردن اطلاعات پیش نویس";
+         this.UpBoxBsTp3_Butn.Click += new System.EventHandler(this.Up_Butn_Click);
+         // 
+         // DnBoxBsTp3_Butn
+         // 
+         this.DnBoxBsTp3_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.DnBoxBsTp3_Butn.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+         this.DnBoxBsTp3_Butn.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.DnBoxBsTp3_Butn.Appearance.ForeColor = System.Drawing.Color.Black;
+         this.DnBoxBsTp3_Butn.Appearance.Options.UseBackColor = true;
+         this.DnBoxBsTp3_Butn.Appearance.Options.UseFont = true;
+         this.DnBoxBsTp3_Butn.Appearance.Options.UseForeColor = true;
+         this.DnBoxBsTp3_Butn.Image = ((System.Drawing.Image)(resources.GetObject("DnBoxBsTp3_Butn.Image")));
+         this.DnBoxBsTp3_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+         this.DnBoxBsTp3_Butn.Location = new System.Drawing.Point(75, 3);
+         this.DnBoxBsTp3_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.DnBoxBsTp3_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.DnBoxBsTp3_Butn.Margin = new System.Windows.Forms.Padding(1, 3, 1, 3);
+         this.DnBoxBsTp3_Butn.Name = "DnBoxBsTp3_Butn";
+         this.DnBoxBsTp3_Butn.Size = new System.Drawing.Size(27, 24);
+         this.DnBoxBsTp3_Butn.TabIndex = 22;
+         this.DnBoxBsTp3_Butn.Text = "Dn";
+         this.DnBoxBsTp3_Butn.ToolTip = "پاک کردن اطلاعات پیش نویس";
+         this.DnBoxBsTp3_Butn.Click += new System.EventHandler(this.Dn_Butn_Click);
          // 
          // gridControl7
          // 
@@ -2299,21 +2434,21 @@
             this.colIsVisible4,
             this.colRole1,
             this.colUser});
-         styleFormatCondition5.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-         styleFormatCondition5.Appearance.Options.UseBackColor = true;
-         styleFormatCondition5.ApplyToRow = true;
-         styleFormatCondition5.Column = this.colIsVisible4;
-         styleFormatCondition5.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
-         styleFormatCondition5.Value1 = true;
-         styleFormatCondition6.Appearance.BackColor = System.Drawing.Color.LightGray;
-         styleFormatCondition6.Appearance.Options.UseBackColor = true;
-         styleFormatCondition6.ApplyToRow = true;
-         styleFormatCondition6.Column = this.colIsVisible4;
-         styleFormatCondition6.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
-         styleFormatCondition6.Value1 = false;
+         styleFormatCondition11.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+         styleFormatCondition11.Appearance.Options.UseBackColor = true;
+         styleFormatCondition11.ApplyToRow = true;
+         styleFormatCondition11.Column = this.colIsVisible4;
+         styleFormatCondition11.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
+         styleFormatCondition11.Value1 = true;
+         styleFormatCondition12.Appearance.BackColor = System.Drawing.Color.LightGray;
+         styleFormatCondition12.Appearance.Options.UseBackColor = true;
+         styleFormatCondition12.ApplyToRow = true;
+         styleFormatCondition12.Column = this.colIsVisible4;
+         styleFormatCondition12.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
+         styleFormatCondition12.Value1 = false;
          this.gridView9.FormatConditions.AddRange(new DevExpress.XtraGrid.StyleFormatCondition[] {
-            styleFormatCondition5,
-            styleFormatCondition6});
+            styleFormatCondition11,
+            styleFormatCondition12});
          this.gridView9.GridControl = this.gridControl8;
          this.gridView9.Name = "gridView9";
          this.gridView9.OptionsBehavior.Editable = false;
@@ -2363,7 +2498,7 @@
          // 
          this.repositoryItemLookUpEdit3.AutoHeight = false;
          this.repositoryItemLookUpEdit3.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject3, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject7, "", null, null, true)});
          this.repositoryItemLookUpEdit3.DataSource = this.PrivilegeBs;
          this.repositoryItemLookUpEdit3.DisplayMember = "TitleFa";
          this.repositoryItemLookUpEdit3.Name = "repositoryItemLookUpEdit3";
@@ -2374,7 +2509,7 @@
          // 
          this.repositoryItemLookUpEdit4.AutoHeight = false;
          this.repositoryItemLookUpEdit4.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject4, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject8, "", null, null, true)});
          this.repositoryItemLookUpEdit4.DataSource = this.PrivilegeBs;
          this.repositoryItemLookUpEdit4.DisplayMember = "ShortCut";
          this.repositoryItemLookUpEdit4.Name = "repositoryItemLookUpEdit4";
@@ -2429,6 +2564,50 @@
          this.EnableDisabledRoleUser_Butn.ToolTip = "پاک کردن اطلاعات پیش نویس";
          this.EnableDisabledRoleUser_Butn.Click += new System.EventHandler(this.EnableDisabledRoleUser_Butn_Click);
          // 
+         // UpRoleUserBsTp4_Butn
+         // 
+         this.UpRoleUserBsTp4_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.UpRoleUserBsTp4_Butn.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+         this.UpRoleUserBsTp4_Butn.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.UpRoleUserBsTp4_Butn.Appearance.ForeColor = System.Drawing.Color.White;
+         this.UpRoleUserBsTp4_Butn.Appearance.Options.UseBackColor = true;
+         this.UpRoleUserBsTp4_Butn.Appearance.Options.UseFont = true;
+         this.UpRoleUserBsTp4_Butn.Appearance.Options.UseForeColor = true;
+         this.UpRoleUserBsTp4_Butn.Image = ((System.Drawing.Image)(resources.GetObject("UpRoleUserBsTp4_Butn.Image")));
+         this.UpRoleUserBsTp4_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+         this.UpRoleUserBsTp4_Butn.Location = new System.Drawing.Point(211, 3);
+         this.UpRoleUserBsTp4_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.UpRoleUserBsTp4_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.UpRoleUserBsTp4_Butn.Margin = new System.Windows.Forms.Padding(1, 3, 1, 3);
+         this.UpRoleUserBsTp4_Butn.Name = "UpRoleUserBsTp4_Butn";
+         this.UpRoleUserBsTp4_Butn.Size = new System.Drawing.Size(27, 24);
+         this.UpRoleUserBsTp4_Butn.TabIndex = 23;
+         this.UpRoleUserBsTp4_Butn.Text = "Up";
+         this.UpRoleUserBsTp4_Butn.ToolTip = "پاک کردن اطلاعات پیش نویس";
+         this.UpRoleUserBsTp4_Butn.Click += new System.EventHandler(this.Up_Butn_Click);
+         // 
+         // DnRoleUserBsTp4_Butn
+         // 
+         this.DnRoleUserBsTp4_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.DnRoleUserBsTp4_Butn.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+         this.DnRoleUserBsTp4_Butn.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.DnRoleUserBsTp4_Butn.Appearance.ForeColor = System.Drawing.Color.Black;
+         this.DnRoleUserBsTp4_Butn.Appearance.Options.UseBackColor = true;
+         this.DnRoleUserBsTp4_Butn.Appearance.Options.UseFont = true;
+         this.DnRoleUserBsTp4_Butn.Appearance.Options.UseForeColor = true;
+         this.DnRoleUserBsTp4_Butn.Image = ((System.Drawing.Image)(resources.GetObject("DnRoleUserBsTp4_Butn.Image")));
+         this.DnRoleUserBsTp4_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+         this.DnRoleUserBsTp4_Butn.Location = new System.Drawing.Point(182, 3);
+         this.DnRoleUserBsTp4_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.DnRoleUserBsTp4_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.DnRoleUserBsTp4_Butn.Margin = new System.Windows.Forms.Padding(1, 3, 1, 3);
+         this.DnRoleUserBsTp4_Butn.Name = "DnRoleUserBsTp4_Butn";
+         this.DnRoleUserBsTp4_Butn.Size = new System.Drawing.Size(27, 24);
+         this.DnRoleUserBsTp4_Butn.TabIndex = 24;
+         this.DnRoleUserBsTp4_Butn.Text = "Dn";
+         this.DnRoleUserBsTp4_Butn.ToolTip = "پاک کردن اطلاعات پیش نویس";
+         this.DnRoleUserBsTp4_Butn.Click += new System.EventHandler(this.Dn_Butn_Click);
+         // 
          // splitContainerControl10
          // 
          this.splitContainerControl10.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -2480,21 +2659,21 @@
             this.gridColumn28,
             this.gridColumn29,
             this.gridColumn47});
-         styleFormatCondition7.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-         styleFormatCondition7.Appearance.Options.UseBackColor = true;
-         styleFormatCondition7.ApplyToRow = true;
-         styleFormatCondition7.Column = this.gridColumn29;
-         styleFormatCondition7.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
-         styleFormatCondition7.Value1 = true;
-         styleFormatCondition8.Appearance.BackColor = System.Drawing.Color.LightGray;
-         styleFormatCondition8.Appearance.Options.UseBackColor = true;
-         styleFormatCondition8.ApplyToRow = true;
-         styleFormatCondition8.Column = this.gridColumn29;
-         styleFormatCondition8.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
-         styleFormatCondition8.Value1 = false;
+         styleFormatCondition5.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+         styleFormatCondition5.Appearance.Options.UseBackColor = true;
+         styleFormatCondition5.ApplyToRow = true;
+         styleFormatCondition5.Column = this.gridColumn29;
+         styleFormatCondition5.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
+         styleFormatCondition5.Value1 = true;
+         styleFormatCondition6.Appearance.BackColor = System.Drawing.Color.LightGray;
+         styleFormatCondition6.Appearance.Options.UseBackColor = true;
+         styleFormatCondition6.ApplyToRow = true;
+         styleFormatCondition6.Column = this.gridColumn29;
+         styleFormatCondition6.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
+         styleFormatCondition6.Value1 = false;
          this.gridView10.FormatConditions.AddRange(new DevExpress.XtraGrid.StyleFormatCondition[] {
-            styleFormatCondition7,
-            styleFormatCondition8});
+            styleFormatCondition5,
+            styleFormatCondition6});
          this.gridView10.GridControl = this.gridControl9;
          this.gridView10.Name = "gridView10";
          this.gridView10.OptionsSelection.EnableAppearanceFocusedCell = false;
@@ -2822,6 +3001,7 @@
          this.flowLayoutPanel9.Controls.Add(this.GrantRoleUser_Butn);
          this.flowLayoutPanel9.Controls.Add(this.UpUserBsTp4_Butn);
          this.flowLayoutPanel9.Controls.Add(this.DnUserBsTp4_Butn);
+         this.flowLayoutPanel9.Controls.Add(this.JoinUserBsTp4_Butn);
          this.flowLayoutPanel9.Dock = System.Windows.Forms.DockStyle.Bottom;
          this.flowLayoutPanel9.Location = new System.Drawing.Point(0, 237);
          this.flowLayoutPanel9.Margin = new System.Windows.Forms.Padding(1, 1, 3, 3);
@@ -2849,6 +3029,50 @@
          this.GrantRoleUser_Butn.TabIndex = 19;
          this.GrantRoleUser_Butn.ToolTip = "پاک کردن اطلاعات پیش نویس";
          this.GrantRoleUser_Butn.Click += new System.EventHandler(this.GrantRoleUser_Butn_Click);
+         // 
+         // UpUserBsTp4_Butn
+         // 
+         this.UpUserBsTp4_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.UpUserBsTp4_Butn.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+         this.UpUserBsTp4_Butn.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.UpUserBsTp4_Butn.Appearance.ForeColor = System.Drawing.Color.White;
+         this.UpUserBsTp4_Butn.Appearance.Options.UseBackColor = true;
+         this.UpUserBsTp4_Butn.Appearance.Options.UseFont = true;
+         this.UpUserBsTp4_Butn.Appearance.Options.UseForeColor = true;
+         this.UpUserBsTp4_Butn.Image = ((System.Drawing.Image)(resources.GetObject("UpUserBsTp4_Butn.Image")));
+         this.UpUserBsTp4_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+         this.UpUserBsTp4_Butn.Location = new System.Drawing.Point(133, 3);
+         this.UpUserBsTp4_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.UpUserBsTp4_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.UpUserBsTp4_Butn.Margin = new System.Windows.Forms.Padding(1, 3, 1, 3);
+         this.UpUserBsTp4_Butn.Name = "UpUserBsTp4_Butn";
+         this.UpUserBsTp4_Butn.Size = new System.Drawing.Size(27, 24);
+         this.UpUserBsTp4_Butn.TabIndex = 23;
+         this.UpUserBsTp4_Butn.Text = "Up";
+         this.UpUserBsTp4_Butn.ToolTip = "پاک کردن اطلاعات پیش نویس";
+         this.UpUserBsTp4_Butn.Click += new System.EventHandler(this.Up_Butn_Click);
+         // 
+         // DnUserBsTp4_Butn
+         // 
+         this.DnUserBsTp4_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.DnUserBsTp4_Butn.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+         this.DnUserBsTp4_Butn.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.DnUserBsTp4_Butn.Appearance.ForeColor = System.Drawing.Color.Black;
+         this.DnUserBsTp4_Butn.Appearance.Options.UseBackColor = true;
+         this.DnUserBsTp4_Butn.Appearance.Options.UseFont = true;
+         this.DnUserBsTp4_Butn.Appearance.Options.UseForeColor = true;
+         this.DnUserBsTp4_Butn.Image = ((System.Drawing.Image)(resources.GetObject("DnUserBsTp4_Butn.Image")));
+         this.DnUserBsTp4_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+         this.DnUserBsTp4_Butn.Location = new System.Drawing.Point(104, 3);
+         this.DnUserBsTp4_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.DnUserBsTp4_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.DnUserBsTp4_Butn.Margin = new System.Windows.Forms.Padding(1, 3, 1, 3);
+         this.DnUserBsTp4_Butn.Name = "DnUserBsTp4_Butn";
+         this.DnUserBsTp4_Butn.Size = new System.Drawing.Size(27, 24);
+         this.DnUserBsTp4_Butn.TabIndex = 24;
+         this.DnUserBsTp4_Butn.Text = "Dn";
+         this.DnUserBsTp4_Butn.ToolTip = "پاک کردن اطلاعات پیش نویس";
+         this.DnUserBsTp4_Butn.Click += new System.EventHandler(this.Dn_Butn_Click);
          // 
          // gridControl11
          // 
@@ -3100,21 +3324,21 @@
             this.colIsDefault2,
             this.colIsVisible5,
             this.gridColumn9});
-         styleFormatCondition9.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-         styleFormatCondition9.Appearance.Options.UseBackColor = true;
-         styleFormatCondition9.ApplyToRow = true;
-         styleFormatCondition9.Column = this.colIsActive3;
-         styleFormatCondition9.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
-         styleFormatCondition9.Value1 = true;
-         styleFormatCondition10.Appearance.BackColor = System.Drawing.Color.LightGray;
-         styleFormatCondition10.Appearance.Options.UseBackColor = true;
-         styleFormatCondition10.ApplyToRow = true;
-         styleFormatCondition10.Column = this.colIsActive3;
-         styleFormatCondition10.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
-         styleFormatCondition10.Value1 = false;
+         styleFormatCondition3.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+         styleFormatCondition3.Appearance.Options.UseBackColor = true;
+         styleFormatCondition3.ApplyToRow = true;
+         styleFormatCondition3.Column = this.colIsActive3;
+         styleFormatCondition3.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
+         styleFormatCondition3.Value1 = true;
+         styleFormatCondition4.Appearance.BackColor = System.Drawing.Color.LightGray;
+         styleFormatCondition4.Appearance.Options.UseBackColor = true;
+         styleFormatCondition4.ApplyToRow = true;
+         styleFormatCondition4.Column = this.colIsActive3;
+         styleFormatCondition4.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
+         styleFormatCondition4.Value1 = false;
          this.gridView13.FormatConditions.AddRange(new DevExpress.XtraGrid.StyleFormatCondition[] {
-            styleFormatCondition9,
-            styleFormatCondition10});
+            styleFormatCondition3,
+            styleFormatCondition4});
          this.gridView13.GridControl = this.gridControl12;
          this.gridView13.Name = "gridView13";
          this.gridView13.OptionsBehavior.Editable = false;
@@ -3155,7 +3379,7 @@
          // 
          this.repositoryItemLookUpEdit5.AutoHeight = false;
          this.repositoryItemLookUpEdit5.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject11, "", null, null, true)});
          this.repositoryItemLookUpEdit5.DataSource = this.PrivilegeBs;
          this.repositoryItemLookUpEdit5.DisplayMember = "TitleFa";
          this.repositoryItemLookUpEdit5.Name = "repositoryItemLookUpEdit5";
@@ -3186,7 +3410,7 @@
          // 
          this.repositoryItemLookUpEdit6.AutoHeight = false;
          this.repositoryItemLookUpEdit6.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject6, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject12, "", null, null, true)});
          this.repositoryItemLookUpEdit6.DataSource = this.PrivilegeBs;
          this.repositoryItemLookUpEdit6.DisplayMember = "ShortCut";
          this.repositoryItemLookUpEdit6.Name = "repositoryItemLookUpEdit6";
@@ -3240,6 +3464,50 @@
          this.EnableDisabledUserPrivilege_Butn.TabIndex = 21;
          this.EnableDisabledUserPrivilege_Butn.ToolTip = "پاک کردن اطلاعات پیش نویس";
          this.EnableDisabledUserPrivilege_Butn.Click += new System.EventHandler(this.EnableDisabledUserPrivilege_Butn_Click);
+         // 
+         // simpleButton15
+         // 
+         this.simpleButton15.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.simpleButton15.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+         this.simpleButton15.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.simpleButton15.Appearance.ForeColor = System.Drawing.Color.White;
+         this.simpleButton15.Appearance.Options.UseBackColor = true;
+         this.simpleButton15.Appearance.Options.UseFont = true;
+         this.simpleButton15.Appearance.Options.UseForeColor = true;
+         this.simpleButton15.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton15.Image")));
+         this.simpleButton15.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+         this.simpleButton15.Location = new System.Drawing.Point(211, 3);
+         this.simpleButton15.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.simpleButton15.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.simpleButton15.Margin = new System.Windows.Forms.Padding(1, 3, 1, 3);
+         this.simpleButton15.Name = "simpleButton15";
+         this.simpleButton15.Size = new System.Drawing.Size(27, 24);
+         this.simpleButton15.TabIndex = 25;
+         this.simpleButton15.Text = "Up";
+         this.simpleButton15.ToolTip = "پاک کردن اطلاعات پیش نویس";
+         this.simpleButton15.Visible = false;
+         // 
+         // simpleButton16
+         // 
+         this.simpleButton16.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.simpleButton16.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+         this.simpleButton16.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.simpleButton16.Appearance.ForeColor = System.Drawing.Color.Black;
+         this.simpleButton16.Appearance.Options.UseBackColor = true;
+         this.simpleButton16.Appearance.Options.UseFont = true;
+         this.simpleButton16.Appearance.Options.UseForeColor = true;
+         this.simpleButton16.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton16.Image")));
+         this.simpleButton16.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+         this.simpleButton16.Location = new System.Drawing.Point(182, 3);
+         this.simpleButton16.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.simpleButton16.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.simpleButton16.Margin = new System.Windows.Forms.Padding(1, 3, 1, 3);
+         this.simpleButton16.Name = "simpleButton16";
+         this.simpleButton16.Size = new System.Drawing.Size(27, 24);
+         this.simpleButton16.TabIndex = 26;
+         this.simpleButton16.Text = "Dn";
+         this.simpleButton16.ToolTip = "پاک کردن اطلاعات پیش نویس";
+         this.simpleButton16.Visible = false;
          // 
          // splitContainerControl13
          // 
@@ -3600,6 +3868,7 @@
          this.flowLayoutPanel11.Controls.Add(this.RevokeBoxPrivilegeFromUser_Butn);
          this.flowLayoutPanel11.Controls.Add(this.simpleButton13);
          this.flowLayoutPanel11.Controls.Add(this.simpleButton14);
+         this.flowLayoutPanel11.Controls.Add(this.simpleButton1);
          this.flowLayoutPanel11.Dock = System.Windows.Forms.DockStyle.Bottom;
          this.flowLayoutPanel11.Location = new System.Drawing.Point(0, 237);
          this.flowLayoutPanel11.Margin = new System.Windows.Forms.Padding(1, 1, 3, 3);
@@ -3648,6 +3917,50 @@
          this.RevokeBoxPrivilegeFromUser_Butn.TabIndex = 20;
          this.RevokeBoxPrivilegeFromUser_Butn.ToolTip = "پاک کردن اطلاعات پیش نویس";
          this.RevokeBoxPrivilegeFromUser_Butn.Click += new System.EventHandler(this.RevokeBoxPrivilegeFromUser_Butn_Click);
+         // 
+         // simpleButton13
+         // 
+         this.simpleButton13.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.simpleButton13.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+         this.simpleButton13.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.simpleButton13.Appearance.ForeColor = System.Drawing.Color.White;
+         this.simpleButton13.Appearance.Options.UseBackColor = true;
+         this.simpleButton13.Appearance.Options.UseFont = true;
+         this.simpleButton13.Appearance.Options.UseForeColor = true;
+         this.simpleButton13.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton13.Image")));
+         this.simpleButton13.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+         this.simpleButton13.Location = new System.Drawing.Point(104, 3);
+         this.simpleButton13.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.simpleButton13.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.simpleButton13.Margin = new System.Windows.Forms.Padding(1, 3, 1, 3);
+         this.simpleButton13.Name = "simpleButton13";
+         this.simpleButton13.Size = new System.Drawing.Size(27, 24);
+         this.simpleButton13.TabIndex = 25;
+         this.simpleButton13.Text = "Up";
+         this.simpleButton13.ToolTip = "پاک کردن اطلاعات پیش نویس";
+         this.simpleButton13.Visible = false;
+         // 
+         // simpleButton14
+         // 
+         this.simpleButton14.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.simpleButton14.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+         this.simpleButton14.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.simpleButton14.Appearance.ForeColor = System.Drawing.Color.Black;
+         this.simpleButton14.Appearance.Options.UseBackColor = true;
+         this.simpleButton14.Appearance.Options.UseFont = true;
+         this.simpleButton14.Appearance.Options.UseForeColor = true;
+         this.simpleButton14.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton14.Image")));
+         this.simpleButton14.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+         this.simpleButton14.Location = new System.Drawing.Point(75, 3);
+         this.simpleButton14.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.simpleButton14.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.simpleButton14.Margin = new System.Windows.Forms.Padding(1, 3, 1, 3);
+         this.simpleButton14.Name = "simpleButton14";
+         this.simpleButton14.Size = new System.Drawing.Size(27, 24);
+         this.simpleButton14.TabIndex = 26;
+         this.simpleButton14.Text = "Dn";
+         this.simpleButton14.ToolTip = "پاک کردن اطلاعات پیش نویس";
+         this.simpleButton14.Visible = false;
          // 
          // gridControl15
          // 
@@ -3939,299 +4252,67 @@
          this.AccessUser_Butn.Text = "دسترسی کاربران خاص";
          this.AccessUser_Butn.Click += new System.EventHandler(this.RightButns_Click);
          // 
-         // UpBoxBsTp3_Butn
+         // JoinBoxBsTp3_Butn
          // 
-         this.UpBoxBsTp3_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.UpBoxBsTp3_Butn.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-         this.UpBoxBsTp3_Butn.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.UpBoxBsTp3_Butn.Appearance.ForeColor = System.Drawing.Color.White;
-         this.UpBoxBsTp3_Butn.Appearance.Options.UseBackColor = true;
-         this.UpBoxBsTp3_Butn.Appearance.Options.UseFont = true;
-         this.UpBoxBsTp3_Butn.Appearance.Options.UseForeColor = true;
-         this.UpBoxBsTp3_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.UpBoxBsTp3_Butn.Location = new System.Drawing.Point(104, 3);
-         this.UpBoxBsTp3_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.UpBoxBsTp3_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.UpBoxBsTp3_Butn.Margin = new System.Windows.Forms.Padding(1, 3, 1, 3);
-         this.UpBoxBsTp3_Butn.Name = "UpBoxBsTp3_Butn";
-         this.UpBoxBsTp3_Butn.Size = new System.Drawing.Size(27, 24);
-         this.UpBoxBsTp3_Butn.TabIndex = 21;
-         this.UpBoxBsTp3_Butn.Text = "Up";
-         this.UpBoxBsTp3_Butn.ToolTip = "پاک کردن اطلاعات پیش نویس";
-         this.UpBoxBsTp3_Butn.Click += new System.EventHandler(this.Up_Butn_Click);
+         this.JoinBoxBsTp3_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.JoinBoxBsTp3_Butn.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+         this.JoinBoxBsTp3_Butn.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.JoinBoxBsTp3_Butn.Appearance.ForeColor = System.Drawing.Color.White;
+         this.JoinBoxBsTp3_Butn.Appearance.Options.UseBackColor = true;
+         this.JoinBoxBsTp3_Butn.Appearance.Options.UseFont = true;
+         this.JoinBoxBsTp3_Butn.Appearance.Options.UseForeColor = true;
+         this.JoinBoxBsTp3_Butn.Image = ((System.Drawing.Image)(resources.GetObject("JoinBoxBsTp3_Butn.Image")));
+         this.JoinBoxBsTp3_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+         this.JoinBoxBsTp3_Butn.Location = new System.Drawing.Point(46, 3);
+         this.JoinBoxBsTp3_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.JoinBoxBsTp3_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.JoinBoxBsTp3_Butn.Margin = new System.Windows.Forms.Padding(1, 3, 1, 3);
+         this.JoinBoxBsTp3_Butn.Name = "JoinBoxBsTp3_Butn";
+         this.JoinBoxBsTp3_Butn.Size = new System.Drawing.Size(27, 24);
+         this.JoinBoxBsTp3_Butn.TabIndex = 21;
+         this.JoinBoxBsTp3_Butn.ToolTip = "پاک کردن اطلاعات پیش نویس";
+         this.JoinBoxBsTp3_Butn.Click += new System.EventHandler(this.JoinBoxBsTp3_Butn_Click);
          // 
-         // DnBoxBsTp3_Butn
+         // JoinUserBsTp4_Butn
          // 
-         this.DnBoxBsTp3_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.DnBoxBsTp3_Butn.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-         this.DnBoxBsTp3_Butn.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.DnBoxBsTp3_Butn.Appearance.ForeColor = System.Drawing.Color.Black;
-         this.DnBoxBsTp3_Butn.Appearance.Options.UseBackColor = true;
-         this.DnBoxBsTp3_Butn.Appearance.Options.UseFont = true;
-         this.DnBoxBsTp3_Butn.Appearance.Options.UseForeColor = true;
-         this.DnBoxBsTp3_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.DnBoxBsTp3_Butn.Location = new System.Drawing.Point(75, 3);
-         this.DnBoxBsTp3_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.DnBoxBsTp3_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.DnBoxBsTp3_Butn.Margin = new System.Windows.Forms.Padding(1, 3, 1, 3);
-         this.DnBoxBsTp3_Butn.Name = "DnBoxBsTp3_Butn";
-         this.DnBoxBsTp3_Butn.Size = new System.Drawing.Size(27, 24);
-         this.DnBoxBsTp3_Butn.TabIndex = 22;
-         this.DnBoxBsTp3_Butn.Text = "Dn";
-         this.DnBoxBsTp3_Butn.ToolTip = "پاک کردن اطلاعات پیش نویس";
-         this.DnBoxBsTp3_Butn.Click += new System.EventHandler(this.Dn_Butn_Click);
+         this.JoinUserBsTp4_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.JoinUserBsTp4_Butn.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+         this.JoinUserBsTp4_Butn.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.JoinUserBsTp4_Butn.Appearance.ForeColor = System.Drawing.Color.White;
+         this.JoinUserBsTp4_Butn.Appearance.Options.UseBackColor = true;
+         this.JoinUserBsTp4_Butn.Appearance.Options.UseFont = true;
+         this.JoinUserBsTp4_Butn.Appearance.Options.UseForeColor = true;
+         this.JoinUserBsTp4_Butn.Image = ((System.Drawing.Image)(resources.GetObject("JoinUserBsTp4_Butn.Image")));
+         this.JoinUserBsTp4_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+         this.JoinUserBsTp4_Butn.Location = new System.Drawing.Point(75, 3);
+         this.JoinUserBsTp4_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.JoinUserBsTp4_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.JoinUserBsTp4_Butn.Margin = new System.Windows.Forms.Padding(1, 3, 1, 3);
+         this.JoinUserBsTp4_Butn.Name = "JoinUserBsTp4_Butn";
+         this.JoinUserBsTp4_Butn.Size = new System.Drawing.Size(27, 24);
+         this.JoinUserBsTp4_Butn.TabIndex = 25;
+         this.JoinUserBsTp4_Butn.ToolTip = "پاک کردن اطلاعات پیش نویس";
+         this.JoinUserBsTp4_Butn.Visible = false;
          // 
-         // UpRolePrivilegeBsTp3_Butn
+         // simpleButton1
          // 
-         this.UpRolePrivilegeBsTp3_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.UpRolePrivilegeBsTp3_Butn.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-         this.UpRolePrivilegeBsTp3_Butn.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.UpRolePrivilegeBsTp3_Butn.Appearance.ForeColor = System.Drawing.Color.White;
-         this.UpRolePrivilegeBsTp3_Butn.Appearance.Options.UseBackColor = true;
-         this.UpRolePrivilegeBsTp3_Butn.Appearance.Options.UseFont = true;
-         this.UpRolePrivilegeBsTp3_Butn.Appearance.Options.UseForeColor = true;
-         this.UpRolePrivilegeBsTp3_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.UpRolePrivilegeBsTp3_Butn.Location = new System.Drawing.Point(211, 3);
-         this.UpRolePrivilegeBsTp3_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.UpRolePrivilegeBsTp3_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.UpRolePrivilegeBsTp3_Butn.Margin = new System.Windows.Forms.Padding(1, 3, 1, 3);
-         this.UpRolePrivilegeBsTp3_Butn.Name = "UpRolePrivilegeBsTp3_Butn";
-         this.UpRolePrivilegeBsTp3_Butn.Size = new System.Drawing.Size(27, 24);
-         this.UpRolePrivilegeBsTp3_Butn.TabIndex = 23;
-         this.UpRolePrivilegeBsTp3_Butn.Text = "Up";
-         this.UpRolePrivilegeBsTp3_Butn.ToolTip = "پاک کردن اطلاعات پیش نویس";
-         this.UpRolePrivilegeBsTp3_Butn.Click += new System.EventHandler(this.Up_Butn_Click);
-         // 
-         // DnRolePrivilegeBsTp3_Butn
-         // 
-         this.DnRolePrivilegeBsTp3_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.DnRolePrivilegeBsTp3_Butn.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-         this.DnRolePrivilegeBsTp3_Butn.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.DnRolePrivilegeBsTp3_Butn.Appearance.ForeColor = System.Drawing.Color.Black;
-         this.DnRolePrivilegeBsTp3_Butn.Appearance.Options.UseBackColor = true;
-         this.DnRolePrivilegeBsTp3_Butn.Appearance.Options.UseFont = true;
-         this.DnRolePrivilegeBsTp3_Butn.Appearance.Options.UseForeColor = true;
-         this.DnRolePrivilegeBsTp3_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.DnRolePrivilegeBsTp3_Butn.Location = new System.Drawing.Point(182, 3);
-         this.DnRolePrivilegeBsTp3_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.DnRolePrivilegeBsTp3_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.DnRolePrivilegeBsTp3_Butn.Margin = new System.Windows.Forms.Padding(1, 3, 1, 3);
-         this.DnRolePrivilegeBsTp3_Butn.Name = "DnRolePrivilegeBsTp3_Butn";
-         this.DnRolePrivilegeBsTp3_Butn.Size = new System.Drawing.Size(27, 24);
-         this.DnRolePrivilegeBsTp3_Butn.TabIndex = 24;
-         this.DnRolePrivilegeBsTp3_Butn.Text = "Dn";
-         this.DnRolePrivilegeBsTp3_Butn.ToolTip = "پاک کردن اطلاعات پیش نویس";
-         this.DnRolePrivilegeBsTp3_Butn.Click += new System.EventHandler(this.Dn_Butn_Click);
-         // 
-         // UpRoleBsTp3_Butn
-         // 
-         this.UpRoleBsTp3_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.UpRoleBsTp3_Butn.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-         this.UpRoleBsTp3_Butn.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.UpRoleBsTp3_Butn.Appearance.ForeColor = System.Drawing.Color.White;
-         this.UpRoleBsTp3_Butn.Appearance.Options.UseBackColor = true;
-         this.UpRoleBsTp3_Butn.Appearance.Options.UseFont = true;
-         this.UpRoleBsTp3_Butn.Appearance.Options.UseForeColor = true;
-         this.UpRoleBsTp3_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.UpRoleBsTp3_Butn.Location = new System.Drawing.Point(46, 3);
-         this.UpRoleBsTp3_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.UpRoleBsTp3_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.UpRoleBsTp3_Butn.Margin = new System.Windows.Forms.Padding(1, 3, 1, 3);
-         this.UpRoleBsTp3_Butn.Name = "UpRoleBsTp3_Butn";
-         this.UpRoleBsTp3_Butn.Size = new System.Drawing.Size(27, 24);
-         this.UpRoleBsTp3_Butn.TabIndex = 24;
-         this.UpRoleBsTp3_Butn.Text = "Up";
-         this.UpRoleBsTp3_Butn.ToolTip = "پاک کردن اطلاعات پیش نویس";
-         this.UpRoleBsTp3_Butn.Click += new System.EventHandler(this.Up_Butn_Click);
-         // 
-         // DnRoleBsTp3_Butn
-         // 
-         this.DnRoleBsTp3_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.DnRoleBsTp3_Butn.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-         this.DnRoleBsTp3_Butn.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.DnRoleBsTp3_Butn.Appearance.ForeColor = System.Drawing.Color.Black;
-         this.DnRoleBsTp3_Butn.Appearance.Options.UseBackColor = true;
-         this.DnRoleBsTp3_Butn.Appearance.Options.UseFont = true;
-         this.DnRoleBsTp3_Butn.Appearance.Options.UseForeColor = true;
-         this.DnRoleBsTp3_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.DnRoleBsTp3_Butn.Location = new System.Drawing.Point(17, 3);
-         this.DnRoleBsTp3_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.DnRoleBsTp3_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.DnRoleBsTp3_Butn.Margin = new System.Windows.Forms.Padding(1, 3, 1, 3);
-         this.DnRoleBsTp3_Butn.Name = "DnRoleBsTp3_Butn";
-         this.DnRoleBsTp3_Butn.Size = new System.Drawing.Size(27, 24);
-         this.DnRoleBsTp3_Butn.TabIndex = 25;
-         this.DnRoleBsTp3_Butn.Text = "Dn";
-         this.DnRoleBsTp3_Butn.ToolTip = "پاک کردن اطلاعات پیش نویس";
-         this.DnRoleBsTp3_Butn.Click += new System.EventHandler(this.Dn_Butn_Click);
-         // 
-         // UpRoleUserBsTp4_Butn
-         // 
-         this.UpRoleUserBsTp4_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.UpRoleUserBsTp4_Butn.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-         this.UpRoleUserBsTp4_Butn.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.UpRoleUserBsTp4_Butn.Appearance.ForeColor = System.Drawing.Color.White;
-         this.UpRoleUserBsTp4_Butn.Appearance.Options.UseBackColor = true;
-         this.UpRoleUserBsTp4_Butn.Appearance.Options.UseFont = true;
-         this.UpRoleUserBsTp4_Butn.Appearance.Options.UseForeColor = true;
-         this.UpRoleUserBsTp4_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.UpRoleUserBsTp4_Butn.Location = new System.Drawing.Point(211, 3);
-         this.UpRoleUserBsTp4_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.UpRoleUserBsTp4_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.UpRoleUserBsTp4_Butn.Margin = new System.Windows.Forms.Padding(1, 3, 1, 3);
-         this.UpRoleUserBsTp4_Butn.Name = "UpRoleUserBsTp4_Butn";
-         this.UpRoleUserBsTp4_Butn.Size = new System.Drawing.Size(27, 24);
-         this.UpRoleUserBsTp4_Butn.TabIndex = 23;
-         this.UpRoleUserBsTp4_Butn.Text = "Up";
-         this.UpRoleUserBsTp4_Butn.ToolTip = "پاک کردن اطلاعات پیش نویس";
-         this.UpRoleUserBsTp4_Butn.Click += new System.EventHandler(this.Up_Butn_Click);
-         // 
-         // DnRoleUserBsTp4_Butn
-         // 
-         this.DnRoleUserBsTp4_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.DnRoleUserBsTp4_Butn.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-         this.DnRoleUserBsTp4_Butn.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.DnRoleUserBsTp4_Butn.Appearance.ForeColor = System.Drawing.Color.Black;
-         this.DnRoleUserBsTp4_Butn.Appearance.Options.UseBackColor = true;
-         this.DnRoleUserBsTp4_Butn.Appearance.Options.UseFont = true;
-         this.DnRoleUserBsTp4_Butn.Appearance.Options.UseForeColor = true;
-         this.DnRoleUserBsTp4_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.DnRoleUserBsTp4_Butn.Location = new System.Drawing.Point(182, 3);
-         this.DnRoleUserBsTp4_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.DnRoleUserBsTp4_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.DnRoleUserBsTp4_Butn.Margin = new System.Windows.Forms.Padding(1, 3, 1, 3);
-         this.DnRoleUserBsTp4_Butn.Name = "DnRoleUserBsTp4_Butn";
-         this.DnRoleUserBsTp4_Butn.Size = new System.Drawing.Size(27, 24);
-         this.DnRoleUserBsTp4_Butn.TabIndex = 24;
-         this.DnRoleUserBsTp4_Butn.Text = "Dn";
-         this.DnRoleUserBsTp4_Butn.ToolTip = "پاک کردن اطلاعات پیش نویس";
-         this.DnRoleUserBsTp4_Butn.Click += new System.EventHandler(this.Dn_Butn_Click);
-         // 
-         // UpUserBsTp4_Butn
-         // 
-         this.UpUserBsTp4_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.UpUserBsTp4_Butn.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-         this.UpUserBsTp4_Butn.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.UpUserBsTp4_Butn.Appearance.ForeColor = System.Drawing.Color.White;
-         this.UpUserBsTp4_Butn.Appearance.Options.UseBackColor = true;
-         this.UpUserBsTp4_Butn.Appearance.Options.UseFont = true;
-         this.UpUserBsTp4_Butn.Appearance.Options.UseForeColor = true;
-         this.UpUserBsTp4_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.UpUserBsTp4_Butn.Location = new System.Drawing.Point(133, 3);
-         this.UpUserBsTp4_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.UpUserBsTp4_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.UpUserBsTp4_Butn.Margin = new System.Windows.Forms.Padding(1, 3, 1, 3);
-         this.UpUserBsTp4_Butn.Name = "UpUserBsTp4_Butn";
-         this.UpUserBsTp4_Butn.Size = new System.Drawing.Size(27, 24);
-         this.UpUserBsTp4_Butn.TabIndex = 23;
-         this.UpUserBsTp4_Butn.Text = "Up";
-         this.UpUserBsTp4_Butn.ToolTip = "پاک کردن اطلاعات پیش نویس";
-         this.UpUserBsTp4_Butn.Click += new System.EventHandler(this.Up_Butn_Click);
-         // 
-         // DnUserBsTp4_Butn
-         // 
-         this.DnUserBsTp4_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.DnUserBsTp4_Butn.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-         this.DnUserBsTp4_Butn.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.DnUserBsTp4_Butn.Appearance.ForeColor = System.Drawing.Color.Black;
-         this.DnUserBsTp4_Butn.Appearance.Options.UseBackColor = true;
-         this.DnUserBsTp4_Butn.Appearance.Options.UseFont = true;
-         this.DnUserBsTp4_Butn.Appearance.Options.UseForeColor = true;
-         this.DnUserBsTp4_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.DnUserBsTp4_Butn.Location = new System.Drawing.Point(104, 3);
-         this.DnUserBsTp4_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.DnUserBsTp4_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.DnUserBsTp4_Butn.Margin = new System.Windows.Forms.Padding(1, 3, 1, 3);
-         this.DnUserBsTp4_Butn.Name = "DnUserBsTp4_Butn";
-         this.DnUserBsTp4_Butn.Size = new System.Drawing.Size(27, 24);
-         this.DnUserBsTp4_Butn.TabIndex = 24;
-         this.DnUserBsTp4_Butn.Text = "Dn";
-         this.DnUserBsTp4_Butn.ToolTip = "پاک کردن اطلاعات پیش نویس";
-         this.DnUserBsTp4_Butn.Click += new System.EventHandler(this.Dn_Butn_Click);
-         // 
-         // simpleButton13
-         // 
-         this.simpleButton13.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.simpleButton13.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-         this.simpleButton13.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.simpleButton13.Appearance.ForeColor = System.Drawing.Color.White;
-         this.simpleButton13.Appearance.Options.UseBackColor = true;
-         this.simpleButton13.Appearance.Options.UseFont = true;
-         this.simpleButton13.Appearance.Options.UseForeColor = true;
-         this.simpleButton13.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.simpleButton13.Location = new System.Drawing.Point(104, 3);
-         this.simpleButton13.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.simpleButton13.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.simpleButton13.Margin = new System.Windows.Forms.Padding(1, 3, 1, 3);
-         this.simpleButton13.Name = "simpleButton13";
-         this.simpleButton13.Size = new System.Drawing.Size(27, 24);
-         this.simpleButton13.TabIndex = 25;
-         this.simpleButton13.Text = "Up";
-         this.simpleButton13.ToolTip = "پاک کردن اطلاعات پیش نویس";
-         this.simpleButton13.Visible = false;
-         // 
-         // simpleButton14
-         // 
-         this.simpleButton14.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.simpleButton14.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-         this.simpleButton14.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.simpleButton14.Appearance.ForeColor = System.Drawing.Color.Black;
-         this.simpleButton14.Appearance.Options.UseBackColor = true;
-         this.simpleButton14.Appearance.Options.UseFont = true;
-         this.simpleButton14.Appearance.Options.UseForeColor = true;
-         this.simpleButton14.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.simpleButton14.Location = new System.Drawing.Point(75, 3);
-         this.simpleButton14.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.simpleButton14.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.simpleButton14.Margin = new System.Windows.Forms.Padding(1, 3, 1, 3);
-         this.simpleButton14.Name = "simpleButton14";
-         this.simpleButton14.Size = new System.Drawing.Size(27, 24);
-         this.simpleButton14.TabIndex = 26;
-         this.simpleButton14.Text = "Dn";
-         this.simpleButton14.ToolTip = "پاک کردن اطلاعات پیش نویس";
-         this.simpleButton14.Visible = false;
-         // 
-         // simpleButton15
-         // 
-         this.simpleButton15.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.simpleButton15.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-         this.simpleButton15.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.simpleButton15.Appearance.ForeColor = System.Drawing.Color.White;
-         this.simpleButton15.Appearance.Options.UseBackColor = true;
-         this.simpleButton15.Appearance.Options.UseFont = true;
-         this.simpleButton15.Appearance.Options.UseForeColor = true;
-         this.simpleButton15.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.simpleButton15.Location = new System.Drawing.Point(211, 3);
-         this.simpleButton15.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.simpleButton15.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.simpleButton15.Margin = new System.Windows.Forms.Padding(1, 3, 1, 3);
-         this.simpleButton15.Name = "simpleButton15";
-         this.simpleButton15.Size = new System.Drawing.Size(27, 24);
-         this.simpleButton15.TabIndex = 25;
-         this.simpleButton15.Text = "Up";
-         this.simpleButton15.ToolTip = "پاک کردن اطلاعات پیش نویس";
-         this.simpleButton15.Visible = false;
-         // 
-         // simpleButton16
-         // 
-         this.simpleButton16.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.simpleButton16.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-         this.simpleButton16.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.simpleButton16.Appearance.ForeColor = System.Drawing.Color.Black;
-         this.simpleButton16.Appearance.Options.UseBackColor = true;
-         this.simpleButton16.Appearance.Options.UseFont = true;
-         this.simpleButton16.Appearance.Options.UseForeColor = true;
-         this.simpleButton16.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.simpleButton16.Location = new System.Drawing.Point(182, 3);
-         this.simpleButton16.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.simpleButton16.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.simpleButton16.Margin = new System.Windows.Forms.Padding(1, 3, 1, 3);
-         this.simpleButton16.Name = "simpleButton16";
-         this.simpleButton16.Size = new System.Drawing.Size(27, 24);
-         this.simpleButton16.TabIndex = 26;
-         this.simpleButton16.Text = "Dn";
-         this.simpleButton16.ToolTip = "پاک کردن اطلاعات پیش نویس";
-         this.simpleButton16.Visible = false;
+         this.simpleButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.simpleButton1.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+         this.simpleButton1.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.simpleButton1.Appearance.ForeColor = System.Drawing.Color.White;
+         this.simpleButton1.Appearance.Options.UseBackColor = true;
+         this.simpleButton1.Appearance.Options.UseFont = true;
+         this.simpleButton1.Appearance.Options.UseForeColor = true;
+         this.simpleButton1.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.Image")));
+         this.simpleButton1.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+         this.simpleButton1.Location = new System.Drawing.Point(46, 3);
+         this.simpleButton1.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.simpleButton1.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.simpleButton1.Margin = new System.Windows.Forms.Padding(1, 3, 1, 3);
+         this.simpleButton1.Name = "simpleButton1";
+         this.simpleButton1.Size = new System.Drawing.Size(27, 24);
+         this.simpleButton1.TabIndex = 27;
+         this.simpleButton1.ToolTip = "پاک کردن اطلاعات پیش نویس";
          // 
          // SettingsOtherAccounts
          // 
@@ -4696,6 +4777,9 @@
       private DevExpress.XtraEditors.SimpleButton simpleButton16;
       private DevExpress.XtraEditors.SimpleButton simpleButton13;
       private DevExpress.XtraEditors.SimpleButton simpleButton14;
+      private DevExpress.XtraEditors.SimpleButton JoinBoxBsTp3_Butn;
+      private DevExpress.XtraEditors.SimpleButton JoinUserBsTp4_Butn;
+      private DevExpress.XtraEditors.SimpleButton simpleButton1;
 
    }
 }

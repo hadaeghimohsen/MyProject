@@ -226,7 +226,9 @@ namespace System.RoboTech.Ui.DevelopmentApplication
          DordtBs.DataSource = iRoboTech.D_ORDTs;
          DcmtpBs.DataSource = iRoboTech.D_CMTPs;
          DysnoBs.DataSource = iRoboTech.D_YSNOs;
-         DpktpBs.DataSource = iRoboTech.D_PKTPs;         
+         DpktpBs.DataSource = iRoboTech.D_PKTPs;
+         DbtypBs.DataSource = iRoboTech.D_BTYPs;
+         DbdirBs.DataSource = iRoboTech.D_BDIRs;
          job.Status = StatusType.Successful;
       }
 

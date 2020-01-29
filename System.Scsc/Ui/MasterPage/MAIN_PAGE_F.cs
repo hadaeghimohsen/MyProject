@@ -4584,5 +4584,18 @@ namespace System.Scsc.Ui.MasterPage
       {
          tol_closegatebutn_ItemClick(null, null);
       }
+
+      private void bbi_grntbutn_ItemClick(object sender, ItemClickEventArgs e)
+      {
+         /// Must Be Change
+         Job _InteractWithScsc =
+              new Job(SendType.External, "Localhost",
+                 new List<Job>
+                  {                  
+                     new Job(SendType.Self, 162 /* Execute Wrn_Serv_F */),
+                     new Job(SendType.SelfToUserInterface, "WRN_SERV_F", 10 /* Execute Actn_CalF_F */){Input = new XElement("Fighter")}
+                  });
+         _DefaultGateway.Gateway(_InteractWithScsc);
+      }
    }
 }

@@ -38,6 +38,10 @@
     <Reference Include="DataEditShamsi">
       <HintPath>..\MyProject\bin\Debug\DataEditShamsi.dll</HintPath>
     </Reference>
+    <Reference Include="DateTimeSelector, Version=1.1.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\DateTimeSelector.dll</HintPath>
+    </Reference>
     <Reference Include="DevExpress.Data.v13.1, Version=13.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
       <Private>True</Private>
     </Reference>
@@ -56,9 +60,11 @@
     <Reference Include="DevExpress.XtraGrid.v13.1, Version=13.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraLayout.v13.1, Version=13.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraPrinting.v13.1, Version=13.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Design" />
     <Reference Include="System.EnterpriseServices" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
@@ -138,6 +144,7 @@
       <LastGenOutput>iProject.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
+    <None Include="Properties\DataSources\System.MessageBroadcast.Data.Default_Message.datasource" />
     <None Include="Properties\DataSources\System.MessageBroadcast.Data.D_LNTP.datasource" />
     <None Include="Properties\DataSources\System.MessageBroadcast.Data.D_MGTP.datasource" />
     <None Include="Properties\DataSources\System.MessageBroadcast.Data.D_MSG.datasource" />

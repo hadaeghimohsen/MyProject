@@ -1336,6 +1336,31 @@ namespace System.Scsc.Ui.Common
             if (requery)
                Search_Butn_Click(null, null);
          }
+      }
+
+      private void RqstBnGrnt_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var figh = vF_Fighs.Current as Data.VF_Last_Info_FighterResult;
+            if (figh == null) return;            
+
+            // اگر مشتری در فرآیندی قفل باشد اجازه پرداخت بدهی وجود ندارد
+            if (figh.FIGH_STAT == "001") return;
+
+            Job _InteractWithScsc =
+                 new Job(SendType.External, "Localhost",
+                    new List<Job>
+                  {                  
+                     new Job(SendType.Self, 162 /* Execute Wrn_Serv_F */),
+                     new Job(SendType.SelfToUserInterface, "WRN_SERV_F", 10 /* Execute Actn_CalF_F */){Input = new XElement("Fighter", new XAttribute("fileno", figh.FILE_NO))}
+                  });
+            _DefaultGateway.Gateway(_InteractWithScsc);
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
       }      
 
    }

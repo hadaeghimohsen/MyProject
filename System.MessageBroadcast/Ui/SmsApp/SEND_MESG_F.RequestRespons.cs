@@ -148,6 +148,7 @@ namespace System.MessageBroadcast.Ui.SmsApp
       /// <param name="job"></param>
       private void LoadData(Job job)
       {
+         SubsBs.DataSource = iProject.Sub_Systems.Where(s => s.STAT == "002");
          job.Status = StatusType.Successful;
       }
 
@@ -180,6 +181,34 @@ namespace System.MessageBroadcast.Ui.SmsApp
          }
          else
             SwitchButtonsTabPage(SendOneMesg_Butn);
+
+         if (xinput.Attribute("subsys") != null)
+            subsys = Convert.ToInt32(xinput.Attribute("subsys").Value);
+         else
+            subsys = null;
+
+         if (xinput.Attribute("rfid") != null)
+            rfid = Convert.ToInt64(xinput.Attribute("rfid").Value);
+         else
+            rfid = null;
+
+         if (xinput.Attribute("key1") != null)
+            key1rfid = xinput.Attribute("key1").Value;
+         else
+            key1rfid = null;
+
+         if (xinput.Attribute("key2") != null)
+            key2rfid = xinput.Attribute("key2").Value;
+         else
+            key2rfid = null;
+
+         if (xinput.Attribute("cellphon") != null)
+         {
+            phonnumb = xinput.Attribute("cellphon").Value;
+            NewSms_Butn_Click(null, null);
+         }
+         else
+            phonnumb = "";
          
          job.Status = StatusType.Successful;
       }

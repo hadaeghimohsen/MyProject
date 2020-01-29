@@ -48,6 +48,7 @@
       <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
       <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Sub_System_Default_Message" Member="Default_Messages" ThisKey="SUB_SYS" OtherKey="SUB_SYS" Type="Default_Message" />
       <Association Name="Sub_System_Sms_Message_Box" Member="Sms_Message_Boxes" ThisKey="SUB_SYS" OtherKey="SUB_SYS" Type="Sms_Message_Box" />
     </Type>
   </Table>
@@ -165,6 +166,19 @@
       <Association Name="User_Message_Broad_Setting" Member="User" ThisKey="ALRM_TO_USER_ID" OtherKey="ID" Type="User" IsForeignKey="true" />
     </Type>
   </Table>
+  <Table Name="Msgb.Default_Message" Member="Default_Messages">
+    <Type Name="Default_Message">
+      <Column Name="SUB_SYS" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CODE" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MESG_NAME" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MESG_TEXT" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="Sub_System_Default_Message" Member="Sub_System" ThisKey="SUB_SYS" OtherKey="SUB_SYS" Type="Sub_System" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
   <Table Name="Msgb.Sms_Message_Box" Member="Sms_Message_Boxes">
     <Type Name="Sms_Message_Box">
       <Column Name="MBID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -172,6 +186,8 @@
       <Column Name="LINE_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="ACTN_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="RFID" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="KEY1_RFID" Type="System.String" DbType="VarChar(100)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="KEY2_RFID" Type="System.String" DbType="VarChar(100)" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="PHON_NUMB" Type="System.String" DbType="VarChar(11)" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="MSGB_TEXT" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="MSGB_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
@@ -183,6 +199,7 @@
       <Column Name="MESG_LENT" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="SEND_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="BULK_NUMB" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="PAGE_NUMB_DNRM" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />

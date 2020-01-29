@@ -191,6 +191,8 @@ namespace System.RoboTech.Ui.BaseDefinition
          vUserBs.DataSource = iRoboTech.V_Users;
          DordtBs.DataSource = iRoboTech.D_ORDTs;
          DspytBs.DataSource = iRoboTech.D_SPYTs;
+         DbtypBs.DataSource = iRoboTech.D_BTYPs;
+         DbdirBs.DataSource = iRoboTech.D_BDIRs;
          Execute_Query();
          job.Status = StatusType.Successful;
       }

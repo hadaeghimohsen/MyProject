@@ -58,8 +58,9 @@
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject11 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject13 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition2 = new DevExpress.XtraGrid.StyleFormatCondition();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject14 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition2 = new DevExpress.XtraGrid.StyleFormatCondition();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject15 = new DevExpress.Utils.SerializableAppearanceObject();
          this.gridColumn16 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colMIN_NUMB = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
          this.FileNos_Lb = new System.Windows.Forms.Label();
@@ -502,6 +503,8 @@
          this.مبلغToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
          this.NewExpnPric_Tsmi = new System.Windows.Forms.ToolStripTextBox();
          this.NewExpn_Tsmi = new System.Windows.Forms.ToolStripMenuItem();
+         this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripSeparator();
+         this.ProdList_Tsmi = new System.Windows.Forms.ToolStripMenuItem();
          this.Expn_Gv = new DevExpress.XtraGrid.Views.BandedGrid.AdvBandedGridView();
          this.ExpnGropList_Clm = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
          this.colREGL_YEAR = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
@@ -2264,7 +2267,6 @@
             this.colEXPR_DATE});
          this.Pydt_Gv.GridControl = this.payment_DetailsGridControl;
          this.Pydt_Gv.Name = "Pydt_Gv";
-         this.Pydt_Gv.OptionsBehavior.AutoExpandAllGroups = true;
          this.Pydt_Gv.OptionsDetail.EnableMasterViewMode = false;
          this.Pydt_Gv.OptionsSelection.EnableAppearanceFocusedCell = false;
          this.Pydt_Gv.OptionsView.ShowFooter = true;
@@ -2291,13 +2293,12 @@
          this.ExpnCode_Clm.Caption = "آیتم های هزینه";
          this.ExpnCode_Clm.ColumnEdit = this.LOV_EXPN;
          this.ExpnCode_Clm.FieldName = "EXPN_CODE";
-         this.ExpnCode_Clm.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Right;
          this.ExpnCode_Clm.Name = "ExpnCode_Clm";
          this.ExpnCode_Clm.OptionsColumn.AllowEdit = false;
          this.ExpnCode_Clm.OptionsColumn.ReadOnly = true;
          this.ExpnCode_Clm.Visible = true;
          this.ExpnCode_Clm.VisibleIndex = 3;
-         this.ExpnCode_Clm.Width = 161;
+         this.ExpnCode_Clm.Width = 165;
          // 
          // LOV_EXPN
          // 
@@ -2351,7 +2352,6 @@
          this.ExpnPric_Clm.DisplayFormat.FormatString = "{0:N0}";
          this.ExpnPric_Clm.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
          this.ExpnPric_Clm.FieldName = "EXPN_PRIC";
-         this.ExpnPric_Clm.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Right;
          this.ExpnPric_Clm.Name = "ExpnPric_Clm";
          this.ExpnPric_Clm.OptionsColumn.FixedWidth = true;
          this.ExpnPric_Clm.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
@@ -3202,14 +3202,15 @@
          this.colEXPR_DATE.Name = "colEXPR_DATE";
          this.colEXPR_DATE.Visible = true;
          this.colEXPR_DATE.VisibleIndex = 0;
-         this.colEXPR_DATE.Width = 110;
+         this.colEXPR_DATE.Width = 130;
          // 
          // LOV_EXPRDATE
          // 
          this.LOV_EXPRDATE.AutoHeight = false;
          this.LOV_EXPRDATE.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject10, "", null, null, true),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("LOV_EXPRDATE.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject11, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("LOV_EXPRDATE.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject11, "", null, null, true),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("LOV_EXPRDATE.Buttons1"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject12, "لیست کالای فروش", null, null, true)});
          this.LOV_EXPRDATE.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
          this.LOV_EXPRDATE.CalendarTimeProperties.CloseUpKey = new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.F4);
@@ -3265,7 +3266,7 @@
             this.ServPymt_Tsmi});
          this.Serv_Cms.Name = "Serv_Cms";
          this.Serv_Cms.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-         this.Serv_Cms.Size = new System.Drawing.Size(261, 323);
+         this.Serv_Cms.Size = new System.Drawing.Size(261, 301);
          // 
          // ServFind_Tsmi
          // 
@@ -3697,7 +3698,7 @@
          this.SUNT_CODELookUpEdit.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
          this.SUNT_CODELookUpEdit.Properties.AppearanceFocused.Options.UseBackColor = true;
          this.SUNT_CODELookUpEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject12, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject13, "", null, null, true)});
          this.SUNT_CODELookUpEdit.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("BUNT_DEPT_ORGN_CODE", "BUNT_DEPT_ORGN_CODE", 149, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("BUNT_DEPT_CODE", "BUNT_DEPT_CODE", 101, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),
@@ -3844,7 +3845,7 @@
          this.FILE_NO_LookUpEdit.Properties.AppearanceFocused.Options.UseBackColor = true;
          this.FILE_NO_LookUpEdit.Properties.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
          this.FILE_NO_LookUpEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject13, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject14, "", null, null, true)});
          this.FILE_NO_LookUpEdit.Properties.DataSource = this.FighsBs1;
          this.FILE_NO_LookUpEdit.Properties.DisplayMember = "NAME_DNRM";
          this.FILE_NO_LookUpEdit.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
@@ -4700,10 +4701,12 @@
             this.NewExpnText_Tsmi,
             this.مبلغToolStripMenuItem2,
             this.NewExpnPric_Tsmi,
-            this.NewExpn_Tsmi});
+            this.NewExpn_Tsmi,
+            this.toolStripMenuItem5,
+            this.ProdList_Tsmi});
          this.Expn_Cms.Name = "Expn_Cms";
          this.Expn_Cms.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-         this.Expn_Cms.Size = new System.Drawing.Size(202, 420);
+         this.Expn_Cms.Size = new System.Drawing.Size(202, 448);
          // 
          // ExpnItem_Tsmi
          // 
@@ -4843,6 +4846,19 @@
          this.NewExpn_Tsmi.Size = new System.Drawing.Size(201, 22);
          this.NewExpn_Tsmi.Text = "ثبت اطلاعات";
          this.NewExpn_Tsmi.Click += new System.EventHandler(this.NewExpn_Tsmi_Click);
+         // 
+         // toolStripMenuItem5
+         // 
+         this.toolStripMenuItem5.Name = "toolStripMenuItem5";
+         this.toolStripMenuItem5.Size = new System.Drawing.Size(198, 6);
+         // 
+         // ProdList_Tsmi
+         // 
+         this.ProdList_Tsmi.Image = global::System.Scsc.Properties.Resources.IMAGE_1007;
+         this.ProdList_Tsmi.Name = "ProdList_Tsmi";
+         this.ProdList_Tsmi.Size = new System.Drawing.Size(201, 22);
+         this.ProdList_Tsmi.Text = "لیست کالا";
+         this.ProdList_Tsmi.Click += new System.EventHandler(this.ProdList_Tsmi_Click);
          // 
          // Expn_Gv
          // 
@@ -5108,7 +5124,7 @@
          this.repositoryItemLookUpEdit2.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.repositoryItemLookUpEdit2.AutoHeight = false;
          this.repositoryItemLookUpEdit2.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject14, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject15, "", null, null, true)});
          this.repositoryItemLookUpEdit2.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("VALU", "VALU", 48, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("DOMN_DESC", "نوع پرداحت", 72, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near)});
@@ -5710,5 +5726,7 @@
       private Windows.Forms.ToolStripTextBox FngrPrntFind_Tsmi;
       private Windows.Forms.ToolStripSeparator toolStripSeparator2;
       private Windows.Forms.ToolStripSeparator toolStripSeparator3;
+      private Windows.Forms.ToolStripSeparator toolStripMenuItem5;
+      private Windows.Forms.ToolStripMenuItem ProdList_Tsmi;
    }
 }

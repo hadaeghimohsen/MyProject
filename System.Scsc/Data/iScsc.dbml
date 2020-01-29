@@ -1519,6 +1519,7 @@
       <Association Name="Request_Row_Fighter_Public" Member="Fighter_Publics" ThisKey="RQST_RQID,RWNO" OtherKey="RQRO_RQST_RQID,RQRO_RWNO" Type="Fighter_Public" />
       <Association Name="Request_Row_Member_Ship" Member="Member_Ships" ThisKey="RQST_RQID,RWNO" OtherKey="RQRO_RQST_RQID,RQRO_RWNO" Type="Member_Ship" />
       <Association Name="Request_Row_Payment_Detail" Member="Payment_Details" ThisKey="RQST_RQID,RWNO" OtherKey="PYMT_RQST_RQID,RQRO_RWNO" Type="Payment_Detail" />
+      <Association Name="Request_Row_Product_Service" Member="Product_Services" ThisKey="RQST_RQID,RWNO" OtherKey="RQRO_RQST_RQID,RQRO_RWNO" Type="Product_Service" />
       <Association Name="Region_Request_Row" Member="Region" ThisKey="REGN_PRVN_CNTY_CODE,REGN_PRVN_CODE,REGN_CODE" OtherKey="PRVN_CNTY_CODE,PRVN_CODE,CODE" Type="Region" IsForeignKey="true" />
       <Association Name="Requester_Type_Request_Row" Member="Requester_Type" ThisKey="RQTT_CODE" OtherKey="CODE" Type="Requester_Type" IsForeignKey="true" />
       <Association Name="Request_Type_Request_Row" Member="Request_Type" ThisKey="RQTP_CODE" OtherKey="CODE" Type="Request_Type" IsForeignKey="true" />
@@ -3184,6 +3185,7 @@
       <Association Name="Expense_Item_Calculate_Expense_Coach" Member="Calculate_Expense_Coaches" ThisKey="CODE" OtherKey="EPIT_CODE" Type="Calculate_Expense_Coach" />
       <Association Name="Expense_Item_Misc_Expense" Member="Misc_Expenses" ThisKey="CODE" OtherKey="EPIT_CODE" Type="Misc_Expense" />
       <Association Name="Expense_Item_Basic_Calculate_Discount" Member="Basic_Calculate_Discounts" ThisKey="CODE" OtherKey="EPIT_CODE" Type="Basic_Calculate_Discount" />
+      <Association Name="Expense_Item_Product" Member="Products" ThisKey="CODE" OtherKey="EPIT_CODE" Type="Product" />
       <Association Name="Request_Type_Expense_Item" Member="Request_Type" ThisKey="RQTP_CODE" OtherKey="CODE" Type="Request_Type" IsForeignKey="true" />
       <Association Name="Requester_Type_Expense_Item" Member="Requester_Type" ThisKey="RQTT_CODE" OtherKey="CODE" Type="Requester_Type" IsForeignKey="true" />
     </Type>
@@ -3754,6 +3756,7 @@
       <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
       <Association Name="Payment_Detail_Refunds_Payment_Detail" Member="Refunds_Payment_Details" ThisKey="CODE" OtherKey="PYDT_CODE" Type="Refunds_Payment_Detail" />
       <Association Name="Payment_Detail_Payment_Expense" Member="Payment_Expenses" ThisKey="CODE" OtherKey="PYDT_CODE" Type="Payment_Expense" />
+      <Association Name="Payment_Detail_Payment_Detail_Commodity_Sale" Member="Payment_Detail_Commodity_Sales" ThisKey="CODE" OtherKey="PYDT_CODE" Type="Payment_Detail_Commodity_Sale" />
       <Association Name="Cash_Payment_Detail" Member="Cash" ThisKey="PYMT_CASH_CODE" OtherKey="CODE" Type="Cash" IsForeignKey="true" />
       <Association Name="Club_Method_Payment_Detail" Member="Club_Method" ThisKey="CBMT_CODE_DNRM" OtherKey="CODE" Type="Club_Method" IsForeignKey="true" />
       <Association Name="Category_Belt_Payment_Detail" Member="Category_Belt" ThisKey="CTGY_CODE_DNRM" OtherKey="CODE" Type="Category_Belt" IsForeignKey="true" />
@@ -4035,12 +4038,91 @@
       <Column Name="DOMN_DESC" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
+  <Table Name="dbo.Card_Datasource" Member="Card_Datasources">
+    <Type Name="Card_Datasource">
+      <Column Name="FNGR_PRNT" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Payment_Detail_Commodity_Sale" Member="Payment_Detail_Commodity_Sales">
+    <Type Name="Payment_Detail_Commodity_Sale">
+      <Column Name="PYDT_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="PROD_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CODE" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SALE_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="SALE_AFTR_PROD_DAY" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="SALE_BEFR_EXPR_DAY" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="Payment_Detail_Commodity_Sale_Product_Service" Member="Product_Services" ThisKey="CODE" OtherKey="PDCS_CODE" Type="Product_Service" />
+      <Association Name="Payment_Detail_Payment_Detail_Commodity_Sale" Member="Payment_Detail" ThisKey="PYDT_CODE" OtherKey="CODE" Type="Payment_Detail" IsForeignKey="true" DeleteRule="CASCADE" />
+      <Association Name="Product_Payment_Detail_Commodity_Sale" Member="Product" ThisKey="PROD_CODE" OtherKey="CODE" Type="Product" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Product_Service" Member="Product_Services">
+    <Type Name="Product_Service">
+      <Column Name="RQRO_RQST_RQID" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="RQRO_RWNO" Type="System.Int16" DbType="SmallInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="PDCS_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="SERL_NO" Type="System.String" DbType="VarChar(100)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CODE" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MAKE_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="EXPR_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="COMP_NAME" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="COMP_ADRS" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="COMP_SITE" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="COMP_TELL_PHON" Type="System.String" DbType="VarChar(11)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="COMP_CELL_PHON" Type="System.String" DbType="VarChar(11)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="Payment_Detail_Commodity_Sale_Product_Service" Member="Payment_Detail_Commodity_Sale" ThisKey="PDCS_CODE" OtherKey="CODE" Type="Payment_Detail_Commodity_Sale" IsForeignKey="true" />
+      <Association Name="Request_Row_Product_Service" Member="Request_Row" ThisKey="RQRO_RQST_RQID,RQRO_RWNO" OtherKey="RQST_RQID,RWNO" Type="Request_Row" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Product" Member="Products">
+    <Type Name="Product">
+      <Column Name="CODE" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="EPIT_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="PROD_NAME" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MAKE_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="EXPR_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="SERL_NUMB" Type="System.String" DbType="VarChar(100)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="STOK_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="SALE_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="Product_Payment_Detail_Commodity_Sale" Member="Payment_Detail_Commodity_Sales" ThisKey="CODE" OtherKey="PROD_CODE" Type="Payment_Detail_Commodity_Sale" />
+      <Association Name="Expense_Item_Product" Member="Expense_Item" ThisKey="EPIT_CODE" OtherKey="CODE" Type="Expense_Item" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.D$STOK" Member="D_STOKs">
+    <Type Name="D_STOK">
+      <Column Name="VALU" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="DOMN_DESC" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.D$SALE" Member="D_SALEs">
+    <Type Name="D_SALE">
+      <Column Name="VALU" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="DOMN_DESC" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
   <Table Name="dbo.Payment" Member="Payments">
     <Type Name="Payment">
       <Column Name="REGL_YEAR_DNRM" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
       <Column Name="REGL_CODE_DNRM" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="CASH_CODE" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="RQST_RQID" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="YEAR" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="CYCL" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="PYMT_NO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PYMT_PYMT_NO" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="TYPE" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
       <Column Name="PYMT_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
       <Column Name="PYMT_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
@@ -4079,9 +4161,37 @@
       <Association Name="Request_Payment" Member="Request" ThisKey="RQST_RQID" OtherKey="RQID" Type="Request" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
     </Type>
   </Table>
-  <Table Name="dbo.Card_Datasource" Member="Card_Datasources">
-    <Type Name="Card_Datasource">
-      <Column Name="FNGR_PRNT" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+  <Table Name="dbo.V#Sms_Message_Box" Member="V_Sms_Message_Boxes">
+    <Type Name="V_Sms_Message_Box">
+      <Column Name="MBID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SUB_SYS" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LINE_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="ACTN_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="RFID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="KEY1_RFID" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="KEY2_RFID" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="PHON_NUMB" Type="System.String" DbType="VarChar(11)" CanBeNull="true" />
+      <Column Name="MSGB_TEXT" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="MSGB_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="MESG_ID" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="EROR_CODE" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="EROR_MESG" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="SRVR_SEND_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MESG_LENT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SEND_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="BULK_NUMB" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="PAGE_NUMB_DNRM" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.D$PSAT" Member="D_PSATs">
+    <Type Name="D_PSAT">
+      <Column Name="VALU" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="DOMN_DESC" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
   <Function Name="dbo.VF$Saved_Request" Method="VF_Saved_Request" IsComposable="true">
@@ -6734,5 +6844,13 @@
       <Column Name="REGL_YEAR_DNRM" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
       <Column Name="REGL_CODE_DNRM" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </ElementType>
+  </Function>
+  <Function Name="dbo.GRN_TRQT_P" Method="GRN_TRQT_P">
+    <Parameter Name="X" Parameter="x" Type="System.Xml.Linq.XElement" DbType="Xml" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.GRN_TSAV_P" Method="GRN_TSAV_P">
+    <Parameter Name="X" Parameter="x" Type="System.Xml.Linq.XElement" DbType="Xml" />
+    <Return Type="System.Int32" />
   </Function>
 </Database>

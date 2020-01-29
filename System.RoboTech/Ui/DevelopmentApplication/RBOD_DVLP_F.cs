@@ -312,7 +312,7 @@ namespace System.RoboTech.Ui.DevelopmentApplication
 
             if (result == DialogResult.Cancel) return;
 
-            Controller.iRobot bot = new Controller.iRobot(crnt.TKON_CODE, ConnectionString, RobotTrace_Txt, false, crnt);
+            Controller.TelegramApiBot bot = new Controller.TelegramApiBot(crnt.TKON_CODE, ConnectionString, RobotTrace_Txt, false, crnt);
 
             var parentmenu = iRoboTech.Menu_Ussds.FirstOrDefault(m => m.ROBO_RBID == ordrdtil.Order.SRBT_ROBO_RBID && m.USSD_CODE == ordrdtil.BASE_USSD_CODE);
             var datenow = iRoboTech.GET_MTOS_U(DateTime.Now).Replace("/", "_");
@@ -534,7 +534,7 @@ namespace System.RoboTech.Ui.DevelopmentApplication
          var ordrdtil = OrdtBs.Current as Data.Order_Detail;
          if (ordrdtil == null) return;
 
-         Controller.iRobot bot = new Controller.iRobot(crnt.TKON_CODE, ConnectionString, RobotTrace_Txt, false, crnt);
+         Controller.TelegramApiBot bot = new Controller.TelegramApiBot(crnt.TKON_CODE, ConnectionString, RobotTrace_Txt, false, crnt);
 
          if (Dlg_SaveFile.ShowDialog() != DialogResult.OK) return;
 

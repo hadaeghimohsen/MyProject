@@ -4373,5 +4373,28 @@ namespace System.Scsc.Ui.BaseDefinition
          );
       }      
       #endregion
+
+      private void ProdList_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var epit = InComeEpitBs1.Current as Data.Expense_Item;
+            if (epit == null) return;
+
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost",
+                  new List<Job>
+                  {
+                     new Job(SendType.Self, 161 /* Execute Bas_Prod_F */),
+                     new Job(SendType.SelfToUserInterface,"BAS_PROD_F",  10 /* Execute Actn_CalF_F */){Input = new XElement("Product", new XAttribute("epitcode", epit.CODE), new XAttribute("formstat", "show"))}
+                  }
+               )
+            );
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
    }
 }

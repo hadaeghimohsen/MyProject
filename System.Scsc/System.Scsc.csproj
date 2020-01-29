@@ -502,6 +502,12 @@
     <Compile Include="Ui\BaseDefinition\BAS_CBMT_F.Designer.cs">
       <DependentUpon>BAS_CBMT_F.cs</DependentUpon>
     </Compile>
+    <Compile Include="Ui\BaseDefinition\BAS_PROD_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\BaseDefinition\BAS_PROD_F.Designer.cs">
+      <DependentUpon>BAS_PROD_F.cs</DependentUpon>
+    </Compile>
     <Compile Include="Ui\BaseDefinition\BAS_WKDY_F.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -509,6 +515,9 @@
       <DependentUpon>BAS_WKDY_F.cs</DependentUpon>
     </Compile>
     <Compile Include="Ui\BaseDefinition\BAS_CBMT_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\BaseDefinition\BAS_PROD_F.RequestRespons.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Ui\BaseDefinition\BAS_WKDY_F.RequestRespons.cs">
@@ -1002,6 +1011,15 @@
     <Compile Include="Ui\UserAction\USR_CTBL_F.RequestRespons.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Ui\WarrantyService\WRN_SERV_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\WarrantyService\WRN_SERV_F.Designer.cs">
+      <DependentUpon>WRN_SERV_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\WarrantyService\WRN_SERV_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -1110,6 +1128,7 @@
     <None Include="Properties\DataSources\System.Scsc.Data.D_PMST.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_PMTP.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_PRST.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.D_PSAT.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_PTYP.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_PYDS.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_PYST.datasource" />
@@ -1121,8 +1140,10 @@
     <None Include="Properties\DataSources\System.Scsc.Data.D_RGTP.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_RQST.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_RSLT.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.D_SALE.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_SMTP.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_SNTP.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.D_STOK.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_SUB.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_SXTP.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_TRSL.datasource" />
@@ -1159,6 +1180,7 @@
     <None Include="Properties\DataSources\System.Scsc.Data.Payment.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Payment_Check.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Payment_Detail.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.Payment_Detail_Commodity_Sale.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Payment_Discount.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Payment_Expense.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Payment_Method.datasource" />
@@ -1169,6 +1191,8 @@
     <None Include="Properties\DataSources\System.Scsc.Data.Present.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Present_Comment.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Pre_Expense.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.Product.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.Product_Service.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Province.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Reason_Request.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Reason_Spec.datasource" />
@@ -1240,6 +1264,7 @@
     <None Include="Properties\DataSources\System.Scsc.Data.V_Pos_Device.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.V_ReceiptPayment.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.V_Sale.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.V_Sms_Message_Box.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.V_StatisticDiscount.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.V_StatisticReceipt.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.V_StatisticSale.datasource" />
@@ -1342,6 +1367,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Ui\BaseDefinition\BAS_CBMT_F.resx">
       <DependentUpon>BAS_CBMT_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\BaseDefinition\BAS_PROD_F.resx">
+      <DependentUpon>BAS_PROD_F.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ui\BaseDefinition\BAS_WKDY_F.resx">
       <DependentUpon>BAS_WKDY_F.cs</DependentUpon>
@@ -1501,6 +1529,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Ui\UserAction\USR_CTBL_F.resx">
       <DependentUpon>USR_CTBL_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\WarrantyService\WRN_SERV_F.resx">
+      <DependentUpon>WRN_SERV_F.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

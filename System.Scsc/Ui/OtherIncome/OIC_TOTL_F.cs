@@ -195,6 +195,8 @@ namespace System.Scsc.Ui.OtherIncome
                      new XAttribute("mdulname", GetType().Name),
                      new XAttribute("sctnname", GetType().Name.Substring(0, 3) + "_001_F"),
                      new XAttribute("rqstdesc", RqstDesc_Txt.EditValue ?? ""),
+                     new XAttribute("lettno", Rqst == null ? "" : Rqst.LETT_NO ?? ""),
+                     new XAttribute("lettdate", Rqst == null ? "" : (Rqst.LETT_NO == null ? "" : ( Rqst.LETT_DATE == null ? "" : Rqst.LETT_DATE.Value.ToString("yyyy-MM-dd")))),
                      new XElement("Request_Row",
                         new XAttribute("fileno", Figh == null ? FILE_NO_LookUpEdit.EditValue ?? "" : Figh.FILE_NO),
                         new XElement("Fighter_Public", 
@@ -1811,6 +1813,21 @@ namespace System.Scsc.Ui.OtherIncome
 
                SaveExpn_Butn_Click(null, null);
             }
+            else if(e.Button.Index == 2)
+            {
+               var pydt = PydtsBs1.Current as Data.Payment_Detail;
+               if (pydt == null) return;
+
+               _DefaultGateway.Gateway(
+                  new Job(SendType.External, "localhost",
+                     new List<Job>
+                     {
+                        new Job(SendType.Self, 161 /* Execute Bas_Prod_F */),
+                        new Job(SendType.SelfToUserInterface,"BAS_PROD_F",  10 /* Execute Actn_CalF_F */){Input = new XElement("Product", new XAttribute("epitcode", pydt.Expense.Expense_Type.Expense_Item.CODE), new XAttribute("pydtcode", pydt.CODE), new XAttribute("formstat", "sale"))}
+                     }
+                  )
+               );
+            }
          }
          catch (Exception exc)
          {
@@ -2410,6 +2427,29 @@ namespace System.Scsc.Ui.OtherIncome
                         )
                      }
                   })
+            );
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void ProdList_Tsmi_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var expn = ExpnBs1.Current as Data.Expense;
+            if (expn == null) return;
+
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost",
+                  new List<Job>
+                  {
+                     new Job(SendType.Self, 161 /* Execute Bas_Prod_F */),
+                     new Job(SendType.SelfToUserInterface,"BAS_PROD_F",  10 /* Execute Actn_CalF_F */){Input = new XElement("Product", new XAttribute("epitcode", expn.Expense_Type.Expense_Item.CODE), new XAttribute("formstat", "show"))}
+                  }
+               )
             );
          }
          catch (Exception exc)

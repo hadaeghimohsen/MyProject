@@ -1339,6 +1339,17 @@
          this.tp_010 = new System.Windows.Forms.TabPage();
          this.AddNew_Exdv_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.gridControl26 = new DevExpress.XtraGrid.GridControl();
+         this.Exdv_Cms = new System.Windows.Forms.ContextMenuStrip(this.components);
+         this.DevName_Tsm = new System.Windows.Forms.ToolStripMenuItem();
+         this.toolStripMenuItem9 = new System.Windows.Forms.ToolStripSeparator();
+         this.Gate_Tsm = new System.Windows.Forms.ToolStripMenuItem();
+         this.Gate_Test_Tsm = new System.Windows.Forms.ToolStripMenuItem();
+         this.toolStripMenuItem10 = new System.Windows.Forms.ToolStripSeparator();
+         this.Gate_OnLineMode_Tsm = new System.Windows.Forms.ToolStripMenuItem();
+         this.Gate_OffLineMode_Tsm = new System.Windows.Forms.ToolStripMenuItem();
+         this.Gate_Open_Tsm = new System.Windows.Forms.ToolStripMenuItem();
+         this.Gate_Close_Tsm = new System.Windows.Forms.ToolStripMenuItem();
+         this.Gate_Error_Tsm = new System.Windows.Forms.ToolStripMenuItem();
          this.ExdvBs = new System.Windows.Forms.BindingSource(this.components);
          this.Exdv_Gv = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colCODE10 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -1388,17 +1399,7 @@
          this.ExtrDev_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.CbmtwkdyBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.OpnFil_Ofd = new System.Windows.Forms.OpenFileDialog();
-         this.Exdv_Cms = new System.Windows.Forms.ContextMenuStrip(this.components);
-         this.DevName_Tsm = new System.Windows.Forms.ToolStripMenuItem();
-         this.toolStripMenuItem9 = new System.Windows.Forms.ToolStripSeparator();
-         this.Gate_Tsm = new System.Windows.Forms.ToolStripMenuItem();
-         this.Gate_Test_Tsm = new System.Windows.Forms.ToolStripMenuItem();
-         this.toolStripMenuItem10 = new System.Windows.Forms.ToolStripSeparator();
-         this.Gate_OnLineMode_Tsm = new System.Windows.Forms.ToolStripMenuItem();
-         this.Gate_OffLineMode_Tsm = new System.Windows.Forms.ToolStripMenuItem();
-         this.Gate_Open_Tsm = new System.Windows.Forms.ToolStripMenuItem();
-         this.Gate_Close_Tsm = new System.Windows.Forms.ToolStripMenuItem();
-         this.Gate_Error_Tsm = new System.Windows.Forms.ToolStripMenuItem();
+         this.ProdList_Butn = new DevExpress.XtraEditors.SimpleButton();
          label5 = new System.Windows.Forms.Label();
          label6 = new System.Windows.Forms.Label();
          CashToDate_Lb = new System.Windows.Forms.Label();
@@ -1741,6 +1742,7 @@
          ((System.ComponentModel.ISupportInitialize)(this.spinEdit2.Properties)).BeginInit();
          this.tp_010.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.gridControl26)).BeginInit();
+         this.Exdv_Cms.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.ExdvBs)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.Exdv_Gv)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit28)).BeginInit();
@@ -1757,7 +1759,6 @@
          ((System.ComponentModel.ISupportInitialize)(this.ExpnBs)).BeginInit();
          this.flowLayoutPanel1.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.CbmtwkdyBs1)).BeginInit();
-         this.Exdv_Cms.SuspendLayout();
          this.SuspendLayout();
          // 
          // label5
@@ -3590,6 +3591,7 @@
          this.panel3.Controls.Add(this.dateTimeSelector7);
          this.panel3.Controls.Add(this.PrintDefaultExpitInCome_Butn);
          this.panel3.Controls.Add(this.dateTimeSelector8);
+         this.panel3.Controls.Add(this.ProdList_Butn);
          this.panel3.Controls.Add(this.RequeryInComeEpit_Butn);
          this.panel3.Controls.Add(this.DeleteInComeEpit_Butn);
          this.panel3.Controls.Add(this.SaveInComeEpit_Butn);
@@ -16516,6 +16518,89 @@
          this.gridControl26.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.Exdv_Gv});
          // 
+         // Exdv_Cms
+         // 
+         this.Exdv_Cms.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.DevName_Tsm,
+            this.toolStripMenuItem9,
+            this.Gate_Tsm});
+         this.Exdv_Cms.Name = "Exdv_Cms";
+         this.Exdv_Cms.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+         this.Exdv_Cms.Size = new System.Drawing.Size(141, 54);
+         // 
+         // DevName_Tsm
+         // 
+         this.DevName_Tsm.Enabled = false;
+         this.DevName_Tsm.Name = "DevName_Tsm";
+         this.DevName_Tsm.Size = new System.Drawing.Size(140, 22);
+         this.DevName_Tsm.Text = "عنوان دستگاه";
+         // 
+         // toolStripMenuItem9
+         // 
+         this.toolStripMenuItem9.Name = "toolStripMenuItem9";
+         this.toolStripMenuItem9.Size = new System.Drawing.Size(137, 6);
+         // 
+         // Gate_Tsm
+         // 
+         this.Gate_Tsm.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.Gate_Test_Tsm,
+            this.toolStripMenuItem10,
+            this.Gate_OnLineMode_Tsm,
+            this.Gate_OffLineMode_Tsm,
+            this.Gate_Open_Tsm,
+            this.Gate_Close_Tsm,
+            this.Gate_Error_Tsm});
+         this.Gate_Tsm.Name = "Gate_Tsm";
+         this.Gate_Tsm.Size = new System.Drawing.Size(140, 22);
+         this.Gate_Tsm.Text = "گیت";
+         // 
+         // Gate_Test_Tsm
+         // 
+         this.Gate_Test_Tsm.Name = "Gate_Test_Tsm";
+         this.Gate_Test_Tsm.Size = new System.Drawing.Size(110, 22);
+         this.Gate_Test_Tsm.Text = "Test";
+         this.Gate_Test_Tsm.Click += new System.EventHandler(this.Gate_Test_Tsm_Click);
+         // 
+         // toolStripMenuItem10
+         // 
+         this.toolStripMenuItem10.Name = "toolStripMenuItem10";
+         this.toolStripMenuItem10.Size = new System.Drawing.Size(107, 6);
+         // 
+         // Gate_OnLineMode_Tsm
+         // 
+         this.Gate_OnLineMode_Tsm.Name = "Gate_OnLineMode_Tsm";
+         this.Gate_OnLineMode_Tsm.Size = new System.Drawing.Size(110, 22);
+         this.Gate_OnLineMode_Tsm.Text = "Online";
+         this.Gate_OnLineMode_Tsm.Click += new System.EventHandler(this.Gate_OnLineMode_Tsm_Click);
+         // 
+         // Gate_OffLineMode_Tsm
+         // 
+         this.Gate_OffLineMode_Tsm.Name = "Gate_OffLineMode_Tsm";
+         this.Gate_OffLineMode_Tsm.Size = new System.Drawing.Size(110, 22);
+         this.Gate_OffLineMode_Tsm.Text = "Offline";
+         this.Gate_OffLineMode_Tsm.Click += new System.EventHandler(this.Gate_OffLineMode_Tsm_Click);
+         // 
+         // Gate_Open_Tsm
+         // 
+         this.Gate_Open_Tsm.Name = "Gate_Open_Tsm";
+         this.Gate_Open_Tsm.Size = new System.Drawing.Size(110, 22);
+         this.Gate_Open_Tsm.Text = "Open";
+         this.Gate_Open_Tsm.Click += new System.EventHandler(this.Gate_Open_Tsm_Click);
+         // 
+         // Gate_Close_Tsm
+         // 
+         this.Gate_Close_Tsm.Name = "Gate_Close_Tsm";
+         this.Gate_Close_Tsm.Size = new System.Drawing.Size(110, 22);
+         this.Gate_Close_Tsm.Text = "Close";
+         this.Gate_Close_Tsm.Click += new System.EventHandler(this.Gate_Close_Tsm_Click);
+         // 
+         // Gate_Error_Tsm
+         // 
+         this.Gate_Error_Tsm.Name = "Gate_Error_Tsm";
+         this.Gate_Error_Tsm.Size = new System.Drawing.Size(110, 22);
+         this.Gate_Error_Tsm.Text = "Error";
+         this.Gate_Error_Tsm.Click += new System.EventHandler(this.Gate_Error_Tsm_Click);
+         // 
          // ExdvBs
          // 
          this.ExdvBs.DataSource = typeof(System.Scsc.Data.External_Device);
@@ -17184,88 +17269,27 @@
          // 
          this.OpnFil_Ofd.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.gif;*.tif;...";
          // 
-         // Exdv_Cms
+         // ProdList_Butn
          // 
-         this.Exdv_Cms.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.DevName_Tsm,
-            this.toolStripMenuItem9,
-            this.Gate_Tsm});
-         this.Exdv_Cms.Name = "Exdv_Cms";
-         this.Exdv_Cms.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-         this.Exdv_Cms.Size = new System.Drawing.Size(141, 54);
-         // 
-         // DevName_Tsm
-         // 
-         this.DevName_Tsm.Enabled = false;
-         this.DevName_Tsm.Name = "DevName_Tsm";
-         this.DevName_Tsm.Size = new System.Drawing.Size(140, 22);
-         this.DevName_Tsm.Text = "عنوان دستگاه";
-         // 
-         // toolStripMenuItem9
-         // 
-         this.toolStripMenuItem9.Name = "toolStripMenuItem9";
-         this.toolStripMenuItem9.Size = new System.Drawing.Size(137, 6);
-         // 
-         // Gate_Tsm
-         // 
-         this.Gate_Tsm.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.Gate_Test_Tsm,
-            this.toolStripMenuItem10,
-            this.Gate_OnLineMode_Tsm,
-            this.Gate_OffLineMode_Tsm,
-            this.Gate_Open_Tsm,
-            this.Gate_Close_Tsm,
-            this.Gate_Error_Tsm});
-         this.Gate_Tsm.Name = "Gate_Tsm";
-         this.Gate_Tsm.Size = new System.Drawing.Size(140, 22);
-         this.Gate_Tsm.Text = "گیت";
-         // 
-         // Gate_Test_Tsm
-         // 
-         this.Gate_Test_Tsm.Name = "Gate_Test_Tsm";
-         this.Gate_Test_Tsm.Size = new System.Drawing.Size(152, 22);
-         this.Gate_Test_Tsm.Text = "Test";
-         this.Gate_Test_Tsm.Click += new System.EventHandler(this.Gate_Test_Tsm_Click);
-         // 
-         // toolStripMenuItem10
-         // 
-         this.toolStripMenuItem10.Name = "toolStripMenuItem10";
-         this.toolStripMenuItem10.Size = new System.Drawing.Size(149, 6);
-         // 
-         // Gate_OnLineMode_Tsm
-         // 
-         this.Gate_OnLineMode_Tsm.Name = "Gate_OnLineMode_Tsm";
-         this.Gate_OnLineMode_Tsm.Size = new System.Drawing.Size(152, 22);
-         this.Gate_OnLineMode_Tsm.Text = "Online";
-         this.Gate_OnLineMode_Tsm.Click += new System.EventHandler(this.Gate_OnLineMode_Tsm_Click);
-         // 
-         // Gate_OffLineMode_Tsm
-         // 
-         this.Gate_OffLineMode_Tsm.Name = "Gate_OffLineMode_Tsm";
-         this.Gate_OffLineMode_Tsm.Size = new System.Drawing.Size(152, 22);
-         this.Gate_OffLineMode_Tsm.Text = "Offline";
-         this.Gate_OffLineMode_Tsm.Click += new System.EventHandler(this.Gate_OffLineMode_Tsm_Click);
-         // 
-         // Gate_Open_Tsm
-         // 
-         this.Gate_Open_Tsm.Name = "Gate_Open_Tsm";
-         this.Gate_Open_Tsm.Size = new System.Drawing.Size(152, 22);
-         this.Gate_Open_Tsm.Text = "Open";
-         this.Gate_Open_Tsm.Click += new System.EventHandler(this.Gate_Open_Tsm_Click);
-         // 
-         // Gate_Close_Tsm
-         // 
-         this.Gate_Close_Tsm.Name = "Gate_Close_Tsm";
-         this.Gate_Close_Tsm.Size = new System.Drawing.Size(152, 22);
-         this.Gate_Close_Tsm.Text = "Close";
-         this.Gate_Close_Tsm.Click += new System.EventHandler(this.Gate_Close_Tsm_Click);
-         // 
-         // Gate_Error_Tsm
-         // 
-         this.Gate_Error_Tsm.Name = "Gate_Error_Tsm";
-         this.Gate_Error_Tsm.Size = new System.Drawing.Size(152, 22);
-         this.Gate_Error_Tsm.Text = "Error";
-         this.Gate_Error_Tsm.Click += new System.EventHandler(this.Gate_Error_Tsm_Click);
+         this.ProdList_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+         this.ProdList_Butn.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+         this.ProdList_Butn.Appearance.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.ProdList_Butn.Appearance.ForeColor = System.Drawing.Color.Black;
+         this.ProdList_Butn.Appearance.Options.UseBackColor = true;
+         this.ProdList_Butn.Appearance.Options.UseFont = true;
+         this.ProdList_Butn.Appearance.Options.UseForeColor = true;
+         this.ProdList_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1007;
+         this.ProdList_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+         this.ProdList_Butn.Location = new System.Drawing.Point(49, 3);
+         this.ProdList_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.ProdList_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.ProdList_Butn.Name = "ProdList_Butn";
+         this.ProdList_Butn.Size = new System.Drawing.Size(50, 46);
+         this.ProdList_Butn.TabIndex = 2;
+         this.ProdList_Butn.Text = "تعریف کالا";
+         this.ProdList_Butn.ToolTip = "تعریف کالا";
+         this.ProdList_Butn.Click += new System.EventHandler(this.ProdList_Butn_Click);
          // 
          // BAS_DFIN_F
          // 
@@ -17633,6 +17657,7 @@
          ((System.ComponentModel.ISupportInitialize)(this.spinEdit2.Properties)).EndInit();
          this.tp_010.ResumeLayout(false);
          ((System.ComponentModel.ISupportInitialize)(this.gridControl26)).EndInit();
+         this.Exdv_Cms.ResumeLayout(false);
          ((System.ComponentModel.ISupportInitialize)(this.ExdvBs)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.Exdv_Gv)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit28)).EndInit();
@@ -17649,7 +17674,6 @@
          ((System.ComponentModel.ISupportInitialize)(this.ExpnBs)).EndInit();
          this.flowLayoutPanel1.ResumeLayout(false);
          ((System.ComponentModel.ISupportInitialize)(this.CbmtwkdyBs1)).EndInit();
-         this.Exdv_Cms.ResumeLayout(false);
          this.ResumeLayout(false);
 
       }
@@ -18901,6 +18925,7 @@
       private Windows.Forms.ToolStripMenuItem Gate_Test_Tsm;
       private Windows.Forms.ToolStripSeparator toolStripMenuItem10;
       private Windows.Forms.ToolStripMenuItem Gate_Error_Tsm;
+      private DevExpress.XtraEditors.SimpleButton ProdList_Butn;
 
    }
 }

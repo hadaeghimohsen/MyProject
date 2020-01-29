@@ -162,6 +162,7 @@
          this.tol_anydeskbutn = new DevExpress.XtraBars.BarButtonItem();
          this.tol_opengatebutn = new DevExpress.XtraBars.BarButtonItem();
          this.tol_closegatebutn = new DevExpress.XtraBars.BarButtonItem();
+         this.bbi_grntbutn = new DevExpress.XtraBars.BarButtonItem();
          this.System_RPgc = new DevExpress.XtraBars.Ribbon.RibbonPageCategory();
          this.Base_RbPg = new DevExpress.XtraBars.Ribbon.RibbonPage();
          this.Base_RbGp = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -434,9 +435,10 @@
             this.tol_cmdbutn,
             this.tol_anydeskbutn,
             this.tol_opengatebutn,
-            this.tol_closegatebutn});
+            this.tol_closegatebutn,
+            this.bbi_grntbutn});
          this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
-         this.ribbonControl1.MaxItemId = 111;
+         this.ribbonControl1.MaxItemId = 112;
          this.ribbonControl1.Name = "ribbonControl1";
          this.ribbonControl1.PageCategories.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageCategory[] {
             this.System_RPgc,
@@ -1410,6 +1412,16 @@
          this.tol_closegatebutn.Name = "tol_closegatebutn";
          this.tol_closegatebutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.tol_closegatebutn_ItemClick);
          // 
+         // bbi_grntbutn
+         // 
+         this.bbi_grntbutn.Caption = "خدمات گارانتی";
+         this.bbi_grntbutn.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
+         this.bbi_grntbutn.Glyph = ((System.Drawing.Image)(resources.GetObject("bbi_grntbutn.Glyph")));
+         this.bbi_grntbutn.Id = 111;
+         this.bbi_grntbutn.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbi_grntbutn.LargeGlyph")));
+         this.bbi_grntbutn.Name = "bbi_grntbutn";
+         this.bbi_grntbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_grntbutn_ItemClick);
+         // 
          // System_RPgc
          // 
          this.System_RPgc.Color = System.Drawing.Color.Empty;
@@ -1550,6 +1562,7 @@
          this.OthrOption_RbGp.ItemLinks.Add(this.bbi_exdsbutn);
          this.OthrOption_RbGp.ItemLinks.Add(this.bbi_fdbtbutn);
          this.OthrOption_RbGp.ItemLinks.Add(this.ksk_incmbutn);
+         this.OthrOption_RbGp.ItemLinks.Add(this.bbi_grntbutn);
          this.OthrOption_RbGp.Name = "OthrOption_RbGp";
          this.OthrOption_RbGp.Text = "درآمد";
          // 
@@ -2511,28 +2524,28 @@
          // bbi_bkupbutn_Mn
          // 
          this.bbi_bkupbutn_Mn.Name = "bbi_bkupbutn_Mn";
-         this.bbi_bkupbutn_Mn.Size = new System.Drawing.Size(198, 22);
+         this.bbi_bkupbutn_Mn.Size = new System.Drawing.Size(197, 22);
          this.bbi_bkupbutn_Mn.Text = "تنظیمات پشتیبان گیری";
          this.bbi_bkupbutn_Mn.Click += new System.EventHandler(this.bbi_bkupbutn_Mn_Click);
          // 
          // bbi_embkbutn_Mn
          // 
          this.bbi_embkbutn_Mn.Name = "bbi_embkbutn_Mn";
-         this.bbi_embkbutn_Mn.Size = new System.Drawing.Size(198, 22);
+         this.bbi_embkbutn_Mn.Size = new System.Drawing.Size(197, 22);
          this.bbi_embkbutn_Mn.Text = "پشتیبان گیری اضطراری";
          this.bbi_embkbutn_Mn.Click += new System.EventHandler(this.bbi_embkbutn_Mn_Click);
          // 
          // toolStripMenuItem11
          // 
          this.toolStripMenuItem11.Name = "toolStripMenuItem11";
-         this.toolStripMenuItem11.Size = new System.Drawing.Size(195, 6);
+         this.toolStripMenuItem11.Size = new System.Drawing.Size(194, 6);
          // 
          // OpenGate_Tsm
          // 
          this.OpenGate_Tsm.Image = global::System.Scsc.Properties.Resources.IMAGE_1061;
          this.OpenGate_Tsm.Name = "OpenGate_Tsm";
          this.OpenGate_Tsm.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Right)));
-         this.OpenGate_Tsm.Size = new System.Drawing.Size(198, 22);
+         this.OpenGate_Tsm.Size = new System.Drawing.Size(197, 22);
          this.OpenGate_Tsm.Text = "OPEN GATE";
          this.OpenGate_Tsm.Click += new System.EventHandler(this.OpenGate_Tsm_Click);
          // 
@@ -2541,7 +2554,7 @@
          this.CloseGate_Tsm.Image = global::System.Scsc.Properties.Resources.IMAGE_1060;
          this.CloseGate_Tsm.Name = "CloseGate_Tsm";
          this.CloseGate_Tsm.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Left)));
-         this.CloseGate_Tsm.Size = new System.Drawing.Size(198, 22);
+         this.CloseGate_Tsm.Size = new System.Drawing.Size(197, 22);
          this.CloseGate_Tsm.Text = "CLOSE GATE";
          this.CloseGate_Tsm.Click += new System.EventHandler(this.CloseGate_Tsm_Click);
          // 
@@ -2795,5 +2808,6 @@
       private Windows.Forms.ToolStripMenuItem OpenGate_Tsm;
       private Windows.Forms.ToolStripMenuItem CloseGate_Tsm;
       private Windows.Forms.Timer Tm_Exdv;
+      private DevExpress.XtraBars.BarButtonItem bbi_grntbutn;
    }
 }

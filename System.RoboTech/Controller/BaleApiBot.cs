@@ -1,52 +1,69 @@
-﻿using System;
+﻿using Bale.Bot;
+using Bale.Bot.Args;
+using Bale.Bot.Types;
+using Bale.Bot.Types.Enums;
+using Bale.Bot.Types.InputFiles;
+using Bale.Bot.Types.Payments;
+using Bale.Bot.Types.ReplyMarkups;
+using DevExpress.XtraEditors;
+using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
-using Telegram.Bot;
-using Telegram.Bot.Args;
-using Telegram.Bot.Types;
-using Telegram.Bot.Types.Enums;
-using Telegram.Bot.Types.InlineQueryResults;
-//using Telegram.Bot.Types.InputMessageContents;
-using Telegram.Bot.Types.ReplyMarkups;
-
-using System.CodeDom;
-using System.Text;
-using System.Xml.Serialization;
-using System.Threading;
-using DevExpress.XtraEditors;
-using Telegram.Bot.Types.InputFiles;
-
 
 namespace System.RoboTech.Controller
 {
-   public class iRobot
+   public class BaleApiBot : IApiBot
    {
       //private static readonly TelegramBotClient Bot = new TelegramBotClient("273587585:AAFdrJate4ED0ccT4kGubo14xse4ZU81g7E");
-      private TelegramBotClient Bot;
+      private BaleBotClient Bot;
       private string Token;
       internal User Me;
       private string connectionString;
       private Data.Robot robot;
-      public bool Started = false;
+      private bool started = false;
 
-      public iRobot(string token, string connectionString, MemoEdit ConsoleOutLog_MemTxt, bool activeRobot = true, Data.Robot robot = null)
+      public Data.Robot Robot
+      {
+         get
+         {
+            return robot;
+         }
+      }
+
+      public bool Started
+      {
+         get
+         {
+            return started;
+         }
+      }
+
+      public string BotName
+      {
+         get
+         {
+            return Me.Username;
+         }
+      }
+
+      public BaleApiBot(string token, string connectionString, MemoEdit ConsoleOutLog_MemTxt, bool activeRobot = true, Data.Robot robot = null)
       {
          try
          {
             this.ConsoleOutLog_MemTxt = ConsoleOutLog_MemTxt;
 
-            Bot = new TelegramBotClient(token);
+            Bot = new BaleBotClient(token);
             Token = token;
             this.robot = robot;
             Chats = new List<ChatInfo>();
             RobotHandle = new RobotController();
             this.connectionString = connectionString;
 
-            Started = true;
+            started = true;
             main(activeRobot);
          }
          catch (Exception exc) { this.ConsoleOutLog_MemTxt.Text = exc.Message; }
@@ -56,12 +73,7 @@ namespace System.RoboTech.Controller
       {
          if (activeRobot)
          {
-            Bot.OnCallbackQuery += BotOnCallbackQueryReceived;
-            Bot.OnMessage += BotOnMessageReceived;
-            Bot.OnMessageEdited += BotOnMessageReceived;
-            Bot.OnInlineQuery += BotOnInlineQueryReceived;
-            Bot.OnInlineResultChosen += BotOnChosenInlineResultReceived;
-            Bot.OnReceiveError += BotOnReceiveError;
+            Bot.OnUpdate += BotOnUpdateReceived;
          }
          Me = Bot.GetMeAsync().Result;
 
@@ -72,44 +84,22 @@ namespace System.RoboTech.Controller
          //Bot.StopReceiving();
       }
 
-      internal void StopReceiving()
+      public void StopReceiving()
       {
          Bot.StopReceiving();
-         Started = false;
+         started = false;
       }
 
-      private async void BotOnCallbackQueryReceived(object sender, CallbackQueryEventArgs e)
+      private async void BotOnUpdateReceived(object sender, UpdateEventArgs e)
       {
-         throw new NotImplementedException();
-      }
-
-      private async void BotOnReceiveError(object sender, ReceiveErrorEventArgs e)
-      {
-         //throw new NotImplementedException();         
-         return;
-      }
-
-      private async void BotOnChosenInlineResultReceived(object sender, ChosenInlineResultEventArgs e)
-      {
-         throw new NotImplementedException();
-      }
-
-      private async void BotOnInlineQueryReceived(object sender, InlineQueryEventArgs e)
-      {
-         throw new NotImplementedException();
-      }
-
-
-      private async void BotOnMessageReceived(object sender, MessageEventArgs e)
-      {         
-         if (/*robot.SPY_TYPE == "001"*/ e.Message.Chat.Id > 0)
+         if (/*robot.SPY_TYPE == "001"*/ e.Update.Message.Chat.Id > 0)
             await Robot_Interact(e);
          else
             await Robot_Spy(e);
 
          try
          {
-            await Download_Media(Token, e.Message);
+            await Download_Media(Token, e.Update.Message);
          }
          catch
          { }
@@ -153,11 +143,11 @@ namespace System.RoboTech.Controller
             }
             catch { }
 #endif
-            try
-            {
-               await Bot.SendChatActionAsync(message.Chat.Id, ChatAction.Typing);
-            }
-            catch { return; }
+            //try
+            //{
+            //   await Bot.SendChatActionAsync(message.Chat.Id, ChatAction.Typing);
+            //}
+            //catch { return; }
 
             XElement xResult = new XElement("Respons", "No Message");
 
@@ -166,7 +156,8 @@ namespace System.RoboTech.Controller
             {
                await Send_Advertising(Token, chat);
             }
-            catch(Exception exc) {
+            catch (Exception exc)
+            {
                if (ConsoleOutLog_MemTxt.InvokeRequired)
                   ConsoleOutLog_MemTxt.Invoke(new Action(() => ConsoleOutLog_MemTxt.Text += exc.Message));
                else
@@ -181,7 +172,8 @@ namespace System.RoboTech.Controller
             {
                await Send_Replay_Message(Token, chat);
             }
-            catch(Exception exc) {
+            catch (Exception exc)
+            {
                if (ConsoleOutLog_MemTxt.InvokeRequired)
                   ConsoleOutLog_MemTxt.Invoke(new Action(() => ConsoleOutLog_MemTxt.Text += exc.Message));
                else
@@ -192,7 +184,7 @@ namespace System.RoboTech.Controller
                   exc.Message
                );
             }
-            
+
 
             /* اگر برای اولین بار داره ربات رو اجرا می کنه می تونیم چک کنیم آیا متن مقدماتی داریم به بخوایم بهش نشون بدیم
              */
@@ -254,7 +246,7 @@ namespace System.RoboTech.Controller
                            where o.STAT == "002"
                                  && r.STAT == "002"
                                  && p.STAT == "002"
-                                 && r.TKON_CODE == Token
+                                 && r.TKON_CODE == GetToken()
                                  && p.SHOW_STRT == "002"
                                  && p.ITEM_DESC != null
                            orderby p.ORDR
@@ -279,7 +271,7 @@ namespace System.RoboTech.Controller
             #endregion
 
             #region "Check Menu on Request Contact OR Request Location"
-            if(chat.UssdCode != null)
+            if (chat.UssdCode != null)
                switch (message.Type)
                {
                   case MessageType.Contact:
@@ -287,14 +279,14 @@ namespace System.RoboTech.Controller
                      break;
                   case MessageType.Location:
                      message.Text = iRobotTech.Menu_Ussds.FirstOrDefault(m => m.ROBO_RBID == robot.RBID && m.Menu_Ussd1.USSD_CODE == chat.UssdCode && m.CMND_TYPE == "016").MENU_TEXT;
-                     break;                  
+                     break;
                }
             #endregion
 
             #region "Found Menu"
             iRobotTech.Proccess_Message_P(
                new XElement("Robot",
-                  new XAttribute("token", Token),
+                  new XAttribute("token", GetToken()),
                   new XElement("Message",
                      new XAttribute("ussd", chat.UssdCode ?? ""),
                      new XAttribute("mesgid", chat.Message.MessageId),
@@ -388,7 +380,7 @@ namespace System.RoboTech.Controller
             var menucmndtype =
                            (from r in iRobotTech.Robots
                             join m in iRobotTech.Menu_Ussds on r.RBID equals m.ROBO_RBID
-                            where r.TKON_CODE == Token
+                            where r.TKON_CODE == GetToken()
                                /*&& ((_messageText.Trim().StartsWith("*") && m.USSD_CODE == _messageText)
                                   || m.MENU_TEXT == (_messageText.Trim().StartsWith("*") ? m.MENU_TEXT : _messageText))
                                && (_messageText.Trim().StartsWith("*") ||
@@ -559,17 +551,18 @@ namespace System.RoboTech.Controller
                                  DateTime.Now,
                                  parentmenu.USSD_CODE,
                                  filename
-                              );                             
+                              );
                               // 1396/07/21 * After Update Telegram
                               //Bot.GetFileAsync(e.Message.Photo.Reverse().FirstOrDefault().FileId, System.IO.File.Create(fileupload + "\\" + filename + ".jpg"));
                            }
 
                            ///***await Bot.GetFileAsync(e.Message.Photo.Reverse().FirstOrDefault().FileId, System.IO.File.Create(fileupload + "\\" + filename + ".jpg"));
-                           Telegram.Bot.Types.File file = await Bot.GetFileAsync(e.Message.Photo.Reverse().FirstOrDefault().FileId);
+                           Bale.Bot.Types.File file = await Bot.GetFileAsync(e.Message.Photo.Reverse().FirstOrDefault().FileId);
                            file.FilePath = fileupload + "\\" + filename + ".jpg";
                            await Bot.SendTextMessageAsync(e.Message.Chat.Id, "فایل عکس شما با موفقیت ذخیره گردید 💾", ParseMode.Default, false, false, e.Message.MessageId, null);
                         }
-                        catch(Exception ex) {
+                        catch (Exception ex)
+                        {
                            Bot.SendTextMessageAsync(e.Message.Chat.Id, ex.Message, ParseMode.Default, false, false, e.Message.MessageId, null);
                         }
 
@@ -596,9 +589,9 @@ namespace System.RoboTech.Controller
                               //Bot.SendTextMessageAsync(e.Message.Chat.Id, "فایل تصویری شما با موفقیت ذخیره گردید 💾", false, false, e.Message.MessageId, null, ParseMode.Default);
                               //Bot.GetFile(e.Message.Video.FileId, System.IO.File.Create(fileupload + "\\" + /*chat.Message.Video.FileId*/ filename));
                            }
-                           
+
                            ///***await Bot.GetFileAsync(e.Message.Video.FileId, System.IO.File.Create(fileupload + "\\" + /*chat.Message.Video.FileId*/ filename));
-                           Telegram.Bot.Types.File file = await Bot.GetFileAsync(e.Message.Video.FileId);
+                           Bale.Bot.Types.File file = await Bot.GetFileAsync(e.Message.Video.FileId);
                            file.FilePath = fileupload + "\\" + filename;
                            await Bot.SendTextMessageAsync(e.Message.Chat.Id, "فایل تصویری شما با موفقیت ذخیره گردید 💾", ParseMode.Default, false, false, e.Message.MessageId, null);
                         }
@@ -626,9 +619,9 @@ namespace System.RoboTech.Controller
                               //Bot.GetFile(e.Message.Document.FileId, System.IO.File.Create(fileupload + "\\" + /*chat.Message.Document.FileId*/ filename));
                            }
                            ///***await Bot.GetFileAsync(e.Message.Document.FileId, System.IO.File.Create(fileupload + "\\" + /*chat.Message.Document.FileId*/ filename));
-                           Telegram.Bot.Types.File file = await Bot.GetFileAsync(e.Message.Document.FileId);
+                           Bale.Bot.Types.File file = await Bot.GetFileAsync(e.Message.Document.FileId);
                            file.FilePath = fileupload + "\\" + filename;
-                           await Bot.SendTextMessageAsync(e.Message.Chat.Id, "فایل مستند شما با موفقیت ذخیره گردید 💾", ParseMode.Default, false, false, e.Message.MessageId, null);                           
+                           await Bot.SendTextMessageAsync(e.Message.Chat.Id, "فایل مستند شما با موفقیت ذخیره گردید 💾", ParseMode.Default, false, false, e.Message.MessageId, null);
                         }
                         catch { }
                      }
@@ -649,15 +642,15 @@ namespace System.RoboTech.Controller
                                  parentmenu.USSD_CODE,
                                  filename
                               );
-                              
+
                               // 1396/07/21 * After Telegram Update
                               //Bot.SendTextMessageAsync(e.Message.Chat.Id, "فایل صوتی شما با موفقیت ذخیره گردید 💾", false, false, e.Message.MessageId, null, ParseMode.Default);
                               //Bot.GetFile(e.Message.Audio.FileId, System.IO.File.Create(fileupload + "\\" + /*chat.Message.Audio.FileId*/ filename));
-                           }                           
+                           }
                            ///***await Bot.GetFileAsync(e.Message.Audio.FileId, System.IO.File.Create(fileupload + "\\" + /*chat.Message.Audio.FileId*/ filename));
-                           Telegram.Bot.Types.File file = await Bot.GetFileAsync(e.Message.Audio.FileId);
+                           Bale.Bot.Types.File file = await Bot.GetFileAsync(e.Message.Audio.FileId);
                            file.FilePath = fileupload + "\\" + filename;
-                           await Bot.SendTextMessageAsync(e.Message.Chat.Id, "فایل صوتی شما با موفقیت ذخیره گردید 💾", ParseMode.Default, false, false, e.Message.MessageId, null);                                                      
+                           await Bot.SendTextMessageAsync(e.Message.Chat.Id, "فایل صوتی شما با موفقیت ذخیره گردید 💾", ParseMode.Default, false, false, e.Message.MessageId, null);
                         }
                         catch { }
                      }
@@ -683,10 +676,10 @@ namespace System.RoboTech.Controller
                               //Bot.SendTextMessageAsync(e.Message.Chat.Id, "فایل استیکر شما با موفقیت ذخیره گردید 💾", false, false, e.Message.MessageId, null, ParseMode.Default);
                               //Bot.GetFile(e.Message.Sticker.FileId, System.IO.File.Create(fileupload + "\\" + /*chat.Message.Sticker.FileId*/ filename));
                            }
-                           
+
                            await Bot.SendTextMessageAsync(e.Message.Chat.Id, "فایل استیکر شما با موفقیت ذخیره گردید 💾", ParseMode.Default, false, false, e.Message.MessageId, null);
                            ///***await Bot.GetFileAsync(e.Message.Sticker.FileId, System.IO.File.Create(fileupload + "\\" + /*chat.Message.Sticker.FileId*/ filename));
-                           Telegram.Bot.Types.File file = await Bot.GetFileAsync(e.Message.Sticker.FileId);
+                           Bale.Bot.Types.File file = await Bot.GetFileAsync(e.Message.Sticker.FileId);
                            file.FilePath = fileupload + "\\" + filename;
                         }
                         catch { }
@@ -732,15 +725,15 @@ namespace System.RoboTech.Controller
                   }
                   if (chat.Message.Location != null)
                   {
-                     elmntype = "005";                     
+                     elmntype = "005";
                   }
-                  if(chat.Message.Audio != null)
+                  if (chat.Message.Audio != null)
                   {
                      elmntype = "006";
                      mimetype = chat.Message.Audio.MimeType;
                      filename = e.Message.Audio.FileId;
                   }
-                  try                  
+                  try
                   {
                      var xmlmsg = RobotHandle.GetData(
                         new XElement("Robot",
@@ -802,7 +795,7 @@ namespace System.RoboTech.Controller
                   //chat.Runed = true;
                }
             }
-            else if (menucmndtype != null && menucmndtype.CMND_TYPE != null && new List<string> { "001", "002", "003", "004", "005", "006", "007", "008", "009", "010", "011", "012", "013", "014", "015", "016", "017","018", "019", "020", "021", "022", "023", "024", "025" }.Contains(menucmndtype.CMND_TYPE))
+            else if (menucmndtype != null && menucmndtype.CMND_TYPE != null && new List<string> { "001", "002", "003", "004", "005", "006", "007", "008", "009", "010", "011", "012", "013", "014", "015", "016", "017", "018", "019", "020", "021", "022", "023", "024", "025", "026", "027" }.Contains(menucmndtype.CMND_TYPE))
             {
                /*
                 * 001 - Location
@@ -830,6 +823,8 @@ namespace System.RoboTech.Controller
                 * 023 - Stickers & Info Text
                 * 024 - Stickers & Image
                 * 025 - Stickers & Image & Info Text
+                * 026 - Direct Payment Process
+                * 027 - Order Checkout Payment Process
                 */
                if (menucmndtype.CMND_TYPE == "001")
                {
@@ -1906,7 +1901,7 @@ namespace System.RoboTech.Controller
 
                      try
                      {
-                        await Bot.SendAudioAsync(chat.Message.Chat.Id, photo, "*", 0, 0, sound.IMAG_DESC,"#",
+                        await Bot.SendAudioAsync(chat.Message.Chat.Id, photo, "*", 0, 0, sound.IMAG_DESC, "#",
                            replyToMessageId:
                            chat.Message.MessageId,
                            replyMarkup:
@@ -1930,7 +1925,7 @@ namespace System.RoboTech.Controller
                   }
                   #endregion
                }
-               else if(menucmndtype.CMND_TYPE == "015")
+               else if (menucmndtype.CMND_TYPE == "015")
                {
                   var xdata = RobotHandle.GetData(
                     new XElement("Robot",
@@ -2078,24 +2073,24 @@ namespace System.RoboTech.Controller
                   // 002 - Image & Text
                   chat.Runed = false;
                   var files = (from o in iRobotTech.Organs
-                              join r in iRobotTech.Robots on o.OGID equals r.ORGN_OGID
-                              join u in iRobotTech.Service_Robot_Uploads on r.RBID equals u.SRBT_ROBO_RBID
-                              where o.STAT == "002"
-                                    && r.STAT == "002"
-                                 //&& u.STAT == "002"
-                                    && u.USSD_CODE == menucmndtype.USSD_CODE
-                                    && r.TKON_CODE == Token
-                                    && u.FILE_ID != null
-                                    && u.CHAT_ID == e.Message.Chat.Id
-                              orderby u.RWNO
-                              select new { u.FILE_NAME, u.FILE_PATH, IMAG_DESC = u.FILE_PATH.Substring(u.FILE_PATH.LastIndexOf('\\') + 1), u.FILE_ID }).ToList();
+                               join r in iRobotTech.Robots on o.OGID equals r.ORGN_OGID
+                               join u in iRobotTech.Service_Robot_Uploads on r.RBID equals u.SRBT_ROBO_RBID
+                               where o.STAT == "002"
+                                     && r.STAT == "002"
+                                  //&& u.STAT == "002"
+                                     && u.USSD_CODE == menucmndtype.USSD_CODE
+                                     && r.TKON_CODE == Token
+                                     && u.FILE_ID != null
+                                     && u.CHAT_ID == e.Message.Chat.Id
+                               orderby u.RWNO
+                               select new { u.FILE_NAME, u.FILE_PATH, IMAG_DESC = u.FILE_PATH.Substring(u.FILE_PATH.LastIndexOf('\\') + 1), u.FILE_ID }).ToList();
 
                   await Bot.SendTextMessageAsync(
                      e.Message.Chat.Id,
-                     string.Format("🗂 تعداد فایل های ذخیره شده : {0}", files.Count), 
+                     string.Format("🗂 تعداد فایل های ذخیره شده : {0}", files.Count),
                      ParseMode.Default,
                      false, false,
-                     e.Message.MessageId, 
+                     e.Message.MessageId,
                      new ReplyKeyboardMarkup()
                      {
                         Keyboard = keyBoardMarkup,
@@ -2114,7 +2109,7 @@ namespace System.RoboTech.Controller
                               join u in iRobotTech.Service_Robot_Uploads on r.RBID equals u.SRBT_ROBO_RBID
                               where o.STAT == "002"
                                     && r.STAT == "002"
-                                    //&& u.STAT == "002"
+                                 //&& u.STAT == "002"
                                     && u.USSD_CODE == menucmndtype.MNUS_USSD_CODE
                                     && r.TKON_CODE == Token
                                     && u.FILE_ID != null
@@ -2173,8 +2168,8 @@ namespace System.RoboTech.Controller
                {
                   #region Invite Friend
                   chat.Runed = false;
-                  await Bot.SendTextMessageAsync(e.Message.Chat.Id, 
-                           string.Format("{0}\n\rhttps://telegram.me/{1}?start={2}", robot.INVT_FRND ?? "از اینکه دوستان خود را به ما معرفی میکنید بسیار ممنون و خرسندیم، لینک شما برای دعوت کردن دوستان", robot.NAME.Substring(1), e.Message.Chat.Id),
+                  await Bot.SendTextMessageAsync(e.Message.Chat.Id,
+                           string.Format("{0}\n\rhttps://bale.ai\n\r{1}\n\r{2}\n\r{3}", robot.INVT_FRND ?? "از اینکه دوستان خود را به ما معرفی میکنید بسیار ممنون و خرسندیم، لینک شما برای دعوت کردن دوستان. با بله حساب کتابت با همه درسته 👉 😀 👈", robot.NAME, e.Message.Chat.Id, robot.HASH_TAG ?? "#انارسافت" ),
                            ParseMode.Default,
                            replyToMessageId:
                            e.Message.MessageId,
@@ -2201,7 +2196,7 @@ namespace System.RoboTech.Controller
                      //   new InputOnlineFile(new FileStream(string.Format(@"{0}\{1}\{1}.pdf", robot.UP_LOAD_FILE_PATH, e.Message.Chat.Id), FileMode.Open, FileAccess.Read, FileShare.Read), e.Message.Chat.Id.ToString())
                      //);
                   }
-                  
+
                   #endregion
                }
                else if (menucmndtype.CMND_TYPE == "022")
@@ -2368,16 +2363,16 @@ namespace System.RoboTech.Controller
                   // 024 - Stickers & Image
                   chat.Runed = false;
                   var stickers = (from o in iRobotTech.Organs
-                              join r in iRobotTech.Robots on o.OGID equals r.ORGN_OGID
-                              join p in iRobotTech.Organ_Medias on o.OGID equals p.ORGN_OGID
-                              where o.STAT == "002"
-                                    && r.STAT == "002"
-                                    && p.STAT == "002"
-                                    && p.USSD_CODE == menucmndtype.USSD_CODE
-                                    && r.TKON_CODE == Token
-                                    && p.IMAG_TYPE == "007"
-                              orderby p.ORDR
-                              select new { p.FILE_NAME, p.FILE_PATH, p.IMAG_DESC, p.FILE_ID, p.OPID }).ToList();
+                                  join r in iRobotTech.Robots on o.OGID equals r.ORGN_OGID
+                                  join p in iRobotTech.Organ_Medias on o.OGID equals p.ORGN_OGID
+                                  where o.STAT == "002"
+                                        && r.STAT == "002"
+                                        && p.STAT == "002"
+                                        && p.USSD_CODE == menucmndtype.USSD_CODE
+                                        && r.TKON_CODE == Token
+                                        && p.IMAG_TYPE == "007"
+                                  orderby p.ORDR
+                                  select new { p.FILE_NAME, p.FILE_PATH, p.IMAG_DESC, p.FILE_ID, p.OPID }).ToList();
 
                   foreach (var pic in stickers)
                   {
@@ -2491,16 +2486,16 @@ namespace System.RoboTech.Controller
                   // 025 - Stickers & Image & Text
                   chat.Runed = false;
                   var stickers = (from o in iRobotTech.Organs
-                              join r in iRobotTech.Robots on o.OGID equals r.ORGN_OGID
-                              join p in iRobotTech.Organ_Medias on o.OGID equals p.ORGN_OGID
-                              where o.STAT == "002"
-                                    && r.STAT == "002"
-                                    && p.STAT == "002"
-                                    && p.USSD_CODE == menucmndtype.USSD_CODE
-                                    && r.TKON_CODE == Token
-                                    && p.IMAG_TYPE == "007"
-                              orderby p.ORDR
-                              select new { p.FILE_NAME, p.FILE_PATH, p.IMAG_DESC, p.FILE_ID }).ToList();
+                                  join r in iRobotTech.Robots on o.OGID equals r.ORGN_OGID
+                                  join p in iRobotTech.Organ_Medias on o.OGID equals p.ORGN_OGID
+                                  where o.STAT == "002"
+                                        && r.STAT == "002"
+                                        && p.STAT == "002"
+                                        && p.USSD_CODE == menucmndtype.USSD_CODE
+                                        && r.TKON_CODE == Token
+                                        && p.IMAG_TYPE == "007"
+                                  orderby p.ORDR
+                                  select new { p.FILE_NAME, p.FILE_PATH, p.IMAG_DESC, p.FILE_ID }).ToList();
 
                   foreach (var pic in stickers)
                   {
@@ -2546,16 +2541,16 @@ namespace System.RoboTech.Controller
                   #endregion
                   #region Image
                   var pics = (from o in iRobotTech.Organs
-                          join r in iRobotTech.Robots on o.OGID equals r.ORGN_OGID
-                          join p in iRobotTech.Organ_Medias on o.OGID equals p.ORGN_OGID
-                          where o.STAT == "002"
-                                && r.STAT == "002"
-                                && p.STAT == "002"
-                                && p.USSD_CODE == menucmndtype.USSD_CODE
-                                && r.TKON_CODE == Token
-                                && p.IMAG_DESC != null
-                          orderby p.ORDR
-                          select new { p.FILE_NAME, p.FILE_PATH, p.IMAG_DESC, p.FILE_ID, p.OPID }).ToList();
+                              join r in iRobotTech.Robots on o.OGID equals r.ORGN_OGID
+                              join p in iRobotTech.Organ_Medias on o.OGID equals p.ORGN_OGID
+                              where o.STAT == "002"
+                                    && r.STAT == "002"
+                                    && p.STAT == "002"
+                                    && p.USSD_CODE == menucmndtype.USSD_CODE
+                                    && r.TKON_CODE == Token
+                                    && p.IMAG_DESC != null
+                              orderby p.ORDR
+                              select new { p.FILE_NAME, p.FILE_PATH, p.IMAG_DESC, p.FILE_ID, p.OPID }).ToList();
 
                   foreach (var pic in pics)
                   {
@@ -2638,6 +2633,109 @@ namespace System.RoboTech.Controller
                   }
                   #endregion
                }
+               else if(menucmndtype.CMND_TYPE == "026")
+               {
+                  #region Direct Payment Process
+                  var _getdirectpaymentprocess = 
+                     from ghi in iRobotTech.Group_Header_Items
+                     join gm in iRobotTech.Group_Menu_Ussds on ghi.Group_Menu_Ussd equals gm
+                     join g in iRobotTech.Groups on gm.Group equals g
+                     join srg in iRobotTech.Service_Robot_Groups on g equals srg.Group
+                     join sr in iRobotTech.Service_Robots on srg.Service_Robot equals sr
+                     join r in iRobotTech.Robots on sr.Robot equals r
+                     where r.TKON_CODE == GetToken() 
+                        && sr.CHAT_ID == chat.Message.Chat.Id
+                        //&& srg.DFLT_STAT == "002"
+                        && ghi.STAT == "002"
+                        && g.STAT == "002"
+                        && gm.STAT == "002"
+                        && srg.STAT == "002"
+                        && gm.MNUS_MUID == menucmndtype.MUID
+                     select new {
+                        Price = ghi.PRIC, Ussd_Code = ghi.USSD_CODE_DNRM, 
+                        Muid = ghi.GRMU_MNUS_MUID, Gpid = ghi.GRMU_GROP_GPID, 
+                        Auto_Join = g.AUTO_JOIN, Default = srg.DFLT_STAT,
+                        Title = ghi.GHDT_DESC, Description = ghi.Group_Header.GRPH_DESC,
+                        Tax = ghi.TAX_PRCT, Off_Percentage = g.OFF_PRCT
+                     };
+
+                  var _getdefaultgroupaccess = 
+                     from gm in iRobotTech.Group_Menu_Ussds 
+                     join g in iRobotTech.Groups on gm.Group equals g
+                     join srg in iRobotTech.Service_Robot_Groups on g equals srg.Group
+                     join sr in iRobotTech.Service_Robots on srg.Service_Robot equals sr
+                     join r in iRobotTech.Robots on sr.Robot equals r
+                     where r.TKON_CODE == GetToken() 
+                        && sr.CHAT_ID == chat.Message.Chat.Id
+                        && srg.DFLT_STAT == "002"
+                        && g.STAT == "002"
+                        && gm.STAT == "002"
+                        && srg.STAT == "002"
+                        && gm.MNUS_MUID == menucmndtype.MUID
+                     select new {
+                        Off_Percentage = g.OFF_PRCT
+                     };
+
+                  var _dfltgropamnt = _getdirectpaymentprocess.Where(a => a.Default == "002");
+                  long? amnt = null;
+                  string title = "", description = "", ussdcode = "";
+                  int? tax = 0, off_prct = 0;
+                  if(_dfltgropamnt.Any())
+                  {
+                     // اگر گروه دسترسی پیش فرض برای محاسبه هزینه وجود داشته باشد                     
+                     amnt = _dfltgropamnt.Max(v => v.Price);
+                     tax = _dfltgropamnt.FirstOrDefault(v => v.Price == amnt).Tax;
+                     //off_prct = _dfltgropamnt.FirstOrDefault(v => v.Price == amnt).Off_Percentage;
+                     title = _dfltgropamnt.FirstOrDefault(v => v.Price == amnt).Title;
+                     description = _dfltgropamnt.FirstOrDefault(v => v.Price == amnt).Description;
+                     ussdcode = _dfltgropamnt.FirstOrDefault(v => v.Price == amnt).Ussd_Code;
+                  }
+                  else
+                  {
+                     // اگر گروه دسترسی پیش فرض برای محاسبه هزینه وجود نداشته باشد
+                     amnt = _getdirectpaymentprocess.Where(dpp => dpp.Auto_Join == "002").Max(v => v.Price);
+                     tax = _getdirectpaymentprocess.FirstOrDefault(dpp => dpp.Auto_Join == "002" && dpp.Price == amnt).Tax;
+                     // اگر در خروجی بدست آمده تخفیف گروه پیش فرض وحود داشته باشد
+                     if (!_getdefaultgroupaccess.Any())
+                        off_prct = _getdirectpaymentprocess.FirstOrDefault(dpp => dpp.Auto_Join == "002" && dpp.Price == amnt).Off_Percentage;
+                     else
+                        off_prct = _getdefaultgroupaccess.Max(dpp => dpp.Off_Percentage);
+                     
+                     title = _getdirectpaymentprocess.FirstOrDefault(dpp => dpp.Auto_Join == "002" && dpp.Price == amnt).Title;
+                     description = _getdirectpaymentprocess.FirstOrDefault(dpp => dpp.Auto_Join == "002" && dpp.Price == amnt).Description;
+                     ussdcode = _getdirectpaymentprocess.FirstOrDefault(dpp => dpp.Auto_Join == "002" && dpp.Price == amnt).Ussd_Code;
+                  }
+
+                  // Process SendInvoice
+                  var price = new List<LabeledPrice>();
+                  if (off_prct > 0)
+                     amnt -= (amnt * off_prct) / 100;
+
+                  if (tax > 0)
+                  {
+                     price.Add(new LabeledPrice("قیمت کل", (int)amnt));
+                     price.Add(new LabeledPrice("ارزش افزوده", ((int)amnt * (int)tax) / 100));
+                  }
+                  else
+                     price.Add(new LabeledPrice("قیمت کل", (int)amnt));
+                  
+                  Bot.SendInvoiceAsync(
+                     (int)e.Message.Chat.Id,
+                     title,
+                     description,
+                     ussdcode,
+                     "5859831147061971",
+                     "",
+                     "IRR",
+                     price
+                     );
+                  #endregion
+               }
+               else if (menucmndtype.CMND_TYPE == "027")
+               {
+                  #region Order Checkout Payment Process
+                  #endregion
+               }
             }
             else
             {
@@ -2683,13 +2781,13 @@ namespace System.RoboTech.Controller
             if (ConsoleOutLog_MemTxt.InvokeRequired)
                ConsoleOutLog_MemTxt.Invoke(
                   new Action(
-                     () => 
-                        ConsoleOutLog_MemTxt.Text += 
-                        string.Format("Robot Id : {3} * {5}, DateTime : {4} , Chat Id : {0}, From : {1}, Message Text : {2}\r\n", 
-                        e.Message.Chat.Id, 
-                        e.Message.From.FirstName + ", " + e.Message.From.LastName, 
-                        e.Message.Text, 
-                        Me.Username,                         
+                     () =>
+                        ConsoleOutLog_MemTxt.Text +=
+                        string.Format("Robot Id : {3} * {5}, DateTime : {4} , Chat Id : {0}, From : {1}, Message Text : {2}\r\n",
+                        e.Message.Chat.Id,
+                        e.Message.From.FirstName + ", " + e.Message.From.LastName,
+                        e.Message.Text,
+                        Me.Username,
                         DateTime.Now.ToString(),
                         e.Message.Chat.Username)));
             else
@@ -2721,7 +2819,7 @@ namespace System.RoboTech.Controller
                );
 
             Data.iRoboTechDataContext iRobotTech = new Data.iRoboTechDataContext(connectionString);
-            iRobotTech.SAVE_RSMG_P(x);            
+            iRobotTech.SAVE_RSMG_P(x);
          }
          catch { }
 #endif
@@ -2921,7 +3019,7 @@ namespace System.RoboTech.Controller
          {
             case "002":
                ///***await Bot.GetFileAsync(fileid, System.IO.File.Create(destpath));
-               Telegram.Bot.Types.File file = await Bot.GetFileAsync(fileid);
+               Bale.Bot.Types.File file = await Bot.GetFileAsync(fileid);
                file.FilePath = destpath;
                break;
             case "003":
@@ -2942,11 +3040,11 @@ namespace System.RoboTech.Controller
             {
                var photo = photos.Photos[i].Reverse().FirstOrDefault();
                ///***await Bot.GetFileAsync(photo.FileId, System.IO.File.Create(destpath + "_" + i.ToString() +  ".jpg"));
-               Telegram.Bot.Types.File file = await Bot.GetFileAsync(photo.FileId);
+               Bale.Bot.Types.File file = await Bot.GetFileAsync(photo.FileId);
                file.FilePath = destpath + "_" + i.ToString() + ".jpg";
             }
          }
-         catch(Exception exc)
+         catch (Exception exc)
          {
             System.Windows.Forms.MessageBox.Show("در ذخیره سازی اطلاعات پروفایل مشتری اشکالی به وجود آماده، لطفا بررسی کنید");
          }
@@ -3016,7 +3114,7 @@ namespace System.RoboTech.Controller
                            };
                            iRobotTech.Service_Robot_Send_Advertisings.InsertOnSubmit(srsa);
                            iRobotTech.SubmitChanges();
-                           
+
                            if (ConsoleOutLog_MemTxt.InvokeRequired)
                               ConsoleOutLog_MemTxt.Invoke(new Action(() => ConsoleOutLog_MemTxt.Text += string.Format("Robot Id : {2} , DateTime : {3} , Chat Id : {0}, From : {1} => Successful\r\n", s.CHAT_ID, s.Service.FRST_NAME + ", " + s.Service.LAST_NAME, Me.Username, DateTime.Now.ToString())));
                            else
@@ -3188,7 +3286,7 @@ namespace System.RoboTech.Controller
                         {
                            try
                            {
-                              Bot.SendAudioAsync((long)s.CHAT_ID, file,send.TEXT_MESG ?? "No Audio Caption", 0, 0, send.TEXT_MESG, "#");
+                              Bot.SendAudioAsync((long)s.CHAT_ID, file, send.TEXT_MESG ?? "No Audio Caption", 0, 0, send.TEXT_MESG, "#");
                               var srsa = new Data.Service_Robot_Send_Advertising()
                               {
                                  Service_Robot = s,
@@ -3224,7 +3322,7 @@ namespace System.RoboTech.Controller
                   }
                   catch { }
                   break;
-               
+
                default:
                   break;
             }
@@ -3275,7 +3373,7 @@ namespace System.RoboTech.Controller
 
                   if (send.MESG_TYPE == "002")
                      await Bot.SendPhotoAsync((long)send.CHAT_ID, photo, send.MESG_TEXT ?? "😊", ParseMode.Default, false, (int)(send.SRMG_MESG_ID_DNRM ?? 0));
-                  else if(send.MESG_TYPE == "003")
+                  else if (send.MESG_TYPE == "003")
                      await Bot.SendVideoAsync((long)send.CHAT_ID, photo, replyToMessageId: (int)(send.SRMG_MESG_ID_DNRM ?? 0));
                   else if (send.MESG_TYPE == "004")
                      await Bot.SendDocumentAsync((long)send.CHAT_ID, photo, send.MESG_TEXT ?? "😊", replyToMessageId: (int)(send.SRMG_MESG_ID_DNRM ?? 0));
@@ -3283,17 +3381,17 @@ namespace System.RoboTech.Controller
                      await Bot.SendAudioAsync((long)send.CHAT_ID, photo, "*", 0, 0, "*", "#", replyToMessageId: (int)(send.SRMG_MESG_ID_DNRM ?? 0));
                   else if (send.MESG_TYPE == "007")
                      await Bot.SendStickerAsync((long)send.CHAT_ID, photo, replyToMessageId: (int)(send.SRMG_MESG_ID_DNRM ?? 0));
-                  else if(send.MESG_TYPE == "009")
+                  else if (send.MESG_TYPE == "009")
                      await Bot.SendVoiceAsync((long)send.CHAT_ID, photo, replyToMessageId: (int)(send.SRMG_MESG_ID_DNRM ?? 0));
                }
                else if (send.MESG_TYPE == "005")
                {
                   await Bot.SendLocationAsync((long)send.CHAT_ID, (float)send.LAT, (float)send.LON, replyToMessageId: (int)(send.SRMG_MESG_ID_DNRM ?? 0));
                }
-               else if(send.MESG_TYPE == "008")
+               else if (send.MESG_TYPE == "008")
                {
                   await Bot.SendContactAsync((long)send.CHAT_ID, send.CONT_CELL_PHON, send.MESG_TEXT, replyToMessageId: (int)(send.SRMG_MESG_ID_DNRM ?? 0));
-               }               
+               }
 
                send.SEND_STAT = "004";
                if (ConsoleOutLog_MemTxt.InvokeRequired)
@@ -3301,7 +3399,8 @@ namespace System.RoboTech.Controller
                else
                   ConsoleOutLog_MemTxt.Text += string.Format("Robot Id : {2} , DateTime : {3} , Chat Id : {0}, From : {1} => Successful\r\n", send.CHAT_ID, send.Service_Robot.Service.FRST_NAME + ", " + send.Service_Robot.Service.LAST_NAME, Me.Username, DateTime.Now.ToString());
             }
-            catch { 
+            catch
+            {
                send.SEND_STAT = "001";
                if (ConsoleOutLog_MemTxt.InvokeRequired)
                   ConsoleOutLog_MemTxt.Invoke(new Action(() => ConsoleOutLog_MemTxt.Text += string.Format("Robot Id : {2} , DateTime : {3} , Chat Id : {0}, From : {1} => Failed\r\n", send.CHAT_ID, send.Service_Robot.Service.FRST_NAME + ", " + send.Service_Robot.Service.LAST_NAME, Me.Username, DateTime.Now.ToString())));
@@ -3343,7 +3442,7 @@ namespace System.RoboTech.Controller
                         try
                         {
                            ///***await Bot.GetFileAsync(ordt.ORDR_DESC, System.IO.File.Create(fileupload + "\\" + filename + ".jpg"));
-                           Telegram.Bot.Types.File file = await Bot.GetFileAsync(ordt.ORDR_DESC);
+                           Bale.Bot.Types.File file = await Bot.GetFileAsync(ordt.ORDR_DESC);
                            file.FilePath = fileupload + "\\" + filename + ".jpg";
                            ordt.IMAG_PATH = fileupload + "\\" + filename + ".jpg";
                         }
@@ -3354,7 +3453,7 @@ namespace System.RoboTech.Controller
                         try
                         {
                            ///***await Bot.GetFileAsync(ordt.ORDR_DESC, System.IO.File.Create(fileupload + "\\" + /*chat.Message.Video.FileId*/ filename + "." + ordt.FILE_EXT));
-                           Telegram.Bot.Types.File file = await Bot.GetFileAsync(ordt.ORDR_DESC);
+                           Bale.Bot.Types.File file = await Bot.GetFileAsync(ordt.ORDR_DESC);
                            file.FilePath = fileupload + "\\" + filename + "." + ordt.FILE_EXT;
                            ordt.IMAG_PATH = fileupload + "\\" + filename + "." + ordt.FILE_EXT;
                         }
@@ -3365,7 +3464,7 @@ namespace System.RoboTech.Controller
                         try
                         {
                            ///***await Bot.GetFileAsync(ordt.ORDR_DESC, System.IO.File.Create(fileupload + "\\" + /*chat.Message.Document.FileId*/ filename+"." + ordt.FILE_EXT));
-                           Telegram.Bot.Types.File file = await Bot.GetFileAsync(ordt.ORDR_DESC);
+                           Bale.Bot.Types.File file = await Bot.GetFileAsync(ordt.ORDR_DESC);
                            file.FilePath = fileupload + "\\" + filename + "." + ordt.FILE_EXT;
                            ordt.IMAG_PATH = fileupload + "\\" + filename + "." + ordt.FILE_EXT;
                         }
@@ -3376,7 +3475,7 @@ namespace System.RoboTech.Controller
                         try
                         {
                            ///***await Bot.GetFileAsync(ordt.ORDR_DESC, System.IO.File.Create(fileupload + "\\" + /*chat.Message.Audio.FileId*/ filename + "." + ordt.FILE_EXT));
-                           Telegram.Bot.Types.File file = await Bot.GetFileAsync(ordt.ORDR_DESC);
+                           Bale.Bot.Types.File file = await Bot.GetFileAsync(ordt.ORDR_DESC);
                            file.FilePath = fileupload + "\\" + filename + "." + ordt.FILE_EXT;
                            ordt.IMAG_PATH = fileupload + "\\" + filename + "." + ordt.FILE_EXT;
                         }
@@ -3387,12 +3486,12 @@ namespace System.RoboTech.Controller
                         try
                         {
                            ///***await Bot.GetFileAsync(ordt.ORDR_DESC, System.IO.File.Create(fileupload + "\\" + /*chat.Message.Sticker.FileId*/ filename + "." + ordt.FILE_EXT));
-                           Telegram.Bot.Types.File file = await Bot.GetFileAsync(ordt.ORDR_DESC);
+                           Bale.Bot.Types.File file = await Bot.GetFileAsync(ordt.ORDR_DESC);
                            file.FilePath = fileupload + "\\" + filename + "." + ordt.FILE_EXT;
                            ordt.IMAG_PATH = fileupload + "\\" + filename + "." + ordt.FILE_EXT;
                         }
                         catch { }
-                     }                     
+                     }
                   }
                }
             }
@@ -3401,7 +3500,7 @@ namespace System.RoboTech.Controller
          #endregion
 
          #region Robot_Spy_Group_Message
-         foreach (var rsgm in iRobotTech.Robot_Spy_Group_Messages.Where(r => r.FILE_ID != null && r .FILE_PATH == null))
+         foreach (var rsgm in iRobotTech.Robot_Spy_Group_Messages.Where(r => r.FILE_ID != null && r.FILE_PATH == null))
          {
             #region Robot_Spy_Group_Message Download
             {
@@ -3427,7 +3526,7 @@ namespace System.RoboTech.Controller
                         try
                         {
                            ///***await Bot.GetFileAsync(rsgm.FILE_ID, System.IO.File.Create(fileupload + "\\" + filename + ".jpg"));
-                           Telegram.Bot.Types.File file = await Bot.GetFileAsync(rsgm.FILE_ID);
+                           Bale.Bot.Types.File file = await Bot.GetFileAsync(rsgm.FILE_ID);
                            file.FilePath = fileupload + "\\" + filename + ".jpg";
                            rsgm.FILE_PATH = fileupload + "\\" + filename + ".jpg";
                         }
@@ -3438,7 +3537,7 @@ namespace System.RoboTech.Controller
                         try
                         {
                            ///***await Bot.GetFileAsync(rsgm.FILE_ID, System.IO.File.Create(fileupload + "\\" + /*chat.Message.Video.FileId*/ filename));
-                           Telegram.Bot.Types.File file = await Bot.GetFileAsync(rsgm.FILE_ID);
+                           Bale.Bot.Types.File file = await Bot.GetFileAsync(rsgm.FILE_ID);
                            file.FilePath = fileupload + "\\" + filename;
                            rsgm.FILE_PATH = fileupload + "\\" + filename;
                         }
@@ -3449,7 +3548,7 @@ namespace System.RoboTech.Controller
                         try
                         {
                            ///***await Bot.GetFileAsync(rsgm.FILE_ID, System.IO.File.Create(fileupload + "\\" + /*chat.Message.Document.FileId*/ filename));
-                           Telegram.Bot.Types.File file = await Bot.GetFileAsync(rsgm.FILE_ID);
+                           Bale.Bot.Types.File file = await Bot.GetFileAsync(rsgm.FILE_ID);
                            file.FilePath = fileupload + "\\" + filename;
                            rsgm.FILE_PATH = fileupload + "\\" + filename;
                         }
@@ -3460,7 +3559,7 @@ namespace System.RoboTech.Controller
                         try
                         {
                            ///***await Bot.GetFileAsync(rsgm.FILE_ID, System.IO.File.Create(fileupload + "\\" + /*chat.Message.Audio.FileId*/ filename));
-                           Telegram.Bot.Types.File file = await Bot.GetFileAsync(rsgm.FILE_ID);
+                           Bale.Bot.Types.File file = await Bot.GetFileAsync(rsgm.FILE_ID);
                            file.FilePath = fileupload + "\\" + filename;
                            rsgm.FILE_PATH = fileupload + "\\" + filename;
                         }
@@ -3471,7 +3570,7 @@ namespace System.RoboTech.Controller
                         try
                         {
                            ///***await Bot.GetFileAsync(rsgm.FILE_ID, System.IO.File.Create(fileupload + "\\" + /*chat.Message.Sticker.FileId*/ filename));
-                           Telegram.Bot.Types.File file = await Bot.GetFileAsync(rsgm.FILE_ID);
+                           Bale.Bot.Types.File file = await Bot.GetFileAsync(rsgm.FILE_ID);
                            file.FilePath = fileupload + "\\" + filename;
                            rsgm.FILE_PATH = fileupload + "\\" + filename;
                         }
@@ -3779,150 +3878,19 @@ namespace System.RoboTech.Controller
                #endregion
             }
          }
-      }
-      
-      /*
-      private static void BotOnReceiveError(object sender, ReceiveErrorEventArgs receiveErrorEventArgs)
+      }      
+      private string GetToken()
       {
-         Debugger.Break();
-      }
-
-      private static void BotOnChosenInlineResultReceived(object sender, ChosenInlineResultEventArgs chosenInlineResultEventArgs)
-      {
-         //Console.WriteLine($"Received choosen inline result: {chosenInlineResultEventArgs.ChosenInlineResult.ResultId}");
-      }
-      
-      private async void BotOnInlineQueryReceived(object sender, InlineQueryEventArgs inlineQueryEventArgs)
-      {
-         InlineQueryResult[] results = {
-               new InlineQueryResultLocation
-               {
-                  Id = "1",
-                  Latitude = 40.7058316f, // displayed result
-                  Longitude = -74.2581888f,
-                  Title = "New York",
-                  InputMessageContent = new InputLocationMessageContent // message if result is selected
-                  {
-                     Latitude = 40.7058316f,
-                     Longitude = -74.2581888f,
-                  }
-               },
-
-               new InlineQueryResultLocation
-               {
-                  Id = "2",
-                  Longitude = 52.507629f, // displayed result
-                  Latitude = 13.1449577f,
-                  Title = "Berlin",
-                  InputMessageContent = new InputLocationMessageContent // message if result is selected
-                  {
-                     Longitude = 52.507629f,
-                     Latitude = 13.1449577f
-                  }
-               }
-         };
-
-         await Bot.AnswerInlineQueryAsync(inlineQueryEventArgs.InlineQuery.Id, results, isPersonal: true, cacheTime: 0);
-      }
-      
-      private async void BotOnMessageReceived(object sender, MessageEventArgs messageEventArgs)
-      {
-         var message = messageEventArgs.Message;
-
-         if (message == null || message.Type != MessageType.Text) return;
-
-         if (message.Text.StartsWith("/inline")) // send inline keyboard
+         string token = "";
+         if(robot.COPY_TYPE == "002" && robot.ROBO_RBID != null)
          {
-               await Bot.SendChatActionAsync(message.Chat.Id, ChatAction.Typing);
-
-               var keyboard = new InlineKeyboardMarkup(new[]
-               {
-                  new[] // first row
-                  {
-                     new InlineKeyboardButton("1.1"),
-                     new InlineKeyboardButton("1.2"),
-                  },
-                  new[] // second row
-                  {
-                     new InlineKeyboardButton("2.1"),
-                     new InlineKeyboardButton("2.2"),
-                  }
-               });
-
-               await Task.Delay(500); // simulate longer running task
-
-               await Bot.SendTextMessageAsync(message.Chat.Id, "Choose",
-                  replyMarkup: keyboard);
-         }
-         else if (message.Text.StartsWith("/keyboard")) // send custom keyboard
-         {
-               var keyboard = new ReplyKeyboardMarkup(new[]
-               {
-                  new [] // first row
-                  {
-                     new KeyboardButton("1.1"),
-                     new KeyboardButton("1.2"),  
-                  },
-                  new [] // last row
-                  {
-                     new KeyboardButton("2.1"),
-                     new KeyboardButton("2.2"),  
-                  }
-               });
-
-               await Bot.SendTextMessageAsync(message.Chat.Id, "Choose",
-                  replyMarkup: keyboard);
-         }
-         else if (message.Text.StartsWith("/photo")) // send a photo
-         {
-               await Bot.SendChatActionAsync(message.Chat.Id, ChatAction.UploadPhoto);
-
-               const string file = @"C:\\Users\\mohsen\\Pictures\\800t.png";
-
-               var fileName = file.Split('\\').Last();
-
-               using (var fileStream = new FileStream(file, FileMode.Open, FileAccess.Read, FileShare.Read))
-               {
-                  var fts = new FileToSend(fileName, fileStream);
-
-                  await Bot.SendPhotoAsync(message.Chat.Id, fts, "Nice Picture");
-               }
-         }
-         else if (message.Text.StartsWith("/request")) // request location or contact
-         {
-               var keyboard = new ReplyKeyboardMarkup(new []
-               {
-                  new KeyboardButton("Location")
-                  {
-                     RequestLocation = true
-                  },
-                  new KeyboardButton("Contact")
-                  {
-                     RequestContact = true
-                  }, 
-               });
-
-               await Bot.SendTextMessageAsync(message.Chat.Id, "Who or Where are you?", replyMarkup: keyboard);
+            token = robot.Robot1.TKON_CODE;
          }
          else
          {
-               var usage = @"Usage:
-/inline   - send inline keyboard
-/keyboard - send custom keyboard
-/photo    - send a photo
-/request  - request location or contact
-";
-
-               await Bot.SendTextMessageAsync(message.Chat.Id, usage,
-                  replyMarkup: new ReplyKeyboardHide());
+            token = Token;
          }
+         return token;
       }
-
-      private async void BotOnCallbackQueryReceived(object sender, CallbackQueryEventArgs callbackQueryEventArgs)
-      {
-         await Bot.AnswerCallbackQueryAsync(callbackQueryEventArgs.CallbackQuery.Id,
-               "Received {callbackQueryEventArgs.CallbackQuery.Data}");
-      }
-      */
    }
 }

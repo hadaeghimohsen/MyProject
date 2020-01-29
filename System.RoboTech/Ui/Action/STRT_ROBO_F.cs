@@ -23,7 +23,7 @@ namespace System.RoboTech.Ui.Action
       private bool requery = false;
       private bool robotStarted = false;
 
-      List<iRobot> iRobots;
+      List<IApiBot> iRobots;
 
       private void Execute_Query()
       {
@@ -53,7 +53,7 @@ namespace System.RoboTech.Ui.Action
 
          if(iRobots == null)
          {
-            iRobots = new List<iRobot>();
+            iRobots = new List<IApiBot>();
          }
 
          if (robotStarted) return;
@@ -66,9 +66,14 @@ namespace System.RoboTech.Ui.Action
             foreach (var robot in RoboBs.List.OfType<Data.Robot>().Where(r => r.Organ == orgn && r.STAT == "002"))
             {
                ConsoleOutLog_MemTxt.Text += string.Format("{0} has Starting\r\n", robot.NAME);
-               iRobots.Add(
-                  new iRobot(robot.TKON_CODE, ConnectionString, ConsoleOutLog_MemTxt, true, robot)
-               );
+               if(robot.BOT_TYPE == "001")
+                  iRobots.Add(                  
+                     new TelegramApiBot(robot.TKON_CODE, ConnectionString, ConsoleOutLog_MemTxt, true, robot)
+                  );
+               else if(robot.BOT_TYPE == "002")
+                  iRobots.Add(
+                     new BaleApiBot(robot.TKON_CODE, ConnectionString, ConsoleOutLog_MemTxt, true, robot)
+                  );
                ConsoleOutLog_MemTxt.Text += string.Format("{0} has Started\r\n", robot.NAME);
             }
             OrgnBs.MoveNext();
@@ -79,10 +84,10 @@ namespace System.RoboTech.Ui.Action
       {         
          foreach (var robot in iRobots)
          {
-            ConsoleOutLog_MemTxt.Text = string.Format("{0} has Stoping\r\n", robot.Me.Username);
-            if(robot.Started)
-               robot.StopReceiving();
-            ConsoleOutLog_MemTxt.Text = string.Format("{0} has Stoped\r\n", robot.Me.Username);
+            ConsoleOutLog_MemTxt.Text = string.Format("{0} has Stoping\r\n", robot.BotName);
+            if (robot.Started)
+               robot.StopReceiving();            
+            ConsoleOutLog_MemTxt.Text = string.Format("{0} has Stoped\r\n", robot.BotName);
          }
 
          iRobots.Clear();

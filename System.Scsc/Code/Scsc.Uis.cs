@@ -159,6 +159,8 @@ namespace System.Scsc.Code
       internal Ui.AggregateOperation.AOP_INCM_F _Aop_Incm_F { get; set; }
       internal Ui.BaseDefinition.BAS_CBMT_F _Bas_Cbmt_F { get; set; }
       internal Ui.Attendance.MNGR_DRES_F _Mngr_Dres_F { get; set; }
+      internal Ui.BaseDefinition.BAS_PROD_F _Bas_Prod_F { get; set; }
+      internal Ui.WarrantyService.WRN_SERV_F _Wrn_Serv_F { get; set; }
 
       /// Kiosk
       internal Ui.OtherIncome.KSK_INCM_F _Ksk_Incm_F { get; set; }

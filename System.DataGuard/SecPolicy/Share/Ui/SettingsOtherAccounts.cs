@@ -1036,5 +1036,22 @@ namespace System.DataGuard.SecPolicy.Share.Ui
          }
       }
 
+      private void JoinBoxBsTp3_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            BoxBs.MoveFirst();
+            for (int i = 0; i < BoxBs.Count; i++)
+            {
+               GrantBoxPrivilegeToRole_Butn_Click(null, null);
+               BoxBs.MoveNext();
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
    }
 }

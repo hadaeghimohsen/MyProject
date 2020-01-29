@@ -1889,9 +1889,18 @@ namespace System.Scsc.Ui.Common
                new Job(SendType.External, "localhost", "DefaultGateway:Msgb", 07 /* Execute Send_Mesg_F */, SendType.Self)
             );
 
-            _DefaultGateway.Gateway(
-               new Job(SendType.External, "localhost", "DefaultGateway:Msgb:SEND_MESG_F", 10 /* Execute Actn_CalF_P */, SendType.SelfToUserInterface) { Input = new XElement("Message", new XAttribute("tab", "tp_004"), new XAttribute("filtering", "phonnumb"), new XAttribute("valu", phon)) }
-            );
+            if (ModifierKeys.HasFlag(Keys.Control))
+            {
+               _DefaultGateway.Gateway(
+                  new Job(SendType.External, "localhost", "DefaultGateway:Msgb:SEND_MESG_F", 10 /* Execute Actn_CalF_P */, SendType.SelfToUserInterface) { Input = new XElement("Message", new XAttribute("tab", "tp_001"), new XAttribute("subsys", "5"), new XAttribute("cellphon", phon)) }
+               );
+            }
+            else
+            {
+               _DefaultGateway.Gateway(
+                  new Job(SendType.External, "localhost", "DefaultGateway:Msgb:SEND_MESG_F", 10 /* Execute Actn_CalF_P */, SendType.SelfToUserInterface) { Input = new XElement("Message", new XAttribute("tab", "tp_004"), new XAttribute("filtering", "phonnumb"), new XAttribute("valu", phon)) }
+               );
+            }
          }
          catch (Exception exc)
          {
@@ -2387,6 +2396,33 @@ namespace System.Scsc.Ui.Common
       private void UnBlokPymt_Tsmi_Click(object sender, EventArgs e)
       {
 
+      }
+
+      private void CnclPymtWithoutRcpt_Tsm_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var mbsp = MbspBs.Current as Data.Member_Ship;
+            if (mbsp == null) return;
+
+            iScsc.CNCL_PYMT_P(
+               new XElement("Payment",
+                  new XAttribute("rqid", mbsp.RQRO_RQST_RQID),
+                  new XAttribute("cncltype", "003") // ابطال عادی صورتحساب بدون بازگشت
+               )
+            );
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
       }      
    }
 }

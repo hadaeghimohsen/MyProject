@@ -351,22 +351,6 @@ namespace System.RoboTech.Data
 			}
 		}
 		
-		public System.Data.Linq.Table<Service_Robot_Group> Service_Robot_Groups
-		{
-			get
-			{
-				return this.GetTable<Service_Robot_Group>();
-			}
-		}
-		
-		public System.Data.Linq.Table<Group> Groups
-		{
-			get
-			{
-				return this.GetTable<Group>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Organ_Media> Organ_Medias
 		{
 			get
@@ -495,14 +479,6 @@ namespace System.RoboTech.Data
 			}
 		}
 		
-		public System.Data.Linq.Table<Group_Header> Group_Headers
-		{
-			get
-			{
-				return this.GetTable<Group_Header>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Modual_Report> Modual_Reports
 		{
 			get
@@ -580,14 +556,6 @@ namespace System.RoboTech.Data
 			get
 			{
 				return this.GetTable<Service_Robot>();
-			}
-		}
-		
-		public System.Data.Linq.Table<Group_Header_Item> Group_Header_Items
-		{
-			get
-			{
-				return this.GetTable<Group_Header_Item>();
 			}
 		}
 		
@@ -679,11 +647,59 @@ namespace System.RoboTech.Data
 			}
 		}
 		
+		public System.Data.Linq.Table<D_BTYP> D_BTYPs
+		{
+			get
+			{
+				return this.GetTable<D_BTYP>();
+			}
+		}
+		
+		public System.Data.Linq.Table<D_BDIR> D_BDIRs
+		{
+			get
+			{
+				return this.GetTable<D_BDIR>();
+			}
+		}
+		
 		public System.Data.Linq.Table<Robot> Robots
 		{
 			get
 			{
 				return this.GetTable<Robot>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Service_Robot_Group> Service_Robot_Groups
+		{
+			get
+			{
+				return this.GetTable<Service_Robot_Group>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Group_Header> Group_Headers
+		{
+			get
+			{
+				return this.GetTable<Group_Header>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Group> Groups
+		{
+			get
+			{
+				return this.GetTable<Group>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Group_Header_Item> Group_Header_Items
+		{
+			get
+			{
+				return this.GetTable<Group_Header_Item>();
 			}
 		}
 		
@@ -822,36 +838,6 @@ namespace System.RoboTech.Data
 			this.DEL_GRMU_P(((System.Nullable<long>)(obj.GROP_GPID)), ((System.Nullable<long>)(obj.MNUS_MUID)), ((System.Nullable<long>)(obj.MNUS_ROBO_RBID)));
 		}
 		
-		private void InsertService_Robot_Group(Service_Robot_Group obj)
-		{
-			this.INS_SRGP_P(((System.Nullable<long>)(obj.GROP_GPID)), ((System.Nullable<long>)(obj.SRBT_SERV_FILE_NO)), ((System.Nullable<long>)(obj.SRBT_ROBO_RBID)), obj.STAT);
-		}
-		
-		private void UpdateService_Robot_Group(Service_Robot_Group obj)
-		{
-			this.UPD_SRGP_P(((System.Nullable<long>)(obj.GROP_GPID)), ((System.Nullable<long>)(obj.SRBT_SERV_FILE_NO)), ((System.Nullable<long>)(obj.SRBT_ROBO_RBID)), obj.STAT);
-		}
-		
-		private void DeleteService_Robot_Group(Service_Robot_Group obj)
-		{
-			this.DEL_SRGP_P(((System.Nullable<long>)(obj.GROP_GPID)), ((System.Nullable<long>)(obj.SRBT_SERV_FILE_NO)), ((System.Nullable<long>)(obj.SRBT_ROBO_RBID)));
-		}
-		
-		private void InsertGroup(Group obj)
-		{
-			this.INS_GROP_P(((System.Nullable<long>)(obj.ROBO_RBID)), obj.NAME, obj.STAT, obj.AUTO_JOIN, obj.ADMN_ORGN);
-		}
-		
-		private void UpdateGroup(Group obj)
-		{
-			this.UPD_GROP_P(((System.Nullable<long>)(obj.GPID)), ((System.Nullable<long>)(obj.ROBO_RBID)), obj.NAME, obj.STAT, obj.AUTO_JOIN, obj.ADMN_ORGN);
-		}
-		
-		private void DeleteGroup(Group obj)
-		{
-			this.DEL_GROP_P(((System.Nullable<long>)(obj.ROBO_RBID)), ((System.Nullable<long>)(obj.GPID)));
-		}
-		
 		private void InsertOrgan_Media(Organ_Media obj)
 		{
 			this.INS_RBMD_P(((System.Nullable<long>)(obj.ORGN_OGID)), ((System.Nullable<long>)(obj.ROBO_RBID)), ((System.Nullable<long>)(obj.OPID)), obj.IMAG_DESC, obj.STAT, obj.IMAG_TYPE, obj.FILE_ID, obj.SHOW_STRT, ((System.Nullable<int>)(obj.ORDR)), obj.USSD_CODE, obj.PRDC_CODE, ((System.Nullable<long>)(obj.EXPN_PRIC)));
@@ -927,21 +913,6 @@ namespace System.RoboTech.Data
 			this.DEL_URLF_P(((System.Nullable<long>)(obj.FGA_CODE)));
 		}
 		
-		private void InsertGroup_Header(Group_Header obj)
-		{
-			this.INS_GRPH_P(obj.GRPH_DESC);
-		}
-		
-		private void UpdateGroup_Header(Group_Header obj)
-		{
-			this.UPD_GRPH_P(((System.Nullable<long>)(obj.GHID)), obj.GRPH_DESC);
-		}
-		
-		private void DeleteGroup_Header(Group_Header obj)
-		{
-			this.DEL_GRPH_P(((System.Nullable<long>)(obj.GHID)));
-		}
-		
 		private void InsertPersonal_Robot_Job_Service_Robot(Personal_Robot_Job_Service_Robot obj)
 		{
 			this.INS_PJSR_P(((System.Nullable<long>)(obj.PRJB_CODE)), ((System.Nullable<long>)(obj.SRBT_SERV_FILE_NO)), ((System.Nullable<long>)(obj.SRBT_ROBO_RBID)));
@@ -975,21 +946,6 @@ namespace System.RoboTech.Data
 		private void UpdateService_Robot(Service_Robot obj)
 		{
 			this.UPD_SRBT_P(((System.Nullable<long>)(obj.SERV_FILE_NO)), ((System.Nullable<long>)(obj.ROBO_RBID)), ((System.Nullable<long>)(obj.GRPH_GHID)), obj.STAT, ((System.Nullable<long>)(obj.CHAT_ID)), obj.CELL_PHON, ((System.Nullable<double>)(obj.CORD_X)), ((System.Nullable<double>)(obj.CORD_Y)), obj.SERV_ADRS, obj.NATL_CODE, obj.NAME, ((System.Nullable<System.DateTime>)(obj.JOIN_DATE)), obj.REGN_PRVN_CNTY_CODE, obj.REGN_PRVN_CODE, obj.REGN_CODE, ((System.Nullable<long>)(obj.RDUS_SRCH)), ((System.Nullable<long>)(obj.REF_CHAT_ID)), ((System.Nullable<System.DateTime>)(obj.EXPR_DATE)), obj.REAL_FRST_NAME, obj.REAL_LAST_NAME, obj.COMP_NAME, obj.OTHR_CELL_PHON, obj.OTHR_SERV_ADDR, obj.SRBT_DESC);
-		}
-		
-		private void InsertGroup_Header_Item(Group_Header_Item obj)
-		{
-			this.INS_GHIT_P(((System.Nullable<long>)(obj.GPHD_GHID)), obj.GHDT_DESC, ((System.Nullable<long>)(obj.PRIC)), ((System.Nullable<short>)(obj.SCND_NUMB)), ((System.Nullable<short>)(obj.MINT_NUMB)), ((System.Nullable<short>)(obj.HORS_NUMB)), ((System.Nullable<short>)(obj.DAYS_NUMB)), ((System.Nullable<short>)(obj.MONT_NUMB)), ((System.Nullable<short>)(obj.YEAR_NUMB)), obj.STAT, obj.COEF_STAT);
-		}
-		
-		private void UpdateGroup_Header_Item(Group_Header_Item obj)
-		{
-			this.UPD_GHIT_P(((System.Nullable<long>)(obj.CODE)), ((System.Nullable<long>)(obj.GPHD_GHID)), obj.GHDT_DESC, ((System.Nullable<long>)(obj.PRIC)), ((System.Nullable<short>)(obj.SCND_NUMB)), ((System.Nullable<short>)(obj.MINT_NUMB)), ((System.Nullable<short>)(obj.HORS_NUMB)), ((System.Nullable<short>)(obj.DAYS_NUMB)), ((System.Nullable<short>)(obj.MONT_NUMB)), ((System.Nullable<short>)(obj.YEAR_NUMB)), obj.STAT, obj.COEF_STAT);
-		}
-		
-		private void DeleteGroup_Header_Item(Group_Header_Item obj)
-		{
-			this.DEL_GHIT_P(((System.Nullable<long>)(obj.CODE)));
 		}
 		
 		private void InsertApp_Base_Define(App_Base_Define obj)
@@ -1099,12 +1055,72 @@ namespace System.RoboTech.Data
 		
 		private void InsertRobot(Robot obj)
 		{
-			this.INS_ROBO_P(((System.Nullable<long>)(obj.ORGN_OGID)), obj.NAME, obj.TKON_CODE, obj.STAT, obj.BULD_STAT, obj.BULD_FILE_ID, obj.SPY_TYPE, obj.CRTB_URL, obj.DOWN_LOAD_FILE_PATH, obj.UP_LOAD_FILE_PATH, obj.INVT_FRND);
+			this.INS_ROBO_P(((System.Nullable<long>)(obj.ORGN_OGID)), ((System.Nullable<long>)(obj.ROBO_RBID)), obj.COPY_TYPE, obj.BOT_TYPE, obj.NAME, obj.TKON_CODE, obj.STAT, obj.BULD_STAT, obj.BULD_FILE_ID, obj.SPY_TYPE, obj.CRTB_URL, obj.DOWN_LOAD_FILE_PATH, obj.UP_LOAD_FILE_PATH, obj.INVT_FRND, obj.HASH_TAG);
 		}
 		
 		private void UpdateRobot(Robot obj)
 		{
-			this.UPD_ROBO_P(((System.Nullable<long>)(obj.ORGN_OGID)), ((System.Nullable<long>)(obj.RBID)), obj.NAME, obj.TKON_CODE, obj.STAT, obj.BULD_STAT, obj.BULD_FILE_ID, obj.SPY_TYPE, obj.CRTB_URL, obj.DOWN_LOAD_FILE_PATH, obj.UP_LOAD_FILE_PATH, obj.INVT_FRND);
+			this.UPD_ROBO_P(((System.Nullable<long>)(obj.ORGN_OGID)), ((System.Nullable<long>)(obj.ROBO_RBID)), ((System.Nullable<long>)(obj.RBID)), obj.COPY_TYPE, obj.BOT_TYPE, obj.NAME, obj.TKON_CODE, obj.STAT, obj.BULD_STAT, obj.BULD_FILE_ID, obj.SPY_TYPE, obj.CRTB_URL, obj.DOWN_LOAD_FILE_PATH, obj.UP_LOAD_FILE_PATH, obj.INVT_FRND, obj.HASH_TAG);
+		}
+		
+		private void InsertService_Robot_Group(Service_Robot_Group obj)
+		{
+			this.INS_SRGP_P(((System.Nullable<long>)(obj.GROP_GPID)), ((System.Nullable<long>)(obj.SRBT_SERV_FILE_NO)), ((System.Nullable<long>)(obj.SRBT_ROBO_RBID)), obj.STAT, obj.DFLT_STAT);
+		}
+		
+		private void UpdateService_Robot_Group(Service_Robot_Group obj)
+		{
+			this.UPD_SRGP_P(((System.Nullable<long>)(obj.GROP_GPID)), ((System.Nullable<long>)(obj.SRBT_SERV_FILE_NO)), ((System.Nullable<long>)(obj.SRBT_ROBO_RBID)), obj.STAT, obj.DFLT_STAT);
+		}
+		
+		private void DeleteService_Robot_Group(Service_Robot_Group obj)
+		{
+			this.DEL_SRGP_P(((System.Nullable<long>)(obj.GROP_GPID)), ((System.Nullable<long>)(obj.SRBT_SERV_FILE_NO)), ((System.Nullable<long>)(obj.SRBT_ROBO_RBID)));
+		}
+		
+		private void InsertGroup_Header(Group_Header obj)
+		{
+			this.INS_GRPH_P(obj.GRPH_DESC, ((System.Nullable<long>)(obj.ROBO_RBID)));
+		}
+		
+		private void UpdateGroup_Header(Group_Header obj)
+		{
+			this.UPD_GRPH_P(((System.Nullable<long>)(obj.GHID)), obj.GRPH_DESC, ((System.Nullable<long>)(obj.ROBO_RBID)));
+		}
+		
+		private void DeleteGroup_Header(Group_Header obj)
+		{
+			this.DEL_GRPH_P(((System.Nullable<long>)(obj.GHID)));
+		}
+		
+		private void InsertGroup(Group obj)
+		{
+			this.INS_GROP_P(((System.Nullable<long>)(obj.ROBO_RBID)), obj.NAME, obj.STAT, obj.AUTO_JOIN, obj.ADMN_ORGN, ((System.Nullable<int>)(obj.OFF_PRCT)));
+		}
+		
+		private void UpdateGroup(Group obj)
+		{
+			this.UPD_GROP_P(((System.Nullable<long>)(obj.GPID)), ((System.Nullable<long>)(obj.ROBO_RBID)), obj.NAME, obj.STAT, obj.AUTO_JOIN, obj.ADMN_ORGN, ((System.Nullable<int>)(obj.OFF_PRCT)));
+		}
+		
+		private void DeleteGroup(Group obj)
+		{
+			this.DEL_GROP_P(((System.Nullable<long>)(obj.ROBO_RBID)), ((System.Nullable<long>)(obj.GPID)));
+		}
+		
+		private void InsertGroup_Header_Item(Group_Header_Item obj)
+		{
+			this.INS_GHIT_P(((System.Nullable<long>)(obj.GPHD_GHID)), obj.GHDT_DESC, ((System.Nullable<long>)(obj.PRIC)), ((System.Nullable<int>)(obj.TAX_PRCT)), ((System.Nullable<short>)(obj.SCND_NUMB)), ((System.Nullable<short>)(obj.MINT_NUMB)), ((System.Nullable<short>)(obj.HORS_NUMB)), ((System.Nullable<short>)(obj.DAYS_NUMB)), ((System.Nullable<short>)(obj.MONT_NUMB)), ((System.Nullable<short>)(obj.YEAR_NUMB)), obj.STAT, obj.COEF_STAT, ((System.Nullable<long>)(obj.GRMU_MNUS_ROBO_RBID)), ((System.Nullable<long>)(obj.GRMU_MNUS_MUID)), ((System.Nullable<long>)(obj.GRMU_GROP_GPID)));
+		}
+		
+		private void UpdateGroup_Header_Item(Group_Header_Item obj)
+		{
+			this.UPD_GHIT_P(((System.Nullable<long>)(obj.CODE)), ((System.Nullable<long>)(obj.GPHD_GHID)), obj.GHDT_DESC, ((System.Nullable<long>)(obj.PRIC)), ((System.Nullable<int>)(obj.TAX_PRCT)), ((System.Nullable<short>)(obj.SCND_NUMB)), ((System.Nullable<short>)(obj.MINT_NUMB)), ((System.Nullable<short>)(obj.HORS_NUMB)), ((System.Nullable<short>)(obj.DAYS_NUMB)), ((System.Nullable<short>)(obj.MONT_NUMB)), ((System.Nullable<short>)(obj.YEAR_NUMB)), obj.STAT, obj.COEF_STAT, ((System.Nullable<long>)(obj.GRMU_MNUS_ROBO_RBID)), ((System.Nullable<long>)(obj.GRMU_MNUS_MUID)), ((System.Nullable<long>)(obj.GRMU_GROP_GPID)));
+		}
+		
+		private void DeleteGroup_Header_Item(Group_Header_Item obj)
+		{
+			this.DEL_GHIT_P(((System.Nullable<long>)(obj.CODE)));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.DEL_CNTY_P")]
@@ -1323,38 +1339,10 @@ namespace System.RoboTech.Data
 			return ((int)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.INS_SRGP_P")]
-		public int INS_SRGP_P([global::System.Data.Linq.Mapping.ParameterAttribute(Name="GROP_GPID", DbType="BigInt")] System.Nullable<long> gROP_GPID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SRBT_SERV_FILE_NO", DbType="BigInt")] System.Nullable<long> sRBT_SERV_FILE_NO, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SRBT_ROBO_RBID", DbType="BigInt")] System.Nullable<long> sRBT_ROBO_RBID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="STAT", DbType="VarChar(3)")] string sTAT)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), gROP_GPID, sRBT_SERV_FILE_NO, sRBT_ROBO_RBID, sTAT);
-			return ((int)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.UPD_SRGP_P")]
-		public int UPD_SRGP_P([global::System.Data.Linq.Mapping.ParameterAttribute(Name="GROP_GPID", DbType="BigInt")] System.Nullable<long> gROP_GPID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SRBT_SERV_FILE_NO", DbType="BigInt")] System.Nullable<long> sRBT_SERV_FILE_NO, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SRBT_ROBO_RBID", DbType="BigInt")] System.Nullable<long> sRBT_ROBO_RBID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="STAT", DbType="VarChar(3)")] string sTAT)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), gROP_GPID, sRBT_SERV_FILE_NO, sRBT_ROBO_RBID, sTAT);
-			return ((int)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.DEL_GROP_P")]
 		public int DEL_GROP_P([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ROBO_RBID", DbType="BigInt")] System.Nullable<long> rOBO_RBID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="GPID", DbType="BigInt")] System.Nullable<long> gPID)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), rOBO_RBID, gPID);
-			return ((int)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.INS_GROP_P")]
-		public int INS_GROP_P([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ROBO_RBID", DbType="BigInt")] System.Nullable<long> rOBO_RBID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NAME", DbType="NVarChar(200)")] string nAME, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="STAT", DbType="VarChar(3)")] string sTAT, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="AUTO_JOIN", DbType="VarChar(3)")] string aUTO_JOIN, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ADMN_ORGN", DbType="VarChar(3)")] string aDMN_ORGN)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), rOBO_RBID, nAME, sTAT, aUTO_JOIN, aDMN_ORGN);
-			return ((int)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.UPD_GROP_P")]
-		public int UPD_GROP_P([global::System.Data.Linq.Mapping.ParameterAttribute(Name="GPID", DbType="BigInt")] System.Nullable<long> gPID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ROBO_RBID", DbType="BigInt")] System.Nullable<long> rOBO_RBID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NAME", DbType="NVarChar(200)")] string nAME, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="STAT", DbType="VarChar(3)")] string sTAT, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="AUTO_JOIN", DbType="VarChar(3)")] string aUTO_JOIN, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ADMN_ORGN", DbType="VarChar(3)")] string aDMN_ORGN)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), gPID, rOBO_RBID, nAME, sTAT, aUTO_JOIN, aDMN_ORGN);
 			return ((int)(result.ReturnValue));
 		}
 		
@@ -1519,20 +1507,6 @@ namespace System.RoboTech.Data
 			return ((int)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.INS_GRPH_P")]
-		public int INS_GRPH_P([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Grph_Desc", DbType="NVarChar(250)")] string grph_Desc)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), grph_Desc);
-			return ((int)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.UPD_GRPH_P")]
-		public int UPD_GRPH_P([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ghid", DbType="BigInt")] System.Nullable<long> ghid, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Grph_Desc", DbType="NVarChar(250)")] string grph_Desc)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), ghid, grph_Desc);
-			return ((int)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.UPD_PMNU_P")]
 		public int UPD_PMNU_P([global::System.Data.Linq.Mapping.ParameterAttribute(Name="MUID", DbType="BigInt")] System.Nullable<long> mUID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MNUS_MUID", DbType="BigInt")] System.Nullable<long> mNUS_MUID)
 		{
@@ -1659,20 +1633,6 @@ namespace System.RoboTech.Data
 		public int DEL_GHIT_P([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Code", DbType="BigInt")] System.Nullable<long> code)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), code);
-			return ((int)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.INS_GHIT_P")]
-		public int INS_GHIT_P([global::System.Data.Linq.Mapping.ParameterAttribute(Name="GPHD_GHID", DbType="BigInt")] System.Nullable<long> gPHD_GHID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="GHDT_DESC", DbType="NVarChar(100)")] string gHDT_DESC, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Pric", DbType="BigInt")] System.Nullable<long> pric, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Scnd_Numb", DbType="SmallInt")] System.Nullable<short> scnd_Numb, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Mint_Numb", DbType="SmallInt")] System.Nullable<short> mint_Numb, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Hors_Numb", DbType="SmallInt")] System.Nullable<short> hors_Numb, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Days_Numb", DbType="SmallInt")] System.Nullable<short> days_Numb, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Mont_Numb", DbType="SmallInt")] System.Nullable<short> mont_Numb, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Year_Numb", DbType="SmallInt")] System.Nullable<short> year_Numb, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Stat", DbType="VarChar(3)")] string stat, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Coef_Stat", DbType="VarChar(3)")] string coef_Stat)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), gPHD_GHID, gHDT_DESC, pric, scnd_Numb, mint_Numb, hors_Numb, days_Numb, mont_Numb, year_Numb, stat, coef_Stat);
-			return ((int)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.UPD_GHIT_P")]
-		public int UPD_GHIT_P([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Code", DbType="BigInt")] System.Nullable<long> code, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="GPHD_GHID", DbType="BigInt")] System.Nullable<long> gPHD_GHID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="GHDT_DESC", DbType="NVarChar(100)")] string gHDT_DESC, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Pric", DbType="BigInt")] System.Nullable<long> pric, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Scnd_Numb", DbType="SmallInt")] System.Nullable<short> scnd_Numb, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Mint_Numb", DbType="SmallInt")] System.Nullable<short> mint_Numb, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Hors_Numb", DbType="SmallInt")] System.Nullable<short> hors_Numb, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Days_Numb", DbType="SmallInt")] System.Nullable<short> days_Numb, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Mont_Numb", DbType="SmallInt")] System.Nullable<short> mont_Numb, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Year_Numb", DbType="SmallInt")] System.Nullable<short> year_Numb, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Stat", DbType="VarChar(3)")] string stat, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Coef_Stat", DbType="VarChar(3)")] string coef_Stat)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), code, gPHD_GHID, gHDT_DESC, pric, scnd_Numb, mint_Numb, hors_Numb, days_Numb, mont_Numb, year_Numb, stat, coef_Stat);
 			return ((int)(result.ReturnValue));
 		}
 		
@@ -1883,16 +1843,104 @@ namespace System.RoboTech.Data
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.INS_ROBO_P")]
-		public int INS_ROBO_P([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Orgn_Ogid", DbType="BigInt")] System.Nullable<long> orgn_Ogid, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Name", DbType="NVarChar(50)")] string name, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Tkon_Code", DbType="VarChar(100)")] string tkon_Code, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Stat", DbType="VarChar(3)")] string stat, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Buld_Stat", DbType="VarChar(3)")] string buld_Stat, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Buld_File_Id", DbType="VarChar(500)")] string buld_File_Id, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Spy_Type", DbType="VarChar(3)")] string spy_Type, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Crtb_Url", DbType="VarChar(1000)")] string crtb_Url, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Down_Load_File_Path", DbType="VarChar(1000)")] string down_Load_File_Path, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Up_Load_File_Path", DbType="VarChar(1000)")] string up_Load_File_Path, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Invt_Frnd", DbType="NVarChar(MAX)")] string invt_Frnd)
+		public int INS_ROBO_P([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Orgn_Ogid", DbType="BigInt")] System.Nullable<long> orgn_Ogid, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Robo_Rbid", DbType="BigInt")] System.Nullable<long> robo_Rbid, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Copy_Type", DbType="VarChar(3)")] string copy_Type, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Bot_Type", DbType="VarChar(3)")] string bot_Type, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Name", DbType="NVarChar(50)")] string name, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Tkon_Code", DbType="VarChar(100)")] string tkon_Code, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Stat", DbType="VarChar(3)")] string stat, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Buld_Stat", DbType="VarChar(3)")] string buld_Stat, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Buld_File_Id", DbType="VarChar(500)")] string buld_File_Id, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Spy_Type", DbType="VarChar(3)")] string spy_Type, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Crtb_Url", DbType="VarChar(1000)")] string crtb_Url, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Down_Load_File_Path", DbType="VarChar(1000)")] string down_Load_File_Path, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Up_Load_File_Path", DbType="VarChar(1000)")] string up_Load_File_Path, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Invt_Frnd", DbType="NVarChar(MAX)")] string invt_Frnd, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Hash_Tag", DbType="NVarChar(1000)")] string hash_Tag)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), orgn_Ogid, name, tkon_Code, stat, buld_Stat, buld_File_Id, spy_Type, crtb_Url, down_Load_File_Path, up_Load_File_Path, invt_Frnd);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), orgn_Ogid, robo_Rbid, copy_Type, bot_Type, name, tkon_Code, stat, buld_Stat, buld_File_Id, spy_Type, crtb_Url, down_Load_File_Path, up_Load_File_Path, invt_Frnd, hash_Tag);
 			return ((int)(result.ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.UPD_ROBO_P")]
-		public int UPD_ROBO_P([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Orgn_Ogid", DbType="BigInt")] System.Nullable<long> orgn_Ogid, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Rbid", DbType="BigInt")] System.Nullable<long> rbid, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Name", DbType="NVarChar(50)")] string name, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Tkon_Code", DbType="VarChar(100)")] string tkon_Code, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Stat", DbType="VarChar(3)")] string stat, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Buld_Stat", DbType="VarChar(3)")] string buld_Stat, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Buld_File_Id", DbType="VarChar(500)")] string buld_File_Id, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Spy_Type", DbType="VarChar(3)")] string spy_Type, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Crtb_Url", DbType="VarChar(1000)")] string crtb_Url, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Down_Load_File_Path", DbType="VarChar(1000)")] string down_Load_File_Path, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Up_Load_File_Path", DbType="VarChar(1000)")] string up_Load_File_Path, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Invt_Frnd", DbType="NVarChar(MAX)")] string invt_Frnd)
+		public int UPD_ROBO_P(
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Orgn_Ogid", DbType="BigInt")] System.Nullable<long> orgn_Ogid, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Robo_Rbid", DbType="BigInt")] System.Nullable<long> robo_Rbid, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Rbid", DbType="BigInt")] System.Nullable<long> rbid, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Copy_Type", DbType="VarChar(3)")] string copy_Type, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Bot_Type", DbType="VarChar(3)")] string bot_Type, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Name", DbType="NVarChar(50)")] string name, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Tkon_Code", DbType="VarChar(100)")] string tkon_Code, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Stat", DbType="VarChar(3)")] string stat, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Buld_Stat", DbType="VarChar(3)")] string buld_Stat, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Buld_File_Id", DbType="VarChar(500)")] string buld_File_Id, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Spy_Type", DbType="VarChar(3)")] string spy_Type, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Crtb_Url", DbType="VarChar(1000)")] string crtb_Url, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Down_Load_File_Path", DbType="VarChar(1000)")] string down_Load_File_Path, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Up_Load_File_Path", DbType="VarChar(1000)")] string up_Load_File_Path, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Invt_Frnd", DbType="NVarChar(MAX)")] string invt_Frnd, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Hash_Tag", DbType="NVarChar(1000)")] string hash_Tag)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), orgn_Ogid, rbid, name, tkon_Code, stat, buld_Stat, buld_File_Id, spy_Type, crtb_Url, down_Load_File_Path, up_Load_File_Path, invt_Frnd);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), orgn_Ogid, robo_Rbid, rbid, copy_Type, bot_Type, name, tkon_Code, stat, buld_Stat, buld_File_Id, spy_Type, crtb_Url, down_Load_File_Path, up_Load_File_Path, invt_Frnd, hash_Tag);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.INS_SRGP_P")]
+		public int INS_SRGP_P([global::System.Data.Linq.Mapping.ParameterAttribute(Name="GROP_GPID", DbType="BigInt")] System.Nullable<long> gROP_GPID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SRBT_SERV_FILE_NO", DbType="BigInt")] System.Nullable<long> sRBT_SERV_FILE_NO, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SRBT_ROBO_RBID", DbType="BigInt")] System.Nullable<long> sRBT_ROBO_RBID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="STAT", DbType="VarChar(3)")] string sTAT, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Dflt_Stat", DbType="VarChar(3)")] string dflt_Stat)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), gROP_GPID, sRBT_SERV_FILE_NO, sRBT_ROBO_RBID, sTAT, dflt_Stat);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.UPD_SRGP_P")]
+		public int UPD_SRGP_P([global::System.Data.Linq.Mapping.ParameterAttribute(Name="GROP_GPID", DbType="BigInt")] System.Nullable<long> gROP_GPID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SRBT_SERV_FILE_NO", DbType="BigInt")] System.Nullable<long> sRBT_SERV_FILE_NO, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SRBT_ROBO_RBID", DbType="BigInt")] System.Nullable<long> sRBT_ROBO_RBID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="STAT", DbType="VarChar(3)")] string sTAT, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Dflt_Stat", DbType="VarChar(3)")] string dflt_Stat)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), gROP_GPID, sRBT_SERV_FILE_NO, sRBT_ROBO_RBID, sTAT, dflt_Stat);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.INS_GRPH_P")]
+		public int INS_GRPH_P([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Grph_Desc", DbType="NVarChar(250)")] string grph_Desc, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Robo_Rbid", DbType="BigInt")] System.Nullable<long> robo_Rbid)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), grph_Desc, robo_Rbid);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.UPD_GRPH_P")]
+		public int UPD_GRPH_P([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ghid", DbType="BigInt")] System.Nullable<long> ghid, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Grph_Desc", DbType="NVarChar(250)")] string grph_Desc, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Robo_Rbid", DbType="BigInt")] System.Nullable<long> robo_Rbid)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), ghid, grph_Desc, robo_Rbid);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.UPD_GROP_P")]
+		public int UPD_GROP_P([global::System.Data.Linq.Mapping.ParameterAttribute(Name="GPID", DbType="BigInt")] System.Nullable<long> gPID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ROBO_RBID", DbType="BigInt")] System.Nullable<long> rOBO_RBID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NAME", DbType="NVarChar(200)")] string nAME, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="STAT", DbType="VarChar(3)")] string sTAT, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="AUTO_JOIN", DbType="VarChar(3)")] string aUTO_JOIN, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ADMN_ORGN", DbType="VarChar(3)")] string aDMN_ORGN, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Off_Prct", DbType="Int")] System.Nullable<int> off_Prct)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), gPID, rOBO_RBID, nAME, sTAT, aUTO_JOIN, aDMN_ORGN, off_Prct);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.INS_GROP_P")]
+		public int INS_GROP_P([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ROBO_RBID", DbType="BigInt")] System.Nullable<long> rOBO_RBID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NAME", DbType="NVarChar(200)")] string nAME, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="STAT", DbType="VarChar(3)")] string sTAT, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="AUTO_JOIN", DbType="VarChar(3)")] string aUTO_JOIN, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ADMN_ORGN", DbType="VarChar(3)")] string aDMN_ORGN, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Off_Prct", DbType="Int")] System.Nullable<int> off_Prct)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), rOBO_RBID, nAME, sTAT, aUTO_JOIN, aDMN_ORGN, off_Prct);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.INS_GHIT_P")]
+		public int INS_GHIT_P([global::System.Data.Linq.Mapping.ParameterAttribute(Name="GPHD_GHID", DbType="BigInt")] System.Nullable<long> gPHD_GHID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="GHDT_DESC", DbType="NVarChar(100)")] string gHDT_DESC, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Pric", DbType="BigInt")] System.Nullable<long> pric, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Tax_Prct", DbType="Int")] System.Nullable<int> tax_Prct, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Scnd_Numb", DbType="SmallInt")] System.Nullable<short> scnd_Numb, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Mint_Numb", DbType="SmallInt")] System.Nullable<short> mint_Numb, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Hors_Numb", DbType="SmallInt")] System.Nullable<short> hors_Numb, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Days_Numb", DbType="SmallInt")] System.Nullable<short> days_Numb, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Mont_Numb", DbType="SmallInt")] System.Nullable<short> mont_Numb, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Year_Numb", DbType="SmallInt")] System.Nullable<short> year_Numb, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Stat", DbType="VarChar(3)")] string stat, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Coef_Stat", DbType="VarChar(3)")] string coef_Stat, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Grmu_Mnus_Robo_Rbid", DbType="BigInt")] System.Nullable<long> grmu_Mnus_Robo_Rbid, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Grmu_Mnus_Muid", DbType="BigInt")] System.Nullable<long> grmu_Mnus_Muid, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Grmu_Grop_Gpid", DbType="BigInt")] System.Nullable<long> grmu_Grop_Gpid)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), gPHD_GHID, gHDT_DESC, pric, tax_Prct, scnd_Numb, mint_Numb, hors_Numb, days_Numb, mont_Numb, year_Numb, stat, coef_Stat, grmu_Mnus_Robo_Rbid, grmu_Mnus_Muid, grmu_Grop_Gpid);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.UPD_GHIT_P")]
+		public int UPD_GHIT_P(
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Code", DbType="BigInt")] System.Nullable<long> code, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="GPHD_GHID", DbType="BigInt")] System.Nullable<long> gPHD_GHID, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="GHDT_DESC", DbType="NVarChar(100)")] string gHDT_DESC, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Pric", DbType="BigInt")] System.Nullable<long> pric, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Tax_Prct", DbType="Int")] System.Nullable<int> tax_Prct, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Scnd_Numb", DbType="SmallInt")] System.Nullable<short> scnd_Numb, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Mint_Numb", DbType="SmallInt")] System.Nullable<short> mint_Numb, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Hors_Numb", DbType="SmallInt")] System.Nullable<short> hors_Numb, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Days_Numb", DbType="SmallInt")] System.Nullable<short> days_Numb, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Mont_Numb", DbType="SmallInt")] System.Nullable<short> mont_Numb, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Year_Numb", DbType="SmallInt")] System.Nullable<short> year_Numb, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Stat", DbType="VarChar(3)")] string stat, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Coef_Stat", DbType="VarChar(3)")] string coef_Stat, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Grmu_Mnus_Robo_Rbid", DbType="BigInt")] System.Nullable<long> grmu_Mnus_Robo_Rbid, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Grmu_Mnus_Muid", DbType="BigInt")] System.Nullable<long> grmu_Mnus_Muid, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Grmu_Grop_Gpid", DbType="BigInt")] System.Nullable<long> grmu_Grop_Gpid)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), code, gPHD_GHID, gHDT_DESC, pric, tax_Prct, scnd_Numb, mint_Numb, hors_Numb, days_Numb, mont_Numb, year_Numb, stat, coef_Stat, grmu_Mnus_Robo_Rbid, grmu_Mnus_Muid, grmu_Grop_Gpid);
 			return ((int)(result.ReturnValue));
 		}
 	}
@@ -7301,9 +7349,11 @@ namespace System.RoboTech.Data
 		
 		private System.Nullable<System.DateTime> _MDFY_DATE;
 		
-		private EntityRef<Group> _Group;
+		private EntitySet<Group_Header_Item> _Group_Header_Items;
 		
 		private EntityRef<Menu_Ussd> _Menu_Ussd;
+		
+		private EntityRef<Group> _Group;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -7329,8 +7379,9 @@ namespace System.RoboTech.Data
 		
 		public Group_Menu_Ussd()
 		{
-			this._Group = default(EntityRef<Group>);
+			this._Group_Header_Items = new EntitySet<Group_Header_Item>(new Action<Group_Header_Item>(this.attach_Group_Header_Items), new Action<Group_Header_Item>(this.detach_Group_Header_Items));
 			this._Menu_Ussd = default(EntityRef<Menu_Ussd>);
+			this._Group = default(EntityRef<Group>);
 			OnCreated();
 		}
 		
@@ -7506,37 +7557,16 @@ namespace System.RoboTech.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Group_Group_Menu_Ussd", Storage="_Group", ThisKey="GROP_GPID", OtherKey="GPID", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
-		public Group Group
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Group_Menu_Ussd_Group_Header_Item", Storage="_Group_Header_Items", ThisKey="GROP_GPID,MNUS_MUID,MNUS_ROBO_RBID", OtherKey="GRMU_GROP_GPID,GRMU_MNUS_MUID,GRMU_MNUS_ROBO_RBID")]
+		public EntitySet<Group_Header_Item> Group_Header_Items
 		{
 			get
 			{
-				return this._Group.Entity;
+				return this._Group_Header_Items;
 			}
 			set
 			{
-				Group previousValue = this._Group.Entity;
-				if (((previousValue != value) 
-							|| (this._Group.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Group.Entity = null;
-						previousValue.Group_Menu_Ussds.Remove(this);
-					}
-					this._Group.Entity = value;
-					if ((value != null))
-					{
-						value.Group_Menu_Ussds.Add(this);
-						this._GROP_GPID = value.GPID;
-					}
-					else
-					{
-						this._GROP_GPID = default(long);
-					}
-					this.SendPropertyChanged("Group");
-				}
+				this._Group_Header_Items.Assign(value);
 			}
 		}
 		
@@ -7576,255 +7606,7 @@ namespace System.RoboTech.Data
 			}
 		}
 		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Service_Robot_Group")]
-	public partial class Service_Robot_Group : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private long _SRBT_SERV_FILE_NO;
-		
-		private long _SRBT_ROBO_RBID;
-		
-		private long _GROP_GPID;
-		
-		private string _STAT;
-		
-		private string _CRET_BY;
-		
-		private System.Nullable<System.DateTime> _CRET_DATE;
-		
-		private string _MDFY_BY;
-		
-		private System.Nullable<System.DateTime> _MDFY_DATE;
-		
-		private EntityRef<Group> _Group;
-		
-		private EntityRef<Service_Robot> _Service_Robot;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnSRBT_SERV_FILE_NOChanging(long value);
-    partial void OnSRBT_SERV_FILE_NOChanged();
-    partial void OnSRBT_ROBO_RBIDChanging(long value);
-    partial void OnSRBT_ROBO_RBIDChanged();
-    partial void OnGROP_GPIDChanging(long value);
-    partial void OnGROP_GPIDChanged();
-    partial void OnSTATChanging(string value);
-    partial void OnSTATChanged();
-    partial void OnCRET_BYChanging(string value);
-    partial void OnCRET_BYChanged();
-    partial void OnCRET_DATEChanging(System.Nullable<System.DateTime> value);
-    partial void OnCRET_DATEChanged();
-    partial void OnMDFY_BYChanging(string value);
-    partial void OnMDFY_BYChanged();
-    partial void OnMDFY_DATEChanging(System.Nullable<System.DateTime> value);
-    partial void OnMDFY_DATEChanged();
-    #endregion
-		
-		public Service_Robot_Group()
-		{
-			this._Group = default(EntityRef<Group>);
-			this._Service_Robot = default(EntityRef<Service_Robot>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SRBT_SERV_FILE_NO", DbType="BigInt NOT NULL", IsPrimaryKey=true)]
-		public long SRBT_SERV_FILE_NO
-		{
-			get
-			{
-				return this._SRBT_SERV_FILE_NO;
-			}
-			set
-			{
-				if ((this._SRBT_SERV_FILE_NO != value))
-				{
-					if (this._Service_Robot.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnSRBT_SERV_FILE_NOChanging(value);
-					this.SendPropertyChanging();
-					this._SRBT_SERV_FILE_NO = value;
-					this.SendPropertyChanged("SRBT_SERV_FILE_NO");
-					this.OnSRBT_SERV_FILE_NOChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SRBT_ROBO_RBID", DbType="BigInt NOT NULL", IsPrimaryKey=true)]
-		public long SRBT_ROBO_RBID
-		{
-			get
-			{
-				return this._SRBT_ROBO_RBID;
-			}
-			set
-			{
-				if ((this._SRBT_ROBO_RBID != value))
-				{
-					if (this._Service_Robot.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnSRBT_ROBO_RBIDChanging(value);
-					this.SendPropertyChanging();
-					this._SRBT_ROBO_RBID = value;
-					this.SendPropertyChanged("SRBT_ROBO_RBID");
-					this.OnSRBT_ROBO_RBIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GROP_GPID", DbType="BigInt NOT NULL", IsPrimaryKey=true)]
-		public long GROP_GPID
-		{
-			get
-			{
-				return this._GROP_GPID;
-			}
-			set
-			{
-				if ((this._GROP_GPID != value))
-				{
-					if (this._Group.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnGROP_GPIDChanging(value);
-					this.SendPropertyChanging();
-					this._GROP_GPID = value;
-					this.SendPropertyChanged("GROP_GPID");
-					this.OnGROP_GPIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STAT", DbType="VarChar(3)")]
-		public string STAT
-		{
-			get
-			{
-				return this._STAT;
-			}
-			set
-			{
-				if ((this._STAT != value))
-				{
-					this.OnSTATChanging(value);
-					this.SendPropertyChanging();
-					this._STAT = value;
-					this.SendPropertyChanged("STAT");
-					this.OnSTATChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_BY", DbType="VarChar(250)")]
-		public string CRET_BY
-		{
-			get
-			{
-				return this._CRET_BY;
-			}
-			set
-			{
-				if ((this._CRET_BY != value))
-				{
-					this.OnCRET_BYChanging(value);
-					this.SendPropertyChanging();
-					this._CRET_BY = value;
-					this.SendPropertyChanged("CRET_BY");
-					this.OnCRET_BYChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_DATE", DbType="DateTime")]
-		public System.Nullable<System.DateTime> CRET_DATE
-		{
-			get
-			{
-				return this._CRET_DATE;
-			}
-			set
-			{
-				if ((this._CRET_DATE != value))
-				{
-					this.OnCRET_DATEChanging(value);
-					this.SendPropertyChanging();
-					this._CRET_DATE = value;
-					this.SendPropertyChanged("CRET_DATE");
-					this.OnCRET_DATEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_BY", DbType="VarChar(250)")]
-		public string MDFY_BY
-		{
-			get
-			{
-				return this._MDFY_BY;
-			}
-			set
-			{
-				if ((this._MDFY_BY != value))
-				{
-					this.OnMDFY_BYChanging(value);
-					this.SendPropertyChanging();
-					this._MDFY_BY = value;
-					this.SendPropertyChanged("MDFY_BY");
-					this.OnMDFY_BYChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_DATE", DbType="DateTime")]
-		public System.Nullable<System.DateTime> MDFY_DATE
-		{
-			get
-			{
-				return this._MDFY_DATE;
-			}
-			set
-			{
-				if ((this._MDFY_DATE != value))
-				{
-					this.OnMDFY_DATEChanging(value);
-					this.SendPropertyChanging();
-					this._MDFY_DATE = value;
-					this.SendPropertyChanged("MDFY_DATE");
-					this.OnMDFY_DATEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Group_Service_Robot_Group", Storage="_Group", ThisKey="GROP_GPID", OtherKey="GPID", IsForeignKey=true)]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Group_Group_Menu_Ussd", Storage="_Group", ThisKey="GROP_GPID", OtherKey="GPID", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
 		public Group Group
 		{
 			get
@@ -7841,12 +7623,12 @@ namespace System.RoboTech.Data
 					if ((previousValue != null))
 					{
 						this._Group.Entity = null;
-						previousValue.Service_Robot_Groups.Remove(this);
+						previousValue.Group_Menu_Ussds.Remove(this);
 					}
 					this._Group.Entity = value;
 					if ((value != null))
 					{
-						value.Service_Robot_Groups.Add(this);
+						value.Group_Menu_Ussds.Add(this);
 						this._GROP_GPID = value.GPID;
 					}
 					else
@@ -7858,393 +7640,6 @@ namespace System.RoboTech.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Service_Robot_Service_Robot_Group", Storage="_Service_Robot", ThisKey="SRBT_SERV_FILE_NO,SRBT_ROBO_RBID", OtherKey="SERV_FILE_NO,ROBO_RBID", IsForeignKey=true)]
-		public Service_Robot Service_Robot
-		{
-			get
-			{
-				return this._Service_Robot.Entity;
-			}
-			set
-			{
-				Service_Robot previousValue = this._Service_Robot.Entity;
-				if (((previousValue != value) 
-							|| (this._Service_Robot.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Service_Robot.Entity = null;
-						previousValue.Service_Robot_Groups.Remove(this);
-					}
-					this._Service_Robot.Entity = value;
-					if ((value != null))
-					{
-						value.Service_Robot_Groups.Add(this);
-						this._SRBT_SERV_FILE_NO = value.SERV_FILE_NO;
-						this._SRBT_ROBO_RBID = value.ROBO_RBID;
-					}
-					else
-					{
-						this._SRBT_SERV_FILE_NO = default(long);
-						this._SRBT_ROBO_RBID = default(long);
-					}
-					this.SendPropertyChanged("Service_Robot");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.[Group]")]
-	public partial class Group : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private long _GPID;
-		
-		private System.Nullable<long> _ROBO_RBID;
-		
-		private string _NAME;
-		
-		private string _STAT;
-		
-		private string _AUTO_JOIN;
-		
-		private string _ADMN_ORGN;
-		
-		private string _CRET_BY;
-		
-		private System.Nullable<System.DateTime> _CRET_DATE;
-		
-		private string _MDFY_BY;
-		
-		private System.Nullable<System.DateTime> _MDFY_DATE;
-		
-		private EntitySet<Group_Menu_Ussd> _Group_Menu_Ussds;
-		
-		private EntitySet<Service_Robot_Group> _Service_Robot_Groups;
-		
-		private EntityRef<Robot> _Robot;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnGPIDChanging(long value);
-    partial void OnGPIDChanged();
-    partial void OnROBO_RBIDChanging(System.Nullable<long> value);
-    partial void OnROBO_RBIDChanged();
-    partial void OnNAMEChanging(string value);
-    partial void OnNAMEChanged();
-    partial void OnSTATChanging(string value);
-    partial void OnSTATChanged();
-    partial void OnAUTO_JOINChanging(string value);
-    partial void OnAUTO_JOINChanged();
-    partial void OnADMN_ORGNChanging(string value);
-    partial void OnADMN_ORGNChanged();
-    partial void OnCRET_BYChanging(string value);
-    partial void OnCRET_BYChanged();
-    partial void OnCRET_DATEChanging(System.Nullable<System.DateTime> value);
-    partial void OnCRET_DATEChanged();
-    partial void OnMDFY_BYChanging(string value);
-    partial void OnMDFY_BYChanged();
-    partial void OnMDFY_DATEChanging(System.Nullable<System.DateTime> value);
-    partial void OnMDFY_DATEChanged();
-    #endregion
-		
-		public Group()
-		{
-			this._Group_Menu_Ussds = new EntitySet<Group_Menu_Ussd>(new Action<Group_Menu_Ussd>(this.attach_Group_Menu_Ussds), new Action<Group_Menu_Ussd>(this.detach_Group_Menu_Ussds));
-			this._Service_Robot_Groups = new EntitySet<Service_Robot_Group>(new Action<Service_Robot_Group>(this.attach_Service_Robot_Groups), new Action<Service_Robot_Group>(this.detach_Service_Robot_Groups));
-			this._Robot = default(EntityRef<Robot>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GPID", AutoSync=AutoSync.OnInsert, DbType="BigInt NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public long GPID
-		{
-			get
-			{
-				return this._GPID;
-			}
-			set
-			{
-				if ((this._GPID != value))
-				{
-					this.OnGPIDChanging(value);
-					this.SendPropertyChanging();
-					this._GPID = value;
-					this.SendPropertyChanged("GPID");
-					this.OnGPIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ROBO_RBID", DbType="BigInt")]
-		public System.Nullable<long> ROBO_RBID
-		{
-			get
-			{
-				return this._ROBO_RBID;
-			}
-			set
-			{
-				if ((this._ROBO_RBID != value))
-				{
-					if (this._Robot.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnROBO_RBIDChanging(value);
-					this.SendPropertyChanging();
-					this._ROBO_RBID = value;
-					this.SendPropertyChanged("ROBO_RBID");
-					this.OnROBO_RBIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NAME", DbType="NVarChar(200)")]
-		public string NAME
-		{
-			get
-			{
-				return this._NAME;
-			}
-			set
-			{
-				if ((this._NAME != value))
-				{
-					this.OnNAMEChanging(value);
-					this.SendPropertyChanging();
-					this._NAME = value;
-					this.SendPropertyChanged("NAME");
-					this.OnNAMEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STAT", DbType="VarChar(3)")]
-		public string STAT
-		{
-			get
-			{
-				return this._STAT;
-			}
-			set
-			{
-				if ((this._STAT != value))
-				{
-					this.OnSTATChanging(value);
-					this.SendPropertyChanging();
-					this._STAT = value;
-					this.SendPropertyChanged("STAT");
-					this.OnSTATChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AUTO_JOIN", DbType="VarChar(3)")]
-		public string AUTO_JOIN
-		{
-			get
-			{
-				return this._AUTO_JOIN;
-			}
-			set
-			{
-				if ((this._AUTO_JOIN != value))
-				{
-					this.OnAUTO_JOINChanging(value);
-					this.SendPropertyChanging();
-					this._AUTO_JOIN = value;
-					this.SendPropertyChanged("AUTO_JOIN");
-					this.OnAUTO_JOINChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ADMN_ORGN", DbType="VarChar(3)")]
-		public string ADMN_ORGN
-		{
-			get
-			{
-				return this._ADMN_ORGN;
-			}
-			set
-			{
-				if ((this._ADMN_ORGN != value))
-				{
-					this.OnADMN_ORGNChanging(value);
-					this.SendPropertyChanging();
-					this._ADMN_ORGN = value;
-					this.SendPropertyChanged("ADMN_ORGN");
-					this.OnADMN_ORGNChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_BY", DbType="VarChar(250)")]
-		public string CRET_BY
-		{
-			get
-			{
-				return this._CRET_BY;
-			}
-			set
-			{
-				if ((this._CRET_BY != value))
-				{
-					this.OnCRET_BYChanging(value);
-					this.SendPropertyChanging();
-					this._CRET_BY = value;
-					this.SendPropertyChanged("CRET_BY");
-					this.OnCRET_BYChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_DATE", DbType="DateTime")]
-		public System.Nullable<System.DateTime> CRET_DATE
-		{
-			get
-			{
-				return this._CRET_DATE;
-			}
-			set
-			{
-				if ((this._CRET_DATE != value))
-				{
-					this.OnCRET_DATEChanging(value);
-					this.SendPropertyChanging();
-					this._CRET_DATE = value;
-					this.SendPropertyChanged("CRET_DATE");
-					this.OnCRET_DATEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_BY", DbType="VarChar(250)")]
-		public string MDFY_BY
-		{
-			get
-			{
-				return this._MDFY_BY;
-			}
-			set
-			{
-				if ((this._MDFY_BY != value))
-				{
-					this.OnMDFY_BYChanging(value);
-					this.SendPropertyChanging();
-					this._MDFY_BY = value;
-					this.SendPropertyChanged("MDFY_BY");
-					this.OnMDFY_BYChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_DATE", DbType="DateTime")]
-		public System.Nullable<System.DateTime> MDFY_DATE
-		{
-			get
-			{
-				return this._MDFY_DATE;
-			}
-			set
-			{
-				if ((this._MDFY_DATE != value))
-				{
-					this.OnMDFY_DATEChanging(value);
-					this.SendPropertyChanging();
-					this._MDFY_DATE = value;
-					this.SendPropertyChanged("MDFY_DATE");
-					this.OnMDFY_DATEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Group_Group_Menu_Ussd", Storage="_Group_Menu_Ussds", ThisKey="GPID", OtherKey="GROP_GPID")]
-		public EntitySet<Group_Menu_Ussd> Group_Menu_Ussds
-		{
-			get
-			{
-				return this._Group_Menu_Ussds;
-			}
-			set
-			{
-				this._Group_Menu_Ussds.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Group_Service_Robot_Group", Storage="_Service_Robot_Groups", ThisKey="GPID", OtherKey="GROP_GPID")]
-		public EntitySet<Service_Robot_Group> Service_Robot_Groups
-		{
-			get
-			{
-				return this._Service_Robot_Groups;
-			}
-			set
-			{
-				this._Service_Robot_Groups.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Robot_Group", Storage="_Robot", ThisKey="ROBO_RBID", OtherKey="RBID", IsForeignKey=true)]
-		public Robot Robot
-		{
-			get
-			{
-				return this._Robot.Entity;
-			}
-			set
-			{
-				Robot previousValue = this._Robot.Entity;
-				if (((previousValue != value) 
-							|| (this._Robot.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Robot.Entity = null;
-						previousValue.Groups.Remove(this);
-					}
-					this._Robot.Entity = value;
-					if ((value != null))
-					{
-						value.Groups.Add(this);
-						this._ROBO_RBID = value.RBID;
-					}
-					else
-					{
-						this._ROBO_RBID = default(Nullable<long>);
-					}
-					this.SendPropertyChanged("Robot");
-				}
-			}
-		}
-		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -8265,28 +7660,16 @@ namespace System.RoboTech.Data
 			}
 		}
 		
-		private void attach_Group_Menu_Ussds(Group_Menu_Ussd entity)
+		private void attach_Group_Header_Items(Group_Header_Item entity)
 		{
 			this.SendPropertyChanging();
-			entity.Group = this;
+			entity.Group_Menu_Ussd = this;
 		}
 		
-		private void detach_Group_Menu_Ussds(Group_Menu_Ussd entity)
+		private void detach_Group_Header_Items(Group_Header_Item entity)
 		{
 			this.SendPropertyChanging();
-			entity.Group = null;
-		}
-		
-		private void attach_Service_Robot_Groups(Service_Robot_Group entity)
-		{
-			this.SendPropertyChanging();
-			entity.Group = this;
-		}
-		
-		private void detach_Service_Robot_Groups(Service_Robot_Group entity)
-		{
-			this.SendPropertyChanging();
-			entity.Group = null;
+			entity.Group_Menu_Ussd = null;
 		}
 	}
 	
@@ -12290,244 +11673,6 @@ namespace System.RoboTech.Data
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Group_Header")]
-	public partial class Group_Header : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private long _GHID;
-		
-		private string _GRPH_DESC;
-		
-		private string _CRET_BY;
-		
-		private System.Nullable<System.DateTime> _CRET_DATE;
-		
-		private string _MDFY_BY;
-		
-		private System.Nullable<System.DateTime> _MDFY_DATE;
-		
-		private EntitySet<Service_Robot> _Service_Robots;
-		
-		private EntitySet<Group_Header_Item> _Group_Header_Items;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnGHIDChanging(long value);
-    partial void OnGHIDChanged();
-    partial void OnGRPH_DESCChanging(string value);
-    partial void OnGRPH_DESCChanged();
-    partial void OnCRET_BYChanging(string value);
-    partial void OnCRET_BYChanged();
-    partial void OnCRET_DATEChanging(System.Nullable<System.DateTime> value);
-    partial void OnCRET_DATEChanged();
-    partial void OnMDFY_BYChanging(string value);
-    partial void OnMDFY_BYChanged();
-    partial void OnMDFY_DATEChanging(System.Nullable<System.DateTime> value);
-    partial void OnMDFY_DATEChanged();
-    #endregion
-		
-		public Group_Header()
-		{
-			this._Service_Robots = new EntitySet<Service_Robot>(new Action<Service_Robot>(this.attach_Service_Robots), new Action<Service_Robot>(this.detach_Service_Robots));
-			this._Group_Header_Items = new EntitySet<Group_Header_Item>(new Action<Group_Header_Item>(this.attach_Group_Header_Items), new Action<Group_Header_Item>(this.detach_Group_Header_Items));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GHID", AutoSync=AutoSync.OnInsert, DbType="BigInt NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public long GHID
-		{
-			get
-			{
-				return this._GHID;
-			}
-			set
-			{
-				if ((this._GHID != value))
-				{
-					this.OnGHIDChanging(value);
-					this.SendPropertyChanging();
-					this._GHID = value;
-					this.SendPropertyChanged("GHID");
-					this.OnGHIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GRPH_DESC", DbType="NVarChar(250)", UpdateCheck=UpdateCheck.Never)]
-		public string GRPH_DESC
-		{
-			get
-			{
-				return this._GRPH_DESC;
-			}
-			set
-			{
-				if ((this._GRPH_DESC != value))
-				{
-					this.OnGRPH_DESCChanging(value);
-					this.SendPropertyChanging();
-					this._GRPH_DESC = value;
-					this.SendPropertyChanged("GRPH_DESC");
-					this.OnGRPH_DESCChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_BY", DbType="VarChar(250)", UpdateCheck=UpdateCheck.Never)]
-		public string CRET_BY
-		{
-			get
-			{
-				return this._CRET_BY;
-			}
-			set
-			{
-				if ((this._CRET_BY != value))
-				{
-					this.OnCRET_BYChanging(value);
-					this.SendPropertyChanging();
-					this._CRET_BY = value;
-					this.SendPropertyChanged("CRET_BY");
-					this.OnCRET_BYChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<System.DateTime> CRET_DATE
-		{
-			get
-			{
-				return this._CRET_DATE;
-			}
-			set
-			{
-				if ((this._CRET_DATE != value))
-				{
-					this.OnCRET_DATEChanging(value);
-					this.SendPropertyChanging();
-					this._CRET_DATE = value;
-					this.SendPropertyChanged("CRET_DATE");
-					this.OnCRET_DATEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_BY", DbType="VarChar(250)", UpdateCheck=UpdateCheck.Never)]
-		public string MDFY_BY
-		{
-			get
-			{
-				return this._MDFY_BY;
-			}
-			set
-			{
-				if ((this._MDFY_BY != value))
-				{
-					this.OnMDFY_BYChanging(value);
-					this.SendPropertyChanging();
-					this._MDFY_BY = value;
-					this.SendPropertyChanged("MDFY_BY");
-					this.OnMDFY_BYChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<System.DateTime> MDFY_DATE
-		{
-			get
-			{
-				return this._MDFY_DATE;
-			}
-			set
-			{
-				if ((this._MDFY_DATE != value))
-				{
-					this.OnMDFY_DATEChanging(value);
-					this.SendPropertyChanging();
-					this._MDFY_DATE = value;
-					this.SendPropertyChanged("MDFY_DATE");
-					this.OnMDFY_DATEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Group_Header_Service_Robot", Storage="_Service_Robots", ThisKey="GHID", OtherKey="GRPH_GHID")]
-		public EntitySet<Service_Robot> Service_Robots
-		{
-			get
-			{
-				return this._Service_Robots;
-			}
-			set
-			{
-				this._Service_Robots.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Group_Header_Group_Header_Item", Storage="_Group_Header_Items", ThisKey="GHID", OtherKey="GPHD_GHID")]
-		public EntitySet<Group_Header_Item> Group_Header_Items
-		{
-			get
-			{
-				return this._Group_Header_Items;
-			}
-			set
-			{
-				this._Group_Header_Items.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Service_Robots(Service_Robot entity)
-		{
-			this.SendPropertyChanging();
-			entity.Group_Header = this;
-		}
-		
-		private void detach_Service_Robots(Service_Robot entity)
-		{
-			this.SendPropertyChanging();
-			entity.Group_Header = null;
-		}
-		
-		private void attach_Group_Header_Items(Group_Header_Item entity)
-		{
-			this.SendPropertyChanging();
-			entity.Group_Header = this;
-		}
-		
-		private void detach_Group_Header_Items(Group_Header_Item entity)
-		{
-			this.SendPropertyChanging();
-			entity.Group_Header = null;
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Modual_Report")]
 	public partial class Modual_Report : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -14984,8 +14129,6 @@ namespace System.RoboTech.Data
 		
 		private EntitySet<Service_Robot_Visit> _Service_Robot_Visits;
 		
-		private EntitySet<Service_Robot_Group> _Service_Robot_Groups;
-		
 		private EntitySet<Service_Robot_Upload> _Service_Robot_Uploads;
 		
 		private EntitySet<Service_Robot_Message> _Service_Robot_Messages;
@@ -15000,13 +14143,15 @@ namespace System.RoboTech.Data
 		
 		private EntitySet<Robot_Spy_Group_Message> _Robot_Spy_Group_Messages;
 		
-		private EntityRef<Group_Header> _Group_Header;
+		private EntitySet<Service_Robot_Group> _Service_Robot_Groups;
 		
 		private EntityRef<Region> _Region;
 		
 		private EntityRef<Service> _Service;
 		
 		private EntityRef<Robot> _Robot;
+		
+		private EntityRef<Group_Header> _Group_Header;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -15068,7 +14213,6 @@ namespace System.RoboTech.Data
 		{
 			this._Service_Robot_Publics = new EntitySet<Service_Robot_Public>(new Action<Service_Robot_Public>(this.attach_Service_Robot_Publics), new Action<Service_Robot_Public>(this.detach_Service_Robot_Publics));
 			this._Service_Robot_Visits = new EntitySet<Service_Robot_Visit>(new Action<Service_Robot_Visit>(this.attach_Service_Robot_Visits), new Action<Service_Robot_Visit>(this.detach_Service_Robot_Visits));
-			this._Service_Robot_Groups = new EntitySet<Service_Robot_Group>(new Action<Service_Robot_Group>(this.attach_Service_Robot_Groups), new Action<Service_Robot_Group>(this.detach_Service_Robot_Groups));
 			this._Service_Robot_Uploads = new EntitySet<Service_Robot_Upload>(new Action<Service_Robot_Upload>(this.attach_Service_Robot_Uploads), new Action<Service_Robot_Upload>(this.detach_Service_Robot_Uploads));
 			this._Service_Robot_Messages = new EntitySet<Service_Robot_Message>(new Action<Service_Robot_Message>(this.attach_Service_Robot_Messages), new Action<Service_Robot_Message>(this.detach_Service_Robot_Messages));
 			this._Service_Robot_Send_Advertisings = new EntitySet<Service_Robot_Send_Advertising>(new Action<Service_Robot_Send_Advertising>(this.attach_Service_Robot_Send_Advertisings), new Action<Service_Robot_Send_Advertising>(this.detach_Service_Robot_Send_Advertisings));
@@ -15076,10 +14220,11 @@ namespace System.RoboTech.Data
 			this._Service_Robot_Replay_Messages = new EntitySet<Service_Robot_Replay_Message>(new Action<Service_Robot_Replay_Message>(this.attach_Service_Robot_Replay_Messages), new Action<Service_Robot_Replay_Message>(this.detach_Service_Robot_Replay_Messages));
 			this._Orders = new EntitySet<Order>(new Action<Order>(this.attach_Orders), new Action<Order>(this.detach_Orders));
 			this._Robot_Spy_Group_Messages = new EntitySet<Robot_Spy_Group_Message>(new Action<Robot_Spy_Group_Message>(this.attach_Robot_Spy_Group_Messages), new Action<Robot_Spy_Group_Message>(this.detach_Robot_Spy_Group_Messages));
-			this._Group_Header = default(EntityRef<Group_Header>);
+			this._Service_Robot_Groups = new EntitySet<Service_Robot_Group>(new Action<Service_Robot_Group>(this.attach_Service_Robot_Groups), new Action<Service_Robot_Group>(this.detach_Service_Robot_Groups));
 			this._Region = default(EntityRef<Region>);
 			this._Service = default(EntityRef<Service>);
 			this._Robot = default(EntityRef<Robot>);
+			this._Group_Header = default(EntityRef<Group_Header>);
 			OnCreated();
 		}
 		
@@ -15633,19 +14778,6 @@ namespace System.RoboTech.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Service_Robot_Service_Robot_Group", Storage="_Service_Robot_Groups", ThisKey="SERV_FILE_NO,ROBO_RBID", OtherKey="SRBT_SERV_FILE_NO,SRBT_ROBO_RBID")]
-		public EntitySet<Service_Robot_Group> Service_Robot_Groups
-		{
-			get
-			{
-				return this._Service_Robot_Groups;
-			}
-			set
-			{
-				this._Service_Robot_Groups.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Service_Robot_Service_Robot_Upload", Storage="_Service_Robot_Uploads", ThisKey="SERV_FILE_NO,ROBO_RBID", OtherKey="SRBT_SERV_FILE_NO,SRBT_ROBO_RBID")]
 		public EntitySet<Service_Robot_Upload> Service_Robot_Uploads
 		{
@@ -15737,37 +14869,16 @@ namespace System.RoboTech.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Group_Header_Service_Robot", Storage="_Group_Header", ThisKey="GRPH_GHID", OtherKey="GHID", IsForeignKey=true)]
-		public Group_Header Group_Header
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Service_Robot_Service_Robot_Group", Storage="_Service_Robot_Groups", ThisKey="SERV_FILE_NO,ROBO_RBID", OtherKey="SRBT_SERV_FILE_NO,SRBT_ROBO_RBID")]
+		public EntitySet<Service_Robot_Group> Service_Robot_Groups
 		{
 			get
 			{
-				return this._Group_Header.Entity;
+				return this._Service_Robot_Groups;
 			}
 			set
 			{
-				Group_Header previousValue = this._Group_Header.Entity;
-				if (((previousValue != value) 
-							|| (this._Group_Header.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Group_Header.Entity = null;
-						previousValue.Service_Robots.Remove(this);
-					}
-					this._Group_Header.Entity = value;
-					if ((value != null))
-					{
-						value.Service_Robots.Add(this);
-						this._GRPH_GHID = value.GHID;
-					}
-					else
-					{
-						this._GRPH_GHID = default(Nullable<long>);
-					}
-					this.SendPropertyChanged("Group_Header");
-				}
+				this._Service_Robot_Groups.Assign(value);
 			}
 		}
 		
@@ -15877,6 +14988,40 @@ namespace System.RoboTech.Data
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Group_Header_Service_Robot", Storage="_Group_Header", ThisKey="GRPH_GHID", OtherKey="GHID", IsForeignKey=true)]
+		public Group_Header Group_Header
+		{
+			get
+			{
+				return this._Group_Header.Entity;
+			}
+			set
+			{
+				Group_Header previousValue = this._Group_Header.Entity;
+				if (((previousValue != value) 
+							|| (this._Group_Header.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Group_Header.Entity = null;
+						previousValue.Service_Robots.Remove(this);
+					}
+					this._Group_Header.Entity = value;
+					if ((value != null))
+					{
+						value.Service_Robots.Add(this);
+						this._GRPH_GHID = value.GHID;
+					}
+					else
+					{
+						this._GRPH_GHID = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("Group_Header");
+				}
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -15916,18 +15061,6 @@ namespace System.RoboTech.Data
 		}
 		
 		private void detach_Service_Robot_Visits(Service_Robot_Visit entity)
-		{
-			this.SendPropertyChanging();
-			entity.Service_Robot = null;
-		}
-		
-		private void attach_Service_Robot_Groups(Service_Robot_Group entity)
-		{
-			this.SendPropertyChanging();
-			entity.Service_Robot = this;
-		}
-		
-		private void detach_Service_Robot_Groups(Service_Robot_Group entity)
 		{
 			this.SendPropertyChanging();
 			entity.Service_Robot = null;
@@ -16016,496 +15149,17 @@ namespace System.RoboTech.Data
 			this.SendPropertyChanging();
 			entity.Service_Robot = null;
 		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Group_Header_Item")]
-	public partial class Group_Header_Item : INotifyPropertyChanging, INotifyPropertyChanged
-	{
 		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private System.Nullable<long> _GPHD_GHID;
-		
-		private long _CODE;
-		
-		private string _GHDT_DESC;
-		
-		private System.Nullable<long> _PRIC;
-		
-		private System.Nullable<short> _SCND_NUMB;
-		
-		private System.Nullable<short> _MINT_NUMB;
-		
-		private System.Nullable<short> _HORS_NUMB;
-		
-		private System.Nullable<short> _DAYS_NUMB;
-		
-		private System.Nullable<short> _MONT_NUMB;
-		
-		private System.Nullable<short> _YEAR_NUMB;
-		
-		private string _STAT;
-		
-		private string _COEF_STAT;
-		
-		private string _CRET_BY;
-		
-		private System.Nullable<System.DateTime> _CRET_DATE;
-		
-		private string _MDFY_BY;
-		
-		private System.Nullable<System.DateTime> _MDFY_DATE;
-		
-		private EntitySet<Order_Detail> _Order_Details;
-		
-		private EntityRef<Group_Header> _Group_Header;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnGPHD_GHIDChanging(System.Nullable<long> value);
-    partial void OnGPHD_GHIDChanged();
-    partial void OnCODEChanging(long value);
-    partial void OnCODEChanged();
-    partial void OnGHDT_DESCChanging(string value);
-    partial void OnGHDT_DESCChanged();
-    partial void OnPRICChanging(System.Nullable<long> value);
-    partial void OnPRICChanged();
-    partial void OnSCND_NUMBChanging(System.Nullable<short> value);
-    partial void OnSCND_NUMBChanged();
-    partial void OnMINT_NUMBChanging(System.Nullable<short> value);
-    partial void OnMINT_NUMBChanged();
-    partial void OnHORS_NUMBChanging(System.Nullable<short> value);
-    partial void OnHORS_NUMBChanged();
-    partial void OnDAYS_NUMBChanging(System.Nullable<short> value);
-    partial void OnDAYS_NUMBChanged();
-    partial void OnMONT_NUMBChanging(System.Nullable<short> value);
-    partial void OnMONT_NUMBChanged();
-    partial void OnYEAR_NUMBChanging(System.Nullable<short> value);
-    partial void OnYEAR_NUMBChanged();
-    partial void OnSTATChanging(string value);
-    partial void OnSTATChanged();
-    partial void OnCOEF_STATChanging(string value);
-    partial void OnCOEF_STATChanged();
-    partial void OnCRET_BYChanging(string value);
-    partial void OnCRET_BYChanged();
-    partial void OnCRET_DATEChanging(System.Nullable<System.DateTime> value);
-    partial void OnCRET_DATEChanged();
-    partial void OnMDFY_BYChanging(string value);
-    partial void OnMDFY_BYChanged();
-    partial void OnMDFY_DATEChanging(System.Nullable<System.DateTime> value);
-    partial void OnMDFY_DATEChanged();
-    #endregion
-		
-		public Group_Header_Item()
-		{
-			this._Order_Details = new EntitySet<Order_Detail>(new Action<Order_Detail>(this.attach_Order_Details), new Action<Order_Detail>(this.detach_Order_Details));
-			this._Group_Header = default(EntityRef<Group_Header>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GPHD_GHID", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<long> GPHD_GHID
-		{
-			get
-			{
-				return this._GPHD_GHID;
-			}
-			set
-			{
-				if ((this._GPHD_GHID != value))
-				{
-					if (this._Group_Header.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnGPHD_GHIDChanging(value);
-					this.SendPropertyChanging();
-					this._GPHD_GHID = value;
-					this.SendPropertyChanged("GPHD_GHID");
-					this.OnGPHD_GHIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CODE", DbType="BigInt NOT NULL", IsPrimaryKey=true)]
-		public long CODE
-		{
-			get
-			{
-				return this._CODE;
-			}
-			set
-			{
-				if ((this._CODE != value))
-				{
-					this.OnCODEChanging(value);
-					this.SendPropertyChanging();
-					this._CODE = value;
-					this.SendPropertyChanged("CODE");
-					this.OnCODEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GHDT_DESC", DbType="NVarChar(100)", UpdateCheck=UpdateCheck.Never)]
-		public string GHDT_DESC
-		{
-			get
-			{
-				return this._GHDT_DESC;
-			}
-			set
-			{
-				if ((this._GHDT_DESC != value))
-				{
-					this.OnGHDT_DESCChanging(value);
-					this.SendPropertyChanging();
-					this._GHDT_DESC = value;
-					this.SendPropertyChanged("GHDT_DESC");
-					this.OnGHDT_DESCChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PRIC", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<long> PRIC
-		{
-			get
-			{
-				return this._PRIC;
-			}
-			set
-			{
-				if ((this._PRIC != value))
-				{
-					this.OnPRICChanging(value);
-					this.SendPropertyChanging();
-					this._PRIC = value;
-					this.SendPropertyChanged("PRIC");
-					this.OnPRICChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SCND_NUMB", DbType="SmallInt", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<short> SCND_NUMB
-		{
-			get
-			{
-				return this._SCND_NUMB;
-			}
-			set
-			{
-				if ((this._SCND_NUMB != value))
-				{
-					this.OnSCND_NUMBChanging(value);
-					this.SendPropertyChanging();
-					this._SCND_NUMB = value;
-					this.SendPropertyChanged("SCND_NUMB");
-					this.OnSCND_NUMBChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MINT_NUMB", DbType="SmallInt", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<short> MINT_NUMB
-		{
-			get
-			{
-				return this._MINT_NUMB;
-			}
-			set
-			{
-				if ((this._MINT_NUMB != value))
-				{
-					this.OnMINT_NUMBChanging(value);
-					this.SendPropertyChanging();
-					this._MINT_NUMB = value;
-					this.SendPropertyChanged("MINT_NUMB");
-					this.OnMINT_NUMBChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HORS_NUMB", DbType="SmallInt", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<short> HORS_NUMB
-		{
-			get
-			{
-				return this._HORS_NUMB;
-			}
-			set
-			{
-				if ((this._HORS_NUMB != value))
-				{
-					this.OnHORS_NUMBChanging(value);
-					this.SendPropertyChanging();
-					this._HORS_NUMB = value;
-					this.SendPropertyChanged("HORS_NUMB");
-					this.OnHORS_NUMBChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DAYS_NUMB", DbType="SmallInt", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<short> DAYS_NUMB
-		{
-			get
-			{
-				return this._DAYS_NUMB;
-			}
-			set
-			{
-				if ((this._DAYS_NUMB != value))
-				{
-					this.OnDAYS_NUMBChanging(value);
-					this.SendPropertyChanging();
-					this._DAYS_NUMB = value;
-					this.SendPropertyChanged("DAYS_NUMB");
-					this.OnDAYS_NUMBChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MONT_NUMB", DbType="SmallInt", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<short> MONT_NUMB
-		{
-			get
-			{
-				return this._MONT_NUMB;
-			}
-			set
-			{
-				if ((this._MONT_NUMB != value))
-				{
-					this.OnMONT_NUMBChanging(value);
-					this.SendPropertyChanging();
-					this._MONT_NUMB = value;
-					this.SendPropertyChanged("MONT_NUMB");
-					this.OnMONT_NUMBChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_YEAR_NUMB", DbType="SmallInt", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<short> YEAR_NUMB
-		{
-			get
-			{
-				return this._YEAR_NUMB;
-			}
-			set
-			{
-				if ((this._YEAR_NUMB != value))
-				{
-					this.OnYEAR_NUMBChanging(value);
-					this.SendPropertyChanging();
-					this._YEAR_NUMB = value;
-					this.SendPropertyChanged("YEAR_NUMB");
-					this.OnYEAR_NUMBChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STAT", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
-		public string STAT
-		{
-			get
-			{
-				return this._STAT;
-			}
-			set
-			{
-				if ((this._STAT != value))
-				{
-					this.OnSTATChanging(value);
-					this.SendPropertyChanging();
-					this._STAT = value;
-					this.SendPropertyChanged("STAT");
-					this.OnSTATChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_COEF_STAT", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
-		public string COEF_STAT
-		{
-			get
-			{
-				return this._COEF_STAT;
-			}
-			set
-			{
-				if ((this._COEF_STAT != value))
-				{
-					this.OnCOEF_STATChanging(value);
-					this.SendPropertyChanging();
-					this._COEF_STAT = value;
-					this.SendPropertyChanged("COEF_STAT");
-					this.OnCOEF_STATChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_BY", DbType="VarChar(250)", UpdateCheck=UpdateCheck.Never)]
-		public string CRET_BY
-		{
-			get
-			{
-				return this._CRET_BY;
-			}
-			set
-			{
-				if ((this._CRET_BY != value))
-				{
-					this.OnCRET_BYChanging(value);
-					this.SendPropertyChanging();
-					this._CRET_BY = value;
-					this.SendPropertyChanged("CRET_BY");
-					this.OnCRET_BYChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<System.DateTime> CRET_DATE
-		{
-			get
-			{
-				return this._CRET_DATE;
-			}
-			set
-			{
-				if ((this._CRET_DATE != value))
-				{
-					this.OnCRET_DATEChanging(value);
-					this.SendPropertyChanging();
-					this._CRET_DATE = value;
-					this.SendPropertyChanged("CRET_DATE");
-					this.OnCRET_DATEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_BY", DbType="VarChar(250)", UpdateCheck=UpdateCheck.Never)]
-		public string MDFY_BY
-		{
-			get
-			{
-				return this._MDFY_BY;
-			}
-			set
-			{
-				if ((this._MDFY_BY != value))
-				{
-					this.OnMDFY_BYChanging(value);
-					this.SendPropertyChanging();
-					this._MDFY_BY = value;
-					this.SendPropertyChanged("MDFY_BY");
-					this.OnMDFY_BYChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<System.DateTime> MDFY_DATE
-		{
-			get
-			{
-				return this._MDFY_DATE;
-			}
-			set
-			{
-				if ((this._MDFY_DATE != value))
-				{
-					this.OnMDFY_DATEChanging(value);
-					this.SendPropertyChanging();
-					this._MDFY_DATE = value;
-					this.SendPropertyChanged("MDFY_DATE");
-					this.OnMDFY_DATEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Group_Header_Item_Order_Detail", Storage="_Order_Details", ThisKey="CODE", OtherKey="GHIT_CODE")]
-		public EntitySet<Order_Detail> Order_Details
-		{
-			get
-			{
-				return this._Order_Details;
-			}
-			set
-			{
-				this._Order_Details.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Group_Header_Group_Header_Item", Storage="_Group_Header", ThisKey="GPHD_GHID", OtherKey="GHID", IsForeignKey=true)]
-		public Group_Header Group_Header
-		{
-			get
-			{
-				return this._Group_Header.Entity;
-			}
-			set
-			{
-				Group_Header previousValue = this._Group_Header.Entity;
-				if (((previousValue != value) 
-							|| (this._Group_Header.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Group_Header.Entity = null;
-						previousValue.Group_Header_Items.Remove(this);
-					}
-					this._Group_Header.Entity = value;
-					if ((value != null))
-					{
-						value.Group_Header_Items.Add(this);
-						this._GPHD_GHID = value.GHID;
-					}
-					else
-					{
-						this._GPHD_GHID = default(Nullable<long>);
-					}
-					this.SendPropertyChanged("Group_Header");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Order_Details(Order_Detail entity)
+		private void attach_Service_Robot_Groups(Service_Robot_Group entity)
 		{
 			this.SendPropertyChanging();
-			entity.Group_Header_Item = this;
+			entity.Service_Robot = this;
 		}
 		
-		private void detach_Order_Details(Order_Detail entity)
+		private void detach_Service_Robot_Groups(Service_Robot_Group entity)
 		{
 			this.SendPropertyChanging();
-			entity.Group_Header_Item = null;
+			entity.Service_Robot = null;
 		}
 	}
 	
@@ -20169,9 +18823,9 @@ namespace System.RoboTech.Data
 		
 		private EntitySet<Service_Robot_Replay_Message> _Service_Robot_Replay_Messages;
 		
-		private EntityRef<Group_Header_Item> _Group_Header_Item;
-		
 		private EntityRef<Order> _Order;
+		
+		private EntityRef<Group_Header_Item> _Group_Header_Item;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -20222,8 +18876,8 @@ namespace System.RoboTech.Data
 		public Order_Detail()
 		{
 			this._Service_Robot_Replay_Messages = new EntitySet<Service_Robot_Replay_Message>(new Action<Service_Robot_Replay_Message>(this.attach_Service_Robot_Replay_Messages), new Action<Service_Robot_Replay_Message>(this.detach_Service_Robot_Replay_Messages));
-			this._Group_Header_Item = default(EntityRef<Group_Header_Item>);
 			this._Order = default(EntityRef<Order>);
+			this._Group_Header_Item = default(EntityRef<Group_Header_Item>);
 			OnCreated();
 		}
 		
@@ -20648,40 +19302,6 @@ namespace System.RoboTech.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Group_Header_Item_Order_Detail", Storage="_Group_Header_Item", ThisKey="GHIT_CODE", OtherKey="CODE", IsForeignKey=true)]
-		public Group_Header_Item Group_Header_Item
-		{
-			get
-			{
-				return this._Group_Header_Item.Entity;
-			}
-			set
-			{
-				Group_Header_Item previousValue = this._Group_Header_Item.Entity;
-				if (((previousValue != value) 
-							|| (this._Group_Header_Item.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Group_Header_Item.Entity = null;
-						previousValue.Order_Details.Remove(this);
-					}
-					this._Group_Header_Item.Entity = value;
-					if ((value != null))
-					{
-						value.Order_Details.Add(this);
-						this._GHIT_CODE = value.CODE;
-					}
-					else
-					{
-						this._GHIT_CODE = default(Nullable<long>);
-					}
-					this.SendPropertyChanged("Group_Header_Item");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Order_Order_Detail", Storage="_Order", ThisKey="ORDR_CODE", OtherKey="CODE", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
 		public Order Order
 		{
@@ -20712,6 +19332,40 @@ namespace System.RoboTech.Data
 						this._ORDR_CODE = default(long);
 					}
 					this.SendPropertyChanged("Order");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Group_Header_Item_Order_Detail", Storage="_Group_Header_Item", ThisKey="GHIT_CODE", OtherKey="CODE", IsForeignKey=true)]
+		public Group_Header_Item Group_Header_Item
+		{
+			get
+			{
+				return this._Group_Header_Item.Entity;
+			}
+			set
+			{
+				Group_Header_Item previousValue = this._Group_Header_Item.Entity;
+				if (((previousValue != value) 
+							|| (this._Group_Header_Item.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Group_Header_Item.Entity = null;
+						previousValue.Order_Details.Remove(this);
+					}
+					this._Group_Header_Item.Entity = value;
+					if ((value != null))
+					{
+						value.Order_Details.Add(this);
+						this._GHIT_CODE = value.CODE;
+					}
+					else
+					{
+						this._GHIT_CODE = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("Group_Header_Item");
 				}
 			}
 		}
@@ -21995,6 +20649,96 @@ namespace System.RoboTech.Data
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.D$BTYP")]
+	public partial class D_BTYP
+	{
+		
+		private string _VALU;
+		
+		private string _DOMN_DESC;
+		
+		public D_BTYP()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VALU", DbType="VarChar(3) NOT NULL", CanBeNull=false)]
+		public string VALU
+		{
+			get
+			{
+				return this._VALU;
+			}
+			set
+			{
+				if ((this._VALU != value))
+				{
+					this._VALU = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DOMN_DESC", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
+		public string DOMN_DESC
+		{
+			get
+			{
+				return this._DOMN_DESC;
+			}
+			set
+			{
+				if ((this._DOMN_DESC != value))
+				{
+					this._DOMN_DESC = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.D$BDIR")]
+	public partial class D_BDIR
+	{
+		
+		private string _VALU;
+		
+		private string _DOMN_DESC;
+		
+		public D_BDIR()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VALU", DbType="VarChar(3) NOT NULL", CanBeNull=false)]
+		public string VALU
+		{
+			get
+			{
+				return this._VALU;
+			}
+			set
+			{
+				if ((this._VALU != value))
+				{
+					this._VALU = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DOMN_DESC", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
+		public string DOMN_DESC
+		{
+			get
+			{
+				return this._DOMN_DESC;
+			}
+			set
+			{
+				if ((this._DOMN_DESC != value))
+				{
+					this._DOMN_DESC = value;
+				}
+			}
+		}
+	}
+	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Robot")]
 	public partial class Robot : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -22003,7 +20747,13 @@ namespace System.RoboTech.Data
 		
 		private long _ORGN_OGID;
 		
+		private System.Nullable<long> _ROBO_RBID;
+		
 		private long _RBID;
+		
+		private string _COPY_TYPE;
+		
+		private string _BOT_TYPE;
 		
 		private string _NAME;
 		
@@ -22027,6 +20777,8 @@ namespace System.RoboTech.Data
 		
 		private string _INVT_FRND;
 		
+		private string _HASH_TAG;
+		
 		private string _CRET_BY;
 		
 		private System.Nullable<System.DateTime> _CRET_DATE;
@@ -22038,8 +20790,6 @@ namespace System.RoboTech.Data
 		private EntitySet<Service_Robot_Public> _Service_Robot_Publics;
 		
 		private EntitySet<Job> _Jobs;
-		
-		private EntitySet<Group> _Groups;
 		
 		private EntitySet<Organ_Media> _Organ_Medias;
 		
@@ -22061,7 +20811,15 @@ namespace System.RoboTech.Data
 		
 		private EntitySet<Menu_Ussd> _Menu_Ussds;
 		
+		private EntitySet<Robot> _Robots;
+		
+		private EntitySet<Group_Header> _Group_Headers;
+		
+		private EntitySet<Group> _Groups;
+		
 		private EntityRef<Organ> _Organ;
+		
+		private EntityRef<Robot> _Robot1;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -22069,8 +20827,14 @@ namespace System.RoboTech.Data
     partial void OnCreated();
     partial void OnORGN_OGIDChanging(long value);
     partial void OnORGN_OGIDChanged();
+    partial void OnROBO_RBIDChanging(System.Nullable<long> value);
+    partial void OnROBO_RBIDChanged();
     partial void OnRBIDChanging(long value);
     partial void OnRBIDChanged();
+    partial void OnCOPY_TYPEChanging(string value);
+    partial void OnCOPY_TYPEChanged();
+    partial void OnBOT_TYPEChanging(string value);
+    partial void OnBOT_TYPEChanged();
     partial void OnNAMEChanging(string value);
     partial void OnNAMEChanged();
     partial void OnTKON_CODEChanging(string value);
@@ -22093,6 +20857,8 @@ namespace System.RoboTech.Data
     partial void OnUP_LOAD_FILE_PATHChanged();
     partial void OnINVT_FRNDChanging(string value);
     partial void OnINVT_FRNDChanged();
+    partial void OnHASH_TAGChanging(string value);
+    partial void OnHASH_TAGChanged();
     partial void OnCRET_BYChanging(string value);
     partial void OnCRET_BYChanged();
     partial void OnCRET_DATEChanging(System.Nullable<System.DateTime> value);
@@ -22107,7 +20873,6 @@ namespace System.RoboTech.Data
 		{
 			this._Service_Robot_Publics = new EntitySet<Service_Robot_Public>(new Action<Service_Robot_Public>(this.attach_Service_Robot_Publics), new Action<Service_Robot_Public>(this.detach_Service_Robot_Publics));
 			this._Jobs = new EntitySet<Job>(new Action<Job>(this.attach_Jobs), new Action<Job>(this.detach_Jobs));
-			this._Groups = new EntitySet<Group>(new Action<Group>(this.attach_Groups), new Action<Group>(this.detach_Groups));
 			this._Organ_Medias = new EntitySet<Organ_Media>(new Action<Organ_Media>(this.attach_Organ_Medias), new Action<Organ_Media>(this.detach_Organ_Medias));
 			this._Organ_Descriptions = new EntitySet<Organ_Description>(new Action<Organ_Description>(this.attach_Organ_Descriptions), new Action<Organ_Description>(this.detach_Organ_Descriptions));
 			this._Robot_Imports = new EntitySet<Robot_Import>(new Action<Robot_Import>(this.attach_Robot_Imports), new Action<Robot_Import>(this.detach_Robot_Imports));
@@ -22118,11 +20883,15 @@ namespace System.RoboTech.Data
 			this._Robot_Spy_Group_Messages = new EntitySet<Robot_Spy_Group_Message>(new Action<Robot_Spy_Group_Message>(this.attach_Robot_Spy_Group_Messages), new Action<Robot_Spy_Group_Message>(this.detach_Robot_Spy_Group_Messages));
 			this._Personal_Robots = new EntitySet<Personal_Robot>(new Action<Personal_Robot>(this.attach_Personal_Robots), new Action<Personal_Robot>(this.detach_Personal_Robots));
 			this._Menu_Ussds = new EntitySet<Menu_Ussd>(new Action<Menu_Ussd>(this.attach_Menu_Ussds), new Action<Menu_Ussd>(this.detach_Menu_Ussds));
+			this._Robots = new EntitySet<Robot>(new Action<Robot>(this.attach_Robots), new Action<Robot>(this.detach_Robots));
+			this._Group_Headers = new EntitySet<Group_Header>(new Action<Group_Header>(this.attach_Group_Headers), new Action<Group_Header>(this.detach_Group_Headers));
+			this._Groups = new EntitySet<Group>(new Action<Group>(this.attach_Groups), new Action<Group>(this.detach_Groups));
 			this._Organ = default(EntityRef<Organ>);
+			this._Robot1 = default(EntityRef<Robot>);
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ORGN_OGID", DbType="BigInt NOT NULL")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ORGN_OGID", DbType="BigInt NOT NULL", UpdateCheck=UpdateCheck.Never)]
 		public long ORGN_OGID
 		{
 			get
@@ -22142,6 +20911,30 @@ namespace System.RoboTech.Data
 					this._ORGN_OGID = value;
 					this.SendPropertyChanged("ORGN_OGID");
 					this.OnORGN_OGIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ROBO_RBID", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<long> ROBO_RBID
+		{
+			get
+			{
+				return this._ROBO_RBID;
+			}
+			set
+			{
+				if ((this._ROBO_RBID != value))
+				{
+					if (this._Robot1.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnROBO_RBIDChanging(value);
+					this.SendPropertyChanging();
+					this._ROBO_RBID = value;
+					this.SendPropertyChanged("ROBO_RBID");
+					this.OnROBO_RBIDChanged();
 				}
 			}
 		}
@@ -22166,7 +20959,47 @@ namespace System.RoboTech.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NAME", DbType="VarChar(50)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_COPY_TYPE", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		public string COPY_TYPE
+		{
+			get
+			{
+				return this._COPY_TYPE;
+			}
+			set
+			{
+				if ((this._COPY_TYPE != value))
+				{
+					this.OnCOPY_TYPEChanging(value);
+					this.SendPropertyChanging();
+					this._COPY_TYPE = value;
+					this.SendPropertyChanged("COPY_TYPE");
+					this.OnCOPY_TYPEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BOT_TYPE", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		public string BOT_TYPE
+		{
+			get
+			{
+				return this._BOT_TYPE;
+			}
+			set
+			{
+				if ((this._BOT_TYPE != value))
+				{
+					this.OnBOT_TYPEChanging(value);
+					this.SendPropertyChanging();
+					this._BOT_TYPE = value;
+					this.SendPropertyChanged("BOT_TYPE");
+					this.OnBOT_TYPEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NAME", DbType="VarChar(50)", UpdateCheck=UpdateCheck.Never)]
 		public string NAME
 		{
 			get
@@ -22186,7 +21019,7 @@ namespace System.RoboTech.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TKON_CODE", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TKON_CODE", DbType="VarChar(100) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
 		public string TKON_CODE
 		{
 			get
@@ -22206,7 +21039,7 @@ namespace System.RoboTech.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CHCK_INTR", DbType="Int NOT NULL")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CHCK_INTR", DbType="Int NOT NULL", UpdateCheck=UpdateCheck.Never)]
 		public int CHCK_INTR
 		{
 			get
@@ -22226,7 +21059,7 @@ namespace System.RoboTech.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STAT", DbType="VarChar(3)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STAT", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
 		public string STAT
 		{
 			get
@@ -22246,7 +21079,7 @@ namespace System.RoboTech.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BULD_STAT", DbType="VarChar(3)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BULD_STAT", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
 		public string BULD_STAT
 		{
 			get
@@ -22266,7 +21099,7 @@ namespace System.RoboTech.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BULD_FILE_ID", DbType="VarChar(500)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BULD_FILE_ID", DbType="VarChar(500)", UpdateCheck=UpdateCheck.Never)]
 		public string BULD_FILE_ID
 		{
 			get
@@ -22286,7 +21119,7 @@ namespace System.RoboTech.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SPY_TYPE", DbType="VarChar(3)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SPY_TYPE", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
 		public string SPY_TYPE
 		{
 			get
@@ -22306,7 +21139,7 @@ namespace System.RoboTech.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRTB_URL", DbType="VarChar(1000)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRTB_URL", DbType="VarChar(1000)", UpdateCheck=UpdateCheck.Never)]
 		public string CRTB_URL
 		{
 			get
@@ -22326,7 +21159,7 @@ namespace System.RoboTech.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DOWN_LOAD_FILE_PATH", DbType="VarChar(1000)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DOWN_LOAD_FILE_PATH", DbType="VarChar(1000)", UpdateCheck=UpdateCheck.Never)]
 		public string DOWN_LOAD_FILE_PATH
 		{
 			get
@@ -22346,7 +21179,7 @@ namespace System.RoboTech.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UP_LOAD_FILE_PATH", DbType="NVarChar(1000)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UP_LOAD_FILE_PATH", DbType="NVarChar(1000)", UpdateCheck=UpdateCheck.Never)]
 		public string UP_LOAD_FILE_PATH
 		{
 			get
@@ -22366,7 +21199,7 @@ namespace System.RoboTech.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_INVT_FRND", DbType="NVarChar(MAX)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_INVT_FRND", DbType="NVarChar(MAX)", UpdateCheck=UpdateCheck.Never)]
 		public string INVT_FRND
 		{
 			get
@@ -22386,7 +21219,27 @@ namespace System.RoboTech.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_BY", DbType="VarChar(250)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HASH_TAG", DbType="NVarChar(1000)", UpdateCheck=UpdateCheck.Never)]
+		public string HASH_TAG
+		{
+			get
+			{
+				return this._HASH_TAG;
+			}
+			set
+			{
+				if ((this._HASH_TAG != value))
+				{
+					this.OnHASH_TAGChanging(value);
+					this.SendPropertyChanging();
+					this._HASH_TAG = value;
+					this.SendPropertyChanged("HASH_TAG");
+					this.OnHASH_TAGChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_BY", DbType="VarChar(250)", UpdateCheck=UpdateCheck.Never)]
 		public string CRET_BY
 		{
 			get
@@ -22406,7 +21259,7 @@ namespace System.RoboTech.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_DATE", DbType="DateTime")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
 		public System.Nullable<System.DateTime> CRET_DATE
 		{
 			get
@@ -22426,7 +21279,7 @@ namespace System.RoboTech.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_BY", DbType="VarChar(250)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_BY", DbType="VarChar(250)", UpdateCheck=UpdateCheck.Never)]
 		public string MDFY_BY
 		{
 			get
@@ -22446,7 +21299,7 @@ namespace System.RoboTech.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_DATE", DbType="DateTime")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
 		public System.Nullable<System.DateTime> MDFY_DATE
 		{
 			get
@@ -22489,19 +21342,6 @@ namespace System.RoboTech.Data
 			set
 			{
 				this._Jobs.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Robot_Group", Storage="_Groups", ThisKey="RBID", OtherKey="ROBO_RBID")]
-		public EntitySet<Group> Groups
-		{
-			get
-			{
-				return this._Groups;
-			}
-			set
-			{
-				this._Groups.Assign(value);
 			}
 		}
 		
@@ -22635,6 +21475,45 @@ namespace System.RoboTech.Data
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Robot_Robot", Storage="_Robots", ThisKey="RBID", OtherKey="ROBO_RBID")]
+		public EntitySet<Robot> Robots
+		{
+			get
+			{
+				return this._Robots;
+			}
+			set
+			{
+				this._Robots.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Robot_Group_Header", Storage="_Group_Headers", ThisKey="RBID", OtherKey="ROBO_RBID")]
+		public EntitySet<Group_Header> Group_Headers
+		{
+			get
+			{
+				return this._Group_Headers;
+			}
+			set
+			{
+				this._Group_Headers.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Robot_Group", Storage="_Groups", ThisKey="RBID", OtherKey="ROBO_RBID")]
+		public EntitySet<Group> Groups
+		{
+			get
+			{
+				return this._Groups;
+			}
+			set
+			{
+				this._Groups.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Organ_Robot", Storage="_Organ", ThisKey="ORGN_OGID", OtherKey="OGID", IsForeignKey=true)]
 		public Organ Organ
 		{
@@ -22665,6 +21544,40 @@ namespace System.RoboTech.Data
 						this._ORGN_OGID = default(long);
 					}
 					this.SendPropertyChanged("Organ");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Robot_Robot", Storage="_Robot1", ThisKey="ROBO_RBID", OtherKey="RBID", IsForeignKey=true)]
+		public Robot Robot1
+		{
+			get
+			{
+				return this._Robot1.Entity;
+			}
+			set
+			{
+				Robot previousValue = this._Robot1.Entity;
+				if (((previousValue != value) 
+							|| (this._Robot1.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Robot1.Entity = null;
+						previousValue.Robots.Remove(this);
+					}
+					this._Robot1.Entity = value;
+					if ((value != null))
+					{
+						value.Robots.Add(this);
+						this._ROBO_RBID = value.RBID;
+					}
+					else
+					{
+						this._ROBO_RBID = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("Robot1");
 				}
 			}
 		}
@@ -22708,18 +21621,6 @@ namespace System.RoboTech.Data
 		}
 		
 		private void detach_Jobs(Job entity)
-		{
-			this.SendPropertyChanging();
-			entity.Robot = null;
-		}
-		
-		private void attach_Groups(Group entity)
-		{
-			this.SendPropertyChanging();
-			entity.Robot = this;
-		}
-		
-		private void detach_Groups(Group entity)
 		{
 			this.SendPropertyChanging();
 			entity.Robot = null;
@@ -22843,6 +21744,1750 @@ namespace System.RoboTech.Data
 		{
 			this.SendPropertyChanging();
 			entity.Robot = null;
+		}
+		
+		private void attach_Robots(Robot entity)
+		{
+			this.SendPropertyChanging();
+			entity.Robot1 = this;
+		}
+		
+		private void detach_Robots(Robot entity)
+		{
+			this.SendPropertyChanging();
+			entity.Robot1 = null;
+		}
+		
+		private void attach_Group_Headers(Group_Header entity)
+		{
+			this.SendPropertyChanging();
+			entity.Robot = this;
+		}
+		
+		private void detach_Group_Headers(Group_Header entity)
+		{
+			this.SendPropertyChanging();
+			entity.Robot = null;
+		}
+		
+		private void attach_Groups(Group entity)
+		{
+			this.SendPropertyChanging();
+			entity.Robot = this;
+		}
+		
+		private void detach_Groups(Group entity)
+		{
+			this.SendPropertyChanging();
+			entity.Robot = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Service_Robot_Group")]
+	public partial class Service_Robot_Group : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private long _SRBT_SERV_FILE_NO;
+		
+		private long _SRBT_ROBO_RBID;
+		
+		private long _GROP_GPID;
+		
+		private string _STAT;
+		
+		private string _DFLT_STAT;
+		
+		private string _CRET_BY;
+		
+		private System.Nullable<System.DateTime> _CRET_DATE;
+		
+		private string _MDFY_BY;
+		
+		private System.Nullable<System.DateTime> _MDFY_DATE;
+		
+		private EntityRef<Service_Robot> _Service_Robot;
+		
+		private EntityRef<Group> _Group;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnSRBT_SERV_FILE_NOChanging(long value);
+    partial void OnSRBT_SERV_FILE_NOChanged();
+    partial void OnSRBT_ROBO_RBIDChanging(long value);
+    partial void OnSRBT_ROBO_RBIDChanged();
+    partial void OnGROP_GPIDChanging(long value);
+    partial void OnGROP_GPIDChanged();
+    partial void OnSTATChanging(string value);
+    partial void OnSTATChanged();
+    partial void OnDFLT_STATChanging(string value);
+    partial void OnDFLT_STATChanged();
+    partial void OnCRET_BYChanging(string value);
+    partial void OnCRET_BYChanged();
+    partial void OnCRET_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnCRET_DATEChanged();
+    partial void OnMDFY_BYChanging(string value);
+    partial void OnMDFY_BYChanged();
+    partial void OnMDFY_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnMDFY_DATEChanged();
+    #endregion
+		
+		public Service_Robot_Group()
+		{
+			this._Service_Robot = default(EntityRef<Service_Robot>);
+			this._Group = default(EntityRef<Group>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SRBT_SERV_FILE_NO", DbType="BigInt NOT NULL", IsPrimaryKey=true)]
+		public long SRBT_SERV_FILE_NO
+		{
+			get
+			{
+				return this._SRBT_SERV_FILE_NO;
+			}
+			set
+			{
+				if ((this._SRBT_SERV_FILE_NO != value))
+				{
+					if (this._Service_Robot.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnSRBT_SERV_FILE_NOChanging(value);
+					this.SendPropertyChanging();
+					this._SRBT_SERV_FILE_NO = value;
+					this.SendPropertyChanged("SRBT_SERV_FILE_NO");
+					this.OnSRBT_SERV_FILE_NOChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SRBT_ROBO_RBID", DbType="BigInt NOT NULL", IsPrimaryKey=true)]
+		public long SRBT_ROBO_RBID
+		{
+			get
+			{
+				return this._SRBT_ROBO_RBID;
+			}
+			set
+			{
+				if ((this._SRBT_ROBO_RBID != value))
+				{
+					if (this._Service_Robot.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnSRBT_ROBO_RBIDChanging(value);
+					this.SendPropertyChanging();
+					this._SRBT_ROBO_RBID = value;
+					this.SendPropertyChanged("SRBT_ROBO_RBID");
+					this.OnSRBT_ROBO_RBIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GROP_GPID", DbType="BigInt NOT NULL", IsPrimaryKey=true)]
+		public long GROP_GPID
+		{
+			get
+			{
+				return this._GROP_GPID;
+			}
+			set
+			{
+				if ((this._GROP_GPID != value))
+				{
+					if (this._Group.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnGROP_GPIDChanging(value);
+					this.SendPropertyChanging();
+					this._GROP_GPID = value;
+					this.SendPropertyChanged("GROP_GPID");
+					this.OnGROP_GPIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STAT", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		public string STAT
+		{
+			get
+			{
+				return this._STAT;
+			}
+			set
+			{
+				if ((this._STAT != value))
+				{
+					this.OnSTATChanging(value);
+					this.SendPropertyChanging();
+					this._STAT = value;
+					this.SendPropertyChanged("STAT");
+					this.OnSTATChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DFLT_STAT", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		public string DFLT_STAT
+		{
+			get
+			{
+				return this._DFLT_STAT;
+			}
+			set
+			{
+				if ((this._DFLT_STAT != value))
+				{
+					this.OnDFLT_STATChanging(value);
+					this.SendPropertyChanging();
+					this._DFLT_STAT = value;
+					this.SendPropertyChanged("DFLT_STAT");
+					this.OnDFLT_STATChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_BY", DbType="VarChar(250)", UpdateCheck=UpdateCheck.Never)]
+		public string CRET_BY
+		{
+			get
+			{
+				return this._CRET_BY;
+			}
+			set
+			{
+				if ((this._CRET_BY != value))
+				{
+					this.OnCRET_BYChanging(value);
+					this.SendPropertyChanging();
+					this._CRET_BY = value;
+					this.SendPropertyChanged("CRET_BY");
+					this.OnCRET_BYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<System.DateTime> CRET_DATE
+		{
+			get
+			{
+				return this._CRET_DATE;
+			}
+			set
+			{
+				if ((this._CRET_DATE != value))
+				{
+					this.OnCRET_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._CRET_DATE = value;
+					this.SendPropertyChanged("CRET_DATE");
+					this.OnCRET_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_BY", DbType="VarChar(250)", UpdateCheck=UpdateCheck.Never)]
+		public string MDFY_BY
+		{
+			get
+			{
+				return this._MDFY_BY;
+			}
+			set
+			{
+				if ((this._MDFY_BY != value))
+				{
+					this.OnMDFY_BYChanging(value);
+					this.SendPropertyChanging();
+					this._MDFY_BY = value;
+					this.SendPropertyChanged("MDFY_BY");
+					this.OnMDFY_BYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<System.DateTime> MDFY_DATE
+		{
+			get
+			{
+				return this._MDFY_DATE;
+			}
+			set
+			{
+				if ((this._MDFY_DATE != value))
+				{
+					this.OnMDFY_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._MDFY_DATE = value;
+					this.SendPropertyChanged("MDFY_DATE");
+					this.OnMDFY_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Service_Robot_Service_Robot_Group", Storage="_Service_Robot", ThisKey="SRBT_SERV_FILE_NO,SRBT_ROBO_RBID", OtherKey="SERV_FILE_NO,ROBO_RBID", IsForeignKey=true)]
+		public Service_Robot Service_Robot
+		{
+			get
+			{
+				return this._Service_Robot.Entity;
+			}
+			set
+			{
+				Service_Robot previousValue = this._Service_Robot.Entity;
+				if (((previousValue != value) 
+							|| (this._Service_Robot.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Service_Robot.Entity = null;
+						previousValue.Service_Robot_Groups.Remove(this);
+					}
+					this._Service_Robot.Entity = value;
+					if ((value != null))
+					{
+						value.Service_Robot_Groups.Add(this);
+						this._SRBT_SERV_FILE_NO = value.SERV_FILE_NO;
+						this._SRBT_ROBO_RBID = value.ROBO_RBID;
+					}
+					else
+					{
+						this._SRBT_SERV_FILE_NO = default(long);
+						this._SRBT_ROBO_RBID = default(long);
+					}
+					this.SendPropertyChanged("Service_Robot");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Group_Service_Robot_Group", Storage="_Group", ThisKey="GROP_GPID", OtherKey="GPID", IsForeignKey=true)]
+		public Group Group
+		{
+			get
+			{
+				return this._Group.Entity;
+			}
+			set
+			{
+				Group previousValue = this._Group.Entity;
+				if (((previousValue != value) 
+							|| (this._Group.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Group.Entity = null;
+						previousValue.Service_Robot_Groups.Remove(this);
+					}
+					this._Group.Entity = value;
+					if ((value != null))
+					{
+						value.Service_Robot_Groups.Add(this);
+						this._GROP_GPID = value.GPID;
+					}
+					else
+					{
+						this._GROP_GPID = default(long);
+					}
+					this.SendPropertyChanged("Group");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Group_Header")]
+	public partial class Group_Header : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private long _GHID;
+		
+		private string _GRPH_DESC;
+		
+		private System.Nullable<long> _ROBO_RBID;
+		
+		private string _CRET_BY;
+		
+		private System.Nullable<System.DateTime> _CRET_DATE;
+		
+		private string _MDFY_BY;
+		
+		private System.Nullable<System.DateTime> _MDFY_DATE;
+		
+		private EntitySet<Service_Robot> _Service_Robots;
+		
+		private EntitySet<Group_Header_Item> _Group_Header_Items;
+		
+		private EntityRef<Robot> _Robot;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnGHIDChanging(long value);
+    partial void OnGHIDChanged();
+    partial void OnGRPH_DESCChanging(string value);
+    partial void OnGRPH_DESCChanged();
+    partial void OnROBO_RBIDChanging(System.Nullable<long> value);
+    partial void OnROBO_RBIDChanged();
+    partial void OnCRET_BYChanging(string value);
+    partial void OnCRET_BYChanged();
+    partial void OnCRET_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnCRET_DATEChanged();
+    partial void OnMDFY_BYChanging(string value);
+    partial void OnMDFY_BYChanged();
+    partial void OnMDFY_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnMDFY_DATEChanged();
+    #endregion
+		
+		public Group_Header()
+		{
+			this._Service_Robots = new EntitySet<Service_Robot>(new Action<Service_Robot>(this.attach_Service_Robots), new Action<Service_Robot>(this.detach_Service_Robots));
+			this._Group_Header_Items = new EntitySet<Group_Header_Item>(new Action<Group_Header_Item>(this.attach_Group_Header_Items), new Action<Group_Header_Item>(this.detach_Group_Header_Items));
+			this._Robot = default(EntityRef<Robot>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GHID", AutoSync=AutoSync.OnInsert, DbType="BigInt NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public long GHID
+		{
+			get
+			{
+				return this._GHID;
+			}
+			set
+			{
+				if ((this._GHID != value))
+				{
+					this.OnGHIDChanging(value);
+					this.SendPropertyChanging();
+					this._GHID = value;
+					this.SendPropertyChanged("GHID");
+					this.OnGHIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GRPH_DESC", DbType="NVarChar(250)", UpdateCheck=UpdateCheck.Never)]
+		public string GRPH_DESC
+		{
+			get
+			{
+				return this._GRPH_DESC;
+			}
+			set
+			{
+				if ((this._GRPH_DESC != value))
+				{
+					this.OnGRPH_DESCChanging(value);
+					this.SendPropertyChanging();
+					this._GRPH_DESC = value;
+					this.SendPropertyChanged("GRPH_DESC");
+					this.OnGRPH_DESCChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ROBO_RBID", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<long> ROBO_RBID
+		{
+			get
+			{
+				return this._ROBO_RBID;
+			}
+			set
+			{
+				if ((this._ROBO_RBID != value))
+				{
+					if (this._Robot.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnROBO_RBIDChanging(value);
+					this.SendPropertyChanging();
+					this._ROBO_RBID = value;
+					this.SendPropertyChanged("ROBO_RBID");
+					this.OnROBO_RBIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_BY", DbType="VarChar(250)", UpdateCheck=UpdateCheck.Never)]
+		public string CRET_BY
+		{
+			get
+			{
+				return this._CRET_BY;
+			}
+			set
+			{
+				if ((this._CRET_BY != value))
+				{
+					this.OnCRET_BYChanging(value);
+					this.SendPropertyChanging();
+					this._CRET_BY = value;
+					this.SendPropertyChanged("CRET_BY");
+					this.OnCRET_BYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<System.DateTime> CRET_DATE
+		{
+			get
+			{
+				return this._CRET_DATE;
+			}
+			set
+			{
+				if ((this._CRET_DATE != value))
+				{
+					this.OnCRET_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._CRET_DATE = value;
+					this.SendPropertyChanged("CRET_DATE");
+					this.OnCRET_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_BY", DbType="VarChar(250)", UpdateCheck=UpdateCheck.Never)]
+		public string MDFY_BY
+		{
+			get
+			{
+				return this._MDFY_BY;
+			}
+			set
+			{
+				if ((this._MDFY_BY != value))
+				{
+					this.OnMDFY_BYChanging(value);
+					this.SendPropertyChanging();
+					this._MDFY_BY = value;
+					this.SendPropertyChanged("MDFY_BY");
+					this.OnMDFY_BYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<System.DateTime> MDFY_DATE
+		{
+			get
+			{
+				return this._MDFY_DATE;
+			}
+			set
+			{
+				if ((this._MDFY_DATE != value))
+				{
+					this.OnMDFY_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._MDFY_DATE = value;
+					this.SendPropertyChanged("MDFY_DATE");
+					this.OnMDFY_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Group_Header_Service_Robot", Storage="_Service_Robots", ThisKey="GHID", OtherKey="GRPH_GHID")]
+		public EntitySet<Service_Robot> Service_Robots
+		{
+			get
+			{
+				return this._Service_Robots;
+			}
+			set
+			{
+				this._Service_Robots.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Group_Header_Group_Header_Item", Storage="_Group_Header_Items", ThisKey="GHID", OtherKey="GPHD_GHID")]
+		public EntitySet<Group_Header_Item> Group_Header_Items
+		{
+			get
+			{
+				return this._Group_Header_Items;
+			}
+			set
+			{
+				this._Group_Header_Items.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Robot_Group_Header", Storage="_Robot", ThisKey="ROBO_RBID", OtherKey="RBID", IsForeignKey=true, DeleteRule="CASCADE")]
+		public Robot Robot
+		{
+			get
+			{
+				return this._Robot.Entity;
+			}
+			set
+			{
+				Robot previousValue = this._Robot.Entity;
+				if (((previousValue != value) 
+							|| (this._Robot.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Robot.Entity = null;
+						previousValue.Group_Headers.Remove(this);
+					}
+					this._Robot.Entity = value;
+					if ((value != null))
+					{
+						value.Group_Headers.Add(this);
+						this._ROBO_RBID = value.RBID;
+					}
+					else
+					{
+						this._ROBO_RBID = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("Robot");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Service_Robots(Service_Robot entity)
+		{
+			this.SendPropertyChanging();
+			entity.Group_Header = this;
+		}
+		
+		private void detach_Service_Robots(Service_Robot entity)
+		{
+			this.SendPropertyChanging();
+			entity.Group_Header = null;
+		}
+		
+		private void attach_Group_Header_Items(Group_Header_Item entity)
+		{
+			this.SendPropertyChanging();
+			entity.Group_Header = this;
+		}
+		
+		private void detach_Group_Header_Items(Group_Header_Item entity)
+		{
+			this.SendPropertyChanging();
+			entity.Group_Header = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.[Group]")]
+	public partial class Group : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private long _GPID;
+		
+		private System.Nullable<long> _ROBO_RBID;
+		
+		private string _NAME;
+		
+		private string _STAT;
+		
+		private string _AUTO_JOIN;
+		
+		private string _ADMN_ORGN;
+		
+		private System.Nullable<int> _OFF_PRCT;
+		
+		private string _CRET_BY;
+		
+		private System.Nullable<System.DateTime> _CRET_DATE;
+		
+		private string _MDFY_BY;
+		
+		private System.Nullable<System.DateTime> _MDFY_DATE;
+		
+		private EntitySet<Group_Menu_Ussd> _Group_Menu_Ussds;
+		
+		private EntitySet<Service_Robot_Group> _Service_Robot_Groups;
+		
+		private EntityRef<Robot> _Robot;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnGPIDChanging(long value);
+    partial void OnGPIDChanged();
+    partial void OnROBO_RBIDChanging(System.Nullable<long> value);
+    partial void OnROBO_RBIDChanged();
+    partial void OnNAMEChanging(string value);
+    partial void OnNAMEChanged();
+    partial void OnSTATChanging(string value);
+    partial void OnSTATChanged();
+    partial void OnAUTO_JOINChanging(string value);
+    partial void OnAUTO_JOINChanged();
+    partial void OnADMN_ORGNChanging(string value);
+    partial void OnADMN_ORGNChanged();
+    partial void OnOFF_PRCTChanging(System.Nullable<int> value);
+    partial void OnOFF_PRCTChanged();
+    partial void OnCRET_BYChanging(string value);
+    partial void OnCRET_BYChanged();
+    partial void OnCRET_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnCRET_DATEChanged();
+    partial void OnMDFY_BYChanging(string value);
+    partial void OnMDFY_BYChanged();
+    partial void OnMDFY_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnMDFY_DATEChanged();
+    #endregion
+		
+		public Group()
+		{
+			this._Group_Menu_Ussds = new EntitySet<Group_Menu_Ussd>(new Action<Group_Menu_Ussd>(this.attach_Group_Menu_Ussds), new Action<Group_Menu_Ussd>(this.detach_Group_Menu_Ussds));
+			this._Service_Robot_Groups = new EntitySet<Service_Robot_Group>(new Action<Service_Robot_Group>(this.attach_Service_Robot_Groups), new Action<Service_Robot_Group>(this.detach_Service_Robot_Groups));
+			this._Robot = default(EntityRef<Robot>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GPID", AutoSync=AutoSync.OnInsert, DbType="BigInt NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public long GPID
+		{
+			get
+			{
+				return this._GPID;
+			}
+			set
+			{
+				if ((this._GPID != value))
+				{
+					this.OnGPIDChanging(value);
+					this.SendPropertyChanging();
+					this._GPID = value;
+					this.SendPropertyChanged("GPID");
+					this.OnGPIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ROBO_RBID", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<long> ROBO_RBID
+		{
+			get
+			{
+				return this._ROBO_RBID;
+			}
+			set
+			{
+				if ((this._ROBO_RBID != value))
+				{
+					if (this._Robot.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnROBO_RBIDChanging(value);
+					this.SendPropertyChanging();
+					this._ROBO_RBID = value;
+					this.SendPropertyChanged("ROBO_RBID");
+					this.OnROBO_RBIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NAME", DbType="NVarChar(200)", UpdateCheck=UpdateCheck.Never)]
+		public string NAME
+		{
+			get
+			{
+				return this._NAME;
+			}
+			set
+			{
+				if ((this._NAME != value))
+				{
+					this.OnNAMEChanging(value);
+					this.SendPropertyChanging();
+					this._NAME = value;
+					this.SendPropertyChanged("NAME");
+					this.OnNAMEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STAT", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		public string STAT
+		{
+			get
+			{
+				return this._STAT;
+			}
+			set
+			{
+				if ((this._STAT != value))
+				{
+					this.OnSTATChanging(value);
+					this.SendPropertyChanging();
+					this._STAT = value;
+					this.SendPropertyChanged("STAT");
+					this.OnSTATChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AUTO_JOIN", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		public string AUTO_JOIN
+		{
+			get
+			{
+				return this._AUTO_JOIN;
+			}
+			set
+			{
+				if ((this._AUTO_JOIN != value))
+				{
+					this.OnAUTO_JOINChanging(value);
+					this.SendPropertyChanging();
+					this._AUTO_JOIN = value;
+					this.SendPropertyChanged("AUTO_JOIN");
+					this.OnAUTO_JOINChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ADMN_ORGN", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		public string ADMN_ORGN
+		{
+			get
+			{
+				return this._ADMN_ORGN;
+			}
+			set
+			{
+				if ((this._ADMN_ORGN != value))
+				{
+					this.OnADMN_ORGNChanging(value);
+					this.SendPropertyChanging();
+					this._ADMN_ORGN = value;
+					this.SendPropertyChanged("ADMN_ORGN");
+					this.OnADMN_ORGNChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OFF_PRCT", DbType="Int", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<int> OFF_PRCT
+		{
+			get
+			{
+				return this._OFF_PRCT;
+			}
+			set
+			{
+				if ((this._OFF_PRCT != value))
+				{
+					this.OnOFF_PRCTChanging(value);
+					this.SendPropertyChanging();
+					this._OFF_PRCT = value;
+					this.SendPropertyChanged("OFF_PRCT");
+					this.OnOFF_PRCTChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_BY", DbType="VarChar(250)", UpdateCheck=UpdateCheck.Never)]
+		public string CRET_BY
+		{
+			get
+			{
+				return this._CRET_BY;
+			}
+			set
+			{
+				if ((this._CRET_BY != value))
+				{
+					this.OnCRET_BYChanging(value);
+					this.SendPropertyChanging();
+					this._CRET_BY = value;
+					this.SendPropertyChanged("CRET_BY");
+					this.OnCRET_BYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<System.DateTime> CRET_DATE
+		{
+			get
+			{
+				return this._CRET_DATE;
+			}
+			set
+			{
+				if ((this._CRET_DATE != value))
+				{
+					this.OnCRET_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._CRET_DATE = value;
+					this.SendPropertyChanged("CRET_DATE");
+					this.OnCRET_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_BY", DbType="VarChar(250)", UpdateCheck=UpdateCheck.Never)]
+		public string MDFY_BY
+		{
+			get
+			{
+				return this._MDFY_BY;
+			}
+			set
+			{
+				if ((this._MDFY_BY != value))
+				{
+					this.OnMDFY_BYChanging(value);
+					this.SendPropertyChanging();
+					this._MDFY_BY = value;
+					this.SendPropertyChanged("MDFY_BY");
+					this.OnMDFY_BYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<System.DateTime> MDFY_DATE
+		{
+			get
+			{
+				return this._MDFY_DATE;
+			}
+			set
+			{
+				if ((this._MDFY_DATE != value))
+				{
+					this.OnMDFY_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._MDFY_DATE = value;
+					this.SendPropertyChanged("MDFY_DATE");
+					this.OnMDFY_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Group_Group_Menu_Ussd", Storage="_Group_Menu_Ussds", ThisKey="GPID", OtherKey="GROP_GPID")]
+		public EntitySet<Group_Menu_Ussd> Group_Menu_Ussds
+		{
+			get
+			{
+				return this._Group_Menu_Ussds;
+			}
+			set
+			{
+				this._Group_Menu_Ussds.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Group_Service_Robot_Group", Storage="_Service_Robot_Groups", ThisKey="GPID", OtherKey="GROP_GPID")]
+		public EntitySet<Service_Robot_Group> Service_Robot_Groups
+		{
+			get
+			{
+				return this._Service_Robot_Groups;
+			}
+			set
+			{
+				this._Service_Robot_Groups.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Robot_Group", Storage="_Robot", ThisKey="ROBO_RBID", OtherKey="RBID", IsForeignKey=true)]
+		public Robot Robot
+		{
+			get
+			{
+				return this._Robot.Entity;
+			}
+			set
+			{
+				Robot previousValue = this._Robot.Entity;
+				if (((previousValue != value) 
+							|| (this._Robot.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Robot.Entity = null;
+						previousValue.Groups.Remove(this);
+					}
+					this._Robot.Entity = value;
+					if ((value != null))
+					{
+						value.Groups.Add(this);
+						this._ROBO_RBID = value.RBID;
+					}
+					else
+					{
+						this._ROBO_RBID = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("Robot");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Group_Menu_Ussds(Group_Menu_Ussd entity)
+		{
+			this.SendPropertyChanging();
+			entity.Group = this;
+		}
+		
+		private void detach_Group_Menu_Ussds(Group_Menu_Ussd entity)
+		{
+			this.SendPropertyChanging();
+			entity.Group = null;
+		}
+		
+		private void attach_Service_Robot_Groups(Service_Robot_Group entity)
+		{
+			this.SendPropertyChanging();
+			entity.Group = this;
+		}
+		
+		private void detach_Service_Robot_Groups(Service_Robot_Group entity)
+		{
+			this.SendPropertyChanging();
+			entity.Group = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Group_Header_Item")]
+	public partial class Group_Header_Item : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private System.Nullable<long> _GPHD_GHID;
+		
+		private long _CODE;
+		
+		private string _GHDT_DESC;
+		
+		private System.Nullable<long> _PRIC;
+		
+		private System.Nullable<int> _TAX_PRCT;
+		
+		private System.Nullable<short> _SCND_NUMB;
+		
+		private System.Nullable<short> _MINT_NUMB;
+		
+		private System.Nullable<short> _HORS_NUMB;
+		
+		private System.Nullable<short> _DAYS_NUMB;
+		
+		private System.Nullable<short> _MONT_NUMB;
+		
+		private System.Nullable<short> _YEAR_NUMB;
+		
+		private string _STAT;
+		
+		private string _COEF_STAT;
+		
+		private System.Nullable<long> _GRMU_GROP_GPID;
+		
+		private System.Nullable<long> _GRMU_MNUS_ROBO_RBID;
+		
+		private System.Nullable<long> _GRMU_MNUS_MUID;
+		
+		private string _USSD_CODE_DNRM;
+		
+		private string _CRET_BY;
+		
+		private System.Nullable<System.DateTime> _CRET_DATE;
+		
+		private string _MDFY_BY;
+		
+		private System.Nullable<System.DateTime> _MDFY_DATE;
+		
+		private EntitySet<Order_Detail> _Order_Details;
+		
+		private EntityRef<Group_Header> _Group_Header;
+		
+		private EntityRef<Group_Menu_Ussd> _Group_Menu_Ussd;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnGPHD_GHIDChanging(System.Nullable<long> value);
+    partial void OnGPHD_GHIDChanged();
+    partial void OnCODEChanging(long value);
+    partial void OnCODEChanged();
+    partial void OnGHDT_DESCChanging(string value);
+    partial void OnGHDT_DESCChanged();
+    partial void OnPRICChanging(System.Nullable<long> value);
+    partial void OnPRICChanged();
+    partial void OnTAX_PRCTChanging(System.Nullable<int> value);
+    partial void OnTAX_PRCTChanged();
+    partial void OnSCND_NUMBChanging(System.Nullable<short> value);
+    partial void OnSCND_NUMBChanged();
+    partial void OnMINT_NUMBChanging(System.Nullable<short> value);
+    partial void OnMINT_NUMBChanged();
+    partial void OnHORS_NUMBChanging(System.Nullable<short> value);
+    partial void OnHORS_NUMBChanged();
+    partial void OnDAYS_NUMBChanging(System.Nullable<short> value);
+    partial void OnDAYS_NUMBChanged();
+    partial void OnMONT_NUMBChanging(System.Nullable<short> value);
+    partial void OnMONT_NUMBChanged();
+    partial void OnYEAR_NUMBChanging(System.Nullable<short> value);
+    partial void OnYEAR_NUMBChanged();
+    partial void OnSTATChanging(string value);
+    partial void OnSTATChanged();
+    partial void OnCOEF_STATChanging(string value);
+    partial void OnCOEF_STATChanged();
+    partial void OnGRMU_GROP_GPIDChanging(System.Nullable<long> value);
+    partial void OnGRMU_GROP_GPIDChanged();
+    partial void OnGRMU_MNUS_ROBO_RBIDChanging(System.Nullable<long> value);
+    partial void OnGRMU_MNUS_ROBO_RBIDChanged();
+    partial void OnGRMU_MNUS_MUIDChanging(System.Nullable<long> value);
+    partial void OnGRMU_MNUS_MUIDChanged();
+    partial void OnUSSD_CODE_DNRMChanging(string value);
+    partial void OnUSSD_CODE_DNRMChanged();
+    partial void OnCRET_BYChanging(string value);
+    partial void OnCRET_BYChanged();
+    partial void OnCRET_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnCRET_DATEChanged();
+    partial void OnMDFY_BYChanging(string value);
+    partial void OnMDFY_BYChanged();
+    partial void OnMDFY_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnMDFY_DATEChanged();
+    #endregion
+		
+		public Group_Header_Item()
+		{
+			this._Order_Details = new EntitySet<Order_Detail>(new Action<Order_Detail>(this.attach_Order_Details), new Action<Order_Detail>(this.detach_Order_Details));
+			this._Group_Header = default(EntityRef<Group_Header>);
+			this._Group_Menu_Ussd = default(EntityRef<Group_Menu_Ussd>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GPHD_GHID", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<long> GPHD_GHID
+		{
+			get
+			{
+				return this._GPHD_GHID;
+			}
+			set
+			{
+				if ((this._GPHD_GHID != value))
+				{
+					if (this._Group_Header.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnGPHD_GHIDChanging(value);
+					this.SendPropertyChanging();
+					this._GPHD_GHID = value;
+					this.SendPropertyChanged("GPHD_GHID");
+					this.OnGPHD_GHIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CODE", DbType="BigInt NOT NULL", IsPrimaryKey=true)]
+		public long CODE
+		{
+			get
+			{
+				return this._CODE;
+			}
+			set
+			{
+				if ((this._CODE != value))
+				{
+					this.OnCODEChanging(value);
+					this.SendPropertyChanging();
+					this._CODE = value;
+					this.SendPropertyChanged("CODE");
+					this.OnCODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GHDT_DESC", DbType="NVarChar(100)", UpdateCheck=UpdateCheck.Never)]
+		public string GHDT_DESC
+		{
+			get
+			{
+				return this._GHDT_DESC;
+			}
+			set
+			{
+				if ((this._GHDT_DESC != value))
+				{
+					this.OnGHDT_DESCChanging(value);
+					this.SendPropertyChanging();
+					this._GHDT_DESC = value;
+					this.SendPropertyChanged("GHDT_DESC");
+					this.OnGHDT_DESCChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PRIC", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<long> PRIC
+		{
+			get
+			{
+				return this._PRIC;
+			}
+			set
+			{
+				if ((this._PRIC != value))
+				{
+					this.OnPRICChanging(value);
+					this.SendPropertyChanging();
+					this._PRIC = value;
+					this.SendPropertyChanged("PRIC");
+					this.OnPRICChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TAX_PRCT", DbType="Int", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<int> TAX_PRCT
+		{
+			get
+			{
+				return this._TAX_PRCT;
+			}
+			set
+			{
+				if ((this._TAX_PRCT != value))
+				{
+					this.OnTAX_PRCTChanging(value);
+					this.SendPropertyChanging();
+					this._TAX_PRCT = value;
+					this.SendPropertyChanged("TAX_PRCT");
+					this.OnTAX_PRCTChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SCND_NUMB", DbType="SmallInt", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<short> SCND_NUMB
+		{
+			get
+			{
+				return this._SCND_NUMB;
+			}
+			set
+			{
+				if ((this._SCND_NUMB != value))
+				{
+					this.OnSCND_NUMBChanging(value);
+					this.SendPropertyChanging();
+					this._SCND_NUMB = value;
+					this.SendPropertyChanged("SCND_NUMB");
+					this.OnSCND_NUMBChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MINT_NUMB", DbType="SmallInt", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<short> MINT_NUMB
+		{
+			get
+			{
+				return this._MINT_NUMB;
+			}
+			set
+			{
+				if ((this._MINT_NUMB != value))
+				{
+					this.OnMINT_NUMBChanging(value);
+					this.SendPropertyChanging();
+					this._MINT_NUMB = value;
+					this.SendPropertyChanged("MINT_NUMB");
+					this.OnMINT_NUMBChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HORS_NUMB", DbType="SmallInt", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<short> HORS_NUMB
+		{
+			get
+			{
+				return this._HORS_NUMB;
+			}
+			set
+			{
+				if ((this._HORS_NUMB != value))
+				{
+					this.OnHORS_NUMBChanging(value);
+					this.SendPropertyChanging();
+					this._HORS_NUMB = value;
+					this.SendPropertyChanged("HORS_NUMB");
+					this.OnHORS_NUMBChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DAYS_NUMB", DbType="SmallInt", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<short> DAYS_NUMB
+		{
+			get
+			{
+				return this._DAYS_NUMB;
+			}
+			set
+			{
+				if ((this._DAYS_NUMB != value))
+				{
+					this.OnDAYS_NUMBChanging(value);
+					this.SendPropertyChanging();
+					this._DAYS_NUMB = value;
+					this.SendPropertyChanged("DAYS_NUMB");
+					this.OnDAYS_NUMBChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MONT_NUMB", DbType="SmallInt", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<short> MONT_NUMB
+		{
+			get
+			{
+				return this._MONT_NUMB;
+			}
+			set
+			{
+				if ((this._MONT_NUMB != value))
+				{
+					this.OnMONT_NUMBChanging(value);
+					this.SendPropertyChanging();
+					this._MONT_NUMB = value;
+					this.SendPropertyChanged("MONT_NUMB");
+					this.OnMONT_NUMBChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_YEAR_NUMB", DbType="SmallInt", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<short> YEAR_NUMB
+		{
+			get
+			{
+				return this._YEAR_NUMB;
+			}
+			set
+			{
+				if ((this._YEAR_NUMB != value))
+				{
+					this.OnYEAR_NUMBChanging(value);
+					this.SendPropertyChanging();
+					this._YEAR_NUMB = value;
+					this.SendPropertyChanged("YEAR_NUMB");
+					this.OnYEAR_NUMBChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STAT", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		public string STAT
+		{
+			get
+			{
+				return this._STAT;
+			}
+			set
+			{
+				if ((this._STAT != value))
+				{
+					this.OnSTATChanging(value);
+					this.SendPropertyChanging();
+					this._STAT = value;
+					this.SendPropertyChanged("STAT");
+					this.OnSTATChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_COEF_STAT", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		public string COEF_STAT
+		{
+			get
+			{
+				return this._COEF_STAT;
+			}
+			set
+			{
+				if ((this._COEF_STAT != value))
+				{
+					this.OnCOEF_STATChanging(value);
+					this.SendPropertyChanging();
+					this._COEF_STAT = value;
+					this.SendPropertyChanged("COEF_STAT");
+					this.OnCOEF_STATChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GRMU_GROP_GPID", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<long> GRMU_GROP_GPID
+		{
+			get
+			{
+				return this._GRMU_GROP_GPID;
+			}
+			set
+			{
+				if ((this._GRMU_GROP_GPID != value))
+				{
+					if (this._Group_Menu_Ussd.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnGRMU_GROP_GPIDChanging(value);
+					this.SendPropertyChanging();
+					this._GRMU_GROP_GPID = value;
+					this.SendPropertyChanged("GRMU_GROP_GPID");
+					this.OnGRMU_GROP_GPIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GRMU_MNUS_ROBO_RBID", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<long> GRMU_MNUS_ROBO_RBID
+		{
+			get
+			{
+				return this._GRMU_MNUS_ROBO_RBID;
+			}
+			set
+			{
+				if ((this._GRMU_MNUS_ROBO_RBID != value))
+				{
+					if (this._Group_Menu_Ussd.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnGRMU_MNUS_ROBO_RBIDChanging(value);
+					this.SendPropertyChanging();
+					this._GRMU_MNUS_ROBO_RBID = value;
+					this.SendPropertyChanged("GRMU_MNUS_ROBO_RBID");
+					this.OnGRMU_MNUS_ROBO_RBIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GRMU_MNUS_MUID", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<long> GRMU_MNUS_MUID
+		{
+			get
+			{
+				return this._GRMU_MNUS_MUID;
+			}
+			set
+			{
+				if ((this._GRMU_MNUS_MUID != value))
+				{
+					if (this._Group_Menu_Ussd.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnGRMU_MNUS_MUIDChanging(value);
+					this.SendPropertyChanging();
+					this._GRMU_MNUS_MUID = value;
+					this.SendPropertyChanged("GRMU_MNUS_MUID");
+					this.OnGRMU_MNUS_MUIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_USSD_CODE_DNRM", DbType="VarChar(250)", UpdateCheck=UpdateCheck.Never)]
+		public string USSD_CODE_DNRM
+		{
+			get
+			{
+				return this._USSD_CODE_DNRM;
+			}
+			set
+			{
+				if ((this._USSD_CODE_DNRM != value))
+				{
+					this.OnUSSD_CODE_DNRMChanging(value);
+					this.SendPropertyChanging();
+					this._USSD_CODE_DNRM = value;
+					this.SendPropertyChanged("USSD_CODE_DNRM");
+					this.OnUSSD_CODE_DNRMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_BY", DbType="VarChar(250)", UpdateCheck=UpdateCheck.Never)]
+		public string CRET_BY
+		{
+			get
+			{
+				return this._CRET_BY;
+			}
+			set
+			{
+				if ((this._CRET_BY != value))
+				{
+					this.OnCRET_BYChanging(value);
+					this.SendPropertyChanging();
+					this._CRET_BY = value;
+					this.SendPropertyChanged("CRET_BY");
+					this.OnCRET_BYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<System.DateTime> CRET_DATE
+		{
+			get
+			{
+				return this._CRET_DATE;
+			}
+			set
+			{
+				if ((this._CRET_DATE != value))
+				{
+					this.OnCRET_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._CRET_DATE = value;
+					this.SendPropertyChanged("CRET_DATE");
+					this.OnCRET_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_BY", DbType="VarChar(250)", UpdateCheck=UpdateCheck.Never)]
+		public string MDFY_BY
+		{
+			get
+			{
+				return this._MDFY_BY;
+			}
+			set
+			{
+				if ((this._MDFY_BY != value))
+				{
+					this.OnMDFY_BYChanging(value);
+					this.SendPropertyChanging();
+					this._MDFY_BY = value;
+					this.SendPropertyChanged("MDFY_BY");
+					this.OnMDFY_BYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<System.DateTime> MDFY_DATE
+		{
+			get
+			{
+				return this._MDFY_DATE;
+			}
+			set
+			{
+				if ((this._MDFY_DATE != value))
+				{
+					this.OnMDFY_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._MDFY_DATE = value;
+					this.SendPropertyChanged("MDFY_DATE");
+					this.OnMDFY_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Group_Header_Item_Order_Detail", Storage="_Order_Details", ThisKey="CODE", OtherKey="GHIT_CODE")]
+		public EntitySet<Order_Detail> Order_Details
+		{
+			get
+			{
+				return this._Order_Details;
+			}
+			set
+			{
+				this._Order_Details.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Group_Header_Group_Header_Item", Storage="_Group_Header", ThisKey="GPHD_GHID", OtherKey="GHID", IsForeignKey=true)]
+		public Group_Header Group_Header
+		{
+			get
+			{
+				return this._Group_Header.Entity;
+			}
+			set
+			{
+				Group_Header previousValue = this._Group_Header.Entity;
+				if (((previousValue != value) 
+							|| (this._Group_Header.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Group_Header.Entity = null;
+						previousValue.Group_Header_Items.Remove(this);
+					}
+					this._Group_Header.Entity = value;
+					if ((value != null))
+					{
+						value.Group_Header_Items.Add(this);
+						this._GPHD_GHID = value.GHID;
+					}
+					else
+					{
+						this._GPHD_GHID = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("Group_Header");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Group_Menu_Ussd_Group_Header_Item", Storage="_Group_Menu_Ussd", ThisKey="GRMU_GROP_GPID,GRMU_MNUS_MUID,GRMU_MNUS_ROBO_RBID", OtherKey="GROP_GPID,MNUS_MUID,MNUS_ROBO_RBID", IsForeignKey=true, DeleteRule="CASCADE")]
+		public Group_Menu_Ussd Group_Menu_Ussd
+		{
+			get
+			{
+				return this._Group_Menu_Ussd.Entity;
+			}
+			set
+			{
+				Group_Menu_Ussd previousValue = this._Group_Menu_Ussd.Entity;
+				if (((previousValue != value) 
+							|| (this._Group_Menu_Ussd.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Group_Menu_Ussd.Entity = null;
+						previousValue.Group_Header_Items.Remove(this);
+					}
+					this._Group_Menu_Ussd.Entity = value;
+					if ((value != null))
+					{
+						value.Group_Header_Items.Add(this);
+						this._GRMU_GROP_GPID = value.GROP_GPID;
+						this._GRMU_MNUS_MUID = value.MNUS_MUID;
+						this._GRMU_MNUS_ROBO_RBID = value.MNUS_ROBO_RBID;
+					}
+					else
+					{
+						this._GRMU_GROP_GPID = default(Nullable<long>);
+						this._GRMU_MNUS_MUID = default(Nullable<long>);
+						this._GRMU_MNUS_ROBO_RBID = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("Group_Menu_Ussd");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Order_Details(Order_Detail entity)
+		{
+			this.SendPropertyChanging();
+			entity.Group_Header_Item = this;
+		}
+		
+		private void detach_Order_Details(Order_Detail entity)
+		{
+			this.SendPropertyChanging();
+			entity.Group_Header_Item = null;
 		}
 	}
 	

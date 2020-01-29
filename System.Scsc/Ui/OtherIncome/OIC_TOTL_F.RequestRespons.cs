@@ -473,24 +473,26 @@ namespace System.Scsc.Ui.OtherIncome
          {
             case "01":
                var figh = iScsc.Fighters.Where(f => f.FILE_NO == Convert.ToInt64(fileno)).First();
-               if(figh.FIGH_STAT == "002")
+               
+               // 1398/10/18 * اگر درخواست بخواهیم پیرو درخواست دیگری قرار گیرد
+               // 1397/05/26 * rqstrqid
+               if (xinput.Attribute("rqstrqid") != null)
+                  rqstRqid = Convert.ToInt64(xinput.Attribute("rqstrqid").Value);
+               else
+                  rqstRqid = 0;
+
+               if(figh.FIGH_STAT == "002" || (figh.FIGH_STAT == "001" && rqstRqid != 0))
                {
                   if(RqstBs1.Count > 0)
                      RqstBs1.AddNew();
 
-                  FILE_NO_LookUpEdit.EditValue = fileno;
-
-                  // 1397/05/26 * rqstrqid
-                  if (xinput.Attribute("rqstrqid") != null)
-                     rqstRqid = Convert.ToInt64(xinput.Attribute("rqstrqid").Value);
-                  else
-                     rqstRqid = 0;
+                  FILE_NO_LookUpEdit.EditValue = fileno;                  
 
                   Btn_RqstBnARqt1_Click(null, null);
 
                   // اولین گام این هست که ببینیم آیا ما توانسته ایم برای مشترک درخواست درآمد متفرقه ثبت کنیم یا خیر
                   var fg = iScsc.Fighters.FirstOrDefault(f => f.FILE_NO == Convert.ToInt64(fileno));
-                  if (!(fg.FIGH_STAT == "001" && fg.RQST_RQID != null && fg.Request.RQTP_CODE == "016" && fg.Request.RQTT_CODE == "001"))
+                  if (!(fg.FIGH_STAT == "001" && fg.RQST_RQID != null /*&& fg.Request.RQTP_CODE == "016" && fg.Request.RQTT_CODE == "001"*/))
                   {
                      MessageBox.Show("ثبت درخواست برای مشتری با مشکلی مواجه شده است، لطفا بررسی کنید");
                      return;
@@ -509,6 +511,24 @@ namespace System.Scsc.Ui.OtherIncome
                      followups = xinput.Attribute("followups").Value;
                   else
                      followups = "";
+
+                  var rqst = RqstBs1.Current as Data.Request;
+                  // 1398/10/18 * letter info
+                  if (xinput.Attribute("lettno") != null)
+                     rqst.LETT_NO = xinput.Attribute("lettno").Value;
+                  else
+                     rqst.LETT_NO = null;
+
+                  if (xinput.Attribute("lettdate") != null)
+                     rqst.LETT_DATE = Convert.ToDateTime(xinput.Attribute("lettdate").Value);
+                  else
+                     rqst.LETT_DATE = null;
+
+                  if(xinput.Attribute("lettno") != null)
+                  {
+                     Btn_RqstBnARqt1_Click(null, null);
+                     RqstBs1.Position = RqstBs1.IndexOf(RqstBs1.List.OfType<Data.Request>().FirstOrDefault(r => r.Request_Rows.Any(rr => rr.Fighter.FILE_NO == Convert.ToInt64(fileno))));
+                  }
                }
                break; 
             case "rqidfocus":

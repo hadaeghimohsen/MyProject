@@ -767,6 +767,16 @@ namespace System.Scsc.Code
             if (_Mngr_Dres_F == null)
                _Mngr_Dres_F = new Ui.Attendance.MNGR_DRES_F { _DefaultGateway = this };
          }
+         else if (value == "bas_prod_f")
+         {
+            if (_Bas_Prod_F == null)
+               _Bas_Prod_F = new Ui.BaseDefinition.BAS_PROD_F { _DefaultGateway = this };
+         }
+         else if (value == "wrn_serv_f")
+         {
+            if (_Wrn_Serv_F == null)
+               _Wrn_Serv_F = new Ui.WarrantyService.WRN_SERV_F { _DefaultGateway = this };
+         }
 
          // فرم های نمایش تغییرات
          else if (value == "show_atrq_f")
@@ -4659,6 +4669,56 @@ namespace System.Scsc.Code
                   new Job(SendType.SelfToUserInterface, "MNGR_DRES_F", 05 /* Execute Check Security */),
                   new Job(SendType.SelfToUserInterface, "MNGR_DRES_F", 07 /* Execute Load_Data */),
                   new Job(SendType.SelfToUserInterface, "MNGR_DRES_F", 03 /* Execute Paint */),
+               });
+         }
+         else if (job.Status == StatusType.SignalForPreconditions)
+         {
+            job.Status = StatusType.Successful;
+         }
+      }
+
+      /// <summary>
+      /// Code 161
+      /// </summary>
+      /// <param name="job"></param>
+      private void Bas_Prod_F(Job job)
+      {
+         if (job.Status == StatusType.Running)
+         {
+            job.Status = StatusType.WaitForPreconditions;
+            job.OwnerDefineWorkWith.AddRange(
+               new List<Job>
+               {
+                  new Job(SendType.Self, 01 /* Execute GetUi */){Input = "bas_prod_f"},
+                  new Job(SendType.SelfToUserInterface, "BAS_PROD_F", 02 /* Execute Set */),
+                  new Job(SendType.SelfToUserInterface, "BAS_PROD_F", 05 /* Execute Check Security */),
+                  new Job(SendType.SelfToUserInterface, "BAS_PROD_F", 07 /* Execute Load_Data */),
+                  new Job(SendType.SelfToUserInterface, "BAS_PROD_F", 03 /* Execute Paint */),
+               });
+         }
+         else if (job.Status == StatusType.SignalForPreconditions)
+         {
+            job.Status = StatusType.Successful;
+         }
+      }
+
+      /// <summary>
+      /// Code 162
+      /// </summary>
+      /// <param name="job"></param>
+      private void Wrn_Serv_F(Job job)
+      {
+         if (job.Status == StatusType.Running)
+         {
+            job.Status = StatusType.WaitForPreconditions;
+            job.OwnerDefineWorkWith.AddRange(
+               new List<Job>
+               {
+                  new Job(SendType.Self, 01 /* Execute GetUi */){Input = "wrn_serv_f"},
+                  new Job(SendType.SelfToUserInterface, "WRN_SERV_F", 02 /* Execute Set */),
+                  new Job(SendType.SelfToUserInterface, "WRN_SERV_F", 05 /* Execute Check Security */),
+                  new Job(SendType.SelfToUserInterface, "WRN_SERV_F", 07 /* Execute Load_Data */),
+                  new Job(SendType.SelfToUserInterface, "WRN_SERV_F", 03 /* Execute Paint */),
                });
          }
          else if (job.Status == StatusType.SignalForPreconditions)

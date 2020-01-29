@@ -178,6 +178,7 @@
          this.DPmstBs = new System.Windows.Forms.BindingSource(this.components);
          this.colAMNT_TYPE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colPAY_STAT = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colDebtPymtAmnt = new DevExpress.XtraGrid.Columns.GridColumn();
          this.ExitTime_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
          this.AttnType_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
          this.repositoryItemLookUpEdit13 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
@@ -312,6 +313,7 @@
          this.RecalcPymt_Tsm = new System.Windows.Forms.ToolStripMenuItem();
          this.CnclPymt_Tsm = new System.Windows.Forms.ToolStripMenuItem();
          this.EditPymt_Tsm = new System.Windows.Forms.ToolStripMenuItem();
+         this.CnclPymtWithoutRcpt_Tsm = new System.Windows.Forms.ToolStripMenuItem();
          this.MbspValdType_Tsm = new System.Windows.Forms.ToolStripMenuItem();
          this.EditMbsp_Tsm = new System.Windows.Forms.ToolStripMenuItem();
          this.MbspBs = new System.Windows.Forms.BindingSource(this.components);
@@ -751,7 +753,6 @@
          this.حضوروغیابToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
          this.ExcpAttnActv_Butn = new System.Windows.Forms.ToolStripMenuItem();
          this.ExcpAttnDact_Butn = new System.Windows.Forms.ToolStripMenuItem();
-         this.colDebtPymtAmnt = new DevExpress.XtraGrid.Columns.GridColumn();
          ((System.ComponentModel.ISupportInitialize)(this.Ptyp_Lov)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.DPTypBs)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.Pmst_Lov)).BeginInit();
@@ -980,6 +981,21 @@
          // 
          this.colPAY_STAT.FieldName = "PAY_STAT";
          this.colPAY_STAT.Name = "colPAY_STAT";
+         // 
+         // colDebtPymtAmnt
+         // 
+         this.colDebtPymtAmnt.Caption = "مبلغ بدهی صورتحساب";
+         this.colDebtPymtAmnt.DisplayFormat.FormatString = "{0:n0}";
+         this.colDebtPymtAmnt.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+         this.colDebtPymtAmnt.FieldName = "colDebtPymtAmnt";
+         this.colDebtPymtAmnt.Name = "colDebtPymtAmnt";
+         this.colDebtPymtAmnt.OptionsColumn.AllowEdit = false;
+         this.colDebtPymtAmnt.OptionsColumn.ReadOnly = true;
+         this.colDebtPymtAmnt.UnboundExpression = "[TOTL_AMNT] - ([TOTL_RCPT_AMNT] + [TOTL_DSCT_AMNT])";
+         this.colDebtPymtAmnt.UnboundType = DevExpress.Data.UnboundColumnType.Object;
+         this.colDebtPymtAmnt.Visible = true;
+         this.colDebtPymtAmnt.VisibleIndex = 0;
+         this.colDebtPymtAmnt.Width = 139;
          // 
          // ExitTime_Clm
          // 
@@ -1847,7 +1863,7 @@
          this.UserProFile_Rb.HoverColorB = System.Drawing.Color.LightGray;
          this.UserProFile_Rb.ImageProfile = global::System.Scsc.Properties.Resources.IMAGE_1482;
          this.UserProFile_Rb.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-         this.UserProFile_Rb.ImageVisiable = false;
+         this.UserProFile_Rb.ImageVisiable = true;
          this.UserProFile_Rb.Location = new System.Drawing.Point(1118, 19);
          this.UserProFile_Rb.Name = "UserProFile_Rb";
          this.UserProFile_Rb.NormalBorderColor = System.Drawing.Color.Black;
@@ -2540,13 +2556,13 @@
             this.EditMbsp_Tsm});
          this.Mbsp_Cmn.Name = "Mbsp_Cmn";
          this.Mbsp_Cmn.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-         this.Mbsp_Cmn.Size = new System.Drawing.Size(140, 92);
+         this.Mbsp_Cmn.Size = new System.Drawing.Size(153, 114);
          // 
          // NewMbsp_Tsm
          // 
          this.NewMbsp_Tsm.Image = global::System.Scsc.Properties.Resources.IMAGE_1007;
          this.NewMbsp_Tsm.Name = "NewMbsp_Tsm";
-         this.NewMbsp_Tsm.Size = new System.Drawing.Size(139, 22);
+         this.NewMbsp_Tsm.Size = new System.Drawing.Size(152, 22);
          this.NewMbsp_Tsm.Text = "تمدید قرارداد";
          this.NewMbsp_Tsm.Click += new System.EventHandler(this.NewMbsp_Tsm_Click);
          // 
@@ -2555,9 +2571,10 @@
          this.صورتحسابToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.RecalcPymt_Tsm,
             this.CnclPymt_Tsm,
-            this.EditPymt_Tsm});
+            this.EditPymt_Tsm,
+            this.CnclPymtWithoutRcpt_Tsm});
          this.صورتحسابToolStripMenuItem.Name = "صورتحسابToolStripMenuItem";
-         this.صورتحسابToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+         this.صورتحسابToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
          this.صورتحسابToolStripMenuItem.Text = "صورتحساب";
          // 
          // RecalcPymt_Tsm
@@ -2584,11 +2601,19 @@
          this.EditPymt_Tsm.Text = "اصلاح دوره و صورتحساب";
          this.EditPymt_Tsm.Click += new System.EventHandler(this.EditPymt_Tsm_Click);
          // 
+         // CnclPymtWithoutRcpt_Tsm
+         // 
+         this.CnclPymtWithoutRcpt_Tsm.Image = global::System.Scsc.Properties.Resources.IMAGE_1058;
+         this.CnclPymtWithoutRcpt_Tsm.Name = "CnclPymtWithoutRcpt_Tsm";
+         this.CnclPymtWithoutRcpt_Tsm.Size = new System.Drawing.Size(297, 22);
+         this.CnclPymtWithoutRcpt_Tsm.Text = "ابطال بدون بازگشت دوره و صورتحساب";
+         this.CnclPymtWithoutRcpt_Tsm.Click += new System.EventHandler(this.CnclPymtWithoutRcpt_Tsm_Click);
+         // 
          // MbspValdType_Tsm
          // 
          this.MbspValdType_Tsm.Image = global::System.Scsc.Properties.Resources.IMAGE_1520;
          this.MbspValdType_Tsm.Name = "MbspValdType_Tsm";
-         this.MbspValdType_Tsm.Size = new System.Drawing.Size(139, 22);
+         this.MbspValdType_Tsm.Size = new System.Drawing.Size(152, 22);
          this.MbspValdType_Tsm.Text = "وضعیت دوره";
          this.MbspValdType_Tsm.Click += new System.EventHandler(this.MbspValdType_Butn_Click);
          // 
@@ -2596,7 +2621,7 @@
          // 
          this.EditMbsp_Tsm.Image = global::System.Scsc.Properties.Resources.IMAGE_1181;
          this.EditMbsp_Tsm.Name = "EditMbsp_Tsm";
-         this.EditMbsp_Tsm.Size = new System.Drawing.Size(139, 22);
+         this.EditMbsp_Tsm.Size = new System.Drawing.Size(152, 22);
          this.EditMbsp_Tsm.Text = "اصلاح دوره";
          this.EditMbsp_Tsm.Click += new System.EventHandler(this.Mbsp_Rwno_Text_DoubleClick);
          // 
@@ -8071,21 +8096,6 @@
          this.ExcpAttnDact_Butn.Text = "غیرفعال";
          this.ExcpAttnDact_Butn.Click += new System.EventHandler(this.ExcpAttnDact_Butn_Click);
          // 
-         // colDebtPymtAmnt
-         // 
-         this.colDebtPymtAmnt.Caption = "مبلغ بدهی صورتحساب";
-         this.colDebtPymtAmnt.DisplayFormat.FormatString = "{0:n0}";
-         this.colDebtPymtAmnt.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-         this.colDebtPymtAmnt.FieldName = "colDebtPymtAmnt";
-         this.colDebtPymtAmnt.Name = "colDebtPymtAmnt";
-         this.colDebtPymtAmnt.OptionsColumn.AllowEdit = false;
-         this.colDebtPymtAmnt.OptionsColumn.ReadOnly = true;
-         this.colDebtPymtAmnt.UnboundExpression = "[TOTL_AMNT] - ([TOTL_RCPT_AMNT] + [TOTL_DSCT_AMNT])";
-         this.colDebtPymtAmnt.UnboundType = DevExpress.Data.UnboundColumnType.Object;
-         this.colDebtPymtAmnt.Visible = true;
-         this.colDebtPymtAmnt.VisibleIndex = 0;
-         this.colDebtPymtAmnt.Width = 139;
-         // 
          // ALL_FLDF_F
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -8847,5 +8857,6 @@
       private DevExpress.XtraGrid.Columns.GridColumn colPYMT_NO;
       private DevExpress.XtraGrid.Columns.GridColumn colPYMT_PYMT_NO;
       private DevExpress.XtraGrid.Columns.GridColumn colDebtPymtAmnt;
+      private Windows.Forms.ToolStripMenuItem CnclPymtWithoutRcpt_Tsm;
    }
 }

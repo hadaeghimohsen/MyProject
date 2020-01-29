@@ -79,6 +79,8 @@ namespace System.RoboTech.Ui.DevelopmentApplication
             Srgp_Gv.PostEditor();
             Rbmd_Gv.PostEditor();
             Rbdc_Gv.PostEditor();
+            Gphd_Gv.PostEditor();
+            Ghit_Gv.PostEditor();
             
             OrgnBs.EndEdit();
             RoboBs.EndEdit();
@@ -93,6 +95,8 @@ namespace System.RoboTech.Ui.DevelopmentApplication
             GropBs.EndEdit();
             RbmdBs.EndEdit();
             RbdcBs.EndEdit();
+            GphdBs.EndEdit();
+            GhitBs.EndEdit();
             
 
             iRoboTech.SubmitChanges();
@@ -867,7 +871,7 @@ namespace System.RoboTech.Ui.DevelopmentApplication
             var grop = GropBs.Current as Data.Group;
             if (grop == null) return;
 
-            iRoboTech.INS_SRGP_P(grop.GPID, srbt.SERV_FILE_NO, srbt.ROBO_RBID, "002");
+            iRoboTech.INS_SRGP_P(grop.GPID, srbt.SERV_FILE_NO, srbt.ROBO_RBID, "002", "001");
 
             requery = true;
          }
@@ -896,6 +900,113 @@ namespace System.RoboTech.Ui.DevelopmentApplication
          catch (Exception exc)
          { }
          finally { RoboBs.EndEdit(); }
+      }
+
+      private void GrmuBs_CurrentChanged_1(object sender, EventArgs e)
+      {
+         try
+         {
+            var grmu = GrmuBs.Current as Data.Group_Menu_Ussd;
+            if (grmu == null) return;
+
+            var gphd = GphdBs.Current as Data.Group_Header;
+            if (gphd == null) return;
+
+            GhitBs.DataSource = iRoboTech.Group_Header_Items.Where(ghit => ghit.Group_Menu_Ussd == grmu && ghit.Group_Header == gphd);
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void GphdBs_CurrentChanged(object sender, EventArgs e)
+      {
+         try
+         {
+            var gphd = GphdBs.Current as Data.Group_Header;
+            if (gphd == null) return;
+
+            var grmu = GrmuBs.Current as Data.Group_Menu_Ussd;
+            if (grmu == null) return;            
+
+            GhitBs.DataSource = iRoboTech.Group_Header_Items.Where(ghit => ghit.Group_Menu_Ussd == grmu && ghit.Group_Header == gphd);
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void Tsb_DelGphd_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            if (MessageBox.Show(this, "آیا تغییرات ذخیره گردد؟", "ثبت نتایج تغییرات", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+
+            var gphd = GphdBs.Current as Data.Group_Header;
+
+            iRoboTech.DEL_GRPH_P(gphd.GHID);
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+            {
+               Execute_Query();
+            }
+         }
+      }
+
+      private void Tsb_DelGhit_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            if (MessageBox.Show(this, "آیا تغییرات ذخیره گردد؟", "ثبت نتایج تغییرات", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+
+            var ghit = GhitBs.Current as Data.Group_Header_Item;
+
+            iRoboTech.DEL_GHIT_P(ghit.CODE);
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+            {
+               Execute_Query();
+            }
+         }
+      }
+
+      private void Tsb_AddGhit_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var grmu = GrmuBs.Current as Data.Group_Menu_Ussd;
+            if (grmu == null) return;
+
+            var gphd = GphdBs.Current as Data.Group_Header;
+            if (gphd == null) return;
+
+            var ghit = GhitBs.AddNew() as Data.Group_Header_Item;
+            ghit.Group_Menu_Ussd = grmu;
+            ghit.Group_Header = gphd;
+            ghit.STAT = "002";
+
+            iRoboTech.Group_Header_Items.InsertOnSubmit(ghit);            
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
       }
    }
 }

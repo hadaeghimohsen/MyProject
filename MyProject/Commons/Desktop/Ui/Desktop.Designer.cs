@@ -28,33 +28,32 @@
       /// </summary>
       private void InitializeComponent()
       {
-         this.components = new System.ComponentModel.Container();
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Desktop));
-         DevExpress.Utils.SuperToolTip superToolTip6 = new DevExpress.Utils.SuperToolTip();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem11 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.ToolTipItem toolTipItem6 = new DevExpress.Utils.ToolTipItem();
-         DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem6 = new DevExpress.Utils.ToolTipSeparatorItem();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem12 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.SuperToolTip superToolTip7 = new DevExpress.Utils.SuperToolTip();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem13 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.ToolTipItem toolTipItem7 = new DevExpress.Utils.ToolTipItem();
-         DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem7 = new DevExpress.Utils.ToolTipSeparatorItem();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem14 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.SuperToolTip superToolTip8 = new DevExpress.Utils.SuperToolTip();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem15 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.ToolTipItem toolTipItem8 = new DevExpress.Utils.ToolTipItem();
-         DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem8 = new DevExpress.Utils.ToolTipSeparatorItem();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem16 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.SuperToolTip superToolTip9 = new DevExpress.Utils.SuperToolTip();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem17 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.ToolTipItem toolTipItem9 = new DevExpress.Utils.ToolTipItem();
-         DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem9 = new DevExpress.Utils.ToolTipSeparatorItem();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem18 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.SuperToolTip superToolTip10 = new DevExpress.Utils.SuperToolTip();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem19 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.ToolTipItem toolTipItem10 = new DevExpress.Utils.ToolTipItem();
-         DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem10 = new DevExpress.Utils.ToolTipSeparatorItem();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem20 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem1 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.ToolTipItem toolTipItem1 = new DevExpress.Utils.ToolTipItem();
+         DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem1 = new DevExpress.Utils.ToolTipSeparatorItem();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem2 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.SuperToolTip superToolTip2 = new DevExpress.Utils.SuperToolTip();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem3 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.ToolTipItem toolTipItem2 = new DevExpress.Utils.ToolTipItem();
+         DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem2 = new DevExpress.Utils.ToolTipSeparatorItem();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem4 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.SuperToolTip superToolTip3 = new DevExpress.Utils.SuperToolTip();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem5 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.ToolTipItem toolTipItem3 = new DevExpress.Utils.ToolTipItem();
+         DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem3 = new DevExpress.Utils.ToolTipSeparatorItem();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem6 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.SuperToolTip superToolTip4 = new DevExpress.Utils.SuperToolTip();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem7 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.ToolTipItem toolTipItem4 = new DevExpress.Utils.ToolTipItem();
+         DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem4 = new DevExpress.Utils.ToolTipSeparatorItem();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem8 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.SuperToolTip superToolTip5 = new DevExpress.Utils.SuperToolTip();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem9 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.ToolTipItem toolTipItem5 = new DevExpress.Utils.ToolTipItem();
+         DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem5 = new DevExpress.Utils.ToolTipSeparatorItem();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem10 = new DevExpress.Utils.ToolTipTitleItem();
          this.FLP_Desktop = new System.Windows.Forms.FlowLayoutPanel();
          this.LNK_SecurityManagment = new System.Windows.Forms.LinkLabel();
          this.LNK_ServiceDefinition = new System.Windows.Forms.LinkLabel();
@@ -70,6 +69,7 @@
          this.linkLabel1 = new System.Windows.Forms.LinkLabel();
          this.LNK_CRM = new System.Windows.Forms.LinkLabel();
          this.LNK_ROBOTECH = new System.Windows.Forms.LinkLabel();
+         this.LNK_GATECONTROL = new System.Windows.Forms.LinkLabel();
          this.panel1 = new System.Windows.Forms.Panel();
          this.AdjustDateTime_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.simpleButton5 = new DevExpress.XtraEditors.SimpleButton();
@@ -77,9 +77,9 @@
          this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
          this.StartMenu_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.sb_startdrawer = new DevExpress.XtraEditors.SimpleButton();
-         this.Tm_ShowTime = new System.Windows.Forms.Timer(this.components);
+         this.Tm_ShowTime = new System.Windows.Forms.Timer();
          this.label1 = new System.Windows.Forms.Label();
-         this.Cms_MainMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+         this.Cms_MainMenu = new System.Windows.Forms.ContextMenuStrip();
          this.CrntUser_Tsm = new System.Windows.Forms.ToolStripMenuItem();
          this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripSeparator();
          this.تنظیماتنرمافزارToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -116,7 +116,6 @@
          this.پشتیبانگیریToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
          this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
          this.ارتباطباماToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-         this.LNK_GATECONTROL = new System.Windows.Forms.LinkLabel();
          this.FLP_Desktop.SuspendLayout();
          this.panel1.SuspendLayout();
          this.Cms_MainMenu.SuspendLayout();
@@ -223,7 +222,7 @@
          // 
          this.LNK_SCSC.Cursor = System.Windows.Forms.Cursors.Hand;
          this.LNK_SCSC.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.LNK_SCSC.Image = global::MyProject.Properties.Resources.IMAGE_10841;
+         this.LNK_SCSC.Image = global::MyProject.Properties.Resources.IMAGE_1100;
          this.LNK_SCSC.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
          this.LNK_SCSC.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
          this.LNK_SCSC.Location = new System.Drawing.Point(873, 423);
@@ -251,6 +250,7 @@
          this.LNK_Emis.TabStop = true;
          this.LNK_Emis.Text = "نرم افزار خدمات مشترکین";
          this.LNK_Emis.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+         this.LNK_Emis.Visible = false;
          this.LNK_Emis.Click += new System.EventHandler(this.Sas_App_ItemClick);
          // 
          // LNK_SMS
@@ -321,6 +321,7 @@
          this.LNK_ISP.TabStop = true;
          this.LNK_ISP.Text = "اطلاعات مشترکین اینترنت";
          this.LNK_ISP.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+         this.LNK_ISP.Visible = false;
          this.LNK_ISP.Click += new System.EventHandler(this.LNK_ISP_Click);
          // 
          // LNK_MedicalSickFile
@@ -393,6 +394,24 @@
          this.LNK_ROBOTECH.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
          this.LNK_ROBOTECH.Click += new System.EventHandler(this.LNK_ROBOTECH_Click);
          // 
+         // LNK_GATECONTROL
+         // 
+         this.LNK_GATECONTROL.Cursor = System.Windows.Forms.Cursors.Hand;
+         this.LNK_GATECONTROL.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.LNK_GATECONTROL.Image = global::MyProject.Properties.Resources.IMAGE_1241;
+         this.LNK_GATECONTROL.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+         this.LNK_GATECONTROL.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+         this.LNK_GATECONTROL.Location = new System.Drawing.Point(453, 124);
+         this.LNK_GATECONTROL.Margin = new System.Windows.Forms.Padding(8);
+         this.LNK_GATECONTROL.Name = "LNK_GATECONTROL";
+         this.LNK_GATECONTROL.Size = new System.Drawing.Size(124, 123);
+         this.LNK_GATECONTROL.TabIndex = 10;
+         this.LNK_GATECONTROL.TabStop = true;
+         this.LNK_GATECONTROL.Text = "کنترل ورود و خروج";
+         this.LNK_GATECONTROL.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+         this.LNK_GATECONTROL.Visible = false;
+         this.LNK_GATECONTROL.Click += new System.EventHandler(this.LNK_GATECONTROL_Click);
+         // 
          // panel1
          // 
          this.panel1.BackColor = System.Drawing.Color.Silver;
@@ -428,17 +447,17 @@
          this.AdjustDateTime_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.AdjustDateTime_Butn.Name = "AdjustDateTime_Butn";
          this.AdjustDateTime_Butn.Size = new System.Drawing.Size(77, 49);
-         toolTipTitleItem11.Text = "کاربر گرامی";
-         toolTipItem6.LeftIndent = 6;
-         toolTipItem6.Text = "برای خروج از محیط کاربری خود و وارد شدن به محیط کاربری دیگر بدون باز و بسته کردن " +
+         toolTipTitleItem1.Text = "کاربر گرامی";
+         toolTipItem1.LeftIndent = 6;
+         toolTipItem1.Text = "برای خروج از محیط کاربری خود و وارد شدن به محیط کاربری دیگر بدون باز و بسته کردن " +
     "نرم افزار برای سرعت عمل بیشتر می توانید از این دکمه برای ورود مجدد استفاده کنید";
-         toolTipTitleItem12.LeftIndent = 6;
-         toolTipTitleItem12.Text = "تغییر مد کاربری";
-         superToolTip6.Items.Add(toolTipTitleItem11);
-         superToolTip6.Items.Add(toolTipItem6);
-         superToolTip6.Items.Add(toolTipSeparatorItem6);
-         superToolTip6.Items.Add(toolTipTitleItem12);
-         this.AdjustDateTime_Butn.SuperTip = superToolTip6;
+         toolTipTitleItem2.LeftIndent = 6;
+         toolTipTitleItem2.Text = "تغییر مد کاربری";
+         superToolTip1.Items.Add(toolTipTitleItem1);
+         superToolTip1.Items.Add(toolTipItem1);
+         superToolTip1.Items.Add(toolTipSeparatorItem1);
+         superToolTip1.Items.Add(toolTipTitleItem2);
+         this.AdjustDateTime_Butn.SuperTip = superToolTip1;
          this.AdjustDateTime_Butn.TabIndex = 3;
          this.AdjustDateTime_Butn.Tag = "1";
          this.AdjustDateTime_Butn.Text = "15:53 pm\r\n1396/02/03";
@@ -463,17 +482,17 @@
          this.simpleButton5.LookAndFeel.UseDefaultLookAndFeel = false;
          this.simpleButton5.Name = "simpleButton5";
          this.simpleButton5.Size = new System.Drawing.Size(38, 49);
-         toolTipTitleItem13.Text = "کاربر گرامی";
-         toolTipItem7.LeftIndent = 6;
-         toolTipItem7.Text = "برای خروج از محیط کاربری خود و وارد شدن به محیط کاربری دیگر بدون باز و بسته کردن " +
+         toolTipTitleItem3.Text = "کاربر گرامی";
+         toolTipItem2.LeftIndent = 6;
+         toolTipItem2.Text = "برای خروج از محیط کاربری خود و وارد شدن به محیط کاربری دیگر بدون باز و بسته کردن " +
     "نرم افزار برای سرعت عمل بیشتر می توانید از این دکمه برای ورود مجدد استفاده کنید";
-         toolTipTitleItem14.LeftIndent = 6;
-         toolTipTitleItem14.Text = "تغییر مد کاربری";
-         superToolTip7.Items.Add(toolTipTitleItem13);
-         superToolTip7.Items.Add(toolTipItem7);
-         superToolTip7.Items.Add(toolTipSeparatorItem7);
-         superToolTip7.Items.Add(toolTipTitleItem14);
-         this.simpleButton5.SuperTip = superToolTip7;
+         toolTipTitleItem4.LeftIndent = 6;
+         toolTipTitleItem4.Text = "تغییر مد کاربری";
+         superToolTip2.Items.Add(toolTipTitleItem3);
+         superToolTip2.Items.Add(toolTipItem2);
+         superToolTip2.Items.Add(toolTipSeparatorItem2);
+         superToolTip2.Items.Add(toolTipTitleItem4);
+         this.simpleButton5.SuperTip = superToolTip2;
          this.simpleButton5.TabIndex = 3;
          this.simpleButton5.Tag = "1";
          this.simpleButton5.Text = "*";
@@ -497,17 +516,17 @@
          this.simpleButton4.LookAndFeel.UseDefaultLookAndFeel = false;
          this.simpleButton4.Name = "simpleButton4";
          this.simpleButton4.Size = new System.Drawing.Size(38, 49);
-         toolTipTitleItem15.Text = "کاربر گرامی";
-         toolTipItem8.LeftIndent = 6;
-         toolTipItem8.Text = "برای خروج از محیط کاربری خود و وارد شدن به محیط کاربری دیگر بدون باز و بسته کردن " +
+         toolTipTitleItem5.Text = "کاربر گرامی";
+         toolTipItem3.LeftIndent = 6;
+         toolTipItem3.Text = "برای خروج از محیط کاربری خود و وارد شدن به محیط کاربری دیگر بدون باز و بسته کردن " +
     "نرم افزار برای سرعت عمل بیشتر می توانید از این دکمه برای ورود مجدد استفاده کنید";
-         toolTipTitleItem16.LeftIndent = 6;
-         toolTipTitleItem16.Text = "تغییر مد کاربری";
-         superToolTip8.Items.Add(toolTipTitleItem15);
-         superToolTip8.Items.Add(toolTipItem8);
-         superToolTip8.Items.Add(toolTipSeparatorItem8);
-         superToolTip8.Items.Add(toolTipTitleItem16);
-         this.simpleButton4.SuperTip = superToolTip8;
+         toolTipTitleItem6.LeftIndent = 6;
+         toolTipTitleItem6.Text = "تغییر مد کاربری";
+         superToolTip3.Items.Add(toolTipTitleItem5);
+         superToolTip3.Items.Add(toolTipItem3);
+         superToolTip3.Items.Add(toolTipSeparatorItem3);
+         superToolTip3.Items.Add(toolTipTitleItem6);
+         this.simpleButton4.SuperTip = superToolTip3;
          this.simpleButton4.TabIndex = 3;
          this.simpleButton4.Tag = "1";
          this.simpleButton4.Text = "2";
@@ -531,17 +550,17 @@
          this.simpleButton3.LookAndFeel.UseDefaultLookAndFeel = false;
          this.simpleButton3.Name = "simpleButton3";
          this.simpleButton3.Size = new System.Drawing.Size(38, 49);
-         toolTipTitleItem17.Text = "کاربر گرامی";
-         toolTipItem9.LeftIndent = 6;
-         toolTipItem9.Text = "برای خروج از محیط کاربری خود و وارد شدن به محیط کاربری دیگر بدون باز و بسته کردن " +
+         toolTipTitleItem7.Text = "کاربر گرامی";
+         toolTipItem4.LeftIndent = 6;
+         toolTipItem4.Text = "برای خروج از محیط کاربری خود و وارد شدن به محیط کاربری دیگر بدون باز و بسته کردن " +
     "نرم افزار برای سرعت عمل بیشتر می توانید از این دکمه برای ورود مجدد استفاده کنید";
-         toolTipTitleItem18.LeftIndent = 6;
-         toolTipTitleItem18.Text = "تغییر مد کاربری";
-         superToolTip9.Items.Add(toolTipTitleItem17);
-         superToolTip9.Items.Add(toolTipItem9);
-         superToolTip9.Items.Add(toolTipSeparatorItem9);
-         superToolTip9.Items.Add(toolTipTitleItem18);
-         this.simpleButton3.SuperTip = superToolTip9;
+         toolTipTitleItem8.LeftIndent = 6;
+         toolTipTitleItem8.Text = "تغییر مد کاربری";
+         superToolTip4.Items.Add(toolTipTitleItem7);
+         superToolTip4.Items.Add(toolTipItem4);
+         superToolTip4.Items.Add(toolTipSeparatorItem4);
+         superToolTip4.Items.Add(toolTipTitleItem8);
+         this.simpleButton3.SuperTip = superToolTip4;
          this.simpleButton3.TabIndex = 3;
          this.simpleButton3.Tag = "1";
          this.simpleButton3.Text = "12";
@@ -565,17 +584,17 @@
          this.StartMenu_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.StartMenu_Butn.Name = "StartMenu_Butn";
          this.StartMenu_Butn.Size = new System.Drawing.Size(54, 49);
-         toolTipTitleItem19.Text = "کاربر گرامی";
-         toolTipItem10.LeftIndent = 6;
-         toolTipItem10.Text = "برای خروج از محیط کاربری خود و وارد شدن به محیط کاربری دیگر بدون باز و بسته کردن " +
+         toolTipTitleItem9.Text = "کاربر گرامی";
+         toolTipItem5.LeftIndent = 6;
+         toolTipItem5.Text = "برای خروج از محیط کاربری خود و وارد شدن به محیط کاربری دیگر بدون باز و بسته کردن " +
     "نرم افزار برای سرعت عمل بیشتر می توانید از این دکمه برای ورود مجدد استفاده کنید";
-         toolTipTitleItem20.LeftIndent = 6;
-         toolTipTitleItem20.Text = "تغییر مد کاربری";
-         superToolTip10.Items.Add(toolTipTitleItem19);
-         superToolTip10.Items.Add(toolTipItem10);
-         superToolTip10.Items.Add(toolTipSeparatorItem10);
-         superToolTip10.Items.Add(toolTipTitleItem20);
-         this.StartMenu_Butn.SuperTip = superToolTip10;
+         toolTipTitleItem10.LeftIndent = 6;
+         toolTipTitleItem10.Text = "تغییر مد کاربری";
+         superToolTip5.Items.Add(toolTipTitleItem9);
+         superToolTip5.Items.Add(toolTipItem5);
+         superToolTip5.Items.Add(toolTipSeparatorItem5);
+         superToolTip5.Items.Add(toolTipTitleItem10);
+         this.StartMenu_Butn.SuperTip = superToolTip5;
          this.StartMenu_Butn.TabIndex = 3;
          this.StartMenu_Butn.Tag = "1";
          this.StartMenu_Butn.Click += new System.EventHandler(this.StartMenu_Butn_Click);
@@ -903,23 +922,6 @@
          this.ارتباطباماToolStripMenuItem.Name = "ارتباطباماToolStripMenuItem";
          this.ارتباطباماToolStripMenuItem.Size = new System.Drawing.Size(220, 66);
          this.ارتباطباماToolStripMenuItem.Text = "ارتباط با ما";
-         // 
-         // LNK_GATECONTROL
-         // 
-         this.LNK_GATECONTROL.Cursor = System.Windows.Forms.Cursors.Hand;
-         this.LNK_GATECONTROL.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.LNK_GATECONTROL.Image = global::MyProject.Properties.Resources.IMAGE_1241;
-         this.LNK_GATECONTROL.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-         this.LNK_GATECONTROL.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-         this.LNK_GATECONTROL.Location = new System.Drawing.Point(453, 124);
-         this.LNK_GATECONTROL.Margin = new System.Windows.Forms.Padding(8);
-         this.LNK_GATECONTROL.Name = "LNK_GATECONTROL";
-         this.LNK_GATECONTROL.Size = new System.Drawing.Size(124, 123);
-         this.LNK_GATECONTROL.TabIndex = 10;
-         this.LNK_GATECONTROL.TabStop = true;
-         this.LNK_GATECONTROL.Text = "کنترل ورود و خروج";
-         this.LNK_GATECONTROL.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-         this.LNK_GATECONTROL.Click += new System.EventHandler(this.LNK_GATECONTROL_Click);
          // 
          // Desktop
          // 

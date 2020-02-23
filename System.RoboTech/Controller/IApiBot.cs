@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace System.RoboTech.Controller
 {
@@ -12,5 +13,6 @@ namespace System.RoboTech.Controller
       bool Started { get; }
       string BotName { get; }
       void StopReceiving();
+      void SendAction(XElement x);
    }
 }

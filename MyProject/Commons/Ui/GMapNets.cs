@@ -2549,6 +2549,12 @@ namespace MyProject.Commons.Ui
 
       private void SubmitChange_Butn_Click(object sender, EventArgs e)
       {
+         if (textBoxLatCurrent.Text == "..." || textBoxLngCurrent.Text == "...")
+         {
+            textBoxLatCurrent.Text = textBoxLat.Text;
+            textBoxLngCurrent.Text = textBoxLng.Text;
+         }
+
          Back_Butn_Clicked(null, null);
          _DefaultGateway.Gateway(
             new Job(SendType.External, "localhost", xinput.Attribute("formcaller").Value /* Goto Route */, Convert.ToInt32(xinput.Attribute("callback").Value) /* Execute Callback Method */, SendType.SelfToUserInterface)

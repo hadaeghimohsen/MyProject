@@ -32,10 +32,22 @@ namespace System.RoboTech.Ui.BaseDefinition
          iRoboTech = new Data.iRoboTechDataContext(ConnectionString);
 
          int orgn = OrgnBs.Position;
+         int robot = RoboBs.Position;
+         int userorgn = UserOrgnBs.Position;
+         int job = JobBs.Position;
+         int prbt = PrbtBs.Position;
+         int prjb = PrjbBs.Position;
+         int pjsr = PjsrBs.Position;
 
          OrgnBs.DataSource = iRoboTech.Organs;
 
-         OrgnBs.Position = orgn;         
+         OrgnBs.Position = orgn;
+         RoboBs.Position = robot;
+         UserOrgnBs.Position = userorgn;
+         JobBs.Position = job;
+         PrbtBs.Position = prbt;
+         PrjbBs.Position = prjb;
+         PjsrBs.Position = pjsr;
       }
 
       private void SubmitChanged_Clicked(object sender, EventArgs e)

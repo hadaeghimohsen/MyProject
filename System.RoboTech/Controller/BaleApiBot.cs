@@ -13,6 +13,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
+using System.RoboTech.ExtCode;
 
 namespace System.RoboTech.Controller
 {
@@ -25,6 +26,7 @@ namespace System.RoboTech.Controller
       private string connectionString;
       private Data.Robot robot;
       private bool started = false;
+      private Ui.Action.STRT_ROBO_F _Strt_Robo_F;
 
       public Data.Robot Robot
       {
@@ -50,7 +52,7 @@ namespace System.RoboTech.Controller
          }
       }
 
-      public BaleApiBot(string token, string connectionString, MemoEdit ConsoleOutLog_MemTxt, bool activeRobot = true, Data.Robot robot = null)
+      public BaleApiBot(string token, string connectionString, MemoEdit ConsoleOutLog_MemTxt, bool activeRobot = true, Data.Robot robot = null, Ui.Action.STRT_ROBO_F strt_robo_f = null)
       {
          try
          {
@@ -62,6 +64,7 @@ namespace System.RoboTech.Controller
             Chats = new List<ChatInfo>();
             RobotHandle = new RobotController();
             this.connectionString = connectionString;
+            _Strt_Robo_F = strt_robo_f;
 
             started = true;
             main(activeRobot);
@@ -90,6 +93,29 @@ namespace System.RoboTech.Controller
          started = false;
       }
 
+      public async void SendAction(XElement x)
+      {
+         try
+         {
+            Data.iRoboTechDataContext iRobotTech = new Data.iRoboTechDataContext(connectionString);
+            switch (x.Attribute("actntype").Value)
+            {
+               case "sendordrs":
+                  await Send_Order(iRobotTech, null);
+                  break;
+               default:
+                  break;
+            }
+         }
+         catch (Exception exc)
+         {
+            if (ConsoleOutLog_MemTxt.InvokeRequired)
+               ConsoleOutLog_MemTxt.Invoke(new Action(() => ConsoleOutLog_MemTxt.Text += exc.Message));
+            else
+               ConsoleOutLog_MemTxt.Text += exc.Message;
+         }
+      }
+
       private async void BotOnUpdateReceived(object sender, UpdateEventArgs e)
       {
          if (/*robot.SPY_TYPE == "001"*/ e.Update.Message.Chat.Id > 0)
@@ -99,7 +125,7 @@ namespace System.RoboTech.Controller
 
          try
          {
-            await Download_Media(Token, e.Update.Message);
+            await Download_Media(GetToken(), e.Update.Message);
          }
          catch
          { }
@@ -151,10 +177,69 @@ namespace System.RoboTech.Controller
 
             XElement xResult = new XElement("Respons", "No Message");
 
+            // 1398/11/20 * ثبت وصولی بدست آماده
+            if (e.Message.Type == MessageType.SuccessfulPayment && e.Message.From.Username == "receipt")
+            {
+               // ثبت وصولی پرداخت شده درون سیستم و صدور سند مالی
+               // شماره فاکتور سیستم ما : e.Message.SuccessfulPayment.InvoicePayload
+               // شماره پیگیری از سمت بانک : e.Message.SuccessfulPayment.ProviderPaymentChargeId
+               // کل مبلغ پرداخت شده : e.Message.SuccessfulPayment.TotalAmount               
+               iRobotTech.SAVE_PYMT_P(
+                  new XElement("Payment",
+                     new XAttribute("ordrcode", e.Message.SuccessfulPayment.InvoicePayload),
+                     new XAttribute("txid", e.Message.SuccessfulPayment.ProviderPaymentChargeId),
+                     new XAttribute("totlamnt", e.Message.SuccessfulPayment.TotalAmount)
+                  ),
+                  ref xResult
+               );
+
+               //await FireEventResultOpration(chat, null, xResult);
+
+               await Send_Order(iRobotTech, null);
+
+               return;
+            }
+
+            // 1398/12/04 * اگر دستوراتی مخفی ربات دریافت شد
+            if(e.Message.Type == MessageType.Text && 
+               e.Message.Text.Substring(0, 2).In("*%" /* این گزینه برای پاسخگویی به خدمات پیک موتوری هست */))
+            {
+               // اجرای دستورات ربات برای خدمات مخفی
+               if (e.Message.Text.Substring(0, 2).In("*%" /* این گزینه برای پاسخگویی به خدمات پیک موتوری هست */))
+               {
+                  // خدمات پیک موتوری و اسنپ
+                  iRobotTech.SAVE_ALPK_P(
+                     new XElement("RequestAlopeyk",
+                        new XAttribute("token", GetToken()),
+                        new XAttribute("actncode", "000"),
+                        new XAttribute("cmnd", e.Message.Text),
+                        new XElement("Alopeyk",
+                           new XAttribute("chatid", e.Message.Chat.Id)
+                        )
+                        
+                     ),
+                     ref xResult
+                  );
+               }
+
+               // پاسخی که ممکن است از سرور بازگشت خورده باشد
+               await Bot.SendTextMessageAsync(
+                        e.Message.Chat.Id,
+                        xResult.Descendants("Message").First().Value,
+                        replyMarkup:
+                        null);
+
+               await Send_Order(iRobotTech, null);
+
+               await Send_Replay_Message(GetToken(), chat);
+
+               return;
+            }
+
             // ارسال تبلیغات
             try
             {
-               await Send_Advertising(Token, chat);
+               await Send_Advertising(GetToken(), chat);
             }
             catch (Exception exc)
             {
@@ -170,7 +255,7 @@ namespace System.RoboTech.Controller
             }
             try
             {
-               await Send_Replay_Message(Token, chat);
+               await Send_Replay_Message(GetToken(), chat);
             }
             catch (Exception exc)
             {
@@ -197,18 +282,18 @@ namespace System.RoboTech.Controller
                            where o.STAT == "002"
                                  && r.STAT == "002"
                                  && p.STAT == "002"
-                                 && r.TKON_CODE == Token
+                                 && r.TKON_CODE == GetToken()
                                  && p.SHOW_STRT == "002"
                                  && p.IMAG_DESC != null
                            orderby p.ORDR descending
                            select new { p.FILE_NAME, p.FILE_PATH, p.IMAG_DESC, p.FILE_ID, p.ORDR }).ToList();
 
-               if (iRobotTech.Robots.Any(r => r.TKON_CODE == Token && r.BULD_STAT != "006"))
+               if (iRobotTech.Robots.Any(r => r.TKON_CODE == GetToken() && r.BULD_STAT != "006"))
                {
                   try
                   {
                      ///***FileToSend fts = new FileToSend(iRobotTech.Robots.FirstOrDefault(r => r.TKON_CODE == Token).BULD_FILE_ID);
-                     InputOnlineFile fts = new InputOnlineFile(iRobotTech.Robots.FirstOrDefault(r => r.TKON_CODE == Token).BULD_FILE_ID);
+                     InputOnlineFile fts = new InputOnlineFile(iRobotTech.Robots.FirstOrDefault(r => r.TKON_CODE == GetToken()).BULD_FILE_ID);
                      //string fileid = iRobotTech.Robots.FirstOrDefault(r => r.TKON_CODE == Token).BULD_FILE_ID;
                      await Bot.SendPhotoAsync(chat.Message.Chat.Id, fts, "کاربر گرامی نرم افزار در حال آماده سازی می باشد و هنوز یه مرحله نهایی نرسیده. بعداز اتمام از همین سامانه به شما اطلاع رسانی می شود");
                   }
@@ -336,7 +421,7 @@ namespace System.RoboTech.Controller
                            where o.STAT == "002"
                                  && r.STAT == "002"
                                  && p.STAT == "002"
-                                 && r.TKON_CODE == Token
+                                 && r.TKON_CODE == GetToken()
                                  && p.SHOW_STRT == "002"
                                  && p.IMAG_DESC != null
                            orderby p.ORDR
@@ -473,7 +558,7 @@ namespace System.RoboTech.Controller
                   {
                      iRobotTech.INS_OGMD_P(
                         new XElement("Robot",
-                           new XAttribute("tokencode", Token),
+                           new XAttribute("tokencode", GetToken()),
                            new XElement("File",
                               new XAttribute("id", fileid),
                               new XAttribute("ussdcode", chat.Message.Caption.Substring(chat.Message.Caption.IndexOf('*', 2))),
@@ -486,7 +571,7 @@ namespace System.RoboTech.Controller
                   else if (chat.Message.Text != null && chat.Message.Text != "*#")
                      iRobotTech.INS_OGMD_P(
                         new XElement("Robot",
-                           new XAttribute("tokencode", Token),
+                           new XAttribute("tokencode", GetToken()),
                            new XElement("File",
                               new XAttribute("ussdcode", chat.Message.Text.Substring(chat.Message.Text.IndexOf('*', 2))),
                               new XAttribute("cmndtype", chat.Message.Text.Substring(2, chat.Message.Text.IndexOf('*', 2) - 2))
@@ -502,7 +587,7 @@ namespace System.RoboTech.Controller
             {
                var parentmenu = (from r in iRobotTech.Robots
                                  join m in iRobotTech.Menu_Ussds on r.RBID equals m.ROBO_RBID
-                                 where r.TKON_CODE == Token
+                                 where r.TKON_CODE == GetToken()
                                     && m.USSD_CODE == ussdParentCode
                                     && m.CMND_TYPE == "018"
                                  select m).ToList().FirstOrDefault();
@@ -532,7 +617,7 @@ namespace System.RoboTech.Controller
                      var serviceRobot =
                         iRobotTech.Service_Robots
                         .Where(sr => sr.CHAT_ID == chat.Message.Chat.Id &&
-                                     sr.Robot.TKON_CODE == Token
+                                     sr.Robot.TKON_CODE == GetToken()
                         ).ToList().FirstOrDefault();
 
                      if (e.Message.Photo != null)
@@ -737,7 +822,7 @@ namespace System.RoboTech.Controller
                   {
                      var xmlmsg = RobotHandle.GetData(
                         new XElement("Robot",
-                           new XAttribute("token", Token),
+                           new XAttribute("token", GetToken()),
                            new XElement("Message",
                               new XAttribute("ussd", chat.UssdCode ?? ""),
                               new XAttribute("childussd", menucmndtype != null ? menucmndtype.USSD_CODE ?? "" : ""),
@@ -832,7 +917,7 @@ namespace System.RoboTech.Controller
                   // 001 - Location
                   var loc = iRobotTech.Organs
                   .Join(iRobotTech.Robots, organ => organ.OGID, robot => robot.ORGN_OGID,
-                  (organ, robot) => new { organ.CORD_X, organ.CORD_Y, robot.TKON_CODE }).ToList().FirstOrDefault(or => or.TKON_CODE == Token);
+                  (organ, robot) => new { organ.CORD_X, organ.CORD_Y, robot.TKON_CODE }).ToList().FirstOrDefault(or => or.TKON_CODE == GetToken());
 
                   chat.Runed = false;
 
@@ -868,7 +953,7 @@ namespace System.RoboTech.Controller
                                     && r.STAT == "002"
                                     && p.STAT == "002"
                                     && p.USSD_CODE == menucmndtype.USSD_CODE
-                                    && r.TKON_CODE == Token
+                                    && r.TKON_CODE == GetToken()
                                     && p.IMAG_DESC != null
                               orderby p.ORDR
                               select new { p.FILE_NAME, p.FILE_PATH, p.IMAG_DESC, p.FILE_ID, p.OPID }).ToList();
@@ -932,7 +1017,7 @@ namespace System.RoboTech.Controller
                                     && r.STAT == "002"
                                     && p.STAT == "002"
                                     && p.USSD_CODE == menucmndtype.USSD_CODE
-                                    && r.TKON_CODE == Token
+                                    && r.TKON_CODE == GetToken()
                               //&& p.IMAG_DESC != null
                               orderby p.ORDR
                               select new { p.FILE_NAME, p.FILE_PATH, p.IMAG_DESC, p.FILE_ID }).ToList();
@@ -994,7 +1079,7 @@ namespace System.RoboTech.Controller
                                     && r.STAT == "002"
                                     && p.STAT == "002"
                                     && p.USSD_CODE == menucmndtype.USSD_CODE
-                                    && r.TKON_CODE == Token
+                                    && r.TKON_CODE == GetToken()
                               //&& p.IMAG_DESC != null
                               orderby p.ORDR
                               select new { p.FILE_NAME, p.FILE_PATH, p.IMAG_DESC, p.FILE_ID }).ToList();
@@ -1056,7 +1141,7 @@ namespace System.RoboTech.Controller
                                     && r.STAT == "002"
                                     && p.STAT == "002"
                                     && p.USSD_CODE == menucmndtype.USSD_CODE
-                                    && r.TKON_CODE == Token
+                                    && r.TKON_CODE == GetToken()
                                     && p.ITEM_DESC != null
                               orderby p.ORDR
                               select new { p.ITEM_VALU, p.ITEM_DESC }).ToList();
@@ -1093,7 +1178,7 @@ namespace System.RoboTech.Controller
                                     && r.STAT == "002"
                                     && p.STAT == "002"
                                     && p.USSD_CODE == menucmndtype.USSD_CODE
-                                    && r.TKON_CODE == Token
+                                    && r.TKON_CODE == GetToken()
                                     && p.IMAG_DESC != null
                               orderby p.ORDR
                               select new { p.FILE_NAME, p.FILE_PATH, p.IMAG_DESC, p.FILE_ID }).ToList();
@@ -1152,7 +1237,7 @@ namespace System.RoboTech.Controller
                                       && r.STAT == "002"
                                       && p.STAT == "002"
                                       && p.USSD_CODE == menucmndtype.USSD_CODE
-                                      && r.TKON_CODE == Token
+                                      && r.TKON_CODE == GetToken()
                                 //&& p.IMAG_DESC != null
                                 orderby p.ORDR
                                 select new { p.FILE_NAME, p.FILE_PATH, p.IMAG_DESC, p.FILE_ID }).ToList();
@@ -1214,7 +1299,7 @@ namespace System.RoboTech.Controller
                                     && r.STAT == "002"
                                     && p.STAT == "002"
                                     && p.USSD_CODE == menucmndtype.USSD_CODE
-                                    && r.TKON_CODE == Token
+                                    && r.TKON_CODE == GetToken()
                                     && p.IMAG_DESC != null
                               orderby p.ORDR
                               select new { p.FILE_NAME, p.FILE_PATH, p.IMAG_DESC, p.FILE_ID }).ToList();
@@ -1272,7 +1357,7 @@ namespace System.RoboTech.Controller
                                       && r.STAT == "002"
                                       && p.STAT == "002"
                                       && p.USSD_CODE == menucmndtype.USSD_CODE
-                                      && r.TKON_CODE == Token
+                                      && r.TKON_CODE == GetToken()
                                 //&& p.IMAG_DESC != null
                                 orderby p.ORDR
                                 select new { p.FILE_NAME, p.FILE_PATH, p.IMAG_DESC, p.FILE_ID }).ToList();
@@ -1330,7 +1415,7 @@ namespace System.RoboTech.Controller
                                     && r.STAT == "002"
                                     && p.STAT == "002"
                                     && p.USSD_CODE == menucmndtype.USSD_CODE
-                                    && r.TKON_CODE == Token
+                                    && r.TKON_CODE == GetToken()
                                     && p.ITEM_DESC != null
                               orderby p.ORDR
                               select new { p.ITEM_VALU, p.ITEM_DESC }).ToList();
@@ -1372,7 +1457,7 @@ namespace System.RoboTech.Controller
 
                   var xdata = RobotHandle.GetData(
                     new XElement("Robot",
-                       new XAttribute("token", Token),
+                       new XAttribute("token", GetToken()),
                        new XElement("Message",
                           new XAttribute("ussd", chat.UssdCode ?? ""),
                           new XAttribute("childussd", menucmndtype != null ? menucmndtype.USSD_CODE ?? "" : ""),
@@ -1416,7 +1501,7 @@ namespace System.RoboTech.Controller
                                     && r.STAT == "002"
                                     && p.STAT == "002"
                                     && p.USSD_CODE == menucmndtype.USSD_CODE
-                                    && r.TKON_CODE == Token
+                                    && r.TKON_CODE == GetToken()
                                     && p.IMAG_DESC != null
                               orderby p.ORDR
                               select new { p.FILE_NAME, p.FILE_PATH, p.IMAG_DESC, p.FILE_ID }).ToList();
@@ -1473,7 +1558,7 @@ namespace System.RoboTech.Controller
                                     && r.STAT == "002"
                                     && p.STAT == "002"
                                     && p.USSD_CODE == menucmndtype.USSD_CODE
-                                    && r.TKON_CODE == Token
+                                    && r.TKON_CODE == GetToken()
                                     && p.ITEM_DESC != null
                               orderby p.ORDR
                               select new { p.ITEM_VALU, p.ITEM_DESC }).ToList();
@@ -1510,7 +1595,7 @@ namespace System.RoboTech.Controller
                                     && r.STAT == "002"
                                     && p.STAT == "002"
                                     && p.USSD_CODE == menucmndtype.USSD_CODE
-                                    && r.TKON_CODE == Token
+                                    && r.TKON_CODE == GetToken()
                                     && p.IMAG_DESC != null
                               orderby p.ORDR
                               select new { p.FILE_NAME, p.FILE_PATH, p.IMAG_DESC, p.FILE_ID }).ToList();
@@ -1561,7 +1646,7 @@ namespace System.RoboTech.Controller
                   // 001 - Location
                   var loc = iRobotTech.Organs
                   .Join(iRobotTech.Robots, organ => organ.OGID, robot => robot.ORGN_OGID,
-                  (organ, robot) => new { organ.CORD_X, organ.CORD_Y, robot.TKON_CODE }).ToList().FirstOrDefault(or => or.TKON_CODE == Token);
+                  (organ, robot) => new { organ.CORD_X, organ.CORD_Y, robot.TKON_CODE }).ToList().FirstOrDefault(or => or.TKON_CODE == GetToken());
 
                   chat.Runed = false;
 
@@ -1592,7 +1677,7 @@ namespace System.RoboTech.Controller
 
                   var xdata = RobotHandle.GetData(
                     new XElement("Robot",
-                       new XAttribute("token", Token),
+                       new XAttribute("token", GetToken()),
                        new XElement("Message",
                           new XAttribute("ussd", chat.UssdCode ?? ""),
                           new XAttribute("childussd", menucmndtype != null ? menucmndtype.USSD_CODE ?? "" : ""),
@@ -1649,7 +1734,7 @@ namespace System.RoboTech.Controller
                               join p in iRobotTech.Organ_Representations on o.OGID equals p.ORGN_OGID
                               where o.STAT == "002"
                                     && r.STAT == "002"
-                                    && r.TKON_CODE == Token
+                                    && r.TKON_CODE == GetToken()
                               select new { p.PLAC_ADRS, p.CORD_X, p.CORD_Y }).ToList();
 
                   chat.Runed = false;
@@ -1687,7 +1772,7 @@ namespace System.RoboTech.Controller
                                     && r.STAT == "002"
                                     && p.STAT == "002"
                                     && p.USSD_CODE == menucmndtype.USSD_CODE
-                                    && r.TKON_CODE == Token
+                                    && r.TKON_CODE == GetToken()
                                     && p.ITEM_DESC != null
                               orderby p.ORDR
                               select new { p.ITEM_VALU, p.ITEM_DESC }).ToList();
@@ -1721,7 +1806,7 @@ namespace System.RoboTech.Controller
                                     && r.STAT == "002"
                                     && p.STAT == "002"
                                     && p.USSD_CODE == menucmndtype.USSD_CODE
-                                    && r.TKON_CODE == Token
+                                    && r.TKON_CODE == GetToken()
                               //&& p.IMAG_DESC != null
                               orderby p.ORDR
                               select new { p.FILE_NAME, p.FILE_PATH, p.IMAG_DESC, p.FILE_ID }).ToList();
@@ -1783,7 +1868,7 @@ namespace System.RoboTech.Controller
                                     && r.STAT == "002"
                                     && p.STAT == "002"
                                     && p.USSD_CODE == menucmndtype.USSD_CODE
-                                    && r.TKON_CODE == Token
+                                    && r.TKON_CODE == GetToken()
                                     && p.IMAG_DESC != null
                               orderby p.ORDR
                               select new { p.FILE_NAME, p.FILE_PATH, p.IMAG_DESC, p.FILE_ID, p.OPID }).ToList();
@@ -1842,7 +1927,7 @@ namespace System.RoboTech.Controller
                                     && r.STAT == "002"
                                     && p.STAT == "002"
                                     && p.USSD_CODE == menucmndtype.USSD_CODE
-                                    && r.TKON_CODE == Token
+                                    && r.TKON_CODE == GetToken()
                                     && p.ITEM_DESC != null
                               orderby p.ORDR
                               select new { p.ITEM_VALU, p.ITEM_DESC }).ToList();
@@ -1876,7 +1961,7 @@ namespace System.RoboTech.Controller
                                       && r.STAT == "002"
                                       && p.STAT == "002"
                                       && p.USSD_CODE == menucmndtype.USSD_CODE
-                                      && r.TKON_CODE == Token
+                                      && r.TKON_CODE == GetToken()
                                 //&& p.IMAG_DESC != null
                                 orderby p.ORDR
                                 select new { p.FILE_NAME, p.FILE_PATH, p.IMAG_DESC, p.FILE_ID }).ToList();
@@ -1929,7 +2014,7 @@ namespace System.RoboTech.Controller
                {
                   var xdata = RobotHandle.GetData(
                     new XElement("Robot",
-                       new XAttribute("token", Token),
+                       new XAttribute("token", GetToken()),
                        new XElement("Message",
                           new XAttribute("ussd", chat.UssdCode ?? ""),
                           new XAttribute("childussd", menucmndtype != null ? menucmndtype.USSD_CODE ?? "" : ""),
@@ -1958,7 +2043,7 @@ namespace System.RoboTech.Controller
                                     && r.STAT == "002"
                                     && p.STAT == "002"
                                     && p.USSD_CODE == menucmndtype.USSD_CODE
-                                    && r.TKON_CODE == Token
+                                    && r.TKON_CODE == GetToken()
                                     && p.IMAG_DESC != null
                               orderby p.ORDR
                               select new { p.FILE_NAME, p.FILE_PATH, p.IMAG_DESC, p.FILE_ID, p.OPID }).ToList();
@@ -2017,7 +2102,7 @@ namespace System.RoboTech.Controller
                                     && r.STAT == "002"
                                     && p.STAT == "002"
                                     && p.USSD_CODE == menucmndtype.USSD_CODE
-                                    && r.TKON_CODE == Token
+                                    && r.TKON_CODE == GetToken()
                               //&& p.IMAG_DESC != null
                               orderby p.ORDR
                               select new { p.FILE_NAME, p.FILE_PATH, p.IMAG_DESC, p.FILE_ID }).ToList();
@@ -2079,7 +2164,7 @@ namespace System.RoboTech.Controller
                                      && r.STAT == "002"
                                   //&& u.STAT == "002"
                                      && u.USSD_CODE == menucmndtype.USSD_CODE
-                                     && r.TKON_CODE == Token
+                                     && r.TKON_CODE == GetToken()
                                      && u.FILE_ID != null
                                      && u.CHAT_ID == e.Message.Chat.Id
                                orderby u.RWNO
@@ -2111,7 +2196,7 @@ namespace System.RoboTech.Controller
                                     && r.STAT == "002"
                                  //&& u.STAT == "002"
                                     && u.USSD_CODE == menucmndtype.MNUS_USSD_CODE
-                                    && r.TKON_CODE == Token
+                                    && r.TKON_CODE == GetToken()
                                     && u.FILE_ID != null
                                     && u.CHAT_ID == chat.Message.Chat.Id
                               orderby u.RWNO
@@ -2169,7 +2254,7 @@ namespace System.RoboTech.Controller
                   #region Invite Friend
                   chat.Runed = false;
                   await Bot.SendTextMessageAsync(e.Message.Chat.Id,
-                           string.Format("{0}\n\rhttps://bale.ai\n\r{1}\n\r{2}\n\r{3}", robot.INVT_FRND ?? "از اینکه دوستان خود را به ما معرفی میکنید بسیار ممنون و خرسندیم، لینک شما برای دعوت کردن دوستان. با بله حساب کتابت با همه درسته 👉 😀 👈", robot.NAME, e.Message.Chat.Id, robot.HASH_TAG ?? "#انارسافت" ),
+                           string.Format("{0}\n\rhttps://ble.ir/{1}?start={2}\n\r{3}", robot.INVT_FRND ?? "از اینکه دوستان خود را به ما معرفی میکنید بسیار ممنون و خرسندیم، لینک شما برای دعوت کردن دوستان. با بله حساب کتابت با همه درسته 👉 😀 👈", robot.NAME.Substring(1), e.Message.Chat.Id, robot.HASH_TAG ?? "#انارسافت"),
                            ParseMode.Default,
                            replyToMessageId:
                            e.Message.MessageId,
@@ -2211,7 +2296,7 @@ namespace System.RoboTech.Controller
                                     && r.STAT == "002"
                                     && p.STAT == "002"
                                     && p.USSD_CODE == menucmndtype.USSD_CODE
-                                    && r.TKON_CODE == Token
+                                    && r.TKON_CODE == GetToken()
                                     && p.IMAG_TYPE == "007"
                               orderby p.ORDR
                               select new { p.FILE_NAME, p.FILE_PATH, p.IMAG_DESC, p.FILE_ID, p.OPID }).ToList();
@@ -2275,7 +2360,7 @@ namespace System.RoboTech.Controller
                                     && r.STAT == "002"
                                     && p.STAT == "002"
                                     && p.USSD_CODE == menucmndtype.USSD_CODE
-                                    && r.TKON_CODE == Token
+                                    && r.TKON_CODE == GetToken()
                                     && p.IMAG_TYPE == "007"
                               orderby p.ORDR
                               select new { p.FILE_NAME, p.FILE_PATH, p.IMAG_DESC, p.FILE_ID }).ToList();
@@ -2332,7 +2417,7 @@ namespace System.RoboTech.Controller
                                     && r.STAT == "002"
                                     && p.STAT == "002"
                                     && p.USSD_CODE == menucmndtype.USSD_CODE
-                                    && r.TKON_CODE == Token
+                                    && r.TKON_CODE == GetToken()
                                     && p.ITEM_DESC != null
                               orderby p.ORDR
                               select new { p.ITEM_VALU, p.ITEM_DESC }).ToList();
@@ -2369,7 +2454,7 @@ namespace System.RoboTech.Controller
                                         && r.STAT == "002"
                                         && p.STAT == "002"
                                         && p.USSD_CODE == menucmndtype.USSD_CODE
-                                        && r.TKON_CODE == Token
+                                        && r.TKON_CODE == GetToken()
                                         && p.IMAG_TYPE == "007"
                                   orderby p.ORDR
                                   select new { p.FILE_NAME, p.FILE_PATH, p.IMAG_DESC, p.FILE_ID, p.OPID }).ToList();
@@ -2428,7 +2513,7 @@ namespace System.RoboTech.Controller
                                     && r.STAT == "002"
                                     && p.STAT == "002"
                                     && p.USSD_CODE == menucmndtype.USSD_CODE
-                                    && r.TKON_CODE == Token
+                                    && r.TKON_CODE == GetToken()
                                     && p.IMAG_DESC != null
                               orderby p.ORDR
                               select new { p.FILE_NAME, p.FILE_PATH, p.IMAG_DESC, p.FILE_ID, p.OPID }).ToList();
@@ -2492,7 +2577,7 @@ namespace System.RoboTech.Controller
                                         && r.STAT == "002"
                                         && p.STAT == "002"
                                         && p.USSD_CODE == menucmndtype.USSD_CODE
-                                        && r.TKON_CODE == Token
+                                        && r.TKON_CODE == GetToken()
                                         && p.IMAG_TYPE == "007"
                                   orderby p.ORDR
                                   select new { p.FILE_NAME, p.FILE_PATH, p.IMAG_DESC, p.FILE_ID }).ToList();
@@ -2547,7 +2632,7 @@ namespace System.RoboTech.Controller
                                     && r.STAT == "002"
                                     && p.STAT == "002"
                                     && p.USSD_CODE == menucmndtype.USSD_CODE
-                                    && r.TKON_CODE == Token
+                                    && r.TKON_CODE == GetToken()
                                     && p.IMAG_DESC != null
                               orderby p.ORDR
                               select new { p.FILE_NAME, p.FILE_PATH, p.IMAG_DESC, p.FILE_ID, p.OPID }).ToList();
@@ -2608,7 +2693,7 @@ namespace System.RoboTech.Controller
                                     && r.STAT == "002"
                                     && p.STAT == "002"
                                     && p.USSD_CODE == menucmndtype.USSD_CODE
-                                    && r.TKON_CODE == Token
+                                    && r.TKON_CODE == GetToken()
                                     && p.ITEM_DESC != null
                               orderby p.ORDR
                               select new { p.ITEM_VALU, p.ITEM_DESC }).ToList();
@@ -2636,14 +2721,14 @@ namespace System.RoboTech.Controller
                else if(menucmndtype.CMND_TYPE == "026")
                {
                   #region Direct Payment Process
-                  var _getdirectpaymentprocess = 
+                  var _getdirectpaymentprocess =
                      from ghi in iRobotTech.Group_Header_Items
                      join gm in iRobotTech.Group_Menu_Ussds on ghi.Group_Menu_Ussd equals gm
                      join g in iRobotTech.Groups on gm.Group equals g
                      join srg in iRobotTech.Service_Robot_Groups on g equals srg.Group
                      join sr in iRobotTech.Service_Robots on srg.Service_Robot equals sr
                      join r in iRobotTech.Robots on sr.Robot equals r
-                     where r.TKON_CODE == GetToken() 
+                     where r.TKON_CODE == GetToken()
                         && sr.CHAT_ID == chat.Message.Chat.Id
                         //&& srg.DFLT_STAT == "002"
                         && ghi.STAT == "002"
@@ -2651,28 +2736,35 @@ namespace System.RoboTech.Controller
                         && gm.STAT == "002"
                         && srg.STAT == "002"
                         && gm.MNUS_MUID == menucmndtype.MUID
-                     select new {
-                        Price = ghi.PRIC, Ussd_Code = ghi.USSD_CODE_DNRM, 
-                        Muid = ghi.GRMU_MNUS_MUID, Gpid = ghi.GRMU_GROP_GPID, 
-                        Auto_Join = g.AUTO_JOIN, Default = srg.DFLT_STAT,
-                        Title = ghi.GHDT_DESC, Description = ghi.Group_Header.GRPH_DESC,
-                        Tax = ghi.TAX_PRCT, Off_Percentage = g.OFF_PRCT
+                     select new
+                     {
+                        Price = ghi.PRIC,
+                        Ussd_Code = ghi.USSD_CODE_DNRM,
+                        Muid = ghi.GRMU_MNUS_MUID,
+                        Gpid = ghi.GRMU_GROP_GPID,
+                        Auto_Join = g.AUTO_JOIN,
+                        Default = srg.DFLT_STAT,
+                        Title = ghi.GHDT_DESC,
+                        Description = ghi.Group_Header.GRPH_DESC,
+                        Tax = ghi.TAX_PRCT,
+                        Off_Percentage = g.OFF_PRCT
                      };
 
-                  var _getdefaultgroupaccess = 
-                     from gm in iRobotTech.Group_Menu_Ussds 
+                  var _getdefaultgroupaccess =
+                     from gm in iRobotTech.Group_Menu_Ussds
                      join g in iRobotTech.Groups on gm.Group equals g
                      join srg in iRobotTech.Service_Robot_Groups on g equals srg.Group
                      join sr in iRobotTech.Service_Robots on srg.Service_Robot equals sr
                      join r in iRobotTech.Robots on sr.Robot equals r
-                     where r.TKON_CODE == GetToken() 
+                     where r.TKON_CODE == GetToken()
                         && sr.CHAT_ID == chat.Message.Chat.Id
                         && srg.DFLT_STAT == "002"
                         && g.STAT == "002"
                         && gm.STAT == "002"
                         && srg.STAT == "002"
                         && gm.MNUS_MUID == menucmndtype.MUID
-                     select new {
+                     select new
+                     {
                         Off_Percentage = g.OFF_PRCT
                      };
 
@@ -2680,7 +2772,7 @@ namespace System.RoboTech.Controller
                   long? amnt = null;
                   string title = "", description = "", ussdcode = "";
                   int? tax = 0, off_prct = 0;
-                  if(_dfltgropamnt.Any())
+                  if (_dfltgropamnt.Any())
                   {
                      // اگر گروه دسترسی پیش فرض برای محاسبه هزینه وجود داشته باشد                     
                      amnt = _dfltgropamnt.Max(v => v.Price);
@@ -2700,40 +2792,219 @@ namespace System.RoboTech.Controller
                         off_prct = _getdirectpaymentprocess.FirstOrDefault(dpp => dpp.Auto_Join == "002" && dpp.Price == amnt).Off_Percentage;
                      else
                         off_prct = _getdefaultgroupaccess.Max(dpp => dpp.Off_Percentage);
-                     
+
                      title = _getdirectpaymentprocess.FirstOrDefault(dpp => dpp.Auto_Join == "002" && dpp.Price == amnt).Title;
                      description = _getdirectpaymentprocess.FirstOrDefault(dpp => dpp.Auto_Join == "002" && dpp.Price == amnt).Description;
                      ussdcode = _getdirectpaymentprocess.FirstOrDefault(dpp => dpp.Auto_Join == "002" && dpp.Price == amnt).Ussd_Code;
                   }
 
+                  #region Create Order with Order Type
+
+                  var xdata = RobotHandle.GetData(
+                    new XElement("Robot",
+                       new XAttribute("token", GetToken()),
+                       new XElement("Message",
+                          new XAttribute("ussd", chat.UssdCode ?? ""),
+                          new XAttribute("childussd", menucmndtype != null ? menucmndtype.USSD_CODE ?? "" : ""),
+                          new XAttribute("chatid", chat.Message.Chat.Id)
+                       )
+                    ), connectionString);
+
+                  var ordr =
+                     iRobotTech.Orders
+                     .Where(
+                        o => o.CHAT_ID == e.Message.Chat.Id
+                          && o.Robot.TKON_CODE == GetToken()
+                          && o.ORDR_STAT == "001"
+                          && (o.ORDR_TYPE == "004" || o.ORDR_TYPE == "013" || o.ORDR_TYPE == "014" || o.ORDR_TYPE == "016")
+                          && o.STRT_DATE.Value.Date == DateTime.Now.Date 
+                     ).OrderByDescending(o => o.STRT_DATE).Take(1).FirstOrDefault();
+
                   // Process SendInvoice
                   var price = new List<LabeledPrice>();
-                  if (off_prct > 0)
-                     amnt -= (amnt * off_prct) / 100;
+                  /*if (off_prct > 0)
+                     amnt -= (amnt * off_prct) / 100;*/
 
-                  if (tax > 0)
+                  if (ordr.AMNT_TYPE == "001")
                   {
-                     price.Add(new LabeledPrice("قیمت کل", (int)amnt));
-                     price.Add(new LabeledPrice("ارزش افزوده", ((int)amnt * (int)tax) / 100));
+                     if (ordr.EXTR_PRCT != null && ordr.EXTR_PRCT > 0)
+                     {
+                        price.Add(new LabeledPrice("قیمت کل", (int)ordr.EXPN_AMNT));
+                        price.Add(new LabeledPrice("ارزش افزوده", (int)ordr.EXTR_PRCT));
+                     }
+                     else
+                        price.Add(new LabeledPrice("قیمت کل", (int)ordr.EXPN_AMNT));
+
+                     // اگر بخواهیم از مشتری کارمزد دریافت کنیم
+                     if (ordr.TXFE_AMNT_DNRM != null && ordr.TXFE_AMNT_DNRM > 0)
+                        price.Add(new LabeledPrice("کارمزد خدمات غیر حضوری", (int)ordr.TXFE_AMNT_DNRM));
                   }
-                  else
-                     price.Add(new LabeledPrice("قیمت کل", (int)amnt));
-                  
-                  Bot.SendInvoiceAsync(
-                     (int)e.Message.Chat.Id,
-                     title,
-                     description,
-                     ussdcode,
-                     "5859831147061971",
-                     "",
-                     "IRR",
-                     price
-                     );
+                  else if (ordr.AMNT_TYPE == "002")
+                  {
+                     if (ordr.EXTR_PRCT != null && ordr.EXTR_PRCT > 0)
+                     {
+                        price.Add(new LabeledPrice("قیمت کل", (int)ordr.EXPN_AMNT * 10));
+                        price.Add(new LabeledPrice("ارزش افزوده", (int)ordr.EXTR_PRCT * 10));
+                     }
+                     else
+                        price.Add(new LabeledPrice("قیمت کل", (int)ordr.EXPN_AMNT * 10));
+
+                     // اگر بخواهیم از مشتری کارمزد دریافت کنیم
+                     if (ordr.TXFE_AMNT_DNRM != null && ordr.TXFE_AMNT_DNRM > 0)
+                        price.Add(new LabeledPrice("کارمزد خدمات غیر حضوری", (int)ordr.TXFE_AMNT_DNRM * 10));
+                  }
+
+                  await FireEventResultOpration(chat, keyBoardMarkup, xdata);
+
+                  await Send_Order(iRobotTech, keyBoardMarkup);
+
+                  if (ordr.AMNT_TYPE == "001")
+                  {
+                     // پرداخت به صورت کارت به کارت
+                     if (price.Sum(p => p.Amount) <= 30000000)
+                     {
+                        await Bot.SendInvoiceAsync(
+                           (int)e.Message.Chat.Id,
+                           string.Format("{0}\n\r{1} : {2}\n\r{3} : {4}", "فاکتور شما", "شماره", ordr.CODE, "تاریخ" , iRobotTech.GET_MTOS_U(ordr.STRT_DATE)),
+                           description,
+                           ordr.CODE.ToString(),
+                           ordr.DEST_CARD_NUMB_DNRM,
+                           "",
+                           "IRR",
+                           price
+                           );
+                     }
+                     else
+                     {
+                        // پرداخت از طریق درگاه پرداخت
+                     }
+                  }
+                  else if(ordr.AMNT_TYPE == "002")
+                  {
+                     // پرداخت به صورت کارت به کارت
+                     if (price.Sum(p => p.Amount) <= 3000000)
+                     {
+                        await Bot.SendInvoiceAsync(
+                           (int)e.Message.Chat.Id,
+                           string.Format("{0}\n\r{1} : {2}\n\r{3} : {4}", "فاکتور شما", "شماره", ordr.CODE, "تاریخ", iRobotTech.GET_MTOS_U(ordr.STRT_DATE)),
+                           description,
+                           ordr.CODE.ToString(),
+                           ordr.DEST_CARD_NUMB_DNRM,
+                           "",
+                           "IRR",
+                           price
+                           );
+                     }
+                     else
+                     {
+                        // پرداخت از طریق درگاه پرداخت
+                     }
+                  }
+                  #endregion
                   #endregion
                }
                else if (menucmndtype.CMND_TYPE == "027")
                {
                   #region Order Checkout Payment Process
+                  var xdata = RobotHandle.GetData(
+                    new XElement("Robot",
+                       new XAttribute("token", GetToken()),
+                       new XElement("Message",
+                          new XAttribute("ussd", chat.UssdCode ?? ""),
+                          new XAttribute("childussd", menucmndtype != null ? menucmndtype.USSD_CODE ?? "" : ""),
+                          new XAttribute("chatid", chat.Message.Chat.Id)
+                       )
+                    ), connectionString);
+
+                  var ordr =
+                     iRobotTech.Orders
+                     .Where(
+                        o => o.CHAT_ID == e.Message.Chat.Id
+                          && o.Robot.TKON_CODE == GetToken()
+                          && o.ORDR_STAT == "001"
+                          && (o.ORDR_TYPE == "004" || o.ORDR_TYPE == "013" || o.ORDR_TYPE == "014" || o.ORDR_TYPE == "016")
+                          && o.STRT_DATE.Value.Date == DateTime.Now.Date
+                     ).OrderByDescending(o => o.STRT_DATE).Take(1).FirstOrDefault();
+
+                  // Process SendInvoice
+                  var price = new List<LabeledPrice>();
+                  /*if (off_prct > 0)
+                     amnt -= (amnt * off_prct) / 100;*/
+                  if (ordr.AMNT_TYPE == "001")
+                  {
+                     if (ordr.EXTR_PRCT != null && ordr.EXTR_PRCT > 0)
+                     {
+                        price.Add(new LabeledPrice("قیمت کل", (int)ordr.EXPN_AMNT));
+                        price.Add(new LabeledPrice("ارزش افزوده", (int)ordr.EXTR_PRCT));
+                     }
+                     else
+                        price.Add(new LabeledPrice("قیمت کل", (int)ordr.EXPN_AMNT));
+
+                     // اگر بخواهیم از مشتری کارمزد دریافت کنیم
+                     if (ordr.TXFE_AMNT_DNRM != null && ordr.TXFE_AMNT_DNRM > 0)
+                        price.Add(new LabeledPrice("کارمزد خدمات غیر حضوری", (int)ordr.TXFE_AMNT_DNRM));
+                  }
+                  else if (ordr.AMNT_TYPE == "002")
+                  {
+                     if (ordr.EXTR_PRCT != null && ordr.EXTR_PRCT > 0)
+                     {
+                        price.Add(new LabeledPrice("قیمت کل", (int)ordr.EXPN_AMNT * 10));
+                        price.Add(new LabeledPrice("ارزش افزوده", (int)ordr.EXTR_PRCT * 10));
+                     }
+                     else
+                        price.Add(new LabeledPrice("قیمت کل", (int)ordr.EXPN_AMNT * 10));
+
+                     // اگر بخواهیم از مشتری کارمزد دریافت کنیم
+                     if (ordr.TXFE_AMNT_DNRM != null && ordr.TXFE_AMNT_DNRM > 0)
+                        price.Add(new LabeledPrice("کارمزد خدمات غیر حضوری", (int)ordr.TXFE_AMNT_DNRM * 10));
+                  }                  
+
+                  await FireEventResultOpration(chat, keyBoardMarkup, xdata);
+
+                  await Send_Order(iRobotTech, keyBoardMarkup);
+
+                  if (ordr.AMNT_TYPE == "001")
+                  {
+                     // پرداخت به صورت کارت به کارت
+                     if (price.Sum(p => p.Amount) <= 30000000)
+                     {
+                        await Bot.SendInvoiceAsync(
+                           (int)e.Message.Chat.Id,
+                           string.Format("{0}\n\r{1} : {2}\n\r{3} : {4}", "فاکتور شما", "شماره", ordr.CODE, "تاریخ", iRobotTech.GET_MTOS_U(ordr.STRT_DATE)),
+                           "سبد خرید شما",
+                           ordr.CODE.ToString(),
+                           ordr.DEST_CARD_NUMB_DNRM,
+                           "",
+                           "IRR",
+                           price
+                           );
+                     }
+                     else
+                     {
+                        // پرداخت از طریق درگاه پرداخت
+                     }
+                  }
+                  else if (ordr.AMNT_TYPE == "002")
+                  {
+                     // پرداخت به صورت کارت به کارت
+                     if (price.Sum(p => p.Amount) <= 3000000)
+                     {
+                        await Bot.SendInvoiceAsync(
+                           (int)e.Message.Chat.Id,
+                           string.Format("{0}\n\r{1} : {2}\n\r{3} : {4}", "فاکتور شما", "شماره", ordr.CODE, "تاریخ", iRobotTech.GET_MTOS_U(ordr.STRT_DATE)),
+                           "سبد خرید شما",
+                           ordr.CODE.ToString(),
+                           ordr.DEST_CARD_NUMB_DNRM,
+                           "",
+                           "IRR",
+                           price
+                           );
+                     }
+                     else
+                     {
+                        // پرداخت از طریق درگاه پرداخت
+                     }
+                  }
                   #endregion
                }
             }
@@ -2944,19 +3215,19 @@ namespace System.RoboTech.Controller
                         where o.STAT == "002"
                               && r.STAT == "002"
                               && p.STAT == "002"
-                              && r.TKON_CODE == Token
+                              && r.TKON_CODE == GetToken()
                               && p.SHOW_STRT == "002"
                               && p.IMAG_DESC != null
                         orderby p.ORDR descending
                         select new { p.FILE_NAME, p.FILE_PATH, p.IMAG_DESC, p.FILE_ID, p.ORDR }).ToList();
 
-            if (iRobotTech.Robots.Any(r => r.TKON_CODE == Token && r.BULD_STAT != "006"))
+            if (iRobotTech.Robots.Any(r => r.TKON_CODE == GetToken() && r.BULD_STAT != "006"))
             {
                try
                {
-                  //string fileid = iRobotTech.Robots.FirstOrDefault(r => r.TKON_CODE == Token).BULD_FILE_ID;
-                  ///***await Bot.SendPhotoAsync(chat.Message.Chat.Id, new FileToSend(iRobotTech.Robots.FirstOrDefault(r => r.TKON_CODE == Token).BULD_FILE_ID), "کاربر گرامی نرم افزار در حال آماده سازی می باشد و هنوز یه مرحله نهایی نرسیده. بعداز اتمام از همین سامانه به شما اطلاع رسانی می شود");
-                  await Bot.SendPhotoAsync(chat.Message.Chat.Id, new InputOnlineFile(iRobotTech.Robots.FirstOrDefault(r => r.TKON_CODE == Token).BULD_FILE_ID), "کاربر گرامی نرم افزار در حال آماده سازی می باشد و هنوز یه مرحله نهایی نرسیده. بعداز اتمام از همین سامانه به شما اطلاع رسانی می شود");
+                  //string fileid = iRobotTech.Robots.FirstOrDefault(r => r.TKON_CODE == GetToken()).BULD_FILE_ID;
+                  ///***await Bot.SendPhotoAsync(chat.Message.Chat.Id, new FileToSend(iRobotTech.Robots.FirstOrDefault(r => r.TKON_CODE == GetToken()).BULD_FILE_ID), "کاربر گرامی نرم افزار در حال آماده سازی می باشد و هنوز یه مرحله نهایی نرسیده. بعداز اتمام از همین سامانه به شما اطلاع رسانی می شود");
+                  await Bot.SendPhotoAsync(chat.Message.Chat.Id, new InputOnlineFile(iRobotTech.Robots.FirstOrDefault(r => r.TKON_CODE == GetToken()).BULD_FILE_ID), "کاربر گرامی نرم افزار در حال آماده سازی می باشد و هنوز یه مرحله نهایی نرسیده. بعداز اتمام از همین سامانه به شما اطلاع رسانی می شود");
                }
                catch { }
             }
@@ -2992,7 +3263,7 @@ namespace System.RoboTech.Controller
                         where o.STAT == "002"
                               && r.STAT == "002"
                               && p.STAT == "002"
-                              && r.TKON_CODE == Token
+                              && r.TKON_CODE == GetToken()
                               && p.SHOW_STRT == "002"
                               && p.ITEM_DESC != null
                         orderby p.ORDR
@@ -3592,16 +3863,16 @@ namespace System.RoboTech.Controller
 
          foreach (var prjo in prjos)
          {
-            prjo.ORDR_STAT = "002";
+            var ordts = iRobotTech.Order_Details.Where(o => o.ORDR_CODE == prjo.ORDR_CODE && o.SEND_STAT == "001").ToList();
+
+            //prjo.ORDR_STAT = "002";
             iRobotTech.Set_Personal_Robot_Job_Order(
                new XElement("PJBO",
                   new XAttribute("prjbcode", prjo.PRJB_CODE),
                   new XAttribute("ordrcode", prjo.ORDR_CODE),
                   new XAttribute("ordrstat", "002")
                )
-            );
-
-            var ordts = iRobotTech.Order_Details.Where(o => o.ORDR_CODE == prjo.ORDR_CODE);
+            );            
 
             foreach (var ordt in ordts)
             {
@@ -3619,6 +3890,9 @@ namespace System.RoboTech.Controller
                   case "010": // معرفی
                   case "011": // اخطار
                   case "012": // اعلام ها
+                  case "017": // واحد حسابداری
+                  case "018": // واحد انبارداری
+                  case "019": // واحد پیک و ارسال بسته
                      #region پیام های ارسالی
                      switch (ordt.ELMN_TYPE)
                      {
@@ -3631,6 +3905,7 @@ namespace System.RoboTech.Controller
                                  new XAttribute("ordtrwno", ordt.RWNO)
                               )),
                               replyMarkup:
+                              keyBoardMarkup == null ? null : 
                               new ReplyKeyboardMarkup()
                               {
                                  Keyboard = keyBoardMarkup,
@@ -3645,6 +3920,7 @@ namespace System.RoboTech.Controller
                               new InputOnlineFile(ordt.ORDR_DESC),
                               caption: ordt.ORDR_CMNT ?? "",
                               replyMarkup:
+                              keyBoardMarkup == null ? null : 
                               new ReplyKeyboardMarkup()
                               {
                                  Keyboard = keyBoardMarkup,
@@ -3658,6 +3934,7 @@ namespace System.RoboTech.Controller
                               ///***new FileToSend(ordt.ORDR_DESC),
                               new InputOnlineFile(ordt.ORDR_DESC),
                               replyMarkup:
+                              keyBoardMarkup == null ? null : 
                               new ReplyKeyboardMarkup()
                               {
                                  Keyboard = keyBoardMarkup,
@@ -3671,6 +3948,7 @@ namespace System.RoboTech.Controller
                               ///***new FileToSend(ordt.ORDR_DESC),
                               new InputOnlineFile(ordt.ORDR_DESC),
                               replyMarkup:
+                              keyBoardMarkup == null ? null : 
                               new ReplyKeyboardMarkup()
                               {
                                  Keyboard = keyBoardMarkup,
@@ -3687,6 +3965,7 @@ namespace System.RoboTech.Controller
                               Convert.ToSingle(ordt.ORDR_DESC.Split(',')[0], System.Globalization.CultureInfo.InvariantCulture),
                               Convert.ToSingle(ordt.ORDR_DESC.Split(',')[1], System.Globalization.CultureInfo.InvariantCulture),
                               replyMarkup:
+                              keyBoardMarkup == null ? null : 
                               new ReplyKeyboardMarkup()
                               {
                                  Keyboard = keyBoardMarkup,
@@ -3703,7 +3982,7 @@ namespace System.RoboTech.Controller
                }
             }
          }
-         iRobotTech.SubmitChanges();
+         //iRobotTech.SubmitChanges();
       }
       public KeyboardButton[][] CreateArray(List<XElement> list, int rows, int cols)
       {
@@ -3892,5 +4171,8 @@ namespace System.RoboTech.Controller
          }
          return token;
       }
+
+
+      
    }
 }

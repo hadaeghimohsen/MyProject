@@ -691,6 +691,11 @@ namespace System.Scsc.Ui.Admission
          catch {  }
       }
 
+      private void GetMap_Butn_Click(object sender, EventArgs e)
+      {
+
+      }
+
       
    }
 }

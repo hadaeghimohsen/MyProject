@@ -8,14 +8,13 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
 
-namespace System.RoboTech.Ui.Action
+namespace System.RoboTech.Ui.DevelopmentApplication
 {
-   partial class STRT_ROBO_F : ISendRequest
+   partial class ALPK_DVLP_F : ISendRequest
    {
       public IRouter _DefaultGateway { get; set; }
       private Data.iRoboTechDataContext iRoboTech;
       private string ConnectionString;
-      private XElement HostNameInfo;
       private List<long?> Fga_Ugov_U;
 
       public void SendRequest(Job job)
@@ -47,6 +46,9 @@ namespace System.RoboTech.Ui.Action
                break;
             case 10:
                Actn_CalF_P(job);
+               break;
+            case 40:
+               CordinateGetSet(job);
                break;
             default:
                break;
@@ -100,10 +102,8 @@ namespace System.RoboTech.Ui.Action
 
          Fga_Ugov_U = (iRoboTech.FGA_UGOV_U() ?? "").Split(',').Select(c => (long?)Int64.Parse(c)).ToList();
 
-         var GetHostInfo = new Job(SendType.External, "Localhost", "Commons", 24 /* Execute DoWork4GetHosInfo */, SendType.Self);
-         _DefaultGateway.Gateway(GetHostInfo);
-
-         HostNameInfo = (XElement)GetHostInfo.Output;
+         //var GetHostInfo = new Job(SendType.External, "Localhost", "Commons", 24 /* Execute DoWork4GetHosInfo */, SendType.Self);
+         //_DefaultGateway.Gateway(GetHostInfo);
 
          //_DefaultGateway.Gateway(
          //   new Job(SendType.External, "Localhost", "Commons", 08 /* Execute LangChangToFarsi */, SendType.Self)
@@ -118,12 +118,20 @@ namespace System.RoboTech.Ui.Action
       /// <param name="job"></param>
       private new void Paint(Job job)
       {
+         //Job _Paint = new Job(SendType.External, "Desktop",
+         //   new List<Job>
+         //   {
+         //      //new Job(SendType.SelfToUserInterface, "Wall", 17 /* Execute ResetUi */),
+         //      new Job(SendType.SelfToUserInterface, "Wall", 15 /* Execute Push */) {  Input = new List<object> {string.Format("RoboTech:{0}", this.GetType().Name), this }  },
+         //      new Job(SendType.SelfToUserInterface, "FRST_PAGE_F", 08 /* Execute PastOnWall */) { Input = this }               
+         //   });
+         //_DefaultGateway.Gateway(_Paint);
          Job _Paint = new Job(SendType.External, "Desktop",
             new List<Job>
             {
-               //new Job(SendType.SelfToUserInterface, "Wall", 17 /* Execute ResetUi */),
-               new Job(SendType.SelfToUserInterface, "Wall", 15 /* Execute Push */) {  Input = new List<object> {string.Format("RoboTech:{0}", this.GetType().Name), this }  },
-               new Job(SendType.SelfToUserInterface, "FRST_PAGE_F", 08 /* Execute PastOnWall */) { Input = this }               
+               new Job(SendType.SelfToUserInterface, "Wall", 17 /* Execute ResetUi */),
+               new Job(SendType.SelfToUserInterface, "Wall", 15 /* Execute Push */) {  Input = new List<object> { string.Format("RoboTech:{0}", this.GetType().Name), this }  },
+               new Job(SendType.SelfToUserInterface, "Wall", 0 /* Execute PastManualOnWall */) {  Input = new List<object> {this, "right:in-screen:stretch:center"} }               
             });
          _DefaultGateway.Gateway(_Paint);
 
@@ -137,15 +145,19 @@ namespace System.RoboTech.Ui.Action
       /// <param name="job"></param>
       private void UnPaint(Job job)
       {
-         _DefaultGateway.Gateway(
-            new Job(SendType.External, "Localhost",
-               new List<Job>
-               {
-                  new Job(SendType.SelfToUserInterface, "Wall", 16 /* Execute Pop */),
-                  new Job(SendType.SelfToUserInterface, "FRST_PAGE_F", 09 /* Execute TakeOnWall */){Input = this},
-                  //new Job(SendType.SelfToUserInterface, "Wall", 17 /* Execute ResetUi */)
-               })
-            );
+         //_DefaultGateway.Gateway(
+         //   new Job(SendType.External, "Localhost",
+         //      new List<Job>
+         //      {
+         //         new Job(SendType.SelfToUserInterface, "Wall", 16 /* Execute Pop */),
+         //         new Job(SendType.SelfToUserInterface, "FRST_PAGE_F", 09 /* Execute TakeOnWall */){Input = this},
+         //         //new Job(SendType.SelfToUserInterface, "Wall", 17 /* Execute ResetUi */)
+         //      })
+         //   );
+         job.Next =
+            new Job(SendType.SelfToUserInterface, "Wall", 16 /* Execute Pop */,
+               new Job(SendType.SelfToUserInterface, "Wall", 02 /* Execute RemoveFromWall */,
+                  new Job(SendType.SelfToUserInterface, "Wall", 17 /* Execute ResetUi */)) { Input = this });
 
          job.Status = StatusType.Successful;
       }
@@ -166,13 +178,13 @@ namespace System.RoboTech.Ui.Action
                         #region Access Privilege
                         new Job(SendType.Self, 07 /* Execute DoWork4AccessPrivilege */)
                         {
-                           Input = new List<string> {"<Privilege>72</Privilege><Sub_Sys>12</Sub_Sys>", "DataGuard"},
+                           Input = new List<string> {"<Privilege>73</Privilege><Sub_Sys>12</Sub_Sys>", "DataGuard"},
                            AfterChangedOutput = new Action<object>((output) => {
                               if ((bool)output)
                                  return;
                               #region Show Error
                               job.Status = StatusType.Failed;
-                              MessageBox.Show(this, "خطا - عدم دسترسی به ردیف 72 امنیتی", "خطا دسترسی");
+                              MessageBox.Show(this, "خطا - عدم دسترسی به ردیف 73 امنیتی", "خطا دسترسی");
                               #endregion                           
                            })
                         },
@@ -187,8 +199,8 @@ namespace System.RoboTech.Ui.Action
       /// </summary>
       /// <param name="job"></param>
       private void LoadData(Job job)
-      {         
-         Execute_Query();
+      {
+         DamutBs.DataSource = iRoboTech.D_AMUTs;
          job.Status = StatusType.Successful;
       }
 
@@ -198,36 +210,73 @@ namespace System.RoboTech.Ui.Action
       /// <param name="job"></param>
       private void Actn_CalF_P(Job job)
       {
-         try
+         var xinput = job.Input as XElement;
+         if(xinput != null)
          {
-            var xinput = job.Input as XElement;
-            if (xinput == null) { job.Status = StatusType.Successful; return; }
-            else
-            {
-               switch (xinput.Attribute("runrobot").Value)
-               {
-                  case "start":
-                     StrtBot_Butn_Click(null, null);
-                     break;
-                  default:
-                     break;
-               }
+            ordrcode = Convert.ToInt64(xinput.Attribute("code").Value);
 
-               if(xinput.Attribute("actntype") != null)
+            Execute_Query();
+         }
+         job.Status = StatusType.Successful;
+      }
+
+      /// <summary>
+      /// Code 40
+      /// </summary>
+      /// <param name="job"></param>
+      private void CordinateGetSet(Job job)
+      {
+         var xinput = job.Input as XElement;
+         if (xinput != null)
+         {
+            var ordr = OrdrBs.Current as Data.Order;
+
+            if (xinput.Attribute("outputtype").Value == "destpostadrs")
+            {
+               //MessageBox.Show(xinput.ToString());
+
+               var cordx = Convert.ToDouble(xinput.Attribute("cordx").Value);
+               var cordy = Convert.ToDouble(xinput.Attribute("cordy").Value);
+
+               if (cordx != ordr.CORD_X && cordy != ordr.CORD_Y)
                {
-                  var rbid = Convert.ToInt64(xinput.Attribute("rbid").Value);
-                  switch (xinput.Attribute("actntype").Value)
+                  // Call Update Service_Public
+                  try
                   {
-                     case "sendordrs":
-                        iRobots.First(r => r.Robot.RBID == rbid).SendAction(xinput);
-                        break;
-                     default:
-                        break;
+                     ordr.CORD_X = cordx;
+                     ordr.CORD_Y = cordy;
+                     requery = true;
+                  }
+                  catch (Exception exc)
+                  {
+                     MessageBox.Show(exc.Message);
                   }
                }
-            }            
+            }
+            else if (xinput.Attribute("outputtype").Value == "sorcpostadrs")
+            {
+               //MessageBox.Show(xinput.ToString());
+
+               var cordx = Convert.ToDouble(xinput.Attribute("cordx").Value);
+               var cordy = Convert.ToDouble(xinput.Attribute("cordy").Value);
+
+               if (cordx != ordr.SORC_CORD_X && cordy != ordr.SORC_CORD_Y)
+               {
+                  // Call Update Service_Public
+                  try
+                  {
+                     ordr.SORC_CORD_X = cordx;
+                     ordr.SORC_CORD_Y = cordy;
+                     requery = true;
+                  }
+                  catch (Exception exc)
+                  {
+                     MessageBox.Show(exc.Message);
+                  }
+               }
+            }
          }
-         catch { }
+
          job.Status = StatusType.Successful;
       }
 

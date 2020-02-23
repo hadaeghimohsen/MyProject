@@ -42,6 +42,7 @@ namespace System.Scsc.Ui.ReportManager
                   iScsc.Payment_Methods
                   .Where(pm =>
                      (pm.RCPT_MTOD != "005") &&
+                     (pm.Payment.PYMT_STAT != "002") &&
                      (pm.ACTN_DATE.Value.Date >= FromDate1_Date.Value.Value.Date ) &&
                      (pm.ACTN_DATE.Value.Date <= ToDate1_Date.Value.Value.Date ) &&
                      (rqtps.Count == 0 || rqtps.Contains(pm.Request_Row.RQTP_CODE)) &&
@@ -79,6 +80,7 @@ namespace System.Scsc.Ui.ReportManager
                      pd.Request_Row.Request.RQST_DATE.Value.Date >= FromDate2_Date.Value.Value.Date &&
                      pd.Request_Row.Request.RQST_DATE.Value.Date <= ToDate2_Date.Value.Value.Date &&
                      
+                     pd.Payment.PYMT_STAT != "002" &&
                      /*pd.Request_Row.Request.RQST_DATE.Value.TimeOfDay >= FromTime2_Te.Time.TimeOfDay &&
                      pd.Request_Row.Request.RQST_DATE.Value.TimeOfDay <= ToTime2_Te.Time.TimeOfDay &&*/
                      
@@ -109,6 +111,7 @@ namespace System.Scsc.Ui.ReportManager
                      pd.CRET_DATE.Value.Date >= FromDate3_Date.Value.Value.Date &&
                      pd.CRET_DATE.Value.Date <= ToDate3_Date.Value.Value.Date &&
                      pd.Request_Row.Request.RQST_STAT == "002" &&
+                     pd.Payment.PYMT_STAT != "002" &&
                      (rqtps.Count == 0 || rqtps.Contains(pd.Request_Row.RQTP_CODE)) &&
                      (users.Count == 0 || (users.Contains(pd.CRET_BY) || users.Contains(pd.MDFY_BY))) &&
                      (pd.STAT == "002") &&
@@ -150,7 +153,7 @@ namespace System.Scsc.Ui.ReportManager
                   .Where(pd =>
                      pd.TRAN_DATE.Value.Date >= FromDate5_Date.Value.Value.Date &&
                      pd.TRAN_DATE.Value.Date <= ToDate5_Date.Value.Value.Date &&
-
+                     pd.Payment.PYMT_STAT != "002" &&
                      /*pd.Request_Row.Request.RQST_DATE.Value.TimeOfDay >= FromTime2_Te.Time.TimeOfDay &&
                      pd.Request_Row.Request.RQST_DATE.Value.TimeOfDay <= ToTime2_Te.Time.TimeOfDay &&*/
 
@@ -187,6 +190,7 @@ namespace System.Scsc.Ui.ReportManager
                         true)
                      ) &&
                      pc.Request_Row.Request.RQST_STAT == "002" &&
+                     pc.Payment.PYMT_STAT != "002" &&
                      (Fga_Uclb_U.Contains(pc.Payment.CLUB_CODE_DNRM))
                   );
             }

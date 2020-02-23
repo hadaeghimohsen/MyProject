@@ -47,6 +47,9 @@ namespace System.RoboTech.Ui.DevelopmentApplication
             case 10:
                Actn_CalF_P(job);
                break;
+            case 40:
+               CordinateGetSet(job);
+               break;
             default:
                break;
          }
@@ -229,6 +232,8 @@ namespace System.RoboTech.Ui.DevelopmentApplication
          DpktpBs.DataSource = iRoboTech.D_PKTPs;
          DbtypBs.DataSource = iRoboTech.D_BTYPs;
          DbdirBs.DataSource = iRoboTech.D_BDIRs;
+         DAmutBs.DataSource = iRoboTech.D_AMUTs;
+         UApbBs.DataSource = iRoboTech.App_Base_Defines.Where(r => r.ENTY_NAME == "PRODUCTUNIT_INFO");
          job.Status = StatusType.Successful;
       }
 
@@ -239,6 +244,44 @@ namespace System.RoboTech.Ui.DevelopmentApplication
       private void Actn_CalF_P(Job job)
       {
          Execute_Query();
+         job.Status = StatusType.Successful;
+      }
+
+      /// <summary>
+      /// Code 40
+      /// </summary>
+      /// <param name="job"></param>
+      private void CordinateGetSet(Job job)
+      {
+         var xinput = job.Input as XElement;
+         if (xinput != null)
+         {
+            var robo = RoboBs.Current as Data.Robot;
+
+            if (xinput.Attribute("outputtype").Value == "robotpostadrs")
+            {
+               //MessageBox.Show(xinput.ToString());
+
+               var cordx = Convert.ToDouble(xinput.Attribute("cordx").Value);
+               var cordy = Convert.ToDouble(xinput.Attribute("cordy").Value);
+
+               if (cordx != robo.CORD_X && cordy != robo.CORD_Y)
+               {
+                  // Call Update Service_Public
+                  try
+                  {
+                     robo.CORD_X = cordx;
+                     robo.CORD_Y = cordy;
+                     requery = true;
+                  }
+                  catch (Exception exc)
+                  {
+                     MessageBox.Show(exc.Message);
+                  }
+               }
+            }            
+         }
+
          job.Status = StatusType.Successful;
       }
 

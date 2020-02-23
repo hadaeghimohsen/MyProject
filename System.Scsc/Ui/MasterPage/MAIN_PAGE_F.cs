@@ -2497,7 +2497,7 @@ namespace System.Scsc.Ui.MasterPage
                            // اگر حضور و غیاب با دستگاه انگشتی باشد و ارتباط را چک میکنیم
                            if (fingerPrintSetting.IP_ADR3 != null && fingerPrintSetting.PORT_NUM3 != null)
                            {
-                              if (!Fp3DevIsConnected)
+                              if (false && !Fp3DevIsConnected)
                               {                                 
                                  Fp3DevIsConnected = axCZKEM3.Connect_Net(fingerPrintSetting.IP_ADR3, Convert.ToInt32(fingerPrintSetting.PORT_NUM3));
                                  // fire event for fetch 
@@ -2519,7 +2519,10 @@ namespace System.Scsc.Ui.MasterPage
                                  {
                                     var p = new SerialPort(port.Com_Port, (int)port.Band_Rate);
                                     try
-                                    {                                       
+                                    {
+                                       p.StopBits = StopBits.One;
+                                       p.Parity = Parity.None;
+                                       p.DataBits = 8;
                                        p.Open();
                                        onLinePorts.Add(p);
 
@@ -4415,25 +4418,10 @@ namespace System.Scsc.Ui.MasterPage
 
       private void button4_Click(object sender, EventArgs e)
       {
-         // تعریف کد انگشتی در دستگاه
-         //bool result = axCZKEM1.SSR_SetUserInfo(1, "1", "محسن حدایقی", "", 0, true);
-         //if(axCZKEM1.StartEnrollEx("1", 0, 0))
-         //{
-         //   MessageBox.Show("OK Fuck You");
-         //}
-         //string tmpData = "";
-         //int tmplen = 0;
-         //int flag = 0;
-         //var result = axCZKEM1.GetUserTmpExStr(1, "1", 0, out flag, out tmpData, out tmplen );
-         //result = axCZKEM1.SSR_SetUserInfo(1, "2", "Mohsen Hadaeghi", "", 0, true);
-         //axCZKEM1.SetUserTmpExStr(1, "2", 0, flag, tmpData);
-         //using (HttpClient client = new HttpClient())
-         //{
-         //   var resp = client.GetStringAsync("http://192.168.1.30/on");
-         //}
-         // Create a request for the URL.   
-         //new Threading.Thread( OpenHttpClient ).Start();           
-         axCZKEM3.RegEvent(0, 10);
+         if (InvokeRequired)
+            Invoke(new Action(() => OnOpenDresser(OnlineDres_Butn.Text)));
+         else
+            OnOpenDresser(OnlineDres_Butn.Text);
       }
 
       private static void OpenHttpClient()

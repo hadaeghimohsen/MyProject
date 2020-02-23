@@ -854,6 +854,35 @@ namespace System.RoboTech.Ui.DevelopmentApplication
             )
          );         
       }
+
+      private void Alopeyk_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var ordr = OrdrBs.Current as Data.Order;
+            if (ordr == null) return;
+
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost",
+                  new List<Job>
+                  {
+                     new Job(SendType.Self, 22 /* Execue Alpk_Dvlp_F */),
+                     new Job(SendType.SelfToUserInterface, "ALPK_DVLP_F", 10 /* Execute Actn_CalF_P */)
+                     {
+                        Input = 
+                           new XElement("Order",
+                              new XAttribute("code", ordr.CODE)                           
+                           )
+                     }
+                  }
+               )
+            );
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
    }
 
    public static class FormUpload

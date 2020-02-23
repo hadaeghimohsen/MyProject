@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.0\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -11,7 +12,7 @@
     <AssemblyName>System.RoboTech</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <NuGetPackageImportStamp>4a3dfa34</NuGetPackageImportStamp>
+    <NuGetPackageImportStamp>21023eb3</NuGetPackageImportStamp>
     <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -84,11 +85,11 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.4.0\lib\net45\EntityFramework.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.4.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="InstagramApiSharp, Version=1.4.0.1, Culture=neutral, processorArchitecture=MSIL">
@@ -97,7 +98,7 @@
     </Reference>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.12.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Stimulsoft.Base, Version=2012.2.1304.0, Culture=neutral, PublicKeyToken=ebe6666cba19647a, processorArchitecture=MSIL">
@@ -155,8 +156,8 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
-    <Reference Include="Telegram.Bot, Version=14.10.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Telegram.Bot.14.10.0\lib\net45\Telegram.Bot.dll</HintPath>
+    <Reference Include="Telegram.Bot, Version=15.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Telegram.Bot.15.3.0\lib\net45\Telegram.Bot.dll</HintPath>
       <Private>True</Private>
     </Reference>
   </ItemGroup>
@@ -177,6 +178,7 @@
       <DependentUpon>iRoboTech.dbml</DependentUpon>
     </Compile>
     <Compile Include="ExceptionHandlings\ExceptionLogs.cs" />
+    <Compile Include="ExtCode\Extensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -258,6 +260,15 @@
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Ui\BaseDefinition\REGN_DFIN_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\DevelopmentApplication\ALPK_DVLP_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\DevelopmentApplication\ALPK_DVLP_F.Designer.cs">
+      <DependentUpon>ALPK_DVLP_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\DevelopmentApplication\ALPK_DVLP_F.RequestRespons.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Ui\DevelopmentApplication\SALE_DVLP_F.cs">
@@ -387,6 +398,7 @@
     <None Include="Properties\DataSources\System.RoboTech.Data.D_ACTP.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_ACTV.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_AMTP.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.D_AMUT.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_BDIR.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_BTYP.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_BULD.datasource" />
@@ -501,6 +513,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Ui\BaseDefinition\REGN_DFIN_F.resx">
       <DependentUpon>REGN_DFIN_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\DevelopmentApplication\ALPK_DVLP_F.resx">
+      <DependentUpon>ALPK_DVLP_F.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ui\DevelopmentApplication\SALE_DVLP_F.resx">
       <DependentUpon>SALE_DVLP_F.cs</DependentUpon>
@@ -1644,6 +1659,12 @@
     <Content Include="..\System.Resource\Resources\IMAGE_1592.png">
       <Link>Resources\IMAGE_1592.png</Link>
     </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1677.jpg">
+      <Link>Resources\IMAGE_1677.jpg</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1678.jpg">
+      <Link>Resources\IMAGE_1678.jpg</Link>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
@@ -1652,7 +1673,10 @@
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.0\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.0\build\EntityFramework.targets'))" />
   </Target>
+  <Import Project="..\packages\EntityFramework.6.4.0\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

@@ -47,6 +47,8 @@ namespace System.RoboTech.Ui.DevelopmentApplication
          int grop = GropBs.Position;
          int rbmd = RbmdBs.Position;
          int rbdc = RbdcBs.Position;
+         int gphd = GphdBs.Position;
+         int ghit = GhitBs.Position;
 
          OrgnBs.DataSource = iRoboTech.Organs.Where(o => Fga_Ugov_U.Contains(o.OGID));
 
@@ -63,6 +65,8 @@ namespace System.RoboTech.Ui.DevelopmentApplication
          GropBs.Position = grop;
          RbmdBs.Position = rbmd;
          RbdcBs.Position = rbdc;
+         GphdBs.Position = gphd;
+         GhitBs.Position = ghit;
 
          requery = false;
       }
@@ -1002,6 +1006,372 @@ namespace System.RoboTech.Ui.DevelopmentApplication
             ghit.STAT = "002";
 
             iRoboTech.Group_Header_Items.InsertOnSubmit(ghit);            
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void AddCartMenu_Butn_Click(object sender, EventArgs e)
+      {
+         #region Add To Cart
+         try
+         {         
+            var robo = RoboBs.Current as Data.Robot;
+            var menu = RmnusBs.Current as Data.Menu_Ussd;
+
+            var AddCartMenu = new Data.Menu_Ussd()
+            {
+               ROBO_RBID = robo.RBID,
+               MNUS_MUID = menu == null ? null : (long?)menu.MUID,
+               ORDR = menu == null ? (short)0 : (short)menu.Menu_Ussds.Count,
+               USSD_CODE = menu == null ? "*0#" : string.Format("{0}*{1}#", menu.USSD_CODE.Substring(0, menu.USSD_CODE.Length - 1), menu.Menu_Ussds.Count),
+               ROOT_MENU = "001",
+               MENU_TEXT = "➕ اضافه کردن به سبد خرید",
+               MNUS_DESC = "➕ اضافه کردن به سبد خرید",
+               CMND_FIRE = "001",
+               STAT = "002",
+               CMND_PLAC = "001",
+               STEP_BACK = "002",
+               STEP_BACK_USSD_CODE = menu.USSD_CODE, //.Substring(0, menu.USSD_CODE.LastIndexOf('*')) + "#",
+               CLMN = 1,
+               CMND_TYPE = "008"
+            };
+
+            iRoboTech.Menu_Ussds.InsertOnSubmit(AddCartMenu);
+
+            RmnusBs.EndEdit();
+            iRoboTech.SubmitChanges();
+            requery = true;
+         }
+         catch (Exception ex)
+         {
+            MessageBox.Show(ex.Message);
+         }
+         finally
+         {
+            if (requery)
+            {
+               Execute_Query();
+            }
+         }
+         #endregion
+
+         #region Delete from Cart
+         try
+         {
+            var robo = RoboBs.Current as Data.Robot;
+            var menu = RmnusBs.Current as Data.Menu_Ussd;
+
+            var DelCartMenu = new Data.Menu_Ussd()
+            {
+               ROBO_RBID = robo.RBID,
+               MNUS_MUID = menu == null ? null : (long?)menu.MUID,
+               ORDR = menu == null ? (short)1 : (short)(menu.Menu_Ussds.Count),
+               USSD_CODE = menu == null ? "*0#" : string.Format("{0}*{1}#", menu.USSD_CODE.Substring(0, menu.USSD_CODE.Length - 1), menu.Menu_Ussds.Count),
+               ROOT_MENU = "001",
+               MENU_TEXT = "❌ حذف کردن از سبد خرید",
+               MNUS_DESC = "❌ حذف کردن از سبد خرید",
+               CMND_FIRE = "001",
+               STAT = "002",
+               CMND_PLAC = "001",
+               STEP_BACK = "002",
+               STEP_BACK_USSD_CODE = menu.USSD_CODE, //.Substring(0, menu.USSD_CODE.LastIndexOf('*')) + "#",
+               CLMN = 1,
+               CMND_TYPE = "008"
+            };
+
+            iRoboTech.Menu_Ussds.InsertOnSubmit(DelCartMenu);
+
+            RmnusBs.EndEdit();
+            iRoboTech.SubmitChanges();
+            requery = true;
+         }
+         catch (Exception ex)
+         {
+            MessageBox.Show(ex.Message);
+         }
+         finally
+         {
+            if (requery)
+            {
+               Execute_Query();
+            }
+         }
+         #endregion
+
+         #region Proceed Checkout
+         try
+         {
+            var robo = RoboBs.Current as Data.Robot;
+            var menu = RmnusBs.Current as Data.Menu_Ussd;
+
+            var ProceedCartMenu = new Data.Menu_Ussd()
+            {
+               ROBO_RBID = robo.RBID,
+               MNUS_MUID = menu == null ? null : (long?)menu.MUID,
+               ORDR = menu == null ? (short)1 : (short)(menu.Menu_Ussds.Count),
+               USSD_CODE = menu == null ? "*0#" : string.Format("{0}*{1}#", menu.USSD_CODE.Substring(0, menu.USSD_CODE.Length - 1), menu.Menu_Ussds.Count),
+               ROOT_MENU = "001",
+               MENU_TEXT = "💳 عملیات پرداخت",
+               MNUS_DESC = "💳 عملیات پرداخت",
+               CMND_FIRE = "001",
+               STAT = "002",
+               CMND_PLAC = "001",
+               STEP_BACK = "002",
+               STEP_BACK_USSD_CODE = menu.USSD_CODE, //.Substring(0, menu.USSD_CODE.LastIndexOf('*')) + "#",
+               CLMN = 1,
+               CMND_TYPE = "027"
+            };
+
+            iRoboTech.Menu_Ussds.InsertOnSubmit(ProceedCartMenu);
+
+            RmnusBs.EndEdit();
+            iRoboTech.SubmitChanges();
+            requery = true;
+         }
+         catch (Exception ex)
+         {
+            MessageBox.Show(ex.Message);
+         }
+         finally
+         {
+            if (requery)
+            {
+               Execute_Query();
+            }
+         }
+         #endregion
+
+         #region Enter Manual Count Product
+         try
+         {
+            var robo = RoboBs.Current as Data.Robot;
+            var menu = RmnusBs.Current as Data.Menu_Ussd;
+
+            var ProceedCartMenu = new Data.Menu_Ussd()
+            {
+               ROBO_RBID = robo.RBID,
+               MNUS_MUID = menu == null ? null : (long?)menu.MUID,
+               ORDR = menu == null ? (short)1 : (short)(menu.Menu_Ussds.Count),
+               USSD_CODE = menu == null ? "*0#" : string.Format("{0}*{1}#", menu.USSD_CODE.Substring(0, menu.USSD_CODE.Length - 1), menu.Menu_Ussds.Count),
+               ROOT_MENU = "001",
+               MENU_TEXT = "#️⃣ تعداد دستی",
+               MNUS_DESC = "#️⃣ تعداد دستی",
+               CMND_FIRE = "002",
+               STAT = "002",
+               CMND_PLAC = "002",
+               STEP_BACK = "001",
+               STEP_BACK_USSD_CODE = "",
+               CLMN = 1,
+               CMND_TYPE = "000"
+            };
+
+            iRoboTech.Menu_Ussds.InsertOnSubmit(ProceedCartMenu);
+
+            RmnusBs.EndEdit();
+            iRoboTech.SubmitChanges();
+            requery = true;
+         }
+         catch (Exception ex)
+         {
+            MessageBox.Show(ex.Message);
+         }
+         finally
+         {
+            if (requery)
+            {
+               Execute_Query();
+            }
+         }
+         #endregion
+
+         #region Show Cart Items
+         try
+         {
+            var robo = RoboBs.Current as Data.Robot;
+            var menu = RmnusBs.Current as Data.Menu_Ussd;
+
+            var ProceedCartMenu = new Data.Menu_Ussd()
+            {
+               ROBO_RBID = robo.RBID,
+               MNUS_MUID = menu == null ? null : (long?)menu.MUID,
+               ORDR = menu == null ? (short)1 : (short)(menu.Menu_Ussds.Count),
+               USSD_CODE = menu == null ? "*0#" : string.Format("{0}*{1}#", menu.USSD_CODE.Substring(0, menu.USSD_CODE.Length - 1), menu.Menu_Ussds.Count),
+               ROOT_MENU = "001",
+               MENU_TEXT = "🛍 نمایش سبد خرید",
+               MNUS_DESC = "🛍 نمایش سبد خرید",
+               CMND_FIRE = "001",
+               STAT = "002",
+               CMND_PLAC = "001",
+               STEP_BACK = "002",
+               STEP_BACK_USSD_CODE = menu.USSD_CODE, //.Substring(0, menu.USSD_CODE.LastIndexOf('*')) + "#",
+               CLMN = 1,
+               CMND_TYPE = "027"
+            };
+
+            iRoboTech.Menu_Ussds.InsertOnSubmit(ProceedCartMenu);
+
+            RmnusBs.EndEdit();
+            iRoboTech.SubmitChanges();
+            requery = true;
+         }
+         catch (Exception ex)
+         {
+            MessageBox.Show(ex.Message);
+         }
+         finally
+         {
+            if (requery)
+            {
+               Execute_Query();
+            }
+         }
+         #endregion
+
+         #region Step Back Main
+         try
+         {
+            //if (MessageBox.Show(this, "آیا با ایجاد منوی بازگشت موافق هستید؟", "ایجاد منوی بازگشت", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != System.Windows.Forms.DialogResult.Yes) return;
+
+            var robo = RoboBs.Current as Data.Robot;
+            var menu = RmnusBs.Current as Data.Menu_Ussd;
+
+            var StepBack = new Data.Menu_Ussd()
+            {
+               ROBO_RBID = robo.RBID,
+               MNUS_MUID = menu == null ? null : (long?)menu.MUID,
+               ORDR = menu == null ? (short)0 : (short)menu.Menu_Ussds.Count,
+               USSD_CODE = menu == null ? "*0#" : string.Format("{0}*{1}#", menu.USSD_CODE.Substring(0, menu.USSD_CODE.Length - 1), menu.Menu_Ussds.Count),
+               ROOT_MENU = "001",
+               MENU_TEXT = "🔺 بازگشت",
+               MNUS_DESC = "بازگشت",
+               CMND_FIRE = "001",
+               STAT = "002",
+               CMND_PLAC = "001",
+               STEP_BACK = "002",
+               STEP_BACK_USSD_CODE = menu.USSD_CODE.Substring(0, menu.USSD_CODE.LastIndexOf('*')) + "#",
+               CLMN = 1,
+               CMND_TYPE = "000"
+            };
+
+            RmnusBs.Add(StepBack);
+            RmnusBs.EndEdit();
+            iRoboTech.SubmitChanges();
+            requery = true;
+         }
+         catch (Exception ex)
+         {
+            MessageBox.Show(ex.Message);
+         }
+         finally
+         {
+            if (requery)
+            {
+               Execute_Query();
+            }
+         }
+         #endregion
+
+         #region Step Back Enter Manual Count Product
+         try
+         {
+            //if (MessageBox.Show(this, "آیا با ایجاد منوی بازگشت موافق هستید؟", "ایجاد منوی بازگشت", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != System.Windows.Forms.DialogResult.Yes) return;
+
+            var robo = RoboBs.Current as Data.Robot;
+            var menu = (RmnusBs.Current as Data.Menu_Ussd).Menu_Ussds.FirstOrDefault(m => m.MENU_TEXT == "#️⃣ تعداد دستی");
+
+            var StepBack = new Data.Menu_Ussd()
+            {
+               ROBO_RBID = robo.RBID,
+               MNUS_MUID = menu == null ? null : (long?)menu.MUID,
+               ORDR = menu == null ? (short)0 : (short)menu.Menu_Ussds.Count,
+               USSD_CODE = menu == null ? "*0#" : string.Format("{0}*{1}#", menu.USSD_CODE.Substring(0, menu.USSD_CODE.Length - 1), menu.Menu_Ussds.Count),
+               ROOT_MENU = "001",
+               MENU_TEXT = "🔺 بازگشت",
+               MNUS_DESC = "بازگشت",
+               CMND_FIRE = "001",
+               STAT = "002",
+               CMND_PLAC = "001",
+               STEP_BACK = "002",
+               STEP_BACK_USSD_CODE = menu.USSD_CODE.Substring(0, menu.USSD_CODE.LastIndexOf('*')) + "#",
+               CLMN = 1,
+               CMND_TYPE = "000"
+            };
+
+            RmnusBs.Add(StepBack);
+            RmnusBs.EndEdit();
+            iRoboTech.SubmitChanges();
+            requery = true;
+         }
+         catch (Exception ex)
+         {
+            MessageBox.Show(ex.Message);
+         }
+         finally
+         {
+            if (requery)
+            {
+               Execute_Query();
+            }
+         }
+         #endregion
+      }
+
+      private void UApb_Lov_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            if (e.Button.Index == 1)
+            {
+               _DefaultGateway.Gateway(
+                  new Job(SendType.External, "localhost",
+                     new List<Job>
+                     {
+                        new Job(SendType.Self, 04 /* Execute Isig_Dfin_F */),
+                        new Job(SendType.SelfToUserInterface, "ISIC_DFIN_F", 10 /* Execute Actn_CalF_F */)
+                        {
+                           Input = 
+                              new XElement("Lookup",
+                                 new XAttribute("tablename", "PRODUCTUNIT_INFO"),
+                                 new XAttribute("formcaller", GetType().Name)
+                              )
+                        }
+                     }
+                  )
+               );
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void ShowGoogleMap_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var robo = RoboBs.Current as Data.Robot;
+            if (robo == null) return;
+
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost", "Commons", 31 /* Execute DoWork4GMapNets */, SendType.Self)
+               {
+                  Input =
+                     new XElement("GMapNets",
+                        new XAttribute("requesttype", "get"),
+                        new XAttribute("formcaller", "Program:RoboTech:" + GetType().Name),
+                        new XAttribute("callback", 40 /* CordinateGetSet */),
+                        new XAttribute("outputtype", "robotpostadrs"),
+                        new XAttribute("initalset", true),
+                        new XAttribute("cordx", robo.CORD_X == null ? "29.610420210528" : robo.CORD_X.ToString()),
+                        new XAttribute("cordy", robo.CORD_Y == null ? "52.5152599811554" : robo.CORD_Y.ToString()),
+                        new XAttribute("zoom", "1600")
+                     )
+               }
+            );
          }
          catch (Exception exc)
          {

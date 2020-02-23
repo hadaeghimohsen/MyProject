@@ -31,6 +31,7 @@ namespace System.RoboTech.Controller
       private string connectionString;
       private Data.Robot robot;
       private bool started = false;
+      private Ui.Action.STRT_ROBO_F _Strt_Robo_F;
 
       public Data.Robot Robot
       {
@@ -56,7 +57,7 @@ namespace System.RoboTech.Controller
          }
       }
 
-      public TelegramApiBot(string token, string connectionString, MemoEdit ConsoleOutLog_MemTxt, bool activeRobot = true, Data.Robot robot = null)
+      public TelegramApiBot(string token, string connectionString, MemoEdit ConsoleOutLog_MemTxt, bool activeRobot = true, Data.Robot robot = null, Ui.Action.STRT_ROBO_F strt_robo_f = null)
       {
          try
          {
@@ -68,6 +69,7 @@ namespace System.RoboTech.Controller
             Chats = new List<ChatInfo>();
             RobotHandle = new RobotController();
             this.connectionString = connectionString;
+            _Strt_Robo_F = strt_robo_f;
 
             started = true;
             main(activeRobot);
@@ -3529,7 +3531,7 @@ namespace System.RoboTech.Controller
                )
             );
 
-            var ordts = iRobotTech.Order_Details.Where(o => o.ORDR_CODE == prjo.ORDR_CODE);
+            var ordts = iRobotTech.Order_Details.Where(o => o.ORDR_CODE == prjo.ORDR_CODE && o.SEND_STAT == "001");
 
             foreach (var ordt in ordts)
             {
@@ -3951,5 +3953,11 @@ namespace System.RoboTech.Controller
                "Received {callbackQueryEventArgs.CallbackQuery.Data}");
       }
       */
+
+
+      public void SendAction(XElement x)
+      {
+         throw new NotImplementedException();
+      }
    }
 }

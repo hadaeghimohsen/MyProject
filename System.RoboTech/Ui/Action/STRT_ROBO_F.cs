@@ -67,12 +67,13 @@ namespace System.RoboTech.Ui.Action
             {
                ConsoleOutLog_MemTxt.Text += string.Format("{0} has Starting\r\n", robot.NAME);
                if(robot.BOT_TYPE == "001")
-                  iRobots.Add(                  
-                     new TelegramApiBot(robot.TKON_CODE, ConnectionString, ConsoleOutLog_MemTxt, true, robot)
-                  );
+                  ConsoleOutLog_MemTxt.Text += string.Format("{0} has Reject\r\n", robot.NAME);
+                  //iRobots.Add(
+                  //   new TelegramApiBot(robot.TKON_CODE, ConnectionString, ConsoleOutLog_MemTxt, true, robot, this)
+                  //);
                else if(robot.BOT_TYPE == "002")
                   iRobots.Add(
-                     new BaleApiBot(robot.TKON_CODE, ConnectionString, ConsoleOutLog_MemTxt, true, robot)
+                     new BaleApiBot(robot.TKON_CODE, ConnectionString, ConsoleOutLog_MemTxt, true, robot, this)
                   );
                ConsoleOutLog_MemTxt.Text += string.Format("{0} has Started\r\n", robot.NAME);
             }

@@ -85,6 +85,7 @@ namespace System.MessageBroadcast.Code
             {
                _SenderBgwk.Enabled = false;
                _SenderBgwk.Stop();
+               return;
             }
             else
             {
@@ -96,7 +97,7 @@ namespace System.MessageBroadcast.Code
             _DefaultGateway.Gateway(
                new Job(SendType.External, "localhost", "Commons", 38 /* Execute DoWork4PingNetwork */, SendType.Self)
                {
-                  Input = "google.com",
+                  Input = "inoti.com",
                   AfterChangedOutput = 
                      new Action<object>(
                         (pingStatus) =>
@@ -219,6 +220,8 @@ namespace System.MessageBroadcast.Code
                      }
                      #endregion
 
+                     // 1399/01/03 * بررسی اینکه آیا پیامی به صورت گروهی داریم که بخواهیم ارسال کنیم
+                     // این قابلیت فقط برای سامانه ای نوتی می باشد
                      if (smsConf.FirstOrDefault().SERV_TYPE == "002")
                      {
                         var rslt = iNotiSmsClient.SendBatchSMS(smsConf.FirstOrDefault().USER_NAME, smsConf.FirstOrDefault().PASS_WORD, smsConf.FirstOrDefault().LINE_NUMB, bulkSms.Select(bs => bs.PHON_NUMB).ToArray(), bulkSms.FirstOrDefault().MSGB_TEXT);
@@ -267,7 +270,7 @@ namespace System.MessageBroadcast.Code
                   _DefaultGateway.Gateway(
                      new Job(SendType.External, "localhost", "Commons", 38 /* Execute DoWork4PingNetwork */, SendType.Self)
                      {
-                        Input = "google.com",
+                        Input = "inoti.com",
                         AfterChangedOutput =
                            new Action<object>(
                               (pingStatus) =>

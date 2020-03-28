@@ -92,6 +92,13 @@ namespace System.Scsc.Ui.BaseDefinition
          {
             RqstBnDuplicateFngrPrnt1_Click(null, null);
          }
+         else if(keyData == Keys.F5)
+         {
+            if(Tb_Master.SelectedTab == tp_005 || Tb_Master.SelectedTab == tp_006)
+            {
+               SaveClubMethod_Butn_Click(null, null);
+            }
+         }
 
 
          job.Status = StatusType.Successful;

@@ -87,6 +87,14 @@ namespace System.Scsc.Ui.Regulation
             job.Next =
                new Job(SendType.SelfToUserInterface, "MSTR_EPIT_F", 04 /* Execute UnPaint */);
          }
+         else if(keyData == (Keys.ControlKey | Keys.Insert))
+         {
+            AddSubGrop_Butn_Click(null, null);
+         }         
+         else if(keyData == (Keys.F5))
+         {
+            GropBnASav1_Click(null, null);
+         }
 
          job.Status = StatusType.Successful;
       }
@@ -169,6 +177,7 @@ namespace System.Scsc.Ui.Regulation
          EpitBs1.DataSource = iScsc.Expense_Items;
          DittpBs1.DataSource = iScsc.D_ITTPs;
          GropBs2.DataSource = iScsc.Group_Expenses;
+         DGptpBs1.DataSource = iScsc.D_GPTPs;
          
          var xinput = job.Input as XElement;
          switch(xinput.Attribute("type").Value)

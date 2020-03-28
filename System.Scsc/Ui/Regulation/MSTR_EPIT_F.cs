@@ -45,6 +45,7 @@ namespace System.Scsc.Ui.Regulation
       {
          try
          {
+            Gexp_tre.PostEditor();
             GropBs2.EndEdit();
 
             iScsc.SubmitChanges();
@@ -59,9 +60,30 @@ namespace System.Scsc.Ui.Regulation
             if(requery)
             {
                iScsc = new Data.iScscDataContext(ConnectionString);
+               int gexp = GropBs2.Position;
                GropBs2.DataSource = iScsc.Group_Expenses;
+               GropBs2.Position = gexp;
                requery = false;
             }
+         }
+      }
+
+      private void AddSubGrop_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var upgrop = GropBs2.Current as Data.Group_Expense;
+            if (upgrop == null) return;
+
+            var grop = GropBs2.AddNew() as Data.Group_Expense;
+            if (grop == null) return;
+            grop.GEXP_CODE = upgrop.CODE;
+
+            iScsc.Group_Expenses.InsertOnSubmit(grop);
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
          }
       }
 

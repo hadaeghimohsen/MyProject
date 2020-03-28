@@ -2276,7 +2276,7 @@
          this.BrthDateTelgStat_Lb.Name = "BrthDateTelgStat_Lb";
          this.BrthDateTelgStat_Lb.Size = new System.Drawing.Size(93, 14);
          this.BrthDateTelgStat_Lb.TabIndex = 16;
-         this.BrthDateTelgStat_Lb.Text = "وضعیت تلگرامی :";
+         this.BrthDateTelgStat_Lb.Text = "وضعیت بله :";
          // 
          // NotCbmtTelgStat_Lb
          // 
@@ -2286,7 +2286,7 @@
          this.NotCbmtTelgStat_Lb.Name = "NotCbmtTelgStat_Lb";
          this.NotCbmtTelgStat_Lb.Size = new System.Drawing.Size(93, 14);
          this.NotCbmtTelgStat_Lb.TabIndex = 44;
-         this.NotCbmtTelgStat_Lb.Text = "وضعیت تلگرامی :";
+         this.NotCbmtTelgStat_Lb.Text = "وضعیت بله :";
          // 
          // CbmtTelgStat_Lb
          // 
@@ -2296,7 +2296,7 @@
          this.CbmtTelgStat_Lb.Name = "CbmtTelgStat_Lb";
          this.CbmtTelgStat_Lb.Size = new System.Drawing.Size(93, 14);
          this.CbmtTelgStat_Lb.TabIndex = 65;
-         this.CbmtTelgStat_Lb.Text = "وضعیت تلگرامی :";
+         this.CbmtTelgStat_Lb.Text = "وضعیت بله :";
          // 
          // DebtTelgStat_Lb
          // 
@@ -2306,7 +2306,7 @@
          this.DebtTelgStat_Lb.Name = "DebtTelgStat_Lb";
          this.DebtTelgStat_Lb.Size = new System.Drawing.Size(93, 14);
          this.DebtTelgStat_Lb.TabIndex = 69;
-         this.DebtTelgStat_Lb.Text = "وضعیت تلگرامی :";
+         this.DebtTelgStat_Lb.Text = "وضعیت بله :";
          // 
          // AdsTelgStat_Lb
          // 
@@ -2316,7 +2316,7 @@
          this.AdsTelgStat_Lb.Name = "AdsTelgStat_Lb";
          this.AdsTelgStat_Lb.Size = new System.Drawing.Size(93, 14);
          this.AdsTelgStat_Lb.TabIndex = 88;
-         this.AdsTelgStat_Lb.Text = "وضعیت تلگرامی :";
+         this.AdsTelgStat_Lb.Text = "وضعیت بله :";
          // 
          // AdmTelgStat_Lb
          // 
@@ -2326,7 +2326,7 @@
          this.AdmTelgStat_Lb.Name = "AdmTelgStat_Lb";
          this.AdmTelgStat_Lb.Size = new System.Drawing.Size(93, 14);
          this.AdmTelgStat_Lb.TabIndex = 40;
-         this.AdmTelgStat_Lb.Text = "وضعیت تلگرامی :";
+         this.AdmTelgStat_Lb.Text = "وضعیت بله :";
          // 
          // MbspTelgStat_Lb
          // 
@@ -2336,7 +2336,7 @@
          this.MbspTelgStat_Lb.Name = "MbspTelgStat_Lb";
          this.MbspTelgStat_Lb.Size = new System.Drawing.Size(93, 14);
          this.MbspTelgStat_Lb.TabIndex = 67;
-         this.MbspTelgStat_Lb.Text = "وضعیت تلگرامی :";
+         this.MbspTelgStat_Lb.Text = "وضعیت بله :";
          // 
          // AttnTelgStat_Lb
          // 
@@ -2346,7 +2346,7 @@
          this.AttnTelgStat_Lb.Name = "AttnTelgStat_Lb";
          this.AttnTelgStat_Lb.Size = new System.Drawing.Size(93, 14);
          this.AttnTelgStat_Lb.TabIndex = 76;
-         this.AttnTelgStat_Lb.Text = "وضعیت تلگرامی :";
+         this.AttnTelgStat_Lb.Text = "وضعیت بله :";
          // 
          // tb_master
          // 
@@ -7721,7 +7721,7 @@
          this.label6.Name = "label6";
          this.label6.Size = new System.Drawing.Size(93, 14);
          this.label6.TabIndex = 96;
-         this.label6.Text = "وضعیت تلگرامی :";
+         this.label6.Text = "وضعیت بله :";
          // 
          // lookUpEdit44
          // 
@@ -8194,7 +8194,7 @@
          this.label28.Name = "label28";
          this.label28.Size = new System.Drawing.Size(93, 14);
          this.label28.TabIndex = 120;
-         this.label28.Text = "وضعیت تلگرامی :";
+         this.label28.Text = "وضعیت بله :";
          // 
          // lookUpEdit50
          // 
@@ -8647,7 +8647,7 @@
          this.label41.Name = "label41";
          this.label41.Size = new System.Drawing.Size(93, 14);
          this.label41.TabIndex = 143;
-         this.label41.Text = "وضعیت تلگرامی :";
+         this.label41.Text = "وضعیت بله :";
          // 
          // lookUpEdit56
          // 
@@ -9065,7 +9065,7 @@
          this.label48.Name = "label48";
          this.label48.Size = new System.Drawing.Size(93, 14);
          this.label48.TabIndex = 143;
-         this.label48.Text = "وضعیت تلگرامی :";
+         this.label48.Text = "وضعیت بله :";
          // 
          // lookUpEdit62
          // 
@@ -9516,7 +9516,7 @@
          this.label64.Name = "label64";
          this.label64.Size = new System.Drawing.Size(93, 14);
          this.label64.TabIndex = 143;
-         this.label64.Text = "وضعیت تلگرامی :";
+         this.label64.Text = "وضعیت بله :";
          // 
          // lookUpEdit68
          // 
@@ -9930,7 +9930,7 @@
          this.label70.Name = "label70";
          this.label70.Size = new System.Drawing.Size(93, 14);
          this.label70.TabIndex = 143;
-         this.label70.Text = "وضعیت تلگرامی :";
+         this.label70.Text = "وضعیت بله :";
          // 
          // lookUpEdit74
          // 
@@ -10344,7 +10344,7 @@
          this.label80.Name = "label80";
          this.label80.Size = new System.Drawing.Size(93, 14);
          this.label80.TabIndex = 143;
-         this.label80.Text = "وضعیت تلگرامی :";
+         this.label80.Text = "وضعیت بله :";
          // 
          // lookUpEdit80
          // 
@@ -10758,7 +10758,7 @@
          this.label90.Name = "label90";
          this.label90.Size = new System.Drawing.Size(93, 14);
          this.label90.TabIndex = 143;
-         this.label90.Text = "وضعیت تلگرامی :";
+         this.label90.Text = "وضعیت بله :";
          // 
          // lookUpEdit86
          // 
@@ -11172,7 +11172,7 @@
          this.label100.Name = "label100";
          this.label100.Size = new System.Drawing.Size(93, 14);
          this.label100.TabIndex = 143;
-         this.label100.Text = "وضعیت تلگرامی :";
+         this.label100.Text = "وضعیت بله :";
          // 
          // lookUpEdit92
          // 
@@ -11586,7 +11586,7 @@
          this.label254.Name = "label254";
          this.label254.Size = new System.Drawing.Size(93, 14);
          this.label254.TabIndex = 163;
-         this.label254.Text = "وضعیت تلگرامی :";
+         this.label254.Text = "وضعیت بله :";
          // 
          // lookUpEdit182
          // 
@@ -12000,7 +12000,7 @@
          this.label264.Name = "label264";
          this.label264.Size = new System.Drawing.Size(93, 14);
          this.label264.TabIndex = 163;
-         this.label264.Text = "وضعیت تلگرامی :";
+         this.label264.Text = "وضعیت بله :";
          // 
          // lookUpEdit188
          // 
@@ -12414,7 +12414,7 @@
          this.label274.Name = "label274";
          this.label274.Size = new System.Drawing.Size(93, 14);
          this.label274.TabIndex = 163;
-         this.label274.Text = "وضعیت تلگرامی :";
+         this.label274.Text = "وضعیت بله :";
          // 
          // lookUpEdit194
          // 
@@ -12828,7 +12828,7 @@
          this.label284.Name = "label284";
          this.label284.Size = new System.Drawing.Size(93, 14);
          this.label284.TabIndex = 163;
-         this.label284.Text = "وضعیت تلگرامی :";
+         this.label284.Text = "وضعیت بله :";
          // 
          // lookUpEdit200
          // 
@@ -13242,7 +13242,7 @@
          this.label294.Name = "label294";
          this.label294.Size = new System.Drawing.Size(93, 14);
          this.label294.TabIndex = 163;
-         this.label294.Text = "وضعیت تلگرامی :";
+         this.label294.Text = "وضعیت بله :";
          // 
          // lookUpEdit206
          // 
@@ -13656,7 +13656,7 @@
          this.label304.Name = "label304";
          this.label304.Size = new System.Drawing.Size(93, 14);
          this.label304.TabIndex = 163;
-         this.label304.Text = "وضعیت تلگرامی :";
+         this.label304.Text = "وضعیت بله :";
          // 
          // lookUpEdit212
          // 
@@ -14070,7 +14070,7 @@
          this.label314.Name = "label314";
          this.label314.Size = new System.Drawing.Size(93, 14);
          this.label314.TabIndex = 163;
-         this.label314.Text = "وضعیت تلگرامی :";
+         this.label314.Text = "وضعیت بله :";
          // 
          // lookUpEdit218
          // 
@@ -14484,7 +14484,7 @@
          this.label110.Name = "label110";
          this.label110.Size = new System.Drawing.Size(93, 14);
          this.label110.TabIndex = 143;
-         this.label110.Text = "وضعیت تلگرامی :";
+         this.label110.Text = "وضعیت بله :";
          // 
          // lookUpEdit98
          // 
@@ -14898,7 +14898,7 @@
          this.label120.Name = "label120";
          this.label120.Size = new System.Drawing.Size(93, 14);
          this.label120.TabIndex = 143;
-         this.label120.Text = "وضعیت تلگرامی :";
+         this.label120.Text = "وضعیت بله :";
          // 
          // lookUpEdit104
          // 
@@ -15312,7 +15312,7 @@
          this.label130.Name = "label130";
          this.label130.Size = new System.Drawing.Size(93, 14);
          this.label130.TabIndex = 163;
-         this.label130.Text = "وضعیت تلگرامی :";
+         this.label130.Text = "وضعیت بله :";
          // 
          // lookUpEdit110
          // 
@@ -15726,7 +15726,7 @@
          this.label144.Name = "label144";
          this.label144.Size = new System.Drawing.Size(93, 14);
          this.label144.TabIndex = 163;
-         this.label144.Text = "وضعیت تلگرامی :";
+         this.label144.Text = "وضعیت بله :";
          // 
          // lookUpEdit116
          // 
@@ -16140,7 +16140,7 @@
          this.label154.Name = "label154";
          this.label154.Size = new System.Drawing.Size(93, 14);
          this.label154.TabIndex = 163;
-         this.label154.Text = "وضعیت تلگرامی :";
+         this.label154.Text = "وضعیت بله :";
          // 
          // lookUpEdit122
          // 
@@ -16554,7 +16554,7 @@
          this.label164.Name = "label164";
          this.label164.Size = new System.Drawing.Size(93, 14);
          this.label164.TabIndex = 163;
-         this.label164.Text = "وضعیت تلگرامی :";
+         this.label164.Text = "وضعیت بله :";
          // 
          // lookUpEdit128
          // 
@@ -16968,7 +16968,7 @@
          this.label174.Name = "label174";
          this.label174.Size = new System.Drawing.Size(93, 14);
          this.label174.TabIndex = 163;
-         this.label174.Text = "وضعیت تلگرامی :";
+         this.label174.Text = "وضعیت بله :";
          // 
          // lookUpEdit134
          // 
@@ -17382,7 +17382,7 @@
          this.label184.Name = "label184";
          this.label184.Size = new System.Drawing.Size(93, 14);
          this.label184.TabIndex = 163;
-         this.label184.Text = "وضعیت تلگرامی :";
+         this.label184.Text = "وضعیت بله :";
          // 
          // lookUpEdit140
          // 
@@ -17796,7 +17796,7 @@
          this.label194.Name = "label194";
          this.label194.Size = new System.Drawing.Size(93, 14);
          this.label194.TabIndex = 163;
-         this.label194.Text = "وضعیت تلگرامی :";
+         this.label194.Text = "وضعیت بله :";
          // 
          // lookUpEdit146
          // 
@@ -18210,7 +18210,7 @@
          this.label204.Name = "label204";
          this.label204.Size = new System.Drawing.Size(93, 14);
          this.label204.TabIndex = 163;
-         this.label204.Text = "وضعیت تلگرامی :";
+         this.label204.Text = "وضعیت بله :";
          // 
          // lookUpEdit152
          // 
@@ -18624,7 +18624,7 @@
          this.label214.Name = "label214";
          this.label214.Size = new System.Drawing.Size(93, 14);
          this.label214.TabIndex = 163;
-         this.label214.Text = "وضعیت تلگرامی :";
+         this.label214.Text = "وضعیت بله :";
          // 
          // lookUpEdit158
          // 
@@ -19037,7 +19037,7 @@
          this.label224.Name = "label224";
          this.label224.Size = new System.Drawing.Size(93, 14);
          this.label224.TabIndex = 163;
-         this.label224.Text = "وضعیت تلگرامی :";
+         this.label224.Text = "وضعیت بله :";
          // 
          // lookUpEdit164
          // 
@@ -19450,7 +19450,7 @@
          this.label234.Name = "label234";
          this.label234.Size = new System.Drawing.Size(93, 14);
          this.label234.TabIndex = 163;
-         this.label234.Text = "وضعیت تلگرامی :";
+         this.label234.Text = "وضعیت بله :";
          // 
          // lookUpEdit170
          // 
@@ -19863,7 +19863,7 @@
          this.label244.Name = "label244";
          this.label244.Size = new System.Drawing.Size(93, 14);
          this.label244.TabIndex = 163;
-         this.label244.Text = "وضعیت تلگرامی :";
+         this.label244.Text = "وضعیت بله :";
          // 
          // lookUpEdit176
          // 
@@ -20277,7 +20277,7 @@
          this.label324.Name = "label324";
          this.label324.Size = new System.Drawing.Size(93, 14);
          this.label324.TabIndex = 183;
-         this.label324.Text = "وضعیت تلگرامی :";
+         this.label324.Text = "وضعیت بله :";
          // 
          // lookUpEdit224
          // 

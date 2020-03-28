@@ -79,10 +79,10 @@ namespace System.Scsc.Ui.OtherIncome
             allItems.Click += GropButn_Click;
             Grop_FLP.Controls.Add(allItems);
 
-            ExpnBs1.List.OfType<Data.Expense>().OrderBy(e => e.GROP_CODE).GroupBy(e => e.Group_Expense).ToList().ForEach(
+            ExpnBs1.List.OfType<Data.Expense>().OrderBy(e => e.GROP_CODE).GroupBy(e => e.Group_Expense1).ToList().ForEach(
                g =>
                {
-                  var b = new Button();
+                  var b = new Button() { AutoSize = true };
                   if (g.Key != null)
                   {
                      b.Text = g.Key.GROP_DESC;
@@ -554,8 +554,7 @@ namespace System.Scsc.Ui.OtherIncome
                         new XElement("Insert",
                            new XElement("Payment_Method",
                               new XAttribute("cashcode", pymt.CASH_CODE),
-                              new XAttribute("rqstrqid", pymt.RQST_RQID)
-                     //new XAttribute("amnt", (pymt.SUM_EXPN_PRIC + pymt.SUM_EXPN_EXTR_PRCT) - pymt.Payment_Methods.Sum(pm => pm.AMNT))
+                              new XAttribute("rqstrqid", pymt.RQST_RQID)                     
                            )
                         )
                      )
@@ -1883,7 +1882,8 @@ namespace System.Scsc.Ui.OtherIncome
             if(expn == null) return;
 
             ExpnItem_Tsmi.Text = ExpnDesc_Tsmi.Text = expn.EXPN_DESC;
-            ExpnPric_Tsmi.Text = expn.PRIC.ToString();            
+            ExpnPric_Tsmi.Text = expn.PRIC.ToString();
+            ExpnOrdrItem_Tsmi.Text = expn.ORDR_ITEM.ToString();
          }
          catch (Exception exc)
          {
@@ -1906,6 +1906,10 @@ namespace System.Scsc.Ui.OtherIncome
 
             expn.EXPN_DESC = ExpnDesc_Tsmi.Text;
             expn.PRIC = Convert.ToInt32(ExpnPric_Tsmi.Text);
+            if (ExpnOrdrItem_Tsmi.Text == "")
+               expn.ORDR_ITEM = null;
+            else
+               expn.ORDR_ITEM = Convert.ToInt64(ExpnOrdrItem_Tsmi.Text);
 
             iScsc.SubmitChanges();
             requery = true;
@@ -1934,11 +1938,12 @@ namespace System.Scsc.Ui.OtherIncome
                   new XAttribute("rqtpcode", expn.Expense_Type.Request_Requester.RQTP_CODE),
                   new XAttribute("rqttcode", expn.Expense_Type.Request_Requester.RQTT_CODE),
                   new XAttribute("desc", DupExpnText_Tsmi.Text),
-                  new XAttribute("pric", DupExpnPric_Tsmi.Text)
+                  new XAttribute("pric", DupExpnPric_Tsmi.Text),
+                  new XAttribute("ordritem", DupExpnOrdrItem_Tsmi.Text)
                )
             );
 
-            DupExpnPric_Tsmi.Text = DupExpnText_Tsmi.Text = "";
+            DupExpnPric_Tsmi.Text = DupExpnText_Tsmi.Text = DupExpnOrdrItem_Tsmi.Text = "";
 
             requery = true;
          }
@@ -1988,7 +1993,8 @@ namespace System.Scsc.Ui.OtherIncome
                   new XAttribute("rqtpcode", expn.Expense_Type.Request_Requester.RQTP_CODE),
                   new XAttribute("rqttcode", expn.Expense_Type.Request_Requester.RQTT_CODE),
                   new XAttribute("desc", NewExpnText_Tsmi.Text),
-                  new XAttribute("pric", NewExpnPric_Tsmi.Text)
+                  new XAttribute("pric", NewExpnPric_Tsmi.Text),
+                  new XAttribute("ordritem", NewExpnOrdrItem_Tsmi.Text)
                )
             );
 

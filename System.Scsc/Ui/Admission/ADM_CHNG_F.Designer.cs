@@ -28,7 +28,9 @@
       /// </summary>
       private void InitializeComponent()
       {
+         this.components = new System.ComponentModel.Container();
          System.Windows.Forms.Label label10;
+         System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ADM_CHNG_F));
          System.Windows.Forms.Label label7;
          System.Windows.Forms.Label label8;
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
@@ -86,8 +88,8 @@
          this.Gb_Rqst = new System.Windows.Forms.GroupBox();
          this.ShowRqst_PickButn = new System.MaxUi.NewPickBtn();
          this.lookUpEdit9 = new DevExpress.XtraEditors.LookUpEdit();
-         this.RqstBs1 = new System.Windows.Forms.BindingSource();
-         this.DCyclBs1 = new System.Windows.Forms.BindingSource();
+         this.RqstBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.DCyclBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
          this.textEdit6 = new DevExpress.XtraEditors.TextEdit();
          this.dateTimeSelector4 = new Atf.UI.DateTimeSelector();
@@ -98,12 +100,12 @@
          this.dateTimeSelector3 = new Atf.UI.DateTimeSelector();
          this.Gb_Info = new System.Windows.Forms.GroupBox();
          this.FILE_NO_LookUpEdit = new DevExpress.XtraEditors.LookUpEdit();
-         this.FighBs1 = new System.Windows.Forms.BindingSource();
-         this.FighsBs1 = new System.Windows.Forms.BindingSource();
+         this.FighBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.FighsBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.OthrExpnInfo_Ckbx = new System.Windows.Forms.CheckBox();
          this.DpstAcntSlry_Text2 = new DevExpress.XtraEditors.TextEdit();
-         this.FgpbsBs1 = new System.Windows.Forms.BindingSource();
-         this.RqroBs1 = new System.Windows.Forms.BindingSource();
+         this.FgpbsBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.RqroBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.AutoTrans_Cb = new System.Windows.Forms.CheckBox();
          this.ServNo_Text = new DevExpress.XtraEditors.TextEdit();
          this.DpstAcntSlryBank_Text2 = new DevExpress.XtraEditors.TextEdit();
@@ -113,18 +115,18 @@
          this.HistDesc_TextEdit = new DevExpress.XtraEditors.TextEdit();
          this.CardNumb_Text = new DevExpress.XtraEditors.TextEdit();
          this.SUNT_CODELookUpEdit = new DevExpress.XtraEditors.LookUpEdit();
-         this.SuntBs1 = new System.Windows.Forms.BindingSource();
+         this.SuntBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.MaxF_Butn001 = new System.Windows.Forms.Button();
          this.EDUC_DEG_LookUpEdit = new DevExpress.XtraEditors.LookUpEdit();
-         this.DEducBs1 = new System.Windows.Forms.BindingSource();
+         this.DEducBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.FNGR_PRNT_TextEdit = new DevExpress.XtraEditors.TextEdit();
          this.COCH_DEG_LookUpEdit = new DevExpress.XtraEditors.LookUpEdit();
-         this.DDegrBs2 = new System.Windows.Forms.BindingSource();
+         this.DDegrBs2 = new System.Windows.Forms.BindingSource(this.components);
          this.CORD_YTextEdit = new DevExpress.XtraEditors.TextEdit();
          this.BRTH_DATE_PersianDateEdit = new Atf.UI.DateTimeSelector();
          this.FathWork_TextEdit = new DevExpress.XtraEditors.TextEdit();
          this.TYPE_LookUpEdit = new DevExpress.XtraEditors.LookUpEdit();
-         this.DFgtpBs1 = new System.Windows.Forms.BindingSource();
+         this.DFgtpBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.CORD_XTextEdit = new DevExpress.XtraEditors.TextEdit();
          this.Chat_Id_TextEdit = new DevExpress.XtraEditors.TextEdit();
          this.GetMap_Butn = new System.Windows.Forms.Button();
@@ -134,10 +136,10 @@
          this.EMAL_ADRS_TextEdit = new DevExpress.XtraEditors.TextEdit();
          this.NATL_CODE_TextEdit = new DevExpress.XtraEditors.TextEdit();
          this.SEX_TYPE_LookUpEdit = new DevExpress.XtraEditors.LookUpEdit();
-         this.DSxtpBs1 = new System.Windows.Forms.BindingSource();
+         this.DSxtpBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.FATH_NAME_TextEdit = new DevExpress.XtraEditors.TextEdit();
          this.BLOD_GROPLookUpEdit = new DevExpress.XtraEditors.LookUpEdit();
-         this.DBlodBs1 = new System.Windows.Forms.BindingSource();
+         this.DBlodBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.label6 = new System.Windows.Forms.Label();
          this.label3 = new System.Windows.Forms.Label();
          this.label5 = new System.Windows.Forms.Label();
@@ -153,13 +155,13 @@
          this.CELL_PHON_TextEdit = new DevExpress.XtraEditors.TextEdit();
          this.MomChatId_Txt = new DevExpress.XtraEditors.TextEdit();
          this.DISE_CODE_LookUpEdit = new DevExpress.XtraEditors.LookUpEdit();
-         this.DstpBs1 = new System.Windows.Forms.BindingSource();
+         this.DstpBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.MomTellPhon_Txt = new DevExpress.XtraEditors.TextEdit();
          this.DadChatId_Txt = new DevExpress.XtraEditors.TextEdit();
          this.DadTellPhon_Txt = new DevExpress.XtraEditors.TextEdit();
          this.TELL_PHON_TextEdit = new DevExpress.XtraEditors.TextEdit();
          this.GUDG_DEG_LookUpEdit = new DevExpress.XtraEditors.LookUpEdit();
-         this.RqstBn1 = new System.Windows.Forms.BindingNavigator();
+         this.RqstBn1 = new System.Windows.Forms.BindingNavigator(this.components);
          this.RqstBnNew1 = new System.Windows.Forms.ToolStripButton();
          this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
          this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
@@ -189,7 +191,7 @@
          this.RqstBnBDoc1 = new System.Windows.Forms.ToolStripButton();
          this.RqstBnRegl01 = new System.Windows.Forms.ToolStripButton();
          this.RqstBnExit1 = new System.Windows.Forms.ToolStripButton();
-         this.toolTip1 = new System.Windows.Forms.ToolTip();
+         this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
          this.tabControl1 = new System.Windows.Forms.TabControl();
          this.tabPage1 = new System.Windows.Forms.TabPage();
          this.IdtyNumb_Txt = new DevExpress.XtraEditors.TextEdit();
@@ -205,13 +207,13 @@
          this.label29 = new System.Windows.Forms.Label();
          this.textEdit17 = new DevExpress.XtraEditors.TextEdit();
          this.label9 = new System.Windows.Forms.Label();
-         this.DOwnrBs1 = new System.Windows.Forms.BindingSource();
-         this.CuntBs1 = new System.Windows.Forms.BindingSource();
-         this.CblkBs1 = new System.Windows.Forms.BindingSource();
-         this.CndoBs1 = new System.Windows.Forms.BindingSource();
-         this.DCetpBs1 = new System.Windows.Forms.BindingSource();
-         this.CbmtBs1 = new System.Windows.Forms.BindingSource();
-         this.DDytpBs1 = new System.Windows.Forms.BindingSource();
+         this.DOwnrBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.CuntBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.CblkBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.CndoBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.DCetpBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.CbmtBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.DDytpBs1 = new System.Windows.Forms.BindingSource(this.components);
          label10 = new System.Windows.Forms.Label();
          label7 = new System.Windows.Forms.Label();
          label8 = new System.Windows.Forms.Label();
@@ -298,7 +300,7 @@
          // label10
          // 
          label10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         label10.Image = global::System.Scsc.Properties.Resources.IMAGE_1616;
+         label10.Image = ((System.Drawing.Image)(resources.GetObject("label10.Image")));
          label10.Location = new System.Drawing.Point(601, 45);
          label10.Name = "label10";
          label10.Size = new System.Drawing.Size(30, 20);
@@ -308,7 +310,7 @@
          // label7
          // 
          label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         label7.Image = global::System.Scsc.Properties.Resources.IMAGE_1616;
+         label7.Image = ((System.Drawing.Image)(resources.GetObject("label7.Image")));
          label7.Location = new System.Drawing.Point(601, 75);
          label7.Name = "label7";
          label7.Size = new System.Drawing.Size(30, 20);
@@ -318,7 +320,7 @@
          // label8
          // 
          label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         label8.Image = global::System.Scsc.Properties.Resources.IMAGE_1616;
+         label8.Image = ((System.Drawing.Image)(resources.GetObject("label8.Image")));
          label8.Location = new System.Drawing.Point(601, 105);
          label8.Name = "label8";
          label8.Size = new System.Drawing.Size(30, 20);
@@ -661,9 +663,9 @@
          this.ChatId_Lb.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
          this.ChatId_Lb.Location = new System.Drawing.Point(753, 49);
          this.ChatId_Lb.Name = "ChatId_Lb";
-         this.ChatId_Lb.Size = new System.Drawing.Size(60, 14);
+         this.ChatId_Lb.Size = new System.Drawing.Size(46, 14);
          this.ChatId_Lb.TabIndex = 6;
-         this.ChatId_Lb.Text = "کد تلگرام :";
+         this.ChatId_Lb.Text = "کد بله :";
          this.ChatId_Lb.TextAlign = System.Drawing.ContentAlignment.TopRight;
          // 
          // Cycl_Lb
@@ -1697,9 +1699,9 @@
          this.label6.AutoSize = true;
          this.label6.Location = new System.Drawing.Point(751, 107);
          this.label6.Name = "label6";
-         this.label6.Size = new System.Drawing.Size(84, 14);
+         this.label6.Size = new System.Drawing.Size(70, 14);
          this.label6.TabIndex = 23;
-         this.label6.Text = "کد تلگرام مادر :";
+         this.label6.Text = "کد بله مادر :";
          // 
          // label3
          // 
@@ -1707,9 +1709,9 @@
          this.label3.AutoSize = true;
          this.label3.Location = new System.Drawing.Point(751, 77);
          this.label3.Name = "label3";
-         this.label3.Size = new System.Drawing.Size(78, 14);
+         this.label3.Size = new System.Drawing.Size(64, 14);
          this.label3.TabIndex = 23;
-         this.label3.Text = "کد تلگرام پدر :";
+         this.label3.Text = "کد بله پدر :";
          // 
          // label5
          // 

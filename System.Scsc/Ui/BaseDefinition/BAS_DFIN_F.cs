@@ -89,6 +89,9 @@ namespace System.Scsc.Ui.BaseDefinition
             int mtod = MtodBs1.Position;
             int ctgy = CtgyBs1.Position;
             InComeEpitBs1.DataSource = iScsc.Expense_Items.Where(epit => epit.TYPE == "001");
+            if (InComeEpitBs1.List.OfType<Data.Expense_Item>().Any(ei => ei.EPIT_DESC.Contains("شهریه")))
+               ExpnEpit_Lov.EditValue = InComeEpitBs1.List.OfType<Data.Expense_Item>().FirstOrDefault(ei => ei.EPIT_DESC.Contains("شهریه")).CODE;
+
             MtodBs1.DataSource = iScsc.Methods;
             Mtod_Gv.TopRowIndex = mtod;
             MtodBs1.Position = mtod;
@@ -1162,78 +1165,16 @@ namespace System.Scsc.Ui.BaseDefinition
          {
             if (Tb_Master.SelectedTab == tp_006)
             {
-               //var cbmt = CbmtBs2.Current as Data.Club_Method;
-               //if (cbmt == null) { return; }
-
-               //var club = ClubBs1.Current as Data.Club;
-               //if (cbmt.CLUB_CODE == null) { cbmt.CLUB_CODE = club.CODE; }
-
-               //if (cbmt.COCH_FILE_NO == null) return;
-               //if (cbmt.MTOD_CODE == null) return;
-               //if (cbmt.DAY_TYPE == null) return;
-
                CbmtBs2.EndEdit();
                Cbmt_Gv.PostEditor();
 
-               //iScsc.SubmitChanges();
                var cbmt = CbmtBs2.Current as Data.Club_Method;
                if (cbmt == null) return;
 
                if (cbmt.CODE == 0)
-                  iScsc.INS_CBMT_P(cbmt.CLUB_CODE, cbmt.MTOD_CODE, cbmt.COCH_FILE_NO, cbmt.DAY_TYPE, cbmt.STRT_TIME, cbmt.END_TIME, cbmt.SEX_TYPE, cbmt.CBMT_DESC, cbmt.DFLT_STAT, cbmt.CPCT_NUMB, cbmt.CPCT_STAT, cbmt.CBMT_TIME, cbmt.CBMT_TIME_STAT, cbmt.CLAS_TIME, cbmt.AMNT);
+                  iScsc.INS_CBMT_P(cbmt.CLUB_CODE, cbmt.MTOD_CODE, cbmt.COCH_FILE_NO, cbmt.DAY_TYPE, cbmt.STRT_TIME, cbmt.END_TIME, cbmt.SEX_TYPE, cbmt.CBMT_DESC, cbmt.DFLT_STAT, cbmt.CPCT_NUMB, cbmt.CPCT_STAT, cbmt.CBMT_TIME, cbmt.CBMT_TIME_STAT, cbmt.CLAS_TIME, cbmt.AMNT, cbmt.NATL_CODE);
                else
-                  iScsc.UPD_CBMT_P(cbmt.CODE, cbmt.CLUB_CODE, cbmt.MTOD_CODE, cbmt.COCH_FILE_NO, cbmt.MTOD_STAT, cbmt.DAY_TYPE, cbmt.STRT_TIME, cbmt.END_TIME, cbmt.SEX_TYPE, cbmt.CBMT_DESC, cbmt.DFLT_STAT, cbmt.CPCT_NUMB, cbmt.CPCT_STAT, cbmt.CBMT_TIME, cbmt.CBMT_TIME_STAT, cbmt.CLAS_TIME, cbmt.AMNT);
-               //if (cbmt.CODE == 0)
-               //   iScsc.STNG_SAVE_P(
-               //      new XElement("Config",
-               //         new XAttribute("type", "005"),
-               //            new XElement("Insert",
-               //               new XElement("Club_Method",
-               //                  new XAttribute("clubcode", club.CODE),
-               //                  new XAttribute("mtodcode", cbmt.MTOD_CODE),
-               //                  new XAttribute("cochfileno", cbmt.COCH_FILE_NO),
-               //                  new XAttribute("daytype", cbmt.DAY_TYPE),
-               //                  new XAttribute("strttime", cbmt.STRT_TIME.ToString()),
-               //                  new XAttribute("endtime", cbmt.END_TIME.ToString()),
-               //                  new XAttribute("mtodstat", cbmt.MTOD_STAT ?? "002"),
-               //                  new XAttribute("sextype", cbmt.SEX_TYPE ?? "002"),
-               //                  new XAttribute("cbmtdesc", cbmt.CBMT_DESC ?? ""),
-               //                  new XAttribute("dfltstat", cbmt.DFLT_STAT ?? "001"),
-               //                  new XAttribute("cpctnumb", cbmt.CPCT_NUMB ?? 0),
-               //                  new XAttribute("cpctstat", cbmt.CPCT_STAT ?? "001"),
-               //                  new XAttribute("cbmttime", cbmt.CBMT_TIME ?? 0),
-               //                  new XAttribute("cbmttimestat", cbmt.CBMT_TIME_STAT ?? "001"),
-               //                  new XAttribute("clastime", cbmt.CLAS_TIME ?? 90)
-               //               )
-               //            )
-               //      )
-               //   );
-               //else
-               //   iScsc.STNG_SAVE_P(
-               //      new XElement("Config",
-               //         new XAttribute("type", "005"),
-               //            new XElement("Update",
-               //               new XElement("Club_Method",
-               //                  new XAttribute("code", cbmt.CODE),
-               //                  new XAttribute("clubcode", club.CODE),
-               //                  new XAttribute("mtodcode", cbmt.MTOD_CODE),
-               //                  new XAttribute("cochfileno", cbmt.COCH_FILE_NO),
-               //                  new XAttribute("daytype", cbmt.DAY_TYPE),
-               //                  new XAttribute("strttime", cbmt.STRT_TIME.ToString()),
-               //                  new XAttribute("endtime", cbmt.END_TIME.ToString()),
-               //                  new XAttribute("mtodstat", cbmt.MTOD_STAT ?? "002"),
-               //                  new XAttribute("sextype", cbmt.SEX_TYPE ?? "002"),
-               //                  new XAttribute("cbmtdesc", cbmt.CBMT_DESC ?? ""),
-               //                  new XAttribute("dfltstat", cbmt.DFLT_STAT ?? "001"),
-               //                  new XAttribute("cpctnumb", cbmt.CPCT_NUMB ?? 0),
-               //                  new XAttribute("cpctstat", cbmt.CPCT_STAT ?? "001"),
-               //                  new XAttribute("cbmttime", cbmt.CBMT_TIME ?? 0),
-               //                  new XAttribute("cbmttimestat", cbmt.CBMT_TIME_STAT ?? "001"),
-               //                  new XAttribute("clastime", cbmt.CLAS_TIME ?? 90)
-               //               )
-               //            )
-               //      )
-               //   );
+                  iScsc.UPD_CBMT_P(cbmt.CODE, cbmt.CLUB_CODE, cbmt.MTOD_CODE, cbmt.COCH_FILE_NO, cbmt.MTOD_STAT, cbmt.DAY_TYPE, cbmt.STRT_TIME, cbmt.END_TIME, cbmt.SEX_TYPE, cbmt.CBMT_DESC, cbmt.DFLT_STAT, cbmt.CPCT_NUMB, cbmt.CPCT_STAT, cbmt.CBMT_TIME, cbmt.CBMT_TIME_STAT, cbmt.CLAS_TIME, cbmt.AMNT, cbmt.NATL_CODE);
                requery = true;
             }
             else if(Tb_Master.SelectedTab == tp_005)
@@ -1241,38 +1182,6 @@ namespace System.Scsc.Ui.BaseDefinition
                CbmtBs1.EndEdit();
                CbmtCoch_Gv.PostEditor();
                iScsc.SubmitChanges();
-               //var cbmt = CbmtBs1.Current as Data.Club_Method;
-               //if (cbmt == null) { return; }
-
-               //if (cbmt.COCH_FILE_NO == null) return;
-               //if (cbmt.MTOD_CODE == null) return;
-               //if (cbmt.DAY_TYPE == null) return;
-
-               //iScsc.STNG_SAVE_P(
-               //   new XElement("Config",
-               //      new XAttribute("type", "005"),
-               //         new XElement("Update",
-               //            new XElement("Club_Method",
-               //               new XAttribute("code", cbmt.CODE),
-               //               new XAttribute("clubcode", cbmt.CLUB_CODE),
-               //               new XAttribute("mtodcode", cbmt.MTOD_CODE),
-               //               new XAttribute("cochfileno", cbmt.COCH_FILE_NO),
-               //               new XAttribute("daytype", cbmt.DAY_TYPE),
-               //               new XAttribute("strttime", cbmt.STRT_TIME.ToString()),
-               //               new XAttribute("endtime", cbmt.END_TIME.ToString()),
-               //               new XAttribute("mtodstat", cbmt.MTOD_STAT ?? "002"),
-               //               new XAttribute("sextype", cbmt.SEX_TYPE ?? "002"),
-               //               new XAttribute("cbmtdesc", cbmt.CBMT_DESC ?? ""),
-               //               new XAttribute("dfltstat", cbmt.DFLT_STAT ?? "001"),
-               //               new XAttribute("cpctnumb", cbmt.CPCT_NUMB ?? 0),
-               //               new XAttribute("cpctstat", cbmt.CPCT_STAT ?? "001"),
-               //               new XAttribute("cbmttime", cbmt.CBMT_TIME ?? 0),
-               //               new XAttribute("cbmttimestat", cbmt.CBMT_TIME_STAT ?? "001"),
-               //               new XAttribute("clastime", cbmt.CLAS_TIME ?? 90)
-               //            )
-               //         )
-               //   )
-               //);
                requery = true;
             }
             if (Tb_Master.SelectedTab == tp_005)
@@ -4042,7 +3951,7 @@ namespace System.Scsc.Ui.BaseDefinition
             {
                if(!CbmtBs1.List.OfType<Data.Club_Method>().Any(t => t.MTOD_CODE == cbmt.MTOD_CODE && t.DAY_TYPE == cbmt.DAY_TYPE && t.STRT_TIME == i && t.END_TIME == i.Add(new TimeSpan(0, priod, 0))))
                {
-                  iScsc.INS_CBMT_P(cbmt.CLUB_CODE, cbmt.MTOD_CODE, cbmt.COCH_FILE_NO, cbmt.DAY_TYPE, i, i.Add(new TimeSpan(0, priod, 0)), cbmt.SEX_TYPE, cbmt.CBMT_DESC, cbmt.DFLT_STAT, cbmt.CPCT_NUMB, cbmt.CPCT_STAT, cbmt.CBMT_TIME, cbmt.CBMT_TIME_STAT, cbmt.CLAS_TIME, cbmt.AMNT);
+                  iScsc.INS_CBMT_P(cbmt.CLUB_CODE, cbmt.MTOD_CODE, cbmt.COCH_FILE_NO, cbmt.DAY_TYPE, i, i.Add(new TimeSpan(0, priod, 0)), cbmt.SEX_TYPE, cbmt.CBMT_DESC, cbmt.DFLT_STAT, cbmt.CPCT_NUMB, cbmt.CPCT_STAT, cbmt.CBMT_TIME, cbmt.CBMT_TIME_STAT, cbmt.CLAS_TIME, cbmt.AMNT, cbmt.NATL_CODE);
                }
 
                i = i.Add(new TimeSpan(0, priod, 0));

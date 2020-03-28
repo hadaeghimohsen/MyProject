@@ -92,11 +92,15 @@
       <HintPath>..\packages\EntityFramework.6.4.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="InstagramApiSharp, Version=1.4.0.1, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\InstagramApiSharp.1.4.0.1\lib\net452\InstagramApiSharp.dll</HintPath>
+    <Reference Include="InstagramApiSharp, Version=1.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\InstagramApiSharp.1.5.0\lib\net452\InstagramApiSharp.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="MihaZupan.HttpToSocks5Proxy, Version=1.4.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\HttpToSocks5Proxy.1.4.0\lib\net45\MihaZupan.HttpToSocks5Proxy.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
@@ -156,8 +160,8 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
-    <Reference Include="Telegram.Bot, Version=15.3.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Telegram.Bot.15.3.0\lib\net45\Telegram.Bot.dll</HintPath>
+    <Reference Include="Telegram.Bot, Version=15.4.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Telegram.Bot.15.4.0\lib\net45\Telegram.Bot.dll</HintPath>
       <Private>True</Private>
     </Reference>
   </ItemGroup>
@@ -395,6 +399,7 @@
     <None Include="Properties\DataSources\System.RoboTech.Data.App_Base_Define.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.App_Domain.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Country.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.D_ACNT.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_ACTP.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_ACTV.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_AMTP.datasource" />
@@ -404,9 +409,11 @@
     <None Include="Properties\DataSources\System.RoboTech.Data.D_BULD.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_CMTP.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_CNTP.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.D_DSTP.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_ELMT.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_GMTP.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_MDFR.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.D_MNTP.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_ODST.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_ORDT.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_PKTP.datasource" />

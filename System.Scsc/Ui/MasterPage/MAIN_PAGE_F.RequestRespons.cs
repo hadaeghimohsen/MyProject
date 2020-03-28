@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
+using System.Scsc.ExtCode;
 
 namespace System.Scsc.Ui.MasterPage
 {
@@ -56,7 +57,7 @@ namespace System.Scsc.Ui.MasterPage
                break;
             case 10:
                Actn_CalF_P(job);
-               break;
+               break;            
             case 40:
                SetToolTip(job);
                break;
@@ -68,6 +69,12 @@ namespace System.Scsc.Ui.MasterPage
                break;
             case 43:
                DeviceControlFunction(job);
+               break;
+            case 1000:
+               if (InvokeRequired)
+                  Invoke(new Action(() => Call_SystemService_P(job)));
+               else
+                  Call_SystemService_P(job);
                break;
             default:
                break;
@@ -218,7 +225,7 @@ namespace System.Scsc.Ui.MasterPage
          Fga_Uclb_U = (iScsc.FGA_UCLB_U() ?? "").Split(',').Select(c => (long?)Int64.Parse(c)).ToList();
          Lbs_CrntUser.Text = Crnt_User = iScsc.GET_CRNTUSER_U(new XElement("User", new XAttribute("actntype", "001")));
 
-         Tm_ShowTime_Tick(null, null);
+         //Tm_ShowTime_Tick(null, null);         
 
          #region Package Item
          //rd_mainmenu.CommandTabs.OfType<RibbonTab>().ToList().ForEach(rt => rt.Items.OfType<RadRibbonBarGroup>().ToList().ForEach(rrbg => rrbg.Items.OfType<RadButtonElement>().ToList().ForEach(rbe => rbe.Visibility = rbe.Tag == null ? Telerik.WinControls.ElementVisibility.Visible : Telerik.WinControls.ElementVisibility.Collapsed)));
@@ -845,6 +852,136 @@ namespace System.Scsc.Ui.MasterPage
          catch { }
          L_End:
          job.Status = StatusType.Successful;
+      }
+
+      /// <summary>
+      /// Code 1000
+      /// </summary>
+      /// <param name="job"></param>
+      private void Call_SystemService_P(Job job)
+      {
+         try
+         {
+            var xinput = job.Input as XElement;
+            if (xinput == null) return;
+
+            var chatid = xinput.Attribute("chatid").Value.ToInt64();
+            var cmnd = xinput.Attribute("cmnd").Value;
+            var param = xinput.Attribute("param").Value;
+
+            // اگر اتفاق جدیدی درون سیستم پایگاه داده رخ داده باشد بتوانیم آخرین اطلاعات را بازیابی کنیم
+            iScsc = new Data.iScscDataContext(ConnectionString);
+            var fighs = iScsc.Fighters.Where(f => f.CHAT_ID_DNRM == @chatid);
+
+            if (fighs == null || fighs.Count() == 0)
+            {
+               job.Output =
+                  new XElement("Output",
+                     new XAttribute("resultcode", -10001),
+                     new XAttribute("resultdesc", "مشتری با کد شما قابل شناسایی نیست"),
+                     new XAttribute("mesgtype", "1"),
+                     new XAttribute("mesgdesc", "Text")
+                  );
+               job.Status = StatusType.Successful;
+               return;
+            }
+            else if (fighs.Count() > 1)
+            {
+               job.Output =
+                  new XElement("Output",
+                     new XAttribute("resultcode", -10002),
+                     new XAttribute("resultdesc", "با کد دستگاه شما *بیش از یک مشتری* وجود دارد، لطفا با قسمت پذیرش صحبت کنید"),
+                     new XAttribute("mesgtype", "1"),
+                     new XAttribute("mesgdesc", "Text")
+                  );
+               job.Status = StatusType.Successful;
+               return;
+            }
+
+            var figh = fighs.FirstOrDefault();
+
+            bool result = false;
+            switch (cmnd.ToLower())
+            {
+               case "startenroll":
+                  result = Start_Enroll_Finger(figh.FNGR_PRNT_DNRM);
+                  job.Output =
+                     new XElement("Output",
+                        new XAttribute("resultcode", 10001),
+                        new XAttribute("resultdesc", "لطفا *☝️ انگشت خود* را *سه مرتبه* به صورت *متوالی* در قسمت سنسور دستگاه قرار دهید."),
+                        new XAttribute("mesgtype", "1"),
+                        new XAttribute("mesgdesc", "Text")
+                     );
+                  break;
+               case "deleteenroll":
+                  result = Delete_Enroll_Finger(figh.FNGR_PRNT_DNRM);
+                  job.Output =
+                     new XElement("Output",
+                        new XAttribute("resultcode", 10002),
+                        new XAttribute("resultdesc", "اثر انگشت شما از سیستم اثر انگشتی *پاک* شد"),
+                        new XAttribute("mesgtype", "1"),
+                        new XAttribute("mesgdesc", "Text")
+                     );
+                  break;
+               case "attn":
+                  Job _InteractWithScsc =
+                     new Job(SendType.External, "Localhost",
+                        new List<Job>
+                        {
+                           new Job(SendType.Self, 88 /* Execute Ntf_Totl_F */){Input = new XElement("Request", new XAttribute("actntype", "JustRunInBackground"))},
+                           new Job(SendType.SelfToUserInterface, "NTF_TOTL_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "attn"), new XAttribute("enrollnumber", figh.FNGR_PRNT_DNRM), new XAttribute("mbsprwno", param.Split(',')[1]), new XAttribute("chckattnalrm", "002"))}
+                        });
+                  _DefaultGateway.Gateway(_InteractWithScsc);
+
+                  // نمایش اطلاعات ورود و خروج
+                  var attn = iScsc.Attendances.Where(a => a.FNGR_PRNT_DNRM == figh.FNGR_PRNT_DNRM && a.ATTN_DATE == DateTime.Now.Date && a.MBSP_RWNO_DNRM == param.Split(',')[1].ToInt16()).OrderByDescending(a => a.CRET_DATE).FirstOrDefault();
+                  if(attn == null)
+                  {
+                     job.Output =
+                        new XElement("Output",
+                           new XAttribute("resultcode", -10003),
+                           new XAttribute("resultdesc", "ورود و خروج شما با خطا مواجه شد"),
+                           new XAttribute("mesgtype", "1"),
+                           new XAttribute("mesgdesc", "Text")
+                        );
+                  }
+                  else
+                  {
+                     string resultdesc = "";
+                     if (attn.EXIT_TIME == null)
+                        resultdesc = 
+                           string.Format("{0} {1} {2}",
+                              "📥 ورود شما در ساعت",
+                              attn.ENTR_TIME.Value.ToString().Substring(0, 5),
+                              "ثبت شد"                              
+                           );
+                     else
+                        resultdesc =
+                           string.Format("{0} {1} {2}",
+                              "📤 خروج شما در ساعت",
+                              attn.EXIT_TIME.Value.ToString().Substring(0, 5),
+                              "ثبت شد"
+                           );
+
+                     job.Output =
+                        new XElement("Output",
+                           new XAttribute("resultcode", 10003),
+                           new XAttribute("resultdesc", resultdesc),
+                           new XAttribute("mesgtype", "1"),
+                           new XAttribute("mesgdesc", "Text")
+                        );
+                  }
+                  break;
+               default:
+                  break;
+            }
+
+            job.Status = StatusType.Successful;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
       }
    }
 }

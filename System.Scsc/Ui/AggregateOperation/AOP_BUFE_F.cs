@@ -44,13 +44,22 @@ namespace System.Scsc.Ui.AggregateOperation
                ex.EXPN_STAT == "002" /* هزینه های فعال */
             );
 
-         ExpnDeskBs1.DataSource =
-            iScsc.Expenses.Where(ex =>
-               ex.Regulation.REGL_STAT == "002" /* آیین نامه فعال */ && ex.Regulation.TYPE == "001" /* آیین نامه هزینه */ &&
-               ex.Expense_Type.Request_Requester.RQTP_CODE == "016" &&
-               ex.Expense_Type.Request_Requester.RQTT_CODE == "007" &&
-               ex.EXPN_STAT == "002" /* هزینه های فعال */
-            ).OrderBy(ed => ed.EXPN_DESC);
+         ExtpDeskBs1.DataSource =
+            iScsc.Expense_Types.Where(et =>
+               et.Request_Requester.Regulation.REGL_STAT == "002" /* آیین نامه فعال */ && et.Request_Requester.Regulation.TYPE == "001" /* آیین نامه هزینه */ &&
+               et.Request_Requester.RQTP_CODE == "016" &&
+               et.Request_Requester.RQTT_CODE == "007" &&
+               et.Expenses.Any(ex => ex.EXPN_STAT == "002")
+            );
+         
+         // 1398/12/17 * بخاطر اضافه شدن گزینه مربوط به نوع هزینه این گزینه اینجا بسته میشود
+         //ExpnDeskBs1.DataSource =
+         //   iScsc.Expenses.Where(ex =>
+         //      ex.Regulation.REGL_STAT == "002" /* آیین نامه فعال */ && ex.Regulation.TYPE == "001" /* آیین نامه هزینه */ &&
+         //      ex.Expense_Type.Request_Requester.RQTP_CODE == "016" &&
+         //      ex.Expense_Type.Request_Requester.RQTT_CODE == "007" &&
+         //      ex.EXPN_STAT == "002" /* هزینه های فعال */
+         //   ).OrderBy(ed => ed.EXPN_DESC);
 
          requery = false;
       }
@@ -1402,9 +1411,7 @@ namespace System.Scsc.Ui.AggregateOperation
                Figh_Lov.EditValue = null;
                requery = true;
             }
-            catch
-            {
-            }
+            catch {}
             finally
             {
                if (requery)
@@ -2819,6 +2826,38 @@ namespace System.Scsc.Ui.AggregateOperation
             case CheckState.Unchecked:
                PrintExpnStat_Tsmi.CheckState = CheckState.Checked;
                break;
+         }
+      }
+
+      private void ExtpDesk_GridLookUpEdit_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
+      {
+         try
+         {
+            if (e.NewValue == null)
+            {
+               ExpnDeskBs1.Clear();
+               return;
+            }
+
+            ExpnDeskBs1.DataSource =
+               iScsc.Expenses.Where(ex =>
+                  ex.Regulation.REGL_STAT == "002" /* آیین نامه فعال */ && ex.Regulation.TYPE == "001" /* آیین نامه هزینه */ &&
+                  ex.Expense_Type.Request_Requester.RQTP_CODE == "016" &&
+                  ex.Expense_Type.Request_Requester.RQTT_CODE == "007" &&
+                  ex.Expense_Type.CODE == (long)e.NewValue &&
+                  ex.EXPN_STAT == "002" /* هزینه های فعال */ 
+
+               ).OrderBy(ed => ed.EXPN_DESC);
+
+            if (ExpnDeskBs1.List.Count > 0)
+            {
+               ExpnDeskBs1.MoveFirst();
+               ExpnDesk_GridLookUpEdit.EditValue = (ExpnDeskBs1.Current as Data.Expense).CODE;
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
          }
       }
    }

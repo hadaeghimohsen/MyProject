@@ -517,10 +517,10 @@
          // label14
          // 
          label14.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         label14.Image = global::System.Scsc.Properties.Resources.IMAGE_1616;
-         label14.Location = new System.Drawing.Point(774, 456);
+         label14.Image = global::System.Scsc.Properties.Resources.IMAGE_1680;
+         label14.Location = new System.Drawing.Point(767, 456);
          label14.Name = "label14";
-         label14.Size = new System.Drawing.Size(23, 19);
+         label14.Size = new System.Drawing.Size(23, 20);
          label14.TabIndex = 75;
          label14.TextAlign = System.Drawing.ContentAlignment.TopRight;
          // 
@@ -792,9 +792,9 @@
          this.ChatId_Lb.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
          this.ChatId_Lb.Location = new System.Drawing.Point(715, 459);
          this.ChatId_Lb.Name = "ChatId_Lb";
-         this.ChatId_Lb.Size = new System.Drawing.Size(60, 14);
+         this.ChatId_Lb.Size = new System.Drawing.Size(46, 14);
          this.ChatId_Lb.TabIndex = 74;
-         this.ChatId_Lb.Text = "کد تلگرام :";
+         this.ChatId_Lb.Text = "کد بله :";
          this.ChatId_Lb.TextAlign = System.Drawing.ContentAlignment.TopRight;
          // 
          // PydtsBs1

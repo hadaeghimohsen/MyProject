@@ -295,6 +295,7 @@
          this.dateTimeSelector7 = new Atf.UI.DateTimeSelector();
          this.PrintDefaultExpitInCome_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.dateTimeSelector8 = new Atf.UI.DateTimeSelector();
+         this.ProdList_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.RequeryInComeEpit_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.DeleteInComeEpit_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.SaveInComeEpit_Butn = new DevExpress.XtraEditors.SimpleButton();
@@ -363,6 +364,7 @@
          this.colMethod1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.MtodDfltStat_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
          this.ChckAttnAlrm_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.gridColumn211 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.panel5 = new System.Windows.Forms.Panel();
          this.PrintSettingMethod_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.PrintMethod_Butn = new DevExpress.XtraEditors.SimpleButton();
@@ -1079,6 +1081,7 @@
          this.Cbmt1Amnt_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colUbStrtTime = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colUbEndTime = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.gridColumn213 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.tp_0063 = new System.Windows.Forms.TabPage();
          this.gridControl19 = new DevExpress.XtraGrid.GridControl();
          this.VCochMbsp6Bs = new System.Windows.Forms.BindingSource(this.components);
@@ -1399,7 +1402,6 @@
          this.ExtrDev_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.CbmtwkdyBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.OpnFil_Ofd = new System.Windows.Forms.OpenFileDialog();
-         this.ProdList_Butn = new DevExpress.XtraEditors.SimpleButton();
          label5 = new System.Windows.Forms.Label();
          label6 = new System.Windows.Forms.Label();
          CashToDate_Lb = new System.Windows.Forms.Label();
@@ -1914,7 +1916,7 @@
          this.MtodStat_Clm.Name = "MtodStat_Clm";
          this.MtodStat_Clm.OptionsColumn.FixedWidth = true;
          this.MtodStat_Clm.Visible = true;
-         this.MtodStat_Clm.VisibleIndex = 1;
+         this.MtodStat_Clm.VisibleIndex = 2;
          this.MtodStat_Clm.Width = 54;
          // 
          // repositoryItemLookUpEdit8
@@ -3687,6 +3689,28 @@
          this.dateTimeSelector8.TabIndex = 27;
          this.dateTimeSelector8.UsePersianFormat = true;
          // 
+         // ProdList_Butn
+         // 
+         this.ProdList_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+         this.ProdList_Butn.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+         this.ProdList_Butn.Appearance.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.ProdList_Butn.Appearance.ForeColor = System.Drawing.Color.Black;
+         this.ProdList_Butn.Appearance.Options.UseBackColor = true;
+         this.ProdList_Butn.Appearance.Options.UseFont = true;
+         this.ProdList_Butn.Appearance.Options.UseForeColor = true;
+         this.ProdList_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1007;
+         this.ProdList_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+         this.ProdList_Butn.Location = new System.Drawing.Point(49, 3);
+         this.ProdList_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.ProdList_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.ProdList_Butn.Name = "ProdList_Butn";
+         this.ProdList_Butn.Size = new System.Drawing.Size(50, 46);
+         this.ProdList_Butn.TabIndex = 2;
+         this.ProdList_Butn.Text = "تعریف کالا";
+         this.ProdList_Butn.ToolTip = "تعریف کالا";
+         this.ProdList_Butn.Click += new System.EventHandler(this.ProdList_Butn_Click);
+         // 
          // RequeryInComeEpit_Butn
          // 
          this.RequeryInComeEpit_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -4252,8 +4276,11 @@
          // 
          // colNATL_CODE1
          // 
+         this.colNATL_CODE1.Caption = "کد تعرفه";
          this.colNATL_CODE1.FieldName = "NATL_CODE";
          this.colNATL_CODE1.Name = "colNATL_CODE1";
+         this.colNATL_CODE1.Visible = true;
+         this.colNATL_CODE1.VisibleIndex = 7;
          // 
          // colEPIT_TYPE1
          // 
@@ -4540,7 +4567,8 @@
             this.colMethod1,
             this.MtodDfltStat_Clm,
             this.MtodStat_Clm,
-            this.ChckAttnAlrm_Clm});
+            this.ChckAttnAlrm_Clm,
+            this.gridColumn211});
          styleFormatCondition5.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
          styleFormatCondition5.Appearance.Options.UseBackColor = true;
          styleFormatCondition5.ApplyToRow = true;
@@ -4576,7 +4604,7 @@
          this.MtodDesc_Clm.FieldName = "MTOD_DESC";
          this.MtodDesc_Clm.Name = "MtodDesc_Clm";
          this.MtodDesc_Clm.Visible = true;
-         this.MtodDesc_Clm.VisibleIndex = 3;
+         this.MtodDesc_Clm.VisibleIndex = 4;
          this.MtodDesc_Clm.Width = 182;
          // 
          // colMTOD_CODE
@@ -4586,8 +4614,11 @@
          // 
          // colNATL_CODE
          // 
+         this.colNATL_CODE.Caption = "کد تعرفه";
          this.colNATL_CODE.FieldName = "NATL_CODE";
          this.colNATL_CODE.Name = "colNATL_CODE";
+         this.colNATL_CODE.Visible = true;
+         this.colNATL_CODE.VisibleIndex = 5;
          // 
          // colEPIT_TYPE
          // 
@@ -4602,7 +4633,7 @@
          this.colCRET_BY2.Name = "colCRET_BY2";
          this.colCRET_BY2.OptionsColumn.FixedWidth = true;
          this.colCRET_BY2.Visible = true;
-         this.colCRET_BY2.VisibleIndex = 2;
+         this.colCRET_BY2.VisibleIndex = 3;
          this.colCRET_BY2.Width = 31;
          // 
          // MtodActn_Butn
@@ -4645,15 +4676,24 @@
          // 
          // ChckAttnAlrm_Clm
          // 
-         this.ChckAttnAlrm_Clm.Caption = "عدم حضور اپراتور";
+         this.ChckAttnAlrm_Clm.Caption = "سیستم بدون منشی";
          this.ChckAttnAlrm_Clm.ColumnEdit = this.repositoryItemLookUpEdit8;
          this.ChckAttnAlrm_Clm.FieldName = "CHCK_ATTN_ALRM";
          this.ChckAttnAlrm_Clm.Name = "ChckAttnAlrm_Clm";
          this.ChckAttnAlrm_Clm.ToolTip = "برای آن دسته از ورزش هایی مانند استخر که اپراتور حضور ندارد می توانید پیام هشدار " +
     "را به دستگاه ارسال کنید و هیچ پیام خطایی روی سیستم مشاهده نشود";
          this.ChckAttnAlrm_Clm.Visible = true;
-         this.ChckAttnAlrm_Clm.VisibleIndex = 0;
+         this.ChckAttnAlrm_Clm.VisibleIndex = 1;
          this.ChckAttnAlrm_Clm.Width = 79;
+         // 
+         // gridColumn211
+         // 
+         this.gridColumn211.Caption = "وضعیت مشارکتی";
+         this.gridColumn211.ColumnEdit = this.repositoryItemLookUpEdit8;
+         this.gridColumn211.FieldName = "SHAR_STAT";
+         this.gridColumn211.Name = "gridColumn211";
+         this.gridColumn211.Visible = true;
+         this.gridColumn211.VisibleIndex = 0;
          // 
          // panel5
          // 
@@ -12352,7 +12392,8 @@
             this.gridColumn32,
             this.Cbmt1Amnt_Clm,
             this.colUbStrtTime,
-            this.colUbEndTime});
+            this.colUbEndTime,
+            this.gridColumn213});
          styleFormatCondition23.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
          styleFormatCondition23.Appearance.Options.UseBackColor = true;
          styleFormatCondition23.ApplyToRow = true;
@@ -12692,8 +12733,6 @@
          this.Cbmt1ClasTime_Clm.Image = ((System.Drawing.Image)(resources.GetObject("Cbmt1ClasTime_Clm.Image")));
          this.Cbmt1ClasTime_Clm.ImageAlignment = System.Drawing.StringAlignment.Far;
          this.Cbmt1ClasTime_Clm.Name = "Cbmt1ClasTime_Clm";
-         this.Cbmt1ClasTime_Clm.OptionsColumn.AllowEdit = false;
-         this.Cbmt1ClasTime_Clm.OptionsColumn.ReadOnly = true;
          this.Cbmt1ClasTime_Clm.Visible = true;
          this.Cbmt1ClasTime_Clm.VisibleIndex = 1;
          this.Cbmt1ClasTime_Clm.Width = 63;
@@ -12757,6 +12796,14 @@
          this.colUbEndTime.Visible = true;
          this.colUbEndTime.VisibleIndex = 2;
          this.colUbEndTime.Width = 50;
+         // 
+         // gridColumn213
+         // 
+         this.gridColumn213.Caption = "کد تعرفه";
+         this.gridColumn213.FieldName = "NATL_CODE";
+         this.gridColumn213.Name = "gridColumn213";
+         this.gridColumn213.Visible = true;
+         this.gridColumn213.VisibleIndex = 10;
          // 
          // tp_0063
          // 
@@ -14382,7 +14429,7 @@
          // 
          // colCHCK_ATTN_ALRM
          // 
-         this.colCHCK_ATTN_ALRM.Caption = "آیا سیستم منشی دارد";
+         this.colCHCK_ATTN_ALRM.Caption = "سیستم بدون منشی";
          this.colCHCK_ATTN_ALRM.ColumnEdit = this.Ysno_Lov;
          this.colCHCK_ATTN_ALRM.FieldName = "CHCK_ATTN_ALRM";
          this.colCHCK_ATTN_ALRM.Name = "colCHCK_ATTN_ALRM";
@@ -16513,7 +16560,7 @@
             this.repositoryItemLookUpEdit34,
             this.repositoryItemLookUpEdit35,
             this.repositoryItemLookUpEdit36});
-         this.gridControl26.Size = new System.Drawing.Size(989, 194);
+         this.gridControl26.Size = new System.Drawing.Size(989, 558);
          this.gridControl26.TabIndex = 73;
          this.gridControl26.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.Exdv_Gv});
@@ -17268,28 +17315,6 @@
          // OpnFil_Ofd
          // 
          this.OpnFil_Ofd.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.gif;*.tif;...";
-         // 
-         // ProdList_Butn
-         // 
-         this.ProdList_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-         this.ProdList_Butn.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-         this.ProdList_Butn.Appearance.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.ProdList_Butn.Appearance.ForeColor = System.Drawing.Color.Black;
-         this.ProdList_Butn.Appearance.Options.UseBackColor = true;
-         this.ProdList_Butn.Appearance.Options.UseFont = true;
-         this.ProdList_Butn.Appearance.Options.UseForeColor = true;
-         this.ProdList_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1007;
-         this.ProdList_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.ProdList_Butn.Location = new System.Drawing.Point(49, 3);
-         this.ProdList_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.ProdList_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.ProdList_Butn.Name = "ProdList_Butn";
-         this.ProdList_Butn.Size = new System.Drawing.Size(50, 46);
-         this.ProdList_Butn.TabIndex = 2;
-         this.ProdList_Butn.Text = "تعریف کالا";
-         this.ProdList_Butn.ToolTip = "تعریف کالا";
-         this.ProdList_Butn.Click += new System.EventHandler(this.ProdList_Butn_Click);
          // 
          // BAS_DFIN_F
          // 
@@ -18926,6 +18951,8 @@
       private Windows.Forms.ToolStripSeparator toolStripMenuItem10;
       private Windows.Forms.ToolStripMenuItem Gate_Error_Tsm;
       private DevExpress.XtraEditors.SimpleButton ProdList_Butn;
+      private DevExpress.XtraGrid.Columns.GridColumn gridColumn211;
+      private DevExpress.XtraGrid.Columns.GridColumn gridColumn213;
 
    }
 }

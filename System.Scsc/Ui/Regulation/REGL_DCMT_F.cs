@@ -256,7 +256,8 @@ namespace System.Scsc.Ui.Regulation
          _DefaultGateway.Gateway(_InteractWithScsc);
                break;
             case 2:
-               GropBs.DataSource = iScsc.Group_Expenses.ToList();
+               GropBs.DataSource = iScsc.Group_Expenses.Where(ge => ge.GROP_TYPE == "001").ToList();
+               BrndBs.DataSource = iScsc.Group_Expenses.Where(ge => ge.GROP_TYPE == "002").ToList();
                break;
             default:
                break;
@@ -452,7 +453,7 @@ namespace System.Scsc.Ui.Regulation
             var gropcode = Grop_Lov.EditValue;
             if(gropcode == null || gropcode.ToString() == "")return;
 
-            iScsc.UPD_EXPN_P(expn.CODE, expn.PRIC, expn.EXPN_STAT, expn.ADD_QUTS, expn.COVR_DSCT, expn.EXPN_TYPE, expn.BUY_PRIC, expn.BUY_EXTR_PRCT, expn.NUMB_OF_STOK, expn.NUMB_OF_SALE, expn.COVR_TAX, expn.NUMB_OF_ATTN_MONT, expn.NUMB_OF_ATTN_WEEK, expn.MODL_NUMB_BAR_CODE, expn.PRVT_COCH_EXPN, expn.NUMB_CYCL_DAY, expn.NUMB_MONT_OFER, expn.MIN_NUMB, (long)gropcode, expn.EXPN_DESC, expn.MIN_TIME, expn.RELY_CMND);
+            iScsc.UPD_EXPN_P(expn.CODE, expn.PRIC, expn.EXPN_STAT, expn.ADD_QUTS, expn.COVR_DSCT, expn.EXPN_TYPE, expn.BUY_PRIC, expn.BUY_EXTR_PRCT, expn.NUMB_OF_STOK, expn.NUMB_OF_SALE, expn.COVR_TAX, expn.NUMB_OF_ATTN_MONT, expn.NUMB_OF_ATTN_WEEK, expn.MODL_NUMB_BAR_CODE, expn.PRVT_COCH_EXPN, expn.NUMB_CYCL_DAY, expn.NUMB_MONT_OFER, expn.MIN_NUMB, (long)gropcode, expn.EXPN_DESC, expn.MIN_TIME, expn.RELY_CMND, expn.ORDR_ITEM, expn.BRND_CODE);
          }
          catch { }
       }
@@ -464,7 +465,7 @@ namespace System.Scsc.Ui.Regulation
             var expn = ExpnBs.Current as Data.Expense;
             if (expn == null) return;
 
-            iScsc.UPD_EXPN_P(expn.CODE, expn.PRIC, expn.EXPN_STAT, expn.ADD_QUTS, expn.COVR_DSCT, expn.EXPN_TYPE, expn.BUY_PRIC, expn.BUY_EXTR_PRCT, expn.NUMB_OF_STOK, expn.NUMB_OF_SALE, expn.COVR_TAX, expn.NUMB_OF_ATTN_MONT, expn.NUMB_OF_ATTN_WEEK, expn.MODL_NUMB_BAR_CODE, expn.PRVT_COCH_EXPN, expn.NUMB_CYCL_DAY, expn.NUMB_MONT_OFER, expn.MIN_NUMB, null, expn.EXPN_DESC, expn.MIN_TIME, expn.RELY_CMND);
+            iScsc.UPD_EXPN_P(expn.CODE, expn.PRIC, expn.EXPN_STAT, expn.ADD_QUTS, expn.COVR_DSCT, expn.EXPN_TYPE, expn.BUY_PRIC, expn.BUY_EXTR_PRCT, expn.NUMB_OF_STOK, expn.NUMB_OF_SALE, expn.COVR_TAX, expn.NUMB_OF_ATTN_MONT, expn.NUMB_OF_ATTN_WEEK, expn.MODL_NUMB_BAR_CODE, expn.PRVT_COCH_EXPN, expn.NUMB_CYCL_DAY, expn.NUMB_MONT_OFER, expn.MIN_NUMB, null, expn.EXPN_DESC, expn.MIN_TIME, expn.RELY_CMND, expn.ORDR_ITEM, expn.BRND_CODE);
          }
          catch { }
       }
@@ -591,6 +592,45 @@ namespace System.Scsc.Ui.Regulation
                 new Job(SendType.SelfToUserInterface, "BAS_DFIN_F", 10 /* Actn_CalF_P */)
               });
          _DefaultGateway.Gateway(_InteractWithScsc);
+      }
+
+      private void BackExtp_Butn_Click(object sender, EventArgs e)
+      {
+         Extp_gv.MovePrev();
+         //EXTPBS.MovePrevious();
+      }
+
+      private void NextExtp_Butn_Click(object sender, EventArgs e)
+      {
+         Extp_gv.MoveNext();
+         //EXTPBS.MoveNext();
+      }
+
+      private void BrndLng_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var expn = ExpnBs.Current as Data.Expense;
+            if (expn == null) return;
+
+            var brndcode = Brnd_Lov.EditValue;
+            if (brndcode == null || brndcode.ToString() == "") return;
+
+            iScsc.UPD_EXPN_P(expn.CODE, expn.PRIC, expn.EXPN_STAT, expn.ADD_QUTS, expn.COVR_DSCT, expn.EXPN_TYPE, expn.BUY_PRIC, expn.BUY_EXTR_PRCT, expn.NUMB_OF_STOK, expn.NUMB_OF_SALE, expn.COVR_TAX, expn.NUMB_OF_ATTN_MONT, expn.NUMB_OF_ATTN_WEEK, expn.MODL_NUMB_BAR_CODE, expn.PRVT_COCH_EXPN, expn.NUMB_CYCL_DAY, expn.NUMB_MONT_OFER, expn.MIN_NUMB, expn.GROP_CODE, expn.EXPN_DESC, expn.MIN_TIME, expn.RELY_CMND, expn.ORDR_ITEM, (long)brndcode);
+         }
+         catch { }
+      }
+
+      private void DelBrnd_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var expn = ExpnBs.Current as Data.Expense;
+            if (expn == null) return;
+
+            iScsc.UPD_EXPN_P(expn.CODE, expn.PRIC, expn.EXPN_STAT, expn.ADD_QUTS, expn.COVR_DSCT, expn.EXPN_TYPE, expn.BUY_PRIC, expn.BUY_EXTR_PRCT, expn.NUMB_OF_STOK, expn.NUMB_OF_SALE, expn.COVR_TAX, expn.NUMB_OF_ATTN_MONT, expn.NUMB_OF_ATTN_WEEK, expn.MODL_NUMB_BAR_CODE, expn.PRVT_COCH_EXPN, expn.NUMB_CYCL_DAY, expn.NUMB_MONT_OFER, expn.MIN_NUMB, expn.GROP_CODE, expn.EXPN_DESC, expn.MIN_TIME, expn.RELY_CMND, expn.ORDR_ITEM, null);
+         }
+         catch { }
       }
    }
 }

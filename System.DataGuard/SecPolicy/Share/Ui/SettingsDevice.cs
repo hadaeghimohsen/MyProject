@@ -16,6 +16,7 @@ using System.Runtime.InteropServices;
 using libzkfpcsharp;
 using System.Threading;
 using System.IO;
+using System.IO.Ports;
 
 namespace System.DataGuard.SecPolicy.Share.Ui
 {
@@ -99,6 +100,12 @@ namespace System.DataGuard.SecPolicy.Share.Ui
          {
             ActiveSessionBs.DataSource = iProject.Active_Sessions.Where(a => a.RWNO == iProject.Active_Sessions.Where(at => at.USGW_GTWY_MAC_ADRS == a.USGW_GTWY_MAC_ADRS && at.USGW_USER_ID == a.USGW_USER_ID && at.USGW_RWNO == a.USGW_RWNO && at.AUDS_ID == a.AUDS_ID && at.ACTN_DATE.Value.Date == a.ACTN_DATE.Value.Date).Max(at => at.RWNO));
             CreateActiveSessionMenu();
+         }
+         else if (Tb_Master.SelectedTab == tp_002)
+         {
+            PortList_Cb.Items.Clear();
+            PortList_Cb.Items.AddRange(SerialPort.GetPortNames());
+            BandRate_Txt.Text = "9600";
          }
          else if(Tb_Master.SelectedTab == tp_003)
          {
@@ -238,6 +245,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
          public string Status { get; set; }
          public DateTime StartDateTime { get; set; }
          public DateTime EndDateTime { get; set; }
+         public string Oprt_Stat { get; set; }
       }
 
       private CZKEMClass iFngrMstr = new CZKEMClass();
@@ -387,10 +395,11 @@ namespace System.DataGuard.SecPolicy.Share.Ui
          }
       }
 
-      private void SyncAllDev_Butn_Click(object sender, EventArgs e)
+      private void SyncAllDevByFngrPrnt_Butn_Click(object sender, EventArgs e)
       {
          try
          {
+            if (MessageBox.Show(this, "آیا با انجام عملیات ارسال اثر انگشت موافق هستید؟", "هشدار", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes) return;
             string tmpData = "";
             int tmplen = 0;
             int flag = 0;
@@ -409,12 +418,18 @@ namespace System.DataGuard.SecPolicy.Share.Ui
                if(iFngrSlavIsCnct)
                {
                   dev.Status = "Connected";
+                  dev.Oprt_Stat = "002";
                   var result = iFngrSlav.SSR_SetUserInfo(1, UserId_Txt.Text, UserName_Txt.Text, "", 0, true);
                   result = iFngrSlav.SetUserTmpExStr(1, UserId_Txt.Text, Convert.ToInt32(FngrIndx_Txt.Text), flag, tmpData);
                   //if(result)
                   //{
                   //   MessageBox.Show("Enroll Successfully  done");
                   //}
+               }
+               else
+               {
+                  dev.Status = "NotConnected!";
+                  dev.Oprt_Stat = "001";
                }
             }
             MessageBox.Show("ارسال اثر انگشت با موفقیت انجام شد");
@@ -925,6 +940,187 @@ namespace System.DataGuard.SecPolicy.Share.Ui
       }
 
       #endregion
+
+      private void OpenClosPort_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var butn = sender as Button;
+
+            switch(butn.Tag.ToString())
+            {
+               case "close":
+                  if(PortList_Cb.Text != "")
+                  {
+                     CardRedrDev_Sp.PortName = PortList_Cb.Text;
+                     CardRedrDev_Sp.BaudRate = Convert.ToInt32(BandRate_Txt.Text);
+
+                     CardRedrDev_Sp.Open();
+
+                     if(CardRedrDev_Sp.IsOpen)
+                     {
+                        butn.Tag = "open";
+                        butn.Text = "قطع ارتباط";
+                     }
+                  }
+                  break;
+               case "open":
+                  if (CardRedrDev_Sp.IsOpen)
+                  {
+                     butn.Tag = "close";
+                     butn.Text = "اتصال به دستگاه کارتخوان";
+                     CardRedrDev_Sp.Close();
+                  }
+                  break;
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
       #endregion
+
+      private void CardRedrDev_Sp_DataReceived(object sender, IO.Ports.SerialDataReceivedEventArgs e)
+      {
+         try
+         {
+            if (InvokeRequired)
+               Invoke(new Action(() =>
+               {
+                  CardNumb_Txt.Text = CardRedrDev_Sp.ReadLine();
+
+                  if (CardNumb_Txt.Text.IndexOf('\r') != -1)
+                     CardNumb_Txt.Text = CardNumb_Txt.Text.Substring(0, CardNumb_Txt.Text.IndexOf('\r'));
+               }));
+            else
+            {
+               CardNumb_Txt.Text = CardRedrDev_Sp.ReadLine();
+               
+               if (CardNumb_Txt.Text.IndexOf('\r') != -1)
+                  CardNumb_Txt.Text = CardNumb_Txt.Text.Substring(0, CardNumb_Txt.Text.IndexOf('\r'));
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void SyncAllDevByCardNumb_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            if (MessageBox.Show(this, "آیا با انجام عملیات ارسال شماره کارت موافق هستید؟", "هشدار", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes) return;
+
+            foreach (var dev in DevInfoBs.List.OfType<DeviceInfo>())
+            {
+               iFngrSlavIsCnct = iFngrSlav.Connect_Net(dev.IP, dev.Port);
+               if (iFngrSlavIsCnct)
+               {
+                  dev.Status = "Connected";                  
+                  int idwErrorCode = 0;
+
+                  bool bEnabled = true;
+                  int iMachineNumber = 1;//In fact,when you are using the tcp/ip communication,this parameter will be ignored,that is any integer will all right.Here we use 1.
+                  Cursor = Cursors.WaitCursor;
+                  iFngrSlav.EnableDevice(iMachineNumber, false);
+
+                  iFngrSlav.SetStrCardNumber(CardNumb_Txt.Text);//Before you using function SetUserInfo,set the card number to make sure you can upload it to the device
+                  if (iFngrSlav.SSR_SetUserInfo(iMachineNumber, UserId_Txt.Text, UserName_Txt.Text, "", 0, bEnabled))//upload the user's information(card number included)
+                  {
+                     dev.Oprt_Stat = "002";
+                  }
+                  else
+                  {
+                     dev.Oprt_Stat = "001";
+                     iFngrSlav.GetLastError(ref idwErrorCode);
+                     MessageBox.Show("Operation failed,ErrorCode=" + idwErrorCode.ToString(), "Error");
+                  }
+                  iFngrSlav.RefreshData(iMachineNumber);//the data in the device should be refreshed
+                  iFngrSlav.EnableDevice(iMachineNumber, true);
+                  Cursor = Cursors.Default;
+               }
+               else
+               {
+                  dev.Status = "NotConnected!";
+                  dev.Oprt_Stat = "001";
+               }
+            }
+            MessageBox.Show("ارسال شماره کارت به دستگاه با موفقیت انجام شد");
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void SyncAllDevByClerFngrPrnt_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            if (MessageBox.Show(this, "آیا با انجام عملیات حذف اثر انگشت موافق هستید؟", "هشدار", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes) return;
+            foreach (var dev in DevInfoBs.List.OfType<DeviceInfo>())
+            {
+               iFngrSlavIsCnct = iFngrSlav.Connect_Net(dev.IP, dev.Port);
+               if (iFngrSlavIsCnct)
+               {
+                  dev.Status = "Connected";
+                  
+                  Cursor = Cursors.WaitCursor;
+                  iFngrSlav.SSR_DelUserTmpExt(1, UserId_Txt.Text, Convert.ToInt32(FngrIndx_Txt.Text));
+                  iFngrSlav.DeleteUserInfoEx(1, Convert.ToInt32(UserId_Txt.Text));
+                  iFngrSlav.ClearSLog(1);
+
+                  dev.Oprt_Stat = "002";
+                  Cursor = Cursors.Default;
+               }
+               else
+               {
+                  dev.Status = "NotConnected!";
+                  dev.Oprt_Stat = "001";
+               }
+            }
+            MessageBox.Show("حذف اثر انگشت از دستگاه با موفقیت انجام شد");
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void SyncAllDevByDelEnrlData_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            if (MessageBox.Show(this, "آیا با انجام عملیات حذف کامل کاربر موافق هستید؟", "هشدار", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes) return;
+            foreach (var dev in DevInfoBs.List.OfType<DeviceInfo>())
+            {
+               iFngrSlavIsCnct = iFngrSlav.Connect_Net(dev.IP, dev.Port);
+               if (iFngrSlavIsCnct)
+               {
+                  dev.Status = "Connected";
+
+                  Cursor = Cursors.WaitCursor;
+                  iFngrSlav.SSR_DelUserTmpExt(1, UserId_Txt.Text, Convert.ToInt32(FngrIndx_Txt.Text));
+                  iFngrSlav.SSR_DeleteEnrollDataExt(1, UserId_Txt.Text, 1);
+                  iFngrSlav.ClearSLog(1);
+
+                  dev.Oprt_Stat = "002";
+                  Cursor = Cursors.Default;
+               }
+               else
+               {
+                  dev.Status = "NotConnected!";
+                  dev.Oprt_Stat = "001";
+               }
+            }
+            MessageBox.Show("حذف کامل اطلاعات کاربر از دستگاه با موفقیت انجام شد");
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
    }
 }

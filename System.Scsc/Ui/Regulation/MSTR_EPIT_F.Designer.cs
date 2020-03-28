@@ -63,15 +63,14 @@
          this.colMDFY_DATE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
          this.backstageViewClientControl2 = new DevExpress.XtraBars.Ribbon.BackstageViewClientControl();
-         this.group_ExpenseGridControl = new DevExpress.XtraGrid.GridControl();
+         this.Gexp_tre = new DevExpress.XtraTreeList.TreeList();
+         this.colGROP_DESC1 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+         this.colCRET_BY2 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+         this.colCRET_DATE2 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+         this.colMDFY_BY2 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+         this.colMDFY_DATE2 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+         this.colORDR = new DevExpress.XtraTreeList.Columns.TreeListColumn();
          this.GropBs2 = new System.Windows.Forms.BindingSource(this.components);
-         this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-         this.colCODE1 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colGROP_DESC = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colCRET_BY1 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colCRET_DATE1 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colMDFY_BY1 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colMDFY_DATE1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.GropBn2 = new System.Windows.Forms.BindingNavigator(this.components);
          this.GropBnAdd1 = new System.Windows.Forms.ToolStripButton();
          this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
@@ -84,12 +83,16 @@
          this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
          this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
          this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+         this.AddSubGrop_Butn = new System.Windows.Forms.ToolStripButton();
          this.GropBnAReload1 = new System.Windows.Forms.ToolStripButton();
          this.GropBnASav1 = new System.Windows.Forms.ToolStripButton();
          this.StngBnExit1 = new System.Windows.Forms.ToolStripButton();
          this.backstageViewButtonItem1 = new DevExpress.XtraBars.Ribbon.BackstageViewButtonItem();
          this.backstageViewTabItem1 = new DevExpress.XtraBars.Ribbon.BackstageViewTabItem();
          this.backstageViewTabItem2 = new DevExpress.XtraBars.Ribbon.BackstageViewTabItem();
+         this.DGptpBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.colGROP_TYPE = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+         this.repositoryItemLookUpEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
          this.Info_Bskt.SuspendLayout();
          this.backstageViewClientControl1.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.expense_ItemBindingNavigator)).BeginInit();
@@ -101,11 +104,12 @@
          ((System.ComponentModel.ISupportInitialize)(this.DittpBs1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemGridLookUpEdit1View)).BeginInit();
          this.backstageViewClientControl2.SuspendLayout();
-         ((System.ComponentModel.ISupportInitialize)(this.group_ExpenseGridControl)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.Gexp_tre)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.GropBs2)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.GropBn2)).BeginInit();
          this.GropBn2.SuspendLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.DGptpBs1)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit1)).BeginInit();
          this.SuspendLayout();
          // 
          // Info_Bskt
@@ -119,9 +123,9 @@
          this.Info_Bskt.Items.Add(this.backstageViewTabItem2);
          this.Info_Bskt.Location = new System.Drawing.Point(0, 0);
          this.Info_Bskt.Name = "Info_Bskt";
-         this.Info_Bskt.SelectedTab = this.backstageViewTabItem1;
-         this.Info_Bskt.SelectedTabIndex = 1;
-         this.Info_Bskt.Size = new System.Drawing.Size(854, 658);
+         this.Info_Bskt.SelectedTab = this.backstageViewTabItem2;
+         this.Info_Bskt.SelectedTabIndex = 2;
+         this.Info_Bskt.Size = new System.Drawing.Size(855, 658);
          this.Info_Bskt.TabIndex = 0;
          this.Info_Bskt.Text = "backstageViewControl1";
          // 
@@ -135,7 +139,7 @@
          this.backstageViewClientControl1.Controls.Add(this.labelControl1);
          this.backstageViewClientControl1.Location = new System.Drawing.Point(180, 0);
          this.backstageViewClientControl1.Name = "backstageViewClientControl1";
-         this.backstageViewClientControl1.Size = new System.Drawing.Size(674, 658);
+         this.backstageViewClientControl1.Size = new System.Drawing.Size(675, 658);
          this.backstageViewClientControl1.TabIndex = 0;
          // 
          // Btn_Back
@@ -190,7 +194,7 @@
          this.expense_ItemBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
          this.expense_ItemBindingNavigator.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
          this.expense_ItemBindingNavigator.RightToLeft = System.Windows.Forms.RightToLeft.No;
-         this.expense_ItemBindingNavigator.Size = new System.Drawing.Size(278, 25);
+         this.expense_ItemBindingNavigator.Size = new System.Drawing.Size(277, 25);
          this.expense_ItemBindingNavigator.TabIndex = 1;
          this.expense_ItemBindingNavigator.Text = "bindingNavigator1";
          // 
@@ -210,7 +214,7 @@
          // bindingNavigatorCountItem
          // 
          this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-         this.bindingNavigatorCountItem.Size = new System.Drawing.Size(35, 22);
+         this.bindingNavigatorCountItem.Size = new System.Drawing.Size(34, 22);
          this.bindingNavigatorCountItem.Text = "of {0}";
          this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
          // 
@@ -462,87 +466,79 @@
          // 
          // backstageViewClientControl2
          // 
-         this.backstageViewClientControl2.Controls.Add(this.group_ExpenseGridControl);
+         this.backstageViewClientControl2.Controls.Add(this.Gexp_tre);
          this.backstageViewClientControl2.Controls.Add(this.GropBn2);
          this.backstageViewClientControl2.Location = new System.Drawing.Point(180, 0);
          this.backstageViewClientControl2.Name = "backstageViewClientControl2";
-         this.backstageViewClientControl2.Size = new System.Drawing.Size(674, 658);
+         this.backstageViewClientControl2.Size = new System.Drawing.Size(675, 658);
          this.backstageViewClientControl2.TabIndex = 1;
          // 
-         // group_ExpenseGridControl
+         // Gexp_tre
          // 
-         this.group_ExpenseGridControl.DataSource = this.GropBs2;
-         this.group_ExpenseGridControl.Dock = System.Windows.Forms.DockStyle.Fill;
-         this.group_ExpenseGridControl.Location = new System.Drawing.Point(0, 47);
-         this.group_ExpenseGridControl.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
-         this.group_ExpenseGridControl.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.group_ExpenseGridControl.MainView = this.gridView1;
-         this.group_ExpenseGridControl.Name = "group_ExpenseGridControl";
-         this.group_ExpenseGridControl.Size = new System.Drawing.Size(674, 611);
-         this.group_ExpenseGridControl.TabIndex = 2;
-         this.group_ExpenseGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView1});
+         this.Gexp_tre.Columns.AddRange(new DevExpress.XtraTreeList.Columns.TreeListColumn[] {
+            this.colGROP_DESC1,
+            this.colCRET_BY2,
+            this.colCRET_DATE2,
+            this.colMDFY_BY2,
+            this.colMDFY_DATE2,
+            this.colORDR,
+            this.colGROP_TYPE});
+         this.Gexp_tre.DataSource = this.GropBs2;
+         this.Gexp_tre.Dock = System.Windows.Forms.DockStyle.Fill;
+         this.Gexp_tre.KeyFieldName = "CODE";
+         this.Gexp_tre.Location = new System.Drawing.Point(0, 47);
+         this.Gexp_tre.Name = "Gexp_tre";
+         this.Gexp_tre.ParentFieldName = "GEXP_CODE";
+         this.Gexp_tre.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.repositoryItemLookUpEdit1});
+         this.Gexp_tre.Size = new System.Drawing.Size(675, 611);
+         this.Gexp_tre.TabIndex = 3;
+         // 
+         // colGROP_DESC1
+         // 
+         this.colGROP_DESC1.Caption = "عنوان گروه";
+         this.colGROP_DESC1.FieldName = "GROP_DESC";
+         this.colGROP_DESC1.Name = "colGROP_DESC1";
+         this.colGROP_DESC1.Visible = true;
+         this.colGROP_DESC1.VisibleIndex = 2;
+         this.colGROP_DESC1.Width = 491;
+         // 
+         // colCRET_BY2
+         // 
+         this.colCRET_BY2.FieldName = "CRET_BY";
+         this.colCRET_BY2.Name = "colCRET_BY2";
+         this.colCRET_BY2.Width = 64;
+         // 
+         // colCRET_DATE2
+         // 
+         this.colCRET_DATE2.FieldName = "CRET_DATE";
+         this.colCRET_DATE2.Name = "colCRET_DATE2";
+         this.colCRET_DATE2.Width = 64;
+         // 
+         // colMDFY_BY2
+         // 
+         this.colMDFY_BY2.FieldName = "MDFY_BY";
+         this.colMDFY_BY2.Name = "colMDFY_BY2";
+         this.colMDFY_BY2.Width = 64;
+         // 
+         // colMDFY_DATE2
+         // 
+         this.colMDFY_DATE2.FieldName = "MDFY_DATE";
+         this.colMDFY_DATE2.Name = "colMDFY_DATE2";
+         this.colMDFY_DATE2.Width = 64;
+         // 
+         // colORDR
+         // 
+         this.colORDR.Caption = "ترتیب";
+         this.colORDR.FieldName = "ORDR";
+         this.colORDR.Name = "colORDR";
+         this.colORDR.Visible = true;
+         this.colORDR.VisibleIndex = 0;
+         this.colORDR.Width = 77;
          // 
          // GropBs2
          // 
          this.GropBs2.DataSource = typeof(System.Scsc.Data.Group_Expense);
-         // 
-         // gridView1
-         // 
-         this.gridView1.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.gridView1.Appearance.HeaderPanel.Options.UseFont = true;
-         this.gridView1.Appearance.HeaderPanel.Options.UseTextOptions = true;
-         this.gridView1.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-         this.gridView1.Appearance.Row.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.gridView1.Appearance.Row.Options.UseFont = true;
-         this.gridView1.Appearance.Row.Options.UseTextOptions = true;
-         this.gridView1.Appearance.Row.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-         this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colCODE1,
-            this.colGROP_DESC,
-            this.colCRET_BY1,
-            this.colCRET_DATE1,
-            this.colMDFY_BY1,
-            this.colMDFY_DATE1});
-         this.gridView1.GridControl = this.group_ExpenseGridControl;
-         this.gridView1.Name = "gridView1";
-         this.gridView1.OptionsSelection.EnableAppearanceFocusedCell = false;
-         this.gridView1.OptionsView.ShowDetailButtons = false;
-         this.gridView1.OptionsView.ShowGroupPanel = false;
-         this.gridView1.OptionsView.ShowIndicator = false;
-         // 
-         // colCODE1
-         // 
-         this.colCODE1.FieldName = "CODE";
-         this.colCODE1.Name = "colCODE1";
-         // 
-         // colGROP_DESC
-         // 
-         this.colGROP_DESC.Caption = "نام گروه هزینه";
-         this.colGROP_DESC.FieldName = "GROP_DESC";
-         this.colGROP_DESC.Name = "colGROP_DESC";
-         this.colGROP_DESC.Visible = true;
-         this.colGROP_DESC.VisibleIndex = 0;
-         // 
-         // colCRET_BY1
-         // 
-         this.colCRET_BY1.FieldName = "CRET_BY";
-         this.colCRET_BY1.Name = "colCRET_BY1";
-         // 
-         // colCRET_DATE1
-         // 
-         this.colCRET_DATE1.FieldName = "CRET_DATE";
-         this.colCRET_DATE1.Name = "colCRET_DATE1";
-         // 
-         // colMDFY_BY1
-         // 
-         this.colMDFY_BY1.FieldName = "MDFY_BY";
-         this.colMDFY_BY1.Name = "colMDFY_BY1";
-         // 
-         // colMDFY_DATE1
-         // 
-         this.colMDFY_DATE1.FieldName = "MDFY_DATE";
-         this.colMDFY_DATE1.Name = "colMDFY_DATE1";
          // 
          // GropBn2
          // 
@@ -563,6 +559,7 @@
             this.toolStripButton4,
             this.toolStripSeparator3,
             this.GropBnAdd1,
+            this.AddSubGrop_Butn,
             this.GropBnADel1,
             this.GropBnAReload1,
             this.GropBnASav1,
@@ -575,7 +572,7 @@
          this.GropBn2.Name = "GropBn2";
          this.GropBn2.PositionItem = this.toolStripTextBox1;
          this.GropBn2.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-         this.GropBn2.Size = new System.Drawing.Size(674, 47);
+         this.GropBn2.Size = new System.Drawing.Size(675, 47);
          this.GropBn2.TabIndex = 2;
          // 
          // GropBnAdd1
@@ -591,7 +588,7 @@
          // toolStripLabel1
          // 
          this.toolStripLabel1.Name = "toolStripLabel1";
-         this.toolStripLabel1.Size = new System.Drawing.Size(35, 44);
+         this.toolStripLabel1.Size = new System.Drawing.Size(34, 44);
          this.toolStripLabel1.Text = "of {0}";
          this.toolStripLabel1.ToolTipText = "Total number of items";
          // 
@@ -666,6 +663,16 @@
          this.toolStripSeparator3.Name = "toolStripSeparator3";
          this.toolStripSeparator3.Size = new System.Drawing.Size(6, 47);
          // 
+         // AddSubGrop_Butn
+         // 
+         this.AddSubGrop_Butn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+         this.AddSubGrop_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1101;
+         this.AddSubGrop_Butn.ImageTransparentColor = System.Drawing.Color.Magenta;
+         this.AddSubGrop_Butn.Name = "AddSubGrop_Butn";
+         this.AddSubGrop_Butn.Size = new System.Drawing.Size(44, 44);
+         this.AddSubGrop_Butn.Text = "تعریف زیر مجموعه";
+         this.AddSubGrop_Butn.Click += new System.EventHandler(this.AddSubGrop_Butn_Click);
+         // 
          // GropBnAReload1
          // 
          this.GropBnAReload1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -710,7 +717,7 @@
          this.backstageViewTabItem1.Caption = "آیتم ها هزینه";
          this.backstageViewTabItem1.ContentControl = this.backstageViewClientControl1;
          this.backstageViewTabItem1.Name = "backstageViewTabItem1";
-         this.backstageViewTabItem1.Selected = true;
+         this.backstageViewTabItem1.Selected = false;
          // 
          // backstageViewTabItem2
          // 
@@ -718,7 +725,35 @@
          this.backstageViewTabItem2.ContentControl = this.backstageViewClientControl2;
          this.backstageViewTabItem2.Glyph = ((System.Drawing.Image)(resources.GetObject("backstageViewTabItem2.Glyph")));
          this.backstageViewTabItem2.Name = "backstageViewTabItem2";
-         this.backstageViewTabItem2.Selected = false;
+         this.backstageViewTabItem2.Selected = true;
+         // 
+         // DGptpBs1
+         // 
+         this.DGptpBs1.DataSource = typeof(System.Scsc.Data.D_GPTP);
+         // 
+         // colGROP_TYPE
+         // 
+         this.colGROP_TYPE.Caption = "نوع گروه";
+         this.colGROP_TYPE.ColumnEdit = this.repositoryItemLookUpEdit1;
+         this.colGROP_TYPE.FieldName = "GROP_TYPE";
+         this.colGROP_TYPE.Name = "colGROP_TYPE";
+         this.colGROP_TYPE.Visible = true;
+         this.colGROP_TYPE.VisibleIndex = 1;
+         this.colGROP_TYPE.Width = 89;
+         // 
+         // repositoryItemLookUpEdit1
+         // 
+         this.repositoryItemLookUpEdit1.AutoHeight = false;
+         this.repositoryItemLookUpEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+         this.repositoryItemLookUpEdit1.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("VALU", "VALU", 48, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("DOMN_DESC", "عنوان", 72, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near)});
+         this.repositoryItemLookUpEdit1.DataSource = this.DGptpBs1;
+         this.repositoryItemLookUpEdit1.DisplayMember = "DOMN_DESC";
+         this.repositoryItemLookUpEdit1.Name = "repositoryItemLookUpEdit1";
+         this.repositoryItemLookUpEdit1.NullText = "";
+         this.repositoryItemLookUpEdit1.ValueMember = "VALU";
          // 
          // MSTR_EPIT_F
          // 
@@ -727,7 +762,7 @@
          this.Controls.Add(this.Info_Bskt);
          this.Name = "MSTR_EPIT_F";
          this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-         this.Size = new System.Drawing.Size(854, 658);
+         this.Size = new System.Drawing.Size(855, 658);
          this.Info_Bskt.ResumeLayout(false);
          this.backstageViewClientControl1.ResumeLayout(false);
          this.backstageViewClientControl1.PerformLayout();
@@ -742,12 +777,13 @@
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemGridLookUpEdit1View)).EndInit();
          this.backstageViewClientControl2.ResumeLayout(false);
          this.backstageViewClientControl2.PerformLayout();
-         ((System.ComponentModel.ISupportInitialize)(this.group_ExpenseGridControl)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.Gexp_tre)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.GropBs2)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.GropBn2)).EndInit();
          this.GropBn2.ResumeLayout(false);
          this.GropBn2.PerformLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.DGptpBs1)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit1)).EndInit();
          this.ResumeLayout(false);
 
       }
@@ -805,14 +841,17 @@
       private Windows.Forms.ToolStripButton StngBnExit1;
       private Windows.Forms.ToolStripButton GropBnAdd1;
       private Windows.Forms.ToolStripButton GropBnADel1;
-      private DevExpress.XtraGrid.GridControl group_ExpenseGridControl;
       private Windows.Forms.BindingSource GropBs2;
-      private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
-      private DevExpress.XtraGrid.Columns.GridColumn colCODE1;
-      private DevExpress.XtraGrid.Columns.GridColumn colGROP_DESC;
-      private DevExpress.XtraGrid.Columns.GridColumn colCRET_BY1;
-      private DevExpress.XtraGrid.Columns.GridColumn colCRET_DATE1;
-      private DevExpress.XtraGrid.Columns.GridColumn colMDFY_BY1;
-      private DevExpress.XtraGrid.Columns.GridColumn colMDFY_DATE1;
+      private DevExpress.XtraTreeList.TreeList Gexp_tre;
+      private DevExpress.XtraTreeList.Columns.TreeListColumn colGROP_DESC1;
+      private DevExpress.XtraTreeList.Columns.TreeListColumn colCRET_BY2;
+      private DevExpress.XtraTreeList.Columns.TreeListColumn colCRET_DATE2;
+      private DevExpress.XtraTreeList.Columns.TreeListColumn colMDFY_BY2;
+      private DevExpress.XtraTreeList.Columns.TreeListColumn colMDFY_DATE2;
+      private Windows.Forms.ToolStripButton AddSubGrop_Butn;
+      private DevExpress.XtraTreeList.Columns.TreeListColumn colORDR;
+      private Windows.Forms.BindingSource DGptpBs1;
+      private DevExpress.XtraTreeList.Columns.TreeListColumn colGROP_TYPE;
+      private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repositoryItemLookUpEdit1;
    }
 }

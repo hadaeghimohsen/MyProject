@@ -28,6 +28,7 @@
       /// </summary>
       private void InitializeComponent()
       {
+         this.components = new System.ComponentModel.Container();
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LSI_FLDF_F));
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
@@ -129,7 +130,7 @@
          this.CellPhon1_Lb = new System.Windows.Forms.Label();
          this.TellPhon1_Lb = new System.Windows.Forms.Label();
          this.NatlCode1_Lb = new System.Windows.Forms.Label();
-         this.vF_Fighs = new System.Windows.Forms.BindingSource();
+         this.vF_Fighs = new System.Windows.Forms.BindingSource(this.components);
          this.vF_Last_Info_FighterResultGridControl = new DevExpress.XtraGrid.GridControl();
          this.PBLC = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colFILE_NO = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -207,7 +208,7 @@
          this.TrnsFngrPrnt_Butn = new System.MaxUi.NewMaxBtn();
          this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
          this.SuntCode_Lov = new DevExpress.XtraEditors.SearchLookUpEdit();
-         this.SuntBs1 = new System.Windows.Forms.BindingSource();
+         this.SuntBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.searchLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colBUNT_DEPT_ORGN_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colBUNT_DEPT_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -243,11 +244,11 @@
          this.splitContainerControl2 = new DevExpress.XtraEditors.SplitContainerControl();
          this.Cycl_Gb = new System.Windows.Forms.GroupBox();
          this.Mbsp_gc = new DevExpress.XtraGrid.GridControl();
-         this.MbspBs = new System.Windows.Forms.BindingSource();
+         this.MbspBs = new System.Windows.Forms.BindingSource(this.components);
          this.Mbsp_gv = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.CochFileNo_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
          this.repositoryItemLookUpEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-         this.CochBs1 = new System.Windows.Forms.BindingSource();
+         this.CochBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.MtodCode_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
          this.CtgyCode_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
          this.CyclRwno_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -285,7 +286,7 @@
          this.DadPhon01_Txt = new DevExpress.XtraEditors.TextEdit();
          this.label1 = new System.Windows.Forms.Label();
          this.CellPhon01_Txt = new DevExpress.XtraEditors.TextEdit();
-         this.AllMenu_Cmn = new System.Windows.Forms.ContextMenuStrip();
+         this.AllMenu_Cmn = new System.Windows.Forms.ContextMenuStrip(this.components);
          this.RqstBnFignInfo_Lb = new System.Windows.Forms.ToolStripMenuItem();
          this.RqstBnFighInfo = new System.Windows.Forms.ToolStripMenuItem();
          this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
@@ -302,6 +303,7 @@
          this.RqstBnEditPblc = new System.Windows.Forms.ToolStripMenuItem();
          this.RqstBnInsr = new System.Windows.Forms.ToolStripMenuItem();
          this.RqstBnBlok = new System.Windows.Forms.ToolStripMenuItem();
+         this.RqstBnGrnt = new System.Windows.Forms.ToolStripMenuItem();
          this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripSeparator();
          this.ارسالپیامکToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
          this.SmsBnBrthDate = new System.Windows.Forms.ToolStripMenuItem();
@@ -418,7 +420,6 @@
          this.toolStripMenuItem64 = new System.Windows.Forms.ToolStripMenuItem();
          this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
          this.toolStripMenuItem65 = new System.Windows.Forms.ToolStripMenuItem();
-         this.RqstBnGrnt = new System.Windows.Forms.ToolStripMenuItem();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit1.CalendarTimeProperties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.AttnMbsp_Butn)).BeginInit();
@@ -1318,7 +1319,7 @@
          // 
          // ChatId_Clm
          // 
-         this.ChatId_Clm.Caption = "کد تلگرام";
+         this.ChatId_Clm.Caption = "کد بله";
          this.ChatId_Clm.FieldName = "CHAT_ID_DNRM";
          this.ChatId_Clm.Name = "ChatId_Clm";
          this.ChatId_Clm.Visible = true;
@@ -2903,7 +2904,7 @@
             this.toolStripMenuItem35});
          this.AllMenu_Cmn.Name = "AllMenu_Cmn";
          this.AllMenu_Cmn.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-         this.AllMenu_Cmn.Size = new System.Drawing.Size(230, 254);
+         this.AllMenu_Cmn.Size = new System.Drawing.Size(230, 232);
          // 
          // RqstBnFignInfo_Lb
          // 
@@ -3068,6 +3069,15 @@
          this.RqstBnBlok.Size = new System.Drawing.Size(241, 54);
          this.RqstBnBlok.Text = "بلوکه کردن";
          this.RqstBnBlok.Click += new System.EventHandler(this.RqstBnBlok_Click);
+         // 
+         // RqstBnGrnt
+         // 
+         this.RqstBnGrnt.Image = global::System.Scsc.Properties.Resources.IMAGE_1100;
+         this.RqstBnGrnt.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+         this.RqstBnGrnt.Name = "RqstBnGrnt";
+         this.RqstBnGrnt.Size = new System.Drawing.Size(241, 54);
+         this.RqstBnGrnt.Text = "خدمات گارانتی";
+         this.RqstBnGrnt.Click += new System.EventHandler(this.RqstBnGrnt_Click);
          // 
          // toolStripMenuItem5
          // 
@@ -3451,7 +3461,7 @@
          this.حضوروغیابToolStripMenuItem1.Image = global::System.Scsc.Properties.Resources.IMAGE_1201;
          this.حضوروغیابToolStripMenuItem1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
          this.حضوروغیابToolStripMenuItem1.Name = "حضوروغیابToolStripMenuItem1";
-         this.حضوروغیابToolStripMenuItem1.Size = new System.Drawing.Size(173, 54);
+         this.حضوروغیابToolStripMenuItem1.Size = new System.Drawing.Size(184, 54);
          this.حضوروغیابToolStripMenuItem1.Text = "حضور و غیاب";
          // 
          // ExcpAttnActv_Butn
@@ -3931,15 +3941,6 @@
          this.toolStripMenuItem65.Name = "toolStripMenuItem65";
          this.toolStripMenuItem65.Size = new System.Drawing.Size(163, 22);
          this.toolStripMenuItem65.Text = "سایر";
-         // 
-         // RqstBnGrnt
-         // 
-         this.RqstBnGrnt.Image = global::System.Scsc.Properties.Resources.IMAGE_1100;
-         this.RqstBnGrnt.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-         this.RqstBnGrnt.Name = "RqstBnGrnt";
-         this.RqstBnGrnt.Size = new System.Drawing.Size(241, 54);
-         this.RqstBnGrnt.Text = "خدمات گارانتی";
-         this.RqstBnGrnt.Click += new System.EventHandler(this.RqstBnGrnt_Click);
          // 
          // LSI_FLDF_F
          // 

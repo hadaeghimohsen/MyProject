@@ -114,12 +114,20 @@
          this.Npb_Face3x4Zone = new System.MaxUi.NewPickBtn();
          this.Npb_FaceZone = new System.MaxUi.NewPickBtn();
          this.Tb_StartStopVideo = new System.MaxUi.NewPickBtn();
+         this.label3 = new System.Windows.Forms.Label();
+         this.label2 = new System.Windows.Forms.Label();
          this.LB_Result = new System.Windows.Forms.Label();
          this.LOV_VideoSrc = new DevExpress.XtraEditors.LookUpEdit();
          this.Pb_Face3x4Zone = new System.Windows.Forms.PictureBox();
          this.Pb_FaceZone = new System.Windows.Forms.PictureBox();
          this.pb_destination = new System.Windows.Forms.PictureBox();
          this.pb_source = new System.Windows.Forms.PictureBox();
+         this.tp_004 = new System.Windows.Forms.TabPage();
+         this.StrLen_Lbl = new DevExpress.XtraEditors.LabelControl();
+         this.labelControl12 = new DevExpress.XtraEditors.LabelControl();
+         this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+         this.textFngr = new System.Windows.Forms.RichTextBox();
+         this.picFPImg = new System.Windows.Forms.PictureBox();
          this.DG_SelectImage = new System.Windows.Forms.OpenFileDialog();
          this.Tm_NewFrameProcess = new System.Windows.Forms.Timer(this.components);
          this.RqstBn1 = new System.Windows.Forms.BindingNavigator(this.components);
@@ -145,14 +153,6 @@
          this.RqstBnADoc1 = new System.Windows.Forms.ToolStripButton();
          this.RqstBnRegl01 = new System.Windows.Forms.ToolStripButton();
          this.RqstBnExit1 = new System.Windows.Forms.ToolStripButton();
-         this.tp_004 = new System.Windows.Forms.TabPage();
-         this.label2 = new System.Windows.Forms.Label();
-         this.label3 = new System.Windows.Forms.Label();
-         this.StrLen_Lbl = new DevExpress.XtraEditors.LabelControl();
-         this.labelControl12 = new DevExpress.XtraEditors.LabelControl();
-         this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
-         this.textFngr = new System.Windows.Forms.RichTextBox();
-         this.picFPImg = new System.Windows.Forms.PictureBox();
          this.TC_Dcmt.SuspendLayout();
          this.tp_001.SuspendLayout();
          this.Dcmt_Gb.SuspendLayout();
@@ -193,10 +193,10 @@
          ((System.ComponentModel.ISupportInitialize)(this.Pb_FaceZone)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.pb_destination)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.pb_source)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.RqstBn1)).BeginInit();
-         this.RqstBn1.SuspendLayout();
          this.tp_004.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.picFPImg)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.RqstBn1)).BeginInit();
+         this.RqstBn1.SuspendLayout();
          this.SuspendLayout();
          // 
          // StrtDate_Lb
@@ -283,7 +283,7 @@
          // 
          // ImageAlign_Lb
          // 
-         this.ImageAlign_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+         this.ImageAlign_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.ImageAlign_Lb.AutoSize = true;
          this.ImageAlign_Lb.Location = new System.Drawing.Point(667, 68);
          this.ImageAlign_Lb.Name = "ImageAlign_Lb";
@@ -293,7 +293,7 @@
          // 
          // ImageQulity_Lb
          // 
-         this.ImageQulity_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+         this.ImageQulity_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.ImageQulity_Lb.AutoSize = true;
          this.ImageQulity_Lb.Location = new System.Drawing.Point(697, 96);
          this.ImageQulity_Lb.Name = "ImageQulity_Lb";
@@ -1040,7 +1040,6 @@
          // 
          // Btn_SetProfileImage
          // 
-         this.Btn_SetProfileImage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
          this.Btn_SetProfileImage.BackColor = System.Drawing.Color.Transparent;
          this.Btn_SetProfileImage.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
          this.Btn_SetProfileImage.Caption = "";
@@ -1069,7 +1068,6 @@
          // 
          // Bt_RemvImage
          // 
-         this.Bt_RemvImage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
          this.Bt_RemvImage.Location = new System.Drawing.Point(15, 17);
          this.Bt_RemvImage.Name = "Bt_RemvImage";
          this.Bt_RemvImage.Size = new System.Drawing.Size(75, 23);
@@ -1080,7 +1078,7 @@
          // 
          // UD_Interpolation
          // 
-         this.UD_Interpolation.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+         this.UD_Interpolation.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.UD_Interpolation.Location = new System.Drawing.Point(628, 92);
          this.UD_Interpolation.Maximum = new decimal(new int[] {
             7,
@@ -1105,7 +1103,6 @@
          // 
          // ZC_ZoomImage
          // 
-         this.ZC_ZoomImage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
          this.ZC_ZoomImage.EditValue = 100;
          this.ZC_ZoomImage.Location = new System.Drawing.Point(15, 103);
          this.ZC_ZoomImage.Name = "ZC_ZoomImage";
@@ -1124,7 +1121,7 @@
          // 
          // CB_Alignment
          // 
-         this.CB_Alignment.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+         this.CB_Alignment.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.CB_Alignment.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
          this.CB_Alignment.FormattingEnabled = true;
          this.CB_Alignment.Items.AddRange(new object[] {
@@ -1145,7 +1142,7 @@
          // 
          // CB_AllowMouseDrag
          // 
-         this.CB_AllowMouseDrag.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+         this.CB_AllowMouseDrag.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.CB_AllowMouseDrag.AutoSize = true;
          this.CB_AllowMouseDrag.Location = new System.Drawing.Point(512, 41);
          this.CB_AllowMouseDrag.Name = "CB_AllowMouseDrag";
@@ -1157,7 +1154,7 @@
          // 
          // CB_ShowScroll
          // 
-         this.CB_ShowScroll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+         this.CB_ShowScroll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.CB_ShowScroll.AutoSize = true;
          this.CB_ShowScroll.Location = new System.Drawing.Point(636, 20);
          this.CB_ShowScroll.Name = "CB_ShowScroll";
@@ -1334,6 +1331,27 @@
          this.Tb_StartStopVideo.TextAligns = System.Drawing.ContentAlignment.MiddleCenter;
          this.Tb_StartStopVideo.PickCheckedChange += new System.MaxUi.NewPickBtn.PickCheckedHandel(this.Tb_StartStopVideo_PickCheckedChange);
          // 
+         // label3
+         // 
+         this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.label3.AutoSize = true;
+         this.label3.Location = new System.Drawing.Point(365, 446);
+         this.label3.Name = "label3";
+         this.label3.RightToLeft = System.Windows.Forms.RightToLeft.No;
+         this.label3.Size = new System.Drawing.Size(35, 14);
+         this.label3.TabIndex = 12;
+         this.label3.Text = "3 x 4";
+         // 
+         // label2
+         // 
+         this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.label2.AutoSize = true;
+         this.label2.Location = new System.Drawing.Point(246, 446);
+         this.label2.Name = "label2";
+         this.label2.Size = new System.Drawing.Size(60, 14);
+         this.label2.TabIndex = 12;
+         this.label2.Text = "Face Only";
+         // 
          // LB_Result
          // 
          this.LB_Result.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -1410,6 +1428,88 @@
          this.pb_source.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
          this.pb_source.TabIndex = 0;
          this.pb_source.TabStop = false;
+         // 
+         // tp_004
+         // 
+         this.tp_004.BackColor = System.Drawing.SystemColors.Control;
+         this.tp_004.Controls.Add(this.StrLen_Lbl);
+         this.tp_004.Controls.Add(this.labelControl12);
+         this.tp_004.Controls.Add(this.simpleButton1);
+         this.tp_004.Controls.Add(this.textFngr);
+         this.tp_004.Controls.Add(this.picFPImg);
+         this.tp_004.Location = new System.Drawing.Point(4, 23);
+         this.tp_004.Name = "tp_004";
+         this.tp_004.Padding = new System.Windows.Forms.Padding(3);
+         this.tp_004.Size = new System.Drawing.Size(885, 701);
+         this.tp_004.TabIndex = 3;
+         this.tp_004.Text = "ثبت اثرانگشت";
+         // 
+         // StrLen_Lbl
+         // 
+         this.StrLen_Lbl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.StrLen_Lbl.Appearance.BackColor = System.Drawing.Color.Transparent;
+         this.StrLen_Lbl.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.StrLen_Lbl.Appearance.ForeColor = System.Drawing.Color.Black;
+         this.StrLen_Lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         this.StrLen_Lbl.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+         this.StrLen_Lbl.Location = new System.Drawing.Point(289, 190);
+         this.StrLen_Lbl.Name = "StrLen_Lbl";
+         this.StrLen_Lbl.Size = new System.Drawing.Size(6, 13);
+         this.StrLen_Lbl.TabIndex = 23;
+         this.StrLen_Lbl.Text = "0";
+         // 
+         // labelControl12
+         // 
+         this.labelControl12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.labelControl12.Appearance.BackColor = System.Drawing.Color.Transparent;
+         this.labelControl12.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.labelControl12.Appearance.ForeColor = System.Drawing.Color.Black;
+         this.labelControl12.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         this.labelControl12.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+         this.labelControl12.Location = new System.Drawing.Point(243, 190);
+         this.labelControl12.Name = "labelControl12";
+         this.labelControl12.Size = new System.Drawing.Size(40, 13);
+         this.labelControl12.TabIndex = 24;
+         this.labelControl12.Text = "Length :";
+         // 
+         // simpleButton1
+         // 
+         this.simpleButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.simpleButton1.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+         this.simpleButton1.Appearance.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.simpleButton1.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+         this.simpleButton1.Appearance.Options.UseBackColor = true;
+         this.simpleButton1.Appearance.Options.UseFont = true;
+         this.simpleButton1.Appearance.Options.UseForeColor = true;
+         this.simpleButton1.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
+         this.simpleButton1.Location = new System.Drawing.Point(760, 157);
+         this.simpleButton1.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.simpleButton1.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.simpleButton1.Name = "simpleButton1";
+         this.simpleButton1.Size = new System.Drawing.Size(109, 27);
+         this.simpleButton1.TabIndex = 21;
+         this.simpleButton1.Text = "حذف اطلاعات";
+         // 
+         // textFngr
+         // 
+         this.textFngr.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.textFngr.Location = new System.Drawing.Point(243, 17);
+         this.textFngr.Name = "textFngr";
+         this.textFngr.ReadOnly = true;
+         this.textFngr.Size = new System.Drawing.Size(511, 167);
+         this.textFngr.TabIndex = 22;
+         this.textFngr.Text = "";
+         // 
+         // picFPImg
+         // 
+         this.picFPImg.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.picFPImg.Image = global::System.Scsc.Properties.Resources.IMAGE_1201;
+         this.picFPImg.Location = new System.Drawing.Point(760, 17);
+         this.picFPImg.Name = "picFPImg";
+         this.picFPImg.Size = new System.Drawing.Size(109, 134);
+         this.picFPImg.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+         this.picFPImg.TabIndex = 20;
+         this.picFPImg.TabStop = false;
          // 
          // DG_SelectImage
          // 
@@ -1664,109 +1764,6 @@
          this.RqstBnExit1.ToolTipText = "خروج";
          this.RqstBnExit1.Click += new System.EventHandler(this.mb_back_Click);
          // 
-         // tp_004
-         // 
-         this.tp_004.BackColor = System.Drawing.SystemColors.Control;
-         this.tp_004.Controls.Add(this.StrLen_Lbl);
-         this.tp_004.Controls.Add(this.labelControl12);
-         this.tp_004.Controls.Add(this.simpleButton1);
-         this.tp_004.Controls.Add(this.textFngr);
-         this.tp_004.Controls.Add(this.picFPImg);
-         this.tp_004.Location = new System.Drawing.Point(4, 23);
-         this.tp_004.Name = "tp_004";
-         this.tp_004.Padding = new System.Windows.Forms.Padding(3);
-         this.tp_004.Size = new System.Drawing.Size(885, 701);
-         this.tp_004.TabIndex = 3;
-         this.tp_004.Text = "ثبت اثرانگشت";
-         // 
-         // label2
-         // 
-         this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.label2.AutoSize = true;
-         this.label2.Location = new System.Drawing.Point(246, 446);
-         this.label2.Name = "label2";
-         this.label2.Size = new System.Drawing.Size(60, 14);
-         this.label2.TabIndex = 12;
-         this.label2.Text = "Face Only";
-         // 
-         // label3
-         // 
-         this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.label3.AutoSize = true;
-         this.label3.Location = new System.Drawing.Point(365, 446);
-         this.label3.Name = "label3";
-         this.label3.RightToLeft = System.Windows.Forms.RightToLeft.No;
-         this.label3.Size = new System.Drawing.Size(35, 14);
-         this.label3.TabIndex = 12;
-         this.label3.Text = "3 x 4";
-         // 
-         // StrLen_Lbl
-         // 
-         this.StrLen_Lbl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.StrLen_Lbl.Appearance.BackColor = System.Drawing.Color.Transparent;
-         this.StrLen_Lbl.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.StrLen_Lbl.Appearance.ForeColor = System.Drawing.Color.Black;
-         this.StrLen_Lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-         this.StrLen_Lbl.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-         this.StrLen_Lbl.Location = new System.Drawing.Point(289, 190);
-         this.StrLen_Lbl.Name = "StrLen_Lbl";
-         this.StrLen_Lbl.Size = new System.Drawing.Size(6, 13);
-         this.StrLen_Lbl.TabIndex = 23;
-         this.StrLen_Lbl.Text = "0";
-         // 
-         // labelControl12
-         // 
-         this.labelControl12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.labelControl12.Appearance.BackColor = System.Drawing.Color.Transparent;
-         this.labelControl12.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.labelControl12.Appearance.ForeColor = System.Drawing.Color.Black;
-         this.labelControl12.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-         this.labelControl12.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-         this.labelControl12.Location = new System.Drawing.Point(243, 190);
-         this.labelControl12.Name = "labelControl12";
-         this.labelControl12.Size = new System.Drawing.Size(40, 13);
-         this.labelControl12.TabIndex = 24;
-         this.labelControl12.Text = "Length :";
-         // 
-         // simpleButton1
-         // 
-         this.simpleButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.simpleButton1.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-         this.simpleButton1.Appearance.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.simpleButton1.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-         this.simpleButton1.Appearance.Options.UseBackColor = true;
-         this.simpleButton1.Appearance.Options.UseFont = true;
-         this.simpleButton1.Appearance.Options.UseForeColor = true;
-         this.simpleButton1.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
-         this.simpleButton1.Location = new System.Drawing.Point(760, 157);
-         this.simpleButton1.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.simpleButton1.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.simpleButton1.Name = "simpleButton1";
-         this.simpleButton1.Size = new System.Drawing.Size(109, 27);
-         this.simpleButton1.TabIndex = 21;
-         this.simpleButton1.Text = "حذف اطلاعات";
-         // 
-         // textFngr
-         // 
-         this.textFngr.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.textFngr.Location = new System.Drawing.Point(243, 17);
-         this.textFngr.Name = "textFngr";
-         this.textFngr.ReadOnly = true;
-         this.textFngr.Size = new System.Drawing.Size(511, 167);
-         this.textFngr.TabIndex = 22;
-         this.textFngr.Text = "";
-         // 
-         // picFPImg
-         // 
-         this.picFPImg.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.picFPImg.Image = global::System.Scsc.Properties.Resources.IMAGE_1201;
-         this.picFPImg.Location = new System.Drawing.Point(760, 17);
-         this.picFPImg.Name = "picFPImg";
-         this.picFPImg.Size = new System.Drawing.Size(109, 134);
-         this.picFPImg.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-         this.picFPImg.TabIndex = 20;
-         this.picFPImg.TabStop = false;
-         // 
          // CMN_DCMT_F
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1821,12 +1818,12 @@
          ((System.ComponentModel.ISupportInitialize)(this.Pb_FaceZone)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.pb_destination)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.pb_source)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.RqstBn1)).EndInit();
-         this.RqstBn1.ResumeLayout(false);
-         this.RqstBn1.PerformLayout();
          this.tp_004.ResumeLayout(false);
          this.tp_004.PerformLayout();
          ((System.ComponentModel.ISupportInitialize)(this.picFPImg)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.RqstBn1)).EndInit();
+         this.RqstBn1.ResumeLayout(false);
+         this.RqstBn1.PerformLayout();
          this.ResumeLayout(false);
          this.PerformLayout();
 

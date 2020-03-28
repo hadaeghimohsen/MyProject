@@ -66,12 +66,11 @@ namespace System.RoboTech.Ui.Action
             foreach (var robot in RoboBs.List.OfType<Data.Robot>().Where(r => r.Organ == orgn && r.STAT == "002"))
             {
                ConsoleOutLog_MemTxt.Text += string.Format("{0} has Starting\r\n", robot.NAME);
-               if(robot.BOT_TYPE == "001")
-                  ConsoleOutLog_MemTxt.Text += string.Format("{0} has Reject\r\n", robot.NAME);
-                  //iRobots.Add(
-                  //   new TelegramApiBot(robot.TKON_CODE, ConnectionString, ConsoleOutLog_MemTxt, true, robot, this)
-                  //);
-               else if(robot.BOT_TYPE == "002")
+               if(robot.BOT_TYPE == "001" && robot.RUN_STAT == "002")                  
+                  iRobots.Add(
+                     new TelegramApiBot(robot.TKON_CODE, ConnectionString, ConsoleOutLog_MemTxt, true, robot, this)
+                  );
+               else if(robot.BOT_TYPE == "002" && robot.RUN_STAT == "002")
                   iRobots.Add(
                      new BaleApiBot(robot.TKON_CODE, ConnectionString, ConsoleOutLog_MemTxt, true, robot, this)
                   );
@@ -85,15 +84,77 @@ namespace System.RoboTech.Ui.Action
       {         
          foreach (var robot in iRobots)
          {
-            ConsoleOutLog_MemTxt.Text = string.Format("{0} has Stoping\r\n", robot.BotName);
+            ConsoleOutLog_MemTxt.Text = string.Format("{0} has Stoping\r\n", robot.Robot.NAME);
             if (robot.Started)
                robot.StopReceiving();            
-            ConsoleOutLog_MemTxt.Text = string.Format("{0} has Stoped\r\n", robot.BotName);
+            ConsoleOutLog_MemTxt.Text = string.Format("{0} has Stoped\r\n", robot.Robot.NAME);
          }
 
          iRobots.Clear();
 
          robotStarted = false;
+      }
+
+      private void RoboBs_CurrentChanged(object sender, EventArgs e)
+      {
+         try
+         {
+            var robo = RoboBs.Current as Data.Robot;
+            if (robo == null) return;
+
+            ActvDactv_Tsmi.Text = robo.STAT == "002" ? "غیرفعال کردن" : "فعال کردن";
+            RunNoRun_Tsmi.Text = robo.RUN_STAT == "002" ? "عدم اجرای ربات" : "اجرای ربات";
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void ActvDactv_Tsmi_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var robo = RoboBs.Current as Data.Robot;
+            if (robo == null) return;
+
+            robo.STAT = robo.STAT == "002" ? "001" : "002";
+
+            iRoboTech.SubmitChanges();
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void RunNoRun_Tsmi_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var robo = RoboBs.Current as Data.Robot;
+            if (robo == null) return;
+
+            robo.RUN_STAT = robo.RUN_STAT == "002" ? "001" : "002";
+
+            iRoboTech.SubmitChanges();
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
       }
    }
 }

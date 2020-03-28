@@ -488,12 +488,16 @@
          this.ExpnDesc_Tsmi = new System.Windows.Forms.ToolStripTextBox();
          this.مبلغToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
          this.ExpnPric_Tsmi = new System.Windows.Forms.ToolStripTextBox();
+         this.کدهزینهToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+         this.ExpnOrdrItem_Tsmi = new System.Windows.Forms.ToolStripTextBox();
          this.ExpnEdit_Tsmi = new System.Windows.Forms.ToolStripMenuItem();
          this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripSeparator();
          this.عنوانToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
          this.DupExpnText_Tsmi = new System.Windows.Forms.ToolStripTextBox();
          this.مبلغToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
          this.DupExpnPric_Tsmi = new System.Windows.Forms.ToolStripTextBox();
+         this.کدToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+         this.DupExpnOrdrItem_Tsmi = new System.Windows.Forms.ToolStripTextBox();
          this.DupExpn_Tsmi = new System.Windows.Forms.ToolStripMenuItem();
          this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
          this.OffExpn_Tsmi = new System.Windows.Forms.ToolStripMenuItem();
@@ -502,11 +506,12 @@
          this.NewExpnText_Tsmi = new System.Windows.Forms.ToolStripTextBox();
          this.مبلغToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
          this.NewExpnPric_Tsmi = new System.Windows.Forms.ToolStripTextBox();
+         this.کدToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+         this.NewExpnOrdrItem_Tsmi = new System.Windows.Forms.ToolStripTextBox();
          this.NewExpn_Tsmi = new System.Windows.Forms.ToolStripMenuItem();
          this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripSeparator();
          this.ProdList_Tsmi = new System.Windows.Forms.ToolStripMenuItem();
          this.Expn_Gv = new DevExpress.XtraGrid.Views.BandedGrid.AdvBandedGridView();
-         this.ExpnGropList_Clm = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
          this.colREGL_YEAR = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
          this.colREGL_CODE = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
          this.colEXTP_CODE = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
@@ -514,6 +519,7 @@
          this.colMTOD_CODE = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
          this.colCODE1 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
          this.ExpnDesc_Clm = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+         this.colOrdr_Item = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
          this.Pric_Clm = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
          this.bandedGridColumn2 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
          this.colEXPN_STAT = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
@@ -532,9 +538,11 @@
          this.AddItem_Butn = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
          this.colEXTR_PRCT = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
          this.colGROP_CODE = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+         this.colBRND_CODE = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
          this.repositoryItemLookUpEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
          this.RqttBs1 = new System.Windows.Forms.BindingSource();
          this.DCyclBs1 = new System.Windows.Forms.BindingSource();
+         this.ExpnGropList_Clm = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
          ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
          this.splitContainer1.Panel1.SuspendLayout();
          this.splitContainer1.Panel2.SuspendLayout();
@@ -4687,12 +4695,16 @@
             this.ExpnDesc_Tsmi,
             this.مبلغToolStripMenuItem,
             this.ExpnPric_Tsmi,
+            this.کدهزینهToolStripMenuItem,
+            this.ExpnOrdrItem_Tsmi,
             this.ExpnEdit_Tsmi,
             this.toolStripMenuItem3,
             this.عنوانToolStripMenuItem1,
             this.DupExpnText_Tsmi,
             this.مبلغToolStripMenuItem1,
             this.DupExpnPric_Tsmi,
+            this.کدToolStripMenuItem,
+            this.DupExpnOrdrItem_Tsmi,
             this.DupExpn_Tsmi,
             this.toolStripSeparator1,
             this.OffExpn_Tsmi,
@@ -4701,162 +4713,203 @@
             this.NewExpnText_Tsmi,
             this.مبلغToolStripMenuItem2,
             this.NewExpnPric_Tsmi,
+            this.کدToolStripMenuItem1,
+            this.NewExpnOrdrItem_Tsmi,
             this.NewExpn_Tsmi,
             this.toolStripMenuItem5,
             this.ProdList_Tsmi});
          this.Expn_Cms.Name = "Expn_Cms";
          this.Expn_Cms.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-         this.Expn_Cms.Size = new System.Drawing.Size(202, 448);
+         this.Expn_Cms.Size = new System.Drawing.Size(261, 589);
          // 
          // ExpnItem_Tsmi
          // 
          this.ExpnItem_Tsmi.Image = global::System.Scsc.Properties.Resources.IMAGE_1007;
          this.ExpnItem_Tsmi.Name = "ExpnItem_Tsmi";
          this.ExpnItem_Tsmi.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Insert)));
-         this.ExpnItem_Tsmi.Size = new System.Drawing.Size(201, 22);
+         this.ExpnItem_Tsmi.Size = new System.Drawing.Size(260, 22);
          this.ExpnItem_Tsmi.Text = "آیتم انتخاب شده";
          this.ExpnItem_Tsmi.Click += new System.EventHandler(this.ExpnItem_Tsmi_Click);
          // 
          // toolStripMenuItem2
          // 
          this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-         this.toolStripMenuItem2.Size = new System.Drawing.Size(198, 6);
+         this.toolStripMenuItem2.Size = new System.Drawing.Size(257, 6);
          // 
          // عنوانToolStripMenuItem
          // 
          this.عنوانToolStripMenuItem.Enabled = false;
          this.عنوانToolStripMenuItem.Image = global::System.Scsc.Properties.Resources.IMAGE_1123;
          this.عنوانToolStripMenuItem.Name = "عنوانToolStripMenuItem";
-         this.عنوانToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
+         this.عنوانToolStripMenuItem.Size = new System.Drawing.Size(260, 22);
          this.عنوانToolStripMenuItem.Text = "عنوان";
          // 
          // ExpnDesc_Tsmi
          // 
          this.ExpnDesc_Tsmi.Name = "ExpnDesc_Tsmi";
-         this.ExpnDesc_Tsmi.Size = new System.Drawing.Size(100, 23);
+         this.ExpnDesc_Tsmi.Size = new System.Drawing.Size(200, 23);
          // 
          // مبلغToolStripMenuItem
          // 
          this.مبلغToolStripMenuItem.Enabled = false;
          this.مبلغToolStripMenuItem.Image = global::System.Scsc.Properties.Resources.IMAGE_1088;
          this.مبلغToolStripMenuItem.Name = "مبلغToolStripMenuItem";
-         this.مبلغToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
+         this.مبلغToolStripMenuItem.Size = new System.Drawing.Size(260, 22);
          this.مبلغToolStripMenuItem.Text = "مبلغ";
          // 
          // ExpnPric_Tsmi
          // 
          this.ExpnPric_Tsmi.Name = "ExpnPric_Tsmi";
-         this.ExpnPric_Tsmi.Size = new System.Drawing.Size(100, 23);
+         this.ExpnPric_Tsmi.Size = new System.Drawing.Size(200, 23);
+         // 
+         // کدهزینهToolStripMenuItem
+         // 
+         this.کدهزینهToolStripMenuItem.Enabled = false;
+         this.کدهزینهToolStripMenuItem.Image = global::System.Scsc.Properties.Resources.IMAGE_1073;
+         this.کدهزینهToolStripMenuItem.Name = "کدهزینهToolStripMenuItem";
+         this.کدهزینهToolStripMenuItem.Size = new System.Drawing.Size(260, 22);
+         this.کدهزینهToolStripMenuItem.Text = "کد";
+         // 
+         // ExpnOrdrItem_Tsmi
+         // 
+         this.ExpnOrdrItem_Tsmi.Name = "ExpnOrdrItem_Tsmi";
+         this.ExpnOrdrItem_Tsmi.Size = new System.Drawing.Size(200, 23);
          // 
          // ExpnEdit_Tsmi
          // 
          this.ExpnEdit_Tsmi.Image = global::System.Scsc.Properties.Resources.IMAGE_1195;
          this.ExpnEdit_Tsmi.Name = "ExpnEdit_Tsmi";
-         this.ExpnEdit_Tsmi.Size = new System.Drawing.Size(201, 22);
+         this.ExpnEdit_Tsmi.Size = new System.Drawing.Size(260, 22);
          this.ExpnEdit_Tsmi.Text = "ویرایش اطلاعات";
          this.ExpnEdit_Tsmi.Click += new System.EventHandler(this.ExpnEdit_Tsmi_Click);
          // 
          // toolStripMenuItem3
          // 
          this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-         this.toolStripMenuItem3.Size = new System.Drawing.Size(198, 6);
+         this.toolStripMenuItem3.Size = new System.Drawing.Size(257, 6);
          // 
          // عنوانToolStripMenuItem1
          // 
          this.عنوانToolStripMenuItem1.Enabled = false;
          this.عنوانToolStripMenuItem1.Image = global::System.Scsc.Properties.Resources.IMAGE_1123;
          this.عنوانToolStripMenuItem1.Name = "عنوانToolStripMenuItem1";
-         this.عنوانToolStripMenuItem1.Size = new System.Drawing.Size(201, 22);
+         this.عنوانToolStripMenuItem1.Size = new System.Drawing.Size(260, 22);
          this.عنوانToolStripMenuItem1.Text = "عنوان";
          // 
          // DupExpnText_Tsmi
          // 
          this.DupExpnText_Tsmi.Name = "DupExpnText_Tsmi";
-         this.DupExpnText_Tsmi.Size = new System.Drawing.Size(100, 23);
+         this.DupExpnText_Tsmi.Size = new System.Drawing.Size(200, 23);
          // 
          // مبلغToolStripMenuItem1
          // 
          this.مبلغToolStripMenuItem1.Enabled = false;
          this.مبلغToolStripMenuItem1.Image = global::System.Scsc.Properties.Resources.IMAGE_1088;
          this.مبلغToolStripMenuItem1.Name = "مبلغToolStripMenuItem1";
-         this.مبلغToolStripMenuItem1.Size = new System.Drawing.Size(201, 22);
+         this.مبلغToolStripMenuItem1.Size = new System.Drawing.Size(260, 22);
          this.مبلغToolStripMenuItem1.Text = "مبلغ";
          // 
          // DupExpnPric_Tsmi
          // 
          this.DupExpnPric_Tsmi.Name = "DupExpnPric_Tsmi";
-         this.DupExpnPric_Tsmi.Size = new System.Drawing.Size(100, 23);
+         this.DupExpnPric_Tsmi.Size = new System.Drawing.Size(200, 23);
+         // 
+         // کدToolStripMenuItem
+         // 
+         this.کدToolStripMenuItem.Enabled = false;
+         this.کدToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("کدToolStripMenuItem.Image")));
+         this.کدToolStripMenuItem.Name = "کدToolStripMenuItem";
+         this.کدToolStripMenuItem.Size = new System.Drawing.Size(260, 22);
+         this.کدToolStripMenuItem.Text = "کد";
+         // 
+         // DupExpnOrdrItem_Tsmi
+         // 
+         this.DupExpnOrdrItem_Tsmi.Name = "DupExpnOrdrItem_Tsmi";
+         this.DupExpnOrdrItem_Tsmi.Size = new System.Drawing.Size(200, 23);
          // 
          // DupExpn_Tsmi
          // 
          this.DupExpn_Tsmi.Image = global::System.Scsc.Properties.Resources.IMAGE_1204;
          this.DupExpn_Tsmi.Name = "DupExpn_Tsmi";
-         this.DupExpn_Tsmi.Size = new System.Drawing.Size(201, 22);
+         this.DupExpn_Tsmi.Size = new System.Drawing.Size(260, 22);
          this.DupExpn_Tsmi.Text = "نمونه برداری";
          this.DupExpn_Tsmi.Click += new System.EventHandler(this.DupExpn_Tsmi_Click);
          // 
          // toolStripSeparator1
          // 
          this.toolStripSeparator1.Name = "toolStripSeparator1";
-         this.toolStripSeparator1.Size = new System.Drawing.Size(198, 6);
+         this.toolStripSeparator1.Size = new System.Drawing.Size(257, 6);
          // 
          // OffExpn_Tsmi
          // 
          this.OffExpn_Tsmi.Image = global::System.Scsc.Properties.Resources.IMAGE_1216;
          this.OffExpn_Tsmi.Name = "OffExpn_Tsmi";
-         this.OffExpn_Tsmi.Size = new System.Drawing.Size(201, 22);
+         this.OffExpn_Tsmi.Size = new System.Drawing.Size(260, 22);
          this.OffExpn_Tsmi.Text = "غیرفعال کردن";
          this.OffExpn_Tsmi.Click += new System.EventHandler(this.OffExpn_Tsmi_Click);
          // 
          // toolStripMenuItem4
          // 
          this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-         this.toolStripMenuItem4.Size = new System.Drawing.Size(198, 6);
+         this.toolStripMenuItem4.Size = new System.Drawing.Size(257, 6);
          // 
          // عنوانخدماتکالاجدیدToolStripMenuItem
          // 
          this.عنوانخدماتکالاجدیدToolStripMenuItem.Enabled = false;
          this.عنوانخدماتکالاجدیدToolStripMenuItem.Image = global::System.Scsc.Properties.Resources.IMAGE_1123;
          this.عنوانخدماتکالاجدیدToolStripMenuItem.Name = "عنوانخدماتکالاجدیدToolStripMenuItem";
-         this.عنوانخدماتکالاجدیدToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
+         this.عنوانخدماتکالاجدیدToolStripMenuItem.Size = new System.Drawing.Size(260, 22);
          this.عنوانخدماتکالاجدیدToolStripMenuItem.Text = "عنوان خدمات/کالا جدید";
          // 
          // NewExpnText_Tsmi
          // 
          this.NewExpnText_Tsmi.Name = "NewExpnText_Tsmi";
-         this.NewExpnText_Tsmi.Size = new System.Drawing.Size(100, 23);
+         this.NewExpnText_Tsmi.Size = new System.Drawing.Size(200, 23);
          // 
          // مبلغToolStripMenuItem2
          // 
          this.مبلغToolStripMenuItem2.Enabled = false;
          this.مبلغToolStripMenuItem2.Image = global::System.Scsc.Properties.Resources.IMAGE_1088;
          this.مبلغToolStripMenuItem2.Name = "مبلغToolStripMenuItem2";
-         this.مبلغToolStripMenuItem2.Size = new System.Drawing.Size(201, 22);
+         this.مبلغToolStripMenuItem2.Size = new System.Drawing.Size(260, 22);
          this.مبلغToolStripMenuItem2.Text = "مبلغ";
          // 
          // NewExpnPric_Tsmi
          // 
          this.NewExpnPric_Tsmi.Name = "NewExpnPric_Tsmi";
-         this.NewExpnPric_Tsmi.Size = new System.Drawing.Size(100, 23);
+         this.NewExpnPric_Tsmi.Size = new System.Drawing.Size(200, 23);
+         // 
+         // کدToolStripMenuItem1
+         // 
+         this.کدToolStripMenuItem1.Enabled = false;
+         this.کدToolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("کدToolStripMenuItem1.Image")));
+         this.کدToolStripMenuItem1.Name = "کدToolStripMenuItem1";
+         this.کدToolStripMenuItem1.Size = new System.Drawing.Size(260, 22);
+         this.کدToolStripMenuItem1.Text = "کد";
+         // 
+         // NewExpnOrdrItem_Tsmi
+         // 
+         this.NewExpnOrdrItem_Tsmi.Name = "NewExpnOrdrItem_Tsmi";
+         this.NewExpnOrdrItem_Tsmi.Size = new System.Drawing.Size(200, 23);
          // 
          // NewExpn_Tsmi
          // 
          this.NewExpn_Tsmi.Image = global::System.Scsc.Properties.Resources.IMAGE_1195;
          this.NewExpn_Tsmi.Name = "NewExpn_Tsmi";
-         this.NewExpn_Tsmi.Size = new System.Drawing.Size(201, 22);
+         this.NewExpn_Tsmi.Size = new System.Drawing.Size(260, 22);
          this.NewExpn_Tsmi.Text = "ثبت اطلاعات";
          this.NewExpn_Tsmi.Click += new System.EventHandler(this.NewExpn_Tsmi_Click);
          // 
          // toolStripMenuItem5
          // 
          this.toolStripMenuItem5.Name = "toolStripMenuItem5";
-         this.toolStripMenuItem5.Size = new System.Drawing.Size(198, 6);
+         this.toolStripMenuItem5.Size = new System.Drawing.Size(257, 6);
          // 
          // ProdList_Tsmi
          // 
          this.ProdList_Tsmi.Image = global::System.Scsc.Properties.Resources.IMAGE_1007;
          this.ProdList_Tsmi.Name = "ProdList_Tsmi";
-         this.ProdList_Tsmi.Size = new System.Drawing.Size(201, 22);
+         this.ProdList_Tsmi.Size = new System.Drawing.Size(260, 22);
          this.ProdList_Tsmi.Text = "لیست کالا";
          this.ProdList_Tsmi.Click += new System.EventHandler(this.ProdList_Tsmi_Click);
          // 
@@ -4894,7 +4947,9 @@
             this.bandedGridColumn1,
             this.bandedGridColumn2,
             this.colMIN_NUMB,
-            this.colGROP_CODE});
+            this.colGROP_CODE,
+            this.colOrdr_Item,
+            this.colBRND_CODE});
          styleFormatCondition2.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
          styleFormatCondition2.Appearance.Options.UseBackColor = true;
          styleFormatCondition2.ApplyToRow = true;
@@ -4914,36 +4969,6 @@
          this.Expn_Gv.OptionsView.ShowGroupPanel = false;
          this.Expn_Gv.DoubleClick += new System.EventHandler(this.Expn_Gv_DoubleClick);
          this.Expn_Gv.RowCountChanged += new System.EventHandler(this.advBandedGridView1_RowCountChanged);
-         // 
-         // ExpnGropList_Clm
-         // 
-         this.ExpnGropList_Clm.Caption = "لیست کالا ها و خدمات";
-         this.ExpnGropList_Clm.Columns.Add(this.colREGL_YEAR);
-         this.ExpnGropList_Clm.Columns.Add(this.colREGL_CODE);
-         this.ExpnGropList_Clm.Columns.Add(this.colEXTP_CODE);
-         this.ExpnGropList_Clm.Columns.Add(this.colCTGY_CODE);
-         this.ExpnGropList_Clm.Columns.Add(this.colMTOD_CODE);
-         this.ExpnGropList_Clm.Columns.Add(this.colCODE1);
-         this.ExpnGropList_Clm.Columns.Add(this.ExpnDesc_Clm);
-         this.ExpnGropList_Clm.Columns.Add(this.Pric_Clm);
-         this.ExpnGropList_Clm.Columns.Add(this.bandedGridColumn2);
-         this.ExpnGropList_Clm.Columns.Add(this.colEXPN_STAT);
-         this.ExpnGropList_Clm.Columns.Add(this.colADD_QUTS);
-         this.ExpnGropList_Clm.Columns.Add(this.colCOVR_DSCT);
-         this.ExpnGropList_Clm.Columns.Add(this.colCRET_BY2);
-         this.ExpnGropList_Clm.Columns.Add(this.colCRET_DATE2);
-         this.ExpnGropList_Clm.Columns.Add(this.colMDFY_BY2);
-         this.ExpnGropList_Clm.Columns.Add(this.colMDFY_DATE2);
-         this.ExpnGropList_Clm.Columns.Add(this.colCategory_Belt);
-         this.ExpnGropList_Clm.Columns.Add(this.colExpense_Type);
-         this.ExpnGropList_Clm.Columns.Add(this.colMethod);
-         this.ExpnGropList_Clm.Columns.Add(this.colRegulation);
-         this.ExpnGropList_Clm.Columns.Add(this.bandedGridColumn1);
-         this.ExpnGropList_Clm.Columns.Add(this.SelectExpense_Clm);
-         this.ExpnGropList_Clm.Columns.Add(this.colEXTR_PRCT);
-         this.ExpnGropList_Clm.Name = "ExpnGropList_Clm";
-         this.ExpnGropList_Clm.VisibleIndex = 0;
-         this.ExpnGropList_Clm.Width = 350;
          // 
          // colREGL_YEAR
          // 
@@ -4984,7 +5009,17 @@
          this.ExpnDesc_Clm.OptionsColumn.FixedWidth = true;
          this.ExpnDesc_Clm.OptionsColumn.ReadOnly = true;
          this.ExpnDesc_Clm.Visible = true;
-         this.ExpnDesc_Clm.Width = 230;
+         this.ExpnDesc_Clm.Width = 104;
+         // 
+         // colOrdr_Item
+         // 
+         this.colOrdr_Item.Caption = "کد هزینه";
+         this.colOrdr_Item.FieldName = "ORDR_ITEM";
+         this.colOrdr_Item.Name = "colOrdr_Item";
+         this.colOrdr_Item.OptionsColumn.AllowEdit = false;
+         this.colOrdr_Item.OptionsColumn.ReadOnly = true;
+         this.colOrdr_Item.Visible = true;
+         this.colOrdr_Item.Width = 58;
          // 
          // Pric_Clm
          // 
@@ -5118,6 +5153,16 @@
          this.colGROP_CODE.FieldName = "GROP_CODE";
          this.colGROP_CODE.Name = "colGROP_CODE";
          // 
+         // colBRND_CODE
+         // 
+         this.colBRND_CODE.Caption = "برند";
+         this.colBRND_CODE.FieldName = "Group_Expense.GROP_DESC";
+         this.colBRND_CODE.Name = "colBRND_CODE";
+         this.colBRND_CODE.OptionsColumn.AllowEdit = false;
+         this.colBRND_CODE.OptionsColumn.ReadOnly = true;
+         this.colBRND_CODE.Visible = true;
+         this.colBRND_CODE.Width = 56;
+         // 
          // repositoryItemLookUpEdit2
          // 
          this.repositoryItemLookUpEdit2.Appearance.Options.UseTextOptions = true;
@@ -5140,6 +5185,38 @@
          // DCyclBs1
          // 
          this.DCyclBs1.DataSource = typeof(System.Scsc.Data.D_CYCL);
+         // 
+         // ExpnGropList_Clm
+         // 
+         this.ExpnGropList_Clm.Caption = "لیست کالا ها و خدمات";
+         this.ExpnGropList_Clm.Columns.Add(this.colREGL_YEAR);
+         this.ExpnGropList_Clm.Columns.Add(this.colREGL_CODE);
+         this.ExpnGropList_Clm.Columns.Add(this.colEXTP_CODE);
+         this.ExpnGropList_Clm.Columns.Add(this.colCTGY_CODE);
+         this.ExpnGropList_Clm.Columns.Add(this.colMTOD_CODE);
+         this.ExpnGropList_Clm.Columns.Add(this.colCODE1);
+         this.ExpnGropList_Clm.Columns.Add(this.ExpnDesc_Clm);
+         this.ExpnGropList_Clm.Columns.Add(this.colBRND_CODE);
+         this.ExpnGropList_Clm.Columns.Add(this.colOrdr_Item);
+         this.ExpnGropList_Clm.Columns.Add(this.Pric_Clm);
+         this.ExpnGropList_Clm.Columns.Add(this.bandedGridColumn2);
+         this.ExpnGropList_Clm.Columns.Add(this.colEXPN_STAT);
+         this.ExpnGropList_Clm.Columns.Add(this.colADD_QUTS);
+         this.ExpnGropList_Clm.Columns.Add(this.colCOVR_DSCT);
+         this.ExpnGropList_Clm.Columns.Add(this.colCRET_BY2);
+         this.ExpnGropList_Clm.Columns.Add(this.colCRET_DATE2);
+         this.ExpnGropList_Clm.Columns.Add(this.colMDFY_BY2);
+         this.ExpnGropList_Clm.Columns.Add(this.colMDFY_DATE2);
+         this.ExpnGropList_Clm.Columns.Add(this.colCategory_Belt);
+         this.ExpnGropList_Clm.Columns.Add(this.colExpense_Type);
+         this.ExpnGropList_Clm.Columns.Add(this.colMethod);
+         this.ExpnGropList_Clm.Columns.Add(this.colRegulation);
+         this.ExpnGropList_Clm.Columns.Add(this.bandedGridColumn1);
+         this.ExpnGropList_Clm.Columns.Add(this.SelectExpense_Clm);
+         this.ExpnGropList_Clm.Columns.Add(this.colEXTR_PRCT);
+         this.ExpnGropList_Clm.Name = "ExpnGropList_Clm";
+         this.ExpnGropList_Clm.VisibleIndex = 0;
+         this.ExpnGropList_Clm.Width = 338;
          // 
          // OIC_TOTL_F
          // 
@@ -5495,7 +5572,6 @@
       private DevExpress.XtraGrid.Columns.GridColumn colPRE_EXPN_STAT;
       private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit Lov_YSNO;
       private Windows.Forms.BindingSource DYsnoBs1;
-      private DevExpress.XtraGrid.Views.BandedGrid.GridBand ExpnGropList_Clm;
       private DevExpress.XtraEditors.SplitContainerControl splitContainerControl1;
       private Windows.Forms.FlowLayoutPanel Grop_FLP;
       private Windows.Forms.Button button1;
@@ -5728,5 +5804,14 @@
       private Windows.Forms.ToolStripSeparator toolStripSeparator3;
       private Windows.Forms.ToolStripSeparator toolStripMenuItem5;
       private Windows.Forms.ToolStripMenuItem ProdList_Tsmi;
+      private Windows.Forms.ToolStripMenuItem کدهزینهToolStripMenuItem;
+      private Windows.Forms.ToolStripTextBox ExpnOrdrItem_Tsmi;
+      private Windows.Forms.ToolStripMenuItem کدToolStripMenuItem;
+      private Windows.Forms.ToolStripTextBox DupExpnOrdrItem_Tsmi;
+      private Windows.Forms.ToolStripMenuItem کدToolStripMenuItem1;
+      private Windows.Forms.ToolStripTextBox NewExpnOrdrItem_Tsmi;
+      private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colOrdr_Item;
+      private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colBRND_CODE;
+      private DevExpress.XtraGrid.Views.BandedGrid.GridBand ExpnGropList_Clm;
    }
 }

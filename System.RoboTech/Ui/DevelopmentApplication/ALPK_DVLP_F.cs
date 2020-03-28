@@ -93,6 +93,8 @@ namespace System.RoboTech.Ui.DevelopmentApplication
                            new XElement("Robot", 
                               new XAttribute("runrobot", "start"),
                               new XAttribute("actntype", "sendordrs"),
+                              //new XAttribute("keypad", "inline"),
+                              //new XAttribute("command", "getalopyks"),
                               new XAttribute("rbid", /*ordr.SRBT_ROBO_RBID*/399)
                            )
                      }                     

@@ -534,13 +534,14 @@ namespace System.Scsc.Ui.MasterPage
          }
          finally
          {
-            GameHours_Butn.SuperTip =
-               SuperToolTipAttnButn(
-                  new XElement("System",
-                     new XAttribute("device", "ExpnExtr"),
-                     new XAttribute("stat", expnExtrSetting.EXPN_EXTR_STAT == "002" ? true : false)
-                  )
-               );
+            if(expnExtrSetting != null)
+               GameHours_Butn.SuperTip =
+                  SuperToolTipAttnButn(
+                     new XElement("System",
+                        new XAttribute("device", "ExpnExtr"),
+                        new XAttribute("stat", expnExtrSetting.EXPN_EXTR_STAT == "002" ? true : false)
+                     )
+                  );
          }
       }
 
@@ -680,13 +681,14 @@ namespace System.Scsc.Ui.MasterPage
          }
          finally
          {
-            TlgrmBot_Butn.SuperTip =
-               SuperToolTipAttnButn(
-                  new XElement("System",
-                     new XAttribute("device", "TlgrmBot"),
-                     new XAttribute("stat", TlgrmBotSetting.RUN_RBOT == "002" ? true : false)
-                  )
-               );
+            if(TlgrmBotSetting != null)
+               TlgrmBot_Butn.SuperTip =
+                  SuperToolTipAttnButn(
+                     new XElement("System",
+                        new XAttribute("device", "TlgrmBot"),
+                        new XAttribute("stat", TlgrmBotSetting.RUN_RBOT == "002" ? true : false)
+                     )
+                  );
          }
       }
       #endregion
@@ -1276,39 +1278,92 @@ namespace System.Scsc.Ui.MasterPage
                               this.AttendanceSystemAlert_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1218;
                               Tsp_AttnSys.ForeColor = SystemColors.ControlText;
 
-                              if (!Fp1DevIsConnected)
-                              {
-                                 AttnType_Lov.EditValue = "001";
-                                 Fp1DevIsConnected = axCZKEM1.Connect_Net(fingerPrintSetting.IP_ADDR, Convert.ToInt32(fingerPrintSetting.PORT_NUMB));
-                                 // fire event for fetch 
-                                 axCZKEM1.OnAttTransactionEx += axCZKEM1_OnAttTransactionEx;
-                                 // New code 
-                                 axCZKEM1.OnHIDNum += axCZKEM1_OnHIDNum;
-                              }
-                              if (Fp1DevIsConnected == true)
-                              {
-                                 Tsp_AttnSys.Text = "دستگاه حضور غیاب فعال می باشد";
-                                 this.AttendanceSystemAlert_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1219;
-                                 Tsp_AttnSys.ForeColor = Color.Green;
-                                 int iMachineNumber = 1;//In fact,when you are using the tcp/ip communication,this parameter will be ignored,that is any integer will all right.Here we use 1.
-                                 axCZKEM1.RegEvent(iMachineNumber, 65535);//Here you can register the realtime events that you want to be triggered(the parameters 65535 means registering all)
-                              }
-                              else
-                              {
-                                 Tsp_AttnSys.Text = "دستگاه حضور غیاب غیرفعال می باشد";
-                                 this.AttendanceSystemAlert_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1196;
-                                 Tsp_AttnSys.ForeColor = Color.Red;
-                              }
+                              // 1398/12/25 * اضافه کردن دستگاه به لیست دستگاه های داخل شبکه
+                              var dev = 
+                                 new Device_On_Network(fingerPrintSetting.IP_ADDR) 
+                                 { 
+                                    SPort = (int)fingerPrintSetting.PORT_NUMB, 
+                                    RPort = (int)fingerPrintSetting.PORT_NUMB, 
+                                    DeviceType = "FngrPrnt", 
+                                    DeviceName = "دستگاه اثر انگشت پذیرش"
+                                 };
+                              dev.CallBack =
+                                 new Action(() =>
+                                    {
+                                       Fp1DevIsConnected = axCZKEM1.Connect_Net(fingerPrintSetting.IP_ADDR, Convert.ToInt32(fingerPrintSetting.PORT_NUMB));
+                                       if (!dev.Init)
+                                       {
+                                          // fire event for fetch 
+                                          axCZKEM1.OnAttTransactionEx += axCZKEM1_OnAttTransactionEx;
+                                          // New code 
+                                          axCZKEM1.OnHIDNum += axCZKEM1_OnHIDNum;
+                                          dev.Init = true;
+                                       }
 
-                              AttendanceSystemAlert_Butn.SuperTip =
-                                 SuperToolTipAttnButn(
-                                    new XElement("System",
-                                       new XAttribute("device", "Attn"),
-                                       new XAttribute("ip", fingerPrintSetting.IP_ADDR),
-                                       new XAttribute("stat", Fp1DevIsConnected),
-                                       host
-                                    )
-                                 );
+                                       if (Fp1DevIsConnected == true)
+                                       {
+                                          Tsp_AttnSys.Text = "دستگاه حضور غیاب فعال می باشد";
+                                          this.AttendanceSystemAlert_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1219;
+                                          Tsp_AttnSys.ForeColor = Color.Green;
+                                          int iMachineNumber = 1;//In fact,when you are using the tcp/ip communication,this parameter will be ignored,that is any integer will all right.Here we use 1.
+                                          axCZKEM1.RegEvent(iMachineNumber, 65535);//Here you can register the realtime events that you want to be triggered(the parameters 65535 means registering all)
+                                       }
+                                       else
+                                       {
+                                          Tsp_AttnSys.Text = "دستگاه حضور غیاب غیرفعال می باشد";
+                                          this.AttendanceSystemAlert_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1196;
+                                          Tsp_AttnSys.ForeColor = Color.Red;
+                                       }
+
+                                       AttendanceSystemAlert_Butn.SuperTip =
+                                          SuperToolTipAttnButn(
+                                             new XElement("System",
+                                                new XAttribute("device", "Attn"),
+                                                new XAttribute("ip", fingerPrintSetting.IP_ADDR),
+                                                new XAttribute("stat", Fp1DevIsConnected),
+                                                host
+                                             )
+                                          );
+                                    });
+                              DeviceOnNetworks.Add(dev);
+
+                              if (dev.PingStatus)
+                              {
+                                 if (!Fp1DevIsConnected)
+                                 {
+                                    AttnType_Lov.EditValue = "001";
+                                    Fp1DevIsConnected = axCZKEM1.Connect_Net(fingerPrintSetting.IP_ADDR, Convert.ToInt32(fingerPrintSetting.PORT_NUMB));
+                                    // fire event for fetch 
+                                    axCZKEM1.OnAttTransactionEx += axCZKEM1_OnAttTransactionEx;
+                                    // New code 
+                                    axCZKEM1.OnHIDNum += axCZKEM1_OnHIDNum;
+                                    dev.Init = true;
+                                 }
+                                 if (Fp1DevIsConnected == true)
+                                 {
+                                    Tsp_AttnSys.Text = "دستگاه حضور غیاب فعال می باشد";
+                                    this.AttendanceSystemAlert_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1219;
+                                    Tsp_AttnSys.ForeColor = Color.Green;
+                                    int iMachineNumber = 1;//In fact,when you are using the tcp/ip communication,this parameter will be ignored,that is any integer will all right.Here we use 1.
+                                    axCZKEM1.RegEvent(iMachineNumber, 65535);//Here you can register the realtime events that you want to be triggered(the parameters 65535 means registering all)
+                                 }
+                                 else
+                                 {
+                                    Tsp_AttnSys.Text = "دستگاه حضور غیاب غیرفعال می باشد";
+                                    this.AttendanceSystemAlert_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1196;
+                                    Tsp_AttnSys.ForeColor = Color.Red;
+                                 }
+
+                                 AttendanceSystemAlert_Butn.SuperTip =
+                                    SuperToolTipAttnButn(
+                                       new XElement("System",
+                                          new XAttribute("device", "Attn"),
+                                          new XAttribute("ip", fingerPrintSetting.IP_ADDR),
+                                          new XAttribute("stat", Fp1DevIsConnected),
+                                          host
+                                       )
+                                    );
+                              }
                            }
                         }
                         #endregion
@@ -1327,39 +1382,91 @@ namespace System.Scsc.Ui.MasterPage
                               this.AttendanceSystemAlert_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1218;
                               Tsp_AttnSys.ForeColor = SystemColors.ControlText;
 
-                              if (!Fp2DevIsConnected)
-                              {
-                                 AttnType_Lov.EditValue = "001";
-                                 Fp2DevIsConnected = axCZKEM2.Connect_Net(fingerPrintSetting.IP_ADR2, Convert.ToInt32(fingerPrintSetting.PORT_NUM2));
-                                 // fire event for fetch 
-                                 axCZKEM2.OnAttTransactionEx += axCZKEM1_OnAttTransactionEx;
-                                 // New code 
-                                 axCZKEM2.OnHIDNum += axCZKEM1_OnHIDNum;
-                              }
-                              if (Fp2DevIsConnected == true)
-                              {
-                                 Tsp_AttnSys.Text = "دستگاه حضور غیاب فعال می باشد";
-                                 this.AttendanceSystemAlert_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1219;
-                                 Tsp_AttnSys.ForeColor = Color.Green;
-                                 int iMachineNumber = 1;//In fact,when you are using the tcp/ip communication,this parameter will be ignored,that is any integer will all right.Here we use 1.
-                                 axCZKEM2.RegEvent(iMachineNumber, 65535);//Here you can register the realtime events that you want to be triggered(the parameters 65535 means registering all)
-                              }
-                              else
-                              {
-                                 Tsp_AttnSys.Text = "دستگاه حضور غیاب غیرفعال می باشد";
-                                 this.AttendanceSystemAlert_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1196;
-                                 Tsp_AttnSys.ForeColor = Color.Red;
-                              }
+                              // 1398/12/25 * اضافه کردن دستگاه به لیست دستگاه های داخل شبکه
+                              var dev =
+                                 new Device_On_Network(fingerPrintSetting.IP_ADR2)
+                                 {
+                                    SPort = (int)fingerPrintSetting.PORT_NUM2,
+                                    RPort = (int)fingerPrintSetting.PORT_NUM2,
+                                    DeviceType = "FngrPrnt",
+                                    DeviceName = "دستگاه اثر انگشت کنترل گیت"             
+                                 };
+                              dev.CallBack = 
+                                 new Action(() =>
+                                    {
+                                       Fp2DevIsConnected = axCZKEM2.Connect_Net(fingerPrintSetting.IP_ADR2, Convert.ToInt32(fingerPrintSetting.PORT_NUM2));
+                                       if (!dev.Init)
+                                       {
+                                          // fire event for fetch 
+                                          axCZKEM2.OnAttTransactionEx += axCZKEM1_OnAttTransactionEx;
+                                          // New code 
+                                          axCZKEM2.OnHIDNum += axCZKEM1_OnHIDNum;
+                                          dev.Init = true;
+                                       }
+                                       if (Fp2DevIsConnected == true)
+                                       {
+                                          Tsp_AttnSys.Text = "دستگاه حضور غیاب فعال می باشد";
+                                          this.AttendanceSystemAlert_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1219;
+                                          Tsp_AttnSys.ForeColor = Color.Green;
+                                          int iMachineNumber = 1;//In fact,when you are using the tcp/ip communication,this parameter will be ignored,that is any integer will all right.Here we use 1.
+                                          axCZKEM2.RegEvent(iMachineNumber, 65535);//Here you can register the realtime events that you want to be triggered(the parameters 65535 means registering all)
+                                       }
+                                       else
+                                       {
+                                          Tsp_AttnSys.Text = "دستگاه حضور غیاب غیرفعال می باشد";
+                                          this.AttendanceSystemAlert_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1196;
+                                          Tsp_AttnSys.ForeColor = Color.Red;
+                                       }
 
-                              AttendanceSystemAlert_Butn.SuperTip =
-                                 SuperToolTipAttnButn(
-                                    new XElement("System",
-                                       new XAttribute("device", "Attn"),
-                                       new XAttribute("ip", fingerPrintSetting.IP_ADR2),
-                                       new XAttribute("stat", Fp1DevIsConnected),
-                                       host
-                                    )
-                                 );
+                                       AttendanceSystemAlert_Butn.SuperTip =
+                                          SuperToolTipAttnButn(
+                                             new XElement("System",
+                                                new XAttribute("device", "Attn"),
+                                                new XAttribute("ip", fingerPrintSetting.IP_ADR2),
+                                                new XAttribute("stat", Fp1DevIsConnected),
+                                                host
+                                             )
+                                          );
+                                    });
+                              DeviceOnNetworks.Add(dev);
+
+                              if (dev.PingStatus)
+                              {
+                                 if (!Fp2DevIsConnected)
+                                 {
+                                    AttnType_Lov.EditValue = "001";
+                                    Fp2DevIsConnected = axCZKEM2.Connect_Net(fingerPrintSetting.IP_ADR2, Convert.ToInt32(fingerPrintSetting.PORT_NUM2));
+                                    // fire event for fetch 
+                                    axCZKEM2.OnAttTransactionEx += axCZKEM1_OnAttTransactionEx;
+                                    // New code 
+                                    axCZKEM2.OnHIDNum += axCZKEM1_OnHIDNum;
+                                    dev.Init = true;
+                                 }
+                                 if (Fp2DevIsConnected == true)
+                                 {
+                                    Tsp_AttnSys.Text = "دستگاه حضور غیاب فعال می باشد";
+                                    this.AttendanceSystemAlert_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1219;
+                                    Tsp_AttnSys.ForeColor = Color.Green;
+                                    int iMachineNumber = 1;//In fact,when you are using the tcp/ip communication,this parameter will be ignored,that is any integer will all right.Here we use 1.
+                                    axCZKEM2.RegEvent(iMachineNumber, 65535);//Here you can register the realtime events that you want to be triggered(the parameters 65535 means registering all)
+                                 }
+                                 else
+                                 {
+                                    Tsp_AttnSys.Text = "دستگاه حضور غیاب غیرفعال می باشد";
+                                    this.AttendanceSystemAlert_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1196;
+                                    Tsp_AttnSys.ForeColor = Color.Red;
+                                 }
+
+                                 AttendanceSystemAlert_Butn.SuperTip =
+                                    SuperToolTipAttnButn(
+                                       new XElement("System",
+                                          new XAttribute("device", "Attn"),
+                                          new XAttribute("ip", fingerPrintSetting.IP_ADR2),
+                                          new XAttribute("stat", Fp1DevIsConnected),
+                                          host
+                                       )
+                                    );
+                              }
                            }
                         }
                         #endregion
@@ -1378,40 +1485,95 @@ namespace System.Scsc.Ui.MasterPage
                               this.AttendanceSystemAlert_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1218;
                               Tsp_AttnSys.ForeColor = SystemColors.ControlText;
 
-                              if (!Fp1DevIsConnected)
-                              {
-                                 Fp1DevIsConnected = axCZKEM1.Connect_Net(fingerPrintSetting.IP_ADDR, Convert.ToInt32(fingerPrintSetting.PORT_NUMB));
-                                 // fire event for fetch 
-                                 axCZKEM1.OnAttTransactionEx += axCZKEM1_OnAttTransactionEx;
-                                 // New code 
-                                 axCZKEM1.OnHIDNum += axCZKEM1_OnHIDNum;
-                              }
-                              if (Fp1DevIsConnected == true)
-                              {
-                                 AttnType_Lov.EditValue = "002";
-                                 Tsp_AttnSys.Text = "دستگاه حضور غیاب فعال می باشد";
-                                 this.AttendanceSystemAlert_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1219;
-                                 Tsp_AttnSys.ForeColor = Color.Green;
-                                 int iMachineNumber = 1;//In fact,when you are using the tcp/ip communication,this parameter will be ignored,that is any integer will all right.Here we use 1.
-                                 axCZKEM1.RegEvent(iMachineNumber, 65535);//Here you can register the realtime events that you want to be triggered(the parameters 65535 means registering all)
-                              }
-                              else
-                              {
-                                 AttnType_Lov.EditValue = null;
-                                 Tsp_AttnSys.Text = "دستگاه حضور غیاب غیرفعال می باشد";
-                                 this.AttendanceSystemAlert_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1196;
-                                 Tsp_AttnSys.ForeColor = Color.Red;
-                              }
+                              // 1398/12/25 * اضافه کردن دستگاه به لیست دستگاه های داخل شبکه
+                              var dev =
+                                 new Device_On_Network(fingerPrintSetting.IP_ADR3)
+                                 {
+                                    SPort = (int)fingerPrintSetting.PORT_NUM3,
+                                    RPort = (int)fingerPrintSetting.PORT_NUM3,
+                                    DeviceType = "FngrPrnt",
+                                    DeviceName = "دستگاه اثر انگشت پذیرش"                 
+                                 };
+                              dev.CallBack = 
+                                 new Action(() =>
+                                    {
+                                       Fp1DevIsConnected = axCZKEM1.Connect_Net(fingerPrintSetting.IP_ADDR, Convert.ToInt32(fingerPrintSetting.PORT_NUMB));
+                                       if (!dev.Init)
+                                       {
+                                          // fire event for fetch 
+                                          axCZKEM1.OnAttTransactionEx += axCZKEM1_OnAttTransactionEx;
+                                          // New code 
+                                          axCZKEM1.OnHIDNum += axCZKEM1_OnHIDNum;
+                                          dev.Init = true;
+                                       }
 
-                              AttendanceSystemAlert_Butn.SuperTip =
-                                 SuperToolTipAttnButn(
-                                    new XElement("System",
-                                       new XAttribute("device", "Attn"),
-                                       new XAttribute("ip", fingerPrintSetting.IP_ADDR),
-                                       new XAttribute("stat", Fp1DevIsConnected),
-                                       host
-                                    )
-                                 );
+                                       if (Fp1DevIsConnected == true)
+                                       {
+                                          AttnType_Lov.EditValue = "002";
+                                          Tsp_AttnSys.Text = "دستگاه حضور غیاب فعال می باشد";
+                                          this.AttendanceSystemAlert_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1219;
+                                          Tsp_AttnSys.ForeColor = Color.Green;
+                                          int iMachineNumber = 1;//In fact,when you are using the tcp/ip communication,this parameter will be ignored,that is any integer will all right.Here we use 1.
+                                          axCZKEM1.RegEvent(iMachineNumber, 65535);//Here you can register the realtime events that you want to be triggered(the parameters 65535 means registering all)
+                                       }
+                                       else
+                                       {
+                                          AttnType_Lov.EditValue = null;
+                                          Tsp_AttnSys.Text = "دستگاه حضور غیاب غیرفعال می باشد";
+                                          this.AttendanceSystemAlert_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1196;
+                                          Tsp_AttnSys.ForeColor = Color.Red;
+                                       }
+
+                                       AttendanceSystemAlert_Butn.SuperTip =
+                                          SuperToolTipAttnButn(
+                                             new XElement("System",
+                                                new XAttribute("device", "Attn"),
+                                                new XAttribute("ip", fingerPrintSetting.IP_ADDR),
+                                                new XAttribute("stat", Fp1DevIsConnected),
+                                                host
+                                             )
+                                          );
+                                    });
+                              DeviceOnNetworks.Add(dev);
+
+                              if (dev.PingStatus)
+                              {
+                                 if (!Fp1DevIsConnected)
+                                 {
+                                    Fp1DevIsConnected = axCZKEM1.Connect_Net(fingerPrintSetting.IP_ADDR, Convert.ToInt32(fingerPrintSetting.PORT_NUMB));
+                                    // fire event for fetch 
+                                    axCZKEM1.OnAttTransactionEx += axCZKEM1_OnAttTransactionEx;
+                                    // New code 
+                                    axCZKEM1.OnHIDNum += axCZKEM1_OnHIDNum;
+                                    dev.Init = true;
+                                 }
+                                 if (Fp1DevIsConnected == true)
+                                 {
+                                    AttnType_Lov.EditValue = "002";
+                                    Tsp_AttnSys.Text = "دستگاه حضور غیاب فعال می باشد";
+                                    this.AttendanceSystemAlert_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1219;
+                                    Tsp_AttnSys.ForeColor = Color.Green;
+                                    int iMachineNumber = 1;//In fact,when you are using the tcp/ip communication,this parameter will be ignored,that is any integer will all right.Here we use 1.
+                                    axCZKEM1.RegEvent(iMachineNumber, 65535);//Here you can register the realtime events that you want to be triggered(the parameters 65535 means registering all)
+                                 }
+                                 else
+                                 {
+                                    AttnType_Lov.EditValue = null;
+                                    Tsp_AttnSys.Text = "دستگاه حضور غیاب غیرفعال می باشد";
+                                    this.AttendanceSystemAlert_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1196;
+                                    Tsp_AttnSys.ForeColor = Color.Red;
+                                 }
+
+                                 AttendanceSystemAlert_Butn.SuperTip =
+                                    SuperToolTipAttnButn(
+                                       new XElement("System",
+                                          new XAttribute("device", "Attn"),
+                                          new XAttribute("ip", fingerPrintSetting.IP_ADDR),
+                                          new XAttribute("stat", Fp1DevIsConnected),
+                                          host
+                                       )
+                                    );
+                              }
                            }
                         }
                         #endregion
@@ -1899,6 +2061,8 @@ namespace System.Scsc.Ui.MasterPage
 
       private void Tm_FingerPrintWorker_Tick(object sender, EventArgs e)
       {
+         Tm_FingerPrintWorker.Enabled = false;
+
          Start_FingerPrint();
          Start_OnlineDresser();
          Start_BarCode();
@@ -1907,7 +2071,8 @@ namespace System.Scsc.Ui.MasterPage
          Start_TlgrmBot();
          Start_ZKTFPSensor();
          Start_DetectExternalDevice();
-         Tm_FingerPrintWorker.Enabled = false;
+         
+         Tm_ShowTime.Enabled = true;
       }
 
       private bool Start_Enroll_Finger(string enrollid)
@@ -1920,8 +2085,9 @@ namespace System.Scsc.Ui.MasterPage
                if (axCZKEM1.StartEnrollEx(enrollid, 6, 0))
                {
                   BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.BlanchedAlmond;
+                  return true;
                }
-               else { BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Red; }
+               else { BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Red; return false; }
             }
             else if(Fp2DevIsConnected)
             {
@@ -1929,8 +2095,9 @@ namespace System.Scsc.Ui.MasterPage
                if (axCZKEM2.StartEnrollEx(enrollid, 6, 0))
                {
                   BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.BlanchedAlmond;
+                  return true;
                }
-               else { BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Red; }
+               else { BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Red; return false;}
             }
             else if (Fp3DevIsConnected)
             {
@@ -1938,8 +2105,9 @@ namespace System.Scsc.Ui.MasterPage
                if (axCZKEM3.StartEnrollEx(enrollid, 6, 0))
                {
                   BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.BlanchedAlmond;
+                  return true;
                }
-               else { BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Red; }
+               else { BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Red; return false; }
             }
             return true;
          }
@@ -2115,17 +2283,44 @@ namespace System.Scsc.Ui.MasterPage
                }
                else if(gate.DEV_CON == "002")
                {
-                  // IP Address Setting
-                  var lsgate = new TcpListenerX((int)gate.PORT_RECV);
+                  // 1398/12/25 * اضافه کردن دستگاه به لیست دستگاه های داخل شبکه
+                  var dev =
+                     new Device_On_Network(gate.IP_ADRS)
+                     {
+                        SPort = (int)gate.PORT_SEND,
+                        RPort = (int)gate.PORT_RECV,
+                        DeviceType = "Gate",
+                        DeviceName = gate.DEV_NAME                        
+                     };
+                  dev.CallBack = 
+                     new Action(() =>
+                        {
+                           // IP Address Setting
+                           var lsgate_cb = new TcpListenerX((int)gate.PORT_RECV);
+                           if (!dev.Init)
+                           {
+                              // Init Send Instance                  
+                              //lsgate_cb.StartListening();
 
-                  // Init Send Instance                  
-                  lsgate.StartListening();
-                  lsgate.OnDataRecived += LsGate_OnDataRecived;
+                              lsgate_cb.OnDataRecived += LsGate_OnDataRecived;
+                              dev.Init = true;
+                           }
+                        });
+                  DeviceOnNetworks.Add(dev);
 
+                  if (dev.PingStatus)
+                  {
+                     // IP Address Setting
+                     var lsgate = new TcpListenerX((int)gate.PORT_RECV);
+
+                     // Init Send Instance                  
+                     //lsgate.StartListening();
+                     lsgate.OnDataRecived += LsGate_OnDataRecived;
+                     dev.Init = true;
+                  }
                   //var cmd = new byte[] { 0xCC, 0x0D, 0x40, 0x28, 0x6B, 0xFA, 0x00, 0x00, 0x00, 0x00, 0x23, 0x00, 0x03, 0x00, 0x00, 0xd4, 0xDD };
                   //SendCommand("192.168.1.200", 6070, cmd);
                   //SendCommand("192.168.1.201", 6070, cmd);
-
                   //MessageBox.Show(gate.PORT_RECV.ToString() + " is OK");
                }
             }
@@ -2135,7 +2330,8 @@ namespace System.Scsc.Ui.MasterPage
          }
          catch (Exception exc)
          {
-            MessageBox.Show(exc.Message);
+            //MessageBox.Show(exc.Message);
+            ActionCenter_Butn.ToolTip = exc.Message;
          }
       }
 
@@ -2208,8 +2404,7 @@ namespace System.Scsc.Ui.MasterPage
       public class TcpListenerX
       {
          #region (Private Properties)
-
-         TcpListener server = null;
+         public TcpListener listener = null;
          IPAddress localAddr;
          Byte[] bytes;
          NetworkStream stream;
@@ -2223,15 +2418,16 @@ namespace System.Scsc.Ui.MasterPage
             try
             {
                localAddr = IPAddress.Any;//IPAddress.Parse(IP);
-               server = new TcpListener(localAddr, Port);
+               listener = new TcpListener(localAddr, Port);
                IsEnable = false;
-               server.Start();
-               TcpClient client = server.AcceptTcpClient();
+               listener.Start();
+               TcpClient client = listener.AcceptTcpClient();
                stream = client.GetStream();
+               StartListening();
             }
             catch (Exception exc)
             {
-               MessageBox.Show(string.Format("{0}\n\r{1}", "TcpListenerX", exc.Message));
+               MessageBox.Show(string.Format("{0}\n\r{1}", "TcpListenerX:" + Port.ToString(), exc.Message));
             }
          }
 
@@ -2245,7 +2441,7 @@ namespace System.Scsc.Ui.MasterPage
             }
             catch (Exception exc)
             {
-               MessageBox.Show(string.Format("{0}\n\r{1}", "Start Listening", exc.Message));
+               MessageBox.Show(string.Format("{0}\n\r{1}", "Start Listening:" + listener.LocalEndpoint.ToString().Split(':')[1], exc.Message));
             }
          }
 
@@ -2255,12 +2451,12 @@ namespace System.Scsc.Ui.MasterPage
             {               
                if (!IsEnable)
                   return;
-               OnDataRecived(Convert.ToInt32(server.LocalEndpoint.ToString().Split(':')[1]), bytes);
+               OnDataRecived(Convert.ToInt32(listener.LocalEndpoint.ToString().Split(':')[1]), bytes);
                stream.BeginRead(bytes, 0, bytes.Length, Callback, null);
             }
             catch(Exception exc)
             {
-               MessageBox.Show(string.Format("{0}\n\r{1}", "CallBack", exc.Message));
+               MessageBox.Show(string.Format("{0}\n\r{1}", "CallBack:" + listener.LocalEndpoint.ToString().Split(':')[1], exc.Message));
             }
          }
 
@@ -2309,7 +2505,7 @@ namespace System.Scsc.Ui.MasterPage
             }
 
             // IF NOT VALID ENROLCODE
-            if(enrollNumber.In("0004000", "00010000")) return;
+            if (enrollNumber.In("0004000", "00040000", "00010000")) return;
 
             // Alarm 
             new Thread(AlarmShow).Start();
@@ -2340,23 +2536,58 @@ namespace System.Scsc.Ui.MasterPage
                return;
             }            
 
-            var mbsp =
+            var mbsp = new Data.Member_Ship();
+
+            // بررسی اینکه برای پرسنل هایی که داریم نیازی به بررسی تردد نداریم
+            if (iScsc.Fighters.Any(f => f.FNGR_PRNT_DNRM == enrollNumber && f.FGPB_TYPE_DNRM == "003"))
+            {
+               mbsp =
                iScsc.Member_Ships
-               .Where( ms => 
+               .Where(ms =>
                   ms.Fighter.FNGR_PRNT_DNRM == enrollNumber &&
-                  ms.Fighter_Public.MTOD_CODE == gate.MTOD_CODE &&
                   ms.VALD_TYPE == "002" &&
                   ms.RECT_CODE == "004" &&
-                  ms.STRT_DATE <= DateTime.Now.Date &&
-                  ms.END_DATE >= DateTime.Now.Date &&
-                  (ms.NUMB_OF_ATTN_MONT == 0 || ms.NUMB_OF_ATTN_MONT > ms.SUM_ATTN_MONT_DNRM)
+                  DateTime.Now.IsBetween(ms.STRT_DATE.Value.Date, ms.END_DATE.Value.Date)
                ).FirstOrDefault();
 
+            }
+            else
+            {
+               mbsp =
+                  iScsc.Member_Ships
+                  .Where(ms =>
+                     ms.Fighter.FNGR_PRNT_DNRM == enrollNumber &&
+                     ms.Fighter_Public.MTOD_CODE == gate.MTOD_CODE &&
+                     ms.VALD_TYPE == "002" &&
+                     ms.RECT_CODE == "004" &&
+                     ms.STRT_DATE <= DateTime.Now.Date &&
+                     ms.END_DATE >= DateTime.Now.Date &&
+                     (ms.NUMB_OF_ATTN_MONT == 0 || ms.NUMB_OF_ATTN_MONT > ms.SUM_ATTN_MONT_DNRM)
+                  ).FirstOrDefault();
+            }
+
+            // این گزینه برای مشتریان لحاظ میشود
             if(mbsp == null)
             {
-               var cmd = new byte[] { 0xCC, 0x0D, 0x40, 0x28, 0x6B, 0xFA, 0x00, 0x00, 0x00, 0x00, 0x21, 0x00, 0x04, 0x00, 0x00, 0xD1, 0xDD };
-               SendCommand(gate.IP_ADRS, (int)gate.PORT_SEND, cmd);
-               return;
+               // 1398/12/23 * اگرمشتری اخرین جلسه وارد شده و بخواهد که خارج شود
+               var lastinputattn = iScsc.Attendances.Where(a => a.FNGR_PRNT_DNRM == enrollNumber && a.MTOD_CODE_DNRM == gate.MTOD_CODE && a.ATTN_DATE.Date == DateTime.Now.Date && a.EXIT_TIME == null);
+               if (lastinputattn != null && lastinputattn.Count() >= 1)
+               {
+                  // Send [Close] command to Gate
+                  // یک خروج به مشتری زده میشود
+                  var cmd = new byte[] { 0xCC, 0x0D, 0x40, 0x28, 0x6B, 0xFA, 0x00, 0x00, 0x00, 0x00, 0x0b, 0x08, 0x00, 0x00, 0x00, 0xf7, 0xDD };
+                  SendCommand(gate.IP_ADRS, (int)gate.PORT_SEND, cmd);
+
+                  iScsc.INS_ATTN_P(null, lastinputattn.FirstOrDefault().FIGH_FILE_NO, DateTime.Now, null, "001", lastinputattn.FirstOrDefault().MBSP_RWNO_DNRM, "001", "002");
+                  return;
+               }
+               else
+               {
+                  // Send [Error] command to gate
+                  var cmd = new byte[] { 0xCC, 0x0D, 0x40, 0x28, 0x6B, 0xFA, 0x00, 0x00, 0x00, 0x00, 0x21, 0x00, 0x04, 0x00, 0x00, 0xD1, 0xDD };
+                  SendCommand(gate.IP_ADRS, (int)gate.PORT_SEND, cmd);
+                  return;
+               }
             }
 
             iScsc.INS_ATTN_P(null, mbsp.FIGH_FILE_NO, DateTime.Now, null, "001", mbsp.RWNO, "001", "002");
@@ -2364,9 +2595,10 @@ namespace System.Scsc.Ui.MasterPage
             // Find Attendance in today
             var attn = iScsc.Attendances.Where(a => a.FIGH_FILE_NO == mbsp.FIGH_FILE_NO && a.MBSP_RWNO_DNRM == mbsp.RWNO && a.ATTN_DATE == DateTime.Now.Date).OrderByDescending(a => a.ENTR_TIME).FirstOrDefault();
             
-            // Send Command for Open OR Close
+            // Send [Open] or [Close] command to gate
             if (attn == null || attn.EXIT_TIME == null)
             {
+               // Send [Open] command to gate
                var cmd = new byte[] { 0xCC, 0x0D, 0x40, 0x28, 0x6B, 0xFA, 0x00, 0x00, 0x00, 0x00, 0x0C, 0x08, 0x00, 0x00, 0x00, 0xf0, 0xDD };
 
                //byte xorByte = 0;
@@ -2378,6 +2610,7 @@ namespace System.Scsc.Ui.MasterPage
             }
             else
             {
+               // Send [Close] command to gate
                var cmd = new byte[] { 0xCC, 0x0D, 0x40, 0x28, 0x6B, 0xFA, 0x00, 0x00, 0x00, 0x00, 0x0b, 0x08, 0x00, 0x00, 0x00, 0xf7, 0xDD };               
                SendCommand(gate.IP_ADRS, (int)gate.PORT_SEND, cmd);
             }
@@ -2469,6 +2702,48 @@ namespace System.Scsc.Ui.MasterPage
       #endregion
       #endregion
 
+      #region Device_On_Network
+      class Device_On_Network
+      {
+         public Device_On_Network(string ipAddress)
+         {
+            IPAddress = ipAddress;
+            Ping();
+         }
+         public string IPAddress { get; set; }
+         public int SPort { get; set; }
+         public int RPort { get; set; }
+         public bool PingStatus { get; set; }
+         public string DeviceType { get; set; }
+         public string DeviceName { get; set; }
+         public bool Init { get; set; }
+
+         public Action CallBack { get; set; }
+         public void Ping()
+         {
+            try
+            {
+               Ping ping = new Ping();
+               var pingstatus = ping.Send(IPAddress, 500);
+
+               if (pingstatus.Status == IPStatus.Success)
+               {
+                  PingStatus = true;
+               }
+               else
+               {
+                  PingStatus = false;
+               }
+            }
+            catch { }
+         }
+      }
+
+      private List<Device_On_Network> DeviceOnNetworks = new List<Device_On_Network>();
+
+      
+      #endregion
+
       #region Online Dresser
       // فعال سازی سیستم قفل کمد های انلاین
       private void Start_OnlineDresser()
@@ -2495,52 +2770,130 @@ namespace System.Scsc.Ui.MasterPage
                            if (fingerPrintSetting.ATTN_SYST_TYPE != "002") return;
 
                            // اگر حضور و غیاب با دستگاه انگشتی باشد و ارتباط را چک میکنیم
-                           if (fingerPrintSetting.IP_ADR3 != null && fingerPrintSetting.PORT_NUM3 != null)
+                           if (fingerPrintSetting.IP_ADR3 != null && fingerPrintSetting.IP_ADR3.Length >= 10 && fingerPrintSetting.PORT_NUM3 != null)
                            {
-                              if (false && !Fp3DevIsConnected)
-                              {                                 
-                                 Fp3DevIsConnected = axCZKEM3.Connect_Net(fingerPrintSetting.IP_ADR3, Convert.ToInt32(fingerPrintSetting.PORT_NUM3));
-                                 // fire event for fetch 
-                                 axCZKEM3.OnAttTransactionEx += axCZKEM3_OnAttTransactionEx;                                 
-                              }
-                              if (Fp3DevIsConnected == true)
-                              {
-                                 OnlineDres_Butn.ToolTip = "سیستم کمد های انلاین فعال می باشد";
-                                 int iMachineNumber = 1;//In fact,when you are using the tcp/ip communication,this parameter will be ignored,that is any integer will all right.Here we use 1.
-                                 axCZKEM3.RegEvent(iMachineNumber, 65535);//Here you can register the realtime events that you want to be triggered(the parameters 65535 means registering all)
-
-                                 // فعال سازی گزینه پورت های سریال برای مدیریت کمد
-                                 // ابتدا متوجه میشویم که این کامپیوتر به کدام پورت ها دسترسی دارد آنها رو فعال میکنیم
-                                 var onLineDresserPorts = iScsc.Dressers.Where(d => d.Computer_Action.COMP_NAME == host.Attribute("name").Value).Select(d => new { Com_Port = d.COMM_PORT, Band_Rate = d.BAND_RATE }).Distinct();
-                                 OnlineDres_Butn.ToolTip += Environment.NewLine + string.Format("{0} -=> ( {1} )", "تعداد مرکز کنترل ها", onLineDresserPorts.Count());
-                                 
-                                 List<SerialPort> onLinePorts = new List<SerialPort>();
-                                 foreach (var port in onLineDresserPorts)
+                              // 1398/12/25 * اضافه کردن دستگاه به لیست دستگاه های داخل شبکه
+                              var dev =
+                                 new Device_On_Network(fingerPrintSetting.IP_ADR3)
                                  {
-                                    var p = new SerialPort(port.Com_Port, (int)port.Band_Rate);
-                                    try
-                                    {
-                                       p.StopBits = StopBits.One;
-                                       p.Parity = Parity.None;
-                                       p.DataBits = 8;
-                                       p.Open();
-                                       onLinePorts.Add(p);
+                                    SPort = (int)fingerPrintSetting.PORT_NUM3,
+                                    RPort = (int)fingerPrintSetting.PORT_NUM3,
+                                    DeviceType = "FngrPrnt",
+                                    DeviceName = "دستگاه اثر انگشت رختکن"
+                                 };
+                              dev.CallBack = 
+                                 new Action(() =>
+                                    {                                       
+                                       Fp3DevIsConnected = axCZKEM3.Connect_Net(fingerPrintSetting.IP_ADR3, Convert.ToInt32(fingerPrintSetting.PORT_NUM3));
+                                       if (!dev.Init)
+                                       {
+                                          // fire event for fetch 
+                                          axCZKEM3.OnAttTransactionEx += axCZKEM3_OnAttTransactionEx;
+                                          dev.Init = true;
+                                       }
+                                       
+                                       if (Fp3DevIsConnected)
+                                       {
+                                          OnlineDres_Butn.ToolTip = "سیستم کمد های انلاین فعال می باشد";
+                                          int iMachineNumber = 1;//In fact,when you are using the tcp/ip communication,this parameter will be ignored,that is any integer will all right.Here we use 1.
+                                          axCZKEM3.RegEvent(iMachineNumber, 65535);//Here you can register the realtime events that you want to be triggered(the parameters 65535 means registering all)
 
-                                       OnlineDres_Butn.ToolTip += Environment.NewLine + string.Format("{0} ( {1} ) -=> {2}", "مرکز کنترل شماره", p.PortName, "Enabled");
-                                    }
-                                    catch {
-                                       OnlineDres_Butn.ToolTip += Environment.NewLine + string.Format("{0} ( {1} ) -=> {2}", "مرکز کنترل شماره", p.PortName, "Disabled");
-                                    }
-                                 }
+                                          var lastOnLinePorts = OnlineDres_Butn.Tag as List<SerialPort>;
+                                          foreach (SerialPort port in lastOnLinePorts)
+                                          {
+                                             if (port.IsOpen)
+                                                port.Close();
+                                          }
 
-                                 // شماره پورت را به تگ اضافه میکنیم
-                                 OnlineDres_Butn.Tag = onLinePorts;
+                                          lastOnLinePorts.Clear();
 
-                                 BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Green;
-                              }
-                              else
+                                          // فعال سازی گزینه پورت های سریال برای مدیریت کمد
+                                          // ابتدا متوجه میشویم که این کامپیوتر به کدام پورت ها دسترسی دارد آنها رو فعال میکنیم
+                                          iScsc = new Data.iScscDataContext(ConnectionString);
+                                          var onLineDresserPorts = iScsc.Dressers.Where(d => d.Computer_Action.COMP_NAME == host.Attribute("name").Value).Select(d => new { Com_Port = d.COMM_PORT, Band_Rate = d.BAND_RATE }).Distinct();
+                                          OnlineDres_Butn.ToolTip += Environment.NewLine + string.Format("{0} -=> ( {1} )", "تعداد مرکز کنترل ها", onLineDresserPorts.Count());
+
+                                          List<SerialPort> onLinePorts = new List<SerialPort>();
+                                          foreach (var port in onLineDresserPorts)
+                                          {
+                                             var p = new SerialPort(port.Com_Port, (int)port.Band_Rate);
+                                             try
+                                             {
+                                                p.StopBits = StopBits.One;
+                                                p.Parity = Parity.None;
+                                                p.DataBits = 8;
+                                                p.Open();
+                                                onLinePorts.Add(p);
+
+                                                OnlineDres_Butn.ToolTip += Environment.NewLine + string.Format("{0} ( {1} ) -=> {2}", "مرکز کنترل شماره", p.PortName, "Enabled");
+                                             }
+                                             catch
+                                             {
+                                                OnlineDres_Butn.ToolTip += Environment.NewLine + string.Format("{0} ( {1} ) -=> {2}", "مرکز کنترل شماره", p.PortName, "Disabled");
+                                             }
+                                          }
+
+                                          // شماره پورت را به تگ اضافه میکنیم
+                                          OnlineDres_Butn.Tag = onLinePorts;
+
+                                          BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Green;
+                                       }
+                                       else
+                                       {
+                                          OnlineDres_Butn.ToolTip = "سیستم کمد های انلاین غیرفعال می باشد";
+                                       }
+                                    });
+                              DeviceOnNetworks.Add(dev);
+
+                              if (dev.PingStatus)
                               {
-                                 OnlineDres_Butn.ToolTip = "سیستم کمد های انلاین غیرفعال می باشد";
+                                 if (!Fp3DevIsConnected)
+                                 {
+                                    Fp3DevIsConnected = axCZKEM3.Connect_Net(fingerPrintSetting.IP_ADR3, Convert.ToInt32(fingerPrintSetting.PORT_NUM3));
+                                    // fire event for fetch 
+                                    axCZKEM3.OnAttTransactionEx += axCZKEM3_OnAttTransactionEx;
+                                    dev.Init = true;
+                                 }
+                                 if (Fp3DevIsConnected == true)
+                                 {
+                                    OnlineDres_Butn.ToolTip = "سیستم کمد های انلاین فعال می باشد";
+                                    int iMachineNumber = 1;//In fact,when you are using the tcp/ip communication,this parameter will be ignored,that is any integer will all right.Here we use 1.
+                                    axCZKEM3.RegEvent(iMachineNumber, 65535);//Here you can register the realtime events that you want to be triggered(the parameters 65535 means registering all)
+
+                                    // فعال سازی گزینه پورت های سریال برای مدیریت کمد
+                                    // ابتدا متوجه میشویم که این کامپیوتر به کدام پورت ها دسترسی دارد آنها رو فعال میکنیم
+                                    var onLineDresserPorts = iScsc.Dressers.Where(d => d.Computer_Action.COMP_NAME == host.Attribute("name").Value).Select(d => new { Com_Port = d.COMM_PORT, Band_Rate = d.BAND_RATE }).Distinct();
+                                    OnlineDres_Butn.ToolTip += Environment.NewLine + string.Format("{0} -=> ( {1} )", "تعداد مرکز کنترل ها", onLineDresserPorts.Count());
+
+                                    List<SerialPort> onLinePorts = new List<SerialPort>();
+                                    foreach (var port in onLineDresserPorts)
+                                    {
+                                       var p = new SerialPort(port.Com_Port, (int)port.Band_Rate);
+                                       try
+                                       {
+                                          p.StopBits = StopBits.One;
+                                          p.Parity = Parity.None;
+                                          p.DataBits = 8;
+                                          p.Open();
+                                          onLinePorts.Add(p);
+
+                                          OnlineDres_Butn.ToolTip += Environment.NewLine + string.Format("{0} ( {1} ) -=> {2}", "مرکز کنترل شماره", p.PortName, "Enabled");
+                                       }
+                                       catch
+                                       {
+                                          OnlineDres_Butn.ToolTip += Environment.NewLine + string.Format("{0} ( {1} ) -=> {2}", "مرکز کنترل شماره", p.PortName, "Disabled");
+                                       }
+                                    }
+
+                                    // شماره پورت را به تگ اضافه میکنیم
+                                    OnlineDres_Butn.Tag = onLinePorts;
+
+                                    BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Green;
+                                 }
+                                 else
+                                 {
+                                    OnlineDres_Butn.ToolTip = "سیستم کمد های انلاین غیرفعال می باشد";
+                                 }
                               }
                            }
                         }
@@ -4140,7 +4493,8 @@ namespace System.Scsc.Ui.MasterPage
 
       private void Tm_ShowTime_Tick(object sender, EventArgs e)
       {
-         AdjustDateTime_Butn.Text = DateTime.Now.ToString("HH:mm:ss");
+         //AdjustDateTime_Butn.Text = DateTime.Now.ToString("HH:mm:ss");
+         AdjustDateTime_Butn.Text = DateTime.Now.ToString("HH:mm");
 
          try
          {
@@ -4167,16 +4521,69 @@ namespace System.Scsc.Ui.MasterPage
             {
                SrvrPing_Butn.Image = Properties.Resources.IMAGE_1408;
                SrvrPing_Butn.Appearance.BackColor = Color.LightGreen;
-               SrvrPing_Butn.ToolTip = string.Format("Server IP : {0} \n\rNetwork connected.", SrvrPing_Butn.Tag);
+               SrvrPing_Butn.ToolTip = string.Format("Server IP : {0} Network connected.", SrvrPing_Butn.Tag);
             }
             else
             {
                SrvrPing_Butn.Image = Properties.Resources.IMAGE_1418;
                SrvrPing_Butn.Appearance.BackColor = Color.Pink;
-               SrvrPing_Butn.ToolTip = string.Format("Server IP : {0} \n\rNetwork disconnected.", SrvrPing_Butn.Tag);
+               SrvrPing_Butn.ToolTip = string.Format("Server IP : {0} Network disconnected.", SrvrPing_Butn.Tag);
+            }
+
+            // بررسی دستگاه های درون شبکه
+            foreach (Device_On_Network dev in DeviceOnNetworks)
+            {
+               // اگر دستگاه غیرفعال بوده
+               if (!dev.PingStatus)
+               {
+                  // دستگاه را دوباره تست میکنیم
+                  dev.Ping();
+                  // اگر دستگاه انلاین شد
+                  if (dev.PingStatus)
+                  {
+                     dev.CallBack();
+                     _DefaultGateway.Gateway(
+                        new Job(SendType.External, "localhost", "Wall", 22 /* Execute SetSystemNotification */, SendType.SelfToUserInterface)
+                        {
+                           Input =
+                              new List<object>
+                              {
+                                 ToolTipIcon.Info,
+                                 string.Format("Device Name : {0}\n\rIP Address : {1}", dev.DeviceName, dev.IPAddress),
+                                 "دستگاه به شبکه متصل شد",
+                                 2000
+                              }
+                        }
+                     );
+
+                     ActionCenter_Butn.ToolTip += "IP Address :" + dev.IPAddress + " connected." + Environment.NewLine;
+                  }
+                  else
+                  {
+                     _DefaultGateway.Gateway(
+                        new Job(SendType.External, "localhost", "Wall", 22 /* Execute SetSystemNotification */, SendType.SelfToUserInterface)
+                        {
+                           Input =
+                              new List<object>
+                              {
+                                 ToolTipIcon.Warning,
+                                 string.Format("Device Name : {0}\n\rIP Address : {1}", dev.DeviceName, dev.IPAddress),
+                                 "دستگاه به شبکه متصل نیست",
+                                 2000
+                              }
+                        }
+                     );
+
+                     ActionCenter_Butn.ToolTip += "IP Address :" + dev.IPAddress + " disconnected." + Environment.NewLine;
+                  }
+               }
+               else
+                  dev.Ping();
+
+               SrvrPing_Butn.ToolTip += string.Format("\nDevice IP : {0} Status : {1}", dev.IPAddress, dev.PingStatus ? "Connected" : "Disconnected");
             }
          }
-         catch { }
+         catch (Exception exc) { ActionCenter_Butn.ToolTip = exc.Message; }
       }
 
       private void AdjustDateTime_Butn_Click(object sender, EventArgs e)

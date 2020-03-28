@@ -233,6 +233,9 @@ namespace System.RoboTech.Ui.DevelopmentApplication
          DbtypBs.DataSource = iRoboTech.D_BTYPs;
          DbdirBs.DataSource = iRoboTech.D_BDIRs;
          DAmutBs.DataSource = iRoboTech.D_AMUTs;
+         DAcntBs.DataSource = iRoboTech.D_ACNTs;
+         DMntpBs.DataSource = iRoboTech.D_MNTPs;
+         DDstpBs.DataSource = iRoboTech.D_DSTPs;
          UApbBs.DataSource = iRoboTech.App_Base_Defines.Where(r => r.ENTY_NAME == "PRODUCTUNIT_INFO");
          job.Status = StatusType.Successful;
       }

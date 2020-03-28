@@ -18,7 +18,10 @@ using System.Xml.Serialization;
 using System.Threading;
 using DevExpress.XtraEditors;
 using Telegram.Bot.Types.InputFiles;
-
+using System.Net;
+using System.RoboTech.ExtCode;
+using Bale.Bot.Types.Payments;
+using MihaZupan;
 
 namespace System.RoboTech.Controller
 {
@@ -63,7 +66,12 @@ namespace System.RoboTech.Controller
          {
             this.ConsoleOutLog_MemTxt = ConsoleOutLog_MemTxt;
 
-            Bot = new TelegramBotClient(token);
+            // using System.Net;
+            ServicePointManager.Expect100Continue = true;
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+            // Use SecurityProtocolType.Ssl3 if needed for compatibility reasons
+
+            Bot = new TelegramBotClient(token, new HttpToSocks5Proxy("127.0.0.1", 1080) );
             Token = token;
             this.robot = robot;
             Chats = new List<ChatInfo>();
@@ -74,7 +82,9 @@ namespace System.RoboTech.Controller
             started = true;
             main(activeRobot);
          }
-         catch (Exception exc) { this.ConsoleOutLog_MemTxt.Text = exc.Message; }
+         catch (Exception exc) { 
+            this.ConsoleOutLog_MemTxt.Text = exc.Message;            
+         }
       }
 
       void main(bool activeRobot = true)
@@ -103,6 +113,29 @@ namespace System.RoboTech.Controller
          started = false;
       }
 
+      public async void SendAction(XElement x)
+      {
+         try
+         {
+            Data.iRoboTechDataContext iRobotTech = new Data.iRoboTechDataContext(connectionString);
+            switch (x.Attribute("actntype").Value)
+            {
+               case "sendordrs":
+                  await Send_Order(iRobotTech, null);
+                  break;
+               default:
+                  break;
+            }
+         }
+         catch (Exception exc)
+         {
+            if (ConsoleOutLog_MemTxt.InvokeRequired)
+               ConsoleOutLog_MemTxt.Invoke(new Action(() => ConsoleOutLog_MemTxt.Text += exc.Message));
+            else
+               ConsoleOutLog_MemTxt.Text += exc.Message;
+         }
+      }
+
       private async void BotOnCallbackQueryReceived(object sender, CallbackQueryEventArgs e)
       {
          throw new NotImplementedException();
@@ -123,7 +156,6 @@ namespace System.RoboTech.Controller
       {
          throw new NotImplementedException();
       }
-
 
       private async void BotOnMessageReceived(object sender, MessageEventArgs e)
       {
@@ -185,6 +217,70 @@ namespace System.RoboTech.Controller
             catch { return; }
 
             XElement xResult = new XElement("Respons", "No Message");
+
+            // 1398/11/20 * ثبت وصولی بدست آماده
+            if (e.Message.Type == MessageType.SuccessfulPayment && e.Message.From.Username == "receipt")
+            {
+               // ⏳ Please wait...
+               await Bot.SendTextMessageAsync(
+                        e.Message.Chat.Id,
+                        "⏳ لطفا چند لحظه صبر کنید...",
+                        replyMarkup:
+                        null);
+
+               // ثبت وصولی پرداخت شده درون سیستم و صدور سند مالی
+               // شماره فاکتور سیستم ما : e.Message.SuccessfulPayment.InvoicePayload
+               // شماره پیگیری از سمت بانک : e.Message.SuccessfulPayment.ProviderPaymentChargeId
+               // کل مبلغ پرداخت شده : e.Message.SuccessfulPayment.TotalAmount               
+               iRobotTech.SAVE_PYMT_P(
+                  new XElement("Payment",
+                     new XAttribute("ordrcode", e.Message.SuccessfulPayment.InvoicePayload),
+                     new XAttribute("txid", e.Message.SuccessfulPayment.ProviderPaymentChargeId),
+                     new XAttribute("totlamnt", e.Message.SuccessfulPayment.TotalAmount)
+                  ),
+                  ref xResult
+               );
+
+               await FireEventResultOpration(chat, null, xResult);
+
+               await Send_Order(iRobotTech, null);
+
+               await Send_Replay_Message(GetToken(), chat);
+
+               return;
+            }
+
+            // 1398/12/04 * اگر دستوراتی مخفی ربات دریافت شد
+            if (e.Message.Type == MessageType.Text &&
+               e.Message.Text.Length >= 2 &&
+               e.Message.Text.Substring(0, 2).In("*%" /* این گزینه برای پاسخگویی به خدمات پیک موتوری هست */))
+            {
+               // اجرای دستورات ربات برای خدمات مخفی
+               if (e.Message.Text.Substring(0, 2).In("*%" /* این گزینه برای پاسخگویی به خدمات پیک موتوری هست */))
+               {
+                  // خدمات پیک موتوری و اسنپ
+                  iRobotTech.SAVE_ALPK_P(
+                     new XElement("RequestAlopeyk",
+                        new XAttribute("token", GetToken()),
+                        new XAttribute("actncode", "000"),
+                        new XAttribute("cmnd", e.Message.Text),
+                        new XElement("Alopeyk",
+                           new XAttribute("chatid", e.Message.Chat.Id)
+                        )
+
+                     ),
+                     ref xResult
+                  );
+               }
+
+               await FireEventResultOpration(chat, null, xResult);
+
+               await Send_Order(iRobotTech, null);
+
+               await Send_Replay_Message(GetToken(), chat);
+
+               return;
+            }
 
             // ارسال تبلیغات
             try
@@ -770,6 +866,13 @@ namespace System.RoboTech.Controller
                   }
                   try
                   {
+                     // ⏳ Please wait...
+                     await Bot.SendTextMessageAsync(
+                              e.Message.Chat.Id,
+                              "⏳ لطفا چند لحظه صبر کنید...",
+                              replyMarkup:
+                              null);
+
                      var xmlmsg = RobotHandle.GetData(
                         new XElement("Robot",
                            new XAttribute("token", Token),
@@ -830,7 +933,7 @@ namespace System.RoboTech.Controller
                   //chat.Runed = true;
                }
             }
-            else if (menucmndtype != null && menucmndtype.CMND_TYPE != null && new List<string> { "001", "002", "003", "004", "005", "006", "007", "008", "009", "010", "011", "012", "013", "014", "015", "016", "017", "018", "019", "020", "021", "022", "023", "024", "025" }.Contains(menucmndtype.CMND_TYPE))
+            else if (menucmndtype != null && menucmndtype.CMND_TYPE != null && new List<string> { "001", "002", "003", "004", "005", "006", "007", "008", "009", "010", "011", "012", "013", "014", "015", "016", "017", "018", "019", "020", "021", "022", "023", "024", "025", "026", "027" }.Contains(menucmndtype.CMND_TYPE))
             {
                /*
                 * 001 - Location
@@ -858,6 +961,8 @@ namespace System.RoboTech.Controller
                 * 023 - Stickers & Info Text
                 * 024 - Stickers & Image
                 * 025 - Stickers & Image & Info Text
+                * 026 - Direct Payment Process
+                * 027 - Order Checkout Payment Process
                 */
                if (menucmndtype.CMND_TYPE == "001")
                {
@@ -1403,6 +1508,13 @@ namespace System.RoboTech.Controller
                   if (chat.Message.Location != null)
                      elmntype = "005";
 
+                  // ⏳ Please wait...
+                  await Bot.SendTextMessageAsync(
+                           e.Message.Chat.Id,
+                           "⏳ لطفا چند لحظه صبر کنید...",
+                           replyMarkup:
+                           null);
+
                   var xdata = RobotHandle.GetData(
                     new XElement("Robot",
                        new XAttribute("token", Token),
@@ -1622,6 +1734,12 @@ namespace System.RoboTech.Controller
                else if (menucmndtype.CMND_TYPE == "011")
                {
                   #region Fire Event & Continue
+                  // ⏳ Please wait...
+                  await Bot.SendTextMessageAsync(
+                           e.Message.Chat.Id,
+                           "⏳ لطفا چند لحظه صبر کنید...",
+                           replyMarkup:
+                           null);
 
                   var xdata = RobotHandle.GetData(
                     new XElement("Robot",
@@ -1960,6 +2078,13 @@ namespace System.RoboTech.Controller
                }
                else if (menucmndtype.CMND_TYPE == "015")
                {
+                  // ⏳ Please wait...
+                  await Bot.SendTextMessageAsync(
+                           e.Message.Chat.Id,
+                           "⏳ لطفا چند لحظه صبر کنید...",
+                           replyMarkup:
+                           null);
+
                   var xdata = RobotHandle.GetData(
                     new XElement("Robot",
                        new XAttribute("token", Token),
@@ -2664,6 +2789,309 @@ namespace System.RoboTech.Controller
                            });
                      textmsg = "";
                   }
+                  #endregion
+               }
+               else if (menucmndtype.CMND_TYPE == "026")
+               {
+                  #region Direct Payment Process
+                  var _getdirectpaymentprocess =
+                     from ghi in iRobotTech.Group_Header_Items
+                     join gm in iRobotTech.Group_Menu_Ussds on ghi.Group_Menu_Ussd equals gm
+                     join g in iRobotTech.Groups on gm.Group equals g
+                     join srg in iRobotTech.Service_Robot_Groups on g equals srg.Group
+                     join sr in iRobotTech.Service_Robots on srg.Service_Robot equals sr
+                     join r in iRobotTech.Robots on sr.Robot equals r
+                     where r.TKON_CODE == GetToken()
+                        && sr.CHAT_ID == chat.Message.Chat.Id
+                        //&& srg.DFLT_STAT == "002"
+                        && ghi.STAT == "002"
+                        && g.STAT == "002"
+                        && gm.STAT == "002"
+                        && srg.STAT == "002"
+                        && gm.MNUS_MUID == menucmndtype.MUID
+                     select new
+                     {
+                        Price = ghi.PRIC,
+                        Ussd_Code = ghi.USSD_CODE_DNRM,
+                        Muid = ghi.GRMU_MNUS_MUID,
+                        Gpid = ghi.GRMU_GROP_GPID,
+                        Auto_Join = g.AUTO_JOIN,
+                        Default = srg.DFLT_STAT,
+                        Title = ghi.GHDT_DESC,
+                        Description = ghi.Group_Header.GRPH_DESC,
+                        Tax = ghi.TAX_PRCT,
+                        Off_Percentage = g.OFF_PRCT
+                     };
+
+                  var _getdefaultgroupaccess =
+                     from gm in iRobotTech.Group_Menu_Ussds
+                     join g in iRobotTech.Groups on gm.Group equals g
+                     join srg in iRobotTech.Service_Robot_Groups on g equals srg.Group
+                     join sr in iRobotTech.Service_Robots on srg.Service_Robot equals sr
+                     join r in iRobotTech.Robots on sr.Robot equals r
+                     where r.TKON_CODE == GetToken()
+                        && sr.CHAT_ID == chat.Message.Chat.Id
+                        && srg.DFLT_STAT == "002"
+                        && g.STAT == "002"
+                        && gm.STAT == "002"
+                        && srg.STAT == "002"
+                        && gm.MNUS_MUID == menucmndtype.MUID
+                     select new
+                     {
+                        Off_Percentage = g.OFF_PRCT
+                     };
+
+                  var _dfltgropamnt = _getdirectpaymentprocess.Where(a => a.Default == "002");
+                  long? amnt = null;
+                  string title = "", description = "", ussdcode = "";
+                  int? tax = 0, off_prct = 0;
+                  if (_dfltgropamnt.Any())
+                  {
+                     // اگر گروه دسترسی پیش فرض برای محاسبه هزینه وجود داشته باشد                     
+                     amnt = _dfltgropamnt.Max(v => v.Price);
+                     tax = _dfltgropamnt.FirstOrDefault(v => v.Price == amnt).Tax;
+                     //off_prct = _dfltgropamnt.FirstOrDefault(v => v.Price == amnt).Off_Percentage;
+                     title = _dfltgropamnt.FirstOrDefault(v => v.Price == amnt).Title;
+                     description = _dfltgropamnt.FirstOrDefault(v => v.Price == amnt).Description;
+                     ussdcode = _dfltgropamnt.FirstOrDefault(v => v.Price == amnt).Ussd_Code;
+                  }
+                  else
+                  {
+                     // اگر گروه دسترسی پیش فرض برای محاسبه هزینه وجود نداشته باشد
+                     amnt = _getdirectpaymentprocess.Where(dpp => dpp.Auto_Join == "002").Max(v => v.Price);
+                     tax = _getdirectpaymentprocess.FirstOrDefault(dpp => dpp.Auto_Join == "002" && dpp.Price == amnt).Tax;
+                     // اگر در خروجی بدست آمده تخفیف گروه پیش فرض وحود داشته باشد
+                     if (!_getdefaultgroupaccess.Any())
+                        off_prct = _getdirectpaymentprocess.FirstOrDefault(dpp => dpp.Auto_Join == "002" && dpp.Price == amnt).Off_Percentage;
+                     else
+                        off_prct = _getdefaultgroupaccess.Max(dpp => dpp.Off_Percentage);
+
+                     title = _getdirectpaymentprocess.FirstOrDefault(dpp => dpp.Auto_Join == "002" && dpp.Price == amnt).Title;
+                     description = _getdirectpaymentprocess.FirstOrDefault(dpp => dpp.Auto_Join == "002" && dpp.Price == amnt).Description;
+                     ussdcode = _getdirectpaymentprocess.FirstOrDefault(dpp => dpp.Auto_Join == "002" && dpp.Price == amnt).Ussd_Code;
+                  }
+
+                  #region Create Order with Order Type
+
+                  // ⏳ Please wait...
+                  await Bot.SendTextMessageAsync(
+                           e.Message.Chat.Id,
+                           "⏳ لطفا چند لحظه صبر کنید...",
+                           replyMarkup:
+                           null);
+
+                  var xdata = RobotHandle.GetData(
+                    new XElement("Robot",
+                       new XAttribute("token", GetToken()),
+                       new XElement("Message",
+                          new XAttribute("ussd", chat.UssdCode ?? ""),
+                          new XAttribute("childussd", menucmndtype != null ? menucmndtype.USSD_CODE ?? "" : ""),
+                          new XAttribute("chatid", chat.Message.Chat.Id)
+                       )
+                    ), connectionString);
+
+                  var ordr =
+                     iRobotTech.Orders
+                     .Where(
+                        o => o.CHAT_ID == e.Message.Chat.Id
+                          && o.Robot.TKON_CODE == GetToken()
+                          && o.ORDR_STAT == "001"
+                          && (o.ORDR_TYPE == "004" || o.ORDR_TYPE == "013" || o.ORDR_TYPE == "014" || o.ORDR_TYPE == "016")
+                          && o.STRT_DATE.Value.Date == DateTime.Now.Date
+                     ).OrderByDescending(o => o.STRT_DATE).Take(1).FirstOrDefault();
+
+                  // Process SendInvoice
+                  var price = new List<LabeledPrice>();
+                  /*if (off_prct > 0)
+                     amnt -= (amnt * off_prct) / 100;*/
+
+                  if (ordr.AMNT_TYPE == "001")
+                  {
+                     if (ordr.EXTR_PRCT != null && ordr.EXTR_PRCT > 0)
+                     {
+                        price.Add(new LabeledPrice("قیمت کل", (int)ordr.EXPN_AMNT));
+                        price.Add(new LabeledPrice("ارزش افزوده", (int)ordr.EXTR_PRCT));
+                     }
+                     else
+                        price.Add(new LabeledPrice("قیمت کل", (int)ordr.EXPN_AMNT));
+
+                     // اگر بخواهیم از مشتری کارمزد دریافت کنیم
+                     if (ordr.TXFE_AMNT_DNRM != null && ordr.TXFE_AMNT_DNRM > 0)
+                        price.Add(new LabeledPrice("کارمزد خدمات غیر حضوری", (int)ordr.TXFE_AMNT_DNRM));
+                  }
+                  else if (ordr.AMNT_TYPE == "002")
+                  {
+                     if (ordr.EXTR_PRCT != null && ordr.EXTR_PRCT > 0)
+                     {
+                        price.Add(new LabeledPrice("قیمت کل", (int)ordr.EXPN_AMNT * 10));
+                        price.Add(new LabeledPrice("ارزش افزوده", (int)ordr.EXTR_PRCT * 10));
+                     }
+                     else
+                        price.Add(new LabeledPrice("قیمت کل", (int)ordr.EXPN_AMNT * 10));
+
+                     // اگر بخواهیم از مشتری کارمزد دریافت کنیم
+                     if (ordr.TXFE_AMNT_DNRM != null && ordr.TXFE_AMNT_DNRM > 0)
+                        price.Add(new LabeledPrice("کارمزد خدمات غیر حضوری", (int)ordr.TXFE_AMNT_DNRM * 10));
+                  }
+
+                  await FireEventResultOpration(chat, keyBoardMarkup, xdata);
+
+                  await Send_Order(iRobotTech, keyBoardMarkup);
+
+                  //if (ordr.AMNT_TYPE == "001")
+                  //{
+                  //   // پرداخت به صورت کارت به کارت
+                  //   if (price.Sum(p => p.Amount) <= 30000000)
+                  //   {
+                  //      await Bot.SendInvoiceAsync(
+                  //         (int)e.Message.Chat.Id,
+                  //         string.Format("{0}\n\r{1} : {2}\n\r{3} : {4}", "فاکتور شما", "شماره", ordr.CODE, "تاریخ", iRobotTech.GET_MTOS_U(ordr.STRT_DATE)),
+                  //         description,
+                  //         ordr.CODE.ToString(),
+                  //         ordr.DEST_CARD_NUMB_DNRM,
+                  //         "",
+                  //         "IRR",
+                  //         price                           
+                  //         );
+                  //   }
+                  //   else
+                  //   {
+                  //      // پرداخت از طریق درگاه پرداخت
+                  //   }
+                  //}
+                  //else if (ordr.AMNT_TYPE == "002")
+                  //{
+                  //   // پرداخت به صورت کارت به کارت
+                  //   if (price.Sum(p => p.Amount) <= 3000000)
+                  //   {
+                  //      await Bot.SendInvoiceAsync(
+                  //         (int)e.Message.Chat.Id,
+                  //         string.Format("{0}\n\r{1} : {2}\n\r{3} : {4}", "فاکتور شما", "شماره", ordr.CODE, "تاریخ", iRobotTech.GET_MTOS_U(ordr.STRT_DATE)),
+                  //         description,
+                  //         ordr.CODE.ToString(),
+                  //         ordr.DEST_CARD_NUMB_DNRM,
+                  //         "",
+                  //         "IRR",
+                  //         price.GetEnumerator()
+                  //         );
+                  //   }
+                  //   else
+                  //   {
+                  //      // پرداخت از طریق درگاه پرداخت
+                  //   }
+                  //}
+                  #endregion
+                  #endregion
+               }
+               else if (menucmndtype.CMND_TYPE == "027")
+               {
+                  #region Order Checkout Payment Process
+                  // ⏳ Please wait...
+                  await Bot.SendTextMessageAsync(
+                           e.Message.Chat.Id,
+                           "⏳ لطفا چند لحظه صبر کنید...",
+                           replyMarkup:
+                           null);
+
+                  var xdata = RobotHandle.GetData(
+                    new XElement("Robot",
+                       new XAttribute("token", GetToken()),
+                       new XElement("Message",
+                          new XAttribute("ussd", chat.UssdCode ?? ""),
+                          new XAttribute("childussd", menucmndtype != null ? menucmndtype.USSD_CODE ?? "" : ""),
+                          new XAttribute("chatid", chat.Message.Chat.Id)
+                       )
+                    ), connectionString);
+
+                  var ordr =
+                     iRobotTech.Orders
+                     .Where(
+                        o => o.CHAT_ID == e.Message.Chat.Id
+                          && o.Robot.TKON_CODE == GetToken()
+                          && o.ORDR_STAT == "001"
+                          && (o.ORDR_TYPE == "004" || o.ORDR_TYPE == "013" || o.ORDR_TYPE == "014" || o.ORDR_TYPE == "016")
+                          && o.STRT_DATE.Value.Date == DateTime.Now.Date
+                     ).OrderByDescending(o => o.STRT_DATE).Take(1).FirstOrDefault();
+
+                  // Process SendInvoice
+                  var price = new List<LabeledPrice>();
+                  /*if (off_prct > 0)
+                     amnt -= (amnt * off_prct) / 100;*/
+                  if (ordr.AMNT_TYPE == "001")
+                  {
+                     if (ordr.EXTR_PRCT != null && ordr.EXTR_PRCT > 0)
+                     {
+                        price.Add(new LabeledPrice("قیمت کل", (int)ordr.EXPN_AMNT));
+                        price.Add(new LabeledPrice("ارزش افزوده", (int)ordr.EXTR_PRCT));
+                     }
+                     else
+                        price.Add(new LabeledPrice("قیمت کل", (int)ordr.EXPN_AMNT));
+
+                     // اگر بخواهیم از مشتری کارمزد دریافت کنیم
+                     if (ordr.TXFE_AMNT_DNRM != null && ordr.TXFE_AMNT_DNRM > 0)
+                        price.Add(new LabeledPrice("کارمزد خدمات غیر حضوری", (int)ordr.TXFE_AMNT_DNRM));
+                  }
+                  else if (ordr.AMNT_TYPE == "002")
+                  {
+                     if (ordr.EXTR_PRCT != null && ordr.EXTR_PRCT > 0)
+                     {
+                        price.Add(new LabeledPrice("قیمت کل", (int)ordr.EXPN_AMNT * 10));
+                        price.Add(new LabeledPrice("ارزش افزوده", (int)ordr.EXTR_PRCT * 10));
+                     }
+                     else
+                        price.Add(new LabeledPrice("قیمت کل", (int)ordr.EXPN_AMNT * 10));
+
+                     // اگر بخواهیم از مشتری کارمزد دریافت کنیم
+                     if (ordr.TXFE_AMNT_DNRM != null && ordr.TXFE_AMNT_DNRM > 0)
+                        price.Add(new LabeledPrice("کارمزد خدمات غیر حضوری", (int)ordr.TXFE_AMNT_DNRM * 10));
+                  }
+
+                  await FireEventResultOpration(chat, keyBoardMarkup, xdata);
+
+                  await Send_Order(iRobotTech, keyBoardMarkup);
+
+                  //if (ordr.AMNT_TYPE == "001")
+                  //{
+                  //   // پرداخت به صورت کارت به کارت
+                  //   if (price.Sum(p => p.Amount) <= 30000000)
+                  //   {
+                  //      await Bot.SendInvoiceAsync(
+                  //         (int)e.Message.Chat.Id,
+                  //         string.Format("{0}\n\r{1} : {2}\n\r{3} : {4}", "فاکتور شما", "شماره", ordr.CODE, "تاریخ", iRobotTech.GET_MTOS_U(ordr.STRT_DATE)),
+                  //         "سبد خرید شما",
+                  //         ordr.CODE.ToString(),
+                  //         ordr.DEST_CARD_NUMB_DNRM,
+                  //         "",
+                  //         "IRR",
+                  //         price.GetEnumerator()
+                  //         );
+                  //   }
+                  //   else
+                  //   {
+                  //      // پرداخت از طریق درگاه پرداخت
+                  //   }
+                  //}
+                  //else if (ordr.AMNT_TYPE == "002")
+                  //{
+                  //   // پرداخت به صورت کارت به کارت
+                  //   if (price.Sum(p => p.Amount) <= 3000000)
+                  //   {
+                  //      await Bot.SendInvoiceAsync(
+                  //         (int)e.Message.Chat.Id,
+                  //         string.Format("{0}\n\r{1} : {2}\n\r{3} : {4}", "فاکتور شما", "شماره", ordr.CODE, "تاریخ", iRobotTech.GET_MTOS_U(ordr.STRT_DATE)),
+                  //         "سبد خرید شما",
+                  //         ordr.CODE.ToString(),
+                  //         ordr.DEST_CARD_NUMB_DNRM,
+                  //         "",
+                  //         "IRR",
+                  //         price.GetEnumerator()
+                  //         );
+                  //   }
+                  //   else
+                  //   {
+                  //      // پرداخت از طریق درگاه پرداخت
+                  //   }
+                  //}
                   #endregion
                }
             }
@@ -3809,7 +4237,19 @@ namespace System.RoboTech.Controller
             }
          }
       }
-
+      private string GetToken()
+      {
+         string token = "";
+         if (robot.COPY_TYPE == "002" && robot.ROBO_RBID != null)
+         {
+            token = robot.Robot1.TKON_CODE;
+         }
+         else
+         {
+            token = Token;
+         }
+         return token;
+      }
       /*
       private static void BotOnReceiveError(object sender, ReceiveErrorEventArgs receiveErrorEventArgs)
       {
@@ -3953,11 +4393,5 @@ namespace System.RoboTech.Controller
                "Received {callbackQueryEventArgs.CallbackQuery.Data}");
       }
       */
-
-
-      public void SendAction(XElement x)
-      {
-         throw new NotImplementedException();
-      }
    }
 }

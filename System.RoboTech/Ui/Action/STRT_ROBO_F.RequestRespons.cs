@@ -48,6 +48,9 @@ namespace System.RoboTech.Ui.Action
             case 10:
                Actn_CalF_P(job);
                break;
+            case 1000:
+               Call_SystemService_P(job);
+               break;
             default:
                break;
          }
@@ -231,5 +234,25 @@ namespace System.RoboTech.Ui.Action
          job.Status = StatusType.Successful;
       }
 
+      /// <summary>
+      /// Code 1000
+      /// </summary>
+      /// <param name="job"></param>
+      private void Call_SystemService_P(Job job)
+      {
+         try
+         {
+            var xinput = job.Input as XElement;
+
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost", xinput.Attribute("subsystarget").Value, 1000 /* Execute Call_SystemService_P */, SendType.SelfToUserInterface) { Input = job.Input, AfterChangedOutput = new Action<object>((output) => job.Output = output) }
+            );
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         job.Status = StatusType.Successful;
+      }
    }
 }

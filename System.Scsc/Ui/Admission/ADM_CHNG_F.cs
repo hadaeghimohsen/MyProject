@@ -25,31 +25,28 @@ namespace System.Scsc.Ui.Admission
 
       private void Execute_Query()
       {
-         
-         {
-            iScsc = new Data.iScscDataContext(ConnectionString);
-            var Rqids = iScsc.VF_Requests(new XElement("Request"))
-               .Where(rqst =>
-                     rqst.RQTP_CODE == "002" &&
-                     rqst.RQTT_CODE == "004" &&
-                     rqst.RQST_STAT == "001" &&
-                     (ShowRqst_PickButn.PickChecked ? rqst.CRET_BY == CurrentUser : true) &&
-                     rqst.SUB_SYS == 1).Select(r => r.RQID).ToList();
+         iScsc = new Data.iScscDataContext(ConnectionString);
+         var Rqids = iScsc.VF_Requests(new XElement("Request", new XAttribute("cretby", ShowRqst_PickButn.PickChecked ? CurrentUser : "")))
+            .Where(rqst =>
+                  rqst.RQTP_CODE == "002" &&
+                  rqst.RQTT_CODE == "004" &&
+                  rqst.RQST_STAT == "001" &&
+                     //(ShowRqst_PickButn.PickChecked ? rqst.CRET_BY == CurrentUser : true) &&
+                  rqst.SUB_SYS == 1).Select(r => r.RQID).ToList();
 
-            RqstBs1.DataSource =
-               iScsc.Requests
-               .Where(
+         RqstBs1.DataSource =
+            iScsc.Requests
+            .Where(
+               rqst =>
+                  Rqids.Contains(rqst.RQID)
+            )
+            .OrderByDescending(
                   rqst =>
-                     Rqids.Contains(rqst.RQID)
-               )
-               .OrderByDescending(
-                     rqst =>
-                        rqst.RQST_DATE
-                  );
+                     rqst.RQST_DATE
+               );
 
-            // 1396/11/02 * بدست آوردن شماره پرونده های درگیر در تمدید
-            FighsBs1.DataSource = iScsc.Fighters.Where(f => Rqids.Contains((long)f.RQST_RQID));
-         }         
+         // 1396/11/02 * بدست آوردن شماره پرونده های درگیر در تمدید
+         FighsBs1.DataSource = iScsc.Fighters.Where(f => Rqids.Contains((long)f.RQST_RQID)); 
       }
 
       int RqstIndex;

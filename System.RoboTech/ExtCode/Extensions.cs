@@ -33,6 +33,27 @@ namespace System.RoboTech.ExtCode
          return new Regex(@"\A" + new Regex(@"\.|\$|\^|\{|\[|\(|\||\)|\*|\+|\?|\\").Replace(toFind, ch => @"\" + ch).Replace('_', '.').Replace("%", ".*") + @"\z", RegexOptions.Singleline).IsMatch(toSearch);
       }
 
+      public static bool IsBetween<T>(this T item, T start, T end)
+      {
+         return Comparer<T>.Default.Compare(item, start) >= 0
+             && Comparer<T>.Default.Compare(item, end) <= 0;
+      }
+
+      public static Int16 ToInt16(this string strNum)
+      {
+         return Int16.Parse(strNum);
+      }
+
+      public static Int32 ToInt32(this string strNum)
+      {
+         return Int32.Parse(strNum);
+      }
+
+      public static Int64 ToInt64(this string strNum)
+      {
+         return Int64.Parse(strNum);
+      }
+
       #region Number To String Farsi
       private static string[] yakan = new string[10] { "صفر", "یک", "دو", "سه", "چهار", "پنج", "شش", "هفت", "هشت", "نه" };
       private static string[] dahgan = new string[10] { "", "", "بیست", "سی", "چهل", "پنجاه", "شصت", "هفتاد", "هشتاد", "نود" };

@@ -13,6 +13,7 @@ using DevExpress.XtraEditors;
 using System.Data.SqlClient;
 using DevExpress.XtraGrid.Views.Grid;
 using System.IO;
+using System.Scsc.ExtCode;
 
 namespace System.Scsc.Ui.Admission
 {
@@ -1899,12 +1900,51 @@ namespace System.Scsc.Ui.Admission
                string rqttcode = (string)RqttCode_Lov.EditValue;
                var expn = iScsc.Expenses.Where(exp => exp.Expense_Type.Request_Requester.RQTP_CODE == "009" && exp.Expense_Type.Request_Requester.RQTT_CODE == "001" && exp.Expense_Type.Request_Requester.Regulation.REGL_STAT == "002" && exp.Expense_Type.Request_Requester.Regulation.TYPE == "001" && exp.CTGY_CODE == ctgycode && exp.EXPN_STAT == "002").FirstOrDefault();
 
-               StrtDate_DateTime003.Value = DateTime.Now;
+               //StrtDate_DateTime003.Value = DateTime.Now;
                //if(MessageBox.Show(this, "تعداد جلسات با احتساب یک روز در میان می باشد؟", "مشخص شدن تاریخ پایان", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
                //   EndDate_DateTime003.Value = DateTime.Now.AddDays((double)(2 * (expn.NUMB_OF_ATTN_MONT - 1)));
                //else
                //   EndDate_DateTime003.Value = DateTime.Now.AddDays((double)(expn.NUMB_OF_ATTN_MONT));
-               EndDate_DateTime003.Value = DateTime.Now.AddDays((double)(expn.NUMB_CYCL_DAY ?? 30));
+               if (ModifierKeys == Keys.Control)
+               {
+                  // تاریخ پایان بر اساس تاریخ شروعی که وارد شده محاسبه گردد
+                  StrtDate_DateTime003.CommitChanges();
+                  var strtdate = StrtDate_DateTime003.Value;
+                  if (strtdate.HasValue)
+                     EndDate_DateTime003.Value = strtdate.Value.AddDays((double)(expn.NUMB_CYCL_DAY ?? 30));
+                  else
+                  {
+                     StrtDate_DateTime003.Value = DateTime.Now;
+                     EndDate_DateTime003.Value = DateTime.Now.AddDays((double)(expn.NUMB_CYCL_DAY ?? 30));
+                  }
+               }
+               else if (ModifierKeys == Keys.Shift)
+               {
+                  // تاریخ شروع به اولین روز همان ماه برگردد
+                  StrtDate_DateTime003.CommitChanges();
+                  var strtdate = StrtDate_DateTime003.Value;
+                  if (strtdate.HasValue)
+                  {
+                     var day = StrtDate_DateTime003.GetText("dd").ToInt32();
+                     if (day != 1)
+                        StrtDate_DateTime003.Value = StrtDate_DateTime003.Value.Value.AddDays((day - 1) * -1);
+                     EndDate_DateTime003.Value = StrtDate_DateTime003.Value.Value.AddDays((double)(expn.NUMB_CYCL_DAY ?? 30));
+                  }
+                  else
+                  {
+                     StrtDate_DateTime003.Value = DateTime.Now;
+                     var day = StrtDate_DateTime003.GetText("dd").ToInt32();
+                     if (day != 1)
+                        StrtDate_DateTime003.Value = StrtDate_DateTime003.Value.Value.AddDays((day - 1) * -1);
+                     EndDate_DateTime003.Value = StrtDate_DateTime003.Value.Value.AddDays((double)(expn.NUMB_CYCL_DAY ?? 30));
+                  }
+               }
+               else
+               {
+                  StrtDate_DateTime003.Value = DateTime.Now;
+                  EndDate_DateTime003.Value = DateTime.Now.AddDays((double)(expn.NUMB_CYCL_DAY ?? 30));
+               }
+               //EndDate_DateTime003.Value = DateTime.Now.AddDays((double)(expn.NUMB_CYCL_DAY ?? 30));
                NumbOfAttnMont_TextEdit003.EditValue = expn.NUMB_OF_ATTN_MONT ?? 0;
                NumbMontOfer_TextEdit003.EditValue = expn.NUMB_MONT_OFER ?? 0;
             }

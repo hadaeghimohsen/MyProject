@@ -1113,6 +1113,7 @@
     <None Include="Properties\DataSources\System.Scsc.Data.D_EXTP.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_FGST.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_FGTP.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.D_GPTP.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_IDTP.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_ITTP.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_LNTP.datasource" />
@@ -2857,6 +2858,12 @@
     </Content>
     <Content Include="..\System.Resource\Resources\IMAGE_1670.jpg">
       <Link>Resources\IMAGE_1670.jpg</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1679.jpg">
+      <Link>Resources\IMAGE_1679.jpg</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1680.jpg">
+      <Link>Resources\IMAGE_1680.jpg</Link>
     </Content>
     <Content Include="cvextern.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

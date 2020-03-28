@@ -98,6 +98,24 @@ namespace System.Scsc.Ui.Regulation
          {
             SubmitRqrq_Click(null, null);
          }
+         else if (keyData == (Keys.Control | Keys.PageUp))
+         {
+            BackExtp_Butn_Click(null, null);
+         }
+         else if(keyData == (Keys.Control | Keys.PageDown))
+         {
+            NextExtp_Butn_Click(null, null);
+         }
+         else if(keyData == (Keys.Control | Keys.Up))
+         {
+            Expn_Gv.MovePrev();
+            //ExpnBs.MovePrevious();
+         }
+         else if(keyData == (Keys.Control | Keys.Down))
+         {
+            Expn_Gv.MoveNext();
+            //ExpnBs.MoveNext();
+         }
 
          job.Status = StatusType.Successful;
       }
@@ -423,7 +441,8 @@ namespace System.Scsc.Ui.Regulation
          EpitBs.DataSource = iScsc.Expense_Items.Where(epit => epit.TYPE == "001" || epit.TYPE == "003");
          CashBs.DataSource = iScsc.Cashes;
          PrvnBs.DataSource = iScsc.Provinces.Where(p => Fga_Uprv_U.Split(',').Contains(p.CODE));
-         GropBs.DataSource = iScsc.Group_Expenses;
+         GropBs.DataSource = iScsc.Group_Expenses.Where(ge => ge.GROP_TYPE == "001");
+         BrndBs.DataSource = iScsc.Group_Expenses.Where(ge => ge.GROP_TYPE == "002");
          DDsatBs1.DataSource = iScsc.D_DSATs;
          SuntBs1.DataSource = iScsc.Sub_Units;
          DCetpBs1.DataSource = iScsc.D_CETPs;

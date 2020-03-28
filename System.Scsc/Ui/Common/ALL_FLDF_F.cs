@@ -1332,30 +1332,33 @@ namespace System.Scsc.Ui.Common
 
       private void tb_master_SelectedIndexChanged(object sender, EventArgs e)
       {
-         
-         //vF_SavePaymentsBs.DataSource = iScsc.VF_Payments(null, null, fileno, null, null, null, null).OrderByDescending(p => p.ISSU_DATE);        
-         //AttnBs2.DataSource = iScsc.Attendances.Where(a => a.FIGH_FILE_NO == fileno);
-
-         switch (tb_master.SelectedIndex)
+         try
          {
-            case 1:
-               vF_All_Info_FightersBs.DataSource = iScsc.VF_All_Info_Fighters(fileno).OrderByDescending(f => f.RWNO);
-               break;
-            case 2:
-               vF_SavePaymentsBs.DataSource = iScsc.VF_Save_Payments(null, fileno).OrderByDescending(p => p.PYMT_CRET_DATE);
-               ShowCrntReglYear_Butn_Click(null, null);
-               break;
-            case 3:
-               vF_Request_DocumentBs.DataSource = iScsc.VF_Request_Document(fileno);;
-               break;
-            case 4:
-               vF_Request_ChangingBs.DataSource = iScsc.VF_Request_Changing(fileno).OrderBy(r => r.RQST_DATE);
-               break;
-            case 5:
-               AttnBs2.DataSource = iScsc.Attendances.Where(a => a.FIGH_FILE_NO == fileno);
-               break;
-            default:
-               break;
+            switch (tb_master.SelectedIndex)
+            {
+               case 1:
+                  vF_All_Info_FightersBs.DataSource = iScsc.VF_All_Info_Fighters(fileno).OrderByDescending(f => f.RWNO);
+                  break;
+               case 2:
+                  vF_SavePaymentsBs.DataSource = iScsc.VF_Save_Payments(null, fileno).OrderByDescending(p => p.PYMT_CRET_DATE);
+                  ShowCrntReglYear_Butn_Click(null, null);
+                  break;
+               case 3:
+                  vF_Request_DocumentBs.DataSource = iScsc.VF_Request_Document(fileno); ;
+                  break;
+               case 4:
+                  vF_Request_ChangingBs.DataSource = iScsc.VF_Request_Changing(fileno).OrderBy(r => r.RQST_DATE);
+                  break;
+               case 5:
+                  AttnBs2.DataSource = iScsc.Attendances.Where(a => a.FIGH_FILE_NO == fileno);
+                  break;
+               default:
+                  break;
+            }
+         }
+         catch(Exception exc)
+         {
+            MessageBox.Show(exc.Message);
          }
       }
 
@@ -2247,10 +2250,78 @@ namespace System.Scsc.Ui.Common
             var mbsp = MbspBs.Current as Data.Member_Ship;
             if (mbsp == null) return;
 
+            // نتایج ابطال دوره و صورتحساب
+            var resultStr = "نتیجه ابطال";            
+
+            // آیا دوره مشتری فعال می باشد یا خیر * اگر دوره تمام شده باشد و بخواهیم ابطال کنیم نیاز به دسترسی مدیر می باشد
+            if(mbsp.VALD_TYPE == "001")
+            {
+               throw new Exception("دوره غیرفعال قابلیت ابطال ندارد");
+            }
+
+            if(!mbsp.Fighter_Public.Method.Category_Belts.Any(mc => mc.NUMB_OF_ATTN_MONT == 1))
+            {
+               throw new Exception("لطفا برای گروه نرخ تک جلسه ای تعریف کنید تا برای فرآیند ابطال بتوان استفاده کرد");
+            }
+
+            if(!(DateTime.Now.Date.IsBetween((DateTime)mbsp.STRT_DATE, (DateTime)mbsp.END_DATE) && (mbsp.NUMB_OF_ATTN_MONT == 0 || mbsp.NUMB_OF_ATTN_MONT > mbsp.SUM_ATTN_MONT_DNRM)))
+            {
+               resultStr += Environment.NewLine + "* نیاز به [ مجوز 247 ] بابت ابطال دوره گذشته یا بایگانی شده";
+            }
+
+            // مرحله بعدی اینکه آیا مشتری از خدمات دوره جلسه ای استفاده کرده یا خیر * اگر که دوره صورتحساب پرداختی داشته باشد ابتدا باید به تعداد جلسات استفاده شده درآمد متفرقه تک جلسه ای از آن دوره ثبت شود
+            // فقط نکته ای که وجود دارد این هست اگر ما در این قسمت مشخص کرده ایم که از 12 جلسه ای که مشتری دارد 4 جلسه کسر شده باید در  جدول حضورو غیاب هم به همان تعداد 
+            // رکورد حضورو غیاب داشته باشیم وگرنه باید درخواستی به تعداد جلسات مصرف شده در تاریخ اعمال ابطال ثبت کنیم
+            // اگر دوره صورتحساب هم داشته باشد مبلغ هر جلسه را از دوره کسر میکنیم
+            if (DateTime.Now.Date.IsBetween((DateTime)mbsp.STRT_DATE, (DateTime)mbsp.END_DATE) && (mbsp.SUM_ATTN_MONT_DNRM > 0))
+            {
+               resultStr += Environment.NewLine + string.Format("* {0} {1} {2}", "ثبت تعداد", mbsp.SUM_ATTN_MONT_DNRM, "صورتحساب تکجلسه ای [ آزاد ] برای مشتری");
+            }
+
+            // اینکه دوره صورتحساب دارد یا خیر و اگر داشته باشد مبلغ باقیمانده از صورتحساب را به صورت اعتبار ذخیره میکنیم
+            if(mbsp.RWNO == 1)
+            {
+               if(!mbsp.Request_Row.Request.Request1.Payments.Any())
+               {
+                  // اگر درخواست صورتحساب نداشته باشد
+                  resultStr += Environment.NewLine + "* دوره صورتحساب ندارد و به مشتری مبلغی استرداد نمی شود";
+               }
+               else if (!mbsp.Request_Row.Request.Request1.Payments.Any(p => p.SUM_RCPT_EXPN_PRIC > 0))
+               {
+                  // اگر درخواست صورتحساب داشته باشد و پرداختی نداشته باشد
+                  resultStr += Environment.NewLine + "* صورتحساب دوره پرداختی ندارد و به مشتری مبلغی استرداد نمی شود";
+               }
+               else if(mbsp.Request_Row.Request.Request1.Payments.Any(p => p.SUM_RCPT_EXPN_PRIC > 0))
+               {
+                  // اگر درخواست صورتحساب داشته باشد و پرداختی داشته باشد
+                  resultStr += Environment.NewLine + "* صورتحساب [ دوره ] پرداختی دارد و با کسر مبلغ [ جلسات استفاده شده ] و [ تسویه صورتحساب های بدهکار قبلی ] ما بقی مبلغ به صورت سپرده برای مشتری در نظر گرفته میشود";
+               }
+            }
+            else
+            {
+               if (!mbsp.Request_Row.Request.Payments.Any())
+               {
+                  // اگر درخواست صورتحساب نداشته باشد
+                  resultStr += Environment.NewLine + "* دوره صورتحساب ندارد و به مشتری مبلغی استرداد نمی شود";
+               }
+               else if (!mbsp.Request_Row.Request.Payments.Any(p => p.SUM_RCPT_EXPN_PRIC > 0))
+               {
+                  // اگر درخواست صورتحساب داشته باشد و پرداختی نداشته باشد
+                  resultStr += Environment.NewLine + "* صورتحساب دوره پرداختی ندارد و به مشتری مبلغی استرداد نمی شود";
+               }
+               else if (mbsp.Request_Row.Request.Payments.Any(p => p.SUM_RCPT_EXPN_PRIC > 0))
+               {
+                  // اگر درخواست صورتحساب داشته باشد و پرداختی داشته باشد
+                  resultStr += Environment.NewLine + "* صورتحساب [ دوره ] پرداختی دارد و با کسر مبلغ [ جلسات استفاده شده ] و [ تسویه صورتحساب های بدهکار قبلی ] ما بقی مبلغ به صورت سپرده برای مشتری در نظر گرفته میشود";
+               }
+            }
+
+            if (MessageBox.Show(this, resultStr, "فرآیند ابطال", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+
             iScsc.CNCL_PYMT_P(
                new XElement("Payment", 
                   new XAttribute("rqid", mbsp.RQRO_RQST_RQID),
-                  new XAttribute("cncltype", "001") // ابطال عادی صورتحساب
+                  new XAttribute("cncltype", "001") // ابطال عادی صورتحساب                  
                )
             );
 
@@ -2273,6 +2344,74 @@ namespace System.Scsc.Ui.Common
          {
             var mbsp = MbspBs.Current as Data.Member_Ship;
             if (mbsp == null) return;
+
+            // نتایج ابطال دوره و صورتحساب
+            var resultStr = "نتیجه ابطال";
+
+            // آیا دوره مشتری فعال می باشد یا خیر * اگر دوره تمام شده باشد و بخواهیم ابطال کنیم نیاز به دسترسی مدیر می باشد
+            if (mbsp.VALD_TYPE == "001")
+            {
+               throw new Exception("دوره غیرفعال قابلیت ابطال ندارد");
+            }
+
+            if (!mbsp.Fighter_Public.Method.Category_Belts.Any(mc => mc.NUMB_OF_ATTN_MONT == 1))
+            {
+               throw new Exception("لطفا برای گروه نرخ تک جلسه ای تعریف کنید تا برای فرآیند ابطال بتوان استفاده کرد");
+            }
+
+            if (!(DateTime.Now.Date.IsBetween((DateTime)mbsp.STRT_DATE, (DateTime)mbsp.END_DATE) && (mbsp.NUMB_OF_ATTN_MONT == 0 || mbsp.NUMB_OF_ATTN_MONT > mbsp.SUM_ATTN_MONT_DNRM)))
+            {
+               resultStr += Environment.NewLine + "* نیاز به [ مجوز 247 ] بابت ابطال دوره گذشته یا بایگانی شده";
+            }
+
+            // مرحله بعدی اینکه آیا مشتری از خدمات دوره جلسه ای استفاده کرده یا خیر * اگر که دوره صورتحساب پرداختی داشته باشد ابتدا باید به تعداد جلسات استفاده شده درآمد متفرقه تک جلسه ای از آن دوره ثبت شود
+            // فقط نکته ای که وجود دارد این هست اگر ما در این قسمت مشخص کرده ایم که از 12 جلسه ای که مشتری دارد 4 جلسه کسر شده باید در  جدول حضورو غیاب هم به همان تعداد 
+            // رکورد حضورو غیاب داشته باشیم وگرنه باید درخواستی به تعداد جلسات مصرف شده در تاریخ اعمال ابطال ثبت کنیم
+            // اگر دوره صورتحساب هم داشته باشد مبلغ هر جلسه را از دوره کسر میکنیم
+            if (DateTime.Now.Date.IsBetween((DateTime)mbsp.STRT_DATE, (DateTime)mbsp.END_DATE) && (mbsp.SUM_ATTN_MONT_DNRM > 0))
+            {
+               resultStr += Environment.NewLine + string.Format("* {0} {1} {2}", "ثبت تعداد", mbsp.SUM_ATTN_MONT_DNRM, "صورتحساب تکجلسه ای [ آزاد ] برای مشتری");
+            }
+
+            // اینکه دوره صورتحساب دارد یا خیر و اگر داشته باشد مبلغ باقیمانده از صورتحساب را به صورت اعتبار ذخیره میکنیم
+            if (mbsp.RWNO == 1)
+            {
+               if (!mbsp.Request_Row.Request.Request1.Payments.Any())
+               {
+                  // اگر درخواست صورتحساب نداشته باشد
+                  resultStr += Environment.NewLine + "* دوره صورتحساب ندارد و به مشتری مبلغی استرداد نمی شود";
+               }
+               else if (!mbsp.Request_Row.Request.Request1.Payments.Any(p => p.SUM_RCPT_EXPN_PRIC > 0))
+               {
+                  // اگر درخواست صورتحساب داشته باشد و پرداختی نداشته باشد
+                  resultStr += Environment.NewLine + "* صورتحساب دوره پرداختی ندارد و به مشتری مبلغی استرداد نمی شود";
+               }
+               else if (mbsp.Request_Row.Request.Request1.Payments.Any(p => p.SUM_RCPT_EXPN_PRIC > 0))
+               {
+                  // اگر درخواست صورتحساب داشته باشد و پرداختی داشته باشد
+                  resultStr += Environment.NewLine + "* صورتحساب [ دوره ] پرداختی دارد و با کسر مبلغ [ جلسات استفاده شده ] و [ تسویه صورتحساب های بدهکار قبلی ] ما بقی مبلغ به صورت سپرده برای مشتری در نظر گرفته میشود";
+               }
+            }
+            else
+            {
+               if (!mbsp.Request_Row.Request.Payments.Any())
+               {
+                  // اگر درخواست صورتحساب نداشته باشد
+                  resultStr += Environment.NewLine + "* دوره صورتحساب ندارد و به مشتری مبلغی استرداد نمی شود";
+               }
+               else if (!mbsp.Request_Row.Request.Payments.Any(p => p.SUM_RCPT_EXPN_PRIC > 0))
+               {
+                  // اگر درخواست صورتحساب داشته باشد و پرداختی نداشته باشد
+                  resultStr += Environment.NewLine + "* صورتحساب دوره پرداختی ندارد و به مشتری مبلغی استرداد نمی شود";
+               }
+               else if (mbsp.Request_Row.Request.Payments.Any(p => p.SUM_RCPT_EXPN_PRIC > 0))
+               {
+                  // اگر درخواست صورتحساب داشته باشد و پرداختی داشته باشد
+                  resultStr += Environment.NewLine + "* صورتحساب [ دوره ] پرداختی دارد و با کسر مبلغ [ جلسات استفاده شده ] و [ تسویه صورتحساب های بدهکار قبلی ] ما بقی مبلغ به صورت سپرده برای مشتری در نظر گرفته میشود";
+               }
+            }
+
+            if (MessageBox.Show(this, resultStr, "فرآیند صدور صورتحساب اصلاحی", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
 
             iScsc.CNCL_PYMT_P(
                new XElement("Payment",

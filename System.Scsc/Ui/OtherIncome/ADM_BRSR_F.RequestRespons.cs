@@ -286,12 +286,13 @@ namespace System.Scsc.Ui.OtherIncome
       {
          try
          {
+            var xinput = job.Input as XElement;
             //tb_master.TabPages.Clear();
             switch ((job.Input as XElement).Attribute("type").Value)
             {
                case "fighter":
                   //tb_master.TabPages.Add(tp_001);
-                  //tb_master.SelectedTab = tp_001;
+                  //tb_master.SelectedTab = tp_001;                  
                   break;
                case "coach":
                   //tb_master.TabPages.Add(tp_002);
@@ -306,7 +307,8 @@ namespace System.Scsc.Ui.OtherIncome
             {
                if ((job.Input as XElement).Attribute("type").Value == "fighter")
                {
-                  
+                  if (xinput.Attribute("enrollnumber") != null)
+                     FngrPrnt_Txt.EditValue = xinput.Attribute("enrollnumber").Value;
                }
                if ((job.Input as XElement).Attribute("type").Value == "coach")
                {

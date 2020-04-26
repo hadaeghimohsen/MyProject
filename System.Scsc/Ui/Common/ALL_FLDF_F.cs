@@ -532,6 +532,7 @@ namespace System.Scsc.Ui.Common
             PydtsBs1.DataSource = iScsc.Payment_Details.Where(pdt => pdt.PYMT_RQST_RQID == pymt.RQID && pdt.PYMT_CASH_CODE == pymt.CASH_CODE);
             PydsBs1.DataSource = iScsc.Payment_Discounts.Where(pds => pds.PYMT_RQST_RQID == pymt.RQID && pds.PYMT_CASH_CODE == pymt.CASH_CODE);
             PmmtBs1.DataSource = iScsc.Payment_Methods.Where(pm => pm.PYMT_RQST_RQID == pymt.RQID && pm.PYMT_CASH_CODE == pymt.CASH_CODE);
+            PycoBs1.DataSource = iScsc.Payment_Costs.Where(pc => pc.PYMT_RQST_RQID == pymt.RQID && pc.PYMT_CASH_CODE == pymt.CASH_CODE);
 
             dynamic figh = vF_Last_Info_FighterBs.Current as Data.VF_Last_Info_FighterResult;
             if (figh == null)

@@ -553,7 +553,8 @@ namespace System.DataGuard.SecPolicy.Share.Ui
             iProject.InstallOrUninstallJob(
                new XElement("JobScheduale",
                   new XAttribute("stat", subsys.JOBS_STAT ?? "001"),
-                  new XAttribute("freqintr", subsys.FREQ_INTR ?? 10)
+                  new XAttribute("freqintr", subsys.FREQ_INTR ?? 10),
+                  new XAttribute("subsys", subsys.SUB_SYS)
                )
             );
          }

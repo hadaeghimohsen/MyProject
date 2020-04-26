@@ -12,6 +12,7 @@ namespace System.RoboTech.ExtCode
 {
    public static class Extensions
    {
+      #region Sql Operation
       public static bool In<T>(this T item, params T[] items)
       {
          if (items == null)
@@ -24,7 +25,7 @@ namespace System.RoboTech.ExtCode
       {
          if (items == null)
             return true;
-         
+
          return !items.Contains<T>(item);
       }
 
@@ -38,7 +39,9 @@ namespace System.RoboTech.ExtCode
          return Comparer<T>.Default.Compare(item, start) >= 0
              && Comparer<T>.Default.Compare(item, end) <= 0;
       }
+      #endregion
 
+      #region Convert To Intx
       public static Int16 ToInt16(this string strNum)
       {
          return Int16.Parse(strNum);
@@ -53,6 +56,7 @@ namespace System.RoboTech.ExtCode
       {
          return Int64.Parse(strNum);
       }
+      #endregion
 
       #region Number To String Farsi
       private static string[] yakan = new string[10] { "صفر", "یک", "دو", "سه", "چهار", "پنج", "شش", "هفت", "هشت", "نه" };
@@ -105,6 +109,76 @@ namespace System.RoboTech.ExtCode
             stotal = stotal.Substring(0, stotal.Length - 3);
          }
          return stotal;
+      }
+      #endregion
+
+      #region CatchFinalyExtensaion
+      public static CatchWrapper<T> Catch<T>(this TryWrapper<T> wrapper, Action<Exception> response)
+      {
+         if (wrapper.Exception == null) return wrapper as CatchWrapper<T>;
+
+         response.Invoke(wrapper);
+         wrapper.Exception = null;
+
+         return wrapper as CatchWrapper<T>;
+      }
+
+      public static TryWrapper<T> Finally<T>(this TryWrapper<T> wrapper, Action<T> response)
+      {
+         response.Invoke(wrapper);
+
+         return wrapper;
+      }
+
+      public static TryWrapper<T> Finally<T>(this TryWrapper<T> wrapper, Func<T> response)
+      {
+         wrapper.Result = response.Invoke();
+
+         return wrapper;
+      }
+
+      public static TryWrapper<T> Finally<T>(this TryWrapper<T> wrapper, Action response)
+      {
+         response.Invoke();
+
+         return wrapper;
+      }
+      #endregion
+   }
+
+   public class TryExtension
+   {
+      #region Try Catch Finaly Inline
+      public static TryWrapper<T> Try<T>(Func<T> func)
+      {
+         var product = new TryWrapper<T>();
+
+         try
+         {
+            product.Result = func.Invoke();
+         }
+         catch (Exception e)
+         {
+            product.Exception = e;
+         }
+
+         return product;
+      }
+
+      public static TryWrapper<T> Try<T>(Action action)
+      {
+         var product = new TryWrapper<T>();
+
+         try
+         {
+            action.Invoke();
+         }
+         catch (Exception e)
+         {
+            product.Exception = e;
+         }
+
+         return product;
       }
       #endregion
    }

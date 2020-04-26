@@ -24,6 +24,7 @@ namespace System.Scsc.Ui.AggregateOperation
       private bool requery = false, setondebt = false;
       private int agopindx = 0, aodtindx = 0;
       private string stat, macadrs, fngrprnt;
+      private bool isOnline = false;
 
       private void Execute_Query()
       {
@@ -858,7 +859,7 @@ namespace System.Scsc.Ui.AggregateOperation
             //aodt.END_TIME = DateTime.Now.TimeOfDay;
             aodt.END_TIME = DateTime.Now;
             aodt.STAT = "003";
-            
+
             AodtBs1.EndEdit();
 
             iScsc.SubmitChanges();
@@ -866,19 +867,48 @@ namespace System.Scsc.Ui.AggregateOperation
             iScsc.CALC_APDT_P(aodt.AGOP_CODE, aodt.RWNO);
             requery = true;
 
+            // ارسال پیام برای خاموش کردن دستگاه چراغ میز برای مشتری
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost", "MAIN_PAGE_F", 10 /* Execute Call_Actn_P */, SendType.SelfToUserInterface)
+               {
+                  Input =
+                     new XElement("ExpenseGame",
+                         new XAttribute("type", "expnextr"),
+                         new XAttribute("expncode", aodt.EXPN_CODE),
+                         new XAttribute("cmndtext", "sp"),
+                         new XAttribute("fngrprnt", aodt.Fighter.FNGR_PRNT_DNRM)
+                     )
+               }
+            );
+
             if (aodt.END_TIME != null)
             {
                //TotlMint_Txt.EditValue = aodt.END_TIME.Value.TimeOfDay.TotalMinutes - aodt.STRT_TIME.Value.TimeOfDay.TotalMinutes;
                TotlMint_Txt.EditValue = (aodt.END_TIME.Value - aodt.STRT_TIME.Value).TotalMinutes;
             }
          }
-         catch (Exception exc)
-         { MessageBox.Show(exc.Message); }
+         catch { }
          finally
          {
             if (requery)
             {
+               var desk = AodtBs1.Current as Data.Aggregation_Operation_Detail;
+
                Execute_Query();
+
+               // اگر سیستم به صورت انلاین اجرا شود
+               if(isOnline)
+               {
+                  AodtBs1.Position = AodtBs1.IndexOf(AodtBs1.List.OfType<Data.Aggregation_Operation_Detail>().FirstOrDefault(a => a.AGOP_CODE == desk.AGOP_CODE && a.RWNO == desk.RWNO));
+                  desk = AodtBs1.Current as Data.Aggregation_Operation_Detail;
+                  // اگر زمانی اتفاق بیوفتد که هزینه بازی برای مشتری از میزان مبلغ سپرده بیشتر شد کافیست که مبلغ هزینه را با مبلغ سپرده یکی کنیم
+                  // که صورتحساب مشتری بدهکار نشود
+                  if(desk.EXPN_PRIC >= desk.Fighter.DPST_AMNT_DNRM)
+                     desk.EXPN_PRIC = (int)desk.Fighter.DPST_AMNT_DNRM; // مبلغ هزینه بازی را با میزان سپرده یکی قرار میدهیم
+                  desk.DPST_AMNT = desk.EXPN_PRIC; // پرداخت هزینه میز را با سپرده انجام میدهیم
+                  RecStat_Butn_ButtonClick(null, new DevExpress.XtraEditors.Controls.ButtonPressedEventArgs(RecStat_Butn.Buttons[3])); // تسویه حساب میز را انجام میدهیم
+               }
+
                requery = false;
             }
          }
@@ -914,8 +944,7 @@ namespace System.Scsc.Ui.AggregateOperation
                TotlMint_Txt.EditValue = (aodt.END_TIME.Value - aodt.STRT_TIME.Value).TotalMinutes;
             }
          }
-         catch (Exception exc)
-         { MessageBox.Show(exc.Message); }
+         catch { }
          finally
          {
             if (requery)
@@ -947,8 +976,7 @@ namespace System.Scsc.Ui.AggregateOperation
                TotlMint_Txt.EditValue = (aodt.END_TIME.Value - aodt.STRT_TIME.Value).TotalMinutes;
             }
          }
-         catch(Exception exc)
-         { MessageBox.Show(exc.Message); }
+         catch { }
          finally
          {
             if (requery)
@@ -1040,6 +1068,20 @@ namespace System.Scsc.Ui.AggregateOperation
             else
                iScsc.INS_AODT_P(agop.CODE, 1, null, null, fileno, null, null, null, "002", "001", desk, null, null, null, null, null, null, null);
 
+            // ارسال پیام برای باز کردن دستگاه چراغ میز برای مشتری
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost", "MAIN_PAGE_F", 10 /* Execute Call_Actn_P */, SendType.SelfToUserInterface)
+               {
+                  Input =
+                     new XElement("ExpenseGame",
+                         new XAttribute("type", "expnextr"),
+                         new XAttribute("expncode", desk),
+                         new XAttribute("cmndtext", "st"),
+                         new XAttribute("fngrprnt", FighBs.List.OfType<Data.Fighter>().FirstOrDefault(f => f.FILE_NO == fileno).FNGR_PRNT_DNRM)
+                     )
+               }
+            );
+
             Figh_Lov.EditValue = null;
             requery = true;
          }
@@ -1119,7 +1161,7 @@ namespace System.Scsc.Ui.AggregateOperation
          {
             apdt_gv.PostEditor();
 
-            var aodt = AodtBs1.Current as Data.Aggregation_Operation_Detail;            
+            var aodt = AodtBs1.Current as Data.Aggregation_Operation_Detail;
             if (aodt == null) return;
 
             TableCloseOpen = true;
@@ -1130,10 +1172,7 @@ namespace System.Scsc.Ui.AggregateOperation
             TableCloseOpen = false;
             requery = true;
          }
-         catch (Exception exc)
-         {
-            MessageBox.Show(exc.Message);
-         }
+         catch { }
          finally
          {
             if(requery)
@@ -2751,6 +2790,9 @@ namespace System.Scsc.Ui.AggregateOperation
             if (crntdesk == null) return;
 
             var desks = AodtBs1.List.OfType<Data.Aggregation_Operation_Detail>().Where(d => d.STAT != "002");
+            // اگر میز بازی وجود نداشته باشد
+            if (desks.Count() == 0) return;
+            
             int value = 100 / desks.Count();
             RecalcDesk_Pgb.Visible = true;
             RecalcDesk_Pgb.Value = 0;
@@ -2771,6 +2813,27 @@ namespace System.Scsc.Ui.AggregateOperation
          finally
          {
             RecalcDesk_Pgb.Visible = false;
+            
+            // اگر سیستم به صورت انلاین کار کند که بر اساس اعتبار مشتریان در ارتباط باشد
+            if (isOnline)
+            {
+               // آن دسته از مشتریانی که اعتبار آنها تمام شده است باید دستگاه را خاموش کنیم
+               var desks = AodtBs1.List.OfType<Data.Aggregation_Operation_Detail>().Where(d => d.STAT != "002");
+               foreach (var desk in desks)
+               {
+                  if (desk.EXPN_PRIC >= desk.Fighter.DPST_AMNT_DNRM)
+                  {
+                     AodtBs1.Position = AodtBs1.IndexOf(AodtBs1.List.OfType<Data.Aggregation_Operation_Detail>().FirstOrDefault(a => a == desk));
+                     DeskClose_Butn_Click(null, null);
+                     var aodt = AodtBs1.Current as Data.Aggregation_Operation_Detail;
+                     // اگر زمانی اتفاق بیوفتد که هزینه بازی برای مشتری از میزان مبلغ سپرده بیشتر شد کافیست که مبلغ هزینه را با مبلغ سپرده یکی کنیم
+                     // که صورتحساب مشتری بدهکار نشود
+                     aodt.EXPN_PRIC = (int)aodt.Fighter.DPST_AMNT_DNRM; // مبلغ هزینه بازی را با میزان سپرده یکی قرار میدهیم
+                     aodt.DPST_AMNT = aodt.EXPN_PRIC; // پرداخت هزینه میز را با سپرده انجام میدهیم
+                     RecStat_Butn_ButtonClick(null, new DevExpress.XtraEditors.Controls.ButtonPressedEventArgs(RecStat_Butn.Buttons[3])); // تسویه حساب میز را انجام میدهیم
+                  }
+               }
+            }
          }
       }
 
@@ -2858,6 +2921,19 @@ namespace System.Scsc.Ui.AggregateOperation
          catch (Exception exc)
          {
             MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void IntervalRecalc_Tsmi_TextChanged(object sender, EventArgs e)
+      {
+         try
+         {
+            AutoRecalc_Tmr.Interval = Convert.ToInt32(IntervalRecalc_Tsmi.Text) * 60000;
+         }
+         catch 
+         { 
+            IntervalRecalc_Tsmi.Text = "5";
+            AutoRecalc_Tmr.Interval = Convert.ToInt32(IntervalRecalc_Tsmi.Text) * 60000;
          }
       }
    }

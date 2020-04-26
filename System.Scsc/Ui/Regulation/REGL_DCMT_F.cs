@@ -454,8 +454,14 @@ namespace System.Scsc.Ui.Regulation
             if(gropcode == null || gropcode.ToString() == "")return;
 
             iScsc.UPD_EXPN_P(expn.CODE, expn.PRIC, expn.EXPN_STAT, expn.ADD_QUTS, expn.COVR_DSCT, expn.EXPN_TYPE, expn.BUY_PRIC, expn.BUY_EXTR_PRCT, expn.NUMB_OF_STOK, expn.NUMB_OF_SALE, expn.COVR_TAX, expn.NUMB_OF_ATTN_MONT, expn.NUMB_OF_ATTN_WEEK, expn.MODL_NUMB_BAR_CODE, expn.PRVT_COCH_EXPN, expn.NUMB_CYCL_DAY, expn.NUMB_MONT_OFER, expn.MIN_NUMB, (long)gropcode, expn.EXPN_DESC, expn.MIN_TIME, expn.RELY_CMND, expn.ORDR_ITEM, expn.BRND_CODE);
+            requery = true;
          }
          catch { }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
       }
 
       private void DelGrop_Butn_Click(object sender, EventArgs e)
@@ -617,8 +623,14 @@ namespace System.Scsc.Ui.Regulation
             if (brndcode == null || brndcode.ToString() == "") return;
 
             iScsc.UPD_EXPN_P(expn.CODE, expn.PRIC, expn.EXPN_STAT, expn.ADD_QUTS, expn.COVR_DSCT, expn.EXPN_TYPE, expn.BUY_PRIC, expn.BUY_EXTR_PRCT, expn.NUMB_OF_STOK, expn.NUMB_OF_SALE, expn.COVR_TAX, expn.NUMB_OF_ATTN_MONT, expn.NUMB_OF_ATTN_WEEK, expn.MODL_NUMB_BAR_CODE, expn.PRVT_COCH_EXPN, expn.NUMB_CYCL_DAY, expn.NUMB_MONT_OFER, expn.MIN_NUMB, expn.GROP_CODE, expn.EXPN_DESC, expn.MIN_TIME, expn.RELY_CMND, expn.ORDR_ITEM, (long)brndcode);
+            requery = true;
          }
          catch { }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
       }
 
       private void DelBrnd_Butn_Click(object sender, EventArgs e)

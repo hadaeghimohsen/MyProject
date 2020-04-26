@@ -582,7 +582,9 @@ namespace MyProject.Programs.Ui
          SysNtfy_Ni.BalloonTipTitle = ntfydata[1].ToString();
          SysNtfy_Ni.BalloonTipText = ntfydata[2].ToString();
          SysNtfy_Ni.Visible = true;
-         SysNtfy_Ni.ShowBalloonTip((int)ntfydata[3]);         
+         SysNtfy_Ni.ShowBalloonTip((int)ntfydata[3]);
+
+         Thread.Sleep((int)ntfydata[3]);
 
          job.Status = StatusType.Successful;
       }

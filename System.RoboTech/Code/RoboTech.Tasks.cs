@@ -106,6 +106,16 @@ namespace System.RoboTech.Code
             if (_Alpk_Dvlp_F == null)
                _Alpk_Dvlp_F = new Ui.DevelopmentApplication.ALPK_DVLP_F { _DefaultGateway = this };
          }
+         else if (value == "ordr_ship_f")
+         {
+            if (_Ordr_Ship_F == null)
+               _Ordr_Ship_F = new Ui.DevelopmentApplication.ORDR_SHIP_F { _DefaultGateway = this };
+         }
+         else if (value == "ordr_rcpt_f")
+         {
+            if (_Ordr_Rcpt_F == null)
+               _Ordr_Rcpt_F = new Ui.DevelopmentApplication.ORDR_RCPT_F { _DefaultGateway = this };
+         }
          #endregion
          #region Action
          else if (value == "strt_robo_f")
@@ -147,6 +157,7 @@ namespace System.RoboTech.Code
                   new Job(SendType.Self, 01 /* Execute GetUi */){Input = "frst_page_f"},
                   new Job(SendType.SelfToUserInterface, "FRST_PAGE_F", 05 /* Execute CheckSecurity */),
                   new Job(SendType.SelfToUserInterface, "FRST_PAGE_F", 02 /* Execute Set */),
+                  new Job(SendType.SelfToUserInterface, "FRST_PAGE_F", 07 /* Execute Load_Data */){Executive = ExecutiveType.Asynchronous},
                   new Job(SendType.SelfToUserInterface, "FRST_PAGE_F", 03 /* Execute Paint */)                  
                });
          }
@@ -649,6 +660,56 @@ namespace System.RoboTech.Code
                   new Job(SendType.SelfToUserInterface, "ALPK_DVLP_F", 02 /* Execute Set */),
                   new Job(SendType.SelfToUserInterface, "ALPK_DVLP_F", 07 /* Execute Load_Data */),
                   new Job(SendType.SelfToUserInterface, "ALPK_DVLP_F", 03 /* Execute Paint */)
+               });
+         }
+         else if (job.Status == StatusType.SignalForPreconditions)
+         {
+            job.Status = StatusType.Successful;
+         }
+      }
+
+      /// <summary>
+      /// Code 23
+      /// </summary>
+      /// <param name="job"></param>
+      private void Ordr_Ship_F(Job job)
+      {
+         if (job.Status == StatusType.Running)
+         {
+            job.Status = StatusType.WaitForPreconditions;
+            job.OwnerDefineWorkWith.AddRange(
+               new List<Job>
+               {
+                  new Job(SendType.Self, 01 /* Execute GetUi */){Input = "ordr_ship_f"},
+                  //new Job(SendType.SelfToUserInterface, "RBOD_DVLP_F", 05 /* Execute CheckSecurity */),
+                  new Job(SendType.SelfToUserInterface, "ORDR_SHIP_F", 02 /* Execute Set */),
+                  new Job(SendType.SelfToUserInterface, "ORDR_SHIP_F", 07 /* Execute Load_Data */),
+                  new Job(SendType.SelfToUserInterface, "ORDR_SHIP_F", 03 /* Execute Paint */)
+               });
+         }
+         else if (job.Status == StatusType.SignalForPreconditions)
+         {
+            job.Status = StatusType.Successful;
+         }
+      }
+
+      /// <summary>
+      /// Code 24
+      /// </summary>
+      /// <param name="job"></param>
+      private void Ordr_Rcpt_F(Job job)
+      {
+         if (job.Status == StatusType.Running)
+         {
+            job.Status = StatusType.WaitForPreconditions;
+            job.OwnerDefineWorkWith.AddRange(
+               new List<Job>
+               {
+                  new Job(SendType.Self, 01 /* Execute GetUi */){Input = "ordr_rcpt_f"},
+                  //new Job(SendType.SelfToUserInterface, "RBOD_DVLP_F", 05 /* Execute CheckSecurity */),
+                  new Job(SendType.SelfToUserInterface, "ORDR_RCPT_F", 02 /* Execute Set */),
+                  new Job(SendType.SelfToUserInterface, "ORDR_RCPT_F", 07 /* Execute Load_Data */),
+                  new Job(SendType.SelfToUserInterface, "ORDR_RCPT_F", 03 /* Execute Paint */)
                });
          }
          else if (job.Status == StatusType.SignalForPreconditions)

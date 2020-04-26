@@ -34,6 +34,14 @@
          DevExpress.Utils.ToolTipTitleItem toolTipTitleItem1 = new DevExpress.Utils.ToolTipTitleItem();
          DevExpress.Utils.ToolTipItem toolTipItem1 = new DevExpress.Utils.ToolTipItem();
          DevExpress.Utils.ToolTipTitleItem toolTipTitleItem2 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.SuperToolTip superToolTip2 = new DevExpress.Utils.SuperToolTip();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem3 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.ToolTipItem toolTipItem2 = new DevExpress.Utils.ToolTipItem();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem4 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.SuperToolTip superToolTip3 = new DevExpress.Utils.SuperToolTip();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem5 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.ToolTipItem toolTipItem3 = new DevExpress.Utils.ToolTipItem();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem6 = new DevExpress.Utils.ToolTipTitleItem();
          this.c1Ribbon1 = new C1.Win.C1Ribbon.C1Ribbon();
          this.ribbonApplicationMenu1 = new C1.Win.C1Ribbon.RibbonApplicationMenu();
          this.ribbonBottomToolBar1 = new C1.Win.C1Ribbon.RibbonBottomToolBar();
@@ -58,13 +66,17 @@
          this.ribbonTab3 = new C1.Win.C1Ribbon.RibbonTab();
          this.ribbonGroup3 = new C1.Win.C1Ribbon.RibbonGroup();
          this.StrtRobo_Butn = new C1.Win.C1Ribbon.RibbonButton();
+         this.ribbonGroup5 = new C1.Win.C1Ribbon.RibbonGroup();
+         this.ribbonButton1 = new C1.Win.C1Ribbon.RibbonButton();
          this.ribbonTopToolBar1 = new C1.Win.C1Ribbon.RibbonTopToolBar();
          this.Pnl_Desktop = new DevExpress.XtraEditors.SplitContainerControl();
+         this.NotfOrdrShip_Butn = new System.MaxUi.RoundedButton();
+         this.NotfOrdrReceipt_Butn = new System.MaxUi.RoundedButton();
+         this.OrdrReceipt_Butn = new DevExpress.XtraEditors.SimpleButton();
+         this.OrdrShip_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.AdjustDateTime_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.sb_logout = new DevExpress.XtraEditors.SimpleButton();
          this.Tm_ShowTime = new System.Windows.Forms.Timer(this.components);
-         this.ribbonGroup5 = new C1.Win.C1Ribbon.RibbonGroup();
-         this.ribbonButton1 = new C1.Win.C1Ribbon.RibbonButton();
          ((System.ComponentModel.ISupportInitialize)(this.c1Ribbon1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.Pnl_Desktop)).BeginInit();
          this.Pnl_Desktop.SuspendLayout();
@@ -252,6 +264,18 @@
          this.StrtRobo_Butn.Text = "شروع کار ربات";
          this.StrtRobo_Butn.Click += new System.EventHandler(this.StrtRobo_Butn_Click);
          // 
+         // ribbonGroup5
+         // 
+         this.ribbonGroup5.Items.Add(this.ribbonButton1);
+         this.ribbonGroup5.Name = "ribbonGroup5";
+         // 
+         // ribbonButton1
+         // 
+         this.ribbonButton1.LargeImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton1.LargeImage")));
+         this.ribbonButton1.Name = "ribbonButton1";
+         this.ribbonButton1.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton1.SmallImage")));
+         this.ribbonButton1.Text = "پشتبان گیری اضطراری";
+         // 
          // ribbonTopToolBar1
          // 
          this.ribbonTopToolBar1.Name = "ribbonTopToolBar1";
@@ -268,6 +292,10 @@
          this.Pnl_Desktop.Panel1.Text = "Panel1";
          this.Pnl_Desktop.Panel2.Appearance.BackColor = System.Drawing.Color.Gray;
          this.Pnl_Desktop.Panel2.Appearance.Options.UseBackColor = true;
+         this.Pnl_Desktop.Panel2.Controls.Add(this.NotfOrdrShip_Butn);
+         this.Pnl_Desktop.Panel2.Controls.Add(this.NotfOrdrReceipt_Butn);
+         this.Pnl_Desktop.Panel2.Controls.Add(this.OrdrReceipt_Butn);
+         this.Pnl_Desktop.Panel2.Controls.Add(this.OrdrShip_Butn);
          this.Pnl_Desktop.Panel2.Controls.Add(this.AdjustDateTime_Butn);
          this.Pnl_Desktop.Panel2.Controls.Add(this.sb_logout);
          this.Pnl_Desktop.Panel2.Text = "Panel2";
@@ -275,6 +303,134 @@
          this.Pnl_Desktop.SplitterPosition = 42;
          this.Pnl_Desktop.TabIndex = 1;
          this.Pnl_Desktop.Text = "splitContainerControl1";
+         // 
+         // NotfOrdrShip_Butn
+         // 
+         this.NotfOrdrShip_Butn.Active = true;
+         this.NotfOrdrShip_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+         this.NotfOrdrShip_Butn.ButtonStyle = System.MaxUi.RoundedButton.ButtonStyles.Ellipse;
+         this.NotfOrdrShip_Butn.Caption = "5";
+         this.NotfOrdrShip_Butn.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.NotfOrdrShip_Butn.ForeColor = System.Drawing.Color.White;
+         this.NotfOrdrShip_Butn.GradientStyle = System.MaxUi.RoundedButton.GradientStyles.Vertical;
+         this.NotfOrdrShip_Butn.HoverBorderColor = System.Drawing.Color.Gold;
+         this.NotfOrdrShip_Butn.HoverColorA = System.Drawing.Color.Transparent;
+         this.NotfOrdrShip_Butn.HoverColorB = System.Drawing.Color.Transparent;
+         this.NotfOrdrShip_Butn.ImageProfile = null;
+         this.NotfOrdrShip_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.Normal;
+         this.NotfOrdrShip_Butn.ImageVisiable = false;
+         this.NotfOrdrShip_Butn.Location = new System.Drawing.Point(968, 0);
+         this.NotfOrdrShip_Butn.Name = "NotfOrdrShip_Butn";
+         this.NotfOrdrShip_Butn.NormalBorderColor = System.Drawing.Color.DimGray;
+         this.NotfOrdrShip_Butn.NormalColorA = System.Drawing.Color.Red;
+         this.NotfOrdrShip_Butn.NormalColorB = System.Drawing.Color.Red;
+         this.NotfOrdrShip_Butn.Size = new System.Drawing.Size(22, 22);
+         this.NotfOrdrShip_Butn.SmoothingQuality = System.MaxUi.RoundedButton.SmoothingQualities.AntiAlias;
+         this.NotfOrdrShip_Butn.TabIndex = 18;
+         this.NotfOrdrShip_Butn.Tooltip = null;
+         this.NotfOrdrShip_Butn.Click += new System.EventHandler(this.OrdrShip_Butn_Click);
+         // 
+         // NotfOrdrReceipt_Butn
+         // 
+         this.NotfOrdrReceipt_Butn.Active = true;
+         this.NotfOrdrReceipt_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+         this.NotfOrdrReceipt_Butn.ButtonStyle = System.MaxUi.RoundedButton.ButtonStyles.Ellipse;
+         this.NotfOrdrReceipt_Butn.Caption = "10";
+         this.NotfOrdrReceipt_Butn.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.NotfOrdrReceipt_Butn.ForeColor = System.Drawing.Color.White;
+         this.NotfOrdrReceipt_Butn.GradientStyle = System.MaxUi.RoundedButton.GradientStyles.Vertical;
+         this.NotfOrdrReceipt_Butn.HoverBorderColor = System.Drawing.Color.Gold;
+         this.NotfOrdrReceipt_Butn.HoverColorA = System.Drawing.Color.Transparent;
+         this.NotfOrdrReceipt_Butn.HoverColorB = System.Drawing.Color.Transparent;
+         this.NotfOrdrReceipt_Butn.ImageProfile = null;
+         this.NotfOrdrReceipt_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.Normal;
+         this.NotfOrdrReceipt_Butn.ImageVisiable = false;
+         this.NotfOrdrReceipt_Butn.Location = new System.Drawing.Point(915, 0);
+         this.NotfOrdrReceipt_Butn.Name = "NotfOrdrReceipt_Butn";
+         this.NotfOrdrReceipt_Butn.NormalBorderColor = System.Drawing.Color.DimGray;
+         this.NotfOrdrReceipt_Butn.NormalColorA = System.Drawing.Color.Red;
+         this.NotfOrdrReceipt_Butn.NormalColorB = System.Drawing.Color.Red;
+         this.NotfOrdrReceipt_Butn.Size = new System.Drawing.Size(22, 22);
+         this.NotfOrdrReceipt_Butn.SmoothingQuality = System.MaxUi.RoundedButton.SmoothingQualities.AntiAlias;
+         this.NotfOrdrReceipt_Butn.TabIndex = 18;
+         this.NotfOrdrReceipt_Butn.Tooltip = null;
+         this.NotfOrdrReceipt_Butn.Click += new System.EventHandler(this.OrdrReceipt_Butn_Click);
+         // 
+         // OrdrReceipt_Butn
+         // 
+         this.OrdrReceipt_Butn.Appearance.BackColor = System.Drawing.Color.Transparent;
+         this.OrdrReceipt_Butn.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.OrdrReceipt_Butn.Appearance.ForeColor = System.Drawing.Color.Transparent;
+         this.OrdrReceipt_Butn.Appearance.Options.UseBackColor = true;
+         this.OrdrReceipt_Butn.Appearance.Options.UseFont = true;
+         this.OrdrReceipt_Butn.Appearance.Options.UseForeColor = true;
+         this.OrdrReceipt_Butn.Dock = System.Windows.Forms.DockStyle.Right;
+         this.OrdrReceipt_Butn.Image = global::System.RoboTech.Properties.Resources.IMAGE_1682;
+         this.OrdrReceipt_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
+         this.OrdrReceipt_Butn.Location = new System.Drawing.Point(916, 0);
+         this.OrdrReceipt_Butn.LookAndFeel.SkinName = "Office 2010 Silver";
+         this.OrdrReceipt_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.OrdrReceipt_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.OrdrReceipt_Butn.Name = "OrdrReceipt_Butn";
+         this.OrdrReceipt_Butn.Size = new System.Drawing.Size(52, 42);
+         toolTipTitleItem1.Appearance.Image = global::System.RoboTech.Properties.Resources.IMAGE_1682;
+         toolTipTitleItem1.Appearance.Options.UseImage = true;
+         toolTipTitleItem1.Image = global::System.RoboTech.Properties.Resources.IMAGE_1682;
+         toolTipTitleItem1.Text = "رسید پرداخت";
+         toolTipItem1.LeftIndent = 6;
+         toolTipItem1.Text = "مشتریان برای خرید های بالاتر که ممکن است سامانه پاسخگوی آنها نباشد رسید پرداختی خ" +
+    "ود را از روش های دیگری انجام دهند با این گزینه شما در تایید کردن آنها در خریدشان" +
+    " به آنها کمک میکنید";
+         toolTipTitleItem2.Appearance.Image = global::System.RoboTech.Properties.Resources.IMAGE_1692;
+         toolTipTitleItem2.Appearance.Options.UseImage = true;
+         toolTipTitleItem2.Image = global::System.RoboTech.Properties.Resources.IMAGE_1692;
+         toolTipTitleItem2.LeftIndent = 6;
+         toolTipTitleItem2.Text = "این قسمت نیاز هست که رسید پرداخت ارسالی را با وصولی های حساب خود چک کنید و درصورت" +
+    " تایید رسید تاریخ و مبلغ رسید را برای مشتری خود تایید کنید";
+         superToolTip1.Items.Add(toolTipTitleItem1);
+         superToolTip1.Items.Add(toolTipItem1);
+         superToolTip1.Items.Add(toolTipTitleItem2);
+         this.OrdrReceipt_Butn.SuperTip = superToolTip1;
+         this.OrdrReceipt_Butn.TabIndex = 7;
+         this.OrdrReceipt_Butn.Click += new System.EventHandler(this.OrdrReceipt_Butn_Click);
+         // 
+         // OrdrShip_Butn
+         // 
+         this.OrdrShip_Butn.Appearance.BackColor = System.Drawing.Color.Transparent;
+         this.OrdrShip_Butn.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.OrdrShip_Butn.Appearance.ForeColor = System.Drawing.Color.Transparent;
+         this.OrdrShip_Butn.Appearance.Options.UseBackColor = true;
+         this.OrdrShip_Butn.Appearance.Options.UseFont = true;
+         this.OrdrShip_Butn.Appearance.Options.UseForeColor = true;
+         this.OrdrShip_Butn.Dock = System.Windows.Forms.DockStyle.Right;
+         this.OrdrShip_Butn.Image = global::System.RoboTech.Properties.Resources.IMAGE_1686;
+         this.OrdrShip_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
+         this.OrdrShip_Butn.Location = new System.Drawing.Point(968, 0);
+         this.OrdrShip_Butn.LookAndFeel.SkinName = "Office 2010 Silver";
+         this.OrdrShip_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.OrdrShip_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.OrdrShip_Butn.Name = "OrdrShip_Butn";
+         this.OrdrShip_Butn.Size = new System.Drawing.Size(52, 42);
+         toolTipTitleItem3.Appearance.Image = global::System.RoboTech.Properties.Resources.IMAGE_1686;
+         toolTipTitleItem3.Appearance.Options.UseImage = true;
+         toolTipTitleItem3.Image = global::System.RoboTech.Properties.Resources.IMAGE_1686;
+         toolTipTitleItem3.Text = "وضعیت ارسال سفارشات";
+         toolTipItem2.LeftIndent = 6;
+         toolTipItem2.Text = "مشتریان شما دائما از فروشگاه شما خرید میکنند و مشخص میکنند که نحوه ارسال بسته سفا" +
+    "رش ها به چه گونه باشد";
+         toolTipTitleItem4.Appearance.Image = global::System.RoboTech.Properties.Resources.IMAGE_1692;
+         toolTipTitleItem4.Appearance.Options.UseImage = true;
+         toolTipTitleItem4.Image = global::System.RoboTech.Properties.Resources.IMAGE_1692;
+         toolTipTitleItem4.LeftIndent = 6;
+         toolTipTitleItem4.Text = "این قسمت به صورت اتومات مدیریت میشود و نیازی به دخالت نیروی پرسنلی نیست";
+         superToolTip2.Items.Add(toolTipTitleItem3);
+         superToolTip2.Items.Add(toolTipItem2);
+         superToolTip2.Items.Add(toolTipTitleItem4);
+         this.OrdrShip_Butn.SuperTip = superToolTip2;
+         this.OrdrShip_Butn.TabIndex = 6;
+         this.OrdrShip_Butn.Click += new System.EventHandler(this.OrdrShip_Butn_Click);
          // 
          // AdjustDateTime_Butn
          // 
@@ -314,23 +470,23 @@
          this.sb_logout.LookAndFeel.UseDefaultLookAndFeel = false;
          this.sb_logout.Name = "sb_logout";
          this.sb_logout.Size = new System.Drawing.Size(48, 42);
-         toolTipTitleItem1.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
-         toolTipTitleItem1.Appearance.Options.UseImage = true;
-         toolTipTitleItem1.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem1.Image")));
-         toolTipTitleItem1.Text = "خروج از حساب کاربری";
-         toolTipItem1.LeftIndent = 6;
-         toolTipItem1.Text = "برای خروج اضطراری شما می توانید از این دکمه استفاده کنید. موارد مورد نیاز مانند ا" +
+         toolTipTitleItem5.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
+         toolTipTitleItem5.Appearance.Options.UseImage = true;
+         toolTipTitleItem5.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem5.Image")));
+         toolTipTitleItem5.Text = "خروج از حساب کاربری";
+         toolTipItem3.LeftIndent = 6;
+         toolTipItem3.Text = "برای خروج اضطراری شما می توانید از این دکمه استفاده کنید. موارد مورد نیاز مانند ا" +
     "ین می باشد که بخواهید برای لحظه ای سیستم را رها کنید. یا بخواهید با کاربری متفاو" +
     "تی وارد شوید.";
-         toolTipTitleItem2.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image1")));
-         toolTipTitleItem2.Appearance.Options.UseImage = true;
-         toolTipTitleItem2.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem2.Image")));
-         toolTipTitleItem2.LeftIndent = 6;
-         toolTipTitleItem2.Text = "Logout";
-         superToolTip1.Items.Add(toolTipTitleItem1);
-         superToolTip1.Items.Add(toolTipItem1);
-         superToolTip1.Items.Add(toolTipTitleItem2);
-         this.sb_logout.SuperTip = superToolTip1;
+         toolTipTitleItem6.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image1")));
+         toolTipTitleItem6.Appearance.Options.UseImage = true;
+         toolTipTitleItem6.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem6.Image")));
+         toolTipTitleItem6.LeftIndent = 6;
+         toolTipTitleItem6.Text = "Logout";
+         superToolTip3.Items.Add(toolTipTitleItem5);
+         superToolTip3.Items.Add(toolTipItem3);
+         superToolTip3.Items.Add(toolTipTitleItem6);
+         this.sb_logout.SuperTip = superToolTip3;
          this.sb_logout.TabIndex = 3;
          // 
          // Tm_ShowTime
@@ -338,18 +494,6 @@
          this.Tm_ShowTime.Enabled = true;
          this.Tm_ShowTime.Interval = 1000;
          this.Tm_ShowTime.Tick += new System.EventHandler(this.Tm_ShowTime_Tick);
-         // 
-         // ribbonGroup5
-         // 
-         this.ribbonGroup5.Items.Add(this.ribbonButton1);
-         this.ribbonGroup5.Name = "ribbonGroup5";
-         // 
-         // ribbonButton1
-         // 
-         this.ribbonButton1.LargeImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton1.LargeImage")));
-         this.ribbonButton1.Name = "ribbonButton1";
-         this.ribbonButton1.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton1.SmallImage")));
-         this.ribbonButton1.Text = "پشتبان گیری اضطراری";
          // 
          // FRST_PAGE_F
          // 
@@ -402,5 +546,9 @@
       private C1.Win.C1Ribbon.RibbonButton Sale_Butn;
       private C1.Win.C1Ribbon.RibbonGroup ribbonGroup5;
       private C1.Win.C1Ribbon.RibbonButton ribbonButton1;
+      private DevExpress.XtraEditors.SimpleButton OrdrReceipt_Butn;
+      private DevExpress.XtraEditors.SimpleButton OrdrShip_Butn;
+      private MaxUi.RoundedButton NotfOrdrShip_Butn;
+      private MaxUi.RoundedButton NotfOrdrReceipt_Butn;
    }
 }

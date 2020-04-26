@@ -19,9 +19,9 @@ namespace System.RoboTech.Controller
             iRobot.Analisis_Message_P(x, ref xResult);
             return xResult;
          }
-         catch (Exception)
+         catch (Exception exc)
          {
-            return XDocument.Parse("<Respons actncode=\"-1000\"><Message>موردی یافت نشد</Message></Respons>").Root;
+            return XDocument.Parse(string.Format("<Respons actncode=\"-1000\"><Message>{0}</Message></Respons>", exc.Message)).Root;
          }
       }
    }

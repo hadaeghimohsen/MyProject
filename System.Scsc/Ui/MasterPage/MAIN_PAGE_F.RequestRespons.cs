@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
 using System.Scsc.ExtCode;
+using System.Threading;
 
 namespace System.Scsc.Ui.MasterPage
 {
@@ -631,6 +632,8 @@ namespace System.Scsc.Ui.MasterPage
       /// <param name="job"></param>
       private void Actn_CalF_P(Job job)
       {
+         var xinput = job.Input as XElement;
+
          //if (iScsc.Settings.Where(s => Fga_Uclb_U.Contains(s.CLUB_CODE) && s.NOTF_STAT == "002" && (s.NOTF_VIST_DATE.HasValue ? s.NOTF_VIST_DATE.Value : DateTime.Now.AddDays(-1)) != DateTime.Now).Count() >= 1)
          //{
          //   var expday = iScsc.Settings.Where(s => Fga_Uclb_U.Contains(s.CLUB_CODE) && s.NOTF_STAT == "002" && (s.NOTF_VIST_DATE.HasValue ? s.NOTF_VIST_DATE.Value : DateTime.Now.AddDays(-1)) != DateTime.Now).ToList();
@@ -721,6 +724,22 @@ namespace System.Scsc.Ui.MasterPage
          else if(job.Input != null && (job.Input as XElement).Attribute("type").Value == "extdev")
          {
             OprtExtDev(job.Input as XElement);
+         }
+         else if (job.Input != null && (job.Input as XElement).Attribute("type").Value == "expnextr")
+         {
+            string devName = "";
+            if (xinput.Attribute("macadrs") != null)
+               devName = xinput.Attribute("macadrs").Value;
+            else 
+               devName = iScsc.External_Devices.FirstOrDefault(d => d.EXPN_CODE == (job.Input as XElement).Attribute("expncode").Value.ToInt64()).DEV_NAME;
+            var cmndText = (job.Input as XElement).Attribute("cmndtext").Value;
+            var fngrprnt = (job.Input as XElement).Attribute("fngrprnt").Value;
+
+            SendCommandDevExpn(cmndText, devName, fngrprnt);
+         }
+         else if (xinput != null && xinput.Attribute("type").Value == "alarmshow")
+         {
+            new Thread(AlarmShow).Start();
          }
          job.Status = StatusType.Successful;
       }

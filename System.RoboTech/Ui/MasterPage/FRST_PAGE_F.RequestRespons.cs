@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
+using System.RoboTech.ExtCode;
 
 namespace System.RoboTech.Ui.MasterPage
 {
@@ -57,6 +58,12 @@ namespace System.RoboTech.Ui.MasterPage
                break;
             case 40:
                SetToolTip(job);
+               break;
+            case 1000:
+               if (InvokeRequired)
+                  Invoke(new System.Action(() => Call_SystemService_P(job)));
+               else
+                  Call_SystemService_P(job);
                break;
             default:
                break;
@@ -224,6 +231,7 @@ namespace System.RoboTech.Ui.MasterPage
       /// <param name="job"></param>
       private void LoadData(Job job)
       {
+         OrderShipping_Recipt();
          job.Status = StatusType.Successful;
       }
 
@@ -304,6 +312,53 @@ namespace System.RoboTech.Ui.MasterPage
       {
          //Lbs_Tooltip.Text = job.Input.ToString();
          job.Status = StatusType.Successful;
+      }
+
+      /// <summary>
+      /// Code 1000
+      /// </summary>
+      /// <param name="job"></param>
+      private void Call_SystemService_P(Job job)
+      {
+         try
+         {
+            var xinput = job.Input as XElement;
+            if (xinput == null) return;
+
+            var chatid = xinput.Attribute("chatid").Value.ToInt64();
+            var cmnd = xinput.Attribute("cmnd").Value;
+            var param = xinput.Attribute("param").Value;
+
+            // اگر اتفاق جدیدی درون سیستم پایگاه داده رخ داده باشد بتوانیم آخرین اطلاعات را بازیابی کنیم
+            iRoboTech = new Data.iRoboTechDataContext(ConnectionString);
+
+            switch (cmnd.ToLower())
+            {
+               case "loadrcpt":
+                  frstLoad = false;
+                  OrderShipping_Recipt();
+
+                  var ordrrcpt =
+                     iRoboTech.Order_States.Where(os => os.Order.Robot.Organ.STAT == "002" && os.Order.Robot.STAT == "002" && os.Order.ORDR_STAT == "001" && os.AMNT_TYPE == "005" && os.CONF_STAT == "003");
+                  job.Output =
+                     new XElement("Output",
+                        new XAttribute("resultcode", 10001),
+                        new XAttribute("resultdesc", ordrrcpt.Count() > 0 ? string.Format("تعداد پیامهای ارسال رسید پرداخت درون صف {0} عدد میباشد، لطفا تا دریافت نتیجه صبر کنید", ordrrcpt.Count()) :
+                                                                            "پیام شما برای واحد مربوطه ارسال شد، لطفا دریافت نتیجه کمی صبر کنید" 
+                                      ),
+                        new XAttribute("mesgtype", "1"),
+                        new XAttribute("mesgdesc", "Text")
+                     );
+                  break;
+            }
+
+            job.Status = StatusType.Successful;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         
       }
    }
 }

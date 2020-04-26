@@ -19,6 +19,8 @@ namespace System.RoboTech.Ui.MasterPage
          InitializeComponent();
       }
 
+      private bool frstLoad = false;
+
       private void AdjustDateTime_Butn_Click(object sender, EventArgs e)
       {
          _DefaultGateway.Gateway(new Job(SendType.External, "Localhost", "Commons", 26 /* Execute DoWork4DateTimes */, SendType.Self));
@@ -168,6 +170,178 @@ namespace System.RoboTech.Ui.MasterPage
                 new Job(SendType.SelfToUserInterface, "SALE_DVLP_F", 10 /* Execute Actn_CalF_F */)
               })
          );
+      }
+
+      private void OrdrShip_Butn_Click(object sender, EventArgs e)
+      {
+         NotfOrdrShip_Butn.Visible = false;
+         OrdrShip_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+
+         _DefaultGateway.Gateway(
+            new Job(SendType.External, "Localhost",
+              new List<Job>
+              {                  
+                new Job(SendType.Self, 23 /* Execute Ordr_Ship_F */),
+                new Job(SendType.SelfToUserInterface, "ORDR_SHIP_F", 10 /* Execute Actn_CalF_F */)
+              })
+         );
+      }
+
+      private void OrdrReceipt_Butn_Click(object sender, EventArgs e)
+      {
+         NotfOrdrReceipt_Butn.Visible = false;
+         OrdrReceipt_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+
+         _DefaultGateway.Gateway(
+            new Job(SendType.External, "Localhost",
+              new List<Job>
+              {                  
+                new Job(SendType.Self, 24 /* Execute Ordr_Rcpt_F */),
+                new Job(SendType.SelfToUserInterface, "ORDR_RCPT_F", 10 /* Execute Actn_CalF_F */)
+              })
+         );
+      }
+
+      private void OrderShipping_Recipt()
+      {
+         if (!frstLoad)
+         {
+            if (InvokeRequired)
+               Invoke(new System.Action(() =>
+               {
+                  #region Check Order Ship
+                  var ordrship =
+                     iRoboTech.Orders.Where(o => o.Robot.Organ.STAT == "002" && o.Robot.STAT == "002" && o.ORDR_TYPE == "004" && o.ORDR_STAT == "004");
+
+                  if (ordrship.Any())
+                  {
+                     NotfOrdrShip_Butn.Visible = true;
+                     NotfOrdrShip_Butn.Caption = ordrship.Count().ToString();
+                     OrdrShip_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
+
+                     _DefaultGateway.Gateway(
+                        new Job(SendType.External, "localhost", "Wall", 22 /* Execute SetSystemNotification */, SendType.SelfToUserInterface)
+                        {
+                           Input =
+                              new List<object>
+                              {
+                                 ToolTipIcon.Info,
+                                 "نحوه ارسال درخواست",
+                                 string.Format("تعداد {0} عدد درخواست در مرحله تعیین نحوه ارسال میباشد", ordrship.Count()),
+                                 2000
+                              },
+                              Executive = ExecutiveType.Asynchronous
+                        }
+                     );
+                  }
+                  else
+                  {
+                     NotfOrdrShip_Butn.Visible = false;
+                     OrdrShip_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+                  }
+                  #endregion
+
+                  #region Order New Recipt
+                  var ordrrcpt =
+                     iRoboTech.Order_States.Where(os => os.Order.Robot.Organ.STAT == "002" && os.Order.Robot.STAT == "002" && os.Order.ORDR_STAT == "001" && os.AMNT_TYPE == "005" && os.CONF_STAT == "003");
+
+                  if (ordrrcpt.Any())
+                  {
+                     NotfOrdrReceipt_Butn.Visible = true;
+                     NotfOrdrReceipt_Butn.Caption = ordrrcpt.Count().ToString();
+                     OrdrReceipt_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
+
+                     _DefaultGateway.Gateway(
+                        new Job(SendType.External, "localhost", "Wall", 22 /* Execute SetSystemNotification */, SendType.SelfToUserInterface)
+                        {
+                           Input =
+                              new List<object>
+                              {
+                                 ToolTipIcon.Info,
+                                 "رسید های ارسالی درخواست",
+                                 string.Format("تعداد {0} عدد درخواست در مرحله تعیین تاییدیه رسید های ارسالی میباشد", ordrrcpt.Count()),
+                                 2000
+                              },
+                              Executive = ExecutiveType.Asynchronous
+                        }
+                     );
+                  }
+                  else
+                  {
+                     NotfOrdrReceipt_Butn.Visible = false;
+                     OrdrReceipt_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+                  }
+                  #endregion
+
+               }));
+            else
+            {
+               #region Check Order Ship
+               var ordrship =
+                  iRoboTech.Orders.Where(o => o.Robot.Organ.STAT == "002" && o.Robot.STAT == "002" && o.ORDR_TYPE == "004" && o.ORDR_STAT == "004");
+
+               if (ordrship.Any())
+               {
+                  NotfOrdrShip_Butn.Visible = true;
+                  NotfOrdrShip_Butn.Caption = ordrship.Count().ToString();
+                  OrdrShip_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
+
+                  _DefaultGateway.Gateway(
+                     new Job(SendType.External, "localhost", "Wall", 22 /* Execute SetSystemNotification */, SendType.SelfToUserInterface)
+                     {
+                        Input =
+                           new List<object>
+                           {
+                              ToolTipIcon.Info,
+                              "نحوه ارسال درخواست",
+                              string.Format("تعداد {0} عدد درخواست در مرحله تعیین نحوه ارسال میباشد", ordrship.Count()),
+                              2000
+                           },
+                        Executive = ExecutiveType.Asynchronous
+                     }
+                  );
+               }
+               else
+               {
+                  NotfOrdrShip_Butn.Visible = false;
+                  OrdrShip_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+               }
+               #endregion
+
+               #region Order New Recipt
+               var ordrrcpt =
+                  iRoboTech.Order_States.Where(os => os.Order.Robot.Organ.STAT == "002" && os.Order.Robot.STAT == "002" && os.Order.ORDR_STAT == "001" && os.AMNT_TYPE == "005" && os.CONF_STAT == "003");
+
+               if (ordrrcpt.Any())
+               {
+                  NotfOrdrReceipt_Butn.Visible = true;
+                  NotfOrdrReceipt_Butn.Caption = ordrrcpt.Count().ToString();
+                  OrdrReceipt_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
+
+                  _DefaultGateway.Gateway(
+                     new Job(SendType.External, "localhost", "Wall", 22 /* Execute SetSystemNotification */, SendType.SelfToUserInterface)
+                     {
+                        Input =
+                           new List<object>
+                           {
+                              ToolTipIcon.Info,
+                              "رسید های ارسالی درخواست",
+                              string.Format("تعداد {0} عدد درخواست در مرحله تعیین تاییدیه رسید های ارسالی میباشد", ordrrcpt.Count()),
+                              2000
+                           },
+                        Executive = ExecutiveType.Asynchronous
+                     }
+                  );
+               }
+               else
+               {
+                  NotfOrdrReceipt_Butn.Visible = false;
+                  OrdrReceipt_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+               }
+               #endregion
+            }
+            frstLoad = true;
+         }
       }
    }
 }

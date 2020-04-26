@@ -1208,6 +1208,8 @@ namespace System.Scsc.Ui.Common
             DPydsBs1.DataSource = iScsc.D_PYDS;
             DPTypBs.DataSource = iScsc.D_PTYPs;
             DPmstBs.DataSource = iScsc.D_PMSTs;
+            DPycoBs.DataSource = iScsc.D_PYCOs;
+            DYsnoBs.DataSource = iScsc.D_YSNOs;
             VPosBs1.DataSource = iScsc.V_Pos_Devices;
             if (VPosBs1.List.OfType<Data.V_Pos_Device>().FirstOrDefault(p => p.GTWY_MAC_ADRS == HostNameInfo.Attribute("cpu").Value) != null)
                Pos_Lov.EditValue = VPosBs1.List.OfType<Data.V_Pos_Device>().FirstOrDefault(p => p.GTWY_MAC_ADRS == HostNameInfo.Attribute("cpu").Value).PSID;

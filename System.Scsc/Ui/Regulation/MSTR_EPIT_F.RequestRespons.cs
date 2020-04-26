@@ -87,13 +87,17 @@ namespace System.Scsc.Ui.Regulation
             job.Next =
                new Job(SendType.SelfToUserInterface, "MSTR_EPIT_F", 04 /* Execute UnPaint */);
          }
-         else if(keyData == (Keys.ControlKey | Keys.Insert))
+         else if(keyData == (Keys.Control | Keys.Insert))
          {
             AddSubGrop_Butn_Click(null, null);
          }         
          else if(keyData == (Keys.F5))
          {
             GropBnASav1_Click(null, null);
+         }
+         else if (keyData == (Keys.Control | Keys.Delete))
+         {
+            DelGrop_Tsm_Click(null, null);
          }
 
          job.Status = StatusType.Successful;
@@ -183,10 +187,10 @@ namespace System.Scsc.Ui.Regulation
          switch(xinput.Attribute("type").Value)
          {
             case "001":
-               Info_Bskt.SelectedTab = backstageViewTabItem1;
+               Master_Tb.SelectedTab = tp_001;
                break;
             case "002":
-               Info_Bskt.SelectedTab = backstageViewTabItem2;
+               Master_Tb.SelectedTab = tp_002;
                break;
          }
          job.Status = StatusType.Successful;

@@ -42,6 +42,11 @@
          System.Windows.Forms.Label label10;
          System.Windows.Forms.Label label11;
          System.Windows.Forms.Label label16;
+         System.Windows.Forms.Label label19;
+         System.Windows.Forms.Label label20;
+         System.Windows.Forms.Label label17;
+         System.Windows.Forms.Label label18;
+         System.Windows.Forms.Label label21;
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
@@ -52,11 +57,6 @@
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject9 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject10 = new DevExpress.Utils.SerializableAppearanceObject();
-         System.Windows.Forms.Label label19;
-         System.Windows.Forms.Label label20;
-         System.Windows.Forms.Label label17;
-         System.Windows.Forms.Label label18;
-         System.Windows.Forms.Label label21;
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition1 = new DevExpress.XtraGrid.StyleFormatCondition();
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition2 = new DevExpress.XtraGrid.StyleFormatCondition();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject11 = new DevExpress.Utils.SerializableAppearanceObject();
@@ -135,6 +135,9 @@
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition34 = new DevExpress.XtraGrid.StyleFormatCondition();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject48 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject49 = new DevExpress.Utils.SerializableAppearanceObject();
+         this.RmnusBs = new System.Windows.Forms.BindingSource(this.components);
+         this.RoboBs = new System.Windows.Forms.BindingSource(this.components);
+         this.OrgnBs = new System.Windows.Forms.BindingSource(this.components);
          this.colSTAT = new DevExpress.XtraGrid.Columns.GridColumn();
          this.Actv_Lov = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
          this.DactvBs = new System.Windows.Forms.BindingSource(this.components);
@@ -165,7 +168,6 @@
          this.groupBox1 = new System.Windows.Forms.GroupBox();
          this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
          this.countryGridControl = new DevExpress.XtraGrid.GridControl();
-         this.OrgnBs = new System.Windows.Forms.BindingSource(this.components);
          this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colREGN_PRVN_CNTY_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.Cnty_Lov = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
@@ -206,7 +208,6 @@
          this.splitContainerControl2 = new DevExpress.XtraEditors.SplitContainerControl();
          this.splitContainerControl26 = new DevExpress.XtraEditors.SplitContainerControl();
          this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-         this.RoboBs = new System.Windows.Forms.BindingSource(this.components);
          this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colORGN_OGID = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colRBID = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -388,7 +389,6 @@
          this.groupBox3 = new System.Windows.Forms.GroupBox();
          this.splitContainerControl6 = new DevExpress.XtraEditors.SplitContainerControl();
          this.gridControl2 = new DevExpress.XtraGrid.GridControl();
-         this.RmnusBs = new System.Windows.Forms.BindingSource(this.components);
          this.Menus_Gv = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colROBO_RBID2 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colMUID = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -1046,6 +1046,9 @@
          label17 = new System.Windows.Forms.Label();
          label18 = new System.Windows.Forms.Label();
          label21 = new System.Windows.Forms.Label();
+         ((System.ComponentModel.ISupportInitialize)(this.RmnusBs)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.RoboBs)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.OrgnBs)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.Actv_Lov)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.DactvBs)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.Actv_Lov2)).BeginInit();
@@ -1064,7 +1067,6 @@
          ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
          this.splitContainerControl1.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.countryGridControl)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.OrgnBs)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.Cnty_Lov)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.CntyBs)).BeginInit();
@@ -1084,7 +1086,6 @@
          ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl26)).BeginInit();
          this.splitContainerControl26.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.RoboBs)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.Buld_Lov)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.DbuldBs)).BeginInit();
@@ -1170,7 +1171,6 @@
          ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl6)).BeginInit();
          this.splitContainerControl6.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.RmnusBs)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.Menus_Gv)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSearchLookUpEdit3)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSearchLookUpEdit3View)).BeginInit();
@@ -1503,6 +1503,78 @@
          label16.TabIndex = 36;
          label16.Text = "Params";
          // 
+         // label19
+         // 
+         label19.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         label19.AutoSize = true;
+         label19.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         label19.Location = new System.Drawing.Point(327, 152);
+         label19.Name = "label19";
+         label19.Size = new System.Drawing.Size(68, 14);
+         label19.TabIndex = 36;
+         label19.Text = "پس ار اجرا :";
+         // 
+         // label20
+         // 
+         label20.AutoSize = true;
+         label20.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         label20.Location = new System.Drawing.Point(24, 152);
+         label20.Name = "label20";
+         label20.Size = new System.Drawing.Size(56, 14);
+         label20.TabIndex = 36;
+         label20.Text = "Post Run";
+         // 
+         // label17
+         // 
+         label17.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         label17.AutoSize = true;
+         label17.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         label17.Location = new System.Drawing.Point(327, 180);
+         label17.Name = "label17";
+         label17.Size = new System.Drawing.Size(55, 14);
+         label17.TabIndex = 36;
+         label17.Text = "رخدادها :";
+         // 
+         // label18
+         // 
+         label18.AutoSize = true;
+         label18.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         label18.Location = new System.Drawing.Point(30, 180);
+         label18.Name = "label18";
+         label18.Size = new System.Drawing.Size(50, 14);
+         label18.TabIndex = 36;
+         label18.Text = "Trigger ";
+         // 
+         // label21
+         // 
+         label21.BackColor = System.Drawing.Color.Gainsboro;
+         label21.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.RmnusBs, "DATA_TEXT_DNRM", true));
+         label21.Dock = System.Windows.Forms.DockStyle.Bottom;
+         label21.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         label21.Location = new System.Drawing.Point(3, 202);
+         label21.Name = "label21";
+         label21.RightToLeft = System.Windows.Forms.RightToLeft.No;
+         label21.Size = new System.Drawing.Size(404, 24);
+         label21.TabIndex = 37;
+         label21.Text = "Data : [\"@\" | \".\"] \"/\" Paths \";\" Command \"-\" Params \"$\" Post Run \"#\" Trigger";
+         label21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         // 
+         // RmnusBs
+         // 
+         this.RmnusBs.DataMember = "Menu_Ussds";
+         this.RmnusBs.DataSource = this.RoboBs;
+         this.RmnusBs.CurrentChanged += new System.EventHandler(this.RmnusBs_CurrentChanged);
+         // 
+         // RoboBs
+         // 
+         this.RoboBs.DataMember = "Robots";
+         this.RoboBs.DataSource = this.OrgnBs;
+         this.RoboBs.CurrentChanged += new System.EventHandler(this.RoboBs_CurrentChanged);
+         // 
+         // OrgnBs
+         // 
+         this.OrgnBs.DataSource = typeof(System.RoboTech.Data.Organ);
+         // 
          // colSTAT
          // 
          this.colSTAT.Caption = "وضعیت";
@@ -1778,60 +1850,6 @@
          this.Actv_Lov15.NullText = "";
          this.Actv_Lov15.ValueMember = "VALU";
          // 
-         // label19
-         // 
-         label19.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         label19.AutoSize = true;
-         label19.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         label19.Location = new System.Drawing.Point(327, 152);
-         label19.Name = "label19";
-         label19.Size = new System.Drawing.Size(68, 14);
-         label19.TabIndex = 36;
-         label19.Text = "پس ار اجرا :";
-         // 
-         // label20
-         // 
-         label20.AutoSize = true;
-         label20.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         label20.Location = new System.Drawing.Point(24, 152);
-         label20.Name = "label20";
-         label20.Size = new System.Drawing.Size(56, 14);
-         label20.TabIndex = 36;
-         label20.Text = "Post Run";
-         // 
-         // label17
-         // 
-         label17.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         label17.AutoSize = true;
-         label17.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         label17.Location = new System.Drawing.Point(327, 180);
-         label17.Name = "label17";
-         label17.Size = new System.Drawing.Size(55, 14);
-         label17.TabIndex = 36;
-         label17.Text = "رخدادها :";
-         // 
-         // label18
-         // 
-         label18.AutoSize = true;
-         label18.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         label18.Location = new System.Drawing.Point(30, 180);
-         label18.Name = "label18";
-         label18.Size = new System.Drawing.Size(50, 14);
-         label18.TabIndex = 36;
-         label18.Text = "Trigger ";
-         // 
-         // label21
-         // 
-         label21.BackColor = System.Drawing.Color.Gainsboro;
-         label21.Dock = System.Windows.Forms.DockStyle.Bottom;
-         label21.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         label21.Location = new System.Drawing.Point(3, 202);
-         label21.Name = "label21";
-         label21.Size = new System.Drawing.Size(404, 24);
-         label21.TabIndex = 37;
-         label21.Text = "Data : [\"@\" | \".\"] \"/\" Paths \";\" Command \"-\" Params \"$\" Post Run \"#\" Trigger";
-         label21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         // 
          // tb_master
          // 
          this.tb_master.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -1908,10 +1926,6 @@
          this.countryGridControl.TabIndex = 1;
          this.countryGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
-         // 
-         // OrgnBs
-         // 
-         this.OrgnBs.DataSource = typeof(System.RoboTech.Data.Organ);
          // 
          // gridView1
          // 
@@ -2379,12 +2393,6 @@
          this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
          // 
-         // RoboBs
-         // 
-         this.RoboBs.DataMember = "Robots";
-         this.RoboBs.DataSource = this.OrgnBs;
-         this.RoboBs.CurrentChanged += new System.EventHandler(this.RoboBs_CurrentChanged);
-         // 
          // gridView2
          // 
          this.gridView2.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 9F);
@@ -2794,7 +2802,7 @@
          // 
          this.ShowGoogleMap_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
          this.ShowGoogleMap_Butn.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
-         this.ShowGoogleMap_Butn.Location = new System.Drawing.Point(464, 65);
+         this.ShowGoogleMap_Butn.Location = new System.Drawing.Point(464, 71);
          this.ShowGoogleMap_Butn.Name = "ShowGoogleMap_Butn";
          this.ShowGoogleMap_Butn.Size = new System.Drawing.Size(76, 24);
          this.ShowGoogleMap_Butn.TabIndex = 38;
@@ -2806,7 +2814,7 @@
          // splitContainerControl27
          // 
          this.splitContainerControl27.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-         this.splitContainerControl27.Location = new System.Drawing.Point(152, 66);
+         this.splitContainerControl27.Location = new System.Drawing.Point(152, 72);
          this.splitContainerControl27.Name = "splitContainerControl27";
          this.splitContainerControl27.Panel1.Controls.Add(this.SorcCordY_Txt);
          this.splitContainerControl27.Panel1.Text = "Panel1";
@@ -2859,7 +2867,7 @@
          this.richTextBox2.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.RoboBs, "POST_ADRS", true));
          this.richTextBox2.Location = new System.Drawing.Point(6, 6);
          this.richTextBox2.Name = "richTextBox2";
-         this.richTextBox2.Size = new System.Drawing.Size(534, 54);
+         this.richTextBox2.Size = new System.Drawing.Size(534, 60);
          this.richTextBox2.TabIndex = 36;
          this.richTextBox2.Text = "";
          // 
@@ -4341,12 +4349,6 @@
          this.gridControl2.TabIndex = 3;
          this.gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.Menus_Gv});
-         // 
-         // RmnusBs
-         // 
-         this.RmnusBs.DataMember = "Menu_Ussds";
-         this.RmnusBs.DataSource = this.RoboBs;
-         this.RmnusBs.CurrentChanged += new System.EventHandler(this.RmnusBs_CurrentChanged);
          // 
          // Menus_Gv
          // 
@@ -10569,6 +10571,9 @@
          this.Name = "ORGN_DVLP_F";
          this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
          this.Size = new System.Drawing.Size(1179, 701);
+         ((System.ComponentModel.ISupportInitialize)(this.RmnusBs)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.RoboBs)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.OrgnBs)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.Actv_Lov)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.DactvBs)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.Actv_Lov2)).EndInit();
@@ -10587,7 +10592,6 @@
          ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).EndInit();
          this.splitContainerControl1.ResumeLayout(false);
          ((System.ComponentModel.ISupportInitialize)(this.countryGridControl)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.OrgnBs)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.Cnty_Lov)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.CntyBs)).EndInit();
@@ -10608,7 +10612,6 @@
          ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl26)).EndInit();
          this.splitContainerControl26.ResumeLayout(false);
          ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.RoboBs)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.Buld_Lov)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.DbuldBs)).EndInit();
@@ -10701,7 +10704,6 @@
          ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl6)).EndInit();
          this.splitContainerControl6.ResumeLayout(false);
          ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.RmnusBs)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.Menus_Gv)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSearchLookUpEdit3)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSearchLookUpEdit3View)).EndInit();

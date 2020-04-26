@@ -1131,6 +1131,7 @@
     <None Include="Properties\DataSources\System.Scsc.Data.D_PRST.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_PSAT.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_PTYP.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.D_PYCO.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_PYDS.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_PYST.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_RCAN.datasource" />
@@ -1180,6 +1181,7 @@
     <None Include="Properties\DataSources\System.Scsc.Data.Organ.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Payment.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Payment_Check.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.Payment_Cost.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Payment_Detail.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Payment_Detail_Commodity_Sale.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Payment_Discount.datasource" />

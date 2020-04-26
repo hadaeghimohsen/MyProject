@@ -561,83 +561,234 @@ namespace System.Scsc.Ui.MasterPage
          }
       }
 
+      class DataReadFromCardReader { public string EnrollNumber { get; set; } public string MacAdrs { get; set; } public DateTime LastTimeRead { get; set; } }
+      List<DataReadFromCardReader> lastDataRead = new List<DataReadFromCardReader>();
       private bool frstVistTablCntlF = false;
       private void Sp_ExpnExtr_DataReceived(object sender, IO.Ports.SerialDataReceivedEventArgs e)
       {
          try
          {
+            iScsc = new Data.iScscDataContext(ConnectionString);
+            // input data e.g : {device code} "-" {Card Code}
             var enrollNumber = Sp_ExpnExtr.ReadLine();
             if (enrollNumber.IndexOf('\r') != -1)
                enrollNumber = enrollNumber.Substring(0, enrollNumber.IndexOf('\r')).ToUpper();
             else
                enrollNumber = enrollNumber.ToUpper();
 
-            var stat = enrollNumber.Split('-').ToList()[0];
-            var macadrs = enrollNumber.Split('-').ToList()[1];
+            enrollNumber = Regex.Replace(enrollNumber, "[^a-zA-Z0-9-]", "");
+
+            var devName = enrollNumber.Split('-').ToList()[0];
+            var fngrPrnt = enrollNumber.Split('-').ToList()[1];
+
+            // اگر داده ای درون سیستم از سمت کارتخوان آمده باشد باید تا پاسخ دهی به دستگاه هیچ ورودی دیگری قابل پردازش نیست
+            // اگر داده قبلی بر اساس 10 ثانیه هنوز درون بافر باشد باید از لیست حذف شود
+            if (lastDataRead.Any(d => d.MacAdrs == devName && d.EnrollNumber == fngrPrnt && DateTime.Now.Subtract(d.LastTimeRead).TotalSeconds >= 10))
+            {
+               lastDataRead.Remove(lastDataRead.FirstOrDefault(d => d.MacAdrs == devName && d.EnrollNumber == fngrPrnt));
+               System.Diagnostics.Debug.WriteLine("Remove Last Time Read");
+            }
+
+            // اگر داده ای از کارتخوان و شماره کارت وجود داشته باشد ورودی جدید را رد میکنیم
+            if (lastDataRead.Any(d => d.MacAdrs == devName && d.EnrollNumber == fngrPrnt)) { System.Diagnostics.Debug.WriteLine("Reject New Read Data"); return; }
+
+            // اگر اطلاعاتی از کارتخوان و کارت عضویت وجود نداشته باشد برای اولین بار آن را ثبت میکنیم
+            lastDataRead.Add(new DataReadFromCardReader() { MacAdrs = devName, EnrollNumber = fngrPrnt, LastTimeRead = DateTime.Now });
+            System.Diagnostics.Debug.WriteLine("Add New Data Read");
 
             if (InvokeRequired)
             {               
                Invoke(
                   new Action(() =>
                      {
-                        //GameHours_Butn.Appearance.BackColor = Color.YellowGreen;
-                        Job _GetAopBufeF =
-                           new Job(SendType.External, "localhost",
-                              new List<Job>
-                              {
-                                 new Job(SendType.Self, 01 /* Execute GetUi */){Input = "aop_bufe_f"}
-                              }
-                           );
-                        _DefaultGateway.Gateway(_GetAopBufeF);
+                        // ابتدا بررسی میکنیم که داده ورودی مربوط به کدام بخش دستگاه های بازی میشود
+                        // 1 - بازی های زمان متغییر مانند بیلیارد
+                        // 2 - بازی های زمان ثابت مانند شهربازی
+                        devName = Regex.Replace(devName, "[^0-9]", "");
+                        var getInfoDev = iScsc.External_Devices.FirstOrDefault(d => d.DEV_NAME == devName);
+                        if (getInfoDev == null) { System.Diagnostics.Debug.WriteLine("Reject because can't found device" + devName); return; }
 
-                        if (_GetAopBufeF.Output != null)
+                        // set Finger Print Data on Text Box
+                        FngrPrnt_Txt.Text = fngrPrnt;
+
+                        // Check Exists Service and Valid Card
+                        var Serv = iScsc.Fighters.FirstOrDefault(f => f.FNGR_PRNT_DNRM == fngrPrnt);
+
+                        // بدست آوردن آیین نامه اصلی
+                        var regl = iScsc.Regulations.FirstOrDefault(rg => rg.REGL_STAT == "002" && rg.TYPE == "001");
+
+                        // اگر مشتری وجود نداشته یا اینکه مشتری اصلا سپرده نداشته باشد
+                        if (Serv == null || (regl.AMNT_TYPE == "001" && Serv.DPST_AMNT_DNRM < 10000) || (regl.AMNT_TYPE == "002" && Serv.DPST_AMNT_DNRM < 1000 ))
                         {
-                           if (frstVistTablCntlF)
+                           // اگر کارت عضویت خام باشد
+                           if(Serv == null)
                            {
-                              _DefaultGateway.Gateway(
+                              // باز کردن فرم ثبت نام مشتری
+                              Job _InteractWithScsc =
                                  new Job(SendType.External, "Localhost",
                                     new List<Job>
                                     {
-                                       new Job(SendType.SelfToUserInterface, "AOP_BUFE_F", 10 /* Actn_CalF_P */){
-                                          Input = 
-                                             new XElement("Request", 
-                                                new XAttribute("type", "tp_001"),
-                                                new XAttribute("stat", stat),
-                                                new XAttribute("macadrs", macadrs)
-                                             )
-                                       }
-                                    }
-                                 )
+                                       new Job(SendType.Self, 130 /* Execute Adm_Brsr_F */),
+                                       new Job(SendType.SelfToUserInterface, "ADM_BRSR_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "fighter"), new XAttribute("enrollnumber", fngrPrnt))}
+                                    });
+                              _DefaultGateway.Gateway(_InteractWithScsc);
+                           }
+                           //else if ((regl.AMNT_TYPE == "001" && Serv.DPST_AMNT_DNRM < 10000) || (regl.AMNT_TYPE == "002" && Serv.DPST_AMNT_DNRM < 1000))
+                           //{
+                           //   Job _InteractWithScsc =
+                           //      new Job(SendType.External, "Localhost",
+                           //         new List<Job>
+                           //         {
+                           //            new Job(SendType.Self, 153 /* Execute Glr_Indc_F */),
+                           //            new Job(SendType.SelfToUserInterface, "GLR_INDC_F", 10 /* Execute Actn_CalF_F */)
+                           //            {
+                           //               Input = 
+                           //                  new XElement("Request", 
+                           //                     new XAttribute("type", "newrequest"), 
+                           //                     new XAttribute("fileno", Serv.FILE_NO),
+                           //                     new XAttribute("formcaller", GetType().Name)
+                           //                  )
+                           //            }
+                           //         });
+                           //   _DefaultGateway.Gateway(_InteractWithScsc);
+                           //}
+                           SendCommandDevExpn("er", devName, fngrPrnt);
+                           return;
+                        }
+ 
+                        if (getInfoDev.DEV_TYPE == "007" /* بازی های زمان متغییر مانند بیلیارد */)
+                        {
+                           #region بارگذاری فرم مربوط به رزرو میز
+                           Job _GetAopBufeF =
+                              new Job(SendType.External, "localhost",
+                                 new List<Job>
+                                 {
+                                    new Job(SendType.Self, 01 /* Execute GetUi */){Input = "aop_bufe_f"}
+                                 }
                               );
+                           _DefaultGateway.Gateway(_GetAopBufeF);
+                           #endregion
+
+                           #region اگر فرم رزرو میز درون حافظه قرار گرفت
+                           if (_GetAopBufeF.Output != null)
+                           {
+                              if (frstVistTablCntlF)
+                              {
+                                 #region برای روالهای بعدی دریافت ورودی
+                                 _DefaultGateway.Gateway(
+                                    new Job(SendType.External, "Localhost",
+                                       new List<Job>
+                                       {
+                                          new Job(SendType.SelfToUserInterface, "AOP_BUFE_F", 10 /* Actn_CalF_P */){
+                                             Input = 
+                                                new XElement("Request", 
+                                                   new XAttribute("type", "tp_001"),
+                                                   new XAttribute("fngrprnt", fngrPrnt),
+                                                   new XAttribute("macadrs", devName),
+                                                   new XAttribute("expncode", getInfoDev.EXPN_CODE ?? 0)
+                                                )
+                                          }
+                                       }
+                                    )
+                                 );
+                                 #endregion
+                              }
+                              else
+                              {
+                                 #region اگر برای اولین بار فرم میز باز میشود
+                                 frstVistTablCntlF = true;
+                                 _DefaultGateway.Gateway(
+                                    new Job(SendType.External, "Localhost",
+                                       new List<Job>
+                                       {
+                                          new Job(SendType.Self, 131 /* Execute Aop_Bufe_F */),
+                                          new Job(SendType.SelfToUserInterface, "AOP_BUFE_F", 10 /* Actn_CalF_P */){
+                                             Input = 
+                                                new XElement("Request", 
+                                                   new XAttribute("type", "tp_001"),
+                                                   new XAttribute("fngrprnt", fngrPrnt),
+                                                   new XAttribute("macadrs", devName),
+                                                   new XAttribute("expncode", getInfoDev.EXPN_CODE ?? 0)
+                                                )
+                                          }
+                                       }
+                                    )
+                                 );
+                                 #endregion
+                              }
+                           }
+                           #endregion
+                        }
+                        else if (getInfoDev.DEV_TYPE == "008" /* بازی های زمان ثابت مانند شهربازی */)
+                        {
+                           #region فعالیت های مربوط به دستگاه های بازی با زمان ثابت
+                           var devExpn = iScsc.Expenses.FirstOrDefault(ex => ex.CODE == getInfoDev.EXPN_CODE);
+                           // اگر مبلغ بازی از میزان اعتبار مشتری بیشتر باشد
+                           if (Serv.DPST_AMNT_DNRM < devExpn.PRIC)
+                              SendCommandDevExpn("er", devName, fngrPrnt);
+
+                           // بررسی اینکه آیا مشتری قبلا کارت خود را وارد نکرده باشد و دوباره کارت نزده باشد 
+                           // نکته : اگر مشتری کارت زده باشد و دوره بازی تمام شده باشد می تواند دوباره کارت بزند و بازی کند
+                           var lastRqst016 = iScsc.VF_Request_Changing(null).Where(r => r.RQTP_CODE == "016" && r.SAVE_DATE.Value.Date == DateTime.Now.Date && iScsc.Payment_Details.Any(pd => pd.PYMT_RQST_RQID == r.RQID && pd.EXPN_CODE == devExpn.CODE)).OrderByDescending(r => r.SAVE_DATE).Take(1).FirstOrDefault();
+
+                           // اگر درخواستی برای دستگاه بازی برای مشتری وجود داشته باشه
+                           if (lastRqst016 != null)
+                           {
+                              // اگر بازه زمانی برای مشتری تمام شده باشد با کسر اعتبار جدید می تواند دوباره بازی کند
+                              if (!DateTime.Now.IsBetween((DateTime)lastRqst016.SAVE_DATE, (DateTime)lastRqst016.SAVE_DATE.Value.AddMinutes(devExpn.MIN_TIME.Value.Minute)))
+                              {
+                                 // ثبت درخواست و کسر اعتبار از مشتری
+
+                                 // مجوز اجرای بازی
+                                 SendCommandDevExpn("st", devName, fngrPrnt);
+                              }
                            }
                            else
                            {
-                              frstVistTablCntlF = true;
-                              _DefaultGateway.Gateway(
-                                 new Job(SendType.External, "Localhost",
-                                    new List<Job>
-                                    {
-                                       new Job(SendType.Self, 131 /* Execute Aop_Bufe_F */),
-                                       new Job(SendType.SelfToUserInterface, "AOP_BUFE_F", 10 /* Actn_CalF_P */){
-                                          Input = 
-                                             new XElement("Request", 
-                                                new XAttribute("type", "tp_001"),
-                                                new XAttribute("stat", stat),
-                                                new XAttribute("macadrs", macadrs)
-                                             )
-                                       }
-                                    }
-                                 )
-                              );
+                              // ثبت درخواست و کسر اعتبار از مشتری
+
+                              // مجوز اجرای بازی
+                              SendCommandDevExpn("st", devName, fngrPrnt);
                            }
+                           #endregion
                         }
-                        //GameHours_Butn.Appearance.BackColor = Color.Gainsboro;
                      })
-               );
-               
+               );               
             }
          }
          catch (Exception exc) { MessageBox.Show(exc.Message); }
+      }
+
+      private void SendCommandDevExpn(string cmndText, string devName, string enrollNumber)
+      {
+         try
+         {
+            BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.YellowGreen;
+            Thread.Sleep(1000);
+            Sp_ExpnExtr.Write(string.Format("{0}-{1}", cmndText, devName));
+            switch (cmndText)
+            {
+               case "st":
+                  BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Green;
+                  break;
+               case "sp":
+                  BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.BlueViolet;
+                  break;
+               case "er":
+                  BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Tomato;
+                  break;
+               default:
+                  break;
+            }
+         }
+         catch
+         {
+            BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Tomato;
+         }
+         //finally
+         //{
+         //   lastDataRead.Remove(lastDataRead.FirstOrDefault(d => d.MacAdrs == devName && d.EnrollNumber == enrollNumber));
+         //}
       }
       #endregion
 

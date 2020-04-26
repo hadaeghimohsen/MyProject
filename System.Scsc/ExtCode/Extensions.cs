@@ -12,6 +12,7 @@ namespace System.Scsc.ExtCode
 {
    public static class Extensions
    {
+      #region Sql Operation
       public static bool In<T>(this T item, params T[] items)
       {
          if (items == null)
@@ -24,7 +25,7 @@ namespace System.Scsc.ExtCode
       {
          if (items == null)
             return true;
-         
+
          return !items.Contains<T>(item);
       }
 
@@ -38,7 +39,9 @@ namespace System.Scsc.ExtCode
          return Comparer<T>.Default.Compare(item, start) >= 0
              && Comparer<T>.Default.Compare(item, end) <= 0;
       }
+      #endregion
 
+      #region Convert To Intx
       public static Int16 ToInt16(this string strNum)
       {
          return Int16.Parse(strNum);
@@ -53,6 +56,7 @@ namespace System.Scsc.ExtCode
       {
          return Int64.Parse(strNum);
       }
+      #endregion
 
       #region Number To String Farsi
       private static string[] yakan = new string[10] { "صفر", "یک", "دو", "سه", "چهار", "پنج", "شش", "هفت", "هشت", "نه" };
@@ -106,6 +110,6 @@ namespace System.Scsc.ExtCode
          }
          return stotal;
       }
-      #endregion
+      #endregion      
    }
 }

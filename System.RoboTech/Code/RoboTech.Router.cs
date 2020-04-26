@@ -89,6 +89,12 @@ namespace System.RoboTech.Code
             case 22:
                Alpk_Dvlp_F(job);
                break;
+            case 23:
+               Ordr_Ship_F(job);
+               break;
+            case 24:
+               Ordr_Rcpt_F(job);
+               break;
             #endregion
             #region Action
             case 11:
@@ -171,6 +177,12 @@ namespace System.RoboTech.Code
                break;
             case "ALPK_DVLP_F":
                _Alpk_Dvlp_F.SendRequest(job);
+               break;
+            case "ORDR_SHIP_F":
+               _Ordr_Ship_F.SendRequest(job);
+               break;
+            case "ORDR_RCPT_F":
+               _Ordr_Rcpt_F.SendRequest(job);
                break;
             #endregion
             #region Action

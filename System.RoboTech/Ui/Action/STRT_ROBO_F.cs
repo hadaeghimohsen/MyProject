@@ -65,7 +65,7 @@ namespace System.RoboTech.Ui.Action
          {
             foreach (var robot in RoboBs.List.OfType<Data.Robot>().Where(r => r.Organ == orgn && r.STAT == "002"))
             {
-               ConsoleOutLog_MemTxt.Text += string.Format("{0} has Starting\r\n", robot.NAME);
+               if (robot.RUN_STAT == "002") ConsoleOutLog_MemTxt.Text += string.Format("{0} has Starting\r\n", robot.NAME);
                if(robot.BOT_TYPE == "001" && robot.RUN_STAT == "002")                  
                   iRobots.Add(
                      new TelegramApiBot(robot.TKON_CODE, ConnectionString, ConsoleOutLog_MemTxt, true, robot, this)
@@ -74,7 +74,7 @@ namespace System.RoboTech.Ui.Action
                   iRobots.Add(
                      new BaleApiBot(robot.TKON_CODE, ConnectionString, ConsoleOutLog_MemTxt, true, robot, this)
                   );
-               ConsoleOutLog_MemTxt.Text += string.Format("{0} has Started\r\n", robot.NAME);
+               if(robot.RUN_STAT == "002") ConsoleOutLog_MemTxt.Text += string.Format("{0} has Started\r\n", robot.NAME);
             }
             OrgnBs.MoveNext();
          }         

@@ -132,7 +132,7 @@ namespace System.Scsc.Ui.OtherIncome
                                  new XElement("Club_Code", Club_CodeLookUpEdit.EditValue ?? ""),
                                  new XElement("Dise_Code", ""),
                                  new XElement("Blod_Grop", ""),
-                                 new XElement("Fngr_Prnt", ""),
+                                 new XElement("Fngr_Prnt", FngrPrnt_Txt.EditValue ?? ""),
                                  new XElement("Sunt_Bunt_Dept_Orgn_Code", ""),
                                  new XElement("Sunt_Bunt_Dept_Code", ""),
                                  new XElement("Sunt_Bunt_Code", ""),

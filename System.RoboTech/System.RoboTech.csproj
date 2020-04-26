@@ -92,8 +92,8 @@
       <HintPath>..\packages\EntityFramework.6.4.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="InstagramApiSharp, Version=1.5.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\InstagramApiSharp.1.5.0\lib\net452\InstagramApiSharp.dll</HintPath>
+    <Reference Include="InstagramApiSharp, Version=1.5.0.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\InstagramApiSharp.1.5.0.1\lib\net452\InstagramApiSharp.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.VisualBasic" />
@@ -160,8 +160,8 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
-    <Reference Include="Telegram.Bot, Version=15.4.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Telegram.Bot.15.4.0\lib\net45\Telegram.Bot.dll</HintPath>
+    <Reference Include="Telegram.Bot, Version=15.5.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Telegram.Bot.15.5.1\lib\net45\Telegram.Bot.dll</HintPath>
       <Private>True</Private>
     </Reference>
   </ItemGroup>
@@ -183,6 +183,7 @@
     </Compile>
     <Compile Include="ExceptionHandlings\ExceptionLogs.cs" />
     <Compile Include="ExtCode\Extensions.cs" />
+    <Compile Include="ExtCode\TryWrapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -275,6 +276,15 @@
     <Compile Include="Ui\DevelopmentApplication\ALPK_DVLP_F.RequestRespons.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Ui\DevelopmentApplication\ORDR_RCPT_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\DevelopmentApplication\ORDR_RCPT_F.Designer.cs">
+      <DependentUpon>ORDR_RCPT_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\DevelopmentApplication\ORDR_RCPT_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Ui\DevelopmentApplication\SALE_DVLP_F.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -284,11 +294,20 @@
     <Compile Include="Ui\DevelopmentApplication\SALE_DVLP_F.RequestRespons.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Ui\DevelopmentApplication\ORDR_SHIP_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\DevelopmentApplication\ORDR_SHIP_F.Designer.cs">
+      <DependentUpon>ORDR_SHIP_F.cs</DependentUpon>
+    </Compile>
     <Compile Include="Ui\DevelopmentApplication\SRBT_INFO_F.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Ui\DevelopmentApplication\SRBT_INFO_F.Designer.cs">
       <DependentUpon>SRBT_INFO_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\DevelopmentApplication\ORDR_SHIP_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Ui\DevelopmentApplication\SRBT_INFO_F.RequestRespons.cs">
       <SubType>UserControl</SubType>
@@ -418,6 +437,7 @@
     <None Include="Properties\DataSources\System.RoboTech.Data.D_ORDT.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_PKTP.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_RCVT.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.D_RMTP.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_SDTP.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_SPYT.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_URLT.datasource" />
@@ -524,8 +544,14 @@
     <EmbeddedResource Include="Ui\DevelopmentApplication\ALPK_DVLP_F.resx">
       <DependentUpon>ALPK_DVLP_F.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Ui\DevelopmentApplication\ORDR_RCPT_F.resx">
+      <DependentUpon>ORDR_RCPT_F.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Ui\DevelopmentApplication\SALE_DVLP_F.resx">
       <DependentUpon>SALE_DVLP_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\DevelopmentApplication\ORDR_SHIP_F.resx">
+      <DependentUpon>ORDR_SHIP_F.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ui\DevelopmentApplication\SRBT_INFO_F.resx">
       <DependentUpon>SRBT_INFO_F.cs</DependentUpon>
@@ -1671,6 +1697,51 @@
     </Content>
     <Content Include="..\System.Resource\Resources\IMAGE_1678.jpg">
       <Link>Resources\IMAGE_1678.jpg</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1681.png">
+      <Link>Resources\IMAGE_1681.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1682.png">
+      <Link>Resources\IMAGE_1682.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1683.png">
+      <Link>Resources\IMAGE_1683.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1684.png">
+      <Link>Resources\IMAGE_1684.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1685.png">
+      <Link>Resources\IMAGE_1685.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1686.png">
+      <Link>Resources\IMAGE_1686.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1687.png">
+      <Link>Resources\IMAGE_1687.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1688.png">
+      <Link>Resources\IMAGE_1688.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1689.png">
+      <Link>Resources\IMAGE_1689.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1690.png">
+      <Link>Resources\IMAGE_1690.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1691.png">
+      <Link>Resources\IMAGE_1691.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1692.png">
+      <Link>Resources\IMAGE_1692.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1693.png">
+      <Link>Resources\IMAGE_1693.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1694.png">
+      <Link>Resources\IMAGE_1694.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1695.png">
+      <Link>Resources\IMAGE_1695.png</Link>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

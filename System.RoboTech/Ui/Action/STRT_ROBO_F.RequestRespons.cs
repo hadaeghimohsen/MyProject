@@ -219,14 +219,7 @@ namespace System.RoboTech.Ui.Action
                if(xinput.Attribute("actntype") != null)
                {
                   var rbid = Convert.ToInt64(xinput.Attribute("rbid").Value);
-                  switch (xinput.Attribute("actntype").Value)
-                  {
-                     case "sendordrs":
-                        iRobots.First(r => r.Robot.RBID == rbid).SendAction(xinput);
-                        break;
-                     default:
-                        break;
-                  }
+                  iRobots.First(r => r.Robot.RBID == rbid).SendAction(xinput);
                }
             }            
          }

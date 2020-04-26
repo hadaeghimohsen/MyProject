@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
+using System.Scsc.ExtCode;
 
 namespace System.Scsc.Ui.AggregateOperation
 {
@@ -248,11 +249,12 @@ namespace System.Scsc.Ui.AggregateOperation
       private void Actn_CalF_P(Job job)
       {
          var xinput = job.Input as XElement;
-
-         if (xinput.Attribute("stat") != null)
-            stat = xinput.Attribute("stat").Value;
-         else
-            stat = null;
+         
+         stat = "STATUS";
+         //if (xinput.Attribute("stat") != null)
+         //   stat = xinput.Attribute("stat").Value;
+         //else
+         //   stat = null;
 
          if (xinput.Attribute("macadrs") != null)
             macadrs = xinput.Attribute("macadrs").Value;
@@ -264,7 +266,25 @@ namespace System.Scsc.Ui.AggregateOperation
          else
             fngrprnt = null;
 
+         long? expncode = null;
+         if (xinput.Attribute("expncode") != null)
+            expncode = xinput.Attribute("expncode").Value.ToInt64();
+
          Execute_Query();
+
+         // اگر فرم مستقیما توسط منوی اصلی فراخوانی شده باشد دیگر نیاز به اجرای موارد پایین نیست
+         if (fngrprnt == null || macadrs == null || expncode == null) return;
+
+         // این گزینه برای سیستم های انلاین برای مشتریان اعتباری میباشد
+         isOnline = true;
+
+         // راه اندازی سیستم خودکار محاسبه گر در بازه زمانی
+         if (AutoRecalc_Tsmi.CheckState == CheckState.Unchecked)
+         {
+            // مدت زمان اجرای مجدد 5 دقیقه یکبار اتفاق می افتد
+            IntervalRecalc_Tsmi.Text = "5";
+            AutoRecalc_Tsmi_Click(null, null);
+         }
 
          #region Set FileNo In Lookup
          if (fngrprnt != null)
@@ -272,6 +292,103 @@ namespace System.Scsc.Ui.AggregateOperation
          #endregion
 
          #region Device Input
+         // اگر مشتری کارت خود را برای میزهایی میگذارد که برای اون باز نشده
+         if (AodtBs1.List.OfType<Data.Aggregation_Operation_Detail>().Any(d => d.STAT == "001" && d.FIGH_FILE_NO != (long)Figh_Lov.EditValue && d.Expense.RELY_CMND == macadrs))
+         {
+            #region Send Command Error To Device Cotrol
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost",
+                  new List<Job>
+                  {
+                     new Job(SendType.SelfToUserInterface, "MAIN_PAGE_F", 10 /* Execute Actn_CalF_P */)
+                     {
+                        Input = 
+                           new XElement("Request",
+                              new XAttribute("type", "expnextr"),
+                              new XAttribute("macadrs", macadrs),
+                              new XAttribute("cmndtext", "er"),
+                              new XAttribute("fngrprnt", fngrprnt)
+                           )
+                     }
+                  }
+               )
+            );
+            #endregion
+            return;
+         }
+         // اعمال تغییرات در متغیر وضعیت
+         var desks = AodtBs1.List.OfType<Data.Aggregation_Operation_Detail>().Where(r => r.FIGH_FILE_NO == (long)Figh_Lov.EditValue);         
+         if (desks != null)
+         {
+            // اگر مشتری میز بازی داشته باشد
+            if (desks.Any(r => r.STAT == "001"))
+            {
+               // این زمانی می باشد که مشتری میز باز دارد ولی کارت خود را بر روی میز دیگری میزند
+               if(!desks.Any(d => d.STAT == "001" && d.Expense.RELY_CMND == macadrs))
+               {
+                  #region Send Command Error To Device Control 
+                  _DefaultGateway.Gateway(
+                     new Job(SendType.External, "localhost",
+                        new List<Job>
+                        {
+                           new Job(SendType.SelfToUserInterface, "MAIN_PAGE_F", 10 /* Execute Actn_CalF_P */)
+                           {
+                              Input = 
+                                 new XElement("Request",
+                                    new XAttribute("type", "expnextr"),
+                                    new XAttribute("macadrs", macadrs),
+                                    new XAttribute("cmndtext", "er"),
+                                    new XAttribute("fngrprnt", fngrprnt)
+                                 )
+                           }
+                        }
+                     )
+                  );
+                  #endregion
+                  return;
+               }
+               // اگر مشتری چند بار کارت خود را بر روی دستگاه کارتخوان قراردهد باید مدت زمان 2 دقیقه نسبت به ورود شماره کارت قبلی هیچ عکس العملی نداشته باشد
+               //if (DateTime.Now.Subtract((DateTime)desks.FirstOrDefault(d => d.STAT == "001").STRT_TIME).TotalSeconds <= 10)
+               //{
+               //   #region Send Command Alarm Show
+               //   _DefaultGateway.Gateway(
+               //      new Job(SendType.External, "localhost",
+               //         new List<Job>
+               //         {
+               //            new Job(SendType.SelfToUserInterface, "MAIN_PAGE_F", 10 /* Execute Actn_CalF_P */)
+               //            {
+               //               Input = 
+               //                  new XElement("Request",
+               //                     new XAttribute("type", "alarmshow")
+               //                  )
+               //            }
+               //         }
+               //      )
+               //   );
+               //   #endregion
+               //   return;
+               //}
+               stat = null; // STOP
+               foreach (var desk in desks.Where(d => d.STAT == "001"))
+               {
+                  AodtBs1.Position = AodtBs1.IndexOf(AodtBs1.List.OfType<Data.Aggregation_Operation_Detail>().FirstOrDefault(a => a == desk));
+                  DeskClose_Butn_Click(null, null);
+                  //var aodt = AodtBs1.Current as Data.Aggregation_Operation_Detail;
+                  //// اگر زمانی اتفاق بیوفتد که هزینه بازی برای مشتری از میزان مبلغ سپرده بیشتر شد کافیست که مبلغ هزینه را با مبلغ سپرده یکی کنیم
+                  //// که صورتحساب مشتری بدهکار نشود
+                  //if (aodt.Fighter.DPST_AMNT_DNRM <= aodt.EXPN_PRIC)
+                  //   aodt.EXPN_PRIC = (int)aodt.Fighter.DPST_AMNT_DNRM; // مبلغ هزینه بازی را با میزان سپرده یکی قرار میدهیم
+                  //aodt.DPST_AMNT = aodt.EXPN_PRIC; // پرداخت هزینه میز را با سپرده انجام میدهیم
+                  //RecStat_Butn_ButtonClick(null, new DevExpress.XtraEditors.Controls.ButtonPressedEventArgs(RecStat_Butn.Buttons[3]));// تسویه حساب میز را انجام میدهیم
+                  return;
+               }
+            }
+            else
+               stat = "START";
+         }
+         else
+            stat = "START";         
+
          if (stat != null)
          {            
             if (!AgopBs1.List.OfType<Data.Aggregation_Operation>().Any(a => a.FROM_DATE.Value.Date == DateTime.Now.Date))
@@ -283,7 +400,25 @@ namespace System.Scsc.Ui.AggregateOperation
             }
 
             AgopBs1.Position = AgopBs1.IndexOf(AgopBs1.List.OfType<Data.Aggregation_Operation>().FirstOrDefault(a => a.FROM_DATE.Value.Date == DateTime.Now.Date));
-            var expn = ExpnDeskBs1.List.OfType<Data.Expense>().FirstOrDefault(e => e.RELY_CMND == macadrs);
+            //var expn = ExpnDeskBs1.List.OfType<Data.Expense>().FirstOrDefault(e => e.RELY_CMND == macadrs);
+            // بدست آوردن کد هزینه برای درج برای مشتری
+            // در ابتدا باید مشخص کنیم که ردیف هزینه متعلق به کدام نوع هزینه می باشد
+            bool visited = false;
+            if (fngrprnt != null && ExpnDesk_GridLookUpEdit.Properties.Buttons[1].Tag.ToString() == "auto")
+            {
+               visited = true;
+               ExpnDesk_GridLookUpEdit_ButtonClick(null, new DevExpress.XtraEditors.Controls.ButtonPressedEventArgs(ExpnDesk_GridLookUpEdit.Properties.Buttons[1]));
+            }
+
+            ExtpDesk_Lov.EditValue = ExtpDeskBs1.List.OfType<Data.Expense_Type>().FirstOrDefault(et => et.Expenses.Any(e => e.CODE == expncode)).CODE;
+
+            if (visited)
+            {
+               visited = false;
+               ExpnDesk_GridLookUpEdit_ButtonClick(null, new DevExpress.XtraEditors.Controls.ButtonPressedEventArgs(ExpnDesk_GridLookUpEdit.Properties.Buttons[1]));
+            }
+
+            var expn = ExpnDeskBs1.List.OfType<Data.Expense>().FirstOrDefault(e => e.CODE == expncode);
 
             // 1397/08/07 * اگر دستگاه به هزینه ای به عنوان میز متصل نباشد پیام مک آدرس دستگاه رو نشان میدهیم
             /// و بعد کار را به اتمام میرسانیم
@@ -302,12 +437,14 @@ namespace System.Scsc.Ui.AggregateOperation
                return;
             }
 
+            // تعداد میزهای باز درون جدول
             if(AodtBs1.Count == 0)
             { 
                if(stat == "START")
                {
+                  // هزینه را درون باکس مربوطه قرار میدهیم و میز را برای مشتری باز میکنیم
                   ExpnDesk_GridLookUpEdit.EditValue = expn.CODE;
-                  OpenDesk_Butn_Click(null, null);
+                  OpenDesk_Butn_Click(null, null);                  
                }
             }
             else
@@ -315,25 +452,25 @@ namespace System.Scsc.Ui.AggregateOperation
                switch (stat)
                {
                   case "START":
-                     if( 
-                         (fngrprnt != null && AodtBs1.List.OfType<Data.Aggregation_Operation_Detail>().Any(a => a.EXPN_CODE == expn.CODE && a.STAT == "001" && a.Fighter.FNGR_PRNT_DNRM == fngrprnt)) ||
-                         (fngrprnt == null && AodtBs1.List.OfType<Data.Aggregation_Operation_Detail>().Any(a => a.EXPN_CODE == expn.CODE && a.STAT == "001"))
-                       )
+                     //if( 
+                     //    (fngrprnt != null && AodtBs1.List.OfType<Data.Aggregation_Operation_Detail>().Any(a => a.EXPN_CODE == expn.CODE && a.STAT == "001" && a.Fighter.FNGR_PRNT_DNRM == fngrprnt)) ||
+                     //    (fngrprnt == null && AodtBs1.List.OfType<Data.Aggregation_Operation_Detail>().Any(a => a.EXPN_CODE == expn.CODE && a.STAT == "001"))
+                     //  )
+                     //{
+                     //   int lastPosition = AodtBs1.Position;
+                     //   var filterType = AllRcrd_Lbl.Tag;
+                     //   Lbl_Click(AllRcrd_Lbl, null);                        
+                     //   AodtBs1.Position = AodtBs1.IndexOf(AodtBs1.List.OfType<Data.Aggregation_Operation_Detail>().FirstOrDefault(a => a.EXPN_CODE == expn.CODE && a.STAT == "001"));
+                     //   var aodt = AodtBs1.Current as Data.Aggregation_Operation_Detail;
+                     //   aodt.END_TIME = null;
+                     //   CalcDesk_Butn_Click(null, null);
+                     //   AllRcrd_Lbl.Tag = filterType;
+                     //   Lbl_Click(InfoParm_Gb.Controls.OfType<LabelControl>().FirstOrDefault(l => l.Name == AllRcrd_Lbl.Tag.ToString()), null);
+                     //   AodtBs1.Position = lastPosition;
+                     //}
+                     //else
                      {
-                        int lastPosition = AodtBs1.Position;
-                        var filterType = AllRcrd_Lbl.Tag;
-                        Lbl_Click(AllRcrd_Lbl, null);                        
-                        AodtBs1.Position = AodtBs1.IndexOf(AodtBs1.List.OfType<Data.Aggregation_Operation_Detail>().FirstOrDefault(a => a.EXPN_CODE == expn.CODE && a.STAT == "001"));
-                        var aodt = AodtBs1.Current as Data.Aggregation_Operation_Detail;
-                        aodt.END_TIME = null;
-                        CalcDesk_Butn_Click(null, null);
-                        AllRcrd_Lbl.Tag = filterType;
-                        Lbl_Click(InfoParm_Gb.Controls.OfType<LabelControl>().FirstOrDefault(l => l.Name == AllRcrd_Lbl.Tag.ToString()), null);
-                        AodtBs1.Position = lastPosition;
-                     }
-                     else
-                     {
-                        bool visited = false;
+                        visited = false;
                         if (fngrprnt != null && ExpnDesk_GridLookUpEdit.Properties.Buttons[1].Tag.ToString() == "auto")
                         {
                            visited = true;
@@ -342,7 +479,7 @@ namespace System.Scsc.Ui.AggregateOperation
 
                         ExpnDesk_GridLookUpEdit.EditValue = expn.CODE;
                         OpenDesk_Butn_Click(null, null);
-                        
+
                         if(visited)
                         {
                            visited = false;
@@ -350,19 +487,19 @@ namespace System.Scsc.Ui.AggregateOperation
                         }
                      }
                      break;
-                  case "STOP":
-                     if (
-                           (fngrprnt != null && (AodtBs1.List.OfType<Data.Aggregation_Operation_Detail>().Any(a => a.EXPN_CODE == expn.CODE && a.STAT == "001" && a.Fighter.FNGR_PRNT_DNRM == fngrprnt))) ||
-                           (fngrprnt == null && (AodtBs1.List.OfType<Data.Aggregation_Operation_Detail>().Any(a => a.EXPN_CODE == expn.CODE && a.STAT == "001")))
-                        )
-                     {
-                        if(fngrprnt == null)
-                           AodtBs1.Position = AodtBs1.IndexOf(AodtBs1.List.OfType<Data.Aggregation_Operation_Detail>().FirstOrDefault(a => a.EXPN_CODE == expn.CODE && a.STAT == "001"));
-                        else
-                           AodtBs1.Position = AodtBs1.IndexOf(AodtBs1.List.OfType<Data.Aggregation_Operation_Detail>().FirstOrDefault(a => a.EXPN_CODE == expn.CODE && a.STAT == "001" && a.Fighter.FNGR_PRNT_DNRM == fngrprnt));
-                        DeskClose_Butn_Click(null, null);
-                     }
-                     break;
+                  //case "STOP":
+                  //   if (
+                  //         (fngrprnt != null && (AodtBs1.List.OfType<Data.Aggregation_Operation_Detail>().Any(a => a.EXPN_CODE == expn.CODE && a.STAT == "001" && a.Fighter.FNGR_PRNT_DNRM == fngrprnt))) ||
+                  //         (fngrprnt == null && (AodtBs1.List.OfType<Data.Aggregation_Operation_Detail>().Any(a => a.EXPN_CODE == expn.CODE && a.STAT == "001")))
+                  //      )
+                  //   {
+                  //      if(fngrprnt == null)
+                  //         AodtBs1.Position = AodtBs1.IndexOf(AodtBs1.List.OfType<Data.Aggregation_Operation_Detail>().FirstOrDefault(a => a.EXPN_CODE == expn.CODE && a.STAT == "001"));
+                  //      else
+                  //         AodtBs1.Position = AodtBs1.IndexOf(AodtBs1.List.OfType<Data.Aggregation_Operation_Detail>().FirstOrDefault(a => a.EXPN_CODE == expn.CODE && a.STAT == "001" && a.Fighter.FNGR_PRNT_DNRM == fngrprnt));
+                  //      DeskClose_Butn_Click(null, null);
+                  //   }
+                  //   break;
                }
             }
          }

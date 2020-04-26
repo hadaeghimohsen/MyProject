@@ -174,7 +174,7 @@ namespace System.Scsc.Ui.BaseDefinition
             iScsc.Expenses.Where(ex =>
                ex.Regulation.REGL_STAT == "002" /* آیین نامه فعال */ && ex.Regulation.TYPE == "001" /* آیین نامه هزینه */ &&
                ex.Expense_Type.Request_Requester.RQTP_CODE == "016" &&
-               ex.Expense_Type.Request_Requester.RQTT_CODE == "001" &&
+               //ex.Expense_Type.Request_Requester.RQTT_CODE == "001" &&
                ex.EXPN_STAT == "002" /* هزینه های فعال */
             );
          }

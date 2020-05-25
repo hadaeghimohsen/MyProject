@@ -17,6 +17,7 @@ using libzkfpcsharp;
 using System.Threading;
 using System.IO;
 using System.IO.Ports;
+using System.Data.SqlClient;
 
 namespace System.DataGuard.SecPolicy.Share.Ui
 {
@@ -242,6 +243,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
       {
          public string IP { get; set; }
          public int Port { get; set; }
+         public int Id { get; set; }
          public string Status { get; set; }
          public DateTime StartDateTime { get; set; }
          public DateTime EndDateTime { get; set; }
@@ -324,6 +326,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
             var dev = DevInfoBs.AddNew() as DeviceInfo;
             dev.IP = SlaveDeviceIP_Txt.Text;
             dev.Port = Convert.ToInt32(SlaveDevicePort_Txt.Text);
+            dev.Id = Convert.ToInt32(SlaveDeviceId_Txt.Text);
             dev.Status = "No Connected";
 
             SlaveDeviceIP_Txt.Text = SlaveDevicePort_Txt.Text = "";
@@ -348,6 +351,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
             {
                SlaveDeviceIP_Txt.Text = line.Split(':')[0];
                SlaveDevicePort_Txt.Text = line.Split(':')[1];
+               SlaveDeviceId_Txt.Text = line.Split(':')[2];
 
                AddDev_Butn_Click(null, null);
             }
@@ -1121,6 +1125,135 @@ namespace System.DataGuard.SecPolicy.Share.Ui
          {
             MessageBox.Show(exc.Message);
          }
+      }
+
+      private void GetGeneralLogData_btn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            if (!AutoOprt009_cb.Checked && MessageBox.Show(this, "آیا با انجام عملیات دریافت رکورد موافق هستید؟", "هشدار", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes) return;
+            foreach (var dev in DevInfoBs.List.OfType<DeviceInfo>())
+            {
+               iFngrSlavIsCnct = iFngrSlav.Connect_Net(dev.IP, dev.Port);
+               LogResult_Txt.Text = "";
+               if (iFngrSlavIsCnct)
+               {
+                  dev.Status = "Connected";
+                  int iMachineNumber = 1;//In fact,when you are using the tcp/ip communication,this parameter will be ignored,that is any integer will all right.Here we use 1.
+                  iFngrSlav.RegEvent(iMachineNumber, 65535);//Here you can register the realtime events that you want to be triggered(the parameters 65535 means registering all)
+
+                  Cursor = Cursors.WaitCursor;
+                  string sdwEnrollNumber = "";
+                  int idwTMachineNumber = 0;
+                  int idwEMachineNumber = 0;
+                  int idwVerifyMode = 0;
+                  int idwInOutMode = 0;
+                  int idwYear = 0;
+                  int idwMonth = 0;
+                  int idwDay = 0;
+                  int idwHour = 0;
+                  int idwMinute = 0;
+                  int idwSecond = 0;
+                  int idwWorkcode = 0;
+
+                  int idwErrorCode = 0;
+                  int iGLCount = 0;
+                  int iIndex = 0;
+                  LogRecordsCount_Txt.Text = iIndex.ToString();
+                  LogResult_Txt.Text = dev.IP + " Processing " + DateTime.Now.ToString() + Environment.NewLine;
+                  string sqlInsertInto = "INSERT INTO DataFile([STATUS], [DATE_] ,[TIME_] ,[EMP_NO] ,[Clock_No], [Modify]) VALUES";
+                  string sqlInsertValues = "";
+                  iFngrSlav.EnableDevice(iMachineNumber, false);//disable the device
+                  if (iFngrSlav.ReadGeneralLogData(iMachineNumber))//read all the attendance records to the memory
+                  {
+                     
+                     while (iFngrSlav.SSR_GetGeneralLogData(iMachineNumber, out sdwEnrollNumber, out idwVerifyMode,
+                                out idwInOutMode, out idwYear, out idwMonth, out idwDay, out idwHour, out idwMinute, out idwSecond, ref idwWorkcode))//get records from the memory
+                     {
+                        iGLCount++;
+                        //LogResult_Txt.Text += sdwEnrollNumber + " * " + idwVerifyMode.ToString() + " * " + idwInOutMode.ToString() + " * " + idwYear.ToString() + "-" + idwMonth.ToString() + "-" + idwDay.ToString() + " " + idwHour.ToString() + ":" + idwMinute.ToString() + ":" + idwSecond.ToString() + " * " + idwWorkcode.ToString() + Environment.NewLine;
+                        //lvLogs.Items.Add(iGLCount.ToString());
+                        //lvLogs.Items[iIndex].SubItems.Add(sdwEnrollNumber);//modify by Darcy on Nov.26 2009
+                        //lvLogs.Items[iIndex].SubItems.Add(idwVerifyMode.ToString());
+                        //lvLogs.Items[iIndex].SubItems.Add(idwInOutMode.ToString());
+                        //lvLogs.Items[iIndex].SubItems.Add(idwYear.ToString() + "-" + idwMonth.ToString() + "-" + idwDay.ToString() + " " + idwHour.ToString() + ":" + idwMinute.ToString() + ":" + idwSecond.ToString());
+                        //lvLogs.Items[iIndex].SubItems.Add(idwWorkcode.ToString());
+                        if (sqlInsertValues.Length > 0) sqlInsertValues += ",";
+                        sqlInsertValues += 
+                           string.Format("({0}, CAST(CONVERT(DATETIME, '{1}') as FLOAT), {2}, {3}, {4}, 0)", 
+                              idwWorkcode,
+                              idwYear.ToString() + "-" + idwMonth.ToString() + "-" + idwDay.ToString(),
+                              idwHour.ToString() + idwMinute.ToString(),
+                              sdwEnrollNumber,
+                              dev.Id
+                           );
+                        iIndex++;
+                     }
+                     
+                     // Execute Sql Insert On Server
+                     if (iIndex > 0 && ServerDataBase_Cmb.Text != "")
+                     {
+                        LogResult_Txt.Text += sqlInsertInto + sqlInsertValues + Environment.NewLine;
+                        SqlCommand sqlcmd =
+                           new SqlCommand(sqlInsertInto + sqlInsertValues,
+                               new SqlConnection(string.Format("server={0};database={1};user={2};password={3}", SeverIPAddress_Txt.Text, ServerDataBase_Cmb.Text, ServerUserId_Txt.Text, ServerPassword_Txt.Text))
+                           );
+                        sqlcmd.Connection.Open();
+                        int result = sqlcmd.ExecuteNonQuery();
+                        sqlcmd.Connection.Close();
+
+                        if (ClearSLogRecords_cb.Checked)
+                           iFngrSlav.ClearGLog(iMachineNumber);
+                     }
+                     else
+                        ServerDataBase_Cmb.Focus();
+                  }
+                  else
+                  {
+                     Cursor = Cursors.Default;
+                     iFngrSlav.GetLastError(ref idwErrorCode);
+
+                     if (idwErrorCode != 0)
+                     {
+                        LogResult_Txt.Text += "Reading data from terminal failed,ErrorCode: " + idwErrorCode.ToString() + Environment.NewLine;
+                     }
+                     else
+                     {
+                        LogResult_Txt.Text += "No data from terminal returns!" + Environment.NewLine;
+                     }
+                  }
+                  iFngrSlav.EnableDevice(iMachineNumber, true);//enable the device
+
+                  if (ShowLogRecordCount_cb.Checked)
+                     LogRecordsCount_Txt.Text = iIndex.ToString();
+
+                  dev.Oprt_Stat = "002";
+                  Cursor = Cursors.Default;
+               }
+               else
+               {
+                  dev.Status = "NotConnected!";
+                  dev.Oprt_Stat = "001";
+               }
+            }
+            if(!AutoOprt009_cb.Checked)
+               MessageBox.Show("عملیات دریافت رکورد با موفقیت انجام شد");
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+
+         }
+      }
+
+      private void AutoOprt009_cb_CheckedChanged(object sender, EventArgs e)
+      {
+         AutoOprt009_Tmr.Enabled = AutoOprt009_cb.Checked;
+
+         AutoOprt009_Tmr.Interval = (int)(Convert.ToDouble(AutoOprt009Intrval_Txt.Text) * 60 * 1000);
       }
    }
 }

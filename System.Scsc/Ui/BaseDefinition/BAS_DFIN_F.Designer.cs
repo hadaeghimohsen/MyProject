@@ -1382,10 +1382,6 @@
          this.colEXPN_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.repositoryItemLookUpEdit36 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
          this.ExpnBs = new System.Windows.Forms.BindingSource(this.components);
-         this.colCRET_BY9 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colCRET_DATE12 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colMDFY_BY12 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colMDFY_DATE12 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.Refresh_Exdv_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.Save_Exdv_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
@@ -1402,6 +1398,7 @@
          this.ExtrDev_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.CbmtwkdyBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.OpnFil_Ofd = new System.Windows.Forms.OpenFileDialog();
+         this.colSERV_IP_ADRS = new DevExpress.XtraGrid.Columns.GridColumn();
          label5 = new System.Windows.Forms.Label();
          label6 = new System.Windows.Forms.Label();
          CashToDate_Lb = new System.Windows.Forms.Label();
@@ -16681,10 +16678,7 @@
             this.colACTN_TYPE,
             this.colMTOD_CODE3,
             this.colEXPN_CODE,
-            this.colCRET_BY9,
-            this.colCRET_DATE12,
-            this.colMDFY_BY12,
-            this.colMDFY_DATE12});
+            this.colSERV_IP_ADRS});
          this.Exdv_Gv.GridControl = this.gridControl26;
          this.Exdv_Gv.Name = "Exdv_Gv";
          this.Exdv_Gv.OptionsSelection.EnableAppearanceFocusedCell = false;
@@ -16704,7 +16698,7 @@
          this.colDEV_COMP_TYPE.FieldName = "DEV_COMP_TYPE";
          this.colDEV_COMP_TYPE.Name = "colDEV_COMP_TYPE";
          this.colDEV_COMP_TYPE.Visible = true;
-         this.colDEV_COMP_TYPE.VisibleIndex = 13;
+         this.colDEV_COMP_TYPE.VisibleIndex = 14;
          // 
          // repositoryItemLookUpEdit28
          // 
@@ -16731,7 +16725,7 @@
          this.colDEV_TYPE.FieldName = "DEV_TYPE";
          this.colDEV_TYPE.Name = "colDEV_TYPE";
          this.colDEV_TYPE.Visible = true;
-         this.colDEV_TYPE.VisibleIndex = 12;
+         this.colDEV_TYPE.VisibleIndex = 13;
          // 
          // repositoryItemLookUpEdit29
          // 
@@ -16754,7 +16748,7 @@
          this.colDEV_CON.FieldName = "DEV_CON";
          this.colDEV_CON.Name = "colDEV_CON";
          this.colDEV_CON.Visible = true;
-         this.colDEV_CON.VisibleIndex = 11;
+         this.colDEV_CON.VisibleIndex = 12;
          // 
          // repositoryItemLookUpEdit30
          // 
@@ -16781,7 +16775,7 @@
          this.colCYCL_READ.FieldName = "CYCL_READ";
          this.colCYCL_READ.Name = "colCYCL_READ";
          this.colCYCL_READ.Visible = true;
-         this.colCYCL_READ.VisibleIndex = 10;
+         this.colCYCL_READ.VisibleIndex = 11;
          // 
          // repositoryItemLookUpEdit32
          // 
@@ -16807,7 +16801,7 @@
          this.colDEV_NAME.FieldName = "DEV_NAME";
          this.colDEV_NAME.Name = "colDEV_NAME";
          this.colDEV_NAME.Visible = true;
-         this.colDEV_NAME.VisibleIndex = 9;
+         this.colDEV_NAME.VisibleIndex = 10;
          // 
          // colSTAT
          // 
@@ -16854,7 +16848,7 @@
          this.colIP_ADRS.FieldName = "IP_ADRS";
          this.colIP_ADRS.Name = "colIP_ADRS";
          this.colIP_ADRS.Visible = true;
-         this.colIP_ADRS.VisibleIndex = 7;
+         this.colIP_ADRS.VisibleIndex = 8;
          // 
          // colPORT_SEND
          // 
@@ -16862,7 +16856,7 @@
          this.colPORT_SEND.FieldName = "PORT_SEND";
          this.colPORT_SEND.Name = "colPORT_SEND";
          this.colPORT_SEND.Visible = true;
-         this.colPORT_SEND.VisibleIndex = 6;
+         this.colPORT_SEND.VisibleIndex = 7;
          // 
          // colPORT_RECV
          // 
@@ -16870,7 +16864,7 @@
          this.colPORT_RECV.FieldName = "PORT_RECV";
          this.colPORT_RECV.Name = "colPORT_RECV";
          this.colPORT_RECV.Visible = true;
-         this.colPORT_RECV.VisibleIndex = 5;
+         this.colPORT_RECV.VisibleIndex = 6;
          // 
          // colACTN_TYPE
          // 
@@ -16879,7 +16873,7 @@
          this.colACTN_TYPE.FieldName = "ACTN_TYPE";
          this.colACTN_TYPE.Name = "colACTN_TYPE";
          this.colACTN_TYPE.Visible = true;
-         this.colACTN_TYPE.VisibleIndex = 8;
+         this.colACTN_TYPE.VisibleIndex = 9;
          // 
          // repositoryItemLookUpEdit34
          // 
@@ -16992,26 +16986,6 @@
          // ExpnBs
          // 
          this.ExpnBs.DataSource = typeof(System.Scsc.Data.Expense);
-         // 
-         // colCRET_BY9
-         // 
-         this.colCRET_BY9.FieldName = "CRET_BY";
-         this.colCRET_BY9.Name = "colCRET_BY9";
-         // 
-         // colCRET_DATE12
-         // 
-         this.colCRET_DATE12.FieldName = "CRET_DATE";
-         this.colCRET_DATE12.Name = "colCRET_DATE12";
-         // 
-         // colMDFY_BY12
-         // 
-         this.colMDFY_BY12.FieldName = "MDFY_BY";
-         this.colMDFY_BY12.Name = "colMDFY_BY12";
-         // 
-         // colMDFY_DATE12
-         // 
-         this.colMDFY_DATE12.FieldName = "MDFY_DATE";
-         this.colMDFY_DATE12.Name = "colMDFY_DATE12";
          // 
          // Refresh_Exdv_Butn
          // 
@@ -17315,6 +17289,14 @@
          // OpnFil_Ofd
          // 
          this.OpnFil_Ofd.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.gif;*.tif;...";
+         // 
+         // colSERV_IP_ADRS
+         // 
+         this.colSERV_IP_ADRS.Caption = "Server IP";
+         this.colSERV_IP_ADRS.FieldName = "SERV_IP_ADRS";
+         this.colSERV_IP_ADRS.Name = "colSERV_IP_ADRS";
+         this.colSERV_IP_ADRS.Visible = true;
+         this.colSERV_IP_ADRS.VisibleIndex = 5;
          // 
          // BAS_DFIN_F
          // 
@@ -18922,10 +18904,6 @@
       private DevExpress.XtraGrid.Columns.GridColumn colACTN_TYPE;
       private DevExpress.XtraGrid.Columns.GridColumn colMTOD_CODE3;
       private DevExpress.XtraGrid.Columns.GridColumn colEXPN_CODE;
-      private DevExpress.XtraGrid.Columns.GridColumn colCRET_BY9;
-      private DevExpress.XtraGrid.Columns.GridColumn colCRET_DATE12;
-      private DevExpress.XtraGrid.Columns.GridColumn colMDFY_BY12;
-      private DevExpress.XtraGrid.Columns.GridColumn colMDFY_DATE12;
       private DevExpress.XtraEditors.SimpleButton AddNew_Exdv_Butn;
       private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repositoryItemLookUpEdit28;
       private Windows.Forms.BindingSource DDevcBs;
@@ -18953,6 +18931,7 @@
       private DevExpress.XtraEditors.SimpleButton ProdList_Butn;
       private DevExpress.XtraGrid.Columns.GridColumn gridColumn211;
       private DevExpress.XtraGrid.Columns.GridColumn gridColumn213;
+      private DevExpress.XtraGrid.Columns.GridColumn colSERV_IP_ADRS;
 
    }
 }

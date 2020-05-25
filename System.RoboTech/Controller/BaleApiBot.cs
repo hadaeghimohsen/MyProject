@@ -286,7 +286,7 @@ namespace System.RoboTech.Controller
                var xResult = new XElement("Result", "No Message");
 
                // POST Execution
-               #region
+               #region Post Execution
                foreach (var postexec in postexecs.Split(','))
                {
                   switch (postexec)
@@ -302,7 +302,7 @@ namespace System.RoboTech.Controller
                      case "pay":
                         // Create Payment Invoice
                         #region Order Checkout Payment Process
-                        var ordr =
+                        var ordrinvc =
                            iRobotTech.Orders
                            .Where(
                               o => /*o.CHAT_ID == e.CallbackQuery.Message.Chat.Id
@@ -314,44 +314,44 @@ namespace System.RoboTech.Controller
                            ).FirstOrDefault();
 
                         // اگر فاکتور تسویه حساب نباشد به مرحله کارت به کارت میرویم
-                        if (ordr.DEBT_DNRM != 0)
+                        if (ordrinvc.DEBT_DNRM != 0)
                         {
                            // Process SendInvoice
                            var price = new List<LabeledPrice>();
-                           if (ordr.AMNT_TYPE == "001")
+                           if (ordrinvc.AMNT_TYPE == "001")
                            {
-                              if (ordr.EXTR_PRCT != null && ordr.EXTR_PRCT > 0)
+                              if (ordrinvc.EXTR_PRCT != null && ordrinvc.EXTR_PRCT > 0)
                               {
                                  //price.Add(new LabeledPrice("قیمت کل", (int)ordr.EXPN_AMNT));
-                                 price.Add(new LabeledPrice("قیمت کل", (int)(ordr.DEBT_DNRM - ordr.EXTR_PRCT - ordr.SUM_FEE_AMNT_DNRM)));
-                                 price.Add(new LabeledPrice("ارزش افزوده", (int)ordr.EXTR_PRCT));
+                                 price.Add(new LabeledPrice("قیمت کل", (int)(ordrinvc.DEBT_DNRM - ordrinvc.EXTR_PRCT /*- ordrinvc.SUM_FEE_AMNT_DNRM*/)));
+                                 price.Add(new LabeledPrice("ارزش افزوده", (int)ordrinvc.EXTR_PRCT));
                               }
                               else
                                  //price.Add(new LabeledPrice("قیمت کل", (int)ordr.EXPN_AMNT));
-                                 price.Add(new LabeledPrice("قیمت کل", (int)(ordr.DEBT_DNRM - ordr.SUM_FEE_AMNT_DNRM)));
+                                 price.Add(new LabeledPrice("قیمت کل", (int)(ordrinvc.DEBT_DNRM /*- ordrinvc.SUM_FEE_AMNT_DNRM*/)));
 
                               // اگر بخواهیم از مشتری کارمزد دریافت کنیم
-                              if (ordr.TXFE_AMNT_DNRM != null && ordr.TXFE_AMNT_DNRM > 0)
-                                 price.Add(new LabeledPrice("کارمزد خدمات غیر حضوری", (int)ordr.TXFE_AMNT_DNRM));
+                              if (ordrinvc.TXFE_AMNT_DNRM != null && ordrinvc.TXFE_AMNT_DNRM > 0)
+                                 price.Add(new LabeledPrice("کارمزد خدمات غیر حضوری", (int)ordrinvc.TXFE_AMNT_DNRM));
                            }
-                           else if (ordr.AMNT_TYPE == "002")
+                           else if (ordrinvc.AMNT_TYPE == "002")
                            {
-                              if (ordr.EXTR_PRCT != null && ordr.EXTR_PRCT > 0)
+                              if (ordrinvc.EXTR_PRCT != null && ordrinvc.EXTR_PRCT > 0)
                               {
                                  //price.Add(new LabeledPrice("قیمت کل", (int)ordr.EXPN_AMNT * 10));
-                                 price.Add(new LabeledPrice("قیمت کل", (int)(ordr.DEBT_DNRM - ordr.EXTR_PRCT - ordr.SUM_FEE_AMNT_DNRM) * 10));
-                                 price.Add(new LabeledPrice("ارزش افزوده", (int)ordr.EXTR_PRCT * 10));
+                                 price.Add(new LabeledPrice("قیمت کل", (int)(ordrinvc.DEBT_DNRM - ordrinvc.EXTR_PRCT /*- ordrinvc.SUM_FEE_AMNT_DNRM*/) * 10));
+                                 price.Add(new LabeledPrice("ارزش افزوده", (int)ordrinvc.EXTR_PRCT * 10));
                               }
                               else
                                  //price.Add(new LabeledPrice("قیمت کل", (int)ordr.EXPN_AMNT * 10));
-                                 price.Add(new LabeledPrice("قیمت کل", (int)(ordr.DEBT_DNRM - ordr.SUM_FEE_AMNT_DNRM) * 10));
+                                 price.Add(new LabeledPrice("قیمت کل", (int)(ordrinvc.DEBT_DNRM /*- ordrinvc.SUM_FEE_AMNT_DNRM*/) * 10));
 
                               // اگر بخواهیم از مشتری کارمزد دریافت کنیم
-                              if (ordr.TXFE_AMNT_DNRM != null && ordr.TXFE_AMNT_DNRM > 0)
-                                 price.Add(new LabeledPrice("کارمزد خدمات غیر حضوری", (int)ordr.TXFE_AMNT_DNRM * 10));
+                              if (ordrinvc.TXFE_AMNT_DNRM != null && ordrinvc.TXFE_AMNT_DNRM > 0)
+                                 price.Add(new LabeledPrice("کارمزد خدمات غیر حضوری", (int)ordrinvc.TXFE_AMNT_DNRM * 10));
                            }
 
-                           if (ordr.AMNT_TYPE == "001")
+                           if (ordrinvc.AMNT_TYPE == "001")
                            {
                               // پرداخت به صورت کارت به کارت
                               // مبلغ کارت به کارت 10 میلیون تومان
@@ -359,10 +359,10 @@ namespace System.RoboTech.Controller
                               {
                                  await Bot.SendInvoiceAsync(
                                     (int)e.CallbackQuery.Message.Chat.Id,
-                                    string.Format("{0}\n\r{1} : {2}\n\r{3} : {4}", "فاکتور شما", "شماره", ordr.CODE, "تاریخ", iRobotTech.GET_MTOS_U(ordr.STRT_DATE)),
+                                    string.Format("{0}\n\r{1} : {2}\n\r{3} : {4}", "فاکتور شما", "شماره", ordrinvc.CODE, "تاریخ", iRobotTech.GET_MTOS_U(ordrinvc.STRT_DATE)),
                                     "سبد خرید شما",
-                                    ordr.CODE.ToString(),
-                                    ordr.DEST_CARD_NUMB_DNRM,
+                                    ordrinvc.CODE.ToString(),
+                                    ordrinvc.DEST_CARD_NUMB_DNRM,
                                     "",
                                     "IRR",
                                     price/*,
@@ -374,7 +374,7 @@ namespace System.RoboTech.Controller
                                  // پرداخت از طریق درگاه پرداخت
                               }
                            }
-                           else if (ordr.AMNT_TYPE == "002")
+                           else if (ordrinvc.AMNT_TYPE == "002")
                            {
                               // پرداخت به صورت کارت به کارت
                               // مبلغ کارت به کارت 10 میلیون تومان
@@ -382,10 +382,10 @@ namespace System.RoboTech.Controller
                               {
                                  await Bot.SendInvoiceAsync(
                                     (int)e.CallbackQuery.Message.Chat.Id,
-                                    string.Format("{0}\n\r{1} : {2}\n\r{3} : {4}", "فاکتور شما", "شماره", ordr.CODE, "تاریخ", iRobotTech.GET_MTOS_U(ordr.STRT_DATE)),
+                                    string.Format("{0}\n\r{1} : {2}\n\r{3} : {4}", "فاکتور شما", "شماره", ordrinvc.CODE, "تاریخ", iRobotTech.GET_MTOS_U(ordrinvc.STRT_DATE)),
                                     "سبد خرید شما",
-                                    ordr.CODE.ToString(),
-                                    ordr.DEST_CARD_NUMB_DNRM,
+                                    ordrinvc.CODE.ToString(),
+                                    ordrinvc.DEST_CARD_NUMB_DNRM,
                                     "",
                                     "IRR",
                                     price
@@ -399,6 +399,109 @@ namespace System.RoboTech.Controller
                         }
                         #endregion
                         postexecs = postexecs.Replace("pay", "");
+                        if(postexecs != "")
+                           postexecs = postexecs.Substring(1);
+                        break;
+                     case "withdraw":
+                        // Create Payment Withdraw
+                        #region Order Checkout Payment Process
+                        var ordrwithdraw =
+                           iRobotTech.Orders
+                           .Where(
+                              o => /*o.CHAT_ID == e.CallbackQuery.Message.Chat.Id
+                                && o.Robot.TKON_CODE == GetToken()
+                                && o.ORDR_STAT == "001"
+                                && (o.ORDR_TYPE == "004" || o.ORDR_TYPE == "013" || o.ORDR_TYPE == "014" || o.ORDR_TYPE == "016")
+                                && o.STRT_DATE.Value.Date == DateTime.Now.Date
+                                && */o.CODE == param.ToInt64() // ordrcode
+                           ).FirstOrDefault();
+
+                        // اگر فاکتور تسویه حساب نباشد به مرحله کارت به کارت میرویم
+                        if (ordrwithdraw.Order1.DEBT_DNRM != 0)
+                        {
+                           // Process SendInvoice
+                           var price = new List<LabeledPrice>();
+                           if (ordrwithdraw.Order1.AMNT_TYPE == "001")
+                           {
+                              if (ordrwithdraw.Order1.EXTR_PRCT != null && ordrwithdraw.Order1.EXTR_PRCT > 0)
+                              {
+                                 //price.Add(new LabeledPrice("قیمت کل", (int)ordr.EXPN_AMNT));
+                                 price.Add(new LabeledPrice("قیمت کل", (int)(ordrwithdraw.Order1.DEBT_DNRM - ordrwithdraw.Order1.EXTR_PRCT /*- ordrwithdraw.Order1.SUM_FEE_AMNT_DNRM*/)));
+                                 price.Add(new LabeledPrice("ارزش افزوده", (int)ordrwithdraw.Order1.EXTR_PRCT));
+                              }
+                              else
+                                 //price.Add(new LabeledPrice("قیمت کل", (int)ordr.EXPN_AMNT));
+                                 price.Add(new LabeledPrice("قیمت کل", (int)(ordrwithdraw.Order1.DEBT_DNRM /*- ordrwithdraw.Order1.SUM_FEE_AMNT_DNRM*/)));
+
+                              // اگر بخواهیم از مشتری کارمزد دریافت کنیم
+                              //if (ordrwithdraw.Order1.TXFE_AMNT_DNRM != null && ordrwithdraw.Order1.TXFE_AMNT_DNRM > 0)
+                              //   price.Add(new LabeledPrice("کسر کارمزد خدمات واریز به حساب مشتری", (int)ordrwithdraw.Order1.TXFE_AMNT_DNRM));
+                           }
+                           else if (ordrwithdraw.Order1.AMNT_TYPE == "002")
+                           {
+                              if (ordrwithdraw.Order1.EXTR_PRCT != null && ordrwithdraw.Order1.EXTR_PRCT > 0)
+                              {
+                                 //price.Add(new LabeledPrice("قیمت کل", (int)ordr.EXPN_AMNT * 10));
+                                 price.Add(new LabeledPrice("قیمت کل", (int)(ordrwithdraw.Order1.DEBT_DNRM - ordrwithdraw.Order1.EXTR_PRCT /*- ordrwithdraw.SUM_FEE_AMNT_DNRM*/) * 10));
+                                 price.Add(new LabeledPrice("ارزش افزوده", (int)ordrwithdraw.Order1.EXTR_PRCT * 10));
+                              }
+                              else
+                                 //price.Add(new LabeledPrice("قیمت کل", (int)ordr.EXPN_AMNT * 10));
+                                 price.Add(new LabeledPrice("قیمت کل", (int)(ordrwithdraw.DEBT_DNRM - ordrwithdraw.SUM_FEE_AMNT_DNRM) * 10));
+
+                              // اگر بخواهیم از مشتری کارمزد دریافت کنیم
+                              //if (ordrwithdraw.Order1.TXFE_AMNT_DNRM != null && ordrwithdraw.Order1.TXFE_AMNT_DNRM > 0)
+                              //   price.Add(new LabeledPrice("کسر کارمزد خدمات واریز به حساب مشتری", (int)ordrwithdraw.Order1.TXFE_AMNT_DNRM * 10));
+                           }
+
+                           if (ordrwithdraw.Order1.AMNT_TYPE == "001")
+                           {
+                              // پرداخت به صورت کارت به کارت
+                              // مبلغ کارت به کارت 10 میلیون تومان
+                              if (price.Sum(p => p.Amount) <= 100000000)
+                              {
+                                 await Bot.SendInvoiceAsync(
+                                    (int)e.CallbackQuery.Message.Chat.Id,
+                                    string.Format("{0}\n\r{1} : {2}\n\r{3} : {4}", "سند شما", "شماره", ordrwithdraw.Order1.CODE, "تاریخ", iRobotTech.GET_MTOS_U(ordrwithdraw.STRT_DATE)),
+                                    "سند واریز به حساب مشتری",
+                                    ordrwithdraw.Order1.CODE.ToString(),
+                                    ordrwithdraw.DEST_CARD_NUMB_DNRM,
+                                    "",
+                                    "IRR",
+                                    price/*,
+                                    photoUrl: "https://devbale.ir/sites/default/files/styles/large/public/1397-12/404733-PCXHHU-813.jpg?itok=3WLQI4eW"*/
+                                    );
+                              }
+                              else
+                              {
+                                 // پرداخت از طریق درگاه پرداخت
+                              }
+                           }
+                           else if (ordrwithdraw.Order1.AMNT_TYPE == "002")
+                           {
+                              // پرداخت به صورت کارت به کارت
+                              // مبلغ کارت به کارت 10 میلیون تومان
+                              if (price.Sum(p => p.Amount) <= 10000000)
+                              {
+                                 await Bot.SendInvoiceAsync(
+                                    (int)e.CallbackQuery.Message.Chat.Id,
+                                    string.Format("{0}\n\r{1} : {2}\n\r{3} : {4}", "سند شما", "شماره", ordrwithdraw.Order1.CODE, "تاریخ", iRobotTech.GET_MTOS_U(ordrwithdraw.STRT_DATE)),
+                                    "سند واریز به حساب مشتری",
+                                    ordrwithdraw.Order1.CODE.ToString(),
+                                    ordrwithdraw.DEST_CARD_NUMB_DNRM,
+                                    "",
+                                    "IRR",
+                                    price
+                                    );
+                              }
+                              else
+                              {
+                                 // پرداخت از طریق درگاه پرداخت
+                              }
+                           }
+                        }
+                        #endregion
+                        postexecs = postexecs.Replace("withdraw", "");
                         if(postexecs != "")
                            postexecs = postexecs.Substring(1);
                         break;
@@ -760,13 +863,15 @@ namespace System.RoboTech.Controller
 
             var iRobotTech = new Data.iRoboTechDataContext(connectionString);
             var xResult = new XElement("Result", "No Message");
-            KeyboardButton[][] keyBoardMarkup = null;
+            KeyboardButton[][] keyBoardMarkup = null;            
 
             #region ForceReply
             // اگر اطلاعات ورودی قبلی شامل دریافت ورودی از کاربر تنظیم شده باشد باید اول به آن ها رسیدیگی شود
             if (Chats != null && Chats.Any(c => c.Message.Chat.Id == message.Chat.Id) && Chats.FirstOrDefault(c => c.Message.Chat.Id == message.Chat.Id).ForceReply)
             {
                chat = Chats.FirstOrDefault(c => c.Message.Chat.Id == message.Chat.Id);
+               chat.Message = message;
+               chat.LastVisitDate = DateTime.Now;               
                if (e.Message.Text == "بازگشت به منوی اصلی" || e.Message.Text == "🔺 بازگشت")
                {
                   chat.ReadyToFire = false;
@@ -839,7 +944,7 @@ namespace System.RoboTech.Controller
                      #region Database Service
                      string ussdcode = chat.UisUssd;
                      string cmnd = chat.CommandText;
-                     string param = string.Format("{0},{1}", chat.Params, e.Message.Text);
+                     string param = chat.Params == "" ? e.Message.Text : string.Format("{0},{1}", chat.Params, e.Message.Text);
                      string postexecs = chat.PostExecs;
                      string triggers = chat.Triggers;
                      string triggersteprun = chat.TriggerStepRun;
@@ -1352,7 +1457,8 @@ namespace System.RoboTech.Controller
                      new XAttribute("ordrcode", e.Message.SuccessfulPayment.InvoicePayload),
                      new XAttribute("txid", e.Message.SuccessfulPayment.ProviderPaymentChargeId),
                      new XAttribute("totlamnt", e.Message.SuccessfulPayment.TotalAmount),
-                     new XAttribute("dircall", "002")
+                     new XAttribute("dircall", "002"),
+                     new XAttribute("rcptmtod", "009")
                   ),
                   ref xResult
                );
@@ -5557,26 +5663,26 @@ namespace System.RoboTech.Controller
                   #region Location
                   foreach (string innerorder in xelement.Elements().Attributes("order").OrderBy(o => o.Value))
                   {
-                     var xinnerelement = xelement.Elements().Where(x => x.Attribute("order").Value == innerorder).First();
-
-                     float cordx = Convert.ToSingle(xinnerelement.Attribute("cordx").Value, System.Globalization.CultureInfo.InvariantCulture);
-                     float cordy = Convert.ToSingle(xinnerelement.Attribute("cordy").Value, System.Globalization.CultureInfo.InvariantCulture);
+                     var xinnerelement = xelement.Elements().Where(x => x.Attribute("order").Value == innerorder).First();                    
 
                      try
                      {
+                        float cordx = Convert.ToSingle(xinnerelement.Attribute("cordx").Value, System.Globalization.CultureInfo.InvariantCulture);
+                        float cordy = Convert.ToSingle(xinnerelement.Attribute("cordy").Value, System.Globalization.CultureInfo.InvariantCulture);
+
                         await Bot.SendLocationAsync(
-                         chat.Message.Chat.Id,
-                         cordx,
-                         cordy,
-                         0,
-                         false,
-                         chat.Message.MessageId,
-                         new ReplyKeyboardMarkup()
-                         {
-                            Keyboard = keyBoardMarkup,
-                            ResizeKeyboard = true,
-                            Selective = true
-                         });
+                           chat.Message.Chat.Id,
+                           cordx,
+                           cordy,
+                           0,
+                           false,
+                           chat.Message.MessageId,
+                           new ReplyKeyboardMarkup()
+                           {
+                              Keyboard = keyBoardMarkup,
+                              ResizeKeyboard = true,
+                              Selective = true
+                           });
                      }
                      catch { }
 
@@ -5640,7 +5746,6 @@ namespace System.RoboTech.Controller
                         Bot.SendTextMessageAsync(
                            chatId: chat.Message.Chat.Id,
                            text: caption,
-                        //replyMarkup: CreateInlineKeyboardMarkup(xelement)
                            replyMarkup: CreateInLineKeyboard(xelement.Descendants("InlineKeyboardButton").ToList(), 3)
                         );
                   }
@@ -5693,7 +5798,6 @@ namespace System.RoboTech.Controller
                                chatId: chat.Message.Chat.Id,
                                photo: fileid,
                                caption: caption,
-                              //replyMarkup: CreateInlineKeyboardMarkup(xelement.Descendants("InlineKeyboardMarkup").First())
                                replyMarkup: CreateInLineKeyboard(xelement.Descendants("InlineKeyboardButton").ToList(), 3)
                            );
                         }

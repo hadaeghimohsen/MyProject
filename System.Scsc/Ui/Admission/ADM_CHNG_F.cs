@@ -147,7 +147,8 @@ namespace System.Scsc.Ui.Admission
                               new XElement("Mom_Chat_Id", MomChatId_Txt.EditValue ?? ""),                              
                               new XElement("Idty_Numb", IdtyNumb_Txt.EditValue ?? ""),
                               new XElement("Zip_Code", ZipCode_Txt.EditValue ?? ""),
-                              new XElement("Pass_Word", Password_Txt.EditValue ?? "")                              
+                              new XElement("Pass_Word", Password_Txt.EditValue ?? ""),
+                              new XElement("Cmnt", Cmnt_Txt.EditValue ?? "")
                            )
                         )
                      )

@@ -2,88 +2,88 @@
 <ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 48.375, 37.625" name="iRoboTech">
   <DataContextMoniker Name="/iRoboTechDataContext" />
   <nestedChildShapes>
-    <classShape Id="608c925b-5f9b-48b4-b97a-2e1db5befca5" absoluteBounds="20.375, 5.375, 2, 1.3862939453125023">
+    <classShape Id="608c925b-5f9b-48b4-b97a-2e1db5befca5" absoluteBounds="20.375, 5.375, 2, 1.2932030534744259">
       <DataClassMoniker Name="/iRoboTechDataContext/Admin" />
       <nestedChildShapes>
-        <elementListCompartment Id="8549ea85-a0a7-4183-bc45-d149c8a56a4f" absoluteBounds="20.39, 5.8350000000000009, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="8549ea85-a0a7-4183-bc45-d149c8a56a4f" absoluteBounds="20.39, 5.8350000000000009, 1.9700000000000002, 0.73320305347442627" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="23e5b1f8-69fd-4058-9ac8-09bcb1ccc7ab" absoluteBounds="18.625, 0.5, 2, 1.5785953776041666">
+    <classShape Id="23e5b1f8-69fd-4058-9ac8-09bcb1ccc7ab" absoluteBounds="18.625, 0.5, 2, 1.4648176209131878">
       <DataClassMoniker Name="/iRoboTechDataContext/App_Domain" />
       <nestedChildShapes>
-        <elementListCompartment Id="c93180e1-40a2-4922-9ac1-2e98550bcad1" absoluteBounds="18.64, 0.96, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="c93180e1-40a2-4922-9ac1-2e98550bcad1" absoluteBounds="18.64, 0.96, 1.9700000000000002, 0.90481762091318763" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="4477ca28-7746-4e3a-b513-9a6853a1705a" absoluteBounds="14.875, 7.75, 2, 2.1554996744791595">
+    <classShape Id="4477ca28-7746-4e3a-b513-9a6853a1705a" absoluteBounds="14.875, 7.75, 2, 1.9796613232294718">
       <DataClassMoniker Name="/iRoboTechDataContext/Country" />
       <nestedChildShapes>
-        <elementListCompartment Id="c397894d-46c1-410c-a6df-3164e98f5141" absoluteBounds="14.89, 8.21, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="c397894d-46c1-410c-a6df-3164e98f5141" absoluteBounds="14.89, 8.21, 1.9700000000000002, 1.4196613232294717" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="ce3870f6-181b-4996-b910-a273c081886d" absoluteBounds="23.125, 3.25, 2, 1.3862939453125023">
+    <classShape Id="ce3870f6-181b-4996-b910-a273c081886d" absoluteBounds="23.125, 3.25, 2, 1.2932030534744259">
       <DataClassMoniker Name="/iRoboTechDataContext/Isic_Category" />
       <nestedChildShapes>
-        <elementListCompartment Id="051cbda1-bd53-49f6-9aa8-fd1db7ce8ba5" absoluteBounds="23.14, 3.7100000000000009, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="051cbda1-bd53-49f6-9aa8-fd1db7ce8ba5" absoluteBounds="23.14, 3.7100000000000009, 1.9700000000000002, 0.73320305347442627" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="fb9a77c4-24da-4440-8f7e-17fc3a250134" absoluteBounds="21.625, 0.5, 2, 1.1939925130208335">
+    <classShape Id="fb9a77c4-24da-4440-8f7e-17fc3a250134" absoluteBounds="21.625, 0.5, 2, 1.1215884860356649">
       <DataClassMoniker Name="/iRoboTechDataContext/log" />
       <nestedChildShapes>
-        <elementListCompartment Id="e6e1ab82-106e-404a-96ab-677a51c7b205" absoluteBounds="21.64, 0.96, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="e6e1ab82-106e-404a-96ab-677a51c7b205" absoluteBounds="21.64, 0.96, 1.9700000000000002, 0.5615884860356648" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="ffed78a8-7d1a-4661-8679-20b92648e2f0" absoluteBounds="20.75, 3.25, 2, 1.3862939453125023">
+    <classShape Id="ffed78a8-7d1a-4661-8679-20b92648e2f0" absoluteBounds="20.75, 3.25, 2, 1.2932030534744259">
       <DataClassMoniker Name="/iRoboTechDataContext/Organ_Category" />
       <nestedChildShapes>
-        <elementListCompartment Id="8465f62d-028b-477b-bc6e-cd752879a42e" absoluteBounds="20.765, 3.7100000000000009, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="8465f62d-028b-477b-bc6e-cd752879a42e" absoluteBounds="20.765, 3.7100000000000009, 1.9700000000000002, 0.73320305347442627" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="1c386795-401d-42e9-b44e-049329a571f8" absoluteBounds="25.875, 0.5, 2, 1.7708968098958309">
+    <classShape Id="1c386795-401d-42e9-b44e-049329a571f8" absoluteBounds="25.875, 0.5, 2, 1.6364321883519488">
       <DataClassMoniker Name="/iRoboTechDataContext/Organ_Representation" />
       <nestedChildShapes>
-        <elementListCompartment Id="5ae575e6-8010-4d1d-8649-ff3f73d1f3a7" absoluteBounds="25.89, 0.96000000000000085, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="5ae575e6-8010-4d1d-8649-ff3f73d1f3a7" absoluteBounds="25.89, 0.96000000000000085, 1.9700000000000002, 1.076432188351949" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="4ab5204b-892f-42b2-9840-00d669bff8ad" absoluteBounds="37.125, 15.875, 2, 2.1554996744791595">
+    <classShape Id="4ab5204b-892f-42b2-9840-00d669bff8ad" absoluteBounds="37.125, 15.875, 2, 1.9796613232294753">
       <DataClassMoniker Name="/iRoboTechDataContext/Personal_Robot_Job_Order" />
       <nestedChildShapes>
-        <elementListCompartment Id="99d37fda-75f8-48cf-b32e-84460ad782a1" absoluteBounds="37.14, 16.335, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="99d37fda-75f8-48cf-b32e-84460ad782a1" absoluteBounds="37.14, 16.335, 1.9700000000000002, 1.4196613232294717" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="6370e7b8-2c4d-4510-a15f-9e32342b15fc" absoluteBounds="17.625, 7.625, 2, 2.3478011067708309">
+    <classShape Id="6370e7b8-2c4d-4510-a15f-9e32342b15fc" absoluteBounds="17.625, 7.625, 2, 2.1512758906682343">
       <DataClassMoniker Name="/iRoboTechDataContext/Province" />
       <nestedChildShapes>
-        <elementListCompartment Id="c6e95c5d-a327-4710-b1f0-63d1cd7faa74" absoluteBounds="17.64, 8.085, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="c6e95c5d-a327-4710-b1f0-63d1cd7faa74" absoluteBounds="17.64, 8.085, 1.9700000000000002, 1.5912758906682332" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="077149a1-aef2-4e49-9144-61d1c8b4309c" absoluteBounds="20.375, 7.25, 2, 2.9247054036458309">
+    <classShape Id="077149a1-aef2-4e49-9144-61d1c8b4309c" absoluteBounds="20.375, 7.25, 2, 2.6661195929845167">
       <DataClassMoniker Name="/iRoboTechDataContext/Region" />
       <nestedChildShapes>
-        <elementListCompartment Id="68efd486-0b2e-4b76-9858-69a3c6a9972b" absoluteBounds="20.39, 7.7100000000000009, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="68efd486-0b2e-4b76-9858-69a3c6a9972b" absoluteBounds="20.39, 7.7100000000000009, 1.9700000000000002, 2.1061195929845171" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="4d6242c6-98d8-43be-898a-2c031cea0667" absoluteBounds="37.625, 12.125, 2, 2.5401025390625023">
+    <classShape Id="4d6242c6-98d8-43be-898a-2c031cea0667" absoluteBounds="37.625, 12.125, 2, 2.3228904581069951">
       <DataClassMoniker Name="/iRoboTechDataContext/Service_Robot_Public" />
       <nestedChildShapes>
-        <elementListCompartment Id="0d90e886-13ee-4b7b-bfc8-7759bb1d3af5" absoluteBounds="37.64, 12.585, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="0d90e886-13ee-4b7b-bfc8-7759bb1d3af5" absoluteBounds="37.64, 12.585, 1.9700000000000002, 1.7628904581069946" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="3b7e062d-8c98-499f-909b-3c0390748a56" absoluteBounds="34.375, 4.5, 2, 1.578595377604163">
+    <classShape Id="3b7e062d-8c98-499f-909b-3c0390748a56" absoluteBounds="34.375, 4.5, 2, 1.4648176209131876">
       <DataClassMoniker Name="/iRoboTechDataContext/Service_Robot_Visit" />
       <nestedChildShapes>
-        <elementListCompartment Id="136d7057-fb3a-4bf2-b040-f33fdae8c9a9" absoluteBounds="34.39, 4.9600000000000009, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="136d7057-fb3a-4bf2-b040-f33fdae8c9a9" absoluteBounds="34.39, 4.9600000000000009, 1.9700000000000002, 0.90481762091318763" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="81d51de7-0ea5-41f2-8613-5c09cd6b9810" absoluteBounds="25.875, 22.625, 2, 2.5401025390625023">
+    <classShape Id="81d51de7-0ea5-41f2-8613-5c09cd6b9810" absoluteBounds="25.875, 22.625, 2, 2.3228904581069969">
       <DataClassMoniker Name="/iRoboTechDataContext/User_Organ_Fgac" />
       <nestedChildShapes>
-        <elementListCompartment Id="f195f1ca-09d5-479a-ad20-a9d1fdddcefb" absoluteBounds="25.89, 23.085, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="f195f1ca-09d5-479a-ad20-a9d1fdddcefb" absoluteBounds="25.89, 23.085, 1.9700000000000002, 1.7628904581069946" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="95614132-687e-42fe-b39d-eb6f305163f7" absoluteBounds="22.625, 18.375, 2.5, 2.9247054036458309">
+    <classShape Id="95614132-687e-42fe-b39d-eb6f305163f7" absoluteBounds="22.625, 18.375, 2.5, 2.6661195929845185">
       <DataClassMoniker Name="/iRoboTechDataContext/User_Region_Fgac" />
       <nestedChildShapes>
-        <elementListCompartment Id="bf78fa2e-fcbe-45e1-879c-b2a1a00d4a07" absoluteBounds="22.64, 18.835, 2.4699999999999998, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="bf78fa2e-fcbe-45e1-879c-b2a1a00d4a07" absoluteBounds="22.64, 18.835, 2.4699999999999998, 2.1061195929845171" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
     <associationConnector edgePoints="[(23.125 : 3.94314697265625); (22.75 : 3.94314697265625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
@@ -107,7 +107,7 @@
         <classShapeMoniker Id="077149a1-aef2-4e49-9144-61d1c8b4309c" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(21.1811538461538 : 10.1747054036458); (21.1811538461538 : 10.4247054036458); (21.5273076923077 : 10.4247054036458); (21.5273076923077 : 10.1747054036458)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(21.1811538461538 : 10.1747054036458); (21.1811538461538 : 10.4247054036458); (21.2916666666667 : 10.4247054036458 : JumpStart); (21.4583333333333 : 10.4247054036458 : JumpEnd); (21.5273076923077 : 10.4247054036458); (21.5273076923077 : 10.1747054036458)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/Region/Region_Region" />
       <nodes>
         <classShapeMoniker Id="077149a1-aef2-4e49-9144-61d1c8b4309c" />
@@ -121,123 +121,123 @@
         <classShapeMoniker Id="95614132-687e-42fe-b39d-eb6f305163f7" />
       </nodes>
     </associationConnector>
-    <classShape Id="b38f1a2b-7daf-48f4-a9f7-be4e60c6afb3" absoluteBounds="0.75, 0.75, 2, 1.1939925130208335">
+    <classShape Id="b38f1a2b-7daf-48f4-a9f7-be4e60c6afb3" absoluteBounds="0.75, 0.75, 2, 1.1215884860356649">
       <DataClassMoniker Name="/iRoboTechDataContext/D_ACTV" />
       <nestedChildShapes>
-        <elementListCompartment Id="ffc54e1d-2fc3-4637-b0e4-4868cdeccefe" absoluteBounds="0.765, 1.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="ffc54e1d-2fc3-4637-b0e4-4868cdeccefe" absoluteBounds="0.765, 1.21, 1.9700000000000002, 0.5615884860356648" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="1556517b-77ca-40c1-8207-0d9ca5ea5572" absoluteBounds="0.75, 2.75, 2, 1.1939925130208335">
+    <classShape Id="1556517b-77ca-40c1-8207-0d9ca5ea5572" absoluteBounds="0.75, 2.75, 2, 1.1215884860356646">
       <DataClassMoniker Name="/iRoboTechDataContext/D_BULD" />
       <nestedChildShapes>
-        <elementListCompartment Id="08fa6371-7607-49f2-84cd-f8140e24c867" absoluteBounds="0.765, 3.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="08fa6371-7607-49f2-84cd-f8140e24c867" absoluteBounds="0.765, 3.21, 1.9700000000000002, 0.5615884860356648" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="6eea4a81-3967-4193-b651-0cd8dbf8c91a" absoluteBounds="3.75, 0.75, 2, 1.1939925130208335">
+    <classShape Id="6eea4a81-3967-4193-b651-0cd8dbf8c91a" absoluteBounds="3.75, 0.75, 2, 1.1215884860356649">
       <DataClassMoniker Name="/iRoboTechDataContext/D_CMTP" />
       <nestedChildShapes>
-        <elementListCompartment Id="b1bc88ce-1948-4ccd-9ba7-07ae61d09d49" absoluteBounds="3.765, 1.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="b1bc88ce-1948-4ccd-9ba7-07ae61d09d49" absoluteBounds="3.765, 1.21, 1.9700000000000002, 0.5615884860356648" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="d494a6e6-71df-4c0a-9053-a30fd39c5110" absoluteBounds="3.75, 2.75, 2, 1.1939925130208335">
+    <classShape Id="d494a6e6-71df-4c0a-9053-a30fd39c5110" absoluteBounds="3.75, 2.75, 2, 1.1215884860356646">
       <DataClassMoniker Name="/iRoboTechDataContext/D_ORDT" />
       <nestedChildShapes>
-        <elementListCompartment Id="d5f38e6d-f16f-4428-a145-9135b6486234" absoluteBounds="3.765, 3.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="d5f38e6d-f16f-4428-a145-9135b6486234" absoluteBounds="3.765, 3.21, 1.9700000000000002, 0.5615884860356648" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="7dfbf55f-c84a-4a07-84af-c80983b5fe8c" absoluteBounds="0.75, 4.75, 2, 1.1939925130208344">
+    <classShape Id="7dfbf55f-c84a-4a07-84af-c80983b5fe8c" absoluteBounds="0.75, 4.75, 2, 1.1215884860356642">
       <DataClassMoniker Name="/iRoboTechDataContext/D_PKTP" />
       <nestedChildShapes>
-        <elementListCompartment Id="e98c9f27-4f8f-40bb-b0d2-7d6531437e65" absoluteBounds="0.765, 5.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="e98c9f27-4f8f-40bb-b0d2-7d6531437e65" absoluteBounds="0.765, 5.21, 1.9700000000000002, 0.5615884860356648" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="bea98447-8ef7-4fdb-8032-397a7155cc1e" absoluteBounds="3.75, 4.75, 2, 1.1939925130208344">
+    <classShape Id="bea98447-8ef7-4fdb-8032-397a7155cc1e" absoluteBounds="3.75, 4.75, 2, 1.1215884860356642">
       <DataClassMoniker Name="/iRoboTechDataContext/D_SDTP" />
       <nestedChildShapes>
-        <elementListCompartment Id="c0d47ec1-e08d-456f-a37e-03d509ac572a" absoluteBounds="3.765, 5.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="c0d47ec1-e08d-456f-a37e-03d509ac572a" absoluteBounds="3.765, 5.21, 1.9700000000000002, 0.5615884860356648" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="64facf81-f2f4-43d1-943d-39961381c4f4" absoluteBounds="6.75, 0.75, 2, 1.1939925130208335">
+    <classShape Id="64facf81-f2f4-43d1-943d-39961381c4f4" absoluteBounds="6.75, 0.75, 2, 1.1215884860356649">
       <DataClassMoniker Name="/iRoboTechDataContext/D_YSNO" />
       <nestedChildShapes>
-        <elementListCompartment Id="91221dd0-1911-4771-84fa-cb8a3bccd1d6" absoluteBounds="6.765, 1.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="91221dd0-1911-4771-84fa-cb8a3bccd1d6" absoluteBounds="6.765, 1.21, 1.9700000000000002, 0.5615884860356648" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="77bd378f-b690-434f-bd5e-afdd52d6c4b5" absoluteBounds="0.75, 6.75, 2, 1.3862939453125005">
+    <classShape Id="77bd378f-b690-434f-bd5e-afdd52d6c4b5" absoluteBounds="0.75, 6.75, 2, 1.2932030534744268">
       <DataClassMoniker Name="/iRoboTechDataContext/V_UCFGA" />
       <nestedChildShapes>
-        <elementListCompartment Id="23698e0f-f440-44bd-8910-a086647f1eb5" absoluteBounds="0.765, 7.21, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="23698e0f-f440-44bd-8910-a086647f1eb5" absoluteBounds="0.765, 7.21, 1.9700000000000002, 0.73320305347442627" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="89bc18cb-64a6-4ba7-867c-43188b41cbe0" absoluteBounds="6.75, 2.75, 2, 1.5785953776041666">
+    <classShape Id="89bc18cb-64a6-4ba7-867c-43188b41cbe0" absoluteBounds="6.75, 2.75, 2, 1.4648176209131876">
       <DataClassMoniker Name="/iRoboTechDataContext/V_URFGA" />
       <nestedChildShapes>
-        <elementListCompartment Id="b1c22f2f-c157-4256-b02e-a808cf8a0a82" absoluteBounds="6.765, 3.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="b1c22f2f-c157-4256-b02e-a808cf8a0a82" absoluteBounds="6.765, 3.21, 1.9700000000000002, 0.90481762091318763" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="b7ebc67e-e57f-4ebc-9b58-c5365c76041f" absoluteBounds="3.75, 6.75, 2, 1.1939925130208344">
+    <classShape Id="b7ebc67e-e57f-4ebc-9b58-c5365c76041f" absoluteBounds="3.75, 6.75, 2, 1.1215884860356642">
       <DataClassMoniker Name="/iRoboTechDataContext/V_User" />
       <nestedChildShapes>
-        <elementListCompartment Id="3f01f814-0f3a-49d7-87ac-f4217b5ddc20" absoluteBounds="3.765, 7.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="3f01f814-0f3a-49d7-87ac-f4217b5ddc20" absoluteBounds="3.765, 7.21, 1.9700000000000002, 0.5615884860356648" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="54b86f95-bd0b-4189-9d76-2abf9327908b" absoluteBounds="6.75, 6.75, 2, 1.0016910807291666">
+    <classShape Id="54b86f95-bd0b-4189-9d76-2abf9327908b" absoluteBounds="6.75, 6.75, 2, 0.94997391859690339">
       <DataClassMoniker Name="/iRoboTechDataContext/V_RowID" />
       <nestedChildShapes>
-        <elementListCompartment Id="05b654ed-97c4-4ff9-872c-399bd4e5fd15" absoluteBounds="6.765, 7.21, 1.9700000000000002, 0.44169108072916669" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="05b654ed-97c4-4ff9-872c-399bd4e5fd15" absoluteBounds="6.765, 7.21, 1.9700000000000002, 0.38997391859690345" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="669756dd-27b0-4d22-a036-057ecbe3cb6a" absoluteBounds="23.125, 5.5, 2, 3.6939111328124996">
+    <classShape Id="669756dd-27b0-4d22-a036-057ecbe3cb6a" absoluteBounds="23.125, 5.5, 2, 3.3525778627395635">
       <DataClassMoniker Name="/iRoboTechDataContext/Organ" />
       <nestedChildShapes>
-        <elementListCompartment Id="d7e972ac-1dd3-4e84-b8b1-f1f98ce454ee" absoluteBounds="23.14, 5.96, 1.9700000000000002, 3.1339111328125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="d7e972ac-1dd3-4e84-b8b1-f1f98ce454ee" absoluteBounds="23.14, 5.96, 1.9700000000000002, 2.792577862739563" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(23.125 : 6.47722045898438); (22.9270838333333 : 6.47722045898438 : JumpStart); (22.7604171666667 : 6.47722045898438 : JumpEnd); (22.6770833333333 : 6.47722045898438 : JumpStart); (22.5104166666667 : 6.47722045898438 : JumpEnd); (22.375 : 6.47722045898438)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(23.125 : 6.47722045898438); (22.9270838333333 : 6.47722045898438 : JumpStart); (22.7604171666667 : 6.47722045898438 : JumpEnd); (22.375 : 6.47722045898438)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/Organ/Organ_Admin" />
       <nodes>
         <classShapeMoniker Id="669756dd-27b0-4d22-a036-057ecbe3cb6a" />
         <classShapeMoniker Id="608c925b-5f9b-48b4-b97a-2e1db5befca5" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(23.125 : 7.00564697265625); (22.59375 : 7.00564697265625); (22.59375 : 4.6362939453125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(23.125 : 7.00564697265625); (22.9270838333333 : 7.00564697265625 : JumpStart); (22.7604171666667 : 7.00564697265625 : JumpEnd); (22.59375 : 7.00564697265625); (22.59375 : 4.6362939453125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/Organ/Organ_Organ_Category" />
       <nodes>
         <classShapeMoniker Id="669756dd-27b0-4d22-a036-057ecbe3cb6a" />
         <classShapeMoniker Id="ffed78a8-7d1a-4661-8679-20b92648e2f0" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(25.0926923076923 : 5.5); (25.5 : 5.09269230769231); (25.5 : 1.38544840494792); (25.875 : 1.38544840494792)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(25.0926923076923 : 5.5); (25.5 : 5.09269230769231); (25.5 : 1.31821609417597); (25.875 : 1.31821609417597)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/Organ/Organ_Organ_Representation" />
       <nodes>
         <classShapeMoniker Id="669756dd-27b0-4d22-a036-057ecbe3cb6a" />
         <classShapeMoniker Id="1c386795-401d-42e9-b44e-049329a571f8" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(25.125 : 9.1939111328125); (25.5 : 9.5689111328125); (25.5 : 23.8950512695313); (25.875 : 23.8950512695313)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(25.125 : 8.85257786273956); (25.5 : 9.22757786273957); (25.5 : 23.7864452290535); (25.875 : 23.7864452290535)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/Organ/Organ_User_Organ_Fgac" />
       <nodes>
         <classShapeMoniker Id="669756dd-27b0-4d22-a036-057ecbe3cb6a" />
         <classShapeMoniker Id="81d51de7-0ea5-41f2-8613-5c09cd6b9810" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(22.375 : 8.22195556640625); (22.7604171666667 : 8.22195556640625 : JumpStart); (22.9270838333333 : 8.22195556640625 : JumpEnd); (23.125 : 8.22195556640625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(22.375 : 8.22195556640625); (23.125 : 8.22195556640625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/Region/Region_Organ" />
       <nodes>
         <classShapeMoniker Id="077149a1-aef2-4e49-9144-61d1c8b4309c" />
         <classShapeMoniker Id="669756dd-27b0-4d22-a036-057ecbe3cb6a" />
       </nodes>
     </associationConnector>
-    <classShape Id="14de1a98-0fb1-4493-8946-b8c0583b83f7" absoluteBounds="28.625, 5.125, 2, 2.5401025390625">
+    <classShape Id="14de1a98-0fb1-4493-8946-b8c0583b83f7" absoluteBounds="28.625, 5.125, 2, 2.3228904581069942">
       <DataClassMoniker Name="/iRoboTechDataContext/Job" />
       <nestedChildShapes>
-        <elementListCompartment Id="bf3edd68-59c3-4e48-a93a-6443e2451259" absoluteBounds="28.64, 5.585, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="bf3edd68-59c3-4e48-a93a-6443e2451259" absoluteBounds="28.64, 5.585, 1.9700000000000002, 1.7628904581069946" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="9606c9b0-0471-45e0-87c7-89f88eafb5d6" absoluteBounds="34.375, 7, 2, 2.9247054036458331">
+    <classShape Id="9606c9b0-0471-45e0-87c7-89f88eafb5d6" absoluteBounds="34.375, 7, 2, 2.6661195929845167">
       <DataClassMoniker Name="/iRoboTechDataContext/Personal_Robot_Job" />
       <nestedChildShapes>
-        <elementListCompartment Id="bae5dde7-c9cd-4b13-b549-80b24216261c" absoluteBounds="34.39, 7.46, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="bae5dde7-c9cd-4b13-b549-80b24216261c" absoluteBounds="34.39, 7.46, 1.9700000000000002, 2.1061195929845171" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
     <associationConnector edgePoints="[(36.375 : 7.34375); (37.34375 : 7.34375); (37.34375 : 15.875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
@@ -247,66 +247,66 @@
         <classShapeMoniker Id="4ab5204b-892f-42b2-9840-00d669bff8ad" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(30.625 : 6.61220590364583); (30.6666666666667 : 6.61220590364583 : JumpStart); (30.8333333333333 : 6.61220590364583 : JumpEnd); (31.0416666666667 : 6.61220590364583 : JumpStart); (31.2083333333333 : 6.61220590364583 : JumpEnd); (31.375 : 6.61220590364583); (31.375 : 6.32859537760416); (34.7916671666667 : 6.32859537760416 : JumpStart); (34.9583338333333 : 6.32859537760416 : JumpEnd); (35.375 : 6.32859537760416); (35.375 : 7)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(30.625 : 6.61220590364583); (31.375 : 6.61220590364583); (31.375 : 6.32859537760416); (35.375 : 6.32859537760416); (35.375 : 7)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/Job/Job_Personal_Robot_Job" />
       <nodes>
         <classShapeMoniker Id="14de1a98-0fb1-4493-8946-b8c0583b83f7" />
         <classShapeMoniker Id="9606c9b0-0471-45e0-87c7-89f88eafb5d6" />
       </nodes>
     </associationConnector>
-    <classShape Id="040fe605-b00b-413e-9f55-7ad69a24a172" absoluteBounds="30.375, 21.375, 2, 2.3478011067708335">
+    <classShape Id="040fe605-b00b-413e-9f55-7ad69a24a172" absoluteBounds="30.375, 21.375, 2, 2.1512758906682343">
       <DataClassMoniker Name="/iRoboTechDataContext/Group_Menu_Ussd" />
       <nestedChildShapes>
-        <elementListCompartment Id="adb1e9e8-6952-4747-91fb-d1898abce95c" absoluteBounds="30.39, 21.835, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="adb1e9e8-6952-4747-91fb-d1898abce95c" absoluteBounds="30.39, 21.835, 1.9700000000000002, 1.5912758906682332" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="9514d2f2-ac26-412b-96cd-ad2331e25933" absoluteBounds="31.25, 2.25, 2, 3.3093082682291666">
+    <classShape Id="9514d2f2-ac26-412b-96cd-ad2331e25933" absoluteBounds="31.25, 2.25, 2, 3.00934872786204">
       <DataClassMoniker Name="/iRoboTechDataContext/Organ_Description" />
       <nestedChildShapes>
-        <elementListCompartment Id="cc9c36c4-9a49-4ec5-ae04-2bca5cd32156" absoluteBounds="31.265, 2.71, 1.9700000000000002, 2.7493082682291665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="cc9c36c4-9a49-4ec5-ae04-2bca5cd32156" absoluteBounds="31.265, 2.71, 1.9700000000000002, 2.44934872786204" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(24.0775941538462 : 5.5); (24.0775941538462 : 4.6987939453125); (25.2916666666667 : 4.6987939453125 : JumpStart); (25.5833333333333 : 4.6987939453125 : JumpEnd); (26.0625 : 4.6987939453125); (26.0625 : 3.3125); (28.5625 : 3.3125); (28.5625 : 5.02561686197917); (30.6666666666667 : 5.02561686197917 : JumpStart); (30.8333333333333 : 5.02561686197917 : JumpEnd); (31.15625 : 5.02561686197917); (31.15625 : 3.90465413411458); (31.25 : 3.90465413411458)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(24.125 : 5.5); (24.125 : 4.79320305347443); (25.4166666666667 : 4.79320305347443 : JumpStart); (25.5833333333333 : 4.79320305347443 : JumpEnd); (25.625 : 4.79320305347443); (25.625 : 3); (26.5008974358975 : 3 : JumpStart); (26.6675641025641 : 3 : JumpEnd); (27.0962820512821 : 3 : JumpStart); (27.2629487179487 : 3 : JumpEnd); (28.375 : 3); (28.375 : 4.78903613249461); (30.875 : 4.78903613249461); (30.875 : 3.75467436393102); (31.25 : 3.75467436393102)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/Organ/Organ_Organ_Description" />
       <nodes>
         <classShapeMoniker Id="669756dd-27b0-4d22-a036-057ecbe3cb6a" />
         <classShapeMoniker Id="9514d2f2-ac26-412b-96cd-ad2331e25933" />
       </nodes>
     </associationConnector>
-    <classShape Id="51ce2f39-ae56-4916-bc83-b5af9a609d94" absoluteBounds="22.375, 14, 2, 3.1170068359375">
+    <classShape Id="51ce2f39-ae56-4916-bc83-b5af9a609d94" absoluteBounds="22.375, 14, 2, 2.8377341604232811">
       <DataClassMoniker Name="/iRoboTechDataContext/Robot_Import" />
       <nestedChildShapes>
-        <elementListCompartment Id="0dbe6799-c72d-4042-be26-fc96c219d761" absoluteBounds="22.39, 14.46, 1.9700000000000002, 2.5570068359375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="0dbe6799-c72d-4042-be26-fc96c219d761" absoluteBounds="22.39, 14.46, 1.9700000000000002, 2.2777341604232788" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="35ac9ce3-36a4-4e5e-aa8c-b7ee2db46410" absoluteBounds="6.75, 4.75, 2, 1.1939925130208333">
+    <classShape Id="35ac9ce3-36a4-4e5e-aa8c-b7ee2db46410" absoluteBounds="6.75, 4.75, 2, 1.1215884860356642">
       <DataClassMoniker Name="/iRoboTechDataContext/D_RCVT" />
       <nestedChildShapes>
-        <elementListCompartment Id="2035cc11-a10c-49aa-ba80-323f21e93044" absoluteBounds="6.765, 5.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="2035cc11-a10c-49aa-ba80-323f21e93044" absoluteBounds="6.765, 5.21, 1.9700000000000002, 0.5615884860356648" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="146c326a-cce9-410d-986b-cfedc4c9503f" absoluteBounds="37.625, 7.75, 2, 3.6939111328124996">
+    <classShape Id="146c326a-cce9-410d-986b-cfedc4c9503f" absoluteBounds="37.625, 7.75, 2, 3.3525778627395635">
       <DataClassMoniker Name="/iRoboTechDataContext/Service_Robot_Upload" />
       <nestedChildShapes>
-        <elementListCompartment Id="147be1a4-5b68-43b5-a72f-3fa17e785270" absoluteBounds="37.64, 8.21, 1.9700000000000002, 3.1339111328125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="147be1a4-5b68-43b5-a72f-3fa17e785270" absoluteBounds="37.64, 8.21, 1.9700000000000002, 2.792577862739563" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="a4a83a36-f6f6-42b3-bfc2-d3a8d6546c6f" absoluteBounds="34.375, 14.875, 2, 3.1170068359375">
+    <classShape Id="a4a83a36-f6f6-42b3-bfc2-d3a8d6546c6f" absoluteBounds="34.375, 14.875, 2, 2.8377341604232811">
       <DataClassMoniker Name="/iRoboTechDataContext/Service_Robot_Message" />
       <nestedChildShapes>
-        <elementListCompartment Id="f015366f-82f0-49e8-b68a-b776a7c51214" absoluteBounds="34.39, 15.335, 1.9700000000000002, 2.5570068359375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="f015366f-82f0-49e8-b68a-b776a7c51214" absoluteBounds="34.39, 15.335, 1.9700000000000002, 2.2777341604232788" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="00157053-c035-463c-8f7f-eee32c099b77" absoluteBounds="28.375, 12.875, 2, 3.1170068359375">
+    <classShape Id="00157053-c035-463c-8f7f-eee32c099b77" absoluteBounds="28.375, 12.875, 2, 2.8377341604232793">
       <DataClassMoniker Name="/iRoboTechDataContext/Send_Advertising" />
       <nestedChildShapes>
-        <elementListCompartment Id="de2720f7-9f9f-4878-844d-5ff611c1182e" absoluteBounds="28.39, 13.335, 1.9700000000000002, 2.5570068359375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="de2720f7-9f9f-4878-844d-5ff611c1182e" absoluteBounds="28.39, 13.335, 1.9700000000000002, 2.2777341604232788" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="3db1cc6d-2baa-45bd-8271-3bfa52ad7759" absoluteBounds="28.375, 16.5, 2.25, 2.5401025390625">
+    <classShape Id="3db1cc6d-2baa-45bd-8271-3bfa52ad7759" absoluteBounds="28.375, 16.5, 2.25, 2.3228904581069969">
       <DataClassMoniker Name="/iRoboTechDataContext/Service_Robot_Send_Advertising" />
       <nestedChildShapes>
-        <elementListCompartment Id="c70655d1-2e4a-4ff3-8e73-e7d1c17a09e3" absoluteBounds="28.39, 16.96, 2.2199999999999998, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="c70655d1-2e4a-4ff3-8e73-e7d1c17a09e3" absoluteBounds="28.39, 16.96, 2.2199999999999998, 1.7628904581069946" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
     <associationConnector edgePoints="[(29.375 : 15.9920068359375); (29.375 : 16.5)]" fixedFrom="NotFixed" fixedTo="NotFixed">
@@ -316,34 +316,34 @@
         <classShapeMoniker Id="3db1cc6d-2baa-45bd-8271-3bfa52ad7759" />
       </nodes>
     </associationConnector>
-    <classShape Id="636db66e-e49f-43c1-b2c4-f0aa4d8ce003" absoluteBounds="0.75, 8.25, 2, 1.1939925130208333">
+    <classShape Id="636db66e-e49f-43c1-b2c4-f0aa4d8ce003" absoluteBounds="0.75, 8.25, 2, 1.121588486035666">
       <DataClassMoniker Name="/iRoboTechDataContext/D_ACTP" />
       <nestedChildShapes>
-        <elementListCompartment Id="5220b863-1004-4e4e-b3a9-95d02dd71d62" absoluteBounds="0.76500000000000057, 8.71, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="5220b863-1004-4e4e-b3a9-95d02dd71d62" absoluteBounds="0.76500000000000057, 8.71, 1.9700000000000002, 0.5615884860356648" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="43bbe6a5-6ab4-4e51-bb67-b4babf05f1e4" absoluteBounds="9.125, 0.75, 2, 1.3862939453125">
+    <classShape Id="43bbe6a5-6ab4-4e51-bb67-b4babf05f1e4" absoluteBounds="9.125, 0.75, 2, 1.2932030534744263">
       <DataClassMoniker Name="/iRoboTechDataContext/V_URLFGA" />
       <nestedChildShapes>
-        <elementListCompartment Id="defa2991-0652-4beb-b550-e6fcf1bdf414" absoluteBounds="9.14, 1.21, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="defa2991-0652-4beb-b550-e6fcf1bdf414" absoluteBounds="9.14, 1.21, 1.9700000000000002, 0.73320305347442627" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="21015a5b-9fb6-4007-8084-b6d0355c86a9" absoluteBounds="9.125, 2.75, 2, 1.5785953776041666">
+    <classShape Id="21015a5b-9fb6-4007-8084-b6d0355c86a9" absoluteBounds="9.125, 2.75, 2, 1.4648176209131876">
       <DataClassMoniker Name="/iRoboTechDataContext/V_Computer" />
       <nestedChildShapes>
-        <elementListCompartment Id="f82d40c3-b629-4432-bf20-db79e02f8810" absoluteBounds="9.14, 3.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="f82d40c3-b629-4432-bf20-db79e02f8810" absoluteBounds="9.14, 3.21, 1.9700000000000002, 0.90481762091318763" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="47a5d65f-1897-429c-912c-ea030a8ad727" absoluteBounds="12.25, 0.75, 2, 2.9247054036458331">
+    <classShape Id="47a5d65f-1897-429c-912c-ea030a8ad727" absoluteBounds="12.25, 0.75, 2, 2.6661195929845172">
       <DataClassMoniker Name="/iRoboTechDataContext/User_RobotListener_Fgac" />
       <nestedChildShapes>
-        <elementListCompartment Id="a1b182d2-8d5c-41d9-92f6-c6bc3c2a046d" absoluteBounds="12.265, 1.21, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="a1b182d2-8d5c-41d9-92f6-c6bc3c2a046d" absoluteBounds="12.265, 1.21, 1.9700000000000002, 2.1061195929845171" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="7f18bfa7-b7fa-47b9-9e91-a72f09722290" absoluteBounds="12.25, 4.5, 2, 3.1170068359375">
+    <classShape Id="7f18bfa7-b7fa-47b9-9e91-a72f09722290" absoluteBounds="12.25, 4.5, 2, 2.8377341604232784">
       <DataClassMoniker Name="/iRoboTechDataContext/User_RobotListener_Log" />
       <nestedChildShapes>
-        <elementListCompartment Id="65beb961-f069-4cd7-9bf6-cb1de49b4955" absoluteBounds="12.265, 4.96, 1.9700000000000002, 2.5570068359375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="65beb961-f069-4cd7-9bf6-cb1de49b4955" absoluteBounds="12.265, 4.96, 1.9700000000000002, 2.2777341604232788" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
     <associationConnector edgePoints="[(13.25 : 3.67470540364583); (13.25 : 4.5)]" fixedFrom="NotFixed" fixedTo="NotFixed">
@@ -353,54 +353,54 @@
         <classShapeMoniker Id="7f18bfa7-b7fa-47b9-9e91-a72f09722290" />
       </nodes>
     </associationConnector>
-    <classShape Id="9600e015-0a28-485a-a190-e9d1f72656d1" absoluteBounds="9.125, 4.75, 2, 1.1939925130208333">
+    <classShape Id="9600e015-0a28-485a-a190-e9d1f72656d1" absoluteBounds="9.125, 4.75, 2, 1.1215884860356642">
       <DataClassMoniker Name="/iRoboTechDataContext/D_URLT" />
       <nestedChildShapes>
-        <elementListCompartment Id="8523853a-bf8f-4cd2-947d-bfd625cac53b" absoluteBounds="9.14, 5.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="8523853a-bf8f-4cd2-947d-bfd625cac53b" absoluteBounds="9.14, 5.21, 1.9700000000000002, 0.5615884860356648" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="35acb0a9-febc-4444-84cf-db799b09e3d0" absoluteBounds="3.75, 8.125, 2, 1.1939925130208333">
+    <classShape Id="35acb0a9-febc-4444-84cf-db799b09e3d0" absoluteBounds="3.75, 8.125, 2, 1.121588486035666">
       <DataClassMoniker Name="/iRoboTechDataContext/D_ODST" />
       <nestedChildShapes>
-        <elementListCompartment Id="6a4dfba2-79dd-41ba-b695-60f26ddce688" absoluteBounds="3.7649999999999997, 8.585, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="6a4dfba2-79dd-41ba-b695-60f26ddce688" absoluteBounds="3.7649999999999997, 8.585, 1.9700000000000002, 0.5615884860356648" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="7e5cd525-3723-4410-a8e2-ce421e75cbde" absoluteBounds="6.875, 8.25, 2, 1.1939925130208333">
+    <classShape Id="7e5cd525-3723-4410-a8e2-ce421e75cbde" absoluteBounds="6.875, 8.25, 2, 1.121588486035666">
       <DataClassMoniker Name="/iRoboTechDataContext/D_ELMT" />
       <nestedChildShapes>
-        <elementListCompartment Id="22ef91df-af06-4d54-9483-1ffc91110c35" absoluteBounds="6.89, 8.71, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="22ef91df-af06-4d54-9483-1ffc91110c35" absoluteBounds="6.89, 8.71, 1.9700000000000002, 0.5615884860356648" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="0c0f1068-08d7-40e3-b691-76f1c687050c" absoluteBounds="14.75, 0.75, 2, 3.8862125651041666">
+    <classShape Id="0c0f1068-08d7-40e3-b691-76f1c687050c" absoluteBounds="14.75, 0.75, 2, 3.5241924301783243">
       <DataClassMoniker Name="/iRoboTechDataContext/Modual_Report" />
       <nestedChildShapes>
-        <elementListCompartment Id="befe7d10-e25f-4cda-b015-8c1f3a37eb8d" absoluteBounds="14.765, 1.21, 1.9700000000000002, 3.3262125651041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="befe7d10-e25f-4cda-b015-8c1f3a37eb8d" absoluteBounds="14.765, 1.21, 1.9700000000000002, 2.9641924301783242" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="e531edf0-53ae-4889-8fd7-f080064f6c61" absoluteBounds="22.625, 10.25, 2, 2.5401025390625">
+    <classShape Id="e531edf0-53ae-4889-8fd7-f080064f6c61" absoluteBounds="22.625, 10.25, 2, 2.3228904581069951">
       <DataClassMoniker Name="/iRoboTechDataContext/Service" />
       <nestedChildShapes>
-        <elementListCompartment Id="b858202a-9ab5-4652-815d-eca261e6a19b" absoluteBounds="22.64, 10.71, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="b858202a-9ab5-4652-815d-eca261e6a19b" absoluteBounds="22.64, 10.71, 1.9700000000000002, 1.7628904581069946" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(22.8437505 : 10.25); (22.8437505 : 5.40625); (22.6770833333333 : 5.40625 : JumpStart); (22.5104166666667 : 5.40625 : JumpEnd); (22.375 : 5.40625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(22.8437505 : 10.25); (22.8437505 : 5.40625); (22.375 : 5.40625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/Service/Service_Admin" />
       <nodes>
         <classShapeMoniker Id="e531edf0-53ae-4889-8fd7-f080064f6c61" />
         <classShapeMoniker Id="608c925b-5f9b-48b4-b97a-2e1db5befca5" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(24.625 : 12.7684554036458); (25.4166666666667 : 12.7684554036458 : JumpStart); (25.5833333333333 : 12.7684554036458 : JumpEnd); (26.1901021041667 : 12.7684554036458 : JumpStart); (26.3567687708333 : 12.7684554036458 : JumpEnd); (27.4322887916667 : 12.7684554036458 : JumpStart); (27.5989554583333 : 12.7684554036458 : JumpEnd); (27.9166641666667 : 12.7684554036458 : JumpStart); (28.1770845833333 : 12.7684554036458 : JumpEnd); (30.8541691666667 : 12.7684554036458 : JumpStart); (31.0208358333333 : 12.7684554036458 : JumpEnd); (31.061659531851 : 12.7684554036458 : JumpStart); (31.2283261985176 : 12.7684554036458 : JumpEnd); (31.2291671666667 : 12.7684554036458 : JumpStart); (31.3958338333333 : 12.7684554036458 : JumpEnd); (33.5104166666667 : 12.7684554036458 : JumpStart); (33.6770833333333 : 12.7684554036458 : JumpEnd); (33.7916666666667 : 12.7684554036458 : JumpStart); (33.9583333333333 : 12.7684554036458 : JumpEnd); (36.7291666666667 : 12.7684554036458 : JumpStart); (36.8958333333333 : 12.7684554036458 : JumpEnd); (37.0416666666667 : 12.7684554036458 : JumpStart); (37.2083333333333 : 12.7684554036458 : JumpEnd); (37.2604166666667 : 12.7684554036458 : JumpStart); (37.4270833333333 : 12.7684554036458 : JumpEnd); (37.625 : 12.7684554036458)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(24.625 : 12.7684554036458); (27.5416666666667 : 12.7684554036458 : JumpStart); (27.7083333333333 : 12.7684554036458 : JumpEnd); (30.8541691666667 : 12.7684554036458 : JumpStart); (31.0208358333333 : 12.7684554036458 : JumpEnd); (31.061659531851 : 12.7684554036458 : JumpStart); (31.2283261985176 : 12.7684554036458 : JumpEnd); (33.5104166666667 : 12.7684554036458 : JumpStart); (33.6770833333333 : 12.7684554036458 : JumpEnd); (37.0416666666667 : 12.7684554036458 : JumpStart); (37.2083333333333 : 12.7684554036458 : JumpEnd); (37.2604166666667 : 12.7684554036458 : JumpStart); (37.4270833333333 : 12.7684554036458 : JumpEnd); (37.625 : 12.7684554036458)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/Service/Service_Service_Robot_Public" />
       <nodes>
         <classShapeMoniker Id="e531edf0-53ae-4889-8fd7-f080064f6c61" />
         <classShapeMoniker Id="4d6242c6-98d8-43be-898a-2c031cea0667" />
       </nodes>
     </associationConnector>
-    <classShape Id="31ae3139-25cf-4921-a6cb-d65cc030a790" absoluteBounds="40.5, 5.75, 2, 2.5401025390625">
+    <classShape Id="31ae3139-25cf-4921-a6cb-d65cc030a790" absoluteBounds="40.5, 5.75, 2, 2.3228904581069951">
       <DataClassMoniker Name="/iRoboTechDataContext/Personal_Robot_Job_Service_Robot" />
       <nestedChildShapes>
-        <elementListCompartment Id="8ce13e61-dc16-47c4-8bb7-b02e911d233c" absoluteBounds="40.515, 6.21, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="8ce13e61-dc16-47c4-8bb7-b02e911d233c" absoluteBounds="40.515, 6.21, 1.9700000000000002, 1.7628904581069946" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
     <associationConnector edgePoints="[(36.375 : 7.578125); (37.2604166666667 : 7.578125 : JumpStart); (37.4270833333333 : 7.578125 : JumpEnd); (40.5 : 7.578125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
@@ -410,40 +410,40 @@
         <classShapeMoniker Id="31ae3139-25cf-4921-a6cb-d65cc030a790" />
       </nodes>
     </associationConnector>
-    <classShape Id="1caed1f9-1cff-4891-9cf7-efe3714b8b4a" absoluteBounds="3.75, 9.5, 2, 1.1939925130208333">
+    <classShape Id="1caed1f9-1cff-4891-9cf7-efe3714b8b4a" absoluteBounds="3.75, 9.5, 2, 1.121588486035666">
       <DataClassMoniker Name="/iRoboTechDataContext/D_SPYT" />
       <nestedChildShapes>
-        <elementListCompartment Id="0c24b109-bb8b-416d-b08c-a813185b75ea" absoluteBounds="3.7650000000000006, 9.96, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="0c24b109-bb8b-416d-b08c-a813185b75ea" absoluteBounds="3.7650000000000006, 9.96, 1.9700000000000002, 0.5615884860356648" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="442392df-8b28-4a86-b44b-1b7c8f7d012b" absoluteBounds="42.75, 4.75, 2, 1.3862939453125005">
+    <classShape Id="442392df-8b28-4a86-b44b-1b7c8f7d012b" absoluteBounds="42.75, 4.75, 2, 1.2932030534744259">
       <DataClassMoniker Name="/iRoboTechDataContext/Robot_Spy_Group" />
       <nestedChildShapes>
-        <elementListCompartment Id="155f5323-79dd-4880-ac06-bb1949ef2b67" absoluteBounds="42.765, 5.21, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="155f5323-79dd-4880-ac06-bb1949ef2b67" absoluteBounds="42.765, 5.21, 1.9700000000000002, 0.73320305347442627" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="ed11c123-44b3-4d5d-b8a5-15b60584bc11" absoluteBounds="6.875, 9.625, 2, 1.1939925130208333">
+    <classShape Id="ed11c123-44b3-4d5d-b8a5-15b60584bc11" absoluteBounds="6.875, 9.625, 2, 1.121588486035666">
       <DataClassMoniker Name="/iRoboTechDataContext/D_CNTP" />
       <nestedChildShapes>
-        <elementListCompartment Id="8fbdf4f6-aed3-46db-b38f-9d03f24b57da" absoluteBounds="6.89, 10.085, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="8fbdf4f6-aed3-46db-b38f-9d03f24b57da" absoluteBounds="6.89, 10.085, 1.9700000000000002, 0.5615884860356648" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="a8bd2b66-1b2b-48f4-a037-16e433e0e2c4" absoluteBounds="6.875, 11, 2, 1.1939925130208333">
+    <classShape Id="a8bd2b66-1b2b-48f4-a037-16e433e0e2c4" absoluteBounds="6.875, 11, 2, 1.121588486035666">
       <DataClassMoniker Name="/iRoboTechDataContext/D_GMTP" />
       <nestedChildShapes>
-        <elementListCompartment Id="512eb0c8-ec45-4d10-a33a-338f45103487" absoluteBounds="6.89, 11.46, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="512eb0c8-ec45-4d10-a33a-338f45103487" absoluteBounds="6.89, 11.46, 1.9700000000000002, 0.5615884860356648" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="10a7e58d-8667-4336-b6da-e7a2a47f0a35" absoluteBounds="46.125, 9.75, 2, 2.3478011067708335">
+    <classShape Id="10a7e58d-8667-4336-b6da-e7a2a47f0a35" absoluteBounds="46.125, 9.75, 2, 2.1512758906682343">
       <DataClassMoniker Name="/iRoboTechDataContext/Robot_Spy_Group_Message_Detail" />
       <nestedChildShapes>
-        <elementListCompartment Id="57d3c097-137b-431b-b9d8-506e3f3e4179" absoluteBounds="46.14, 10.21, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="57d3c097-137b-431b-b9d8-506e3f3e4179" absoluteBounds="46.14, 10.21, 1.9700000000000002, 1.5912758906682332" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="3e14472d-157f-4943-afa2-cb448fd2d599" absoluteBounds="34.5, 18.625, 2, 4.8477197265625">
+    <classShape Id="3e14472d-157f-4943-afa2-cb448fd2d599" absoluteBounds="34.5, 18.625, 2, 4.3822652673721336">
       <DataClassMoniker Name="/iRoboTechDataContext/Service_Robot_Replay_Message" />
       <nestedChildShapes>
-        <elementListCompartment Id="230c073d-232c-441d-b5f8-9f325bece05d" absoluteBounds="34.515, 19.085, 1.9700000000000002, 4.2877197265625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="230c073d-232c-441d-b5f8-9f325bece05d" absoluteBounds="34.515, 19.085, 1.9700000000000002, 3.8222652673721313" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
     <associationConnector edgePoints="[(35.4375 : 17.9920068359375); (35.4375 : 18.625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
@@ -453,13 +453,13 @@
         <classShapeMoniker Id="3e14472d-157f-4943-afa2-cb448fd2d599" />
       </nodes>
     </associationConnector>
-    <classShape Id="538fe207-44b8-4bbc-bfc9-be12897d5113" absoluteBounds="31.25, 12.875, 2, 5.6169254557291657">
+    <classShape Id="538fe207-44b8-4bbc-bfc9-be12897d5113" absoluteBounds="31.25, 12.875, 2, 5.0687235371271768">
       <DataClassMoniker Name="/iRoboTechDataContext/Service_Robot" />
       <nestedChildShapes>
-        <elementListCompartment Id="cc4432a3-8bf7-44e2-b0a2-73e698c7348a" absoluteBounds="31.265, 13.335, 1.9700000000000002, 5.0569254557291661" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="cc4432a3-8bf7-44e2-b0a2-73e698c7348a" absoluteBounds="31.265, 13.335, 1.9700000000000002, 4.5087235371271763" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(33.25 : 13.7700512695313); (33.5104166666667 : 13.7700512695313 : JumpStart); (33.6770833333333 : 13.7700512695313 : JumpEnd); (33.7916666666667 : 13.7700512695313 : JumpStart); (33.9583333333333 : 13.7700512695313 : JumpEnd); (36.7291666666667 : 13.7700512695313 : JumpStart); (37.2083333333333 : 13.7700512695313 : JumpEnd); (37.2604166666667 : 13.7700512695313 : JumpStart); (37.4270833333333 : 13.7700512695313 : JumpEnd); (37.625 : 13.7700512695313)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(33.25 : 13.7700512695313); (33.5104166666667 : 13.7700512695313 : JumpStart); (33.6770833333333 : 13.7700512695313 : JumpEnd); (37.0416666666667 : 13.7700512695313 : JumpStart); (37.2083333333333 : 13.7700512695313 : JumpEnd); (37.2604166666667 : 13.7700512695313 : JumpStart); (37.4270833333333 : 13.7700512695313 : JumpEnd); (37.625 : 13.7700512695313)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/Service_Robot/Service_Robot_Service_Robot_Public" />
       <nodes>
         <classShapeMoniker Id="538fe207-44b8-4bbc-bfc9-be12897d5113" />
@@ -473,96 +473,96 @@
         <classShapeMoniker Id="3b7e062d-8c98-499f-909b-3c0390748a56" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(33.25 : 16.2604280598958); (33.5104166666667 : 16.2604280598958 : JumpStart); (33.6770833333333 : 16.2604280598958 : JumpEnd); (34.125 : 16.2604280598958); (34.125 : 14.625); (36.3854166666667 : 14.625 : JumpStart); (36.5520833333333 : 14.625 : JumpEnd); (36.7291666666667 : 14.625 : JumpStart); (37.0520858333333 : 14.625 : JumpEnd); (37.125 : 14.625); (37.125 : 11.875); (37.2604166666667 : 11.875 : JumpStart); (37.4270833333333 : 11.875 : JumpEnd); (38.625 : 11.875); (38.625 : 11.4439111328125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(33.25 : 16.2604280598958); (33.5104166666667 : 16.2604280598958 : JumpStart); (33.6770833333333 : 16.2604280598958 : JumpEnd); (34.125 : 16.2604280598958); (34.125 : 14.625); (37.125 : 14.625); (37.125 : 11.875); (37.2604166666667 : 11.875 : JumpStart); (37.4270833333333 : 11.875 : JumpEnd); (38.625 : 11.875); (38.625 : 11.4439111328125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/Service_Robot/Service_Robot_Service_Robot_Upload" />
       <nodes>
         <classShapeMoniker Id="538fe207-44b8-4bbc-bfc9-be12897d5113" />
         <classShapeMoniker Id="146c326a-cce9-410d-986b-cfedc4c9503f" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(33.25 : 16.4335034179688); (33.5104166666667 : 16.4335034179688 : JumpStart); (33.6770833333333 : 16.4335034179688 : JumpEnd); (34.375 : 16.4335034179688)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(33.25 : 16.4335034179688); (33.5104166666667 : 16.4335034179688 : JumpStart); (33.6770833333333 : 16.4335034179688 : JumpEnd); (34.1666666666667 : 16.4335034179688 : JumpStart); (34.3333333333333 : 16.4335034179688 : JumpEnd); (34.375 : 16.4335034179688)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/Service_Robot/Service_Robot_Service_Robot_Message" />
       <nodes>
         <classShapeMoniker Id="538fe207-44b8-4bbc-bfc9-be12897d5113" />
         <classShapeMoniker Id="a4a83a36-f6f6-42b3-bfc2-d3a8d6546c6f" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(31.25 : 17.4959627278646); (30.625 : 17.4959627278646)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(31.25 : 17.4959627278646); (31.0208358333333 : 17.4959627278646 : JumpStart); (30.8541691666667 : 17.4959627278646 : JumpEnd); (30.625 : 17.4959627278646)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/Service_Robot/Service_Robot_Service_Robot_Send_Advertising" />
       <nodes>
         <classShapeMoniker Id="538fe207-44b8-4bbc-bfc9-be12897d5113" />
         <classShapeMoniker Id="3db1cc6d-2baa-45bd-8271-3bfa52ad7759" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(31.3125005 : 12.875); (31.3125005 : 6.26609537760416); (34.7916671666667 : 6.26609537760416 : JumpStart); (34.9583338333333 : 6.26609537760416 : JumpEnd); (40.1666666666667 : 6.26609537760416 : JumpStart); (40.3333333333333 : 6.26609537760416 : JumpEnd); (40.5 : 6.26609537760416)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(31.3125005 : 12.875); (31.3125005 : 6.26609537760416); (34.7916671666667 : 6.26609537760416 : JumpStart); (34.9583338333333 : 6.26609537760416 : JumpEnd); (40.5 : 6.26609537760416)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/Service_Robot/Service_Robot_Personal_Robot_Job_Service_Robot" />
       <nodes>
         <classShapeMoniker Id="538fe207-44b8-4bbc-bfc9-be12897d5113" />
         <classShapeMoniker Id="31ae3139-25cf-4921-a6cb-d65cc030a790" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(33.25 : 14.35937775); (33.5104166666667 : 14.35937775 : JumpStart); (33.6770833333333 : 14.35937775 : JumpEnd); (33.7916666666667 : 14.35937775 : JumpStart); (33.9583333333333 : 14.35937775 : JumpEnd); (36.46875 : 14.35937775); (36.46875 : 18.625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(33.25 : 14.35937775); (33.5104166666667 : 14.35937775 : JumpStart); (33.6770833333333 : 14.35937775 : JumpEnd); (33.7916666666667 : 14.35937775 : JumpStart); (33.9583333333333 : 14.35937775 : JumpEnd); (34.1666666666667 : 14.35937775 : JumpStart); (34.3333333333333 : 14.35937775 : JumpEnd); (36.46875 : 14.35937775); (36.46875 : 18.625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/Service_Robot/Service_Robot_Service_Robot_Replay_Message" />
       <nodes>
         <classShapeMoniker Id="538fe207-44b8-4bbc-bfc9-be12897d5113" />
         <classShapeMoniker Id="3e14472d-157f-4943-afa2-cb448fd2d599" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(21.906252 : 10.1747054036458); (21.906252 : 17.3670068359375); (25.4166666666667 : 17.3670068359375 : JumpStart); (25.5833333333333 : 17.3670068359375 : JumpEnd); (25.625 : 17.3670068359375); (25.625 : 14.25); (26.1901021041667 : 14.25 : JumpStart); (26.3567687708333 : 14.25 : JumpEnd); (27.4322887916667 : 14.25 : JumpStart); (27.5989554583333 : 14.25 : JumpEnd); (28.125 : 14.25); (28.125 : 16.2420068359375); (28.1666666666667 : 16.2420068359375 : JumpStart); (28.3333333333333 : 16.2420068359375 : JumpEnd); (29.2916666666667 : 16.2420068359375 : JumpStart); (29.4583333333333 : 16.2420068359375 : JumpEnd); (30.625 : 16.2420068359375); (30.625 : 15.6834627278646); (30.6666666666667 : 15.6834627278646 : JumpStart); (30.8333333333333 : 15.6834627278646 : JumpEnd); (30.8541691666667 : 15.6834627278646 : JumpStart); (31.0208358333333 : 15.6834627278646 : JumpEnd); (31.25 : 15.6834627278646)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(21.906252 : 10.1747054036458); (21.906252 : 17.3670068359375); (25.4166666666667 : 17.3670068359375 : JumpStart); (25.5833333333333 : 17.3670068359375 : JumpEnd); (25.625 : 17.3670068359375); (25.625 : 14.25); (27.9166666666667 : 14.25 : JumpStart); (28.0833333333333 : 14.25 : JumpEnd); (28.125 : 14.25); (28.125 : 16.2420068359375); (28.1666666666667 : 16.2420068359375 : JumpStart); (28.3333333333333 : 16.2420068359375 : JumpEnd); (30.625 : 16.2420068359375); (30.625 : 15.6834627278646); (30.6666666666667 : 15.6834627278646 : JumpStart); (30.8333333333333 : 15.6834627278646 : JumpEnd); (30.8541691666667 : 15.6834627278646 : JumpStart); (31.0208358333333 : 15.6834627278646 : JumpEnd); (31.25 : 15.6834627278646)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/Region/Region_Service_Robot" />
       <nodes>
         <classShapeMoniker Id="077149a1-aef2-4e49-9144-61d1c8b4309c" />
         <classShapeMoniker Id="538fe207-44b8-4bbc-bfc9-be12897d5113" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(24.156252 : 12.7901025390625); (24.156252 : 13.75); (25.4166666666667 : 13.75 : JumpStart); (25.5833333333333 : 13.75 : JumpEnd); (26.1901021041667 : 13.75 : JumpStart); (26.3567687708333 : 13.75 : JumpEnd); (27.4322887916667 : 13.75 : JumpStart); (27.5989554583333 : 13.75 : JumpEnd); (27.9166641666667 : 13.75 : JumpStart); (28.1770845833333 : 13.75 : JumpEnd); (28.25 : 13.75); (28.25 : 16.3670068359375); (29.2916666666667 : 16.3670068359375 : JumpStart); (29.4583333333333 : 16.3670068359375 : JumpEnd); (30.75 : 16.3670068359375); (30.75 : 14.2479793639323); (30.8541691666667 : 14.2479793639323 : JumpStart); (31.0208358333333 : 14.2479793639323 : JumpEnd); (31.25 : 14.2479793639323)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(24.156252 : 12.7901025390625); (24.156252 : 13.75); (25.4166666666667 : 13.75 : JumpStart); (25.6458333333333 : 13.75 : JumpEnd); (27.5416666666667 : 13.75 : JumpStart); (27.7083333333333 : 13.75 : JumpEnd); (28.25 : 13.75); (28.25 : 16.3670068359375); (30.75 : 16.3670068359375); (30.75 : 14.2479793639323); (30.8541691666667 : 14.2479793639323 : JumpStart); (31.0208358333333 : 14.2479793639323 : JumpEnd); (31.25 : 14.2479793639323)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/Service/Service_Service_Robot" />
       <nodes>
         <classShapeMoniker Id="e531edf0-53ae-4889-8fd7-f080064f6c61" />
         <classShapeMoniker Id="538fe207-44b8-4bbc-bfc9-be12897d5113" />
       </nodes>
     </associationConnector>
-    <classShape Id="c5620a48-cb13-4806-aa6a-b5aad225c16f" absoluteBounds="0.75, 9.875, 2, 2.5401025390625">
+    <classShape Id="c5620a48-cb13-4806-aa6a-b5aad225c16f" absoluteBounds="0.75, 9.875, 2, 2.3228904581069951">
       <DataClassMoniker Name="/iRoboTechDataContext/App_Base_Define" />
       <nestedChildShapes>
-        <elementListCompartment Id="ae361e3f-696e-4a2c-b0ad-03f444caa28f" absoluteBounds="0.76499999999999968, 10.335, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="ae361e3f-696e-4a2c-b0ad-03f444caa28f" absoluteBounds="0.76499999999999968, 10.335, 1.9700000000000002, 1.7628904581069946" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(1.30692307692308 : 12.4151025390625); (1.30692307692308 : 12.6651025390625); (1.46116123397436 : 12.6651025390625 : JumpStart); (1.62782790064102 : 12.6651025390625 : JumpEnd); (1.75 : 12.6651025390625); (1.75 : 12.4151025390625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(1.30692307692308 : 12.4151025390625); (1.30692307692308 : 12.6651025390625); (1.75 : 12.6651025390625); (1.75 : 12.4151025390625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/App_Base_Define/App_Base_Define_App_Base_Define" />
       <nodes>
         <classShapeMoniker Id="c5620a48-cb13-4806-aa6a-b5aad225c16f" />
         <classShapeMoniker Id="c5620a48-cb13-4806-aa6a-b5aad225c16f" />
       </nodes>
     </associationConnector>
-    <classShape Id="c5c73880-8726-4e8a-b953-cb672e7c9c62" absoluteBounds="3.75, 11, 2, 1.1939925130208333">
+    <classShape Id="c5c73880-8726-4e8a-b953-cb672e7c9c62" absoluteBounds="3.75, 11, 2, 1.121588486035666">
       <DataClassMoniker Name="/iRoboTechDataContext/D_MDFR" />
       <nestedChildShapes>
-        <elementListCompartment Id="29aa7f1e-2036-46b6-a361-3e5683c1d4d1" absoluteBounds="3.7649999999999997, 11.46, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="29aa7f1e-2036-46b6-a361-3e5683c1d4d1" absoluteBounds="3.7649999999999997, 11.46, 1.9700000000000002, 0.5615884860356648" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="3049f63a-e922-47b5-a2de-c6a438ebaf21" absoluteBounds="42.25, 27.375, 2, 2.7324039713541666">
+    <classShape Id="3049f63a-e922-47b5-a2de-c6a438ebaf21" absoluteBounds="42.25, 27.375, 2, 2.4945050255457595">
       <DataClassMoniker Name="/iRoboTechDataContext/Order_Access" />
       <nestedChildShapes>
-        <elementListCompartment Id="748cd9b3-205b-4a33-9e2c-685c4495933d" absoluteBounds="42.265, 27.835, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="748cd9b3-205b-4a33-9e2c-685c4495933d" absoluteBounds="42.265, 27.835, 1.9700000000000002, 1.9345050255457559" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="31ab97a0-0b5a-43e6-9df3-17b60a3902bd" absoluteBounds="9.125, 7, 2, 1.1939925130208333">
+    <classShape Id="31ab97a0-0b5a-43e6-9df3-17b60a3902bd" absoluteBounds="9.125, 7, 2, 1.1215884860356642">
       <DataClassMoniker Name="/iRoboTechDataContext/D_AMTP" />
       <nestedChildShapes>
-        <elementListCompartment Id="05862b44-e1c1-4dfe-ae8f-d842283baf27" absoluteBounds="9.14, 7.46, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="05862b44-e1c1-4dfe-ae8f-d842283baf27" absoluteBounds="9.14, 7.46, 1.9700000000000002, 0.5615884860356648" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="387e5117-dbea-4233-899e-ff3f35ce8f0f" absoluteBounds="9.125, 8.375, 2, 2.5401025390625">
+    <classShape Id="387e5117-dbea-4233-899e-ff3f35ce8f0f" absoluteBounds="9.125, 8.375, 2, 2.3228904581069951">
       <DataClassMoniker Name="/iRoboTechDataContext/Setting" />
       <nestedChildShapes>
-        <elementListCompartment Id="53827091-d26f-40dd-91bb-3ae6c3552e43" absoluteBounds="9.14, 8.835, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="53827091-d26f-40dd-91bb-3ae6c3552e43" absoluteBounds="9.14, 8.835, 1.9700000000000002, 1.7628904581069946" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="2a6cc14e-8c9b-4285-a3d2-7096d95bf2d3" absoluteBounds="43.25, 8.875, 2, 4.8477197265625">
+    <classShape Id="2a6cc14e-8c9b-4285-a3d2-7096d95bf2d3" absoluteBounds="43.25, 8.875, 2, 4.3822652673721318">
       <DataClassMoniker Name="/iRoboTechDataContext/Robot_Spy_Group_Message" />
       <nestedChildShapes>
-        <elementListCompartment Id="f46bf685-d61e-4ed6-81be-bf7b2f04f7a4" absoluteBounds="43.265, 9.335, 1.9700000000000002, 4.2877197265625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="f46bf685-d61e-4ed6-81be-bf7b2f04f7a4" absoluteBounds="43.265, 9.335, 1.9700000000000002, 3.8222652673721313" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
     <associationConnector edgePoints="[(45.25 : 10.9239005533854); (46.125 : 10.9239005533854)]" fixedFrom="NotFixed" fixedTo="NotFixed">
@@ -579,56 +579,56 @@
         <classShapeMoniker Id="2a6cc14e-8c9b-4285-a3d2-7096d95bf2d3" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(33.25 : 18.2924625651042); (35.3541666666667 : 18.2924625651042 : JumpStart); (35.5208333333333 : 18.2924625651042 : JumpEnd); (36.3854166666667 : 18.2924625651042 : JumpStart); (36.5520833333333 : 18.2924625651042 : JumpEnd); (36.7291666666667 : 18.2924625651042 : JumpStart); (37.0520858333333 : 18.2924625651042 : JumpEnd); (37.2916666666667 : 18.2924625651042 : JumpStart); (37.4583333333333 : 18.2924625651042 : JumpEnd); (43.1666666666667 : 18.2924625651042 : JumpStart); (43.3333333333333 : 18.2924625651042 : JumpEnd); (44.25 : 18.2924625651042); (44.25 : 13.7227197265625)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(33.25 : 14.71875); (33.5104166666667 : 14.71875 : JumpStart); (33.6770833333333 : 14.71875 : JumpEnd); (33.7916666666667 : 14.71875 : JumpStart); (33.9583333333333 : 14.71875 : JumpEnd); (34.0416666666667 : 14.71875 : JumpStart); (34.3333333333333 : 14.71875 : JumpEnd); (36.3854166666667 : 14.71875 : JumpStart); (36.5520833333333 : 14.71875 : JumpEnd); (36.5729141666667 : 14.71875 : JumpStart); (36.8958333333333 : 14.71875 : JumpEnd); (37.2604166666667 : 14.71875 : JumpStart); (37.4270833333333 : 14.71875 : JumpEnd); (43.1666666666667 : 14.71875 : JumpStart); (43.3333333333333 : 14.71875 : JumpEnd); (44.25 : 14.71875); (44.25 : 13.2572652673721)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/Service_Robot/Service_Robot_Robot_Spy_Group_Message" />
       <nodes>
         <classShapeMoniker Id="538fe207-44b8-4bbc-bfc9-be12897d5113" />
         <classShapeMoniker Id="2a6cc14e-8c9b-4285-a3d2-7096d95bf2d3" />
       </nodes>
     </associationConnector>
-    <classShape Id="d5e63684-9576-4aa4-8d4c-44233e96b384" absoluteBounds="31.5, 9.375, 2, 3.3093082682291666">
+    <classShape Id="d5e63684-9576-4aa4-8d4c-44233e96b384" absoluteBounds="31.5, 9.375, 2, 3.00934872786204">
       <DataClassMoniker Name="/iRoboTechDataContext/Personal_Robot" />
       <nestedChildShapes>
-        <elementListCompartment Id="acb6d70f-b115-45d2-8798-83f0b65a5947" absoluteBounds="31.515, 9.835, 1.9700000000000002, 2.7493082682291665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="acb6d70f-b115-45d2-8798-83f0b65a5947" absoluteBounds="31.515, 9.835, 1.9700000000000002, 2.44934872786204" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(33.5 : 9.64985270182292); (33.5104166666667 : 9.64985270182292 : JumpStart); (33.6770833333333 : 9.64985270182292 : JumpEnd); (33.7916666666667 : 9.64985270182292 : JumpStart); (33.9583333333333 : 9.64985270182292 : JumpEnd); (34.0416666666667 : 9.64985270182292 : JumpStart); (34.2083333333333 : 9.64985270182292 : JumpEnd); (34.375 : 9.64985270182292)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(33.5 : 9.64985270182292); (33.5104166666667 : 9.64985270182292 : JumpStart); (33.6770833333333 : 9.64985270182292 : JumpEnd); (33.7916666666667 : 9.64985270182292 : JumpStart); (33.9583333333333 : 9.64985270182292 : JumpEnd); (34.1666666666667 : 9.64985270182292 : JumpStart); (34.3333333333333 : 9.64985270182292 : JumpEnd); (34.375 : 9.64985270182292)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/Personal_Robot/Personal_Robot_Personal_Robot_Job" />
       <nodes>
         <classShapeMoniker Id="d5e63684-9576-4aa4-8d4c-44233e96b384" />
         <classShapeMoniker Id="9606c9b0-0471-45e0-87c7-89f88eafb5d6" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(33.5 : 11.0248527018229); (33.5104166666667 : 11.0248527018229 : JumpStart); (33.6770833333333 : 11.0248527018229 : JumpEnd); (33.7916666666667 : 11.0248527018229 : JumpStart); (33.9583333333333 : 11.0248527018229 : JumpEnd); (34.0416666666667 : 11.0248527018229 : JumpStart); (34.2083333333333 : 11.0248527018229 : JumpEnd); (37.2604166666667 : 11.0248527018229 : JumpStart); (37.4270833333333 : 11.0248527018229 : JumpEnd); (37.5 : 11.0248527018229); (37.5 : 11.6939111328125); (38.5416666666667 : 11.6939111328125 : JumpStart); (38.7083333333333 : 11.6939111328125 : JumpEnd); (42.6666666666667 : 11.6939111328125 : JumpStart); (42.8333333333333 : 11.6939111328125 : JumpEnd); (43 : 11.6939111328125); (43 : 13.9727197265625); (43.25 : 13.9727197265625); (43.25 : 27.375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(33.5 : 11.0248527018229); (33.5104166666667 : 11.0248527018229 : JumpStart); (33.6770833333333 : 11.0248527018229 : JumpEnd); (33.7916666666667 : 11.0248527018229 : JumpStart); (33.9583333333333 : 11.0248527018229 : JumpEnd); (34.1666666666667 : 11.0248527018229 : JumpStart); (34.3333333333333 : 11.0248527018229 : JumpEnd); (37.2604166666667 : 11.0248527018229 : JumpStart); (37.4270833333333 : 11.0248527018229 : JumpEnd); (37.5 : 11.0248527018229); (37.5 : 11.6939111328125); (38.5416666666667 : 11.6939111328125 : JumpStart); (38.7083333333333 : 11.6939111328125 : JumpEnd); (42.5416666666667 : 11.6939111328125 : JumpStart); (42.7083333333333 : 11.6939111328125 : JumpEnd); (43 : 11.6939111328125); (43 : 13.9727197265625); (43.25 : 13.9727197265625); (43.25 : 27.375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/Personal_Robot/Personal_Robot_Order_Access" />
       <nodes>
         <classShapeMoniker Id="d5e63684-9576-4aa4-8d4c-44233e96b384" />
         <classShapeMoniker Id="3049f63a-e922-47b5-a2de-c6a438ebaf21" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(24.625 : 12.2395247395833); (25.4166666666667 : 12.2395247395833 : JumpStart); (25.5833333333333 : 12.2395247395833 : JumpEnd); (26.1901021041667 : 12.2395247395833 : JumpStart); (26.3567687708333 : 12.2395247395833 : JumpEnd); (27.4322887916667 : 12.2395247395833 : JumpStart); (27.5989554583333 : 12.2395247395833 : JumpEnd); (27.9166641666667 : 12.2395247395833 : JumpStart); (28.1770845833333 : 12.2395247395833 : JumpEnd); (28.4166666666667 : 12.2395247395833 : JumpStart); (28.5833333333333 : 12.2395247395833 : JumpEnd); (30.8541691666667 : 12.2395247395833 : JumpStart); (31.0208358333333 : 12.2395247395833 : JumpEnd); (31.2291671666667 : 12.2395247395833 : JumpStart); (31.3958338333333 : 12.2395247395833 : JumpEnd); (31.5 : 12.2395247395833)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(24.625 : 12.119326171875); (25.4166666666667 : 12.119326171875 : JumpStart); (25.6458333333333 : 12.119326171875 : JumpEnd); (26.0577261089744 : 12.119326171875 : JumpStart); (26.224392775641 : 12.119326171875 : JumpEnd); (26.7916666666667 : 12.119326171875 : JumpStart); (26.9583333333333 : 12.119326171875 : JumpEnd); (27.2916666666667 : 12.119326171875 : JumpStart); (27.4583333333333 : 12.119326171875 : JumpEnd); (27.5416666666667 : 12.119326171875 : JumpStart); (27.7083333333333 : 12.119326171875 : JumpEnd); (28.1666666666667 : 12.119326171875 : JumpStart); (28.3333333333333 : 12.119326171875 : JumpEnd); (28.3854166666667 : 12.119326171875 : JumpStart); (28.5520833333333 : 12.119326171875 : JumpEnd); (30.8541691666667 : 12.119326171875 : JumpStart); (31.0208358333333 : 12.119326171875 : JumpEnd); (31.2291671666667 : 12.119326171875 : JumpStart); (31.3958338333333 : 12.119326171875 : JumpEnd); (31.5 : 12.119326171875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/Service/Service_Personal_Robot" />
       <nodes>
         <classShapeMoniker Id="e531edf0-53ae-4889-8fd7-f080064f6c61" />
         <classShapeMoniker Id="d5e63684-9576-4aa4-8d4c-44233e96b384" />
       </nodes>
     </associationConnector>
-    <classShape Id="cc062d2e-b518-461c-8798-a143a64dcb82" absoluteBounds="6.875, 12.375, 2, 1.1939925130208333">
+    <classShape Id="cc062d2e-b518-461c-8798-a143a64dcb82" absoluteBounds="6.875, 12.375, 2, 1.121588486035666">
       <DataClassMoniker Name="/iRoboTechDataContext/D_BTYP" />
       <nestedChildShapes>
-        <elementListCompartment Id="eb1abe72-2505-42d5-a210-fc2c5f9874ec" absoluteBounds="6.8900000000000006, 12.835, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="eb1abe72-2505-42d5-a210-fc2c5f9874ec" absoluteBounds="6.8900000000000006, 12.835, 1.9700000000000002, 0.5615884860356648" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="cbea8e11-dc0a-4a2b-9d39-db7706305edb" absoluteBounds="3.75, 12.375, 2, 1.1939925130208333">
+    <classShape Id="cbea8e11-dc0a-4a2b-9d39-db7706305edb" absoluteBounds="3.75, 12.375, 2, 1.121588486035666">
       <DataClassMoniker Name="/iRoboTechDataContext/D_BDIR" />
       <nestedChildShapes>
-        <elementListCompartment Id="2f81ef56-240b-40b1-914b-0da8ac3702ce" absoluteBounds="3.765, 12.835, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="2f81ef56-240b-40b1-914b-0da8ac3702ce" absoluteBounds="3.765, 12.835, 1.9700000000000002, 0.5615884860356648" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="7826c8cc-2eca-4233-8cc8-6fb0edb854aa" absoluteBounds="31.625, 6.5, 2, 2.5401025390625">
+    <classShape Id="7826c8cc-2eca-4233-8cc8-6fb0edb854aa" absoluteBounds="31.625, 6.5, 2, 2.3228904581069951">
       <DataClassMoniker Name="/iRoboTechDataContext/Service_Robot_Group" />
       <nestedChildShapes>
-        <elementListCompartment Id="6f4de7c9-4ba4-4f16-997d-828f8be91364" absoluteBounds="31.64, 6.96, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="6f4de7c9-4ba4-4f16-997d-828f8be91364" absoluteBounds="31.64, 6.96, 1.9700000000000002, 1.7628904581069946" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
     <associationConnector edgePoints="[(33.25 : 17.2974908938802); (33.59375 : 17.2974908938802); (33.59375 : 9.0401025390625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
@@ -638,10 +638,10 @@
         <classShapeMoniker Id="7826c8cc-2eca-4233-8cc8-6fb0edb854aa" />
       </nodes>
     </associationConnector>
-    <classShape Id="b704d88d-818d-43cc-a579-f7af3387cde6" absoluteBounds="31.875, 18.875, 2, 2.1554996744791666">
+    <classShape Id="b704d88d-818d-43cc-a579-f7af3387cde6" absoluteBounds="31.875, 18.875, 2, 1.9796613232294753">
       <DataClassMoniker Name="/iRoboTechDataContext/Group_Header" />
       <nestedChildShapes>
-        <elementListCompartment Id="22765888-a6c8-4568-a461-dc01998a668e" absoluteBounds="31.89, 19.335, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="22765888-a6c8-4568-a461-dc01998a668e" absoluteBounds="31.89, 19.335, 1.9700000000000002, 1.4196613232294717" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
     <associationConnector edgePoints="[(32.5625 : 18.875); (32.5625 : 18.4919254557292)]" fixedFrom="NotFixed" fixedTo="NotFixed">
@@ -651,84 +651,84 @@
         <classShapeMoniker Id="538fe207-44b8-4bbc-bfc9-be12897d5113" />
       </nodes>
     </associationConnector>
-    <classShape Id="d46bf9fc-fd29-4bde-b6c2-f4be3620161a" absoluteBounds="28.625, 8.25, 2, 2.9247054036458331">
+    <classShape Id="d46bf9fc-fd29-4bde-b6c2-f4be3620161a" absoluteBounds="28.625, 8.25, 2, 2.6661195929845167">
       <DataClassMoniker Name="/iRoboTechDataContext/Group" />
       <nestedChildShapes>
-        <elementListCompartment Id="cbc7a1ff-3e9a-4e0f-ae3a-0bcbcbcf6cc7" absoluteBounds="28.64, 8.71, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="cbc7a1ff-3e9a-4e0f-ae3a-0bcbcbcf6cc7" absoluteBounds="28.64, 8.71, 1.9700000000000002, 2.1061195929845171" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(30.625 : 9.21875); (30.6666666666667 : 9.21875 : JumpStart); (30.8333333333333 : 9.21875 : JumpEnd); (30.9375025 : 9.21875); (30.9375025 : 21.375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(30.625 : 9.21875); (30.9375025 : 9.21875); (30.9375025 : 21.375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/Group/Group_Group_Menu_Ussd" />
       <nodes>
         <classShapeMoniker Id="d46bf9fc-fd29-4bde-b6c2-f4be3620161a" />
         <classShapeMoniker Id="040fe605-b00b-413e-9f55-7ad69a24a172" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(30.625 : 8.64505126953125); (30.6666666666667 : 8.64505126953125 : JumpStart); (30.8333333333333 : 8.64505126953125 : JumpEnd); (31.0416666666667 : 8.64505126953125 : JumpStart); (31.2083333333333 : 8.64505126953125 : JumpEnd); (31.2291671666667 : 8.64505126953125 : JumpStart); (31.3958338333333 : 8.64505126953125 : JumpEnd); (31.4166666666667 : 8.64505126953125 : JumpStart); (31.5833333333333 : 8.64505126953125 : JumpEnd); (31.625 : 8.64505126953125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(30.625 : 8.64505126953125); (31.625 : 8.64505126953125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/Group/Group_Service_Robot_Group" />
       <nodes>
         <classShapeMoniker Id="d46bf9fc-fd29-4bde-b6c2-f4be3620161a" />
         <classShapeMoniker Id="7826c8cc-2eca-4233-8cc8-6fb0edb854aa" />
       </nodes>
     </associationConnector>
-    <classShape Id="d6e68470-2ff4-40f6-82c7-aef5b2430860" absoluteBounds="3.75, 13.75, 2, 1.1939925130208333">
+    <classShape Id="d6e68470-2ff4-40f6-82c7-aef5b2430860" absoluteBounds="3.75, 13.75, 2, 1.121588486035666">
       <DataClassMoniker Name="/iRoboTechDataContext/D_AMUT" />
       <nestedChildShapes>
-        <elementListCompartment Id="8356cfb3-01fd-41b1-b8b9-ae2f9a1f381d" absoluteBounds="3.7649999999999997, 14.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="8356cfb3-01fd-41b1-b8b9-ae2f9a1f381d" absoluteBounds="3.7649999999999997, 14.21, 1.9700000000000002, 0.5615884860356648" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="5b892a17-65cd-4bbd-9111-7b4e2b437a07" absoluteBounds="31.625, 25.5, 2, 5.2323225911458326">
+    <classShape Id="5b892a17-65cd-4bbd-9111-7b4e2b437a07" absoluteBounds="31.625, 25.5, 2, 4.7254944022496552">
       <DataClassMoniker Name="/iRoboTechDataContext/Group_Header_Item" />
       <nestedChildShapes>
-        <elementListCompartment Id="10657a1b-0491-4ea1-b141-fcefe49fd773" absoluteBounds="31.64, 25.96, 1.9700000000000002, 4.672322591145833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="10657a1b-0491-4ea1-b141-fcefe49fd773" absoluteBounds="31.64, 25.96, 1.9700000000000002, 4.1654944022496538" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(1.07336288461538 : 12.4151025390625); (1.07336288461538 : 28.1161612955729); (1.46116123397436 : 28.1161612955729 : JumpStart); (1.62782790064102 : 28.1161612955729 : JumpEnd); (1.93229291666667 : 28.1161612955729 : JumpStart); (2.09895958333333 : 28.1161612955729 : JumpEnd); (2.33073229166667 : 28.1161612955729 : JumpStart); (2.49739895833333 : 28.1161612955729 : JumpEnd); (2.52995197916667 : 28.1161612955729 : JumpStart); (2.69661864583333 : 28.1161612955729 : JumpEnd); (28.0104179166667 : 28.1161612955729 : JumpStart); (28.1770845833333 : 28.1161612955729 : JumpEnd); (31.625 : 28.1161612955729)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(1.07336288461538 : 12.4151025390625); (1.07336288461538 : 28.1161612955729); (1.46116123397436 : 28.1161612955729 : JumpStart); (1.62782790064102 : 28.1161612955729 : JumpEnd); (1.93229291666667 : 28.1161612955729 : JumpStart); (2.09895958333333 : 28.1161612955729 : JumpEnd); (2.33073229166667 : 28.1161612955729 : JumpStart); (2.49739895833333 : 28.1161612955729 : JumpEnd); (2.52995197916667 : 28.1161612955729 : JumpStart); (2.69661864583333 : 28.1161612955729 : JumpEnd); (31.625 : 28.1161612955729)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/App_Base_Define/App_Base_Define_Group_Header_Item" />
       <nodes>
         <classShapeMoniker Id="c5620a48-cb13-4806-aa6a-b5aad225c16f" />
         <classShapeMoniker Id="5b892a17-65cd-4bbd-9111-7b4e2b437a07" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(33.03125 : 21.0304996744792); (33.03125 : 25.5)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(33.03125 : 20.8546613232295); (33.03125 : 25.5)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/Group_Header/Group_Header_Group_Header_Item" />
       <nodes>
         <classShapeMoniker Id="b704d88d-818d-43cc-a579-f7af3387cde6" />
         <classShapeMoniker Id="5b892a17-65cd-4bbd-9111-7b4e2b437a07" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(32 : 23.7228011067708); (32 : 25.5)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(32 : 23.5262758906682); (32 : 25.5)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/Group_Menu_Ussd/Group_Menu_Ussd_Group_Header_Item" />
       <nodes>
         <classShapeMoniker Id="040fe605-b00b-413e-9f55-7ad69a24a172" />
         <classShapeMoniker Id="5b892a17-65cd-4bbd-9111-7b4e2b437a07" />
       </nodes>
     </associationConnector>
-    <classShape Id="b711f503-a7e2-49bd-862c-d920e422a3c3" absoluteBounds="6.875, 13.75, 2, 1.1939925130208344">
+    <classShape Id="b711f503-a7e2-49bd-862c-d920e422a3c3" absoluteBounds="6.875, 13.75, 2, 1.121588486035666">
       <DataClassMoniker Name="/iRoboTechDataContext/D_ACNT" />
       <nestedChildShapes>
-        <elementListCompartment Id="def0d62b-ec54-4656-866c-13d9c35213bd" absoluteBounds="6.8900000000000006, 14.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="def0d62b-ec54-4656-866c-13d9c35213bd" absoluteBounds="6.8900000000000006, 14.21, 1.9700000000000002, 0.5615884860356648" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="e05ed7b9-4a45-45b0-a92c-567d19b8d53d" absoluteBounds="6.875, 15.125, 2, 1.1939925130208344">
+    <classShape Id="e05ed7b9-4a45-45b0-a92c-567d19b8d53d" absoluteBounds="6.875, 15.125, 2, 1.121588486035666">
       <DataClassMoniker Name="/iRoboTechDataContext/D_DSTP" />
       <nestedChildShapes>
-        <elementListCompartment Id="c0bad870-8c83-4c46-af96-5f70650c1241" absoluteBounds="6.8900000000000006, 15.585, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="c0bad870-8c83-4c46-af96-5f70650c1241" absoluteBounds="6.8900000000000006, 15.585, 1.9700000000000002, 0.5615884860356648" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="c630c186-553e-40da-beb6-88bb73589187" absoluteBounds="6.875, 16.5, 2, 1.1939925130208344">
+    <classShape Id="c630c186-553e-40da-beb6-88bb73589187" absoluteBounds="6.875, 16.5, 2, 1.121588486035666">
       <DataClassMoniker Name="/iRoboTechDataContext/D_MNTP" />
       <nestedChildShapes>
-        <elementListCompartment Id="98ec8ef2-acd9-4c38-a8c7-5225d373dd79" absoluteBounds="6.8900000000000006, 16.96, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="98ec8ef2-acd9-4c38-a8c7-5225d373dd79" absoluteBounds="6.8900000000000006, 16.96, 1.9700000000000002, 0.5615884860356648" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="ceea7795-95c0-46a3-9280-fc510e99d4bb" absoluteBounds="25.875, 14.5, 2, 6.7707340494791657">
+    <classShape Id="ceea7795-95c0-46a3-9280-fc510e99d4bb" absoluteBounds="25.875, 14.5, 2, 6.0984109417597452">
       <DataClassMoniker Name="/iRoboTechDataContext/Menu_Ussd" />
       <nestedChildShapes>
-        <elementListCompartment Id="05f4b3f6-9e69-4766-bd64-d1afaad97e4f" absoluteBounds="25.89, 14.96, 1.9700000000000002, 6.2107340494791661" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="05f4b3f6-9e69-4766-bd64-d1afaad97e4f" absoluteBounds="25.89, 14.96, 1.9700000000000002, 5.5384109417597447" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(27.875 : 21.2707340494792); (28.0348256849011 : 21.4305597343803 : JumpStart); (28.1526768150989 : 21.5484108645781 : JumpEnd); (28.25 : 21.6457340494792); (28.25 : 21); (30 : 21); (30.375 : 21.375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(27.875 : 21.2707340494792); (28.25 : 21.6457340494792); (28.25 : 21); (30 : 21); (30.375 : 21.375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/Menu_Ussd/Menu_Ussd_Group_Menu_Ussd" />
       <nodes>
         <classShapeMoniker Id="ceea7795-95c0-46a3-9280-fc510e99d4bb" />
@@ -742,13 +742,13 @@
         <classShapeMoniker Id="ceea7795-95c0-46a3-9280-fc510e99d4bb" />
       </nodes>
     </associationConnector>
-    <classShape Id="4d458ba3-3ef4-4e9f-8fbc-0e072a694b98" absoluteBounds="35.625, 24.625, 2, 11.962872721354165">
+    <classShape Id="4d458ba3-3ef4-4e9f-8fbc-0e072a694b98" absoluteBounds="35.625, 24.625, 2, 10.732004262606303">
       <DataClassMoniker Name="/iRoboTechDataContext/Order" />
       <nestedChildShapes>
-        <elementListCompartment Id="1274ca1c-3bb2-4c91-8777-692d2e153cfc" absoluteBounds="35.64, 25.085, 1.9700000000000002, 11.402872721354166" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="1274ca1c-3bb2-4c91-8777-692d2e153cfc" absoluteBounds="35.64, 25.085, 1.9700000000000002, 10.172004262606302" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(37.375 : 24.625); (37.375 : 18.0304996744792)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(37.375 : 24.625); (37.375 : 17.8546613232295)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/Order/Order_Personal_Robot_Job_Order" />
       <nodes>
         <classShapeMoniker Id="4d458ba3-3ef4-4e9f-8fbc-0e072a694b98" />
@@ -762,7 +762,7 @@
         <classShapeMoniker Id="3049f63a-e922-47b5-a2de-c6a438ebaf21" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.414065625 : 12.4151025390625); (2.414065625 : 34.3506786816406); (35.625 : 34.3506786816406)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(2.414065625 : 12.4151025390625); (2.414065625 : 34.3506786816406); (2.52995197916667 : 34.3506786816406 : JumpStart); (2.69661864583333 : 34.3506786816406 : JumpEnd); (35.625 : 34.3506786816406)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/App_Base_Define/App_Base_Define_Order" />
       <nodes>
         <classShapeMoniker Id="c5620a48-cb13-4806-aa6a-b5aad225c16f" />
@@ -790,24 +790,24 @@
         <classShapeMoniker Id="4d458ba3-3ef4-4e9f-8fbc-0e072a694b98" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(33.5 : 12.2796541341146); (33.5104166666667 : 12.2796541341146 : JumpStart); (33.6770833333333 : 12.2796541341146 : JumpEnd); (33.7916666666667 : 12.2796541341146 : JumpStart); (33.9583333333333 : 12.2796541341146 : JumpEnd); (36.8125 : 12.2796541341146); (36.8125 : 24.625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(33.5 : 12.2796541341146); (33.5104166666667 : 12.2796541341146 : JumpStart); (33.6770833333333 : 12.2796541341146 : JumpEnd); (33.7916666666667 : 12.2796541341146 : JumpStart); (33.9583333333333 : 12.2796541341146 : JumpEnd); (34.1666666666667 : 12.2796541341146 : JumpStart); (34.3333333333333 : 12.2796541341146 : JumpEnd); (36.6562475 : 12.2796541341146); (36.6562475 : 24.625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/Personal_Robot/Personal_Robot_Order" />
       <nodes>
         <classShapeMoniker Id="d5e63684-9576-4aa4-8d4c-44233e96b384" />
         <classShapeMoniker Id="4d458ba3-3ef4-4e9f-8fbc-0e072a694b98" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(33.25 : 13.2912731347656); (33.5104166666667 : 13.2912731347656 : JumpStart); (33.6770833333333 : 13.2912731347656 : JumpEnd); (33.7916666666667 : 13.2912731347656 : JumpStart); (33.9583333333333 : 13.2912731347656 : JumpEnd); (36.7291666666667 : 13.2912731347656 : JumpStart); (36.8958333333333 : 13.2912731347656 : JumpEnd); (36.9687525 : 13.2912731347656); (36.9687525 : 24.625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(33.25 : 13.2912731347656); (33.5104166666667 : 13.2912731347656 : JumpStart); (33.6770833333333 : 13.2912731347656 : JumpEnd); (36.8125 : 13.2912731347656); (36.8125 : 24.625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/Service_Robot/Service_Robot_Order" />
       <nodes>
         <classShapeMoniker Id="538fe207-44b8-4bbc-bfc9-be12897d5113" />
         <classShapeMoniker Id="4d458ba3-3ef4-4e9f-8fbc-0e072a694b98" />
       </nodes>
     </associationConnector>
-    <classShape Id="8962688e-1937-4deb-b34e-614df2a83817" absoluteBounds="38.5, 29.5, 2, 5.8092268880208326">
+    <classShape Id="8962688e-1937-4deb-b34e-614df2a83817" absoluteBounds="38.5, 29.5, 2, 5.240338104565943">
       <DataClassMoniker Name="/iRoboTechDataContext/Order_State" />
       <nestedChildShapes>
-        <elementListCompartment Id="c27d31cb-5fdc-46b0-96b5-92ec58372da2" absoluteBounds="38.515, 29.96, 1.9700000000000002, 5.249226888020833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="c27d31cb-5fdc-46b0-96b5-92ec58372da2" absoluteBounds="38.515, 29.96, 1.9700000000000002, 4.680338104565938" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
     <associationConnector edgePoints="[(1.54449456730769 : 12.4151025390625); (1.54449456730769 : 37.0878727213542); (38.125 : 37.0878727213542); (38.125 : 32.4046134440104); (38.5 : 32.4046134440104)]" fixedFrom="NotFixed" fixedTo="NotFixed">
@@ -824,10 +824,10 @@
         <classShapeMoniker Id="8962688e-1937-4deb-b34e-614df2a83817" />
       </nodes>
     </associationConnector>
-    <classShape Id="7a129f0f-9be0-464e-b5b9-57b6652a9bdf" absoluteBounds="31.625, 31.375, 2, 2.1554996744791666">
+    <classShape Id="7a129f0f-9be0-464e-b5b9-57b6652a9bdf" absoluteBounds="31.625, 31.375, 2, 1.9796613232294718">
       <DataClassMoniker Name="/iRoboTechDataContext/Order_Step_History" />
       <nestedChildShapes>
-        <elementListCompartment Id="d1f8a3de-ee84-412d-861f-489a4bbc1aaa" absoluteBounds="31.64, 31.835, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="d1f8a3de-ee84-412d-861f-489a4bbc1aaa" absoluteBounds="31.64, 31.835, 1.9700000000000002, 1.4196613232294717" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
     <associationConnector edgePoints="[(35.625 : 32.4527498372396); (33.625 : 32.4527498372396)]" fixedFrom="NotFixed" fixedTo="NotFixed">
@@ -837,168 +837,174 @@
         <classShapeMoniker Id="7a129f0f-9be0-464e-b5b9-57b6652a9bdf" />
       </nodes>
     </associationConnector>
-    <classShape Id="970f8ba6-e99b-4efa-a317-52e16b8e03d8" absoluteBounds="38.75, 19.5, 2, 7.3476383463541657">
-      <DataClassMoniker Name="/iRoboTechDataContext/Order_Detail" />
-      <nestedChildShapes>
-        <elementListCompartment Id="d809c4f5-d0b4-4dbf-b34c-7077671c8baf" absoluteBounds="38.765, 19.96, 1.9700000000000002, 6.7876383463541661" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <associationConnector edgePoints="[(38.75 : 21.4863598632813); (37.4583333333333 : 21.4863598632813 : JumpStart); (37.2916666666667 : 21.4863598632813 : JumpEnd); (36.8958333333333 : 21.4863598632813 : JumpStart); (36.7291666666667 : 21.4863598632813 : JumpEnd); (36.5 : 21.4863598632813)]" fixedFrom="NotFixed" fixedTo="NotFixed">
-      <AssociationMoniker Name="/iRoboTechDataContext/Order_Detail/Order_Detail_Service_Robot_Replay_Message" />
-      <nodes>
-        <classShapeMoniker Id="970f8ba6-e99b-4efa-a317-52e16b8e03d8" />
-        <classShapeMoniker Id="3e14472d-157f-4943-afa2-cb448fd2d599" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(33.0000005 : 25.5); (33.0000005 : 23.7227197265625); (36.7291666666667 : 23.7227197265625 : JumpStart); (36.8958333333333 : 23.7227197265625 : JumpEnd); (37.2916666666667 : 23.7227197265625 : JumpStart); (37.4583333333333 : 23.7227197265625 : JumpEnd); (38.375 : 23.7227197265625); (38.375 : 24.1982511048177); (38.75 : 24.1982511048177)]" fixedFrom="NotFixed" fixedTo="NotFixed">
-      <AssociationMoniker Name="/iRoboTechDataContext/Group_Header_Item/Group_Header_Item_Order_Detail" />
-      <nodes>
-        <classShapeMoniker Id="5b892a17-65cd-4bbd-9111-7b4e2b437a07" />
-        <classShapeMoniker Id="970f8ba6-e99b-4efa-a317-52e16b8e03d8" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(37.625 : 25.7363191731771); (38.75 : 25.7363191731771)]" fixedFrom="NotFixed" fixedTo="NotFixed">
-      <AssociationMoniker Name="/iRoboTechDataContext/Order/Order_Order_Detail" />
-      <nodes>
-        <classShapeMoniker Id="4d458ba3-3ef4-4e9f-8fbc-0e072a694b98" />
-        <classShapeMoniker Id="970f8ba6-e99b-4efa-a317-52e16b8e03d8" />
-      </nodes>
-    </associationConnector>
-    <classShape Id="848003fa-db0a-4e3b-bbd3-fa4cf6df641e" absoluteBounds="3.75, 15.25, 2, 1.1939925130208333">
+    <classShape Id="848003fa-db0a-4e3b-bbd3-fa4cf6df641e" absoluteBounds="3.75, 15.25, 2, 1.121588486035666">
       <DataClassMoniker Name="/iRoboTechDataContext/D_RMTP" />
       <nestedChildShapes>
-        <elementListCompartment Id="e83c0903-923e-4f51-96c7-bba20a319534" absoluteBounds="3.7649999999999997, 15.71, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="e83c0903-923e-4f51-96c7-bba20a319534" absoluteBounds="3.7649999999999997, 15.71, 1.9700000000000002, 0.5615884860356648" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="1b250dbd-071e-4288-bdf6-78fdcb8b63ea" absoluteBounds="26.125, 3.375, 2, 7.7322412109375005">
-      <DataClassMoniker Name="/iRoboTechDataContext/Robot" />
-      <nestedChildShapes>
-        <elementListCompartment Id="bdf7049c-7e67-40a2-8a2b-1d2306199d99" absoluteBounds="26.14, 3.835, 1.9700000000000002, 7.1722412109375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <associationConnector edgePoints="[(28.03125 : 11.1072412109375); (28.03125 : 12.7904777018229); (30.8541691666667 : 12.7904777018229 : JumpStart); (31.0208358333333 : 12.7904777018229 : JumpEnd); (31.083681830028 : 12.7904777018229 : JumpStart); (31.3958338333333 : 12.7904777018229 : JumpEnd); (33.5104166666667 : 12.7904777018229 : JumpStart); (33.6770833333333 : 12.7904777018229 : JumpEnd); (33.7916666666667 : 12.7904777018229 : JumpStart); (33.9583333333333 : 12.7904777018229 : JumpEnd); (36.7291666666667 : 12.7904777018229 : JumpStart); (36.8958333333333 : 12.7904777018229 : JumpEnd); (37.0416666666667 : 12.7904777018229 : JumpStart); (37.2083333333333 : 12.7904777018229 : JumpEnd); (37.2604166666667 : 12.7904777018229 : JumpStart); (37.4270833333333 : 12.7904777018229 : JumpEnd); (37.625 : 12.7904777018229)]" fixedFrom="Algorithm" fixedTo="Algorithm">
-      <AssociationMoniker Name="/iRoboTechDataContext/Robot/Robot_Service_Robot_Public" />
-      <nodes>
-        <classShapeMoniker Id="1b250dbd-071e-4288-bdf6-78fdcb8b63ea" />
-        <classShapeMoniker Id="4d6242c6-98d8-43be-898a-2c031cea0667" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(28.125 : 6.39505126953125); (28.625 : 6.39505126953125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
-      <AssociationMoniker Name="/iRoboTechDataContext/Robot/Robot_Job" />
-      <nodes>
-        <classShapeMoniker Id="1b250dbd-071e-4288-bdf6-78fdcb8b63ea" />
-        <classShapeMoniker Id="14de1a98-0fb1-4493-8946-b8c0583b83f7" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(27.7578098125 : 11.1072412109375); (27.7578098125 : 11.4822412109375); (27.9166641666667 : 11.4822412109375 : JumpStart); (28.1770845833333 : 11.4822412109375 : JumpEnd); (30.75 : 11.4822412109375); (30.75 : 3.04607506705729); (31.25 : 3.04607506705729)]" fixedFrom="Algorithm" fixedTo="Algorithm">
-      <AssociationMoniker Name="/iRoboTechDataContext/Robot/Robot_Organ_Description" />
-      <nodes>
-        <classShapeMoniker Id="1b250dbd-071e-4288-bdf6-78fdcb8b63ea" />
-        <classShapeMoniker Id="9514d2f2-ac26-412b-96cd-ad2331e25933" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(27.9999975 : 11.1072412109375); (27.9999975 : 14.125); (27.5989554583333 : 14.125 : JumpStart); (27.4322887916667 : 14.125 : JumpEnd); (26.3567687708333 : 14.125 : JumpStart); (26.1901021041667 : 14.125 : JumpEnd); (25.5833333333333 : 14.125 : JumpStart); (25.4166666666667 : 14.125 : JumpEnd); (24.375 : 14.125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
-      <AssociationMoniker Name="/iRoboTechDataContext/Robot/Robot_Robot_Import" />
-      <nodes>
-        <classShapeMoniker Id="1b250dbd-071e-4288-bdf6-78fdcb8b63ea" />
-        <classShapeMoniker Id="51ce2f39-ae56-4916-bc83-b5af9a609d94" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(28.0625025 : 11.1072412109375); (28.0625025 : 13.3125); (28.375 : 13.3125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
-      <AssociationMoniker Name="/iRoboTechDataContext/Robot/Robot_Send_Advertising" />
-      <nodes>
-        <classShapeMoniker Id="1b250dbd-071e-4288-bdf6-78fdcb8b63ea" />
-        <classShapeMoniker Id="00157053-c035-463c-8f7f-eee32c099b77" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(27.03124675 : 11.1072412109375); (27.03124675 : 11.3572412109375); (27.4322887916667 : 11.3572412109375 : JumpStart); (27.5989554583333 : 11.3572412109375 : JumpEnd); (27.6744764791667 : 11.3572412109375 : JumpStart); (27.8411431458333 : 11.3572412109375 : JumpEnd); (27.9166641666667 : 11.3572412109375 : JumpStart); (28.1770845833333 : 11.3572412109375 : JumpEnd); (28.2916666666667 : 11.3572412109375 : JumpStart); (28.4583333333333 : 11.3572412109375 : JumpEnd); (30.6666666666667 : 11.3572412109375 : JumpStart); (30.8333333333333 : 11.3572412109375 : JumpEnd); (30.8541691666667 : 11.3572412109375 : JumpStart); (31.0208358333333 : 11.3572412109375 : JumpEnd); (31.125 : 11.3572412109375); (31.125 : 6.39109537760416); (31.2291671666667 : 6.39109537760416 : JumpStart); (31.3958338333333 : 6.39109537760416 : JumpEnd); (34.7916671666667 : 6.39109537760416 : JumpStart); (34.9583338333333 : 6.39109537760416 : JumpEnd); (40.25 : 6.39109537760416); (40.25 : 5.2187505); (42.75 : 5.2187505)]" fixedFrom="Algorithm" fixedTo="Algorithm">
-      <AssociationMoniker Name="/iRoboTechDataContext/Robot/Robot_Robot_Spy_Group" />
-      <nodes>
-        <classShapeMoniker Id="1b250dbd-071e-4288-bdf6-78fdcb8b63ea" />
-        <classShapeMoniker Id="442392df-8b28-4a86-b44b-1b7c8f7d012b" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(28.125 : 11.1072412109375); (28.5 : 11.4822412109375); (28.5 : 12.5); (30.8765374615385 : 12.5); (30.8785769349011 : 12.5020394733627 : JumpStart); (30.9964280650989 : 12.6198906035604 : JumpEnd); (31.2515374615385 : 12.875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
-      <AssociationMoniker Name="/iRoboTechDataContext/Robot/Robot_Service_Robot" />
-      <nodes>
-        <classShapeMoniker Id="1b250dbd-071e-4288-bdf6-78fdcb8b63ea" />
-        <classShapeMoniker Id="538fe207-44b8-4bbc-bfc9-be12897d5113" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(28.125 : 8.75114624023437); (28.375 : 8.75114624023437); (28.375 : 7.9151025390625); (30.6666666666667 : 7.9151025390625 : JumpStart); (30.8333333333333 : 7.9151025390625 : JumpEnd); (31.0416666666667 : 7.9151025390625 : JumpStart); (31.2083333333333 : 7.9151025390625 : JumpEnd); (31.2291671666667 : 7.9151025390625 : JumpStart); (31.3958338333333 : 7.9151025390625 : JumpEnd); (31.5 : 7.9151025390625); (31.5 : 9.125); (33.5104166666667 : 9.125 : JumpStart); (33.6770833333333 : 9.125 : JumpEnd); (33.7916666666667 : 9.125 : JumpStart); (33.9583333333333 : 9.125 : JumpEnd); (34.125 : 9.125); (34.125 : 11.5689111328125); (37.2604166666667 : 11.5689111328125 : JumpStart); (37.5833333333333 : 11.5689111328125 : JumpEnd); (38.5416666666667 : 11.5689111328125 : JumpStart); (38.7083333333333 : 11.5689111328125 : JumpEnd); (42.75 : 11.5689111328125); (42.75 : 14.2227197265625); (43.1666666666667 : 14.2227197265625 : JumpStart); (43.3333333333333 : 14.2227197265625 : JumpEnd); (44.25 : 14.2227197265625); (44.25 : 13.7227197265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
-      <AssociationMoniker Name="/iRoboTechDataContext/Robot/Robot_Robot_Spy_Group_Message" />
-      <nodes>
-        <classShapeMoniker Id="1b250dbd-071e-4288-bdf6-78fdcb8b63ea" />
-        <classShapeMoniker Id="2a6cc14e-8c9b-4285-a3d2-7096d95bf2d3" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(26.546870875 : 11.1072412109375); (26.546870875 : 11.7671304752604); (27.4322887916667 : 11.7671304752604 : JumpStart); (27.5989554583333 : 11.7671304752604 : JumpEnd); (27.9166641666667 : 11.7671304752604 : JumpStart); (28.1770845833333 : 11.7671304752604 : JumpEnd); (28.4166666666667 : 11.7671304752604 : JumpStart); (28.5833333333333 : 11.7671304752604 : JumpEnd); (30.8541691666667 : 11.7671304752604 : JumpStart); (31.0208358333333 : 11.7671304752604 : JumpEnd); (31.2291671666667 : 11.7671304752604 : JumpStart); (31.3958338333333 : 11.7671304752604 : JumpEnd); (31.5 : 11.7671304752604)]" fixedFrom="Algorithm" fixedTo="Algorithm">
-      <AssociationMoniker Name="/iRoboTechDataContext/Robot/Robot_Personal_Robot" />
-      <nodes>
-        <classShapeMoniker Id="1b250dbd-071e-4288-bdf6-78fdcb8b63ea" />
-        <classShapeMoniker Id="d5e63684-9576-4aa4-8d4c-44233e96b384" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(27.515622125 : 11.1072412109375); (27.515622125 : 14.375); (28 : 14.375); (28 : 20.0513012695313); (28.0104179166667 : 20.0513012695313 : JumpStart); (28.1770845833333 : 20.0513012695313 : JumpEnd); (30.8541691666667 : 20.0513012695313 : JumpStart); (31.0208358333333 : 20.0513012695313 : JumpEnd); (31.875 : 20.0513012695313)]" fixedFrom="Algorithm" fixedTo="Algorithm">
-      <AssociationMoniker Name="/iRoboTechDataContext/Robot/Robot_Group_Header" />
-      <nodes>
-        <classShapeMoniker Id="1b250dbd-071e-4288-bdf6-78fdcb8b63ea" />
-        <classShapeMoniker Id="b704d88d-818d-43cc-a579-f7af3387cde6" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(28.125 : 9.96044122558594); (28.625 : 9.96044122558594)]" fixedFrom="Algorithm" fixedTo="Algorithm">
-      <AssociationMoniker Name="/iRoboTechDataContext/Robot/Robot_Group" />
-      <nodes>
-        <classShapeMoniker Id="1b250dbd-071e-4288-bdf6-78fdcb8b63ea" />
-        <classShapeMoniker Id="d46bf9fc-fd29-4bde-b6c2-f4be3620161a" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(26.2734354375 : 11.1072412109375); (26.2734354375 : 14.5)]" fixedFrom="Algorithm" fixedTo="Algorithm">
-      <AssociationMoniker Name="/iRoboTechDataContext/Robot/Robot_Menu_Ussd" />
-      <nodes>
-        <classShapeMoniker Id="1b250dbd-071e-4288-bdf6-78fdcb8b63ea" />
-        <classShapeMoniker Id="ceea7795-95c0-46a3-9280-fc510e99d4bb" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(28.09375125 : 11.1072412109375); (28.09375125 : 33.9405866780599); (35.625 : 33.9405866780599)]" fixedFrom="Algorithm" fixedTo="Algorithm">
-      <AssociationMoniker Name="/iRoboTechDataContext/Robot/Robot_Order" />
-      <nodes>
-        <classShapeMoniker Id="1b250dbd-071e-4288-bdf6-78fdcb8b63ea" />
-        <classShapeMoniker Id="4d458ba3-3ef4-4e9f-8fbc-0e072a694b98" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(25.125 : 7.39541660486779); (26.125 : 7.39541660486779)]" fixedFrom="Algorithm" fixedTo="Algorithm">
-      <AssociationMoniker Name="/iRoboTechDataContext/Organ/Organ_Robot" />
-      <nodes>
-        <classShapeMoniker Id="669756dd-27b0-4d22-a036-057ecbe3cb6a" />
-        <classShapeMoniker Id="1b250dbd-071e-4288-bdf6-78fdcb8b63ea" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(26.8342307692308 : 3.375); (26.8342307692308 : 3.25); (27.4296153846154 : 3.25); (27.4296153846154 : 3.375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
-      <AssociationMoniker Name="/iRoboTechDataContext/Robot/Robot_Robot" />
-      <nodes>
-        <classShapeMoniker Id="1b250dbd-071e-4288-bdf6-78fdcb8b63ea" />
-        <classShapeMoniker Id="1b250dbd-071e-4288-bdf6-78fdcb8b63ea" />
-      </nodes>
-    </associationConnector>
-    <classShape Id="c9aeda66-e6f9-48bf-816e-a193f0988cba" absoluteBounds="28.625, 0.5, 2, 4.4631168619791666">
+    <classShape Id="c9aeda66-e6f9-48bf-816e-a193f0988cba" absoluteBounds="28.625, 0.5, 2, 4.0390361324946085">
       <DataClassMoniker Name="/iRoboTechDataContext/Organ_Media" />
       <nestedChildShapes>
-        <elementListCompartment Id="f47c4ec3-cb5c-4cbf-9fd1-34a53369c634" absoluteBounds="28.64, 0.96, 1.9700000000000002, 3.903116861979167" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="f47c4ec3-cb5c-4cbf-9fd1-34a53369c634" absoluteBounds="28.64, 0.96, 1.9700000000000002, 3.4790361324946084" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(28.125 : 4.16905843098958); (28.625 : 4.16905843098958)]" fixedFrom="Algorithm" fixedTo="Algorithm">
-      <AssociationMoniker Name="/iRoboTechDataContext/Robot/Robot_Organ_Media" />
-      <nodes>
-        <classShapeMoniker Id="1b250dbd-071e-4288-bdf6-78fdcb8b63ea" />
-        <classShapeMoniker Id="c9aeda66-e6f9-48bf-816e-a193f0988cba" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(24.5851432307692 : 5.5); (24.5851432307692 : 5.1362939453125); (25.375 : 5.1362939453125); (25.375 : 2.79169840494792); (25.4166666666667 : 2.79169840494792 : JumpStart); (25.5833333333333 : 2.79169840494792 : JumpEnd); (28.625 : 2.79169840494792)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(25.125 : 5.59692207692308); (25.5625 : 5.15942207692308); (25.5625 : 2.59946609417597); (28.625 : 2.59946609417597)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/Organ/Organ_Organ_Media" />
       <nodes>
         <classShapeMoniker Id="669756dd-27b0-4d22-a036-057ecbe3cb6a" />
         <classShapeMoniker Id="c9aeda66-e6f9-48bf-816e-a193f0988cba" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="0e4d965c-025d-49e6-b1ba-04ee92e1bc23" absoluteBounds="9.125, 11, 2, 1.121588486035666">
+      <DataClassMoniker Name="/iRoboTechDataContext/D_SHIN" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4b33906a-f1a8-4b40-8275-3e335977f036" absoluteBounds="9.14, 11.46, 1.9700000000000002, 0.5615884860356648" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="63bfa7fc-6e24-4e16-bc8e-cae734c800d6" absoluteBounds="25.875, 3.25, 2, 7.2997129138310743">
+      <DataClassMoniker Name="/iRoboTechDataContext/Robot" />
+      <nestedChildShapes>
+        <elementListCompartment Id="46ca2c41-5dcc-4965-adfe-4e52798e13ca" absoluteBounds="25.89, 3.71, 1.9700000000000002, 6.7397129138310747" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(26.875 : 10.5497129138311); (26.875 : 12.5763995657539); (27.2916666666667 : 12.5763995657539 : JumpStart); (27.4583333333333 : 12.5763995657539 : JumpEnd); (27.5416666666667 : 12.5763995657539 : JumpStart); (27.7083333333333 : 12.5763995657539 : JumpEnd); (30.8541691666667 : 12.5763995657539 : JumpStart); (31.0208358333333 : 12.5763995657539 : JumpEnd); (36.9166666666667 : 12.5763995657539 : JumpStart); (37.0833333333333 : 12.5763995657539 : JumpEnd); (37.2604166666667 : 12.5763995657539 : JumpStart); (37.4270833333333 : 12.5763995657539 : JumpEnd); (37.625 : 12.5763995657539)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/iRoboTechDataContext/Robot/Robot_Service_Robot_Public" />
+      <nodes>
+        <classShapeMoniker Id="63bfa7fc-6e24-4e16-bc8e-cae734c800d6" />
+        <classShapeMoniker Id="4d6242c6-98d8-43be-898a-2c031cea0667" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(27.875 : 6.2864452290535); (28.625 : 6.2864452290535)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/iRoboTechDataContext/Robot/Robot_Job" />
+      <nodes>
+        <classShapeMoniker Id="63bfa7fc-6e24-4e16-bc8e-cae734c800d6" />
+        <classShapeMoniker Id="14de1a98-0fb1-4493-8946-b8c0583b83f7" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(27.875 : 4.9882680662473); (30.9166666666667 : 4.9882680662473 : JumpStart); (31.0833333333333 : 4.9882680662473 : JumpEnd); (31.25 : 4.9882680662473)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/iRoboTechDataContext/Robot/Robot_Organ_Description" />
+      <nodes>
+        <classShapeMoniker Id="63bfa7fc-6e24-4e16-bc8e-cae734c800d6" />
+        <classShapeMoniker Id="9514d2f2-ac26-412b-96cd-ad2331e25933" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(25.9380759230769 : 10.5497129138311); (25.5625 : 10.925288836908); (25.5625 : 15.4188670802116); (24.375 : 15.4188670802116)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/iRoboTechDataContext/Robot/Robot_Robot_Import" />
+      <nodes>
+        <classShapeMoniker Id="63bfa7fc-6e24-4e16-bc8e-cae734c800d6" />
+        <classShapeMoniker Id="51ce2f39-ae56-4916-bc83-b5af9a609d94" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(27.875 : 7.8489452290535); (28.46875 : 7.8489452290535); (28.46875 : 12.875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/iRoboTechDataContext/Robot/Robot_Send_Advertising" />
+      <nodes>
+        <classShapeMoniker Id="63bfa7fc-6e24-4e16-bc8e-cae734c800d6" />
+        <classShapeMoniker Id="00157053-c035-463c-8f7f-eee32c099b77" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(26.875 : 3.25); (26.875 : 3.125); (28.125 : 3.125); (28.125 : 4.875); (31 : 4.875); (31 : 6.08981762091319); (40.25 : 6.08981762091319); (40.25 : 5.2187505); (42.75 : 5.2187505)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/iRoboTechDataContext/Robot/Robot_Robot_Spy_Group" />
+      <nodes>
+        <classShapeMoniker Id="63bfa7fc-6e24-4e16-bc8e-cae734c800d6" />
+        <classShapeMoniker Id="442392df-8b28-4a86-b44b-1b7c8f7d012b" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(27.875 : 10.5497129138311); (28.25 : 10.9247129138311); (28.25 : 12.375); (30.7515374615385 : 12.375); (30.8785769349011 : 12.5020394733626 : JumpStart); (30.9964280650989 : 12.6198906035604 : JumpEnd); (31.2515374615385 : 12.875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/iRoboTechDataContext/Robot/Robot_Service_Robot" />
+      <nodes>
+        <classShapeMoniker Id="63bfa7fc-6e24-4e16-bc8e-cae734c800d6" />
+        <classShapeMoniker Id="538fe207-44b8-4bbc-bfc9-be12897d5113" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(27.375 : 10.5497129138311); (27.375 : 12.696848727862); (27.5416666666667 : 12.696848727862 : JumpStart); (27.7083333333333 : 12.696848727862 : JumpEnd); (37 : 12.696848727862); (37 : 12); (37.2604166666667 : 12 : JumpStart); (37.4270833333333 : 12 : JumpEnd); (42.625 : 12); (42.625 : 10.2844560664062); (43.25 : 10.2844560664062)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/iRoboTechDataContext/Robot/Robot_Robot_Spy_Group_Message" />
+      <nodes>
+        <classShapeMoniker Id="63bfa7fc-6e24-4e16-bc8e-cae734c800d6" />
+        <classShapeMoniker Id="2a6cc14e-8c9b-4285-a3d2-7096d95bf2d3" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(26.4065379615385 : 10.5497129138311); (26.4065379615385 : 11.5177203824298); (26.7916666666667 : 11.5177203824298 : JumpStart); (26.9583333333333 : 11.5177203824298 : JumpEnd); (27.2916666666667 : 11.5177203824298 : JumpStart); (27.4583333333333 : 11.5177203824298 : JumpEnd); (27.5416666666667 : 11.5177203824298 : JumpStart); (27.7083333333333 : 11.5177203824298 : JumpEnd); (28.1666666666667 : 11.5177203824298 : JumpStart); (28.3333333333333 : 11.5177203824298 : JumpEnd); (30.8541691666667 : 11.5177203824298 : JumpStart); (31.0208358333333 : 11.5177203824298 : JumpEnd); (31.5 : 11.5177203824298)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/iRoboTechDataContext/Robot/Robot_Personal_Robot" />
+      <nodes>
+        <classShapeMoniker Id="63bfa7fc-6e24-4e16-bc8e-cae734c800d6" />
+        <classShapeMoniker Id="d5e63684-9576-4aa4-8d4c-44233e96b384" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(27.625 : 10.5497129138311); (27.625 : 14); (28 : 14); (28 : 19.8648306616147); (31.875 : 19.8648306616147)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/iRoboTechDataContext/Robot/Robot_Group_Header" />
+      <nodes>
+        <classShapeMoniker Id="63bfa7fc-6e24-4e16-bc8e-cae734c800d6" />
+        <classShapeMoniker Id="b704d88d-818d-43cc-a579-f7af3387cde6" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(27.875 : 9.36860395691554); (28.625 : 9.36860395691554)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/iRoboTechDataContext/Robot/Robot_Group" />
+      <nodes>
+        <classShapeMoniker Id="63bfa7fc-6e24-4e16-bc8e-cae734c800d6" />
+        <classShapeMoniker Id="d46bf9fc-fd29-4bde-b6c2-f4be3620161a" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(26.1410594423077 : 10.5497129138311); (26.1410594423077 : 14.5)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/iRoboTechDataContext/Robot/Robot_Menu_Ussd" />
+      <nodes>
+        <classShapeMoniker Id="63bfa7fc-6e24-4e16-bc8e-cae734c800d6" />
+        <classShapeMoniker Id="ceea7795-95c0-46a3-9280-fc510e99d4bb" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(27.875 : 4.0195185662473); (28.0416666666667 : 4.0195185662473 : JumpStart); (28.2083333333333 : 4.0195185662473 : JumpEnd); (28.25 : 4.0195185662473); (28.25 : 7.69789045810699); (31.5 : 7.69789045810699); (31.5 : 9.072890458107); (33.7916666666667 : 9.072890458107 : JumpStart); (33.9583333333333 : 9.072890458107 : JumpEnd); (34.25 : 9.072890458107); (34.25 : 24); (36.468748 : 24); (36.468748 : 24.625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/iRoboTechDataContext/Robot/Robot_Order" />
+      <nodes>
+        <classShapeMoniker Id="63bfa7fc-6e24-4e16-bc8e-cae734c800d6" />
+        <classShapeMoniker Id="4d458ba3-3ef4-4e9f-8fbc-0e072a694b98" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(27.875 : 3.57225928312365); (28.0416666666667 : 3.57225928312365 : JumpStart); (28.2083333333333 : 3.57225928312365 : JumpEnd); (28.625 : 3.57225928312365)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/iRoboTechDataContext/Robot/Robot_Organ_Media" />
+      <nodes>
+        <classShapeMoniker Id="63bfa7fc-6e24-4e16-bc8e-cae734c800d6" />
+        <classShapeMoniker Id="c9aeda66-e6f9-48bf-816e-a193f0988cba" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(25.125 : 7.22474996983132); (25.875 : 7.22474996983132)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/iRoboTechDataContext/Organ/Organ_Robot" />
+      <nodes>
+        <classShapeMoniker Id="669756dd-27b0-4d22-a036-057ecbe3cb6a" />
+        <classShapeMoniker Id="63bfa7fc-6e24-4e16-bc8e-cae734c800d6" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(26.5842307692308 : 3.25); (26.5842307692308 : 2.875); (27.1796153846154 : 2.875); (27.1796153846154 : 3.25)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/iRoboTechDataContext/Robot/Robot_Robot" />
+      <nodes>
+        <classShapeMoniker Id="63bfa7fc-6e24-4e16-bc8e-cae734c800d6" />
+        <classShapeMoniker Id="63bfa7fc-6e24-4e16-bc8e-cae734c800d6" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="2ce7b7fa-616b-46aa-b7a4-7c77d017f373" absoluteBounds="39.875, 18, 2, 6.78486921151479">
+      <DataClassMoniker Name="/iRoboTechDataContext/Order_Detail" />
+      <nestedChildShapes>
+        <elementListCompartment Id="bb40d01e-9af6-4a78-82f7-1bac1534fb2e" absoluteBounds="39.89, 18.46, 1.9700000000000002, 6.2248692115147906" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(39.875 : 20.8161326336861); (36.8958333333333 : 20.8161326336861 : JumpStart); (36.7291666666667 : 20.8161326336861 : JumpEnd); (36.5 : 20.8161326336861)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/iRoboTechDataContext/Order_Detail/Order_Detail_Service_Robot_Replay_Message" />
+      <nodes>
+        <classShapeMoniker Id="2ce7b7fa-616b-46aa-b7a4-7c77d017f373" />
+        <classShapeMoniker Id="3e14472d-157f-4943-afa2-cb448fd2d599" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(33.625 : 27.8627472011248); (35.375 : 27.8627472011248); (35.375 : 24.375); (36.3854146666667 : 24.375 : JumpStart); (36.5520813333333 : 24.375 : JumpEnd); (36.7291666666667 : 24.375 : JumpStart); (36.8958333333333 : 24.375 : JumpEnd); (39.625 : 24.375); (39.625 : 25.0348692115148); (40.875 : 25.0348692115148); (40.875 : 24.7848692115148)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/iRoboTechDataContext/Group_Header_Item/Group_Header_Item_Order_Detail" />
+      <nodes>
+        <classShapeMoniker Id="5b892a17-65cd-4bbd-9111-7b4e2b437a07" />
+        <classShapeMoniker Id="2ce7b7fa-616b-46aa-b7a4-7c77d017f373" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(37.625 : 26.6893071057574); (41.4062525 : 26.6893071057574); (41.4062525 : 24.7848692115148)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/iRoboTechDataContext/Order/Order_Order_Detail" />
+      <nodes>
+        <classShapeMoniker Id="4d458ba3-3ef4-4e9f-8fbc-0e072a694b98" />
+        <classShapeMoniker Id="2ce7b7fa-616b-46aa-b7a4-7c77d017f373" />
       </nodes>
     </associationConnector>
   </nestedChildShapes>

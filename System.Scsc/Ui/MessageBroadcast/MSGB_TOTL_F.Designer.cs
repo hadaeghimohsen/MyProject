@@ -2092,7 +2092,7 @@
          // 
          this.AdmClubCode_Lb.Anchor = System.Windows.Forms.AnchorStyles.None;
          this.AdmClubCode_Lb.AutoSize = true;
-         this.AdmClubCode_Lb.Location = new System.Drawing.Point(758, 300);
+         this.AdmClubCode_Lb.Location = new System.Drawing.Point(758, 204);
          this.AdmClubCode_Lb.Name = "AdmClubCode_Lb";
          this.AdmClubCode_Lb.Size = new System.Drawing.Size(78, 14);
          this.AdmClubCode_Lb.TabIndex = 38;
@@ -2102,7 +2102,7 @@
          // 
          this.AdmClubName_Lb.Anchor = System.Windows.Forms.AnchorStyles.None;
          this.AdmClubName_Lb.AutoSize = true;
-         this.AdmClubName_Lb.Location = new System.Drawing.Point(413, 300);
+         this.AdmClubName_Lb.Location = new System.Drawing.Point(413, 204);
          this.AdmClubName_Lb.Name = "AdmClubName_Lb";
          this.AdmClubName_Lb.Size = new System.Drawing.Size(95, 14);
          this.AdmClubName_Lb.TabIndex = 35;
@@ -2112,7 +2112,7 @@
          // 
          this.AdmInsClubStat_Lb.Anchor = System.Windows.Forms.AnchorStyles.None;
          this.AdmInsClubStat_Lb.AutoSize = true;
-         this.AdmInsClubStat_Lb.Location = new System.Drawing.Point(413, 271);
+         this.AdmInsClubStat_Lb.Location = new System.Drawing.Point(413, 175);
          this.AdmInsClubStat_Lb.Name = "AdmInsClubStat_Lb";
          this.AdmInsClubStat_Lb.Size = new System.Drawing.Size(165, 14);
          this.AdmInsClubStat_Lb.TabIndex = 34;
@@ -2122,7 +2122,7 @@
          // 
          this.AdmInsNameStat_Lb.Anchor = System.Windows.Forms.AnchorStyles.None;
          this.AdmInsNameStat_Lb.AutoSize = true;
-         this.AdmInsNameStat_Lb.Location = new System.Drawing.Point(758, 271);
+         this.AdmInsNameStat_Lb.Location = new System.Drawing.Point(758, 175);
          this.AdmInsNameStat_Lb.Name = "AdmInsNameStat_Lb";
          this.AdmInsNameStat_Lb.Size = new System.Drawing.Size(182, 14);
          this.AdmInsNameStat_Lb.TabIndex = 32;
@@ -2132,7 +2132,7 @@
          // 
          this.AdmSmsType_Lb.Anchor = System.Windows.Forms.AnchorStyles.None;
          this.AdmSmsType_Lb.AutoSize = true;
-         this.AdmSmsType_Lb.Location = new System.Drawing.Point(413, 243);
+         this.AdmSmsType_Lb.Location = new System.Drawing.Point(413, 147);
          this.AdmSmsType_Lb.Name = "AdmSmsType_Lb";
          this.AdmSmsType_Lb.Size = new System.Drawing.Size(52, 14);
          this.AdmSmsType_Lb.TabIndex = 28;
@@ -2142,7 +2142,7 @@
          // 
          this.AdmSmsStat_Lb.Anchor = System.Windows.Forms.AnchorStyles.None;
          this.AdmSmsStat_Lb.AutoSize = true;
-         this.AdmSmsStat_Lb.Location = new System.Drawing.Point(758, 245);
+         this.AdmSmsStat_Lb.Location = new System.Drawing.Point(758, 149);
          this.AdmSmsStat_Lb.Name = "AdmSmsStat_Lb";
          this.AdmSmsStat_Lb.Size = new System.Drawing.Size(89, 14);
          this.AdmSmsStat_Lb.TabIndex = 29;
@@ -2152,7 +2152,7 @@
          // 
          this.MbspClubCode_Lb.Anchor = System.Windows.Forms.AnchorStyles.None;
          this.MbspClubCode_Lb.AutoSize = true;
-         this.MbspClubCode_Lb.Location = new System.Drawing.Point(758, 300);
+         this.MbspClubCode_Lb.Location = new System.Drawing.Point(758, 204);
          this.MbspClubCode_Lb.Name = "MbspClubCode_Lb";
          this.MbspClubCode_Lb.Size = new System.Drawing.Size(78, 14);
          this.MbspClubCode_Lb.TabIndex = 56;
@@ -2162,7 +2162,7 @@
          // 
          this.MbspClubName_Lb.Anchor = System.Windows.Forms.AnchorStyles.None;
          this.MbspClubName_Lb.AutoSize = true;
-         this.MbspClubName_Lb.Location = new System.Drawing.Point(413, 300);
+         this.MbspClubName_Lb.Location = new System.Drawing.Point(413, 204);
          this.MbspClubName_Lb.Name = "MbspClubName_Lb";
          this.MbspClubName_Lb.Size = new System.Drawing.Size(95, 14);
          this.MbspClubName_Lb.TabIndex = 53;
@@ -2172,7 +2172,7 @@
          // 
          this.MbspInsClubStat_Lb.Anchor = System.Windows.Forms.AnchorStyles.None;
          this.MbspInsClubStat_Lb.AutoSize = true;
-         this.MbspInsClubStat_Lb.Location = new System.Drawing.Point(413, 271);
+         this.MbspInsClubStat_Lb.Location = new System.Drawing.Point(413, 175);
          this.MbspInsClubStat_Lb.Name = "MbspInsClubStat_Lb";
          this.MbspInsClubStat_Lb.Size = new System.Drawing.Size(165, 14);
          this.MbspInsClubStat_Lb.TabIndex = 52;
@@ -2182,7 +2182,7 @@
          // 
          this.MbspInsNameStat_Lb.Anchor = System.Windows.Forms.AnchorStyles.None;
          this.MbspInsNameStat_Lb.AutoSize = true;
-         this.MbspInsNameStat_Lb.Location = new System.Drawing.Point(758, 271);
+         this.MbspInsNameStat_Lb.Location = new System.Drawing.Point(758, 175);
          this.MbspInsNameStat_Lb.Name = "MbspInsNameStat_Lb";
          this.MbspInsNameStat_Lb.Size = new System.Drawing.Size(182, 14);
          this.MbspInsNameStat_Lb.TabIndex = 50;
@@ -2192,7 +2192,7 @@
          // 
          this.MbspSmsType_Lb.Anchor = System.Windows.Forms.AnchorStyles.None;
          this.MbspSmsType_Lb.AutoSize = true;
-         this.MbspSmsType_Lb.Location = new System.Drawing.Point(413, 243);
+         this.MbspSmsType_Lb.Location = new System.Drawing.Point(413, 147);
          this.MbspSmsType_Lb.Name = "MbspSmsType_Lb";
          this.MbspSmsType_Lb.Size = new System.Drawing.Size(52, 14);
          this.MbspSmsType_Lb.TabIndex = 46;
@@ -2202,7 +2202,7 @@
          // 
          this.AttnClubCode_Lb.Anchor = System.Windows.Forms.AnchorStyles.None;
          this.AttnClubCode_Lb.AutoSize = true;
-         this.AttnClubCode_Lb.Location = new System.Drawing.Point(758, 300);
+         this.AttnClubCode_Lb.Location = new System.Drawing.Point(758, 204);
          this.AttnClubCode_Lb.Name = "AttnClubCode_Lb";
          this.AttnClubCode_Lb.Size = new System.Drawing.Size(78, 14);
          this.AttnClubCode_Lb.TabIndex = 74;
@@ -2212,7 +2212,7 @@
          // 
          this.AttnClubName_Lb.Anchor = System.Windows.Forms.AnchorStyles.None;
          this.AttnClubName_Lb.AutoSize = true;
-         this.AttnClubName_Lb.Location = new System.Drawing.Point(413, 300);
+         this.AttnClubName_Lb.Location = new System.Drawing.Point(413, 204);
          this.AttnClubName_Lb.Name = "AttnClubName_Lb";
          this.AttnClubName_Lb.Size = new System.Drawing.Size(95, 14);
          this.AttnClubName_Lb.TabIndex = 71;
@@ -2222,7 +2222,7 @@
          // 
          this.AttnInsClubStat_Lb.Anchor = System.Windows.Forms.AnchorStyles.None;
          this.AttnInsClubStat_Lb.AutoSize = true;
-         this.AttnInsClubStat_Lb.Location = new System.Drawing.Point(413, 271);
+         this.AttnInsClubStat_Lb.Location = new System.Drawing.Point(413, 175);
          this.AttnInsClubStat_Lb.Name = "AttnInsClubStat_Lb";
          this.AttnInsClubStat_Lb.Size = new System.Drawing.Size(165, 14);
          this.AttnInsClubStat_Lb.TabIndex = 70;
@@ -2232,7 +2232,7 @@
          // 
          this.AttnInsNameStat_Lb.Anchor = System.Windows.Forms.AnchorStyles.None;
          this.AttnInsNameStat_Lb.AutoSize = true;
-         this.AttnInsNameStat_Lb.Location = new System.Drawing.Point(758, 271);
+         this.AttnInsNameStat_Lb.Location = new System.Drawing.Point(758, 175);
          this.AttnInsNameStat_Lb.Name = "AttnInsNameStat_Lb";
          this.AttnInsNameStat_Lb.Size = new System.Drawing.Size(182, 14);
          this.AttnInsNameStat_Lb.TabIndex = 68;
@@ -2242,7 +2242,7 @@
          // 
          this.AttnSmsType_Lb.Anchor = System.Windows.Forms.AnchorStyles.None;
          this.AttnSmsType_Lb.AutoSize = true;
-         this.AttnSmsType_Lb.Location = new System.Drawing.Point(413, 243);
+         this.AttnSmsType_Lb.Location = new System.Drawing.Point(413, 147);
          this.AttnSmsType_Lb.Name = "AttnSmsType_Lb";
          this.AttnSmsType_Lb.Size = new System.Drawing.Size(52, 14);
          this.AttnSmsType_Lb.TabIndex = 64;
@@ -2252,7 +2252,7 @@
          // 
          this.AttnSmsStat_Lb.Anchor = System.Windows.Forms.AnchorStyles.None;
          this.AttnSmsStat_Lb.AutoSize = true;
-         this.AttnSmsStat_Lb.Location = new System.Drawing.Point(758, 245);
+         this.AttnSmsStat_Lb.Location = new System.Drawing.Point(758, 149);
          this.AttnSmsStat_Lb.Name = "AttnSmsStat_Lb";
          this.AttnSmsStat_Lb.Size = new System.Drawing.Size(89, 14);
          this.AttnSmsStat_Lb.TabIndex = 65;
@@ -2262,7 +2262,7 @@
          // 
          this.MbspSmsStat_Lb.Anchor = System.Windows.Forms.AnchorStyles.None;
          this.MbspSmsStat_Lb.AutoSize = true;
-         this.MbspSmsStat_Lb.Location = new System.Drawing.Point(758, 247);
+         this.MbspSmsStat_Lb.Location = new System.Drawing.Point(758, 151);
          this.MbspSmsStat_Lb.Name = "MbspSmsStat_Lb";
          this.MbspSmsStat_Lb.Size = new System.Drawing.Size(89, 14);
          this.MbspSmsStat_Lb.TabIndex = 66;
@@ -2274,7 +2274,7 @@
          this.BrthDateTelgStat_Lb.AutoSize = true;
          this.BrthDateTelgStat_Lb.Location = new System.Drawing.Point(733, 105);
          this.BrthDateTelgStat_Lb.Name = "BrthDateTelgStat_Lb";
-         this.BrthDateTelgStat_Lb.Size = new System.Drawing.Size(93, 14);
+         this.BrthDateTelgStat_Lb.Size = new System.Drawing.Size(68, 14);
          this.BrthDateTelgStat_Lb.TabIndex = 16;
          this.BrthDateTelgStat_Lb.Text = "وضعیت بله :";
          // 
@@ -2284,7 +2284,7 @@
          this.NotCbmtTelgStat_Lb.AutoSize = true;
          this.NotCbmtTelgStat_Lb.Location = new System.Drawing.Point(759, 46);
          this.NotCbmtTelgStat_Lb.Name = "NotCbmtTelgStat_Lb";
-         this.NotCbmtTelgStat_Lb.Size = new System.Drawing.Size(93, 14);
+         this.NotCbmtTelgStat_Lb.Size = new System.Drawing.Size(68, 14);
          this.NotCbmtTelgStat_Lb.TabIndex = 44;
          this.NotCbmtTelgStat_Lb.Text = "وضعیت بله :";
          // 
@@ -2294,7 +2294,7 @@
          this.CbmtTelgStat_Lb.AutoSize = true;
          this.CbmtTelgStat_Lb.Location = new System.Drawing.Point(759, 45);
          this.CbmtTelgStat_Lb.Name = "CbmtTelgStat_Lb";
-         this.CbmtTelgStat_Lb.Size = new System.Drawing.Size(93, 14);
+         this.CbmtTelgStat_Lb.Size = new System.Drawing.Size(68, 14);
          this.CbmtTelgStat_Lb.TabIndex = 65;
          this.CbmtTelgStat_Lb.Text = "وضعیت بله :";
          // 
@@ -2304,7 +2304,7 @@
          this.DebtTelgStat_Lb.AutoSize = true;
          this.DebtTelgStat_Lb.Location = new System.Drawing.Point(759, 47);
          this.DebtTelgStat_Lb.Name = "DebtTelgStat_Lb";
-         this.DebtTelgStat_Lb.Size = new System.Drawing.Size(93, 14);
+         this.DebtTelgStat_Lb.Size = new System.Drawing.Size(68, 14);
          this.DebtTelgStat_Lb.TabIndex = 69;
          this.DebtTelgStat_Lb.Text = "وضعیت بله :";
          // 
@@ -2314,7 +2314,7 @@
          this.AdsTelgStat_Lb.AutoSize = true;
          this.AdsTelgStat_Lb.Location = new System.Drawing.Point(723, 60);
          this.AdsTelgStat_Lb.Name = "AdsTelgStat_Lb";
-         this.AdsTelgStat_Lb.Size = new System.Drawing.Size(93, 14);
+         this.AdsTelgStat_Lb.Size = new System.Drawing.Size(68, 14);
          this.AdsTelgStat_Lb.TabIndex = 88;
          this.AdsTelgStat_Lb.Text = "وضعیت بله :";
          // 
@@ -2322,9 +2322,9 @@
          // 
          this.AdmTelgStat_Lb.Anchor = System.Windows.Forms.AnchorStyles.None;
          this.AdmTelgStat_Lb.AutoSize = true;
-         this.AdmTelgStat_Lb.Location = new System.Drawing.Point(758, 217);
+         this.AdmTelgStat_Lb.Location = new System.Drawing.Point(758, 121);
          this.AdmTelgStat_Lb.Name = "AdmTelgStat_Lb";
-         this.AdmTelgStat_Lb.Size = new System.Drawing.Size(93, 14);
+         this.AdmTelgStat_Lb.Size = new System.Drawing.Size(68, 14);
          this.AdmTelgStat_Lb.TabIndex = 40;
          this.AdmTelgStat_Lb.Text = "وضعیت بله :";
          // 
@@ -2332,9 +2332,9 @@
          // 
          this.MbspTelgStat_Lb.Anchor = System.Windows.Forms.AnchorStyles.None;
          this.MbspTelgStat_Lb.AutoSize = true;
-         this.MbspTelgStat_Lb.Location = new System.Drawing.Point(758, 217);
+         this.MbspTelgStat_Lb.Location = new System.Drawing.Point(758, 121);
          this.MbspTelgStat_Lb.Name = "MbspTelgStat_Lb";
-         this.MbspTelgStat_Lb.Size = new System.Drawing.Size(93, 14);
+         this.MbspTelgStat_Lb.Size = new System.Drawing.Size(68, 14);
          this.MbspTelgStat_Lb.TabIndex = 67;
          this.MbspTelgStat_Lb.Text = "وضعیت بله :";
          // 
@@ -2342,9 +2342,9 @@
          // 
          this.AttnTelgStat_Lb.Anchor = System.Windows.Forms.AnchorStyles.None;
          this.AttnTelgStat_Lb.AutoSize = true;
-         this.AttnTelgStat_Lb.Location = new System.Drawing.Point(758, 217);
+         this.AttnTelgStat_Lb.Location = new System.Drawing.Point(758, 121);
          this.AttnTelgStat_Lb.Name = "AttnTelgStat_Lb";
-         this.AttnTelgStat_Lb.Size = new System.Drawing.Size(93, 14);
+         this.AttnTelgStat_Lb.Size = new System.Drawing.Size(68, 14);
          this.AttnTelgStat_Lb.TabIndex = 76;
          this.AttnTelgStat_Lb.Text = "وضعیت بله :";
          // 
@@ -6666,7 +6666,7 @@
          this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
          this.label1.ImageKey = "IMAGE_1110.png";
          this.label1.ImageList = this.imageList1;
-         this.label1.Location = new System.Drawing.Point(901, 217);
+         this.label1.Location = new System.Drawing.Point(901, 121);
          this.label1.Name = "label1";
          this.label1.Size = new System.Drawing.Size(37, 34);
          this.label1.TabIndex = 61;
@@ -6675,7 +6675,7 @@
          // 
          this.lookUpEdit41.Anchor = System.Windows.Forms.AnchorStyles.None;
          this.lookUpEdit41.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.MsgbBs6, "TELG_STAT", true));
-         this.lookUpEdit41.Location = new System.Drawing.Point(595, 215);
+         this.lookUpEdit41.Location = new System.Drawing.Point(595, 119);
          this.lookUpEdit41.Name = "lookUpEdit41";
          this.lookUpEdit41.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.lookUpEdit41.Properties.Appearance.Options.UseFont = true;
@@ -6713,7 +6713,7 @@
          // 
          this.lookUpEdit21.Anchor = System.Windows.Forms.AnchorStyles.None;
          this.lookUpEdit21.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.MsgbBs6, "CLUB_CODE", true));
-         this.lookUpEdit21.Location = new System.Drawing.Point(595, 297);
+         this.lookUpEdit21.Location = new System.Drawing.Point(595, 201);
          this.lookUpEdit21.Name = "lookUpEdit21";
          this.lookUpEdit21.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.lookUpEdit21.Properties.Appearance.Options.UseFont = true;
@@ -6770,7 +6770,7 @@
          this.Btn_Preview006.ImageIndex = 12;
          this.Btn_Preview006.ImageList = this.imageList1;
          this.Btn_Preview006.InToBold = false;
-         this.Btn_Preview006.Location = new System.Drawing.Point(250, 451);
+         this.Btn_Preview006.Location = new System.Drawing.Point(250, 355);
          this.Btn_Preview006.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
          this.Btn_Preview006.Name = "Btn_Preview006";
          this.Btn_Preview006.Size = new System.Drawing.Size(48, 48);
@@ -6784,7 +6784,7 @@
          // 
          this.textEdit4.Anchor = System.Windows.Forms.AnchorStyles.None;
          this.textEdit4.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.MsgbBs6, "CLUB_NAME", true));
-         this.textEdit4.Location = new System.Drawing.Point(250, 297);
+         this.textEdit4.Location = new System.Drawing.Point(250, 201);
          this.textEdit4.Name = "textEdit4";
          this.textEdit4.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.textEdit4.Properties.Appearance.Options.UseFont = true;
@@ -6801,7 +6801,7 @@
          // 
          this.lookUpEdit22.Anchor = System.Windows.Forms.AnchorStyles.None;
          this.lookUpEdit22.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.MsgbBs6, "INSR_CNAM_STAT", true));
-         this.lookUpEdit22.Location = new System.Drawing.Point(250, 269);
+         this.lookUpEdit22.Location = new System.Drawing.Point(250, 173);
          this.lookUpEdit22.Name = "lookUpEdit22";
          this.lookUpEdit22.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.lookUpEdit22.Properties.Appearance.Options.UseFont = true;
@@ -6835,7 +6835,7 @@
          // 
          this.lookUpEdit23.Anchor = System.Windows.Forms.AnchorStyles.None;
          this.lookUpEdit23.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.MsgbBs6, "INSR_FNAM_STAT", true));
-         this.lookUpEdit23.Location = new System.Drawing.Point(595, 269);
+         this.lookUpEdit23.Location = new System.Drawing.Point(595, 173);
          this.lookUpEdit23.Name = "lookUpEdit23";
          this.lookUpEdit23.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.lookUpEdit23.Properties.Appearance.Options.UseFont = true;
@@ -6870,7 +6870,7 @@
          this.lookUpEdit24.Anchor = System.Windows.Forms.AnchorStyles.None;
          this.lookUpEdit24.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.MsgbBs6, "LINE_TYPE", true));
          this.lookUpEdit24.EditValue = "001";
-         this.lookUpEdit24.Location = new System.Drawing.Point(250, 241);
+         this.lookUpEdit24.Location = new System.Drawing.Point(250, 145);
          this.lookUpEdit24.Name = "lookUpEdit24";
          this.lookUpEdit24.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.lookUpEdit24.Properties.Appearance.Options.UseFont = true;
@@ -6904,7 +6904,7 @@
          // 
          this.lookUpEdit25.Anchor = System.Windows.Forms.AnchorStyles.None;
          this.lookUpEdit25.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.MsgbBs6, "STAT", true));
-         this.lookUpEdit25.Location = new System.Drawing.Point(595, 243);
+         this.lookUpEdit25.Location = new System.Drawing.Point(595, 147);
          this.lookUpEdit25.Name = "lookUpEdit25";
          this.lookUpEdit25.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.lookUpEdit25.Properties.Appearance.Options.UseFont = true;
@@ -6938,7 +6938,7 @@
          // 
          this.Msg_Count_Char006_Txt.Anchor = System.Windows.Forms.AnchorStyles.None;
          this.Msg_Count_Char006_Txt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-         this.Msg_Count_Char006_Txt.Location = new System.Drawing.Point(781, 447);
+         this.Msg_Count_Char006_Txt.Location = new System.Drawing.Point(781, 351);
          this.Msg_Count_Char006_Txt.Name = "Msg_Count_Char006_Txt";
          this.Msg_Count_Char006_Txt.ReadOnly = true;
          this.Msg_Count_Char006_Txt.Size = new System.Drawing.Size(53, 22);
@@ -6950,7 +6950,7 @@
          // 
          this.AdmTextCont_Lb.Anchor = System.Windows.Forms.AnchorStyles.None;
          this.AdmTextCont_Lb.AutoSize = true;
-         this.AdmTextCont_Lb.Location = new System.Drawing.Point(840, 450);
+         this.AdmTextCont_Lb.Location = new System.Drawing.Point(840, 354);
          this.AdmTextCont_Lb.Name = "AdmTextCont_Lb";
          this.AdmTextCont_Lb.Size = new System.Drawing.Size(98, 14);
          this.AdmTextCont_Lb.TabIndex = 24;
@@ -6960,7 +6960,7 @@
          // 
          this.AdmText_Lb.Anchor = System.Windows.Forms.AnchorStyles.None;
          this.AdmText_Lb.AutoSize = true;
-         this.AdmText_Lb.Location = new System.Drawing.Point(871, 331);
+         this.AdmText_Lb.Location = new System.Drawing.Point(871, 235);
          this.AdmText_Lb.Name = "AdmText_Lb";
          this.AdmText_Lb.Size = new System.Drawing.Size(67, 14);
          this.AdmText_Lb.TabIndex = 26;
@@ -6970,7 +6970,7 @@
          // 
          this.Msgb_Text006.Anchor = System.Windows.Forms.AnchorStyles.None;
          this.Msgb_Text006.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.MsgbBs6, "MSGB_TEXT", true));
-         this.Msgb_Text006.Location = new System.Drawing.Point(250, 348);
+         this.Msgb_Text006.Location = new System.Drawing.Point(250, 252);
          this.Msgb_Text006.Name = "Msgb_Text006";
          this.Msgb_Text006.Size = new System.Drawing.Size(688, 96);
          this.Msgb_Text006.TabIndex = 23;
@@ -7012,7 +7012,7 @@
          this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
          this.label2.ImageKey = "IMAGE_1110.png";
          this.label2.ImageList = this.imageList1;
-         this.label2.Location = new System.Drawing.Point(901, 217);
+         this.label2.Location = new System.Drawing.Point(901, 121);
          this.label2.Name = "label2";
          this.label2.Size = new System.Drawing.Size(37, 34);
          this.label2.TabIndex = 69;
@@ -7021,7 +7021,7 @@
          // 
          this.lookUpEdit42.Anchor = System.Windows.Forms.AnchorStyles.None;
          this.lookUpEdit42.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.MsgbBs7, "TELG_STAT", true));
-         this.lookUpEdit42.Location = new System.Drawing.Point(595, 215);
+         this.lookUpEdit42.Location = new System.Drawing.Point(595, 119);
          this.lookUpEdit42.Name = "lookUpEdit42";
          this.lookUpEdit42.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.lookUpEdit42.Properties.Appearance.Options.UseFont = true;
@@ -7059,7 +7059,7 @@
          // 
          this.lookUpEdit26.Anchor = System.Windows.Forms.AnchorStyles.None;
          this.lookUpEdit26.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.MsgbBs7, "CLUB_CODE", true));
-         this.lookUpEdit26.Location = new System.Drawing.Point(595, 297);
+         this.lookUpEdit26.Location = new System.Drawing.Point(595, 201);
          this.lookUpEdit26.Name = "lookUpEdit26";
          this.lookUpEdit26.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.lookUpEdit26.Properties.Appearance.Options.UseFont = true;
@@ -7116,7 +7116,7 @@
          this.Btn_Preview007.ImageIndex = 12;
          this.Btn_Preview007.ImageList = this.imageList1;
          this.Btn_Preview007.InToBold = false;
-         this.Btn_Preview007.Location = new System.Drawing.Point(250, 451);
+         this.Btn_Preview007.Location = new System.Drawing.Point(250, 355);
          this.Btn_Preview007.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
          this.Btn_Preview007.Name = "Btn_Preview007";
          this.Btn_Preview007.Size = new System.Drawing.Size(48, 48);
@@ -7130,7 +7130,7 @@
          // 
          this.textEdit5.Anchor = System.Windows.Forms.AnchorStyles.None;
          this.textEdit5.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.MsgbBs7, "CLUB_NAME", true));
-         this.textEdit5.Location = new System.Drawing.Point(250, 297);
+         this.textEdit5.Location = new System.Drawing.Point(250, 201);
          this.textEdit5.Name = "textEdit5";
          this.textEdit5.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.textEdit5.Properties.Appearance.Options.UseFont = true;
@@ -7147,7 +7147,7 @@
          // 
          this.lookUpEdit27.Anchor = System.Windows.Forms.AnchorStyles.None;
          this.lookUpEdit27.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.MsgbBs7, "INSR_CNAM_STAT", true));
-         this.lookUpEdit27.Location = new System.Drawing.Point(250, 269);
+         this.lookUpEdit27.Location = new System.Drawing.Point(250, 173);
          this.lookUpEdit27.Name = "lookUpEdit27";
          this.lookUpEdit27.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.lookUpEdit27.Properties.Appearance.Options.UseFont = true;
@@ -7181,7 +7181,7 @@
          // 
          this.lookUpEdit28.Anchor = System.Windows.Forms.AnchorStyles.None;
          this.lookUpEdit28.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.MsgbBs7, "INSR_FNAM_STAT", true));
-         this.lookUpEdit28.Location = new System.Drawing.Point(595, 269);
+         this.lookUpEdit28.Location = new System.Drawing.Point(595, 173);
          this.lookUpEdit28.Name = "lookUpEdit28";
          this.lookUpEdit28.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.lookUpEdit28.Properties.Appearance.Options.UseFont = true;
@@ -7216,7 +7216,7 @@
          this.lookUpEdit29.Anchor = System.Windows.Forms.AnchorStyles.None;
          this.lookUpEdit29.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.MsgbBs7, "LINE_TYPE", true));
          this.lookUpEdit29.EditValue = "001";
-         this.lookUpEdit29.Location = new System.Drawing.Point(250, 241);
+         this.lookUpEdit29.Location = new System.Drawing.Point(250, 145);
          this.lookUpEdit29.Name = "lookUpEdit29";
          this.lookUpEdit29.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.lookUpEdit29.Properties.Appearance.Options.UseFont = true;
@@ -7250,7 +7250,7 @@
          // 
          this.lookUpEdit30.Anchor = System.Windows.Forms.AnchorStyles.None;
          this.lookUpEdit30.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.MsgbBs7, "STAT", true));
-         this.lookUpEdit30.Location = new System.Drawing.Point(595, 243);
+         this.lookUpEdit30.Location = new System.Drawing.Point(595, 147);
          this.lookUpEdit30.Name = "lookUpEdit30";
          this.lookUpEdit30.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.lookUpEdit30.Properties.Appearance.Options.UseFont = true;
@@ -7284,7 +7284,7 @@
          // 
          this.Msg_Count_Char007_Txt.Anchor = System.Windows.Forms.AnchorStyles.None;
          this.Msg_Count_Char007_Txt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-         this.Msg_Count_Char007_Txt.Location = new System.Drawing.Point(781, 447);
+         this.Msg_Count_Char007_Txt.Location = new System.Drawing.Point(781, 351);
          this.Msg_Count_Char007_Txt.Name = "Msg_Count_Char007_Txt";
          this.Msg_Count_Char007_Txt.ReadOnly = true;
          this.Msg_Count_Char007_Txt.Size = new System.Drawing.Size(53, 22);
@@ -7296,7 +7296,7 @@
          // 
          this.MbspTextCont_Lb.Anchor = System.Windows.Forms.AnchorStyles.None;
          this.MbspTextCont_Lb.AutoSize = true;
-         this.MbspTextCont_Lb.Location = new System.Drawing.Point(840, 450);
+         this.MbspTextCont_Lb.Location = new System.Drawing.Point(840, 354);
          this.MbspTextCont_Lb.Name = "MbspTextCont_Lb";
          this.MbspTextCont_Lb.Size = new System.Drawing.Size(98, 14);
          this.MbspTextCont_Lb.TabIndex = 42;
@@ -7306,7 +7306,7 @@
          // 
          this.MbspText_Lb.Anchor = System.Windows.Forms.AnchorStyles.None;
          this.MbspText_Lb.AutoSize = true;
-         this.MbspText_Lb.Location = new System.Drawing.Point(871, 331);
+         this.MbspText_Lb.Location = new System.Drawing.Point(871, 235);
          this.MbspText_Lb.Name = "MbspText_Lb";
          this.MbspText_Lb.Size = new System.Drawing.Size(67, 14);
          this.MbspText_Lb.TabIndex = 44;
@@ -7316,7 +7316,7 @@
          // 
          this.Msgb_Text007.Anchor = System.Windows.Forms.AnchorStyles.None;
          this.Msgb_Text007.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.MsgbBs7, "MSGB_TEXT", true));
-         this.Msgb_Text007.Location = new System.Drawing.Point(250, 348);
+         this.Msgb_Text007.Location = new System.Drawing.Point(250, 252);
          this.Msgb_Text007.Name = "Msgb_Text007";
          this.Msgb_Text007.Size = new System.Drawing.Size(688, 96);
          this.Msgb_Text007.TabIndex = 41;
@@ -7358,7 +7358,7 @@
          this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
          this.label4.ImageKey = "IMAGE_1110.png";
          this.label4.ImageList = this.imageList1;
-         this.label4.Location = new System.Drawing.Point(901, 217);
+         this.label4.Location = new System.Drawing.Point(901, 121);
          this.label4.Name = "label4";
          this.label4.Size = new System.Drawing.Size(37, 34);
          this.label4.TabIndex = 78;
@@ -7367,7 +7367,7 @@
          // 
          this.lookUpEdit43.Anchor = System.Windows.Forms.AnchorStyles.None;
          this.lookUpEdit43.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.MsgbBs8, "TELG_STAT", true));
-         this.lookUpEdit43.Location = new System.Drawing.Point(595, 215);
+         this.lookUpEdit43.Location = new System.Drawing.Point(595, 119);
          this.lookUpEdit43.Name = "lookUpEdit43";
          this.lookUpEdit43.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.lookUpEdit43.Properties.Appearance.Options.UseFont = true;
@@ -7405,7 +7405,7 @@
          // 
          this.lookUpEdit31.Anchor = System.Windows.Forms.AnchorStyles.None;
          this.lookUpEdit31.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.MsgbBs8, "CLUB_CODE", true));
-         this.lookUpEdit31.Location = new System.Drawing.Point(595, 297);
+         this.lookUpEdit31.Location = new System.Drawing.Point(595, 201);
          this.lookUpEdit31.Name = "lookUpEdit31";
          this.lookUpEdit31.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.lookUpEdit31.Properties.Appearance.Options.UseFont = true;
@@ -7462,7 +7462,7 @@
          this.Btn_Preview008.ImageIndex = 12;
          this.Btn_Preview008.ImageList = this.imageList1;
          this.Btn_Preview008.InToBold = false;
-         this.Btn_Preview008.Location = new System.Drawing.Point(250, 451);
+         this.Btn_Preview008.Location = new System.Drawing.Point(250, 355);
          this.Btn_Preview008.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
          this.Btn_Preview008.Name = "Btn_Preview008";
          this.Btn_Preview008.Size = new System.Drawing.Size(48, 48);
@@ -7476,7 +7476,7 @@
          // 
          this.textEdit7.Anchor = System.Windows.Forms.AnchorStyles.None;
          this.textEdit7.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.MsgbBs8, "CLUB_NAME", true));
-         this.textEdit7.Location = new System.Drawing.Point(250, 297);
+         this.textEdit7.Location = new System.Drawing.Point(250, 201);
          this.textEdit7.Name = "textEdit7";
          this.textEdit7.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.textEdit7.Properties.Appearance.Options.UseFont = true;
@@ -7493,7 +7493,7 @@
          // 
          this.lookUpEdit32.Anchor = System.Windows.Forms.AnchorStyles.None;
          this.lookUpEdit32.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.MsgbBs8, "INSR_CNAM_STAT", true));
-         this.lookUpEdit32.Location = new System.Drawing.Point(250, 269);
+         this.lookUpEdit32.Location = new System.Drawing.Point(250, 173);
          this.lookUpEdit32.Name = "lookUpEdit32";
          this.lookUpEdit32.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.lookUpEdit32.Properties.Appearance.Options.UseFont = true;
@@ -7527,7 +7527,7 @@
          // 
          this.lookUpEdit33.Anchor = System.Windows.Forms.AnchorStyles.None;
          this.lookUpEdit33.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.MsgbBs8, "INSR_FNAM_STAT", true));
-         this.lookUpEdit33.Location = new System.Drawing.Point(595, 269);
+         this.lookUpEdit33.Location = new System.Drawing.Point(595, 173);
          this.lookUpEdit33.Name = "lookUpEdit33";
          this.lookUpEdit33.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.lookUpEdit33.Properties.Appearance.Options.UseFont = true;
@@ -7562,7 +7562,7 @@
          this.lookUpEdit34.Anchor = System.Windows.Forms.AnchorStyles.None;
          this.lookUpEdit34.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.MsgbBs8, "LINE_TYPE", true));
          this.lookUpEdit34.EditValue = "001";
-         this.lookUpEdit34.Location = new System.Drawing.Point(250, 241);
+         this.lookUpEdit34.Location = new System.Drawing.Point(250, 145);
          this.lookUpEdit34.Name = "lookUpEdit34";
          this.lookUpEdit34.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.lookUpEdit34.Properties.Appearance.Options.UseFont = true;
@@ -7596,7 +7596,7 @@
          // 
          this.lookUpEdit35.Anchor = System.Windows.Forms.AnchorStyles.None;
          this.lookUpEdit35.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.MsgbBs8, "STAT", true));
-         this.lookUpEdit35.Location = new System.Drawing.Point(595, 243);
+         this.lookUpEdit35.Location = new System.Drawing.Point(595, 147);
          this.lookUpEdit35.Name = "lookUpEdit35";
          this.lookUpEdit35.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.lookUpEdit35.Properties.Appearance.Options.UseFont = true;
@@ -7630,7 +7630,7 @@
          // 
          this.Msg_Count_Char008_Txt.Anchor = System.Windows.Forms.AnchorStyles.None;
          this.Msg_Count_Char008_Txt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-         this.Msg_Count_Char008_Txt.Location = new System.Drawing.Point(781, 447);
+         this.Msg_Count_Char008_Txt.Location = new System.Drawing.Point(781, 351);
          this.Msg_Count_Char008_Txt.Name = "Msg_Count_Char008_Txt";
          this.Msg_Count_Char008_Txt.ReadOnly = true;
          this.Msg_Count_Char008_Txt.Size = new System.Drawing.Size(53, 22);
@@ -7642,7 +7642,7 @@
          // 
          this.AttnTextCont_Lb.Anchor = System.Windows.Forms.AnchorStyles.None;
          this.AttnTextCont_Lb.AutoSize = true;
-         this.AttnTextCont_Lb.Location = new System.Drawing.Point(840, 450);
+         this.AttnTextCont_Lb.Location = new System.Drawing.Point(840, 354);
          this.AttnTextCont_Lb.Name = "AttnTextCont_Lb";
          this.AttnTextCont_Lb.Size = new System.Drawing.Size(98, 14);
          this.AttnTextCont_Lb.TabIndex = 60;
@@ -7652,7 +7652,7 @@
          // 
          this.AttnText_Lb.Anchor = System.Windows.Forms.AnchorStyles.None;
          this.AttnText_Lb.AutoSize = true;
-         this.AttnText_Lb.Location = new System.Drawing.Point(871, 331);
+         this.AttnText_Lb.Location = new System.Drawing.Point(871, 235);
          this.AttnText_Lb.Name = "AttnText_Lb";
          this.AttnText_Lb.Size = new System.Drawing.Size(67, 14);
          this.AttnText_Lb.TabIndex = 62;
@@ -7662,7 +7662,7 @@
          // 
          this.Msgb_Text008.Anchor = System.Windows.Forms.AnchorStyles.None;
          this.Msgb_Text008.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.MsgbBs8, "MSGB_TEXT", true));
-         this.Msgb_Text008.Location = new System.Drawing.Point(250, 348);
+         this.Msgb_Text008.Location = new System.Drawing.Point(250, 252);
          this.Msgb_Text008.Name = "Msgb_Text008";
          this.Msgb_Text008.Size = new System.Drawing.Size(688, 96);
          this.Msgb_Text008.TabIndex = 59;
@@ -7708,7 +7708,7 @@
          this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
          this.label5.ImageKey = "IMAGE_1110.png";
          this.label5.ImageList = this.imageList1;
-         this.label5.Location = new System.Drawing.Point(903, 205);
+         this.label5.Location = new System.Drawing.Point(903, 109);
          this.label5.Name = "label5";
          this.label5.Size = new System.Drawing.Size(37, 34);
          this.label5.TabIndex = 98;
@@ -7717,9 +7717,9 @@
          // 
          this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
          this.label6.AutoSize = true;
-         this.label6.Location = new System.Drawing.Point(760, 205);
+         this.label6.Location = new System.Drawing.Point(760, 109);
          this.label6.Name = "label6";
-         this.label6.Size = new System.Drawing.Size(93, 14);
+         this.label6.Size = new System.Drawing.Size(68, 14);
          this.label6.TabIndex = 96;
          this.label6.Text = "وضعیت بله :";
          // 
@@ -7727,7 +7727,7 @@
          // 
          this.lookUpEdit44.Anchor = System.Windows.Forms.AnchorStyles.None;
          this.lookUpEdit44.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.MsgbBs9, "TELG_STAT", true));
-         this.lookUpEdit44.Location = new System.Drawing.Point(597, 203);
+         this.lookUpEdit44.Location = new System.Drawing.Point(597, 107);
          this.lookUpEdit44.Name = "lookUpEdit44";
          this.lookUpEdit44.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.lookUpEdit44.Properties.Appearance.Options.UseFont = true;
@@ -7765,7 +7765,7 @@
          // 
          this.label7.Anchor = System.Windows.Forms.AnchorStyles.None;
          this.label7.AutoSize = true;
-         this.label7.Location = new System.Drawing.Point(760, 288);
+         this.label7.Location = new System.Drawing.Point(760, 192);
          this.label7.Name = "label7";
          this.label7.Size = new System.Drawing.Size(78, 14);
          this.label7.TabIndex = 94;
@@ -7775,7 +7775,7 @@
          // 
          this.lookUpEdit45.Anchor = System.Windows.Forms.AnchorStyles.None;
          this.lookUpEdit45.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.MsgbBs9, "CLUB_CODE", true));
-         this.lookUpEdit45.Location = new System.Drawing.Point(597, 285);
+         this.lookUpEdit45.Location = new System.Drawing.Point(597, 189);
          this.lookUpEdit45.Name = "lookUpEdit45";
          this.lookUpEdit45.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.lookUpEdit45.Properties.Appearance.Options.UseFont = true;
@@ -7832,7 +7832,7 @@
          this.Btn_Preview009.ImageIndex = 12;
          this.Btn_Preview009.ImageList = this.imageList1;
          this.Btn_Preview009.InToBold = false;
-         this.Btn_Preview009.Location = new System.Drawing.Point(249, 464);
+         this.Btn_Preview009.Location = new System.Drawing.Point(249, 368);
          this.Btn_Preview009.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
          this.Btn_Preview009.Name = "Btn_Preview009";
          this.Btn_Preview009.Size = new System.Drawing.Size(48, 48);
@@ -7846,7 +7846,7 @@
          // 
          this.label17.Anchor = System.Windows.Forms.AnchorStyles.None;
          this.label17.AutoSize = true;
-         this.label17.Location = new System.Drawing.Point(330, 315);
+         this.label17.Location = new System.Drawing.Point(330, 219);
          this.label17.Name = "label17";
          this.label17.Size = new System.Drawing.Size(140, 14);
          this.label17.TabIndex = 91;
@@ -7856,7 +7856,7 @@
          // 
          this.label16.Anchor = System.Windows.Forms.AnchorStyles.None;
          this.label16.AutoSize = true;
-         this.label16.Location = new System.Drawing.Point(760, 316);
+         this.label16.Location = new System.Drawing.Point(760, 220);
          this.label16.Name = "label16";
          this.label16.Size = new System.Drawing.Size(166, 14);
          this.label16.TabIndex = 91;
@@ -7866,7 +7866,7 @@
          // 
          this.label8.Anchor = System.Windows.Forms.AnchorStyles.None;
          this.label8.AutoSize = true;
-         this.label8.Location = new System.Drawing.Point(415, 288);
+         this.label8.Location = new System.Drawing.Point(415, 192);
          this.label8.Name = "label8";
          this.label8.Size = new System.Drawing.Size(95, 14);
          this.label8.TabIndex = 91;
@@ -7876,7 +7876,7 @@
          // 
          this.textEdit10.Anchor = System.Windows.Forms.AnchorStyles.None;
          this.textEdit10.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.MsgbBs9, "MIN_NUMB_DAY_RMND", true));
-         this.textEdit10.Location = new System.Drawing.Point(252, 312);
+         this.textEdit10.Location = new System.Drawing.Point(252, 216);
          this.textEdit10.Name = "textEdit10";
          this.textEdit10.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.textEdit10.Properties.Appearance.Options.UseFont = true;
@@ -7893,7 +7893,7 @@
          // 
          this.textEdit9.Anchor = System.Windows.Forms.AnchorStyles.None;
          this.textEdit9.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.MsgbBs9, "MIN_NUMB_ATTN_RMND", true));
-         this.textEdit9.Location = new System.Drawing.Point(682, 313);
+         this.textEdit9.Location = new System.Drawing.Point(682, 217);
          this.textEdit9.Name = "textEdit9";
          this.textEdit9.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.textEdit9.Properties.Appearance.Options.UseFont = true;
@@ -7910,7 +7910,7 @@
          // 
          this.textEdit8.Anchor = System.Windows.Forms.AnchorStyles.None;
          this.textEdit8.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.MsgbBs9, "CLUB_NAME", true));
-         this.textEdit8.Location = new System.Drawing.Point(252, 285);
+         this.textEdit8.Location = new System.Drawing.Point(252, 189);
          this.textEdit8.Name = "textEdit8";
          this.textEdit8.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.textEdit8.Properties.Appearance.Options.UseFont = true;
@@ -7927,7 +7927,7 @@
          // 
          this.label10.Anchor = System.Windows.Forms.AnchorStyles.None;
          this.label10.AutoSize = true;
-         this.label10.Location = new System.Drawing.Point(415, 259);
+         this.label10.Location = new System.Drawing.Point(415, 163);
          this.label10.Name = "label10";
          this.label10.Size = new System.Drawing.Size(165, 14);
          this.label10.TabIndex = 90;
@@ -7937,7 +7937,7 @@
          // 
          this.lookUpEdit46.Anchor = System.Windows.Forms.AnchorStyles.None;
          this.lookUpEdit46.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.MsgbBs9, "INSR_CNAM_STAT", true));
-         this.lookUpEdit46.Location = new System.Drawing.Point(252, 257);
+         this.lookUpEdit46.Location = new System.Drawing.Point(252, 161);
          this.lookUpEdit46.Name = "lookUpEdit46";
          this.lookUpEdit46.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.lookUpEdit46.Properties.Appearance.Options.UseFont = true;
@@ -7971,7 +7971,7 @@
          // 
          this.label11.Anchor = System.Windows.Forms.AnchorStyles.None;
          this.label11.AutoSize = true;
-         this.label11.Location = new System.Drawing.Point(760, 259);
+         this.label11.Location = new System.Drawing.Point(760, 163);
          this.label11.Name = "label11";
          this.label11.Size = new System.Drawing.Size(182, 14);
          this.label11.TabIndex = 88;
@@ -7981,7 +7981,7 @@
          // 
          this.lookUpEdit47.Anchor = System.Windows.Forms.AnchorStyles.None;
          this.lookUpEdit47.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.MsgbBs9, "INSR_FNAM_STAT", true));
-         this.lookUpEdit47.Location = new System.Drawing.Point(597, 257);
+         this.lookUpEdit47.Location = new System.Drawing.Point(597, 161);
          this.lookUpEdit47.Name = "lookUpEdit47";
          this.lookUpEdit47.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.lookUpEdit47.Properties.Appearance.Options.UseFont = true;
@@ -8015,7 +8015,7 @@
          // 
          this.label12.Anchor = System.Windows.Forms.AnchorStyles.None;
          this.label12.AutoSize = true;
-         this.label12.Location = new System.Drawing.Point(415, 231);
+         this.label12.Location = new System.Drawing.Point(415, 135);
          this.label12.Name = "label12";
          this.label12.Size = new System.Drawing.Size(52, 14);
          this.label12.TabIndex = 84;
@@ -8025,7 +8025,7 @@
          // 
          this.label13.Anchor = System.Windows.Forms.AnchorStyles.None;
          this.label13.AutoSize = true;
-         this.label13.Location = new System.Drawing.Point(760, 233);
+         this.label13.Location = new System.Drawing.Point(760, 137);
          this.label13.Name = "label13";
          this.label13.Size = new System.Drawing.Size(89, 14);
          this.label13.TabIndex = 85;
@@ -8036,7 +8036,7 @@
          this.lookUpEdit48.Anchor = System.Windows.Forms.AnchorStyles.None;
          this.lookUpEdit48.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.MsgbBs9, "LINE_TYPE", true));
          this.lookUpEdit48.EditValue = "001";
-         this.lookUpEdit48.Location = new System.Drawing.Point(252, 229);
+         this.lookUpEdit48.Location = new System.Drawing.Point(252, 133);
          this.lookUpEdit48.Name = "lookUpEdit48";
          this.lookUpEdit48.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.lookUpEdit48.Properties.Appearance.Options.UseFont = true;
@@ -8070,7 +8070,7 @@
          // 
          this.lookUpEdit49.Anchor = System.Windows.Forms.AnchorStyles.None;
          this.lookUpEdit49.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.MsgbBs9, "STAT", true));
-         this.lookUpEdit49.Location = new System.Drawing.Point(597, 231);
+         this.lookUpEdit49.Location = new System.Drawing.Point(597, 135);
          this.lookUpEdit49.Name = "lookUpEdit49";
          this.lookUpEdit49.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.lookUpEdit49.Properties.Appearance.Options.UseFont = true;
@@ -8104,7 +8104,7 @@
          // 
          this.Msg_Count_Char009_Txt.Anchor = System.Windows.Forms.AnchorStyles.None;
          this.Msg_Count_Char009_Txt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-         this.Msg_Count_Char009_Txt.Location = new System.Drawing.Point(780, 460);
+         this.Msg_Count_Char009_Txt.Location = new System.Drawing.Point(780, 364);
          this.Msg_Count_Char009_Txt.Name = "Msg_Count_Char009_Txt";
          this.Msg_Count_Char009_Txt.ReadOnly = true;
          this.Msg_Count_Char009_Txt.Size = new System.Drawing.Size(53, 22);
@@ -8116,7 +8116,7 @@
          // 
          this.label14.Anchor = System.Windows.Forms.AnchorStyles.None;
          this.label14.AutoSize = true;
-         this.label14.Location = new System.Drawing.Point(839, 463);
+         this.label14.Location = new System.Drawing.Point(839, 367);
          this.label14.Name = "label14";
          this.label14.Size = new System.Drawing.Size(98, 14);
          this.label14.TabIndex = 81;
@@ -8126,7 +8126,7 @@
          // 
          this.label15.Anchor = System.Windows.Forms.AnchorStyles.None;
          this.label15.AutoSize = true;
-         this.label15.Location = new System.Drawing.Point(870, 344);
+         this.label15.Location = new System.Drawing.Point(870, 248);
          this.label15.Name = "label15";
          this.label15.Size = new System.Drawing.Size(67, 14);
          this.label15.TabIndex = 82;
@@ -8136,7 +8136,7 @@
          // 
          this.Msgb_Text009.Anchor = System.Windows.Forms.AnchorStyles.None;
          this.Msgb_Text009.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.MsgbBs9, "MSGB_TEXT", true));
-         this.Msgb_Text009.Location = new System.Drawing.Point(249, 361);
+         this.Msgb_Text009.Location = new System.Drawing.Point(249, 265);
          this.Msgb_Text009.Name = "Msgb_Text009";
          this.Msgb_Text009.Size = new System.Drawing.Size(688, 96);
          this.Msgb_Text009.TabIndex = 80;
@@ -8181,7 +8181,7 @@
          this.label27.Anchor = System.Windows.Forms.AnchorStyles.None;
          this.label27.ImageKey = "IMAGE_1110.png";
          this.label27.ImageList = this.imageList1;
-         this.label27.Location = new System.Drawing.Point(903, 157);
+         this.label27.Location = new System.Drawing.Point(903, 109);
          this.label27.Name = "label27";
          this.label27.Size = new System.Drawing.Size(37, 34);
          this.label27.TabIndex = 122;
@@ -8190,9 +8190,9 @@
          // 
          this.label28.Anchor = System.Windows.Forms.AnchorStyles.None;
          this.label28.AutoSize = true;
-         this.label28.Location = new System.Drawing.Point(760, 157);
+         this.label28.Location = new System.Drawing.Point(760, 109);
          this.label28.Name = "label28";
-         this.label28.Size = new System.Drawing.Size(93, 14);
+         this.label28.Size = new System.Drawing.Size(68, 14);
          this.label28.TabIndex = 120;
          this.label28.Text = "وضعیت بله :";
          // 
@@ -8200,7 +8200,7 @@
          // 
          this.lookUpEdit50.Anchor = System.Windows.Forms.AnchorStyles.None;
          this.lookUpEdit50.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.MsgbBs10, "TELG_STAT", true));
-         this.lookUpEdit50.Location = new System.Drawing.Point(597, 155);
+         this.lookUpEdit50.Location = new System.Drawing.Point(597, 107);
          this.lookUpEdit50.Name = "lookUpEdit50";
          this.lookUpEdit50.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.lookUpEdit50.Properties.Appearance.Options.UseFont = true;
@@ -8238,7 +8238,7 @@
          // 
          this.label29.Anchor = System.Windows.Forms.AnchorStyles.None;
          this.label29.AutoSize = true;
-         this.label29.Location = new System.Drawing.Point(760, 240);
+         this.label29.Location = new System.Drawing.Point(760, 192);
          this.label29.Name = "label29";
          this.label29.Size = new System.Drawing.Size(78, 14);
          this.label29.TabIndex = 118;
@@ -8248,7 +8248,7 @@
          // 
          this.lookUpEdit51.Anchor = System.Windows.Forms.AnchorStyles.None;
          this.lookUpEdit51.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.MsgbBs10, "CLUB_CODE", true));
-         this.lookUpEdit51.Location = new System.Drawing.Point(597, 237);
+         this.lookUpEdit51.Location = new System.Drawing.Point(597, 189);
          this.lookUpEdit51.Name = "lookUpEdit51";
          this.lookUpEdit51.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.lookUpEdit51.Properties.Appearance.Options.UseFont = true;
@@ -8305,7 +8305,7 @@
          this.Btn_Preview010.ImageIndex = 12;
          this.Btn_Preview010.ImageList = this.imageList1;
          this.Btn_Preview010.InToBold = false;
-         this.Btn_Preview010.Location = new System.Drawing.Point(249, 416);
+         this.Btn_Preview010.Location = new System.Drawing.Point(249, 368);
          this.Btn_Preview010.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
          this.Btn_Preview010.Name = "Btn_Preview010";
          this.Btn_Preview010.Size = new System.Drawing.Size(48, 48);
@@ -8319,7 +8319,7 @@
          // 
          this.label30.Anchor = System.Windows.Forms.AnchorStyles.None;
          this.label30.AutoSize = true;
-         this.label30.Location = new System.Drawing.Point(760, 269);
+         this.label30.Location = new System.Drawing.Point(760, 221);
          this.label30.Name = "label30";
          this.label30.Size = new System.Drawing.Size(125, 14);
          this.label30.TabIndex = 111;
@@ -8329,7 +8329,7 @@
          // 
          this.label33.Anchor = System.Windows.Forms.AnchorStyles.None;
          this.label33.AutoSize = true;
-         this.label33.Location = new System.Drawing.Point(415, 240);
+         this.label33.Location = new System.Drawing.Point(415, 192);
          this.label33.Name = "label33";
          this.label33.Size = new System.Drawing.Size(95, 14);
          this.label33.TabIndex = 113;
@@ -8339,7 +8339,7 @@
          // 
          this.textEdit11.Anchor = System.Windows.Forms.AnchorStyles.None;
          this.textEdit11.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.MsgbBs10, "MIN_NUMB_DAY_RMND", true));
-         this.textEdit11.Location = new System.Drawing.Point(700, 265);
+         this.textEdit11.Location = new System.Drawing.Point(700, 217);
          this.textEdit11.Name = "textEdit11";
          this.textEdit11.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.textEdit11.Properties.Appearance.Options.UseFont = true;
@@ -8356,7 +8356,7 @@
          // 
          this.textEdit13.Anchor = System.Windows.Forms.AnchorStyles.None;
          this.textEdit13.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.MsgbBs10, "CLUB_NAME", true));
-         this.textEdit13.Location = new System.Drawing.Point(252, 237);
+         this.textEdit13.Location = new System.Drawing.Point(252, 189);
          this.textEdit13.Name = "textEdit13";
          this.textEdit13.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.textEdit13.Properties.Appearance.Options.UseFont = true;
@@ -8373,7 +8373,7 @@
          // 
          this.label35.Anchor = System.Windows.Forms.AnchorStyles.None;
          this.label35.AutoSize = true;
-         this.label35.Location = new System.Drawing.Point(415, 211);
+         this.label35.Location = new System.Drawing.Point(415, 163);
          this.label35.Name = "label35";
          this.label35.Size = new System.Drawing.Size(165, 14);
          this.label35.TabIndex = 110;
@@ -8383,7 +8383,7 @@
          // 
          this.lookUpEdit52.Anchor = System.Windows.Forms.AnchorStyles.None;
          this.lookUpEdit52.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.MsgbBs10, "INSR_CNAM_STAT", true));
-         this.lookUpEdit52.Location = new System.Drawing.Point(252, 209);
+         this.lookUpEdit52.Location = new System.Drawing.Point(252, 161);
          this.lookUpEdit52.Name = "lookUpEdit52";
          this.lookUpEdit52.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.lookUpEdit52.Properties.Appearance.Options.UseFont = true;
@@ -8417,7 +8417,7 @@
          // 
          this.label36.Anchor = System.Windows.Forms.AnchorStyles.None;
          this.label36.AutoSize = true;
-         this.label36.Location = new System.Drawing.Point(760, 211);
+         this.label36.Location = new System.Drawing.Point(760, 163);
          this.label36.Name = "label36";
          this.label36.Size = new System.Drawing.Size(182, 14);
          this.label36.TabIndex = 108;
@@ -8427,7 +8427,7 @@
          // 
          this.lookUpEdit53.Anchor = System.Windows.Forms.AnchorStyles.None;
          this.lookUpEdit53.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.MsgbBs10, "INSR_FNAM_STAT", true));
-         this.lookUpEdit53.Location = new System.Drawing.Point(597, 209);
+         this.lookUpEdit53.Location = new System.Drawing.Point(597, 161);
          this.lookUpEdit53.Name = "lookUpEdit53";
          this.lookUpEdit53.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.lookUpEdit53.Properties.Appearance.Options.UseFont = true;
@@ -8461,7 +8461,7 @@
          // 
          this.label32.Anchor = System.Windows.Forms.AnchorStyles.None;
          this.label32.AutoSize = true;
-         this.label32.Location = new System.Drawing.Point(656, 269);
+         this.label32.Location = new System.Drawing.Point(656, 221);
          this.label32.Name = "label32";
          this.label32.Size = new System.Drawing.Size(38, 14);
          this.label32.TabIndex = 104;
@@ -8471,7 +8471,7 @@
          // 
          this.label37.Anchor = System.Windows.Forms.AnchorStyles.None;
          this.label37.AutoSize = true;
-         this.label37.Location = new System.Drawing.Point(415, 183);
+         this.label37.Location = new System.Drawing.Point(415, 135);
          this.label37.Name = "label37";
          this.label37.Size = new System.Drawing.Size(52, 14);
          this.label37.TabIndex = 104;
@@ -8481,7 +8481,7 @@
          // 
          this.label38.Anchor = System.Windows.Forms.AnchorStyles.None;
          this.label38.AutoSize = true;
-         this.label38.Location = new System.Drawing.Point(760, 185);
+         this.label38.Location = new System.Drawing.Point(760, 137);
          this.label38.Name = "label38";
          this.label38.Size = new System.Drawing.Size(89, 14);
          this.label38.TabIndex = 105;
@@ -8492,7 +8492,7 @@
          this.lookUpEdit54.Anchor = System.Windows.Forms.AnchorStyles.None;
          this.lookUpEdit54.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.MsgbBs10, "LINE_TYPE", true));
          this.lookUpEdit54.EditValue = "001";
-         this.lookUpEdit54.Location = new System.Drawing.Point(252, 181);
+         this.lookUpEdit54.Location = new System.Drawing.Point(252, 133);
          this.lookUpEdit54.Name = "lookUpEdit54";
          this.lookUpEdit54.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.lookUpEdit54.Properties.Appearance.Options.UseFont = true;
@@ -8526,7 +8526,7 @@
          // 
          this.lookUpEdit55.Anchor = System.Windows.Forms.AnchorStyles.None;
          this.lookUpEdit55.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.MsgbBs10, "STAT", true));
-         this.lookUpEdit55.Location = new System.Drawing.Point(597, 183);
+         this.lookUpEdit55.Location = new System.Drawing.Point(597, 135);
          this.lookUpEdit55.Name = "lookUpEdit55";
          this.lookUpEdit55.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.lookUpEdit55.Properties.Appearance.Options.UseFont = true;
@@ -8560,7 +8560,7 @@
          // 
          this.Msg_Count_Char010_Txt.Anchor = System.Windows.Forms.AnchorStyles.None;
          this.Msg_Count_Char010_Txt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-         this.Msg_Count_Char010_Txt.Location = new System.Drawing.Point(780, 412);
+         this.Msg_Count_Char010_Txt.Location = new System.Drawing.Point(780, 364);
          this.Msg_Count_Char010_Txt.Name = "Msg_Count_Char010_Txt";
          this.Msg_Count_Char010_Txt.ReadOnly = true;
          this.Msg_Count_Char010_Txt.Size = new System.Drawing.Size(53, 22);
@@ -8572,7 +8572,7 @@
          // 
          this.label39.Anchor = System.Windows.Forms.AnchorStyles.None;
          this.label39.AutoSize = true;
-         this.label39.Location = new System.Drawing.Point(839, 415);
+         this.label39.Location = new System.Drawing.Point(839, 367);
          this.label39.Name = "label39";
          this.label39.Size = new System.Drawing.Size(98, 14);
          this.label39.TabIndex = 101;
@@ -8582,7 +8582,7 @@
          // 
          this.label40.Anchor = System.Windows.Forms.AnchorStyles.None;
          this.label40.AutoSize = true;
-         this.label40.Location = new System.Drawing.Point(870, 296);
+         this.label40.Location = new System.Drawing.Point(870, 248);
          this.label40.Name = "label40";
          this.label40.Size = new System.Drawing.Size(67, 14);
          this.label40.TabIndex = 102;
@@ -8592,7 +8592,7 @@
          // 
          this.Msgb_Text010.Anchor = System.Windows.Forms.AnchorStyles.None;
          this.Msgb_Text010.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.MsgbBs10, "MSGB_TEXT", true));
-         this.Msgb_Text010.Location = new System.Drawing.Point(249, 313);
+         this.Msgb_Text010.Location = new System.Drawing.Point(249, 265);
          this.Msgb_Text010.Name = "Msgb_Text010";
          this.Msgb_Text010.Size = new System.Drawing.Size(688, 96);
          this.Msgb_Text010.TabIndex = 100;
@@ -8645,7 +8645,7 @@
          this.label41.AutoSize = true;
          this.label41.Location = new System.Drawing.Point(760, 109);
          this.label41.Name = "label41";
-         this.label41.Size = new System.Drawing.Size(93, 14);
+         this.label41.Size = new System.Drawing.Size(68, 14);
          this.label41.TabIndex = 143;
          this.label41.Text = "وضعیت بله :";
          // 
@@ -9063,7 +9063,7 @@
          this.label48.AutoSize = true;
          this.label48.Location = new System.Drawing.Point(760, 109);
          this.label48.Name = "label48";
-         this.label48.Size = new System.Drawing.Size(93, 14);
+         this.label48.Size = new System.Drawing.Size(68, 14);
          this.label48.TabIndex = 143;
          this.label48.Text = "وضعیت بله :";
          // 
@@ -9514,7 +9514,7 @@
          this.label64.AutoSize = true;
          this.label64.Location = new System.Drawing.Point(760, 109);
          this.label64.Name = "label64";
-         this.label64.Size = new System.Drawing.Size(93, 14);
+         this.label64.Size = new System.Drawing.Size(68, 14);
          this.label64.TabIndex = 143;
          this.label64.Text = "وضعیت بله :";
          // 
@@ -9928,7 +9928,7 @@
          this.label70.AutoSize = true;
          this.label70.Location = new System.Drawing.Point(760, 109);
          this.label70.Name = "label70";
-         this.label70.Size = new System.Drawing.Size(93, 14);
+         this.label70.Size = new System.Drawing.Size(68, 14);
          this.label70.TabIndex = 143;
          this.label70.Text = "وضعیت بله :";
          // 
@@ -10342,7 +10342,7 @@
          this.label80.AutoSize = true;
          this.label80.Location = new System.Drawing.Point(760, 109);
          this.label80.Name = "label80";
-         this.label80.Size = new System.Drawing.Size(93, 14);
+         this.label80.Size = new System.Drawing.Size(68, 14);
          this.label80.TabIndex = 143;
          this.label80.Text = "وضعیت بله :";
          // 
@@ -10756,7 +10756,7 @@
          this.label90.AutoSize = true;
          this.label90.Location = new System.Drawing.Point(760, 109);
          this.label90.Name = "label90";
-         this.label90.Size = new System.Drawing.Size(93, 14);
+         this.label90.Size = new System.Drawing.Size(68, 14);
          this.label90.TabIndex = 143;
          this.label90.Text = "وضعیت بله :";
          // 
@@ -11170,7 +11170,7 @@
          this.label100.AutoSize = true;
          this.label100.Location = new System.Drawing.Point(760, 109);
          this.label100.Name = "label100";
-         this.label100.Size = new System.Drawing.Size(93, 14);
+         this.label100.Size = new System.Drawing.Size(68, 14);
          this.label100.TabIndex = 143;
          this.label100.Text = "وضعیت بله :";
          // 
@@ -11584,7 +11584,7 @@
          this.label254.AutoSize = true;
          this.label254.Location = new System.Drawing.Point(760, 109);
          this.label254.Name = "label254";
-         this.label254.Size = new System.Drawing.Size(93, 14);
+         this.label254.Size = new System.Drawing.Size(68, 14);
          this.label254.TabIndex = 163;
          this.label254.Text = "وضعیت بله :";
          // 
@@ -11998,7 +11998,7 @@
          this.label264.AutoSize = true;
          this.label264.Location = new System.Drawing.Point(760, 109);
          this.label264.Name = "label264";
-         this.label264.Size = new System.Drawing.Size(93, 14);
+         this.label264.Size = new System.Drawing.Size(68, 14);
          this.label264.TabIndex = 163;
          this.label264.Text = "وضعیت بله :";
          // 
@@ -12412,7 +12412,7 @@
          this.label274.AutoSize = true;
          this.label274.Location = new System.Drawing.Point(760, 109);
          this.label274.Name = "label274";
-         this.label274.Size = new System.Drawing.Size(93, 14);
+         this.label274.Size = new System.Drawing.Size(68, 14);
          this.label274.TabIndex = 163;
          this.label274.Text = "وضعیت بله :";
          // 
@@ -12826,7 +12826,7 @@
          this.label284.AutoSize = true;
          this.label284.Location = new System.Drawing.Point(760, 109);
          this.label284.Name = "label284";
-         this.label284.Size = new System.Drawing.Size(93, 14);
+         this.label284.Size = new System.Drawing.Size(68, 14);
          this.label284.TabIndex = 163;
          this.label284.Text = "وضعیت بله :";
          // 
@@ -13240,7 +13240,7 @@
          this.label294.AutoSize = true;
          this.label294.Location = new System.Drawing.Point(760, 109);
          this.label294.Name = "label294";
-         this.label294.Size = new System.Drawing.Size(93, 14);
+         this.label294.Size = new System.Drawing.Size(68, 14);
          this.label294.TabIndex = 163;
          this.label294.Text = "وضعیت بله :";
          // 
@@ -13654,7 +13654,7 @@
          this.label304.AutoSize = true;
          this.label304.Location = new System.Drawing.Point(760, 109);
          this.label304.Name = "label304";
-         this.label304.Size = new System.Drawing.Size(93, 14);
+         this.label304.Size = new System.Drawing.Size(68, 14);
          this.label304.TabIndex = 163;
          this.label304.Text = "وضعیت بله :";
          // 
@@ -14068,7 +14068,7 @@
          this.label314.AutoSize = true;
          this.label314.Location = new System.Drawing.Point(760, 109);
          this.label314.Name = "label314";
-         this.label314.Size = new System.Drawing.Size(93, 14);
+         this.label314.Size = new System.Drawing.Size(68, 14);
          this.label314.TabIndex = 163;
          this.label314.Text = "وضعیت بله :";
          // 
@@ -14482,7 +14482,7 @@
          this.label110.AutoSize = true;
          this.label110.Location = new System.Drawing.Point(760, 109);
          this.label110.Name = "label110";
-         this.label110.Size = new System.Drawing.Size(93, 14);
+         this.label110.Size = new System.Drawing.Size(68, 14);
          this.label110.TabIndex = 143;
          this.label110.Text = "وضعیت بله :";
          // 
@@ -14896,7 +14896,7 @@
          this.label120.AutoSize = true;
          this.label120.Location = new System.Drawing.Point(760, 109);
          this.label120.Name = "label120";
-         this.label120.Size = new System.Drawing.Size(93, 14);
+         this.label120.Size = new System.Drawing.Size(68, 14);
          this.label120.TabIndex = 143;
          this.label120.Text = "وضعیت بله :";
          // 
@@ -15310,7 +15310,7 @@
          this.label130.AutoSize = true;
          this.label130.Location = new System.Drawing.Point(760, 109);
          this.label130.Name = "label130";
-         this.label130.Size = new System.Drawing.Size(93, 14);
+         this.label130.Size = new System.Drawing.Size(68, 14);
          this.label130.TabIndex = 163;
          this.label130.Text = "وضعیت بله :";
          // 
@@ -15724,7 +15724,7 @@
          this.label144.AutoSize = true;
          this.label144.Location = new System.Drawing.Point(760, 109);
          this.label144.Name = "label144";
-         this.label144.Size = new System.Drawing.Size(93, 14);
+         this.label144.Size = new System.Drawing.Size(68, 14);
          this.label144.TabIndex = 163;
          this.label144.Text = "وضعیت بله :";
          // 
@@ -16138,7 +16138,7 @@
          this.label154.AutoSize = true;
          this.label154.Location = new System.Drawing.Point(760, 109);
          this.label154.Name = "label154";
-         this.label154.Size = new System.Drawing.Size(93, 14);
+         this.label154.Size = new System.Drawing.Size(68, 14);
          this.label154.TabIndex = 163;
          this.label154.Text = "وضعیت بله :";
          // 
@@ -16552,7 +16552,7 @@
          this.label164.AutoSize = true;
          this.label164.Location = new System.Drawing.Point(760, 109);
          this.label164.Name = "label164";
-         this.label164.Size = new System.Drawing.Size(93, 14);
+         this.label164.Size = new System.Drawing.Size(68, 14);
          this.label164.TabIndex = 163;
          this.label164.Text = "وضعیت بله :";
          // 
@@ -16966,7 +16966,7 @@
          this.label174.AutoSize = true;
          this.label174.Location = new System.Drawing.Point(760, 109);
          this.label174.Name = "label174";
-         this.label174.Size = new System.Drawing.Size(93, 14);
+         this.label174.Size = new System.Drawing.Size(68, 14);
          this.label174.TabIndex = 163;
          this.label174.Text = "وضعیت بله :";
          // 
@@ -17380,7 +17380,7 @@
          this.label184.AutoSize = true;
          this.label184.Location = new System.Drawing.Point(760, 109);
          this.label184.Name = "label184";
-         this.label184.Size = new System.Drawing.Size(93, 14);
+         this.label184.Size = new System.Drawing.Size(68, 14);
          this.label184.TabIndex = 163;
          this.label184.Text = "وضعیت بله :";
          // 
@@ -17794,7 +17794,7 @@
          this.label194.AutoSize = true;
          this.label194.Location = new System.Drawing.Point(760, 109);
          this.label194.Name = "label194";
-         this.label194.Size = new System.Drawing.Size(93, 14);
+         this.label194.Size = new System.Drawing.Size(68, 14);
          this.label194.TabIndex = 163;
          this.label194.Text = "وضعیت بله :";
          // 
@@ -18208,7 +18208,7 @@
          this.label204.AutoSize = true;
          this.label204.Location = new System.Drawing.Point(760, 109);
          this.label204.Name = "label204";
-         this.label204.Size = new System.Drawing.Size(93, 14);
+         this.label204.Size = new System.Drawing.Size(68, 14);
          this.label204.TabIndex = 163;
          this.label204.Text = "وضعیت بله :";
          // 
@@ -18622,7 +18622,7 @@
          this.label214.AutoSize = true;
          this.label214.Location = new System.Drawing.Point(760, 109);
          this.label214.Name = "label214";
-         this.label214.Size = new System.Drawing.Size(93, 14);
+         this.label214.Size = new System.Drawing.Size(68, 14);
          this.label214.TabIndex = 163;
          this.label214.Text = "وضعیت بله :";
          // 
@@ -19035,7 +19035,7 @@
          this.label224.AutoSize = true;
          this.label224.Location = new System.Drawing.Point(760, 109);
          this.label224.Name = "label224";
-         this.label224.Size = new System.Drawing.Size(93, 14);
+         this.label224.Size = new System.Drawing.Size(68, 14);
          this.label224.TabIndex = 163;
          this.label224.Text = "وضعیت بله :";
          // 
@@ -19448,7 +19448,7 @@
          this.label234.AutoSize = true;
          this.label234.Location = new System.Drawing.Point(760, 109);
          this.label234.Name = "label234";
-         this.label234.Size = new System.Drawing.Size(93, 14);
+         this.label234.Size = new System.Drawing.Size(68, 14);
          this.label234.TabIndex = 163;
          this.label234.Text = "وضعیت بله :";
          // 
@@ -19861,7 +19861,7 @@
          this.label244.AutoSize = true;
          this.label244.Location = new System.Drawing.Point(760, 109);
          this.label244.Name = "label244";
-         this.label244.Size = new System.Drawing.Size(93, 14);
+         this.label244.Size = new System.Drawing.Size(68, 14);
          this.label244.TabIndex = 163;
          this.label244.Text = "وضعیت بله :";
          // 
@@ -20275,7 +20275,7 @@
          this.label324.AutoSize = true;
          this.label324.Location = new System.Drawing.Point(760, 109);
          this.label324.Name = "label324";
-         this.label324.Size = new System.Drawing.Size(93, 14);
+         this.label324.Size = new System.Drawing.Size(68, 14);
          this.label324.TabIndex = 183;
          this.label324.Text = "وضعیت بله :";
          // 

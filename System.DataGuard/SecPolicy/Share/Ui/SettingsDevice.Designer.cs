@@ -1246,7 +1246,7 @@
          this.NewPos_Butn.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.NewPos_Butn.Image = global::System.DataGuard.Properties.Resources.IMAGE_1422;
          this.NewPos_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
-         this.NewPos_Butn.Location = new System.Drawing.Point(600, 99);
+         this.NewPos_Butn.Location = new System.Drawing.Point(1118, 99);
          this.NewPos_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.NewPos_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.NewPos_Butn.Name = "NewPos_Butn";
@@ -1263,7 +1263,7 @@
          this.labelControl3.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Top;
          this.labelControl3.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
          this.labelControl3.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.labelControl3.Location = new System.Drawing.Point(428, 45);
+         this.labelControl3.Location = new System.Drawing.Point(946, 45);
          this.labelControl3.Name = "labelControl3";
          this.labelControl3.Size = new System.Drawing.Size(518, 48);
          this.labelControl3.TabIndex = 12;
@@ -1279,9 +1279,9 @@
          this.PosList_Flp.Controls.Add(this.simpleButton3);
          this.PosList_Flp.Controls.Add(this.simpleButton4);
          this.PosList_Flp.Controls.Add(this.simpleButton5);
-         this.PosList_Flp.Location = new System.Drawing.Point(3, 150);
+         this.PosList_Flp.Location = new System.Drawing.Point(6, 150);
          this.PosList_Flp.Name = "PosList_Flp";
-         this.PosList_Flp.Size = new System.Drawing.Size(946, 249);
+         this.PosList_Flp.Size = new System.Drawing.Size(1461, 555);
          this.PosList_Flp.TabIndex = 11;
          // 
          // simpleButton2
@@ -1303,7 +1303,7 @@
          this.simpleButton2.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
          this.simpleButton2.Image = global::System.DataGuard.Properties.Resources.IMAGE_1622;
          this.simpleButton2.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
-         this.simpleButton2.Location = new System.Drawing.Point(728, 3);
+         this.simpleButton2.Location = new System.Drawing.Point(1243, 3);
          this.simpleButton2.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.simpleButton2.LookAndFeel.UseDefaultLookAndFeel = false;
          this.simpleButton2.Name = "simpleButton2";
@@ -1332,7 +1332,7 @@
          this.simpleButton3.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
          this.simpleButton3.Image = global::System.DataGuard.Properties.Resources.IMAGE_1622;
          this.simpleButton3.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
-         this.simpleButton3.Location = new System.Drawing.Point(507, 3);
+         this.simpleButton3.Location = new System.Drawing.Point(1022, 3);
          this.simpleButton3.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.simpleButton3.LookAndFeel.UseDefaultLookAndFeel = false;
          this.simpleButton3.Name = "simpleButton3";
@@ -1361,7 +1361,7 @@
          this.simpleButton4.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
          this.simpleButton4.Image = global::System.DataGuard.Properties.Resources.IMAGE_1622;
          this.simpleButton4.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
-         this.simpleButton4.Location = new System.Drawing.Point(286, 3);
+         this.simpleButton4.Location = new System.Drawing.Point(801, 3);
          this.simpleButton4.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.simpleButton4.LookAndFeel.UseDefaultLookAndFeel = false;
          this.simpleButton4.Name = "simpleButton4";
@@ -1390,7 +1390,7 @@
          this.simpleButton5.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
          this.simpleButton5.Image = global::System.DataGuard.Properties.Resources.IMAGE_1622;
          this.simpleButton5.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
-         this.simpleButton5.Location = new System.Drawing.Point(65, 3);
+         this.simpleButton5.Location = new System.Drawing.Point(580, 3);
          this.simpleButton5.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.simpleButton5.LookAndFeel.UseDefaultLookAndFeel = false;
          this.simpleButton5.Name = "simpleButton5";

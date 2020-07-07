@@ -743,6 +743,15 @@
     <Compile Include="Ui\GateEntryExit\GATE_ACTN_F.RequestRespons.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Ui\MasterPage\STRT_PROC_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\MasterPage\STRT_PROC_F.Designer.cs">
+      <DependentUpon>STRT_PROC_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\MasterPage\STRT_PROC_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Ui\Notifications\ATTN_DAYN_F.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -1452,6 +1461,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Ui\GateEntryExit\GATE_ACTN_F.resx">
       <DependentUpon>GATE_ACTN_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\MasterPage\STRT_PROC_F.resx">
+      <DependentUpon>STRT_PROC_F.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ui\Notifications\ATTN_DAYN_F.resx">
       <DependentUpon>ATTN_DAYN_F.cs</DependentUpon>

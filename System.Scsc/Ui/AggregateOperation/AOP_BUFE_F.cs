@@ -259,19 +259,16 @@ namespace System.Scsc.Ui.AggregateOperation
 
       private void AodtBnPrintAfterPay_Click(object sender, EventArgs e)
       {
-         //if (tb_master.SelectedTab == tp_001)
-         {
-            if (AodtBs1.Current == null) return;
-            var crnt = AodtBs1.Current as Data.Aggregation_Operation_Detail;
+         if (AodtBs1.Current == null) return;
+         var crnt = AodtBs1.Current as Data.Aggregation_Operation_Detail;
 
-            Job _InteractWithScsc =
-              new Job(SendType.External, "Localhost",
-                 new List<Job>
-                  {
-                     new Job(SendType.Self, 84 /* Execute Rpt_Mngr_F */){Input = new XElement("Print", new XAttribute("type", "PrintAfterFinish"), new XAttribute("modual", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_003_F"), string.Format("Aggregation_Operation_Detail.Agop_Code = {0} AND Aggregation_Operation_Detail.Rwno = {1}", crnt.AGOP_CODE, crnt.RWNO))}
-                  });
-            _DefaultGateway.Gateway(_InteractWithScsc);
-         }
+         Job _InteractWithScsc =
+            new Job(SendType.External, "Localhost",
+               new List<Job>
+               {
+                  new Job(SendType.Self, 84 /* Execute Rpt_Mngr_F */){Input = new XElement("Print", new XAttribute("type", "PrintAfterFinish"), new XAttribute("modual", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_003_F"), string.Format("Aggregation_Operation_Detail.Agop_Code = {0} AND Aggregation_Operation_Detail.Rwno = {1}", crnt.AGOP_CODE, crnt.RWNO))}
+               });
+         _DefaultGateway.Gateway(_InteractWithScsc);
       }
       #endregion
       #region Expn
@@ -1057,7 +1054,11 @@ namespace System.Scsc.Ui.AggregateOperation
 
             if (Figh_Lov.EditValue != null && Figh_Lov.EditValue.ToString() != "")
             {
-               fileno = Convert.ToInt64(Figh_Lov.EditValue);
+               fileno = Convert.ToInt64(Figh_Lov.EditValue);               
+            }
+            else
+            {
+               fileno = FighBs.OfType<Data.Fighter>().FirstOrDefault(f => f.FGPB_TYPE_DNRM == "005").FILE_NO;
             }
             if(TableCloseOpen)
             {
@@ -1068,7 +1069,11 @@ namespace System.Scsc.Ui.AggregateOperation
             else
                iScsc.INS_AODT_P(agop.CODE, 1, null, null, fileno, null, null, null, "002", "001", desk, null, null, null, null, null, null, null);
 
+            Figh_Lov.EditValue = null;
+            requery = true;
+
             // ارسال پیام برای باز کردن دستگاه چراغ میز برای مشتری
+            
             _DefaultGateway.Gateway(
                new Job(SendType.External, "localhost", "MAIN_PAGE_F", 10 /* Execute Call_Actn_P */, SendType.SelfToUserInterface)
                {
@@ -1080,10 +1085,7 @@ namespace System.Scsc.Ui.AggregateOperation
                          new XAttribute("fngrprnt", FighBs.List.OfType<Data.Fighter>().FirstOrDefault(f => f.FILE_NO == fileno).FNGR_PRNT_DNRM)
                      )
                }
-            );
-
-            Figh_Lov.EditValue = null;
-            requery = true;
+            );            
          }
          catch
          {
@@ -2912,7 +2914,13 @@ namespace System.Scsc.Ui.AggregateOperation
 
                ).OrderBy(ed => ed.EXPN_DESC);
 
-            if (ExpnDeskBs1.List.Count > 0)
+            ExpnDesk_GridLookUpEdit.EditValue = null;
+            //if (ExpnDeskBs1.List.Count > 0)
+            //{
+            //   ExpnDeskBs1.MoveFirst();
+            //   ExpnDesk_GridLookUpEdit.EditValue = (ExpnDeskBs1.Current as Data.Expense).CODE;
+            //}
+            if(ExpnDeskBs1.List.Count == 1)
             {
                ExpnDeskBs1.MoveFirst();
                ExpnDesk_GridLookUpEdit.EditValue = (ExpnDeskBs1.Current as Data.Expense).CODE;

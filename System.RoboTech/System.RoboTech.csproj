@@ -410,8 +410,8 @@
     </None>
     <None Include="Data\iRoboTech.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
-      <LastGenOutput>iRoboTech.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>iRoboTech1.designer.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Admin.datasource" />
@@ -439,6 +439,7 @@
     <None Include="Properties\DataSources\System.RoboTech.Data.D_RCVT.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_RMTP.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_SDTP.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.D_SHIN.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_SPYT.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_URLT.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_YSNO.datasource" />

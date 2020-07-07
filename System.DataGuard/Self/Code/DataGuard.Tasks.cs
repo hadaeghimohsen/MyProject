@@ -217,7 +217,10 @@ namespace System.DataGuard.Self.Code
                   new XAttribute("ip", ipaddress),
                   //new XAttribute("mac", macAddrLen > 0 ? string.Join(":", str) : "00:00:00:00:00:00"),
                   new XAttribute("mac", string.Join(":", str)),
-                  new XAttribute("cpu", cpu)
+                  new XAttribute("cpu", cpu),
+                  new XElement("IPAddresses",
+                      Dns.GetHostAddresses(Dns.GetHostName()).Select(ipadrs => new XElement("IP", ipadrs.ToString()))
+                  )
                );
 
             job.Status = StatusType.Successful;

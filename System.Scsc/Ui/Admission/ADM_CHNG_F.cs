@@ -85,6 +85,7 @@ namespace System.Scsc.Ui.Admission
             
             var Rqst = RqstBs1.Current as Data.Request;
             var Figh = FighBs1.Current as Scsc.Data.Fighter;
+            var fgpb = FgpbsBs1.Current as Scsc.Data.Fighter_Public;
 
             if (Rqst == null || Rqst.RQID >= 0)
             {
@@ -625,75 +626,9 @@ namespace System.Scsc.Ui.Admission
          catch { }
       }
 
-      //private void Cndo_Lov_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
-      //{
-      //   try
-      //   {
-      //      var fgpb = FgpbsBs1.Current as Data.Fighter_Public;
-      //      if (fgpb == null) return;
-
-      //      CblkBs1.DataSource = iScsc.Cando_Blocks.Where(b => b.CNDO_CODE == e.NewValue.ToString());
-      //   }
-      //   catch { }
-      //}
-
-      //private void Cblk_Lov_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
-      //{
-      //   try
-      //   {
-      //      var fgpb = FgpbsBs1.Current as Data.Fighter_Public;
-      //      if (fgpb == null) return;
-
-      //      CuntBs1.DataSource = iScsc.Cando_Block_Units.Where(u => u.BLOK_CNDO_CODE == fgpb.UNIT_BLOK_CNDO_CODE && u.BLOK_CODE == e.NewValue.ToString());
-      //   }
-      //   catch { }
-      //}
-
-      //private void Cunt_Lov_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
-      //{
-      //   try
-      //   {
-      //      var fgpb = FgpbsBs1.Current as Data.Fighter_Public;
-      //      if (fgpb == null) return;
-
-      //      IDTY_TXT.Text = 
-      //         string.Format(
-      //         "{0}.{1}.{2}.{3}.{4}.{5}", 
-      //         fgpb.REGN_PRVN_CNTY_CODE, 
-      //         fgpb.REGN_PRVN_CODE,
-      //         fgpb.REGN_CODE,
-      //         fgpb.UNIT_BLOK_CNDO_CODE,
-      //         fgpb.UNIT_BLOK_CODE,
-      //         e.NewValue);
-      //   }
-      //   catch { IDTY_TXT.Text = "نامشخص"; }
-      //}
-
-      private void FgpbsBs1_CurrentChanged(object sender, EventArgs e)
-      {
-         try
-         {
-            var fgpb = FgpbsBs1.Current as Data.Fighter_Public;
-            if (fgpb == null) return;
-
-            //IDTY_TXT.Text =
-            //   string.Format(
-            //   "{0}.{1}.{2}.{3}.{4}.{5}",
-            //   fgpb.REGN_PRVN_CNTY_CODE,
-            //   fgpb.REGN_PRVN_CODE,
-            //   fgpb.REGN_CODE,
-            //   fgpb.UNIT_BLOK_CNDO_CODE ?? "---",
-            //   fgpb.UNIT_BLOK_CODE ?? "---",
-            //   fgpb.UNIT_CODE ?? "---");
-         }
-         catch {  }
-      }
-
       private void GetMap_Butn_Click(object sender, EventArgs e)
       {
 
-      }
-
-      
+      }      
    }
 }

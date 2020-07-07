@@ -260,7 +260,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
          {
             if(Network_Rb.Checked)
             {
-               iFgnrMstrIsCnct = iFngrMstr.Connect_Net(MasterDeviceIP_Txt.Text, Convert.ToInt32(MasterDevicePort_Txt.Text));
+               iFgnrMstrIsCnct = iFngrMstr.Connect_Net(MasterDeviceIP_Txt.Text, Convert.ToInt32(MasterDevicePort_Txt.Text));               
 
                if (iFgnrMstrIsCnct)
                   MessageBox.Show(this, "برقراری ارتباط با دستگاه با موفقیت انجام شد!", "Devicec", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -410,7 +410,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
 
             if (Network_Rb.Checked && iFgnrMstrIsCnct)
             {
-               var result = iFngrMstr.GetUserTmpExStr(1, UserId_Txt.Text, 6, out flag, out tmpData, out tmplen);               
+               var result = iFngrMstr.GetUserTmpExStr(1, UserId_Txt.Text, 6, out flag, out tmpData, out tmplen);                              
             }
             else if (Usb_Rb.Checked)
             {

@@ -45,6 +45,7 @@
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
+         System.Windows.Forms.Label label1;
          this.colRECT_STAT = new DevExpress.XtraGrid.Columns.GridColumn();
          this.panel1 = new System.Windows.Forms.Panel();
          this.SaveChange_Butn = new DevExpress.XtraEditors.SimpleButton();
@@ -101,6 +102,7 @@
          this.FromAttnDate_Date = new Atf.UI.DateTimeSelector();
          this.ToDate_Lb = new System.Windows.Forms.Label();
          this.FromDate_Lb = new System.Windows.Forms.Label();
+         this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
          dRES_NUMBLabel = new System.Windows.Forms.Label();
          dESCLabel = new System.Windows.Forms.Label();
          cOMM_PORTLabel = new System.Windows.Forms.Label();
@@ -111,6 +113,7 @@
          nAME_DNRMLabel = new System.Windows.Forms.Label();
          nATL_CODE_DNRMLabel = new System.Windows.Forms.Label();
          cELL_PHON_DNRMLabel = new System.Windows.Forms.Label();
+         label1 = new System.Windows.Forms.Label();
          this.panel1.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
          this.splitContainerControl1.SuspendLayout();
@@ -153,6 +156,7 @@
          ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
          this.groupControl1.SuspendLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
          this.SuspendLayout();
          // 
          // dRES_NUMBLabel
@@ -179,6 +183,7 @@
          // 
          cOMM_PORTLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          cOMM_PORTLabel.AutoSize = true;
+         cOMM_PORTLabel.Enabled = false;
          cOMM_PORTLabel.Location = new System.Drawing.Point(228, 91);
          cOMM_PORTLabel.Name = "cOMM_PORTLabel";
          cOMM_PORTLabel.Size = new System.Drawing.Size(74, 14);
@@ -189,6 +194,7 @@
          // 
          bAND_RATELabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          bAND_RATELabel.AutoSize = true;
+         bAND_RATELabel.Enabled = false;
          bAND_RATELabel.Location = new System.Drawing.Point(228, 118);
          bAND_RATELabel.Name = "bAND_RATELabel";
          bAND_RATELabel.Size = new System.Drawing.Size(64, 14);
@@ -496,6 +502,8 @@
          // tabPage1
          // 
          this.tabPage1.AutoScroll = true;
+         this.tabPage1.Controls.Add(label1);
+         this.tabPage1.Controls.Add(this.textEdit1);
          this.tabPage1.Controls.Add(oRDRLabel);
          this.tabPage1.Controls.Add(this.oRDRSpinEdit);
          this.tabPage1.Controls.Add(rEC_STATLabel);
@@ -532,7 +540,7 @@
          this.oRDRSpinEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
          this.oRDRSpinEdit.Size = new System.Drawing.Size(200, 20);
-         this.oRDRSpinEdit.TabIndex = 13;
+         this.oRDRSpinEdit.TabIndex = 2;
          // 
          // rEC_STATLookUpEdit
          // 
@@ -550,7 +558,7 @@
          this.rEC_STATLookUpEdit.Properties.NullText = "";
          this.rEC_STATLookUpEdit.Properties.ValueMember = "VALU";
          this.rEC_STATLookUpEdit.Size = new System.Drawing.Size(200, 20);
-         this.rEC_STATLookUpEdit.TabIndex = 11;
+         this.rEC_STATLookUpEdit.TabIndex = 6;
          // 
          // DActvBs1
          // 
@@ -565,21 +573,23 @@
             0,
             0,
             0});
+         this.bAND_RATESpinEdit.Enabled = false;
          this.bAND_RATESpinEdit.Location = new System.Drawing.Point(22, 115);
          this.bAND_RATESpinEdit.Name = "bAND_RATESpinEdit";
          this.bAND_RATESpinEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject3, "", null, null, true)});
          this.bAND_RATESpinEdit.Size = new System.Drawing.Size(200, 20);
-         this.bAND_RATESpinEdit.TabIndex = 7;
+         this.bAND_RATESpinEdit.TabIndex = 4;
          // 
          // cOMM_PORTTextEdit
          // 
          this.cOMM_PORTTextEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.cOMM_PORTTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.DresBs1, "COMM_PORT", true));
+         this.cOMM_PORTTextEdit.Enabled = false;
          this.cOMM_PORTTextEdit.Location = new System.Drawing.Point(22, 89);
          this.cOMM_PORTTextEdit.Name = "cOMM_PORTTextEdit";
          this.cOMM_PORTTextEdit.Size = new System.Drawing.Size(200, 20);
-         this.cOMM_PORTTextEdit.TabIndex = 5;
+         this.cOMM_PORTTextEdit.TabIndex = 3;
          // 
          // dESCTextEdit
          // 
@@ -588,7 +598,7 @@
          this.dESCTextEdit.Location = new System.Drawing.Point(22, 37);
          this.dESCTextEdit.Name = "dESCTextEdit";
          this.dESCTextEdit.Size = new System.Drawing.Size(200, 20);
-         this.dESCTextEdit.TabIndex = 3;
+         this.dESCTextEdit.TabIndex = 1;
          // 
          // dRES_NUMBTextEdit
          // 
@@ -597,7 +607,7 @@
          this.dRES_NUMBTextEdit.Location = new System.Drawing.Point(22, 11);
          this.dRES_NUMBTextEdit.Name = "dRES_NUMBTextEdit";
          this.dRES_NUMBTextEdit.Size = new System.Drawing.Size(200, 20);
-         this.dRES_NUMBTextEdit.TabIndex = 1;
+         this.dRES_NUMBTextEdit.TabIndex = 0;
          // 
          // cMND_SENDTextEdit
          // 
@@ -610,7 +620,7 @@
          this.cMND_SENDTextEdit.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
          this.cMND_SENDTextEdit.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
          this.cMND_SENDTextEdit.Size = new System.Drawing.Size(200, 24);
-         this.cMND_SENDTextEdit.TabIndex = 9;
+         this.cMND_SENDTextEdit.TabIndex = 5;
          this.cMND_SENDTextEdit.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.cMND_SENDTextEdit_ButtonClick);
          // 
          // tabControl2
@@ -956,6 +966,25 @@
          this.FromDate_Lb.TabIndex = 42;
          this.FromDate_Lb.Text = "از تاریخ :";
          // 
+         // label1
+         // 
+         label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         label1.AutoSize = true;
+         label1.Location = new System.Drawing.Point(231, 195);
+         label1.Name = "label1";
+         label1.Size = new System.Drawing.Size(73, 14);
+         label1.TabIndex = 14;
+         label1.Text = "IP Address :";
+         // 
+         // textEdit1
+         // 
+         this.textEdit1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.textEdit1.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.DresBs1, "IP_ADRS", true));
+         this.textEdit1.Location = new System.Drawing.Point(22, 193);
+         this.textEdit1.Name = "textEdit1";
+         this.textEdit1.Size = new System.Drawing.Size(200, 20);
+         this.textEdit1.TabIndex = 7;
+         // 
          // MNGR_DRES_F
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -1013,6 +1042,7 @@
          ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
          this.groupControl1.ResumeLayout(false);
          this.groupControl1.PerformLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
          this.ResumeLayout(false);
 
       }
@@ -1075,5 +1105,6 @@
       private DevExpress.XtraGrid.Columns.GridColumn colRECT_STAT;
       private Windows.Forms.BindingSource DActvBs1;
       private Windows.Forms.Button Search_Butn;
+      private DevExpress.XtraEditors.TextEdit textEdit1;
    }
 }

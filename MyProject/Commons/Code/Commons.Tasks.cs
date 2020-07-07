@@ -1093,12 +1093,12 @@ namespace MyProject.Commons.Code
 
          using (Ping p = new Ping())
          {
-            byte[] buffer = Encoding.ASCII.GetBytes("Hello World!");
+            //byte[] buffer = Encoding.ASCII.GetBytes("Hello World!");
             int timeout = 4444; // 4s
 
             try
             {
-               PingReply reply = p.Send(job.Input.ToString(), timeout, buffer);
+               PingReply reply = p.Send(job.Input.ToString(), timeout/*, buffer*/);
                job.Output = pingStatus = (reply.Status == IPStatus.Success);
                job.Status = StatusType.Successful;
             }

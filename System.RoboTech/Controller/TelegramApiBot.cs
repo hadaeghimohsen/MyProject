@@ -931,7 +931,7 @@ namespace System.RoboTech.Controller
 
                await Bot.SendTextMessageAsync(
                   chat.Message.Chat.Id,
-                  string.Format("کد تلگرامی شما {0} می باشد", chat.Message.Chat.Id)
+                  string.Format("کد دستگاه شما {0} می باشد", chat.Message.Chat.Id)
                );
             }
             #endregion

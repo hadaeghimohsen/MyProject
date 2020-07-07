@@ -146,7 +146,12 @@ namespace System.Scsc.Ui.Notifications
                         Input = 
                            new XElement("Request",
                               new XAttribute("type", "gatecontrol"),
-                              new XAttribute("gateactn", attn.EXIT_TIME == null ? "open" : "close")
+                              new XAttribute("gateactn", attn.EXIT_TIME == null ? "open" : "close"),
+                              new XAttribute("enddate", attn.MBSP_END_DATE_DNRM),
+                              new XAttribute("numbattnmont", attn.NUMB_OF_ATTN_MONT),
+                              new XAttribute("sumattnmont",attn.SUM_ATTN_MONT_DNRM ?? 0),
+                              new XAttribute("debt", attn.DEBT_DNRM),
+                              new XAttribute("fngrprnt", attn.FNGR_PRNT_DNRM)
                            )
                      }
                   }
@@ -373,7 +378,7 @@ namespace System.Scsc.Ui.Notifications
 
          DRES_NUMB_Txt.Focus();
 
-         RemindAttn_Txt.EditValue = Math.Abs( (int)(attn.NUMB_OF_ATTN_MONT - attn.SUM_ATTN_MONT_DNRM) );
+         RemindAttn_Txt.EditValue = Math.Abs( (int)(attn.NUMB_OF_ATTN_MONT - attn.SUM_ATTN_MONT_DNRM ?? 0) );
          DayRmnd_Txt.Text = (attn.MBSP_END_DATE_DNRM.Value.Date - DateTime.Now.Date).Days.ToString();
       }
 
@@ -485,7 +490,7 @@ namespace System.Scsc.Ui.Notifications
             if(requery)
             {
                RqstBnExit1_Click(null, null);
-               Execute_Query(true);
+               //Execute_Query(true);
                requery = false;
             }
          }

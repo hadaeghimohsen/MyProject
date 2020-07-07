@@ -27,6 +27,7 @@ using SuperSocket.WebSocket;
 using SuperSocket.SocketBase;
 using System.Net.Sockets;
 using EventBasedTCP;
+using System.Globalization;
 
 
 namespace System.Scsc.Ui.MasterPage
@@ -213,6 +214,7 @@ namespace System.Scsc.Ui.MasterPage
       {
          try
          {
+            new Thread(AlarmShow).Start();
             iScsc = new Data.iScscDataContext(ConnectionString);
             var barCodeSetting = iScsc.Settings.Where(s => Fga_Uclb_U.Contains(s.CLUB_CODE)).FirstOrDefault();
             var enrollNumber = Sp_Barcode.ReadLine();
@@ -410,6 +412,8 @@ namespace System.Scsc.Ui.MasterPage
          }
       }
 
+      IQueryable<Data.External_Device> _gatesDevice;
+      IQueryable<Data.External_Device> _readersDevice;
       private void Stop_GateAttn()
       {
          try
@@ -426,18 +430,77 @@ namespace System.Scsc.Ui.MasterPage
          }
       }
 
-      private void Open_Gate()
+      private void Open_Gate(XElement xinput)
       {
          try
          {
             BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.YellowGreen;
-            // Open This Gate
-            var gateAttnStng = GateAttn_Butn.Tag as Data.Setting;
-            if (gateAttnStng == null) return;
+            if (GateAttn_Butn.Tag != null)
+            {
+               // Open This Gate
+               var gateAttnStng = GateAttn_Butn.Tag as Data.Setting;
+               if (gateAttnStng == null) return;
 
-            GateAttn_Butn.Image = Properties.Resources.IMAGE_1641;
-            if (gateAttnStng.GATE_ENTR_OPEN == "001") return;
-            Sp_GateAttn.Write("in");            
+               GateAttn_Butn.Image = Properties.Resources.IMAGE_1641;
+               if (gateAttnStng.GATE_ENTR_OPEN == "001") return;
+               Sp_GateAttn.Write("in");
+            }
+            // در این قسمت می توانیم بررسی کنیم که این سیستم به چه گیتی متصل می باشد که بتوانید به آن گیت فرمان دهیم که گیت را باز کند
+            var _listIPHost = xHost.Descendants("IP").Select(ip => ip.Value).ToList();
+            if(_gatesDevice == null)
+               _gatesDevice = iScsc.External_Devices.Where(d => d.DEV_COMP_TYPE == "001" && d.DEV_TYPE == "006" && _listIPHost.Contains(d.SERV_IP_ADRS) && d.STAT == "002" && d.MTOD_CODE == null);
+            if (_gatesDevice != null && _gatesDevice.Any())
+            {
+               _gatesDevice.ToList()
+                  .ForEach(g => 
+                     OprtExtDev(
+                        new XElement("MainPage",
+                                 new XAttribute("type", "extdev"),
+                                 new XAttribute("devtype", "006"),
+                                 new XAttribute("contype", "002"),
+                                 new XAttribute("cmdtype", "open"),
+                                 new XAttribute("ip", g.IP_ADRS),
+                                 new XAttribute("sendport", g.PORT_SEND)
+                              )
+                     )
+                  );
+            }
+
+            if(_readersDevice == null)
+               _readersDevice = iScsc.External_Devices.Where(d => d.DEV_COMP_TYPE == "002" && d.DEV_TYPE == "001" && d.DEV_CON == "002" && _listIPHost.Contains(d.SERV_IP_ADRS) && d.STAT == "002");
+            if (_readersDevice != null && _readersDevice.Any())
+            {
+               var enddate = Convert.ToDateTime(xinput.Attribute("enddate").Value);
+               var numbattnmont = Convert.ToInt32(xinput.Attribute("numbattnmont").Value);
+               var sumattnmont = Convert.ToInt32(xinput.Attribute("sumattnmont").Value);
+               var debt = Convert.ToInt64(xinput.Attribute("debt").Value);
+               var fngrprnt = xinput.Attribute("fngrprnt").Value;
+
+               _readersDevice.ToList()
+                  .ForEach(r =>
+                     {
+                        var pc = new PersianCalendar();
+                        if(numbattnmont != 0)
+                        {
+                           SendCommandDevExpn("in:" + 
+                              string.Format("{0}/{1}/{2}-{3}&{4:n0}", /*pc.GetYear(enddate)*/ 99, pc.GetMonth(enddate).ToString().PadLeft(2, '0'), pc.GetDayOfMonth(enddate).ToString().PadLeft(2, '0'), sumattnmont.ToString().PadLeft(3, ' '), debt.ToString().PadLeft(16, ' ')), r.DEV_NAME, fngrprnt
+                           );
+                        }
+                        else
+                        {
+                           SendCommandDevExpn("in:" +
+                              string.Format("{0}/{1}/{2}-   &{3:n0}", /*pc.GetYear(enddate)*/ 99, pc.GetMonth(enddate).ToString().PadLeft(2, '0'), pc.GetDayOfMonth(enddate).ToString().PadLeft(2, '0'), debt.ToString().PadLeft(16, ' ')), r.DEV_NAME, fngrprnt
+                           );
+                        }
+
+                        SendCommandDevExpn(
+                           "df:" + "WellCome".PadLeft(13, ' ') + 
+                           "&" + "Genetic Gym".PadLeft(16, ' '), r.DEV_NAME, ""
+                        );
+                     }
+                  );               
+            }
+
             //MessageBox.Show("Gate is Open");
          }catch(Exception ){}
          finally
@@ -452,19 +515,77 @@ namespace System.Scsc.Ui.MasterPage
          }
       }
 
-      private void Close_Gate()
+      private void Close_Gate(XElement xinput)
       {
          try
          {
             BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Yellow;
-            // Close This Gate
-            var gateAttnStng = GateAttn_Butn.Tag as Data.Setting;
-            if (gateAttnStng == null) return;
+            if (GateAttn_Butn.Tag != null)
+            {
+               // Close This Gate
+               var gateAttnStng = GateAttn_Butn.Tag as Data.Setting;
+               if (gateAttnStng == null) return;
 
-            GateAttn_Butn.Image = Properties.Resources.IMAGE_1640;
-            if (gateAttnStng.GATE_EXIT_OPEN == "001") return;
-            Sp_GateAttn.Write("out");
-            //MessageBox.Show("Gate is Close");            
+               GateAttn_Butn.Image = Properties.Resources.IMAGE_1640;
+               if (gateAttnStng.GATE_EXIT_OPEN == "001") return;
+               Sp_GateAttn.Write("out");
+               //MessageBox.Show("Gate is Close");  
+            }
+            // در این قسمت می توانیم بررسی کنیم که این سیستم به چه گیتی متصل می باشد که بتوانید به آن گیت فرمان دهیم که گیت را باز کند
+            var _listIPHost = xHost.Descendants("IP").Select(ip => ip.Value).ToList();
+            if (_gatesDevice == null)
+               _gatesDevice = iScsc.External_Devices.Where(d => d.DEV_COMP_TYPE == "001" && d.DEV_TYPE == "006" && _listIPHost.Contains(d.SERV_IP_ADRS) && d.STAT == "002" && d.MTOD_CODE == null);
+            if (_gatesDevice != null && _gatesDevice != null && _gatesDevice.Any())
+            {
+               _gatesDevice.ToList()
+                  .ForEach(g =>
+                     OprtExtDev(
+                        new XElement("MainPage",
+                                 new XAttribute("type", "extdev"),
+                                 new XAttribute("devtype", "006"),
+                                 new XAttribute("contype", "002"),
+                                 new XAttribute("cmdtype", "close"),
+                                 new XAttribute("ip", g.IP_ADRS),
+                                 new XAttribute("sendport", g.PORT_SEND)
+                              )
+                     )
+                  );
+            }
+
+            if (_readersDevice == null)
+               _readersDevice = iScsc.External_Devices.Where(d => d.DEV_COMP_TYPE == "002" && d.DEV_TYPE == "001" && d.DEV_CON == "002"  && _listIPHost.Contains(d.SERV_IP_ADRS) && d.STAT == "002");
+            if (_readersDevice != null && _readersDevice.Any())
+            {
+               var enddate = Convert.ToDateTime(xinput.Attribute("enddate").Value);
+               var numbattnmont = Convert.ToInt32(xinput.Attribute("numbattnmont").Value);
+               var sumattnmont = Convert.ToInt32(xinput.Attribute("sumattnmont").Value);
+               var debt = Convert.ToInt64(xinput.Attribute("debt").Value);
+               var fngrprnt = xinput.Attribute("fngrprnt").Value;
+
+               _readersDevice.ToList()
+                  .ForEach(r =>
+                  {
+                     var pc = new PersianCalendar();
+                     if (numbattnmont != 0)
+                     {
+                        SendCommandDevExpn("ot:" +
+                           string.Format("{0}/{1}/{2}-{3}&{4:n0}", /*pc.GetYear(enddate)*/ 99, pc.GetMonth(enddate).ToString().PadLeft(2, '0'), pc.GetDayOfMonth(enddate).ToString().PadLeft(2, '0'), sumattnmont.ToString().PadLeft(3, ' '), debt.ToString().PadLeft(16, ' ')), r.DEV_NAME, fngrprnt
+                        );
+                     }
+                     else
+                     {
+                        SendCommandDevExpn("ot:" +
+                           string.Format("{0}/{1}/{2}-   &{3:n0}", /*pc.GetYear(enddate)*/ 99, pc.GetMonth(enddate).ToString().PadLeft(2, '0'), pc.GetDayOfMonth(enddate).ToString().PadLeft(2, '0'), debt.ToString().PadLeft(16, ' ')), r.DEV_NAME, fngrprnt
+                        );
+                     }
+
+                     SendCommandDevExpn(
+                        "df:" + "WellCome".PadLeft(13, ' ') +
+                        "&" + "Genetic Gym".PadLeft(16, ' '), r.DEV_NAME, ""
+                     );
+                  }
+                  );
+            }
          }
          catch (Exception ) { }
          finally
@@ -479,16 +600,56 @@ namespace System.Scsc.Ui.MasterPage
          }
       }
 
-      private void Error_Gate()
+      private void Error_Gate(XElement xinput)
       {
          try
          {
             BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Tomato;
             GateAttn_Butn.Image = Properties.Resources.IMAGE_1642;
 
-            // Error This Gate                        
-            Sp_GateAttn.Write("error");
-            
+            if (Sp_GateAttn.IsOpen)
+            {
+               // Error This Gate                        
+               Sp_GateAttn.Write("error");
+            }
+            // در این قسمت می توانیم بررسی کنیم که این سیستم به چه گیتی متصل می باشد که بتوانید به آن گیت فرمان دهیم که گیت را باز کند
+            var _listIPHost = xHost.Descendants("IP").Select(ip => ip.Value).ToList();
+            if (_gatesDevice == null)
+               _gatesDevice = iScsc.External_Devices.Where(d => d.DEV_COMP_TYPE == "001" && d.DEV_TYPE == "006" && _listIPHost.Contains(d.SERV_IP_ADRS) && d.STAT == "002" && d.MTOD_CODE == null);
+            if (_gatesDevice != null && _gatesDevice.Any())
+            {
+               _gatesDevice.ToList()
+                  .ForEach(g =>
+                     OprtExtDev(
+                        new XElement("MainPage",
+                                 new XAttribute("type", "extdev"),
+                                 new XAttribute("devtype", "006"),
+                                 new XAttribute("contype", "002"),
+                                 new XAttribute("cmdtype", "error"),
+                                 new XAttribute("ip", g.IP_ADRS),
+                                 new XAttribute("sendport", g.PORT_SEND)
+                              )
+                     )
+                  );
+            }
+
+            if (_readersDevice == null)
+               _readersDevice = iScsc.External_Devices.Where(d => d.DEV_COMP_TYPE == "002" && d.DEV_TYPE == "001"  && d.DEV_CON == "002" && _listIPHost.Contains(d.SERV_IP_ADRS) && d.STAT == "002");
+            if (_readersDevice != null && _readersDevice.Any())
+            {
+               _readersDevice.ToList()
+                  .ForEach(r =>
+                  {                     
+                     SendCommandDevExpn("er" , r.DEV_NAME, FngrPrnt_Txt.Text);
+
+                     SendCommandDevExpn(
+                        "df:" + "WellCome".PadLeft(13, ' ') +
+                        "&" + "Genetic Gym".PadLeft(16, ' '), r.DEV_NAME, ""
+                     );
+                  }
+                  );
+            }
+
             //MessageBox.Show("Gate is Close");
          }
          catch (Exception) { }
@@ -773,23 +934,80 @@ namespace System.Scsc.Ui.MasterPage
          try
          {
             BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.YellowGreen;
+            
             var devInfo = iScsc.External_Devices.FirstOrDefault(d => d.DEV_NAME == devName);
             //var Serv = iScsc.Fighters.FirstOrDefault(s => s.FNGR_PRNT_DNRM == enrollNumber);
 
+            //if (InvokeRequired)
+            //   Invoke(new Action(() => CardNumb_Text.Text = cmndText));
+            //else
+            //   CardNumb_Text.Text = cmndText;
+
+            //_DefaultGateway.Gateway(
+            //   new Job(SendType.External, "localhost", "Wall", 22 /* Execute SetSystemNotification */, SendType.SelfToUserInterface)
+            //   {
+            //      Input =
+            //         new List<object>
+            //         {
+            //            ToolTipIcon.Info,
+            //            "Send Message To Device: " + server.ConnectedClients.FirstOrDefault(d => d.ConnectAddress == devName).ConnectAddress + ":" + server.ConnectedClients.FirstOrDefault(d => d.ConnectAddress == devName).Port,
+            //            cmndText,
+            //            2000
+            //         }
+            //   }
+            //);
+            if (devInfo.DEV_TYPE == "001")
+               server.ConnectedClients.Where(d => d.ConnectAddress == devName).ToList()
+                  .ForEach(d =>
+                  {
+                     try
+                     {
+                        d.SendMessage(
+                           cmndText
+                        );
+                     }
+                     catch { }
+                  }
+                  );
             if(devInfo.DEV_TYPE == "007")
                server.ConnectedClients.Where(d => d.ConnectAddress == devName).ToList()
-                  .ForEach(d =>                   
-                     d.SendMessage(
-                        cmndText                      
-                     )
+                  .ForEach(d =>
+                  {
+                     try
+                     {
+                        d.SendMessage(
+                           cmndText
+                        );
+                     }
+                     catch { }
+                  }
                   );
             else if (devInfo.DEV_TYPE == "008")
                server.ConnectedClients.Where(d => d.ConnectAddress == devName).ToList()
                   .ForEach(d =>
-                     d.SendMessage(
-                        cmndText
-                     )
+                     {
+                        try
+                        {
+                           d.SendMessage(
+                              cmndText
+                           );
+                        }
+                        catch { }
+                     }
                   );
+            else if (devInfo.DEV_TYPE.In("009", "010"))
+               server.ConnectedClients.Where(d => d.ConnectAddress == devName).ToList()
+                  .ForEach(d =>
+                  {
+                     try
+                     {
+                        d.SendMessage(
+                           cmndText
+                        );
+                     }
+                     catch { }
+                  }
+                  );            
 
             switch (cmndText.Substring(0, 2))
             {
@@ -808,6 +1026,7 @@ namespace System.Scsc.Ui.MasterPage
          }
          catch
          {
+            //MessageBox.Show(exc.Message);
             BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Tomato;
          }
          finally
@@ -2404,6 +2623,8 @@ namespace System.Scsc.Ui.MasterPage
          {
             var devs = iScsc.External_Devices.Where(ed => ed.STAT == "002");
 
+            var _listIPHost = xHost.Descendants("IP").Select(ip => ip.Value).ToList();
+
             #region Saela Company
             #region card reader
             foreach (var cardreader in devs.Where(d => d.DEV_COMP_TYPE == "001" && d.DEV_TYPE == "001"))
@@ -2452,7 +2673,7 @@ namespace System.Scsc.Ui.MasterPage
             #endregion
 
             #region gate control
-            foreach (var gate in devs.Where(d => d.DEV_COMP_TYPE == "001" && d.DEV_TYPE == "006"))
+            foreach (var gate in devs.Where(d => d.DEV_COMP_TYPE == "001" && d.DEV_TYPE == "006" && _listIPHost.Contains(d.SERV_IP_ADRS)))
             {
                if(gate.DEV_CON == "001")
                {
@@ -2505,12 +2726,14 @@ namespace System.Scsc.Ui.MasterPage
             #endregion
             #endregion
 
+            //MessageBox.Show(xHost.ToString());            
+
             #region AnarSoft Company
-            #region Device Bilard
+            #region Device Bilard & CityGame & Reader & Seven Segment & Online LockerS Gym
             // آیا کامپیوتر مورد نظر به عنوان سرور تلقی میشود که باید به بعضی از دستگاه ها پاسخگو باشد
-            if (devs.Where(d => d.DEV_COMP_TYPE == "002" && (d.DEV_TYPE == "007" || d.DEV_TYPE == "008") && d.SERV_IP_ADRS == xHost.Attribute("ip").Value).Any())
+            if (devs.Where(d => d.DEV_COMP_TYPE == "002" && (d.DEV_TYPE == "007" || d.DEV_TYPE == "008" || d.DEV_TYPE == "009" || d.DEV_TYPE == "010" || (d.DEV_TYPE == "001" && d.DEV_CON == "002")) && _listIPHost.Contains(d.SERV_IP_ADRS)).Any())
             {
-               var _thisServersListener = devs.Where(d => d.DEV_COMP_TYPE == "002" && (d.DEV_TYPE == "007" || d.DEV_TYPE == "008") && d.SERV_IP_ADRS == xHost.Attribute("ip").Value).Select(d => new { d.SERV_IP_ADRS, d.PORT_SEND }).Distinct().FirstOrDefault();
+               var _thisServersListener = devs.Where(d => d.DEV_COMP_TYPE == "002" && (d.DEV_TYPE == "007" || d.DEV_TYPE == "008" || d.DEV_TYPE == "009" || d.DEV_TYPE == "010" || (d.DEV_TYPE == "001" && d.DEV_CON == "002")) && _listIPHost.Contains(d.SERV_IP_ADRS)).Select(d => new { d.SERV_IP_ADRS, d.PORT_SEND }).Distinct().FirstOrDefault();
 
                // اگر سیستم فعلی به عنوان سرور تلقی میشود باید پورت 6450 که به صورت پیش شرکت میباشد شنود شود
                server = new Server(Server.GetLocalIPAddress(), /*13001*/Convert.ToInt32(_thisServersListener.PORT_SEND));
@@ -2901,7 +3124,7 @@ namespace System.Scsc.Ui.MasterPage
          }
       }
       #endregion
-      #region Bilyard Function
+      #region Bilyard Function & CityGame & Reader & Seven Segment & Online LockerS Gym
       public void Rickroll(EventBasedTCP.MessageReceivedEventArgs e)
       {
          e.Client.SendMessage("never gunna let you down");
@@ -2965,12 +3188,30 @@ namespace System.Scsc.Ui.MasterPage
                      // بدست آوردن آیین نامه اصلی
                      var regl = iScsc.Regulations.FirstOrDefault(rg => rg.REGL_STAT == "002" && rg.TYPE == "001");
 
+                     if(getInfoDev.DEV_TYPE == "001")
+                     {
+                        axCZKEM1_OnAttTransactionEx(FngrPrnt_Txt.Text, 1, 1, 1, 2016, 05, 10, 09, 31, 50, 20);
+                        return;
+                     }
+
                      // اگر مشتری وجود نداشته یا اینکه مشتری اصلا سپرده نداشته باشد
                      if (Serv == null || (regl.AMNT_TYPE == "001" && Serv.DPST_AMNT_DNRM < 10000) || (regl.AMNT_TYPE == "002" && Serv.DPST_AMNT_DNRM < 1000))
                      {
                         // اگر کارت عضویت خام باشد
                         if (Serv == null)
                         {
+                           if(getInfoDev.DEV_TYPE == "007")
+                              SendCommandDevExpn("er", devName, fngrPrnt);
+                           else if (getInfoDev.DEV_TYPE == "008")
+                           {
+                              var devExpn = iScsc.Expenses.FirstOrDefault(ex => ex.CODE == getInfoDev.EXPN_CODE);
+
+                              SendCommandDevExpn(
+                                 "er:" + "0".PadLeft(10, ' ') +
+                                 "&" + devExpn.MIN_TIME.Value.Minute.ToString().PadLeft(2, ' ') +
+                                 ":" + devExpn.PRIC.ToString("n0").PadLeft(9, ' '), devName, fngrPrnt);
+                           }
+
                            // باز کردن فرم ثبت نام مشتری
                            Job _InteractWithScsc =
                               new Job(SendType.External, "Localhost",
@@ -3009,7 +3250,7 @@ namespace System.Scsc.Ui.MasterPage
                               // مجوز اجرای بازی
                               SendCommandDevExpn(
                                  "er:" + (Serv.DPST_AMNT_DNRM.Value).ToString("n0").PadLeft(10, ' ') +
-                                 "&" + devExpn.MIN_TIME.Value.Minute.ToString() +
+                                 "&" + devExpn.MIN_TIME.Value.Minute.ToString().PadLeft(2, ' ') +
                                  ":" + devExpn.PRIC.ToString("n0").PadLeft(9, ' '), devName, fngrPrnt);
                            }
                            else
@@ -3018,7 +3259,7 @@ namespace System.Scsc.Ui.MasterPage
                               // مجوز اجرای بازی
                               SendCommandDevExpn(
                                  "er:" + "0".PadLeft(10, ' ') +
-                                 "&" + devExpn.MIN_TIME.Value.Minute.ToString() +
+                                 "&" + devExpn.MIN_TIME.Value.Minute.ToString().PadLeft(2, ' ') +
                                  ":" + devExpn.PRIC.ToString("n0").PadLeft(9, ' '), devName, fngrPrnt);
                            }
                         return;
@@ -3197,27 +3438,41 @@ namespace System.Scsc.Ui.MasterPage
       private void Server_ClientConnected(object sender, ClientToggleEventArgs e)
       {
          //Console.WriteLine("Client Connected: " + e.ConnectedClient.ConnectAddress);
-         new Thread(AlarmShow).Start();
-         if (!GameHours_Butn.ToolTip.Contains(e.ConnectedClient.ConnectAddress))
+         try
          {
-            GameHours_Butn.ToolTip +=
-               Environment.NewLine +
-               string.Format("Device : {0}:{1}", e.ConnectedClient.ConnectAddress, e.ConnectedClient.Port);
-         }
+            new Thread(AlarmShow).Start();
+            if (!GameHours_Butn.ToolTip.Contains(e.ConnectedClient.ConnectAddress))
+            {
+               GameHours_Butn.ToolTip +=
+                  Environment.NewLine +
+                  string.Format("{2} - Device : {0}:{1}", e.ConnectedClient.ConnectAddress, e.ConnectedClient.Port, server.ConnectedClients.Count);
+            }
 
-         iScsc = new Data.iScscDataContext(ConnectionString);
-         // input data e.g : {device code} "-" {Card Code}            
-         var devName = e.ConnectedClient.ConnectAddress;
-         var getInfoDev = iScsc.External_Devices.FirstOrDefault(d => d.DEV_NAME == devName);
-         if(getInfoDev.DEV_COMP_TYPE == "002" && getInfoDev.DEV_TYPE == "008")
-         {
-            var devExpn = iScsc.Expenses.FirstOrDefault(ex => ex.CODE == getInfoDev.EXPN_CODE);
-            // مجوز اجرای بازی
-            SendCommandDevExpn(
-               "df:" + "0".PadLeft(10, ' ') +
-               "&" + devExpn.MIN_TIME.Value.Minute.ToString() +
-               ":" + devExpn.PRIC.ToString("n0").PadLeft(9, ' '), devName, "");
+            //server.ConnectedClients.Where(c => c.ConnectAddress == e.ConnectedClient.ConnectAddress && c.Port != e.ConnectedClient.Port ).ToList().ForEach(c => server.ConnectedClients.Remove(c));
+
+            iScsc = new Data.iScscDataContext(ConnectionString);
+            // input data e.g : {device code} "-" {Card Code}            
+            var devName = e.ConnectedClient.ConnectAddress;
+            var getInfoDev = iScsc.External_Devices.FirstOrDefault(d => d.DEV_NAME == devName);
+            if (getInfoDev.DEV_COMP_TYPE == "002" && getInfoDev.DEV_TYPE == "008")
+            {
+               var devExpn = iScsc.Expenses.FirstOrDefault(ex => ex.CODE == getInfoDev.EXPN_CODE);
+               // مجوز اجرای بازی
+               SendCommandDevExpn(
+                  "df:" + "0".PadLeft(10, ' ') +
+                  "&" + devExpn.MIN_TIME.Value.Minute.ToString().PadLeft(2, ' ') +
+                  ":" + devExpn.PRIC.ToString("n0").PadLeft(9, ' '), devName, "");
+            }
+            else if(getInfoDev.DEV_COMP_TYPE == "002" && getInfoDev.DEV_TYPE == "001")
+            {
+               SendCommandDevExpn(
+                  "df:" + "WellCome".PadLeft(13, ' ') +
+                  "&" + "Genetic Gym".PadLeft(16, ' '), devName, ""
+               );
+               AttnType_Lov.EditValue = getInfoDev.ACTN_TYPE;
+            }
          }
+         catch { }
       }
       #endregion
       #endregion
@@ -3443,9 +3698,16 @@ namespace System.Scsc.Ui.MasterPage
             var dresrattn = iScsc.Dresser_Attendances.FirstOrDefault(da => da.ATTN_CODE == attncode);
 
             // پیدا کردن پورت برای ارسال
-            var ports = OnlineDres_Butn.Tag as List<SerialPort>;
-            var port = ports.FirstOrDefault(p => p.PortName == dresrattn.Dresser.COMM_PORT);
-            port.Write(dresrattn.Attendance.DERS_NUMB.ToString());
+            //var ports = OnlineDres_Butn.Tag as List<SerialPort>;
+            //var port = ports.FirstOrDefault(p => p.PortName == dresrattn.Dresser.COMM_PORT);
+            //port.Write(dresrattn.Attendance.DERS_NUMB.ToString());
+            var ctrldev = iScsc.Dressers.FirstOrDefault(d => d.Computer_Action.COMP_NAME == xHost.Attribute("name").Value && d.REC_STAT == "002" && d.DRES_NUMB == dresrattn.Dresser.DRES_NUMB);
+            var devsName = iScsc.External_Devices.Where(d => d.DEV_COMP_TYPE == "002" && (d.DEV_TYPE == "009" || d.DEV_TYPE == "010") && d.STAT == "002");
+            // ابتدا نمایش  صفحه نمایش اتفاق بیوفتد
+            SendCommandDevExpn(dresrattn.Attendance.DERS_NUMB.ToString(), devsName.FirstOrDefault(d => d.DEV_TYPE == "009").DEV_NAME, dresrattn.Attendance.FNGR_PRNT_DNRM);
+
+            // مرحله بعدی ارسال پیام به دستگاه کنترلر مربوط به کمدهای قفل انلاین هست
+            SendCommandDevExpn(dresrattn.Attendance.DERS_NUMB.ToString(), devsName.FirstOrDefault(d => d.DEV_TYPE == "010" && d.IP_ADRS == ctrldev.IP_ADRS).DEV_NAME, dresrattn.Attendance.FNGR_PRNT_DNRM);
 
             BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Green;
          }

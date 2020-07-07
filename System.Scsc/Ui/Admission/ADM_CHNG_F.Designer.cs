@@ -28,12 +28,13 @@
       /// </summary>
       private void InitializeComponent()
       {
+         this.components = new System.ComponentModel.Container();
          System.Windows.Forms.Label label10;
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ADM_CHNG_F));
          System.Windows.Forms.Label label7;
          System.Windows.Forms.Label label8;
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
@@ -87,8 +88,8 @@
          this.Gb_Rqst = new System.Windows.Forms.GroupBox();
          this.ShowRqst_PickButn = new System.MaxUi.NewPickBtn();
          this.lookUpEdit9 = new DevExpress.XtraEditors.LookUpEdit();
-         this.RqstBs1 = new System.Windows.Forms.BindingSource();
-         this.DCyclBs1 = new System.Windows.Forms.BindingSource();
+         this.RqstBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.DCyclBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
          this.textEdit6 = new DevExpress.XtraEditors.TextEdit();
          this.dateTimeSelector4 = new Atf.UI.DateTimeSelector();
@@ -97,14 +98,13 @@
          this.textEdit9 = new DevExpress.XtraEditors.TextEdit();
          this.textEdit10 = new DevExpress.XtraEditors.TextEdit();
          this.dateTimeSelector3 = new Atf.UI.DateTimeSelector();
-         this.Gb_Info = new System.Windows.Forms.GroupBox();
          this.FILE_NO_LookUpEdit = new DevExpress.XtraEditors.LookUpEdit();
-         this.FighBs1 = new System.Windows.Forms.BindingSource();
-         this.FighsBs1 = new System.Windows.Forms.BindingSource();
+         this.FighBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.FighsBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.OthrExpnInfo_Ckbx = new System.Windows.Forms.CheckBox();
          this.DpstAcntSlry_Text2 = new DevExpress.XtraEditors.TextEdit();
-         this.FgpbsBs1 = new System.Windows.Forms.BindingSource();
-         this.RqroBs1 = new System.Windows.Forms.BindingSource();
+         this.FgpbsBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.RqroBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.AutoTrans_Cb = new System.Windows.Forms.CheckBox();
          this.ServNo_Text = new DevExpress.XtraEditors.TextEdit();
          this.DpstAcntSlryBank_Text2 = new DevExpress.XtraEditors.TextEdit();
@@ -114,18 +114,18 @@
          this.HistDesc_TextEdit = new DevExpress.XtraEditors.TextEdit();
          this.CardNumb_Text = new DevExpress.XtraEditors.TextEdit();
          this.SUNT_CODELookUpEdit = new DevExpress.XtraEditors.LookUpEdit();
-         this.SuntBs1 = new System.Windows.Forms.BindingSource();
+         this.SuntBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.MaxF_Butn001 = new System.Windows.Forms.Button();
          this.EDUC_DEG_LookUpEdit = new DevExpress.XtraEditors.LookUpEdit();
-         this.DEducBs1 = new System.Windows.Forms.BindingSource();
+         this.DEducBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.FNGR_PRNT_TextEdit = new DevExpress.XtraEditors.TextEdit();
          this.COCH_DEG_LookUpEdit = new DevExpress.XtraEditors.LookUpEdit();
-         this.DDegrBs2 = new System.Windows.Forms.BindingSource();
+         this.DDegrBs2 = new System.Windows.Forms.BindingSource(this.components);
          this.CORD_YTextEdit = new DevExpress.XtraEditors.TextEdit();
          this.BRTH_DATE_PersianDateEdit = new Atf.UI.DateTimeSelector();
          this.FathWork_TextEdit = new DevExpress.XtraEditors.TextEdit();
          this.TYPE_LookUpEdit = new DevExpress.XtraEditors.LookUpEdit();
-         this.DFgtpBs1 = new System.Windows.Forms.BindingSource();
+         this.DFgtpBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.CORD_XTextEdit = new DevExpress.XtraEditors.TextEdit();
          this.Chat_Id_TextEdit = new DevExpress.XtraEditors.TextEdit();
          this.GetMap_Butn = new System.Windows.Forms.Button();
@@ -135,10 +135,10 @@
          this.EMAL_ADRS_TextEdit = new DevExpress.XtraEditors.TextEdit();
          this.NATL_CODE_TextEdit = new DevExpress.XtraEditors.TextEdit();
          this.SEX_TYPE_LookUpEdit = new DevExpress.XtraEditors.LookUpEdit();
-         this.DSxtpBs1 = new System.Windows.Forms.BindingSource();
+         this.DSxtpBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.FATH_NAME_TextEdit = new DevExpress.XtraEditors.TextEdit();
          this.BLOD_GROPLookUpEdit = new DevExpress.XtraEditors.LookUpEdit();
-         this.DBlodBs1 = new System.Windows.Forms.BindingSource();
+         this.DBlodBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.label6 = new System.Windows.Forms.Label();
          this.label3 = new System.Windows.Forms.Label();
          this.label5 = new System.Windows.Forms.Label();
@@ -154,13 +154,13 @@
          this.CELL_PHON_TextEdit = new DevExpress.XtraEditors.TextEdit();
          this.MomChatId_Txt = new DevExpress.XtraEditors.TextEdit();
          this.DISE_CODE_LookUpEdit = new DevExpress.XtraEditors.LookUpEdit();
-         this.DstpBs1 = new System.Windows.Forms.BindingSource();
+         this.DstpBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.MomTellPhon_Txt = new DevExpress.XtraEditors.TextEdit();
          this.DadChatId_Txt = new DevExpress.XtraEditors.TextEdit();
          this.DadTellPhon_Txt = new DevExpress.XtraEditors.TextEdit();
          this.TELL_PHON_TextEdit = new DevExpress.XtraEditors.TextEdit();
          this.GUDG_DEG_LookUpEdit = new DevExpress.XtraEditors.LookUpEdit();
-         this.RqstBn1 = new System.Windows.Forms.BindingNavigator();
+         this.RqstBn1 = new System.Windows.Forms.BindingNavigator(this.components);
          this.RqstBnNew1 = new System.Windows.Forms.ToolStripButton();
          this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
          this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
@@ -190,29 +190,29 @@
          this.RqstBnBDoc1 = new System.Windows.Forms.ToolStripButton();
          this.RqstBnRegl01 = new System.Windows.Forms.ToolStripButton();
          this.RqstBnExit1 = new System.Windows.Forms.ToolStripButton();
-         this.toolTip1 = new System.Windows.Forms.ToolTip();
-         this.tabControl1 = new System.Windows.Forms.TabControl();
-         this.tabPage1 = new System.Windows.Forms.TabPage();
+         this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
          this.IdtyNumb_Txt = new DevExpress.XtraEditors.TextEdit();
          this.label15 = new System.Windows.Forms.Label();
-         this.tabPage2 = new System.Windows.Forms.TabPage();
          this.ZipCode_Txt = new DevExpress.XtraEditors.TextEdit();
          this.label28 = new System.Windows.Forms.Label();
-         this.tabPage3 = new System.Windows.Forms.TabPage();
          this.label14 = new System.Windows.Forms.Label();
          this.Password_Txt = new DevExpress.XtraEditors.TextEdit();
-         this.tabPage4 = new System.Windows.Forms.TabPage();
-         this.tabPage5 = new System.Windows.Forms.TabPage();
          this.label29 = new System.Windows.Forms.Label();
          this.Cmnt_Txt = new DevExpress.XtraEditors.TextEdit();
          this.label9 = new System.Windows.Forms.Label();
-         this.DOwnrBs1 = new System.Windows.Forms.BindingSource();
-         this.CuntBs1 = new System.Windows.Forms.BindingSource();
-         this.CblkBs1 = new System.Windows.Forms.BindingSource();
-         this.CndoBs1 = new System.Windows.Forms.BindingSource();
-         this.DCetpBs1 = new System.Windows.Forms.BindingSource();
-         this.CbmtBs1 = new System.Windows.Forms.BindingSource();
-         this.DDytpBs1 = new System.Windows.Forms.BindingSource();
+         this.DOwnrBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.CuntBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.CblkBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.CndoBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.DCetpBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.CbmtBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.DDytpBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.groupBox1 = new System.Windows.Forms.GroupBox();
+         this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+         this.groupBox2 = new System.Windows.Forms.GroupBox();
+         this.groupBox3 = new System.Windows.Forms.GroupBox();
+         this.groupBox4 = new System.Windows.Forms.GroupBox();
+         this.groupBox5 = new System.Windows.Forms.GroupBox();
          label10 = new System.Windows.Forms.Label();
          label7 = new System.Windows.Forms.Label();
          label8 = new System.Windows.Forms.Label();
@@ -226,7 +226,6 @@
          ((System.ComponentModel.ISupportInitialize)(this.textEdit8.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.textEdit9.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.textEdit10.Properties)).BeginInit();
-         this.Gb_Info.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.FILE_NO_LookUpEdit.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.FighBs1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.FighsBs1)).BeginInit();
@@ -277,15 +276,9 @@
          ((System.ComponentModel.ISupportInitialize)(this.GUDG_DEG_LookUpEdit.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.RqstBn1)).BeginInit();
          this.RqstBn1.SuspendLayout();
-         this.tabControl1.SuspendLayout();
-         this.tabPage1.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.IdtyNumb_Txt.Properties)).BeginInit();
-         this.tabPage2.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.ZipCode_Txt.Properties)).BeginInit();
-         this.tabPage3.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.Password_Txt.Properties)).BeginInit();
-         this.tabPage4.SuspendLayout();
-         this.tabPage5.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.Cmnt_Txt.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.DOwnrBs1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.CuntBs1)).BeginInit();
@@ -294,13 +287,19 @@
          ((System.ComponentModel.ISupportInitialize)(this.DCetpBs1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.CbmtBs1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.DDytpBs1)).BeginInit();
+         this.groupBox1.SuspendLayout();
+         this.flowLayoutPanel1.SuspendLayout();
+         this.groupBox2.SuspendLayout();
+         this.groupBox3.SuspendLayout();
+         this.groupBox4.SuspendLayout();
+         this.groupBox5.SuspendLayout();
          this.SuspendLayout();
          // 
          // label10
          // 
          label10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          label10.Image = ((System.Drawing.Image)(resources.GetObject("label10.Image")));
-         label10.Location = new System.Drawing.Point(601, 45);
+         label10.Location = new System.Drawing.Point(525, 52);
          label10.Name = "label10";
          label10.Size = new System.Drawing.Size(30, 20);
          label10.TabIndex = 69;
@@ -310,7 +309,7 @@
          // 
          label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          label7.Image = ((System.Drawing.Image)(resources.GetObject("label7.Image")));
-         label7.Location = new System.Drawing.Point(601, 75);
+         label7.Location = new System.Drawing.Point(300, 52);
          label7.Name = "label7";
          label7.Size = new System.Drawing.Size(30, 20);
          label7.TabIndex = 69;
@@ -320,7 +319,7 @@
          // 
          label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          label8.Image = ((System.Drawing.Image)(resources.GetObject("label8.Image")));
-         label8.Location = new System.Drawing.Point(601, 105);
+         label8.Location = new System.Drawing.Point(68, 52);
          label8.Name = "label8";
          label8.Size = new System.Drawing.Size(30, 20);
          label8.TabIndex = 69;
@@ -330,7 +329,7 @@
          // 
          this.DiseCode_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.DiseCode_Lb.AutoSize = true;
-         this.DiseCode_Lb.Location = new System.Drawing.Point(500, 265);
+         this.DiseCode_Lb.Location = new System.Drawing.Point(441, 266);
          this.DiseCode_Lb.Name = "DiseCode_Lb";
          this.DiseCode_Lb.Size = new System.Drawing.Size(101, 14);
          this.DiseCode_Lb.TabIndex = 30;
@@ -340,7 +339,7 @@
          // 
          this.InsrDate_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.InsrDate_Lb.AutoSize = true;
-         this.InsrDate_Lb.Location = new System.Drawing.Point(498, 295);
+         this.InsrDate_Lb.Location = new System.Drawing.Point(439, 296);
          this.InsrDate_Lb.Name = "InsrDate_Lb";
          this.InsrDate_Lb.Size = new System.Drawing.Size(92, 14);
          this.InsrDate_Lb.TabIndex = 30;
@@ -350,7 +349,7 @@
          // 
          this.InsrNumb_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.InsrNumb_Lb.AutoSize = true;
-         this.InsrNumb_Lb.Location = new System.Drawing.Point(736, 295);
+         this.InsrNumb_Lb.Location = new System.Drawing.Point(677, 296);
          this.InsrNumb_Lb.Name = "InsrNumb_Lb";
          this.InsrNumb_Lb.Size = new System.Drawing.Size(73, 14);
          this.InsrNumb_Lb.TabIndex = 29;
@@ -360,7 +359,7 @@
          // 
          this.EducDeg_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.EducDeg_Lb.AutoSize = true;
-         this.EducDeg_Lb.Location = new System.Drawing.Point(499, 235);
+         this.EducDeg_Lb.Location = new System.Drawing.Point(440, 236);
          this.EducDeg_Lb.Name = "EducDeg_Lb";
          this.EducDeg_Lb.Size = new System.Drawing.Size(87, 14);
          this.EducDeg_Lb.TabIndex = 28;
@@ -370,7 +369,7 @@
          // 
          this.EmalAdrs_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.EmalAdrs_Lb.AutoSize = true;
-         this.EmalAdrs_Lb.Location = new System.Drawing.Point(752, 19);
+         this.EmalAdrs_Lb.Location = new System.Drawing.Point(676, 26);
          this.EmalAdrs_Lb.Name = "EmalAdrs_Lb";
          this.EmalAdrs_Lb.Size = new System.Drawing.Size(41, 14);
          this.EmalAdrs_Lb.TabIndex = 27;
@@ -381,7 +380,7 @@
          this.NatlCode_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.NatlCode_Lb.AutoSize = true;
          this.NatlCode_Lb.ForeColor = System.Drawing.Color.Fuchsia;
-         this.NatlCode_Lb.Location = new System.Drawing.Point(498, 205);
+         this.NatlCode_Lb.Location = new System.Drawing.Point(439, 206);
          this.NatlCode_Lb.Name = "NatlCode_Lb";
          this.NatlCode_Lb.Size = new System.Drawing.Size(54, 14);
          this.NatlCode_Lb.TabIndex = 12;
@@ -391,7 +390,7 @@
          // 
          this.FathName_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.FathName_Lb.AutoSize = true;
-         this.FathName_Lb.Location = new System.Drawing.Point(736, 236);
+         this.FathName_Lb.Location = new System.Drawing.Point(677, 237);
          this.FathName_Lb.Name = "FathName_Lb";
          this.FathName_Lb.Size = new System.Drawing.Size(47, 14);
          this.FathName_Lb.TabIndex = 8;
@@ -401,7 +400,7 @@
          // 
          this.PostAdrs_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.PostAdrs_Lb.AutoSize = true;
-         this.PostAdrs_Lb.Location = new System.Drawing.Point(700, 23);
+         this.PostAdrs_Lb.Location = new System.Drawing.Point(677, 26);
          this.PostAdrs_Lb.Name = "PostAdrs_Lb";
          this.PostAdrs_Lb.Size = new System.Drawing.Size(79, 14);
          this.PostAdrs_Lb.TabIndex = 25;
@@ -412,7 +411,7 @@
          this.CellPhon_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.CellPhon_Lb.AutoSize = true;
          this.CellPhon_Lb.ForeColor = System.Drawing.Color.Fuchsia;
-         this.CellPhon_Lb.Location = new System.Drawing.Point(736, 116);
+         this.CellPhon_Lb.Location = new System.Drawing.Point(677, 117);
          this.CellPhon_Lb.Name = "CellPhon_Lb";
          this.CellPhon_Lb.Size = new System.Drawing.Size(70, 14);
          this.CellPhon_Lb.TabIndex = 21;
@@ -423,7 +422,7 @@
          this.TellPhon_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.TellPhon_Lb.AutoSize = true;
          this.TellPhon_Lb.ForeColor = System.Drawing.Color.Fuchsia;
-         this.TellPhon_Lb.Location = new System.Drawing.Point(498, 114);
+         this.TellPhon_Lb.Location = new System.Drawing.Point(439, 115);
          this.TellPhon_Lb.Name = "TellPhon_Lb";
          this.TellPhon_Lb.Size = new System.Drawing.Size(62, 14);
          this.TellPhon_Lb.TabIndex = 23;
@@ -434,7 +433,7 @@
          this.FgpbType_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.FgpbType_Lb.AutoSize = true;
          this.FgpbType_Lb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-         this.FgpbType_Lb.Location = new System.Drawing.Point(736, 23);
+         this.FgpbType_Lb.Location = new System.Drawing.Point(677, 24);
          this.FgpbType_Lb.Name = "FgpbType_Lb";
          this.FgpbType_Lb.Size = new System.Drawing.Size(80, 14);
          this.FgpbType_Lb.TabIndex = 17;
@@ -445,7 +444,7 @@
          this.BrthDate_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.BrthDate_Lb.AutoSize = true;
          this.BrthDate_Lb.ForeColor = System.Drawing.Color.Fuchsia;
-         this.BrthDate_Lb.Location = new System.Drawing.Point(736, 85);
+         this.BrthDate_Lb.Location = new System.Drawing.Point(677, 86);
          this.BrthDate_Lb.Name = "BrthDate_Lb";
          this.BrthDate_Lb.Size = new System.Drawing.Size(59, 14);
          this.BrthDate_Lb.TabIndex = 14;
@@ -456,7 +455,7 @@
          this.SexType_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.SexType_Lb.AutoSize = true;
          this.SexType_Lb.ForeColor = System.Drawing.Color.Fuchsia;
-         this.SexType_Lb.Location = new System.Drawing.Point(737, 205);
+         this.SexType_Lb.Location = new System.Drawing.Point(678, 206);
          this.SexType_Lb.Name = "SexType_Lb";
          this.SexType_Lb.Size = new System.Drawing.Size(55, 14);
          this.SexType_Lb.TabIndex = 10;
@@ -467,7 +466,7 @@
          this.LastName_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.LastName_Lb.AutoSize = true;
          this.LastName_Lb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-         this.LastName_Lb.Location = new System.Drawing.Point(499, 55);
+         this.LastName_Lb.Location = new System.Drawing.Point(440, 56);
          this.LastName_Lb.Name = "LastName_Lb";
          this.LastName_Lb.Size = new System.Drawing.Size(87, 14);
          this.LastName_Lb.TabIndex = 6;
@@ -478,7 +477,7 @@
          this.FrstName_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.FrstName_Lb.AutoSize = true;
          this.FrstName_Lb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-         this.FrstName_Lb.Location = new System.Drawing.Point(736, 53);
+         this.FrstName_Lb.Location = new System.Drawing.Point(677, 54);
          this.FrstName_Lb.Name = "FrstName_Lb";
          this.FrstName_Lb.Size = new System.Drawing.Size(36, 14);
          this.FrstName_Lb.TabIndex = 4;
@@ -488,7 +487,7 @@
          // 
          this.FileNos_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.FileNos_Lb.AutoSize = true;
-         this.FileNos_Lb.Location = new System.Drawing.Point(743, 25);
+         this.FileNos_Lb.Location = new System.Drawing.Point(148, 54);
          this.FileNos_Lb.Name = "FileNos_Lb";
          this.FileNos_Lb.Size = new System.Drawing.Size(61, 14);
          this.FileNos_Lb.TabIndex = 19;
@@ -498,7 +497,7 @@
          // 
          this.CochCrtfDate_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.CochCrtfDate_Lb.AutoSize = true;
-         this.CochCrtfDate_Lb.Location = new System.Drawing.Point(488, 108);
+         this.CochCrtfDate_Lb.Location = new System.Drawing.Point(412, 119);
          this.CochCrtfDate_Lb.Name = "CochCrtfDate_Lb";
          this.CochCrtfDate_Lb.Size = new System.Drawing.Size(80, 14);
          this.CochCrtfDate_Lb.TabIndex = 34;
@@ -508,7 +507,7 @@
          // 
          this.CochDeg_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.CochDeg_Lb.AutoSize = true;
-         this.CochDeg_Lb.Location = new System.Drawing.Point(753, 107);
+         this.CochDeg_Lb.Location = new System.Drawing.Point(677, 118);
          this.CochDeg_Lb.Name = "CochDeg_Lb";
          this.CochDeg_Lb.Size = new System.Drawing.Size(83, 14);
          this.CochDeg_Lb.TabIndex = 33;
@@ -518,7 +517,7 @@
          // 
          this.GlobCode_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.GlobCode_Lb.AutoSize = true;
-         this.GlobCode_Lb.Location = new System.Drawing.Point(705, 54);
+         this.GlobCode_Lb.Location = new System.Drawing.Point(676, 55);
          this.GlobCode_Lb.Name = "GlobCode_Lb";
          this.GlobCode_Lb.Size = new System.Drawing.Size(92, 14);
          this.GlobCode_Lb.TabIndex = 37;
@@ -528,7 +527,7 @@
          // 
          this.GudgDeg_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.GudgDeg_Lb.AutoSize = true;
-         this.GudgDeg_Lb.Location = new System.Drawing.Point(488, 74);
+         this.GudgDeg_Lb.Location = new System.Drawing.Point(412, 85);
          this.GudgDeg_Lb.Name = "GudgDeg_Lb";
          this.GudgDeg_Lb.Size = new System.Drawing.Size(72, 14);
          this.GudgDeg_Lb.TabIndex = 38;
@@ -538,7 +537,7 @@
          // 
          this.BlodGrop_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.BlodGrop_Lb.AutoSize = true;
-         this.BlodGrop_Lb.Location = new System.Drawing.Point(751, 74);
+         this.BlodGrop_Lb.Location = new System.Drawing.Point(675, 85);
          this.BlodGrop_Lb.Name = "BlodGrop_Lb";
          this.BlodGrop_Lb.Size = new System.Drawing.Size(69, 14);
          this.BlodGrop_Lb.TabIndex = 40;
@@ -549,7 +548,7 @@
          this.FngrPrnt_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.FngrPrnt_Lb.AutoSize = true;
          this.FngrPrnt_Lb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-         this.FngrPrnt_Lb.Location = new System.Drawing.Point(498, 84);
+         this.FngrPrnt_Lb.Location = new System.Drawing.Point(439, 85);
          this.FngrPrnt_Lb.Name = "FngrPrnt_Lb";
          this.FngrPrnt_Lb.Size = new System.Drawing.Size(90, 14);
          this.FngrPrnt_Lb.TabIndex = 37;
@@ -559,7 +558,7 @@
          // 
          this.CordY_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.CordY_Lb.AutoSize = true;
-         this.CordY_Lb.Location = new System.Drawing.Point(449, 81);
+         this.CordY_Lb.Location = new System.Drawing.Point(426, 84);
          this.CordY_Lb.Name = "CordY_Lb";
          this.CordY_Lb.Size = new System.Drawing.Size(117, 14);
          this.CordY_Lb.TabIndex = 55;
@@ -569,7 +568,7 @@
          // 
          this.SuntCode_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.SuntCode_Lb.AutoSize = true;
-         this.SuntCode_Lb.Location = new System.Drawing.Point(706, 22);
+         this.SuntCode_Lb.Location = new System.Drawing.Point(677, 23);
          this.SuntCode_Lb.Name = "SuntCode_Lb";
          this.SuntCode_Lb.Size = new System.Drawing.Size(112, 14);
          this.SuntCode_Lb.TabIndex = 53;
@@ -579,7 +578,7 @@
          // 
          this.CordX_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.CordX_Lb.AutoSize = true;
-         this.CordX_Lb.Location = new System.Drawing.Point(700, 81);
+         this.CordX_Lb.Location = new System.Drawing.Point(677, 84);
          this.CordX_Lb.Name = "CordX_Lb";
          this.CordX_Lb.Size = new System.Drawing.Size(111, 14);
          this.CordX_Lb.TabIndex = 54;
@@ -589,7 +588,7 @@
          // 
          this.FathJob_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.FathJob_Lb.AutoSize = true;
-         this.FathJob_Lb.Location = new System.Drawing.Point(735, 266);
+         this.FathJob_Lb.Location = new System.Drawing.Point(676, 267);
          this.FathJob_Lb.Name = "FathJob_Lb";
          this.FathJob_Lb.Size = new System.Drawing.Size(60, 14);
          this.FathJob_Lb.TabIndex = 60;
@@ -599,7 +598,7 @@
          // 
          this.IssuPlac_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.IssuPlac_Lb.AutoSize = true;
-         this.IssuPlac_Lb.Location = new System.Drawing.Point(450, 52);
+         this.IssuPlac_Lb.Location = new System.Drawing.Point(427, 55);
          this.IssuPlac_Lb.Name = "IssuPlac_Lb";
          this.IssuPlac_Lb.Size = new System.Drawing.Size(67, 14);
          this.IssuPlac_Lb.TabIndex = 70;
@@ -609,7 +608,7 @@
          // 
          this.BrthPlac_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.BrthPlac_Lb.AutoSize = true;
-         this.BrthPlac_Lb.Location = new System.Drawing.Point(700, 52);
+         this.BrthPlac_Lb.Location = new System.Drawing.Point(677, 55);
          this.BrthPlac_Lb.Name = "BrthPlac_Lb";
          this.BrthPlac_Lb.Size = new System.Drawing.Size(60, 14);
          this.BrthPlac_Lb.TabIndex = 71;
@@ -619,7 +618,7 @@
          // 
          this.HistDesc_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.HistDesc_Lb.AutoSize = true;
-         this.HistDesc_Lb.Location = new System.Drawing.Point(753, 16);
+         this.HistDesc_Lb.Location = new System.Drawing.Point(677, 27);
          this.HistDesc_Lb.Name = "HistDesc_Lb";
          this.HistDesc_Lb.Size = new System.Drawing.Size(58, 14);
          this.HistDesc_Lb.TabIndex = 69;
@@ -629,7 +628,7 @@
          // 
          this.DpstAcntSlryBank_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.DpstAcntSlryBank_Lb.AutoSize = true;
-         this.DpstAcntSlryBank_Lb.Location = new System.Drawing.Point(752, 134);
+         this.DpstAcntSlryBank_Lb.Location = new System.Drawing.Point(676, 145);
          this.DpstAcntSlryBank_Lb.Name = "DpstAcntSlryBank_Lb";
          this.DpstAcntSlryBank_Lb.Size = new System.Drawing.Size(37, 14);
          this.DpstAcntSlryBank_Lb.TabIndex = 8;
@@ -639,7 +638,7 @@
          // 
          this.ServNo_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.ServNo_Lb.AutoSize = true;
-         this.ServNo_Lb.Location = new System.Drawing.Point(480, 54);
+         this.ServNo_Lb.Location = new System.Drawing.Point(451, 55);
          this.ServNo_Lb.Name = "ServNo_Lb";
          this.ServNo_Lb.Size = new System.Drawing.Size(90, 14);
          this.ServNo_Lb.TabIndex = 70;
@@ -649,7 +648,7 @@
          // 
          this.CardNumb_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.CardNumb_Lb.AutoSize = true;
-         this.CardNumb_Lb.Location = new System.Drawing.Point(241, 86);
+         this.CardNumb_Lb.Location = new System.Drawing.Point(182, 87);
          this.CardNumb_Lb.Name = "CardNumb_Lb";
          this.CardNumb_Lb.Size = new System.Drawing.Size(76, 14);
          this.CardNumb_Lb.TabIndex = 68;
@@ -660,7 +659,7 @@
          this.ChatId_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.ChatId_Lb.AutoSize = true;
          this.ChatId_Lb.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         this.ChatId_Lb.Location = new System.Drawing.Point(753, 49);
+         this.ChatId_Lb.Location = new System.Drawing.Point(677, 56);
          this.ChatId_Lb.Name = "ChatId_Lb";
          this.ChatId_Lb.Size = new System.Drawing.Size(46, 14);
          this.ChatId_Lb.TabIndex = 6;
@@ -671,7 +670,7 @@
          // 
          this.Cycl_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.Cycl_Lb.AutoSize = true;
-         this.Cycl_Lb.Location = new System.Drawing.Point(151, 266);
+         this.Cycl_Lb.Location = new System.Drawing.Point(151, 296);
          this.Cycl_Lb.Name = "Cycl_Lb";
          this.Cycl_Lb.Size = new System.Drawing.Size(31, 14);
          this.Cycl_Lb.TabIndex = 31;
@@ -681,7 +680,7 @@
          // 
          this.Year_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.Year_Lb.AutoSize = true;
-         this.Year_Lb.Location = new System.Drawing.Point(150, 236);
+         this.Year_Lb.Location = new System.Drawing.Point(150, 266);
          this.Year_Lb.Name = "Year_Lb";
          this.Year_Lb.Size = new System.Drawing.Size(39, 14);
          this.Year_Lb.TabIndex = 28;
@@ -691,7 +690,7 @@
          // 
          this.MdfyBy_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.MdfyBy_Lb.AutoSize = true;
-         this.MdfyBy_Lb.Location = new System.Drawing.Point(149, 85);
+         this.MdfyBy_Lb.Location = new System.Drawing.Point(149, 115);
          this.MdfyBy_Lb.Name = "MdfyBy_Lb";
          this.MdfyBy_Lb.Size = new System.Drawing.Size(107, 14);
          this.MdfyBy_Lb.TabIndex = 24;
@@ -701,7 +700,7 @@
          // 
          this.MdfyDate_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.MdfyDate_Lb.AutoSize = true;
-         this.MdfyDate_Lb.Location = new System.Drawing.Point(150, 175);
+         this.MdfyDate_Lb.Location = new System.Drawing.Point(150, 205);
          this.MdfyDate_Lb.Name = "MdfyDate_Lb";
          this.MdfyDate_Lb.Size = new System.Drawing.Size(76, 14);
          this.MdfyDate_Lb.TabIndex = 27;
@@ -711,7 +710,7 @@
          // 
          this.RqttCode_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.RqttCode_Lb.AutoSize = true;
-         this.RqttCode_Lb.Location = new System.Drawing.Point(152, 206);
+         this.RqttCode_Lb.Location = new System.Drawing.Point(152, 236);
          this.RqttCode_Lb.Name = "RqttCode_Lb";
          this.RqttCode_Lb.Size = new System.Drawing.Size(75, 14);
          this.RqttCode_Lb.TabIndex = 22;
@@ -721,7 +720,7 @@
          // 
          this.CretBy_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.CretBy_Lb.AutoSize = true;
-         this.CretBy_Lb.Location = new System.Drawing.Point(149, 56);
+         this.CretBy_Lb.Location = new System.Drawing.Point(149, 86);
          this.CretBy_Lb.Name = "CretBy_Lb";
          this.CretBy_Lb.Size = new System.Drawing.Size(96, 14);
          this.CretBy_Lb.TabIndex = 1;
@@ -731,7 +730,7 @@
          // 
          this.RqtpCode_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.RqtpCode_Lb.AutoSize = true;
-         this.RqtpCode_Lb.Location = new System.Drawing.Point(150, 115);
+         this.RqtpCode_Lb.Location = new System.Drawing.Point(150, 145);
          this.RqtpCode_Lb.Name = "RqtpCode_Lb";
          this.RqtpCode_Lb.Size = new System.Drawing.Size(83, 14);
          this.RqtpCode_Lb.TabIndex = 1;
@@ -751,7 +750,7 @@
          // 
          this.CretDate_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.CretDate_Lb.AutoSize = true;
-         this.CretDate_Lb.Location = new System.Drawing.Point(150, 146);
+         this.CretDate_Lb.Location = new System.Drawing.Point(150, 176);
          this.CretDate_Lb.Name = "CretDate_Lb";
          this.CretDate_Lb.Size = new System.Drawing.Size(65, 14);
          this.CretDate_Lb.TabIndex = 14;
@@ -760,6 +759,8 @@
          // Gb_Rqst
          // 
          this.Gb_Rqst.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.Gb_Rqst.Controls.Add(this.FILE_NO_LookUpEdit);
+         this.Gb_Rqst.Controls.Add(this.FileNos_Lb);
          this.Gb_Rqst.Controls.Add(this.ShowRqst_PickButn);
          this.Gb_Rqst.Controls.Add(this.Cycl_Lb);
          this.Gb_Rqst.Controls.Add(this.lookUpEdit9);
@@ -783,7 +784,7 @@
          this.Gb_Rqst.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
          this.Gb_Rqst.Name = "Gb_Rqst";
          this.Gb_Rqst.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-         this.Gb_Rqst.Size = new System.Drawing.Size(264, 330);
+         this.Gb_Rqst.Size = new System.Drawing.Size(264, 362);
          this.Gb_Rqst.TabIndex = 0;
          this.Gb_Rqst.TabStop = false;
          this.Gb_Rqst.Text = "اطلاعات درخواست";
@@ -801,7 +802,7 @@
          this.ShowRqst_PickButn.ImageIndexPickDown = 0;
          this.ShowRqst_PickButn.ImageIndexPickUp = 0;
          this.ShowRqst_PickButn.ImageList = null;
-         this.ShowRqst_PickButn.Location = new System.Drawing.Point(13, 292);
+         this.ShowRqst_PickButn.Location = new System.Drawing.Point(13, 322);
          this.ShowRqst_PickButn.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
          this.ShowRqst_PickButn.Name = "ShowRqst_PickButn";
          this.ShowRqst_PickButn.Next = null;
@@ -822,7 +823,7 @@
          this.lookUpEdit9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.lookUpEdit9.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.RqstBs1, "CYCL", true));
          this.lookUpEdit9.EditValue = "001";
-         this.lookUpEdit9.Location = new System.Drawing.Point(13, 262);
+         this.lookUpEdit9.Location = new System.Drawing.Point(13, 292);
          this.lookUpEdit9.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
          this.lookUpEdit9.Name = "lookUpEdit9";
          this.lookUpEdit9.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -832,7 +833,7 @@
          this.lookUpEdit9.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
          this.lookUpEdit9.Properties.AppearanceFocused.Options.UseBackColor = true;
          this.lookUpEdit9.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
          this.lookUpEdit9.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("VALU", "VALU", 48, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("DOMN_DESC", "جنسیت", 72, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near)});
@@ -859,7 +860,7 @@
          this.textEdit1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.textEdit1.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.RqstBs1, "YEAR", true));
          this.textEdit1.EditValue = "";
-         this.textEdit1.Location = new System.Drawing.Point(96, 232);
+         this.textEdit1.Location = new System.Drawing.Point(96, 262);
          this.textEdit1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
          this.textEdit1.Name = "textEdit1";
          this.textEdit1.Properties.Appearance.BackColor = System.Drawing.SystemColors.Menu;
@@ -877,7 +878,7 @@
          // 
          this.textEdit6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.textEdit6.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.RqstBs1, "MDFY_BY", true));
-         this.textEdit6.Location = new System.Drawing.Point(13, 83);
+         this.textEdit6.Location = new System.Drawing.Point(13, 113);
          this.textEdit6.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
          this.textEdit6.Name = "textEdit6";
          this.textEdit6.Properties.Appearance.BackColor = System.Drawing.SystemColors.Menu;
@@ -898,7 +899,7 @@
          this.dateTimeSelector4.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.RqstBs1, "MDFY_DATE", true));
          this.dateTimeSelector4.Enabled = false;
          this.dateTimeSelector4.Format = Atf.UI.DateTimeSelectorFormat.Custom;
-         this.dateTimeSelector4.Location = new System.Drawing.Point(13, 173);
+         this.dateTimeSelector4.Location = new System.Drawing.Point(13, 203);
          this.dateTimeSelector4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
          this.dateTimeSelector4.Name = "dateTimeSelector4";
          this.dateTimeSelector4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -910,7 +911,7 @@
          // 
          this.textEdit7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.textEdit7.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.RqstBs1, "Requester_Type.RQTT_DESC", true));
-         this.textEdit7.Location = new System.Drawing.Point(13, 204);
+         this.textEdit7.Location = new System.Drawing.Point(13, 234);
          this.textEdit7.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
          this.textEdit7.Name = "textEdit7";
          this.textEdit7.Properties.Appearance.BackColor = System.Drawing.SystemColors.Menu;
@@ -928,7 +929,7 @@
          // 
          this.textEdit8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.textEdit8.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.RqstBs1, "CRET_BY", true));
-         this.textEdit8.Location = new System.Drawing.Point(13, 52);
+         this.textEdit8.Location = new System.Drawing.Point(13, 82);
          this.textEdit8.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
          this.textEdit8.Name = "textEdit8";
          this.textEdit8.Properties.Appearance.BackColor = System.Drawing.SystemColors.Menu;
@@ -946,7 +947,7 @@
          // 
          this.textEdit9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.textEdit9.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.RqstBs1, "Request_Type.RQTP_DESC", true));
-         this.textEdit9.Location = new System.Drawing.Point(13, 113);
+         this.textEdit9.Location = new System.Drawing.Point(13, 143);
          this.textEdit9.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
          this.textEdit9.Name = "textEdit9";
          this.textEdit9.Properties.Appearance.BackColor = System.Drawing.SystemColors.Menu;
@@ -984,7 +985,7 @@
          this.dateTimeSelector3.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.RqstBs1, "CRET_DATE", true));
          this.dateTimeSelector3.Enabled = false;
          this.dateTimeSelector3.Format = Atf.UI.DateTimeSelectorFormat.Custom;
-         this.dateTimeSelector3.Location = new System.Drawing.Point(13, 142);
+         this.dateTimeSelector3.Location = new System.Drawing.Point(13, 172);
          this.dateTimeSelector3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
          this.dateTimeSelector3.Name = "dateTimeSelector3";
          this.dateTimeSelector3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -992,31 +993,15 @@
          this.dateTimeSelector3.TabIndex = 5;
          this.dateTimeSelector3.UsePersianFormat = true;
          // 
-         // Gb_Info
-         // 
-         this.Gb_Info.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.Gb_Info.Controls.Add(this.FILE_NO_LookUpEdit);
-         this.Gb_Info.Controls.Add(this.FileNos_Lb);
-         this.Gb_Info.Location = new System.Drawing.Point(316, 54);
-         this.Gb_Info.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-         this.Gb_Info.Name = "Gb_Info";
-         this.Gb_Info.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-         this.Gb_Info.Size = new System.Drawing.Size(849, 56);
-         this.Gb_Info.TabIndex = 1;
-         this.Gb_Info.TabStop = false;
-         this.Gb_Info.Text = "ردیف درخواست";
-         // 
          // FILE_NO_LookUpEdit
          // 
          this.FILE_NO_LookUpEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.FILE_NO_LookUpEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.FighBs1, "FILE_NO", true));
-         this.FILE_NO_LookUpEdit.Location = new System.Drawing.Point(563, 23);
+         this.FILE_NO_LookUpEdit.Location = new System.Drawing.Point(13, 52);
          this.FILE_NO_LookUpEdit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
          this.FILE_NO_LookUpEdit.Name = "FILE_NO_LookUpEdit";
          this.FILE_NO_LookUpEdit.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.FILE_NO_LookUpEdit.Properties.Appearance.Options.UseFont = true;
-         this.FILE_NO_LookUpEdit.Properties.Appearance.Options.UseTextOptions = true;
-         this.FILE_NO_LookUpEdit.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.FILE_NO_LookUpEdit.Properties.AppearanceDropDownHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.FILE_NO_LookUpEdit.Properties.AppearanceDropDownHeader.Options.UseFont = true;
          this.FILE_NO_LookUpEdit.Properties.AppearanceDropDownHeader.Options.UseTextOptions = true;
@@ -1025,7 +1010,7 @@
          this.FILE_NO_LookUpEdit.Properties.AppearanceFocused.Options.UseBackColor = true;
          this.FILE_NO_LookUpEdit.Properties.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
          this.FILE_NO_LookUpEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
          this.FILE_NO_LookUpEdit.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("REGN_PRVN_CNTY_CODE", "REGN_PRVN_CNTY_CODE", 148, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("REGN_PRVN_CODE", "REGN_PRVN_CODE", 103, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),
@@ -1078,7 +1063,7 @@
          this.FILE_NO_LookUpEdit.Properties.ReadOnly = true;
          this.FILE_NO_LookUpEdit.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
          this.FILE_NO_LookUpEdit.Properties.ValueMember = "FILE_NO";
-         this.FILE_NO_LookUpEdit.Size = new System.Drawing.Size(173, 22);
+         this.FILE_NO_LookUpEdit.Size = new System.Drawing.Size(128, 22);
          this.FILE_NO_LookUpEdit.TabIndex = 0;
          // 
          // FighBs1
@@ -1096,7 +1081,7 @@
          this.OthrExpnInfo_Ckbx.AutoSize = true;
          this.OthrExpnInfo_Ckbx.Font = new System.Drawing.Font("Tahoma", 9F);
          this.OthrExpnInfo_Ckbx.ForeColor = System.Drawing.Color.DeepPink;
-         this.OthrExpnInfo_Ckbx.Location = new System.Drawing.Point(439, 23);
+         this.OthrExpnInfo_Ckbx.Location = new System.Drawing.Point(380, 24);
          this.OthrExpnInfo_Ckbx.Name = "OthrExpnInfo_Ckbx";
          this.OthrExpnInfo_Ckbx.Size = new System.Drawing.Size(53, 18);
          this.OthrExpnInfo_Ckbx.TabIndex = 1;
@@ -1110,11 +1095,13 @@
          this.DpstAcntSlry_Text2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.DpstAcntSlry_Text2.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.FgpbsBs1, "DPST_ACNT_SLRY", true));
          this.DpstAcntSlry_Text2.EditValue = "";
-         this.DpstAcntSlry_Text2.Location = new System.Drawing.Point(352, 132);
+         this.DpstAcntSlry_Text2.Location = new System.Drawing.Point(276, 143);
          this.DpstAcntSlry_Text2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
          this.DpstAcntSlry_Text2.Name = "DpstAcntSlry_Text2";
          this.DpstAcntSlry_Text2.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.DpstAcntSlry_Text2.Properties.Appearance.Options.UseFont = true;
+         this.DpstAcntSlry_Text2.Properties.Appearance.Options.UseTextOptions = true;
+         this.DpstAcntSlry_Text2.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.DpstAcntSlry_Text2.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
          this.DpstAcntSlry_Text2.Properties.AppearanceFocused.Options.UseBackColor = true;
          this.DpstAcntSlry_Text2.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
@@ -1126,7 +1113,6 @@
          // 
          this.FgpbsBs1.DataMember = "Fighter_Publics";
          this.FgpbsBs1.DataSource = this.RqroBs1;
-         this.FgpbsBs1.CurrentChanged += new System.EventHandler(this.FgpbsBs1_CurrentChanged);
          // 
          // RqroBs1
          // 
@@ -1137,7 +1123,7 @@
          // 
          this.AutoTrans_Cb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.AutoTrans_Cb.AutoSize = true;
-         this.AutoTrans_Cb.Location = new System.Drawing.Point(92, 86);
+         this.AutoTrans_Cb.Location = new System.Drawing.Point(33, 87);
          this.AutoTrans_Cb.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
          this.AutoTrans_Cb.Name = "AutoTrans_Cb";
          this.AutoTrans_Cb.Size = new System.Drawing.Size(15, 14);
@@ -1149,7 +1135,7 @@
          // 
          this.ServNo_Text.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.ServNo_Text.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.FgpbsBs1, "SERV_NO", true));
-         this.ServNo_Text.Location = new System.Drawing.Point(334, 50);
+         this.ServNo_Text.Location = new System.Drawing.Point(305, 51);
          this.ServNo_Text.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
          this.ServNo_Text.Name = "ServNo_Text";
          this.ServNo_Text.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1167,7 +1153,7 @@
          // 
          this.DpstAcntSlryBank_Text2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.DpstAcntSlryBank_Text2.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.FgpbsBs1, "DPST_ACNT_SLRY_BANK", true));
-         this.DpstAcntSlryBank_Text2.Location = new System.Drawing.Point(604, 131);
+         this.DpstAcntSlryBank_Text2.Location = new System.Drawing.Point(528, 142);
          this.DpstAcntSlryBank_Text2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
          this.DpstAcntSlryBank_Text2.Name = "DpstAcntSlryBank_Text2";
          this.DpstAcntSlryBank_Text2.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1183,13 +1169,12 @@
          // 
          this.IssuPlac_TextEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.IssuPlac_TextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.FgpbsBs1, "ISSU_PLAC", true));
-         this.IssuPlac_TextEdit.Location = new System.Drawing.Point(326, 48);
+         this.IssuPlac_TextEdit.EditValue = "";
+         this.IssuPlac_TextEdit.Location = new System.Drawing.Point(303, 51);
          this.IssuPlac_TextEdit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
          this.IssuPlac_TextEdit.Name = "IssuPlac_TextEdit";
          this.IssuPlac_TextEdit.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.IssuPlac_TextEdit.Properties.Appearance.Options.UseFont = true;
-         this.IssuPlac_TextEdit.Properties.Appearance.Options.UseTextOptions = true;
-         this.IssuPlac_TextEdit.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.IssuPlac_TextEdit.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
          this.IssuPlac_TextEdit.Properties.AppearanceFocused.Options.UseBackColor = true;
          this.IssuPlac_TextEdit.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
@@ -1201,13 +1186,12 @@
          // 
          this.BrthPlac_TextEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.BrthPlac_TextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.FgpbsBs1, "BRTH_PLAC", true));
-         this.BrthPlac_TextEdit.Location = new System.Drawing.Point(575, 49);
+         this.BrthPlac_TextEdit.EditValue = "";
+         this.BrthPlac_TextEdit.Location = new System.Drawing.Point(552, 52);
          this.BrthPlac_TextEdit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
          this.BrthPlac_TextEdit.Name = "BrthPlac_TextEdit";
          this.BrthPlac_TextEdit.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.BrthPlac_TextEdit.Properties.Appearance.Options.UseFont = true;
-         this.BrthPlac_TextEdit.Properties.Appearance.Options.UseTextOptions = true;
-         this.BrthPlac_TextEdit.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.BrthPlac_TextEdit.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
          this.BrthPlac_TextEdit.Properties.AppearanceFocused.Options.UseBackColor = true;
          this.BrthPlac_TextEdit.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
@@ -1221,7 +1205,7 @@
          this.COCH_CRTF_DATE_PersianDateEdit.CustomFormat = "dd/MM/yyyy";
          this.COCH_CRTF_DATE_PersianDateEdit.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.FgpbsBs1, "COCH_CRTF_DATE", true));
          this.COCH_CRTF_DATE_PersianDateEdit.Format = Atf.UI.DateTimeSelectorFormat.Custom;
-         this.COCH_CRTF_DATE_PersianDateEdit.Location = new System.Drawing.Point(352, 101);
+         this.COCH_CRTF_DATE_PersianDateEdit.Location = new System.Drawing.Point(276, 112);
          this.COCH_CRTF_DATE_PersianDateEdit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
          this.COCH_CRTF_DATE_PersianDateEdit.Name = "COCH_CRTF_DATE_PersianDateEdit";
          this.COCH_CRTF_DATE_PersianDateEdit.Size = new System.Drawing.Size(129, 23);
@@ -1232,7 +1216,7 @@
          // 
          this.HistDesc_TextEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.HistDesc_TextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.FgpbsBs1, "HIST_DESC", true));
-         this.HistDesc_TextEdit.Location = new System.Drawing.Point(81, 11);
+         this.HistDesc_TextEdit.Location = new System.Drawing.Point(5, 22);
          this.HistDesc_TextEdit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
          this.HistDesc_TextEdit.Name = "HistDesc_TextEdit";
          this.HistDesc_TextEdit.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1248,7 +1232,7 @@
          // 
          this.CardNumb_Text.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.CardNumb_Text.EditValue = "";
-         this.CardNumb_Text.Location = new System.Drawing.Point(117, 81);
+         this.CardNumb_Text.Location = new System.Drawing.Point(58, 82);
          this.CardNumb_Text.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
          this.CardNumb_Text.Name = "CardNumb_Text";
          this.CardNumb_Text.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1264,7 +1248,7 @@
          // 
          this.SUNT_CODELookUpEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.SUNT_CODELookUpEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.FgpbsBs1, "SUNT_CODE", true));
-         this.SUNT_CODELookUpEdit.Location = new System.Drawing.Point(581, 21);
+         this.SUNT_CODELookUpEdit.Location = new System.Drawing.Point(552, 22);
          this.SUNT_CODELookUpEdit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
          this.SUNT_CODELookUpEdit.Name = "SUNT_CODELookUpEdit";
          this.SUNT_CODELookUpEdit.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1309,7 +1293,7 @@
          // MaxF_Butn001
          // 
          this.MaxF_Butn001.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.MaxF_Butn001.Location = new System.Drawing.Point(336, 81);
+         this.MaxF_Butn001.Location = new System.Drawing.Point(277, 82);
          this.MaxF_Butn001.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
          this.MaxF_Butn001.Name = "MaxF_Butn001";
          this.MaxF_Butn001.Size = new System.Drawing.Size(31, 24);
@@ -1322,7 +1306,7 @@
          // 
          this.EDUC_DEG_LookUpEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.EDUC_DEG_LookUpEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.FgpbsBs1, "EDUC_DEG", true));
-         this.EDUC_DEG_LookUpEdit.Location = new System.Drawing.Point(375, 232);
+         this.EDUC_DEG_LookUpEdit.Location = new System.Drawing.Point(316, 233);
          this.EDUC_DEG_LookUpEdit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
          this.EDUC_DEG_LookUpEdit.Name = "EDUC_DEG_LookUpEdit";
          this.EDUC_DEG_LookUpEdit.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1354,7 +1338,7 @@
          this.FNGR_PRNT_TextEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.FNGR_PRNT_TextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.FgpbsBs1, "FNGR_PRNT", true));
          this.FNGR_PRNT_TextEdit.EditValue = "";
-         this.FNGR_PRNT_TextEdit.Location = new System.Drawing.Point(375, 81);
+         this.FNGR_PRNT_TextEdit.Location = new System.Drawing.Point(316, 82);
          this.FNGR_PRNT_TextEdit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
          this.FNGR_PRNT_TextEdit.Name = "FNGR_PRNT_TextEdit";
          this.FNGR_PRNT_TextEdit.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
@@ -1373,7 +1357,7 @@
          // 
          this.COCH_DEG_LookUpEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.COCH_DEG_LookUpEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.FgpbsBs1, "COCH_DEG", true));
-         this.COCH_DEG_LookUpEdit.Location = new System.Drawing.Point(604, 101);
+         this.COCH_DEG_LookUpEdit.Location = new System.Drawing.Point(528, 112);
          this.COCH_DEG_LookUpEdit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
          this.COCH_DEG_LookUpEdit.Name = "COCH_DEG_LookUpEdit";
          this.COCH_DEG_LookUpEdit.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1404,7 +1388,7 @@
          // 
          this.CORD_YTextEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.CORD_YTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.FgpbsBs1, "CORD_Y", true));
-         this.CORD_YTextEdit.Location = new System.Drawing.Point(326, 79);
+         this.CORD_YTextEdit.Location = new System.Drawing.Point(303, 82);
          this.CORD_YTextEdit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
          this.CORD_YTextEdit.Name = "CORD_YTextEdit";
          this.CORD_YTextEdit.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1423,7 +1407,7 @@
          this.BRTH_DATE_PersianDateEdit.CustomFormat = "dd/MM/yyyy";
          this.BRTH_DATE_PersianDateEdit.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.FgpbsBs1, "BRTH_DATE", true));
          this.BRTH_DATE_PersianDateEdit.Format = Atf.UI.DateTimeSelectorFormat.Custom;
-         this.BRTH_DATE_PersianDateEdit.Location = new System.Drawing.Point(612, 81);
+         this.BRTH_DATE_PersianDateEdit.Location = new System.Drawing.Point(553, 82);
          this.BRTH_DATE_PersianDateEdit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
          this.BRTH_DATE_PersianDateEdit.Name = "BRTH_DATE_PersianDateEdit";
          this.BRTH_DATE_PersianDateEdit.Size = new System.Drawing.Size(117, 23);
@@ -1434,7 +1418,7 @@
          // 
          this.FathWork_TextEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.FathWork_TextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.FgpbsBs1, "FATH_WORK", true));
-         this.FathWork_TextEdit.Location = new System.Drawing.Point(612, 262);
+         this.FathWork_TextEdit.Location = new System.Drawing.Point(553, 263);
          this.FathWork_TextEdit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
          this.FathWork_TextEdit.Name = "FathWork_TextEdit";
          this.FathWork_TextEdit.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1450,7 +1434,7 @@
          // 
          this.TYPE_LookUpEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.TYPE_LookUpEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.FgpbsBs1, "TYPE", true));
-         this.TYPE_LookUpEdit.Location = new System.Drawing.Point(612, 21);
+         this.TYPE_LookUpEdit.Location = new System.Drawing.Point(553, 22);
          this.TYPE_LookUpEdit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
          this.TYPE_LookUpEdit.Name = "TYPE_LookUpEdit";
          this.TYPE_LookUpEdit.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
@@ -1483,7 +1467,7 @@
          // 
          this.CORD_XTextEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.CORD_XTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.FgpbsBs1, "CORD_X", true));
-         this.CORD_XTextEdit.Location = new System.Drawing.Point(576, 79);
+         this.CORD_XTextEdit.Location = new System.Drawing.Point(553, 82);
          this.CORD_XTextEdit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
          this.CORD_XTextEdit.Name = "CORD_XTextEdit";
          this.CORD_XTextEdit.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1499,11 +1483,14 @@
          // 
          this.Chat_Id_TextEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.Chat_Id_TextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.FgpbsBs1, "CHAT_ID", true));
-         this.Chat_Id_TextEdit.Location = new System.Drawing.Point(637, 45);
+         this.Chat_Id_TextEdit.EditValue = "";
+         this.Chat_Id_TextEdit.Location = new System.Drawing.Point(561, 52);
          this.Chat_Id_TextEdit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
          this.Chat_Id_TextEdit.Name = "Chat_Id_TextEdit";
          this.Chat_Id_TextEdit.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.Chat_Id_TextEdit.Properties.Appearance.Options.UseFont = true;
+         this.Chat_Id_TextEdit.Properties.Appearance.Options.UseTextOptions = true;
+         this.Chat_Id_TextEdit.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.Chat_Id_TextEdit.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
          this.Chat_Id_TextEdit.Properties.AppearanceFocused.Options.UseBackColor = true;
          this.Chat_Id_TextEdit.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
@@ -1514,7 +1501,7 @@
          // GetMap_Butn
          // 
          this.GetMap_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.GetMap_Butn.Location = new System.Drawing.Point(289, 77);
+         this.GetMap_Butn.Location = new System.Drawing.Point(266, 80);
          this.GetMap_Butn.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
          this.GetMap_Butn.Name = "GetMap_Butn";
          this.GetMap_Butn.Size = new System.Drawing.Size(31, 24);
@@ -1527,7 +1514,7 @@
          // 
          this.LAST_NAME_TextEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.LAST_NAME_TextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.FgpbsBs1, "LAST_NAME", true));
-         this.LAST_NAME_TextEdit.Location = new System.Drawing.Point(376, 51);
+         this.LAST_NAME_TextEdit.Location = new System.Drawing.Point(317, 52);
          this.LAST_NAME_TextEdit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
          this.LAST_NAME_TextEdit.Name = "LAST_NAME_TextEdit";
          this.LAST_NAME_TextEdit.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
@@ -1545,7 +1532,7 @@
          // 
          this.POST_ADRS_TextEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.POST_ADRS_TextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.FgpbsBs1, "POST_ADRS", true));
-         this.POST_ADRS_TextEdit.Location = new System.Drawing.Point(165, 19);
+         this.POST_ADRS_TextEdit.Location = new System.Drawing.Point(142, 22);
          this.POST_ADRS_TextEdit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
          this.POST_ADRS_TextEdit.Name = "POST_ADRS_TextEdit";
          this.POST_ADRS_TextEdit.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1561,7 +1548,7 @@
          // 
          this.FRST_NAME_TextEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.FRST_NAME_TextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.FgpbsBs1, "FRST_NAME", true));
-         this.FRST_NAME_TextEdit.Location = new System.Drawing.Point(612, 51);
+         this.FRST_NAME_TextEdit.Location = new System.Drawing.Point(553, 52);
          this.FRST_NAME_TextEdit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
          this.FRST_NAME_TextEdit.Name = "FRST_NAME_TextEdit";
          this.FRST_NAME_TextEdit.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
@@ -1580,31 +1567,33 @@
          this.EMAL_ADRS_TextEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.EMAL_ADRS_TextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.FgpbsBs1, "EMAL_ADRS", true));
          this.EMAL_ADRS_TextEdit.EditValue = "";
-         this.EMAL_ADRS_TextEdit.Location = new System.Drawing.Point(116, 15);
+         this.EMAL_ADRS_TextEdit.Location = new System.Drawing.Point(104, 22);
          this.EMAL_ADRS_TextEdit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
          this.EMAL_ADRS_TextEdit.Name = "EMAL_ADRS_TextEdit";
          this.EMAL_ADRS_TextEdit.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.EMAL_ADRS_TextEdit.Properties.Appearance.Options.UseFont = true;
-         this.EMAL_ADRS_TextEdit.Properties.Appearance.Options.UseTextOptions = true;
-         this.EMAL_ADRS_TextEdit.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.EMAL_ADRS_TextEdit.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
          this.EMAL_ADRS_TextEdit.Properties.AppearanceFocused.Options.UseBackColor = true;
          this.EMAL_ADRS_TextEdit.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
          this.EMAL_ADRS_TextEdit.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.EMAL_ADRS_TextEdit.Size = new System.Drawing.Size(630, 22);
+         this.EMAL_ADRS_TextEdit.RightToLeft = System.Windows.Forms.RightToLeft.No;
+         this.EMAL_ADRS_TextEdit.Size = new System.Drawing.Size(566, 22);
          this.EMAL_ADRS_TextEdit.TabIndex = 0;
          // 
          // NATL_CODE_TextEdit
          // 
          this.NATL_CODE_TextEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.NATL_CODE_TextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.FgpbsBs1, "NATL_CODE", true));
-         this.NATL_CODE_TextEdit.Location = new System.Drawing.Point(375, 202);
+         this.NATL_CODE_TextEdit.EditValue = "";
+         this.NATL_CODE_TextEdit.Location = new System.Drawing.Point(316, 203);
          this.NATL_CODE_TextEdit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
          this.NATL_CODE_TextEdit.Name = "NATL_CODE_TextEdit";
          this.NATL_CODE_TextEdit.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
          this.NATL_CODE_TextEdit.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.NATL_CODE_TextEdit.Properties.Appearance.Options.UseBackColor = true;
          this.NATL_CODE_TextEdit.Properties.Appearance.Options.UseFont = true;
+         this.NATL_CODE_TextEdit.Properties.Appearance.Options.UseTextOptions = true;
+         this.NATL_CODE_TextEdit.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.NATL_CODE_TextEdit.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
          this.NATL_CODE_TextEdit.Properties.AppearanceFocused.Options.UseBackColor = true;
          this.NATL_CODE_TextEdit.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
@@ -1616,7 +1605,7 @@
          // 
          this.SEX_TYPE_LookUpEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.SEX_TYPE_LookUpEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.FgpbsBs1, "SEX_TYPE", true));
-         this.SEX_TYPE_LookUpEdit.Location = new System.Drawing.Point(612, 202);
+         this.SEX_TYPE_LookUpEdit.Location = new System.Drawing.Point(553, 203);
          this.SEX_TYPE_LookUpEdit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
          this.SEX_TYPE_LookUpEdit.Name = "SEX_TYPE_LookUpEdit";
          this.SEX_TYPE_LookUpEdit.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
@@ -1649,7 +1638,7 @@
          // 
          this.FATH_NAME_TextEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.FATH_NAME_TextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.FgpbsBs1, "FATH_NAME", true));
-         this.FATH_NAME_TextEdit.Location = new System.Drawing.Point(612, 232);
+         this.FATH_NAME_TextEdit.Location = new System.Drawing.Point(553, 233);
          this.FATH_NAME_TextEdit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
          this.FATH_NAME_TextEdit.Name = "FATH_NAME_TextEdit";
          this.FATH_NAME_TextEdit.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1665,7 +1654,7 @@
          // 
          this.BLOD_GROPLookUpEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.BLOD_GROPLookUpEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.FgpbsBs1, "BLOD_GROP", true));
-         this.BLOD_GROPLookUpEdit.Location = new System.Drawing.Point(604, 71);
+         this.BLOD_GROPLookUpEdit.Location = new System.Drawing.Point(528, 82);
          this.BLOD_GROPLookUpEdit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
          this.BLOD_GROPLookUpEdit.Name = "BLOD_GROPLookUpEdit";
          this.BLOD_GROPLookUpEdit.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1696,7 +1685,7 @@
          // 
          this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.label6.AutoSize = true;
-         this.label6.Location = new System.Drawing.Point(751, 107);
+         this.label6.Location = new System.Drawing.Point(218, 54);
          this.label6.Name = "label6";
          this.label6.Size = new System.Drawing.Size(70, 14);
          this.label6.TabIndex = 23;
@@ -1706,7 +1695,7 @@
          // 
          this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.label3.AutoSize = true;
-         this.label3.Location = new System.Drawing.Point(751, 77);
+         this.label3.Location = new System.Drawing.Point(450, 54);
          this.label3.Name = "label3";
          this.label3.Size = new System.Drawing.Size(64, 14);
          this.label3.TabIndex = 23;
@@ -1717,7 +1706,7 @@
          this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.label5.AutoSize = true;
          this.label5.ForeColor = System.Drawing.Color.Fuchsia;
-         this.label5.Location = new System.Drawing.Point(498, 174);
+         this.label5.Location = new System.Drawing.Point(439, 175);
          this.label5.Name = "label5";
          this.label5.Size = new System.Drawing.Size(86, 14);
          this.label5.TabIndex = 23;
@@ -1728,7 +1717,7 @@
          this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.label2.AutoSize = true;
          this.label2.ForeColor = System.Drawing.Color.Fuchsia;
-         this.label2.Location = new System.Drawing.Point(498, 144);
+         this.label2.Location = new System.Drawing.Point(439, 145);
          this.label2.Name = "label2";
          this.label2.Size = new System.Drawing.Size(80, 14);
          this.label2.TabIndex = 23;
@@ -1740,7 +1729,7 @@
          this.iNSR_DATEPersianDateEdit.CustomFormat = "dd/MM/yyyy";
          this.iNSR_DATEPersianDateEdit.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.FgpbsBs1, "INSR_DATE", true));
          this.iNSR_DATEPersianDateEdit.Format = Atf.UI.DateTimeSelectorFormat.Custom;
-         this.iNSR_DATEPersianDateEdit.Location = new System.Drawing.Point(375, 291);
+         this.iNSR_DATEPersianDateEdit.Location = new System.Drawing.Point(316, 292);
          this.iNSR_DATEPersianDateEdit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
          this.iNSR_DATEPersianDateEdit.Name = "iNSR_DATEPersianDateEdit";
          this.iNSR_DATEPersianDateEdit.Size = new System.Drawing.Size(117, 23);
@@ -1752,7 +1741,7 @@
          this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.label4.AutoSize = true;
          this.label4.ForeColor = System.Drawing.Color.Fuchsia;
-         this.label4.Location = new System.Drawing.Point(736, 176);
+         this.label4.Location = new System.Drawing.Point(677, 177);
          this.label4.Name = "label4";
          this.label4.Size = new System.Drawing.Size(94, 14);
          this.label4.TabIndex = 21;
@@ -1763,7 +1752,7 @@
          this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.label1.AutoSize = true;
          this.label1.ForeColor = System.Drawing.Color.Fuchsia;
-         this.label1.Location = new System.Drawing.Point(736, 146);
+         this.label1.Location = new System.Drawing.Point(677, 147);
          this.label1.Name = "label1";
          this.label1.Size = new System.Drawing.Size(88, 14);
          this.label1.TabIndex = 21;
@@ -1772,7 +1761,7 @@
          // Btn_Dise
          // 
          this.Btn_Dise.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.Btn_Dise.Location = new System.Drawing.Point(336, 260);
+         this.Btn_Dise.Location = new System.Drawing.Point(277, 261);
          this.Btn_Dise.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
          this.Btn_Dise.Name = "Btn_Dise";
          this.Btn_Dise.Size = new System.Drawing.Size(31, 24);
@@ -1785,7 +1774,7 @@
          // 
          this.GLOB_CODE_TextEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.GLOB_CODE_TextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.FgpbsBs1, "GLOB_CODE", true));
-         this.GLOB_CODE_TextEdit.Location = new System.Drawing.Point(582, 51);
+         this.GLOB_CODE_TextEdit.Location = new System.Drawing.Point(553, 52);
          this.GLOB_CODE_TextEdit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
          this.GLOB_CODE_TextEdit.Name = "GLOB_CODE_TextEdit";
          this.GLOB_CODE_TextEdit.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1801,11 +1790,14 @@
          // 
          this.iNSR_NUMBTextEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.iNSR_NUMBTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.FgpbsBs1, "INSR_NUMB", true));
-         this.iNSR_NUMBTextEdit.Location = new System.Drawing.Point(612, 292);
+         this.iNSR_NUMBTextEdit.EditValue = "";
+         this.iNSR_NUMBTextEdit.Location = new System.Drawing.Point(553, 293);
          this.iNSR_NUMBTextEdit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
          this.iNSR_NUMBTextEdit.Name = "iNSR_NUMBTextEdit";
          this.iNSR_NUMBTextEdit.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.iNSR_NUMBTextEdit.Properties.Appearance.Options.UseFont = true;
+         this.iNSR_NUMBTextEdit.Properties.Appearance.Options.UseTextOptions = true;
+         this.iNSR_NUMBTextEdit.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.iNSR_NUMBTextEdit.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
          this.iNSR_NUMBTextEdit.Properties.AppearanceFocused.Options.UseBackColor = true;
          this.iNSR_NUMBTextEdit.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
@@ -1817,11 +1809,14 @@
          // 
          this.MomCellPhon_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.MomCellPhon_Txt.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.FgpbsBs1, "MOM_CELL_PHON", true));
-         this.MomCellPhon_Txt.Location = new System.Drawing.Point(612, 172);
+         this.MomCellPhon_Txt.EditValue = "";
+         this.MomCellPhon_Txt.Location = new System.Drawing.Point(553, 173);
          this.MomCellPhon_Txt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
          this.MomCellPhon_Txt.Name = "MomCellPhon_Txt";
          this.MomCellPhon_Txt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.MomCellPhon_Txt.Properties.Appearance.Options.UseFont = true;
+         this.MomCellPhon_Txt.Properties.Appearance.Options.UseTextOptions = true;
+         this.MomCellPhon_Txt.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.MomCellPhon_Txt.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
          this.MomCellPhon_Txt.Properties.AppearanceFocused.Options.UseBackColor = true;
          this.MomCellPhon_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
@@ -1833,11 +1828,14 @@
          // 
          this.DadCellPhon_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.DadCellPhon_Txt.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.FgpbsBs1, "DAD_CELL_PHON", true));
-         this.DadCellPhon_Txt.Location = new System.Drawing.Point(612, 142);
+         this.DadCellPhon_Txt.EditValue = "";
+         this.DadCellPhon_Txt.Location = new System.Drawing.Point(553, 143);
          this.DadCellPhon_Txt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
          this.DadCellPhon_Txt.Name = "DadCellPhon_Txt";
          this.DadCellPhon_Txt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.DadCellPhon_Txt.Properties.Appearance.Options.UseFont = true;
+         this.DadCellPhon_Txt.Properties.Appearance.Options.UseTextOptions = true;
+         this.DadCellPhon_Txt.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.DadCellPhon_Txt.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
          this.DadCellPhon_Txt.Properties.AppearanceFocused.Options.UseBackColor = true;
          this.DadCellPhon_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
@@ -1849,13 +1847,16 @@
          // 
          this.CELL_PHON_TextEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.CELL_PHON_TextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.FgpbsBs1, "CELL_PHON", true));
-         this.CELL_PHON_TextEdit.Location = new System.Drawing.Point(612, 112);
+         this.CELL_PHON_TextEdit.EditValue = "";
+         this.CELL_PHON_TextEdit.Location = new System.Drawing.Point(553, 113);
          this.CELL_PHON_TextEdit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
          this.CELL_PHON_TextEdit.Name = "CELL_PHON_TextEdit";
          this.CELL_PHON_TextEdit.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
          this.CELL_PHON_TextEdit.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.CELL_PHON_TextEdit.Properties.Appearance.Options.UseBackColor = true;
          this.CELL_PHON_TextEdit.Properties.Appearance.Options.UseFont = true;
+         this.CELL_PHON_TextEdit.Properties.Appearance.Options.UseTextOptions = true;
+         this.CELL_PHON_TextEdit.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.CELL_PHON_TextEdit.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
          this.CELL_PHON_TextEdit.Properties.AppearanceFocused.Options.UseBackColor = true;
          this.CELL_PHON_TextEdit.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
@@ -1867,11 +1868,14 @@
          // 
          this.MomChatId_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.MomChatId_Txt.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.FgpbsBs1, "MOM_CHAT_ID", true));
-         this.MomChatId_Txt.Location = new System.Drawing.Point(637, 105);
+         this.MomChatId_Txt.EditValue = "";
+         this.MomChatId_Txt.Location = new System.Drawing.Point(104, 52);
          this.MomChatId_Txt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
          this.MomChatId_Txt.Name = "MomChatId_Txt";
          this.MomChatId_Txt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.MomChatId_Txt.Properties.Appearance.Options.UseFont = true;
+         this.MomChatId_Txt.Properties.Appearance.Options.UseTextOptions = true;
+         this.MomChatId_Txt.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.MomChatId_Txt.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
          this.MomChatId_Txt.Properties.AppearanceFocused.Options.UseBackColor = true;
          this.MomChatId_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
@@ -1883,7 +1887,7 @@
          // 
          this.DISE_CODE_LookUpEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.DISE_CODE_LookUpEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.FgpbsBs1, "DISE_CODE", true));
-         this.DISE_CODE_LookUpEdit.Location = new System.Drawing.Point(375, 262);
+         this.DISE_CODE_LookUpEdit.Location = new System.Drawing.Point(316, 263);
          this.DISE_CODE_LookUpEdit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
          this.DISE_CODE_LookUpEdit.Name = "DISE_CODE_LookUpEdit";
          this.DISE_CODE_LookUpEdit.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1919,11 +1923,14 @@
          // 
          this.MomTellPhon_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.MomTellPhon_Txt.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.FgpbsBs1, "MOM_TELL_PHON", true));
-         this.MomTellPhon_Txt.Location = new System.Drawing.Point(376, 172);
+         this.MomTellPhon_Txt.EditValue = "";
+         this.MomTellPhon_Txt.Location = new System.Drawing.Point(317, 173);
          this.MomTellPhon_Txt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
          this.MomTellPhon_Txt.Name = "MomTellPhon_Txt";
          this.MomTellPhon_Txt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.MomTellPhon_Txt.Properties.Appearance.Options.UseFont = true;
+         this.MomTellPhon_Txt.Properties.Appearance.Options.UseTextOptions = true;
+         this.MomTellPhon_Txt.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.MomTellPhon_Txt.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
          this.MomTellPhon_Txt.Properties.AppearanceFocused.Options.UseBackColor = true;
          this.MomTellPhon_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
@@ -1935,11 +1942,14 @@
          // 
          this.DadChatId_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.DadChatId_Txt.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.FgpbsBs1, "DAD_CHAT_ID", true));
-         this.DadChatId_Txt.Location = new System.Drawing.Point(637, 75);
+         this.DadChatId_Txt.EditValue = "";
+         this.DadChatId_Txt.Location = new System.Drawing.Point(336, 52);
          this.DadChatId_Txt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
          this.DadChatId_Txt.Name = "DadChatId_Txt";
          this.DadChatId_Txt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.DadChatId_Txt.Properties.Appearance.Options.UseFont = true;
+         this.DadChatId_Txt.Properties.Appearance.Options.UseTextOptions = true;
+         this.DadChatId_Txt.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.DadChatId_Txt.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
          this.DadChatId_Txt.Properties.AppearanceFocused.Options.UseBackColor = true;
          this.DadChatId_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
@@ -1951,11 +1961,14 @@
          // 
          this.DadTellPhon_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.DadTellPhon_Txt.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.FgpbsBs1, "DAD_TELL_PHON", true));
-         this.DadTellPhon_Txt.Location = new System.Drawing.Point(376, 142);
+         this.DadTellPhon_Txt.EditValue = "";
+         this.DadTellPhon_Txt.Location = new System.Drawing.Point(317, 143);
          this.DadTellPhon_Txt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
          this.DadTellPhon_Txt.Name = "DadTellPhon_Txt";
          this.DadTellPhon_Txt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.DadTellPhon_Txt.Properties.Appearance.Options.UseFont = true;
+         this.DadTellPhon_Txt.Properties.Appearance.Options.UseTextOptions = true;
+         this.DadTellPhon_Txt.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.DadTellPhon_Txt.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
          this.DadTellPhon_Txt.Properties.AppearanceFocused.Options.UseBackColor = true;
          this.DadTellPhon_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
@@ -1967,13 +1980,16 @@
          // 
          this.TELL_PHON_TextEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.TELL_PHON_TextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.FgpbsBs1, "TELL_PHON", true));
-         this.TELL_PHON_TextEdit.Location = new System.Drawing.Point(376, 112);
+         this.TELL_PHON_TextEdit.EditValue = "";
+         this.TELL_PHON_TextEdit.Location = new System.Drawing.Point(317, 113);
          this.TELL_PHON_TextEdit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
          this.TELL_PHON_TextEdit.Name = "TELL_PHON_TextEdit";
          this.TELL_PHON_TextEdit.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
          this.TELL_PHON_TextEdit.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.TELL_PHON_TextEdit.Properties.Appearance.Options.UseBackColor = true;
          this.TELL_PHON_TextEdit.Properties.Appearance.Options.UseFont = true;
+         this.TELL_PHON_TextEdit.Properties.Appearance.Options.UseTextOptions = true;
+         this.TELL_PHON_TextEdit.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.TELL_PHON_TextEdit.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
          this.TELL_PHON_TextEdit.Properties.AppearanceFocused.Options.UseBackColor = true;
          this.TELL_PHON_TextEdit.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
@@ -1985,7 +2001,7 @@
          // 
          this.GUDG_DEG_LookUpEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.GUDG_DEG_LookUpEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.FgpbsBs1, "GUDG_DEG", true));
-         this.GUDG_DEG_LookUpEdit.Location = new System.Drawing.Point(352, 71);
+         this.GUDG_DEG_LookUpEdit.Location = new System.Drawing.Point(276, 82);
          this.GUDG_DEG_LookUpEdit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
          this.GUDG_DEG_LookUpEdit.Name = "GUDG_DEG_LookUpEdit";
          this.GUDG_DEG_LookUpEdit.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -2044,7 +2060,7 @@
          this.RqstBn1.Name = "RqstBn1";
          this.RqstBn1.PositionItem = this.bindingNavigatorPositionItem;
          this.RqstBn1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-         this.RqstBn1.Size = new System.Drawing.Size(1174, 47);
+         this.RqstBn1.Size = new System.Drawing.Size(1145, 47);
          this.RqstBn1.TabIndex = 0;
          this.RqstBn1.Text = "bindingNavigator1";
          // 
@@ -2321,89 +2337,20 @@
          this.RqstBnExit1.ToolTipText = "خروج";
          this.RqstBnExit1.Click += new System.EventHandler(this.Btn_RqstExit_Click);
          // 
-         // tabControl1
-         // 
-         this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-         this.tabControl1.Controls.Add(this.tabPage1);
-         this.tabControl1.Controls.Add(this.tabPage2);
-         this.tabControl1.Controls.Add(this.tabPage3);
-         this.tabControl1.Controls.Add(this.tabPage4);
-         this.tabControl1.Controls.Add(this.tabPage5);
-         this.tabControl1.Location = new System.Drawing.Point(316, 117);
-         this.tabControl1.Name = "tabControl1";
-         this.tabControl1.RightToLeftLayout = true;
-         this.tabControl1.SelectedIndex = 0;
-         this.tabControl1.Size = new System.Drawing.Size(849, 479);
-         this.tabControl1.TabIndex = 2;
-         // 
-         // tabPage1
-         // 
-         this.tabPage1.Controls.Add(this.OthrExpnInfo_Ckbx);
-         this.tabPage1.Controls.Add(this.DadCellPhon_Txt);
-         this.tabPage1.Controls.Add(this.iNSR_DATEPersianDateEdit);
-         this.tabPage1.Controls.Add(this.TYPE_LookUpEdit);
-         this.tabPage1.Controls.Add(this.InsrNumb_Lb);
-         this.tabPage1.Controls.Add(this.DadTellPhon_Txt);
-         this.tabPage1.Controls.Add(this.InsrDate_Lb);
-         this.tabPage1.Controls.Add(this.MomTellPhon_Txt);
-         this.tabPage1.Controls.Add(this.iNSR_NUMBTextEdit);
-         this.tabPage1.Controls.Add(this.FgpbType_Lb);
-         this.tabPage1.Controls.Add(this.AutoTrans_Cb);
-         this.tabPage1.Controls.Add(this.MomCellPhon_Txt);
-         this.tabPage1.Controls.Add(this.label1);
-         this.tabPage1.Controls.Add(this.CardNumb_Lb);
-         this.tabPage1.Controls.Add(this.label4);
-         this.tabPage1.Controls.Add(this.label2);
-         this.tabPage1.Controls.Add(this.CardNumb_Text);
-         this.tabPage1.Controls.Add(this.label5);
-         this.tabPage1.Controls.Add(this.IdtyNumb_Txt);
-         this.tabPage1.Controls.Add(this.NATL_CODE_TextEdit);
-         this.tabPage1.Controls.Add(this.MaxF_Butn001);
-         this.tabPage1.Controls.Add(this.EducDeg_Lb);
-         this.tabPage1.Controls.Add(this.label15);
-         this.tabPage1.Controls.Add(this.FngrPrnt_Lb);
-         this.tabPage1.Controls.Add(this.NatlCode_Lb);
-         this.tabPage1.Controls.Add(this.EDUC_DEG_LookUpEdit);
-         this.tabPage1.Controls.Add(this.FNGR_PRNT_TextEdit);
-         this.tabPage1.Controls.Add(this.SexType_Lb);
-         this.tabPage1.Controls.Add(this.CELL_PHON_TextEdit);
-         this.tabPage1.Controls.Add(this.SEX_TYPE_LookUpEdit);
-         this.tabPage1.Controls.Add(this.TELL_PHON_TextEdit);
-         this.tabPage1.Controls.Add(this.Btn_Dise);
-         this.tabPage1.Controls.Add(this.BRTH_DATE_PersianDateEdit);
-         this.tabPage1.Controls.Add(this.DiseCode_Lb);
-         this.tabPage1.Controls.Add(this.CellPhon_Lb);
-         this.tabPage1.Controls.Add(this.DISE_CODE_LookUpEdit);
-         this.tabPage1.Controls.Add(this.FathJob_Lb);
-         this.tabPage1.Controls.Add(this.TellPhon_Lb);
-         this.tabPage1.Controls.Add(this.FathWork_TextEdit);
-         this.tabPage1.Controls.Add(this.FathName_Lb);
-         this.tabPage1.Controls.Add(this.FATH_NAME_TextEdit);
-         this.tabPage1.Controls.Add(this.LAST_NAME_TextEdit);
-         this.tabPage1.Controls.Add(this.FRST_NAME_TextEdit);
-         this.tabPage1.Controls.Add(this.FrstName_Lb);
-         this.tabPage1.Controls.Add(this.LastName_Lb);
-         this.tabPage1.Controls.Add(this.BrthDate_Lb);
-         this.tabPage1.Location = new System.Drawing.Point(4, 23);
-         this.tabPage1.Name = "tabPage1";
-         this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-         this.tabPage1.Size = new System.Drawing.Size(841, 452);
-         this.tabPage1.TabIndex = 0;
-         this.tabPage1.Text = "مشخصات مشترک";
-         this.tabPage1.UseVisualStyleBackColor = true;
-         // 
          // IdtyNumb_Txt
          // 
          this.IdtyNumb_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.IdtyNumb_Txt.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.FgpbsBs1, "IDTY_NUMB", true));
-         this.IdtyNumb_Txt.Location = new System.Drawing.Point(117, 202);
+         this.IdtyNumb_Txt.EditValue = "";
+         this.IdtyNumb_Txt.Location = new System.Drawing.Point(58, 203);
          this.IdtyNumb_Txt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
          this.IdtyNumb_Txt.Name = "IdtyNumb_Txt";
          this.IdtyNumb_Txt.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
          this.IdtyNumb_Txt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.IdtyNumb_Txt.Properties.Appearance.Options.UseBackColor = true;
          this.IdtyNumb_Txt.Properties.Appearance.Options.UseFont = true;
+         this.IdtyNumb_Txt.Properties.Appearance.Options.UseTextOptions = true;
+         this.IdtyNumb_Txt.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.IdtyNumb_Txt.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
          this.IdtyNumb_Txt.Properties.AppearanceFocused.Options.UseBackColor = true;
          this.IdtyNumb_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
@@ -2416,40 +2363,17 @@
          this.label15.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.label15.AutoSize = true;
          this.label15.ForeColor = System.Drawing.Color.Fuchsia;
-         this.label15.Location = new System.Drawing.Point(240, 205);
+         this.label15.Location = new System.Drawing.Point(181, 206);
          this.label15.Name = "label15";
          this.label15.Size = new System.Drawing.Size(105, 14);
          this.label15.TabIndex = 12;
          this.label15.Text = "شماره شناسنامه :";
          // 
-         // tabPage2
-         // 
-         this.tabPage2.Controls.Add(this.ZipCode_Txt);
-         this.tabPage2.Controls.Add(this.label28);
-         this.tabPage2.Controls.Add(this.BrthPlac_TextEdit);
-         this.tabPage2.Controls.Add(this.IssuPlac_TextEdit);
-         this.tabPage2.Controls.Add(this.BrthPlac_Lb);
-         this.tabPage2.Controls.Add(this.IssuPlac_Lb);
-         this.tabPage2.Controls.Add(this.CORD_YTextEdit);
-         this.tabPage2.Controls.Add(this.CORD_XTextEdit);
-         this.tabPage2.Controls.Add(this.CordX_Lb);
-         this.tabPage2.Controls.Add(this.CordY_Lb);
-         this.tabPage2.Controls.Add(this.GetMap_Butn);
-         this.tabPage2.Controls.Add(this.PostAdrs_Lb);
-         this.tabPage2.Controls.Add(this.POST_ADRS_TextEdit);
-         this.tabPage2.Location = new System.Drawing.Point(4, 23);
-         this.tabPage2.Name = "tabPage2";
-         this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-         this.tabPage2.Size = new System.Drawing.Size(841, 452);
-         this.tabPage2.TabIndex = 1;
-         this.tabPage2.Text = "آدرس و نشانی";
-         this.tabPage2.UseVisualStyleBackColor = true;
-         // 
          // ZipCode_Txt
          // 
          this.ZipCode_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.ZipCode_Txt.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.FgpbsBs1, "ZIP_CODE", true));
-         this.ZipCode_Txt.Location = new System.Drawing.Point(576, 109);
+         this.ZipCode_Txt.Location = new System.Drawing.Point(553, 112);
          this.ZipCode_Txt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
          this.ZipCode_Txt.Name = "ZipCode_Txt";
          this.ZipCode_Txt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -2467,35 +2391,17 @@
          // 
          this.label28.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.label28.AutoSize = true;
-         this.label28.Location = new System.Drawing.Point(700, 112);
+         this.label28.Location = new System.Drawing.Point(677, 115);
          this.label28.Name = "label28";
          this.label28.Size = new System.Drawing.Size(64, 14);
          this.label28.TabIndex = 71;
          this.label28.Text = "کد پستی :";
          // 
-         // tabPage3
-         // 
-         this.tabPage3.Controls.Add(this.label14);
-         this.tabPage3.Controls.Add(this.ServNo_Lb);
-         this.tabPage3.Controls.Add(this.Password_Txt);
-         this.tabPage3.Controls.Add(this.ServNo_Text);
-         this.tabPage3.Controls.Add(this.SUNT_CODELookUpEdit);
-         this.tabPage3.Controls.Add(this.SuntCode_Lb);
-         this.tabPage3.Controls.Add(this.GLOB_CODE_TextEdit);
-         this.tabPage3.Controls.Add(this.GlobCode_Lb);
-         this.tabPage3.Location = new System.Drawing.Point(4, 23);
-         this.tabPage3.Name = "tabPage3";
-         this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-         this.tabPage3.Size = new System.Drawing.Size(841, 452);
-         this.tabPage3.TabIndex = 2;
-         this.tabPage3.Text = "وابستگی";
-         this.tabPage3.UseVisualStyleBackColor = true;
-         // 
          // label14
          // 
          this.label14.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.label14.AutoSize = true;
-         this.label14.Location = new System.Drawing.Point(260, 54);
+         this.label14.Location = new System.Drawing.Point(231, 55);
          this.label14.Name = "label14";
          this.label14.Size = new System.Drawing.Size(54, 14);
          this.label14.TabIndex = 70;
@@ -2505,7 +2411,7 @@
          // 
          this.Password_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.Password_Txt.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.FgpbsBs1, "PASS_WORD", true));
-         this.Password_Txt.Location = new System.Drawing.Point(114, 50);
+         this.Password_Txt.Location = new System.Drawing.Point(85, 51);
          this.Password_Txt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
          this.Password_Txt.Name = "Password_Txt";
          this.Password_Txt.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
@@ -2521,56 +2427,11 @@
          this.Password_Txt.Size = new System.Drawing.Size(140, 22);
          this.Password_Txt.TabIndex = 3;
          // 
-         // tabPage4
-         // 
-         this.tabPage4.Controls.Add(this.EMAL_ADRS_TextEdit);
-         this.tabPage4.Controls.Add(this.EmalAdrs_Lb);
-         this.tabPage4.Controls.Add(label10);
-         this.tabPage4.Controls.Add(this.DadChatId_Txt);
-         this.tabPage4.Controls.Add(label8);
-         this.tabPage4.Controls.Add(this.label3);
-         this.tabPage4.Controls.Add(this.MomChatId_Txt);
-         this.tabPage4.Controls.Add(this.label6);
-         this.tabPage4.Controls.Add(label7);
-         this.tabPage4.Controls.Add(this.Chat_Id_TextEdit);
-         this.tabPage4.Controls.Add(this.ChatId_Lb);
-         this.tabPage4.Location = new System.Drawing.Point(4, 23);
-         this.tabPage4.Name = "tabPage4";
-         this.tabPage4.Size = new System.Drawing.Size(841, 452);
-         this.tabPage4.TabIndex = 3;
-         this.tabPage4.Text = "پل ارتباطی";
-         this.tabPage4.UseVisualStyleBackColor = true;
-         // 
-         // tabPage5
-         // 
-         this.tabPage5.Controls.Add(this.label29);
-         this.tabPage5.Controls.Add(this.Cmnt_Txt);
-         this.tabPage5.Controls.Add(this.HistDesc_TextEdit);
-         this.tabPage5.Controls.Add(this.HistDesc_Lb);
-         this.tabPage5.Controls.Add(this.DpstAcntSlry_Text2);
-         this.tabPage5.Controls.Add(this.DpstAcntSlryBank_Text2);
-         this.tabPage5.Controls.Add(this.DpstAcntSlryBank_Lb);
-         this.tabPage5.Controls.Add(this.BLOD_GROPLookUpEdit);
-         this.tabPage5.Controls.Add(this.COCH_CRTF_DATE_PersianDateEdit);
-         this.tabPage5.Controls.Add(this.BlodGrop_Lb);
-         this.tabPage5.Controls.Add(this.GUDG_DEG_LookUpEdit);
-         this.tabPage5.Controls.Add(this.GudgDeg_Lb);
-         this.tabPage5.Controls.Add(this.COCH_DEG_LookUpEdit);
-         this.tabPage5.Controls.Add(this.CochDeg_Lb);
-         this.tabPage5.Controls.Add(this.CochCrtfDate_Lb);
-         this.tabPage5.Controls.Add(this.label9);
-         this.tabPage5.Location = new System.Drawing.Point(4, 23);
-         this.tabPage5.Name = "tabPage5";
-         this.tabPage5.Size = new System.Drawing.Size(841, 452);
-         this.tabPage5.TabIndex = 4;
-         this.tabPage5.Text = "سایر اطلاعات";
-         this.tabPage5.UseVisualStyleBackColor = true;
-         // 
          // label29
          // 
          this.label29.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.label29.AutoSize = true;
-         this.label29.Location = new System.Drawing.Point(753, 45);
+         this.label29.Location = new System.Drawing.Point(677, 56);
          this.label29.Name = "label29";
          this.label29.Size = new System.Drawing.Size(58, 14);
          this.label29.TabIndex = 75;
@@ -2580,7 +2441,7 @@
          // 
          this.Cmnt_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.Cmnt_Txt.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.FgpbsBs1, "CMNT", true));
-         this.Cmnt_Txt.Location = new System.Drawing.Point(81, 41);
+         this.Cmnt_Txt.Location = new System.Drawing.Point(5, 52);
          this.Cmnt_Txt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
          this.Cmnt_Txt.Name = "Cmnt_Txt";
          this.Cmnt_Txt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -2596,7 +2457,7 @@
          // 
          this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.label9.AutoSize = true;
-         this.label9.Location = new System.Drawing.Point(487, 134);
+         this.label9.Location = new System.Drawing.Point(411, 145);
          this.label9.Name = "label9";
          this.label9.Size = new System.Drawing.Size(87, 14);
          this.label9.TabIndex = 30;
@@ -2632,21 +2493,174 @@
          // 
          this.DDytpBs1.DataSource = typeof(System.Scsc.Data.D_DYTP);
          // 
+         // groupBox1
+         // 
+         this.groupBox1.Controls.Add(this.TYPE_LookUpEdit);
+         this.groupBox1.Controls.Add(this.OthrExpnInfo_Ckbx);
+         this.groupBox1.Controls.Add(this.BrthDate_Lb);
+         this.groupBox1.Controls.Add(this.DadCellPhon_Txt);
+         this.groupBox1.Controls.Add(this.LastName_Lb);
+         this.groupBox1.Controls.Add(this.iNSR_DATEPersianDateEdit);
+         this.groupBox1.Controls.Add(this.FrstName_Lb);
+         this.groupBox1.Controls.Add(this.FRST_NAME_TextEdit);
+         this.groupBox1.Controls.Add(this.InsrNumb_Lb);
+         this.groupBox1.Controls.Add(this.LAST_NAME_TextEdit);
+         this.groupBox1.Controls.Add(this.DadTellPhon_Txt);
+         this.groupBox1.Controls.Add(this.FATH_NAME_TextEdit);
+         this.groupBox1.Controls.Add(this.InsrDate_Lb);
+         this.groupBox1.Controls.Add(this.FathName_Lb);
+         this.groupBox1.Controls.Add(this.MomTellPhon_Txt);
+         this.groupBox1.Controls.Add(this.FathWork_TextEdit);
+         this.groupBox1.Controls.Add(this.iNSR_NUMBTextEdit);
+         this.groupBox1.Controls.Add(this.TellPhon_Lb);
+         this.groupBox1.Controls.Add(this.FgpbType_Lb);
+         this.groupBox1.Controls.Add(this.FathJob_Lb);
+         this.groupBox1.Controls.Add(this.AutoTrans_Cb);
+         this.groupBox1.Controls.Add(this.DISE_CODE_LookUpEdit);
+         this.groupBox1.Controls.Add(this.MomCellPhon_Txt);
+         this.groupBox1.Controls.Add(this.CellPhon_Lb);
+         this.groupBox1.Controls.Add(this.label1);
+         this.groupBox1.Controls.Add(this.DiseCode_Lb);
+         this.groupBox1.Controls.Add(this.CardNumb_Lb);
+         this.groupBox1.Controls.Add(this.BRTH_DATE_PersianDateEdit);
+         this.groupBox1.Controls.Add(this.label4);
+         this.groupBox1.Controls.Add(this.Btn_Dise);
+         this.groupBox1.Controls.Add(this.label2);
+         this.groupBox1.Controls.Add(this.TELL_PHON_TextEdit);
+         this.groupBox1.Controls.Add(this.CardNumb_Text);
+         this.groupBox1.Controls.Add(this.SEX_TYPE_LookUpEdit);
+         this.groupBox1.Controls.Add(this.label5);
+         this.groupBox1.Controls.Add(this.CELL_PHON_TextEdit);
+         this.groupBox1.Controls.Add(this.IdtyNumb_Txt);
+         this.groupBox1.Controls.Add(this.SexType_Lb);
+         this.groupBox1.Controls.Add(this.NATL_CODE_TextEdit);
+         this.groupBox1.Controls.Add(this.FNGR_PRNT_TextEdit);
+         this.groupBox1.Controls.Add(this.MaxF_Butn001);
+         this.groupBox1.Controls.Add(this.EDUC_DEG_LookUpEdit);
+         this.groupBox1.Controls.Add(this.EducDeg_Lb);
+         this.groupBox1.Controls.Add(this.NatlCode_Lb);
+         this.groupBox1.Controls.Add(this.label15);
+         this.groupBox1.Controls.Add(this.FngrPrnt_Lb);
+         this.groupBox1.Location = new System.Drawing.Point(9, 3);
+         this.groupBox1.Name = "groupBox1";
+         this.groupBox1.Size = new System.Drawing.Size(791, 332);
+         this.groupBox1.TabIndex = 0;
+         this.groupBox1.TabStop = false;
+         this.groupBox1.Text = "مشخصات مشترک";
+         // 
+         // flowLayoutPanel1
+         // 
+         this.flowLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+         this.flowLayoutPanel1.AutoScroll = true;
+         this.flowLayoutPanel1.Controls.Add(this.groupBox1);
+         this.flowLayoutPanel1.Controls.Add(this.groupBox2);
+         this.flowLayoutPanel1.Controls.Add(this.groupBox3);
+         this.flowLayoutPanel1.Controls.Add(this.groupBox4);
+         this.flowLayoutPanel1.Controls.Add(this.groupBox5);
+         this.flowLayoutPanel1.Location = new System.Drawing.Point(316, 54);
+         this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+         this.flowLayoutPanel1.Size = new System.Drawing.Size(820, 617);
+         this.flowLayoutPanel1.TabIndex = 3;
+         // 
+         // groupBox2
+         // 
+         this.groupBox2.Controls.Add(this.ZipCode_Txt);
+         this.groupBox2.Controls.Add(this.POST_ADRS_TextEdit);
+         this.groupBox2.Controls.Add(this.label28);
+         this.groupBox2.Controls.Add(this.PostAdrs_Lb);
+         this.groupBox2.Controls.Add(this.BrthPlac_TextEdit);
+         this.groupBox2.Controls.Add(this.GetMap_Butn);
+         this.groupBox2.Controls.Add(this.IssuPlac_TextEdit);
+         this.groupBox2.Controls.Add(this.CordY_Lb);
+         this.groupBox2.Controls.Add(this.BrthPlac_Lb);
+         this.groupBox2.Controls.Add(this.CordX_Lb);
+         this.groupBox2.Controls.Add(this.IssuPlac_Lb);
+         this.groupBox2.Controls.Add(this.CORD_XTextEdit);
+         this.groupBox2.Controls.Add(this.CORD_YTextEdit);
+         this.groupBox2.Location = new System.Drawing.Point(9, 341);
+         this.groupBox2.Name = "groupBox2";
+         this.groupBox2.Size = new System.Drawing.Size(791, 147);
+         this.groupBox2.TabIndex = 1;
+         this.groupBox2.TabStop = false;
+         this.groupBox2.Text = "آدرس و نشانی";
+         // 
+         // groupBox3
+         // 
+         this.groupBox3.Controls.Add(this.label14);
+         this.groupBox3.Controls.Add(this.SUNT_CODELookUpEdit);
+         this.groupBox3.Controls.Add(this.ServNo_Lb);
+         this.groupBox3.Controls.Add(this.GlobCode_Lb);
+         this.groupBox3.Controls.Add(this.Password_Txt);
+         this.groupBox3.Controls.Add(this.GLOB_CODE_TextEdit);
+         this.groupBox3.Controls.Add(this.ServNo_Text);
+         this.groupBox3.Controls.Add(this.SuntCode_Lb);
+         this.groupBox3.Location = new System.Drawing.Point(9, 494);
+         this.groupBox3.Name = "groupBox3";
+         this.groupBox3.Size = new System.Drawing.Size(791, 85);
+         this.groupBox3.TabIndex = 2;
+         this.groupBox3.TabStop = false;
+         this.groupBox3.Text = "وابستگی";
+         // 
+         // groupBox4
+         // 
+         this.groupBox4.Controls.Add(this.EMAL_ADRS_TextEdit);
+         this.groupBox4.Controls.Add(this.EmalAdrs_Lb);
+         this.groupBox4.Controls.Add(this.ChatId_Lb);
+         this.groupBox4.Controls.Add(label10);
+         this.groupBox4.Controls.Add(this.Chat_Id_TextEdit);
+         this.groupBox4.Controls.Add(this.DadChatId_Txt);
+         this.groupBox4.Controls.Add(label7);
+         this.groupBox4.Controls.Add(label8);
+         this.groupBox4.Controls.Add(this.label6);
+         this.groupBox4.Controls.Add(this.label3);
+         this.groupBox4.Controls.Add(this.MomChatId_Txt);
+         this.groupBox4.Location = new System.Drawing.Point(9, 585);
+         this.groupBox4.Name = "groupBox4";
+         this.groupBox4.Size = new System.Drawing.Size(791, 86);
+         this.groupBox4.TabIndex = 3;
+         this.groupBox4.TabStop = false;
+         this.groupBox4.Text = "پل ارتباطی";
+         // 
+         // groupBox5
+         // 
+         this.groupBox5.Controls.Add(this.label29);
+         this.groupBox5.Controls.Add(this.HistDesc_TextEdit);
+         this.groupBox5.Controls.Add(this.Cmnt_Txt);
+         this.groupBox5.Controls.Add(this.label9);
+         this.groupBox5.Controls.Add(this.CochCrtfDate_Lb);
+         this.groupBox5.Controls.Add(this.HistDesc_Lb);
+         this.groupBox5.Controls.Add(this.CochDeg_Lb);
+         this.groupBox5.Controls.Add(this.DpstAcntSlry_Text2);
+         this.groupBox5.Controls.Add(this.COCH_DEG_LookUpEdit);
+         this.groupBox5.Controls.Add(this.DpstAcntSlryBank_Text2);
+         this.groupBox5.Controls.Add(this.GudgDeg_Lb);
+         this.groupBox5.Controls.Add(this.DpstAcntSlryBank_Lb);
+         this.groupBox5.Controls.Add(this.GUDG_DEG_LookUpEdit);
+         this.groupBox5.Controls.Add(this.BLOD_GROPLookUpEdit);
+         this.groupBox5.Controls.Add(this.BlodGrop_Lb);
+         this.groupBox5.Controls.Add(this.COCH_CRTF_DATE_PersianDateEdit);
+         this.groupBox5.Location = new System.Drawing.Point(9, 677);
+         this.groupBox5.Name = "groupBox5";
+         this.groupBox5.Size = new System.Drawing.Size(791, 178);
+         this.groupBox5.TabIndex = 4;
+         this.groupBox5.TabStop = false;
+         this.groupBox5.Text = "سایر اطلاعات";
+         // 
          // ADM_CHNG_F
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
          this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
          this.AutoScroll = true;
          this.BackColor = System.Drawing.SystemColors.Control;
-         this.Controls.Add(this.tabControl1);
+         this.Controls.Add(this.flowLayoutPanel1);
          this.Controls.Add(this.Gb_Rqst);
-         this.Controls.Add(this.Gb_Info);
          this.Controls.Add(this.RqstBn1);
          this.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
          this.Name = "ADM_CHNG_F";
          this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-         this.Size = new System.Drawing.Size(1174, 611);
+         this.Size = new System.Drawing.Size(1145, 674);
          this.Gb_Rqst.ResumeLayout(false);
          this.Gb_Rqst.PerformLayout();
          ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit9.Properties)).EndInit();
@@ -2658,8 +2672,6 @@
          ((System.ComponentModel.ISupportInitialize)(this.textEdit8.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.textEdit9.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.textEdit10.Properties)).EndInit();
-         this.Gb_Info.ResumeLayout(false);
-         this.Gb_Info.PerformLayout();
          ((System.ComponentModel.ISupportInitialize)(this.FILE_NO_LookUpEdit.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.FighBs1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.FighsBs1)).EndInit();
@@ -2711,20 +2723,9 @@
          ((System.ComponentModel.ISupportInitialize)(this.RqstBn1)).EndInit();
          this.RqstBn1.ResumeLayout(false);
          this.RqstBn1.PerformLayout();
-         this.tabControl1.ResumeLayout(false);
-         this.tabPage1.ResumeLayout(false);
-         this.tabPage1.PerformLayout();
          ((System.ComponentModel.ISupportInitialize)(this.IdtyNumb_Txt.Properties)).EndInit();
-         this.tabPage2.ResumeLayout(false);
-         this.tabPage2.PerformLayout();
          ((System.ComponentModel.ISupportInitialize)(this.ZipCode_Txt.Properties)).EndInit();
-         this.tabPage3.ResumeLayout(false);
-         this.tabPage3.PerformLayout();
          ((System.ComponentModel.ISupportInitialize)(this.Password_Txt.Properties)).EndInit();
-         this.tabPage4.ResumeLayout(false);
-         this.tabPage4.PerformLayout();
-         this.tabPage5.ResumeLayout(false);
-         this.tabPage5.PerformLayout();
          ((System.ComponentModel.ISupportInitialize)(this.Cmnt_Txt.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.DOwnrBs1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.CuntBs1)).EndInit();
@@ -2733,6 +2734,17 @@
          ((System.ComponentModel.ISupportInitialize)(this.DCetpBs1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.CbmtBs1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.DDytpBs1)).EndInit();
+         this.groupBox1.ResumeLayout(false);
+         this.groupBox1.PerformLayout();
+         this.flowLayoutPanel1.ResumeLayout(false);
+         this.groupBox2.ResumeLayout(false);
+         this.groupBox2.PerformLayout();
+         this.groupBox3.ResumeLayout(false);
+         this.groupBox3.PerformLayout();
+         this.groupBox4.ResumeLayout(false);
+         this.groupBox4.PerformLayout();
+         this.groupBox5.ResumeLayout(false);
+         this.groupBox5.PerformLayout();
          this.ResumeLayout(false);
          this.PerformLayout();
 
@@ -2764,7 +2776,6 @@
       private Windows.Forms.BindingSource DstpBs1;
       private Windows.Forms.ToolStripButton RqstBnASav1;
       private Windows.Forms.ToolStripButton RqstBnExit1;
-      private Windows.Forms.GroupBox Gb_Info;
       private DevExpress.XtraEditors.TextEdit LAST_NAME_TextEdit;
       private DevExpress.XtraEditors.TextEdit FRST_NAME_TextEdit;
       private DevExpress.XtraEditors.LookUpEdit DISE_CODE_LookUpEdit;
@@ -2891,12 +2902,6 @@
       private Windows.Forms.ToolStripSeparator toolStripMenuItem2;
       private Windows.Forms.ToolStripMenuItem RqstBnEnrollFngrPrnt2;
       private Windows.Forms.ToolStripMenuItem RqstBnDeleteFngrPrnt2;
-      private Windows.Forms.TabControl tabControl1;
-      private Windows.Forms.TabPage tabPage1;
-      private Windows.Forms.TabPage tabPage2;
-      private Windows.Forms.TabPage tabPage3;
-      private Windows.Forms.TabPage tabPage4;
-      private Windows.Forms.TabPage tabPage5;
       private Windows.Forms.Label label9;
       private Windows.Forms.BindingSource CuntBs1;
       private Windows.Forms.BindingSource CblkBs1;
@@ -2911,5 +2916,11 @@
       private DevExpress.XtraEditors.TextEdit Cmnt_Txt;
       private Windows.Forms.BindingSource DOwnrBs1;
       private Windows.Forms.ToolStripMenuItem RqstBnDuplicateFngrPrnt1;
+      private Windows.Forms.GroupBox groupBox1;
+      private Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+      private Windows.Forms.GroupBox groupBox2;
+      private Windows.Forms.GroupBox groupBox3;
+      private Windows.Forms.GroupBox groupBox4;
+      private Windows.Forms.GroupBox groupBox5;
    }
 }

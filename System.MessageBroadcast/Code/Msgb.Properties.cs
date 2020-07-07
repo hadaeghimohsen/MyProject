@@ -36,8 +36,25 @@ namespace System.MessageBroadcast.Code
       {
          try
          {
+            // 1398/06/09 * بررسی اینکه آیا باید از طریق این سیستم پیامک ارسال شود یا خیر
+            // اولین گام بدست آوردن نام سیستم فعلی
+            if (xHost == null)
+               _DefaultGateway.Gateway(
+                  new Job(SendType.External, "Localhost", "DataGuard", 04 /* Execute DoWork4GetHostInfo */, SendType.Self)
+                  {
+                     AfterChangedOutput =
+                     new Action<object>((output) =>
+                     {
+                        xHost = output as XElement;
+                     })
+                  }
+               ); 
+
             _GetConnectionString();
             var smsConf = iProject.Message_Broad_Settings.Where(m => m.DFLT_STAT == "002");
+
+            // 1398/06/09 * بررسی اینکه سامانه ارسال پیامک ایا با سیستم فعلی اجازه ارسال را دارد یا خیر
+            if (xHost == null || xHost.Attribute("cpu").Value != smsConf.FirstOrDefault().GTWY_MAC_ADRS) { _CustBgwk.Interval = 1000 * 60 * 10; return; }
 
             if (smsConf.Count(sms => sms.TYPE == "001" && sms.CUST_BGWK_STAT == "002") == 0)
             {
@@ -79,7 +96,7 @@ namespace System.MessageBroadcast.Code
             var smsConf = iProject.Message_Broad_Settings.Where(m => m.DFLT_STAT == "002");
 
             // 1398/06/09 * بررسی اینکه سامانه ارسال پیامک ایا با سیستم فعلی اجازه ارسال را دارد یا خیر
-            if (xHost == null || xHost.Attribute("cpu").Value != smsConf.FirstOrDefault().GTWY_MAC_ADRS) return;
+            if (xHost == null || xHost.Attribute("cpu").Value != smsConf.FirstOrDefault().GTWY_MAC_ADRS) { _SenderBgwk.Interval = 1000 * 60 * 10; return; }
 
             if(smsConf.Count(sms => sms.TYPE == "001" && sms.BGWK_STAT == "002") == 0)
             {
@@ -127,7 +144,7 @@ namespace System.MessageBroadcast.Code
                                        }
                                  }
                               );
-                           }
+                           }                           
                         }
                      )
                }
@@ -224,6 +241,7 @@ namespace System.MessageBroadcast.Code
                      // این قابلیت فقط برای سامانه ای نوتی می باشد
                      if (smsConf.FirstOrDefault().SERV_TYPE == "002")
                      {
+                        //MessageBox.Show(string.Format("BatchSms : {0}, {1}, {2}, \n{3}, {4}", smsConf.FirstOrDefault().USER_NAME, smsConf.FirstOrDefault().PASS_WORD, smsConf.FirstOrDefault().LINE_NUMB, bulkSms.Select(bs => bs.PHON_NUMB).ToArray(), bulkSms.FirstOrDefault().MSGB_TEXT));
                         var rslt = iNotiSmsClient.SendBatchSMS(smsConf.FirstOrDefault().USER_NAME, smsConf.FirstOrDefault().PASS_WORD, smsConf.FirstOrDefault().LINE_NUMB, bulkSms.Select(bs => bs.PHON_NUMB).ToArray(), bulkSms.FirstOrDefault().MSGB_TEXT);
                         if (rslt > 0)
                            bulkSms.ToList().ForEach(bs => bs.MESG_ID = rslt.ToString());
@@ -413,6 +431,7 @@ namespace System.MessageBroadcast.Code
                      }
                      else if (smsConf.FirstOrDefault().SERV_TYPE == "002")
                      {
+                        //MessageBox.Show(string.Format("SingleSms : {0}, {1}, {2}, \n{3}, {4}", smsConf.FirstOrDefault().USER_NAME, smsConf.FirstOrDefault().PASS_WORD, smsConf.FirstOrDefault().LINE_NUMB, sms.PHON_NUMB, sms.MSGB_TEXT));
                         var rslt = iNotiSmsClient.SendSingleSMS(smsConf.FirstOrDefault().USER_NAME, smsConf.FirstOrDefault().PASS_WORD, smsConf.FirstOrDefault().LINE_NUMB, sms.PHON_NUMB, sms.MSGB_TEXT);
                         if (rslt > 0)
                            sms.MESG_ID = rslt.ToString();

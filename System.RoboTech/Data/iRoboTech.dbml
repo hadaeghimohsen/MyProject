@@ -322,8 +322,8 @@
       <Association Name="Organ_Organ_Representation" Member="Organ_Representations" ThisKey="OGID" OtherKey="ORGN_OGID" Type="Organ_Representation" />
       <Association Name="Organ_User_Organ_Fgac" Member="User_Organ_Fgacs" ThisKey="OGID" OtherKey="ORGN_OGID" Type="User_Organ_Fgac" />
       <Association Name="Organ_Organ_Description" Member="Organ_Descriptions" ThisKey="OGID" OtherKey="ORGN_OGID" Type="Organ_Description" />
-      <Association Name="Organ_Robot" Member="Robots" ThisKey="OGID" OtherKey="ORGN_OGID" Type="Robot" />
       <Association Name="Organ_Organ_Media" Member="Organ_Medias" ThisKey="OGID" OtherKey="ORGN_OGID" Type="Organ_Media" />
+      <Association Name="Organ_Robot" Member="Robots" ThisKey="OGID" OtherKey="ORGN_OGID" Type="Robot" />
       <Association Name="Region_Organ" Member="Region" ThisKey="REGN_PRVN_CNTY_CODE,REGN_PRVN_CODE,REGN_CODE" OtherKey="PRVN_CNTY_CODE,PRVN_CODE,CODE" Type="Region" IsForeignKey="true" />
     </Type>
     <InsertFunction FunctionId="FunctionId16">
@@ -1672,92 +1672,74 @@
       <Association Name="Order_Order_Step_History" Member="Order" ThisKey="ORDR_CODE" OtherKey="CODE" Type="Order" IsForeignKey="true" DeleteRule="CASCADE" />
     </Type>
   </Table>
-  <Table Name="dbo.Order_Detail" Member="Order_Details">
-    <Type Name="Order_Detail">
-      <Column Name="ORDR_CODE" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="RWNO" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="ELMN_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="ORDR_DESC" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+  <Table Name="dbo.D$RMTP" Member="D_RMTPs">
+    <Type Name="D_RMTP">
+      <Column Name="VALU" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="DOMN_DESC" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Organ_Media" Member="Organ_Medias">
+    <Type Name="Organ_Media">
+      <Column Name="OPID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ORGN_OGID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="ROBO_RBID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="RBCN_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="FILE_PATH" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="FILE_NAME" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="IMAG_DESC" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="IMAG_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="FILE_ID" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="SHOW_STRT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="ORDR" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="USSD_CODE" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="PRDC_CODE" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="EXPN_PRIC" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="EXTR_PRCT" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="TAX_PRCT" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="OFF_PRCT" Type="System.Single" DbType="Real" CanBeNull="true" />
-      <Column Name="OFF_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="OFF_KIND" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="DSCN_AMNT_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="NUMB" Type="System.Single" DbType="Real" CanBeNull="true" />
-      <Column Name="BASE_USSD_CODE" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="SUB_USSD_CODE" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="ORDR_CMNT" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
-      <Column Name="ORDR_IMAG" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="IMAG_PATH" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
-      <Column Name="MIME_TYPE" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="FILE_NAME" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
-      <Column Name="FILE_EXT" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
-      <Column Name="GHIT_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="GHIT_MIN_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="GHIT_MAX_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="SEND_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="TARF_CODE" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="TARF_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="RQTP_CODE_DNRM" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="SRBS_CODE_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="DELV_TIME_DNRM" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
-      <Column Name="INLN_KEYB_DNRM" Type="System.Xml.Linq.XElement" DbType="Xml" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
       <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
       <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Association Name="Order_Detail_Service_Robot_Replay_Message" Member="Service_Robot_Replay_Messages" ThisKey="ORDR_CODE,RWNO" OtherKey="ORDT_ORDR_CODE,ORDT_RWNO" Type="Service_Robot_Replay_Message" />
-      <Association Name="Group_Header_Item_Order_Detail" Member="Group_Header_Item" ThisKey="GHIT_CODE" OtherKey="CODE" Type="Group_Header_Item" IsForeignKey="true" DeleteRule="CASCADE" />
-      <Association Name="Order_Order_Detail" Member="Order" ThisKey="ORDR_CODE" OtherKey="CODE" Type="Order" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="Organ_Organ_Media" Member="Organ" ThisKey="ORGN_OGID" OtherKey="OGID" Type="Organ" IsForeignKey="true" />
+      <Association Name="Robot_Organ_Media" Member="Robot" ThisKey="ROBO_RBID" OtherKey="RBID" Type="Robot" IsForeignKey="true" />
     </Type>
     <InsertFunction FunctionId="FunctionId77">
-      <Argument Parameter="ordr_Code" Member="ORDR_CODE" />
-      <Argument Parameter="elmn_Type" Member="ELMN_TYPE" />
-      <Argument Parameter="ordr_Desc" Member="ORDR_DESC" />
-      <Argument Parameter="expn_Pric" Member="EXPN_PRIC" />
-      <Argument Parameter="extr_Prct" Member="EXTR_PRCT" />
-      <Argument Parameter="tax_Prct" Member="TAX_PRCT" />
-      <Argument Parameter="off_Prct" Member="OFF_PRCT" />
-      <Argument Parameter="numb" Member="NUMB" />
-      <Argument Parameter="base_Ussd_Code" Member="BASE_USSD_CODE" />
-      <Argument Parameter="sub_Ussd_Code" Member="SUB_USSD_CODE" />
-      <Argument Parameter="ordr_Cmnt" Member="ORDR_CMNT" />
-      <Argument Parameter="ordr_Imag" Member="ORDR_IMAG" />
-      <Argument Parameter="imag_Path" Member="IMAG_PATH" />
-      <Argument Parameter="mime_Type" Member="MIME_TYPE" />
-      <Argument Parameter="ghit_Code" Member="GHIT_CODE" />
-      <Argument Parameter="ghit_Min_Date" Member="GHIT_MIN_DATE" />
-      <Argument Parameter="ghit_Max_Date" Member="GHIT_MAX_DATE" />
+      <Argument Parameter="oRGN_OGID" Member="ORGN_OGID" />
+      <Argument Parameter="rOBO_RBID" Member="ROBO_RBID" />
+      <Argument Parameter="oPID" Member="OPID" />
+      <Argument Parameter="iMAG_DESC" Member="IMAG_DESC" />
+      <Argument Parameter="sTAT" Member="STAT" />
+      <Argument Parameter="iMAG_TYPE" Member="IMAG_TYPE" />
+      <Argument Parameter="fILE_ID" Member="FILE_ID" />
+      <Argument Parameter="sHOW_STRT" Member="SHOW_STRT" />
+      <Argument Parameter="oRDR" Member="ORDR" />
+      <Argument Parameter="uSSD_CODE" Member="USSD_CODE" />
+      <Argument Parameter="pRDC_CODE" Member="PRDC_CODE" />
+      <Argument Parameter="eXPN_PRIC" Member="EXPN_PRIC" />
+      <Argument Parameter="rbcn_Type" Member="RBCN_TYPE" />
     </InsertFunction>
     <UpdateFunction FunctionId="FunctionId78">
-      <Argument Parameter="ordr_Code" Member="ORDR_CODE" />
-      <Argument Parameter="rwno" Member="RWNO" />
-      <Argument Parameter="elmn_Type" Member="ELMN_TYPE" />
-      <Argument Parameter="ordr_Desc" Member="ORDR_DESC" />
-      <Argument Parameter="expn_Pric" Member="EXPN_PRIC" />
-      <Argument Parameter="extr_Prct" Member="EXTR_PRCT" />
-      <Argument Parameter="tax_Prct" Member="TAX_PRCT" />
-      <Argument Parameter="off_Prct" Member="OFF_PRCT" />
-      <Argument Parameter="numb" Member="NUMB" />
-      <Argument Parameter="base_Ussd_Code" Member="BASE_USSD_CODE" />
-      <Argument Parameter="sub_Ussd_Code" Member="SUB_USSD_CODE" />
-      <Argument Parameter="ordr_Cmnt" Member="ORDR_CMNT" />
-      <Argument Parameter="ordr_Imag" Member="ORDR_IMAG" />
-      <Argument Parameter="imag_Path" Member="IMAG_PATH" />
-      <Argument Parameter="mime_Type" Member="MIME_TYPE" />
-      <Argument Parameter="ghit_Code" Member="GHIT_CODE" />
-      <Argument Parameter="ghit_Min_Date" Member="GHIT_MIN_DATE" />
-      <Argument Parameter="ghit_Max_Date" Member="GHIT_MAX_DATE" />
+      <Argument Parameter="oRGN_OGID" Member="ORGN_OGID" />
+      <Argument Parameter="rOBO_RBID" Member="ROBO_RBID" />
+      <Argument Parameter="oPID" Member="OPID" />
+      <Argument Parameter="iMAG_DESC" Member="IMAG_DESC" />
+      <Argument Parameter="sTAT" Member="STAT" />
+      <Argument Parameter="iMAG_TYPE" Member="IMAG_TYPE" />
+      <Argument Parameter="fILE_ID" Member="FILE_ID" />
+      <Argument Parameter="sHOW_STRT" Member="SHOW_STRT" />
+      <Argument Parameter="oRDR" Member="ORDR" />
+      <Argument Parameter="uSSD_CODE" Member="USSD_CODE" />
+      <Argument Parameter="pRDC_CODE" Member="PRDC_CODE" />
+      <Argument Parameter="eXPN_PRIC" Member="EXPN_PRIC" />
+      <Argument Parameter="rbcn_Type" Member="RBCN_TYPE" />
     </UpdateFunction>
     <DeleteFunction FunctionId="FunctionId79">
-      <Argument Parameter="ordr_Code" Member="ORDR_CODE" />
-      <Argument Parameter="rwno" Member="RWNO" />
+      <Argument Parameter="oRGN_OGID" Member="ORGN_OGID" />
+      <Argument Parameter="rOBO_RBID" Member="ROBO_RBID" />
+      <Argument Parameter="oPID" Member="OPID" />
     </DeleteFunction>
   </Table>
-  <Table Name="dbo.D$RMTP" Member="D_RMTPs">
-    <Type Name="D_RMTP">
+  <Table Name="dbo.D$SHIN" Member="D_SHINs">
+    <Type Name="D_SHIN">
       <Column Name="VALU" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
       <Column Name="DOMN_DESC" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
     </Type>
@@ -1780,6 +1762,7 @@
       <Column Name="DOWN_LOAD_FILE_PATH" Type="System.String" DbType="VarChar(1000)" CanBeNull="true" />
       <Column Name="UP_LOAD_FILE_PATH" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
       <Column Name="INVT_FRND" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="SEND_SMS_INVT_CONT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
       <Column Name="HASH_TAG" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
       <Column Name="POST_ADRS" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
       <Column Name="CORD_X" Type="System.Double" DbType="Float" CanBeNull="true" />
@@ -1796,6 +1779,7 @@
       <Column Name="MIN_WITH_DRAW" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
       <Column Name="CONF_DURT_DAY" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="AUTO_SHIP_CORI" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="SHOW_INVR_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
       <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
       <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
@@ -1813,8 +1797,8 @@
       <Association Name="Robot_Group" Member="Groups" ThisKey="RBID" OtherKey="ROBO_RBID" Type="Group" />
       <Association Name="Robot_Menu_Ussd" Member="Menu_Ussds" ThisKey="RBID" OtherKey="ROBO_RBID" Type="Menu_Ussd" />
       <Association Name="Robot_Order" Member="Orders" ThisKey="RBID" OtherKey="SRBT_ROBO_RBID" Type="Order" />
-      <Association Name="Robot_Robot" Member="Robots" ThisKey="RBID" OtherKey="ROBO_RBID" Type="Robot" />
       <Association Name="Robot_Organ_Media" Member="Organ_Medias" ThisKey="RBID" OtherKey="ROBO_RBID" Type="Organ_Media" />
+      <Association Name="Robot_Robot" Member="Robots" ThisKey="RBID" OtherKey="ROBO_RBID" Type="Robot" />
       <Association Name="Organ_Robot" Member="Organ" ThisKey="ORGN_OGID" OtherKey="OGID" Type="Organ" IsForeignKey="true" />
       <Association Name="Robot_Robot" Member="Robot1" ThisKey="ROBO_RBID" OtherKey="RBID" Type="Robot" IsForeignKey="true" />
     </Type>
@@ -1848,6 +1832,7 @@
       <Argument Parameter="min_With_Draw" Member="MIN_WITH_DRAW" />
       <Argument Parameter="conf_Durt_Day" Member="CONF_DURT_DAY" />
       <Argument Parameter="auto_Ship_Cori" Member="AUTO_SHIP_CORI" />
+      <Argument Parameter="show_Invr_Stat" Member="SHOW_INVR_STAT" />
     </InsertFunction>
     <UpdateFunction FunctionId="FunctionId81">
       <Argument Parameter="orgn_Ogid" Member="ORGN_OGID" />
@@ -1877,73 +1862,57 @@
       <Argument Parameter="amnt_Type" Member="AMNT_TYPE" />
       <Argument Parameter="cnct_Acnt_App" Member="CNCT_ACNT_APP" />
       <Argument Parameter="acnt_App_Type" Member="ACNT_APP_TYPE" />
+      <Argument Parameter="page_Fech_Rows" Member="PAGE_FECH_ROWS" />
       <Argument Parameter="min_With_Draw" Member="MIN_WITH_DRAW" />
       <Argument Parameter="conf_Durt_Day" Member="CONF_DURT_DAY" />
       <Argument Parameter="auto_Ship_Cori" Member="AUTO_SHIP_CORI" />
+      <Argument Parameter="show_Invr_Stat" Member="SHOW_INVR_STAT" />
     </UpdateFunction>
     <DeleteFunction FunctionId="FunctionId82">
       <Argument Parameter="rbid" Member="RBID" />
     </DeleteFunction>
   </Table>
-  <Table Name="dbo.Organ_Media" Member="Organ_Medias">
-    <Type Name="Organ_Media">
-      <Column Name="OPID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="ORGN_OGID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="ROBO_RBID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="RBCN_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="FILE_PATH" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="FILE_NAME" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="IMAG_DESC" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="IMAG_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="FILE_ID" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
-      <Column Name="SHOW_STRT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="ORDR" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="USSD_CODE" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="PRDC_CODE" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="EXPN_PRIC" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Association Name="Robot_Organ_Media" Member="Robot" ThisKey="ROBO_RBID" OtherKey="RBID" Type="Robot" IsForeignKey="true" />
-      <Association Name="Organ_Organ_Media" Member="Organ" ThisKey="ORGN_OGID" OtherKey="OGID" Type="Organ" IsForeignKey="true" />
+  <Table Name="dbo.Order_Detail" Member="Order_Details">
+    <Type Name="Order_Detail">
+      <Column Name="ORDR_CODE" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="RWNO" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ELMN_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ORDR_DESC" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="EXPN_PRIC" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="EXTR_PRCT" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="TAX_PRCT" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="OFF_PRCT" Type="System.Single" DbType="Real" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="OFF_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="OFF_KIND" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="DSCN_AMNT_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="NUMB" Type="System.Single" DbType="Real" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="BASE_USSD_CODE" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="SUB_USSD_CODE" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ORDR_CMNT" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ORDR_IMAG" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="IMAG_PATH" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MIME_TYPE" Type="System.String" DbType="VarChar(100)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="FILE_NAME" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="FILE_EXT" Type="System.String" DbType="VarChar(10)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="GHIT_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="GHIT_MIN_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="GHIT_MAX_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="SEND_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="TARF_CODE" Type="System.String" DbType="VarChar(100)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="TARF_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="RQTP_CODE_DNRM" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="SRBS_CODE_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="DELV_TIME_DNRM" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MAKE_TIME_DNRM" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="INLN_KEYB_DNRM" Type="System.Xml.Linq.XElement" DbType="Xml" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="Order_Detail_Service_Robot_Replay_Message" Member="Service_Robot_Replay_Messages" ThisKey="ORDR_CODE,RWNO" OtherKey="ORDT_ORDR_CODE,ORDT_RWNO" Type="Service_Robot_Replay_Message" />
+      <Association Name="Group_Header_Item_Order_Detail" Member="Group_Header_Item" ThisKey="GHIT_CODE" OtherKey="CODE" Type="Group_Header_Item" IsForeignKey="true" DeleteRule="CASCADE" />
+      <Association Name="Order_Order_Detail" Member="Order" ThisKey="ORDR_CODE" OtherKey="CODE" Type="Order" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
     </Type>
-    <InsertFunction FunctionId="FunctionId83">
-      <Argument Parameter="oRGN_OGID" Member="ORGN_OGID" />
-      <Argument Parameter="rOBO_RBID" Member="ROBO_RBID" />
-      <Argument Parameter="oPID" Member="OPID" />
-      <Argument Parameter="iMAG_DESC" Member="IMAG_DESC" />
-      <Argument Parameter="sTAT" Member="STAT" />
-      <Argument Parameter="iMAG_TYPE" Member="IMAG_TYPE" />
-      <Argument Parameter="fILE_ID" Member="FILE_ID" />
-      <Argument Parameter="sHOW_STRT" Member="SHOW_STRT" />
-      <Argument Parameter="oRDR" Member="ORDR" />
-      <Argument Parameter="uSSD_CODE" Member="USSD_CODE" />
-      <Argument Parameter="pRDC_CODE" Member="PRDC_CODE" />
-      <Argument Parameter="eXPN_PRIC" Member="EXPN_PRIC" />
-      <Argument Parameter="rbcn_Type" Member="RBCN_TYPE" />
-    </InsertFunction>
-    <UpdateFunction FunctionId="FunctionId84">
-      <Argument Parameter="oRGN_OGID" Member="ORGN_OGID" />
-      <Argument Parameter="rOBO_RBID" Member="ROBO_RBID" />
-      <Argument Parameter="oPID" Member="OPID" />
-      <Argument Parameter="iMAG_DESC" Member="IMAG_DESC" />
-      <Argument Parameter="sTAT" Member="STAT" />
-      <Argument Parameter="iMAG_TYPE" Member="IMAG_TYPE" />
-      <Argument Parameter="fILE_ID" Member="FILE_ID" />
-      <Argument Parameter="sHOW_STRT" Member="SHOW_STRT" />
-      <Argument Parameter="oRDR" Member="ORDR" />
-      <Argument Parameter="uSSD_CODE" Member="USSD_CODE" />
-      <Argument Parameter="pRDC_CODE" Member="PRDC_CODE" />
-      <Argument Parameter="eXPN_PRIC" Member="EXPN_PRIC" />
-      <Argument Parameter="rbcn_Type" Member="RBCN_TYPE" />
-    </UpdateFunction>
-    <DeleteFunction FunctionId="FunctionId85">
-      <Argument Parameter="oRGN_OGID" Member="ORGN_OGID" />
-      <Argument Parameter="rOBO_RBID" Member="ROBO_RBID" />
-      <Argument Parameter="oPID" Member="OPID" />
-    </DeleteFunction>
   </Table>
   <Function Id="FunctionId3" Name="dbo.DEL_CNTY_P" Method="DEL_CNTY_P">
     <Parameter Name="Code" Parameter="code" Type="System.String" DbType="VarChar(3)" />
@@ -2144,7 +2113,7 @@
     <Parameter Name="GPID" Parameter="gPID" Type="System.Int64" DbType="BigInt" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId85" Name="dbo.DEL_RBMD_P" Method="DEL_RBMD_P">
+  <Function Id="FunctionId79" Name="dbo.DEL_RBMD_P" Method="DEL_RBMD_P">
     <Parameter Name="ORGN_OGID" Parameter="oRGN_OGID" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="ROBO_RBID" Parameter="rOBO_RBID" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="OPID" Parameter="oPID" Type="System.Int64" DbType="BigInt" />
@@ -2413,7 +2382,7 @@
     <Parameter Name="Code" Parameter="code" Type="System.Int64" DbType="BigInt" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId79" Name="dbo.DEL_ODRT_P" Method="DEL_ODRT_P">
+  <Function Name="dbo.DEL_ODRT_P" Method="DEL_ODRT_P">
     <Parameter Name="Ordr_Code" Parameter="ordr_Code" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Rwno" Parameter="rwno" Type="System.Int64" DbType="BigInt" />
     <Return Type="System.Int32" />
@@ -2732,7 +2701,7 @@
     <Parameter Name="Conf_Desc" Parameter="conf_Desc" Type="System.String" DbType="NVarChar(1000)" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId77" Name="dbo.INS_ODRT_P" Method="INS_ODRT_P">
+  <Function Name="dbo.INS_ODRT_P" Method="INS_ODRT_P">
     <Parameter Name="Ordr_Code" Parameter="ordr_Code" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Elmn_Type" Parameter="elmn_Type" Type="System.String" DbType="VarChar(3)" />
     <Parameter Name="Ordr_Desc" Parameter="ordr_Desc" Type="System.String" DbType="NVarChar(MAX)" />
@@ -2752,7 +2721,7 @@
     <Parameter Name="Ghit_Max_Date" Parameter="ghit_Max_Date" Type="System.DateTime" DbType="DateTime" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId78" Name="dbo.UPD_ODRT_P" Method="UPD_ODRT_P">
+  <Function Name="dbo.UPD_ODRT_P" Method="UPD_ODRT_P">
     <Parameter Name="Ordr_Code" Parameter="ordr_Code" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Rwno" Parameter="rwno" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Elmn_Type" Parameter="elmn_Type" Type="System.String" DbType="VarChar(3)" />
@@ -2771,6 +2740,38 @@
     <Parameter Name="Ghit_Code" Parameter="ghit_Code" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Ghit_Min_Date" Parameter="ghit_Min_Date" Type="System.DateTime" DbType="DateTime" />
     <Parameter Name="Ghit_Max_Date" Parameter="ghit_Max_Date" Type="System.DateTime" DbType="DateTime" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Id="FunctionId77" Name="dbo.INS_RBMD_P" Method="INS_RBMD_P">
+    <Parameter Name="ORGN_OGID" Parameter="oRGN_OGID" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="ROBO_RBID" Parameter="rOBO_RBID" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="OPID" Parameter="oPID" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="IMAG_DESC" Parameter="iMAG_DESC" Type="System.String" DbType="NVarChar(MAX)" />
+    <Parameter Name="STAT" Parameter="sTAT" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="IMAG_TYPE" Parameter="iMAG_TYPE" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="FILE_ID" Parameter="fILE_ID" Type="System.String" DbType="VarChar(MAX)" />
+    <Parameter Name="SHOW_STRT" Parameter="sHOW_STRT" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="ORDR" Parameter="oRDR" Type="System.Int32" DbType="Int" />
+    <Parameter Name="USSD_CODE" Parameter="uSSD_CODE" Type="System.String" DbType="VarChar(250)" />
+    <Parameter Name="PRDC_CODE" Parameter="pRDC_CODE" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="EXPN_PRIC" Parameter="eXPN_PRIC" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Rbcn_Type" Parameter="rbcn_Type" Type="System.String" DbType="VarChar(3)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Id="FunctionId78" Name="dbo.UPD_RBMD_P" Method="UPD_RBMD_P">
+    <Parameter Name="ORGN_OGID" Parameter="oRGN_OGID" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="ROBO_RBID" Parameter="rOBO_RBID" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="OPID" Parameter="oPID" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="IMAG_DESC" Parameter="iMAG_DESC" Type="System.String" DbType="NVarChar(MAX)" />
+    <Parameter Name="STAT" Parameter="sTAT" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="IMAG_TYPE" Parameter="iMAG_TYPE" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="FILE_ID" Parameter="fILE_ID" Type="System.String" DbType="VarChar(MAX)" />
+    <Parameter Name="SHOW_STRT" Parameter="sHOW_STRT" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="ORDR" Parameter="oRDR" Type="System.Int32" DbType="Int" />
+    <Parameter Name="USSD_CODE" Parameter="uSSD_CODE" Type="System.String" DbType="VarChar(250)" />
+    <Parameter Name="PRDC_CODE" Parameter="pRDC_CODE" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="EXPN_PRIC" Parameter="eXPN_PRIC" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Rbcn_Type" Parameter="rbcn_Type" Type="System.String" DbType="VarChar(3)" />
     <Return Type="System.Int32" />
   </Function>
   <Function Id="FunctionId80" Name="dbo.INS_ROBO_P" Method="INS_ROBO_P">
@@ -2804,6 +2805,7 @@
     <Parameter Name="Min_With_Draw" Parameter="min_With_Draw" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Conf_Durt_Day" Parameter="conf_Durt_Day" Type="System.Int32" DbType="Int" />
     <Parameter Name="Auto_Ship_Cori" Parameter="auto_Ship_Cori" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="Show_Invr_Stat" Parameter="show_Invr_Stat" Type="System.String" DbType="VarChar(3)" />
     <Return Type="System.Int32" />
   </Function>
   <Function Id="FunctionId81" Name="dbo.UPD_ROBO_P" Method="UPD_ROBO_P">
@@ -2834,42 +2836,11 @@
     <Parameter Name="Amnt_Type" Parameter="amnt_Type" Type="System.String" DbType="VarChar(3)" />
     <Parameter Name="Cnct_Acnt_App" Parameter="cnct_Acnt_App" Type="System.String" DbType="VarChar(3)" />
     <Parameter Name="Acnt_App_Type" Parameter="acnt_App_Type" Type="System.String" DbType="VarChar(3)" />
-    <Parameter Name="Page_Fech_Row" Parameter="page_Fech_Row" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Page_Fech_Rows" Parameter="page_Fech_Rows" Type="System.Int32" DbType="Int" />
     <Parameter Name="Min_With_Draw" Parameter="min_With_Draw" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Conf_Durt_Day" Parameter="conf_Durt_Day" Type="System.Int32" DbType="Int" />
     <Parameter Name="Auto_Ship_Cori" Parameter="auto_Ship_Cori" Type="System.String" DbType="VarChar(3)" />
-    <Return Type="System.Int32" />
-  </Function>
-  <Function Id="FunctionId83" Name="dbo.INS_RBMD_P" Method="INS_RBMD_P">
-    <Parameter Name="ORGN_OGID" Parameter="oRGN_OGID" Type="System.Int64" DbType="BigInt" />
-    <Parameter Name="ROBO_RBID" Parameter="rOBO_RBID" Type="System.Int64" DbType="BigInt" />
-    <Parameter Name="OPID" Parameter="oPID" Type="System.Int64" DbType="BigInt" />
-    <Parameter Name="IMAG_DESC" Parameter="iMAG_DESC" Type="System.String" DbType="NVarChar(MAX)" />
-    <Parameter Name="STAT" Parameter="sTAT" Type="System.String" DbType="VarChar(3)" />
-    <Parameter Name="IMAG_TYPE" Parameter="iMAG_TYPE" Type="System.String" DbType="VarChar(3)" />
-    <Parameter Name="FILE_ID" Parameter="fILE_ID" Type="System.String" DbType="VarChar(MAX)" />
-    <Parameter Name="SHOW_STRT" Parameter="sHOW_STRT" Type="System.String" DbType="VarChar(3)" />
-    <Parameter Name="ORDR" Parameter="oRDR" Type="System.Int32" DbType="Int" />
-    <Parameter Name="USSD_CODE" Parameter="uSSD_CODE" Type="System.String" DbType="VarChar(250)" />
-    <Parameter Name="PRDC_CODE" Parameter="pRDC_CODE" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="EXPN_PRIC" Parameter="eXPN_PRIC" Type="System.Int64" DbType="BigInt" />
-    <Parameter Name="Rbcn_Type" Parameter="rbcn_Type" Type="System.String" DbType="VarChar(3)" />
-    <Return Type="System.Int32" />
-  </Function>
-  <Function Id="FunctionId84" Name="dbo.UPD_RBMD_P" Method="UPD_RBMD_P">
-    <Parameter Name="ORGN_OGID" Parameter="oRGN_OGID" Type="System.Int64" DbType="BigInt" />
-    <Parameter Name="ROBO_RBID" Parameter="rOBO_RBID" Type="System.Int64" DbType="BigInt" />
-    <Parameter Name="OPID" Parameter="oPID" Type="System.Int64" DbType="BigInt" />
-    <Parameter Name="IMAG_DESC" Parameter="iMAG_DESC" Type="System.String" DbType="NVarChar(MAX)" />
-    <Parameter Name="STAT" Parameter="sTAT" Type="System.String" DbType="VarChar(3)" />
-    <Parameter Name="IMAG_TYPE" Parameter="iMAG_TYPE" Type="System.String" DbType="VarChar(3)" />
-    <Parameter Name="FILE_ID" Parameter="fILE_ID" Type="System.String" DbType="VarChar(MAX)" />
-    <Parameter Name="SHOW_STRT" Parameter="sHOW_STRT" Type="System.String" DbType="VarChar(3)" />
-    <Parameter Name="ORDR" Parameter="oRDR" Type="System.Int32" DbType="Int" />
-    <Parameter Name="USSD_CODE" Parameter="uSSD_CODE" Type="System.String" DbType="VarChar(250)" />
-    <Parameter Name="PRDC_CODE" Parameter="pRDC_CODE" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="EXPN_PRIC" Parameter="eXPN_PRIC" Type="System.Int64" DbType="BigInt" />
-    <Parameter Name="Rbcn_Type" Parameter="rbcn_Type" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="Show_Invr_Stat" Parameter="show_Invr_Stat" Type="System.String" DbType="VarChar(3)" />
     <Return Type="System.Int32" />
   </Function>
 </Database>

@@ -154,11 +154,11 @@ namespace System.Scsc.Ui.MasterPage
          }
          else if (keyData.ToString() == "Right, Control")
          {
-            Open_Gate();            
+            Open_Gate(null);            
          }
          else if (keyData.ToString() == "Left, Control")
          {
-            Close_Gate();
+            Close_Gate(null);
          }
          
          job.Status = StatusType.Successful;
@@ -667,15 +667,15 @@ namespace System.Scsc.Ui.MasterPage
          {
             if((job.Input as XElement).Attribute("gateactn").Value == "open")
             {
-               Open_Gate();
+               Open_Gate(job.Input as XElement);
             }
             else if ((job.Input as XElement).Attribute("gateactn").Value == "close")
             {
-               Close_Gate();
+               Close_Gate(job.Input as XElement);
             }
             else if((job.Input as XElement).Attribute("gateactn").Value == "error")
             {
-               Error_Gate();
+               Error_Gate(job.Input as XElement);
             }
          }
          else if (job.Input != null && (job.Input as XElement).Attribute("type").Value == "fngrprntdev")

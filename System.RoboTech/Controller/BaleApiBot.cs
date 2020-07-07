@@ -1620,7 +1620,7 @@ namespace System.RoboTech.Controller
 
                await Bot.SendTextMessageAsync(
                   chat.Message.Chat.Id,
-                  string.Format("کد تلگرامی شما {0} می باشد", chat.Message.Chat.Id)
+                  string.Format("کد دستگاه شما {0} می باشد", chat.Message.Chat.Id)
                );
             }
             #endregion
@@ -1759,7 +1759,7 @@ namespace System.RoboTech.Controller
                   select m).ToList().FirstOrDefault();
 
             #region Developer Monitor
-            if ((e.Message.Caption != null && (e.Message.Caption == "*#" || e.Message.Caption.Substring(0, 2) == "*#")) ||
+            if ((e.Message.Caption != null && e.Message.Caption.Length >= 2 && ( e.Message.Caption == "*#" || e.Message.Caption.Substring(0, 2) == "*#")) ||
                (e.Message.Text != null && e.Message.Text.Length >= 2 && (e.Message.Text == "*#" || e.Message.Text.Substring(0, 2) == "*#")) ||
                (e.Message.Sticker != null))
             {

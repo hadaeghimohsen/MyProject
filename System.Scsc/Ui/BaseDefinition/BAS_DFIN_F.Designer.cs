@@ -1382,6 +1382,7 @@
          this.colEXPN_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.repositoryItemLookUpEdit36 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
          this.ExpnBs = new System.Windows.Forms.BindingSource(this.components);
+         this.colSERV_IP_ADRS = new DevExpress.XtraGrid.Columns.GridColumn();
          this.Refresh_Exdv_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.Save_Exdv_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
@@ -1398,7 +1399,6 @@
          this.ExtrDev_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.CbmtwkdyBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.OpnFil_Ofd = new System.Windows.Forms.OpenFileDialog();
-         this.colSERV_IP_ADRS = new DevExpress.XtraGrid.Columns.GridColumn();
          label5 = new System.Windows.Forms.Label();
          label6 = new System.Windows.Forms.Label();
          CashToDate_Lb = new System.Windows.Forms.Label();
@@ -16570,19 +16570,19 @@
             this.Gate_Tsm});
          this.Exdv_Cms.Name = "Exdv_Cms";
          this.Exdv_Cms.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-         this.Exdv_Cms.Size = new System.Drawing.Size(141, 54);
+         this.Exdv_Cms.Size = new System.Drawing.Size(153, 76);
          // 
          // DevName_Tsm
          // 
          this.DevName_Tsm.Enabled = false;
          this.DevName_Tsm.Name = "DevName_Tsm";
-         this.DevName_Tsm.Size = new System.Drawing.Size(140, 22);
+         this.DevName_Tsm.Size = new System.Drawing.Size(152, 22);
          this.DevName_Tsm.Text = "عنوان دستگاه";
          // 
          // toolStripMenuItem9
          // 
          this.toolStripMenuItem9.Name = "toolStripMenuItem9";
-         this.toolStripMenuItem9.Size = new System.Drawing.Size(137, 6);
+         this.toolStripMenuItem9.Size = new System.Drawing.Size(149, 6);
          // 
          // Gate_Tsm
          // 
@@ -16595,53 +16595,53 @@
             this.Gate_Close_Tsm,
             this.Gate_Error_Tsm});
          this.Gate_Tsm.Name = "Gate_Tsm";
-         this.Gate_Tsm.Size = new System.Drawing.Size(140, 22);
+         this.Gate_Tsm.Size = new System.Drawing.Size(152, 22);
          this.Gate_Tsm.Text = "گیت";
          // 
          // Gate_Test_Tsm
          // 
          this.Gate_Test_Tsm.Name = "Gate_Test_Tsm";
-         this.Gate_Test_Tsm.Size = new System.Drawing.Size(110, 22);
+         this.Gate_Test_Tsm.Size = new System.Drawing.Size(152, 22);
          this.Gate_Test_Tsm.Text = "Test";
          this.Gate_Test_Tsm.Click += new System.EventHandler(this.Gate_Test_Tsm_Click);
          // 
          // toolStripMenuItem10
          // 
          this.toolStripMenuItem10.Name = "toolStripMenuItem10";
-         this.toolStripMenuItem10.Size = new System.Drawing.Size(107, 6);
+         this.toolStripMenuItem10.Size = new System.Drawing.Size(149, 6);
          // 
          // Gate_OnLineMode_Tsm
          // 
          this.Gate_OnLineMode_Tsm.Name = "Gate_OnLineMode_Tsm";
-         this.Gate_OnLineMode_Tsm.Size = new System.Drawing.Size(110, 22);
+         this.Gate_OnLineMode_Tsm.Size = new System.Drawing.Size(152, 22);
          this.Gate_OnLineMode_Tsm.Text = "Online";
          this.Gate_OnLineMode_Tsm.Click += new System.EventHandler(this.Gate_OnLineMode_Tsm_Click);
          // 
          // Gate_OffLineMode_Tsm
          // 
          this.Gate_OffLineMode_Tsm.Name = "Gate_OffLineMode_Tsm";
-         this.Gate_OffLineMode_Tsm.Size = new System.Drawing.Size(110, 22);
+         this.Gate_OffLineMode_Tsm.Size = new System.Drawing.Size(152, 22);
          this.Gate_OffLineMode_Tsm.Text = "Offline";
          this.Gate_OffLineMode_Tsm.Click += new System.EventHandler(this.Gate_OffLineMode_Tsm_Click);
          // 
          // Gate_Open_Tsm
          // 
          this.Gate_Open_Tsm.Name = "Gate_Open_Tsm";
-         this.Gate_Open_Tsm.Size = new System.Drawing.Size(110, 22);
+         this.Gate_Open_Tsm.Size = new System.Drawing.Size(152, 22);
          this.Gate_Open_Tsm.Text = "Open";
          this.Gate_Open_Tsm.Click += new System.EventHandler(this.Gate_Open_Tsm_Click);
          // 
          // Gate_Close_Tsm
          // 
          this.Gate_Close_Tsm.Name = "Gate_Close_Tsm";
-         this.Gate_Close_Tsm.Size = new System.Drawing.Size(110, 22);
+         this.Gate_Close_Tsm.Size = new System.Drawing.Size(152, 22);
          this.Gate_Close_Tsm.Text = "Close";
          this.Gate_Close_Tsm.Click += new System.EventHandler(this.Gate_Close_Tsm_Click);
          // 
          // Gate_Error_Tsm
          // 
          this.Gate_Error_Tsm.Name = "Gate_Error_Tsm";
-         this.Gate_Error_Tsm.Size = new System.Drawing.Size(110, 22);
+         this.Gate_Error_Tsm.Size = new System.Drawing.Size(152, 22);
          this.Gate_Error_Tsm.Text = "Error";
          this.Gate_Error_Tsm.Click += new System.EventHandler(this.Gate_Error_Tsm_Click);
          // 
@@ -16987,6 +16987,14 @@
          // 
          this.ExpnBs.DataSource = typeof(System.Scsc.Data.Expense);
          // 
+         // colSERV_IP_ADRS
+         // 
+         this.colSERV_IP_ADRS.Caption = "Server IP";
+         this.colSERV_IP_ADRS.FieldName = "SERV_IP_ADRS";
+         this.colSERV_IP_ADRS.Name = "colSERV_IP_ADRS";
+         this.colSERV_IP_ADRS.Visible = true;
+         this.colSERV_IP_ADRS.VisibleIndex = 5;
+         // 
          // Refresh_Exdv_Butn
          // 
          this.Refresh_Exdv_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -17289,14 +17297,6 @@
          // OpnFil_Ofd
          // 
          this.OpnFil_Ofd.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.gif;*.tif;...";
-         // 
-         // colSERV_IP_ADRS
-         // 
-         this.colSERV_IP_ADRS.Caption = "Server IP";
-         this.colSERV_IP_ADRS.FieldName = "SERV_IP_ADRS";
-         this.colSERV_IP_ADRS.Name = "colSERV_IP_ADRS";
-         this.colSERV_IP_ADRS.Visible = true;
-         this.colSERV_IP_ADRS.VisibleIndex = 5;
          // 
          // BAS_DFIN_F
          // 

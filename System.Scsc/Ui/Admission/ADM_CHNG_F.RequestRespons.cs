@@ -218,7 +218,7 @@ namespace System.Scsc.Ui.Admission
                switch (control.CNTL_NAME.ToLower())
                {
                   case "gb_info":
-                     Gb_Info.Text = control.LABL_TEXT;
+                     //Gb_Info.Text = control.LABL_TEXT;
                      //Gb_Info.Text = control.LABL_TEXT; // ToolTip
                      //Gb_Info.Text = control.LABL_TEXT; // Place Holder
                      break;

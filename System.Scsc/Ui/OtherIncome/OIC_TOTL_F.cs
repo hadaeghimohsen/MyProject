@@ -1574,7 +1574,7 @@ namespace System.Scsc.Ui.OtherIncome
             var pymt = PymtsBs1.Current as Data.Payment;
             if (pymt == null) return;
 
-            int? amnt = null;
+            long? amnt = null;
             switch (PydsType_Butn.Tag.ToString())
             {
                case "0":
@@ -1584,7 +1584,7 @@ namespace System.Scsc.Ui.OtherIncome
                      PydsAmnt_Txt.Focus();
                   }
 
-                  amnt = (pymt.SUM_EXPN_PRIC * Convert.ToInt32(PydsAmnt_Txt.EditValue)) / 100;
+                  amnt = (pymt.SUM_EXPN_PRIC * Convert.ToInt64(PydsAmnt_Txt.EditValue)) / 100;
                   break;
                case "1":
                   amnt = Convert.ToInt32(PydsAmnt_Txt.EditValue);
@@ -1905,11 +1905,11 @@ namespace System.Scsc.Ui.OtherIncome
             if (expn == null) return;
 
             expn.EXPN_DESC = ExpnDesc_Tsmi.Text;
-            expn.PRIC = Convert.ToInt32(ExpnPric_Tsmi.Text);
+            expn.PRIC = Convert.ToInt64(ExpnPric_Tsmi.Text);
             if (ExpnOrdrItem_Tsmi.Text == "")
                expn.ORDR_ITEM = null;
             else
-               expn.ORDR_ITEM = Convert.ToInt64(ExpnOrdrItem_Tsmi.Text);
+               expn.ORDR_ITEM = ExpnOrdrItem_Tsmi.Text;
 
             iScsc.SubmitChanges();
             requery = true;

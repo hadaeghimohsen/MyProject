@@ -350,6 +350,48 @@ namespace System.RoboTech.Ui.MasterPage
                         new XAttribute("mesgdesc", "Text")
                      );
                   break;
+               case "prodqury":
+                  _DefaultGateway.Gateway(
+                     new Job(SendType.External, "Localhost",
+                       new List<Job>
+                       {                  
+                         //new Job(SendType.Self, 26 /* Execute Prod_Dvlp_F */),
+                         new Job(SendType.SelfToUserInterface, "PROD_DVLP_F", 10 /* Execute Actn_CalF_P */)
+                       })
+                  );
+                  break;
+               case "errornoti":
+                  _DefaultGateway.Gateway(
+                        new Job(SendType.External, "localhost", "Wall", 22 /* Execute SetSystemNotification */, SendType.SelfToUserInterface)
+                        {
+                           Input =
+                              new List<object>
+                              {
+                                 ToolTipIcon.Error,
+                                 "عملیات ناموفق",
+                                 param,
+                                 1000
+                              },
+                           Executive = ExecutiveType.Asynchronous
+                        }
+                     );
+                  break;
+               case "successfullnoti":
+                  _DefaultGateway.Gateway(
+                        new Job(SendType.External, "localhost", "Wall", 22 /* Execute SetSystemNotification */, SendType.SelfToUserInterface)
+                        {
+                           Input =
+                              new List<object>
+                              {
+                                 ToolTipIcon.Info,
+                                 "عملیات موفق",
+                                 param,
+                                 1000
+                              },
+                           Executive = ExecutiveType.Asynchronous
+                        }
+                     );
+                  break;
             }
 
             job.Status = StatusType.Successful;

@@ -34,6 +34,9 @@ namespace System.RoboTech.Code
       private Ui.DevelopmentApplication.ALPK_DVLP_F _Alpk_Dvlp_F { get; set; }
       private Ui.DevelopmentApplication.ORDR_SHIP_F _Ordr_Ship_F { get; set; }
       private Ui.DevelopmentApplication.ORDR_RCPT_F _Ordr_Rcpt_F { get; set; }
+      private Ui.DevelopmentApplication.BANK_DVLP_F _Bank_Dvlp_F { get; set; }
+      private Ui.DevelopmentApplication.PROD_DVLP_F _Prod_Dvlp_F { get; set; }
+      private Ui.DevelopmentApplication.WLET_DVLP_F _Wlet_Dvlp_F { get; set; }
    }   
 }
 

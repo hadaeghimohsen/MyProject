@@ -13,6 +13,7 @@ using System.JobRouting.Jobs;
 using System.Linq;
 using System.RoboTech.ExtCode;
 using System.Threading.Tasks;
+using System.Web;
 using System.Xml.Linq;
 
 namespace System.RoboTech.Controller
@@ -104,16 +105,398 @@ namespace System.RoboTech.Controller
          {
             Data.iRoboTechDataContext iRobotTech = new Data.iRoboTechDataContext(connectionString);
             var chatid = x.Attribute("chatid").Value.ToInt64();
+            var rbid = x.Attribute("rbid").Value.ToInt64();
             var chatinfo = Chats.FirstOrDefault(c => c.Message.Chat.Id == chatid);
+
+            XElement xResult = new XElement("Result", "No Message");
+            if (chatinfo != null)
+            {
+               #region "Found Menu"               
+               iRobotTech.Proccess_Message_P(
+                  new XElement("Robot",
+                     new XAttribute("token", GetToken()),
+                     new XElement("Message",
+                        new XElement("Text", "defaultmenu"),
+                        new XElement("From",
+                              new XAttribute("frstname", chatinfo.Message.From.FirstName),
+                              new XAttribute("lastname", chatinfo.Message.From.LastName ?? ""),
+                              new XAttribute("username", chatinfo.Message.From.Username),
+                              new XAttribute("id", chatid)
+                        )
+                     )
+                  ),
+                  ref xResult
+               );
+            }
+            
+            #region Create Menu Array
+            KeyboardButton[][] keyBoardMarkup = null;
+            if (xResult != null && xResult.Descendants("Text").Any())
+               keyBoardMarkup = CreateKeyboardButton(xResult.Descendants("Text")/*.Select(x => x.Value)*/.ToList(), Convert.ToInt32(xResult.Descendants("Row").FirstOrDefault().Value), Convert.ToInt32(xResult.Descendants("Column").FirstOrDefault().Value));
+            #endregion
+            #endregion
+
+            
             switch (x.Attribute("actntype").Value)
             {
                case "sendordrs":
-                  await Send_Order(iRobotTech, null);
+                  await
+                     Send_Order(iRobotTech, keyBoardMarkup, 
+                        new XElement("Data",
+                              new XAttribute("chatid", chatid),
+                              new XAttribute("frstname", chatinfo.Message.From.FirstName),
+                              new XAttribute("lastname", chatinfo.Message.From.LastName ?? ""),
+                              new XAttribute("username", chatinfo.Message.From.Username ?? "")
+                            )
+                     );
                   break;
                case "savepymt":
-                  await FireEventResultOpration(chatinfo, null, x.Element("Result"));
-                  await Send_Order(iRobotTech, null);
+                  await FireEventResultOpration(chatinfo, keyBoardMarkup, x.Element("Result"));
+                  await
+                     Send_Order(iRobotTech, keyBoardMarkup,
+                        new XElement("Data",
+                              new XAttribute("chatid", chatid),
+                              new XAttribute("frstname", chatinfo.Message.From.FirstName),
+                              new XAttribute("lastname", chatinfo.Message.From.LastName ?? ""),
+                              new XAttribute("username", chatinfo.Message.From.Username ?? "")
+                            )
+                     );
                   await Send_Replay_Message(GetToken(), chatinfo);
+                  break;
+               case "upldmediafile":
+                  var files = x.Attribute("mesg").Value.Split(';');
+                  var prodTarfCode = x.Attribute("command").Value;
+                  var rowsEffects = 0;
+                  foreach (var file in files)
+                  {
+                     InputOnlineFile _file = new InputOnlineFile(new FileStream(file, FileMode.Open, FileAccess.Read, FileShare.Read));
+                     var mimeType = MimeMapping.GetMimeMapping(file);
+                     switch (mimeType.Split('/')[0])
+                     {
+                        case "image":
+                           try
+                           {
+                              var imagRslt =
+                                 await Bot.SendPhotoAsync(
+                                     chatId: chatid,
+                                     photo: _file
+                                 );
+
+                              #region Save Data on db server and file server
+                              // Save Photo Image on Localserver
+                              var robo = iRobotTech.Robots.FirstOrDefault(r => r.TKON_CODE == GetToken());
+                              string fileTrgtPath = "";
+
+                              // if prodTarfCode = * we must check filename and get ProdTarfCode
+                              if (prodTarfCode == "*")
+                                 prodTarfCode = Path.GetFileNameWithoutExtension(file);
+
+                              if (!string.IsNullOrEmpty(robo.UP_LOAD_FILE_PATH))
+                              {
+                                 // Check Exists Directory
+                                 if (!Directory.Exists(string.Format(@"{0}\R{1}\Products\{2}\Images", robo.UP_LOAD_FILE_PATH, rbid, prodTarfCode)))
+                                 {
+                                    // Create Directory
+                                    var cretImagDir = Directory.CreateDirectory(string.Format(@"{0}\R{1}\Products\{2}\Images", robo.UP_LOAD_FILE_PATH, rbid, prodTarfCode));
+                                 }
+
+                                 int fileCounts = Directory.GetFiles(string.Format(@"{0}\R{1}\Products\{2}\Images", robo.UP_LOAD_FILE_PATH, rbid, prodTarfCode)).Length + 1;
+                                 fileTrgtPath = string.Format(@"{0}\R{1}\Products\{2}\Images\{2}_{3}{4}", robo.UP_LOAD_FILE_PATH, rbid, prodTarfCode, fileCounts, Path.GetExtension(file));
+                                 System.IO.File.Copy(file, fileTrgtPath);
+                              }
+
+                              // Save FileId in Database for Product
+                              iRobotTech.ExecuteCommand(
+                                 string.Format(
+                                    @"BEGIN 
+                                      INSERT INTO Robot_Product_Preview (Rbpr_Code, Code, File_Id, File_Type, File_Desc, Stat, Sorc_File_Path, Trgt_File_Path)
+                                      SELECT rp.Code, dbo.Gnrt_Nvid_U(), '{2}', '002', rp.Tarf_Text_Dnrm, '002', N'{3}', N'{4}'
+                                        FROM Robot_Product rp
+                                       WHERE rp.Robo_Rbid = {0}
+                                         AND rp.Tarf_Code = '{1}';
+                                   END;",
+                                    rbid, prodTarfCode, imagRslt.Photo.FirstOrDefault().FileId, file, fileTrgtPath
+                                 )
+                              );
+
+                              prodTarfCode = x.Attribute("command").Value;
+                              #endregion
+
+                              ++rowsEffects;
+                           }
+                           catch (Exception exc)
+                           {
+                              #region Send Error
+                              // Send Signal Prod_Dvlp_F for refresh
+                              _Strt_Robo_F.SendRequest(
+                                 new Job(SendType.SelfToUserInterface, 1000 /* Execute Call_SystemService_F */ )
+                                 {
+                                    Input =
+                                       new XElement("Input",
+                                          new XAttribute("chatid", chatid),
+                                          new XAttribute("ussdcode", ""),
+                                          new XAttribute("subsystarget", "DefaultGateway:RoboTech:FRST_PAGE_F"),
+                                          new XAttribute("cmnd", "errornoti"),
+                                          new XAttribute("param", exc.Message)
+                                       )
+                                 }
+                              );
+                              #endregion
+                           }
+                           break;
+                        case "video":
+                           try
+                           {
+                              var videoRslt =
+                                 await Bot.SendVideoAsync(
+                                     chatId: chatid,
+                                     video: _file
+                                 );
+
+                              #region Save Data on db server and file server
+                              // Save Video on Localserver
+                              var robo = iRobotTech.Robots.FirstOrDefault(r => r.TKON_CODE == GetToken());
+                              string fileTrgtPath = "";
+
+                              // if prodTarfCode = * we must check filename and get ProdTarfCode
+                              if (prodTarfCode == "*")
+                                 prodTarfCode = Path.GetFileNameWithoutExtension(file);
+
+                              if (!string.IsNullOrEmpty(robo.UP_LOAD_FILE_PATH))
+                              {
+                                 // Check Exists Directory
+                                 if (!Directory.Exists(string.Format(@"{0}\R{1}\Products\{2}\Videos", robo.UP_LOAD_FILE_PATH, rbid, prodTarfCode)))
+                                 {
+                                    // Create Directory
+                                    var cretImagDir = Directory.CreateDirectory(string.Format(@"{0}\R{1}\Products\{2}\Videos", robo.UP_LOAD_FILE_PATH, rbid, prodTarfCode));
+                                 }
+
+                                 int fileCounts = Directory.GetFiles(string.Format(@"{0}\R{1}\Products\{2}\Videos", robo.UP_LOAD_FILE_PATH, rbid, prodTarfCode)).Length + 1;
+                                 fileTrgtPath = string.Format(@"{0}\R{1}\Products\{2}\Videos\{2}_{3}{4}", robo.UP_LOAD_FILE_PATH, rbid, prodTarfCode, fileCounts, Path.GetExtension(file));
+                                 System.IO.File.Copy(file, fileTrgtPath);
+                              }
+
+                              // Save FileId in Database for Product
+                              iRobotTech.ExecuteCommand(
+                                 string.Format(
+                                    @"BEGIN 
+                                         INSERT INTO Robot_Product_Preview (Rbpr_Code, Code, File_Id, File_Type, File_Desc, Stat, Sorc_File_Path, Trgt_File_Path)
+                                         SELECT rp.Code, dbo.Gnrt_Nvid_U(), '{2}', '003', rp.Tarf_Text_Dnrm, '002', N'{3}', N'{04}'
+                                           FROM Robot_Product rp
+                                          WHERE rp.Robo_Rbid = {0}
+                                            AND rp.Tarf_Code = '{1}';
+                                      END;",
+                                    rbid, prodTarfCode, videoRslt.Video.FileId
+                                 )
+                              );
+
+                              prodTarfCode = x.Attribute("command").Value;
+                              #endregion
+
+                              ++rowsEffects;
+                           }
+                           catch(Exception exc)
+                           {
+                              #region Send Error
+                              // Send Signal Prod_Dvlp_F for refresh
+                              _Strt_Robo_F.SendRequest(
+                                 new Job(SendType.SelfToUserInterface, 1000 /* Execute Call_SystemService_F */ )
+                                 {
+                                    Input =
+                                       new XElement("Input",
+                                          new XAttribute("chatid", chatid),
+                                          new XAttribute("ussdcode", ""),
+                                          new XAttribute("subsystarget", "DefaultGateway:RoboTech:FRST_PAGE_F"),
+                                          new XAttribute("cmnd", "errornoti"),
+                                          new XAttribute("param", exc.Message)
+                                       )
+                                 }
+                              );
+                              #endregion
+                           }
+                           break;
+                        case "audio":
+                           try
+                           {
+                              var audioRslt =
+                                 await Bot.SendAudioAsync(
+                                     chatId: chatid,
+                                     audio: _file
+                                 );
+
+                              #region Save Data on db server and file server
+                              // Save Video on Localserver
+                              var robo = iRobotTech.Robots.FirstOrDefault(r => r.TKON_CODE == GetToken());
+                              string fileTrgtPath = "";
+
+                              // if prodTarfCode = * we must check filename and get ProdTarfCode
+                              if (prodTarfCode == "*")
+                                 prodTarfCode = Path.GetFileNameWithoutExtension(file);
+
+                              if (!string.IsNullOrEmpty(robo.UP_LOAD_FILE_PATH))
+                              {
+                                 // Check Exists Directory
+                                 if (!Directory.Exists(string.Format(@"{0}\R{1}\Products\{2}\Audios", robo.UP_LOAD_FILE_PATH, rbid, prodTarfCode)))
+                                 {
+                                    // Create Directory
+                                    var cretImagDir = Directory.CreateDirectory(string.Format(@"{0}\R{1}\Products\{2}\Audios", robo.UP_LOAD_FILE_PATH, rbid, prodTarfCode));
+                                 }
+
+                                 int fileCounts = Directory.GetFiles(string.Format(@"{0}\R{1}\Products\{2}\Audios", robo.UP_LOAD_FILE_PATH, rbid, prodTarfCode)).Length + 1;
+                                 fileTrgtPath = string.Format(@"{0}\R{1}\Products\{2}\Audios\{2}_{3}{4}", robo.UP_LOAD_FILE_PATH, rbid, prodTarfCode, fileCounts, Path.GetExtension(file));
+                                 System.IO.File.Copy(file, fileTrgtPath);
+                              }
+
+                              // Save FileId in Database for Product
+                              iRobotTech.ExecuteCommand(
+                                 string.Format(
+                                    @"BEGIN 
+                                         INSERT INTO Robot_Product_Preview (Rbpr_Code, Code, File_Id, File_Type, File_Desc, Stat, Sorc_File_Path, Trgt_File_Path)
+                                         SELECT rp.Code, dbo.Gnrt_Nvid_U(), '{2}', '006', rp.Tarf_Text_Dnrm, '002', N'{3}', N'{4}'
+                                           FROM Robot_Product rp
+                                          WHERE rp.Robo_Rbid = {0}
+                                            AND rp.Tarf_Code = '{1}';
+                                      END;",
+                                    rbid, prodTarfCode, audioRslt.Audio.FileId, file, fileTrgtPath
+                                 )
+                              );
+
+                              prodTarfCode = x.Attribute("command").Value;
+                              #endregion
+
+                              ++rowsEffects;
+                           }
+                           catch(Exception exc)
+                           {
+                              #region Send Error
+                              // Send Signal Prod_Dvlp_F for refresh
+                              _Strt_Robo_F.SendRequest(
+                                 new Job(SendType.SelfToUserInterface, 1000 /* Execute Call_SystemService_F */ )
+                                 {
+                                    Input =
+                                       new XElement("Input",
+                                          new XAttribute("chatid", chatid),
+                                          new XAttribute("ussdcode", ""),
+                                          new XAttribute("subsystarget", "DefaultGateway:RoboTech:FRST_PAGE_F"),
+                                          new XAttribute("cmnd", "errornoti"),
+                                          new XAttribute("param", exc.Message)
+                                       )
+                                 }
+                              );
+                              #endregion
+                           }
+                           break;
+                        case "model":
+                           break;
+                        case "application":
+                           try
+                           {
+                              var docRslt =
+                                 await Bot.SendDocumentAsync(
+                                     chatId: chatid,
+                                     document: _file
+                                 );
+
+                              #region Save Data on db server and file server
+                              // Save Video on Localserver
+                              var robo = iRobotTech.Robots.FirstOrDefault(r => r.TKON_CODE == GetToken());
+                              string fileTrgtPath = "";
+
+                              // if prodTarfCode = * we must check filename and get ProdTarfCode
+                              if (prodTarfCode == "*")
+                                 prodTarfCode = Path.GetFileNameWithoutExtension(file);
+
+                              if (!string.IsNullOrEmpty(robo.UP_LOAD_FILE_PATH))
+                              {
+                                 // Check Exists Directory
+                                 if (!Directory.Exists(string.Format(@"{0}\R{1}\Products\{2}\Documents", robo.UP_LOAD_FILE_PATH, rbid, prodTarfCode)))
+                                 {
+                                    // Create Directory
+                                    var cretImagDir = Directory.CreateDirectory(string.Format(@"{0}\R{1}\Products\{2}\Documents", robo.UP_LOAD_FILE_PATH, rbid, prodTarfCode));
+                                 }
+
+                                 int fileCounts = Directory.GetFiles(string.Format(@"{0}\R{1}\Products\{2}\Documents", robo.UP_LOAD_FILE_PATH, rbid, prodTarfCode)).Length + 1;
+                                 fileTrgtPath = string.Format(@"{0}\R{1}\Products\{2}\Documents\{2}_{3}{4}", robo.UP_LOAD_FILE_PATH, rbid, prodTarfCode, fileCounts, Path.GetExtension(file));
+                                 System.IO.File.Copy(file, fileTrgtPath);
+                              }
+
+                              // Save FileId in Database for Product
+                              iRobotTech.ExecuteCommand(
+                                 string.Format(
+                                    @"BEGIN 
+                                         INSERT INTO Robot_Product_Preview (Rbpr_Code, Code, File_Id, File_Type, File_Desc, Stat, Sorc_File_Path, Trgt_File_Path)
+                                         SELECT rp.Code, dbo.Gnrt_Nvid_U(), '{2}', '004', rp.Tarf_Text_Dnrm, '002', N'{3}', N'{4}'
+                                           FROM Robot_Product rp
+                                          WHERE rp.Robo_Rbid = {0}
+                                            AND rp.Tarf_Code = '{1}';
+                                      END;",
+                                    rbid, prodTarfCode, docRslt.Document.FileId, file, fileTrgtPath
+                                 )
+                              );
+
+                              prodTarfCode = x.Attribute("command").Value;
+                              #endregion
+
+                              ++rowsEffects;
+                           }
+                           catch(Exception exc)
+                           {
+                              #region Send Error
+                              // Send Signal Prod_Dvlp_F for refresh
+                              _Strt_Robo_F.SendRequest(
+                                 new Job(SendType.SelfToUserInterface, 1000 /* Execute Call_SystemService_F */ )
+                                 {
+                                    Input =
+                                       new XElement("Input",
+                                          new XAttribute("chatid", chatid),
+                                          new XAttribute("ussdcode", ""),
+                                          new XAttribute("subsystarget", "DefaultGateway:RoboTech:FRST_PAGE_F"),
+                                          new XAttribute("cmnd", "errornoti"),
+                                          new XAttribute("param", exc.Message)
+                                       )
+                                 }
+                              );
+                              #endregion
+                           }
+                           break;
+                        case "text":
+                           break;
+                        case "chemical":
+                           break;
+                        default:
+                           break;
+                     }
+                  }
+
+                  #region Send Successfull and Refresh Form
+                  // Send Signal Prod_Dvlp_F for refresh
+                  //_Strt_Robo_F.SendRequest(
+                  //   new Job(SendType.SelfToUserInterface, 1000 /* Execute Call_SystemService_F */ )
+                  //   {
+                  //      Input =
+                  //         new XElement("Input",
+                  //            new XAttribute("chatid", chatid),
+                  //            new XAttribute("ussdcode", ""),
+                  //            new XAttribute("subsystarget", "DefaultGateway:RoboTech:FRST_PAGE_F"),
+                  //            new XAttribute("cmnd", "prodqury"),
+                  //            new XAttribute("param", "")
+                  //         )
+                  //   }
+                  //);
+                  _Strt_Robo_F.SendRequest(
+                     new Job(SendType.SelfToUserInterface, 1000 /* Execute Call_SystemService_F */ )
+                     {
+                        Input =
+                           new XElement("Input",
+                              new XAttribute("chatid", chatid),
+                              new XAttribute("ussdcode", ""),
+                              new XAttribute("subsystarget", "DefaultGateway:RoboTech:FRST_PAGE_F"),
+                              new XAttribute("cmnd", "successfullnoti"),
+                              new XAttribute("param", string.Format("تعداد " + rowsEffects.ToString() + " رکورد با موفقیت درون سیستم ثبت شد"))
+                           )
+                     }
+                  );
+                  #endregion
                   break;
                default:
                   break;
@@ -779,7 +1162,15 @@ namespace System.RoboTech.Controller
                      #endregion
                   }
 
-                  await Send_Order(iRobotTech, keyBoardMarkup);
+                  await
+                     Send_Order(iRobotTech, keyBoardMarkup,
+                        new XElement("Data",
+                              new XAttribute("chatid", chat.Message.Chat.Id),
+                              new XAttribute("frstname", chat.Message.From.FirstName),
+                              new XAttribute("lastname", chat.Message.From.LastName ?? ""),
+                              new XAttribute("username", chat.Message.From.Username ?? "")
+                            )
+                     );
                   await Send_Replay_Message(GetToken(), chat);
                }
                #endregion
@@ -1400,7 +1791,15 @@ namespace System.RoboTech.Controller
                            #endregion
                         }
 
-                        await Send_Order(iRobotTech, keyBoardMarkup);
+                        await 
+                           Send_Order(iRobotTech, keyBoardMarkup, 
+                              new XElement("Data",
+                                    new XAttribute("chatid", chat.Message.Chat.Id),
+                                    new XAttribute("frstname", chat.Message.From.FirstName),
+                                    new XAttribute("lastname", chat.Message.From.LastName ?? ""),
+                                    new XAttribute("username", chat.Message.From.Username ?? "")
+                                  )
+                           );
                         await Send_Replay_Message(GetToken(), chat);
                      }
                      #endregion
@@ -1467,7 +1866,15 @@ namespace System.RoboTech.Controller
 
                await FireEventResultOpration(chat, null, xResult);
 
-               await Send_Order(iRobotTech, null);
+               await 
+                  Send_Order(iRobotTech, null,
+                     new XElement("Data",
+                           new XAttribute("chatid", chat.Message.Chat.Id),
+                           new XAttribute("frstname", chat.Message.From.FirstName),
+                           new XAttribute("lastname", chat.Message.From.LastName ?? ""),
+                           new XAttribute("username", chat.Message.From.Username ?? "")
+                         )
+                  );
 
                await Send_Replay_Message(GetToken(), chat);
 
@@ -1499,7 +1906,15 @@ namespace System.RoboTech.Controller
 
                await FireEventResultOpration(chat, null, xResult);               
 
-               await Send_Order(iRobotTech, null);
+               await
+                  Send_Order(iRobotTech, null,
+                     new XElement("Data",
+                           new XAttribute("chatid", chat.Message.Chat.Id),
+                           new XAttribute("frstname", chat.Message.From.FirstName),
+                           new XAttribute("lastname", chat.Message.From.LastName ?? ""),
+                           new XAttribute("username", chat.Message.From.Username ?? "")
+                         )
+                  );
 
                await Send_Replay_Message(GetToken(), chat);
 
@@ -1676,7 +2091,7 @@ namespace System.RoboTech.Controller
             );
             #endregion
             keyBoardMarkup = null;
-            #region Create Menu Array            
+            #region Create Menu Array
             if (xResult != null)
                keyBoardMarkup = CreateKeyboardButton(xResult.Descendants("Text")/*.Select(x => x.Value)*/.ToList(), Convert.ToInt32(xResult.Descendants("Row").FirstOrDefault().Value), Convert.ToInt32(xResult.Descendants("Column").FirstOrDefault().Value));
             #endregion
@@ -2152,7 +2567,15 @@ namespace System.RoboTech.Controller
                      }
                      catch { }
 
-                     await Send_Order(iRobotTech, keyBoardMarkup);
+                     await
+                        Send_Order(iRobotTech, keyBoardMarkup,
+                           new XElement("Data",
+                                 new XAttribute("chatid", chat.Message.Chat.Id),
+                                 new XAttribute("frstname", chat.Message.From.FirstName),
+                                 new XAttribute("lastname", chat.Message.From.LastName ?? ""),
+                                 new XAttribute("username", chat.Message.From.Username ?? "")
+                               )
+                        );
                   }
                   catch { }                  
                }
@@ -2780,7 +3203,15 @@ namespace System.RoboTech.Controller
                    */
                   await FireEventResultOpration(chat, keyBoardMarkup, xdata);
 
-                  await Send_Order(iRobotTech, keyBoardMarkup);
+                  await
+                     Send_Order(iRobotTech, keyBoardMarkup,
+                        new XElement("Data",
+                              new XAttribute("chatid", chat.Message.Chat.Id),
+                              new XAttribute("frstname", chat.Message.From.FirstName),
+                              new XAttribute("lastname", chat.Message.From.LastName ?? ""),
+                              new XAttribute("username", chat.Message.From.Username ?? "")
+                            )
+                     );
                   #endregion
                }
                else if (menucmndtype.CMND_TYPE == "009")
@@ -3015,7 +3446,15 @@ namespace System.RoboTech.Controller
                    */
                   await FireEventResultOpration(chat, keyBoardMarkup, xdata);
 
-                  await Send_Order(iRobotTech, keyBoardMarkup);
+                  await
+                     Send_Order(iRobotTech, keyBoardMarkup,
+                        new XElement("Data",
+                              new XAttribute("chatid", chat.Message.Chat.Id),
+                              new XAttribute("frstname", chat.Message.From.FirstName),
+                              new XAttribute("lastname", chat.Message.From.LastName ?? ""),
+                              new XAttribute("username", chat.Message.From.Username ?? "")
+                            )
+                     );
                   #region Execute Fire Event
 
                   #endregion
@@ -3350,7 +3789,15 @@ namespace System.RoboTech.Controller
 
                   await FireEventResultOpration(chat, keyBoardMarkup, xdata);
 
-                  await Send_Order(iRobotTech, keyBoardMarkup);
+                  await
+                     Send_Order(iRobotTech, keyBoardMarkup,
+                        new XElement("Data",
+                              new XAttribute("chatid", chat.Message.Chat.Id),
+                              new XAttribute("frstname", chat.Message.From.FirstName),
+                              new XAttribute("lastname", chat.Message.From.LastName ?? ""),
+                              new XAttribute("username", chat.Message.From.Username ?? "")
+                            )
+                     );
                   #endregion
                }
                else if (menucmndtype.CMND_TYPE == "017")
@@ -4188,7 +4635,15 @@ namespace System.RoboTech.Controller
 
                   await FireEventResultOpration(chat, keyBoardMarkup, xdata);
 
-                  await Send_Order(iRobotTech, keyBoardMarkup);
+                  await
+                     Send_Order(iRobotTech, keyBoardMarkup,
+                        new XElement("Data",
+                              new XAttribute("chatid", chat.Message.Chat.Id),
+                              new XAttribute("frstname", chat.Message.From.FirstName),
+                              new XAttribute("lastname", chat.Message.From.LastName ?? ""),
+                              new XAttribute("username", chat.Message.From.Username ?? "")
+                            )
+                     );
 
                   if (ordr.AMNT_TYPE == "001")
                   {
@@ -4303,7 +4758,15 @@ namespace System.RoboTech.Controller
 
                   await FireEventResultOpration(chat, keyBoardMarkup, xdata);
 
-                  await Send_Order(iRobotTech, keyBoardMarkup);
+                  await
+                     Send_Order(iRobotTech, keyBoardMarkup,
+                        new XElement("Data",
+                              new XAttribute("chatid", chat.Message.Chat.Id),
+                              new XAttribute("frstname", chat.Message.From.FirstName),
+                              new XAttribute("lastname", chat.Message.From.LastName ?? ""),
+                              new XAttribute("username", chat.Message.From.Username ?? "")
+                            )
+                     );
 
                   if (ordr.AMNT_TYPE == "001")
                   {
@@ -5259,10 +5722,38 @@ namespace System.RoboTech.Controller
 
          iRobotTech.SubmitChanges();
       }
-      private async Task Send_Order(Data.iRoboTechDataContext iRobotTech, KeyboardButton[][] keyBoardMarkup)
+      private async Task Send_Order(Data.iRoboTechDataContext iRobotTech, KeyboardButton[][] keyBoardMarkup, XElement data)
       {
          // بررسی اینکه آیا درخواستی برای پرسنلی ثبت شده یا خیر
          var prjos = iRobotTech.Personal_Robot_Job_Orders.Where(po => po.ORDR_STAT == "001");
+         
+         // 1399/05/04 * اگر کلیدهای ارسالی خالی باشند می توانیم از گزینه پیش فرض استفاده کنیم
+         if (keyBoardMarkup == null)
+         {
+            #region "Found Menu"
+            XElement xResult = new XElement("Result", "No Message");
+            iRobotTech.Proccess_Message_P(
+               new XElement("Robot",
+                  new XAttribute("token", GetToken()),
+                  new XElement("Message",
+                     new XElement("Text", "defaultmenu"),
+                     new XElement("From",
+                           new XAttribute("frstname", data.Attribute("frstname").Value),
+                           new XAttribute("lastname", data.Attribute("lastname").Value),
+                           new XAttribute("username", data.Attribute("username").Value),
+                           new XAttribute("id", data.Attribute("chatid").Value)
+                     )
+                  )
+               ),
+               ref xResult
+            );
+
+            #region Create Menu Array
+            if (xResult != null)
+               keyBoardMarkup = CreateKeyboardButton(xResult.Descendants("Text")/*.Select(x => x.Value)*/.ToList(), Convert.ToInt32(xResult.Descendants("Row").FirstOrDefault().Value), Convert.ToInt32(xResult.Descendants("Column").FirstOrDefault().Value));
+            #endregion
+            #endregion
+         }
 
          foreach (var prjo in prjos)
          {
@@ -5301,6 +5792,7 @@ namespace System.RoboTech.Controller
                      {
                         case "001":
                            if (ordt.INLN_KEYB_DNRM == null)
+                           {
                               await Bot.SendTextMessageAsync(
                                  (int)prjo.PRBT_CHAT_ID,
                                  iRobotTech.CRET_PMSG_U(new XElement("Message",
@@ -5308,15 +5800,17 @@ namespace System.RoboTech.Controller
                                     new XAttribute("ordrcode", prjo.ORDR_CODE),
                                     new XAttribute("ordtrwno", ordt.RWNO)
                                  )),
-                                 replyMarkup:                              
-                                 keyBoardMarkup == null ? null : 
+                                 replyMarkup:
+                                 keyBoardMarkup == null ? null :
                                  new ReplyKeyboardMarkup()
                                  {
                                     Keyboard = keyBoardMarkup,
                                     ResizeKeyboard = true,
                                     Selective = true
-                                 });
-                           else 
+                                 });                             
+                           }
+                           else
+                           {
                               await Bot.SendTextMessageAsync(
                                  (int)prjo.PRBT_CHAT_ID,
                                  iRobotTech.CRET_PMSG_U(new XElement("Message",
@@ -5327,29 +5821,60 @@ namespace System.RoboTech.Controller
                                  replyMarkup:
                                  CreateInLineKeyboard(ordt.INLN_KEYB_DNRM.Descendants("InlineKeyboardButton").ToList(), 3)
                                  );
-                              
+
+                              // 1399/05/05
+                              try
+                              {
+                                 var chosmesg =
+                                    await Bot.SendTextMessageAsync(
+                                     chatId: (int)prjo.PRBT_CHAT_ID,
+                                     text: "لطفا گزینه مورد نظر خود را انتخاب کنید",
+                                     replyMarkup: new ReplyKeyboardMarkup()
+                                     {
+                                        Keyboard = keyBoardMarkup,
+                                        ResizeKeyboard = true,
+                                        Selective = true
+                                     }
+                                 );
+
+                                 await Bot.DeleteMessageAsync((int)prjo.PRBT_CHAT_ID, chosmesg.MessageId);
+                              }
+                              catch
+                              {
+                                 var chat = Chats.FirstOrDefault(c => c.Message.Chat.Id == (int)prjo.PRBT_CHAT_ID);
+                                 if (ConsoleOutLog_MemTxt.InvokeRequired)
+                                    ConsoleOutLog_MemTxt.Invoke(new Action(() => ConsoleOutLog_MemTxt.Text = string.Format("{3} , {4} , {0}, {1}, {2}\r\n", chat.Message.Chat.Id, chat.Message.From.FirstName + ", " + chat.Message.From.LastName, chat.Message.Text, Me.Username, DateTime.Now.ToString()) + ConsoleOutLog_MemTxt.Text));
+                                 else
+                                    ConsoleOutLog_MemTxt.Text = string.Format("{3} , {4} , {0}, {1}, {2}\r\n", chat.Message.Chat.Id, chat.Message.From.FirstName + ", " + chat.Message.From.LastName, chat.Message.Text, Me.Username, DateTime.Now.ToString()) + ConsoleOutLog_MemTxt.Text;
+                              }
+                           }
                            break;
                         case "002":
                            if (ordt.INLN_KEYB_DNRM == null)
+                           {
                               await Bot.SendPhotoAsync(
                                  (int)prjo.PRBT_CHAT_ID,
                                  ///***new FileToSend(ordt.ORDR_DESC),
                                  new InputOnlineFile(ordt.IMAG_PATH),
                                  //caption: ordt.ORDR_CMNT ?? "",
-                                 caption:iRobotTech.CRET_PMSG_U(new XElement("Message",
+                                 caption: iRobotTech.CRET_PMSG_U(new XElement("Message",
                                        new XAttribute("prjbcode", prjo.PRJB_CODE),
                                        new XAttribute("ordrcode", prjo.ORDR_CODE),
                                        new XAttribute("ordtrwno", ordt.RWNO)
                                     )),
                                  replyMarkup:
-                                 keyBoardMarkup == null ? null : 
+                                 keyBoardMarkup == null ? null :
                                  new ReplyKeyboardMarkup()
                                  {
                                     Keyboard = keyBoardMarkup,
                                     ResizeKeyboard = true,
                                     Selective = true
                                  });
+
+
+                           }
                            else
+                           {
                               await Bot.SendPhotoAsync(
                                  (int)prjo.PRBT_CHAT_ID,
                                  ///***new FileToSend(ordt.ORDR_DESC),
@@ -5362,6 +5887,33 @@ namespace System.RoboTech.Controller
                                     )),
                                  replyMarkup:
                                  CreateInLineKeyboard(ordt.INLN_KEYB_DNRM.Descendants("InlineKeyboardButton").ToList(), 3));
+
+                              // 1399/05/05
+                              try
+                              {
+                                 var chosmesg =
+                                    await Bot.SendTextMessageAsync(
+                                     chatId: (int)prjo.PRBT_CHAT_ID,
+                                     text: "لطفا گزینه مورد نظر خود را انتخاب کنید",
+                                     replyMarkup: new ReplyKeyboardMarkup()
+                                     {
+                                        Keyboard = keyBoardMarkup,
+                                        ResizeKeyboard = true,
+                                        Selective = true
+                                     }
+                                 );
+
+                                 await Bot.DeleteMessageAsync((int)prjo.PRBT_CHAT_ID, chosmesg.MessageId);
+                              }
+                              catch
+                              {
+                                 var chat = Chats.FirstOrDefault(c => c.Message.Chat.Id == (int)prjo.PRBT_CHAT_ID);
+                                 if (ConsoleOutLog_MemTxt.InvokeRequired)
+                                    ConsoleOutLog_MemTxt.Invoke(new Action(() => ConsoleOutLog_MemTxt.Text = string.Format("{3} , {4} , {0}, {1}, {2}\r\n", chat.Message.Chat.Id, chat.Message.From.FirstName + ", " + chat.Message.From.LastName, chat.Message.Text, Me.Username, DateTime.Now.ToString()) + ConsoleOutLog_MemTxt.Text));
+                                 else
+                                    ConsoleOutLog_MemTxt.Text = string.Format("{3} , {4} , {0}, {1}, {2}\r\n", chat.Message.Chat.Id, chat.Message.From.FirstName + ", " + chat.Message.From.LastName, chat.Message.Text, Me.Username, DateTime.Now.ToString()) + ConsoleOutLog_MemTxt.Text;
+                              }
+                           }
                            break;
                         case "003":
                            await Bot.SendVideoAsync(
@@ -5418,127 +5970,7 @@ namespace System.RoboTech.Controller
             }
          }
          //iRobotTech.SubmitChanges();
-      }
-      //private async Task Send_Order(Data.iRoboTechDataContext iRobotTech, string command, string param)
-      //{
-      //   // بررسی اینکه آیا درخواستی برای پرسنلی ثبت شده یا خیر
-      //   var prjos = iRobotTech.Personal_Robot_Job_Orders.Where(po => po.ORDR_STAT == "001");
-
-      //   foreach (var prjo in prjos)
-      //   {
-      //      var ordts = iRobotTech.Order_Details.Where(o => o.ORDR_CODE == prjo.ORDR_CODE && o.SEND_STAT == "001").ToList();
-
-      //      //prjo.ORDR_STAT = "002";
-      //      iRobotTech.Set_Personal_Robot_Job_Order(
-      //         new XElement("PJBO",
-      //            new XAttribute("prjbcode", prjo.PRJB_CODE),
-      //            new XAttribute("ordrcode", prjo.ORDR_CODE),
-      //            new XAttribute("ordrstat", "002")
-      //         )
-      //      );
-
-      //      foreach (var ordt in ordts)
-      //      {
-      //         // 1398/12/29 * در این قسمت باید مشخص کنیم که صفحه کلید هر درخواست به چه صورت می باشد
-      //         InlineKeyboardMarkup inlineKeyboardMarkup = null;
-      //         // فراخوانی تابع 
-      //         // getdata
-      //         // برای اینکه درخواست اگر نیاز به صفحه کلیدی دارد متن را برای مشتری ارسال کند
-      //         var xmlmsg = RobotHandle.GetData(
-      //            new XElement("Robot",
-      //               new XAttribute("token", GetToken()),
-      //               new XElement("Message",
-      //                  new XAttribute("cbq", "002"),
-      //                  new XAttribute("lacbq", "002"),
-      //                  new XAttribute("ordrcode", ordt.Order.CODE),
-      //                  new XElement("Text", 
-      //                      new XAttribute("param", param),
-      //                      command
-      //                  )
-      //               )
-      //            ), connectionString);
-               
-      //         var query = XDocument.Parse(string.Format("<Message>{0}</Message>", xmlmsg.Element("Message").Value));
-      //         //inlineKeyboardMarkup = CreateInlineKeyboardMarkup(query.Descendants("InlineKeyboardMarkup").First());
-      //         inlineKeyboardMarkup = CreateInLineKeyboard(query.Descendants("InlineKeyboardMarkup").ToList(), 3);
-
-      //         switch (ordt.Order.ORDR_TYPE)
-      //         {
-      //            case "001": // پیشنهادات                              
-      //            case "002": // نظرسنجی
-      //            case "003": // شکایات
-      //            case "004": // سفارشات
-      //            case "005": // Like
-      //            case "006": // پرسش
-      //            case "007": // پاسخ
-      //            case "008": // تجربیات
-      //            case "009": // Upload
-      //            case "010": // معرفی
-      //            case "011": // اخطار
-      //            case "012": // اعلام ها
-      //            case "017": // واحد حسابداری
-      //            case "018": // واحد انبارداری
-      //            case "019": // واحد پیک و ارسال بسته
-      //               #region پیام های ارسالی
-      //               switch (ordt.ELMN_TYPE)
-      //               {
-      //                  case "001":
-      //                     await Bot.SendTextMessageAsync(
-      //                        (int)prjo.PRBT_CHAT_ID,
-      //                        iRobotTech.CRET_PMSG_U(new XElement("Message",
-      //                           new XAttribute("prjbcode", prjo.PRJB_CODE),
-      //                           new XAttribute("ordrcode", prjo.ORDR_CODE),
-      //                           new XAttribute("ordtrwno", ordt.RWNO)
-      //                        )),
-      //                        replyMarkup:
-      //                        inlineKeyboardMarkup);
-      //                     break;
-      //                  case "002":
-      //                     await Bot.SendPhotoAsync(
-      //                        (int)prjo.PRBT_CHAT_ID,
-      //                        ///***new FileToSend(ordt.ORDR_DESC),
-      //                        new InputOnlineFile(ordt.ORDR_DESC),
-      //                        caption: ordt.ORDR_CMNT ?? "",
-      //                        replyMarkup:
-      //                        inlineKeyboardMarkup);
-      //                     break;
-      //                  case "003":
-      //                     await Bot.SendVideoAsync(
-      //                        (int)prjo.PRBT_CHAT_ID,
-      //                        ///***new FileToSend(ordt.ORDR_DESC),
-      //                        new InputOnlineFile(ordt.ORDR_DESC),
-      //                        replyMarkup:
-      //                        inlineKeyboardMarkup);
-      //                     break;
-      //                  case "004":
-      //                     await Bot.SendDocumentAsync(
-      //                        (int)prjo.PRBT_CHAT_ID,
-      //                        ///***new FileToSend(ordt.ORDR_DESC),
-      //                        new InputOnlineFile(ordt.ORDR_DESC),
-      //                        replyMarkup:
-      //                        inlineKeyboardMarkup);
-      //                     break;
-      //                  case "005":
-      //                     float cordx = Convert.ToSingle(ordt.ORDR_DESC.Split(',')[0], System.Globalization.CultureInfo.InvariantCulture);
-      //                     float cordy = Convert.ToSingle(ordt.ORDR_DESC.Split(',')[1], System.Globalization.CultureInfo.InvariantCulture);
-
-      //                     await Bot.SendLocationAsync(
-      //                        (long)prjo.PRBT_CHAT_ID,
-      //                        Convert.ToSingle(ordt.ORDR_DESC.Split(',')[0], System.Globalization.CultureInfo.InvariantCulture),
-      //                        Convert.ToSingle(ordt.ORDR_DESC.Split(',')[1], System.Globalization.CultureInfo.InvariantCulture),
-      //                        replyMarkup:
-      //                        inlineKeyboardMarkup);
-
-      //                     break;
-      //                  default:
-      //                     break;
-      //               }
-      //               #endregion
-      //               break;
-      //         }
-      //      }
-      //   }
-      //}
+      }      
       public KeyboardButton[][] CreateKeyboardButton(List<XElement> list, int rows, int cols)
       {
          int index = 0;
@@ -5632,7 +6064,7 @@ namespace System.RoboTech.Controller
             var query = XDocument.Parse(string.Format("<Message>{0}</Message>", xdata.Element("Message").Value));
             if (query.Element("Message").Element("Message") != null)
                query = new XDocument(query.Element("Message").LastNode);
-            foreach (string order in query.Element("Message").Elements().Attributes("order").OrderBy(o => o.Value))
+            foreach (string order in query.Element("Message").Elements().Attributes("order").OrderBy(o => o.Value.ToInt32()))
             {
                var xelement = query.Element("Message").Elements().Where(x => x.Attribute("order").Value == order).First();
                if (xelement.Name == "Texts")
@@ -5787,11 +6219,21 @@ namespace System.RoboTech.Controller
 
                   string fileid = "";
                   if (xelement.Attribute("fileid") != null)
-                     fileid = xelement.Attribute("fileid").Value;                  
+                     fileid = xelement.Attribute("fileid").Value;
+                  string cellphon = "";
+                  if (xelement.Attribute("cellphon") != null)
+                     cellphon = xelement.Attribute("cellphon").Value;
+                  string frstname = "";
+                  if (xelement.Attribute("frstname") != null)
+                     frstname = xelement.Attribute("frstname").Value;
+                  string lastname = "";
+                  if (xelement.Attribute("lastname") != null)
+                     lastname = xelement.Attribute("lastname").Value;
 
                   switch (xelement.Attribute("filetype").Value)
                   {
-                     case "002":
+                     case "002": // Photo
+                        #region Sedn Photo
                         try
                         {
                            await Bot.SendPhotoAsync(
@@ -5808,6 +6250,94 @@ namespace System.RoboTech.Controller
                            else
                               ConsoleOutLog_MemTxt.Text = string.Format("{3} , {4} , {0}, {1}, {2}\r\n", chat.Message.Chat.Id, chat.Message.From.FirstName + ", " + chat.Message.From.LastName, chat.Message.Text, Me.Username, DateTime.Now.ToString()) + ConsoleOutLog_MemTxt.Text;
                         }
+                        #endregion
+                        break;
+                     case "003": // Video
+                        #region Send Video
+                        try
+                        {
+                           await Bot.SendVideoAsync(
+                               chatId: chat.Message.Chat.Id,
+                               video: fileid,
+                               caption: caption,
+                               replyMarkup: CreateInLineKeyboard(xelement.Descendants("InlineKeyboardButton").ToList(), 3)
+                           );
+                        }
+                        catch
+                        {
+                           if (ConsoleOutLog_MemTxt.InvokeRequired)
+                              ConsoleOutLog_MemTxt.Invoke(new Action(() => ConsoleOutLog_MemTxt.Text = string.Format("{3} , {4} , {0}, {1}, {2}\r\n", chat.Message.Chat.Id, chat.Message.From.FirstName + ", " + chat.Message.From.LastName, chat.Message.Text, Me.Username, DateTime.Now.ToString()) + ConsoleOutLog_MemTxt.Text));
+                           else
+                              ConsoleOutLog_MemTxt.Text = string.Format("{3} , {4} , {0}, {1}, {2}\r\n", chat.Message.Chat.Id, chat.Message.From.FirstName + ", " + chat.Message.From.LastName, chat.Message.Text, Me.Username, DateTime.Now.ToString()) + ConsoleOutLog_MemTxt.Text;
+                        }
+                        #endregion
+                        break;
+                     case "004": // File & Document
+                        #region File & Document
+                        try
+                        {
+                           await Bot.SendDocumentAsync(
+                               chatId: chat.Message.Chat.Id,
+                               document: fileid,
+                               caption: caption,
+                               replyMarkup: CreateInLineKeyboard(xelement.Descendants("InlineKeyboardButton").ToList(), 3)
+                           );
+                        }
+                        catch
+                        {
+                           if (ConsoleOutLog_MemTxt.InvokeRequired)
+                              ConsoleOutLog_MemTxt.Invoke(new Action(() => ConsoleOutLog_MemTxt.Text = string.Format("{3} , {4} , {0}, {1}, {2}\r\n", chat.Message.Chat.Id, chat.Message.From.FirstName + ", " + chat.Message.From.LastName, chat.Message.Text, Me.Username, DateTime.Now.ToString()) + ConsoleOutLog_MemTxt.Text));
+                           else
+                              ConsoleOutLog_MemTxt.Text = string.Format("{3} , {4} , {0}, {1}, {2}\r\n", chat.Message.Chat.Id, chat.Message.From.FirstName + ", " + chat.Message.From.LastName, chat.Message.Text, Me.Username, DateTime.Now.ToString()) + ConsoleOutLog_MemTxt.Text;
+                        }
+                        #endregion
+                        break;
+                     case "005": // Location
+                        break;
+                     case "006": // Audio
+                        #region Send Audio
+                        try
+                        {
+                           await Bot.SendAudioAsync(
+                               chatId: chat.Message.Chat.Id,
+                               audio: fileid,
+                               caption: caption,
+                               replyMarkup: CreateInLineKeyboard(xelement.Descendants("InlineKeyboardButton").ToList(), 3)
+                           );
+                        }
+                        catch
+                        {
+                           if (ConsoleOutLog_MemTxt.InvokeRequired)
+                              ConsoleOutLog_MemTxt.Invoke(new Action(() => ConsoleOutLog_MemTxt.Text = string.Format("{3} , {4} , {0}, {1}, {2}\r\n", chat.Message.Chat.Id, chat.Message.From.FirstName + ", " + chat.Message.From.LastName, chat.Message.Text, Me.Username, DateTime.Now.ToString()) + ConsoleOutLog_MemTxt.Text));
+                           else
+                              ConsoleOutLog_MemTxt.Text = string.Format("{3} , {4} , {0}, {1}, {2}\r\n", chat.Message.Chat.Id, chat.Message.From.FirstName + ", " + chat.Message.From.LastName, chat.Message.Text, Me.Username, DateTime.Now.ToString()) + ConsoleOutLog_MemTxt.Text;
+                        }
+                        #endregion
+                        break;
+                     case "007": // Sticker
+                        break;
+                     case "008": // Contact
+                        #region Send Contact
+                        try
+                        {
+                           await Bot.SendContactAsync(
+                               chatId: chat.Message.Chat.Id,
+                               phoneNumber: fileid,
+                               firstName: frstname,
+                               lastName: lastname,
+                               replyMarkup: CreateInLineKeyboard(xelement.Descendants("InlineKeyboardButton").ToList(), 3)
+                           );
+                        }
+                        catch
+                        {
+                           if (ConsoleOutLog_MemTxt.InvokeRequired)
+                              ConsoleOutLog_MemTxt.Invoke(new Action(() => ConsoleOutLog_MemTxt.Text = string.Format("{3} , {4} , {0}, {1}, {2}\r\n", chat.Message.Chat.Id, chat.Message.From.FirstName + ", " + chat.Message.From.LastName, chat.Message.Text, Me.Username, DateTime.Now.ToString()) + ConsoleOutLog_MemTxt.Text));
+                           else
+                              ConsoleOutLog_MemTxt.Text = string.Format("{3} , {4} , {0}, {1}, {2}\r\n", chat.Message.Chat.Id, chat.Message.From.FirstName + ", " + chat.Message.From.LastName, chat.Message.Text, Me.Username, DateTime.Now.ToString()) + ConsoleOutLog_MemTxt.Text;
+                        }
+                        #endregion
+                        break;
+                     case "009": // Voice
                         break;
                   }
 

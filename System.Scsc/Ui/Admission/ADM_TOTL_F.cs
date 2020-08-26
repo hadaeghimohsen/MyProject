@@ -2138,7 +2138,7 @@ namespace System.Scsc.Ui.Admission
             var pymt = PymtsBs3.Current as Data.Payment;
             if (pymt == null) return;
 
-            int? amnt = null;
+            long? amnt = null;
             switch (PydsType_Butn.Tag.ToString())
             {
                case "0":
@@ -2148,7 +2148,7 @@ namespace System.Scsc.Ui.Admission
                      PydsAmnt_Txt.Focus();
                   }
 
-                  amnt = (pymt.SUM_EXPN_PRIC * Convert.ToInt32(PydsAmnt_Txt.EditValue)) / 100;
+                  amnt = (pymt.SUM_EXPN_PRIC * Convert.ToInt64(PydsAmnt_Txt.EditValue)) / 100;
                   break;
                case "1":
                   amnt = Convert.ToInt32(PydsAmnt_Txt.EditValue);

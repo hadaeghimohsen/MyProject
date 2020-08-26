@@ -206,6 +206,7 @@
          this.ShoppingStore_Pb = new System.Windows.Forms.PictureBox();
          this.CertificateLogo_Pb = new System.Windows.Forms.PictureBox();
          this.OnlineDres_Butn = new DevExpress.XtraEditors.ButtonEdit();
+         this.button5 = new System.Windows.Forms.Button();
          this.button4 = new System.Windows.Forms.Button();
          this.ChngAttnActn_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.TlgrmBot_Butn = new DevExpress.XtraEditors.SimpleButton();
@@ -1773,6 +1774,7 @@
          this.spc_desktop.Panel2.BackColor = System.Drawing.Color.Gainsboro;
          this.spc_desktop.Panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
          this.spc_desktop.Panel2.Controls.Add(this.OnlineDres_Butn);
+         this.spc_desktop.Panel2.Controls.Add(this.button5);
          this.spc_desktop.Panel2.Controls.Add(this.button4);
          this.spc_desktop.Panel2.Controls.Add(this.ChngAttnActn_Butn);
          this.spc_desktop.Panel2.Controls.Add(this.TlgrmBot_Butn);
@@ -1868,6 +1870,17 @@
          this.OnlineDres_Butn.Size = new System.Drawing.Size(69, 24);
          this.OnlineDres_Butn.TabIndex = 22;
          this.OnlineDres_Butn.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.OnlineDres_Butn_ButtonClick);
+         // 
+         // button5
+         // 
+         this.button5.Location = new System.Drawing.Point(715, 8);
+         this.button5.Name = "button5";
+         this.button5.Size = new System.Drawing.Size(33, 23);
+         this.button5.TabIndex = 21;
+         this.button5.Text = "Empty";
+         this.button5.UseVisualStyleBackColor = true;
+         this.button5.Visible = false;
+         this.button5.Click += new System.EventHandler(this.button5_Click);
          // 
          // button4
          // 
@@ -2807,5 +2820,6 @@
       private Windows.Forms.ToolStripMenuItem CloseGate_Tsm;
       private Windows.Forms.Timer Tm_Exdv;
       private DevExpress.XtraBars.BarButtonItem bbi_grntbutn;
+      private Windows.Forms.Button button5;
    }
 }

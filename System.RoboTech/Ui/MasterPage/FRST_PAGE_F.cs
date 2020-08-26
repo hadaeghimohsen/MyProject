@@ -21,6 +21,16 @@ namespace System.RoboTech.Ui.MasterPage
 
       private bool frstLoad = false;
 
+      #region BaseDefinition
+
+      #endregion
+
+      #region DevelopmentApplication
+      #endregion
+
+      #region Action
+      #endregion
+
       private void AdjustDateTime_Butn_Click(object sender, EventArgs e)
       {
          _DefaultGateway.Gateway(new Job(SendType.External, "Localhost", "Commons", 26 /* Execute DoWork4DateTimes */, SendType.Self));
@@ -342,6 +352,42 @@ namespace System.RoboTech.Ui.MasterPage
             }
             frstLoad = true;
          }
+      }
+
+      private void DefBankAcnt_Butn_Click(object sender, EventArgs e)
+      {
+         _DefaultGateway.Gateway(
+            new Job(SendType.External, "Localhost",
+              new List<Job>
+              {                  
+                new Job(SendType.Self, 25 /* Execute Bank_Dvlp_F */),
+                new Job(SendType.SelfToUserInterface, "BANK_DVLP_F", 10 /* Execute Actn_CalF_P */)
+              })
+         );
+      }
+
+      private void DefProdRobo_Butn_Click(object sender, EventArgs e)
+      {
+         _DefaultGateway.Gateway(
+            new Job(SendType.External, "Localhost",
+              new List<Job>
+              {                  
+                new Job(SendType.Self, 26 /* Execute Prod_Dvlp_F */),
+                new Job(SendType.SelfToUserInterface, "PROD_DVLP_F", 10 /* Execute Actn_CalF_P */)
+              })
+         );
+      }
+
+      private void MangWletRobo_Butn_Click(object sender, EventArgs e)
+      {
+         _DefaultGateway.Gateway(
+            new Job(SendType.External, "Localhost",
+              new List<Job>
+              {                  
+                new Job(SendType.Self, 27 /* Execute Wlet_Dvlp_F */),
+                new Job(SendType.SelfToUserInterface, "WLET_DVLP_F", 10 /* Execute Actn_CalF_P */)
+              })
+         );
       }
    }
 }

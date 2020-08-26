@@ -1,12 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Net.NetworkInformation;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
+using System.Xml.Serialization;
 
 namespace System.RoboTech.ExtCode
 {
@@ -142,6 +146,21 @@ namespace System.RoboTech.ExtCode
          response.Invoke();
 
          return wrapper;
+      }
+      #endregion
+
+      #region XML Operation
+      public static XDocument ToXml(this DataSet ds)
+      {
+         using (var memoryStream = new MemoryStream())
+         {
+            using (TextWriter streamWriter = new StreamWriter(memoryStream))
+            {
+               var xmlSerializer = new XmlSerializer(typeof(DataSet));
+               xmlSerializer.Serialize(streamWriter, ds);
+               return XDocument.Parse(Encoding.UTF8.GetString(memoryStream.ToArray()));
+            }
+         }
       }
       #endregion
    }

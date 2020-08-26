@@ -1190,7 +1190,7 @@
             this.persianRepositoryItemDateEdit1,
             this.Actn_butn,
             this.repositoryItemLookUpEdit1});
-         this.gridControl4.Size = new System.Drawing.Size(684, 199);
+         this.gridControl4.Size = new System.Drawing.Size(684, 200);
          this.gridControl4.TabIndex = 48;
          this.gridControl4.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.Ordt_gv});
@@ -1604,10 +1604,10 @@
          this.tp_002.Controls.Add(this.OrdrStat_Lookup);
          this.tp_002.Controls.Add(this.SaveOrderStat_Butn);
          this.tp_002.Controls.Add(this.memoEdit2);
-         this.tp_002.Location = new System.Drawing.Point(4, 23);
+         this.tp_002.Location = new System.Drawing.Point(4, 22);
          this.tp_002.Name = "tp_002";
          this.tp_002.Padding = new System.Windows.Forms.Padding(3);
-         this.tp_002.Size = new System.Drawing.Size(696, 227);
+         this.tp_002.Size = new System.Drawing.Size(696, 228);
          this.tp_002.TabIndex = 1;
          this.tp_002.Text = "وضعیت سفارش";
          // 
@@ -1625,7 +1625,7 @@
             this.persianRepositoryItemDateEdit3,
             this.repositoryItemLookUpEdit2,
             this.repositoryItemLookUpEdit3});
-         this.gridControl5.Size = new System.Drawing.Size(342, 184);
+         this.gridControl5.Size = new System.Drawing.Size(342, 185);
          this.gridControl5.TabIndex = 51;
          this.gridControl5.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.Odst_gv});
@@ -1806,7 +1806,7 @@
          // 
          this.DeleteOrdrStat_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
          this.DeleteOrdrStat_Butn.Image = global::System.RoboTech.Properties.Resources.IMAGE_1197;
-         this.DeleteOrdrStat_Butn.Location = new System.Drawing.Point(6, 188);
+         this.DeleteOrdrStat_Butn.Location = new System.Drawing.Point(6, 189);
          this.DeleteOrdrStat_Butn.Name = "DeleteOrdrStat_Butn";
          this.DeleteOrdrStat_Butn.Size = new System.Drawing.Size(37, 33);
          this.DeleteOrdrStat_Butn.TabIndex = 47;
@@ -1953,7 +1953,7 @@
          this.memoEdit2.Properties.NullText = "لطفا شرح وضعیت را اینجا بنویسید";
          this.memoEdit2.Properties.NullValuePrompt = "لطفا شرح وضعیت را اینجا بنویسید";
          this.memoEdit2.Properties.NullValuePromptShowForEmptyValue = true;
-         this.memoEdit2.Size = new System.Drawing.Size(295, 182);
+         this.memoEdit2.Size = new System.Drawing.Size(295, 183);
          this.memoEdit2.TabIndex = 4;
          // 
          // tabPage2
@@ -1963,10 +1963,10 @@
          this.tabPage2.Controls.Add(label11);
          this.tabPage2.Controls.Add(this.AddOrac_Butn);
          this.tabPage2.Controls.Add(this.PersOrac_Lov);
-         this.tabPage2.Location = new System.Drawing.Point(4, 23);
+         this.tabPage2.Location = new System.Drawing.Point(4, 22);
          this.tabPage2.Name = "tabPage2";
          this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-         this.tabPage2.Size = new System.Drawing.Size(696, 227);
+         this.tabPage2.Size = new System.Drawing.Size(696, 228);
          this.tabPage2.TabIndex = 2;
          this.tabPage2.Text = "دسترسی همکاران به سفارش";
          // 
@@ -1983,7 +1983,7 @@
          this.gridControl6.Name = "gridControl6";
          this.gridControl6.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.OracActn_Butn});
-         this.gridControl6.Size = new System.Drawing.Size(684, 183);
+         this.gridControl6.Size = new System.Drawing.Size(684, 184);
          this.gridControl6.TabIndex = 52;
          this.gridControl6.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView5});

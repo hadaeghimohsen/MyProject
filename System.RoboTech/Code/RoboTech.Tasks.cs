@@ -116,6 +116,21 @@ namespace System.RoboTech.Code
             if (_Ordr_Rcpt_F == null)
                _Ordr_Rcpt_F = new Ui.DevelopmentApplication.ORDR_RCPT_F { _DefaultGateway = this };
          }
+         else if (value == "bank_dvlp_f")
+         {
+            if (_Bank_Dvlp_F == null)
+               _Bank_Dvlp_F = new Ui.DevelopmentApplication.BANK_DVLP_F { _DefaultGateway = this };
+         }
+         else if (value == "prod_dvlp_f")
+         {
+            if (_Prod_Dvlp_F == null)
+               _Prod_Dvlp_F = new Ui.DevelopmentApplication.PROD_DVLP_F { _DefaultGateway = this };
+         }
+         else if (value == "wlet_dvlp_f")
+         {
+            if (_Wlet_Dvlp_F == null)
+               _Wlet_Dvlp_F = new Ui.DevelopmentApplication.WLET_DVLP_F { _DefaultGateway = this };
+         }
          #endregion
          #region Action
          else if (value == "strt_robo_f")
@@ -710,6 +725,81 @@ namespace System.RoboTech.Code
                   new Job(SendType.SelfToUserInterface, "ORDR_RCPT_F", 02 /* Execute Set */),
                   new Job(SendType.SelfToUserInterface, "ORDR_RCPT_F", 07 /* Execute Load_Data */),
                   new Job(SendType.SelfToUserInterface, "ORDR_RCPT_F", 03 /* Execute Paint */)
+               });
+         }
+         else if (job.Status == StatusType.SignalForPreconditions)
+         {
+            job.Status = StatusType.Successful;
+         }
+      }
+
+      /// <summary>
+      /// Code 25
+      /// </summary>
+      /// <param name="job"></param>
+      private void Bank_Dvlp_F(Job job)
+      {
+         if (job.Status == StatusType.Running)
+         {
+            job.Status = StatusType.WaitForPreconditions;
+            job.OwnerDefineWorkWith.AddRange(
+               new List<Job>
+               {
+                  new Job(SendType.Self, 01 /* Execute GetUi */){Input = "bank_dvlp_f"},
+                  new Job(SendType.SelfToUserInterface, "BANK_DVLP_F", 05 /* Execute CheckSecurity */),
+                  new Job(SendType.SelfToUserInterface, "BANK_DVLP_F", 02 /* Execute Set */),
+                  new Job(SendType.SelfToUserInterface, "BANK_DVLP_F", 07 /* Execute Load_Data */),
+                  new Job(SendType.SelfToUserInterface, "BANK_DVLP_F", 03 /* Execute Paint */)
+               });
+         }
+         else if (job.Status == StatusType.SignalForPreconditions)
+         {
+            job.Status = StatusType.Successful;
+         }
+      }
+
+      /// <summary>
+      /// Code 26
+      /// </summary>
+      /// <param name="job"></param>
+      private void Prod_Dvlp_F(Job job)
+      {
+         if (job.Status == StatusType.Running)
+         {
+            job.Status = StatusType.WaitForPreconditions;
+            job.OwnerDefineWorkWith.AddRange(
+               new List<Job>
+               {
+                  new Job(SendType.Self, 01 /* Execute GetUi */){Input = "prod_dvlp_f"},
+                  new Job(SendType.SelfToUserInterface, "PROD_DVLP_F", 05 /* Execute CheckSecurity */),
+                  new Job(SendType.SelfToUserInterface, "PROD_DVLP_F", 02 /* Execute Set */),
+                  new Job(SendType.SelfToUserInterface, "PROD_DVLP_F", 07 /* Execute Load_Data */),
+                  new Job(SendType.SelfToUserInterface, "PROD_DVLP_F", 03 /* Execute Paint */)
+               });
+         }
+         else if (job.Status == StatusType.SignalForPreconditions)
+         {
+            job.Status = StatusType.Successful;
+         }
+      }
+
+      /// <summary>
+      /// Code 27
+      /// </summary>
+      /// <param name="job"></param>
+      private void Wlet_Dvlp_F(Job job)
+      {
+         if (job.Status == StatusType.Running)
+         {
+            job.Status = StatusType.WaitForPreconditions;
+            job.OwnerDefineWorkWith.AddRange(
+               new List<Job>
+               {
+                  new Job(SendType.Self, 01 /* Execute GetUi */){Input = "wlet_dvlp_f"},
+                  new Job(SendType.SelfToUserInterface, "WLET_DVLP_F", 05 /* Execute CheckSecurity */),
+                  new Job(SendType.SelfToUserInterface, "WLET_DVLP_F", 02 /* Execute Set */),
+                  new Job(SendType.SelfToUserInterface, "WLET_DVLP_F", 07 /* Execute Load_Data */),
+                  new Job(SendType.SelfToUserInterface, "WLET_DVLP_F", 03 /* Execute Paint */)
                });
          }
          else if (job.Status == StatusType.SignalForPreconditions)

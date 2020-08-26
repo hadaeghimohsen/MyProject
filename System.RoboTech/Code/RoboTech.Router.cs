@@ -95,6 +95,15 @@ namespace System.RoboTech.Code
             case 24:
                Ordr_Rcpt_F(job);
                break;
+            case 25:
+               Bank_Dvlp_F(job);
+               break;
+            case 26:
+               Prod_Dvlp_F(job);
+               break;
+            case 27:
+               Wlet_Dvlp_F(job);
+               break;
             #endregion
             #region Action
             case 11:
@@ -183,6 +192,15 @@ namespace System.RoboTech.Code
                break;
             case "ORDR_RCPT_F":
                _Ordr_Rcpt_F.SendRequest(job);
+               break;
+            case "BANK_DVLP_F":
+               _Bank_Dvlp_F.SendRequest(job);
+               break;
+            case "PROD_DVLP_F":
+               _Prod_Dvlp_F.SendRequest(job);
+               break;
+            case "WLET_DVLP_F":
+               _Wlet_Dvlp_F.SendRequest(job);
                break;
             #endregion
             #region Action

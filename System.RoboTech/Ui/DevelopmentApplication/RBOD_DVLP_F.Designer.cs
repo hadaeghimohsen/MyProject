@@ -66,6 +66,7 @@
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition12 = new DevExpress.XtraGrid.StyleFormatCondition();
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition13 = new DevExpress.XtraGrid.StyleFormatCondition();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject13 = new DevExpress.Utils.SerializableAppearanceObject();
+         this.colOrdr_Code2 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
          this.colORDR_STAT = new DevExpress.XtraGrid.Columns.GridColumn();
          this.Odst_Lov = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
          this.DodstBs = new System.Windows.Forms.BindingSource(this.components);
@@ -134,6 +135,7 @@
          this.colSORC_TELL_PHON = new DevExpress.XtraTreeList.Columns.TreeListColumn();
          this.colSORC_EMAL_ADRS = new DevExpress.XtraTreeList.Columns.TreeListColumn();
          this.colSORC_WEB_SITE = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+         this.colCode1 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
          this.OrdrBs = new System.Windows.Forms.BindingSource(this.components);
          this.splitContainerControl7 = new DevExpress.XtraEditors.SplitContainerControl();
          this.groupBox8 = new System.Windows.Forms.GroupBox();
@@ -320,8 +322,6 @@
          this.Dlg_SaveFile = new System.Windows.Forms.SaveFileDialog();
          this.Dlg_OpenFile = new System.Windows.Forms.OpenFileDialog();
          this.Dlg_FolderBrowse = new System.Windows.Forms.FolderBrowserDialog();
-         this.colCode1 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
-         this.colOrdr_Code2 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
          cHAT_IDLabel = new System.Windows.Forms.Label();
          fRST_NAMELabel = new System.Windows.Forms.Label();
          lAST_NAMELabel = new System.Windows.Forms.Label();
@@ -482,7 +482,7 @@
          // 
          label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          label2.AutoSize = true;
-         label2.Location = new System.Drawing.Point(1001, 12);
+         label2.Location = new System.Drawing.Point(978, 12);
          label2.Name = "label2";
          label2.Size = new System.Drawing.Size(60, 14);
          label2.TabIndex = 0;
@@ -492,7 +492,7 @@
          // 
          label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          label3.AutoSize = true;
-         label3.Location = new System.Drawing.Point(769, 12);
+         label3.Location = new System.Drawing.Point(746, 12);
          label3.Name = "label3";
          label3.Size = new System.Drawing.Size(83, 14);
          label3.TabIndex = 0;
@@ -502,7 +502,7 @@
          // 
          label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          label4.AutoSize = true;
-         label4.Location = new System.Drawing.Point(543, 13);
+         label4.Location = new System.Drawing.Point(520, 13);
          label4.Name = "label4";
          label4.Size = new System.Drawing.Size(112, 14);
          label4.TabIndex = 4;
@@ -512,11 +512,17 @@
          // 
          label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          label5.AutoSize = true;
-         label5.Location = new System.Drawing.Point(345, 12);
+         label5.Location = new System.Drawing.Point(322, 12);
          label5.Name = "label5";
          label5.Size = new System.Drawing.Size(92, 14);
          label5.TabIndex = 0;
          label5.Text = "شرح درخواست :";
+         // 
+         // colOrdr_Code2
+         // 
+         this.colOrdr_Code2.Caption = "treeListColumn1";
+         this.colOrdr_Code2.FieldName = "ORDR_CODE";
+         this.colOrdr_Code2.Name = "colOrdr_Code2";
          // 
          // colORDR_STAT
          // 
@@ -656,7 +662,7 @@
          this.splitContainerControl1.Panel2.Controls.Add(this.groupBox1);
          this.splitContainerControl1.Panel2.Text = "Panel2";
          this.splitContainerControl1.Size = new System.Drawing.Size(1588, 566);
-         this.splitContainerControl1.SplitterPosition = 1397;
+         this.splitContainerControl1.SplitterPosition = 1374;
          this.splitContainerControl1.TabIndex = 2;
          this.splitContainerControl1.Text = "splitContainerControl1";
          // 
@@ -669,7 +675,7 @@
          this.splitContainerControl8.Panel1.Text = "Panel1";
          this.splitContainerControl8.Panel2.Controls.Add(this.splitContainerControl7);
          this.splitContainerControl8.Panel2.Text = "Panel2";
-         this.splitContainerControl8.Size = new System.Drawing.Size(1397, 566);
+         this.splitContainerControl8.Size = new System.Drawing.Size(1374, 566);
          this.splitContainerControl8.SplitterPosition = 315;
          this.splitContainerControl8.TabIndex = 4;
          this.splitContainerControl8.Text = "splitContainerControl8";
@@ -1102,6 +1108,12 @@
          this.colSORC_WEB_SITE.Name = "colSORC_WEB_SITE";
          this.colSORC_WEB_SITE.Width = 20;
          // 
+         // colCode1
+         // 
+         this.colCode1.Caption = "treeListColumn1";
+         this.colCode1.FieldName = "CODE";
+         this.colCode1.Name = "colCode1";
+         // 
          // OrdrBs
          // 
          this.OrdrBs.DataSource = typeof(System.RoboTech.Data.Order);
@@ -1117,7 +1129,7 @@
          this.splitContainerControl7.Panel1.Text = "Panel1";
          this.splitContainerControl7.Panel2.Controls.Add(this.splitContainerControl2);
          this.splitContainerControl7.Panel2.Text = "Panel2";
-         this.splitContainerControl7.Size = new System.Drawing.Size(1077, 566);
+         this.splitContainerControl7.Size = new System.Drawing.Size(1054, 566);
          this.splitContainerControl7.SplitterPosition = 214;
          this.splitContainerControl7.TabIndex = 3;
          this.splitContainerControl7.Text = "splitContainerControl7";
@@ -1131,7 +1143,7 @@
          this.groupBox8.Dock = System.Windows.Forms.DockStyle.Fill;
          this.groupBox8.Location = new System.Drawing.Point(0, 0);
          this.groupBox8.Name = "groupBox8";
-         this.groupBox8.Size = new System.Drawing.Size(1077, 214);
+         this.groupBox8.Size = new System.Drawing.Size(1054, 214);
          this.groupBox8.TabIndex = 2;
          this.groupBox8.TabStop = false;
          this.groupBox8.Text = "لیست درخواست های مشترکین";
@@ -1151,7 +1163,7 @@
             this.persianRepositoryItemDateEdit1,
             this.Odtp_Lov,
             this.Odst_Lov});
-         this.gridControl2.Size = new System.Drawing.Size(1071, 109);
+         this.gridControl2.Size = new System.Drawing.Size(1048, 109);
          this.gridControl2.TabIndex = 4;
          this.gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.Ordr_Gv});
@@ -1488,7 +1500,7 @@
          this.textEdit1.Properties.NullText = "عنوان نامه";
          this.textEdit1.Properties.NullValuePrompt = "عنوان نامه";
          this.textEdit1.Properties.NullValuePromptShowForEmptyValue = true;
-         this.textEdit1.Size = new System.Drawing.Size(1071, 22);
+         this.textEdit1.Size = new System.Drawing.Size(1048, 22);
          this.textEdit1.TabIndex = 10;
          // 
          // panel1
@@ -1504,7 +1516,7 @@
          this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
          this.panel1.Location = new System.Drawing.Point(3, 43);
          this.panel1.Name = "panel1";
-         this.panel1.Size = new System.Drawing.Size(1071, 37);
+         this.panel1.Size = new System.Drawing.Size(1048, 37);
          this.panel1.TabIndex = 5;
          // 
          // OrdrDate_Dat
@@ -1512,7 +1524,7 @@
          this.OrdrDate_Dat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.OrdrDate_Dat.CustomFormat = "dd/MM/yyyy";
          this.OrdrDate_Dat.Format = Atf.UI.DateTimeSelectorFormat.Custom;
-         this.OrdrDate_Dat.Location = new System.Drawing.Point(437, 8);
+         this.OrdrDate_Dat.Location = new System.Drawing.Point(414, 8);
          this.OrdrDate_Dat.Name = "OrdrDate_Dat";
          this.OrdrDate_Dat.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
          this.OrdrDate_Dat.Size = new System.Drawing.Size(100, 23);
@@ -1522,7 +1534,7 @@
          // Serv_Lov
          // 
          this.Serv_Lov.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.Serv_Lov.Location = new System.Drawing.Point(858, 9);
+         this.Serv_Lov.Location = new System.Drawing.Point(835, 9);
          this.Serv_Lov.Name = "Serv_Lov";
          this.Serv_Lov.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.Serv_Lov.Properties.Appearance.Options.UseFont = true;
@@ -1737,7 +1749,7 @@
          // OrdrType_Lov
          // 
          this.OrdrType_Lov.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.OrdrType_Lov.Location = new System.Drawing.Point(664, 9);
+         this.OrdrType_Lov.Location = new System.Drawing.Point(641, 9);
          this.OrdrType_Lov.Name = "OrdrType_Lov";
          this.OrdrType_Lov.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.OrdrType_Lov.Properties.Appearance.Options.UseFont = true;
@@ -1760,7 +1772,7 @@
          // OrdrCmnt_Txt
          // 
          this.OrdrCmnt_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.OrdrCmnt_Txt.Location = new System.Drawing.Point(179, 9);
+         this.OrdrCmnt_Txt.Location = new System.Drawing.Point(156, 9);
          this.OrdrCmnt_Txt.Name = "OrdrCmnt_Txt";
          this.OrdrCmnt_Txt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.OrdrCmnt_Txt.Properties.Appearance.Options.UseFont = true;
@@ -1808,7 +1820,7 @@
          this.OrdrBn.MovePreviousItem = this.toolStripButton37;
          this.OrdrBn.Name = "OrdrBn";
          this.OrdrBn.PositionItem = this.toolStripTextBox7;
-         this.OrdrBn.Size = new System.Drawing.Size(1071, 25);
+         this.OrdrBn.Size = new System.Drawing.Size(1048, 25);
          this.OrdrBn.TabIndex = 3;
          // 
          // toolStripButton35
@@ -2016,7 +2028,7 @@
          this.splitContainerControl2.Panel1.Text = "Panel1";
          this.splitContainerControl2.Panel2.Controls.Add(this.groupBox5);
          this.splitContainerControl2.Panel2.Text = "Panel2";
-         this.splitContainerControl2.Size = new System.Drawing.Size(1077, 347);
+         this.splitContainerControl2.Size = new System.Drawing.Size(1054, 347);
          this.splitContainerControl2.SplitterPosition = 526;
          this.splitContainerControl2.TabIndex = 4;
          this.splitContainerControl2.Text = "splitContainerControl2";
@@ -2341,7 +2353,7 @@
          this.groupBox5.Dock = System.Windows.Forms.DockStyle.Fill;
          this.groupBox5.Location = new System.Drawing.Point(0, 0);
          this.groupBox5.Name = "groupBox5";
-         this.groupBox5.Size = new System.Drawing.Size(546, 347);
+         this.groupBox5.Size = new System.Drawing.Size(523, 347);
          this.groupBox5.TabIndex = 3;
          this.groupBox5.TabStop = false;
          this.groupBox5.Text = "ردیف درخواست";
@@ -2358,7 +2370,7 @@
          this.gridControl6.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.Elmt_Lov,
             this.Ordt_Butn});
-         this.gridControl6.Size = new System.Drawing.Size(540, 279);
+         this.gridControl6.Size = new System.Drawing.Size(517, 279);
          this.gridControl6.TabIndex = 4;
          this.gridControl6.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView7});
@@ -2523,7 +2535,7 @@
          this.OrdtBn.MovePreviousItem = this.toolStripButton28;
          this.OrdtBn.Name = "OrdtBn";
          this.OrdtBn.PositionItem = this.toolStripTextBox4;
-         this.OrdtBn.Size = new System.Drawing.Size(540, 25);
+         this.OrdtBn.Size = new System.Drawing.Size(517, 25);
          this.OrdtBn.TabIndex = 3;
          // 
          // toolStripButton26
@@ -2650,7 +2662,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton()});
          this.FilePath_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
          this.FilePath_Txt.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.FilePath_Txt.Size = new System.Drawing.Size(540, 22);
+         this.FilePath_Txt.Size = new System.Drawing.Size(517, 22);
          this.FilePath_Txt.TabIndex = 1;
          this.FilePath_Txt.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.FilePath_Txt_ButtonClick);
          // 
@@ -2660,7 +2672,7 @@
          this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
          this.groupBox1.Location = new System.Drawing.Point(0, 0);
          this.groupBox1.Name = "groupBox1";
-         this.groupBox1.Size = new System.Drawing.Size(186, 566);
+         this.groupBox1.Size = new System.Drawing.Size(209, 566);
          this.groupBox1.TabIndex = 1;
          this.groupBox1.TabStop = false;
          this.groupBox1.Text = "سازمان و ارگان ها و ربات ها";
@@ -2675,7 +2687,7 @@
          this.splitContainerControl5.Panel1.Text = "Panel1";
          this.splitContainerControl5.Panel2.Controls.Add(this.splitContainerControl6);
          this.splitContainerControl5.Panel2.Text = "Panel2";
-         this.splitContainerControl5.Size = new System.Drawing.Size(180, 545);
+         this.splitContainerControl5.Size = new System.Drawing.Size(203, 545);
          this.splitContainerControl5.SplitterPosition = 145;
          this.splitContainerControl5.TabIndex = 2;
          this.splitContainerControl5.Text = "splitContainerControl5";
@@ -2695,7 +2707,7 @@
             this.Prvn_Lov,
             this.Regn_Lov,
             this.OrgnActn_Butn});
-         this.countryGridControl.Size = new System.Drawing.Size(180, 145);
+         this.countryGridControl.Size = new System.Drawing.Size(203, 145);
          this.countryGridControl.TabIndex = 1;
          this.countryGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -2914,7 +2926,7 @@
          this.splitContainerControl6.Panel1.Text = "Panel1";
          this.splitContainerControl6.Panel2.Controls.Add(this.RobotTrace_Txt);
          this.splitContainerControl6.Panel2.Text = "Panel2";
-         this.splitContainerControl6.Size = new System.Drawing.Size(180, 395);
+         this.splitContainerControl6.Size = new System.Drawing.Size(203, 395);
          this.splitContainerControl6.SplitterPosition = 146;
          this.splitContainerControl6.TabIndex = 3;
          this.splitContainerControl6.Text = "splitContainerControl6";
@@ -2932,7 +2944,7 @@
             this.Actv_Lov2,
             this.Buld_Lov,
             this.persianRepositoryItemDateEdit6});
-         this.gridControl1.Size = new System.Drawing.Size(180, 146);
+         this.gridControl1.Size = new System.Drawing.Size(203, 146);
          this.gridControl1.TabIndex = 2;
          this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
@@ -3108,7 +3120,7 @@
          this.RobotTrace_Txt.Name = "RobotTrace_Txt";
          this.RobotTrace_Txt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.RobotTrace_Txt.Properties.Appearance.Options.UseFont = true;
-         this.RobotTrace_Txt.Size = new System.Drawing.Size(180, 244);
+         this.RobotTrace_Txt.Size = new System.Drawing.Size(203, 244);
          this.RobotTrace_Txt.TabIndex = 1;
          // 
          // Btn_Back
@@ -3133,18 +3145,6 @@
          // Dlg_OpenFile
          // 
          this.Dlg_OpenFile.Filter = "All File | *.*";
-         // 
-         // colCode1
-         // 
-         this.colCode1.Caption = "treeListColumn1";
-         this.colCode1.FieldName = "CODE";
-         this.colCode1.Name = "colCode1";
-         // 
-         // colOrdr_Code2
-         // 
-         this.colOrdr_Code2.Caption = "treeListColumn1";
-         this.colOrdr_Code2.FieldName = "ORDR_CODE";
-         this.colOrdr_Code2.Name = "colOrdr_Code2";
          // 
          // RBOD_DVLP_F
          // 

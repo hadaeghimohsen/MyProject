@@ -42,6 +42,10 @@
     <Reference Include="Bale.Bot.Tests.Unit">
       <HintPath>..\..\Repository\iBale\test\Telegram.Bot.Tests.Unit\bin\Debug\netcoreapp2.0\Bale.Bot.Tests.Unit.dll</HintPath>
     </Reference>
+    <Reference Include="C1.C1DataExtender.2, Version=2.0.20113.81, Culture=neutral, PublicKeyToken=7c4b5683f80b910e" />
+    <Reference Include="C1.Win.4">
+      <HintPath>C:\Program Files (x86)\ComponentOne\Apps\v4.0\C1.Win.4.dll</HintPath>
+    </Reference>
     <Reference Include="C1.Win.C1Command.2, Version=2.0.20152.67, Culture=neutral, PublicKeyToken=e808566f358766d8" />
     <Reference Include="C1.Win.C1Input.2, Version=2.0.20152.67, Culture=neutral, PublicKeyToken=7e7ff60f0c214f9a, processorArchitecture=MSIL" />
     <Reference Include="C1.Win.C1Ribbon.2, Version=2.0.20152.67, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL" />
@@ -135,6 +139,7 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Data.OracleClient" />
     <Reference Include="System.Design" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Drawing.Design" />
@@ -152,6 +157,7 @@
     <Reference Include="System.Numerics" />
     <Reference Include="System.Runtime.Remoting" />
     <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
     <Reference Include="System.Security" />
     <Reference Include="System.Web" />
     <Reference Include="System.Windows.Forms" />
@@ -267,11 +273,47 @@
     <Compile Include="Ui\BaseDefinition\REGN_DFIN_F.RequestRespons.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Ui\DevelopmentApplication\ONLR_DVLP_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\DevelopmentApplication\ONLR_DVLP_F.Designer.cs">
+      <DependentUpon>ONLR_DVLP_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\DevelopmentApplication\ONLR_DVLP_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\DevelopmentApplication\WLET_DVLP_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\DevelopmentApplication\WLET_DVLP_F.Designer.cs">
+      <DependentUpon>WLET_DVLP_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\DevelopmentApplication\WLET_DVLP_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\DevelopmentApplication\PROD_DVLP_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\DevelopmentApplication\PROD_DVLP_F.Designer.cs">
+      <DependentUpon>PROD_DVLP_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\DevelopmentApplication\BANK_DVLP_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\DevelopmentApplication\BANK_DVLP_F.Designer.cs">
+      <DependentUpon>BANK_DVLP_F.cs</DependentUpon>
+    </Compile>
     <Compile Include="Ui\DevelopmentApplication\ALPK_DVLP_F.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Ui\DevelopmentApplication\ALPK_DVLP_F.Designer.cs">
       <DependentUpon>ALPK_DVLP_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\DevelopmentApplication\PROD_DVLP_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\DevelopmentApplication\BANK_DVLP_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Ui\DevelopmentApplication\ALPK_DVLP_F.RequestRespons.cs">
       <SubType>UserControl</SubType>
@@ -423,25 +465,36 @@
     <None Include="Properties\DataSources\System.RoboTech.Data.D_ACTV.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_AMTP.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_AMUT.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.D_ATYP.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_BDIR.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_BTYP.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_BULD.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_CMTP.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_CNTP.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.D_CONF.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.D_CSTP.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.D_DAYT.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_DSTP.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_ELMT.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_GMTP.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.D_GRNT.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.D_INOT.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_MDFR.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_MNTP.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_ODST.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_ORDT.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.D_PDTP.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_PKTP.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_RCVT.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_RMTP.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_SDTP.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_SHIN.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.D_SPTP.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_SPYT.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.D_TXFC.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.D_TXFT.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_URLT.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.D_WLTP.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_YSNO.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Group.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Group_Header.datasource" />
@@ -469,27 +522,52 @@
     <None Include="Properties\DataSources\System.RoboTech.Data.Province.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Region.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Robot.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.Robot_Card_Bank_Account.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.Robot_Card_Bank_Account1.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.Robot_External_Query.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Robot_Import.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.Robot_Product.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.Robot_Product_Alternative.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.Robot_Product_Discount.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.Robot_Product_Preview.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.Robot_Product_StepPrice.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Robot_Spy_Group_Message_Detail.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Send_Advertising.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Service.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Service_Robot.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.Service_Robot_Card_Bank.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.Service_Robot_Discount_Card.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.Service_Robot_Gift_Card.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Service_Robot_Group.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Service_Robot_Message.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.Service_Robot_Product_Amazing_Notification.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.Service_Robot_Product_Feedback.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.Service_Robot_Product_Find_Best_Price.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.Service_Robot_Product_Like.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.Service_Robot_Product_Rating.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.Service_Robot_Product_Signal.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Service_Robot_Public.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Service_Robot_Replay_Message.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.Service_Robot_Seller.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.Service_Robot_Seller_Product.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.Service_Robot_Seller_Product_Gift.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.Service_Robot_Seller_Product_Store.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Service_Robot_Upload.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Service_Robot_Visit.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Setting.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.Transaction_Fee.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.User_Organ_Fgac.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.User_Region_Fgac.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.User_RobotListener_Fgac.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.User_RobotListener_Log.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.V_Computer.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.V_Group_Expense.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.V_RowID.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.V_UCFGA.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.V_URFGA.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.V_User.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.Wallet.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.Wallet_Detail.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -541,6 +619,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Ui\BaseDefinition\REGN_DFIN_F.resx">
       <DependentUpon>REGN_DFIN_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\DevelopmentApplication\ONLR_DVLP_F.resx">
+      <DependentUpon>ONLR_DVLP_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\DevelopmentApplication\WLET_DVLP_F.resx">
+      <DependentUpon>WLET_DVLP_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\DevelopmentApplication\PROD_DVLP_F.resx">
+      <DependentUpon>PROD_DVLP_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\DevelopmentApplication\BANK_DVLP_F.resx">
+      <DependentUpon>BANK_DVLP_F.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ui\DevelopmentApplication\ALPK_DVLP_F.resx">
       <DependentUpon>ALPK_DVLP_F.cs</DependentUpon>

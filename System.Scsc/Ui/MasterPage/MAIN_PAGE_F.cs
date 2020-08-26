@@ -3704,10 +3704,10 @@ namespace System.Scsc.Ui.MasterPage
             var ctrldev = iScsc.Dressers.FirstOrDefault(d => d.Computer_Action.COMP_NAME == xHost.Attribute("name").Value && d.REC_STAT == "002" && d.DRES_NUMB == dresrattn.Dresser.DRES_NUMB);
             var devsName = iScsc.External_Devices.Where(d => d.DEV_COMP_TYPE == "002" && (d.DEV_TYPE == "009" || d.DEV_TYPE == "010") && d.STAT == "002");
             // ابتدا نمایش  صفحه نمایش اتفاق بیوفتد
-            SendCommandDevExpn(dresrattn.Attendance.DERS_NUMB.ToString(), devsName.FirstOrDefault(d => d.DEV_TYPE == "009").DEV_NAME, dresrattn.Attendance.FNGR_PRNT_DNRM);
+            SendCommandDevExpn(dresrattn.Attendance.DERS_NUMB.ToString().PadLeft(3, '0'), devsName.FirstOrDefault(d => d.DEV_TYPE == "009").DEV_NAME, dresrattn.Attendance.FNGR_PRNT_DNRM);
 
             // مرحله بعدی ارسال پیام به دستگاه کنترلر مربوط به کمدهای قفل انلاین هست
-            SendCommandDevExpn(dresrattn.Attendance.DERS_NUMB.ToString(), devsName.FirstOrDefault(d => d.DEV_TYPE == "010" && d.IP_ADRS == ctrldev.IP_ADRS).DEV_NAME, dresrattn.Attendance.FNGR_PRNT_DNRM);
+            SendCommandDevExpn(dresrattn.Attendance.DERS_NUMB.ToString().PadLeft(3, '0'), devsName.FirstOrDefault(d => d.DEV_TYPE == "010" && d.IP_ADRS == ctrldev.IP_ADRS).DEV_NAME, dresrattn.Attendance.FNGR_PRNT_DNRM);
 
             BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Green;
          }
@@ -5773,6 +5773,11 @@ namespace System.Scsc.Ui.MasterPage
                      new Job(SendType.SelfToUserInterface, "WRN_SERV_F", 10 /* Execute Actn_CalF_F */){Input = new XElement("Fighter")}
                   });
          _DefaultGateway.Gateway(_InteractWithScsc);
+      }
+
+      private void button5_Click(object sender, EventArgs e)
+      {
+         server.Dispose();
       }
    }
 }

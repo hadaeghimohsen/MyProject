@@ -231,7 +231,7 @@ namespace System.RoboTech.Ui.MasterPage
       /// <param name="job"></param>
       private void LoadData(Job job)
       {
-         OrderShipping_Recipt();
+         OrderAction_Recipt();
          job.Status = StatusType.Successful;
       }
 
@@ -336,7 +336,7 @@ namespace System.RoboTech.Ui.MasterPage
             {
                case "loadrcpt":
                   frstLoad = false;
-                  OrderShipping_Recipt();
+                  OrderAction_Recipt();
 
                   var ordrrcpt =
                      iRoboTech.Order_States.Where(os => os.Order.Robot.Organ.STAT == "002" && os.Order.Robot.STAT == "002" && os.Order.ORDR_STAT == "001" && os.AMNT_TYPE == "005" && os.CONF_STAT == "003");
@@ -390,6 +390,23 @@ namespace System.RoboTech.Ui.MasterPage
                               },
                            Executive = ExecutiveType.Asynchronous
                         }
+                     );
+                  break;
+               case "receptionorder::ok":
+                  iRoboTech.ExecuteCommand(string.Format("BEGIN UPDATE dbo.[Order] SET Ordr_Stat = '002' WHERE Code = {0}; END;", param));
+
+                  frstLoad = false;
+                  OrderAction_Recipt();
+                  
+                  var ordr25 =
+                     iRoboTech.Orders.Where(o => o.ORDR_TYPE == "025" && (o.ORDR_STAT == "002" || o.ORDR_STAT == "016")).ToList();
+
+                  job.Output =
+                     new XElement("Output",
+                        new XAttribute("resultcode", 10001),
+                        new XAttribute("resultdesc", "📨 *ارسال درخواست سفارش* " + Environment.NewLine + Environment.NewLine + "👈 *شماره درخواست شما* [ *" + param + "* ] - 025" + Environment.NewLine + "🔢 تعداد سفارشات درون صف [ *" + ordr25.Count().ToString() + "* ]"),
+                        new XAttribute("mesgtype", "1"),
+                        new XAttribute("mesgdesc", "Text")
                      );
                   break;
             }

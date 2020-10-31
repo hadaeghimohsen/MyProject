@@ -205,6 +205,18 @@ namespace System.Scsc.Ui.Notifications
          EndDate_Txt.Text = string.Format("{0}/{1}/{2}", pc.GetYear((DateTime)attn.MBSP_END_DATE_DNRM), pc.GetMonth((DateTime)attn.MBSP_END_DATE_DNRM), pc.GetDayOfMonth((DateTime)attn.MBSP_END_DATE_DNRM));
          BrthDate_Txt.Text = string.Format("{0}/{1}/{2}", pc.GetYear((DateTime)attn.BRTH_DATE_DNRM), pc.GetMonth((DateTime)attn.BRTH_DATE_DNRM), pc.GetDayOfMonth((DateTime)attn.BRTH_DATE_DNRM));
 
+         if (attn.Fighter1.INSR_DATE_DNRM != null)
+         {
+            InsrDate_Txt.Text = string.Format("{0}/{1}/{2}", pc.GetYear((DateTime)attn.Fighter1.INSR_DATE_DNRM), pc.GetMonth((DateTime)attn.Fighter1.INSR_DATE_DNRM), pc.GetDayOfMonth((DateTime)attn.Fighter1.INSR_DATE_DNRM));
+            InsrRmnd_Txt.Text = (attn.Fighter1.INSR_DATE_DNRM.Value.Date - DateTime.Now.Date).Days.ToString();
+         }
+         else
+         {
+            InsrDate_Txt.Text = "بیمه ندارد";
+            InsrRmnd_Txt.Text = "";
+         }
+
+
          if (iScsc.GET_MTOS_U((DateTime?)attn.ATTN_DATE.Date).Substring(5) == BrthDate_Txt.Text.Substring(5))
             HappyBirthDate_Lab.Visible = true;
          else

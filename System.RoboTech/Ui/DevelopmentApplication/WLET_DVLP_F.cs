@@ -50,6 +50,7 @@ namespace System.RoboTech.Ui.DevelopmentApplication
          SrbtBs.Position = srbt;
 
          O24sBs.DataSource = iRoboTech.Orders.Where(o => o.ORDR_TYPE == "024" && o.ORDR_STAT == "001");
+         O24eBs.DataSource = iRoboTech.Orders.Where(o => o.ORDR_TYPE == "024" && o.ORDR_STAT == "004");
 
          requery = false;
       }
@@ -62,10 +63,10 @@ namespace System.RoboTech.Ui.DevelopmentApplication
             if (robo == null) return;
 
             WletBs.DataSource =
-               iRoboTech.Wallets.Where(w => w.Service_Robot.NATL_CODE != null);
+               iRoboTech.Wallets.Where(w => w.Robot == robo && w.Service_Robot.NATL_CODE != null);
 
             SrbtBs.DataSource =
-               iRoboTech.Service_Robots.Where(sr => sr.NATL_CODE != null && sr.NATL_CODE != "" && sr.NATL_CODE.Length == 10);
+               iRoboTech.Service_Robots.Where(sr => sr.Robot == robo && sr.NATL_CODE != null && sr.NATL_CODE != "" && sr.NATL_CODE.Length == 10);
          }
          catch (Exception exc)
          {
@@ -96,7 +97,7 @@ namespace System.RoboTech.Ui.DevelopmentApplication
          }
       }
 
-      private void R24sBs_CurrentChanged(object sender, EventArgs e)
+      private void O24sBs_CurrentChanged(object sender, EventArgs e)
       {
          try
          {
@@ -115,7 +116,23 @@ namespace System.RoboTech.Ui.DevelopmentApplication
       {
          try
          {
+            var o24e = O24eBs.Current as Data.Order;
+            if (o24e == null) return;
 
+            OrdrBs.DataSource = o24e;
+            O17Bs.DataSource = o24e.Orders.FirstOrDefault(o => o.ORDR_TYPE == "017");
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void WletBs_CurrentChanged(object sender, EventArgs e)
+      {
+         try
+         {
+            wldt_gv.TopRowIndex = 0;            
          }
          catch (Exception exc)
          {

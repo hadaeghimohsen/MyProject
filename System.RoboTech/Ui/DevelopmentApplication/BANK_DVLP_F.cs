@@ -108,6 +108,9 @@ namespace System.RoboTech.Ui.DevelopmentApplication
                iRoboTech.INS_RCBA_P(robo.RBID, CardNumb_Txt.Text, ShbaNumb_Txt.Text, "002", AcntOwnr_Txt.Text, AcntDesc_Txt.Text, OrdrType_Lov.EditValue.ToString(), "001");
             }
 
+            // Empty TextBox
+            CardNumb_Txt.Text = ShbaNumb_Txt.Text = AcntOwnr_Txt.Text = AcntDesc_Txt.Text = "";
+
             requery = true;
          }
          catch (Exception exc)

@@ -95,7 +95,7 @@ namespace System.RoboTech.Ui.DevelopmentApplication
                               new XAttribute("actntype", "sendordrs"),
                               //new XAttribute("keypad", "inline"),
                               //new XAttribute("command", "getalopyks"),
-                              new XAttribute("rbid", /*ordr.SRBT_ROBO_RBID*/399)
+                              new XAttribute("rbid", ordr.SRBT_ROBO_RBID)
                            )
                      }                     
                   }

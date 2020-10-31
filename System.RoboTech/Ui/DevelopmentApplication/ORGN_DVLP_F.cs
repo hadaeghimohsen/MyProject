@@ -85,6 +85,8 @@ namespace System.RoboTech.Ui.DevelopmentApplication
             Rbdc_Gv.PostEditor();
             Gphd_Gv.PostEditor();
             Ghit_Gv.PostEditor();
+            Prjb_gv.PostEditor();
+            Prbt_Gv.PostEditor();
             
             OrgnBs.EndEdit();
             RoboBs.EndEdit();

@@ -3176,7 +3176,7 @@ namespace System.Scsc.Ui.MasterPage
                      // 1 - بازی های زمان متغییر مانند بیلیارد
                      // 2 - بازی های زمان ثابت مانند شهربازی
                      //devName = Regex.Replace(devName, "[^0-9]", "");
-                     var getInfoDev = iScsc.External_Devices.FirstOrDefault(d => d.DEV_NAME == devName);
+                     var getInfoDev = iScsc.External_Devices.FirstOrDefault(d => d.DEV_NAME == devName && d.STAT == "002");
                      if (getInfoDev == null) { System.Diagnostics.Debug.WriteLine("Reject because can't found device" + devName); return; }
 
                      // set Finger Print Data on Text Box
@@ -3257,10 +3257,20 @@ namespace System.Scsc.Ui.MasterPage
                            {
                               var devExpn = iScsc.Expenses.FirstOrDefault(ex => ex.CODE == getInfoDev.EXPN_CODE);
                               // مجوز اجرای بازی
-                              SendCommandDevExpn(
-                                 "er:" + "0".PadLeft(10, ' ') +
-                                 "&" + devExpn.MIN_TIME.Value.Minute.ToString().PadLeft(2, ' ') +
-                                 ":" + devExpn.PRIC.ToString("n0").PadLeft(9, ' '), devName, fngrPrnt);
+                              if (devExpn != null)
+                              {
+                                 SendCommandDevExpn(
+                                    "er:" + "0".PadLeft(10, ' ') +
+                                    "&" + devExpn.MIN_TIME.Value.Minute.ToString().PadLeft(2, ' ') +
+                                    ":" + devExpn.PRIC.ToString("n0").PadLeft(9, ' '), devName, fngrPrnt);
+                              }
+                              else
+                              {
+                                 SendCommandDevExpn(
+                                    "er:" + "0".PadLeft(10, ' ') +
+                                    "&" + "  " +
+                                    ":" + "         ", devName, fngrPrnt);
+                              }
                            }
                         return;
                      }
@@ -3453,7 +3463,7 @@ namespace System.Scsc.Ui.MasterPage
             iScsc = new Data.iScscDataContext(ConnectionString);
             // input data e.g : {device code} "-" {Card Code}            
             var devName = e.ConnectedClient.ConnectAddress;
-            var getInfoDev = iScsc.External_Devices.FirstOrDefault(d => d.DEV_NAME == devName);
+            var getInfoDev = iScsc.External_Devices.FirstOrDefault(d => d.DEV_NAME == devName && d.STAT == "002");
             if (getInfoDev.DEV_COMP_TYPE == "002" && getInfoDev.DEV_TYPE == "008")
             {
                var devExpn = iScsc.Expenses.FirstOrDefault(ex => ex.CODE == getInfoDev.EXPN_CODE);

@@ -30,22 +30,21 @@
       {
          this.components = new System.ComponentModel.Container();
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FRST_PAGE_F));
-         DevExpress.Utils.SuperToolTip superToolTip2 = new DevExpress.Utils.SuperToolTip();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem3 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.ToolTipItem toolTipItem2 = new DevExpress.Utils.ToolTipItem();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem4 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.SuperToolTip superToolTip3 = new DevExpress.Utils.SuperToolTip();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem5 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.ToolTipItem toolTipItem3 = new DevExpress.Utils.ToolTipItem();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem6 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.SuperToolTip superToolTip4 = new DevExpress.Utils.SuperToolTip();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem7 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.ToolTipItem toolTipItem4 = new DevExpress.Utils.ToolTipItem();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem8 = new DevExpress.Utils.ToolTipTitleItem();
          DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
          DevExpress.Utils.ToolTipTitleItem toolTipTitleItem1 = new DevExpress.Utils.ToolTipTitleItem();
          DevExpress.Utils.ToolTipItem toolTipItem1 = new DevExpress.Utils.ToolTipItem();
+         DevExpress.Utils.SuperToolTip superToolTip2 = new DevExpress.Utils.SuperToolTip();
          DevExpress.Utils.ToolTipTitleItem toolTipTitleItem2 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.ToolTipItem toolTipItem2 = new DevExpress.Utils.ToolTipItem();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem3 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.SuperToolTip superToolTip3 = new DevExpress.Utils.SuperToolTip();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem4 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.ToolTipItem toolTipItem3 = new DevExpress.Utils.ToolTipItem();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem5 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.SuperToolTip superToolTip4 = new DevExpress.Utils.SuperToolTip();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem6 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.ToolTipItem toolTipItem4 = new DevExpress.Utils.ToolTipItem();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem7 = new DevExpress.Utils.ToolTipTitleItem();
          this.c1Ribbon1 = new C1.Win.C1Ribbon.C1Ribbon();
          this.ribbonApplicationMenu1 = new C1.Win.C1Ribbon.RibbonApplicationMenu();
          this.ribbonBottomToolBar1 = new C1.Win.C1Ribbon.RibbonBottomToolBar();
@@ -71,7 +70,7 @@
          this.DefBankAcnt_Butn = new C1.Win.C1Ribbon.RibbonButton();
          this.DefProdRobo_Butn = new C1.Win.C1Ribbon.RibbonButton();
          this.MangWletRobo_Butn = new C1.Win.C1Ribbon.RibbonButton();
-         this.ribbonButton21 = new C1.Win.C1Ribbon.RibbonButton();
+         this.OnlnRecpOrdrRobo_Butn = new C1.Win.C1Ribbon.RibbonButton();
          this.ribbonTab3 = new C1.Win.C1Ribbon.RibbonTab();
          this.ribbonGroup3 = new C1.Win.C1Ribbon.RibbonGroup();
          this.StrtRobo_Butn = new C1.Win.C1Ribbon.RibbonButton();
@@ -79,15 +78,15 @@
          this.ribbonButton1 = new C1.Win.C1Ribbon.RibbonButton();
          this.ribbonTopToolBar1 = new C1.Win.C1Ribbon.RibbonTopToolBar();
          this.Pnl_Desktop = new DevExpress.XtraEditors.SplitContainerControl();
+         this.NotfOrdrOnlineAdmission_Butn = new System.MaxUi.RoundedButton();
+         this.OrderOnlineAdmission_Butn = new DevExpress.XtraEditors.SimpleButton();
+         this.NotfOrdrShip_Butn = new System.MaxUi.RoundedButton();
+         this.NotfOrdrReceipt_Butn = new System.MaxUi.RoundedButton();
          this.OrdrReceipt_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.OrdrShip_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.AdjustDateTime_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.sb_logout = new DevExpress.XtraEditors.SimpleButton();
          this.Tm_ShowTime = new System.Windows.Forms.Timer(this.components);
-         this.NotfOrdrShip_Butn = new System.MaxUi.RoundedButton();
-         this.NotfOrdrReceipt_Butn = new System.MaxUi.RoundedButton();
-         this.roundedButton1 = new System.MaxUi.RoundedButton();
-         this.OrderOnlineAdmission_Butn = new DevExpress.XtraEditors.SimpleButton();
          ((System.ComponentModel.ISupportInitialize)(this.c1Ribbon1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.Pnl_Desktop)).BeginInit();
          this.Pnl_Desktop.SuspendLayout();
@@ -261,7 +260,7 @@
          this.ribbonGroup6.Items.Add(this.DefBankAcnt_Butn);
          this.ribbonGroup6.Items.Add(this.DefProdRobo_Butn);
          this.ribbonGroup6.Items.Add(this.MangWletRobo_Butn);
-         this.ribbonGroup6.Items.Add(this.ribbonButton21);
+         this.ribbonGroup6.Items.Add(this.OnlnRecpOrdrRobo_Butn);
          this.ribbonGroup6.Name = "ribbonGroup6";
          this.ribbonGroup6.Text = "مدیریت فروشگاه انلاین";
          // 
@@ -290,12 +289,13 @@
          this.MangWletRobo_Butn.Text = "مدیریت مالی مشتریان";
          this.MangWletRobo_Butn.Click += new System.EventHandler(this.MangWletRobo_Butn_Click);
          // 
-         // ribbonButton21
+         // OnlnRecpOrdrRobo_Butn
          // 
-         this.ribbonButton21.LargeImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton21.LargeImage")));
-         this.ribbonButton21.Name = "ribbonButton21";
-         this.ribbonButton21.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton21.SmallImage")));
-         this.ribbonButton21.Text = "خدمات غیرحضوری پذیرش انلاین";
+         this.OnlnRecpOrdrRobo_Butn.LargeImage = ((System.Drawing.Image)(resources.GetObject("OnlnRecpOrdrRobo_Butn.LargeImage")));
+         this.OnlnRecpOrdrRobo_Butn.Name = "OnlnRecpOrdrRobo_Butn";
+         this.OnlnRecpOrdrRobo_Butn.SmallImage = ((System.Drawing.Image)(resources.GetObject("OnlnRecpOrdrRobo_Butn.SmallImage")));
+         this.OnlnRecpOrdrRobo_Butn.Text = "خدمات غیرحضوری پذیرش انلاین";
+         this.OnlnRecpOrdrRobo_Butn.Click += new System.EventHandler(this.OnlnRecpOrdrRobo_Butn_Click);
          // 
          // ribbonTab3
          // 
@@ -345,7 +345,7 @@
          this.Pnl_Desktop.Panel1.Text = "Panel1";
          this.Pnl_Desktop.Panel2.Appearance.BackColor = System.Drawing.Color.Gray;
          this.Pnl_Desktop.Panel2.Appearance.Options.UseBackColor = true;
-         this.Pnl_Desktop.Panel2.Controls.Add(this.roundedButton1);
+         this.Pnl_Desktop.Panel2.Controls.Add(this.NotfOrdrOnlineAdmission_Butn);
          this.Pnl_Desktop.Panel2.Controls.Add(this.OrderOnlineAdmission_Butn);
          this.Pnl_Desktop.Panel2.Controls.Add(this.NotfOrdrShip_Butn);
          this.Pnl_Desktop.Panel2.Controls.Add(this.NotfOrdrReceipt_Butn);
@@ -359,142 +359,61 @@
          this.Pnl_Desktop.TabIndex = 1;
          this.Pnl_Desktop.Text = "splitContainerControl1";
          // 
-         // OrdrReceipt_Butn
+         // NotfOrdrOnlineAdmission_Butn
          // 
-         this.OrdrReceipt_Butn.Appearance.BackColor = System.Drawing.Color.Transparent;
-         this.OrdrReceipt_Butn.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.OrdrReceipt_Butn.Appearance.ForeColor = System.Drawing.Color.Transparent;
-         this.OrdrReceipt_Butn.Appearance.Options.UseBackColor = true;
-         this.OrdrReceipt_Butn.Appearance.Options.UseFont = true;
-         this.OrdrReceipt_Butn.Appearance.Options.UseForeColor = true;
-         this.OrdrReceipt_Butn.Dock = System.Windows.Forms.DockStyle.Right;
-         this.OrdrReceipt_Butn.Image = global::System.RoboTech.Properties.Resources.IMAGE_1682;
-         this.OrdrReceipt_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
-         this.OrdrReceipt_Butn.Location = new System.Drawing.Point(854, 0);
-         this.OrdrReceipt_Butn.LookAndFeel.SkinName = "Office 2010 Silver";
-         this.OrdrReceipt_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.OrdrReceipt_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.OrdrReceipt_Butn.Name = "OrdrReceipt_Butn";
-         this.OrdrReceipt_Butn.Size = new System.Drawing.Size(52, 42);
-         toolTipTitleItem3.Appearance.Image = global::System.RoboTech.Properties.Resources.IMAGE_1682;
-         toolTipTitleItem3.Appearance.Options.UseImage = true;
-         toolTipTitleItem3.Image = global::System.RoboTech.Properties.Resources.IMAGE_1682;
-         toolTipTitleItem3.Text = "رسید پرداخت";
-         toolTipItem2.LeftIndent = 6;
-         toolTipItem2.Text = "مشتریان برای خرید های بالاتر که ممکن است سامانه پاسخگوی آنها نباشد رسید پرداختی خ" +
-    "ود را از روش های دیگری انجام دهند با این گزینه شما در تایید کردن آنها در خریدشان" +
-    " به آنها کمک میکنید";
-         toolTipTitleItem4.Appearance.Image = global::System.RoboTech.Properties.Resources.IMAGE_1692;
-         toolTipTitleItem4.Appearance.Options.UseImage = true;
-         toolTipTitleItem4.Image = global::System.RoboTech.Properties.Resources.IMAGE_1692;
-         toolTipTitleItem4.LeftIndent = 6;
-         toolTipTitleItem4.Text = "این قسمت نیاز هست که رسید پرداخت ارسالی را با وصولی های حساب خود چک کنید و درصورت" +
-    " تایید رسید تاریخ و مبلغ رسید را برای مشتری خود تایید کنید";
-         superToolTip2.Items.Add(toolTipTitleItem3);
-         superToolTip2.Items.Add(toolTipItem2);
-         superToolTip2.Items.Add(toolTipTitleItem4);
-         this.OrdrReceipt_Butn.SuperTip = superToolTip2;
-         this.OrdrReceipt_Butn.TabIndex = 7;
-         this.OrdrReceipt_Butn.Click += new System.EventHandler(this.OrdrReceipt_Butn_Click);
+         this.NotfOrdrOnlineAdmission_Butn.Active = true;
+         this.NotfOrdrOnlineAdmission_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+         this.NotfOrdrOnlineAdmission_Butn.ButtonStyle = System.MaxUi.RoundedButton.ButtonStyles.Ellipse;
+         this.NotfOrdrOnlineAdmission_Butn.Caption = "0";
+         this.NotfOrdrOnlineAdmission_Butn.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.NotfOrdrOnlineAdmission_Butn.ForeColor = System.Drawing.Color.White;
+         this.NotfOrdrOnlineAdmission_Butn.GradientStyle = System.MaxUi.RoundedButton.GradientStyles.Vertical;
+         this.NotfOrdrOnlineAdmission_Butn.HoverBorderColor = System.Drawing.Color.Gold;
+         this.NotfOrdrOnlineAdmission_Butn.HoverColorA = System.Drawing.Color.Transparent;
+         this.NotfOrdrOnlineAdmission_Butn.HoverColorB = System.Drawing.Color.Transparent;
+         this.NotfOrdrOnlineAdmission_Butn.ImageProfile = null;
+         this.NotfOrdrOnlineAdmission_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.Normal;
+         this.NotfOrdrOnlineAdmission_Butn.ImageVisiable = false;
+         this.NotfOrdrOnlineAdmission_Butn.Location = new System.Drawing.Point(802, 0);
+         this.NotfOrdrOnlineAdmission_Butn.Name = "NotfOrdrOnlineAdmission_Butn";
+         this.NotfOrdrOnlineAdmission_Butn.NormalBorderColor = System.Drawing.Color.DimGray;
+         this.NotfOrdrOnlineAdmission_Butn.NormalColorA = System.Drawing.Color.Red;
+         this.NotfOrdrOnlineAdmission_Butn.NormalColorB = System.Drawing.Color.Red;
+         this.NotfOrdrOnlineAdmission_Butn.Size = new System.Drawing.Size(22, 22);
+         this.NotfOrdrOnlineAdmission_Butn.SmoothingQuality = System.MaxUi.RoundedButton.SmoothingQualities.AntiAlias;
+         this.NotfOrdrOnlineAdmission_Butn.TabIndex = 20;
+         this.NotfOrdrOnlineAdmission_Butn.Tooltip = null;
          // 
-         // OrdrShip_Butn
+         // OrderOnlineAdmission_Butn
          // 
-         this.OrdrShip_Butn.Appearance.BackColor = System.Drawing.Color.Transparent;
-         this.OrdrShip_Butn.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.OrdrShip_Butn.Appearance.ForeColor = System.Drawing.Color.Transparent;
-         this.OrdrShip_Butn.Appearance.Options.UseBackColor = true;
-         this.OrdrShip_Butn.Appearance.Options.UseFont = true;
-         this.OrdrShip_Butn.Appearance.Options.UseForeColor = true;
-         this.OrdrShip_Butn.Dock = System.Windows.Forms.DockStyle.Right;
-         this.OrdrShip_Butn.Image = global::System.RoboTech.Properties.Resources.IMAGE_1686;
-         this.OrdrShip_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
-         this.OrdrShip_Butn.Location = new System.Drawing.Point(906, 0);
-         this.OrdrShip_Butn.LookAndFeel.SkinName = "Office 2010 Silver";
-         this.OrdrShip_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.OrdrShip_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.OrdrShip_Butn.Name = "OrdrShip_Butn";
-         this.OrdrShip_Butn.Size = new System.Drawing.Size(52, 42);
-         toolTipTitleItem5.Appearance.Image = global::System.RoboTech.Properties.Resources.IMAGE_1686;
-         toolTipTitleItem5.Appearance.Options.UseImage = true;
-         toolTipTitleItem5.Image = global::System.RoboTech.Properties.Resources.IMAGE_1686;
-         toolTipTitleItem5.Text = "وضعیت ارسال سفارشات";
-         toolTipItem3.LeftIndent = 6;
-         toolTipItem3.Text = "مشتریان شما دائما از فروشگاه شما خرید میکنند و مشخص میکنند که نحوه ارسال بسته سفا" +
-    "رش ها به چه گونه باشد";
-         toolTipTitleItem6.Appearance.Image = global::System.RoboTech.Properties.Resources.IMAGE_1692;
-         toolTipTitleItem6.Appearance.Options.UseImage = true;
-         toolTipTitleItem6.Image = global::System.RoboTech.Properties.Resources.IMAGE_1692;
-         toolTipTitleItem6.LeftIndent = 6;
-         toolTipTitleItem6.Text = "این قسمت به صورت اتومات مدیریت میشود و نیازی به دخالت نیروی پرسنلی نیست";
-         superToolTip3.Items.Add(toolTipTitleItem5);
-         superToolTip3.Items.Add(toolTipItem3);
-         superToolTip3.Items.Add(toolTipTitleItem6);
-         this.OrdrShip_Butn.SuperTip = superToolTip3;
-         this.OrdrShip_Butn.TabIndex = 6;
-         this.OrdrShip_Butn.Click += new System.EventHandler(this.OrdrShip_Butn_Click);
-         // 
-         // AdjustDateTime_Butn
-         // 
-         this.AdjustDateTime_Butn.Appearance.BackColor = System.Drawing.Color.Transparent;
-         this.AdjustDateTime_Butn.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.AdjustDateTime_Butn.Appearance.ForeColor = System.Drawing.Color.Honeydew;
-         this.AdjustDateTime_Butn.Appearance.Options.UseBackColor = true;
-         this.AdjustDateTime_Butn.Appearance.Options.UseFont = true;
-         this.AdjustDateTime_Butn.Appearance.Options.UseForeColor = true;
-         this.AdjustDateTime_Butn.Dock = System.Windows.Forms.DockStyle.Left;
-         this.AdjustDateTime_Butn.Image = ((System.Drawing.Image)(resources.GetObject("AdjustDateTime_Butn.Image")));
-         this.AdjustDateTime_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
-         this.AdjustDateTime_Butn.Location = new System.Drawing.Point(0, 0);
-         this.AdjustDateTime_Butn.LookAndFeel.SkinName = "Office 2010 Silver";
-         this.AdjustDateTime_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.AdjustDateTime_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.AdjustDateTime_Butn.Name = "AdjustDateTime_Butn";
-         this.AdjustDateTime_Butn.Size = new System.Drawing.Size(117, 42);
-         this.AdjustDateTime_Butn.TabIndex = 5;
-         this.AdjustDateTime_Butn.Text = "13:50:43\r\n1395/12/13";
-         this.AdjustDateTime_Butn.Click += new System.EventHandler(this.AdjustDateTime_Butn_Click);
-         // 
-         // sb_logout
-         // 
-         this.sb_logout.Appearance.BackColor = System.Drawing.Color.Transparent;
-         this.sb_logout.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.sb_logout.Appearance.ForeColor = System.Drawing.Color.Transparent;
-         this.sb_logout.Appearance.Options.UseBackColor = true;
-         this.sb_logout.Appearance.Options.UseFont = true;
-         this.sb_logout.Appearance.Options.UseForeColor = true;
-         this.sb_logout.Dock = System.Windows.Forms.DockStyle.Right;
-         this.sb_logout.Image = global::System.RoboTech.Properties.Resources.IMAGE_1226;
-         this.sb_logout.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.sb_logout.Location = new System.Drawing.Point(958, 0);
-         this.sb_logout.LookAndFeel.SkinName = "Office 2010 Silver";
-         this.sb_logout.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.sb_logout.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.sb_logout.Name = "sb_logout";
-         this.sb_logout.Size = new System.Drawing.Size(48, 42);
-         toolTipTitleItem7.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
-         toolTipTitleItem7.Appearance.Options.UseImage = true;
-         toolTipTitleItem7.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem7.Image")));
-         toolTipTitleItem7.Text = "خروج از حساب کاربری";
-         toolTipItem4.LeftIndent = 6;
-         toolTipItem4.Text = "برای خروج اضطراری شما می توانید از این دکمه استفاده کنید. موارد مورد نیاز مانند ا" +
-    "ین می باشد که بخواهید برای لحظه ای سیستم را رها کنید. یا بخواهید با کاربری متفاو" +
-    "تی وارد شوید.";
-         toolTipTitleItem8.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image1")));
-         toolTipTitleItem8.Appearance.Options.UseImage = true;
-         toolTipTitleItem8.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem8.Image")));
-         toolTipTitleItem8.LeftIndent = 6;
-         toolTipTitleItem8.Text = "Logout";
-         superToolTip4.Items.Add(toolTipTitleItem7);
-         superToolTip4.Items.Add(toolTipItem4);
-         superToolTip4.Items.Add(toolTipTitleItem8);
-         this.sb_logout.SuperTip = superToolTip4;
-         this.sb_logout.TabIndex = 3;
-         // 
-         // Tm_ShowTime
-         // 
-         this.Tm_ShowTime.Enabled = true;
-         this.Tm_ShowTime.Interval = 1000;
-         this.Tm_ShowTime.Tick += new System.EventHandler(this.Tm_ShowTime_Tick);
+         this.OrderOnlineAdmission_Butn.Appearance.BackColor = System.Drawing.Color.Transparent;
+         this.OrderOnlineAdmission_Butn.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.OrderOnlineAdmission_Butn.Appearance.ForeColor = System.Drawing.Color.Transparent;
+         this.OrderOnlineAdmission_Butn.Appearance.Options.UseBackColor = true;
+         this.OrderOnlineAdmission_Butn.Appearance.Options.UseFont = true;
+         this.OrderOnlineAdmission_Butn.Appearance.Options.UseForeColor = true;
+         this.OrderOnlineAdmission_Butn.Dock = System.Windows.Forms.DockStyle.Right;
+         this.OrderOnlineAdmission_Butn.Image = global::System.RoboTech.Properties.Resources.IMAGE_1684;
+         this.OrderOnlineAdmission_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
+         this.OrderOnlineAdmission_Butn.Location = new System.Drawing.Point(802, 0);
+         this.OrderOnlineAdmission_Butn.LookAndFeel.SkinName = "Office 2010 Silver";
+         this.OrderOnlineAdmission_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.OrderOnlineAdmission_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.OrderOnlineAdmission_Butn.Name = "OrderOnlineAdmission_Butn";
+         this.OrderOnlineAdmission_Butn.Size = new System.Drawing.Size(52, 42);
+         toolTipTitleItem1.Appearance.Image = global::System.RoboTech.Properties.Resources.IMAGE_1684;
+         toolTipTitleItem1.Appearance.Options.UseImage = true;
+         toolTipTitleItem1.Image = global::System.RoboTech.Properties.Resources.IMAGE_1684;
+         toolTipTitleItem1.Text = "پذیرش سفارش انلاین";
+         toolTipItem1.LeftIndent = 6;
+         toolTipItem1.Text = "مشتریان برای خرید خود میتوانند به روش های مختلف میتوانند درخواست دهند و شما با ثب" +
+    "ت فاکتور میتوانید در این امر به مشتریان خود کمک کنید";
+         superToolTip1.Items.Add(toolTipTitleItem1);
+         superToolTip1.Items.Add(toolTipItem1);
+         this.OrderOnlineAdmission_Butn.SuperTip = superToolTip1;
+         this.OrderOnlineAdmission_Butn.TabIndex = 19;
+         this.OrderOnlineAdmission_Butn.Click += new System.EventHandler(this.OrderOnlineAdmission_Butn_Click);
          // 
          // NotfOrdrShip_Butn
          // 
@@ -550,68 +469,142 @@
          this.NotfOrdrReceipt_Butn.Tooltip = null;
          this.NotfOrdrReceipt_Butn.Click += new System.EventHandler(this.OrdrReceipt_Butn_Click);
          // 
-         // roundedButton1
+         // OrdrReceipt_Butn
          // 
-         this.roundedButton1.Active = true;
-         this.roundedButton1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-         this.roundedButton1.ButtonStyle = System.MaxUi.RoundedButton.ButtonStyles.Ellipse;
-         this.roundedButton1.Caption = "0";
-         this.roundedButton1.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.roundedButton1.ForeColor = System.Drawing.Color.White;
-         this.roundedButton1.GradientStyle = System.MaxUi.RoundedButton.GradientStyles.Vertical;
-         this.roundedButton1.HoverBorderColor = System.Drawing.Color.Gold;
-         this.roundedButton1.HoverColorA = System.Drawing.Color.Transparent;
-         this.roundedButton1.HoverColorB = System.Drawing.Color.Transparent;
-         this.roundedButton1.ImageProfile = null;
-         this.roundedButton1.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.Normal;
-         this.roundedButton1.ImageVisiable = false;
-         this.roundedButton1.Location = new System.Drawing.Point(802, 0);
-         this.roundedButton1.Name = "roundedButton1";
-         this.roundedButton1.NormalBorderColor = System.Drawing.Color.DimGray;
-         this.roundedButton1.NormalColorA = System.Drawing.Color.Red;
-         this.roundedButton1.NormalColorB = System.Drawing.Color.Red;
-         this.roundedButton1.Size = new System.Drawing.Size(22, 22);
-         this.roundedButton1.SmoothingQuality = System.MaxUi.RoundedButton.SmoothingQualities.AntiAlias;
-         this.roundedButton1.TabIndex = 20;
-         this.roundedButton1.Tooltip = null;
-         // 
-         // OrderOnlineAdmission_Butn
-         // 
-         this.OrderOnlineAdmission_Butn.Appearance.BackColor = System.Drawing.Color.Transparent;
-         this.OrderOnlineAdmission_Butn.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.OrderOnlineAdmission_Butn.Appearance.ForeColor = System.Drawing.Color.Transparent;
-         this.OrderOnlineAdmission_Butn.Appearance.Options.UseBackColor = true;
-         this.OrderOnlineAdmission_Butn.Appearance.Options.UseFont = true;
-         this.OrderOnlineAdmission_Butn.Appearance.Options.UseForeColor = true;
-         this.OrderOnlineAdmission_Butn.Dock = System.Windows.Forms.DockStyle.Right;
-         this.OrderOnlineAdmission_Butn.Image = global::System.RoboTech.Properties.Resources.IMAGE_1684;
-         this.OrderOnlineAdmission_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
-         this.OrderOnlineAdmission_Butn.Location = new System.Drawing.Point(802, 0);
-         this.OrderOnlineAdmission_Butn.LookAndFeel.SkinName = "Office 2010 Silver";
-         this.OrderOnlineAdmission_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.OrderOnlineAdmission_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.OrderOnlineAdmission_Butn.Name = "OrderOnlineAdmission_Butn";
-         this.OrderOnlineAdmission_Butn.Size = new System.Drawing.Size(52, 42);
-         toolTipTitleItem1.Appearance.Image = global::System.RoboTech.Properties.Resources.IMAGE_1682;
-         toolTipTitleItem1.Appearance.Options.UseImage = true;
-         toolTipTitleItem1.Image = global::System.RoboTech.Properties.Resources.IMAGE_1682;
-         toolTipTitleItem1.Text = "رسید پرداخت";
-         toolTipItem1.LeftIndent = 6;
-         toolTipItem1.Text = "مشتریان برای خرید های بالاتر که ممکن است سامانه پاسخگوی آنها نباشد رسید پرداختی خ" +
+         this.OrdrReceipt_Butn.Appearance.BackColor = System.Drawing.Color.Transparent;
+         this.OrdrReceipt_Butn.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.OrdrReceipt_Butn.Appearance.ForeColor = System.Drawing.Color.Transparent;
+         this.OrdrReceipt_Butn.Appearance.Options.UseBackColor = true;
+         this.OrdrReceipt_Butn.Appearance.Options.UseFont = true;
+         this.OrdrReceipt_Butn.Appearance.Options.UseForeColor = true;
+         this.OrdrReceipt_Butn.Dock = System.Windows.Forms.DockStyle.Right;
+         this.OrdrReceipt_Butn.Image = global::System.RoboTech.Properties.Resources.IMAGE_1682;
+         this.OrdrReceipt_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
+         this.OrdrReceipt_Butn.Location = new System.Drawing.Point(854, 0);
+         this.OrdrReceipt_Butn.LookAndFeel.SkinName = "Office 2010 Silver";
+         this.OrdrReceipt_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.OrdrReceipt_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.OrdrReceipt_Butn.Name = "OrdrReceipt_Butn";
+         this.OrdrReceipt_Butn.Size = new System.Drawing.Size(52, 42);
+         toolTipTitleItem2.Appearance.Image = global::System.RoboTech.Properties.Resources.IMAGE_1682;
+         toolTipTitleItem2.Appearance.Options.UseImage = true;
+         toolTipTitleItem2.Image = global::System.RoboTech.Properties.Resources.IMAGE_1682;
+         toolTipTitleItem2.Text = "رسید پرداخت";
+         toolTipItem2.LeftIndent = 6;
+         toolTipItem2.Text = "مشتریان برای خرید های بالاتر که ممکن است سامانه پاسخگوی آنها نباشد رسید پرداختی خ" +
     "ود را از روش های دیگری انجام دهند با این گزینه شما در تایید کردن آنها در خریدشان" +
     " به آنها کمک میکنید";
-         toolTipTitleItem2.Appearance.Image = global::System.RoboTech.Properties.Resources.IMAGE_1692;
-         toolTipTitleItem2.Appearance.Options.UseImage = true;
-         toolTipTitleItem2.Image = global::System.RoboTech.Properties.Resources.IMAGE_1692;
-         toolTipTitleItem2.LeftIndent = 6;
-         toolTipTitleItem2.Text = "این قسمت نیاز هست که رسید پرداخت ارسالی را با وصولی های حساب خود چک کنید و درصورت" +
+         toolTipTitleItem3.Appearance.Image = global::System.RoboTech.Properties.Resources.IMAGE_1692;
+         toolTipTitleItem3.Appearance.Options.UseImage = true;
+         toolTipTitleItem3.Image = global::System.RoboTech.Properties.Resources.IMAGE_1692;
+         toolTipTitleItem3.LeftIndent = 6;
+         toolTipTitleItem3.Text = "این قسمت نیاز هست که رسید پرداخت ارسالی را با وصولی های حساب خود چک کنید و درصورت" +
     " تایید رسید تاریخ و مبلغ رسید را برای مشتری خود تایید کنید";
-         superToolTip1.Items.Add(toolTipTitleItem1);
-         superToolTip1.Items.Add(toolTipItem1);
-         superToolTip1.Items.Add(toolTipTitleItem2);
-         this.OrderOnlineAdmission_Butn.SuperTip = superToolTip1;
-         this.OrderOnlineAdmission_Butn.TabIndex = 19;
+         superToolTip2.Items.Add(toolTipTitleItem2);
+         superToolTip2.Items.Add(toolTipItem2);
+         superToolTip2.Items.Add(toolTipTitleItem3);
+         this.OrdrReceipt_Butn.SuperTip = superToolTip2;
+         this.OrdrReceipt_Butn.TabIndex = 7;
+         this.OrdrReceipt_Butn.Click += new System.EventHandler(this.OrdrReceipt_Butn_Click);
+         // 
+         // OrdrShip_Butn
+         // 
+         this.OrdrShip_Butn.Appearance.BackColor = System.Drawing.Color.Transparent;
+         this.OrdrShip_Butn.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.OrdrShip_Butn.Appearance.ForeColor = System.Drawing.Color.Transparent;
+         this.OrdrShip_Butn.Appearance.Options.UseBackColor = true;
+         this.OrdrShip_Butn.Appearance.Options.UseFont = true;
+         this.OrdrShip_Butn.Appearance.Options.UseForeColor = true;
+         this.OrdrShip_Butn.Dock = System.Windows.Forms.DockStyle.Right;
+         this.OrdrShip_Butn.Image = global::System.RoboTech.Properties.Resources.IMAGE_1686;
+         this.OrdrShip_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
+         this.OrdrShip_Butn.Location = new System.Drawing.Point(906, 0);
+         this.OrdrShip_Butn.LookAndFeel.SkinName = "Office 2010 Silver";
+         this.OrdrShip_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.OrdrShip_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.OrdrShip_Butn.Name = "OrdrShip_Butn";
+         this.OrdrShip_Butn.Size = new System.Drawing.Size(52, 42);
+         toolTipTitleItem4.Appearance.Image = global::System.RoboTech.Properties.Resources.IMAGE_1686;
+         toolTipTitleItem4.Appearance.Options.UseImage = true;
+         toolTipTitleItem4.Image = global::System.RoboTech.Properties.Resources.IMAGE_1686;
+         toolTipTitleItem4.Text = "وضعیت ارسال سفارشات";
+         toolTipItem3.LeftIndent = 6;
+         toolTipItem3.Text = "مشتریان شما دائما از فروشگاه شما خرید میکنند و مشخص میکنند که نحوه ارسال بسته سفا" +
+    "رش ها به چه گونه باشد";
+         toolTipTitleItem5.Appearance.Image = global::System.RoboTech.Properties.Resources.IMAGE_1692;
+         toolTipTitleItem5.Appearance.Options.UseImage = true;
+         toolTipTitleItem5.Image = global::System.RoboTech.Properties.Resources.IMAGE_1692;
+         toolTipTitleItem5.LeftIndent = 6;
+         toolTipTitleItem5.Text = "این قسمت به صورت اتومات مدیریت میشود و نیازی به دخالت نیروی پرسنلی نیست";
+         superToolTip3.Items.Add(toolTipTitleItem4);
+         superToolTip3.Items.Add(toolTipItem3);
+         superToolTip3.Items.Add(toolTipTitleItem5);
+         this.OrdrShip_Butn.SuperTip = superToolTip3;
+         this.OrdrShip_Butn.TabIndex = 6;
+         this.OrdrShip_Butn.Click += new System.EventHandler(this.OrdrShip_Butn_Click);
+         // 
+         // AdjustDateTime_Butn
+         // 
+         this.AdjustDateTime_Butn.Appearance.BackColor = System.Drawing.Color.Transparent;
+         this.AdjustDateTime_Butn.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.AdjustDateTime_Butn.Appearance.ForeColor = System.Drawing.Color.Honeydew;
+         this.AdjustDateTime_Butn.Appearance.Options.UseBackColor = true;
+         this.AdjustDateTime_Butn.Appearance.Options.UseFont = true;
+         this.AdjustDateTime_Butn.Appearance.Options.UseForeColor = true;
+         this.AdjustDateTime_Butn.Dock = System.Windows.Forms.DockStyle.Left;
+         this.AdjustDateTime_Butn.Image = ((System.Drawing.Image)(resources.GetObject("AdjustDateTime_Butn.Image")));
+         this.AdjustDateTime_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
+         this.AdjustDateTime_Butn.Location = new System.Drawing.Point(0, 0);
+         this.AdjustDateTime_Butn.LookAndFeel.SkinName = "Office 2010 Silver";
+         this.AdjustDateTime_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.AdjustDateTime_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.AdjustDateTime_Butn.Name = "AdjustDateTime_Butn";
+         this.AdjustDateTime_Butn.Size = new System.Drawing.Size(117, 42);
+         this.AdjustDateTime_Butn.TabIndex = 5;
+         this.AdjustDateTime_Butn.Text = "13:50:43\r\n1395/12/13";
+         this.AdjustDateTime_Butn.Click += new System.EventHandler(this.AdjustDateTime_Butn_Click);
+         // 
+         // sb_logout
+         // 
+         this.sb_logout.Appearance.BackColor = System.Drawing.Color.Transparent;
+         this.sb_logout.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.sb_logout.Appearance.ForeColor = System.Drawing.Color.Transparent;
+         this.sb_logout.Appearance.Options.UseBackColor = true;
+         this.sb_logout.Appearance.Options.UseFont = true;
+         this.sb_logout.Appearance.Options.UseForeColor = true;
+         this.sb_logout.Dock = System.Windows.Forms.DockStyle.Right;
+         this.sb_logout.Image = global::System.RoboTech.Properties.Resources.IMAGE_1226;
+         this.sb_logout.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+         this.sb_logout.Location = new System.Drawing.Point(958, 0);
+         this.sb_logout.LookAndFeel.SkinName = "Office 2010 Silver";
+         this.sb_logout.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.sb_logout.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.sb_logout.Name = "sb_logout";
+         this.sb_logout.Size = new System.Drawing.Size(48, 42);
+         toolTipTitleItem6.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
+         toolTipTitleItem6.Appearance.Options.UseImage = true;
+         toolTipTitleItem6.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem6.Image")));
+         toolTipTitleItem6.Text = "خروج از حساب کاربری";
+         toolTipItem4.LeftIndent = 6;
+         toolTipItem4.Text = "برای خروج اضطراری شما می توانید از این دکمه استفاده کنید. موارد مورد نیاز مانند ا" +
+    "ین می باشد که بخواهید برای لحظه ای سیستم را رها کنید. یا بخواهید با کاربری متفاو" +
+    "تی وارد شوید.";
+         toolTipTitleItem7.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image1")));
+         toolTipTitleItem7.Appearance.Options.UseImage = true;
+         toolTipTitleItem7.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem7.Image")));
+         toolTipTitleItem7.LeftIndent = 6;
+         toolTipTitleItem7.Text = "Logout";
+         superToolTip4.Items.Add(toolTipTitleItem6);
+         superToolTip4.Items.Add(toolTipItem4);
+         superToolTip4.Items.Add(toolTipTitleItem7);
+         this.sb_logout.SuperTip = superToolTip4;
+         this.sb_logout.TabIndex = 3;
+         // 
+         // Tm_ShowTime
+         // 
+         this.Tm_ShowTime.Enabled = true;
+         this.Tm_ShowTime.Interval = 1000;
+         this.Tm_ShowTime.Tick += new System.EventHandler(this.Tm_ShowTime_Tick);
          // 
          // FRST_PAGE_F
          // 
@@ -672,8 +665,8 @@
       private C1.Win.C1Ribbon.RibbonButton DefBankAcnt_Butn;
       private C1.Win.C1Ribbon.RibbonButton DefProdRobo_Butn;
       private C1.Win.C1Ribbon.RibbonButton MangWletRobo_Butn;
-      private C1.Win.C1Ribbon.RibbonButton ribbonButton21;
-      private MaxUi.RoundedButton roundedButton1;
+      private C1.Win.C1Ribbon.RibbonButton OnlnRecpOrdrRobo_Butn;
+      private MaxUi.RoundedButton NotfOrdrOnlineAdmission_Butn;
       private DevExpress.XtraEditors.SimpleButton OrderOnlineAdmission_Butn;
    }
 }

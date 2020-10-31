@@ -212,7 +212,7 @@ namespace System.RoboTech.Ui.MasterPage
          );
       }
 
-      private void OrderShipping_Recipt()
+      private void OrderAction_Recipt()
       {
          if (!frstLoad)
          {
@@ -283,6 +283,37 @@ namespace System.RoboTech.Ui.MasterPage
                   }
                   #endregion
 
+                  #region Check New Online Reception Order
+                  var ordr25 =
+                     iRoboTech.Orders.Where(o => o.ORDR_TYPE == "025" && (o.ORDR_STAT == "002" || o.ORDR_STAT == "016")).ToList();
+
+                  if(ordr25.Any())
+                  {
+                     NotfOrdrOnlineAdmission_Butn.Visible = true;
+                     NotfOrdrOnlineAdmission_Butn.Caption = ordr25.Count().ToString();
+                     OrderOnlineAdmission_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
+
+                     _DefaultGateway.Gateway(
+                        new Job(SendType.External, "localhost", "Wall", 22 /* Execute SetSystemNotification */, SendType.SelfToUserInterface)
+                        {
+                           Input =
+                              new List<object>
+                              {
+                                 ToolTipIcon.Info,
+                                 "پذیرش سفارش آنلاین ارسالی",
+                                 string.Format("تعداد {0} عدد درخواست در صف انتظار میباشد", ordr25.Count()),
+                                 2000
+                              },
+                           Executive = ExecutiveType.Asynchronous
+                        }
+                     );
+                  }
+                  else
+                  {
+                     NotfOrdrOnlineAdmission_Butn.Visible = false;
+                     OrderOnlineAdmission_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+                  }
+                  #endregion
                }));
             else
             {
@@ -349,11 +380,43 @@ namespace System.RoboTech.Ui.MasterPage
                   OrdrReceipt_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
                }
                #endregion
+
+               #region Check New Online Reception Order
+               var ordr25 =
+                  iRoboTech.Orders.Where(o => o.ORDR_TYPE == "025" && (o.ORDR_STAT == "002" || o.ORDR_STAT == "016")).ToList();
+
+               if (ordr25.Any())
+               {
+                  NotfOrdrOnlineAdmission_Butn.Visible = true;
+                  NotfOrdrOnlineAdmission_Butn.Caption = ordr25.Count().ToString();
+                  OrderOnlineAdmission_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
+
+                  _DefaultGateway.Gateway(
+                     new Job(SendType.External, "localhost", "Wall", 22 /* Execute SetSystemNotification */, SendType.SelfToUserInterface)
+                     {
+                        Input =
+                           new List<object>
+                              {
+                                 ToolTipIcon.Info,
+                                 "پذیرش سفارش آنلاین ارسالی",
+                                 string.Format("تعداد {0} عدد درخواست در صف انتظار میباشد", ordr25.Count()),
+                                 2000
+                              },
+                        Executive = ExecutiveType.Asynchronous
+                     }
+                  );
+               }
+               else
+               {
+                  NotfOrdrOnlineAdmission_Butn.Visible = false;
+                  OrderOnlineAdmission_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+               }
+               #endregion
             }
             frstLoad = true;
          }
       }
-
+      
       private void DefBankAcnt_Butn_Click(object sender, EventArgs e)
       {
          _DefaultGateway.Gateway(
@@ -388,6 +451,26 @@ namespace System.RoboTech.Ui.MasterPage
                 new Job(SendType.SelfToUserInterface, "WLET_DVLP_F", 10 /* Execute Actn_CalF_P */)
               })
          );
+      }
+
+      private void OnlnRecpOrdrRobo_Butn_Click(object sender, EventArgs e)
+      {
+         _DefaultGateway.Gateway(
+            new Job(SendType.External, "Localhost",
+              new List<Job>
+              {                  
+                new Job(SendType.Self, 28 /* Execute Onro_Dvlp_F */),
+                new Job(SendType.SelfToUserInterface, "ONRO_DVLP_F", 10 /* Execute Actn_CalF_P */)
+              })
+         );
+      }
+
+      private void OrderOnlineAdmission_Butn_Click(object sender, EventArgs e)
+      {
+         NotfOrdrOnlineAdmission_Butn.Visible = false;
+         OrderOnlineAdmission_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+
+         OnlnRecpOrdrRobo_Butn_Click(null, null);
       }
    }
 }

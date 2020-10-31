@@ -282,11 +282,20 @@
     <Compile Include="Ui\DevelopmentApplication\ONLR_DVLP_F.RequestRespons.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Ui\DevelopmentApplication\ONRO_DVLP_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\DevelopmentApplication\ONRO_DVLP_F.Designer.cs">
+      <DependentUpon>ONRO_DVLP_F.cs</DependentUpon>
+    </Compile>
     <Compile Include="Ui\DevelopmentApplication\WLET_DVLP_F.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Ui\DevelopmentApplication\WLET_DVLP_F.Designer.cs">
       <DependentUpon>WLET_DVLP_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\DevelopmentApplication\ONRO_DVLP_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Ui\DevelopmentApplication\WLET_DVLP_F.RequestRespons.cs">
       <SubType>UserControl</SubType>
@@ -482,13 +491,18 @@
     <None Include="Properties\DataSources\System.RoboTech.Data.D_MDFR.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_MNTP.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_ODST.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.D_OFKD.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.D_OFTP.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_ORDT.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_PDTP.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_PKTP.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.D_RCMT.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_RCVT.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_RMTP.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.D_SADV.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_SDTP.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_SHIN.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.D_SHIP.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_SPTP.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_SPYT.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_TXFC.datasource" />
@@ -533,6 +547,7 @@
     <None Include="Properties\DataSources\System.RoboTech.Data.Robot_Product_StepPrice.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Robot_Spy_Group_Message_Detail.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Send_Advertising.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.Send_Advertising_Tariff.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Service.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Service_Robot.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Service_Robot_Card_Bank.datasource" />
@@ -623,8 +638,12 @@
     <EmbeddedResource Include="Ui\DevelopmentApplication\ONLR_DVLP_F.resx">
       <DependentUpon>ONLR_DVLP_F.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Ui\DevelopmentApplication\ONRO_DVLP_F.resx">
+      <DependentUpon>ONRO_DVLP_F.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Ui\DevelopmentApplication\WLET_DVLP_F.resx">
       <DependentUpon>WLET_DVLP_F.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Ui\DevelopmentApplication\PROD_DVLP_F.resx">
       <DependentUpon>PROD_DVLP_F.cs</DependentUpon>

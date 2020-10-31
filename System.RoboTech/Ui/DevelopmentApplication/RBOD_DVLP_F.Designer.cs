@@ -482,7 +482,7 @@
          // 
          label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          label2.AutoSize = true;
-         label2.Location = new System.Drawing.Point(978, 12);
+         label2.Location = new System.Drawing.Point(1000, 12);
          label2.Name = "label2";
          label2.Size = new System.Drawing.Size(60, 14);
          label2.TabIndex = 0;
@@ -492,7 +492,7 @@
          // 
          label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          label3.AutoSize = true;
-         label3.Location = new System.Drawing.Point(746, 12);
+         label3.Location = new System.Drawing.Point(768, 12);
          label3.Name = "label3";
          label3.Size = new System.Drawing.Size(83, 14);
          label3.TabIndex = 0;
@@ -502,7 +502,7 @@
          // 
          label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          label4.AutoSize = true;
-         label4.Location = new System.Drawing.Point(520, 13);
+         label4.Location = new System.Drawing.Point(542, 13);
          label4.Name = "label4";
          label4.Size = new System.Drawing.Size(112, 14);
          label4.TabIndex = 4;
@@ -512,7 +512,7 @@
          // 
          label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          label5.AutoSize = true;
-         label5.Location = new System.Drawing.Point(322, 12);
+         label5.Location = new System.Drawing.Point(344, 12);
          label5.Name = "label5";
          label5.Size = new System.Drawing.Size(92, 14);
          label5.TabIndex = 0;
@@ -655,6 +655,7 @@
          // splitContainerControl1
          // 
          this.splitContainerControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+         this.splitContainerControl1.FixedPanel = DevExpress.XtraEditors.SplitFixedPanel.Panel2;
          this.splitContainerControl1.Location = new System.Drawing.Point(3, 3);
          this.splitContainerControl1.Name = "splitContainerControl1";
          this.splitContainerControl1.Panel1.Controls.Add(this.splitContainerControl8);
@@ -662,7 +663,7 @@
          this.splitContainerControl1.Panel2.Controls.Add(this.groupBox1);
          this.splitContainerControl1.Panel2.Text = "Panel2";
          this.splitContainerControl1.Size = new System.Drawing.Size(1588, 566);
-         this.splitContainerControl1.SplitterPosition = 1374;
+         this.splitContainerControl1.SplitterPosition = 187;
          this.splitContainerControl1.TabIndex = 2;
          this.splitContainerControl1.Text = "splitContainerControl1";
          // 
@@ -675,7 +676,7 @@
          this.splitContainerControl8.Panel1.Text = "Panel1";
          this.splitContainerControl8.Panel2.Controls.Add(this.splitContainerControl7);
          this.splitContainerControl8.Panel2.Text = "Panel2";
-         this.splitContainerControl8.Size = new System.Drawing.Size(1374, 566);
+         this.splitContainerControl8.Size = new System.Drawing.Size(1396, 566);
          this.splitContainerControl8.SplitterPosition = 315;
          this.splitContainerControl8.TabIndex = 4;
          this.splitContainerControl8.Text = "splitContainerControl8";
@@ -1129,7 +1130,7 @@
          this.splitContainerControl7.Panel1.Text = "Panel1";
          this.splitContainerControl7.Panel2.Controls.Add(this.splitContainerControl2);
          this.splitContainerControl7.Panel2.Text = "Panel2";
-         this.splitContainerControl7.Size = new System.Drawing.Size(1054, 566);
+         this.splitContainerControl7.Size = new System.Drawing.Size(1076, 566);
          this.splitContainerControl7.SplitterPosition = 214;
          this.splitContainerControl7.TabIndex = 3;
          this.splitContainerControl7.Text = "splitContainerControl7";
@@ -1143,7 +1144,7 @@
          this.groupBox8.Dock = System.Windows.Forms.DockStyle.Fill;
          this.groupBox8.Location = new System.Drawing.Point(0, 0);
          this.groupBox8.Name = "groupBox8";
-         this.groupBox8.Size = new System.Drawing.Size(1054, 214);
+         this.groupBox8.Size = new System.Drawing.Size(1076, 214);
          this.groupBox8.TabIndex = 2;
          this.groupBox8.TabStop = false;
          this.groupBox8.Text = "لیست درخواست های مشترکین";
@@ -1163,7 +1164,7 @@
             this.persianRepositoryItemDateEdit1,
             this.Odtp_Lov,
             this.Odst_Lov});
-         this.gridControl2.Size = new System.Drawing.Size(1048, 109);
+         this.gridControl2.Size = new System.Drawing.Size(1070, 109);
          this.gridControl2.TabIndex = 4;
          this.gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.Ordr_Gv});
@@ -1500,7 +1501,7 @@
          this.textEdit1.Properties.NullText = "عنوان نامه";
          this.textEdit1.Properties.NullValuePrompt = "عنوان نامه";
          this.textEdit1.Properties.NullValuePromptShowForEmptyValue = true;
-         this.textEdit1.Size = new System.Drawing.Size(1048, 22);
+         this.textEdit1.Size = new System.Drawing.Size(1070, 22);
          this.textEdit1.TabIndex = 10;
          // 
          // panel1
@@ -1516,7 +1517,7 @@
          this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
          this.panel1.Location = new System.Drawing.Point(3, 43);
          this.panel1.Name = "panel1";
-         this.panel1.Size = new System.Drawing.Size(1048, 37);
+         this.panel1.Size = new System.Drawing.Size(1070, 37);
          this.panel1.TabIndex = 5;
          // 
          // OrdrDate_Dat
@@ -1524,7 +1525,7 @@
          this.OrdrDate_Dat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.OrdrDate_Dat.CustomFormat = "dd/MM/yyyy";
          this.OrdrDate_Dat.Format = Atf.UI.DateTimeSelectorFormat.Custom;
-         this.OrdrDate_Dat.Location = new System.Drawing.Point(414, 8);
+         this.OrdrDate_Dat.Location = new System.Drawing.Point(436, 8);
          this.OrdrDate_Dat.Name = "OrdrDate_Dat";
          this.OrdrDate_Dat.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
          this.OrdrDate_Dat.Size = new System.Drawing.Size(100, 23);
@@ -1534,7 +1535,7 @@
          // Serv_Lov
          // 
          this.Serv_Lov.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.Serv_Lov.Location = new System.Drawing.Point(835, 9);
+         this.Serv_Lov.Location = new System.Drawing.Point(857, 9);
          this.Serv_Lov.Name = "Serv_Lov";
          this.Serv_Lov.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.Serv_Lov.Properties.Appearance.Options.UseFont = true;
@@ -1749,7 +1750,7 @@
          // OrdrType_Lov
          // 
          this.OrdrType_Lov.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.OrdrType_Lov.Location = new System.Drawing.Point(641, 9);
+         this.OrdrType_Lov.Location = new System.Drawing.Point(663, 9);
          this.OrdrType_Lov.Name = "OrdrType_Lov";
          this.OrdrType_Lov.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.OrdrType_Lov.Properties.Appearance.Options.UseFont = true;
@@ -1772,7 +1773,7 @@
          // OrdrCmnt_Txt
          // 
          this.OrdrCmnt_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.OrdrCmnt_Txt.Location = new System.Drawing.Point(156, 9);
+         this.OrdrCmnt_Txt.Location = new System.Drawing.Point(178, 9);
          this.OrdrCmnt_Txt.Name = "OrdrCmnt_Txt";
          this.OrdrCmnt_Txt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.OrdrCmnt_Txt.Properties.Appearance.Options.UseFont = true;
@@ -1820,7 +1821,7 @@
          this.OrdrBn.MovePreviousItem = this.toolStripButton37;
          this.OrdrBn.Name = "OrdrBn";
          this.OrdrBn.PositionItem = this.toolStripTextBox7;
-         this.OrdrBn.Size = new System.Drawing.Size(1048, 25);
+         this.OrdrBn.Size = new System.Drawing.Size(1070, 25);
          this.OrdrBn.TabIndex = 3;
          // 
          // toolStripButton35
@@ -1931,7 +1932,7 @@
          this.Search_Butn.ImageTransparentColor = System.Drawing.Color.Magenta;
          this.Search_Butn.Name = "Search_Butn";
          this.Search_Butn.Size = new System.Drawing.Size(23, 22);
-         this.Search_Butn.Text = "toolStripButton22";
+         this.Search_Butn.Text = "جستجو";
          this.Search_Butn.Click += new System.EventHandler(this.Search_Butn_Click);
          // 
          // ClearParm_Butn
@@ -2028,7 +2029,7 @@
          this.splitContainerControl2.Panel1.Text = "Panel1";
          this.splitContainerControl2.Panel2.Controls.Add(this.groupBox5);
          this.splitContainerControl2.Panel2.Text = "Panel2";
-         this.splitContainerControl2.Size = new System.Drawing.Size(1054, 347);
+         this.splitContainerControl2.Size = new System.Drawing.Size(1076, 347);
          this.splitContainerControl2.SplitterPosition = 526;
          this.splitContainerControl2.TabIndex = 4;
          this.splitContainerControl2.Text = "splitContainerControl2";
@@ -2353,7 +2354,7 @@
          this.groupBox5.Dock = System.Windows.Forms.DockStyle.Fill;
          this.groupBox5.Location = new System.Drawing.Point(0, 0);
          this.groupBox5.Name = "groupBox5";
-         this.groupBox5.Size = new System.Drawing.Size(523, 347);
+         this.groupBox5.Size = new System.Drawing.Size(545, 347);
          this.groupBox5.TabIndex = 3;
          this.groupBox5.TabStop = false;
          this.groupBox5.Text = "ردیف درخواست";
@@ -2370,7 +2371,7 @@
          this.gridControl6.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.Elmt_Lov,
             this.Ordt_Butn});
-         this.gridControl6.Size = new System.Drawing.Size(517, 279);
+         this.gridControl6.Size = new System.Drawing.Size(539, 279);
          this.gridControl6.TabIndex = 4;
          this.gridControl6.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView7});
@@ -2535,7 +2536,7 @@
          this.OrdtBn.MovePreviousItem = this.toolStripButton28;
          this.OrdtBn.Name = "OrdtBn";
          this.OrdtBn.PositionItem = this.toolStripTextBox4;
-         this.OrdtBn.Size = new System.Drawing.Size(517, 25);
+         this.OrdtBn.Size = new System.Drawing.Size(539, 25);
          this.OrdtBn.TabIndex = 3;
          // 
          // toolStripButton26
@@ -2662,7 +2663,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton()});
          this.FilePath_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
          this.FilePath_Txt.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.FilePath_Txt.Size = new System.Drawing.Size(517, 22);
+         this.FilePath_Txt.Size = new System.Drawing.Size(539, 22);
          this.FilePath_Txt.TabIndex = 1;
          this.FilePath_Txt.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.FilePath_Txt_ButtonClick);
          // 
@@ -2672,7 +2673,7 @@
          this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
          this.groupBox1.Location = new System.Drawing.Point(0, 0);
          this.groupBox1.Name = "groupBox1";
-         this.groupBox1.Size = new System.Drawing.Size(209, 566);
+         this.groupBox1.Size = new System.Drawing.Size(187, 566);
          this.groupBox1.TabIndex = 1;
          this.groupBox1.TabStop = false;
          this.groupBox1.Text = "سازمان و ارگان ها و ربات ها";
@@ -2687,7 +2688,7 @@
          this.splitContainerControl5.Panel1.Text = "Panel1";
          this.splitContainerControl5.Panel2.Controls.Add(this.splitContainerControl6);
          this.splitContainerControl5.Panel2.Text = "Panel2";
-         this.splitContainerControl5.Size = new System.Drawing.Size(203, 545);
+         this.splitContainerControl5.Size = new System.Drawing.Size(181, 545);
          this.splitContainerControl5.SplitterPosition = 145;
          this.splitContainerControl5.TabIndex = 2;
          this.splitContainerControl5.Text = "splitContainerControl5";
@@ -2707,7 +2708,7 @@
             this.Prvn_Lov,
             this.Regn_Lov,
             this.OrgnActn_Butn});
-         this.countryGridControl.Size = new System.Drawing.Size(203, 145);
+         this.countryGridControl.Size = new System.Drawing.Size(181, 145);
          this.countryGridControl.TabIndex = 1;
          this.countryGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -2926,7 +2927,7 @@
          this.splitContainerControl6.Panel1.Text = "Panel1";
          this.splitContainerControl6.Panel2.Controls.Add(this.RobotTrace_Txt);
          this.splitContainerControl6.Panel2.Text = "Panel2";
-         this.splitContainerControl6.Size = new System.Drawing.Size(203, 395);
+         this.splitContainerControl6.Size = new System.Drawing.Size(181, 395);
          this.splitContainerControl6.SplitterPosition = 146;
          this.splitContainerControl6.TabIndex = 3;
          this.splitContainerControl6.Text = "splitContainerControl6";
@@ -2944,7 +2945,7 @@
             this.Actv_Lov2,
             this.Buld_Lov,
             this.persianRepositoryItemDateEdit6});
-         this.gridControl1.Size = new System.Drawing.Size(203, 146);
+         this.gridControl1.Size = new System.Drawing.Size(181, 146);
          this.gridControl1.TabIndex = 2;
          this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
@@ -3120,7 +3121,7 @@
          this.RobotTrace_Txt.Name = "RobotTrace_Txt";
          this.RobotTrace_Txt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.RobotTrace_Txt.Properties.Appearance.Options.UseFont = true;
-         this.RobotTrace_Txt.Size = new System.Drawing.Size(203, 244);
+         this.RobotTrace_Txt.Size = new System.Drawing.Size(181, 244);
          this.RobotTrace_Txt.TabIndex = 1;
          // 
          // Btn_Back

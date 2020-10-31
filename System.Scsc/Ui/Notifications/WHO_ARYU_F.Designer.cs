@@ -28,7 +28,6 @@
       /// </summary>
       private void InitializeComponent()
       {
-         this.components = new System.ComponentModel.Container();
          System.Windows.Forms.Label label13;
          System.Windows.Forms.Label label2;
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WHO_ARYU_F));
@@ -39,10 +38,10 @@
          DevExpress.Utils.ToolTipTitleItem toolTipTitleItem2 = new DevExpress.Utils.ToolTipTitleItem();
          DevExpress.Utils.ToolTipItem toolTipItem2 = new DevExpress.Utils.ToolTipItem();
          this.Mtod_Lb = new System.Windows.Forms.Label();
-         this.AttnBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.AttnBs1 = new System.Windows.Forms.BindingSource();
          this.Ctgy_Lb = new System.Windows.Forms.Label();
          this.Lbl_AmntType = new System.Windows.Forms.Label();
-         this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+         this.imageList1 = new System.Windows.Forms.ImageList();
          this.nAME_DNRMTextEdit = new DevExpress.XtraEditors.TextEdit();
          this.AttnDate_Date = new Atf.UI.DateTimeSelector();
          this.ENTR_TIMETextEdit = new DevExpress.XtraEditors.TextEdit();
@@ -52,7 +51,7 @@
          this.RemindAttn_Txt = new DevExpress.XtraEditors.TextEdit();
          this.tOTL_SESNTextEdit = new DevExpress.XtraEditors.TextEdit();
          this.sUM_MEET_HELD_DNRMTextEdit = new DevExpress.XtraEditors.TextEdit();
-         this.AttnBn1 = new System.Windows.Forms.BindingNavigator(this.components);
+         this.AttnBn1 = new System.Windows.Forms.BindingNavigator();
          this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
          this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
          this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
@@ -81,7 +80,7 @@
          this.AttnType_Lab = new System.Windows.Forms.Label();
          this.Lbl_Dresser = new System.Windows.Forms.Label();
          this.HappyBirthDate_Lab = new System.Windows.Forms.Label();
-         this.SesnBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.SesnBs1 = new System.Windows.Forms.BindingSource();
          this.Second_Pic = new System.Windows.Forms.PictureBox();
          this.panel4 = new System.Windows.Forms.Panel();
          this.AttnPartner_Butn = new DevExpress.XtraEditors.SimpleButton();
@@ -107,9 +106,12 @@
          this.QWkdy004_Lb = new System.Windows.Forms.Label();
          this.QWkdy005_Lb = new System.Windows.Forms.Label();
          this.QWkdy006_Lb = new System.Windows.Forms.Label();
-         this.CbmtwkdyBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.CbmtwkdyBs1 = new System.Windows.Forms.BindingSource();
          this.panel1 = new System.Windows.Forms.Panel();
+         this.label4 = new System.Windows.Forms.Label();
          this.MbspStat_Rb = new System.MaxUi.RoundedButton();
+         this.InsrRmnd_Txt = new DevExpress.XtraEditors.TextEdit();
+         this.InsrDate_Txt = new DevExpress.XtraEditors.TextEdit();
          label13 = new System.Windows.Forms.Label();
          label2 = new System.Windows.Forms.Label();
          ((System.ComponentModel.ISupportInitialize)(this.AttnBs1)).BeginInit();
@@ -137,6 +139,8 @@
          ((System.ComponentModel.ISupportInitialize)(this.EndTime_Txt.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.CbmtwkdyBs1)).BeginInit();
          this.panel1.SuspendLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.InsrRmnd_Txt.Properties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.InsrDate_Txt.Properties)).BeginInit();
          this.SuspendLayout();
          // 
          // label13
@@ -1207,6 +1211,7 @@
          // panel1
          // 
          this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(99)))), ((int)(((byte)(99)))));
+         this.panel1.Controls.Add(this.label4);
          this.panel1.Controls.Add(this.MbspStat_Rb);
          this.panel1.Controls.Add(this.Mtod_Lb);
          this.panel1.Controls.Add(this.panel5);
@@ -1231,6 +1236,8 @@
          this.panel1.Controls.Add(this.label1);
          this.panel1.Controls.Add(this.QWkdy007_Butn);
          this.panel1.Controls.Add(this.EndTime_Txt);
+         this.panel1.Controls.Add(this.InsrRmnd_Txt);
+         this.panel1.Controls.Add(this.InsrDate_Txt);
          this.panel1.Controls.Add(this.DayRmnd_Txt);
          this.panel1.Controls.Add(this.EndDate_Txt);
          this.panel1.Controls.Add(this.CochName_Lb);
@@ -1242,6 +1249,15 @@
          this.panel1.Name = "panel1";
          this.panel1.Size = new System.Drawing.Size(662, 516);
          this.panel1.TabIndex = 96;
+         // 
+         // label4
+         // 
+         this.label4.Image = global::System.Scsc.Properties.Resources.IMAGE_1099;
+         this.label4.Location = new System.Drawing.Point(599, 450);
+         this.label4.Name = "label4";
+         this.label4.Size = new System.Drawing.Size(50, 44);
+         this.label4.TabIndex = 27;
+         this.label4.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
          // 
          // MbspStat_Rb
          // 
@@ -1265,6 +1281,49 @@
          this.MbspStat_Rb.SmoothingQuality = System.MaxUi.RoundedButton.SmoothingQualities.AntiAlias;
          this.MbspStat_Rb.TabIndex = 96;
          this.MbspStat_Rb.Tooltip = null;
+         // 
+         // InsrRmnd_Txt
+         // 
+         this.InsrRmnd_Txt.EditValue = "12";
+         this.InsrRmnd_Txt.Location = new System.Drawing.Point(380, 448);
+         this.InsrRmnd_Txt.Name = "InsrRmnd_Txt";
+         this.InsrRmnd_Txt.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(99)))), ((int)(((byte)(99)))));
+         this.InsrRmnd_Txt.Properties.Appearance.Font = new System.Drawing.Font("B Titr", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.InsrRmnd_Txt.Properties.Appearance.ForeColor = System.Drawing.Color.Yellow;
+         this.InsrRmnd_Txt.Properties.Appearance.Options.UseBackColor = true;
+         this.InsrRmnd_Txt.Properties.Appearance.Options.UseFont = true;
+         this.InsrRmnd_Txt.Properties.Appearance.Options.UseForeColor = true;
+         this.InsrRmnd_Txt.Properties.Appearance.Options.UseTextOptions = true;
+         this.InsrRmnd_Txt.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+         this.InsrRmnd_Txt.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+         this.InsrRmnd_Txt.Properties.AppearanceFocused.Options.UseBackColor = true;
+         this.InsrRmnd_Txt.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+         this.InsrRmnd_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
+         this.InsrRmnd_Txt.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.InsrRmnd_Txt.Size = new System.Drawing.Size(62, 46);
+         this.InsrRmnd_Txt.TabIndex = 1;
+         // 
+         // InsrDate_Txt
+         // 
+         this.InsrDate_Txt.EditValue = "1397/01/30";
+         this.InsrDate_Txt.Location = new System.Drawing.Point(443, 448);
+         this.InsrDate_Txt.Name = "InsrDate_Txt";
+         this.InsrDate_Txt.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(99)))), ((int)(((byte)(99)))));
+         this.InsrDate_Txt.Properties.Appearance.Font = new System.Drawing.Font("B Titr", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.InsrDate_Txt.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+         this.InsrDate_Txt.Properties.Appearance.Options.UseBackColor = true;
+         this.InsrDate_Txt.Properties.Appearance.Options.UseFont = true;
+         this.InsrDate_Txt.Properties.Appearance.Options.UseForeColor = true;
+         this.InsrDate_Txt.Properties.Appearance.Options.UseTextOptions = true;
+         this.InsrDate_Txt.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+         this.InsrDate_Txt.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+         this.InsrDate_Txt.Properties.AppearanceFocused.Options.UseBackColor = true;
+         this.InsrDate_Txt.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+         this.InsrDate_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
+         this.InsrDate_Txt.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.InsrDate_Txt.Properties.ReadOnly = true;
+         this.InsrDate_Txt.Size = new System.Drawing.Size(150, 46);
+         this.InsrDate_Txt.TabIndex = 1;
          // 
          // WHO_ARYU_F
          // 
@@ -1319,6 +1378,8 @@
          ((System.ComponentModel.ISupportInitialize)(this.CbmtwkdyBs1)).EndInit();
          this.panel1.ResumeLayout(false);
          this.panel1.PerformLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.InsrRmnd_Txt.Properties)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.InsrDate_Txt.Properties)).EndInit();
          this.ResumeLayout(false);
          this.PerformLayout();
 
@@ -1398,6 +1459,9 @@
       private Windows.Forms.BindingSource CbmtwkdyBs1;
       private Windows.Forms.Panel panel1;
       private MaxUi.RoundedButton MbspStat_Rb;
+      private Windows.Forms.Label label4;
+      private DevExpress.XtraEditors.TextEdit InsrRmnd_Txt;
+      private DevExpress.XtraEditors.TextEdit InsrDate_Txt;
 
    }
 }

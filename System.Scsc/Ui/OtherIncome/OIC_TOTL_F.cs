@@ -1883,7 +1883,7 @@ namespace System.Scsc.Ui.OtherIncome
 
             ExpnItem_Tsmi.Text = ExpnDesc_Tsmi.Text = expn.EXPN_DESC;
             ExpnPric_Tsmi.Text = expn.PRIC.ToString();
-            ExpnOrdrItem_Tsmi.Text = expn.ORDR_ITEM.ToString();
+            ExpnOrdrItem_Tsmi.Text = expn.ORDR_ITEM;
          }
          catch (Exception exc)
          {

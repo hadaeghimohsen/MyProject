@@ -1505,20 +1505,20 @@ namespace System.Scsc.Ui.Common
             var pymt = vF_SavePaymentsBs.Current as Data.VF_Save_PaymentsResult;
             if (pymt == null) return;
 
-            int? amnt = null;
+            long? amnt = null;
             switch (PydsType_Butn.Tag.ToString())
             {
                case "0":
-                  if (!(Convert.ToInt32(PydsAmnt_Txt.EditValue) >= 0 && Convert.ToInt32(PydsAmnt_Txt.EditValue) <= 100))
+                  if (!(Convert.ToInt64(PydsAmnt_Txt.EditValue) >= 0 && Convert.ToInt64(PydsAmnt_Txt.EditValue) <= 100))
                   {
                      PydsAmnt_Txt.EditValue = null;
                      PydsAmnt_Txt.Focus();
                   }
 
-                  amnt = (pymt.SUM_EXPN_PRIC * Convert.ToInt32(PydsAmnt_Txt.EditValue)) / 100;
+                  amnt = (pymt.SUM_EXPN_PRIC * Convert.ToInt64(PydsAmnt_Txt.EditValue)) / 100;
                   break;
                case "1":
-                  amnt = Convert.ToInt32(PydsAmnt_Txt.EditValue);
+                  amnt = Convert.ToInt64(PydsAmnt_Txt.EditValue);
                   if (amnt == 0) return;
                   break;
             }

@@ -4454,12 +4454,6 @@ namespace System.Scsc.Data
          return ((ISingleResult<CNCL_PYMT_PResult>)(result.ReturnValue));
       }
 
-      [global::System.Data.Linq.Mapping.FunctionAttribute(Name = "dbo.VF$Save_Payments", IsComposable = true)]
-      public IQueryable<VF_Save_PaymentsResult> VF_Save_Payments([global::System.Data.Linq.Mapping.ParameterAttribute(Name = "Rqid", DbType = "BigInt")] System.Nullable<long> rqid, [global::System.Data.Linq.Mapping.ParameterAttribute(Name = "FileNo", DbType = "BigInt")] System.Nullable<long> fileNo)
-      {
-         return this.CreateMethodCallQuery<VF_Save_PaymentsResult>(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), rqid, fileNo);
-      }
-
       [global::System.Data.Linq.Mapping.FunctionAttribute(Name = "dbo.GRN_TRQT_P")]
       public int GRN_TRQT_P([global::System.Data.Linq.Mapping.ParameterAttribute(Name = "X", DbType = "Xml")] System.Xml.Linq.XElement x)
       {
@@ -4678,6 +4672,12 @@ namespace System.Scsc.Data
       {
          IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), cODE, pRIC, eXPN_STAT, aDD_QUTS, cOVR_DSCT, eXPN_TYPE, bUY_PRIC, bUY_EXTR_PRCT, nUMB_OF_STOK, nUMB_OF_SALE, cOVR_TAX, nUMB_OF_ATTN_MONT, nUMB_OF_ATTN_WEEK, mODL_NUMB_BAR_CODE, pRVT_COCH_EXPN, nUMB_CYCL_DAY, nUMB_MONT_OFER, mIN_NUMB, gROP_CODE, eXPN_DESC, mIN_TIME, rELY_CMND, oRDR_ITEM, bRND_CODE);
          return ((int)(result.ReturnValue));
+      }
+
+      [global::System.Data.Linq.Mapping.FunctionAttribute(Name = "dbo.VF$Save_Payments", IsComposable = true)]
+      public IQueryable<VF_Save_PaymentsResult> VF_Save_Payments([global::System.Data.Linq.Mapping.ParameterAttribute(Name = "Rqid", DbType = "BigInt")] System.Nullable<long> rqid, [global::System.Data.Linq.Mapping.ParameterAttribute(Name = "FileNo", DbType = "BigInt")] System.Nullable<long> fileNo)
+      {
+         return this.CreateMethodCallQuery<VF_Save_PaymentsResult>(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), rqid, fileNo);
       }
    }
 
@@ -89792,536 +89792,6 @@ namespace System.Scsc.Data
       }
    }
 
-   public partial class VF_Save_PaymentsResult
-   {
-
-      private System.Nullable<short> _YEAR;
-
-      private string _CYCL;
-
-      private System.Nullable<int> _PYMT_NO;
-
-      private System.Nullable<int> _PYMT_PYMT_NO;
-
-      private string _TYPE;
-
-      private string _PYMT_TYPE;
-
-      private string _PYMT_STAT;
-
-      private string _RECV_TYPE;
-
-      private int _SUM_EXPN_PRIC;
-
-      private int _SUM_EXPN_EXTR_PRCT;
-
-      private int _SUM_REMN_PRIC;
-
-      private int _SUM_RCPT_EXPN_PRIC;
-
-      private System.Nullable<int> _SUM_RCPT_EXPN_EXTR_PRCT;
-
-      private System.Nullable<int> _SUM_RCPT_REMN_PRIC;
-
-      private System.Nullable<int> _SUM_PYMT_DSCN_DNRM;
-
-      private string _CRET_BY;
-
-      private System.Nullable<System.DateTime> _PYMT_CRET_DATE;
-
-      private string _MDFY_BY;
-
-      private System.Nullable<System.DateTime> _PYMT_MDFY_DATE;
-
-      private string _PYMT_LETT_NO;
-
-      private System.Nullable<System.DateTime> _PYMT_LETT_DATE;
-
-      private System.Nullable<long> _FIGH_FILE_NO;
-
-      private string _RQTP_DESC;
-
-      private long _RQID;
-
-      private string _RQTP_CODE;
-
-      private long _CASH_CODE;
-
-      private string _AMNT_UNIT_TYPE_DNRM;
-
-      private System.Nullable<short> _REGL_YEAR_DNRM;
-
-      private System.Nullable<int> _REGL_CODE_DNRM;
-
-      public VF_Save_PaymentsResult()
-      {
-      }
-
-      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_YEAR", DbType = "SmallInt")]
-      public System.Nullable<short> YEAR
-      {
-         get
-         {
-            return this._YEAR;
-         }
-         set
-         {
-            if ((this._YEAR != value))
-            {
-               this._YEAR = value;
-            }
-         }
-      }
-
-      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_CYCL", DbType = "VarChar(3)")]
-      public string CYCL
-      {
-         get
-         {
-            return this._CYCL;
-         }
-         set
-         {
-            if ((this._CYCL != value))
-            {
-               this._CYCL = value;
-            }
-         }
-      }
-
-      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_PYMT_NO", DbType = "Int")]
-      public System.Nullable<int> PYMT_NO
-      {
-         get
-         {
-            return this._PYMT_NO;
-         }
-         set
-         {
-            if ((this._PYMT_NO != value))
-            {
-               this._PYMT_NO = value;
-            }
-         }
-      }
-
-      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_PYMT_PYMT_NO", DbType = "Int")]
-      public System.Nullable<int> PYMT_PYMT_NO
-      {
-         get
-         {
-            return this._PYMT_PYMT_NO;
-         }
-         set
-         {
-            if ((this._PYMT_PYMT_NO != value))
-            {
-               this._PYMT_PYMT_NO = value;
-            }
-         }
-      }
-
-      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_TYPE", DbType = "VarChar(3) NOT NULL", CanBeNull = false)]
-      public string TYPE
-      {
-         get
-         {
-            return this._TYPE;
-         }
-         set
-         {
-            if ((this._TYPE != value))
-            {
-               this._TYPE = value;
-            }
-         }
-      }
-
-      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_PYMT_TYPE", DbType = "VarChar(3)")]
-      public string PYMT_TYPE
-      {
-         get
-         {
-            return this._PYMT_TYPE;
-         }
-         set
-         {
-            if ((this._PYMT_TYPE != value))
-            {
-               this._PYMT_TYPE = value;
-            }
-         }
-      }
-
-      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_PYMT_STAT", DbType = "VarChar(3)")]
-      public string PYMT_STAT
-      {
-         get
-         {
-            return this._PYMT_STAT;
-         }
-         set
-         {
-            if ((this._PYMT_STAT != value))
-            {
-               this._PYMT_STAT = value;
-            }
-         }
-      }
-
-      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_RECV_TYPE", DbType = "VarChar(3) NOT NULL", CanBeNull = false)]
-      public string RECV_TYPE
-      {
-         get
-         {
-            return this._RECV_TYPE;
-         }
-         set
-         {
-            if ((this._RECV_TYPE != value))
-            {
-               this._RECV_TYPE = value;
-            }
-         }
-      }
-
-      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_SUM_EXPN_PRIC", DbType = "Int NOT NULL")]
-      public int SUM_EXPN_PRIC
-      {
-         get
-         {
-            return this._SUM_EXPN_PRIC;
-         }
-         set
-         {
-            if ((this._SUM_EXPN_PRIC != value))
-            {
-               this._SUM_EXPN_PRIC = value;
-            }
-         }
-      }
-
-      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_SUM_EXPN_EXTR_PRCT", DbType = "Int NOT NULL")]
-      public int SUM_EXPN_EXTR_PRCT
-      {
-         get
-         {
-            return this._SUM_EXPN_EXTR_PRCT;
-         }
-         set
-         {
-            if ((this._SUM_EXPN_EXTR_PRCT != value))
-            {
-               this._SUM_EXPN_EXTR_PRCT = value;
-            }
-         }
-      }
-
-      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_SUM_REMN_PRIC", DbType = "Int NOT NULL")]
-      public int SUM_REMN_PRIC
-      {
-         get
-         {
-            return this._SUM_REMN_PRIC;
-         }
-         set
-         {
-            if ((this._SUM_REMN_PRIC != value))
-            {
-               this._SUM_REMN_PRIC = value;
-            }
-         }
-      }
-
-      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_SUM_RCPT_EXPN_PRIC", DbType = "Int NOT NULL")]
-      public int SUM_RCPT_EXPN_PRIC
-      {
-         get
-         {
-            return this._SUM_RCPT_EXPN_PRIC;
-         }
-         set
-         {
-            if ((this._SUM_RCPT_EXPN_PRIC != value))
-            {
-               this._SUM_RCPT_EXPN_PRIC = value;
-            }
-         }
-      }
-
-      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_SUM_RCPT_EXPN_EXTR_PRCT", DbType = "Int")]
-      public System.Nullable<int> SUM_RCPT_EXPN_EXTR_PRCT
-      {
-         get
-         {
-            return this._SUM_RCPT_EXPN_EXTR_PRCT;
-         }
-         set
-         {
-            if ((this._SUM_RCPT_EXPN_EXTR_PRCT != value))
-            {
-               this._SUM_RCPT_EXPN_EXTR_PRCT = value;
-            }
-         }
-      }
-
-      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_SUM_RCPT_REMN_PRIC", DbType = "Int")]
-      public System.Nullable<int> SUM_RCPT_REMN_PRIC
-      {
-         get
-         {
-            return this._SUM_RCPT_REMN_PRIC;
-         }
-         set
-         {
-            if ((this._SUM_RCPT_REMN_PRIC != value))
-            {
-               this._SUM_RCPT_REMN_PRIC = value;
-            }
-         }
-      }
-
-      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_SUM_PYMT_DSCN_DNRM", DbType = "Int")]
-      public System.Nullable<int> SUM_PYMT_DSCN_DNRM
-      {
-         get
-         {
-            return this._SUM_PYMT_DSCN_DNRM;
-         }
-         set
-         {
-            if ((this._SUM_PYMT_DSCN_DNRM != value))
-            {
-               this._SUM_PYMT_DSCN_DNRM = value;
-            }
-         }
-      }
-
-      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_CRET_BY", DbType = "VarChar(250)")]
-      public string CRET_BY
-      {
-         get
-         {
-            return this._CRET_BY;
-         }
-         set
-         {
-            if ((this._CRET_BY != value))
-            {
-               this._CRET_BY = value;
-            }
-         }
-      }
-
-      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_PYMT_CRET_DATE", DbType = "DateTime")]
-      public System.Nullable<System.DateTime> PYMT_CRET_DATE
-      {
-         get
-         {
-            return this._PYMT_CRET_DATE;
-         }
-         set
-         {
-            if ((this._PYMT_CRET_DATE != value))
-            {
-               this._PYMT_CRET_DATE = value;
-            }
-         }
-      }
-
-      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_MDFY_BY", DbType = "VarChar(250)")]
-      public string MDFY_BY
-      {
-         get
-         {
-            return this._MDFY_BY;
-         }
-         set
-         {
-            if ((this._MDFY_BY != value))
-            {
-               this._MDFY_BY = value;
-            }
-         }
-      }
-
-      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_PYMT_MDFY_DATE", DbType = "DateTime")]
-      public System.Nullable<System.DateTime> PYMT_MDFY_DATE
-      {
-         get
-         {
-            return this._PYMT_MDFY_DATE;
-         }
-         set
-         {
-            if ((this._PYMT_MDFY_DATE != value))
-            {
-               this._PYMT_MDFY_DATE = value;
-            }
-         }
-      }
-
-      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_PYMT_LETT_NO", DbType = "VarChar(15)")]
-      public string PYMT_LETT_NO
-      {
-         get
-         {
-            return this._PYMT_LETT_NO;
-         }
-         set
-         {
-            if ((this._PYMT_LETT_NO != value))
-            {
-               this._PYMT_LETT_NO = value;
-            }
-         }
-      }
-
-      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_PYMT_LETT_DATE", DbType = "DateTime")]
-      public System.Nullable<System.DateTime> PYMT_LETT_DATE
-      {
-         get
-         {
-            return this._PYMT_LETT_DATE;
-         }
-         set
-         {
-            if ((this._PYMT_LETT_DATE != value))
-            {
-               this._PYMT_LETT_DATE = value;
-            }
-         }
-      }
-
-      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_FIGH_FILE_NO", DbType = "BigInt")]
-      public System.Nullable<long> FIGH_FILE_NO
-      {
-         get
-         {
-            return this._FIGH_FILE_NO;
-         }
-         set
-         {
-            if ((this._FIGH_FILE_NO != value))
-            {
-               this._FIGH_FILE_NO = value;
-            }
-         }
-      }
-
-      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_RQTP_DESC", DbType = "NVarChar(250)")]
-      public string RQTP_DESC
-      {
-         get
-         {
-            return this._RQTP_DESC;
-         }
-         set
-         {
-            if ((this._RQTP_DESC != value))
-            {
-               this._RQTP_DESC = value;
-            }
-         }
-      }
-
-      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_RQID", DbType = "BigInt NOT NULL")]
-      public long RQID
-      {
-         get
-         {
-            return this._RQID;
-         }
-         set
-         {
-            if ((this._RQID != value))
-            {
-               this._RQID = value;
-            }
-         }
-      }
-
-      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_RQTP_CODE", DbType = "VarChar(3) NOT NULL", CanBeNull = false)]
-      public string RQTP_CODE
-      {
-         get
-         {
-            return this._RQTP_CODE;
-         }
-         set
-         {
-            if ((this._RQTP_CODE != value))
-            {
-               this._RQTP_CODE = value;
-            }
-         }
-      }
-
-      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_CASH_CODE", DbType = "BigInt NOT NULL")]
-      public long CASH_CODE
-      {
-         get
-         {
-            return this._CASH_CODE;
-         }
-         set
-         {
-            if ((this._CASH_CODE != value))
-            {
-               this._CASH_CODE = value;
-            }
-         }
-      }
-
-      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_AMNT_UNIT_TYPE_DNRM", DbType = "VarChar(3)")]
-      public string AMNT_UNIT_TYPE_DNRM
-      {
-         get
-         {
-            return this._AMNT_UNIT_TYPE_DNRM;
-         }
-         set
-         {
-            if ((this._AMNT_UNIT_TYPE_DNRM != value))
-            {
-               this._AMNT_UNIT_TYPE_DNRM = value;
-            }
-         }
-      }
-
-      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_REGL_YEAR_DNRM", DbType = "SmallInt")]
-      public System.Nullable<short> REGL_YEAR_DNRM
-      {
-         get
-         {
-            return this._REGL_YEAR_DNRM;
-         }
-         set
-         {
-            if ((this._REGL_YEAR_DNRM != value))
-            {
-               this._REGL_YEAR_DNRM = value;
-            }
-         }
-      }
-
-      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_REGL_CODE_DNRM", DbType = "Int")]
-      public System.Nullable<int> REGL_CODE_DNRM
-      {
-         get
-         {
-            return this._REGL_CODE_DNRM;
-         }
-         set
-         {
-            if ((this._REGL_CODE_DNRM != value))
-            {
-               this._REGL_CODE_DNRM = value;
-            }
-         }
-      }
-   }
-
    public partial class VF_Request_ChangingResult
    {
 
@@ -90765,6 +90235,572 @@ namespace System.Scsc.Data
             if ((this._SUNT_DESC != value))
             {
                this._SUNT_DESC = value;
+            }
+         }
+      }
+   }
+
+   public partial class VF_Save_PaymentsResult
+   {
+
+      private System.Nullable<short> _YEAR;
+
+      private string _CYCL;
+
+      private System.Nullable<int> _PYMT_NO;
+
+      private System.Nullable<int> _PYMT_PYMT_NO;
+
+      private string _TYPE;
+
+      private string _PYMT_TYPE;
+
+      private string _PYMT_TYPE_DESC;
+
+      private string _PYMT_STAT;
+
+      private string _PYMT_STAT_DESC;
+
+      private string _RECV_TYPE;
+
+      private long _SUM_EXPN_PRIC;
+
+      private long _SUM_EXPN_EXTR_PRCT;
+
+      private long _SUM_REMN_PRIC;
+
+      private long _SUM_RCPT_EXPN_PRIC;
+
+      private System.Nullable<long> _SUM_RCPT_EXPN_EXTR_PRCT;
+
+      private System.Nullable<long> _SUM_RCPT_REMN_PRIC;
+
+      private System.Nullable<long> _SUM_PYMT_DSCN_DNRM;
+
+      private string _CRET_BY;
+
+      private System.Nullable<System.DateTime> _PYMT_CRET_DATE;
+
+      private string _MDFY_BY;
+
+      private System.Nullable<System.DateTime> _PYMT_MDFY_DATE;
+
+      private string _PYMT_LETT_NO;
+
+      private System.Nullable<System.DateTime> _PYMT_LETT_DATE;
+
+      private System.Nullable<long> _FIGH_FILE_NO;
+
+      private string _RQTP_DESC;
+
+      private long _RQID;
+
+      private string _RQTP_CODE;
+
+      private long _CASH_CODE;
+
+      private string _AMNT_UNIT_TYPE_DNRM;
+
+      private System.Nullable<short> _REGL_YEAR_DNRM;
+
+      private System.Nullable<int> _REGL_CODE_DNRM;
+
+      public VF_Save_PaymentsResult()
+      {
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_YEAR", DbType = "SmallInt")]
+      public System.Nullable<short> YEAR
+      {
+         get
+         {
+            return this._YEAR;
+         }
+         set
+         {
+            if ((this._YEAR != value))
+            {
+               this._YEAR = value;
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_CYCL", DbType = "VarChar(3)")]
+      public string CYCL
+      {
+         get
+         {
+            return this._CYCL;
+         }
+         set
+         {
+            if ((this._CYCL != value))
+            {
+               this._CYCL = value;
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_PYMT_NO", DbType = "Int")]
+      public System.Nullable<int> PYMT_NO
+      {
+         get
+         {
+            return this._PYMT_NO;
+         }
+         set
+         {
+            if ((this._PYMT_NO != value))
+            {
+               this._PYMT_NO = value;
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_PYMT_PYMT_NO", DbType = "Int")]
+      public System.Nullable<int> PYMT_PYMT_NO
+      {
+         get
+         {
+            return this._PYMT_PYMT_NO;
+         }
+         set
+         {
+            if ((this._PYMT_PYMT_NO != value))
+            {
+               this._PYMT_PYMT_NO = value;
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_TYPE", DbType = "VarChar(3) NOT NULL", CanBeNull = false)]
+      public string TYPE
+      {
+         get
+         {
+            return this._TYPE;
+         }
+         set
+         {
+            if ((this._TYPE != value))
+            {
+               this._TYPE = value;
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_PYMT_TYPE", DbType = "VarChar(3)")]
+      public string PYMT_TYPE
+      {
+         get
+         {
+            return this._PYMT_TYPE;
+         }
+         set
+         {
+            if ((this._PYMT_TYPE != value))
+            {
+               this._PYMT_TYPE = value;
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_PYMT_TYPE_DESC", DbType = "NVarChar(255) NOT NULL", CanBeNull = false)]
+      public string PYMT_TYPE_DESC
+      {
+         get
+         {
+            return this._PYMT_TYPE_DESC;
+         }
+         set
+         {
+            if ((this._PYMT_TYPE_DESC != value))
+            {
+               this._PYMT_TYPE_DESC = value;
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_PYMT_STAT", DbType = "VarChar(3)")]
+      public string PYMT_STAT
+      {
+         get
+         {
+            return this._PYMT_STAT;
+         }
+         set
+         {
+            if ((this._PYMT_STAT != value))
+            {
+               this._PYMT_STAT = value;
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_PYMT_STAT_DESC", DbType = "NVarChar(255) NOT NULL", CanBeNull = false)]
+      public string PYMT_STAT_DESC
+      {
+         get
+         {
+            return this._PYMT_STAT_DESC;
+         }
+         set
+         {
+            if ((this._PYMT_STAT_DESC != value))
+            {
+               this._PYMT_STAT_DESC = value;
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_RECV_TYPE", DbType = "VarChar(3) NOT NULL", CanBeNull = false)]
+      public string RECV_TYPE
+      {
+         get
+         {
+            return this._RECV_TYPE;
+         }
+         set
+         {
+            if ((this._RECV_TYPE != value))
+            {
+               this._RECV_TYPE = value;
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_SUM_EXPN_PRIC", DbType = "BigInt NOT NULL")]
+      public long SUM_EXPN_PRIC
+      {
+         get
+         {
+            return this._SUM_EXPN_PRIC;
+         }
+         set
+         {
+            if ((this._SUM_EXPN_PRIC != value))
+            {
+               this._SUM_EXPN_PRIC = value;
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_SUM_EXPN_EXTR_PRCT", DbType = "BigInt NOT NULL")]
+      public long SUM_EXPN_EXTR_PRCT
+      {
+         get
+         {
+            return this._SUM_EXPN_EXTR_PRCT;
+         }
+         set
+         {
+            if ((this._SUM_EXPN_EXTR_PRCT != value))
+            {
+               this._SUM_EXPN_EXTR_PRCT = value;
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_SUM_REMN_PRIC", DbType = "BigInt NOT NULL")]
+      public long SUM_REMN_PRIC
+      {
+         get
+         {
+            return this._SUM_REMN_PRIC;
+         }
+         set
+         {
+            if ((this._SUM_REMN_PRIC != value))
+            {
+               this._SUM_REMN_PRIC = value;
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_SUM_RCPT_EXPN_PRIC", DbType = "BigInt NOT NULL")]
+      public long SUM_RCPT_EXPN_PRIC
+      {
+         get
+         {
+            return this._SUM_RCPT_EXPN_PRIC;
+         }
+         set
+         {
+            if ((this._SUM_RCPT_EXPN_PRIC != value))
+            {
+               this._SUM_RCPT_EXPN_PRIC = value;
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_SUM_RCPT_EXPN_EXTR_PRCT", DbType = "BigInt")]
+      public System.Nullable<long> SUM_RCPT_EXPN_EXTR_PRCT
+      {
+         get
+         {
+            return this._SUM_RCPT_EXPN_EXTR_PRCT;
+         }
+         set
+         {
+            if ((this._SUM_RCPT_EXPN_EXTR_PRCT != value))
+            {
+               this._SUM_RCPT_EXPN_EXTR_PRCT = value;
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_SUM_RCPT_REMN_PRIC", DbType = "BigInt")]
+      public System.Nullable<long> SUM_RCPT_REMN_PRIC
+      {
+         get
+         {
+            return this._SUM_RCPT_REMN_PRIC;
+         }
+         set
+         {
+            if ((this._SUM_RCPT_REMN_PRIC != value))
+            {
+               this._SUM_RCPT_REMN_PRIC = value;
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_SUM_PYMT_DSCN_DNRM", DbType = "BigInt")]
+      public System.Nullable<long> SUM_PYMT_DSCN_DNRM
+      {
+         get
+         {
+            return this._SUM_PYMT_DSCN_DNRM;
+         }
+         set
+         {
+            if ((this._SUM_PYMT_DSCN_DNRM != value))
+            {
+               this._SUM_PYMT_DSCN_DNRM = value;
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_CRET_BY", DbType = "VarChar(250)")]
+      public string CRET_BY
+      {
+         get
+         {
+            return this._CRET_BY;
+         }
+         set
+         {
+            if ((this._CRET_BY != value))
+            {
+               this._CRET_BY = value;
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_PYMT_CRET_DATE", DbType = "DateTime")]
+      public System.Nullable<System.DateTime> PYMT_CRET_DATE
+      {
+         get
+         {
+            return this._PYMT_CRET_DATE;
+         }
+         set
+         {
+            if ((this._PYMT_CRET_DATE != value))
+            {
+               this._PYMT_CRET_DATE = value;
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_MDFY_BY", DbType = "VarChar(250)")]
+      public string MDFY_BY
+      {
+         get
+         {
+            return this._MDFY_BY;
+         }
+         set
+         {
+            if ((this._MDFY_BY != value))
+            {
+               this._MDFY_BY = value;
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_PYMT_MDFY_DATE", DbType = "DateTime")]
+      public System.Nullable<System.DateTime> PYMT_MDFY_DATE
+      {
+         get
+         {
+            return this._PYMT_MDFY_DATE;
+         }
+         set
+         {
+            if ((this._PYMT_MDFY_DATE != value))
+            {
+               this._PYMT_MDFY_DATE = value;
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_PYMT_LETT_NO", DbType = "VarChar(15)")]
+      public string PYMT_LETT_NO
+      {
+         get
+         {
+            return this._PYMT_LETT_NO;
+         }
+         set
+         {
+            if ((this._PYMT_LETT_NO != value))
+            {
+               this._PYMT_LETT_NO = value;
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_PYMT_LETT_DATE", DbType = "DateTime")]
+      public System.Nullable<System.DateTime> PYMT_LETT_DATE
+      {
+         get
+         {
+            return this._PYMT_LETT_DATE;
+         }
+         set
+         {
+            if ((this._PYMT_LETT_DATE != value))
+            {
+               this._PYMT_LETT_DATE = value;
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_FIGH_FILE_NO", DbType = "BigInt")]
+      public System.Nullable<long> FIGH_FILE_NO
+      {
+         get
+         {
+            return this._FIGH_FILE_NO;
+         }
+         set
+         {
+            if ((this._FIGH_FILE_NO != value))
+            {
+               this._FIGH_FILE_NO = value;
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_RQTP_DESC", DbType = "NVarChar(250)")]
+      public string RQTP_DESC
+      {
+         get
+         {
+            return this._RQTP_DESC;
+         }
+         set
+         {
+            if ((this._RQTP_DESC != value))
+            {
+               this._RQTP_DESC = value;
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_RQID", DbType = "BigInt NOT NULL")]
+      public long RQID
+      {
+         get
+         {
+            return this._RQID;
+         }
+         set
+         {
+            if ((this._RQID != value))
+            {
+               this._RQID = value;
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_RQTP_CODE", DbType = "VarChar(3) NOT NULL", CanBeNull = false)]
+      public string RQTP_CODE
+      {
+         get
+         {
+            return this._RQTP_CODE;
+         }
+         set
+         {
+            if ((this._RQTP_CODE != value))
+            {
+               this._RQTP_CODE = value;
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_CASH_CODE", DbType = "BigInt NOT NULL")]
+      public long CASH_CODE
+      {
+         get
+         {
+            return this._CASH_CODE;
+         }
+         set
+         {
+            if ((this._CASH_CODE != value))
+            {
+               this._CASH_CODE = value;
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_AMNT_UNIT_TYPE_DNRM", DbType = "VarChar(3)")]
+      public string AMNT_UNIT_TYPE_DNRM
+      {
+         get
+         {
+            return this._AMNT_UNIT_TYPE_DNRM;
+         }
+         set
+         {
+            if ((this._AMNT_UNIT_TYPE_DNRM != value))
+            {
+               this._AMNT_UNIT_TYPE_DNRM = value;
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_REGL_YEAR_DNRM", DbType = "SmallInt")]
+      public System.Nullable<short> REGL_YEAR_DNRM
+      {
+         get
+         {
+            return this._REGL_YEAR_DNRM;
+         }
+         set
+         {
+            if ((this._REGL_YEAR_DNRM != value))
+            {
+               this._REGL_YEAR_DNRM = value;
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_REGL_CODE_DNRM", DbType = "Int")]
+      public System.Nullable<int> REGL_CODE_DNRM
+      {
+         get
+         {
+            return this._REGL_CODE_DNRM;
+         }
+         set
+         {
+            if ((this._REGL_CODE_DNRM != value))
+            {
+               this._REGL_CODE_DNRM = value;
             }
          }
       }

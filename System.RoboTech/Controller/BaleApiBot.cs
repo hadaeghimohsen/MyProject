@@ -573,7 +573,9 @@ namespace System.RoboTech.Controller
                                  new XAttribute("childussd", ""),
                                  new XAttribute("chatid", chatid),
                                  new XAttribute("elmntype", "001"),
-                                 new XElement("Text", "show")
+                                 new XElement("Text", "show",
+                                     new XAttribute("param", ordrcode)
+                                 )
                            )
                         ),
                         ref xResult

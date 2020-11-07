@@ -207,6 +207,8 @@ namespace System.RoboTech.Ui.DevelopmentApplication
          DamutBs.DataSource = iRoboTech.D_AMUTs;
          DrcmtBs.DataSource = iRoboTech.D_RCMTs;
          DodstBs.DataSource = iRoboTech.D_ODSTs;
+         DofkdBs.DataSource = iRoboTech.D_OFKDs;
+         DoftpBs.DataSource = iRoboTech.D_OFTPs;
          VBexpBs.DataSource = iRoboTech.V_Group_Expenses.Where(b => b.GROP_TYPE == "002");
          VGexpBs.DataSource = iRoboTech.V_Group_Expenses.Where(b => b.GROP_TYPE == "001");
 

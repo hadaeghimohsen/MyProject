@@ -204,6 +204,9 @@ namespace System.RoboTech.Ui.DevelopmentApplication
          DconfBs.DataSource = iRoboTech.D_CONFs;
          DtxfcBs.DataSource = iRoboTech.D_TXFCs;
          DtxftBs.DataSource = iRoboTech.D_TXFTs;
+         Doftpbs.DataSource = iRoboTech.D_OFTPs;
+         Dofkdbs.DataSource = iRoboTech.D_OFKDs;
+         Drcstbs.DataSource = iRoboTech.D_RCSTs;
          job.Status = StatusType.Successful;
       }
 

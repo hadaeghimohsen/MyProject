@@ -454,7 +454,17 @@
       <SubType>UserControl</SubType>
     </Compile>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <COMReference Include="WMPLib">
+      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
   <ItemGroup>
     <None Include="App.Config">
       <SubType>Designer</SubType>
@@ -497,6 +507,7 @@
     <None Include="Properties\DataSources\System.RoboTech.Data.D_PDTP.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_PKTP.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_RCMT.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.D_RCST.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_RCVT.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_RMTP.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_SADV.datasource" />

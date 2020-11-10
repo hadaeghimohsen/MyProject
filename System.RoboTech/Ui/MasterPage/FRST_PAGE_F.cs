@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.JobRouting.Jobs;
 using System.Globalization;
+using System.Threading;
 
 namespace System.RoboTech.Ui.MasterPage
 {
@@ -229,6 +230,11 @@ namespace System.RoboTech.Ui.MasterPage
                      NotfOrdrShip_Butn.Caption = ordrship.Count().ToString();
                      OrdrShip_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
 
+                     // اگر سیستم اطلاع رسانی فعال باشد
+                     if (ordrship.FirstOrDefault().Robot.NOTI_ORDR_SHIP_STAT == "002")
+                        new Thread(new ParameterizedThreadStart(PlaySound)).Start(ordrship.FirstOrDefault().Robot.NOTI_SOND_ORDR_SHIP_PATH);
+                        //PlaySound(ordrship.FirstOrDefault().Robot.NOTI_SOND_ORDR_SHIP_PATH);
+
                      _DefaultGateway.Gateway(
                         new Job(SendType.External, "localhost", "Wall", 22 /* Execute SetSystemNotification */, SendType.SelfToUserInterface)
                         {
@@ -261,6 +267,11 @@ namespace System.RoboTech.Ui.MasterPage
                      NotfOrdrReceipt_Butn.Caption = ordrrcpt.Count().ToString();
                      OrdrReceipt_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
 
+                     // اگر سیستم اطلاع رسانی فعال باشد
+                     if (ordrship.FirstOrDefault().Robot.NOTI_ORDR_RCPT_STAT == "002")
+                        new Thread(new ParameterizedThreadStart(PlaySound)).Start(ordrship.FirstOrDefault().Robot.NOTI_SOND_ORDR_RCPT_PATH);
+                        //PlaySound(ordrship.FirstOrDefault().Robot.NOTI_SOND_ORDR_RCPT_PATH);
+
                      _DefaultGateway.Gateway(
                         new Job(SendType.External, "localhost", "Wall", 22 /* Execute SetSystemNotification */, SendType.SelfToUserInterface)
                         {
@@ -292,6 +303,11 @@ namespace System.RoboTech.Ui.MasterPage
                      NotfOrdrOnlineAdmission_Butn.Visible = true;
                      NotfOrdrOnlineAdmission_Butn.Caption = ordr25.Count().ToString();
                      OrderOnlineAdmission_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
+
+                     // اگر سیستم اطلاع رسانی فعال باشد
+                     if (ordrship.FirstOrDefault().Robot.NOTI_ORDR_RECP_STAT == "002")
+                        new Thread(new ParameterizedThreadStart(PlaySound)).Start(ordrship.FirstOrDefault().Robot.NOTI_SOND_ORDR_RECP_PATH);
+                        //PlaySound(ordrship.FirstOrDefault().Robot.NOTI_SOND_ORDR_RECP_PATH);
 
                      _DefaultGateway.Gateway(
                         new Job(SendType.External, "localhost", "Wall", 22 /* Execute SetSystemNotification */, SendType.SelfToUserInterface)
@@ -327,6 +343,11 @@ namespace System.RoboTech.Ui.MasterPage
                   NotfOrdrShip_Butn.Caption = ordrship.Count().ToString();
                   OrdrShip_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
 
+                  // اگر سیستم اطلاع رسانی فعال باشد
+                  if (ordrship.FirstOrDefault().Robot.NOTI_ORDR_SHIP_STAT == "002")
+                     new Thread(new ParameterizedThreadStart(PlaySound)).Start(ordrship.FirstOrDefault().Robot.NOTI_SOND_ORDR_SHIP_PATH);
+                     //PlaySound(ordrship.FirstOrDefault().Robot.NOTI_SOND_ORDR_SHIP_PATH);
+
                   _DefaultGateway.Gateway(
                      new Job(SendType.External, "localhost", "Wall", 22 /* Execute SetSystemNotification */, SendType.SelfToUserInterface)
                      {
@@ -359,6 +380,11 @@ namespace System.RoboTech.Ui.MasterPage
                   NotfOrdrReceipt_Butn.Caption = ordrrcpt.Count().ToString();
                   OrdrReceipt_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
 
+                  // اگر سیستم اطلاع رسانی فعال باشد
+                  if (ordrship.FirstOrDefault().Robot.NOTI_ORDR_RCPT_STAT == "002")
+                     new Thread(new ParameterizedThreadStart(PlaySound)).Start(ordrship.FirstOrDefault().Robot.NOTI_SOND_ORDR_RCPT_PATH);
+                     //PlaySound(ordrship.FirstOrDefault().Robot.NOTI_SOND_ORDR_RCPT_PATH);
+
                   _DefaultGateway.Gateway(
                      new Job(SendType.External, "localhost", "Wall", 22 /* Execute SetSystemNotification */, SendType.SelfToUserInterface)
                      {
@@ -390,6 +416,11 @@ namespace System.RoboTech.Ui.MasterPage
                   NotfOrdrOnlineAdmission_Butn.Visible = true;
                   NotfOrdrOnlineAdmission_Butn.Caption = ordr25.Count().ToString();
                   OrderOnlineAdmission_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
+
+                  // اگر سیستم اطلاع رسانی فعال باشد
+                  if (ordrship.FirstOrDefault().Robot.NOTI_ORDR_RECP_STAT == "002")
+                     new Thread(new ParameterizedThreadStart(PlaySound)).Start(ordrship.FirstOrDefault().Robot.NOTI_SOND_ORDR_RECP_PATH);
+                     //PlaySound(ordrship.FirstOrDefault().Robot.NOTI_SOND_ORDR_RECP_PATH);
 
                   _DefaultGateway.Gateway(
                      new Job(SendType.External, "localhost", "Wall", 22 /* Execute SetSystemNotification */, SendType.SelfToUserInterface)
@@ -471,6 +502,20 @@ namespace System.RoboTech.Ui.MasterPage
          OrderOnlineAdmission_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
 
          OnlnRecpOrdrRobo_Butn_Click(null, null);
+      }
+
+      WMPLib.WindowsMediaPlayer wplayer = new WMPLib.WindowsMediaPlayer();
+      private void PlaySound(object path)
+      {
+         if (InvokeRequired)
+         {
+            try
+            {
+               wplayer.URL = path.ToString();
+               wplayer.controls.play();
+            }
+            catch { }
+         }
       }
    }
 }

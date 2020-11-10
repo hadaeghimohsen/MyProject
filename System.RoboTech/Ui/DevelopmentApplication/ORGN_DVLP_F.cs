@@ -1743,5 +1743,61 @@ namespace System.RoboTech.Ui.DevelopmentApplication
             MessageBox.Show(exc.Message);
          }
       }
+
+      private void NotiOrdrShipPath_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var robo = RoboBs.Current as Data.Robot;
+            if (robo == null) return;
+
+            if (NotiSondPath_Ofd.ShowDialog() != DialogResult.OK) return;
+
+            robo.NOTI_SOND_ORDR_SHIP_PATH = NotiSondPath_Ofd.FileName;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void NotiOrdrRcptPath_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var robo = RoboBs.Current as Data.Robot;
+            if (robo == null) return;
+
+            if (NotiSondPath_Ofd.ShowDialog() != DialogResult.OK) return;
+
+            robo.NOTI_SOND_ORDR_RCPT_PATH = NotiSondPath_Ofd.FileName;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void NotiOrdrRecpPath_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var robo = RoboBs.Current as Data.Robot;
+            if (robo == null) return;
+
+            if (NotiSondPath_Ofd.ShowDialog() != DialogResult.OK) return;
+
+            robo.NOTI_SOND_ORDR_RECP_PATH = NotiSondPath_Ofd.FileName;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void SaveNoti_Butn_Click(object sender, EventArgs e)
+      {
+         SubmitChanged_Clicked(null, null);
+      }
    }
 }

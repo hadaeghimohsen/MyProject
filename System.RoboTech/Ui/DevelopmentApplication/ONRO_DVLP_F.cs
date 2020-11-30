@@ -42,6 +42,7 @@ namespace System.RoboTech.Ui.DevelopmentApplication
          int prbt = PrbtBs.Position;
          int srbt = SrbtBs.Position;
          int ordr25stp2 = Ordr25Stp2Bs.Position;
+         int ordt4stp2 = Ordt4Stp2Bs.Position;
 
          OrgnBs.DataSource = iRoboTech.Organs.Where(o => Fga_Ugov_U.Contains(o.OGID));
          RcbaBs.DataSource = iRoboTech.Robot_Card_Bank_Accounts.Where(i => i.ACNT_TYPE == "002" && i.ORDR_TYPE == "004" && i.ACNT_STAT == "002");
@@ -51,6 +52,7 @@ namespace System.RoboTech.Ui.DevelopmentApplication
          PrbtBs.Position = prbt;
          SrbtBs.Position = srbt;
          Ordr25Stp2Bs.Position = ordr25stp2;
+         Ordt4Stp2Bs.Position = ordt4stp2;
 
          SearchProduct_Butn_Click(null, null);
 
@@ -841,7 +843,7 @@ namespace System.RoboTech.Ui.DevelopmentApplication
                         new XAttribute("chatid", ordr.CHAT_ID),
                         new XAttribute("elmntype", "001"),
                         new XElement("Text",
-                            new XAttribute("param", string.Format("howinccashwlet,{0}", ordr.DEBT_DNRM)),
+                            new XAttribute("param", string.Format("howinccashwlet,{0}", ordr.AMNT_TYPE == "001" ? ordr.DEBT_DNRM : ordr.DEBT_DNRM * 10)),
                             new XAttribute("postexec", "lessaddwlet"),
                             "addamntwlet"
                         )
@@ -860,6 +862,7 @@ namespace System.RoboTech.Ui.DevelopmentApplication
                    new XAttribute("ordrcode", ordr15.CODE),
                    new XAttribute("txid", ordr15.CODE), 
                    new XAttribute("totlamnt", ordr15.DEBT_DNRM),
+                   new XAttribute("autochngamnt", "001"),
                    new XAttribute("rcptmtod", "001")
                ),
                ref xResult
@@ -958,7 +961,7 @@ namespace System.RoboTech.Ui.DevelopmentApplication
                         new XAttribute("chatid", ordr.CHAT_ID),
                         new XAttribute("elmntype", "001"),
                         new XElement("Text",
-                            new XAttribute("param", string.Format("howinccashwlet,{0}", ordr.DEBT_DNRM)),
+                            new XAttribute("param", string.Format("howinccashwlet,{0}", ordr.AMNT_TYPE == "001" ? ordr.DEBT_DNRM : ordr.DEBT_DNRM * 10)),
                             new XAttribute("postexec", "lessaddwlet"),
                             "addamntwlet"
                         )
@@ -970,13 +973,14 @@ namespace System.RoboTech.Ui.DevelopmentApplication
             iRoboTech = new Data.iRoboTechDataContext(ConnectionString);
 
             var ordr15 = iRoboTech.Orders.Where(o => o.Service_Robot == ordr.Service_Robot && o.ORDR_TYPE == "015" && o.ORDR_STAT == "001" && o.DEBT_DNRM == ordr.DEBT_DNRM).FirstOrDefault();
-            if (ordr15 == null) { MessageBox.Show(this, "متاسفانه در ثبت مبلغ نقدی خطایی پیش آمده لطفا دوباره امتحان کنید"); return; }
+            if (ordr15 == null) { MessageBox.Show(this, "متاسفانه در ثبت مبلغ کارتخوان خطایی پیش آمده لطفا دوباره امتحان کنید"); return; }
 
             iRoboTech.SAVE_PYMT_P(
                new XElement("Payment",
                    new XAttribute("ordrcode", ordr15.CODE),
                    new XAttribute("txid", ordr15.CODE),
                    new XAttribute("totlamnt", ordr15.DEBT_DNRM),
+                   new XAttribute("autochngamnt", "001"),
                    new XAttribute("rcptmtod", "003")
                ),
                ref xResult

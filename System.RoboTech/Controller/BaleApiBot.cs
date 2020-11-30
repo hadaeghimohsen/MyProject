@@ -508,14 +508,15 @@ namespace System.RoboTech.Controller
                   #endregion 
                   break;
                case "showcart":
-                  #region Show Cart
+                  #region Show Cart Info
                   // Parameters Need: 1) Order.Code 2) Order.Type 3) Order_Detail.Rwno
                   {
                      var ordrcode = Convert.ToInt64(x.Attribute("ordrcode").Value);
                      var ordrtype = x.Attribute("ordrtype").Value;
                      var ordtrwno = x.Attribute("ordtrwno").Value;
 
-                     if(ordrtype == "025" /* پذیرش سفارش انلاین */)
+                     #region درخواست های سفارش انلاین
+                     if (ordrtype == "025" /* پذیرش سفارش انلاین */)
                      {
                         if(ordtrwno == "*" /* همه ردیف های سفارش */)
                         {
@@ -554,6 +555,53 @@ namespace System.RoboTech.Controller
                            );
                         }
                      }
+                     #endregion
+                     #region درخواست سفارش مستقیم مشتری
+                     else if(ordrtype == "004" /* درخواست سفارشات */)
+                     {
+                        var showunit = x.Attribute("showunit").Value;
+
+                        if (showunit == "rcpt" /* رسید های دریافتی از مشتری بابت سفارش */)
+                        {
+                           if (ordtrwno == "*" /* همه ردیف های پرداخت */)
+                           {
+                              await FireEventResultOpration(chatid, keyBoardMarkup,
+                                 new XElement("Respons",
+                                    new XElement("Message",
+                                        iRoboTech.Order_States.Where(od => od.ORDR_CODE == ordrcode)
+                                        .Select(os =>
+                                           new XElement("Complex_InLineKeyboardMarkup",
+                                               new XAttribute("filetype", os.FILE_TYPE),
+                                               new XAttribute("fileid", os.FILE_ID ?? ""),
+                                               new XAttribute("caption", os.STAT_DESC ?? "No Text"),
+                                               new XAttribute("order", os.CODE)
+                                           ).ToString()
+                                        )
+                                    )
+                                 )
+                              );
+                           }
+                           else /* فقط یک ردیف از سفارش */
+                           {
+                              await FireEventResultOpration(chatid, keyBoardMarkup,
+                                 new XElement("Respons",
+                                    new XElement("Message",
+                                        iRoboTech.Order_States.Where(od => od.ORDR_CODE == ordrcode && od.CODE == ordtrwno.ToInt64())
+                                        .Select(os =>
+                                           new XElement("Complex_InLineKeyboardMarkup",
+                                               new XAttribute("filetype", os.FILE_TYPE),
+                                               new XAttribute("fileid", os.FILE_ID ?? ""),
+                                               new XAttribute("caption", os.STAT_DESC ?? "No Text"),
+                                               new XAttribute("order", os.CODE)
+                                           ).ToString()
+                                        )
+                                    )
+                                 )
+                              );
+                           }
+                        }
+                     }
+                     #endregion
                   }
                   #endregion
                   break;
@@ -586,7 +634,40 @@ namespace System.RoboTech.Controller
                   #endregion
                   break;
                case "sendmesg":
+                  #region Send Message
                   await FireEventResultOpration(chatid, keyBoardMarkup, x.Elements("Respons").FirstOrDefault());
+                  #endregion
+                  break;
+               case "pokejobpersonel":
+                  #region Poke To Job Personel
+                  // Parameters : oprttype, oprtvalu
+                  {
+                     var oprttype = x.Attribute("oprttype").Value;
+                     // در ابتدای کار بایستی مشخص کنیم که به چه شغل هایی میخوایم پیام ارسال کنیم
+                     iRoboTech.SEND_MEOJ_P(
+                        new XElement("Robot",
+                            new XAttribute("rbid", rbid),
+                            new XElement("Order", 
+                                new XAttribute("type", "012"),
+                                new XAttribute("oprt", oprttype)
+                            )
+                        ),
+                        ref xResult
+                     );
+                     
+                     // بعد از آن توسط تابع ارسال درخواست ها پیام ها را ارسال میکنیم
+                     iRoboTech = new Data.iRoboTechDataContext(connectionString);
+                     var srbt = iRoboTech.Service_Robots.FirstOrDefault(sr => sr.ROBO_RBID == rbid && sr.CELL_PHON != "");
+                     await Send_Order(iRoboTech, null, 
+                        new XElement("Member",
+                            new XAttribute("frstname", srbt.REAL_FRST_NAME),
+                            new XAttribute("lastname", srbt.REAL_LAST_NAME), 
+                            new XAttribute("username", srbt.Service.USER_NAME ?? ""),
+                            new XAttribute("chatid", srbt.CHAT_ID)
+                        )
+                     );
+                  }
+                  #endregion
                   break;
                default:
                   break;
@@ -672,11 +753,13 @@ namespace System.RoboTech.Controller
 
 
                // ⏳ Please wait...
-               await Bot.SendTextMessageAsync(
-                  e.CallbackQuery.Message.Chat.Id,
-                  "⏳ لطفا چند لحظه صبر کنید...",
-                  replyMarkup:
-                  null);
+               var waitmesg = 
+                  await Bot.SendTextMessageAsync(
+                     e.CallbackQuery.Message.Chat.Id,
+                     "⏳ لطفا چند لحظه صبر کنید...",
+                     replyMarkup:
+                     null
+                  );
 
                _Strt_Robo_F.SendRequest(
                   new Job(SendType.SelfToUserInterface, 1000 /* Execute Call_SystemService_F */ )
@@ -693,11 +776,13 @@ namespace System.RoboTech.Controller
                         new Action<object>(
                            (output) =>
                            {
-                              var xoutput = output as XElement;
+                              Bot.DeleteMessageAsync(e.CallbackQuery.Message.Chat.Id, waitmesg.MessageId);
+
+                              var xoutput = output as XElement;                              
 
                               var resultcode = xoutput.Attribute("resultcode").Value.ToInt64();
                               var resultdesc = xoutput.Attribute("resultdesc").Value;
-                              var mesgtype = (MessageType)xoutput.Attribute("mesgtype").Value.ToInt32();
+                              var mesgtype = (MessageType)xoutput.Attribute("mesgtype").Value.ToInt32();                              
 
                               switch (mesgtype)
                               {
@@ -710,7 +795,6 @@ namespace System.RoboTech.Controller
                                        replyMarkup:
                                        null).Wait();
                                     break;
-
                               }
                            }
                         )
@@ -851,7 +935,7 @@ namespace System.RoboTech.Controller
                            {
                               // پرداخت به صورت کارت به کارت
                               // مبلغ کارت به کارت 10 میلیون تومان
-                              if (price.Sum(p => p.Amount) <= 10000000)
+                              if (price.Sum(p => p.Amount) <= 100000000)
                               {
                                  await Bot.SendInvoiceAsync(
                                     (int)e.CallbackQuery.Message.Chat.Id,
@@ -874,7 +958,7 @@ namespace System.RoboTech.Controller
                         postexecs = postexecs.Replace("pay", "");
                         if(postexecs != "")
                            postexecs = postexecs.Substring(1);
-                        break;
+                        break;                     
                      case "withdraw":
                         // Create Payment Withdraw
                         #region Order Checkout Payment Process
@@ -1927,7 +2011,7 @@ namespace System.RoboTech.Controller
             xResult = new XElement("Respons", "No Message");
 
             // 1398/11/20 * ثبت وصولی بدست آماده
-            if (e.Message.Type == MessageType.SuccessfulPayment && e.Message.From.Username == "receipt")
+            if (e.Message.Type == MessageType.SuccessfulPayment && e.Message.From.Username != "receipt")
             {
                // ⏳ Please wait...
                var waitmesg = 
@@ -1947,6 +2031,7 @@ namespace System.RoboTech.Controller
                      new XAttribute("txid", e.Message.SuccessfulPayment.ProviderPaymentChargeId),
                      new XAttribute("totlamnt", e.Message.SuccessfulPayment.TotalAmount),
                      new XAttribute("dircall", "002"),
+                     new XAttribute("autochngamnt", "002"),
                      new XAttribute("rcptmtod", "009")
                   ),
                   ref xResult
@@ -1956,6 +2041,7 @@ namespace System.RoboTech.Controller
 
                await FireEventResultOpration(chat.Message.Chat.Id, null, xResult);
 
+               iRobotTech = new Data.iRoboTechDataContext(connectionString);
                await 
                   Send_Order(iRobotTech, null,
                      new XElement("Data",
@@ -6308,7 +6394,11 @@ namespace System.RoboTech.Controller
             buttons[i] = list
                 .Skip(i * columns)
                 .Take(columns)
-                .Select(direction => InlineKeyboardButton.WithCallbackData(direction.Value, direction.Attribute("data").Value))
+                .Select(direction => 
+                   direction.Attribute("data").Value != "" ? 
+                   InlineKeyboardButton.WithCallbackData(direction.Value, direction.Attribute("data").Value) :
+                   InlineKeyboardButton.WithUrl(direction.Value, direction.Attribute("url").Value) 
+                 )
                 .ToArray();
          }
          return new InlineKeyboardMarkup(buttons);
@@ -6347,7 +6437,7 @@ namespace System.RoboTech.Controller
             var query = XDocument.Parse(string.Format("<Message>{0}</Message>", xdata.Element("Message").Value));
             if (query.Element("Message").Element("Message") != null)
                query = new XDocument(query.Element("Message").LastNode);
-            foreach (string order in query.Element("Message").Elements().Attributes("order").OrderBy(o => o.Value.ToInt32()))
+            foreach (string order in query.Element("Message").Elements().Attributes("order").OrderBy(o => o.Value.ToInt64()))
             {
                var xelement = query.Element("Message").Elements().Where(x => x.Attribute("order").Value == order).First();
                if (xelement.Name == "Texts")

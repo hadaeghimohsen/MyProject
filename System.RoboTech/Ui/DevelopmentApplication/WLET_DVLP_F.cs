@@ -48,6 +48,7 @@ namespace System.RoboTech.Ui.DevelopmentApplication
          RoboBs.Position = robo;
          WletBs.Position = wlet;
          SrbtBs.Position = srbt;
+         ATxfeBs.DataSource = iRoboTech.Transaction_Fees.Where(t => t.TXFE_TYPE != "002");
 
          O24sBs.DataSource = iRoboTech.Orders.Where(o => o.ORDR_TYPE == "024" && o.ORDR_STAT == "001");
          O24eBs.DataSource = iRoboTech.Orders.Where(o => o.ORDR_TYPE == "024" && o.ORDR_STAT == "004");
@@ -221,6 +222,25 @@ namespace System.RoboTech.Ui.DevelopmentApplication
          finally
          {
             if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void UpdtWalt_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            iRoboTech.ExecuteCommand("UPDATE Wallet_Detail SET CONF_STAT = CONF_STAT WHERE CONF_STAT IN ( '001', '003' );");
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if(requery)
                Execute_Query();
          }
       }

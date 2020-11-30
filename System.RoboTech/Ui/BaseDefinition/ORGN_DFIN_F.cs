@@ -241,8 +241,8 @@ namespace System.RoboTech.Ui.BaseDefinition
       private void RoboBs_CurrentChanged(object sender, EventArgs e)
       {
          var robot = RoboBs.Current as Data.Robot;
-         ServPrbtBs.DataSource = iRoboTech.Services.Where(s => s.Service_Robots.Any(sr => sr.Robot == robot));
-         ServPrjbBs.DataSource = iRoboTech.Services.Where(s => s.Personal_Robots.Any(pr => pr.Robot == robot));
+         ServPrbtBs.DataSource = iRoboTech.Service_Robots.Where(s => s.Robot == robot);
+         //ServPrjbBs.DataSource = iRoboTech.Service_Robots.Where(s => s.Personal_Robots.Any(pr => pr.Robot == robot));
       }
 
       private void AddPjsr_Butn_Click(object sender, EventArgs e)

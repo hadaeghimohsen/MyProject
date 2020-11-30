@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.JobRouting.Jobs;
 using System.Globalization;
 using System.Threading;
+using System.Xml.Linq;
 
 namespace System.RoboTech.Ui.MasterPage
 {
@@ -267,9 +268,36 @@ namespace System.RoboTech.Ui.MasterPage
                      NotfOrdrReceipt_Butn.Caption = ordrrcpt.Count().ToString();
                      OrdrReceipt_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
 
+                     // 1399/09/08 * اطلاعات ارسال پیام به حسابداران رو ثبت میکنیم و به انها پیام میدهیم
+                     var xRet = new XElement("Respons");
+                     // ارسال پیام به واحد حسابداری جهت بررسی رسید های پرداخت شده                     
+                     #region Send Message
+                     // فراخوانی ربات برای ارسال پیام ثبت شده به سفیران انتخاب شده
+                     _DefaultGateway.Gateway(
+                        new Job(SendType.External, "localhost",
+                           new List<Job>
+                           {
+                              new Job(SendType.Self, 11 /* Execute Strt_Robo_F */),
+                              new Job(SendType.SelfToUserInterface, "STRT_ROBO_F", 00 /* Execute ProcessCmdKey */){Input = Keys.Escape},
+                              new Job(SendType.SelfToUserInterface, "STRT_ROBO_F", 10 /* Execute Actn_CalF_P */)
+                              {
+                                 Input = 
+                                    new XElement("Robot", 
+                                       new XAttribute("runrobot", "start"),
+                                       new XAttribute("actntype", "pokejobpersonel"),
+                                       new XAttribute("rbid", ordrrcpt.FirstOrDefault().Order.SRBT_ROBO_RBID),
+                                       new XAttribute("chatid", 0),
+                                       new XAttribute("oprttype", "poke4ordrrcpt")
+                                    )
+                              }                     
+                           }
+                        )
+                     );
+                     #endregion
+
                      // اگر سیستم اطلاع رسانی فعال باشد
-                     if (ordrship.FirstOrDefault().Robot.NOTI_ORDR_RCPT_STAT == "002")
-                        new Thread(new ParameterizedThreadStart(PlaySound)).Start(ordrship.FirstOrDefault().Robot.NOTI_SOND_ORDR_RCPT_PATH);
+                     if (ordrrcpt.FirstOrDefault().Order.Robot.NOTI_ORDR_RCPT_STAT == "002")
+                        new Thread(new ParameterizedThreadStart(PlaySound)).Start(ordrrcpt.FirstOrDefault().Order.Robot.NOTI_SOND_ORDR_RCPT_PATH);
                         //PlaySound(ordrship.FirstOrDefault().Robot.NOTI_SOND_ORDR_RCPT_PATH);
 
                      _DefaultGateway.Gateway(
@@ -305,8 +333,8 @@ namespace System.RoboTech.Ui.MasterPage
                      OrderOnlineAdmission_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
 
                      // اگر سیستم اطلاع رسانی فعال باشد
-                     if (ordrship.FirstOrDefault().Robot.NOTI_ORDR_RECP_STAT == "002")
-                        new Thread(new ParameterizedThreadStart(PlaySound)).Start(ordrship.FirstOrDefault().Robot.NOTI_SOND_ORDR_RECP_PATH);
+                     if (ordr25.FirstOrDefault().Robot.NOTI_ORDR_RECP_STAT == "002")
+                        new Thread(new ParameterizedThreadStart(PlaySound)).Start(ordr25.FirstOrDefault().Robot.NOTI_SOND_ORDR_RECP_PATH);
                         //PlaySound(ordrship.FirstOrDefault().Robot.NOTI_SOND_ORDR_RECP_PATH);
 
                      _DefaultGateway.Gateway(
@@ -380,9 +408,36 @@ namespace System.RoboTech.Ui.MasterPage
                   NotfOrdrReceipt_Butn.Caption = ordrrcpt.Count().ToString();
                   OrdrReceipt_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
 
+                  // 1399/09/08 * اطلاعات ارسال پیام به حسابداران رو ثبت میکنیم و به انها پیام میدهیم
+                  var xRet = new XElement("Respons");
+                  // ارسال پیام به واحد حسابداری جهت بررسی رسید های پرداخت شده                     
+                  #region Send Message
+                  // فراخوانی ربات برای ارسال پیام ثبت شده به سفیران انتخاب شده
+                  _DefaultGateway.Gateway(
+                     new Job(SendType.External, "localhost",
+                        new List<Job>
+                           {
+                              new Job(SendType.Self, 11 /* Execute Strt_Robo_F */),
+                              new Job(SendType.SelfToUserInterface, "STRT_ROBO_F", 00 /* Execute ProcessCmdKey */){Input = Keys.Escape},
+                              new Job(SendType.SelfToUserInterface, "STRT_ROBO_F", 10 /* Execute Actn_CalF_P */)
+                              {
+                                 Input = 
+                                    new XElement("Robot", 
+                                       new XAttribute("runrobot", "start"),
+                                       new XAttribute("actntype", "pokejobpersonel"),
+                                       new XAttribute("rbid", ordrrcpt.FirstOrDefault().Order.SRBT_ROBO_RBID),
+                                       new XAttribute("chatid", 0),
+                                       new XAttribute("oprttype", "poke4ordrrcpt")
+                                    )
+                              }                     
+                           }
+                     )
+                  );
+                  #endregion
+
                   // اگر سیستم اطلاع رسانی فعال باشد
-                  if (ordrship.FirstOrDefault().Robot.NOTI_ORDR_RCPT_STAT == "002")
-                     new Thread(new ParameterizedThreadStart(PlaySound)).Start(ordrship.FirstOrDefault().Robot.NOTI_SOND_ORDR_RCPT_PATH);
+                  if (ordrrcpt.FirstOrDefault().Order.Robot.NOTI_ORDR_RCPT_STAT == "002")
+                     new Thread(new ParameterizedThreadStart(PlaySound)).Start(ordrrcpt.FirstOrDefault().Order.Robot.NOTI_SOND_ORDR_RCPT_PATH);
                      //PlaySound(ordrship.FirstOrDefault().Robot.NOTI_SOND_ORDR_RCPT_PATH);
 
                   _DefaultGateway.Gateway(
@@ -418,8 +473,8 @@ namespace System.RoboTech.Ui.MasterPage
                   OrderOnlineAdmission_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
 
                   // اگر سیستم اطلاع رسانی فعال باشد
-                  if (ordrship.FirstOrDefault().Robot.NOTI_ORDR_RECP_STAT == "002")
-                     new Thread(new ParameterizedThreadStart(PlaySound)).Start(ordrship.FirstOrDefault().Robot.NOTI_SOND_ORDR_RECP_PATH);
+                  if (ordr25.FirstOrDefault().Robot.NOTI_ORDR_RECP_STAT == "002")
+                     new Thread(new ParameterizedThreadStart(PlaySound)).Start(ordr25.FirstOrDefault().Robot.NOTI_SOND_ORDR_RECP_PATH);
                      //PlaySound(ordrship.FirstOrDefault().Robot.NOTI_SOND_ORDR_RECP_PATH);
 
                   _DefaultGateway.Gateway(

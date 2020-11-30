@@ -11,6 +11,7 @@ using System.JobRouting.Jobs;
 using System.RoboTech.ExceptionHandlings;
 using DevExpress.XtraEditors;
 using System.Xml.Linq;
+using System.Diagnostics;
 
 namespace System.RoboTech.Ui.DevelopmentApplication
 {
@@ -113,7 +114,8 @@ namespace System.RoboTech.Ui.DevelopmentApplication
                   iRoboTech.SAVE_PYMT_P(
                      new XElement("Payment",
                         new XAttribute("ordrcode", rcpt.Order.CODE),
-                        new XAttribute("dircall", "002")
+                        new XAttribute("dircall", "002"),
+                        new XAttribute("autochngamnt", "001")
                      ),
                      ref xResult
                   );
@@ -243,6 +245,71 @@ namespace System.RoboTech.Ui.DevelopmentApplication
          {
             if (requery)
                Execute_Query();
+         }
+      }
+
+      private void Rcpt003Bs_CurrentChanged(object sender, EventArgs e)
+      {
+         try
+         {
+            var rcpt = Rcpt003Bs.Current as Data.Order_State;
+            if (rcpt == null) return;
+
+            PrbtBs.DataSource =
+               iRoboTech.Personal_Robots
+               .Where(pr => pr.Robot == rcpt.Order.Robot && pr.Personal_Robot_Jobs.Any(prj => prj.Job.ORDR_TYPE == "025" /* مشاغل مربوط به پذیرش سفارش انلاین */ && prj.STAT == "002" /* مشاغل فعال */));
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void RqstInfo_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var rcpt = Rcpt003Bs.Current as Data.Order_State;
+            if (rcpt == null) return;
+
+            // شماره پیگیری وارد شده باشد
+            if (rcpt.FILE_TYPE == "001")
+            {
+               Process.Start(string.Format("https://idpay.ir/t/{0}", rcpt.TXID));
+               return;
+            }
+
+            var prbt = PrbtBs.List.OfType<Data.Personal_Robot>().FirstOrDefault(p => p.CHAT_ID == (long)Prbt_Lov.EditValue);
+            if (prbt == null) return;
+
+            // فراخوانی ربات برای ارسال پیام ثبت شده به سفیران انتخاب شده
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost",
+                  new List<Job>
+                     {
+                        new Job(SendType.Self, 11 /* Execute Strt_Robo_F */),
+                        new Job(SendType.SelfToUserInterface, "STRT_ROBO_F", 00 /* Execute ProcessCmdKey */){Input = Keys.Escape},
+                        new Job(SendType.SelfToUserInterface, "STRT_ROBO_F", 10 /* Execute Actn_CalF_P */)
+                        {
+                           Input = 
+                              new XElement("Robot", 
+                                 new XAttribute("runrobot", "start"),
+                                 new XAttribute("actntype", "showcart"),
+                                 new XAttribute("rbid", rcpt.Order.Robot.RBID),
+                                 new XAttribute("ordrcode", rcpt.Order.CODE),
+                                 new XAttribute("ordrtype", rcpt.Order.ORDR_TYPE),
+                                 new XAttribute("ordtrwno", "*"),
+                                 new XAttribute("showunit", "rcpt"),
+                                 new XAttribute("chatid", prbt.CHAT_ID)
+                              )
+                        }
+                     }
+               )
+            );
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
          }
       }      
    }

@@ -1297,6 +1297,79 @@ namespace System.RoboTech.Ui.DevelopmentApplication
             if (requery)
                Execute_Query();
          }
+      }
+
+      private void AddSlerPrtnr_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            // اطلاعات محصول
+            var prod = RbprBs.Current as Data.Robot_Product;
+            if (prod == null) return;
+
+            // اطلاعات همکار فروش
+            if (Srbt_Lov.EditValue == null) return;
+            var srbt = SrbtBs.List.OfType<Data.Service_Robot>().FirstOrDefault(sr => sr.SERV_FILE_NO == (long)Srbt_Lov.EditValue);
+
+            // ایا از قبل قیمت همکار برای کالا ثبت شده یا خیر
+            if (SrsprBs.List.OfType<Data.Service_Robot_Seller_Partner>().Any(i => i.Robot_Product == prod && i.Service_Robot == srbt)) return;
+
+            var srspr = SrsprBs.AddNew() as Data.Service_Robot_Seller_Partner;
+            srspr.Robot_Product = prod;
+            srspr.Service_Robot = srbt;
+
+            iRoboTech.Service_Robot_Seller_Partners.InsertOnSubmit(srspr);
+         }
+         catch { }
+      }
+
+      private void SaveSlerPrtnr_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            SrsprGv.PostEditor();
+
+            iRoboTech.SubmitChanges();
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void DelSlerPrtnr_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var srspr = SrsprBs.Current as Data.Service_Robot_Seller_Partner;
+            if (srspr == null) return;
+
+            if (srspr.Order_Details.Any()) return;
+
+            if (MessageBox.Show(this, "آیا با حذف قیمت هنکار موافق هستید؟", "حذف قیمت همکار", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes) return;
+
+            iRoboTech.Service_Robot_Seller_Partners.DeleteOnSubmit(srspr);
+
+            iRoboTech.SubmitChanges();
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
       }      
    }
 }

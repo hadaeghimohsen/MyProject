@@ -8,6 +8,10 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
 using System.RoboTech.ExtCode;
+using System.Net;
+using System.Net.Http;
+using System.IO;
+using System.Diagnostics;
 
 namespace System.RoboTech.Ui.MasterPage
 {
@@ -335,6 +339,7 @@ namespace System.RoboTech.Ui.MasterPage
             switch (cmnd.ToLower())
             {
                case "loadrcpt":
+                  #region LoadRcpt
                   frstLoad = false;
                   OrderAction_Recipt();
 
@@ -344,13 +349,15 @@ namespace System.RoboTech.Ui.MasterPage
                      new XElement("Output",
                         new XAttribute("resultcode", 10001),
                         new XAttribute("resultdesc", ordrrcpt.Count() > 0 ? string.Format("تعداد پیامهای ارسال رسید پرداخت درون صف {0} عدد میباشد، لطفا تا دریافت نتیجه صبر کنید", ordrrcpt.Count()) :
-                                                                            "پیام شما برای واحد مربوطه ارسال شد، لطفا دریافت نتیجه کمی صبر کنید" 
+                                                                            "پیام شما برای واحد مربوطه ارسال شد، لطفا تا دریافت نتیجه صبر کنید" 
                                       ),
                         new XAttribute("mesgtype", "1"),
                         new XAttribute("mesgdesc", "Text")
                      );
+                  #endregion
                   break;
                case "prodqury":
+                  #region ProdQury
                   _DefaultGateway.Gateway(
                      new Job(SendType.External, "Localhost",
                        new List<Job>
@@ -359,8 +366,10 @@ namespace System.RoboTech.Ui.MasterPage
                          new Job(SendType.SelfToUserInterface, "PROD_DVLP_F", 10 /* Execute Actn_CalF_P */)
                        })
                   );
+                  #endregion
                   break;
                case "errornoti":
+                  #region ErrorNoti
                   _DefaultGateway.Gateway(
                         new Job(SendType.External, "localhost", "Wall", 22 /* Execute SetSystemNotification */, SendType.SelfToUserInterface)
                         {
@@ -375,8 +384,10 @@ namespace System.RoboTech.Ui.MasterPage
                            Executive = ExecutiveType.Asynchronous
                         }
                      );
+                  #endregion
                   break;
                case "successfullnoti":
+                  #region SuccessfulNoti
                   _DefaultGateway.Gateway(
                         new Job(SendType.External, "localhost", "Wall", 22 /* Execute SetSystemNotification */, SendType.SelfToUserInterface)
                         {
@@ -391,8 +402,10 @@ namespace System.RoboTech.Ui.MasterPage
                            Executive = ExecutiveType.Asynchronous
                         }
                      );
+                  #endregion
                   break;
                case "receptionorder::ok":
+                  #region Recption Online Order
                   iRoboTech.ExecuteCommand(string.Format("BEGIN UPDATE dbo.[Order] SET Ordr_Stat = '002' WHERE Code = {0}; END;", param));
 
                   frstLoad = false;
@@ -408,6 +421,40 @@ namespace System.RoboTech.Ui.MasterPage
                         new XAttribute("mesgtype", "1"),
                         new XAttribute("mesgdesc", "Text")
                      );
+                  #endregion
+                  break;
+               case "chkotrcpt":
+                  #region Checkout Rcpt
+                  // در مرحله اول سریع چک میکنیم که ایا برای این درخواست قبلا ردیف رسید در حال انتظار تایید وجود دارد یا خیر
+                  iRoboTech = new Data.iRoboTechDataContext(ConnectionString);
+                  if(!iRoboTech.Order_States.Any(os => os.ORDR_CODE == param.ToInt64() && os.AMNT_TYPE == "005" && os.CONF_STAT == "003"))
+                  {
+                     // پیدا کردن شماره درخواست
+                     var ordrserv = iRoboTech.Orders.FirstOrDefault(o => o.CODE == param.ToInt64());
+                     // ثبت ردیفی برای درخواست به عنوان رسید در انتظار تایید وصولی
+                     var ordrstat = new Data.Order_State() { ORDR_CODE = ordrserv.CODE, AMNT_TYPE = "005", AMNT = ordrserv.DEBT_DNRM, CONF_STAT = "003", RCPT_MTOD = "002", STAT_DATE = DateTime.Now, STAT_DESC = "استعلام درخواست تایید توسط مشتری", FILE_TYPE = "001"};
+                     iRoboTech.Order_States.InsertOnSubmit(ordrstat);
+
+                     // Save Change
+                     iRoboTech.SubmitChanges();
+                  }
+
+                  frstLoad = false;
+                  OrderAction_Recipt();
+                  /// در این قسمت در حال حاضر که پرداختی ها به صورت دستی ثبت میشوند به این گونه انجام میدهیم که صفحه آی دی پی را با پارامترهای لازم اجرا میکنیم و به حسابداری نمایش میدهیم حسابدار با دیدن ان و تایید وصولی ان را تایید میکند
+                  /// زمانی که تایید وصولی به صورت اتومات شد این گزینه به خودی خود غیر فعال میشود و ثبت وصولی اتومات میشود
+                  string url = "https://idpay.ir/dashboard/deposits?status=All&account=All&gateway=All&web-service=All&track=&price={0}&phone={1}&desc={2}";
+                  var ordr = iRoboTech.Orders.FirstOrDefault(o => o.CODE == param.ToInt64());
+                  Process.Start(string.Format(url, (ordr.AMNT_TYPE == "001" ? ordr.DEBT_DNRM : ordr.DEBT_DNRM * 10), ordr.CELL_PHON, ordr.CODE));
+
+                  job.Output =
+                     new XElement("Output",
+                        new XAttribute("resultcode", 10001),
+                        new XAttribute("resultdesc", "پیام شما برای واحد حسابداری ارسال شد، لطفا تا دریافت نتیجه صبر کنید"),
+                        new XAttribute("mesgtype", "1"),
+                        new XAttribute("mesgdesc", "Text")
+                     );
+                  #endregion
                   break;
             }
 
@@ -416,8 +463,7 @@ namespace System.RoboTech.Ui.MasterPage
          catch (Exception exc)
          {
             MessageBox.Show(exc.Message);
-         }
-         
+         }         
       }
    }
 }

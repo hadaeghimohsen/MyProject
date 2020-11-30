@@ -12,6 +12,7 @@ using System.RoboTech.ExceptionHandlings;
 using DevExpress.XtraEditors;
 using System.Xml.Linq;
 using System.RoboTech.ExtCode;
+using System.Diagnostics;
 
 namespace System.RoboTech.Ui.DevelopmentApplication
 {
@@ -94,18 +95,23 @@ namespace System.RoboTech.Ui.DevelopmentApplication
                throw new Exception("نوع واریزی رات مشخص نکرده اید");
             }
 
+            if(!IdpyAdrs_Txt.Text.Length.IsBetween(5, 30))
+            {
+               throw new Exception("شناسه واریز باید بین 5 تا 30 کاراکتر باشد");
+            }
+
             var robo = RoboBs.Current as Data.Robot;
             if (robo == null) return;
 
             if(!iRoboTech.Robot_Card_Bank_Accounts.Any(a => a.ACNT_TYPE == "002" && a.ACNT_STAT == "002" && a.ORDR_TYPE == OrdrType_Lov.EditValue.ToString()))
             {
                // اگر حساب فعالی نداشته باشیم
-               iRoboTech.INS_RCBA_P(robo.RBID, CardNumb_Txt.Text, ShbaNumb_Txt.Text, "002", AcntOwnr_Txt.Text, AcntDesc_Txt.Text, OrdrType_Lov.EditValue.ToString(), "002");
+               iRoboTech.INS_RCBA_P(robo.RBID, CardNumb_Txt.Text, ShbaNumb_Txt.Text, "002", AcntOwnr_Txt.Text, AcntDesc_Txt.Text, OrdrType_Lov.EditValue.ToString(), "002", IdpyAdrs_Txt.Text);
             }
             else
             {
                // اگر حساب فعال داشته باشیم
-               iRoboTech.INS_RCBA_P(robo.RBID, CardNumb_Txt.Text, ShbaNumb_Txt.Text, "002", AcntOwnr_Txt.Text, AcntDesc_Txt.Text, OrdrType_Lov.EditValue.ToString(), "001");
+               iRoboTech.INS_RCBA_P(robo.RBID, CardNumb_Txt.Text, ShbaNumb_Txt.Text, "002", AcntOwnr_Txt.Text, AcntDesc_Txt.Text, OrdrType_Lov.EditValue.ToString(), "001", IdpyAdrs_Txt.Text);
             }
 
             // Empty TextBox
@@ -196,6 +202,11 @@ namespace System.RoboTech.Ui.DevelopmentApplication
             if (requery)
                Execute_Query();
          }
+      }
+
+      private void IdPayOpenSite_Butn_Click(object sender, EventArgs e)
+      {
+         Process.Start("https://idpay.ir/user/auth");
       }      
    }
 }

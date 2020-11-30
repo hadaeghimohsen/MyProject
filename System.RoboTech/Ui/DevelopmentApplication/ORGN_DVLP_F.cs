@@ -1799,5 +1799,55 @@ namespace System.RoboTech.Ui.DevelopmentApplication
       {
          SubmitChanged_Clicked(null, null);
       }
+
+      private void RegSrbt_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var srbt = SrbtBs.Current as Data.Service_Robot;
+            if (srbt == null) return;
+
+            if (srbt.CELL_PHON != null && srbt.NATL_CODE != null) return;
+
+            if(SrbtFrstName_Txt.Text == ""){SrbtFrstName_Txt.Focus(); return;}
+            if(SrbtLastName_Txt.Text == ""){SrbtLastName_Txt.Focus(); return;}
+            if(SrbtCellPhon_Txt.Text == ""){SrbtCellPhon_Txt.Focus(); return;}
+            if(SrbtNatlCode_Txt.Text == ""){SrbtNatlCode_Txt.Focus(); return;}
+
+            var xRet = new XElement("Result");
+
+            iRoboTech.Analisis_Message_P(
+               new XElement("Robot",
+                   new XAttribute("token", srbt.Robot.TKON_CODE),
+                   new XElement("Message",
+                       new XAttribute("cbq", "002"),
+                       new XAttribute("ussd", "*1*0*0#"),
+                       new XAttribute("chatid", srbt.CHAT_ID),
+                       new XAttribute("mesgid", 0),
+                       new XElement("Text",
+                           string.Format("{0}#{1}#{2}#{3}", SrbtFrstName_Txt.Text, SrbtLastName_Txt.Text, SrbtCellPhon_Txt.Text, SrbtNatlCode_Txt.Text)
+                       )
+                   )
+               ),
+               ref xRet
+            );
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void RetryReg_Butn_Click(object sender, EventArgs e)
+      {
+         SrbtFrstName_Txt.Text = SrbtLastName_Txt.Text = SrbtCellPhon_Txt.Text = SrbtNatlCode_Txt.Text = "";
+      }
    }
 }

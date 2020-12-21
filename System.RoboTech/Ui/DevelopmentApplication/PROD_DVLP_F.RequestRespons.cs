@@ -69,6 +69,10 @@ namespace System.RoboTech.Ui.DevelopmentApplication
             job.Next =
                new Job(SendType.SelfToUserInterface, this.GetType().Name, 04 /* Execute UnPaint */);
          }
+         else if(keyData == (Keys.Control | Keys.F11))
+         {
+            Execute_Query();
+         }
 
          job.Status = StatusType.Successful;
       }

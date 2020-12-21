@@ -297,6 +297,9 @@ namespace System.RoboTech.Ui.DevelopmentApplication
             var rbpr = RbprBs.AddNew() as Data.Robot_Product;
 
             iRoboTech.Robot_Products.InsertOnSubmit(rbpr);
+
+            Master_Tc.SelectedTab = ProductDef_Tp;
+            Product_Tc.SelectedTab = ProductInfo_Tp;
          }
          catch (Exception exc)
          {
@@ -1552,6 +1555,245 @@ namespace System.RoboTech.Ui.DevelopmentApplication
          {
             RpdlBs.EndEdit();
             Rpdl_Gv.PostEditor();
+
+            iRoboTech.SubmitChanges();
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void Galery_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var prod = RbprBs.Current as Data.Robot_Product;
+            if (prod == null || prod.CODE == 0) return;
+
+            Product_Tc.SelectedTab = MoreInfoProduct_Tp;
+            MoreInfo_Tc.SelectedTab = Galery_Tp;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void Store_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var prod = RbprBs.Current as Data.Robot_Product;
+            if (prod == null || prod.CODE == 0) return;
+
+            Product_Tc.SelectedTab = MoreInfoProduct_Tp;
+            MoreInfo_Tc.SelectedTab = Store_Tp;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void Unit_Butn_Click(object sender, EventArgs e)
+      {
+         Master_Tc.SelectedTab = ServDef_Tp;
+         ServDef_Tc.SelectedTab = Unit_Tp;
+      }
+
+      private void Brand_Butn_Click(object sender, EventArgs e)
+      {
+         Master_Tc.SelectedTab = ServDef_Tp;
+         ServDef_Tc.SelectedTab = Brand_Tp;
+      }
+
+      private void Group_Butn_Click(object sender, EventArgs e)
+      {
+         Master_Tc.SelectedTab = ServDef_Tp;
+         ServDef_Tc.SelectedTab = Group_Tp;
+      }
+
+      private void InfoProd_Tsb_Click(object sender, EventArgs e)
+      {
+         Product_Tc.SelectedTab = ProductInfo_Tp;
+      }
+
+      private void AddRlcg_Tsb_Click(object sender, EventArgs e)
+      {
+         var robo = RoboBs.Current as Data.Robot;
+         if (robo == null) return;
+
+         if (RlcgBs.List.OfType<Data.Robot_Limited_Commodity_Group>().Any(i => i.CODE == 0)) return;
+
+         var rlcg = RlcgBs.AddNew() as Data.Robot_Limited_Commodity_Group;
+         rlcg.Robot = robo;
+         iRoboTech.Robot_Limited_Commodity_Groups.InsertOnSubmit(rlcg);
+      }
+
+      private void DelRlcg_Tsb_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var rlcg = RlcgBs.Current as Data.Robot_Limited_Commodity_Group;
+            if (rlcg == null) return;
+
+            if (MessageBox.Show(this, "آیا با حذف موافق هستید؟", "حذف", MessageBoxButtons.YesNo) != DialogResult.Yes) return;
+
+            iRoboTech.Robot_Limited_Commodity_Groups.DeleteOnSubmit(rlcg);
+            iRoboTech.SubmitChanges();
+
+            requery = true;
+         }
+         catch(Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void SaveRlcg_Tsb_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            RlcgGv.PostEditor();
+
+            iRoboTech.SubmitChanges();
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void AddRplm_Tsb_Click(object sender, EventArgs e)
+      {
+         var rlcg = RlcgBs.Current as Data.Robot_Limited_Commodity_Group;
+         if (rlcg == null) return;
+
+         var prod = RbprBs.Current as Data.Robot_Product;
+         if(prod == null)return;
+
+         if (RplmBs.List.OfType<Data.Robot_Product_Limited>().Any(i => i.CODE == 0 || i.Robot_Product == prod)) return;
+
+         var rplm = RplmBs.AddNew() as Data.Robot_Product_Limited;
+         rplm.Robot_Limited_Commodity_Group = rlcg;
+         rplm.Robot_Product = prod;
+
+         iRoboTech.Robot_Product_Limiteds.InsertOnSubmit(rplm);
+      }
+
+      private void DelRplm_Tsb_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var rplm = RplmBs.Current as Data.Robot_Product_Limited;
+            if (rplm == null) return;
+
+            if (MessageBox.Show(this, "آیا با حذف موافق هستید؟", "حذف", MessageBoxButtons.YesNo) != DialogResult.Yes) return;
+
+            iRoboTech.Robot_Product_Limiteds.DeleteOnSubmit(rplm);
+            iRoboTech.SubmitChanges();
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void SaveRplm_Tsb_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            RplmGv.PostEditor();
+
+            iRoboTech.SubmitChanges();
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void AddSral_Tsb_Click(object sender, EventArgs e)
+      {
+         var rlcg = RlcgBs.Current as Data.Robot_Limited_Commodity_Group;
+         if (rlcg == null) return;
+
+         var srbt = SrbtBs.Current as Data.Service_Robot;
+         if (srbt == null) return;
+
+         if (SralBs.List.OfType<Data.Service_Robot_Access_Limited_Group_Product>().Any(i => i.CODE == 0 || i.Service_Robot == srbt)) return;
+
+         var sral = SralBs.AddNew() as Data.Service_Robot_Access_Limited_Group_Product;
+         sral.Robot_Limited_Commodity_Group = rlcg;
+         sral.Service_Robot = srbt;
+
+         iRoboTech.Service_Robot_Access_Limited_Group_Products.InsertOnSubmit(sral);
+      }
+
+      private void DelSral_Tsb_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var sral =  SralBs.Current as Data.Service_Robot_Access_Limited_Group_Product;
+            if (sral == null) return;
+
+            if (MessageBox.Show(this, "آیا با حذف موافق هستید؟", "حذف", MessageBoxButtons.YesNo) != DialogResult.Yes) return;
+
+            iRoboTech.Service_Robot_Access_Limited_Group_Products.DeleteOnSubmit(sral);
+            iRoboTech.SubmitChanges();
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void SaveSral_Tsb_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            SralGv.PostEditor();
 
             iRoboTech.SubmitChanges();
 

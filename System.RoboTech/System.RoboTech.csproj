@@ -553,10 +553,12 @@
     <None Include="Properties\DataSources\System.RoboTech.Data.Robot_Card_Bank_Account1.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Robot_External_Query.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Robot_Import.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.Robot_Limited_Commodity_Group.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Robot_Product.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Robot_Product_Alternative.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Robot_Product_Discount.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Robot_Product_Download.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.Robot_Product_Limited.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Robot_Product_Preview.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Robot_Product_StepPrice.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Robot_Spy_Group_Message_Detail.datasource" />
@@ -564,6 +566,7 @@
     <None Include="Properties\DataSources\System.RoboTech.Data.Send_Advertising_Tariff.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Service.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Service_Robot.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.Service_Robot_Access_Limited_Group_Product.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Service_Robot_Card_Bank.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Service_Robot_Discount_Card.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Service_Robot_Gift_Card.datasource" />

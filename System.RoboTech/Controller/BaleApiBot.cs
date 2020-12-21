@@ -175,6 +175,8 @@ namespace System.RoboTech.Controller
                   var files = x.Attribute("mesg").Value.Split(';');
                   var prodTarfCode = x.Attribute("command").Value;
                   var rowsEffects = 0;
+                  var trgttype = x.Attribute("trgttype").Value;
+
                   foreach (var file in files)
                   {
                      InputOnlineFile _file = new InputOnlineFile(new FileStream(file, FileMode.Open, FileAccess.Read, FileShare.Read));
@@ -213,19 +215,38 @@ namespace System.RoboTech.Controller
                                  System.IO.File.Copy(file, fileTrgtPath);
                               }
 
-                              // Save FileId in Database for Product
-                              iRoboTech.ExecuteCommand(
-                                 string.Format(
-                                    @"BEGIN 
-                                      INSERT INTO Robot_Product_Preview (Rbpr_Code, Code, File_Id, File_Type, File_Desc, Stat, Sorc_File_Path, Trgt_File_Path)
-                                      SELECT rp.Code, dbo.Gnrt_Nvid_U(), '{2}', '002', rp.Tarf_Text_Dnrm, '002', N'{3}', N'{4}'
-                                        FROM Robot_Product rp
-                                       WHERE rp.Robo_Rbid = {0}
-                                         AND rp.Tarf_Code = '{1}';
-                                   END;",
-                                    rbid, prodTarfCode, imagRslt.Photo.FirstOrDefault().FileId, file, fileTrgtPath
-                                 )
-                              );
+                              if (trgttype == "preview")
+                              {
+                                 // Save FileId in Database for Product
+                                 iRoboTech.ExecuteCommand(
+                                    string.Format(
+                                       @"BEGIN 
+                                            INSERT INTO Robot_Product_Preview (Rbpr_Code, Code, File_Id, File_Type, File_Desc, Stat, Sorc_File_Path, Trgt_File_Path)
+                                            SELECT rp.Code, dbo.Gnrt_Nvid_U(), '{2}', '002', rp.Tarf_Text_Dnrm, '002', N'{3}', N'{4}'
+                                              FROM Robot_Product rp
+                                             WHERE rp.Robo_Rbid = {0}
+                                               AND rp.Tarf_Code = '{1}';
+                                         END;",
+                                       rbid, prodTarfCode, imagRslt.Photo.FirstOrDefault().FileId, file, fileTrgtPath
+                                    )
+                                 );
+                              }
+                              else if (trgttype == "download")
+                              {
+                                 // Save FileId in Database for Product
+                                 iRoboTech.ExecuteCommand(
+                                    string.Format(
+                                       @"BEGIN 
+                                            INSERT INTO Robot_Product_Download (Rbpr_Code, Code, File_Id, File_Type, File_Desc, Stat, Sorc_File_Path, Trgt_File_Path)
+                                            SELECT rp.Code, dbo.Gnrt_Nvid_U(), '{2}', '002', rp.Tarf_Text_Dnrm, '002', N'{3}', N'{4}'
+                                              FROM Robot_Product rp
+                                             WHERE rp.Robo_Rbid = {0}
+                                               AND rp.Tarf_Code = '{1}';
+                                         END;",
+                                       rbid, prodTarfCode, imagRslt.Photo.FirstOrDefault().FileId, file, fileTrgtPath
+                                    )
+                                 );
+                              }
 
                               prodTarfCode = x.Attribute("command").Value;
                               #endregion
@@ -284,19 +305,38 @@ namespace System.RoboTech.Controller
                                  System.IO.File.Copy(file, fileTrgtPath);
                               }
 
-                              // Save FileId in Database for Product
-                              iRoboTech.ExecuteCommand(
-                                 string.Format(
-                                    @"BEGIN 
-                                         INSERT INTO Robot_Product_Preview (Rbpr_Code, Code, File_Id, File_Type, File_Desc, Stat, Sorc_File_Path, Trgt_File_Path)
-                                         SELECT rp.Code, dbo.Gnrt_Nvid_U(), '{2}', '003', rp.Tarf_Text_Dnrm, '002', N'{3}', N'{04}'
-                                           FROM Robot_Product rp
-                                          WHERE rp.Robo_Rbid = {0}
-                                            AND rp.Tarf_Code = '{1}';
-                                      END;",
-                                    rbid, prodTarfCode, videoRslt.Video.FileId
-                                 )
-                              );
+                              if (trgttype == "preview")
+                              {
+                                 // Save FileId in Database for Product
+                                 iRoboTech.ExecuteCommand(
+                                    string.Format(
+                                       @"BEGIN 
+                                            INSERT INTO Robot_Product_Preview (Rbpr_Code, Code, File_Id, File_Type, File_Desc, Stat, Sorc_File_Path, Trgt_File_Path)
+                                            SELECT rp.Code, dbo.Gnrt_Nvid_U(), '{2}', '003', rp.Tarf_Text_Dnrm, '002', N'{3}', N'{04}'
+                                              FROM Robot_Product rp
+                                             WHERE rp.Robo_Rbid = {0}
+                                               AND rp.Tarf_Code = '{1}';
+                                         END;",
+                                       rbid, prodTarfCode, videoRslt.Video.FileId, file, fileTrgtPath
+                                    )
+                                 );
+                              }
+                              else if (trgttype == "download")
+                              {
+                                 // Save FileId in Database for Product
+                                 iRoboTech.ExecuteCommand(
+                                    string.Format(
+                                       @"BEGIN 
+                                            INSERT INTO Robot_Product_Download (Rbpr_Code, Code, File_Id, File_Type, File_Desc, Stat, Sorc_File_Path, Trgt_File_Path)
+                                            SELECT rp.Code, dbo.Gnrt_Nvid_U(), '{2}', '003', rp.Tarf_Text_Dnrm, '002', N'{3}', N'{04}'
+                                              FROM Robot_Product rp
+                                             WHERE rp.Robo_Rbid = {0}
+                                               AND rp.Tarf_Code = '{1}';
+                                         END;",
+                                       rbid, prodTarfCode, videoRslt.Video.FileId, file, fileTrgtPath
+                                    )
+                                 );
+                              }
 
                               prodTarfCode = x.Attribute("command").Value;
                               #endregion
@@ -355,19 +395,38 @@ namespace System.RoboTech.Controller
                                  System.IO.File.Copy(file, fileTrgtPath);
                               }
 
-                              // Save FileId in Database for Product
-                              iRoboTech.ExecuteCommand(
-                                 string.Format(
-                                    @"BEGIN 
-                                         INSERT INTO Robot_Product_Preview (Rbpr_Code, Code, File_Id, File_Type, File_Desc, Stat, Sorc_File_Path, Trgt_File_Path)
-                                         SELECT rp.Code, dbo.Gnrt_Nvid_U(), '{2}', '006', rp.Tarf_Text_Dnrm, '002', N'{3}', N'{4}'
-                                           FROM Robot_Product rp
-                                          WHERE rp.Robo_Rbid = {0}
-                                            AND rp.Tarf_Code = '{1}';
-                                      END;",
-                                    rbid, prodTarfCode, audioRslt.Audio.FileId, file, fileTrgtPath
-                                 )
-                              );
+                              if (trgttype == "preview")
+                              {
+                                 // Save FileId in Database for Product
+                                 iRoboTech.ExecuteCommand(
+                                    string.Format(
+                                       @"BEGIN 
+                                            INSERT INTO Robot_Product_Preview (Rbpr_Code, Code, File_Id, File_Type, File_Desc, Stat, Sorc_File_Path, Trgt_File_Path)
+                                            SELECT rp.Code, dbo.Gnrt_Nvid_U(), '{2}', '006', rp.Tarf_Text_Dnrm, '002', N'{3}', N'{4}'
+                                              FROM Robot_Product rp
+                                             WHERE rp.Robo_Rbid = {0}
+                                               AND rp.Tarf_Code = '{1}';
+                                         END;",
+                                       rbid, prodTarfCode, audioRslt.Audio.FileId, file, fileTrgtPath
+                                    )
+                                 );
+                              }
+                              else if (trgttype == "download")
+                              {
+                                 // Save FileId in Database for Product
+                                 iRoboTech.ExecuteCommand(
+                                    string.Format(
+                                       @"BEGIN 
+                                            INSERT INTO Robot_Product_Download (Rbpr_Code, Code, File_Id, File_Type, File_Desc, Stat, Sorc_File_Path, Trgt_File_Path)
+                                            SELECT rp.Code, dbo.Gnrt_Nvid_U(), '{2}', '006', rp.Tarf_Text_Dnrm, '002', N'{3}', N'{4}'
+                                              FROM Robot_Product rp
+                                             WHERE rp.Robo_Rbid = {0}
+                                               AND rp.Tarf_Code = '{1}';
+                                         END;",
+                                       rbid, prodTarfCode, audioRslt.Audio.FileId, file, fileTrgtPath
+                                    )
+                                 );
+                              }
 
                               prodTarfCode = x.Attribute("command").Value;
                               #endregion
@@ -428,20 +487,38 @@ namespace System.RoboTech.Controller
                                  System.IO.File.Copy(file, fileTrgtPath);
                               }
 
-                              // Save FileId in Database for Product
-                              iRoboTech.ExecuteCommand(
-                                 string.Format(
-                                    @"BEGIN 
-                                         INSERT INTO Robot_Product_Preview (Rbpr_Code, Code, File_Id, File_Type, File_Desc, Stat, Sorc_File_Path, Trgt_File_Path)
-                                         SELECT rp.Code, dbo.Gnrt_Nvid_U(), '{2}', '004', rp.Tarf_Text_Dnrm, '002', N'{3}', N'{4}'
-                                           FROM Robot_Product rp
-                                          WHERE rp.Robo_Rbid = {0}
-                                            AND rp.Tarf_Code = '{1}';
-                                      END;",
-                                    rbid, prodTarfCode, docRslt.Document.FileId, file, fileTrgtPath
-                                 )
-                              );
-
+                              if (trgttype == "preview")
+                              {
+                                 // Save FileId in Database for Product
+                                 iRoboTech.ExecuteCommand(
+                                    string.Format(
+                                       @"BEGIN 
+                                            INSERT INTO Robot_Product_Preview (Rbpr_Code, Code, File_Id, File_Type, File_Desc, Stat, Sorc_File_Path, Trgt_File_Path)
+                                            SELECT rp.Code, dbo.Gnrt_Nvid_U(), '{2}', '004', rp.Tarf_Text_Dnrm, '002', N'{3}', N'{4}'
+                                              FROM Robot_Product rp
+                                             WHERE rp.Robo_Rbid = {0}
+                                               AND rp.Tarf_Code = '{1}';
+                                         END;",
+                                       rbid, prodTarfCode, docRslt.Document.FileId, file, fileTrgtPath
+                                    )
+                                 );
+                              }
+                              else if (trgttype == "download")
+                              {
+                                 // Save FileId in Database for Product
+                                 iRoboTech.ExecuteCommand(
+                                    string.Format(
+                                       @"BEGIN 
+                                            INSERT INTO Robot_Product_Download (Rbpr_Code, Code, File_Id, File_Type, File_Desc, Stat, Sorc_File_Path, Trgt_File_Path)
+                                            SELECT rp.Code, dbo.Gnrt_Nvid_U(), '{2}', '004', rp.Tarf_Text_Dnrm, '002', N'{3}', N'{4}'
+                                              FROM Robot_Product rp
+                                             WHERE rp.Robo_Rbid = {0}
+                                               AND rp.Tarf_Code = '{1}';
+                                         END;",
+                                       rbid, prodTarfCode, docRslt.Document.FileId, file, fileTrgtPath
+                                    )
+                                 );
+                              }
                               prodTarfCode = x.Attribute("command").Value;
                               #endregion
 
@@ -2010,6 +2087,7 @@ namespace System.RoboTech.Controller
 
             xResult = new XElement("Respons", "No Message");
 
+            #region ثبت وصولی پرداخت توسط ربات بله
             // 1398/11/20 * ثبت وصولی بدست آماده
             if (e.Message.Type == MessageType.SuccessfulPayment && e.Message.From.Username != "receipt")
             {
@@ -2056,7 +2134,9 @@ namespace System.RoboTech.Controller
 
                return;
             }
+            #endregion
 
+            #region ارسال دستورات مخفی
             // 1398/12/04 * اگر دستوراتی مخفی ربات دریافت شد
             if(e.Message.Type == MessageType.Text && 
                e.Message.Text.Length >= 2 &&
@@ -2096,6 +2176,7 @@ namespace System.RoboTech.Controller
 
                return;
             }
+            #endregion
 
             // ارسال تبلیغات
             try
@@ -2137,6 +2218,7 @@ namespace System.RoboTech.Controller
             #region "/Start"
             if (chat.Message.Text != null && chat.Message.Text.Length >= 6 && chat.Message.Text.ToLower().Substring(0, 6) == "/start")
             {
+               #region ارسال عکس های زمان شروع
                var pics = (from o in iRobotTech.Organs
                            join r in iRobotTech.Robots on o.OGID equals r.ORGN_OGID
                            join p in iRobotTech.Organ_Medias on o.OGID equals p.ORGN_OGID
@@ -2160,7 +2242,7 @@ namespace System.RoboTech.Controller
                   }
                   catch { }
                }
-
+               
                foreach (var pic in pics.Take(1))
                {
                   dynamic photo;
@@ -2183,9 +2265,10 @@ namespace System.RoboTech.Controller
                      await Bot.SendPhotoAsync(chat.Message.Chat.Id, photo, pic.IMAG_DESC);
                   }
                   catch { }
-
                }
+               #endregion
 
+               #region ارسال متن های زمان شروع
                var desc = (from o in iRobotTech.Organs
                            join r in iRobotTech.Robots on o.OGID equals r.ORGN_OGID
                            join p in iRobotTech.Organ_Descriptions on o.OGID equals p.ORGN_OGID
@@ -2208,11 +2291,48 @@ namespace System.RoboTech.Controller
                         );
                   textmsg = "";
                }
+               #endregion
 
                await Bot.SendTextMessageAsync(
                   chat.Message.Chat.Id,
                   string.Format("کد دستگاه شما {0} می باشد", chat.Message.Chat.Id)
                );
+
+               #region بررسی اینکه مشتری ثبت نام کرده است یا خیر
+               if (robot.CHCK_REGS_STRT == "002")
+               {
+                  var xmlmsg = RobotHandle.GetData(
+                        new XElement("Robot",
+                           new XAttribute("token", GetToken()),
+                           new XElement("Message",
+                              new XAttribute("cbq", "002"),
+                              new XAttribute("ussd", "*1*0*0#"),
+                              new XAttribute("chatid", chat.Message.Chat.Id),
+                              new XAttribute("mesgid", chat.Message.MessageId),
+                              new XElement("Text", "regsstrtchck")
+                           )
+                        ), connectionString);
+
+                  var rmessage = xmlmsg.Descendants("Message").FirstOrDefault().Value;
+
+                  bool visited = false;
+                  try
+                  {
+                     var tdata = XDocument.Parse(rmessage).Elements().First();
+                     var xdata = xmlmsg;//XDocument.Parse(message).Elements().First();
+                     await FireEventResultOpration(chat.Message.Chat.Id, keyBoardMarkup, xdata);
+                     visited = true;
+                  }
+                  catch { visited = false; }
+
+                  try
+                  {
+                     if (!visited)
+                        await MessagePaging(chat.Message.Chat.Id, rmessage, keyBoardMarkup);
+                  }
+                  catch { }
+               }
+               #endregion
             }
             #endregion
 
@@ -6221,9 +6341,7 @@ namespace System.RoboTech.Controller
                            {
                               await Bot.SendPhotoAsync(
                                  (int)prjo.PRBT_CHAT_ID,
-                                 ///***new FileToSend(ordt.ORDR_DESC),
                                  new InputOnlineFile(ordt.IMAG_PATH),
-                                 //caption: ordt.ORDR_CMNT ?? "",
                                  caption: iRobotTech.CRET_PMSG_U(new XElement("Message",
                                        new XAttribute("prjbcode", prjo.PRJB_CODE),
                                        new XAttribute("ordrcode", prjo.ORDR_CODE),
@@ -6244,9 +6362,7 @@ namespace System.RoboTech.Controller
                            {
                               await Bot.SendPhotoAsync(
                                  (int)prjo.PRBT_CHAT_ID,
-                                 ///***new FileToSend(ordt.ORDR_DESC),
                                  new InputOnlineFile(ordt.IMAG_PATH),
-                                 //caption: ordt.ORDR_CMNT ?? "",
                                  caption: iRobotTech.CRET_PMSG_U(new XElement("Message",
                                        new XAttribute("prjbcode", prjo.PRJB_CODE),
                                        new XAttribute("ordrcode", prjo.ORDR_CODE),
@@ -6285,8 +6401,12 @@ namespace System.RoboTech.Controller
                         case "003":
                            await Bot.SendVideoAsync(
                               (int)prjo.PRBT_CHAT_ID,
-                              ///***new FileToSend(ordt.ORDR_DESC),
-                              new InputOnlineFile(ordt.ORDR_DESC),
+                              new InputOnlineFile(ordt.IMAG_PATH),
+                              caption: iRobotTech.CRET_PMSG_U(new XElement("Message",
+                                       new XAttribute("prjbcode", prjo.PRJB_CODE),
+                                       new XAttribute("ordrcode", prjo.ORDR_CODE),
+                                       new XAttribute("ordtrwno", ordt.RWNO)
+                                    )),
                               replyMarkup:
                               keyBoardMarkup == null ? null : 
                               new ReplyKeyboardMarkup()
@@ -6299,8 +6419,12 @@ namespace System.RoboTech.Controller
                         case "004":
                            await Bot.SendDocumentAsync(
                               (int)prjo.PRBT_CHAT_ID,
-                              ///***new FileToSend(ordt.ORDR_DESC),
-                              new InputOnlineFile(ordt.ORDR_DESC),
+                              new InputOnlineFile(ordt.IMAG_PATH),
+                              caption: iRobotTech.CRET_PMSG_U(new XElement("Message",
+                                       new XAttribute("prjbcode", prjo.PRJB_CODE),
+                                       new XAttribute("ordrcode", prjo.ORDR_CODE),
+                                       new XAttribute("ordtrwno", ordt.RWNO)
+                                    )),
                               replyMarkup:
                               keyBoardMarkup == null ? null : 
                               new ReplyKeyboardMarkup()

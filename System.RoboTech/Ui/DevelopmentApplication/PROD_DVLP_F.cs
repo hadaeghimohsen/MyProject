@@ -59,7 +59,7 @@ namespace System.RoboTech.Ui.DevelopmentApplication
          VBexpBs.Position = brnd;
          UnitBs.Position = unit;
 
-         SaveProdDataOnSrvr_Pb.Visible = SaveProdsDataOnSrvr_Pb.Visible = false;
+         SaveProdDataOnSrvr_Pb.Visible = SaveProdsDataOnSrvr_Pb.Visible = SaveProdFileOnSrvr_Pb.Visible = false;
          requery = false;
       }
 
@@ -700,7 +700,28 @@ namespace System.RoboTech.Ui.DevelopmentApplication
 
       private void DelRbpp_Butn_Click(object sender, EventArgs e)
       {
+         try
+         {
+            var rbpp = RbprBs.Current as Data.Robot_Product_Preview;
+            if (rbpp == null) return;
 
+            if (MessageBox.Show(this, "آیا با حذف فایل های نمایش محصول موافق هستید؟", "حذف فایل نمایش محصول", MessageBoxButtons.YesNo) != DialogResult.Yes) return;
+
+            iRoboTech.Robot_Product_Previews.DeleteOnSubmit(rbpp);
+
+            iRoboTech.SubmitChanges();
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
       }
 
       private void UpldImagFileProd_Butn_Click(object sender, EventArgs e)
@@ -740,7 +761,8 @@ namespace System.RoboTech.Ui.DevelopmentApplication
                               new XAttribute("chatid", adminChat.CHAT_ID),
                               new XAttribute("command", prod.TARF_CODE),
                               new XAttribute("rbid", adminChat.ROBO_RBID),
-                              new XAttribute("mesg", string.Join(";",  fileNames))
+                              new XAttribute("mesg", string.Join(";",  fileNames)),
+                              new XAttribute("trgttype", "preview")
                            )
                      }                     
                   }
@@ -804,7 +826,8 @@ namespace System.RoboTech.Ui.DevelopmentApplication
                               new XAttribute("chatid", adminChat.CHAT_ID),
                               new XAttribute("command", prod.TARF_CODE),
                               new XAttribute("rbid", adminChat.ROBO_RBID),
-                              new XAttribute("mesg", string.Join(";",  fileNames))
+                              new XAttribute("mesg", string.Join(";",  fileNames)),
+                              new XAttribute("trgttype", "preview")
                            )
                      }                     
                   }
@@ -853,7 +876,8 @@ namespace System.RoboTech.Ui.DevelopmentApplication
                               new XAttribute("chatid", adminChat.CHAT_ID),
                               new XAttribute("command", "*"),
                               new XAttribute("rbid", adminChat.ROBO_RBID),
-                              new XAttribute("mesg", string.Join(";",  fileNames))
+                              new XAttribute("mesg", string.Join(";",  fileNames)),
+                              new XAttribute("trgttype", "preview")
                            )
                      }                     
                   }
@@ -934,7 +958,8 @@ namespace System.RoboTech.Ui.DevelopmentApplication
                                     new XAttribute("chatid", adminChat.CHAT_ID),
                                     new XAttribute("command", new DirectoryInfo(dirTarfCode).Name),
                                     new XAttribute("rbid", adminChat.ROBO_RBID),
-                                    new XAttribute("mesg", string.Join(";",  fileNames))
+                                    new XAttribute("mesg", string.Join(";",  fileNames)),
+                                    new XAttribute("trgttype", "preview")
                                  )
                            }                     
                         }
@@ -970,7 +995,8 @@ namespace System.RoboTech.Ui.DevelopmentApplication
                                     new XAttribute("chatid", adminChat.CHAT_ID),
                                     new XAttribute("command", "*"),
                                     new XAttribute("rbid", adminChat.ROBO_RBID),
-                                    new XAttribute("mesg", string.Join(";",  fileNames))
+                                    new XAttribute("mesg", string.Join(";",  fileNames)),
+                                    new XAttribute("trgttype", "preview")
                                  )
                            }                     
                         }
@@ -1356,6 +1382,176 @@ namespace System.RoboTech.Ui.DevelopmentApplication
             if (MessageBox.Show(this, "آیا با حذف قیمت هنکار موافق هستید؟", "حذف قیمت همکار", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes) return;
 
             iRoboTech.Service_Robot_Seller_Partners.DeleteOnSubmit(srspr);
+
+            iRoboTech.SubmitChanges();
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void ChngLyot2_Butn_Click(object sender, EventArgs e)
+      {
+         Lyot2_Scc.Horizontal = !Lyot2_Scc.Horizontal;
+      }
+
+      private void UpldFileProd_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            if (UpldImgeFileProd_Ofd.ShowDialog(this) != DialogResult.OK) return;
+
+            var adminChat =
+               iRoboTech.Service_Robots.FirstOrDefault(sr => sr.Service_Robot_Groups.Any(srg => srg.STAT == "002" && (srg.Group.GPID == 131 || srg.Group.GPID == 133 || srg.Group.GPID == 134)));
+
+            var prod = RbprBs.Current as Data.Robot_Product;
+            if (prod == null) return;
+
+            var fileNames = UpldImgeFileProd_Ofd.FileNames.Where(f => !RbppBs.List.OfType<Data.Robot_Product_Download>().Any(p => p.SORC_FILE_PATH != null && p.SORC_FILE_PATH == f));
+            if (fileNames.Count() == 0) return;
+
+            SaveProdFileOnSrvr_Pb.Visible = true;
+
+            // Step 1 Send Media to The BALE Server
+            // Step 2 Get FileId from Server
+            // Step 3 Save FileId For Selected Product
+            #region Send Message
+            // فراخوانی ربات برای ارسال مدیا برای ثبت و گرفتن آدرس لینک فایل سرور
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost",
+                  new List<Job>
+                  {
+                     new Job(SendType.Self, 11 /* Execute Strt_Robo_F */),
+                     new Job(SendType.SelfToUserInterface, "STRT_ROBO_F", 00 /* Execute ProcessCmdKey */){Input = Keys.Escape},
+                     new Job(SendType.SelfToUserInterface, "STRT_ROBO_F", 10 /* Execute Actn_CalF_P */)
+                     {
+                        Input = 
+                           new XElement("Robot", 
+                              new XAttribute("runrobot", "start"),
+                              new XAttribute("actntype", "upldmediafile"),
+                              new XAttribute("chatid", adminChat.CHAT_ID),
+                              new XAttribute("command", prod.TARF_CODE),
+                              new XAttribute("rbid", adminChat.ROBO_RBID),
+                              new XAttribute("mesg", string.Join(";",  fileNames)),
+                              new XAttribute("trgttype", "download")
+                           )
+                     }                     
+                  }
+               )
+            );
+            #endregion
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void UpldFldrProd_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            //bool? folderNameIsProdTarfCode = null;
+            //// مرحله اول از کاربر سوال میپرسیم که آیا نحوه آپلود کردن به صورت نام پوشه میباشد یا محتویات فایل پوشه کد کالا را مشخص میکند
+            //if(MessageBox.Show(this, "نام پوشه مشخص کننده کد کالای مورد نظر میباشد؟", "نحوه بررسی و اپلود اطلاعات", MessageBoxButtons.YesNo) != DialogResult.Yes)
+            //{
+            //   // نام پوشه همان کد کالا میباشد
+            //   folderNameIsProdTarfCode = true;
+            //}
+            //else
+            //{
+            //   // محتوای درون پوشه معرف کد کالا می باشد
+            //   folderNameIsProdTarfCode = false;
+            //}
+
+            if (UpldImagFldrProd_Fbd.ShowDialog() != DialogResult.OK) return;
+
+            var adminChat =
+               iRoboTech.Service_Robots.FirstOrDefault(sr => sr.Service_Robot_Groups.Any(srg => srg.STAT == "002" && (srg.Group.GPID == 131 || srg.Group.GPID == 133 || srg.Group.GPID == 134)));
+
+            var prod = RbprBs.Current as Data.Robot_Product;
+            if (prod == null) return;
+
+            var fileNames = Directory.GetFiles(UpldImagFldrProd_Fbd.SelectedPath, "*", SearchOption.AllDirectories).ToList().Where(f => !RbppBs.List.OfType<Data.Robot_Product_Download>().Any(p => p.SORC_FILE_PATH != null && p.SORC_FILE_PATH == f));
+            if (fileNames.Count() == 0) return;
+
+            SaveProdFileOnSrvr_Pb.Visible = true;
+
+            // Step 1 Send Media to The BALE Server
+            // Step 2 Get FileId from Server
+            // Step 3 Save FileId For Selected Product
+            #region Send Message
+            // فراخوانی ربات برای ارسال مدیا برای ثبت و گرفتن آدرس لینک فایل سرور
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost",
+                  new List<Job>
+                  {
+                     new Job(SendType.Self, 11 /* Execute Strt_Robo_F */),
+                     new Job(SendType.SelfToUserInterface, "STRT_ROBO_F", 00 /* Execute ProcessCmdKey */){Input = Keys.Escape},
+                     new Job(SendType.SelfToUserInterface, "STRT_ROBO_F", 10 /* Execute Actn_CalF_P */)
+                     {
+                        Input = 
+                           new XElement("Robot", 
+                              new XAttribute("runrobot", "start"),
+                              new XAttribute("actntype", "upldmediafile"),
+                              new XAttribute("chatid", adminChat.CHAT_ID),
+                              new XAttribute("command", prod.TARF_CODE),
+                              new XAttribute("rbid", adminChat.ROBO_RBID),
+                              new XAttribute("mesg", string.Join(";",  fileNames)),
+                              new XAttribute("trgttype", "download")
+                           )
+                     }                     
+                  }
+               )
+            );
+            #endregion
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void DellRpdl_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var rpdl = RpdlBs.Current as Data.Robot_Product_Download;
+            if (rpdl == null) return;
+
+            if (MessageBox.Show(this, "آیا با حذففایل دانلودی محصول موافق هستید؟", "حذف فایل دانلودی", MessageBoxButtons.YesNo) != DialogResult.Yes) return;
+
+            iRoboTech.Robot_Product_Downloads.DeleteOnSubmit(rpdl);
+
+            iRoboTech.SubmitChanges();
+
+            requery = true;  
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void SaveRpdl_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            RpdlBs.EndEdit();
+            Rpdl_Gv.PostEditor();
 
             iRoboTech.SubmitChanges();
 

@@ -493,6 +493,7 @@
     <None Include="Properties\DataSources\System.RoboTech.Data.D_CONF.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_CSTP.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_DAYT.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.D_DLTP.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_DSTP.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_ELMT.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_GMTP.datasource" />
@@ -506,6 +507,7 @@
     <None Include="Properties\DataSources\System.RoboTech.Data.D_ORDT.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_PDTP.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_PKTP.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.D_PROT.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_RCMT.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_RCST.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_RCVT.datasource" />
@@ -554,6 +556,7 @@
     <None Include="Properties\DataSources\System.RoboTech.Data.Robot_Product.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Robot_Product_Alternative.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Robot_Product_Discount.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.Robot_Product_Download.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Robot_Product_Preview.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Robot_Product_StepPrice.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Robot_Spy_Group_Message_Detail.datasource" />

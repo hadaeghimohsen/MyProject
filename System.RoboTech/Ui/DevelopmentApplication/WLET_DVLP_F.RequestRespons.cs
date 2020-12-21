@@ -47,6 +47,9 @@ namespace System.RoboTech.Ui.DevelopmentApplication
             case 10:
                Actn_CalF_P(job);
                break;
+            case 40:
+               CordinateGetSet(job);
+               break;
             default:
                break;
          }
@@ -218,6 +221,44 @@ namespace System.RoboTech.Ui.DevelopmentApplication
       {
          var xinput = job.Input as XElement;
          Execute_Query();
+         job.Status = StatusType.Successful;
+      }
+
+      /// <summary>
+      /// Code 40
+      /// </summary>
+      /// <param name="job"></param>
+      private void CordinateGetSet(Job job)
+      {
+         var xinput = job.Input as XElement;
+         if (xinput != null)
+         {
+            if (xinput.Attribute("outputtype").Value == "srbspostadrs")
+            {
+               //MessageBox.Show(xinput.ToString());
+
+               var srbs = SrbsBs.Current as Data.Service_Robot_Seller;
+
+               var cordx = Convert.ToDouble(xinput.Attribute("cordx").Value);
+               var cordy = Convert.ToDouble(xinput.Attribute("cordy").Value);
+
+               if (cordx != srbs.SHOP_CORD_X && cordy != srbs.SHOP_CORD_Y)
+               {
+                  // Call Update Service_Public
+                  try
+                  {
+                     srbs.SHOP_CORD_X = cordx;
+                     srbs.SHOP_CORD_Y = cordy;
+                     requery = true;
+                  }
+                  catch (Exception exc)
+                  {
+                     MessageBox.Show(exc.Message);
+                  }
+               }
+            }
+         }
+
          job.Status = StatusType.Successful;
       }
    }

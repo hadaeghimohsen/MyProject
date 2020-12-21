@@ -58,11 +58,11 @@ namespace System.RoboTech.Ui.DevelopmentApplication
 
             if(crnt.ACNT_TYPE.In("001", "003"))
             {
-               SaveBankActn_Butn.Enabled = DelBankAcnt_Butn.Enabled = ActvBankAcnt_Butn.Enabled = false;
+               SaveBankActn_Butn.Enabled = DelBankAcnt_Butn.Enabled = ActvBankAcnt_Butn.Enabled = AcntDesc1_Txt.Enabled = IdPayAdrs1_Txt.Enabled = false;
             }
             else
             {
-               SaveBankActn_Butn.Enabled = DelBankAcnt_Butn.Enabled = ActvBankAcnt_Butn.Enabled = true;
+               SaveBankActn_Butn.Enabled = DelBankAcnt_Butn.Enabled = ActvBankAcnt_Butn.Enabled = AcntDesc1_Txt.Enabled = IdPayAdrs1_Txt.Enabled = true;
             }
          }
          catch (Exception exc)

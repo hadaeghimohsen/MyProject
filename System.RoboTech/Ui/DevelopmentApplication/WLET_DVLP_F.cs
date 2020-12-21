@@ -43,6 +43,7 @@ namespace System.RoboTech.Ui.DevelopmentApplication
          int r24e = O24eBs.Position;
 
          OrgnBs.DataSource = iRoboTech.Organs.Where(o => Fga_Ugov_U.Contains(o.OGID));
+         
 
          OrgnBs.Position = orgn;
          RoboBs.Position = robo;
@@ -68,6 +69,12 @@ namespace System.RoboTech.Ui.DevelopmentApplication
 
             SrbtBs.DataSource =
                iRoboTech.Service_Robots.Where(sr => sr.Robot == robo && sr.NATL_CODE != null && sr.NATL_CODE != "" && sr.NATL_CODE.Length == 10);
+
+            int srbs = SrbsBs.Position;
+
+            SrbsBs.DataSource = iRoboTech.Service_Robot_Sellers.Where(s => s.Service_Robot.Robot == robo);
+
+            SrbsBs.Position = srbs;
          }
          catch (Exception exc)
          {
@@ -242,6 +249,153 @@ namespace System.RoboTech.Ui.DevelopmentApplication
          {
             if(requery)
                Execute_Query();
+         }
+      }
+
+      private void AddSler_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var srbt = SrbtBs.Current as Data.Service_Robot;
+            if (srbt == null) return;
+
+            if (SrbsBs.List.OfType<Data.Service_Robot_Seller>().Any(s => s.Service_Robot == srbt)) return;
+
+            var srbs = SrbsBs.AddNew() as Data.Service_Robot_Seller;
+            srbs.Service_Robot = srbt;
+            srbs.CONF_STAT = "002";
+            srbs.CONF_DATE = DateTime.Now;
+
+            // attach record to saving
+            iRoboTech.Service_Robot_Sellers.InsertOnSubmit(srbs);
+
+            // Save Record and Commit on database
+            iRoboTech.SubmitChanges();
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void AddSrsp_Butn_Click(object sender, EventArgs e)
+      {
+         var srbs = SrbsBs.Current as Data.Service_Robot_Seller;
+         if (srbs == null) return;
+
+         if (SrspBs.List.OfType<Data.Service_Robot_Seller_Product>().Any(sp => sp.CODE == 0)) return;
+
+         var srsp = SrspBs.AddNew() as Data.Service_Robot_Seller_Product;
+         srsp.Service_Robot_Seller = srbs;
+
+         iRoboTech.Service_Robot_Seller_Products.InsertOnSubmit(srsp);
+      }
+
+      private void DelSrsp_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var srsp = SrspBs.Current as Data.Service_Robot_Seller_Product;
+            if (srsp == null) return;
+
+            if (MessageBox.Show(this, "آیا با حذف کالا از گروه تامین کننده موافق هستید؟", "حذف کالا از گروه تامین کننده", MessageBoxButtons.YesNo) != DialogResult.Yes) return;
+
+            // حذف ردیف از جدول
+            iRoboTech.Service_Robot_Seller_Products.DeleteOnSubmit(srsp);
+
+            // ذخیره کردن اطلاعات درون پایگاه داده
+            iRoboTech.SubmitChanges();
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void SaveSrsp_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            Srsp_Gv.PostEditor();
+
+            // ثبت اطلاعات درون پایگاه داده
+            iRoboTech.SubmitChanges();
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void SaveSrbs_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            Srbs_Gv.PostEditor();
+
+            iRoboTech.SubmitChanges();
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void ShowGoogleMap_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var robo = RoboBs.Current as Data.Robot;
+            if (robo == null) return;
+
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost", "Commons", 31 /* Execute DoWork4GMapNets */, SendType.Self)
+               {
+                  Input =
+                     new XElement("GMapNets",
+                        new XAttribute("requesttype", "get"),
+                        new XAttribute("formcaller", "Program:RoboTech:" + GetType().Name),
+                        new XAttribute("callback", 40 /* CordinateGetSet */),
+                        new XAttribute("outputtype", "srbspostadrs"),
+                        new XAttribute("initalset", true),
+                        new XAttribute("cordx", robo.CORD_X == null ? "29.610420210528" : robo.CORD_X.ToString()),
+                        new XAttribute("cordy", robo.CORD_Y == null ? "52.5152599811554" : robo.CORD_Y.ToString()),
+                        new XAttribute("zoom", "1600")
+                     )
+               }
+            );
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
          }
       }
    }

@@ -41,6 +41,7 @@
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
          this.colSTAT = new DevExpress.XtraGrid.Columns.GridColumn();
          this.Actv_Lov = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+         this.colRUN_STAT = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colSTAT1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.Actv_Lov2 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
          this.Tb_master = new System.Windows.Forms.TabControl();
@@ -86,7 +87,6 @@
          this.panelControl5 = new DevExpress.XtraEditors.PanelControl();
          this.labelControl15 = new DevExpress.XtraEditors.LabelControl();
          this.Back_Butn = new DevExpress.XtraEditors.SimpleButton();
-         this.colRUN_STAT = new DevExpress.XtraGrid.Columns.GridColumn();
          ((System.ComponentModel.ISupportInitialize)(this.Actv_Lov)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.Actv_Lov2)).BeginInit();
          this.Tb_master.SuspendLayout();
@@ -136,6 +136,12 @@
          this.Actv_Lov.Name = "Actv_Lov";
          this.Actv_Lov.NullText = "";
          this.Actv_Lov.ValueMember = "VALU";
+         // 
+         // colRUN_STAT
+         // 
+         this.colRUN_STAT.Caption = "gridColumn1";
+         this.colRUN_STAT.FieldName = "RUN_STAT";
+         this.colRUN_STAT.Name = "colRUN_STAT";
          // 
          // colSTAT1
          // 
@@ -689,12 +695,6 @@
          this.Back_Butn.TabIndex = 3;
          this.Back_Butn.ToolTip = "بازگشت";
          this.Back_Butn.Click += new System.EventHandler(this.Btn_Back_Click);
-         // 
-         // colRUN_STAT
-         // 
-         this.colRUN_STAT.Caption = "gridColumn1";
-         this.colRUN_STAT.FieldName = "RUN_STAT";
-         this.colRUN_STAT.Name = "colRUN_STAT";
          // 
          // STRT_ROBO_F
          // 

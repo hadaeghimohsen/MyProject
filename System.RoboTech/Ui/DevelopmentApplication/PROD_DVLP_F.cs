@@ -1808,6 +1808,17 @@ namespace System.RoboTech.Ui.DevelopmentApplication
             if (requery)
                Execute_Query();
          }
+      }
+
+      private void BuyPric_Txt_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
+      {
+         var prod = RbprBs.Current as Data.Robot_Product;
+         if (prod == null) return;
+
+         if(SaleBuyAmntLock_Pkb.PickChecked)
+         {
+            prod.EXPN_PRIC_DNRM = Convert.ToInt64(e.NewValue) + (Convert.ToInt64(e.NewValue) * PrctAmnt_Txt.Text.ToInt64() / 100);
+         }
       }      
    }
 }

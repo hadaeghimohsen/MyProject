@@ -30,21 +30,21 @@
       {
          this.components = new System.ComponentModel.Container();
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FRST_PAGE_F));
-         DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem1 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.ToolTipItem toolTipItem1 = new DevExpress.Utils.ToolTipItem();
-         DevExpress.Utils.SuperToolTip superToolTip2 = new DevExpress.Utils.SuperToolTip();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem2 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.ToolTipItem toolTipItem2 = new DevExpress.Utils.ToolTipItem();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem3 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.SuperToolTip superToolTip3 = new DevExpress.Utils.SuperToolTip();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem4 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.ToolTipItem toolTipItem3 = new DevExpress.Utils.ToolTipItem();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem5 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.SuperToolTip superToolTip4 = new DevExpress.Utils.SuperToolTip();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem6 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.ToolTipItem toolTipItem4 = new DevExpress.Utils.ToolTipItem();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem7 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.SuperToolTip superToolTip5 = new DevExpress.Utils.SuperToolTip();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem8 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.ToolTipItem toolTipItem5 = new DevExpress.Utils.ToolTipItem();
+         DevExpress.Utils.SuperToolTip superToolTip6 = new DevExpress.Utils.SuperToolTip();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem9 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.ToolTipItem toolTipItem6 = new DevExpress.Utils.ToolTipItem();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem10 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.SuperToolTip superToolTip7 = new DevExpress.Utils.SuperToolTip();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem11 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.ToolTipItem toolTipItem7 = new DevExpress.Utils.ToolTipItem();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem12 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.SuperToolTip superToolTip8 = new DevExpress.Utils.SuperToolTip();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem13 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.ToolTipItem toolTipItem8 = new DevExpress.Utils.ToolTipItem();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem14 = new DevExpress.Utils.ToolTipTitleItem();
          this.c1Ribbon1 = new C1.Win.C1Ribbon.C1Ribbon();
          this.ribbonApplicationMenu1 = new C1.Win.C1Ribbon.RibbonApplicationMenu();
          this.ribbonBottomToolBar1 = new C1.Win.C1Ribbon.RibbonBottomToolBar();
@@ -71,6 +71,8 @@
          this.DefProdRobo_Butn = new C1.Win.C1Ribbon.RibbonButton();
          this.MangWletRobo_Butn = new C1.Win.C1Ribbon.RibbonButton();
          this.OnlnRecpOrdrRobo_Butn = new C1.Win.C1Ribbon.RibbonButton();
+         this.ribbonGroup7 = new C1.Win.C1Ribbon.RibbonGroup();
+         this.InstPageConf_Butn = new C1.Win.C1Ribbon.RibbonButton();
          this.ribbonTab3 = new C1.Win.C1Ribbon.RibbonTab();
          this.ribbonGroup3 = new C1.Win.C1Ribbon.RibbonGroup();
          this.StrtRobo_Butn = new C1.Win.C1Ribbon.RibbonButton();
@@ -177,6 +179,7 @@
          this.ribbonTab2.Groups.Add(this.ribbonGroup2);
          this.ribbonTab2.Groups.Add(this.ribbonGroup4);
          this.ribbonTab2.Groups.Add(this.ribbonGroup6);
+         this.ribbonTab2.Groups.Add(this.ribbonGroup7);
          this.ribbonTab2.Name = "ribbonTab2";
          this.ribbonTab2.Text = "مدیریت سیستمی";
          // 
@@ -297,6 +300,21 @@
          this.OnlnRecpOrdrRobo_Butn.Text = "خدمات غیرحضوری پذیرش انلاین";
          this.OnlnRecpOrdrRobo_Butn.Click += new System.EventHandler(this.OnlnRecpOrdrRobo_Butn_Click);
          // 
+         // ribbonGroup7
+         // 
+         this.ribbonGroup7.Items.Add(this.InstPageConf_Butn);
+         this.ribbonGroup7.Name = "ribbonGroup7";
+         this.ribbonGroup7.Text = "اینستاگرام";
+         // 
+         // InstPageConf_Butn
+         // 
+         this.InstPageConf_Butn.LargeImage = global::System.RoboTech.Properties.Resources.IMAGE_1698;
+         this.InstPageConf_Butn.Name = "InstPageConf_Butn";
+         this.InstPageConf_Butn.SmallImage = ((System.Drawing.Image)(resources.GetObject("InstPageConf_Butn.SmallImage")));
+         this.InstPageConf_Butn.Text = "پیکربندی پیج اینستاگرام";
+         this.InstPageConf_Butn.ToolTip = "پیکربندی صفحه اینستاگرام";
+         this.InstPageConf_Butn.Click += new System.EventHandler(this.InstPageConf_Butn_Click);
+         // 
          // ribbonTab3
          // 
          this.ribbonTab3.Groups.Add(this.ribbonGroup3);
@@ -402,16 +420,16 @@
          this.OrderOnlineAdmission_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.OrderOnlineAdmission_Butn.Name = "OrderOnlineAdmission_Butn";
          this.OrderOnlineAdmission_Butn.Size = new System.Drawing.Size(52, 42);
-         toolTipTitleItem1.Appearance.Image = global::System.RoboTech.Properties.Resources.IMAGE_1684;
-         toolTipTitleItem1.Appearance.Options.UseImage = true;
-         toolTipTitleItem1.Image = global::System.RoboTech.Properties.Resources.IMAGE_1684;
-         toolTipTitleItem1.Text = "پذیرش سفارش انلاین";
-         toolTipItem1.LeftIndent = 6;
-         toolTipItem1.Text = "مشتریان برای خرید خود میتوانند به روش های مختلف میتوانند درخواست دهند و شما با ثب" +
+         toolTipTitleItem8.Appearance.Image = global::System.RoboTech.Properties.Resources.IMAGE_1684;
+         toolTipTitleItem8.Appearance.Options.UseImage = true;
+         toolTipTitleItem8.Image = global::System.RoboTech.Properties.Resources.IMAGE_1684;
+         toolTipTitleItem8.Text = "پذیرش سفارش انلاین";
+         toolTipItem5.LeftIndent = 6;
+         toolTipItem5.Text = "مشتریان برای خرید خود میتوانند به روش های مختلف میتوانند درخواست دهند و شما با ثب" +
     "ت فاکتور میتوانید در این امر به مشتریان خود کمک کنید";
-         superToolTip1.Items.Add(toolTipTitleItem1);
-         superToolTip1.Items.Add(toolTipItem1);
-         this.OrderOnlineAdmission_Butn.SuperTip = superToolTip1;
+         superToolTip5.Items.Add(toolTipTitleItem8);
+         superToolTip5.Items.Add(toolTipItem5);
+         this.OrderOnlineAdmission_Butn.SuperTip = superToolTip5;
          this.OrderOnlineAdmission_Butn.TabIndex = 19;
          this.OrderOnlineAdmission_Butn.Click += new System.EventHandler(this.OrderOnlineAdmission_Butn_Click);
          // 
@@ -486,24 +504,24 @@
          this.OrdrReceipt_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.OrdrReceipt_Butn.Name = "OrdrReceipt_Butn";
          this.OrdrReceipt_Butn.Size = new System.Drawing.Size(52, 42);
-         toolTipTitleItem2.Appearance.Image = global::System.RoboTech.Properties.Resources.IMAGE_1682;
-         toolTipTitleItem2.Appearance.Options.UseImage = true;
-         toolTipTitleItem2.Image = global::System.RoboTech.Properties.Resources.IMAGE_1682;
-         toolTipTitleItem2.Text = "رسید پرداخت";
-         toolTipItem2.LeftIndent = 6;
-         toolTipItem2.Text = "مشتریان برای خرید های بالاتر که ممکن است سامانه پاسخگوی آنها نباشد رسید پرداختی خ" +
+         toolTipTitleItem9.Appearance.Image = global::System.RoboTech.Properties.Resources.IMAGE_1682;
+         toolTipTitleItem9.Appearance.Options.UseImage = true;
+         toolTipTitleItem9.Image = global::System.RoboTech.Properties.Resources.IMAGE_1682;
+         toolTipTitleItem9.Text = "رسید پرداخت";
+         toolTipItem6.LeftIndent = 6;
+         toolTipItem6.Text = "مشتریان برای خرید های بالاتر که ممکن است سامانه پاسخگوی آنها نباشد رسید پرداختی خ" +
     "ود را از روش های دیگری انجام دهند با این گزینه شما در تایید کردن آنها در خریدشان" +
     " به آنها کمک میکنید";
-         toolTipTitleItem3.Appearance.Image = global::System.RoboTech.Properties.Resources.IMAGE_1692;
-         toolTipTitleItem3.Appearance.Options.UseImage = true;
-         toolTipTitleItem3.Image = global::System.RoboTech.Properties.Resources.IMAGE_1692;
-         toolTipTitleItem3.LeftIndent = 6;
-         toolTipTitleItem3.Text = "این قسمت نیاز هست که رسید پرداخت ارسالی را با وصولی های حساب خود چک کنید و درصورت" +
+         toolTipTitleItem10.Appearance.Image = global::System.RoboTech.Properties.Resources.IMAGE_1692;
+         toolTipTitleItem10.Appearance.Options.UseImage = true;
+         toolTipTitleItem10.Image = global::System.RoboTech.Properties.Resources.IMAGE_1692;
+         toolTipTitleItem10.LeftIndent = 6;
+         toolTipTitleItem10.Text = "این قسمت نیاز هست که رسید پرداخت ارسالی را با وصولی های حساب خود چک کنید و درصورت" +
     " تایید رسید تاریخ و مبلغ رسید را برای مشتری خود تایید کنید";
-         superToolTip2.Items.Add(toolTipTitleItem2);
-         superToolTip2.Items.Add(toolTipItem2);
-         superToolTip2.Items.Add(toolTipTitleItem3);
-         this.OrdrReceipt_Butn.SuperTip = superToolTip2;
+         superToolTip6.Items.Add(toolTipTitleItem9);
+         superToolTip6.Items.Add(toolTipItem6);
+         superToolTip6.Items.Add(toolTipTitleItem10);
+         this.OrdrReceipt_Butn.SuperTip = superToolTip6;
          this.OrdrReceipt_Butn.TabIndex = 7;
          this.OrdrReceipt_Butn.Click += new System.EventHandler(this.OrdrReceipt_Butn_Click);
          // 
@@ -524,22 +542,22 @@
          this.OrdrShip_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.OrdrShip_Butn.Name = "OrdrShip_Butn";
          this.OrdrShip_Butn.Size = new System.Drawing.Size(52, 42);
-         toolTipTitleItem4.Appearance.Image = global::System.RoboTech.Properties.Resources.IMAGE_1686;
-         toolTipTitleItem4.Appearance.Options.UseImage = true;
-         toolTipTitleItem4.Image = global::System.RoboTech.Properties.Resources.IMAGE_1686;
-         toolTipTitleItem4.Text = "وضعیت ارسال سفارشات";
-         toolTipItem3.LeftIndent = 6;
-         toolTipItem3.Text = "مشتریان شما دائما از فروشگاه شما خرید میکنند و مشخص میکنند که نحوه ارسال بسته سفا" +
+         toolTipTitleItem11.Appearance.Image = global::System.RoboTech.Properties.Resources.IMAGE_1686;
+         toolTipTitleItem11.Appearance.Options.UseImage = true;
+         toolTipTitleItem11.Image = global::System.RoboTech.Properties.Resources.IMAGE_1686;
+         toolTipTitleItem11.Text = "وضعیت ارسال سفارشات";
+         toolTipItem7.LeftIndent = 6;
+         toolTipItem7.Text = "مشتریان شما دائما از فروشگاه شما خرید میکنند و مشخص میکنند که نحوه ارسال بسته سفا" +
     "رش ها به چه گونه باشد";
-         toolTipTitleItem5.Appearance.Image = global::System.RoboTech.Properties.Resources.IMAGE_1692;
-         toolTipTitleItem5.Appearance.Options.UseImage = true;
-         toolTipTitleItem5.Image = global::System.RoboTech.Properties.Resources.IMAGE_1692;
-         toolTipTitleItem5.LeftIndent = 6;
-         toolTipTitleItem5.Text = "این قسمت به صورت اتومات مدیریت میشود و نیازی به دخالت نیروی پرسنلی نیست";
-         superToolTip3.Items.Add(toolTipTitleItem4);
-         superToolTip3.Items.Add(toolTipItem3);
-         superToolTip3.Items.Add(toolTipTitleItem5);
-         this.OrdrShip_Butn.SuperTip = superToolTip3;
+         toolTipTitleItem12.Appearance.Image = global::System.RoboTech.Properties.Resources.IMAGE_1692;
+         toolTipTitleItem12.Appearance.Options.UseImage = true;
+         toolTipTitleItem12.Image = global::System.RoboTech.Properties.Resources.IMAGE_1692;
+         toolTipTitleItem12.LeftIndent = 6;
+         toolTipTitleItem12.Text = "این قسمت به صورت اتومات مدیریت میشود و نیازی به دخالت نیروی پرسنلی نیست";
+         superToolTip7.Items.Add(toolTipTitleItem11);
+         superToolTip7.Items.Add(toolTipItem7);
+         superToolTip7.Items.Add(toolTipTitleItem12);
+         this.OrdrShip_Butn.SuperTip = superToolTip7;
          this.OrdrShip_Butn.TabIndex = 6;
          this.OrdrShip_Butn.Click += new System.EventHandler(this.OrdrShip_Butn_Click);
          // 
@@ -581,23 +599,23 @@
          this.sb_logout.LookAndFeel.UseDefaultLookAndFeel = false;
          this.sb_logout.Name = "sb_logout";
          this.sb_logout.Size = new System.Drawing.Size(48, 42);
-         toolTipTitleItem6.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
-         toolTipTitleItem6.Appearance.Options.UseImage = true;
-         toolTipTitleItem6.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem6.Image")));
-         toolTipTitleItem6.Text = "خروج از حساب کاربری";
-         toolTipItem4.LeftIndent = 6;
-         toolTipItem4.Text = "برای خروج اضطراری شما می توانید از این دکمه استفاده کنید. موارد مورد نیاز مانند ا" +
+         toolTipTitleItem13.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
+         toolTipTitleItem13.Appearance.Options.UseImage = true;
+         toolTipTitleItem13.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem13.Image")));
+         toolTipTitleItem13.Text = "خروج از حساب کاربری";
+         toolTipItem8.LeftIndent = 6;
+         toolTipItem8.Text = "برای خروج اضطراری شما می توانید از این دکمه استفاده کنید. موارد مورد نیاز مانند ا" +
     "ین می باشد که بخواهید برای لحظه ای سیستم را رها کنید. یا بخواهید با کاربری متفاو" +
     "تی وارد شوید.";
-         toolTipTitleItem7.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image1")));
-         toolTipTitleItem7.Appearance.Options.UseImage = true;
-         toolTipTitleItem7.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem7.Image")));
-         toolTipTitleItem7.LeftIndent = 6;
-         toolTipTitleItem7.Text = "Logout";
-         superToolTip4.Items.Add(toolTipTitleItem6);
-         superToolTip4.Items.Add(toolTipItem4);
-         superToolTip4.Items.Add(toolTipTitleItem7);
-         this.sb_logout.SuperTip = superToolTip4;
+         toolTipTitleItem14.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image1")));
+         toolTipTitleItem14.Appearance.Options.UseImage = true;
+         toolTipTitleItem14.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem14.Image")));
+         toolTipTitleItem14.LeftIndent = 6;
+         toolTipTitleItem14.Text = "Logout";
+         superToolTip8.Items.Add(toolTipTitleItem13);
+         superToolTip8.Items.Add(toolTipItem8);
+         superToolTip8.Items.Add(toolTipTitleItem14);
+         this.sb_logout.SuperTip = superToolTip8;
          this.sb_logout.TabIndex = 3;
          // 
          // Tm_ShowTime
@@ -668,5 +686,7 @@
       private C1.Win.C1Ribbon.RibbonButton OnlnRecpOrdrRobo_Butn;
       private MaxUi.RoundedButton NotfOrdrOnlineAdmission_Butn;
       private DevExpress.XtraEditors.SimpleButton OrderOnlineAdmission_Butn;
+      private C1.Win.C1Ribbon.RibbonGroup ribbonGroup7;
+      private C1.Win.C1Ribbon.RibbonButton InstPageConf_Butn;
    }
 }

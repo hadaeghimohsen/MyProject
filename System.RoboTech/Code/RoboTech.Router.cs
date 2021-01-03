@@ -107,6 +107,9 @@ namespace System.RoboTech.Code
             case 28:
                Onro_Dvlp_F(job);
                break;
+            case 29:
+               Inst_Conf_F(job);
+               break;
             #endregion
             #region Action
             case 11:
@@ -207,6 +210,9 @@ namespace System.RoboTech.Code
                break;
             case "ONRO_DVLP_F":
                _Onro_Dvlp_F.SendRequest(job);
+               break;
+            case "INST_CONF_F":
+               _Inst_Conf_F.SendRequest(job);
                break;
             #endregion
             #region Action

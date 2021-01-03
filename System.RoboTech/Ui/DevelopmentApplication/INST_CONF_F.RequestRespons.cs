@@ -11,7 +11,7 @@ using System.Xml.Linq;
 
 namespace System.RoboTech.Ui.DevelopmentApplication
 {
-   partial class WLET_DVLP_F : ISendRequest
+   partial class INST_CONF_F : ISendRequest
    {
       public IRouter _DefaultGateway { get; set; }
       private Data.iRoboTechDataContext iRoboTech;
@@ -202,17 +202,9 @@ namespace System.RoboTech.Ui.DevelopmentApplication
       /// <param name="job"></param>
       private void LoadData(Job job)
       {
-         DwltpBs.DataSource = iRoboTech.D_WLTPs;
-         DamutBs.DataSource = iRoboTech.D_AMUTs;
-         DinotBs.DataSource = iRoboTech.D_INOTs;
-         DconfBs.DataSource = iRoboTech.D_CONFs;
-         DtxfcBs.DataSource = iRoboTech.D_TXFCs;
-         DtxftBs.DataSource = iRoboTech.D_TXFTs;
-         Doftpbs.DataSource = iRoboTech.D_OFTPs;
-         Dofkdbs.DataSource = iRoboTech.D_OFKDs;
-         Drcstbs.DataSource = iRoboTech.D_RCSTs;
+         DsxtpBs.DataSource = iRoboTech.D_SXTPs;
+         FollowersSelectOption_Fb.Images = new Image[] { Properties.Resources.IMAGE_1700, Properties.Resources.IMAGE_1699, Properties.Resources.IMAGE_1701 };
 
-         WletType01_Flb.Images = WletType02_Flb.Images = new Image[] { Properties.Resources.IMAGE_1545, Properties.Resources.IMAGE_1547 };
          job.Status = StatusType.Successful;
       }
 
@@ -240,25 +232,25 @@ namespace System.RoboTech.Ui.DevelopmentApplication
             {
                //MessageBox.Show(xinput.ToString());
 
-               var srbs = SrbsBs.Current as Data.Service_Robot_Seller;
+               //var srbs = SrbsBs.Current as Data.Service_Robot_Seller;
 
-               var cordx = Convert.ToDouble(xinput.Attribute("cordx").Value);
-               var cordy = Convert.ToDouble(xinput.Attribute("cordy").Value);
+               //var cordx = Convert.ToDouble(xinput.Attribute("cordx").Value);
+               //var cordy = Convert.ToDouble(xinput.Attribute("cordy").Value);
 
-               if (cordx != srbs.SHOP_CORD_X && cordy != srbs.SHOP_CORD_Y)
-               {
-                  // Call Update Service_Public
-                  try
-                  {
-                     srbs.SHOP_CORD_X = cordx;
-                     srbs.SHOP_CORD_Y = cordy;
-                     requery = true;
-                  }
-                  catch (Exception exc)
-                  {
-                     MessageBox.Show(exc.Message);
-                  }
-               }
+               //if (cordx != srbs.SHOP_CORD_X && cordy != srbs.SHOP_CORD_Y)
+               //{
+               //   // Call Update Service_Public
+               //   try
+               //   {
+               //      srbs.SHOP_CORD_X = cordx;
+               //      srbs.SHOP_CORD_Y = cordy;
+               //      requery = true;
+               //   }
+               //   catch (Exception exc)
+               //   {
+               //      MessageBox.Show(exc.Message);
+               //   }
+               //}
             }
          }
 

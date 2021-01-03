@@ -10,9 +10,9 @@ using System.Windows.Forms;
 namespace System.MaxUi
 {
    /// <summary>A special custom rounding GroupBox with many painting features.</summary>
-   [ToolboxBitmap(typeof(Grouper), "mmMaxControls.Grouper.bmp")]
+   //[ToolboxBitmap(typeof(Grouper), "mmMaxControls.Grouper.bmp")]
    [Designer("System.Windows.Forms.Design.ParentControlDesigner, System.Design", typeof(IDesigner))]
-   public class Grouper : System.Windows.Forms.UserControl
+   public class Rollout : UserControl
    {
       #region Enumerations
 
@@ -42,8 +42,9 @@ namespace System.MaxUi
 
       private System.ComponentModel.Container components = null;
       private int V_RoundCorners = 2;
-      private string V_GroupTitle = "The Grouper";
-      private System.Drawing.Color V_BorderColor = Color.Gray;
+      private string V_RolloutTitle = "The Rollout name";
+      private System.Drawing.Color V_TitleBorderColor = Color.Gray;
+      private System.Drawing.Color V_RolloutBorderColor = Color.Gray;
       private float V_BorderThickness = 1;
       private bool V_ShadowControl = false;
       private System.Drawing.Color V_BackgroundColor = SystemColors.Control;
@@ -52,13 +53,41 @@ namespace System.MaxUi
       private System.Drawing.Color V_ShadowColor = Color.DarkGray;
       private int V_ShadowThickness = 3;
       private System.Drawing.Image V_GroupImage = null;
-      private System.Drawing.Color V_CustomGroupBoxColor = Color.White;
-      private bool V_PaintGroupBox = false;
+      private System.Drawing.Color V_CustomRolloutColor = Color.White;
+      private bool V_PaintRollout = false;
       private System.Drawing.Color V_BackColor = Color.Transparent;
+      private bool V_RolloutStatus = true;
+      private BorderStyle V_RolloutFrameType = BorderStyle.Fixed3D;
+      private int v_MaxHeight;
+
+      private bool mouseOver;
+      private bool mouseDown;
+      private bool mouseWasDown;
+      private bool showFocusFrame;
+      private bool frameOnMouseOverOnly;
 
       #endregion
 
       #region Properties
+      /// <summary>This feature will paint the background color of the control.</summary>
+      [Category("Appearance"), Description("This feature will paint the background color of the control.")]
+      public bool RolloutStatus { 
+         get { return V_RolloutStatus; } 
+         set 
+         { 
+            V_RolloutStatus = value; 
+            if(V_RolloutStatus)
+            {
+               Height = v_MaxHeight;
+            }
+            else
+            {               
+               Height = 22;
+            }
+
+            this.Refresh(); 
+         } 
+      }
 
       /// <summary>This feature will paint the background color of the control.</summary>
       [Category("Appearance"), Description("This feature will paint the background color of the control.")]
@@ -66,11 +95,11 @@ namespace System.MaxUi
 
       /// <summary>This feature will paint the group title background to the specified color if PaintGroupBox is set to true.</summary>
       [Category("Appearance"), Description("This feature will paint the group title background to the specified color if PaintGroupBox is set to true.")]
-      public System.Drawing.Color CustomGroupBoxColor { get { return V_CustomGroupBoxColor; } set { V_CustomGroupBoxColor = value; this.Refresh(); } }
+      public System.Drawing.Color CustomRolloutColor { get { return V_CustomRolloutColor; } set { V_CustomRolloutColor = value; this.Refresh(); } }
 
       /// <summary>This feature will paint the group title background to the CustomGroupBoxColor.</summary>
       [Category("Appearance"), Description("This feature will paint the group title background to the CustomGroupBoxColor.")]
-      public bool PaintGroupBox { get { return V_PaintGroupBox; } set { V_PaintGroupBox = value; this.Refresh(); } }
+      public bool PaintRollout { get { return V_PaintRollout; } set { V_PaintRollout = value; this.Refresh(); } }
 
       /// <summary>This feature can add a 16 x 16 image to the group title bar.</summary>
       [Category("Appearance"), Description("This feature can add a 16 x 16 image to the group title bar.")]
@@ -100,7 +129,6 @@ namespace System.MaxUi
             this.Refresh();
          }
       }
-
 
       /// <summary>This feature will change the group control color. This color can also be used in combination with BackgroundGradientColor for a gradient paint.</summary>
       [Category("Appearance"), Description("This feature will change the group control color. This color can also be used in combination with BackgroundGradientColor for a gradient paint.")]
@@ -137,11 +165,15 @@ namespace System.MaxUi
 
       /// <summary>This feature will add a group title to the control.</summary>
       [Category("Appearance"), Description("This feature will add a group title to the control.")]
-      public string GroupTitle { get { return V_GroupTitle; } set { V_GroupTitle = value; this.Refresh(); } }
+      public string RolloutTitle { get { return V_RolloutTitle; } set { V_RolloutTitle = value; this.Refresh(); } }
 
       /// <summary>This feature will allow you to change the color of the control's border.</summary>
       [Category("Appearance"), Description("This feature will allow you to change the color of the control's border.")]
-      public System.Drawing.Color BorderColor { get { return V_BorderColor; } set { V_BorderColor = value; this.Refresh(); } }
+      public System.Drawing.Color TitleBorderColor { get { return V_TitleBorderColor; } set { V_TitleBorderColor = value; this.Refresh(); } }
+
+      /// <summary>This feature will allow you to change the color of the control's border.</summary>
+      [Category("Appearance"), Description("This feature will allow you to change the color of the control's border.")]
+      public System.Drawing.Color RolloutBorderColor { get { return V_RolloutBorderColor; } set { V_RolloutBorderColor = value; this.Refresh(); } }
 
       /// <summary>This feature will allow you to set the control's border size.</summary>
       [Category("Appearance"), Description("This feature will allow you to set the control's border size.")]
@@ -167,18 +199,57 @@ namespace System.MaxUi
       [Category("Appearance"), Description("This feature will allow you to turn on control shadowing.")]
       public bool ShadowControl { get { return V_ShadowControl; } set { V_ShadowControl = value; this.Refresh(); } }
 
+      /// <summary>
+      /// When true, A frame is only shown around the button when the mouse is over it. Default value: false.
+      /// </summary>
+      [Category("Appearance"), Description("When true, A frame is only shown around the button when the mouse is over it. Default value: false.")]
+      public bool FrameOnMouseOverOnly
+      {
+         get { return frameOnMouseOverOnly; }
+         set
+         {
+            frameOnMouseOverOnly = value;
+            Invalidate();
+         }
+      }
+
+      /// <summary>
+      /// When true, a dotted frame is show around the button when the button has keyboard focus. Default value: true.
+      /// </summary>
+      [Category("Appearance"), Description("When true, a dotted frame is show around the button when the button has keyboard focus. Default value: true.")]
+      public bool ShowFocusFrame
+      {
+         get { return showFocusFrame; }
+         set
+         {
+            showFocusFrame = value;
+            Invalidate();
+         }
+      }
+
+      /// <summary>
+      /// When true, a dotted frame is show around the button when the button has keyboard focus. Default value: true.
+      /// </summary>
+      [Category("Appearance"), Description("When true, a dotted frame is show around the button when the button has keyboard focus. Default value: true.")]
+      public BorderStyle RolloutFrameType
+      {
+         get { return V_RolloutFrameType; }
+         set
+         {
+            V_RolloutFrameType = value;
+            Invalidate();
+         }
+      }
+
       #endregion
 
       #region Constructor
-
       /// <summary>This method will construct a new GroupBox control.</summary>
-      public Grouper()
+      public Rollout()
       {
          InitializeStyles();
-         InitializeGroupBox();
+         InitializeRollout();
       }
-
-
       #endregion
 
       #region DeConstructor
@@ -194,7 +265,6 @@ namespace System.MaxUi
       #endregion
 
       #region Initialization
-
       /// <summary>This method will initialize the controls custom styles.</summary>
       private void InitializeStyles()
       {
@@ -206,29 +276,104 @@ namespace System.MaxUi
          //--------------------------------------------------------
       }
 
-
       /// <summary>This method will initialize the GroupBox control.</summary>
-      private void InitializeGroupBox()
+      private void InitializeRollout()
       {
          components = new System.ComponentModel.Container();
-         this.Resize += new EventHandler(GroupBox_Resize);
+         this.Resize += new EventHandler(Rollout_Resize);
          this.DockPadding.All = 20;
-         this.Name = "GroupBox";
+         this.Name = "Rollout";
          this.Size = new System.Drawing.Size(368, 288);
-         this.Padding = new Windows.Forms.Padding(6, 30, 6, 6);
+         this.Padding = new Windows.Forms.Padding(4,30,3,3);
+         v_MaxHeight = Height;
       }
-
-
       #endregion
 
       #region Protected Methods
 
+      protected override void OnMouseDown(MouseEventArgs e)
+      {
+         base.OnMouseDown(e);
+         if ((e.X >= 4 && e.X <= (Width - 6)) && (e.Y >= 0 && e.Y <= 21))
+         {
+            mouseDown = true;
+            Invalidate();
+         }
+      }
+
+      protected override void OnMouseUp(MouseEventArgs e)
+      {
+         base.OnMouseUp(e);
+         if ((e.X >= 4 && e.X <= (Width - 6)) && (e.Y >= 0 && e.Y <= 21))
+         {
+            mouseDown = false;
+            mouseWasDown = false;
+            Invalidate();
+
+            RolloutStatus = !RolloutStatus;
+         }
+      }
+
+      protected override void OnMouseEnter(EventArgs e)
+      {
+         base.OnMouseEnter(e);
+         mouseOver = true;
+         Invalidate();
+      }
+
+      protected override void OnMouseMove(MouseEventArgs e)
+      {
+         base.OnMouseMove(e);
+         //if (Bounds.Contains(e.Location))
+         if ((e.X >= 4 && e.X <= (Width - 6)) && (e.Y >= 0 && e.Y <= 21))
+         {
+            if (mouseWasDown)
+            {
+               mouseDown = true;
+               mouseWasDown = false;
+               Invalidate();
+            }
+            if (!mouseOver)
+            {
+               mouseOver = true;
+               Invalidate();
+            }
+         }
+         else
+         {
+            if (mouseDown)
+            {
+               mouseDown = false;
+               mouseWasDown = true;
+               Invalidate();
+            }
+            if (mouseOver)
+            {
+               mouseOver = false;
+               Invalidate();
+            }
+         }
+      }
+
+      protected override void OnMouseLeave(EventArgs e)
+      {
+         base.OnMouseLeave(e);
+         mouseOver = false;
+         Invalidate();
+      }
+
+      protected override bool ShowFocusCues
+      {
+         get { return false; }
+      }
+
       /// <summary>Overrides the OnPaint method to paint control.</summary>
       /// <param name="e">The paint event arguments.</param>
       protected override void OnPaint(PaintEventArgs e)
-      {
+      {         
          PaintBack(e.Graphics);
-         PaintGroupText(e.Graphics);
+         PaintRolloutText(e.Graphics);
+         PaintRolloutButton(e);
       }
 
       #endregion
@@ -237,10 +382,10 @@ namespace System.MaxUi
 
       /// <summary>This method will paint the group title.</summary>
       /// <param name="g">The paint event graphics object.</param>
-      private void PaintGroupText(System.Drawing.Graphics g)
+      private void PaintRolloutText(System.Drawing.Graphics g)
       {
          //Check if string has something-------------
-         if (this.GroupTitle == string.Empty) { return; }
+         if (this.RolloutTitle == string.Empty) { return; }
          //------------------------------------------
 
          //Set Graphics smoothing mode to Anit-Alias-- 
@@ -248,20 +393,20 @@ namespace System.MaxUi
          //-------------------------------------------
 
          //Declare Variables------------------
-         SizeF StringSize = g.MeasureString(this.GroupTitle, this.Font);
+         SizeF StringSize = g.MeasureString(this.RolloutTitle, this.Font);
          Size StringSize2 = StringSize.ToSize();
          if (this.GroupImage != null) { StringSize2.Width += 18; }
          int ArcWidth = this.RoundCorners;
          int ArcHeight = this.RoundCorners;
-         int ArcX1 = 20;
-         int ArcX2 = (StringSize2.Width + 34) - (ArcWidth + 1);
+         int ArcX1 = 5;
+         int ArcX2 = this.Width - 7;//(StringSize2.Width + 34) - (ArcWidth + 1);
          int ArcY1 = 0;
-         int ArcY2 = 24 - (ArcHeight + 1);
+         int ArcY2 = 22 - (ArcHeight + 1);
          System.Drawing.Drawing2D.GraphicsPath path = new System.Drawing.Drawing2D.GraphicsPath();
-         System.Drawing.Brush BorderBrush = new SolidBrush(this.BorderColor);
+         System.Drawing.Brush BorderBrush = new SolidBrush(this.TitleBorderColor);
          System.Drawing.Pen BorderPen = new Pen(BorderBrush, this.BorderThickness);
          System.Drawing.Drawing2D.LinearGradientBrush BackgroundGradientBrush = null;
-         System.Drawing.Brush BackgroundBrush = (this.PaintGroupBox) ? new SolidBrush(this.CustomGroupBoxColor) : new SolidBrush(this.BackgroundColor);
+         System.Drawing.Brush BackgroundBrush = (this.PaintRollout) ? new SolidBrush(this.CustomRolloutColor) : new SolidBrush(this.BackgroundColor);
          System.Drawing.SolidBrush TextColorBrush = new SolidBrush(this.ForeColor);
          System.Drawing.SolidBrush ShadowBrush = null;
          System.Drawing.Drawing2D.GraphicsPath ShadowPath = null;
@@ -272,24 +417,10 @@ namespace System.MaxUi
          {
             ShadowBrush = new SolidBrush(this.ShadowColor);
             ShadowPath = new System.Drawing.Drawing2D.GraphicsPath();
-            switch (RightToLeft)
-            {
-               case RightToLeft.Inherit:
-               case RightToLeft.No:
-                  ShadowPath.AddArc(ArcX1 + (this.ShadowThickness - 1), ArcY1 + (this.ShadowThickness - 1), ArcWidth, ArcHeight, 180, GroupBoxConstants.SweepAngle); // Top Left
-                  ShadowPath.AddArc(ArcX2 + (this.ShadowThickness - 1), ArcY1 + (this.ShadowThickness - 1), ArcWidth, ArcHeight, 270, GroupBoxConstants.SweepAngle); //Top Right
-                  ShadowPath.AddArc(ArcX2 + (this.ShadowThickness - 1), ArcY2 + (this.ShadowThickness - 1), ArcWidth, ArcHeight, 360, GroupBoxConstants.SweepAngle); //Bottom Right
-                  ShadowPath.AddArc(ArcX1 + (this.ShadowThickness - 1), ArcY2 + (this.ShadowThickness - 1), ArcWidth, ArcHeight, 90, GroupBoxConstants.SweepAngle); //Bottom Left
-                  break;
-               case RightToLeft.Yes:
-                  ShadowPath.AddArc(ClientRectangle.Width - (StringSize2.Width + ArcX1 + 15) + (this.ShadowThickness - 1), ArcY1 + (this.ShadowThickness - 1), ArcWidth, ArcHeight, 180, GroupBoxConstants.SweepAngle); // Top Left
-                  ShadowPath.AddArc(ClientRectangle.Width - (20) + (this.ShadowThickness - 1), ArcY1 + (this.ShadowThickness - 1), ArcWidth, ArcHeight, 270, GroupBoxConstants.SweepAngle); //Top Right
-                  ShadowPath.AddArc(ClientRectangle.Width - (20) + (this.ShadowThickness - 1), ArcY2 + (this.ShadowThickness - 1), ArcWidth, ArcHeight, 360, GroupBoxConstants.SweepAngle); //Bottom Right
-                  ShadowPath.AddArc(ClientRectangle.Width - (StringSize2.Width + ArcX1 + 15) + (this.ShadowThickness - 1), ArcY2 + (this.ShadowThickness - 1), ArcWidth, ArcHeight, 90, GroupBoxConstants.SweepAngle); //Bottom Left
-                  break;
-               default:
-                  break;
-            }
+            ShadowPath.AddArc(ArcX1 + (this.ShadowThickness - 1), ArcY1 + (this.ShadowThickness - 1), ArcWidth, ArcHeight, 180, GroupBoxConstants.SweepAngle); // Top Left
+            ShadowPath.AddArc(ArcX2 + (this.ShadowThickness - 1), ArcY1 + (this.ShadowThickness - 1), ArcWidth, ArcHeight, 270, GroupBoxConstants.SweepAngle); //Top Right
+            ShadowPath.AddArc(ArcX2 + (this.ShadowThickness - 1), ArcY2 + (this.ShadowThickness - 1), ArcWidth, ArcHeight, 360, GroupBoxConstants.SweepAngle); //Bottom Right
+            ShadowPath.AddArc(ArcX1 + (this.ShadowThickness - 1), ArcY2 + (this.ShadowThickness - 1), ArcWidth, ArcHeight, 90, GroupBoxConstants.SweepAngle); //Bottom Left
             ShadowPath.CloseAllFigures();
 
             //Paint Rounded Rectangle------------
@@ -299,29 +430,16 @@ namespace System.MaxUi
          //-----------------------------------
 
          //Create Rounded Rectangle Path------
-         switch (RightToLeft)
-         {
-            case RightToLeft.Inherit:
-            case RightToLeft.No:
-               path.AddArc(ArcX1, ArcY1, ArcWidth, ArcHeight, 180, GroupBoxConstants.SweepAngle); // Top Left
-               path.AddArc(ArcX2, ArcY1, ArcWidth, ArcHeight, 270, GroupBoxConstants.SweepAngle); //Top Right
-               path.AddArc(ArcX2, ArcY2, ArcWidth, ArcHeight, 360, GroupBoxConstants.SweepAngle); //Bottom Right
-               path.AddArc(ArcX1, ArcY2, ArcWidth, ArcHeight, 90, GroupBoxConstants.SweepAngle); //Bottom Left
-               break;
-            case RightToLeft.Yes:
-               path.AddArc(ClientRectangle.Width - (StringSize2.Width + ArcX1 + 15), ArcY1, ArcWidth, ArcHeight, 180, GroupBoxConstants.SweepAngle); // Top Left
-               path.AddArc(ClientRectangle.Width - (20), ArcY1, ArcWidth, ArcHeight, 270, GroupBoxConstants.SweepAngle); //Top Right
-               path.AddArc(ClientRectangle.Width - (20), ArcY2, ArcWidth, ArcHeight, 360, GroupBoxConstants.SweepAngle); //Bottom Right
-               path.AddArc(ClientRectangle.Width - (StringSize2.Width + ArcX1 + 15), ArcY2, ArcWidth, ArcHeight, 90, GroupBoxConstants.SweepAngle); //Bottom Left
-               break;
-            default:
-               break;
-         }
+         path.AddArc(ArcX1, ArcY1, ArcWidth, ArcHeight, 180, GroupBoxConstants.SweepAngle); // Top Left
+         path.AddArc(ArcX2, ArcY1, ArcWidth, ArcHeight, 270, GroupBoxConstants.SweepAngle); //Top Right
+         path.AddArc(ArcX2, ArcY2, ArcWidth, ArcHeight, 360, GroupBoxConstants.SweepAngle); //Bottom Right
+         path.AddArc(ArcX1, ArcY2, ArcWidth, ArcHeight, 90, GroupBoxConstants.SweepAngle); //Bottom Left
+
          path.CloseAllFigures();
          //-----------------------------------
 
          //Check if Gradient Mode is enabled--
-         if (this.PaintGroupBox)
+         if (this.PaintRollout)
          {
             //Paint Rounded Rectangle------------
             g.FillPath(BackgroundBrush, path);
@@ -350,20 +468,14 @@ namespace System.MaxUi
          g.DrawPath(BorderPen, path);
          //-----------------------------------
 
-         //Paint Text-------------------------
-         int CustomStringWidth = (this.GroupImage != null) ? 44 : 28;
-         switch (RightToLeft)
-         {
-            case RightToLeft.Inherit:
-            case RightToLeft.No:
-               g.DrawString(this.GroupTitle, this.Font, TextColorBrush, CustomStringWidth, 5);
-               break;
-            case RightToLeft.Yes:
-               g.DrawString(this.GroupTitle, this.Font, TextColorBrush, ClientRectangle.Width - (StringSize2.Width + CustomStringWidth - 3), 5);
-               break;
-            default:
-               break;
-         }         
+         //Paint Text-------------------------         
+         g.DrawString(this.RolloutTitle, this.Font, TextColorBrush, (Width - StringSize2.Width) / 2, 4);
+
+         var font = new Font("Microsoft Sans Serif", 11, FontStyle.Bold);         
+         if(V_RolloutStatus)
+            g.DrawString("-", font, TextColorBrush, 10, 2);
+         else
+            g.DrawString("+", font, TextColorBrush, 10, 2);
          //-----------------------------------
 
          //Draw GroupImage if there is one----
@@ -389,6 +501,9 @@ namespace System.MaxUi
       /// <param name="g">The paint event graphics object.</param>
       private void PaintBack(System.Drawing.Graphics g)
       {
+         if (RolloutStatus)
+            v_MaxHeight = Height;
+
          //Set Graphics smoothing mode to Anit-Alias-- 
          g.SmoothingMode = SmoothingMode.AntiAlias;
          //-------------------------------------------
@@ -398,10 +513,22 @@ namespace System.MaxUi
          int ArcHeight = this.RoundCorners * 2;
          int ArcX1 = 0;
          int ArcX2 = (this.ShadowControl) ? (this.Width - (ArcWidth + 1)) - this.ShadowThickness : this.Width - (ArcWidth + 1);
-         int ArcY1 = 10;
-         int ArcY2 = (this.ShadowControl) ? (this.Height - (ArcHeight + 1)) - this.ShadowThickness : this.Height - (ArcHeight + 1);
+         int ArcY1;
+         int ArcY2;
+         
+         if (RolloutStatus)
+         {
+            ArcY1 = 10;
+            ArcY2 = (this.ShadowControl) ? (this.Height - (ArcHeight + 1)) - this.ShadowThickness : this.Height - (ArcHeight + 1);
+         }
+         else
+         {
+            ArcY1 = 4;
+            ArcY2 = 14;
+         }
+         
          System.Drawing.Drawing2D.GraphicsPath path = new System.Drawing.Drawing2D.GraphicsPath();
-         System.Drawing.Brush BorderBrush = new SolidBrush(this.BorderColor);
+         System.Drawing.Brush BorderBrush = new SolidBrush(this.RolloutBorderColor);
          System.Drawing.Pen BorderPen = new Pen(BorderBrush, this.BorderThickness);
          System.Drawing.Drawing2D.LinearGradientBrush BackgroundGradientBrush = null;
          System.Drawing.Brush BackgroundBrush = new SolidBrush(this.BackgroundColor);
@@ -469,26 +596,42 @@ namespace System.MaxUi
       /// <summary>This method fires when the GroupBox resize event occurs.</summary>
       /// <param name="sender">The object the sent the event.</param>
       /// <param name="e">The event arguments.</param>
-      private void GroupBox_Resize(object sender, EventArgs e)
+      private void Rollout_Resize(object sender, EventArgs e)
       {
          this.Refresh();
       }
-      #endregion
-   }
 
-   /// <summary>This class holds all GroupBox constants.</summary>
-   public class GroupBoxConstants
-   {
-      #region Constants
-
-      /// <summary>The sweep angle of the arc.</summary>
-      public const int SweepAngle = 90;
-
-      /// <summary>The minimum control height.</summary>
-      public const int MinControlHeight = 32;
-
-      /// <summary>The minimum control width.</summary>
-      public const int MinControlWidth = 96;
+      /// <summary>This method will paint the rollout button.</summary>
+      /// <param name="g">The paint event graphics object.</param>
+      private void PaintRolloutButton(PaintEventArgs e)
+      {
+         if (V_RolloutFrameType == BorderStyle.Fixed3D)
+         {
+            if (mouseDown)
+            {
+               using (Matrix m = e.Graphics.Transform)
+               {
+                  m.Translate(1, 1);
+                  e.Graphics.Transform = m;
+                  base.OnPaint(e);
+                  e.Graphics.ResetTransform();
+               }
+            }
+            else
+            {
+               base.OnPaint(e);
+            }
+            if (!FrameOnMouseOverOnly || mouseOver)
+            {
+               MaxConnection.Instance.DrawFrame(e.Graphics, new Rectangle(5, 0, Width - 10, 22), mouseDown);
+            }
+            if (mouseDown)
+            {
+               Rectangle r = new Rectangle(5, 0, Width - 10, 22);
+               e.Graphics.DrawRectangle(MaxConnection.Instance.BackPen, r);
+            }
+         }
+      }
 
       #endregion
    }

@@ -572,5 +572,17 @@ namespace System.RoboTech.Ui.MasterPage
             catch { }
          }
       }
+
+      private void InstPageConf_Butn_Click(object sender, EventArgs e)
+      {
+         _DefaultGateway.Gateway(
+            new Job(SendType.External, "Localhost",
+              new List<Job>
+              {                  
+                new Job(SendType.Self, 29 /* Execute Inst_Conf_F */),
+                new Job(SendType.SelfToUserInterface, "INST_CONF_F", 10 /* Execute Actn_CalF_P */)
+              })
+         );
+      }
    }
 }

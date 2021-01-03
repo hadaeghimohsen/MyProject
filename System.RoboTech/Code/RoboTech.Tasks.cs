@@ -136,6 +136,11 @@ namespace System.RoboTech.Code
             if (_Onro_Dvlp_F == null)
                _Onro_Dvlp_F = new Ui.DevelopmentApplication.ONRO_DVLP_F { _DefaultGateway = this };
          }
+         else if(value == "inst_conf_f")
+         {
+            if (_Inst_Conf_F == null)
+               _Inst_Conf_F = new Ui.DevelopmentApplication.INST_CONF_F { _DefaultGateway = this };
+         }
          #endregion
          #region Action
          else if (value == "strt_robo_f")
@@ -830,6 +835,31 @@ namespace System.RoboTech.Code
                   new Job(SendType.SelfToUserInterface, "ONRO_DVLP_F", 02 /* Execute Set */),
                   new Job(SendType.SelfToUserInterface, "ONRO_DVLP_F", 07 /* Execute Load_Data */),
                   new Job(SendType.SelfToUserInterface, "ONRO_DVLP_F", 03 /* Execute Paint */)
+               });
+         }
+         else if (job.Status == StatusType.SignalForPreconditions)
+         {
+            job.Status = StatusType.Successful;
+         }
+      }
+
+      /// <summary>
+      /// Code 29
+      /// </summary>
+      /// <param name="job"></param>
+      private void Inst_Conf_F(Job job)
+      {
+         if (job.Status == StatusType.Running)
+         {
+            job.Status = StatusType.WaitForPreconditions;
+            job.OwnerDefineWorkWith.AddRange(
+               new List<Job>
+               {
+                  new Job(SendType.Self, 01 /* Execute GetUi */){Input = "inst_conf_f"},
+                  new Job(SendType.SelfToUserInterface, "INST_CONF_F", 05 /* Execute CheckSecurity */),
+                  new Job(SendType.SelfToUserInterface, "INST_CONF_F", 02 /* Execute Set */),
+                  new Job(SendType.SelfToUserInterface, "INST_CONF_F", 07 /* Execute Load_Data */),
+                  new Job(SendType.SelfToUserInterface, "INST_CONF_F", 03 /* Execute Paint */)
                });
          }
          else if (job.Status == StatusType.SignalForPreconditions)

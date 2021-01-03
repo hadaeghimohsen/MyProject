@@ -288,6 +288,12 @@
     <Compile Include="Ui\DevelopmentApplication\ONRO_DVLP_F.Designer.cs">
       <DependentUpon>ONRO_DVLP_F.cs</DependentUpon>
     </Compile>
+    <Compile Include="Ui\DevelopmentApplication\INST_CONF_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\DevelopmentApplication\INST_CONF_F.Designer.cs">
+      <DependentUpon>INST_CONF_F.cs</DependentUpon>
+    </Compile>
     <Compile Include="Ui\DevelopmentApplication\WLET_DVLP_F.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -295,6 +301,9 @@
       <DependentUpon>WLET_DVLP_F.cs</DependentUpon>
     </Compile>
     <Compile Include="Ui\DevelopmentApplication\ONRO_DVLP_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\DevelopmentApplication\INST_CONF_F.RequestRespons.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Ui\DevelopmentApplication\WLET_DVLP_F.RequestRespons.cs">
@@ -518,6 +527,7 @@
     <None Include="Properties\DataSources\System.RoboTech.Data.D_SHIP.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_SPTP.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_SPYT.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.D_SXTP.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_TXFC.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_TXFT.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_URLT.datasource" />
@@ -553,6 +563,9 @@
     <None Include="Properties\DataSources\System.RoboTech.Data.Robot_Card_Bank_Account1.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Robot_External_Query.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Robot_Import.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.Robot_Instagram.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.Robot_Instagram_DirectMessage.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.Robot_Instagram_Follow.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Robot_Limited_Commodity_Group.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Robot_Product.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Robot_Product_Alternative.datasource" />
@@ -657,6 +670,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Ui\DevelopmentApplication\ONRO_DVLP_F.resx">
       <DependentUpon>ONRO_DVLP_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\DevelopmentApplication\INST_CONF_F.resx">
+      <DependentUpon>INST_CONF_F.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Ui\DevelopmentApplication\WLET_DVLP_F.resx">
       <DependentUpon>WLET_DVLP_F.cs</DependentUpon>
@@ -1804,6 +1821,12 @@
     <Content Include="..\System.Resource\Resources\IMAGE_1525.png">
       <Link>Resources\IMAGE_1525.png</Link>
     </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1545.png">
+      <Link>Resources\IMAGE_1545.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1547.png">
+      <Link>Resources\IMAGE_1547.png</Link>
+    </Content>
     <Content Include="..\System.Resource\Resources\IMAGE_1564.png">
       <Link>Resources\IMAGE_1564.png</Link>
     </Content>
@@ -1869,6 +1892,18 @@
     </Content>
     <Content Include="..\System.Resource\Resources\IMAGE_1695.png">
       <Link>Resources\IMAGE_1695.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1698.png">
+      <Link>Resources\IMAGE_1698.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1699.png">
+      <Link>Resources\IMAGE_1699.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1700.png">
+      <Link>Resources\IMAGE_1700.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1701.png">
+      <Link>Resources\IMAGE_1701.png</Link>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

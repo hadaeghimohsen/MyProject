@@ -1207,6 +1207,12 @@
   <data name="IMAGE_1525" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\..\system.resource\resources\image_1525.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="IMAGE_1545" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\..\system.resource\resources\image_1545.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="IMAGE_1547" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\..\system.resource\resources\image_1547.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="IMAGE_1564" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\..\system.resource\resources\image_1564.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -1272,5 +1278,17 @@
   </data>
   <data name="IMAGE_1695" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\..\system.resource\resources\image_1695.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="IMAGE_1698" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\..\system.resource\resources\image_1698.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="IMAGE_1699" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\..\system.resource\resources\image_1699.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="IMAGE_1700" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\..\system.resource\resources\image_1700.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="IMAGE_1701" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\..\system.resource\resources\image_1701.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

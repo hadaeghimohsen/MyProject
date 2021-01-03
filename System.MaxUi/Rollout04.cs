@@ -11,7 +11,7 @@ using System.Windows.Forms.Design;
 namespace System.MaxUi
 {
    [Designer(typeof(Rollout04Desing))]
-
+   [Designer("System.Windows.Forms.Design.ParentControlDesigner, System.Design", typeof(IDesigner))]
    public partial class Rollout04 : UserControl
    {
       public Rollout04()

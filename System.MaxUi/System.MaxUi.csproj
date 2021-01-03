@@ -43,18 +43,33 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Button.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="CheckBtn.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="CheckBtn.Designer.cs">
       <DependentUpon>CheckBtn.cs</DependentUpon>
     </Compile>
+    <Compile Include="CheckButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="FlyoutButton.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FlyoutCheckButton.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FlyoutEventArgs.cs" />
+    <Compile Include="FlyoutForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="GroupBox.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="GroupBox.Designer.cs">
-      <DependentUpon>GroupBox.cs</DependentUpon>
-    </Compile>
+    <Compile Include="IMaxControl.cs" />
+    <Compile Include="MaxConnection.cs" />
     <Compile Include="MsgBox.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -118,6 +133,9 @@
     <Compile Include="RadioBtn.Designer.cs">
       <DependentUpon>RadioBtn.cs</DependentUpon>
     </Compile>
+    <Compile Include="Rollout.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Rollout03.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -137,16 +155,20 @@
       <DependentUpon>RoundedButton.cs</DependentUpon>
     </Compile>
     <Compile Include="RoundedButtonDesigner.cs" />
+    <Compile Include="Spinner.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SpinnerButtonEventArgs.cs" />
+    <Compile Include="SpinnerTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="CheckBtn.resx">
       <DependentUpon>CheckBtn.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="GroupBox.resx">
-      <DependentUpon>GroupBox.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
+    <EmbeddedResource Include="FlyoutForm.resx" />
     <EmbeddedResource Include="MsgBox.resx">
       <DependentUpon>MsgBox.cs</DependentUpon>
     </EmbeddedResource>

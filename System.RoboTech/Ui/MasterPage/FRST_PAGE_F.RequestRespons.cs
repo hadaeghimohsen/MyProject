@@ -235,7 +235,9 @@ namespace System.RoboTech.Ui.MasterPage
       /// <param name="job"></param>
       private void LoadData(Job job)
       {
+         iRoboTech = new Data.iRoboTechDataContext(ConnectionString);
          OrderAction_Recipt();
+         InstagramOperationInit();
          job.Status = StatusType.Successful;
       }
 

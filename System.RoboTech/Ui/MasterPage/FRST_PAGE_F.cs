@@ -11,6 +11,7 @@ using System.JobRouting.Jobs;
 using System.Globalization;
 using System.Threading;
 using System.Xml.Linq;
+using System.RoboTech.ExtCode;
 
 namespace System.RoboTech.Ui.MasterPage
 {
@@ -22,6 +23,10 @@ namespace System.RoboTech.Ui.MasterPage
       }
 
       private bool frstLoad = false;
+      private int instagramTimerInterval = 1 * 60 * 1000;
+      private bool instagramOperationStatus = false;
+      private DateTime instagramTriggerTime = DateTime.Now;
+      private bool instagramAtService = true;
 
       #region BaseDefinition
 
@@ -47,6 +52,15 @@ namespace System.RoboTech.Ui.MasterPage
                pc.GetYear(DateTime.Now),
                pc.GetMonth(DateTime.Now),
                pc.GetDayOfMonth(DateTime.Now));
+
+         if(instagramAtService && instagramTriggerTime.AddMilliseconds(instagramTimerInterval) <= DateTime.Now)
+         {
+            // We Must Run Trigger "InstDoOprt"
+            instagramTriggerTime = DateTime.Now;
+            instagramAtService = false;
+            InstDoOprtAsync();
+            instagramAtService = true;
+         }
       }
 
       private void RegnDfin_Butn_Click(object sender, EventArgs e)
@@ -583,6 +597,92 @@ namespace System.RoboTech.Ui.MasterPage
                 new Job(SendType.SelfToUserInterface, "INST_CONF_F", 10 /* Execute Actn_CalF_P */)
               })
          );
+      }
+
+      private void InstagramOperationInit()
+      {
+         try
+         {
+            var inst = iRoboTech.Robot_Instagrams.FirstOrDefault(i => i.PAGE_OWNR_TYPE == "002" && i.STAT == "002");
+            if (inst == null) return;
+
+            instagramTimerInterval = (int)(inst.CYCL_INTR * 60 * 1000 ?? 5 * 60 * 1000);
+            instagramOperationStatus = inst.CYCL_STAT == "002" ? true : false;
+            //Tm_InstOprt.Enabled = false;
+            //Tm_InstOprt.Interval = 2000;//(int)(inst.CYCL_INTR * 60 * 1000 ?? 5 * 60 * 1000);
+            //Tm_InstOprt.Enabled = inst.CYCL_STAT == "002" ? true : false;
+            //Tm_InstOprt.Enabled = true;
+
+            if (inst.CYCL_STAT == "002")
+            {
+               InstagramOperationStatus_Rb.NormalColorA = InstagramOperationStatus_Rb.NormalColorB = Color.Lime;
+               if (InvokeRequired)
+                  Invoke(new System.Action(() => { NotfInstagramOperation_Butn.Caption = inst.Robot_Instagram_DirectMessages.Where(d => d.SEND_STAT == "005").Count().ToString(); }));
+               else
+                  NotfInstagramOperation_Butn.Caption = inst.Robot_Instagram_DirectMessages.Where(d => d.SEND_STAT == "005").Count().ToString();
+            }
+            else
+            {
+               InstagramOperationStatus_Rb.NormalColorA = InstagramOperationStatus_Rb.NormalColorB = Color.Red;
+               if (InvokeRequired)
+                  Invoke(new System.Action(() => { NotfInstagramOperation_Butn.Caption = "0"; }));
+               else
+                  NotfInstagramOperation_Butn.Caption = "0";
+            }            
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private async void InstDoOprtAsync()
+      {
+         try
+         {
+            iRoboTech = new Data.iRoboTechDataContext(ConnectionString);
+            var inst = iRoboTech.Robot_Instagrams.FirstOrDefault(i => i.PAGE_OWNR_TYPE == "002" && i.STAT == "002" && i.CYCL_STAT == "002");
+            // اگر هیچ پیج اینستاگرامی وجود نداشته باشد
+            if (inst == null) return;
+
+            #region Direction Message
+            var dirMsgs = inst.Robot_Instagram_DirectMessages.Where(d => d.SEND_STAT == "005").OrderBy(d => d.CRET_DATE);
+
+            // Refresh Control
+            InstagramOperationStatus_Rb.NormalColorA = InstagramOperationStatus_Rb.NormalColorB = Color.Lime;
+            if (InvokeRequired)
+               Invoke(new System.Action(() => { NotfInstagramOperation_Butn.Caption = dirMsgs.Count().ToString(); }));
+            else
+               NotfInstagramOperation_Butn.Caption = dirMsgs.Count().ToString();
+
+            var _instagram = new Controller.Instagram(iRoboTech);
+            foreach (var d in dirMsgs.Take((int)inst.CYCL_SEND_MESG_NUMB))
+            {
+               InstOprt_Mpb.Visible = true;
+               // Send Message
+               var result = await _instagram.SendDirectMessageAsync(d);
+               if (result)
+               {
+                  d.SEND_STAT = "004";
+                  // Refresh Control
+                  if (InvokeRequired)
+                     Invoke(new System.Action(() => { NotfInstagramOperation_Butn.Caption = (NotfInstagramOperation_Butn.Caption.ToInt32() - 1).ToString(); }));
+                  else
+                     NotfInstagramOperation_Butn.Caption = (NotfInstagramOperation_Butn.Caption.ToInt32() - 1).ToString();
+               }
+               // Sleep
+               Thread.Sleep((int)(inst.CYCL_ACTN_SLEP ?? 10) * 1000);
+            }
+            #endregion
+
+            #region New Follow
+
+            #endregion
+            InstOprt_Mpb.Visible = false;
+
+            iRoboTech.SubmitChanges();
+         }
+         catch { }
       }
    }
 }

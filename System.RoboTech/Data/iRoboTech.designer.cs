@@ -174,15 +174,21 @@ namespace System.RoboTech.Data
       partial void InsertService_Robot_Access_Limited_Group_Product(Service_Robot_Access_Limited_Group_Product instance);
       partial void UpdateService_Robot_Access_Limited_Group_Product(Service_Robot_Access_Limited_Group_Product instance);
       partial void DeleteService_Robot_Access_Limited_Group_Product(Service_Robot_Access_Limited_Group_Product instance);
-      partial void InsertRobot_Instagram(Robot_Instagram instance);
-      partial void UpdateRobot_Instagram(Robot_Instagram instance);
-      partial void DeleteRobot_Instagram(Robot_Instagram instance);
-      partial void InsertRobot_Instagram_DirectMessage(Robot_Instagram_DirectMessage instance);
-      partial void UpdateRobot_Instagram_DirectMessage(Robot_Instagram_DirectMessage instance);
-      partial void DeleteRobot_Instagram_DirectMessage(Robot_Instagram_DirectMessage instance);
       partial void InsertRobot_Instagram_Follow(Robot_Instagram_Follow instance);
       partial void UpdateRobot_Instagram_Follow(Robot_Instagram_Follow instance);
       partial void DeleteRobot_Instagram_Follow(Robot_Instagram_Follow instance);
+      partial void InsertTemplate_Item(Template_Item instance);
+      partial void UpdateTemplate_Item(Template_Item instance);
+      partial void DeleteTemplate_Item(Template_Item instance);
+      partial void InsertTemplate(Template instance);
+      partial void UpdateTemplate(Template instance);
+      partial void DeleteTemplate(Template instance);
+      partial void InsertRobot_Instagram_DirectMessage(Robot_Instagram_DirectMessage instance);
+      partial void UpdateRobot_Instagram_DirectMessage(Robot_Instagram_DirectMessage instance);
+      partial void DeleteRobot_Instagram_DirectMessage(Robot_Instagram_DirectMessage instance);
+      partial void InsertRobot_Instagram(Robot_Instagram instance);
+      partial void UpdateRobot_Instagram(Robot_Instagram instance);
+      partial void DeleteRobot_Instagram(Robot_Instagram instance);
       #endregion
 
       public iRoboTechDataContext() :
@@ -1271,22 +1277,6 @@ namespace System.RoboTech.Data
          }
       }
 
-      public System.Data.Linq.Table<Robot_Instagram> Robot_Instagrams
-      {
-         get
-         {
-            return this.GetTable<Robot_Instagram>();
-         }
-      }
-
-      public System.Data.Linq.Table<Robot_Instagram_DirectMessage> Robot_Instagram_DirectMessages
-      {
-         get
-         {
-            return this.GetTable<Robot_Instagram_DirectMessage>();
-         }
-      }
-
       public System.Data.Linq.Table<D_SXTP> D_SXTPs
       {
          get
@@ -1308,6 +1298,46 @@ namespace System.RoboTech.Data
          get
          {
             return this.GetTable<Robot_Instagram_Follow>();
+         }
+      }
+
+      public System.Data.Linq.Table<Template_Item> Template_Items
+      {
+         get
+         {
+            return this.GetTable<Template_Item>();
+         }
+      }
+
+      public System.Data.Linq.Table<D_TMTP> D_TMTPs
+      {
+         get
+         {
+            return this.GetTable<D_TMTP>();
+         }
+      }
+
+      public System.Data.Linq.Table<Template> Templates
+      {
+         get
+         {
+            return this.GetTable<Template>();
+         }
+      }
+
+      public System.Data.Linq.Table<Robot_Instagram_DirectMessage> Robot_Instagram_DirectMessages
+      {
+         get
+         {
+            return this.GetTable<Robot_Instagram_DirectMessage>();
+         }
+      }
+
+      public System.Data.Linq.Table<Robot_Instagram> Robot_Instagrams
+      {
+         get
+         {
+            return this.GetTable<Robot_Instagram>();
          }
       }
 
@@ -2980,6 +3010,13 @@ namespace System.RoboTech.Data
                [global::System.Data.Linq.Mapping.ParameterAttribute(Name = "Chck_Regs_Strt", DbType = "VarChar(3)")] string chck_Regs_Strt)
       {
          IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), orgn_Ogid, robo_Rbid, rbid, copy_Type, bot_Type, name, tkon_Code, stat, buld_Stat, buld_File_Id, spy_Type, crtb_Url, down_Load_File_Path, up_Load_File_Path, invt_Frnd, hash_Tag, cord_X, cord_Y, post_Adrs, cell_Phon, tell_Phon, emal_Adrs, web_Site, run_Stat, amnt_Type, cnct_Acnt_App, acnt_App_Type, page_Fech_Rows, min_With_Draw, conf_Durt_Day, auto_Ship_Cori, show_Invr_Stat, view_Invr_Stat, free_Ship_Inct_Amnt, free_Ship_Otct_Amnt, ordr_Expr_Stat, ordr_Expr_Time, locl_Srvr_Conn_Strn, web_Srvr_Conn_Strn, noti_Ordr_Ship_Stat, noti_Sond_Ordr_Ship_Path, noti_Ordr_Rcpt_Stat, noti_Sond_Ordr_Rcpt_Path, noti_Ordr_Recp_Stat, noti_Sond_Ordr_Recp_Path, chck_Regs_Strt);
+         return ((int)(result.ReturnValue));
+      }
+
+      [global::System.Data.Linq.Mapping.FunctionAttribute(Name = "dbo.INS_RIDM_P")]
+      public int INS_RIDM_P([global::System.Data.Linq.Mapping.ParameterAttribute(Name = "X", DbType = "Xml")] System.Xml.Linq.XElement x)
+      {
+         IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), x);
          return ((int)(result.ReturnValue));
       }
    }
@@ -43277,6 +43314,10 @@ namespace System.RoboTech.Data
 
       private EntitySet<Robot_Limited_Commodity_Group> _Robot_Limited_Commodity_Groups;
 
+      private EntitySet<Template_Item> _Template_Items;
+
+      private EntitySet<Template> _Templates;
+
       private EntitySet<Robot_Instagram> _Robot_Instagrams;
 
       private EntityRef<Organ> _Organ;
@@ -43422,6 +43463,8 @@ namespace System.RoboTech.Data
          this._Robot_Products = new EntitySet<Robot_Product>(new Action<Robot_Product>(this.attach_Robot_Products), new Action<Robot_Product>(this.detach_Robot_Products));
          this._Robots = new EntitySet<Robot>(new Action<Robot>(this.attach_Robots), new Action<Robot>(this.detach_Robots));
          this._Robot_Limited_Commodity_Groups = new EntitySet<Robot_Limited_Commodity_Group>(new Action<Robot_Limited_Commodity_Group>(this.attach_Robot_Limited_Commodity_Groups), new Action<Robot_Limited_Commodity_Group>(this.detach_Robot_Limited_Commodity_Groups));
+         this._Template_Items = new EntitySet<Template_Item>(new Action<Template_Item>(this.attach_Template_Items), new Action<Template_Item>(this.detach_Template_Items));
+         this._Templates = new EntitySet<Template>(new Action<Template>(this.attach_Templates), new Action<Template>(this.detach_Templates));
          this._Robot_Instagrams = new EntitySet<Robot_Instagram>(new Action<Robot_Instagram>(this.attach_Robot_Instagrams), new Action<Robot_Instagram>(this.detach_Robot_Instagrams));
          this._Organ = default(EntityRef<Organ>);
          this._Robot1 = default(EntityRef<Robot>);
@@ -44815,6 +44858,32 @@ namespace System.RoboTech.Data
          }
       }
 
+      [global::System.Data.Linq.Mapping.AssociationAttribute(Name = "Robot_Template_Item", Storage = "_Template_Items", ThisKey = "RBID", OtherKey = "ROBO_RBID")]
+      public EntitySet<Template_Item> Template_Items
+      {
+         get
+         {
+            return this._Template_Items;
+         }
+         set
+         {
+            this._Template_Items.Assign(value);
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.AssociationAttribute(Name = "Robot_Template", Storage = "_Templates", ThisKey = "RBID", OtherKey = "ROBO_RBID")]
+      public EntitySet<Template> Templates
+      {
+         get
+         {
+            return this._Templates;
+         }
+         set
+         {
+            this._Templates.Assign(value);
+         }
+      }
+
       [global::System.Data.Linq.Mapping.AssociationAttribute(Name = "Robot_Robot_Instagram", Storage = "_Robot_Instagrams", ThisKey = "RBID", OtherKey = "ROBO_RBID")]
       public EntitySet<Robot_Instagram> Robot_Instagrams
       {
@@ -45187,6 +45256,30 @@ namespace System.RoboTech.Data
       }
 
       private void detach_Robot_Limited_Commodity_Groups(Robot_Limited_Commodity_Group entity)
+      {
+         this.SendPropertyChanging();
+         entity.Robot = null;
+      }
+
+      private void attach_Template_Items(Template_Item entity)
+      {
+         this.SendPropertyChanging();
+         entity.Robot = this;
+      }
+
+      private void detach_Template_Items(Template_Item entity)
+      {
+         this.SendPropertyChanging();
+         entity.Robot = null;
+      }
+
+      private void attach_Templates(Template entity)
+      {
+         this.SendPropertyChanging();
+         entity.Robot = this;
+      }
+
+      private void detach_Templates(Template entity)
       {
          this.SendPropertyChanging();
          entity.Robot = null;
@@ -46234,51 +46327,127 @@ namespace System.RoboTech.Data
       }
    }
 
-   [global::System.Data.Linq.Mapping.TableAttribute(Name = "dbo.Robot_Instagram")]
-   public partial class Robot_Instagram : INotifyPropertyChanging, INotifyPropertyChanged
+   [global::System.Data.Linq.Mapping.TableAttribute(Name = "dbo.D$SXTP")]
+   public partial class D_SXTP
+   {
+
+      private string _VALU;
+
+      private string _DOMN_DESC;
+
+      public D_SXTP()
+      {
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_VALU", DbType = "VarChar(3) NOT NULL", CanBeNull = false)]
+      public string VALU
+      {
+         get
+         {
+            return this._VALU;
+         }
+         set
+         {
+            if ((this._VALU != value))
+            {
+               this._VALU = value;
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_DOMN_DESC", DbType = "NVarChar(255) NOT NULL", CanBeNull = false)]
+      public string DOMN_DESC
+      {
+         get
+         {
+            return this._DOMN_DESC;
+         }
+         set
+         {
+            if ((this._DOMN_DESC != value))
+            {
+               this._DOMN_DESC = value;
+            }
+         }
+      }
+   }
+
+   [global::System.Data.Linq.Mapping.TableAttribute(Name = "dbo.D$FLTP")]
+   public partial class D_FLTP
+   {
+
+      private string _VALU;
+
+      private string _DOMN_DESC;
+
+      public D_FLTP()
+      {
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_VALU", DbType = "VarChar(3) NOT NULL", CanBeNull = false)]
+      public string VALU
+      {
+         get
+         {
+            return this._VALU;
+         }
+         set
+         {
+            if ((this._VALU != value))
+            {
+               this._VALU = value;
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_DOMN_DESC", DbType = "NVarChar(255) NOT NULL", CanBeNull = false)]
+      public string DOMN_DESC
+      {
+         get
+         {
+            return this._DOMN_DESC;
+         }
+         set
+         {
+            if ((this._DOMN_DESC != value))
+            {
+               this._DOMN_DESC = value;
+            }
+         }
+      }
+   }
+
+   [global::System.Data.Linq.Mapping.TableAttribute(Name = "dbo.Robot_Instagram_Follow")]
+   public partial class Robot_Instagram_Follow : INotifyPropertyChanging, INotifyPropertyChanged
    {
 
       private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 
-      private System.Nullable<long> _ROBO_RBID;
+      private System.Nullable<long> _SRBT_SERV_FILE_NO;
+
+      private System.Nullable<long> _SRBT_ROBO_RBID;
+
+      private System.Nullable<long> _RINS_CODE;
 
       private long _CODE;
 
+      private long _INST_PKID;
+
       private string _USER_NAME;
-
-      private string _PASS_WORD;
-
-      private string _WEB_LINK;
-
-      private string _PAGE_LINK;
-
-      private string _NAME;
-
-      private string _GNDR_TYPE;
-
-      private string _EMAL_ADRS;
-
-      private string _URL;
-
-      private string _CELL_PHON;
 
       private string _BIOG_DESC;
 
-      private string _IMAG_PROF_PATH;
+      private string _FULL_NAME;
 
-      private string _BUSN_LOCT_ID;
+      private string _URL;
 
-      private string _BUSN_LOCT_NAME;
+      private string _CTGY_DESC;
 
-      private string _BUSN_PHON;
+      private string _EMAL_ADRS;
 
-      private string _BUSN_CONT_MTOD;
+      private System.Nullable<long> _CHAT_ID;
 
-      private string _BUSN_POST_ADRS;
-
-      private string _BUSN_ZIP_CODE;
-
-      private string _STAT;
+      private string _FOLW_TYPE;
 
       private string _CRET_BY;
 
@@ -46288,9 +46457,529 @@ namespace System.RoboTech.Data
 
       private System.Nullable<System.DateTime> _MDFY_DATE;
 
-      private EntitySet<Robot_Instagram_DirectMessage> _Robot_Instagram_DirectMessages;
+      private EntityRef<Service_Robot> _Service_Robot;
 
-      private EntitySet<Robot_Instagram_Follow> _Robot_Instagram_Follows;
+      private EntityRef<Robot_Instagram> _Robot_Instagram;
+
+      #region Extensibility Method Definitions
+      partial void OnLoaded();
+      partial void OnValidate(System.Data.Linq.ChangeAction action);
+      partial void OnCreated();
+      partial void OnSRBT_SERV_FILE_NOChanging(System.Nullable<long> value);
+      partial void OnSRBT_SERV_FILE_NOChanged();
+      partial void OnSRBT_ROBO_RBIDChanging(System.Nullable<long> value);
+      partial void OnSRBT_ROBO_RBIDChanged();
+      partial void OnRINS_CODEChanging(System.Nullable<long> value);
+      partial void OnRINS_CODEChanged();
+      partial void OnCODEChanging(long value);
+      partial void OnCODEChanged();
+      partial void OnINST_PKIDChanging(long value);
+      partial void OnINST_PKIDChanged();
+      partial void OnUSER_NAMEChanging(string value);
+      partial void OnUSER_NAMEChanged();
+      partial void OnBIOG_DESCChanging(string value);
+      partial void OnBIOG_DESCChanged();
+      partial void OnFULL_NAMEChanging(string value);
+      partial void OnFULL_NAMEChanged();
+      partial void OnURLChanging(string value);
+      partial void OnURLChanged();
+      partial void OnCTGY_DESCChanging(string value);
+      partial void OnCTGY_DESCChanged();
+      partial void OnEMAL_ADRSChanging(string value);
+      partial void OnEMAL_ADRSChanged();
+      partial void OnCHAT_IDChanging(System.Nullable<long> value);
+      partial void OnCHAT_IDChanged();
+      partial void OnFOLW_TYPEChanging(string value);
+      partial void OnFOLW_TYPEChanged();
+      partial void OnCRET_BYChanging(string value);
+      partial void OnCRET_BYChanged();
+      partial void OnCRET_DATEChanging(System.Nullable<System.DateTime> value);
+      partial void OnCRET_DATEChanged();
+      partial void OnMDFY_BYChanging(string value);
+      partial void OnMDFY_BYChanged();
+      partial void OnMDFY_DATEChanging(System.Nullable<System.DateTime> value);
+      partial void OnMDFY_DATEChanged();
+      #endregion
+
+      public Robot_Instagram_Follow()
+      {
+         this._Service_Robot = default(EntityRef<Service_Robot>);
+         this._Robot_Instagram = default(EntityRef<Robot_Instagram>);
+         OnCreated();
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_SRBT_SERV_FILE_NO", DbType = "BigInt", UpdateCheck = UpdateCheck.Never)]
+      public System.Nullable<long> SRBT_SERV_FILE_NO
+      {
+         get
+         {
+            return this._SRBT_SERV_FILE_NO;
+         }
+         set
+         {
+            if ((this._SRBT_SERV_FILE_NO != value))
+            {
+               if (this._Service_Robot.HasLoadedOrAssignedValue)
+               {
+                  throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+               }
+               this.OnSRBT_SERV_FILE_NOChanging(value);
+               this.SendPropertyChanging();
+               this._SRBT_SERV_FILE_NO = value;
+               this.SendPropertyChanged("SRBT_SERV_FILE_NO");
+               this.OnSRBT_SERV_FILE_NOChanged();
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_SRBT_ROBO_RBID", DbType = "BigInt", UpdateCheck = UpdateCheck.Never)]
+      public System.Nullable<long> SRBT_ROBO_RBID
+      {
+         get
+         {
+            return this._SRBT_ROBO_RBID;
+         }
+         set
+         {
+            if ((this._SRBT_ROBO_RBID != value))
+            {
+               if (this._Service_Robot.HasLoadedOrAssignedValue)
+               {
+                  throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+               }
+               this.OnSRBT_ROBO_RBIDChanging(value);
+               this.SendPropertyChanging();
+               this._SRBT_ROBO_RBID = value;
+               this.SendPropertyChanged("SRBT_ROBO_RBID");
+               this.OnSRBT_ROBO_RBIDChanged();
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_RINS_CODE", DbType = "BigInt", UpdateCheck = UpdateCheck.Never)]
+      public System.Nullable<long> RINS_CODE
+      {
+         get
+         {
+            return this._RINS_CODE;
+         }
+         set
+         {
+            if ((this._RINS_CODE != value))
+            {
+               if (this._Robot_Instagram.HasLoadedOrAssignedValue)
+               {
+                  throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+               }
+               this.OnRINS_CODEChanging(value);
+               this.SendPropertyChanging();
+               this._RINS_CODE = value;
+               this.SendPropertyChanged("RINS_CODE");
+               this.OnRINS_CODEChanged();
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_CODE", DbType = "BigInt NOT NULL", IsPrimaryKey = true)]
+      public long CODE
+      {
+         get
+         {
+            return this._CODE;
+         }
+         set
+         {
+            if ((this._CODE != value))
+            {
+               this.OnCODEChanging(value);
+               this.SendPropertyChanging();
+               this._CODE = value;
+               this.SendPropertyChanged("CODE");
+               this.OnCODEChanged();
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_INST_PKID", DbType = "BigInt NOT NULL", UpdateCheck = UpdateCheck.Never)]
+      public long INST_PKID
+      {
+         get
+         {
+            return this._INST_PKID;
+         }
+         set
+         {
+            if ((this._INST_PKID != value))
+            {
+               this.OnINST_PKIDChanging(value);
+               this.SendPropertyChanging();
+               this._INST_PKID = value;
+               this.SendPropertyChanged("INST_PKID");
+               this.OnINST_PKIDChanged();
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_USER_NAME", DbType = "VarChar(30)", UpdateCheck = UpdateCheck.Never)]
+      public string USER_NAME
+      {
+         get
+         {
+            return this._USER_NAME;
+         }
+         set
+         {
+            if ((this._USER_NAME != value))
+            {
+               this.OnUSER_NAMEChanging(value);
+               this.SendPropertyChanging();
+               this._USER_NAME = value;
+               this.SendPropertyChanged("USER_NAME");
+               this.OnUSER_NAMEChanged();
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_BIOG_DESC", DbType = "NVarChar(150)", UpdateCheck = UpdateCheck.Never)]
+      public string BIOG_DESC
+      {
+         get
+         {
+            return this._BIOG_DESC;
+         }
+         set
+         {
+            if ((this._BIOG_DESC != value))
+            {
+               this.OnBIOG_DESCChanging(value);
+               this.SendPropertyChanging();
+               this._BIOG_DESC = value;
+               this.SendPropertyChanged("BIOG_DESC");
+               this.OnBIOG_DESCChanged();
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_FULL_NAME", DbType = "NVarChar(200)", UpdateCheck = UpdateCheck.Never)]
+      public string FULL_NAME
+      {
+         get
+         {
+            return this._FULL_NAME;
+         }
+         set
+         {
+            if ((this._FULL_NAME != value))
+            {
+               this.OnFULL_NAMEChanging(value);
+               this.SendPropertyChanging();
+               this._FULL_NAME = value;
+               this.SendPropertyChanged("FULL_NAME");
+               this.OnFULL_NAMEChanged();
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_URL", DbType = "NVarChar(1000)", UpdateCheck = UpdateCheck.Never)]
+      public string URL
+      {
+         get
+         {
+            return this._URL;
+         }
+         set
+         {
+            if ((this._URL != value))
+            {
+               this.OnURLChanging(value);
+               this.SendPropertyChanging();
+               this._URL = value;
+               this.SendPropertyChanged("URL");
+               this.OnURLChanged();
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_CTGY_DESC", DbType = "NVarChar(100)", UpdateCheck = UpdateCheck.Never)]
+      public string CTGY_DESC
+      {
+         get
+         {
+            return this._CTGY_DESC;
+         }
+         set
+         {
+            if ((this._CTGY_DESC != value))
+            {
+               this.OnCTGY_DESCChanging(value);
+               this.SendPropertyChanging();
+               this._CTGY_DESC = value;
+               this.SendPropertyChanged("CTGY_DESC");
+               this.OnCTGY_DESCChanged();
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_EMAL_ADRS", DbType = "VarChar(250)", UpdateCheck = UpdateCheck.Never)]
+      public string EMAL_ADRS
+      {
+         get
+         {
+            return this._EMAL_ADRS;
+         }
+         set
+         {
+            if ((this._EMAL_ADRS != value))
+            {
+               this.OnEMAL_ADRSChanging(value);
+               this.SendPropertyChanging();
+               this._EMAL_ADRS = value;
+               this.SendPropertyChanged("EMAL_ADRS");
+               this.OnEMAL_ADRSChanged();
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_CHAT_ID", DbType = "BigInt", UpdateCheck = UpdateCheck.Never)]
+      public System.Nullable<long> CHAT_ID
+      {
+         get
+         {
+            return this._CHAT_ID;
+         }
+         set
+         {
+            if ((this._CHAT_ID != value))
+            {
+               this.OnCHAT_IDChanging(value);
+               this.SendPropertyChanging();
+               this._CHAT_ID = value;
+               this.SendPropertyChanged("CHAT_ID");
+               this.OnCHAT_IDChanged();
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_FOLW_TYPE", DbType = "VarChar(3)", UpdateCheck = UpdateCheck.Never)]
+      public string FOLW_TYPE
+      {
+         get
+         {
+            return this._FOLW_TYPE;
+         }
+         set
+         {
+            if ((this._FOLW_TYPE != value))
+            {
+               this.OnFOLW_TYPEChanging(value);
+               this.SendPropertyChanging();
+               this._FOLW_TYPE = value;
+               this.SendPropertyChanged("FOLW_TYPE");
+               this.OnFOLW_TYPEChanged();
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_CRET_BY", DbType = "VarChar(250)", UpdateCheck = UpdateCheck.Never)]
+      public string CRET_BY
+      {
+         get
+         {
+            return this._CRET_BY;
+         }
+         set
+         {
+            if ((this._CRET_BY != value))
+            {
+               this.OnCRET_BYChanging(value);
+               this.SendPropertyChanging();
+               this._CRET_BY = value;
+               this.SendPropertyChanged("CRET_BY");
+               this.OnCRET_BYChanged();
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_CRET_DATE", DbType = "DateTime", UpdateCheck = UpdateCheck.Never)]
+      public System.Nullable<System.DateTime> CRET_DATE
+      {
+         get
+         {
+            return this._CRET_DATE;
+         }
+         set
+         {
+            if ((this._CRET_DATE != value))
+            {
+               this.OnCRET_DATEChanging(value);
+               this.SendPropertyChanging();
+               this._CRET_DATE = value;
+               this.SendPropertyChanged("CRET_DATE");
+               this.OnCRET_DATEChanged();
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_MDFY_BY", DbType = "VarChar(250)", UpdateCheck = UpdateCheck.Never)]
+      public string MDFY_BY
+      {
+         get
+         {
+            return this._MDFY_BY;
+         }
+         set
+         {
+            if ((this._MDFY_BY != value))
+            {
+               this.OnMDFY_BYChanging(value);
+               this.SendPropertyChanging();
+               this._MDFY_BY = value;
+               this.SendPropertyChanged("MDFY_BY");
+               this.OnMDFY_BYChanged();
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_MDFY_DATE", DbType = "DateTime", UpdateCheck = UpdateCheck.Never)]
+      public System.Nullable<System.DateTime> MDFY_DATE
+      {
+         get
+         {
+            return this._MDFY_DATE;
+         }
+         set
+         {
+            if ((this._MDFY_DATE != value))
+            {
+               this.OnMDFY_DATEChanging(value);
+               this.SendPropertyChanging();
+               this._MDFY_DATE = value;
+               this.SendPropertyChanged("MDFY_DATE");
+               this.OnMDFY_DATEChanged();
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.AssociationAttribute(Name = "Service_Robot_Robot_Instagram_Follow", Storage = "_Service_Robot", ThisKey = "SRBT_SERV_FILE_NO,SRBT_ROBO_RBID", OtherKey = "SERV_FILE_NO,ROBO_RBID", IsForeignKey = true, DeleteRule = "CASCADE")]
+      public Service_Robot Service_Robot
+      {
+         get
+         {
+            return this._Service_Robot.Entity;
+         }
+         set
+         {
+            Service_Robot previousValue = this._Service_Robot.Entity;
+            if (((previousValue != value)
+                     || (this._Service_Robot.HasLoadedOrAssignedValue == false)))
+            {
+               this.SendPropertyChanging();
+               if ((previousValue != null))
+               {
+                  this._Service_Robot.Entity = null;
+                  previousValue.Robot_Instagram_Follows.Remove(this);
+               }
+               this._Service_Robot.Entity = value;
+               if ((value != null))
+               {
+                  value.Robot_Instagram_Follows.Add(this);
+                  this._SRBT_SERV_FILE_NO = value.SERV_FILE_NO;
+                  this._SRBT_ROBO_RBID = value.ROBO_RBID;
+               }
+               else
+               {
+                  this._SRBT_SERV_FILE_NO = default(Nullable<long>);
+                  this._SRBT_ROBO_RBID = default(Nullable<long>);
+               }
+               this.SendPropertyChanged("Service_Robot");
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.AssociationAttribute(Name = "Robot_Instagram_Robot_Instagram_Follow", Storage = "_Robot_Instagram", ThisKey = "RINS_CODE", OtherKey = "CODE", IsForeignKey = true, DeleteRule = "CASCADE")]
+      public Robot_Instagram Robot_Instagram
+      {
+         get
+         {
+            return this._Robot_Instagram.Entity;
+         }
+         set
+         {
+            Robot_Instagram previousValue = this._Robot_Instagram.Entity;
+            if (((previousValue != value)
+                     || (this._Robot_Instagram.HasLoadedOrAssignedValue == false)))
+            {
+               this.SendPropertyChanging();
+               if ((previousValue != null))
+               {
+                  this._Robot_Instagram.Entity = null;
+                  previousValue.Robot_Instagram_Follows.Remove(this);
+               }
+               this._Robot_Instagram.Entity = value;
+               if ((value != null))
+               {
+                  value.Robot_Instagram_Follows.Add(this);
+                  this._RINS_CODE = value.CODE;
+               }
+               else
+               {
+                  this._RINS_CODE = default(Nullable<long>);
+               }
+               this.SendPropertyChanged("Robot_Instagram");
+            }
+         }
+      }
+
+      public event PropertyChangingEventHandler PropertyChanging;
+
+      public event PropertyChangedEventHandler PropertyChanged;
+
+      protected virtual void SendPropertyChanging()
+      {
+         if ((this.PropertyChanging != null))
+         {
+            this.PropertyChanging(this, emptyChangingEventArgs);
+         }
+      }
+
+      protected virtual void SendPropertyChanged(String propertyName)
+      {
+         if ((this.PropertyChanged != null))
+         {
+            this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+         }
+      }
+   }
+
+   [global::System.Data.Linq.Mapping.TableAttribute(Name = "dbo.Template_Item")]
+   public partial class Template_Item : INotifyPropertyChanging, INotifyPropertyChanged
+   {
+
+      private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+
+      private System.Nullable<long> _ROBO_RBID;
+
+      private long _CODE;
+
+      private string _COLM_NAME;
+
+      private string _PLAC_HLDR;
+
+      private string _PLAC_DESC;
+
+      private string _TABL_NAME;
+
+      private string _TABL_DESC;
+
+      private string _RECD_STAT;
+
+      private string _CRET_BY;
+
+      private System.Nullable<System.DateTime> _CRET_DATE;
+
+      private string _MDFY_BY;
+
+      private System.Nullable<System.DateTime> _MDFY_DATE;
 
       private EntityRef<Robot> _Robot;
 
@@ -46302,42 +46991,18 @@ namespace System.RoboTech.Data
       partial void OnROBO_RBIDChanged();
       partial void OnCODEChanging(long value);
       partial void OnCODEChanged();
-      partial void OnUSER_NAMEChanging(string value);
-      partial void OnUSER_NAMEChanged();
-      partial void OnPASS_WORDChanging(string value);
-      partial void OnPASS_WORDChanged();
-      partial void OnWEB_LINKChanging(string value);
-      partial void OnWEB_LINKChanged();
-      partial void OnPAGE_LINKChanging(string value);
-      partial void OnPAGE_LINKChanged();
-      partial void OnNAMEChanging(string value);
-      partial void OnNAMEChanged();
-      partial void OnGNDR_TYPEChanging(string value);
-      partial void OnGNDR_TYPEChanged();
-      partial void OnEMAL_ADRSChanging(string value);
-      partial void OnEMAL_ADRSChanged();
-      partial void OnURLChanging(string value);
-      partial void OnURLChanged();
-      partial void OnCELL_PHONChanging(string value);
-      partial void OnCELL_PHONChanged();
-      partial void OnBIOG_DESCChanging(string value);
-      partial void OnBIOG_DESCChanged();
-      partial void OnIMAG_PROF_PATHChanging(string value);
-      partial void OnIMAG_PROF_PATHChanged();
-      partial void OnBUSN_LOCT_IDChanging(string value);
-      partial void OnBUSN_LOCT_IDChanged();
-      partial void OnBUSN_LOCT_NAMEChanging(string value);
-      partial void OnBUSN_LOCT_NAMEChanged();
-      partial void OnBUSN_PHONChanging(string value);
-      partial void OnBUSN_PHONChanged();
-      partial void OnBUSN_CONT_MTODChanging(string value);
-      partial void OnBUSN_CONT_MTODChanged();
-      partial void OnBUSN_POST_ADRSChanging(string value);
-      partial void OnBUSN_POST_ADRSChanged();
-      partial void OnBUSN_ZIP_CODEChanging(string value);
-      partial void OnBUSN_ZIP_CODEChanged();
-      partial void OnSTATChanging(string value);
-      partial void OnSTATChanged();
+      partial void OnCOLM_NAMEChanging(string value);
+      partial void OnCOLM_NAMEChanged();
+      partial void OnPLAC_HLDRChanging(string value);
+      partial void OnPLAC_HLDRChanged();
+      partial void OnPLAC_DESCChanging(string value);
+      partial void OnPLAC_DESCChanged();
+      partial void OnTABL_NAMEChanging(string value);
+      partial void OnTABL_NAMEChanged();
+      partial void OnTABL_DESCChanging(string value);
+      partial void OnTABL_DESCChanged();
+      partial void OnRECD_STATChanging(string value);
+      partial void OnRECD_STATChanged();
       partial void OnCRET_BYChanging(string value);
       partial void OnCRET_BYChanged();
       partial void OnCRET_DATEChanging(System.Nullable<System.DateTime> value);
@@ -46348,10 +47013,8 @@ namespace System.RoboTech.Data
       partial void OnMDFY_DATEChanged();
       #endregion
 
-      public Robot_Instagram()
+      public Template_Item()
       {
-         this._Robot_Instagram_DirectMessages = new EntitySet<Robot_Instagram_DirectMessage>(new Action<Robot_Instagram_DirectMessage>(this.attach_Robot_Instagram_DirectMessages), new Action<Robot_Instagram_DirectMessage>(this.detach_Robot_Instagram_DirectMessages));
-         this._Robot_Instagram_Follows = new EntitySet<Robot_Instagram_Follow>(new Action<Robot_Instagram_Follow>(this.attach_Robot_Instagram_Follows), new Action<Robot_Instagram_Follow>(this.detach_Robot_Instagram_Follows));
          this._Robot = default(EntityRef<Robot>);
          OnCreated();
       }
@@ -46400,342 +47063,490 @@ namespace System.RoboTech.Data
          }
       }
 
-      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_USER_NAME", DbType = "VarChar(30)", UpdateCheck = UpdateCheck.Never)]
-      public string USER_NAME
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_COLM_NAME", DbType = "VarChar(100)", UpdateCheck = UpdateCheck.Never)]
+      public string COLM_NAME
       {
          get
          {
-            return this._USER_NAME;
+            return this._COLM_NAME;
          }
          set
          {
-            if ((this._USER_NAME != value))
+            if ((this._COLM_NAME != value))
             {
-               this.OnUSER_NAMEChanging(value);
+               this.OnCOLM_NAMEChanging(value);
                this.SendPropertyChanging();
-               this._USER_NAME = value;
-               this.SendPropertyChanged("USER_NAME");
-               this.OnUSER_NAMEChanged();
+               this._COLM_NAME = value;
+               this.SendPropertyChanged("COLM_NAME");
+               this.OnCOLM_NAMEChanged();
             }
          }
       }
 
-      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_PASS_WORD", DbType = "VarChar(250)", UpdateCheck = UpdateCheck.Never)]
-      public string PASS_WORD
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_PLAC_HLDR", DbType = "VarChar(100)", UpdateCheck = UpdateCheck.Never)]
+      public string PLAC_HLDR
       {
          get
          {
-            return this._PASS_WORD;
+            return this._PLAC_HLDR;
          }
          set
          {
-            if ((this._PASS_WORD != value))
+            if ((this._PLAC_HLDR != value))
             {
-               this.OnPASS_WORDChanging(value);
+               this.OnPLAC_HLDRChanging(value);
                this.SendPropertyChanging();
-               this._PASS_WORD = value;
-               this.SendPropertyChanged("PASS_WORD");
-               this.OnPASS_WORDChanged();
+               this._PLAC_HLDR = value;
+               this.SendPropertyChanged("PLAC_HLDR");
+               this.OnPLAC_HLDRChanged();
             }
          }
       }
 
-      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_WEB_LINK", DbType = "NVarChar(1000)", UpdateCheck = UpdateCheck.Never)]
-      public string WEB_LINK
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_PLAC_DESC", DbType = "NVarChar(100)", UpdateCheck = UpdateCheck.Never)]
+      public string PLAC_DESC
       {
          get
          {
-            return this._WEB_LINK;
+            return this._PLAC_DESC;
          }
          set
          {
-            if ((this._WEB_LINK != value))
+            if ((this._PLAC_DESC != value))
             {
-               this.OnWEB_LINKChanging(value);
+               this.OnPLAC_DESCChanging(value);
                this.SendPropertyChanging();
-               this._WEB_LINK = value;
-               this.SendPropertyChanged("WEB_LINK");
-               this.OnWEB_LINKChanged();
+               this._PLAC_DESC = value;
+               this.SendPropertyChanged("PLAC_DESC");
+               this.OnPLAC_DESCChanged();
             }
          }
       }
 
-      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_PAGE_LINK", DbType = "VarChar(250)", UpdateCheck = UpdateCheck.Never)]
-      public string PAGE_LINK
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_TABL_NAME", DbType = "VarChar(100)", UpdateCheck = UpdateCheck.Never)]
+      public string TABL_NAME
       {
          get
          {
-            return this._PAGE_LINK;
+            return this._TABL_NAME;
          }
          set
          {
-            if ((this._PAGE_LINK != value))
+            if ((this._TABL_NAME != value))
             {
-               this.OnPAGE_LINKChanging(value);
+               this.OnTABL_NAMEChanging(value);
                this.SendPropertyChanging();
-               this._PAGE_LINK = value;
-               this.SendPropertyChanged("PAGE_LINK");
-               this.OnPAGE_LINKChanged();
+               this._TABL_NAME = value;
+               this.SendPropertyChanged("TABL_NAME");
+               this.OnTABL_NAMEChanged();
             }
          }
       }
 
-      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_NAME", DbType = "NVarChar(30)", UpdateCheck = UpdateCheck.Never)]
-      public string NAME
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_TABL_DESC", DbType = "NVarChar(100)", UpdateCheck = UpdateCheck.Never)]
+      public string TABL_DESC
       {
          get
          {
-            return this._NAME;
+            return this._TABL_DESC;
          }
          set
          {
-            if ((this._NAME != value))
+            if ((this._TABL_DESC != value))
             {
-               this.OnNAMEChanging(value);
+               this.OnTABL_DESCChanging(value);
                this.SendPropertyChanging();
-               this._NAME = value;
-               this.SendPropertyChanged("NAME");
-               this.OnNAMEChanged();
+               this._TABL_DESC = value;
+               this.SendPropertyChanged("TABL_DESC");
+               this.OnTABL_DESCChanged();
             }
          }
       }
 
-      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_GNDR_TYPE", DbType = "VarChar(3)", UpdateCheck = UpdateCheck.Never)]
-      public string GNDR_TYPE
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_RECD_STAT", DbType = "VarChar(3)", UpdateCheck = UpdateCheck.Never)]
+      public string RECD_STAT
       {
          get
          {
-            return this._GNDR_TYPE;
+            return this._RECD_STAT;
          }
          set
          {
-            if ((this._GNDR_TYPE != value))
+            if ((this._RECD_STAT != value))
             {
-               this.OnGNDR_TYPEChanging(value);
+               this.OnRECD_STATChanging(value);
                this.SendPropertyChanging();
-               this._GNDR_TYPE = value;
-               this.SendPropertyChanged("GNDR_TYPE");
-               this.OnGNDR_TYPEChanged();
+               this._RECD_STAT = value;
+               this.SendPropertyChanged("RECD_STAT");
+               this.OnRECD_STATChanged();
             }
          }
       }
 
-      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_EMAL_ADRS", DbType = "VarChar(250)", UpdateCheck = UpdateCheck.Never)]
-      public string EMAL_ADRS
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_CRET_BY", DbType = "VarChar(250)", UpdateCheck = UpdateCheck.Never)]
+      public string CRET_BY
       {
          get
          {
-            return this._EMAL_ADRS;
+            return this._CRET_BY;
          }
          set
          {
-            if ((this._EMAL_ADRS != value))
+            if ((this._CRET_BY != value))
             {
-               this.OnEMAL_ADRSChanging(value);
+               this.OnCRET_BYChanging(value);
                this.SendPropertyChanging();
-               this._EMAL_ADRS = value;
-               this.SendPropertyChanged("EMAL_ADRS");
-               this.OnEMAL_ADRSChanged();
+               this._CRET_BY = value;
+               this.SendPropertyChanged("CRET_BY");
+               this.OnCRET_BYChanged();
             }
          }
       }
 
-      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_URL", DbType = "NVarChar(1000)", UpdateCheck = UpdateCheck.Never)]
-      public string URL
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_CRET_DATE", DbType = "DateTime", UpdateCheck = UpdateCheck.Never)]
+      public System.Nullable<System.DateTime> CRET_DATE
       {
          get
          {
-            return this._URL;
+            return this._CRET_DATE;
          }
          set
          {
-            if ((this._URL != value))
+            if ((this._CRET_DATE != value))
             {
-               this.OnURLChanging(value);
+               this.OnCRET_DATEChanging(value);
                this.SendPropertyChanging();
-               this._URL = value;
-               this.SendPropertyChanged("URL");
-               this.OnURLChanged();
+               this._CRET_DATE = value;
+               this.SendPropertyChanged("CRET_DATE");
+               this.OnCRET_DATEChanged();
             }
          }
       }
 
-      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_CELL_PHON", DbType = "VarChar(13)", UpdateCheck = UpdateCheck.Never)]
-      public string CELL_PHON
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_MDFY_BY", DbType = "VarChar(250)", UpdateCheck = UpdateCheck.Never)]
+      public string MDFY_BY
       {
          get
          {
-            return this._CELL_PHON;
+            return this._MDFY_BY;
          }
          set
          {
-            if ((this._CELL_PHON != value))
+            if ((this._MDFY_BY != value))
             {
-               this.OnCELL_PHONChanging(value);
+               this.OnMDFY_BYChanging(value);
                this.SendPropertyChanging();
-               this._CELL_PHON = value;
-               this.SendPropertyChanged("CELL_PHON");
-               this.OnCELL_PHONChanged();
+               this._MDFY_BY = value;
+               this.SendPropertyChanged("MDFY_BY");
+               this.OnMDFY_BYChanged();
             }
          }
       }
 
-      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_BIOG_DESC", DbType = "NVarChar(150)", UpdateCheck = UpdateCheck.Never)]
-      public string BIOG_DESC
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_MDFY_DATE", DbType = "DateTime", UpdateCheck = UpdateCheck.Never)]
+      public System.Nullable<System.DateTime> MDFY_DATE
       {
          get
          {
-            return this._BIOG_DESC;
+            return this._MDFY_DATE;
          }
          set
          {
-            if ((this._BIOG_DESC != value))
+            if ((this._MDFY_DATE != value))
             {
-               this.OnBIOG_DESCChanging(value);
+               this.OnMDFY_DATEChanging(value);
                this.SendPropertyChanging();
-               this._BIOG_DESC = value;
-               this.SendPropertyChanged("BIOG_DESC");
-               this.OnBIOG_DESCChanged();
+               this._MDFY_DATE = value;
+               this.SendPropertyChanged("MDFY_DATE");
+               this.OnMDFY_DATEChanged();
             }
          }
       }
 
-      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_IMAG_PROF_PATH", DbType = "NVarChar(1000)", UpdateCheck = UpdateCheck.Never)]
-      public string IMAG_PROF_PATH
+      [global::System.Data.Linq.Mapping.AssociationAttribute(Name = "Robot_Template_Item", Storage = "_Robot", ThisKey = "ROBO_RBID", OtherKey = "RBID", IsForeignKey = true, DeleteRule = "CASCADE")]
+      public Robot Robot
       {
          get
          {
-            return this._IMAG_PROF_PATH;
+            return this._Robot.Entity;
          }
          set
          {
-            if ((this._IMAG_PROF_PATH != value))
+            Robot previousValue = this._Robot.Entity;
+            if (((previousValue != value)
+                     || (this._Robot.HasLoadedOrAssignedValue == false)))
             {
-               this.OnIMAG_PROF_PATHChanging(value);
                this.SendPropertyChanging();
-               this._IMAG_PROF_PATH = value;
-               this.SendPropertyChanged("IMAG_PROF_PATH");
-               this.OnIMAG_PROF_PATHChanged();
+               if ((previousValue != null))
+               {
+                  this._Robot.Entity = null;
+                  previousValue.Template_Items.Remove(this);
+               }
+               this._Robot.Entity = value;
+               if ((value != null))
+               {
+                  value.Template_Items.Add(this);
+                  this._ROBO_RBID = value.RBID;
+               }
+               else
+               {
+                  this._ROBO_RBID = default(Nullable<long>);
+               }
+               this.SendPropertyChanged("Robot");
             }
          }
       }
 
-      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_BUSN_LOCT_ID", DbType = "VarChar(250)", UpdateCheck = UpdateCheck.Never)]
-      public string BUSN_LOCT_ID
+      public event PropertyChangingEventHandler PropertyChanging;
+
+      public event PropertyChangedEventHandler PropertyChanged;
+
+      protected virtual void SendPropertyChanging()
+      {
+         if ((this.PropertyChanging != null))
+         {
+            this.PropertyChanging(this, emptyChangingEventArgs);
+         }
+      }
+
+      protected virtual void SendPropertyChanged(String propertyName)
+      {
+         if ((this.PropertyChanged != null))
+         {
+            this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+         }
+      }
+   }
+
+   [global::System.Data.Linq.Mapping.TableAttribute(Name = "dbo.D$TMTP")]
+   public partial class D_TMTP
+   {
+
+      private string _VALU;
+
+      private string _DOMN_DESC;
+
+      public D_TMTP()
+      {
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_VALU", DbType = "VarChar(3) NOT NULL", CanBeNull = false)]
+      public string VALU
       {
          get
          {
-            return this._BUSN_LOCT_ID;
+            return this._VALU;
          }
          set
          {
-            if ((this._BUSN_LOCT_ID != value))
+            if ((this._VALU != value))
             {
-               this.OnBUSN_LOCT_IDChanging(value);
-               this.SendPropertyChanging();
-               this._BUSN_LOCT_ID = value;
-               this.SendPropertyChanged("BUSN_LOCT_ID");
-               this.OnBUSN_LOCT_IDChanged();
+               this._VALU = value;
             }
          }
       }
 
-      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_BUSN_LOCT_NAME", DbType = "VarChar(250)", UpdateCheck = UpdateCheck.Never)]
-      public string BUSN_LOCT_NAME
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_DOMN_DESC", DbType = "NVarChar(255) NOT NULL", CanBeNull = false)]
+      public string DOMN_DESC
       {
          get
          {
-            return this._BUSN_LOCT_NAME;
+            return this._DOMN_DESC;
          }
          set
          {
-            if ((this._BUSN_LOCT_NAME != value))
+            if ((this._DOMN_DESC != value))
             {
-               this.OnBUSN_LOCT_NAMEChanging(value);
+               this._DOMN_DESC = value;
+            }
+         }
+      }
+   }
+
+   [global::System.Data.Linq.Mapping.TableAttribute(Name = "dbo.Template")]
+   public partial class Template : INotifyPropertyChanging, INotifyPropertyChanged
+   {
+
+      private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+
+      private System.Nullable<long> _ROBO_RBID;
+
+      private long _TMID;
+
+      private string _TEMP_NAME;
+
+      private string _TEMP_TYPE;
+
+      private string _TEMP_SUBJ;
+
+      private string _TEMP_TEXT;
+
+      private string _STAT;
+
+      private string _CRET_BY;
+
+      private System.Nullable<System.DateTime> _CRET_DATE;
+
+      private string _MDFY_BY;
+
+      private System.Nullable<System.DateTime> _MDFY_DATE;
+
+      private EntityRef<Robot> _Robot;
+
+      #region Extensibility Method Definitions
+      partial void OnLoaded();
+      partial void OnValidate(System.Data.Linq.ChangeAction action);
+      partial void OnCreated();
+      partial void OnROBO_RBIDChanging(System.Nullable<long> value);
+      partial void OnROBO_RBIDChanged();
+      partial void OnTMIDChanging(long value);
+      partial void OnTMIDChanged();
+      partial void OnTEMP_NAMEChanging(string value);
+      partial void OnTEMP_NAMEChanged();
+      partial void OnTEMP_TYPEChanging(string value);
+      partial void OnTEMP_TYPEChanged();
+      partial void OnTEMP_SUBJChanging(string value);
+      partial void OnTEMP_SUBJChanged();
+      partial void OnTEMP_TEXTChanging(string value);
+      partial void OnTEMP_TEXTChanged();
+      partial void OnSTATChanging(string value);
+      partial void OnSTATChanged();
+      partial void OnCRET_BYChanging(string value);
+      partial void OnCRET_BYChanged();
+      partial void OnCRET_DATEChanging(System.Nullable<System.DateTime> value);
+      partial void OnCRET_DATEChanged();
+      partial void OnMDFY_BYChanging(string value);
+      partial void OnMDFY_BYChanged();
+      partial void OnMDFY_DATEChanging(System.Nullable<System.DateTime> value);
+      partial void OnMDFY_DATEChanged();
+      #endregion
+
+      public Template()
+      {
+         this._Robot = default(EntityRef<Robot>);
+         OnCreated();
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_ROBO_RBID", DbType = "BigInt", UpdateCheck = UpdateCheck.Never)]
+      public System.Nullable<long> ROBO_RBID
+      {
+         get
+         {
+            return this._ROBO_RBID;
+         }
+         set
+         {
+            if ((this._ROBO_RBID != value))
+            {
+               if (this._Robot.HasLoadedOrAssignedValue)
+               {
+                  throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+               }
+               this.OnROBO_RBIDChanging(value);
                this.SendPropertyChanging();
-               this._BUSN_LOCT_NAME = value;
-               this.SendPropertyChanged("BUSN_LOCT_NAME");
-               this.OnBUSN_LOCT_NAMEChanged();
+               this._ROBO_RBID = value;
+               this.SendPropertyChanged("ROBO_RBID");
+               this.OnROBO_RBIDChanged();
             }
          }
       }
 
-      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_BUSN_PHON", DbType = "VarChar(13)", UpdateCheck = UpdateCheck.Never)]
-      public string BUSN_PHON
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_TMID", DbType = "BigInt NOT NULL", IsPrimaryKey = true)]
+      public long TMID
       {
          get
          {
-            return this._BUSN_PHON;
+            return this._TMID;
          }
          set
          {
-            if ((this._BUSN_PHON != value))
+            if ((this._TMID != value))
             {
-               this.OnBUSN_PHONChanging(value);
+               this.OnTMIDChanging(value);
                this.SendPropertyChanging();
-               this._BUSN_PHON = value;
-               this.SendPropertyChanged("BUSN_PHON");
-               this.OnBUSN_PHONChanged();
+               this._TMID = value;
+               this.SendPropertyChanged("TMID");
+               this.OnTMIDChanged();
             }
          }
       }
 
-      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_BUSN_CONT_MTOD", DbType = "VarChar(3)", UpdateCheck = UpdateCheck.Never)]
-      public string BUSN_CONT_MTOD
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_TEMP_NAME", DbType = "NVarChar(200)", UpdateCheck = UpdateCheck.Never)]
+      public string TEMP_NAME
       {
          get
          {
-            return this._BUSN_CONT_MTOD;
+            return this._TEMP_NAME;
          }
          set
          {
-            if ((this._BUSN_CONT_MTOD != value))
+            if ((this._TEMP_NAME != value))
             {
-               this.OnBUSN_CONT_MTODChanging(value);
+               this.OnTEMP_NAMEChanging(value);
                this.SendPropertyChanging();
-               this._BUSN_CONT_MTOD = value;
-               this.SendPropertyChanged("BUSN_CONT_MTOD");
-               this.OnBUSN_CONT_MTODChanged();
+               this._TEMP_NAME = value;
+               this.SendPropertyChanged("TEMP_NAME");
+               this.OnTEMP_NAMEChanged();
             }
          }
       }
 
-      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_BUSN_POST_ADRS", DbType = "NVarChar(500)", UpdateCheck = UpdateCheck.Never)]
-      public string BUSN_POST_ADRS
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_TEMP_TYPE", DbType = "VarChar(3)", UpdateCheck = UpdateCheck.Never)]
+      public string TEMP_TYPE
       {
          get
          {
-            return this._BUSN_POST_ADRS;
+            return this._TEMP_TYPE;
          }
          set
          {
-            if ((this._BUSN_POST_ADRS != value))
+            if ((this._TEMP_TYPE != value))
             {
-               this.OnBUSN_POST_ADRSChanging(value);
+               this.OnTEMP_TYPEChanging(value);
                this.SendPropertyChanging();
-               this._BUSN_POST_ADRS = value;
-               this.SendPropertyChanged("BUSN_POST_ADRS");
-               this.OnBUSN_POST_ADRSChanged();
+               this._TEMP_TYPE = value;
+               this.SendPropertyChanged("TEMP_TYPE");
+               this.OnTEMP_TYPEChanged();
             }
          }
       }
 
-      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_BUSN_ZIP_CODE", DbType = "VarChar(50)", UpdateCheck = UpdateCheck.Never)]
-      public string BUSN_ZIP_CODE
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_TEMP_SUBJ", DbType = "NVarChar(200)", UpdateCheck = UpdateCheck.Never)]
+      public string TEMP_SUBJ
       {
          get
          {
-            return this._BUSN_ZIP_CODE;
+            return this._TEMP_SUBJ;
          }
          set
          {
-            if ((this._BUSN_ZIP_CODE != value))
+            if ((this._TEMP_SUBJ != value))
             {
-               this.OnBUSN_ZIP_CODEChanging(value);
+               this.OnTEMP_SUBJChanging(value);
                this.SendPropertyChanging();
-               this._BUSN_ZIP_CODE = value;
-               this.SendPropertyChanged("BUSN_ZIP_CODE");
-               this.OnBUSN_ZIP_CODEChanged();
+               this._TEMP_SUBJ = value;
+               this.SendPropertyChanged("TEMP_SUBJ");
+               this.OnTEMP_SUBJChanged();
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_TEMP_TEXT", DbType = "NVarChar(4000)", UpdateCheck = UpdateCheck.Never)]
+      public string TEMP_TEXT
+      {
+         get
+         {
+            return this._TEMP_TEXT;
+         }
+         set
+         {
+            if ((this._TEMP_TEXT != value))
+            {
+               this.OnTEMP_TEXTChanging(value);
+               this.SendPropertyChanging();
+               this._TEMP_TEXT = value;
+               this.SendPropertyChanged("TEMP_TEXT");
+               this.OnTEMP_TEXTChanged();
             }
          }
       }
@@ -46840,33 +47651,7 @@ namespace System.RoboTech.Data
          }
       }
 
-      [global::System.Data.Linq.Mapping.AssociationAttribute(Name = "Robot_Instagram_Robot_Instagram_DirectMessage", Storage = "_Robot_Instagram_DirectMessages", ThisKey = "CODE", OtherKey = "RINS_CODE")]
-      public EntitySet<Robot_Instagram_DirectMessage> Robot_Instagram_DirectMessages
-      {
-         get
-         {
-            return this._Robot_Instagram_DirectMessages;
-         }
-         set
-         {
-            this._Robot_Instagram_DirectMessages.Assign(value);
-         }
-      }
-
-      [global::System.Data.Linq.Mapping.AssociationAttribute(Name = "Robot_Instagram_Robot_Instagram_Follow", Storage = "_Robot_Instagram_Follows", ThisKey = "CODE", OtherKey = "RINS_CODE")]
-      public EntitySet<Robot_Instagram_Follow> Robot_Instagram_Follows
-      {
-         get
-         {
-            return this._Robot_Instagram_Follows;
-         }
-         set
-         {
-            this._Robot_Instagram_Follows.Assign(value);
-         }
-      }
-
-      [global::System.Data.Linq.Mapping.AssociationAttribute(Name = "Robot_Robot_Instagram", Storage = "_Robot", ThisKey = "ROBO_RBID", OtherKey = "RBID", IsForeignKey = true, DeleteRule = "CASCADE")]
+      [global::System.Data.Linq.Mapping.AssociationAttribute(Name = "Robot_Template", Storage = "_Robot", ThisKey = "ROBO_RBID", OtherKey = "RBID", IsForeignKey = true, DeleteRule = "CASCADE")]
       public Robot Robot
       {
          get
@@ -46883,12 +47668,12 @@ namespace System.RoboTech.Data
                if ((previousValue != null))
                {
                   this._Robot.Entity = null;
-                  previousValue.Robot_Instagrams.Remove(this);
+                  previousValue.Templates.Remove(this);
                }
                this._Robot.Entity = value;
                if ((value != null))
                {
-                  value.Robot_Instagrams.Add(this);
+                  value.Templates.Add(this);
                   this._ROBO_RBID = value.RBID;
                }
                else
@@ -46919,30 +47704,6 @@ namespace System.RoboTech.Data
             this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
          }
       }
-
-      private void attach_Robot_Instagram_DirectMessages(Robot_Instagram_DirectMessage entity)
-      {
-         this.SendPropertyChanging();
-         entity.Robot_Instagram = this;
-      }
-
-      private void detach_Robot_Instagram_DirectMessages(Robot_Instagram_DirectMessage entity)
-      {
-         this.SendPropertyChanging();
-         entity.Robot_Instagram = null;
-      }
-
-      private void attach_Robot_Instagram_Follows(Robot_Instagram_Follow entity)
-      {
-         this.SendPropertyChanging();
-         entity.Robot_Instagram = this;
-      }
-
-      private void detach_Robot_Instagram_Follows(Robot_Instagram_Follow entity)
-      {
-         this.SendPropertyChanging();
-         entity.Robot_Instagram = null;
-      }
    }
 
    [global::System.Data.Linq.Mapping.TableAttribute(Name = "dbo.Robot_Instagram_DirectMessage")]
@@ -46954,6 +47715,8 @@ namespace System.RoboTech.Data
       private System.Nullable<long> _RINS_CODE;
 
       private long _CODE;
+
+      private System.Nullable<System.DateTime> _ACTN_DATE;
 
       private System.Nullable<long> _INST_PKID;
 
@@ -46991,6 +47754,8 @@ namespace System.RoboTech.Data
       partial void OnRINS_CODEChanged();
       partial void OnCODEChanging(long value);
       partial void OnCODEChanged();
+      partial void OnACTN_DATEChanging(System.Nullable<System.DateTime> value);
+      partial void OnACTN_DATEChanged();
       partial void OnINST_PKIDChanging(System.Nullable<long> value);
       partial void OnINST_PKIDChanged();
       partial void OnMESG_TYPEChanging(string value);
@@ -47065,6 +47830,26 @@ namespace System.RoboTech.Data
                this._CODE = value;
                this.SendPropertyChanged("CODE");
                this.OnCODEChanged();
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_ACTN_DATE", DbType = "DateTime", UpdateCheck = UpdateCheck.Never)]
+      public System.Nullable<System.DateTime> ACTN_DATE
+      {
+         get
+         {
+            return this._ACTN_DATE;
+         }
+         set
+         {
+            if ((this._ACTN_DATE != value))
+            {
+               this.OnACTN_DATEChanging(value);
+               this.SendPropertyChanging();
+               this._ACTN_DATE = value;
+               this.SendPropertyChanged("ACTN_DATE");
+               this.OnACTN_DATEChanged();
             }
          }
       }
@@ -47384,127 +48169,73 @@ namespace System.RoboTech.Data
       }
    }
 
-   [global::System.Data.Linq.Mapping.TableAttribute(Name = "dbo.D$SXTP")]
-   public partial class D_SXTP
-   {
-
-      private string _VALU;
-
-      private string _DOMN_DESC;
-
-      public D_SXTP()
-      {
-      }
-
-      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_VALU", DbType = "VarChar(3) NOT NULL", CanBeNull = false)]
-      public string VALU
-      {
-         get
-         {
-            return this._VALU;
-         }
-         set
-         {
-            if ((this._VALU != value))
-            {
-               this._VALU = value;
-            }
-         }
-      }
-
-      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_DOMN_DESC", DbType = "NVarChar(255) NOT NULL", CanBeNull = false)]
-      public string DOMN_DESC
-      {
-         get
-         {
-            return this._DOMN_DESC;
-         }
-         set
-         {
-            if ((this._DOMN_DESC != value))
-            {
-               this._DOMN_DESC = value;
-            }
-         }
-      }
-   }
-
-   [global::System.Data.Linq.Mapping.TableAttribute(Name = "dbo.D$FLTP")]
-   public partial class D_FLTP
-   {
-
-      private string _VALU;
-
-      private string _DOMN_DESC;
-
-      public D_FLTP()
-      {
-      }
-
-      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_VALU", DbType = "VarChar(3) NOT NULL", CanBeNull = false)]
-      public string VALU
-      {
-         get
-         {
-            return this._VALU;
-         }
-         set
-         {
-            if ((this._VALU != value))
-            {
-               this._VALU = value;
-            }
-         }
-      }
-
-      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_DOMN_DESC", DbType = "NVarChar(255) NOT NULL", CanBeNull = false)]
-      public string DOMN_DESC
-      {
-         get
-         {
-            return this._DOMN_DESC;
-         }
-         set
-         {
-            if ((this._DOMN_DESC != value))
-            {
-               this._DOMN_DESC = value;
-            }
-         }
-      }
-   }
-
-   [global::System.Data.Linq.Mapping.TableAttribute(Name = "dbo.Robot_Instagram_Follow")]
-   public partial class Robot_Instagram_Follow : INotifyPropertyChanging, INotifyPropertyChanged
+   [global::System.Data.Linq.Mapping.TableAttribute(Name = "dbo.Robot_Instagram")]
+   public partial class Robot_Instagram : INotifyPropertyChanging, INotifyPropertyChanged
    {
 
       private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 
-      private System.Nullable<long> _SRBT_SERV_FILE_NO;
-
-      private System.Nullable<long> _SRBT_ROBO_RBID;
-
-      private System.Nullable<long> _RINS_CODE;
+      private System.Nullable<long> _ROBO_RBID;
 
       private long _CODE;
 
-      private long _INST_PKID;
+      private string _PAGE_OWNR_TYPE;
+
+      private System.Nullable<long> _INST_PKID;
 
       private string _USER_NAME;
 
-      private string _BIOG_DESC;
+      private string _PASS_WORD;
 
       private string _FULL_NAME;
 
-      private string _URL;
+      private string _WEB_LINK;
 
-      private string _CTGY_DESC;
+      private string _PAGE_LINK;
+
+      private string _NAME;
+
+      private string _GNDR_TYPE;
 
       private string _EMAL_ADRS;
 
-      private System.Nullable<long> _CHAT_ID;
+      private string _URL;
 
-      private string _FOLW_TYPE;
+      private string _CELL_PHON;
+
+      private string _BIOG_DESC;
+
+      private string _CTGY_DESC;
+
+      private string _IMAG_PROF_PATH;
+
+      private string _BUSN_LOCT_ID;
+
+      private string _BUSN_LOCT_NAME;
+
+      private string _BUSN_PHON;
+
+      private string _BUSN_CONT_MTOD;
+
+      private string _BUSN_POST_ADRS;
+
+      private string _BUSN_ZIP_CODE;
+
+      private string _CYCL_STAT;
+
+      private System.Nullable<int> _CYCL_INTR;
+
+      private System.Nullable<int> _CYCL_SEND_MESG_NUMB;
+
+      private System.Nullable<int> _CYCL_NEW_FOLW_NUMB;
+
+      private System.Nullable<long> _CYCL_NFLW_RIDM_CODE;
+
+      private System.Nullable<int> _CYCL_ACTN_SLEP;
+
+      private string _CYCL_HOST_MANG;
+
+      private string _STAT;
 
       private string _CRET_BY;
 
@@ -47514,40 +48245,78 @@ namespace System.RoboTech.Data
 
       private System.Nullable<System.DateTime> _MDFY_DATE;
 
-      private EntityRef<Robot_Instagram> _Robot_Instagram;
+      private EntitySet<Robot_Instagram_Follow> _Robot_Instagram_Follows;
 
-      private EntityRef<Service_Robot> _Service_Robot;
+      private EntitySet<Robot_Instagram_DirectMessage> _Robot_Instagram_DirectMessages;
+
+      private EntityRef<Robot> _Robot;
 
       #region Extensibility Method Definitions
       partial void OnLoaded();
       partial void OnValidate(System.Data.Linq.ChangeAction action);
       partial void OnCreated();
-      partial void OnSRBT_SERV_FILE_NOChanging(System.Nullable<long> value);
-      partial void OnSRBT_SERV_FILE_NOChanged();
-      partial void OnSRBT_ROBO_RBIDChanging(System.Nullable<long> value);
-      partial void OnSRBT_ROBO_RBIDChanged();
-      partial void OnRINS_CODEChanging(System.Nullable<long> value);
-      partial void OnRINS_CODEChanged();
+      partial void OnROBO_RBIDChanging(System.Nullable<long> value);
+      partial void OnROBO_RBIDChanged();
       partial void OnCODEChanging(long value);
       partial void OnCODEChanged();
-      partial void OnINST_PKIDChanging(long value);
+      partial void OnPAGE_OWNR_TYPEChanging(string value);
+      partial void OnPAGE_OWNR_TYPEChanged();
+      partial void OnINST_PKIDChanging(System.Nullable<long> value);
       partial void OnINST_PKIDChanged();
       partial void OnUSER_NAMEChanging(string value);
       partial void OnUSER_NAMEChanged();
-      partial void OnBIOG_DESCChanging(string value);
-      partial void OnBIOG_DESCChanged();
+      partial void OnPASS_WORDChanging(string value);
+      partial void OnPASS_WORDChanged();
       partial void OnFULL_NAMEChanging(string value);
       partial void OnFULL_NAMEChanged();
-      partial void OnURLChanging(string value);
-      partial void OnURLChanged();
-      partial void OnCTGY_DESCChanging(string value);
-      partial void OnCTGY_DESCChanged();
+      partial void OnWEB_LINKChanging(string value);
+      partial void OnWEB_LINKChanged();
+      partial void OnPAGE_LINKChanging(string value);
+      partial void OnPAGE_LINKChanged();
+      partial void OnNAMEChanging(string value);
+      partial void OnNAMEChanged();
+      partial void OnGNDR_TYPEChanging(string value);
+      partial void OnGNDR_TYPEChanged();
       partial void OnEMAL_ADRSChanging(string value);
       partial void OnEMAL_ADRSChanged();
-      partial void OnCHAT_IDChanging(System.Nullable<long> value);
-      partial void OnCHAT_IDChanged();
-      partial void OnFOLW_TYPEChanging(string value);
-      partial void OnFOLW_TYPEChanged();
+      partial void OnURLChanging(string value);
+      partial void OnURLChanged();
+      partial void OnCELL_PHONChanging(string value);
+      partial void OnCELL_PHONChanged();
+      partial void OnBIOG_DESCChanging(string value);
+      partial void OnBIOG_DESCChanged();
+      partial void OnCTGY_DESCChanging(string value);
+      partial void OnCTGY_DESCChanged();
+      partial void OnIMAG_PROF_PATHChanging(string value);
+      partial void OnIMAG_PROF_PATHChanged();
+      partial void OnBUSN_LOCT_IDChanging(string value);
+      partial void OnBUSN_LOCT_IDChanged();
+      partial void OnBUSN_LOCT_NAMEChanging(string value);
+      partial void OnBUSN_LOCT_NAMEChanged();
+      partial void OnBUSN_PHONChanging(string value);
+      partial void OnBUSN_PHONChanged();
+      partial void OnBUSN_CONT_MTODChanging(string value);
+      partial void OnBUSN_CONT_MTODChanged();
+      partial void OnBUSN_POST_ADRSChanging(string value);
+      partial void OnBUSN_POST_ADRSChanged();
+      partial void OnBUSN_ZIP_CODEChanging(string value);
+      partial void OnBUSN_ZIP_CODEChanged();
+      partial void OnCYCL_STATChanging(string value);
+      partial void OnCYCL_STATChanged();
+      partial void OnCYCL_INTRChanging(System.Nullable<int> value);
+      partial void OnCYCL_INTRChanged();
+      partial void OnCYCL_SEND_MESG_NUMBChanging(System.Nullable<int> value);
+      partial void OnCYCL_SEND_MESG_NUMBChanged();
+      partial void OnCYCL_NEW_FOLW_NUMBChanging(System.Nullable<int> value);
+      partial void OnCYCL_NEW_FOLW_NUMBChanged();
+      partial void OnCYCL_NFLW_RIDM_CODEChanging(System.Nullable<long> value);
+      partial void OnCYCL_NFLW_RIDM_CODEChanged();
+      partial void OnCYCL_ACTN_SLEPChanging(System.Nullable<int> value);
+      partial void OnCYCL_ACTN_SLEPChanged();
+      partial void OnCYCL_HOST_MANGChanging(string value);
+      partial void OnCYCL_HOST_MANGChanged();
+      partial void OnSTATChanging(string value);
+      partial void OnSTATChanged();
       partial void OnCRET_BYChanging(string value);
       partial void OnCRET_BYChanged();
       partial void OnCRET_DATEChanging(System.Nullable<System.DateTime> value);
@@ -47558,81 +48327,34 @@ namespace System.RoboTech.Data
       partial void OnMDFY_DATEChanged();
       #endregion
 
-      public Robot_Instagram_Follow()
+      public Robot_Instagram()
       {
-         this._Robot_Instagram = default(EntityRef<Robot_Instagram>);
-         this._Service_Robot = default(EntityRef<Service_Robot>);
+         this._Robot_Instagram_Follows = new EntitySet<Robot_Instagram_Follow>(new Action<Robot_Instagram_Follow>(this.attach_Robot_Instagram_Follows), new Action<Robot_Instagram_Follow>(this.detach_Robot_Instagram_Follows));
+         this._Robot_Instagram_DirectMessages = new EntitySet<Robot_Instagram_DirectMessage>(new Action<Robot_Instagram_DirectMessage>(this.attach_Robot_Instagram_DirectMessages), new Action<Robot_Instagram_DirectMessage>(this.detach_Robot_Instagram_DirectMessages));
+         this._Robot = default(EntityRef<Robot>);
          OnCreated();
       }
 
-      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_SRBT_SERV_FILE_NO", DbType = "BigInt", UpdateCheck = UpdateCheck.Never)]
-      public System.Nullable<long> SRBT_SERV_FILE_NO
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_ROBO_RBID", DbType = "BigInt", UpdateCheck = UpdateCheck.Never)]
+      public System.Nullable<long> ROBO_RBID
       {
          get
          {
-            return this._SRBT_SERV_FILE_NO;
+            return this._ROBO_RBID;
          }
          set
          {
-            if ((this._SRBT_SERV_FILE_NO != value))
+            if ((this._ROBO_RBID != value))
             {
-               if (this._Service_Robot.HasLoadedOrAssignedValue)
+               if (this._Robot.HasLoadedOrAssignedValue)
                {
                   throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
                }
-               this.OnSRBT_SERV_FILE_NOChanging(value);
+               this.OnROBO_RBIDChanging(value);
                this.SendPropertyChanging();
-               this._SRBT_SERV_FILE_NO = value;
-               this.SendPropertyChanged("SRBT_SERV_FILE_NO");
-               this.OnSRBT_SERV_FILE_NOChanged();
-            }
-         }
-      }
-
-      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_SRBT_ROBO_RBID", DbType = "BigInt", UpdateCheck = UpdateCheck.Never)]
-      public System.Nullable<long> SRBT_ROBO_RBID
-      {
-         get
-         {
-            return this._SRBT_ROBO_RBID;
-         }
-         set
-         {
-            if ((this._SRBT_ROBO_RBID != value))
-            {
-               if (this._Service_Robot.HasLoadedOrAssignedValue)
-               {
-                  throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-               }
-               this.OnSRBT_ROBO_RBIDChanging(value);
-               this.SendPropertyChanging();
-               this._SRBT_ROBO_RBID = value;
-               this.SendPropertyChanged("SRBT_ROBO_RBID");
-               this.OnSRBT_ROBO_RBIDChanged();
-            }
-         }
-      }
-
-      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_RINS_CODE", DbType = "BigInt", UpdateCheck = UpdateCheck.Never)]
-      public System.Nullable<long> RINS_CODE
-      {
-         get
-         {
-            return this._RINS_CODE;
-         }
-         set
-         {
-            if ((this._RINS_CODE != value))
-            {
-               if (this._Robot_Instagram.HasLoadedOrAssignedValue)
-               {
-                  throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-               }
-               this.OnRINS_CODEChanging(value);
-               this.SendPropertyChanging();
-               this._RINS_CODE = value;
-               this.SendPropertyChanged("RINS_CODE");
-               this.OnRINS_CODEChanged();
+               this._ROBO_RBID = value;
+               this.SendPropertyChanged("ROBO_RBID");
+               this.OnROBO_RBIDChanged();
             }
          }
       }
@@ -47657,8 +48379,28 @@ namespace System.RoboTech.Data
          }
       }
 
-      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_INST_PKID", DbType = "BigInt NOT NULL", UpdateCheck = UpdateCheck.Never)]
-      public long INST_PKID
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_PAGE_OWNR_TYPE", DbType = "VarChar(3)", UpdateCheck = UpdateCheck.Never)]
+      public string PAGE_OWNR_TYPE
+      {
+         get
+         {
+            return this._PAGE_OWNR_TYPE;
+         }
+         set
+         {
+            if ((this._PAGE_OWNR_TYPE != value))
+            {
+               this.OnPAGE_OWNR_TYPEChanging(value);
+               this.SendPropertyChanging();
+               this._PAGE_OWNR_TYPE = value;
+               this.SendPropertyChanged("PAGE_OWNR_TYPE");
+               this.OnPAGE_OWNR_TYPEChanged();
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_INST_PKID", DbType = "BigInt", UpdateCheck = UpdateCheck.Never)]
+      public System.Nullable<long> INST_PKID
       {
          get
          {
@@ -47697,27 +48439,27 @@ namespace System.RoboTech.Data
          }
       }
 
-      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_BIOG_DESC", DbType = "NVarChar(150)", UpdateCheck = UpdateCheck.Never)]
-      public string BIOG_DESC
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_PASS_WORD", DbType = "VarChar(250)", UpdateCheck = UpdateCheck.Never)]
+      public string PASS_WORD
       {
          get
          {
-            return this._BIOG_DESC;
+            return this._PASS_WORD;
          }
          set
          {
-            if ((this._BIOG_DESC != value))
+            if ((this._PASS_WORD != value))
             {
-               this.OnBIOG_DESCChanging(value);
+               this.OnPASS_WORDChanging(value);
                this.SendPropertyChanging();
-               this._BIOG_DESC = value;
-               this.SendPropertyChanged("BIOG_DESC");
-               this.OnBIOG_DESCChanged();
+               this._PASS_WORD = value;
+               this.SendPropertyChanged("PASS_WORD");
+               this.OnPASS_WORDChanged();
             }
          }
       }
 
-      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_FULL_NAME", DbType = "NVarChar(50)", UpdateCheck = UpdateCheck.Never)]
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_FULL_NAME", DbType = "NVarChar(200)", UpdateCheck = UpdateCheck.Never)]
       public string FULL_NAME
       {
          get
@@ -47737,42 +48479,82 @@ namespace System.RoboTech.Data
          }
       }
 
-      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_URL", DbType = "NVarChar(1000)", UpdateCheck = UpdateCheck.Never)]
-      public string URL
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_WEB_LINK", DbType = "NVarChar(1000)", UpdateCheck = UpdateCheck.Never)]
+      public string WEB_LINK
       {
          get
          {
-            return this._URL;
+            return this._WEB_LINK;
          }
          set
          {
-            if ((this._URL != value))
+            if ((this._WEB_LINK != value))
             {
-               this.OnURLChanging(value);
+               this.OnWEB_LINKChanging(value);
                this.SendPropertyChanging();
-               this._URL = value;
-               this.SendPropertyChanged("URL");
-               this.OnURLChanged();
+               this._WEB_LINK = value;
+               this.SendPropertyChanged("WEB_LINK");
+               this.OnWEB_LINKChanged();
             }
          }
       }
 
-      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_CTGY_DESC", DbType = "NVarChar(100)", UpdateCheck = UpdateCheck.Never)]
-      public string CTGY_DESC
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_PAGE_LINK", DbType = "VarChar(250)", UpdateCheck = UpdateCheck.Never)]
+      public string PAGE_LINK
       {
          get
          {
-            return this._CTGY_DESC;
+            return this._PAGE_LINK;
          }
          set
          {
-            if ((this._CTGY_DESC != value))
+            if ((this._PAGE_LINK != value))
             {
-               this.OnCTGY_DESCChanging(value);
+               this.OnPAGE_LINKChanging(value);
                this.SendPropertyChanging();
-               this._CTGY_DESC = value;
-               this.SendPropertyChanged("CTGY_DESC");
-               this.OnCTGY_DESCChanged();
+               this._PAGE_LINK = value;
+               this.SendPropertyChanged("PAGE_LINK");
+               this.OnPAGE_LINKChanged();
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_NAME", DbType = "NVarChar(30)", UpdateCheck = UpdateCheck.Never)]
+      public string NAME
+      {
+         get
+         {
+            return this._NAME;
+         }
+         set
+         {
+            if ((this._NAME != value))
+            {
+               this.OnNAMEChanging(value);
+               this.SendPropertyChanging();
+               this._NAME = value;
+               this.SendPropertyChanged("NAME");
+               this.OnNAMEChanged();
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_GNDR_TYPE", DbType = "VarChar(3)", UpdateCheck = UpdateCheck.Never)]
+      public string GNDR_TYPE
+      {
+         get
+         {
+            return this._GNDR_TYPE;
+         }
+         set
+         {
+            if ((this._GNDR_TYPE != value))
+            {
+               this.OnGNDR_TYPEChanging(value);
+               this.SendPropertyChanging();
+               this._GNDR_TYPE = value;
+               this.SendPropertyChanged("GNDR_TYPE");
+               this.OnGNDR_TYPEChanged();
             }
          }
       }
@@ -47797,42 +48579,382 @@ namespace System.RoboTech.Data
          }
       }
 
-      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_CHAT_ID", DbType = "BigInt", UpdateCheck = UpdateCheck.Never)]
-      public System.Nullable<long> CHAT_ID
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_URL", DbType = "NVarChar(1000)", UpdateCheck = UpdateCheck.Never)]
+      public string URL
       {
          get
          {
-            return this._CHAT_ID;
+            return this._URL;
          }
          set
          {
-            if ((this._CHAT_ID != value))
+            if ((this._URL != value))
             {
-               this.OnCHAT_IDChanging(value);
+               this.OnURLChanging(value);
                this.SendPropertyChanging();
-               this._CHAT_ID = value;
-               this.SendPropertyChanged("CHAT_ID");
-               this.OnCHAT_IDChanged();
+               this._URL = value;
+               this.SendPropertyChanged("URL");
+               this.OnURLChanged();
             }
          }
       }
 
-      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_FOLW_TYPE", DbType = "VarChar(3)", UpdateCheck = UpdateCheck.Never)]
-      public string FOLW_TYPE
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_CELL_PHON", DbType = "VarChar(13)", UpdateCheck = UpdateCheck.Never)]
+      public string CELL_PHON
       {
          get
          {
-            return this._FOLW_TYPE;
+            return this._CELL_PHON;
          }
          set
          {
-            if ((this._FOLW_TYPE != value))
+            if ((this._CELL_PHON != value))
             {
-               this.OnFOLW_TYPEChanging(value);
+               this.OnCELL_PHONChanging(value);
                this.SendPropertyChanging();
-               this._FOLW_TYPE = value;
-               this.SendPropertyChanged("FOLW_TYPE");
-               this.OnFOLW_TYPEChanged();
+               this._CELL_PHON = value;
+               this.SendPropertyChanged("CELL_PHON");
+               this.OnCELL_PHONChanged();
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_BIOG_DESC", DbType = "NVarChar(200)", UpdateCheck = UpdateCheck.Never)]
+      public string BIOG_DESC
+      {
+         get
+         {
+            return this._BIOG_DESC;
+         }
+         set
+         {
+            if ((this._BIOG_DESC != value))
+            {
+               this.OnBIOG_DESCChanging(value);
+               this.SendPropertyChanging();
+               this._BIOG_DESC = value;
+               this.SendPropertyChanged("BIOG_DESC");
+               this.OnBIOG_DESCChanged();
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_CTGY_DESC", DbType = "NVarChar(100)", UpdateCheck = UpdateCheck.Never)]
+      public string CTGY_DESC
+      {
+         get
+         {
+            return this._CTGY_DESC;
+         }
+         set
+         {
+            if ((this._CTGY_DESC != value))
+            {
+               this.OnCTGY_DESCChanging(value);
+               this.SendPropertyChanging();
+               this._CTGY_DESC = value;
+               this.SendPropertyChanged("CTGY_DESC");
+               this.OnCTGY_DESCChanged();
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_IMAG_PROF_PATH", DbType = "NVarChar(1000)", UpdateCheck = UpdateCheck.Never)]
+      public string IMAG_PROF_PATH
+      {
+         get
+         {
+            return this._IMAG_PROF_PATH;
+         }
+         set
+         {
+            if ((this._IMAG_PROF_PATH != value))
+            {
+               this.OnIMAG_PROF_PATHChanging(value);
+               this.SendPropertyChanging();
+               this._IMAG_PROF_PATH = value;
+               this.SendPropertyChanged("IMAG_PROF_PATH");
+               this.OnIMAG_PROF_PATHChanged();
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_BUSN_LOCT_ID", DbType = "VarChar(250)", UpdateCheck = UpdateCheck.Never)]
+      public string BUSN_LOCT_ID
+      {
+         get
+         {
+            return this._BUSN_LOCT_ID;
+         }
+         set
+         {
+            if ((this._BUSN_LOCT_ID != value))
+            {
+               this.OnBUSN_LOCT_IDChanging(value);
+               this.SendPropertyChanging();
+               this._BUSN_LOCT_ID = value;
+               this.SendPropertyChanged("BUSN_LOCT_ID");
+               this.OnBUSN_LOCT_IDChanged();
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_BUSN_LOCT_NAME", DbType = "VarChar(250)", UpdateCheck = UpdateCheck.Never)]
+      public string BUSN_LOCT_NAME
+      {
+         get
+         {
+            return this._BUSN_LOCT_NAME;
+         }
+         set
+         {
+            if ((this._BUSN_LOCT_NAME != value))
+            {
+               this.OnBUSN_LOCT_NAMEChanging(value);
+               this.SendPropertyChanging();
+               this._BUSN_LOCT_NAME = value;
+               this.SendPropertyChanged("BUSN_LOCT_NAME");
+               this.OnBUSN_LOCT_NAMEChanged();
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_BUSN_PHON", DbType = "VarChar(13)", UpdateCheck = UpdateCheck.Never)]
+      public string BUSN_PHON
+      {
+         get
+         {
+            return this._BUSN_PHON;
+         }
+         set
+         {
+            if ((this._BUSN_PHON != value))
+            {
+               this.OnBUSN_PHONChanging(value);
+               this.SendPropertyChanging();
+               this._BUSN_PHON = value;
+               this.SendPropertyChanged("BUSN_PHON");
+               this.OnBUSN_PHONChanged();
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_BUSN_CONT_MTOD", DbType = "VarChar(3)", UpdateCheck = UpdateCheck.Never)]
+      public string BUSN_CONT_MTOD
+      {
+         get
+         {
+            return this._BUSN_CONT_MTOD;
+         }
+         set
+         {
+            if ((this._BUSN_CONT_MTOD != value))
+            {
+               this.OnBUSN_CONT_MTODChanging(value);
+               this.SendPropertyChanging();
+               this._BUSN_CONT_MTOD = value;
+               this.SendPropertyChanged("BUSN_CONT_MTOD");
+               this.OnBUSN_CONT_MTODChanged();
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_BUSN_POST_ADRS", DbType = "NVarChar(500)", UpdateCheck = UpdateCheck.Never)]
+      public string BUSN_POST_ADRS
+      {
+         get
+         {
+            return this._BUSN_POST_ADRS;
+         }
+         set
+         {
+            if ((this._BUSN_POST_ADRS != value))
+            {
+               this.OnBUSN_POST_ADRSChanging(value);
+               this.SendPropertyChanging();
+               this._BUSN_POST_ADRS = value;
+               this.SendPropertyChanged("BUSN_POST_ADRS");
+               this.OnBUSN_POST_ADRSChanged();
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_BUSN_ZIP_CODE", DbType = "VarChar(50)", UpdateCheck = UpdateCheck.Never)]
+      public string BUSN_ZIP_CODE
+      {
+         get
+         {
+            return this._BUSN_ZIP_CODE;
+         }
+         set
+         {
+            if ((this._BUSN_ZIP_CODE != value))
+            {
+               this.OnBUSN_ZIP_CODEChanging(value);
+               this.SendPropertyChanging();
+               this._BUSN_ZIP_CODE = value;
+               this.SendPropertyChanged("BUSN_ZIP_CODE");
+               this.OnBUSN_ZIP_CODEChanged();
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_CYCL_STAT", DbType = "VarChar(3)", UpdateCheck = UpdateCheck.Never)]
+      public string CYCL_STAT
+      {
+         get
+         {
+            return this._CYCL_STAT;
+         }
+         set
+         {
+            if ((this._CYCL_STAT != value))
+            {
+               this.OnCYCL_STATChanging(value);
+               this.SendPropertyChanging();
+               this._CYCL_STAT = value;
+               this.SendPropertyChanged("CYCL_STAT");
+               this.OnCYCL_STATChanged();
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_CYCL_INTR", DbType = "Int", UpdateCheck = UpdateCheck.Never)]
+      public System.Nullable<int> CYCL_INTR
+      {
+         get
+         {
+            return this._CYCL_INTR;
+         }
+         set
+         {
+            if ((this._CYCL_INTR != value))
+            {
+               this.OnCYCL_INTRChanging(value);
+               this.SendPropertyChanging();
+               this._CYCL_INTR = value;
+               this.SendPropertyChanged("CYCL_INTR");
+               this.OnCYCL_INTRChanged();
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_CYCL_SEND_MESG_NUMB", DbType = "Int", UpdateCheck = UpdateCheck.Never)]
+      public System.Nullable<int> CYCL_SEND_MESG_NUMB
+      {
+         get
+         {
+            return this._CYCL_SEND_MESG_NUMB;
+         }
+         set
+         {
+            if ((this._CYCL_SEND_MESG_NUMB != value))
+            {
+               this.OnCYCL_SEND_MESG_NUMBChanging(value);
+               this.SendPropertyChanging();
+               this._CYCL_SEND_MESG_NUMB = value;
+               this.SendPropertyChanged("CYCL_SEND_MESG_NUMB");
+               this.OnCYCL_SEND_MESG_NUMBChanged();
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_CYCL_NEW_FOLW_NUMB", DbType = "Int", UpdateCheck = UpdateCheck.Never)]
+      public System.Nullable<int> CYCL_NEW_FOLW_NUMB
+      {
+         get
+         {
+            return this._CYCL_NEW_FOLW_NUMB;
+         }
+         set
+         {
+            if ((this._CYCL_NEW_FOLW_NUMB != value))
+            {
+               this.OnCYCL_NEW_FOLW_NUMBChanging(value);
+               this.SendPropertyChanging();
+               this._CYCL_NEW_FOLW_NUMB = value;
+               this.SendPropertyChanged("CYCL_NEW_FOLW_NUMB");
+               this.OnCYCL_NEW_FOLW_NUMBChanged();
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_CYCL_NFLW_RIDM_CODE", DbType = "BigInt", UpdateCheck = UpdateCheck.Never)]
+      public System.Nullable<long> CYCL_NFLW_RIDM_CODE
+      {
+         get
+         {
+            return this._CYCL_NFLW_RIDM_CODE;
+         }
+         set
+         {
+            if ((this._CYCL_NFLW_RIDM_CODE != value))
+            {
+               this.OnCYCL_NFLW_RIDM_CODEChanging(value);
+               this.SendPropertyChanging();
+               this._CYCL_NFLW_RIDM_CODE = value;
+               this.SendPropertyChanged("CYCL_NFLW_RIDM_CODE");
+               this.OnCYCL_NFLW_RIDM_CODEChanged();
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_CYCL_ACTN_SLEP", DbType = "Int", UpdateCheck = UpdateCheck.Never)]
+      public System.Nullable<int> CYCL_ACTN_SLEP
+      {
+         get
+         {
+            return this._CYCL_ACTN_SLEP;
+         }
+         set
+         {
+            if ((this._CYCL_ACTN_SLEP != value))
+            {
+               this.OnCYCL_ACTN_SLEPChanging(value);
+               this.SendPropertyChanging();
+               this._CYCL_ACTN_SLEP = value;
+               this.SendPropertyChanged("CYCL_ACTN_SLEP");
+               this.OnCYCL_ACTN_SLEPChanged();
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_CYCL_HOST_MANG", DbType = "VarChar(17)", UpdateCheck = UpdateCheck.Never)]
+      public string CYCL_HOST_MANG
+      {
+         get
+         {
+            return this._CYCL_HOST_MANG;
+         }
+         set
+         {
+            if ((this._CYCL_HOST_MANG != value))
+            {
+               this.OnCYCL_HOST_MANGChanging(value);
+               this.SendPropertyChanging();
+               this._CYCL_HOST_MANG = value;
+               this.SendPropertyChanged("CYCL_HOST_MANG");
+               this.OnCYCL_HOST_MANGChanged();
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_STAT", DbType = "VarChar(3)", UpdateCheck = UpdateCheck.Never)]
+      public string STAT
+      {
+         get
+         {
+            return this._STAT;
+         }
+         set
+         {
+            if ((this._STAT != value))
+            {
+               this.OnSTATChanging(value);
+               this.SendPropertyChanging();
+               this._STAT = value;
+               this.SendPropertyChanged("STAT");
+               this.OnSTATChanged();
             }
          }
       }
@@ -47917,72 +49039,62 @@ namespace System.RoboTech.Data
          }
       }
 
-      [global::System.Data.Linq.Mapping.AssociationAttribute(Name = "Robot_Instagram_Robot_Instagram_Follow", Storage = "_Robot_Instagram", ThisKey = "RINS_CODE", OtherKey = "CODE", IsForeignKey = true, DeleteRule = "CASCADE")]
-      public Robot_Instagram Robot_Instagram
+      [global::System.Data.Linq.Mapping.AssociationAttribute(Name = "Robot_Instagram_Robot_Instagram_Follow", Storage = "_Robot_Instagram_Follows", ThisKey = "CODE", OtherKey = "RINS_CODE")]
+      public EntitySet<Robot_Instagram_Follow> Robot_Instagram_Follows
       {
          get
          {
-            return this._Robot_Instagram.Entity;
+            return this._Robot_Instagram_Follows;
          }
          set
          {
-            Robot_Instagram previousValue = this._Robot_Instagram.Entity;
-            if (((previousValue != value)
-                     || (this._Robot_Instagram.HasLoadedOrAssignedValue == false)))
-            {
-               this.SendPropertyChanging();
-               if ((previousValue != null))
-               {
-                  this._Robot_Instagram.Entity = null;
-                  previousValue.Robot_Instagram_Follows.Remove(this);
-               }
-               this._Robot_Instagram.Entity = value;
-               if ((value != null))
-               {
-                  value.Robot_Instagram_Follows.Add(this);
-                  this._RINS_CODE = value.CODE;
-               }
-               else
-               {
-                  this._RINS_CODE = default(Nullable<long>);
-               }
-               this.SendPropertyChanged("Robot_Instagram");
-            }
+            this._Robot_Instagram_Follows.Assign(value);
          }
       }
 
-      [global::System.Data.Linq.Mapping.AssociationAttribute(Name = "Service_Robot_Robot_Instagram_Follow", Storage = "_Service_Robot", ThisKey = "SRBT_SERV_FILE_NO,SRBT_ROBO_RBID", OtherKey = "SERV_FILE_NO,ROBO_RBID", IsForeignKey = true, DeleteRule = "CASCADE")]
-      public Service_Robot Service_Robot
+      [global::System.Data.Linq.Mapping.AssociationAttribute(Name = "Robot_Instagram_Robot_Instagram_DirectMessage", Storage = "_Robot_Instagram_DirectMessages", ThisKey = "CODE", OtherKey = "RINS_CODE")]
+      public EntitySet<Robot_Instagram_DirectMessage> Robot_Instagram_DirectMessages
       {
          get
          {
-            return this._Service_Robot.Entity;
+            return this._Robot_Instagram_DirectMessages;
          }
          set
          {
-            Service_Robot previousValue = this._Service_Robot.Entity;
+            this._Robot_Instagram_DirectMessages.Assign(value);
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.AssociationAttribute(Name = "Robot_Robot_Instagram", Storage = "_Robot", ThisKey = "ROBO_RBID", OtherKey = "RBID", IsForeignKey = true, DeleteRule = "CASCADE")]
+      public Robot Robot
+      {
+         get
+         {
+            return this._Robot.Entity;
+         }
+         set
+         {
+            Robot previousValue = this._Robot.Entity;
             if (((previousValue != value)
-                     || (this._Service_Robot.HasLoadedOrAssignedValue == false)))
+                     || (this._Robot.HasLoadedOrAssignedValue == false)))
             {
                this.SendPropertyChanging();
                if ((previousValue != null))
                {
-                  this._Service_Robot.Entity = null;
-                  previousValue.Robot_Instagram_Follows.Remove(this);
+                  this._Robot.Entity = null;
+                  previousValue.Robot_Instagrams.Remove(this);
                }
-               this._Service_Robot.Entity = value;
+               this._Robot.Entity = value;
                if ((value != null))
                {
-                  value.Robot_Instagram_Follows.Add(this);
-                  this._SRBT_SERV_FILE_NO = value.SERV_FILE_NO;
-                  this._SRBT_ROBO_RBID = value.ROBO_RBID;
+                  value.Robot_Instagrams.Add(this);
+                  this._ROBO_RBID = value.RBID;
                }
                else
                {
-                  this._SRBT_SERV_FILE_NO = default(Nullable<long>);
-                  this._SRBT_ROBO_RBID = default(Nullable<long>);
+                  this._ROBO_RBID = default(Nullable<long>);
                }
-               this.SendPropertyChanged("Service_Robot");
+               this.SendPropertyChanged("Robot");
             }
          }
       }
@@ -48005,6 +49117,30 @@ namespace System.RoboTech.Data
          {
             this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
          }
+      }
+
+      private void attach_Robot_Instagram_Follows(Robot_Instagram_Follow entity)
+      {
+         this.SendPropertyChanging();
+         entity.Robot_Instagram = this;
+      }
+
+      private void detach_Robot_Instagram_Follows(Robot_Instagram_Follow entity)
+      {
+         this.SendPropertyChanging();
+         entity.Robot_Instagram = null;
+      }
+
+      private void attach_Robot_Instagram_DirectMessages(Robot_Instagram_DirectMessage entity)
+      {
+         this.SendPropertyChanging();
+         entity.Robot_Instagram = this;
+      }
+
+      private void detach_Robot_Instagram_DirectMessages(Robot_Instagram_DirectMessage entity)
+      {
+         this.SendPropertyChanging();
+         entity.Robot_Instagram = null;
       }
    }
 

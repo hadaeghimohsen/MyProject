@@ -2856,6 +2856,8 @@
       <Association Name="Robot_Robot_Product" Member="Robot_Products" ThisKey="RBID" OtherKey="ROBO_RBID" Type="Robot_Product" />
       <Association Name="Robot_Robot" Member="Robots" ThisKey="RBID" OtherKey="ROBO_RBID" Type="Robot" />
       <Association Name="Robot_Robot_Limited_Commodity_Group" Member="Robot_Limited_Commodity_Groups" ThisKey="RBID" OtherKey="ROBO_RBID" Type="Robot_Limited_Commodity_Group" />
+      <Association Name="Robot_Template_Item" Member="Template_Items" ThisKey="RBID" OtherKey="ROBO_RBID" Type="Template_Item" />
+      <Association Name="Robot_Template" Member="Templates" ThisKey="RBID" OtherKey="ROBO_RBID" Type="Template" />
       <Association Name="Robot_Robot_Instagram" Member="Robot_Instagrams" ThisKey="RBID" OtherKey="ROBO_RBID" Type="Robot_Instagram" />
       <Association Name="Organ_Robot" Member="Organ" ThisKey="ORGN_OGID" OtherKey="OGID" Type="Organ" IsForeignKey="true" />
       <Association Name="Robot_Robot" Member="Robot1" ThisKey="ROBO_RBID" OtherKey="RBID" Type="Robot" IsForeignKey="true" />
@@ -2996,57 +2998,6 @@
       <Association Name="Service_Robot_Service_Robot_Access_Limited_Group_Product" Member="Service_Robot" ThisKey="SRBT_SERV_FILE_NO,SRBT_ROBO_RBID" OtherKey="SERV_FILE_NO,ROBO_RBID" Type="Service_Robot" IsForeignKey="true" DeleteRule="CASCADE" />
     </Type>
   </Table>
-  <Table Name="dbo.Robot_Instagram" Member="Robot_Instagrams">
-    <Type Name="Robot_Instagram">
-      <Column Name="ROBO_RBID" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="CODE" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="USER_NAME" Type="System.String" DbType="VarChar(30)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="PASS_WORD" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="WEB_LINK" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="PAGE_LINK" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="NAME" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="GNDR_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="EMAL_ADRS" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="URL" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="CELL_PHON" Type="System.String" DbType="VarChar(13)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="BIOG_DESC" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="IMAG_PROF_PATH" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="BUSN_LOCT_ID" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="BUSN_LOCT_NAME" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="BUSN_PHON" Type="System.String" DbType="VarChar(13)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="BUSN_CONT_MTOD" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="BUSN_POST_ADRS" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="BUSN_ZIP_CODE" Type="System.String" DbType="VarChar(50)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
-      <Association Name="Robot_Instagram_Robot_Instagram_DirectMessage" Member="Robot_Instagram_DirectMessages" ThisKey="CODE" OtherKey="RINS_CODE" Type="Robot_Instagram_DirectMessage" />
-      <Association Name="Robot_Instagram_Robot_Instagram_Follow" Member="Robot_Instagram_Follows" ThisKey="CODE" OtherKey="RINS_CODE" Type="Robot_Instagram_Follow" />
-      <Association Name="Robot_Robot_Instagram" Member="Robot" ThisKey="ROBO_RBID" OtherKey="RBID" Type="Robot" IsForeignKey="true" DeleteRule="CASCADE" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Robot_Instagram_DirectMessage" Member="Robot_Instagram_DirectMessages">
-    <Type Name="Robot_Instagram_DirectMessage">
-      <Column Name="RINS_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="CODE" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="INST_PKID" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="MESG_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="MESG_TEXT" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="LINK" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="FILE_PATH" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="CORD_X" Type="System.Double" DbType="Float" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="CORD_Y" Type="System.Double" DbType="Float" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="CITY_NAME" Type="System.String" DbType="VarChar(100)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="SEND_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
-      <Association Name="Robot_Instagram_Robot_Instagram_DirectMessage" Member="Robot_Instagram" ThisKey="RINS_CODE" OtherKey="CODE" Type="Robot_Instagram" IsForeignKey="true" DeleteRule="CASCADE" />
-    </Type>
-  </Table>
   <Table Name="dbo.D$SXTP" Member="D_SXTPs">
     <Type Name="D_SXTP">
       <Column Name="VALU" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
@@ -3068,7 +3019,7 @@
       <Column Name="INST_PKID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" UpdateCheck="Never" />
       <Column Name="USER_NAME" Type="System.String" DbType="VarChar(30)" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="BIOG_DESC" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="FULL_NAME" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="FULL_NAME" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="URL" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="CTGY_DESC" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="EMAL_ADRS" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
@@ -3078,8 +3029,110 @@
       <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
-      <Association Name="Robot_Instagram_Robot_Instagram_Follow" Member="Robot_Instagram" ThisKey="RINS_CODE" OtherKey="CODE" Type="Robot_Instagram" IsForeignKey="true" DeleteRule="CASCADE" />
       <Association Name="Service_Robot_Robot_Instagram_Follow" Member="Service_Robot" ThisKey="SRBT_SERV_FILE_NO,SRBT_ROBO_RBID" OtherKey="SERV_FILE_NO,ROBO_RBID" Type="Service_Robot" IsForeignKey="true" DeleteRule="CASCADE" />
+      <Association Name="Robot_Instagram_Robot_Instagram_Follow" Member="Robot_Instagram" ThisKey="RINS_CODE" OtherKey="CODE" Type="Robot_Instagram" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Template_Item" Member="Template_Items">
+    <Type Name="Template_Item">
+      <Column Name="ROBO_RBID" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CODE" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="COLM_NAME" Type="System.String" DbType="VarChar(100)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="PLAC_HLDR" Type="System.String" DbType="VarChar(100)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="PLAC_DESC" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="TABL_NAME" Type="System.String" DbType="VarChar(100)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="TABL_DESC" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="RECD_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="Robot_Template_Item" Member="Robot" ThisKey="ROBO_RBID" OtherKey="RBID" Type="Robot" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.D$TMTP" Member="D_TMTPs">
+    <Type Name="D_TMTP">
+      <Column Name="VALU" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="DOMN_DESC" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Template" Member="Templates">
+    <Type Name="Template">
+      <Column Name="ROBO_RBID" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="TMID" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TEMP_NAME" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="TEMP_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="TEMP_SUBJ" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="TEMP_TEXT" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="Robot_Template" Member="Robot" ThisKey="ROBO_RBID" OtherKey="RBID" Type="Robot" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Robot_Instagram_DirectMessage" Member="Robot_Instagram_DirectMessages">
+    <Type Name="Robot_Instagram_DirectMessage">
+      <Column Name="RINS_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CODE" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ACTN_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="INST_PKID" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MESG_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MESG_TEXT" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="LINK" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="FILE_PATH" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CORD_X" Type="System.Double" DbType="Float" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CORD_Y" Type="System.Double" DbType="Float" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CITY_NAME" Type="System.String" DbType="VarChar(100)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="SEND_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="Robot_Instagram_Robot_Instagram_DirectMessage" Member="Robot_Instagram" ThisKey="RINS_CODE" OtherKey="CODE" Type="Robot_Instagram" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Robot_Instagram" Member="Robot_Instagrams">
+    <Type Name="Robot_Instagram">
+      <Column Name="ROBO_RBID" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CODE" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PAGE_OWNR_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="INST_PKID" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="USER_NAME" Type="System.String" DbType="VarChar(30)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="PASS_WORD" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="FULL_NAME" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="WEB_LINK" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="PAGE_LINK" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="NAME" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="GNDR_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="EMAL_ADRS" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="URL" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CELL_PHON" Type="System.String" DbType="VarChar(13)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="BIOG_DESC" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CTGY_DESC" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="IMAG_PROF_PATH" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="BUSN_LOCT_ID" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="BUSN_LOCT_NAME" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="BUSN_PHON" Type="System.String" DbType="VarChar(13)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="BUSN_CONT_MTOD" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="BUSN_POST_ADRS" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="BUSN_ZIP_CODE" Type="System.String" DbType="VarChar(50)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CYCL_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CYCL_INTR" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CYCL_SEND_MESG_NUMB" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CYCL_NEW_FOLW_NUMB" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CYCL_NFLW_RIDM_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CYCL_ACTN_SLEP" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CYCL_HOST_MANG" Type="System.String" DbType="VarChar(17)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="Robot_Instagram_Robot_Instagram_Follow" Member="Robot_Instagram_Follows" ThisKey="CODE" OtherKey="RINS_CODE" Type="Robot_Instagram_Follow" />
+      <Association Name="Robot_Instagram_Robot_Instagram_DirectMessage" Member="Robot_Instagram_DirectMessages" ThisKey="CODE" OtherKey="RINS_CODE" Type="Robot_Instagram_DirectMessage" />
+      <Association Name="Robot_Robot_Instagram" Member="Robot" ThisKey="ROBO_RBID" OtherKey="RBID" Type="Robot" IsForeignKey="true" DeleteRule="CASCADE" />
     </Type>
   </Table>
   <Function Id="FunctionId3" Name="dbo.DEL_CNTY_P" Method="DEL_CNTY_P">
@@ -4269,6 +4322,10 @@
     <Parameter Name="Noti_Ordr_Recp_Stat" Parameter="noti_Ordr_Recp_Stat" Type="System.String" DbType="VarChar(3)" />
     <Parameter Name="Noti_Sond_Ordr_Recp_Path" Parameter="noti_Sond_Ordr_Recp_Path" Type="System.String" DbType="NVarChar(4000)" />
     <Parameter Name="Chck_Regs_Strt" Parameter="chck_Regs_Strt" Type="System.String" DbType="VarChar(3)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.INS_RIDM_P" Method="INS_RIDM_P">
+    <Parameter Name="X" Parameter="x" Type="System.Xml.Linq.XElement" DbType="Xml" />
     <Return Type="System.Int32" />
   </Function>
 </Database>

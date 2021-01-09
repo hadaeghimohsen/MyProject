@@ -100,6 +100,10 @@
       <HintPath>..\packages\InstagramApiSharp.1.5.0.1\lib\net452\InstagramApiSharp.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="InstaSharper, Version=1.4.82.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\InstaSharper.1.4.82\lib\net452\InstaSharper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="MihaZupan.HttpToSocks5Proxy, Version=1.4.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\HttpToSocks5Proxy.1.4.0\lib\net45\MihaZupan.HttpToSocks5Proxy.dll</HintPath>
@@ -179,6 +183,7 @@
     <Compile Include="Code\RoboTech.Uis.cs" />
     <Compile Include="Controller\BaleApiBot.cs" />
     <Compile Include="Controller\IApiBot.cs" />
+    <Compile Include="Controller\Instagram.cs" />
     <Compile Include="Controller\IRobotController.cs" />
     <Compile Include="Controller\RobotController.cs" />
     <Compile Include="Controller\TelegramApiBot.cs" />
@@ -528,6 +533,7 @@
     <None Include="Properties\DataSources\System.RoboTech.Data.D_SPTP.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_SPYT.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_SXTP.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.D_TMTP.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_TXFC.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_TXFT.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_URLT.datasource" />
@@ -600,6 +606,8 @@
     <None Include="Properties\DataSources\System.RoboTech.Data.Service_Robot_Upload.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Service_Robot_Visit.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Setting.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.Template.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.Template_Item.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Transaction_Fee.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.User_Organ_Fgac.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.User_Region_Fgac.datasource" />
@@ -1904,6 +1912,36 @@
     </Content>
     <Content Include="..\System.Resource\Resources\IMAGE_1701.png">
       <Link>Resources\IMAGE_1701.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1702.png">
+      <Link>Resources\IMAGE_1702.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1703.png">
+      <Link>Resources\IMAGE_1703.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1704.png">
+      <Link>Resources\IMAGE_1704.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1705.png">
+      <Link>Resources\IMAGE_1705.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1706.png">
+      <Link>Resources\IMAGE_1706.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1707.png">
+      <Link>Resources\IMAGE_1707.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1708.png">
+      <Link>Resources\IMAGE_1708.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1709.png">
+      <Link>Resources\IMAGE_1709.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1710.png">
+      <Link>Resources\IMAGE_1710.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1711.png">
+      <Link>Resources\IMAGE_1711.png</Link>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

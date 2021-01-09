@@ -30,21 +30,24 @@
       {
          this.components = new System.ComponentModel.Container();
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FRST_PAGE_F));
-         DevExpress.Utils.SuperToolTip superToolTip5 = new DevExpress.Utils.SuperToolTip();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem8 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.ToolTipItem toolTipItem5 = new DevExpress.Utils.ToolTipItem();
-         DevExpress.Utils.SuperToolTip superToolTip6 = new DevExpress.Utils.SuperToolTip();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem9 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.ToolTipItem toolTipItem6 = new DevExpress.Utils.ToolTipItem();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem10 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.SuperToolTip superToolTip7 = new DevExpress.Utils.SuperToolTip();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem11 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.ToolTipItem toolTipItem7 = new DevExpress.Utils.ToolTipItem();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem12 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.SuperToolTip superToolTip8 = new DevExpress.Utils.SuperToolTip();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem13 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.ToolTipItem toolTipItem8 = new DevExpress.Utils.ToolTipItem();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem14 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.SuperToolTip superToolTip11 = new DevExpress.Utils.SuperToolTip();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem17 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.ToolTipItem toolTipItem11 = new DevExpress.Utils.ToolTipItem();
+         DevExpress.Utils.SuperToolTip superToolTip12 = new DevExpress.Utils.SuperToolTip();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem18 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.ToolTipItem toolTipItem12 = new DevExpress.Utils.ToolTipItem();
+         DevExpress.Utils.SuperToolTip superToolTip13 = new DevExpress.Utils.SuperToolTip();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem19 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.ToolTipItem toolTipItem13 = new DevExpress.Utils.ToolTipItem();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem20 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.SuperToolTip superToolTip14 = new DevExpress.Utils.SuperToolTip();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem21 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.ToolTipItem toolTipItem14 = new DevExpress.Utils.ToolTipItem();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem22 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.SuperToolTip superToolTip15 = new DevExpress.Utils.SuperToolTip();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem23 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.ToolTipItem toolTipItem15 = new DevExpress.Utils.ToolTipItem();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem24 = new DevExpress.Utils.ToolTipTitleItem();
          this.c1Ribbon1 = new C1.Win.C1Ribbon.C1Ribbon();
          this.ribbonApplicationMenu1 = new C1.Win.C1Ribbon.RibbonApplicationMenu();
          this.ribbonBottomToolBar1 = new C1.Win.C1Ribbon.RibbonBottomToolBar();
@@ -80,6 +83,10 @@
          this.ribbonButton1 = new C1.Win.C1Ribbon.RibbonButton();
          this.ribbonTopToolBar1 = new C1.Win.C1Ribbon.RibbonTopToolBar();
          this.Pnl_Desktop = new DevExpress.XtraEditors.SplitContainerControl();
+         this.InstOprt_Mpb = new DevExpress.XtraEditors.MarqueeProgressBarControl();
+         this.InstagramOperationStatus_Rb = new System.MaxUi.RoundedButton();
+         this.NotfInstagramOperation_Butn = new System.MaxUi.RoundedButton();
+         this.InstagramOperation_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.NotfOrdrOnlineAdmission_Butn = new System.MaxUi.RoundedButton();
          this.OrderOnlineAdmission_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.NotfOrdrShip_Butn = new System.MaxUi.RoundedButton();
@@ -89,9 +96,11 @@
          this.AdjustDateTime_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.sb_logout = new DevExpress.XtraEditors.SimpleButton();
          this.Tm_ShowTime = new System.Windows.Forms.Timer(this.components);
+         this.Tm_InstOprt = new System.Windows.Forms.Timer(this.components);
          ((System.ComponentModel.ISupportInitialize)(this.c1Ribbon1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.Pnl_Desktop)).BeginInit();
          this.Pnl_Desktop.SuspendLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.InstOprt_Mpb.Properties)).BeginInit();
          this.SuspendLayout();
          // 
          // c1Ribbon1
@@ -102,7 +111,7 @@
          this.c1Ribbon1.Location = new System.Drawing.Point(0, 0);
          this.c1Ribbon1.Name = "c1Ribbon1";
          this.c1Ribbon1.QatHolder = this.ribbonQat1;
-         this.c1Ribbon1.Size = new System.Drawing.Size(1006, 143);
+         this.c1Ribbon1.Size = new System.Drawing.Size(911, 143);
          this.c1Ribbon1.Tabs.Add(this.ribbonTab1);
          this.c1Ribbon1.Tabs.Add(this.ribbonTab2);
          this.c1Ribbon1.Tabs.Add(this.ribbonTab3);
@@ -361,8 +370,12 @@
          this.Pnl_Desktop.Location = new System.Drawing.Point(0, 143);
          this.Pnl_Desktop.Name = "Pnl_Desktop";
          this.Pnl_Desktop.Panel1.Text = "Panel1";
-         this.Pnl_Desktop.Panel2.Appearance.BackColor = System.Drawing.Color.Gray;
+         this.Pnl_Desktop.Panel2.Appearance.BackColor = System.Drawing.Color.Silver;
          this.Pnl_Desktop.Panel2.Appearance.Options.UseBackColor = true;
+         this.Pnl_Desktop.Panel2.Controls.Add(this.InstOprt_Mpb);
+         this.Pnl_Desktop.Panel2.Controls.Add(this.InstagramOperationStatus_Rb);
+         this.Pnl_Desktop.Panel2.Controls.Add(this.NotfInstagramOperation_Butn);
+         this.Pnl_Desktop.Panel2.Controls.Add(this.InstagramOperation_Butn);
          this.Pnl_Desktop.Panel2.Controls.Add(this.NotfOrdrOnlineAdmission_Butn);
          this.Pnl_Desktop.Panel2.Controls.Add(this.OrderOnlineAdmission_Butn);
          this.Pnl_Desktop.Panel2.Controls.Add(this.NotfOrdrShip_Butn);
@@ -372,10 +385,106 @@
          this.Pnl_Desktop.Panel2.Controls.Add(this.AdjustDateTime_Butn);
          this.Pnl_Desktop.Panel2.Controls.Add(this.sb_logout);
          this.Pnl_Desktop.Panel2.Text = "Panel2";
-         this.Pnl_Desktop.Size = new System.Drawing.Size(1006, 477);
+         this.Pnl_Desktop.Size = new System.Drawing.Size(911, 534);
          this.Pnl_Desktop.SplitterPosition = 42;
          this.Pnl_Desktop.TabIndex = 1;
          this.Pnl_Desktop.Text = "splitContainerControl1";
+         // 
+         // InstOprt_Mpb
+         // 
+         this.InstOprt_Mpb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+         this.InstOprt_Mpb.EditValue = 0;
+         this.InstOprt_Mpb.Location = new System.Drawing.Point(170, 0);
+         this.InstOprt_Mpb.Name = "InstOprt_Mpb";
+         this.InstOprt_Mpb.Properties.LookAndFeel.SkinName = "Office 2013";
+         this.InstOprt_Mpb.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.InstOprt_Mpb.Properties.MarqueeAnimationSpeed = 500;
+         this.InstOprt_Mpb.Properties.ProgressKind = DevExpress.XtraEditors.Controls.ProgressKind.Vertical;
+         this.InstOprt_Mpb.Size = new System.Drawing.Size(7, 42);
+         this.InstOprt_Mpb.TabIndex = 25;
+         this.InstOprt_Mpb.Visible = false;
+         // 
+         // InstagramOperationStatus_Rb
+         // 
+         this.InstagramOperationStatus_Rb.Active = true;
+         this.InstagramOperationStatus_Rb.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+         this.InstagramOperationStatus_Rb.ButtonStyle = System.MaxUi.RoundedButton.ButtonStyles.Ellipse;
+         this.InstagramOperationStatus_Rb.Caption = "";
+         this.InstagramOperationStatus_Rb.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.InstagramOperationStatus_Rb.ForeColor = System.Drawing.Color.White;
+         this.InstagramOperationStatus_Rb.GradientStyle = System.MaxUi.RoundedButton.GradientStyles.Vertical;
+         this.InstagramOperationStatus_Rb.HoverBorderColor = System.Drawing.Color.Gold;
+         this.InstagramOperationStatus_Rb.HoverColorA = System.Drawing.Color.Transparent;
+         this.InstagramOperationStatus_Rb.HoverColorB = System.Drawing.Color.Transparent;
+         this.InstagramOperationStatus_Rb.ImageProfile = null;
+         this.InstagramOperationStatus_Rb.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.Normal;
+         this.InstagramOperationStatus_Rb.ImageVisiable = false;
+         this.InstagramOperationStatus_Rb.Location = new System.Drawing.Point(122, 30);
+         this.InstagramOperationStatus_Rb.Name = "InstagramOperationStatus_Rb";
+         this.InstagramOperationStatus_Rb.NormalBorderColor = System.Drawing.Color.DimGray;
+         this.InstagramOperationStatus_Rb.NormalColorA = System.Drawing.Color.Red;
+         this.InstagramOperationStatus_Rb.NormalColorB = System.Drawing.Color.Red;
+         this.InstagramOperationStatus_Rb.Size = new System.Drawing.Size(10, 10);
+         this.InstagramOperationStatus_Rb.SmoothingQuality = System.MaxUi.RoundedButton.SmoothingQualities.AntiAlias;
+         this.InstagramOperationStatus_Rb.TabIndex = 23;
+         this.InstagramOperationStatus_Rb.Tooltip = null;
+         // 
+         // NotfInstagramOperation_Butn
+         // 
+         this.NotfInstagramOperation_Butn.Active = true;
+         this.NotfInstagramOperation_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+         this.NotfInstagramOperation_Butn.ButtonStyle = System.MaxUi.RoundedButton.ButtonStyles.Ellipse;
+         this.NotfInstagramOperation_Butn.Caption = "0";
+         this.NotfInstagramOperation_Butn.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.NotfInstagramOperation_Butn.ForeColor = System.Drawing.SystemColors.HighlightText;
+         this.NotfInstagramOperation_Butn.GradientStyle = System.MaxUi.RoundedButton.GradientStyles.Vertical;
+         this.NotfInstagramOperation_Butn.HoverBorderColor = System.Drawing.Color.Gold;
+         this.NotfInstagramOperation_Butn.HoverColorA = System.Drawing.Color.Transparent;
+         this.NotfInstagramOperation_Butn.HoverColorB = System.Drawing.Color.Transparent;
+         this.NotfInstagramOperation_Butn.ImageProfile = null;
+         this.NotfInstagramOperation_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.Normal;
+         this.NotfInstagramOperation_Butn.ImageVisiable = false;
+         this.NotfInstagramOperation_Butn.Location = new System.Drawing.Point(117, 0);
+         this.NotfInstagramOperation_Butn.Name = "NotfInstagramOperation_Butn";
+         this.NotfInstagramOperation_Butn.NormalBorderColor = System.Drawing.Color.DimGray;
+         this.NotfInstagramOperation_Butn.NormalColorA = System.Drawing.Color.Red;
+         this.NotfInstagramOperation_Butn.NormalColorB = System.Drawing.Color.Yellow;
+         this.NotfInstagramOperation_Butn.Size = new System.Drawing.Size(22, 22);
+         this.NotfInstagramOperation_Butn.SmoothingQuality = System.MaxUi.RoundedButton.SmoothingQualities.AntiAlias;
+         this.NotfInstagramOperation_Butn.TabIndex = 22;
+         this.NotfInstagramOperation_Butn.Tooltip = null;
+         // 
+         // InstagramOperation_Butn
+         // 
+         this.InstagramOperation_Butn.Appearance.BackColor = System.Drawing.Color.Transparent;
+         this.InstagramOperation_Butn.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.InstagramOperation_Butn.Appearance.ForeColor = System.Drawing.Color.Transparent;
+         this.InstagramOperation_Butn.Appearance.Options.UseBackColor = true;
+         this.InstagramOperation_Butn.Appearance.Options.UseFont = true;
+         this.InstagramOperation_Butn.Appearance.Options.UseForeColor = true;
+         this.InstagramOperation_Butn.Dock = System.Windows.Forms.DockStyle.Left;
+         this.InstagramOperation_Butn.Enabled = false;
+         this.InstagramOperation_Butn.Image = global::System.RoboTech.Properties.Resources.IMAGE_1698;
+         this.InstagramOperation_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
+         this.InstagramOperation_Butn.Location = new System.Drawing.Point(117, 0);
+         this.InstagramOperation_Butn.LookAndFeel.SkinName = "Office 2010 Silver";
+         this.InstagramOperation_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.InstagramOperation_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.InstagramOperation_Butn.Name = "InstagramOperation_Butn";
+         this.InstagramOperation_Butn.Size = new System.Drawing.Size(57, 42);
+         toolTipTitleItem17.Appearance.Image = global::System.RoboTech.Properties.Resources.IMAGE_1698;
+         toolTipTitleItem17.Appearance.Options.UseImage = true;
+         toolTipTitleItem17.Image = global::System.RoboTech.Properties.Resources.IMAGE_1698;
+         toolTipTitleItem17.Text = "سرویس اتصال اینستاگرام";
+         toolTipItem11.LeftIndent = 6;
+         toolTipItem11.Text = "سرویس اتصال اینستاگرام برای ارسال پیام های گروهی به پیج و مشترکین شما";
+         superToolTip11.Items.Add(toolTipTitleItem17);
+         superToolTip11.Items.Add(toolTipItem11);
+         this.InstagramOperation_Butn.SuperTip = superToolTip11;
+         this.InstagramOperation_Butn.TabIndex = 21;
+         this.InstagramOperation_Butn.ToolTip = "4545";
          // 
          // NotfOrdrOnlineAdmission_Butn
          // 
@@ -393,7 +502,7 @@
          this.NotfOrdrOnlineAdmission_Butn.ImageProfile = null;
          this.NotfOrdrOnlineAdmission_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.Normal;
          this.NotfOrdrOnlineAdmission_Butn.ImageVisiable = false;
-         this.NotfOrdrOnlineAdmission_Butn.Location = new System.Drawing.Point(802, 0);
+         this.NotfOrdrOnlineAdmission_Butn.Location = new System.Drawing.Point(707, 0);
          this.NotfOrdrOnlineAdmission_Butn.Name = "NotfOrdrOnlineAdmission_Butn";
          this.NotfOrdrOnlineAdmission_Butn.NormalBorderColor = System.Drawing.Color.DimGray;
          this.NotfOrdrOnlineAdmission_Butn.NormalColorA = System.Drawing.Color.Red;
@@ -414,22 +523,22 @@
          this.OrderOnlineAdmission_Butn.Dock = System.Windows.Forms.DockStyle.Right;
          this.OrderOnlineAdmission_Butn.Image = global::System.RoboTech.Properties.Resources.IMAGE_1684;
          this.OrderOnlineAdmission_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
-         this.OrderOnlineAdmission_Butn.Location = new System.Drawing.Point(802, 0);
+         this.OrderOnlineAdmission_Butn.Location = new System.Drawing.Point(707, 0);
          this.OrderOnlineAdmission_Butn.LookAndFeel.SkinName = "Office 2010 Silver";
          this.OrderOnlineAdmission_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.OrderOnlineAdmission_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.OrderOnlineAdmission_Butn.Name = "OrderOnlineAdmission_Butn";
          this.OrderOnlineAdmission_Butn.Size = new System.Drawing.Size(52, 42);
-         toolTipTitleItem8.Appearance.Image = global::System.RoboTech.Properties.Resources.IMAGE_1684;
-         toolTipTitleItem8.Appearance.Options.UseImage = true;
-         toolTipTitleItem8.Image = global::System.RoboTech.Properties.Resources.IMAGE_1684;
-         toolTipTitleItem8.Text = "پذیرش سفارش انلاین";
-         toolTipItem5.LeftIndent = 6;
-         toolTipItem5.Text = "مشتریان برای خرید خود میتوانند به روش های مختلف میتوانند درخواست دهند و شما با ثب" +
+         toolTipTitleItem18.Appearance.Image = global::System.RoboTech.Properties.Resources.IMAGE_1684;
+         toolTipTitleItem18.Appearance.Options.UseImage = true;
+         toolTipTitleItem18.Image = global::System.RoboTech.Properties.Resources.IMAGE_1684;
+         toolTipTitleItem18.Text = "پذیرش سفارش انلاین";
+         toolTipItem12.LeftIndent = 6;
+         toolTipItem12.Text = "مشتریان برای خرید خود میتوانند به روش های مختلف میتوانند درخواست دهند و شما با ثب" +
     "ت فاکتور میتوانید در این امر به مشتریان خود کمک کنید";
-         superToolTip5.Items.Add(toolTipTitleItem8);
-         superToolTip5.Items.Add(toolTipItem5);
-         this.OrderOnlineAdmission_Butn.SuperTip = superToolTip5;
+         superToolTip12.Items.Add(toolTipTitleItem18);
+         superToolTip12.Items.Add(toolTipItem12);
+         this.OrderOnlineAdmission_Butn.SuperTip = superToolTip12;
          this.OrderOnlineAdmission_Butn.TabIndex = 19;
          this.OrderOnlineAdmission_Butn.Click += new System.EventHandler(this.OrderOnlineAdmission_Butn_Click);
          // 
@@ -449,7 +558,7 @@
          this.NotfOrdrShip_Butn.ImageProfile = null;
          this.NotfOrdrShip_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.Normal;
          this.NotfOrdrShip_Butn.ImageVisiable = false;
-         this.NotfOrdrShip_Butn.Location = new System.Drawing.Point(906, 0);
+         this.NotfOrdrShip_Butn.Location = new System.Drawing.Point(811, 0);
          this.NotfOrdrShip_Butn.Name = "NotfOrdrShip_Butn";
          this.NotfOrdrShip_Butn.NormalBorderColor = System.Drawing.Color.DimGray;
          this.NotfOrdrShip_Butn.NormalColorA = System.Drawing.Color.Red;
@@ -476,7 +585,7 @@
          this.NotfOrdrReceipt_Butn.ImageProfile = null;
          this.NotfOrdrReceipt_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.Normal;
          this.NotfOrdrReceipt_Butn.ImageVisiable = false;
-         this.NotfOrdrReceipt_Butn.Location = new System.Drawing.Point(853, 0);
+         this.NotfOrdrReceipt_Butn.Location = new System.Drawing.Point(758, 0);
          this.NotfOrdrReceipt_Butn.Name = "NotfOrdrReceipt_Butn";
          this.NotfOrdrReceipt_Butn.NormalBorderColor = System.Drawing.Color.DimGray;
          this.NotfOrdrReceipt_Butn.NormalColorA = System.Drawing.Color.Red;
@@ -498,30 +607,30 @@
          this.OrdrReceipt_Butn.Dock = System.Windows.Forms.DockStyle.Right;
          this.OrdrReceipt_Butn.Image = global::System.RoboTech.Properties.Resources.IMAGE_1682;
          this.OrdrReceipt_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
-         this.OrdrReceipt_Butn.Location = new System.Drawing.Point(854, 0);
+         this.OrdrReceipt_Butn.Location = new System.Drawing.Point(759, 0);
          this.OrdrReceipt_Butn.LookAndFeel.SkinName = "Office 2010 Silver";
          this.OrdrReceipt_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.OrdrReceipt_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.OrdrReceipt_Butn.Name = "OrdrReceipt_Butn";
          this.OrdrReceipt_Butn.Size = new System.Drawing.Size(52, 42);
-         toolTipTitleItem9.Appearance.Image = global::System.RoboTech.Properties.Resources.IMAGE_1682;
-         toolTipTitleItem9.Appearance.Options.UseImage = true;
-         toolTipTitleItem9.Image = global::System.RoboTech.Properties.Resources.IMAGE_1682;
-         toolTipTitleItem9.Text = "رسید پرداخت";
-         toolTipItem6.LeftIndent = 6;
-         toolTipItem6.Text = "مشتریان برای خرید های بالاتر که ممکن است سامانه پاسخگوی آنها نباشد رسید پرداختی خ" +
+         toolTipTitleItem19.Appearance.Image = global::System.RoboTech.Properties.Resources.IMAGE_1682;
+         toolTipTitleItem19.Appearance.Options.UseImage = true;
+         toolTipTitleItem19.Image = global::System.RoboTech.Properties.Resources.IMAGE_1682;
+         toolTipTitleItem19.Text = "رسید پرداخت";
+         toolTipItem13.LeftIndent = 6;
+         toolTipItem13.Text = "مشتریان برای خرید های بالاتر که ممکن است سامانه پاسخگوی آنها نباشد رسید پرداختی خ" +
     "ود را از روش های دیگری انجام دهند با این گزینه شما در تایید کردن آنها در خریدشان" +
     " به آنها کمک میکنید";
-         toolTipTitleItem10.Appearance.Image = global::System.RoboTech.Properties.Resources.IMAGE_1692;
-         toolTipTitleItem10.Appearance.Options.UseImage = true;
-         toolTipTitleItem10.Image = global::System.RoboTech.Properties.Resources.IMAGE_1692;
-         toolTipTitleItem10.LeftIndent = 6;
-         toolTipTitleItem10.Text = "این قسمت نیاز هست که رسید پرداخت ارسالی را با وصولی های حساب خود چک کنید و درصورت" +
+         toolTipTitleItem20.Appearance.Image = global::System.RoboTech.Properties.Resources.IMAGE_1692;
+         toolTipTitleItem20.Appearance.Options.UseImage = true;
+         toolTipTitleItem20.Image = global::System.RoboTech.Properties.Resources.IMAGE_1692;
+         toolTipTitleItem20.LeftIndent = 6;
+         toolTipTitleItem20.Text = "این قسمت نیاز هست که رسید پرداخت ارسالی را با وصولی های حساب خود چک کنید و درصورت" +
     " تایید رسید تاریخ و مبلغ رسید را برای مشتری خود تایید کنید";
-         superToolTip6.Items.Add(toolTipTitleItem9);
-         superToolTip6.Items.Add(toolTipItem6);
-         superToolTip6.Items.Add(toolTipTitleItem10);
-         this.OrdrReceipt_Butn.SuperTip = superToolTip6;
+         superToolTip13.Items.Add(toolTipTitleItem19);
+         superToolTip13.Items.Add(toolTipItem13);
+         superToolTip13.Items.Add(toolTipTitleItem20);
+         this.OrdrReceipt_Butn.SuperTip = superToolTip13;
          this.OrdrReceipt_Butn.TabIndex = 7;
          this.OrdrReceipt_Butn.Click += new System.EventHandler(this.OrdrReceipt_Butn_Click);
          // 
@@ -536,36 +645,36 @@
          this.OrdrShip_Butn.Dock = System.Windows.Forms.DockStyle.Right;
          this.OrdrShip_Butn.Image = global::System.RoboTech.Properties.Resources.IMAGE_1686;
          this.OrdrShip_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
-         this.OrdrShip_Butn.Location = new System.Drawing.Point(906, 0);
+         this.OrdrShip_Butn.Location = new System.Drawing.Point(811, 0);
          this.OrdrShip_Butn.LookAndFeel.SkinName = "Office 2010 Silver";
          this.OrdrShip_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.OrdrShip_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.OrdrShip_Butn.Name = "OrdrShip_Butn";
          this.OrdrShip_Butn.Size = new System.Drawing.Size(52, 42);
-         toolTipTitleItem11.Appearance.Image = global::System.RoboTech.Properties.Resources.IMAGE_1686;
-         toolTipTitleItem11.Appearance.Options.UseImage = true;
-         toolTipTitleItem11.Image = global::System.RoboTech.Properties.Resources.IMAGE_1686;
-         toolTipTitleItem11.Text = "وضعیت ارسال سفارشات";
-         toolTipItem7.LeftIndent = 6;
-         toolTipItem7.Text = "مشتریان شما دائما از فروشگاه شما خرید میکنند و مشخص میکنند که نحوه ارسال بسته سفا" +
+         toolTipTitleItem21.Appearance.Image = global::System.RoboTech.Properties.Resources.IMAGE_1686;
+         toolTipTitleItem21.Appearance.Options.UseImage = true;
+         toolTipTitleItem21.Image = global::System.RoboTech.Properties.Resources.IMAGE_1686;
+         toolTipTitleItem21.Text = "وضعیت ارسال سفارشات";
+         toolTipItem14.LeftIndent = 6;
+         toolTipItem14.Text = "مشتریان شما دائما از فروشگاه شما خرید میکنند و مشخص میکنند که نحوه ارسال بسته سفا" +
     "رش ها به چه گونه باشد";
-         toolTipTitleItem12.Appearance.Image = global::System.RoboTech.Properties.Resources.IMAGE_1692;
-         toolTipTitleItem12.Appearance.Options.UseImage = true;
-         toolTipTitleItem12.Image = global::System.RoboTech.Properties.Resources.IMAGE_1692;
-         toolTipTitleItem12.LeftIndent = 6;
-         toolTipTitleItem12.Text = "این قسمت به صورت اتومات مدیریت میشود و نیازی به دخالت نیروی پرسنلی نیست";
-         superToolTip7.Items.Add(toolTipTitleItem11);
-         superToolTip7.Items.Add(toolTipItem7);
-         superToolTip7.Items.Add(toolTipTitleItem12);
-         this.OrdrShip_Butn.SuperTip = superToolTip7;
+         toolTipTitleItem22.Appearance.Image = global::System.RoboTech.Properties.Resources.IMAGE_1692;
+         toolTipTitleItem22.Appearance.Options.UseImage = true;
+         toolTipTitleItem22.Image = global::System.RoboTech.Properties.Resources.IMAGE_1692;
+         toolTipTitleItem22.LeftIndent = 6;
+         toolTipTitleItem22.Text = "این قسمت به صورت اتومات مدیریت میشود و نیازی به دخالت نیروی پرسنلی نیست";
+         superToolTip14.Items.Add(toolTipTitleItem21);
+         superToolTip14.Items.Add(toolTipItem14);
+         superToolTip14.Items.Add(toolTipTitleItem22);
+         this.OrdrShip_Butn.SuperTip = superToolTip14;
          this.OrdrShip_Butn.TabIndex = 6;
          this.OrdrShip_Butn.Click += new System.EventHandler(this.OrdrShip_Butn_Click);
          // 
          // AdjustDateTime_Butn
          // 
          this.AdjustDateTime_Butn.Appearance.BackColor = System.Drawing.Color.Transparent;
-         this.AdjustDateTime_Butn.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.AdjustDateTime_Butn.Appearance.ForeColor = System.Drawing.Color.Honeydew;
+         this.AdjustDateTime_Butn.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.AdjustDateTime_Butn.Appearance.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
          this.AdjustDateTime_Butn.Appearance.Options.UseBackColor = true;
          this.AdjustDateTime_Butn.Appearance.Options.UseFont = true;
          this.AdjustDateTime_Butn.Appearance.Options.UseForeColor = true;
@@ -593,29 +702,29 @@
          this.sb_logout.Dock = System.Windows.Forms.DockStyle.Right;
          this.sb_logout.Image = global::System.RoboTech.Properties.Resources.IMAGE_1226;
          this.sb_logout.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.sb_logout.Location = new System.Drawing.Point(958, 0);
+         this.sb_logout.Location = new System.Drawing.Point(863, 0);
          this.sb_logout.LookAndFeel.SkinName = "Office 2010 Silver";
          this.sb_logout.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.sb_logout.LookAndFeel.UseDefaultLookAndFeel = false;
          this.sb_logout.Name = "sb_logout";
          this.sb_logout.Size = new System.Drawing.Size(48, 42);
-         toolTipTitleItem13.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
-         toolTipTitleItem13.Appearance.Options.UseImage = true;
-         toolTipTitleItem13.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem13.Image")));
-         toolTipTitleItem13.Text = "خروج از حساب کاربری";
-         toolTipItem8.LeftIndent = 6;
-         toolTipItem8.Text = "برای خروج اضطراری شما می توانید از این دکمه استفاده کنید. موارد مورد نیاز مانند ا" +
+         toolTipTitleItem23.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
+         toolTipTitleItem23.Appearance.Options.UseImage = true;
+         toolTipTitleItem23.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem23.Image")));
+         toolTipTitleItem23.Text = "خروج از حساب کاربری";
+         toolTipItem15.LeftIndent = 6;
+         toolTipItem15.Text = "برای خروج اضطراری شما می توانید از این دکمه استفاده کنید. موارد مورد نیاز مانند ا" +
     "ین می باشد که بخواهید برای لحظه ای سیستم را رها کنید. یا بخواهید با کاربری متفاو" +
     "تی وارد شوید.";
-         toolTipTitleItem14.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image1")));
-         toolTipTitleItem14.Appearance.Options.UseImage = true;
-         toolTipTitleItem14.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem14.Image")));
-         toolTipTitleItem14.LeftIndent = 6;
-         toolTipTitleItem14.Text = "Logout";
-         superToolTip8.Items.Add(toolTipTitleItem13);
-         superToolTip8.Items.Add(toolTipItem8);
-         superToolTip8.Items.Add(toolTipTitleItem14);
-         this.sb_logout.SuperTip = superToolTip8;
+         toolTipTitleItem24.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image1")));
+         toolTipTitleItem24.Appearance.Options.UseImage = true;
+         toolTipTitleItem24.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem24.Image")));
+         toolTipTitleItem24.LeftIndent = 6;
+         toolTipTitleItem24.Text = "Logout";
+         superToolTip15.Items.Add(toolTipTitleItem23);
+         superToolTip15.Items.Add(toolTipItem15);
+         superToolTip15.Items.Add(toolTipTitleItem24);
+         this.sb_logout.SuperTip = superToolTip15;
          this.sb_logout.TabIndex = 3;
          // 
          // Tm_ShowTime
@@ -623,6 +732,10 @@
          this.Tm_ShowTime.Enabled = true;
          this.Tm_ShowTime.Interval = 1000;
          this.Tm_ShowTime.Tick += new System.EventHandler(this.Tm_ShowTime_Tick);
+         // 
+         // Tm_InstOprt
+         // 
+         this.Tm_InstOprt.Interval = 2000;
          // 
          // FRST_PAGE_F
          // 
@@ -633,10 +746,11 @@
          this.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.Name = "FRST_PAGE_F";
          this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-         this.Size = new System.Drawing.Size(1006, 620);
+         this.Size = new System.Drawing.Size(911, 677);
          ((System.ComponentModel.ISupportInitialize)(this.c1Ribbon1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.Pnl_Desktop)).EndInit();
          this.Pnl_Desktop.ResumeLayout(false);
+         ((System.ComponentModel.ISupportInitialize)(this.InstOprt_Mpb.Properties)).EndInit();
          this.ResumeLayout(false);
          this.PerformLayout();
 
@@ -688,5 +802,10 @@
       private DevExpress.XtraEditors.SimpleButton OrderOnlineAdmission_Butn;
       private C1.Win.C1Ribbon.RibbonGroup ribbonGroup7;
       private C1.Win.C1Ribbon.RibbonButton InstPageConf_Butn;
+      private DevExpress.XtraEditors.SimpleButton InstagramOperation_Butn;
+      private MaxUi.RoundedButton InstagramOperationStatus_Rb;
+      private MaxUi.RoundedButton NotfInstagramOperation_Butn;
+      private Windows.Forms.Timer Tm_InstOprt;
+      private DevExpress.XtraEditors.MarqueeProgressBarControl InstOprt_Mpb;
    }
 }

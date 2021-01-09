@@ -1943,6 +1943,12 @@
     <Content Include="..\System.Resource\Resources\IMAGE_1711.png">
       <Link>Resources\IMAGE_1711.png</Link>
     </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1712.png">
+      <Link>Resources\IMAGE_1712.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1713.png">
+      <Link>Resources\IMAGE_1713.png</Link>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />

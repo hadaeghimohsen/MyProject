@@ -3019,6 +3019,13 @@ namespace System.RoboTech.Data
          IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), x);
          return ((int)(result.ReturnValue));
       }
+
+      [global::System.Data.Linq.Mapping.FunctionAttribute(Name = "dbo.DUP_RBPR_P")]
+      public int DUP_RBPR_P([global::System.Data.Linq.Mapping.ParameterAttribute(Name = "X", DbType = "Xml")] System.Xml.Linq.XElement x)
+      {
+         IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), x);
+         return ((int)(result.ReturnValue));
+      }
    }
 
    [global::System.Data.Linq.Mapping.TableAttribute(Name = "dbo.Admin")]

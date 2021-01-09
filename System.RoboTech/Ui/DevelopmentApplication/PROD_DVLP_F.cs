@@ -77,7 +77,7 @@ namespace System.RoboTech.Ui.DevelopmentApplication
             if(grop == null)
                iRoboTech.DBL_INS_GEXP_P(null, "001", Ordr_Txt.Text.ToInt16(), GropDesc_Txt.Text, "002");
             else
-               iRoboTech.DBL_INS_GEXP_P(grop.CODE, "001", Ordr_Txt.Text.ToInt16(), GropDesc_Txt.Text, "002");
+               iRoboTech.DBL_INS_GEXP_P((CretNewSuprGrop_Cbx.Checked ? null : (long?)grop.CODE), "001", Ordr_Txt.Text.ToInt16(), GropDesc_Txt.Text, "002");
 
             Ordr_Txt.Text = GropDesc_Txt.Text = "";
             requery = true;
@@ -295,6 +295,22 @@ namespace System.RoboTech.Ui.DevelopmentApplication
             if (RbprBs.List.OfType<Data.Robot_Product>().Any(p => p.CODE == 0)) return;
 
             var rbpr = RbprBs.AddNew() as Data.Robot_Product;
+            rbpr.STAT = "002";
+            rbpr.PROD_LIFE_STAT = "001";
+            rbpr.MIN_ORDR_DNRM = 1;
+            rbpr.ALRM_MIN_NUMB_DNRM = 1;
+            rbpr.WEGH_AMNT_DNRM = 1000;
+            rbpr.PROD_TYPE_DNRM = "002";
+            rbpr.NUMB_TYPE = "001";
+            rbpr.GRNT_STAT_DNRM = "001";
+            rbpr.GRNT_NUMB_DNRM = 0;
+            rbpr.GRNT_TIME_DNRM = "000";
+            rbpr.GRNT_TYPE_DNRM = "000";
+            rbpr.WRNT_STAT_DNRM = "001";
+            rbpr.WRNT_NUMB_DNRM = 0;
+            rbpr.WRNT_TIME_DNRM = "000";
+            rbpr.WRNT_TYPE_DNRM = "000";
+            rbpr.PROD_SUPL_LOCT_STAT = "001";
 
             iRoboTech.Robot_Products.InsertOnSubmit(rbpr);
 
@@ -705,7 +721,7 @@ namespace System.RoboTech.Ui.DevelopmentApplication
       {
          try
          {
-            var rbpp = RbprBs.Current as Data.Robot_Product_Preview;
+            var rbpp = RbppBs.Current as Data.Robot_Product_Preview;
             if (rbpp == null) return;
 
             if (MessageBox.Show(this, "آیا با حذف فایل های نمایش محصول موافق هستید؟", "حذف فایل نمایش محصول", MessageBoxButtons.YesNo) != DialogResult.Yes) return;
@@ -1623,6 +1639,7 @@ namespace System.RoboTech.Ui.DevelopmentApplication
 
       private void InfoProd_Tsb_Click(object sender, EventArgs e)
       {
+         Master_Tc.SelectedTab = ProductDef_Tp;
          Product_Tc.SelectedTab = ProductInfo_Tp;
       }
 
@@ -1818,6 +1835,191 @@ namespace System.RoboTech.Ui.DevelopmentApplication
          if(SaleBuyAmntLock_Pkb.PickChecked)
          {
             prod.EXPN_PRIC_DNRM = Convert.ToInt64(e.NewValue) + (Convert.ToInt64(e.NewValue) * PrctAmnt_Txt.Text.ToInt64() / 100);
+         }
+      }
+
+      private void GetMaxTarfCode_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var rbpr = RbprBs.Current as Data.Robot_Product;
+            if (rbpr == null) return;
+
+            if (rbpr.TARF_CODE != null && rbpr.TARF_CODE.Length > 0 && MessageBox.Show(this, "آیا مایل به تغییر کد تعرفه محصول هستین؟", "تغییر کد تعرفه محصول", MessageBoxButtons.YesNo) != DialogResult.Yes) return;
+
+            rbpr.TARF_CODE = 
+               (iRoboTech.Robot_Products
+                   .Where(p => p.TARF_CODE != null && p.TARF_CODE.Length > 0)
+                   .Select(p => p.TARF_CODE)
+                   .ToList()
+                   .Where(p => p.All(char.IsDigit))
+                   .Max(p => Convert.ToInt64(p)) + 1).ToString();
+         }
+         catch { }
+      }
+
+      private void GetMaxRwnoSubGrop_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var grop = VGexpBs.Current as Data.V_Group_Expense;
+            if (grop == null) return;
+
+            if (grop.CODE != 0) return;
+
+            // اگر سرگروه باشد
+            if (CretNewSuprGrop_Cbx.Checked)
+               grop.ORDR = (short?)
+                  (iRoboTech.V_Group_Expenses
+                  .Where(g => g.GEXP_CODE == null)
+                  .Max(g => g.ORDR) + 1);
+            else
+               grop.ORDR = (short?)
+                  (iRoboTech.V_Group_Expenses
+                  .Where(g => g.GEXP_CODE == grop.CODE)
+                  .Max(g => g.ORDR) + 1);
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void SnglDuplTarf_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var starf = RbprBs.Current as Data.Robot_Product;
+            if (starf == null) return;
+
+            iRoboTech.DUP_RBPR_P(
+               new XElement("Duplicate",
+                   new XAttribute("idty", DupTarfIdty_Cbtn.Checked),
+                   new XAttribute("gift", DupTarfGift_Cbtn.Checked),
+                   new XAttribute("stor", DupTarfStor_Cbtn.Checked),
+                   new XAttribute("rlat", DupTarfRlat_Cbtn.Checked),
+                   new XAttribute("sprc", DupTarfSprc_Cbtn.Checked),
+                   new XAttribute("altr", DupTarfAltr_Cbtn.Checked),
+                   new XAttribute("dsct", DupTarfDsct_Cbtn.Checked),
+                   new XAttribute("sprt", DupTarfSprt_Cbtn.Checked),
+                   new XAttribute("psam", DupTarfPSam_Cbtn.Checked),
+                   new XAttribute("type", "single"),
+                   new XElement("Robot_Product",
+                       new XElement("Source",
+                           new XAttribute("tarfcode", starf.TARF_CODE)
+                       )                       
+                   )
+               )
+            );
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void MoreDuplTarf_Butn_Click(object sender, EventArgs e)
+      {
+         IEnumerable<string> _fileNames = null;
+         try
+         {
+            var starf = RbprBs.Current as Data.Robot_Product;
+            if (starf == null) return;
+
+            if(UpldImagFldrProd_Fbd.ShowDialog() != DialogResult.OK)return;
+            var fileNames = Directory.GetFiles(UpldImagFldrProd_Fbd.SelectedPath, "*", SearchOption.AllDirectories).ToList().Where(f => !RbprBs.List.OfType<Data.Robot_Product>().Any(p => p.TARF_CODE == Path.GetFileNameWithoutExtension(f)));
+            if (fileNames.Count() == 0) return;
+
+            _fileNames = fileNames;
+
+            //SaveProdsDataOnSrvr_Pb.Visible = true;
+
+            iRoboTech.DUP_RBPR_P(
+               new XElement("Duplicate",
+                   new XAttribute("idty", DupTarfIdty_Cbtn.Checked),
+                   new XAttribute("gift", DupTarfGift_Cbtn.Checked),
+                   new XAttribute("stor", DupTarfStor_Cbtn.Checked),
+                   new XAttribute("rlat", DupTarfRlat_Cbtn.Checked),
+                   new XAttribute("sprc", DupTarfSprc_Cbtn.Checked),
+                   new XAttribute("altr", DupTarfAltr_Cbtn.Checked),
+                   new XAttribute("dsct", DupTarfDsct_Cbtn.Checked),
+                   new XAttribute("sprt", DupTarfSprt_Cbtn.Checked),
+                   new XAttribute("psam", DupTarfPSam_Cbtn.Checked),
+                   new XAttribute("type", "array"),
+                   new XElement("Robot_Product",
+                       new XElement("Source",
+                           new XAttribute("tarfcode", starf.TARF_CODE)
+                       ),
+                       new XElement("List",
+                          fileNames.Select(f =>
+                             new XElement("Product",
+                                new XAttribute("tarfcode", Path.GetFileNameWithoutExtension(f))                                
+                             )
+                          )
+                       )                       
+                   )
+               )
+            );
+
+            var adminChat =
+               iRoboTech.Service_Robots.FirstOrDefault(sr => sr.Service_Robot_Groups.Any(srg => srg.STAT == "002" && (srg.Group.GPID == 131 || srg.Group.GPID == 133 || srg.Group.GPID == 134)));
+
+            // Initial Form
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost",
+                  new List<Job>
+                     {
+                        new Job(SendType.Self, 11 /* Execute Strt_Robo_F */),
+                        new Job(SendType.SelfToUserInterface, "STRT_ROBO_F", 00 /* Execute ProcessCmdKey */){Input = Keys.Escape}                     
+                     }
+               )
+            );
+            // Step 1 Send Media to The BALE Server
+            // Step 2 Get FileId from Server
+            // Step 3 Save FileId For Selected Product
+            #region Send Message
+            // فراخوانی ربات برای ارسال مدیا برای ثبت و گرفتن آدرس لینک فایل سرور
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost",
+                  new List<Job>
+                        {
+                           //new Job(SendType.Self, 11 /* Execute Strt_Robo_F */),
+                           //new Job(SendType.SelfToUserInterface, "STRT_ROBO_F", 00 /* Execute ProcessCmdKey */){Input = Keys.Escape},
+                           new Job(SendType.SelfToUserInterface, "STRT_ROBO_F", 10 /* Execute Actn_CalF_P */)
+                           {
+                              Input = 
+                                 new XElement("Robot", 
+                                    new XAttribute("runrobot", "start"),
+                                    new XAttribute("actntype", "upldmediafile"),
+                                    new XAttribute("chatid", adminChat.CHAT_ID),
+                                    new XAttribute("command", "*"),
+                                    new XAttribute("rbid", adminChat.ROBO_RBID),
+                                    new XAttribute("mesg", string.Join(";", _fileNames)),
+                                    new XAttribute("trgttype", "preview")
+                                 )
+                           }                     
+                        }
+               )
+            );
+            #endregion
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
          }
       }      
    }

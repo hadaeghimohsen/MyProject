@@ -53,17 +53,20 @@ namespace System.RoboTech.Ui.DevelopmentApplication
       {
          try
          {
-            var crnt = RcbaBs.Current as Data.Robot_Card_Bank_Account;
-            if (crnt == null) return;
+            var rcba = RcbaBs.Current as Data.Robot_Card_Bank_Account;
+            if (rcba == null) return;
 
-            if(crnt.ACNT_TYPE.In("001", "003"))
-            {
-               SaveBankActn_Butn.Enabled = DelBankAcnt_Butn.Enabled = ActvBankAcnt_Butn.Enabled = AcntDesc1_Txt.Enabled = IdPayAdrs1_Txt.Enabled = false;
-            }
-            else
-            {
-               SaveBankActn_Butn.Enabled = DelBankAcnt_Butn.Enabled = ActvBankAcnt_Butn.Enabled = AcntDesc1_Txt.Enabled = IdPayAdrs1_Txt.Enabled = true;
-            }
+            //if(rcba.ACNT_TYPE.In("001", "003"))
+            //{
+            //   SaveBankActn_Butn.Enabled = DelBankAcnt_Butn.Enabled = ActvBankAcnt_Butn.Enabled = AcntDesc1_Txt.Enabled = IdPayAdrs1_Txt.Enabled = false;
+            //}
+            //else
+            //{
+            //   SaveBankActn_Butn.Enabled = DelBankAcnt_Butn.Enabled = ActvBankAcnt_Butn.Enabled = AcntDesc1_Txt.Enabled = IdPayAdrs1_Txt.Enabled = true;
+            //}
+
+            SaveBankActn_Butn.Enabled = DelBankAcnt_Butn.Enabled = ActvBankAcnt_Butn.Enabled = AcntDesc1_Txt.Enabled = IdPayAdrs1_Txt.Enabled = rcba.ACNT_TYPE.In("001", "003") ? false : true;
+            SrbtLinkAcnt_Butn.Enabled = rcba.ACNT_TYPE.In("001", "002") ? true : false;
          }
          catch (Exception exc)
          {
@@ -207,6 +210,41 @@ namespace System.RoboTech.Ui.DevelopmentApplication
       private void IdPayOpenSite_Butn_Click(object sender, EventArgs e)
       {
          Process.Start("https://idpay.ir/user/auth");
+      }
+
+      private void SrbtLinkAcnt_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var rcba = RcbaBs.Current as Data.Robot_Card_Bank_Account;
+            if (rcba == null) return;
+
+            if(!SrcbBs.List.OfType<Data.Service_Robot_Card_Bank>().Any(a => a.ACNT_TYPE_DNRM == rcba.ACNT_TYPE))
+            {
+               var srcb = SrcbBs.AddNew() as Data.Service_Robot_Card_Bank;
+               var srbt = 
+                  iRoboTech.Service_Robots
+                  .FirstOrDefault(sr => 
+                     (rcba.ACNT_TYPE == "001" && sr.CELL_PHON == "09033927103" && sr.NATL_CODE == "2372499424") ||
+                     (rcba.ACNT_TYPE == "002" && sr.Service_Robot_Groups.Any(g => g.GROP_GPID == 131 && g.STAT == "002"))
+                  );
+               srcb.Service_Robot = srbt;
+               srcb.Robot_Card_Bank_Account = rcba;
+
+               iRoboTech.Service_Robot_Card_Banks.InsertOnSubmit(srcb);
+               iRoboTech.SubmitChanges();
+               requery = true;
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
       }      
    }
 }

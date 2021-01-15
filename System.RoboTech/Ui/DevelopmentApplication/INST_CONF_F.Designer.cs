@@ -1519,6 +1519,7 @@
          this.rollout6.FrameOnMouseOverOnly = false;
          this.rollout6.GroupImage = null;
          this.rollout6.Location = new System.Drawing.Point(3, 3);
+         this.rollout6.MaxHeight = 444;
          this.rollout6.Name = "rollout6";
          this.rollout6.Padding = new System.Windows.Forms.Padding(4, 30, 3, 3);
          this.rollout6.PaintRollout = true;
@@ -1840,6 +1841,7 @@
          this.rollout7.FrameOnMouseOverOnly = false;
          this.rollout7.GroupImage = null;
          this.rollout7.Location = new System.Drawing.Point(3, 453);
+         this.rollout7.MaxHeight = 219;
          this.rollout7.Name = "rollout7";
          this.rollout7.Padding = new System.Windows.Forms.Padding(4, 30, 3, 3);
          this.rollout7.PaintRollout = true;
@@ -2300,6 +2302,7 @@
          this.rollout1.FrameOnMouseOverOnly = false;
          this.rollout1.GroupImage = null;
          this.rollout1.Location = new System.Drawing.Point(3, 678);
+         this.rollout1.MaxHeight = 608;
          this.rollout1.Name = "rollout1";
          this.rollout1.Padding = new System.Windows.Forms.Padding(4, 30, 3, 3);
          this.rollout1.PaintRollout = true;
@@ -2759,6 +2762,7 @@
          this.rollout8.FrameOnMouseOverOnly = false;
          this.rollout8.GroupImage = null;
          this.rollout8.Location = new System.Drawing.Point(3, 1292);
+         this.rollout8.MaxHeight = 288;
          this.rollout8.Name = "rollout8";
          this.rollout8.Padding = new System.Windows.Forms.Padding(4, 30, 3, 3);
          this.rollout8.PaintRollout = true;
@@ -3350,6 +3354,7 @@
          this.rollout4.FrameOnMouseOverOnly = false;
          this.rollout4.GroupImage = null;
          this.rollout4.Location = new System.Drawing.Point(4, 3);
+         this.rollout4.MaxHeight = 288;
          this.rollout4.Name = "rollout4";
          this.rollout4.Padding = new System.Windows.Forms.Padding(4, 30, 3, 3);
          this.rollout4.PaintRollout = true;
@@ -3671,6 +3676,7 @@
          this.rollout5.FrameOnMouseOverOnly = false;
          this.rollout5.GroupImage = null;
          this.rollout5.Location = new System.Drawing.Point(4, 453);
+         this.rollout5.MaxHeight = 288;
          this.rollout5.Name = "rollout5";
          this.rollout5.Padding = new System.Windows.Forms.Padding(4, 30, 3, 3);
          this.rollout5.PaintRollout = true;
@@ -4127,6 +4133,7 @@
          this.rollout9.FrameOnMouseOverOnly = false;
          this.rollout9.GroupImage = null;
          this.rollout9.Location = new System.Drawing.Point(4, 678);
+         this.rollout9.MaxHeight = 288;
          this.rollout9.Name = "rollout9";
          this.rollout9.Padding = new System.Windows.Forms.Padding(4, 30, 3, 3);
          this.rollout9.PaintRollout = true;
@@ -4582,6 +4589,7 @@
          this.rollout10.FrameOnMouseOverOnly = false;
          this.rollout10.GroupImage = null;
          this.rollout10.Location = new System.Drawing.Point(4, 1292);
+         this.rollout10.MaxHeight = 288;
          this.rollout10.Name = "rollout10";
          this.rollout10.Padding = new System.Windows.Forms.Padding(4, 30, 3, 3);
          this.rollout10.PaintRollout = true;
@@ -4995,6 +5003,7 @@
          this.Orgn_Ro.FrameOnMouseOverOnly = false;
          this.Orgn_Ro.GroupImage = null;
          this.Orgn_Ro.Location = new System.Drawing.Point(4, 3);
+         this.Orgn_Ro.MaxHeight = 288;
          this.Orgn_Ro.Name = "Orgn_Ro";
          this.Orgn_Ro.Padding = new System.Windows.Forms.Padding(4, 30, 3, 3);
          this.Orgn_Ro.PaintRollout = true;
@@ -5022,6 +5031,7 @@
          this.Robo_Ro.FrameOnMouseOverOnly = false;
          this.Robo_Ro.GroupImage = null;
          this.Robo_Ro.Location = new System.Drawing.Point(4, 31);
+         this.Robo_Ro.MaxHeight = 288;
          this.Robo_Ro.Name = "Robo_Ro";
          this.Robo_Ro.Padding = new System.Windows.Forms.Padding(4, 30, 3, 3);
          this.Robo_Ro.PaintRollout = true;
@@ -5055,6 +5065,7 @@
          this.rollout3.FrameOnMouseOverOnly = false;
          this.rollout3.GroupImage = null;
          this.rollout3.Location = new System.Drawing.Point(4, 59);
+         this.rollout3.MaxHeight = 1247;
          this.rollout3.Name = "rollout3";
          this.rollout3.Padding = new System.Windows.Forms.Padding(4, 30, 3, 3);
          this.rollout3.PaintRollout = true;
@@ -6518,6 +6529,7 @@
          this.rollout2.FrameOnMouseOverOnly = false;
          this.rollout2.GroupImage = null;
          this.rollout2.Location = new System.Drawing.Point(4, 1312);
+         this.rollout2.MaxHeight = 288;
          this.rollout2.Name = "rollout2";
          this.rollout2.Padding = new System.Windows.Forms.Padding(4, 30, 3, 3);
          this.rollout2.PaintRollout = true;

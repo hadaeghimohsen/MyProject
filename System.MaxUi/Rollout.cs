@@ -90,6 +90,14 @@ namespace System.MaxUi
       }
 
       /// <summary>This feature will paint the background color of the control.</summary>
+      [Category("Appearance"), Description("This feature will paint the Max Height of the control.")]
+      public int MaxHeight
+      {
+         get { return v_MaxHeight; }
+         set { v_MaxHeight = value; }
+      }
+
+      /// <summary>This feature will paint the background color of the control.</summary>
       [Category("Appearance"), Description("This feature will paint the background color of the control.")]
       public override System.Drawing.Color BackColor { get { return V_BackColor; } set { V_BackColor = value; this.Refresh(); } }
 

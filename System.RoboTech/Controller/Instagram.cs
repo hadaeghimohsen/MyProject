@@ -107,5 +107,21 @@ namespace System.RoboTech.Controller
             return false;
          }
       }
+
+      internal async Task<bool> FolowNewUserAsync(Robot_Instagram_Follow _newFollowUser)
+      {
+         try
+         {
+            var _login = await LoginAsync();
+            if (!_login) return false;
+
+            var result = await _instaApi.UserProcessor.FollowUserAsync(_newFollowUser.INST_PKID);
+            return result.Succeeded;
+         }
+         catch 
+         {
+            return false;
+         }
+      }
    }
 }

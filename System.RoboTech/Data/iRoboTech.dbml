@@ -2858,6 +2858,7 @@
       <Association Name="Robot_Robot_Limited_Commodity_Group" Member="Robot_Limited_Commodity_Groups" ThisKey="RBID" OtherKey="ROBO_RBID" Type="Robot_Limited_Commodity_Group" />
       <Association Name="Robot_Template_Item" Member="Template_Items" ThisKey="RBID" OtherKey="ROBO_RBID" Type="Template_Item" />
       <Association Name="Robot_Template" Member="Templates" ThisKey="RBID" OtherKey="ROBO_RBID" Type="Template" />
+      <Association Name="Robot_Robot_Search_Engine" Member="Robot_Search_Engines" ThisKey="RBID" OtherKey="ROBO_RBID" Type="Robot_Search_Engine" />
       <Association Name="Robot_Robot_Instagram" Member="Robot_Instagrams" ThisKey="RBID" OtherKey="ROBO_RBID" Type="Robot_Instagram" />
       <Association Name="Organ_Robot" Member="Organ" ThisKey="ORGN_OGID" OtherKey="OGID" Type="Organ" IsForeignKey="true" />
       <Association Name="Robot_Robot" Member="Robot1" ThisKey="ROBO_RBID" OtherKey="RBID" Type="Robot" IsForeignKey="true" />
@@ -3093,6 +3094,28 @@
       <Association Name="Robot_Instagram_Robot_Instagram_DirectMessage" Member="Robot_Instagram" ThisKey="RINS_CODE" OtherKey="CODE" Type="Robot_Instagram" IsForeignKey="true" DeleteRule="CASCADE" />
     </Type>
   </Table>
+  <Table Name="dbo.D$SETP" Member="D_SETPs">
+    <Type Name="D_SETP">
+      <Column Name="VALU" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="DOMN_DESC" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Robot_Search_Engine" Member="Robot_Search_Engines">
+    <Type Name="Robot_Search_Engine">
+      <Column Name="ROBO_RBID" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="SGID" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SRCH_ENGN_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="NAME" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="WEB_SITE" Type="System.String" DbType="VarChar(500)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ORDR" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="Robot_Robot_Search_Engine" Member="Robot" ThisKey="ROBO_RBID" OtherKey="RBID" Type="Robot" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
   <Table Name="dbo.Robot_Instagram" Member="Robot_Instagrams">
     <Type Name="Robot_Instagram">
       <Column Name="ROBO_RBID" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
@@ -3122,7 +3145,7 @@
       <Column Name="CYCL_INTR" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="CYCL_SEND_MESG_NUMB" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="CYCL_NEW_FOLW_NUMB" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="CYCL_NFLW_RIDM_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CYCL_NFLW_TMPL_TMID" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="CYCL_ACTN_SLEP" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="CYCL_HOST_MANG" Type="System.String" DbType="VarChar(17)" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />

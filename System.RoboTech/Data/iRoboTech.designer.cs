@@ -186,6 +186,9 @@ namespace System.RoboTech.Data
       partial void InsertRobot_Instagram_DirectMessage(Robot_Instagram_DirectMessage instance);
       partial void UpdateRobot_Instagram_DirectMessage(Robot_Instagram_DirectMessage instance);
       partial void DeleteRobot_Instagram_DirectMessage(Robot_Instagram_DirectMessage instance);
+      partial void InsertRobot_Search_Engine(Robot_Search_Engine instance);
+      partial void UpdateRobot_Search_Engine(Robot_Search_Engine instance);
+      partial void DeleteRobot_Search_Engine(Robot_Search_Engine instance);
       partial void InsertRobot_Instagram(Robot_Instagram instance);
       partial void UpdateRobot_Instagram(Robot_Instagram instance);
       partial void DeleteRobot_Instagram(Robot_Instagram instance);
@@ -1330,6 +1333,22 @@ namespace System.RoboTech.Data
          get
          {
             return this.GetTable<Robot_Instagram_DirectMessage>();
+         }
+      }
+
+      public System.Data.Linq.Table<D_SETP> D_SETPs
+      {
+         get
+         {
+            return this.GetTable<D_SETP>();
+         }
+      }
+
+      public System.Data.Linq.Table<Robot_Search_Engine> Robot_Search_Engines
+      {
+         get
+         {
+            return this.GetTable<Robot_Search_Engine>();
          }
       }
 
@@ -43325,6 +43344,8 @@ namespace System.RoboTech.Data
 
       private EntitySet<Template> _Templates;
 
+      private EntitySet<Robot_Search_Engine> _Robot_Search_Engines;
+
       private EntitySet<Robot_Instagram> _Robot_Instagrams;
 
       private EntityRef<Organ> _Organ;
@@ -43472,6 +43493,7 @@ namespace System.RoboTech.Data
          this._Robot_Limited_Commodity_Groups = new EntitySet<Robot_Limited_Commodity_Group>(new Action<Robot_Limited_Commodity_Group>(this.attach_Robot_Limited_Commodity_Groups), new Action<Robot_Limited_Commodity_Group>(this.detach_Robot_Limited_Commodity_Groups));
          this._Template_Items = new EntitySet<Template_Item>(new Action<Template_Item>(this.attach_Template_Items), new Action<Template_Item>(this.detach_Template_Items));
          this._Templates = new EntitySet<Template>(new Action<Template>(this.attach_Templates), new Action<Template>(this.detach_Templates));
+         this._Robot_Search_Engines = new EntitySet<Robot_Search_Engine>(new Action<Robot_Search_Engine>(this.attach_Robot_Search_Engines), new Action<Robot_Search_Engine>(this.detach_Robot_Search_Engines));
          this._Robot_Instagrams = new EntitySet<Robot_Instagram>(new Action<Robot_Instagram>(this.attach_Robot_Instagrams), new Action<Robot_Instagram>(this.detach_Robot_Instagrams));
          this._Organ = default(EntityRef<Organ>);
          this._Robot1 = default(EntityRef<Robot>);
@@ -44891,6 +44913,19 @@ namespace System.RoboTech.Data
          }
       }
 
+      [global::System.Data.Linq.Mapping.AssociationAttribute(Name = "Robot_Robot_Search_Engine", Storage = "_Robot_Search_Engines", ThisKey = "RBID", OtherKey = "ROBO_RBID")]
+      public EntitySet<Robot_Search_Engine> Robot_Search_Engines
+      {
+         get
+         {
+            return this._Robot_Search_Engines;
+         }
+         set
+         {
+            this._Robot_Search_Engines.Assign(value);
+         }
+      }
+
       [global::System.Data.Linq.Mapping.AssociationAttribute(Name = "Robot_Robot_Instagram", Storage = "_Robot_Instagrams", ThisKey = "RBID", OtherKey = "ROBO_RBID")]
       public EntitySet<Robot_Instagram> Robot_Instagrams
       {
@@ -45287,6 +45322,18 @@ namespace System.RoboTech.Data
       }
 
       private void detach_Templates(Template entity)
+      {
+         this.SendPropertyChanging();
+         entity.Robot = null;
+      }
+
+      private void attach_Robot_Search_Engines(Robot_Search_Engine entity)
+      {
+         this.SendPropertyChanging();
+         entity.Robot = this;
+      }
+
+      private void detach_Robot_Search_Engines(Robot_Search_Engine entity)
       {
          this.SendPropertyChanging();
          entity.Robot = null;
@@ -48176,6 +48223,394 @@ namespace System.RoboTech.Data
       }
    }
 
+   [global::System.Data.Linq.Mapping.TableAttribute(Name = "dbo.D$SETP")]
+   public partial class D_SETP
+   {
+
+      private string _VALU;
+
+      private string _DOMN_DESC;
+
+      public D_SETP()
+      {
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_VALU", DbType = "VarChar(3) NOT NULL", CanBeNull = false)]
+      public string VALU
+      {
+         get
+         {
+            return this._VALU;
+         }
+         set
+         {
+            if ((this._VALU != value))
+            {
+               this._VALU = value;
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_DOMN_DESC", DbType = "NVarChar(255) NOT NULL", CanBeNull = false)]
+      public string DOMN_DESC
+      {
+         get
+         {
+            return this._DOMN_DESC;
+         }
+         set
+         {
+            if ((this._DOMN_DESC != value))
+            {
+               this._DOMN_DESC = value;
+            }
+         }
+      }
+   }
+
+   [global::System.Data.Linq.Mapping.TableAttribute(Name = "dbo.Robot_Search_Engine")]
+   public partial class Robot_Search_Engine : INotifyPropertyChanging, INotifyPropertyChanged
+   {
+
+      private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+
+      private System.Nullable<long> _ROBO_RBID;
+
+      private long _SGID;
+
+      private string _SRCH_ENGN_TYPE;
+
+      private string _NAME;
+
+      private string _WEB_SITE;
+
+      private string _STAT;
+
+      private System.Nullable<int> _ORDR;
+
+      private string _CRET_BY;
+
+      private System.Nullable<System.DateTime> _CRET_DATE;
+
+      private string _MDFY_BY;
+
+      private System.Nullable<System.DateTime> _MDFY_DATE;
+
+      private EntityRef<Robot> _Robot;
+
+      #region Extensibility Method Definitions
+      partial void OnLoaded();
+      partial void OnValidate(System.Data.Linq.ChangeAction action);
+      partial void OnCreated();
+      partial void OnROBO_RBIDChanging(System.Nullable<long> value);
+      partial void OnROBO_RBIDChanged();
+      partial void OnSGIDChanging(long value);
+      partial void OnSGIDChanged();
+      partial void OnSRCH_ENGN_TYPEChanging(string value);
+      partial void OnSRCH_ENGN_TYPEChanged();
+      partial void OnNAMEChanging(string value);
+      partial void OnNAMEChanged();
+      partial void OnWEB_SITEChanging(string value);
+      partial void OnWEB_SITEChanged();
+      partial void OnSTATChanging(string value);
+      partial void OnSTATChanged();
+      partial void OnORDRChanging(System.Nullable<int> value);
+      partial void OnORDRChanged();
+      partial void OnCRET_BYChanging(string value);
+      partial void OnCRET_BYChanged();
+      partial void OnCRET_DATEChanging(System.Nullable<System.DateTime> value);
+      partial void OnCRET_DATEChanged();
+      partial void OnMDFY_BYChanging(string value);
+      partial void OnMDFY_BYChanged();
+      partial void OnMDFY_DATEChanging(System.Nullable<System.DateTime> value);
+      partial void OnMDFY_DATEChanged();
+      #endregion
+
+      public Robot_Search_Engine()
+      {
+         this._Robot = default(EntityRef<Robot>);
+         OnCreated();
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_ROBO_RBID", DbType = "BigInt", UpdateCheck = UpdateCheck.Never)]
+      public System.Nullable<long> ROBO_RBID
+      {
+         get
+         {
+            return this._ROBO_RBID;
+         }
+         set
+         {
+            if ((this._ROBO_RBID != value))
+            {
+               if (this._Robot.HasLoadedOrAssignedValue)
+               {
+                  throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+               }
+               this.OnROBO_RBIDChanging(value);
+               this.SendPropertyChanging();
+               this._ROBO_RBID = value;
+               this.SendPropertyChanged("ROBO_RBID");
+               this.OnROBO_RBIDChanged();
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_SGID", DbType = "BigInt NOT NULL", IsPrimaryKey = true)]
+      public long SGID
+      {
+         get
+         {
+            return this._SGID;
+         }
+         set
+         {
+            if ((this._SGID != value))
+            {
+               this.OnSGIDChanging(value);
+               this.SendPropertyChanging();
+               this._SGID = value;
+               this.SendPropertyChanged("SGID");
+               this.OnSGIDChanged();
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_SRCH_ENGN_TYPE", DbType = "VarChar(3)", UpdateCheck = UpdateCheck.Never)]
+      public string SRCH_ENGN_TYPE
+      {
+         get
+         {
+            return this._SRCH_ENGN_TYPE;
+         }
+         set
+         {
+            if ((this._SRCH_ENGN_TYPE != value))
+            {
+               this.OnSRCH_ENGN_TYPEChanging(value);
+               this.SendPropertyChanging();
+               this._SRCH_ENGN_TYPE = value;
+               this.SendPropertyChanged("SRCH_ENGN_TYPE");
+               this.OnSRCH_ENGN_TYPEChanged();
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_NAME", DbType = "NVarChar(100)", UpdateCheck = UpdateCheck.Never)]
+      public string NAME
+      {
+         get
+         {
+            return this._NAME;
+         }
+         set
+         {
+            if ((this._NAME != value))
+            {
+               this.OnNAMEChanging(value);
+               this.SendPropertyChanging();
+               this._NAME = value;
+               this.SendPropertyChanged("NAME");
+               this.OnNAMEChanged();
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_WEB_SITE", DbType = "VarChar(500)", UpdateCheck = UpdateCheck.Never)]
+      public string WEB_SITE
+      {
+         get
+         {
+            return this._WEB_SITE;
+         }
+         set
+         {
+            if ((this._WEB_SITE != value))
+            {
+               this.OnWEB_SITEChanging(value);
+               this.SendPropertyChanging();
+               this._WEB_SITE = value;
+               this.SendPropertyChanged("WEB_SITE");
+               this.OnWEB_SITEChanged();
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_STAT", DbType = "VarChar(3)", UpdateCheck = UpdateCheck.Never)]
+      public string STAT
+      {
+         get
+         {
+            return this._STAT;
+         }
+         set
+         {
+            if ((this._STAT != value))
+            {
+               this.OnSTATChanging(value);
+               this.SendPropertyChanging();
+               this._STAT = value;
+               this.SendPropertyChanged("STAT");
+               this.OnSTATChanged();
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_ORDR", DbType = "Int", UpdateCheck = UpdateCheck.Never)]
+      public System.Nullable<int> ORDR
+      {
+         get
+         {
+            return this._ORDR;
+         }
+         set
+         {
+            if ((this._ORDR != value))
+            {
+               this.OnORDRChanging(value);
+               this.SendPropertyChanging();
+               this._ORDR = value;
+               this.SendPropertyChanged("ORDR");
+               this.OnORDRChanged();
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_CRET_BY", DbType = "VarChar(250)", UpdateCheck = UpdateCheck.Never)]
+      public string CRET_BY
+      {
+         get
+         {
+            return this._CRET_BY;
+         }
+         set
+         {
+            if ((this._CRET_BY != value))
+            {
+               this.OnCRET_BYChanging(value);
+               this.SendPropertyChanging();
+               this._CRET_BY = value;
+               this.SendPropertyChanged("CRET_BY");
+               this.OnCRET_BYChanged();
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_CRET_DATE", DbType = "DateTime", UpdateCheck = UpdateCheck.Never)]
+      public System.Nullable<System.DateTime> CRET_DATE
+      {
+         get
+         {
+            return this._CRET_DATE;
+         }
+         set
+         {
+            if ((this._CRET_DATE != value))
+            {
+               this.OnCRET_DATEChanging(value);
+               this.SendPropertyChanging();
+               this._CRET_DATE = value;
+               this.SendPropertyChanged("CRET_DATE");
+               this.OnCRET_DATEChanged();
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_MDFY_BY", DbType = "VarChar(250)", UpdateCheck = UpdateCheck.Never)]
+      public string MDFY_BY
+      {
+         get
+         {
+            return this._MDFY_BY;
+         }
+         set
+         {
+            if ((this._MDFY_BY != value))
+            {
+               this.OnMDFY_BYChanging(value);
+               this.SendPropertyChanging();
+               this._MDFY_BY = value;
+               this.SendPropertyChanged("MDFY_BY");
+               this.OnMDFY_BYChanged();
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_MDFY_DATE", DbType = "DateTime", UpdateCheck = UpdateCheck.Never)]
+      public System.Nullable<System.DateTime> MDFY_DATE
+      {
+         get
+         {
+            return this._MDFY_DATE;
+         }
+         set
+         {
+            if ((this._MDFY_DATE != value))
+            {
+               this.OnMDFY_DATEChanging(value);
+               this.SendPropertyChanging();
+               this._MDFY_DATE = value;
+               this.SendPropertyChanged("MDFY_DATE");
+               this.OnMDFY_DATEChanged();
+            }
+         }
+      }
+
+      [global::System.Data.Linq.Mapping.AssociationAttribute(Name = "Robot_Robot_Search_Engine", Storage = "_Robot", ThisKey = "ROBO_RBID", OtherKey = "RBID", IsForeignKey = true, DeleteRule = "CASCADE")]
+      public Robot Robot
+      {
+         get
+         {
+            return this._Robot.Entity;
+         }
+         set
+         {
+            Robot previousValue = this._Robot.Entity;
+            if (((previousValue != value)
+                     || (this._Robot.HasLoadedOrAssignedValue == false)))
+            {
+               this.SendPropertyChanging();
+               if ((previousValue != null))
+               {
+                  this._Robot.Entity = null;
+                  previousValue.Robot_Search_Engines.Remove(this);
+               }
+               this._Robot.Entity = value;
+               if ((value != null))
+               {
+                  value.Robot_Search_Engines.Add(this);
+                  this._ROBO_RBID = value.RBID;
+               }
+               else
+               {
+                  this._ROBO_RBID = default(Nullable<long>);
+               }
+               this.SendPropertyChanged("Robot");
+            }
+         }
+      }
+
+      public event PropertyChangingEventHandler PropertyChanging;
+
+      public event PropertyChangedEventHandler PropertyChanged;
+
+      protected virtual void SendPropertyChanging()
+      {
+         if ((this.PropertyChanging != null))
+         {
+            this.PropertyChanging(this, emptyChangingEventArgs);
+         }
+      }
+
+      protected virtual void SendPropertyChanged(String propertyName)
+      {
+         if ((this.PropertyChanged != null))
+         {
+            this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+         }
+      }
+   }
+
    [global::System.Data.Linq.Mapping.TableAttribute(Name = "dbo.Robot_Instagram")]
    public partial class Robot_Instagram : INotifyPropertyChanging, INotifyPropertyChanged
    {
@@ -48236,7 +48671,7 @@ namespace System.RoboTech.Data
 
       private System.Nullable<int> _CYCL_NEW_FOLW_NUMB;
 
-      private System.Nullable<long> _CYCL_NFLW_RIDM_CODE;
+      private System.Nullable<long> _CYCL_NFLW_TMPL_TMID;
 
       private System.Nullable<int> _CYCL_ACTN_SLEP;
 
@@ -48316,8 +48751,8 @@ namespace System.RoboTech.Data
       partial void OnCYCL_SEND_MESG_NUMBChanged();
       partial void OnCYCL_NEW_FOLW_NUMBChanging(System.Nullable<int> value);
       partial void OnCYCL_NEW_FOLW_NUMBChanged();
-      partial void OnCYCL_NFLW_RIDM_CODEChanging(System.Nullable<long> value);
-      partial void OnCYCL_NFLW_RIDM_CODEChanged();
+      partial void OnCYCL_NFLW_TMPL_TMIDChanging(System.Nullable<long> value);
+      partial void OnCYCL_NFLW_TMPL_TMIDChanged();
       partial void OnCYCL_ACTN_SLEPChanging(System.Nullable<int> value);
       partial void OnCYCL_ACTN_SLEPChanged();
       partial void OnCYCL_HOST_MANGChanging(string value);
@@ -48886,22 +49321,22 @@ namespace System.RoboTech.Data
          }
       }
 
-      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_CYCL_NFLW_RIDM_CODE", DbType = "BigInt", UpdateCheck = UpdateCheck.Never)]
-      public System.Nullable<long> CYCL_NFLW_RIDM_CODE
+      [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_CYCL_NFLW_TMPL_TMID", DbType = "BigInt", UpdateCheck = UpdateCheck.Never)]
+      public System.Nullable<long> CYCL_NFLW_TMPL_TMID
       {
          get
          {
-            return this._CYCL_NFLW_RIDM_CODE;
+            return this._CYCL_NFLW_TMPL_TMID;
          }
          set
          {
-            if ((this._CYCL_NFLW_RIDM_CODE != value))
+            if ((this._CYCL_NFLW_TMPL_TMID != value))
             {
-               this.OnCYCL_NFLW_RIDM_CODEChanging(value);
+               this.OnCYCL_NFLW_TMPL_TMIDChanging(value);
                this.SendPropertyChanging();
-               this._CYCL_NFLW_RIDM_CODE = value;
-               this.SendPropertyChanged("CYCL_NFLW_RIDM_CODE");
-               this.OnCYCL_NFLW_RIDM_CODEChanged();
+               this._CYCL_NFLW_TMPL_TMID = value;
+               this.SendPropertyChanged("CYCL_NFLW_TMPL_TMID");
+               this.OnCYCL_NFLW_TMPL_TMIDChanged();
             }
          }
       }

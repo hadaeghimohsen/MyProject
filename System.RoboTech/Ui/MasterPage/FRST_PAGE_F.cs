@@ -12,6 +12,7 @@ using System.Globalization;
 using System.Threading;
 using System.Xml.Linq;
 using System.RoboTech.ExtCode;
+using System.Data.Entity.SqlServer;
 
 namespace System.RoboTech.Ui.MasterPage
 {
@@ -27,6 +28,12 @@ namespace System.RoboTech.Ui.MasterPage
       private bool instagramOperationStatus = false;
       private DateTime instagramTriggerTime = DateTime.Now;
       private bool instagramAtService = true;
+      private enum DoOprtInsta
+      {
+         DirectMessage,
+         FollowNewUser
+      }
+      private DoOprtInsta _doOprtInsta = DoOprtInsta.DirectMessage;
 
       #region BaseDefinition
 
@@ -608,26 +615,38 @@ namespace System.RoboTech.Ui.MasterPage
 
             instagramTimerInterval = (int)(inst.CYCL_INTR * 60 * 1000 ?? 5 * 60 * 1000);
             instagramOperationStatus = inst.CYCL_STAT == "002" ? true : false;
-            //Tm_InstOprt.Enabled = false;
-            //Tm_InstOprt.Interval = 2000;//(int)(inst.CYCL_INTR * 60 * 1000 ?? 5 * 60 * 1000);
-            //Tm_InstOprt.Enabled = inst.CYCL_STAT == "002" ? true : false;
-            //Tm_InstOprt.Enabled = true;
 
             if (inst.CYCL_STAT == "002")
             {
                InstagramOperationStatus_Rb.NormalColorA = InstagramOperationStatus_Rb.NormalColorB = Color.Lime;
                if (InvokeRequired)
-                  Invoke(new System.Action(() => { NotfInstagramOperation_Butn.Caption = inst.Robot_Instagram_DirectMessages.Where(d => d.SEND_STAT == "005").Count().ToString(); }));
+                  Invoke(new System.Action(() =>
+                  {
+                     var _count = inst.Robot_Instagram_DirectMessages.Where(d => d.SEND_STAT == "005").Count();
+                     NotfInstagramOperation_Butn.Caption = _count.ToString();
+                     NotfInstagramOperation_Butn.Visible = (_count > 0);
+                  }));
                else
-                  NotfInstagramOperation_Butn.Caption = inst.Robot_Instagram_DirectMessages.Where(d => d.SEND_STAT == "005").Count().ToString();
+               {
+                  var _count = inst.Robot_Instagram_DirectMessages.Where(d => d.SEND_STAT == "005").Count();
+                  NotfInstagramOperation_Butn.Caption = _count.ToString();
+                  NotfInstagramOperation_Butn.Visible = (_count > 0);
+               }
             }
             else
             {
                InstagramOperationStatus_Rb.NormalColorA = InstagramOperationStatus_Rb.NormalColorB = Color.Red;
                if (InvokeRequired)
-                  Invoke(new System.Action(() => { NotfInstagramOperation_Butn.Caption = "0"; }));
+                  Invoke(new System.Action(() =>
+                  {
+                     NotfInstagramOperation_Butn.Visible = false;
+                     NotfInstagramOperation_Butn.Caption = "0";
+                  }));
                else
+               {
+                  NotfInstagramOperation_Butn.Visible = false;
                   NotfInstagramOperation_Butn.Caption = "0";
+               }
             }            
          }
          catch (Exception exc)
@@ -644,45 +663,150 @@ namespace System.RoboTech.Ui.MasterPage
             var inst = iRoboTech.Robot_Instagrams.FirstOrDefault(i => i.PAGE_OWNR_TYPE == "002" && i.STAT == "002" && i.CYCL_STAT == "002");
             // اگر هیچ پیج اینستاگرامی وجود نداشته باشد
             if (inst == null) return;
-
-            #region Direction Message
-            var dirMsgs = inst.Robot_Instagram_DirectMessages.Where(d => d.SEND_STAT == "005").OrderBy(d => d.CRET_DATE);
-
-            // Refresh Control
-            InstagramOperationStatus_Rb.NormalColorA = InstagramOperationStatus_Rb.NormalColorB = Color.Lime;
-            if (InvokeRequired)
-               Invoke(new System.Action(() => { NotfInstagramOperation_Butn.Caption = dirMsgs.Count().ToString(); }));
-            else
-               NotfInstagramOperation_Butn.Caption = dirMsgs.Count().ToString();
-
             var _instagram = new Controller.Instagram(iRoboTech);
-            foreach (var d in dirMsgs.Take((int)inst.CYCL_SEND_MESG_NUMB))
+
+            if (_doOprtInsta == DoOprtInsta.DirectMessage)
             {
-               InstOprt_Mpb.Visible = true;
-               // Send Message
-               var result = await _instagram.SendDirectMessageAsync(d);
-               if (result)
+               #region Direction Message
+               var dirMsgs = inst.Robot_Instagram_DirectMessages.Where(d => d.SEND_STAT == "005").OrderBy(d => d.CRET_DATE);
+
+               // Refresh Control
+               InstagramOperationStatus_Rb.NormalColorA = InstagramOperationStatus_Rb.NormalColorB = Color.Lime;
+               if (InvokeRequired)
+                  Invoke(new System.Action(() => { NotfInstagramOperation_Butn.Caption = dirMsgs.Count().ToString(); }));
+               else
+                  NotfInstagramOperation_Butn.Caption = dirMsgs.Count().ToString();
+
+               foreach (var d in dirMsgs.Take((int)inst.CYCL_SEND_MESG_NUMB))
                {
-                  d.SEND_STAT = "004";
-                  // Refresh Control
-                  if (InvokeRequired)
-                     Invoke(new System.Action(() => { NotfInstagramOperation_Butn.Caption = (NotfInstagramOperation_Butn.Caption.ToInt32() - 1).ToString(); }));
-                  else
-                     NotfInstagramOperation_Butn.Caption = (NotfInstagramOperation_Butn.Caption.ToInt32() - 1).ToString();
+                  InstOprt_Mpb.Visible = true;
+                  // Send Message
+                  var result = await _instagram.SendDirectMessageAsync(d);
+                  if (result)
+                  {
+                     d.SEND_STAT = "004";
+                     // Refresh Control
+                     if (InvokeRequired)
+                        Invoke(new System.Action(() => { NotfInstagramOperation_Butn.Caption = (NotfInstagramOperation_Butn.Caption.ToInt32() - 1).ToString(); }));
+                     else
+                        NotfInstagramOperation_Butn.Caption = (NotfInstagramOperation_Butn.Caption.ToInt32() - 1).ToString();
+                  }
+                  // Sleep
+                  Thread.Sleep((int)(inst.CYCL_ACTN_SLEP ?? 10) * 1000);
                }
-               // Sleep
-               Thread.Sleep((int)(inst.CYCL_ACTN_SLEP ?? 10) * 1000);
+               #endregion
+
+               // Next Cycle Step
+               _doOprtInsta = DoOprtInsta.FollowNewUser;
             }
-            #endregion
+            else if (_doOprtInsta == DoOprtInsta.FollowNewUser)
+            {
+               #region New Follow
+               var _newFollowUser = 
+                  iRoboTech.Robot_Instagram_Follows
+                  .Where(f => 
+                     f.Robot_Instagram.PAGE_OWNR_TYPE == "001" && 
+                     !iRoboTech.Robot_Instagrams
+                     .Any(i => 
+                        i.PAGE_OWNR_TYPE == "002" && 
+                        i.STAT == "002" && 
+                        i.CYCL_STAT == "002" && 
+                        i.Robot_Instagram_Follows.Any(rif => rif.INST_PKID == f.INST_PKID)
+                     )
+                  )
+                  .OrderBy(f => SqlFunctions.Rand())
+                  .FirstOrDefault();
 
-            #region New Follow
+               if (_newFollowUser != null)
+               {
+                  InstOprt_Mpb.Visible = true;
+                  // Send Message
+                  var result = await _instagram.FolowNewUserAsync(_newFollowUser);
+                  if (result)
+                  {
+                     // بررسی میکنیم که آیا پیام خودکار ارسال دایرکت به مشتری جدید داریم یا خیر
+                     var _newFollowAutoDirectMessage = iRoboTech.Templates.FirstOrDefault(t => t.TMID == inst.CYCL_NFLW_TMPL_TMID);
+                     if (_newFollowAutoDirectMessage != null)
+                     {
+                        // ثبت ارسال پیام جدید به مشتری که تازه فالو شده
+                        iRoboTech.INS_RIDM_P(
+                           new XElement("Instagram",
+                               new XAttribute("code", inst.CODE),
+                               new XAttribute("rbid", inst.ROBO_RBID),
+                               new XElement("Direct",
+                                   new XElement("Message", _newFollowAutoDirectMessage.TEMP_TEXT),
+                                   new XElement("Users",
+                                       new XElement("User",
+                                           new XAttribute("pkid", _newFollowUser.INST_PKID),
+                                           new XAttribute("chatid", _newFollowUser.CHAT_ID ?? 0)
+                                       )
+                                   )
+                               )
+                           )
+                        );
+                     }
+                  }
+               }
+               InstOprt_Mpb.Visible = false;
+               #endregion
 
-            #endregion
+               // Next Cycle Step
+               _doOprtInsta = DoOprtInsta.DirectMessage;
+            }
+
             InstOprt_Mpb.Visible = false;
 
             iRoboTech.SubmitChanges();
          }
          catch { }
+      }
+
+      private void AskQstnTlgm_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            Diagnostics.Process.Start("https://www.telegram.me/mr_shop_iran");
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void AskQstnWats_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            Diagnostics.Process.Start("https://web.whatsapp.com/send?phone=989033927103&text=سلام خوب هستین، من یه سوال داشتم میشه بهم کمک کنید");
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void AskQstnInst_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            Diagnostics.Process.Start("https://www.instagram.com/mr.shop.iran");
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void AskQstnBale_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            Diagnostics.Process.Start("https://ble.ir/mr_shop_iran");
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
       }
    }
 }

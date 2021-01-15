@@ -528,6 +528,7 @@
     <None Include="Properties\DataSources\System.RoboTech.Data.D_RMTP.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_SADV.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_SDTP.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.D_SETP.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_SHIN.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_SHIP.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_SPTP.datasource" />
@@ -580,6 +581,7 @@
     <None Include="Properties\DataSources\System.RoboTech.Data.Robot_Product_Limited.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Robot_Product_Preview.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Robot_Product_StepPrice.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.Robot_Search_Engine.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Robot_Spy_Group_Message_Detail.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Send_Advertising.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Send_Advertising_Tariff.datasource" />
@@ -1856,6 +1858,9 @@
     <Content Include="..\System.Resource\Resources\IMAGE_1678.jpg">
       <Link>Resources\IMAGE_1678.jpg</Link>
     </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1679.jpg">
+      <Link>Resources\IMAGE_1679.jpg</Link>
+    </Content>
     <Content Include="..\System.Resource\Resources\IMAGE_1681.png">
       <Link>Resources\IMAGE_1681.png</Link>
     </Content>
@@ -1948,6 +1953,21 @@
     </Content>
     <Content Include="..\System.Resource\Resources\IMAGE_1713.png">
       <Link>Resources\IMAGE_1713.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1714.png">
+      <Link>Resources\IMAGE_1714.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1715.png">
+      <Link>Resources\IMAGE_1715.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1716.png">
+      <Link>Resources\IMAGE_1716.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1717.png">
+      <Link>Resources\IMAGE_1717.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1718.png">
+      <Link>Resources\IMAGE_1718.png</Link>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

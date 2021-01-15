@@ -12,6 +12,7 @@ using System.RoboTech.ExceptionHandlings;
 using DevExpress.XtraEditors;
 using System.Xml.Linq;
 using System.RoboTech.ExtCode;
+using System.Diagnostics;
 
 namespace System.RoboTech.Ui.DevelopmentApplication
 {
@@ -392,6 +393,30 @@ namespace System.RoboTech.Ui.DevelopmentApplication
                      )
                }
             );
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void Scnt_Butn_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            var srbt = SrbtBs.Current as Data.Service_Robot;
+            if (srbt == null) return;
+
+            switch (e.Button.Index)
+            {
+               case 0:
+                  if(srbt.NATL_CODE != null && srbt.NATL_CODE.Length == 10)
+                     Process.Start(string.Format("https://web.whatsapp.com/send?phone=98{0}", srbt.CELL_PHON.Substring(1)));
+                  break;
+               case 1:
+                  Process.Start(string.Format("https://web.bale.ai/#/im/u{0}", srbt.CHAT_ID));
+                  break;
+            }
          }
          catch (Exception exc)
          {

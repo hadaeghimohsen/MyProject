@@ -14,6 +14,7 @@ using System.Xml.Linq;
 using System.RoboTech.ExtCode;
 using System.IO;
 using System.Data.SqlClient;
+using System.Diagnostics;
 
 namespace System.RoboTech.Ui.DevelopmentApplication
 {
@@ -68,16 +69,16 @@ namespace System.RoboTech.Ui.DevelopmentApplication
       {
          try
          {
-            if (Ordr_Txt.Text == "") { Ordr_Txt.Focus(); return; }
-
+            //if (Ordr_Txt.Text == "") { Ordr_Txt.Focus(); return; }
+            
             if (GropDesc_Txt.Text == "") { GropDesc_Txt.Focus(); return; }
 
             var grop = VGexpBs.Current as Data.V_Group_Expense;            
 
             if(grop == null)
-               iRoboTech.DBL_INS_GEXP_P(null, "001", Ordr_Txt.Text.ToInt16(), GropDesc_Txt.Text, "002");
+               iRoboTech.DBL_INS_GEXP_P(null, "001", 0, GropDesc_Txt.Text, "002");
             else
-               iRoboTech.DBL_INS_GEXP_P((CretNewSuprGrop_Cbx.Checked ? null : (long?)grop.CODE), "001", Ordr_Txt.Text.ToInt16(), GropDesc_Txt.Text, "002");
+               iRoboTech.DBL_INS_GEXP_P((CretNewSuprGrop_Cbx.Checked ? null : (long?)grop.CODE), "001", 0, GropDesc_Txt.Text, "002");
 
             Ordr_Txt.Text = GropDesc_Txt.Text = "";
             requery = true;
@@ -349,7 +350,14 @@ namespace System.RoboTech.Ui.DevelopmentApplication
       {
          try
          {
+            var rbpr = RbprBs.Current as Data.Robot_Product;
+            if (rbpr == null) return;
 
+            if (MessageBox.Show(this, "آیا با حذف محصول موافق هستین؟", "حذف محصول", MessageBoxButtons.YesNo) != DialogResult.Yes) return;
+
+            iRoboTech.DEL_RBPR_P(rbpr.CODE);
+
+            requery = true;
          }
          catch (Exception exc)
          {
@@ -1869,15 +1877,15 @@ namespace System.RoboTech.Ui.DevelopmentApplication
 
             // اگر سرگروه باشد
             if (CretNewSuprGrop_Cbx.Checked)
-               grop.ORDR = (short?)
+               Ordr_Txt.Text = 
                   (iRoboTech.V_Group_Expenses
                   .Where(g => g.GEXP_CODE == null)
-                  .Max(g => g.ORDR) + 1);
+                  .Max(g => g.ORDR) + 1).ToString();
             else
-               grop.ORDR = (short?)
+               Ordr_Txt.Text = 
                   (iRoboTech.V_Group_Expenses
                   .Where(g => g.GEXP_CODE == grop.CODE)
-                  .Max(g => g.ORDR) + 1);
+                  .Max(g => g.ORDR) + 1).ToString();
          }
          catch (Exception exc)
          {
@@ -2010,6 +2018,233 @@ namespace System.RoboTech.Ui.DevelopmentApplication
             );
             #endregion
 
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void DsctActn_Butn_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            var robo = RoboBs.Current as Data.Robot;
+            if (robo == null) return;
+
+            var rbpr = RbprBs.Current as Data.Robot_Product;
+            if (rbpr == null) return;
+
+            var discountType = "discount";
+            switch (e.Button.Index)
+            {
+               case 0:
+                  discountType = "discountall";
+                  break;
+            }
+
+            var xRet = new XElement("Respons");
+            iRoboTech.SEND_MEOJ_P(
+               new XElement("Robot", 
+                   new XAttribute("rbid", robo.RBID),
+                   new XElement("Order",
+                       new XAttribute("type", "012"),
+                       new XAttribute("valu", rbpr.TARF_CODE),
+                       new XAttribute("oprt", discountType)
+                   )
+               ),
+               ref xRet
+            );
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if(requery)
+            {
+               #region Send Message
+               // فراخوانی ربات برای ارسال مدیا برای ثبت و گرفتن آدرس لینک فایل سرور
+               _DefaultGateway.Gateway(
+                  new Job(SendType.External, "localhost",
+                     new List<Job>
+                        {
+                           new Job(SendType.Self, 11 /* Execute Strt_Robo_F */),
+                           new Job(SendType.SelfToUserInterface, "STRT_ROBO_F", 00 /* Execute ProcessCmdKey */){Input = Keys.Escape},
+                           new Job(SendType.SelfToUserInterface, "STRT_ROBO_F", 10 /* Execute Actn_CalF_P */)
+                           {
+                              Input = 
+                                 new XElement("Robot", 
+                                    new XAttribute("runrobot", "start"),
+                                    new XAttribute("actntype", "sendordrs")
+                                 )
+                           }                     
+                        }
+                  )
+               );
+               #endregion
+            }
+         }
+      }
+
+      private void StorActn_Butn_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            var robo = RoboBs.Current as Data.Robot;
+            if (robo == null) return;
+
+            var rbpr = RbprBs.Current as Data.Robot_Product;
+            if (rbpr == null) return;
+
+            var AlertType = "addprodtostor";
+            switch (e.Button.Index)
+            {
+               case 0:
+                  AlertType = "addprodtostorall";
+                  break;
+            }
+
+            var xRet = new XElement("Respons");
+            iRoboTech.SEND_MEOJ_P(
+               new XElement("Robot",
+                   new XAttribute("rbid", robo.RBID),
+                   new XElement("Order",
+                       new XAttribute("type", "012"),
+                       new XAttribute("valu", rbpr.TARF_CODE),
+                       new XAttribute("oprt", AlertType)
+                   )
+               ),
+               ref xRet
+            );
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if(requery)
+            {
+               #region Send Message
+               // فراخوانی ربات برای ارسال مدیا برای ثبت و گرفتن آدرس لینک فایل سرور
+               _DefaultGateway.Gateway(
+                  new Job(SendType.External, "localhost",
+                     new List<Job>
+                        {
+                           new Job(SendType.Self, 11 /* Execute Strt_Robo_F */),
+                           new Job(SendType.SelfToUserInterface, "STRT_ROBO_F", 00 /* Execute ProcessCmdKey */){Input = Keys.Escape},
+                           new Job(SendType.SelfToUserInterface, "STRT_ROBO_F", 10 /* Execute Actn_CalF_P */)
+                           {
+                              Input = 
+                                 new XElement("Robot", 
+                                    new XAttribute("runrobot", "start"),
+                                    new XAttribute("actntype", "sendordrs")
+                                 )
+                           }                     
+                        }
+                  )
+               );
+               #endregion
+            }
+         }
+      }
+
+      private void SlerPartActn_Btn_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            throw new Exception("پیاده سازی این قسمت هنوز انجام نشده");
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void Serp_Butn_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            var rbpr = RbprBs.Current as Data.Robot_Product;
+            if (rbpr == null) return;
+
+            var rose = RoseBs.Current as Data.Robot_Search_Engine;
+            if (rose == null) return;
+
+            if(FaSe_Rb.Checked)
+               Process.Start(string.Format(rose.WEB_SITE, rbpr.TARF_TEXT_DNRM));
+            else
+               Process.Start(string.Format(rose.WEB_SITE, rbpr.TARF_ENGL_TEXT));
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void AddSe_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var robo = RoboBs.Current as Data.Robot;
+            if (robo == null) return;
+
+            if (RoseBs.List.OfType<Data.Robot_Search_Engine>().Any(se => se.SGID == 0)) return;
+
+            var rose = RoseBs.AddNew() as Data.Robot_Search_Engine;
+            rose.Robot = robo;
+
+            iRoboTech.Robot_Search_Engines.InsertOnSubmit(rose);
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void DelSe_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var rose = RoseBs.Current as Data.Robot_Search_Engine;
+            if (rose == null) return;
+
+            if (MessageBox.Show(this, "آیا با حذف وب سایت جستجو موافق هستین؟", "حذف وب سایت", MessageBoxButtons.YesNo) != DialogResult.Yes) return;
+
+            iRoboTech.Robot_Search_Engines.DeleteOnSubmit(rose);
+            iRoboTech.SubmitChanges();
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void SaveSe_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            RoseGv.PostEditor();
+            iRoboTech.SubmitChanges();
             requery = true;
          }
          catch (Exception exc)

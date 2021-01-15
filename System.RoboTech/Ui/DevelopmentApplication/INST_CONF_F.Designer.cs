@@ -5174,7 +5174,7 @@
          this.timeEdit2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.timeEdit2.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.InstBs, "CYCL_INTR", true));
          this.timeEdit2.EditValue = new decimal(new int[] {
-            5,
+            3,
             0,
             0,
             0});
@@ -5205,7 +5205,7 @@
          this.spinEdit2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.spinEdit2.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.InstBs, "CYCL_NEW_FOLW_NUMB", true));
          this.spinEdit2.EditValue = new decimal(new int[] {
-            30,
+            1,
             0,
             0,
             0});
@@ -5324,7 +5324,7 @@
          // 
          this.gridLookUpEdit3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-         this.gridLookUpEdit3.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.InstBs, "CYCL_NFLW_RIDM_CODE", true));
+         this.gridLookUpEdit3.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.InstBs, "CYCL_NFLW_TMPL_TMID", true));
          this.gridLookUpEdit3.EditValue = "";
          this.gridLookUpEdit3.Location = new System.Drawing.Point(9, 174);
          this.gridLookUpEdit3.Name = "gridLookUpEdit3";
@@ -5456,7 +5456,7 @@
          this.timeEdit1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.timeEdit1.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.InstBs, "CYCL_SEND_MESG_NUMB", true));
          this.timeEdit1.EditValue = new decimal(new int[] {
-            5,
+            1,
             0,
             0,
             0});

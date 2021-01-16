@@ -65,7 +65,7 @@ namespace System.RoboTech.Ui.DevelopmentApplication
 
          if (keyData == Keys.Enter)
          {
-            if (!(Btn_Back.Focused))
+            if (!(Back_Butn.Focused))
                SendKeys.Send("{TAB}");
          }
          else if(keyData == Keys.F4)

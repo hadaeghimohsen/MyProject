@@ -148,9 +148,9 @@ namespace System.RoboTech.Controller
                      Send_Order(iRoboTech, keyBoardMarkup, 
                         new XElement("Data",
                               new XAttribute("chatid", chatid),
-                              new XAttribute("frstname", chatinfo.Message.From.FirstName),
-                              new XAttribute("lastname", chatinfo.Message.From.LastName ?? ""),
-                              new XAttribute("username", chatinfo.Message.From.Username ?? "")
+                              new XAttribute("frstname", chatinfo == null ? "" : chatinfo.Message.From.FirstName),
+                              new XAttribute("lastname", chatinfo == null ? "" : chatinfo.Message.From.LastName ?? ""),
+                              new XAttribute("username", chatinfo == null ? "" : chatinfo.Message.From.Username ?? "")
                             )
                      );
                   #endregion

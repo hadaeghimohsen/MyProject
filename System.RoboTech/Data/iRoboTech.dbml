@@ -2601,358 +2601,6 @@
       <Column Name="DOMN_DESC" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
-  <Table Name="dbo.Robot_Product" Member="Robot_Products">
-    <Type Name="Robot_Product">
-      <Column Name="ROBO_RBID" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="CODE" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="TARF_CODE" Type="System.String" DbType="VarChar(100)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="EXPN_PRIC_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="EXTR_PRCT_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="BUY_PRIC" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="PRFT_PRIC_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="UNIT_APBS_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="UNIT_DESC_DNRM" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="RTNG_NUMB_DNRM" Type="System.Single" DbType="Real" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="RTNG_CONT_DNRM" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="PROD_FETR" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="TARF_TEXT_DNRM" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="TARF_ENGL_TEXT" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="REVW_CONT_DNRM" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="BRND_TEXT_DNRM" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="BRND_CODE_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="GROP_TEXT_DNRM" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="GROP_CODE_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="ROOT_GROP_CODE_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="ROOT_GROP_DESC_DNRM" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="GROP_JOIN_DNRM" Type="System.String" DbType="VarChar(50)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="ORDR_CONT_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="VIST_CONT_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="LIKE_CONT_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="BEST_SLNG_CONT_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="DELV_DAY_DNRM" Type="System.Int16" DbType="SmallInt" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="DELV_HOUR_DNRM" Type="System.Int16" DbType="SmallInt" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="DELV_MINT_DNRM" Type="System.Int16" DbType="SmallInt" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="MAKE_DAY_DNRM" Type="System.Int16" DbType="SmallInt" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="MAKE_HOUR_DNRM" Type="System.Int16" DbType="SmallInt" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="MAKE_MINT_DNRM" Type="System.Int16" DbType="SmallInt" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="RELS_TIME" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="WERH_INVR_NUMB_DNRM" Type="System.Single" DbType="Real" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="MAX_SALE_DAY_NUMB_DNRM" Type="System.Single" DbType="Real" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="SALE_NUMB_DNRM" Type="System.Single" DbType="Real" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="CRNT_NUMB_DNRM" Type="System.Single" DbType="Real" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="SALE_CART_NUMB_DNRM" Type="System.Single" DbType="Real" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="ALRM_MIN_NUMB_DNRM" Type="System.Single" DbType="Real" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="PROD_TYPE_DNRM" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="MIN_ORDR_DNRM" Type="System.Single" DbType="Real" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="MADE_IN_DNRM" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="GRNT_STAT_DNRM" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="GRNT_NUMB_DNRM" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="GRNT_TIME_DNRM" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="GRNT_TYPE_DNRM" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="GRNT_DESC_DNRM" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="WRNT_STAT_DNRM" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="WRNT_NUMB_DNRM" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="WRNT_TIME_DNRM" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="WRNT_TYPE_DNRM" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="WRNT_DESC_DNRM" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="WEGH_AMNT_DNRM" Type="System.Single" DbType="Real" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="NUMB_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="PROD_LIFE_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="PROD_SUPL_LOCT_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="PROD_SUPL_LOCT_DESC" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="RESP_SHIP_COST_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="APRX_SHIP_COST_AMNT" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
-      <Association Name="Robot_Product_Robot_Product_Alternative" Member="Robot_Product_Alternatives" ThisKey="CODE" OtherKey="RBPR_CODE" Type="Robot_Product_Alternative" />
-      <Association Name="Robot_Product_Robot_Product_Alternative1" Member="Robot_Product_Alternatives1" ThisKey="CODE" OtherKey="ALTR_RBPR_CODE" Type="Robot_Product_Alternative" />
-      <Association Name="Robot_Product_Robot_Product_Discount" Member="Robot_Product_Discounts" ThisKey="CODE" OtherKey="RBPR_CODE" Type="Robot_Product_Discount" />
-      <Association Name="Robot_Product_Service_Robot_Product_Amazing_Notification" Member="Service_Robot_Product_Amazing_Notifications" ThisKey="CODE" OtherKey="RBPR_CODE" Type="Service_Robot_Product_Amazing_Notification" />
-      <Association Name="Robot_Product_Service_Robot_Product_Feedback" Member="Service_Robot_Product_Feedbacks" ThisKey="CODE" OtherKey="RBPR_CODE" Type="Service_Robot_Product_Feedback" />
-      <Association Name="Robot_Product_Service_Robot_Product_Find_Best_Price" Member="Service_Robot_Product_Find_Best_Prices" ThisKey="CODE" OtherKey="RBPR_CODE" Type="Service_Robot_Product_Find_Best_Price" />
-      <Association Name="Robot_Product_Service_Robot_Product_Like" Member="Service_Robot_Product_Likes" ThisKey="CODE" OtherKey="RBPR_CODE" Type="Service_Robot_Product_Like" />
-      <Association Name="Robot_Product_Service_Robot_Product_Rating" Member="Service_Robot_Product_Ratings" ThisKey="CODE" OtherKey="RBPR_CODE" Type="Service_Robot_Product_Rating" />
-      <Association Name="Robot_Product_Service_Robot_Product_Signal" Member="Service_Robot_Product_Signals" ThisKey="CODE" OtherKey="RBPR_CODE" Type="Service_Robot_Product_Signal" />
-      <Association Name="Robot_Product_Service_Robot_Seller_Product" Member="Service_Robot_Seller_Products" ThisKey="CODE" OtherKey="RBPR_CODE" Type="Service_Robot_Seller_Product" />
-      <Association Name="Robot_Product_Robot_Product_Preview" Member="Robot_Product_Previews" ThisKey="CODE" OtherKey="RBPR_CODE" Type="Robot_Product_Preview" />
-      <Association Name="Robot_Product_Robot_Product_StepPrice" Member="Robot_Product_StepPrices" ThisKey="CODE" OtherKey="RBPR_CODE" Type="Robot_Product_StepPrice" />
-      <Association Name="Robot_Product_Service_Robot_Seller_Partner" Member="Service_Robot_Seller_Partners" ThisKey="CODE" OtherKey="RBPR_CODE" Type="Service_Robot_Seller_Partner" />
-      <Association Name="Robot_Product_Robot_Product_Download" Member="Robot_Product_Downloads" ThisKey="CODE" OtherKey="RBPR_CODE" Type="Robot_Product_Download" />
-      <Association Name="Robot_Product_Robot_Product_Limited" Member="Robot_Product_Limiteds" ThisKey="CODE" OtherKey="RBPR_CODE" Type="Robot_Product_Limited" />
-      <Association Name="App_Base_Define_Robot_Product" Member="App_Base_Define" ThisKey="UNIT_APBS_CODE" OtherKey="CODE" Type="App_Base_Define" IsForeignKey="true" DeleteRule="CASCADE" />
-      <Association Name="Robot_Robot_Product" Member="Robot" ThisKey="ROBO_RBID" OtherKey="RBID" Type="Robot" IsForeignKey="true" DeleteRule="CASCADE" />
-    </Type>
-    <InsertFunction FunctionId="FunctionId88">
-      <Argument Parameter="rOBO_RBID" Member="ROBO_RBID" />
-      <Argument Parameter="tARF_CODE" Member="TARF_CODE" />
-      <Argument Parameter="eXPN_PRIC_DNRM" Member="EXPN_PRIC_DNRM" />
-      <Argument Parameter="eXTR_PRCT_DNRM" Member="EXTR_PRCT_DNRM" />
-      <Argument Parameter="bUY_PRIC" Member="BUY_PRIC" />
-      <Argument Parameter="uNIT_APBS_CODE" Member="UNIT_APBS_CODE" />
-      <Argument Parameter="pROD_FETR" Member="PROD_FETR" />
-      <Argument Parameter="tARF_TEXT_DNRM" Member="TARF_TEXT_DNRM" />
-      <Argument Parameter="tARF_ENGL_TEXT" Member="TARF_ENGL_TEXT" />
-      <Argument Parameter="bRND_CODE_DNRM" Member="BRND_CODE_DNRM" />
-      <Argument Parameter="gROP_CODE_DNRM" Member="GROP_CODE_DNRM" />
-      <Argument Parameter="gROP_JOIN_DNRM" Member="GROP_JOIN_DNRM" />
-      <Argument Parameter="dELV_DAY_DNRM" Member="DELV_DAY_DNRM" />
-      <Argument Parameter="dELV_HOUR_DNRM" Member="DELV_HOUR_DNRM" />
-      <Argument Parameter="dELV_MINT_DNRM" Member="DELV_MINT_DNRM" />
-      <Argument Parameter="mAKE_DAY_DNRM" Member="MAKE_DAY_DNRM" />
-      <Argument Parameter="mAKE_HOUR_DNRM" Member="MAKE_HOUR_DNRM" />
-      <Argument Parameter="mAKE_MINT_DNRM" Member="MAKE_MINT_DNRM" />
-      <Argument Parameter="rELS_TIME" Member="RELS_TIME" />
-      <Argument Parameter="sTAT" Member="STAT" />
-      <Argument Parameter="mAX_SALE_DAY_NUMB_DNRM" Member="MAX_SALE_DAY_NUMB_DNRM" />
-      <Argument Parameter="aLRM_MIN_NUMB_DNRM" Member="ALRM_MIN_NUMB_DNRM" />
-      <Argument Parameter="pROD_TYPE_DNRM" Member="PROD_TYPE_DNRM" />
-      <Argument Parameter="mIN_ORDR_DNRM" Member="MIN_ORDR_DNRM" />
-      <Argument Parameter="mADE_IN_DNRM" Member="MADE_IN_DNRM" />
-      <Argument Parameter="gRNT_STAT_DNRM" Member="GRNT_STAT_DNRM" />
-      <Argument Parameter="gRNT_NUMB_DNRM" Member="GRNT_NUMB_DNRM" />
-      <Argument Parameter="gRNT_TIME_DNRM" Member="GRNT_TIME_DNRM" />
-      <Argument Parameter="gRNT_TYPE_DNRM" Member="GRNT_TYPE_DNRM" />
-      <Argument Parameter="gRNT_DESC_DNRM" Member="GRNT_DESC_DNRM" />
-      <Argument Parameter="wRNT_STAT_DNRM" Member="WRNT_STAT_DNRM" />
-      <Argument Parameter="wRNT_NUMB_DNRM" Member="WRNT_NUMB_DNRM" />
-      <Argument Parameter="wRNT_TIME_DNRM" Member="WRNT_TIME_DNRM" />
-      <Argument Parameter="wRNT_TYPE_DNRM" Member="WRNT_TYPE_DNRM" />
-      <Argument Parameter="wRNT_DESC_DNRM" Member="WRNT_DESC_DNRM" />
-      <Argument Parameter="wEGH_AMNT_DNRM" Member="WEGH_AMNT_DNRM" />
-      <Argument Parameter="nUMB_TYPE" Member="NUMB_TYPE" />
-      <Argument Parameter="pROD_LIFE_STAT" Member="PROD_LIFE_STAT" />
-      <Argument Parameter="pROD_SUPL_LOCT_STAT" Member="PROD_SUPL_LOCT_STAT" />
-      <Argument Parameter="pROD_SUPL_LOCT_DESC" Member="PROD_SUPL_LOCT_DESC" />
-      <Argument Parameter="rESP_SHIP_COST_TYPE" Member="RESP_SHIP_COST_TYPE" />
-      <Argument Parameter="aPRX_SHIP_COST_AMNT" Member="APRX_SHIP_COST_AMNT" />
-    </InsertFunction>
-    <UpdateFunction FunctionId="FunctionId89">
-      <Argument Parameter="cODE" Member="CODE" />
-      <Argument Parameter="rOBO_RBID" Member="ROBO_RBID" />
-      <Argument Parameter="tARF_CODE" Member="TARF_CODE" />
-      <Argument Parameter="eXPN_PRIC_DNRM" Member="EXPN_PRIC_DNRM" />
-      <Argument Parameter="eXTR_PRCT_DNRM" Member="EXTR_PRCT_DNRM" />
-      <Argument Parameter="bUY_PRIC" Member="BUY_PRIC" />
-      <Argument Parameter="uNIT_APBS_CODE" Member="UNIT_APBS_CODE" />
-      <Argument Parameter="pROD_FETR" Member="PROD_FETR" />
-      <Argument Parameter="tARF_TEXT_DNRM" Member="TARF_TEXT_DNRM" />
-      <Argument Parameter="tARF_ENGL_TEXT" Member="TARF_ENGL_TEXT" />
-      <Argument Parameter="bRND_CODE_DNRM" Member="BRND_CODE_DNRM" />
-      <Argument Parameter="gROP_CODE_DNRM" Member="GROP_CODE_DNRM" />
-      <Argument Parameter="gROP_JOIN_DNRM" Member="GROP_JOIN_DNRM" />
-      <Argument Parameter="dELV_DAY_DNRM" Member="DELV_DAY_DNRM" />
-      <Argument Parameter="dELV_HOUR_DNRM" Member="DELV_HOUR_DNRM" />
-      <Argument Parameter="dELV_MINT_DNRM" Member="DELV_MINT_DNRM" />
-      <Argument Parameter="mAKE_DAY_DNRM" Member="MAKE_DAY_DNRM" />
-      <Argument Parameter="mAKE_HOUR_DNRM" Member="MAKE_HOUR_DNRM" />
-      <Argument Parameter="mAKE_MINT_DNRM" Member="MAKE_MINT_DNRM" />
-      <Argument Parameter="rELS_TIME" Member="RELS_TIME" />
-      <Argument Parameter="sTAT" Member="STAT" />
-      <Argument Parameter="aLRM_MIN_NUMB_DNRM" Member="ALRM_MIN_NUMB_DNRM" />
-      <Argument Parameter="pROD_TYPE_DNRM" Member="PROD_TYPE_DNRM" />
-      <Argument Parameter="mIN_ORDR_DNRM" Member="MIN_ORDR_DNRM" />
-      <Argument Parameter="mADE_IN_DNRM" Member="MADE_IN_DNRM" />
-      <Argument Parameter="gRNT_STAT_DNRM" Member="GRNT_STAT_DNRM" />
-      <Argument Parameter="gRNT_NUMB_DNRM" Member="GRNT_NUMB_DNRM" />
-      <Argument Parameter="gRNT_TIME_DNRM" Member="GRNT_TIME_DNRM" />
-      <Argument Parameter="gRNT_TYPE_DNRM" Member="GRNT_TYPE_DNRM" />
-      <Argument Parameter="gRNT_DESC_DNRM" Member="GRNT_DESC_DNRM" />
-      <Argument Parameter="wRNT_STAT_DNRM" Member="WRNT_STAT_DNRM" />
-      <Argument Parameter="wRNT_NUMB_DNRM" Member="WRNT_NUMB_DNRM" />
-      <Argument Parameter="wRNT_TIME_DNRM" Member="WRNT_TIME_DNRM" />
-      <Argument Parameter="wRNT_TYPE_DNRM" Member="WRNT_TYPE_DNRM" />
-      <Argument Parameter="wRNT_DESC_DNRM" Member="WRNT_DESC_DNRM" />
-      <Argument Parameter="wEGH_AMNT_DNRM" Member="WEGH_AMNT_DNRM" />
-      <Argument Parameter="nUMB_TYPE" Member="NUMB_TYPE" />
-      <Argument Parameter="pROD_LIFE_STAT" Member="PROD_LIFE_STAT" />
-      <Argument Parameter="pROD_SUPL_LOCT_STAT" Member="PROD_SUPL_LOCT_STAT" />
-      <Argument Parameter="pROD_SUPL_LOCT_DESC" Member="PROD_SUPL_LOCT_DESC" />
-      <Argument Parameter="rESP_SHIP_COST_TYPE" Member="RESP_SHIP_COST_TYPE" />
-      <Argument Parameter="aPRX_SHIP_COST_AMNT" Member="APRX_SHIP_COST_AMNT" />
-    </UpdateFunction>
-    <DeleteFunction FunctionId="FunctionId90">
-      <Argument Parameter="cODE" Member="CODE" />
-    </DeleteFunction>
-  </Table>
-  <Table Name="dbo.Robot" Member="Robots">
-    <Type Name="Robot">
-      <Column Name="ORGN_OGID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
-      <Column Name="ROBO_RBID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="RBID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="COPY_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="BOT_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="NAME" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="TKON_CODE" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
-      <Column Name="CHCK_INTR" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="BULD_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="BULD_FILE_ID" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
-      <Column Name="SPY_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="CRTB_URL" Type="System.String" DbType="VarChar(1000)" CanBeNull="true" />
-      <Column Name="DOWN_LOAD_FILE_PATH" Type="System.String" DbType="VarChar(1000)" CanBeNull="true" />
-      <Column Name="UP_LOAD_FILE_PATH" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
-      <Column Name="INVT_FRND" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="SEND_SMS_INVT_CONT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="HASH_TAG" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
-      <Column Name="POST_ADRS" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
-      <Column Name="CORD_X" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="CORD_Y" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="CELL_PHON" Type="System.String" DbType="VarChar(11)" CanBeNull="true" />
-      <Column Name="TELL_PHON" Type="System.String" DbType="VarChar(11)" CanBeNull="true" />
-      <Column Name="EMAL_ADRS" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="WEB_SITE" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="RUN_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="AMNT_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="CNCT_ACNT_APP" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="ACNT_APP_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="PAGE_FECH_ROWS" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="MIN_WITH_DRAW" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="CONF_DURT_DAY" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="AUTO_SHIP_CORI" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="SHOW_INVR_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="VIEW_INVR_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="FREE_SHIP_INCT_AMNT" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="FREE_SHIP_OTCT_AMNT" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="ORDR_EXPR_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="ORDR_EXPR_TIME" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="LOCL_SRVR_CONN_STRN" Type="System.String" DbType="VarChar(1000)" CanBeNull="true" />
-      <Column Name="WEB_SRVR_CONN_STRN" Type="System.String" DbType="VarChar(1000)" CanBeNull="true" />
-      <Column Name="EXTR_SORC_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="SLCT_SRVR_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="NOTI_ORDR_SHIP_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="NOTI_SOND_ORDR_SHIP_PATH" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
-      <Column Name="NOTI_ORDR_RCPT_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="NOTI_SOND_ORDR_RCPT_PATH" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
-      <Column Name="NOTI_ORDR_RECP_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="NOTI_SOND_ORDR_RECP_PATH" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
-      <Column Name="CHCK_REGS_STRT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Association Name="Robot_Job" Member="Jobs" ThisKey="RBID" OtherKey="ROBO_RBID" Type="Job" />
-      <Association Name="Robot_Organ_Description" Member="Organ_Descriptions" ThisKey="RBID" OtherKey="ROBO_RBID" Type="Organ_Description" />
-      <Association Name="Robot_Robot_Import" Member="Robot_Imports" ThisKey="RBID" OtherKey="ROBO_RBID" Type="Robot_Import" />
-      <Association Name="Robot_Robot_Spy_Group" Member="Robot_Spy_Groups" ThisKey="RBID" OtherKey="ROBO_RBID" Type="Robot_Spy_Group" />
-      <Association Name="Robot_Robot_Spy_Group_Message" Member="Robot_Spy_Group_Messages" ThisKey="RBID" OtherKey="RSPG_ROBO_RBID" Type="Robot_Spy_Group_Message" />
-      <Association Name="Robot_Personal_Robot" Member="Personal_Robots" ThisKey="RBID" OtherKey="ROBO_RBID" Type="Personal_Robot" />
-      <Association Name="Robot_Group_Header" Member="Group_Headers" ThisKey="RBID" OtherKey="ROBO_RBID" Type="Group_Header" />
-      <Association Name="Robot_Group" Member="Groups" ThisKey="RBID" OtherKey="ROBO_RBID" Type="Group" />
-      <Association Name="Robot_Menu_Ussd" Member="Menu_Ussds" ThisKey="RBID" OtherKey="ROBO_RBID" Type="Menu_Ussd" />
-      <Association Name="Robot_Organ_Media" Member="Organ_Medias" ThisKey="RBID" OtherKey="ROBO_RBID" Type="Organ_Media" />
-      <Association Name="Robot_Robot_Product_Discount" Member="Robot_Product_Discounts" ThisKey="RBID" OtherKey="ROBO_RBID" Type="Robot_Product_Discount" />
-      <Association Name="Robot_Wallet" Member="Wallets" ThisKey="RBID" OtherKey="SRBT_ROBO_RBID" Type="Wallet" />
-      <Association Name="Robot_Robot_External_Query" Member="Robot_External_Queries" ThisKey="RBID" OtherKey="ROBO_RBID" Type="Robot_External_Query" />
-      <Association Name="Robot_Order" Member="Orders" ThisKey="RBID" OtherKey="SRBT_ROBO_RBID" Type="Order" />
-      <Association Name="Robot_Service_Robot" Member="Service_Robots" ThisKey="RBID" OtherKey="ROBO_RBID" Type="Service_Robot" />
-      <Association Name="Robot_Send_Advertising_Tariff" Member="Send_Advertising_Tariffs" ThisKey="RBID" OtherKey="ROBO_RBID" Type="Send_Advertising_Tariff" />
-      <Association Name="Robot_Send_Advertising" Member="Send_Advertisings" ThisKey="RBID" OtherKey="ROBO_RBID" Type="Send_Advertising" />
-      <Association Name="Robot_Service_Robot_Public" Member="Service_Robot_Publics" ThisKey="RBID" OtherKey="SRBT_ROBO_RBID" Type="Service_Robot_Public" />
-      <Association Name="Robot_Robot_Card_Bank_Account" Member="Robot_Card_Bank_Accounts" ThisKey="RBID" OtherKey="ROBO_RBID" Type="Robot_Card_Bank_Account" />
-      <Association Name="Robot_Service_Robot_Card_Bank" Member="Service_Robot_Card_Banks" ThisKey="RBID" OtherKey="SRBT_ROBO_RBID" Type="Service_Robot_Card_Bank" />
-      <Association Name="Robot_Robot_Product" Member="Robot_Products" ThisKey="RBID" OtherKey="ROBO_RBID" Type="Robot_Product" />
-      <Association Name="Robot_Robot" Member="Robots" ThisKey="RBID" OtherKey="ROBO_RBID" Type="Robot" />
-      <Association Name="Robot_Robot_Limited_Commodity_Group" Member="Robot_Limited_Commodity_Groups" ThisKey="RBID" OtherKey="ROBO_RBID" Type="Robot_Limited_Commodity_Group" />
-      <Association Name="Robot_Template_Item" Member="Template_Items" ThisKey="RBID" OtherKey="ROBO_RBID" Type="Template_Item" />
-      <Association Name="Robot_Template" Member="Templates" ThisKey="RBID" OtherKey="ROBO_RBID" Type="Template" />
-      <Association Name="Robot_Robot_Search_Engine" Member="Robot_Search_Engines" ThisKey="RBID" OtherKey="ROBO_RBID" Type="Robot_Search_Engine" />
-      <Association Name="Robot_Robot_Instagram" Member="Robot_Instagrams" ThisKey="RBID" OtherKey="ROBO_RBID" Type="Robot_Instagram" />
-      <Association Name="Organ_Robot" Member="Organ" ThisKey="ORGN_OGID" OtherKey="OGID" Type="Organ" IsForeignKey="true" />
-      <Association Name="Robot_Robot" Member="Robot1" ThisKey="ROBO_RBID" OtherKey="RBID" Type="Robot" IsForeignKey="true" />
-    </Type>
-    <InsertFunction FunctionId="FunctionId91">
-      <Argument Parameter="orgn_Ogid" Member="ORGN_OGID" />
-      <Argument Parameter="robo_Rbid" Member="ROBO_RBID" />
-      <Argument Parameter="copy_Type" Member="COPY_TYPE" />
-      <Argument Parameter="bot_Type" Member="BOT_TYPE" />
-      <Argument Parameter="name" Member="NAME" />
-      <Argument Parameter="tkon_Code" Member="TKON_CODE" />
-      <Argument Parameter="stat" Member="STAT" />
-      <Argument Parameter="buld_Stat" Member="BULD_STAT" />
-      <Argument Parameter="buld_File_Id" Member="BULD_FILE_ID" />
-      <Argument Parameter="spy_Type" Member="SPY_TYPE" />
-      <Argument Parameter="crtb_Url" Member="CRTB_URL" />
-      <Argument Parameter="down_Load_File_Path" Member="DOWN_LOAD_FILE_PATH" />
-      <Argument Parameter="up_Load_File_Path" Member="UP_LOAD_FILE_PATH" />
-      <Argument Parameter="invt_Frnd" Member="INVT_FRND" />
-      <Argument Parameter="hash_Tag" Member="HASH_TAG" />
-      <Argument Parameter="cord_X" Member="CORD_X" />
-      <Argument Parameter="cord_Y" Member="CORD_Y" />
-      <Argument Parameter="post_Adrs" Member="POST_ADRS" />
-      <Argument Parameter="cell_Phon" Member="CELL_PHON" />
-      <Argument Parameter="tell_Phon" Member="TELL_PHON" />
-      <Argument Parameter="emal_Adrs" Member="EMAL_ADRS" />
-      <Argument Parameter="web_Site" Member="WEB_SITE" />
-      <Argument Parameter="run_Stat" Member="RUN_STAT" />
-      <Argument Parameter="amnt_Type" Member="AMNT_TYPE" />
-      <Argument Parameter="cnct_Acnt_App" Member="CNCT_ACNT_APP" />
-      <Argument Parameter="acnt_App_Type" Member="ACNT_APP_TYPE" />
-      <Argument Parameter="page_Fech_Rows" Member="PAGE_FECH_ROWS" />
-      <Argument Parameter="min_With_Draw" Member="MIN_WITH_DRAW" />
-      <Argument Parameter="conf_Durt_Day" Member="CONF_DURT_DAY" />
-      <Argument Parameter="auto_Ship_Cori" Member="AUTO_SHIP_CORI" />
-      <Argument Parameter="show_Invr_Stat" Member="SHOW_INVR_STAT" />
-      <Argument Parameter="view_Invr_Stat" Member="VIEW_INVR_STAT" />
-      <Argument Parameter="free_Ship_Inct_Amnt" Member="FREE_SHIP_INCT_AMNT" />
-      <Argument Parameter="free_Ship_Otct_Amnt" Member="FREE_SHIP_OTCT_AMNT" />
-      <Argument Parameter="ordr_Expr_Stat" Member="ORDR_EXPR_STAT" />
-      <Argument Parameter="ordr_Expr_Time" Member="ORDR_EXPR_TIME" />
-    </InsertFunction>
-    <UpdateFunction FunctionId="FunctionId92">
-      <Argument Parameter="orgn_Ogid" Member="ORGN_OGID" />
-      <Argument Parameter="robo_Rbid" Member="ROBO_RBID" />
-      <Argument Parameter="rbid" Member="RBID" />
-      <Argument Parameter="copy_Type" Member="COPY_TYPE" />
-      <Argument Parameter="bot_Type" Member="BOT_TYPE" />
-      <Argument Parameter="name" Member="NAME" />
-      <Argument Parameter="tkon_Code" Member="TKON_CODE" />
-      <Argument Parameter="stat" Member="STAT" />
-      <Argument Parameter="buld_Stat" Member="BULD_STAT" />
-      <Argument Parameter="buld_File_Id" Member="BULD_FILE_ID" />
-      <Argument Parameter="spy_Type" Member="SPY_TYPE" />
-      <Argument Parameter="crtb_Url" Member="CRTB_URL" />
-      <Argument Parameter="down_Load_File_Path" Member="DOWN_LOAD_FILE_PATH" />
-      <Argument Parameter="up_Load_File_Path" Member="UP_LOAD_FILE_PATH" />
-      <Argument Parameter="invt_Frnd" Member="INVT_FRND" />
-      <Argument Parameter="hash_Tag" Member="HASH_TAG" />
-      <Argument Parameter="cord_X" Member="CORD_X" />
-      <Argument Parameter="cord_Y" Member="CORD_Y" />
-      <Argument Parameter="post_Adrs" Member="POST_ADRS" />
-      <Argument Parameter="cell_Phon" Member="CELL_PHON" />
-      <Argument Parameter="tell_Phon" Member="TELL_PHON" />
-      <Argument Parameter="emal_Adrs" Member="EMAL_ADRS" />
-      <Argument Parameter="web_Site" Member="WEB_SITE" />
-      <Argument Parameter="run_Stat" Member="RUN_STAT" />
-      <Argument Parameter="amnt_Type" Member="AMNT_TYPE" />
-      <Argument Parameter="cnct_Acnt_App" Member="CNCT_ACNT_APP" />
-      <Argument Parameter="acnt_App_Type" Member="ACNT_APP_TYPE" />
-      <Argument Parameter="page_Fech_Rows" Member="PAGE_FECH_ROWS" />
-      <Argument Parameter="min_With_Draw" Member="MIN_WITH_DRAW" />
-      <Argument Parameter="conf_Durt_Day" Member="CONF_DURT_DAY" />
-      <Argument Parameter="auto_Ship_Cori" Member="AUTO_SHIP_CORI" />
-      <Argument Parameter="show_Invr_Stat" Member="SHOW_INVR_STAT" />
-      <Argument Parameter="view_Invr_Stat" Member="VIEW_INVR_STAT" />
-      <Argument Parameter="free_Ship_Inct_Amnt" Member="FREE_SHIP_INCT_AMNT" />
-      <Argument Parameter="free_Ship_Otct_Amnt" Member="FREE_SHIP_OTCT_AMNT" />
-      <Argument Parameter="ordr_Expr_Stat" Member="ORDR_EXPR_STAT" />
-      <Argument Parameter="ordr_Expr_Time" Member="ORDR_EXPR_TIME" />
-      <Argument Parameter="locl_Srvr_Conn_Strn" Member="LOCL_SRVR_CONN_STRN" />
-      <Argument Parameter="web_Srvr_Conn_Strn" Member="WEB_SRVR_CONN_STRN" />
-      <Argument Parameter="noti_Ordr_Ship_Stat" Member="NOTI_ORDR_SHIP_STAT" />
-      <Argument Parameter="noti_Sond_Ordr_Ship_Path" Member="NOTI_SOND_ORDR_SHIP_PATH" />
-      <Argument Parameter="noti_Ordr_Rcpt_Stat" Member="NOTI_ORDR_RCPT_STAT" />
-      <Argument Parameter="noti_Sond_Ordr_Rcpt_Path" Member="NOTI_SOND_ORDR_RCPT_PATH" />
-      <Argument Parameter="noti_Ordr_Recp_Stat" Member="NOTI_ORDR_RECP_STAT" />
-      <Argument Parameter="noti_Sond_Ordr_Recp_Path" Member="NOTI_SOND_ORDR_RECP_PATH" />
-      <Argument Parameter="chck_Regs_Strt" Member="CHCK_REGS_STRT" />
-    </UpdateFunction>
-    <DeleteFunction FunctionId="FunctionId93">
-      <Argument Parameter="rbid" Member="RBID" />
-    </DeleteFunction>
-  </Table>
   <Table Name="dbo.Robot_Limited_Commodity_Group" Member="Robot_Limited_Commodity_Groups">
     <Type Name="Robot_Limited_Commodity_Group">
       <Column Name="ROBO_RBID" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
@@ -2979,8 +2627,8 @@
       <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
-      <Association Name="Robot_Product_Robot_Product_Limited" Member="Robot_Product" ThisKey="RBPR_CODE" OtherKey="CODE" Type="Robot_Product" IsForeignKey="true" DeleteRule="CASCADE" />
       <Association Name="Robot_Limited_Commodity_Group_Robot_Product_Limited" Member="Robot_Limited_Commodity_Group" ThisKey="RLCG_CODE" OtherKey="CODE" Type="Robot_Limited_Commodity_Group" IsForeignKey="true" />
+      <Association Name="Robot_Product_Robot_Product_Limited" Member="Robot_Product" ThisKey="RBPR_CODE" OtherKey="CODE" Type="Robot_Product" IsForeignKey="true" DeleteRule="CASCADE" />
     </Type>
   </Table>
   <Table Name="dbo.Service_Robot_Access_Limited_Group_Product" Member="Service_Robot_Access_Limited_Group_Products">
@@ -3156,6 +2804,450 @@
       <Association Name="Robot_Instagram_Robot_Instagram_Follow" Member="Robot_Instagram_Follows" ThisKey="CODE" OtherKey="RINS_CODE" Type="Robot_Instagram_Follow" />
       <Association Name="Robot_Instagram_Robot_Instagram_DirectMessage" Member="Robot_Instagram_DirectMessages" ThisKey="CODE" OtherKey="RINS_CODE" Type="Robot_Instagram_DirectMessage" />
       <Association Name="Robot_Robot_Instagram" Member="Robot" ThisKey="ROBO_RBID" OtherKey="RBID" Type="Robot" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.D$VINV" Member="D_VINVs">
+    <Type Name="D_VINV">
+      <Column Name="VALU" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="DOMN_DESC" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Robot_Product" Member="Robot_Products">
+    <Type Name="Robot_Product">
+      <Column Name="ROBO_RBID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="CODE" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TARF_CODE" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="EXPN_PRIC_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="EXTR_PRCT_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="BUY_PRIC" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="PRFT_PRIC_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="UNIT_APBS_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="UNIT_DESC_DNRM" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="RTNG_NUMB_DNRM" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="RTNG_CONT_DNRM" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PROD_FETR" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="TARF_TEXT_DNRM" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="TARF_ENGL_TEXT" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="REVW_CONT_DNRM" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BRND_TEXT_DNRM" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="BRND_CODE_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="GROP_TEXT_DNRM" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="GROP_CODE_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="ROOT_GROP_CODE_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="ROOT_GROP_DESC_DNRM" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="GROP_JOIN_DNRM" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ORDR_CONT_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="VIST_CONT_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="LIKE_CONT_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="BEST_SLNG_CONT_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="DELV_DAY_DNRM" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="DELV_HOUR_DNRM" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="DELV_MINT_DNRM" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="MAKE_DAY_DNRM" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="MAKE_HOUR_DNRM" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="MAKE_MINT_DNRM" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="RELS_TIME" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="WERH_INVR_NUMB_DNRM" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="MAX_SALE_DAY_NUMB_DNRM" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="SALE_NUMB_DNRM" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="CRNT_NUMB_DNRM" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="SALE_CART_NUMB_DNRM" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="ALRM_MIN_NUMB_DNRM" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="PROD_TYPE_DNRM" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="MIN_ORDR_DNRM" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="MADE_IN_DNRM" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="GRNT_STAT_DNRM" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="GRNT_NUMB_DNRM" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="GRNT_TIME_DNRM" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="GRNT_TYPE_DNRM" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="GRNT_DESC_DNRM" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="WRNT_STAT_DNRM" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="WRNT_NUMB_DNRM" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="WRNT_TIME_DNRM" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="WRNT_TYPE_DNRM" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="WRNT_DESC_DNRM" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="WEGH_AMNT_DNRM" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="NUMB_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="PROD_LIFE_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="PROD_SUPL_LOCT_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="PROD_SUPL_LOCT_DESC" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="RESP_SHIP_COST_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="APRX_SHIP_COST_AMNT" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="CRNC_CALC_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="CRNC_EXPN_AMNT" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Robot_Product_Robot_Product_Alternative" Member="Robot_Product_Alternatives" ThisKey="CODE" OtherKey="RBPR_CODE" Type="Robot_Product_Alternative" />
+      <Association Name="Robot_Product_Robot_Product_Alternative1" Member="Robot_Product_Alternatives1" ThisKey="CODE" OtherKey="ALTR_RBPR_CODE" Type="Robot_Product_Alternative" />
+      <Association Name="Robot_Product_Robot_Product_Discount" Member="Robot_Product_Discounts" ThisKey="CODE" OtherKey="RBPR_CODE" Type="Robot_Product_Discount" />
+      <Association Name="Robot_Product_Service_Robot_Product_Amazing_Notification" Member="Service_Robot_Product_Amazing_Notifications" ThisKey="CODE" OtherKey="RBPR_CODE" Type="Service_Robot_Product_Amazing_Notification" />
+      <Association Name="Robot_Product_Service_Robot_Product_Feedback" Member="Service_Robot_Product_Feedbacks" ThisKey="CODE" OtherKey="RBPR_CODE" Type="Service_Robot_Product_Feedback" />
+      <Association Name="Robot_Product_Service_Robot_Product_Find_Best_Price" Member="Service_Robot_Product_Find_Best_Prices" ThisKey="CODE" OtherKey="RBPR_CODE" Type="Service_Robot_Product_Find_Best_Price" />
+      <Association Name="Robot_Product_Service_Robot_Product_Like" Member="Service_Robot_Product_Likes" ThisKey="CODE" OtherKey="RBPR_CODE" Type="Service_Robot_Product_Like" />
+      <Association Name="Robot_Product_Service_Robot_Product_Rating" Member="Service_Robot_Product_Ratings" ThisKey="CODE" OtherKey="RBPR_CODE" Type="Service_Robot_Product_Rating" />
+      <Association Name="Robot_Product_Service_Robot_Product_Signal" Member="Service_Robot_Product_Signals" ThisKey="CODE" OtherKey="RBPR_CODE" Type="Service_Robot_Product_Signal" />
+      <Association Name="Robot_Product_Service_Robot_Seller_Product" Member="Service_Robot_Seller_Products" ThisKey="CODE" OtherKey="RBPR_CODE" Type="Service_Robot_Seller_Product" />
+      <Association Name="Robot_Product_Robot_Product_Preview" Member="Robot_Product_Previews" ThisKey="CODE" OtherKey="RBPR_CODE" Type="Robot_Product_Preview" />
+      <Association Name="Robot_Product_Robot_Product_StepPrice" Member="Robot_Product_StepPrices" ThisKey="CODE" OtherKey="RBPR_CODE" Type="Robot_Product_StepPrice" />
+      <Association Name="Robot_Product_Service_Robot_Seller_Partner" Member="Service_Robot_Seller_Partners" ThisKey="CODE" OtherKey="RBPR_CODE" Type="Service_Robot_Seller_Partner" />
+      <Association Name="Robot_Product_Robot_Product_Download" Member="Robot_Product_Downloads" ThisKey="CODE" OtherKey="RBPR_CODE" Type="Robot_Product_Download" />
+      <Association Name="Robot_Product_Robot_Product_Limited" Member="Robot_Product_Limiteds" ThisKey="CODE" OtherKey="RBPR_CODE" Type="Robot_Product_Limited" />
+      <Association Name="App_Base_Define_Robot_Product" Member="App_Base_Define" ThisKey="UNIT_APBS_CODE" OtherKey="CODE" Type="App_Base_Define" IsForeignKey="true" DeleteRule="CASCADE" />
+      <Association Name="Robot_Robot_Product" Member="Robot" ThisKey="ROBO_RBID" OtherKey="RBID" Type="Robot" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+    <InsertFunction FunctionId="FunctionId88">
+      <Argument Parameter="rOBO_RBID" Member="ROBO_RBID" />
+      <Argument Parameter="tARF_CODE" Member="TARF_CODE" />
+      <Argument Parameter="eXPN_PRIC_DNRM" Member="EXPN_PRIC_DNRM" />
+      <Argument Parameter="eXTR_PRCT_DNRM" Member="EXTR_PRCT_DNRM" />
+      <Argument Parameter="bUY_PRIC" Member="BUY_PRIC" />
+      <Argument Parameter="uNIT_APBS_CODE" Member="UNIT_APBS_CODE" />
+      <Argument Parameter="pROD_FETR" Member="PROD_FETR" />
+      <Argument Parameter="tARF_TEXT_DNRM" Member="TARF_TEXT_DNRM" />
+      <Argument Parameter="tARF_ENGL_TEXT" Member="TARF_ENGL_TEXT" />
+      <Argument Parameter="bRND_CODE_DNRM" Member="BRND_CODE_DNRM" />
+      <Argument Parameter="gROP_CODE_DNRM" Member="GROP_CODE_DNRM" />
+      <Argument Parameter="gROP_JOIN_DNRM" Member="GROP_JOIN_DNRM" />
+      <Argument Parameter="dELV_DAY_DNRM" Member="DELV_DAY_DNRM" />
+      <Argument Parameter="dELV_HOUR_DNRM" Member="DELV_HOUR_DNRM" />
+      <Argument Parameter="dELV_MINT_DNRM" Member="DELV_MINT_DNRM" />
+      <Argument Parameter="mAKE_DAY_DNRM" Member="MAKE_DAY_DNRM" />
+      <Argument Parameter="mAKE_HOUR_DNRM" Member="MAKE_HOUR_DNRM" />
+      <Argument Parameter="mAKE_MINT_DNRM" Member="MAKE_MINT_DNRM" />
+      <Argument Parameter="rELS_TIME" Member="RELS_TIME" />
+      <Argument Parameter="sTAT" Member="STAT" />
+      <Argument Parameter="mAX_SALE_DAY_NUMB_DNRM" Member="MAX_SALE_DAY_NUMB_DNRM" />
+      <Argument Parameter="aLRM_MIN_NUMB_DNRM" Member="ALRM_MIN_NUMB_DNRM" />
+      <Argument Parameter="pROD_TYPE_DNRM" Member="PROD_TYPE_DNRM" />
+      <Argument Parameter="mIN_ORDR_DNRM" Member="MIN_ORDR_DNRM" />
+      <Argument Parameter="mADE_IN_DNRM" Member="MADE_IN_DNRM" />
+      <Argument Parameter="gRNT_STAT_DNRM" Member="GRNT_STAT_DNRM" />
+      <Argument Parameter="gRNT_NUMB_DNRM" Member="GRNT_NUMB_DNRM" />
+      <Argument Parameter="gRNT_TIME_DNRM" Member="GRNT_TIME_DNRM" />
+      <Argument Parameter="gRNT_TYPE_DNRM" Member="GRNT_TYPE_DNRM" />
+      <Argument Parameter="gRNT_DESC_DNRM" Member="GRNT_DESC_DNRM" />
+      <Argument Parameter="wRNT_STAT_DNRM" Member="WRNT_STAT_DNRM" />
+      <Argument Parameter="wRNT_NUMB_DNRM" Member="WRNT_NUMB_DNRM" />
+      <Argument Parameter="wRNT_TIME_DNRM" Member="WRNT_TIME_DNRM" />
+      <Argument Parameter="wRNT_TYPE_DNRM" Member="WRNT_TYPE_DNRM" />
+      <Argument Parameter="wRNT_DESC_DNRM" Member="WRNT_DESC_DNRM" />
+      <Argument Parameter="wEGH_AMNT_DNRM" Member="WEGH_AMNT_DNRM" />
+      <Argument Parameter="nUMB_TYPE" Member="NUMB_TYPE" />
+      <Argument Parameter="pROD_LIFE_STAT" Member="PROD_LIFE_STAT" />
+      <Argument Parameter="pROD_SUPL_LOCT_STAT" Member="PROD_SUPL_LOCT_STAT" />
+      <Argument Parameter="pROD_SUPL_LOCT_DESC" Member="PROD_SUPL_LOCT_DESC" />
+      <Argument Parameter="rESP_SHIP_COST_TYPE" Member="RESP_SHIP_COST_TYPE" />
+      <Argument Parameter="aPRX_SHIP_COST_AMNT" Member="APRX_SHIP_COST_AMNT" />
+      <Argument Parameter="crnc_Calc_Stat" Member="CRNC_CALC_STAT" />
+      <Argument Parameter="crnc_Expn_Amnt" Member="CRNC_EXPN_AMNT" />
+    </InsertFunction>
+    <UpdateFunction FunctionId="FunctionId89">
+      <Argument Parameter="cODE" Member="CODE" />
+      <Argument Parameter="rOBO_RBID" Member="ROBO_RBID" />
+      <Argument Parameter="tARF_CODE" Member="TARF_CODE" />
+      <Argument Parameter="eXPN_PRIC_DNRM" Member="EXPN_PRIC_DNRM" />
+      <Argument Parameter="eXTR_PRCT_DNRM" Member="EXTR_PRCT_DNRM" />
+      <Argument Parameter="bUY_PRIC" Member="BUY_PRIC" />
+      <Argument Parameter="uNIT_APBS_CODE" Member="UNIT_APBS_CODE" />
+      <Argument Parameter="pROD_FETR" Member="PROD_FETR" />
+      <Argument Parameter="tARF_TEXT_DNRM" Member="TARF_TEXT_DNRM" />
+      <Argument Parameter="tARF_ENGL_TEXT" Member="TARF_ENGL_TEXT" />
+      <Argument Parameter="bRND_CODE_DNRM" Member="BRND_CODE_DNRM" />
+      <Argument Parameter="gROP_CODE_DNRM" Member="GROP_CODE_DNRM" />
+      <Argument Parameter="gROP_JOIN_DNRM" Member="GROP_JOIN_DNRM" />
+      <Argument Parameter="dELV_DAY_DNRM" Member="DELV_DAY_DNRM" />
+      <Argument Parameter="dELV_HOUR_DNRM" Member="DELV_HOUR_DNRM" />
+      <Argument Parameter="dELV_MINT_DNRM" Member="DELV_MINT_DNRM" />
+      <Argument Parameter="mAKE_DAY_DNRM" Member="MAKE_DAY_DNRM" />
+      <Argument Parameter="mAKE_HOUR_DNRM" Member="MAKE_HOUR_DNRM" />
+      <Argument Parameter="mAKE_MINT_DNRM" Member="MAKE_MINT_DNRM" />
+      <Argument Parameter="rELS_TIME" Member="RELS_TIME" />
+      <Argument Parameter="sTAT" Member="STAT" />
+      <Argument Parameter="aLRM_MIN_NUMB_DNRM" Member="ALRM_MIN_NUMB_DNRM" />
+      <Argument Parameter="pROD_TYPE_DNRM" Member="PROD_TYPE_DNRM" />
+      <Argument Parameter="mIN_ORDR_DNRM" Member="MIN_ORDR_DNRM" />
+      <Argument Parameter="mADE_IN_DNRM" Member="MADE_IN_DNRM" />
+      <Argument Parameter="gRNT_STAT_DNRM" Member="GRNT_STAT_DNRM" />
+      <Argument Parameter="gRNT_NUMB_DNRM" Member="GRNT_NUMB_DNRM" />
+      <Argument Parameter="gRNT_TIME_DNRM" Member="GRNT_TIME_DNRM" />
+      <Argument Parameter="gRNT_TYPE_DNRM" Member="GRNT_TYPE_DNRM" />
+      <Argument Parameter="gRNT_DESC_DNRM" Member="GRNT_DESC_DNRM" />
+      <Argument Parameter="wRNT_STAT_DNRM" Member="WRNT_STAT_DNRM" />
+      <Argument Parameter="wRNT_NUMB_DNRM" Member="WRNT_NUMB_DNRM" />
+      <Argument Parameter="wRNT_TIME_DNRM" Member="WRNT_TIME_DNRM" />
+      <Argument Parameter="wRNT_TYPE_DNRM" Member="WRNT_TYPE_DNRM" />
+      <Argument Parameter="wRNT_DESC_DNRM" Member="WRNT_DESC_DNRM" />
+      <Argument Parameter="wEGH_AMNT_DNRM" Member="WEGH_AMNT_DNRM" />
+      <Argument Parameter="nUMB_TYPE" Member="NUMB_TYPE" />
+      <Argument Parameter="pROD_LIFE_STAT" Member="PROD_LIFE_STAT" />
+      <Argument Parameter="pROD_SUPL_LOCT_STAT" Member="PROD_SUPL_LOCT_STAT" />
+      <Argument Parameter="pROD_SUPL_LOCT_DESC" Member="PROD_SUPL_LOCT_DESC" />
+      <Argument Parameter="rESP_SHIP_COST_TYPE" Member="RESP_SHIP_COST_TYPE" />
+      <Argument Parameter="aPRX_SHIP_COST_AMNT" Member="APRX_SHIP_COST_AMNT" />
+      <Argument Parameter="crnc_Calc_Stat" Member="CRNC_CALC_STAT" />
+      <Argument Parameter="crnc_Expn_Amnt" Member="CRNC_EXPN_AMNT" />
+    </UpdateFunction>
+    <DeleteFunction FunctionId="FunctionId90">
+      <Argument Parameter="cODE" Member="CODE" />
+    </DeleteFunction>
+  </Table>
+  <Table Name="dbo.D$CSOR" Member="D_CSORs">
+    <Type Name="D_CSOR">
+      <Column Name="VALU" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="DOMN_DESC" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Robot_Currency" Member="Robot_Currencies">
+    <Type Name="Robot_Currency">
+      <Column Name="RBCS_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CODE" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="RWNO" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRNC_NAME" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRNT_AMNT_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MAX_AMNT_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MIN_AMNT_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="PRCT_CHNG_DNRM" Type="System.String" DbType="VarChar(30)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="LAST_UPDT_DNRM" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="Robot_Currency_Robot_Currency_Detail" Member="Robot_Currency_Details" ThisKey="CODE" OtherKey="RBCR_CODE" Type="Robot_Currency_Detail" />
+      <Association Name="Robot_Currency_Source_Robot_Currency" Member="Robot_Currency_Source" ThisKey="RBCS_CODE" OtherKey="CODE" Type="Robot_Currency_Source" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.D$CHUP" Member="D_CHUPs">
+    <Type Name="D_CHUP">
+      <Column Name="VALU" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="DOMN_DESC" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Robot_Currency_Detail" Member="Robot_Currency_Details">
+    <Type Name="Robot_Currency_Detail">
+      <Column Name="RBCR_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CODE" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="RWNO" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRNT_AMNT" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MAX_AMNT" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MIN_AMNT" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="PRCT_CHNG" Type="System.String" DbType="VarChar(30)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="LAST_UPDT" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="Robot_Currency_Robot_Currency_Detail" Member="Robot_Currency" ThisKey="RBCR_CODE" OtherKey="CODE" Type="Robot_Currency" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Robot" Member="Robots">
+    <Type Name="Robot">
+      <Column Name="ORGN_OGID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="ROBO_RBID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="RBID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="COPY_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="BOT_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="NAME" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="TKON_CODE" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="CHCK_INTR" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="BULD_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="BULD_FILE_ID" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="SPY_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="CRTB_URL" Type="System.String" DbType="VarChar(1000)" CanBeNull="true" />
+      <Column Name="DOWN_LOAD_FILE_PATH" Type="System.String" DbType="VarChar(1000)" CanBeNull="true" />
+      <Column Name="UP_LOAD_FILE_PATH" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="INVT_FRND" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="SEND_SMS_INVT_CONT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="HASH_TAG" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="POST_ADRS" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="CORD_X" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CORD_Y" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CELL_PHON" Type="System.String" DbType="VarChar(11)" CanBeNull="true" />
+      <Column Name="TELL_PHON" Type="System.String" DbType="VarChar(11)" CanBeNull="true" />
+      <Column Name="EMAL_ADRS" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="WEB_SITE" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="RUN_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="AMNT_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="CNCT_ACNT_APP" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="ACNT_APP_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="PAGE_FECH_ROWS" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MIN_WITH_DRAW" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="CONF_DURT_DAY" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AUTO_SHIP_CORI" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="SHOW_INVR_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="VIEW_INVR_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="FREE_SHIP_INCT_AMNT" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="FREE_SHIP_OTCT_AMNT" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="ORDR_EXPR_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="ORDR_EXPR_TIME" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LOCL_SRVR_CONN_STRN" Type="System.String" DbType="VarChar(1000)" CanBeNull="true" />
+      <Column Name="WEB_SRVR_CONN_STRN" Type="System.String" DbType="VarChar(1000)" CanBeNull="true" />
+      <Column Name="EXTR_SORC_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="SLCT_SRVR_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="NOTI_ORDR_SHIP_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="NOTI_SOND_ORDR_SHIP_PATH" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="NOTI_ORDR_RCPT_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="NOTI_SOND_ORDR_RCPT_PATH" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="NOTI_ORDR_RECP_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="NOTI_SOND_ORDR_RECP_PATH" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="CHCK_REGS_STRT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="CRNC_CALC_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="RBCR_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="CRNC_AMNT_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="CRNC_AUTO_UPDT_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="CRNC_CYCL_AUTO_UPDT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CRNC_HOW_UPDT_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Robot_Job" Member="Jobs" ThisKey="RBID" OtherKey="ROBO_RBID" Type="Job" />
+      <Association Name="Robot_Organ_Description" Member="Organ_Descriptions" ThisKey="RBID" OtherKey="ROBO_RBID" Type="Organ_Description" />
+      <Association Name="Robot_Robot_Import" Member="Robot_Imports" ThisKey="RBID" OtherKey="ROBO_RBID" Type="Robot_Import" />
+      <Association Name="Robot_Robot_Spy_Group" Member="Robot_Spy_Groups" ThisKey="RBID" OtherKey="ROBO_RBID" Type="Robot_Spy_Group" />
+      <Association Name="Robot_Robot_Spy_Group_Message" Member="Robot_Spy_Group_Messages" ThisKey="RBID" OtherKey="RSPG_ROBO_RBID" Type="Robot_Spy_Group_Message" />
+      <Association Name="Robot_Personal_Robot" Member="Personal_Robots" ThisKey="RBID" OtherKey="ROBO_RBID" Type="Personal_Robot" />
+      <Association Name="Robot_Group_Header" Member="Group_Headers" ThisKey="RBID" OtherKey="ROBO_RBID" Type="Group_Header" />
+      <Association Name="Robot_Group" Member="Groups" ThisKey="RBID" OtherKey="ROBO_RBID" Type="Group" />
+      <Association Name="Robot_Menu_Ussd" Member="Menu_Ussds" ThisKey="RBID" OtherKey="ROBO_RBID" Type="Menu_Ussd" />
+      <Association Name="Robot_Organ_Media" Member="Organ_Medias" ThisKey="RBID" OtherKey="ROBO_RBID" Type="Organ_Media" />
+      <Association Name="Robot_Robot_Product_Discount" Member="Robot_Product_Discounts" ThisKey="RBID" OtherKey="ROBO_RBID" Type="Robot_Product_Discount" />
+      <Association Name="Robot_Wallet" Member="Wallets" ThisKey="RBID" OtherKey="SRBT_ROBO_RBID" Type="Wallet" />
+      <Association Name="Robot_Robot_External_Query" Member="Robot_External_Queries" ThisKey="RBID" OtherKey="ROBO_RBID" Type="Robot_External_Query" />
+      <Association Name="Robot_Order" Member="Orders" ThisKey="RBID" OtherKey="SRBT_ROBO_RBID" Type="Order" />
+      <Association Name="Robot_Service_Robot" Member="Service_Robots" ThisKey="RBID" OtherKey="ROBO_RBID" Type="Service_Robot" />
+      <Association Name="Robot_Send_Advertising_Tariff" Member="Send_Advertising_Tariffs" ThisKey="RBID" OtherKey="ROBO_RBID" Type="Send_Advertising_Tariff" />
+      <Association Name="Robot_Send_Advertising" Member="Send_Advertisings" ThisKey="RBID" OtherKey="ROBO_RBID" Type="Send_Advertising" />
+      <Association Name="Robot_Service_Robot_Public" Member="Service_Robot_Publics" ThisKey="RBID" OtherKey="SRBT_ROBO_RBID" Type="Service_Robot_Public" />
+      <Association Name="Robot_Robot_Card_Bank_Account" Member="Robot_Card_Bank_Accounts" ThisKey="RBID" OtherKey="ROBO_RBID" Type="Robot_Card_Bank_Account" />
+      <Association Name="Robot_Service_Robot_Card_Bank" Member="Service_Robot_Card_Banks" ThisKey="RBID" OtherKey="SRBT_ROBO_RBID" Type="Service_Robot_Card_Bank" />
+      <Association Name="Robot_Robot_Limited_Commodity_Group" Member="Robot_Limited_Commodity_Groups" ThisKey="RBID" OtherKey="ROBO_RBID" Type="Robot_Limited_Commodity_Group" />
+      <Association Name="Robot_Template_Item" Member="Template_Items" ThisKey="RBID" OtherKey="ROBO_RBID" Type="Template_Item" />
+      <Association Name="Robot_Template" Member="Templates" ThisKey="RBID" OtherKey="ROBO_RBID" Type="Template" />
+      <Association Name="Robot_Robot_Search_Engine" Member="Robot_Search_Engines" ThisKey="RBID" OtherKey="ROBO_RBID" Type="Robot_Search_Engine" />
+      <Association Name="Robot_Robot_Instagram" Member="Robot_Instagrams" ThisKey="RBID" OtherKey="ROBO_RBID" Type="Robot_Instagram" />
+      <Association Name="Robot_Robot_Product" Member="Robot_Products" ThisKey="RBID" OtherKey="ROBO_RBID" Type="Robot_Product" />
+      <Association Name="Robot_Robot" Member="Robots" ThisKey="RBID" OtherKey="ROBO_RBID" Type="Robot" />
+      <Association Name="Robot_Robot_Currency_Source" Member="Robot_Currency_Sources" ThisKey="RBID" OtherKey="ROBO_RBID" Type="Robot_Currency_Source" />
+      <Association Name="Organ_Robot" Member="Organ" ThisKey="ORGN_OGID" OtherKey="OGID" Type="Organ" IsForeignKey="true" />
+      <Association Name="Robot_Robot" Member="Robot1" ThisKey="ROBO_RBID" OtherKey="RBID" Type="Robot" IsForeignKey="true" />
+    </Type>
+    <InsertFunction FunctionId="FunctionId91">
+      <Argument Parameter="orgn_Ogid" Member="ORGN_OGID" />
+      <Argument Parameter="robo_Rbid" Member="ROBO_RBID" />
+      <Argument Parameter="copy_Type" Member="COPY_TYPE" />
+      <Argument Parameter="bot_Type" Member="BOT_TYPE" />
+      <Argument Parameter="name" Member="NAME" />
+      <Argument Parameter="tkon_Code" Member="TKON_CODE" />
+      <Argument Parameter="stat" Member="STAT" />
+      <Argument Parameter="buld_Stat" Member="BULD_STAT" />
+      <Argument Parameter="buld_File_Id" Member="BULD_FILE_ID" />
+      <Argument Parameter="spy_Type" Member="SPY_TYPE" />
+      <Argument Parameter="crtb_Url" Member="CRTB_URL" />
+      <Argument Parameter="down_Load_File_Path" Member="DOWN_LOAD_FILE_PATH" />
+      <Argument Parameter="up_Load_File_Path" Member="UP_LOAD_FILE_PATH" />
+      <Argument Parameter="invt_Frnd" Member="INVT_FRND" />
+      <Argument Parameter="hash_Tag" Member="HASH_TAG" />
+      <Argument Parameter="cord_X" Member="CORD_X" />
+      <Argument Parameter="cord_Y" Member="CORD_Y" />
+      <Argument Parameter="post_Adrs" Member="POST_ADRS" />
+      <Argument Parameter="cell_Phon" Member="CELL_PHON" />
+      <Argument Parameter="tell_Phon" Member="TELL_PHON" />
+      <Argument Parameter="emal_Adrs" Member="EMAL_ADRS" />
+      <Argument Parameter="web_Site" Member="WEB_SITE" />
+      <Argument Parameter="run_Stat" Member="RUN_STAT" />
+      <Argument Parameter="amnt_Type" Member="AMNT_TYPE" />
+      <Argument Parameter="cnct_Acnt_App" Member="CNCT_ACNT_APP" />
+      <Argument Parameter="acnt_App_Type" Member="ACNT_APP_TYPE" />
+      <Argument Parameter="page_Fech_Rows" Member="PAGE_FECH_ROWS" />
+      <Argument Parameter="min_With_Draw" Member="MIN_WITH_DRAW" />
+      <Argument Parameter="conf_Durt_Day" Member="CONF_DURT_DAY" />
+      <Argument Parameter="auto_Ship_Cori" Member="AUTO_SHIP_CORI" />
+      <Argument Parameter="show_Invr_Stat" Member="SHOW_INVR_STAT" />
+      <Argument Parameter="view_Invr_Stat" Member="VIEW_INVR_STAT" />
+      <Argument Parameter="free_Ship_Inct_Amnt" Member="FREE_SHIP_INCT_AMNT" />
+      <Argument Parameter="free_Ship_Otct_Amnt" Member="FREE_SHIP_OTCT_AMNT" />
+      <Argument Parameter="ordr_Expr_Stat" Member="ORDR_EXPR_STAT" />
+      <Argument Parameter="ordr_Expr_Time" Member="ORDR_EXPR_TIME" />
+    </InsertFunction>
+    <UpdateFunction FunctionId="FunctionId92">
+      <Argument Parameter="orgn_Ogid" Member="ORGN_OGID" />
+      <Argument Parameter="robo_Rbid" Member="ROBO_RBID" />
+      <Argument Parameter="rbid" Member="RBID" />
+      <Argument Parameter="copy_Type" Member="COPY_TYPE" />
+      <Argument Parameter="bot_Type" Member="BOT_TYPE" />
+      <Argument Parameter="name" Member="NAME" />
+      <Argument Parameter="tkon_Code" Member="TKON_CODE" />
+      <Argument Parameter="stat" Member="STAT" />
+      <Argument Parameter="buld_Stat" Member="BULD_STAT" />
+      <Argument Parameter="buld_File_Id" Member="BULD_FILE_ID" />
+      <Argument Parameter="spy_Type" Member="SPY_TYPE" />
+      <Argument Parameter="crtb_Url" Member="CRTB_URL" />
+      <Argument Parameter="down_Load_File_Path" Member="DOWN_LOAD_FILE_PATH" />
+      <Argument Parameter="up_Load_File_Path" Member="UP_LOAD_FILE_PATH" />
+      <Argument Parameter="invt_Frnd" Member="INVT_FRND" />
+      <Argument Parameter="hash_Tag" Member="HASH_TAG" />
+      <Argument Parameter="cord_X" Member="CORD_X" />
+      <Argument Parameter="cord_Y" Member="CORD_Y" />
+      <Argument Parameter="post_Adrs" Member="POST_ADRS" />
+      <Argument Parameter="cell_Phon" Member="CELL_PHON" />
+      <Argument Parameter="tell_Phon" Member="TELL_PHON" />
+      <Argument Parameter="emal_Adrs" Member="EMAL_ADRS" />
+      <Argument Parameter="web_Site" Member="WEB_SITE" />
+      <Argument Parameter="run_Stat" Member="RUN_STAT" />
+      <Argument Parameter="amnt_Type" Member="AMNT_TYPE" />
+      <Argument Parameter="cnct_Acnt_App" Member="CNCT_ACNT_APP" />
+      <Argument Parameter="acnt_App_Type" Member="ACNT_APP_TYPE" />
+      <Argument Parameter="page_Fech_Rows" Member="PAGE_FECH_ROWS" />
+      <Argument Parameter="min_With_Draw" Member="MIN_WITH_DRAW" />
+      <Argument Parameter="conf_Durt_Day" Member="CONF_DURT_DAY" />
+      <Argument Parameter="auto_Ship_Cori" Member="AUTO_SHIP_CORI" />
+      <Argument Parameter="show_Invr_Stat" Member="SHOW_INVR_STAT" />
+      <Argument Parameter="view_Invr_Stat" Member="VIEW_INVR_STAT" />
+      <Argument Parameter="free_Ship_Inct_Amnt" Member="FREE_SHIP_INCT_AMNT" />
+      <Argument Parameter="free_Ship_Otct_Amnt" Member="FREE_SHIP_OTCT_AMNT" />
+      <Argument Parameter="ordr_Expr_Stat" Member="ORDR_EXPR_STAT" />
+      <Argument Parameter="ordr_Expr_Time" Member="ORDR_EXPR_TIME" />
+      <Argument Parameter="locl_Srvr_Conn_Strn" Member="LOCL_SRVR_CONN_STRN" />
+      <Argument Parameter="web_Srvr_Conn_Strn" Member="WEB_SRVR_CONN_STRN" />
+      <Argument Parameter="noti_Ordr_Ship_Stat" Member="NOTI_ORDR_SHIP_STAT" />
+      <Argument Parameter="noti_Sond_Ordr_Ship_Path" Member="NOTI_SOND_ORDR_SHIP_PATH" />
+      <Argument Parameter="noti_Ordr_Rcpt_Stat" Member="NOTI_ORDR_RCPT_STAT" />
+      <Argument Parameter="noti_Sond_Ordr_Rcpt_Path" Member="NOTI_SOND_ORDR_RCPT_PATH" />
+      <Argument Parameter="noti_Ordr_Recp_Stat" Member="NOTI_ORDR_RECP_STAT" />
+      <Argument Parameter="noti_Sond_Ordr_Recp_Path" Member="NOTI_SOND_ORDR_RECP_PATH" />
+      <Argument Parameter="chck_Regs_Strt" Member="CHCK_REGS_STRT" />
+      <Argument Parameter="crnc_Calc_Stat" Member="CRNC_CALC_STAT" />
+      <Argument Parameter="rbcr_Code" Member="RBCR_CODE" />
+      <Argument Parameter="crnc_Amnt_Dnrm" Member="CRNC_AMNT_DNRM" />
+      <Argument Parameter="crnc_Auto_Updt_Stat" Member="CRNC_AUTO_UPDT_STAT" />
+      <Argument Parameter="crnc_Cycl_Auto_Updt" Member="CRNC_CYCL_AUTO_UPDT" />
+      <Argument Parameter="extr_Sorc_Stat" Member="EXTR_SORC_STAT" />
+      <Argument Parameter="slct_Srvr_Type" Member="SLCT_SRVR_TYPE" />
+      <Argument Parameter="crnc_How_Updt_Stat" Member="CRNC_HOW_UPDT_STAT" />
+    </UpdateFunction>
+    <DeleteFunction FunctionId="FunctionId93">
+      <Argument Parameter="rbid" Member="RBID" />
+    </DeleteFunction>
+  </Table>
+  <Table Name="dbo.Robot_Currency_Source" Member="Robot_Currency_Sources">
+    <Type Name="Robot_Currency_Source">
+      <Column Name="ROBO_RBID" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CODE" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="NAME" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="WEB_SITE" Type="System.String" DbType="NVarChar(2000)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ROW_SAVE" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="Robot_Currency_Source_Robot_Currency" Member="Robot_Currencies" ThisKey="CODE" OtherKey="RBCS_CODE" Type="Robot_Currency" />
+      <Association Name="Robot_Robot_Currency_Source" Member="Robot" ThisKey="ROBO_RBID" OtherKey="RBID" Type="Robot" IsForeignKey="true" DeleteRule="CASCADE" />
     </Type>
   </Table>
   <Function Id="FunctionId3" Name="dbo.DEL_CNTY_P" Method="DEL_CNTY_P">
@@ -3932,45 +4024,6 @@
     <Parameter Name="Rbcn_Type" Parameter="rbcn_Type" Type="System.String" DbType="VarChar(3)" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId91" Name="dbo.INS_ROBO_P" Method="INS_ROBO_P">
-    <Parameter Name="Orgn_Ogid" Parameter="orgn_Ogid" Type="System.Int64" DbType="BigInt" />
-    <Parameter Name="Robo_Rbid" Parameter="robo_Rbid" Type="System.Int64" DbType="BigInt" />
-    <Parameter Name="Copy_Type" Parameter="copy_Type" Type="System.String" DbType="VarChar(3)" />
-    <Parameter Name="Bot_Type" Parameter="bot_Type" Type="System.String" DbType="VarChar(3)" />
-    <Parameter Name="Name" Parameter="name" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="Tkon_Code" Parameter="tkon_Code" Type="System.String" DbType="VarChar(100)" />
-    <Parameter Name="Stat" Parameter="stat" Type="System.String" DbType="VarChar(3)" />
-    <Parameter Name="Buld_Stat" Parameter="buld_Stat" Type="System.String" DbType="VarChar(3)" />
-    <Parameter Name="Buld_File_Id" Parameter="buld_File_Id" Type="System.String" DbType="VarChar(500)" />
-    <Parameter Name="Spy_Type" Parameter="spy_Type" Type="System.String" DbType="VarChar(3)" />
-    <Parameter Name="Crtb_Url" Parameter="crtb_Url" Type="System.String" DbType="VarChar(1000)" />
-    <Parameter Name="Down_Load_File_Path" Parameter="down_Load_File_Path" Type="System.String" DbType="VarChar(1000)" />
-    <Parameter Name="Up_Load_File_Path" Parameter="up_Load_File_Path" Type="System.String" DbType="VarChar(1000)" />
-    <Parameter Name="Invt_Frnd" Parameter="invt_Frnd" Type="System.String" DbType="NVarChar(MAX)" />
-    <Parameter Name="Hash_Tag" Parameter="hash_Tag" Type="System.String" DbType="NVarChar(1000)" />
-    <Parameter Name="Cord_X" Parameter="cord_X" Type="System.Double" DbType="Float" />
-    <Parameter Name="Cord_Y" Parameter="cord_Y" Type="System.Double" DbType="Float" />
-    <Parameter Name="Post_Adrs" Parameter="post_Adrs" Type="System.String" DbType="NVarChar(1000)" />
-    <Parameter Name="Cell_Phon" Parameter="cell_Phon" Type="System.String" DbType="VarChar(11)" />
-    <Parameter Name="Tell_Phon" Parameter="tell_Phon" Type="System.String" DbType="VarChar(11)" />
-    <Parameter Name="Emal_Adrs" Parameter="emal_Adrs" Type="System.String" DbType="VarChar(250)" />
-    <Parameter Name="Web_Site" Parameter="web_Site" Type="System.String" DbType="VarChar(250)" />
-    <Parameter Name="Run_Stat" Parameter="run_Stat" Type="System.String" DbType="VarChar(3)" />
-    <Parameter Name="Amnt_Type" Parameter="amnt_Type" Type="System.String" DbType="VarChar(3)" />
-    <Parameter Name="Cnct_Acnt_App" Parameter="cnct_Acnt_App" Type="System.String" DbType="VarChar(3)" />
-    <Parameter Name="Acnt_App_Type" Parameter="acnt_App_Type" Type="System.String" DbType="VarChar(3)" />
-    <Parameter Name="Page_Fech_Rows" Parameter="page_Fech_Rows" Type="System.Int32" DbType="Int" />
-    <Parameter Name="Min_With_Draw" Parameter="min_With_Draw" Type="System.Int64" DbType="BigInt" />
-    <Parameter Name="Conf_Durt_Day" Parameter="conf_Durt_Day" Type="System.Int32" DbType="Int" />
-    <Parameter Name="Auto_Ship_Cori" Parameter="auto_Ship_Cori" Type="System.String" DbType="VarChar(3)" />
-    <Parameter Name="Show_Invr_Stat" Parameter="show_Invr_Stat" Type="System.String" DbType="VarChar(3)" />
-    <Parameter Name="View_Invr_Stat" Parameter="view_Invr_Stat" Type="System.String" DbType="VarChar(3)" />
-    <Parameter Name="Free_Ship_Inct_Amnt" Parameter="free_Ship_Inct_Amnt" Type="System.Int64" DbType="BigInt" />
-    <Parameter Name="Free_Ship_Otct_Amnt" Parameter="free_Ship_Otct_Amnt" Type="System.Int64" DbType="BigInt" />
-    <Parameter Name="Ordr_Expr_Stat" Parameter="ordr_Expr_Stat" Type="System.String" DbType="VarChar(3)" />
-    <Parameter Name="Ordr_Expr_Time" Parameter="ordr_Expr_Time" Type="System.Int32" DbType="Int" />
-    <Return Type="System.Int32" />
-  </Function>
   <Function Id="FunctionId87" Name="dbo.DEL_RCBA_P" Method="DEL_RCBA_P">
     <Parameter Name="Code" Parameter="code" Type="System.Int64" DbType="BigInt" />
     <Return Type="System.Int32" />
@@ -4208,6 +4261,53 @@
     <Parameter Name="RBPR_CODE" Parameter="rBPR_CODE" Type="System.Int64" DbType="BigInt" />
     <Return Type="System.Int32" />
   </Function>
+  <Function Name="dbo.INS_RIDM_P" Method="INS_RIDM_P">
+    <Parameter Name="X" Parameter="x" Type="System.Xml.Linq.XElement" DbType="Xml" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.DUP_RBPR_P" Method="DUP_RBPR_P">
+    <Parameter Name="X" Parameter="x" Type="System.Xml.Linq.XElement" DbType="Xml" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Id="FunctionId91" Name="dbo.INS_ROBO_P" Method="INS_ROBO_P">
+    <Parameter Name="Orgn_Ogid" Parameter="orgn_Ogid" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Robo_Rbid" Parameter="robo_Rbid" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Copy_Type" Parameter="copy_Type" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="Bot_Type" Parameter="bot_Type" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="Name" Parameter="name" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="Tkon_Code" Parameter="tkon_Code" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="Stat" Parameter="stat" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="Buld_Stat" Parameter="buld_Stat" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="Buld_File_Id" Parameter="buld_File_Id" Type="System.String" DbType="VarChar(500)" />
+    <Parameter Name="Spy_Type" Parameter="spy_Type" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="Crtb_Url" Parameter="crtb_Url" Type="System.String" DbType="VarChar(1000)" />
+    <Parameter Name="Down_Load_File_Path" Parameter="down_Load_File_Path" Type="System.String" DbType="VarChar(1000)" />
+    <Parameter Name="Up_Load_File_Path" Parameter="up_Load_File_Path" Type="System.String" DbType="VarChar(1000)" />
+    <Parameter Name="Invt_Frnd" Parameter="invt_Frnd" Type="System.String" DbType="NVarChar(MAX)" />
+    <Parameter Name="Hash_Tag" Parameter="hash_Tag" Type="System.String" DbType="NVarChar(1000)" />
+    <Parameter Name="Cord_X" Parameter="cord_X" Type="System.Double" DbType="Float" />
+    <Parameter Name="Cord_Y" Parameter="cord_Y" Type="System.Double" DbType="Float" />
+    <Parameter Name="Post_Adrs" Parameter="post_Adrs" Type="System.String" DbType="NVarChar(1000)" />
+    <Parameter Name="Cell_Phon" Parameter="cell_Phon" Type="System.String" DbType="VarChar(11)" />
+    <Parameter Name="Tell_Phon" Parameter="tell_Phon" Type="System.String" DbType="VarChar(11)" />
+    <Parameter Name="Emal_Adrs" Parameter="emal_Adrs" Type="System.String" DbType="VarChar(250)" />
+    <Parameter Name="Web_Site" Parameter="web_Site" Type="System.String" DbType="VarChar(250)" />
+    <Parameter Name="Run_Stat" Parameter="run_Stat" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="Amnt_Type" Parameter="amnt_Type" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="Cnct_Acnt_App" Parameter="cnct_Acnt_App" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="Acnt_App_Type" Parameter="acnt_App_Type" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="Page_Fech_Rows" Parameter="page_Fech_Rows" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Min_With_Draw" Parameter="min_With_Draw" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Conf_Durt_Day" Parameter="conf_Durt_Day" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Auto_Ship_Cori" Parameter="auto_Ship_Cori" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="Show_Invr_Stat" Parameter="show_Invr_Stat" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="View_Invr_Stat" Parameter="view_Invr_Stat" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="Free_Ship_Inct_Amnt" Parameter="free_Ship_Inct_Amnt" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Free_Ship_Otct_Amnt" Parameter="free_Ship_Otct_Amnt" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Ordr_Expr_Stat" Parameter="ordr_Expr_Stat" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="Ordr_Expr_Time" Parameter="ordr_Expr_Time" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
   <Function Id="FunctionId88" Name="dbo.INS_RBPR_P" Method="INS_RBPR_P">
     <Parameter Name="ROBO_RBID" Parameter="rOBO_RBID" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="TARF_CODE" Parameter="tARF_CODE" Type="System.String" DbType="VarChar(100)" />
@@ -4251,6 +4351,8 @@
     <Parameter Name="PROD_SUPL_LOCT_DESC" Parameter="pROD_SUPL_LOCT_DESC" Type="System.String" DbType="NVarChar(250)" />
     <Parameter Name="RESP_SHIP_COST_TYPE" Parameter="rESP_SHIP_COST_TYPE" Type="System.String" DbType="VarChar(3)" />
     <Parameter Name="APRX_SHIP_COST_AMNT" Parameter="aPRX_SHIP_COST_AMNT" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Crnc_Calc_Stat" Parameter="crnc_Calc_Stat" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="Crnc_Expn_Amnt" Parameter="crnc_Expn_Amnt" Type="System.Decimal" DbType="Money" />
     <Return Type="System.Int32" />
   </Function>
   <Function Id="FunctionId89" Name="dbo.UPD_RBPR_P" Method="UPD_RBPR_P">
@@ -4296,6 +4398,12 @@
     <Parameter Name="PROD_SUPL_LOCT_DESC" Parameter="pROD_SUPL_LOCT_DESC" Type="System.String" DbType="NVarChar(250)" />
     <Parameter Name="RESP_SHIP_COST_TYPE" Parameter="rESP_SHIP_COST_TYPE" Type="System.String" DbType="VarChar(3)" />
     <Parameter Name="APRX_SHIP_COST_AMNT" Parameter="aPRX_SHIP_COST_AMNT" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Crnc_Calc_Stat" Parameter="crnc_Calc_Stat" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="Crnc_Expn_Amnt" Parameter="crnc_Expn_Amnt" Type="System.Decimal" DbType="Money" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.GET_CSOR_P" Method="GET_CSOR_P">
+    <Parameter Name="X" Parameter="x" Type="System.Xml.Linq.XElement" DbType="Xml" />
     <Return Type="System.Int32" />
   </Function>
   <Function Id="FunctionId92" Name="dbo.UPD_ROBO_P" Method="UPD_ROBO_P">
@@ -4345,13 +4453,17 @@
     <Parameter Name="Noti_Ordr_Recp_Stat" Parameter="noti_Ordr_Recp_Stat" Type="System.String" DbType="VarChar(3)" />
     <Parameter Name="Noti_Sond_Ordr_Recp_Path" Parameter="noti_Sond_Ordr_Recp_Path" Type="System.String" DbType="NVarChar(4000)" />
     <Parameter Name="Chck_Regs_Strt" Parameter="chck_Regs_Strt" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="Crnc_Calc_Stat" Parameter="crnc_Calc_Stat" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="Rbcr_Code" Parameter="rbcr_Code" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Crnc_Amnt_Dnrm" Parameter="crnc_Amnt_Dnrm" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Crnc_Auto_Updt_Stat" Parameter="crnc_Auto_Updt_Stat" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="Crnc_Cycl_Auto_Updt" Parameter="crnc_Cycl_Auto_Updt" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Extr_Sorc_Stat" Parameter="extr_Sorc_Stat" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="Slct_Srvr_Type" Parameter="slct_Srvr_Type" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="Crnc_How_Updt_Stat" Parameter="crnc_How_Updt_Stat" Type="System.String" DbType="VarChar(3)" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Name="dbo.INS_RIDM_P" Method="INS_RIDM_P">
-    <Parameter Name="X" Parameter="x" Type="System.Xml.Linq.XElement" DbType="Xml" />
-    <Return Type="System.Int32" />
-  </Function>
-  <Function Name="dbo.DUP_RBPR_P" Method="DUP_RBPR_P">
+  <Function Name="dbo.SAVE_RWRD_P" Method="SAVE_RWRD_P">
     <Parameter Name="X" Parameter="x" Type="System.Xml.Linq.XElement" DbType="Xml" />
     <Return Type="System.Int32" />
   </Function>

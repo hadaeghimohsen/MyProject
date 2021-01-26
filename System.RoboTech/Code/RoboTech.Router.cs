@@ -110,6 +110,9 @@ namespace System.RoboTech.Code
             case 29:
                Inst_Conf_F(job);
                break;
+            case 30:
+               Mesg_Dvlp_F(job);
+               break;
             #endregion
             #region Action
             case 11:
@@ -213,6 +216,9 @@ namespace System.RoboTech.Code
                break;
             case "INST_CONF_F":
                _Inst_Conf_F.SendRequest(job);
+               break;
+            case "MESG_DVLP_F":
+               _Mesg_Dvlp_F.SendRequest(job);
                break;
             #endregion
             #region Action

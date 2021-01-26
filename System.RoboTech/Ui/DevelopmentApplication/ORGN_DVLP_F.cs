@@ -1820,7 +1820,7 @@ namespace System.RoboTech.Ui.DevelopmentApplication
                new XElement("Robot",
                    new XAttribute("token", srbt.Robot.TKON_CODE),
                    new XElement("Message",
-                       new XAttribute("cbq", "002"),
+                       new XAttribute("cbq", "001"),
                        new XAttribute("ussd", "*1*0*0#"),
                        new XAttribute("chatid", srbt.CHAT_ID),
                        new XAttribute("mesgid", 0),

@@ -423,5 +423,87 @@ namespace System.RoboTech.Ui.DevelopmentApplication
             MessageBox.Show(exc.Message);
          }
       }
+
+      private void SaveRwrdAmnt_Butn_Click(object sender, EventArgs e)
+      {
+         long? chatid = 0, rbid = 0;
+         try
+         {
+            var robo = RoboBs.Current as Data.Robot;
+            if (robo == null) return;
+            rbid = robo.RBID;
+
+            var srbt = SrbtBs.Current as Data.Service_Robot;
+            if (srbt == null) return;
+            chatid = srbt.CHAT_ID;
+
+            if (!WletType02_Flb.SelectedIndex.In(0, 1)) { MessageBox.Show("لطفا نوع کیف پول را مشخص کنید"); WletType02_Flb.Focus(); return; }
+            if (TotlAmntRwrd_Txt.EditValue.ToString().ToInt64() == 0) { MessageBox.Show("لطفا مبلغ کل را وارد کنید"); TotlAmntRwrd_Txt.Focus(); return; }
+            if (RwrdAmnt_Txt.EditValue.ToString().ToInt64() == 0) { MessageBox.Show("لطفا مبلغ پاداش را وارد کنید"); RwrdAmnt_Txt.Focus(); return; }
+            //if (PrctAmnt_Txt.Text.ToInt64() > 0) { MessageBox.Show("لطفا مبلغ پاداش را وارد کنید"); PrctAmnt_Txt.Focus(); return; }
+            if (TarfCode_Lov.EditValue.ToString().ToInt64() == 0) { MessageBox.Show("لطفا نوع پاداش رو مشخص کنید"); RwrdAmnt_Txt.Focus(); return; }
+            if (IntrSrbt_Lov.EditValue.ToString().ToInt64() == 0) { MessageBox.Show("لطفا واسطه پاداش رو مشخص کنید"); IntrSrbt_Lov.Focus(); return; }
+            if (RwrdAmntDesc_Txt.Text == "") { MessageBox.Show("لطفا توضیحات پاداش رو مشخص کنید"); RwrdAmntDesc_Txt.Focus(); return; }
+
+            iRoboTech.SAVE_RWRD_P(
+               new XElement("Reward",
+                   new XAttribute("rbid", robo.RBID),
+                   new XAttribute("type", "001"),
+                   new XAttribute("wlettype", WletType02_Flb.SelectedIndex == 0 ? "002" : "001"),
+                   new XAttribute("totlamnt", TotlAmntRwrd_Txt.EditValue ?? 0),
+                   new XAttribute("amnt", RwrdAmnt_Txt.EditValue ?? 0),
+                   new XAttribute("prctamnt", PrctAmnt_Txt.EditValue ?? 0),
+                   new XAttribute("confday", ConfDay_Pbtn.PickChecked ? 0 : ConfDay_Spn.Value),
+                   new XAttribute("tarfcode", TarfCode_Lov.EditValue),
+                   new XAttribute("chatid", srbt.CHAT_ID),
+                   new XAttribute("intrchatid", IntrSrbt_Lov.EditValue),
+                   new XAttribute("desc", RwrdAmntDesc_Txt.Text)
+               )
+            );
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+            {
+               Execute_Query();
+               #region Send Message
+               // فراخوانی ربات برای ارسال پیام ثبت شده به سفیران انتخاب شده
+               _DefaultGateway.Gateway(
+                  new Job(SendType.External, "localhost",
+                     new List<Job>
+                     {
+                        new Job(SendType.Self, 11 /* Execute Strt_Robo_F */),
+                        new Job(SendType.SelfToUserInterface, "STRT_ROBO_F", 00 /* Execute ProcessCmdKey */){Input = Keys.Escape},
+                        new Job(SendType.SelfToUserInterface, "STRT_ROBO_F", 10 /* Execute Actn_CalF_P */)
+                        {
+                           Input = 
+                              new XElement("Robot", 
+                                 new XAttribute("runrobot", "start"),
+                                 new XAttribute("actntype", "sendordrs"),
+                                 new XAttribute("chatid", chatid),
+                                 new XAttribute("rbid", rbid)
+                              )
+                        }                     
+                     }
+                  )
+               );
+               #endregion
+            }
+         }
+      }
+
+      private void TotlAmntRwrd_Txt_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
+      {
+         if (CalcPrctRwrdAmntLock_Pkb.PickChecked)
+         {
+            RwrdAmnt_Txt.EditValue = Convert.ToInt64(e.NewValue) + (Convert.ToInt64(e.NewValue) * PrctAmnt_Txt.Text.ToInt64() / 100);
+         }
+      }
    }
 }

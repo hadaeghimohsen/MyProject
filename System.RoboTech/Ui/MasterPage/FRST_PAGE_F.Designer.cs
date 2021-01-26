@@ -65,6 +65,8 @@
          this.IsicDfin_Butn = new C1.Win.C1Ribbon.RibbonButton();
          this.OrgnRobot_Butn = new C1.Win.C1Ribbon.RibbonButton();
          this.WorkGroupAccess_Butn = new C1.Win.C1Ribbon.RibbonButton();
+         this.ribbonGroup10 = new C1.Win.C1Ribbon.RibbonGroup();
+         this.InstallAndConfig = new C1.Win.C1Ribbon.RibbonButton();
          this.ribbonTab2 = new C1.Win.C1Ribbon.RibbonTab();
          this.ribbonGroup2 = new C1.Win.C1Ribbon.RibbonGroup();
          this.RobotDev_Butn = new C1.Win.C1Ribbon.RibbonButton();
@@ -95,11 +97,13 @@
          this.AskQstnWats_Butn = new C1.Win.C1Ribbon.RibbonButton();
          this.AskQstnInst_Butn = new C1.Win.C1Ribbon.RibbonButton();
          this.AskQstnBale_Butn = new C1.Win.C1Ribbon.RibbonButton();
+         this.ribbonGroup11 = new C1.Win.C1Ribbon.RibbonGroup();
+         this.ribbonButton2 = new C1.Win.C1Ribbon.RibbonButton();
          this.ribbonTopToolBar1 = new C1.Win.C1Ribbon.RibbonTopToolBar();
          this.Pnl_Desktop = new DevExpress.XtraEditors.SplitContainerControl();
          this.roundedButton2 = new System.MaxUi.RoundedButton();
          this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
-         this.InstOprt_Mpb = new DevExpress.XtraEditors.MarqueeProgressBarControl();
+         this.BkgrOprt_Mpb = new DevExpress.XtraEditors.MarqueeProgressBarControl();
          this.roundedButton1 = new System.MaxUi.RoundedButton();
          this.GlobalOperation_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.InstagramOperationStatus_Rb = new System.MaxUi.RoundedButton();
@@ -114,15 +118,10 @@
          this.AdjustDateTime_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.sb_logout = new DevExpress.XtraEditors.SimpleButton();
          this.Tm_ShowTime = new System.Windows.Forms.Timer(this.components);
-         this.Tm_InstOprt = new System.Windows.Forms.Timer(this.components);
-         this.ribbonGroup10 = new C1.Win.C1Ribbon.RibbonGroup();
-         this.InstallAndConfig = new C1.Win.C1Ribbon.RibbonButton();
-         this.ribbonGroup11 = new C1.Win.C1Ribbon.RibbonGroup();
-         this.ribbonButton2 = new C1.Win.C1Ribbon.RibbonButton();
          ((System.ComponentModel.ISupportInitialize)(this.c1Ribbon1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.Pnl_Desktop)).BeginInit();
          this.Pnl_Desktop.SuspendLayout();
-         ((System.ComponentModel.ISupportInitialize)(this.InstOprt_Mpb.Properties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.BkgrOprt_Mpb.Properties)).BeginInit();
          this.SuspendLayout();
          // 
          // c1Ribbon1
@@ -133,7 +132,7 @@
          this.c1Ribbon1.Location = new System.Drawing.Point(0, 0);
          this.c1Ribbon1.Name = "c1Ribbon1";
          this.c1Ribbon1.QatHolder = this.ribbonQat1;
-         this.c1Ribbon1.Size = new System.Drawing.Size(1098, 143);
+         this.c1Ribbon1.Size = new System.Drawing.Size(660, 143);
          this.c1Ribbon1.Tabs.Add(this.ribbonTab1);
          this.c1Ribbon1.Tabs.Add(this.ribbonTab2);
          this.c1Ribbon1.Tabs.Add(this.ribbonTab3);
@@ -206,6 +205,18 @@
          this.WorkGroupAccess_Butn.SmallImage = ((System.Drawing.Image)(resources.GetObject("WorkGroupAccess_Butn.SmallImage")));
          this.WorkGroupAccess_Butn.Text = "دسترسی گروه کاری";
          this.WorkGroupAccess_Butn.Click += new System.EventHandler(this.WorkGroupAccess_Butn_Click);
+         // 
+         // ribbonGroup10
+         // 
+         this.ribbonGroup10.Items.Add(this.InstallAndConfig);
+         this.ribbonGroup10.Name = "ribbonGroup10";
+         // 
+         // InstallAndConfig
+         // 
+         this.InstallAndConfig.LargeImage = ((System.Drawing.Image)(resources.GetObject("InstallAndConfig.LargeImage")));
+         this.InstallAndConfig.Name = "InstallAndConfig";
+         this.InstallAndConfig.SmallImage = ((System.Drawing.Image)(resources.GetObject("InstallAndConfig.SmallImage")));
+         this.InstallAndConfig.Text = "نصب و راه اندازی";
          // 
          // ribbonTab2
          // 
@@ -361,6 +372,7 @@
          this.SendMesgConf_Butn.Name = "SendMesgConf_Butn";
          this.SendMesgConf_Butn.SmallImage = ((System.Drawing.Image)(resources.GetObject("SendMesgConf_Butn.SmallImage")));
          this.SendMesgConf_Butn.Text = "ارسالی ها";
+         this.SendMesgConf_Butn.Click += new System.EventHandler(this.SendMesgConf_Butn_Click);
          // 
          // ribbonTab3
          // 
@@ -442,6 +454,19 @@
          this.AskQstnBale_Butn.Text = "Bale";
          this.AskQstnBale_Butn.Click += new System.EventHandler(this.AskQstnBale_Butn_Click);
          // 
+         // ribbonGroup11
+         // 
+         this.ribbonGroup11.Items.Add(this.ribbonButton2);
+         this.ribbonGroup11.Name = "ribbonGroup11";
+         this.ribbonGroup11.Text = "آموزش";
+         // 
+         // ribbonButton2
+         // 
+         this.ribbonButton2.LargeImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton2.LargeImage")));
+         this.ribbonButton2.Name = "ribbonButton2";
+         this.ribbonButton2.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton2.SmallImage")));
+         this.ribbonButton2.Text = "راهنما";
+         // 
          // ribbonTopToolBar1
          // 
          this.ribbonTopToolBar1.Name = "ribbonTopToolBar1";
@@ -460,7 +485,7 @@
          this.Pnl_Desktop.Panel2.Appearance.Options.UseBackColor = true;
          this.Pnl_Desktop.Panel2.Controls.Add(this.roundedButton2);
          this.Pnl_Desktop.Panel2.Controls.Add(this.simpleButton1);
-         this.Pnl_Desktop.Panel2.Controls.Add(this.InstOprt_Mpb);
+         this.Pnl_Desktop.Panel2.Controls.Add(this.BkgrOprt_Mpb);
          this.Pnl_Desktop.Panel2.Controls.Add(this.roundedButton1);
          this.Pnl_Desktop.Panel2.Controls.Add(this.GlobalOperation_Butn);
          this.Pnl_Desktop.Panel2.Controls.Add(this.InstagramOperationStatus_Rb);
@@ -475,7 +500,7 @@
          this.Pnl_Desktop.Panel2.Controls.Add(this.AdjustDateTime_Butn);
          this.Pnl_Desktop.Panel2.Controls.Add(this.sb_logout);
          this.Pnl_Desktop.Panel2.Text = "Panel2";
-         this.Pnl_Desktop.Size = new System.Drawing.Size(1098, 596);
+         this.Pnl_Desktop.Size = new System.Drawing.Size(660, 510);
          this.Pnl_Desktop.SplitterPosition = 42;
          this.Pnl_Desktop.TabIndex = 1;
          this.Pnl_Desktop.Text = "splitContainerControl1";
@@ -536,19 +561,19 @@
          this.simpleButton1.TabIndex = 28;
          this.simpleButton1.Visible = false;
          // 
-         // InstOprt_Mpb
+         // BkgrOprt_Mpb
          // 
-         this.InstOprt_Mpb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-         this.InstOprt_Mpb.EditValue = 0;
-         this.InstOprt_Mpb.Location = new System.Drawing.Point(170, 0);
-         this.InstOprt_Mpb.Name = "InstOprt_Mpb";
-         this.InstOprt_Mpb.Properties.LookAndFeel.SkinName = "Office 2013";
-         this.InstOprt_Mpb.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.InstOprt_Mpb.Properties.MarqueeAnimationSpeed = 500;
-         this.InstOprt_Mpb.Properties.ProgressKind = DevExpress.XtraEditors.Controls.ProgressKind.Vertical;
-         this.InstOprt_Mpb.Size = new System.Drawing.Size(7, 42);
-         this.InstOprt_Mpb.TabIndex = 25;
-         this.InstOprt_Mpb.Visible = false;
+         this.BkgrOprt_Mpb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+         this.BkgrOprt_Mpb.EditValue = 0;
+         this.BkgrOprt_Mpb.Location = new System.Drawing.Point(111, 0);
+         this.BkgrOprt_Mpb.Name = "BkgrOprt_Mpb";
+         this.BkgrOprt_Mpb.Properties.LookAndFeel.SkinName = "Office 2013";
+         this.BkgrOprt_Mpb.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.BkgrOprt_Mpb.Properties.MarqueeAnimationSpeed = 800;
+         this.BkgrOprt_Mpb.Properties.ProgressKind = DevExpress.XtraEditors.Controls.ProgressKind.Vertical;
+         this.BkgrOprt_Mpb.Size = new System.Drawing.Size(6, 42);
+         this.BkgrOprt_Mpb.TabIndex = 25;
+         this.BkgrOprt_Mpb.Visible = false;
          // 
          // roundedButton1
          // 
@@ -705,7 +730,7 @@
          this.NotfOrdrOnlineAdmission_Butn.ImageProfile = null;
          this.NotfOrdrOnlineAdmission_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.Normal;
          this.NotfOrdrOnlineAdmission_Butn.ImageVisiable = false;
-         this.NotfOrdrOnlineAdmission_Butn.Location = new System.Drawing.Point(894, 0);
+         this.NotfOrdrOnlineAdmission_Butn.Location = new System.Drawing.Point(456, 0);
          this.NotfOrdrOnlineAdmission_Butn.Name = "NotfOrdrOnlineAdmission_Butn";
          this.NotfOrdrOnlineAdmission_Butn.NormalBorderColor = System.Drawing.Color.DimGray;
          this.NotfOrdrOnlineAdmission_Butn.NormalColorA = System.Drawing.Color.DeepSkyBlue;
@@ -726,7 +751,7 @@
          this.OrderOnlineAdmission_Butn.Dock = System.Windows.Forms.DockStyle.Right;
          this.OrderOnlineAdmission_Butn.Image = global::System.RoboTech.Properties.Resources.IMAGE_1684;
          this.OrderOnlineAdmission_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
-         this.OrderOnlineAdmission_Butn.Location = new System.Drawing.Point(894, 0);
+         this.OrderOnlineAdmission_Butn.Location = new System.Drawing.Point(456, 0);
          this.OrderOnlineAdmission_Butn.LookAndFeel.SkinName = "Office 2010 Silver";
          this.OrderOnlineAdmission_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.OrderOnlineAdmission_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
@@ -761,7 +786,7 @@
          this.NotfOrdrShip_Butn.ImageProfile = null;
          this.NotfOrdrShip_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.Normal;
          this.NotfOrdrShip_Butn.ImageVisiable = false;
-         this.NotfOrdrShip_Butn.Location = new System.Drawing.Point(998, 0);
+         this.NotfOrdrShip_Butn.Location = new System.Drawing.Point(560, 0);
          this.NotfOrdrShip_Butn.Name = "NotfOrdrShip_Butn";
          this.NotfOrdrShip_Butn.NormalBorderColor = System.Drawing.Color.DimGray;
          this.NotfOrdrShip_Butn.NormalColorA = System.Drawing.Color.Chartreuse;
@@ -788,7 +813,7 @@
          this.NotfOrdrReceipt_Butn.ImageProfile = null;
          this.NotfOrdrReceipt_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.Normal;
          this.NotfOrdrReceipt_Butn.ImageVisiable = false;
-         this.NotfOrdrReceipt_Butn.Location = new System.Drawing.Point(945, 0);
+         this.NotfOrdrReceipt_Butn.Location = new System.Drawing.Point(507, 0);
          this.NotfOrdrReceipt_Butn.Name = "NotfOrdrReceipt_Butn";
          this.NotfOrdrReceipt_Butn.NormalBorderColor = System.Drawing.Color.DimGray;
          this.NotfOrdrReceipt_Butn.NormalColorA = System.Drawing.Color.Red;
@@ -810,7 +835,7 @@
          this.OrdrReceipt_Butn.Dock = System.Windows.Forms.DockStyle.Right;
          this.OrdrReceipt_Butn.Image = global::System.RoboTech.Properties.Resources.IMAGE_1682;
          this.OrdrReceipt_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
-         this.OrdrReceipt_Butn.Location = new System.Drawing.Point(946, 0);
+         this.OrdrReceipt_Butn.Location = new System.Drawing.Point(508, 0);
          this.OrdrReceipt_Butn.LookAndFeel.SkinName = "Office 2010 Silver";
          this.OrdrReceipt_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.OrdrReceipt_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
@@ -848,7 +873,7 @@
          this.OrdrShip_Butn.Dock = System.Windows.Forms.DockStyle.Right;
          this.OrdrShip_Butn.Image = global::System.RoboTech.Properties.Resources.IMAGE_1686;
          this.OrdrShip_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
-         this.OrdrShip_Butn.Location = new System.Drawing.Point(998, 0);
+         this.OrdrShip_Butn.Location = new System.Drawing.Point(560, 0);
          this.OrdrShip_Butn.LookAndFeel.SkinName = "Office 2010 Silver";
          this.OrdrShip_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.OrdrShip_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
@@ -905,7 +930,7 @@
          this.sb_logout.Dock = System.Windows.Forms.DockStyle.Right;
          this.sb_logout.Image = global::System.RoboTech.Properties.Resources.IMAGE_1226;
          this.sb_logout.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.sb_logout.Location = new System.Drawing.Point(1050, 0);
+         this.sb_logout.Location = new System.Drawing.Point(612, 0);
          this.sb_logout.LookAndFeel.SkinName = "Office 2010 Silver";
          this.sb_logout.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.sb_logout.LookAndFeel.UseDefaultLookAndFeel = false;
@@ -936,35 +961,6 @@
          this.Tm_ShowTime.Interval = 1000;
          this.Tm_ShowTime.Tick += new System.EventHandler(this.Tm_ShowTime_Tick);
          // 
-         // Tm_InstOprt
-         // 
-         this.Tm_InstOprt.Interval = 2000;
-         // 
-         // ribbonGroup10
-         // 
-         this.ribbonGroup10.Items.Add(this.InstallAndConfig);
-         this.ribbonGroup10.Name = "ribbonGroup10";
-         // 
-         // InstallAndConfig
-         // 
-         this.InstallAndConfig.LargeImage = ((System.Drawing.Image)(resources.GetObject("InstallAndConfig.LargeImage")));
-         this.InstallAndConfig.Name = "InstallAndConfig";
-         this.InstallAndConfig.SmallImage = ((System.Drawing.Image)(resources.GetObject("InstallAndConfig.SmallImage")));
-         this.InstallAndConfig.Text = "نصب و راه اندازی";
-         // 
-         // ribbonGroup11
-         // 
-         this.ribbonGroup11.Items.Add(this.ribbonButton2);
-         this.ribbonGroup11.Name = "ribbonGroup11";
-         this.ribbonGroup11.Text = "آموزش";
-         // 
-         // ribbonButton2
-         // 
-         this.ribbonButton2.LargeImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton2.LargeImage")));
-         this.ribbonButton2.Name = "ribbonButton2";
-         this.ribbonButton2.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton2.SmallImage")));
-         this.ribbonButton2.Text = "راهنما";
-         // 
          // FRST_PAGE_F
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -974,11 +970,11 @@
          this.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.Name = "FRST_PAGE_F";
          this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-         this.Size = new System.Drawing.Size(1098, 739);
+         this.Size = new System.Drawing.Size(660, 653);
          ((System.ComponentModel.ISupportInitialize)(this.c1Ribbon1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.Pnl_Desktop)).EndInit();
          this.Pnl_Desktop.ResumeLayout(false);
-         ((System.ComponentModel.ISupportInitialize)(this.InstOprt_Mpb.Properties)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.BkgrOprt_Mpb.Properties)).EndInit();
          this.ResumeLayout(false);
          this.PerformLayout();
 
@@ -1033,8 +1029,7 @@
       private DevExpress.XtraEditors.SimpleButton InstagramOperation_Butn;
       private MaxUi.RoundedButton InstagramOperationStatus_Rb;
       private MaxUi.RoundedButton NotfInstagramOperation_Butn;
-      private Windows.Forms.Timer Tm_InstOprt;
-      private DevExpress.XtraEditors.MarqueeProgressBarControl InstOprt_Mpb;
+      private DevExpress.XtraEditors.MarqueeProgressBarControl BkgrOprt_Mpb;
       private C1.Win.C1Ribbon.RibbonGroup ribbonGroup8;
       private C1.Win.C1Ribbon.RibbonButton SendMesgConf_Butn;
       private MaxUi.RoundedButton roundedButton1;

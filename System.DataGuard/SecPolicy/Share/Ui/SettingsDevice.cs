@@ -410,12 +410,14 @@ namespace System.DataGuard.SecPolicy.Share.Ui
 
             if (Network_Rb.Checked && iFgnrMstrIsCnct)
             {
-               var result = iFngrMstr.GetUserTmpExStr(1, UserId_Txt.Text, 6, out flag, out tmpData, out tmplen);                              
+               var result = iFngrMstr.GetUserTmpExStr(1, UserId_Txt.Text, Convert.ToInt32(FngrIndx_Txt.Text), out flag, out tmpData, out tmplen);
             }
             else if (Usb_Rb.Checked)
             {
                tmpData = textFngr.Text;
             }
+            if (tmpData == null) { MessageBox.Show("اثر انگشتی ثبت نشده لطفا بررسی کنید"); return; }
+
             foreach (var dev in DevInfoBs.List.OfType<DeviceInfo>())
             {
                iFngrSlavIsCnct = iFngrSlav.Connect_Net(dev.IP, dev.Port);
@@ -436,7 +438,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
                   dev.Oprt_Stat = "001";
                }
             }
-            MessageBox.Show("ارسال اثر انگشت با موفقیت انجام شد");
+            //MessageBox.Show("ارسال اثر انگشت با موفقیت انجام شد");
          }
          catch (Exception exc)
          {
@@ -1051,7 +1053,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
                   dev.Oprt_Stat = "001";
                }
             }
-            MessageBox.Show("ارسال شماره کارت به دستگاه با موفقیت انجام شد");
+            //MessageBox.Show("ارسال شماره کارت به دستگاه با موفقیت انجام شد");
          }
          catch (Exception exc)
          {
@@ -1085,7 +1087,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
                   dev.Oprt_Stat = "001";
                }
             }
-            MessageBox.Show("حذف اثر انگشت از دستگاه با موفقیت انجام شد");
+            //MessageBox.Show("حذف اثر انگشت از دستگاه با موفقیت انجام شد");
          }
          catch (Exception exc)
          {
@@ -1119,7 +1121,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
                   dev.Oprt_Stat = "001";
                }
             }
-            MessageBox.Show("حذف کامل اطلاعات کاربر از دستگاه با موفقیت انجام شد");
+            //MessageBox.Show("حذف کامل اطلاعات کاربر از دستگاه با موفقیت انجام شد");
          }
          catch (Exception exc)
          {
@@ -1254,6 +1256,36 @@ namespace System.DataGuard.SecPolicy.Share.Ui
          AutoOprt009_Tmr.Enabled = AutoOprt009_cb.Checked;
 
          AutoOprt009_Tmr.Interval = (int)(Convert.ToDouble(AutoOprt009Intrval_Txt.Text) * 60 * 1000);
+      }
+
+      private void CheckFngrIndx_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            string tmpData = "";
+            int tmplen = 0;
+            int flag = 0;
+            string fngrstr = "";
+            for (int i = 0; i < 10; i++)
+            {
+               tmpData = "";
+               tmplen = flag = 0;
+               if (Network_Rb.Checked && iFgnrMstrIsCnct)
+               {
+                  var result = iFngrMstr.GetUserTmpExStr(1, UserId_Txt.Text, i, out flag, out tmpData, out tmplen);
+                  if(tmpData != null)
+                  {
+                     fngrstr += i.ToString() + ", ";
+                  }
+               }
+            }
+
+            MessageBox.Show(fngrstr);
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
       }
    }
 }

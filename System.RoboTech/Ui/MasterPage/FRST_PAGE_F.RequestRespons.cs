@@ -20,7 +20,7 @@ namespace System.RoboTech.Ui.MasterPage
       public IRouter _DefaultGateway { get; set; }
       private Data.iRoboTechDataContext iRoboTech;
       private string ConnectionString;
-      //private List<long?> Fga_Uclb_U;
+      private List<long?> Fga_Ugov_U;
       private string Crnt_User;
 
       private XElement x = null;
@@ -151,31 +151,8 @@ namespace System.RoboTech.Ui.MasterPage
             return;
          }
 
-
          iRoboTech = new Data.iRoboTechDataContext(ConnectionString);
-
-         //Fga_Uclb_U = (iCRM.FGA_UCLB_U() ?? "").Split(',').Select(c => (long?)Int64.Parse(c)).ToList();
-         //Lbs_CrntUser.Text = Crnt_User = iCRM.GET_CRNTUSER_U(new XElement("User", new XAttribute("actntype", "001")));
-
-         #region Package Item
-         //**rd_mainmenu.CommandTabs.OfType<RibbonTab>().ToList().ForEach(rt => rt.Items.OfType<RadRibbonBarGroup>().ToList().ForEach(rrbg => rrbg.Items.OfType<RadButtonElement>().ToList().ForEach(rbe => rbe.Visibility = rbe.Tag == null ? Telerik.WinControls.ElementVisibility.Visible : Telerik.WinControls.ElementVisibility.Collapsed)));
-
-         //var GetHostInfo = new Job(SendType.External, "Localhost", "Commons", 24 /* Execute DoWork4GetHosInfo */, SendType.Self);
-         //_DefaultGateway.Gateway(GetHostInfo);
-
-         //**var Pkac = iCRM.VF_AccessPackage(GetHostInfo.Output as XElement).ToList();
-
-         //**rd_mainmenu.CommandTabs.OfType<RibbonTab>().ToList().ForEach(rt => rt.Items.OfType<RadRibbonBarGroup>().ToList().ForEach(rrbg => rrbg.Items.OfType<RadButtonElement>().ToList().ForEach(rbe => rbe.Visibility = rbe.Tag == null || Pkac.Any(i => i.RWNO == Convert.ToInt32(rbe.Tag)) ? Telerik.WinControls.ElementVisibility.Visible : Telerik.WinControls.ElementVisibility.Collapsed)));
-         #endregion
-
-         //_DefaultGateway.Gateway(
-         //   new Job(SendType.External, "Localhost", "Commons", 08 /* Execute LangChangToFarsi */, SendType.Self)
-         //);
-
-         /* Initial Sp_Barcode For Running */
-         ///Start_BarCode();
-         /* Initial Sp_FingerPrint For Running */
-         //Start_FingerPrint();         
+         Fga_Ugov_U = (iRoboTech.FGA_UGOV_U() ?? "").Split(',').Select(c => (long?)Int64.Parse(c)).ToList();
 
          job.Status = StatusType.Successful;
       }
@@ -238,6 +215,7 @@ namespace System.RoboTech.Ui.MasterPage
          iRoboTech = new Data.iRoboTechDataContext(ConnectionString);
          OrderAction_Recipt();
          InstagramOperationInit();
+
          job.Status = StatusType.Successful;
       }
 

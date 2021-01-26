@@ -96,6 +96,10 @@
       <HintPath>..\packages\EntityFramework.6.4.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="HtmlAgilityPack, Version=1.11.29.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
+      <HintPath>..\packages\HtmlAgilityPack.1.11.29\lib\Net45\HtmlAgilityPack.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="InstagramApiSharp, Version=1.5.0.1, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\InstagramApiSharp.1.5.0.1\lib\net452\InstagramApiSharp.dll</HintPath>
       <Private>True</Private>
@@ -187,7 +191,7 @@
     <Compile Include="Controller\IRobotController.cs" />
     <Compile Include="Controller\RobotController.cs" />
     <Compile Include="Controller\TelegramApiBot.cs" />
-    <Compile Include="Data\iRoboTech.designer.cs">
+    <Compile Include="Data\iRoboTech1.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>iRoboTech.dbml</DependentUpon>
@@ -298,6 +302,15 @@
     </Compile>
     <Compile Include="Ui\DevelopmentApplication\INST_CONF_F.Designer.cs">
       <DependentUpon>INST_CONF_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\DevelopmentApplication\MESG_DVLP_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\DevelopmentApplication\MESG_DVLP_F.Designer.cs">
+      <DependentUpon>MESG_DVLP_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\DevelopmentApplication\MESG_DVLP_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Ui\DevelopmentApplication\WLET_DVLP_F.cs">
       <SubType>UserControl</SubType>
@@ -490,6 +503,7 @@
     </None>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Admin.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.Analisis_Message_PResult.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.App_Base_Define.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.App_Domain.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Country.datasource" />
@@ -502,19 +516,23 @@
     <None Include="Properties\DataSources\System.RoboTech.Data.D_BDIR.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_BTYP.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_BULD.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.D_CHUP.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_CMTP.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_CNTP.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_CONF.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.D_CSOR.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_CSTP.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_DAYT.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_DLTP.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_DSTP.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_ELMT.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.D_FLTP.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_GMTP.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_GRNT.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_INOT.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_MDFR.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_MNTP.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.D_NUMT.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_ODST.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_OFKD.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_OFTP.datasource" />
@@ -526,6 +544,7 @@
     <None Include="Properties\DataSources\System.RoboTech.Data.D_RCST.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_RCVT.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_RMTP.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.D_RSCT.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_SADV.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_SDTP.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_SETP.datasource" />
@@ -538,12 +557,14 @@
     <None Include="Properties\DataSources\System.RoboTech.Data.D_TXFC.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_TXFT.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_URLT.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.D_VINV.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_WLTP.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_YSNO.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Group.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Group_Header.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Group_Header_Item.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Group_Menu_Ussd.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.INS_SRDC_PResult.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.iRoboTechDataContext.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Isic_Category.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Job.datasource" />
@@ -554,6 +575,7 @@
     <None Include="Properties\DataSources\System.RoboTech.Data.Order_Access.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Order_Detail.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Order_State.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.Order_Step_History.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Organ.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Organ_Category.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Organ_Description.datasource" />
@@ -567,7 +589,9 @@
     <None Include="Properties\DataSources\System.RoboTech.Data.Region.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Robot.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Robot_Card_Bank_Account.datasource" />
-    <None Include="Properties\DataSources\System.RoboTech.Data.Robot_Card_Bank_Account1.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.Robot_Currency.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.Robot_Currency_Detail.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.Robot_Currency_Source.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Robot_External_Query.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Robot_Import.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Robot_Instagram.datasource" />
@@ -582,6 +606,8 @@
     <None Include="Properties\DataSources\System.RoboTech.Data.Robot_Product_Preview.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Robot_Product_StepPrice.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Robot_Search_Engine.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.Robot_Spy_Group.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.Robot_Spy_Group_Message.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Robot_Spy_Group_Message_Detail.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Send_Advertising.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Send_Advertising_Tariff.datasource" />
@@ -592,6 +618,7 @@
     <None Include="Properties\DataSources\System.RoboTech.Data.Service_Robot_Discount_Card.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Service_Robot_Gift_Card.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Service_Robot_Group.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.Service_Robot_Inviting_Contact.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Service_Robot_Message.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Service_Robot_Product_Amazing_Notification.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Service_Robot_Product_Feedback.datasource" />
@@ -602,9 +629,11 @@
     <None Include="Properties\DataSources\System.RoboTech.Data.Service_Robot_Public.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Service_Robot_Replay_Message.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Service_Robot_Seller.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.Service_Robot_Seller_Partner.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Service_Robot_Seller_Product.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Service_Robot_Seller_Product_Gift.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Service_Robot_Seller_Product_Store.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.Service_Robot_Send_Advertising.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Service_Robot_Upload.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Service_Robot_Visit.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Setting.datasource" />
@@ -620,6 +649,7 @@
     <None Include="Properties\DataSources\System.RoboTech.Data.V_RowID.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.V_UCFGA.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.V_URFGA.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.V_URLFGA.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.V_User.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Wallet.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Wallet_Detail.datasource" />
@@ -684,6 +714,9 @@
     <EmbeddedResource Include="Ui\DevelopmentApplication\INST_CONF_F.resx">
       <DependentUpon>INST_CONF_F.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\DevelopmentApplication\MESG_DVLP_F.resx">
+      <DependentUpon>MESG_DVLP_F.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ui\DevelopmentApplication\WLET_DVLP_F.resx">
       <DependentUpon>WLET_DVLP_F.cs</DependentUpon>

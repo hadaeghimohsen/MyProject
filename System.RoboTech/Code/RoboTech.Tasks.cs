@@ -141,6 +141,11 @@ namespace System.RoboTech.Code
             if (_Inst_Conf_F == null)
                _Inst_Conf_F = new Ui.DevelopmentApplication.INST_CONF_F { _DefaultGateway = this };
          }
+         else if(value == "mesg_dvlp_f")
+         {
+            if (_Mesg_Dvlp_F == null)
+               _Mesg_Dvlp_F = new Ui.DevelopmentApplication.MESG_DVLP_F { _DefaultGateway = this };
+         }
          #endregion
          #region Action
          else if (value == "strt_robo_f")
@@ -860,6 +865,31 @@ namespace System.RoboTech.Code
                   new Job(SendType.SelfToUserInterface, "INST_CONF_F", 02 /* Execute Set */),
                   new Job(SendType.SelfToUserInterface, "INST_CONF_F", 07 /* Execute Load_Data */),
                   new Job(SendType.SelfToUserInterface, "INST_CONF_F", 03 /* Execute Paint */)
+               });
+         }
+         else if (job.Status == StatusType.SignalForPreconditions)
+         {
+            job.Status = StatusType.Successful;
+         }
+      }
+
+      /// <summary>
+      /// Code 30
+      /// </summary>
+      /// <param name="job"></param>
+      private void Mesg_Dvlp_F(Job job)
+      {
+         if (job.Status == StatusType.Running)
+         {
+            job.Status = StatusType.WaitForPreconditions;
+            job.OwnerDefineWorkWith.AddRange(
+               new List<Job>
+               {
+                  new Job(SendType.Self, 01 /* Execute GetUi */){Input = "mesg_dvlp_f"},
+                  new Job(SendType.SelfToUserInterface, "MESG_DVLP_F", 05 /* Execute CheckSecurity */),
+                  new Job(SendType.SelfToUserInterface, "MESG_DVLP_F", 02 /* Execute Set */),
+                  new Job(SendType.SelfToUserInterface, "MESG_DVLP_F", 07 /* Execute Load_Data */),
+                  new Job(SendType.SelfToUserInterface, "MESG_DVLP_F", 03 /* Execute Paint */)
                });
          }
          else if (job.Status == StatusType.SignalForPreconditions)

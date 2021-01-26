@@ -15,6 +15,7 @@ using System.RoboTech.ExtCode;
 using System.IO;
 using System.Data.SqlClient;
 using System.Diagnostics;
+using System.Net;
 
 namespace System.RoboTech.Ui.DevelopmentApplication
 {
@@ -2255,6 +2256,110 @@ namespace System.RoboTech.Ui.DevelopmentApplication
          {
             if (requery)
                Execute_Query();
+         }
+      }
+
+      private void GetNowCrnc_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var csor = RbcsBs.Current as Data.Robot_Currency_Source;
+            if (csor == null) return;
+
+            string urlAddress = csor.WEB_SITE;
+
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(urlAddress);
+            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+
+            if (response.StatusCode == HttpStatusCode.OK)
+            {
+               Stream receiveStream = response.GetResponseStream();
+               StreamReader readStream = null;
+
+               if (String.IsNullOrWhiteSpace(response.CharacterSet))
+                  readStream = new StreamReader(receiveStream);
+               else
+                  readStream = new StreamReader(receiveStream, Encoding.GetEncoding(response.CharacterSet));
+
+               var htmlDoc = new HtmlAgilityPack.HtmlDocument();
+               htmlDoc.LoadHtml(readStream.ReadToEnd());
+
+               var htmlBody = htmlDoc.DocumentNode.SelectNodes("//table/tbody/tr");
+
+               iRoboTech.GET_CSOR_P(
+                  new XElement("Robot_Currency_Source",
+                      new XAttribute("code", csor.CODE),
+                      new XElement("Currencies",
+                          htmlBody.Take(32)
+                          .Select(c => 
+                              new XElement("Currency", 
+                                  new XAttribute("data", c.InnerText.Replace("\n", "#"))
+                              )
+                          )
+                          
+                      )
+                  )
+               );
+
+               requery = true;
+               response.Close();
+               readStream.Close();
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void SaveRobo_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            RoboBs.EndEdit();
+            RoboGv.PostEditor();
+            RbcsGv.PostEditor();
+
+            iRoboTech.SubmitChanges();
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+            {
+               Execute_Query();
+
+               _DefaultGateway.Gateway(
+                  new Job(SendType.External, "localhost", "FRST_PAGE_F", 07 /* Execute LoadData */, SendType.SelfToUserInterface)
+               );
+            }
+         }
+      }
+
+      private void CalcCrncExpn_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var rbpr = RbprBs.Current as Data.Robot_Product;
+            if (rbpr == null) return;
+
+            if(rbpr.CRNC_CALC_STAT == "002")
+            {
+               rbpr.EXPN_PRIC_DNRM = (long)(rbpr.CRNC_EXPN_AMNT * (decimal?)rbpr.Robot.CRNC_AMNT_DNRM);
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
          }
       }      
    }

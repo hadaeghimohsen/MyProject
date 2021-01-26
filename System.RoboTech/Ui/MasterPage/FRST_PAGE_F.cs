@@ -13,6 +13,8 @@ using System.Threading;
 using System.Xml.Linq;
 using System.RoboTech.ExtCode;
 using System.Data.Entity.SqlServer;
+using System.Net;
+using System.IO;
 
 namespace System.RoboTech.Ui.MasterPage
 {
@@ -27,13 +29,17 @@ namespace System.RoboTech.Ui.MasterPage
       private int instagramTimerInterval = 1 * 60 * 1000;
       private bool instagramOperationStatus = false;
       private DateTime instagramTriggerTime = DateTime.Now;
-      private bool instagramAtService = true;
+      private bool jobAtService = true;
       private enum DoOprtInsta
       {
          DirectMessage,
          FollowNewUser
       }
-      private DoOprtInsta _doOprtInsta = DoOprtInsta.DirectMessage;
+      private DoOprtInsta _doOprtInsta = DoOprtInsta.FollowNewUser;
+      private bool _CurrencyCalcStatus = false;
+      private bool _CurrencyAutoUpdate = false;
+      private int _CurrencyTimerInterval = 1 * 60 * 1000;
+      private DateTime _CurrencyTriggerTime = DateTime.Now;
 
       #region BaseDefinition
 
@@ -60,13 +66,21 @@ namespace System.RoboTech.Ui.MasterPage
                pc.GetMonth(DateTime.Now),
                pc.GetDayOfMonth(DateTime.Now));
 
-         if(instagramAtService && instagramTriggerTime.AddMilliseconds(instagramTimerInterval) <= DateTime.Now)
+         if (jobAtService && instagramOperationStatus && instagramTriggerTime.AddMilliseconds(instagramTimerInterval) <= DateTime.Now)
          {
             // We Must Run Trigger "InstDoOprt"
             instagramTriggerTime = DateTime.Now;
-            instagramAtService = false;
+            jobAtService = false;
             InstDoOprtAsync();
-            instagramAtService = true;
+            jobAtService = true;
+         }
+
+         if (jobAtService && _CurrencyCalcStatus && _CurrencyTriggerTime.AddMilliseconds(_CurrencyTimerInterval) <= DateTime.Now)
+         {
+            _CurrencyTriggerTime = DateTime.Now;
+            jobAtService = false;
+            CrncDoOprtAsync();
+            jobAtService = true;
          }
       }
 
@@ -658,7 +672,7 @@ namespace System.RoboTech.Ui.MasterPage
       private async void InstDoOprtAsync()
       {
          try
-         {
+         {            
             iRoboTech = new Data.iRoboTechDataContext(ConnectionString);
             var inst = iRoboTech.Robot_Instagrams.FirstOrDefault(i => i.PAGE_OWNR_TYPE == "002" && i.STAT == "002" && i.CYCL_STAT == "002");
             // اگر هیچ پیج اینستاگرامی وجود نداشته باشد
@@ -679,7 +693,7 @@ namespace System.RoboTech.Ui.MasterPage
 
                foreach (var d in dirMsgs.Take((int)inst.CYCL_SEND_MESG_NUMB))
                {
-                  InstOprt_Mpb.Visible = true;
+                  BkgrOprt_Mpb.Visible = true;
                   // Send Message
                   var result = await _instagram.SendDirectMessageAsync(d);
                   if (result)
@@ -714,12 +728,13 @@ namespace System.RoboTech.Ui.MasterPage
                         i.Robot_Instagram_Follows.Any(rif => rif.INST_PKID == f.INST_PKID)
                      )
                   )
-                  .OrderBy(f => SqlFunctions.Rand())
+                  //.ToList()
+                  //.OrderBy(f => SqlFunctions.Rand())
                   .FirstOrDefault();
 
                if (_newFollowUser != null)
                {
-                  InstOprt_Mpb.Visible = true;
+                  BkgrOprt_Mpb.Visible = true;
                   // Send Message
                   var result = await _instagram.FolowNewUserAsync(_newFollowUser);
                   if (result)
@@ -747,18 +762,123 @@ namespace System.RoboTech.Ui.MasterPage
                      }
                   }
                }
-               InstOprt_Mpb.Visible = false;
+               BkgrOprt_Mpb.Visible = false;
                #endregion
 
                // Next Cycle Step
                _doOprtInsta = DoOprtInsta.DirectMessage;
             }
 
-            InstOprt_Mpb.Visible = false;
+            BkgrOprt_Mpb.Visible = false;
 
             iRoboTech.SubmitChanges();
          }
          catch { }
+      }
+
+      private void CurrencyOperationInit()
+      {
+         try
+         {
+            var robo = iRoboTech.Robots.FirstOrDefault(r => Fga_Ugov_U.Contains(r.ORGN_OGID) && r.STAT == "002" && r.RUN_STAT == "002");
+            if (robo == null) return;
+
+            _CurrencyCalcStatus = robo.CRNC_CALC_STAT == "002" ? true : false;
+            _CurrencyAutoUpdate = robo.CRNC_AUTO_UPDT_STAT == "002" ? true : false;
+            _CurrencyTimerInterval = (int)robo.CRNC_CYCL_AUTO_UPDT * 1000;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private async void CrncDoOprtAsync()
+      {
+         try
+         {
+            var robo = iRoboTech.Robots.FirstOrDefault(r => Fga_Ugov_U.Contains(r.ORGN_OGID) && r.STAT == "002" && r.RUN_STAT == "002");
+            if (robo == null) return;
+
+            BkgrOprt_Mpb.Visible = true;
+            var admin =
+               iRoboTech.Service_Robots
+               .FirstOrDefault(sr => sr.Service_Robot_Groups.Any(g => g.STAT == "002" && g.GROP_GPID == 131));
+
+            foreach (var cs in robo.Robot_Currency_Sources.Where(cs => cs.STAT == "002"))
+            {
+               if(cs.TYPE == "001")
+               { 
+                  string urlAddress = cs.WEB_SITE;
+
+                  HttpWebRequest request = (HttpWebRequest)WebRequest.Create(urlAddress);
+                  var response = (HttpWebResponse)(await request.GetResponseAsync());
+
+                  if (response.StatusCode == HttpStatusCode.OK)
+                  {
+                     Stream receiveStream = response.GetResponseStream();
+                     StreamReader readStream = null;
+
+                     if (String.IsNullOrWhiteSpace(response.CharacterSet))
+                        readStream = new StreamReader(receiveStream);
+                     else
+                        readStream = new StreamReader(receiveStream, Encoding.GetEncoding(response.CharacterSet));
+
+                     var htmlDoc = new HtmlAgilityPack.HtmlDocument();
+                     htmlDoc.LoadHtml(readStream.ReadToEnd());
+
+                     var htmlBody = htmlDoc.DocumentNode.SelectNodes("//table/tbody/tr");
+
+                     iRoboTech.GET_CSOR_P(
+                        new XElement("Robot_Currency_Source",
+                            new XAttribute("code", cs.CODE),
+                            new XElement("Currencies",
+                                htmlBody.Take(32)
+                                .Select(c =>
+                                    new XElement("Currency",
+                                        new XAttribute("data", c.InnerText.Replace("\n", "#"))
+                                    )
+                                )
+
+                            )
+                        )
+                     );
+
+                     response.Close();
+                     readStream.Close();
+                  }
+               }
+            }
+            BkgrOprt_Mpb.Visible = false;
+
+            // Poke Bot For Send Message To Service
+            #region Send Message
+            // فراخوانی ربات برای ارسال پیام ثبت شده به سفیران انتخاب شده
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost",
+                  new List<Job>
+                  {
+                     new Job(SendType.Self, 11 /* Execute Strt_Robo_F */),
+                     new Job(SendType.SelfToUserInterface, "STRT_ROBO_F", 00 /* Execute ProcessCmdKey */){Input = Keys.Escape},
+                     new Job(SendType.SelfToUserInterface, "STRT_ROBO_F", 10 /* Execute Actn_CalF_P */)
+                     {
+                        Input = 
+                           new XElement("Robot", 
+                              new XAttribute("runrobot", "start"),
+                              new XAttribute("actntype", "sendordrs"),
+                              new XAttribute("chatid", admin.CHAT_ID),
+                              new XAttribute("rbid", robo.RBID)
+                           )
+                     }                     
+                  }
+               )
+            );
+            #endregion
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
       }
 
       private void AskQstnTlgm_Butn_Click(object sender, EventArgs e)
@@ -807,6 +927,18 @@ namespace System.RoboTech.Ui.MasterPage
          {
             MessageBox.Show(exc.Message);
          }
+      }
+
+      private void SendMesgConf_Butn_Click(object sender, EventArgs e)
+      {
+         _DefaultGateway.Gateway(
+            new Job(SendType.External, "Localhost",
+              new List<Job>
+              {                  
+                new Job(SendType.Self, 30 /* Execute Inst_Conf_F */),
+                new Job(SendType.SelfToUserInterface, "MESG_DVLP_F", 10 /* Execute Actn_CalF_P */)
+              })
+         );
       }
    }
 }

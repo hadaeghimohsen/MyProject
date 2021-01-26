@@ -39,6 +39,7 @@ namespace System.RoboTech.Code
       private Ui.DevelopmentApplication.WLET_DVLP_F _Wlet_Dvlp_F { get; set; }
       private Ui.DevelopmentApplication.ONRO_DVLP_F _Onro_Dvlp_F { get; set; }
       private Ui.DevelopmentApplication.INST_CONF_F _Inst_Conf_F { get; set; }
+      private Ui.DevelopmentApplication.MESG_DVLP_F _Mesg_Dvlp_F { get; set; }
    }   
 }
 

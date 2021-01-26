@@ -28,7 +28,6 @@
       /// </summary>
       private void InitializeComponent()
       {
-         this.components = new System.ComponentModel.Container();
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition1 = new DevExpress.XtraGrid.StyleFormatCondition();
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition2 = new DevExpress.XtraGrid.StyleFormatCondition();
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition3 = new DevExpress.XtraGrid.StyleFormatCondition();
@@ -107,7 +106,7 @@
          this.DelDev_Butn = new System.Windows.Forms.Button();
          this.label19 = new System.Windows.Forms.Label();
          this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-         this.DevInfoBs = new System.Windows.Forms.BindingSource(this.components);
+         this.DevInfoBs = new System.Windows.Forms.BindingSource();
          this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colIP = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colPORT = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -139,11 +138,12 @@
          this.ClientList_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.OtherDevice_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.Pos_Butn = new DevExpress.XtraEditors.SimpleButton();
-         this.ActiveSessionBs = new System.Windows.Forms.BindingSource(this.components);
-         this.PosBs = new System.Windows.Forms.BindingSource(this.components);
+         this.ActiveSessionBs = new System.Windows.Forms.BindingSource();
+         this.PosBs = new System.Windows.Forms.BindingSource();
          this.IPDev_Ofd = new System.Windows.Forms.OpenFileDialog();
-         this.CardRedrDev_Sp = new System.IO.Ports.SerialPort(this.components);
-         this.AutoOprt009_Tmr = new System.Windows.Forms.Timer(this.components);
+         this.CardRedrDev_Sp = new System.IO.Ports.SerialPort();
+         this.AutoOprt009_Tmr = new System.Windows.Forms.Timer();
+         this.CheckFngrIndx_Butn = new System.Windows.Forms.Button();
          this.panel1.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
          this.splitContainerControl1.SuspendLayout();
@@ -193,7 +193,7 @@
          this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
          this.panel1.Location = new System.Drawing.Point(0, 0);
          this.panel1.Name = "panel1";
-         this.panel1.Size = new System.Drawing.Size(1702, 59);
+         this.panel1.Size = new System.Drawing.Size(1146, 59);
          this.panel1.TabIndex = 0;
          // 
          // labelControl1
@@ -205,7 +205,7 @@
          this.labelControl1.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl1.Dock = System.Windows.Forms.DockStyle.Right;
          this.labelControl1.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl1.Location = new System.Drawing.Point(1436, 0);
+         this.labelControl1.Location = new System.Drawing.Point(880, 0);
          this.labelControl1.Name = "labelControl1";
          this.labelControl1.Size = new System.Drawing.Size(205, 59);
          this.labelControl1.TabIndex = 1;
@@ -218,7 +218,7 @@
          this.Back_Butn.Dock = System.Windows.Forms.DockStyle.Right;
          this.Back_Butn.Image = global::System.DataGuard.Properties.Resources.IMAGE_1371;
          this.Back_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.Back_Butn.Location = new System.Drawing.Point(1641, 0);
+         this.Back_Butn.Location = new System.Drawing.Point(1085, 0);
          this.Back_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.Back_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.Back_Butn.Name = "Back_Butn";
@@ -238,7 +238,7 @@
          this.splitContainerControl1.Panel1.Text = "Panel1";
          this.splitContainerControl1.Panel2.Controls.Add(this.flowLayoutPanel1);
          this.splitContainerControl1.Panel2.Text = "Panel2";
-         this.splitContainerControl1.Size = new System.Drawing.Size(1702, 738);
+         this.splitContainerControl1.Size = new System.Drawing.Size(1146, 738);
          this.splitContainerControl1.SplitterPosition = 219;
          this.splitContainerControl1.TabIndex = 1;
          this.splitContainerControl1.Text = "splitContainerControl1";
@@ -253,7 +253,7 @@
          this.Tb_Master.Name = "Tb_Master";
          this.Tb_Master.RightToLeftLayout = true;
          this.Tb_Master.SelectedIndex = 0;
-         this.Tb_Master.Size = new System.Drawing.Size(1478, 738);
+         this.Tb_Master.Size = new System.Drawing.Size(922, 738);
          this.Tb_Master.TabIndex = 0;
          // 
          // tp_001
@@ -262,7 +262,7 @@
          this.tp_001.Location = new System.Drawing.Point(4, 23);
          this.tp_001.Name = "tp_001";
          this.tp_001.Padding = new System.Windows.Forms.Padding(3);
-         this.tp_001.Size = new System.Drawing.Size(1470, 711);
+         this.tp_001.Size = new System.Drawing.Size(914, 711);
          this.tp_001.TabIndex = 0;
          this.tp_001.Tag = "1";
          this.tp_001.Text = "سیستم های متصل";
@@ -274,7 +274,7 @@
          this.ActiveSessionList_Flp.Dock = System.Windows.Forms.DockStyle.Fill;
          this.ActiveSessionList_Flp.Location = new System.Drawing.Point(3, 3);
          this.ActiveSessionList_Flp.Name = "ActiveSessionList_Flp";
-         this.ActiveSessionList_Flp.Size = new System.Drawing.Size(1464, 705);
+         this.ActiveSessionList_Flp.Size = new System.Drawing.Size(908, 705);
          this.ActiveSessionList_Flp.TabIndex = 1;
          // 
          // simpleButton1
@@ -291,7 +291,7 @@
          this.simpleButton1.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
          this.simpleButton1.Image = global::System.DataGuard.Properties.Resources.IMAGE_1415;
          this.simpleButton1.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
-         this.simpleButton1.Location = new System.Drawing.Point(1246, 3);
+         this.simpleButton1.Location = new System.Drawing.Point(690, 3);
          this.simpleButton1.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.simpleButton1.LookAndFeel.UseDefaultLookAndFeel = false;
          this.simpleButton1.Name = "simpleButton1";
@@ -306,7 +306,7 @@
          this.tp_002.Location = new System.Drawing.Point(4, 23);
          this.tp_002.Name = "tp_002";
          this.tp_002.Padding = new System.Windows.Forms.Padding(3);
-         this.tp_002.Size = new System.Drawing.Size(1470, 711);
+         this.tp_002.Size = new System.Drawing.Size(914, 711);
          this.tp_002.TabIndex = 1;
          this.tp_002.Tag = "2";
          this.tp_002.Text = "دستگاه های جانبی متصل";
@@ -321,7 +321,7 @@
          this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
          this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 3);
          this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-         this.flowLayoutPanel2.Size = new System.Drawing.Size(1464, 705);
+         this.flowLayoutPanel2.Size = new System.Drawing.Size(908, 705);
          this.flowLayoutPanel2.TabIndex = 2;
          // 
          // groupBox1
@@ -329,6 +329,7 @@
          this.groupBox1.BackColor = System.Drawing.Color.WhiteSmoke;
          this.groupBox1.Controls.Add(this.PortList_Cb);
          this.groupBox1.Controls.Add(this.panel3);
+         this.groupBox1.Controls.Add(this.CheckFngrIndx_Butn);
          this.groupBox1.Controls.Add(this.OpenClosPort_Butn);
          this.groupBox1.Controls.Add(this.DisConnectFromDev_Butn);
          this.groupBox1.Controls.Add(this.ConnectToDev_Butn);
@@ -349,7 +350,7 @@
          this.groupBox1.Controls.Add(this.label4);
          this.groupBox1.Controls.Add(this.Usb_Rb);
          this.groupBox1.Controls.Add(this.Network_Rb);
-         this.groupBox1.Location = new System.Drawing.Point(1197, 3);
+         this.groupBox1.Location = new System.Drawing.Point(624, 3);
          this.groupBox1.Name = "groupBox1";
          this.groupBox1.Size = new System.Drawing.Size(264, 568);
          this.groupBox1.TabIndex = 0;
@@ -717,7 +718,7 @@
          this.groupBox2.Controls.Add(this.SlaveDevicePort_Txt);
          this.groupBox2.Controls.Add(this.label6);
          this.groupBox2.Controls.Add(this.label7);
-         this.groupBox2.Location = new System.Drawing.Point(582, 3);
+         this.groupBox2.Location = new System.Drawing.Point(9, 3);
          this.groupBox2.Name = "groupBox2";
          this.groupBox2.RightToLeft = System.Windows.Forms.RightToLeft.No;
          this.groupBox2.Size = new System.Drawing.Size(609, 568);
@@ -1211,7 +1212,7 @@
          // LogResult_Txt
          // 
          this.LogResult_Txt.Font = new System.Drawing.Font("Courier New", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.LogResult_Txt.Location = new System.Drawing.Point(3, 3);
+         this.LogResult_Txt.Location = new System.Drawing.Point(315, 577);
          this.LogResult_Txt.Multiline = true;
          this.LogResult_Txt.Name = "LogResult_Txt";
          this.LogResult_Txt.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -1227,7 +1228,7 @@
          this.tp_003.Location = new System.Drawing.Point(4, 23);
          this.tp_003.Name = "tp_003";
          this.tp_003.Padding = new System.Windows.Forms.Padding(3);
-         this.tp_003.Size = new System.Drawing.Size(1470, 711);
+         this.tp_003.Size = new System.Drawing.Size(914, 711);
          this.tp_003.TabIndex = 2;
          this.tp_003.Tag = "3";
          this.tp_003.Text = "POS";
@@ -1411,7 +1412,7 @@
          this.labelControl2.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
          this.labelControl2.Location = new System.Drawing.Point(3, 3);
          this.labelControl2.Name = "labelControl2";
-         this.labelControl2.Size = new System.Drawing.Size(1464, 36);
+         this.labelControl2.Size = new System.Drawing.Size(908, 36);
          this.labelControl2.TabIndex = 10;
          this.labelControl2.Text = "POS";
          // 
@@ -1512,6 +1513,19 @@
          // 
          this.AutoOprt009_Tmr.Tick += new System.EventHandler(this.GetGeneralLogData_btn_Click);
          // 
+         // CheckFngrIndx_Butn
+         // 
+         this.CheckFngrIndx_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.CheckFngrIndx_Butn.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.CheckFngrIndx_Butn.Location = new System.Drawing.Point(8, 425);
+         this.CheckFngrIndx_Butn.Name = "CheckFngrIndx_Butn";
+         this.CheckFngrIndx_Butn.Size = new System.Drawing.Size(73, 23);
+         this.CheckFngrIndx_Butn.TabIndex = 12;
+         this.CheckFngrIndx_Butn.Tag = "close";
+         this.CheckFngrIndx_Butn.Text = "چک انگشت";
+         this.CheckFngrIndx_Butn.UseVisualStyleBackColor = true;
+         this.CheckFngrIndx_Butn.Click += new System.EventHandler(this.CheckFngrIndx_Butn_Click);
+         // 
          // SettingsDevice
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -1521,7 +1535,7 @@
          this.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.Name = "SettingsDevice";
          this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-         this.Size = new System.Drawing.Size(1702, 797);
+         this.Size = new System.Drawing.Size(1146, 797);
          this.panel1.ResumeLayout(false);
          ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).EndInit();
          this.splitContainerControl1.ResumeLayout(false);
@@ -1668,6 +1682,7 @@
       private Windows.Forms.Label label26;
       private Windows.Forms.TextBox ServerPassword_Txt;
       private Windows.Forms.TextBox ServerUserId_Txt;
+      private Windows.Forms.Button CheckFngrIndx_Butn;
 
    }
 }

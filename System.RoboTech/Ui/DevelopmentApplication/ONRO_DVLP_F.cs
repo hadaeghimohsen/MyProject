@@ -55,7 +55,6 @@ namespace System.RoboTech.Ui.DevelopmentApplication
          Ordt4Stp2Bs.Position = ordt4stp2;
 
          SearchProduct_Butn_Click(null, null);
-
          requery = false;
       }
 
@@ -73,7 +72,7 @@ namespace System.RoboTech.Ui.DevelopmentApplication
             Ordr25Stp1Bs.DataSource = iRoboTech.Orders.Where(o => o.Robot == robo && o.ORDR_TYPE == "025" && o.ORDR_STAT == "002");
 
             // TabMenu 2
-            SrbtBs.DataSource = iRoboTech.Service_Robots.Where(sr => sr.Robot == robo && sr.STAT == "002" && iRoboTech.Orders.Any(o => o.Robot == robo && o.ORDR_TYPE == "025" && o.ORDR_STAT == "016" && o.CHAT_ID == sr.CHAT_ID));
+            SrbtBs.DataSource = iRoboTech.Service_Robots.Where(sr => sr.Robot == robo && sr.STAT == "002" && iRoboTech.Orders.Any(o => o.Robot == robo && o.ORDR_TYPE == "025" && o.ORDR_STAT == "016" && o.CHAT_ID == sr.CHAT_ID && o.CRET_BY == (Ordr25CretBy_Cb.Checked ? CurrentUser : o.CRET_BY)));
             SrbtsBs.DataSource = iRoboTech.Service_Robots.Where(sr => sr.Robot == robo);
             if (SrbtBs.List.Count == 0)
             {
@@ -494,6 +493,8 @@ namespace System.RoboTech.Ui.DevelopmentApplication
                   whereClause,
                   DateTime.Now
                );
+
+            if (TarfBarCode_Cbx.Checked) TarfBarCode_Txt.Focus();
          }
          catch (Exception exc)
          {
@@ -831,6 +832,10 @@ namespace System.RoboTech.Ui.DevelopmentApplication
 
             if (MessageBox.Show(this, "تسویه حساب مالی به صورت نقدی", "انجام عملیات تسویه حساب نقدی", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes) return;
 
+            // Print Default Active Reports
+            DfltPrnt002_Butn_Click(null, null);
+            //return;
+
             // Do Some things
             var xResult = new XElement("Respons");
             iRoboTech.Analisis_Message_P(
@@ -949,77 +954,142 @@ namespace System.RoboTech.Ui.DevelopmentApplication
 
             if (MessageBox.Show(this, "تسویه حساب مالی به صورت کارتخوان", "انجام عملیات تسویه حساب کارتخوان", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes) return;
 
-            // Do Some things
-            var xResult = new XElement("Respons");
-            iRoboTech.Analisis_Message_P(
-               new XElement("Robot",
-                  new XAttribute("token", ordr.Robot.TKON_CODE),
-                  new XElement("Message",
-                        new XAttribute("cbq", "002"),
-                        new XAttribute("ussd", "*0*3*3#"),
-                        new XAttribute("childussd", ""),
-                        new XAttribute("chatid", ordr.CHAT_ID),
-                        new XAttribute("elmntype", "001"),
-                        new XElement("Text",
-                            new XAttribute("param", string.Format("howinccashwlet,{0}", ordr.AMNT_TYPE == "001" ? ordr.DEBT_DNRM : ordr.DEBT_DNRM * 10)),
-                            new XAttribute("postexec", "lessaddwlet"),
-                            "addamntwlet"
+            if (VPosBs1.List.Count == 0)
+               UsePos_Cb.Checked = false;
+
+            if (UsePos_Cb.Checked)
+            {
+               #region Pos Operation
+               var amnt = ordr.DEBT_DNRM;
+               if (amnt == 0) return;
+
+               var robo = RoboBs.Current as Data.Robot;
+
+               long psid;
+               if (Pos_Lov.EditValue == null)
+               {
+                  var posdflts = VPosBs1.List.OfType<Data.V_Pos_Device>().Where(p => p.POS_DFLT == "002");
+                  if (posdflts.Count() == 1)
+                     Pos_Lov.EditValue = psid = posdflts.FirstOrDefault().PSID;
+                  else
+                  {
+                     Pos_Lov.Focus();
+                     return;
+                  }
+               }
+               else
+               {
+                  psid = (long)Pos_Lov.EditValue;
+               }
+
+               if (robo.AMNT_TYPE == "002")
+                  amnt *= 10;
+
+               _DefaultGateway.Gateway(
+                  new Job(SendType.External, "localhost",
+                     new List<Job>
+                     {
+                        new Job(SendType.External, "Commons",
+                           new List<Job>
+                           {
+                              new Job(SendType.Self, 34 /* Execute PosPayment */)
+                              {
+                                 Input = 
+                                    new XElement("PosRequest",
+                                       new XAttribute("psid", psid),
+                                       new XAttribute("subsys", 12),
+                                       new XAttribute("rqid", ordr.CODE),
+                                       new XAttribute("rqtpcode", "004"),
+                                       new XAttribute("router", GetType().Name),
+                                       new XAttribute("callback", 20),
+                                       new XAttribute("amnt", amnt)
+                                    )
+                              }
+                           }
                         )
+                     }
                   )
-               ),
-               ref xResult
-            );
+               );
+               #endregion
+            }
+            else
+            {
+               // Print Default Active Reports
+               DfltPrnt002_Butn_Click(null, null);
 
-            iRoboTech = new Data.iRoboTechDataContext(ConnectionString);
+               #region Save Amount Without Connect to POS
+               // Do Some things
+               var xResult = new XElement("Respons");
+               iRoboTech.Analisis_Message_P(
+                  new XElement("Robot",
+                     new XAttribute("token", ordr.Robot.TKON_CODE),
+                     new XElement("Message",
+                           new XAttribute("cbq", "002"),
+                           new XAttribute("ussd", "*0*3*3#"),
+                           new XAttribute("childussd", ""),
+                           new XAttribute("chatid", ordr.CHAT_ID),
+                           new XAttribute("elmntype", "001"),
+                           new XElement("Text",
+                               new XAttribute("param", string.Format("howinccashwlet,{0}", ordr.AMNT_TYPE == "001" ? ordr.DEBT_DNRM : ordr.DEBT_DNRM * 10)),
+                               new XAttribute("postexec", "lessaddwlet"),
+                               "addamntwlet"
+                           )
+                     )
+                  ),
+                  ref xResult
+               );
 
-            var ordr15 = iRoboTech.Orders.Where(o => o.Service_Robot == ordr.Service_Robot && o.ORDR_TYPE == "015" && o.ORDR_STAT == "001" && o.DEBT_DNRM == ordr.DEBT_DNRM).FirstOrDefault();
-            if (ordr15 == null) { MessageBox.Show(this, "متاسفانه در ثبت مبلغ کارتخوان خطایی پیش آمده لطفا دوباره امتحان کنید"); return; }
+               iRoboTech = new Data.iRoboTechDataContext(ConnectionString);
 
-            iRoboTech.SAVE_PYMT_P(
-               new XElement("Payment",
-                   new XAttribute("ordrcode", ordr15.CODE),
-                   new XAttribute("txid", ordr15.CODE),
-                   new XAttribute("totlamnt", ordr15.DEBT_DNRM),
-                   new XAttribute("autochngamnt", "001"),
-                   new XAttribute("rcptmtod", "003")
-               ),
-               ref xResult
-            );
+               var ordr15 = iRoboTech.Orders.Where(o => o.Service_Robot == ordr.Service_Robot && o.ORDR_TYPE == "015" && o.ORDR_STAT == "001" && o.DEBT_DNRM == ordr.DEBT_DNRM).FirstOrDefault();
+               if (ordr15 == null) { MessageBox.Show(this, "متاسفانه در ثبت مبلغ کارتخوان خطایی پیش آمده لطفا دوباره امتحان کنید"); return; }
 
-            iRoboTech = new Data.iRoboTechDataContext(ConnectionString);
-            ordr15 = iRoboTech.Orders.FirstOrDefault(o => o.CODE == ordr15.CODE);
-            if (ordr15.ORDR_STAT != "004") { MessageBox.Show(this, "متاسفانه در ثبت مبلغ نقدی خطایی پیش آمده لطفا دوباره امتحان کنید"); return; }
+               iRoboTech.SAVE_PYMT_P(
+                  new XElement("Payment",
+                      new XAttribute("ordrcode", ordr15.CODE),
+                      new XAttribute("txid", ordr15.CODE),
+                      new XAttribute("totlamnt", ordr15.DEBT_DNRM),
+                      new XAttribute("autochngamnt", "001"),
+                      new XAttribute("rcptmtod", "003")
+                  ),
+                  ref xResult
+               );
 
-            iRoboTech.SAVE_WLET_P(
-               new XElement("Wallet_Detail",
-                   new XAttribute("ordrcode", ordr.CODE),
-                   new XAttribute("rbid", ordr.Robot.RBID),
-                   new XAttribute("chatid", ordr.CHAT_ID),
-                   new XAttribute("oprttype", "add"),
-                   new XAttribute("wlettype", "002")
-               ),
-               ref xResult
-            );
+               iRoboTech = new Data.iRoboTechDataContext(ConnectionString);
+               ordr15 = iRoboTech.Orders.FirstOrDefault(o => o.CODE == ordr15.CODE);
+               if (ordr15.ORDR_STAT != "004") { MessageBox.Show(this, "متاسفانه در ثبت مبلغ نقدی خطایی پیش آمده لطفا دوباره امتحان کنید"); return; }
 
-            iRoboTech.Analisis_Message_P(
-               new XElement("Robot",
-                  new XAttribute("token", ordr.Robot.TKON_CODE),
-                  new XElement("Message",
-                        new XAttribute("cbq", "002"),
-                        new XAttribute("ussd", "*0#"),
-                        new XAttribute("childussd", ""),
-                        new XAttribute("chatid", ordr.CHAT_ID),
-                        new XAttribute("elmntype", "001"),
-                        new XElement("Text",
-                            new XAttribute("param", ordr.CODE),
-                            new XAttribute("postexec", "lessfinlcart"),
-                            "finalcart"
-                        )
-                  )
-               ),
-               ref xResult
-            );
+               iRoboTech.SAVE_WLET_P(
+                  new XElement("Wallet_Detail",
+                      new XAttribute("ordrcode", ordr.CODE),
+                      new XAttribute("rbid", ordr.Robot.RBID),
+                      new XAttribute("chatid", ordr.CHAT_ID),
+                      new XAttribute("oprttype", "add"),
+                      new XAttribute("wlettype", "002")
+                  ),
+                  ref xResult
+               );
 
+               iRoboTech.Analisis_Message_P(
+                  new XElement("Robot",
+                     new XAttribute("token", ordr.Robot.TKON_CODE),
+                     new XElement("Message",
+                           new XAttribute("cbq", "002"),
+                           new XAttribute("ussd", "*0#"),
+                           new XAttribute("childussd", ""),
+                           new XAttribute("chatid", ordr.CHAT_ID),
+                           new XAttribute("elmntype", "001"),
+                           new XElement("Text",
+                               new XAttribute("param", ordr.CODE),
+                               new XAttribute("postexec", "lessfinlcart"),
+                               "finalcart"
+                           )
+                     )
+                  ),
+                  ref xResult
+               );
+               #endregion
+            }
             requery = true;
          }
          catch (Exception exc)
@@ -1043,6 +1113,9 @@ namespace System.RoboTech.Ui.DevelopmentApplication
             if (ordr.HOW_SHIP == "000") { HowShip_lov.Focus(); MessageBox.Show("لطفا آدرس ارسال را مشخص کنید"); return; }
 
             if (MessageBox.Show(this, "تسویه حساب مالی از کیف پول اعتباری", "انجام عملیات تسویه حساب کیف پول اعتباری", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes) return;
+
+            // Print Default Active Reports
+            DfltPrnt002_Butn_Click(null, null);
 
             // Do Some things
             var xResult = new XElement("Respons");
@@ -1100,6 +1173,9 @@ namespace System.RoboTech.Ui.DevelopmentApplication
             if (ordr.HOW_SHIP == "000") { HowShip_lov.Focus(); MessageBox.Show("لطفا آدرس ارسال را مشخص کنید"); return; }
 
             if (MessageBox.Show(this, "تسویه حساب مالی از کیف پول نقدی", "انجام عملیات تسویه حساب کیف پول نقدی", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes) return;
+
+            // Print Default Active Reports
+            DfltPrnt002_Butn_Click(null, null);
 
             // Do Some things
             var xResult = new XElement("Respons");
@@ -1288,6 +1364,8 @@ namespace System.RoboTech.Ui.DevelopmentApplication
 
             if (!FromDate3_Dt.Value.HasValue) FromDate3_Dt.Value = DateTime.Now;
             if (!ToDate3_Dt.Value.HasValue) ToDate3_Dt.Value = DateTime.Now;
+            if (OrdrCode3_Txt.EditValue == null || OrdrCode3_Txt.Text == "") OrdrCode3_Txt.EditValue = 0;
+            if (ChatId3_Txt.EditValue == null || ChatId3_Txt.Text == "") ChatId3_Txt.EditValue = 0;
 
             var robo = RoboBs.Current as Data.Robot;
             if (robo == null) return;
@@ -1298,8 +1376,15 @@ namespace System.RoboTech.Ui.DevelopmentApplication
                   sr.Orders.Any(o => 
                      o.ORDR_TYPE == "004" && 
                      o.ORDR_STAT != "003" && 
-                     o.STRT_DATE.Value.Date >= FromDate3_Dt.Value.Value.Date && 
-                     o.STRT_DATE.Value.Date <= ToDate3_Dt.Value.Value.Date
+                     (
+                        //(FromDate3_Cbx.Checked && ToDate3_Cbx.Checked && o.STRT_DATE.Value.Date >= FromDate3_Dt.Value.Value.Date && o.STRT_DATE.Value.Date <= ToDate3_Dt.Value.Value.Date) ||
+                        (FromDate3_Cbx.Checked && o.STRT_DATE.Value.Date >= FromDate3_Dt.Value.Value.Date) &&
+                        (ToDate3_Cbx.Checked && o.STRT_DATE.Value.Date <= ToDate3_Dt.Value.Value.Date) &&
+                        (OrdrCode3_Cbx.Checked && o.CODE == OrdrCode3_Txt.Text.ToInt64()) &&
+                        (CellPhon3_Cbx.Checked && o.CELL_PHON != null && o.CELL_PHON.Contains(CellPhon3_Txt.Text)) &&
+                        (NatlCode3_Cbx.Checked && o.Service_Robot.NATL_CODE != null && o.Service_Robot.NATL_CODE.Contains(NatlCode3_Txt.Text)) &&
+                        (ChatId3_Cbx.Checked && o.CHAT_ID.ToString().Contains(ChatId3_Txt.Text))
+                     )
                   )
                );
 
@@ -1308,8 +1393,15 @@ namespace System.RoboTech.Ui.DevelopmentApplication
                   o.Robot == robo &&
                   o.ORDR_TYPE == "004" &&
                   o.ORDR_STAT != "003" &&
-                  o.STRT_DATE.Value.Date >= FromDate3_Dt.Value.Value.Date &&
-                  o.STRT_DATE.Value.Date <= ToDate3_Dt.Value.Value.Date
+                  (
+                     //(FromDate3_Cbx.Checked && ToDate3_Cbx.Checked && o.STRT_DATE.Value.Date >= FromDate3_Dt.Value.Value.Date && o.STRT_DATE.Value.Date <= ToDate3_Dt.Value.Value.Date) ||
+                     (FromDate3_Cbx.Checked && o.STRT_DATE.Value.Date >= FromDate3_Dt.Value.Value.Date) &&
+                     (ToDate3_Cbx.Checked && o.STRT_DATE.Value.Date <= ToDate3_Dt.Value.Value.Date) &&
+                     (OrdrCode3_Cbx.Checked && o.CODE == OrdrCode3_Txt.Text.ToInt64()) &&
+                     (CellPhon3_Cbx.Checked && o.CELL_PHON != null && o.CELL_PHON.Contains(CellPhon3_Txt.Text)) &&
+                     (NatlCode3_Cbx.Checked && o.Service_Robot.NATL_CODE != null && o.Service_Robot.NATL_CODE.Contains(NatlCode3_Txt.Text)) &&
+                     (ChatId3_Cbx.Checked && o.CHAT_ID.ToString().Contains(ChatId3_Txt.Text))
+                  )
                );
 
             OrdrAllCount3_Txt.EditValue = ordr.Count();
@@ -1371,6 +1463,358 @@ namespace System.RoboTech.Ui.DevelopmentApplication
          {
             MessageBox.Show(exc.Message);
          }
+      }
+
+      private void TarfBarCode_Txt_KeyDown(object sender, KeyEventArgs e)
+      {
+         try
+         {
+            if (e.KeyCode == Keys.Enter)
+            {
+               var ordr4 = Ordr4Stp2Bs.Current as Data.Order;
+               if (ordr4 == null) return;
+
+               if (TarfBarCode_Txt.Text == "") return;
+
+               TarfBarCode_Txt.Text = TarfBarCode_Txt.Text.Replace(Environment.NewLine, "");
+
+               var prod =
+                  RbprBs.List.OfType<Data.Robot_Product>()
+                  .Where(rp =>
+                     rp.Robot == ordr4.Robot &&
+                     (
+                        TarfCode_Rb.Checked && rp.TARF_CODE == TarfBarCode_Txt.Text ||
+                        BarCode_Rb.Checked && rp.BAR_CODE == TarfBarCode_Txt.Text
+                     )
+                  );
+
+               if (prod.Count() != 1)
+               {
+                  if (prod.Count() == 0)
+                     throw new Exception("برای کد خوانده شده هیچ محصولی وجود ندارد" + " - " + TarfBarCode_Txt.Text);
+                  else
+                     throw new Exception("برای کد خوانده شده بیش از یک رکورد پیدا شد" + " - " + TarfBarCode_Txt.Text);
+               }
+
+               if (TarfNumb_Txt.EditValue.ToString() == "" || Convert.ToDecimal(TarfNumb_Txt.EditValue) == 0)
+                  TarfNumb_Txt.EditValue = 1;
+
+               RbprBs.Position =
+                  RbprBs.IndexOf(prod.FirstOrDefault());
+
+               if(ordr4.HOW_SHIP == "000")
+                  iRoboTech.ExecuteCommand(string.Format("UPDATE dbo.[Order] SET HOW_SHIP = '001' WHERE Code = {0};", ordr4.CODE));
+
+               AddTarfTToCart_Butn_Click(null, null);
+
+               e.Handled = true;
+               TarfNumb_Txt.EditValue = 1;
+               TarfBarCode_Txt.Text = "";
+               ComnOprt_Tm.Enabled = true;
+            }
+         }
+         catch (Exception exc) { MessageBox.Show(exc.Message); }         
+      }
+
+      private void ComnOprt_Tm_Tick(object sender, EventArgs e)
+      {
+         if (TarfBarCode_Cbx.Checked) TarfBarCode_Txt.Focus();
+
+         ComnOprt_Tm.Enabled = false;
+      }
+
+      private void PosStng_Butn_Click(object sender, EventArgs e)
+      {
+         _DefaultGateway.Gateway(
+            new Job(SendType.External, "localhost", "Commons", 33 /* Execute PosSettings */, SendType.Self) { Input = "Pos_Butn" }
+         );
+      }
+
+      private void CellPhonNatlCodeChatId_Txt_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
+      {
+         try
+         {
+            var srbt = 
+               SrbtsBs.List.OfType<Data.Service_Robot>()
+               .Where(sr => 
+                     (CellPhon_Rb.Checked && sr.CELL_PHON != null && sr.CELL_PHON.StartsWith(e.NewValue.ToString())) ||
+                     (NatlCode_Rb.Checked && sr.NATL_CODE != null && sr.NATL_CODE.StartsWith(e.NewValue.ToString())) ||
+                     (ChatId_Rb.Checked && sr.CHAT_ID.ToString().StartsWith(e.NewValue.ToString()))
+                  );
+
+            RsltContCN_Lb.Text = srbt.Count().ToString();
+            if (srbt == null) return;
+
+            switch(srbt.Count())
+            {
+               case 1:
+                  Srbt_Lov.EditValue = srbt.FirstOrDefault().CHAT_ID;
+                  if (AutoSaveOrdr_Cbx.Checked)
+                  {
+                     CretOrdr25_Butn_Click(null, null);
+                     Main_Tc.SelectedTab = Ordr4Stp2_Tp;
+                     if(RbprBs.List.Count == 0)
+                        SearchProduct_Butn_Click(null, null);
+                     TarfNumb_Txt.EditValue = 1;
+                     ComnOprt_Tm.Enabled = true;
+                  }
+                  break;
+            }
+         }
+         catch
+         {
+            RsltContCN_Lb.Text = "0";
+         }
+      }
+
+      private void DfltPrnt002_Butn_Click(object sender, EventArgs e)
+      {
+         if (Ordr4Stp2Bs.Current == null) return;
+         var ordr = Ordr4Stp2Bs.Current as Data.Order;
+
+         _DefaultGateway.Gateway(
+            new Job(SendType.External, "Localhost",
+               new List<Job>
+               {
+                  new Job(SendType.Self, 15 /* Execute Rpt_Mngr_F */){Input = new XElement("Print", new XAttribute("type", "Default"), new XAttribute("modual", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_002_F"), string.Format("dbo.[Order].Code = {0}", ordr.CODE))}
+               }
+            )
+         );
+      }
+
+      private void SlctPrnt002_Butn_Click(object sender, EventArgs e)
+      {
+         if (Ordr4Stp2Bs.Current == null) return;
+         var ordr = Ordr4Stp2Bs.Current as Data.Order;
+
+         _DefaultGateway.Gateway(
+            new Job(SendType.External, "Localhost",
+               new List<Job>
+               {
+                  new Job(SendType.Self, 15 /* Execute Rpt_Mngr_F */){Input = new XElement("Print", new XAttribute("type", "Selection"), new XAttribute("modual", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_002_F"), string.Format("dbo.[Order].Code = {0}", ordr.CODE))}
+               }
+            )
+         );
+      }
+
+      private void ConfPrnt002_Butn_Click(object sender, EventArgs e)
+      {
+         _DefaultGateway.Gateway(
+            new Job(SendType.External, "Localhost",
+               new List<Job>
+               {
+                  new Job(SendType.Self, 14 /* Execute Stng_Rprt_F */),
+                  new Job(SendType.SelfToUserInterface, "STNG_RPRT_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "ModualReport"), new XAttribute("modul", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_002_F"))}
+               }
+            )
+         );
+      }
+
+      //private void OrdrPrintAfterPay002_Click(object sender, EventArgs e)
+      //{
+      //   if (Ordr4Stp2Bs.Current == null) return;
+      //   var ordr = Ordr4Stp2Bs.Current as Data.Order;
+
+      //   _DefaultGateway.Gateway(
+      //      new Job(SendType.External, "Localhost",
+      //         new List<Job>
+      //         {
+      //            new Job(SendType.Self, 15 /* Execute Rpt_Mngr_F */){Input = new XElement("Print", new XAttribute("type", "PrintAfterFinish"), new XAttribute("modual", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_002_F"), string.Format("dbo.[Order].Code = {0}", ordr.CODE))}
+      //         }
+      //      )
+      //   );
+      //}
+
+      private void AddTarfWithQury_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var ordr4 = Ordr4Stp2Bs.Current as Data.Order;
+            if (ordr4 == null) return;
+
+            if (TarfBarCode_Txt.Text == "") return;
+
+            TarfBarCode_Txt.Text = TarfBarCode_Txt.Text.Replace(Environment.NewLine, "");
+
+            var prod =
+               RbprBs.List.OfType<Data.Robot_Product>()
+               .Where(rp =>
+                  rp.Robot == ordr4.Robot &&
+                  (
+                     TarfCode_Rb.Checked && rp.TARF_CODE == TarfBarCode_Txt.Text ||
+                     BarCode_Rb.Checked && rp.BAR_CODE == TarfBarCode_Txt.Text
+                  )
+               );
+
+            if (prod.Count() != 1)
+            {
+               if (prod.Count() == 0)
+                  throw new Exception("برای کد خوانده شده هیچ محصولی وجود ندارد" + " - " + TarfBarCode_Txt.Text);
+               else
+                  throw new Exception("برای کد خوانده شده بیش از یک رکورد پیدا شد" + " - " + TarfBarCode_Txt.Text);
+            }
+
+            if (TarfNumb_Txt.EditValue.ToString() == "" || Convert.ToDecimal(TarfNumb_Txt.EditValue) == 0)
+               TarfNumb_Txt.EditValue = 1;
+
+            RbprBs.Position =
+               RbprBs.IndexOf(prod.FirstOrDefault());
+
+            if (ordr4.HOW_SHIP == "000")
+               iRoboTech.ExecuteCommand(string.Format("UPDATE dbo.[Order] SET HOW_SHIP = '001' WHERE Code = {0};", ordr4.CODE));
+
+            AddTarfTToCart_Butn_Click(null, null);
+
+            TarfNumb_Txt.EditValue = 1;
+            TarfBarCode_Txt.Text = "";
+            ComnOprt_Tm.Enabled = true;
+         }
+         catch (Exception exc) { MessageBox.Show(exc.Message); }  
+      }
+
+      private void KeyPadOprt_Butn(object sender, EventArgs e)
+      {
+         try
+         {
+            var key = sender as C1.Win.C1Input.C1Button;
+
+            #region Left Keypad Number
+            switch (key.Tag.ToString())
+            {
+               case "LClear":
+                  TarfBarCode_Txt.Text = "";
+                  break;
+               case "LBackSpace":
+                  int cursorPos = TarfBarCode_Txt.SelectionStart;
+                  if(cursorPos > 0)
+                  {
+                     TarfBarCode_Txt.Text = TarfBarCode_Txt.Text.Substring(0, cursorPos - 1) + TarfBarCode_Txt.Text.Substring(cursorPos);
+                     TarfBarCode_Txt.SelectionStart = cursorPos - 1;
+                  }
+                  break;
+               case "LEnter":
+                  AddTarfWithQury_Butn_Click(null, null);
+                  break;
+               case "LZero":
+                  TarfBarCode_Txt.Text += "0";//TarfBarCode_Txt.Text.Insert(TarfBarCode_Txt.SelectionStart, "0");
+                  //TarfBarCode_Txt.SelectionStart++;
+                  break;
+               case "LOne":
+                  TarfBarCode_Txt.Text += "1";//TarfBarCode_Txt.Text.Insert(TarfBarCode_Txt.SelectionStart, "0");
+                  //TarfBarCode_Txt.SelectionStart++;
+                  break;
+               case "LTwo":
+                  TarfBarCode_Txt.Text += "2";//TarfBarCode_Txt.Text.Insert(TarfBarCode_Txt.SelectionStart, "0");
+                  //TarfBarCode_Txt.SelectionStart++;
+                  break;
+               case "LThree":
+                  TarfBarCode_Txt.Text += "3";//TarfBarCode_Txt.Text.Insert(TarfBarCode_Txt.SelectionStart, "0");
+                  //TarfBarCode_Txt.SelectionStart++;
+                  break;
+               case "LFour":
+                  TarfBarCode_Txt.Text += "4";//TarfBarCode_Txt.Text.Insert(TarfBarCode_Txt.SelectionStart, "0");
+                  //TarfBarCode_Txt.SelectionStart++;
+                  break;
+               case "LFive":
+                  TarfBarCode_Txt.Text += "5";//TarfBarCode_Txt.Text.Insert(TarfBarCode_Txt.SelectionStart, "0");
+                  //TarfBarCode_Txt.SelectionStart++;
+                  break;
+               case "LSix":
+                  TarfBarCode_Txt.Text += "6";//TarfBarCode_Txt.Text.Insert(TarfBarCode_Txt.SelectionStart, "0");
+                  //TarfBarCode_Txt.SelectionStart++;
+                  break;
+               case "LSeven":
+                  TarfBarCode_Txt.Text += "7";//TarfBarCode_Txt.Text.Insert(TarfBarCode_Txt.SelectionStart, "0");
+                  //TarfBarCode_Txt.SelectionStart++;
+                  break;
+               case "LEight":
+                  TarfBarCode_Txt.Text += "8";//TarfBarCode_Txt.Text.Insert(TarfBarCode_Txt.SelectionStart, "0");
+                  //TarfBarCode_Txt.SelectionStart++;
+                  break;
+               case "LNine":
+                  TarfBarCode_Txt.Text += "9";//TarfBarCode_Txt.Text.Insert(TarfBarCode_Txt.SelectionStart, "0");
+                  //TarfBarCode_Txt.SelectionStart++;
+                  break;
+            }
+            #endregion
+
+            #region Left Change Count Number 
+            switch (key.Tag.ToString())
+            {
+               case "":
+                  break;
+            }
+            #endregion
+
+            #region Right KeyPad Number
+            switch (key.Tag.ToString())
+            {
+               case "RClear":
+                  CellPhonNatlCodeChatId_Txt.Text = "";
+                  break;
+               case "RBackSpace":
+                  int cursorPos = CellPhonNatlCodeChatId_Txt.SelectionStart;
+                  if (cursorPos > 0)
+                  {
+                     CellPhonNatlCodeChatId_Txt.Text = CellPhonNatlCodeChatId_Txt.Text.Substring(0, cursorPos - 1) + CellPhonNatlCodeChatId_Txt.Text.Substring(cursorPos);
+                     CellPhonNatlCodeChatId_Txt.SelectionStart = cursorPos - 1;
+                  }
+                  break;
+               case "REnter":
+                  CellPhonNatlCodeChatId_Txt.Text += Environment.NewLine;
+                  break;
+               case "RZero":
+                  CellPhonNatlCodeChatId_Txt.Text += "0";//TarfBarCode_Txt.Text.Insert(TarfBarCode_Txt.SelectionStart, "0");
+                  //TarfBarCode_Txt.SelectionStart++;
+                  break;
+               case "ROne":
+                  CellPhonNatlCodeChatId_Txt.Text += "1";//TarfBarCode_Txt.Text.Insert(TarfBarCode_Txt.SelectionStart, "0");
+                  //TarfBarCode_Txt.SelectionStart++;
+                  break;
+               case "RTwo":
+                  CellPhonNatlCodeChatId_Txt.Text += "2";//TarfBarCode_Txt.Text.Insert(TarfBarCode_Txt.SelectionStart, "0");
+                  //TarfBarCode_Txt.SelectionStart++;
+                  break;
+               case "RThree":
+                  CellPhonNatlCodeChatId_Txt.Text += "3";//TarfBarCode_Txt.Text.Insert(TarfBarCode_Txt.SelectionStart, "0");
+                  //TarfBarCode_Txt.SelectionStart++;
+                  break;
+               case "RFour":
+                  CellPhonNatlCodeChatId_Txt.Text += "4";//TarfBarCode_Txt.Text.Insert(TarfBarCode_Txt.SelectionStart, "0");
+                  //TarfBarCode_Txt.SelectionStart++;
+                  break;
+               case "RFive":
+                  CellPhonNatlCodeChatId_Txt.Text += "5";//TarfBarCode_Txt.Text.Insert(TarfBarCode_Txt.SelectionStart, "0");
+                  //TarfBarCode_Txt.SelectionStart++;
+                  break;
+               case "RSix":
+                  CellPhonNatlCodeChatId_Txt.Text += "6";//TarfBarCode_Txt.Text.Insert(TarfBarCode_Txt.SelectionStart, "0");
+                  //TarfBarCode_Txt.SelectionStart++;
+                  break;
+               case "RSeven":
+                  CellPhonNatlCodeChatId_Txt.Text += "7";//TarfBarCode_Txt.Text.Insert(TarfBarCode_Txt.SelectionStart, "0");
+                  //TarfBarCode_Txt.SelectionStart++;
+                  break;
+               case "REight":
+                  CellPhonNatlCodeChatId_Txt.Text += "8";//TarfBarCode_Txt.Text.Insert(TarfBarCode_Txt.SelectionStart, "0");
+                  //TarfBarCode_Txt.SelectionStart++;
+                  break;
+               case "RNine":
+                  CellPhonNatlCodeChatId_Txt.Text += "9";//TarfBarCode_Txt.Text.Insert(TarfBarCode_Txt.SelectionStart, "0");
+                  //TarfBarCode_Txt.SelectionStart++;
+                  break;
+            }
+            #endregion
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void Ordr25CretBy_Cb_CheckedChanged(object sender, EventArgs e)
+      {
+         Execute_Query();
       }
    }
 }

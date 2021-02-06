@@ -601,6 +601,11 @@ namespace System.Scsc.Code
             if (_Aop_Attn_F == null)
                _Aop_Attn_F = new Ui.AggregateOperation.AOP_ATTN_F { _DefaultGateway = this };
          }
+         else if(value == "aop_gimp_f")
+         {
+            if (_Aop_Gimp_F == null)
+               _Aop_Gimp_F = new Ui.AggregateOperation.AOP_GIMP_F { _DefaultGateway = this };
+         }
          else if (value == "adm_mbco_f")
          {
             if (_Adm_Mbco_F == null)
@@ -4719,6 +4724,30 @@ namespace System.Scsc.Code
                   new Job(SendType.SelfToUserInterface, "WRN_SERV_F", 05 /* Execute Check Security */),
                   new Job(SendType.SelfToUserInterface, "WRN_SERV_F", 07 /* Execute Load_Data */),
                   new Job(SendType.SelfToUserInterface, "WRN_SERV_F", 03 /* Execute Paint */),
+               });
+         }
+         else if (job.Status == StatusType.SignalForPreconditions)
+         {
+            job.Status = StatusType.Successful;
+         }
+      }
+
+      /// <summary>
+      /// Code 163
+      /// </summary>
+      /// <param name="job"></param>
+      private void Aop_Gimp_F(Job job)
+      {
+         if (job.Status == StatusType.Running)
+         {
+            job.Status = StatusType.WaitForPreconditions;
+            job.OwnerDefineWorkWith.AddRange(
+               new List<Job>
+               {
+                  new Job(SendType.Self, 01 /* Execute GetUi */){Input = "aop_gimp_f"},
+                  new Job(SendType.SelfToUserInterface, "AOP_GIMP_F", 02 /* Execute Set */),                  
+                  new Job(SendType.SelfToUserInterface, "AOP_GIMP_F", 07 /* Execute Load_Data */),
+                  new Job(SendType.SelfToUserInterface, "AOP_GIMP_F", 03 /* Execute Paint */),
                });
          }
          else if (job.Status == StatusType.SignalForPreconditions)

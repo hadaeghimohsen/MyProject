@@ -37,7 +37,7 @@ namespace System.Scsc.Ui.OtherIncome
 
                rqstindex = RqstBs1.Position;
 
-               var Rqids = iScsc.VF_Requests(new XElement("Request"))
+               var Rqids = iScsc.VF_Requests(new XElement("Request", new XAttribute("cretby", ShowRqst_PickButn.PickChecked ? CurrentUser : "")))
                   .Where(rqst =>
                         rqst.RQTP_CODE == "025" &&
                         rqst.RQST_STAT == "001" &&
@@ -248,6 +248,13 @@ namespace System.Scsc.Ui.OtherIncome
                );
                requery = true;
                //tc_pblc.SelectedTab = tp_pblcinfo;
+
+               if (GoProfile_Pbt.PickChecked)
+               {
+                  _DefaultGateway.Gateway(
+                     new Job(SendType.External, "localhost", "", 46, SendType.Self) { Input = new XElement("Fighter", new XAttribute("fileno", Rqst.Fighters.FirstOrDefault().FILE_NO)) }
+                  );
+               }
             }
          }
          catch (Exception ex)
@@ -664,6 +671,95 @@ namespace System.Scsc.Ui.OtherIncome
             );
          }
          catch { }
+      }
+
+      private void colActn_Butn_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            var figh = vf_FighBs.Current as Data.VF_Last_Info_FighterResult;
+            if (figh == null) return;
+
+            switch (e.Button.Index)
+            {
+               case 0:
+                  _DefaultGateway.Gateway(
+                     new Job(SendType.External, "Localhost",
+                          new List<Job>
+                           {                  
+                              new Job(SendType.Self, 92 /* Execute Oic_Totl_F */),
+                              new Job(SendType.SelfToUserInterface, "OIC_TOTL_F", 10 /* Execute Actn_CalF_F */){Input = new XElement("Request", new XAttribute("type", "01"), new XElement("Request_Row", new XAttribute("fileno", figh.FILE_NO)))}
+                           })
+                  );
+                  break;
+               case 1:                  
+                  _DefaultGateway.Gateway(
+                     new Job(SendType.External, "Localhost",
+                        new List<Job>
+                        {
+                           new Job(SendType.Self, 153 /* Execute Glr_Indc_F */),
+                           new Job(SendType.SelfToUserInterface, "GLR_INDC_F", 10 /* Execute Actn_CalF_F */)
+                           {
+                              Input = 
+                                 new XElement("Request", 
+                                    new XAttribute("type", "newrequest"), 
+                                    new XAttribute("fileno", figh.FILE_NO),
+                                    new XAttribute("formcaller", GetType().Name)
+                                 )
+                           }
+                        })
+                  );
+                  break;
+               case 2:
+                  if (MessageBox.Show(this, "آیا با حذف مشتری موافق هستید؟", "عملیات حذف موقت مشتری", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) != DialogResult.Yes) return;
+                  _DefaultGateway.Gateway(
+                     new Job(SendType.External, "Localhost",
+                        new List<Job>
+                        {
+                           new Job(SendType.Self, 01 /* Execute GetUi */){Input = "adm_ends_f"},
+                           new Job(SendType.SelfToUserInterface, "ADM_ENDS_F", 02 /* Execute Set */),
+                           new Job(SendType.SelfToUserInterface, "ADM_ENDS_F", 07 /* Execute Load_Data */),                        
+                           new Job(SendType.SelfToUserInterface, "ADM_ENDS_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("fileno", figh.FILE_NO), new XAttribute("auto", "true"))},
+                           new Job(SendType.SelfToUserInterface, "ADM_BRSR_F", 07 /* Execute Load_Data */){Input = new XElement("LoadData", new XAttribute("requery", "1"))},
+                        })
+                  );
+                  break;
+               case 3:         
+                  _DefaultGateway.Gateway(
+                     new Job(SendType.External, "Localhost",
+                        new List<Job>
+                        {
+                           new Job(SendType.Self, 70 /* Execute Adm_Chng_F */),
+                           new Job(SendType.SelfToUserInterface, "ADM_CHNG_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "changeinfo"), new XAttribute("fileno", figh.FILE_NO), new XAttribute("auto", "true"), new XAttribute("formcaller", GetType().Name))}
+                        })
+                  );
+                  break;
+               case 4:
+                  _DefaultGateway.Gateway(
+                     new Job(SendType.External, "localhost", "", 46, SendType.Self) { Input = new XElement("Fighter", new XAttribute("fileno", figh.FILE_NO)) }
+                  );
+                  break;               
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void SaveOthr_Butn_Click(object sender, EventArgs e)
+      {
+         if(FngrPrnt_Txt.Text != "")
+         {
+            FRST_NAME_TextEdit.Text = LAST_NAME_TextEdit.Text = FngrPrnt_Txt.Text;
+
+            Btn_RqstRqt1_Click(null, null);
+         }
+      }
+
+      private void ShowRqst_PickButn_PickCheckedChange(object sender)
+      {
+         Execute_Query();
       }
 
    }

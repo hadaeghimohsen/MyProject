@@ -282,7 +282,7 @@ namespace System.Scsc.Ui.AggregateOperation
          if (AutoRecalc_Tsmi.CheckState == CheckState.Unchecked)
          {
             // مدت زمان اجرای مجدد 5 دقیقه یکبار اتفاق می افتد
-            IntervalRecalc_Tsmi.Text = "5";
+            IntervalRecalc_Tsmi.Text = "1";
             AutoRecalc_Tsmi_Click(null, null);
          }
 

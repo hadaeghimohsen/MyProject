@@ -28,7 +28,6 @@
       /// </summary>
       private void InitializeComponent()
       {
-         this.components = new System.ComponentModel.Container();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition1 = new DevExpress.XtraGrid.StyleFormatCondition();
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition2 = new DevExpress.XtraGrid.StyleFormatCondition();
@@ -36,11 +35,11 @@
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(STNG_RPRT_F));
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
          this.Actv_Lov = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-         this.DactvBs = new System.Windows.Forms.BindingSource(this.components);
+         this.DactvBs = new System.Windows.Forms.BindingSource();
          this.Tb_master = new System.Windows.Forms.TabControl();
          this.tabPage1 = new System.Windows.Forms.TabPage();
          this.countryGridControl = new DevExpress.XtraGrid.GridControl();
-         this.MdrpBs = new System.Windows.Forms.BindingSource(this.components);
+         this.MdrpBs = new System.Windows.Forms.BindingSource();
          this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colCODE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colMDUL_NAME = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -52,7 +51,7 @@
          this.colRPRT_PATH = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colSHOW_PRVW = new DevExpress.XtraGrid.Columns.GridColumn();
          this.Ysno_Lov = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-         this.DysnoBs = new System.Windows.Forms.BindingSource(this.components);
+         this.DysnoBs = new System.Windows.Forms.BindingSource();
          this.colDFLT = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colPRNT_AFTR_PAY = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colSTAT = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -408,7 +407,7 @@
          this.SelectFile_Butn.Name = "SelectFile_Butn";
          this.SelectFile_Butn.Properties.Appearance.BackColor = System.Drawing.Color.White;
          this.SelectFile_Butn.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-         this.SelectFile_Butn.Properties.Appearance.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.SelectFile_Butn.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.SelectFile_Butn.Properties.Appearance.Options.UseBackColor = true;
          this.SelectFile_Butn.Properties.Appearance.Options.UseBorderColor = true;
          this.SelectFile_Butn.Properties.Appearance.Options.UseFont = true;
@@ -423,7 +422,8 @@
          this.SelectFile_Butn.Properties.NullText = "مسیر فایل دریافتی";
          this.SelectFile_Butn.Properties.NullValuePrompt = "مسیر فایل دریافتی";
          this.SelectFile_Butn.Properties.NullValuePromptShowForEmptyValue = true;
-         this.SelectFile_Butn.Size = new System.Drawing.Size(461, 32);
+         this.SelectFile_Butn.RightToLeft = System.Windows.Forms.RightToLeft.No;
+         this.SelectFile_Butn.Size = new System.Drawing.Size(461, 30);
          this.SelectFile_Butn.TabIndex = 4;
          this.SelectFile_Butn.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.SelectFile_Butn_ButtonClick);
          // 

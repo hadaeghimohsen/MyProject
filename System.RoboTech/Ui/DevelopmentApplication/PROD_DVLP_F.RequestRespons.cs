@@ -219,6 +219,7 @@ namespace System.RoboTech.Ui.DevelopmentApplication
          DsetpBs.DataSource = iRoboTech.D_SETPs;
          DCsorBs.DataSource = iRoboTech.D_CSORs;
          DChupBs.DataSource = iRoboTech.D_CHUPs;
+
          job.Status = StatusType.Successful;
       }
 

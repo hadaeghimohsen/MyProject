@@ -3208,9 +3208,9 @@
          this.Btn_AutoCalcAttn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.Btn_AutoCalcAttn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
          this.Btn_AutoCalcAttn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         this.Btn_AutoCalcAttn.Location = new System.Drawing.Point(596, 270);
+         this.Btn_AutoCalcAttn.Location = new System.Drawing.Point(609, 270);
          this.Btn_AutoCalcAttn.Name = "Btn_AutoCalcAttn";
-         this.Btn_AutoCalcAttn.Size = new System.Drawing.Size(157, 24);
+         this.Btn_AutoCalcAttn.Size = new System.Drawing.Size(144, 24);
          this.Btn_AutoCalcAttn.TabIndex = 16;
          this.Btn_AutoCalcAttn.Text = "درج اتوماتیک تعداد جلسات";
          this.Btn_AutoCalcAttn.UseVisualStyleBackColor = true;
@@ -3220,7 +3220,7 @@
          // 
          this.CbmtCode_Lov.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.CbmtCode_Lov.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.FgpbsBs1, "CBMT_CODE", true));
-         this.CbmtCode_Lov.Location = new System.Drawing.Point(658, 243);
+         this.CbmtCode_Lov.Location = new System.Drawing.Point(673, 243);
          this.CbmtCode_Lov.Name = "CbmtCode_Lov";
          this.CbmtCode_Lov.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.CbmtCode_Lov.Properties.Appearance.Options.UseFont = true;
@@ -3241,7 +3241,7 @@
             this.repositoryItemLookUpEdit1});
          this.CbmtCode_Lov.Properties.ValueMember = "CODE";
          this.CbmtCode_Lov.Properties.View = this.cBMT_CODEGridLookUpEditView;
-         this.CbmtCode_Lov.Size = new System.Drawing.Size(244, 24);
+         this.CbmtCode_Lov.Size = new System.Drawing.Size(229, 24);
          this.CbmtCode_Lov.TabIndex = 11;
          this.CbmtCode_Lov.Popup += new System.EventHandler(this.CbmtCode_Lov_Popup);
          this.CbmtCode_Lov.ButtonPressed += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.CbmtCode_Lov_ButtonPressed);
@@ -3422,7 +3422,7 @@
          // Btn_Cbmt1
          // 
          this.Btn_Cbmt1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.Btn_Cbmt1.Location = new System.Drawing.Point(628, 242);
+         this.Btn_Cbmt1.Location = new System.Drawing.Point(640, 243);
          this.Btn_Cbmt1.Name = "Btn_Cbmt1";
          this.Btn_Cbmt1.Size = new System.Drawing.Size(27, 25);
          this.Btn_Cbmt1.TabIndex = 14;
@@ -4339,7 +4339,7 @@
          this.GustSaveRqst_PickButn.ImageIndexPickDown = 2;
          this.GustSaveRqst_PickButn.ImageIndexPickUp = 3;
          this.GustSaveRqst_PickButn.ImageList = this.imageList1;
-         this.GustSaveRqst_PickButn.Location = new System.Drawing.Point(597, 242);
+         this.GustSaveRqst_PickButn.Location = new System.Drawing.Point(609, 243);
          this.GustSaveRqst_PickButn.Name = "GustSaveRqst_PickButn";
          this.GustSaveRqst_PickButn.Next = null;
          this.GustSaveRqst_PickButn.PickChecked = false;

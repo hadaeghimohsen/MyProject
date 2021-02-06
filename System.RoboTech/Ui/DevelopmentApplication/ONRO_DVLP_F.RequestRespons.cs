@@ -16,6 +16,8 @@ namespace System.RoboTech.Ui.DevelopmentApplication
       private Data.iRoboTechDataContext iRoboTech;
       private string ConnectionString;
       private List<long?> Fga_Ugov_U;
+      private XElement HostNameInfo;
+      private string CurrentUser;
 
       public void SendRequest(Job job)
       {
@@ -46,6 +48,9 @@ namespace System.RoboTech.Ui.DevelopmentApplication
                break;
             case 10:
                Actn_CalF_P(job);
+               break;
+            case 20:
+               Pay_Oprt_F(job);
                break;
             case 40:
                CordinateGetSet(job);
@@ -99,11 +104,13 @@ namespace System.RoboTech.Ui.DevelopmentApplication
 
          ConnectionString = GetConnectionString.Output.ToString();
          iRoboTech = new Data.iRoboTechDataContext(GetConnectionString.Output.ToString());
+         CurrentUser = iRoboTech.GET_CRNTUSER_U(new XElement("User", new XAttribute("actntype", "001")));
 
          Fga_Ugov_U = (iRoboTech.FGA_UGOV_U() ?? "").Split(',').Select(c => (long?)Int64.Parse(c)).ToList();
 
-         //var GetHostInfo = new Job(SendType.External, "Localhost", "Commons", 24 /* Execute DoWork4GetHosInfo */, SendType.Self);
-         //_DefaultGateway.Gateway(GetHostInfo);
+         var GetHostInfo = new Job(SendType.External, "Localhost", "Commons", 24 /* Execute DoWork4GetHosInfo */, SendType.Self);
+         _DefaultGateway.Gateway(GetHostInfo);
+         HostNameInfo = (XElement)GetHostInfo.Output;
 
          //_DefaultGateway.Gateway(
          //   new Job(SendType.External, "Localhost", "Commons", 08 /* Execute LangChangToFarsi */, SendType.Self)
@@ -212,6 +219,10 @@ namespace System.RoboTech.Ui.DevelopmentApplication
          VBexpBs.DataSource = iRoboTech.V_Group_Expenses.Where(b => b.GROP_TYPE == "002");
          VGexpBs.DataSource = iRoboTech.V_Group_Expenses.Where(b => b.GROP_TYPE == "001");
 
+         VPosBs1.DataSource = iRoboTech.V_Pos_Devices;
+         if (VPosBs1.List.OfType<Data.V_Pos_Device>().FirstOrDefault(p => p.GTWY_MAC_ADRS == HostNameInfo.Attribute("cpu").Value) != null)
+            Pos_Lov.EditValue = VPosBs1.List.OfType<Data.V_Pos_Device>().FirstOrDefault(p => p.GTWY_MAC_ADRS == HostNameInfo.Attribute("cpu").Value).PSID;
+
          job.Status = StatusType.Successful;
       }
 
@@ -226,6 +237,122 @@ namespace System.RoboTech.Ui.DevelopmentApplication
          job.Status = StatusType.Successful;
       }
 
+      /// <summary>
+      /// Code 20
+      /// </summary>
+      /// <param name="job"></param>
+      private void Pay_Oprt_F(Job job)
+      {
+         try
+         {
+            XElement RcevXData = job.Input as XElement;
+
+            var ordr = Ordr4Stp2Bs.Current as Data.Order;
+            if (ordr == null) return;
+
+            var robo = RoboBs.Current as Data.Robot;
+
+            var rqtpcode = ordr.ORDR_TYPE;//RcevXData.Element("PosRespons").Attribute("rqtpcode").Value;
+            var rqid = ordr.CODE;//RcevXData.Element("PosRespons").Attribute("rqid").Value;
+            var fileno = ordr.SRBT_SERV_FILE_NO;//RcevXData.Element("PosRespons").Attribute("fileno").Value;
+            //var cashcode = rqst.Payments.FirstOrDefault().CASH_CODE;//RcevXData.Element("PosRespons").Element("Payment").Attribute("cashcode").Value;
+            var amnt = Convert.ToInt64(RcevXData.Attribute("amnt").Value);
+            var termno = RcevXData.Attribute("termno").Value;
+            var tranno = RcevXData.Attribute("tranno").Value;
+            var cardno = RcevXData.Attribute("cardno").Value;
+            var flowno = RcevXData.Attribute("flowno").Value;
+            var refno = RcevXData.Attribute("refno").Value;
+            var actndate = RcevXData.Attribute("actndate").Value;
+
+            if (robo.AMNT_TYPE == "002")
+               amnt /= 10;
+
+            // Print Default Active Reports
+            DfltPrnt002_Butn_Click(null, null);
+
+            #region Save Amount With Connect to POS AND Call Back
+            // Do Some things
+            var xResult = new XElement("Respons");
+            iRoboTech.Analisis_Message_P(
+               new XElement("Robot",
+                  new XAttribute("token", ordr.Robot.TKON_CODE),
+                  new XElement("Message",
+                        new XAttribute("cbq", "002"),
+                        new XAttribute("ussd", "*0*3*3#"),
+                        new XAttribute("childussd", ""),
+                        new XAttribute("chatid", ordr.CHAT_ID),
+                        new XAttribute("elmntype", "001"),
+                        new XElement("Text",
+                            new XAttribute("param", string.Format("howinccashwlet,{0}", ordr.AMNT_TYPE == "001" ? ordr.DEBT_DNRM : ordr.DEBT_DNRM * 10)),
+                            new XAttribute("postexec", "lessaddwlet"),
+                            "addamntwlet"
+                        )
+                  )
+               ),
+               ref xResult
+            );
+
+            iRoboTech = new Data.iRoboTechDataContext(ConnectionString);
+
+            var ordr15 = iRoboTech.Orders.Where(o => o.Service_Robot == ordr.Service_Robot && o.ORDR_TYPE == "015" && o.ORDR_STAT == "001" && o.DEBT_DNRM == ordr.DEBT_DNRM).FirstOrDefault();
+            if (ordr15 == null) { MessageBox.Show(this, "متاسفانه در ثبت مبلغ کارتخوان خطایی پیش آمده لطفا دوباره امتحان کنید"); return; }
+
+            iRoboTech.SAVE_PYMT_P(
+               new XElement("Payment",
+                   new XAttribute("ordrcode", ordr15.CODE),
+                   new XAttribute("termno", termno),
+                   new XAttribute("tranno", tranno),
+                   new XAttribute("cardno", cardno),
+                   new XAttribute("txid", flowno),
+                   new XAttribute("refno", refno),
+                   new XAttribute("totlamnt", ordr15.DEBT_DNRM),
+                   new XAttribute("autochngamnt", "001"),
+                   new XAttribute("rcptmtod", "003")
+               ),
+               ref xResult
+            );
+
+            iRoboTech = new Data.iRoboTechDataContext(ConnectionString);
+            ordr15 = iRoboTech.Orders.FirstOrDefault(o => o.CODE == ordr15.CODE);
+            if (ordr15.ORDR_STAT != "004") { MessageBox.Show(this, "متاسفانه در ثبت مبلغ نقدی خطایی پیش آمده لطفا دوباره امتحان کنید"); return; }
+
+            iRoboTech.SAVE_WLET_P(
+               new XElement("Wallet_Detail",
+                   new XAttribute("ordrcode", ordr.CODE),
+                   new XAttribute("rbid", ordr.Robot.RBID),
+                   new XAttribute("chatid", ordr.CHAT_ID),
+                   new XAttribute("oprttype", "add"),
+                   new XAttribute("wlettype", "002")
+               ),
+               ref xResult
+            );
+
+            iRoboTech.Analisis_Message_P(
+               new XElement("Robot",
+                  new XAttribute("token", ordr.Robot.TKON_CODE),
+                  new XElement("Message",
+                        new XAttribute("cbq", "002"),
+                        new XAttribute("ussd", "*0#"),
+                        new XAttribute("childussd", ""),
+                        new XAttribute("chatid", ordr.CHAT_ID),
+                        new XAttribute("elmntype", "001"),
+                        new XElement("Text",
+                            new XAttribute("param", ordr.CODE),
+                            new XAttribute("postexec", "lessfinlcart"),
+                            "finalcart"
+                        )
+                  )
+               ),
+               ref xResult
+            );
+            #endregion
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         job.Status = StatusType.Successful;
+      }
       /// <summary>
       /// Code 40
       /// </summary>

@@ -300,8 +300,13 @@ namespace System.Scsc.Ui.Common
             else
                SuntCode = SuntCode_Lov.EditValue.ToString();
 
+            long? ClubCode = null;
+            if (ClubCode_Lov.EditValue == null || ClubCode_Lov.Text == "")
+               ClubCode = null;
+            else
+               ClubCode = (long?)ClubCode_Lov.EditValue;
 
-            vF_Fighs.DataSource = iScsc.VF_Last_Info_Fighter(null, FrstName_Txt.Text, LastName_Txt.Text, NatlCode_Txt.Text, FngrPrnt_Txt.Text, CellPhon_Txt.Text, TellPhon_Txt.Text, (Men_Rb.Checked ? "001" : Women_Rb.Checked ? "002" : null), ServNo_Txt.Text, GlobCode_Txt.Text, null, null, null, null, SuntCode);
+            vF_Fighs.DataSource = iScsc.VF_Last_Info_Fighter(null, FrstName_Txt.Text, LastName_Txt.Text, NatlCode_Txt.Text, FngrPrnt_Txt.Text, CellPhon_Txt.Text, TellPhon_Txt.Text, (Men_Rb.Checked ? "001" : Women_Rb.Checked ? "002" : null), ServNo_Txt.Text, GlobCode_Txt.Text, null, null, null, null, SuntCode).Where(f => f.CLUB_CODE == (ClubCode ?? f.CLUB_CODE));
             vF_Last_Info_FighterResultGridControl.Focus();
 
             requery = false;

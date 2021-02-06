@@ -275,6 +275,7 @@ namespace System.Scsc.Ui.Notifications
       /// <param name="job"></param>
       private void LoadData(Job job)
       {
+         CbmtBs1.DataSource = iScsc.Club_Methods.Where(cm => cm.MTOD_STAT == "002");
          job.Status = StatusType.Successful;
       }
 

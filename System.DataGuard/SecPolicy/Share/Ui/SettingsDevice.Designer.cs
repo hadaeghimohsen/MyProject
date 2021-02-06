@@ -53,6 +53,7 @@
          this.cmbIdx = new System.Windows.Forms.ComboBox();
          this.label15 = new System.Windows.Forms.Label();
          this.label13 = new System.Windows.Forms.Label();
+         this.CheckFngrIndx_Butn = new System.Windows.Forms.Button();
          this.OpenClosPort_Butn = new System.Windows.Forms.Button();
          this.DisConnectFromDev_Butn = new System.Windows.Forms.Button();
          this.ConnectToDev_Butn = new System.Windows.Forms.Button();
@@ -143,7 +144,7 @@
          this.IPDev_Ofd = new System.Windows.Forms.OpenFileDialog();
          this.CardRedrDev_Sp = new System.IO.Ports.SerialPort();
          this.AutoOprt009_Tmr = new System.Windows.Forms.Timer();
-         this.CheckFngrIndx_Butn = new System.Windows.Forms.Button();
+         this.splitContainerControl2 = new DevExpress.XtraEditors.SplitContainerControl();
          this.panel1.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
          this.splitContainerControl1.SuspendLayout();
@@ -167,6 +168,8 @@
          this.flowLayoutPanel1.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.ActiveSessionBs)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.PosBs)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl2)).BeginInit();
+         this.splitContainerControl2.SuspendLayout();
          this.SuspendLayout();
          // 
          // colStatus
@@ -432,6 +435,19 @@
          this.label13.Size = new System.Drawing.Size(90, 14);
          this.label13.TabIndex = 15;
          this.label13.Text = "شماره دستگاه :";
+         // 
+         // CheckFngrIndx_Butn
+         // 
+         this.CheckFngrIndx_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.CheckFngrIndx_Butn.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.CheckFngrIndx_Butn.Location = new System.Drawing.Point(8, 425);
+         this.CheckFngrIndx_Butn.Name = "CheckFngrIndx_Butn";
+         this.CheckFngrIndx_Butn.Size = new System.Drawing.Size(73, 23);
+         this.CheckFngrIndx_Butn.TabIndex = 12;
+         this.CheckFngrIndx_Butn.Tag = "close";
+         this.CheckFngrIndx_Butn.Text = "چک انگشت";
+         this.CheckFngrIndx_Butn.UseVisualStyleBackColor = true;
+         this.CheckFngrIndx_Butn.Click += new System.EventHandler(this.CheckFngrIndx_Butn_Click);
          // 
          // OpenClosPort_Butn
          // 
@@ -1221,9 +1237,7 @@
          // 
          // tp_003
          // 
-         this.tp_003.Controls.Add(this.NewPos_Butn);
-         this.tp_003.Controls.Add(this.labelControl3);
-         this.tp_003.Controls.Add(this.PosList_Flp);
+         this.tp_003.Controls.Add(this.splitContainerControl2);
          this.tp_003.Controls.Add(this.labelControl2);
          this.tp_003.Location = new System.Drawing.Point(4, 23);
          this.tp_003.Name = "tp_003";
@@ -1247,7 +1261,7 @@
          this.NewPos_Butn.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.NewPos_Butn.Image = global::System.DataGuard.Properties.Resources.IMAGE_1422;
          this.NewPos_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
-         this.NewPos_Butn.Location = new System.Drawing.Point(1118, 99);
+         this.NewPos_Butn.Location = new System.Drawing.Point(559, 57);
          this.NewPos_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.NewPos_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.NewPos_Butn.Name = "NewPos_Butn";
@@ -1264,7 +1278,7 @@
          this.labelControl3.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Top;
          this.labelControl3.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
          this.labelControl3.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.labelControl3.Location = new System.Drawing.Point(946, 45);
+         this.labelControl3.Location = new System.Drawing.Point(387, 3);
          this.labelControl3.Name = "labelControl3";
          this.labelControl3.Size = new System.Drawing.Size(518, 48);
          this.labelControl3.TabIndex = 12;
@@ -1273,16 +1287,14 @@
          // 
          // PosList_Flp
          // 
-         this.PosList_Flp.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
          this.PosList_Flp.Controls.Add(this.simpleButton2);
          this.PosList_Flp.Controls.Add(this.simpleButton3);
          this.PosList_Flp.Controls.Add(this.simpleButton4);
          this.PosList_Flp.Controls.Add(this.simpleButton5);
-         this.PosList_Flp.Location = new System.Drawing.Point(6, 150);
+         this.PosList_Flp.Dock = System.Windows.Forms.DockStyle.Fill;
+         this.PosList_Flp.Location = new System.Drawing.Point(0, 0);
          this.PosList_Flp.Name = "PosList_Flp";
-         this.PosList_Flp.Size = new System.Drawing.Size(1461, 555);
+         this.PosList_Flp.Size = new System.Drawing.Size(908, 567);
          this.PosList_Flp.TabIndex = 11;
          // 
          // simpleButton2
@@ -1304,7 +1316,7 @@
          this.simpleButton2.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
          this.simpleButton2.Image = global::System.DataGuard.Properties.Resources.IMAGE_1622;
          this.simpleButton2.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
-         this.simpleButton2.Location = new System.Drawing.Point(1243, 3);
+         this.simpleButton2.Location = new System.Drawing.Point(690, 3);
          this.simpleButton2.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.simpleButton2.LookAndFeel.UseDefaultLookAndFeel = false;
          this.simpleButton2.Name = "simpleButton2";
@@ -1333,7 +1345,7 @@
          this.simpleButton3.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
          this.simpleButton3.Image = global::System.DataGuard.Properties.Resources.IMAGE_1622;
          this.simpleButton3.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
-         this.simpleButton3.Location = new System.Drawing.Point(1022, 3);
+         this.simpleButton3.Location = new System.Drawing.Point(469, 3);
          this.simpleButton3.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.simpleButton3.LookAndFeel.UseDefaultLookAndFeel = false;
          this.simpleButton3.Name = "simpleButton3";
@@ -1362,7 +1374,7 @@
          this.simpleButton4.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
          this.simpleButton4.Image = global::System.DataGuard.Properties.Resources.IMAGE_1622;
          this.simpleButton4.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
-         this.simpleButton4.Location = new System.Drawing.Point(801, 3);
+         this.simpleButton4.Location = new System.Drawing.Point(248, 3);
          this.simpleButton4.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.simpleButton4.LookAndFeel.UseDefaultLookAndFeel = false;
          this.simpleButton4.Name = "simpleButton4";
@@ -1391,7 +1403,7 @@
          this.simpleButton5.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
          this.simpleButton5.Image = global::System.DataGuard.Properties.Resources.IMAGE_1622;
          this.simpleButton5.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
-         this.simpleButton5.Location = new System.Drawing.Point(580, 3);
+         this.simpleButton5.Location = new System.Drawing.Point(27, 3);
          this.simpleButton5.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.simpleButton5.LookAndFeel.UseDefaultLookAndFeel = false;
          this.simpleButton5.Name = "simpleButton5";
@@ -1513,18 +1525,21 @@
          // 
          this.AutoOprt009_Tmr.Tick += new System.EventHandler(this.GetGeneralLogData_btn_Click);
          // 
-         // CheckFngrIndx_Butn
+         // splitContainerControl2
          // 
-         this.CheckFngrIndx_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.CheckFngrIndx_Butn.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.CheckFngrIndx_Butn.Location = new System.Drawing.Point(8, 425);
-         this.CheckFngrIndx_Butn.Name = "CheckFngrIndx_Butn";
-         this.CheckFngrIndx_Butn.Size = new System.Drawing.Size(73, 23);
-         this.CheckFngrIndx_Butn.TabIndex = 12;
-         this.CheckFngrIndx_Butn.Tag = "close";
-         this.CheckFngrIndx_Butn.Text = "چک انگشت";
-         this.CheckFngrIndx_Butn.UseVisualStyleBackColor = true;
-         this.CheckFngrIndx_Butn.Click += new System.EventHandler(this.CheckFngrIndx_Butn_Click);
+         this.splitContainerControl2.Dock = System.Windows.Forms.DockStyle.Fill;
+         this.splitContainerControl2.Horizontal = false;
+         this.splitContainerControl2.Location = new System.Drawing.Point(3, 39);
+         this.splitContainerControl2.Name = "splitContainerControl2";
+         this.splitContainerControl2.Panel1.Controls.Add(this.labelControl3);
+         this.splitContainerControl2.Panel1.Controls.Add(this.NewPos_Butn);
+         this.splitContainerControl2.Panel1.Text = "Panel1";
+         this.splitContainerControl2.Panel2.Controls.Add(this.PosList_Flp);
+         this.splitContainerControl2.Panel2.Text = "Panel2";
+         this.splitContainerControl2.Size = new System.Drawing.Size(908, 669);
+         this.splitContainerControl2.SplitterPosition = 97;
+         this.splitContainerControl2.TabIndex = 18;
+         this.splitContainerControl2.Text = "splitContainerControl2";
          // 
          // SettingsDevice
          // 
@@ -1565,6 +1580,8 @@
          this.flowLayoutPanel1.ResumeLayout(false);
          ((System.ComponentModel.ISupportInitialize)(this.ActiveSessionBs)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.PosBs)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl2)).EndInit();
+         this.splitContainerControl2.ResumeLayout(false);
          this.ResumeLayout(false);
 
       }
@@ -1683,6 +1700,7 @@
       private Windows.Forms.TextBox ServerPassword_Txt;
       private Windows.Forms.TextBox ServerUserId_Txt;
       private Windows.Forms.Button CheckFngrIndx_Butn;
+      private DevExpress.XtraEditors.SplitContainerControl splitContainerControl2;
 
    }
 }

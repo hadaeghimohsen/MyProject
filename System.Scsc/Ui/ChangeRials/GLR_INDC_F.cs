@@ -203,6 +203,9 @@ namespace System.Scsc.Ui.ChangeRials
                Execute_Query();
                //Set_Current_Record();
                //Create_Record();
+               // 1397/05/16 * اگر درخواستی وجود نداشته باشد فرم مربوط را ببندیم
+               if (RqstBs1.List.Count == 0)
+                  Btn_RqstExit1_Click(null, null);               
                requery = false;
             }
          }
@@ -238,7 +241,13 @@ namespace System.Scsc.Ui.ChangeRials
          finally
          {
             if (requery)
+            {
                Execute_Query();
+
+               // 1397/05/16 * اگر درخواستی وجود نداشته باشد فرم مربوط را ببندیم
+               if (RqstBs1.List.Count == 0)
+                  Btn_RqstExit1_Click(null, null);
+            }
          }
       }
 

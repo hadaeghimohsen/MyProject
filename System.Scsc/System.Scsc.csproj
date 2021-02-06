@@ -422,6 +422,15 @@
     <Compile Include="Ui\Admission\MBSP_MARK_F.RequestRespons.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Ui\AggregateOperation\AOP_GIMP_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\AggregateOperation\AOP_GIMP_F.Designer.cs">
+      <DependentUpon>AOP_GIMP_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\AggregateOperation\AOP_GIMP_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Ui\AggregateOperation\AOP_BUFE_F.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -1353,6 +1362,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Ui\Admission\MBSP_MARK_F.resx">
       <DependentUpon>MBSP_MARK_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\AggregateOperation\AOP_GIMP_F.resx">
+      <DependentUpon>AOP_GIMP_F.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ui\AggregateOperation\AOP_BUFE_F.resx">
       <DependentUpon>AOP_BUFE_F.cs</DependentUpon>

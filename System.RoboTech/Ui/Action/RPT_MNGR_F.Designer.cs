@@ -37,16 +37,14 @@
          // 
          // tabControl1
          // 
-         this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
          this.tabControl1.Controls.Add(this.tabPage1);
-         this.tabControl1.Location = new System.Drawing.Point(22, 23);
+         this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+         this.tabControl1.Location = new System.Drawing.Point(0, 0);
          this.tabControl1.Name = "tabControl1";
          this.tabControl1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
          this.tabControl1.RightToLeftLayout = true;
          this.tabControl1.SelectedIndex = 0;
-         this.tabControl1.Size = new System.Drawing.Size(738, 629);
+         this.tabControl1.Size = new System.Drawing.Size(783, 675);
          this.tabControl1.TabIndex = 0;
          // 
          // tabPage1
@@ -56,7 +54,7 @@
          this.tabPage1.Location = new System.Drawing.Point(4, 22);
          this.tabPage1.Name = "tabPage1";
          this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-         this.tabPage1.Size = new System.Drawing.Size(730, 603);
+         this.tabPage1.Size = new System.Drawing.Size(775, 649);
          this.tabPage1.TabIndex = 0;
          this.tabPage1.Text = "نمایش گزارش";
          // 
@@ -67,11 +65,12 @@
          this.vc_reportviewer.IgnoreApplyStyle = false;
          this.vc_reportviewer.Location = new System.Drawing.Point(3, 3);
          this.vc_reportviewer.Name = "vc_reportviewer";
+         this.vc_reportviewer.PageViewMode = Stimulsoft.Report.Viewer.StiPageViewMode.SinglePage;
          this.vc_reportviewer.Report = null;
          this.vc_reportviewer.RightToLeft = System.Windows.Forms.RightToLeft.No;
          this.vc_reportviewer.ShowToolbar = false;
          this.vc_reportviewer.ShowZoom = true;
-         this.vc_reportviewer.Size = new System.Drawing.Size(724, 597);
+         this.vc_reportviewer.Size = new System.Drawing.Size(769, 643);
          this.vc_reportviewer.TabIndex = 0;
          this.vc_reportviewer.Close += new System.EventHandler(this.vc_reportviewer_Close);
          // 

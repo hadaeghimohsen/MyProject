@@ -516,6 +516,9 @@ namespace System.Scsc.Code
             case 162:
                Wrn_Serv_F(job);
                break;
+            case 163:
+               Aop_Gimp_F(job);
+               break;
             default:
                job.Status = StatusType.Failed;
                break;
@@ -984,6 +987,9 @@ namespace System.Scsc.Code
                break;
             case "WRN_SERV_F":
                _Wrn_Serv_F.SendRequest(job);
+               break;
+            case "AOP_GIMP_F":
+               _Aop_Gimp_F.SendRequest(job);
                break;
 
             /* Show Changed */

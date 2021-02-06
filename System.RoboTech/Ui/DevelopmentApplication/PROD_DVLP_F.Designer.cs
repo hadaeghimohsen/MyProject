@@ -99,6 +99,7 @@
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
+         System.Windows.Forms.Label label67;
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition1 = new DevExpress.XtraGrid.StyleFormatCondition();
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition2 = new DevExpress.XtraGrid.StyleFormatCondition();
@@ -387,6 +388,7 @@
          this.textEdit9 = new DevExpress.XtraEditors.TextEdit();
          this.textEdit19 = new DevExpress.XtraEditors.TextEdit();
          this.GetMaxTarfCode_Butn = new C1.Win.C1Input.C1Button();
+         this.textEdit24 = new DevExpress.XtraEditors.TextEdit();
          this.textEdit10 = new DevExpress.XtraEditors.TextEdit();
          this.Unit_Butn = new C1.Win.C1Input.C1Button();
          this.Group_Butn = new C1.Win.C1Input.C1Button();
@@ -1449,6 +1451,7 @@
          label64 = new System.Windows.Forms.Label();
          label65 = new System.Windows.Forms.Label();
          label66 = new System.Windows.Forms.Label();
+         label67 = new System.Windows.Forms.Label();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit8)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.DactvBs)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit39)).BeginInit();
@@ -1530,6 +1533,7 @@
          ((System.ComponentModel.ISupportInitialize)(this.textEdit9.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.textEdit19.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.GetMaxTarfCode_Butn)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.textEdit24.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.textEdit10.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.Unit_Butn)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.Group_Butn)).BeginInit();
@@ -2765,6 +2769,18 @@
          this.repositoryItemLookUpEdit30.Name = "repositoryItemLookUpEdit30";
          this.repositoryItemLookUpEdit30.NullText = "";
          this.repositoryItemLookUpEdit30.ValueMember = "VALU";
+         // 
+         // label67
+         // 
+         label67.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         label67.AutoSize = true;
+         label67.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         label67.ForeColor = System.Drawing.Color.Red;
+         label67.Location = new System.Drawing.Point(121, 149);
+         label67.Name = "label67";
+         label67.Size = new System.Drawing.Size(60, 14);
+         label67.TabIndex = 50;
+         label67.Text = "بارکد کالا :";
          // 
          // colSTAT2
          // 
@@ -4157,6 +4173,7 @@
          this.rollout5.Controls.Add(label51);
          this.rollout5.Controls.Add(this.textEdit19);
          this.rollout5.Controls.Add(this.GetMaxTarfCode_Butn);
+         this.rollout5.Controls.Add(this.textEdit24);
          this.rollout5.Controls.Add(this.textEdit10);
          this.rollout5.Controls.Add(this.Unit_Butn);
          this.rollout5.Controls.Add(label46);
@@ -4169,6 +4186,7 @@
          this.rollout5.Controls.Add(this.textEdit7);
          this.rollout5.Controls.Add(this.Galery_Butn);
          this.rollout5.Controls.Add(label24);
+         this.rollout5.Controls.Add(label67);
          this.rollout5.Controls.Add(this.textEdit2);
          this.rollout5.Controls.Add(label8);
          this.rollout5.Controls.Add(this.AddRoboProd_Butn);
@@ -4486,6 +4504,23 @@
          this.GetMaxTarfCode_Butn.UseVisualStyleBackColor = true;
          this.GetMaxTarfCode_Butn.Click += new System.EventHandler(this.GetMaxTarfCode_Butn_Click);
          // 
+         // textEdit24
+         // 
+         this.textEdit24.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.textEdit24.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.RbprBs, "BAR_CODE", true));
+         this.textEdit24.Location = new System.Drawing.Point(12, 144);
+         this.textEdit24.Name = "textEdit24";
+         this.textEdit24.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+         this.textEdit24.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.textEdit24.Properties.Appearance.Options.UseBackColor = true;
+         this.textEdit24.Properties.Appearance.Options.UseFont = true;
+         this.textEdit24.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+         this.textEdit24.Properties.AppearanceFocused.Options.UseBackColor = true;
+         this.textEdit24.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
+         this.textEdit24.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.textEdit24.Size = new System.Drawing.Size(103, 22);
+         this.textEdit24.TabIndex = 6;
+         // 
          // textEdit10
          // 
          this.textEdit10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -4631,7 +4666,7 @@
          // 
          this.textEdit8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.textEdit8.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.RbprBs, "TARF_ENGL_TEXT", true));
-         this.textEdit8.Location = new System.Drawing.Point(12, 145);
+         this.textEdit8.Location = new System.Drawing.Point(207, 145);
          this.textEdit8.Name = "textEdit8";
          this.textEdit8.Properties.Appearance.BackColor = System.Drawing.SystemColors.Info;
          this.textEdit8.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -4641,7 +4676,7 @@
          this.textEdit8.Properties.AppearanceFocused.Options.UseBackColor = true;
          this.textEdit8.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
          this.textEdit8.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.textEdit8.Size = new System.Drawing.Size(528, 22);
+         this.textEdit8.Size = new System.Drawing.Size(333, 22);
          this.textEdit8.TabIndex = 8;
          // 
          // lookUpEdit3
@@ -4703,7 +4738,7 @@
          this.lookUpEdit2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.lookUpEdit2.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.RbprBs, "GROP_CODE_DNRM", true));
          this.lookUpEdit2.EditValue = "";
-         this.lookUpEdit2.Location = new System.Drawing.Point(204, 173);
+         this.lookUpEdit2.Location = new System.Drawing.Point(207, 173);
          this.lookUpEdit2.Name = "lookUpEdit2";
          this.lookUpEdit2.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
          this.lookUpEdit2.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -4723,7 +4758,7 @@
          this.lookUpEdit2.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
          this.lookUpEdit2.Properties.TreeList = this.treeListLookUpEdit1TreeList;
          this.lookUpEdit2.Properties.ValueMember = "CODE";
-         this.lookUpEdit2.Size = new System.Drawing.Size(114, 22);
+         this.lookUpEdit2.Size = new System.Drawing.Size(111, 22);
          this.lookUpEdit2.TabIndex = 12;
          // 
          // treeListLookUpEdit1TreeList
@@ -5065,7 +5100,7 @@
          // 
          this.lookUpEdit4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.lookUpEdit4.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.RbprBs, "STAT", true));
-         this.lookUpEdit4.Location = new System.Drawing.Point(204, 202);
+         this.lookUpEdit4.Location = new System.Drawing.Point(207, 202);
          this.lookUpEdit4.Name = "lookUpEdit4";
          this.lookUpEdit4.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
          this.lookUpEdit4.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -5086,7 +5121,7 @@
          this.lookUpEdit4.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
          this.lookUpEdit4.Properties.NullText = "";
          this.lookUpEdit4.Properties.ValueMember = "VALU";
-         this.lookUpEdit4.Size = new System.Drawing.Size(114, 22);
+         this.lookUpEdit4.Size = new System.Drawing.Size(111, 22);
          this.lookUpEdit4.TabIndex = 17;
          // 
          // rollout4
@@ -15425,6 +15460,7 @@
          ((System.ComponentModel.ISupportInitialize)(this.textEdit9.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.textEdit19.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.GetMaxTarfCode_Butn)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.textEdit24.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.textEdit10.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.Unit_Butn)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.Group_Butn)).EndInit();
@@ -16963,6 +16999,7 @@
       private Windows.Forms.BindingSource DChupBs;
       private DevExpress.XtraEditors.LookUpEdit lookUpEdit26;
       private MaxUi.Button CalcCrncExpn_Butn;
+      private DevExpress.XtraEditors.TextEdit textEdit24;
 
    }
 }

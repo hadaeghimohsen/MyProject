@@ -487,6 +487,10 @@ namespace System.Scsc.Ui.AggregateOperation
                      //DeskClose_Butn_Click(null, null);
                   }
 
+                  // 1399/11/17 * اگر مشتری دارای مبلغ سپرده باشد اضافه بازی را به صورت تخفیف لحاظ میکنیم
+                  if (crnt.Fighter.DPST_AMNT_DNRM > 0)
+                     setondebt = false;
+
                   var unitamnt = iScsc.D_ATYPs.FirstOrDefault(d => d.VALU == crnt.Aggregation_Operation.Regulation.AMNT_TYPE);
                   // 1397/08/08 * برای حالت بدهکار شدن پیام هشدار نمایش داده شود
                   if(setondebt && 
@@ -894,17 +898,17 @@ namespace System.Scsc.Ui.AggregateOperation
                Execute_Query();
 
                // اگر سیستم به صورت انلاین اجرا شود
-               if(isOnline)
-               {
-                  AodtBs1.Position = AodtBs1.IndexOf(AodtBs1.List.OfType<Data.Aggregation_Operation_Detail>().FirstOrDefault(a => a.AGOP_CODE == desk.AGOP_CODE && a.RWNO == desk.RWNO));
-                  desk = AodtBs1.Current as Data.Aggregation_Operation_Detail;
-                  // اگر زمانی اتفاق بیوفتد که هزینه بازی برای مشتری از میزان مبلغ سپرده بیشتر شد کافیست که مبلغ هزینه را با مبلغ سپرده یکی کنیم
-                  // که صورتحساب مشتری بدهکار نشود
-                  if(desk.EXPN_PRIC >= desk.Fighter.DPST_AMNT_DNRM)
-                     desk.EXPN_PRIC = (int)desk.Fighter.DPST_AMNT_DNRM; // مبلغ هزینه بازی را با میزان سپرده یکی قرار میدهیم
-                  desk.DPST_AMNT = desk.EXPN_PRIC; // پرداخت هزینه میز را با سپرده انجام میدهیم
-                  RecStat_Butn_ButtonClick(null, new DevExpress.XtraEditors.Controls.ButtonPressedEventArgs(RecStat_Butn.Buttons[3])); // تسویه حساب میز را انجام میدهیم
-               }
+               //if(isOnline)
+               //{
+               //   AodtBs1.Position = AodtBs1.IndexOf(AodtBs1.List.OfType<Data.Aggregation_Operation_Detail>().FirstOrDefault(a => a.AGOP_CODE == desk.AGOP_CODE && a.RWNO == desk.RWNO));
+               //   desk = AodtBs1.Current as Data.Aggregation_Operation_Detail;
+               //   // اگر زمانی اتفاق بیوفتد که هزینه بازی برای مشتری از میزان مبلغ سپرده بیشتر شد کافیست که مبلغ هزینه را با مبلغ سپرده یکی کنیم
+               //   // که صورتحساب مشتری بدهکار نشود
+               //   if(desk.EXPN_PRIC >= desk.Fighter.DPST_AMNT_DNRM)
+               //      desk.EXPN_PRIC = (int)desk.Fighter.DPST_AMNT_DNRM; // مبلغ هزینه بازی را با میزان سپرده یکی قرار میدهیم
+               //   desk.DPST_AMNT = desk.EXPN_PRIC; // پرداخت هزینه میز را با سپرده انجام میدهیم
+               //   RecStat_Butn_ButtonClick(null, new DevExpress.XtraEditors.Controls.ButtonPressedEventArgs(RecStat_Butn.Buttons[3])); // تسویه حساب میز را انجام میدهیم
+               //}
 
                requery = false;
             }
@@ -1064,16 +1068,15 @@ namespace System.Scsc.Ui.AggregateOperation
             {
                // 1395/12/27 * میز هابه صورت پشت سر هم قرار میگیرند تا تسویه حساب شود
                var aodt = AodtBs1.Current as Data.Aggregation_Operation_Detail;            
-               iScsc.INS_AODT_P(agop.CODE, 1, aodt.AGOP_CODE, aodt.RWNO , fileno, null, null, null, "002", "001", desk, null, null, null, null, null, null, null);
+               iScsc.INS_AODT_P(agop.CODE, 1, aodt.AGOP_CODE, aodt.RWNO , fileno, null, null, null, "002", "001", desk, null, null, null, null, null, null, null, null);
             }
             else
-               iScsc.INS_AODT_P(agop.CODE, 1, null, null, fileno, null, null, null, "002", "001", desk, null, null, null, null, null, null, null);
+               iScsc.INS_AODT_P(agop.CODE, 1, null, null, fileno, null, null, null, "002", "001", desk, null, null, null, null, null, null, null, null);
 
             Figh_Lov.EditValue = null;
             requery = true;
 
-            // ارسال پیام برای باز کردن دستگاه چراغ میز برای مشتری
-            
+            // ارسال پیام برای باز کردن دستگاه چراغ میز برای مشتری            
             _DefaultGateway.Gateway(
                new Job(SendType.External, "localhost", "MAIN_PAGE_F", 10 /* Execute Call_Actn_P */, SendType.SelfToUserInterface)
                {
@@ -1170,6 +1173,7 @@ namespace System.Scsc.Ui.AggregateOperation
             DeskClose_Butn_Click(null, null);
             ExpnDesk_GridLookUpEdit.EditValue = aodt.EXPN_CODE;
             Figh_Lov.EditValue = null;
+            //Figh_Lov.EditValue = aodt.FIGH_FILE_NO;
             OpenDesk_Butn_Click(null, null);
             TableCloseOpen = false;
             requery = true;
@@ -1444,10 +1448,40 @@ namespace System.Scsc.Ui.AggregateOperation
                {
                   // 1395/12/27 * میز هابه صورت پشت سر هم قرار میگیرند تا تسویه حساب شود
                   var aodt = AodtBs1.Current as Data.Aggregation_Operation_Detail;
-                  iScsc.INS_AODT_P(agop.CODE, 1, aodt.AGOP_CODE, aodt.RWNO, fileno, null, null, null, "002", "001", desk, null, null, null, null, null, null, null);
+                  iScsc.INS_AODT_P(agop.CODE, 1, aodt.AGOP_CODE, aodt.RWNO, fileno, null, null, null, "002", "001", desk, null, null, null, null, null, null, null, null);
+
+                  // ارسال پیام برای خاموش کردن دستگاه چراغ میز برای مشتری
+                  _DefaultGateway.Gateway(
+                     new Job(SendType.External, "localhost", "MAIN_PAGE_F", 10 /* Execute Call_Actn_P */, SendType.SelfToUserInterface)
+                     {
+                        Input =
+                           new XElement("ExpenseGame",
+                               new XAttribute("type", "expnextr"),
+                               new XAttribute("expncode", aodt.EXPN_CODE),
+                               new XAttribute("cmndtext", "sp"),
+                               new XAttribute("fngrprnt", aodt.Fighter.FNGR_PRNT_DNRM)
+                           )
+                     }
+                  );
                }
                else
-                  iScsc.INS_AODT_P(agop.CODE, 1, null, null, fileno, null, null, null, "002", "001", desk, null, null, null, null, null, null, null);
+               {
+                  iScsc.INS_AODT_P(agop.CODE, 1, null, null, fileno, null, null, null, "002", "001", desk, null, null, null, null, null, null, null, null);
+
+                  // ارسال پیام برای باز کردن دستگاه چراغ میز برای مشتری            
+                  _DefaultGateway.Gateway(
+                     new Job(SendType.External, "localhost", "MAIN_PAGE_F", 10 /* Execute Call_Actn_P */, SendType.SelfToUserInterface)
+                     {
+                        Input =
+                           new XElement("ExpenseGame",
+                               new XAttribute("type", "expnextr"),
+                               new XAttribute("expncode", desk),
+                               new XAttribute("cmndtext", "st"),
+                               new XAttribute("fngrprnt", FighBs.List.OfType<Data.Fighter>().FirstOrDefault(f => f.FILE_NO == fileno).FNGR_PRNT_DNRM)
+                           )
+                     }
+                  );
+               }
 
                Figh_Lov.EditValue = null;
                requery = true;
@@ -2830,8 +2864,11 @@ namespace System.Scsc.Ui.AggregateOperation
                      var aodt = AodtBs1.Current as Data.Aggregation_Operation_Detail;
                      // اگر زمانی اتفاق بیوفتد که هزینه بازی برای مشتری از میزان مبلغ سپرده بیشتر شد کافیست که مبلغ هزینه را با مبلغ سپرده یکی کنیم
                      // که صورتحساب مشتری بدهکار نشود
-                     aodt.EXPN_PRIC = (int)aodt.Fighter.DPST_AMNT_DNRM; // مبلغ هزینه بازی را با میزان سپرده یکی قرار میدهیم
-                     aodt.DPST_AMNT = aodt.EXPN_PRIC; // پرداخت هزینه میز را با سپرده انجام میدهیم
+                     if (desk.EXPN_PRIC >= desk.Fighter.DPST_AMNT_DNRM)
+                        desk.EXPN_PRIC = (int)desk.Fighter.DPST_AMNT_DNRM; // مبلغ هزینه بازی را با میزان سپرده یکی قرار میدهیم
+                     desk.DPST_AMNT = desk.EXPN_PRIC; // پرداخت هزینه میز را با سپرده انجام میدهیم
+                     //aodt.EXPN_PRIC = (int)aodt.Fighter.DPST_AMNT_DNRM; // مبلغ هزینه بازی را با میزان سپرده یکی قرار میدهیم
+                     //aodt.DPST_AMNT = aodt.EXPN_PRIC; // پرداخت هزینه میز را با سپرده انجام میدهیم
                      RecStat_Butn_ButtonClick(null, new DevExpress.XtraEditors.Controls.ButtonPressedEventArgs(RecStat_Butn.Buttons[3])); // تسویه حساب میز را انجام میدهیم
                   }
                }
@@ -2940,7 +2977,7 @@ namespace System.Scsc.Ui.AggregateOperation
          }
          catch 
          { 
-            IntervalRecalc_Tsmi.Text = "5";
+            IntervalRecalc_Tsmi.Text = "1";
             AutoRecalc_Tmr.Interval = Convert.ToInt32(IntervalRecalc_Tsmi.Text) * 60000;
          }
       }

@@ -2046,8 +2046,24 @@ namespace System.Scsc.Ui.MasterPage
                FngrPrnt_Txt.Text = EnrollNumber; 
                if (AttnType_Lov.EditValue.ToString() == "003") 
                { 
+                  // نمایش اطلاعات مربوط به کارت خوانده شده
                   ShowInfo_Butn_Click(null, null); 
                } 
+               else if(AttnType_Lov.EditValue.ToString() == "004")
+               {
+                  // باز کردن فرم مربوط به ثبت اطلاعات گروهی برای شارژ کردن کارت های آماده
+                  //_DefaultGateway.Gateway(
+                  //   new Job(SendType.External, "localhost", "", 163, SendType.Self) { Input = new XElement("Fighter", new XAttribute("fngrprnt", FngrPrnt_Txt.Text)) }
+                  //);
+                  _DefaultGateway.Gateway(
+                     new Job(SendType.External, "Localhost",
+                        new List<Job>
+                        {
+                           new Job(SendType.Self, 163 /* Execute Aop_Gimp_F */),
+                           new Job(SendType.SelfToUserInterface, "AOP_GIMP_F", 10 /* Actn_CalF_P */){ Input = new XElement("Fighter", new XAttribute("fngrprnt", FngrPrnt_Txt.Text)) }
+                        })
+                  );
+               }
                else if (AttnType_Lov.EditValue.ToString() == "005")
                {
                   CardNumb_Text_Properties_ButtonClick(null, new DevExpress.XtraEditors.Controls.ButtonPressedEventArgs(CardNumb_Text.Properties.Buttons[4]));

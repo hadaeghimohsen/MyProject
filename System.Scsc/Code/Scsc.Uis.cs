@@ -128,6 +128,7 @@ namespace System.Scsc.Code
       internal Ui.AggregateOperation.AOP_CBMT_F _Aop_Cbmt_F { get; set; }
       internal Ui.AggregateOperation.AOP_MTOD_F _Aop_Mtod_F { get; set; }
       internal Ui.AggregateOperation.AOP_ATTN_F _Aop_Attn_F { get; set; }
+      internal Ui.AggregateOperation.AOP_GIMP_F _Aop_Gimp_F { get; set; }
       internal Ui.Admission.ADM_FIGH_F _Adm_Figh_F { get; set; }
       internal Ui.Admission.ADM_MBCO_F _Adm_Mbco_F { get; set; }
       //internal Ui.HumanResource.ADM_HRSR_F _Adm_Hrsr_F { get; set; }

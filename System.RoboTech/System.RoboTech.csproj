@@ -291,6 +291,12 @@
     <Compile Include="Ui\DevelopmentApplication\ONLR_DVLP_F.RequestRespons.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Ui\DevelopmentApplication\CASH_CNTR_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\DevelopmentApplication\CASH_CNTR_F.Designer.cs">
+      <DependentUpon>CASH_CNTR_F.cs</DependentUpon>
+    </Compile>
     <Compile Include="Ui\DevelopmentApplication\ONRO_DVLP_F.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -310,6 +316,9 @@
       <DependentUpon>MESG_DVLP_F.cs</DependentUpon>
     </Compile>
     <Compile Include="Ui\DevelopmentApplication\MESG_DVLP_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\DevelopmentApplication\CASH_CNTR_F.RequestRespons.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Ui\DevelopmentApplication\WLET_DVLP_F.cs">
@@ -708,6 +717,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Ui\DevelopmentApplication\ONLR_DVLP_F.resx">
       <DependentUpon>ONLR_DVLP_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\DevelopmentApplication\CASH_CNTR_F.resx">
+      <DependentUpon>CASH_CNTR_F.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ui\DevelopmentApplication\ONRO_DVLP_F.resx">
       <DependentUpon>ONRO_DVLP_F.cs</DependentUpon>
@@ -2005,6 +2017,57 @@
     </Content>
     <Content Include="..\System.Resource\Resources\IMAGE_1719.png">
       <Link>Resources\IMAGE_1719.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1720.png">
+      <Link>Resources\IMAGE_1720.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1721.png">
+      <Link>Resources\IMAGE_1721.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1722.png">
+      <Link>Resources\IMAGE_1722.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1723.png">
+      <Link>Resources\IMAGE_1723.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1724.png">
+      <Link>Resources\IMAGE_1724.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1725.png">
+      <Link>Resources\IMAGE_1725.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1726.png">
+      <Link>Resources\IMAGE_1726.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1727.png">
+      <Link>Resources\IMAGE_1727.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1728.png">
+      <Link>Resources\IMAGE_1728.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1729.png">
+      <Link>Resources\IMAGE_1729.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1730.png">
+      <Link>Resources\IMAGE_1730.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1731.png">
+      <Link>Resources\IMAGE_1731.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1732.png">
+      <Link>Resources\IMAGE_1732.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1733.png">
+      <Link>Resources\IMAGE_1733.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1734.png">
+      <Link>Resources\IMAGE_1734.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1735.png">
+      <Link>Resources\IMAGE_1735.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1736.png">
+      <Link>Resources\IMAGE_1736.png</Link>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

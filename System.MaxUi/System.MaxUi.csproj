@@ -133,6 +133,10 @@
     <Compile Include="RadioBtn.Designer.cs">
       <DependentUpon>RadioBtn.cs</DependentUpon>
     </Compile>
+    <Compile Include="RecessEditorControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RecessEditorControl.Designer.cs" />
     <Compile Include="Rollout.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -162,6 +166,10 @@
     <Compile Include="SpinnerTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="XRoundButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="XVerticalString.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="CheckBtn.resx">
@@ -213,6 +221,7 @@
       <DependentUpon>RadioBtn.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="RecessEditorControl.resx" />
     <EmbeddedResource Include="Rollout03.resx">
       <DependentUpon>Rollout03.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -224,6 +233,26 @@
     <EmbeddedResource Include="RoundedButton.resx">
       <DependentUpon>RoundedButton.cs</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\System.Resource\Resources\IMAGE_1737.bmp">
+      <Link>Resources\IMAGE_1737.bmp</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1738.bmp">
+      <Link>Resources\IMAGE_1738.bmp</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1739.bmp">
+      <Link>Resources\IMAGE_1739.bmp</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1740.bmp">
+      <Link>Resources\IMAGE_1740.bmp</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1741.bmp">
+      <Link>Resources\IMAGE_1741.bmp</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1742.bmp">
+      <Link>Resources\IMAGE_1742.bmp</Link>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

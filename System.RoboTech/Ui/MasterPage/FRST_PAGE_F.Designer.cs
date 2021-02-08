@@ -118,6 +118,7 @@
          this.AdjustDateTime_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.sb_logout = new DevExpress.XtraEditors.SimpleButton();
          this.Tm_ShowTime = new System.Windows.Forms.Timer(this.components);
+         this.CashCntr_Butn = new C1.Win.C1Ribbon.RibbonButton();
          ((System.ComponentModel.ISupportInitialize)(this.c1Ribbon1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.Pnl_Desktop)).BeginInit();
          this.Pnl_Desktop.SuspendLayout();
@@ -132,7 +133,7 @@
          this.c1Ribbon1.Location = new System.Drawing.Point(0, 0);
          this.c1Ribbon1.Name = "c1Ribbon1";
          this.c1Ribbon1.QatHolder = this.ribbonQat1;
-         this.c1Ribbon1.Size = new System.Drawing.Size(660, 143);
+         this.c1Ribbon1.Size = new System.Drawing.Size(1424, 143);
          this.c1Ribbon1.Tabs.Add(this.ribbonTab1);
          this.c1Ribbon1.Tabs.Add(this.ribbonTab2);
          this.c1Ribbon1.Tabs.Add(this.ribbonTab3);
@@ -309,6 +310,7 @@
          this.ribbonGroup6.Items.Add(this.DefProdRobo_Butn);
          this.ribbonGroup6.Items.Add(this.MangWletRobo_Butn);
          this.ribbonGroup6.Items.Add(this.OnlnRecpOrdrRobo_Butn);
+         this.ribbonGroup6.Items.Add(this.CashCntr_Butn);
          this.ribbonGroup6.Name = "ribbonGroup6";
          this.ribbonGroup6.Text = "مدیریت فروشگاه انلاین";
          // 
@@ -500,7 +502,7 @@
          this.Pnl_Desktop.Panel2.Controls.Add(this.AdjustDateTime_Butn);
          this.Pnl_Desktop.Panel2.Controls.Add(this.sb_logout);
          this.Pnl_Desktop.Panel2.Text = "Panel2";
-         this.Pnl_Desktop.Size = new System.Drawing.Size(660, 510);
+         this.Pnl_Desktop.Size = new System.Drawing.Size(1424, 510);
          this.Pnl_Desktop.SplitterPosition = 42;
          this.Pnl_Desktop.TabIndex = 1;
          this.Pnl_Desktop.Text = "splitContainerControl1";
@@ -730,7 +732,7 @@
          this.NotfOrdrOnlineAdmission_Butn.ImageProfile = null;
          this.NotfOrdrOnlineAdmission_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.Normal;
          this.NotfOrdrOnlineAdmission_Butn.ImageVisiable = false;
-         this.NotfOrdrOnlineAdmission_Butn.Location = new System.Drawing.Point(456, 0);
+         this.NotfOrdrOnlineAdmission_Butn.Location = new System.Drawing.Point(1220, 0);
          this.NotfOrdrOnlineAdmission_Butn.Name = "NotfOrdrOnlineAdmission_Butn";
          this.NotfOrdrOnlineAdmission_Butn.NormalBorderColor = System.Drawing.Color.DimGray;
          this.NotfOrdrOnlineAdmission_Butn.NormalColorA = System.Drawing.Color.DeepSkyBlue;
@@ -751,7 +753,7 @@
          this.OrderOnlineAdmission_Butn.Dock = System.Windows.Forms.DockStyle.Right;
          this.OrderOnlineAdmission_Butn.Image = global::System.RoboTech.Properties.Resources.IMAGE_1684;
          this.OrderOnlineAdmission_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
-         this.OrderOnlineAdmission_Butn.Location = new System.Drawing.Point(456, 0);
+         this.OrderOnlineAdmission_Butn.Location = new System.Drawing.Point(1220, 0);
          this.OrderOnlineAdmission_Butn.LookAndFeel.SkinName = "Office 2010 Silver";
          this.OrderOnlineAdmission_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.OrderOnlineAdmission_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
@@ -786,7 +788,7 @@
          this.NotfOrdrShip_Butn.ImageProfile = null;
          this.NotfOrdrShip_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.Normal;
          this.NotfOrdrShip_Butn.ImageVisiable = false;
-         this.NotfOrdrShip_Butn.Location = new System.Drawing.Point(560, 0);
+         this.NotfOrdrShip_Butn.Location = new System.Drawing.Point(1324, 0);
          this.NotfOrdrShip_Butn.Name = "NotfOrdrShip_Butn";
          this.NotfOrdrShip_Butn.NormalBorderColor = System.Drawing.Color.DimGray;
          this.NotfOrdrShip_Butn.NormalColorA = System.Drawing.Color.Chartreuse;
@@ -813,7 +815,7 @@
          this.NotfOrdrReceipt_Butn.ImageProfile = null;
          this.NotfOrdrReceipt_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.Normal;
          this.NotfOrdrReceipt_Butn.ImageVisiable = false;
-         this.NotfOrdrReceipt_Butn.Location = new System.Drawing.Point(507, 0);
+         this.NotfOrdrReceipt_Butn.Location = new System.Drawing.Point(1271, 0);
          this.NotfOrdrReceipt_Butn.Name = "NotfOrdrReceipt_Butn";
          this.NotfOrdrReceipt_Butn.NormalBorderColor = System.Drawing.Color.DimGray;
          this.NotfOrdrReceipt_Butn.NormalColorA = System.Drawing.Color.Red;
@@ -835,7 +837,7 @@
          this.OrdrReceipt_Butn.Dock = System.Windows.Forms.DockStyle.Right;
          this.OrdrReceipt_Butn.Image = global::System.RoboTech.Properties.Resources.IMAGE_1682;
          this.OrdrReceipt_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
-         this.OrdrReceipt_Butn.Location = new System.Drawing.Point(508, 0);
+         this.OrdrReceipt_Butn.Location = new System.Drawing.Point(1272, 0);
          this.OrdrReceipt_Butn.LookAndFeel.SkinName = "Office 2010 Silver";
          this.OrdrReceipt_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.OrdrReceipt_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
@@ -873,7 +875,7 @@
          this.OrdrShip_Butn.Dock = System.Windows.Forms.DockStyle.Right;
          this.OrdrShip_Butn.Image = global::System.RoboTech.Properties.Resources.IMAGE_1686;
          this.OrdrShip_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
-         this.OrdrShip_Butn.Location = new System.Drawing.Point(560, 0);
+         this.OrdrShip_Butn.Location = new System.Drawing.Point(1324, 0);
          this.OrdrShip_Butn.LookAndFeel.SkinName = "Office 2010 Silver";
          this.OrdrShip_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.OrdrShip_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
@@ -930,7 +932,7 @@
          this.sb_logout.Dock = System.Windows.Forms.DockStyle.Right;
          this.sb_logout.Image = global::System.RoboTech.Properties.Resources.IMAGE_1226;
          this.sb_logout.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.sb_logout.Location = new System.Drawing.Point(612, 0);
+         this.sb_logout.Location = new System.Drawing.Point(1376, 0);
          this.sb_logout.LookAndFeel.SkinName = "Office 2010 Silver";
          this.sb_logout.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.sb_logout.LookAndFeel.UseDefaultLookAndFeel = false;
@@ -961,6 +963,13 @@
          this.Tm_ShowTime.Interval = 1000;
          this.Tm_ShowTime.Tick += new System.EventHandler(this.Tm_ShowTime_Tick);
          // 
+         // CashCntr_Butn
+         // 
+         this.CashCntr_Butn.LargeImage = global::System.RoboTech.Properties.Resources.IMAGE_1103;
+         this.CashCntr_Butn.Name = "CashCntr_Butn";
+         this.CashCntr_Butn.SmallImage = ((System.Drawing.Image)(resources.GetObject("CashCntr_Butn.SmallImage")));
+         this.CashCntr_Butn.Text = "صندوق فروشگاهی";
+         // 
          // FRST_PAGE_F
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -970,7 +979,7 @@
          this.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.Name = "FRST_PAGE_F";
          this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-         this.Size = new System.Drawing.Size(660, 653);
+         this.Size = new System.Drawing.Size(1424, 653);
          ((System.ComponentModel.ISupportInitialize)(this.c1Ribbon1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.Pnl_Desktop)).EndInit();
          this.Pnl_Desktop.ResumeLayout(false);
@@ -1046,5 +1055,6 @@
       private C1.Win.C1Ribbon.RibbonButton InstallAndConfig;
       private C1.Win.C1Ribbon.RibbonGroup ribbonGroup11;
       private C1.Win.C1Ribbon.RibbonButton ribbonButton2;
+      private C1.Win.C1Ribbon.RibbonButton CashCntr_Butn;
    }
 }

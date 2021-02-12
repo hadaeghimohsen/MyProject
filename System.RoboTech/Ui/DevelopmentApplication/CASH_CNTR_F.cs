@@ -12,6 +12,8 @@ using System.RoboTech.ExceptionHandlings;
 using DevExpress.XtraEditors;
 using System.Xml.Linq;
 using System.RoboTech.ExtCode;
+using C1.Win.C1Input;
+using System.Threading;
 
 namespace System.RoboTech.Ui.DevelopmentApplication
 {
@@ -96,6 +98,10 @@ namespace System.RoboTech.Ui.DevelopmentApplication
             Ordr4CodeFrm1_Txt.Text = Ordr4FknoFrm1_Txt.Text = "";
             Ordt4Bs.Clear();
             SrbtOrdr25Indx_Lb.Text = SrbtOrdr25Cont_Lb.Text = "0";
+            Ship001_Butn.NormalColorA = Ship001_Butn.NormalColorB =
+            Ship002_Butn.NormalColorA = Ship002_Butn.NormalColorB =
+            Ship003_Butn.NormalColorA = Ship003_Butn.NormalColorB =
+            Ship004_Butn.NormalColorA = Ship004_Butn.NormalColorB = Color.White;
          }         
       }
 
@@ -402,6 +408,28 @@ namespace System.RoboTech.Ui.DevelopmentApplication
             OrdrWletCredPay_Butn.Enabled = (ordr4.DEBT_DNRM <= ordr4.Service_Robot.Wallets.FirstOrDefault(w => w.WLET_TYPE == "001").AMNT_DNRM) ? true : false;
             OrdrWletCashPay_Butn.Enabled = (ordr4.DEBT_DNRM <= ordr4.Service_Robot.Wallets.FirstOrDefault(w => w.WLET_TYPE == "002").AMNT_DNRM) ? true : false;
             AmntType_Lb.Text = DAmutBs.List.OfType<Data.D_AMUT>().FirstOrDefault(d => d.VALU == ordr4.AMNT_TYPE).DOMN_DESC;
+
+            switch(ordr4.HOW_SHIP)
+            {
+               case "000":
+                  Ship001_Butn.NormalColorA = Ship001_Butn.NormalColorB =
+                  Ship002_Butn.NormalColorA = Ship002_Butn.NormalColorB =
+                  Ship003_Butn.NormalColorA = Ship003_Butn.NormalColorB =
+                  Ship004_Butn.NormalColorA = Ship004_Butn.NormalColorB = Color.White;
+                  break;
+               case "001":
+                  Ship001_Butn.NormalColorA = Ship001_Butn.NormalColorB = Color.FromArgb(255, 192, 128);
+                  break;
+               case "002":
+                  Ship002_Butn.NormalColorA = Ship002_Butn.NormalColorB = Color.FromArgb(255, 192, 128);
+                  break;
+               case "003":
+                  Ship003_Butn.NormalColorA = Ship003_Butn.NormalColorB = Color.FromArgb(255, 192, 128);
+                  break;
+               case "004":
+                  Ship004_Butn.NormalColorA = Ship004_Butn.NormalColorB = Color.FromArgb(255, 192, 128);
+                  break;
+            }
          }
          catch { }
       }
@@ -878,6 +906,13 @@ namespace System.RoboTech.Ui.DevelopmentApplication
             //long? amnt = ordr.AMNT_TYPE == "001" ? PayAmnt_Txt.EditValue.ToString().ToInt64() : PayAmnt_Txt.EditValue.ToString().ToInt64() * 10;
             long? amnt = PayAmnt_Txt.EditValue.ToString().ToInt64();
 
+            if ((CredWlet_Txt.EditValue.ToString().ToInt64() - ordr.Order_States.Where(os => os.AMNT_TYPE == "006" && os.RCPT_MTOD == "015").Sum(os => os.AMNT)) < amnt)
+            {
+               MessageBox.Show(this, "موجودی کیف پول اعتباری شما کم میباشد", "خطا - عدم موجودی", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+               PayAmnt_Txt.EditValue = CredWlet_Txt.EditValue;
+               return;
+            }
+
             // Do Some things
             iRoboTech.INS_ODST_P(
                ordr.CODE, null, DateTime.Now, "واریزی مبلغ از کیف پول اعتباری", amnt, "006", "015", null, ordr.DEST_CARD_NUMB_DNRM, user.CHAT_ID.ToString(), null, null, null, "002", DateTime.Now, "دریافت مبلغ از کیف پول اعتباری توسط صندوقدار - " + user.NAME
@@ -916,6 +951,13 @@ namespace System.RoboTech.Ui.DevelopmentApplication
             //long? amnt = ordr.AMNT_TYPE == "001" ? PayAmnt_Txt.EditValue.ToString().ToInt64() : PayAmnt_Txt.EditValue.ToString().ToInt64() * 10;
             long? amnt = PayAmnt_Txt.EditValue.ToString().ToInt64();
 
+            if ((CashWlet_Txt.EditValue.ToString().ToInt64() - ordr.Order_States.Where(os => os.AMNT_TYPE == "006" && os.RCPT_MTOD == "014").Sum(os => os.AMNT)) < amnt)
+            {
+               MessageBox.Show(this, "موجودی کیف پول نقدی شما کم میباشد", "خطا - عدم موجودی", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+               PayAmnt_Txt.EditValue = CashWlet_Txt.EditValue;
+               return;
+            }
+
             // Do Some things
             iRoboTech.INS_ODST_P(
                ordr.CODE, null, DateTime.Now, "واریزی مبلغ از کیف پول نقدی", amnt, "006", "014", null, ordr.DEST_CARD_NUMB_DNRM, user.CHAT_ID.ToString(), null, null, null, "002", DateTime.Now, "دریافت مبلغ از کیف پول نقدی توسط صندوقدار - " + user.NAME
@@ -949,7 +991,130 @@ namespace System.RoboTech.Ui.DevelopmentApplication
 
       private void AcptPay_Butn_Click(object sender, EventArgs e)
       {
+         try
+         {
+            var ordr = Ordr4Bs.Current as Data.Order;
+            if (ordr == null) return;
 
+            if(ordr.DEBT_DNRM != 0)
+            {
+               MessageBox.Show(this, "صورتحساب شما به صورت کامل پرداخت نشده است", "خطا - عدم تسویه حساب صوراحساب", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+               return;
+            }
+
+
+            // چاپ فیش فاکتور مشتری
+            switch (tp_003.Tag.ToString())
+            {
+               case "From_tp_001":
+                  DfltPrntFrm1_Butn_Click(DfltPrntFrm1_Butn, null);
+                  break;
+               case "From_tp_002":                  
+                  break;
+            }
+
+            Master000_Tc.Enabled = false;
+
+            // نمایش پیام به فروشنده جهت صبر کردن برای اتمام عملیات
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost", "Commons:ErrorHandle", 04 /* Execute DoWork4ShowMessage */, SendType.Self)
+               {
+                  Input =
+                     new XElement("Message",
+                         new XAttribute("status", "show"),
+                         new XAttribute("message", "لطفا کمی صبر کنید تا عملیات ذخیره سازی به اتمام برسد")
+                     )
+               }
+            );
+
+            #region Do Operation
+            ThreadStart starter =
+               () =>
+               {
+                  try
+                  {
+                     // ذخیره نهایی سفارش درون پایگاه داده
+                     XElement xResult = new XElement("Result");
+                     iRoboTech.CommandTimeout = 18000;
+                     iRoboTech.REGS_ORDR_P(
+                        new XElement("Order",
+                            new XAttribute("code", ordr.CODE)
+                        ),
+                        ref xResult
+                     );
+                  }
+                  catch { }
+               };
+
+            starter +=
+               () =>
+               {
+                  if (InvokeRequired)
+                  {
+                     Invoke(
+                        new System.Action(
+                        () =>
+                        {
+                           Master000_Tc.Enabled = true;
+                           // نمایش پیام به فروشنده جهت صبر کردن برای اتمام عملیات
+                           _DefaultGateway.Gateway(
+                              new Job(SendType.External, "localhost", "Commons:ErrorHandle", 04 /* Execute DoWork4ShowMessage */, SendType.Self)
+                              {
+                                 Input =
+                                    new XElement("Message",
+                                        new XAttribute("status", "close")
+                                    )
+                              }
+                           );
+                           Execute_Query();
+                           SaveOrdrNewFrm1_Butn_Click(null, null);
+                        }
+                        )
+                     );
+                  }
+                  else
+                  {
+                     // Do what you want in the callback
+                     // نمایش پیام به فروشنده جهت صبر کردن برای اتمام عملیات
+                     _DefaultGateway.Gateway(
+                        new Job(SendType.External, "localhost", "Commons:ErrorHandle", 04 /* Execute DoWork4ShowMessage */, SendType.Self)
+                        {
+                           Input =
+                              new XElement("Message",
+                                  new XAttribute("status", "close")
+                              )
+                        }
+                     );
+                     Execute_Query();
+                     SaveOrdrNewFrm1_Butn_Click(null, null);
+                  }
+               };
+            Thread thread = new Thread(starter) { IsBackground = true };
+            thread.Start();
+            #endregion            
+
+            // بعد از اتمام ثبت عملیات به فرم ثبت سفارشات بر میگردیم
+            switch (tp_003.Tag.ToString())
+            {
+               case "From_tp_001":
+                  Master000_Tc.SelectedTab = tp_001;                  
+                  break;
+               case "From_tp_002":
+                  Master000_Tc.SelectedTab = tp_002;
+                  break;
+            }
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         //finally
+         //{
+         //   if (requery)
+         //      Execute_Query();
+         //}
       }
 
       private void OdstActn_Butn_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
@@ -1159,6 +1324,102 @@ namespace System.RoboTech.Ui.DevelopmentApplication
          {
             if (requery)
                Execute_Query();
+         }
+      }
+
+      private void ShowOrdrFinlReg_Butn_Click(object sender, EventArgs e)
+      {
+
+      }
+
+      private void ShowDsctProd_Butn_Click(object sender, EventArgs e)
+      {
+
+      }
+
+      private void DfltPrntFrm1_Butn_Click(object sender, EventArgs e)
+      {
+         var ordr = Ordr4Bs.Current as Data.Order;
+         if (ordr == null) return;
+
+         var ui = sender as C1Button;
+
+         _DefaultGateway.Gateway(
+            new Job(SendType.External, "Localhost",
+               new List<Job>
+               {
+                  new Job(SendType.Self, 15 /* Execute Rpt_Mngr_F */){Input = new XElement("Print", new XAttribute("type", "Default"), new XAttribute("modual", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + ui.Tag.ToString()), string.Format("dbo.[Order].Code = {0}", ordr.CODE))}
+               }
+            )
+         );
+      }
+
+      private void SlctPrntFrm1_Butn_Click(object sender, EventArgs e)
+      {
+         var ordr = Ordr4Bs.Current as Data.Order;
+         if (ordr == null) return;
+
+         var ui = sender as C1Button;
+
+         _DefaultGateway.Gateway(
+            new Job(SendType.External, "Localhost",
+               new List<Job>
+               {
+                  new Job(SendType.Self, 15 /* Execute Rpt_Mngr_F */){Input = new XElement("Print", new XAttribute("type", "Selection"), new XAttribute("modual", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + ui.Tag.ToString()), string.Format("dbo.[Order].Code = {0}", ordr.CODE))}
+               }
+            )
+         );
+      }
+
+      private void ConfPrntFrm1_Butn_Click(object sender, EventArgs e)
+      {
+         var ui = sender as C1Button;
+
+         _DefaultGateway.Gateway(
+            new Job(SendType.External, "Localhost",
+               new List<Job>
+               {
+                  new Job(SendType.Self, 14 /* Execute Stng_Rprt_F */),
+                  new Job(SendType.SelfToUserInterface, "STNG_RPRT_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "ModualReport"), new XAttribute("modul", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + ui.Tag.ToString()))}
+               }
+            )
+         );
+      }
+
+      private void ShipOprt_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var ship = sender as MaxUi.RoundedButton;
+
+            var ordr = Ordr4Bs.Current as Data.Order;
+            if (ordr == null) return;
+
+            iRoboTech.ExecuteCommand("UPDATE dbo.[Order] SET HOW_SHIP = '{0}' WHERE CODE = {1}", ship.Tag, ordr.CODE);
+            Ship001_Butn.NormalColorA = Ship001_Butn.NormalColorB =
+            Ship002_Butn.NormalColorA = Ship002_Butn.NormalColorB =
+            Ship003_Butn.NormalColorA = Ship003_Butn.NormalColorB =
+            Ship004_Butn.NormalColorA = Ship004_Butn.NormalColorB = Color.White;
+
+            switch (ship.Tag.ToString())
+            {  
+               case "001":
+                  Ship001_Butn.NormalColorA = Ship001_Butn.NormalColorB = Color.FromArgb(255, 192, 128);
+                  break;
+               case "002":
+                  Ship002_Butn.NormalColorA = Ship002_Butn.NormalColorB = Color.FromArgb(255, 192, 128);
+                  break;
+               case "003":
+                  Ship003_Butn.NormalColorA = Ship003_Butn.NormalColorB = Color.FromArgb(255, 192, 128);
+                  break;
+               case "004":
+                  Ship004_Butn.NormalColorA = Ship004_Butn.NormalColorB = Color.FromArgb(255, 192, 128);
+                  break;
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
          }
       }
    }

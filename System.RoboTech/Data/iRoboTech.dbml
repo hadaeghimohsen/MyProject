@@ -4490,4 +4490,9 @@
     <Parameter Name="X" Parameter="x" Type="System.Xml.Linq.XElement" DbType="Xml" />
     <Return Type="System.String" />
   </Function>
+  <Function Name="dbo.REGS_ORDR_P" Method="REGS_ORDR_P">
+    <Parameter Name="X" Parameter="x" Type="System.Xml.Linq.XElement" DbType="Xml" />
+    <Parameter Name="XRet" Parameter="xRet" Type="System.Xml.Linq.XElement" DbType="Xml" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
 </Database>

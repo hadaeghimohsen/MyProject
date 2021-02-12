@@ -203,11 +203,20 @@
     <Compile Include="Commons\Desktop\Ui\StartDrawer.RequestRespons.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Commons\ErrorHandling\Ui\ShowMessage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Commons\ErrorHandling\Ui\ShowMessage.Designer.cs">
+      <DependentUpon>ShowMessage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Commons\ErrorHandling\Ui\ErrorMessage.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Commons\ErrorHandling\Ui\ErrorMessage.Designer.cs">
       <DependentUpon>ErrorMessage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Commons\ErrorHandling\Ui\ShowMessage.RequestRespons.cs">
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Commons\ErrorHandling\Ui\ErrorMessage.RequestRespons.cs">
       <SubType>UserControl</SubType>
@@ -455,6 +464,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Commons\Desktop\Ui\StartDrawer.resx">
       <DependentUpon>StartDrawer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Commons\ErrorHandling\Ui\ShowMessage.resx">
+      <DependentUpon>ShowMessage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Commons\ErrorHandling\Ui\ErrorMessage.resx">
       <DependentUpon>ErrorMessage.cs</DependentUpon>

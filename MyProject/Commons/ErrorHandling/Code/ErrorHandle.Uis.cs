@@ -13,5 +13,6 @@ namespace MyProject.Commons.ErrorHandling.Code
 
       internal Ui.ErrorHandle _ErrorHandle { get; set; }
       internal Ui.ErrorMessage _ErrorMessage { get; set; }
+      internal Ui.ShowMessage _ShowMessage { get; set; }
    }
 }

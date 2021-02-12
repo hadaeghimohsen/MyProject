@@ -55,5 +55,24 @@ namespace MyProject.Commons.ErrorHandling.Code
             };
          job.Status = StatusType.Successful;
       }
+
+      /// <summary>
+      /// Code 04
+      /// </summary>
+      /// <param name="job"></param>
+      private void DoWork4ShowMessage(Job job)
+      {
+         job.Output = job.Input;
+         job.Next =
+            new Job(SendType.SelfToUserInterface, "ShowMessage", 02 /* Execute Set */)
+            {
+               WhereIsInputData = WhereIsInputDataType.StepBack,
+               Next = new Job(SendType.SelfToUserInterface, "ShowMessage", 03 /* Execute Paint */)
+               {
+                  Next = new Job(SendType.SelfToUserInterface, "ShowMessage", 10 /* Execute Actn_Call_F */) { Input = job.Input }
+               }
+            };
+         job.Status = StatusType.Successful;
+      }
    }
 }

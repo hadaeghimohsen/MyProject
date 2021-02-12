@@ -259,6 +259,7 @@ namespace System.RoboTech.Ui.DevelopmentApplication
       {
          var xinput = job.Input as XElement;
          UpSrbtOrdr25Frm1_Butn.ImageVisiable = DownSrbtOrdr25Frm1_Butn.ImageVisiable = SrbtOrdrHistFrm1_Butn.ImageVisiable = true;
+         Ship001_Butn.ImageVisiable = Ship002_Butn.ImageVisiable = Ship003_Butn.ImageVisiable = Ship004_Butn.ImageVisiable = true;
          Execute_Query();
          job.Status = StatusType.Successful;
       }

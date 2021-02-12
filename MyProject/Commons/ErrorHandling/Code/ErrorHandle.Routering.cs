@@ -36,6 +36,9 @@ namespace MyProject.Commons.ErrorHandling.Code
             case 03:
                DoWork4ErrorMessage(job);
                break;
+            case 04:
+               DoWork4ShowMessage(job);
+               break;
             default:
                job.Status = StatusType.Failed;
                break;
@@ -54,6 +57,9 @@ namespace MyProject.Commons.ErrorHandling.Code
                break;
             case "ErrorMessage":
                _ErrorMessage.SendRequest(job);
+               break;
+            case "ShowMessage":
+               _ShowMessage.SendRequest(job);
                break;
             default:
                job.Status = StatusType.Failed;

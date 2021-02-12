@@ -44,11 +44,13 @@
          System.Windows.Forms.Label label1;
          System.Windows.Forms.Label label8;
          System.Windows.Forms.Label label5;
+         System.Windows.Forms.Label label6;
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CASH_CNTR_F));
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
@@ -79,12 +81,10 @@
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject29 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject30 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject31 = new DevExpress.Utils.SerializableAppearanceObject();
-         System.Windows.Forms.Label label6;
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
          this.UserBs = new System.Windows.Forms.BindingSource(this.components);
          this.Ordr25Bs = new System.Windows.Forms.BindingSource(this.components);
-         this.label4 = new System.Windows.Forms.Label();
          this.gridColumn421 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.label4 = new System.Windows.Forms.Label();
          this.AmntType_Lb = new System.Windows.Forms.Label();
          this.SrbtNameFrm1_Lb = new System.Windows.Forms.Label();
          this.SrbtOrdr25Bs = new System.Windows.Forms.BindingSource(this.components);
@@ -125,14 +125,24 @@
          this.c1Button46 = new C1.Win.C1Input.C1Button();
          this.c1Button47 = new C1.Win.C1Input.C1Button();
          this.c1Button48 = new C1.Win.C1Input.C1Button();
+         this.c1Button7 = new C1.Win.C1Input.C1Button();
+         this.c1Button8 = new C1.Win.C1Input.C1Button();
+         this.c1Button9 = new C1.Win.C1Input.C1Button();
+         this.c1Button25 = new C1.Win.C1Input.C1Button();
+         this.c1Button27 = new C1.Win.C1Input.C1Button();
+         this.c1Button29 = new C1.Win.C1Input.C1Button();
+         this.c1Button30 = new C1.Win.C1Input.C1Button();
+         this.c1Button34 = new C1.Win.C1Input.C1Button();
+         this.c1Button35 = new C1.Win.C1Input.C1Button();
+         this.c1Button36 = new C1.Win.C1Input.C1Button();
          this.c1Button49 = new C1.Win.C1Input.C1Button();
          this.splitContainerControl7 = new DevExpress.XtraEditors.SplitContainerControl();
          this.flowLayoutPanel5 = new System.Windows.Forms.FlowLayoutPanel();
-         this.c1Button26 = new C1.Win.C1Input.C1Button();
-         this.c1Button31 = new C1.Win.C1Input.C1Button();
-         this.c1Button28 = new C1.Win.C1Input.C1Button();
-         this.c1Button32 = new C1.Win.C1Input.C1Button();
-         this.c1Button33 = new C1.Win.C1Input.C1Button();
+         this.ShowOrdrFinlReg_Butn = new C1.Win.C1Input.C1Button();
+         this.ShowDsctProd_Butn = new C1.Win.C1Input.C1Button();
+         this.DfltPrntFrm1_Butn = new C1.Win.C1Input.C1Button();
+         this.SlctPrntFrm1_Butn = new C1.Win.C1Input.C1Button();
+         this.ConfPrntFrm1_Butn = new C1.Win.C1Input.C1Button();
          this.flowLayoutPanel6 = new System.Windows.Forms.FlowLayoutPanel();
          this.NewSaleFrm1_Butn = new C1.Win.C1Input.C1Button();
          this.SaveOrdrNewFrm1_Butn = new C1.Win.C1Input.C1Button();
@@ -211,7 +221,52 @@
          this.textEdit3 = new DevExpress.XtraEditors.TextEdit();
          this.labelControl15 = new DevExpress.XtraEditors.LabelControl();
          this.tp_000_001_003 = new System.Windows.Forms.TabPage();
+         this.label11 = new System.Windows.Forms.Label();
+         this.labelControl31 = new DevExpress.XtraEditors.LabelControl();
+         this.gridControl6 = new DevExpress.XtraGrid.GridControl();
+         this.OdstBs = new System.Windows.Forms.BindingSource(this.components);
+         this.gridView6 = new DevExpress.XtraGrid.Views.Grid.GridView();
+         this.gridColumn13 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.gridColumn14 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.gridColumn15 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.repositoryItemButtonEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+         this.gridColumn16 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.gridColumn17 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.gridColumn18 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.gridColumn19 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.persianRepositoryItemDateEdit3 = new dxExample.PersianRepositoryItemDateEdit();
+         this.gridColumn20 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.gridColumn21 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.gridColumn22 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.gridColumn23 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.repositoryItemLookUpEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+         this.DRcmtBs = new System.Windows.Forms.BindingSource(this.components);
+         this.gridColumn24 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.gridColumn25 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.gridColumn26 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.gridColumn27 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.gridColumn28 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.gridColumn29 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.gridColumn30 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.gridColumn31 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.gridColumn32 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.gridColumn33 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.gridColumn34 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.gridColumn35 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.gridColumn36 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.gridColumn37 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.gridColumn38 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.gridColumn39 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.gridColumn40 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.gridColumn41 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.gridColumn42 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.gridColumn43 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.label10 = new System.Windows.Forms.Label();
+         this.roundedButton5 = new System.MaxUi.RoundedButton();
          this.tp_000_001_004 = new System.Windows.Forms.TabPage();
+         this.c1Button6 = new C1.Win.C1Input.C1Button();
+         this.memoEdit1 = new DevExpress.XtraEditors.MemoEdit();
+         this.label9 = new System.Windows.Forms.Label();
          this.tp_000_001_005 = new System.Windows.Forms.TabPage();
          this.ServAdrs_Pn = new System.Windows.Forms.Panel();
          this.SaveAdrsFrm1_Butn = new C1.Win.C1Input.C1Button();
@@ -234,13 +289,18 @@
          this.colService2 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colService_Robot5 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.ShowDestGoogleMap_Butn = new C1.Win.C1Input.C1Button();
+         this.label7 = new System.Windows.Forms.Label();
          this.OrdrCordY_Txt = new DevExpress.XtraEditors.TextEdit();
          this.OrdrCordX_Txt = new DevExpress.XtraEditors.TextEdit();
          this.OrdrServAdrs_Txt = new DevExpress.XtraEditors.MemoEdit();
-         this.roundedButton4 = new System.MaxUi.RoundedButton();
-         this.roundedButton3 = new System.MaxUi.RoundedButton();
-         this.roundedButton2 = new System.MaxUi.RoundedButton();
-         this.roundedButton1 = new System.MaxUi.RoundedButton();
+         this.Ship004_Butn = new System.MaxUi.RoundedButton();
+         this.Ship003_Butn = new System.MaxUi.RoundedButton();
+         this.Ship002_Butn = new System.MaxUi.RoundedButton();
+         this.label15 = new System.Windows.Forms.Label();
+         this.label14 = new System.Windows.Forms.Label();
+         this.label13 = new System.Windows.Forms.Label();
+         this.label12 = new System.Windows.Forms.Label();
+         this.Ship001_Butn = new System.MaxUi.RoundedButton();
          this.label2 = new System.Windows.Forms.Label();
          this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
          this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
@@ -429,7 +489,6 @@
          this.CredWlet_Txt = new DevExpress.XtraEditors.TextEdit();
          this.UsePos_Cb = new System.Windows.Forms.CheckBox();
          this.textEdit8 = new DevExpress.XtraEditors.LookUpEdit();
-         this.DRcmtBs = new System.Windows.Forms.BindingSource(this.components);
          this.Pos_Lov = new DevExpress.XtraEditors.LookUpEdit();
          this.VPosBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
@@ -442,7 +501,6 @@
          this.c1Button51 = new C1.Win.C1Input.C1Button();
          this.c1Button50 = new C1.Win.C1Input.C1Button();
          this.gridControl5 = new DevExpress.XtraGrid.GridControl();
-         this.OdstBs = new System.Windows.Forms.BindingSource(this.components);
          this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colORDR_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colAPBS_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -498,64 +556,6 @@
          this.UIToolTip_TT = new System.Windows.Forms.ToolTip(this.components);
          this.ComnOprt_Tm = new System.Windows.Forms.Timer(this.components);
          this.DAmutBs = new System.Windows.Forms.BindingSource(this.components);
-         this.label7 = new System.Windows.Forms.Label();
-         this.label9 = new System.Windows.Forms.Label();
-         this.memoEdit1 = new DevExpress.XtraEditors.MemoEdit();
-         this.c1Button6 = new C1.Win.C1Input.C1Button();
-         this.label10 = new System.Windows.Forms.Label();
-         this.gridControl6 = new DevExpress.XtraGrid.GridControl();
-         this.gridView6 = new DevExpress.XtraGrid.Views.Grid.GridView();
-         this.gridColumn13 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.gridColumn14 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.gridColumn15 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.repositoryItemButtonEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
-         this.gridColumn16 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.gridColumn17 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.gridColumn18 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.gridColumn19 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.persianRepositoryItemDateEdit3 = new dxExample.PersianRepositoryItemDateEdit();
-         this.gridColumn20 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.gridColumn21 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.gridColumn22 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.gridColumn23 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.repositoryItemLookUpEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-         this.gridColumn24 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.gridColumn25 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.gridColumn26 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.gridColumn27 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.gridColumn28 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.gridColumn29 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.gridColumn30 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.gridColumn31 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.gridColumn32 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.gridColumn33 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.gridColumn34 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.gridColumn35 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.gridColumn36 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.gridColumn37 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.gridColumn38 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.gridColumn39 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.gridColumn40 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.gridColumn41 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.gridColumn42 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.gridColumn43 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.labelControl31 = new DevExpress.XtraEditors.LabelControl();
-         this.roundedButton5 = new System.MaxUi.RoundedButton();
-         this.label11 = new System.Windows.Forms.Label();
-         this.label12 = new System.Windows.Forms.Label();
-         this.label13 = new System.Windows.Forms.Label();
-         this.label14 = new System.Windows.Forms.Label();
-         this.label15 = new System.Windows.Forms.Label();
-         this.c1Button7 = new C1.Win.C1Input.C1Button();
-         this.c1Button8 = new C1.Win.C1Input.C1Button();
-         this.c1Button9 = new C1.Win.C1Input.C1Button();
-         this.c1Button25 = new C1.Win.C1Input.C1Button();
-         this.c1Button27 = new C1.Win.C1Input.C1Button();
-         this.c1Button29 = new C1.Win.C1Input.C1Button();
-         this.c1Button30 = new C1.Win.C1Input.C1Button();
-         this.c1Button34 = new C1.Win.C1Input.C1Button();
-         this.c1Button35 = new C1.Win.C1Input.C1Button();
-         this.c1Button36 = new C1.Win.C1Input.C1Button();
          label26 = new System.Windows.Forms.Label();
          label29 = new System.Windows.Forms.Label();
          label31 = new System.Windows.Forms.Label();
@@ -612,15 +612,25 @@
          ((System.ComponentModel.ISupportInitialize)(this.c1Button46)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.c1Button47)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.c1Button48)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.c1Button7)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.c1Button8)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.c1Button9)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.c1Button25)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.c1Button27)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.c1Button29)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.c1Button30)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.c1Button34)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.c1Button35)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.c1Button36)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.c1Button49)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl7)).BeginInit();
          this.splitContainerControl7.SuspendLayout();
          this.flowLayoutPanel5.SuspendLayout();
-         ((System.ComponentModel.ISupportInitialize)(this.c1Button26)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.c1Button31)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.c1Button28)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.c1Button32)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.c1Button33)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.ShowOrdrFinlReg_Butn)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.ShowDsctProd_Butn)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.DfltPrntFrm1_Butn)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.SlctPrntFrm1_Butn)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.ConfPrntFrm1_Butn)).BeginInit();
          this.flowLayoutPanel6.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.NewSaleFrm1_Butn)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.SaveOrdrNewFrm1_Butn)).BeginInit();
@@ -666,7 +676,17 @@
          this.panel3.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).BeginInit();
          this.tp_000_001_003.SuspendLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.gridControl6)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.OdstBs)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.gridView6)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit1)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit3)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit3.CalendarTimeProperties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit2)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.DRcmtBs)).BeginInit();
          this.tp_000_001_004.SuspendLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.c1Button6)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.memoEdit1.Properties)).BeginInit();
          this.tp_000_001_005.SuspendLayout();
          this.ServAdrs_Pn.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.SaveAdrsFrm1_Butn)).BeginInit();
@@ -745,14 +765,12 @@
          this.OthrPay_Pn.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.CredWlet_Txt.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.textEdit8.Properties)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.DRcmtBs)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.Pos_Lov.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.VPosBs1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.CashWlet_Txt.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.c1Button51)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.c1Button50)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.gridControl5)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.OdstBs)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.OdstActn_Butn)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit2)).BeginInit();
@@ -768,24 +786,6 @@
          ((System.ComponentModel.ISupportInitialize)(this.textEdit9.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.PayAmnt_Txt.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.DAmutBs)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.memoEdit1.Properties)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.c1Button6)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.gridControl6)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.gridView6)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit1)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit3)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit3.CalendarTimeProperties)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit2)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.c1Button7)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.c1Button8)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.c1Button9)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.c1Button25)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.c1Button27)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.c1Button29)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.c1Button30)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.c1Button34)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.c1Button35)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.c1Button36)).BeginInit();
          this.SuspendLayout();
          // 
          // label26
@@ -962,8 +962,33 @@
          label8.Name = "label8";
          label8.Size = new System.Drawing.Size(111, 37);
          label8.TabIndex = 18;
-         label8.Text = "واحد ارزی :";
+         label8.Text = "واحد مالی :";
          label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+         // 
+         // label5
+         // 
+         label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+         label5.AutoSize = true;
+         label5.Location = new System.Drawing.Point(542, 206);
+         label5.Name = "label5";
+         label5.Size = new System.Drawing.Size(22, 14);
+         label5.TabIndex = 38;
+         label5.Text = "X :";
+         // 
+         // label6
+         // 
+         label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+         label6.AutoSize = true;
+         label6.Location = new System.Drawing.Point(542, 234);
+         label6.Name = "label6";
+         label6.Size = new System.Drawing.Size(23, 14);
+         label6.TabIndex = 38;
+         label6.Text = "Y :";
+         // 
+         // gridColumn421
+         // 
+         this.gridColumn421.FieldName = "STAT";
+         this.gridColumn421.Name = "gridColumn421";
          // 
          // label4
          // 
@@ -974,25 +999,10 @@
          this.label4.Font = new System.Drawing.Font("IRANSans", 9F);
          this.label4.Location = new System.Drawing.Point(3, 90);
          this.label4.Name = "label4";
-         this.label4.Size = new System.Drawing.Size(569, 24);
+         this.label4.Size = new System.Drawing.Size(570, 24);
          this.label4.TabIndex = 38;
          this.label4.Text = "جهت ثبت آدرس جدید";
          this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         // 
-         // label5
-         // 
-         label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-         label5.AutoSize = true;
-         label5.Location = new System.Drawing.Point(541, 203);
-         label5.Name = "label5";
-         label5.Size = new System.Drawing.Size(22, 14);
-         label5.TabIndex = 38;
-         label5.Text = "X :";
-         // 
-         // gridColumn421
-         // 
-         this.gridColumn421.FieldName = "STAT";
-         this.gridColumn421.Name = "gridColumn421";
          // 
          // AmntType_Lb
          // 
@@ -1008,12 +1018,13 @@
          // 
          // SrbtNameFrm1_Lb
          // 
-         this.SrbtNameFrm1_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.SrbtNameFrm1_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
          this.SrbtNameFrm1_Lb.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.SrbtOrdr25Bs, "NAME", true));
          this.SrbtNameFrm1_Lb.Font = new System.Drawing.Font("IRAN Sans", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.SrbtNameFrm1_Lb.Location = new System.Drawing.Point(237, 3);
          this.SrbtNameFrm1_Lb.Name = "SrbtNameFrm1_Lb";
-         this.SrbtNameFrm1_Lb.Size = new System.Drawing.Size(238, 40);
+         this.SrbtNameFrm1_Lb.Size = new System.Drawing.Size(239, 40);
          this.SrbtNameFrm1_Lb.TabIndex = 17;
          this.SrbtNameFrm1_Lb.Text = "---";
          this.SrbtNameFrm1_Lb.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1028,7 +1039,7 @@
          this.SrbtChatid_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.SrbtChatid_Lb.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.SrbtOrdr25Bs, "CHAT_ID", true));
          this.SrbtChatid_Lb.Font = new System.Drawing.Font("B Kamran", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.SrbtChatid_Lb.Location = new System.Drawing.Point(396, 48);
+         this.SrbtChatid_Lb.Location = new System.Drawing.Point(397, 48);
          this.SrbtChatid_Lb.Name = "SrbtChatid_Lb";
          this.SrbtChatid_Lb.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
          this.SrbtChatid_Lb.Size = new System.Drawing.Size(91, 20);
@@ -1041,7 +1052,7 @@
          this.SrbtCellPhon_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.SrbtCellPhon_Lb.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.SrbtOrdr25Bs, "CELL_PHON", true));
          this.SrbtCellPhon_Lb.Font = new System.Drawing.Font("B Kamran", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.SrbtCellPhon_Lb.Location = new System.Drawing.Point(396, 72);
+         this.SrbtCellPhon_Lb.Location = new System.Drawing.Point(397, 72);
          this.SrbtCellPhon_Lb.Name = "SrbtCellPhon_Lb";
          this.SrbtCellPhon_Lb.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
          this.SrbtCellPhon_Lb.Size = new System.Drawing.Size(91, 20);
@@ -1058,7 +1069,7 @@
          this.SrbtServAdrs_Lb.Location = new System.Drawing.Point(237, 98);
          this.SrbtServAdrs_Lb.Name = "SrbtServAdrs_Lb";
          this.SrbtServAdrs_Lb.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-         this.SrbtServAdrs_Lb.Size = new System.Drawing.Size(248, 49);
+         this.SrbtServAdrs_Lb.Size = new System.Drawing.Size(249, 49);
          this.SrbtServAdrs_Lb.TabIndex = 17;
          this.SrbtServAdrs_Lb.Text = "---";
          // 
@@ -1114,7 +1125,7 @@
          this.splitContainerControl1.Panel2.Controls.Add(this.splitContainerControl2);
          this.splitContainerControl1.Panel2.Text = "Panel2";
          this.splitContainerControl1.Size = new System.Drawing.Size(1063, 662);
-         this.splitContainerControl1.SplitterPosition = 448;
+         this.splitContainerControl1.SplitterPosition = 447;
          this.splitContainerControl1.TabIndex = 0;
          this.splitContainerControl1.Text = "splitContainerControl1";
          // 
@@ -1128,7 +1139,7 @@
          this.splitContainerControl4.Panel1.Text = "Panel1";
          this.splitContainerControl4.Panel2.Controls.Add(this.splitContainerControl5);
          this.splitContainerControl4.Panel2.Text = "Panel2";
-         this.splitContainerControl4.Size = new System.Drawing.Size(448, 662);
+         this.splitContainerControl4.Size = new System.Drawing.Size(447, 662);
          this.splitContainerControl4.SplitterPosition = 121;
          this.splitContainerControl4.TabIndex = 0;
          this.splitContainerControl4.Text = "splitContainerControl4";
@@ -1149,7 +1160,7 @@
          this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
          this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 0);
          this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-         this.flowLayoutPanel2.Size = new System.Drawing.Size(448, 121);
+         this.flowLayoutPanel2.Size = new System.Drawing.Size(447, 121);
          this.flowLayoutPanel2.TabIndex = 0;
          // 
          // c1Button1
@@ -1158,7 +1169,7 @@
          this.c1Button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(175)))), ((int)(((byte)(89)))));
          this.c1Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
          this.c1Button1.Image = global::System.RoboTech.Properties.Resources.IMAGE_1685;
-         this.c1Button1.Location = new System.Drawing.Point(362, 3);
+         this.c1Button1.Location = new System.Drawing.Point(361, 3);
          this.c1Button1.Name = "c1Button1";
          this.c1Button1.Size = new System.Drawing.Size(83, 54);
          this.c1Button1.TabIndex = 53;
@@ -1171,7 +1182,7 @@
          this.c1Button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(175)))), ((int)(((byte)(89)))));
          this.c1Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
          this.c1Button2.Image = global::System.RoboTech.Properties.Resources.IMAGE_1186;
-         this.c1Button2.Location = new System.Drawing.Point(273, 3);
+         this.c1Button2.Location = new System.Drawing.Point(272, 3);
          this.c1Button2.Name = "c1Button2";
          this.c1Button2.Size = new System.Drawing.Size(83, 54);
          this.c1Button2.TabIndex = 54;
@@ -1184,7 +1195,7 @@
          this.c1Button3.BackColor = System.Drawing.Color.YellowGreen;
          this.c1Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
          this.c1Button3.Image = global::System.RoboTech.Properties.Resources.IMAGE_1198;
-         this.c1Button3.Location = new System.Drawing.Point(184, 3);
+         this.c1Button3.Location = new System.Drawing.Point(183, 3);
          this.c1Button3.Name = "c1Button3";
          this.c1Button3.Size = new System.Drawing.Size(83, 54);
          this.c1Button3.TabIndex = 55;
@@ -1199,7 +1210,7 @@
          this.c1Button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
          this.c1Button4.Font = new System.Drawing.Font("IRAN Sans", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.c1Button4.ForeColor = System.Drawing.Color.White;
-         this.c1Button4.Location = new System.Drawing.Point(95, 3);
+         this.c1Button4.Location = new System.Drawing.Point(94, 3);
          this.c1Button4.Name = "c1Button4";
          this.c1Button4.Size = new System.Drawing.Size(83, 54);
          this.c1Button4.TabIndex = 56;
@@ -1214,7 +1225,7 @@
          this.c1Button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
          this.c1Button5.Font = new System.Drawing.Font("IRAN Sans", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.c1Button5.ForeColor = System.Drawing.Color.White;
-         this.c1Button5.Location = new System.Drawing.Point(6, 3);
+         this.c1Button5.Location = new System.Drawing.Point(5, 3);
          this.c1Button5.Name = "c1Button5";
          this.c1Button5.Size = new System.Drawing.Size(83, 54);
          this.c1Button5.TabIndex = 57;
@@ -1229,7 +1240,7 @@
          this.c1Button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
          this.c1Button10.Font = new System.Drawing.Font("IRAN Sans", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.c1Button10.ForeColor = System.Drawing.Color.White;
-         this.c1Button10.Location = new System.Drawing.Point(362, 63);
+         this.c1Button10.Location = new System.Drawing.Point(361, 63);
          this.c1Button10.Name = "c1Button10";
          this.c1Button10.Size = new System.Drawing.Size(83, 54);
          this.c1Button10.TabIndex = 58;
@@ -1244,7 +1255,7 @@
          this.c1Button11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
          this.c1Button11.Font = new System.Drawing.Font("IRAN Sans", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.c1Button11.ForeColor = System.Drawing.Color.White;
-         this.c1Button11.Location = new System.Drawing.Point(273, 63);
+         this.c1Button11.Location = new System.Drawing.Point(272, 63);
          this.c1Button11.Name = "c1Button11";
          this.c1Button11.Size = new System.Drawing.Size(83, 54);
          this.c1Button11.TabIndex = 59;
@@ -1259,7 +1270,7 @@
          this.c1Button12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
          this.c1Button12.Font = new System.Drawing.Font("IRAN Sans", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.c1Button12.ForeColor = System.Drawing.Color.White;
-         this.c1Button12.Location = new System.Drawing.Point(184, 63);
+         this.c1Button12.Location = new System.Drawing.Point(183, 63);
          this.c1Button12.Name = "c1Button12";
          this.c1Button12.Size = new System.Drawing.Size(83, 54);
          this.c1Button12.TabIndex = 60;
@@ -1274,7 +1285,7 @@
          this.c1Button13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
          this.c1Button13.Font = new System.Drawing.Font("IRAN Sans", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.c1Button13.ForeColor = System.Drawing.Color.White;
-         this.c1Button13.Location = new System.Drawing.Point(95, 63);
+         this.c1Button13.Location = new System.Drawing.Point(94, 63);
          this.c1Button13.Name = "c1Button13";
          this.c1Button13.Size = new System.Drawing.Size(83, 54);
          this.c1Button13.TabIndex = 61;
@@ -1290,7 +1301,7 @@
          this.c1Button14.Font = new System.Drawing.Font("IRAN Sans", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.c1Button14.ForeColor = System.Drawing.Color.White;
          this.c1Button14.Image = ((System.Drawing.Image)(resources.GetObject("c1Button14.Image")));
-         this.c1Button14.Location = new System.Drawing.Point(6, 63);
+         this.c1Button14.Location = new System.Drawing.Point(5, 63);
          this.c1Button14.Name = "c1Button14";
          this.c1Button14.Size = new System.Drawing.Size(83, 54);
          this.c1Button14.TabIndex = 62;
@@ -1308,7 +1319,7 @@
          this.splitContainerControl5.Panel1.Text = "Panel1";
          this.splitContainerControl5.Panel2.Controls.Add(this.flowLayoutPanel4);
          this.splitContainerControl5.Panel2.Text = "Panel2";
-         this.splitContainerControl5.Size = new System.Drawing.Size(448, 536);
+         this.splitContainerControl5.Size = new System.Drawing.Size(447, 536);
          this.splitContainerControl5.SplitterPosition = 106;
          this.splitContainerControl5.TabIndex = 0;
          this.splitContainerControl5.Text = "splitContainerControl5";
@@ -1324,7 +1335,7 @@
          this.splitContainerControl6.Panel1.Text = "Panel1";
          this.splitContainerControl6.Panel2.Controls.Add(this.splitContainerControl7);
          this.splitContainerControl6.Panel2.Text = "Panel2";
-         this.splitContainerControl6.Size = new System.Drawing.Size(448, 425);
+         this.splitContainerControl6.Size = new System.Drawing.Size(447, 425);
          this.splitContainerControl6.SplitterPosition = 127;
          this.splitContainerControl6.TabIndex = 1;
          this.splitContainerControl6.Text = "splitContainerControl6";
@@ -1360,7 +1371,7 @@
          this.flowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
          this.flowLayoutPanel3.Location = new System.Drawing.Point(0, 0);
          this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-         this.flowLayoutPanel3.Size = new System.Drawing.Size(448, 293);
+         this.flowLayoutPanel3.Size = new System.Drawing.Size(447, 293);
          this.flowLayoutPanel3.TabIndex = 0;
          // 
          // c1Button19
@@ -1371,7 +1382,7 @@
          this.c1Button19.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
          this.c1Button19.Font = new System.Drawing.Font("IRAN Sans", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.c1Button19.ForeColor = System.Drawing.Color.Black;
-         this.c1Button19.Location = new System.Drawing.Point(362, 3);
+         this.c1Button19.Location = new System.Drawing.Point(361, 3);
          this.c1Button19.Name = "c1Button19";
          this.c1Button19.Size = new System.Drawing.Size(83, 51);
          this.c1Button19.TabIndex = 63;
@@ -1386,7 +1397,7 @@
          this.c1Button15.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
          this.c1Button15.Font = new System.Drawing.Font("IRAN Sans", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.c1Button15.ForeColor = System.Drawing.Color.Black;
-         this.c1Button15.Location = new System.Drawing.Point(273, 3);
+         this.c1Button15.Location = new System.Drawing.Point(272, 3);
          this.c1Button15.Name = "c1Button15";
          this.c1Button15.Size = new System.Drawing.Size(83, 51);
          this.c1Button15.TabIndex = 64;
@@ -1401,7 +1412,7 @@
          this.c1Button16.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
          this.c1Button16.Font = new System.Drawing.Font("IRAN Sans", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.c1Button16.ForeColor = System.Drawing.Color.Black;
-         this.c1Button16.Location = new System.Drawing.Point(184, 3);
+         this.c1Button16.Location = new System.Drawing.Point(183, 3);
          this.c1Button16.Name = "c1Button16";
          this.c1Button16.Size = new System.Drawing.Size(83, 51);
          this.c1Button16.TabIndex = 65;
@@ -1416,7 +1427,7 @@
          this.c1Button17.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
          this.c1Button17.Font = new System.Drawing.Font("IRAN Sans", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.c1Button17.ForeColor = System.Drawing.Color.Black;
-         this.c1Button17.Location = new System.Drawing.Point(95, 3);
+         this.c1Button17.Location = new System.Drawing.Point(94, 3);
          this.c1Button17.Name = "c1Button17";
          this.c1Button17.Size = new System.Drawing.Size(83, 51);
          this.c1Button17.TabIndex = 66;
@@ -1431,7 +1442,7 @@
          this.c1Button18.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
          this.c1Button18.Font = new System.Drawing.Font("IRAN Sans", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.c1Button18.ForeColor = System.Drawing.Color.Black;
-         this.c1Button18.Location = new System.Drawing.Point(6, 3);
+         this.c1Button18.Location = new System.Drawing.Point(5, 3);
          this.c1Button18.Name = "c1Button18";
          this.c1Button18.Size = new System.Drawing.Size(83, 51);
          this.c1Button18.TabIndex = 67;
@@ -1446,7 +1457,7 @@
          this.c1Button20.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
          this.c1Button20.Font = new System.Drawing.Font("IRAN Sans", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.c1Button20.ForeColor = System.Drawing.Color.Black;
-         this.c1Button20.Location = new System.Drawing.Point(362, 60);
+         this.c1Button20.Location = new System.Drawing.Point(361, 60);
          this.c1Button20.Name = "c1Button20";
          this.c1Button20.Size = new System.Drawing.Size(83, 51);
          this.c1Button20.TabIndex = 68;
@@ -1461,7 +1472,7 @@
          this.c1Button21.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
          this.c1Button21.Font = new System.Drawing.Font("IRAN Sans", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.c1Button21.ForeColor = System.Drawing.Color.Black;
-         this.c1Button21.Location = new System.Drawing.Point(273, 60);
+         this.c1Button21.Location = new System.Drawing.Point(272, 60);
          this.c1Button21.Name = "c1Button21";
          this.c1Button21.Size = new System.Drawing.Size(83, 51);
          this.c1Button21.TabIndex = 69;
@@ -1476,7 +1487,7 @@
          this.c1Button22.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
          this.c1Button22.Font = new System.Drawing.Font("IRAN Sans", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.c1Button22.ForeColor = System.Drawing.Color.Black;
-         this.c1Button22.Location = new System.Drawing.Point(184, 60);
+         this.c1Button22.Location = new System.Drawing.Point(183, 60);
          this.c1Button22.Name = "c1Button22";
          this.c1Button22.Size = new System.Drawing.Size(83, 51);
          this.c1Button22.TabIndex = 70;
@@ -1491,7 +1502,7 @@
          this.c1Button23.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
          this.c1Button23.Font = new System.Drawing.Font("IRAN Sans", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.c1Button23.ForeColor = System.Drawing.Color.Black;
-         this.c1Button23.Location = new System.Drawing.Point(95, 60);
+         this.c1Button23.Location = new System.Drawing.Point(94, 60);
          this.c1Button23.Name = "c1Button23";
          this.c1Button23.Size = new System.Drawing.Size(83, 51);
          this.c1Button23.TabIndex = 71;
@@ -1506,7 +1517,7 @@
          this.c1Button24.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
          this.c1Button24.Font = new System.Drawing.Font("IRAN Sans", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.c1Button24.ForeColor = System.Drawing.Color.Black;
-         this.c1Button24.Location = new System.Drawing.Point(6, 60);
+         this.c1Button24.Location = new System.Drawing.Point(5, 60);
          this.c1Button24.Name = "c1Button24";
          this.c1Button24.Size = new System.Drawing.Size(83, 51);
          this.c1Button24.TabIndex = 72;
@@ -1521,7 +1532,7 @@
          this.c1Button45.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
          this.c1Button45.Font = new System.Drawing.Font("IRAN Sans", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.c1Button45.ForeColor = System.Drawing.Color.Black;
-         this.c1Button45.Location = new System.Drawing.Point(362, 117);
+         this.c1Button45.Location = new System.Drawing.Point(361, 117);
          this.c1Button45.Name = "c1Button45";
          this.c1Button45.Size = new System.Drawing.Size(83, 51);
          this.c1Button45.TabIndex = 73;
@@ -1536,7 +1547,7 @@
          this.c1Button46.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
          this.c1Button46.Font = new System.Drawing.Font("IRAN Sans", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.c1Button46.ForeColor = System.Drawing.Color.Black;
-         this.c1Button46.Location = new System.Drawing.Point(273, 117);
+         this.c1Button46.Location = new System.Drawing.Point(272, 117);
          this.c1Button46.Name = "c1Button46";
          this.c1Button46.Size = new System.Drawing.Size(83, 51);
          this.c1Button46.TabIndex = 74;
@@ -1551,7 +1562,7 @@
          this.c1Button47.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
          this.c1Button47.Font = new System.Drawing.Font("IRAN Sans", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.c1Button47.ForeColor = System.Drawing.Color.Black;
-         this.c1Button47.Location = new System.Drawing.Point(184, 117);
+         this.c1Button47.Location = new System.Drawing.Point(183, 117);
          this.c1Button47.Name = "c1Button47";
          this.c1Button47.Size = new System.Drawing.Size(83, 51);
          this.c1Button47.TabIndex = 75;
@@ -1566,12 +1577,162 @@
          this.c1Button48.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
          this.c1Button48.Font = new System.Drawing.Font("IRAN Sans", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.c1Button48.ForeColor = System.Drawing.Color.Black;
-         this.c1Button48.Location = new System.Drawing.Point(95, 117);
+         this.c1Button48.Location = new System.Drawing.Point(94, 117);
          this.c1Button48.Name = "c1Button48";
          this.c1Button48.Size = new System.Drawing.Size(83, 51);
          this.c1Button48.TabIndex = 76;
          this.c1Button48.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
          this.c1Button48.UseVisualStyleBackColor = false;
+         // 
+         // c1Button7
+         // 
+         this.c1Button7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.c1Button7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(225)))), ((int)(((byte)(243)))));
+         this.c1Button7.FlatAppearance.BorderColor = System.Drawing.Color.LightSkyBlue;
+         this.c1Button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+         this.c1Button7.Font = new System.Drawing.Font("IRAN Sans", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.c1Button7.ForeColor = System.Drawing.Color.Black;
+         this.c1Button7.Location = new System.Drawing.Point(5, 117);
+         this.c1Button7.Name = "c1Button7";
+         this.c1Button7.Size = new System.Drawing.Size(83, 51);
+         this.c1Button7.TabIndex = 78;
+         this.c1Button7.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+         this.c1Button7.UseVisualStyleBackColor = false;
+         // 
+         // c1Button8
+         // 
+         this.c1Button8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.c1Button8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(225)))), ((int)(((byte)(243)))));
+         this.c1Button8.FlatAppearance.BorderColor = System.Drawing.Color.LightSkyBlue;
+         this.c1Button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+         this.c1Button8.Font = new System.Drawing.Font("IRAN Sans", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.c1Button8.ForeColor = System.Drawing.Color.Black;
+         this.c1Button8.Location = new System.Drawing.Point(361, 174);
+         this.c1Button8.Name = "c1Button8";
+         this.c1Button8.Size = new System.Drawing.Size(83, 51);
+         this.c1Button8.TabIndex = 79;
+         this.c1Button8.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+         this.c1Button8.UseVisualStyleBackColor = false;
+         // 
+         // c1Button9
+         // 
+         this.c1Button9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.c1Button9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(225)))), ((int)(((byte)(243)))));
+         this.c1Button9.FlatAppearance.BorderColor = System.Drawing.Color.LightSkyBlue;
+         this.c1Button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+         this.c1Button9.Font = new System.Drawing.Font("IRAN Sans", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.c1Button9.ForeColor = System.Drawing.Color.Black;
+         this.c1Button9.Location = new System.Drawing.Point(272, 174);
+         this.c1Button9.Name = "c1Button9";
+         this.c1Button9.Size = new System.Drawing.Size(83, 51);
+         this.c1Button9.TabIndex = 80;
+         this.c1Button9.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+         this.c1Button9.UseVisualStyleBackColor = false;
+         // 
+         // c1Button25
+         // 
+         this.c1Button25.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.c1Button25.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(225)))), ((int)(((byte)(243)))));
+         this.c1Button25.FlatAppearance.BorderColor = System.Drawing.Color.LightSkyBlue;
+         this.c1Button25.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+         this.c1Button25.Font = new System.Drawing.Font("IRAN Sans", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.c1Button25.ForeColor = System.Drawing.Color.Black;
+         this.c1Button25.Location = new System.Drawing.Point(183, 174);
+         this.c1Button25.Name = "c1Button25";
+         this.c1Button25.Size = new System.Drawing.Size(83, 51);
+         this.c1Button25.TabIndex = 81;
+         this.c1Button25.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+         this.c1Button25.UseVisualStyleBackColor = false;
+         // 
+         // c1Button27
+         // 
+         this.c1Button27.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.c1Button27.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(225)))), ((int)(((byte)(243)))));
+         this.c1Button27.FlatAppearance.BorderColor = System.Drawing.Color.LightSkyBlue;
+         this.c1Button27.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+         this.c1Button27.Font = new System.Drawing.Font("IRAN Sans", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.c1Button27.ForeColor = System.Drawing.Color.Black;
+         this.c1Button27.Location = new System.Drawing.Point(94, 174);
+         this.c1Button27.Name = "c1Button27";
+         this.c1Button27.Size = new System.Drawing.Size(83, 51);
+         this.c1Button27.TabIndex = 82;
+         this.c1Button27.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+         this.c1Button27.UseVisualStyleBackColor = false;
+         // 
+         // c1Button29
+         // 
+         this.c1Button29.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.c1Button29.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(225)))), ((int)(((byte)(243)))));
+         this.c1Button29.FlatAppearance.BorderColor = System.Drawing.Color.LightSkyBlue;
+         this.c1Button29.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+         this.c1Button29.Font = new System.Drawing.Font("IRAN Sans", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.c1Button29.ForeColor = System.Drawing.Color.Black;
+         this.c1Button29.Location = new System.Drawing.Point(5, 174);
+         this.c1Button29.Name = "c1Button29";
+         this.c1Button29.Size = new System.Drawing.Size(83, 51);
+         this.c1Button29.TabIndex = 83;
+         this.c1Button29.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+         this.c1Button29.UseVisualStyleBackColor = false;
+         // 
+         // c1Button30
+         // 
+         this.c1Button30.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.c1Button30.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(225)))), ((int)(((byte)(243)))));
+         this.c1Button30.FlatAppearance.BorderColor = System.Drawing.Color.LightSkyBlue;
+         this.c1Button30.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+         this.c1Button30.Font = new System.Drawing.Font("IRAN Sans", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.c1Button30.ForeColor = System.Drawing.Color.Black;
+         this.c1Button30.Location = new System.Drawing.Point(361, 231);
+         this.c1Button30.Name = "c1Button30";
+         this.c1Button30.Size = new System.Drawing.Size(83, 51);
+         this.c1Button30.TabIndex = 84;
+         this.c1Button30.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+         this.c1Button30.UseVisualStyleBackColor = false;
+         // 
+         // c1Button34
+         // 
+         this.c1Button34.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.c1Button34.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(225)))), ((int)(((byte)(243)))));
+         this.c1Button34.FlatAppearance.BorderColor = System.Drawing.Color.LightSkyBlue;
+         this.c1Button34.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+         this.c1Button34.Font = new System.Drawing.Font("IRAN Sans", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.c1Button34.ForeColor = System.Drawing.Color.Black;
+         this.c1Button34.Location = new System.Drawing.Point(272, 231);
+         this.c1Button34.Name = "c1Button34";
+         this.c1Button34.Size = new System.Drawing.Size(83, 51);
+         this.c1Button34.TabIndex = 85;
+         this.c1Button34.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+         this.c1Button34.UseVisualStyleBackColor = false;
+         // 
+         // c1Button35
+         // 
+         this.c1Button35.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.c1Button35.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(225)))), ((int)(((byte)(243)))));
+         this.c1Button35.FlatAppearance.BorderColor = System.Drawing.Color.LightSkyBlue;
+         this.c1Button35.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+         this.c1Button35.Font = new System.Drawing.Font("IRAN Sans", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.c1Button35.ForeColor = System.Drawing.Color.Black;
+         this.c1Button35.Location = new System.Drawing.Point(183, 231);
+         this.c1Button35.Name = "c1Button35";
+         this.c1Button35.Size = new System.Drawing.Size(83, 51);
+         this.c1Button35.TabIndex = 86;
+         this.c1Button35.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+         this.c1Button35.UseVisualStyleBackColor = false;
+         // 
+         // c1Button36
+         // 
+         this.c1Button36.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.c1Button36.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(225)))), ((int)(((byte)(243)))));
+         this.c1Button36.FlatAppearance.BorderColor = System.Drawing.Color.LightSkyBlue;
+         this.c1Button36.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+         this.c1Button36.Font = new System.Drawing.Font("IRAN Sans", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.c1Button36.ForeColor = System.Drawing.Color.Black;
+         this.c1Button36.Location = new System.Drawing.Point(94, 231);
+         this.c1Button36.Name = "c1Button36";
+         this.c1Button36.Size = new System.Drawing.Size(83, 51);
+         this.c1Button36.TabIndex = 87;
+         this.c1Button36.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+         this.c1Button36.UseVisualStyleBackColor = false;
          // 
          // c1Button49
          // 
@@ -1582,7 +1743,7 @@
          this.c1Button49.Font = new System.Drawing.Font("IRAN Sans", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.c1Button49.ForeColor = System.Drawing.Color.Black;
          this.c1Button49.Image = ((System.Drawing.Image)(resources.GetObject("c1Button49.Image")));
-         this.c1Button49.Location = new System.Drawing.Point(6, 231);
+         this.c1Button49.Location = new System.Drawing.Point(5, 231);
          this.c1Button49.Name = "c1Button49";
          this.c1Button49.Size = new System.Drawing.Size(83, 51);
          this.c1Button49.TabIndex = 77;
@@ -1599,7 +1760,7 @@
          this.splitContainerControl7.Panel1.Text = "Panel1";
          this.splitContainerControl7.Panel2.Controls.Add(this.flowLayoutPanel6);
          this.splitContainerControl7.Panel2.Text = "Panel2";
-         this.splitContainerControl7.Size = new System.Drawing.Size(448, 127);
+         this.splitContainerControl7.Size = new System.Drawing.Size(447, 127);
          this.splitContainerControl7.SplitterPosition = 61;
          this.splitContainerControl7.TabIndex = 2;
          this.splitContainerControl7.Text = "splitContainerControl7";
@@ -1607,99 +1768,107 @@
          // flowLayoutPanel5
          // 
          this.flowLayoutPanel5.AutoScroll = true;
-         this.flowLayoutPanel5.Controls.Add(this.c1Button26);
-         this.flowLayoutPanel5.Controls.Add(this.c1Button31);
-         this.flowLayoutPanel5.Controls.Add(this.c1Button28);
-         this.flowLayoutPanel5.Controls.Add(this.c1Button32);
-         this.flowLayoutPanel5.Controls.Add(this.c1Button33);
+         this.flowLayoutPanel5.Controls.Add(this.ShowOrdrFinlReg_Butn);
+         this.flowLayoutPanel5.Controls.Add(this.ShowDsctProd_Butn);
+         this.flowLayoutPanel5.Controls.Add(this.DfltPrntFrm1_Butn);
+         this.flowLayoutPanel5.Controls.Add(this.SlctPrntFrm1_Butn);
+         this.flowLayoutPanel5.Controls.Add(this.ConfPrntFrm1_Butn);
          this.flowLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
          this.flowLayoutPanel5.Location = new System.Drawing.Point(0, 0);
          this.flowLayoutPanel5.Name = "flowLayoutPanel5";
-         this.flowLayoutPanel5.Size = new System.Drawing.Size(448, 61);
+         this.flowLayoutPanel5.Size = new System.Drawing.Size(447, 61);
          this.flowLayoutPanel5.TabIndex = 0;
          // 
-         // c1Button26
+         // ShowOrdrFinlReg_Butn
          // 
-         this.c1Button26.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.c1Button26.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(152)))), ((int)(((byte)(206)))));
-         this.c1Button26.FlatAppearance.BorderColor = System.Drawing.Color.SlateBlue;
-         this.c1Button26.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-         this.c1Button26.Font = new System.Drawing.Font("IRAN Sans", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.c1Button26.ForeColor = System.Drawing.Color.Black;
-         this.c1Button26.Image = global::System.RoboTech.Properties.Resources.IMAGE_1725;
-         this.c1Button26.Location = new System.Drawing.Point(362, 3);
-         this.c1Button26.Name = "c1Button26";
-         this.c1Button26.Size = new System.Drawing.Size(83, 54);
-         this.c1Button26.TabIndex = 64;
-         this.c1Button26.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-         this.UIToolTip_TT.SetToolTip(this.c1Button26, "سفارشات ثبت شده");
-         this.c1Button26.UseVisualStyleBackColor = false;
+         this.ShowOrdrFinlReg_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.ShowOrdrFinlReg_Butn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(152)))), ((int)(((byte)(206)))));
+         this.ShowOrdrFinlReg_Butn.FlatAppearance.BorderColor = System.Drawing.Color.SlateBlue;
+         this.ShowOrdrFinlReg_Butn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+         this.ShowOrdrFinlReg_Butn.Font = new System.Drawing.Font("IRAN Sans", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.ShowOrdrFinlReg_Butn.ForeColor = System.Drawing.Color.Black;
+         this.ShowOrdrFinlReg_Butn.Image = global::System.RoboTech.Properties.Resources.IMAGE_1725;
+         this.ShowOrdrFinlReg_Butn.Location = new System.Drawing.Point(361, 3);
+         this.ShowOrdrFinlReg_Butn.Name = "ShowOrdrFinlReg_Butn";
+         this.ShowOrdrFinlReg_Butn.Size = new System.Drawing.Size(83, 54);
+         this.ShowOrdrFinlReg_Butn.TabIndex = 64;
+         this.ShowOrdrFinlReg_Butn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+         this.UIToolTip_TT.SetToolTip(this.ShowOrdrFinlReg_Butn, "سفارشات ثبت شده");
+         this.ShowOrdrFinlReg_Butn.UseVisualStyleBackColor = false;
+         this.ShowOrdrFinlReg_Butn.Click += new System.EventHandler(this.ShowOrdrFinlReg_Butn_Click);
          // 
-         // c1Button31
+         // ShowDsctProd_Butn
          // 
-         this.c1Button31.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.c1Button31.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(152)))), ((int)(((byte)(206)))));
-         this.c1Button31.FlatAppearance.BorderColor = System.Drawing.Color.SlateBlue;
-         this.c1Button31.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-         this.c1Button31.Font = new System.Drawing.Font("IRAN Sans", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.c1Button31.ForeColor = System.Drawing.Color.Black;
-         this.c1Button31.Image = global::System.RoboTech.Properties.Resources.IMAGE_1732;
-         this.c1Button31.Location = new System.Drawing.Point(273, 3);
-         this.c1Button31.Name = "c1Button31";
-         this.c1Button31.Size = new System.Drawing.Size(83, 54);
-         this.c1Button31.TabIndex = 69;
-         this.c1Button31.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-         this.UIToolTip_TT.SetToolTip(this.c1Button31, "محصولات تخفیف خورده");
-         this.c1Button31.UseVisualStyleBackColor = false;
+         this.ShowDsctProd_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.ShowDsctProd_Butn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(152)))), ((int)(((byte)(206)))));
+         this.ShowDsctProd_Butn.FlatAppearance.BorderColor = System.Drawing.Color.SlateBlue;
+         this.ShowDsctProd_Butn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+         this.ShowDsctProd_Butn.Font = new System.Drawing.Font("IRAN Sans", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.ShowDsctProd_Butn.ForeColor = System.Drawing.Color.Black;
+         this.ShowDsctProd_Butn.Image = global::System.RoboTech.Properties.Resources.IMAGE_1732;
+         this.ShowDsctProd_Butn.Location = new System.Drawing.Point(272, 3);
+         this.ShowDsctProd_Butn.Name = "ShowDsctProd_Butn";
+         this.ShowDsctProd_Butn.Size = new System.Drawing.Size(83, 54);
+         this.ShowDsctProd_Butn.TabIndex = 69;
+         this.ShowDsctProd_Butn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+         this.UIToolTip_TT.SetToolTip(this.ShowDsctProd_Butn, "محصولات تخفیف خورده");
+         this.ShowDsctProd_Butn.UseVisualStyleBackColor = false;
+         this.ShowDsctProd_Butn.Click += new System.EventHandler(this.ShowDsctProd_Butn_Click);
          // 
-         // c1Button28
+         // DfltPrntFrm1_Butn
          // 
-         this.c1Button28.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.c1Button28.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(152)))), ((int)(((byte)(206)))));
-         this.c1Button28.FlatAppearance.BorderColor = System.Drawing.Color.SlateBlue;
-         this.c1Button28.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-         this.c1Button28.Font = new System.Drawing.Font("IRAN Sans", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.c1Button28.ForeColor = System.Drawing.Color.Black;
-         this.c1Button28.Image = global::System.RoboTech.Properties.Resources.IMAGE_1727;
-         this.c1Button28.Location = new System.Drawing.Point(184, 3);
-         this.c1Button28.Name = "c1Button28";
-         this.c1Button28.Size = new System.Drawing.Size(83, 54);
-         this.c1Button28.TabIndex = 66;
-         this.c1Button28.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-         this.UIToolTip_TT.SetToolTip(this.c1Button28, "چاپ و گزارش عملکرد");
-         this.c1Button28.UseVisualStyleBackColor = false;
+         this.DfltPrntFrm1_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.DfltPrntFrm1_Butn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(152)))), ((int)(((byte)(206)))));
+         this.DfltPrntFrm1_Butn.FlatAppearance.BorderColor = System.Drawing.Color.SlateBlue;
+         this.DfltPrntFrm1_Butn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+         this.DfltPrntFrm1_Butn.Font = new System.Drawing.Font("IRAN Sans", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.DfltPrntFrm1_Butn.ForeColor = System.Drawing.Color.Black;
+         this.DfltPrntFrm1_Butn.Image = global::System.RoboTech.Properties.Resources.IMAGE_1727;
+         this.DfltPrntFrm1_Butn.Location = new System.Drawing.Point(183, 3);
+         this.DfltPrntFrm1_Butn.Name = "DfltPrntFrm1_Butn";
+         this.DfltPrntFrm1_Butn.Size = new System.Drawing.Size(83, 54);
+         this.DfltPrntFrm1_Butn.TabIndex = 66;
+         this.DfltPrntFrm1_Butn.Tag = "_001_F";
+         this.DfltPrntFrm1_Butn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+         this.UIToolTip_TT.SetToolTip(this.DfltPrntFrm1_Butn, "چاپ و گزارش عملکرد");
+         this.DfltPrntFrm1_Butn.UseVisualStyleBackColor = false;
+         this.DfltPrntFrm1_Butn.Click += new System.EventHandler(this.DfltPrntFrm1_Butn_Click);
          // 
-         // c1Button32
+         // SlctPrntFrm1_Butn
          // 
-         this.c1Button32.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.c1Button32.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(152)))), ((int)(((byte)(206)))));
-         this.c1Button32.FlatAppearance.BorderColor = System.Drawing.Color.SlateBlue;
-         this.c1Button32.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-         this.c1Button32.Font = new System.Drawing.Font("IRAN Sans", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.c1Button32.ForeColor = System.Drawing.Color.Black;
-         this.c1Button32.Image = global::System.RoboTech.Properties.Resources.IMAGE_1749;
-         this.c1Button32.Location = new System.Drawing.Point(95, 3);
-         this.c1Button32.Name = "c1Button32";
-         this.c1Button32.Size = new System.Drawing.Size(83, 54);
-         this.c1Button32.TabIndex = 70;
-         this.c1Button32.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-         this.c1Button32.UseVisualStyleBackColor = false;
+         this.SlctPrntFrm1_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.SlctPrntFrm1_Butn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(152)))), ((int)(((byte)(206)))));
+         this.SlctPrntFrm1_Butn.FlatAppearance.BorderColor = System.Drawing.Color.SlateBlue;
+         this.SlctPrntFrm1_Butn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+         this.SlctPrntFrm1_Butn.Font = new System.Drawing.Font("IRAN Sans", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.SlctPrntFrm1_Butn.ForeColor = System.Drawing.Color.Black;
+         this.SlctPrntFrm1_Butn.Image = global::System.RoboTech.Properties.Resources.IMAGE_1749;
+         this.SlctPrntFrm1_Butn.Location = new System.Drawing.Point(94, 3);
+         this.SlctPrntFrm1_Butn.Name = "SlctPrntFrm1_Butn";
+         this.SlctPrntFrm1_Butn.Size = new System.Drawing.Size(83, 54);
+         this.SlctPrntFrm1_Butn.TabIndex = 70;
+         this.SlctPrntFrm1_Butn.Tag = "_001_F";
+         this.SlctPrntFrm1_Butn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+         this.SlctPrntFrm1_Butn.UseVisualStyleBackColor = false;
+         this.SlctPrntFrm1_Butn.Click += new System.EventHandler(this.SlctPrntFrm1_Butn_Click);
          // 
-         // c1Button33
+         // ConfPrntFrm1_Butn
          // 
-         this.c1Button33.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.c1Button33.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(152)))), ((int)(((byte)(206)))));
-         this.c1Button33.FlatAppearance.BorderColor = System.Drawing.Color.SlateBlue;
-         this.c1Button33.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-         this.c1Button33.Font = new System.Drawing.Font("IRAN Sans", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.c1Button33.ForeColor = System.Drawing.Color.Black;
-         this.c1Button33.Image = global::System.RoboTech.Properties.Resources.IMAGE_1750;
-         this.c1Button33.Location = new System.Drawing.Point(6, 3);
-         this.c1Button33.Name = "c1Button33";
-         this.c1Button33.Size = new System.Drawing.Size(83, 54);
-         this.c1Button33.TabIndex = 71;
-         this.c1Button33.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-         this.c1Button33.UseVisualStyleBackColor = false;
+         this.ConfPrntFrm1_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.ConfPrntFrm1_Butn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(152)))), ((int)(((byte)(206)))));
+         this.ConfPrntFrm1_Butn.FlatAppearance.BorderColor = System.Drawing.Color.SlateBlue;
+         this.ConfPrntFrm1_Butn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+         this.ConfPrntFrm1_Butn.Font = new System.Drawing.Font("IRAN Sans", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.ConfPrntFrm1_Butn.ForeColor = System.Drawing.Color.Black;
+         this.ConfPrntFrm1_Butn.Image = global::System.RoboTech.Properties.Resources.IMAGE_1750;
+         this.ConfPrntFrm1_Butn.Location = new System.Drawing.Point(5, 3);
+         this.ConfPrntFrm1_Butn.Name = "ConfPrntFrm1_Butn";
+         this.ConfPrntFrm1_Butn.Size = new System.Drawing.Size(83, 54);
+         this.ConfPrntFrm1_Butn.TabIndex = 71;
+         this.ConfPrntFrm1_Butn.Tag = "_001_F";
+         this.ConfPrntFrm1_Butn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+         this.ConfPrntFrm1_Butn.UseVisualStyleBackColor = false;
+         this.ConfPrntFrm1_Butn.Click += new System.EventHandler(this.ConfPrntFrm1_Butn_Click);
          // 
          // flowLayoutPanel6
          // 
@@ -1712,7 +1881,7 @@
          this.flowLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
          this.flowLayoutPanel6.Location = new System.Drawing.Point(0, 0);
          this.flowLayoutPanel6.Name = "flowLayoutPanel6";
-         this.flowLayoutPanel6.Size = new System.Drawing.Size(448, 61);
+         this.flowLayoutPanel6.Size = new System.Drawing.Size(447, 61);
          this.flowLayoutPanel6.TabIndex = 1;
          // 
          // NewSaleFrm1_Butn
@@ -1724,7 +1893,7 @@
          this.NewSaleFrm1_Butn.Font = new System.Drawing.Font("IRAN Sans", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.NewSaleFrm1_Butn.ForeColor = System.Drawing.Color.Black;
          this.NewSaleFrm1_Butn.Image = global::System.RoboTech.Properties.Resources.IMAGE_1724;
-         this.NewSaleFrm1_Butn.Location = new System.Drawing.Point(362, 3);
+         this.NewSaleFrm1_Butn.Location = new System.Drawing.Point(361, 3);
          this.NewSaleFrm1_Butn.Name = "NewSaleFrm1_Butn";
          this.NewSaleFrm1_Butn.Size = new System.Drawing.Size(83, 54);
          this.NewSaleFrm1_Butn.TabIndex = 63;
@@ -1742,7 +1911,7 @@
          this.SaveOrdrNewFrm1_Butn.Font = new System.Drawing.Font("IRAN Sans", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.SaveOrdrNewFrm1_Butn.ForeColor = System.Drawing.Color.Black;
          this.SaveOrdrNewFrm1_Butn.Image = global::System.RoboTech.Properties.Resources.IMAGE_1731;
-         this.SaveOrdrNewFrm1_Butn.Location = new System.Drawing.Point(273, 3);
+         this.SaveOrdrNewFrm1_Butn.Location = new System.Drawing.Point(272, 3);
          this.SaveOrdrNewFrm1_Butn.Name = "SaveOrdrNewFrm1_Butn";
          this.SaveOrdrNewFrm1_Butn.Size = new System.Drawing.Size(83, 54);
          this.SaveOrdrNewFrm1_Butn.TabIndex = 64;
@@ -1760,7 +1929,7 @@
          this.DiscountOnSaleFrm1_Butn.Font = new System.Drawing.Font("IRAN Sans", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.DiscountOnSaleFrm1_Butn.ForeColor = System.Drawing.Color.Black;
          this.DiscountOnSaleFrm1_Butn.Image = global::System.RoboTech.Properties.Resources.IMAGE_1730;
-         this.DiscountOnSaleFrm1_Butn.Location = new System.Drawing.Point(184, 3);
+         this.DiscountOnSaleFrm1_Butn.Location = new System.Drawing.Point(183, 3);
          this.DiscountOnSaleFrm1_Butn.Name = "DiscountOnSaleFrm1_Butn";
          this.DiscountOnSaleFrm1_Butn.Size = new System.Drawing.Size(83, 54);
          this.DiscountOnSaleFrm1_Butn.TabIndex = 65;
@@ -1778,7 +1947,7 @@
          this.NoteForSaleFrm1_Butn.Font = new System.Drawing.Font("IRAN Sans", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.NoteForSaleFrm1_Butn.ForeColor = System.Drawing.Color.Black;
          this.NoteForSaleFrm1_Butn.Image = global::System.RoboTech.Properties.Resources.IMAGE_1733;
-         this.NoteForSaleFrm1_Butn.Location = new System.Drawing.Point(95, 3);
+         this.NoteForSaleFrm1_Butn.Location = new System.Drawing.Point(94, 3);
          this.NoteForSaleFrm1_Butn.Name = "NoteForSaleFrm1_Butn";
          this.NoteForSaleFrm1_Butn.Size = new System.Drawing.Size(83, 54);
          this.NoteForSaleFrm1_Butn.TabIndex = 66;
@@ -1796,7 +1965,7 @@
          this.ShipForSaleFrm1_Butn.Font = new System.Drawing.Font("IRAN Sans", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.ShipForSaleFrm1_Butn.ForeColor = System.Drawing.Color.Black;
          this.ShipForSaleFrm1_Butn.Image = global::System.RoboTech.Properties.Resources.IMAGE_1734;
-         this.ShipForSaleFrm1_Butn.Location = new System.Drawing.Point(6, 3);
+         this.ShipForSaleFrm1_Butn.Location = new System.Drawing.Point(5, 3);
          this.ShipForSaleFrm1_Butn.Name = "ShipForSaleFrm1_Butn";
          this.ShipForSaleFrm1_Butn.Size = new System.Drawing.Size(83, 54);
          this.ShipForSaleFrm1_Butn.TabIndex = 68;
@@ -1815,7 +1984,7 @@
          this.flowLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
          this.flowLayoutPanel4.Location = new System.Drawing.Point(0, 0);
          this.flowLayoutPanel4.Name = "flowLayoutPanel4";
-         this.flowLayoutPanel4.Size = new System.Drawing.Size(448, 106);
+         this.flowLayoutPanel4.Size = new System.Drawing.Size(447, 106);
          this.flowLayoutPanel4.TabIndex = 58;
          // 
          // LockUserFrm1_Butn
@@ -1827,7 +1996,7 @@
          this.LockUserFrm1_Butn.Font = new System.Drawing.Font("B Yekan", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.LockUserFrm1_Butn.ForeColor = System.Drawing.Color.White;
          this.LockUserFrm1_Butn.Image = global::System.RoboTech.Properties.Resources.IMAGE_1003;
-         this.LockUserFrm1_Butn.Location = new System.Drawing.Point(361, 2);
+         this.LockUserFrm1_Butn.Location = new System.Drawing.Point(360, 2);
          this.LockUserFrm1_Butn.Margin = new System.Windows.Forms.Padding(2);
          this.LockUserFrm1_Butn.Name = "LockUserFrm1_Butn";
          this.LockUserFrm1_Butn.Size = new System.Drawing.Size(85, 101);
@@ -1845,7 +2014,7 @@
          this.LockPinFrm1_Butn.Font = new System.Drawing.Font("B Yekan", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.LockPinFrm1_Butn.ForeColor = System.Drawing.Color.White;
          this.LockPinFrm1_Butn.Image = global::System.RoboTech.Properties.Resources.IMAGE_1720;
-         this.LockPinFrm1_Butn.Location = new System.Drawing.Point(272, 2);
+         this.LockPinFrm1_Butn.Location = new System.Drawing.Point(271, 2);
          this.LockPinFrm1_Butn.Margin = new System.Windows.Forms.Padding(2);
          this.LockPinFrm1_Butn.Name = "LockPinFrm1_Butn";
          this.LockPinFrm1_Butn.Size = new System.Drawing.Size(85, 101);
@@ -1863,7 +2032,7 @@
          this.DelCrntOrdrFrm1_Butn.Font = new System.Drawing.Font("IRANSans", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.DelCrntOrdrFrm1_Butn.ForeColor = System.Drawing.Color.Black;
          this.DelCrntOrdrFrm1_Butn.Image = global::System.RoboTech.Properties.Resources.IMAGE_1721;
-         this.DelCrntOrdrFrm1_Butn.Location = new System.Drawing.Point(184, 2);
+         this.DelCrntOrdrFrm1_Butn.Location = new System.Drawing.Point(183, 2);
          this.DelCrntOrdrFrm1_Butn.Margin = new System.Windows.Forms.Padding(2);
          this.DelCrntOrdrFrm1_Butn.Name = "DelCrntOrdrFrm1_Butn";
          this.DelCrntOrdrFrm1_Butn.Size = new System.Drawing.Size(84, 101);
@@ -1882,7 +2051,7 @@
          this.PayCrntOrdrFrm1_Butn.Font = new System.Drawing.Font("IRANSans", 9F);
          this.PayCrntOrdrFrm1_Butn.ForeColor = System.Drawing.Color.Black;
          this.PayCrntOrdrFrm1_Butn.Image = global::System.RoboTech.Properties.Resources.IMAGE_1722;
-         this.PayCrntOrdrFrm1_Butn.Location = new System.Drawing.Point(6, 2);
+         this.PayCrntOrdrFrm1_Butn.Location = new System.Drawing.Point(5, 2);
          this.PayCrntOrdrFrm1_Butn.Margin = new System.Windows.Forms.Padding(2);
          this.PayCrntOrdrFrm1_Butn.Name = "PayCrntOrdrFrm1_Butn";
          this.PayCrntOrdrFrm1_Butn.Size = new System.Drawing.Size(174, 101);
@@ -1903,7 +2072,7 @@
          this.Master000_001_Tc.Name = "Master000_001_Tc";
          this.Master000_001_Tc.RightToLeftLayout = true;
          this.Master000_001_Tc.SelectedIndex = 0;
-         this.Master000_001_Tc.Size = new System.Drawing.Size(610, 639);
+         this.Master000_001_Tc.Size = new System.Drawing.Size(611, 639);
          this.Master000_001_Tc.TabIndex = 40;
          // 
          // tp_000_001
@@ -1940,7 +2109,7 @@
          this.tp_000_001.Location = new System.Drawing.Point(4, 23);
          this.tp_000_001.Name = "tp_000_001";
          this.tp_000_001.Padding = new System.Windows.Forms.Padding(3);
-         this.tp_000_001.Size = new System.Drawing.Size(602, 612);
+         this.tp_000_001.Size = new System.Drawing.Size(603, 612);
          this.tp_000_001.TabIndex = 0;
          this.tp_000_001.Text = "فاکتور فروش";
          this.tp_000_001.UseVisualStyleBackColor = true;
@@ -1950,7 +2119,7 @@
          this.labelControl17.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.labelControl17.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl17.LineVisible = true;
-         this.labelControl17.Location = new System.Drawing.Point(529, 104);
+         this.labelControl17.Location = new System.Drawing.Point(530, 104);
          this.labelControl17.Name = "labelControl17";
          this.labelControl17.Size = new System.Drawing.Size(70, 13);
          this.labelControl17.TabIndex = 77;
@@ -1969,7 +2138,7 @@
          this.DownSrbtOrdr25Frm1_Butn.ImageProfile = global::System.RoboTech.Properties.Resources.IMAGE_1185;
          this.DownSrbtOrdr25Frm1_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
          this.DownSrbtOrdr25Frm1_Butn.ImageVisiable = false;
-         this.DownSrbtOrdr25Frm1_Butn.Location = new System.Drawing.Point(566, 6);
+         this.DownSrbtOrdr25Frm1_Butn.Location = new System.Drawing.Point(567, 6);
          this.DownSrbtOrdr25Frm1_Butn.Name = "DownSrbtOrdr25Frm1_Butn";
          this.DownSrbtOrdr25Frm1_Butn.NormalBorderColor = System.Drawing.Color.Gainsboro;
          this.DownSrbtOrdr25Frm1_Butn.NormalColorA = System.Drawing.Color.White;
@@ -1994,7 +2163,7 @@
          this.UpSrbtOrdr25Frm1_Butn.ImageProfile = global::System.RoboTech.Properties.Resources.IMAGE_1186;
          this.UpSrbtOrdr25Frm1_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
          this.UpSrbtOrdr25Frm1_Butn.ImageVisiable = false;
-         this.UpSrbtOrdr25Frm1_Butn.Location = new System.Drawing.Point(529, 6);
+         this.UpSrbtOrdr25Frm1_Butn.Location = new System.Drawing.Point(530, 6);
          this.UpSrbtOrdr25Frm1_Butn.Name = "UpSrbtOrdr25Frm1_Butn";
          this.UpSrbtOrdr25Frm1_Butn.NormalBorderColor = System.Drawing.Color.Gainsboro;
          this.UpSrbtOrdr25Frm1_Butn.NormalColorA = System.Drawing.Color.White;
@@ -2301,7 +2470,7 @@
          this.Master000_001_001_Tc.Name = "Master000_001_001_Tc";
          this.Master000_001_001_Tc.RightToLeftLayout = true;
          this.Master000_001_001_Tc.SelectedIndex = 0;
-         this.Master000_001_001_Tc.Size = new System.Drawing.Size(593, 438);
+         this.Master000_001_001_Tc.Size = new System.Drawing.Size(594, 441);
          this.Master000_001_001_Tc.TabIndex = 53;
          // 
          // tp_000_001_002
@@ -2310,7 +2479,7 @@
          this.tp_000_001_002.Location = new System.Drawing.Point(4, 23);
          this.tp_000_001_002.Name = "tp_000_001_002";
          this.tp_000_001_002.Padding = new System.Windows.Forms.Padding(3);
-         this.tp_000_001_002.Size = new System.Drawing.Size(585, 411);
+         this.tp_000_001_002.Size = new System.Drawing.Size(586, 414);
          this.tp_000_001_002.TabIndex = 1;
          this.tp_000_001_002.Text = "اقلام فاکتور";
          this.tp_000_001_002.UseVisualStyleBackColor = true;
@@ -2327,7 +2496,7 @@
          this.splitContainerControl3.Panel1.Text = "Panel1";
          this.splitContainerControl3.Panel2.Controls.Add(this.flowLayoutPanel1);
          this.splitContainerControl3.Panel2.Text = "Panel2";
-         this.splitContainerControl3.Size = new System.Drawing.Size(579, 405);
+         this.splitContainerControl3.Size = new System.Drawing.Size(580, 408);
          this.splitContainerControl3.SplitterPosition = 127;
          this.splitContainerControl3.TabIndex = 0;
          this.splitContainerControl3.Text = "splitContainerControl3";
@@ -2343,7 +2512,7 @@
          this.gridControl2.Name = "gridControl2";
          this.gridControl2.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.OrdtActn_Butn});
-         this.gridControl2.Size = new System.Drawing.Size(579, 248);
+         this.gridControl2.Size = new System.Drawing.Size(580, 251);
          this.gridControl2.TabIndex = 63;
          this.gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView3});
@@ -2521,7 +2690,7 @@
          this.Ordr025Frm1Bn.Name = "Ordr025Frm1Bn";
          this.Ordr025Frm1Bn.PositionItem = this.bindingNavigatorPositionItem;
          this.Ordr025Frm1Bn.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-         this.Ordr025Frm1Bn.Size = new System.Drawing.Size(579, 25);
+         this.Ordr025Frm1Bn.Size = new System.Drawing.Size(580, 25);
          this.Ordr025Frm1Bn.TabIndex = 61;
          // 
          // bindingNavigatorCountItem
@@ -2643,7 +2812,7 @@
          this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
          this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
          this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-         this.flowLayoutPanel1.Size = new System.Drawing.Size(579, 127);
+         this.flowLayoutPanel1.Size = new System.Drawing.Size(580, 127);
          this.flowLayoutPanel1.TabIndex = 22;
          // 
          // panel1
@@ -2656,7 +2825,7 @@
          this.panel1.Location = new System.Drawing.Point(3, 3);
          this.panel1.Margin = new System.Windows.Forms.Padding(3, 3, 3, 1);
          this.panel1.Name = "panel1";
-         this.panel1.Size = new System.Drawing.Size(573, 39);
+         this.panel1.Size = new System.Drawing.Size(574, 39);
          this.panel1.TabIndex = 1;
          // 
          // textEdit5
@@ -2692,7 +2861,7 @@
          this.labelControl13.Appearance.Image = global::System.RoboTech.Properties.Resources.IMAGE_1695;
          this.labelControl13.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
          this.labelControl13.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl13.Location = new System.Drawing.Point(478, 3);
+         this.labelControl13.Location = new System.Drawing.Point(479, 3);
          this.labelControl13.Name = "labelControl13";
          this.labelControl13.Size = new System.Drawing.Size(89, 32);
          this.labelControl13.TabIndex = 19;
@@ -2708,7 +2877,7 @@
          this.panel2.Location = new System.Drawing.Point(3, 44);
          this.panel2.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
          this.panel2.Name = "panel2";
-         this.panel2.Size = new System.Drawing.Size(573, 39);
+         this.panel2.Size = new System.Drawing.Size(574, 39);
          this.panel2.TabIndex = 2;
          // 
          // textEdit4
@@ -2747,7 +2916,7 @@
          this.labelControl14.Appearance.Image = global::System.RoboTech.Properties.Resources.IMAGE_1199;
          this.labelControl14.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
          this.labelControl14.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl14.Location = new System.Drawing.Point(494, 5);
+         this.labelControl14.Location = new System.Drawing.Point(495, 5);
          this.labelControl14.Name = "labelControl14";
          this.labelControl14.Size = new System.Drawing.Size(73, 30);
          this.labelControl14.TabIndex = 19;
@@ -2763,7 +2932,7 @@
          this.panel3.Location = new System.Drawing.Point(3, 85);
          this.panel3.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
          this.panel3.Name = "panel3";
-         this.panel3.Size = new System.Drawing.Size(573, 39);
+         this.panel3.Size = new System.Drawing.Size(574, 39);
          this.panel3.TabIndex = 3;
          // 
          // textEdit3
@@ -2802,7 +2971,7 @@
          this.labelControl15.Appearance.Image = global::System.RoboTech.Properties.Resources.IMAGE_1200;
          this.labelControl15.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
          this.labelControl15.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl15.Location = new System.Drawing.Point(457, 5);
+         this.labelControl15.Location = new System.Drawing.Point(458, 5);
          this.labelControl15.Name = "labelControl15";
          this.labelControl15.Size = new System.Drawing.Size(110, 30);
          this.labelControl15.TabIndex = 19;
@@ -2818,10 +2987,432 @@
          this.tp_000_001_003.Location = new System.Drawing.Point(4, 23);
          this.tp_000_001_003.Name = "tp_000_001_003";
          this.tp_000_001_003.Padding = new System.Windows.Forms.Padding(3);
-         this.tp_000_001_003.Size = new System.Drawing.Size(585, 411);
+         this.tp_000_001_003.Size = new System.Drawing.Size(586, 414);
          this.tp_000_001_003.TabIndex = 2;
          this.tp_000_001_003.Text = "تخفیفات صورتحساب";
          this.tp_000_001_003.UseVisualStyleBackColor = true;
+         // 
+         // label11
+         // 
+         this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+         this.label11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(81)))), ((int)(((byte)(81)))));
+         this.label11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+         this.label11.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.label11.ForeColor = System.Drawing.Color.White;
+         this.label11.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+         this.label11.Location = new System.Drawing.Point(6, 305);
+         this.label11.Name = "label11";
+         this.label11.Size = new System.Drawing.Size(468, 103);
+         this.label11.TabIndex = 81;
+         this.label11.Text = "تخفیف برای صورتحساب شما لحاظ شده جهت حذف تخفیف میتوانید روی دکمه درصد تخفیف کلیلک" +
+    " کنید";
+         this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+         // 
+         // labelControl31
+         // 
+         this.labelControl31.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+         this.labelControl31.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+         this.labelControl31.LineVisible = true;
+         this.labelControl31.Location = new System.Drawing.Point(6, 289);
+         this.labelControl31.Name = "labelControl31";
+         this.labelControl31.Size = new System.Drawing.Size(574, 13);
+         this.labelControl31.TabIndex = 80;
+         // 
+         // gridControl6
+         // 
+         this.gridControl6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+         this.gridControl6.DataSource = this.OdstBs;
+         this.gridControl6.Location = new System.Drawing.Point(6, 46);
+         this.gridControl6.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
+         this.gridControl6.MainView = this.gridView6;
+         this.gridControl6.Name = "gridControl6";
+         this.gridControl6.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.repositoryItemButtonEdit1,
+            this.persianRepositoryItemDateEdit3,
+            this.repositoryItemLookUpEdit2});
+         this.gridControl6.Size = new System.Drawing.Size(574, 237);
+         this.gridControl6.TabIndex = 79;
+         this.gridControl6.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView6});
+         // 
+         // OdstBs
+         // 
+         this.OdstBs.DataMember = "Order_States";
+         this.OdstBs.DataSource = this.Ordr4Bs;
+         // 
+         // gridView6
+         // 
+         this.gridView6.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 9F);
+         this.gridView6.Appearance.HeaderPanel.Options.UseFont = true;
+         this.gridView6.Appearance.HeaderPanel.Options.UseTextOptions = true;
+         this.gridView6.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         this.gridView6.Appearance.Row.Font = new System.Drawing.Font("Iranian Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.gridView6.Appearance.Row.Options.UseFont = true;
+         this.gridView6.Appearance.Row.Options.UseTextOptions = true;
+         this.gridView6.Appearance.Row.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         this.gridView6.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+         this.gridView6.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn13,
+            this.gridColumn14,
+            this.gridColumn15,
+            this.gridColumn16,
+            this.gridColumn17,
+            this.gridColumn18,
+            this.gridColumn19,
+            this.gridColumn20,
+            this.gridColumn21,
+            this.gridColumn22,
+            this.gridColumn23,
+            this.gridColumn24,
+            this.gridColumn25,
+            this.gridColumn26,
+            this.gridColumn27,
+            this.gridColumn28,
+            this.gridColumn29,
+            this.gridColumn30,
+            this.gridColumn31,
+            this.gridColumn32,
+            this.gridColumn33,
+            this.gridColumn34,
+            this.gridColumn35,
+            this.gridColumn36,
+            this.gridColumn37,
+            this.gridColumn38,
+            this.gridColumn39,
+            this.gridColumn40,
+            this.gridColumn41,
+            this.gridColumn42,
+            this.gridColumn43});
+         this.gridView6.GridControl = this.gridControl6;
+         this.gridView6.Name = "gridView6";
+         this.gridView6.OptionsFind.FindDelay = 100;
+         this.gridView6.OptionsSelection.EnableAppearanceFocusedCell = false;
+         this.gridView6.OptionsView.ShowColumnHeaders = false;
+         this.gridView6.OptionsView.ShowDetailButtons = false;
+         this.gridView6.OptionsView.ShowGroupPanel = false;
+         this.gridView6.OptionsView.ShowHorizontalLines = DevExpress.Utils.DefaultBoolean.False;
+         this.gridView6.OptionsView.ShowIndicator = false;
+         this.gridView6.OptionsView.ShowVerticalLines = DevExpress.Utils.DefaultBoolean.False;
+         this.gridView6.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
+            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.gridColumn19, DevExpress.Data.ColumnSortOrder.Ascending)});
+         // 
+         // gridColumn13
+         // 
+         this.gridColumn13.FieldName = "ORDR_CODE";
+         this.gridColumn13.Name = "gridColumn13";
+         this.gridColumn13.OptionsColumn.AllowEdit = false;
+         this.gridColumn13.OptionsColumn.ReadOnly = true;
+         // 
+         // gridColumn14
+         // 
+         this.gridColumn14.FieldName = "APBS_CODE";
+         this.gridColumn14.Name = "gridColumn14";
+         this.gridColumn14.OptionsColumn.AllowEdit = false;
+         this.gridColumn14.OptionsColumn.ReadOnly = true;
+         // 
+         // gridColumn15
+         // 
+         this.gridColumn15.Caption = " ";
+         this.gridColumn15.ColumnEdit = this.repositoryItemButtonEdit1;
+         this.gridColumn15.FieldName = "CODE";
+         this.gridColumn15.Name = "gridColumn15";
+         this.gridColumn15.OptionsColumn.FixedWidth = true;
+         this.gridColumn15.Visible = true;
+         this.gridColumn15.VisibleIndex = 0;
+         this.gridColumn15.Width = 35;
+         // 
+         // repositoryItemButtonEdit1
+         // 
+         this.repositoryItemButtonEdit1.AutoHeight = false;
+         this.repositoryItemButtonEdit1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+         serializableAppearanceObject5.BorderColor = System.Drawing.Color.Transparent;
+         serializableAppearanceObject5.Options.UseBorderColor = true;
+         this.repositoryItemButtonEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, global::System.RoboTech.Properties.Resources.IMAGE_1196, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, "", null, null, true)});
+         this.repositoryItemButtonEdit1.Name = "repositoryItemButtonEdit1";
+         this.repositoryItemButtonEdit1.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+         // 
+         // gridColumn16
+         // 
+         this.gridColumn16.FieldName = "DISC_DCID";
+         this.gridColumn16.Name = "gridColumn16";
+         this.gridColumn16.OptionsColumn.AllowEdit = false;
+         this.gridColumn16.OptionsColumn.ReadOnly = true;
+         // 
+         // gridColumn17
+         // 
+         this.gridColumn17.FieldName = "GIFC_GCID";
+         this.gridColumn17.Name = "gridColumn17";
+         this.gridColumn17.OptionsColumn.AllowEdit = false;
+         this.gridColumn17.OptionsColumn.ReadOnly = true;
+         // 
+         // gridColumn18
+         // 
+         this.gridColumn18.FieldName = "WLDT_CODE";
+         this.gridColumn18.Name = "gridColumn18";
+         this.gridColumn18.OptionsColumn.AllowEdit = false;
+         this.gridColumn18.OptionsColumn.ReadOnly = true;
+         // 
+         // gridColumn19
+         // 
+         this.gridColumn19.Caption = "تاریخ پرداخت";
+         this.gridColumn19.ColumnEdit = this.persianRepositoryItemDateEdit3;
+         this.gridColumn19.FieldName = "STAT_DATE";
+         this.gridColumn19.Name = "gridColumn19";
+         this.gridColumn19.OptionsColumn.AllowEdit = false;
+         this.gridColumn19.OptionsColumn.ReadOnly = true;
+         this.gridColumn19.Visible = true;
+         this.gridColumn19.VisibleIndex = 1;
+         this.gridColumn19.Width = 111;
+         // 
+         // persianRepositoryItemDateEdit3
+         // 
+         this.persianRepositoryItemDateEdit3.AutoHeight = false;
+         this.persianRepositoryItemDateEdit3.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+         this.persianRepositoryItemDateEdit3.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+         this.persianRepositoryItemDateEdit3.CalendarTimeProperties.CloseUpKey = new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.F4);
+         this.persianRepositoryItemDateEdit3.CalendarTimeProperties.PopupBorderStyle = DevExpress.XtraEditors.Controls.PopupBorderStyles.Default;
+         this.persianRepositoryItemDateEdit3.Name = "persianRepositoryItemDateEdit3";
+         // 
+         // gridColumn20
+         // 
+         this.gridColumn20.FieldName = "STAT_DESC";
+         this.gridColumn20.Name = "gridColumn20";
+         this.gridColumn20.OptionsColumn.AllowEdit = false;
+         this.gridColumn20.OptionsColumn.ReadOnly = true;
+         // 
+         // gridColumn21
+         // 
+         this.gridColumn21.Caption = "مبلغ";
+         this.gridColumn21.DisplayFormat.FormatString = "{0:n0}";
+         this.gridColumn21.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+         this.gridColumn21.FieldName = "AMNT";
+         this.gridColumn21.Name = "gridColumn21";
+         this.gridColumn21.OptionsColumn.AllowEdit = false;
+         this.gridColumn21.OptionsColumn.ReadOnly = true;
+         this.gridColumn21.Visible = true;
+         this.gridColumn21.VisibleIndex = 3;
+         this.gridColumn21.Width = 120;
+         // 
+         // gridColumn22
+         // 
+         this.gridColumn22.Caption = "نوع مبلغ";
+         this.gridColumn22.FieldName = "AMNT_TYPE";
+         this.gridColumn22.Name = "gridColumn22";
+         this.gridColumn22.OptionsColumn.AllowEdit = false;
+         this.gridColumn22.OptionsColumn.ReadOnly = true;
+         this.gridColumn22.Width = 82;
+         // 
+         // gridColumn23
+         // 
+         this.gridColumn23.Caption = "نوع پرداخت";
+         this.gridColumn23.ColumnEdit = this.repositoryItemLookUpEdit2;
+         this.gridColumn23.FieldName = "RCPT_MTOD";
+         this.gridColumn23.Name = "gridColumn23";
+         this.gridColumn23.OptionsColumn.AllowEdit = false;
+         this.gridColumn23.OptionsColumn.ReadOnly = true;
+         this.gridColumn23.Visible = true;
+         this.gridColumn23.VisibleIndex = 2;
+         this.gridColumn23.Width = 116;
+         // 
+         // repositoryItemLookUpEdit2
+         // 
+         this.repositoryItemLookUpEdit2.AutoHeight = false;
+         this.repositoryItemLookUpEdit2.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+         this.repositoryItemLookUpEdit2.DataSource = this.DRcmtBs;
+         this.repositoryItemLookUpEdit2.DisplayMember = "DOMN_DESC";
+         this.repositoryItemLookUpEdit2.Name = "repositoryItemLookUpEdit2";
+         this.repositoryItemLookUpEdit2.NullText = "";
+         this.repositoryItemLookUpEdit2.ValueMember = "VALU";
+         // 
+         // DRcmtBs
+         // 
+         this.DRcmtBs.DataSource = typeof(System.RoboTech.Data.D_RCMT);
+         // 
+         // gridColumn24
+         // 
+         this.gridColumn24.FieldName = "SORC_CARD_NUMB";
+         this.gridColumn24.Name = "gridColumn24";
+         this.gridColumn24.OptionsColumn.AllowEdit = false;
+         this.gridColumn24.OptionsColumn.ReadOnly = true;
+         // 
+         // gridColumn25
+         // 
+         this.gridColumn25.FieldName = "DEST_CARD_NUMB";
+         this.gridColumn25.Name = "gridColumn25";
+         this.gridColumn25.OptionsColumn.AllowEdit = false;
+         this.gridColumn25.OptionsColumn.ReadOnly = true;
+         // 
+         // gridColumn26
+         // 
+         this.gridColumn26.Caption = "شماره پیگیری";
+         this.gridColumn26.FieldName = "TXID";
+         this.gridColumn26.Name = "gridColumn26";
+         this.gridColumn26.OptionsColumn.AllowEdit = false;
+         this.gridColumn26.OptionsColumn.ReadOnly = true;
+         // 
+         // gridColumn27
+         // 
+         this.gridColumn27.FieldName = "TXFE_PRCT";
+         this.gridColumn27.Name = "gridColumn27";
+         this.gridColumn27.OptionsColumn.AllowEdit = false;
+         this.gridColumn27.OptionsColumn.ReadOnly = true;
+         // 
+         // gridColumn28
+         // 
+         this.gridColumn28.FieldName = "TXFE_CALC_AMNT";
+         this.gridColumn28.Name = "gridColumn28";
+         this.gridColumn28.OptionsColumn.AllowEdit = false;
+         this.gridColumn28.OptionsColumn.ReadOnly = true;
+         // 
+         // gridColumn29
+         // 
+         this.gridColumn29.FieldName = "TXFE_AMNT";
+         this.gridColumn29.Name = "gridColumn29";
+         this.gridColumn29.OptionsColumn.AllowEdit = false;
+         this.gridColumn29.OptionsColumn.ReadOnly = true;
+         // 
+         // gridColumn30
+         // 
+         this.gridColumn30.FieldName = "FILE_ID";
+         this.gridColumn30.Name = "gridColumn30";
+         this.gridColumn30.OptionsColumn.AllowEdit = false;
+         this.gridColumn30.OptionsColumn.ReadOnly = true;
+         // 
+         // gridColumn31
+         // 
+         this.gridColumn31.FieldName = "FILE_TYPE";
+         this.gridColumn31.Name = "gridColumn31";
+         this.gridColumn31.OptionsColumn.AllowEdit = false;
+         this.gridColumn31.OptionsColumn.ReadOnly = true;
+         // 
+         // gridColumn32
+         // 
+         this.gridColumn32.FieldName = "CONF_STAT";
+         this.gridColumn32.Name = "gridColumn32";
+         this.gridColumn32.OptionsColumn.AllowEdit = false;
+         this.gridColumn32.OptionsColumn.ReadOnly = true;
+         // 
+         // gridColumn33
+         // 
+         this.gridColumn33.FieldName = "CONF_DATE";
+         this.gridColumn33.Name = "gridColumn33";
+         this.gridColumn33.OptionsColumn.AllowEdit = false;
+         this.gridColumn33.OptionsColumn.ReadOnly = true;
+         // 
+         // gridColumn34
+         // 
+         this.gridColumn34.FieldName = "CONF_DESC";
+         this.gridColumn34.Name = "gridColumn34";
+         this.gridColumn34.OptionsColumn.AllowEdit = false;
+         this.gridColumn34.OptionsColumn.ReadOnly = true;
+         // 
+         // gridColumn35
+         // 
+         this.gridColumn35.FieldName = "CRET_BY";
+         this.gridColumn35.Name = "gridColumn35";
+         this.gridColumn35.OptionsColumn.AllowEdit = false;
+         this.gridColumn35.OptionsColumn.ReadOnly = true;
+         // 
+         // gridColumn36
+         // 
+         this.gridColumn36.FieldName = "CRET_DATE";
+         this.gridColumn36.Name = "gridColumn36";
+         this.gridColumn36.OptionsColumn.AllowEdit = false;
+         this.gridColumn36.OptionsColumn.ReadOnly = true;
+         // 
+         // gridColumn37
+         // 
+         this.gridColumn37.FieldName = "MDFY_BY";
+         this.gridColumn37.Name = "gridColumn37";
+         this.gridColumn37.OptionsColumn.AllowEdit = false;
+         this.gridColumn37.OptionsColumn.ReadOnly = true;
+         // 
+         // gridColumn38
+         // 
+         this.gridColumn38.FieldName = "MDFY_DATE";
+         this.gridColumn38.Name = "gridColumn38";
+         this.gridColumn38.OptionsColumn.AllowEdit = false;
+         this.gridColumn38.OptionsColumn.ReadOnly = true;
+         // 
+         // gridColumn39
+         // 
+         this.gridColumn39.FieldName = "App_Base_Define";
+         this.gridColumn39.Name = "gridColumn39";
+         this.gridColumn39.OptionsColumn.AllowEdit = false;
+         this.gridColumn39.OptionsColumn.ReadOnly = true;
+         // 
+         // gridColumn40
+         // 
+         this.gridColumn40.FieldName = "Wallet_Detail";
+         this.gridColumn40.Name = "gridColumn40";
+         this.gridColumn40.OptionsColumn.AllowEdit = false;
+         this.gridColumn40.OptionsColumn.ReadOnly = true;
+         // 
+         // gridColumn41
+         // 
+         this.gridColumn41.FieldName = "Service_Robot_Discount_Card";
+         this.gridColumn41.Name = "gridColumn41";
+         this.gridColumn41.OptionsColumn.AllowEdit = false;
+         this.gridColumn41.OptionsColumn.ReadOnly = true;
+         // 
+         // gridColumn42
+         // 
+         this.gridColumn42.FieldName = "Service_Robot_Gift_Card";
+         this.gridColumn42.Name = "gridColumn42";
+         this.gridColumn42.OptionsColumn.AllowEdit = false;
+         this.gridColumn42.OptionsColumn.ReadOnly = true;
+         // 
+         // gridColumn43
+         // 
+         this.gridColumn43.FieldName = "Order";
+         this.gridColumn43.Name = "gridColumn43";
+         this.gridColumn43.OptionsColumn.AllowEdit = false;
+         this.gridColumn43.OptionsColumn.ReadOnly = true;
+         // 
+         // label10
+         // 
+         this.label10.BackColor = System.Drawing.Color.Moccasin;
+         this.label10.Dock = System.Windows.Forms.DockStyle.Top;
+         this.label10.Font = new System.Drawing.Font("IRAN Sans", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.label10.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+         this.label10.Location = new System.Drawing.Point(3, 3);
+         this.label10.Name = "label10";
+         this.label10.Size = new System.Drawing.Size(580, 40);
+         this.label10.TabIndex = 19;
+         this.label10.Text = "کوپن تخفیفات مشتری";
+         this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         // 
+         // roundedButton5
+         // 
+         this.roundedButton5.Active = true;
+         this.roundedButton5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+         this.roundedButton5.ButtonStyle = System.MaxUi.RoundedButton.ButtonStyles.Ellipse;
+         this.roundedButton5.Caption = "0 %";
+         this.roundedButton5.Font = new System.Drawing.Font("B Arshia", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.roundedButton5.GradientStyle = System.MaxUi.RoundedButton.GradientStyles.Vertical;
+         this.roundedButton5.HoverBorderColor = System.Drawing.Color.Gold;
+         this.roundedButton5.HoverColorA = System.Drawing.Color.LightGray;
+         this.roundedButton5.HoverColorB = System.Drawing.Color.LightGray;
+         this.roundedButton5.ImageProfile = global::System.RoboTech.Properties.Resources.IMAGE_1688;
+         this.roundedButton5.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+         this.roundedButton5.ImageVisiable = false;
+         this.roundedButton5.Location = new System.Drawing.Point(480, 308);
+         this.roundedButton5.Name = "roundedButton5";
+         this.roundedButton5.NormalBorderColor = System.Drawing.Color.Red;
+         this.roundedButton5.NormalColorA = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+         this.roundedButton5.NormalColorB = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(81)))), ((int)(((byte)(81)))));
+         this.roundedButton5.Size = new System.Drawing.Size(100, 100);
+         this.roundedButton5.SmoothingQuality = System.MaxUi.RoundedButton.SmoothingQualities.AntiAlias;
+         this.roundedButton5.TabIndex = 16;
+         this.roundedButton5.Tooltip = null;
          // 
          // tp_000_001_004
          // 
@@ -2831,26 +3422,76 @@
          this.tp_000_001_004.Location = new System.Drawing.Point(4, 23);
          this.tp_000_001_004.Name = "tp_000_001_004";
          this.tp_000_001_004.Padding = new System.Windows.Forms.Padding(3);
-         this.tp_000_001_004.Size = new System.Drawing.Size(585, 411);
+         this.tp_000_001_004.Size = new System.Drawing.Size(586, 414);
          this.tp_000_001_004.TabIndex = 3;
          this.tp_000_001_004.Text = "یادداشت صورتحساب";
          this.tp_000_001_004.UseVisualStyleBackColor = true;
          // 
+         // c1Button6
+         // 
+         this.c1Button6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+         this.c1Button6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(175)))), ((int)(((byte)(89)))));
+         this.c1Button6.FlatAppearance.BorderColor = System.Drawing.Color.Green;
+         this.c1Button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+         this.c1Button6.Font = new System.Drawing.Font("IRANSans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.c1Button6.Image = global::System.RoboTech.Properties.Resources.IMAGE_1731;
+         this.c1Button6.Location = new System.Drawing.Point(444, 356);
+         this.c1Button6.Name = "c1Button6";
+         this.c1Button6.Size = new System.Drawing.Size(132, 52);
+         this.c1Button6.TabIndex = 49;
+         this.c1Button6.Text = "ثبت یاداشت";
+         this.c1Button6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+         this.c1Button6.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+         this.c1Button6.UseVisualStyleBackColor = false;
+         // 
+         // memoEdit1
+         // 
+         this.memoEdit1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+         this.memoEdit1.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.Ordr4Bs, "ORDR_DESC", true));
+         this.memoEdit1.Location = new System.Drawing.Point(8, 46);
+         this.memoEdit1.Name = "memoEdit1";
+         this.memoEdit1.Properties.Appearance.Font = new System.Drawing.Font("IRANSans", 9F);
+         this.memoEdit1.Properties.Appearance.Options.UseFont = true;
+         this.memoEdit1.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+         this.memoEdit1.Properties.AppearanceFocused.Options.UseBackColor = true;
+         this.memoEdit1.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
+         this.memoEdit1.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.memoEdit1.Properties.NullText = "یاداشت صورتحساب ...";
+         this.memoEdit1.Properties.NullValuePrompt = "یاداشت صورتحساب ...";
+         this.memoEdit1.Properties.NullValuePromptShowForEmptyValue = true;
+         this.memoEdit1.Size = new System.Drawing.Size(570, 304);
+         this.memoEdit1.TabIndex = 38;
+         // 
+         // label9
+         // 
+         this.label9.BackColor = System.Drawing.Color.Moccasin;
+         this.label9.Dock = System.Windows.Forms.DockStyle.Top;
+         this.label9.Font = new System.Drawing.Font("IRAN Sans", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.label9.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+         this.label9.Location = new System.Drawing.Point(3, 3);
+         this.label9.Name = "label9";
+         this.label9.Size = new System.Drawing.Size(580, 40);
+         this.label9.TabIndex = 18;
+         this.label9.Text = "یاداشت صورتحساب";
+         this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         // 
          // tp_000_001_005
          // 
          this.tp_000_001_005.Controls.Add(this.ServAdrs_Pn);
-         this.tp_000_001_005.Controls.Add(this.roundedButton4);
-         this.tp_000_001_005.Controls.Add(this.roundedButton3);
-         this.tp_000_001_005.Controls.Add(this.roundedButton2);
+         this.tp_000_001_005.Controls.Add(this.Ship004_Butn);
+         this.tp_000_001_005.Controls.Add(this.Ship003_Butn);
+         this.tp_000_001_005.Controls.Add(this.Ship002_Butn);
          this.tp_000_001_005.Controls.Add(this.label15);
          this.tp_000_001_005.Controls.Add(this.label14);
          this.tp_000_001_005.Controls.Add(this.label13);
          this.tp_000_001_005.Controls.Add(this.label12);
-         this.tp_000_001_005.Controls.Add(this.roundedButton1);
+         this.tp_000_001_005.Controls.Add(this.Ship001_Butn);
          this.tp_000_001_005.Controls.Add(this.label2);
          this.tp_000_001_005.Location = new System.Drawing.Point(4, 23);
          this.tp_000_001_005.Name = "tp_000_001_005";
-         this.tp_000_001_005.Size = new System.Drawing.Size(585, 411);
+         this.tp_000_001_005.Size = new System.Drawing.Size(586, 414);
          this.tp_000_001_005.TabIndex = 4;
          this.tp_000_001_005.Text = "ارسال سفارش";
          this.tp_000_001_005.UseVisualStyleBackColor = true;
@@ -2872,7 +3513,7 @@
          this.ServAdrs_Pn.Controls.Add(this.OrdrServAdrs_Txt);
          this.ServAdrs_Pn.Location = new System.Drawing.Point(3, 149);
          this.ServAdrs_Pn.Name = "ServAdrs_Pn";
-         this.ServAdrs_Pn.Size = new System.Drawing.Size(578, 257);
+         this.ServAdrs_Pn.Size = new System.Drawing.Size(579, 260);
          this.ServAdrs_Pn.TabIndex = 43;
          // 
          // SaveAdrsFrm1_Butn
@@ -2883,7 +3524,7 @@
          this.SaveAdrsFrm1_Butn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
          this.SaveAdrsFrm1_Butn.Font = new System.Drawing.Font("IRANSans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.SaveAdrsFrm1_Butn.Image = global::System.RoboTech.Properties.Resources.IMAGE_1731;
-         this.SaveAdrsFrm1_Butn.Location = new System.Drawing.Point(34, 197);
+         this.SaveAdrsFrm1_Butn.Location = new System.Drawing.Point(35, 200);
          this.SaveAdrsFrm1_Butn.Name = "SaveAdrsFrm1_Butn";
          this.SaveAdrsFrm1_Butn.Size = new System.Drawing.Size(132, 52);
          this.SaveAdrsFrm1_Butn.TabIndex = 48;
@@ -2919,7 +3560,7 @@
          this.ServAdrs_Lov.Properties.PopupResizeMode = DevExpress.XtraEditors.Controls.ResizeMode.LiveResize;
          this.ServAdrs_Lov.Properties.ValueMember = "RWNO";
          this.ServAdrs_Lov.Properties.View = this.gridView12;
-         this.ServAdrs_Lov.Size = new System.Drawing.Size(569, 22);
+         this.ServAdrs_Lov.Size = new System.Drawing.Size(570, 22);
          this.ServAdrs_Lov.TabIndex = 51;
          this.ServAdrs_Lov.EditValueChanging += new DevExpress.XtraEditors.Controls.ChangingEventHandler(this.ServAdrs_Lov_EditValueChanging);
          // 
@@ -3050,7 +3691,7 @@
          this.ShowDestGoogleMap_Butn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
          this.ShowDestGoogleMap_Butn.Font = new System.Drawing.Font("IRANSans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.ShowDestGoogleMap_Butn.Image = global::System.RoboTech.Properties.Resources.IMAGE_1683;
-         this.ShowDestGoogleMap_Butn.Location = new System.Drawing.Point(172, 197);
+         this.ShowDestGoogleMap_Butn.Location = new System.Drawing.Point(173, 200);
          this.ShowDestGoogleMap_Butn.Name = "ShowDestGoogleMap_Butn";
          this.ShowDestGoogleMap_Butn.Size = new System.Drawing.Size(184, 52);
          this.ShowDestGoogleMap_Butn.TabIndex = 50;
@@ -3059,10 +3700,27 @@
          this.ShowDestGoogleMap_Butn.UseVisualStyleBackColor = false;
          this.ShowDestGoogleMap_Butn.Click += new System.EventHandler(this.ShowDestGoogleMap_Butn_Click);
          // 
+         // label7
+         // 
+         this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+         this.label7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(81)))), ((int)(((byte)(81)))));
+         this.label7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+         this.label7.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.label7.ForeColor = System.Drawing.Color.White;
+         this.label7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+         this.label7.Location = new System.Drawing.Point(3, 30);
+         this.label7.Name = "label7";
+         this.label7.Size = new System.Drawing.Size(570, 60);
+         this.label7.TabIndex = 38;
+         this.label7.Text = "در صورتی که آدرس مورد نظر شما در لیست وجود ندارد، میتوانید از باکس پایین آدرس جدی" +
+    "د خود را ثبت کنید";
+         this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+         // 
          // OrdrCordY_Txt
          // 
          this.OrdrCordY_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-         this.OrdrCordY_Txt.Location = new System.Drawing.Point(362, 227);
+         this.OrdrCordY_Txt.Location = new System.Drawing.Point(363, 230);
          this.OrdrCordY_Txt.Name = "OrdrCordY_Txt";
          this.OrdrCordY_Txt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.OrdrCordY_Txt.Properties.Appearance.Options.UseFont = true;
@@ -3079,7 +3737,7 @@
          // OrdrCordX_Txt
          // 
          this.OrdrCordX_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-         this.OrdrCordX_Txt.Location = new System.Drawing.Point(362, 199);
+         this.OrdrCordX_Txt.Location = new System.Drawing.Point(363, 202);
          this.OrdrCordX_Txt.Name = "OrdrCordX_Txt";
          this.OrdrCordX_Txt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.OrdrCordX_Txt.Properties.Appearance.Options.UseFont = true;
@@ -3109,104 +3767,156 @@
          this.OrdrServAdrs_Txt.Properties.NullText = "آدرس جدید خود را وارد کنید ...";
          this.OrdrServAdrs_Txt.Properties.NullValuePrompt = "آدرس جدید خود را وارد کنید ...";
          this.OrdrServAdrs_Txt.Properties.NullValuePromptShowForEmptyValue = true;
-         this.OrdrServAdrs_Txt.Size = new System.Drawing.Size(569, 74);
+         this.OrdrServAdrs_Txt.Size = new System.Drawing.Size(570, 77);
          this.OrdrServAdrs_Txt.TabIndex = 37;
          // 
-         // roundedButton4
+         // Ship004_Butn
          // 
-         this.roundedButton4.Active = true;
-         this.roundedButton4.Anchor = System.Windows.Forms.AnchorStyles.Top;
-         this.roundedButton4.ButtonStyle = System.MaxUi.RoundedButton.ButtonStyles.Ellipse;
-         this.roundedButton4.Caption = "";
-         this.roundedButton4.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold);
-         this.roundedButton4.GradientStyle = System.MaxUi.RoundedButton.GradientStyles.Vertical;
-         this.roundedButton4.HoverBorderColor = System.Drawing.Color.Gold;
-         this.roundedButton4.HoverColorA = System.Drawing.Color.LightGray;
-         this.roundedButton4.HoverColorB = System.Drawing.Color.LightGray;
-         this.roundedButton4.ImageProfile = global::System.RoboTech.Properties.Resources.IMAGE_1754;
-         this.roundedButton4.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-         this.roundedButton4.ImageVisiable = true;
-         this.roundedButton4.Location = new System.Drawing.Point(75, 42);
-         this.roundedButton4.Name = "roundedButton4";
-         this.roundedButton4.NormalBorderColor = System.Drawing.Color.Gainsboro;
-         this.roundedButton4.NormalColorA = System.Drawing.Color.White;
-         this.roundedButton4.NormalColorB = System.Drawing.Color.White;
-         this.roundedButton4.Size = new System.Drawing.Size(80, 77);
-         this.roundedButton4.SmoothingQuality = System.MaxUi.RoundedButton.SmoothingQualities.HighQuality;
-         this.roundedButton4.TabIndex = 16;
-         this.roundedButton4.Tooltip = null;
+         this.Ship004_Butn.Active = true;
+         this.Ship004_Butn.Anchor = System.Windows.Forms.AnchorStyles.Top;
+         this.Ship004_Butn.ButtonStyle = System.MaxUi.RoundedButton.ButtonStyles.Ellipse;
+         this.Ship004_Butn.Caption = "";
+         this.Ship004_Butn.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold);
+         this.Ship004_Butn.GradientStyle = System.MaxUi.RoundedButton.GradientStyles.Vertical;
+         this.Ship004_Butn.HoverBorderColor = System.Drawing.Color.Gold;
+         this.Ship004_Butn.HoverColorA = System.Drawing.Color.LightGray;
+         this.Ship004_Butn.HoverColorB = System.Drawing.Color.LightGray;
+         this.Ship004_Butn.ImageProfile = global::System.RoboTech.Properties.Resources.IMAGE_1754;
+         this.Ship004_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+         this.Ship004_Butn.ImageVisiable = false;
+         this.Ship004_Butn.Location = new System.Drawing.Point(76, 42);
+         this.Ship004_Butn.Name = "Ship004_Butn";
+         this.Ship004_Butn.NormalBorderColor = System.Drawing.Color.Gainsboro;
+         this.Ship004_Butn.NormalColorA = System.Drawing.Color.White;
+         this.Ship004_Butn.NormalColorB = System.Drawing.Color.White;
+         this.Ship004_Butn.Size = new System.Drawing.Size(80, 77);
+         this.Ship004_Butn.SmoothingQuality = System.MaxUi.RoundedButton.SmoothingQualities.HighQuality;
+         this.Ship004_Butn.TabIndex = 16;
+         this.Ship004_Butn.Tag = "004";
+         this.Ship004_Butn.Tooltip = null;
+         this.Ship004_Butn.Click += new System.EventHandler(this.ShipOprt_Butn_Click);
          // 
-         // roundedButton3
+         // Ship003_Butn
          // 
-         this.roundedButton3.Active = true;
-         this.roundedButton3.Anchor = System.Windows.Forms.AnchorStyles.Top;
-         this.roundedButton3.ButtonStyle = System.MaxUi.RoundedButton.ButtonStyles.Ellipse;
-         this.roundedButton3.Caption = "";
-         this.roundedButton3.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold);
-         this.roundedButton3.GradientStyle = System.MaxUi.RoundedButton.GradientStyles.Vertical;
-         this.roundedButton3.HoverBorderColor = System.Drawing.Color.Gold;
-         this.roundedButton3.HoverColorA = System.Drawing.Color.LightGray;
-         this.roundedButton3.HoverColorB = System.Drawing.Color.LightGray;
-         this.roundedButton3.ImageProfile = global::System.RoboTech.Properties.Resources.IMAGE_1156;
-         this.roundedButton3.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-         this.roundedButton3.ImageVisiable = true;
-         this.roundedButton3.Location = new System.Drawing.Point(193, 42);
-         this.roundedButton3.Name = "roundedButton3";
-         this.roundedButton3.NormalBorderColor = System.Drawing.Color.Gainsboro;
-         this.roundedButton3.NormalColorA = System.Drawing.Color.White;
-         this.roundedButton3.NormalColorB = System.Drawing.Color.White;
-         this.roundedButton3.Size = new System.Drawing.Size(80, 77);
-         this.roundedButton3.SmoothingQuality = System.MaxUi.RoundedButton.SmoothingQualities.HighQuality;
-         this.roundedButton3.TabIndex = 16;
-         this.roundedButton3.Tooltip = null;
+         this.Ship003_Butn.Active = true;
+         this.Ship003_Butn.Anchor = System.Windows.Forms.AnchorStyles.Top;
+         this.Ship003_Butn.ButtonStyle = System.MaxUi.RoundedButton.ButtonStyles.Ellipse;
+         this.Ship003_Butn.Caption = "";
+         this.Ship003_Butn.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold);
+         this.Ship003_Butn.GradientStyle = System.MaxUi.RoundedButton.GradientStyles.Vertical;
+         this.Ship003_Butn.HoverBorderColor = System.Drawing.Color.Gold;
+         this.Ship003_Butn.HoverColorA = System.Drawing.Color.LightGray;
+         this.Ship003_Butn.HoverColorB = System.Drawing.Color.LightGray;
+         this.Ship003_Butn.ImageProfile = global::System.RoboTech.Properties.Resources.IMAGE_1156;
+         this.Ship003_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+         this.Ship003_Butn.ImageVisiable = false;
+         this.Ship003_Butn.Location = new System.Drawing.Point(194, 42);
+         this.Ship003_Butn.Name = "Ship003_Butn";
+         this.Ship003_Butn.NormalBorderColor = System.Drawing.Color.Gainsboro;
+         this.Ship003_Butn.NormalColorA = System.Drawing.Color.White;
+         this.Ship003_Butn.NormalColorB = System.Drawing.Color.White;
+         this.Ship003_Butn.Size = new System.Drawing.Size(80, 77);
+         this.Ship003_Butn.SmoothingQuality = System.MaxUi.RoundedButton.SmoothingQualities.HighQuality;
+         this.Ship003_Butn.TabIndex = 16;
+         this.Ship003_Butn.Tag = "003";
+         this.Ship003_Butn.Tooltip = null;
+         this.Ship003_Butn.Click += new System.EventHandler(this.ShipOprt_Butn_Click);
          // 
-         // roundedButton2
+         // Ship002_Butn
          // 
-         this.roundedButton2.Active = true;
-         this.roundedButton2.Anchor = System.Windows.Forms.AnchorStyles.Top;
-         this.roundedButton2.ButtonStyle = System.MaxUi.RoundedButton.ButtonStyles.Ellipse;
-         this.roundedButton2.Caption = "";
-         this.roundedButton2.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold);
-         this.roundedButton2.GradientStyle = System.MaxUi.RoundedButton.GradientStyles.Vertical;
-         this.roundedButton2.HoverBorderColor = System.Drawing.Color.Gold;
-         this.roundedButton2.HoverColorA = System.Drawing.Color.LightGray;
-         this.roundedButton2.HoverColorB = System.Drawing.Color.LightGray;
-         this.roundedButton2.ImageProfile = global::System.RoboTech.Properties.Resources.IMAGE_1753;
-         this.roundedButton2.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-         this.roundedButton2.ImageVisiable = true;
-         this.roundedButton2.Location = new System.Drawing.Point(311, 42);
-         this.roundedButton2.Name = "roundedButton2";
-         this.roundedButton2.NormalBorderColor = System.Drawing.Color.Gainsboro;
-         this.roundedButton2.NormalColorA = System.Drawing.Color.White;
-         this.roundedButton2.NormalColorB = System.Drawing.Color.White;
-         this.roundedButton2.Size = new System.Drawing.Size(80, 77);
-         this.roundedButton2.SmoothingQuality = System.MaxUi.RoundedButton.SmoothingQualities.HighQuality;
-         this.roundedButton2.TabIndex = 16;
-         this.roundedButton2.Tooltip = null;
+         this.Ship002_Butn.Active = true;
+         this.Ship002_Butn.Anchor = System.Windows.Forms.AnchorStyles.Top;
+         this.Ship002_Butn.ButtonStyle = System.MaxUi.RoundedButton.ButtonStyles.Ellipse;
+         this.Ship002_Butn.Caption = "";
+         this.Ship002_Butn.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold);
+         this.Ship002_Butn.GradientStyle = System.MaxUi.RoundedButton.GradientStyles.Vertical;
+         this.Ship002_Butn.HoverBorderColor = System.Drawing.Color.Gold;
+         this.Ship002_Butn.HoverColorA = System.Drawing.Color.LightGray;
+         this.Ship002_Butn.HoverColorB = System.Drawing.Color.LightGray;
+         this.Ship002_Butn.ImageProfile = global::System.RoboTech.Properties.Resources.IMAGE_1753;
+         this.Ship002_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+         this.Ship002_Butn.ImageVisiable = false;
+         this.Ship002_Butn.Location = new System.Drawing.Point(312, 42);
+         this.Ship002_Butn.Name = "Ship002_Butn";
+         this.Ship002_Butn.NormalBorderColor = System.Drawing.Color.Gainsboro;
+         this.Ship002_Butn.NormalColorA = System.Drawing.Color.White;
+         this.Ship002_Butn.NormalColorB = System.Drawing.Color.White;
+         this.Ship002_Butn.Size = new System.Drawing.Size(80, 77);
+         this.Ship002_Butn.SmoothingQuality = System.MaxUi.RoundedButton.SmoothingQualities.HighQuality;
+         this.Ship002_Butn.TabIndex = 16;
+         this.Ship002_Butn.Tag = "002";
+         this.Ship002_Butn.Tooltip = null;
+         this.Ship002_Butn.Click += new System.EventHandler(this.ShipOprt_Butn_Click);
          // 
-         // roundedButton1
+         // label15
          // 
-         this.roundedButton1.Active = true;
-         this.roundedButton1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-         this.roundedButton1.ButtonStyle = System.MaxUi.RoundedButton.ButtonStyles.Ellipse;
-         this.roundedButton1.Caption = "";
-         this.roundedButton1.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold);
-         this.roundedButton1.GradientStyle = System.MaxUi.RoundedButton.GradientStyles.Vertical;
-         this.roundedButton1.HoverBorderColor = System.Drawing.Color.Gold;
-         this.roundedButton1.HoverColorA = System.Drawing.Color.LightGray;
-         this.roundedButton1.HoverColorB = System.Drawing.Color.LightGray;
-         this.roundedButton1.ImageProfile = global::System.RoboTech.Properties.Resources.IMAGE_1751;
-         this.roundedButton1.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-         this.roundedButton1.ImageVisiable = true;
-         this.roundedButton1.Location = new System.Drawing.Point(429, 42);
-         this.roundedButton1.Name = "roundedButton1";
-         this.roundedButton1.NormalBorderColor = System.Drawing.Color.Gainsboro;
-         this.roundedButton1.NormalColorA = System.Drawing.Color.White;
-         this.roundedButton1.NormalColorB = System.Drawing.Color.White;
-         this.roundedButton1.Size = new System.Drawing.Size(80, 77);
-         this.roundedButton1.SmoothingQuality = System.MaxUi.RoundedButton.SmoothingQualities.HighQuality;
-         this.roundedButton1.TabIndex = 16;
-         this.roundedButton1.Tooltip = null;
+         this.label15.Anchor = System.Windows.Forms.AnchorStyles.Top;
+         this.label15.Font = new System.Drawing.Font("IRANSans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.label15.Location = new System.Drawing.Point(90, 122);
+         this.label15.Name = "label15";
+         this.label15.Size = new System.Drawing.Size(52, 24);
+         this.label15.TabIndex = 38;
+         this.label15.Text = "تیپاکس";
+         this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         // 
+         // label14
+         // 
+         this.label14.Anchor = System.Windows.Forms.AnchorStyles.Top;
+         this.label14.Font = new System.Drawing.Font("IRANSans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.label14.Location = new System.Drawing.Point(189, 122);
+         this.label14.Name = "label14";
+         this.label14.Size = new System.Drawing.Size(90, 24);
+         this.label14.TabIndex = 38;
+         this.label14.Text = "تحویل به باربری";
+         this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         // 
+         // label13
+         // 
+         this.label13.Anchor = System.Windows.Forms.AnchorStyles.Top;
+         this.label13.Font = new System.Drawing.Font("IRANSans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.label13.Location = new System.Drawing.Point(292, 122);
+         this.label13.Name = "label13";
+         this.label13.Size = new System.Drawing.Size(121, 24);
+         this.label13.TabIndex = 38;
+         this.label13.Text = "تحویل به پیک موتوری";
+         this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         // 
+         // label12
+         // 
+         this.label12.Anchor = System.Windows.Forms.AnchorStyles.Top;
+         this.label12.Font = new System.Drawing.Font("IRANSans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.label12.Location = new System.Drawing.Point(416, 122);
+         this.label12.Name = "label12";
+         this.label12.Size = new System.Drawing.Size(109, 24);
+         this.label12.TabIndex = 38;
+         this.label12.Text = "تحویل درب فروشگاه";
+         this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         // 
+         // Ship001_Butn
+         // 
+         this.Ship001_Butn.Active = true;
+         this.Ship001_Butn.Anchor = System.Windows.Forms.AnchorStyles.Top;
+         this.Ship001_Butn.ButtonStyle = System.MaxUi.RoundedButton.ButtonStyles.Ellipse;
+         this.Ship001_Butn.Caption = "";
+         this.Ship001_Butn.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold);
+         this.Ship001_Butn.GradientStyle = System.MaxUi.RoundedButton.GradientStyles.Vertical;
+         this.Ship001_Butn.HoverBorderColor = System.Drawing.Color.Gold;
+         this.Ship001_Butn.HoverColorA = System.Drawing.Color.LightGray;
+         this.Ship001_Butn.HoverColorB = System.Drawing.Color.LightGray;
+         this.Ship001_Butn.ImageProfile = global::System.RoboTech.Properties.Resources.IMAGE_1751;
+         this.Ship001_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+         this.Ship001_Butn.ImageVisiable = false;
+         this.Ship001_Butn.Location = new System.Drawing.Point(430, 42);
+         this.Ship001_Butn.Name = "Ship001_Butn";
+         this.Ship001_Butn.NormalBorderColor = System.Drawing.Color.Gainsboro;
+         this.Ship001_Butn.NormalColorA = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+         this.Ship001_Butn.NormalColorB = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+         this.Ship001_Butn.Size = new System.Drawing.Size(80, 77);
+         this.Ship001_Butn.SmoothingQuality = System.MaxUi.RoundedButton.SmoothingQualities.HighQuality;
+         this.Ship001_Butn.TabIndex = 16;
+         this.Ship001_Butn.Tag = "001";
+         this.Ship001_Butn.Tooltip = null;
+         this.Ship001_Butn.Click += new System.EventHandler(this.ShipOprt_Butn_Click);
          // 
          // label2
          // 
@@ -3216,7 +3926,7 @@
          this.label2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
          this.label2.Location = new System.Drawing.Point(0, 0);
          this.label2.Name = "label2";
-         this.label2.Size = new System.Drawing.Size(585, 40);
+         this.label2.Size = new System.Drawing.Size(586, 40);
          this.label2.TabIndex = 17;
          this.label2.Text = "نحوه ارسال سفارش";
          this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -3227,7 +3937,7 @@
          this.labelControl3.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("labelControl3.Appearance.Image")));
          this.labelControl3.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
          this.labelControl3.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightTop;
-         this.labelControl3.Location = new System.Drawing.Point(491, 99);
+         this.labelControl3.Location = new System.Drawing.Point(492, 99);
          this.labelControl3.Name = "labelControl3";
          this.labelControl3.Size = new System.Drawing.Size(21, 20);
          this.labelControl3.TabIndex = 18;
@@ -3238,7 +3948,7 @@
          this.labelControl2.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("labelControl2.Appearance.Image")));
          this.labelControl2.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
          this.labelControl2.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightTop;
-         this.labelControl2.Location = new System.Drawing.Point(491, 73);
+         this.labelControl2.Location = new System.Drawing.Point(492, 73);
          this.labelControl2.Name = "labelControl2";
          this.labelControl2.Size = new System.Drawing.Size(21, 20);
          this.labelControl2.TabIndex = 18;
@@ -3250,7 +3960,7 @@
          this.labelControl1.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("labelControl1.Appearance.Image")));
          this.labelControl1.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
          this.labelControl1.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightTop;
-         this.labelControl1.Location = new System.Drawing.Point(491, 48);
+         this.labelControl1.Location = new System.Drawing.Point(492, 48);
          this.labelControl1.Name = "labelControl1";
          this.labelControl1.Size = new System.Drawing.Size(21, 20);
          this.labelControl1.TabIndex = 18;
@@ -3261,7 +3971,7 @@
          this.SrbtOrdr25Cont_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.SrbtOrdr25Cont_Lb.Font = new System.Drawing.Font("B Koodak", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.SrbtOrdr25Cont_Lb.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-         this.SrbtOrdr25Cont_Lb.Location = new System.Drawing.Point(527, 120);
+         this.SrbtOrdr25Cont_Lb.Location = new System.Drawing.Point(528, 120);
          this.SrbtOrdr25Cont_Lb.Name = "SrbtOrdr25Cont_Lb";
          this.SrbtOrdr25Cont_Lb.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
          this.SrbtOrdr25Cont_Lb.Size = new System.Drawing.Size(72, 49);
@@ -3273,7 +3983,7 @@
          // 
          this.SrbtOrdr25Indx_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.SrbtOrdr25Indx_Lb.Font = new System.Drawing.Font("B Koodak", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.SrbtOrdr25Indx_Lb.Location = new System.Drawing.Point(527, 42);
+         this.SrbtOrdr25Indx_Lb.Location = new System.Drawing.Point(528, 42);
          this.SrbtOrdr25Indx_Lb.Name = "SrbtOrdr25Indx_Lb";
          this.SrbtOrdr25Indx_Lb.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
          this.SrbtOrdr25Indx_Lb.Size = new System.Drawing.Size(72, 59);
@@ -3295,7 +4005,7 @@
          this.SrbtOrdrHistFrm1_Butn.ImageProfile = global::System.RoboTech.Properties.Resources.IMAGE_1688;
          this.SrbtOrdrHistFrm1_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
          this.SrbtOrdrHistFrm1_Butn.ImageVisiable = false;
-         this.SrbtOrdrHistFrm1_Butn.Location = new System.Drawing.Point(481, 3);
+         this.SrbtOrdrHistFrm1_Butn.Location = new System.Drawing.Point(482, 3);
          this.SrbtOrdrHistFrm1_Butn.Name = "SrbtOrdrHistFrm1_Butn";
          this.SrbtOrdrHistFrm1_Butn.NormalBorderColor = System.Drawing.Color.Gainsboro;
          this.SrbtOrdrHistFrm1_Butn.NormalColorA = System.Drawing.Color.White;
@@ -3311,7 +4021,7 @@
          this.tp_000_002.Location = new System.Drawing.Point(4, 23);
          this.tp_000_002.Name = "tp_000_002";
          this.tp_000_002.Padding = new System.Windows.Forms.Padding(3);
-         this.tp_000_002.Size = new System.Drawing.Size(602, 612);
+         this.tp_000_002.Size = new System.Drawing.Size(603, 612);
          this.tp_000_002.TabIndex = 1;
          this.tp_000_002.Text = "مشتریان";
          this.tp_000_002.UseVisualStyleBackColor = true;
@@ -3329,7 +4039,7 @@
             this.persianRepositoryItemDateEdit4,
             this.repositoryItemButtonEdit3,
             this.colActnSrbtFrm1});
-         this.gridControl4.Size = new System.Drawing.Size(596, 606);
+         this.gridControl4.Size = new System.Drawing.Size(597, 606);
          this.gridControl4.TabIndex = 7;
          this.gridControl4.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView4});
@@ -3520,7 +4230,7 @@
          this.tp_000_003.Location = new System.Drawing.Point(4, 23);
          this.tp_000_003.Name = "tp_000_003";
          this.tp_000_003.Padding = new System.Windows.Forms.Padding(3);
-         this.tp_000_003.Size = new System.Drawing.Size(602, 612);
+         this.tp_000_003.Size = new System.Drawing.Size(603, 612);
          this.tp_000_003.TabIndex = 2;
          this.tp_000_003.Text = "محصولات";
          this.tp_000_003.UseVisualStyleBackColor = true;
@@ -3536,7 +4246,7 @@
          this.gridControl1.Name = "gridControl1";
          this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemButtonEdit4});
-         this.gridControl1.Size = new System.Drawing.Size(596, 606);
+         this.gridControl1.Size = new System.Drawing.Size(597, 606);
          this.gridControl1.TabIndex = 10;
          this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -3690,7 +4400,7 @@
          this.splitContainerControl2.Panel1.Text = "Panel1";
          this.splitContainerControl2.Panel2.Controls.Add(this.SrbtFrm1_Txt);
          this.splitContainerControl2.Panel2.Text = "Panel2";
-         this.splitContainerControl2.Size = new System.Drawing.Size(610, 23);
+         this.splitContainerControl2.Size = new System.Drawing.Size(611, 23);
          this.splitContainerControl2.SplitterPosition = 313;
          this.splitContainerControl2.TabIndex = 39;
          this.splitContainerControl2.Text = "splitContainerControl2";
@@ -3744,7 +4454,7 @@
          this.SrbtFrm1_Txt.Properties.NullValuePrompt = "نام مشتری، شماره تلفن یا کد ملی را جستجو کن";
          this.SrbtFrm1_Txt.Properties.NullValuePromptShowForEmptyValue = true;
          this.SrbtFrm1_Txt.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-         this.SrbtFrm1_Txt.Size = new System.Drawing.Size(292, 24);
+         this.SrbtFrm1_Txt.Size = new System.Drawing.Size(293, 24);
          this.SrbtFrm1_Txt.TabIndex = 39;
          this.SrbtFrm1_Txt.EditValueChanging += new DevExpress.XtraEditors.Controls.ChangingEventHandler(this.SrbtFrm1_Txt_EditValueChanging);
          // 
@@ -4000,7 +4710,7 @@
          this.tabControl2.Name = "tabControl2";
          this.tabControl2.RightToLeftLayout = true;
          this.tabControl2.SelectedIndex = 0;
-         this.tabControl2.Size = new System.Drawing.Size(832, 483);
+         this.tabControl2.Size = new System.Drawing.Size(832, 486);
          this.tabControl2.TabIndex = 53;
          // 
          // tabPage2
@@ -4015,7 +4725,7 @@
          this.tabPage2.Location = new System.Drawing.Point(4, 23);
          this.tabPage2.Name = "tabPage2";
          this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-         this.tabPage2.Size = new System.Drawing.Size(824, 456);
+         this.tabPage2.Size = new System.Drawing.Size(824, 459);
          this.tabPage2.TabIndex = 0;
          this.tabPage2.Text = "اطلاعات کاربر فروشگاه";
          this.tabPage2.UseVisualStyleBackColor = true;
@@ -4085,7 +4795,7 @@
          this.tabPage3.Location = new System.Drawing.Point(4, 23);
          this.tabPage3.Name = "tabPage3";
          this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-         this.tabPage3.Size = new System.Drawing.Size(824, 456);
+         this.tabPage3.Size = new System.Drawing.Size(824, 459);
          this.tabPage3.TabIndex = 1;
          this.tabPage3.Text = "اقلام فاکتور";
          this.tabPage3.UseVisualStyleBackColor = true;
@@ -4102,7 +4812,7 @@
          this.splitContainerControl13.Panel1.Text = "Panel1";
          this.splitContainerControl13.Panel2.Controls.Add(this.flowLayoutPanel12);
          this.splitContainerControl13.Panel2.Text = "Panel2";
-         this.splitContainerControl13.Size = new System.Drawing.Size(818, 450);
+         this.splitContainerControl13.Size = new System.Drawing.Size(818, 453);
          this.splitContainerControl13.SplitterPosition = 127;
          this.splitContainerControl13.TabIndex = 0;
          this.splitContainerControl13.Text = "splitContainerControl13";
@@ -4118,7 +4828,7 @@
          this.gridControl10.Name = "gridControl10";
          this.gridControl10.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.OrdtActnFrm2_Butn});
-         this.gridControl10.Size = new System.Drawing.Size(818, 293);
+         this.gridControl10.Size = new System.Drawing.Size(818, 296);
          this.gridControl10.TabIndex = 62;
          this.gridControl10.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.Ordt4Stp2_Gv});
@@ -5647,10 +6357,6 @@
          this.textEdit8.TabIndex = 60;
          this.textEdit8.TabStop = false;
          // 
-         // DRcmtBs
-         // 
-         this.DRcmtBs.DataSource = typeof(System.RoboTech.Data.D_RCMT);
-         // 
          // Pos_Lov
          // 
          this.Pos_Lov.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -5843,11 +6549,6 @@
          this.gridControl5.TabIndex = 77;
          this.gridControl5.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
-         // 
-         // OdstBs
-         // 
-         this.OdstBs.DataMember = "Order_States";
-         this.OdstBs.DataSource = this.Ordr4Bs;
          // 
          // gridView2
          // 
@@ -6482,690 +7183,6 @@
          // 
          this.DAmutBs.DataSource = typeof(System.RoboTech.Data.D_AMUT);
          // 
-         // label6
-         // 
-         label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-         label6.AutoSize = true;
-         label6.Location = new System.Drawing.Point(541, 231);
-         label6.Name = "label6";
-         label6.Size = new System.Drawing.Size(23, 14);
-         label6.TabIndex = 38;
-         label6.Text = "Y :";
-         // 
-         // label7
-         // 
-         this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-         this.label7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(81)))), ((int)(((byte)(81)))));
-         this.label7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-         this.label7.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.label7.ForeColor = System.Drawing.Color.White;
-         this.label7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         this.label7.Location = new System.Drawing.Point(3, 30);
-         this.label7.Name = "label7";
-         this.label7.Size = new System.Drawing.Size(569, 60);
-         this.label7.TabIndex = 38;
-         this.label7.Text = "در صورتی که آدرس مورد نظر شما در لیست وجود ندارد، میتوانید از باکس پایین آدرس جدی" +
-    "د خود را ثبت کنید";
-         this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         // 
-         // label9
-         // 
-         this.label9.BackColor = System.Drawing.Color.Moccasin;
-         this.label9.Dock = System.Windows.Forms.DockStyle.Top;
-         this.label9.Font = new System.Drawing.Font("IRAN Sans", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.label9.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         this.label9.Location = new System.Drawing.Point(3, 3);
-         this.label9.Name = "label9";
-         this.label9.Size = new System.Drawing.Size(579, 40);
-         this.label9.TabIndex = 18;
-         this.label9.Text = "یاداشت صورتحساب";
-         this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         // 
-         // memoEdit1
-         // 
-         this.memoEdit1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-         this.memoEdit1.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.Ordr4Bs, "ORDR_DESC", true));
-         this.memoEdit1.Location = new System.Drawing.Point(8, 46);
-         this.memoEdit1.Name = "memoEdit1";
-         this.memoEdit1.Properties.Appearance.Font = new System.Drawing.Font("IRANSans", 9F);
-         this.memoEdit1.Properties.Appearance.Options.UseFont = true;
-         this.memoEdit1.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-         this.memoEdit1.Properties.AppearanceFocused.Options.UseBackColor = true;
-         this.memoEdit1.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
-         this.memoEdit1.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.memoEdit1.Properties.NullText = "یاداشت صورتحساب ...";
-         this.memoEdit1.Properties.NullValuePrompt = "یاداشت صورتحساب ...";
-         this.memoEdit1.Properties.NullValuePromptShowForEmptyValue = true;
-         this.memoEdit1.Size = new System.Drawing.Size(569, 301);
-         this.memoEdit1.TabIndex = 38;
-         // 
-         // c1Button6
-         // 
-         this.c1Button6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-         this.c1Button6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(175)))), ((int)(((byte)(89)))));
-         this.c1Button6.FlatAppearance.BorderColor = System.Drawing.Color.Green;
-         this.c1Button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-         this.c1Button6.Font = new System.Drawing.Font("IRANSans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.c1Button6.Image = global::System.RoboTech.Properties.Resources.IMAGE_1731;
-         this.c1Button6.Location = new System.Drawing.Point(443, 353);
-         this.c1Button6.Name = "c1Button6";
-         this.c1Button6.Size = new System.Drawing.Size(132, 52);
-         this.c1Button6.TabIndex = 49;
-         this.c1Button6.Text = "ثبت یاداشت";
-         this.c1Button6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         this.c1Button6.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-         this.c1Button6.UseVisualStyleBackColor = false;
-         // 
-         // label10
-         // 
-         this.label10.BackColor = System.Drawing.Color.Moccasin;
-         this.label10.Dock = System.Windows.Forms.DockStyle.Top;
-         this.label10.Font = new System.Drawing.Font("IRAN Sans", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.label10.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         this.label10.Location = new System.Drawing.Point(3, 3);
-         this.label10.Name = "label10";
-         this.label10.Size = new System.Drawing.Size(579, 40);
-         this.label10.TabIndex = 19;
-         this.label10.Text = "کوپن تخفیفات مشتری";
-         this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         // 
-         // gridControl6
-         // 
-         this.gridControl6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-         this.gridControl6.DataSource = this.OdstBs;
-         this.gridControl6.Location = new System.Drawing.Point(6, 46);
-         this.gridControl6.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
-         this.gridControl6.MainView = this.gridView6;
-         this.gridControl6.Name = "gridControl6";
-         this.gridControl6.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.repositoryItemButtonEdit1,
-            this.persianRepositoryItemDateEdit3,
-            this.repositoryItemLookUpEdit2});
-         this.gridControl6.Size = new System.Drawing.Size(573, 234);
-         this.gridControl6.TabIndex = 79;
-         this.gridControl6.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView6});
-         // 
-         // gridView6
-         // 
-         this.gridView6.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 9F);
-         this.gridView6.Appearance.HeaderPanel.Options.UseFont = true;
-         this.gridView6.Appearance.HeaderPanel.Options.UseTextOptions = true;
-         this.gridView6.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-         this.gridView6.Appearance.Row.Font = new System.Drawing.Font("Iranian Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.gridView6.Appearance.Row.Options.UseFont = true;
-         this.gridView6.Appearance.Row.Options.UseTextOptions = true;
-         this.gridView6.Appearance.Row.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-         this.gridView6.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-         this.gridView6.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.gridColumn13,
-            this.gridColumn14,
-            this.gridColumn15,
-            this.gridColumn16,
-            this.gridColumn17,
-            this.gridColumn18,
-            this.gridColumn19,
-            this.gridColumn20,
-            this.gridColumn21,
-            this.gridColumn22,
-            this.gridColumn23,
-            this.gridColumn24,
-            this.gridColumn25,
-            this.gridColumn26,
-            this.gridColumn27,
-            this.gridColumn28,
-            this.gridColumn29,
-            this.gridColumn30,
-            this.gridColumn31,
-            this.gridColumn32,
-            this.gridColumn33,
-            this.gridColumn34,
-            this.gridColumn35,
-            this.gridColumn36,
-            this.gridColumn37,
-            this.gridColumn38,
-            this.gridColumn39,
-            this.gridColumn40,
-            this.gridColumn41,
-            this.gridColumn42,
-            this.gridColumn43});
-         this.gridView6.GridControl = this.gridControl6;
-         this.gridView6.Name = "gridView6";
-         this.gridView6.OptionsFind.FindDelay = 100;
-         this.gridView6.OptionsSelection.EnableAppearanceFocusedCell = false;
-         this.gridView6.OptionsView.ShowColumnHeaders = false;
-         this.gridView6.OptionsView.ShowDetailButtons = false;
-         this.gridView6.OptionsView.ShowGroupPanel = false;
-         this.gridView6.OptionsView.ShowHorizontalLines = DevExpress.Utils.DefaultBoolean.False;
-         this.gridView6.OptionsView.ShowIndicator = false;
-         this.gridView6.OptionsView.ShowVerticalLines = DevExpress.Utils.DefaultBoolean.False;
-         this.gridView6.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
-            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.gridColumn19, DevExpress.Data.ColumnSortOrder.Ascending)});
-         // 
-         // gridColumn13
-         // 
-         this.gridColumn13.FieldName = "ORDR_CODE";
-         this.gridColumn13.Name = "gridColumn13";
-         this.gridColumn13.OptionsColumn.AllowEdit = false;
-         this.gridColumn13.OptionsColumn.ReadOnly = true;
-         // 
-         // gridColumn14
-         // 
-         this.gridColumn14.FieldName = "APBS_CODE";
-         this.gridColumn14.Name = "gridColumn14";
-         this.gridColumn14.OptionsColumn.AllowEdit = false;
-         this.gridColumn14.OptionsColumn.ReadOnly = true;
-         // 
-         // gridColumn15
-         // 
-         this.gridColumn15.Caption = " ";
-         this.gridColumn15.ColumnEdit = this.repositoryItemButtonEdit1;
-         this.gridColumn15.FieldName = "CODE";
-         this.gridColumn15.Name = "gridColumn15";
-         this.gridColumn15.OptionsColumn.FixedWidth = true;
-         this.gridColumn15.Visible = true;
-         this.gridColumn15.VisibleIndex = 0;
-         this.gridColumn15.Width = 35;
-         // 
-         // repositoryItemButtonEdit1
-         // 
-         this.repositoryItemButtonEdit1.AutoHeight = false;
-         this.repositoryItemButtonEdit1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-         serializableAppearanceObject5.BorderColor = System.Drawing.Color.Transparent;
-         serializableAppearanceObject5.Options.UseBorderColor = true;
-         this.repositoryItemButtonEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, global::System.RoboTech.Properties.Resources.IMAGE_1196, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, "", null, null, true)});
-         this.repositoryItemButtonEdit1.Name = "repositoryItemButtonEdit1";
-         this.repositoryItemButtonEdit1.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
-         // 
-         // gridColumn16
-         // 
-         this.gridColumn16.FieldName = "DISC_DCID";
-         this.gridColumn16.Name = "gridColumn16";
-         this.gridColumn16.OptionsColumn.AllowEdit = false;
-         this.gridColumn16.OptionsColumn.ReadOnly = true;
-         // 
-         // gridColumn17
-         // 
-         this.gridColumn17.FieldName = "GIFC_GCID";
-         this.gridColumn17.Name = "gridColumn17";
-         this.gridColumn17.OptionsColumn.AllowEdit = false;
-         this.gridColumn17.OptionsColumn.ReadOnly = true;
-         // 
-         // gridColumn18
-         // 
-         this.gridColumn18.FieldName = "WLDT_CODE";
-         this.gridColumn18.Name = "gridColumn18";
-         this.gridColumn18.OptionsColumn.AllowEdit = false;
-         this.gridColumn18.OptionsColumn.ReadOnly = true;
-         // 
-         // gridColumn19
-         // 
-         this.gridColumn19.Caption = "تاریخ پرداخت";
-         this.gridColumn19.ColumnEdit = this.persianRepositoryItemDateEdit3;
-         this.gridColumn19.FieldName = "STAT_DATE";
-         this.gridColumn19.Name = "gridColumn19";
-         this.gridColumn19.OptionsColumn.AllowEdit = false;
-         this.gridColumn19.OptionsColumn.ReadOnly = true;
-         this.gridColumn19.Visible = true;
-         this.gridColumn19.VisibleIndex = 1;
-         this.gridColumn19.Width = 111;
-         // 
-         // persianRepositoryItemDateEdit3
-         // 
-         this.persianRepositoryItemDateEdit3.AutoHeight = false;
-         this.persianRepositoryItemDateEdit3.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-         this.persianRepositoryItemDateEdit3.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-         this.persianRepositoryItemDateEdit3.CalendarTimeProperties.CloseUpKey = new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.F4);
-         this.persianRepositoryItemDateEdit3.CalendarTimeProperties.PopupBorderStyle = DevExpress.XtraEditors.Controls.PopupBorderStyles.Default;
-         this.persianRepositoryItemDateEdit3.Name = "persianRepositoryItemDateEdit3";
-         // 
-         // gridColumn20
-         // 
-         this.gridColumn20.FieldName = "STAT_DESC";
-         this.gridColumn20.Name = "gridColumn20";
-         this.gridColumn20.OptionsColumn.AllowEdit = false;
-         this.gridColumn20.OptionsColumn.ReadOnly = true;
-         // 
-         // gridColumn21
-         // 
-         this.gridColumn21.Caption = "مبلغ";
-         this.gridColumn21.DisplayFormat.FormatString = "{0:n0}";
-         this.gridColumn21.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-         this.gridColumn21.FieldName = "AMNT";
-         this.gridColumn21.Name = "gridColumn21";
-         this.gridColumn21.OptionsColumn.AllowEdit = false;
-         this.gridColumn21.OptionsColumn.ReadOnly = true;
-         this.gridColumn21.Visible = true;
-         this.gridColumn21.VisibleIndex = 3;
-         this.gridColumn21.Width = 120;
-         // 
-         // gridColumn22
-         // 
-         this.gridColumn22.Caption = "نوع مبلغ";
-         this.gridColumn22.FieldName = "AMNT_TYPE";
-         this.gridColumn22.Name = "gridColumn22";
-         this.gridColumn22.OptionsColumn.AllowEdit = false;
-         this.gridColumn22.OptionsColumn.ReadOnly = true;
-         this.gridColumn22.Width = 82;
-         // 
-         // gridColumn23
-         // 
-         this.gridColumn23.Caption = "نوع پرداخت";
-         this.gridColumn23.ColumnEdit = this.repositoryItemLookUpEdit2;
-         this.gridColumn23.FieldName = "RCPT_MTOD";
-         this.gridColumn23.Name = "gridColumn23";
-         this.gridColumn23.OptionsColumn.AllowEdit = false;
-         this.gridColumn23.OptionsColumn.ReadOnly = true;
-         this.gridColumn23.Visible = true;
-         this.gridColumn23.VisibleIndex = 2;
-         this.gridColumn23.Width = 116;
-         // 
-         // repositoryItemLookUpEdit2
-         // 
-         this.repositoryItemLookUpEdit2.AutoHeight = false;
-         this.repositoryItemLookUpEdit2.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-         this.repositoryItemLookUpEdit2.DataSource = this.DRcmtBs;
-         this.repositoryItemLookUpEdit2.DisplayMember = "DOMN_DESC";
-         this.repositoryItemLookUpEdit2.Name = "repositoryItemLookUpEdit2";
-         this.repositoryItemLookUpEdit2.NullText = "";
-         this.repositoryItemLookUpEdit2.ValueMember = "VALU";
-         // 
-         // gridColumn24
-         // 
-         this.gridColumn24.FieldName = "SORC_CARD_NUMB";
-         this.gridColumn24.Name = "gridColumn24";
-         this.gridColumn24.OptionsColumn.AllowEdit = false;
-         this.gridColumn24.OptionsColumn.ReadOnly = true;
-         // 
-         // gridColumn25
-         // 
-         this.gridColumn25.FieldName = "DEST_CARD_NUMB";
-         this.gridColumn25.Name = "gridColumn25";
-         this.gridColumn25.OptionsColumn.AllowEdit = false;
-         this.gridColumn25.OptionsColumn.ReadOnly = true;
-         // 
-         // gridColumn26
-         // 
-         this.gridColumn26.Caption = "شماره پیگیری";
-         this.gridColumn26.FieldName = "TXID";
-         this.gridColumn26.Name = "gridColumn26";
-         this.gridColumn26.OptionsColumn.AllowEdit = false;
-         this.gridColumn26.OptionsColumn.ReadOnly = true;
-         // 
-         // gridColumn27
-         // 
-         this.gridColumn27.FieldName = "TXFE_PRCT";
-         this.gridColumn27.Name = "gridColumn27";
-         this.gridColumn27.OptionsColumn.AllowEdit = false;
-         this.gridColumn27.OptionsColumn.ReadOnly = true;
-         // 
-         // gridColumn28
-         // 
-         this.gridColumn28.FieldName = "TXFE_CALC_AMNT";
-         this.gridColumn28.Name = "gridColumn28";
-         this.gridColumn28.OptionsColumn.AllowEdit = false;
-         this.gridColumn28.OptionsColumn.ReadOnly = true;
-         // 
-         // gridColumn29
-         // 
-         this.gridColumn29.FieldName = "TXFE_AMNT";
-         this.gridColumn29.Name = "gridColumn29";
-         this.gridColumn29.OptionsColumn.AllowEdit = false;
-         this.gridColumn29.OptionsColumn.ReadOnly = true;
-         // 
-         // gridColumn30
-         // 
-         this.gridColumn30.FieldName = "FILE_ID";
-         this.gridColumn30.Name = "gridColumn30";
-         this.gridColumn30.OptionsColumn.AllowEdit = false;
-         this.gridColumn30.OptionsColumn.ReadOnly = true;
-         // 
-         // gridColumn31
-         // 
-         this.gridColumn31.FieldName = "FILE_TYPE";
-         this.gridColumn31.Name = "gridColumn31";
-         this.gridColumn31.OptionsColumn.AllowEdit = false;
-         this.gridColumn31.OptionsColumn.ReadOnly = true;
-         // 
-         // gridColumn32
-         // 
-         this.gridColumn32.FieldName = "CONF_STAT";
-         this.gridColumn32.Name = "gridColumn32";
-         this.gridColumn32.OptionsColumn.AllowEdit = false;
-         this.gridColumn32.OptionsColumn.ReadOnly = true;
-         // 
-         // gridColumn33
-         // 
-         this.gridColumn33.FieldName = "CONF_DATE";
-         this.gridColumn33.Name = "gridColumn33";
-         this.gridColumn33.OptionsColumn.AllowEdit = false;
-         this.gridColumn33.OptionsColumn.ReadOnly = true;
-         // 
-         // gridColumn34
-         // 
-         this.gridColumn34.FieldName = "CONF_DESC";
-         this.gridColumn34.Name = "gridColumn34";
-         this.gridColumn34.OptionsColumn.AllowEdit = false;
-         this.gridColumn34.OptionsColumn.ReadOnly = true;
-         // 
-         // gridColumn35
-         // 
-         this.gridColumn35.FieldName = "CRET_BY";
-         this.gridColumn35.Name = "gridColumn35";
-         this.gridColumn35.OptionsColumn.AllowEdit = false;
-         this.gridColumn35.OptionsColumn.ReadOnly = true;
-         // 
-         // gridColumn36
-         // 
-         this.gridColumn36.FieldName = "CRET_DATE";
-         this.gridColumn36.Name = "gridColumn36";
-         this.gridColumn36.OptionsColumn.AllowEdit = false;
-         this.gridColumn36.OptionsColumn.ReadOnly = true;
-         // 
-         // gridColumn37
-         // 
-         this.gridColumn37.FieldName = "MDFY_BY";
-         this.gridColumn37.Name = "gridColumn37";
-         this.gridColumn37.OptionsColumn.AllowEdit = false;
-         this.gridColumn37.OptionsColumn.ReadOnly = true;
-         // 
-         // gridColumn38
-         // 
-         this.gridColumn38.FieldName = "MDFY_DATE";
-         this.gridColumn38.Name = "gridColumn38";
-         this.gridColumn38.OptionsColumn.AllowEdit = false;
-         this.gridColumn38.OptionsColumn.ReadOnly = true;
-         // 
-         // gridColumn39
-         // 
-         this.gridColumn39.FieldName = "App_Base_Define";
-         this.gridColumn39.Name = "gridColumn39";
-         this.gridColumn39.OptionsColumn.AllowEdit = false;
-         this.gridColumn39.OptionsColumn.ReadOnly = true;
-         // 
-         // gridColumn40
-         // 
-         this.gridColumn40.FieldName = "Wallet_Detail";
-         this.gridColumn40.Name = "gridColumn40";
-         this.gridColumn40.OptionsColumn.AllowEdit = false;
-         this.gridColumn40.OptionsColumn.ReadOnly = true;
-         // 
-         // gridColumn41
-         // 
-         this.gridColumn41.FieldName = "Service_Robot_Discount_Card";
-         this.gridColumn41.Name = "gridColumn41";
-         this.gridColumn41.OptionsColumn.AllowEdit = false;
-         this.gridColumn41.OptionsColumn.ReadOnly = true;
-         // 
-         // gridColumn42
-         // 
-         this.gridColumn42.FieldName = "Service_Robot_Gift_Card";
-         this.gridColumn42.Name = "gridColumn42";
-         this.gridColumn42.OptionsColumn.AllowEdit = false;
-         this.gridColumn42.OptionsColumn.ReadOnly = true;
-         // 
-         // gridColumn43
-         // 
-         this.gridColumn43.FieldName = "Order";
-         this.gridColumn43.Name = "gridColumn43";
-         this.gridColumn43.OptionsColumn.AllowEdit = false;
-         this.gridColumn43.OptionsColumn.ReadOnly = true;
-         // 
-         // labelControl31
-         // 
-         this.labelControl31.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-         this.labelControl31.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.labelControl31.LineVisible = true;
-         this.labelControl31.Location = new System.Drawing.Point(6, 286);
-         this.labelControl31.Name = "labelControl31";
-         this.labelControl31.Size = new System.Drawing.Size(573, 13);
-         this.labelControl31.TabIndex = 80;
-         // 
-         // roundedButton5
-         // 
-         this.roundedButton5.Active = true;
-         this.roundedButton5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-         this.roundedButton5.ButtonStyle = System.MaxUi.RoundedButton.ButtonStyles.Ellipse;
-         this.roundedButton5.Caption = "0 %";
-         this.roundedButton5.Font = new System.Drawing.Font("B Arshia", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.roundedButton5.GradientStyle = System.MaxUi.RoundedButton.GradientStyles.Vertical;
-         this.roundedButton5.HoverBorderColor = System.Drawing.Color.Gold;
-         this.roundedButton5.HoverColorA = System.Drawing.Color.LightGray;
-         this.roundedButton5.HoverColorB = System.Drawing.Color.LightGray;
-         this.roundedButton5.ImageProfile = global::System.RoboTech.Properties.Resources.IMAGE_1688;
-         this.roundedButton5.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-         this.roundedButton5.ImageVisiable = false;
-         this.roundedButton5.Location = new System.Drawing.Point(479, 305);
-         this.roundedButton5.Name = "roundedButton5";
-         this.roundedButton5.NormalBorderColor = System.Drawing.Color.Red;
-         this.roundedButton5.NormalColorA = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-         this.roundedButton5.NormalColorB = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(81)))), ((int)(((byte)(81)))));
-         this.roundedButton5.Size = new System.Drawing.Size(100, 100);
-         this.roundedButton5.SmoothingQuality = System.MaxUi.RoundedButton.SmoothingQualities.AntiAlias;
-         this.roundedButton5.TabIndex = 16;
-         this.roundedButton5.Tooltip = null;
-         // 
-         // label11
-         // 
-         this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-         this.label11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(81)))), ((int)(((byte)(81)))));
-         this.label11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-         this.label11.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.label11.ForeColor = System.Drawing.Color.White;
-         this.label11.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         this.label11.Location = new System.Drawing.Point(6, 302);
-         this.label11.Name = "label11";
-         this.label11.Size = new System.Drawing.Size(467, 103);
-         this.label11.TabIndex = 81;
-         this.label11.Text = "تخفیف برای صورتحساب شما لحاظ شده جهت حذف تخفیف میتوانید روی دکمه درصد تخفیف کلیلک" +
-    " کنید";
-         this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         // 
-         // label12
-         // 
-         this.label12.Anchor = System.Windows.Forms.AnchorStyles.Top;
-         this.label12.Font = new System.Drawing.Font("IRANSans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.label12.Location = new System.Drawing.Point(415, 122);
-         this.label12.Name = "label12";
-         this.label12.Size = new System.Drawing.Size(109, 24);
-         this.label12.TabIndex = 38;
-         this.label12.Text = "تحویل درب فروشگاه";
-         this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         // 
-         // label13
-         // 
-         this.label13.Anchor = System.Windows.Forms.AnchorStyles.Top;
-         this.label13.Font = new System.Drawing.Font("IRANSans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.label13.Location = new System.Drawing.Point(291, 122);
-         this.label13.Name = "label13";
-         this.label13.Size = new System.Drawing.Size(121, 24);
-         this.label13.TabIndex = 38;
-         this.label13.Text = "تحویل به پیک موتوری";
-         this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         // 
-         // label14
-         // 
-         this.label14.Anchor = System.Windows.Forms.AnchorStyles.Top;
-         this.label14.Font = new System.Drawing.Font("IRANSans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.label14.Location = new System.Drawing.Point(188, 122);
-         this.label14.Name = "label14";
-         this.label14.Size = new System.Drawing.Size(90, 24);
-         this.label14.TabIndex = 38;
-         this.label14.Text = "تحویل به باربری";
-         this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         // 
-         // label15
-         // 
-         this.label15.Anchor = System.Windows.Forms.AnchorStyles.Top;
-         this.label15.Font = new System.Drawing.Font("IRANSans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.label15.Location = new System.Drawing.Point(89, 122);
-         this.label15.Name = "label15";
-         this.label15.Size = new System.Drawing.Size(52, 24);
-         this.label15.TabIndex = 38;
-         this.label15.Text = "تیپاکس";
-         this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         // 
-         // c1Button7
-         // 
-         this.c1Button7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.c1Button7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(225)))), ((int)(((byte)(243)))));
-         this.c1Button7.FlatAppearance.BorderColor = System.Drawing.Color.LightSkyBlue;
-         this.c1Button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-         this.c1Button7.Font = new System.Drawing.Font("IRAN Sans", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.c1Button7.ForeColor = System.Drawing.Color.Black;
-         this.c1Button7.Location = new System.Drawing.Point(6, 117);
-         this.c1Button7.Name = "c1Button7";
-         this.c1Button7.Size = new System.Drawing.Size(83, 51);
-         this.c1Button7.TabIndex = 78;
-         this.c1Button7.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-         this.c1Button7.UseVisualStyleBackColor = false;
-         // 
-         // c1Button8
-         // 
-         this.c1Button8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.c1Button8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(225)))), ((int)(((byte)(243)))));
-         this.c1Button8.FlatAppearance.BorderColor = System.Drawing.Color.LightSkyBlue;
-         this.c1Button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-         this.c1Button8.Font = new System.Drawing.Font("IRAN Sans", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.c1Button8.ForeColor = System.Drawing.Color.Black;
-         this.c1Button8.Location = new System.Drawing.Point(362, 174);
-         this.c1Button8.Name = "c1Button8";
-         this.c1Button8.Size = new System.Drawing.Size(83, 51);
-         this.c1Button8.TabIndex = 79;
-         this.c1Button8.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-         this.c1Button8.UseVisualStyleBackColor = false;
-         // 
-         // c1Button9
-         // 
-         this.c1Button9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.c1Button9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(225)))), ((int)(((byte)(243)))));
-         this.c1Button9.FlatAppearance.BorderColor = System.Drawing.Color.LightSkyBlue;
-         this.c1Button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-         this.c1Button9.Font = new System.Drawing.Font("IRAN Sans", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.c1Button9.ForeColor = System.Drawing.Color.Black;
-         this.c1Button9.Location = new System.Drawing.Point(273, 174);
-         this.c1Button9.Name = "c1Button9";
-         this.c1Button9.Size = new System.Drawing.Size(83, 51);
-         this.c1Button9.TabIndex = 80;
-         this.c1Button9.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-         this.c1Button9.UseVisualStyleBackColor = false;
-         // 
-         // c1Button25
-         // 
-         this.c1Button25.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.c1Button25.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(225)))), ((int)(((byte)(243)))));
-         this.c1Button25.FlatAppearance.BorderColor = System.Drawing.Color.LightSkyBlue;
-         this.c1Button25.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-         this.c1Button25.Font = new System.Drawing.Font("IRAN Sans", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.c1Button25.ForeColor = System.Drawing.Color.Black;
-         this.c1Button25.Location = new System.Drawing.Point(184, 174);
-         this.c1Button25.Name = "c1Button25";
-         this.c1Button25.Size = new System.Drawing.Size(83, 51);
-         this.c1Button25.TabIndex = 81;
-         this.c1Button25.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-         this.c1Button25.UseVisualStyleBackColor = false;
-         // 
-         // c1Button27
-         // 
-         this.c1Button27.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.c1Button27.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(225)))), ((int)(((byte)(243)))));
-         this.c1Button27.FlatAppearance.BorderColor = System.Drawing.Color.LightSkyBlue;
-         this.c1Button27.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-         this.c1Button27.Font = new System.Drawing.Font("IRAN Sans", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.c1Button27.ForeColor = System.Drawing.Color.Black;
-         this.c1Button27.Location = new System.Drawing.Point(95, 174);
-         this.c1Button27.Name = "c1Button27";
-         this.c1Button27.Size = new System.Drawing.Size(83, 51);
-         this.c1Button27.TabIndex = 82;
-         this.c1Button27.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-         this.c1Button27.UseVisualStyleBackColor = false;
-         // 
-         // c1Button29
-         // 
-         this.c1Button29.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.c1Button29.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(225)))), ((int)(((byte)(243)))));
-         this.c1Button29.FlatAppearance.BorderColor = System.Drawing.Color.LightSkyBlue;
-         this.c1Button29.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-         this.c1Button29.Font = new System.Drawing.Font("IRAN Sans", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.c1Button29.ForeColor = System.Drawing.Color.Black;
-         this.c1Button29.Location = new System.Drawing.Point(6, 174);
-         this.c1Button29.Name = "c1Button29";
-         this.c1Button29.Size = new System.Drawing.Size(83, 51);
-         this.c1Button29.TabIndex = 83;
-         this.c1Button29.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-         this.c1Button29.UseVisualStyleBackColor = false;
-         // 
-         // c1Button30
-         // 
-         this.c1Button30.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.c1Button30.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(225)))), ((int)(((byte)(243)))));
-         this.c1Button30.FlatAppearance.BorderColor = System.Drawing.Color.LightSkyBlue;
-         this.c1Button30.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-         this.c1Button30.Font = new System.Drawing.Font("IRAN Sans", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.c1Button30.ForeColor = System.Drawing.Color.Black;
-         this.c1Button30.Location = new System.Drawing.Point(362, 231);
-         this.c1Button30.Name = "c1Button30";
-         this.c1Button30.Size = new System.Drawing.Size(83, 51);
-         this.c1Button30.TabIndex = 84;
-         this.c1Button30.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-         this.c1Button30.UseVisualStyleBackColor = false;
-         // 
-         // c1Button34
-         // 
-         this.c1Button34.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.c1Button34.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(225)))), ((int)(((byte)(243)))));
-         this.c1Button34.FlatAppearance.BorderColor = System.Drawing.Color.LightSkyBlue;
-         this.c1Button34.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-         this.c1Button34.Font = new System.Drawing.Font("IRAN Sans", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.c1Button34.ForeColor = System.Drawing.Color.Black;
-         this.c1Button34.Location = new System.Drawing.Point(273, 231);
-         this.c1Button34.Name = "c1Button34";
-         this.c1Button34.Size = new System.Drawing.Size(83, 51);
-         this.c1Button34.TabIndex = 85;
-         this.c1Button34.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-         this.c1Button34.UseVisualStyleBackColor = false;
-         // 
-         // c1Button35
-         // 
-         this.c1Button35.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.c1Button35.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(225)))), ((int)(((byte)(243)))));
-         this.c1Button35.FlatAppearance.BorderColor = System.Drawing.Color.LightSkyBlue;
-         this.c1Button35.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-         this.c1Button35.Font = new System.Drawing.Font("IRAN Sans", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.c1Button35.ForeColor = System.Drawing.Color.Black;
-         this.c1Button35.Location = new System.Drawing.Point(184, 231);
-         this.c1Button35.Name = "c1Button35";
-         this.c1Button35.Size = new System.Drawing.Size(83, 51);
-         this.c1Button35.TabIndex = 86;
-         this.c1Button35.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-         this.c1Button35.UseVisualStyleBackColor = false;
-         // 
-         // c1Button36
-         // 
-         this.c1Button36.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.c1Button36.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(225)))), ((int)(((byte)(243)))));
-         this.c1Button36.FlatAppearance.BorderColor = System.Drawing.Color.LightSkyBlue;
-         this.c1Button36.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-         this.c1Button36.Font = new System.Drawing.Font("IRAN Sans", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.c1Button36.ForeColor = System.Drawing.Color.Black;
-         this.c1Button36.Location = new System.Drawing.Point(95, 231);
-         this.c1Button36.Name = "c1Button36";
-         this.c1Button36.Size = new System.Drawing.Size(83, 51);
-         this.c1Button36.TabIndex = 87;
-         this.c1Button36.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-         this.c1Button36.UseVisualStyleBackColor = false;
-         // 
          // CASH_CNTR_F
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -7216,15 +7233,25 @@
          ((System.ComponentModel.ISupportInitialize)(this.c1Button46)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.c1Button47)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.c1Button48)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.c1Button7)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.c1Button8)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.c1Button9)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.c1Button25)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.c1Button27)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.c1Button29)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.c1Button30)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.c1Button34)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.c1Button35)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.c1Button36)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.c1Button49)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl7)).EndInit();
          this.splitContainerControl7.ResumeLayout(false);
          this.flowLayoutPanel5.ResumeLayout(false);
-         ((System.ComponentModel.ISupportInitialize)(this.c1Button26)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.c1Button31)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.c1Button28)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.c1Button32)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.c1Button33)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.ShowOrdrFinlReg_Butn)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.ShowDsctProd_Butn)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.DfltPrntFrm1_Butn)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.SlctPrntFrm1_Butn)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.ConfPrntFrm1_Butn)).EndInit();
          this.flowLayoutPanel6.ResumeLayout(false);
          ((System.ComponentModel.ISupportInitialize)(this.NewSaleFrm1_Butn)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.SaveOrdrNewFrm1_Butn)).EndInit();
@@ -7276,7 +7303,17 @@
          this.panel3.PerformLayout();
          ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).EndInit();
          this.tp_000_001_003.ResumeLayout(false);
+         ((System.ComponentModel.ISupportInitialize)(this.gridControl6)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.OdstBs)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.gridView6)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit1)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit3.CalendarTimeProperties)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit3)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit2)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.DRcmtBs)).EndInit();
          this.tp_000_001_004.ResumeLayout(false);
+         ((System.ComponentModel.ISupportInitialize)(this.c1Button6)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.memoEdit1.Properties)).EndInit();
          this.tp_000_001_005.ResumeLayout(false);
          this.ServAdrs_Pn.ResumeLayout(false);
          this.ServAdrs_Pn.PerformLayout();
@@ -7364,14 +7401,12 @@
          this.OthrPay_Pn.PerformLayout();
          ((System.ComponentModel.ISupportInitialize)(this.CredWlet_Txt.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.textEdit8.Properties)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.DRcmtBs)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.Pos_Lov.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.VPosBs1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.CashWlet_Txt.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.c1Button51)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.c1Button50)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.gridControl5)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.OdstBs)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.OdstActn_Butn)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit2.CalendarTimeProperties)).EndInit();
@@ -7387,24 +7422,6 @@
          ((System.ComponentModel.ISupportInitialize)(this.textEdit9.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.PayAmnt_Txt.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.DAmutBs)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.memoEdit1.Properties)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.c1Button6)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.gridControl6)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.gridView6)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit1)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit3.CalendarTimeProperties)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit3)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit2)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.c1Button7)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.c1Button8)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.c1Button9)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.c1Button25)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.c1Button27)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.c1Button29)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.c1Button30)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.c1Button34)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.c1Button35)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.c1Button36)).EndInit();
          this.ResumeLayout(false);
 
       }
@@ -7454,9 +7471,9 @@
       private C1.Win.C1Input.C1Button c1Button18;
       private DevExpress.XtraEditors.SplitContainerControl splitContainerControl7;
       private Windows.Forms.FlowLayoutPanel flowLayoutPanel5;
-      private C1.Win.C1Input.C1Button c1Button26;
-      private C1.Win.C1Input.C1Button c1Button28;
-      private C1.Win.C1Input.C1Button c1Button31;
+      private C1.Win.C1Input.C1Button ShowOrdrFinlReg_Butn;
+      private C1.Win.C1Input.C1Button DfltPrntFrm1_Butn;
+      private C1.Win.C1Input.C1Button ShowDsctProd_Butn;
       private Windows.Forms.FlowLayoutPanel flowLayoutPanel6;
       private C1.Win.C1Input.C1Button NewSaleFrm1_Butn;
       private C1.Win.C1Input.C1Button SaveOrdrNewFrm1_Butn;
@@ -7464,8 +7481,8 @@
       private C1.Win.C1Input.C1Button NoteForSaleFrm1_Butn;
       private C1.Win.C1Input.C1Button ShipForSaleFrm1_Butn;
       private Windows.Forms.ToolTip UIToolTip_TT;
-      private C1.Win.C1Input.C1Button c1Button32;
-      private C1.Win.C1Input.C1Button c1Button33;
+      private C1.Win.C1Input.C1Button SlctPrntFrm1_Butn;
+      private C1.Win.C1Input.C1Button ConfPrntFrm1_Butn;
       private C1.Win.C1Input.C1Button c1Button20;
       private C1.Win.C1Input.C1Button c1Button21;
       private C1.Win.C1Input.C1Button c1Button22;
@@ -7798,10 +7815,10 @@
       private Windows.Forms.TabPage tp_000_001_005;
       private DevExpress.XtraEditors.LabelControl labelControl17;
       private Windows.Forms.Label SrbtOrdr25Cont_Lb;
-      private MaxUi.RoundedButton roundedButton4;
-      private MaxUi.RoundedButton roundedButton3;
-      private MaxUi.RoundedButton roundedButton2;
-      private MaxUi.RoundedButton roundedButton1;
+      private MaxUi.RoundedButton Ship004_Butn;
+      private MaxUi.RoundedButton Ship003_Butn;
+      private MaxUi.RoundedButton Ship002_Butn;
+      private MaxUi.RoundedButton Ship001_Butn;
       private Windows.Forms.Label label2;
       private Windows.Forms.Panel ServAdrs_Pn;
       private C1.Win.C1Input.C1Button SaveAdrsFrm1_Butn;

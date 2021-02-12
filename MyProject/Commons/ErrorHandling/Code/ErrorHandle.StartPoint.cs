@@ -15,6 +15,7 @@ namespace MyProject.Commons.ErrorHandling.Code
 
          _ErrorHandle = new Ui.ErrorHandle { _DefaultGateway = this };
          _ErrorMessage = new Ui.ErrorMessage { _DefaultGateway = this };
+         _ShowMessage = new Ui.ShowMessage { _DefaultGateway = this };
       }
    }
 }

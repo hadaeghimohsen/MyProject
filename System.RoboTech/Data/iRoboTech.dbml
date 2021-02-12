@@ -273,12 +273,6 @@
       <Column Name="SYS_USER" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
-  <Table Name="dbo.V#Users" Member="V_Users">
-    <Type Name="V_User">
-      <Column Name="USER_NAME" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
-      <Column Name="USER_DB" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.V$RowID" Member="V_RowIDs">
     <Type Name="V_RowID">
       <Column Name="ROWID" Type="System.Int32" DbType="Int" CanBeNull="true" />
@@ -3264,6 +3258,13 @@
       <Column Name="POS_DESC" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
       <Column Name="POS_DFLT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
       <Column Name="GTWY_MAC_ADRS" Type="System.String" DbType="VarChar(17)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.V#Users" Member="V_Users">
+    <Type Name="V_User">
+      <Column Name="USER_NAME" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="USER_DB" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="CELL_PHON" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
     </Type>
   </Table>
   <Function Id="FunctionId3" Name="dbo.DEL_CNTY_P" Method="DEL_CNTY_P">

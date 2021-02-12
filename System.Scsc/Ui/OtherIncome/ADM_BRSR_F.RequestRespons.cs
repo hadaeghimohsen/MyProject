@@ -257,7 +257,7 @@ namespace System.Scsc.Ui.OtherIncome
          catch { }
          ClubBs1.DataSource = iScsc.Clubs.Where(c => Fga_Uclb_U.Contains(c.CODE));
          MtodBs1.DataSource = iScsc.Methods.Where(m => m.EPIT_TYPE == "001");
-         vf_FighBs.DataSource = iScsc.VF_Last_Info_Fighter(null, null, null, null, null, null, null, null, null, null, null, null, null, null, null).OrderBy(f => f.REGN_PRVN_CODE + f.REGN_CODE);//.Where(f => Fga_Urgn_U.Split(',').Contains(f.REGN_PRVN_CODE + f.REGN_CODE) && Fga_Uclb_U.Contains(f.CLUB_CODE));
+         //vf_FighBs.DataSource = iScsc.VF_Last_Info_Fighter(null, null, null, null, null, null, null, null, null, null, null, null, null, null, null).OrderBy(f => f.REGN_PRVN_CODE + f.REGN_CODE);//.Where(f => Fga_Urgn_U.Split(',').Contains(f.REGN_PRVN_CODE + f.REGN_CODE) && Fga_Uclb_U.Contains(f.CLUB_CODE));
       //Execute_Query();
          #endregion
 
@@ -321,7 +321,6 @@ namespace System.Scsc.Ui.OtherIncome
                   //FIGH_FILE_NOLookUpEdit.EditValue = figh.FILE_NO;
                   //RQTT_CODE_LookUpEdit3.EditValue = figh.FGPB_TYPE_DNRM;
                }
-
             }
             else
                Execute_Query();

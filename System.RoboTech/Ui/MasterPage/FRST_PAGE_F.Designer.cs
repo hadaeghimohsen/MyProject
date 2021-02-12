@@ -28,7 +28,6 @@
       /// </summary>
       private void InitializeComponent()
       {
-         this.components = new System.ComponentModel.Container();
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FRST_PAGE_F));
          DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
          DevExpress.Utils.ToolTipTitleItem toolTipTitleItem1 = new DevExpress.Utils.ToolTipTitleItem();
@@ -82,6 +81,7 @@
          this.DefProdRobo_Butn = new C1.Win.C1Ribbon.RibbonButton();
          this.MangWletRobo_Butn = new C1.Win.C1Ribbon.RibbonButton();
          this.OnlnRecpOrdrRobo_Butn = new C1.Win.C1Ribbon.RibbonButton();
+         this.CashCntr_Butn = new C1.Win.C1Ribbon.RibbonButton();
          this.ribbonGroup7 = new C1.Win.C1Ribbon.RibbonGroup();
          this.InstPageConf_Butn = new C1.Win.C1Ribbon.RibbonButton();
          this.ribbonGroup8 = new C1.Win.C1Ribbon.RibbonGroup();
@@ -117,8 +117,7 @@
          this.OrdrShip_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.AdjustDateTime_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.sb_logout = new DevExpress.XtraEditors.SimpleButton();
-         this.Tm_ShowTime = new System.Windows.Forms.Timer(this.components);
-         this.CashCntr_Butn = new C1.Win.C1Ribbon.RibbonButton();
+         this.Tm_ShowTime = new System.Windows.Forms.Timer();
          ((System.ComponentModel.ISupportInitialize)(this.c1Ribbon1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.Pnl_Desktop)).BeginInit();
          this.Pnl_Desktop.SuspendLayout();
@@ -346,6 +345,14 @@
          this.OnlnRecpOrdrRobo_Butn.SmallImage = ((System.Drawing.Image)(resources.GetObject("OnlnRecpOrdrRobo_Butn.SmallImage")));
          this.OnlnRecpOrdrRobo_Butn.Text = "خدمات غیرحضوری پذیرش انلاین";
          this.OnlnRecpOrdrRobo_Butn.Click += new System.EventHandler(this.OnlnRecpOrdrRobo_Butn_Click);
+         // 
+         // CashCntr_Butn
+         // 
+         this.CashCntr_Butn.LargeImage = global::System.RoboTech.Properties.Resources.IMAGE_1103;
+         this.CashCntr_Butn.Name = "CashCntr_Butn";
+         this.CashCntr_Butn.SmallImage = ((System.Drawing.Image)(resources.GetObject("CashCntr_Butn.SmallImage")));
+         this.CashCntr_Butn.Text = "صندوق فروشگاهی";
+         this.CashCntr_Butn.Click += new System.EventHandler(this.CashCntr_Butn_Click);
          // 
          // ribbonGroup7
          // 
@@ -962,13 +969,6 @@
          this.Tm_ShowTime.Enabled = true;
          this.Tm_ShowTime.Interval = 1000;
          this.Tm_ShowTime.Tick += new System.EventHandler(this.Tm_ShowTime_Tick);
-         // 
-         // CashCntr_Butn
-         // 
-         this.CashCntr_Butn.LargeImage = global::System.RoboTech.Properties.Resources.IMAGE_1103;
-         this.CashCntr_Butn.Name = "CashCntr_Butn";
-         this.CashCntr_Butn.SmallImage = ((System.Drawing.Image)(resources.GetObject("CashCntr_Butn.SmallImage")));
-         this.CashCntr_Butn.Text = "صندوق فروشگاهی";
          // 
          // FRST_PAGE_F
          // 

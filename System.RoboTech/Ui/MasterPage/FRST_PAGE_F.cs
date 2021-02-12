@@ -940,5 +940,17 @@ namespace System.RoboTech.Ui.MasterPage
               })
          );
       }
+
+      private void CashCntr_Butn_Click(object sender, EventArgs e)
+      {
+         _DefaultGateway.Gateway(
+            new Job(SendType.External, "Localhost",
+              new List<Job>
+              {                  
+                new Job(SendType.Self, 31 /* Execute Cash_Cntr_F */),
+                new Job(SendType.SelfToUserInterface, "CASH_CNTR_F", 10 /* Execute Actn_CalF_P */)
+              })
+         );
+      }
    }
 }

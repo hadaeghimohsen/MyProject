@@ -2069,6 +2069,42 @@
     <Content Include="..\System.Resource\Resources\IMAGE_1736.png">
       <Link>Resources\IMAGE_1736.png</Link>
     </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1743.png">
+      <Link>Resources\IMAGE_1743.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1744.png">
+      <Link>Resources\IMAGE_1744.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1745.png">
+      <Link>Resources\IMAGE_1745.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1746.png">
+      <Link>Resources\IMAGE_1746.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1747.png">
+      <Link>Resources\IMAGE_1747.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1748.png">
+      <Link>Resources\IMAGE_1748.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1749.png">
+      <Link>Resources\IMAGE_1749.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1750.png">
+      <Link>Resources\IMAGE_1750.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1751.png">
+      <Link>Resources\IMAGE_1751.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1752.png">
+      <Link>Resources\IMAGE_1752.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1753.png">
+      <Link>Resources\IMAGE_1753.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1754.png">
+      <Link>Resources\IMAGE_1754.png</Link>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />

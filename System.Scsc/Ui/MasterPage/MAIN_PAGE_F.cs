@@ -2066,7 +2066,24 @@ namespace System.Scsc.Ui.MasterPage
                }
                else if (AttnType_Lov.EditValue.ToString() == "005")
                {
-                  CardNumb_Text_Properties_ButtonClick(null, new DevExpress.XtraEditors.Controls.ButtonPressedEventArgs(CardNumb_Text.Properties.Buttons[4]));
+                  if (iScsc.Fighters.Any(f => f.FNGR_PRNT_DNRM == EnrollNumber && f.CONF_STAT == "002"))
+                  {
+                     CardNumb_Text_Properties_ButtonClick(null, new DevExpress.XtraEditors.Controls.ButtonPressedEventArgs(CardNumb_Text.Properties.Buttons[4]));
+                     CardNumb_Text.Text = "";
+                  }
+                  else
+                  {
+                     // باز کردن فرم ثبت مشتری
+                     _DefaultGateway.Gateway(
+                        new Job(SendType.External, "Localhost",
+                           new List<Job>
+                           {
+                              new Job(SendType.Self, 130 /* Execute Adm_Brsr_F */),
+                              new Job(SendType.SelfToUserInterface, "ADM_BRSR_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "fighter"), new XAttribute("enrollnumber", FngrPrnt_Txt.Text))}
+                           })
+                     );
+                  }
+
                }
                else if (AttnType_Lov.EditValue.ToString() == "006")
                {
@@ -5183,7 +5200,6 @@ namespace System.Scsc.Ui.MasterPage
       {
          try
          {
-
             #region ShortCut InCome 
             // Men
             if (e.Button.Index == 5)

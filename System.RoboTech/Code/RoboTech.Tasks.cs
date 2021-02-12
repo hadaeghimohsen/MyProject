@@ -146,6 +146,11 @@ namespace System.RoboTech.Code
             if (_Mesg_Dvlp_F == null)
                _Mesg_Dvlp_F = new Ui.DevelopmentApplication.MESG_DVLP_F { _DefaultGateway = this };
          }
+         else if(value == "cash_cntr_f")
+         {
+            if (_Cash_Cntr_F == null)
+               _Cash_Cntr_F = new Ui.DevelopmentApplication.CASH_CNTR_F { _DefaultGateway = this };
+         }
          #endregion
          #region Action
          else if (value == "strt_robo_f")
@@ -890,6 +895,31 @@ namespace System.RoboTech.Code
                   new Job(SendType.SelfToUserInterface, "MESG_DVLP_F", 02 /* Execute Set */),
                   new Job(SendType.SelfToUserInterface, "MESG_DVLP_F", 07 /* Execute Load_Data */),
                   new Job(SendType.SelfToUserInterface, "MESG_DVLP_F", 03 /* Execute Paint */)
+               });
+         }
+         else if (job.Status == StatusType.SignalForPreconditions)
+         {
+            job.Status = StatusType.Successful;
+         }
+      }
+
+      /// <summary>
+      /// Code 31
+      /// </summary>
+      /// <param name="job"></param>
+      private void Cash_Cntr_F(Job job)
+      {
+         if (job.Status == StatusType.Running)
+         {
+            job.Status = StatusType.WaitForPreconditions;
+            job.OwnerDefineWorkWith.AddRange(
+               new List<Job>
+               {
+                  new Job(SendType.Self, 01 /* Execute GetUi */){Input = "cash_cntr_f"},
+                  new Job(SendType.SelfToUserInterface, "CASH_CNTR_F", 05 /* Execute CheckSecurity */),
+                  new Job(SendType.SelfToUserInterface, "CASH_CNTR_F", 02 /* Execute Set */),
+                  new Job(SendType.SelfToUserInterface, "CASH_CNTR_F", 07 /* Execute Load_Data */),
+                  new Job(SendType.SelfToUserInterface, "CASH_CNTR_F", 03 /* Execute Paint */)
                });
          }
          else if (job.Status == StatusType.SignalForPreconditions)

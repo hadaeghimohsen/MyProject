@@ -40,6 +40,7 @@ namespace System.RoboTech.Code
       private Ui.DevelopmentApplication.ONRO_DVLP_F _Onro_Dvlp_F { get; set; }
       private Ui.DevelopmentApplication.INST_CONF_F _Inst_Conf_F { get; set; }
       private Ui.DevelopmentApplication.MESG_DVLP_F _Mesg_Dvlp_F { get; set; }
+      private Ui.DevelopmentApplication.CASH_CNTR_F _Cash_Cntr_F { get; set; }
    }   
 }
 

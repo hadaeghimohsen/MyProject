@@ -394,6 +394,12 @@
     <Compile Include="Commons\Ui\GMapNet\Others\StaticImage.designer.cs">
       <DependentUpon>StaticImage.cs</DependentUpon>
     </Compile>
+    <Compile Include="Commons\Ui\PinCode.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Commons\Ui\PinCode.Designer.cs">
+      <DependentUpon>PinCode.cs</DependentUpon>
+    </Compile>
     <Compile Include="Commons\Ui\Shutdown.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -401,6 +407,9 @@
       <DependentUpon>Shutdown.cs</DependentUpon>
     </Compile>
     <Compile Include="Commons\Ui\GMapNets.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Commons\Ui\PinCode.RequestRespons.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Commons\Ui\Shutdown.RequestRespons.cs">
@@ -485,6 +494,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Commons\Ui\GMapNet\Others\StaticImage.resx">
       <DependentUpon>StaticImage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Commons\Ui\PinCode.resx">
+      <DependentUpon>PinCode.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Commons\Ui\Shutdown.resx">
       <DependentUpon>Shutdown.cs</DependentUpon>

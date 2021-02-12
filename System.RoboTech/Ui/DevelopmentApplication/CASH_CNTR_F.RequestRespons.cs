@@ -77,6 +77,40 @@ namespace System.RoboTech.Ui.DevelopmentApplication
             job.Next =
                new Job(SendType.SelfToUserInterface, this.GetType().Name, 04 /* Execute UnPaint */);
          }
+         else if (keyData == Keys.F2)
+         {
+            switch (Master000_Tc.SelectedTab.Name)
+            {
+               case "tp_001":
+                  PayCrntOrdrFrm1_Butn_Click(null, null);
+                  break;
+               case "tp_003":
+                  OrdrCashPay_Butn_Click(null, null);
+                  break;
+            }
+         }
+         else if (keyData == Keys.F3)
+         {
+            OrdrPosPay_Butn_Click(null, null);
+         }
+         else if (keyData == Keys.F5)
+         {            
+            AcptPay_Butn_Click(null, null);
+         }
+         else if(keyData == Keys.F6)
+         {
+            BackPay_Butn_Click(null, null);
+         }
+         else if(keyData == Keys.F7)
+         {
+            if(OrdrWletCashPay_Butn.Enabled)
+               OrdrWletCashPay_Butn_Click(null, null);
+         }
+         else if(keyData == Keys.F8)
+         {
+            if(OrdrWletCredPay_Butn.Enabled)
+               OrdrWletCredPay_Butn_Click(null, null);
+         }
 
          job.Status = StatusType.Successful;
       }
@@ -208,11 +242,12 @@ namespace System.RoboTech.Ui.DevelopmentApplication
       /// <param name="job"></param>
       private void LoadData(Job job)
       {
+         VPosBs1.DataSource = iRoboTech.V_Pos_Devices;
+         if (VPosBs1.List.OfType<Data.V_Pos_Device>().FirstOrDefault(p => p.GTWY_MAC_ADRS == HostNameInfo.Attribute("cpu").Value) != null)
+            Pos_Lov.EditValue = VPosBs1.List.OfType<Data.V_Pos_Device>().FirstOrDefault(p => p.GTWY_MAC_ADRS == HostNameInfo.Attribute("cpu").Value).PSID;
 
-         //VPosBs1.DataSource = iRoboTech.V_Pos_Devices;
-         //if (VPosBs1.List.OfType<Data.V_Pos_Device>().FirstOrDefault(p => p.GTWY_MAC_ADRS == HostNameInfo.Attribute("cpu").Value) != null)
-         //   Pos_Lov.EditValue = VPosBs1.List.OfType<Data.V_Pos_Device>().FirstOrDefault(p => p.GTWY_MAC_ADRS == HostNameInfo.Attribute("cpu").Value).PSID;
-
+         DRcmtBs.DataSource = iRoboTech.D_RCMTs;
+         DAmutBs.DataSource = iRoboTech.D_AMUTs;
          job.Status = StatusType.Successful;
       }
 
@@ -223,6 +258,7 @@ namespace System.RoboTech.Ui.DevelopmentApplication
       private void Actn_CalF_P(Job job)
       {
          var xinput = job.Input as XElement;
+         UpSrbtOrdr25Frm1_Butn.ImageVisiable = DownSrbtOrdr25Frm1_Butn.ImageVisiable = SrbtOrdrHistFrm1_Butn.ImageVisiable = true;
          Execute_Query();
          job.Status = StatusType.Successful;
       }
@@ -349,59 +385,59 @@ namespace System.RoboTech.Ui.DevelopmentApplication
       /// <param name="job"></param>
       private void CordinateGetSet(Job job)
       {
-         //var xinput = job.Input as XElement;
-         //if (xinput != null)
-         //{
-         //   var ordr = Ordr4Stp2Bs.Current as Data.Order;
+         var xinput = job.Input as XElement;
+         if (xinput != null)
+         {
+            var ordr = Ordr4Bs.Current as Data.Order;
 
-         //   if (xinput.Attribute("outputtype").Value == "destpostadrs")
-         //   {
-         //      //MessageBox.Show(xinput.ToString());
+            if (xinput.Attribute("outputtype").Value == "destpostadrs")
+            {
+               //MessageBox.Show(xinput.ToString());
 
-         //      var cordx = Convert.ToDouble(xinput.Attribute("cordx").Value);
-         //      var cordy = Convert.ToDouble(xinput.Attribute("cordy").Value);
+               var cordx = Convert.ToDouble(xinput.Attribute("cordx").Value);
+               var cordy = Convert.ToDouble(xinput.Attribute("cordy").Value);
 
-         //      if (cordx != ordr.CORD_X && cordy != ordr.CORD_Y)
-         //      {
-         //         // Call Update Service_Public
-         //         try
-         //         {
-         //            ordr.HOW_SHIP = "002";
-         //            ordr.CORD_X = cordx;
-         //            ordr.CORD_Y = cordy;
-         //            requery = true;
-         //         }
-         //         catch (Exception exc)
-         //         {
-         //            MessageBox.Show(exc.Message);
-         //         }
-         //      }
-         //   }
-         //   else if (xinput.Attribute("outputtype").Value == "sorcpostadrs")
-         //   {
-         //      //MessageBox.Show(xinput.ToString());
+               if (cordx != ordr.CORD_X && cordy != ordr.CORD_Y)
+               {
+                  // Call Update Service_Public
+                  try
+                  {
+                     ordr.HOW_SHIP = "002";
+                     ordr.CORD_X = cordx;
+                     ordr.CORD_Y = cordy;
+                     requery = true;
+                  }
+                  catch (Exception exc)
+                  {
+                     MessageBox.Show(exc.Message);
+                  }
+               }
+            }
+            else if (xinput.Attribute("outputtype").Value == "sorcpostadrs")
+            {
+               //MessageBox.Show(xinput.ToString());
 
-         //      var cordx = Convert.ToDouble(xinput.Attribute("cordx").Value);
-         //      var cordy = Convert.ToDouble(xinput.Attribute("cordy").Value);
+               var cordx = Convert.ToDouble(xinput.Attribute("cordx").Value);
+               var cordy = Convert.ToDouble(xinput.Attribute("cordy").Value);
 
-         //      if (cordx != ordr.SORC_CORD_X && cordy != ordr.SORC_CORD_Y)
-         //      {
-         //         // Call Update Service_Public
-         //         try
-         //         {
-         //            ordr.SORC_CORD_X = cordx;
-         //            ordr.SORC_CORD_Y = cordy;
-         //            requery = true;
-         //         }
-         //         catch (Exception exc)
-         //         {
-         //            MessageBox.Show(exc.Message);
-         //         }
-         //      }
-         //   }
-         //}
+               if (cordx != ordr.SORC_CORD_X && cordy != ordr.SORC_CORD_Y)
+               {
+                  // Call Update Service_Public
+                  try
+                  {
+                     ordr.SORC_CORD_X = cordx;
+                     ordr.SORC_CORD_Y = cordy;
+                     requery = true;
+                  }
+                  catch (Exception exc)
+                  {
+                     MessageBox.Show(exc.Message);
+                  }
+               }
+            }
+         }
 
-         //job.Status = StatusType.Successful;
+         job.Status = StatusType.Successful;
       }
    }
 }

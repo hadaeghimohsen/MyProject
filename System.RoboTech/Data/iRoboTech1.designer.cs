@@ -409,14 +409,6 @@ namespace System.RoboTech.Data
 			}
 		}
 		
-		public System.Data.Linq.Table<V_User> V_Users
-		{
-			get
-			{
-				return this.GetTable<V_User>();
-			}
-		}
-		
 		public System.Data.Linq.Table<V_RowID> V_RowIDs
 		{
 			get
@@ -1422,6 +1414,14 @@ namespace System.RoboTech.Data
 			get
 			{
 				return this.GetTable<V_Pos_Device>();
+			}
+		}
+		
+		public System.Data.Linq.Table<V_User> V_Users
+		{
+			get
+			{
+				return this.GetTable<V_User>();
 			}
 		}
 		
@@ -6658,51 +6658,6 @@ namespace System.RoboTech.Data
 				if ((this._SYS_USER != value))
 				{
 					this._SYS_USER = value;
-				}
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.V#Users")]
-	public partial class V_User
-	{
-		
-		private string _USER_NAME;
-		
-		private string _USER_DB;
-		
-		public V_User()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_USER_NAME", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
-		public string USER_NAME
-		{
-			get
-			{
-				return this._USER_NAME;
-			}
-			set
-			{
-				if ((this._USER_NAME != value))
-				{
-					this._USER_NAME = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_USER_DB", DbType="NVarChar(255)")]
-		public string USER_DB
-		{
-			get
-			{
-				return this._USER_DB;
-			}
-			set
-			{
-				if ((this._USER_DB != value))
-				{
-					this._USER_DB = value;
 				}
 			}
 		}
@@ -51387,6 +51342,69 @@ namespace System.RoboTech.Data
 				if ((this._GTWY_MAC_ADRS != value))
 				{
 					this._GTWY_MAC_ADRS = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.V#Users")]
+	public partial class V_User
+	{
+		
+		private string _USER_NAME;
+		
+		private string _USER_DB;
+		
+		private string _CELL_PHON;
+		
+		public V_User()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_USER_NAME", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string USER_NAME
+		{
+			get
+			{
+				return this._USER_NAME;
+			}
+			set
+			{
+				if ((this._USER_NAME != value))
+				{
+					this._USER_NAME = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_USER_DB", DbType="NVarChar(255)")]
+		public string USER_DB
+		{
+			get
+			{
+				return this._USER_DB;
+			}
+			set
+			{
+				if ((this._USER_DB != value))
+				{
+					this._USER_DB = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CELL_PHON", DbType="VarChar(15)")]
+		public string CELL_PHON
+		{
+			get
+			{
+				return this._CELL_PHON;
+			}
+			set
+			{
+				if ((this._CELL_PHON != value))
+				{
+					this._CELL_PHON = value;
 				}
 			}
 		}

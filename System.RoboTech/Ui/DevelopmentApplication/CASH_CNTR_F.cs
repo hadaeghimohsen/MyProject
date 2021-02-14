@@ -102,6 +102,7 @@ namespace System.RoboTech.Ui.DevelopmentApplication
             Ship002_Butn.NormalColorA = Ship002_Butn.NormalColorB =
             Ship003_Butn.NormalColorA = Ship003_Butn.NormalColorB =
             Ship004_Butn.NormalColorA = Ship004_Butn.NormalColorB = Color.White;
+            ServAdrs_Pn.Visible = true;
          }         
       }
 
@@ -416,18 +417,23 @@ namespace System.RoboTech.Ui.DevelopmentApplication
                   Ship002_Butn.NormalColorA = Ship002_Butn.NormalColorB =
                   Ship003_Butn.NormalColorA = Ship003_Butn.NormalColorB =
                   Ship004_Butn.NormalColorA = Ship004_Butn.NormalColorB = Color.White;
+                  ServAdrs_Pn.Visible = true;
                   break;
                case "001":
                   Ship001_Butn.NormalColorA = Ship001_Butn.NormalColorB = Color.FromArgb(255, 192, 128);
+                  ServAdrs_Pn.Visible = false;
                   break;
                case "002":
                   Ship002_Butn.NormalColorA = Ship002_Butn.NormalColorB = Color.FromArgb(255, 192, 128);
+                  ServAdrs_Pn.Visible = true;
                   break;
                case "003":
                   Ship003_Butn.NormalColorA = Ship003_Butn.NormalColorB = Color.FromArgb(255, 192, 128);
+                  ServAdrs_Pn.Visible = true;
                   break;
                case "004":
                   Ship004_Butn.NormalColorA = Ship004_Butn.NormalColorB = Color.FromArgb(255, 192, 128);
+                  ServAdrs_Pn.Visible = true;
                   break;
             }
          }
@@ -727,7 +733,16 @@ namespace System.RoboTech.Ui.DevelopmentApplication
 
       private void LockPinFrm1_Butn_Click(object sender, EventArgs e)
       {
-
+         // نمایش پیام به فروشنده جهت صبر کردن برای اتمام عملیات
+         _DefaultGateway.Gateway(
+            new Job(SendType.External, "localhost", "Commons", 39 /* Execute DoWork4PinCode */, SendType.Self)
+            {
+               Input =
+                  new XElement("User",
+                      new XAttribute("username", CurrentUser)                      
+                  )
+            }
+         );
       }
 
       private void DelCrntOrdrFrm1_Butn_Click(object sender, EventArgs e)
@@ -1043,7 +1058,7 @@ namespace System.RoboTech.Ui.DevelopmentApplication
                         ref xResult
                      );
                   }
-                  catch { }
+                  catch (Exception exc) { MessageBox.Show(exc.Message); }
                };
 
             starter +=
@@ -1416,6 +1431,20 @@ namespace System.RoboTech.Ui.DevelopmentApplication
                   Ship004_Butn.NormalColorA = Ship004_Butn.NormalColorB = Color.FromArgb(255, 192, 128);
                   break;
             }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void SaveNote_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            Ordr4Bs.EndEdit();
+
+            iRoboTech.SubmitChanges();
          }
          catch (Exception exc)
          {

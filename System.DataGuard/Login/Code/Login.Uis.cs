@@ -15,5 +15,6 @@ namespace System.DataGuard.Login.Code
       internal Ui.LockScreen _LockScreen { get; set; }
       internal Ui.LastUserLogin _LastUserLogin { get; set; }
       internal Ui.SelectedLastUserLogin _SelectedLastUserLogin { get; set; }
+      internal Ui.PinCode _PinCode { get; set; }
    }
 }

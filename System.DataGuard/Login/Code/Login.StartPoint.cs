@@ -19,6 +19,7 @@ namespace System.DataGuard.Login.Code
          _LockScreen = new Ui.LockScreen { _DefaultGateway = this };
          _LastUserLogin = new Ui.LastUserLogin { _DefaultGateway = this };
          _SelectedLastUserLogin = new Ui.SelectedLastUserLogin { _DefaultGateway = this };
+         _PinCode = new Ui.PinCode { _DefaultGateway = this };
       }
 
       private string ConnectionString;

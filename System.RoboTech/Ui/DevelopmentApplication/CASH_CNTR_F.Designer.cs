@@ -28,7 +28,6 @@
       /// </summary>
       private void InitializeComponent()
       {
-         this.components = new System.ComponentModel.Container();
          System.Windows.Forms.Label label26;
          System.Windows.Forms.Label label29;
          System.Windows.Forms.Label label31;
@@ -81,18 +80,18 @@
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject29 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject30 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject31 = new DevExpress.Utils.SerializableAppearanceObject();
-         this.UserBs = new System.Windows.Forms.BindingSource(this.components);
-         this.Ordr25Bs = new System.Windows.Forms.BindingSource(this.components);
+         this.UserBs = new System.Windows.Forms.BindingSource();
+         this.Ordr25Bs = new System.Windows.Forms.BindingSource();
          this.gridColumn421 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.label4 = new System.Windows.Forms.Label();
          this.AmntType_Lb = new System.Windows.Forms.Label();
          this.SrbtNameFrm1_Lb = new System.Windows.Forms.Label();
-         this.SrbtOrdr25Bs = new System.Windows.Forms.BindingSource(this.components);
+         this.SrbtOrdr25Bs = new System.Windows.Forms.BindingSource();
          this.SrbtChatid_Lb = new System.Windows.Forms.Label();
          this.SrbtCellPhon_Lb = new System.Windows.Forms.Label();
          this.SrbtServAdrs_Lb = new System.Windows.Forms.Label();
          this.VistSrbtFrm2_Lb = new System.Windows.Forms.Label();
-         this.RoboBs = new System.Windows.Forms.BindingSource(this.components);
+         this.RoboBs = new System.Windows.Forms.BindingSource();
          this.Master000_Tc = new System.Windows.Forms.TabControl();
          this.tp_001 = new System.Windows.Forms.TabPage();
          this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
@@ -183,8 +182,8 @@
          this.tp_000_001_002 = new System.Windows.Forms.TabPage();
          this.splitContainerControl3 = new DevExpress.XtraEditors.SplitContainerControl();
          this.gridControl2 = new DevExpress.XtraGrid.GridControl();
-         this.Ordt4Bs = new System.Windows.Forms.BindingSource(this.components);
-         this.Ordr4Bs = new System.Windows.Forms.BindingSource(this.components);
+         this.Ordt4Bs = new System.Windows.Forms.BindingSource();
+         this.Ordr4Bs = new System.Windows.Forms.BindingSource();
          this.gridView3 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.gridColumn136 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.gridColumn137 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -194,7 +193,7 @@
          this.gridColumn141 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.gridColumn142 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.OrdtActn_Butn = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
-         this.Ordr025Frm1Bn = new System.Windows.Forms.BindingNavigator(this.components);
+         this.Ordr025Frm1Bn = new System.Windows.Forms.BindingNavigator();
          this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
          this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
          this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
@@ -210,21 +209,20 @@
          this.Ordr4CodeFrm1_Txt = new System.Windows.Forms.ToolStripTextBox();
          this.toolStripLabel3 = new System.Windows.Forms.ToolStripLabel();
          this.Ordr4FknoFrm1_Txt = new System.Windows.Forms.ToolStripTextBox();
-         this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-         this.panel1 = new System.Windows.Forms.Panel();
-         this.textEdit5 = new DevExpress.XtraEditors.TextEdit();
-         this.labelControl13 = new DevExpress.XtraEditors.LabelControl();
-         this.panel2 = new System.Windows.Forms.Panel();
-         this.textEdit4 = new DevExpress.XtraEditors.TextEdit();
-         this.labelControl14 = new DevExpress.XtraEditors.LabelControl();
          this.panel3 = new System.Windows.Forms.Panel();
          this.textEdit3 = new DevExpress.XtraEditors.TextEdit();
          this.labelControl15 = new DevExpress.XtraEditors.LabelControl();
+         this.panel2 = new System.Windows.Forms.Panel();
+         this.textEdit4 = new DevExpress.XtraEditors.TextEdit();
+         this.labelControl14 = new DevExpress.XtraEditors.LabelControl();
+         this.panel1 = new System.Windows.Forms.Panel();
+         this.textEdit5 = new DevExpress.XtraEditors.TextEdit();
+         this.labelControl13 = new DevExpress.XtraEditors.LabelControl();
          this.tp_000_001_003 = new System.Windows.Forms.TabPage();
          this.label11 = new System.Windows.Forms.Label();
          this.labelControl31 = new DevExpress.XtraEditors.LabelControl();
          this.gridControl6 = new DevExpress.XtraGrid.GridControl();
-         this.OdstBs = new System.Windows.Forms.BindingSource(this.components);
+         this.OdstBs = new System.Windows.Forms.BindingSource();
          this.gridView6 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.gridColumn13 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.gridColumn14 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -240,7 +238,7 @@
          this.gridColumn22 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.gridColumn23 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.repositoryItemLookUpEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-         this.DRcmtBs = new System.Windows.Forms.BindingSource(this.components);
+         this.DRcmtBs = new System.Windows.Forms.BindingSource();
          this.gridColumn24 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.gridColumn25 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.gridColumn26 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -264,14 +262,14 @@
          this.label10 = new System.Windows.Forms.Label();
          this.roundedButton5 = new System.MaxUi.RoundedButton();
          this.tp_000_001_004 = new System.Windows.Forms.TabPage();
-         this.c1Button6 = new C1.Win.C1Input.C1Button();
+         this.SaveNote_Butn = new C1.Win.C1Input.C1Button();
          this.memoEdit1 = new DevExpress.XtraEditors.MemoEdit();
          this.label9 = new System.Windows.Forms.Label();
          this.tp_000_001_005 = new System.Windows.Forms.TabPage();
          this.ServAdrs_Pn = new System.Windows.Forms.Panel();
          this.SaveAdrsFrm1_Butn = new C1.Win.C1Input.C1Button();
          this.ServAdrs_Lov = new DevExpress.XtraEditors.GridLookUpEdit();
-         this.SrbpBs = new System.Windows.Forms.BindingSource(this.components);
+         this.SrbpBs = new System.Windows.Forms.BindingSource();
          this.gridView12 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colSRBT_SERV_FILE_NO5 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colSRBT_ROBO_RBID5 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -310,7 +308,7 @@
          this.SrbtOrdrHistFrm1_Butn = new System.MaxUi.RoundedButton();
          this.tp_000_002 = new System.Windows.Forms.TabPage();
          this.gridControl4 = new DevExpress.XtraGrid.GridControl();
-         this.SrbtBs = new System.Windows.Forms.BindingSource(this.components);
+         this.SrbtBs = new System.Windows.Forms.BindingSource();
          this.gridView4 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.gridColumn10 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colActnSrbtFrm1 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
@@ -327,7 +325,7 @@
          this.repositoryItemButtonEdit3 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
          this.tp_000_003 = new System.Windows.Forms.TabPage();
          this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-         this.RbprBs = new System.Windows.Forms.BindingSource(this.components);
+         this.RbprBs = new System.Windows.Forms.BindingSource();
          this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.repositoryItemButtonEdit4 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
@@ -354,7 +352,7 @@
          this.tabControl1 = new System.Windows.Forms.TabControl();
          this.tabPage1 = new System.Windows.Forms.TabPage();
          this.UserLockOrdr25Frm2_Pbt = new System.MaxUi.NewToolPickBnt();
-         this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+         this.imageList1 = new System.Windows.Forms.ImageList();
          this.DownOrdr25Frm2_Butn = new System.MaxUi.RoundedButton();
          this.tabControl2 = new System.Windows.Forms.TabControl();
          this.tabPage2 = new System.Windows.Forms.TabPage();
@@ -374,7 +372,7 @@
          this.colTARF_CODE1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colOrder5 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.OrdtActnFrm2_Butn = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
-         this.Ordr004Frm2Bn = new System.Windows.Forms.BindingNavigator(this.components);
+         this.Ordr004Frm2Bn = new System.Windows.Forms.BindingNavigator();
          this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
          this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
          this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
@@ -490,7 +488,7 @@
          this.UsePos_Cb = new System.Windows.Forms.CheckBox();
          this.textEdit8 = new DevExpress.XtraEditors.LookUpEdit();
          this.Pos_Lov = new DevExpress.XtraEditors.LookUpEdit();
-         this.VPosBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.VPosBs1 = new System.Windows.Forms.BindingSource();
          this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
          this.labelControl20 = new DevExpress.XtraEditors.LabelControl();
          this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
@@ -553,9 +551,9 @@
          this.labelControl12 = new DevExpress.XtraEditors.LabelControl();
          this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
          this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
-         this.UIToolTip_TT = new System.Windows.Forms.ToolTip(this.components);
-         this.ComnOprt_Tm = new System.Windows.Forms.Timer(this.components);
-         this.DAmutBs = new System.Windows.Forms.BindingSource(this.components);
+         this.UIToolTip_TT = new System.Windows.Forms.ToolTip();
+         this.ComnOprt_Tm = new System.Windows.Forms.Timer();
+         this.DAmutBs = new System.Windows.Forms.BindingSource();
          label26 = new System.Windows.Forms.Label();
          label29 = new System.Windows.Forms.Label();
          label31 = new System.Windows.Forms.Label();
@@ -668,13 +666,12 @@
          ((System.ComponentModel.ISupportInitialize)(this.OrdtActn_Butn)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.Ordr025Frm1Bn)).BeginInit();
          this.Ordr025Frm1Bn.SuspendLayout();
-         this.flowLayoutPanel1.SuspendLayout();
-         this.panel1.SuspendLayout();
-         ((System.ComponentModel.ISupportInitialize)(this.textEdit5.Properties)).BeginInit();
-         this.panel2.SuspendLayout();
-         ((System.ComponentModel.ISupportInitialize)(this.textEdit4.Properties)).BeginInit();
          this.panel3.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).BeginInit();
+         this.panel2.SuspendLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.textEdit4.Properties)).BeginInit();
+         this.panel1.SuspendLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.textEdit5.Properties)).BeginInit();
          this.tp_000_001_003.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.gridControl6)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.OdstBs)).BeginInit();
@@ -685,7 +682,7 @@
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit2)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.DRcmtBs)).BeginInit();
          this.tp_000_001_004.SuspendLayout();
-         ((System.ComponentModel.ISupportInitialize)(this.c1Button6)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.SaveNote_Butn)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.memoEdit1.Properties)).BeginInit();
          this.tp_000_001_005.SuspendLayout();
          this.ServAdrs_Pn.SuspendLayout();
@@ -969,7 +966,7 @@
          // 
          label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
          label5.AutoSize = true;
-         label5.Location = new System.Drawing.Point(542, 206);
+         label5.Location = new System.Drawing.Point(542, 212);
          label5.Name = "label5";
          label5.Size = new System.Drawing.Size(22, 14);
          label5.TabIndex = 38;
@@ -979,7 +976,7 @@
          // 
          label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
          label6.AutoSize = true;
-         label6.Location = new System.Drawing.Point(542, 234);
+         label6.Location = new System.Drawing.Point(542, 240);
          label6.Name = "label6";
          label6.Size = new System.Drawing.Size(23, 14);
          label6.TabIndex = 38;
@@ -2470,7 +2467,7 @@
          this.Master000_001_001_Tc.Name = "Master000_001_001_Tc";
          this.Master000_001_001_Tc.RightToLeftLayout = true;
          this.Master000_001_001_Tc.SelectedIndex = 0;
-         this.Master000_001_001_Tc.Size = new System.Drawing.Size(594, 441);
+         this.Master000_001_001_Tc.Size = new System.Drawing.Size(594, 447);
          this.Master000_001_001_Tc.TabIndex = 53;
          // 
          // tp_000_001_002
@@ -2479,7 +2476,7 @@
          this.tp_000_001_002.Location = new System.Drawing.Point(4, 23);
          this.tp_000_001_002.Name = "tp_000_001_002";
          this.tp_000_001_002.Padding = new System.Windows.Forms.Padding(3);
-         this.tp_000_001_002.Size = new System.Drawing.Size(586, 414);
+         this.tp_000_001_002.Size = new System.Drawing.Size(586, 420);
          this.tp_000_001_002.TabIndex = 1;
          this.tp_000_001_002.Text = "اقلام فاکتور";
          this.tp_000_001_002.UseVisualStyleBackColor = true;
@@ -2494,9 +2491,11 @@
          this.splitContainerControl3.Panel1.Controls.Add(this.gridControl2);
          this.splitContainerControl3.Panel1.Controls.Add(this.Ordr025Frm1Bn);
          this.splitContainerControl3.Panel1.Text = "Panel1";
-         this.splitContainerControl3.Panel2.Controls.Add(this.flowLayoutPanel1);
+         this.splitContainerControl3.Panel2.Controls.Add(this.panel3);
+         this.splitContainerControl3.Panel2.Controls.Add(this.panel2);
+         this.splitContainerControl3.Panel2.Controls.Add(this.panel1);
          this.splitContainerControl3.Panel2.Text = "Panel2";
-         this.splitContainerControl3.Size = new System.Drawing.Size(580, 408);
+         this.splitContainerControl3.Size = new System.Drawing.Size(580, 414);
          this.splitContainerControl3.SplitterPosition = 127;
          this.splitContainerControl3.TabIndex = 0;
          this.splitContainerControl3.Text = "splitContainerControl3";
@@ -2512,7 +2511,7 @@
          this.gridControl2.Name = "gridControl2";
          this.gridControl2.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.OrdtActn_Butn});
-         this.gridControl2.Size = new System.Drawing.Size(580, 251);
+         this.gridControl2.Size = new System.Drawing.Size(580, 257);
          this.gridControl2.TabIndex = 63;
          this.gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView3});
@@ -2804,124 +2803,6 @@
          this.Ordr4FknoFrm1_Txt.ReadOnly = true;
          this.Ordr4FknoFrm1_Txt.Size = new System.Drawing.Size(50, 25);
          // 
-         // flowLayoutPanel1
-         // 
-         this.flowLayoutPanel1.Controls.Add(this.panel1);
-         this.flowLayoutPanel1.Controls.Add(this.panel2);
-         this.flowLayoutPanel1.Controls.Add(this.panel3);
-         this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-         this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-         this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-         this.flowLayoutPanel1.Size = new System.Drawing.Size(580, 127);
-         this.flowLayoutPanel1.TabIndex = 22;
-         // 
-         // panel1
-         // 
-         this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-         this.panel1.Controls.Add(label16);
-         this.panel1.Controls.Add(this.textEdit5);
-         this.panel1.Controls.Add(this.labelControl13);
-         this.panel1.Location = new System.Drawing.Point(3, 3);
-         this.panel1.Margin = new System.Windows.Forms.Padding(3, 3, 3, 1);
-         this.panel1.Name = "panel1";
-         this.panel1.Size = new System.Drawing.Size(574, 39);
-         this.panel1.TabIndex = 1;
-         // 
-         // textEdit5
-         // 
-         this.textEdit5.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.Ordr4Bs, "EXPN_AMNT", true));
-         this.textEdit5.EditValue = "0";
-         this.textEdit5.Location = new System.Drawing.Point(58, 1);
-         this.textEdit5.Name = "textEdit5";
-         this.textEdit5.Properties.Appearance.Font = new System.Drawing.Font("IRANSans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.textEdit5.Properties.Appearance.Options.UseFont = true;
-         this.textEdit5.Properties.Appearance.Options.UseTextOptions = true;
-         this.textEdit5.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-         this.textEdit5.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-         this.textEdit5.Properties.AppearanceFocused.Options.UseBackColor = true;
-         this.textEdit5.Properties.AppearanceFocused.Options.UseTextOptions = true;
-         this.textEdit5.Properties.AppearanceFocused.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-         this.textEdit5.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-         this.textEdit5.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
-         this.textEdit5.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.textEdit5.Properties.Mask.EditMask = "n0";
-         this.textEdit5.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-         this.textEdit5.Properties.Mask.UseMaskAsDisplayFormat = true;
-         this.textEdit5.Properties.ReadOnly = true;
-         this.textEdit5.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-         this.textEdit5.Size = new System.Drawing.Size(388, 36);
-         this.textEdit5.TabIndex = 57;
-         this.textEdit5.TabStop = false;
-         // 
-         // labelControl13
-         // 
-         this.labelControl13.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.labelControl13.Appearance.Font = new System.Drawing.Font("IRANSans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.labelControl13.Appearance.Image = global::System.RoboTech.Properties.Resources.IMAGE_1695;
-         this.labelControl13.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         this.labelControl13.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl13.Location = new System.Drawing.Point(479, 3);
-         this.labelControl13.Name = "labelControl13";
-         this.labelControl13.Size = new System.Drawing.Size(89, 32);
-         this.labelControl13.TabIndex = 19;
-         this.labelControl13.Text = "مبلغ کل";
-         // 
-         // panel2
-         // 
-         this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-         this.panel2.Controls.Add(label18);
-         this.panel2.Controls.Add(this.textEdit4);
-         this.panel2.Controls.Add(this.labelControl14);
-         this.panel2.Location = new System.Drawing.Point(3, 44);
-         this.panel2.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
-         this.panel2.Name = "panel2";
-         this.panel2.Size = new System.Drawing.Size(574, 39);
-         this.panel2.TabIndex = 2;
-         // 
-         // textEdit4
-         // 
-         this.textEdit4.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.Ordr4Bs, "DSCN_AMNT_DNRM", true));
-         this.textEdit4.EditValue = "0";
-         this.textEdit4.Location = new System.Drawing.Point(58, 2);
-         this.textEdit4.Name = "textEdit4";
-         this.textEdit4.Properties.Appearance.Font = new System.Drawing.Font("IRANSans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.textEdit4.Properties.Appearance.ForeColor = System.Drawing.Color.Red;
-         this.textEdit4.Properties.Appearance.Options.UseFont = true;
-         this.textEdit4.Properties.Appearance.Options.UseForeColor = true;
-         this.textEdit4.Properties.Appearance.Options.UseTextOptions = true;
-         this.textEdit4.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-         this.textEdit4.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-         this.textEdit4.Properties.AppearanceFocused.Options.UseBackColor = true;
-         this.textEdit4.Properties.AppearanceFocused.Options.UseTextOptions = true;
-         this.textEdit4.Properties.AppearanceFocused.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-         this.textEdit4.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-         this.textEdit4.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
-         this.textEdit4.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.textEdit4.Properties.Mask.EditMask = "n0";
-         this.textEdit4.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-         this.textEdit4.Properties.Mask.UseMaskAsDisplayFormat = true;
-         this.textEdit4.Properties.ReadOnly = true;
-         this.textEdit4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-         this.textEdit4.Size = new System.Drawing.Size(388, 36);
-         this.textEdit4.TabIndex = 56;
-         this.textEdit4.TabStop = false;
-         // 
-         // labelControl14
-         // 
-         this.labelControl14.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.labelControl14.Appearance.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.labelControl14.Appearance.ForeColor = System.Drawing.Color.Red;
-         this.labelControl14.Appearance.Image = global::System.RoboTech.Properties.Resources.IMAGE_1199;
-         this.labelControl14.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         this.labelControl14.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl14.Location = new System.Drawing.Point(495, 5);
-         this.labelControl14.Name = "labelControl14";
-         this.labelControl14.Size = new System.Drawing.Size(73, 30);
-         this.labelControl14.TabIndex = 19;
-         this.labelControl14.Text = "تخفیف";
-         // 
          // panel3
          // 
          this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -2929,7 +2810,7 @@
          this.panel3.Controls.Add(this.textEdit3);
          this.panel3.Controls.Add(label20);
          this.panel3.Controls.Add(this.labelControl15);
-         this.panel3.Location = new System.Drawing.Point(3, 85);
+         this.panel3.Location = new System.Drawing.Point(3, 84);
          this.panel3.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
          this.panel3.Name = "panel3";
          this.panel3.Size = new System.Drawing.Size(574, 39);
@@ -2937,6 +2818,8 @@
          // 
          // textEdit3
          // 
+         this.textEdit3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
          this.textEdit3.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.Ordr4Bs, "SUM_EXPN_AMNT_DNRM", true));
          this.textEdit3.EditValue = "0";
          this.textEdit3.Location = new System.Drawing.Point(58, 1);
@@ -2977,6 +2860,117 @@
          this.labelControl15.TabIndex = 19;
          this.labelControl15.Text = "قابل پرداخت";
          // 
+         // panel2
+         // 
+         this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+         this.panel2.Controls.Add(label18);
+         this.panel2.Controls.Add(this.textEdit4);
+         this.panel2.Controls.Add(this.labelControl14);
+         this.panel2.Location = new System.Drawing.Point(3, 42);
+         this.panel2.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
+         this.panel2.Name = "panel2";
+         this.panel2.Size = new System.Drawing.Size(574, 39);
+         this.panel2.TabIndex = 2;
+         // 
+         // textEdit4
+         // 
+         this.textEdit4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+         this.textEdit4.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.Ordr4Bs, "DSCN_AMNT_DNRM", true));
+         this.textEdit4.EditValue = "0";
+         this.textEdit4.Location = new System.Drawing.Point(58, 2);
+         this.textEdit4.Name = "textEdit4";
+         this.textEdit4.Properties.Appearance.Font = new System.Drawing.Font("IRANSans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.textEdit4.Properties.Appearance.ForeColor = System.Drawing.Color.Red;
+         this.textEdit4.Properties.Appearance.Options.UseFont = true;
+         this.textEdit4.Properties.Appearance.Options.UseForeColor = true;
+         this.textEdit4.Properties.Appearance.Options.UseTextOptions = true;
+         this.textEdit4.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+         this.textEdit4.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+         this.textEdit4.Properties.AppearanceFocused.Options.UseBackColor = true;
+         this.textEdit4.Properties.AppearanceFocused.Options.UseTextOptions = true;
+         this.textEdit4.Properties.AppearanceFocused.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         this.textEdit4.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+         this.textEdit4.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
+         this.textEdit4.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.textEdit4.Properties.Mask.EditMask = "n0";
+         this.textEdit4.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+         this.textEdit4.Properties.Mask.UseMaskAsDisplayFormat = true;
+         this.textEdit4.Properties.ReadOnly = true;
+         this.textEdit4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+         this.textEdit4.Size = new System.Drawing.Size(388, 36);
+         this.textEdit4.TabIndex = 56;
+         this.textEdit4.TabStop = false;
+         // 
+         // labelControl14
+         // 
+         this.labelControl14.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.labelControl14.Appearance.Font = new System.Drawing.Font("IRAN Sans", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.labelControl14.Appearance.ForeColor = System.Drawing.Color.Red;
+         this.labelControl14.Appearance.Image = global::System.RoboTech.Properties.Resources.IMAGE_1199;
+         this.labelControl14.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+         this.labelControl14.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
+         this.labelControl14.Location = new System.Drawing.Point(495, 5);
+         this.labelControl14.Name = "labelControl14";
+         this.labelControl14.Size = new System.Drawing.Size(73, 30);
+         this.labelControl14.TabIndex = 19;
+         this.labelControl14.Text = "تخفیف";
+         // 
+         // panel1
+         // 
+         this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+         this.panel1.Controls.Add(label16);
+         this.panel1.Controls.Add(this.textEdit5);
+         this.panel1.Controls.Add(this.labelControl13);
+         this.panel1.Location = new System.Drawing.Point(3, 1);
+         this.panel1.Margin = new System.Windows.Forms.Padding(3, 3, 3, 1);
+         this.panel1.Name = "panel1";
+         this.panel1.Size = new System.Drawing.Size(574, 39);
+         this.panel1.TabIndex = 1;
+         // 
+         // textEdit5
+         // 
+         this.textEdit5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+         this.textEdit5.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.Ordr4Bs, "EXPN_AMNT", true));
+         this.textEdit5.EditValue = "0";
+         this.textEdit5.Location = new System.Drawing.Point(58, 1);
+         this.textEdit5.Name = "textEdit5";
+         this.textEdit5.Properties.Appearance.Font = new System.Drawing.Font("IRANSans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.textEdit5.Properties.Appearance.Options.UseFont = true;
+         this.textEdit5.Properties.Appearance.Options.UseTextOptions = true;
+         this.textEdit5.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+         this.textEdit5.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+         this.textEdit5.Properties.AppearanceFocused.Options.UseBackColor = true;
+         this.textEdit5.Properties.AppearanceFocused.Options.UseTextOptions = true;
+         this.textEdit5.Properties.AppearanceFocused.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         this.textEdit5.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+         this.textEdit5.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
+         this.textEdit5.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.textEdit5.Properties.Mask.EditMask = "n0";
+         this.textEdit5.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+         this.textEdit5.Properties.Mask.UseMaskAsDisplayFormat = true;
+         this.textEdit5.Properties.ReadOnly = true;
+         this.textEdit5.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+         this.textEdit5.Size = new System.Drawing.Size(388, 36);
+         this.textEdit5.TabIndex = 57;
+         this.textEdit5.TabStop = false;
+         // 
+         // labelControl13
+         // 
+         this.labelControl13.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.labelControl13.Appearance.Font = new System.Drawing.Font("IRANSans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.labelControl13.Appearance.Image = global::System.RoboTech.Properties.Resources.IMAGE_1695;
+         this.labelControl13.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+         this.labelControl13.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
+         this.labelControl13.Location = new System.Drawing.Point(479, 3);
+         this.labelControl13.Name = "labelControl13";
+         this.labelControl13.Size = new System.Drawing.Size(89, 32);
+         this.labelControl13.TabIndex = 19;
+         this.labelControl13.Text = "مبلغ کل";
+         // 
          // tp_000_001_003
          // 
          this.tp_000_001_003.Controls.Add(this.label11);
@@ -2987,7 +2981,7 @@
          this.tp_000_001_003.Location = new System.Drawing.Point(4, 23);
          this.tp_000_001_003.Name = "tp_000_001_003";
          this.tp_000_001_003.Padding = new System.Windows.Forms.Padding(3);
-         this.tp_000_001_003.Size = new System.Drawing.Size(586, 414);
+         this.tp_000_001_003.Size = new System.Drawing.Size(586, 420);
          this.tp_000_001_003.TabIndex = 2;
          this.tp_000_001_003.Text = "تخفیفات صورتحساب";
          this.tp_000_001_003.UseVisualStyleBackColor = true;
@@ -3001,7 +2995,7 @@
          this.label11.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.label11.ForeColor = System.Drawing.Color.White;
          this.label11.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         this.label11.Location = new System.Drawing.Point(6, 305);
+         this.label11.Location = new System.Drawing.Point(6, 311);
          this.label11.Name = "label11";
          this.label11.Size = new System.Drawing.Size(468, 103);
          this.label11.TabIndex = 81;
@@ -3015,7 +3009,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
          this.labelControl31.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl31.LineVisible = true;
-         this.labelControl31.Location = new System.Drawing.Point(6, 289);
+         this.labelControl31.Location = new System.Drawing.Point(6, 295);
          this.labelControl31.Name = "labelControl31";
          this.labelControl31.Size = new System.Drawing.Size(574, 13);
          this.labelControl31.TabIndex = 80;
@@ -3034,7 +3028,7 @@
             this.repositoryItemButtonEdit1,
             this.persianRepositoryItemDateEdit3,
             this.repositoryItemLookUpEdit2});
-         this.gridControl6.Size = new System.Drawing.Size(574, 237);
+         this.gridControl6.Size = new System.Drawing.Size(574, 243);
          this.gridControl6.TabIndex = 79;
          this.gridControl6.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView6});
@@ -3404,7 +3398,7 @@
          this.roundedButton5.ImageProfile = global::System.RoboTech.Properties.Resources.IMAGE_1688;
          this.roundedButton5.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
          this.roundedButton5.ImageVisiable = false;
-         this.roundedButton5.Location = new System.Drawing.Point(480, 308);
+         this.roundedButton5.Location = new System.Drawing.Point(480, 314);
          this.roundedButton5.Name = "roundedButton5";
          this.roundedButton5.NormalBorderColor = System.Drawing.Color.Red;
          this.roundedButton5.NormalColorA = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
@@ -3416,33 +3410,34 @@
          // 
          // tp_000_001_004
          // 
-         this.tp_000_001_004.Controls.Add(this.c1Button6);
+         this.tp_000_001_004.Controls.Add(this.SaveNote_Butn);
          this.tp_000_001_004.Controls.Add(this.memoEdit1);
          this.tp_000_001_004.Controls.Add(this.label9);
          this.tp_000_001_004.Location = new System.Drawing.Point(4, 23);
          this.tp_000_001_004.Name = "tp_000_001_004";
          this.tp_000_001_004.Padding = new System.Windows.Forms.Padding(3);
-         this.tp_000_001_004.Size = new System.Drawing.Size(586, 414);
+         this.tp_000_001_004.Size = new System.Drawing.Size(586, 420);
          this.tp_000_001_004.TabIndex = 3;
          this.tp_000_001_004.Text = "یادداشت صورتحساب";
          this.tp_000_001_004.UseVisualStyleBackColor = true;
          // 
-         // c1Button6
+         // SaveNote_Butn
          // 
-         this.c1Button6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-         this.c1Button6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(175)))), ((int)(((byte)(89)))));
-         this.c1Button6.FlatAppearance.BorderColor = System.Drawing.Color.Green;
-         this.c1Button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-         this.c1Button6.Font = new System.Drawing.Font("IRANSans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.c1Button6.Image = global::System.RoboTech.Properties.Resources.IMAGE_1731;
-         this.c1Button6.Location = new System.Drawing.Point(444, 356);
-         this.c1Button6.Name = "c1Button6";
-         this.c1Button6.Size = new System.Drawing.Size(132, 52);
-         this.c1Button6.TabIndex = 49;
-         this.c1Button6.Text = "ثبت یاداشت";
-         this.c1Button6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         this.c1Button6.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-         this.c1Button6.UseVisualStyleBackColor = false;
+         this.SaveNote_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+         this.SaveNote_Butn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(175)))), ((int)(((byte)(89)))));
+         this.SaveNote_Butn.FlatAppearance.BorderColor = System.Drawing.Color.Green;
+         this.SaveNote_Butn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+         this.SaveNote_Butn.Font = new System.Drawing.Font("IRANSans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.SaveNote_Butn.Image = global::System.RoboTech.Properties.Resources.IMAGE_1731;
+         this.SaveNote_Butn.Location = new System.Drawing.Point(444, 362);
+         this.SaveNote_Butn.Name = "SaveNote_Butn";
+         this.SaveNote_Butn.Size = new System.Drawing.Size(132, 52);
+         this.SaveNote_Butn.TabIndex = 49;
+         this.SaveNote_Butn.Text = "ثبت یاداشت";
+         this.SaveNote_Butn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+         this.SaveNote_Butn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+         this.SaveNote_Butn.UseVisualStyleBackColor = false;
+         this.SaveNote_Butn.Click += new System.EventHandler(this.SaveNote_Butn_Click);
          // 
          // memoEdit1
          // 
@@ -3461,7 +3456,7 @@
          this.memoEdit1.Properties.NullText = "یاداشت صورتحساب ...";
          this.memoEdit1.Properties.NullValuePrompt = "یاداشت صورتحساب ...";
          this.memoEdit1.Properties.NullValuePromptShowForEmptyValue = true;
-         this.memoEdit1.Size = new System.Drawing.Size(570, 304);
+         this.memoEdit1.Size = new System.Drawing.Size(570, 310);
          this.memoEdit1.TabIndex = 38;
          // 
          // label9
@@ -3491,7 +3486,7 @@
          this.tp_000_001_005.Controls.Add(this.label2);
          this.tp_000_001_005.Location = new System.Drawing.Point(4, 23);
          this.tp_000_001_005.Name = "tp_000_001_005";
-         this.tp_000_001_005.Size = new System.Drawing.Size(586, 414);
+         this.tp_000_001_005.Size = new System.Drawing.Size(586, 420);
          this.tp_000_001_005.TabIndex = 4;
          this.tp_000_001_005.Text = "ارسال سفارش";
          this.tp_000_001_005.UseVisualStyleBackColor = true;
@@ -3513,7 +3508,7 @@
          this.ServAdrs_Pn.Controls.Add(this.OrdrServAdrs_Txt);
          this.ServAdrs_Pn.Location = new System.Drawing.Point(3, 149);
          this.ServAdrs_Pn.Name = "ServAdrs_Pn";
-         this.ServAdrs_Pn.Size = new System.Drawing.Size(579, 260);
+         this.ServAdrs_Pn.Size = new System.Drawing.Size(579, 266);
          this.ServAdrs_Pn.TabIndex = 43;
          // 
          // SaveAdrsFrm1_Butn
@@ -3524,7 +3519,7 @@
          this.SaveAdrsFrm1_Butn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
          this.SaveAdrsFrm1_Butn.Font = new System.Drawing.Font("IRANSans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.SaveAdrsFrm1_Butn.Image = global::System.RoboTech.Properties.Resources.IMAGE_1731;
-         this.SaveAdrsFrm1_Butn.Location = new System.Drawing.Point(35, 200);
+         this.SaveAdrsFrm1_Butn.Location = new System.Drawing.Point(35, 206);
          this.SaveAdrsFrm1_Butn.Name = "SaveAdrsFrm1_Butn";
          this.SaveAdrsFrm1_Butn.Size = new System.Drawing.Size(132, 52);
          this.SaveAdrsFrm1_Butn.TabIndex = 48;
@@ -3691,7 +3686,7 @@
          this.ShowDestGoogleMap_Butn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
          this.ShowDestGoogleMap_Butn.Font = new System.Drawing.Font("IRANSans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.ShowDestGoogleMap_Butn.Image = global::System.RoboTech.Properties.Resources.IMAGE_1683;
-         this.ShowDestGoogleMap_Butn.Location = new System.Drawing.Point(173, 200);
+         this.ShowDestGoogleMap_Butn.Location = new System.Drawing.Point(173, 206);
          this.ShowDestGoogleMap_Butn.Name = "ShowDestGoogleMap_Butn";
          this.ShowDestGoogleMap_Butn.Size = new System.Drawing.Size(184, 52);
          this.ShowDestGoogleMap_Butn.TabIndex = 50;
@@ -3720,7 +3715,7 @@
          // OrdrCordY_Txt
          // 
          this.OrdrCordY_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-         this.OrdrCordY_Txt.Location = new System.Drawing.Point(363, 230);
+         this.OrdrCordY_Txt.Location = new System.Drawing.Point(363, 236);
          this.OrdrCordY_Txt.Name = "OrdrCordY_Txt";
          this.OrdrCordY_Txt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.OrdrCordY_Txt.Properties.Appearance.Options.UseFont = true;
@@ -3737,7 +3732,7 @@
          // OrdrCordX_Txt
          // 
          this.OrdrCordX_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-         this.OrdrCordX_Txt.Location = new System.Drawing.Point(363, 202);
+         this.OrdrCordX_Txt.Location = new System.Drawing.Point(363, 208);
          this.OrdrCordX_Txt.Name = "OrdrCordX_Txt";
          this.OrdrCordX_Txt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.OrdrCordX_Txt.Properties.Appearance.Options.UseFont = true;
@@ -3767,7 +3762,7 @@
          this.OrdrServAdrs_Txt.Properties.NullText = "آدرس جدید خود را وارد کنید ...";
          this.OrdrServAdrs_Txt.Properties.NullValuePrompt = "آدرس جدید خود را وارد کنید ...";
          this.OrdrServAdrs_Txt.Properties.NullValuePromptShowForEmptyValue = true;
-         this.OrdrServAdrs_Txt.Size = new System.Drawing.Size(570, 77);
+         this.OrdrServAdrs_Txt.Size = new System.Drawing.Size(570, 83);
          this.OrdrServAdrs_Txt.TabIndex = 37;
          // 
          // Ship004_Butn
@@ -3781,8 +3776,8 @@
          this.Ship004_Butn.HoverBorderColor = System.Drawing.Color.Gold;
          this.Ship004_Butn.HoverColorA = System.Drawing.Color.LightGray;
          this.Ship004_Butn.HoverColorB = System.Drawing.Color.LightGray;
-         this.Ship004_Butn.ImageProfile = global::System.RoboTech.Properties.Resources.IMAGE_1754;
-         this.Ship004_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+         this.Ship004_Butn.ImageProfile = global::System.RoboTech.Properties.Resources.IMAGE_1752;
+         this.Ship004_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
          this.Ship004_Butn.ImageVisiable = false;
          this.Ship004_Butn.Location = new System.Drawing.Point(76, 42);
          this.Ship004_Butn.Name = "Ship004_Butn";
@@ -3856,7 +3851,7 @@
          this.label15.Name = "label15";
          this.label15.Size = new System.Drawing.Size(52, 24);
          this.label15.TabIndex = 38;
-         this.label15.Text = "تیپاکس";
+         this.label15.Text = "پست";
          this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
          // 
          // label14
@@ -4710,7 +4705,7 @@
          this.tabControl2.Name = "tabControl2";
          this.tabControl2.RightToLeftLayout = true;
          this.tabControl2.SelectedIndex = 0;
-         this.tabControl2.Size = new System.Drawing.Size(832, 486);
+         this.tabControl2.Size = new System.Drawing.Size(832, 492);
          this.tabControl2.TabIndex = 53;
          // 
          // tabPage2
@@ -4725,7 +4720,7 @@
          this.tabPage2.Location = new System.Drawing.Point(4, 23);
          this.tabPage2.Name = "tabPage2";
          this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-         this.tabPage2.Size = new System.Drawing.Size(824, 459);
+         this.tabPage2.Size = new System.Drawing.Size(824, 465);
          this.tabPage2.TabIndex = 0;
          this.tabPage2.Text = "اطلاعات کاربر فروشگاه";
          this.tabPage2.UseVisualStyleBackColor = true;
@@ -4795,7 +4790,7 @@
          this.tabPage3.Location = new System.Drawing.Point(4, 23);
          this.tabPage3.Name = "tabPage3";
          this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-         this.tabPage3.Size = new System.Drawing.Size(824, 459);
+         this.tabPage3.Size = new System.Drawing.Size(824, 465);
          this.tabPage3.TabIndex = 1;
          this.tabPage3.Text = "اقلام فاکتور";
          this.tabPage3.UseVisualStyleBackColor = true;
@@ -4812,7 +4807,7 @@
          this.splitContainerControl13.Panel1.Text = "Panel1";
          this.splitContainerControl13.Panel2.Controls.Add(this.flowLayoutPanel12);
          this.splitContainerControl13.Panel2.Text = "Panel2";
-         this.splitContainerControl13.Size = new System.Drawing.Size(818, 453);
+         this.splitContainerControl13.Size = new System.Drawing.Size(818, 459);
          this.splitContainerControl13.SplitterPosition = 127;
          this.splitContainerControl13.TabIndex = 0;
          this.splitContainerControl13.Text = "splitContainerControl13";
@@ -4828,7 +4823,7 @@
          this.gridControl10.Name = "gridControl10";
          this.gridControl10.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.OrdtActnFrm2_Butn});
-         this.gridControl10.Size = new System.Drawing.Size(818, 296);
+         this.gridControl10.Size = new System.Drawing.Size(818, 302);
          this.gridControl10.TabIndex = 62;
          this.gridControl10.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.Ordt4Stp2_Gv});
@@ -7292,16 +7287,15 @@
          ((System.ComponentModel.ISupportInitialize)(this.Ordr025Frm1Bn)).EndInit();
          this.Ordr025Frm1Bn.ResumeLayout(false);
          this.Ordr025Frm1Bn.PerformLayout();
-         this.flowLayoutPanel1.ResumeLayout(false);
-         this.panel1.ResumeLayout(false);
-         this.panel1.PerformLayout();
-         ((System.ComponentModel.ISupportInitialize)(this.textEdit5.Properties)).EndInit();
-         this.panel2.ResumeLayout(false);
-         this.panel2.PerformLayout();
-         ((System.ComponentModel.ISupportInitialize)(this.textEdit4.Properties)).EndInit();
          this.panel3.ResumeLayout(false);
          this.panel3.PerformLayout();
          ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).EndInit();
+         this.panel2.ResumeLayout(false);
+         this.panel2.PerformLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.textEdit4.Properties)).EndInit();
+         this.panel1.ResumeLayout(false);
+         this.panel1.PerformLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.textEdit5.Properties)).EndInit();
          this.tp_000_001_003.ResumeLayout(false);
          ((System.ComponentModel.ISupportInitialize)(this.gridControl6)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.OdstBs)).EndInit();
@@ -7312,7 +7306,7 @@
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit2)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.DRcmtBs)).EndInit();
          this.tp_000_001_004.ResumeLayout(false);
-         ((System.ComponentModel.ISupportInitialize)(this.c1Button6)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.SaveNote_Butn)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.memoEdit1.Properties)).EndInit();
          this.tp_000_001_005.ResumeLayout(false);
          this.ServAdrs_Pn.ResumeLayout(false);
@@ -7443,7 +7437,6 @@
       private Windows.Forms.TabControl Master000_001_001_Tc;
       private Windows.Forms.TabPage tp_000_001_002;
       private DevExpress.XtraEditors.SplitContainerControl splitContainerControl3;
-      private Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
       private DevExpress.XtraEditors.SplitContainerControl splitContainerControl4;
       private Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
       private C1.Win.C1Input.C1Button c1Button1;
@@ -7846,7 +7839,7 @@
       private DevExpress.XtraEditors.MemoEdit OrdrServAdrs_Txt;
       private Windows.Forms.Label label4;
       private Windows.Forms.Label label7;
-      private C1.Win.C1Input.C1Button c1Button6;
+      private C1.Win.C1Input.C1Button SaveNote_Butn;
       private DevExpress.XtraEditors.MemoEdit memoEdit1;
       private Windows.Forms.Label label9;
       private Windows.Forms.Label label10;

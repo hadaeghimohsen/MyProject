@@ -1078,5 +1078,28 @@ namespace System.DataGuard.Self.Code
             job.Status = StatusType.Failed;
          }
       }
+
+      /// <summary>
+      /// Code 35
+      /// </summary>
+      /// <param name="job"></param>
+      private void DoWork4PinCode(Job job)
+      {
+         if (job.Status == StatusType.Running)
+         {
+            job.Status = StatusType.WaitForPreconditions;
+            job.OwnerDefineWorkWith.Add(
+               new Job(SendType.External, "Login",
+               new List<Job>
+                  {
+                     new Job(SendType.Self, 07 /* Execute DoWork4PinCode */),
+                     new Job(SendType.SelfToUserInterface, "PinCode", 10 /* Execute ActionCallWindow */){Input = job.Input}
+                  }));
+         }
+         else if (job.Status == StatusType.SignalForPreconditions)
+         {
+            job.Status = StatusType.Successful;
+         }
+      }
    }
 }

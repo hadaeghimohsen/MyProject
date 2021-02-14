@@ -48,6 +48,9 @@ namespace System.DataGuard.Login.Code
             case 06:
                DoWork4SelectedLastUserLogin(job);
                break;
+            case 07:
+               DoWork4PinCode(job);
+               break;
             default:
                break;
          }
@@ -71,6 +74,9 @@ namespace System.DataGuard.Login.Code
                break;
             case "SelectedLastUserLogin":
                _SelectedLastUserLogin.SendRequest(job);
+               break;
+            case "PinCode":
+               _PinCode.SendRequest(job);
                break;
             default:
                break;

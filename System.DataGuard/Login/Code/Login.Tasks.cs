@@ -141,5 +141,17 @@ namespace System.DataGuard.Login.Code
                   new Job(SendType.SelfToUserInterface, "SelectedLastUserLogin", 08 /* Execute LoadDataAsync */) { Input = job.Input , Executive = ExecutiveType.Asynchronous }));
          job.Status = StatusType.Successful;
       }
+
+      /// <summary>
+      /// Code 07
+      /// </summary>
+      /// <param name="job"></param>
+      private void DoWork4PinCode(Job job)
+      {
+         job.Next =
+            new Job(SendType.SelfToUserInterface, "PinCode", 02 /* Execute Set */,
+               new Job(SendType.SelfToUserInterface, "PinCode", 03 /* Execute Paint */));
+         job.Status = StatusType.Successful;
+      }
    }
 }

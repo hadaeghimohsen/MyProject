@@ -137,6 +137,9 @@ namespace System.DataGuard.Self.Code
             case 34:
                DoWork4Backup(job);
                break;
+            case 35:
+               DoWork4PinCode(job);
+               break;
             default:
                break;
          }

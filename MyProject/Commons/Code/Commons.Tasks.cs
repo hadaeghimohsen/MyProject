@@ -1109,5 +1109,25 @@ namespace MyProject.Commons.Code
             }
          }
       }
+
+      /// <summary>
+      /// Code 39
+      /// </summary>
+      /// <param name="job"></param>
+      private void DoWork4PinCode(Job job)
+      {
+         if (job.Status == StatusType.Running)
+         {
+            job.Status = StatusType.WaitForPreconditions;
+
+            job.OwnerDefineWorkWith.Add(
+               new Job(SendType.External, "Program", "DataGuard", 35 /* Execute DoWork4PinCode */, SendType.Self) { Input = job.Input }
+            );
+         }
+         else if (job.Status == StatusType.SignalForPreconditions)
+         {
+            job.Status = StatusType.Successful;
+         }
+      }
    }
 }

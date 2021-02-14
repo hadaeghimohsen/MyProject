@@ -168,6 +168,15 @@
     <Compile Include="Login\Code\Login.StartPoint.cs" />
     <Compile Include="Login\Code\Login.Tasks.cs" />
     <Compile Include="Login\Code\Login.Uis.cs" />
+    <Compile Include="Login\Ui\PinCode.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Login\Ui\PinCode.Designer.cs">
+      <DependentUpon>PinCode.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login\Ui\PinCode.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Login\Ui\SelectedLastUserLogin.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -775,6 +784,9 @@
     <None Include="Data\iProject.dbml.layout">
       <DependentUpon>iProject.dbml</DependentUpon>
     </None>
+    <EmbeddedResource Include="Login\Ui\PinCode.resx">
+      <DependentUpon>PinCode.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login\Ui\SelectedLastUserLogin.resx">
       <DependentUpon>SelectedLastUserLogin.cs</DependentUpon>
     </EmbeddedResource>

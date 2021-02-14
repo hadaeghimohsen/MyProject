@@ -763,5 +763,10 @@ namespace System.Scsc.Ui.OtherIncome
          Execute_Query();
       }
 
+      private void Search_Butn_Click(object sender, EventArgs e)
+      {
+         Execute_Query();
+      }
+
    }
 }

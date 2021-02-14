@@ -165,6 +165,9 @@ namespace MyProject.Commons.Code
             case 38:
                DoWork4PingNetwork(job);
                break;
+            case 39:
+               DoWork4PinCode(job);
+               break;
             default:
                job.Status = StatusType.Failed;
                break;

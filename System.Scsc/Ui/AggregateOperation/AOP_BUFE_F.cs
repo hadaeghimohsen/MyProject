@@ -925,7 +925,8 @@ namespace System.Scsc.Ui.AggregateOperation
 
             if (aodt == null) return;
 
-            if (aodt.STAT == "002") { MessageBox.Show("میز هایی که بسته و تسویه یا دفتری حساب کرده اند دیگر قادر به ویرایش نیستید"); return; }
+            if (aodt.STAT.In("002")) { MessageBox.Show("میز هایی که بسته و تسویه یا دفتری حساب کرده اند دیگر قادر به ویرایش نیستید"); return; }
+            if (aodt.STAT.In("003")) { MessageBox.Show("میز بسته شده دیگر قادر به محاسبه نیست"); return; }
 
             // 1395/12/27 * اگر بخواهیم تا این مرحله از کار رو بررسی کنیم که چه میزان هزینه شده باید تاریخ ساعت پایان را داشته باشیم
             if (aodt.END_TIME == null)
@@ -964,7 +965,8 @@ namespace System.Scsc.Ui.AggregateOperation
 
             var aodt = AodtBs1.Current as Data.Aggregation_Operation_Detail;
 
-            if (aodt.STAT == "002") { MessageBox.Show("میز هایی که بسته و تسویه یا دفتری حساب کرده اند دیگر قادر به ویرایش نیستید"); Execute_Query(); return; }
+            if (aodt.STAT.In("002")) { MessageBox.Show("میز هایی که بسته و تسویه یا دفتری حساب کرده اند دیگر قادر به ویرایش نیستید"); Execute_Query(); return; }
+            if (aodt.STAT.In("003")) { MessageBox.Show("میز بسته شده دیگر قادر به ویرایش نیستید"); return; }
 
             AodtBs1.EndEdit();
 
@@ -1064,6 +1066,14 @@ namespace System.Scsc.Ui.AggregateOperation
             {
                fileno = FighBs.OfType<Data.Fighter>().FirstOrDefault(f => f.FGPB_TYPE_DNRM == "005").FILE_NO;
             }
+
+            // 1399/11/25 * اگر میز باز باشد دیگر اجازه باز کردن مجدد آن را نداشته یاشیم
+            if(AodtBs1.List.OfType<Data.Aggregation_Operation_Detail>().Any(d => d.Aggregation_Operation == agop && d.EXPN_CODE == desk && d.REC_STAT == "002" && d.STAT == "001"))
+            {
+               MessageBox.Show("خطا - میزی که قصد باز کردن آن را دارید در حال حاضر باز می باشد، شما نمیتوانید دوباره همان میز را باز کنید");
+               return;
+            }
+
             if(TableCloseOpen)
             {
                // 1395/12/27 * میز هابه صورت پشت سر هم قرار میگیرند تا تسویه حساب شود
@@ -2825,7 +2835,8 @@ namespace System.Scsc.Ui.AggregateOperation
             var crntdesk = AodtBs1.Current as Data.Aggregation_Operation_Detail;
             if (crntdesk == null) return;
 
-            var desks = AodtBs1.List.OfType<Data.Aggregation_Operation_Detail>().Where(d => d.STAT != "002");
+            // 1399/11/25 * برای گزینه های میز باز باید محاسبه مجدد در نظر گرفته شود
+            var desks = AodtBs1.List.OfType<Data.Aggregation_Operation_Detail>().Where(d => d.STAT == "001" /* میز های باز نیاز به محاسبه مجدد دارند */);
             // اگر میز بازی وجود نداشته باشد
             if (desks.Count() == 0) return;
             

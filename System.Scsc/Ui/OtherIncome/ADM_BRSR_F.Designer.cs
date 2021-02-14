@@ -28,7 +28,6 @@
       /// </summary>
       private void InitializeComponent()
       {
-         this.components = new System.ComponentModel.Container();
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ADM_BRSR_F));
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition1 = new DevExpress.XtraGrid.StyleFormatCondition();
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition2 = new DevExpress.XtraGrid.StyleFormatCondition();
@@ -75,12 +74,12 @@
          this.label14 = new System.Windows.Forms.Label();
          this.colDEBT_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
          this.persianRepositoryItemDateEdit1 = new dxExample.PersianRepositoryItemDateEdit();
-         this.RqstBs1 = new System.Windows.Forms.BindingSource(this.components);
-         this.im_images = new System.Windows.Forms.ImageList(this.components);
-         this.FighsBs1 = new System.Windows.Forms.BindingSource(this.components);
-         this.RqroBs1 = new System.Windows.Forms.BindingSource(this.components);
-         this.FgpbsBs1 = new System.Windows.Forms.BindingSource(this.components);
-         this.miniToolStrip = new System.Windows.Forms.BindingNavigator(this.components);
+         this.RqstBs1 = new System.Windows.Forms.BindingSource();
+         this.im_images = new System.Windows.Forms.ImageList();
+         this.FighsBs1 = new System.Windows.Forms.BindingSource();
+         this.RqroBs1 = new System.Windows.Forms.BindingSource();
+         this.FgpbsBs1 = new System.Windows.Forms.BindingSource();
+         this.miniToolStrip = new System.Windows.Forms.BindingNavigator();
          this.colTARF_CODE_DNRM1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colMOST_DEBT_CLNG_DNRM1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colEXAM_RWNO_DNRM1 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -184,7 +183,7 @@
          this.colCash1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.groupBox1 = new System.Windows.Forms.GroupBox();
          this.vF_Last_Info_FighterResultGridControl = new DevExpress.XtraGrid.GridControl();
-         this.vf_FighBs = new System.Windows.Forms.BindingSource(this.components);
+         this.vf_FighBs = new System.Windows.Forms.BindingSource();
          this.PBLC = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colCELL_PHON_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colTELL_PHON_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -208,10 +207,12 @@
          this.repositoryItemCheckEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
          this.COCH_LOV = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
          this.Gb_Info = new System.Windows.Forms.GroupBox();
+         this.GoProfile_Pbt = new System.MaxUi.NewPickBtn();
+         this.SaveOthr_Butn = new System.Windows.Forms.Button();
          this.ChatId_Lb = new System.Windows.Forms.Label();
          this.CtgyCode_LookupEdit001 = new DevExpress.XtraEditors.LookUpEdit();
-         this.CtgyBs1 = new System.Windows.Forms.BindingSource(this.components);
-         this.MtodBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.CtgyBs1 = new System.Windows.Forms.BindingSource();
+         this.MtodBs1 = new System.Windows.Forms.BindingSource();
          this.MtodCode_LookupEdit001 = new DevExpress.XtraEditors.GridLookUpEdit();
          this.cBMT_CODEGridLookUpEditView = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colCODE1 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -223,9 +224,9 @@
          this.colMDFY_DATE3 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colMethod1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.Club_CodeLookUpEdit = new DevExpress.XtraEditors.LookUpEdit();
-         this.ClubBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.ClubBs1 = new System.Windows.Forms.BindingSource();
          this.SEX_TYPE_LookUpEdit = new DevExpress.XtraEditors.LookUpEdit();
-         this.DSxtpBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.DSxtpBs1 = new System.Windows.Forms.BindingSource();
          this.BRTH_DATE_PersianDateEdit = new Atf.UI.DateTimeSelector();
          this.textEdit2 = new DevExpress.XtraEditors.TextEdit();
          this.FRST_NAME_TextEdit = new DevExpress.XtraEditors.TextEdit();
@@ -242,7 +243,7 @@
          this.textEdit14 = new DevExpress.XtraEditors.TextEdit();
          this.textEdit16 = new DevExpress.XtraEditors.TextEdit();
          this.textEdit18 = new DevExpress.XtraEditors.TextEdit();
-         this.RqstBn1 = new System.Windows.Forms.BindingNavigator(this.components);
+         this.RqstBn1 = new System.Windows.Forms.BindingNavigator();
          this.RqstBnNew1 = new System.Windows.Forms.ToolStripButton();
          this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
          this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
@@ -266,15 +267,15 @@
          this.RqstBnADoc1 = new System.Windows.Forms.ToolStripButton();
          this.RqstBnRegl01 = new System.Windows.Forms.ToolStripButton();
          this.RqstBnExit1 = new System.Windows.Forms.ToolStripButton();
-         this.FighBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.FighBs1 = new System.Windows.Forms.BindingSource();
          this.Rqst_Gb = new System.Windows.Forms.GroupBox();
+         this.ShowRqst_PickButn = new System.MaxUi.NewPickBtn();
          this.UserProFile_Rb = new System.MaxUi.RoundedButton();
          this.User_Gb = new System.Windows.Forms.GroupBox();
          this.label2 = new System.Windows.Forms.Label();
          this.OthrInCm_Butn = new System.MaxUi.RoundedButton();
-         this.SaveOthr_Butn = new System.Windows.Forms.Button();
-         this.ShowRqst_PickButn = new System.MaxUi.NewPickBtn();
-         this.GoProfile_Pbt = new System.MaxUi.NewPickBtn();
+         this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+         this.Search_Butn = new System.Windows.Forms.ToolStripButton();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit1.CalendarTimeProperties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.RqstBs1)).BeginInit();
@@ -1581,6 +1582,43 @@
          this.Gb_Info.TabStop = false;
          this.Gb_Info.Text = "مشخصات عمومی";
          // 
+         // GoProfile_Pbt
+         // 
+         this.GoProfile_Pbt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.GoProfile_Pbt.BackColor = System.Drawing.Color.LightGray;
+         this.GoProfile_Pbt.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
+         this.GoProfile_Pbt.Disabled = false;
+         this.GoProfile_Pbt.First = null;
+         this.GoProfile_Pbt.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.GoProfile_Pbt.ForceSelect = false;
+         this.GoProfile_Pbt.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         this.GoProfile_Pbt.ImageIndexPickDown = 0;
+         this.GoProfile_Pbt.ImageIndexPickUp = 0;
+         this.GoProfile_Pbt.ImageList = this.im_images;
+         this.GoProfile_Pbt.Location = new System.Drawing.Point(129, 187);
+         this.GoProfile_Pbt.Name = "GoProfile_Pbt";
+         this.GoProfile_Pbt.Next = null;
+         this.GoProfile_Pbt.PickChecked = true;
+         this.GoProfile_Pbt.PickDownFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.GoProfile_Pbt.PickDownText = "";
+         this.GoProfile_Pbt.PickDownTextColor = System.Drawing.Color.Empty;
+         this.GoProfile_Pbt.PickUpFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.GoProfile_Pbt.PickUpText = "";
+         this.GoProfile_Pbt.PickUpTextColor = System.Drawing.Color.Empty;
+         this.GoProfile_Pbt.Size = new System.Drawing.Size(25, 23);
+         this.GoProfile_Pbt.TabIndex = 69;
+         this.GoProfile_Pbt.TextAligns = System.Drawing.ContentAlignment.MiddleCenter;
+         // 
+         // SaveOthr_Butn
+         // 
+         this.SaveOthr_Butn.Location = new System.Drawing.Point(14, 187);
+         this.SaveOthr_Butn.Name = "SaveOthr_Butn";
+         this.SaveOthr_Butn.Size = new System.Drawing.Size(109, 23);
+         this.SaveOthr_Butn.TabIndex = 78;
+         this.SaveOthr_Butn.Text = "ثبت سریع متفرقه";
+         this.SaveOthr_Butn.UseVisualStyleBackColor = true;
+         this.SaveOthr_Butn.Click += new System.EventHandler(this.SaveOthr_Butn_Click);
+         // 
          // ChatId_Lb
          // 
          this.ChatId_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -2092,7 +2130,9 @@
             this.RqstBnADocPicProfile1,
             this.RqstBnADoc1,
             this.RqstBnRegl01,
-            this.RqstBnExit1});
+            this.RqstBnExit1,
+            this.toolStripSeparator1,
+            this.Search_Butn});
          this.RqstBn1.Location = new System.Drawing.Point(0, 0);
          this.RqstBn1.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
          this.RqstBn1.MoveLastItem = this.bindingNavigatorMoveLastItem;
@@ -2343,6 +2383,34 @@
          this.Rqst_Gb.TabStop = false;
          this.Rqst_Gb.Text = "اطلاعات درخواست";
          // 
+         // ShowRqst_PickButn
+         // 
+         this.ShowRqst_PickButn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.ShowRqst_PickButn.BackColor = System.Drawing.Color.LightGray;
+         this.ShowRqst_PickButn.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
+         this.ShowRqst_PickButn.Disabled = false;
+         this.ShowRqst_PickButn.First = null;
+         this.ShowRqst_PickButn.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.ShowRqst_PickButn.ForceSelect = false;
+         this.ShowRqst_PickButn.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         this.ShowRqst_PickButn.ImageIndexPickDown = 0;
+         this.ShowRqst_PickButn.ImageIndexPickUp = 0;
+         this.ShowRqst_PickButn.ImageList = null;
+         this.ShowRqst_PickButn.Location = new System.Drawing.Point(14, 14);
+         this.ShowRqst_PickButn.Name = "ShowRqst_PickButn";
+         this.ShowRqst_PickButn.Next = null;
+         this.ShowRqst_PickButn.PickChecked = true;
+         this.ShowRqst_PickButn.PickDownFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.ShowRqst_PickButn.PickDownText = "درخواست های من";
+         this.ShowRqst_PickButn.PickDownTextColor = System.Drawing.Color.Empty;
+         this.ShowRqst_PickButn.PickUpFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.ShowRqst_PickButn.PickUpText = "همه درخواست ها";
+         this.ShowRqst_PickButn.PickUpTextColor = System.Drawing.Color.Empty;
+         this.ShowRqst_PickButn.Size = new System.Drawing.Size(100, 25);
+         this.ShowRqst_PickButn.TabIndex = 69;
+         this.ShowRqst_PickButn.TextAligns = System.Drawing.ContentAlignment.MiddleCenter;
+         this.ShowRqst_PickButn.PickCheckedChange += new System.MaxUi.NewPickBtn.PickCheckedHandel(this.ShowRqst_PickButn_PickCheckedChange);
+         // 
          // UserProFile_Rb
          // 
          this.UserProFile_Rb.Active = true;
@@ -2417,70 +2485,20 @@
          this.OthrInCm_Butn.Tooltip = null;
          this.OthrInCm_Butn.Click += new System.EventHandler(this.OthrInCm_Butn_Click);
          // 
-         // SaveOthr_Butn
+         // toolStripSeparator1
          // 
-         this.SaveOthr_Butn.Location = new System.Drawing.Point(14, 187);
-         this.SaveOthr_Butn.Name = "SaveOthr_Butn";
-         this.SaveOthr_Butn.Size = new System.Drawing.Size(109, 23);
-         this.SaveOthr_Butn.TabIndex = 78;
-         this.SaveOthr_Butn.Text = "ثبت سریع متفرقه";
-         this.SaveOthr_Butn.UseVisualStyleBackColor = true;
-         this.SaveOthr_Butn.Click += new System.EventHandler(this.SaveOthr_Butn_Click);
+         this.toolStripSeparator1.Name = "toolStripSeparator1";
+         this.toolStripSeparator1.Size = new System.Drawing.Size(6, 47);
          // 
-         // ShowRqst_PickButn
+         // Search_Butn
          // 
-         this.ShowRqst_PickButn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.ShowRqst_PickButn.BackColor = System.Drawing.Color.LightGray;
-         this.ShowRqst_PickButn.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
-         this.ShowRqst_PickButn.Disabled = false;
-         this.ShowRqst_PickButn.First = null;
-         this.ShowRqst_PickButn.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.ShowRqst_PickButn.ForceSelect = false;
-         this.ShowRqst_PickButn.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         this.ShowRqst_PickButn.ImageIndexPickDown = 0;
-         this.ShowRqst_PickButn.ImageIndexPickUp = 0;
-         this.ShowRqst_PickButn.ImageList = null;
-         this.ShowRqst_PickButn.Location = new System.Drawing.Point(14, 14);
-         this.ShowRqst_PickButn.Name = "ShowRqst_PickButn";
-         this.ShowRqst_PickButn.Next = null;
-         this.ShowRqst_PickButn.PickChecked = true;
-         this.ShowRqst_PickButn.PickDownFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.ShowRqst_PickButn.PickDownText = "درخواست های من";
-         this.ShowRqst_PickButn.PickDownTextColor = System.Drawing.Color.Empty;
-         this.ShowRqst_PickButn.PickUpFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.ShowRqst_PickButn.PickUpText = "همه درخواست ها";
-         this.ShowRqst_PickButn.PickUpTextColor = System.Drawing.Color.Empty;
-         this.ShowRqst_PickButn.Size = new System.Drawing.Size(100, 25);
-         this.ShowRqst_PickButn.TabIndex = 69;
-         this.ShowRqst_PickButn.TextAligns = System.Drawing.ContentAlignment.MiddleCenter;
-         this.ShowRqst_PickButn.PickCheckedChange += new System.MaxUi.NewPickBtn.PickCheckedHandel(this.ShowRqst_PickButn_PickCheckedChange);
-         // 
-         // GoProfile_Pbt
-         // 
-         this.GoProfile_Pbt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.GoProfile_Pbt.BackColor = System.Drawing.Color.LightGray;
-         this.GoProfile_Pbt.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
-         this.GoProfile_Pbt.Disabled = false;
-         this.GoProfile_Pbt.First = null;
-         this.GoProfile_Pbt.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.GoProfile_Pbt.ForceSelect = false;
-         this.GoProfile_Pbt.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-         this.GoProfile_Pbt.ImageIndexPickDown = 0;
-         this.GoProfile_Pbt.ImageIndexPickUp = 0;
-         this.GoProfile_Pbt.ImageList = this.im_images;
-         this.GoProfile_Pbt.Location = new System.Drawing.Point(129, 187);
-         this.GoProfile_Pbt.Name = "GoProfile_Pbt";
-         this.GoProfile_Pbt.Next = null;
-         this.GoProfile_Pbt.PickChecked = true;
-         this.GoProfile_Pbt.PickDownFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.GoProfile_Pbt.PickDownText = "";
-         this.GoProfile_Pbt.PickDownTextColor = System.Drawing.Color.Empty;
-         this.GoProfile_Pbt.PickUpFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.GoProfile_Pbt.PickUpText = "";
-         this.GoProfile_Pbt.PickUpTextColor = System.Drawing.Color.Empty;
-         this.GoProfile_Pbt.Size = new System.Drawing.Size(25, 23);
-         this.GoProfile_Pbt.TabIndex = 69;
-         this.GoProfile_Pbt.TextAligns = System.Drawing.ContentAlignment.MiddleCenter;
+         this.Search_Butn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+         this.Search_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1133;
+         this.Search_Butn.ImageTransparentColor = System.Drawing.Color.Magenta;
+         this.Search_Butn.Name = "Search_Butn";
+         this.Search_Butn.Size = new System.Drawing.Size(44, 44);
+         this.Search_Butn.Text = "جستجو";
+         this.Search_Butn.Click += new System.EventHandler(this.Search_Butn_Click);
          // 
          // ADM_BRSR_F
          // 
@@ -2777,5 +2795,7 @@
       private Windows.Forms.Button SaveOthr_Butn;
       private MaxUi.NewPickBtn ShowRqst_PickButn;
       private MaxUi.NewPickBtn GoProfile_Pbt;
+      private Windows.Forms.ToolStripSeparator toolStripSeparator1;
+      private Windows.Forms.ToolStripButton Search_Butn;
    }
 }

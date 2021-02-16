@@ -28,6 +28,7 @@
       /// </summary>
       private void InitializeComponent()
       {
+         this.components = new System.ComponentModel.Container();
          System.Windows.Forms.Label label26;
          System.Windows.Forms.Label label29;
          System.Windows.Forms.Label label31;
@@ -80,18 +81,18 @@
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject29 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject30 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject31 = new DevExpress.Utils.SerializableAppearanceObject();
-         this.UserBs = new System.Windows.Forms.BindingSource();
-         this.Ordr25Bs = new System.Windows.Forms.BindingSource();
+         this.UserBs = new System.Windows.Forms.BindingSource(this.components);
+         this.Ordr25Bs = new System.Windows.Forms.BindingSource(this.components);
          this.gridColumn421 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.label4 = new System.Windows.Forms.Label();
          this.AmntType_Lb = new System.Windows.Forms.Label();
          this.SrbtNameFrm1_Lb = new System.Windows.Forms.Label();
-         this.SrbtOrdr25Bs = new System.Windows.Forms.BindingSource();
+         this.SrbtOrdr25Bs = new System.Windows.Forms.BindingSource(this.components);
          this.SrbtChatid_Lb = new System.Windows.Forms.Label();
          this.SrbtCellPhon_Lb = new System.Windows.Forms.Label();
          this.SrbtServAdrs_Lb = new System.Windows.Forms.Label();
          this.VistSrbtFrm2_Lb = new System.Windows.Forms.Label();
-         this.RoboBs = new System.Windows.Forms.BindingSource();
+         this.RoboBs = new System.Windows.Forms.BindingSource(this.components);
          this.Master000_Tc = new System.Windows.Forms.TabControl();
          this.tp_001 = new System.Windows.Forms.TabPage();
          this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
@@ -182,8 +183,8 @@
          this.tp_000_001_002 = new System.Windows.Forms.TabPage();
          this.splitContainerControl3 = new DevExpress.XtraEditors.SplitContainerControl();
          this.gridControl2 = new DevExpress.XtraGrid.GridControl();
-         this.Ordt4Bs = new System.Windows.Forms.BindingSource();
-         this.Ordr4Bs = new System.Windows.Forms.BindingSource();
+         this.Ordt4Bs = new System.Windows.Forms.BindingSource(this.components);
+         this.Ordr4Bs = new System.Windows.Forms.BindingSource(this.components);
          this.gridView3 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.gridColumn136 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.gridColumn137 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -193,7 +194,7 @@
          this.gridColumn141 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.gridColumn142 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.OrdtActn_Butn = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
-         this.Ordr025Frm1Bn = new System.Windows.Forms.BindingNavigator();
+         this.Ordr025Frm1Bn = new System.Windows.Forms.BindingNavigator(this.components);
          this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
          this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
          this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
@@ -222,7 +223,7 @@
          this.label11 = new System.Windows.Forms.Label();
          this.labelControl31 = new DevExpress.XtraEditors.LabelControl();
          this.gridControl6 = new DevExpress.XtraGrid.GridControl();
-         this.OdstBs = new System.Windows.Forms.BindingSource();
+         this.OdstBs = new System.Windows.Forms.BindingSource(this.components);
          this.gridView6 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.gridColumn13 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.gridColumn14 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -238,7 +239,7 @@
          this.gridColumn22 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.gridColumn23 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.repositoryItemLookUpEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-         this.DRcmtBs = new System.Windows.Forms.BindingSource();
+         this.DRcmtBs = new System.Windows.Forms.BindingSource(this.components);
          this.gridColumn24 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.gridColumn25 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.gridColumn26 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -269,7 +270,7 @@
          this.ServAdrs_Pn = new System.Windows.Forms.Panel();
          this.SaveAdrsFrm1_Butn = new C1.Win.C1Input.C1Button();
          this.ServAdrs_Lov = new DevExpress.XtraEditors.GridLookUpEdit();
-         this.SrbpBs = new System.Windows.Forms.BindingSource();
+         this.SrbpBs = new System.Windows.Forms.BindingSource(this.components);
          this.gridView12 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colSRBT_SERV_FILE_NO5 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colSRBT_ROBO_RBID5 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -308,7 +309,7 @@
          this.SrbtOrdrHistFrm1_Butn = new System.MaxUi.RoundedButton();
          this.tp_000_002 = new System.Windows.Forms.TabPage();
          this.gridControl4 = new DevExpress.XtraGrid.GridControl();
-         this.SrbtBs = new System.Windows.Forms.BindingSource();
+         this.SrbtBs = new System.Windows.Forms.BindingSource(this.components);
          this.gridView4 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.gridColumn10 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colActnSrbtFrm1 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
@@ -325,10 +326,10 @@
          this.repositoryItemButtonEdit3 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
          this.tp_000_003 = new System.Windows.Forms.TabPage();
          this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-         this.RbprBs = new System.Windows.Forms.BindingSource();
+         this.RbprBs = new System.Windows.Forms.BindingSource(this.components);
          this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.repositoryItemButtonEdit4 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+         this.colActnRbprFrm1 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
          this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -352,7 +353,7 @@
          this.tabControl1 = new System.Windows.Forms.TabControl();
          this.tabPage1 = new System.Windows.Forms.TabPage();
          this.UserLockOrdr25Frm2_Pbt = new System.MaxUi.NewToolPickBnt();
-         this.imageList1 = new System.Windows.Forms.ImageList();
+         this.imageList1 = new System.Windows.Forms.ImageList(this.components);
          this.DownOrdr25Frm2_Butn = new System.MaxUi.RoundedButton();
          this.tabControl2 = new System.Windows.Forms.TabControl();
          this.tabPage2 = new System.Windows.Forms.TabPage();
@@ -372,7 +373,7 @@
          this.colTARF_CODE1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colOrder5 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.OrdtActnFrm2_Butn = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
-         this.Ordr004Frm2Bn = new System.Windows.Forms.BindingNavigator();
+         this.Ordr004Frm2Bn = new System.Windows.Forms.BindingNavigator(this.components);
          this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
          this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
          this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
@@ -488,7 +489,7 @@
          this.UsePos_Cb = new System.Windows.Forms.CheckBox();
          this.textEdit8 = new DevExpress.XtraEditors.LookUpEdit();
          this.Pos_Lov = new DevExpress.XtraEditors.LookUpEdit();
-         this.VPosBs1 = new System.Windows.Forms.BindingSource();
+         this.VPosBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
          this.labelControl20 = new DevExpress.XtraEditors.LabelControl();
          this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
@@ -496,7 +497,7 @@
          this.labelControl19 = new DevExpress.XtraEditors.LabelControl();
          this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
          this.CashWlet_Txt = new DevExpress.XtraEditors.TextEdit();
-         this.c1Button51 = new C1.Win.C1Input.C1Button();
+         this.PosConfig_Butn = new C1.Win.C1Input.C1Button();
          this.c1Button50 = new C1.Win.C1Input.C1Button();
          this.gridControl5 = new DevExpress.XtraGrid.GridControl();
          this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -539,6 +540,7 @@
          this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
          this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
          this.AcptPay_Butn = new C1.Win.C1Input.C1Button();
+         this.SendInvoice_Butn = new C1.Win.C1Input.C1Button();
          this.OrdrCashPay_Butn = new C1.Win.C1Input.C1Button();
          this.BackPay_Butn = new C1.Win.C1Input.C1Button();
          this.OrdrWletCashPay_Butn = new C1.Win.C1Input.C1Button();
@@ -551,9 +553,9 @@
          this.labelControl12 = new DevExpress.XtraEditors.LabelControl();
          this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
          this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
-         this.UIToolTip_TT = new System.Windows.Forms.ToolTip();
-         this.ComnOprt_Tm = new System.Windows.Forms.Timer();
-         this.DAmutBs = new System.Windows.Forms.BindingSource();
+         this.UIToolTip_TT = new System.Windows.Forms.ToolTip(this.components);
+         this.ComnOprt_Tm = new System.Windows.Forms.Timer(this.components);
+         this.DAmutBs = new System.Windows.Forms.BindingSource(this.components);
          label26 = new System.Windows.Forms.Label();
          label29 = new System.Windows.Forms.Label();
          label31 = new System.Windows.Forms.Label();
@@ -706,7 +708,7 @@
          ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.RbprBs)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit4)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.colActnRbprFrm1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl2)).BeginInit();
          this.splitContainerControl2.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.RbprFrm1_Txt.Properties)).BeginInit();
@@ -765,7 +767,7 @@
          ((System.ComponentModel.ISupportInitialize)(this.Pos_Lov.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.VPosBs1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.CashWlet_Txt.Properties)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.c1Button51)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.PosConfig_Butn)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.c1Button50)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.gridControl5)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
@@ -774,6 +776,7 @@
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit2.CalendarTimeProperties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.AcptPay_Butn)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.SendInvoice_Butn)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.OrdrCashPay_Butn)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.BackPay_Butn)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.OrdrWletCashPay_Butn)).BeginInit();
@@ -966,7 +969,7 @@
          // 
          label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
          label5.AutoSize = true;
-         label5.Location = new System.Drawing.Point(542, 212);
+         label5.Location = new System.Drawing.Point(542, 214);
          label5.Name = "label5";
          label5.Size = new System.Drawing.Size(22, 14);
          label5.TabIndex = 38;
@@ -976,7 +979,7 @@
          // 
          label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
          label6.AutoSize = true;
-         label6.Location = new System.Drawing.Point(542, 240);
+         label6.Location = new System.Drawing.Point(542, 242);
          label6.Name = "label6";
          label6.Size = new System.Drawing.Size(23, 14);
          label6.TabIndex = 38;
@@ -2467,7 +2470,7 @@
          this.Master000_001_001_Tc.Name = "Master000_001_001_Tc";
          this.Master000_001_001_Tc.RightToLeftLayout = true;
          this.Master000_001_001_Tc.SelectedIndex = 0;
-         this.Master000_001_001_Tc.Size = new System.Drawing.Size(594, 447);
+         this.Master000_001_001_Tc.Size = new System.Drawing.Size(594, 449);
          this.Master000_001_001_Tc.TabIndex = 53;
          // 
          // tp_000_001_002
@@ -2476,7 +2479,7 @@
          this.tp_000_001_002.Location = new System.Drawing.Point(4, 23);
          this.tp_000_001_002.Name = "tp_000_001_002";
          this.tp_000_001_002.Padding = new System.Windows.Forms.Padding(3);
-         this.tp_000_001_002.Size = new System.Drawing.Size(586, 420);
+         this.tp_000_001_002.Size = new System.Drawing.Size(586, 422);
          this.tp_000_001_002.TabIndex = 1;
          this.tp_000_001_002.Text = "اقلام فاکتور";
          this.tp_000_001_002.UseVisualStyleBackColor = true;
@@ -2495,7 +2498,7 @@
          this.splitContainerControl3.Panel2.Controls.Add(this.panel2);
          this.splitContainerControl3.Panel2.Controls.Add(this.panel1);
          this.splitContainerControl3.Panel2.Text = "Panel2";
-         this.splitContainerControl3.Size = new System.Drawing.Size(580, 414);
+         this.splitContainerControl3.Size = new System.Drawing.Size(580, 416);
          this.splitContainerControl3.SplitterPosition = 127;
          this.splitContainerControl3.TabIndex = 0;
          this.splitContainerControl3.Text = "splitContainerControl3";
@@ -2511,7 +2514,7 @@
          this.gridControl2.Name = "gridControl2";
          this.gridControl2.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.OrdtActn_Butn});
-         this.gridControl2.Size = new System.Drawing.Size(580, 257);
+         this.gridControl2.Size = new System.Drawing.Size(580, 259);
          this.gridControl2.TabIndex = 63;
          this.gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView3});
@@ -2981,7 +2984,7 @@
          this.tp_000_001_003.Location = new System.Drawing.Point(4, 23);
          this.tp_000_001_003.Name = "tp_000_001_003";
          this.tp_000_001_003.Padding = new System.Windows.Forms.Padding(3);
-         this.tp_000_001_003.Size = new System.Drawing.Size(586, 420);
+         this.tp_000_001_003.Size = new System.Drawing.Size(586, 422);
          this.tp_000_001_003.TabIndex = 2;
          this.tp_000_001_003.Text = "تخفیفات صورتحساب";
          this.tp_000_001_003.UseVisualStyleBackColor = true;
@@ -2995,7 +2998,7 @@
          this.label11.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.label11.ForeColor = System.Drawing.Color.White;
          this.label11.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         this.label11.Location = new System.Drawing.Point(6, 311);
+         this.label11.Location = new System.Drawing.Point(6, 313);
          this.label11.Name = "label11";
          this.label11.Size = new System.Drawing.Size(468, 103);
          this.label11.TabIndex = 81;
@@ -3009,7 +3012,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
          this.labelControl31.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl31.LineVisible = true;
-         this.labelControl31.Location = new System.Drawing.Point(6, 295);
+         this.labelControl31.Location = new System.Drawing.Point(6, 297);
          this.labelControl31.Name = "labelControl31";
          this.labelControl31.Size = new System.Drawing.Size(574, 13);
          this.labelControl31.TabIndex = 80;
@@ -3028,7 +3031,7 @@
             this.repositoryItemButtonEdit1,
             this.persianRepositoryItemDateEdit3,
             this.repositoryItemLookUpEdit2});
-         this.gridControl6.Size = new System.Drawing.Size(574, 243);
+         this.gridControl6.Size = new System.Drawing.Size(574, 245);
          this.gridControl6.TabIndex = 79;
          this.gridControl6.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView6});
@@ -3398,7 +3401,7 @@
          this.roundedButton5.ImageProfile = global::System.RoboTech.Properties.Resources.IMAGE_1688;
          this.roundedButton5.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
          this.roundedButton5.ImageVisiable = false;
-         this.roundedButton5.Location = new System.Drawing.Point(480, 314);
+         this.roundedButton5.Location = new System.Drawing.Point(480, 316);
          this.roundedButton5.Name = "roundedButton5";
          this.roundedButton5.NormalBorderColor = System.Drawing.Color.Red;
          this.roundedButton5.NormalColorA = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
@@ -3416,7 +3419,7 @@
          this.tp_000_001_004.Location = new System.Drawing.Point(4, 23);
          this.tp_000_001_004.Name = "tp_000_001_004";
          this.tp_000_001_004.Padding = new System.Windows.Forms.Padding(3);
-         this.tp_000_001_004.Size = new System.Drawing.Size(586, 420);
+         this.tp_000_001_004.Size = new System.Drawing.Size(586, 422);
          this.tp_000_001_004.TabIndex = 3;
          this.tp_000_001_004.Text = "یادداشت صورتحساب";
          this.tp_000_001_004.UseVisualStyleBackColor = true;
@@ -3429,7 +3432,7 @@
          this.SaveNote_Butn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
          this.SaveNote_Butn.Font = new System.Drawing.Font("IRANSans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.SaveNote_Butn.Image = global::System.RoboTech.Properties.Resources.IMAGE_1731;
-         this.SaveNote_Butn.Location = new System.Drawing.Point(444, 362);
+         this.SaveNote_Butn.Location = new System.Drawing.Point(444, 364);
          this.SaveNote_Butn.Name = "SaveNote_Butn";
          this.SaveNote_Butn.Size = new System.Drawing.Size(132, 52);
          this.SaveNote_Butn.TabIndex = 49;
@@ -3456,7 +3459,7 @@
          this.memoEdit1.Properties.NullText = "یاداشت صورتحساب ...";
          this.memoEdit1.Properties.NullValuePrompt = "یاداشت صورتحساب ...";
          this.memoEdit1.Properties.NullValuePromptShowForEmptyValue = true;
-         this.memoEdit1.Size = new System.Drawing.Size(570, 310);
+         this.memoEdit1.Size = new System.Drawing.Size(570, 312);
          this.memoEdit1.TabIndex = 38;
          // 
          // label9
@@ -3486,7 +3489,7 @@
          this.tp_000_001_005.Controls.Add(this.label2);
          this.tp_000_001_005.Location = new System.Drawing.Point(4, 23);
          this.tp_000_001_005.Name = "tp_000_001_005";
-         this.tp_000_001_005.Size = new System.Drawing.Size(586, 420);
+         this.tp_000_001_005.Size = new System.Drawing.Size(586, 422);
          this.tp_000_001_005.TabIndex = 4;
          this.tp_000_001_005.Text = "ارسال سفارش";
          this.tp_000_001_005.UseVisualStyleBackColor = true;
@@ -3508,7 +3511,7 @@
          this.ServAdrs_Pn.Controls.Add(this.OrdrServAdrs_Txt);
          this.ServAdrs_Pn.Location = new System.Drawing.Point(3, 149);
          this.ServAdrs_Pn.Name = "ServAdrs_Pn";
-         this.ServAdrs_Pn.Size = new System.Drawing.Size(579, 266);
+         this.ServAdrs_Pn.Size = new System.Drawing.Size(579, 268);
          this.ServAdrs_Pn.TabIndex = 43;
          // 
          // SaveAdrsFrm1_Butn
@@ -3519,7 +3522,7 @@
          this.SaveAdrsFrm1_Butn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
          this.SaveAdrsFrm1_Butn.Font = new System.Drawing.Font("IRANSans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.SaveAdrsFrm1_Butn.Image = global::System.RoboTech.Properties.Resources.IMAGE_1731;
-         this.SaveAdrsFrm1_Butn.Location = new System.Drawing.Point(35, 206);
+         this.SaveAdrsFrm1_Butn.Location = new System.Drawing.Point(35, 208);
          this.SaveAdrsFrm1_Butn.Name = "SaveAdrsFrm1_Butn";
          this.SaveAdrsFrm1_Butn.Size = new System.Drawing.Size(132, 52);
          this.SaveAdrsFrm1_Butn.TabIndex = 48;
@@ -3686,7 +3689,7 @@
          this.ShowDestGoogleMap_Butn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
          this.ShowDestGoogleMap_Butn.Font = new System.Drawing.Font("IRANSans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.ShowDestGoogleMap_Butn.Image = global::System.RoboTech.Properties.Resources.IMAGE_1683;
-         this.ShowDestGoogleMap_Butn.Location = new System.Drawing.Point(173, 206);
+         this.ShowDestGoogleMap_Butn.Location = new System.Drawing.Point(173, 208);
          this.ShowDestGoogleMap_Butn.Name = "ShowDestGoogleMap_Butn";
          this.ShowDestGoogleMap_Butn.Size = new System.Drawing.Size(184, 52);
          this.ShowDestGoogleMap_Butn.TabIndex = 50;
@@ -3715,7 +3718,7 @@
          // OrdrCordY_Txt
          // 
          this.OrdrCordY_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-         this.OrdrCordY_Txt.Location = new System.Drawing.Point(363, 236);
+         this.OrdrCordY_Txt.Location = new System.Drawing.Point(363, 238);
          this.OrdrCordY_Txt.Name = "OrdrCordY_Txt";
          this.OrdrCordY_Txt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.OrdrCordY_Txt.Properties.Appearance.Options.UseFont = true;
@@ -3732,7 +3735,7 @@
          // OrdrCordX_Txt
          // 
          this.OrdrCordX_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-         this.OrdrCordX_Txt.Location = new System.Drawing.Point(363, 208);
+         this.OrdrCordX_Txt.Location = new System.Drawing.Point(363, 210);
          this.OrdrCordX_Txt.Name = "OrdrCordX_Txt";
          this.OrdrCordX_Txt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.OrdrCordX_Txt.Properties.Appearance.Options.UseFont = true;
@@ -3762,7 +3765,7 @@
          this.OrdrServAdrs_Txt.Properties.NullText = "آدرس جدید خود را وارد کنید ...";
          this.OrdrServAdrs_Txt.Properties.NullValuePrompt = "آدرس جدید خود را وارد کنید ...";
          this.OrdrServAdrs_Txt.Properties.NullValuePromptShowForEmptyValue = true;
-         this.OrdrServAdrs_Txt.Size = new System.Drawing.Size(570, 83);
+         this.OrdrServAdrs_Txt.Size = new System.Drawing.Size(570, 85);
          this.OrdrServAdrs_Txt.TabIndex = 37;
          // 
          // Ship004_Butn
@@ -4099,6 +4102,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("colActnSrbtFrm1.Buttons1"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject8, "", null, null, true)});
          this.colActnSrbtFrm1.Name = "colActnSrbtFrm1";
          this.colActnSrbtFrm1.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+         this.colActnSrbtFrm1.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.colActnSrbtFrm1_ButtonClick);
          // 
          // gridColumn184
          // 
@@ -4240,7 +4244,7 @@
          this.gridControl1.MainView = this.gridView1;
          this.gridControl1.Name = "gridControl1";
          this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.repositoryItemButtonEdit4});
+            this.colActnRbprFrm1});
          this.gridControl1.Size = new System.Drawing.Size(597, 606);
          this.gridControl1.TabIndex = 10;
          this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -4288,21 +4292,22 @@
          // 
          // gridColumn1
          // 
-         this.gridColumn1.ColumnEdit = this.repositoryItemButtonEdit4;
+         this.gridColumn1.ColumnEdit = this.colActnRbprFrm1;
          this.gridColumn1.Name = "gridColumn1";
          this.gridColumn1.OptionsColumn.FixedWidth = true;
          this.gridColumn1.Visible = true;
          this.gridColumn1.VisibleIndex = 0;
          this.gridColumn1.Width = 55;
          // 
-         // repositoryItemButtonEdit4
+         // colActnRbprFrm1
          // 
-         this.repositoryItemButtonEdit4.AutoHeight = false;
-         this.repositoryItemButtonEdit4.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("repositoryItemButtonEdit4.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject11, "", null, null, true),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("repositoryItemButtonEdit4.Buttons1"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject12, "", null, null, true)});
-         this.repositoryItemButtonEdit4.Name = "repositoryItemButtonEdit4";
-         this.repositoryItemButtonEdit4.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+         this.colActnRbprFrm1.AutoHeight = false;
+         this.colActnRbprFrm1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("colActnRbprFrm1.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject11, "", null, null, true),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("colActnRbprFrm1.Buttons1"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject12, "", null, null, true)});
+         this.colActnRbprFrm1.Name = "colActnRbprFrm1";
+         this.colActnRbprFrm1.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+         this.colActnRbprFrm1.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.colActnRbprFrm1_ButtonClick);
          // 
          // gridColumn2
          // 
@@ -4705,7 +4710,7 @@
          this.tabControl2.Name = "tabControl2";
          this.tabControl2.RightToLeftLayout = true;
          this.tabControl2.SelectedIndex = 0;
-         this.tabControl2.Size = new System.Drawing.Size(832, 492);
+         this.tabControl2.Size = new System.Drawing.Size(832, 494);
          this.tabControl2.TabIndex = 53;
          // 
          // tabPage2
@@ -4720,7 +4725,7 @@
          this.tabPage2.Location = new System.Drawing.Point(4, 23);
          this.tabPage2.Name = "tabPage2";
          this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-         this.tabPage2.Size = new System.Drawing.Size(824, 465);
+         this.tabPage2.Size = new System.Drawing.Size(824, 467);
          this.tabPage2.TabIndex = 0;
          this.tabPage2.Text = "اطلاعات کاربر فروشگاه";
          this.tabPage2.UseVisualStyleBackColor = true;
@@ -4790,7 +4795,7 @@
          this.tabPage3.Location = new System.Drawing.Point(4, 23);
          this.tabPage3.Name = "tabPage3";
          this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-         this.tabPage3.Size = new System.Drawing.Size(824, 465);
+         this.tabPage3.Size = new System.Drawing.Size(824, 467);
          this.tabPage3.TabIndex = 1;
          this.tabPage3.Text = "اقلام فاکتور";
          this.tabPage3.UseVisualStyleBackColor = true;
@@ -4807,7 +4812,7 @@
          this.splitContainerControl13.Panel1.Text = "Panel1";
          this.splitContainerControl13.Panel2.Controls.Add(this.flowLayoutPanel12);
          this.splitContainerControl13.Panel2.Text = "Panel2";
-         this.splitContainerControl13.Size = new System.Drawing.Size(818, 459);
+         this.splitContainerControl13.Size = new System.Drawing.Size(818, 461);
          this.splitContainerControl13.SplitterPosition = 127;
          this.splitContainerControl13.TabIndex = 0;
          this.splitContainerControl13.Text = "splitContainerControl13";
@@ -4823,7 +4828,7 @@
          this.gridControl10.Name = "gridControl10";
          this.gridControl10.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.OrdtActnFrm2_Butn});
-         this.gridControl10.Size = new System.Drawing.Size(818, 302);
+         this.gridControl10.Size = new System.Drawing.Size(818, 304);
          this.gridControl10.TabIndex = 62;
          this.gridControl10.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.Ordt4Stp2_Gv});
@@ -6228,6 +6233,7 @@
          this.tp_003.Controls.Add(this.labelControl6);
          this.tp_003.Controls.Add(this.labelControl5);
          this.tp_003.Controls.Add(this.AcptPay_Butn);
+         this.tp_003.Controls.Add(this.SendInvoice_Butn);
          this.tp_003.Controls.Add(this.OrdrCashPay_Butn);
          this.tp_003.Controls.Add(this.BackPay_Butn);
          this.tp_003.Controls.Add(this.OrdrWletCashPay_Butn);
@@ -6265,11 +6271,11 @@
          this.OthrPay_Pn.Controls.Add(this.labelControl19);
          this.OthrPay_Pn.Controls.Add(this.labelControl9);
          this.OthrPay_Pn.Controls.Add(this.CashWlet_Txt);
-         this.OthrPay_Pn.Controls.Add(this.c1Button51);
+         this.OthrPay_Pn.Controls.Add(this.PosConfig_Butn);
          this.OthrPay_Pn.Controls.Add(this.c1Button50);
          this.OthrPay_Pn.Location = new System.Drawing.Point(549, 158);
          this.OthrPay_Pn.Name = "OthrPay_Pn";
-         this.OthrPay_Pn.Size = new System.Drawing.Size(443, 339);
+         this.OthrPay_Pn.Size = new System.Drawing.Size(443, 285);
          this.OthrPay_Pn.TabIndex = 79;
          // 
          // CredWlet_Txt
@@ -6309,7 +6315,7 @@
          this.UsePos_Cb.Checked = true;
          this.UsePos_Cb.CheckState = System.Windows.Forms.CheckState.Checked;
          this.UsePos_Cb.Font = new System.Drawing.Font("IRAN Sans", 9.75F, System.Drawing.FontStyle.Bold);
-         this.UsePos_Cb.Location = new System.Drawing.Point(121, 294);
+         this.UsePos_Cb.Location = new System.Drawing.Point(121, 240);
          this.UsePos_Cb.Name = "UsePos_Cb";
          this.UsePos_Cb.Size = new System.Drawing.Size(163, 30);
          this.UsePos_Cb.TabIndex = 78;
@@ -6320,7 +6326,7 @@
          // 
          this.textEdit8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.textEdit8.EditValue = "";
-         this.textEdit8.Location = new System.Drawing.Point(69, 152);
+         this.textEdit8.Location = new System.Drawing.Point(69, 127);
          this.textEdit8.Name = "textEdit8";
          this.textEdit8.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
          this.textEdit8.Properties.Appearance.Font = new System.Drawing.Font("IRANSans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
@@ -6355,7 +6361,7 @@
          // Pos_Lov
          // 
          this.Pos_Lov.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.Pos_Lov.Location = new System.Drawing.Point(69, 250);
+         this.Pos_Lov.Location = new System.Drawing.Point(69, 196);
          this.Pos_Lov.Name = "Pos_Lov";
          this.Pos_Lov.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
          this.Pos_Lov.Properties.Appearance.Font = new System.Drawing.Font("IRANSans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
@@ -6415,7 +6421,7 @@
          this.labelControl20.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.labelControl20.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl20.LineVisible = true;
-         this.labelControl20.Location = new System.Drawing.Point(28, 219);
+         this.labelControl20.Location = new System.Drawing.Point(28, 177);
          this.labelControl20.Name = "labelControl20";
          this.labelControl20.Size = new System.Drawing.Size(346, 13);
          this.labelControl20.TabIndex = 76;
@@ -6439,7 +6445,7 @@
          this.labelControl10.Appearance.Image = global::System.RoboTech.Properties.Resources.IMAGE_1103;
          this.labelControl10.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
          this.labelControl10.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl10.Location = new System.Drawing.Point(290, 144);
+         this.labelControl10.Location = new System.Drawing.Point(290, 119);
          this.labelControl10.Name = "labelControl10";
          this.labelControl10.Size = new System.Drawing.Size(117, 52);
          this.labelControl10.TabIndex = 58;
@@ -6452,7 +6458,7 @@
          this.labelControl19.Appearance.Image = global::System.RoboTech.Properties.Resources.IMAGE_1089;
          this.labelControl19.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
          this.labelControl19.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl19.Location = new System.Drawing.Point(299, 243);
+         this.labelControl19.Location = new System.Drawing.Point(299, 189);
          this.labelControl19.Name = "labelControl19";
          this.labelControl19.Size = new System.Drawing.Size(103, 52);
          this.labelControl19.TabIndex = 58;
@@ -6463,7 +6469,7 @@
          this.labelControl9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.labelControl9.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl9.LineVisible = true;
-         this.labelControl9.Location = new System.Drawing.Point(28, 121);
+         this.labelControl9.Location = new System.Drawing.Point(28, 108);
          this.labelControl9.Name = "labelControl9";
          this.labelControl9.Size = new System.Drawing.Size(346, 13);
          this.labelControl9.TabIndex = 76;
@@ -6498,20 +6504,21 @@
          this.CashWlet_Txt.TabIndex = 60;
          this.CashWlet_Txt.TabStop = false;
          // 
-         // c1Button51
+         // PosConfig_Butn
          // 
-         this.c1Button51.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.c1Button51.FlatAppearance.BorderColor = System.Drawing.Color.White;
-         this.c1Button51.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-         this.c1Button51.Font = new System.Drawing.Font("IRAN Sans", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.c1Button51.ForeColor = System.Drawing.Color.Black;
-         this.c1Button51.Image = global::System.RoboTech.Properties.Resources.IMAGE_1736;
-         this.c1Button51.Location = new System.Drawing.Point(20, 250);
-         this.c1Button51.Name = "c1Button51";
-         this.c1Button51.Size = new System.Drawing.Size(43, 38);
-         this.c1Button51.TabIndex = 72;
-         this.c1Button51.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-         this.c1Button51.UseVisualStyleBackColor = false;
+         this.PosConfig_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.PosConfig_Butn.FlatAppearance.BorderColor = System.Drawing.Color.White;
+         this.PosConfig_Butn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+         this.PosConfig_Butn.Font = new System.Drawing.Font("IRAN Sans", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.PosConfig_Butn.ForeColor = System.Drawing.Color.Black;
+         this.PosConfig_Butn.Image = global::System.RoboTech.Properties.Resources.IMAGE_1736;
+         this.PosConfig_Butn.Location = new System.Drawing.Point(20, 196);
+         this.PosConfig_Butn.Name = "PosConfig_Butn";
+         this.PosConfig_Butn.Size = new System.Drawing.Size(43, 38);
+         this.PosConfig_Butn.TabIndex = 72;
+         this.PosConfig_Butn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+         this.PosConfig_Butn.UseVisualStyleBackColor = false;
+         this.PosConfig_Butn.Click += new System.EventHandler(this.PosConfig_Butn_Click);
          // 
          // c1Button50
          // 
@@ -6521,7 +6528,7 @@
          this.c1Button50.Font = new System.Drawing.Font("IRAN Sans", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.c1Button50.ForeColor = System.Drawing.Color.Black;
          this.c1Button50.Image = global::System.RoboTech.Properties.Resources.IMAGE_1731;
-         this.c1Button50.Location = new System.Drawing.Point(20, 152);
+         this.c1Button50.Location = new System.Drawing.Point(20, 127);
          this.c1Button50.Name = "c1Button50";
          this.c1Button50.Size = new System.Drawing.Size(43, 38);
          this.c1Button50.TabIndex = 72;
@@ -6892,7 +6899,7 @@
          this.labelControl21.Anchor = System.Windows.Forms.AnchorStyles.Top;
          this.labelControl21.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl21.LineVisible = true;
-         this.labelControl21.Location = new System.Drawing.Point(6, 535);
+         this.labelControl21.Location = new System.Drawing.Point(6, 456);
          this.labelControl21.Name = "labelControl21";
          this.labelControl21.Size = new System.Drawing.Size(1057, 13);
          this.labelControl21.TabIndex = 76;
@@ -6915,7 +6922,7 @@
          this.labelControl5.LineVisible = true;
          this.labelControl5.Location = new System.Drawing.Point(513, 95);
          this.labelControl5.Name = "labelControl5";
-         this.labelControl5.Size = new System.Drawing.Size(30, 434);
+         this.labelControl5.Size = new System.Drawing.Size(30, 355);
          this.labelControl5.TabIndex = 74;
          // 
          // AcptPay_Butn
@@ -6927,9 +6934,9 @@
          this.AcptPay_Butn.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.AcptPay_Butn.ForeColor = System.Drawing.Color.Black;
          this.AcptPay_Butn.Image = global::System.RoboTech.Properties.Resources.IMAGE_1747;
-         this.AcptPay_Butn.Location = new System.Drawing.Point(204, 564);
+         this.AcptPay_Butn.Location = new System.Drawing.Point(133, 485);
          this.AcptPay_Butn.Name = "AcptPay_Butn";
-         this.AcptPay_Butn.Size = new System.Drawing.Size(105, 62);
+         this.AcptPay_Butn.Size = new System.Drawing.Size(105, 68);
          this.AcptPay_Butn.TabIndex = 72;
          this.AcptPay_Butn.Text = "F5";
          this.AcptPay_Butn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -6937,6 +6944,25 @@
          this.AcptPay_Butn.UseVisualStyleBackColor = false;
          this.AcptPay_Butn.Visible = false;
          this.AcptPay_Butn.Click += new System.EventHandler(this.AcptPay_Butn_Click);
+         // 
+         // SendInvoice_Butn
+         // 
+         this.SendInvoice_Butn.Anchor = System.Windows.Forms.AnchorStyles.Top;
+         this.SendInvoice_Butn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+         this.SendInvoice_Butn.FlatAppearance.BorderColor = System.Drawing.Color.SlateBlue;
+         this.SendInvoice_Butn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+         this.SendInvoice_Butn.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.SendInvoice_Butn.ForeColor = System.Drawing.Color.Black;
+         this.SendInvoice_Butn.Image = global::System.RoboTech.Properties.Resources.IMAGE_1755;
+         this.SendInvoice_Butn.Location = new System.Drawing.Point(800, 485);
+         this.SendInvoice_Butn.Name = "SendInvoice_Butn";
+         this.SendInvoice_Butn.Size = new System.Drawing.Size(136, 68);
+         this.SendInvoice_Butn.TabIndex = 72;
+         this.SendInvoice_Butn.Text = "ارسال فاکتور - F10";
+         this.SendInvoice_Butn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+         this.SendInvoice_Butn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+         this.SendInvoice_Butn.UseVisualStyleBackColor = false;
+         this.SendInvoice_Butn.Click += new System.EventHandler(this.SendInvoice_Butn_Click);
          // 
          // OrdrCashPay_Butn
          // 
@@ -6947,9 +6973,9 @@
          this.OrdrCashPay_Butn.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.OrdrCashPay_Butn.ForeColor = System.Drawing.Color.Black;
          this.OrdrCashPay_Butn.Image = global::System.RoboTech.Properties.Resources.IMAGE_1744;
-         this.OrdrCashPay_Butn.Location = new System.Drawing.Point(760, 564);
+         this.OrdrCashPay_Butn.Location = new System.Drawing.Point(689, 485);
          this.OrdrCashPay_Butn.Name = "OrdrCashPay_Butn";
-         this.OrdrCashPay_Butn.Size = new System.Drawing.Size(105, 62);
+         this.OrdrCashPay_Butn.Size = new System.Drawing.Size(105, 68);
          this.OrdrCashPay_Butn.TabIndex = 72;
          this.OrdrCashPay_Butn.Text = "نقدی - F2";
          this.OrdrCashPay_Butn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -6966,9 +6992,9 @@
          this.BackPay_Butn.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.BackPay_Butn.ForeColor = System.Drawing.Color.Black;
          this.BackPay_Butn.Image = global::System.RoboTech.Properties.Resources.IMAGE_1748;
-         this.BackPay_Butn.Location = new System.Drawing.Point(315, 564);
+         this.BackPay_Butn.Location = new System.Drawing.Point(244, 485);
          this.BackPay_Butn.Name = "BackPay_Butn";
-         this.BackPay_Butn.Size = new System.Drawing.Size(105, 62);
+         this.BackPay_Butn.Size = new System.Drawing.Size(105, 68);
          this.BackPay_Butn.TabIndex = 73;
          this.BackPay_Butn.Text = "F6";
          this.BackPay_Butn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -6985,9 +7011,9 @@
          this.OrdrWletCashPay_Butn.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.OrdrWletCashPay_Butn.ForeColor = System.Drawing.Color.Black;
          this.OrdrWletCashPay_Butn.Image = global::System.RoboTech.Properties.Resources.IMAGE_1746;
-         this.OrdrWletCashPay_Butn.Location = new System.Drawing.Point(539, 564);
+         this.OrdrWletCashPay_Butn.Location = new System.Drawing.Point(468, 485);
          this.OrdrWletCashPay_Butn.Name = "OrdrWletCashPay_Butn";
-         this.OrdrWletCashPay_Butn.Size = new System.Drawing.Size(105, 62);
+         this.OrdrWletCashPay_Butn.Size = new System.Drawing.Size(105, 68);
          this.OrdrWletCashPay_Butn.TabIndex = 73;
          this.OrdrWletCashPay_Butn.Text = "نقدی - F7";
          this.OrdrWletCashPay_Butn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -7004,9 +7030,9 @@
          this.OrdrWletCredPay_Butn.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.OrdrWletCredPay_Butn.ForeColor = System.Drawing.Color.Black;
          this.OrdrWletCredPay_Butn.Image = global::System.RoboTech.Properties.Resources.IMAGE_1746;
-         this.OrdrWletCredPay_Butn.Location = new System.Drawing.Point(428, 564);
+         this.OrdrWletCredPay_Butn.Location = new System.Drawing.Point(357, 485);
          this.OrdrWletCredPay_Butn.Name = "OrdrWletCredPay_Butn";
-         this.OrdrWletCredPay_Butn.Size = new System.Drawing.Size(105, 62);
+         this.OrdrWletCredPay_Butn.Size = new System.Drawing.Size(105, 68);
          this.OrdrWletCredPay_Butn.TabIndex = 73;
          this.OrdrWletCredPay_Butn.Text = "اعتباری - F8";
          this.OrdrWletCredPay_Butn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -7023,9 +7049,9 @@
          this.OrdrPosPay_Butn.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.OrdrPosPay_Butn.ForeColor = System.Drawing.Color.Black;
          this.OrdrPosPay_Butn.Image = global::System.RoboTech.Properties.Resources.IMAGE_1745;
-         this.OrdrPosPay_Butn.Location = new System.Drawing.Point(650, 564);
+         this.OrdrPosPay_Butn.Location = new System.Drawing.Point(579, 485);
          this.OrdrPosPay_Butn.Name = "OrdrPosPay_Butn";
-         this.OrdrPosPay_Butn.Size = new System.Drawing.Size(105, 62);
+         this.OrdrPosPay_Butn.Size = new System.Drawing.Size(105, 68);
          this.OrdrPosPay_Butn.TabIndex = 73;
          this.OrdrPosPay_Butn.Text = "کارت - F3";
          this.OrdrPosPay_Butn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -7331,7 +7357,7 @@
          ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.RbprBs)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit4)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.colActnRbprFrm1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl2)).EndInit();
          this.splitContainerControl2.ResumeLayout(false);
          ((System.ComponentModel.ISupportInitialize)(this.RbprFrm1_Txt.Properties)).EndInit();
@@ -7398,7 +7424,7 @@
          ((System.ComponentModel.ISupportInitialize)(this.Pos_Lov.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.VPosBs1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.CashWlet_Txt.Properties)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.c1Button51)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.PosConfig_Butn)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.c1Button50)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.gridControl5)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
@@ -7407,6 +7433,7 @@
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit2)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.AcptPay_Butn)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.SendInvoice_Butn)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.OrdrCashPay_Butn)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.BackPay_Butn)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.OrdrWletCashPay_Butn)).EndInit();
@@ -7647,7 +7674,7 @@
       private DevExpress.XtraGrid.GridControl gridControl1;
       private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
       private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
-      private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit repositoryItemButtonEdit4;
+      private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit colActnRbprFrm1;
       private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
       private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
       private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;
@@ -7792,7 +7819,7 @@
       private DevExpress.XtraEditors.LabelControl labelControl18;
       private Windows.Forms.BindingSource DAmutBs;
       private DevExpress.XtraEditors.LabelControl labelControl20;
-      private C1.Win.C1Input.C1Button c1Button51;
+      private C1.Win.C1Input.C1Button PosConfig_Butn;
       private DevExpress.XtraEditors.LabelControl labelControl19;
       private DevExpress.XtraEditors.LookUpEdit Pos_Lov;
       private Windows.Forms.BindingSource VPosBs1;
@@ -7896,6 +7923,7 @@
       private C1.Win.C1Input.C1Button c1Button34;
       private C1.Win.C1Input.C1Button c1Button35;
       private C1.Win.C1Input.C1Button c1Button36;
+      private C1.Win.C1Input.C1Button SendInvoice_Butn;
 
 
    }

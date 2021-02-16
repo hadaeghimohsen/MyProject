@@ -1451,5 +1451,93 @@ namespace System.RoboTech.Ui.DevelopmentApplication
             MessageBox.Show(exc.Message);
          }
       }
+
+      private void PosConfig_Butn_Click(object sender, EventArgs e)
+      {
+         _DefaultGateway.Gateway(
+            new Job(SendType.External, "localhost", "Commons", 33 /* Execute PosSettings */, SendType.Self) { Input = "Pos_Butn" }
+         );
+      }
+
+      private void SendInvoice_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var ordr = Ordr4Bs.Current as Data.Order;
+            if (ordr == null) return;
+
+            iRoboTech.UPD_ORDR_P(
+                  ordr.CODE, ordr.SRBT_SERV_FILE_NO, ordr.SRBT_ROBO_RBID, ordr.SRBT_SRPB_RWNO, ordr.PROB_SERV_FILE_NO, ordr.PROB_ROBO_RBID, ordr.CHAT_ID,
+                  ordr.ORDR_CODE, ordr.ORDR_NUMB, ordr.SERV_ORDR_RWNO, ordr.OWNR_NAME, ordr.ORDR_TYPE, DateTime.Now, ordr.END_DATE, ordr.ORDR_STAT, ordr.HOW_SHIP,
+                  ordr.CORD_X, ordr.CORD_Y, ordr.CELL_PHON, ordr.TELL_PHON, ordr.SERV_ADRS, ordr.ARCH_STAT, ordr.SERV_JOB_APBS_CODE, ordr.SERV_INTR_APBS_CODE, ordr.MDFR_STAT,
+                  ordr.CRTB_SEND_STAT, ordr.CRTB_MAIL_NO, ordr.CRTB_MAIL_SUBJ, ordr.APBS_CODE, ordr.EXPN_AMNT, ordr.EXTR_PRCT, ordr.SORC_CORD_X, ordr.SORC_CORD_Y, ordr.SORC_POST_ADRS,
+                  ordr.SORC_CELL_PHON, ordr.SORC_TELL_PHON, ordr.SORC_EMAL_ADRS, ordr.SORC_WEB_SITE, ordr.SUB_SYS, ordr.ORDR_DESC
+               );
+
+            // ارسال فاکتور برای مشتری
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost",
+                  new List<Job>
+                     {
+                        new Job(SendType.Self, 11 /* Execute Strt_Robo_F */),
+                        new Job(SendType.SelfToUserInterface, "STRT_ROBO_F", 00 /* Execute ProcessCmdKey */){Input = Keys.Escape},
+                        new Job(SendType.SelfToUserInterface, "STRT_ROBO_F", 10 /* Execute Actn_CalF_P */)
+                        {
+                           Input = 
+                              new XElement("Robot", 
+                                 new XAttribute("runrobot", "start"),
+                                 new XAttribute("actntype", "sendinvoice"),
+                                 new XAttribute("rbid", ordr.SRBT_ROBO_RBID),
+                                 new XAttribute("ordrcode", ordr.CODE),
+                                 new XAttribute("chatid", ordr.CHAT_ID)
+                              )
+                        }
+                     }
+               )
+            );
+         }
+         catch(Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void colActnSrbtFrm1_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            switch (e.Button.Index)
+            {
+               case 0:
+                  NewSaleFrm1_Butn_Click(null, null);
+                  break;
+               case 1:
+                  break;
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void colActnRbprFrm1_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            switch (e.Button.Index)
+            {
+               case 0:
+                  AddTarfToCart_DoAction();
+                  break;
+               case 1:
+                  break;
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
    }
 }

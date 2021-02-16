@@ -15,7 +15,7 @@ namespace System.RoboTech.Ui.Action
       public IRouter _DefaultGateway { get; set; }
       private Data.iRoboTechDataContext iRoboTech;
       private string ConnectionString;
-      private XElement HostNameInfo;
+      internal XElement HostNameInfo;
       private List<long?> Fga_Ugov_U;
 
       public void SendRequest(Job job)

@@ -2151,6 +2151,65 @@ namespace System.Scsc.Ui.MasterPage
                   #endregion
                   
                }
+               else if (AttnType_Lov.EditValue.ToString() == "008")
+               {
+                  // اگر این گزینه باشد که برای مدیریت مجموعه های ورزشی بخواهیم عمل کنیم
+                  // به این صورت که کارت خام باشد فرم ثبت نام مشتری باز شود
+                  // اگر کارت متعلق به عضویت خاصی باشد فرم پروفایل مشتری باز شود
+                  var dev008host = iScsc.External_Devices.FirstOrDefault(ed => ed.SERV_IP_ADRS == xHost.Attribute("ip").Value && ed.STAT == "002" && ed.DEV_TYPE == "001");
+                  var Serv = iScsc.Fighters.FirstOrDefault(f => f.FNGR_PRNT_DNRM == EnrollNumber && f.CONF_STAT == "002");
+                  if(Serv == null)
+                  {
+                     // باز کردن فرم مربوط به ثبت نام مشتری
+                     _DefaultGateway.Gateway(
+                        new Job(SendType.External, "Localhost",
+                           new List<Job>
+                           {
+                              new Job(SendType.Self, 130 /* Execute Adm_Brsr_F */),
+                              new Job(SendType.SelfToUserInterface, "ADM_BRSR_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "fighter"), new XAttribute("enrollnumber", FngrPrnt_Txt.Text))}
+                           })
+                     );
+
+                     // ارسال پیام خطا به دستگاه
+                     if (dev008host != null)
+                     {
+                        SendCommandDevExpn(
+                           "er:          " +
+                           "&  " +
+                           ":         ", dev008host.DEV_NAME, FngrPrnt_Txt.Text);
+                     }
+                  }
+                  else
+                  {
+                     // باز کردن فرم مربوط به پروفایل مشتری
+                     ShowInfo_Butn_Click(null, null); 
+
+                     // بررسی اینکه مشتری شارژ اعتباری داری یا خیر
+                     if(Serv.DPST_AMNT_DNRM > 0)
+                     {
+                        // اگر مشتری اعتبار دارد
+                        if (dev008host != null)
+                        {
+                           SendCommandDevExpn(
+                              "in:          " +
+                              "&  " +
+                              ":         ", dev008host.DEV_NAME, FngrPrnt_Txt.Text);
+                        }
+                     }
+                     else
+                     {
+                        // اگر مشتری اعتبار نداشته باشد
+                        if (dev008host != null)
+                        {
+                           SendCommandDevExpn(
+                              "er:          " +
+                              "&  " +
+                              ":         ", dev008host.DEV_NAME, FngrPrnt_Txt.Text);
+                        }
+                     }
+
+                  }
+               }
                return; 
             }
 

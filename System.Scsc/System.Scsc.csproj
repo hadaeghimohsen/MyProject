@@ -296,7 +296,7 @@
     <Compile Include="Data\iScsc.cs">
       <DependentUpon>iScsc.dbml</DependentUpon>
     </Compile>
-    <Compile Include="Data\iScsc.designer.cs">
+    <Compile Include="Data\iScsc1.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>iScsc.dbml</DependentUpon>

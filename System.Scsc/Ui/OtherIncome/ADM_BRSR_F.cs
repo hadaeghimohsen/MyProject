@@ -768,5 +768,17 @@ namespace System.Scsc.Ui.OtherIncome
          Execute_Query();
       }
 
+      private void AdvnAdmnServ_Butn_Click(object sender, EventArgs e)
+      {
+         _DefaultGateway.Gateway(
+            new Job(SendType.External, "Localhost",
+               new List<Job>
+               {
+                  new Job(SendType.Self, 123 /* Execute Adm_Figh_F */),
+                  new Job(SendType.SelfToUserInterface, "ADM_FIGH_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "setcard"), new XAttribute("value", FngrPrnt_Txt.Text))}
+               })
+         );
+      }
+
    }
 }

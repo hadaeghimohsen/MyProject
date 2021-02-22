@@ -267,6 +267,8 @@
          this.RqstBnADoc1 = new System.Windows.Forms.ToolStripButton();
          this.RqstBnRegl01 = new System.Windows.Forms.ToolStripButton();
          this.RqstBnExit1 = new System.Windows.Forms.ToolStripButton();
+         this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+         this.Search_Butn = new System.Windows.Forms.ToolStripButton();
          this.FighBs1 = new System.Windows.Forms.BindingSource();
          this.Rqst_Gb = new System.Windows.Forms.GroupBox();
          this.ShowRqst_PickButn = new System.MaxUi.NewPickBtn();
@@ -274,8 +276,8 @@
          this.User_Gb = new System.Windows.Forms.GroupBox();
          this.label2 = new System.Windows.Forms.Label();
          this.OthrInCm_Butn = new System.MaxUi.RoundedButton();
-         this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-         this.Search_Butn = new System.Windows.Forms.ToolStripButton();
+         this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+         this.AdvnAdmnServ_Butn = new System.Windows.Forms.ToolStripButton();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit1.CalendarTimeProperties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.RqstBs1)).BeginInit();
@@ -2132,7 +2134,9 @@
             this.RqstBnRegl01,
             this.RqstBnExit1,
             this.toolStripSeparator1,
-            this.Search_Butn});
+            this.Search_Butn,
+            this.toolStripSeparator2,
+            this.AdvnAdmnServ_Butn});
          this.RqstBn1.Location = new System.Drawing.Point(0, 0);
          this.RqstBn1.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
          this.RqstBn1.MoveLastItem = this.bindingNavigatorMoveLastItem;
@@ -2358,6 +2362,21 @@
          this.RqstBnExit1.ToolTipText = "خروج";
          this.RqstBnExit1.Click += new System.EventHandler(this.Btn_RqstExit1_Click);
          // 
+         // toolStripSeparator1
+         // 
+         this.toolStripSeparator1.Name = "toolStripSeparator1";
+         this.toolStripSeparator1.Size = new System.Drawing.Size(6, 47);
+         // 
+         // Search_Butn
+         // 
+         this.Search_Butn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+         this.Search_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1133;
+         this.Search_Butn.ImageTransparentColor = System.Drawing.Color.Magenta;
+         this.Search_Butn.Name = "Search_Butn";
+         this.Search_Butn.Size = new System.Drawing.Size(44, 44);
+         this.Search_Butn.Text = "جستجو";
+         this.Search_Butn.Click += new System.EventHandler(this.Search_Butn_Click);
+         // 
          // FighBs1
          // 
          this.FighBs1.DataSource = typeof(System.Scsc.Data.Fighter);
@@ -2485,20 +2504,20 @@
          this.OthrInCm_Butn.Tooltip = null;
          this.OthrInCm_Butn.Click += new System.EventHandler(this.OthrInCm_Butn_Click);
          // 
-         // toolStripSeparator1
+         // toolStripSeparator2
          // 
-         this.toolStripSeparator1.Name = "toolStripSeparator1";
-         this.toolStripSeparator1.Size = new System.Drawing.Size(6, 47);
+         this.toolStripSeparator2.Name = "toolStripSeparator2";
+         this.toolStripSeparator2.Size = new System.Drawing.Size(6, 47);
          // 
-         // Search_Butn
+         // AdvnAdmnServ_Butn
          // 
-         this.Search_Butn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-         this.Search_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1133;
-         this.Search_Butn.ImageTransparentColor = System.Drawing.Color.Magenta;
-         this.Search_Butn.Name = "Search_Butn";
-         this.Search_Butn.Size = new System.Drawing.Size(44, 44);
-         this.Search_Butn.Text = "جستجو";
-         this.Search_Butn.Click += new System.EventHandler(this.Search_Butn_Click);
+         this.AdvnAdmnServ_Butn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+         this.AdvnAdmnServ_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1081;
+         this.AdvnAdmnServ_Butn.ImageTransparentColor = System.Drawing.Color.Magenta;
+         this.AdvnAdmnServ_Butn.Name = "AdvnAdmnServ_Butn";
+         this.AdvnAdmnServ_Butn.Size = new System.Drawing.Size(44, 44);
+         this.AdvnAdmnServ_Butn.Text = "فرم ثبت نام دوره ای";
+         this.AdvnAdmnServ_Butn.Click += new System.EventHandler(this.AdvnAdmnServ_Butn_Click);
          // 
          // ADM_BRSR_F
          // 
@@ -2797,5 +2816,7 @@
       private MaxUi.NewPickBtn GoProfile_Pbt;
       private Windows.Forms.ToolStripSeparator toolStripSeparator1;
       private Windows.Forms.ToolStripButton Search_Butn;
+      private Windows.Forms.ToolStripSeparator toolStripSeparator2;
+      private Windows.Forms.ToolStripButton AdvnAdmnServ_Butn;
    }
 }

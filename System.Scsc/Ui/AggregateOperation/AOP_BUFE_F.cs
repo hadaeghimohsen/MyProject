@@ -898,17 +898,17 @@ namespace System.Scsc.Ui.AggregateOperation
                Execute_Query();
 
                // اگر سیستم به صورت انلاین اجرا شود
-               //if(isOnline)
-               //{
-               //   AodtBs1.Position = AodtBs1.IndexOf(AodtBs1.List.OfType<Data.Aggregation_Operation_Detail>().FirstOrDefault(a => a.AGOP_CODE == desk.AGOP_CODE && a.RWNO == desk.RWNO));
-               //   desk = AodtBs1.Current as Data.Aggregation_Operation_Detail;
-               //   // اگر زمانی اتفاق بیوفتد که هزینه بازی برای مشتری از میزان مبلغ سپرده بیشتر شد کافیست که مبلغ هزینه را با مبلغ سپرده یکی کنیم
-               //   // که صورتحساب مشتری بدهکار نشود
-               //   if(desk.EXPN_PRIC >= desk.Fighter.DPST_AMNT_DNRM)
-               //      desk.EXPN_PRIC = (int)desk.Fighter.DPST_AMNT_DNRM; // مبلغ هزینه بازی را با میزان سپرده یکی قرار میدهیم
-               //   desk.DPST_AMNT = desk.EXPN_PRIC; // پرداخت هزینه میز را با سپرده انجام میدهیم
-               //   RecStat_Butn_ButtonClick(null, new DevExpress.XtraEditors.Controls.ButtonPressedEventArgs(RecStat_Butn.Buttons[3])); // تسویه حساب میز را انجام میدهیم
-               //}
+               if (isOnline)
+               {
+                  AodtBs1.Position = AodtBs1.IndexOf(AodtBs1.List.OfType<Data.Aggregation_Operation_Detail>().FirstOrDefault(a => a.AGOP_CODE == desk.AGOP_CODE && a.RWNO == desk.RWNO));
+                  desk = AodtBs1.Current as Data.Aggregation_Operation_Detail;
+                  // اگر زمانی اتفاق بیوفتد که هزینه بازی برای مشتری از میزان مبلغ سپرده بیشتر شد کافیست که مبلغ هزینه را با مبلغ سپرده یکی کنیم
+                  // که صورتحساب مشتری بدهکار نشود
+                  if (desk.EXPN_PRIC >= desk.Fighter.DPST_AMNT_DNRM)
+                     desk.EXPN_PRIC = (int)desk.Fighter.DPST_AMNT_DNRM; // مبلغ هزینه بازی را با میزان سپرده یکی قرار میدهیم
+                  desk.DPST_AMNT = desk.EXPN_PRIC; // پرداخت هزینه میز را با سپرده انجام میدهیم
+                  RecStat_Butn_ButtonClick(null, new DevExpress.XtraEditors.Controls.ButtonPressedEventArgs(RecStat_Butn.Buttons[3])); // تسویه حساب میز را انجام میدهیم
+               }
 
                requery = false;
             }
@@ -1066,6 +1066,8 @@ namespace System.Scsc.Ui.AggregateOperation
             {
                fileno = FighBs.OfType<Data.Fighter>().FirstOrDefault(f => f.FGPB_TYPE_DNRM == "005").FILE_NO;
             }
+
+            if (fileno == null) { MessageBox.Show("نام مشتری انتخاب نشده"); return; }
 
             // 1399/11/25 * اگر میز باز باشد دیگر اجازه باز کردن مجدد آن را نداشته یاشیم
             if(AodtBs1.List.OfType<Data.Aggregation_Operation_Detail>().Any(d => d.Aggregation_Operation == agop && d.EXPN_CODE == desk && d.REC_STAT == "002" && d.STAT == "001"))
@@ -1454,6 +1456,13 @@ namespace System.Scsc.Ui.AggregateOperation
                {
                   fileno = Convert.ToInt64(Figh_Lov.EditValue);
                }
+               else
+               {
+                  fileno = FighBs.OfType<Data.Fighter>().FirstOrDefault(f => f.FGPB_TYPE_DNRM == "005").FILE_NO;
+               }
+
+               if (fileno == null) { MessageBox.Show("نام مشتری انتخاب نشده"); return; }
+
                if (TableCloseOpen)
                {
                   // 1395/12/27 * میز هابه صورت پشت سر هم قرار میگیرند تا تسویه حساب شود
@@ -1478,7 +1487,7 @@ namespace System.Scsc.Ui.AggregateOperation
                {
                   iScsc.INS_AODT_P(agop.CODE, 1, null, null, fileno, null, null, null, "002", "001", desk, null, null, null, null, null, null, null, null);
 
-                  // ارسال پیام برای باز کردن دستگاه چراغ میز برای مشتری            
+                  // ارسال پیام برای باز کردن دستگاه چراغ میز برای مشتری                              
                   _DefaultGateway.Gateway(
                      new Job(SendType.External, "localhost", "MAIN_PAGE_F", 10 /* Execute Call_Actn_P */, SendType.SelfToUserInterface)
                      {
@@ -2872,15 +2881,15 @@ namespace System.Scsc.Ui.AggregateOperation
                   {
                      AodtBs1.Position = AodtBs1.IndexOf(AodtBs1.List.OfType<Data.Aggregation_Operation_Detail>().FirstOrDefault(a => a == desk));
                      DeskClose_Butn_Click(null, null);
-                     var aodt = AodtBs1.Current as Data.Aggregation_Operation_Detail;
-                     // اگر زمانی اتفاق بیوفتد که هزینه بازی برای مشتری از میزان مبلغ سپرده بیشتر شد کافیست که مبلغ هزینه را با مبلغ سپرده یکی کنیم
-                     // که صورتحساب مشتری بدهکار نشود
-                     if (desk.EXPN_PRIC >= desk.Fighter.DPST_AMNT_DNRM)
-                        desk.EXPN_PRIC = (int)desk.Fighter.DPST_AMNT_DNRM; // مبلغ هزینه بازی را با میزان سپرده یکی قرار میدهیم
-                     desk.DPST_AMNT = desk.EXPN_PRIC; // پرداخت هزینه میز را با سپرده انجام میدهیم
-                     //aodt.EXPN_PRIC = (int)aodt.Fighter.DPST_AMNT_DNRM; // مبلغ هزینه بازی را با میزان سپرده یکی قرار میدهیم
-                     //aodt.DPST_AMNT = aodt.EXPN_PRIC; // پرداخت هزینه میز را با سپرده انجام میدهیم
-                     RecStat_Butn_ButtonClick(null, new DevExpress.XtraEditors.Controls.ButtonPressedEventArgs(RecStat_Butn.Buttons[3])); // تسویه حساب میز را انجام میدهیم
+                     //var aodt = AodtBs1.Current as Data.Aggregation_Operation_Detail;
+                     //// اگر زمانی اتفاق بیوفتد که هزینه بازی برای مشتری از میزان مبلغ سپرده بیشتر شد کافیست که مبلغ هزینه را با مبلغ سپرده یکی کنیم
+                     //// که صورتحساب مشتری بدهکار نشود
+                     //if (desk.EXPN_PRIC >= desk.Fighter.DPST_AMNT_DNRM)
+                     //   desk.EXPN_PRIC = (int)desk.Fighter.DPST_AMNT_DNRM; // مبلغ هزینه بازی را با میزان سپرده یکی قرار میدهیم
+                     //desk.DPST_AMNT = desk.EXPN_PRIC; // پرداخت هزینه میز را با سپرده انجام میدهیم
+                     ////aodt.EXPN_PRIC = (int)aodt.Fighter.DPST_AMNT_DNRM; // مبلغ هزینه بازی را با میزان سپرده یکی قرار میدهیم
+                     ////aodt.DPST_AMNT = aodt.EXPN_PRIC; // پرداخت هزینه میز را با سپرده انجام میدهیم
+                     //RecStat_Butn_ButtonClick(null, new DevExpress.XtraEditors.Controls.ButtonPressedEventArgs(RecStat_Butn.Buttons[3])); // تسویه حساب میز را انجام میدهیم
                   }
                }
             }

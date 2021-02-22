@@ -17,6 +17,8 @@ namespace System.RoboTech.Ui.DevelopmentApplication
       private Data.iRoboTechDataContext iRoboTech;
       private string ConnectionString;
       private List<long?> Fga_Ugov_U;
+      private XElement HostNameInfo;
+      private string CurrentUser;
 
       public void SendRequest(Job job)
       {
@@ -100,11 +102,13 @@ namespace System.RoboTech.Ui.DevelopmentApplication
 
          ConnectionString = GetConnectionString.Output.ToString();
          iRoboTech = new Data.iRoboTechDataContext(GetConnectionString.Output.ToString());
+         CurrentUser = iRoboTech.GET_CRNTUSER_U(new XElement("User", new XAttribute("actntype", "001")));
 
          Fga_Ugov_U = (iRoboTech.FGA_UGOV_U() ?? "").Split(',').Select(c => (long?)Int64.Parse(c)).ToList();
 
-         //var GetHostInfo = new Job(SendType.External, "Localhost", "Commons", 24 /* Execute DoWork4GetHosInfo */, SendType.Self);
-         //_DefaultGateway.Gateway(GetHostInfo);
+         var GetHostInfo = new Job(SendType.External, "Localhost", "Commons", 24 /* Execute DoWork4GetHosInfo */, SendType.Self);
+         _DefaultGateway.Gateway(GetHostInfo);
+         HostNameInfo = (XElement)GetHostInfo.Output;
 
          //_DefaultGateway.Gateway(
          //   new Job(SendType.External, "Localhost", "Commons", 08 /* Execute LangChangToFarsi */, SendType.Self)
@@ -211,6 +215,7 @@ namespace System.RoboTech.Ui.DevelopmentApplication
          Doftpbs.DataSource = iRoboTech.D_OFTPs;
          Dofkdbs.DataSource = iRoboTech.D_OFKDs;
          Drcstbs.DataSource = iRoboTech.D_RCSTs;
+         DactvBs.DataSource = iRoboTech.D_ACTVs;
 
          WletType01_Flb.Images = WletType02_Flb.Images = new Image[] { Properties.Resources.IMAGE_1545, Properties.Resources.IMAGE_1547 };
          job.Status = StatusType.Successful;

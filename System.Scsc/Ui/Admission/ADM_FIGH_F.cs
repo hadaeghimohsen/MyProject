@@ -1628,5 +1628,17 @@ namespace System.Scsc.Ui.Admission
          }
          catch { }
       }
+
+      private void SmplAdmnServ_Butn_Click(object sender, EventArgs e)
+      {
+         _DefaultGateway.Gateway(
+            new Job(SendType.External, "Localhost",
+               new List<Job>
+               {
+                  new Job(SendType.Self, 130 /* Execute Adm_Brsr_F */),
+                  new Job(SendType.SelfToUserInterface, "ADM_BRSR_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "fighter"), new XAttribute("enrollnumber", FNGR_PRNT_TextEdit.Text))}
+               })
+         );
+      }
    }
 }

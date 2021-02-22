@@ -969,7 +969,7 @@
          // 
          label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
          label5.AutoSize = true;
-         label5.Location = new System.Drawing.Point(542, 214);
+         label5.Location = new System.Drawing.Point(542, 218);
          label5.Name = "label5";
          label5.Size = new System.Drawing.Size(22, 14);
          label5.TabIndex = 38;
@@ -979,7 +979,7 @@
          // 
          label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
          label6.AutoSize = true;
-         label6.Location = new System.Drawing.Point(542, 242);
+         label6.Location = new System.Drawing.Point(542, 246);
          label6.Name = "label6";
          label6.Size = new System.Drawing.Size(23, 14);
          label6.TabIndex = 38;
@@ -2470,7 +2470,7 @@
          this.Master000_001_001_Tc.Name = "Master000_001_001_Tc";
          this.Master000_001_001_Tc.RightToLeftLayout = true;
          this.Master000_001_001_Tc.SelectedIndex = 0;
-         this.Master000_001_001_Tc.Size = new System.Drawing.Size(594, 449);
+         this.Master000_001_001_Tc.Size = new System.Drawing.Size(594, 453);
          this.Master000_001_001_Tc.TabIndex = 53;
          // 
          // tp_000_001_002
@@ -2479,7 +2479,7 @@
          this.tp_000_001_002.Location = new System.Drawing.Point(4, 23);
          this.tp_000_001_002.Name = "tp_000_001_002";
          this.tp_000_001_002.Padding = new System.Windows.Forms.Padding(3);
-         this.tp_000_001_002.Size = new System.Drawing.Size(586, 422);
+         this.tp_000_001_002.Size = new System.Drawing.Size(586, 426);
          this.tp_000_001_002.TabIndex = 1;
          this.tp_000_001_002.Text = "اقلام فاکتور";
          this.tp_000_001_002.UseVisualStyleBackColor = true;
@@ -2498,7 +2498,7 @@
          this.splitContainerControl3.Panel2.Controls.Add(this.panel2);
          this.splitContainerControl3.Panel2.Controls.Add(this.panel1);
          this.splitContainerControl3.Panel2.Text = "Panel2";
-         this.splitContainerControl3.Size = new System.Drawing.Size(580, 416);
+         this.splitContainerControl3.Size = new System.Drawing.Size(580, 420);
          this.splitContainerControl3.SplitterPosition = 127;
          this.splitContainerControl3.TabIndex = 0;
          this.splitContainerControl3.Text = "splitContainerControl3";
@@ -2514,7 +2514,7 @@
          this.gridControl2.Name = "gridControl2";
          this.gridControl2.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.OrdtActn_Butn});
-         this.gridControl2.Size = new System.Drawing.Size(580, 259);
+         this.gridControl2.Size = new System.Drawing.Size(580, 263);
          this.gridControl2.TabIndex = 63;
          this.gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView3});
@@ -2984,7 +2984,7 @@
          this.tp_000_001_003.Location = new System.Drawing.Point(4, 23);
          this.tp_000_001_003.Name = "tp_000_001_003";
          this.tp_000_001_003.Padding = new System.Windows.Forms.Padding(3);
-         this.tp_000_001_003.Size = new System.Drawing.Size(586, 422);
+         this.tp_000_001_003.Size = new System.Drawing.Size(586, 426);
          this.tp_000_001_003.TabIndex = 2;
          this.tp_000_001_003.Text = "تخفیفات صورتحساب";
          this.tp_000_001_003.UseVisualStyleBackColor = true;
@@ -2998,7 +2998,7 @@
          this.label11.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.label11.ForeColor = System.Drawing.Color.White;
          this.label11.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         this.label11.Location = new System.Drawing.Point(6, 313);
+         this.label11.Location = new System.Drawing.Point(6, 317);
          this.label11.Name = "label11";
          this.label11.Size = new System.Drawing.Size(468, 103);
          this.label11.TabIndex = 81;
@@ -3012,7 +3012,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
          this.labelControl31.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl31.LineVisible = true;
-         this.labelControl31.Location = new System.Drawing.Point(6, 297);
+         this.labelControl31.Location = new System.Drawing.Point(6, 301);
          this.labelControl31.Name = "labelControl31";
          this.labelControl31.Size = new System.Drawing.Size(574, 13);
          this.labelControl31.TabIndex = 80;
@@ -3031,7 +3031,7 @@
             this.repositoryItemButtonEdit1,
             this.persianRepositoryItemDateEdit3,
             this.repositoryItemLookUpEdit2});
-         this.gridControl6.Size = new System.Drawing.Size(574, 245);
+         this.gridControl6.Size = new System.Drawing.Size(574, 249);
          this.gridControl6.TabIndex = 79;
          this.gridControl6.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView6});
@@ -3401,7 +3401,7 @@
          this.roundedButton5.ImageProfile = global::System.RoboTech.Properties.Resources.IMAGE_1688;
          this.roundedButton5.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
          this.roundedButton5.ImageVisiable = false;
-         this.roundedButton5.Location = new System.Drawing.Point(480, 316);
+         this.roundedButton5.Location = new System.Drawing.Point(480, 320);
          this.roundedButton5.Name = "roundedButton5";
          this.roundedButton5.NormalBorderColor = System.Drawing.Color.Red;
          this.roundedButton5.NormalColorA = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
@@ -3419,7 +3419,7 @@
          this.tp_000_001_004.Location = new System.Drawing.Point(4, 23);
          this.tp_000_001_004.Name = "tp_000_001_004";
          this.tp_000_001_004.Padding = new System.Windows.Forms.Padding(3);
-         this.tp_000_001_004.Size = new System.Drawing.Size(586, 422);
+         this.tp_000_001_004.Size = new System.Drawing.Size(586, 426);
          this.tp_000_001_004.TabIndex = 3;
          this.tp_000_001_004.Text = "یادداشت صورتحساب";
          this.tp_000_001_004.UseVisualStyleBackColor = true;
@@ -3432,7 +3432,7 @@
          this.SaveNote_Butn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
          this.SaveNote_Butn.Font = new System.Drawing.Font("IRANSans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.SaveNote_Butn.Image = global::System.RoboTech.Properties.Resources.IMAGE_1731;
-         this.SaveNote_Butn.Location = new System.Drawing.Point(444, 364);
+         this.SaveNote_Butn.Location = new System.Drawing.Point(444, 368);
          this.SaveNote_Butn.Name = "SaveNote_Butn";
          this.SaveNote_Butn.Size = new System.Drawing.Size(132, 52);
          this.SaveNote_Butn.TabIndex = 49;
@@ -3459,7 +3459,7 @@
          this.memoEdit1.Properties.NullText = "یاداشت صورتحساب ...";
          this.memoEdit1.Properties.NullValuePrompt = "یاداشت صورتحساب ...";
          this.memoEdit1.Properties.NullValuePromptShowForEmptyValue = true;
-         this.memoEdit1.Size = new System.Drawing.Size(570, 312);
+         this.memoEdit1.Size = new System.Drawing.Size(570, 316);
          this.memoEdit1.TabIndex = 38;
          // 
          // label9
@@ -3489,7 +3489,7 @@
          this.tp_000_001_005.Controls.Add(this.label2);
          this.tp_000_001_005.Location = new System.Drawing.Point(4, 23);
          this.tp_000_001_005.Name = "tp_000_001_005";
-         this.tp_000_001_005.Size = new System.Drawing.Size(586, 422);
+         this.tp_000_001_005.Size = new System.Drawing.Size(586, 426);
          this.tp_000_001_005.TabIndex = 4;
          this.tp_000_001_005.Text = "ارسال سفارش";
          this.tp_000_001_005.UseVisualStyleBackColor = true;
@@ -3511,7 +3511,7 @@
          this.ServAdrs_Pn.Controls.Add(this.OrdrServAdrs_Txt);
          this.ServAdrs_Pn.Location = new System.Drawing.Point(3, 149);
          this.ServAdrs_Pn.Name = "ServAdrs_Pn";
-         this.ServAdrs_Pn.Size = new System.Drawing.Size(579, 268);
+         this.ServAdrs_Pn.Size = new System.Drawing.Size(579, 272);
          this.ServAdrs_Pn.TabIndex = 43;
          // 
          // SaveAdrsFrm1_Butn
@@ -3522,7 +3522,7 @@
          this.SaveAdrsFrm1_Butn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
          this.SaveAdrsFrm1_Butn.Font = new System.Drawing.Font("IRANSans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.SaveAdrsFrm1_Butn.Image = global::System.RoboTech.Properties.Resources.IMAGE_1731;
-         this.SaveAdrsFrm1_Butn.Location = new System.Drawing.Point(35, 208);
+         this.SaveAdrsFrm1_Butn.Location = new System.Drawing.Point(35, 212);
          this.SaveAdrsFrm1_Butn.Name = "SaveAdrsFrm1_Butn";
          this.SaveAdrsFrm1_Butn.Size = new System.Drawing.Size(132, 52);
          this.SaveAdrsFrm1_Butn.TabIndex = 48;
@@ -3689,7 +3689,7 @@
          this.ShowDestGoogleMap_Butn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
          this.ShowDestGoogleMap_Butn.Font = new System.Drawing.Font("IRANSans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.ShowDestGoogleMap_Butn.Image = global::System.RoboTech.Properties.Resources.IMAGE_1683;
-         this.ShowDestGoogleMap_Butn.Location = new System.Drawing.Point(173, 208);
+         this.ShowDestGoogleMap_Butn.Location = new System.Drawing.Point(173, 212);
          this.ShowDestGoogleMap_Butn.Name = "ShowDestGoogleMap_Butn";
          this.ShowDestGoogleMap_Butn.Size = new System.Drawing.Size(184, 52);
          this.ShowDestGoogleMap_Butn.TabIndex = 50;
@@ -3718,7 +3718,7 @@
          // OrdrCordY_Txt
          // 
          this.OrdrCordY_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-         this.OrdrCordY_Txt.Location = new System.Drawing.Point(363, 238);
+         this.OrdrCordY_Txt.Location = new System.Drawing.Point(363, 242);
          this.OrdrCordY_Txt.Name = "OrdrCordY_Txt";
          this.OrdrCordY_Txt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.OrdrCordY_Txt.Properties.Appearance.Options.UseFont = true;
@@ -3735,7 +3735,7 @@
          // OrdrCordX_Txt
          // 
          this.OrdrCordX_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-         this.OrdrCordX_Txt.Location = new System.Drawing.Point(363, 210);
+         this.OrdrCordX_Txt.Location = new System.Drawing.Point(363, 214);
          this.OrdrCordX_Txt.Name = "OrdrCordX_Txt";
          this.OrdrCordX_Txt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.OrdrCordX_Txt.Properties.Appearance.Options.UseFont = true;
@@ -3765,7 +3765,7 @@
          this.OrdrServAdrs_Txt.Properties.NullText = "آدرس جدید خود را وارد کنید ...";
          this.OrdrServAdrs_Txt.Properties.NullValuePrompt = "آدرس جدید خود را وارد کنید ...";
          this.OrdrServAdrs_Txt.Properties.NullValuePromptShowForEmptyValue = true;
-         this.OrdrServAdrs_Txt.Size = new System.Drawing.Size(570, 85);
+         this.OrdrServAdrs_Txt.Size = new System.Drawing.Size(570, 89);
          this.OrdrServAdrs_Txt.TabIndex = 37;
          // 
          // Ship004_Butn
@@ -4710,7 +4710,7 @@
          this.tabControl2.Name = "tabControl2";
          this.tabControl2.RightToLeftLayout = true;
          this.tabControl2.SelectedIndex = 0;
-         this.tabControl2.Size = new System.Drawing.Size(832, 494);
+         this.tabControl2.Size = new System.Drawing.Size(832, 498);
          this.tabControl2.TabIndex = 53;
          // 
          // tabPage2
@@ -4725,7 +4725,7 @@
          this.tabPage2.Location = new System.Drawing.Point(4, 23);
          this.tabPage2.Name = "tabPage2";
          this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-         this.tabPage2.Size = new System.Drawing.Size(824, 467);
+         this.tabPage2.Size = new System.Drawing.Size(824, 471);
          this.tabPage2.TabIndex = 0;
          this.tabPage2.Text = "اطلاعات کاربر فروشگاه";
          this.tabPage2.UseVisualStyleBackColor = true;
@@ -4795,7 +4795,7 @@
          this.tabPage3.Location = new System.Drawing.Point(4, 23);
          this.tabPage3.Name = "tabPage3";
          this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-         this.tabPage3.Size = new System.Drawing.Size(824, 467);
+         this.tabPage3.Size = new System.Drawing.Size(824, 471);
          this.tabPage3.TabIndex = 1;
          this.tabPage3.Text = "اقلام فاکتور";
          this.tabPage3.UseVisualStyleBackColor = true;
@@ -4812,7 +4812,7 @@
          this.splitContainerControl13.Panel1.Text = "Panel1";
          this.splitContainerControl13.Panel2.Controls.Add(this.flowLayoutPanel12);
          this.splitContainerControl13.Panel2.Text = "Panel2";
-         this.splitContainerControl13.Size = new System.Drawing.Size(818, 461);
+         this.splitContainerControl13.Size = new System.Drawing.Size(818, 465);
          this.splitContainerControl13.SplitterPosition = 127;
          this.splitContainerControl13.TabIndex = 0;
          this.splitContainerControl13.Text = "splitContainerControl13";
@@ -4828,7 +4828,7 @@
          this.gridControl10.Name = "gridControl10";
          this.gridControl10.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.OrdtActnFrm2_Butn});
-         this.gridControl10.Size = new System.Drawing.Size(818, 304);
+         this.gridControl10.Size = new System.Drawing.Size(818, 308);
          this.gridControl10.TabIndex = 62;
          this.gridControl10.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.Ordt4Stp2_Gv});

@@ -77,11 +77,11 @@ namespace System.RoboTech.Ui.DevelopmentApplication
             var grop = VGexpBs.Current as Data.V_Group_Expense;            
 
             if(grop == null)
-               iRoboTech.DBL_INS_GEXP_P(null, "001", 0, GropDesc_Txt.Text, "002");
+               iRoboTech.DBL_INS_GEXP_P(null, "001", 0, GropDesc_Txt.Text, "002", LinkJoin_Txt.Text);
             else
-               iRoboTech.DBL_INS_GEXP_P((CretNewSuprGrop_Cbx.Checked ? null : (long?)grop.CODE), "001", 0, GropDesc_Txt.Text, "002");
+               iRoboTech.DBL_INS_GEXP_P((CretNewSuprGrop_Cbx.Checked ? null : (long?)grop.CODE), "001", 0, GropDesc_Txt.Text, "002", LinkJoin_Txt.Text);
 
-            Ordr_Txt.Text = GropDesc_Txt.Text = "";
+            LinkJoin_Txt.Text = GropDesc_Txt.Text = "";
             requery = true;
          }
          catch (Exception exc)
@@ -104,7 +104,7 @@ namespace System.RoboTech.Ui.DevelopmentApplication
             var grop = VGexpBs.Current as Data.V_Group_Expense;
             if (grop == null) return;
 
-            iRoboTech.DBL_UPD_GEXP_P(grop.CODE, grop.GEXP_CODE, grop.GROP_TYPE, grop.ORDR, grop.GROP_DESC, grop.STAT);
+            iRoboTech.DBL_UPD_GEXP_P(grop.CODE, grop.GEXP_CODE, grop.GROP_TYPE, grop.ORDR, grop.GROP_DESC, grop.STAT, "");
             
             requery = true;
          }
@@ -153,7 +153,7 @@ namespace System.RoboTech.Ui.DevelopmentApplication
 
             var brnd = VBexpBs.Current as Data.V_Group_Expense;
 
-            iRoboTech.DBL_INS_GEXP_P(null, "002", 0, BrndDesc_Txt.Text, "002");
+            iRoboTech.DBL_INS_GEXP_P(null, "002", 0, BrndDesc_Txt.Text, "002", "");
 
             BrndDesc_Txt.Text = "";
             requery = true;
@@ -178,7 +178,7 @@ namespace System.RoboTech.Ui.DevelopmentApplication
             var brnd = VBexpBs.Current as Data.V_Group_Expense;
             if (brnd == null) return;
 
-            iRoboTech.DBL_UPD_GEXP_P(brnd.CODE, brnd.GEXP_CODE, brnd.GROP_TYPE, brnd.ORDR, brnd.GROP_DESC, brnd.STAT);
+            iRoboTech.DBL_UPD_GEXP_P(brnd.CODE, brnd.GEXP_CODE, brnd.GROP_TYPE, brnd.ORDR, brnd.GROP_DESC, brnd.STAT, "");
 
             requery = true;
          }
@@ -1878,12 +1878,12 @@ namespace System.RoboTech.Ui.DevelopmentApplication
 
             // اگر سرگروه باشد
             if (CretNewSuprGrop_Cbx.Checked)
-               Ordr_Txt.Text = 
+               LinkJoin_Txt.Text = 
                   (iRoboTech.V_Group_Expenses
                   .Where(g => g.GEXP_CODE == null)
                   .Max(g => g.ORDR) + 1).ToString();
             else
-               Ordr_Txt.Text = 
+               LinkJoin_Txt.Text = 
                   (iRoboTech.V_Group_Expenses
                   .Where(g => g.GEXP_CODE == grop.CODE)
                   .Max(g => g.ORDR) + 1).ToString();

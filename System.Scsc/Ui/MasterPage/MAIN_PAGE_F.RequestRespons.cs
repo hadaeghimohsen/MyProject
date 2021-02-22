@@ -730,12 +730,17 @@ namespace System.Scsc.Ui.MasterPage
             string devName = "";
             if (xinput.Attribute("macadrs") != null)
                devName = xinput.Attribute("macadrs").Value;
-            else 
-               devName = iScsc.External_Devices.FirstOrDefault(d => d.EXPN_CODE == (job.Input as XElement).Attribute("expncode").Value.ToInt64()).DEV_NAME;
+            else
+            {
+               var hasDevName = iScsc.External_Devices.FirstOrDefault(d => d.EXPN_CODE == (job.Input as XElement).Attribute("expncode").Value.ToInt64());
+               if(hasDevName != null)
+                  devName = iScsc.External_Devices.FirstOrDefault(d => d.EXPN_CODE == (job.Input as XElement).Attribute("expncode").Value.ToInt64()).DEV_NAME;
+            }
             var cmndText = (job.Input as XElement).Attribute("cmndtext").Value;
             var fngrprnt = (job.Input as XElement).Attribute("fngrprnt").Value;
 
-            SendCommandDevExpn(cmndText, devName, fngrprnt);
+            if(devName != null && devName != "")
+               SendCommandDevExpn(cmndText, devName, fngrprnt);
          }
          else if (xinput != null && xinput.Attribute("type").Value == "alarmshow")
          {

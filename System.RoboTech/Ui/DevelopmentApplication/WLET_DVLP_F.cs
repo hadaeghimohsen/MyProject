@@ -13,6 +13,7 @@ using DevExpress.XtraEditors;
 using System.Xml.Linq;
 using System.RoboTech.ExtCode;
 using System.Diagnostics;
+using System.Threading;
 
 namespace System.RoboTech.Ui.DevelopmentApplication
 {
@@ -502,7 +503,139 @@ namespace System.RoboTech.Ui.DevelopmentApplication
       {
          if (CalcPrctRwrdAmntLock_Pkb.PickChecked)
          {
-            RwrdAmnt_Txt.EditValue = Convert.ToInt64(e.NewValue) + (Convert.ToInt64(e.NewValue) * PrctAmnt_Txt.Text.ToInt64() / 100);
+            RwrdAmnt_Txt.EditValue = (Convert.ToInt64(e.NewValue) * PrctAmnt_Txt.Text.ToInt64() / 100);
+         }
+      }
+
+      private void AddStakHldr_Butn_Click(object sender, EventArgs e)
+      {
+         var robo = RoboBs.Current as Data.Robot;
+         if (robo == null) return;
+
+         if (SrshBs.List.OfType<Data.Service_Robot_Stakeholder>().Any(s => s.CODE == 0)) return;
+
+         var srsh = SrshBs.AddNew() as Data.Service_Robot_Stakeholder;
+         srsh.Robot = robo;
+         iRoboTech.Service_Robot_Stakeholders.InsertOnSubmit(srsh);
+      }
+
+      private void DelStakHldr_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var srsh = SrshBs.Current as Data.Service_Robot_Stakeholder;
+            if (srsh == null) return;
+
+            if (MessageBox.Show(this, "آیا با حذف فرد سهامدار موافق هستید؟", "حذف سهامدار", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) != DialogResult.Yes) return;
+
+            iRoboTech.Service_Robot_Stakeholders.DeleteOnSubmit(srsh);
+
+            iRoboTech.SubmitChanges();
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void SaveStakHldr_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            StakHldr_Gv.PostEditor();
+            iRoboTech.SubmitChanges();
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void CalcStakHldr_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var robo = RoboBs.Current as Data.Robot;
+            if (robo == null) return;
+
+            if (TotlAmntRwrd1_Txt.EditValue.ToString() == "" || TotlAmntRwrd1_Txt.EditValue.ToString().ToInt64() == 0) { MessageBox.Show("لطفا مبلغ کل را وارد کنید"); TotlAmntRwrd1_Txt.Focus(); return; }
+            //if (RwrdAmnt1_Txt.EditValue.ToString().ToInt64() == 0) { MessageBox.Show("لطفا مبلغ پاداش را وارد کنید"); RwrdAmnt1_Txt.Focus(); return; }
+            //if (PrctAmnt_Txt.Text.ToInt64() > 0) { MessageBox.Show("لطفا مبلغ پاداش را وارد کنید"); PrctAmnt_Txt.Focus(); return; }
+            if (TarfCode1_Lov.EditValue.ToString() == "" || TarfCode1_Lov.EditValue.ToString().ToInt64() == 0) { MessageBox.Show("لطفا نوع سود سهامداری را مشخص کنید"); TarfCode1_Lov.Focus(); return; }
+            if (IntrSrbt1_Lov.EditValue.ToString() == "" || IntrSrbt1_Lov.EditValue.ToString().ToInt64() == 0) { MessageBox.Show("لطفا واسطه سود سهامداری را مشخص کنید"); IntrSrbt1_Lov.Focus(); return; }
+            if (RwrdAmntDesc1_Txt.Text == "") { MessageBox.Show("لطفا توضیحات سود سهامداری را مشخص کنید"); RwrdAmntDesc1_Txt.Focus(); return; }
+
+            CalcStakHldr_Butn.Enabled = false;
+
+            foreach (var stakhldr in SrshBs.List.OfType<Data.Service_Robot_Stakeholder>().Where(s => s.STAT == "002"))
+            {
+               iRoboTech.SAVE_RWRD_P(
+                  new XElement("Reward",
+                      new XAttribute("rbid", robo.RBID),
+                      new XAttribute("type", "001"),
+                      new XAttribute("wlettype", "002"),
+                      new XAttribute("totlamnt", TotlAmntRwrd1_Txt.EditValue ?? 0),
+                      new XAttribute("amnt", ((TotlAmntRwrd1_Txt.EditValue.ToString().ToInt64() * stakhldr.PRCT_VALU) / 100)),
+                      new XAttribute("prctamnt", stakhldr.PRCT_VALU),
+                      new XAttribute("confday", 0),
+                      new XAttribute("tarfcode", TarfCode1_Lov.EditValue),
+                      new XAttribute("chatid", stakhldr.CHAT_ID),
+                      new XAttribute("intrchatid", IntrSrbt1_Lov.EditValue),
+                      new XAttribute("desc", RwrdAmntDesc1_Txt.Text)
+                  )
+               );
+
+               #region Send Message
+               // فراخوانی ربات برای ارسال پیام ثبت شده
+               if (iRoboTech.V_URLFGAs.Any(host => host.HOST_NAME == HostNameInfo.Attribute("cpu").Value))
+               {
+                  _DefaultGateway.Gateway(
+                     new Job(SendType.External, "localhost",
+                        new List<Job>
+                     {
+                        new Job(SendType.Self, 11 /* Execute Strt_Robo_F */),
+                        new Job(SendType.SelfToUserInterface, "STRT_ROBO_F", 00 /* Execute ProcessCmdKey */){Input = Keys.Escape},
+                        new Job(SendType.SelfToUserInterface, "STRT_ROBO_F", 10 /* Execute Actn_CalF_P */)
+                        {
+                           Input = 
+                              new XElement("Robot", 
+                                 new XAttribute("runrobot", "start"),
+                                 new XAttribute("actntype", "sendordrs"),
+                                 new XAttribute("chatid", stakhldr.CHAT_ID),
+                                 new XAttribute("rbid", robo.RBID),
+                                 HostNameInfo
+                              )
+                        }
+                     }
+                     )
+                  );
+               }
+               #endregion
+            }
+
+            CalcStakHldr_Butn.Enabled = true;
+         }
+         catch (Exception exc)
+         {
+            CalcStakHldr_Butn.Enabled = true;
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
          }
       }
    }

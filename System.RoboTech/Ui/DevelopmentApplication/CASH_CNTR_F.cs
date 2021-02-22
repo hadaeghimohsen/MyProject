@@ -1474,10 +1474,29 @@ namespace System.RoboTech.Ui.DevelopmentApplication
                   ordr.SORC_CELL_PHON, ordr.SORC_TELL_PHON, ordr.SORC_EMAL_ADRS, ordr.SORC_WEB_SITE, ordr.SUB_SYS, ordr.ORDR_DESC
                );
 
-            // ارسال فاکتور برای مشتری
-            _DefaultGateway.Gateway(
-               new Job(SendType.External, "localhost",
-                  new List<Job>
+            // ارسال فاکتور برای مشتری            
+            // در این قسمت باید پیام به صورتی که در جدول ذخیره شده و از طریق توابع ارسال پیام از سمت سرور ارسال شود
+            if (!iRoboTech.V_URLFGAs.Any(host => host.HOST_NAME == HostNameInfo.Attribute("cpu").Value))
+            {
+               var xResult = new XElement("Respons");
+               iRoboTech.SEND_MEOJ_P(
+                  new XElement("Robot",
+                      new XAttribute("rbid", ordr.SRBT_ROBO_RBID),
+                      new XElement("Order",
+                         new XAttribute("chati", chatid),
+                         new XAttribute("ordrcode", ordr.CODE),
+                         new XAttribute("type", "012"),
+                         new XAttribute("oprt", "sendinvoice")
+                      )
+                  ),
+                  ref xResult
+               );
+            }
+            else
+            {
+               _DefaultGateway.Gateway(
+                  new Job(SendType.External, "localhost",
+                     new List<Job>
                      {
                         new Job(SendType.Self, 11 /* Execute Strt_Robo_F */),
                         new Job(SendType.SelfToUserInterface, "STRT_ROBO_F", 00 /* Execute ProcessCmdKey */){Input = Keys.Escape},
@@ -1493,8 +1512,9 @@ namespace System.RoboTech.Ui.DevelopmentApplication
                               )
                         }
                      }
-               )
-            );
+                  )
+               );
+            }
          }
          catch(Exception exc)
          {

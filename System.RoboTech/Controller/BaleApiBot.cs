@@ -29,7 +29,6 @@ namespace System.RoboTech.Controller
       private bool started = false;
       private Ui.Action.STRT_ROBO_F _Strt_Robo_F;
       private string _amntTypeDesc;
-      private XElement HostNameInfo;
       public Data.Robot Robot
       {
          get
@@ -67,7 +66,6 @@ namespace System.RoboTech.Controller
             RobotHandle = new RobotController();
             this.connectionString = connectionString;
             _Strt_Robo_F = strt_robo_f;
-            HostNameInfo = strt_robo_f.HostNameInfo;
 
             started = true;
             main(activeRobot);
@@ -145,14 +143,14 @@ namespace System.RoboTech.Controller
                case "sendordrs":
                   #region Send Order
                   await
-                     Send_Order(iRoboTech, keyBoardMarkup, 
+                     Send_Order(iRoboTech, keyBoardMarkup,
                         new XElement("Data",
                               new XAttribute("chatid", chatid),
                               new XAttribute("frstname", chatinfo == null ? "" : chatinfo.Message.From.FirstName),
                               new XAttribute("lastname", chatinfo == null ? "" : chatinfo.Message.From.LastName ?? ""),
                               new XAttribute("username", chatinfo == null ? "" : chatinfo.Message.From.Username ?? "")
-                            )
-                     );
+                              )
+                     );                  
                   #endregion
                   break;
                case "savepymt":
@@ -690,43 +688,24 @@ namespace System.RoboTech.Controller
 
                      xResult = new XElement("Respons");
 
-                     // If Robot Run on the Host
-                     if (!iRoboTech.V_URLFGAs.Any(host => host.HOST_NAME == HostNameInfo.Attribute("cpu").Value))
-                     {
-                        // در این قسمت باید پیام به صورتی که در جدول ذخیره شده و از طریق توابع ارسال پیام از سمت سرور ارسال شود
-                        iRoboTech.SEND_MEOJ_P(
-                           new XElement("Robot",
-                               new XAttribute("rbid", rbid),
-                               new XElement("Order",
-                                  new XAttribute("chati", chatid),
-                                  new XAttribute("ordrcode", ordrcode),
-                                  new XAttribute("type", "012"),
-                                  new XAttribute("oprt", "sendinvoice")
-                               )
-                           ),
-                           ref xResult
-                        );
-                     }
-                     else
-                     {
-                        iRoboTech.Analisis_Message_P(
-                           new XElement("Robot",
-                              new XAttribute("token", GetToken()),
-                              new XElement("Message",
-                                    new XAttribute("ussd", "*0*2#"),
-                                    new XAttribute("childussd", ""),
-                                    new XAttribute("chatid", chatid),
-                                    new XAttribute("elmntype", "001"),
-                                    new XElement("Text", "show",
-                                        new XAttribute("param", ordrcode)
-                                    )
-                              )
-                           ),
-                           ref xResult
-                        );
+                     // If Robot Run on the Host                     
+                     iRoboTech.Analisis_Message_P(
+                        new XElement("Robot",
+                           new XAttribute("token", GetToken()),
+                           new XElement("Message",
+                                 new XAttribute("ussd", "*0*2#"),
+                                 new XAttribute("childussd", ""),
+                                 new XAttribute("chatid", chatid),
+                                 new XAttribute("elmntype", "001"),
+                                 new XElement("Text", "show",
+                                       new XAttribute("param", ordrcode)
+                                 )
+                           )
+                        ),
+                        ref xResult
+                     );
 
-                        await FireEventResultOpration(chatid, keyBoardMarkup, xResult);
-                     }
+                     await FireEventResultOpration(chatid, keyBoardMarkup, xResult);
                   }
                   #endregion
                   break;

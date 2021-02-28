@@ -533,7 +533,6 @@
             <DataVF_Coach_Payment_CTGY_DESC Ref="34" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
-              <CanGrow>True</CanGrow>
               <ClientRectangle>16.8,0,2.2,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>Tahoma,9</Font>
@@ -542,15 +541,15 @@
               <Name>DataVF_Coach_Payment_CTGY_DESC</Name>
               <Page isRef="4" />
               <Parent isRef="33" />
+              <ProcessingDuplicates>Merge</ProcessingDuplicates>
+              <ShrinkFontToFit>True</ShrinkFontToFit>
               <Text>{VF_Coach_Payment.CTGY_DESC}</Text>
               <TextBrush>Black</TextBrush>
-              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <VertAlignment>Center</VertAlignment>
             </DataVF_Coach_Payment_CTGY_DESC>
             <DataVF_Coach_Payment_SUM_RCPT_EXPN_PRIC Ref="35" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
-              <CanGrow>True</CanGrow>
               <ClientRectangle>3.2,0,2.2,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>Tahoma,9</Font>
@@ -559,6 +558,7 @@
               <Name>DataVF_Coach_Payment_SUM_RCPT_EXPN_PRIC</Name>
               <Page isRef="4" />
               <Parent isRef="33" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
               <Text>{VF_Coach_Payment.SUM_RCPT_EXPN_PRIC}</Text>
               <TextBrush>Black</TextBrush>
               <TextFormat Ref="36" type="NumberFormat" isKey="true">
@@ -567,7 +567,6 @@
                 <NegativePattern>3</NegativePattern>
                 <UseLocalSetting>False</UseLocalSetting>
               </TextFormat>
-              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <VertAlignment>Center</VertAlignment>
             </DataVF_Coach_Payment_SUM_RCPT_EXPN_PRIC>
             <Text16 Ref="37" type="Text" isKey="true">
@@ -582,8 +581,8 @@
               <Name>Text16</Name>
               <Page isRef="4" />
               <Parent isRef="33" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
               <TextBrush>Black</TextBrush>
-              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text16>
@@ -599,15 +598,14 @@
               <Name>Text17</Name>
               <Page isRef="4" />
               <Parent isRef="33" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
               <TextBrush>Black</TextBrush>
-              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text17>
             <Text30 Ref="39" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
-              <CanGrow>True</CanGrow>
               <ClientRectangle>12.4,0,4.4,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>Tahoma,9</Font>
@@ -617,16 +615,15 @@
               <Name>Text30</Name>
               <Page isRef="4" />
               <Parent isRef="33" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
               <Text>{VF_Coach_Payment.FIGH_NAME_DNRM}</Text>
               <TextBrush>Black</TextBrush>
-              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
             </Text30>
             <Text31 Ref="40" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
-              <CanGrow>True</CanGrow>
               <ClientRectangle>8.4,0,2,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>Tahoma,9</Font>
@@ -636,16 +633,15 @@
               <Name>Text31</Name>
               <Page isRef="4" />
               <Parent isRef="33" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
               <Text>{VF_Coach_Payment.MBSP_STRT_DATE}</Text>
               <TextBrush>Black</TextBrush>
-              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
             </Text31>
             <Text32 Ref="41" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
-              <CanGrow>True</CanGrow>
               <ClientRectangle>6.6,0,1.8,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>Tahoma,9</Font>
@@ -655,16 +651,15 @@
               <Name>Text32</Name>
               <Page isRef="4" />
               <Parent isRef="33" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
               <Text>{VF_Coach_Payment.MBSP_END_DATE}</Text>
               <TextBrush>Black</TextBrush>
-              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
             </Text32>
             <Text34 Ref="42" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
-              <CanGrow>True</CanGrow>
               <ClientRectangle>10.4,0,2,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>Tahoma,9</Font>
@@ -674,16 +669,15 @@
               <Name>Text34</Name>
               <Page isRef="4" />
               <Parent isRef="33" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
               <Text>{VF_Coach_Payment.FNGR_PRNT_DNRM}</Text>
               <TextBrush>Black</TextBrush>
-              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
             </Text34>
             <Text35 Ref="43" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
-              <CanGrow>True</CanGrow>
               <ClientRectangle>5.4,0,1.2,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>Tahoma,9</Font>
@@ -693,9 +687,9 @@
               <Name>Text35</Name>
               <Page isRef="4" />
               <Parent isRef="33" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
               <Text>{VF_Coach_Payment.MBSP_RWNO}</Text>
               <TextBrush>Black</TextBrush>
-              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
             </Text35>
@@ -972,7 +966,7 @@
   <ReportChanged>12/15/2019 11:27:50 AM</ReportChanged>
   <ReportCreated>11/19/2017 1:40:49 PM</ReportCreated>
   <ReportFile>D:\Project\MyProject\Documents\Report Repository\RPT_CCHP_002_R.mrt</ReportFile>
-  <ReportGuid>dc9f1c781ed64c8aa28f7772be39acb6</ReportGuid>
+  <ReportGuid>4be14563eeb247f28e35f44bda541675</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Centimeters</ReportUnit>
   <ReportVersion>2012.2.1304</ReportVersion>

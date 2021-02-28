@@ -28,9 +28,8 @@
       /// </summary>
       private void InitializeComponent()
       {
-         this.components = new System.ComponentModel.Container();
          this.modual_ReportGridControl = new DevExpress.XtraGrid.GridControl();
-         this.MdrpBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.MdrpBs1 = new System.Windows.Forms.BindingSource();
          this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colCODE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.MdulName_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -42,7 +41,7 @@
          this.colRPRT_PATH = new DevExpress.XtraGrid.Columns.GridColumn();
          this.ShowPrvw_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
          this.repositoryItemLookUpEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-         this.DYsnoBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.DYsnoBs1 = new System.Windows.Forms.BindingSource();
          this.colDFLT = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colSTAT = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colCRET_BY = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -120,7 +119,8 @@
          this.gridView1.OptionsView.ShowIndicator = false;
          this.gridView1.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
             new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.MdulName_Clm, DevExpress.Data.ColumnSortOrder.Ascending),
-            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colSECT_NAME, DevExpress.Data.ColumnSortOrder.Ascending)});
+            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colSECT_NAME, DevExpress.Data.ColumnSortOrder.Ascending),
+            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.Rwno_Clm, DevExpress.Data.ColumnSortOrder.Ascending)});
          this.gridView1.DoubleClick += new System.EventHandler(this.Rptlrfm_Gv_DoubleClick);
          // 
          // colCODE

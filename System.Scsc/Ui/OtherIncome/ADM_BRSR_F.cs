@@ -101,6 +101,17 @@ namespace System.Scsc.Ui.OtherIncome
             var Rqst = RqstBs1.Current as Data.Request;
             rqstindex = RqstBs1.Position;
 
+            if (FngrPrnt_Txt.Text == "")
+            {
+               if (MessageBox.Show(this, "کد شناسایی خالی میباشد آیا مایل به ایجاد کد پیش فرض هستید؟", "هشدار کد شناسایی", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+                  MaxF_Butn001_Click(null, null);
+               else
+               {
+                  FngrPrnt_Txt.Focus();
+                  return;
+               }
+            }
+
             if (Rqst == null || Rqst.RQID >= 0)
             {
                FgpbsBs1.EndEdit();
@@ -250,12 +261,64 @@ namespace System.Scsc.Ui.OtherIncome
                requery = true;
                //tc_pblc.SelectedTab = tp_pblcinfo;
 
+               // 1399/12/09
                if (GoProfile_Pbt.PickChecked)
                {
                   _DefaultGateway.Gateway(
                      new Job(SendType.External, "localhost", "", 46, SendType.Self) { Input = new XElement("Fighter", new XAttribute("fileno", Rqst.Fighters.FirstOrDefault().FILE_NO)) }
                   );
                }
+
+               // 1397/05/26 * اگر درخواست گزینه های جانبی داشته باشد باید شماره پرونده ها رو به فرم های مربوطه ارسال کنیم
+               string followups = "";
+               if (OthrExpnInfo_Ckbx.Checked)
+                  followups += "OIC_TOTL_F;";
+               if (ChargeCredit_Ckbx.Checked)
+                  followups += "GLR_INDC_F;";
+               
+
+               #region 3th               
+               if (OthrExpnInfo_Ckbx.Checked)
+                  _DefaultGateway.Gateway(
+                     new Job(SendType.External, "Localhost",
+                           new List<Job>
+                           {                  
+                              new Job(SendType.Self, 92 /* Execute Oic_Totl_F */),
+                              new Job(SendType.SelfToUserInterface, "OIC_TOTL_F", 10 /* Execute Actn_CalF_F */)
+                              {
+                                 Input = 
+                                    new XElement("Request", 
+                                       new XAttribute("type", "01"), 
+                                       new XElement("Request_Row", 
+                                          new XAttribute("fileno", Rqst.Fighters.FirstOrDefault().FILE_NO)),
+                                       new XAttribute("followups", followups.Substring(followups.IndexOf(";") + 1)),
+                                       new XAttribute("rqstrqid", Rqst.RQID),
+                                       new XAttribute("formcaller", GetType().Name)
+                                    )
+                              }
+                           })
+                  );
+               else if (ChargeCredit_Ckbx.Checked)
+                  _DefaultGateway.Gateway(
+                     new Job(SendType.External, "Localhost",
+                           new List<Job>
+                           {                  
+                              new Job(SendType.Self, 153 /* Execute Glr_Indc_F */),
+                              new Job(SendType.SelfToUserInterface, "GLR_INDC_F", 10 /* Execute Actn_CalF_F */)
+                              {
+                                 Input = 
+                                    new XElement("Request", 
+                                       new XAttribute("type", "newrequest"), 
+                                       new XAttribute("fileno", Rqst.Fighters.FirstOrDefault().FILE_NO),
+                                       new XAttribute("followups", followups.Substring(followups.IndexOf(";") + 1)),
+                                       new XAttribute("rqstrqid", Rqst.RQID),
+                                       new XAttribute("formcaller", GetType().Name)
+                                    )
+                              }
+                           })
+                  );
+               #endregion
+
             }
          }
          catch (Exception ex)
@@ -285,7 +348,20 @@ namespace System.Scsc.Ui.OtherIncome
 
       private void MaxF_Butn001_Click(object sender, EventArgs e)
       {
-         
+         try
+         {
+            FngrPrnt_Txt.EditValue =
+                iScsc.Fighters
+                .Where(f => f.FNGR_PRNT_DNRM != null && f.FNGR_PRNT_DNRM.Length > 0)
+                .Select(f => f.FNGR_PRNT_DNRM)
+                .ToList()
+                .Where(f => f.All(char.IsDigit))
+                .Max(f => Convert.ToInt64(f)) + 1;
+         }
+         catch
+         {
+            FngrPrnt_Txt.EditValue = 1;
+         }
       }
 
       private void Btn_AutoCalcAttn_Click(object sender, EventArgs e)

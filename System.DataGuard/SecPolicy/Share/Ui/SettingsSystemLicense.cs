@@ -186,10 +186,11 @@ namespace System.DataGuard.SecPolicy.Share.Ui
                   subsys.LICN_TRIL_DATE = Convert.ToDateTime(dataclient[7]);
                   subsys.CLNT_LICN_DESC = clientkey;
                   subsys.SRVR_LICN_DESC = serverkey;
+                  subsys.SUPR_YEAR_PRIC = Convert.ToInt64(LicAmnt_Txt.EditValue);
                }
             }
 
-            iProject.UpdateSubSystem(subsys.SUB_SYS, subsys.STAT, subsys.INST_STAT, subsys.INST_DATE, subsys.LICN_TYPE, subsys.LICN_TRIL_DATE, subsys.CLNT_LICN_DESC, subsys.SRVR_LICN_DESC, subsys.SUB_DESC, subsys.JOBS_STAT, subsys.FREQ_INTR);
+            iProject.UpdateSubSystem(subsys.SUB_SYS, subsys.STAT, subsys.INST_STAT, subsys.INST_DATE, subsys.LICN_TYPE, subsys.LICN_TRIL_DATE, subsys.CLNT_LICN_DESC, subsys.SRVR_LICN_DESC, subsys.SUB_DESC, subsys.JOBS_STAT, subsys.FREQ_INTR, subsys.VERS_NO, subsys.SUPR_YEAR_PRIC);
          }
          catch (Exception exc)
          {}
@@ -224,6 +225,8 @@ namespace System.DataGuard.SecPolicy.Share.Ui
             if (Emal_Txt.EditValue == null || Emal_Txt.Text == "") { Emal_Txt.Focus(); return; }
             if (FullName_Txt.EditValue == null || FullName_Txt.Text == "") { FullName_Txt.Focus(); return; }
             if (Gateway_Lov.EditValue == null || Gateway_Lov.Text == "") { Gateway_Lov.Focus(); return; }
+            if (LicAmnt_Txt.EditValue == null || LicAmnt_Txt.Text == "") { LicAmnt_Txt.Focus(); return; }
+            if (LicAmntCode_Txt.EditValue == null || LicAmntCode_Txt.Text == "") { LicAmntCode_Txt.Focus(); return; }
 
             var dataclient = 
                new List<string> { 
@@ -233,7 +236,9 @@ namespace System.DataGuard.SecPolicy.Share.Ui
                   FullName_Txt.Text, // 3
                   Gateway_Lov.EditValue.ToString(), //4
                   Lic30Day_Rb.Checked ? "001" : "002", // 5
-                  subsys.SUB_SYS.ToString() //6
+                  subsys.SUB_SYS.ToString(), //6
+                  LicAmnt_Txt.EditValue.ToString(), // 7
+                  LicAmntCode_Txt.EditValue.ToString() // 8
                };
             var datastring = string.Join(":", dataclient);
 
@@ -260,6 +265,9 @@ namespace System.DataGuard.SecPolicy.Share.Ui
                case "1":
                   Clipboard.SetText(ServerKey1_Text.Text);
                   break;
+               case "2":
+                  Clipboard.SetText(ServerKey2_Text.Text);
+                  break;
             }            
          }
          catch (Exception exc)
@@ -280,6 +288,9 @@ namespace System.DataGuard.SecPolicy.Share.Ui
                   break;
                case "1":
                   ClientKey1_Text.Text = Clipboard.GetText();
+                  break;
+               case "2":
+                  ClientKey2_Text.Text = Clipboard.GetText();
                   break;
             }
          }
@@ -314,6 +325,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
 
             TrialDate_Dt.Value = Convert.ToDateTime(dataclient[7]);
             LicAmnt_Txt.Text = dataclient[8];
+            LicAmntCode_Txt.Text = dataclient[9];
 
             DayRemn_Txt.Text = ((TrialDate_Dt.Value.Value.Date) - (DateTime.Now.Date)).Days.ToString();
          }
@@ -329,6 +341,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
       readonly string SaltKey = "S@LT&KEY";
       readonly string VIKey = "@1B2c3D4e5F6g7H8";
 
+      // P@@Sw0rdS@LT&KEY@1B2c3D4e5F6g7H8
       public string Encrypt(string plainText)
       {
          byte[] plainTextBytes = Encoding.UTF8.GetBytes(plainText);
@@ -389,6 +402,8 @@ namespace System.DataGuard.SecPolicy.Share.Ui
             if (dataclient[5] == "001") Lic30Day1_Rb.Checked = true; else LicNDay1_Rb.Checked = true;
             SubSys1_Txt.Text = SubSysBs.List.OfType<Data.Sub_System>().FirstOrDefault(s => s.SUB_SYS == Convert.ToInt32(dataclient[6])).DESC;
             SubSys1_Txt.Tag = dataclient[6];
+            LicAmnt1_Txt.Text = dataclient[7];
+            LicAmntCode1_Txt.Text = dataclient[8];
 
             if (Lic30Day1_Rb.Checked) { TrialDate1_Dt.Value = DateTime.Now.AddDays(30); }
             else { TrialDate1_Dt.Value = DateTime.Now.AddDays(365); }
@@ -409,7 +424,8 @@ namespace System.DataGuard.SecPolicy.Share.Ui
             if (FullName1_Txt.EditValue == null || FullName1_Txt.Text == "") { FullName1_Txt.Focus(); return; }
             if (Gateway1_Lov.EditValue == null || Gateway1_Lov.Text == "") { Gateway1_Lov.Focus(); return; }
             if (SubSys1_Txt.EditValue == null || SubSys1_Txt.Text == "") { SubSys1_Txt.Focus(); return; }
-            
+            if (LicAmnt1_Txt.EditValue == null || LicAmnt1_Txt.Text == "") { LicAmnt1_Txt.Focus(); return; }
+            if (LicAmntCode1_Txt.EditValue == null || LicAmntCode1_Txt.Text == "") { LicAmntCode1_Txt.Focus(); return; }
 
             if (PasswordHash_Txt.Text != PasswordHash) { PasswordHash_Txt.Focus(); return; }
             if (SaltKey_Txt.Text != SaltKey) { SaltKey_Txt.Focus(); return; }
@@ -428,7 +444,8 @@ namespace System.DataGuard.SecPolicy.Share.Ui
                   Lic30Day1_Rb.Checked ? "001" : "002", // 5
                   SubSys1_Txt.Tag.ToString(), // 6
                   TrialDate1_Dt.Value.Value.Date.ToString("yyyy-MM-dd"), // 7
-                  LicAmnt1_Txt.Text // 8
+                  LicAmnt1_Txt.EditValue.ToString(), // 8
+                  LicAmntCode1_Txt.EditValue.ToString(), // 9
                };
             var datastring = string.Join(":", dataclient);
 
@@ -440,6 +457,60 @@ namespace System.DataGuard.SecPolicy.Share.Ui
          }
       }
       #endregion      
+
+      private void GenerateServerKey2_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var subsys = SubSysBs.Current as Data.Sub_System;
+            if (subsys == null) return;
+
+            if (CmndText_Txt.EditValue == null || CmndText_Txt.Text == "") { CmndText_Txt.Focus(); return; }
+            if (TinyLock_Txt.EditValue == null || TinyLock_Txt.Text == "") { TinyLock_Txt.Focus(); return; }
+            if (CmndDate_Dt.Value == null) { CmndDate_Dt.Focus(); return; }
+            if (CmndParmValu_Txt.EditValue == null || CmndParmValu_Txt.Text == "") { CmndParmValu_Txt.Focus(); return; }
+            if (Password_Txt.EditValue == null || Password_Txt.Text == "" || Password_Txt.Text != (PasswordHash + SaltKey + VIKey)) { Password_Txt.Text = ""; Password_Txt.Focus(); return; }
+
+            var dataclient =
+               new List<string> { 
+                  CmndText_Txt.Text, // 0
+                  TinyLock_Txt.Text, // 1
+                  CmndDate_Dt.Value.Value.ToString("yyyy-MM-dd"), // 2
+                  CmndParmValu_Txt.Text, // 3
+                  subsys.SUB_SYS.ToString() //4
+               };
+            var datastring = string.Join(":", dataclient);
+
+            ServerKey2_Text.Text = Encrypt(datastring);
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void SaveCommand_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            if (ClientKey2_Text.Text == "") return;
+
+            var serverkeyTemp = ClientKey2_Text.Text;
+            var datastring = Decrypt(ClientKey2_Text.Text);
+
+            iProject.EXEC_CMND_P(
+               new XElement("Command",
+                   new XAttribute("text", datastring)
+               )
+            );
+
+            MessageBox.Show("دستور با موفقیت اجرا شد");
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
 
       
    }

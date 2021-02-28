@@ -758,8 +758,9 @@ namespace System.Scsc.Ui.ReportManager
          {
             var cbmt = CbmtBs.List.OfType<Data.Club_Method>().FirstOrDefault(cb => cb.CODE == (long)e.NewValue);
             CtgyBs.DataSource = iScsc.Category_Belts.Where(cg => cg.MTOD_CODE == cbmt.MTOD_CODE && cg.CTGY_STAT == "002");
+            cbmtcode = (long?)e.NewValue;
          }
-         catch {}
+         catch { cbmtcode = null; }
       }
 
       private void Btn_Cbmt2_Click(object sender, EventArgs e)
@@ -802,7 +803,7 @@ namespace System.Scsc.Ui.ReportManager
          {
             cochfileno = (long?)e.NewValue;
          }
-         catch { }
+         catch { cochfileno = null; }
       }
 
       private void Glrd_Butn_ButtonClick(object sender, ButtonPressedEventArgs e)

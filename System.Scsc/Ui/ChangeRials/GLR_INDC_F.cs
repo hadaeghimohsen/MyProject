@@ -231,7 +231,39 @@ namespace System.Scsc.Ui.ChangeRials
                      )
                   )
                );
-               requery = true;            
+               requery = true;
+
+               if (followups != "")
+               {
+                  switch (followups.Split(';').First())
+                  {
+                     case "OIC_TOTL_F":
+                        _DefaultGateway.Gateway(
+                           new Job(SendType.External, "Localhost",
+                                 new List<Job>
+                                 {                  
+                                    new Job(SendType.Self, 92 /* Execute Oic_Totl_F */),
+                                    new Job(SendType.SelfToUserInterface, "OIC_TOTL_F", 10 /* Execute Actn_CalF_F */)
+                                    {
+                                       Input = 
+                                          new XElement("Request", 
+                                             new XAttribute("type", "01"), 
+                                             new XElement("Request_Row", 
+                                                new XAttribute("fileno", Rqst.Fighters.FirstOrDefault().FILE_NO)),
+                                             new XAttribute("followups", followups.Substring(followups.IndexOf(";") + 1)),
+                                             new XAttribute("rqstrqid", rqstRqid),
+                                             new XAttribute("formcaller", GetType().Name)
+                                          )
+                                    }
+                                 })
+                        );
+                        break;
+                     default:
+                        break;
+                  }
+                  followups = "";
+                  rqstRqid = 0;
+               }
             }
          }
          catch (Exception ex)

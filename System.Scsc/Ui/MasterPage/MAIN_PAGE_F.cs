@@ -40,6 +40,7 @@ namespace System.Scsc.Ui.MasterPage
       }
 
       private string attnsystype = "002";
+      private IEnumerable<Data.V_Setting> _settings;
 
       private bool CheckInternetConnection()
       {
@@ -3021,7 +3022,7 @@ namespace System.Scsc.Ui.MasterPage
             }
 
             // IF NOT VALID ENROLCODE
-            if (enrollNumber.In("0004000", "00040000", "00010000")) return;
+            if (enrollNumber.In("0004000", "00040000", "00010000", "00000000")) return;
 
             // Alarm 
             new Thread(AlarmShow).Start();
@@ -3141,7 +3142,7 @@ namespace System.Scsc.Ui.MasterPage
       {
          try
          {
-            //Int32 port = 6070;
+            if (message == null) return;
             TcpClient client = new TcpClient(server, port);
 
             NetworkStream stream = client.GetStream();
@@ -5378,6 +5379,29 @@ namespace System.Scsc.Ui.MasterPage
       {
          //AdjustDateTime_Butn.Text = DateTime.Now.ToString("HH:mm:ss");
          AdjustDateTime_Butn.Text = DateTime.Now.ToString("HH:mm");
+
+         if (_settings == null)
+            _settings = iScsc.V_Settings;
+
+         // 1399/12/06 * بررسی اینکه مشتریان خلافکار را از استفاده کردن از سیستم ناامید کنیم
+         if (_settings.Any(s => s.EXPR_TYPE.Value))
+         {
+            if (_settings.Any(s => s.LAST_DATE.Value.Date != DateTime.Now.Date))
+            {
+               if (_settings.Any(s => s.EXPR_VALU.Value.Date < DateTime.Now.Date))
+               {
+                  if (_settings.Any(s => s.LAST_DATE.Value.Date < DateTime.Now.Date))
+                  {
+                     // در غیر اینصورت سیستم باید کلا بسته شود بدون هیچ گونه اعتراضی
+                     MessageBox.Show(this, "مدت زمان پشتیبانی نرم افزار به اتمام رسیده، لطفا جهت تمدید پشتیبانی با شماره 09033927103 تماس حاصل فرمایید" + Environment.NewLine +
+                                           "ضمنا تمامی رکورد های ثبت شده خارج از تاریخ پشتیبانی فاقد اعتبار میباشند و بعد از بسته شدن نرم افزار تمامی رکوردها به صورت اتومات پاک میشوند",
+                                           "هشدار جهت استفاده از لایسنس نامعتبر", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                     Application.Exit();
+                     Process.GetCurrentProcess().Kill();
+                  }
+               }
+            }
+         }
 
          try
          {

@@ -1091,6 +1091,7 @@
     <None Include="Properties\DataSources\System.Scsc.Data.Dresser.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Dresser_Attendance.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_ACTG.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.D_ACTN.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_ACTV.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_AEAT.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_AMTP.datasource" />
@@ -1200,6 +1201,7 @@
     <None Include="Properties\DataSources\System.Scsc.Data.Misc_Expense.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Modual_Report.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Month_Base.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.Note.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Organ.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Payment.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Payment_Check.datasource" />

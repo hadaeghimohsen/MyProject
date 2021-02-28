@@ -229,6 +229,7 @@ namespace System.Scsc.Ui.CalculateExpense
       {
          try
          {
+            if (BcexBs.List.OfType<Data.Base_Calculate_Expense>().Any(b => b.CODE == 0)) return;
             BcexBs.AddNew();
 
             var crnt = BcexBs.Current as Data.Base_Calculate_Expense;

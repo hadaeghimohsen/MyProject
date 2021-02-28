@@ -1194,6 +1194,8 @@ namespace System.Scsc.Ui.Common
             // 1396/10/13 * نمایش لیست دوره های ثبت نام شده
             MbspBs.DataSource = iScsc.Member_Ships.Where(mb => mb.FIGH_FILE_NO == fileno && mb.RECT_CODE == "004" && (mb.TYPE == "001" || mb.TYPE == "005"));
             
+            //1399/12/06 * نمایش اطلاعات یادداشت
+            NoteBs.DataSource = iScsc.Notes.Where(n => n.FIGH_FILE_NO == fileno);
             // مبلغ بدهی
             PayDebtAmnt_Txt.Text = DebtDnrm_TextBox.Text;
 

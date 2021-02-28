@@ -140,6 +140,9 @@ namespace System.DataGuard.Self.Code
             case 35:
                DoWork4PinCode(job);
                break;
+            case 36:
+               DoWork4GetSerialNumber(job);
+               break;
             default:
                break;
          }

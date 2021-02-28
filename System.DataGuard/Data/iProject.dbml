@@ -1275,6 +1275,19 @@
       <Association Name="Region_User" Member="Region" ThisKey="REGN_PRVN_CNTY_CODE,REGN_PRVN_CODE,REGN_CODE" OtherKey="PRVN_CNTY_CODE,PRVN_CODE,CODE" Type="Region" IsForeignKey="true" />
     </Type>
   </Table>
+  <Table Name="DataGuard.V#Settings" Member="V_Settings">
+    <Type Name="V_Setting">
+      <Column Name="LAST_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="PERS_LAST_DATE" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="EXPR_TYPE" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="EXPR_VALU" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="PERS_EXPR_VALU" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="SESN_TYPE" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="SESN_MAX" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="SESN_CONT" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="TINY_SERL" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+    </Type>
+  </Table>
   <Function Name="DataGuard.SaveHostInfo" Method="SaveHostInfo">
     <Parameter Name="X" Parameter="x" Type="System.Xml.Linq.XElement" DbType="Xml" />
     <ElementType Name="SaveHostInfoResult">
@@ -1426,6 +1439,14 @@
     <Parameter Name="P_RqstXml" Parameter="p_RqstXml" Type="System.Xml.Linq.XElement" DbType="Xml" />
     <Return Type="System.String" />
   </Function>
+  <Function Name="DataGuard.TakedbBackup" Method="TakedbBackup">
+    <Parameter Name="X" Parameter="x" Type="System.Xml.Linq.XElement" DbType="Xml" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="DataGuard.EXEC_CMND_P" Method="EXEC_CMND_P">
+    <Parameter Name="X" Parameter="x" Type="System.Xml.Linq.XElement" DbType="Xml" />
+    <Return Type="System.Int32" />
+  </Function>
   <Function Name="DataGuard.UpdateSubSystem" Method="UpdateSubSystem">
     <Parameter Name="Sub_Sys" Parameter="sub_Sys" Type="System.Int32" DbType="Int" />
     <Parameter Name="Stat" Parameter="stat" Type="System.String" DbType="VarChar(3)" />
@@ -1438,10 +1459,8 @@
     <Parameter Name="Sub_Desc" Parameter="sub_Desc" Type="System.String" DbType="NVarChar(500)" />
     <Parameter Name="Jobs_Stat" Parameter="jobs_Stat" Type="System.String" DbType="VarChar(3)" />
     <Parameter Name="Freq_Intr" Parameter="freq_Intr" Type="System.Int32" DbType="Int" />
-    <Return Type="System.Int32" />
-  </Function>
-  <Function Name="DataGuard.TakedbBackup" Method="TakedbBackup">
-    <Parameter Name="X" Parameter="x" Type="System.Xml.Linq.XElement" DbType="Xml" />
+    <Parameter Name="Vers_No" Parameter="vers_No" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="Supr_Year_Pric" Parameter="supr_Year_Pric" Type="System.Int64" DbType="BigInt" />
     <Return Type="System.Int32" />
   </Function>
 </Database>

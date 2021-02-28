@@ -321,6 +321,7 @@ namespace System.Scsc.Ui.Notifications
          CochBs.DataSource = iScsc.Fighters.Where(f => f.FGPB_TYPE_DNRM == "003" && Convert.ToInt32(f.ACTV_TAG_DNRM) >= 101);
          MtodBs.DataSource = iScsc.Methods;//.Where(m => m.MTOD_STAT == "002");
          CtgyBs.DataSource = iScsc.Category_Belts;//.Where(c => c.CTGY_STAT == "002");
+         DActnBs.DataSource = iScsc.D_ACTNs;
          job.Status = StatusType.Successful;
       }
 

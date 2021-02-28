@@ -2563,6 +2563,70 @@ namespace System.Scsc.Ui.Common
             if (requery)
                Execute_Query();
          }
+      }
+
+      private void AddNote_Butn_Click(object sender, EventArgs e)
+      {
+         var figh = vF_Last_Info_FighterBs.Current as Data.VF_Last_Info_FighterResult;
+
+         if (NoteBs.List.OfType<Data.Note>().Any(n => n.CODE == 0)) return;
+
+         var note = NoteBs.AddNew() as Data.Note;
+         note.FIGH_FILE_NO = fileno;
+         iScsc.Notes.InsertOnSubmit(note);
+      }
+
+      private void DelNote_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var note = NoteBs.Current as Data.Note;
+            if (note == null) return;
+
+            if (MessageBox.Show(this, "آیا با حذف توضیحات موافق هستید؟", "حذف توضیحات", MessageBoxButtons.YesNo) != DialogResult.Yes) return;
+
+            iScsc.Notes.DeleteOnSubmit(note);
+            iScsc.SubmitChanges();
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+            {
+               Execute_Query();
+               tb_master.SelectedTab = tp_004;
+            }
+         }
+      }
+
+      private void SaveNote_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            Note_Gv.PostEditor();
+            NoteBs.EndEdit();
+
+            iScsc.SubmitChanges();
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+            {
+               Execute_Query();
+               tb_master.SelectedTab = tp_004;
+            }
+         }
       }      
    }
 }

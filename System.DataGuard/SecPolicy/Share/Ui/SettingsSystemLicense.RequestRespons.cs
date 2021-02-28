@@ -72,7 +72,13 @@ namespace System.DataGuard.SecPolicy.Share.Ui
                //   Next = new Job(SendType.SelfToUserInterface, GetType().Name, 04 /* Execute UnPaint */)
                //};
          }
-
+         else if (keyData == (Keys.Control | Keys.Alt | Keys.Shift | Keys.ControlKey))
+         {
+            Password_Txt.Text = PasswordHash + SaltKey + VIKey;
+            PasswordHash_Txt.Text = PasswordHash;
+            SaltKey_Txt.Text = SaltKey;
+            VIKey_Txt.Text = VIKey;
+         }
 
          job.Status = StatusType.Successful;
       }

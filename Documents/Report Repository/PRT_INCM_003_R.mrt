@@ -1243,10 +1243,10 @@ WHERE {WhereClause}</SqlCommand>
       </Components>
       <Conditions isList="true" count="0" />
       <Guid>6098e725742243daa4a4fe2b67d4ebaf</Guid>
-      <Margins>0.1,0.1,0.1,0.1</Margins>
+      <Margins>0.4,0.1,0.1,0.1</Margins>
       <Name>Page1</Name>
       <PageHeight>12.6</PageHeight>
-      <PageWidth>5.4</PageWidth>
+      <PageWidth>5.7</PageWidth>
       <Report isRef="0" />
       <Watermark Ref="70" type="Stimulsoft.Report.Components.StiWatermark" isKey="true">
         <Font>B Titr,10,Bold,Point,False,178</Font>
@@ -1266,10 +1266,10 @@ WHERE {WhereClause}</SqlCommand>
     <value>Stimulsoft.Report.Dll</value>
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
-  <ReportChanged>8/5/2019 12:45:04 PM</ReportChanged>
+  <ReportChanged>2/27/2021 6:28:12 PM</ReportChanged>
   <ReportCreated>9/26/2011 12:44:57 PM</ReportCreated>
   <ReportFile>D:\Project\MyProject\Documents\Report Repository\PRT_INCM_003_R.mrt</ReportFile>
-  <ReportGuid>ae8da5ef7b4a4678a5813ac723b3d683</ReportGuid>
+  <ReportGuid>7182966f47fa4447bd21613161e28467</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Centimeters</ReportUnit>
   <ReportVersion>2012.2.1304</ReportVersion>

@@ -12,7 +12,7 @@
     <DataSources isList="true" count="1">
       <VF_x0024_SystemPaymentSummery Ref="3" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
         <Alias>VF$SystemPaymentSummery</Alias>
-        <Columns isList="true" count="39">
+        <Columns isList="true" count="42">
           <value>SAVE_DATE,System.DateTime</value>
           <value>NAME_DNRM,System.String</value>
           <value>FNGR_PRNT_DNRM,System.String</value>
@@ -52,6 +52,9 @@
           <value>QNTY,System.Int16</value>
           <value>EXPN_PRIC,System.Int32</value>
           <value>GET_PYMT_AMNT_DESC,System.String</value>
+          <value>FRST_NAME,System.String</value>
+          <value>LAST_NAME,System.String</value>
+          <value>CELL_PHON,System.String</value>
         </Columns>
         <CommandTimeout>30</CommandTimeout>
         <Dictionary isRef="1" />
@@ -90,7 +93,7 @@
               <Name>Text1</Name>
               <Page isRef="4" />
               <Parent isRef="5" />
-              <Text>گزارش چک لیست درآمد روزانه</Text>
+              <Text>گزارش چک لیست درآمد روزانه متفرقه</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
             </Text1>
@@ -108,7 +111,7 @@
             <HeaderVF_SystemPaymentSummery_PERS_SAVE_DATE Ref="8" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>17.8,0,1.2,0.8</ClientRectangle>
+              <ClientRectangle>18,0,1,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>IRANSans,10,Bold</Font>
               <HorAlignment>Center</HorAlignment>
@@ -126,10 +129,9 @@
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <CanGrow>True</CanGrow>
-              <ClientRectangle>13.4,0,4.4,0.8</ClientRectangle>
+              <ClientRectangle>0,0,18,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>IRANSans,10</Font>
-              <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>DataVF_SystemPaymentSummery_PERS_SAVE_DATE</Name>
               <Page isRef="4" />
@@ -173,10 +175,10 @@
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <CanGrow>True</CanGrow>
-              <ClientRectangle>13.4,0,3,0.8</ClientRectangle>
+              <ClientRectangle>0,0,16.4,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>IRANSans,8</Font>
-              <HorAlignment>Center</HorAlignment>
+              <HorAlignment>Right</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>DataVF_SystemPaymentSummery_RQTP_DESC</Name>
               <Page isRef="4" />
@@ -198,11 +200,11 @@
           <Border>All;Black;1;Solid;False;4;Black</Border>
           <Brush>Transparent</Brush>
           <ClientRectangle>0,5.2,19,0.8</ClientRectangle>
-          <Components isList="true" count="6">
+          <Components isList="true" count="7">
             <Text2 Ref="14" type="Text" isKey="true">
               <Border>Top, Left, Bottom;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>17.8,0,1.2,0.8</ClientRectangle>
+              <ClientRectangle>18,0,1,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>IRANSans,10,Bold</Font>
               <Guid>2009c56a95ca47d0a3caeb3ec7ad2a02</Guid>
@@ -217,27 +219,10 @@
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text2>
-            <HeaderVF_SystemPaymentSummery_NAME_DNRM Ref="15" type="Text" isKey="true">
+            <HeaderVF_SystemPaymentSummery_FNGR_PRNT_DNRM Ref="15" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>13.4,0,4.4,0.8</ClientRectangle>
-              <Conditions isList="true" count="0" />
-              <Font>IRANSans,10,Bold</Font>
-              <HorAlignment>Center</HorAlignment>
-              <Margins>0,0,0,0</Margins>
-              <Name>HeaderVF_SystemPaymentSummery_NAME_DNRM</Name>
-              <Page isRef="4" />
-              <Parent isRef="13" />
-              <Text>نام اعضا</Text>
-              <TextBrush>Black</TextBrush>
-              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
-              <Type>Expression</Type>
-              <VertAlignment>Center</VertAlignment>
-            </HeaderVF_SystemPaymentSummery_NAME_DNRM>
-            <HeaderVF_SystemPaymentSummery_FNGR_PRNT_DNRM Ref="16" type="Text" isKey="true">
-              <Border>All;Black;1;Solid;False;4;Black</Border>
-              <Brush>Transparent</Brush>
-              <ClientRectangle>10,0,3.4,0.8</ClientRectangle>
+              <ClientRectangle>15,0,3,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>IRANSans,10,Bold</Font>
               <HorAlignment>Center</HorAlignment>
@@ -245,16 +230,16 @@
               <Name>HeaderVF_SystemPaymentSummery_FNGR_PRNT_DNRM</Name>
               <Page isRef="4" />
               <Parent isRef="13" />
-              <Text>کد شناسایی</Text>
+              <Text>نام سرپرست</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </HeaderVF_SystemPaymentSummery_FNGR_PRNT_DNRM>
-            <HeaderVF_SystemPaymentSummery_CELL_PHON_DNRM Ref="17" type="Text" isKey="true">
+            <HeaderVF_SystemPaymentSummery_CELL_PHON_DNRM Ref="16" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>6.2,0,3.8,0.8</ClientRectangle>
+              <ClientRectangle>12,0,3,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>IRANSans,10,Bold</Font>
               <HorAlignment>Center</HorAlignment>
@@ -268,10 +253,10 @@
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </HeaderVF_SystemPaymentSummery_CELL_PHON_DNRM>
-            <HeaderVF_SystemPaymentSummery_DEBT_AMNT Ref="18" type="Text" isKey="true">
+            <HeaderVF_SystemPaymentSummery_DEBT_AMNT Ref="17" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>2.6,0,3.6,0.8</ClientRectangle>
+              <ClientRectangle>2.6,0,3,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>IRANSans,10,Bold</Font>
               <HorAlignment>Center</HorAlignment>
@@ -285,7 +270,7 @@
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </HeaderVF_SystemPaymentSummery_DEBT_AMNT>
-            <Text3 Ref="19" type="Text" isKey="true">
+            <Text3 Ref="18" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <ClientRectangle>0,0,2.6,0.8</ClientRectangle>
@@ -303,6 +288,42 @@
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text3>
+            <Text7 Ref="19" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>5.6,0,2.8,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans,10,Bold</Font>
+              <Guid>4b52ec032f2e4a7d9db084356fccd5a2</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text7</Name>
+              <Page isRef="4" />
+              <Parent isRef="13" />
+              <Text>مبلغ تخفیف</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text7>
+            <Text9 Ref="20" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>8.4,0,3.6,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans,10,Bold</Font>
+              <Guid>ada34fbed155426fb82f29795263ea53</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text9</Name>
+              <Page isRef="4" />
+              <Parent isRef="13" />
+              <Text>نام مشتری</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text9>
           </Components>
           <Conditions isList="true" count="0" />
           <Name>HeaderVF_SystemPaymentSummery</Name>
@@ -310,17 +331,16 @@
           <Parent isRef="4" />
           <PrintOn>OnlyFirstPage</PrintOn>
         </HeaderVF_SystemPaymentSummery>
-        <DataVF_x0024_SystemPaymentSummery Ref="20" type="DataBand" isKey="true">
-          <Border>All;Black;1;Solid;False;4;Black</Border>
+        <DataVF_x0024_SystemPaymentSummery Ref="21" type="DataBand" isKey="true">
+          <Border>None;Black;1;Solid;False;4;Black</Border>
           <Brush>Transparent</Brush>
           <BusinessObjectGuid isNull="true" />
           <ClientRectangle>0,6.8,19,0.8</ClientRectangle>
-          <Components isList="true" count="6">
-            <Text4 Ref="21" type="Text" isKey="true">
+          <Components isList="true" count="7">
+            <Text4 Ref="22" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
-              <CanGrow>True</CanGrow>
-              <ClientRectangle>17.8,0,1.2,0.8</ClientRectangle>
+              <ClientRectangle>18,0,1,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>IRANSans,10</Font>
               <Guid>94a7a48b44a247c99cc3ccd6b84665fc</Guid>
@@ -328,59 +348,44 @@
               <Margins>0,0,0,0</Margins>
               <Name>Text4</Name>
               <Page isRef="4" />
-              <Parent isRef="20" />
+              <Parent isRef="21" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
               <Text>{VF_SystemPaymentSummery.RWNO}</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
             </Text4>
-            <DataVF_SystemPaymentSummery_NAME_DNRM Ref="22" type="Text" isKey="true">
-              <Border>All;Black;1;Solid;False;4;Black</Border>
-              <Brush>Transparent</Brush>
-              <CanGrow>True</CanGrow>
-              <ClientRectangle>13.4,0,4.4,0.8</ClientRectangle>
-              <Conditions isList="true" count="0" />
-              <Font>IRANSans,8</Font>
-              <HorAlignment>Right</HorAlignment>
-              <Margins>0,0,0,0</Margins>
-              <Name>DataVF_SystemPaymentSummery_NAME_DNRM</Name>
-              <Page isRef="4" />
-              <Parent isRef="20" />
-              <ShrinkFontToFit>True</ShrinkFontToFit>
-              <Text>{VF_SystemPaymentSummery.NAME_DNRM}</Text>
-              <TextBrush>Black</TextBrush>
-              <VertAlignment>Center</VertAlignment>
-            </DataVF_SystemPaymentSummery_NAME_DNRM>
             <DataVF_SystemPaymentSummery_FNGR_PRNT_DNRM Ref="23" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
-              <CanGrow>True</CanGrow>
-              <ClientRectangle>10,0,3.4,0.8</ClientRectangle>
+              <ClientRectangle>15,0,3,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>IRANSans,10</Font>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>DataVF_SystemPaymentSummery_FNGR_PRNT_DNRM</Name>
               <Page isRef="4" />
-              <Parent isRef="20" />
+              <Parent isRef="21" />
+              <ProcessingDuplicates>Merge</ProcessingDuplicates>
               <ShrinkFontToFit>True</ShrinkFontToFit>
-              <Text>{VF_SystemPaymentSummery.FNGR_PRNT_DNRM}</Text>
+              <Text>{VF_SystemPaymentSummery.COCH_NAME}</Text>
               <TextBrush>Black</TextBrush>
+              <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
             </DataVF_SystemPaymentSummery_FNGR_PRNT_DNRM>
             <DataVF_SystemPaymentSummery_CELL_PHON_DNRM Ref="24" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
-              <CanGrow>True</CanGrow>
-              <ClientRectangle>6.2,0,3.8,0.8</ClientRectangle>
+              <ClientRectangle>12,0,3,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>IRANSans,10</Font>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>DataVF_SystemPaymentSummery_CELL_PHON_DNRM</Name>
               <Page isRef="4" />
-              <Parent isRef="20" />
+              <Parent isRef="21" />
+              <ProcessingDuplicates>Merge</ProcessingDuplicates>
               <ShrinkFontToFit>True</ShrinkFontToFit>
               <Text>{VF_SystemPaymentSummery.MTOD_DESC}</Text>
               <TextBrush>Black</TextBrush>
@@ -390,8 +395,7 @@
             <Text6 Ref="25" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
-              <CanGrow>True</CanGrow>
-              <ClientRectangle>2.6,0,3.6,0.8</ClientRectangle>
+              <ClientRectangle>2.6,0,3,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>IRANSans,10</Font>
               <Guid>6934660261af424e960051cc9258a710</Guid>
@@ -399,7 +403,7 @@
               <Margins>0,0,0,0</Margins>
               <Name>Text6</Name>
               <Page isRef="4" />
-              <Parent isRef="20" />
+              <Parent isRef="21" />
               <ShrinkFontToFit>True</ShrinkFontToFit>
               <Text>{VF_SystemPaymentSummery.GET_PYMT_AMNT}</Text>
               <TextBrush>Black</TextBrush>
@@ -415,7 +419,6 @@
             <Text5 Ref="27" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
-              <CanGrow>True</CanGrow>
               <ClientRectangle>0,0,2.6,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>IRANSans,10</Font>
@@ -424,7 +427,7 @@
               <Margins>0,0,0,0</Margins>
               <Name>Text5</Name>
               <Page isRef="4" />
-              <Parent isRef="20" />
+              <Parent isRef="21" />
               <ShrinkFontToFit>True</ShrinkFontToFit>
               <Text>{VF_SystemPaymentSummery.GET_PYMT_AMNT_DESC}</Text>
               <TextBrush>Black</TextBrush>
@@ -437,6 +440,49 @@
               <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
             </Text5>
+            <Text8 Ref="29" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>5.6,0,2.8,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans,10</Font>
+              <Guid>1cbe1c68049a4057804f61046c936ce1</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text8</Name>
+              <Page isRef="4" />
+              <Parent isRef="21" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{VF_SystemPaymentSummery.SUM_PYMT_DSCN_DNRM}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="30" type="NumberFormat" isKey="true">
+                <DecimalDigits>0</DecimalDigits>
+                <GroupSeparator>,</GroupSeparator>
+                <NegativePattern>1</NegativePattern>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <Type>DataColumn</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text8>
+            <Text10 Ref="31" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>8.4,0,3.6,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans,10</Font>
+              <Guid>2ff88204b9c442f5ad8ad7c1d6b39f5f</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text10</Name>
+              <Page isRef="4" />
+              <Parent isRef="21" />
+              <ProcessingDuplicates>Merge</ProcessingDuplicates>
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{VF_SystemPaymentSummery.FRST_NAME} - {VF_SystemPaymentSummery.LAST_NAME} - {VF_SystemPaymentSummery.CELL_PHON}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text10>
           </Components>
           <Conditions isList="true" count="0" />
           <DataRelationName isNull="true" />
@@ -450,26 +496,26 @@
             <value>RWNO</value>
           </Sort>
         </DataVF_x0024_SystemPaymentSummery>
-        <FooterVF_SystemPaymentSummery Ref="29" type="FooterBand" isKey="true">
+        <FooterVF_SystemPaymentSummery Ref="32" type="FooterBand" isKey="true">
           <Border>All;Black;1;Solid;False;4;Black</Border>
           <Brush>[216:216:216]</Brush>
           <ClientRectangle>0,8.4,19,0.8</ClientRectangle>
-          <Components isList="true" count="2">
-            <FooterVF_SystemPaymentSummery_FNGR_PRNT_DNRM Ref="30" type="Text" isKey="true">
+          <Components isList="true" count="3">
+            <FooterVF_SystemPaymentSummery_FNGR_PRNT_DNRM Ref="33" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[230:238:215]</Brush>
-              <ClientRectangle>2.6,0,3.6,0.8</ClientRectangle>
+              <ClientRectangle>2.6,0,3,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>IRANSans,10,Bold</Font>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>FooterVF_SystemPaymentSummery_FNGR_PRNT_DNRM</Name>
               <Page isRef="4" />
-              <Parent isRef="29" />
+              <Parent isRef="32" />
               <ShrinkFontToFit>True</ShrinkFontToFit>
               <Text>{Sum(DataVF_SystemPaymentSummery,VF_SystemPaymentSummery.GET_PYMT_AMNT)}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="31" type="NumberFormat" isKey="true">
+              <TextFormat Ref="34" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -478,22 +524,47 @@
               <Type>Totals</Type>
               <VertAlignment>Center</VertAlignment>
             </FooterVF_SystemPaymentSummery_FNGR_PRNT_DNRM>
-            <FooterVF_SystemPaymentSummery_COCH_NAME Ref="32" type="Text" isKey="true">
+            <FooterVF_SystemPaymentSummery_COCH_NAME Ref="35" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>17.8,0,1.2,0.8</ClientRectangle>
+              <ClientRectangle>18,0,1,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>IRANSans,10,Bold</Font>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>FooterVF_SystemPaymentSummery_COCH_NAME</Name>
               <Page isRef="4" />
-              <Parent isRef="29" />
+              <Parent isRef="32" />
               <Text>{Count(DataVF_SystemPaymentSummery)}</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <Type>Totals</Type>
               <VertAlignment>Center</VertAlignment>
             </FooterVF_SystemPaymentSummery_COCH_NAME>
+            <Text11 Ref="36" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[230:238:215]</Brush>
+              <ClientRectangle>5.6,0,2.8,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>IRANSans,10,Bold</Font>
+              <Guid>bcb6342c43b442eba99d57c5c377a270</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text11</Name>
+              <Page isRef="4" />
+              <Parent isRef="32" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{Sum(DataVF_SystemPaymentSummery,VF_SystemPaymentSummery.SUM_PYMT_DSCN_DNRM)}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="37" type="NumberFormat" isKey="true">
+                <DecimalDigits>0</DecimalDigits>
+                <GroupSeparator>,</GroupSeparator>
+                <NegativePattern>1</NegativePattern>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <Type>Totals</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text11>
           </Components>
           <Conditions isList="true" count="0" />
           <Name>FooterVF_SystemPaymentSummery</Name>
@@ -509,13 +580,13 @@
       <PageHeight>29.6</PageHeight>
       <PageWidth>21</PageWidth>
       <Report isRef="0" />
-      <Watermark Ref="33" type="Stimulsoft.Report.Components.StiWatermark" isKey="true">
+      <Watermark Ref="38" type="Stimulsoft.Report.Components.StiWatermark" isKey="true">
         <Font>Arial,100</Font>
         <TextBrush>[50:0:0:0]</TextBrush>
       </Watermark>
     </Page1>
   </Pages>
-  <PrinterSettings Ref="34" type="Stimulsoft.Report.Print.StiPrinterSettings" isKey="true" />
+  <PrinterSettings Ref="39" type="Stimulsoft.Report.Print.StiPrinterSettings" isKey="true" />
   <ReferencedAssemblies isList="true" count="8">
     <value>System.Dll</value>
     <value>System.Drawing.Dll</value>
@@ -527,10 +598,10 @@
     <value>Stimulsoft.Report.Dll</value>
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
-  <ReportChanged>12/16/2019 11:24:09 AM</ReportChanged>
+  <ReportChanged>2/27/2021 5:47:27 PM</ReportChanged>
   <ReportCreated>8/1/2017 3:08:42 PM</ReportCreated>
   <ReportFile>D:\Project\MyProject\Documents\Report Repository\RPT_SPSM_010_R.mrt</ReportFile>
-  <ReportGuid>567f7d683a344fa1bfaf26681fccc670</ReportGuid>
+  <ReportGuid>853ce1ea149c47f9b38d8485beb7f3e4</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Centimeters</ReportUnit>
   <ReportVersion>2012.2.1304</ReportVersion>

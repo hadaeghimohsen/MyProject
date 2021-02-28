@@ -187,12 +187,28 @@ namespace System.Scsc.Ui.MasterPage
                         {
                            var licndate = (DateTime)output;
 
-                           if((licndate.Date - DateTime.Now.Date).Days >= 15)
+                           if ((licndate.Date - DateTime.Now.Date).Days >= 15)
+                           {
                               Licnday_Lnk.Text = string.Format("پشتیبانی     ---     {0} روز", (licndate.Date - DateTime.Now.Date).Days);
-                           else if ((licndate.Date - DateTime.Now.Date).Days <= 15 && (licndate.Date - DateTime.Now.Date).Days >= 0)
+                              Licnday_Lnk.LinkColor = Color.Green;
+                           }
+                           else if ((licndate.Date - DateTime.Now.Date).Days.IsBetween(0, 7))
+                           {
+                              Licnday_Lnk.Text = "پشتیبانی نرم افزار شما کمتر 7 روز دیگر به اتمام میرسد، در صورت عدم پرداخت مبلغ پشتیبانی دیگر قادر به استفاده از نرم افزار و ثبت اطلاعات نیستید" + Environment.NewLine +
+                                                 "فقط دقت داشته باشید که لایسنس جدید نرم افزار فقط و فقط بر اساس شماره پیگیری واریز وجه بانکی شما قابل تمدید میباشد" + Environment.NewLine + Environment.NewLine +
+                                                 string.Format("تعداد روز باقیمانده     ---     {0} روز", (licndate.Date - DateTime.Now.Date).Days);
+                              Licnday_Lnk.LinkColor = Color.Red;
+                           }
+                           else if ((licndate.Date - DateTime.Now.Date).Days.IsBetween(0, 15))
+                           {
                               Licnday_Lnk.Text = "پشتیبانی رو به اتمام میباشد";
+                              Licnday_Lnk.LinkColor = Color.Red;
+                           }
                            else
+                           {
                               Licnday_Lnk.Text = string.Format("پشتیبانی به پایان رسیده است", (licndate.Date - DateTime.Now.Date).Days);
+                              Licnday_Lnk.LinkColor = Color.Red;
+                           }
 
                            if ((licndate.Date - DateTime.Now.Date).Days >= 15)
                               CertificateLogo_Pb.Image = System.Scsc.Properties.Resources.IMAGE_1656;

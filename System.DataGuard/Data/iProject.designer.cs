@@ -899,6 +899,14 @@ namespace System.DataGuard.Data
 			}
 		}
 		
+		public System.Data.Linq.Table<V_Setting> V_Settings
+		{
+			get
+			{
+				return this.GetTable<V_Setting>();
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="DataGuard.SaveHostInfo")]
 		public ISingleResult<SaveHostInfoResult> SaveHostInfo([global::System.Data.Linq.Mapping.ParameterAttribute(Name="X", DbType="Xml")] System.Xml.Linq.XElement x)
 		{
@@ -1125,17 +1133,24 @@ namespace System.DataGuard.Data
 			return ((string)(this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), p_RqstXml).ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="DataGuard.UpdateSubSystem")]
-		public int UpdateSubSystem([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Sub_Sys", DbType="Int")] System.Nullable<int> sub_Sys, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Stat", DbType="VarChar(3)")] string stat, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Inst_Stat", DbType="VarChar(3)")] string inst_Stat, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Inst_Date", DbType="DateTime")] System.Nullable<System.DateTime> inst_Date, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Licn_Type", DbType="VarChar(3)")] string licn_Type, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Licn_Tril_Date", DbType="DateTime")] System.Nullable<System.DateTime> licn_Tril_Date, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Clnt_Licn_Desc", DbType="NVarChar(4000)")] string clnt_Licn_Desc, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Srvr_Licn_Desc", DbType="NVarChar(4000)")] string srvr_Licn_Desc, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Sub_Desc", DbType="NVarChar(500)")] string sub_Desc, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Jobs_Stat", DbType="VarChar(3)")] string jobs_Stat, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Freq_Intr", DbType="Int")] System.Nullable<int> freq_Intr)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), sub_Sys, stat, inst_Stat, inst_Date, licn_Type, licn_Tril_Date, clnt_Licn_Desc, srvr_Licn_Desc, sub_Desc, jobs_Stat, freq_Intr);
-			return ((int)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="DataGuard.TakedbBackup")]
 		public int TakedbBackup([global::System.Data.Linq.Mapping.ParameterAttribute(Name="X", DbType="Xml")] System.Xml.Linq.XElement x)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), x);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="DataGuard.EXEC_CMND_P")]
+		public int EXEC_CMND_P([global::System.Data.Linq.Mapping.ParameterAttribute(Name="X", DbType="Xml")] System.Xml.Linq.XElement x)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), x);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="DataGuard.UpdateSubSystem")]
+		public int UpdateSubSystem([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Sub_Sys", DbType="Int")] System.Nullable<int> sub_Sys, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Stat", DbType="VarChar(3)")] string stat, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Inst_Stat", DbType="VarChar(3)")] string inst_Stat, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Inst_Date", DbType="DateTime")] System.Nullable<System.DateTime> inst_Date, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Licn_Type", DbType="VarChar(3)")] string licn_Type, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Licn_Tril_Date", DbType="DateTime")] System.Nullable<System.DateTime> licn_Tril_Date, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Clnt_Licn_Desc", DbType="NVarChar(4000)")] string clnt_Licn_Desc, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Srvr_Licn_Desc", DbType="NVarChar(4000)")] string srvr_Licn_Desc, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Sub_Desc", DbType="NVarChar(500)")] string sub_Desc, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Jobs_Stat", DbType="VarChar(3)")] string jobs_Stat, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Freq_Intr", DbType="Int")] System.Nullable<int> freq_Intr, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Vers_No", DbType="VarChar(20)")] string vers_No, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Supr_Year_Pric", DbType="BigInt")] System.Nullable<long> supr_Year_Pric)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), sub_Sys, stat, inst_Stat, inst_Date, licn_Type, licn_Tril_Date, clnt_Licn_Desc, srvr_Licn_Desc, sub_Desc, jobs_Stat, freq_Intr, vers_No, supr_Year_Pric);
 			return ((int)(result.ReturnValue));
 		}
 	}
@@ -26899,6 +26914,177 @@ namespace System.DataGuard.Data
 		{
 			this.SendPropertyChanging();
 			entity.User = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="DataGuard.V#Settings")]
+	public partial class V_Setting
+	{
+		
+		private System.Nullable<System.DateTime> _LAST_DATE;
+		
+		private string _PERS_LAST_DATE;
+		
+		private System.Nullable<bool> _EXPR_TYPE;
+		
+		private System.Nullable<System.DateTime> _EXPR_VALU;
+		
+		private string _PERS_EXPR_VALU;
+		
+		private string _SESN_TYPE;
+		
+		private System.Nullable<long> _SESN_MAX;
+		
+		private System.Nullable<long> _SESN_CONT;
+		
+		private string _TINY_SERL;
+		
+		public V_Setting()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LAST_DATE", DbType="Date")]
+		public System.Nullable<System.DateTime> LAST_DATE
+		{
+			get
+			{
+				return this._LAST_DATE;
+			}
+			set
+			{
+				if ((this._LAST_DATE != value))
+				{
+					this._LAST_DATE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PERS_LAST_DATE", DbType="VarChar(10)")]
+		public string PERS_LAST_DATE
+		{
+			get
+			{
+				return this._PERS_LAST_DATE;
+			}
+			set
+			{
+				if ((this._PERS_LAST_DATE != value))
+				{
+					this._PERS_LAST_DATE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EXPR_TYPE", DbType="Bit")]
+		public System.Nullable<bool> EXPR_TYPE
+		{
+			get
+			{
+				return this._EXPR_TYPE;
+			}
+			set
+			{
+				if ((this._EXPR_TYPE != value))
+				{
+					this._EXPR_TYPE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EXPR_VALU", DbType="Date")]
+		public System.Nullable<System.DateTime> EXPR_VALU
+		{
+			get
+			{
+				return this._EXPR_VALU;
+			}
+			set
+			{
+				if ((this._EXPR_VALU != value))
+				{
+					this._EXPR_VALU = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PERS_EXPR_VALU", DbType="VarChar(10)")]
+		public string PERS_EXPR_VALU
+		{
+			get
+			{
+				return this._PERS_EXPR_VALU;
+			}
+			set
+			{
+				if ((this._PERS_EXPR_VALU != value))
+				{
+					this._PERS_EXPR_VALU = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SESN_TYPE", DbType="VarChar(30)")]
+		public string SESN_TYPE
+		{
+			get
+			{
+				return this._SESN_TYPE;
+			}
+			set
+			{
+				if ((this._SESN_TYPE != value))
+				{
+					this._SESN_TYPE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SESN_MAX", DbType="BigInt")]
+		public System.Nullable<long> SESN_MAX
+		{
+			get
+			{
+				return this._SESN_MAX;
+			}
+			set
+			{
+				if ((this._SESN_MAX != value))
+				{
+					this._SESN_MAX = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SESN_CONT", DbType="BigInt")]
+		public System.Nullable<long> SESN_CONT
+		{
+			get
+			{
+				return this._SESN_CONT;
+			}
+			set
+			{
+				if ((this._SESN_CONT != value))
+				{
+					this._SESN_CONT = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TINY_SERL", DbType="VarChar(100)")]
+		public string TINY_SERL
+		{
+			get
+			{
+				return this._TINY_SERL;
+			}
+			set
+			{
+				if ((this._TINY_SERL != value))
+				{
+					this._TINY_SERL = value;
+				}
+			}
 		}
 	}
 	

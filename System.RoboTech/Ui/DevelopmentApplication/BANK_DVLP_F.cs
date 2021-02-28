@@ -219,14 +219,18 @@ namespace System.RoboTech.Ui.DevelopmentApplication
             var rcba = RcbaBs.Current as Data.Robot_Card_Bank_Account;
             if (rcba == null) return;
 
-            if(!SrcbBs.List.OfType<Data.Service_Robot_Card_Bank>().Any(a => a.ACNT_TYPE_DNRM == rcba.ACNT_TYPE))
+            if(!SrcbBs.List.OfType<Data.Service_Robot_Card_Bank>().Any(a => a.SRBT_ROBO_RBID == rcba.ROBO_RBID && a.ACNT_TYPE_DNRM == rcba.ACNT_TYPE && a.ORDR_TYPE_DNRM == rcba.ORDR_TYPE))
             {
                var srcb = SrcbBs.AddNew() as Data.Service_Robot_Card_Bank;
                var srbt = 
                   iRoboTech.Service_Robots
                   .FirstOrDefault(sr => 
+                     sr.Robot == rcba.Robot &&
                      (rcba.ACNT_TYPE == "001" && sr.CELL_PHON == "09033927103" && sr.NATL_CODE == "2372499424") ||
-                     (rcba.ACNT_TYPE == "002" && sr.Service_Robot_Groups.Any(g => g.GROP_GPID == 131 && g.STAT == "002"))
+                     (
+                        rcba.ACNT_TYPE == "002" && (sr.ROBO_RBID == rcba.ROBO_RBID && sr.ROBO_RBID == 401 && sr.Service_Robot_Groups.Any(g => g.GROP_GPID == 131 && g.STAT == "002") ||
+                                                     sr.ROBO_RBID == rcba.ROBO_RBID && sr.ROBO_RBID == 391 && sr.Service_Robot_Groups.Any(g => g.GROP_GPID == 122 && g.STAT == "002"))
+                     )
                   );
                srcb.Service_Robot = srbt;
                srcb.Robot_Card_Bank_Account = rcba;

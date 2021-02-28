@@ -120,6 +120,16 @@ namespace System.Scsc.Ui.OtherIncome
                      new Job(SendType.External, "localhost", "", 46, SendType.Self) { Input = new XElement("Fighter", new XAttribute("fileno", fileno)) }
                   );
                   break;
+               case "ADM_BRSR_F":
+                  _DefaultGateway.Gateway(
+                     new Job(SendType.External, "Localhost",
+                        new List<Job>
+                        {
+                           new Job(SendType.Self, 130 /* Execute Adm_Brsr_F */),
+                           new Job(SendType.SelfToUserInterface, "ADM_BRSR_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "tp_001"))}
+                        })
+                  );
+                  break;
                default:
                   break;
             }
@@ -585,11 +595,15 @@ namespace System.Scsc.Ui.OtherIncome
                         new XAttribute("cardno", cardno),
                         new XAttribute("flowno", flowno),
                         new XAttribute("refno", refno),
-                        new XAttribute("actndate", actndate)
+                        new XAttribute("actndate", actndate),
+                        new XAttribute("valdtype", PymtVldtType_Cbx.Checked ? "002" : "001")
                      )
                   )
                )
             );
+
+            // 1399/12/09 * بعد از اینکه مبلغ دریافتی درون سیستم ثبت شد گزینه به حالت فعال درآید
+            PymtVldtType_Cbx.Checked = true;
 
             /* Loop For Print After Pay */
             RqstBnPrintAfterPay_Click(null, null);

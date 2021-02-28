@@ -1641,7 +1641,8 @@ namespace System.Scsc.Ui.BaseDefinition
             //if (!FromDate006_Date.Value.HasValue) { MessageBox.Show("تاریخ شروع را مشخص کنید"); FromDate006_Date.Focus(); return; }
             //if (!ToDate006_Date.Value.HasValue) { MessageBox.Show("تاریخ پایان را مشخص کنید"); ToDate006_Date.Focus(); return; }
 
-            var crnt = CbmtBs1.Current as Data.Club_Method;
+            //var crnt = CbmtBs1.Current as Data.Club_Method;
+            var crnt = CochBs1.Current as Data.Fighter;
             if (crnt == null) return;
 
             Job _InteractWithScsc =
@@ -1656,7 +1657,7 @@ namespace System.Scsc.Ui.BaseDefinition
                            new XAttribute("modual", GetType().Name), 
                            new XAttribute("section", GetType().Name.Substring(0,3) + "_005_F"), 
                            //string.Format("<Club_Method code=\"{0}\" /><Request fromsavedate=\"{1}\" tosavedate=\"{2}\" />", crnt.CODE, FromDate006_Date.Value.Value.Date.ToString("yyyy-MM-dd"), ToDate006_Date.Value.Value.Date.ToString("yyyy-MM-dd") )
-                           string.Format("<Club_Method cochfileno=\"{0}\" />",crnt.COCH_FILE_NO )
+                           string.Format("<Club_Method cochfileno=\"{0}\" />",crnt.FILE_NO )
                         )
                   }
                });
@@ -1672,7 +1673,8 @@ namespace System.Scsc.Ui.BaseDefinition
             //if (!FromDate006_Date.Value.HasValue) { MessageBox.Show("تاریخ شروع را مشخص کنید"); FromDate006_Date.Focus(); return; }
             //if (!ToDate006_Date.Value.HasValue) { MessageBox.Show("تاریخ پایان را مشخص کنید"); ToDate006_Date.Focus(); return; }
 
-            var crnt = CbmtBs1.Current as Data.Club_Method;
+            //var crnt = CbmtBs1.Current as Data.Club_Method;
+            var crnt = CochBs1.Current as Data.Fighter;
             if (crnt == null) return;
 
             Job _InteractWithScsc =
@@ -1687,7 +1689,7 @@ namespace System.Scsc.Ui.BaseDefinition
                               new XAttribute("modual", GetType().Name), 
                               new XAttribute("section", GetType().Name.Substring(0,3) + "_005_F"),
                               //string.Format("<Club_Method code=\"{0}\" /><Request fromsavedate=\"{1}\" tosavedate=\"{2}\" />",crnt.CODE , FromDate006_Date.Value.Value.Date.ToString("yyyy-MM-dd"), ToDate006_Date.Value.Value.Date.ToString("yyyy-MM-dd") )
-                              string.Format("<Club_Method cochfileno=\"{0}\" />",crnt.COCH_FILE_NO )
+                              string.Format("<Club_Method cochfileno=\"{0}\" />",crnt.FILE_NO )
                            )
                      }
                   });
@@ -4298,6 +4300,74 @@ namespace System.Scsc.Ui.BaseDefinition
                      new Job(SendType.SelfToUserInterface,"BAS_PROD_F",  10 /* Execute Actn_CalF_F */){Input = new XElement("Product", new XAttribute("epitcode", epit.CODE), new XAttribute("formstat", "show"))}
                   }
                )
+            );
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void ResetAllDevice_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var devs = ExdvBs.List.OfType<Data.External_Device>().Where(d => d.DEV_COMP_TYPE == "002" && d.DEV_TYPE == "008" && d.STAT == "002");
+
+            foreach (var dev in devs)
+            {
+               var expn = iScsc.Expenses.FirstOrDefault(ex => ex.CODE == dev.EXPN_CODE);
+               // ارسال پیام برای باز کردن دستگاه چراغ میز برای مشتری                              
+               _DefaultGateway.Gateway(
+                  new Job(SendType.External, "localhost", "MAIN_PAGE_F", 10 /* Execute Call_Actn_P */, SendType.SelfToUserInterface)
+                  {
+                     Input =
+                        new XElement("ExpenseGame",
+                            new XAttribute("type", "expnextr"),
+                            new XAttribute("macadrs", dev.DEV_NAME),
+                            new XAttribute("expncode", dev.EXPN_CODE),
+                            new XAttribute("cmndtext", 
+                               "er:" + "0".PadLeft(10, ' ') +
+                               "&" + expn.MIN_TIME.Value.Minute.ToString().PadLeft(2, ' ') +
+                               ":" + expn.PRIC.ToString("n0").PadLeft(9, ' ')),
+                            new XAttribute("fngrprnt", "")
+                        )
+                  }
+               );
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void ResetSelectedDevice_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var dev = ExdvBs.Current as Data.External_Device;
+            if (dev == null) return;
+
+            if (!(dev.DEV_COMP_TYPE == "002" && dev.DEV_TYPE == "008" && dev.STAT == "002")) return;
+
+            var expn = iScsc.Expenses.FirstOrDefault(ex => ex.CODE == dev.EXPN_CODE);
+            // ارسال پیام برای باز کردن دستگاه چراغ میز برای مشتری                              
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost", "MAIN_PAGE_F", 10 /* Execute Call_Actn_P */, SendType.SelfToUserInterface)
+               {
+                  Input =
+                     new XElement("ExpenseGame",
+                         new XAttribute("type", "expnextr"),
+                         new XAttribute("macadrs", dev.DEV_NAME),
+                         new XAttribute("expncode", dev.EXPN_CODE),
+                         new XAttribute("cmndtext",
+                            "er:" + "0".PadLeft(10, ' ') +
+                            "&" + expn.MIN_TIME.Value.Minute.ToString().PadLeft(2, ' ') +
+                            ":" + expn.PRIC.ToString("n0").PadLeft(9, ' ')),
+                         new XAttribute("fngrprnt", "")
+                     )
+               }
             );
          }
          catch (Exception exc)

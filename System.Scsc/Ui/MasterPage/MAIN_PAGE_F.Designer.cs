@@ -28,6 +28,7 @@
       /// </summary>
       private void InitializeComponent()
       {
+         this.components = new System.ComponentModel.Container();
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MAIN_PAGE_F));
          DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
          DevExpress.Utils.ToolTipTitleItem toolTipTitleItem1 = new DevExpress.Utils.ToolTipTitleItem();
@@ -212,7 +213,7 @@
          this.button3 = new System.Windows.Forms.Button();
          this.BackGrnd_Butn = new System.MaxUi.RoundedButton();
          this.AttnType_Lov = new DevExpress.XtraEditors.LookUpEdit();
-         this.DaeatBs = new System.Windows.Forms.BindingSource();
+         this.DaeatBs = new System.Windows.Forms.BindingSource(this.components);
          this.button2 = new System.Windows.Forms.Button();
          this.AdjustDateTime_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.CardNumb_Text = new DevExpress.XtraEditors.ButtonEdit();
@@ -227,14 +228,14 @@
          this.AttendanceSystemAlert_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.ActionCenter_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.ShowDesktop_Butn = new DevExpress.XtraEditors.SimpleButton();
-         this.FighBs = new System.Windows.Forms.BindingSource();
-         this.Sp_Barcode = new System.IO.Ports.SerialPort();
-         this.Tm_FingerPrintWorker = new System.Windows.Forms.Timer();
+         this.FighBs = new System.Windows.Forms.BindingSource(this.components);
+         this.Sp_Barcode = new System.IO.Ports.SerialPort(this.components);
+         this.Tm_FingerPrintWorker = new System.Windows.Forms.Timer(this.components);
          this.ribbonPageGroup6 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-         this.Tm_ShowTime = new System.Windows.Forms.Timer();
-         this.Sp_GateAttn = new System.IO.Ports.SerialPort();
-         this.Sp_ExpnExtr = new System.IO.Ports.SerialPort();
-         this.AllMenu_Cmn = new System.Windows.Forms.ContextMenuStrip();
+         this.Tm_ShowTime = new System.Windows.Forms.Timer(this.components);
+         this.Sp_GateAttn = new System.IO.Ports.SerialPort(this.components);
+         this.Sp_ExpnExtr = new System.IO.Ports.SerialPort(this.components);
+         this.AllMenu_Cmn = new System.Windows.Forms.ContextMenuStrip(this.components);
          this.bbi_basdifnbutn_Mn = new System.Windows.Forms.ToolStripMenuItem();
          this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
          this.اطلاعاتثبتنامToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -271,7 +272,7 @@
          this.toolStripMenuItem11 = new System.Windows.Forms.ToolStripSeparator();
          this.OpenGate_Tsm = new System.Windows.Forms.ToolStripMenuItem();
          this.CloseGate_Tsm = new System.Windows.Forms.ToolStripMenuItem();
-         this.Tm_Exdv = new System.Windows.Forms.Timer();
+         this.Tm_Exdv = new System.Windows.Forms.Timer(this.components);
          this.statusStrip1.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.spc_desktop)).BeginInit();
@@ -1802,10 +1803,10 @@
          // 
          // ShopStore_Lnk
          // 
-         this.ShopStore_Lnk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+         this.ShopStore_Lnk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.ShopStore_Lnk.Font = new System.Drawing.Font("IRANSans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.ShopStore_Lnk.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-         this.ShopStore_Lnk.Location = new System.Drawing.Point(5, 338);
+         this.ShopStore_Lnk.Location = new System.Drawing.Point(1055, 168);
          this.ShopStore_Lnk.Name = "ShopStore_Lnk";
          this.ShopStore_Lnk.Size = new System.Drawing.Size(189, 22);
          this.ShopStore_Lnk.TabIndex = 1;
@@ -1817,21 +1818,21 @@
          // Licnday_Lnk
          // 
          this.Licnday_Lnk.Font = new System.Drawing.Font("IRANSans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.Licnday_Lnk.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+         this.Licnday_Lnk.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
          this.Licnday_Lnk.Location = new System.Drawing.Point(5, 201);
          this.Licnday_Lnk.Name = "Licnday_Lnk";
-         this.Licnday_Lnk.Size = new System.Drawing.Size(189, 22);
+         this.Licnday_Lnk.Size = new System.Drawing.Size(189, 224);
          this.Licnday_Lnk.TabIndex = 1;
          this.Licnday_Lnk.TabStop = true;
          this.Licnday_Lnk.Text = "پشتیبانی     ---     365 روز";
-         this.Licnday_Lnk.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         this.Licnday_Lnk.TextAlign = System.Drawing.ContentAlignment.TopCenter;
          // 
          // ShoppingStore_Pb
          // 
-         this.ShoppingStore_Pb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+         this.ShoppingStore_Pb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.ShoppingStore_Pb.Cursor = System.Windows.Forms.Cursors.Hand;
          this.ShoppingStore_Pb.Image = global::System.Scsc.Properties.Resources.IMAGE_1659;
-         this.ShoppingStore_Pb.Location = new System.Drawing.Point(5, 176);
+         this.ShoppingStore_Pb.Location = new System.Drawing.Point(1055, 6);
          this.ShoppingStore_Pb.Name = "ShoppingStore_Pb";
          this.ShoppingStore_Pb.Size = new System.Drawing.Size(189, 159);
          this.ShoppingStore_Pb.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -1872,7 +1873,7 @@
          // 
          // button5
          // 
-         this.button5.Location = new System.Drawing.Point(715, 8);
+         this.button5.Location = new System.Drawing.Point(744, 8);
          this.button5.Name = "button5";
          this.button5.Size = new System.Drawing.Size(33, 23);
          this.button5.TabIndex = 21;
@@ -1883,7 +1884,7 @@
          // 
          // button4
          // 
-         this.button4.Location = new System.Drawing.Point(676, 8);
+         this.button4.Location = new System.Drawing.Point(705, 8);
          this.button4.Name = "button4";
          this.button4.Size = new System.Drawing.Size(33, 23);
          this.button4.TabIndex = 21;
@@ -1902,7 +1903,7 @@
          this.ChngAttnActn_Butn.Dock = System.Windows.Forms.DockStyle.Left;
          this.ChngAttnActn_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1609;
          this.ChngAttnActn_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.ChngAttnActn_Butn.Location = new System.Drawing.Point(483, 5);
+         this.ChngAttnActn_Butn.Location = new System.Drawing.Point(536, 5);
          this.ChngAttnActn_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.ChngAttnActn_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.ChngAttnActn_Butn.Name = "ChngAttnActn_Butn";
@@ -1931,7 +1932,7 @@
          // 
          // button3
          // 
-         this.button3.Location = new System.Drawing.Point(637, 7);
+         this.button3.Location = new System.Drawing.Point(666, 7);
          this.button3.Name = "button3";
          this.button3.Size = new System.Drawing.Size(33, 23);
          this.button3.TabIndex = 21;
@@ -1968,7 +1969,7 @@
          // AttnType_Lov
          // 
          this.AttnType_Lov.Dock = System.Windows.Forms.DockStyle.Left;
-         this.AttnType_Lov.Location = new System.Drawing.Point(408, 5);
+         this.AttnType_Lov.Location = new System.Drawing.Point(461, 5);
          this.AttnType_Lov.MenuManager = this.ribbonControl1;
          this.AttnType_Lov.Name = "AttnType_Lov";
          this.AttnType_Lov.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -1991,7 +1992,7 @@
          // 
          // button2
          // 
-         this.button2.Location = new System.Drawing.Point(598, 7);
+         this.button2.Location = new System.Drawing.Point(627, 7);
          this.button2.Name = "button2";
          this.button2.Size = new System.Drawing.Size(33, 23);
          this.button2.TabIndex = 21;
@@ -2024,7 +2025,7 @@
          // CardNumb_Text
          // 
          this.CardNumb_Text.Dock = System.Windows.Forms.DockStyle.Left;
-         this.CardNumb_Text.Location = new System.Drawing.Point(149, 5);
+         this.CardNumb_Text.Location = new System.Drawing.Point(181, 5);
          this.CardNumb_Text.MenuManager = this.ribbonControl1;
          this.CardNumb_Text.Name = "CardNumb_Text";
          this.CardNumb_Text.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -2051,13 +2052,13 @@
          this.CardNumb_Text.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
          this.CardNumb_Text.Properties.NullValuePromptShowForEmptyValue = true;
          this.CardNumb_Text.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.CardNumb_Text_Properties_ButtonClick);
-         this.CardNumb_Text.Size = new System.Drawing.Size(259, 28);
+         this.CardNumb_Text.Size = new System.Drawing.Size(280, 28);
          this.CardNumb_Text.TabIndex = 11;
          this.CardNumb_Text.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CardNumb_Text_KeyDown);
          // 
          // button1
          // 
-         this.button1.Location = new System.Drawing.Point(559, 7);
+         this.button1.Location = new System.Drawing.Point(588, 7);
          this.button1.Name = "button1";
          this.button1.Size = new System.Drawing.Size(33, 23);
          this.button1.TabIndex = 21;
@@ -2082,7 +2083,7 @@
          this.FngrPrnt_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
          this.FngrPrnt_Txt.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
          this.FngrPrnt_Txt.Properties.NullValuePromptShowForEmptyValue = true;
-         this.FngrPrnt_Txt.Size = new System.Drawing.Size(88, 22);
+         this.FngrPrnt_Txt.Size = new System.Drawing.Size(120, 22);
          this.FngrPrnt_Txt.TabIndex = 10;
          // 
          // ShowInfo_Butn

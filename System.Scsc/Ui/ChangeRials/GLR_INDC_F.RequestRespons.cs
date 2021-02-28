@@ -19,9 +19,11 @@ namespace System.Scsc.Ui.ChangeRials
       private string Fga_Uprv_U, Fga_Urgn_U;
       private List<long?> Fga_Uclb_U;
       private string formCaller;
+      private string followups = "";
       private string CurrentUser;
       private XElement HostNameInfo;
       private string RegnLang = "054";
+      private long? rqstRqid = null, fileno = null;      
 
       public void SendRequest(Job job)
       {
@@ -113,11 +115,13 @@ namespace System.Scsc.Ui.ChangeRials
 
             switch (formCaller)
             {
+               case "OIC_TOTL_F":
+               case "ADM_BRSR_F":
                case "ALL_FLDF_F":
                   _DefaultGateway.Gateway(
-                     new Job(SendType.External, "Localhost", formCaller, 08 /* Exec LoadDataSource */, SendType.SelfToUserInterface)
+                     new Job(SendType.External, "Localhost", formCaller, 08 /* Exec LoadDataSource */, SendType.SelfToUserInterface) { Input = new XElement("Fighter", new XAttribute("fileno", fileno)) }
                   );
-                  break;
+                  break;               
                default:
                   break;
             }
@@ -398,13 +402,26 @@ namespace System.Scsc.Ui.ChangeRials
                formCaller = xinput.Attribute("formcaller").Value;
             else
                formCaller = "";
+
             if (xinput.Attribute("type").Value == "newrequest")
             {
+               // 1397/05/26 * rqstrqid
+               if ((job.Input as XElement).Attribute("rqstrqid") != null)
+                  rqstRqid = Convert.ToInt64((job.Input as XElement).Attribute("rqstrqid").Value);
+               else
+                  rqstRqid = 0;
+
                if (RqstBs1.Count > 0 && (RqstBs1.Current as Data.Request).RQID > 0)
                   RqstBs1.AddNew();
 
-               FIGH_FILE_NOLookUpEdit.EditValue = Convert.ToInt64(xinput.Attribute("fileno").Value);
-               Btn_RqstRqt1_Click(null, null);               
+               FIGH_FILE_NOLookUpEdit.EditValue = fileno = Convert.ToInt64(xinput.Attribute("fileno").Value);
+               Btn_RqstRqt1_Click(null, null);
+
+               // 1399/12/10 * followups
+               if ((job.Input as XElement).Attribute("followups") != null)
+                  followups = (job.Input as XElement).Attribute("followups").Value;
+               else
+                  followups = "";
             }
             else if (xinput.Attribute("type").Value == "rqidfocus")
             {

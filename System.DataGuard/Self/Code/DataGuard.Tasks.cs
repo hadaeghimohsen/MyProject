@@ -1101,5 +1101,16 @@ namespace System.DataGuard.Self.Code
             job.Status = StatusType.Successful;
          }
       }
+
+      /// <summary>
+      /// Code 36
+      /// Get Serial Number 
+      /// </summary>
+      /// <returns></returns>
+      private void DoWork4GetSerialNumber(Job job)
+      {
+         job.Output = iProject.V_Settings.FirstOrDefault().TINY_SERL;
+         job.Status = StatusType.Successful;
+      }
    }
 }

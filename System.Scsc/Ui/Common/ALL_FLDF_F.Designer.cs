@@ -689,6 +689,7 @@
          this.ShowCrntReglYear_Butn = new System.Windows.Forms.ToolStripMenuItem();
          this.ShowOthrReglYear_Butn = new System.Windows.Forms.ToolStripMenuItem();
          this.tp_004 = new System.Windows.Forms.TabPage();
+         this.splitContainerControl5 = new DevExpress.XtraEditors.SplitContainerControl();
          this.gridControl1 = new DevExpress.XtraGrid.GridControl();
          this.vF_Request_DocumentBs = new System.Windows.Forms.BindingSource(this.components);
          this.gridView9 = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -698,6 +699,36 @@
          this.colInvsDcmt = new DevExpress.XtraGrid.Columns.GridColumn();
          this.RqstDate_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
          this.SaveDate_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.splitContainerControl6 = new DevExpress.XtraEditors.SplitContainerControl();
+         this.gridControl5 = new DevExpress.XtraGrid.GridControl();
+         this.NoteBs = new System.Windows.Forms.BindingSource(this.components);
+         this.Note_Gv = new DevExpress.XtraGrid.Views.Grid.GridView();
+         this.colFIGH_FILE_NO1 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colCODE = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colRWNO1 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colNOTE_SUBJ = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colNOTE_CMNT = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colNOTE_DATE = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.persianRepositoryItemDateEdit2 = new dxExample.PersianRepositoryItemDateEdit();
+         this.colCRET_BY = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colCRET_DATE = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colMDFY_BY = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colMDFY_DATE = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colFighter = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.NoteBn = new System.Windows.Forms.BindingNavigator(this.components);
+         this.AddNote_Butn = new System.Windows.Forms.ToolStripButton();
+         this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
+         this.DelNote_Butn = new System.Windows.Forms.ToolStripButton();
+         this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
+         this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
+         this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+         this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
+         this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+         this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
+         this.toolStripButton6 = new System.Windows.Forms.ToolStripButton();
+         this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
+         this.SaveNote_Butn = new System.Windows.Forms.ToolStripButton();
+         this.memoEdit2 = new DevExpress.XtraEditors.MemoEdit();
          this.tp_005 = new System.Windows.Forms.TabPage();
          this.vF_Request_ChangingResultGridControl = new DevExpress.XtraGrid.GridControl();
          this.vF_Request_ChangingBs = new System.Windows.Forms.BindingSource(this.components);
@@ -928,9 +959,21 @@
          ((System.ComponentModel.ISupportInitialize)(this.PaymentsBn)).BeginInit();
          this.PaymentsBn.SuspendLayout();
          this.tp_004.SuspendLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl5)).BeginInit();
+         this.splitContainerControl5.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.vF_Request_DocumentBs)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.gridView9)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl6)).BeginInit();
+         this.splitContainerControl6.SuspendLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.gridControl5)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.NoteBs)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.Note_Gv)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit2)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit2.CalendarTimeProperties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.NoteBn)).BeginInit();
+         this.NoteBn.SuspendLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.memoEdit2.Properties)).BeginInit();
          this.tp_005.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.vF_Request_ChangingResultGridControl)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.vF_Request_ChangingBs)).BeginInit();
@@ -7426,26 +7469,40 @@
          // tp_004
          // 
          this.tp_004.BackColor = System.Drawing.SystemColors.Control;
-         this.tp_004.Controls.Add(this.gridControl1);
+         this.tp_004.Controls.Add(this.splitContainerControl5);
          this.tp_004.Location = new System.Drawing.Point(4, 23);
          this.tp_004.Name = "tp_004";
          this.tp_004.Padding = new System.Windows.Forms.Padding(3);
          this.tp_004.Size = new System.Drawing.Size(1225, 623);
          this.tp_004.TabIndex = 10;
-         this.tp_004.Text = "مدارک";
+         this.tp_004.Text = "مدارک / یادداشت ها";
+         // 
+         // splitContainerControl5
+         // 
+         this.splitContainerControl5.Dock = System.Windows.Forms.DockStyle.Fill;
+         this.splitContainerControl5.Location = new System.Drawing.Point(3, 3);
+         this.splitContainerControl5.Name = "splitContainerControl5";
+         this.splitContainerControl5.Panel1.Controls.Add(this.gridControl1);
+         this.splitContainerControl5.Panel1.Text = "Panel1";
+         this.splitContainerControl5.Panel2.Controls.Add(this.splitContainerControl6);
+         this.splitContainerControl5.Panel2.Text = "Panel2";
+         this.splitContainerControl5.Size = new System.Drawing.Size(1219, 617);
+         this.splitContainerControl5.SplitterPosition = 672;
+         this.splitContainerControl5.TabIndex = 4;
+         this.splitContainerControl5.Text = "splitContainerControl5";
          // 
          // gridControl1
          // 
          this.gridControl1.DataSource = this.vF_Request_DocumentBs;
          this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-         this.gridControl1.Location = new System.Drawing.Point(3, 3);
+         this.gridControl1.Location = new System.Drawing.Point(0, 0);
          this.gridControl1.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
          this.gridControl1.LookAndFeel.UseDefaultLookAndFeel = false;
          this.gridControl1.MainView = this.gridView9;
          this.gridControl1.Name = "gridControl1";
          this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.HL_INVSDCMT});
-         this.gridControl1.Size = new System.Drawing.Size(1219, 617);
+         this.gridControl1.Size = new System.Drawing.Size(672, 617);
          this.gridControl1.TabIndex = 3;
          this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView9});
@@ -7543,6 +7600,303 @@
          this.SaveDate_Clm.Visible = true;
          this.SaveDate_Clm.VisibleIndex = 0;
          this.SaveDate_Clm.Width = 50;
+         // 
+         // splitContainerControl6
+         // 
+         this.splitContainerControl6.Dock = System.Windows.Forms.DockStyle.Fill;
+         this.splitContainerControl6.Horizontal = false;
+         this.splitContainerControl6.Location = new System.Drawing.Point(0, 0);
+         this.splitContainerControl6.Name = "splitContainerControl6";
+         this.splitContainerControl6.Panel1.Controls.Add(this.gridControl5);
+         this.splitContainerControl6.Panel1.Controls.Add(this.NoteBn);
+         this.splitContainerControl6.Panel1.Text = "Panel1";
+         this.splitContainerControl6.Panel2.Controls.Add(this.memoEdit2);
+         this.splitContainerControl6.Panel2.Text = "Panel2";
+         this.splitContainerControl6.Size = new System.Drawing.Size(542, 617);
+         this.splitContainerControl6.SplitterPosition = 333;
+         this.splitContainerControl6.TabIndex = 0;
+         this.splitContainerControl6.Text = "splitContainerControl6";
+         // 
+         // gridControl5
+         // 
+         this.gridControl5.DataSource = this.NoteBs;
+         this.gridControl5.Dock = System.Windows.Forms.DockStyle.Fill;
+         this.gridControl5.Location = new System.Drawing.Point(0, 25);
+         this.gridControl5.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
+         this.gridControl5.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.gridControl5.MainView = this.Note_Gv;
+         this.gridControl5.Name = "gridControl5";
+         this.gridControl5.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.persianRepositoryItemDateEdit2});
+         this.gridControl5.Size = new System.Drawing.Size(542, 308);
+         this.gridControl5.TabIndex = 4;
+         this.gridControl5.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.Note_Gv});
+         // 
+         // NoteBs
+         // 
+         this.NoteBs.DataSource = typeof(System.Scsc.Data.Note);
+         // 
+         // Note_Gv
+         // 
+         this.Note_Gv.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.Note_Gv.Appearance.HeaderPanel.Options.UseFont = true;
+         this.Note_Gv.Appearance.HeaderPanel.Options.UseTextOptions = true;
+         this.Note_Gv.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         this.Note_Gv.Appearance.Row.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.Note_Gv.Appearance.Row.Options.UseFont = true;
+         this.Note_Gv.Appearance.Row.Options.UseTextOptions = true;
+         this.Note_Gv.Appearance.Row.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         this.Note_Gv.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colFIGH_FILE_NO1,
+            this.colCODE,
+            this.colRWNO1,
+            this.colNOTE_SUBJ,
+            this.colNOTE_CMNT,
+            this.colNOTE_DATE,
+            this.colCRET_BY,
+            this.colCRET_DATE,
+            this.colMDFY_BY,
+            this.colMDFY_DATE,
+            this.colFighter});
+         this.Note_Gv.GridControl = this.gridControl5;
+         this.Note_Gv.Name = "Note_Gv";
+         this.Note_Gv.OptionsDetail.EnableMasterViewMode = false;
+         this.Note_Gv.OptionsSelection.EnableAppearanceFocusedCell = false;
+         this.Note_Gv.OptionsView.ShowGroupPanel = false;
+         this.Note_Gv.OptionsView.ShowIndicator = false;
+         this.Note_Gv.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
+            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colRWNO1, DevExpress.Data.ColumnSortOrder.Ascending)});
+         // 
+         // colFIGH_FILE_NO1
+         // 
+         this.colFIGH_FILE_NO1.FieldName = "FIGH_FILE_NO";
+         this.colFIGH_FILE_NO1.Name = "colFIGH_FILE_NO1";
+         // 
+         // colCODE
+         // 
+         this.colCODE.FieldName = "CODE";
+         this.colCODE.Name = "colCODE";
+         // 
+         // colRWNO1
+         // 
+         this.colRWNO1.Caption = "ردیف";
+         this.colRWNO1.FieldName = "RWNO";
+         this.colRWNO1.Name = "colRWNO1";
+         this.colRWNO1.OptionsColumn.AllowEdit = false;
+         this.colRWNO1.OptionsColumn.FixedWidth = true;
+         this.colRWNO1.OptionsColumn.ReadOnly = true;
+         this.colRWNO1.Visible = true;
+         this.colRWNO1.VisibleIndex = 2;
+         this.colRWNO1.Width = 55;
+         // 
+         // colNOTE_SUBJ
+         // 
+         this.colNOTE_SUBJ.Caption = "موضوع";
+         this.colNOTE_SUBJ.FieldName = "NOTE_SUBJ";
+         this.colNOTE_SUBJ.Name = "colNOTE_SUBJ";
+         this.colNOTE_SUBJ.Visible = true;
+         this.colNOTE_SUBJ.VisibleIndex = 1;
+         this.colNOTE_SUBJ.Width = 393;
+         // 
+         // colNOTE_CMNT
+         // 
+         this.colNOTE_CMNT.FieldName = "NOTE_CMNT";
+         this.colNOTE_CMNT.Name = "colNOTE_CMNT";
+         // 
+         // colNOTE_DATE
+         // 
+         this.colNOTE_DATE.Caption = "تاریخ";
+         this.colNOTE_DATE.ColumnEdit = this.persianRepositoryItemDateEdit2;
+         this.colNOTE_DATE.FieldName = "NOTE_DATE";
+         this.colNOTE_DATE.Name = "colNOTE_DATE";
+         this.colNOTE_DATE.OptionsColumn.AllowEdit = false;
+         this.colNOTE_DATE.OptionsColumn.FixedWidth = true;
+         this.colNOTE_DATE.OptionsColumn.ReadOnly = true;
+         this.colNOTE_DATE.Visible = true;
+         this.colNOTE_DATE.VisibleIndex = 0;
+         this.colNOTE_DATE.Width = 90;
+         // 
+         // persianRepositoryItemDateEdit2
+         // 
+         this.persianRepositoryItemDateEdit2.AutoHeight = false;
+         this.persianRepositoryItemDateEdit2.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+         this.persianRepositoryItemDateEdit2.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+         this.persianRepositoryItemDateEdit2.CalendarTimeProperties.CloseUpKey = new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.F4);
+         this.persianRepositoryItemDateEdit2.CalendarTimeProperties.PopupBorderStyle = DevExpress.XtraEditors.Controls.PopupBorderStyles.Default;
+         this.persianRepositoryItemDateEdit2.Name = "persianRepositoryItemDateEdit2";
+         // 
+         // colCRET_BY
+         // 
+         this.colCRET_BY.FieldName = "CRET_BY";
+         this.colCRET_BY.Name = "colCRET_BY";
+         // 
+         // colCRET_DATE
+         // 
+         this.colCRET_DATE.FieldName = "CRET_DATE";
+         this.colCRET_DATE.Name = "colCRET_DATE";
+         // 
+         // colMDFY_BY
+         // 
+         this.colMDFY_BY.FieldName = "MDFY_BY";
+         this.colMDFY_BY.Name = "colMDFY_BY";
+         // 
+         // colMDFY_DATE
+         // 
+         this.colMDFY_DATE.FieldName = "MDFY_DATE";
+         this.colMDFY_DATE.Name = "colMDFY_DATE";
+         // 
+         // colFighter
+         // 
+         this.colFighter.FieldName = "Fighter";
+         this.colFighter.Name = "colFighter";
+         // 
+         // NoteBn
+         // 
+         this.NoteBn.AddNewItem = null;
+         this.NoteBn.BackColor = System.Drawing.SystemColors.Control;
+         this.NoteBn.BindingSource = this.NoteBs;
+         this.NoteBn.CountItem = this.toolStripLabel1;
+         this.NoteBn.DeleteItem = null;
+         this.NoteBn.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripButton3,
+            this.toolStripButton4,
+            this.toolStripSeparator1,
+            this.toolStripTextBox1,
+            this.toolStripLabel1,
+            this.toolStripSeparator2,
+            this.toolStripButton5,
+            this.toolStripButton6,
+            this.toolStripSeparator6,
+            this.AddNote_Butn,
+            this.DelNote_Butn,
+            this.SaveNote_Butn});
+         this.NoteBn.Location = new System.Drawing.Point(0, 0);
+         this.NoteBn.MoveFirstItem = this.toolStripButton3;
+         this.NoteBn.MoveLastItem = this.toolStripButton6;
+         this.NoteBn.MoveNextItem = this.toolStripButton5;
+         this.NoteBn.MovePreviousItem = this.toolStripButton4;
+         this.NoteBn.Name = "NoteBn";
+         this.NoteBn.PositionItem = this.toolStripTextBox1;
+         this.NoteBn.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
+         this.NoteBn.Size = new System.Drawing.Size(542, 25);
+         this.NoteBn.TabIndex = 1;
+         this.NoteBn.Text = "FighterBindingNavigator";
+         // 
+         // AddNote_Butn
+         // 
+         this.AddNote_Butn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+         this.AddNote_Butn.Image = ((System.Drawing.Image)(resources.GetObject("AddNote_Butn.Image")));
+         this.AddNote_Butn.Name = "AddNote_Butn";
+         this.AddNote_Butn.RightToLeftAutoMirrorImage = true;
+         this.AddNote_Butn.Size = new System.Drawing.Size(23, 22);
+         this.AddNote_Butn.Text = "Add new";
+         this.AddNote_Butn.Click += new System.EventHandler(this.AddNote_Butn_Click);
+         // 
+         // toolStripLabel1
+         // 
+         this.toolStripLabel1.Name = "toolStripLabel1";
+         this.toolStripLabel1.Size = new System.Drawing.Size(34, 22);
+         this.toolStripLabel1.Text = "of {0}";
+         this.toolStripLabel1.ToolTipText = "Total number of items";
+         // 
+         // DelNote_Butn
+         // 
+         this.DelNote_Butn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+         this.DelNote_Butn.Image = ((System.Drawing.Image)(resources.GetObject("DelNote_Butn.Image")));
+         this.DelNote_Butn.Name = "DelNote_Butn";
+         this.DelNote_Butn.RightToLeftAutoMirrorImage = true;
+         this.DelNote_Butn.Size = new System.Drawing.Size(23, 22);
+         this.DelNote_Butn.Text = "Delete";
+         this.DelNote_Butn.Click += new System.EventHandler(this.DelNote_Butn_Click);
+         // 
+         // toolStripButton3
+         // 
+         this.toolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+         this.toolStripButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton3.Image")));
+         this.toolStripButton3.Name = "toolStripButton3";
+         this.toolStripButton3.RightToLeftAutoMirrorImage = true;
+         this.toolStripButton3.Size = new System.Drawing.Size(23, 22);
+         this.toolStripButton3.Text = "Move first";
+         // 
+         // toolStripButton4
+         // 
+         this.toolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+         this.toolStripButton4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton4.Image")));
+         this.toolStripButton4.Name = "toolStripButton4";
+         this.toolStripButton4.RightToLeftAutoMirrorImage = true;
+         this.toolStripButton4.Size = new System.Drawing.Size(23, 22);
+         this.toolStripButton4.Text = "Move previous";
+         // 
+         // toolStripSeparator1
+         // 
+         this.toolStripSeparator1.Name = "toolStripSeparator1";
+         this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+         // 
+         // toolStripTextBox1
+         // 
+         this.toolStripTextBox1.AccessibleName = "Position";
+         this.toolStripTextBox1.AutoSize = false;
+         this.toolStripTextBox1.Name = "toolStripTextBox1";
+         this.toolStripTextBox1.Size = new System.Drawing.Size(50, 23);
+         this.toolStripTextBox1.Text = "0";
+         this.toolStripTextBox1.ToolTipText = "Current position";
+         // 
+         // toolStripSeparator2
+         // 
+         this.toolStripSeparator2.Name = "toolStripSeparator2";
+         this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
+         // 
+         // toolStripButton5
+         // 
+         this.toolStripButton5.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+         this.toolStripButton5.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton5.Image")));
+         this.toolStripButton5.Name = "toolStripButton5";
+         this.toolStripButton5.RightToLeftAutoMirrorImage = true;
+         this.toolStripButton5.Size = new System.Drawing.Size(23, 22);
+         this.toolStripButton5.Text = "Move next";
+         // 
+         // toolStripButton6
+         // 
+         this.toolStripButton6.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+         this.toolStripButton6.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton6.Image")));
+         this.toolStripButton6.Name = "toolStripButton6";
+         this.toolStripButton6.RightToLeftAutoMirrorImage = true;
+         this.toolStripButton6.Size = new System.Drawing.Size(23, 22);
+         this.toolStripButton6.Text = "Move last";
+         // 
+         // toolStripSeparator6
+         // 
+         this.toolStripSeparator6.Name = "toolStripSeparator6";
+         this.toolStripSeparator6.Size = new System.Drawing.Size(6, 25);
+         // 
+         // SaveNote_Butn
+         // 
+         this.SaveNote_Butn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+         this.SaveNote_Butn.Image = global::System.Scsc.Properties.Resources.ICONS_1045;
+         this.SaveNote_Butn.ImageTransparentColor = System.Drawing.Color.Magenta;
+         this.SaveNote_Butn.Name = "SaveNote_Butn";
+         this.SaveNote_Butn.Size = new System.Drawing.Size(23, 22);
+         this.SaveNote_Butn.Text = "toolStripButton7";
+         this.SaveNote_Butn.Click += new System.EventHandler(this.SaveNote_Butn_Click);
+         // 
+         // memoEdit2
+         // 
+         this.memoEdit2.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.NoteBs, "NOTE_CMNT", true));
+         this.memoEdit2.Dock = System.Windows.Forms.DockStyle.Fill;
+         this.memoEdit2.EditValue = "";
+         this.memoEdit2.Location = new System.Drawing.Point(0, 0);
+         this.memoEdit2.Name = "memoEdit2";
+         this.memoEdit2.Properties.Appearance.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.memoEdit2.Properties.Appearance.Options.UseFont = true;
+         this.memoEdit2.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+         this.memoEdit2.Properties.AppearanceFocused.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+         this.memoEdit2.Properties.AppearanceFocused.Options.UseBackColor = true;
+         this.memoEdit2.Properties.AppearanceFocused.Options.UseBorderColor = true;
+         this.memoEdit2.Size = new System.Drawing.Size(542, 279);
+         this.memoEdit2.TabIndex = 3;
          // 
          // tp_005
          // 
@@ -8768,9 +9122,22 @@
          this.PaymentsBn.ResumeLayout(false);
          this.PaymentsBn.PerformLayout();
          this.tp_004.ResumeLayout(false);
+         ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl5)).EndInit();
+         this.splitContainerControl5.ResumeLayout(false);
          ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.vF_Request_DocumentBs)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.gridView9)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl6)).EndInit();
+         this.splitContainerControl6.ResumeLayout(false);
+         ((System.ComponentModel.ISupportInitialize)(this.gridControl5)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.NoteBs)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.Note_Gv)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit2.CalendarTimeProperties)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit2)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.NoteBn)).EndInit();
+         this.NoteBn.ResumeLayout(false);
+         this.NoteBn.PerformLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.memoEdit2.Properties)).EndInit();
          this.tp_005.ResumeLayout(false);
          ((System.ComponentModel.ISupportInitialize)(this.vF_Request_ChangingResultGridControl)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.vF_Request_ChangingBs)).EndInit();
@@ -9417,5 +9784,36 @@
       private DevExpress.XtraGrid.Columns.GridColumn colCOST_DESC;
       private DevExpress.XtraEditors.TextEdit textEdit1;
       private Windows.Forms.TabPage tabPage2;
+      private DevExpress.XtraEditors.SplitContainerControl splitContainerControl5;
+      private DevExpress.XtraEditors.SplitContainerControl splitContainerControl6;
+      private DevExpress.XtraGrid.GridControl gridControl5;
+      private Windows.Forms.BindingSource NoteBs;
+      private DevExpress.XtraGrid.Views.Grid.GridView Note_Gv;
+      private DevExpress.XtraGrid.Columns.GridColumn colFIGH_FILE_NO1;
+      private DevExpress.XtraGrid.Columns.GridColumn colCODE;
+      private DevExpress.XtraGrid.Columns.GridColumn colRWNO1;
+      private DevExpress.XtraGrid.Columns.GridColumn colNOTE_SUBJ;
+      private DevExpress.XtraGrid.Columns.GridColumn colNOTE_CMNT;
+      private DevExpress.XtraGrid.Columns.GridColumn colNOTE_DATE;
+      private dxExample.PersianRepositoryItemDateEdit persianRepositoryItemDateEdit2;
+      private DevExpress.XtraGrid.Columns.GridColumn colCRET_BY;
+      private DevExpress.XtraGrid.Columns.GridColumn colCRET_DATE;
+      private DevExpress.XtraGrid.Columns.GridColumn colMDFY_BY;
+      private DevExpress.XtraGrid.Columns.GridColumn colMDFY_DATE;
+      private DevExpress.XtraGrid.Columns.GridColumn colFighter;
+      private Windows.Forms.BindingNavigator NoteBn;
+      private Windows.Forms.ToolStripLabel toolStripLabel1;
+      private Windows.Forms.ToolStripButton DelNote_Butn;
+      private Windows.Forms.ToolStripButton toolStripButton3;
+      private Windows.Forms.ToolStripButton toolStripButton4;
+      private Windows.Forms.ToolStripSeparator toolStripSeparator1;
+      private Windows.Forms.ToolStripTextBox toolStripTextBox1;
+      private Windows.Forms.ToolStripSeparator toolStripSeparator2;
+      private Windows.Forms.ToolStripButton toolStripButton5;
+      private Windows.Forms.ToolStripButton toolStripButton6;
+      private Windows.Forms.ToolStripSeparator toolStripSeparator6;
+      private Windows.Forms.ToolStripButton SaveNote_Butn;
+      private DevExpress.XtraEditors.MemoEdit memoEdit2;
+      private Windows.Forms.ToolStripButton AddNote_Butn;
    }
 }

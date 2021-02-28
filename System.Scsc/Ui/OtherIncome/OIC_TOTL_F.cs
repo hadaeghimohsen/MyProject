@@ -309,6 +309,39 @@ namespace System.Scsc.Ui.OtherIncome
                }
             }
 
+            // 1399/12/10 * اضافه کردن فرم مربوط به ثبت اطلاعات درخواست مشتریان
+            if(followups != "")
+            {
+               switch (followups.Split(';').First())
+               {
+                  case "GLR_INDC_F":
+                     _DefaultGateway.Gateway(
+                        new Job(SendType.External, "Localhost",
+                              new List<Job>
+                                 {                  
+                                    new Job(SendType.Self, 153 /* Execute Glr_Indc_F */),
+                                    new Job(SendType.SelfToUserInterface, "GLR_INDC_F", 10 /* Execute Actn_CalF_F */)
+                                    {
+                                       Input = 
+                                          new XElement("Request", 
+                                             new XAttribute("type", "newrequest"), 
+                                             new XAttribute("fileno", Rqst.Fighters.FirstOrDefault().FILE_NO),
+                                             new XAttribute("followups", followups.Substring(followups.IndexOf(";") + 1)),
+                                             new XAttribute("rqstrqid", Rqst.RQID),
+                                             new XAttribute("formcaller", formCaller)
+                                          )
+                                    }
+                                 })
+                     );
+                     formCaller = "";
+                     break;
+                  default:
+                     break;
+               }
+               followups = "";
+               rqstRqid = 0;
+            }
+
             requery = true;
          }catch(Exception ex)
          {
@@ -554,12 +587,16 @@ namespace System.Scsc.Ui.OtherIncome
                         new XElement("Insert",
                            new XElement("Payment_Method",
                               new XAttribute("cashcode", pymt.CASH_CODE),
-                              new XAttribute("rqstrqid", pymt.RQST_RQID)                     
+                              new XAttribute("rqstrqid", pymt.RQST_RQID),
+                              new XAttribute("valdtype", PymtVldtType_Cbx.Checked ? "002" : "001")
                            )
                         )
                      )
                   );
                }
+
+               // 1399/12/09 * بعد از اینکه مبلغ دریافتی درون سیستم ثبت شد گزینه به حالت فعال درآید
+               PymtVldtType_Cbx.Checked = true;
 
                /* Loop For Print After Pay */
                RqstBnPrintAfterPay_Click(null, null);
@@ -839,12 +876,16 @@ namespace System.Scsc.Ui.OtherIncome
                            new XElement("Insert",
                               new XElement("Payment_Method",
                                  new XAttribute("cashcode", pymt.CASH_CODE),
-                                 new XAttribute("rqstrqid", pymt.RQST_RQID)
+                                 new XAttribute("rqstrqid", pymt.RQST_RQID),
+                                 new XAttribute("valdtype", PymtVldtType_Cbx.Checked ? "002" : "001")
                               )
                            )
                         )
                      );
                   }
+
+                  // 1399/12/09 * بعد از اینکه مبلغ دریافتی درون سیستم ثبت شد گزینه به حالت فعال درآید
+                  PymtVldtType_Cbx.Checked = true;
 
                   /* Loop For Print After Pay */
                   RqstBnPrintAfterPay_Click(null, null);
@@ -1653,11 +1694,15 @@ namespace System.Scsc.Ui.OtherIncome
                               new XAttribute("rqstrqid", pymt.RQST_RQID),
                               new XAttribute("amnt", PymtAmnt_Txt.EditValue ?? 0),
                               new XAttribute("rcptmtod", "001"),
-                              new XAttribute("actndate", PymtDate_DateTime001.Value.HasValue ? PymtDate_DateTime001.Value.Value.Date.ToString("yyyy-MM-dd") : DateTime.Now.Date.ToString("yyyy-MM-dd"))
+                              new XAttribute("actndate", PymtDate_DateTime001.Value.HasValue ? PymtDate_DateTime001.Value.Value.Date.ToString("yyyy-MM-dd") : DateTime.Now.Date.ToString("yyyy-MM-dd")),
+                              new XAttribute("valdtype", PymtVldtType_Cbx.Checked ? "002" : "001")
                            )
                         )
                      )
                   );
+
+                  // 1399/12/09 * بعد از اینکه مبلغ دریافتی درون سیستم ثبت شد گزینه به حالت فعال درآید
+                  PymtVldtType_Cbx.Checked = true;
                   break;
                case "1":
                   if (VPosBs1.List.Count == 0) UsePos_Cb.Checked = false;
@@ -1728,11 +1773,15 @@ namespace System.Scsc.Ui.OtherIncome
                                  new XAttribute("rqstrqid", pymt.RQST_RQID),
                                  new XAttribute("amnt", PymtAmnt_Txt.EditValue ?? 0),
                                  new XAttribute("rcptmtod", "003"),
-                                 new XAttribute("actndate", PymtDate_DateTime001.Value.HasValue ? PymtDate_DateTime001.Value.Value.Date.ToString("yyyy-MM-dd") : DateTime.Now.Date.ToString("yyyy-MM-dd"))
+                                 new XAttribute("actndate", PymtDate_DateTime001.Value.HasValue ? PymtDate_DateTime001.Value.Value.Date.ToString("yyyy-MM-dd") : DateTime.Now.Date.ToString("yyyy-MM-dd")),
+                                 new XAttribute("valdtype", PymtVldtType_Cbx.Checked ? "002" : "001")
                               )
                            )
                         )
                      );
+
+                     // 1399/12/09 * بعد از اینکه مبلغ دریافتی درون سیستم ثبت شد گزینه به حالت فعال درآید
+                     PymtVldtType_Cbx.Checked = true;
                   }
                   break;
                default:

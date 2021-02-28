@@ -107,7 +107,15 @@ namespace System.Scsc.Ui.Admission
             var Rqst = RqstBs1.Current as Data.Request;
             rqstindex = RqstBs1.Position;
 
-            if (FNGR_PRNT_TextEdit.Text == "") { MaxF_Butn001_Click(null, null); }
+            if (FNGR_PRNT_TextEdit.Text == "") { 
+               if(MessageBox.Show(this, "کد شناسایی خالی میباشد آیا مایل به ایجاد کد پیش فرض هستید؟", "هشدار کد شناسایی", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.Yes) 
+                  MaxF_Butn001_Click(null, null); 
+               else
+               {
+                  FNGR_PRNT_TextEdit.Focus();
+                  return;
+               }
+            }
 
             if (RQTT_CODE_LookUpEdit1.EditValue == null || RQTT_CODE_LookUpEdit1.EditValue.ToString() == "")
                RQTT_CODE_LookUpEdit1.EditValue = "001";

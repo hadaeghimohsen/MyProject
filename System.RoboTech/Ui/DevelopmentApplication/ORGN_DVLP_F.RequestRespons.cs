@@ -239,6 +239,7 @@ namespace System.RoboTech.Ui.DevelopmentApplication
          DShinBs.DataSource = iRoboTech.D_SHINs;
          DVinvBs.DataSource = iRoboTech.D_VINVs;
          DCstpBs.DataSource = iRoboTech.D_CSTPs;
+         DQpivBs.DataSource = iRoboTech.D_QPIVs;
          UApbBs.DataSource = iRoboTech.App_Base_Defines.Where(r => r.ENTY_NAME == "PRODUCTUNIT_INFO");
          job.Status = StatusType.Successful;
       }

@@ -181,28 +181,28 @@
         <elementListCompartment Id="d7e972ac-1dd3-4e84-b8b1-f1f98ce454ee" absoluteBounds="23.14, 5.96, 1.9700000000000002, 2.792577862739563" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(23.125 : 6.47722045898438); (22.9270838333333 : 6.47722045898438 : JumpStart); (22.7604171666667 : 6.47722045898438 : JumpEnd); (22.6770833333333 : 6.47722045898438 : JumpStart); (22.5104166666667 : 6.47722045898438 : JumpEnd); (22.375 : 6.47722045898438)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(23.125 : 6.47722045898438); (22.375 : 6.47722045898438)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/Organ/Organ_Admin" />
       <nodes>
         <classShapeMoniker Id="669756dd-27b0-4d22-a036-057ecbe3cb6a" />
         <classShapeMoniker Id="608c925b-5f9b-48b4-b97a-2e1db5befca5" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(23.125 : 7.00564697265625); (22.9270838333333 : 7.00564697265625 : JumpStart); (22.7604171666667 : 7.00564697265625 : JumpEnd); (22.59375 : 7.00564697265625); (22.59375 : 4.6362939453125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(23.125 : 7.00564697265625); (22.59375 : 7.00564697265625); (22.59375 : 4.6362939453125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/Organ/Organ_Organ_Category" />
       <nodes>
         <classShapeMoniker Id="669756dd-27b0-4d22-a036-057ecbe3cb6a" />
         <classShapeMoniker Id="ffed78a8-7d1a-4661-8679-20b92648e2f0" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(25.125 : 5.50153746153846); (25.5 : 5.12653746153846); (25.5 : 1.31821609417597); (25.875 : 1.31821609417597)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(25.0926923076923 : 5.5); (25.5 : 5.09269230769231); (25.5 : 1.31821609417597); (25.875 : 1.31821609417597)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/Organ/Organ_Organ_Representation" />
       <nodes>
         <classShapeMoniker Id="669756dd-27b0-4d22-a036-057ecbe3cb6a" />
         <classShapeMoniker Id="1c386795-401d-42e9-b44e-049329a571f8" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(25.125 : 8.85257786273956); (25.5 : 9.22757786273957); (25.5 : 23.7864452290535); (25.875 : 23.7864452290535)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(25.125 : 8.85257786273956); (25.5 : 9.22757786273957); (25.5 : 23.7864452290535); (25.875 : 23.7864452290535)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/Organ/Organ_User_Organ_Fgac" />
       <nodes>
         <classShapeMoniker Id="669756dd-27b0-4d22-a036-057ecbe3cb6a" />
@@ -228,14 +228,14 @@
         <elementListCompartment Id="bae5dde7-c9cd-4b13-b549-80b24216261c" absoluteBounds="34.39, 7.46, 1.9700000000000002, 2.1061195929845171" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(36.375 : 7.5051952290535); (36.9479166666667 : 7.5051952290535 : JumpStart); (37.1145833333333 : 7.5051952290535 : JumpEnd); (37.34375 : 7.5051952290535); (37.34375 : 15.875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(36.375 : 7.5051952290535); (37.34375 : 7.5051952290535); (37.34375 : 15.875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/Personal_Robot_Job/Personal_Robot_Job_Personal_Robot_Job_Order" />
       <nodes>
         <classShapeMoniker Id="9606c9b0-0471-45e0-87c7-89f88eafb5d6" />
         <classShapeMoniker Id="4ab5204b-892f-42b2-9840-00d669bff8ad" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(30.625 : 6.61220590364583); (30.6666666666667 : 6.61220590364583 : JumpStart); (30.8333333333333 : 6.61220590364583 : JumpEnd); (31.1666666666667 : 6.61220590364583 : JumpStart); (31.3333333333333 : 6.61220590364583 : JumpEnd); (31.375 : 6.61220590364583); (31.375 : 6.32859537760416); (33.6041666666667 : 6.32859537760416 : JumpStart); (33.7708333333333 : 6.32859537760416 : JumpEnd); (35.375 : 6.32859537760416); (35.375 : 7)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(30.625 : 6.61220590364583); (31.375 : 6.61220590364583); (31.375 : 6.32859537760416); (35.375 : 6.32859537760416); (35.375 : 7)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/Job/Job_Personal_Robot_Job" />
       <nodes>
         <classShapeMoniker Id="14de1a98-0fb1-4493-8946-b8c0583b83f7" />
@@ -254,7 +254,7 @@
         <elementListCompartment Id="cc9c36c4-9a49-4ec5-ae04-2bca5cd32156" absoluteBounds="31.265, 2.71, 1.9700000000000002, 2.44934872786204" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(24.125 : 5.5); (24.125 : 4.79320305347443); (25.4166666666667 : 4.79320305347443 : JumpStart); (25.5833333333333 : 4.79320305347443 : JumpEnd); (25.6666666666667 : 4.79320305347443 : JumpStart); (25.8333333333333 : 4.79320305347443 : JumpEnd); (26 : 4.79320305347443); (26 : 2.38643218835195); (27.6041694166667 : 2.38643218835195 : JumpStart); (27.7708360833333 : 2.38643218835195 : JumpEnd); (28.125 : 2.38643218835195); (28.125 : 2.25); (28.375 : 2.25); (28.375 : 4.78903613249461); (28.4166666666667 : 4.78903613249461 : JumpStart); (28.5833333333333 : 4.78903613249461 : JumpEnd); (29.5416666666667 : 4.78903613249461 : JumpStart); (29.7083333333333 : 4.78903613249461 : JumpEnd); (30.6666666666667 : 4.78903613249461 : JumpStart); (30.8333333333333 : 4.78903613249461 : JumpEnd); (30.875 : 4.78903613249461); (30.875 : 3.75467436393102); (31.25 : 3.75467436393102)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(24.125 : 5.5); (24.125 : 4.79320305347443); (25.4166666666667 : 4.79320305347443 : JumpStart); (25.5833333333333 : 4.79320305347443 : JumpEnd); (25.625 : 4.79320305347443); (25.625 : 2.625); (28.009358974359 : 2.625 : JumpStart); (28.3052554102564 : 2.625 : JumpEnd); (28.375 : 2.625); (28.375 : 4.78903613249461); (30.875 : 4.78903613249461); (30.875 : 3.75467436393102); (31.25 : 3.75467436393102)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/Organ/Organ_Organ_Description" />
       <nodes>
         <classShapeMoniker Id="669756dd-27b0-4d22-a036-057ecbe3cb6a" />
@@ -352,7 +352,7 @@
         <elementListCompartment Id="b858202a-9ab5-4652-815d-eca261e6a19b" absoluteBounds="22.64, 10.71, 1.9700000000000002, 1.7628904581069946" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(22.8437505 : 10.25); (22.8437505 : 5.40625); (22.375 : 5.40625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(22.8437505 : 10.25); (22.8437505 : 5.40625); (22.6770833333333 : 5.40625 : JumpStart); (22.5104166666667 : 5.40625 : JumpEnd); (22.375 : 5.40625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/Service/Service_Admin" />
       <nodes>
         <classShapeMoniker Id="e531edf0-53ae-4889-8fd7-f080064f6c61" />
@@ -365,7 +365,7 @@
         <elementListCompartment Id="8ce13e61-dc16-47c4-8bb7-b02e911d233c" absoluteBounds="39.64, 5.085, 1.9700000000000002, 1.7628904581069946" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(36.375 : 7.00153746153846); (36.75 : 6.62653746153846); (36.75 : 7.322890458107); (36.9479166666667 : 7.322890458107 : JumpStart); (37.1145833333333 : 7.322890458107 : JumpEnd); (39.2515374615385 : 7.322890458107); (39.3160744349011 : 7.25835348474437 : JumpStart); (39.4339255650989 : 7.14050235454661 : JumpEnd); (39.6265374615385 : 6.947890458107)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(36.375 : 7.00153746153846); (36.75 : 6.62653746153846); (36.75 : 7.322890458107); (39.2515374615385 : 7.322890458107); (39.6265374615385 : 6.947890458107)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/Personal_Robot_Job/Personal_Robot_Job_Personal_Robot_Job_Service_Robot" />
       <nodes>
         <classShapeMoniker Id="9606c9b0-0471-45e0-87c7-89f88eafb5d6" />
@@ -408,7 +408,7 @@
         <elementListCompartment Id="ae361e3f-696e-4a2c-b0ad-03f444caa28f" absoluteBounds="0.76499999999999968, 10.335, 1.9700000000000002, 1.7628904581069946" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(1.30692307692308 : 12.197890458107); (1.30692307692308 : 12.447890458107); (1.44512820512821 : 12.447890458107 : JumpStart); (1.61179487179487 : 12.447890458107 : JumpEnd); (1.75 : 12.447890458107); (1.75 : 12.197890458107)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(1.30692307692308 : 12.197890458107); (1.30692307692308 : 12.447890458107); (1.75 : 12.447890458107); (1.75 : 12.197890458107)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/App_Base_Define/App_Base_Define_App_Base_Define" />
       <nodes>
         <classShapeMoniker Id="c5620a48-cb13-4806-aa6a-b5aad225c16f" />
@@ -445,7 +445,7 @@
         <elementListCompartment Id="f46bf685-d61e-4ed6-81be-bf7b2f04f7a4" absoluteBounds="40.64, 10.085, 1.9700000000000002, 3.8222652673721313" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(42.625 : 13.6286326336861); (42.7291666666667 : 13.6286326336861 : JumpStart); (43.0833333333333 : 13.6286326336861 : JumpEnd); (43.125 : 13.6286326336861)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(42.625 : 13.6286326336861); (42.6666666666667 : 13.6286326336861 : JumpStart); (43.0208333333333 : 13.6286326336861 : JumpEnd); (43.125 : 13.6286326336861)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/Robot_Spy_Group_Message/Robot_Spy_Group_Message_Robot_Spy_Group_Message_Detail" />
       <nodes>
         <classShapeMoniker Id="2a6cc14e-8c9b-4285-a3d2-7096d95bf2d3" />
@@ -465,21 +465,21 @@
         <elementListCompartment Id="acb6d70f-b115-45d2-8798-83f0b65a5947" absoluteBounds="31.515, 9.835, 1.9700000000000002, 2.44934872786204" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(33.5 : 9.64985270182292); (33.6041666666667 : 9.64985270182292 : JumpStart); (33.7708333333333 : 9.64985270182292 : JumpEnd); (34.1041666666667 : 9.64985270182292 : JumpStart); (34.2708333333333 : 9.64985270182292 : JumpEnd); (34.375 : 9.64985270182292)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(33.5 : 9.64985270182292); (34.1041666666667 : 9.64985270182292 : JumpStart); (34.3333333333333 : 9.64985270182292 : JumpEnd); (34.375 : 9.64985270182292)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/Personal_Robot/Personal_Robot_Personal_Robot_Job" />
       <nodes>
         <classShapeMoniker Id="d5e63684-9576-4aa4-8d4c-44233e96b384" />
         <classShapeMoniker Id="9606c9b0-0471-45e0-87c7-89f88eafb5d6" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(32.9999995 : 12.384348727862); (32.9999995 : 12.509348727862); (33.4791666666667 : 12.509348727862 : JumpStart); (33.6458333333333 : 12.509348727862 : JumpEnd); (33.75 : 12.509348727862); (33.75 : 19.5); (34.375 : 19.5); (34.375 : 24.5); (34.4166666666667 : 24.5 : JumpStart); (34.5833333333333 : 24.5 : JumpEnd); (36.7604154166667 : 24.5 : JumpStart); (37.0520852083333 : 24.5 : JumpEnd); (37.2604166666667 : 24.5 : JumpStart); (37.4270833333333 : 24.5 : JumpEnd); (41.0416666666667 : 24.5 : JumpStart); (41.2083333333333 : 24.5 : JumpEnd); (41.625 : 24.5); (41.625 : 28.6222525127729); (42.25 : 28.6222525127729)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(32.9999995 : 12.384348727862); (32.9999995 : 12.509348727862); (33.75 : 12.509348727862); (33.75 : 19.5); (34.375 : 19.5); (34.375 : 24.5); (41.0416666666667 : 24.5 : JumpStart); (41.2083333333333 : 24.5 : JumpEnd); (41.625 : 24.5); (41.625 : 28.6222525127729); (42.25 : 28.6222525127729)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/Personal_Robot/Personal_Robot_Order_Access" />
       <nodes>
         <classShapeMoniker Id="d5e63684-9576-4aa4-8d4c-44233e96b384" />
         <classShapeMoniker Id="3049f63a-e922-47b5-a2de-c6a438ebaf21" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(24.156252 : 12.572890458107); (24.156252 : 12.822890458107); (25.4166666666667 : 12.822890458107 : JumpStart); (25.5833333333333 : 12.822890458107 : JumpEnd); (26 : 12.822890458107); (26 : 13.9968479649226); (26.3111964166667 : 13.9968479649226 : JumpStart); (26.7473928333333 : 13.9968479649226 : JumpEnd); (26.8190079166667 : 13.9968479649226 : JumpStart); (27.2239563333333 : 13.9968479649226 : JumpEnd); (27.2955714166667 : 13.9968479649226 : JumpStart); (27.5813789583333 : 13.9968479649226 : JumpEnd); (27.8991666666667 : 13.9968479649226 : JumpStart); (28.2864608333333 : 13.9968479649226 : JumpEnd); (28.375 : 13.9968479649226); (28.375 : 11.1661195929845); (30.6666666666667 : 11.1661195929845 : JumpStart); (30.9583333333333 : 11.1661195929845 : JumpEnd); (31.125 : 11.1661195929845); (31.125 : 10.879674363931); (31.1666666666667 : 10.879674363931 : JumpStart); (31.3333333333333 : 10.879674363931 : JumpEnd); (31.5 : 10.879674363931)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(23.625 : 12.572890458107); (23.625 : 12.635390458107); (25.8125 : 12.635390458107); (25.8125 : 14.3559625323613); (27.8677840487857 : 14.3559625323613 : JumpStart); (28.2083333333333 : 14.3559625323613 : JumpEnd); (28.3677840487857 : 14.3559625323613 : JumpStart); (28.5344507154524 : 14.3559625323613 : JumpEnd); (31.40625 : 14.3559625323613); (31.40625 : 10.879674363931); (31.5 : 10.879674363931)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/Service/Service_Personal_Robot" />
       <nodes>
         <classShapeMoniker Id="e531edf0-53ae-4889-8fd7-f080064f6c61" />
@@ -516,14 +516,14 @@
         <elementListCompartment Id="cbc7a1ff-3e9a-4e0f-ae3a-0bcbcbcf6cc7" absoluteBounds="28.64, 8.71, 1.9700000000000002, 2.1061195929845171" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(30.625 : 10.9161195929845); (30.6910744349011 : 10.9821940278856 : JumpStart); (30.8089255650989 : 11.1000451580834 : JumpEnd); (30.8160744349011 : 11.1071940278856 : JumpStart); (30.9339255650989 : 11.2250451580834 : JumpEnd); (31 : 11.2911195929845); (31 : 21.875); (30.625 : 22.25)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(30.625 : 10.9161195929845); (31 : 11.2911195929845); (31 : 21.875); (30.625 : 22.25)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/Group/Group_Group_Menu_Ussd" />
       <nodes>
         <classShapeMoniker Id="d46bf9fc-fd29-4bde-b6c2-f4be3620161a" />
         <classShapeMoniker Id="040fe605-b00b-413e-9f55-7ad69a24a172" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(30.625 : 8.64505126953125); (30.6666666666667 : 8.64505126953125 : JumpStart); (30.8333333333333 : 8.64505126953125 : JumpEnd); (31.1666666666667 : 8.64505126953125 : JumpStart); (31.3333333333333 : 8.64505126953125 : JumpEnd); (31.625 : 8.64505126953125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(30.625 : 8.64505126953125); (31.2916666666667 : 8.64505126953125 : JumpStart); (31.4583333333333 : 8.64505126953125 : JumpEnd); (31.625 : 8.64505126953125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/Group/Group_Service_Robot_Group" />
       <nodes>
         <classShapeMoniker Id="d46bf9fc-fd29-4bde-b6c2-f4be3620161a" />
@@ -542,14 +542,14 @@
         <elementListCompartment Id="10657a1b-0491-4ea1-b141-fcefe49fd773" absoluteBounds="28.64, 25.96, 1.9700000000000002, 4.1654944022496538" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(1.07336288461538 : 12.197890458107); (1.07336288461538 : 30.1179424301783); (1.44512820512821 : 30.1179424301783 : JumpStart); (1.61179487179487 : 30.1179424301783 : JumpEnd); (1.85960010897436 : 30.1179424301783 : JumpStart); (2.02626677564103 : 30.1179424301783 : JumpEnd); (2.29438588782051 : 30.1179424301783 : JumpStart); (2.46105255448718 : 30.1179424301783 : JumpEnd); (2.51177877724359 : 30.1179424301783 : JumpStart); (2.67844544391026 : 30.1179424301783 : JumpEnd); (27.8991666666667 : 30.1179424301783 : JumpStart); (28.0658333333333 : 30.1179424301783 : JumpEnd); (28.1197941666667 : 30.1179424301783 : JumpStart); (28.2864608333333 : 30.1179424301783 : JumpEnd); (28.625 : 30.1179424301783)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(0.99720903846154 : 12.197890458107); (0.99720903846154 : 30.1422914441427); (1.44512820512821 : 30.1422914441427 : JumpStart); (1.61179487179487 : 30.1422914441427 : JumpEnd); (1.85960010897436 : 30.1422914441427 : JumpStart); (2.02626677564102 : 30.1422914441427 : JumpEnd); (2.29438588782052 : 30.1422914441427 : JumpStart); (2.46105255448718 : 30.1422914441427 : JumpEnd); (2.51177877724359 : 30.1422914441427 : JumpStart); (2.67844544391025 : 30.1422914441427 : JumpEnd); (28.1979166666667 : 30.1422914441427 : JumpStart); (28.3958333333333 : 30.1422914441427 : JumpEnd); (28.625 : 30.1422914441427)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/iRoboTechDataContext/App_Base_Define/App_Base_Define_Group_Header_Item" />
       <nodes>
         <classShapeMoniker Id="c5620a48-cb13-4806-aa6a-b5aad225c16f" />
         <classShapeMoniker Id="5b892a17-65cd-4bbd-9111-7b4e2b437a07" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(33.25 : 21.6046613232295); (33.25 : 27.4969373002812); (31.7395810833333 : 27.4969373002812 : JumpStart); (31.4479166666667 : 27.4969373002812 : JumpEnd); (31.2083333333333 : 27.4969373002812 : JumpStart); (31.0416666666667 : 27.4969373002812 : JumpEnd); (30.625 : 27.4969373002812)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(33.25 : 21.6046613232295); (33.25 : 27.4969373002812); (31.6145833333333 : 27.4969373002812 : JumpStart); (31.4479166666667 : 27.4969373002812 : JumpEnd); (31.2083333333333 : 27.4969373002812 : JumpStart); (31.0416666666667 : 27.4969373002812 : JumpEnd); (30.625 : 27.4969373002812)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/Group_Header/Group_Header_Group_Header_Item" />
       <nodes>
         <classShapeMoniker Id="b704d88d-818d-43cc-a579-f7af3387cde6" />
@@ -587,7 +587,7 @@
         <elementListCompartment Id="05f4b3f6-9e69-4766-bd64-d1afaad97e4f" absoluteBounds="25.89, 14.96, 1.9700000000000002, 5.5384109417597447" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(27.875 : 20.5984109417597); (27.9235744349011 : 20.6469853766608 : JumpStart); (28.0414255650989 : 20.7648365068586 : JumpEnd); (28.0895119349011 : 20.8129228766608 : JumpStart); (28.2308005650989 : 20.9542115068586 : JumpEnd); (28.25 : 20.9734109417597); (28.25 : 23.3256379453341); (28.625 : 23.3256379453341)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(27.875 : 20.5984109417597); (28.25 : 20.9734109417597); (28.25 : 23.3256379453341); (28.625 : 23.3256379453341)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/Menu_Ussd/Menu_Ussd_Group_Menu_Ussd" />
       <nodes>
         <classShapeMoniker Id="ceea7795-95c0-46a3-9280-fc510e99d4bb" />
@@ -607,7 +607,7 @@
         <elementListCompartment Id="c27d31cb-5fdc-46b0-96b5-92ec58372da2" absoluteBounds="38.515, 29.96, 1.9700000000000002, 4.680338104565938" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(1.94293344230769 : 12.197890458107); (1.94293344230769 : 31.125); (2.29438588782051 : 31.125 : JumpStart); (2.46105255448718 : 31.125 : JumpEnd); (2.51177877724359 : 31.125 : JumpStart); (2.67844544391026 : 31.125 : JumpEnd); (28.1197941666667 : 31.125 : JumpStart); (28.2864608333333 : 31.125 : JumpEnd); (31.0416666666667 : 31.125 : JumpStart); (31.2083333333333 : 31.125 : JumpEnd); (31.4479166666667 : 31.125 : JumpStart); (31.6145833333333 : 31.125 : JumpEnd); (34.3541666666667 : 31.125 : JumpStart); (34.5833333333333 : 31.125 : JumpEnd); (35.375 : 31.125); (35.375 : 36.3252333974838); (36.0104141666667 : 36.3252333974838 : JumpStart); (36.1770808333333 : 36.3252333974838 : JumpEnd); (36.5416666666667 : 36.3252333974838 : JumpStart); (36.7083333333333 : 36.3252333974838 : JumpEnd); (38.125 : 36.3252333974838); (38.125 : 32.120169052283); (38.5 : 32.120169052283)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(1.94293344230769 : 12.197890458107); (1.94293344230769 : 31.125); (2.29438588782052 : 31.125 : JumpStart); (2.46105255448718 : 31.125 : JumpEnd); (2.51177877724359 : 31.125 : JumpStart); (2.67844544391025 : 31.125 : JumpEnd); (28.2291666666667 : 31.125 : JumpStart); (28.3958333333333 : 31.125 : JumpEnd); (31.0416666666667 : 31.125 : JumpStart); (31.2083333333333 : 31.125 : JumpEnd); (31.4479166666667 : 31.125 : JumpStart); (31.6145833333333 : 31.125 : JumpEnd); (34.3541666666667 : 31.125 : JumpStart); (34.5833333333333 : 31.125 : JumpEnd); (35.375 : 31.125); (35.375 : 36.3252333974838); (36.0104141666667 : 36.3252333974838 : JumpStart); (36.1770808333333 : 36.3252333974838 : JumpEnd); (36.5416666666667 : 36.3252333974838 : JumpStart); (36.7083333333333 : 36.3252333974838 : JumpEnd); (38.125 : 36.3252333974838); (38.125 : 32.120169052283); (38.5 : 32.120169052283)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/App_Base_Define/App_Base_Define_Order_State" />
       <nodes>
         <classShapeMoniker Id="c5620a48-cb13-4806-aa6a-b5aad225c16f" />
@@ -632,7 +632,7 @@
         <elementListCompartment Id="f47c4ec3-cb5c-4cbf-9fd1-34a53369c634" absoluteBounds="28.64, 0.96, 1.9700000000000002, 3.4790361324946084" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(25.125 : 7.17705766213901); (25.75 : 7.17705766213901); (25.75 : 2.32393218835195); (27.6041694166667 : 2.32393218835195 : JumpStart); (27.7708360833333 : 2.32393218835195 : JumpEnd); (28.125 : 2.32393218835195); (28.125 : 2); (28.5 : 2); (28.5 : 5); (29.625 : 5); (29.625 : 4.53903613249461)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(25.125 : 5.59692207692308); (25.5625 : 5.15942207692308); (25.5625 : 2.41196609417597); (28.625 : 2.41196609417597)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/Organ/Organ_Organ_Media" />
       <nodes>
         <classShapeMoniker Id="669756dd-27b0-4d22-a036-057ecbe3cb6a" />
@@ -799,14 +799,14 @@
         <elementListCompartment Id="a78a2ca7-916b-4443-be2f-35d9553675b3" absoluteBounds="31.515, 41.085, 1.9700000000000002, 3.3074215650558472" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(39.0842307692308 : 41); (40.3874512980532 : 40.7066174057719 : JumpStart); (40.5500487019468 : 40.670013279982 : JumpEnd); (40.75 : 40.625); (40.75 : 35.115338104566); (40.875 : 35.115338104566); (40.5 : 34.7403381045659)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(39.0842307692308 : 41); (40.75 : 40.625); (40.75 : 35.115338104566); (40.875 : 35.115338104566); (40.5 : 34.7403381045659)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/Service_Robot_Discount_Card/Service_Robot_Discount_Card_Order_State" />
       <nodes>
         <classShapeMoniker Id="8eed900b-891c-409c-8d80-6dd085270c6b" />
         <classShapeMoniker Id="8962688e-1937-4deb-b34e-614df2a83817" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(33.5 : 40.78125); (40.46875 : 40.78125); (40.46875 : 34.7403381045659)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(33.5 : 40.78125); (36.0104141666667 : 40.78125 : JumpStart); (36.1770808333333 : 40.78125 : JumpEnd); (36.5416666666667 : 40.78125 : JumpStart); (36.7083333333333 : 40.78125 : JumpEnd); (39.9725961538462 : 40.78125 : JumpStart); (40.1392628205128 : 40.78125 : JumpEnd); (40.46875 : 40.78125); (40.46875 : 34.7403381045659)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/Service_Robot_Gift_Card/Service_Robot_Gift_Card_Order_State" />
       <nodes>
         <classShapeMoniker Id="d40c3fe2-68ca-45fc-8829-89c1664d8ba8" />
@@ -832,7 +832,7 @@
         <elementListCompartment Id="87a64ed8-afae-49cc-a927-123ea6a593d9" absoluteBounds="31.515, 36.71, 1.9700000000000002, 2.792577862739563" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(33.5 : 37.5293553912639); (36.0104141666667 : 37.5293553912639 : JumpStart); (36.1770808333333 : 37.5293553912639 : JumpEnd); (38.375 : 37.5293553912639)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(33.5 : 37.5293553912639); (36.5416666666667 : 37.5293553912639 : JumpStart); (36.7083333333333 : 37.5293553912639 : JumpEnd); (38.375 : 37.5293553912639)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/Wallet/Wallet_Wallet_Detail" />
       <nodes>
         <classShapeMoniker Id="f057f723-b0b3-42b2-b100-fb55027093b4" />
@@ -887,7 +887,7 @@
         <elementListCompartment Id="264e890d-6683-44f1-b0e1-3315be3f0209" absoluteBounds="42.265, 39.71, 1.9700000000000002, 2.6209632953008013" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(42.25 : 39.8712107825279); (40.8333333333333 : 39.8712107825279 : JumpStart); (40.6666666666667 : 39.8712107825279 : JumpEnd); (40.5520833333333 : 39.8712107825279 : JumpStart); (40.3854166666667 : 39.8712107825279 : JumpEnd); (40.375 : 39.8712107825279)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(42.25 : 39.8712107825279); (40.8333333333333 : 39.8712107825279 : JumpStart); (40.6666666666667 : 39.8712107825279 : JumpEnd); (40.375 : 39.8712107825279)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/Transaction_Fee/Transaction_Fee_Wallet_Detail" />
       <nodes>
         <classShapeMoniker Id="9b9fa937-ad35-4396-bfe3-7823daf1d1e5" />
@@ -933,7 +933,7 @@
         <classShapeMoniker Id="8962688e-1937-4deb-b34e-614df2a83817" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(35.625 : 32.3648306616147); (35.4583333333333 : 32.3648306616147 : JumpStart); (35.2916666666667 : 32.3648306616147 : JumpEnd); (34.5833333333333 : 32.3648306616147 : JumpStart); (34.3541666666667 : 32.3648306616147 : JumpEnd); (33.625 : 32.3648306616147)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(35.625 : 32.3648306616147); (35.4583333333333 : 32.3648306616147 : JumpStart); (35.2916666666667 : 32.3648306616147 : JumpEnd); (33.625 : 32.3648306616147)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/Order/Order_Order_Step_History" />
       <nodes>
         <classShapeMoniker Id="9dba535d-c561-4fd8-900b-800444d975c5" />
@@ -954,28 +954,28 @@
         <classShapeMoniker Id="8eed900b-891c-409c-8d80-6dd085270c6b" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(36.0937475 : 36.0752333974838); (36.0937475 : 41.50077043204); (34.5833333333333 : 41.50077043204 : JumpStart); (34.4166666666667 : 41.50077043204 : JumpEnd); (33.5 : 41.50077043204)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(36.0937475 : 36.0752333974838); (36.0937475 : 41.50077043204); (33.5 : 41.50077043204)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/Order/Order_Service_Robot_Gift_Card" />
       <nodes>
         <classShapeMoniker Id="9dba535d-c561-4fd8-900b-800444d975c5" />
         <classShapeMoniker Id="d40c3fe2-68ca-45fc-8829-89c1664d8ba8" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.37771922115385 : 12.197890458107); (2.37771922115385 : 34.7461973603566); (2.51177877724359 : 34.7461973603566 : JumpStart); (2.67844544391026 : 34.7461973603566 : JumpEnd); (28.1197941666667 : 34.7461973603566 : JumpStart); (28.2864608333333 : 34.7461973603566 : JumpEnd); (31.0416666666667 : 34.7461973603566 : JumpStart); (31.2083333333333 : 34.7461973603566 : JumpEnd); (31.4479166666667 : 34.7461973603566 : JumpStart); (31.6145833333333 : 34.7461973603566 : JumpEnd); (34.3541666666667 : 34.7461973603566 : JumpStart); (34.5833333333333 : 34.7461973603566 : JumpEnd); (35.2916666666667 : 34.7461973603566 : JumpStart); (35.4583333333333 : 34.7461973603566 : JumpEnd); (35.625 : 34.7461973603566)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.37771922115385 : 12.197890458107); (2.37771922115385 : 34.7461973603566); (2.51177877724359 : 34.7461973603566 : JumpStart); (2.67844544391025 : 34.7461973603566 : JumpEnd); (28.2291666666667 : 34.7461973603566 : JumpStart); (28.3958333333333 : 34.7461973603566 : JumpEnd); (31.0416666666667 : 34.7461973603566 : JumpStart); (31.2083333333333 : 34.7461973603566 : JumpEnd); (31.4479166666667 : 34.7461973603566 : JumpStart); (31.6145833333333 : 34.7461973603566 : JumpEnd); (34.3541666666667 : 34.7461973603566 : JumpStart); (34.5833333333333 : 34.7461973603566 : JumpEnd); (35.2916666666667 : 34.7461973603566 : JumpStart); (35.4583333333333 : 34.7461973603566 : JumpEnd); (35.625 : 34.7461973603566)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/App_Base_Define/App_Base_Define_Order" />
       <nodes>
         <classShapeMoniker Id="c5620a48-cb13-4806-aa6a-b5aad225c16f" />
         <classShapeMoniker Id="9dba535d-c561-4fd8-900b-800444d975c5" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(1.52846153846154 : 12.197890458107); (1.52846153846154 : 34.0504268417931); (2.29438588782051 : 34.0504268417931 : JumpStart); (2.46105255448718 : 34.0504268417931 : JumpEnd); (2.51177877724359 : 34.0504268417931 : JumpStart); (2.67844544391026 : 34.0504268417931 : JumpEnd); (28.1197941666667 : 34.0504268417931 : JumpStart); (28.2864608333333 : 34.0504268417931 : JumpEnd); (31.0416666666667 : 34.0504268417931 : JumpStart); (31.2083333333333 : 34.0504268417931 : JumpEnd); (31.4479166666667 : 34.0504268417931 : JumpStart); (31.6145833333333 : 34.0504268417931 : JumpEnd); (34.3541666666667 : 34.0504268417931 : JumpStart); (34.5833333333333 : 34.0504268417931 : JumpEnd); (35.2916666666667 : 34.0504268417931 : JumpStart); (35.4583333333333 : 34.0504268417931 : JumpEnd); (35.625 : 34.0504268417931)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(1.52846153846154 : 12.197890458107); (1.52846153846154 : 34.0504268417931); (2.29438588782052 : 34.0504268417931 : JumpStart); (2.46105255448718 : 34.0504268417931 : JumpEnd); (2.51177877724359 : 34.0504268417931 : JumpStart); (2.67844544391025 : 34.0504268417931 : JumpEnd); (28.2291666666667 : 34.0504268417931 : JumpStart); (28.3958333333333 : 34.0504268417931 : JumpEnd); (31.0416666666667 : 34.0504268417931 : JumpStart); (31.2083333333333 : 34.0504268417931 : JumpEnd); (31.4479166666667 : 34.0504268417931 : JumpStart); (31.6145833333333 : 34.0504268417931 : JumpEnd); (34.3541666666667 : 34.0504268417931 : JumpStart); (34.5833333333333 : 34.0504268417931 : JumpEnd); (35.2916666666667 : 34.0504268417931 : JumpStart); (35.4583333333333 : 34.0504268417931 : JumpEnd); (35.625 : 34.0504268417931)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/App_Base_Define/App_Base_Define_Order1" />
       <nodes>
         <classShapeMoniker Id="c5620a48-cb13-4806-aa6a-b5aad225c16f" />
         <classShapeMoniker Id="9dba535d-c561-4fd8-900b-800444d975c5" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.59511211057692 : 12.197890458107); (2.59511211057692 : 35.4419678789202); (28.1197941666667 : 35.4419678789202 : JumpStart); (28.2864608333333 : 35.4419678789202 : JumpEnd); (31.0416666666667 : 35.4419678789202 : JumpStart); (31.2083333333333 : 35.4419678789202 : JumpEnd); (31.4479166666667 : 35.4419678789202 : JumpStart); (31.6145833333333 : 35.4419678789202 : JumpEnd); (34.3541666666667 : 35.4419678789202 : JumpStart); (34.5833333333333 : 35.4419678789202 : JumpEnd); (35.2916666666667 : 35.4419678789202 : JumpStart); (35.4583333333333 : 35.4419678789202 : JumpEnd); (35.625 : 35.4419678789202)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.59511211057692 : 12.197890458107); (2.59511211057692 : 35.4419678789202); (28.2291666666667 : 35.4419678789202 : JumpStart); (28.3958333333333 : 35.4419678789202 : JumpEnd); (31.0416666666667 : 35.4419678789202 : JumpStart); (31.2083333333333 : 35.4419678789202 : JumpEnd); (31.4479166666667 : 35.4419678789202 : JumpStart); (31.6145833333333 : 35.4419678789202 : JumpEnd); (34.3541666666667 : 35.4419678789202 : JumpStart); (34.5833333333333 : 35.4419678789202 : JumpEnd); (35.2916666666667 : 35.4419678789202 : JumpStart); (35.4583333333333 : 35.4419678789202 : JumpEnd); (35.625 : 35.4419678789202)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/App_Base_Define/App_Base_Define_Order2" />
       <nodes>
         <classShapeMoniker Id="c5620a48-cb13-4806-aa6a-b5aad225c16f" />
@@ -989,7 +989,7 @@
         <classShapeMoniker Id="9dba535d-c561-4fd8-900b-800444d975c5" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(33.5 : 10.6968487278621); (33.6041666666667 : 10.6968487278621 : JumpStart); (33.7708333333333 : 10.6968487278621 : JumpEnd); (34.1041666666667 : 10.6968487278621 : JumpStart); (34.3958333333333 : 10.6968487278621 : JumpEnd); (34.9791666666667 : 10.6968487278621 : JumpStart); (35.1458333333333 : 10.6968487278621 : JumpEnd); (36.84374875 : 10.6968487278621); (36.84374875 : 25)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(33.5 : 10.6968487278621); (34.1041666666667 : 10.6968487278621 : JumpStart); (34.3333333333333 : 10.6968487278621 : JumpEnd); (36.84374875 : 10.6968487278621); (36.84374875 : 25)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/Personal_Robot/Personal_Robot_Order" />
       <nodes>
         <classShapeMoniker Id="d5e63684-9576-4aa4-8d4c-44233e96b384" />
@@ -1002,42 +1002,42 @@
         <elementListCompartment Id="898c8264-21ed-415a-b074-63c8a9fa6006" absoluteBounds="31.515, 13.335, 1.9700000000000002, 5.7100255091985064" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(33.0676923076923 : 12.875); (33.4472115384615 : 13.15625); (33.4791666666667 : 13.15625 : JumpStart); (33.6458333333333 : 13.15625 : JumpEnd); (33.6666666666667 : 13.15625 : JumpStart); (34.1458333333333 : 13.15625 : JumpEnd); (34.1875 : 13.15625); (34.1875 : 6.33981762091319); (34.375 : 5.96481762091319)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(33.0676923076923 : 12.875); (33.4472115384615 : 13.15625); (33.7916666666667 : 13.15625 : JumpStart); (33.9583333333333 : 13.15625 : JumpEnd); (34.1875 : 13.15625); (34.1875 : 6.33981762091319); (34.375 : 5.96481762091319)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/Service_Robot/Service_Robot_Service_Robot_Visit" />
       <nodes>
         <classShapeMoniker Id="3768965f-e245-426c-89d4-67d6e21d8c5b" />
         <classShapeMoniker Id="3b7e062d-8c98-499f-909b-3c0390748a56" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(32.7215384615385 : 12.875); (33.484632432262 : 12.5841087575078 : JumpStart); (33.640367567738 : 12.5247425604254 : JumpEnd); (33.797132432262 : 12.4649838308717 : JumpStart); (34.327867567738 : 12.2626677218261 : JumpEnd); (34.422132432262 : 12.2267339775997 : JumpStart); (34.577867567738 : 12.1673677805173 : JumpEnd); (34.6875 : 12.1255759230769); (34.6875 : 13.2900778627396); (34.7234808135125 : 13.2900778627396 : JumpStart); (34.8901474801791 : 13.2900778627396 : JumpEnd); (36.7515374615385 : 13.2900778627396); (36.8127995269705 : 13.1369226991596 : JumpStart); (36.8746979730295 : 12.9821765840121 : JumpEnd); (37.0003007769705 : 12.6681695741596 : JumpStart); (37.0621992230295 : 12.5134234590121 : JumpEnd); (37.3128007769705 : 11.8869195741596 : JumpStart); (37.3746992230295 : 11.7321734590121 : JumpEnd); (37.4065507769705 : 11.6525445741596 : JumpStart); (37.4684492230295 : 11.4977984590121 : JumpEnd); (37.6265374615385 : 11.1025778627396)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(32.7215384615385 : 12.875); (33.797132432262 : 12.4649838308717 : JumpStart); (34.327867567738 : 12.2626677218261 : JumpEnd); (34.6875 : 12.1255759230769); (34.6875 : 13.2900778627396); (36.7515374615385 : 13.2900778627396); (37.6265374615385 : 11.1025778627396)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/Service_Robot/Service_Robot_Service_Robot_Upload" />
       <nodes>
         <classShapeMoniker Id="3768965f-e245-426c-89d4-67d6e21d8c5b" />
         <classShapeMoniker Id="146c326a-cce9-410d-986b-cfedc4c9503f" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(33.5 : 16.2938670802116); (33.6666666666667 : 16.2938670802116 : JumpStart); (33.9583333333333 : 16.2938670802116 : JumpEnd); (34.0416666666667 : 16.2938670802116 : JumpStart); (34.2708333333333 : 16.2938670802116 : JumpEnd); (34.375 : 16.2938670802116)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(33.5 : 16.2938670802116); (33.7916666666667 : 16.2938670802116 : JumpStart); (33.9583333333333 : 16.2938670802116 : JumpEnd); (34.375 : 16.2938670802116)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/Service_Robot/Service_Robot_Service_Robot_Message" />
       <nodes>
         <classShapeMoniker Id="3768965f-e245-426c-89d4-67d6e21d8c5b" />
         <classShapeMoniker Id="a4a83a36-f6f6-42b3-bfc2-d3a8d6546c6f" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(33.5 : 12.875); (33.6666666666667 : 12.875 : JumpStart); (34.1458333333333 : 12.875 : JumpEnd); (34.25 : 12.875); (34.25 : 6.46481762091319); (35.2916666666667 : 6.46481762091319 : JumpStart); (35.4583333333333 : 6.46481762091319 : JumpEnd); (36.9479166666667 : 6.46481762091319 : JumpStart); (37.1145833333333 : 6.46481762091319 : JumpEnd); (39.0416666666667 : 6.46481762091319 : JumpStart); (39.2083333333333 : 6.46481762091319 : JumpEnd); (39.375 : 6.46481762091319); (39.375 : 5.3906255); (39.625 : 5.3906255)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(33.5 : 12.875); (33.7916666666667 : 12.875 : JumpStart); (33.9583333333333 : 12.875 : JumpEnd); (34.25 : 12.875); (34.25 : 6.46481762091319); (39.375 : 6.46481762091319); (39.375 : 5.3906255); (39.625 : 5.3906255)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/Service_Robot/Service_Robot_Personal_Robot_Job_Service_Robot" />
       <nodes>
         <classShapeMoniker Id="3768965f-e245-426c-89d4-67d6e21d8c5b" />
         <classShapeMoniker Id="31ae3139-25cf-4921-a6cb-d65cc030a790" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(33.5 : 16.1506372545993); (33.5625 : 16.1506372545993); (33.5625 : 11.4575389313698); (33.6041666666667 : 11.4575389313698 : JumpStart); (33.7708333333333 : 11.4575389313698 : JumpEnd); (34.1041666666667 : 11.4575389313698 : JumpStart); (34.3333333333333 : 11.4575389313698 : JumpEnd); (34.9791666666667 : 11.4575389313698 : JumpStart); (35.1458333333333 : 11.4575389313698 : JumpEnd); (36.7604154166667 : 11.4575389313698 : JumpStart); (36.9270820833333 : 11.4575389313698 : JumpEnd); (36.9479166666667 : 11.4575389313698 : JumpStart); (37.1145833333333 : 11.4575389313698 : JumpEnd); (37.2604166666667 : 11.4575389313698 : JumpStart); (37.5678863674198 : 11.4575389313698 : JumpEnd); (39.7916666666667 : 11.4575389313698 : JumpStart); (40.0833333333333 : 11.4575389313698 : JumpEnd); (40.2916666666667 : 11.4575389313698 : JumpStart); (40.5208333333333 : 11.4575389313698 : JumpEnd); (40.625 : 11.4575389313698)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(33.5 : 16.1506372545993); (33.5625 : 16.1506372545993); (33.5625 : 11.4575389313698); (34.1041666666667 : 11.4575389313698 : JumpStart); (34.3333333333333 : 11.4575389313698 : JumpEnd); (36.7604154166667 : 11.4575389313698 : JumpStart); (36.9270820833333 : 11.4575389313698 : JumpEnd); (37.4012197007531 : 11.4575389313698 : JumpStart); (37.5678863674198 : 11.4575389313698 : JumpEnd); (39.7916666666667 : 11.4575389313698 : JumpStart); (39.9583333333333 : 11.4575389313698 : JumpEnd); (40.3541666666667 : 11.4575389313698 : JumpStart); (40.5208333333333 : 11.4575389313698 : JumpEnd); (40.625 : 11.4575389313698)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/Service_Robot/Service_Robot_Robot_Spy_Group_Message" />
       <nodes>
         <classShapeMoniker Id="3768965f-e245-426c-89d4-67d6e21d8c5b" />
         <classShapeMoniker Id="2a6cc14e-8c9b-4285-a3d2-7096d95bf2d3" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(33.5 : 17.0372478407713); (33.7225586511614 : 16.3990812751614 : JumpStart); (33.7774413488386 : 16.2417101619498 : JumpEnd); (33.8475586511614 : 16.0406552140535 : JumpStart); (33.9024413488386 : 15.883284100842 : JumpEnd); (34.1600586511614 : 15.1445900612839 : JumpStart); (34.2149413488386 : 14.9872189480723 : JumpEnd); (34.4725586511614 : 14.2485249085142 : JumpStart); (34.5274413488386 : 14.0911537953027 : JumpEnd); (35.0625 : 12.5569220769231); (35.0625 : 9.322890458107); (34.3958333333333 : 9.322890458107 : JumpStart); (34.1041666666667 : 9.322890458107 : JumpEnd); (34 : 9.322890458107); (33.7375 : 8.972890458107 : JumpStart); (33.6375 : 8.83955712477367 : JumpEnd); (33.625 : 8.822890458107)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(33.5 : 17.0372478407713); (33.7225586511614 : 16.3990812751614 : JumpStart); (33.7774413488386 : 16.2417101619498 : JumpEnd); (33.8475586511614 : 16.0406552140535 : JumpStart); (33.9024413488386 : 15.883284100842 : JumpEnd); (34.1600586511614 : 15.1445900612839 : JumpStart); (34.2149413488386 : 14.9872189480723 : JumpEnd); (34.4725586511614 : 14.2485249085142 : JumpStart); (34.5274413488386 : 14.0911537953027 : JumpEnd); (35.0625 : 12.5569220769231); (35.0625 : 9.322890458107); (34.3333333333333 : 9.322890458107 : JumpStart); (34.1041666666667 : 9.322890458107 : JumpEnd); (34 : 9.322890458107); (33.7375 : 8.972890458107 : JumpStart); (33.6375 : 8.83955712477367 : JumpEnd); (33.625 : 8.822890458107)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/Service_Robot/Service_Robot_Service_Robot_Group" />
       <nodes>
         <classShapeMoniker Id="3768965f-e245-426c-89d4-67d6e21d8c5b" />
@@ -1051,35 +1051,35 @@
         <classShapeMoniker Id="15d8fd8a-8463-47b5-ad73-8642a8fcbee4" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(33.5 : 13.8579680636498); (33.6666666666667 : 13.8579680636498 : JumpStart); (34.0833333333333 : 13.8579680636498 : JumpEnd); (34.4375 : 13.8579680636498); (34.4375 : 12.5625); (34.6041666666667 : 12.5625 : JumpStart); (34.7708333333333 : 12.5625 : JumpEnd); (36.7604154166667 : 12.5625 : JumpStart); (36.9270820833333 : 12.5625 : JumpEnd); (36.9479166666667 : 12.5625 : JumpStart); (37.1259019399677 : 12.5625 : JumpEnd); (37.2604166666667 : 12.5625 : JumpStart); (37.4270833333333 : 12.5625 : JumpEnd); (39.7916666666667 : 12.5625 : JumpStart); (40.1458333333333 : 12.5625 : JumpEnd); (40.375 : 12.5625); (40.375 : 9.5625); (42.84375 : 9.5625); (42.84375 : 12.9640353695552); (45.0416666666667 : 12.9640353695552 : JumpStart); (45.2083333333333 : 12.9640353695552 : JumpEnd); (45.2916666666667 : 12.9640353695552 : JumpStart); (45.4583333333333 : 12.9640353695552 : JumpEnd); (45.6666666666667 : 12.9640353695552 : JumpStart); (45.8333333333333 : 12.9640353695552 : JumpEnd); (45.9375 : 12.9640353695552); (45.9375 : 8.5625); (49.375 : 8.5625); (49.375 : 7.99242156505585)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(33.5 : 13.8579680636498); (33.6666666666667 : 13.8579680636498 : JumpStart); (34.0833333333333 : 13.8579680636498 : JumpEnd); (34.4375 : 13.8579680636498); (34.4375 : 12.5625); (34.6041666666667 : 12.5625 : JumpStart); (34.7708333333333 : 12.5625 : JumpEnd); (36.7604154166667 : 12.5625 : JumpStart); (36.9270820833333 : 12.5625 : JumpEnd); (36.9479171666667 : 12.5625 : JumpStart); (37.4270833333333 : 12.5625 : JumpEnd); (39.7916666666667 : 12.5625 : JumpStart); (40.1458333333333 : 12.5625 : JumpEnd); (40.1666666666667 : 12.5625 : JumpStart); (40.3333333333333 : 12.5625 : JumpEnd); (40.375 : 12.5625); (40.375 : 9.5625); (42.84375 : 9.5625); (42.84375 : 12.9640353695552); (45.0416666666667 : 12.9640353695552 : JumpStart); (45.2083333333333 : 12.9640353695552 : JumpEnd); (45.2916666666667 : 12.9640353695552 : JumpStart); (45.4583333333333 : 12.9640353695552 : JumpEnd); (45.6666666666667 : 12.9640353695552 : JumpStart); (45.8333333333333 : 12.9640353695552 : JumpEnd); (45.9375 : 12.9640353695552); (45.9375 : 8.5625); (49.375 : 8.5625); (49.375 : 7.99242156505585)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/Service_Robot/Service_Robot_Service_Robot_Product_Feedback" />
       <nodes>
         <classShapeMoniker Id="3768965f-e245-426c-89d4-67d6e21d8c5b" />
         <classShapeMoniker Id="841580b4-dffe-4da3-9ac0-417c4a2b091f" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(33.5 : 16.9148603182491); (33.6666666666667 : 16.9148603182491 : JumpStart); (33.8333333333333 : 16.9148603182491 : JumpEnd); (33.875 : 16.9148603182491); (33.875 : 12.25); (33.9166666666667 : 12.25 : JumpStart); (34.5833333333333 : 12.25 : JumpEnd); (34.6041666666667 : 12.25 : JumpStart); (34.7708333333333 : 12.25 : JumpEnd); (34.9791666666667 : 12.25 : JumpStart); (35.1458333333333 : 12.25 : JumpEnd); (36.7604154166667 : 12.25 : JumpStart); (36.9270820833333 : 12.25 : JumpEnd); (36.9479166666667 : 12.25 : JumpStart); (37.2509019399677 : 12.25 : JumpEnd); (37.2604166666667 : 12.25 : JumpStart); (37.5208333333333 : 12.25 : JumpEnd); (39.7916666666667 : 12.25 : JumpStart); (40.0208333333333 : 12.25 : JumpEnd); (40.0625 : 12.25); (40.0625 : 14.2572652673721); (40.2291666666667 : 14.2572652673721 : JumpStart); (40.3958333333333 : 14.2572652673721 : JumpEnd); (42.875 : 14.2572652673721); (42.875 : 13.0265353695552); (42.9166666666667 : 13.0265353695552 : JumpStart); (43.0833333333333 : 13.0265353695552 : JumpEnd); (43.8229161666667 : 13.0265353695552 : JumpStart); (43.9895828333333 : 13.0265353695552 : JumpEnd); (45.125 : 13.0265353695552); (45.125 : 12.5); (45.2916666666667 : 12.5 : JumpStart); (45.4583333333333 : 12.5 : JumpEnd); (45.6666666666667 : 12.5 : JumpStart); (45.8333333333333 : 12.5 : JumpEnd); (45.8541666666667 : 12.5 : JumpStart); (46.0208333333333 : 12.5 : JumpEnd); (46.9166666666667 : 12.5 : JumpStart); (47.0833333333333 : 12.5 : JumpEnd); (49.375 : 12.5); (49.375 : 11.8059632953008)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(33.5 : 16.9148603182491); (33.875 : 16.9148603182491); (33.875 : 12.25); (40.0625 : 12.25); (40.0625 : 14.2572652673721); (42.875 : 14.2572652673721); (42.875 : 13.0265353695552); (45.125 : 13.0265353695552); (45.125 : 12.5); (49.375 : 12.5); (49.375 : 11.8059632953008)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/Service_Robot/Service_Robot_Service_Robot_Product_Find_Best_Price" />
       <nodes>
         <classShapeMoniker Id="3768965f-e245-426c-89d4-67d6e21d8c5b" />
         <classShapeMoniker Id="5fb3eb90-530b-4adc-a379-d7e00dc1b718" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(33.5 : 14.6221911272996); (33.6666666666667 : 14.6221911272996 : JumpStart); (33.8333333333333 : 14.6221911272996 : JumpEnd); (33.9375 : 14.6221911272996); (33.9375 : 12.125); (33.9791666666667 : 12.125 : JumpStart); (34.3333333333333 : 12.125 : JumpEnd); (34.4166666666667 : 12.125 : JumpStart); (34.5833333333333 : 12.125 : JumpEnd); (34.9791666666667 : 12.125 : JumpStart); (35.1458333333333 : 12.125 : JumpEnd); (36.7604154166667 : 12.125 : JumpStart); (36.9270820833333 : 12.125 : JumpEnd); (36.9479166666667 : 12.125 : JumpStart); (37.1145833333333 : 12.125 : JumpEnd); (37.134235273301 : 12.125 : JumpStart); (37.5208333333333 : 12.125 : JumpEnd); (39.7916666666667 : 12.125 : JumpStart); (40.0208333333333 : 12.125 : JumpEnd); (40.3125 : 12.125); (40.3125 : 14.5072652673721); (42.8125 : 14.5072652673721); (42.8125 : 13.0890353695552); (42.9166666666667 : 13.0890353695552 : JumpStart); (43.0833333333333 : 13.0890353695552 : JumpEnd); (43.8229161666667 : 13.0890353695552 : JumpStart); (43.9895828333333 : 13.0890353695552 : JumpEnd); (45.125 : 13.0890353695552); (45.125 : 12.25); (45.6666666666667 : 12.25 : JumpStart); (45.8333333333333 : 12.25 : JumpEnd); (45.8541666666667 : 12.25 : JumpStart); (46.0208333333333 : 12.25 : JumpEnd); (46.9166666666667 : 12.25 : JumpStart); (47.0833333333333 : 12.25 : JumpEnd); (49.2916666666667 : 12.25 : JumpStart); (49.4583333333333 : 12.25 : JumpEnd); (49.9374995 : 12.25); (49.9374995 : 12.75)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(33.5 : 14.6221911272996); (33.6666666666667 : 14.6221911272996 : JumpStart); (33.8333333333333 : 14.6221911272996 : JumpEnd); (33.9375 : 14.6221911272996); (33.9375 : 12.125); (33.9791666666667 : 12.125 : JumpStart); (34.3333333333333 : 12.125 : JumpEnd); (36.7604154166667 : 12.125 : JumpStart); (36.9270820833333 : 12.125 : JumpEnd); (37.0416666666667 : 12.125 : JumpStart); (37.3009019399677 : 12.125 : JumpEnd); (39.7916666666667 : 12.125 : JumpStart); (40.0208333333333 : 12.125 : JumpEnd); (40.3125 : 12.125); (40.3125 : 14.5072652673721); (40.3541666666667 : 14.5072652673721 : JumpStart); (40.5208333333333 : 14.5072652673721 : JumpEnd); (42.8125 : 14.5072652673721); (42.8125 : 13.0890353695552); (43.8229161666667 : 13.0890353695552 : JumpStart); (43.9895828333333 : 13.0890353695552 : JumpEnd); (45.125 : 13.0890353695552); (45.125 : 12.25); (45.6666666666667 : 12.25 : JumpStart); (45.8333333333333 : 12.25 : JumpEnd); (46.9166666666667 : 12.25 : JumpStart); (47.0833333333333 : 12.25 : JumpEnd); (49.2916666666667 : 12.25 : JumpStart); (49.4583333333333 : 12.25 : JumpEnd); (49.9374995 : 12.25); (49.9374995 : 12.75)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/Service_Robot/Service_Robot_Service_Robot_Product_Like" />
       <nodes>
         <classShapeMoniker Id="3768965f-e245-426c-89d4-67d6e21d8c5b" />
         <classShapeMoniker Id="874b4124-5bb5-4d30-b2e0-d45db7c2ecff" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(33.5 : 17.6790833818989); (33.6666666666667 : 17.6790833818989 : JumpStart); (33.8333333333333 : 17.6790833818989 : JumpEnd); (34 : 17.6790833818989); (34 : 17.9796613232295); (34.0416666666667 : 17.9796613232295 : JumpStart); (34.2708333333333 : 17.9796613232295 : JumpEnd); (35.4166666666667 : 17.9796613232295 : JumpStart); (35.5833333333333 : 17.9796613232295 : JumpEnd); (36.7604154166667 : 17.9796613232295 : JumpStart); (36.9270820833333 : 17.9796613232295 : JumpEnd); (36.9479166666667 : 17.9796613232295 : JumpStart); (37.1145833333333 : 17.9796613232295 : JumpEnd); (37.2604166666667 : 17.9796613232295 : JumpStart); (37.4270833333333 : 17.9796613232295 : JumpEnd); (39.625 : 17.9796613232295); (39.625 : 15.8125); (41.0416666666667 : 15.8125 : JumpStart); (41.2083333333333 : 15.8125 : JumpEnd); (42.9166666666667 : 15.8125 : JumpStart); (43.0833333333333 : 15.8125 : JumpEnd); (44.0416666666667 : 15.8125 : JumpStart); (44.2083333333333 : 15.8125 : JumpEnd); (45.1041666666667 : 15.8125 : JumpStart); (45.2708333333333 : 15.8125 : JumpEnd); (45.375 : 15.8125); (45.375 : 16.9627341604233); (45.4166666666667 : 16.9627341604233 : JumpStart); (45.5833333333333 : 16.9627341604233 : JumpEnd); (46.5416666666667 : 16.9627341604233 : JumpStart); (46.7083333333333 : 16.9627341604233 : JumpEnd); (47.7916666666667 : 16.9627341604233 : JumpStart); (47.9583333333333 : 16.9627341604233 : JumpEnd); (48.25 : 16.9627341604233); (48.25 : 19.134348727862); (49.5 : 19.134348727862); (49.5 : 18.884348727862)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(33.5 : 17.6790833818989); (33.6666666666667 : 17.6790833818989 : JumpStart); (33.8333333333333 : 17.6790833818989 : JumpEnd); (34 : 17.6790833818989); (34 : 17.9796613232295); (34.1041666666667 : 17.9796613232295 : JumpStart); (34.2708333333333 : 17.9796613232295 : JumpEnd); (35.4166666666667 : 17.9796613232295 : JumpStart); (35.5833333333333 : 17.9796613232295 : JumpEnd); (36.7604154166667 : 17.9796613232295 : JumpStart); (36.9270820833333 : 17.9796613232295 : JumpEnd); (37.2604166666667 : 17.9796613232295 : JumpStart); (37.4270833333333 : 17.9796613232295 : JumpEnd); (39.625 : 17.9796613232295); (39.625 : 15.8125); (41.0416666666667 : 15.8125 : JumpStart); (41.2083333333333 : 15.8125 : JumpEnd); (42.5416666666667 : 15.8125 : JumpStart); (42.7083333333333 : 15.8125 : JumpEnd); (44.0416666666667 : 15.8125 : JumpStart); (44.2083333333333 : 15.8125 : JumpEnd); (45.1041666666667 : 15.8125 : JumpStart); (45.2708333333333 : 15.8125 : JumpEnd); (45.375 : 15.8125); (45.375 : 16.9627341604233); (47.7916666666667 : 16.9627341604233 : JumpStart); (47.9583333333333 : 16.9627341604233 : JumpEnd); (48.25 : 16.9627341604233); (48.25 : 19.134348727862); (49.5 : 19.134348727862); (49.5 : 18.884348727862)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/Service_Robot/Service_Robot_Service_Robot_Product_Rating" />
       <nodes>
         <classShapeMoniker Id="3768965f-e245-426c-89d4-67d6e21d8c5b" />
         <classShapeMoniker Id="ae5bd987-d17f-4b70-9067-86cfbfb698f3" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(33.5 : 16.1506372545993); (33.6666666666667 : 16.1506372545993 : JumpStart); (33.9583333333333 : 16.1506372545993 : JumpEnd); (34.125 : 16.1506372545993); (34.125 : 18.2296613232295); (35.4166666666667 : 18.2296613232295 : JumpStart); (35.5833333333333 : 18.2296613232295 : JumpEnd); (36.7604154166667 : 18.2296613232295 : JumpStart); (37.1145833333333 : 18.2296613232295 : JumpEnd); (37.2604166666667 : 18.2296613232295 : JumpStart); (37.4270833333333 : 18.2296613232295 : JumpEnd); (39.875 : 18.2296613232295); (39.875 : 16); (41.0416666666667 : 16 : JumpStart); (41.2083333333333 : 16 : JumpEnd); (44.0416666666667 : 16 : JumpStart); (44.2083333333333 : 16 : JumpEnd); (45.1041666666667 : 16 : JumpStart); (45.2708333333333 : 16 : JumpEnd); (45.2916666666667 : 16 : JumpStart); (45.4583333333333 : 16 : JumpEnd); (45.5 : 16); (45.5 : 17.2127341604233); (46.625 : 17.2127341604233); (46.625 : 16.7127341604233)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(33.5 : 16.1506372545993); (33.6666666666667 : 16.1506372545993 : JumpStart); (33.9583333333333 : 16.1506372545993 : JumpEnd); (34.125 : 16.1506372545993); (34.125 : 18.2296613232295); (35.4166666666667 : 18.2296613232295 : JumpStart); (35.5833333333333 : 18.2296613232295 : JumpEnd); (36.7604154166667 : 18.2296613232295 : JumpStart); (37.0520852083333 : 18.2296613232295 : JumpEnd); (37.2604166666667 : 18.2296613232295 : JumpStart); (37.4270833333333 : 18.2296613232295 : JumpEnd); (39.1041666666667 : 18.2296613232295 : JumpStart); (39.2708333333333 : 18.2296613232295 : JumpEnd); (39.875 : 18.2296613232295); (39.875 : 16); (41.0416666666667 : 16 : JumpStart); (41.2083333333333 : 16 : JumpEnd); (42.5416666666667 : 16 : JumpStart); (42.7083333333333 : 16 : JumpEnd); (44.0416666666667 : 16 : JumpStart); (44.2083333333333 : 16 : JumpEnd); (45.1041666666667 : 16 : JumpStart); (45.2708333333333 : 16 : JumpEnd); (45.2916666666667 : 16 : JumpStart); (45.4583333333333 : 16 : JumpEnd); (45.5 : 16); (45.5 : 17.2127341604233); (46.625 : 17.2127341604233); (46.625 : 16.7127341604233)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/Service_Robot/Service_Robot_Service_Robot_Product_Signal" />
       <nodes>
         <classShapeMoniker Id="3768965f-e245-426c-89d4-67d6e21d8c5b" />
@@ -1093,14 +1093,14 @@
         <classShapeMoniker Id="8eed900b-891c-409c-8d80-6dd085270c6b" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(31.5 : 17.0372478407713); (31.2624455479304 : 18.6100342104616 : JumpStart); (31.2375544520696 : 18.7748316956506 : JumpEnd); (31.125 : 19.5200255091985); (31.125 : 40.25); (31.5 : 40.625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(31.5 : 15.0294701723441); (31.125 : 19.5200255091985); (31.125 : 40.25); (31.5 : 40.625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/Service_Robot/Service_Robot_Service_Robot_Gift_Card" />
       <nodes>
         <classShapeMoniker Id="3768965f-e245-426c-89d4-67d6e21d8c5b" />
         <classShapeMoniker Id="d40c3fe2-68ca-45fc-8829-89c1664d8ba8" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(32.296875625 : 19.1450255091985); (32.296875625 : 19.4375); (32.7916666666667 : 19.4375 : JumpStart); (32.9583333333333 : 19.4375 : JumpEnd); (34.4375 : 19.4375); (34.4375 : 36.5); (36.0104141666667 : 36.5 : JumpStart); (36.1770808333333 : 36.5 : JumpEnd); (36.5416666666667 : 36.5 : JumpStart); (36.7083333333333 : 36.5 : JumpEnd); (38.3229166666667 : 36.5 : JumpStart); (38.4895833333333 : 36.5 : JumpEnd); (39.3541666666667 : 36.5 : JumpStart); (39.5208333333333 : 36.5 : JumpEnd); (40.3854166666667 : 36.5 : JumpStart); (40.5520833333333 : 36.5 : JumpEnd); (40.6666666666667 : 36.5 : JumpStart); (40.8333333333333 : 36.5 : JumpEnd); (41.875 : 36.5); (41.875 : 37.4580597964923); (42.25 : 37.4580597964923)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(32.296875625 : 19.1450255091985); (32.296875625 : 19.4375); (34.4375 : 19.4375); (34.4375 : 36.5); (36.5416666666667 : 36.5 : JumpStart); (36.7083333333333 : 36.5 : JumpEnd); (38.3229166666667 : 36.5 : JumpStart); (38.4895833333333 : 36.5 : JumpEnd); (40.6666666666667 : 36.5 : JumpStart); (40.8333333333333 : 36.5 : JumpEnd); (41.875 : 36.5); (41.875 : 37.4580597964923); (42.25 : 37.4580597964923)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/Service_Robot/Service_Robot_Service_Robot_Inviting_Contact" />
       <nodes>
         <classShapeMoniker Id="3768965f-e245-426c-89d4-67d6e21d8c5b" />
@@ -1114,7 +1114,7 @@
         <classShapeMoniker Id="f057f723-b0b3-42b2-b100-fb55027093b4" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(31.65624775 : 19.1450255091985); (31.65624775 : 29.3109686501406); (34.3541666666667 : 29.3109686501406 : JumpStart); (34.5833333333333 : 29.3109686501406 : JumpEnd); (35.625 : 29.3109686501406)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(31.65624775 : 19.1450255091985); (31.65624775 : 29.3109686501406); (34.3541666666667 : 29.3109686501406 : JumpStart); (34.5208333333333 : 29.3109686501406 : JumpEnd); (35.625 : 29.3109686501406)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/Service_Robot/Service_Robot_Order" />
       <nodes>
         <classShapeMoniker Id="3768965f-e245-426c-89d4-67d6e21d8c5b" />
@@ -1135,14 +1135,14 @@
         <classShapeMoniker Id="3768965f-e245-426c-89d4-67d6e21d8c5b" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(21.375 : 9.91611959298452); (21.375 : 18.215); (25.2566666666667 : 18.215 : JumpStart); (25.5833333333333 : 18.215 : JumpEnd); (25.715 : 18.215); (25.715 : 20.7584109417597); (27.8991666666667 : 20.7584109417597 : JumpStart); (28.4270833333333 : 20.7584109417597 : JumpEnd); (28.465 : 20.7584109417597); (28.465 : 18.215); (28.4791666666667 : 18.215 : JumpStart); (28.6458333333333 : 18.215 : JumpEnd); (29.5416666666667 : 18.215 : JumpStart); (29.7083333333333 : 18.215 : JumpEnd); (30.9040888039271 : 18.215 : JumpStart); (31.0833333333333 : 18.215 : JumpEnd); (31.3225 : 18.215); (31.3225 : 19.3225255091985); (31.4479166666667 : 19.3225255091985 : JumpStart); (31.7395810833333 : 19.3225255091985 : JumpEnd); (31.7916661666667 : 19.3225255091985 : JumpStart); (31.9583328333333 : 19.3225255091985 : JumpEnd); (32.2135422916667 : 19.3225255091985 : JumpStart); (32.3802089583333 : 19.3225255091985 : JumpEnd); (32.71875175 : 19.3225255091985); (32.71875175 : 19.1450255091985)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(21.375 : 9.91611959298452); (21.375 : 18.215); (25.5104166666667 : 18.215 : JumpStart); (25.6770833333333 : 18.215 : JumpEnd); (25.715 : 18.215); (25.715 : 20.7584109417597); (25.7291666666667 : 20.7584109417597 : JumpStart); (25.8958333333333 : 20.7584109417597 : JumpEnd); (27.9516666666667 : 20.7584109417597 : JumpStart); (28.1183333333333 : 20.7584109417597 : JumpEnd); (28.1979166666667 : 20.7584109417597 : JumpStart); (28.3958333333333 : 20.7584109417597 : JumpEnd); (28.465 : 20.7584109417597); (28.465 : 18.215); (30.9040888039271 : 18.215 : JumpStart); (31.0833333333333 : 18.215 : JumpEnd); (31.1506475229837 : 18.215 : JumpStart); (31.3173141896504 : 18.215 : JumpEnd); (31.3225 : 18.215); (31.3225 : 19.3225255091985); (31.4479166666667 : 19.3225255091985 : JumpStart); (31.6145833333333 : 19.3225255091985 : JumpEnd); (32.2135422916667 : 19.3225255091985 : JumpStart); (32.3802089583333 : 19.3225255091985 : JumpEnd); (32.71875175 : 19.3225255091985); (32.71875175 : 19.1450255091985)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/Region/Region_Service_Robot" />
       <nodes>
         <classShapeMoniker Id="077149a1-aef2-4e49-9144-61d1c8b4309c" />
         <classShapeMoniker Id="3768965f-e245-426c-89d4-67d6e21d8c5b" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(23.359374 : 12.572890458107); (23.359374 : 13.84); (24.5416666666667 : 13.84 : JumpStart); (24.7083333333333 : 13.84 : JumpEnd); (25.34 : 13.84); (25.34 : 20.7584109417597); (25.4166666666667 : 20.7584109417597 : JumpStart); (25.5833333333333 : 20.7584109417597 : JumpEnd); (28.0275 : 20.7584109417597); (28.0275 : 18.215); (28.0651041666667 : 18.215 : JumpStart); (28.4270833333333 : 18.215 : JumpEnd); (28.4791666666667 : 18.215 : JumpStart); (28.6458333333333 : 18.215 : JumpEnd); (29.5416666666667 : 18.215 : JumpStart); (29.7083333333333 : 18.215 : JumpEnd); (30.9040888039271 : 18.215 : JumpStart); (31.0833333333333 : 18.215 : JumpEnd); (31.385 : 18.215); (31.385 : 19.8850255091985); (31.4479166666667 : 19.8850255091985 : JumpStart); (31.7395810833333 : 19.8850255091985 : JumpEnd); (31.8749995 : 19.8850255091985); (31.8749995 : 19.1450255091985)]" fixedFrom="Algorithm" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(24.156252 : 12.572890458107); (24.156252 : 13.9375); (24.3557041282052 : 13.9375 : JumpStart); (24.5223707948718 : 13.9375 : JumpEnd); (24.6666666666667 : 13.9375 : JumpStart); (24.8333333333333 : 13.9375 : JumpEnd); (25.75 : 13.9375); (25.75 : 14.4375); (27.9670867460861 : 14.4375 : JumpStart); (28.1337534127528 : 14.4375 : JumpEnd); (28.4670867460861 : 14.4375 : JumpStart); (28.6337534127528 : 14.4375 : JumpEnd); (31.34375 : 14.4375); (31.34375 : 16.7504935207799); (31.5 : 16.7504935207799)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/Service/Service_Service_Robot" />
       <nodes>
         <classShapeMoniker Id="e531edf0-53ae-4889-8fd7-f080064f6c61" />
@@ -1155,7 +1155,7 @@
         <elementListCompartment Id="4a76c986-6dc6-4af2-8724-618d9dabfd77" absoluteBounds="34.64, 18.96, 1.9700000000000002, 5.1951818068822222" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(33.5 : 19.0046652973026); (33.6666666666667 : 19.0046652973026 : JumpStart); (33.8333333333333 : 19.0046652973026 : JumpEnd); (33.9166666666667 : 19.0046652973026 : JumpStart); (34.0833333333333 : 19.0046652973026 : JumpEnd); (34.625 : 19.0046652973026)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(33.5 : 19.0046652973026); (33.6666666666667 : 19.0046652973026 : JumpStart); (33.8333333333333 : 19.0046652973026 : JumpEnd); (34.625 : 19.0046652973026)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/Service_Robot/Service_Robot_Service_Robot_Replay_Message" />
       <nodes>
         <classShapeMoniker Id="3768965f-e245-426c-89d4-67d6e21d8c5b" />
@@ -1181,7 +1181,7 @@
         <elementListCompartment Id="1157e6ee-deef-4d61-b190-43cb9868086a" absoluteBounds="28.64, 18.835, 1.9700000000000002, 2.6209632953008013" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(31.5 : 18.7287602545993); (31.4683333333333 : 18.7287602545993 : JumpStart); (31.1611797725916 : 18.7287602545993 : JumpEnd); (31.0833333333333 : 18.7287602545993 : JumpStart); (30.9166666666667 : 18.7287602545993 : JumpEnd); (30.625 : 18.7287602545993)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(31.5 : 18.7287602545993); (31.2744107888408 : 18.7287602545993 : JumpStart); (31.1077441221741 : 18.7287602545993 : JumpEnd); (30.625 : 18.7287602545993)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/Service_Robot/Service_Robot_Service_Robot_Send_Advertising" />
       <nodes>
         <classShapeMoniker Id="3768965f-e245-426c-89d4-67d6e21d8c5b" />
@@ -1207,7 +1207,7 @@
         <classShapeMoniker Id="3fd1eeef-f7b9-47ae-ab91-3ab7d81591c4" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(35.625 : 25); (35.25 : 24.625); (34.5833333333333 : 24.625 : JumpStart); (34.3541666666667 : 24.625 : JumpEnd); (33.3333333333333 : 24.625 : JumpStart); (33.1666666666667 : 24.625 : JumpEnd); (31.7395810833333 : 24.625 : JumpStart); (31.4479166666667 : 24.625 : JumpEnd); (31.25 : 24.625); (31.25 : 18.4775778627396); (31.0589255650989 : 18.2865034278385 : JumpStart); (30.9410744349011 : 18.1686522976407 : JumpEnd); (30.625 : 17.8525778627396)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(35.625 : 25); (35.25 : 24.625); (31.6145833333333 : 24.625 : JumpStart); (31.4479166666667 : 24.625 : JumpEnd); (31.25 : 24.625); (31.25 : 18.4775778627396); (30.625 : 17.8525778627396)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/Order/Order_Send_Advertising" />
       <nodes>
         <classShapeMoniker Id="9dba535d-c561-4fd8-900b-800444d975c5" />
@@ -1226,14 +1226,14 @@
         <elementListCompartment Id="3813c1ba-4d97-4f92-bd9f-d84696348d3e" absoluteBounds="37.64, 13.085, 1.9700000000000002, 2.2777341604232788" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(23.359374 : 12.572890458107); (23.359374 : 13.5); (24.625 : 13.5); (24.625 : 14.25); (25.2566666666667 : 14.25 : JumpStart); (25.5833333333333 : 14.25 : JumpEnd); (26.3111964166667 : 14.25 : JumpStart); (26.4778630833333 : 14.25 : JumpEnd); (27.0572896666667 : 14.25 : JumpStart); (27.2239563333333 : 14.25 : JumpEnd); (27.2955714166667 : 14.25 : JumpStart); (27.5813789583333 : 14.25 : JumpEnd); (27.8991666666667 : 14.25 : JumpStart); (28.5208333333333 : 14.25 : JumpEnd); (30.9166666666667 : 14.25 : JumpStart); (31.0833333333333 : 14.25 : JumpEnd); (31.25 : 14.25); (31.25 : 12.6875); (31.8854146666667 : 12.6875 : JumpStart); (32.0520813333333 : 12.6875 : JumpEnd); (33.1300732170648 : 12.6875 : JumpStart); (33.2967398837314 : 12.6875 : JumpEnd); (33.4791666666667 : 12.6875 : JumpStart); (33.6458333333333 : 12.6875 : JumpEnd); (33.6666666666667 : 12.6875 : JumpStart); (34.3333333333333 : 12.6875 : JumpEnd); (34.3541666666667 : 12.6875 : JumpStart); (34.5833333333333 : 12.6875 : JumpEnd); (34.6041666666667 : 12.6875 : JumpStart); (34.7708333333333 : 12.6875 : JumpEnd); (34.9336280126576 : 12.6875 : JumpStart); (35.1002946793243 : 12.6875 : JumpEnd); (36.7604154166667 : 12.6875 : JumpStart); (37.1145833333333 : 12.6875 : JumpEnd); (37.2604166666667 : 12.6875 : JumpStart); (37.4270833333333 : 12.6875 : JumpEnd); (37.5 : 12.6875); (37.5 : 13.6875005); (37.625 : 13.6875005)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(23.093748 : 12.572890458107); (23.093748 : 13.9375); (24.3557041282052 : 13.9375 : JumpStart); (24.5223707948718 : 13.9375 : JumpEnd); (24.6666666666667 : 13.9375 : JumpStart); (24.8333333333333 : 13.9375 : JumpEnd); (25.6875 : 13.9375); (25.6875 : 14.3559625323613); (25.7614733589744 : 14.3559625323613 : JumpStart); (25.928140025641 : 14.3559625323613 : JumpEnd); (31.25 : 14.3559625323613); (31.25 : 12.8125); (33.7916666666667 : 12.8125 : JumpStart); (33.9583333333333 : 12.8125 : JumpEnd); (34.1041666666667 : 12.8125 : JumpStart); (34.2708333333333 : 12.8125 : JumpEnd); (37.53125 : 12.8125); (37.53125 : 14.0438670802116); (37.625 : 14.0438670802116)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/Service/Service_Service_Robot_Public" />
       <nodes>
         <classShapeMoniker Id="e531edf0-53ae-4889-8fd7-f080064f6c61" />
         <classShapeMoniker Id="89ec7f88-ab8c-47e0-a213-9bee2eb208c3" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(33.5 : 13.620930473096); (33.6666666666667 : 13.620930473096 : JumpStart); (34.0833333333333 : 13.620930473096 : JumpEnd); (34.3541666666667 : 13.620930473096 : JumpStart); (34.5833333333333 : 13.620930473096 : JumpEnd); (34.6080969707006 : 13.620930473096 : JumpStart); (34.7747636373673 : 13.620930473096 : JumpEnd); (36.7604154166667 : 13.620930473096 : JumpStart); (36.9270820833333 : 13.620930473096 : JumpEnd); (36.9479166666667 : 13.620930473096 : JumpStart); (37.1145833333333 : 13.620930473096 : JumpEnd); (37.1666666666667 : 13.620930473096 : JumpStart); (37.4583333333333 : 13.620930473096 : JumpEnd); (37.625 : 13.620930473096)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(33.5 : 13.620930473096); (33.6666666666667 : 13.620930473096 : JumpStart); (34.0833333333333 : 13.620930473096 : JumpEnd); (36.7604154166667 : 13.620930473096 : JumpStart); (36.9270820833333 : 13.620930473096 : JumpEnd); (37.2916666666667 : 13.620930473096 : JumpStart); (37.6145833333333 : 13.620930473096 : JumpEnd); (37.625 : 13.620930473096)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/Service_Robot/Service_Robot_Service_Robot_Public" />
       <nodes>
         <classShapeMoniker Id="3768965f-e245-426c-89d4-67d6e21d8c5b" />
@@ -1271,7 +1271,7 @@
         <classShapeMoniker Id="ba487dff-fd1a-47a2-94fa-b9f2b0b742b8" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(33.5 : 18.3335806616147); (33.6666666666667 : 18.3335806616147 : JumpStart); (33.8333333333333 : 18.3335806616147 : JumpEnd); (34.1041666666667 : 18.3335806616147 : JumpStart); (34.2708333333333 : 18.3335806616147 : JumpEnd); (34.2916666666667 : 18.3335806616147 : JumpStart); (34.4583333333333 : 18.3335806616147 : JumpEnd); (35.4166666666667 : 18.3335806616147 : JumpStart); (35.5833333333333 : 18.3335806616147 : JumpEnd); (36.7604154166667 : 18.3335806616147 : JumpStart); (36.9270820833333 : 18.3335806616147 : JumpEnd); (37.03125 : 18.3335806616147); (37.03125 : 4.71065069993337)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(33.5 : 18.3335806616147); (33.6666666666667 : 18.3335806616147 : JumpStart); (33.8333333333333 : 18.3335806616147 : JumpEnd); (34.1041666666667 : 18.3335806616147 : JumpStart); (34.2708333333333 : 18.3335806616147 : JumpEnd); (34.2916666666667 : 18.3335806616147 : JumpStart); (34.4583333333333 : 18.3335806616147 : JumpEnd); (35.4166666666667 : 18.3335806616147 : JumpStart); (35.5833333333333 : 18.3335806616147 : JumpEnd); (36.7604154166667 : 18.3335806616147 : JumpStart); (36.9270820833333 : 18.3335806616147 : JumpEnd); (37.0312505 : 18.3335806616147); (37.0312505 : 4.71065069993337)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/Service_Robot/Service_Robot_Service_Robot_Card_Bank" />
       <nodes>
         <classShapeMoniker Id="3768965f-e245-426c-89d4-67d6e21d8c5b" />
@@ -1291,14 +1291,14 @@
         <classShapeMoniker Id="72e429fb-ccfc-420e-8023-6162a76f245c" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(30.625 : 26.4672166501406); (31.0416666666667 : 26.4672166501406 : JumpStart); (31.2083333333333 : 26.4672166501406 : JumpEnd); (31.4479166666667 : 26.4672166501406 : JumpStart); (31.7395810833333 : 26.4672166501406 : JumpEnd); (33.1666666666667 : 26.4672166501406 : JumpStart); (33.3333333333333 : 26.4672166501406 : JumpEnd); (34.3541666666667 : 26.4672166501406 : JumpStart); (34.5833333333333 : 26.4672166501406 : JumpEnd); (35.375 : 26.4672166501406); (35.375 : 24.875); (35.4166666666667 : 24.875 : JumpStart); (35.5833333333333 : 24.875 : JumpEnd); (36.0016666666667 : 24.875 : JumpStart); (36.1683333333333 : 24.875 : JumpEnd); (36.3478205128205 : 24.875 : JumpStart); (36.5144871794871 : 24.875 : JumpEnd); (36.7604154166667 : 24.875 : JumpStart); (37.0520852083333 : 24.875 : JumpEnd); (37.2604166666667 : 24.875 : JumpStart); (37.4270833333333 : 24.875 : JumpEnd); (41.125 : 24.875); (41.125 : 24.1111711835861)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(30.625 : 26.4672166501406); (31.0416666666667 : 26.4672166501406 : JumpStart); (31.2083333333333 : 26.4672166501406 : JumpEnd); (31.4479166666667 : 26.4672166501406 : JumpStart); (31.6145833333333 : 26.4672166501406 : JumpEnd); (34.3541666666667 : 26.4672166501406 : JumpStart); (34.5208333333333 : 26.4672166501406 : JumpEnd); (35.375 : 26.4672166501406); (35.375 : 24.875); (35.4166666666667 : 24.875 : JumpStart); (35.5833333333333 : 24.875 : JumpEnd); (36.0016666666667 : 24.875 : JumpStart); (36.1683333333333 : 24.875 : JumpEnd); (36.3478205128205 : 24.875 : JumpStart); (36.5144871794871 : 24.875 : JumpEnd); (41.125 : 24.875); (41.125 : 24.1111711835861)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/Group_Header_Item/Group_Header_Item_Order_Detail" />
       <nodes>
         <classShapeMoniker Id="5b892a17-65cd-4bbd-9111-7b4e2b437a07" />
         <classShapeMoniker Id="a42d6f80-4bda-4cb6-858f-2a2b12cd89f0" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(36.968751875 : 25); (36.968751875 : 18.1046613232295); (37.2604166666667 : 18.1046613232295 : JumpStart); (37.4270833333333 : 18.1046613232295 : JumpEnd); (39.7916666666667 : 18.1046613232295 : JumpStart); (39.9583333333333 : 18.1046613232295 : JumpEnd); (40.125 : 18.1046613232295)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(36.968751875 : 25); (36.968751875 : 18.1046613232295); (37.2604166666667 : 18.1046613232295 : JumpStart); (37.4270833333333 : 18.1046613232295 : JumpEnd); (39.1041666666667 : 18.1046613232295 : JumpStart); (39.2708333333333 : 18.1046613232295 : JumpEnd); (40.125 : 18.1046613232295)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/Order/Order_Order_Detail" />
       <nodes>
         <classShapeMoniker Id="9dba535d-c561-4fd8-900b-800444d975c5" />
@@ -1311,14 +1311,14 @@
         <elementListCompartment Id="615d3a34-8913-4f94-a6cf-bdb05d5ea39a" absoluteBounds="40.015, 1.085, 1.9700000000000002, 2.792577862739563" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(42 : 2.30128893136978); (42.25 : 2.30128893136978); (42.25 : 7.25); (40.0833333333333 : 7.25 : JumpStart); (39.9166666666667 : 7.25 : JumpEnd); (39.875 : 7.25); (39.875 : 15.375); (41.125 : 15.375); (41.125 : 16.125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(42 : 2.30128893136978); (42.25 : 2.30128893136978); (42.25 : 7.25); (39.875 : 7.25); (39.875 : 15.375); (41.125 : 15.375); (41.125 : 16.125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/Service_Robot_Seller_Partner/Service_Robot_Seller_Partner_Order_Detail" />
       <nodes>
         <classShapeMoniker Id="24c64b1f-916e-4491-b724-c73d3833066e" />
         <classShapeMoniker Id="a42d6f80-4bda-4cb6-858f-2a2b12cd89f0" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(33.5 : 18.046768802986); (33.6666666666667 : 18.046768802986 : JumpStart); (33.8333333333333 : 18.046768802986 : JumpEnd); (34.0416666666667 : 18.046768802986 : JumpStart); (34.2708333333333 : 18.046768802986 : JumpEnd); (34.5 : 18.046768802986); (34.5 : 11.75); (34.9791666666667 : 11.75 : JumpStart); (35.1458333333333 : 11.75 : JumpEnd); (36.7604154166667 : 11.75 : JumpStart); (36.9270820833333 : 11.75 : JumpEnd); (36.9479166666667 : 11.75 : JumpStart); (37.1145833333333 : 11.75 : JumpEnd); (37.2604166666667 : 11.75 : JumpStart); (37.5208333333333 : 11.75 : JumpEnd); (39.7916666666667 : 11.75 : JumpStart); (39.9583333333333 : 11.75 : JumpEnd); (40 : 11.75); (40 : 7.041640458107); (41.875 : 7.041640458107); (41.875 : 4.35257786273956); (41 : 4.35257786273956); (41 : 3.97757786273956)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(33.5 : 18.046768802986); (33.6666666666667 : 18.046768802986 : JumpStart); (33.8333333333333 : 18.046768802986 : JumpEnd); (34.1041666666667 : 18.046768802986 : JumpStart); (34.2708333333333 : 18.046768802986 : JumpEnd); (34.5 : 18.046768802986); (34.5 : 11.75); (36.7604154166667 : 11.75 : JumpStart); (36.9270820833333 : 11.75 : JumpEnd); (37.284235273301 : 11.75 : JumpStart); (37.4509019399677 : 11.75 : JumpEnd); (39.7916666666667 : 11.75 : JumpStart); (39.9583333333333 : 11.75 : JumpEnd); (40 : 11.75); (40 : 7.041640458107); (41.875 : 7.041640458107); (41.875 : 4.35257786273956); (41 : 4.35257786273956); (41 : 3.97757786273956)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/Service_Robot/Service_Robot_Service_Robot_Seller_Partner" />
       <nodes>
         <classShapeMoniker Id="3768965f-e245-426c-89d4-67d6e21d8c5b" />
@@ -1344,14 +1344,14 @@
         <classShapeMoniker Id="0b897161-18e7-4f9b-8390-395838e2f309" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(43.125 : 18.3553253499667); (42.125 : 18.3553253499667)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(43.125 : 18.3553253499667); (42.7083333333333 : 18.3553253499667 : JumpStart); (42.5416666666667 : 18.3553253499667 : JumpEnd); (42.125 : 18.3553253499667)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/Service_Robot_Seller/Service_Robot_Seller_Order_Detail" />
       <nodes>
         <classShapeMoniker Id="3aa35b7f-bb1c-4af0-8e85-ab3f67bd473f" />
         <classShapeMoniker Id="a42d6f80-4bda-4cb6-858f-2a2b12cd89f0" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(33.5 : 18.4433064455487); (33.6666666666667 : 18.4433064455487 : JumpStart); (33.8333333333333 : 18.4433064455487 : JumpEnd); (33.9166666666667 : 18.4433064455487 : JumpStart); (34.0833333333333 : 18.4433064455487 : JumpEnd); (34.1875 : 18.4433064455487); (34.1875 : 14.75); (34.2143374030319 : 14.75 : JumpStart); (34.3810040696986 : 14.75 : JumpEnd); (34.4166666666667 : 14.75 : JumpStart); (34.5833333333333 : 14.75 : JumpEnd); (36.7604154166667 : 14.75 : JumpStart); (36.9270820833333 : 14.75 : JumpEnd); (36.9479166666667 : 14.75 : JumpStart); (37.1145833333333 : 14.75 : JumpEnd); (37.2604166666667 : 14.75 : JumpStart); (37.4583333333333 : 14.75 : JumpEnd); (37.5 : 14.75); (37.5 : 15.6502341604233); (41.0416666666667 : 15.6502341604233 : JumpStart); (41.2083333333333 : 15.6502341604233 : JumpEnd); (42.9166666666667 : 15.6502341604233 : JumpStart); (43.0833333333333 : 15.6502341604233 : JumpEnd); (44.125 : 15.6502341604233); (44.125 : 16.25)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(33.5 : 18.4433064455487); (33.6666666666667 : 18.4433064455487 : JumpStart); (33.8333333333333 : 18.4433064455487 : JumpEnd); (34.1875 : 18.4433064455487); (34.1875 : 14.75); (36.7604154166667 : 14.75 : JumpStart); (36.9270820833333 : 14.75 : JumpEnd); (37.2916666666667 : 14.75 : JumpStart); (37.4583333333333 : 14.75 : JumpEnd); (37.5 : 14.75); (37.5 : 15.6502341604233); (41.0416666666667 : 15.6502341604233 : JumpStart); (41.2083333333333 : 15.6502341604233 : JumpEnd); (44.125 : 15.6502341604233); (44.125 : 16.25)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/Service_Robot/Service_Robot_Service_Robot_Seller" />
       <nodes>
         <classShapeMoniker Id="3768965f-e245-426c-89d4-67d6e21d8c5b" />
@@ -1408,7 +1408,7 @@
         <classShapeMoniker Id="426cc2b2-c2e8-4c1b-80d2-99ce7f9fb4ad" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(33.5 : 15.3864141909494); (33.6666666666667 : 15.3864141909494 : JumpStart); (33.9583333333333 : 15.3864141909494 : JumpEnd); (34 : 15.3864141909494); (34 : 12.0625); (34.1041666666667 : 12.0625 : JumpStart); (34.3333333333333 : 12.0625 : JumpEnd); (34.4166666666667 : 12.0625 : JumpStart); (34.5833333333333 : 12.0625 : JumpEnd); (34.9791666666667 : 12.0625 : JumpStart); (35.1458333333333 : 12.0625 : JumpEnd); (36.7604154166667 : 12.0625 : JumpStart); (36.9270820833333 : 12.0625 : JumpEnd); (36.9479166666667 : 12.0625 : JumpStart); (37.1145833333333 : 12.0625 : JumpEnd); (37.159235273301 : 12.0625 : JumpStart); (37.5208333333333 : 12.0625 : JumpEnd); (39.7916666666667 : 12.0625 : JumpStart); (40.0208333333333 : 12.0625 : JumpEnd); (40.4375 : 12.0625); (40.4375 : 8.91820305347443); (41.4791666666667 : 8.91820305347443 : JumpStart); (41.6458333333333 : 8.91820305347443 : JumpEnd); (42.75 : 8.91820305347443); (42.75 : 0.125); (45.625 : 0.125); (45.625 : 8.375); (45.6666666666667 : 8.375 : JumpStart); (45.8333333333333 : 8.375 : JumpEnd); (49.2916666666667 : 8.375 : JumpStart); (49.4583333333333 : 8.375 : JumpEnd); (50.75 : 8.375); (50.75 : 5.75); (50.7916666666667 : 5.75 : JumpStart); (51.0208333333333 : 5.75 : JumpEnd); (53.1666666666667 : 5.75 : JumpStart); (53.3333333333333 : 5.75 : JumpEnd); (57.3749995 : 5.75); (57.3749995 : 4.24450502554576)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(33.5 : 15.3864141909494); (33.7916666666667 : 15.3864141909494 : JumpStart); (33.9583333333333 : 15.3864141909494 : JumpEnd); (34 : 15.3864141909494); (34 : 12.0625); (34.1041666666667 : 12.0625 : JumpStart); (34.3333333333333 : 12.0625 : JumpEnd); (40.4375 : 12.0625); (40.4375 : 8.91820305347443); (42.75 : 8.91820305347443); (42.75 : 0.125); (45.625 : 0.125); (45.625 : 8.375); (50.75 : 8.375); (50.75 : 5.75); (57.3749995 : 5.75); (57.3749995 : 4.24450502554576)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/Service_Robot/Service_Robot_Service_Robot_Access_Limited_Group_Product" />
       <nodes>
         <classShapeMoniker Id="3768965f-e245-426c-89d4-67d6e21d8c5b" />
@@ -1433,7 +1433,7 @@
         <elementListCompartment Id="71aff7a4-d377-4fc8-9562-22648520f3cf" absoluteBounds="58.14, 9.96, 1.9700000000000002, 3.1358069976170855" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(33.5 : 13.4758565318249); (33.6666666666667 : 13.4758565318249 : JumpStart); (34.0208333333333 : 13.4758565318249 : JumpEnd); (34.0625 : 13.4758565318249); (34.0625 : 11.9375); (34.1041666666667 : 11.9375 : JumpStart); (34.3333333333333 : 11.9375 : JumpEnd); (34.4166666666667 : 11.9375 : JumpStart); (34.5833333333333 : 11.9375 : JumpEnd); (34.9791666666667 : 11.9375 : JumpStart); (35.1458333333333 : 11.9375 : JumpEnd); (36.7604154166667 : 11.9375 : JumpStart); (36.9270820833333 : 11.9375 : JumpEnd); (36.9479166666667 : 11.9375 : JumpStart); (37.1145833333333 : 11.9375 : JumpEnd); (37.209235273301 : 11.9375 : JumpStart); (37.5208333333333 : 11.9375 : JumpEnd); (39.9375 : 11.9375); (39.9375 : 14.3822652673721); (40.2291666666667 : 14.3822652673721 : JumpStart); (40.3958333333333 : 14.3822652673721 : JumpEnd); (42.7291666666667 : 14.3822652673721 : JumpStart); (42.8958333333333 : 14.3822652673721 : JumpEnd); (42.9375 : 14.3822652673721); (42.9375 : 13.0577853695552); (43.8229161666667 : 13.0577853695552 : JumpStart); (43.9895828333333 : 13.0577853695552 : JumpEnd); (45.375 : 13.0577853695552); (45.375 : 12.375); (45.6666666666667 : 12.375 : JumpStart); (45.8333333333333 : 12.375 : JumpEnd); (45.8541666666667 : 12.375 : JumpStart); (46.0208333333333 : 12.375 : JumpEnd); (46.9166666666667 : 12.375 : JumpStart); (47.0833333333333 : 12.375 : JumpEnd); (49.2916666666667 : 12.375 : JumpStart); (49.4583333333333 : 12.375 : JumpEnd); (49.8541661666667 : 12.375 : JumpStart); (50.0208328333333 : 12.375 : JumpEnd); (50.3854166666667 : 12.375 : JumpStart); (50.5520833333333 : 12.375 : JumpEnd); (53 : 12.375); (53 : 13.4458069976171); (59.125 : 13.4458069976171); (59.125 : 13.1958069976171)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(33.5 : 13.4758565318249); (33.7916666666667 : 13.4758565318249 : JumpStart); (33.9583333333333 : 13.4758565318249 : JumpEnd); (34.0625 : 13.4758565318249); (34.0625 : 11.9375); (34.1041666666667 : 11.9375 : JumpStart); (34.3333333333333 : 11.9375 : JumpEnd); (39.9375 : 11.9375); (39.9375 : 14.3822652673721); (42.9375 : 14.3822652673721); (42.9375 : 13.0577853695552); (43.8229161666667 : 13.0577853695552 : JumpStart); (43.9895828333333 : 13.0577853695552 : JumpEnd); (45.375 : 13.0577853695552); (45.375 : 12.375); (49.2916666666667 : 12.375 : JumpStart); (49.4583333333333 : 12.375 : JumpEnd); (50.3854166666667 : 12.375 : JumpStart); (50.5520833333333 : 12.375 : JumpEnd); (53 : 12.375); (53 : 13.4458069976171); (59.125 : 13.4458069976171); (59.125 : 13.1958069976171)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/Service_Robot/Service_Robot_Robot_Instagram_Follow" />
       <nodes>
         <classShapeMoniker Id="3768965f-e245-426c-89d4-67d6e21d8c5b" />
@@ -1573,63 +1573,63 @@
         <classShapeMoniker Id="ce5c7160-3942-442a-b415-1f5526c0b211" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(44.875 : 3.36898416042328); (45.5416666666667 : 3.36898416042328 : JumpStart); (45.7083333333333 : 3.36898416042328 : JumpEnd); (45.7291666666667 : 3.36898416042328 : JumpStart); (45.8958333333333 : 3.36898416042328 : JumpEnd); (48.375 : 3.36898416042328)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(44.875 : 3.36898416042328); (48.375 : 3.36898416042328)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/Robot_Product/Robot_Product_Service_Robot_Product_Amazing_Notification" />
       <nodes>
         <classShapeMoniker Id="a31bb8bd-bf38-4e89-a6df-a6bfc1db9aea" />
         <classShapeMoniker Id="15d8fd8a-8463-47b5-ad73-8642a8fcbee4" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(44.875 : 7.7037497138977); (48.375 : 7.7037497138977)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(44.875 : 7.7037497138977); (45.5416666666667 : 7.7037497138977 : JumpStart); (45.7083333333333 : 7.7037497138977 : JumpEnd); (48.375 : 7.7037497138977)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/Robot_Product/Robot_Product_Service_Robot_Product_Feedback" />
       <nodes>
         <classShapeMoniker Id="a31bb8bd-bf38-4e89-a6df-a6bfc1db9aea" />
         <classShapeMoniker Id="841580b4-dffe-4da3-9ac0-417c4a2b091f" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(44.875 : 11.7514060115814); (45.6666666666667 : 11.7514060115814 : JumpStart); (45.8333333333333 : 11.7514060115814 : JumpEnd); (45.8541666666667 : 11.7514060115814 : JumpStart); (46.0208333333333 : 11.7514060115814 : JumpEnd); (46.9166666666667 : 11.7514060115814 : JumpStart); (47.0833333333333 : 11.7514060115814 : JumpEnd); (48.375 : 11.7514060115814)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(44.875 : 11.7514060115814); (48.375 : 11.7514060115814)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/Robot_Product/Robot_Product_Service_Robot_Product_Find_Best_Price" />
       <nodes>
         <classShapeMoniker Id="a31bb8bd-bf38-4e89-a6df-a6bfc1db9aea" />
         <classShapeMoniker Id="5fb3eb90-530b-4adc-a379-d7e00dc1b718" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(44.875 : 12.0592316476504); (45.6666666666667 : 12.0592316476504 : JumpStart); (45.8333333333333 : 12.0592316476504 : JumpEnd); (45.8541666666667 : 12.0592316476504 : JumpStart); (46.0208333333333 : 12.0592316476504 : JumpEnd); (46.9166666666667 : 12.0592316476504 : JumpStart); (47.0833333333333 : 12.0592316476504 : JumpEnd); (49.2916666666667 : 12.0592316476504 : JumpStart); (49.4583333333333 : 12.0592316476504 : JumpEnd); (50.46875 : 12.0592316476504); (50.46875 : 12.75)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(44.875 : 12.0592316476504); (49.2916666666667 : 12.0592316476504 : JumpStart); (49.4583333333333 : 12.0592316476504 : JumpEnd); (50.46875 : 12.0592316476504); (50.46875 : 12.75)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/Robot_Product/Robot_Product_Service_Robot_Product_Like" />
       <nodes>
         <classShapeMoniker Id="a31bb8bd-bf38-4e89-a6df-a6bfc1db9aea" />
         <classShapeMoniker Id="874b4124-5bb5-4d30-b2e0-d45db7c2ecff" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(43.9062495 : 12.9015353695552); (43.9062495 : 13.21875); (45.1875 : 13.21875); (45.1875 : 17.5126170802116); (46.7916666666667 : 17.5126170802116 : JumpStart); (46.9583333333333 : 17.5126170802116 : JumpEnd); (48.1666666666667 : 17.5126170802116 : JumpStart); (48.3333333333333 : 17.5126170802116 : JumpEnd); (48.5 : 17.5126170802116)]" fixedFrom="Algorithm" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(43.9062495 : 12.9015353695552); (43.9062495 : 13.21875); (45.1875 : 13.21875); (45.1875 : 17.5126170802116); (48.5 : 17.5126170802116)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/Robot_Product/Robot_Product_Service_Robot_Product_Rating" />
       <nodes>
         <classShapeMoniker Id="a31bb8bd-bf38-4e89-a6df-a6bfc1db9aea" />
         <classShapeMoniker Id="ae5bd987-d17f-4b70-9067-86cfbfb698f3" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(43 : 12.9015353695552); (43 : 15.90625); (44.0416666666667 : 15.90625 : JumpStart); (44.2083333333333 : 15.90625 : JumpEnd); (45.1041666666667 : 15.90625 : JumpStart); (45.2708333333333 : 15.90625 : JumpEnd); (45.2916666666667 : 15.90625 : JumpStart); (45.5208333333333 : 15.90625 : JumpEnd); (45.625 : 15.90625)]" fixedFrom="Algorithm" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(43 : 12.9015353695552); (43 : 15.90625); (44.0416666666667 : 15.90625 : JumpStart); (44.2083333333333 : 15.90625 : JumpEnd); (45.1041666666667 : 15.90625 : JumpStart); (45.2708333333333 : 15.90625 : JumpEnd); (45.2916666666667 : 15.90625 : JumpStart); (45.4583333333333 : 15.90625 : JumpEnd); (45.625 : 15.90625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/Robot_Product/Robot_Product_Service_Robot_Product_Signal" />
       <nodes>
         <classShapeMoniker Id="a31bb8bd-bf38-4e89-a6df-a6bfc1db9aea" />
         <classShapeMoniker Id="d628221f-8713-442c-923a-73b67f3047c7" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(44.875 : 5.53636693716049); (45.4166666666667 : 5.53636693716049 : JumpStart); (45.7083333333333 : 5.53636693716049 : JumpEnd); (45.75 : 5.53636693716049); (45.75 : 13.625); (47.875 : 13.625); (47.875 : 17.25); (46.875 : 17.25); (46.875 : 17.875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(44.875 : 5.53636693716049); (45.5416666666667 : 5.53636693716049 : JumpStart); (45.7083333333333 : 5.53636693716049 : JumpEnd); (45.75 : 5.53636693716049); (45.75 : 13.625); (47.875 : 13.625); (47.875 : 17.25); (46.875 : 17.25); (46.875 : 17.875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/Robot_Product/Robot_Product_Service_Robot_Seller_Product" />
       <nodes>
         <classShapeMoniker Id="a31bb8bd-bf38-4e89-a6df-a6bfc1db9aea" />
         <classShapeMoniker Id="0b897161-18e7-4f9b-8390-395838e2f309" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(44.875 : 6.50697239995003); (45.4166666666667 : 6.50697239995003 : JumpStart); (45.8958333333333 : 6.50697239995003 : JumpEnd); (46.125 : 6.50697239995003)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(44.875 : 6.50697239995003); (46.125 : 6.50697239995003)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/Robot_Product/Robot_Product_Robot_Product_Preview" />
       <nodes>
         <classShapeMoniker Id="a31bb8bd-bf38-4e89-a6df-a6bfc1db9aea" />
         <classShapeMoniker Id="a553e464-4756-4075-a3b6-1dee2e1fbc07" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(44.875 : 8.15246078252792); (45.6666666666667 : 8.15246078252792 : JumpStart); (45.8333333333333 : 8.15246078252792 : JumpEnd); (49.2916666666667 : 8.15246078252792 : JumpStart); (49.4583333333333 : 8.15246078252792 : JumpEnd); (51 : 8.15246078252792)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(44.875 : 8.15246078252792); (45.5416666666667 : 8.15246078252792 : JumpStart); (45.7083333333333 : 8.15246078252792 : JumpEnd); (50.6666666666667 : 8.15246078252792 : JumpStart); (50.8333333333333 : 8.15246078252792 : JumpEnd); (51 : 8.15246078252792)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/Robot_Product/Robot_Product_Robot_Product_StepPrice" />
       <nodes>
         <classShapeMoniker Id="a31bb8bd-bf38-4e89-a6df-a6bfc1db9aea" />
@@ -1643,21 +1643,21 @@
         <classShapeMoniker Id="24c64b1f-916e-4491-b724-c73d3833066e" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(44.875 : 3.75467436393102); (45.4166666666667 : 3.75467436393102 : JumpStart); (45.7083333333333 : 3.75467436393102 : JumpEnd); (45.7291666666667 : 3.75467436393102 : JumpStart); (45.8958333333333 : 3.75467436393102 : JumpEnd); (50.7916666666667 : 3.75467436393102 : JumpStart); (50.9583333333333 : 3.75467436393102 : JumpEnd); (51 : 3.75467436393102)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(44.875 : 3.75467436393102); (45.5416666666667 : 3.75467436393102 : JumpStart); (45.7083333333333 : 3.75467436393102 : JumpEnd); (51 : 3.75467436393102)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/Robot_Product/Robot_Product_Robot_Product_Download" />
       <nodes>
         <classShapeMoniker Id="a31bb8bd-bf38-4e89-a6df-a6bfc1db9aea" />
         <classShapeMoniker Id="1ac92c40-b26b-4058-b659-f4115ae53235" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(44.875 : 9.22108468196551); (45.5 : 9.22108468196551); (45.5 : 3.63434872786204); (45.5416666666667 : 3.63434872786204 : JumpStart); (45.7083333333333 : 3.63434872786204 : JumpEnd); (45.7291666666667 : 3.63434872786204 : JumpStart); (45.8958333333333 : 3.63434872786204 : JumpEnd); (50.875 : 3.63434872786204); (50.875 : 5.875); (53.25 : 5.875); (53.25 : 2.75); (54.5 : 2.75); (54.5 : 3.125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(44.875 : 9.22108468196551); (45.5 : 9.22108468196551); (45.5 : 3.63434872786204); (45.5416666666667 : 3.63434872786204 : JumpStart); (45.7083333333333 : 3.63434872786204 : JumpEnd); (50.875 : 3.63434872786204); (50.875 : 5.875); (53.25 : 5.875); (53.25 : 2.75); (54.5 : 2.75); (54.5 : 3.125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/Robot_Product/Robot_Product_Robot_Product_Limited" />
       <nodes>
         <classShapeMoniker Id="a31bb8bd-bf38-4e89-a6df-a6bfc1db9aea" />
         <classShapeMoniker Id="c96b9c3b-72ef-438d-8b33-d33558a06c22" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 11.0364452290535); (3.6875 : 11.0364452290535); (3.6875 : 12.1840884860357); (21.2916666666667 : 12.1840884860357 : JumpStart); (21.4583333333333 : 12.1840884860357 : JumpEnd); (22.5625 : 12.1840884860357); (22.5625 : 13.8093479649226); (24.5416666666667 : 13.8093479649226 : JumpStart); (24.7083333333333 : 13.8093479649226 : JumpEnd); (25.4166666666667 : 13.8093479649226 : JumpStart); (25.5833333333333 : 13.8093479649226 : JumpEnd); (25.9166666666667 : 13.8093479649226 : JumpStart); (26.0833333333333 : 13.8093479649226 : JumpEnd); (28.2291666666667 : 13.8093479649226 : JumpStart); (28.5208333333333 : 13.8093479649226 : JumpEnd); (28.5625 : 13.8093479649226); (28.5625 : 11.9375); (30.9166666666667 : 11.9375 : JumpStart); (31.2083333333333 : 11.9375 : JumpEnd); (31.4375 : 11.9375); (31.4375 : 12.446848727862); (33.4791666666667 : 12.446848727862 : JumpStart); (34.3333333333333 : 12.446848727862 : JumpEnd); (34.4166666666667 : 12.446848727862 : JumpStart); (34.5833333333333 : 12.446848727862 : JumpEnd); (34.6041666666667 : 12.446848727862 : JumpStart); (34.7708333333333 : 12.446848727862 : JumpEnd); (34.9791666666667 : 12.446848727862 : JumpStart); (35.1458333333333 : 12.446848727862 : JumpEnd); (36.7604154166667 : 12.446848727862 : JumpStart); (36.9270820833333 : 12.446848727862 : JumpEnd); (36.9479166666667 : 12.446848727862 : JumpStart); (37.1721624488229 : 12.446848727862 : JumpEnd); (37.2604166666667 : 12.446848727862 : JumpStart); (37.5208333333333 : 12.446848727862 : JumpEnd); (39.7916666666667 : 12.446848727862 : JumpStart); (40.1458333333333 : 12.446848727862 : JumpEnd); (40.2291666666667 : 12.446848727862 : JumpStart); (40.4583333333333 : 12.446848727862 : JumpEnd); (40.5625 : 12.446848727862); (40.5625 : 14.0697652673721); (42.7291666666667 : 14.0697652673721 : JumpStart); (43.0208333333333 : 14.0697652673721 : JumpEnd); (43.0625 : 14.0697652673721); (43.0625 : 13.1875); (43.9062495 : 13.1875); (43.9062495 : 12.9015353695552)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.75 : 11.0364452290535); (3.6875 : 11.0364452290535); (3.6875 : 12.1840884860357); (21.2916666666667 : 12.1840884860357 : JumpStart); (21.4583333333333 : 12.1840884860357 : JumpEnd); (22.5625 : 12.1840884860357); (22.5625 : 12.635390458107); (25.4166666666667 : 12.635390458107 : JumpStart); (25.5833333333333 : 12.635390458107 : JumpEnd); (25.625 : 12.635390458107); (25.625 : 14.3559625323613); (25.6799358974359 : 14.3559625323613 : JumpStart); (25.928140025641 : 14.3559625323613 : JumpEnd); (27.8185532795549 : 14.3559625323613 : JumpStart); (28.2083333333333 : 14.3559625323613 : JumpEnd); (28.3677840487857 : 14.3559625323613 : JumpStart); (28.5344507154524 : 14.3559625323613 : JumpEnd); (30.9166666666667 : 14.3559625323613 : JumpStart); (31.0833333333333 : 14.3559625323613 : JumpEnd); (31.1875 : 14.3559625323613); (31.1875 : 12.446848727862); (31.3229166666667 : 12.446848727862 : JumpStart); (31.4895833333333 : 12.446848727862 : JumpEnd); (33.4791666666667 : 12.446848727862 : JumpStart); (34.3333333333333 : 12.446848727862 : JumpEnd); (34.4166666666667 : 12.446848727862 : JumpStart); (34.5833333333333 : 12.446848727862 : JumpEnd); (34.6041666666667 : 12.446848727862 : JumpStart); (34.7708333333333 : 12.446848727862 : JumpEnd); (34.9791666666667 : 12.446848727862 : JumpStart); (35.1458333333333 : 12.446848727862 : JumpEnd); (36.7604154166667 : 12.446848727862 : JumpStart); (36.9270820833333 : 12.446848727862 : JumpEnd); (37.0054957821562 : 12.446848727862 : JumpStart); (37.2083333333333 : 12.446848727862 : JumpEnd); (37.2604166666667 : 12.446848727862 : JumpStart); (37.4270833333333 : 12.446848727862 : JumpEnd); (39.7916666666667 : 12.446848727862 : JumpStart); (40.1458333333333 : 12.446848727862 : JumpEnd); (40.1666666666667 : 12.446848727862 : JumpStart); (40.3958333333333 : 12.446848727862 : JumpEnd); (40.5625 : 12.446848727862); (40.5625 : 14.0697652673721); (42.6666666666667 : 14.0697652673721 : JumpStart); (43.0208333333333 : 14.0697652673721 : JumpEnd); (43.0625 : 14.0697652673721); (43.0625 : 13.1875); (44.42187675 : 13.1875); (44.42187675 : 12.9015353695552)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/App_Base_Define/App_Base_Define_Robot_Product" />
       <nodes>
         <classShapeMoniker Id="c5620a48-cb13-4806-aa6a-b5aad225c16f" />
@@ -1694,228 +1694,234 @@
         <elementListCompartment Id="e822bbb2-7486-4b0c-a18d-4352fabb8892" absoluteBounds="37.64, 19.21, 1.9700000000000002, 2.1061195929845171" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(33.5 : 18.8254179773736); (33.6666666666667 : 18.8254179773736 : JumpStart); (33.8333333333333 : 18.8254179773736 : JumpEnd); (33.9166666666667 : 18.8254179773736 : JumpStart); (34.0833333333333 : 18.8254179773736 : JumpEnd); (34.375 : 18.8254179773736); (34.375 : 18.1671613232295); (35.4166666666667 : 18.1671613232295 : JumpStart); (35.5833333333333 : 18.1671613232295 : JumpEnd); (36.7604154166667 : 18.1671613232295 : JumpStart); (36.9270820833333 : 18.1671613232295 : JumpEnd); (36.9479166666667 : 18.1671613232295 : JumpStart); (37.1145833333333 : 18.1671613232295 : JumpEnd); (37.2604166666667 : 18.1671613232295 : JumpStart); (37.4270833333333 : 18.1671613232295 : JumpEnd); (38.093748 : 18.1671613232295); (38.093748 : 18.75)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(33.5 : 18.8254179773736); (33.6666666666667 : 18.8254179773736 : JumpStart); (33.8333333333333 : 18.8254179773736 : JumpEnd); (34.375 : 18.8254179773736); (34.375 : 18.1671613232295); (38.625 : 18.1671613232295); (38.625 : 18.75)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/Service_Robot/Service_Robot_Service_Robot_Stakeholder" />
       <nodes>
         <classShapeMoniker Id="3768965f-e245-426c-89d4-67d6e21d8c5b" />
         <classShapeMoniker Id="4c6e4607-ec54-4b1e-89eb-0d5322bafb5e" />
       </nodes>
     </associationConnector>
-    <classShape Id="e0e660cd-9632-43c2-90a0-430becfed7ae" absoluteBounds="26.25, 2.5, 2, 11.246847964922585">
+    <classShape Id="b6b3eedb-0ba2-45f8-aec1-069f27e15c24" absoluteBounds="25.875, 2.875, 2, 11.418462532361348">
       <DataClassMoniker Name="/iRoboTechDataContext/Robot" />
       <nestedChildShapes>
-        <elementListCompartment Id="5e4b7514-ef5f-49f6-b998-d9ffff3425cb" absoluteBounds="26.265, 2.96, 1.9700000000000002, 10.686847964922587" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="08c2ef1c-acb9-4e03-9f86-e0008b571ca3" absoluteBounds="25.89, 3.335, 1.9700000000000002, 10.858462532361347" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(28.25 : 6.2864452290535); (28.625 : 6.2864452290535)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(27.875 : 6.2864452290535); (28.1666666666667 : 6.2864452290535 : JumpStart); (28.3333333333333 : 6.2864452290535 : JumpEnd); (28.3541666666667 : 6.2864452290535 : JumpStart); (28.5208333333333 : 6.2864452290535 : JumpEnd); (28.625 : 6.2864452290535)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/Robot/Robot_Job" />
       <nodes>
-        <classShapeMoniker Id="e0e660cd-9632-43c2-90a0-430becfed7ae" />
+        <classShapeMoniker Id="b6b3eedb-0ba2-45f8-aec1-069f27e15c24" />
         <classShapeMoniker Id="14de1a98-0fb1-4493-8946-b8c0583b83f7" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(28.25 : 4.63278613249461); (28.2916666666667 : 4.63278613249461 : JumpStart); (28.5833333333333 : 4.63278613249461 : JumpEnd); (29.5416666666667 : 4.63278613249461 : JumpStart); (29.7083333333333 : 4.63278613249461 : JumpEnd); (30.6666666666667 : 4.63278613249461 : JumpStart); (30.9583333333333 : 4.63278613249461 : JumpEnd); (31.25 : 4.63278613249461)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(27.875 : 4.9882680662473); (31.25 : 4.9882680662473)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/Robot/Robot_Organ_Description" />
       <nodes>
-        <classShapeMoniker Id="e0e660cd-9632-43c2-90a0-430becfed7ae" />
+        <classShapeMoniker Id="b6b3eedb-0ba2-45f8-aec1-069f27e15c24" />
         <classShapeMoniker Id="9514d2f2-ac26-412b-96cd-ad2331e25933" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(28.09375 : 13.7468479649226); (28.09375 : 14.125); (28.0658333333333 : 14.125 : JumpStart); (27.8991666666667 : 14.125 : JumpEnd); (27.5813789583333 : 14.125 : JumpStart); (27.2955714166667 : 14.125 : JumpEnd); (27.2239563333333 : 14.125 : JumpStart); (27.0572896666667 : 14.125 : JumpEnd); (26.9856745833333 : 14.125 : JumpStart); (26.8190079166667 : 14.125 : JumpEnd); (26.4778630833333 : 14.125 : JumpStart); (26.3111964166667 : 14.125 : JumpEnd); (25.5833333333333 : 14.125 : JumpStart); (25.2566666666667 : 14.125 : JumpEnd); (24.7083333333333 : 14.125 : JumpStart); (24.5416666666667 : 14.125 : JumpEnd); (24.375 : 14.125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(25.875 : 14.2442317631306); (25.4507692307692 : 14.6684625323613); (24.75 : 14.6684625323613); (24.75 : 13.6265374615385); (24.375 : 14.0015374615385)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/Robot/Robot_Robot_Import" />
       <nodes>
-        <classShapeMoniker Id="e0e660cd-9632-43c2-90a0-430becfed7ae" />
+        <classShapeMoniker Id="b6b3eedb-0ba2-45f8-aec1-069f27e15c24" />
         <classShapeMoniker Id="51ce2f39-ae56-4916-bc83-b5af9a609d94" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(27.140623 : 13.7468479649226); (27.140623 : 14.3718479649226); (27.8991666666667 : 14.3718479649226 : JumpStart); (28.4270833333333 : 14.3718479649226 : JumpEnd); (28.4375 : 14.3718479649226); (28.4375 : 11.75); (30.875 : 11.75); (30.875 : 9.072890458107); (31.1666666666667 : 9.072890458107 : JumpStart); (31.3333333333333 : 9.072890458107 : JumpEnd); (31.4791666666667 : 9.072890458107 : JumpStart); (31.6458333333333 : 9.072890458107 : JumpEnd); (33.6041666666667 : 9.07289045810699 : JumpStart); (33.8958333333333 : 9.072890458107 : JumpEnd); (34 : 9.072890458107); (34 : 6.75); (34.1041666666667 : 6.75 : JumpStart); (34.3333333333333 : 6.75 : JumpEnd); (35.2916666666667 : 6.75 : JumpStart); (35.4583333333333 : 6.75 : JumpEnd); (36.5432041282051 : 6.75 : JumpStart); (36.8333333333333 : 6.75 : JumpEnd); (36.9479166666667 : 6.75 : JumpStart); (37.1145833333333 : 6.75 : JumpEnd); (39.0416666666667 : 6.75 : JumpStart); (39.2083333333333 : 6.75 : JumpEnd); (39.375 : 6.75); (39.375 : 7.447890458107); (39.7916666666667 : 7.44789045810699 : JumpStart); (40.0833333333333 : 7.447890458107 : JumpEnd); (40.125 : 7.447890458107); (40.125 : 8.02160152673721); (40.5 : 8.02160152673721)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(27.875 : 10.3212058807074); (28.1666666666667 : 10.3212058807074 : JumpStart); (28.3333333333333 : 10.3212058807074 : JumpEnd); (28.375 : 10.3212058807074); (28.375 : 8); (31.125 : 8); (31.125 : 6.125); (33.6041666666667 : 6.125 : JumpStart); (33.7708333333333 : 6.125 : JumpEnd); (34.2115754771233 : 6.125 : JumpStart); (34.3782421437899 : 6.125 : JumpEnd); (39.125 : 6.125); (39.125 : 7.125); (39.3660945863122 : 7.125 : JumpStart); (39.5327612529788 : 7.125 : JumpEnd); (41.3750005 : 7.125); (41.3750005 : 7.375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/Robot/Robot_Robot_Spy_Group" />
       <nodes>
-        <classShapeMoniker Id="e0e660cd-9632-43c2-90a0-430becfed7ae" />
+        <classShapeMoniker Id="b6b3eedb-0ba2-45f8-aec1-069f27e15c24" />
         <classShapeMoniker Id="442392df-8b28-4a86-b44b-1b7c8f7d012b" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(27.6171865 : 13.7468479649226); (27.6171865 : 14.0593479649226); (27.8991666666667 : 14.0593479649226 : JumpStart); (28.2864608333333 : 14.0593479649226 : JumpEnd); (28.3125 : 14.0593479649226); (28.3125 : 11.75); (28.4166666666667 : 11.75 : JumpStart); (28.5833333333333 : 11.75 : JumpEnd); (30.9166666666667 : 11.75 : JumpStart); (31.0833333333333 : 11.75 : JumpEnd); (31.125 : 11.75); (31.125 : 12.634348727862); (33.2695047618485 : 12.634348727862 : JumpStart); (33.4361714285152 : 12.634348727862 : JumpEnd); (33.4791666666667 : 12.634348727862 : JumpStart); (33.6458333333333 : 12.634348727862 : JumpEnd); (33.6666666666667 : 12.634348727862 : JumpStart); (34.3333333333333 : 12.634348727862 : JumpEnd); (34.4166666666667 : 12.634348727862 : JumpStart); (34.5833333333333 : 12.634348727862 : JumpEnd); (34.6041666666667 : 12.634348727862 : JumpStart); (34.7708333333333 : 12.634348727862 : JumpEnd); (36.7604154166667 : 12.634348727862 : JumpStart); (36.9270820833333 : 12.634348727862 : JumpEnd); (36.9304957821562 : 12.634348727862 : JumpStart); (37.1145833333333 : 12.634348727862 : JumpEnd); (37.2604166666667 : 12.634348727862 : JumpStart); (37.4270833333333 : 12.634348727862 : JumpEnd); (37.4375 : 12.634348727862); (37.4375 : 11.4575389313698); (39.7916666666667 : 11.4575389313698 : JumpStart); (40.0833333333333 : 11.4575389313698 : JumpEnd); (40.2916666666667 : 11.4575389313698 : JumpStart); (40.5208333333333 : 11.4575389313698 : JumpEnd); (40.625 : 11.4575389313698)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(27.875 : 12.3385862065344); (28.125 : 12.3385862065344); (28.125 : 7.75); (31.0416666666667 : 7.75 : JumpStart); (31.2083333333333 : 7.75 : JumpEnd); (31.375 : 7.75); (31.375 : 9.072890458107); (33.6041666666667 : 9.072890458107 : JumpStart); (33.7708333333333 : 9.072890458107 : JumpEnd); (34 : 9.072890458107); (34 : 9.91611959298452); (34.1041666666667 : 9.91611959298452 : JumpStart); (34.3333333333333 : 9.91611959298452 : JumpEnd); (37.5 : 9.91611959298452); (37.5 : 7.625); (39.7916666666667 : 7.625 : JumpStart); (40.0833333333333 : 7.625 : JumpEnd); (40.25 : 7.625); (40.25 : 9.16820305347443); (40.3541666666667 : 9.16820305347443 : JumpStart); (40.5208333333333 : 9.16820305347443 : JumpEnd); (41.625 : 9.16820305347443); (41.625 : 9.625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/Robot/Robot_Robot_Spy_Group_Message" />
       <nodes>
-        <classShapeMoniker Id="e0e660cd-9632-43c2-90a0-430becfed7ae" />
+        <classShapeMoniker Id="b6b3eedb-0ba2-45f8-aec1-069f27e15c24" />
         <classShapeMoniker Id="2a6cc14e-8c9b-4285-a3d2-7096d95bf2d3" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(28.25 : 11.4580597964923); (28.2916666666667 : 11.4580597964923 : JumpStart); (28.4583333333333 : 11.4580597964923 : JumpEnd); (30.6666666666667 : 11.4580597964923 : JumpStart); (31.0833333333333 : 11.4580597964923 : JumpEnd); (31.1666666666667 : 11.4580597964923 : JumpStart); (31.3333333333333 : 11.4580597964923 : JumpEnd); (31.5 : 11.4580597964923)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(27.875 : 11.4710871819655); (28.2916666666667 : 11.4710871819655 : JumpStart); (28.4583333333333 : 11.4710871819655 : JumpEnd); (30.7916666666667 : 11.4710871819655 : JumpStart); (31.2083333333333 : 11.4710871819655 : JumpEnd); (31.3229166666667 : 11.4710871819655 : JumpStart); (31.4895833333333 : 11.4710871819655 : JumpEnd); (31.5 : 11.4710871819655)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/Robot/Robot_Personal_Robot" />
       <nodes>
-        <classShapeMoniker Id="e0e660cd-9632-43c2-90a0-430becfed7ae" />
+        <classShapeMoniker Id="b6b3eedb-0ba2-45f8-aec1-069f27e15c24" />
         <classShapeMoniker Id="d5e63684-9576-4aa4-8d4c-44233e96b384" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(26.6640595 : 13.7468479649226); (26.6640595 : 14.1875); (27.0572896666667 : 14.1875 : JumpStart); (27.2239563333333 : 14.1875 : JumpEnd); (27.2955714166667 : 14.1875 : JumpStart); (27.5813789583333 : 14.1875 : JumpEnd); (27.8991666666667 : 14.1875 : JumpStart); (28.5208333333333 : 14.1875 : JumpEnd); (28.5625 : 14.1875); (28.5625 : 21.8059632953008); (31.0416666666667 : 21.8059632953008 : JumpStart); (31.3333333333333 : 21.8059632953008 : JumpEnd); (31.4479166666667 : 21.8059632953008 : JumpStart); (31.7395810833333 : 21.8059632953008 : JumpEnd); (31.875 : 21.8059632953008); (31.875 : 20.6148306616147); (31.9166666666667 : 20.6148306616147 : JumpStart); (32.0833333333333 : 20.6148306616147 : JumpEnd); (32.25 : 20.6148306616147)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(26.9070207307692 : 14.2934625323613); (26.9070207307692 : 14.46875); (27.9559146679148 : 14.46875 : JumpStart); (28.1718121038123 : 14.46875 : JumpEnd); (28.5625 : 14.46875); (28.5625 : 21.6184632953008); (30.9166666666667 : 21.6184632953008 : JumpStart); (31.3333333333333 : 21.6184632953008 : JumpEnd); (31.4479166666667 : 21.6184632953008 : JumpStart); (31.7395810833333 : 21.6184632953008 : JumpEnd); (32.15625 : 21.6184632953008); (32.15625 : 20.6148306616147); (32.25 : 20.6148306616147)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/Robot/Robot_Group_Header" />
       <nodes>
-        <classShapeMoniker Id="e0e660cd-9632-43c2-90a0-430becfed7ae" />
+        <classShapeMoniker Id="b6b3eedb-0ba2-45f8-aec1-069f27e15c24" />
         <classShapeMoniker Id="b704d88d-818d-43cc-a579-f7af3387cde6" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(28.25 : 9.58305979649226); (28.625 : 9.58305979649226)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(27.875 : 9.22310294035371); (28.1666666666667 : 9.22310294035371 : JumpStart); (28.3333333333333 : 9.22310294035371 : JumpEnd); (28.625 : 9.22310294035371)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/Robot/Robot_Group" />
       <nodes>
-        <classShapeMoniker Id="e0e660cd-9632-43c2-90a0-430becfed7ae" />
+        <classShapeMoniker Id="b6b3eedb-0ba2-45f8-aec1-069f27e15c24" />
         <classShapeMoniker Id="d46bf9fc-fd29-4bde-b6c2-f4be3620161a" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(26.39452975 : 13.7468479649226); (26.39452975 : 14.5)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(26.3605315961538 : 14.2934625323613); (26.3605315961538 : 14.5)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/Robot/Robot_Menu_Ussd" />
       <nodes>
-        <classShapeMoniker Id="e0e660cd-9632-43c2-90a0-430becfed7ae" />
+        <classShapeMoniker Id="b6b3eedb-0ba2-45f8-aec1-069f27e15c24" />
         <classShapeMoniker Id="ceea7795-95c0-46a3-9280-fc510e99d4bb" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(28.25 : 3.5195180662473); (28.2916666666667 : 3.5195180662473 : JumpStart); (28.5833333333333 : 3.5195180662473 : JumpEnd); (28.625 : 3.5195180662473)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(27.875 : 3.7070180662473); (28.2916666666667 : 3.7070180662473 : JumpStart); (28.5208333333333 : 3.7070180662473 : JumpEnd); (28.625 : 3.7070180662473)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/Robot/Robot_Organ_Media" />
       <nodes>
-        <classShapeMoniker Id="e0e660cd-9632-43c2-90a0-430becfed7ae" />
+        <classShapeMoniker Id="b6b3eedb-0ba2-45f8-aec1-069f27e15c24" />
         <classShapeMoniker Id="c9aeda66-e6f9-48bf-816e-a193f0988cba" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(28.25 : 7.01873918596904); (30.6666666666667 : 7.01873918596903 : JumpStart); (30.8333333333333 : 7.01873918596904 : JumpEnd); (31.1666666666667 : 7.01873918596903 : JumpStart); (31.3333333333333 : 7.01873918596904 : JumpEnd); (31.5625 : 7.01873918596904); (31.5625 : 8.885390458107); (33.6041666666667 : 8.885390458107 : JumpStart); (33.7708333333333 : 8.885390458107 : JumpEnd); (33.9166666666667 : 8.885390458107 : JumpStart); (34.0833333333333 : 8.885390458107 : JumpEnd); (34.1041666666667 : 8.885390458107 : JumpStart); (34.2708333333333 : 8.885390458107 : JumpEnd); (34.3125 : 8.885390458107); (34.3125 : 11.1650778627396); (34.9791666666667 : 11.1650778627396 : JumpStart); (35.1458333333333 : 11.1650778627396 : JumpEnd); (36.7604154166667 : 11.1650778627396 : JumpStart); (36.9270820833333 : 11.1650778627396 : JumpEnd); (36.9479166666667 : 11.1650778627396 : JumpStart); (37.1145833333333 : 11.1650778627396 : JumpEnd); (37.2604166666667 : 11.1650778627396 : JumpStart); (37.4270833333333 : 11.1650778627396 : JumpEnd); (39.7916666666667 : 11.1650778627396 : JumpStart); (40.0833333333333 : 11.1650778627396 : JumpEnd); (40.2916666666667 : 11.1650778627396 : JumpStart); (40.5208333333333 : 11.1650778627396 : JumpEnd); (40.5625 : 11.1650778627396); (40.5625 : 9.5625); (42.75 : 9.5625); (42.75 : 12.9640353695552); (45.0416666666667 : 12.9640353695552 : JumpStart); (45.2083333333333 : 12.9640353695552 : JumpEnd); (45.2916666666667 : 12.9640353695552 : JumpStart); (45.4583333333333 : 12.9640353695552 : JumpEnd); (45.6666666666667 : 12.9640353695552 : JumpStart); (45.8333333333333 : 12.9640353695552 : JumpEnd); (47 : 12.9640353695552); (47 : 11.634348727862)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(27.875 : 13.3472763694479); (28.375 : 13.3472763694479); (28.375 : 11.1661195929845); (30.875 : 11.1661195929845); (30.875 : 12.634348727862); (31.3229166666667 : 12.634348727862 : JumpStart); (31.4895833333333 : 12.634348727862 : JumpEnd); (33.2695047618486 : 12.634348727862 : JumpStart); (33.4361714285153 : 12.634348727862 : JumpEnd); (33.7916666666667 : 12.634348727862 : JumpStart); (34.3333333333333 : 12.634348727862 : JumpEnd); (34.6041666666667 : 12.634348727862 : JumpStart); (34.7708333333333 : 12.634348727862 : JumpEnd); (36.9304957821562 : 12.634348727862 : JumpStart); (37.0971624488229 : 12.634348727862 : JumpEnd); (37.4375 : 12.634348727862); (37.4375 : 12.375); (39.8541666666667 : 12.375 : JumpStart); (40.1458333333333 : 12.375 : JumpEnd); (40.4375 : 12.375); (40.4375 : 14.6322652673721); (42.75 : 14.6322652673721); (42.75 : 13.1515353695552); (42.7916666666667 : 13.1515353695552 : JumpStart); (43.0208333333333 : 13.1515353695552 : JumpEnd); (45.125 : 13.1515353695552); (45.125 : 12.75); (45.2916666666667 : 12.75 : JumpStart); (45.4583333333333 : 12.75 : JumpEnd); (47 : 12.75); (47 : 11.634348727862)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/Robot/Robot_Robot_Product_Discount" />
       <nodes>
-        <classShapeMoniker Id="e0e660cd-9632-43c2-90a0-430becfed7ae" />
+        <classShapeMoniker Id="b6b3eedb-0ba2-45f8-aec1-069f27e15c24" />
         <classShapeMoniker Id="ce5c7160-3942-442a-b415-1f5526c0b211" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(28.2031275 : 13.7468479649226); (28.2031275 : 37.9262889313698); (31.0416666666667 : 37.9262889313698 : JumpStart); (31.2083333333333 : 37.9262889313698 : JumpEnd); (31.5 : 37.9262889313698)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(27.8257692307692 : 14.2934625323613); (28.3125 : 14.6931172791489); (28.3125 : 37.9262889313698); (31.0416666666667 : 37.9262889313698 : JumpStart); (31.2083333333333 : 37.9262889313698 : JumpEnd); (31.5 : 37.9262889313698)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/Robot/Robot_Wallet" />
       <nodes>
-        <classShapeMoniker Id="e0e660cd-9632-43c2-90a0-430becfed7ae" />
+        <classShapeMoniker Id="b6b3eedb-0ba2-45f8-aec1-069f27e15c24" />
         <classShapeMoniker Id="f057f723-b0b3-42b2-b100-fb55027093b4" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(27.9825 : 13.7468479649226); (27.9825 : 30.7064972011248); (28.1197941666667 : 30.7064972011248 : JumpStart); (28.2864608333333 : 30.7064972011248 : JumpEnd); (31.0416666666667 : 30.7064972011248 : JumpStart); (31.2083333333333 : 30.7064972011248 : JumpEnd); (31.4479166666667 : 30.7064972011248 : JumpStart); (31.6145833333333 : 30.7064972011248 : JumpEnd); (34.3541666666667 : 30.7064972011248 : JumpStart); (34.5833333333333 : 30.7064972011248 : JumpEnd); (35.625 : 30.7064972011248)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(27.875 : 14.2934625323613); (28.28125 : 14.6270345009859); (28.28125 : 30.7064972011248); (31.0416666666667 : 30.7064972011248 : JumpStart); (31.2083333333333 : 30.7064972011248 : JumpEnd); (31.4479166666667 : 30.7064972011248 : JumpStart); (31.6145833333333 : 30.7064972011248 : JumpEnd); (34.3541666666667 : 30.7064972011248 : JumpStart); (34.5833333333333 : 30.7064972011248 : JumpEnd); (35.625 : 30.7064972011248)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/Robot/Robot_Order" />
       <nodes>
-        <classShapeMoniker Id="e0e660cd-9632-43c2-90a0-430becfed7ae" />
+        <classShapeMoniker Id="b6b3eedb-0ba2-45f8-aec1-069f27e15c24" />
         <classShapeMoniker Id="9dba535d-c561-4fd8-900b-800444d975c5" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(28.0624975 : 13.7468479649226); (28.0624975 : 14.3109239824613); (28.0651041666667 : 14.3109239824613 : JumpStart); (28.4270833333333 : 14.3109239824613 : JumpEnd); (28.4791666666667 : 14.3109239824613 : JumpStart); (28.6458333333333 : 14.3109239824613 : JumpEnd); (30.9166666666667 : 14.3109239824613 : JumpStart); (31.0833333333333 : 14.3109239824613 : JumpEnd); (31.2291666666667 : 14.3109239824613 : JumpStart); (31.3958333333333 : 14.3109239824613 : JumpEnd); (31.5 : 14.3109239824613)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(27.875 : 14.2525635192071); (28.0416666666667 : 14.2525635192071 : JumpStart); (28.2083333333333 : 14.2525635192071 : JumpEnd); (28.2418566536659 : 14.2525635192071 : JumpStart); (28.4085233203325 : 14.2525635192071 : JumpEnd); (30.9166666666667 : 14.2525635192071 : JumpStart); (31.0833333333333 : 14.2525635192071 : JumpEnd); (31.1666666666667 : 14.2525635192071 : JumpStart); (31.4895833333333 : 14.2525635192071 : JumpEnd); (31.5 : 14.2525635192071)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/Robot/Robot_Service_Robot" />
       <nodes>
-        <classShapeMoniker Id="e0e660cd-9632-43c2-90a0-430becfed7ae" />
+        <classShapeMoniker Id="b6b3eedb-0ba2-45f8-aec1-069f27e15c24" />
         <classShapeMoniker Id="3768965f-e245-426c-89d4-67d6e21d8c5b" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(28.25 : 12.8734239824613); (28.2916666666667 : 12.8734239824613 : JumpStart); (28.5833333333333 : 12.8734239824613 : JumpEnd); (28.625 : 12.8734239824613)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(27.875 : 12.8429312879911); (28.2916666666667 : 12.8429312879911 : JumpStart); (28.4583333333333 : 12.8429312879911 : JumpEnd); (28.625 : 12.8429312879911)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/Robot/Robot_Send_Advertising_Tariff" />
       <nodes>
-        <classShapeMoniker Id="e0e660cd-9632-43c2-90a0-430becfed7ae" />
+        <classShapeMoniker Id="b6b3eedb-0ba2-45f8-aec1-069f27e15c24" />
         <classShapeMoniker Id="3b769877-b569-40cb-9c0f-887d168b3504" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(27.37890475 : 13.7468479649226); (27.37890475 : 14.4375); (27.8991666666667 : 14.4375 : JumpStart); (28.0658333333333 : 14.4375 : JumpEnd); (28.125 : 14.4375); (28.125 : 16.1762889313698); (28.1979166666667 : 16.1762889313698 : JumpStart); (28.4270833333333 : 16.1762889313698 : JumpEnd); (28.625 : 16.1762889313698)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(27.875 : 14.2442307631306); (28.125 : 14.4495058207457); (28.125 : 14.0881874747462); (28.6265374615385 : 14.5)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/Robot/Robot_Send_Advertising" />
       <nodes>
-        <classShapeMoniker Id="e0e660cd-9632-43c2-90a0-430becfed7ae" />
+        <classShapeMoniker Id="b6b3eedb-0ba2-45f8-aec1-069f27e15c24" />
         <classShapeMoniker Id="cda8fc0f-64d7-452e-92f8-e1043d9a0fee" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(26.90234125 : 13.7468479649226); (26.90234125 : 14.21875); (27.0572896666667 : 14.21875 : JumpStart); (27.2239563333333 : 14.21875 : JumpEnd); (27.2955714166667 : 14.21875 : JumpStart); (27.5813789583333 : 14.21875 : JumpEnd); (27.8991666666667 : 14.21875 : JumpStart); (28.5208333333333 : 14.21875 : JumpEnd); (30.875 : 14.21875); (30.875 : 12.75); (30.9166666666667 : 12.75 : JumpStart); (31.0833333333333 : 12.75 : JumpEnd); (31.8854146666667 : 12.75 : JumpStart); (32.0520813333333 : 12.75 : JumpEnd); (32.9661171874449 : 12.75 : JumpStart); (33.1327838541116 : 12.75 : JumpEnd); (33.4791666666667 : 12.75 : JumpStart); (33.6458333333333 : 12.75 : JumpEnd); (33.6666666666667 : 12.75 : JumpStart); (34.3333333333333 : 12.75 : JumpEnd); (34.3541666666667 : 12.75 : JumpStart); (34.5833333333333 : 12.75 : JumpEnd); (34.6041666666667 : 12.75 : JumpStart); (34.7708333333333 : 12.75 : JumpEnd); (34.9118313275175 : 12.75 : JumpStart); (35.0784979941841 : 12.75 : JumpEnd); (36.7604154166667 : 12.75 : JumpStart); (37.1145833333333 : 12.75 : JumpEnd); (37.25 : 12.75); (37.25 : 14.25000275); (37.2604166666667 : 14.25000275 : JumpStart); (37.4583333333333 : 14.25000275 : JumpEnd); (37.625 : 14.25000275)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(27.875 : 7.04947511452675); (28.1666666666667 : 7.04947511452675 : JumpStart); (28.3333333333333 : 7.04947511452675 : JumpEnd); (28.5 : 7.04947511452675); (28.5 : 11.2911195929845); (30.7916666666667 : 11.2911195929845 : JumpStart); (30.9583333333333 : 11.2911195929845 : JumpEnd); (31.0416666666667 : 11.2911195929845 : JumpStart); (31.2083333333333 : 11.2911195929845 : JumpEnd); (31.3125 : 11.2911195929845); (31.3125 : 12.696848727862); (31.3229166666667 : 12.696848727862 : JumpStart); (31.4895833333333 : 12.696848727862 : JumpEnd); (31.8854146666667 : 12.696848727862 : JumpStart); (32.0520813333333 : 12.696848727862 : JumpEnd); (33.1055487322288 : 12.696848727862 : JumpStart); (33.2722153988954 : 12.696848727862 : JumpEnd); (33.4791666666667 : 12.696848727862 : JumpStart); (33.6458333333333 : 12.696848727862 : JumpEnd); (33.6666666666667 : 12.696848727862 : JumpStart); (34.3333333333333 : 12.696848727862 : JumpEnd); (34.4166666666667 : 12.696848727862 : JumpStart); (34.5833333333333 : 12.696848727862 : JumpEnd); (34.6041666666667 : 12.696848727862 : JumpStart); (34.7708333333333 : 12.696848727862 : JumpEnd); (34.9303676722149 : 12.696848727862 : JumpStart); (35.0970343388816 : 12.696848727862 : JumpEnd); (36.7604154166667 : 12.696848727862 : JumpStart); (37.0721624488229 : 12.696848727862 : JumpEnd); (37.25 : 12.696848727862); (37.25 : 12.3125); (37.2604166666667 : 12.3125 : JumpStart); (37.4270833333333 : 12.3125 : JumpEnd); (38.625 : 12.3125); (38.625 : 12.625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/Robot/Robot_Service_Robot_Public" />
       <nodes>
-        <classShapeMoniker Id="e0e660cd-9632-43c2-90a0-430becfed7ae" />
+        <classShapeMoniker Id="b6b3eedb-0ba2-45f8-aec1-069f27e15c24" />
         <classShapeMoniker Id="89ec7f88-ab8c-47e0-a213-9bee2eb208c3" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(27.1875005 : 2.5); (27.1875005 : 2.34790349880854); (27.6041694166667 : 2.34790349880854 : JumpStart); (27.7708360833333 : 2.34790349880854 : JumpEnd); (28.2916666666667 : 2.34790349880854 : JumpStart); (28.4583333333333 : 2.34790349880854 : JumpEnd); (28.5625 : 2.34790349880854); (28.5625 : 0.375); (34.40625 : 0.375); (34.40625 : 2.34790349880854); (34.5 : 2.34790349880854)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(27.875 : 2.97192207692308); (28.3125 : 2.53442207692308); (28.3125 : 0.0625); (34.0640374615385 : 0.0625); (34.5015374615385 : 0.5)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/Robot/Robot_Robot_Card_Bank_Account" />
       <nodes>
-        <classShapeMoniker Id="e0e660cd-9632-43c2-90a0-430becfed7ae" />
+        <classShapeMoniker Id="b6b3eedb-0ba2-45f8-aec1-069f27e15c24" />
         <classShapeMoniker Id="3cc0eb56-31c0-4d8b-8d32-510bf8e7bf2a" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(27.79984325 : 13.7468479649226); (27.79984325 : 13.9343479649226); (27.8991666666667 : 13.9343479649226 : JumpStart); (28.3958333333333 : 13.9343479649226 : JumpEnd); (28.5 : 13.9343479649226); (28.5 : 11.625); (30.75 : 11.625); (30.75 : 2); (33.6041666666667 : 2 : JumpStart); (33.7708333333333 : 2 : JumpEnd); (34 : 2); (34 : 4.25); (36.625 : 4.25); (36.625 : 2.60532534996668); (37 : 2.60532534996668)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(27.8426923076923 : 2.875); (28.25 : 2.46769230769231); (28.25 : 0.125); (36.6265374615385 : 0.125); (37.0015374615385 : 0.5)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/Robot/Robot_Service_Robot_Card_Bank" />
       <nodes>
-        <classShapeMoniker Id="e0e660cd-9632-43c2-90a0-430becfed7ae" />
+        <classShapeMoniker Id="b6b3eedb-0ba2-45f8-aec1-069f27e15c24" />
         <classShapeMoniker Id="ba487dff-fd1a-47a2-94fa-b9f2b0b742b8" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(27.68750275 : 2.5); (27.68750275 : 2.19893218835195); (28.0416666666667 : 2.19893218835195 : JumpStart); (28.2083333333333 : 2.19893218835195 : JumpEnd); (28.4375 : 2.19893218835195); (28.4375 : 0.3125); (42.6666666666667 : 0.312499999999999 : JumpStart); (42.8333333333333 : 0.3125 : JumpEnd); (45.5416666666667 : 0.312499999999999 : JumpStart); (45.7083333333333 : 0.3125 : JumpEnd); (53.40625 : 0.3125); (53.40625 : 1.57563794533412); (53.5 : 1.57563794533412)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(27.875 : 5.6373566476504); (28.25 : 5.6373566476504); (28.25 : 8.125); (28.2916666666667 : 8.125 : JumpStart); (28.4583333333333 : 8.125 : JumpEnd); (31.2916666666667 : 8.125 : JumpStart); (31.4583333333333 : 8.125 : JumpEnd); (31.5 : 8.125); (31.5 : 6.25); (33.6041666666667 : 6.25 : JumpStart); (33.7708333333333 : 6.25 : JumpEnd); (34.1490754771233 : 6.25 : JumpStart); (34.3157421437899 : 6.25 : JumpEnd); (39.0416666666667 : 6.25 : JumpStart); (39.2083333333333 : 6.25 : JumpEnd); (39.2916666666667 : 6.25 : JumpStart); (39.4583333333333 : 6.25 : JumpEnd); (39.5 : 6.25); (39.5 : 0.25); (42.6666666666667 : 0.249999999999999 : JumpStart); (42.8333333333333 : 0.25 : JumpEnd); (45.5416666666667 : 0.249999999999999 : JumpStart); (45.7083333333333 : 0.25 : JumpEnd); (45.75 : 0.25); (45.75 : 3.82184872786204); (50.75 : 3.82184872786204); (50.75 : 2); (53.375 : 2); (53.375 : 2.90127589066823); (54.0000005 : 2.90127589066823); (54.0000005 : 2.65127589066823)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/Robot/Robot_Robot_Limited_Commodity_Group" />
       <nodes>
-        <classShapeMoniker Id="e0e660cd-9632-43c2-90a0-430becfed7ae" />
+        <classShapeMoniker Id="b6b3eedb-0ba2-45f8-aec1-069f27e15c24" />
         <classShapeMoniker Id="ec761bc9-3a40-4acb-b177-d5049607e67b" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(28.171875 : 13.7468479649226); (28.171875 : 26.4188670802116); (28.0658333333333 : 26.4188670802116 : JumpStart); (27.8991666666667 : 26.4188670802116 : JumpEnd); (24.625 : 26.4188670802116)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(25.9257682307692 : 14.2934625323613); (25.8125 : 14.4067307631306); (25.8125 : 26.4188670802116); (24.625 : 26.4188670802116)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/Robot/Robot_Template_Item" />
       <nodes>
-        <classShapeMoniker Id="e0e660cd-9632-43c2-90a0-430becfed7ae" />
+        <classShapeMoniker Id="b6b3eedb-0ba2-45f8-aec1-069f27e15c24" />
         <classShapeMoniker Id="a5f0cb03-ad22-48e6-9102-748f466fa10c" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(28.1484375 : 13.7468479649226); (28.1484375 : 22.09375); (28.0658333333333 : 22.09375 : JumpStart); (27.8991666666667 : 22.09375 : JumpEnd); (25.5833333333333 : 22.09375 : JumpStart); (25.4166666666667 : 22.09375 : JumpEnd); (24.625 : 22.09375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(25.9073066923077 : 14.2934625323613); (25.59375 : 14.607019224669); (25.59375 : 22.7057231145267); (24.625 : 22.7057231145267)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/Robot/Robot_Template" />
       <nodes>
-        <classShapeMoniker Id="e0e660cd-9632-43c2-90a0-430becfed7ae" />
+        <classShapeMoniker Id="b6b3eedb-0ba2-45f8-aec1-069f27e15c24" />
         <classShapeMoniker Id="d864fa15-7edb-4263-9ab6-fe57be112983" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(26.529294625 : 13.7468479649226); (26.529294625 : 14.15625); (27.0572896666667 : 14.15625 : JumpStart); (27.2239563333333 : 14.15625 : JumpEnd); (27.2955714166667 : 14.15625 : JumpStart); (27.5813789583333 : 14.15625 : JumpEnd); (27.8991666666667 : 14.15625 : JumpStart); (28.2552083333333 : 14.15625 : JumpEnd); (28.28125 : 14.15625); (28.28125 : 24.8125); (29.5416666666667 : 24.8125 : JumpStart); (29.7083333333333 : 24.8125 : JumpEnd); (31.0416666666667 : 24.8125 : JumpStart); (31.2083333333333 : 24.8125 : JumpEnd); (31.4479166666667 : 24.8125 : JumpStart); (31.7395810833333 : 24.8125 : JumpEnd); (33.1666666666667 : 24.8125 : JumpStart); (33.3333333333333 : 24.8125 : JumpEnd); (34.3541666666667 : 24.8125 : JumpStart); (34.5833333333333 : 24.8125 : JumpEnd); (35.3541666666667 : 24.8125 : JumpStart); (35.5208333333333 : 24.8125 : JumpEnd); (36.7604154166667 : 24.8125 : JumpStart); (37.0520852083333 : 24.8125 : JumpEnd); (37.2604166666667 : 24.8125 : JumpStart); (37.4270833333333 : 24.8125 : JumpEnd); (41.5416666666667 : 24.8125 : JumpStart); (41.7083333333333 : 24.8125 : JumpEnd); (42.125 : 24.8125); (42.125 : 25.3261458882853); (42.5 : 25.3261458882853)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(27.875 : 8.64279897017686); (28.25 : 8.64279897017686); (28.25 : 11.0411195929845); (31.125 : 11.0411195929845); (31.125 : 12.665598727862); (33.7916666666667 : 12.665598727862 : JumpStart); (33.9583333333333 : 12.665598727862 : JumpEnd); (34.1041666666667 : 12.665598727862 : JumpStart); (34.2708333333333 : 12.665598727862 : JumpEnd); (37.375 : 12.665598727862); (37.375 : 15.7127341604233); (42.625 : 15.7127341604233); (42.625 : 23.5); (43.5 : 23.5); (43.5 : 23.875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/Robot/Robot_Robot_Search_Engine" />
       <nodes>
-        <classShapeMoniker Id="e0e660cd-9632-43c2-90a0-430becfed7ae" />
+        <classShapeMoniker Id="b6b3eedb-0ba2-45f8-aec1-069f27e15c24" />
         <classShapeMoniker Id="363a4abb-0d40-4e1a-998f-40d5f9a050b2" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(28.25 : 9.9928905611405); (30.6666666666667 : 9.9928905611405 : JumpStart); (30.9583333333333 : 9.9928905611405 : JumpEnd); (31.1666666666667 : 9.9928905611405 : JumpStart); (31.3333333333333 : 9.9928905611405 : JumpEnd); (31.5625 : 9.9928905611405); (31.5625 : 6.4375); (33.6041666666667 : 6.4375 : JumpStart); (33.7708333333333 : 6.4375 : JumpEnd); (34.1041666666667 : 6.4375 : JumpStart); (34.2708333333333 : 6.4375 : JumpEnd); (35.2916666666667 : 6.4375 : JumpStart); (35.4583333333333 : 6.4375 : JumpEnd); (36.9479166666667 : 6.4375 : JumpStart); (37.1145833333333 : 6.4375 : JumpEnd); (39.0416666666667 : 6.4375 : JumpStart); (39.2083333333333 : 6.4375 : JumpEnd); (39.5625 : 6.4375); (39.5625 : 0.5625); (42.6666666666667 : 0.562499999999999 : JumpStart); (42.8333333333333 : 0.5625 : JumpEnd); (45.5416666666667 : 0.562499999999999 : JumpStart); (45.7083333333333 : 0.5625 : JumpEnd); (45.8125 : 0.5625); (45.8125 : 7.41507786273956); (48.3125 : 7.41507786273956); (48.3125 : 4.0625); (50.9375 : 4.0625); (50.9375 : 5.9375); (54.5 : 5.9375); (54.5 : 6)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(27.875 : 4.27927959937096); (28 : 4.27927959937096); (28 : 11.1661195929845); (28.0416666666667 : 11.1661195929845 : JumpStart); (28.2083333333333 : 11.1661195929845 : JumpEnd); (28.4166666666667 : 11.1661195929845 : JumpStart); (28.6458333333333 : 11.1661195929845 : JumpEnd); (30.7916666666667 : 11.1661195929845 : JumpStart); (30.9583333333333 : 11.1661195929845 : JumpEnd); (31.0625 : 11.1661195929845); (31.0625 : 12.603098727862); (31.1041666666667 : 12.603098727862 : JumpStart); (31.4895833333333 : 12.603098727862 : JumpEnd); (33.3514827766586 : 12.603098727862 : JumpStart); (33.6458333333333 : 12.603098727862 : JumpEnd); (33.6666666666667 : 12.603098727862 : JumpStart); (34.3333333333333 : 12.603098727862 : JumpEnd); (34.4166666666667 : 12.603098727862 : JumpStart); (34.5833333333333 : 12.603098727862 : JumpEnd); (34.6041666666667 : 12.603098727862 : JumpStart); (34.7708333333333 : 12.603098727862 : JumpEnd); (36.7604154166667 : 12.603098727862 : JumpStart); (36.9270820833333 : 12.603098727862 : JumpEnd); (36.9429957821562 : 12.603098727862 : JumpStart); (37.1145838333333 : 12.603098727862 : JumpEnd); (37.1875 : 12.603098727862); (37.1875 : 12.1875); (37.2604166666667 : 12.1875 : JumpStart); (37.4270833333333 : 12.1875 : JumpEnd); (39.7916666666667 : 12.1875 : JumpStart); (40.0208333333333 : 12.1875 : JumpEnd); (40.1666666666667 : 12.1875 : JumpStart); (40.4583333333333 : 12.1875 : JumpEnd); (40.5 : 12.1875); (40.5 : 14.3197652673721); (42.6875 : 14.3197652673721); (42.6875 : 13.1515353695552); (42.7916666666667 : 13.1515353695552 : JumpStart); (43.0833333333333 : 13.1515353695552 : JumpEnd); (45.125 : 13.1515353695552); (45.125 : 12.625); (45.2916666666667 : 12.625 : JumpStart); (45.4583333333333 : 12.625 : JumpEnd); (45.6666666666667 : 12.625 : JumpStart); (45.8333333333333 : 12.625 : JumpEnd); (45.8541666666667 : 12.625 : JumpStart); (46.0208333333333 : 12.625 : JumpEnd); (46.9166666666667 : 12.625 : JumpStart); (47.0833333333333 : 12.625 : JumpEnd); (49.8541661666667 : 12.625 : JumpStart); (50.0208328333333 : 12.625 : JumpEnd); (50.3854166666667 : 12.625 : JumpStart); (50.5520833333333 : 12.625 : JumpEnd); (52.9166666666667 : 12.625 : JumpStart); (53.0833333333333 : 12.625 : JumpEnd); (53.25 : 12.625); (53.25 : 13.0348692115148); (53.2916666666667 : 13.0348692115148 : JumpStart); (53.4583333333333 : 13.0348692115148 : JumpEnd); (54.5 : 13.0348692115148); (54.5 : 12.7848692115148)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/Robot/Robot_Robot_Instagram" />
       <nodes>
-        <classShapeMoniker Id="e0e660cd-9632-43c2-90a0-430becfed7ae" />
+        <classShapeMoniker Id="b6b3eedb-0ba2-45f8-aec1-069f27e15c24" />
         <classShapeMoniker Id="8acd880f-7ee6-4759-bb90-6e9f602da487" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(27.498045625 : 13.7468479649226); (27.498045625 : 14.40625); (27.8991666666667 : 14.40625 : JumpStart); (28.3645833333333 : 14.40625 : JumpEnd); (28.375 : 14.40625); (28.375 : 14.4325258906682); (28.4791666666667 : 14.4325258906682 : JumpStart); (28.6458333333333 : 14.4325258906682 : JumpEnd); (30.9166666666667 : 14.4325258906682 : JumpStart); (31.0833333333333 : 14.4325258906682 : JumpEnd); (31.3125 : 14.4325258906682); (31.3125 : 12.71875); (31.8854146666667 : 12.71875 : JumpStart); (32.0520813333333 : 12.71875 : JumpEnd); (33.0480952022548 : 12.71875 : JumpStart); (33.2147618689215 : 12.71875 : JumpEnd); (33.4791666666667 : 12.71875 : JumpStart); (33.6458333333333 : 12.71875 : JumpEnd); (33.6666666666667 : 12.71875 : JumpStart); (34.3333333333333 : 12.71875 : JumpEnd); (34.3541666666667 : 12.71875 : JumpStart); (34.5833333333333 : 12.71875 : JumpEnd); (34.6041666666667 : 12.71875 : JumpStart); (34.7708333333333 : 12.71875 : JumpEnd); (34.9227296700875 : 12.71875 : JumpStart); (35.0893963367542 : 12.71875 : JumpEnd); (36.7604154166667 : 12.71875 : JumpStart); (37.1145833333333 : 12.71875 : JumpEnd); (37.375 : 12.71875); (37.375 : 15.7127341604233); (41.0416666666667 : 15.7127341604233 : JumpStart); (41.2083333333333 : 15.7127341604233 : JumpEnd); (42.9166666666667 : 15.7127341604233 : JumpStart); (43.0833333333333 : 15.7127341604233 : JumpEnd); (45.1041666666667 : 15.7127341604233 : JumpStart); (45.2708333333333 : 15.7127341604233 : JumpEnd); (45.4375 : 15.7127341604233); (45.4375 : 17.0877341604233); (46.5416666666667 : 17.0877341604233 : JumpStart); (46.7083333333333 : 17.0877341604233 : JumpEnd); (47.7916666666667 : 17.0877341604233 : JumpStart); (47.9583333333333 : 17.0877341604233 : JumpEnd); (48.1666666666667 : 17.0877341604233 : JumpStart); (48.3333333333333 : 17.0877341604233 : JumpEnd); (48.375 : 17.0877341604233); (48.375 : 15.8377341604233); (53.125 : 15.8377341604233); (53.125 : 15.4580597964923); (53.5 : 15.4580597964923)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(27.875 : 9.77215441053057); (28.1666666666667 : 9.77215441053057 : JumpStart); (28.3333333333333 : 9.77215441053057 : JumpEnd); (28.4375 : 9.77215441053057); (28.4375 : 11.2286195929845); (30.9375 : 11.2286195929845); (30.9375 : 12.728098727862); (31.3229166666667 : 12.728098727862 : JumpStart); (31.4895833333333 : 12.728098727862 : JumpEnd); (33.0235707174188 : 12.728098727862 : JumpStart); (33.1902373840855 : 12.728098727862 : JumpEnd); (33.6666666666667 : 12.728098727862 : JumpStart); (34.3333333333333 : 12.728098727862 : JumpEnd); (34.6041666666667 : 12.728098727862 : JumpStart); (34.7708333333333 : 12.728098727862 : JumpEnd); (36.7604154166667 : 12.728098727862 : JumpStart); (37.0596624488229 : 12.728098727862 : JumpEnd); (37.125 : 12.728098727862); (37.125 : 12); (37.184235273301 : 12 : JumpStart); (37.3509019399677 : 12 : JumpEnd); (40.25 : 12); (40.25 : 14.1947652673721); (40.3541666666667 : 14.1947652673721 : JumpStart); (40.5208333333333 : 14.1947652673721 : JumpEnd); (42.6666666666667 : 14.1947652673721 : JumpStart); (42.8333333333333 : 14.1947652673721 : JumpEnd); (42.90625 : 14.1947652673721); (42.90625 : 13.1202853695552); (43.8229161666667 : 13.1202853695552 : JumpStart); (43.9895828333333 : 13.1202853695552 : JumpEnd); (45.125 : 13.1202853695552); (45.125 : 12.5625); (45.2916666666667 : 12.5625 : JumpStart); (45.4583333333333 : 12.5625 : JumpEnd); (46.9166666666667 : 12.5625 : JumpStart); (47.0833333333333 : 12.5625 : JumpEnd); (50.3854166666667 : 12.5625 : JumpStart); (50.5520833333333 : 12.5625 : JumpEnd); (52.9166666666667 : 12.5625 : JumpStart); (53.0833333333333 : 12.5625 : JumpEnd); (53.375 : 12.5625); (53.375 : 13.1598692115148); (54.0000005 : 13.1598692115148); (54.0000005 : 14.125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/Robot/Robot_Robot_Currency_Source" />
       <nodes>
-        <classShapeMoniker Id="e0e660cd-9632-43c2-90a0-430becfed7ae" />
+        <classShapeMoniker Id="b6b3eedb-0ba2-45f8-aec1-069f27e15c24" />
         <classShapeMoniker Id="658a2a4b-f002-4511-8040-c3c0567a22e7" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(27.259763875 : 13.7468479649226); (27.259763875 : 13.8718479649226); (27.2955714166667 : 13.8718479649226 : JumpStart); (27.7005198333333 : 13.8718479649226 : JumpEnd); (27.8991666666667 : 13.8718479649226 : JumpStart); (28.3958333333333 : 13.8718479649226 : JumpEnd); (28.40625 : 13.8718479649226); (28.40625 : 11.75); (28.4166666666667 : 11.75 : JumpStart); (28.5833333333333 : 11.75 : JumpEnd); (30.9166666666667 : 11.75 : JumpStart); (31.0833333333333 : 11.75 : JumpEnd); (31.25 : 11.75); (31.25 : 6.125); (33.6041666666667 : 6.125 : JumpStart); (33.7708333333333 : 6.125 : JumpEnd); (34.2115754771233 : 6.125 : JumpStart); (34.3782421437899 : 6.125 : JumpEnd); (36.9479166666667 : 6.125 : JumpStart); (37.1145833333333 : 6.125 : JumpEnd); (39.125 : 6.125); (39.125 : 7.125); (39.2916666666667 : 7.125 : JumpStart); (39.5327612529788 : 7.125 : JumpEnd); (39.9166666666667 : 7.125 : JumpStart); (40.0833333333333 : 7.125 : JumpEnd); (42.1666666666667 : 7.125 : JumpStart); (42.3333333333333 : 7.125 : JumpEnd); (42.5 : 7.125); (42.5 : 6.76326768477758); (42.6666666666667 : 6.76326768477758 : JumpStart); (42.8333333333333 : 6.76326768477758 : JumpEnd); (42.875 : 6.76326768477758)]" fixedFrom="Algorithm" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(26.8275941538462 : 2.875); (26.8275941538462 : 2.75); (28.4375 : 2.75); (28.4375 : 7.57289045810699); (31.25 : 7.57289045810699); (31.25 : 6.1875); (34.1803254771233 : 6.1875 : JumpStart); (34.3469921437899 : 6.1875 : JumpEnd); (39.25 : 6.1875); (39.25 : 7.1875); (39.3035945863122 : 7.1875 : JumpStart); (39.4702612529788 : 7.1875 : JumpEnd); (42.5 : 7.1875); (42.5 : 6.76326768477758); (42.875 : 6.76326768477758)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/Robot/Robot_Robot_Product" />
       <nodes>
-        <classShapeMoniker Id="e0e660cd-9632-43c2-90a0-430becfed7ae" />
+        <classShapeMoniker Id="b6b3eedb-0ba2-45f8-aec1-069f27e15c24" />
         <classShapeMoniker Id="a31bb8bd-bf38-4e89-a6df-a6bfc1db9aea" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(26.25 : 5.09972652673721); (25.8333333333333 : 5.09972652673721 : JumpStart); (25.6666666666667 : 5.09972652673721 : JumpEnd); (24.2083333333333 : 5.09972652673721 : JumpStart); (24.0416666666667 : 5.09972652673721 : JumpEnd); (22.6770833333333 : 5.09972652673721 : JumpStart); (22.5104166666667 : 5.09972652673721 : JumpEnd); (19.625 : 5.09972652673721)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(25.875 : 5.09972652673721); (22.6770833333333 : 5.09972652673721 : JumpStart); (22.5104166666667 : 5.09972652673721 : JumpEnd); (19.625 : 5.09972652673721)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/Robot/Robot_Robot_External_Query" />
       <nodes>
-        <classShapeMoniker Id="e0e660cd-9632-43c2-90a0-430becfed7ae" />
+        <classShapeMoniker Id="b6b3eedb-0ba2-45f8-aec1-069f27e15c24" />
         <classShapeMoniker Id="64d242af-af23-43d6-9385-7364a30fe2b4" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(27.021482125 : 13.7468479649226); (27.021482125 : 14.09375); (27.0572896666667 : 14.09375 : JumpStart); (27.2239563333333 : 14.09375 : JumpEnd); (27.2955714166667 : 14.09375 : JumpStart); (27.5813789583333 : 14.09375 : JumpEnd); (27.8991666666667 : 14.09375 : JumpStart); (28.2864608333333 : 14.09375 : JumpEnd); (28.34375 : 14.09375); (28.34375 : 21.9309632953008); (31.0416666666667 : 21.9309632953008 : JumpStart); (31.3333333333333 : 21.9309632953008 : JumpEnd); (31.4479166666667 : 21.9309632953008 : JumpStart); (31.7395810833333 : 21.9309632953008 : JumpEnd); (32 : 21.9309632953008); (32 : 19.25); (32.2135422916667 : 19.25 : JumpStart); (32.3802089583333 : 19.25 : JumpEnd); (32.7916666666667 : 19.25 : JumpStart); (32.9583333333333 : 19.25 : JumpEnd); (33.6666666666667 : 19.25 : JumpStart); (33.8333333333333 : 19.25 : JumpEnd); (34 : 19.25); (34 : 18.28125); (34.1041666666667 : 18.28125 : JumpStart); (34.2708333333333 : 18.28125 : JumpEnd); (34.2916666666667 : 18.28125 : JumpStart); (34.4583333333333 : 18.28125 : JumpEnd); (35.4166666666667 : 18.28125 : JumpStart); (35.5833333333333 : 18.28125 : JumpEnd); (36.7604154166667 : 18.28125 : JumpStart); (37.0520852083333 : 18.28125 : JumpEnd); (37.2604166666667 : 18.28125 : JumpStart); (37.4270833333333 : 18.28125 : JumpEnd); (37.5 : 18.28125); (37.5 : 20.0830597964923); (37.625 : 20.0830597964923)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(27.875 : 13.7957535662892); (28.5625 : 13.7957535662892); (28.5625 : 10.9786195929845); (30.6041666666667 : 10.9786195929845 : JumpStart); (30.7708333333333 : 10.9786195929845 : JumpEnd); (31.25 : 10.9786195929845); (31.25 : 12.546875); (31.3229166666667 : 12.546875 : JumpStart); (31.4895833333333 : 12.546875 : JumpEnd); (33.4791666666667 : 12.546875 : JumpStart); (33.6656409503761 : 12.546875 : JumpEnd); (33.7916666666667 : 12.546875 : JumpStart); (34.3333333333333 : 12.546875 : JumpEnd); (34.6041666666667 : 12.546875 : JumpStart); (34.7708333333333 : 12.546875 : JumpEnd); (36.7604154166667 : 12.546875 : JumpStart); (36.9270820833333 : 12.546875 : JumpEnd); (36.965485273301 : 12.546875 : JumpStart); (37.2083333333333 : 12.546875 : JumpEnd); (37.3541666666667 : 12.546875 : JumpStart); (37.5208333333333 : 12.546875 : JumpEnd); (37.5625 : 12.546875); (37.5625 : 15.8125); (39.1875 : 15.8125); (39.1875 : 18.65625); (38.7083333333333 : 18.65625 : JumpStart); (38.5416666666667 : 18.65625 : JumpEnd); (38.093748 : 18.65625); (38.093748 : 18.75)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/Robot/Robot_Service_Robot_Stakeholder" />
       <nodes>
-        <classShapeMoniker Id="e0e660cd-9632-43c2-90a0-430becfed7ae" />
+        <classShapeMoniker Id="b6b3eedb-0ba2-45f8-aec1-069f27e15c24" />
         <classShapeMoniker Id="4c6e4607-ec54-4b1e-89eb-0d5322bafb5e" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(25.125 : 6.30805006183874); (25.6666666666667 : 6.30805006183874 : JumpStart); (25.8333333333333 : 6.30805006183874 : JumpEnd); (26.25 : 6.30805006183874)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(25.125 : 7.22474996983132); (25.875 : 7.22474996983132)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/Organ/Organ_Robot" />
       <nodes>
         <classShapeMoniker Id="669756dd-27b0-4d22-a036-057ecbe3cb6a" />
-        <classShapeMoniker Id="e0e660cd-9632-43c2-90a0-430becfed7ae" />
+        <classShapeMoniker Id="b6b3eedb-0ba2-45f8-aec1-069f27e15c24" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(26.9592307692308 : 2.5); (26.9592307692308 : 2.25); (27.5546153846154 : 2.25); (27.5546153846154 : 2.5)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(26.5842307692308 : 2.875); (26.5842307692308 : 2.6875); (27.1796153846154 : 2.6875); (27.1796153846154 : 2.875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/iRoboTechDataContext/Robot/Robot_Robot" />
       <nodes>
-        <classShapeMoniker Id="e0e660cd-9632-43c2-90a0-430becfed7ae" />
-        <classShapeMoniker Id="e0e660cd-9632-43c2-90a0-430becfed7ae" />
+        <classShapeMoniker Id="b6b3eedb-0ba2-45f8-aec1-069f27e15c24" />
+        <classShapeMoniker Id="b6b3eedb-0ba2-45f8-aec1-069f27e15c24" />
       </nodes>
     </associationConnector>
+    <classShape Id="1d1358aa-388e-46cd-92b5-357b1683a965" absoluteBounds="6.875, 28.875, 2, 1.1215884860356649">
+      <DataClassMoniker Name="/iRoboTechDataContext/D_QPIV" />
+      <nestedChildShapes>
+        <elementListCompartment Id="478cd79c-a2d9-4c7c-9b3e-88d8b8679c0c" absoluteBounds="6.89, 29.335, 1.9700000000000002, 0.5615884860356648" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
   </nestedChildShapes>
 </ordesignerObjectsDiagram>

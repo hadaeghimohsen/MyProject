@@ -1436,6 +1436,14 @@ namespace System.RoboTech.Data
 			}
 		}
 		
+		public System.Data.Linq.Table<D_QPIV> D_QPIVs
+		{
+			get
+			{
+				return this.GetTable<D_QPIV>();
+			}
+		}
+		
 		private void InsertCountry(Country obj)
 		{
 			this.INS_CNTY_P(obj.CODE, obj.NAME);
@@ -1878,7 +1886,7 @@ namespace System.RoboTech.Data
 		
 		private void UpdateRobot(Robot obj)
 		{
-			this.UPD_ROBO_P(((System.Nullable<long>)(obj.ORGN_OGID)), ((System.Nullable<long>)(obj.ROBO_RBID)), ((System.Nullable<long>)(obj.RBID)), obj.COPY_TYPE, obj.BOT_TYPE, obj.NAME, obj.TKON_CODE, obj.STAT, obj.BULD_STAT, obj.BULD_FILE_ID, obj.SPY_TYPE, obj.CRTB_URL, obj.DOWN_LOAD_FILE_PATH, obj.UP_LOAD_FILE_PATH, obj.INVT_FRND, obj.HASH_TAG, ((System.Nullable<double>)(obj.CORD_X)), ((System.Nullable<double>)(obj.CORD_Y)), obj.POST_ADRS, obj.CELL_PHON, obj.TELL_PHON, obj.EMAL_ADRS, obj.WEB_SITE, obj.RUN_STAT, obj.AMNT_TYPE, obj.CNCT_ACNT_APP, obj.ACNT_APP_TYPE, ((System.Nullable<int>)(obj.PAGE_FECH_ROWS)), ((System.Nullable<long>)(obj.MIN_WITH_DRAW)), ((System.Nullable<int>)(obj.CONF_DURT_DAY)), obj.AUTO_SHIP_CORI, obj.SHOW_INVR_STAT, obj.VIEW_INVR_STAT, ((System.Nullable<long>)(obj.FREE_SHIP_INCT_AMNT)), ((System.Nullable<long>)(obj.FREE_SHIP_OTCT_AMNT)), obj.ORDR_EXPR_STAT, ((System.Nullable<int>)(obj.ORDR_EXPR_TIME)), obj.LOCL_SRVR_CONN_STRN, obj.WEB_SRVR_CONN_STRN, obj.NOTI_ORDR_SHIP_STAT, obj.NOTI_SOND_ORDR_SHIP_PATH, obj.NOTI_ORDR_RCPT_STAT, obj.NOTI_SOND_ORDR_RCPT_PATH, obj.NOTI_ORDR_RECP_STAT, obj.NOTI_SOND_ORDR_RECP_PATH, obj.CHCK_REGS_STRT, obj.CRNC_CALC_STAT, ((System.Nullable<long>)(obj.RBCR_CODE)), ((System.Nullable<long>)(obj.CRNC_AMNT_DNRM)), obj.CRNC_AUTO_UPDT_STAT, ((System.Nullable<int>)(obj.CRNC_CYCL_AUTO_UPDT)), obj.EXTR_SORC_STAT, obj.SLCT_SRVR_TYPE, obj.CRNC_HOW_UPDT_STAT, ((System.Nullable<long>)(obj.MAX_CARD_TO_CARD_AMNT)));
+			this.UPD_ROBO_P(((System.Nullable<long>)(obj.ORGN_OGID)), ((System.Nullable<long>)(obj.ROBO_RBID)), ((System.Nullable<long>)(obj.RBID)), obj.COPY_TYPE, obj.BOT_TYPE, obj.NAME, obj.TKON_CODE, obj.STAT, obj.BULD_STAT, obj.BULD_FILE_ID, obj.SPY_TYPE, obj.CRTB_URL, obj.DOWN_LOAD_FILE_PATH, obj.UP_LOAD_FILE_PATH, obj.INVT_FRND, obj.HASH_TAG, ((System.Nullable<double>)(obj.CORD_X)), ((System.Nullable<double>)(obj.CORD_Y)), obj.POST_ADRS, obj.CELL_PHON, obj.TELL_PHON, obj.EMAL_ADRS, obj.WEB_SITE, obj.RUN_STAT, obj.AMNT_TYPE, obj.CNCT_ACNT_APP, obj.ACNT_APP_TYPE, ((System.Nullable<int>)(obj.PAGE_FECH_ROWS)), ((System.Nullable<long>)(obj.MIN_WITH_DRAW)), ((System.Nullable<int>)(obj.CONF_DURT_DAY)), obj.AUTO_SHIP_CORI, obj.SHOW_INVR_STAT, obj.VIEW_INVR_STAT, ((System.Nullable<long>)(obj.FREE_SHIP_INCT_AMNT)), ((System.Nullable<long>)(obj.FREE_SHIP_OTCT_AMNT)), obj.ORDR_EXPR_STAT, ((System.Nullable<int>)(obj.ORDR_EXPR_TIME)), obj.LOCL_SRVR_CONN_STRN, obj.WEB_SRVR_CONN_STRN, obj.NOTI_ORDR_SHIP_STAT, obj.NOTI_SOND_ORDR_SHIP_PATH, obj.NOTI_ORDR_RCPT_STAT, obj.NOTI_SOND_ORDR_RCPT_PATH, obj.NOTI_ORDR_RECP_STAT, obj.NOTI_SOND_ORDR_RECP_PATH, obj.CHCK_REGS_STRT, obj.CRNC_CALC_STAT, ((System.Nullable<long>)(obj.RBCR_CODE)), ((System.Nullable<long>)(obj.CRNC_AMNT_DNRM)), obj.CRNC_AUTO_UPDT_STAT, ((System.Nullable<int>)(obj.CRNC_CYCL_AUTO_UPDT)), obj.EXTR_SORC_STAT, obj.SLCT_SRVR_TYPE, obj.CRNC_HOW_UPDT_STAT, ((System.Nullable<long>)(obj.MAX_CARD_TO_CARD_AMNT)), obj.QURY_PROD_INVR_STAT);
 		}
 		
 		private void DeleteRobot(Robot obj)
@@ -3144,9 +3152,10 @@ namespace System.RoboTech.Data
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Extr_Sorc_Stat", DbType="VarChar(3)")] string extr_Sorc_Stat, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Slct_Srvr_Type", DbType="VarChar(3)")] string slct_Srvr_Type, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Crnc_How_Updt_Stat", DbType="VarChar(3)")] string crnc_How_Updt_Stat, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Max_Card_To_Card_Amnt", DbType="BigInt")] System.Nullable<long> max_Card_To_Card_Amnt)
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Max_Card_To_Card_Amnt", DbType="BigInt")] System.Nullable<long> max_Card_To_Card_Amnt, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Qury_Prod_Invr_Stat", DbType="VarChar(3)")] string qury_Prod_Invr_Stat)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), orgn_Ogid, robo_Rbid, rbid, copy_Type, bot_Type, name, tkon_Code, stat, buld_Stat, buld_File_Id, spy_Type, crtb_Url, down_Load_File_Path, up_Load_File_Path, invt_Frnd, hash_Tag, cord_X, cord_Y, post_Adrs, cell_Phon, tell_Phon, emal_Adrs, web_Site, run_Stat, amnt_Type, cnct_Acnt_App, acnt_App_Type, page_Fech_Rows, min_With_Draw, conf_Durt_Day, auto_Ship_Cori, show_Invr_Stat, view_Invr_Stat, free_Ship_Inct_Amnt, free_Ship_Otct_Amnt, ordr_Expr_Stat, ordr_Expr_Time, locl_Srvr_Conn_Strn, web_Srvr_Conn_Strn, noti_Ordr_Ship_Stat, noti_Sond_Ordr_Ship_Path, noti_Ordr_Rcpt_Stat, noti_Sond_Ordr_Rcpt_Path, noti_Ordr_Recp_Stat, noti_Sond_Ordr_Recp_Path, chck_Regs_Strt, crnc_Calc_Stat, rbcr_Code, crnc_Amnt_Dnrm, crnc_Auto_Updt_Stat, crnc_Cycl_Auto_Updt, extr_Sorc_Stat, slct_Srvr_Type, crnc_How_Updt_Stat, max_Card_To_Card_Amnt);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), orgn_Ogid, robo_Rbid, rbid, copy_Type, bot_Type, name, tkon_Code, stat, buld_Stat, buld_File_Id, spy_Type, crtb_Url, down_Load_File_Path, up_Load_File_Path, invt_Frnd, hash_Tag, cord_X, cord_Y, post_Adrs, cell_Phon, tell_Phon, emal_Adrs, web_Site, run_Stat, amnt_Type, cnct_Acnt_App, acnt_App_Type, page_Fech_Rows, min_With_Draw, conf_Durt_Day, auto_Ship_Cori, show_Invr_Stat, view_Invr_Stat, free_Ship_Inct_Amnt, free_Ship_Otct_Amnt, ordr_Expr_Stat, ordr_Expr_Time, locl_Srvr_Conn_Strn, web_Srvr_Conn_Strn, noti_Ordr_Ship_Stat, noti_Sond_Ordr_Ship_Path, noti_Ordr_Rcpt_Stat, noti_Sond_Ordr_Rcpt_Path, noti_Ordr_Recp_Stat, noti_Sond_Ordr_Recp_Path, chck_Regs_Strt, crnc_Calc_Stat, rbcr_Code, crnc_Amnt_Dnrm, crnc_Auto_Updt_Stat, crnc_Cycl_Auto_Updt, extr_Sorc_Stat, slct_Srvr_Type, crnc_How_Updt_Stat, max_Card_To_Card_Amnt, qury_Prod_Invr_Stat);
 			return ((int)(result.ReturnValue));
 		}
 	}
@@ -49647,6 +49656,8 @@ namespace System.RoboTech.Data
 		
 		private System.Nullable<long> _MAX_CARD_TO_CARD_AMNT;
 		
+		private string _QURY_PROD_INVR_STAT;
+		
 		private string _CRET_BY;
 		
 		private System.Nullable<System.DateTime> _CRET_DATE;
@@ -49835,6 +49846,8 @@ namespace System.RoboTech.Data
     partial void OnCRNC_HOW_UPDT_STATChanged();
     partial void OnMAX_CARD_TO_CARD_AMNTChanging(System.Nullable<long> value);
     partial void OnMAX_CARD_TO_CARD_AMNTChanged();
+    partial void OnQURY_PROD_INVR_STATChanging(string value);
+    partial void OnQURY_PROD_INVR_STATChanged();
     partial void OnCRET_BYChanging(string value);
     partial void OnCRET_BYChanged();
     partial void OnCRET_DATEChanging(System.Nullable<System.DateTime> value);
@@ -51029,6 +51042,26 @@ namespace System.RoboTech.Data
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_QURY_PROD_INVR_STAT", DbType="VarChar(3)")]
+		public string QURY_PROD_INVR_STAT
+		{
+			get
+			{
+				return this._QURY_PROD_INVR_STAT;
+			}
+			set
+			{
+				if ((this._QURY_PROD_INVR_STAT != value))
+				{
+					this.OnQURY_PROD_INVR_STATChanging(value);
+					this.SendPropertyChanging();
+					this._QURY_PROD_INVR_STAT = value;
+					this.SendPropertyChanged("QURY_PROD_INVR_STAT");
+					this.OnQURY_PROD_INVR_STATChanged();
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_BY", DbType="VarChar(250)")]
 		public string CRET_BY
 		{
@@ -51920,6 +51953,51 @@ namespace System.RoboTech.Data
 		{
 			this.SendPropertyChanging();
 			entity.Robot1 = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.D$QPIV")]
+	public partial class D_QPIV
+	{
+		
+		private string _VALU;
+		
+		private string _DOMN_DESC;
+		
+		public D_QPIV()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VALU", DbType="VarChar(3) NOT NULL", CanBeNull=false)]
+		public string VALU
+		{
+			get
+			{
+				return this._VALU;
+			}
+			set
+			{
+				if ((this._VALU != value))
+				{
+					this._VALU = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DOMN_DESC", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
+		public string DOMN_DESC
+		{
+			get
+			{
+				return this._DOMN_DESC;
+			}
+			set
+			{
+				if ((this._DOMN_DESC != value))
+				{
+					this._DOMN_DESC = value;
+				}
+			}
 		}
 	}
 	

@@ -1366,6 +1366,184 @@ namespace System.Scsc.Ui.Common
          {
             MessageBox.Show(exc.Message);
          }
+      }
+
+      private void SelectExportContactFile_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {            
+            if (ExportFile_Sfd.ShowDialog() != DialogResult.OK) return;
+            SelectExportContactFile_Butn.Tag = ExportFile_Sfd.FileName;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void ExportContact_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            if(SelectExportContactFile_Butn.Tag == null)
+            {
+               SelectExportContactFile_Butn_Click(null, null);
+               return;
+            }
+
+            if(!ServConfDate_Dt.Value.HasValue)
+            {
+               ServConfDate_Dt.Focus();
+               return;
+            }
+
+            string fileExport = SelectExportContactFile_Butn.Tag.ToString();
+
+            if(GoogleContact_Rb.Checked)
+            {
+               File.AppendAllText(fileExport, @"Name,Given Name,Additional Name,Family Name,Yomi Name,Given Name Yomi,Additional Name Yomi,Family Name Yomi,Name Prefix,Name Suffix,Initials,Nickname,Short Name,Maiden Name,Birthday,Gender,Location,Billing Information,Directory Server,Mileage,Occupation,Hobby,Sensitivity,Priority,Subject,Notes,Language,Photo,Group Membership,E-mail 1 - Type,E-mail 1 - Value,Phone 1 - Type,Phone 1 - Value,Phone 2 - Type,Phone 2 - Value,Phone 3 - Type,Phone 3 - Value,Phone 4 - Type,Phone 4 - Value,Phone 5 - Type,Phone 5 - Value,Organization 1 - Type,Organization 1 - Name,Organization 1 - Yomi Name,Organization 1 - Title,Organization 1 - Department,Organization 1 - Symbol,Organization 1 - Location,Organization 1 - Job Description" + Environment.NewLine);
+            }
+
+            string contactsList = "";
+            foreach (var contact in vF_Fighs.List.OfType<Data.VF_Last_Info_FighterResult>().Where(s => s.CONF_DATE.Value.Date >= ServConfDate_Dt.Value.Value.Date))
+            {
+               contactsList += 
+                  string.Format(
+                     "{0},{1},,{1},,,,,,,,,,,{2},,,,,,,,,,,,,,,,,Mobile,{3},Home,{4},Dad Mobile,{5},Mom Mobile,{6},,,,,,,,,,{7}", 
+                     contact.FRST_NAME,
+                     contact.LAST_NAME + " ( " + ExportLabel_Txt.Text + " )",
+                     contact.BRTH_DATE_DNRM,
+                     contact.CELL_PHON_DNRM,
+                     contact.TELL_PHON_DNRM,
+                     contact.DAD_CELL_PHON_DNRM,
+                     contact.MOM_CELL_PHON_DNRM,
+                     Environment.NewLine
+                  );
+            }
+
+            File.AppendAllText(fileExport, contactsList);
+
+            MessageBox.Show("اطلاعات با موفقیت ذخیره شد");
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void ChatHist_Butn_Click(object sender, EventArgs e)
+      {
+
+      }
+
+      private void SavePblc_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _LastInfo = vF_Fighs.Current as Data.VF_Last_Info_FighterResult;
+            var _dbLastInfo = iScsc.VF_Last_Info_Fighter(_LastInfo.FILE_NO, null, null, null, null, null, null, null, null, null, null, null, null, null, null).FirstOrDefault();
+
+            string _chngClmn = ""; //= "ستون هایی که شما تغییر داده اید :" + Environment.NewLine;
+            bool _savedb = false;
+
+            if (_LastInfo.CELL_PHON_DNRM != null && _LastInfo.CELL_PHON_DNRM != _dbLastInfo.CELL_PHON_DNRM)
+            {
+               _chngClmn += string.Format("شماره تلفن همراه" + " : {0}", _LastInfo.CELL_PHON_DNRM) + Environment.NewLine;
+               _savedb = true;
+            }
+
+            if (_LastInfo.TELL_PHON_DNRM != null && _LastInfo.TELL_PHON_DNRM != _dbLastInfo.TELL_PHON_DNRM)
+            {
+               _chngClmn += string.Format("شماره تلفن ثابت" + " : {0}", _LastInfo.TELL_PHON_DNRM) + Environment.NewLine;
+               _savedb = true;
+            }
+
+            if (_LastInfo.DAD_CELL_PHON_DNRM != null && _LastInfo.DAD_CELL_PHON_DNRM != _dbLastInfo.DAD_CELL_PHON_DNRM)
+            {
+               _chngClmn += string.Format("شماره تلفن همراه پدر" + " : {0}", _LastInfo.DAD_CELL_PHON_DNRM) + Environment.NewLine;
+               _savedb = true;
+            }
+
+            if (_LastInfo.MOM_CELL_PHON_DNRM != null && _LastInfo.MOM_CELL_PHON_DNRM != _dbLastInfo.MOM_CELL_PHON_DNRM)
+            {
+               _chngClmn += string.Format("شماره تلفن همراه مادر" + " : {0}", _LastInfo.MOM_CELL_PHON_DNRM) + Environment.NewLine;
+               _savedb = true;
+            }
+
+            if (_LastInfo.SUNT_CODE != null && _LastInfo.SUNT_CODE != _dbLastInfo.SUNT_CODE)
+            {
+               _chngClmn += string.Format("اطلاعات سازمان" + " : {0}", _LastInfo.SUNT_CODE) + Environment.NewLine;
+               _savedb = true;
+            }
+
+            if (_LastInfo.GLOB_CODE != null && _LastInfo.GLOB_CODE != _dbLastInfo.GLOB_CODE)
+            {
+               _chngClmn += string.Format("کد پرسنلی" + " : {0}", _LastInfo.GLOB_CODE) + Environment.NewLine;
+               _savedb = true;
+            }
+
+            if (_LastInfo.NATL_CODE != null && _LastInfo.NATL_CODE != _dbLastInfo.NATL_CODE)
+            {
+               _chngClmn += string.Format("کد ملی" + " : {0}", _LastInfo.NATL_CODE) + Environment.NewLine;
+               _savedb = true;
+            }
+
+            if (_LastInfo.SERV_NO_DNRM != null && _LastInfo.SERV_NO_DNRM != _dbLastInfo.SERV_NO_DNRM)
+            {
+               _chngClmn += string.Format("کد اشتراک" + " : {0}", _LastInfo.SERV_NO_DNRM) + Environment.NewLine;
+               _savedb = true;
+            }
+
+            if (_LastInfo.CHAT_ID_DNRM != null && _LastInfo.CHAT_ID_DNRM != _dbLastInfo.CHAT_ID_DNRM)
+            {
+               _chngClmn += string.Format("کد بله" + " : {0}", _LastInfo.CHAT_ID_DNRM) + Environment.NewLine;
+               _savedb = true;
+            }
+
+            if (_LastInfo.DAD_CHAT_ID_DNRM != null && _LastInfo.DAD_CHAT_ID_DNRM != _dbLastInfo.DAD_CHAT_ID_DNRM)
+            {
+               _chngClmn += string.Format("کد بله پدر" + " : {0}", _LastInfo.DAD_CHAT_ID_DNRM) + Environment.NewLine;
+               _savedb = true;
+            }
+
+            if (_LastInfo.MOM_CHAT_ID_DNRM != null && _LastInfo.MOM_CHAT_ID_DNRM != _dbLastInfo.MOM_CHAT_ID_DNRM)
+            {
+               _chngClmn += string.Format("کد بله مادر" + " : {0}", _LastInfo.MOM_CHAT_ID_DNRM) + Environment.NewLine;
+               _savedb = true;
+            }
+
+            if (_LastInfo.INSR_DATE_DNRM != null && _LastInfo.INSR_DATE_DNRM != _dbLastInfo.INSR_DATE_DNRM)
+            {
+               _chngClmn += string.Format("تاریخ بیمه" + " : {0}", _LastInfo.INSR_DATE_DNRM.Value.ToString("yyyy-MM-dd")) + Environment.NewLine;
+               _savedb = true;
+            }
+
+            if (!_savedb) return;
+
+            if (MessageBox.Show(this, "آیا با ذخیره کردن اطلاعات موافق هستید؟" + Environment.NewLine + _chngClmn, "ثبت اطلاعات", MessageBoxButtons.YesNo) != DialogResult.Yes) return;
+
+            iScsc.SCVF_PBLC_P(
+               new XElement("Fighter",
+                   new XAttribute("fileno", _LastInfo.FILE_NO),
+                   new XAttribute("cellphon", _LastInfo.CELL_PHON_DNRM ?? ""),
+                   new XAttribute("tellphon", _LastInfo.TELL_PHON_DNRM ?? ""),
+                   new XAttribute("dadcellphon", _LastInfo.DAD_CELL_PHON_DNRM ?? ""),
+                   new XAttribute("momcellphon", _LastInfo.MOM_CELL_PHON_DNRM ?? ""),
+                   new XAttribute("suntcode", _LastInfo.SUNT_CODE ?? ""),
+                   new XAttribute("globcode", _LastInfo.GLOB_CODE ?? ""),
+                   new XAttribute("servno", _LastInfo.SERV_NO_DNRM ?? ""),
+                   new XAttribute("natlcode", _LastInfo.NATL_CODE ?? ""),
+                   new XAttribute("insrdate", _LastInfo.INSR_DATE_DNRM.HasValue ? _LastInfo.INSR_DATE_DNRM.Value.Date.ToString("yyyy-MM-dd") : ""),
+                   new XAttribute("chatid", _LastInfo.CHAT_ID_DNRM ?? 0),
+                   new XAttribute("dadchatid", _LastInfo.DAD_CHAT_ID_DNRM ?? 0),
+                   new XAttribute("momchatid", _LastInfo.MOM_CHAT_ID_DNRM ?? 0)
+               )
+            );
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
       }      
 
    }

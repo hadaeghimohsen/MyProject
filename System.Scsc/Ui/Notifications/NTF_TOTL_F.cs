@@ -585,7 +585,15 @@ namespace System.Scsc.Ui.Notifications
                {
                   if(mbsprwno == 0)
                   {
-                     throw new Exception("اعضا گرامی دوره ای برای شما وجود ندارد یا دوره شما به پایان رسیده");
+                     // 1400/01/01 * ثبت خطای رخ داده شده درون سیستم
+                     iScsc.INS_LGOP_P(
+                        new XElement("Log",
+                            new XAttribute("fileno", Convert.ToInt64(Lov_FileName2.EditValue)),
+                            new XAttribute("type", "001"),
+                            new XAttribute("text", "اعضا گرامی دوره ای برای شما وجود ندارد یا دوره شما به پایان رسیده")
+                        )
+                     );
+                     throw new Exception("اعضا گرامی دوره ای برای شما وجود ندارد یا دوره شما به پایان رسیده");                     
                   }
                   iScsc.INS_ATTN_P(null, Convert.ToInt64(Lov_FileName2.EditValue), Dt_CrntDate2R.Value.Value, null, "001", mbsprwno == 0 ? null : (short?)mbsprwno, attnsystype, attnignrtype);
                   fileno = Lov_FileName2.EditValue;
@@ -744,6 +752,14 @@ namespace System.Scsc.Ui.Notifications
                {
                   if (mbsprwno == 0)
                   {
+                     // 1400/01/01 * ثبت خطای رخ داده شده درون سیستم
+                     iScsc.INS_LGOP_P(
+                        new XElement("Log",
+                            new XAttribute("fileno", Convert.ToInt64(Lov_FileName2.EditValue)),
+                            new XAttribute("type", "001"),
+                            new XAttribute("text", "اعضا گرامی دوره ای برای شما وجود ندارد یا دوره شما به پایان رسیده")
+                        )
+                     );
                      throw new Exception("اعضا گرامی دوره ای برای شما وجود ندارد یا دوره شما به پایان رسیده");
                   }
                   iScsc.INS_ATTN_P(null, Convert.ToInt64(Lov_FileName2.EditValue), Dt_CrntDate2R.Value, null, "002", mbsprwno == 0 ? null : (short?)mbsprwno, attnsystype, attnignrtype);
@@ -888,6 +904,14 @@ namespace System.Scsc.Ui.Notifications
                {
                   if (mbsprwno == 0)
                   {
+                     // 1400/01/01 * ثبت خطای رخ داده شده درون سیستم
+                     iScsc.INS_LGOP_P(
+                        new XElement("Log",
+                            new XAttribute("fileno", Convert.ToInt64(Lov_FileName2.EditValue)),
+                            new XAttribute("type", "001"),
+                            new XAttribute("text", "اعضا گرامی دوره ای برای شما وجود ندارد یا دوره شما به پایان رسیده")
+                        )
+                     );
                      throw new Exception("اعضا گرامی دوره ای برای شما وجود ندارد یا دوره شما به پایان رسیده");
                   }
                   iScsc.INS_ATTN_P(null, Convert.ToInt64(Lov_FileName2.EditValue), Dt_CrntDate2R.Value.Value, null, "004", mbsprwno == 0 ? null : (short?)mbsprwno, attnsystype, attnignrtype);
@@ -1031,6 +1055,14 @@ namespace System.Scsc.Ui.Notifications
                {
                   if (mbsprwno == 0)
                   {
+                     // 1400/01/01 * ثبت خطای رخ داده شده درون سیستم
+                     iScsc.INS_LGOP_P(
+                        new XElement("Log",
+                            new XAttribute("fileno", Convert.ToInt64(Lov_FileName2.EditValue)),
+                            new XAttribute("type", "001"),
+                            new XAttribute("text", "اعضا گرامی دوره ای برای شما وجود ندارد یا دوره شما به پایان رسیده")
+                        )
+                     );
                      throw new Exception("اعضا گرامی دوره ای برای شما وجود ندارد یا دوره شما به پایان رسیده");
                   }
                   iScsc.INS_ATTN_P(null, Convert.ToInt64(Lov_FileName2.EditValue), Dt_CrntDate2R.Value.Value, (long)Lov_CochName2.EditValue, "005", mbsprwno == 0 ? null : (short?)mbsprwno, attnsystype, attnignrtype);

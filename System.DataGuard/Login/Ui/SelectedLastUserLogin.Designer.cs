@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SelectedLastUserLogin));
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
          this.User_Txt = new System.Windows.Forms.Label();
          this.label4 = new System.Windows.Forms.Label();
          this.Password_Be = new DevExpress.XtraEditors.ButtonEdit();
@@ -43,6 +43,8 @@
          this.ErrorValidation_Lbl = new System.Windows.Forms.Label();
          this.pictureBox2 = new System.Windows.Forms.PictureBox();
          this.label2 = new System.Windows.Forms.Label();
+         this.ActvLicnTime_LL = new System.Windows.Forms.LinkLabel();
+         this.label5 = new System.Windows.Forms.Label();
          ((System.ComponentModel.ISupportInitialize)(this.Password_Be.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -53,7 +55,7 @@
          this.User_Txt.Anchor = System.Windows.Forms.AnchorStyles.Top;
          this.User_Txt.Font = new System.Drawing.Font("Consolas", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.User_Txt.ForeColor = System.Drawing.Color.White;
-         this.User_Txt.Location = new System.Drawing.Point(264, 331);
+         this.User_Txt.Location = new System.Drawing.Point(277, 331);
          this.User_Txt.Name = "User_Txt";
          this.User_Txt.Size = new System.Drawing.Size(235, 34);
          this.User_Txt.TabIndex = 4;
@@ -65,7 +67,7 @@
          this.label4.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
          this.label4.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.label4.ForeColor = System.Drawing.Color.White;
-         this.label4.Location = new System.Drawing.Point(331, 618);
+         this.label4.Location = new System.Drawing.Point(344, 688);
          this.label4.Name = "label4";
          this.label4.Size = new System.Drawing.Size(100, 23);
          this.label4.TabIndex = 4;
@@ -76,7 +78,7 @@
          // 
          this.Password_Be.Anchor = System.Windows.Forms.AnchorStyles.Top;
          this.Password_Be.EditValue = "";
-         this.Password_Be.Location = new System.Drawing.Point(264, 374);
+         this.Password_Be.Location = new System.Drawing.Point(277, 374);
          this.Password_Be.Name = "Password_Be";
          this.Password_Be.Properties.Appearance.BackColor = System.Drawing.Color.White;
          this.Password_Be.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -85,7 +87,7 @@
          this.Password_Be.Properties.AppearanceFocused.BorderColor = System.Drawing.Color.Gold;
          this.Password_Be.Properties.AppearanceFocused.Options.UseBorderColor = true;
          this.Password_Be.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("Password_Be.Properties.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("Password_Be.Properties.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
          this.Password_Be.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.Password_Be.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
          this.Password_Be.Properties.NullValuePrompt = "Enter Password";
@@ -105,7 +107,7 @@
          this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.label1.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.label1.ForeColor = System.Drawing.Color.White;
-         this.label1.Location = new System.Drawing.Point(690, 2);
+         this.label1.Location = new System.Drawing.Point(717, 2);
          this.label1.Name = "label1";
          this.label1.Size = new System.Drawing.Size(69, 23);
          this.label1.TabIndex = 4;
@@ -118,9 +120,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
          this.Lb_ShowLoginDesc.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.Lb_ShowLoginDesc.ForeColor = System.Drawing.Color.White;
-         this.Lb_ShowLoginDesc.Location = new System.Drawing.Point(39, 496);
+         this.Lb_ShowLoginDesc.Location = new System.Drawing.Point(39, 566);
          this.Lb_ShowLoginDesc.Name = "Lb_ShowLoginDesc";
-         this.Lb_ShowLoginDesc.Size = new System.Drawing.Size(685, 58);
+         this.Lb_ShowLoginDesc.Size = new System.Drawing.Size(712, 58);
          this.Lb_ShowLoginDesc.TabIndex = 4;
          this.Lb_ShowLoginDesc.Text = "برای رسیدن به بهترین ها، باید بسیار تلاش کرد";
          this.Lb_ShowLoginDesc.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -133,7 +135,7 @@
          this.label3.ForeColor = System.Drawing.Color.White;
          this.label3.Location = new System.Drawing.Point(39, 106);
          this.label3.Name = "label3";
-         this.label3.Size = new System.Drawing.Size(685, 32);
+         this.label3.Size = new System.Drawing.Size(712, 32);
          this.label3.TabIndex = 4;
          this.label3.Text = "Anar Team Corporation \r\nCellphone : 0917 101 5031 - 0935 744 5978\r\n";
          this.label3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -143,7 +145,7 @@
          this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
          this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
          this.pictureBox1.Image = global::System.DataGuard.Properties.Resources.IMAGE_1619;
-         this.pictureBox1.Location = new System.Drawing.Point(356, 53);
+         this.pictureBox1.Location = new System.Drawing.Point(369, 53);
          this.pictureBox1.Name = "pictureBox1";
          this.pictureBox1.Size = new System.Drawing.Size(50, 50);
          this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -164,7 +166,7 @@
          this.CheckValidation_RondButn.ImageProfile = global::System.DataGuard.Properties.Resources.IMAGE_1487;
          this.CheckValidation_RondButn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
          this.CheckValidation_RondButn.ImageVisiable = true;
-         this.CheckValidation_RondButn.Location = new System.Drawing.Point(499, 373);
+         this.CheckValidation_RondButn.Location = new System.Drawing.Point(512, 373);
          this.CheckValidation_RondButn.Name = "CheckValidation_RondButn";
          this.CheckValidation_RondButn.NormalBorderColor = System.Drawing.Color.White;
          this.CheckValidation_RondButn.NormalColorA = System.Drawing.Color.Transparent;
@@ -189,7 +191,7 @@
          this.Cancel_RondButn.ImageProfile = global::System.DataGuard.Properties.Resources.IMAGE_1484;
          this.Cancel_RondButn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
          this.Cancel_RondButn.ImageVisiable = true;
-         this.Cancel_RondButn.Location = new System.Drawing.Point(364, 580);
+         this.Cancel_RondButn.Location = new System.Drawing.Point(377, 650);
          this.Cancel_RondButn.Name = "Cancel_RondButn";
          this.Cancel_RondButn.NormalBorderColor = System.Drawing.Color.White;
          this.Cancel_RondButn.NormalColorA = System.Drawing.Color.Transparent;
@@ -214,7 +216,7 @@
          this.User_RondButn.ImageProfile = global::System.DataGuard.Properties.Resources.IMAGE_1486;
          this.User_RondButn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
          this.User_RondButn.ImageVisiable = true;
-         this.User_RondButn.Location = new System.Drawing.Point(306, 173);
+         this.User_RondButn.Location = new System.Drawing.Point(319, 173);
          this.User_RondButn.Name = "User_RondButn";
          this.User_RondButn.NormalBorderColor = System.Drawing.Color.Black;
          this.User_RondButn.NormalColorA = System.Drawing.Color.White;
@@ -229,7 +231,7 @@
          this.ErrorValidation_Lbl.Anchor = System.Windows.Forms.AnchorStyles.Top;
          this.ErrorValidation_Lbl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.ErrorValidation_Lbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-         this.ErrorValidation_Lbl.Location = new System.Drawing.Point(291, 403);
+         this.ErrorValidation_Lbl.Location = new System.Drawing.Point(304, 403);
          this.ErrorValidation_Lbl.Name = "ErrorValidation_Lbl";
          this.ErrorValidation_Lbl.Size = new System.Drawing.Size(181, 23);
          this.ErrorValidation_Lbl.TabIndex = 4;
@@ -241,7 +243,7 @@
          // 
          this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
          this.pictureBox2.Image = global::System.DataGuard.Properties.Resources.IMAGE_1551;
-         this.pictureBox2.Location = new System.Drawing.Point(16, 601);
+         this.pictureBox2.Location = new System.Drawing.Point(16, 671);
          this.pictureBox2.Name = "pictureBox2";
          this.pictureBox2.Size = new System.Drawing.Size(40, 40);
          this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -254,18 +256,49 @@
          this.label2.AutoSize = true;
          this.label2.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.label2.ForeColor = System.Drawing.Color.White;
-         this.label2.Location = new System.Drawing.Point(62, 627);
+         this.label2.Location = new System.Drawing.Point(62, 697);
          this.label2.Name = "label2";
          this.label2.Size = new System.Drawing.Size(158, 14);
          this.label2.TabIndex = 9;
          this.label2.Text = "Power By : Job Routing 1.0";
          this.label2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
          // 
+         // ActvLicnTime_LL
+         // 
+         this.ActvLicnTime_LL.ActiveLinkColor = System.Drawing.Color.White;
+         this.ActvLicnTime_LL.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+         this.ActvLicnTime_LL.AutoSize = true;
+         this.ActvLicnTime_LL.Font = new System.Drawing.Font("Segoe UI", 9F);
+         this.ActvLicnTime_LL.ForeColor = System.Drawing.Color.White;
+         this.ActvLicnTime_LL.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
+         this.ActvLicnTime_LL.LinkColor = System.Drawing.Color.White;
+         this.ActvLicnTime_LL.Location = new System.Drawing.Point(672, 696);
+         this.ActvLicnTime_LL.Name = "ActvLicnTime_LL";
+         this.ActvLicnTime_LL.Size = new System.Drawing.Size(105, 15);
+         this.ActvLicnTime_LL.TabIndex = 14;
+         this.ActvLicnTime_LL.TabStop = true;
+         this.ActvLicnTime_LL.Text = "9105-0001 - 1400/01/01";
+         this.ActvLicnTime_LL.VisitedLinkColor = System.Drawing.Color.White;
+         // 
+         // label5
+         // 
+         this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+         this.label5.AutoSize = true;
+         this.label5.Font = new System.Drawing.Font("Segoe UI", 9F);
+         this.label5.ForeColor = System.Drawing.Color.White;
+         this.label5.Location = new System.Drawing.Point(514, 696);
+         this.label5.Name = "label5";
+         this.label5.Size = new System.Drawing.Size(141, 15);
+         this.label5.TabIndex = 15;
+         this.label5.Text = "Your Active License Time:";
+         // 
          // SelectedLastUserLogin
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
          this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
          this.BackColor = System.Drawing.Color.DarkSlateBlue;
+         this.Controls.Add(this.ActvLicnTime_LL);
+         this.Controls.Add(this.label5);
          this.Controls.Add(this.pictureBox2);
          this.Controls.Add(this.label2);
          this.Controls.Add(this.CheckValidation_RondButn);
@@ -280,7 +313,7 @@
          this.Controls.Add(this.Cancel_RondButn);
          this.Controls.Add(this.User_RondButn);
          this.Name = "SelectedLastUserLogin";
-         this.Size = new System.Drawing.Size(762, 660);
+         this.Size = new System.Drawing.Size(789, 730);
          ((System.ComponentModel.ISupportInitialize)(this.Password_Be.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
@@ -304,6 +337,8 @@
         private Windows.Forms.Label ErrorValidation_Lbl;
         private Windows.Forms.PictureBox pictureBox2;
         private Windows.Forms.Label label2;
+        private Windows.Forms.LinkLabel ActvLicnTime_LL;
+        private Windows.Forms.Label label5;
 
 
 

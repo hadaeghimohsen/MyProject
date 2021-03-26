@@ -752,6 +752,15 @@
     <Compile Include="Ui\GateEntryExit\GATE_ACTN_F.RequestRespons.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Ui\KioskStation\KSK_SERV_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\KioskStation\KSK_SERV_F.Designer.cs">
+      <DependentUpon>KSK_SERV_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\KioskStation\KSK_SERV_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Ui\MasterPage\STRT_PROC_F.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -1140,6 +1149,7 @@
     <None Include="Properties\DataSources\System.Scsc.Data.D_IDTP.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_ITTP.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_LNTP.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.D_LOTP.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_MBTP.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_MGTP.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_MRID.datasource" />
@@ -1191,6 +1201,7 @@
     <None Include="Properties\DataSources\System.Scsc.Data.Holiday.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Image_Document.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.iScscDataContext.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.Log_Operation.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Main_State.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Meeting.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Meeting_Comment.datasource" />
@@ -1475,6 +1486,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Ui\GateEntryExit\GATE_ACTN_F.resx">
       <DependentUpon>GATE_ACTN_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\KioskStation\KSK_SERV_F.resx">
+      <DependentUpon>KSK_SERV_F.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ui\MasterPage\STRT_PROC_F.resx">
       <DependentUpon>STRT_PROC_F.cs</DependentUpon>

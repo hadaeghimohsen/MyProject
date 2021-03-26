@@ -196,6 +196,7 @@
          this.ChatId_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colOprt = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colActn_Butn = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+         this.colFNGR_PRNT = new DevExpress.XtraGrid.Columns.GridColumn();
          this.LOV_PRVN = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
          this.LOV_REGN = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
          this.persianRepositoryItemDateEdit2 = new dxExample.PersianRepositoryItemDateEdit();
@@ -281,7 +282,7 @@
          this.User_Gb = new System.Windows.Forms.GroupBox();
          this.label2 = new System.Windows.Forms.Label();
          this.OthrInCm_Butn = new System.MaxUi.RoundedButton();
-         this.colFNGR_PRNT = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.BaleCodeGnrt_Butn = new System.Windows.Forms.Button();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit1.CalendarTimeProperties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.RqstBs1)).BeginInit();
@@ -1381,6 +1382,16 @@
          this.colActn_Butn.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
          this.colActn_Butn.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.colActn_Butn_ButtonClick);
          // 
+         // colFNGR_PRNT
+         // 
+         this.colFNGR_PRNT.Caption = "کد شناسایی";
+         this.colFNGR_PRNT.FieldName = "FNGR_PRNT_DNRM";
+         this.colFNGR_PRNT.Name = "colFNGR_PRNT";
+         this.colFNGR_PRNT.OptionsColumn.AllowEdit = false;
+         this.colFNGR_PRNT.OptionsColumn.ReadOnly = true;
+         this.colFNGR_PRNT.Visible = true;
+         this.colFNGR_PRNT.VisibleIndex = 3;
+         // 
          // LOV_PRVN
          // 
          this.LOV_PRVN.AutoHeight = false;
@@ -1553,6 +1564,7 @@
          // 
          this.Gb_Info.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.Gb_Info.BackColor = System.Drawing.Color.Transparent;
+         this.Gb_Info.Controls.Add(this.BaleCodeGnrt_Butn);
          this.Gb_Info.Controls.Add(this.ChargeCredit_Ckbx);
          this.Gb_Info.Controls.Add(this.OthrExpnInfo_Ckbx);
          this.Gb_Info.Controls.Add(this.GoProfile_Pbt);
@@ -2552,15 +2564,16 @@
          this.OthrInCm_Butn.Tooltip = null;
          this.OthrInCm_Butn.Click += new System.EventHandler(this.OthrInCm_Butn_Click);
          // 
-         // colFNGR_PRNT
+         // BaleCodeGnrt_Butn
          // 
-         this.colFNGR_PRNT.Caption = "کد شناسایی";
-         this.colFNGR_PRNT.FieldName = "FNGR_PRNT_DNRM";
-         this.colFNGR_PRNT.Name = "colFNGR_PRNT";
-         this.colFNGR_PRNT.OptionsColumn.AllowEdit = false;
-         this.colFNGR_PRNT.OptionsColumn.ReadOnly = true;
-         this.colFNGR_PRNT.Visible = true;
-         this.colFNGR_PRNT.VisibleIndex = 3;
+         this.BaleCodeGnrt_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.BaleCodeGnrt_Butn.Location = new System.Drawing.Point(202, 132);
+         this.BaleCodeGnrt_Butn.Name = "BaleCodeGnrt_Butn";
+         this.BaleCodeGnrt_Butn.Size = new System.Drawing.Size(27, 22);
+         this.BaleCodeGnrt_Butn.TabIndex = 80;
+         this.BaleCodeGnrt_Butn.Text = "...";
+         this.BaleCodeGnrt_Butn.UseVisualStyleBackColor = true;
+         this.BaleCodeGnrt_Butn.Click += new System.EventHandler(this.BaleCodeGnrt_Butn_Click);
          // 
          // ADM_BRSR_F
          // 
@@ -2864,5 +2877,6 @@
       private Windows.Forms.CheckBox ChargeCredit_Ckbx;
       private Windows.Forms.CheckBox OthrExpnInfo_Ckbx;
       private DevExpress.XtraGrid.Columns.GridColumn colFNGR_PRNT;
+      private Windows.Forms.Button BaleCodeGnrt_Butn;
    }
 }

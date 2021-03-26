@@ -163,6 +163,7 @@
          this.tol_opengatebutn = new DevExpress.XtraBars.BarButtonItem();
          this.tol_closegatebutn = new DevExpress.XtraBars.BarButtonItem();
          this.bbi_grntbutn = new DevExpress.XtraBars.BarButtonItem();
+         this.bbi_evntsysbutn = new DevExpress.XtraBars.BarButtonItem();
          this.System_RPgc = new DevExpress.XtraBars.Ribbon.RibbonPageCategory();
          this.Base_RbPg = new DevExpress.XtraBars.Ribbon.RibbonPage();
          this.Base_RbGp = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -437,9 +438,10 @@
             this.tol_anydeskbutn,
             this.tol_opengatebutn,
             this.tol_closegatebutn,
-            this.bbi_grntbutn});
+            this.bbi_grntbutn,
+            this.bbi_evntsysbutn});
          this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
-         this.ribbonControl1.MaxItemId = 112;
+         this.ribbonControl1.MaxItemId = 113;
          this.ribbonControl1.Name = "ribbonControl1";
          this.ribbonControl1.PageCategories.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageCategory[] {
             this.System_RPgc,
@@ -1423,6 +1425,15 @@
          this.bbi_grntbutn.Name = "bbi_grntbutn";
          this.bbi_grntbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_grntbutn_ItemClick);
          // 
+         // bbi_evntsysbutn
+         // 
+         this.bbi_evntsysbutn.Caption = "رخدادهای سیستم";
+         this.bbi_evntsysbutn.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
+         this.bbi_evntsysbutn.Glyph = ((System.Drawing.Image)(resources.GetObject("bbi_evntsysbutn.Glyph")));
+         this.bbi_evntsysbutn.Id = 112;
+         this.bbi_evntsysbutn.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbi_evntsysbutn.LargeGlyph")));
+         this.bbi_evntsysbutn.Name = "bbi_evntsysbutn";
+         // 
          // System_RPgc
          // 
          this.System_RPgc.Color = System.Drawing.Color.Empty;
@@ -1673,9 +1684,9 @@
          // 
          // ribbonPageGroup17
          // 
+         this.ribbonPageGroup17.ItemLinks.Add(this.bbi_evntsysbutn);
          this.ribbonPageGroup17.Name = "ribbonPageGroup17";
          this.ribbonPageGroup17.Text = "فعالیت های سیستم";
-         this.ribbonPageGroup17.Visible = false;
          // 
          // ribbonPage8
          // 
@@ -2821,5 +2832,6 @@
       private Windows.Forms.Timer Tm_Exdv;
       private DevExpress.XtraBars.BarButtonItem bbi_grntbutn;
       private Windows.Forms.Button button5;
+      private DevExpress.XtraBars.BarButtonItem bbi_evntsysbutn;
    }
 }

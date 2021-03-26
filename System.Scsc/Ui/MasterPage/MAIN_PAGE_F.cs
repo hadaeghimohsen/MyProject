@@ -2804,6 +2804,15 @@ namespace System.Scsc.Ui.MasterPage
                      // IP Address Setting
                      var lsgate = new TcpListenerX((int)gate.PORT_RECV);
 
+                     // 1399/12/11 * اضافه شدن گزینه ای اطلاع رسانی بابت اتصال گیت به سرور
+                     new Thread(AlarmShow).Start();
+                     if (!GameHours_Butn.ToolTip.Contains(gate.IP_ADRS))
+                     {
+                        GameHours_Butn.ToolTip +=
+                           Environment.NewLine +
+                           string.Format("Host Server : {0}, Port Recv : {1}, Gate Control : {2}, Port Send : {3}", gate.SERV_IP_ADRS, gate.PORT_RECV, gate.IP_ADRS, gate.PORT_SEND);
+                     }
+
                      // Init Send Instance                  
                      //lsgate.StartListening();
                      lsgate.OnDataRecived += LsGate_OnDataRecived;
@@ -5839,6 +5848,14 @@ namespace System.Scsc.Ui.MasterPage
 
       private void tol_closegatebutn_ItemClick(object sender, ItemClickEventArgs e)
       {
+         iScsc.INS_LGOP_P(
+            new XElement("Log",
+               new XAttribute("fileno", ""),
+               new XAttribute("type", "007"),
+               new XAttribute("text", "گیت به صورت دستی توسط کاربر روبه بیرون باز شد")
+            )
+         );
+
          _DefaultGateway.Gateway(
             new Job(SendType.External, "localhost",
                new List<Job>
@@ -5859,6 +5876,14 @@ namespace System.Scsc.Ui.MasterPage
 
       private void tol_opengatebutn_ItemClick(object sender, ItemClickEventArgs e)
       {
+         iScsc.INS_LGOP_P(
+            new XElement("Log",
+               new XAttribute("fileno", ""),
+               new XAttribute("type", "007"),
+               new XAttribute("text", "گیت به صورت دستی توسط کاربر روبه داخل باز شد")
+            )
+         );
+
          _DefaultGateway.Gateway(
             new Job(SendType.External, "localhost",
                new List<Job>

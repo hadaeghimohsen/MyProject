@@ -1546,7 +1546,8 @@ namespace System.Scsc.Ui.OtherIncome
                         new XAttribute("pydtdesc", pydt.PYDT_DESC),
                         new XAttribute("qnty", pydt.QNTY ?? 1),
                         new XAttribute("fighfileno", pydt.FIGH_FILE_NO ?? 0),
-                        new XAttribute("cbmtcodednrm", e.NewValue ?? 0)
+                        new XAttribute("cbmtcodednrm", e.NewValue ?? 0),
+                        new XAttribute("exprdate", pydt.EXPR_DATE == null ? "" : pydt.EXPR_DATE.Value.ToString("yyyy-MM-dd"))
                      )
                   )
                )

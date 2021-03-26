@@ -213,6 +213,7 @@
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition46 = new DevExpress.XtraGrid.StyleFormatCondition();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject69 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject70 = new DevExpress.Utils.SerializableAppearanceObject();
+         this.colSTAT4 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colSTAT6 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colACTV_TYPE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.repositoryItemLookUpEdit8 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
@@ -345,7 +346,6 @@
          this.colMAKE_HOUR_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colMAKE_MINT_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colRELS_TIME = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colSTAT4 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colWERH_INVR_NUMB_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colMAX_SALE_DAY_NUMB_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colSALE_NUMB_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -2337,7 +2337,6 @@
          label50.Size = new System.Drawing.Size(111, 24);
          label50.TabIndex = 61;
          label50.Text = "نرم افزار حسابداری :";
-         label50.Visible = false;
          // 
          // label4
          // 
@@ -2627,6 +2626,11 @@
          label67.Size = new System.Drawing.Size(60, 14);
          label67.TabIndex = 50;
          label67.Text = "بارکد کالا :";
+         // 
+         // colSTAT4
+         // 
+         this.colSTAT4.FieldName = "STAT";
+         this.colSTAT4.Name = "colSTAT4";
          // 
          // colSTAT6
          // 
@@ -3730,11 +3734,13 @@
          styleFormatCondition1.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
          styleFormatCondition1.Appearance.Options.UseBackColor = true;
          styleFormatCondition1.ApplyToRow = true;
+         styleFormatCondition1.Column = this.colSTAT4;
          styleFormatCondition1.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
          styleFormatCondition1.Value1 = "001";
          styleFormatCondition2.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
          styleFormatCondition2.Appearance.Options.UseBackColor = true;
          styleFormatCondition2.ApplyToRow = true;
+         styleFormatCondition2.Column = this.colSTAT4;
          styleFormatCondition2.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
          styleFormatCondition2.Value1 = "002";
          this.Rbpr_Gv.FormatConditions.AddRange(new DevExpress.XtraGrid.StyleFormatCondition[] {
@@ -3934,11 +3940,6 @@
          // 
          this.colRELS_TIME.FieldName = "RELS_TIME";
          this.colRELS_TIME.Name = "colRELS_TIME";
-         // 
-         // colSTAT4
-         // 
-         this.colSTAT4.FieldName = "STAT";
-         this.colSTAT4.Name = "colSTAT4";
          // 
          // colWERH_INVR_NUMB_DNRM
          // 
@@ -11552,7 +11553,6 @@
          this.lookUpEdit16.Properties.ValueMember = "VALU";
          this.lookUpEdit16.Size = new System.Drawing.Size(196, 22);
          this.lookUpEdit16.TabIndex = 62;
-         this.lookUpEdit16.Visible = false;
          // 
          // lookUpEdit15
          // 

@@ -549,6 +549,7 @@
     <None Include="Properties\DataSources\System.RoboTech.Data.D_PDTP.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_PKTP.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_PROT.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.D_QPIV.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_RCMT.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_RCST.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_RCVT.datasource" />

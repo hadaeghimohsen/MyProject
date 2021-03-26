@@ -1376,14 +1376,13 @@ namespace System.RoboTech.Ui.DevelopmentApplication
                   sr.Orders.Any(o => 
                      o.ORDR_TYPE == "004" && 
                      o.ORDR_STAT != "003" && 
-                     (
-                        //(FromDate3_Cbx.Checked && ToDate3_Cbx.Checked && o.STRT_DATE.Value.Date >= FromDate3_Dt.Value.Value.Date && o.STRT_DATE.Value.Date <= ToDate3_Dt.Value.Value.Date) ||
-                        (FromDate3_Cbx.Checked && o.STRT_DATE.Value.Date >= FromDate3_Dt.Value.Value.Date) &&
-                        (ToDate3_Cbx.Checked && o.STRT_DATE.Value.Date <= ToDate3_Dt.Value.Value.Date) &&
-                        (OrdrCode3_Cbx.Checked && o.CODE == OrdrCode3_Txt.Text.ToInt64()) &&
-                        (CellPhon3_Cbx.Checked && o.CELL_PHON != null && o.CELL_PHON.Contains(CellPhon3_Txt.Text)) &&
-                        (NatlCode3_Cbx.Checked && o.Service_Robot.NATL_CODE != null && o.Service_Robot.NATL_CODE.Contains(NatlCode3_Txt.Text)) &&
-                        (ChatId3_Cbx.Checked && o.CHAT_ID.ToString().Contains(ChatId3_Txt.Text))
+                     (                        
+                        (!FromDate3_Cbx.Checked || o.STRT_DATE.Value.Date >= FromDate3_Dt.Value.Value.Date) &&
+                        (!ToDate3_Cbx.Checked || o.STRT_DATE.Value.Date <= ToDate3_Dt.Value.Value.Date) &&
+                        (!OrdrCode3_Cbx.Checked || o.CODE == OrdrCode3_Txt.Text.ToInt64()) &&
+                        (!CellPhon3_Cbx.Checked || o.CELL_PHON != null && o.CELL_PHON.Contains(CellPhon3_Txt.Text)) &&
+                        (!NatlCode3_Cbx.Checked || o.Service_Robot.NATL_CODE != null && o.Service_Robot.NATL_CODE.Contains(NatlCode3_Txt.Text)) &&
+                        (!ChatId3_Cbx.Checked || o.CHAT_ID.ToString().Contains(ChatId3_Txt.Text))
                      )
                   )
                );
@@ -1394,13 +1393,12 @@ namespace System.RoboTech.Ui.DevelopmentApplication
                   o.ORDR_TYPE == "004" &&
                   o.ORDR_STAT != "003" &&
                   (
-                     //(FromDate3_Cbx.Checked && ToDate3_Cbx.Checked && o.STRT_DATE.Value.Date >= FromDate3_Dt.Value.Value.Date && o.STRT_DATE.Value.Date <= ToDate3_Dt.Value.Value.Date) ||
-                     (FromDate3_Cbx.Checked && o.STRT_DATE.Value.Date >= FromDate3_Dt.Value.Value.Date) &&
-                     (ToDate3_Cbx.Checked && o.STRT_DATE.Value.Date <= ToDate3_Dt.Value.Value.Date) &&
-                     (OrdrCode3_Cbx.Checked && o.CODE == OrdrCode3_Txt.Text.ToInt64()) &&
-                     (CellPhon3_Cbx.Checked && o.CELL_PHON != null && o.CELL_PHON.Contains(CellPhon3_Txt.Text)) &&
-                     (NatlCode3_Cbx.Checked && o.Service_Robot.NATL_CODE != null && o.Service_Robot.NATL_CODE.Contains(NatlCode3_Txt.Text)) &&
-                     (ChatId3_Cbx.Checked && o.CHAT_ID.ToString().Contains(ChatId3_Txt.Text))
+                     (!FromDate3_Cbx.Checked || o.STRT_DATE.Value.Date >= FromDate3_Dt.Value.Value.Date) &&
+                     (!ToDate3_Cbx.Checked || o.STRT_DATE.Value.Date <= ToDate3_Dt.Value.Value.Date) &&
+                     (!OrdrCode3_Cbx.Checked || o.CODE == OrdrCode3_Txt.Text.ToInt64()) &&
+                     (!CellPhon3_Cbx.Checked || o.CELL_PHON != null && o.CELL_PHON.Contains(CellPhon3_Txt.Text)) &&
+                     (!NatlCode3_Cbx.Checked || o.Service_Robot.NATL_CODE != null && o.Service_Robot.NATL_CODE.Contains(NatlCode3_Txt.Text)) &&
+                     (!ChatId3_Cbx.Checked || o.CHAT_ID.ToString().Contains(ChatId3_Txt.Text))
                   )
                );
 

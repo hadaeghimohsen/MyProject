@@ -84,7 +84,9 @@
          this.SesnBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.Second_Pic = new System.Windows.Forms.PictureBox();
          this.panel4 = new System.Windows.Forms.Panel();
+         this.NotfNote_Butn = new System.MaxUi.RoundedButton();
          this.AttnPartner_Butn = new DevExpress.XtraEditors.SimpleButton();
+         this.Note_Lb = new System.Windows.Forms.Label();
          this.MoreInfo_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.SaveAttnDesc_Txt = new DevExpress.XtraEditors.SimpleButton();
          this.panel5 = new System.Windows.Forms.Panel();
@@ -113,6 +115,7 @@
          this.MbspStat_Rb = new System.MaxUi.RoundedButton();
          this.InsrRmnd_Txt = new DevExpress.XtraEditors.TextEdit();
          this.InsrDate_Txt = new DevExpress.XtraEditors.TextEdit();
+         this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
          label13 = new System.Windows.Forms.Label();
          label2 = new System.Windows.Forms.Label();
          ((System.ComponentModel.ISupportInitialize)(this.AttnBs1)).BeginInit();
@@ -697,7 +700,7 @@
          this.AttnDesc_Txt.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.AttnBs1, "ATTN_DESC", true));
          this.AttnDesc_Txt.Dock = System.Windows.Forms.DockStyle.Bottom;
          this.AttnDesc_Txt.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.AttnDesc_Txt.Location = new System.Drawing.Point(0, 563);
+         this.AttnDesc_Txt.Location = new System.Drawing.Point(0, 733);
          this.AttnDesc_Txt.Name = "AttnDesc_Txt";
          this.AttnDesc_Txt.Size = new System.Drawing.Size(1081, 46);
          this.AttnDesc_Txt.TabIndex = 29;
@@ -787,14 +790,41 @@
          // panel4
          // 
          this.panel4.BackColor = System.Drawing.Color.DimGray;
+         this.panel4.Controls.Add(this.NotfNote_Butn);
          this.panel4.Controls.Add(this.AttnPartner_Butn);
+         this.panel4.Controls.Add(this.Note_Lb);
          this.panel4.Controls.Add(this.MoreInfo_Butn);
          this.panel4.Controls.Add(this.SaveAttnDesc_Txt);
          this.panel4.Dock = System.Windows.Forms.DockStyle.Right;
          this.panel4.Location = new System.Drawing.Point(1081, 47);
          this.panel4.Name = "panel4";
-         this.panel4.Size = new System.Drawing.Size(92, 562);
+         this.panel4.Size = new System.Drawing.Size(92, 732);
          this.panel4.TabIndex = 87;
+         // 
+         // NotfNote_Butn
+         // 
+         this.NotfNote_Butn.Active = true;
+         this.NotfNote_Butn.Anchor = System.Windows.Forms.AnchorStyles.Top;
+         this.NotfNote_Butn.ButtonStyle = System.MaxUi.RoundedButton.ButtonStyles.Ellipse;
+         this.NotfNote_Butn.Caption = "10";
+         this.NotfNote_Butn.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.NotfNote_Butn.ForeColor = System.Drawing.Color.White;
+         this.NotfNote_Butn.GradientStyle = System.MaxUi.RoundedButton.GradientStyles.Vertical;
+         this.NotfNote_Butn.HoverBorderColor = System.Drawing.Color.Gold;
+         this.NotfNote_Butn.HoverColorA = System.Drawing.Color.Transparent;
+         this.NotfNote_Butn.HoverColorB = System.Drawing.Color.Transparent;
+         this.NotfNote_Butn.ImageProfile = null;
+         this.NotfNote_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.Normal;
+         this.NotfNote_Butn.ImageVisiable = false;
+         this.NotfNote_Butn.Location = new System.Drawing.Point(62, 246);
+         this.NotfNote_Butn.Name = "NotfNote_Butn";
+         this.NotfNote_Butn.NormalBorderColor = System.Drawing.Color.DimGray;
+         this.NotfNote_Butn.NormalColorA = System.Drawing.Color.Red;
+         this.NotfNote_Butn.NormalColorB = System.Drawing.Color.Red;
+         this.NotfNote_Butn.Size = new System.Drawing.Size(22, 22);
+         this.NotfNote_Butn.SmoothingQuality = System.MaxUi.RoundedButton.SmoothingQualities.AntiAlias;
+         this.NotfNote_Butn.TabIndex = 89;
+         this.NotfNote_Butn.Tooltip = null;
          // 
          // AttnPartner_Butn
          // 
@@ -816,6 +846,18 @@
          this.AttnPartner_Butn.TabIndex = 88;
          this.AttnPartner_Butn.ToolTip = "ثبت همراه عضو";
          this.AttnPartner_Butn.Click += new System.EventHandler(this.AttnPartner_Butn_Click);
+         // 
+         // Note_Lb
+         // 
+         this.Note_Lb.Font = new System.Drawing.Font("B Zar", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.Note_Lb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+         this.Note_Lb.Image = global::System.Scsc.Properties.Resources.IMAGE_1111;
+         this.Note_Lb.Location = new System.Drawing.Point(8, 243);
+         this.Note_Lb.Name = "Note_Lb";
+         this.Note_Lb.Size = new System.Drawing.Size(76, 74);
+         this.Note_Lb.TabIndex = 26;
+         this.Note_Lb.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         this.toolTip1.SetToolTip(this.Note_Lb, "4544");
          // 
          // MoreInfo_Butn
          // 
@@ -845,7 +887,7 @@
          this.SaveAttnDesc_Txt.Appearance.Options.UseBackColor = true;
          this.SaveAttnDesc_Txt.Image = global::System.Scsc.Properties.Resources.IMAGE_1195;
          this.SaveAttnDesc_Txt.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.SaveAttnDesc_Txt.Location = new System.Drawing.Point(24, 513);
+         this.SaveAttnDesc_Txt.Location = new System.Drawing.Point(24, 683);
          this.SaveAttnDesc_Txt.LookAndFeel.SkinName = "Office 2013";
          this.SaveAttnDesc_Txt.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.SaveAttnDesc_Txt.LookAndFeel.UseDefaultLookAndFeel = false;
@@ -1248,7 +1290,7 @@
          this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
          this.panel1.Location = new System.Drawing.Point(419, 47);
          this.panel1.Name = "panel1";
-         this.panel1.Size = new System.Drawing.Size(662, 516);
+         this.panel1.Size = new System.Drawing.Size(662, 686);
          this.panel1.TabIndex = 96;
          // 
          // label4
@@ -1351,7 +1393,7 @@
          this.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.Name = "WHO_ARYU_F";
          this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-         this.Size = new System.Drawing.Size(1173, 609);
+         this.Size = new System.Drawing.Size(1173, 779);
          ((System.ComponentModel.ISupportInitialize)(this.AttnBs1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.nAME_DNRMTextEdit.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.ENTR_TIMETextEdit.Properties)).EndInit();
@@ -1463,6 +1505,9 @@
       private Windows.Forms.Label label4;
       private DevExpress.XtraEditors.TextEdit InsrRmnd_Txt;
       private DevExpress.XtraEditors.TextEdit InsrDate_Txt;
+      private MaxUi.RoundedButton NotfNote_Butn;
+      private Windows.Forms.Label Note_Lb;
+      private Windows.Forms.ToolTip toolTip1;
 
    }
 }

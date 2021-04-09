@@ -3508,6 +3508,7 @@
       <Association Name="Method_Payment_Detail" Member="Payment_Details" ThisKey="CODE" OtherKey="MTOD_CODE_DNRM" Type="Payment_Detail" />
       <Association Name="Method_Expense" Member="Expenses" ThisKey="CODE" OtherKey="MTOD_CODE" Type="Expense" />
       <Association Name="Method_Aggregation_Operation" Member="Aggregation_Operations" ThisKey="CODE" OtherKey="MTOD_CODE" Type="Aggregation_Operation" />
+      <Association Name="Method_External_Device_Link_Method" Member="External_Device_Link_Methods" ThisKey="CODE" OtherKey="MTOD_CODE" Type="External_Device_Link_Method" />
       <Association Name="Method_Method" Member="Method1" ThisKey="MTOD_CODE" OtherKey="CODE" Type="Method" IsForeignKey="true" />
     </Type>
     <InsertFunction FunctionId="FunctionId86">
@@ -3788,6 +3789,7 @@
       <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="External_Device_External_Device_Link_Method" Member="External_Device_Link_Methods" ThisKey="CODE" OtherKey="EDEV_CODE" Type="External_Device_Link_Method" />
     </Type>
   </Table>
   <Table Name="dbo.Dresser" Member="Dressers">
@@ -4327,6 +4329,20 @@
       <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="MDFY_HOST_BY" Type="System.String" DbType="VarChar(50)" CanBeNull="true" UpdateCheck="Never" />
       <Association Name="Fighter_Log_Operation" Member="Fighter" ThisKey="FIGH_FILE_NO" OtherKey="FILE_NO" Type="Fighter" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.External_Device_Link_Method" Member="External_Device_Link_Methods">
+    <Type Name="External_Device_Link_Method">
+      <Column Name="EDEV_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MTOD_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CODE" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="External_Device_External_Device_Link_Method" Member="External_Device" ThisKey="EDEV_CODE" OtherKey="CODE" Type="External_Device" IsForeignKey="true" DeleteRule="CASCADE" />
+      <Association Name="Method_External_Device_Link_Method" Member="Method" ThisKey="MTOD_CODE" OtherKey="CODE" Type="Method" IsForeignKey="true" DeleteRule="CASCADE" />
     </Type>
   </Table>
   <Function Name="dbo.VF$Saved_Request" Method="VF_Saved_Request" IsComposable="true">

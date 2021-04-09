@@ -1428,19 +1428,19 @@ namespace System.RoboTech.Data
 			}
 		}
 		
-		public System.Data.Linq.Table<Robot> Robots
-		{
-			get
-			{
-				return this.GetTable<Robot>();
-			}
-		}
-		
 		public System.Data.Linq.Table<D_QPIV> D_QPIVs
 		{
 			get
 			{
 				return this.GetTable<D_QPIV>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Robot> Robots
+		{
+			get
+			{
+				return this.GetTable<Robot>();
 			}
 		}
 		
@@ -1886,7 +1886,7 @@ namespace System.RoboTech.Data
 		
 		private void UpdateRobot(Robot obj)
 		{
-			this.UPD_ROBO_P(((System.Nullable<long>)(obj.ORGN_OGID)), ((System.Nullable<long>)(obj.ROBO_RBID)), ((System.Nullable<long>)(obj.RBID)), obj.COPY_TYPE, obj.BOT_TYPE, obj.NAME, obj.TKON_CODE, obj.STAT, obj.BULD_STAT, obj.BULD_FILE_ID, obj.SPY_TYPE, obj.CRTB_URL, obj.DOWN_LOAD_FILE_PATH, obj.UP_LOAD_FILE_PATH, obj.INVT_FRND, obj.HASH_TAG, ((System.Nullable<double>)(obj.CORD_X)), ((System.Nullable<double>)(obj.CORD_Y)), obj.POST_ADRS, obj.CELL_PHON, obj.TELL_PHON, obj.EMAL_ADRS, obj.WEB_SITE, obj.RUN_STAT, obj.AMNT_TYPE, obj.CNCT_ACNT_APP, obj.ACNT_APP_TYPE, ((System.Nullable<int>)(obj.PAGE_FECH_ROWS)), ((System.Nullable<long>)(obj.MIN_WITH_DRAW)), ((System.Nullable<int>)(obj.CONF_DURT_DAY)), obj.AUTO_SHIP_CORI, obj.SHOW_INVR_STAT, obj.VIEW_INVR_STAT, ((System.Nullable<long>)(obj.FREE_SHIP_INCT_AMNT)), ((System.Nullable<long>)(obj.FREE_SHIP_OTCT_AMNT)), obj.ORDR_EXPR_STAT, ((System.Nullable<int>)(obj.ORDR_EXPR_TIME)), obj.LOCL_SRVR_CONN_STRN, obj.WEB_SRVR_CONN_STRN, obj.NOTI_ORDR_SHIP_STAT, obj.NOTI_SOND_ORDR_SHIP_PATH, obj.NOTI_ORDR_RCPT_STAT, obj.NOTI_SOND_ORDR_RCPT_PATH, obj.NOTI_ORDR_RECP_STAT, obj.NOTI_SOND_ORDR_RECP_PATH, obj.CHCK_REGS_STRT, obj.CRNC_CALC_STAT, ((System.Nullable<long>)(obj.RBCR_CODE)), ((System.Nullable<long>)(obj.CRNC_AMNT_DNRM)), obj.CRNC_AUTO_UPDT_STAT, ((System.Nullable<int>)(obj.CRNC_CYCL_AUTO_UPDT)), obj.EXTR_SORC_STAT, obj.SLCT_SRVR_TYPE, obj.CRNC_HOW_UPDT_STAT, ((System.Nullable<long>)(obj.MAX_CARD_TO_CARD_AMNT)), obj.QURY_PROD_INVR_STAT);
+			this.UPD_ROBO_P(((System.Nullable<long>)(obj.ORGN_OGID)), ((System.Nullable<long>)(obj.ROBO_RBID)), ((System.Nullable<long>)(obj.RBID)), obj.COPY_TYPE, obj.BOT_TYPE, obj.NAME, obj.TKON_CODE, obj.STAT, obj.BULD_STAT, obj.BULD_FILE_ID, obj.SPY_TYPE, obj.CRTB_URL, obj.DOWN_LOAD_FILE_PATH, obj.UP_LOAD_FILE_PATH, obj.INVT_FRND, obj.HASH_TAG, ((System.Nullable<double>)(obj.CORD_X)), ((System.Nullable<double>)(obj.CORD_Y)), obj.POST_ADRS, obj.CELL_PHON, obj.TELL_PHON, obj.EMAL_ADRS, obj.WEB_SITE, obj.RUN_STAT, obj.AMNT_TYPE, obj.CNCT_ACNT_APP, obj.ACNT_APP_TYPE, ((System.Nullable<int>)(obj.PAGE_FECH_ROWS)), ((System.Nullable<long>)(obj.MIN_WITH_DRAW)), ((System.Nullable<int>)(obj.CONF_DURT_DAY)), obj.AUTO_SHIP_CORI, obj.SHOW_INVR_STAT, obj.VIEW_INVR_STAT, ((System.Nullable<long>)(obj.FREE_SHIP_INCT_AMNT)), ((System.Nullable<long>)(obj.FREE_SHIP_OTCT_AMNT)), obj.ORDR_EXPR_STAT, ((System.Nullable<int>)(obj.ORDR_EXPR_TIME)), obj.LOCL_SRVR_CONN_STRN, obj.WEB_SRVR_CONN_STRN, obj.NOTI_ORDR_SHIP_STAT, obj.NOTI_SOND_ORDR_SHIP_PATH, obj.NOTI_ORDR_RCPT_STAT, obj.NOTI_SOND_ORDR_RCPT_PATH, obj.NOTI_ORDR_RECP_STAT, obj.NOTI_SOND_ORDR_RECP_PATH, obj.CHCK_REGS_STRT, obj.CRNC_CALC_STAT, ((System.Nullable<long>)(obj.RBCR_CODE)), ((System.Nullable<long>)(obj.CRNC_AMNT_DNRM)), obj.CRNC_AUTO_UPDT_STAT, ((System.Nullable<int>)(obj.CRNC_CYCL_AUTO_UPDT)), obj.EXTR_SORC_STAT, obj.SLCT_SRVR_TYPE, obj.CRNC_HOW_UPDT_STAT, ((System.Nullable<long>)(obj.MAX_CARD_TO_CARD_AMNT)), obj.QURY_PROD_INVR_STAT, obj.EXTR_SORC_OFLN_STAT, ((System.Nullable<System.TimeSpan>)(obj.EXTR_SORC_OFLN_TIME)));
 		}
 		
 		private void DeleteRobot(Robot obj)
@@ -3153,9 +3153,11 @@ namespace System.RoboTech.Data
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Slct_Srvr_Type", DbType="VarChar(3)")] string slct_Srvr_Type, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Crnc_How_Updt_Stat", DbType="VarChar(3)")] string crnc_How_Updt_Stat, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Max_Card_To_Card_Amnt", DbType="BigInt")] System.Nullable<long> max_Card_To_Card_Amnt, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Qury_Prod_Invr_Stat", DbType="VarChar(3)")] string qury_Prod_Invr_Stat)
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Qury_Prod_Invr_Stat", DbType="VarChar(3)")] string qury_Prod_Invr_Stat, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Extr_Sorc_Ofln_Stat", DbType="VarChar(3)")] string extr_Sorc_Ofln_Stat, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Extr_Sorc_Ofln_Time", DbType="Time")] System.Nullable<System.TimeSpan> extr_Sorc_Ofln_Time)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), orgn_Ogid, robo_Rbid, rbid, copy_Type, bot_Type, name, tkon_Code, stat, buld_Stat, buld_File_Id, spy_Type, crtb_Url, down_Load_File_Path, up_Load_File_Path, invt_Frnd, hash_Tag, cord_X, cord_Y, post_Adrs, cell_Phon, tell_Phon, emal_Adrs, web_Site, run_Stat, amnt_Type, cnct_Acnt_App, acnt_App_Type, page_Fech_Rows, min_With_Draw, conf_Durt_Day, auto_Ship_Cori, show_Invr_Stat, view_Invr_Stat, free_Ship_Inct_Amnt, free_Ship_Otct_Amnt, ordr_Expr_Stat, ordr_Expr_Time, locl_Srvr_Conn_Strn, web_Srvr_Conn_Strn, noti_Ordr_Ship_Stat, noti_Sond_Ordr_Ship_Path, noti_Ordr_Rcpt_Stat, noti_Sond_Ordr_Rcpt_Path, noti_Ordr_Recp_Stat, noti_Sond_Ordr_Recp_Path, chck_Regs_Strt, crnc_Calc_Stat, rbcr_Code, crnc_Amnt_Dnrm, crnc_Auto_Updt_Stat, crnc_Cycl_Auto_Updt, extr_Sorc_Stat, slct_Srvr_Type, crnc_How_Updt_Stat, max_Card_To_Card_Amnt, qury_Prod_Invr_Stat);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), orgn_Ogid, robo_Rbid, rbid, copy_Type, bot_Type, name, tkon_Code, stat, buld_Stat, buld_File_Id, spy_Type, crtb_Url, down_Load_File_Path, up_Load_File_Path, invt_Frnd, hash_Tag, cord_X, cord_Y, post_Adrs, cell_Phon, tell_Phon, emal_Adrs, web_Site, run_Stat, amnt_Type, cnct_Acnt_App, acnt_App_Type, page_Fech_Rows, min_With_Draw, conf_Durt_Day, auto_Ship_Cori, show_Invr_Stat, view_Invr_Stat, free_Ship_Inct_Amnt, free_Ship_Otct_Amnt, ordr_Expr_Stat, ordr_Expr_Time, locl_Srvr_Conn_Strn, web_Srvr_Conn_Strn, noti_Ordr_Ship_Stat, noti_Sond_Ordr_Ship_Path, noti_Ordr_Rcpt_Stat, noti_Sond_Ordr_Rcpt_Path, noti_Ordr_Recp_Stat, noti_Sond_Ordr_Recp_Path, chck_Regs_Strt, crnc_Calc_Stat, rbcr_Code, crnc_Amnt_Dnrm, crnc_Auto_Updt_Stat, crnc_Cycl_Auto_Updt, extr_Sorc_Stat, slct_Srvr_Type, crnc_How_Updt_Stat, max_Card_To_Card_Amnt, qury_Prod_Invr_Stat, extr_Sorc_Ofln_Stat, extr_Sorc_Ofln_Time);
 			return ((int)(result.ReturnValue));
 		}
 	}
@@ -49536,6 +49538,51 @@ namespace System.RoboTech.Data
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.D$QPIV")]
+	public partial class D_QPIV
+	{
+		
+		private string _VALU;
+		
+		private string _DOMN_DESC;
+		
+		public D_QPIV()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VALU", DbType="VarChar(3) NOT NULL", CanBeNull=false)]
+		public string VALU
+		{
+			get
+			{
+				return this._VALU;
+			}
+			set
+			{
+				if ((this._VALU != value))
+				{
+					this._VALU = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DOMN_DESC", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
+		public string DOMN_DESC
+		{
+			get
+			{
+				return this._DOMN_DESC;
+			}
+			set
+			{
+				if ((this._DOMN_DESC != value))
+				{
+					this._DOMN_DESC = value;
+				}
+			}
+		}
+	}
+	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Robot")]
 	public partial class Robot : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -49627,6 +49674,10 @@ namespace System.RoboTech.Data
 		private string _EXTR_SORC_STAT;
 		
 		private string _SLCT_SRVR_TYPE;
+		
+		private string _EXTR_SORC_OFLN_STAT;
+		
+		private System.Nullable<System.TimeSpan> _EXTR_SORC_OFLN_TIME;
 		
 		private string _NOTI_ORDR_SHIP_STAT;
 		
@@ -49818,6 +49869,10 @@ namespace System.RoboTech.Data
     partial void OnEXTR_SORC_STATChanged();
     partial void OnSLCT_SRVR_TYPEChanging(string value);
     partial void OnSLCT_SRVR_TYPEChanged();
+    partial void OnEXTR_SORC_OFLN_STATChanging(string value);
+    partial void OnEXTR_SORC_OFLN_STATChanged();
+    partial void OnEXTR_SORC_OFLN_TIMEChanging(System.Nullable<System.TimeSpan> value);
+    partial void OnEXTR_SORC_OFLN_TIMEChanged();
     partial void OnNOTI_ORDR_SHIP_STATChanging(string value);
     partial void OnNOTI_ORDR_SHIP_STATChanged();
     partial void OnNOTI_SOND_ORDR_SHIP_PATHChanging(string value);
@@ -49894,7 +49949,7 @@ namespace System.RoboTech.Data
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ORGN_OGID", DbType="BigInt NOT NULL")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ORGN_OGID", DbType="BigInt NOT NULL", UpdateCheck=UpdateCheck.Never)]
 		public long ORGN_OGID
 		{
 			get
@@ -49918,7 +49973,7 @@ namespace System.RoboTech.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ROBO_RBID", DbType="BigInt")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ROBO_RBID", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
 		public System.Nullable<long> ROBO_RBID
 		{
 			get
@@ -49962,7 +50017,7 @@ namespace System.RoboTech.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_COPY_TYPE", DbType="VarChar(3)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_COPY_TYPE", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
 		public string COPY_TYPE
 		{
 			get
@@ -49982,7 +50037,7 @@ namespace System.RoboTech.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BOT_TYPE", DbType="VarChar(3)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BOT_TYPE", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
 		public string BOT_TYPE
 		{
 			get
@@ -50002,7 +50057,7 @@ namespace System.RoboTech.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NAME", DbType="VarChar(50)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NAME", DbType="VarChar(50)", UpdateCheck=UpdateCheck.Never)]
 		public string NAME
 		{
 			get
@@ -50022,7 +50077,7 @@ namespace System.RoboTech.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TKON_CODE", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TKON_CODE", DbType="VarChar(100) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
 		public string TKON_CODE
 		{
 			get
@@ -50042,7 +50097,7 @@ namespace System.RoboTech.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CHCK_INTR", DbType="Int NOT NULL")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CHCK_INTR", DbType="Int NOT NULL", UpdateCheck=UpdateCheck.Never)]
 		public int CHCK_INTR
 		{
 			get
@@ -50062,7 +50117,7 @@ namespace System.RoboTech.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STAT", DbType="VarChar(3)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STAT", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
 		public string STAT
 		{
 			get
@@ -50082,7 +50137,7 @@ namespace System.RoboTech.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BULD_STAT", DbType="VarChar(3)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BULD_STAT", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
 		public string BULD_STAT
 		{
 			get
@@ -50102,7 +50157,7 @@ namespace System.RoboTech.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BULD_FILE_ID", DbType="VarChar(500)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BULD_FILE_ID", DbType="VarChar(500)", UpdateCheck=UpdateCheck.Never)]
 		public string BULD_FILE_ID
 		{
 			get
@@ -50122,7 +50177,7 @@ namespace System.RoboTech.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SPY_TYPE", DbType="VarChar(3)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SPY_TYPE", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
 		public string SPY_TYPE
 		{
 			get
@@ -50142,7 +50197,7 @@ namespace System.RoboTech.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRTB_URL", DbType="VarChar(1000)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRTB_URL", DbType="VarChar(1000)", UpdateCheck=UpdateCheck.Never)]
 		public string CRTB_URL
 		{
 			get
@@ -50162,7 +50217,7 @@ namespace System.RoboTech.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DOWN_LOAD_FILE_PATH", DbType="VarChar(1000)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DOWN_LOAD_FILE_PATH", DbType="VarChar(1000)", UpdateCheck=UpdateCheck.Never)]
 		public string DOWN_LOAD_FILE_PATH
 		{
 			get
@@ -50182,7 +50237,7 @@ namespace System.RoboTech.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UP_LOAD_FILE_PATH", DbType="NVarChar(1000)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UP_LOAD_FILE_PATH", DbType="NVarChar(1000)", UpdateCheck=UpdateCheck.Never)]
 		public string UP_LOAD_FILE_PATH
 		{
 			get
@@ -50202,7 +50257,7 @@ namespace System.RoboTech.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_INVT_FRND", DbType="NVarChar(MAX)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_INVT_FRND", DbType="NVarChar(MAX)", UpdateCheck=UpdateCheck.Never)]
 		public string INVT_FRND
 		{
 			get
@@ -50222,7 +50277,7 @@ namespace System.RoboTech.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SEND_SMS_INVT_CONT", DbType="VarChar(3)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SEND_SMS_INVT_CONT", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
 		public string SEND_SMS_INVT_CONT
 		{
 			get
@@ -50242,7 +50297,7 @@ namespace System.RoboTech.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HASH_TAG", DbType="NVarChar(1000)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HASH_TAG", DbType="NVarChar(1000)", UpdateCheck=UpdateCheck.Never)]
 		public string HASH_TAG
 		{
 			get
@@ -50262,7 +50317,7 @@ namespace System.RoboTech.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_POST_ADRS", DbType="NVarChar(1000)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_POST_ADRS", DbType="NVarChar(1000)", UpdateCheck=UpdateCheck.Never)]
 		public string POST_ADRS
 		{
 			get
@@ -50282,7 +50337,7 @@ namespace System.RoboTech.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CORD_X", DbType="Float")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CORD_X", DbType="Float", UpdateCheck=UpdateCheck.Never)]
 		public System.Nullable<double> CORD_X
 		{
 			get
@@ -50302,7 +50357,7 @@ namespace System.RoboTech.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CORD_Y", DbType="Float")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CORD_Y", DbType="Float", UpdateCheck=UpdateCheck.Never)]
 		public System.Nullable<double> CORD_Y
 		{
 			get
@@ -50322,7 +50377,7 @@ namespace System.RoboTech.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CELL_PHON", DbType="VarChar(11)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CELL_PHON", DbType="VarChar(11)", UpdateCheck=UpdateCheck.Never)]
 		public string CELL_PHON
 		{
 			get
@@ -50342,7 +50397,7 @@ namespace System.RoboTech.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TELL_PHON", DbType="VarChar(11)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TELL_PHON", DbType="VarChar(11)", UpdateCheck=UpdateCheck.Never)]
 		public string TELL_PHON
 		{
 			get
@@ -50362,7 +50417,7 @@ namespace System.RoboTech.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EMAL_ADRS", DbType="VarChar(250)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EMAL_ADRS", DbType="VarChar(250)", UpdateCheck=UpdateCheck.Never)]
 		public string EMAL_ADRS
 		{
 			get
@@ -50382,7 +50437,7 @@ namespace System.RoboTech.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WEB_SITE", DbType="VarChar(250)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WEB_SITE", DbType="VarChar(250)", UpdateCheck=UpdateCheck.Never)]
 		public string WEB_SITE
 		{
 			get
@@ -50402,7 +50457,7 @@ namespace System.RoboTech.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RUN_STAT", DbType="VarChar(3)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RUN_STAT", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
 		public string RUN_STAT
 		{
 			get
@@ -50422,7 +50477,7 @@ namespace System.RoboTech.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AMNT_TYPE", DbType="VarChar(3)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AMNT_TYPE", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
 		public string AMNT_TYPE
 		{
 			get
@@ -50442,7 +50497,7 @@ namespace System.RoboTech.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CNCT_ACNT_APP", DbType="VarChar(3)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CNCT_ACNT_APP", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
 		public string CNCT_ACNT_APP
 		{
 			get
@@ -50462,7 +50517,7 @@ namespace System.RoboTech.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ACNT_APP_TYPE", DbType="VarChar(3)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ACNT_APP_TYPE", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
 		public string ACNT_APP_TYPE
 		{
 			get
@@ -50482,7 +50537,7 @@ namespace System.RoboTech.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PAGE_FECH_ROWS", DbType="Int")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PAGE_FECH_ROWS", DbType="Int", UpdateCheck=UpdateCheck.Never)]
 		public System.Nullable<int> PAGE_FECH_ROWS
 		{
 			get
@@ -50502,7 +50557,7 @@ namespace System.RoboTech.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MIN_WITH_DRAW", DbType="BigInt")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MIN_WITH_DRAW", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
 		public System.Nullable<long> MIN_WITH_DRAW
 		{
 			get
@@ -50522,7 +50577,7 @@ namespace System.RoboTech.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CONF_DURT_DAY", DbType="Int")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CONF_DURT_DAY", DbType="Int", UpdateCheck=UpdateCheck.Never)]
 		public System.Nullable<int> CONF_DURT_DAY
 		{
 			get
@@ -50542,7 +50597,7 @@ namespace System.RoboTech.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AUTO_SHIP_CORI", DbType="VarChar(3)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AUTO_SHIP_CORI", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
 		public string AUTO_SHIP_CORI
 		{
 			get
@@ -50562,7 +50617,7 @@ namespace System.RoboTech.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SHOW_INVR_STAT", DbType="VarChar(3)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SHOW_INVR_STAT", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
 		public string SHOW_INVR_STAT
 		{
 			get
@@ -50582,7 +50637,7 @@ namespace System.RoboTech.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VIEW_INVR_STAT", DbType="VarChar(3)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VIEW_INVR_STAT", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
 		public string VIEW_INVR_STAT
 		{
 			get
@@ -50602,7 +50657,7 @@ namespace System.RoboTech.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FREE_SHIP_INCT_AMNT", DbType="BigInt")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FREE_SHIP_INCT_AMNT", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
 		public System.Nullable<long> FREE_SHIP_INCT_AMNT
 		{
 			get
@@ -50622,7 +50677,7 @@ namespace System.RoboTech.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FREE_SHIP_OTCT_AMNT", DbType="BigInt")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FREE_SHIP_OTCT_AMNT", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
 		public System.Nullable<long> FREE_SHIP_OTCT_AMNT
 		{
 			get
@@ -50642,7 +50697,7 @@ namespace System.RoboTech.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ORDR_EXPR_STAT", DbType="VarChar(3)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ORDR_EXPR_STAT", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
 		public string ORDR_EXPR_STAT
 		{
 			get
@@ -50662,7 +50717,7 @@ namespace System.RoboTech.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ORDR_EXPR_TIME", DbType="Int")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ORDR_EXPR_TIME", DbType="Int", UpdateCheck=UpdateCheck.Never)]
 		public System.Nullable<int> ORDR_EXPR_TIME
 		{
 			get
@@ -50682,7 +50737,7 @@ namespace System.RoboTech.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LOCL_SRVR_CONN_STRN", DbType="VarChar(1000)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LOCL_SRVR_CONN_STRN", DbType="VarChar(1000)", UpdateCheck=UpdateCheck.Never)]
 		public string LOCL_SRVR_CONN_STRN
 		{
 			get
@@ -50702,7 +50757,7 @@ namespace System.RoboTech.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WEB_SRVR_CONN_STRN", DbType="VarChar(1000)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WEB_SRVR_CONN_STRN", DbType="VarChar(1000)", UpdateCheck=UpdateCheck.Never)]
 		public string WEB_SRVR_CONN_STRN
 		{
 			get
@@ -50722,7 +50777,7 @@ namespace System.RoboTech.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EXTR_SORC_STAT", DbType="VarChar(3)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EXTR_SORC_STAT", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
 		public string EXTR_SORC_STAT
 		{
 			get
@@ -50742,7 +50797,7 @@ namespace System.RoboTech.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SLCT_SRVR_TYPE", DbType="VarChar(3)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SLCT_SRVR_TYPE", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
 		public string SLCT_SRVR_TYPE
 		{
 			get
@@ -50762,7 +50817,47 @@ namespace System.RoboTech.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NOTI_ORDR_SHIP_STAT", DbType="VarChar(3)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EXTR_SORC_OFLN_STAT", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		public string EXTR_SORC_OFLN_STAT
+		{
+			get
+			{
+				return this._EXTR_SORC_OFLN_STAT;
+			}
+			set
+			{
+				if ((this._EXTR_SORC_OFLN_STAT != value))
+				{
+					this.OnEXTR_SORC_OFLN_STATChanging(value);
+					this.SendPropertyChanging();
+					this._EXTR_SORC_OFLN_STAT = value;
+					this.SendPropertyChanged("EXTR_SORC_OFLN_STAT");
+					this.OnEXTR_SORC_OFLN_STATChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EXTR_SORC_OFLN_TIME", DbType="Time", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<System.TimeSpan> EXTR_SORC_OFLN_TIME
+		{
+			get
+			{
+				return this._EXTR_SORC_OFLN_TIME;
+			}
+			set
+			{
+				if ((this._EXTR_SORC_OFLN_TIME != value))
+				{
+					this.OnEXTR_SORC_OFLN_TIMEChanging(value);
+					this.SendPropertyChanging();
+					this._EXTR_SORC_OFLN_TIME = value;
+					this.SendPropertyChanged("EXTR_SORC_OFLN_TIME");
+					this.OnEXTR_SORC_OFLN_TIMEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NOTI_ORDR_SHIP_STAT", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
 		public string NOTI_ORDR_SHIP_STAT
 		{
 			get
@@ -50782,7 +50877,7 @@ namespace System.RoboTech.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NOTI_SOND_ORDR_SHIP_PATH", DbType="NVarChar(4000)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NOTI_SOND_ORDR_SHIP_PATH", DbType="NVarChar(4000)", UpdateCheck=UpdateCheck.Never)]
 		public string NOTI_SOND_ORDR_SHIP_PATH
 		{
 			get
@@ -50802,7 +50897,7 @@ namespace System.RoboTech.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NOTI_ORDR_RCPT_STAT", DbType="VarChar(3)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NOTI_ORDR_RCPT_STAT", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
 		public string NOTI_ORDR_RCPT_STAT
 		{
 			get
@@ -50822,7 +50917,7 @@ namespace System.RoboTech.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NOTI_SOND_ORDR_RCPT_PATH", DbType="NVarChar(4000)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NOTI_SOND_ORDR_RCPT_PATH", DbType="NVarChar(4000)", UpdateCheck=UpdateCheck.Never)]
 		public string NOTI_SOND_ORDR_RCPT_PATH
 		{
 			get
@@ -50842,7 +50937,7 @@ namespace System.RoboTech.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NOTI_ORDR_RECP_STAT", DbType="VarChar(3)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NOTI_ORDR_RECP_STAT", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
 		public string NOTI_ORDR_RECP_STAT
 		{
 			get
@@ -50862,7 +50957,7 @@ namespace System.RoboTech.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NOTI_SOND_ORDR_RECP_PATH", DbType="NVarChar(4000)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NOTI_SOND_ORDR_RECP_PATH", DbType="NVarChar(4000)", UpdateCheck=UpdateCheck.Never)]
 		public string NOTI_SOND_ORDR_RECP_PATH
 		{
 			get
@@ -50882,7 +50977,7 @@ namespace System.RoboTech.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CHCK_REGS_STRT", DbType="VarChar(3)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CHCK_REGS_STRT", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
 		public string CHCK_REGS_STRT
 		{
 			get
@@ -50902,7 +50997,7 @@ namespace System.RoboTech.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRNC_CALC_STAT", DbType="VarChar(3)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRNC_CALC_STAT", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
 		public string CRNC_CALC_STAT
 		{
 			get
@@ -50922,7 +51017,7 @@ namespace System.RoboTech.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RBCR_CODE", DbType="BigInt")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RBCR_CODE", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
 		public System.Nullable<long> RBCR_CODE
 		{
 			get
@@ -50942,7 +51037,7 @@ namespace System.RoboTech.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRNC_AMNT_DNRM", DbType="BigInt")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRNC_AMNT_DNRM", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
 		public System.Nullable<long> CRNC_AMNT_DNRM
 		{
 			get
@@ -50962,7 +51057,7 @@ namespace System.RoboTech.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRNC_AUTO_UPDT_STAT", DbType="VarChar(3)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRNC_AUTO_UPDT_STAT", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
 		public string CRNC_AUTO_UPDT_STAT
 		{
 			get
@@ -50982,7 +51077,7 @@ namespace System.RoboTech.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRNC_CYCL_AUTO_UPDT", DbType="Int")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRNC_CYCL_AUTO_UPDT", DbType="Int", UpdateCheck=UpdateCheck.Never)]
 		public System.Nullable<int> CRNC_CYCL_AUTO_UPDT
 		{
 			get
@@ -51002,7 +51097,7 @@ namespace System.RoboTech.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRNC_HOW_UPDT_STAT", DbType="VarChar(3)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRNC_HOW_UPDT_STAT", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
 		public string CRNC_HOW_UPDT_STAT
 		{
 			get
@@ -51022,7 +51117,7 @@ namespace System.RoboTech.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MAX_CARD_TO_CARD_AMNT", DbType="BigInt")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MAX_CARD_TO_CARD_AMNT", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
 		public System.Nullable<long> MAX_CARD_TO_CARD_AMNT
 		{
 			get
@@ -51042,7 +51137,7 @@ namespace System.RoboTech.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_QURY_PROD_INVR_STAT", DbType="VarChar(3)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_QURY_PROD_INVR_STAT", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
 		public string QURY_PROD_INVR_STAT
 		{
 			get
@@ -51062,7 +51157,7 @@ namespace System.RoboTech.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_BY", DbType="VarChar(250)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_BY", DbType="VarChar(250)", UpdateCheck=UpdateCheck.Never)]
 		public string CRET_BY
 		{
 			get
@@ -51082,7 +51177,7 @@ namespace System.RoboTech.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_DATE", DbType="DateTime")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
 		public System.Nullable<System.DateTime> CRET_DATE
 		{
 			get
@@ -51102,7 +51197,7 @@ namespace System.RoboTech.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_BY", DbType="VarChar(250)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_BY", DbType="VarChar(250)", UpdateCheck=UpdateCheck.Never)]
 		public string MDFY_BY
 		{
 			get
@@ -51122,7 +51217,7 @@ namespace System.RoboTech.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_DATE", DbType="DateTime")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
 		public System.Nullable<System.DateTime> MDFY_DATE
 		{
 			get
@@ -51953,51 +52048,6 @@ namespace System.RoboTech.Data
 		{
 			this.SendPropertyChanging();
 			entity.Robot1 = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.D$QPIV")]
-	public partial class D_QPIV
-	{
-		
-		private string _VALU;
-		
-		private string _DOMN_DESC;
-		
-		public D_QPIV()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VALU", DbType="VarChar(3) NOT NULL", CanBeNull=false)]
-		public string VALU
-		{
-			get
-			{
-				return this._VALU;
-			}
-			set
-			{
-				if ((this._VALU != value))
-				{
-					this._VALU = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DOMN_DESC", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
-		public string DOMN_DESC
-		{
-			get
-			{
-				return this._DOMN_DESC;
-			}
-			set
-			{
-				if ((this._DOMN_DESC != value))
-				{
-					this._DOMN_DESC = value;
-				}
-			}
 		}
 	}
 	

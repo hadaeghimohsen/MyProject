@@ -446,25 +446,74 @@ namespace System.Scsc.Ui.MasterPage
                if (gateAttnStng.GATE_ENTR_OPEN == "001") return;
                Sp_GateAttn.Write("in");
             }
+
             // در این قسمت می توانیم بررسی کنیم که این سیستم به چه گیتی متصل می باشد که بتوانید به آن گیت فرمان دهیم که گیت را باز کند
             var _listIPHost = xHost.Descendants("IP").Select(ip => ip.Value).ToList();
-            if(_gatesDevice == null)
-               _gatesDevice = iScsc.External_Devices.Where(d => d.DEV_COMP_TYPE == "001" && d.DEV_TYPE == "006" && _listIPHost.Contains(d.SERV_IP_ADRS) && d.STAT == "002" && d.MTOD_CODE == null);
-            if (_gatesDevice != null && _gatesDevice.Any())
+
+            // 1400/01/12 * اگر گیت به صورت دستی باز شود
+            if (xinput.Attribute("fngrprnt") == null)
             {
-               _gatesDevice.ToList()
-                  .ForEach(g => 
-                     OprtExtDev(
-                        new XElement("MainPage",
-                                 new XAttribute("type", "extdev"),
-                                 new XAttribute("devtype", "006"),
-                                 new XAttribute("contype", "002"),
-                                 new XAttribute("cmdtype", "open"),
-                                 new XAttribute("ip", g.IP_ADRS),
-                                 new XAttribute("sendport", g.PORT_SEND)
-                              )
-                     )
-                  );
+               #region Manual Set Open Gate Connected To Current PC
+               if (_gatesDevice == null)
+                  _gatesDevice = iScsc.External_Devices.Where(d => d.DEV_COMP_TYPE == "001" && d.DEV_TYPE == "006" && _listIPHost.Contains(d.SERV_IP_ADRS) && d.STAT == "002" && d.MTOD_CODE == null);
+               if (_gatesDevice != null && _gatesDevice.Any())
+               {
+                  _gatesDevice.ToList()
+                     .ForEach(g =>
+                        OprtExtDev(
+                           new XElement("MainPage",
+                              new XAttribute("type", "extdev"),
+                              new XAttribute("devtype", "006"),
+                              new XAttribute("contype", "002"),
+                              new XAttribute("cmdtype", "open"),
+                              new XAttribute("ip", g.IP_ADRS),
+                              new XAttribute("sendport", g.PORT_SEND)
+                           )
+                        )
+                     );
+
+                  // 1400/01/12 * Reset All
+                  _gatesDevice = null;
+               }
+               #endregion
+            }
+            else // اگر گیت به صورت اتومات باز شود مشتری حضور و غیاب کرده باشد
+            {
+               // در این قسمت می توانیم بررسی کنیم که این سیستم به چه گیتی متصل می باشد که بتوانید به آن گیت فرمان دهیم که گیت را باز کند
+               // 1400/01/11
+               // در اینجا باید مشخص کنیم که ایا گیت ها بر اساس رشته های مختلف باید واکنش نشان دهند یا خیر               
+               if (_gatesDevice == null)
+               {
+                  // 1400/01/12
+                  // یدا کردن گیت هایی که تردد گروه های مختلف را چک میکنند
+                  _gatesDevice = iScsc.External_Devices.Where(d => d.DEV_COMP_TYPE == "001" && d.DEV_TYPE == "006" && d.STAT == "002" && d.MTOD_CODE == null && d.External_Device_Link_Methods.Any(em => em.MTOD_CODE == xinput.Attribute("mtodcode").Value.ToInt64() && em.STAT == "002"));
+                  
+                  // 1400/01/12
+                  // اگر گیت مانند باشگاه نیایش باشد همان مسیر قبلی را برایش انجام میدهیم
+                  if (_gatesDevice != null && _gatesDevice.Count() == 0)
+                     _gatesDevice = iScsc.External_Devices.Where(d => d.DEV_COMP_TYPE == "001" && d.DEV_TYPE == "006" && _listIPHost.Contains(d.SERV_IP_ADRS) && d.STAT == "002" && d.MTOD_CODE == null);
+               }
+               
+               if (_gatesDevice != null && _gatesDevice.Any())
+               {
+                  //MessageBox.Show(string.Format("{0} - {1}", _gatesDevice.Count(), string.Join(",", _gatesDevice.Select(g => g.IP_ADRS))));
+                  _gatesDevice.ToList()
+                     .ForEach(g =>
+                        OprtExtDev(
+                           new XElement("MainPage",
+                              new XAttribute("type", "extdev"),
+                              new XAttribute("devtype", "006"),
+                              new XAttribute("contype", "002"),
+                              new XAttribute("cmdtype", "open"),
+                              new XAttribute("ip", g.IP_ADRS),
+                              new XAttribute("sendport", g.PORT_SEND)
+                           )
+                        )
+                     );
+
+                  // 1400/01/12 * Reset All
+                  _gatesDevice = null;
+               }
             }
 
             if(_readersDevice == null)
@@ -532,26 +581,94 @@ namespace System.Scsc.Ui.MasterPage
                Sp_GateAttn.Write("out");
                //MessageBox.Show("Gate is Close");  
             }
+
             // در این قسمت می توانیم بررسی کنیم که این سیستم به چه گیتی متصل می باشد که بتوانید به آن گیت فرمان دهیم که گیت را باز کند
             var _listIPHost = xHost.Descendants("IP").Select(ip => ip.Value).ToList();
-            if (_gatesDevice == null)
-               _gatesDevice = iScsc.External_Devices.Where(d => d.DEV_COMP_TYPE == "001" && d.DEV_TYPE == "006" && _listIPHost.Contains(d.SERV_IP_ADRS) && d.STAT == "002" && d.MTOD_CODE == null);
-            if (_gatesDevice != null && _gatesDevice != null && _gatesDevice.Any())
+
+            // 1400/01/12 * اگر گیت به صورت دستی باز شود
+            if (xinput.Attribute("fngrprnt") == null)
             {
-               _gatesDevice.ToList()
-                  .ForEach(g =>
-                     OprtExtDev(
-                        new XElement("MainPage",
-                                 new XAttribute("type", "extdev"),
-                                 new XAttribute("devtype", "006"),
-                                 new XAttribute("contype", "002"),
-                                 new XAttribute("cmdtype", "close"),
-                                 new XAttribute("ip", g.IP_ADRS),
-                                 new XAttribute("sendport", g.PORT_SEND)
-                              )
-                     )
-                  );
+               #region Manual Set Open Gate Connected To Current PC
+               if (_gatesDevice == null)
+                  _gatesDevice = iScsc.External_Devices.Where(d => d.DEV_COMP_TYPE == "001" && d.DEV_TYPE == "006" && _listIPHost.Contains(d.SERV_IP_ADRS) && d.STAT == "002" && d.MTOD_CODE == null);
+               if (_gatesDevice != null && _gatesDevice.Any())
+               {
+                  _gatesDevice.ToList()
+                     .ForEach(g =>
+                        OprtExtDev(
+                           new XElement("MainPage",
+                              new XAttribute("type", "extdev"),
+                              new XAttribute("devtype", "006"),
+                              new XAttribute("contype", "002"),
+                              new XAttribute("cmdtype", "close"),
+                              new XAttribute("ip", g.IP_ADRS),
+                              new XAttribute("sendport", g.PORT_SEND)
+                           )
+                        )
+                     );
+
+                  // 1400/01/12 * Reset All
+                  _gatesDevice = null;
+               }
+               #endregion
             }
+            else // اگر گیت به صورت اتومات باز شود مشتری حضور و غیاب کرده باشد
+            {
+               // در این قسمت می توانیم بررسی کنیم که این سیستم به چه گیتی متصل می باشد که بتوانید به آن گیت فرمان دهیم که گیت را باز کند
+               // 1400/01/11
+               // در اینجا باید مشخص کنیم که ایا گیت ها بر اساس رشته های مختلف باید واکنش نشان دهند یا خیر               
+               if (_gatesDevice == null)
+               {
+                  // 1400/01/12
+                  // یدا کردن گیت هایی که تردد گروه های مختلف را چک میکنند
+                  _gatesDevice = iScsc.External_Devices.Where(d => d.DEV_COMP_TYPE == "001" && d.DEV_TYPE == "006" && d.STAT == "002" && d.MTOD_CODE == null && d.External_Device_Link_Methods.Any(em => em.MTOD_CODE == xinput.Attribute("mtodcode").Value.ToInt64() && em.STAT == "002"));
+
+                  // 1400/01/12
+                  // اگر گیت مانند باشگاه نیایش باشد همان مسیر قبلی را برایش انجام میدهیم
+                  if (_gatesDevice != null && _gatesDevice.Count() == 0)
+                     _gatesDevice = iScsc.External_Devices.Where(d => d.DEV_COMP_TYPE == "001" && d.DEV_TYPE == "006" && _listIPHost.Contains(d.SERV_IP_ADRS) && d.STAT == "002" && d.MTOD_CODE == null);
+               }
+               if (_gatesDevice != null && _gatesDevice.Any())
+               {
+                  _gatesDevice.ToList()
+                     .ForEach(g =>
+                        OprtExtDev(
+                           new XElement("MainPage",
+                              new XAttribute("type", "extdev"),
+                              new XAttribute("devtype", "006"),
+                              new XAttribute("contype", "002"),
+                              new XAttribute("cmdtype", "close"),
+                              new XAttribute("ip", g.IP_ADRS),
+                              new XAttribute("sendport", g.PORT_SEND)
+                           )
+                        )
+                     );
+
+                  // 1400/01/12 * Reset All
+                  _gatesDevice = null;
+               }
+            }
+
+            //// در این قسمت می توانیم بررسی کنیم که این سیستم به چه گیتی متصل می باشد که بتوانید به آن گیت فرمان دهیم که گیت را باز کند
+            //var _listIPHost = xHost.Descendants("IP").Select(ip => ip.Value).ToList();
+            //if (_gatesDevice == null)
+            //   _gatesDevice = iScsc.External_Devices.Where(d => d.DEV_COMP_TYPE == "001" && d.DEV_TYPE == "006" && _listIPHost.Contains(d.SERV_IP_ADRS) && d.STAT == "002" && d.MTOD_CODE == null);
+            //if (_gatesDevice != null && _gatesDevice != null && _gatesDevice.Any())
+            //{
+            //   _gatesDevice.ToList()
+            //      .ForEach(g =>
+            //         OprtExtDev(
+            //            new XElement("MainPage",
+            //                     new XAttribute("type", "extdev"),
+            //                     new XAttribute("devtype", "006"),
+            //                     new XAttribute("contype", "002"),
+            //                     new XAttribute("cmdtype", "close"),
+            //                     new XAttribute("ip", g.IP_ADRS),
+            //                     new XAttribute("sendport", g.PORT_SEND)
+            //                  )
+            //         )
+            //      );
+            //}
 
             if (_readersDevice == null)
                _readersDevice = iScsc.External_Devices.Where(d => d.DEV_COMP_TYPE == "002" && d.DEV_TYPE == "001" && d.DEV_CON == "002"  && _listIPHost.Contains(d.SERV_IP_ADRS) && d.STAT == "002");
@@ -613,26 +730,94 @@ namespace System.Scsc.Ui.MasterPage
                // Error This Gate                        
                Sp_GateAttn.Write("error");
             }
+
             // در این قسمت می توانیم بررسی کنیم که این سیستم به چه گیتی متصل می باشد که بتوانید به آن گیت فرمان دهیم که گیت را باز کند
             var _listIPHost = xHost.Descendants("IP").Select(ip => ip.Value).ToList();
-            if (_gatesDevice == null)
-               _gatesDevice = iScsc.External_Devices.Where(d => d.DEV_COMP_TYPE == "001" && d.DEV_TYPE == "006" && _listIPHost.Contains(d.SERV_IP_ADRS) && d.STAT == "002" && d.MTOD_CODE == null);
-            if (_gatesDevice != null && _gatesDevice.Any())
+
+            // 1400/01/12 * اگر گیت به صورت دستی باز شود
+            if (xinput.Attribute("fngrprnt") == null)
             {
-               _gatesDevice.ToList()
-                  .ForEach(g =>
-                     OprtExtDev(
-                        new XElement("MainPage",
-                                 new XAttribute("type", "extdev"),
-                                 new XAttribute("devtype", "006"),
-                                 new XAttribute("contype", "002"),
-                                 new XAttribute("cmdtype", "error"),
-                                 new XAttribute("ip", g.IP_ADRS),
-                                 new XAttribute("sendport", g.PORT_SEND)
-                              )
-                     )
-                  );
+               #region Manual Set Open Gate Connected To Current PC
+               if (_gatesDevice == null)
+                  _gatesDevice = iScsc.External_Devices.Where(d => d.DEV_COMP_TYPE == "001" && d.DEV_TYPE == "006" && _listIPHost.Contains(d.SERV_IP_ADRS) && d.STAT == "002" && d.MTOD_CODE == null);
+               if (_gatesDevice != null && _gatesDevice.Any())
+               {
+                  _gatesDevice.ToList()
+                     .ForEach(g =>
+                        OprtExtDev(
+                           new XElement("MainPage",
+                              new XAttribute("type", "extdev"),
+                              new XAttribute("devtype", "006"),
+                              new XAttribute("contype", "002"),
+                              new XAttribute("cmdtype", "error"),
+                              new XAttribute("ip", g.IP_ADRS),
+                              new XAttribute("sendport", g.PORT_SEND)
+                           )
+                        )
+                     );
+
+                  // 1400/01/12 * Reset All
+                  _gatesDevice = null;
+               }
+               #endregion
             }
+            else // اگر گیت به صورت اتومات باز شود مشتری حضور و غیاب کرده باشد
+            {
+               // در این قسمت می توانیم بررسی کنیم که این سیستم به چه گیتی متصل می باشد که بتوانید به آن گیت فرمان دهیم که گیت را باز کند
+               // 1400/01/11
+               // در اینجا باید مشخص کنیم که ایا گیت ها بر اساس رشته های مختلف باید واکنش نشان دهند یا خیر               
+               if (_gatesDevice == null)
+               {
+                  // 1400/01/12
+                  // یدا کردن گیت هایی که تردد گروه های مختلف را چک میکنند
+                  _gatesDevice = iScsc.External_Devices.Where(d => d.DEV_COMP_TYPE == "001" && d.DEV_TYPE == "006" && d.STAT == "002" && d.MTOD_CODE == null && d.External_Device_Link_Methods.Any(em => em.MTOD_CODE == xinput.Attribute("mtodcode").Value.ToInt64() && em.STAT == "002"));
+
+                  // 1400/01/12
+                  // اگر گیت مانند باشگاه نیایش باشد همان مسیر قبلی را برایش انجام میدهیم
+                  if (_gatesDevice != null && _gatesDevice.Count() == 0)
+                     _gatesDevice = iScsc.External_Devices.Where(d => d.DEV_COMP_TYPE == "001" && d.DEV_TYPE == "006" && _listIPHost.Contains(d.SERV_IP_ADRS) && d.STAT == "002" && d.MTOD_CODE == null);
+               }
+               if (_gatesDevice != null && _gatesDevice.Any())
+               {
+                  _gatesDevice.ToList()
+                     .ForEach(g =>
+                        OprtExtDev(
+                           new XElement("MainPage",
+                              new XAttribute("type", "extdev"),
+                              new XAttribute("devtype", "006"),
+                              new XAttribute("contype", "002"),
+                              new XAttribute("cmdtype", "error"),
+                              new XAttribute("ip", g.IP_ADRS),
+                              new XAttribute("sendport", g.PORT_SEND)
+                           )
+                        )
+                     );
+
+                  // 1400/01/12 * Reset All
+                  _gatesDevice = null;
+               }
+            }
+
+            // در این قسمت می توانیم بررسی کنیم که این سیستم به چه گیتی متصل می باشد که بتوانید به آن گیت فرمان دهیم که گیت را باز کند
+            //var _listIPHost = xHost.Descendants("IP").Select(ip => ip.Value).ToList();
+            //if (_gatesDevice == null)
+            //   _gatesDevice = iScsc.External_Devices.Where(d => d.DEV_COMP_TYPE == "001" && d.DEV_TYPE == "006" && _listIPHost.Contains(d.SERV_IP_ADRS) && d.STAT == "002" && d.MTOD_CODE == null);
+            //if (_gatesDevice != null && _gatesDevice.Any())
+            //{
+            //   _gatesDevice.ToList()
+            //      .ForEach(g =>
+            //         OprtExtDev(
+            //            new XElement("MainPage",
+            //               new XAttribute("type", "extdev"),
+            //               new XAttribute("devtype", "006"),
+            //               new XAttribute("contype", "002"),
+            //               new XAttribute("cmdtype", "error"),
+            //               new XAttribute("ip", g.IP_ADRS),
+            //               new XAttribute("sendport", g.PORT_SEND)
+            //            )
+            //         )
+            //      );
+            //}
 
             if (_readersDevice == null)
                _readersDevice = iScsc.External_Devices.Where(d => d.DEV_COMP_TYPE == "002" && d.DEV_TYPE == "001"  && d.DEV_CON == "002" && _listIPHost.Contains(d.SERV_IP_ADRS) && d.STAT == "002");
@@ -2701,6 +2886,59 @@ namespace System.Scsc.Ui.MasterPage
          }
          catch(Exception exc)
          {
+            MessageBox.Show(exc.Message);
+            return false;
+         }
+      }
+
+      private bool SetPassword_Enroll_Finger(string enrollid, string password)
+      {
+         try
+         {
+            if (Fp1DevIsConnected)
+            {
+               var result = axCZKEM1.SSR_SetUserInfo(1, enrollid, enrollid, password, 0, true);
+               if (result)
+               {
+                  BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.BlanchedAlmond;                  
+               }
+               else
+               {
+                  BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Red;
+               }
+               return result;
+            }
+            else if (Fp2DevIsConnected)
+            {
+               var result = axCZKEM2.SSR_SetUserInfo(1, enrollid, enrollid, password, 0, true);
+               if (result)
+               {
+                  BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.BlanchedAlmond;
+               }
+               else
+               {
+                  BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Red;
+               }
+               return result;
+            }
+            else if (Fp3DevIsConnected)
+            {
+               var result = axCZKEM3.SSR_SetUserInfo(1, enrollid, enrollid, password, 0, true);
+               if (result)
+               {
+                  BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.BlanchedAlmond;
+               }
+               else
+               {
+                  BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Red;
+               }
+               return result;
+            }
+            return true;
+         }
+         catch (Exception exc)
+         {
+            BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Red;
             MessageBox.Show(exc.Message);
             return false;
          }

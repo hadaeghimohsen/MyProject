@@ -252,6 +252,9 @@ namespace System.Scsc.Data
     partial void InsertLog_Operation(Log_Operation instance);
     partial void UpdateLog_Operation(Log_Operation instance);
     partial void DeleteLog_Operation(Log_Operation instance);
+    partial void InsertExternal_Device_Link_Method(External_Device_Link_Method instance);
+    partial void UpdateExternal_Device_Link_Method(External_Device_Link_Method instance);
+    partial void DeleteExternal_Device_Link_Method(External_Device_Link_Method instance);
     #endregion
 		
 		public iScscDataContext() : 
@@ -2009,6 +2012,14 @@ namespace System.Scsc.Data
 			get
 			{
 				return this.GetTable<Log_Operation>();
+			}
+		}
+		
+		public System.Data.Linq.Table<External_Device_Link_Method> External_Device_Link_Methods
+		{
+			get
+			{
+				return this.GetTable<External_Device_Link_Method>();
 			}
 		}
 		
@@ -62526,6 +62537,8 @@ namespace System.Scsc.Data
 		
 		private EntitySet<Aggregation_Operation> _Aggregation_Operations;
 		
+		private EntitySet<External_Device_Link_Method> _External_Device_Link_Methods;
+		
 		private EntityRef<Method> _Method1;
 		
     #region Extensibility Method Definitions
@@ -62580,6 +62593,7 @@ namespace System.Scsc.Data
 			this._Payment_Details = new EntitySet<Payment_Detail>(new Action<Payment_Detail>(this.attach_Payment_Details), new Action<Payment_Detail>(this.detach_Payment_Details));
 			this._Expenses = new EntitySet<Expense>(new Action<Expense>(this.attach_Expenses), new Action<Expense>(this.detach_Expenses));
 			this._Aggregation_Operations = new EntitySet<Aggregation_Operation>(new Action<Aggregation_Operation>(this.attach_Aggregation_Operations), new Action<Aggregation_Operation>(this.detach_Aggregation_Operations));
+			this._External_Device_Link_Methods = new EntitySet<External_Device_Link_Method>(new Action<External_Device_Link_Method>(this.attach_External_Device_Link_Methods), new Action<External_Device_Link_Method>(this.detach_External_Device_Link_Methods));
 			this._Method1 = default(EntityRef<Method>);
 			OnCreated();
 		}
@@ -63082,6 +63096,19 @@ namespace System.Scsc.Data
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Method_External_Device_Link_Method", Storage="_External_Device_Link_Methods", ThisKey="CODE", OtherKey="MTOD_CODE")]
+		public EntitySet<External_Device_Link_Method> External_Device_Link_Methods
+		{
+			get
+			{
+				return this._External_Device_Link_Methods;
+			}
+			set
+			{
+				this._External_Device_Link_Methods.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Method_Method", Storage="_Method1", ThisKey="MTOD_CODE", OtherKey="CODE", IsForeignKey=true)]
 		public Method Method1
 		{
@@ -63347,6 +63374,18 @@ namespace System.Scsc.Data
 		}
 		
 		private void detach_Aggregation_Operations(Aggregation_Operation entity)
+		{
+			this.SendPropertyChanging();
+			entity.Method = null;
+		}
+		
+		private void attach_External_Device_Link_Methods(External_Device_Link_Method entity)
+		{
+			this.SendPropertyChanging();
+			entity.Method = this;
+		}
+		
+		private void detach_External_Device_Link_Methods(External_Device_Link_Method entity)
 		{
 			this.SendPropertyChanging();
 			entity.Method = null;
@@ -67110,6 +67149,8 @@ namespace System.Scsc.Data
 		
 		private System.Nullable<System.DateTime> _MDFY_DATE;
 		
+		private EntitySet<External_Device_Link_Method> _External_Device_Link_Methods;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -67158,6 +67199,7 @@ namespace System.Scsc.Data
 		
 		public External_Device()
 		{
+			this._External_Device_Link_Methods = new EntitySet<External_Device_Link_Method>(new Action<External_Device_Link_Method>(this.attach_External_Device_Link_Methods), new Action<External_Device_Link_Method>(this.detach_External_Device_Link_Methods));
 			OnCreated();
 		}
 		
@@ -67561,6 +67603,19 @@ namespace System.Scsc.Data
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="External_Device_External_Device_Link_Method", Storage="_External_Device_Link_Methods", ThisKey="CODE", OtherKey="EDEV_CODE")]
+		public EntitySet<External_Device_Link_Method> External_Device_Link_Methods
+		{
+			get
+			{
+				return this._External_Device_Link_Methods;
+			}
+			set
+			{
+				this._External_Device_Link_Methods.Assign(value);
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -67579,6 +67634,18 @@ namespace System.Scsc.Data
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+		
+		private void attach_External_Device_Link_Methods(External_Device_Link_Method entity)
+		{
+			this.SendPropertyChanging();
+			entity.External_Device = this;
+		}
+		
+		private void detach_External_Device_Link_Methods(External_Device_Link_Method entity)
+		{
+			this.SendPropertyChanging();
+			entity.External_Device = null;
 		}
 	}
 	
@@ -77175,6 +77242,318 @@ namespace System.Scsc.Data
 						this._FIGH_FILE_NO = default(Nullable<long>);
 					}
 					this.SendPropertyChanged("Fighter");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.External_Device_Link_Method")]
+	public partial class External_Device_Link_Method : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private System.Nullable<long> _EDEV_CODE;
+		
+		private System.Nullable<long> _MTOD_CODE;
+		
+		private long _CODE;
+		
+		private string _STAT;
+		
+		private string _CRET_BY;
+		
+		private System.Nullable<System.DateTime> _CRET_DATE;
+		
+		private string _MDFY_BY;
+		
+		private System.Nullable<System.DateTime> _MDFY_DATE;
+		
+		private EntityRef<External_Device> _External_Device;
+		
+		private EntityRef<Method> _Method;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnEDEV_CODEChanging(System.Nullable<long> value);
+    partial void OnEDEV_CODEChanged();
+    partial void OnMTOD_CODEChanging(System.Nullable<long> value);
+    partial void OnMTOD_CODEChanged();
+    partial void OnCODEChanging(long value);
+    partial void OnCODEChanged();
+    partial void OnSTATChanging(string value);
+    partial void OnSTATChanged();
+    partial void OnCRET_BYChanging(string value);
+    partial void OnCRET_BYChanged();
+    partial void OnCRET_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnCRET_DATEChanged();
+    partial void OnMDFY_BYChanging(string value);
+    partial void OnMDFY_BYChanged();
+    partial void OnMDFY_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnMDFY_DATEChanged();
+    #endregion
+		
+		public External_Device_Link_Method()
+		{
+			this._External_Device = default(EntityRef<External_Device>);
+			this._Method = default(EntityRef<Method>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EDEV_CODE", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<long> EDEV_CODE
+		{
+			get
+			{
+				return this._EDEV_CODE;
+			}
+			set
+			{
+				if ((this._EDEV_CODE != value))
+				{
+					if (this._External_Device.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnEDEV_CODEChanging(value);
+					this.SendPropertyChanging();
+					this._EDEV_CODE = value;
+					this.SendPropertyChanged("EDEV_CODE");
+					this.OnEDEV_CODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MTOD_CODE", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<long> MTOD_CODE
+		{
+			get
+			{
+				return this._MTOD_CODE;
+			}
+			set
+			{
+				if ((this._MTOD_CODE != value))
+				{
+					if (this._Method.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnMTOD_CODEChanging(value);
+					this.SendPropertyChanging();
+					this._MTOD_CODE = value;
+					this.SendPropertyChanged("MTOD_CODE");
+					this.OnMTOD_CODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CODE", DbType="BigInt NOT NULL", IsPrimaryKey=true)]
+		public long CODE
+		{
+			get
+			{
+				return this._CODE;
+			}
+			set
+			{
+				if ((this._CODE != value))
+				{
+					this.OnCODEChanging(value);
+					this.SendPropertyChanging();
+					this._CODE = value;
+					this.SendPropertyChanged("CODE");
+					this.OnCODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STAT", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		public string STAT
+		{
+			get
+			{
+				return this._STAT;
+			}
+			set
+			{
+				if ((this._STAT != value))
+				{
+					this.OnSTATChanging(value);
+					this.SendPropertyChanging();
+					this._STAT = value;
+					this.SendPropertyChanged("STAT");
+					this.OnSTATChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_BY", DbType="VarChar(250)", UpdateCheck=UpdateCheck.Never)]
+		public string CRET_BY
+		{
+			get
+			{
+				return this._CRET_BY;
+			}
+			set
+			{
+				if ((this._CRET_BY != value))
+				{
+					this.OnCRET_BYChanging(value);
+					this.SendPropertyChanging();
+					this._CRET_BY = value;
+					this.SendPropertyChanged("CRET_BY");
+					this.OnCRET_BYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<System.DateTime> CRET_DATE
+		{
+			get
+			{
+				return this._CRET_DATE;
+			}
+			set
+			{
+				if ((this._CRET_DATE != value))
+				{
+					this.OnCRET_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._CRET_DATE = value;
+					this.SendPropertyChanged("CRET_DATE");
+					this.OnCRET_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_BY", DbType="VarChar(250)", UpdateCheck=UpdateCheck.Never)]
+		public string MDFY_BY
+		{
+			get
+			{
+				return this._MDFY_BY;
+			}
+			set
+			{
+				if ((this._MDFY_BY != value))
+				{
+					this.OnMDFY_BYChanging(value);
+					this.SendPropertyChanging();
+					this._MDFY_BY = value;
+					this.SendPropertyChanged("MDFY_BY");
+					this.OnMDFY_BYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<System.DateTime> MDFY_DATE
+		{
+			get
+			{
+				return this._MDFY_DATE;
+			}
+			set
+			{
+				if ((this._MDFY_DATE != value))
+				{
+					this.OnMDFY_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._MDFY_DATE = value;
+					this.SendPropertyChanged("MDFY_DATE");
+					this.OnMDFY_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="External_Device_External_Device_Link_Method", Storage="_External_Device", ThisKey="EDEV_CODE", OtherKey="CODE", IsForeignKey=true, DeleteRule="CASCADE")]
+		public External_Device External_Device
+		{
+			get
+			{
+				return this._External_Device.Entity;
+			}
+			set
+			{
+				External_Device previousValue = this._External_Device.Entity;
+				if (((previousValue != value) 
+							|| (this._External_Device.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._External_Device.Entity = null;
+						previousValue.External_Device_Link_Methods.Remove(this);
+					}
+					this._External_Device.Entity = value;
+					if ((value != null))
+					{
+						value.External_Device_Link_Methods.Add(this);
+						this._EDEV_CODE = value.CODE;
+					}
+					else
+					{
+						this._EDEV_CODE = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("External_Device");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Method_External_Device_Link_Method", Storage="_Method", ThisKey="MTOD_CODE", OtherKey="CODE", IsForeignKey=true, DeleteRule="CASCADE")]
+		public Method Method
+		{
+			get
+			{
+				return this._Method.Entity;
+			}
+			set
+			{
+				Method previousValue = this._Method.Entity;
+				if (((previousValue != value) 
+							|| (this._Method.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Method.Entity = null;
+						previousValue.External_Device_Link_Methods.Remove(this);
+					}
+					this._Method.Entity = value;
+					if ((value != null))
+					{
+						value.External_Device_Link_Methods.Add(this);
+						this._MTOD_CODE = value.CODE;
+					}
+					else
+					{
+						this._MTOD_CODE = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("Method");
 				}
 			}
 		}

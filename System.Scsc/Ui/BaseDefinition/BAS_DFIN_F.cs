@@ -4121,6 +4121,8 @@ namespace System.Scsc.Ui.BaseDefinition
             {
                Gate_Tsm.Enabled = true;
             }
+
+            EdlmBs.DataSource = iScsc.External_Device_Link_Methods.Where(x => x.External_Device == exdv);
          }
          catch (Exception exc)
          {
@@ -4373,6 +4375,57 @@ namespace System.Scsc.Ui.BaseDefinition
          catch (Exception exc)
          {
             MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void AddEdlm_Butn_Click(object sender, EventArgs e)
+      {
+         var edev = ExdvBs.Current as Data.External_Device;
+         if (edev == null) return;
+
+         if (EdlmBs.List.OfType<Data.External_Device_Link_Method>().Any(x => x.CODE == 0)) return;
+
+         var edlm = EdlmBs.AddNew() as Data.External_Device_Link_Method;
+         edlm.External_Device = edev;
+
+         iScsc.External_Device_Link_Methods.InsertOnSubmit(edlm);
+      }
+
+      private void DelEdlm_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var edlm = EdlmBs.Current as Data.External_Device_Link_Method;
+            if (edlm == null) return;
+
+            if (MessageBox.Show(this, "آیا حذف لینک گروه موافق هستید؟", "عملیات حذف", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes) return;
+
+            iScsc.External_Device_Link_Methods.DeleteOnSubmit(edlm);
+
+            iScsc.SubmitChanges();
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void SaveEdlm_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            Edlm_Gv.PostEditor();
+            iScsc.SubmitChanges();
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
          }
       }
    }

@@ -877,6 +877,9 @@ namespace System.Scsc.Ui.MasterPage
                   case "5.2.7.2":
                      result = Duplicate_Enroll_Fingers(xinput.Attribute("enrollnumb").Value);
                      break;
+                  case "5.2.3.8.0":
+                     result = SetPassword_Enroll_Finger(xinput.Attribute("enrollnumb").Value, xinput.Attribute("password").Value);
+                     break;
                }
 
                //if (result) MessageBox.Show(this, "عملیات با موفقیت انجام شد", "نتجیه عملیات", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -1011,6 +1014,56 @@ namespace System.Scsc.Ui.MasterPage
                            new XAttribute("mesgdesc", "Text")
                         );
                   }
+                  break;
+               case "openrelaygate":
+                  _DefaultGateway.Gateway(
+                     new Job(SendType.External, "localhost",
+                        new List<Job>
+                        {
+                           //new Job(SendType.SelfToUserInterface, GetType().Name, 00 /* Execute ProcessCmdKey */){Input = Keys.Escape},
+                           new Job(SendType.SelfToUserInterface, GetType().Name, 10 /* Execute Actn_CalF_F */)
+                           {
+                              Input = 
+                                 new XElement("MainPage",
+                                    new XAttribute("type", "gatecontrol"),
+                                    new XAttribute("gateactn", "open")
+                                 )
+                           }
+                        }
+                     )
+                  );
+                  job.Output =
+                     new XElement("Output",
+                        new XAttribute("resultcode", 10004),
+                        new XAttribute("resultdesc", "درخواست باز شدن گیت انجام شد"),
+                        new XAttribute("mesgtype", "1"),
+                        new XAttribute("mesgdesc", "Text")
+                     );
+                  break;
+               case "closerelaygate":
+                  _DefaultGateway.Gateway(
+                     new Job(SendType.External, "localhost",
+                        new List<Job>
+                        {
+                           //new Job(SendType.SelfToUserInterface, GetType().Name, 00 /* Execute ProcessCmdKey */){Input = Keys.Escape},
+                           new Job(SendType.SelfToUserInterface, GetType().Name, 10 /* Execute Actn_CalF_F */)
+                           {
+                              Input = 
+                                 new XElement("MainPage",
+                                    new XAttribute("type", "gatecontrol"),
+                                    new XAttribute("gateactn", "close")
+                                 )
+                           }
+                        }
+                     )
+                  );
+                  job.Output =
+                     new XElement("Output",
+                        new XAttribute("resultcode", 10004),
+                        new XAttribute("resultdesc", "درخواست بسته شدن گیت انجام شد"),
+                        new XAttribute("mesgtype", "1"),
+                        new XAttribute("mesgdesc", "Text")
+                     );
                   break;
                default:
                   break;

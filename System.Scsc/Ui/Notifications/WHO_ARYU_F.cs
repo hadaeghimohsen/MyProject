@@ -147,6 +147,7 @@ namespace System.Scsc.Ui.Notifications
                            new XElement("Request",
                               new XAttribute("type", "gatecontrol"),
                               new XAttribute("gateactn", attn.EXIT_TIME == null ? "open" : "close"),
+                              new XAttribute("mtodcode", attn.MTOD_CODE_DNRM ?? 0), // 1400/01/12 * برای اینکه بخواهیم به گیت مورد نظر همان ورزش درخواست دهیم
                               new XAttribute("enddate", attn.MBSP_END_DATE_DNRM),
                               new XAttribute("numbattnmont", attn.NUMB_OF_ATTN_MONT),
                               new XAttribute("sumattnmont",attn.SUM_ATTN_MONT_DNRM ?? 0),
@@ -387,6 +388,21 @@ namespace System.Scsc.Ui.Notifications
             EndTime_Txt.Text = "";
          }
 
+         // 1400/01/08 * نمایش دکمه یاد آوری
+         var notes = attn.Fighter1.Notes.Where(n => n.VIST_STAT == "001");
+         if(notes != null && notes.Count() > 0)
+         {
+            Note_Lb.Visible = true;
+            NotfNote_Butn.Visible = true;
+            NotfNote_Butn.Caption = notes.Count().ToString();
+            this.toolTip1.SetToolTip(this.Note_Lb, string.Join(Environment.NewLine, notes.OrderBy(n => n.RWNO).Select(n => n.RWNO.ToString() + ") " + n.NOTE_SUBJ + Environment.NewLine + n.NOTE_CMNT)));
+         }
+         else
+         {
+            Note_Lb.Visible = false;
+            NotfNote_Butn.Visible = false;
+            NotfNote_Butn.Caption = "0";
+         }
 
          DRES_NUMB_Txt.Focus();
 

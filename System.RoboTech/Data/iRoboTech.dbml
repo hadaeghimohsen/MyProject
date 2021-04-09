@@ -3078,70 +3078,78 @@
       <Association Name="Robot_Service_Robot_Stakeholder" Member="Robot" ThisKey="SRBT_ROBO_RBID" OtherKey="RBID" Type="Robot" IsForeignKey="true" DeleteRule="CASCADE" />
     </Type>
   </Table>
+  <Table Name="dbo.D$QPIV" Member="D_QPIVs">
+    <Type Name="D_QPIV">
+      <Column Name="VALU" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="DOMN_DESC" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
   <Table Name="dbo.Robot" Member="Robots">
     <Type Name="Robot">
-      <Column Name="ORGN_OGID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
-      <Column Name="ROBO_RBID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="ORGN_OGID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="ROBO_RBID" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="RBID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="COPY_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="BOT_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="NAME" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="TKON_CODE" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
-      <Column Name="CHCK_INTR" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="BULD_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="BULD_FILE_ID" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
-      <Column Name="SPY_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="CRTB_URL" Type="System.String" DbType="VarChar(1000)" CanBeNull="true" />
-      <Column Name="DOWN_LOAD_FILE_PATH" Type="System.String" DbType="VarChar(1000)" CanBeNull="true" />
-      <Column Name="UP_LOAD_FILE_PATH" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
-      <Column Name="INVT_FRND" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="SEND_SMS_INVT_CONT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="HASH_TAG" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
-      <Column Name="POST_ADRS" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
-      <Column Name="CORD_X" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="CORD_Y" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="CELL_PHON" Type="System.String" DbType="VarChar(11)" CanBeNull="true" />
-      <Column Name="TELL_PHON" Type="System.String" DbType="VarChar(11)" CanBeNull="true" />
-      <Column Name="EMAL_ADRS" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="WEB_SITE" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="RUN_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="AMNT_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="CNCT_ACNT_APP" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="ACNT_APP_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="PAGE_FECH_ROWS" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="MIN_WITH_DRAW" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="CONF_DURT_DAY" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="AUTO_SHIP_CORI" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="SHOW_INVR_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="VIEW_INVR_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="FREE_SHIP_INCT_AMNT" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="FREE_SHIP_OTCT_AMNT" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="ORDR_EXPR_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="ORDR_EXPR_TIME" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="LOCL_SRVR_CONN_STRN" Type="System.String" DbType="VarChar(1000)" CanBeNull="true" />
-      <Column Name="WEB_SRVR_CONN_STRN" Type="System.String" DbType="VarChar(1000)" CanBeNull="true" />
-      <Column Name="EXTR_SORC_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="SLCT_SRVR_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="NOTI_ORDR_SHIP_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="NOTI_SOND_ORDR_SHIP_PATH" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
-      <Column Name="NOTI_ORDR_RCPT_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="NOTI_SOND_ORDR_RCPT_PATH" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
-      <Column Name="NOTI_ORDR_RECP_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="NOTI_SOND_ORDR_RECP_PATH" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
-      <Column Name="CHCK_REGS_STRT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="CRNC_CALC_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="RBCR_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="CRNC_AMNT_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="CRNC_AUTO_UPDT_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="CRNC_CYCL_AUTO_UPDT" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="CRNC_HOW_UPDT_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="MAX_CARD_TO_CARD_AMNT" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="QURY_PROD_INVR_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="COPY_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="BOT_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="NAME" Type="System.String" DbType="VarChar(50)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="TKON_CODE" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="CHCK_INTR" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="BULD_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="BULD_FILE_ID" Type="System.String" DbType="VarChar(500)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="SPY_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRTB_URL" Type="System.String" DbType="VarChar(1000)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="DOWN_LOAD_FILE_PATH" Type="System.String" DbType="VarChar(1000)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="UP_LOAD_FILE_PATH" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="INVT_FRND" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="SEND_SMS_INVT_CONT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="HASH_TAG" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="POST_ADRS" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CORD_X" Type="System.Double" DbType="Float" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CORD_Y" Type="System.Double" DbType="Float" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CELL_PHON" Type="System.String" DbType="VarChar(11)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="TELL_PHON" Type="System.String" DbType="VarChar(11)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="EMAL_ADRS" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="WEB_SITE" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="RUN_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="AMNT_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CNCT_ACNT_APP" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ACNT_APP_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="PAGE_FECH_ROWS" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MIN_WITH_DRAW" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CONF_DURT_DAY" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="AUTO_SHIP_CORI" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="SHOW_INVR_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="VIEW_INVR_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="FREE_SHIP_INCT_AMNT" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="FREE_SHIP_OTCT_AMNT" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ORDR_EXPR_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ORDR_EXPR_TIME" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="LOCL_SRVR_CONN_STRN" Type="System.String" DbType="VarChar(1000)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="WEB_SRVR_CONN_STRN" Type="System.String" DbType="VarChar(1000)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="EXTR_SORC_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="SLCT_SRVR_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="EXTR_SORC_OFLN_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="EXTR_SORC_OFLN_TIME" Type="System.TimeSpan" DbType="Time" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="NOTI_ORDR_SHIP_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="NOTI_SOND_ORDR_SHIP_PATH" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="NOTI_ORDR_RCPT_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="NOTI_SOND_ORDR_RCPT_PATH" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="NOTI_ORDR_RECP_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="NOTI_SOND_ORDR_RECP_PATH" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CHCK_REGS_STRT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRNC_CALC_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="RBCR_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRNC_AMNT_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRNC_AUTO_UPDT_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRNC_CYCL_AUTO_UPDT" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRNC_HOW_UPDT_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MAX_CARD_TO_CARD_AMNT" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="QURY_PROD_INVR_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
       <Association Name="Robot_Job" Member="Jobs" ThisKey="RBID" OtherKey="ROBO_RBID" Type="Job" />
       <Association Name="Robot_Organ_Description" Member="Organ_Descriptions" ThisKey="RBID" OtherKey="ROBO_RBID" Type="Organ_Description" />
       <Association Name="Robot_Robot_Import" Member="Robot_Imports" ThisKey="RBID" OtherKey="ROBO_RBID" Type="Robot_Import" />
@@ -3269,16 +3277,12 @@
       <Argument Parameter="crnc_How_Updt_Stat" Member="CRNC_HOW_UPDT_STAT" />
       <Argument Parameter="max_Card_To_Card_Amnt" Member="MAX_CARD_TO_CARD_AMNT" />
       <Argument Parameter="qury_Prod_Invr_Stat" Member="QURY_PROD_INVR_STAT" />
+      <Argument Parameter="extr_Sorc_Ofln_Stat" Member="EXTR_SORC_OFLN_STAT" />
+      <Argument Parameter="extr_Sorc_Ofln_Time" Member="EXTR_SORC_OFLN_TIME" />
     </UpdateFunction>
     <DeleteFunction FunctionId="FunctionId90">
       <Argument Parameter="rbid" Member="RBID" />
     </DeleteFunction>
-  </Table>
-  <Table Name="dbo.D$QPIV" Member="D_QPIVs">
-    <Type Name="D_QPIV">
-      <Column Name="VALU" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
-      <Column Name="DOMN_DESC" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
-    </Type>
   </Table>
   <Function Id="FunctionId3" Name="dbo.DEL_CNTY_P" Method="DEL_CNTY_P">
     <Parameter Name="Code" Parameter="code" Type="System.String" DbType="VarChar(3)" />
@@ -4510,6 +4514,8 @@
     <Parameter Name="Crnc_How_Updt_Stat" Parameter="crnc_How_Updt_Stat" Type="System.String" DbType="VarChar(3)" />
     <Parameter Name="Max_Card_To_Card_Amnt" Parameter="max_Card_To_Card_Amnt" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Qury_Prod_Invr_Stat" Parameter="qury_Prod_Invr_Stat" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="Extr_Sorc_Ofln_Stat" Parameter="extr_Sorc_Ofln_Stat" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="Extr_Sorc_Ofln_Time" Parameter="extr_Sorc_Ofln_Time" Type="System.TimeSpan" DbType="Time" />
     <Return Type="System.Int32" />
   </Function>
 </Database>

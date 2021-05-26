@@ -2615,6 +2615,7 @@ namespace System.Scsc.Ui.BaseDefinition
                      new XAttribute("exprdebtday", Stng.EXPR_DEBT_DAY ?? 7),
                      new XAttribute("tryvaldsbmt", Stng.TRY_VALD_SBMT ?? "002"),
                      new XAttribute("debtchckstat", Stng.DEBT_CHCK_STAT ?? "002"),
+                     new XAttribute("permentrdebtservnumb", Stng.PERM_ENTR_DEBT_SERV_NUMB ?? 0),
 
                      new XAttribute("gateattnstat", Stng.GATE_ATTN_STAT ?? "001"),
                      new XAttribute("gatecommportname", /*GateComPortName_Lov.Text*/Stng.GATE_COMM_PORT_NAME ?? ""),
@@ -2635,6 +2636,8 @@ namespace System.Scsc.Ui.BaseDefinition
                      new XAttribute("hldycont", Stng.HLDY_CONT ?? 1),
                      new XAttribute("duplnatlcode", Stng.DUPL_NATL_CODE ?? "002"),
                      new XAttribute("duplcellphon", Stng.DUPL_CELL_PHON ?? "002"),
+                     new XAttribute("inptnatlcodestat", Stng.INPT_NATL_CODE_STAT ?? "002"),
+                     new XAttribute("inptcellphonstat", Stng.INPT_CELL_PHON_STAT ?? "002"),
 
                      new XAttribute("ipadr3", Stng.IP_ADR3 ?? ""),
                      new XAttribute("portnum3", Stng.PORT_NUM3 ?? 0),
@@ -4426,6 +4429,58 @@ namespace System.Scsc.Ui.BaseDefinition
          {
             if (requery)
                Execute_Query();
+         }
+      }
+
+      private void ClubBs3_CurrentChanged(object sender, EventArgs e)
+      {
+         try
+         {
+            var club = ClubBs3.Current as Data.Club;
+            if (club == null) return;
+
+            var s = club.Settings.FirstOrDefault();
+
+            InptNatlCode_Cb.Checked = (s.INPT_NATL_CODE_STAT ?? "001") == "002" ? true : false;
+            InptCellPhon_Cb.Checked = (s.INPT_CELL_PHON_STAT ?? "001") == "002" ? true : false;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void InptNatlCode_Cb_CheckedChanged(object sender, EventArgs e)
+      {
+         try
+         {
+            var club = ClubBs3.Current as Data.Club;
+            if (club == null) return;
+
+            var s = club.Settings.FirstOrDefault();
+
+            s.INPT_NATL_CODE_STAT = InptNatlCode_Cb.Checked ? "002" : "001";
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void InptCellPhon_Cb_CheckedChanged(object sender, EventArgs e)
+      {
+         try
+         {
+            var club = ClubBs3.Current as Data.Club;
+            if (club == null) return;
+
+            var s = club.Settings.FirstOrDefault();
+
+            s.INPT_CELL_PHON_STAT = InptCellPhon_Cb.Checked ? "002" : "001";
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
          }
       }
    }

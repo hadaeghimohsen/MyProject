@@ -2658,6 +2658,7 @@
          // 
          // DebtPymtAmnt_Txt
          // 
+         this.DebtPymtAmnt_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.DebtPymtAmnt_Txt.EditValue = "0";
          this.DebtPymtAmnt_Txt.Location = new System.Drawing.Point(495, 37);
          this.DebtPymtAmnt_Txt.Name = "DebtPymtAmnt_Txt";
@@ -2764,7 +2765,6 @@
          // 
          // MbspInfo_Butn
          // 
-         this.MbspInfo_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
          this.MbspInfo_Butn.Appearance.BackColor = System.Drawing.Color.Gainsboro;
          this.MbspInfo_Butn.Appearance.Options.UseBackColor = true;
          this.MbspInfo_Butn.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
@@ -3919,7 +3919,7 @@
          this.RqstBnEnrollFngrPrnt1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
          this.RqstBnEnrollFngrPrnt1.Name = "RqstBnEnrollFngrPrnt1";
          this.RqstBnEnrollFngrPrnt1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F4)));
-         this.RqstBnEnrollFngrPrnt1.Size = new System.Drawing.Size(318, 54);
+         this.RqstBnEnrollFngrPrnt1.Size = new System.Drawing.Size(317, 54);
          this.RqstBnEnrollFngrPrnt1.Text = "تعریف کد انگشتی";
          this.RqstBnEnrollFngrPrnt1.Click += new System.EventHandler(this.RqstBnEnrollFngrPrnt1_Click);
          // 
@@ -3929,7 +3929,7 @@
          this.RqstBnDeleteFngrPrnt1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
          this.RqstBnDeleteFngrPrnt1.Name = "RqstBnDeleteFngrPrnt1";
          this.RqstBnDeleteFngrPrnt1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F5)));
-         this.RqstBnDeleteFngrPrnt1.Size = new System.Drawing.Size(318, 54);
+         this.RqstBnDeleteFngrPrnt1.Size = new System.Drawing.Size(317, 54);
          this.RqstBnDeleteFngrPrnt1.Text = "حذف کد انگشتی";
          this.RqstBnDeleteFngrPrnt1.Click += new System.EventHandler(this.RqstBnDeleteFngrPrnt1_Click);
          // 
@@ -3939,7 +3939,7 @@
          this.RqstBnDuplicateFngrPrnt1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
          this.RqstBnDuplicateFngrPrnt1.Name = "RqstBnDuplicateFngrPrnt1";
          this.RqstBnDuplicateFngrPrnt1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F6)));
-         this.RqstBnDuplicateFngrPrnt1.Size = new System.Drawing.Size(318, 54);
+         this.RqstBnDuplicateFngrPrnt1.Size = new System.Drawing.Size(317, 54);
          this.RqstBnDuplicateFngrPrnt1.Text = "یکسان سازی تمام دستگاه ها";
          this.RqstBnDuplicateFngrPrnt1.Click += new System.EventHandler(this.RqstBnDuplicateFngrPrnt1_Click);
          // 
@@ -3949,14 +3949,14 @@
          this.RqstBnDeleteFngrNewEnrollPrnt1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
          this.RqstBnDeleteFngrNewEnrollPrnt1.Name = "RqstBnDeleteFngrNewEnrollPrnt1";
          this.RqstBnDeleteFngrNewEnrollPrnt1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F7)));
-         this.RqstBnDeleteFngrNewEnrollPrnt1.Size = new System.Drawing.Size(318, 54);
+         this.RqstBnDeleteFngrNewEnrollPrnt1.Size = new System.Drawing.Size(317, 54);
          this.RqstBnDeleteFngrNewEnrollPrnt1.Text = "اختصاص کد انگشتی به کاربر جدید";
          this.RqstBnDeleteFngrNewEnrollPrnt1.Click += new System.EventHandler(this.RqstBnDeleteFngrNewEnrollPrnt1_Click);
          // 
          // toolStripMenuItem1
          // 
          this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-         this.toolStripMenuItem1.Size = new System.Drawing.Size(315, 6);
+         this.toolStripMenuItem1.Size = new System.Drawing.Size(314, 6);
          // 
          // RqstBnEnrollFngrPrnt2
          // 
@@ -3964,7 +3964,7 @@
          this.RqstBnEnrollFngrPrnt2.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
          this.RqstBnEnrollFngrPrnt2.Name = "RqstBnEnrollFngrPrnt2";
          this.RqstBnEnrollFngrPrnt2.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F2)));
-         this.RqstBnEnrollFngrPrnt2.Size = new System.Drawing.Size(318, 54);
+         this.RqstBnEnrollFngrPrnt2.Size = new System.Drawing.Size(317, 54);
          this.RqstBnEnrollFngrPrnt2.Text = "تعریف کد انگشتی دستگاه انار";
          this.RqstBnEnrollFngrPrnt2.Click += new System.EventHandler(this.RqstBnEnrollFngrPrnt2_Click);
          // 
@@ -3974,7 +3974,7 @@
          this.RqstBnDeleteFngrPrnt2.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
          this.RqstBnDeleteFngrPrnt2.Name = "RqstBnDeleteFngrPrnt2";
          this.RqstBnDeleteFngrPrnt2.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F3)));
-         this.RqstBnDeleteFngrPrnt2.Size = new System.Drawing.Size(318, 54);
+         this.RqstBnDeleteFngrPrnt2.Size = new System.Drawing.Size(317, 54);
          this.RqstBnDeleteFngrPrnt2.Text = "حذف کد انگشتی دستگاه انار";
          this.RqstBnDeleteFngrPrnt2.Click += new System.EventHandler(this.RqstBnDeleteFngrPrnt2_Click);
          // 

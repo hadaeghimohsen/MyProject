@@ -761,43 +761,6 @@
       <Association Name="Robot_Spy_Group_Message_Robot_Spy_Group_Message_Detail" Member="Robot_Spy_Group_Message" ThisKey="RSGM_CODE" OtherKey="CODE" Type="Robot_Spy_Group_Message" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.App_Base_Define" Member="App_Base_Defines">
-    <Type Name="App_Base_Define">
-      <Column Name="CODE" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="RWNO" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="TITL_DESC" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
-      <Column Name="ENTY_NAME" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="REF_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Association Name="App_Base_Define_App_Base_Define" Member="App_Base_Defines" ThisKey="CODE" OtherKey="REF_CODE" Type="App_Base_Define" />
-      <Association Name="App_Base_Define_Group_Header_Item" Member="Group_Header_Items" ThisKey="CODE" OtherKey="UNIT_APBS_CODE" Type="Group_Header_Item" />
-      <Association Name="App_Base_Define_Order_State" Member="Order_States" ThisKey="CODE" OtherKey="APBS_CODE" Type="Order_State" />
-      <Association Name="App_Base_Define_Order" Member="Orders" ThisKey="CODE" OtherKey="SERV_INTR_APBS_CODE" Type="Order" />
-      <Association Name="App_Base_Define_Order1" Member="Orders1" ThisKey="CODE" OtherKey="SERV_JOB_APBS_CODE" Type="Order" />
-      <Association Name="App_Base_Define_Order2" Member="Orders2" ThisKey="CODE" OtherKey="APBS_CODE" Type="Order" />
-      <Association Name="App_Base_Define_Robot_Product" Member="Robot_Products" ThisKey="CODE" OtherKey="UNIT_APBS_CODE" Type="Robot_Product" />
-      <Association Name="App_Base_Define_App_Base_Define" Member="App_Base_Define1" ThisKey="REF_CODE" OtherKey="CODE" Type="App_Base_Define" IsForeignKey="true" />
-    </Type>
-    <InsertFunction FunctionId="FunctionId40">
-      <Argument Parameter="titl_Desc" Member="TITL_DESC" />
-      <Argument Parameter="enty_Name" Member="ENTY_NAME" />
-      <Argument Parameter="ref_Code" Member="REF_CODE" />
-      <Argument Parameter="rwno" Member="RWNO" />
-    </InsertFunction>
-    <UpdateFunction FunctionId="FunctionId41">
-      <Argument Parameter="code" Member="CODE" />
-      <Argument Parameter="titl_Desc" Member="TITL_DESC" />
-      <Argument Parameter="enty_Name" Member="ENTY_NAME" />
-      <Argument Parameter="ref_Code" Member="REF_CODE" />
-      <Argument Parameter="rwno" Member="RWNO" />
-    </UpdateFunction>
-    <DeleteFunction FunctionId="FunctionId42">
-      <Argument Parameter="code" Member="CODE" />
-    </DeleteFunction>
-  </Table>
   <Table Name="dbo.D$MDFR" Member="D_MDFRs">
     <Type Name="D_MDFR">
       <Column Name="VALU" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
@@ -819,19 +782,19 @@
       <Association Name="Personal_Robot_Order_Access" Member="Personal_Robot" ThisKey="PROB_SERV_FILE_NO,PROB_ROBO_RBID" OtherKey="SERV_FILE_NO,ROBO_RBID" Type="Personal_Robot" IsForeignKey="true" />
       <Association Name="Order_Order_Access" Member="Order" ThisKey="ORDR_CODE" OtherKey="CODE" Type="Order" IsForeignKey="true" DeleteRule="CASCADE" />
     </Type>
-    <InsertFunction FunctionId="FunctionId43">
+    <InsertFunction FunctionId="FunctionId40">
       <Argument Parameter="ordr_Code" Member="ORDR_CODE" />
       <Argument Parameter="prob_Serv_File_No" Member="PROB_SERV_FILE_NO" />
       <Argument Parameter="prob_Robo_Rbid" Member="PROB_ROBO_RBID" />
       <Argument Parameter="recd_Stat" Member="RECD_STAT" />
     </InsertFunction>
-    <UpdateFunction FunctionId="FunctionId44">
+    <UpdateFunction FunctionId="FunctionId41">
       <Argument Parameter="code" Member="CODE" />
       <Argument Parameter="prob_Serv_File_No" Member="PROB_SERV_FILE_NO" />
       <Argument Parameter="prob_Robo_Rbid" Member="PROB_ROBO_RBID" />
       <Argument Parameter="recd_Stat" Member="RECD_STAT" />
     </UpdateFunction>
-    <DeleteFunction FunctionId="FunctionId45">
+    <DeleteFunction FunctionId="FunctionId42">
       <Argument Parameter="code" Member="CODE" />
     </DeleteFunction>
   </Table>
@@ -904,7 +867,7 @@
       <Association Name="Service_Personal_Robot" Member="Service" ThisKey="SERV_FILE_NO" OtherKey="FILE_NO" Type="Service" IsForeignKey="true" />
       <Association Name="Robot_Personal_Robot" Member="Robot" ThisKey="ROBO_RBID" OtherKey="RBID" Type="Robot" IsForeignKey="true" />
     </Type>
-    <InsertFunction FunctionId="FunctionId46">
+    <InsertFunction FunctionId="FunctionId43">
       <Argument Parameter="serv_File_No" Member="SERV_FILE_NO" />
       <Argument Parameter="robo_Rbid" Member="ROBO_RBID" />
       <Argument Parameter="stat" Member="STAT" />
@@ -914,7 +877,7 @@
       <Argument Parameter="user_Name" Member="USER_NAME" />
       <Argument Parameter="dflt_Aces" Member="DFLT_ACES" />
     </InsertFunction>
-    <UpdateFunction FunctionId="FunctionId47">
+    <UpdateFunction FunctionId="FunctionId44">
       <Argument Parameter="serv_File_No" Member="SERV_FILE_NO" />
       <Argument Parameter="robo_Rbid" Member="ROBO_RBID" />
       <Argument Parameter="stat" Member="STAT" />
@@ -924,7 +887,7 @@
       <Argument Parameter="user_Name" Member="USER_NAME" />
       <Argument Parameter="dflt_Aces" Member="DFLT_ACES" />
     </UpdateFunction>
-    <DeleteFunction FunctionId="FunctionId48">
+    <DeleteFunction FunctionId="FunctionId45">
       <Argument Parameter="serv_File_No" Member="SERV_FILE_NO" />
       <Argument Parameter="robo_Rbid" Member="ROBO_RBID" />
     </DeleteFunction>
@@ -955,21 +918,21 @@
       <Association Name="Group_Service_Robot_Group" Member="Group" ThisKey="GROP_GPID" OtherKey="GPID" Type="Group" IsForeignKey="true" />
       <Association Name="Service_Robot_Service_Robot_Group" Member="Service_Robot" ThisKey="SRBT_SERV_FILE_NO,SRBT_ROBO_RBID" OtherKey="SERV_FILE_NO,ROBO_RBID" Type="Service_Robot" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
     </Type>
-    <InsertFunction FunctionId="FunctionId49">
+    <InsertFunction FunctionId="FunctionId46">
       <Argument Parameter="gROP_GPID" Member="GROP_GPID" />
       <Argument Parameter="sRBT_SERV_FILE_NO" Member="SRBT_SERV_FILE_NO" />
       <Argument Parameter="sRBT_ROBO_RBID" Member="SRBT_ROBO_RBID" />
       <Argument Parameter="sTAT" Member="STAT" />
       <Argument Parameter="dflt_Stat" Member="DFLT_STAT" />
     </InsertFunction>
-    <UpdateFunction FunctionId="FunctionId50">
+    <UpdateFunction FunctionId="FunctionId47">
       <Argument Parameter="gROP_GPID" Member="GROP_GPID" />
       <Argument Parameter="sRBT_SERV_FILE_NO" Member="SRBT_SERV_FILE_NO" />
       <Argument Parameter="sRBT_ROBO_RBID" Member="SRBT_ROBO_RBID" />
       <Argument Parameter="sTAT" Member="STAT" />
       <Argument Parameter="dflt_Stat" Member="DFLT_STAT" />
     </UpdateFunction>
-    <DeleteFunction FunctionId="FunctionId51">
+    <DeleteFunction FunctionId="FunctionId48">
       <Argument Parameter="gROP_GPID" Member="GROP_GPID" />
       <Argument Parameter="sRBT_SERV_FILE_NO" Member="SRBT_SERV_FILE_NO" />
       <Argument Parameter="sRBT_ROBO_RBID" Member="SRBT_ROBO_RBID" />
@@ -988,16 +951,16 @@
       <Association Name="Group_Header_Service_Robot" Member="Service_Robots" ThisKey="GHID" OtherKey="GRPH_GHID" Type="Service_Robot" />
       <Association Name="Robot_Group_Header" Member="Robot" ThisKey="ROBO_RBID" OtherKey="RBID" Type="Robot" IsForeignKey="true" DeleteRule="CASCADE" />
     </Type>
-    <InsertFunction FunctionId="FunctionId52">
+    <InsertFunction FunctionId="FunctionId49">
       <Argument Parameter="grph_Desc" Member="GRPH_DESC" />
       <Argument Parameter="robo_Rbid" Member="ROBO_RBID" />
     </InsertFunction>
-    <UpdateFunction FunctionId="FunctionId53">
+    <UpdateFunction FunctionId="FunctionId50">
       <Argument Parameter="ghid" Member="GHID" />
       <Argument Parameter="grph_Desc" Member="GRPH_DESC" />
       <Argument Parameter="robo_Rbid" Member="ROBO_RBID" />
     </UpdateFunction>
-    <DeleteFunction FunctionId="FunctionId54">
+    <DeleteFunction FunctionId="FunctionId51">
       <Argument Parameter="gHID" Member="GHID" />
     </DeleteFunction>
   </Table>
@@ -1018,7 +981,7 @@
       <Association Name="Group_Service_Robot_Group" Member="Service_Robot_Groups" ThisKey="GPID" OtherKey="GROP_GPID" Type="Service_Robot_Group" />
       <Association Name="Robot_Group" Member="Robot" ThisKey="ROBO_RBID" OtherKey="RBID" Type="Robot" IsForeignKey="true" />
     </Type>
-    <InsertFunction FunctionId="FunctionId55">
+    <InsertFunction FunctionId="FunctionId52">
       <Argument Parameter="rOBO_RBID" Member="ROBO_RBID" />
       <Argument Parameter="nAME" Member="NAME" />
       <Argument Parameter="sTAT" Member="STAT" />
@@ -1026,7 +989,7 @@
       <Argument Parameter="aDMN_ORGN" Member="ADMN_ORGN" />
       <Argument Parameter="off_Prct" Member="OFF_PRCT" />
     </InsertFunction>
-    <UpdateFunction FunctionId="FunctionId56">
+    <UpdateFunction FunctionId="FunctionId53">
       <Argument Parameter="gPID" Member="GPID" />
       <Argument Parameter="rOBO_RBID" Member="ROBO_RBID" />
       <Argument Parameter="nAME" Member="NAME" />
@@ -1035,7 +998,7 @@
       <Argument Parameter="aDMN_ORGN" Member="ADMN_ORGN" />
       <Argument Parameter="off_Prct" Member="OFF_PRCT" />
     </UpdateFunction>
-    <DeleteFunction FunctionId="FunctionId57">
+    <DeleteFunction FunctionId="FunctionId54">
       <Argument Parameter="rOBO_RBID" Member="ROBO_RBID" />
       <Argument Parameter="gPID" Member="GPID" />
     </DeleteFunction>
@@ -1072,11 +1035,11 @@
       <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
       <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Association Name="Group_Header_Item_Order_Detail" Member="Order_Details" ThisKey="CODE" OtherKey="GHIT_CODE" Type="Order_Detail" />
-      <Association Name="App_Base_Define_Group_Header_Item" Member="App_Base_Define" ThisKey="UNIT_APBS_CODE" OtherKey="CODE" Type="App_Base_Define" IsForeignKey="true" DeleteRule="CASCADE" />
       <Association Name="Group_Header_Group_Header_Item" Member="Group_Header" ThisKey="GPHD_GHID" OtherKey="GHID" Type="Group_Header" IsForeignKey="true" />
       <Association Name="Group_Menu_Ussd_Group_Header_Item" Member="Group_Menu_Ussd" ThisKey="GRMU_GROP_GPID,GRMU_MNUS_MUID,GRMU_MNUS_ROBO_RBID" OtherKey="GROP_GPID,MNUS_MUID,MNUS_ROBO_RBID" Type="Group_Menu_Ussd" IsForeignKey="true" DeleteRule="CASCADE" />
+      <Association Name="App_Base_Define_Group_Header_Item" Member="App_Base_Define" ThisKey="UNIT_APBS_CODE" OtherKey="CODE" Type="App_Base_Define" IsForeignKey="true" DeleteRule="CASCADE" />
     </Type>
-    <InsertFunction FunctionId="FunctionId58">
+    <InsertFunction FunctionId="FunctionId55">
       <Argument Parameter="gPHD_GHID" Member="GPHD_GHID" />
       <Argument Parameter="gHDT_DESC" Member="GHDT_DESC" />
       <Argument Parameter="pric" Member="PRIC" />
@@ -1095,7 +1058,7 @@
       <Argument Parameter="grmu_Mnus_Muid" Member="GRMU_MNUS_MUID" />
       <Argument Parameter="grmu_Grop_Gpid" Member="GRMU_GROP_GPID" />
     </InsertFunction>
-    <UpdateFunction FunctionId="FunctionId59">
+    <UpdateFunction FunctionId="FunctionId56">
       <Argument Parameter="code" Member="CODE" />
       <Argument Parameter="gPHD_GHID" Member="GPHD_GHID" />
       <Argument Parameter="gHDT_DESC" Member="GHDT_DESC" />
@@ -1115,7 +1078,7 @@
       <Argument Parameter="grmu_Mnus_Muid" Member="GRMU_MNUS_MUID" />
       <Argument Parameter="grmu_Grop_Gpid" Member="GRMU_GROP_GPID" />
     </UpdateFunction>
-    <DeleteFunction FunctionId="FunctionId60">
+    <DeleteFunction FunctionId="FunctionId57">
       <Argument Parameter="code" Member="CODE" />
     </DeleteFunction>
   </Table>
@@ -1175,7 +1138,7 @@
       <Association Name="Menu_Ussd_Menu_Ussd" Member="Menu_Ussd1" ThisKey="ROBO_RBID,MNUS_MUID" OtherKey="ROBO_RBID,MUID" Type="Menu_Ussd" IsForeignKey="true" />
       <Association Name="Robot_Menu_Ussd" Member="Robot" ThisKey="ROBO_RBID" OtherKey="RBID" Type="Robot" IsForeignKey="true" />
     </Type>
-    <InsertFunction FunctionId="FunctionId61">
+    <InsertFunction FunctionId="FunctionId58">
       <Argument Parameter="rOBO_RBID" Member="ROBO_RBID" />
       <Argument Parameter="mNUS_MUID" Member="MNUS_MUID" />
       <Argument Parameter="rOOT_MENU" Member="ROOT_MENU" />
@@ -1202,7 +1165,7 @@
       <Argument Parameter="pOST_EXEC" Member="POST_EXEC" />
       <Argument Parameter="tRGR_TEXT" Member="TRGR_TEXT" />
     </InsertFunction>
-    <UpdateFunction FunctionId="FunctionId62">
+    <UpdateFunction FunctionId="FunctionId59">
       <Argument Parameter="rOBO_RBID" Member="ROBO_RBID" />
       <Argument Parameter="mUID" Member="MUID" />
       <Argument Parameter="mNUS_MUID" Member="MNUS_MUID" />
@@ -1230,7 +1193,7 @@
       <Argument Parameter="pOST_EXEC" Member="POST_EXEC" />
       <Argument Parameter="tRGR_TEXT" Member="TRGR_TEXT" />
     </UpdateFunction>
-    <DeleteFunction FunctionId="FunctionId63">
+    <DeleteFunction FunctionId="FunctionId60">
       <Argument Parameter="rOBO_RBID" Member="ROBO_RBID" />
       <Argument Parameter="mUID" Member="MUID" />
     </DeleteFunction>
@@ -1263,13 +1226,13 @@
       <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
       <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Association Name="App_Base_Define_Order_State" Member="App_Base_Define" ThisKey="APBS_CODE" OtherKey="CODE" Type="App_Base_Define" IsForeignKey="true" />
       <Association Name="Wallet_Detail_Order_State" Member="Wallet_Detail" ThisKey="WLDT_CODE" OtherKey="CODE" Type="Wallet_Detail" IsForeignKey="true" />
       <Association Name="Service_Robot_Discount_Card_Order_State" Member="Service_Robot_Discount_Card" ThisKey="DISC_DCID" OtherKey="DCID" Type="Service_Robot_Discount_Card" IsForeignKey="true" />
       <Association Name="Service_Robot_Gift_Card_Order_State" Member="Service_Robot_Gift_Card" ThisKey="GIFC_GCID" OtherKey="GCID" Type="Service_Robot_Gift_Card" IsForeignKey="true" />
       <Association Name="Order_Order_State" Member="Order" ThisKey="ORDR_CODE" OtherKey="CODE" Type="Order" IsForeignKey="true" DeleteRule="CASCADE" />
+      <Association Name="App_Base_Define_Order_State" Member="App_Base_Define" ThisKey="APBS_CODE" OtherKey="CODE" Type="App_Base_Define" IsForeignKey="true" />
     </Type>
-    <InsertFunction FunctionId="FunctionId64">
+    <InsertFunction FunctionId="FunctionId61">
       <Argument Parameter="ordr_Code" Member="ORDR_CODE" />
       <Argument Parameter="apbs_Code" Member="APBS_CODE" />
       <Argument Parameter="stat_Date" Member="STAT_DATE" />
@@ -1287,7 +1250,7 @@
       <Argument Parameter="conf_Date" Member="CONF_DATE" />
       <Argument Parameter="conf_Desc" Member="CONF_DESC" />
     </InsertFunction>
-    <UpdateFunction FunctionId="FunctionId65">
+    <UpdateFunction FunctionId="FunctionId62">
       <Argument Parameter="apbs_Code" Member="APBS_CODE" />
       <Argument Parameter="code" Member="CODE" />
       <Argument Parameter="stat_Date" Member="STAT_DATE" />
@@ -1305,7 +1268,7 @@
       <Argument Parameter="conf_Date" Member="CONF_DATE" />
       <Argument Parameter="conf_Desc" Member="CONF_DESC" />
     </UpdateFunction>
-    <DeleteFunction FunctionId="FunctionId66">
+    <DeleteFunction FunctionId="FunctionId63">
       <Argument Parameter="ordr_Code" Member="ORDR_CODE" />
       <Argument Parameter="code" Member="CODE" />
     </DeleteFunction>
@@ -1352,7 +1315,7 @@
       <Association Name="Organ_Organ_Media" Member="Organ" ThisKey="ORGN_OGID" OtherKey="OGID" Type="Organ" IsForeignKey="true" />
       <Association Name="Robot_Organ_Media" Member="Robot" ThisKey="ROBO_RBID" OtherKey="RBID" Type="Robot" IsForeignKey="true" />
     </Type>
-    <InsertFunction FunctionId="FunctionId67">
+    <InsertFunction FunctionId="FunctionId64">
       <Argument Parameter="oRGN_OGID" Member="ORGN_OGID" />
       <Argument Parameter="rOBO_RBID" Member="ROBO_RBID" />
       <Argument Parameter="oPID" Member="OPID" />
@@ -1367,7 +1330,7 @@
       <Argument Parameter="eXPN_PRIC" Member="EXPN_PRIC" />
       <Argument Parameter="rbcn_Type" Member="RBCN_TYPE" />
     </InsertFunction>
-    <UpdateFunction FunctionId="FunctionId68">
+    <UpdateFunction FunctionId="FunctionId65">
       <Argument Parameter="oRGN_OGID" Member="ORGN_OGID" />
       <Argument Parameter="rOBO_RBID" Member="ROBO_RBID" />
       <Argument Parameter="oPID" Member="OPID" />
@@ -1382,7 +1345,7 @@
       <Argument Parameter="eXPN_PRIC" Member="EXPN_PRIC" />
       <Argument Parameter="rbcn_Type" Member="RBCN_TYPE" />
     </UpdateFunction>
-    <DeleteFunction FunctionId="FunctionId69">
+    <DeleteFunction FunctionId="FunctionId66">
       <Argument Parameter="oRGN_OGID" Member="ORGN_OGID" />
       <Argument Parameter="rOBO_RBID" Member="ROBO_RBID" />
       <Argument Parameter="oPID" Member="OPID" />
@@ -1614,11 +1577,11 @@
       <Association Name="Service_Robot_Seller_Service_Robot_Seller_Product" Member="Service_Robot_Seller" ThisKey="SRBS_CODE" OtherKey="CODE" Type="Service_Robot_Seller" IsForeignKey="true" DeleteRule="CASCADE" />
       <Association Name="Robot_Product_Service_Robot_Seller_Product" Member="Robot_Product" ThisKey="RBPR_CODE" OtherKey="CODE" Type="Robot_Product" IsForeignKey="true" DeleteRule="CASCADE" />
     </Type>
-    <InsertFunction FunctionId="FunctionId70">
+    <InsertFunction FunctionId="FunctionId67">
       <Argument Parameter="sRBS_CODE" Member="SRBS_CODE" />
       <Argument Parameter="rBPR_CODE" Member="RBPR_CODE" />
     </InsertFunction>
-    <DeleteFunction FunctionId="FunctionId71">
+    <DeleteFunction FunctionId="FunctionId68">
       <Argument Parameter="code" Member="CODE" />
     </DeleteFunction>
   </Table>
@@ -1636,21 +1599,6 @@
       <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Association Name="Service_Robot_Seller_Product_Service_Robot_Seller_Product_Gift" Member="Service_Robot_Seller_Product" ThisKey="SSPG_CODE" OtherKey="CODE" Type="Service_Robot_Seller_Product" IsForeignKey="true" />
       <Association Name="Service_Robot_Seller_Product_Service_Robot_Seller_Product_Gift1" Member="Service_Robot_Seller_Product1" ThisKey="SRSP_CODE" OtherKey="CODE" Type="Service_Robot_Seller_Product" IsForeignKey="true" DeleteRule="CASCADE" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Service_Robot_Seller_Product_Store" Member="Service_Robot_Seller_Product_Stores">
-    <Type Name="Service_Robot_Seller_Product_Store">
-      <Column Name="SRSP_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="CODE" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="STOR_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="NUMB" Type="System.Single" DbType="Real" CanBeNull="true" />
-      <Column Name="MAKE_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="EXPR_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Association Name="Service_Robot_Seller_Product_Service_Robot_Seller_Product_Store" Member="Service_Robot_Seller_Product" ThisKey="SRSP_CODE" OtherKey="CODE" Type="Service_Robot_Seller_Product" IsForeignKey="true" DeleteRule="CASCADE" />
     </Type>
   </Table>
   <Table Name="dbo.D$OFTP" Member="D_OFTPs">
@@ -1957,15 +1905,15 @@
       <Association Name="Order_Order" Member="Orders" ThisKey="CODE" OtherKey="ORDR_CODE" Type="Order" />
       <Association Name="Order_Send_Advertising" Member="Send_Advertisings" ThisKey="CODE" OtherKey="ORDR_CODE" Type="Send_Advertising" />
       <Association Name="Order_Order_Detail" Member="Order_Details" ThisKey="CODE" OtherKey="ORDR_CODE" Type="Order_Detail" />
-      <Association Name="App_Base_Define_Order" Member="App_Base_Define" ThisKey="SERV_INTR_APBS_CODE" OtherKey="CODE" Type="App_Base_Define" IsForeignKey="true" />
-      <Association Name="App_Base_Define_Order1" Member="App_Base_Define1" ThisKey="SERV_JOB_APBS_CODE" OtherKey="CODE" Type="App_Base_Define" IsForeignKey="true" />
-      <Association Name="App_Base_Define_Order2" Member="App_Base_Define2" ThisKey="APBS_CODE" OtherKey="CODE" Type="App_Base_Define" IsForeignKey="true" />
       <Association Name="Order_Order" Member="Order1" ThisKey="ORDR_CODE" OtherKey="CODE" Type="Order" IsForeignKey="true" />
       <Association Name="Personal_Robot_Order" Member="Personal_Robot" ThisKey="PROB_SERV_FILE_NO,PROB_ROBO_RBID" OtherKey="SERV_FILE_NO,ROBO_RBID" Type="Personal_Robot" IsForeignKey="true" />
       <Association Name="Service_Robot_Order" Member="Service_Robot" ThisKey="SRBT_SERV_FILE_NO,SRBT_ROBO_RBID" OtherKey="SERV_FILE_NO,ROBO_RBID" Type="Service_Robot" IsForeignKey="true" />
       <Association Name="Robot_Order" Member="Robot" ThisKey="SRBT_ROBO_RBID" OtherKey="RBID" Type="Robot" IsForeignKey="true" />
+      <Association Name="App_Base_Define_Order" Member="App_Base_Define" ThisKey="SERV_INTR_APBS_CODE" OtherKey="CODE" Type="App_Base_Define" IsForeignKey="true" />
+      <Association Name="App_Base_Define_Order1" Member="App_Base_Define1" ThisKey="SERV_JOB_APBS_CODE" OtherKey="CODE" Type="App_Base_Define" IsForeignKey="true" />
+      <Association Name="App_Base_Define_Order2" Member="App_Base_Define2" ThisKey="APBS_CODE" OtherKey="CODE" Type="App_Base_Define" IsForeignKey="true" />
     </Type>
-    <InsertFunction FunctionId="FunctionId72">
+    <InsertFunction FunctionId="FunctionId69">
       <Argument Parameter="srbt_Serv_File_No" Member="SRBT_SERV_FILE_NO" />
       <Argument Parameter="srbt_Robo_Rbid" Member="SRBT_ROBO_RBID" />
       <Argument Parameter="srbt_Srpb_Rwno" Member="SRBT_SRPB_RWNO" />
@@ -1995,7 +1943,7 @@
       <Argument Parameter="extr_Prct" Member="EXTR_PRCT" />
       <Argument Parameter="sub_Sys" Member="SUB_SYS" />
     </InsertFunction>
-    <UpdateFunction FunctionId="FunctionId73">
+    <UpdateFunction FunctionId="FunctionId70">
       <Argument Parameter="code" Member="CODE" />
       <Argument Parameter="srbt_Serv_File_No" Member="SRBT_SERV_FILE_NO" />
       <Argument Parameter="srbt_Robo_Rbid" Member="SRBT_ROBO_RBID" />
@@ -2037,7 +1985,7 @@
       <Argument Parameter="sub_Sys" Member="SUB_SYS" />
       <Argument Parameter="ordr_Desc" Member="ORDR_DESC" />
     </UpdateFunction>
-    <DeleteFunction FunctionId="FunctionId74">
+    <DeleteFunction FunctionId="FunctionId71">
       <Argument Parameter="code" Member="CODE" />
     </DeleteFunction>
   </Table>
@@ -2102,13 +2050,14 @@
       <Association Name="Service_Robot_Service_Robot_Access_Limited_Group_Product" Member="Service_Robot_Access_Limited_Group_Products" ThisKey="SERV_FILE_NO,ROBO_RBID" OtherKey="SRBT_SERV_FILE_NO,SRBT_ROBO_RBID" Type="Service_Robot_Access_Limited_Group_Product" />
       <Association Name="Service_Robot_Robot_Instagram_Follow" Member="Robot_Instagram_Follows" ThisKey="SERV_FILE_NO,ROBO_RBID" OtherKey="SRBT_SERV_FILE_NO,SRBT_ROBO_RBID" Type="Robot_Instagram_Follow" />
       <Association Name="Service_Robot_Service_Robot_Stakeholder" Member="Service_Robot_Stakeholders" ThisKey="SERV_FILE_NO,ROBO_RBID" OtherKey="SRBT_SERV_FILE_NO,SRBT_ROBO_RBID" Type="Service_Robot_Stakeholder" />
+      <Association Name="Service_Robot_Service_Robot_Account_Link" Member="Service_Robot_Account_Links" ThisKey="SERV_FILE_NO,ROBO_RBID" OtherKey="SRBT_SERV_FILE_NO,SRBT_ROBO_RBID" Type="Service_Robot_Account_Link" />
       <Association Name="Service_Robot_Service_Robot" Member="Service_Robot1" ThisKey="REF_SERV_FILE_NO,REF_ROBO_RBID" OtherKey="SERV_FILE_NO,ROBO_RBID" Type="Service_Robot" IsForeignKey="true" />
       <Association Name="Group_Header_Service_Robot" Member="Group_Header" ThisKey="GRPH_GHID" OtherKey="GHID" Type="Group_Header" IsForeignKey="true" />
       <Association Name="Region_Service_Robot" Member="Region" ThisKey="REGN_PRVN_CNTY_CODE,REGN_PRVN_CODE,REGN_CODE" OtherKey="PRVN_CNTY_CODE,PRVN_CODE,CODE" Type="Region" IsForeignKey="true" />
       <Association Name="Service_Service_Robot" Member="Service" ThisKey="SERV_FILE_NO" OtherKey="FILE_NO" Type="Service" IsForeignKey="true" />
       <Association Name="Robot_Service_Robot" Member="Robot" ThisKey="ROBO_RBID" OtherKey="RBID" Type="Robot" IsForeignKey="true" />
     </Type>
-    <UpdateFunction FunctionId="FunctionId75">
+    <UpdateFunction FunctionId="FunctionId72">
       <Argument Parameter="sERV_FILE_NO" Member="SERV_FILE_NO" />
       <Argument Parameter="rOBO_RBID" Member="ROBO_RBID" />
       <Argument Parameter="gRPH_GHID" Member="GRPH_GHID" />
@@ -2171,7 +2120,7 @@
       <Association Name="Service_Robot_Message_Service_Robot_Replay_Message" Member="Service_Robot_Message" ThisKey="SRBT_SERV_FILE_NO,SRBT_ROBO_RBID,SRMG_RWNO" OtherKey="SRBT_SERV_FILE_NO,SRBT_ROBO_RBID,RWNO" Type="Service_Robot_Message" IsForeignKey="true" />
       <Association Name="Order_Detail_Service_Robot_Replay_Message" Member="Order_Detail" ThisKey="ORDT_ORDR_CODE,ORDT_RWNO" OtherKey="ORDR_CODE,RWNO" Type="Order_Detail" IsForeignKey="true" DeleteRule="CASCADE" />
     </Type>
-    <InsertFunction FunctionId="FunctionId76">
+    <InsertFunction FunctionId="FunctionId73">
       <Argument Parameter="sRBT_SERV_FILE_NO" Member="SRBT_SERV_FILE_NO" />
       <Argument Parameter="sRBT_ROBO_RBID" Member="SRBT_ROBO_RBID" />
       <Argument Parameter="rWNO" Member="RWNO" />
@@ -2186,7 +2135,7 @@
       <Argument Parameter="lON" Member="LON" />
       <Argument Parameter="cONT_CELL_PHON" Member="CONT_CELL_PHON" />
     </InsertFunction>
-    <UpdateFunction FunctionId="FunctionId77">
+    <UpdateFunction FunctionId="FunctionId74">
       <Argument Parameter="sRBT_SERV_FILE_NO" Member="SRBT_SERV_FILE_NO" />
       <Argument Parameter="sRBT_ROBO_RBID" Member="SRBT_ROBO_RBID" />
       <Argument Parameter="rWNO" Member="RWNO" />
@@ -2200,7 +2149,7 @@
       <Argument Parameter="lON" Member="LON" />
       <Argument Parameter="cONT_CELL_PHON" Member="CONT_CELL_PHON" />
     </UpdateFunction>
-    <DeleteFunction FunctionId="FunctionId78">
+    <DeleteFunction FunctionId="FunctionId75">
       <Argument Parameter="sRBT_SERV_FILE_NO" Member="SRBT_SERV_FILE_NO" />
       <Argument Parameter="sRBT_ROBO_RBID" Member="SRBT_ROBO_RBID" />
       <Argument Parameter="rWNO" Member="RWNO" />
@@ -2266,7 +2215,7 @@
       <Association Name="Order_Send_Advertising" Member="Order" ThisKey="ORDR_CODE" OtherKey="CODE" Type="Order" IsForeignKey="true" DeleteRule="CASCADE" />
       <Association Name="Robot_Send_Advertising" Member="Robot" ThisKey="ROBO_RBID" OtherKey="RBID" Type="Robot" IsForeignKey="true" />
     </Type>
-    <InsertFunction FunctionId="FunctionId79">
+    <InsertFunction FunctionId="FunctionId76">
       <Argument Parameter="rOBO_RBID" Member="ROBO_RBID" />
       <Argument Parameter="oRDR_CODE" Member="ORDR_CODE" />
       <Argument Parameter="iD" Member="ID" />
@@ -2276,7 +2225,7 @@
       <Argument Parameter="tEXT_MESG" Member="TEXT_MESG" />
       <Argument Parameter="iNLN_KEYB_DNRM" Member="INLN_KEYB_DNRM" />
     </InsertFunction>
-    <UpdateFunction FunctionId="FunctionId80">
+    <UpdateFunction FunctionId="FunctionId77">
       <Argument Parameter="rOBO_RBID" Member="ROBO_RBID" />
       <Argument Parameter="oRDR_CODE" Member="ORDR_CODE" />
       <Argument Parameter="iD" Member="ID" />
@@ -2288,7 +2237,7 @@
       <Argument Parameter="tRGT_PROC_STAT" Member="TRGT_PROC_STAT" />
       <Argument Parameter="iNLN_KEYB_DNRM" Member="INLN_KEYB_DNRM" />
     </UpdateFunction>
-    <DeleteFunction FunctionId="FunctionId81">
+    <DeleteFunction FunctionId="FunctionId78">
       <Argument Parameter="rOBO_RBID" Member="ROBO_RBID" />
       <Argument Parameter="iD" Member="ID" />
     </DeleteFunction>
@@ -2352,7 +2301,7 @@
       <Association Name="Robot_Card_Bank_Account_Service_Robot_Card_Bank" Member="Service_Robot_Card_Banks" ThisKey="CODE" OtherKey="RCBA_CODE" Type="Service_Robot_Card_Bank" />
       <Association Name="Robot_Robot_Card_Bank_Account" Member="Robot" ThisKey="ROBO_RBID" OtherKey="RBID" Type="Robot" IsForeignKey="true" DeleteRule="CASCADE" />
     </Type>
-    <InsertFunction FunctionId="FunctionId82">
+    <InsertFunction FunctionId="FunctionId79">
       <Argument Parameter="robo_Rbid" Member="ROBO_RBID" />
       <Argument Parameter="card_Numb" Member="CARD_NUMB" />
       <Argument Parameter="shba_Numb" Member="SHBA_NUMB" />
@@ -2363,7 +2312,7 @@
       <Argument Parameter="acnt_Stat" Member="ACNT_STAT" />
       <Argument Parameter="idpy_Adrs" Member="IDPY_ADRS" />
     </InsertFunction>
-    <UpdateFunction FunctionId="FunctionId83">
+    <UpdateFunction FunctionId="FunctionId80">
       <Argument Parameter="code" Member="CODE" />
       <Argument Parameter="card_Numb" Member="CARD_NUMB" />
       <Argument Parameter="shba_Numb" Member="SHBA_NUMB" />
@@ -2374,7 +2323,7 @@
       <Argument Parameter="acnt_Stat" Member="ACNT_STAT" />
       <Argument Parameter="idpy_Adrs" Member="IDPY_ADRS" />
     </UpdateFunction>
-    <DeleteFunction FunctionId="FunctionId84">
+    <DeleteFunction FunctionId="FunctionId81">
       <Argument Parameter="code" Member="CODE" />
     </DeleteFunction>
   </Table>
@@ -2403,57 +2352,6 @@
       <Association Name="Robot_Card_Bank_Account_Service_Robot_Card_Bank" Member="Robot_Card_Bank_Account" ThisKey="RCBA_CODE" OtherKey="CODE" Type="Robot_Card_Bank_Account" IsForeignKey="true" DeleteRule="CASCADE" />
       <Association Name="Service_Robot_Service_Robot_Card_Bank" Member="Service_Robot" ThisKey="SRBT_SERV_FILE_NO,SRBT_ROBO_RBID" OtherKey="SERV_FILE_NO,ROBO_RBID" Type="Service_Robot" IsForeignKey="true" DeleteRule="CASCADE" />
       <Association Name="Robot_Service_Robot_Card_Bank" Member="Robot" ThisKey="SRBT_ROBO_RBID" OtherKey="RBID" Type="Robot" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Order_Detail" Member="Order_Details">
-    <Type Name="Order_Detail">
-      <Column Name="ORDR_CODE" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="RWNO" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="ELMN_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="ORDR_DESC" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="BUY_PRIC_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="EXPN_PRIC" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="EXTR_PRCT" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="PRFT_PRIC_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="SUM_EXPN_PRIC_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="SUM_PRFT_PRIC_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="TAX_PRCT" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="OFF_PRCT" Type="System.Single" DbType="Real" CanBeNull="true" />
-      <Column Name="OFF_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="OFF_KIND" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="DSCN_AMNT_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="NUMB" Type="System.Single" DbType="Real" CanBeNull="true" />
-      <Column Name="BASE_USSD_CODE" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="SUB_USSD_CODE" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="ORDR_CMNT" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
-      <Column Name="ORDR_IMAG" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="IMAG_PATH" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
-      <Column Name="MIME_TYPE" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="FILE_NAME" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
-      <Column Name="FILE_EXT" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
-      <Column Name="GHIT_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="GHIT_MIN_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="GHIT_MAX_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="SEND_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="TARF_CODE" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="UNIT_APBS_CODE_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="UNIT_DESC_DNRM" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
-      <Column Name="TARF_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="RQTP_CODE_DNRM" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="SRBS_CODE_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="DELV_TIME_DNRM" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="MAKE_TIME_DNRM" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="INLN_KEYB_DNRM" Type="System.Xml.Linq.XElement" DbType="Xml" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="SRSP_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Association Name="Order_Detail_Service_Robot_Replay_Message" Member="Service_Robot_Replay_Messages" ThisKey="ORDR_CODE,RWNO" OtherKey="ORDT_ORDR_CODE,ORDT_RWNO" Type="Service_Robot_Replay_Message" />
-      <Association Name="Group_Header_Item_Order_Detail" Member="Group_Header_Item" ThisKey="GHIT_CODE" OtherKey="CODE" Type="Group_Header_Item" IsForeignKey="true" DeleteRule="CASCADE" />
-      <Association Name="Order_Order_Detail" Member="Order" ThisKey="ORDR_CODE" OtherKey="CODE" Type="Order" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
-      <Association Name="Service_Robot_Seller_Partner_Order_Detail" Member="Service_Robot_Seller_Partner" ThisKey="SRSP_CODE" OtherKey="CODE" Type="Service_Robot_Seller_Partner" IsForeignKey="true" />
-      <Association Name="Service_Robot_Seller_Order_Detail" Member="Service_Robot_Seller" ThisKey="SRBS_CODE_DNRM" OtherKey="CODE" Type="Service_Robot_Seller" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Service_Robot_Seller_Partner" Member="Service_Robot_Seller_Partners">
@@ -2903,10 +2801,10 @@
       <Association Name="Robot_Product_Service_Robot_Seller_Partner" Member="Service_Robot_Seller_Partners" ThisKey="CODE" OtherKey="RBPR_CODE" Type="Service_Robot_Seller_Partner" />
       <Association Name="Robot_Product_Robot_Product_Download" Member="Robot_Product_Downloads" ThisKey="CODE" OtherKey="RBPR_CODE" Type="Robot_Product_Download" />
       <Association Name="Robot_Product_Robot_Product_Limited" Member="Robot_Product_Limiteds" ThisKey="CODE" OtherKey="RBPR_CODE" Type="Robot_Product_Limited" />
-      <Association Name="App_Base_Define_Robot_Product" Member="App_Base_Define" ThisKey="UNIT_APBS_CODE" OtherKey="CODE" Type="App_Base_Define" IsForeignKey="true" DeleteRule="CASCADE" />
       <Association Name="Robot_Robot_Product" Member="Robot" ThisKey="ROBO_RBID" OtherKey="RBID" Type="Robot" IsForeignKey="true" DeleteRule="CASCADE" />
+      <Association Name="App_Base_Define_Robot_Product" Member="App_Base_Define" ThisKey="UNIT_APBS_CODE" OtherKey="CODE" Type="App_Base_Define" IsForeignKey="true" DeleteRule="CASCADE" />
     </Type>
-    <InsertFunction FunctionId="FunctionId85">
+    <InsertFunction FunctionId="FunctionId82">
       <Argument Parameter="rOBO_RBID" Member="ROBO_RBID" />
       <Argument Parameter="tARF_CODE" Member="TARF_CODE" />
       <Argument Parameter="eXPN_PRIC_DNRM" Member="EXPN_PRIC_DNRM" />
@@ -2953,7 +2851,7 @@
       <Argument Parameter="cRNC_EXPN_AMNT" Member="CRNC_EXPN_AMNT" />
       <Argument Parameter="bAR_CODE" Member="BAR_CODE" />
     </InsertFunction>
-    <UpdateFunction FunctionId="FunctionId86">
+    <UpdateFunction FunctionId="FunctionId83">
       <Argument Parameter="cODE" Member="CODE" />
       <Argument Parameter="rOBO_RBID" Member="ROBO_RBID" />
       <Argument Parameter="tARF_CODE" Member="TARF_CODE" />
@@ -3000,7 +2898,7 @@
       <Argument Parameter="cRNC_EXPN_AMNT" Member="CRNC_EXPN_AMNT" />
       <Argument Parameter="bAR_CODE" Member="BAR_CODE" />
     </UpdateFunction>
-    <DeleteFunction FunctionId="FunctionId87">
+    <DeleteFunction FunctionId="FunctionId84">
       <Argument Parameter="cODE" Member="CODE" />
     </DeleteFunction>
   </Table>
@@ -3182,7 +3080,7 @@
       <Association Name="Organ_Robot" Member="Organ" ThisKey="ORGN_OGID" OtherKey="OGID" Type="Organ" IsForeignKey="true" />
       <Association Name="Robot_Robot" Member="Robot1" ThisKey="ROBO_RBID" OtherKey="RBID" Type="Robot" IsForeignKey="true" />
     </Type>
-    <InsertFunction FunctionId="FunctionId88">
+    <InsertFunction FunctionId="FunctionId85">
       <Argument Parameter="orgn_Ogid" Member="ORGN_OGID" />
       <Argument Parameter="robo_Rbid" Member="ROBO_RBID" />
       <Argument Parameter="copy_Type" Member="COPY_TYPE" />
@@ -3220,7 +3118,7 @@
       <Argument Parameter="ordr_Expr_Stat" Member="ORDR_EXPR_STAT" />
       <Argument Parameter="ordr_Expr_Time" Member="ORDR_EXPR_TIME" />
     </InsertFunction>
-    <UpdateFunction FunctionId="FunctionId89">
+    <UpdateFunction FunctionId="FunctionId86">
       <Argument Parameter="orgn_Ogid" Member="ORGN_OGID" />
       <Argument Parameter="robo_Rbid" Member="ROBO_RBID" />
       <Argument Parameter="rbid" Member="RBID" />
@@ -3280,8 +3178,177 @@
       <Argument Parameter="extr_Sorc_Ofln_Stat" Member="EXTR_SORC_OFLN_STAT" />
       <Argument Parameter="extr_Sorc_Ofln_Time" Member="EXTR_SORC_OFLN_TIME" />
     </UpdateFunction>
-    <DeleteFunction FunctionId="FunctionId90">
+    <DeleteFunction FunctionId="FunctionId87">
       <Argument Parameter="rbid" Member="RBID" />
+    </DeleteFunction>
+  </Table>
+  <Table Name="dbo.Service_Robot_Seller_Product_Store" Member="Service_Robot_Seller_Product_Stores">
+    <Type Name="Service_Robot_Seller_Product_Store">
+      <Column Name="SRSP_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="RBSS_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="CODE" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TARF_CODE_DNRM" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="STOR_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="NUMB" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="MAKE_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="EXPR_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Service_Robot_Seller_Product_Service_Robot_Seller_Product_Store" Member="Service_Robot_Seller_Product" ThisKey="SRSP_CODE" OtherKey="CODE" Type="Service_Robot_Seller_Product" IsForeignKey="true" DeleteRule="CASCADE" />
+      <Association Name="App_Base_Define_Service_Robot_Seller_Product_Store" Member="App_Base_Define" ThisKey="RBSS_CODE" OtherKey="CODE" Type="App_Base_Define" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.D$ARTP" Member="D_ARTPs">
+    <Type Name="D_ARTP">
+      <Column Name="VALU" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="DOMN_DESC" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.App_Base_Define" Member="App_Base_Defines">
+    <Type Name="App_Base_Define">
+      <Column Name="CODE" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="RWNO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TITL_DESC" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="ENTY_NAME" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="REF_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="LVRG_VALU" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="RECD_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="LEVL_NUMB" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LEVL_CODE" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="LEVL_LENT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="POST_ADRS" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="CORD_X" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CORD_Y" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CELL_PHON" Type="System.String" DbType="VarChar(13)" CanBeNull="true" />
+      <Column Name="TELL_PHON" Type="System.String" DbType="VarChar(13)" CanBeNull="true" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="App_Base_Define_Group_Header_Item" Member="Group_Header_Items" ThisKey="CODE" OtherKey="UNIT_APBS_CODE" Type="Group_Header_Item" />
+      <Association Name="App_Base_Define_Order_State" Member="Order_States" ThisKey="CODE" OtherKey="APBS_CODE" Type="Order_State" />
+      <Association Name="App_Base_Define_Order" Member="Orders" ThisKey="CODE" OtherKey="SERV_INTR_APBS_CODE" Type="Order" />
+      <Association Name="App_Base_Define_Order1" Member="Orders1" ThisKey="CODE" OtherKey="SERV_JOB_APBS_CODE" Type="Order" />
+      <Association Name="App_Base_Define_Order2" Member="Orders2" ThisKey="CODE" OtherKey="APBS_CODE" Type="Order" />
+      <Association Name="App_Base_Define_Robot_Product" Member="Robot_Products" ThisKey="CODE" OtherKey="UNIT_APBS_CODE" Type="Robot_Product" />
+      <Association Name="App_Base_Define_Service_Robot_Seller_Product_Store" Member="Service_Robot_Seller_Product_Stores" ThisKey="CODE" OtherKey="RBSS_CODE" Type="Service_Robot_Seller_Product_Store" />
+      <Association Name="App_Base_Define_App_Base_Define" Member="App_Base_Defines" ThisKey="CODE" OtherKey="REF_CODE" Type="App_Base_Define" />
+      <Association Name="App_Base_Define_Service_Robot_Account_Link" Member="Service_Robot_Account_Links" ThisKey="CODE" OtherKey="APBS_CODE" Type="Service_Robot_Account_Link" />
+      <Association Name="App_Base_Define_App_Base_Define" Member="App_Base_Define1" ThisKey="REF_CODE" OtherKey="CODE" Type="App_Base_Define" IsForeignKey="true" />
+    </Type>
+    <InsertFunction FunctionId="FunctionId88">
+      <Argument Parameter="titl_Desc" Member="TITL_DESC" />
+      <Argument Parameter="enty_Name" Member="ENTY_NAME" />
+      <Argument Parameter="ref_Code" Member="REF_CODE" />
+      <Argument Parameter="rwno" Member="RWNO" />
+      <Argument Parameter="lvrg_Valu" Member="LVRG_VALU" />
+      <Argument Parameter="recd_Type" Member="RECD_TYPE" />
+      <Argument Parameter="levl_Numb" Member="LEVL_NUMB" />
+      <Argument Parameter="levl_Code" Member="LEVL_CODE" />
+      <Argument Parameter="levl_Lent" Member="LEVL_LENT" />
+      <Argument Parameter="post_Adrs" Member="POST_ADRS" />
+      <Argument Parameter="cord_X" Member="CORD_X" />
+      <Argument Parameter="cord_Y" Member="CORD_Y" />
+      <Argument Parameter="cell_Phon" Member="CELL_PHON" />
+      <Argument Parameter="tell_Phon" Member="TELL_PHON" />
+    </InsertFunction>
+    <UpdateFunction FunctionId="FunctionId89">
+      <Argument Parameter="code" Member="CODE" />
+      <Argument Parameter="titl_Desc" Member="TITL_DESC" />
+      <Argument Parameter="enty_Name" Member="ENTY_NAME" />
+      <Argument Parameter="ref_Code" Member="REF_CODE" />
+      <Argument Parameter="rwno" Member="RWNO" />
+      <Argument Parameter="lvrg_Valu" Member="LVRG_VALU" />
+      <Argument Parameter="recd_Type" Member="RECD_TYPE" />
+      <Argument Parameter="levl_Numb" Member="LEVL_NUMB" />
+      <Argument Parameter="levl_Code" Member="LEVL_CODE" />
+      <Argument Parameter="levl_Lent" Member="LEVL_LENT" />
+      <Argument Parameter="post_Adrs" Member="POST_ADRS" />
+      <Argument Parameter="cord_X" Member="CORD_X" />
+      <Argument Parameter="cord_Y" Member="CORD_Y" />
+      <Argument Parameter="cell_Phon" Member="CELL_PHON" />
+      <Argument Parameter="tell_Phon" Member="TELL_PHON" />
+    </UpdateFunction>
+    <DeleteFunction FunctionId="FunctionId90">
+      <Argument Parameter="code" Member="CODE" />
+    </DeleteFunction>
+  </Table>
+  <Table Name="dbo.Service_Robot_Account_Link" Member="Service_Robot_Account_Links">
+    <Type Name="Service_Robot_Account_Link">
+      <Column Name="SRBT_SERV_FILE_NO" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="SRBT_ROBO_RBID" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="APBS_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CODE" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CHAT_ID_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="LEVL_CODE_DBRN" Type="System.String" DbType="VarChar(50)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="App_Base_Define_Service_Robot_Account_Link" Member="App_Base_Define" ThisKey="APBS_CODE" OtherKey="CODE" Type="App_Base_Define" IsForeignKey="true" />
+      <Association Name="Service_Robot_Service_Robot_Account_Link" Member="Service_Robot" ThisKey="SRBT_SERV_FILE_NO,SRBT_ROBO_RBID" OtherKey="SERV_FILE_NO,ROBO_RBID" Type="Service_Robot" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Order_Detail" Member="Order_Details">
+    <Type Name="Order_Detail">
+      <Column Name="ORDR_CODE" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="RWNO" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ELMN_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ORDR_DESC" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="BUY_PRIC_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="EXPN_PRIC" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="EXTR_PRCT" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="PRFT_PRIC_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="SUM_EXPN_PRIC_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="SUM_PRFT_PRIC_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="TAX_PRCT" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="OFF_PRCT" Type="System.Single" DbType="Real" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="OFF_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="OFF_KIND" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="DSCN_AMNT_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="DSCN_AMNT" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="NUMB" Type="System.Single" DbType="Real" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="BASE_USSD_CODE" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="SUB_USSD_CODE" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ORDR_CMNT" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ORDR_IMAG" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="IMAG_PATH" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MIME_TYPE" Type="System.String" DbType="VarChar(100)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="FILE_NAME" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="FILE_EXT" Type="System.String" DbType="VarChar(10)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="GHIT_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="GHIT_MIN_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="GHIT_MAX_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="SEND_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="TARF_CODE" Type="System.String" DbType="VarChar(100)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="UNIT_APBS_CODE_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="UNIT_DESC_DNRM" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="UNIT_LVRG_VALU_DNRM" Type="System.Single" DbType="Real" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="TARF_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="RQTP_CODE_DNRM" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="SRBS_CODE_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="DELV_TIME_DNRM" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MAKE_TIME_DNRM" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="INLN_KEYB_DNRM" Type="System.Xml.Linq.XElement" DbType="Xml" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="SRSP_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="RBSC_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="RBSS_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="Order_Detail_Service_Robot_Replay_Message" Member="Service_Robot_Replay_Messages" ThisKey="ORDR_CODE,RWNO" OtherKey="ORDT_ORDR_CODE,ORDT_RWNO" Type="Service_Robot_Replay_Message" />
+      <Association Name="Group_Header_Item_Order_Detail" Member="Group_Header_Item" ThisKey="GHIT_CODE" OtherKey="CODE" Type="Group_Header_Item" IsForeignKey="true" DeleteRule="CASCADE" />
+      <Association Name="Order_Order_Detail" Member="Order" ThisKey="ORDR_CODE" OtherKey="CODE" Type="Order" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="Service_Robot_Seller_Order_Detail" Member="Service_Robot_Seller" ThisKey="SRBS_CODE_DNRM" OtherKey="CODE" Type="Service_Robot_Seller" IsForeignKey="true" />
+      <Association Name="Service_Robot_Seller_Partner_Order_Detail" Member="Service_Robot_Seller_Partner" ThisKey="SRSP_CODE" OtherKey="CODE" Type="Service_Robot_Seller_Partner" IsForeignKey="true" />
+    </Type>
+    <DeleteFunction FunctionId="FunctionId91">
+      <Argument Parameter="ordr_Code" Member="ORDR_CODE" />
+      <Argument Parameter="rwno" Member="RWNO" />
     </DeleteFunction>
   </Table>
   <Function Id="FunctionId3" Name="dbo.DEL_CNTY_P" Method="DEL_CNTY_P">
@@ -3383,7 +3450,7 @@
     <Parameter Name="Gogl_Map" Parameter="gogl_Map" Type="System.String" DbType="NVarChar(500)" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId90" Name="dbo.DEL_ROBO_P" Method="DEL_ROBO_P">
+  <Function Id="FunctionId87" Name="dbo.DEL_ROBO_P" Method="DEL_ROBO_P">
     <Parameter Name="Rbid" Parameter="rbid" Type="System.Int64" DbType="BigInt" />
     <Return Type="System.Int32" />
   </Function>
@@ -3421,7 +3488,7 @@
     <Parameter Name="IS_FRST_FIRE" Parameter="iS_FRST_FIRE" Type="System.String" DbType="VarChar(3)" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId48" Name="dbo.DEL_PRBT_P" Method="DEL_PRBT_P">
+  <Function Id="FunctionId45" Name="dbo.DEL_PRBT_P" Method="DEL_PRBT_P">
     <Parameter Name="Serv_File_No" Parameter="serv_File_No" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Robo_Rbid" Parameter="robo_Rbid" Type="System.Int64" DbType="BigInt" />
     <Return Type="System.Int32" />
@@ -3472,18 +3539,18 @@
     <Parameter Name="STAT" Parameter="sTAT" Type="System.String" DbType="VarChar(3)" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId51" Name="dbo.DEL_SRGP_P" Method="DEL_SRGP_P">
+  <Function Id="FunctionId48" Name="dbo.DEL_SRGP_P" Method="DEL_SRGP_P">
     <Parameter Name="GROP_GPID" Parameter="gROP_GPID" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="SRBT_SERV_FILE_NO" Parameter="sRBT_SERV_FILE_NO" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="SRBT_ROBO_RBID" Parameter="sRBT_ROBO_RBID" Type="System.Int64" DbType="BigInt" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId57" Name="dbo.DEL_GROP_P" Method="DEL_GROP_P">
+  <Function Id="FunctionId54" Name="dbo.DEL_GROP_P" Method="DEL_GROP_P">
     <Parameter Name="ROBO_RBID" Parameter="rOBO_RBID" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="GPID" Parameter="gPID" Type="System.Int64" DbType="BigInt" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId69" Name="dbo.DEL_RBMD_P" Method="DEL_RBMD_P">
+  <Function Id="FunctionId66" Name="dbo.DEL_RBMD_P" Method="DEL_RBMD_P">
     <Parameter Name="ORGN_OGID" Parameter="oRGN_OGID" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="ROBO_RBID" Parameter="rOBO_RBID" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="OPID" Parameter="oPID" Type="System.Int64" DbType="BigInt" />
@@ -3544,13 +3611,13 @@
     <Parameter Name="STAT" Parameter="sTAT" Type="System.String" DbType="VarChar(3)" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId78" Name="dbo.DEL_SRRM_P" Method="DEL_SRRM_P">
+  <Function Id="FunctionId75" Name="dbo.DEL_SRRM_P" Method="DEL_SRRM_P">
     <Parameter Name="SRBT_SERV_FILE_NO" Parameter="sRBT_SERV_FILE_NO" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="SRBT_ROBO_RBID" Parameter="sRBT_ROBO_RBID" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="RWNO" Parameter="rWNO" Type="System.Int64" DbType="BigInt" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId81" Name="dbo.DEL_SDAD_P" Method="DEL_SDAD_P">
+  <Function Id="FunctionId78" Name="dbo.DEL_SDAD_P" Method="DEL_SDAD_P">
     <Parameter Name="ROBO_RBID" Parameter="rOBO_RBID" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="ID" Parameter="iD" Type="System.Int64" DbType="BigInt" />
     <Return Type="System.Int32" />
@@ -3606,7 +3673,7 @@
     <Parameter Name="MDate" Parameter="mDate" Type="System.DateTime" DbType="DateTime" />
     <Return Type="System.String" />
   </Function>
-  <Function Id="FunctionId54" Name="dbo.DEL_GRPH_P" Method="DEL_GRPH_P">
+  <Function Id="FunctionId51" Name="dbo.DEL_GRPH_P" Method="DEL_GRPH_P">
     <Parameter Name="GHID" Parameter="gHID" Type="System.Int64" DbType="BigInt" />
     <Return Type="System.Int32" />
   </Function>
@@ -3649,7 +3716,7 @@
     <Parameter Name="FILE_NAME" Parameter="fILE_NAME" Type="System.String" DbType="VarChar(500)" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId76" Name="dbo.INS_SRRM_P" Method="INS_SRRM_P">
+  <Function Id="FunctionId73" Name="dbo.INS_SRRM_P" Method="INS_SRRM_P">
     <Parameter Name="SRBT_SERV_FILE_NO" Parameter="sRBT_SERV_FILE_NO" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="SRBT_ROBO_RBID" Parameter="sRBT_ROBO_RBID" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="RWNO" Parameter="rWNO" Type="System.Int64" DbType="BigInt" />
@@ -3665,7 +3732,7 @@
     <Parameter Name="CONT_CELL_PHON" Parameter="cONT_CELL_PHON" Type="System.String" DbType="VarChar(11)" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId77" Name="dbo.UPD_SRRM_P" Method="UPD_SRRM_P">
+  <Function Id="FunctionId74" Name="dbo.UPD_SRRM_P" Method="UPD_SRRM_P">
     <Parameter Name="SRBT_SERV_FILE_NO" Parameter="sRBT_SERV_FILE_NO" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="SRBT_ROBO_RBID" Parameter="sRBT_ROBO_RBID" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="RWNO" Parameter="rWNO" Type="System.Int64" DbType="BigInt" />
@@ -3680,62 +3747,47 @@
     <Parameter Name="CONT_CELL_PHON" Parameter="cONT_CELL_PHON" Type="System.String" DbType="VarChar(11)" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId42" Name="dbo.DEL_APBS_P" Method="DEL_APBS_P">
+  <Function Id="FunctionId90" Name="dbo.DEL_APBS_P" Method="DEL_APBS_P">
     <Parameter Name="Code" Parameter="code" Type="System.Int64" DbType="BigInt" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId40" Name="dbo.INS_APBS_P" Method="INS_APBS_P">
-    <Parameter Name="Titl_Desc" Parameter="titl_Desc" Type="System.String" DbType="NVarChar(250)" />
-    <Parameter Name="Enty_Name" Parameter="enty_Name" Type="System.String" DbType="VarChar(250)" />
-    <Parameter Name="Ref_Code" Parameter="ref_Code" Type="System.Int64" DbType="BigInt" />
-    <Parameter Name="Rwno" Parameter="rwno" Type="System.Int32" DbType="Int" />
-    <Return Type="System.Int32" />
-  </Function>
-  <Function Id="FunctionId41" Name="dbo.UPD_APBS_P" Method="UPD_APBS_P">
-    <Parameter Name="Code" Parameter="code" Type="System.Int64" DbType="BigInt" />
-    <Parameter Name="Titl_Desc" Parameter="titl_Desc" Type="System.String" DbType="NVarChar(250)" />
-    <Parameter Name="Enty_Name" Parameter="enty_Name" Type="System.String" DbType="VarChar(250)" />
-    <Parameter Name="Ref_Code" Parameter="ref_Code" Type="System.Int64" DbType="BigInt" />
-    <Parameter Name="Rwno" Parameter="rwno" Type="System.Int32" DbType="Int" />
-    <Return Type="System.Int32" />
-  </Function>
-  <Function Id="FunctionId74" Name="dbo.DEL_ORDR_P" Method="DEL_ORDR_P">
+  <Function Id="FunctionId71" Name="dbo.DEL_ORDR_P" Method="DEL_ORDR_P">
     <Parameter Name="Code" Parameter="code" Type="System.Int64" DbType="BigInt" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId60" Name="dbo.DEL_GHIT_P" Method="DEL_GHIT_P">
+  <Function Id="FunctionId57" Name="dbo.DEL_GHIT_P" Method="DEL_GHIT_P">
     <Parameter Name="Code" Parameter="code" Type="System.Int64" DbType="BigInt" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Name="dbo.DEL_ODRT_P" Method="DEL_ODRT_P">
+  <Function Id="FunctionId91" Name="dbo.DEL_ODRT_P" Method="DEL_ODRT_P">
     <Parameter Name="Ordr_Code" Parameter="ordr_Code" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Rwno" Parameter="rwno" Type="System.Int64" DbType="BigInt" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId45" Name="dbo.DEL_ORAC_P" Method="DEL_ORAC_P">
+  <Function Id="FunctionId42" Name="dbo.DEL_ORAC_P" Method="DEL_ORAC_P">
     <Parameter Name="Code" Parameter="code" Type="System.Int64" DbType="BigInt" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId43" Name="dbo.INS_ORAC_P" Method="INS_ORAC_P">
+  <Function Id="FunctionId40" Name="dbo.INS_ORAC_P" Method="INS_ORAC_P">
     <Parameter Name="Ordr_Code" Parameter="ordr_Code" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Prob_Serv_File_No" Parameter="prob_Serv_File_No" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Prob_Robo_Rbid" Parameter="prob_Robo_Rbid" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Recd_Stat" Parameter="recd_Stat" Type="System.String" DbType="VarChar(3)" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId44" Name="dbo.UPD_ORAC_P" Method="UPD_ORAC_P">
+  <Function Id="FunctionId41" Name="dbo.UPD_ORAC_P" Method="UPD_ORAC_P">
     <Parameter Name="Code" Parameter="code" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Prob_Serv_File_No" Parameter="prob_Serv_File_No" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Prob_Robo_Rbid" Parameter="prob_Robo_Rbid" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Recd_Stat" Parameter="recd_Stat" Type="System.String" DbType="VarChar(3)" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId66" Name="dbo.DEL_ODST_P" Method="DEL_ODST_P">
+  <Function Id="FunctionId63" Name="dbo.DEL_ODST_P" Method="DEL_ODST_P">
     <Parameter Name="Ordr_Code" Parameter="ordr_Code" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Code" Parameter="code" Type="System.Int64" DbType="BigInt" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId46" Name="dbo.INS_PRBT_P" Method="INS_PRBT_P">
+  <Function Id="FunctionId43" Name="dbo.INS_PRBT_P" Method="INS_PRBT_P">
     <Parameter Name="Serv_File_No" Parameter="serv_File_No" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Robo_Rbid" Parameter="robo_Rbid" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Stat" Parameter="stat" Type="System.String" DbType="VarChar(3)" />
@@ -3746,7 +3798,7 @@
     <Parameter Name="Dflt_Aces" Parameter="dflt_Aces" Type="System.String" DbType="VarChar(3)" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId47" Name="dbo.UPD_PRBT_P" Method="UPD_PRBT_P">
+  <Function Id="FunctionId44" Name="dbo.UPD_PRBT_P" Method="UPD_PRBT_P">
     <Parameter Name="Serv_File_No" Parameter="serv_File_No" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Robo_Rbid" Parameter="robo_Rbid" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Stat" Parameter="stat" Type="System.String" DbType="VarChar(3)" />
@@ -3757,12 +3809,12 @@
     <Parameter Name="Dflt_Aces" Parameter="dflt_Aces" Type="System.String" DbType="VarChar(3)" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId63" Name="dbo.DEL_MNUS_P" Method="DEL_MNUS_P">
+  <Function Id="FunctionId60" Name="dbo.DEL_MNUS_P" Method="DEL_MNUS_P">
     <Parameter Name="ROBO_RBID" Parameter="rOBO_RBID" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="MUID" Parameter="mUID" Type="System.Int64" DbType="BigInt" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId49" Name="dbo.INS_SRGP_P" Method="INS_SRGP_P">
+  <Function Id="FunctionId46" Name="dbo.INS_SRGP_P" Method="INS_SRGP_P">
     <Parameter Name="GROP_GPID" Parameter="gROP_GPID" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="SRBT_SERV_FILE_NO" Parameter="sRBT_SERV_FILE_NO" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="SRBT_ROBO_RBID" Parameter="sRBT_ROBO_RBID" Type="System.Int64" DbType="BigInt" />
@@ -3770,7 +3822,7 @@
     <Parameter Name="Dflt_Stat" Parameter="dflt_Stat" Type="System.String" DbType="VarChar(3)" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId50" Name="dbo.UPD_SRGP_P" Method="UPD_SRGP_P">
+  <Function Id="FunctionId47" Name="dbo.UPD_SRGP_P" Method="UPD_SRGP_P">
     <Parameter Name="GROP_GPID" Parameter="gROP_GPID" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="SRBT_SERV_FILE_NO" Parameter="sRBT_SERV_FILE_NO" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="SRBT_ROBO_RBID" Parameter="sRBT_ROBO_RBID" Type="System.Int64" DbType="BigInt" />
@@ -3778,18 +3830,18 @@
     <Parameter Name="Dflt_Stat" Parameter="dflt_Stat" Type="System.String" DbType="VarChar(3)" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId52" Name="dbo.INS_GRPH_P" Method="INS_GRPH_P">
+  <Function Id="FunctionId49" Name="dbo.INS_GRPH_P" Method="INS_GRPH_P">
     <Parameter Name="Grph_Desc" Parameter="grph_Desc" Type="System.String" DbType="NVarChar(250)" />
     <Parameter Name="Robo_Rbid" Parameter="robo_Rbid" Type="System.Int64" DbType="BigInt" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId53" Name="dbo.UPD_GRPH_P" Method="UPD_GRPH_P">
+  <Function Id="FunctionId50" Name="dbo.UPD_GRPH_P" Method="UPD_GRPH_P">
     <Parameter Name="Ghid" Parameter="ghid" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Grph_Desc" Parameter="grph_Desc" Type="System.String" DbType="NVarChar(250)" />
     <Parameter Name="Robo_Rbid" Parameter="robo_Rbid" Type="System.Int64" DbType="BigInt" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId56" Name="dbo.UPD_GROP_P" Method="UPD_GROP_P">
+  <Function Id="FunctionId53" Name="dbo.UPD_GROP_P" Method="UPD_GROP_P">
     <Parameter Name="GPID" Parameter="gPID" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="ROBO_RBID" Parameter="rOBO_RBID" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="NAME" Parameter="nAME" Type="System.String" DbType="NVarChar(200)" />
@@ -3799,7 +3851,7 @@
     <Parameter Name="Off_Prct" Parameter="off_Prct" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId55" Name="dbo.INS_GROP_P" Method="INS_GROP_P">
+  <Function Id="FunctionId52" Name="dbo.INS_GROP_P" Method="INS_GROP_P">
     <Parameter Name="ROBO_RBID" Parameter="rOBO_RBID" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="NAME" Parameter="nAME" Type="System.String" DbType="NVarChar(200)" />
     <Parameter Name="STAT" Parameter="sTAT" Type="System.String" DbType="VarChar(3)" />
@@ -3808,7 +3860,7 @@
     <Parameter Name="Off_Prct" Parameter="off_Prct" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId58" Name="dbo.INS_GHIT_P" Method="INS_GHIT_P">
+  <Function Id="FunctionId55" Name="dbo.INS_GHIT_P" Method="INS_GHIT_P">
     <Parameter Name="GPHD_GHID" Parameter="gPHD_GHID" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="GHDT_DESC" Parameter="gHDT_DESC" Type="System.String" DbType="NVarChar(100)" />
     <Parameter Name="Pric" Parameter="pric" Type="System.Int64" DbType="BigInt" />
@@ -3828,7 +3880,7 @@
     <Parameter Name="Grmu_Grop_Gpid" Parameter="grmu_Grop_Gpid" Type="System.Int64" DbType="BigInt" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId59" Name="dbo.UPD_GHIT_P" Method="UPD_GHIT_P">
+  <Function Id="FunctionId56" Name="dbo.UPD_GHIT_P" Method="UPD_GHIT_P">
     <Parameter Name="Code" Parameter="code" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="GPHD_GHID" Parameter="gPHD_GHID" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="GHDT_DESC" Parameter="gHDT_DESC" Type="System.String" DbType="NVarChar(100)" />
@@ -3859,7 +3911,7 @@
     <Parameter Name="xRet" Type="System.Xml.Linq.XElement" DbType="Xml" Direction="InOut" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId72" Name="dbo.INS_ORDR_P" Method="INS_ORDR_P">
+  <Function Id="FunctionId69" Name="dbo.INS_ORDR_P" Method="INS_ORDR_P">
     <Parameter Name="Srbt_Serv_File_No" Parameter="srbt_Serv_File_No" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Srbt_Robo_Rbid" Parameter="srbt_Robo_Rbid" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Srbt_Srpb_Rwno" Parameter="srbt_Srpb_Rwno" Type="System.Int32" DbType="Int" />
@@ -3890,7 +3942,7 @@
     <Parameter Name="Sub_Sys" Parameter="sub_Sys" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId61" Name="dbo.INS_MNUS_P" Method="INS_MNUS_P">
+  <Function Id="FunctionId58" Name="dbo.INS_MNUS_P" Method="INS_MNUS_P">
     <Parameter Name="ROBO_RBID" Parameter="rOBO_RBID" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="MNUS_MUID" Parameter="mNUS_MUID" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="ROOT_MENU" Parameter="rOOT_MENU" Type="System.String" DbType="VarChar(3)" />
@@ -3918,7 +3970,7 @@
     <Parameter Name="TRGR_TEXT" Parameter="tRGR_TEXT" Type="System.String" DbType="VarChar(250)" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId62" Name="dbo.UPD_MNUS_P" Method="UPD_MNUS_P">
+  <Function Id="FunctionId59" Name="dbo.UPD_MNUS_P" Method="UPD_MNUS_P">
     <Parameter Name="ROBO_RBID" Parameter="rOBO_RBID" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="MUID" Parameter="mUID" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="MNUS_MUID" Parameter="mNUS_MUID" Type="System.Int64" DbType="BigInt" />
@@ -3947,7 +3999,7 @@
     <Parameter Name="TRGR_TEXT" Parameter="tRGR_TEXT" Type="System.String" DbType="VarChar(250)" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId64" Name="dbo.INS_ODST_P" Method="INS_ODST_P">
+  <Function Id="FunctionId61" Name="dbo.INS_ODST_P" Method="INS_ODST_P">
     <Parameter Name="Ordr_Code" Parameter="ordr_Code" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Apbs_Code" Parameter="apbs_Code" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Stat_Date" Parameter="stat_Date" Type="System.DateTime" DbType="DateTime" />
@@ -3966,7 +4018,7 @@
     <Parameter Name="Conf_Desc" Parameter="conf_Desc" Type="System.String" DbType="NVarChar(1000)" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId65" Name="dbo.UPD_ODST_P" Method="UPD_ODST_P">
+  <Function Id="FunctionId62" Name="dbo.UPD_ODST_P" Method="UPD_ODST_P">
     <Parameter Name="Apbs_Code" Parameter="apbs_Code" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Code" Parameter="code" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Stat_Date" Parameter="stat_Date" Type="System.DateTime" DbType="DateTime" />
@@ -4026,7 +4078,7 @@
     <Parameter Name="Ghit_Max_Date" Parameter="ghit_Max_Date" Type="System.DateTime" DbType="DateTime" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId67" Name="dbo.INS_RBMD_P" Method="INS_RBMD_P">
+  <Function Id="FunctionId64" Name="dbo.INS_RBMD_P" Method="INS_RBMD_P">
     <Parameter Name="ORGN_OGID" Parameter="oRGN_OGID" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="ROBO_RBID" Parameter="rOBO_RBID" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="OPID" Parameter="oPID" Type="System.Int64" DbType="BigInt" />
@@ -4042,7 +4094,7 @@
     <Parameter Name="Rbcn_Type" Parameter="rbcn_Type" Type="System.String" DbType="VarChar(3)" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId68" Name="dbo.UPD_RBMD_P" Method="UPD_RBMD_P">
+  <Function Id="FunctionId65" Name="dbo.UPD_RBMD_P" Method="UPD_RBMD_P">
     <Parameter Name="ORGN_OGID" Parameter="oRGN_OGID" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="ROBO_RBID" Parameter="rOBO_RBID" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="OPID" Parameter="oPID" Type="System.Int64" DbType="BigInt" />
@@ -4058,7 +4110,7 @@
     <Parameter Name="Rbcn_Type" Parameter="rbcn_Type" Type="System.String" DbType="VarChar(3)" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId84" Name="dbo.DEL_RCBA_P" Method="DEL_RCBA_P">
+  <Function Id="FunctionId81" Name="dbo.DEL_RCBA_P" Method="DEL_RCBA_P">
     <Parameter Name="Code" Parameter="code" Type="System.Int64" DbType="BigInt" />
     <Return Type="System.Int32" />
   </Function>
@@ -4066,11 +4118,11 @@
     <Parameter Name="Code" Parameter="code" Type="System.Int64" DbType="BigInt" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId87" Name="dbo.DEL_RBPR_P" Method="DEL_RBPR_P">
+  <Function Id="FunctionId84" Name="dbo.DEL_RBPR_P" Method="DEL_RBPR_P">
     <Parameter Name="CODE" Parameter="cODE" Type="System.Int64" DbType="BigInt" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId75" Name="dbo.UPD_SRBT_P" Method="UPD_SRBT_P">
+  <Function Id="FunctionId72" Name="dbo.UPD_SRBT_P" Method="UPD_SRBT_P">
     <Parameter Name="SERV_FILE_NO" Parameter="sERV_FILE_NO" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="ROBO_RBID" Parameter="rOBO_RBID" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="GRPH_GHID" Parameter="gRPH_GHID" Type="System.Int64" DbType="BigInt" />
@@ -4098,7 +4150,7 @@
     <Parameter Name="Mrkt_Stat" Parameter="mrkt_Stat" Type="System.String" DbType="VarChar(3)" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId79" Name="dbo.INS_SDAD_P" Method="INS_SDAD_P">
+  <Function Id="FunctionId76" Name="dbo.INS_SDAD_P" Method="INS_SDAD_P">
     <Parameter Name="ROBO_RBID" Parameter="rOBO_RBID" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="ORDR_CODE" Parameter="oRDR_CODE" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="ID" Parameter="iD" Type="System.Int64" DbType="BigInt" />
@@ -4109,7 +4161,7 @@
     <Parameter Name="INLN_KEYB_DNRM" Parameter="iNLN_KEYB_DNRM" Type="System.Xml.Linq.XElement" DbType="Xml" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId80" Name="dbo.UPD_SDAD_P" Method="UPD_SDAD_P">
+  <Function Id="FunctionId77" Name="dbo.UPD_SDAD_P" Method="UPD_SDAD_P">
     <Parameter Name="ROBO_RBID" Parameter="rOBO_RBID" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="ORDR_CODE" Parameter="oRDR_CODE" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="ID" Parameter="iD" Type="System.Int64" DbType="BigInt" />
@@ -4122,7 +4174,7 @@
     <Parameter Name="INLN_KEYB_DNRM" Parameter="iNLN_KEYB_DNRM" Type="System.Xml.Linq.XElement" DbType="Xml" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId73" Name="dbo.UPD_ORDR_P" Method="UPD_ORDR_P">
+  <Function Id="FunctionId70" Name="dbo.UPD_ORDR_P" Method="UPD_ORDR_P">
     <Parameter Name="Code" Parameter="code" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Srbt_Serv_File_No" Parameter="srbt_Serv_File_No" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Srbt_Robo_Rbid" Parameter="srbt_Robo_Rbid" Type="System.Int64" DbType="BigInt" />
@@ -4240,7 +4292,7 @@
       <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
     </ElementType>
   </Function>
-  <Function Id="FunctionId82" Name="dbo.INS_RCBA_P" Method="INS_RCBA_P">
+  <Function Id="FunctionId79" Name="dbo.INS_RCBA_P" Method="INS_RCBA_P">
     <Parameter Name="Robo_Rbid" Parameter="robo_Rbid" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Card_Numb" Parameter="card_Numb" Type="System.String" DbType="VarChar(16)" />
     <Parameter Name="Shba_Numb" Parameter="shba_Numb" Type="System.String" DbType="VarChar(100)" />
@@ -4252,7 +4304,7 @@
     <Parameter Name="Idpy_Adrs" Parameter="idpy_Adrs" Type="System.String" DbType="VarChar(250)" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId83" Name="dbo.UPD_RCBA_P" Method="UPD_RCBA_P">
+  <Function Id="FunctionId80" Name="dbo.UPD_RCBA_P" Method="UPD_RCBA_P">
     <Parameter Name="Code" Parameter="code" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Card_Numb" Parameter="card_Numb" Type="System.String" DbType="VarChar(16)" />
     <Parameter Name="Shba_Numb" Parameter="shba_Numb" Type="System.String" DbType="VarChar(100)" />
@@ -4269,11 +4321,11 @@
     <Parameter Name="XRet" Parameter="xRet" Type="System.Xml.Linq.XElement" DbType="Xml" Direction="InOut" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId71" Name="dbo.DEL_SRSP_P" Method="DEL_SRSP_P">
+  <Function Id="FunctionId68" Name="dbo.DEL_SRSP_P" Method="DEL_SRSP_P">
     <Parameter Name="Code" Parameter="code" Type="System.Int64" DbType="BigInt" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId70" Name="dbo.INS_SRSP_P" Method="INS_SRSP_P">
+  <Function Id="FunctionId67" Name="dbo.INS_SRSP_P" Method="INS_SRSP_P">
     <Parameter Name="SRBS_CODE" Parameter="sRBS_CODE" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="RBPR_CODE" Parameter="rBPR_CODE" Type="System.Int64" DbType="BigInt" />
     <Return Type="System.Int32" />
@@ -4286,7 +4338,7 @@
     <Parameter Name="X" Parameter="x" Type="System.Xml.Linq.XElement" DbType="Xml" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId88" Name="dbo.INS_ROBO_P" Method="INS_ROBO_P">
+  <Function Id="FunctionId85" Name="dbo.INS_ROBO_P" Method="INS_ROBO_P">
     <Parameter Name="Orgn_Ogid" Parameter="orgn_Ogid" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Robo_Rbid" Parameter="robo_Rbid" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Copy_Type" Parameter="copy_Type" Type="System.String" DbType="VarChar(3)" />
@@ -4333,7 +4385,7 @@
     <Parameter Name="X" Parameter="x" Type="System.Xml.Linq.XElement" DbType="Xml" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId85" Name="dbo.INS_RBPR_P" Method="INS_RBPR_P">
+  <Function Id="FunctionId82" Name="dbo.INS_RBPR_P" Method="INS_RBPR_P">
     <Parameter Name="ROBO_RBID" Parameter="rOBO_RBID" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="TARF_CODE" Parameter="tARF_CODE" Type="System.String" DbType="VarChar(100)" />
     <Parameter Name="EXPN_PRIC_DNRM" Parameter="eXPN_PRIC_DNRM" Type="System.Int64" DbType="BigInt" />
@@ -4381,7 +4433,7 @@
     <Parameter Name="BAR_CODE" Parameter="bAR_CODE" Type="System.String" DbType="VarChar(100)" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId86" Name="dbo.UPD_RBPR_P" Method="UPD_RBPR_P">
+  <Function Id="FunctionId83" Name="dbo.UPD_RBPR_P" Method="UPD_RBPR_P">
     <Parameter Name="CODE" Parameter="cODE" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="ROBO_RBID" Parameter="rOBO_RBID" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="TARF_CODE" Parameter="tARF_CODE" Type="System.String" DbType="VarChar(100)" />
@@ -4457,7 +4509,7 @@
     <Parameter Name="Link_Join" Parameter="link_Join" Type="System.String" DbType="VarChar(100)" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId89" Name="dbo.UPD_ROBO_P" Method="UPD_ROBO_P">
+  <Function Id="FunctionId86" Name="dbo.UPD_ROBO_P" Method="UPD_ROBO_P">
     <Parameter Name="Orgn_Ogid" Parameter="orgn_Ogid" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Robo_Rbid" Parameter="robo_Rbid" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Rbid" Parameter="rbid" Type="System.Int64" DbType="BigInt" />
@@ -4516,6 +4568,41 @@
     <Parameter Name="Qury_Prod_Invr_Stat" Parameter="qury_Prod_Invr_Stat" Type="System.String" DbType="VarChar(3)" />
     <Parameter Name="Extr_Sorc_Ofln_Stat" Parameter="extr_Sorc_Ofln_Stat" Type="System.String" DbType="VarChar(3)" />
     <Parameter Name="Extr_Sorc_Ofln_Time" Parameter="extr_Sorc_Ofln_Time" Type="System.TimeSpan" DbType="Time" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Id="FunctionId88" Name="dbo.INS_APBS_P" Method="INS_APBS_P">
+    <Parameter Name="Titl_Desc" Parameter="titl_Desc" Type="System.String" DbType="NVarChar(250)" />
+    <Parameter Name="Enty_Name" Parameter="enty_Name" Type="System.String" DbType="VarChar(250)" />
+    <Parameter Name="Ref_Code" Parameter="ref_Code" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Rwno" Parameter="rwno" Type="System.Int32" DbType="Int" />
+    <Parameter Name="lvrg_Valu" Type="System.Single" DbType="Real" />
+    <Parameter Name="Recd_Type" Parameter="recd_Type" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="Levl_Numb" Parameter="levl_Numb" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Levl_Code" Parameter="levl_Code" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Levl_Lent" Parameter="levl_Lent" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Post_Adrs" Parameter="post_Adrs" Type="System.String" DbType="NVarChar(1000)" />
+    <Parameter Name="Cord_X" Parameter="cord_X" Type="System.Double" DbType="Float" />
+    <Parameter Name="Cord_Y" Parameter="cord_Y" Type="System.Double" DbType="Float" />
+    <Parameter Name="Cell_Phon" Parameter="cell_Phon" Type="System.String" DbType="VarChar(13)" />
+    <Parameter Name="Tell_Phon" Parameter="tell_Phon" Type="System.String" DbType="VarChar(13)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Id="FunctionId89" Name="dbo.UPD_APBS_P" Method="UPD_APBS_P">
+    <Parameter Name="Code" Parameter="code" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Titl_Desc" Parameter="titl_Desc" Type="System.String" DbType="NVarChar(250)" />
+    <Parameter Name="Enty_Name" Parameter="enty_Name" Type="System.String" DbType="VarChar(250)" />
+    <Parameter Name="Ref_Code" Parameter="ref_Code" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Rwno" Parameter="rwno" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Lvrg_Valu" Parameter="lvrg_Valu" Type="System.Single" DbType="Real" />
+    <Parameter Name="Recd_Type" Parameter="recd_Type" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="Levl_Numb" Parameter="levl_Numb" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Levl_Code" Parameter="levl_Code" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Levl_Lent" Parameter="levl_Lent" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Post_Adrs" Parameter="post_Adrs" Type="System.String" DbType="VarChar(1000)" />
+    <Parameter Name="Cord_X" Parameter="cord_X" Type="System.Double" DbType="Float" />
+    <Parameter Name="Cord_Y" Parameter="cord_Y" Type="System.Double" DbType="Float" />
+    <Parameter Name="Cell_Phon" Parameter="cell_Phon" Type="System.String" DbType="VarChar(13)" />
+    <Parameter Name="Tell_Phon" Parameter="tell_Phon" Type="System.String" DbType="VarChar(13)" />
     <Return Type="System.Int32" />
   </Function>
 </Database>

@@ -116,6 +116,12 @@ namespace System.RoboTech.Code
             case 31:
                Cash_Cntr_F(job);
                break;
+            case 32:
+               Tree_Base_F(job);
+               break;
+            case 33:
+               Invc_Oprt_F(job);
+               break;
             #endregion
             #region Action
             case 11:
@@ -225,6 +231,12 @@ namespace System.RoboTech.Code
                break;
             case "CASH_CNTR_F":
                _Cash_Cntr_F.SendRequest(job);
+               break;
+            case "TREE_BASE_F":
+               _Tree_Base_F.SendRequest(job);
+               break;
+            case "INVC_OPRT_F":
+               _Invc_Oprt_F.SendRequest(job);
                break;
             #endregion
             #region Action

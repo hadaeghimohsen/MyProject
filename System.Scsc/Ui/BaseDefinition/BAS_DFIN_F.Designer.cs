@@ -153,10 +153,11 @@
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject73 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject74 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject75 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject76 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject77 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition30 = new DevExpress.XtraGrid.StyleFormatCondition();
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition31 = new DevExpress.XtraGrid.StyleFormatCondition();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject77 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject78 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject76 = new DevExpress.Utils.SerializableAppearanceObject();
          this.colCASH_STAT = new DevExpress.XtraGrid.Columns.GridColumn();
          this.CtgyStat_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
          this.repositoryItemLookUpEdit9 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
@@ -1213,8 +1214,6 @@
          this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
          this.tp_009 = new System.Windows.Forms.TabPage();
          this.groupBox2 = new System.Windows.Forms.GroupBox();
-         this.label11 = new System.Windows.Forms.Label();
-         this.label12 = new System.Windows.Forms.Label();
          this.DuplCellPhon_Lov = new DevExpress.XtraEditors.LookUpEdit();
          this.StngBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.ClubBs3 = new System.Windows.Forms.BindingSource(this.components);
@@ -1360,15 +1359,15 @@
          this.colExternal_Device = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colMethod4 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.EdlmBn = new System.Windows.Forms.BindingNavigator(this.components);
-         this.AddEdlm_Butn = new System.Windows.Forms.ToolStripButton();
          this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
-         this.DelEdlm_Butn = new System.Windows.Forms.ToolStripButton();
          this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
          this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
          this.bindingNavigatorPositionItem = new System.Windows.Forms.ToolStripTextBox();
          this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
          this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
          this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+         this.AddEdlm_Butn = new System.Windows.Forms.ToolStripButton();
+         this.DelEdlm_Butn = new System.Windows.Forms.ToolStripButton();
          this.SaveEdlm_Butn = new System.Windows.Forms.ToolStripButton();
          this.gridControl26 = new DevExpress.XtraGrid.GridControl();
          this.Exdv_Cms = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -1431,6 +1430,10 @@
          this.ExtrDev_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.CbmtwkdyBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.OpnFil_Ofd = new System.Windows.Forms.OpenFileDialog();
+         this.InptNatlCode_Cb = new System.Windows.Forms.CheckBox();
+         this.InptCellPhon_Cb = new System.Windows.Forms.CheckBox();
+         this.spinEdit7 = new DevExpress.XtraEditors.SpinEdit();
+         this.label11 = new System.Windows.Forms.Label();
          label5 = new System.Windows.Forms.Label();
          label6 = new System.Windows.Forms.Label();
          CashToDate_Lb = new System.Windows.Forms.Label();
@@ -1799,6 +1802,7 @@
          ((System.ComponentModel.ISupportInitialize)(this.ExpnBs)).BeginInit();
          this.flowLayoutPanel1.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.CbmtwkdyBs1)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.spinEdit7.Properties)).BeginInit();
          this.SuspendLayout();
          // 
          // label5
@@ -14661,7 +14665,9 @@
          this.tp_009.Controls.Add(this.lookUpEdit11);
          this.tp_009.Controls.Add(this.AttnPrnt_Lb);
          this.tp_009.Controls.Add(this.ShowAttn_Lb);
+         this.tp_009.Controls.Add(this.label11);
          this.tp_009.Controls.Add(this.DebtDayExp_Lb);
+         this.tp_009.Controls.Add(this.spinEdit7);
          this.tp_009.Controls.Add(this.spinEdit2);
          this.tp_009.Controls.Add(this.TryValdMbsp_Lb);
          this.tp_009.Location = new System.Drawing.Point(4, 22);
@@ -14676,8 +14682,8 @@
          // groupBox2
          // 
          this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.groupBox2.Controls.Add(this.label11);
-         this.groupBox2.Controls.Add(this.label12);
+         this.groupBox2.Controls.Add(this.InptCellPhon_Cb);
+         this.groupBox2.Controls.Add(this.InptNatlCode_Cb);
          this.groupBox2.Controls.Add(this.DuplCellPhon_Lov);
          this.groupBox2.Controls.Add(this.DuplNatlCode_Lov);
          this.groupBox2.Location = new System.Drawing.Point(763, 517);
@@ -14686,26 +14692,6 @@
          this.groupBox2.TabIndex = 33;
          this.groupBox2.TabStop = false;
          this.groupBox2.Text = "جلوی گیری از اطلاعات تکراری";
-         // 
-         // label11
-         // 
-         this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.label11.AutoSize = true;
-         this.label11.Location = new System.Drawing.Point(107, 50);
-         this.label11.Name = "label11";
-         this.label11.Size = new System.Drawing.Size(75, 13);
-         this.label11.TabIndex = 2;
-         this.label11.Text = "شماره همراه :";
-         // 
-         // label12
-         // 
-         this.label12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.label12.AutoSize = true;
-         this.label12.Location = new System.Drawing.Point(107, 22);
-         this.label12.Name = "label12";
-         this.label12.Size = new System.Drawing.Size(49, 13);
-         this.label12.TabIndex = 2;
-         this.label12.Text = "کد ملی :";
          // 
          // DuplCellPhon_Lov
          // 
@@ -14724,7 +14710,7 @@
          this.DuplCellPhon_Lov.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
          this.DuplCellPhon_Lov.Properties.NullText = "";
          this.DuplCellPhon_Lov.Properties.ValueMember = "VALU";
-         this.DuplCellPhon_Lov.Size = new System.Drawing.Size(85, 22);
+         this.DuplCellPhon_Lov.Size = new System.Drawing.Size(69, 22);
          this.DuplCellPhon_Lov.TabIndex = 3;
          // 
          // StngBs1
@@ -14735,6 +14721,7 @@
          // ClubBs3
          // 
          this.ClubBs3.DataSource = typeof(System.Scsc.Data.Club);
+         this.ClubBs3.CurrentChanged += new System.EventHandler(this.ClubBs3_CurrentChanged);
          // 
          // DuplNatlCode_Lov
          // 
@@ -14753,7 +14740,7 @@
          this.DuplNatlCode_Lov.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
          this.DuplNatlCode_Lov.Properties.NullText = "";
          this.DuplNatlCode_Lov.Properties.ValueMember = "VALU";
-         this.DuplNatlCode_Lov.Size = new System.Drawing.Size(85, 22);
+         this.DuplNatlCode_Lov.Size = new System.Drawing.Size(69, 22);
          this.DuplNatlCode_Lov.TabIndex = 3;
          // 
          // Option_Gb
@@ -16205,10 +16192,11 @@
          // MostDebtAmnt_Lb
          // 
          this.MostDebtAmnt_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.MostDebtAmnt_Lb.AutoSize = true;
          this.MostDebtAmnt_Lb.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.MostDebtAmnt_Lb.Location = new System.Drawing.Point(491, 273);
+         this.MostDebtAmnt_Lb.Location = new System.Drawing.Point(690, 196);
          this.MostDebtAmnt_Lb.Name = "MostDebtAmnt_Lb";
-         this.MostDebtAmnt_Lb.Size = new System.Drawing.Size(314, 26);
+         this.MostDebtAmnt_Lb.Size = new System.Drawing.Size(112, 16);
          this.MostDebtAmnt_Lb.TabIndex = 10;
          this.MostDebtAmnt_Lb.Text = "میزان مبلغ بدهی :";
          this.MostDebtAmnt_Lb.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -16252,7 +16240,7 @@
             0,
             0,
             0});
-         this.mOST_DEBT_CLNG_AMNTSpinEdit.Location = new System.Drawing.Point(386, 274);
+         this.mOST_DEBT_CLNG_AMNTSpinEdit.Location = new System.Drawing.Point(386, 194);
          this.mOST_DEBT_CLNG_AMNTSpinEdit.Name = "mOST_DEBT_CLNG_AMNTSpinEdit";
          this.mOST_DEBT_CLNG_AMNTSpinEdit.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
          this.mOST_DEBT_CLNG_AMNTSpinEdit.Properties.AppearanceFocused.Options.UseBackColor = true;
@@ -16267,10 +16255,11 @@
          // DebtAttnChekStat_Lb
          // 
          this.DebtAttnChekStat_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.DebtAttnChekStat_Lb.AutoSize = true;
          this.DebtAttnChekStat_Lb.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.DebtAttnChekStat_Lb.Location = new System.Drawing.Point(491, 341);
+         this.DebtAttnChekStat_Lb.Location = new System.Drawing.Point(516, 245);
          this.DebtAttnChekStat_Lb.Name = "DebtAttnChekStat_Lb";
-         this.DebtAttnChekStat_Lb.Size = new System.Drawing.Size(314, 26);
+         this.DebtAttnChekStat_Lb.Size = new System.Drawing.Size(286, 16);
          this.DebtAttnChekStat_Lb.TabIndex = 11;
          this.DebtAttnChekStat_Lb.Text = "میزان بدهی برای حضورغیاب مشترییان لحاظ گردد :";
          this.DebtAttnChekStat_Lb.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -16279,7 +16268,7 @@
          // 
          this.lookUpEdit8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.lookUpEdit8.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.StngBs1, "ATTN_NOTF_STAT", true));
-         this.lookUpEdit8.Location = new System.Drawing.Point(386, 121);
+         this.lookUpEdit8.Location = new System.Drawing.Point(386, 98);
          this.lookUpEdit8.Name = "lookUpEdit8";
          this.lookUpEdit8.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.lookUpEdit8.Properties.Appearance.Options.UseFont = true;
@@ -16308,10 +16297,11 @@
          // MoreAttnStat_Lb
          // 
          this.MoreAttnStat_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.MoreAttnStat_Lb.AutoSize = true;
          this.MoreAttnStat_Lb.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.MoreAttnStat_Lb.Location = new System.Drawing.Point(491, 85);
+         this.MoreAttnStat_Lb.Location = new System.Drawing.Point(551, 78);
          this.MoreAttnStat_Lb.Name = "MoreAttnStat_Lb";
-         this.MoreAttnStat_Lb.Size = new System.Drawing.Size(314, 26);
+         this.MoreAttnStat_Lb.Size = new System.Drawing.Size(251, 16);
          this.MoreAttnStat_Lb.TabIndex = 18;
          this.MoreAttnStat_Lb.Text = "تعداد دفعات ورود در طول روز فقط یکبار باشد :";
          this.MoreAttnStat_Lb.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -16320,7 +16310,7 @@
          // 
          this.lookUpEdit9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.lookUpEdit9.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.StngBs1, "TRY_VALD_SBMT", true));
-         this.lookUpEdit9.Location = new System.Drawing.Point(386, 161);
+         this.lookUpEdit9.Location = new System.Drawing.Point(386, 121);
          this.lookUpEdit9.Name = "lookUpEdit9";
          this.lookUpEdit9.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.lookUpEdit9.Properties.Appearance.Options.UseFont = true;
@@ -16350,7 +16340,7 @@
          // 
          this.lookUpEdit10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.lookUpEdit10.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.StngBs1, "DEBT_CLNG_STAT", true));
-         this.lookUpEdit10.Location = new System.Drawing.Point(386, 237);
+         this.lookUpEdit10.Location = new System.Drawing.Point(386, 170);
          this.lookUpEdit10.Name = "lookUpEdit10";
          this.lookUpEdit10.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.lookUpEdit10.Properties.Appearance.Options.UseFont = true;
@@ -16379,10 +16369,11 @@
          // label2
          // 
          this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.label2.AutoSize = true;
          this.label2.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.label2.Location = new System.Drawing.Point(491, 237);
+         this.label2.Location = new System.Drawing.Point(626, 173);
          this.label2.Name = "label2";
-         this.label2.Size = new System.Drawing.Size(314, 26);
+         this.label2.Size = new System.Drawing.Size(176, 16);
          this.label2.TabIndex = 21;
          this.label2.Text = "میزان سقف بدهی لحاظ گردد :";
          this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -16391,7 +16382,7 @@
          // 
          this.lookUpEdit6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.lookUpEdit6.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.StngBs1, "MORE_ATTN_SESN", true));
-         this.lookUpEdit6.Location = new System.Drawing.Point(386, 85);
+         this.lookUpEdit6.Location = new System.Drawing.Point(386, 75);
          this.lookUpEdit6.Name = "lookUpEdit6";
          this.lookUpEdit6.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.lookUpEdit6.Properties.Appearance.Options.UseFont = true;
@@ -16421,7 +16412,7 @@
          // 
          this.AttnPrntStat_Lov.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.AttnPrntStat_Lov.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.StngBs1, "ATTN_PRNT_STAT", true));
-         this.AttnPrntStat_Lov.Location = new System.Drawing.Point(386, 198);
+         this.AttnPrntStat_Lov.Location = new System.Drawing.Point(386, 145);
          this.AttnPrntStat_Lov.Name = "AttnPrntStat_Lov";
          this.AttnPrntStat_Lov.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.AttnPrntStat_Lov.Properties.Appearance.Options.UseFont = true;
@@ -16451,7 +16442,7 @@
          // 
          this.lookUpEdit11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.lookUpEdit11.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.StngBs1, "DEBT_CHCK_STAT", true));
-         this.lookUpEdit11.Location = new System.Drawing.Point(386, 341);
+         this.lookUpEdit11.Location = new System.Drawing.Point(386, 243);
          this.lookUpEdit11.Name = "lookUpEdit11";
          this.lookUpEdit11.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.lookUpEdit11.Properties.Appearance.Options.UseFont = true;
@@ -16480,10 +16471,11 @@
          // AttnPrnt_Lb
          // 
          this.AttnPrnt_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.AttnPrnt_Lb.AutoSize = true;
          this.AttnPrnt_Lb.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.AttnPrnt_Lb.Location = new System.Drawing.Point(491, 197);
+         this.AttnPrnt_Lb.Location = new System.Drawing.Point(708, 148);
          this.AttnPrnt_Lb.Name = "AttnPrnt_Lb";
-         this.AttnPrnt_Lb.Size = new System.Drawing.Size(314, 26);
+         this.AttnPrnt_Lb.Size = new System.Drawing.Size(94, 16);
          this.AttnPrnt_Lb.TabIndex = 21;
          this.AttnPrnt_Lb.Text = "چاپ ژتون تردد :";
          this.AttnPrnt_Lb.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -16491,10 +16483,11 @@
          // ShowAttn_Lb
          // 
          this.ShowAttn_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.ShowAttn_Lb.AutoSize = true;
          this.ShowAttn_Lb.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.ShowAttn_Lb.Location = new System.Drawing.Point(491, 119);
+         this.ShowAttn_Lb.Location = new System.Drawing.Point(530, 101);
          this.ShowAttn_Lb.Name = "ShowAttn_Lb";
-         this.ShowAttn_Lb.Size = new System.Drawing.Size(314, 26);
+         this.ShowAttn_Lb.Size = new System.Drawing.Size(272, 16);
          this.ShowAttn_Lb.TabIndex = 20;
          this.ShowAttn_Lb.Text = "نمایش اطلاعات تردد مشترییان قابل رویت باشد :";
          this.ShowAttn_Lb.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -16502,10 +16495,11 @@
          // DebtDayExp_Lb
          // 
          this.DebtDayExp_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.DebtDayExp_Lb.AutoSize = true;
          this.DebtDayExp_Lb.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.DebtDayExp_Lb.Location = new System.Drawing.Point(491, 306);
+         this.DebtDayExp_Lb.Location = new System.Drawing.Point(674, 221);
          this.DebtDayExp_Lb.Name = "DebtDayExp_Lb";
-         this.DebtDayExp_Lb.Size = new System.Drawing.Size(314, 26);
+         this.DebtDayExp_Lb.Size = new System.Drawing.Size(128, 16);
          this.DebtDayExp_Lb.TabIndex = 10;
          this.DebtDayExp_Lb.Text = "مهلت پرداخت بدهی :";
          this.DebtDayExp_Lb.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -16519,12 +16513,12 @@
             0,
             0,
             0});
-         this.spinEdit2.Location = new System.Drawing.Point(386, 307);
+         this.spinEdit2.Location = new System.Drawing.Point(386, 219);
          this.spinEdit2.Name = "spinEdit2";
          this.spinEdit2.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
          this.spinEdit2.Properties.AppearanceFocused.Options.UseBackColor = true;
          this.spinEdit2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject76, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject77, "", null, null, true)});
          this.spinEdit2.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
          this.spinEdit2.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
          this.spinEdit2.Properties.Mask.EditMask = "n0";
@@ -16534,10 +16528,11 @@
          // TryValdMbsp_Lb
          // 
          this.TryValdMbsp_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.TryValdMbsp_Lb.AutoSize = true;
          this.TryValdMbsp_Lb.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.TryValdMbsp_Lb.Location = new System.Drawing.Point(491, 157);
+         this.TryValdMbsp_Lb.Location = new System.Drawing.Point(563, 124);
          this.TryValdMbsp_Lb.Name = "TryValdMbsp_Lb";
-         this.TryValdMbsp_Lb.Size = new System.Drawing.Size(314, 26);
+         this.TryValdMbsp_Lb.Size = new System.Drawing.Size(239, 16);
          this.TryValdMbsp_Lb.TabIndex = 22;
          this.TryValdMbsp_Lb.Text = "در هر شرایطی تمدید مشتری انجام پذیرد :";
          this.TryValdMbsp_Lb.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -16702,7 +16697,7 @@
          // 
          this.repositoryItemLookUpEdit38.AutoHeight = false;
          this.repositoryItemLookUpEdit38.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject77, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject78, "", null, null, true)});
          this.repositoryItemLookUpEdit38.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("VALU", "VALU", 48, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("DOMN_DESC", "وضعیت", 72, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near)});
@@ -16770,32 +16765,12 @@
          this.EdlmBn.TabIndex = 60;
          this.EdlmBn.Text = "bindingNavigator1";
          // 
-         // AddEdlm_Butn
-         // 
-         this.AddEdlm_Butn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-         this.AddEdlm_Butn.Image = ((System.Drawing.Image)(resources.GetObject("AddEdlm_Butn.Image")));
-         this.AddEdlm_Butn.Name = "AddEdlm_Butn";
-         this.AddEdlm_Butn.RightToLeftAutoMirrorImage = true;
-         this.AddEdlm_Butn.Size = new System.Drawing.Size(23, 22);
-         this.AddEdlm_Butn.Text = "لینک کردن گروه جدید";
-         this.AddEdlm_Butn.Click += new System.EventHandler(this.AddEdlm_Butn_Click);
-         // 
          // bindingNavigatorCountItem
          // 
          this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-         this.bindingNavigatorCountItem.Size = new System.Drawing.Size(34, 22);
+         this.bindingNavigatorCountItem.Size = new System.Drawing.Size(35, 22);
          this.bindingNavigatorCountItem.Text = "of {0}";
          this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
-         // 
-         // DelEdlm_Butn
-         // 
-         this.DelEdlm_Butn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-         this.DelEdlm_Butn.Image = ((System.Drawing.Image)(resources.GetObject("DelEdlm_Butn.Image")));
-         this.DelEdlm_Butn.Name = "DelEdlm_Butn";
-         this.DelEdlm_Butn.RightToLeftAutoMirrorImage = true;
-         this.DelEdlm_Butn.Size = new System.Drawing.Size(23, 22);
-         this.DelEdlm_Butn.Text = "حذف کردن گروه";
-         this.DelEdlm_Butn.Click += new System.EventHandler(this.DelEdlm_Butn_Click);
          // 
          // bindingNavigatorMovePreviousItem
          // 
@@ -16838,6 +16813,26 @@
          // 
          this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
          this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
+         // 
+         // AddEdlm_Butn
+         // 
+         this.AddEdlm_Butn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+         this.AddEdlm_Butn.Image = ((System.Drawing.Image)(resources.GetObject("AddEdlm_Butn.Image")));
+         this.AddEdlm_Butn.Name = "AddEdlm_Butn";
+         this.AddEdlm_Butn.RightToLeftAutoMirrorImage = true;
+         this.AddEdlm_Butn.Size = new System.Drawing.Size(23, 22);
+         this.AddEdlm_Butn.Text = "لینک کردن گروه جدید";
+         this.AddEdlm_Butn.Click += new System.EventHandler(this.AddEdlm_Butn_Click);
+         // 
+         // DelEdlm_Butn
+         // 
+         this.DelEdlm_Butn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+         this.DelEdlm_Butn.Image = ((System.Drawing.Image)(resources.GetObject("DelEdlm_Butn.Image")));
+         this.DelEdlm_Butn.Name = "DelEdlm_Butn";
+         this.DelEdlm_Butn.RightToLeftAutoMirrorImage = true;
+         this.DelEdlm_Butn.Size = new System.Drawing.Size(23, 22);
+         this.DelEdlm_Butn.Text = "حذف کردن گروه";
+         this.DelEdlm_Butn.Click += new System.EventHandler(this.DelEdlm_Butn_Click);
          // 
          // SaveEdlm_Butn
          // 
@@ -17670,6 +17665,61 @@
          // 
          this.OpnFil_Ofd.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.gif;*.tif;...";
          // 
+         // InptNatlCode_Cb
+         // 
+         this.InptNatlCode_Cb.AutoSize = true;
+         this.InptNatlCode_Cb.Location = new System.Drawing.Point(108, 23);
+         this.InptNatlCode_Cb.Name = "InptNatlCode_Cb";
+         this.InptNatlCode_Cb.Size = new System.Drawing.Size(68, 17);
+         this.InptNatlCode_Cb.TabIndex = 71;
+         this.InptNatlCode_Cb.Text = "کد ملی :";
+         this.InptNatlCode_Cb.UseVisualStyleBackColor = true;
+         this.InptNatlCode_Cb.CheckedChanged += new System.EventHandler(this.InptNatlCode_Cb_CheckedChanged);
+         // 
+         // InptCellPhon_Cb
+         // 
+         this.InptCellPhon_Cb.AutoSize = true;
+         this.InptCellPhon_Cb.Location = new System.Drawing.Point(91, 50);
+         this.InptCellPhon_Cb.Name = "InptCellPhon_Cb";
+         this.InptCellPhon_Cb.Size = new System.Drawing.Size(85, 17);
+         this.InptCellPhon_Cb.TabIndex = 71;
+         this.InptCellPhon_Cb.Text = "تلفن همراه :";
+         this.InptCellPhon_Cb.UseVisualStyleBackColor = true;
+         this.InptCellPhon_Cb.CheckedChanged += new System.EventHandler(this.InptCellPhon_Cb_CheckedChanged);
+         // 
+         // spinEdit7
+         // 
+         this.spinEdit7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.spinEdit7.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.StngBs1, "PERM_ENTR_DEBT_SERV_NUMB", true));
+         this.spinEdit7.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+         this.spinEdit7.Location = new System.Drawing.Point(386, 269);
+         this.spinEdit7.Name = "spinEdit7";
+         this.spinEdit7.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+         this.spinEdit7.Properties.AppearanceFocused.Options.UseBackColor = true;
+         this.spinEdit7.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject76, "", null, null, true)});
+         this.spinEdit7.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
+         this.spinEdit7.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.spinEdit7.Properties.Mask.EditMask = "n0";
+         this.spinEdit7.Size = new System.Drawing.Size(99, 22);
+         this.spinEdit7.TabIndex = 11;
+         // 
+         // label11
+         // 
+         this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.label11.AutoSize = true;
+         this.label11.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.label11.Location = new System.Drawing.Point(560, 271);
+         this.label11.Name = "label11";
+         this.label11.Size = new System.Drawing.Size(242, 16);
+         this.label11.TabIndex = 10;
+         this.label11.Text = "مجوز ورود تعداد جلسات مشترکین بدهکار :";
+         this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+         // 
          // BAS_DFIN_F
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -17961,6 +18011,7 @@
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit2.CalendarTimeProperties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit2)).EndInit();
          this.tp_009.ResumeLayout(false);
+         this.tp_009.PerformLayout();
          this.groupBox2.ResumeLayout(false);
          this.groupBox2.PerformLayout();
          ((System.ComponentModel.ISupportInitialize)(this.DuplCellPhon_Lov.Properties)).EndInit();
@@ -18063,6 +18114,7 @@
          ((System.ComponentModel.ISupportInitialize)(this.ExpnBs)).EndInit();
          this.flowLayoutPanel1.ResumeLayout(false);
          ((System.ComponentModel.ISupportInitialize)(this.CbmtwkdyBs1)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.spinEdit7.Properties)).EndInit();
          this.ResumeLayout(false);
 
       }
@@ -19247,8 +19299,6 @@
       private Windows.Forms.ToolStripMenuItem ExcpAttnDact_Butn;
       private DevExpress.XtraGrid.Columns.GridColumn colGUST_NUMB;
       private Windows.Forms.GroupBox groupBox2;
-      private Windows.Forms.Label label11;
-      private Windows.Forms.Label label12;
       private DevExpress.XtraEditors.LookUpEdit DuplCellPhon_Lov;
       private DevExpress.XtraEditors.LookUpEdit DuplNatlCode_Lov;
       private Windows.Forms.GroupBox groupBox1;
@@ -19343,6 +19393,10 @@
       private Windows.Forms.ToolStripButton bindingNavigatorMoveNextItem;
       private Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
       private Windows.Forms.ToolStripButton SaveEdlm_Butn;
+      private Windows.Forms.CheckBox InptCellPhon_Cb;
+      private Windows.Forms.CheckBox InptNatlCode_Cb;
+      private Windows.Forms.Label label11;
+      private DevExpress.XtraEditors.SpinEdit spinEdit7;
 
    }
 }

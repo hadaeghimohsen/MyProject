@@ -2627,6 +2627,44 @@ namespace System.Scsc.Ui.Common
                tb_master.SelectedTab = tp_004;
             }
          }
+      }
+
+      private void CalcAttn_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            FromAttnDate_Dt.CommitChanges();
+            ToAttnDate_Dt.CommitChanges();
+
+            if (!FromAttnDate_Dt.Value.HasValue) { FromAttnDate_Dt.Focus(); return; }
+            if (!ToAttnDate_Dt.Value.HasValue) { ToAttnDate_Dt.Focus(); return; }
+
+            var attns = 
+               iScsc.Attendances
+               .Where(
+                  a => a.FIGH_FILE_NO == fileno &&
+                       a.ATTN_DATE >= FromAttnDate_Dt.Value.Value.Date &&
+                       a.ATTN_DATE <= ToAttnDate_Dt.Value.Value.Date &&
+                       a.ATTN_STAT == "002" &&
+                       a.EXIT_TIME != null
+               );
+
+            int h = attns.Sum(a => (int)(a.EXIT_TIME.Value.TotalHours - a.ENTR_TIME.Value.TotalHours));
+            int m = Math.Abs(attns.Sum(a => (int)(a.EXIT_TIME.Value.TotalHours - a.ENTR_TIME.Value.TotalHours) * 60 - (int)(a.EXIT_TIME.Value.TotalMinutes - a.ENTR_TIME.Value.TotalMinutes)));
+
+            if(m >= 60)
+            {
+               h += m / 60;
+               m = m % 60;
+            }
+
+            TotlHourAttn_Txt.Text = h.ToString();
+            TotlMinAttn_Txt.Text = m.ToString();
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
       }      
    }
 }

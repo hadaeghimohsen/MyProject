@@ -151,6 +151,16 @@ namespace System.RoboTech.Code
             if (_Cash_Cntr_F == null)
                _Cash_Cntr_F = new Ui.DevelopmentApplication.CASH_CNTR_F { _DefaultGateway = this };
          }
+         else if(value == "tree_base_f")
+         {
+            if (_Tree_Base_F == null)
+               _Tree_Base_F = new Ui.DevelopmentApplication.TREE_BASE_F { _DefaultGateway = this };
+         }
+         else if (value == "invc_oprt_f")
+         {
+            if (_Invc_Oprt_F == null)
+               _Invc_Oprt_F = new Ui.DevelopmentApplication.INVC_OPRT_F { _DefaultGateway = this };
+         }
          #endregion
          #region Action
          else if (value == "strt_robo_f")
@@ -920,6 +930,56 @@ namespace System.RoboTech.Code
                   new Job(SendType.SelfToUserInterface, "CASH_CNTR_F", 02 /* Execute Set */),
                   new Job(SendType.SelfToUserInterface, "CASH_CNTR_F", 07 /* Execute Load_Data */),
                   new Job(SendType.SelfToUserInterface, "CASH_CNTR_F", 03 /* Execute Paint */)
+               });
+         }
+         else if (job.Status == StatusType.SignalForPreconditions)
+         {
+            job.Status = StatusType.Successful;
+         }
+      }
+
+      /// <summary>
+      /// Code 32
+      /// </summary>
+      /// <param name="job"></param>
+      private void Tree_Base_F(Job job)
+      {
+         if (job.Status == StatusType.Running)
+         {
+            job.Status = StatusType.WaitForPreconditions;
+            job.OwnerDefineWorkWith.AddRange(
+               new List<Job>
+               {
+                  new Job(SendType.Self, 01 /* Execute GetUi */){Input = "tree_base_f"},
+                  new Job(SendType.SelfToUserInterface, "TREE_BASE_F", 05 /* Execute CheckSecurity */),
+                  new Job(SendType.SelfToUserInterface, "TREE_BASE_F", 02 /* Execute Set */),
+                  new Job(SendType.SelfToUserInterface, "TREE_BASE_F", 07 /* Execute Load_Data */),
+                  new Job(SendType.SelfToUserInterface, "TREE_BASE_F", 03 /* Execute Paint */)
+               });
+         }
+         else if (job.Status == StatusType.SignalForPreconditions)
+         {
+            job.Status = StatusType.Successful;
+         }
+      }
+
+      /// <summary>
+      /// Code 33
+      /// </summary>
+      /// <param name="job"></param>
+      private void Invc_Oprt_F(Job job)
+      {
+         if (job.Status == StatusType.Running)
+         {
+            job.Status = StatusType.WaitForPreconditions;
+            job.OwnerDefineWorkWith.AddRange(
+               new List<Job>
+               {
+                  new Job(SendType.Self, 01 /* Execute GetUi */){Input = "invc_oprt_f"},
+                  new Job(SendType.SelfToUserInterface, "INVC_OPRT_F", 05 /* Execute CheckSecurity */),
+                  new Job(SendType.SelfToUserInterface, "INVC_OPRT_F", 02 /* Execute Set */),
+                  new Job(SendType.SelfToUserInterface, "INVC_OPRT_F", 07 /* Execute Load_Data */),
+                  new Job(SendType.SelfToUserInterface, "INVC_OPRT_F", 03 /* Execute Paint */)
                });
          }
          else if (job.Status == StatusType.SignalForPreconditions)

@@ -282,6 +282,24 @@
     <Compile Include="Ui\BaseDefinition\REGN_DFIN_F.RequestRespons.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Ui\DevelopmentApplication\TREE_BASE_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\DevelopmentApplication\TREE_BASE_F.Designer.cs">
+      <DependentUpon>TREE_BASE_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\DevelopmentApplication\INVC_OPRT_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\DevelopmentApplication\INVC_OPRT_F.Designer.cs">
+      <DependentUpon>INVC_OPRT_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\DevelopmentApplication\TREE_BASE_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\DevelopmentApplication\INVC_OPRT_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Ui\DevelopmentApplication\ONLR_DVLP_F.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -521,6 +539,7 @@
     <None Include="Properties\DataSources\System.RoboTech.Data.D_ACTV.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_AMTP.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_AMUT.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.D_ARTP.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_ATYP.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_BDIR.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_BTYP.datasource" />
@@ -624,6 +643,7 @@
     <None Include="Properties\DataSources\System.RoboTech.Data.Service.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Service_Robot.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Service_Robot_Access_Limited_Group_Product.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.Service_Robot_Account_Link.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Service_Robot_Card_Bank.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Service_Robot_Discount_Card.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Service_Robot_Gift_Card.datasource" />
@@ -715,6 +735,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Ui\BaseDefinition\REGN_DFIN_F.resx">
       <DependentUpon>REGN_DFIN_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\DevelopmentApplication\TREE_BASE_F.resx">
+      <DependentUpon>TREE_BASE_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\DevelopmentApplication\INVC_OPRT_F.resx">
+      <DependentUpon>INVC_OPRT_F.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ui\DevelopmentApplication\ONLR_DVLP_F.resx">
       <DependentUpon>ONLR_DVLP_F.cs</DependentUpon>

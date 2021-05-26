@@ -346,11 +346,6 @@ namespace System.Scsc.Ui.OtherIncome
          );
       }
 
-      private void MaxF_Butn001_Click(object sender, EventArgs e)
-      {
-
-      }
-
       private void Btn_AutoCalcAttn_Click(object sender, EventArgs e)
       {
          try
@@ -857,6 +852,24 @@ namespace System.Scsc.Ui.OtherIncome
          catch (Exception exc)
          {
             MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void MaxF_Butn001_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            FngrPrnt_Txt.EditValue =
+                iScsc.Fighters
+                .Where(f => f.FNGR_PRNT_DNRM != null && f.FNGR_PRNT_DNRM.Length > 0)
+                .Select(f => f.FNGR_PRNT_DNRM)
+                .ToList()
+                .Where(f => f.All(char.IsDigit))
+                .Max(f => Convert.ToInt64(f)) + 1;
+         }
+         catch
+         {
+            FngrPrnt_Txt.EditValue = 1;
          }
       }
 

@@ -952,5 +952,29 @@ namespace System.RoboTech.Ui.MasterPage
               })
          );
       }
+
+      private void BaseDefAcnt_Butn_Click(object sender, EventArgs e)
+      {
+         _DefaultGateway.Gateway(
+            new Job(SendType.External, "Localhost",
+              new List<Job>
+              {                  
+                new Job(SendType.Self, 32 /* Execute Tree_Base_F */),
+                new Job(SendType.SelfToUserInterface, "TREE_BASE_F", 10 /* Execute Actn_CalF_P */)
+              })
+         );
+      }
+
+      private void InvcOprt_Butn_Click(object sender, EventArgs e)
+      {
+         _DefaultGateway.Gateway(
+            new Job(SendType.External, "Localhost",
+              new List<Job>
+              {
+                new Job(SendType.Self, 33 /* Execute Invc_Oprt_F */),
+                new Job(SendType.SelfToUserInterface, "INVC_OPRT_F", 10 /* Execute Actn_CalF_P */)
+              })
+         );
+      }
    }
 }

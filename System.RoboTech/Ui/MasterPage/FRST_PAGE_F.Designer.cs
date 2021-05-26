@@ -28,6 +28,7 @@
       /// </summary>
       private void InitializeComponent()
       {
+         this.components = new System.ComponentModel.Container();
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FRST_PAGE_F));
          DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
          DevExpress.Utils.ToolTipTitleItem toolTipTitleItem1 = new DevExpress.Utils.ToolTipTitleItem();
@@ -77,8 +78,10 @@
          this.ribbonGroup4 = new C1.Win.C1Ribbon.RibbonGroup();
          this.SpyMesg_Butn = new C1.Win.C1Ribbon.RibbonButton();
          this.ribbonGroup6 = new C1.Win.C1Ribbon.RibbonGroup();
+         this.BaseDefAcnt_Butn = new C1.Win.C1Ribbon.RibbonButton();
          this.DefBankAcnt_Butn = new C1.Win.C1Ribbon.RibbonButton();
          this.DefProdRobo_Butn = new C1.Win.C1Ribbon.RibbonButton();
+         this.InvcOprt_Butn = new C1.Win.C1Ribbon.RibbonButton();
          this.MangWletRobo_Butn = new C1.Win.C1Ribbon.RibbonButton();
          this.OnlnRecpOrdrRobo_Butn = new C1.Win.C1Ribbon.RibbonButton();
          this.CashCntr_Butn = new C1.Win.C1Ribbon.RibbonButton();
@@ -117,7 +120,7 @@
          this.OrdrShip_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.AdjustDateTime_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.sb_logout = new DevExpress.XtraEditors.SimpleButton();
-         this.Tm_ShowTime = new System.Windows.Forms.Timer();
+         this.Tm_ShowTime = new System.Windows.Forms.Timer(this.components);
          ((System.ComponentModel.ISupportInitialize)(this.c1Ribbon1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.Pnl_Desktop)).BeginInit();
          this.Pnl_Desktop.SuspendLayout();
@@ -305,13 +308,23 @@
          // 
          // ribbonGroup6
          // 
+         this.ribbonGroup6.Items.Add(this.BaseDefAcnt_Butn);
          this.ribbonGroup6.Items.Add(this.DefBankAcnt_Butn);
          this.ribbonGroup6.Items.Add(this.DefProdRobo_Butn);
+         this.ribbonGroup6.Items.Add(this.InvcOprt_Butn);
          this.ribbonGroup6.Items.Add(this.MangWletRobo_Butn);
          this.ribbonGroup6.Items.Add(this.OnlnRecpOrdrRobo_Butn);
          this.ribbonGroup6.Items.Add(this.CashCntr_Butn);
          this.ribbonGroup6.Name = "ribbonGroup6";
          this.ribbonGroup6.Text = "مدیریت فروشگاه انلاین";
+         // 
+         // BaseDefAcnt_Butn
+         // 
+         this.BaseDefAcnt_Butn.LargeImage = ((System.Drawing.Image)(resources.GetObject("BaseDefAcnt_Butn.LargeImage")));
+         this.BaseDefAcnt_Butn.Name = "BaseDefAcnt_Butn";
+         this.BaseDefAcnt_Butn.SmallImage = ((System.Drawing.Image)(resources.GetObject("BaseDefAcnt_Butn.SmallImage")));
+         this.BaseDefAcnt_Butn.Text = "تعاریف پایه";
+         this.BaseDefAcnt_Butn.Click += new System.EventHandler(this.BaseDefAcnt_Butn_Click);
          // 
          // DefBankAcnt_Butn
          // 
@@ -329,6 +342,14 @@
          this.DefProdRobo_Butn.SmallImage = ((System.Drawing.Image)(resources.GetObject("DefProdRobo_Butn.SmallImage")));
          this.DefProdRobo_Butn.Text = "کالا / خدمات فروشگاه";
          this.DefProdRobo_Butn.Click += new System.EventHandler(this.DefProdRobo_Butn_Click);
+         // 
+         // InvcOprt_Butn
+         // 
+         this.InvcOprt_Butn.LargeImage = ((System.Drawing.Image)(resources.GetObject("InvcOprt_Butn.LargeImage")));
+         this.InvcOprt_Butn.Name = "InvcOprt_Butn";
+         this.InvcOprt_Butn.SmallImage = ((System.Drawing.Image)(resources.GetObject("InvcOprt_Butn.SmallImage")));
+         this.InvcOprt_Butn.Text = "عملیات فاکتور";
+         this.InvcOprt_Butn.Click += new System.EventHandler(this.InvcOprt_Butn_Click);
          // 
          // MangWletRobo_Butn
          // 
@@ -1056,5 +1077,7 @@
       private C1.Win.C1Ribbon.RibbonGroup ribbonGroup11;
       private C1.Win.C1Ribbon.RibbonButton ribbonButton2;
       private C1.Win.C1Ribbon.RibbonButton CashCntr_Butn;
+      private C1.Win.C1Ribbon.RibbonButton InvcOprt_Butn;
+      private C1.Win.C1Ribbon.RibbonButton BaseDefAcnt_Butn;
    }
 }

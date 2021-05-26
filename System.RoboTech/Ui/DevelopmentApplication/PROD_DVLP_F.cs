@@ -225,7 +225,7 @@ namespace System.RoboTech.Ui.DevelopmentApplication
          {
             if (UnitDesc_Txt.Text == "") { UnitDesc_Txt.Focus(); return; }
 
-            iRoboTech.INS_APBS_P(UnitDesc_Txt.Text, "PRODUCTUNIT_INFO", null, null);
+            iRoboTech.INS_APBS_P(UnitDesc_Txt.Text, "PRODUCTUNIT_INFO", null, null, null, null, null, null, null, null, null, null, null, null);
 
             UnitDesc_Txt.Text = "";
             requery = true;
@@ -1856,13 +1856,20 @@ namespace System.RoboTech.Ui.DevelopmentApplication
 
             if (rbpr.TARF_CODE != null && rbpr.TARF_CODE.Length > 0 && MessageBox.Show(this, "آیا مایل به تغییر کد تعرفه محصول هستین؟", "تغییر کد تعرفه محصول", MessageBoxButtons.YesNo) != DialogResult.Yes) return;
 
-            rbpr.TARF_CODE = 
-               (iRoboTech.Robot_Products
-                   .Where(p => p.TARF_CODE != null && p.TARF_CODE.Length > 0)
-                   .Select(p => p.TARF_CODE)
-                   .ToList()
-                   .Where(p => p.All(char.IsDigit))
-                   .Max(p => Convert.ToInt64(p)) + 1).ToString();
+            if (!RbprBs.List.OfType<Data.Robot_Product>().Any(p => p.CODE != 0))
+            {
+               rbpr.TARF_CODE = "1";
+            }
+            else
+            {
+               rbpr.TARF_CODE =
+                  (iRoboTech.Robot_Products
+                      .Where(p => p.TARF_CODE != null && p.TARF_CODE.Length > 0)
+                      .Select(p => p.TARF_CODE)
+                      .ToList()
+                      .Where(p => p.All(char.IsDigit))
+                      .Max(p => Convert.ToInt64(p)) + 1).ToString();
+            }
          }
          catch { }
       }

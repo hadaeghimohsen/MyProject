@@ -3985,7 +3985,7 @@
          // bindingNavigatorCountItem
          // 
          this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-         this.bindingNavigatorCountItem.Size = new System.Drawing.Size(34, 22);
+         this.bindingNavigatorCountItem.Size = new System.Drawing.Size(35, 22);
          this.bindingNavigatorCountItem.Text = "of {0}";
          this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
          // 
@@ -4383,7 +4383,7 @@
          // toolStripLabel1
          // 
          this.toolStripLabel1.Name = "toolStripLabel1";
-         this.toolStripLabel1.Size = new System.Drawing.Size(34, 22);
+         this.toolStripLabel1.Size = new System.Drawing.Size(35, 22);
          this.toolStripLabel1.Text = "of {0}";
          this.toolStripLabel1.ToolTipText = "Total number of items";
          // 
@@ -7978,7 +7978,7 @@
          // bindingNavigatorCountItem1
          // 
          this.bindingNavigatorCountItem1.Name = "bindingNavigatorCountItem1";
-         this.bindingNavigatorCountItem1.Size = new System.Drawing.Size(34, 22);
+         this.bindingNavigatorCountItem1.Size = new System.Drawing.Size(35, 22);
          this.bindingNavigatorCountItem1.Text = "of {0}";
          this.bindingNavigatorCountItem1.ToolTipText = "Total number of items";
          // 
@@ -10255,7 +10255,7 @@
          // toolStripLabel2
          // 
          this.toolStripLabel2.Name = "toolStripLabel2";
-         this.toolStripLabel2.Size = new System.Drawing.Size(34, 22);
+         this.toolStripLabel2.Size = new System.Drawing.Size(35, 22);
          this.toolStripLabel2.Text = "of {0}";
          this.toolStripLabel2.ToolTipText = "Total number of items";
          // 

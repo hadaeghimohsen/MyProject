@@ -206,6 +206,10 @@ namespace System.RoboTech.Ui.DevelopmentApplication
          UnitBs.DataSource = iRoboTech.App_Base_Defines.Where(a => a.ENTY_NAME == "PRODUCTUNIT_INFO");
          RbscBs.DataSource = iRoboTech.App_Base_Defines.Where(a => a.ENTY_NAME == "SECTION_INFO");
          RbssBs.DataSource = iRoboTech.App_Base_Defines.Where(a => a.ENTY_NAME == "STORESPEC_INFO");
+         SralBs.DataSource = iRoboTech.Service_Robot_Account_Links.Where(a => a.STAT == "002");
+         DconfBs.DataSource = iRoboTech.D_CONFs;
+         DrcmtBs.DataSource = iRoboTech.D_RCMTs;
+         DamtpBs.DataSource = iRoboTech.D_AMTPs;
 
          job.Status = StatusType.Successful;
       }

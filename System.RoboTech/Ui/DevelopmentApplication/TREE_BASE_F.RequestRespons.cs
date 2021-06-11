@@ -199,6 +199,8 @@ namespace System.RoboTech.Ui.DevelopmentApplication
       private void LoadData(Job job)
       {
          DartpBs.DataSource = iRoboTech.D_ARTPs.Where(o => o.VALU == "000" || o.VALU == "001" || o.VALU == "002");
+         DactvBs.DataSource = iRoboTech.D_ACTVs;
+         DoptpBs.DataSource = iRoboTech.D_OPTPs;
          job.Status = StatusType.Successful;
       }
 

@@ -3258,6 +3258,7 @@ namespace System.Scsc.Ui.MasterPage
 
       private void LsGate_OnDataRecived(int port, byte[] recieve)
       {
+         var gate = iScsc.External_Devices.Where(ed => ed.STAT == "002" && ed.PORT_RECV == port).FirstOrDefault();
          try
          {
             // if data is ok
@@ -3290,7 +3291,7 @@ namespace System.Scsc.Ui.MasterPage
                FngrPrnt_Txt.Text = enrollNumber;
             }
 
-            var gate = iScsc.External_Devices.Where(ed => ed.STAT == "002" && ed.PORT_RECV == port).FirstOrDefault();
+            //var gate = iScsc.External_Devices.Where(ed => ed.STAT == "002" && ed.PORT_RECV == port).FirstOrDefault();
 
             // IF NOT EXISTS ANY SERVICE RETURN AND STOPED!!
             if (!iScsc.Fighters.Any(f => f.FNGR_PRNT_DNRM == enrollNumber))
@@ -3381,7 +3382,10 @@ namespace System.Scsc.Ui.MasterPage
          }
          catch (Exception exc)
          {
-            MessageBox.Show(exc.Message);
+            //MessageBox.Show(exc.Message);
+            // Send [Error] command to gate
+            var cmd = new byte[] { 0xCC, 0x0D, 0x40, 0x28, 0x6B, 0xFA, 0x00, 0x00, 0x00, 0x00, 0x21, 0x00, 0x04, 0x00, 0x00, 0xD1, 0xDD };
+            SendCommand(gate.IP_ADRS, (int)gate.PORT_SEND, cmd);
          }
       }
 

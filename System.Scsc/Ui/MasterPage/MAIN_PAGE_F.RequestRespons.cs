@@ -856,7 +856,7 @@ namespace System.Scsc.Ui.MasterPage
          {
             var xinput = job.Input as XElement;
             // بررسی اینکه آیا دستگاه انگشتی متصل می باشد
-            if (Fp1DevIsConnected)
+            if (Fp1DevIsConnected || Fp2DevIsConnected || Fp3DevIsConnected)
             {
                var result = false;
                int iMachineNumber = 1;//In fact,when you are using the tcp/ip communication,this parameter will be ignored,that is any integer will all right.Here we use 1.

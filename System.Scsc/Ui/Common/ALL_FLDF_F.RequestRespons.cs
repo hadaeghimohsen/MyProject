@@ -1197,7 +1197,7 @@ namespace System.Scsc.Ui.Common
             //1399/12/06 * نمایش اطلاعات یادداشت
             NoteBs.DataSource = iScsc.Notes.Where(n => n.FIGH_FILE_NO == fileno);
             // مبلغ بدهی
-            PayDebtAmnt_Txt.Text = DebtDnrm_TextBox.Text;
+            PayDebtAmnt_Txt.Text = DebtDnrm_TextBox.Text;           
 
             if(isFirstLoaded) goto commandfinished;
 

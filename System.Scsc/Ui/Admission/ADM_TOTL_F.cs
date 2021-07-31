@@ -808,7 +808,27 @@ namespace System.Scsc.Ui.Admission
             {
                throw new Exception("کد شناسایی جدید وارد نشده");
             }
-   
+
+            // 1400/04/25 * بررسی اینکه جنسیت مشتری در کلاس ثبت نامی درست میباشد یا خیر
+            if (Rqst != null && Rqst.RQID != 0)
+            {
+               if (CbmtCode_Lov.EditValue == null || !CbmtBs1.List.OfType<Data.Club_Method>().Any(c => c.CODE == (long)CbmtCode_Lov.EditValue)) return;
+               if (FighBs3.List.OfType<Data.Fighter>().Any(f => f.FILE_NO == (long)(Figh_Lov.EditValue)))
+               {
+                  if (CbmtBs1.List.OfType<Data.Club_Method>().Any(c => c.CODE == (long)CbmtCode_Lov.EditValue && c.SEX_TYPE != "003" && c.SEX_TYPE != FighBs3.List.OfType<Data.Fighter>().FirstOrDefault(f => f.FILE_NO == (long)(Figh_Lov.EditValue)).SEX_TYPE_DNRM))
+                  {
+                     if (MessageBox.Show(this, "جنسیت مشتری در گروه ثبت نامی قابل قبول نمیباشد، آیا با ثبت مشتری موافق هستید؟ در غیر اینصورت اطلاعات را اصلاح فرمایید", "عدم تطابق جنسیت در گروه ثبت نامی", MessageBoxButtons.YesNo) != DialogResult.Yes) { CbmtCode_Lov.Focus(); return; }
+                  }
+               }
+               else
+               {
+                  if (CbmtBs1.List.OfType<Data.Club_Method>().Any(c => c.CODE == (long)CbmtCode_Lov.EditValue && c.SEX_TYPE != "003" && c.SEX_TYPE != iScsc.Fighters.FirstOrDefault(f => f.FILE_NO == (long)(Figh_Lov.EditValue)).SEX_TYPE_DNRM))
+                  {
+                     if (MessageBox.Show(this, "جنسیت مشتری در گروه ثبت نامی قابل قبول نمیباشد، آیا با ثبت مشتری موافق هستید؟ در غیر اینصورت اطلاعات را اصلاح فرمایید", "عدم تطابق جنسیت در گروه ثبت نامی", MessageBoxButtons.YesNo) != DialogResult.Yes) { CbmtCode_Lov.Focus(); return; }
+                  }
+               }
+            }
+
             iScsc.UCC_TRQT_P(
                new XElement("Process",
                   new XElement("Request",
@@ -957,6 +977,9 @@ namespace System.Scsc.Ui.Admission
 
                UserProFile_Rb.ImageProfile = global::System.Scsc.Properties.Resources.IMAGE_1482;
                FNGR_PRNT_TextEdit.Text = "";
+               DPST_AMNT_Txt.EditValue = "";
+               DEBT_AMNT_Txt.EditValue = "";
+               SexFltr_Pkb.Visible = false;
             }
          }
          catch
@@ -972,6 +995,9 @@ namespace System.Scsc.Ui.Admission
 
             UserProFile_Rb.ImageProfile = global::System.Scsc.Properties.Resources.IMAGE_1482;
             FNGR_PRNT_TextEdit.Text = "";
+            DPST_AMNT_Txt.EditValue = "";
+            DEBT_AMNT_Txt.EditValue = "";
+            SexFltr_Pkb.Visible = false;
          }
       }
 
@@ -1280,9 +1306,6 @@ namespace System.Scsc.Ui.Admission
 
                )
             );
-            //_DefaultGateway.Gateway(
-            //   new Job(SendType.External, "Localhost", "", 86 /* Execute Pay_Mtod_F */, SendType.Self) { Input = pymt }
-            //);
          }
       }
 
@@ -1348,6 +1371,156 @@ namespace System.Scsc.Ui.Admission
                Btn_RqstSav3_Click(null, null);
             }
          }catch(SqlException se)
+         {
+            MessageBox.Show(se.Message);
+         }
+      }
+
+      private void bn_DpstPayment_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            {
+               var rqst = RqstBs3.Current as Data.Request;
+               if (rqst == null) return;
+
+               bool finalAction = false;
+               long? debtamnt = 0, dpstamnt = 0;
+
+               var pymt = PymtsBs3.Current as Data.Payment;
+               if (pymt == null) return;
+
+               debtamnt = (pymt.SUM_EXPN_PRIC + pymt.SUM_EXPN_EXTR_PRCT) - (pymt.SUM_RCPT_EXPN_PRIC + pymt.SUM_PYMT_DSCN_DNRM);
+               dpstamnt = pymt.Request.Request_Rows.FirstOrDefault().Fighter.DPST_AMNT_DNRM;
+
+               if (dpstamnt == 0) { MessageBox.Show(this, "مبلغ سپرده مشتری صفر میباشد", "عدم موجودی سپرده مشتری"); return; }
+
+               finalAction = debtamnt <= dpstamnt;
+               debtamnt = dpstamnt < debtamnt ? dpstamnt : debtamnt;
+
+               if (Accept_Cb.Checked)
+               {
+                  string mesg = "";
+                  if (debtamnt > 0)
+                  {
+                     mesg =
+                        string.Format(
+                           ">> مبلغ {0} {1} به صورت >> کسر از سپرده << در تاریخ {2} در صندوق کاربر {3}  قرار میگیرد",
+                           string.Format("{0:n0}", debtamnt),
+                           DAtypBs1.List.OfType<Data.D_ATYP>().FirstOrDefault(d => d.VALU == pymt.AMNT_UNIT_TYPE_DNRM).DOMN_DESC,
+                           "امروز",
+                           CurrentUser);
+                     mesg += Environment.NewLine;
+                  }
+                  mesg += ">> ذخیره و پایان درخواست";
+
+                  if (MessageBox.Show(this, mesg, "عملیات ثبت نام", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2, MessageBoxOptions.RtlReading) != DialogResult.Yes) return;
+               }
+
+               foreach (Data.Payment pymt1 in PymtsBs3)
+               {
+                  iScsc.PAY_MSAV_P(
+                     new XElement("Payment",
+                        new XAttribute("actntype", "CheckoutWithDeposit"),
+                        new XElement("Insert",
+                           new XElement("Payment_Method",
+                              new XAttribute("cashcode", pymt1.CASH_CODE),
+                              new XAttribute("rqstrqid", pymt1.RQST_RQID),
+                              new XAttribute("amnt", debtamnt)
+                           )
+                        )
+                     )
+                  );
+               }
+
+               if (finalAction)
+               {
+                  /* Loop For Print After Pay */
+                  RqstBnPrintAfterPay_Click(null, null);
+
+                  /* End Request */
+                  Btn_RqstSav3_Click(null, null);
+               }
+               else
+                  requery = true;
+            }
+         }
+         catch (SqlException se)
+         {
+            MessageBox.Show(se.Message);
+         }
+         finally
+         {
+            if(requery)
+            {
+               //Get_Current_Record();
+               Execute_Query();
+               //Set_Current_Record();
+               // 1397/05/16 * اگر درخواستی وجود نداشته باشد فرم مربوط را ببندیم
+               //if (RqstBs3.List.Count == 0)
+               //   Btn_RqstExit1_Click(null, null);
+               //else
+               //   Create_Record();
+               requery = false;
+            }
+         }
+      }
+
+      private void bn_Card2CardPayment_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            {
+               var rqst = RqstBs3.Current as Data.Request;
+               if (rqst == null) return;
+
+               if (Accept_Cb.Checked)
+               {
+                  var pymt = PymtsBs3.Current as Data.Payment;
+                  if (pymt == null) return;
+
+                  var debtamnt = (pymt.SUM_EXPN_PRIC + pymt.SUM_EXPN_EXTR_PRCT) - (pymt.SUM_RCPT_EXPN_PRIC + pymt.SUM_PYMT_DSCN_DNRM);
+
+                  string mesg = "";
+                  if (debtamnt > 0)
+                  {
+                     mesg =
+                        string.Format(
+                           ">> مبلغ {0} {1} به صورت >> کارت به کارت << در تاریخ {2} در صندوق کاربر {3}  قرار میگیرد",
+                           string.Format("{0:n0}", debtamnt),
+                           DAtypBs1.List.OfType<Data.D_ATYP>().FirstOrDefault(d => d.VALU == pymt.AMNT_UNIT_TYPE_DNRM).DOMN_DESC,
+                           "امروز",
+                           CurrentUser);
+                     mesg += Environment.NewLine;
+                  }
+                  mesg += ">> ذخیره و پایان درخواست";
+
+                  if (MessageBox.Show(this, mesg, "عملیات ثبت نام", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2, MessageBoxOptions.RtlReading) != DialogResult.Yes) return;
+               }
+
+               foreach (Data.Payment pymt in PymtsBs3)
+               {
+                  iScsc.PAY_MSAV_P(
+                     new XElement("Payment",
+                        new XAttribute("actntype", "CheckoutWithCard2Card"),
+                        new XElement("Insert",
+                           new XElement("Payment_Method",
+                              new XAttribute("cashcode", pymt.CASH_CODE),
+                              new XAttribute("rqstrqid", pymt.RQST_RQID)                     
+                           )
+                        )
+                     )
+                  );
+               }
+
+               /* Loop For Print After Pay */
+               RqstBnPrintAfterPay_Click(null, null);
+
+               /* End Request */
+               Btn_RqstSav3_Click(null, null);
+            }
+         }
+         catch (SqlException se)
          {
             MessageBox.Show(se.Message);
          }
@@ -2085,6 +2258,11 @@ namespace System.Scsc.Ui.Admission
          //CtgyBs2.Position = CtgyBs2.List.OfType<Data.Category_Belt>().ToList().FindIndex(c => c.CODE == figh.CTGY_CODE_DNRM);//CtgyCode_LookupEdit003.Properties.GetDataSourceRowIndex(CtgyCode_LookupEdit003.Properties.ValueMember, CtgyCode_LookupEdit003.EditValue);
          CbmtCode_Lov.EditValue = figh.CBMT_CODE_DNRM;
          FNGR_PRNT_TextEdit.EditValue = figh.FNGR_PRNT_DNRM;
+         DPST_AMNT_Txt.EditValue = figh.DPST_AMNT_DNRM;
+         DEBT_AMNT_Txt.EditValue = figh.DEBT_DNRM;
+         SexFltr_Pkb.Visible = true;
+         SexFltr_Pkb.ImageIndexPickDown = SexFltr_Pkb.ImageIndexPickUp = figh.SEX_TYPE_DNRM == "001" ? 4 : 5;
+         SexFltr_Pkb_PickCheckedChange(null);
       }
 
       private void PosStng_Butn_Click(object sender, EventArgs e)
@@ -2508,6 +2686,23 @@ namespace System.Scsc.Ui.Admission
       private void NewFngrPrnt_Cb_CheckedChanged(object sender, EventArgs e)
       {
          NewFngrPrnt_Txt.Visible = NewFngrPrnt_Cb.Checked;
+      }
+
+      private void SexFltr_Pkb_PickCheckedChange(object sender)
+      {
+         try
+         {
+            var rqst = RqstBs3.Current as Data.Request;
+            if(rqst == null || rqst.RQID == 0)return;
+
+            var figh = rqst.Request_Rows.FirstOrDefault().Fighter;
+
+            Cbmt_Gv.ActiveFilterString = SexFltr_Pkb.PickChecked ? string.Format("[Sex_Type] = '{0}' OR [Sex_Type] = '003'", figh.SEX_TYPE_DNRM) : "";
+         }
+         catch(Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
       }
    }
 }

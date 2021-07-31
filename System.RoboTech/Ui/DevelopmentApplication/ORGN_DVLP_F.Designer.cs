@@ -1701,7 +1701,7 @@
          label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          label4.AutoSize = true;
          label4.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         label4.Location = new System.Drawing.Point(-47, 40);
+         label4.Location = new System.Drawing.Point(-64, 40);
          label4.Name = "label4";
          label4.Size = new System.Drawing.Size(66, 14);
          label4.TabIndex = 36;
@@ -1734,7 +1734,7 @@
          label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          label7.AutoSize = true;
          label7.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         label7.Location = new System.Drawing.Point(-47, 68);
+         label7.Location = new System.Drawing.Point(-64, 68);
          label7.Name = "label7";
          label7.Size = new System.Drawing.Size(43, 14);
          label7.TabIndex = 36;
@@ -1755,7 +1755,7 @@
          label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          label9.AutoSize = true;
          label9.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         label9.Location = new System.Drawing.Point(-47, 96);
+         label9.Location = new System.Drawing.Point(-64, 96);
          label9.Name = "label9";
          label9.Size = new System.Drawing.Size(69, 14);
          label9.TabIndex = 36;
@@ -1776,7 +1776,7 @@
          label11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          label11.AutoSize = true;
          label11.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         label11.Location = new System.Drawing.Point(-47, 124);
+         label11.Location = new System.Drawing.Point(-64, 124);
          label11.Name = "label11";
          label11.Size = new System.Drawing.Size(44, 14);
          label11.TabIndex = 36;
@@ -1797,7 +1797,7 @@
          label19.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          label19.AutoSize = true;
          label19.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         label19.Location = new System.Drawing.Point(-47, 152);
+         label19.Location = new System.Drawing.Point(-64, 152);
          label19.Name = "label19";
          label19.Size = new System.Drawing.Size(68, 14);
          label19.TabIndex = 36;
@@ -1818,7 +1818,7 @@
          label17.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          label17.AutoSize = true;
          label17.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         label17.Location = new System.Drawing.Point(-47, 180);
+         label17.Location = new System.Drawing.Point(-64, 180);
          label17.Name = "label17";
          label17.Size = new System.Drawing.Size(55, 14);
          label17.TabIndex = 36;
@@ -3322,7 +3322,7 @@
          // 
          this.ShowGoogleMap_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
          this.ShowGoogleMap_Butn.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
-         this.ShowGoogleMap_Butn.Location = new System.Drawing.Point(464, 189);
+         this.ShowGoogleMap_Butn.Location = new System.Drawing.Point(464, 190);
          this.ShowGoogleMap_Butn.Name = "ShowGoogleMap_Butn";
          this.ShowGoogleMap_Butn.Size = new System.Drawing.Size(76, 24);
          this.ShowGoogleMap_Butn.TabIndex = 38;
@@ -3334,7 +3334,7 @@
          // splitContainerControl27
          // 
          this.splitContainerControl27.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-         this.splitContainerControl27.Location = new System.Drawing.Point(152, 190);
+         this.splitContainerControl27.Location = new System.Drawing.Point(152, 191);
          this.splitContainerControl27.Name = "splitContainerControl27";
          this.splitContainerControl27.Panel1.Controls.Add(this.SorcCordY_Txt);
          this.splitContainerControl27.Panel1.Text = "Panel1";
@@ -3387,7 +3387,7 @@
          this.richTextBox2.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.RoboBs, "POST_ADRS", true));
          this.richTextBox2.Location = new System.Drawing.Point(6, 6);
          this.richTextBox2.Name = "richTextBox2";
-         this.richTextBox2.Size = new System.Drawing.Size(534, 178);
+         this.richTextBox2.Size = new System.Drawing.Size(534, 179);
          this.richTextBox2.TabIndex = 36;
          this.richTextBox2.Text = "";
          // 

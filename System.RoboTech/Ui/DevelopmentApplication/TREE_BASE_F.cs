@@ -50,6 +50,7 @@ namespace System.RoboTech.Ui.DevelopmentApplication
          RbscBs.DataSource = iRoboTech.App_Base_Defines.Where(a => a.ENTY_NAME == "SECTION_INFO");
          RbssBs.DataSource = iRoboTech.App_Base_Defines.Where(a => a.ENTY_NAME == "STORESPEC_INFO");
          OrgnBs.DataSource = iRoboTech.Organs.Where(o => Fga_Ugov_U.Contains(o.OGID));
+         ExtrServBs.DataSource = iRoboTech.V_External_Services;
 
          TrbsBs.Position = trbs;
          UnitBs.Position = unit;
@@ -373,6 +374,7 @@ namespace System.RoboTech.Ui.DevelopmentApplication
          var srbt = SrbtBs.AddNew() as Data.Service_Robot;
          srbt.Robot = robo;
          srbt.REGS_TYPE = "002"; // ثبت دستی
+         srbt.STAT = "002"; // فعال
 
          if (SrbtBs.List.OfType<Data.Service_Robot>().Count(sr => sr.CHAT_ID > 0) > 0)
             srbt.CHAT_ID = SrbtBs.List.OfType<Data.Service_Robot>().Where(sr => sr.CHAT_ID > 0).Max(sr => sr.CHAT_ID) + 1;
@@ -392,6 +394,11 @@ namespace System.RoboTech.Ui.DevelopmentApplication
          try
          {
             SrbtBs.EndEdit();
+
+            if(SrbtBs.List.OfType<Data.Service_Robot>().Any(sr => sr.SERV_FILE_NO == 0 && (iRoboTech.CHK_MOBL_U(sr.CELL_PHON) == 0)))
+            {
+               if (MessageBox.Show(this, "اطلاعات شماره موبایل درست وارد نشده، آیا با ادامه ثبت اطلاعات موافق هستید؟", "اطلاعات تکراری", MessageBoxButtons.YesNo) != DialogResult.Yes) { ImpAll_Tm.Enabled = false; return; }
+            }
 
             iRoboTech.SubmitChanges();
             requery = true;
@@ -486,6 +493,161 @@ namespace System.RoboTech.Ui.DevelopmentApplication
          {
             if (requery)
                Execute_Query();
+         }
+      }
+
+      private void Input_Txt_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
+      {
+         try
+         {
+            var _qury = 
+               ExtrServBs.List.OfType<Data.V_External_Service>()
+               .Where(es => 
+                  (NatlCode_Rb.Checked && es.NATL_CODE_DNRM != null && es.NATL_CODE_DNRM.Contains(e.NewValue.ToString())) || 
+                  (CellPhon_Rb.Checked && es.CELL_PHON_DNRM != null && es.CELL_PHON_DNRM.Contains(e.NewValue.ToString()))
+                ).ToList();
+
+            Rslt_Butn.Tag = null;
+
+            if (_qury == null || _qury.Count() == 0) return;
+
+            Rslt_Butn.Text = _qury.Count() > 1 ? _qury.Count().ToString() : _qury.Count() == 1 ? _qury.FirstOrDefault().NAME_DNRM : "0";
+            Rslt_Butn.Tag = _qury;
+            
+            Rslt_Butn.Enabled = 
+               _qury.Count() == 1 && 
+               !SrbtBs.List.OfType<Data.Service_Robot>().Any(sr => sr.CELL_PHON == _qury.FirstOrDefault().CELL_PHON_DNRM)
+               ? true : false;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void Rslt_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            if (Rslt_Butn.Tag == null) return;
+            var _es = (Rslt_Butn.Tag as List<Data.V_External_Service>).FirstOrDefault();
+            AddSrbt_Butn_Click(null, null);
+            var _newserv = SrbtBs.List.OfType<Data.Service_Robot>().FirstOrDefault(sr => sr.SERV_FILE_NO == 0);
+            _newserv.REAL_FRST_NAME = _es.FRST_NAME_DNRM;
+            _newserv.REAL_LAST_NAME = _es.LAST_NAME_DNRM;
+            _newserv.NAME = _es.FRST_NAME_DNRM + " " + _es.LAST_NAME_DNRM;
+            _newserv.CELL_PHON = _es.CELL_PHON_DNRM;
+            _newserv.NATL_CODE = _es.NATL_CODE_DNRM;
+
+            var _histServ = iRoboTech.Service_Robots.Where(sr => (sr.ROBO_RBID == 391 || sr.ROBO_RBID == 401) && _newserv.ROBO_RBID != sr.ROBO_RBID && _newserv.CELL_PHON == sr.CELL_PHON).FirstOrDefault();
+            if (_histServ != null)
+               _newserv.CHAT_ID = _histServ.CHAT_ID;
+
+            SaveSrbt_Butn_Click(null, null);
+
+            Input_Txt.Text = "";
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void SyncChatId_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            iRoboTech.Sync_S2db_P(
+               new XElement("Service",
+                   new XAttribute("newchatid", newChatId_Txt.Text),
+                   new XAttribute("oldchatid", oldChatId_Txt.Text)
+               )
+            );
+
+            newChatId_Txt.Text = oldChatId_Txt.Text = "";
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void ImpAll_Tm_Tick(object sender, EventArgs e)
+      {
+         try
+         {
+            ImpAll_Tm.Enabled = false;
+            var _qury = ExtrServBs.List.OfType<Data.V_External_Service>().Where(es => es.CELL_PHON_DNRM != null && iRoboTech.CHK_MOBL_U(es.CELL_PHON_DNRM) == 1 && !SrbtBs.List.OfType<Data.Service_Robot>().Any(sr => sr.CELL_PHON == es.CELL_PHON_DNRM));
+            int i = 0;
+            ImpAll_Pb.Visible = true;
+            foreach (var serv in _qury)
+            {
+               ++i;
+               CellPhon_Rb.Checked = true;
+               Input_Txt.Text = serv.CELL_PHON_DNRM;
+               Rslt_Butn_Click(null, null);
+               ImpAll_Butn.Text = string.Format("{0} / {1}", i, _qury.Count());
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            ImpAll_Butn.Text = "انجام عملیات";
+            ImpAll_Pb.Visible = false;            
+         }
+      }
+
+      private void ImpAll_Butn_Click(object sender, EventArgs e)
+      {
+         var _qury = ExtrServBs.List.OfType<Data.V_External_Service>().Where(es => es.CELL_PHON_DNRM != null && iRoboTech.CHK_MOBL_U(es.CELL_PHON_DNRM) == 1 && !SrbtBs.List.OfType<Data.Service_Robot>().Any(sr => sr.CELL_PHON == es.CELL_PHON_DNRM));
+         if (MessageBox.Show(this, "آیا با ثبت اطلاعات کلیه مشتریان آرتا موافق هستید؟" + "\n" + "تعداد کل مشتریان: " + _qury.Count().ToString(), "ورود دسته ای اطلاعات", MessageBoxButtons.YesNo) != DialogResult.Yes) return;
+
+         ImpAll_Tm.Enabled = true;
+      }
+
+      private void NewCellPhon_Txt_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
+      {
+         try
+         {
+            var _qury =
+               ExtrServBs.List.OfType<Data.V_External_Service>()
+               .Where(es =>
+                  (NatlCode_Rb.Checked && es.NATL_CODE_DNRM != null && es.NATL_CODE_DNRM.Contains(e.NewValue.ToString())) ||
+                  (CellPhon_Rb.Checked && es.CELL_PHON_DNRM != null && es.CELL_PHON_DNRM.Contains(e.NewValue.ToString()))
+                ).ToList();
+
+            Rslt_Butn.Tag = null;
+
+            if (_qury == null || _qury.Count() == 0) return;
+
+            Rslt_Butn.Text = _qury.Count() > 1 ? _qury.Count().ToString() : _qury.Count() == 1 ? _qury.FirstOrDefault().NAME_DNRM : "0";
+            Rslt_Butn.Tag = _qury;
+
+            Rslt_Butn.Enabled =
+               _qury.Count() == 1 &&
+               !SrbtBs.List.OfType<Data.Service_Robot>().Any(sr => sr.CELL_PHON == _qury.FirstOrDefault().CELL_PHON_DNRM)
+               ? true : false;
+            
+            if(Rslt_Butn.Enabled)
+            {
+               MessageBox.Show(this, "این مشتری درون سیستم ارتا تعریف شده و نیازی به تعریف مجدد نمیباشد" ,"اطلاعات تکراری");
+
+               Input_Txt.EditValue = e.NewValue;
+               Rslt_Butn_Click(null, null);
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
          }
       }
    }

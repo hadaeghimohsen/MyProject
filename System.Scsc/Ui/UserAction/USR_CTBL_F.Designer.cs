@@ -38,6 +38,8 @@
          this.TitlHedr_Lb = new DevExpress.XtraEditors.LabelControl();
          this.Back_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.panel1 = new System.Windows.Forms.Panel();
+         this.ShowRqst_PickButn = new System.MaxUi.NewPickBtn();
+         this.imageList1 = new System.Windows.Forms.ImageList(this.components);
          this.CnclAllRqst_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.Reload_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.Request_Gv = new DevExpress.XtraGrid.GridControl();
@@ -77,6 +79,7 @@
          this.colMonth_Base = new DevExpress.XtraGrid.Columns.GridColumn();
          this.RqstChek_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
          this.Actn_Butn = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+         this.ServName_Lb = new DevExpress.XtraEditors.LabelControl();
          this.panel1.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.Request_Gv)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.RqstBs1)).BeginInit();
@@ -99,12 +102,12 @@
          // 
          this.TitlHedr_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-         this.TitlHedr_Lb.Appearance.Font = new System.Drawing.Font("B Koodak", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.TitlHedr_Lb.Appearance.Font = new System.Drawing.Font("IRANSans", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.TitlHedr_Lb.Appearance.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
          this.TitlHedr_Lb.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.TitlHedr_Lb.Location = new System.Drawing.Point(153, 4);
+         this.TitlHedr_Lb.Location = new System.Drawing.Point(252, 4);
          this.TitlHedr_Lb.Name = "TitlHedr_Lb";
-         this.TitlHedr_Lb.Size = new System.Drawing.Size(222, 50);
+         this.TitlHedr_Lb.Size = new System.Drawing.Size(121, 50);
          this.TitlHedr_Lb.TabIndex = 3;
          this.TitlHedr_Lb.Text = "لیست کارتابل";
          // 
@@ -113,9 +116,9 @@
          this.Back_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.Back_Butn.Appearance.BackColor = System.Drawing.Color.Transparent;
          this.Back_Butn.Appearance.Options.UseBackColor = true;
-         this.Back_Butn.Image = ((System.Drawing.Image)(resources.GetObject("Back_Butn.Image")));
+         this.Back_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1061;
          this.Back_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.Back_Butn.Location = new System.Drawing.Point(381, 3);
+         this.Back_Butn.Location = new System.Drawing.Point(379, 3);
          this.Back_Butn.LookAndFeel.SkinName = "Office 2010 Silver";
          this.Back_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.Back_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
@@ -126,7 +129,8 @@
          // 
          // panel1
          // 
-         this.panel1.BackColor = System.Drawing.SystemColors.Control;
+         this.panel1.BackColor = System.Drawing.Color.Khaki;
+         this.panel1.Controls.Add(this.ShowRqst_PickButn);
          this.panel1.Controls.Add(this.CnclAllRqst_Butn);
          this.panel1.Controls.Add(this.Reload_Butn);
          this.panel1.Controls.Add(this.Back_Butn);
@@ -134,8 +138,45 @@
          this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
          this.panel1.Location = new System.Drawing.Point(0, 0);
          this.panel1.Name = "panel1";
-         this.panel1.Size = new System.Drawing.Size(452, 61);
+         this.panel1.Size = new System.Drawing.Size(450, 57);
          this.panel1.TabIndex = 4;
+         // 
+         // ShowRqst_PickButn
+         // 
+         this.ShowRqst_PickButn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.ShowRqst_PickButn.BackColor = System.Drawing.Color.LightGray;
+         this.ShowRqst_PickButn.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
+         this.ShowRqst_PickButn.Disabled = false;
+         this.ShowRqst_PickButn.First = null;
+         this.ShowRqst_PickButn.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.ShowRqst_PickButn.ForceSelect = false;
+         this.ShowRqst_PickButn.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         this.ShowRqst_PickButn.ImageIndexPickDown = 0;
+         this.ShowRqst_PickButn.ImageIndexPickUp = 1;
+         this.ShowRqst_PickButn.ImageList = this.imageList1;
+         this.ShowRqst_PickButn.Location = new System.Drawing.Point(121, 4);
+         this.ShowRqst_PickButn.Name = "ShowRqst_PickButn";
+         this.ShowRqst_PickButn.Next = null;
+         this.ShowRqst_PickButn.PickChecked = true;
+         this.ShowRqst_PickButn.PickDownFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.ShowRqst_PickButn.PickDownText = "";
+         this.ShowRqst_PickButn.PickDownTextColor = System.Drawing.Color.Empty;
+         this.ShowRqst_PickButn.PickUpFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.ShowRqst_PickButn.PickUpText = "";
+         this.ShowRqst_PickButn.PickUpTextColor = System.Drawing.Color.Empty;
+         this.ShowRqst_PickButn.Size = new System.Drawing.Size(51, 48);
+         this.ShowRqst_PickButn.TabIndex = 90;
+         this.ShowRqst_PickButn.TextAligns = System.Drawing.ContentAlignment.MiddleCenter;
+         this.ShowRqst_PickButn.PickCheckedChange += new System.MaxUi.NewPickBtn.PickCheckedHandel(this.ShowRqst_PickButn_PickCheckedChange);
+         // 
+         // imageList1
+         // 
+         this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+         this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+         this.imageList1.Images.SetKeyName(0, "IMAGE_1001.png");
+         this.imageList1.Images.SetKeyName(1, "IMAGE_1003.png");
+         this.imageList1.Images.SetKeyName(2, "IMAGE_1205.png");
+         this.imageList1.Images.SetKeyName(3, "IMAGE_1217.png");
          // 
          // CnclAllRqst_Butn
          // 
@@ -173,7 +214,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
          this.Request_Gv.DataSource = this.RqstBs1;
-         this.Request_Gv.Location = new System.Drawing.Point(0, 61);
+         this.Request_Gv.Location = new System.Drawing.Point(0, 58);
          this.Request_Gv.LookAndFeel.SkinName = "Office 2013 Dark Gray";
          this.Request_Gv.LookAndFeel.UseDefaultLookAndFeel = false;
          this.Request_Gv.MainView = this.gridView1;
@@ -181,7 +222,7 @@
          this.Request_Gv.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.Actn_Butn,
             this.persianRepositoryItemDateEdit1});
-         this.Request_Gv.Size = new System.Drawing.Size(437, 680);
+         this.Request_Gv.Size = new System.Drawing.Size(435, 653);
          this.Request_Gv.TabIndex = 5;
          this.Request_Gv.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -189,6 +230,7 @@
          // RqstBs1
          // 
          this.RqstBs1.DataSource = typeof(System.Scsc.Data.Request);
+         this.RqstBs1.CurrentChanged += new System.EventHandler(this.RqstBs1_CurrentChanged);
          // 
          // gridView1
          // 
@@ -258,6 +300,8 @@
          this.gridView1.OptionsView.ShowFooter = true;
          this.gridView1.OptionsView.ShowGroupPanel = false;
          this.gridView1.OptionsView.ShowIndicator = false;
+         this.gridView1.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
+            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.RqstDate_Clm, DevExpress.Data.ColumnSortOrder.Descending)});
          // 
          // colREGN_PRVN_CNTY_CODE
          // 
@@ -467,17 +511,37 @@
          this.Actn_Butn.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
          this.Actn_Butn.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.Actn_Butn_ButtonClick);
          // 
+         // ServName_Lb
+         // 
+         this.ServName_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+         this.ServName_Lb.Appearance.BackColor = System.Drawing.Color.Khaki;
+         this.ServName_Lb.Appearance.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.ServName_Lb.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1620;
+         this.ServName_Lb.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+         this.ServName_Lb.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+         this.ServName_Lb.Cursor = System.Windows.Forms.Cursors.Hand;
+         this.ServName_Lb.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
+         this.ServName_Lb.Location = new System.Drawing.Point(0, 713);
+         this.ServName_Lb.Name = "ServName_Lb";
+         this.ServName_Lb.Size = new System.Drawing.Size(435, 26);
+         this.ServName_Lb.TabIndex = 6;
+         this.ServName_Lb.Text = "---";
+         this.ServName_Lb.Click += new System.EventHandler(this.ServName_Lb_Click);
+         // 
          // USR_CTBL_F
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
          this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
          this.BackColor = System.Drawing.SystemColors.Control;
+         this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+         this.Controls.Add(this.ServName_Lb);
          this.Controls.Add(this.Request_Gv);
          this.Controls.Add(this.panel1);
          this.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.Name = "USR_CTBL_F";
          this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-         this.Size = new System.Drawing.Size(452, 741);
+         this.Size = new System.Drawing.Size(450, 739);
          this.panel1.ResumeLayout(false);
          ((System.ComponentModel.ISupportInitialize)(this.Request_Gv)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.RqstBs1)).EndInit();
@@ -534,5 +598,8 @@
       private DevExpress.XtraGrid.Columns.GridColumn colMonth_Base;
       private dxExample.PersianRepositoryItemDateEdit persianRepositoryItemDateEdit1;
       private DevExpress.XtraGrid.Columns.GridColumn RqstChek_Clm;
+      private MaxUi.NewPickBtn ShowRqst_PickButn;
+      private Windows.Forms.ImageList imageList1;
+      private DevExpress.XtraEditors.LabelControl ServName_Lb;
    }
 }

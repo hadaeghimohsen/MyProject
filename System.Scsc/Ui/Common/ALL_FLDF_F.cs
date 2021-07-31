@@ -256,6 +256,11 @@ namespace System.Scsc.Ui.Common
                         })
                   );
                   break;
+               case 4:
+                  if (MessageBox.Show(this, "آیا با پاک کردن ساعا خروج موافق هستید؟", "حذف ساعت خروج", MessageBoxButtons.YesNo) != DialogResult.Yes) return;
+                  attn.EXIT_TIME = null;
+                  iScsc.ExecuteCommand(string.Format("UPDATE dbo.Attendance SET Exit_Time = null WHERE Code = {0};", attn.CODE));
+                  break;
                default:
                   break;
             }
@@ -1345,12 +1350,16 @@ namespace System.Scsc.Ui.Common
                   ShowCrntReglYear_Butn_Click(null, null);
                   break;
                case 3:
-                  vF_Request_DocumentBs.DataSource = iScsc.VF_Request_Document(fileno); ;
+                  GlrlBs.DataSource = iScsc.Gain_Loss_Rials.Where(g => g.FIGH_FILE_NO == fileno && g.CONF_STAT == "002" && g.AMNT > 0);
+                  GPymBs.DataSource = iScsc.Payment_Methods.Where(p => p.FIGH_FILE_NO_DNRM == fileno && p.RCPT_MTOD == "005");
                   break;
                case 4:
-                  vF_Request_ChangingBs.DataSource = iScsc.VF_Request_Changing(fileno).OrderBy(r => r.RQST_DATE);
+                  vF_Request_DocumentBs.DataSource = iScsc.VF_Request_Document(fileno); ;
                   break;
                case 5:
+                  vF_Request_ChangingBs.DataSource = iScsc.VF_Request_Changing(fileno).OrderBy(r => r.RQST_DATE);
+                  break;
+               case 6:
                   AttnBs2.DataSource = iScsc.Attendances.Where(a => a.FIGH_FILE_NO == fileno);
                   break;
                default:
@@ -2660,6 +2669,97 @@ namespace System.Scsc.Ui.Common
 
             TotlHourAttn_Txt.Text = h.ToString();
             TotlMinAttn_Txt.Text = m.ToString();
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void GPymBs_CurrentChanged(object sender, EventArgs e)
+      {
+         try
+         {
+            var gpym = GPymBs.Current as Data.Payment_Method;
+            if (gpym == null) return;
+
+            GPym_Txt.Text = 
+               "کسر مبلغ اعتبار سپرده بابت شماره درخواست [ " + gpym.Payment.RQST_RQID.ToString() + " ] در تاریخ [ " + gpym.Payment.CRET_DATE.GetPersianDate() + " - " + gpym.Payment.CRET_DATE.Value.ToString("HH:mm:ss") + " ] برای اقلام زیر صادر شده است : \n" + 
+               (
+                  string.Join("\n\r, ", gpym.Payment.Payment_Details.Select(pd => string.Format("[ {0} ] [ {1} ] [ {2} ] ", pd.Expense.EXPN_DESC, pd.Method.MTOD_DESC, pd.Category_Belt.CTGY_DESC)))
+               );
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void GotoRqstForm_Btn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var Rqst = iScsc.Requests.FirstOrDefault(r => r.RQID == (vF_Last_Info_FighterBs.Current as Data.VF_Last_Info_FighterResult).RQST_RQID);
+            if (Rqst == null) return;
+
+            int SpecFormNumb = 0;
+            string SpecFormString = "";
+
+            switch (Rqst.RQTP_CODE)
+            {
+               case "001":
+                  // ثبت نام
+                  SpecFormNumb = 123;
+                  SpecFormString = "ADM_FIGH_F";
+                  break;
+               case "002":
+                  // تغییر مشخصات عمومی
+                  SpecFormNumb = 70;
+                  SpecFormString = "ADM_CHNG_F";
+                  break;
+               case "009":
+                  // تمدید دوره
+                  SpecFormNumb = 64;
+                  SpecFormString = "ADM_TOTL_F";
+                  break;
+               case "012":
+                  // تمدید کارت بیمه
+                  SpecFormNumb = 80;
+                  SpecFormString = "INS_TOTL_F";
+                  break;
+               case "016":
+                  // درآمد متفرقه
+                  SpecFormNumb = 92;
+                  SpecFormString = "OIC_TOTL_F";
+                  break;
+               case "020":
+                  // تغییرات ریالی
+                  SpecFormNumb = 153;
+                  SpecFormString = "GLR_INDC_F";
+                  break;
+               case "026":
+                  // بلوکه کردن
+                  SpecFormNumb = 133;
+                  SpecFormString = "ADM_MBFZ_F";
+                  break;
+            }
+
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost",
+                  new List<Job>
+                     {
+                        new Job(SendType.Self, SpecFormNumb /* Execute Specify Form */),
+                        new Job(SendType.SelfToUserInterface, SpecFormString, 10 /* Execute Actn_Calf_F */)
+                        {
+                           Input = 
+                              new XElement("Request",
+                                 new XAttribute("type", "rqidfocus"),
+                                 new XAttribute("rqid", Rqst.RQID)
+                              )
+                        }
+                     }
+               )
+            );
          }
          catch (Exception exc)
          {

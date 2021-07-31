@@ -67,10 +67,10 @@ namespace System.RoboTech.Ui.DevelopmentApplication
             if (robo == null) return;
 
             WletBs.DataSource =
-               iRoboTech.Wallets.Where(w => w.Robot == robo && w.Service_Robot.NATL_CODE != null);
+               iRoboTech.Wallets.Where(w => w.Robot == robo && (w.Service_Robot.NATL_CODE != null || w.Service_Robot.REGS_TYPE == "002"));
 
             SrbtBs.DataSource =
-               iRoboTech.Service_Robots.Where(sr => sr.Robot == robo && sr.NATL_CODE != null && sr.NATL_CODE != "" && sr.NATL_CODE.Length == 10);
+               iRoboTech.Service_Robots.Where(sr => sr.Robot == robo && ((sr.NATL_CODE != null && sr.NATL_CODE != "" && sr.NATL_CODE.Length == 10) || sr.REGS_TYPE == "002"));
 
             int srbs = SrbsBs.Position;
 

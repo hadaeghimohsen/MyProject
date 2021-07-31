@@ -23,21 +23,24 @@ namespace System.Scsc.Ui.UserAction
 
       private void Execute_Query()
       {
-         var Rqids = iScsc.VF_Requests(new XElement("Request"))
-                  .Where(rqst =>                        
-                        rqst.RQST_STAT == "001" &&                        
-                        rqst.SUB_SYS == 1).Select(r => r.RQID).ToList();
+         var Rqids = 
+            iScsc.VF_Requests(new XElement("Request", new XAttribute("cretby", ShowRqst_PickButn.PickChecked ? CurrentUser : "")))
+            .Where(rqst =>
+                  rqst.RQST_STAT == "001" &&                        
+                  rqst.SUB_SYS == 1).Select(r => r.RQID).ToList();
 
          RqstBs1.DataSource =
             iScsc.Requests
             .Where(
                rqst =>
                   Rqids.Contains(rqst.RQID)
-            )
-            .OrderByDescending(
-               rqst =>
-                  rqst.RQST_DATE
             );
+            //.OrderByDescending(
+            //   rqst =>
+            //      rqst.RQST_DATE
+            //);
+         
+         requery = false;
       }
 
       private void Back_Butn_Click(object sender, EventArgs e)
@@ -56,6 +59,8 @@ namespace System.Scsc.Ui.UserAction
       {
          try
          {
+            if (RqstBs1.List.Count == 0) return;
+
             if (MessageBox.Show(this, "آیا با انصراف و حذف درخواست ها مطمئن هستید؟", "هشدار!", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
 
             foreach (var Rqst in RqstBs1.List.OfType<Data.Request>())
@@ -198,6 +203,46 @@ namespace System.Scsc.Ui.UserAction
                break;
             default:
                break;
+         }
+      }
+
+      private void ShowRqst_PickButn_PickCheckedChange(object sender)
+      {
+         Execute_Query();
+      }
+
+      private void RqstBs1_CurrentChanged(object sender, EventArgs e)
+      {
+         try
+         {
+            var rqst = RqstBs1.Current as Data.Request;
+            if (rqst == null || !rqst.Request_Rows.Any()) return;
+
+            ServName_Lb.Text = rqst.Request_Rows.FirstOrDefault().Fighter.NAME_DNRM;
+            ServName_Lb.Appearance.Image = rqst.Request_Rows.FirstOrDefault().Fighter.SEX_TYPE_DNRM == "001" ? Properties.Resources.IMAGE_1620 : Properties.Resources.IMAGE_1621;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void ServName_Lb_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var rqst = RqstBs1.Current as Data.Request;
+            if (rqst == null) return;
+
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost", "", 46, SendType.Self) { Input = new XElement("Fighter", new XAttribute("fileno", rqst.Request_Rows.FirstOrDefault().FIGH_FILE_NO)) }
+            );
+
+            Back_Butn_Click(null, null);
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
          }
       }
    }

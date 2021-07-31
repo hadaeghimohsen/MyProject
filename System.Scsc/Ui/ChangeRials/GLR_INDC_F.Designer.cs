@@ -28,7 +28,6 @@
       /// </summary>
       private void InitializeComponent()
       {
-         this.components = new System.ComponentModel.Container();
          DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
          DevExpress.Utils.ToolTipTitleItem toolTipTitleItem1 = new DevExpress.Utils.ToolTipTitleItem();
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GLR_INDC_F));
@@ -48,9 +47,9 @@
          this.Amnt_Lb = new System.Windows.Forms.Label();
          this.PaidType_Lb = new System.Windows.Forms.Label();
          this.CrntDebtAmnt_Lb = new System.Windows.Forms.Label();
-         this.RqstBs1 = new System.Windows.Forms.BindingSource(this.components);
-         this.FighBs1 = new System.Windows.Forms.BindingSource(this.components);
-         this.RqroBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.RqstBs1 = new System.Windows.Forms.BindingSource();
+         this.FighBs1 = new System.Windows.Forms.BindingSource();
+         this.RqroBs1 = new System.Windows.Forms.BindingSource();
          this.colTARF_CODE_DNRM1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colMOST_DEBT_CLNG_DNRM1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colEXAM_RWNO_DNRM1 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -154,20 +153,21 @@
          this.colCash1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.Info_Gb = new System.Windows.Forms.GroupBox();
          this.ResnDesc_Txt = new DevExpress.XtraEditors.MemoEdit();
-         this.GlrlBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.GlrlBs1 = new System.Windows.Forms.BindingSource();
          this.groupBox2 = new System.Windows.Forms.GroupBox();
+         this.Prct_Txt = new DevExpress.XtraEditors.TextEdit();
          this.Glrd_Pn = new System.Windows.Forms.Panel();
          this.tbn_POSPayment1 = new DevExpress.XtraEditors.SimpleButton();
          this.UsePos_Cb = new System.Windows.Forms.CheckBox();
          this.GlrlDetail_Gv = new DevExpress.XtraGrid.GridControl();
-         this.GlrdBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.GlrdBs1 = new System.Windows.Forms.BindingSource();
          this.Glrd_gv = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colGLRL_GLID = new DevExpress.XtraGrid.Columns.GridColumn();
          this.Rwno_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
          this.Amnt_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
          this.RcptMtod_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
          this.repositoryItemLookUpEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-         this.DRcmtBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.DRcmtBs1 = new System.Windows.Forms.BindingSource();
          this.colTERM_NO = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colTRAN_NO = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colCARD_NO = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -183,7 +183,7 @@
          this.colGain_Loss_Rial = new DevExpress.XtraGrid.Columns.GridColumn();
          this.PosStng_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.Pos_Lov = new DevExpress.XtraEditors.LookUpEdit();
-         this.VPosBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.VPosBs1 = new System.Windows.Forms.BindingSource();
          this.AddAmnt_Butn = new System.Windows.Forms.Button();
          this.DelAmnt_Butn = new System.Windows.Forms.Button();
          this.Glr_Gb = new System.Windows.Forms.GroupBox();
@@ -195,6 +195,7 @@
          this.Amnt_Txt = new DevExpress.XtraEditors.TextEdit();
          this.textEdit2 = new DevExpress.XtraEditors.TextEdit();
          this.NumbOfAttnMont_TextEdit003 = new DevExpress.XtraEditors.TextEdit();
+         this.label1 = new System.Windows.Forms.Label();
          this.FIGH_FILE_NOLookUpEdit = new DevExpress.XtraEditors.GridLookUpEdit();
          this.gridLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colREGN_PRVN_CNTY_CODE1 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -270,7 +271,7 @@
          this.textEdit14 = new DevExpress.XtraEditors.TextEdit();
          this.textEdit16 = new DevExpress.XtraEditors.TextEdit();
          this.textEdit18 = new DevExpress.XtraEditors.TextEdit();
-         this.RqstBn1 = new System.Windows.Forms.BindingNavigator(this.components);
+         this.RqstBn1 = new System.Windows.Forms.BindingNavigator();
          this.RqstBnNew1 = new System.Windows.Forms.ToolStripButton();
          this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
          this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
@@ -294,7 +295,7 @@
          this.RqstBnADoc1 = new System.Windows.Forms.ToolStripButton();
          this.RqstBnRegl01 = new System.Windows.Forms.ToolStripButton();
          this.RqstBnExit1 = new System.Windows.Forms.ToolStripButton();
-         this.im_images = new System.Windows.Forms.ImageList(this.components);
+         this.im_images = new System.Windows.Forms.ImageList();
          ((System.ComponentModel.ISupportInitialize)(this.RqstBs1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.FighBs1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.RqroBs1)).BeginInit();
@@ -303,6 +304,7 @@
          ((System.ComponentModel.ISupportInitialize)(this.ResnDesc_Txt.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.GlrlBs1)).BeginInit();
          this.groupBox2.SuspendLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.Prct_Txt.Properties)).BeginInit();
          this.Glrd_Pn.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.GlrlDetail_Gv)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.GlrdBs1)).BeginInit();
@@ -982,7 +984,7 @@
          // 
          this.Info_Gb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.Info_Gb.Controls.Add(this.ResnDesc_Txt);
-         this.Info_Gb.Location = new System.Drawing.Point(167, 252);
+         this.Info_Gb.Location = new System.Drawing.Point(7, 252);
          this.Info_Gb.Name = "Info_Gb";
          this.Info_Gb.Size = new System.Drawing.Size(257, 136);
          this.Info_Gb.TabIndex = 2;
@@ -1012,6 +1014,7 @@
          // groupBox2
          // 
          this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.groupBox2.Controls.Add(this.Prct_Txt);
          this.groupBox2.Controls.Add(this.Glrd_Pn);
          this.groupBox2.Controls.Add(this.Glr_Gb);
          this.groupBox2.Controls.Add(this.PaidDate_Lb);
@@ -1022,15 +1025,36 @@
          this.groupBox2.Controls.Add(this.textEdit2);
          this.groupBox2.Controls.Add(this.NumbOfAttnMont_TextEdit003);
          this.groupBox2.Controls.Add(this.FileNos_Lb);
+         this.groupBox2.Controls.Add(this.label1);
          this.groupBox2.Controls.Add(this.Amnt_Lb);
          this.groupBox2.Controls.Add(this.CrntDebtAmnt_Lb);
          this.groupBox2.Controls.Add(this.FIGH_FILE_NOLookUpEdit);
          this.groupBox2.Controls.Add(this.CrntDpstAmnt_Lb);
-         this.groupBox2.Location = new System.Drawing.Point(430, 50);
+         this.groupBox2.Location = new System.Drawing.Point(270, 50);
          this.groupBox2.Name = "groupBox2";
          this.groupBox2.Size = new System.Drawing.Size(545, 337);
          this.groupBox2.TabIndex = 0;
          this.groupBox2.TabStop = false;
+         // 
+         // Prct_Txt
+         // 
+         this.Prct_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.Prct_Txt.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.GlrlBs1, "PRCT", true));
+         this.Prct_Txt.EditValue = "0";
+         this.Prct_Txt.Location = new System.Drawing.Point(477, 78);
+         this.Prct_Txt.Name = "Prct_Txt";
+         this.Prct_Txt.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+         this.Prct_Txt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.Prct_Txt.Properties.Appearance.Options.UseBackColor = true;
+         this.Prct_Txt.Properties.Appearance.Options.UseFont = true;
+         this.Prct_Txt.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+         this.Prct_Txt.Properties.AppearanceFocused.Options.UseBackColor = true;
+         this.Prct_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
+         this.Prct_Txt.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.Prct_Txt.Properties.Mask.EditMask = "n0";
+         this.Prct_Txt.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+         this.Prct_Txt.Size = new System.Drawing.Size(26, 22);
+         this.Prct_Txt.TabIndex = 66;
          // 
          // Glrd_Pn
          // 
@@ -1513,6 +1537,17 @@
          this.NumbOfAttnMont_TextEdit003.TabIndex = 4;
          this.NumbOfAttnMont_TextEdit003.TabStop = false;
          // 
+         // label1
+         // 
+         this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.label1.AutoSize = true;
+         this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+         this.label1.Location = new System.Drawing.Point(509, 81);
+         this.label1.Name = "label1";
+         this.label1.Size = new System.Drawing.Size(27, 14);
+         this.label1.TabIndex = 37;
+         this.label1.Text = "% :";
+         // 
          // FIGH_FILE_NOLookUpEdit
          // 
          this.FIGH_FILE_NOLookUpEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -1994,7 +2029,7 @@
          this.Rqst_Gb.Controls.Add(this.textEdit16);
          this.Rqst_Gb.Controls.Add(this.textEdit18);
          this.Rqst_Gb.Controls.Add(this.Rqid_Lb);
-         this.Rqst_Gb.Location = new System.Drawing.Point(167, 50);
+         this.Rqst_Gb.Location = new System.Drawing.Point(7, 50);
          this.Rqst_Gb.Name = "Rqst_Gb";
          this.Rqst_Gb.Size = new System.Drawing.Size(257, 196);
          this.Rqst_Gb.TabIndex = 0;
@@ -2149,7 +2184,7 @@
          this.RqstBn1.Name = "RqstBn1";
          this.RqstBn1.PositionItem = this.bindingNavigatorPositionItem;
          this.RqstBn1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-         this.RqstBn1.Size = new System.Drawing.Size(978, 47);
+         this.RqstBn1.Size = new System.Drawing.Size(818, 47);
          this.RqstBn1.TabIndex = 0;
          this.RqstBn1.Text = "bindingNavigator1";
          // 
@@ -2387,7 +2422,7 @@
          this.Font = new System.Drawing.Font("Tahoma", 9F);
          this.Name = "GLR_INDC_F";
          this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-         this.Size = new System.Drawing.Size(978, 456);
+         this.Size = new System.Drawing.Size(818, 395);
          ((System.ComponentModel.ISupportInitialize)(this.RqstBs1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.FighBs1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.RqroBs1)).EndInit();
@@ -2397,6 +2432,7 @@
          ((System.ComponentModel.ISupportInitialize)(this.GlrlBs1)).EndInit();
          this.groupBox2.ResumeLayout(false);
          this.groupBox2.PerformLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.Prct_Txt.Properties)).EndInit();
          this.Glrd_Pn.ResumeLayout(false);
          this.Glrd_Pn.PerformLayout();
          ((System.ComponentModel.ISupportInitialize)(this.GlrlDetail_Gv)).EndInit();
@@ -2686,5 +2722,7 @@
       private Windows.Forms.Label Amnt_Lb;
       private Windows.Forms.Label PaidType_Lb;
       private Windows.Forms.Label CrntDebtAmnt_Lb;
+      private DevExpress.XtraEditors.TextEdit Prct_Txt;
+      private Windows.Forms.Label label1;
    }
 }

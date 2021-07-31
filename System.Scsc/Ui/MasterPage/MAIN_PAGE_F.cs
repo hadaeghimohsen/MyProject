@@ -41,6 +41,7 @@ namespace System.Scsc.Ui.MasterPage
 
       private string attnsystype = "002";
       private IEnumerable<Data.V_Setting> _settings;
+      private long _doActionStep = 0;
 
       private bool CheckInternetConnection()
       {
@@ -3191,7 +3192,7 @@ namespace System.Scsc.Ui.MasterPage
             }
             catch (Exception exc)
             {
-               MessageBox.Show(string.Format("{0}\n\r{1}", "TcpListenerX:" + Port.ToString(), exc.Message));
+               //MessageBox.Show(string.Format("{0}\n\r{1}", "TcpListenerX:" + Port.ToString(), exc.Message));
             }
          }
 
@@ -3205,7 +3206,7 @@ namespace System.Scsc.Ui.MasterPage
             }
             catch (Exception exc)
             {
-               MessageBox.Show(string.Format("{0}\n\r{1}", "Start Listening:" + listener.LocalEndpoint.ToString().Split(':')[1], exc.Message));
+               //MessageBox.Show(string.Format("{0}\n\r{1}", "Start Listening:" + listener.LocalEndpoint.ToString().Split(':')[1], exc.Message));
             }
          }
 
@@ -3218,9 +3219,10 @@ namespace System.Scsc.Ui.MasterPage
                OnDataRecived(Convert.ToInt32(listener.LocalEndpoint.ToString().Split(':')[1]), bytes);
                stream.BeginRead(bytes, 0, bytes.Length, Callback, null);
             }
-            catch(Exception exc)
+            catch
             {
-               MessageBox.Show(string.Format("{0}\n\r{1}", "CallBack:" + listener.LocalEndpoint.ToString().Split(':')[1], exc.Message));
+               //MessageBox.Show(string.Format("{0}\n\r{1}", "CallBack:" + listener.LocalEndpoint.ToString().Split(':')[1], exc.Message));
+               //ToolTip = string.Format("{0}\n\r{1}", "CallBack:" + listener.LocalEndpoint.ToString().Split(':')[1], exc.Message);
             }
          }
 
@@ -3343,7 +3345,7 @@ namespace System.Scsc.Ui.MasterPage
                   var cmd = new byte[] { 0xCC, 0x0D, 0x40, 0x28, 0x6B, 0xFA, 0x00, 0x00, 0x00, 0x00, 0x0b, 0x08, 0x00, 0x00, 0x00, 0xf7, 0xDD };
                   SendCommand(gate.IP_ADRS, (int)gate.PORT_SEND, cmd);
 
-                  iScsc.INS_ATTN_P(null, lastinputattn.FirstOrDefault().FIGH_FILE_NO, DateTime.Now, null, "001", lastinputattn.FirstOrDefault().MBSP_RWNO_DNRM, "001", "002");
+                  iScsc.INS_ATTN_P(null, lastinputattn.FirstOrDefault().FIGH_FILE_NO, DateTime.Now, null, "001", lastinputattn.FirstOrDefault().MBSP_RWNO_DNRM, "002", "001");
                   return;
                }
                else
@@ -3355,7 +3357,7 @@ namespace System.Scsc.Ui.MasterPage
                }
             }
 
-            iScsc.INS_ATTN_P(null, mbsp.FIGH_FILE_NO, DateTime.Now, null, "001", mbsp.RWNO, "001", "002");
+            iScsc.INS_ATTN_P(null, mbsp.FIGH_FILE_NO, DateTime.Now, null, "001", mbsp.RWNO, "002", "001");
 
             // Find Attendance in today
             var attn = iScsc.Attendances.Where(a => a.FIGH_FILE_NO == mbsp.FIGH_FILE_NO && a.MBSP_RWNO_DNRM == mbsp.RWNO && a.ATTN_DATE == DateTime.Now.Date).OrderByDescending(a => a.ENTR_TIME).FirstOrDefault();
@@ -3824,6 +3826,7 @@ namespace System.Scsc.Ui.MasterPage
                   "&" + "Genetic Gym".PadLeft(16, ' '), devName, ""
                );
                AttnType_Lov.EditValue = getInfoDev.ACTN_TYPE;
+               this.AttendanceSystemAlert_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1212;
             }
          }
          catch { }
@@ -5634,21 +5637,32 @@ namespace System.Scsc.Ui.MasterPage
          if (_settings == null)
             _settings = iScsc.V_Settings;
 
-         // 1399/12/06 * بررسی اینکه مشتریان خلافکار را از استفاده کردن از سیستم ناامید کنیم
-         if (_settings.Any(s => s.EXPR_TYPE.Value))
+         // برای هر یک ساعت یک بار سیستم چک کن که آیا نرم افزار لاینسس دارد یا خیر
+         if (_doActionStep < 900)
          {
-            if (_settings.Any(s => s.LAST_DATE.Value.Date != DateTime.Now.Date))
+            _doActionStep++;
+            //return;
+         }
+         else
+         {
+            _doActionStep = 0;
+
+            // 1399/12/06 * بررسی اینکه مشتریان خلافکار را از استفاده کردن از سیستم ناامید کنیم
+            if (_settings.Any(s => s.EXPR_TYPE.Value))
             {
-               if (_settings.Any(s => s.EXPR_VALU.Value.Date < DateTime.Now.Date))
+               if (_settings.Any(s => s.LAST_DATE.Value.Date != DateTime.Now.Date))
                {
-                  if (_settings.Any(s => s.LAST_DATE.Value.Date < DateTime.Now.Date))
+                  if (_settings.Any(s => s.EXPR_VALU.Value.Date < DateTime.Now.Date))
                   {
-                     // در غیر اینصورت سیستم باید کلا بسته شود بدون هیچ گونه اعتراضی
-                     MessageBox.Show(this, "مدت زمان پشتیبانی نرم افزار به اتمام رسیده، لطفا جهت تمدید پشتیبانی با شماره 09033927103 تماس حاصل فرمایید" + Environment.NewLine +
-                                           "ضمنا تمامی رکورد های ثبت شده خارج از تاریخ پشتیبانی فاقد اعتبار میباشند و بعد از بسته شدن نرم افزار تمامی رکوردها به صورت اتومات پاک میشوند",
-                                           "هشدار جهت استفاده از لایسنس نامعتبر", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                     Application.Exit();
-                     Process.GetCurrentProcess().Kill();
+                     if (_settings.Any(s => s.LAST_DATE.Value.Date < DateTime.Now.Date))
+                     {
+                        // در غیر اینصورت سیستم باید کلا بسته شود بدون هیچ گونه اعتراضی
+                        MessageBox.Show(this, "مدت زمان پشتیبانی نرم افزار به اتمام رسیده، لطفا جهت تمدید پشتیبانی با شماره 09033927103 تماس حاصل فرمایید" + Environment.NewLine +
+                                              "ضمنا تمامی رکورد های ثبت شده خارج از تاریخ پشتیبانی فاقد اعتبار میباشند و بعد از بسته شدن نرم افزار تمامی رکوردها به صورت اتومات پاک میشوند",
+                                              "هشدار جهت استفاده از لایسنس نامعتبر", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        Application.Exit();
+                        Process.GetCurrentProcess().Kill();
+                     }
                   }
                }
             }

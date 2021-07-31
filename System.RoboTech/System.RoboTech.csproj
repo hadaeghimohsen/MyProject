@@ -10,7 +10,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>System.RoboTech</RootNamespace>
     <AssemblyName>System.RoboTech</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <NuGetPackageImportStamp>21023eb3</NuGetPackageImportStamp>
     <TargetFrameworkProfile />
@@ -688,11 +688,13 @@
     <None Include="Properties\DataSources\System.RoboTech.Data.Template.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Template_Item.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Transaction_Fee.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.User_Access_Group_Product.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.User_Organ_Fgac.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.User_Region_Fgac.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.User_RobotListener_Fgac.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.User_RobotListener_Log.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.V_Computer.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.V_External_Service.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.V_Group_Expense.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.V_Pos_Device.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.V_RowID.datasource" />

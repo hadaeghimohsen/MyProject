@@ -1255,8 +1255,8 @@ namespace System.Scsc.Ui.OtherIncome
             if (fileno == null) return;
 
             _DefaultGateway.Gateway(
-                     new Job(SendType.External, "localhost", "", 46, SendType.Self) { Input = new XElement("Fighter", new XAttribute("fileno", fileno)) }
-                  );
+               new Job(SendType.External, "localhost", "", 46, SendType.Self) { Input = new XElement("Fighter", new XAttribute("fileno", fileno)) }
+            );
          }
          catch (Exception exc)
          {

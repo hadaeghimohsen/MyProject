@@ -1135,7 +1135,6 @@
     <None Include="Properties\DataSources\System.Scsc.Data.D_DEBT.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_DEGR.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_DEVC.datasource" />
-    <None Include="Properties\DataSources\System.Scsc.Data.D_DLSN.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_DSAT.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_DSCT.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_DYTP.datasource" />
@@ -1252,6 +1251,9 @@
     <None Include="Properties\DataSources\System.Scsc.Data.Session.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Session_Meeting.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Setting.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.Statistic.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.Statistic_Detail.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.Statistic_Detail_Request.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Step_History_Detail.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Step_History_Summery.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Sub_State.datasource" />
@@ -2912,6 +2914,9 @@
     </Content>
     <Content Include="..\System.Resource\Resources\IMAGE_1680.jpg">
       <Link>Resources\IMAGE_1680.jpg</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1756.png">
+      <Link>Resources\IMAGE_1756.png</Link>
     </Content>
     <Content Include="cvextern.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

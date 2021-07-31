@@ -120,6 +120,7 @@ namespace System.Scsc.Ui.ChangeRials
                         new XAttribute("glid", glrl == null ? 0 : glrl.GLID),
                         new XAttribute("type", "002" /* روش جدید برای ذخیره سازی اطلاعات */),
                         new XAttribute("amnt", Amnt_Txt.EditValue ?? ""),
+                        new XAttribute("prct", Prct_Txt.EditValue ?? ""),
                         new XAttribute("paiddate", PaidDate_DateTime.Value == null ? "" : PaidDate_DateTime.Value.Value.ToString("yyyy-MM-dd")),                        
                         new XAttribute("dpststat", IncDpst_Rb.Checked ? "002" : "001"),
                         new XAttribute("resndesc", ResnDesc_Txt.EditValue ?? ""),
@@ -469,11 +470,33 @@ namespace System.Scsc.Ui.ChangeRials
 
             if (GlrdBs1.List.OfType<Data.Gain_Loss_Rail_Detail>().Sum(g => g.AMNT) >= glrl.AMNT) return;
 
+            if(glrl.PRCT > 0 && DecDspt_Rb.Checked)
+            {
+               throw new Exception("برای کاهش بدهی گزینه درصد نباید لحاظ شود");
+            }
+
             GlrdBs1.AddNew();
             var glrd = GlrdBs1.Current as Data.Gain_Loss_Rail_Detail;
             glrd.GLRL_GLID = glrl.GLID;
             glrd.RCPT_MTOD = "003";
             glrd.AMNT = glrl.AMNT - (GlrdBs1.List.OfType<Data.Gain_Loss_Rail_Detail>().Sum(g => g.AMNT));
+
+            if (glrl.PRCT > 0)
+            {
+               Btn_RqstRqt1_Click(null, null);
+
+               GlrdBs1.AddNew();
+               glrd = GlrdBs1.Current as Data.Gain_Loss_Rail_Detail;
+               glrd.GLRL_GLID = glrl.GLID;
+               glrd.RCPT_MTOD = "014";
+               glrd.AMNT = glrl.AMNT * glrl.PRCT / 100;
+
+               Amnt_Txt.EditValue = glrl.AMNT += glrl.AMNT * glrl.PRCT / 100;
+               if(glrl.RESN_DESC == null || glrl.RESN_DESC == "")
+                  ResnDesc_Txt.EditValue = glrl.RESN_DESC = string.Format("مبلغ سپرده گذاری با {0}% تخفیف", glrl.PRCT);
+
+               Btn_RqstRqt1_Click(null, null);
+            }
          }
          catch (Exception exc)
          {

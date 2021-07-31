@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Net.NetworkInformation;
 using System.Text;
@@ -111,5 +112,17 @@ namespace System.Scsc.ExtCode
          return stotal;
       }
       #endregion      
+
+      #region Persian Date
+      public static string GetPersianDate(this DateTime? datetime)
+      {
+         PersianCalendar pc = new PersianCalendar();
+         return
+            string.Format("{0}/{1}/{2}",
+               pc.GetYear((DateTime)datetime),
+               pc.GetMonth((DateTime)datetime),
+               pc.GetDayOfMonth((DateTime)datetime));
+      }
+      #endregion
    }
 }

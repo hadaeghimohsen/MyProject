@@ -245,6 +245,30 @@
          this.ServDef_Tc = new System.Windows.Forms.TabControl();
          this.Group_Tp = new System.Windows.Forms.TabPage();
          this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+         this.splitContainerControl5 = new DevExpress.XtraEditors.SplitContainerControl();
+         this.splitContainerControl10 = new DevExpress.XtraEditors.SplitContainerControl();
+         this.gridControl30 = new DevExpress.XtraGrid.GridControl();
+         this.vUsrBs = new System.Windows.Forms.BindingSource(this.components);
+         this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+         this.colUSER_NAME = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colUSER_DB = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colCELL_PHON1 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colUSER_ID = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.gridControl31 = new DevExpress.XtraGrid.GridControl();
+         this.UagpBs = new System.Windows.Forms.BindingSource(this.components);
+         this.gridView15 = new DevExpress.XtraGrid.Views.Grid.GridView();
+         this.colUSER_ID1 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colGROP_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colCODE25 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colACES_STAT = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.repositoryItemLookUpEdit36 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+         this.colCRET_BY18 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colCRET_DATE18 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colMDFY_BY18 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colMDFY_DATE18 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.panel11 = new System.Windows.Forms.Panel();
+         this.GrntGropProd_Butn = new C1.Win.C1Input.C1Button();
+         this.RvokGropProd_Butn = new C1.Win.C1Input.C1Button();
          this.Gexp_Tl = new DevExpress.XtraTreeList.TreeList();
          this.colGROP_TYPE = new DevExpress.XtraTreeList.Columns.TreeListColumn();
          this.colORDR = new DevExpress.XtraTreeList.Columns.TreeListColumn();
@@ -1474,6 +1498,20 @@
          this.Group_Tp.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
          this.groupControl1.SuspendLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl5)).BeginInit();
+         this.splitContainerControl5.SuspendLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl10)).BeginInit();
+         this.splitContainerControl10.SuspendLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.gridControl30)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.vUsrBs)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.gridControl31)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.UagpBs)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.gridView15)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit36)).BeginInit();
+         this.panel11.SuspendLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.GrntGropProd_Butn)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.RvokGropProd_Butn)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.Gexp_Tl)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.VGexpBs)).BeginInit();
          this.panel1.SuspendLayout();
@@ -2937,7 +2975,7 @@
          // 
          this.groupControl1.AppearanceCaption.Options.UseTextOptions = true;
          this.groupControl1.AppearanceCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-         this.groupControl1.Controls.Add(this.Gexp_Tl);
+         this.groupControl1.Controls.Add(this.splitContainerControl5);
          this.groupControl1.Controls.Add(this.panel1);
          this.groupControl1.Dock = System.Windows.Forms.DockStyle.Fill;
          this.groupControl1.Location = new System.Drawing.Point(3, 3);
@@ -2945,6 +2983,240 @@
          this.groupControl1.Size = new System.Drawing.Size(1095, 531);
          this.groupControl1.TabIndex = 1;
          this.groupControl1.Text = "گروه محصولات";
+         // 
+         // splitContainerControl5
+         // 
+         this.splitContainerControl5.Dock = System.Windows.Forms.DockStyle.Fill;
+         this.splitContainerControl5.Location = new System.Drawing.Point(2, 88);
+         this.splitContainerControl5.Name = "splitContainerControl5";
+         this.splitContainerControl5.Panel1.Controls.Add(this.splitContainerControl10);
+         this.splitContainerControl5.Panel1.Text = "Panel1";
+         this.splitContainerControl5.Panel2.Controls.Add(this.Gexp_Tl);
+         this.splitContainerControl5.Panel2.Text = "Panel2";
+         this.splitContainerControl5.Size = new System.Drawing.Size(1091, 441);
+         this.splitContainerControl5.SplitterPosition = 514;
+         this.splitContainerControl5.TabIndex = 2;
+         this.splitContainerControl5.Text = "splitContainerControl5";
+         // 
+         // splitContainerControl10
+         // 
+         this.splitContainerControl10.Dock = System.Windows.Forms.DockStyle.Fill;
+         this.splitContainerControl10.Horizontal = false;
+         this.splitContainerControl10.Location = new System.Drawing.Point(0, 0);
+         this.splitContainerControl10.Name = "splitContainerControl10";
+         this.splitContainerControl10.Panel1.Controls.Add(this.gridControl30);
+         this.splitContainerControl10.Panel1.Text = "Panel1";
+         this.splitContainerControl10.Panel2.Controls.Add(this.gridControl31);
+         this.splitContainerControl10.Panel2.Controls.Add(this.panel11);
+         this.splitContainerControl10.Panel2.Text = "Panel2";
+         this.splitContainerControl10.Size = new System.Drawing.Size(514, 441);
+         this.splitContainerControl10.SplitterPosition = 317;
+         this.splitContainerControl10.TabIndex = 0;
+         this.splitContainerControl10.Text = "splitContainerControl10";
+         // 
+         // gridControl30
+         // 
+         this.gridControl30.DataSource = this.vUsrBs;
+         this.gridControl30.Dock = System.Windows.Forms.DockStyle.Fill;
+         this.gridControl30.Location = new System.Drawing.Point(0, 0);
+         this.gridControl30.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
+         this.gridControl30.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.gridControl30.MainView = this.gridView1;
+         this.gridControl30.Name = "gridControl30";
+         this.gridControl30.Size = new System.Drawing.Size(514, 317);
+         this.gridControl30.TabIndex = 3;
+         this.gridControl30.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView1});
+         // 
+         // vUsrBs
+         // 
+         this.vUsrBs.DataSource = typeof(System.RoboTech.Data.V_User);
+         this.vUsrBs.CurrentChanged += new System.EventHandler(this.vUsrBs_CurrentChanged);
+         // 
+         // gridView1
+         // 
+         this.gridView1.Appearance.HeaderPanel.Font = new System.Drawing.Font("IRANSans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.gridView1.Appearance.HeaderPanel.Options.UseFont = true;
+         this.gridView1.Appearance.HeaderPanel.Options.UseTextOptions = true;
+         this.gridView1.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         this.gridView1.Appearance.Row.Font = new System.Drawing.Font("IRANSans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.gridView1.Appearance.Row.Options.UseFont = true;
+         this.gridView1.Appearance.Row.Options.UseTextOptions = true;
+         this.gridView1.Appearance.Row.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colUSER_NAME,
+            this.colUSER_DB,
+            this.colCELL_PHON1,
+            this.colUSER_ID});
+         this.gridView1.GridControl = this.gridControl30;
+         this.gridView1.Name = "gridView1";
+         this.gridView1.OptionsBehavior.Editable = false;
+         this.gridView1.OptionsBehavior.ReadOnly = true;
+         this.gridView1.OptionsFind.AlwaysVisible = true;
+         this.gridView1.OptionsView.EnableAppearanceEvenRow = true;
+         this.gridView1.OptionsView.ShowGroupPanel = false;
+         // 
+         // colUSER_NAME
+         // 
+         this.colUSER_NAME.Caption = "نام کاربری";
+         this.colUSER_NAME.FieldName = "USER_NAME";
+         this.colUSER_NAME.Name = "colUSER_NAME";
+         this.colUSER_NAME.Visible = true;
+         this.colUSER_NAME.VisibleIndex = 0;
+         // 
+         // colUSER_DB
+         // 
+         this.colUSER_DB.FieldName = "USER_DB";
+         this.colUSER_DB.Name = "colUSER_DB";
+         // 
+         // colCELL_PHON1
+         // 
+         this.colCELL_PHON1.FieldName = "CELL_PHON";
+         this.colCELL_PHON1.Name = "colCELL_PHON1";
+         // 
+         // colUSER_ID
+         // 
+         this.colUSER_ID.FieldName = "USER_ID";
+         this.colUSER_ID.Name = "colUSER_ID";
+         // 
+         // gridControl31
+         // 
+         this.gridControl31.DataSource = this.UagpBs;
+         this.gridControl31.Dock = System.Windows.Forms.DockStyle.Fill;
+         this.gridControl31.Location = new System.Drawing.Point(0, 0);
+         this.gridControl31.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
+         this.gridControl31.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.gridControl31.MainView = this.gridView15;
+         this.gridControl31.Name = "gridControl31";
+         this.gridControl31.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.repositoryItemLookUpEdit36});
+         this.gridControl31.Size = new System.Drawing.Size(450, 119);
+         this.gridControl31.TabIndex = 3;
+         this.gridControl31.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView15});
+         // 
+         // UagpBs
+         // 
+         this.UagpBs.DataSource = typeof(System.RoboTech.Data.User_Access_Group_Product);
+         // 
+         // gridView15
+         // 
+         this.gridView15.Appearance.HeaderPanel.Font = new System.Drawing.Font("IRANSans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.gridView15.Appearance.HeaderPanel.Options.UseFont = true;
+         this.gridView15.Appearance.HeaderPanel.Options.UseTextOptions = true;
+         this.gridView15.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         this.gridView15.Appearance.Row.Font = new System.Drawing.Font("IRANSans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.gridView15.Appearance.Row.Options.UseFont = true;
+         this.gridView15.Appearance.Row.Options.UseTextOptions = true;
+         this.gridView15.Appearance.Row.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         this.gridView15.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colUSER_ID1,
+            this.colGROP_CODE,
+            this.colCODE25,
+            this.colACES_STAT,
+            this.colCRET_BY18,
+            this.colCRET_DATE18,
+            this.colMDFY_BY18,
+            this.colMDFY_DATE18});
+         this.gridView15.GridControl = this.gridControl31;
+         this.gridView15.Name = "gridView15";
+         this.gridView15.OptionsBehavior.Editable = false;
+         this.gridView15.OptionsBehavior.ReadOnly = true;
+         this.gridView15.OptionsView.EnableAppearanceEvenRow = true;
+         this.gridView15.OptionsView.ShowGroupPanel = false;
+         // 
+         // colUSER_ID1
+         // 
+         this.colUSER_ID1.FieldName = "USER_ID";
+         this.colUSER_ID1.Name = "colUSER_ID1";
+         // 
+         // colGROP_CODE
+         // 
+         this.colGROP_CODE.FieldName = "GROP_CODE";
+         this.colGROP_CODE.Name = "colGROP_CODE";
+         // 
+         // colCODE25
+         // 
+         this.colCODE25.FieldName = "CODE";
+         this.colCODE25.Name = "colCODE25";
+         // 
+         // colACES_STAT
+         // 
+         this.colACES_STAT.Caption = "دسترسی کاربر به گروه کالا";
+         this.colACES_STAT.ColumnEdit = this.repositoryItemLookUpEdit36;
+         this.colACES_STAT.FieldName = "ACES_STAT";
+         this.colACES_STAT.Name = "colACES_STAT";
+         this.colACES_STAT.Visible = true;
+         this.colACES_STAT.VisibleIndex = 0;
+         // 
+         // repositoryItemLookUpEdit36
+         // 
+         this.repositoryItemLookUpEdit36.AutoHeight = false;
+         this.repositoryItemLookUpEdit36.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+         this.repositoryItemLookUpEdit36.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("VALU", "VALU", 48, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("DOMN_DESC", "وضعیت", 72, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near)});
+         this.repositoryItemLookUpEdit36.DataSource = this.DactvBs;
+         this.repositoryItemLookUpEdit36.DisplayMember = "DOMN_DESC";
+         this.repositoryItemLookUpEdit36.Name = "repositoryItemLookUpEdit36";
+         this.repositoryItemLookUpEdit36.NullText = "";
+         this.repositoryItemLookUpEdit36.ValueMember = "VALU";
+         // 
+         // colCRET_BY18
+         // 
+         this.colCRET_BY18.FieldName = "CRET_BY";
+         this.colCRET_BY18.Name = "colCRET_BY18";
+         // 
+         // colCRET_DATE18
+         // 
+         this.colCRET_DATE18.FieldName = "CRET_DATE";
+         this.colCRET_DATE18.Name = "colCRET_DATE18";
+         // 
+         // colMDFY_BY18
+         // 
+         this.colMDFY_BY18.FieldName = "MDFY_BY";
+         this.colMDFY_BY18.Name = "colMDFY_BY18";
+         // 
+         // colMDFY_DATE18
+         // 
+         this.colMDFY_DATE18.FieldName = "MDFY_DATE";
+         this.colMDFY_DATE18.Name = "colMDFY_DATE18";
+         // 
+         // panel11
+         // 
+         this.panel11.Controls.Add(this.GrntGropProd_Butn);
+         this.panel11.Controls.Add(this.RvokGropProd_Butn);
+         this.panel11.Dock = System.Windows.Forms.DockStyle.Right;
+         this.panel11.Location = new System.Drawing.Point(450, 0);
+         this.panel11.Name = "panel11";
+         this.panel11.Size = new System.Drawing.Size(64, 119);
+         this.panel11.TabIndex = 4;
+         // 
+         // GrntGropProd_Butn
+         // 
+         this.GrntGropProd_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.GrntGropProd_Butn.Font = new System.Drawing.Font("IRAN Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.GrntGropProd_Butn.Image = global::System.RoboTech.Properties.Resources.IMAGE_1056;
+         this.GrntGropProd_Butn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+         this.GrntGropProd_Butn.Location = new System.Drawing.Point(3, 3);
+         this.GrntGropProd_Butn.Name = "GrntGropProd_Butn";
+         this.GrntGropProd_Butn.Size = new System.Drawing.Size(56, 52);
+         this.GrntGropProd_Butn.TabIndex = 54;
+         this.GrntGropProd_Butn.UseVisualStyleBackColor = true;
+         this.GrntGropProd_Butn.Click += new System.EventHandler(this.GrntGropProd_Butn_Click);
+         // 
+         // RvokGropProd_Butn
+         // 
+         this.RvokGropProd_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.RvokGropProd_Butn.Font = new System.Drawing.Font("IRAN Sans", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.RvokGropProd_Butn.Image = global::System.RoboTech.Properties.Resources.IMAGE_1143;
+         this.RvokGropProd_Butn.Location = new System.Drawing.Point(3, 61);
+         this.RvokGropProd_Butn.Name = "RvokGropProd_Butn";
+         this.RvokGropProd_Butn.Size = new System.Drawing.Size(56, 52);
+         this.RvokGropProd_Butn.TabIndex = 56;
+         this.RvokGropProd_Butn.UseVisualStyleBackColor = true;
+         this.RvokGropProd_Butn.Click += new System.EventHandler(this.RvokGropProd_Butn_Click);
          // 
          // Gexp_Tl
          // 
@@ -2971,7 +3243,7 @@
          this.Gexp_Tl.DataSource = this.VGexpBs;
          this.Gexp_Tl.Dock = System.Windows.Forms.DockStyle.Fill;
          this.Gexp_Tl.KeyFieldName = "CODE";
-         this.Gexp_Tl.Location = new System.Drawing.Point(2, 88);
+         this.Gexp_Tl.Location = new System.Drawing.Point(0, 0);
          this.Gexp_Tl.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
          this.Gexp_Tl.LookAndFeel.UseDefaultLookAndFeel = false;
          this.Gexp_Tl.Name = "Gexp_Tl";
@@ -2981,7 +3253,7 @@
          this.Gexp_Tl.OptionsView.EnableAppearanceEvenRow = true;
          this.Gexp_Tl.ParentFieldName = "GEXP_CODE";
          this.Gexp_Tl.PreviewFieldName = "GROP_DESC";
-         this.Gexp_Tl.Size = new System.Drawing.Size(1091, 441);
+         this.Gexp_Tl.Size = new System.Drawing.Size(572, 441);
          this.Gexp_Tl.TabIndex = 1;
          // 
          // colGROP_TYPE
@@ -2997,7 +3269,7 @@
          this.colORDR.Name = "colORDR";
          this.colORDR.Visible = true;
          this.colORDR.VisibleIndex = 0;
-         this.colORDR.Width = 46;
+         this.colORDR.Width = 56;
          // 
          // colGROP_DESC
          // 
@@ -3006,7 +3278,7 @@
          this.colGROP_DESC.Name = "colGROP_DESC";
          this.colGROP_DESC.Visible = true;
          this.colGROP_DESC.VisibleIndex = 2;
-         this.colGROP_DESC.Width = 206;
+         this.colGROP_DESC.Width = 148;
          // 
          // colSUB_GROP_NUMB_DNRM
          // 
@@ -3017,7 +3289,7 @@
          this.colSUB_GROP_NUMB_DNRM.OptionsColumn.ReadOnly = true;
          this.colSUB_GROP_NUMB_DNRM.Visible = true;
          this.colSUB_GROP_NUMB_DNRM.VisibleIndex = 4;
-         this.colSUB_GROP_NUMB_DNRM.Width = 203;
+         this.colSUB_GROP_NUMB_DNRM.Width = 146;
          // 
          // colSUB_EXPN_NUMB_DNRM
          // 
@@ -3028,7 +3300,7 @@
          this.colSUB_EXPN_NUMB_DNRM.OptionsColumn.ReadOnly = true;
          this.colSUB_EXPN_NUMB_DNRM.Visible = true;
          this.colSUB_EXPN_NUMB_DNRM.VisibleIndex = 3;
-         this.colSUB_EXPN_NUMB_DNRM.Width = 205;
+         this.colSUB_EXPN_NUMB_DNRM.Width = 149;
          // 
          // colCRET_BY
          // 
@@ -3061,10 +3333,12 @@
          this.colLINK_CODE.Name = "colLINK_CODE";
          this.colLINK_CODE.Visible = true;
          this.colLINK_CODE.VisibleIndex = 1;
+         this.colLINK_CODE.Width = 56;
          // 
          // VGexpBs
          // 
          this.VGexpBs.DataSource = typeof(System.RoboTech.Data.V_Group_Expense);
+         this.VGexpBs.CurrentChanged += new System.EventHandler(this.VGexpBs_CurrentChanged);
          // 
          // panel1
          // 
@@ -15402,6 +15676,20 @@
          this.Group_Tp.ResumeLayout(false);
          ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
          this.groupControl1.ResumeLayout(false);
+         ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl5)).EndInit();
+         this.splitContainerControl5.ResumeLayout(false);
+         ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl10)).EndInit();
+         this.splitContainerControl10.ResumeLayout(false);
+         ((System.ComponentModel.ISupportInitialize)(this.gridControl30)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.vUsrBs)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.gridControl31)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.UagpBs)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.gridView15)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit36)).EndInit();
+         this.panel11.ResumeLayout(false);
+         ((System.ComponentModel.ISupportInitialize)(this.GrntGropProd_Butn)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.RvokGropProd_Butn)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.Gexp_Tl)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.VGexpBs)).EndInit();
          this.panel1.ResumeLayout(false);
@@ -17006,6 +17294,30 @@
       private DevExpress.XtraGrid.Columns.GridColumn gridColumn129;
       private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repositoryItemLookUpEdit35;
       private DevExpress.XtraTreeList.Columns.TreeListColumn colLINK_CODE;
+      private DevExpress.XtraEditors.SplitContainerControl splitContainerControl5;
+      private DevExpress.XtraEditors.SplitContainerControl splitContainerControl10;
+      private DevExpress.XtraGrid.GridControl gridControl30;
+      private Windows.Forms.BindingSource vUsrBs;
+      private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+      private DevExpress.XtraGrid.Columns.GridColumn colUSER_NAME;
+      private DevExpress.XtraGrid.Columns.GridColumn colUSER_DB;
+      private DevExpress.XtraGrid.Columns.GridColumn colCELL_PHON1;
+      private DevExpress.XtraGrid.Columns.GridColumn colUSER_ID;
+      private DevExpress.XtraGrid.GridControl gridControl31;
+      private Windows.Forms.BindingSource UagpBs;
+      private DevExpress.XtraGrid.Views.Grid.GridView gridView15;
+      private DevExpress.XtraGrid.Columns.GridColumn colUSER_ID1;
+      private DevExpress.XtraGrid.Columns.GridColumn colGROP_CODE;
+      private DevExpress.XtraGrid.Columns.GridColumn colCODE25;
+      private DevExpress.XtraGrid.Columns.GridColumn colACES_STAT;
+      private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repositoryItemLookUpEdit36;
+      private DevExpress.XtraGrid.Columns.GridColumn colCRET_BY18;
+      private DevExpress.XtraGrid.Columns.GridColumn colCRET_DATE18;
+      private DevExpress.XtraGrid.Columns.GridColumn colMDFY_BY18;
+      private DevExpress.XtraGrid.Columns.GridColumn colMDFY_DATE18;
+      private Windows.Forms.Panel panel11;
+      private C1.Win.C1Input.C1Button GrntGropProd_Butn;
+      private C1.Win.C1Input.C1Button RvokGropProd_Butn;
 
    }
 }

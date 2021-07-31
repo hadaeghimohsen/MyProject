@@ -307,7 +307,7 @@ namespace System.Scsc.Ui.Admission
                      //EndDate_Lb.Text = control.LABL_TEXT; // Place Holder
                      break;
                   case "montofer_lb":
-                     MontOfer_Lb.Text = control.LABL_TEXT;
+                     //MontOfer_Lb.Text = control.LABL_TEXT;
                      //MontOfer_Lb.Text = control.LABL_TEXT; // ToolTip
                      //MontOfer_Lb.Text = control.LABL_TEXT; // Place Holder
                      break;
@@ -332,7 +332,7 @@ namespace System.Scsc.Ui.Admission
                      //Gb_Expense3.Text = control.LABL_TEXT; // Place Holder
                      break;
                   case "totlexpn_lb":
-                     TotlExpn_Lb.Text = control.LABL_TEXT;
+                     //TotlExpn_Lb.Text = control.LABL_TEXT;
                      //TotlExpn_Lb.Text = control.LABL_TEXT; // ToolTip
                      //TotlExpn_Lb.Text = control.LABL_TEXT; // Place Holder
                      break;
@@ -517,6 +517,7 @@ namespace System.Scsc.Ui.Admission
             DRcmtBs1.DataSource = iScsc.D_RCMTs;
             DAtypBs1.DataSource = iScsc.D_ATYPs;
             DPydsBs1.DataSource = iScsc.D_PYDS;
+            DsxtpBs.DataSource = iScsc.D_SXTPs;
             PrvnBs1.DataSource = iScsc.Provinces.Where(p => Fga_Uprv_U.Split(',').Contains(p.CODE));
 
             isFirstLoaded = true;

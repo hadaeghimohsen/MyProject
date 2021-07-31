@@ -141,6 +141,12 @@ namespace System.Scsc.Ui.Admission
 
                   if (NumbOfMontDnrm_TextEdit001.Text.Trim() == "")
                      NumbOfMontDnrm_TextEdit001.Text = "1";
+                  
+                  // 1400/04/25 * بررسی اینکه جنسیت مشتری در کلاس ثبت نامی درست میباشد یا خیر
+                  if(CbmtBs1.List.OfType<Data.Club_Method>().Any(c => c.CODE == (long)CbmtCode_Lov.EditValue && c.SEX_TYPE != "003" && c.SEX_TYPE != SEX_TYPE_LookUpEdit.EditValue.ToString()))
+                  {
+                     if (MessageBox.Show(this, "جنسیت مشتری در گروه ثبت نامی قابل قبول نمیباشد، آیا با ثبت مشتری موافق هستید؟ در غیر اینصورت اطلاعات را اصلاح فرمایید", "عدم تطابق جنسیت در گروه ثبت نامی", MessageBoxButtons.YesNo) != DialogResult.Yes) { SEX_TYPE_LookUpEdit.Focus(); return; }
+                  }
 
                   if (Rqst == null || Rqst.RQST_STAT == null || Rqst.RQST_STAT == "001")
                      iScsc.ADM_TRQT_F(

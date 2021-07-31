@@ -111,6 +111,18 @@ namespace System.RoboTech.Ui.DevelopmentApplication
             if(OrdrWletCredPay_Butn.Enabled)
                OrdrWletCredPay_Butn_Click(null, null);
          }
+         else if(keyData == Keys.Add)
+         {
+            switch (Master000_Tc.SelectedTab.Name)
+            {
+               case "tp_001":
+                  colActnSrbtFrm1_ButtonClick(null, new DevExpress.XtraEditors.Controls.ButtonPressedEventArgs(colActnSrbtFrm1.Buttons[0]));
+                  break;
+               case "tp_003":
+                  colActnRbprFrm1_ButtonClick(null, new DevExpress.XtraEditors.Controls.ButtonPressedEventArgs(colActnRbprFrm1.Buttons[0]));
+                  break;
+            }
+         }         
 
          job.Status = StatusType.Successful;
       }

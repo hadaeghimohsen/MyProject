@@ -277,7 +277,7 @@ namespace System.Scsc.Ui.OtherIncome
                   followups += "GLR_INDC_F;";
                
 
-               #region 3th               
+               #region 3th
                if (OthrExpnInfo_Ckbx.Checked)
                   _DefaultGateway.Gateway(
                      new Job(SendType.External, "Localhost",
@@ -870,6 +870,118 @@ namespace System.Scsc.Ui.OtherIncome
          catch
          {
             FngrPrnt_Txt.EditValue = 1;
+         }
+      }
+
+      private void CELL_PHON_TextEdit_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
+      {
+         try
+         {
+            return;
+            // اگر تعداد کاراکتر از 11 تا کمتر باشد هیچ گونه مقایسه ای انجام نشود
+            if (e.NewValue.ToString().Length < 11) return;
+
+            var _qury = vf_FighBs.List.OfType<Data.VF_Last_Info_FighterResult>().Where(f => f.CELL_PHON_DNRM != null && f.CELL_PHON_DNRM.Contains(e.NewValue.ToString()));
+            
+            // 1400/05/03 * اگر خروجی بدست آماده فقط یک کاربر داشته باشد 
+            if(_qury != null && _qury.Count() == 1)
+            {
+               var _rslt = 
+                  string.Format(
+                     "براساس ورودی شماره موبایل توسط شما یک مشخصه کاربری پیدا شده که به شرح زیر میباشد" + "\n" + 
+                     "{0} با شماره موبایل {1} و کد شناسایی {2} در حال حاضر قابل دسترس میباشد، آیا مایل به جای گذاری کد شناسایی جدید میباشید؟",
+                     _qury.FirstOrDefault().NAME_DNRM, _qury.FirstOrDefault().CELL_PHON_DNRM, _qury.FirstOrDefault().FNGR_PRNT_DNRM
+                  );
+               if (MessageBox.Show(this, _rslt, "جایگزینی کد شناسایی برای مشتری", MessageBoxButtons.YesNo) != DialogResult.Yes) return;
+
+               //CELL_PHON_TextEdit.EditValue = _qury.FirstOrDefault().CELL_PHON_DNRM;
+               //Btn_RqstRqt1_Click(null, null);
+
+               #region Store Fngr Prnt
+               iScsc.BYR_TRQT_P(
+                  new XElement("Process",
+                     new XElement("Request",
+                        new XAttribute("rqid", 0),
+                        new XAttribute("rqtpcode", "025"),
+                        new XAttribute("rqttcode", "004"),
+                        new XAttribute("prvncode", "017"),
+                        new XAttribute("regncode", "001"),
+                        new XElement("Fighter",
+                           new XAttribute("fileno", _qury.FirstOrDefault().FILE_NO),
+                           new XElement("Cell_Phon", _qury.FirstOrDefault().CELL_PHON_DNRM),
+                           new XElement("Fngr_Prnt", FngrPrnt_Txt.EditValue ?? "")
+                        ),
+                        new XElement("Member_Ship",
+                           new XAttribute("strtdate", DateTime.Now.ToString("yyyy-MM-dd")),
+                           new XAttribute("enddate", DateTime.Now.AddYears(120).ToString("yyyy-MM-dd"))
+                        )
+                     )
+                  )
+               );
+               #endregion
+
+               // 1399/12/09
+               if (GoProfile_Pbt.PickChecked)
+               {
+                  _DefaultGateway.Gateway(
+                     new Job(SendType.External, "localhost", "", 46, SendType.Self) { Input = new XElement("Fighter", new XAttribute("fileno", _qury.FirstOrDefault().FILE_NO)) }
+                  );
+               }
+
+               // 1397/05/26 * اگر درخواست گزینه های جانبی داشته باشد باید شماره پرونده ها رو به فرم های مربوطه ارسال کنیم
+               string followups = "";
+               if (OthrExpnInfo_Ckbx.Checked)
+                  followups += "OIC_TOTL_F;";
+               if (ChargeCredit_Ckbx.Checked)
+                  followups += "GLR_INDC_F;";
+
+
+               #region 3th
+               if (OthrExpnInfo_Ckbx.Checked)
+                  _DefaultGateway.Gateway(
+                     new Job(SendType.External, "Localhost",
+                           new List<Job>
+                           {                  
+                              new Job(SendType.Self, 92 /* Execute Oic_Totl_F */),
+                              new Job(SendType.SelfToUserInterface, "OIC_TOTL_F", 10 /* Execute Actn_CalF_F */)
+                              {
+                                 Input = 
+                                    new XElement("Request", 
+                                       new XAttribute("type", "01"), 
+                                       new XElement("Request_Row", 
+                                          new XAttribute("fileno", _qury.FirstOrDefault().FILE_NO)),
+                                       new XAttribute("followups", followups.Substring(followups.IndexOf(";") + 1)),
+                                       //new XAttribute("rqstrqid", ""),
+                                       new XAttribute("formcaller", GetType().Name)
+                                    )
+                              }
+                           })
+                  );
+               else if (ChargeCredit_Ckbx.Checked)
+                  _DefaultGateway.Gateway(
+                     new Job(SendType.External, "Localhost",
+                           new List<Job>
+                           {                  
+                              new Job(SendType.Self, 153 /* Execute Glr_Indc_F */),
+                              new Job(SendType.SelfToUserInterface, "GLR_INDC_F", 10 /* Execute Actn_CalF_F */)
+                              {
+                                 Input = 
+                                    new XElement("Request", 
+                                       new XAttribute("type", "newrequest"), 
+                                       new XAttribute("fileno", _qury.FirstOrDefault().FILE_NO),
+                                       new XAttribute("followups", followups.Substring(followups.IndexOf(";") + 1)),
+                                       //new XAttribute("rqstrqid", ""),
+                                       new XAttribute("formcaller", GetType().Name)
+                                    )
+                              }
+                           })
+                  );
+               #endregion
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
          }
       }
 

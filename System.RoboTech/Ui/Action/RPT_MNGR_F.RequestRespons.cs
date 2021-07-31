@@ -281,42 +281,45 @@ namespace System.RoboTech.Ui.Action
          else if (PrintType == "Default")
          {
             #region Default
-            var DfltPrint = iRoboTech.Modual_Reports.Where(mr => mr.MDUL_NAME == ModualName && mr.SECT_NAME == SectionName && mr.STAT == "002" && mr.DFLT == "002").SingleOrDefault();
+            var DfltPrint = iRoboTech.Modual_Reports.Where(mr => mr.MDUL_NAME == ModualName && mr.SECT_NAME == SectionName && mr.STAT == "002" && mr.DFLT == "002").OrderBy(r => r.RWNO);
             if(DfltPrint != null)
             {
-               if (DfltPrint.SHOW_PRVW == "002") // Yes
+               foreach (var rpt in DfltPrint)
                {
-                  Stimulsoft.Report.StiReport s = new Stimulsoft.Report.StiReport();
-                  s.Load(DfltPrint.RPRT_PATH);
-                  s.Dictionary.Databases.Clear();
-                  s.Dictionary.Databases.Add(new StiSqlDatabase("iRoboTech", ConnectionString));
-                  vc_reportviewer.Report = s;
-                  s.Dictionary.Variables.Add(new StiVariable("WhereClause", WhereClause));
+                  if (rpt.SHOW_PRVW == "002") // Yes
+                  {
+                     Stimulsoft.Report.StiReport s = new Stimulsoft.Report.StiReport();
+                     s.Load(rpt.RPRT_PATH);
+                     s.Dictionary.Databases.Clear();
+                     s.Dictionary.Databases.Add(new StiSqlDatabase("iRoboTech", ConnectionString));
+                     vc_reportviewer.Report = s;
+                     s.Dictionary.Variables.Add(new StiVariable("WhereClause", WhereClause));
 
-                  s.Compile();
-                  s.Render();
+                     s.Compile();
+                     s.Render();
 
-                  _DefaultGateway.Gateway(
-                     new Job(SendType.External, "Localhost", 
-                        new List<Job>
-                        {                        
-                           new Job(SendType.SelfToUserInterface, "RPT_MNGR_F", 03 /* Execute Paint */)                        
-                        })
-                   );
-               }
-               else // No
-               {
-                  Stimulsoft.Report.StiReport s = new Stimulsoft.Report.StiReport();
-                  s.Load(DfltPrint.RPRT_PATH);
-                  s.Dictionary.Databases.Clear();
-                  s.Dictionary.Databases.Add(new StiSqlDatabase("iRoboTech", ConnectionString));
-                  vc_reportviewer.Report = s;
-                  s.Dictionary.Variables.Add(new StiVariable("WhereClause", WhereClause));
+                     _DefaultGateway.Gateway(
+                        new Job(SendType.External, "Localhost",
+                           new List<Job>
+                           {                        
+                              new Job(SendType.SelfToUserInterface, "RPT_MNGR_F", 03 /* Execute Paint */)                        
+                           })
+                      );
+                  }
+                  else // No
+                  {
+                     Stimulsoft.Report.StiReport s = new Stimulsoft.Report.StiReport();
+                     s.Load(rpt.RPRT_PATH);
+                     s.Dictionary.Databases.Clear();
+                     s.Dictionary.Databases.Add(new StiSqlDatabase("iRoboTech", ConnectionString));
+                     vc_reportviewer.Report = s;
+                     s.Dictionary.Variables.Add(new StiVariable("WhereClause", WhereClause));
 
-                  s.Compile();
-                  s.Render();
-                  s.Print(false);
-               }
+                     s.Compile();
+                     s.Render();
+                     s.Print(false);
+                  }
+               }               
             }
             else
             {

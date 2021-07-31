@@ -16,6 +16,7 @@ namespace System.RoboTech.Ui.DevelopmentApplication
       private Data.iRoboTechDataContext iRoboTech;
       private string ConnectionString;
       private List<long?> Fga_Ugov_U;
+      private string FormCaller;
 
       public void SendRequest(Job job)
       {
@@ -66,8 +67,31 @@ namespace System.RoboTech.Ui.DevelopmentApplication
          }
          else if (keyData == Keys.Escape)
          {
-            job.Next =
-               new Job(SendType.SelfToUserInterface, this.GetType().Name, 04 /* Execute UnPaint */);
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost",
+                  new List<Job>
+                  {
+                     new Job(SendType.SelfToUserInterface, GetType().Name, 04 /* Execute UnPaint */)
+                  })
+            );
+
+            switch (FormCaller)
+            {
+               case "CASH_CNTR_F":
+                  _DefaultGateway.Gateway(
+                     new Job(SendType.External, "Localhost",
+                       new List<Job>
+                       {                  
+                         //new Job(SendType.Self, 31 /* Execute Cash_Cntr_F */),
+                         new Job(SendType.SelfToUserInterface, "CASH_CNTR_F", 10 /* Execute Actn_CalF_P */)
+                       })
+                  );
+                  break;
+               default:
+                  break;
+            }
+            //job.Next =
+            //   new Job(SendType.SelfToUserInterface, this.GetType().Name, 04 /* Execute UnPaint */);
          }
 
          job.Status = StatusType.Successful;
@@ -212,6 +236,25 @@ namespace System.RoboTech.Ui.DevelopmentApplication
       {
          var xinput = job.Input as XElement;
          Execute_Query();
+
+         if (xinput != null)
+         {
+            FormCaller = xinput.Attribute("formcaller").Value;
+            switch (xinput.Attribute("gototab").Value)
+            {
+               case "tp_005":
+                  Master_Tc.SelectedTab = tp_005;
+                  switch (xinput.Attribute("action").Value)
+                  {
+                     case "newuser":
+                        AddSrbt_Butn_Click(null, null);
+                        break;
+                  }
+                  break;
+               default:
+                  break;
+            }
+         }
          job.Status = StatusType.Successful;
       }
    }

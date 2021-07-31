@@ -2368,6 +2368,123 @@ namespace System.RoboTech.Ui.DevelopmentApplication
          {
             MessageBox.Show(exc.Message);
          }
+      }
+
+      private void VGexpBs_CurrentChanged(object sender, EventArgs e)
+      {
+         try
+         {
+            var gexp = VGexpBs.Current as Data.V_Group_Expense;
+            if (gexp == null) return;
+
+            var user = vUsrBs.Current as Data.V_User;
+            if (user == null) return;
+
+            UagpBs.DataSource = iRoboTech.User_Access_Group_Products.Where(ga => ga.USER_ID == user.USER_ID && ga.GROP_CODE == gexp.CODE);
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void GrntGropProd_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var gexp = VGexpBs.Current as Data.V_Group_Expense;
+            if (gexp == null) return;
+
+            var user = vUsrBs.Current as Data.V_User;
+            if (user == null) return;
+
+            var uagp = UagpBs.Current as Data.User_Access_Group_Product;
+
+            if (uagp == null)
+            {
+               iRoboTech.ExecuteCommand(string.Format("INSERT INTO dbo.User_Access_Group_Product (User_Id, Grop_Code, Aces_Stat, Code) VALUES ({0}, {1}, '002', 0);", user.USER_ID, gexp.CODE));
+            }
+            else
+            {
+               uagp.ACES_STAT = "002";
+            }
+
+            if (ModifierKeys == Keys.Control)
+            {
+
+               foreach (var gp in VGexpBs.List.OfType<Data.V_Group_Expense>().Where(g => g.GEXP_CODE == gexp.CODE))
+               {
+                  iRoboTech.ExecuteCommand(
+                     string.Format(
+                        "MERGE dbo.User_Access_Group_Product T " + "\n" + 
+                        "USING (SELECT {0} AS User_Id, {1} AS Grop_Code) S" + "\n" +
+                        "ON (T.User_Id = S.User_Id AND T.Grop_Code = S.Grop_Code)" + "\n" + 
+                        "WHEN NOT MATCHED THEN INSERT (User_Id, Grop_Code, Code) VALUES({0}, {1}, 0)" + "\n" + 
+                        "WHEN MATCHED THEN UPDATE SET Aces_Stat = '002';", 
+                        user.USER_ID, gp.CODE
+                     )
+                  );
+               }
+            }
+
+            iRoboTech.SubmitChanges();
+            requery = true;
+
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void RvokGropProd_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var uagp = UagpBs.Current as Data.User_Access_Group_Product;
+            if (uagp == null) return;
+
+            uagp.ACES_STAT = "001";
+
+            if (ModifierKeys == Keys.Control)
+            {
+
+               foreach (var gp in VGexpBs.List.OfType<Data.V_Group_Expense>().Where(g => g.GEXP_CODE == uagp.GROP_CODE))
+               {
+                  iRoboTech.ExecuteCommand(
+                     string.Format(
+                        "MERGE dbo.User_Access_Group_Product T " + "\n" +
+                        "USING (SELECT {0} AS User_Id, {1} AS Grop_Code) S" + "\n" +
+                        "ON (T.User_Id = S.User_Id AND T.Grop_Code = S.Grop_Code)" + "\n" +                        
+                        "WHEN MATCHED THEN UPDATE SET Aces_Stat = '001';",
+                        uagp.USER_ID, gp.CODE
+                     )
+                  );
+               }
+            }
+
+            iRoboTech.SubmitChanges();
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void vUsrBs_CurrentChanged(object sender, EventArgs e)
+      {
+         VGexpBs_CurrentChanged(null, null);
       }      
    }
 }

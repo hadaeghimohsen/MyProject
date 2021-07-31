@@ -75,6 +75,13 @@ namespace System.RoboTech.Ui.DevelopmentApplication
                               .Any(sral => sral.CHAT_ID == user.CHAT_ID && sral.STAT == "002")
                         select rlcg
                      ).Any()
+                  && (
+                        from gp in iRoboTech.User_Access_Group_Products
+                        where rp.GROP_CODE_DNRM == gp.GROP_CODE &&
+                              gp.USER_NAME == CurrentUser &&
+                              gp.ACES_STAT == "002"
+                        select gp                         
+                     ).Any()
                select rp;
 
             SrbtOrdr25Bs.DataSource =
@@ -207,6 +214,23 @@ namespace System.RoboTech.Ui.DevelopmentApplication
 
       private void SrbtProdOptnFrm1_Rb_CheckedChanged(object sender, EventArgs e)
       {
+         //var radio = sender as RadioButton;
+         //switch (radio.Name)
+         //{
+         //   case "CustomerFrm1_Rb":
+         //      Master002_Tc.SelectedTab = tp_serv;
+         //      Srbt_Gv.HideFindPanel();
+         //      Srbt_Gv.ShowFindPanel();
+         //      break;
+         //   case "ProdFrm1_Rb":
+         //      Master002_Tc.SelectedTab = tp_prod;
+         //      Prod_Gv.HideFindPanel();
+         //      Prod_Gv.ShowFindPanel();
+         //      break;
+         //   default:
+         //      break;
+         //}         
+
          CellPhonFrm1_Rb.Visible = ChatIdFrm1_Rb.Visible = NatlCodeFrm1_Rb.Visible = CustomerFrm1_Rb.Checked;
          TarfCodeFrm1_Rb.Visible = BarCodeFrm1_Rb.Visible = ProdFrm1_Rb.Checked;
 
@@ -221,6 +245,7 @@ namespace System.RoboTech.Ui.DevelopmentApplication
       {
          try
          {
+            Master002_Tc.SelectedTab = tp_serv;
             var srbt =
                SrbtBs.List.OfType<Data.Service_Robot>()
                .Where(sr =>
@@ -307,8 +332,7 @@ namespace System.RoboTech.Ui.DevelopmentApplication
                ordr25.SORC_CELL_PHON, ordr25.SORC_TELL_PHON, ordr25.SORC_EMAL_ADRS, ordr25.SORC_WEB_SITE, ordr25.SUB_SYS, ordr25.ORDR_DESC
             );
 
-            requery = true;
-
+            requery = true;            
          }
          catch (Exception exc)
          {
@@ -318,6 +342,7 @@ namespace System.RoboTech.Ui.DevelopmentApplication
          {
             if (requery)
             {
+               Master000_001_Tc.SelectedTab = tp_000_001;
                Execute_Query();
                SrbtOrdr25Bs.Position = SrbtOrdr25Bs.IndexOf(SrbtOrdr25Bs.List.OfType<Data.Service_Robot>().FirstOrDefault(sr => sr.CHAT_ID == chatid));
                Ordr25Bs.Position = Ordr25Bs.IndexOf(Ordr25Bs.List.OfType<Data.Order>().FirstOrDefault(o => o.CHAT_ID == chatid && o.CODE == ordrCode));
@@ -332,10 +357,6 @@ namespace System.RoboTech.Ui.DevelopmentApplication
             SrbtFrm1_Txt.EditValue = "";
             RbprFrm1_Txt.Focus();
             ProdFrm1_Rb.Checked = true;
-         }
-         else if(Master000_Tc.SelectedTab == tp_002)
-         {
-
          }
 
          ComnOprt_Tm.Enabled = false;
@@ -400,14 +421,14 @@ namespace System.RoboTech.Ui.DevelopmentApplication
             if (ordr4 == null) return;
 
             Ordr4CodeFrm1_Txt.Text = ordr4.CODE.ToString();
-            Ordr4FknoFrm1_Txt.Text = ordr4.ORDR_TYPE_NUMB.ToString();
+            Ordr4FknoFrm1_Txt.Text = ordr4.ORDR_RWNO.ToString();
             PayAmnt_Txt.EditValue = ordr4.DEBT_DNRM;
             CredWlet_Txt.EditValue = ordr4.Service_Robot.Wallets.FirstOrDefault(w => w.WLET_TYPE == "001").AMNT_DNRM;
             CashWlet_Txt.EditValue = ordr4.Service_Robot.Wallets.FirstOrDefault(w => w.WLET_TYPE == "002").AMNT_DNRM;
             AcptPay_Butn.Visible = ordr4.DEBT_DNRM == 0 ? true : false;
             OthrPay_Pn.Visible = !AcptPay_Butn.Visible;
-            OrdrWletCredPay_Butn.Enabled = (ordr4.DEBT_DNRM <= ordr4.Service_Robot.Wallets.FirstOrDefault(w => w.WLET_TYPE == "001").AMNT_DNRM) ? true : false;
-            OrdrWletCashPay_Butn.Enabled = (ordr4.DEBT_DNRM <= ordr4.Service_Robot.Wallets.FirstOrDefault(w => w.WLET_TYPE == "002").AMNT_DNRM) ? true : false;
+            OrdrWletCredPay_Butn.Enabled = ordr4.DEBT_DNRM > 0 && (ordr4.DEBT_DNRM <= ordr4.Service_Robot.Wallets.FirstOrDefault(w => w.WLET_TYPE == "001").AMNT_DNRM) ? true : false;
+            OrdrWletCashPay_Butn.Enabled = ordr4.DEBT_DNRM > 0 && (ordr4.DEBT_DNRM <= ordr4.Service_Robot.Wallets.FirstOrDefault(w => w.WLET_TYPE == "002").AMNT_DNRM) ? true : false;
             AmntType_Lb.Text = DAmutBs.List.OfType<Data.D_AMUT>().FirstOrDefault(d => d.VALU == ordr4.AMNT_TYPE).DOMN_DESC;
 
             switch(ordr4.HOW_SHIP)
@@ -444,6 +465,7 @@ namespace System.RoboTech.Ui.DevelopmentApplication
       {
          try
          {
+            Master002_Tc.SelectedTab = tp_prod;
             if (e.KeyCode == Keys.Enter)
             {
                var ordr4 = Ordr4Bs.Current as Data.Order;
@@ -624,7 +646,7 @@ namespace System.RoboTech.Ui.DevelopmentApplication
       {
          try
          {
-            Ordt4Stp2_Gv.PostEditor();
+            //Ordt4Stp2_Gv.PostEditor();
 
             var ordt = Ordt4Bs.Current as Data.Order_Detail;
             if (ordt == null) return;
@@ -760,8 +782,8 @@ namespace System.RoboTech.Ui.DevelopmentApplication
 
          AcptPay_Butn.Visible = ordr4.DEBT_DNRM == 0 ? true : false;
          OthrPay_Pn.Visible = !AcptPay_Butn.Visible;         
-         OrdrWletCredPay_Butn.Enabled = (ordr4.DEBT_DNRM <= ordr4.Service_Robot.Wallets.FirstOrDefault(w => w.WLET_TYPE == "001").AMNT_DNRM) ? true : false;
-         OrdrWletCashPay_Butn.Enabled = (ordr4.DEBT_DNRM <= ordr4.Service_Robot.Wallets.FirstOrDefault(w => w.WLET_TYPE == "002").AMNT_DNRM) ? true : false;
+         OrdrWletCredPay_Butn.Enabled = ordr4.DEBT_DNRM > 0 && (ordr4.DEBT_DNRM <= ordr4.Service_Robot.Wallets.FirstOrDefault(w => w.WLET_TYPE == "001").AMNT_DNRM) ? true : false;
+         OrdrWletCashPay_Butn.Enabled = ordr4.DEBT_DNRM > 0 && (ordr4.DEBT_DNRM <= ordr4.Service_Robot.Wallets.FirstOrDefault(w => w.WLET_TYPE == "002").AMNT_DNRM) ? true : false;
          AmntType_Lb.Text = DAmutBs.List.OfType<Data.D_AMUT>().FirstOrDefault(d => d.VALU == ordr4.AMNT_TYPE).DOMN_DESC;
       }
 
@@ -998,9 +1020,6 @@ namespace System.RoboTech.Ui.DevelopmentApplication
             case "From_tp_001":
                Master000_Tc.SelectedTab = tp_001;
                break;
-            case "From_tp_002":
-               Master000_Tc.SelectedTab = tp_002;
-               break;
          }
       }
 
@@ -1113,9 +1132,6 @@ namespace System.RoboTech.Ui.DevelopmentApplication
             {
                case "From_tp_001":
                   Master000_Tc.SelectedTab = tp_001;                  
-                  break;
-               case "From_tp_002":
-                  Master000_Tc.SelectedTab = tp_002;
                   break;
             }
 
@@ -1410,7 +1426,7 @@ namespace System.RoboTech.Ui.DevelopmentApplication
             var ordr = Ordr4Bs.Current as Data.Order;
             if (ordr == null) return;
 
-            iRoboTech.ExecuteCommand("UPDATE dbo.[Order] SET HOW_SHIP = '{0}' WHERE CODE = {1}", ship.Tag, ordr.CODE);
+            iRoboTech.ExecuteCommand(string.Format("UPDATE dbo.[Order] SET HOW_SHIP = '{0}' WHERE CODE = {1}", ship.Tag, ordr.CODE));
             Ship001_Butn.NormalColorA = Ship001_Butn.NormalColorB =
             Ship002_Butn.NormalColorA = Ship002_Butn.NormalColorB =
             Ship003_Butn.NormalColorA = Ship003_Butn.NormalColorB =
@@ -1529,7 +1545,13 @@ namespace System.RoboTech.Ui.DevelopmentApplication
             switch (e.Button.Index)
             {
                case 0:
-                  NewSaleFrm1_Butn_Click(null, null);
+                  //NewSaleFrm1_Butn_Click(null, null);
+                  var srbt = SrbtBs.Current as Data.Service_Robot;
+                  CustomerFrm1_Rb.Checked = CellPhonFrm1_Rb.Checked = true;
+
+                  SrbtFrm1_Txt.EditValue = srbt.CELL_PHON;
+
+                  Master002_Tc.SelectedTab = tp_prod;
                   break;
                case 1:
                   break;
@@ -1558,6 +1580,45 @@ namespace System.RoboTech.Ui.DevelopmentApplication
          {
             MessageBox.Show(exc.Message);
          }
+      }
+
+      private void Prod_Gv_DoubleClick(object sender, EventArgs e)
+      {
+         colActnRbprFrm1_ButtonClick(null, new DevExpress.XtraEditors.Controls.ButtonPressedEventArgs(colActnRbprFrm1.Buttons[0]));
+      }
+
+      private void Srbt_Gv_DoubleClick(object sender, EventArgs e)
+      {
+         colActnSrbtFrm1_ButtonClick(null, new DevExpress.XtraEditors.Controls.ButtonPressedEventArgs(colActnSrbtFrm1.Buttons[0]));
+      }
+
+      private void AddNewUser_Butn_Click(object sender, EventArgs e)
+      {
+         _DefaultGateway.Gateway(
+            new Job(SendType.External, "Localhost",
+              new List<Job>
+              {                  
+                new Job(SendType.Self, 32 /* Execute Tree_Base_F */),
+                new Job(SendType.SelfToUserInterface, "TREE_BASE_F", 10 /* Execute Actn_CalF_P */){
+                   Input = 
+                     new XElement("Params",
+                         new XAttribute("formcaller", GetType().Name),
+                         new XAttribute("gototab", "tp_005"),
+                         new XAttribute("action", "newuser")
+                     )
+                }
+              })
+         );
+      }
+
+      private void SrbtFrm1_Txt_Enter(object sender, EventArgs e)
+      {
+         Master002_Tc.SelectedTab = tp_serv;
+      }
+
+      private void RbprFrm1_Txt_Enter(object sender, EventArgs e)
+      {
+         Master002_Tc.SelectedTab = tp_prod;
       }
    }
 }

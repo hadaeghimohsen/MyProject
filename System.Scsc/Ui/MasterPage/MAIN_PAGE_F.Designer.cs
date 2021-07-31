@@ -2292,7 +2292,7 @@
          // 
          // Tm_ShowTime
          // 
-         this.Tm_ShowTime.Interval = 10000;
+         this.Tm_ShowTime.Interval = 1000;
          this.Tm_ShowTime.Tick += new System.EventHandler(this.Tm_ShowTime_Tick);
          // 
          // Sp_GateAttn

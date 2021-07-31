@@ -153,11 +153,11 @@
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject73 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject74 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject75 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject76 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject77 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition30 = new DevExpress.XtraGrid.StyleFormatCondition();
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition31 = new DevExpress.XtraGrid.StyleFormatCondition();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject78 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject76 = new DevExpress.Utils.SerializableAppearanceObject();
          this.colCASH_STAT = new DevExpress.XtraGrid.Columns.GridColumn();
          this.CtgyStat_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
          this.repositoryItemLookUpEdit9 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
@@ -1214,6 +1214,8 @@
          this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
          this.tp_009 = new System.Windows.Forms.TabPage();
          this.groupBox2 = new System.Windows.Forms.GroupBox();
+         this.InptCellPhon_Cb = new System.Windows.Forms.CheckBox();
+         this.InptNatlCode_Cb = new System.Windows.Forms.CheckBox();
          this.DuplCellPhon_Lov = new DevExpress.XtraEditors.LookUpEdit();
          this.StngBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.ClubBs3 = new System.Windows.Forms.BindingSource(this.components);
@@ -1338,7 +1340,9 @@
          this.lookUpEdit11 = new DevExpress.XtraEditors.LookUpEdit();
          this.AttnPrnt_Lb = new System.Windows.Forms.Label();
          this.ShowAttn_Lb = new System.Windows.Forms.Label();
+         this.label11 = new System.Windows.Forms.Label();
          this.DebtDayExp_Lb = new System.Windows.Forms.Label();
+         this.spinEdit7 = new DevExpress.XtraEditors.SpinEdit();
          this.spinEdit2 = new DevExpress.XtraEditors.SpinEdit();
          this.TryValdMbsp_Lb = new System.Windows.Forms.Label();
          this.tp_010 = new System.Windows.Forms.TabPage();
@@ -1430,10 +1434,6 @@
          this.ExtrDev_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.CbmtwkdyBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.OpnFil_Ofd = new System.Windows.Forms.OpenFileDialog();
-         this.InptNatlCode_Cb = new System.Windows.Forms.CheckBox();
-         this.InptCellPhon_Cb = new System.Windows.Forms.CheckBox();
-         this.spinEdit7 = new DevExpress.XtraEditors.SpinEdit();
-         this.label11 = new System.Windows.Forms.Label();
          label5 = new System.Windows.Forms.Label();
          label6 = new System.Windows.Forms.Label();
          CashToDate_Lb = new System.Windows.Forms.Label();
@@ -1773,6 +1773,7 @@
          ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit6.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.AttnPrntStat_Lov.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit11.Properties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.spinEdit7.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.spinEdit2.Properties)).BeginInit();
          this.tp_010.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl16)).BeginInit();
@@ -1802,7 +1803,6 @@
          ((System.ComponentModel.ISupportInitialize)(this.ExpnBs)).BeginInit();
          this.flowLayoutPanel1.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.CbmtwkdyBs1)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.spinEdit7.Properties)).BeginInit();
          this.SuspendLayout();
          // 
          // label5
@@ -1958,7 +1958,7 @@
          this.MtodStat_Clm.Name = "MtodStat_Clm";
          this.MtodStat_Clm.OptionsColumn.FixedWidth = true;
          this.MtodStat_Clm.Visible = true;
-         this.MtodStat_Clm.VisibleIndex = 2;
+         this.MtodStat_Clm.VisibleIndex = 1;
          this.MtodStat_Clm.Width = 54;
          // 
          // repositoryItemLookUpEdit8
@@ -2347,6 +2347,7 @@
          // 
          // panel1
          // 
+         this.panel1.BackColor = System.Drawing.Color.Khaki;
          this.panel1.Controls.Add(this.Tilt_Lb);
          this.panel1.Controls.Add(this.Back_Butn);
          this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -4292,8 +4293,8 @@
          this.CtgyDesc_Clm.FieldName = "CTGY_DESC";
          this.CtgyDesc_Clm.Name = "CtgyDesc_Clm";
          this.CtgyDesc_Clm.Visible = true;
-         this.CtgyDesc_Clm.VisibleIndex = 6;
-         this.CtgyDesc_Clm.Width = 117;
+         this.CtgyDesc_Clm.VisibleIndex = 4;
+         this.CtgyDesc_Clm.Width = 128;
          // 
          // colORDR
          // 
@@ -4322,7 +4323,8 @@
          this.colNATL_CODE1.FieldName = "NATL_CODE";
          this.colNATL_CODE1.Name = "colNATL_CODE1";
          this.colNATL_CODE1.Visible = true;
-         this.colNATL_CODE1.VisibleIndex = 7;
+         this.colNATL_CODE1.VisibleIndex = 5;
+         this.colNATL_CODE1.Width = 65;
          // 
          // colEPIT_TYPE1
          // 
@@ -4355,8 +4357,8 @@
          this.NumbOfAttnMont_Clm.FieldName = "NUMB_OF_ATTN_MONT";
          this.NumbOfAttnMont_Clm.Name = "NumbOfAttnMont_Clm";
          this.NumbOfAttnMont_Clm.Visible = true;
-         this.NumbOfAttnMont_Clm.VisibleIndex = 5;
-         this.NumbOfAttnMont_Clm.Width = 49;
+         this.NumbOfAttnMont_Clm.VisibleIndex = 3;
+         this.NumbOfAttnMont_Clm.Width = 83;
          // 
          // colPRVT_COCH_EXPN
          // 
@@ -4369,16 +4371,14 @@
          this.NumbCyclDay_Clm.FieldName = "NUMB_CYCL_DAY";
          this.NumbCyclDay_Clm.Name = "NumbCyclDay_Clm";
          this.NumbCyclDay_Clm.Visible = true;
-         this.NumbCyclDay_Clm.VisibleIndex = 4;
-         this.NumbCyclDay_Clm.Width = 49;
+         this.NumbCyclDay_Clm.VisibleIndex = 2;
+         this.NumbCyclDay_Clm.Width = 84;
          // 
          // NumbMontOfer_Clm
          // 
          this.NumbMontOfer_Clm.Caption = "تعداد ماه تخفیف";
          this.NumbMontOfer_Clm.FieldName = "NUMB_MONT_OFER";
          this.NumbMontOfer_Clm.Name = "NumbMontOfer_Clm";
-         this.NumbMontOfer_Clm.Visible = true;
-         this.NumbMontOfer_Clm.VisibleIndex = 3;
          this.NumbMontOfer_Clm.Width = 49;
          // 
          // Pric_Clm
@@ -4392,7 +4392,7 @@
          this.Pric_Clm.Name = "Pric_Clm";
          this.Pric_Clm.Visible = true;
          this.Pric_Clm.VisibleIndex = 1;
-         this.Pric_Clm.Width = 73;
+         this.Pric_Clm.Width = 90;
          // 
          // colMethod
          // 
@@ -4413,8 +4413,6 @@
          this.colGUST_NUMB.Caption = "تعداد حضور شناور";
          this.colGUST_NUMB.FieldName = "GUST_NUMB";
          this.colGUST_NUMB.Name = "colGUST_NUMB";
-         this.colGUST_NUMB.Visible = true;
-         this.colGUST_NUMB.VisibleIndex = 2;
          // 
          // repositoryItemLookUpEdit1
          // 
@@ -4646,7 +4644,7 @@
          this.MtodDesc_Clm.FieldName = "MTOD_DESC";
          this.MtodDesc_Clm.Name = "MtodDesc_Clm";
          this.MtodDesc_Clm.Visible = true;
-         this.MtodDesc_Clm.VisibleIndex = 4;
+         this.MtodDesc_Clm.VisibleIndex = 3;
          this.MtodDesc_Clm.Width = 182;
          // 
          // colMTOD_CODE
@@ -4660,7 +4658,7 @@
          this.colNATL_CODE.FieldName = "NATL_CODE";
          this.colNATL_CODE.Name = "colNATL_CODE";
          this.colNATL_CODE.Visible = true;
-         this.colNATL_CODE.VisibleIndex = 5;
+         this.colNATL_CODE.VisibleIndex = 4;
          // 
          // colEPIT_TYPE
          // 
@@ -4675,7 +4673,7 @@
          this.colCRET_BY2.Name = "colCRET_BY2";
          this.colCRET_BY2.OptionsColumn.FixedWidth = true;
          this.colCRET_BY2.Visible = true;
-         this.colCRET_BY2.VisibleIndex = 3;
+         this.colCRET_BY2.VisibleIndex = 2;
          this.colCRET_BY2.Width = 31;
          // 
          // MtodActn_Butn
@@ -4725,7 +4723,7 @@
          this.ChckAttnAlrm_Clm.ToolTip = "برای آن دسته از ورزش هایی مانند استخر که اپراتور حضور ندارد می توانید پیام هشدار " +
     "را به دستگاه ارسال کنید و هیچ پیام خطایی روی سیستم مشاهده نشود";
          this.ChckAttnAlrm_Clm.Visible = true;
-         this.ChckAttnAlrm_Clm.VisibleIndex = 1;
+         this.ChckAttnAlrm_Clm.VisibleIndex = 0;
          this.ChckAttnAlrm_Clm.Width = 79;
          // 
          // gridColumn211
@@ -4734,8 +4732,6 @@
          this.gridColumn211.ColumnEdit = this.repositoryItemLookUpEdit8;
          this.gridColumn211.FieldName = "SHAR_STAT";
          this.gridColumn211.Name = "gridColumn211";
-         this.gridColumn211.Visible = true;
-         this.gridColumn211.VisibleIndex = 0;
          // 
          // panel5
          // 
@@ -14693,6 +14689,28 @@
          this.groupBox2.TabStop = false;
          this.groupBox2.Text = "جلوی گیری از اطلاعات تکراری";
          // 
+         // InptCellPhon_Cb
+         // 
+         this.InptCellPhon_Cb.AutoSize = true;
+         this.InptCellPhon_Cb.Location = new System.Drawing.Point(91, 50);
+         this.InptCellPhon_Cb.Name = "InptCellPhon_Cb";
+         this.InptCellPhon_Cb.Size = new System.Drawing.Size(85, 17);
+         this.InptCellPhon_Cb.TabIndex = 71;
+         this.InptCellPhon_Cb.Text = "تلفن همراه :";
+         this.InptCellPhon_Cb.UseVisualStyleBackColor = true;
+         this.InptCellPhon_Cb.CheckedChanged += new System.EventHandler(this.InptCellPhon_Cb_CheckedChanged);
+         // 
+         // InptNatlCode_Cb
+         // 
+         this.InptNatlCode_Cb.AutoSize = true;
+         this.InptNatlCode_Cb.Location = new System.Drawing.Point(108, 23);
+         this.InptNatlCode_Cb.Name = "InptNatlCode_Cb";
+         this.InptNatlCode_Cb.Size = new System.Drawing.Size(68, 17);
+         this.InptNatlCode_Cb.TabIndex = 71;
+         this.InptNatlCode_Cb.Text = "کد ملی :";
+         this.InptNatlCode_Cb.UseVisualStyleBackColor = true;
+         this.InptNatlCode_Cb.CheckedChanged += new System.EventHandler(this.InptNatlCode_Cb_CheckedChanged);
+         // 
          // DuplCellPhon_Lov
          // 
          this.DuplCellPhon_Lov.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -16492,6 +16510,18 @@
          this.ShowAttn_Lb.Text = "نمایش اطلاعات تردد مشترییان قابل رویت باشد :";
          this.ShowAttn_Lb.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
          // 
+         // label11
+         // 
+         this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.label11.AutoSize = true;
+         this.label11.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.label11.Location = new System.Drawing.Point(560, 271);
+         this.label11.Name = "label11";
+         this.label11.Size = new System.Drawing.Size(242, 16);
+         this.label11.TabIndex = 10;
+         this.label11.Text = "مجوز ورود تعداد جلسات مشترکین بدهکار :";
+         this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+         // 
          // DebtDayExp_Lb
          // 
          this.DebtDayExp_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -16503,6 +16533,27 @@
          this.DebtDayExp_Lb.TabIndex = 10;
          this.DebtDayExp_Lb.Text = "مهلت پرداخت بدهی :";
          this.DebtDayExp_Lb.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+         // 
+         // spinEdit7
+         // 
+         this.spinEdit7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.spinEdit7.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.StngBs1, "PERM_ENTR_DEBT_SERV_NUMB", true));
+         this.spinEdit7.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+         this.spinEdit7.Location = new System.Drawing.Point(386, 269);
+         this.spinEdit7.Name = "spinEdit7";
+         this.spinEdit7.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+         this.spinEdit7.Properties.AppearanceFocused.Options.UseBackColor = true;
+         this.spinEdit7.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject76, "", null, null, true)});
+         this.spinEdit7.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
+         this.spinEdit7.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.spinEdit7.Properties.Mask.EditMask = "n0";
+         this.spinEdit7.Size = new System.Drawing.Size(99, 22);
+         this.spinEdit7.TabIndex = 11;
          // 
          // spinEdit2
          // 
@@ -17665,61 +17716,6 @@
          // 
          this.OpnFil_Ofd.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.gif;*.tif;...";
          // 
-         // InptNatlCode_Cb
-         // 
-         this.InptNatlCode_Cb.AutoSize = true;
-         this.InptNatlCode_Cb.Location = new System.Drawing.Point(108, 23);
-         this.InptNatlCode_Cb.Name = "InptNatlCode_Cb";
-         this.InptNatlCode_Cb.Size = new System.Drawing.Size(68, 17);
-         this.InptNatlCode_Cb.TabIndex = 71;
-         this.InptNatlCode_Cb.Text = "کد ملی :";
-         this.InptNatlCode_Cb.UseVisualStyleBackColor = true;
-         this.InptNatlCode_Cb.CheckedChanged += new System.EventHandler(this.InptNatlCode_Cb_CheckedChanged);
-         // 
-         // InptCellPhon_Cb
-         // 
-         this.InptCellPhon_Cb.AutoSize = true;
-         this.InptCellPhon_Cb.Location = new System.Drawing.Point(91, 50);
-         this.InptCellPhon_Cb.Name = "InptCellPhon_Cb";
-         this.InptCellPhon_Cb.Size = new System.Drawing.Size(85, 17);
-         this.InptCellPhon_Cb.TabIndex = 71;
-         this.InptCellPhon_Cb.Text = "تلفن همراه :";
-         this.InptCellPhon_Cb.UseVisualStyleBackColor = true;
-         this.InptCellPhon_Cb.CheckedChanged += new System.EventHandler(this.InptCellPhon_Cb_CheckedChanged);
-         // 
-         // spinEdit7
-         // 
-         this.spinEdit7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.spinEdit7.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.StngBs1, "PERM_ENTR_DEBT_SERV_NUMB", true));
-         this.spinEdit7.EditValue = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-         this.spinEdit7.Location = new System.Drawing.Point(386, 269);
-         this.spinEdit7.Name = "spinEdit7";
-         this.spinEdit7.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-         this.spinEdit7.Properties.AppearanceFocused.Options.UseBackColor = true;
-         this.spinEdit7.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject76, "", null, null, true)});
-         this.spinEdit7.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
-         this.spinEdit7.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.spinEdit7.Properties.Mask.EditMask = "n0";
-         this.spinEdit7.Size = new System.Drawing.Size(99, 22);
-         this.spinEdit7.TabIndex = 11;
-         // 
-         // label11
-         // 
-         this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.label11.AutoSize = true;
-         this.label11.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.label11.Location = new System.Drawing.Point(560, 271);
-         this.label11.Name = "label11";
-         this.label11.Size = new System.Drawing.Size(242, 16);
-         this.label11.TabIndex = 10;
-         this.label11.Text = "مجوز ورود تعداد جلسات مشترکین بدهکار :";
-         this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         // 
          // BAS_DFIN_F
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -18084,6 +18080,7 @@
          ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit6.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.AttnPrntStat_Lov.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit11.Properties)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.spinEdit7.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.spinEdit2.Properties)).EndInit();
          this.tp_010.ResumeLayout(false);
          ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl16)).EndInit();
@@ -18114,7 +18111,6 @@
          ((System.ComponentModel.ISupportInitialize)(this.ExpnBs)).EndInit();
          this.flowLayoutPanel1.ResumeLayout(false);
          ((System.ComponentModel.ISupportInitialize)(this.CbmtwkdyBs1)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.spinEdit7.Properties)).EndInit();
          this.ResumeLayout(false);
 
       }

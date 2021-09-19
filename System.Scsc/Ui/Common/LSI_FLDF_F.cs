@@ -1348,14 +1348,14 @@ namespace System.Scsc.Ui.Common
          try
          {
             var figh = vF_Fighs.Current as Data.VF_Last_Info_FighterResult;
-            if (figh == null) return;            
+            if (figh == null) return;
 
             // اگر مشتری در فرآیندی قفل باشد اجازه پرداخت بدهی وجود ندارد
             if (figh.FIGH_STAT == "001") return;
 
             Job _InteractWithScsc =
-                 new Job(SendType.External, "Localhost",
-                    new List<Job>
+               new Job(SendType.External, "Localhost",
+                  new List<Job>
                   {                  
                      new Job(SendType.Self, 162 /* Execute Wrn_Serv_F */),
                      new Job(SendType.SelfToUserInterface, "WRN_SERV_F", 10 /* Execute Actn_CalF_F */){Input = new XElement("Fighter", new XAttribute("fileno", figh.FILE_NO))}
@@ -1388,10 +1388,10 @@ namespace System.Scsc.Ui.Common
             if(SelectExportContactFile_Butn.Tag == null)
             {
                SelectExportContactFile_Butn_Click(null, null);
-               return;
+               if (ExportFile_Sfd.FileName == null) return;
             }
 
-            if(!ServConfDate_Dt.Value.HasValue)
+            if(ConfDate_Cbx.Checked && !ServConfDate_Dt.Value.HasValue)
             {
                ServConfDate_Dt.Focus();
                return;
@@ -1399,29 +1399,63 @@ namespace System.Scsc.Ui.Common
 
             string fileExport = SelectExportContactFile_Butn.Tag.ToString();
 
-            if(GoogleContact_Rb.Checked)
+            if (GoogleContact_Rb.Checked)
             {
                File.AppendAllText(fileExport, @"Name,Given Name,Additional Name,Family Name,Yomi Name,Given Name Yomi,Additional Name Yomi,Family Name Yomi,Name Prefix,Name Suffix,Initials,Nickname,Short Name,Maiden Name,Birthday,Gender,Location,Billing Information,Directory Server,Mileage,Occupation,Hobby,Sensitivity,Priority,Subject,Notes,Language,Photo,Group Membership,E-mail 1 - Type,E-mail 1 - Value,Phone 1 - Type,Phone 1 - Value,Phone 2 - Type,Phone 2 - Value,Phone 3 - Type,Phone 3 - Value,Phone 4 - Type,Phone 4 - Value,Phone 5 - Type,Phone 5 - Value,Organization 1 - Type,Organization 1 - Name,Organization 1 - Yomi Name,Organization 1 - Title,Organization 1 - Department,Organization 1 - Symbol,Organization 1 - Location,Organization 1 - Job Description" + Environment.NewLine);
-            }
 
-            string contactsList = "";
-            foreach (var contact in vF_Fighs.List.OfType<Data.VF_Last_Info_FighterResult>().Where(s => s.CONF_DATE.Value.Date >= ServConfDate_Dt.Value.Value.Date))
+               string contactsList = "";
+               foreach (var contact in vF_Fighs.List.OfType<Data.VF_Last_Info_FighterResult>().Where(s => (ConfDate_Cbx.Checked && s.CONF_DATE.Value.Date >= ServConfDate_Dt.Value.Value.Date) || !ConfDate_Cbx.Checked))
+               {
+                  contactsList +=
+                     string.Format(
+                        "{0},{1},,{1},,,,,,,,,,,{2},,,,,,,,,,,,,,,,,Mobile,{3},Home,{4},Dad Mobile,{5},Mom Mobile,{6},,,,,,,,,,{7}",
+                        contact.FRST_NAME,
+                        contact.LAST_NAME + " ( " + ExportLabel_Txt.Text + " )",
+                        contact.BRTH_DATE_DNRM,
+                        contact.CELL_PHON_DNRM,
+                        contact.TELL_PHON_DNRM,
+                        contact.DAD_CELL_PHON_DNRM,
+                        contact.MOM_CELL_PHON_DNRM,
+                        Environment.NewLine
+                     );
+               }
+
+               File.AppendAllText(fileExport, contactsList);
+            }
+            else if(TextFile_Rb.Checked)
             {
-               contactsList += 
-                  string.Format(
-                     "{0},{1},,{1},,,,,,,,,,,{2},,,,,,,,,,,,,,,,,Mobile,{3},Home,{4},Dad Mobile,{5},Mom Mobile,{6},,,,,,,,,,{7}", 
-                     contact.FRST_NAME,
-                     contact.LAST_NAME + " ( " + ExportLabel_Txt.Text + " )",
-                     contact.BRTH_DATE_DNRM,
-                     contact.CELL_PHON_DNRM,
-                     contact.TELL_PHON_DNRM,
-                     contact.DAD_CELL_PHON_DNRM,
-                     contact.MOM_CELL_PHON_DNRM,
-                     Environment.NewLine
-                  );
-            }
+               int i = 0, j = 1;
+               var splitFiles = fileExport.Replace(".txt", string.Format(" [1-{0}].txt", ServRecd_Spn.Value));
+               File.Create(splitFiles).Close();
+               foreach (var contact in vF_Fighs.List.OfType<Data.VF_Last_Info_FighterResult>().Where(s => (ConfDate_Cbx.Checked && s.CONF_DATE.Value.Date >= ServConfDate_Dt.Value.Value.Date) || !ConfDate_Cbx.Checked))
+               {
+                  // Self Service
+                  if (contact.CELL_PHON_DNRM != null && contact.CELL_PHON_DNRM.Length >= 10)
+                  {
+                     ++i;
+                     File.AppendAllText(splitFiles, (contact.CELL_PHON_DNRM.StartsWith("0") ? "98" + contact.CELL_PHON_DNRM.Substring(1) : "98" + contact.CELL_PHON_DNRM) + Environment.NewLine);
+                  }
+                  // Dad Service
+                  if (contact.DAD_CELL_PHON_DNRM != null && contact.DAD_CELL_PHON_DNRM.Length >= 10)
+                  {
+                     ++i;
+                     File.AppendAllText(splitFiles, (contact.DAD_CELL_PHON_DNRM.StartsWith("0") ? "98" + contact.DAD_CELL_PHON_DNRM.Substring(1) : "98" + contact.DAD_CELL_PHON_DNRM) + Environment.NewLine);
+                  }
+                  // Mom Service
+                  if (contact.MOM_CELL_PHON_DNRM != null && contact.MOM_CELL_PHON_DNRM.Length >= 10)
+                  {
+                     ++i;
+                     File.AppendAllText(splitFiles, (contact.MOM_CELL_PHON_DNRM.StartsWith("0") ? "98" + contact.MOM_CELL_PHON_DNRM.Substring(1) : "98" + contact.MOM_CELL_PHON_DNRM) + Environment.NewLine);
+                  }
 
-            File.AppendAllText(fileExport, contactsList);
+                  if(i % ServRecd_Spn.Value == 0)
+                  {
+                     ++j;
+                     splitFiles = fileExport.Replace(".txt", string.Format(" [{0}-{1}].txt", i + 1, ServRecd_Spn.Value * j));
+                     File.Create(splitFiles).Close();
+                  }
+               }
+            }
 
             MessageBox.Show("اطلاعات با موفقیت ذخیره شد");
          }
@@ -1543,6 +1577,27 @@ namespace System.Scsc.Ui.Common
          catch (Exception exc)
          {
             MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void ConfDate_Cbx_CheckedChanged(object sender, EventArgs e)
+      {
+         ServConfDate_Dt.Visible = ConfDate_Cbx.Checked;
+      }
+
+      private void TypeContact_Rb_CheckedChanged(object sender, EventArgs e)
+      {
+         var rb = sender as RadioButton;
+         if (rb == null) return;
+
+         switch (rb.Text)
+         {
+            case "Google":
+               ServRecd_Spn.Visible = false;
+               break;
+            case "Text":
+               ServRecd_Spn.Visible = true;
+               break;
          }
       }      
 

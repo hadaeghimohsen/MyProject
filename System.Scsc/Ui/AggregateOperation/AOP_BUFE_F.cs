@@ -929,7 +929,7 @@ namespace System.Scsc.Ui.AggregateOperation
             if (aodt.STAT.In("003")) { MessageBox.Show("میز بسته شده دیگر قادر به محاسبه نیست"); return; }
 
             // 1395/12/27 * اگر بخواهیم تا این مرحله از کار رو بررسی کنیم که چه میزان هزینه شده باید تاریخ ساعت پایان را داشته باشیم
-            if (aodt.END_TIME == null)
+            if (aodt.END_TIME == null || aodt.STRT_TIME > aodt.END_TIME)
             {
                aodt.END_TIME = DateTime.Now;
             }
@@ -965,8 +965,8 @@ namespace System.Scsc.Ui.AggregateOperation
 
             var aodt = AodtBs1.Current as Data.Aggregation_Operation_Detail;
 
-            if (aodt.STAT.In("002")) { MessageBox.Show("میز هایی که بسته و تسویه یا دفتری حساب کرده اند دیگر قادر به ویرایش نیستید"); Execute_Query(); return; }
-            if (aodt.STAT.In("003")) { MessageBox.Show("میز بسته شده دیگر قادر به ویرایش نیستید"); return; }
+            if (aodt.STAT.In("002")) { MessageBox.Show("میز هایی که بسته و تسویه یا دفتری حساب کرده اند دیگر قادر به ویرایش نیستند"); Execute_Query(); return; }
+            if (aodt.STAT.In("003")) { MessageBox.Show("میز بسته شده دیگر قادر به ویرایش نیست"); return; }
 
             AodtBs1.EndEdit();
 
@@ -1086,6 +1086,7 @@ namespace System.Scsc.Ui.AggregateOperation
                iScsc.INS_AODT_P(agop.CODE, 1, null, null, fileno, null, null, null, "002", "001", desk, null, null, null, null, null, null, null, null);
 
             Figh_Lov.EditValue = null;
+            Indpnd_Rb.Checked = true;
             requery = true;
 
             // ارسال پیام برای باز کردن دستگاه چراغ میز برای مشتری            
@@ -1244,6 +1245,9 @@ namespace System.Scsc.Ui.AggregateOperation
             var amnt = Convert.ToInt64(PosAmnt_Txt.EditValue);
             if (amnt == 0) return;
 
+            // 1400/05/24 * اگر مبلغ وارد شده از مبلغ کل بیشتر باشد
+            if (amnt > (aodt.TOTL_AMNT_DNRM - (aodt.POS_AMNT + aodt.CASH_AMNT + aodt.PYDS_AMNT + aodt.DPST_AMNT))) { if (MessageBox.Show(this, "مبلغ کارتخوان شما از مبلغ کل هزینه میز بیشتر میباشد، ایا مایل به اصلاح قیمت میباشد؟", "مغایرت مالی در وصولی", MessageBoxButtons.YesNo) != DialogResult.Yes) return; else amnt = (long)(aodt.TOTL_AMNT_DNRM - (aodt.POS_AMNT + aodt.CASH_AMNT + aodt.PYDS_AMNT + aodt.DPST_AMNT)); }
+
             var regl = iScsc.Regulations.FirstOrDefault(r => r.TYPE == "001" && r.REGL_STAT == "002");
 
             if (VPosBs1.List.Count == 0)
@@ -1313,6 +1317,7 @@ namespace System.Scsc.Ui.AggregateOperation
                );
             }
             requery = true;
+            PosAmnt_Txt.EditValue = 0;
          }
          catch (Exception exc)
          {
@@ -1386,6 +1391,9 @@ namespace System.Scsc.Ui.AggregateOperation
             var amnt = Convert.ToInt64(PosAmnt_Txt.EditValue);
             if (amnt == 0) return;
 
+            // 1400/05/24 * اگر مبلغ وارد شده از مبلغ کل بیشتر باشد
+            if (amnt > (aodt.TOTL_AMNT_DNRM - (aodt.POS_AMNT + aodt.CASH_AMNT + aodt.PYDS_AMNT + aodt.DPST_AMNT))) { if (MessageBox.Show(this, "مبلغ نقدی شما از مبلغ کل هزینه میز بیشتر میباشد، ایا مایل به اصلاح قیمت میباشد؟", "مغایرت مالی در وصولی", MessageBoxButtons.YesNo) != DialogResult.Yes) return; else amnt = (long)(aodt.TOTL_AMNT_DNRM - (aodt.POS_AMNT + aodt.CASH_AMNT + aodt.PYDS_AMNT + aodt.DPST_AMNT)); }
+
             aodt.CASH_AMNT += amnt;
 
             AodtBs1.EndEdit();
@@ -1398,6 +1406,7 @@ namespace System.Scsc.Ui.AggregateOperation
                //TotlMint_Txt.EditValue = aodt.END_TIME.Value.TimeOfDay.TotalMinutes - aodt.STRT_TIME.Value.TimeOfDay.TotalMinutes;
                TotlMint_Txt.EditValue = (aodt.END_TIME.Value - aodt.STRT_TIME.Value).TotalMinutes;
             }
+            PosAmnt_Txt.EditValue = 0;
          }
          catch(Exception exc)
          { MessageBox.Show(exc.Message); }
@@ -2927,11 +2936,13 @@ namespace System.Scsc.Ui.AggregateOperation
                case CheckState.Checked:
                   AutoRecalc_Tsmi.CheckState = CheckState.Unchecked;
                   AutoRecalc_Tmr.Enabled = IntervalRecalc_Tsmi.Enabled = false;
+                  BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Red;
                   break;
                case CheckState.Unchecked:
                   AutoRecalc_Tsmi.CheckState = CheckState.Checked;
                   AutoRecalc_Tmr.Interval = Convert.ToInt32(IntervalRecalc_Tsmi.Text) * 60000;
-                  AutoRecalc_Tmr.Enabled = IntervalRecalc_Tsmi.Enabled = true;                  
+                  AutoRecalc_Tmr.Enabled = IntervalRecalc_Tsmi.Enabled = true;
+                  BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.YellowGreen;
                   break;
             }
          }
@@ -2999,6 +3010,18 @@ namespace System.Scsc.Ui.AggregateOperation
          { 
             IntervalRecalc_Tsmi.Text = "1";
             AutoRecalc_Tmr.Interval = Convert.ToInt32(IntervalRecalc_Tsmi.Text) * 60000;
+         }
+      }
+
+      private void Indpnd_Rb_CheckedChanged(object sender, EventArgs e)
+      {
+         // 1400/05/24 * اگر بخواهیم مشتریانی داشته باشیم که در ان واحد بازی های مختلفی را انجام میدهند
+         if (AodtBs1.List.Count == 0) { TableCloseOpen = false; Indpnd_Rb.Checked = true; return; }
+         TableCloseOpen = !Indpnd_Rb.Checked;
+         if(TableCloseOpen)
+         {
+            var aodt = AodtBs1.Current as Data.Aggregation_Operation_Detail;
+            Figh_Lov.EditValue = aodt.FIGH_FILE_NO;
          }
       }
    }

@@ -2765,6 +2765,31 @@ namespace System.Scsc.Ui.Common
          {
             MessageBox.Show(exc.Message);
          }
+      }
+
+      private void DelFigh_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            if (MessageBox.Show(this, "آیا با حذف کامل مشتری موافق هستید، بعد از انجام عملیات به هیچ عنوان اطلاعات قابلیت بازیابی را ندارند") != DialogResult.Yes) return;
+
+            iScsc.DEL_FIGH_P(
+               new XElement("Fighter",
+                   new XAttribute("fileno", fileno)
+               )
+            );
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Btn_Back_Click(null, null);
+         }
       }      
    }
 }

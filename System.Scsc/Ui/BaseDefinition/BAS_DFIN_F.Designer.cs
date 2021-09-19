@@ -16275,11 +16275,11 @@
          this.DebtAttnChekStat_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.DebtAttnChekStat_Lb.AutoSize = true;
          this.DebtAttnChekStat_Lb.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.DebtAttnChekStat_Lb.Location = new System.Drawing.Point(516, 245);
+         this.DebtAttnChekStat_Lb.Location = new System.Drawing.Point(521, 245);
          this.DebtAttnChekStat_Lb.Name = "DebtAttnChekStat_Lb";
-         this.DebtAttnChekStat_Lb.Size = new System.Drawing.Size(286, 16);
+         this.DebtAttnChekStat_Lb.Size = new System.Drawing.Size(281, 16);
          this.DebtAttnChekStat_Lb.TabIndex = 11;
-         this.DebtAttnChekStat_Lb.Text = "میزان بدهی برای حضورغیاب مشترییان لحاظ گردد :";
+         this.DebtAttnChekStat_Lb.Text = "میزان بدهی برای حضورغیاب مشتریان لحاظ گردد :";
          this.DebtAttnChekStat_Lb.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
          // 
          // lookUpEdit8

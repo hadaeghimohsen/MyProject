@@ -1,0 +1,682 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<StiSerializer version="1.02" type="Net" application="StiReport">
+  <Dictionary Ref="1" type="Dictionary" isKey="true">
+    <BusinessObjects isList="true" count="0" />
+    <Databases isList="true" count="1">
+      <iRoboTech Ref="2" type="Stimulsoft.Report.Dictionary.StiSqlDatabase" isKey="true">
+        <Alias>iRoboTech</Alias>
+        <ConnectionString>User ID=scott;Integrated Security=False;Data Source=.;Initial Catalog=iRoboTech;Password=abcABC123!@#;Persist Security Info=True</ConnectionString>
+        <Name>iRoboTech</Name>
+      </iRoboTech>
+    </Databases>
+    <DataSources isList="true" count="4">
+      <Order Ref="3" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
+        <Alias>Order</Alias>
+        <Columns isList="true" count="64">
+          <value>CODE,System.Int64</value>
+          <value>ORDR_NUMB,System.Int64</value>
+          <value>ORDR_TYPE_NUMB,System.Int64</value>
+          <value>SERV_ORDR_RWNO,System.Int64</value>
+          <value>OWNR_NAME,System.String</value>
+          <value>ORDR_TYPE,System.String</value>
+          <value>STRT_DATE,System.DateTime</value>
+          <value>END_DATE,System.DateTime</value>
+          <value>ORDR_STAT,System.String</value>
+          <value>HOW_SHIP,System.String</value>
+          <value>CORD_X,System.Double</value>
+          <value>CORD_Y,System.Double</value>
+          <value>CELL_PHON,System.String</value>
+          <value>TELL_PHON,System.String</value>
+          <value>SERV_ADRS,System.String</value>
+          <value>ARCH_STAT,System.String</value>
+          <value>SERV_JOB_APBS_CODE,System.Int64</value>
+          <value>SERV_INTR_APBS_CODE,System.Int64</value>
+          <value>CRTB_SEND_STAT,System.String</value>
+          <value>CRTB_MAIL_NO,System.String</value>
+          <value>CRTB_MAIL_SUBJ,System.String</value>
+          <value>MDFR_STAT,System.String</value>
+          <value>APBS_CODE,System.Int64</value>
+          <value>EXPN_AMNT,System.Int64</value>
+          <value>EXTR_PRCT,System.Int64</value>
+          <value>SUM_EXPN_AMNT_DNRM,System.Int64</value>
+          <value>AMNT_TYPE,System.String</value>
+          <value>DSCN_AMNT_DNRM,System.Int64</value>
+          <value>PYMT_AMNT_DNRM,System.Int64</value>
+          <value>COST_AMNT_DNRM,System.Int64</value>
+          <value>DEBT_DNRM,System.Int64</value>
+          <value>PYMT_MTOD,System.String</value>
+          <value>SORC_CARD_NUMB_DNRM,System.String</value>
+          <value>DEST_CARD_NUMB_DNRM,System.String</value>
+          <value>TXID_DNRM,System.String</value>
+          <value>TXFE_PRCT_DNRM,System.Int64</value>
+          <value>TXFE_CALC_AMNT_DNRM,System.Int64</value>
+          <value>TXFE_AMNT_DNRM,System.Int64</value>
+          <value>SUM_FEE_AMNT_DNRM,System.Int64</value>
+          <value>SORC_CORD_X,System.Double</value>
+          <value>SORC_CORD_Y,System.Double</value>
+          <value>SORC_POST_ADRS,System.String</value>
+          <value>SORC_CELL_PHON,System.String</value>
+          <value>SORC_TELL_PHON,System.String</value>
+          <value>SORC_EMAL_ADRS,System.String</value>
+          <value>SORC_WEB_SITE,System.String</value>
+          <value>DELV_TIME_DNRM,System.Int64</value>
+          <value>SCDL_PTNT_DATE,System.DateTime</value>
+          <value>ORDR_DESC,System.String</value>
+          <value>CRET_BY,System.String</value>
+          <value>CRET_DATE,System.DateTime</value>
+          <value>MDFY_BY,System.String</value>
+          <value>MDFY_DATE,System.DateTime</value>
+          <value>SRBT_SERV_FILE_NO,System.Int64</value>
+          <value>SRBT_ROBO_RBID,System.Int64</value>
+          <value>SRBT_SRPB_RWNO,System.Int64</value>
+          <value>PROB_SERV_FILE_NO,System.Int64</value>
+          <value>PROB_ROBO_RBID,System.Int64</value>
+          <value>CHAT_ID,System.Int64</value>
+          <value>SUB_SYS,System.Int64</value>
+          <value>ORDR_CODE,System.Int64</value>
+          <value>PERS_STRT_DATE,System.String</value>
+          <value>SUM_EXPN_AMNT_DESC,System.String</value>
+          <value>ORDR_RWNO,System.Int64</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1" />
+        <Name>Order</Name>
+        <NameInSource>iRoboTech</NameInSource>
+        <Parameters isList="true" count="0" />
+        <SqlCommand>select *, 
+	   dbo.GET_MTST_U(STRT_DATE) as PERS_STRT_DATE, 
+	   dbo.GET_NTOS_U(SUM_EXPN_AMNT_DNRM) AS SUM_EXPN_AMNT_DESC 
+  from dbo.[Order] 
+ WHERE Ordr_Type = '004'
+   AND Ordr_Stat IN ( '009', '004' )
+   AND {WhereClause}</SqlCommand>
+      </Order>
+      <D_x0024_AMUT Ref="4" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
+        <Alias>D$AMUT</Alias>
+        <Columns isList="true" count="2">
+          <value>VALU,System.String</value>
+          <value>DOMN_DESC,System.String</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1" />
+        <Name>D$AMUT</Name>
+        <NameInSource>iRoboTech</NameInSource>
+        <Parameters isList="true" count="0" />
+        <SqlCommand>select * from D$AMUT</SqlCommand>
+      </D_x0024_AMUT>
+      <Order_State Ref="5" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
+        <Alias>Order_State</Alias>
+        <Columns isList="true" count="26">
+          <value>CODE,System.Int64</value>
+          <value>DISC_DCID,System.Int64</value>
+          <value>GIFC_GCID,System.Int64</value>
+          <value>WLDT_CODE,System.Int64</value>
+          <value>STAT_DATE,System.DateTime</value>
+          <value>STAT_DESC,System.String</value>
+          <value>AMNT,System.Int64</value>
+          <value>AMNT_TYPE,System.String</value>
+          <value>RCPT_MTOD,System.String</value>
+          <value>SORC_CARD_NUMB,System.String</value>
+          <value>DEST_CARD_NUMB,System.String</value>
+          <value>TXID,System.String</value>
+          <value>TXFE_PRCT,System.Int64</value>
+          <value>TXFE_CALC_AMNT,System.Int64</value>
+          <value>TXFE_AMNT,System.Int64</value>
+          <value>FILE_ID,System.String</value>
+          <value>FILE_TYPE,System.String</value>
+          <value>CONF_STAT,System.String</value>
+          <value>CONF_DATE,System.DateTime</value>
+          <value>CONF_DESC,System.String</value>
+          <value>CRET_BY,System.String</value>
+          <value>CRET_DATE,System.DateTime</value>
+          <value>MDFY_BY,System.String</value>
+          <value>MDFY_DATE,System.DateTime</value>
+          <value>ORDR_CODE,System.Int64</value>
+          <value>APBS_CODE,System.Int64</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1" />
+        <Name>Order_State</Name>
+        <NameInSource>iRoboTech</NameInSource>
+        <Parameters isList="true" count="0" />
+        <SqlCommand>select * from Order_State where Amnt_Type = '007'</SqlCommand>
+      </Order_State>
+      <D_x0024_RCMT Ref="6" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
+        <Alias>D$RCMT</Alias>
+        <Columns isList="true" count="2">
+          <value>VALU,System.String</value>
+          <value>DOMN_DESC,System.String</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1" />
+        <Name>D$RCMT</Name>
+        <NameInSource>iRoboTech</NameInSource>
+        <Parameters isList="true" count="0" />
+        <SqlCommand>select * from D$RCMT</SqlCommand>
+      </D_x0024_RCMT>
+    </DataSources>
+    <Relations isList="true" count="3">
+      <ORDR_AMUT Ref="7" type="DataRelation" isKey="true">
+        <Alias>ORDR_AMUT</Alias>
+        <ChildColumns isList="true" count="1">
+          <value>AMNT_TYPE</value>
+        </ChildColumns>
+        <ChildSource isRef="3" />
+        <Dictionary isRef="1" />
+        <Name>ORDR_AMUT</Name>
+        <NameInSource>ORDR_AMUT</NameInSource>
+        <ParentColumns isList="true" count="1">
+          <value>VALU</value>
+        </ParentColumns>
+        <ParentSource isRef="4" />
+      </ORDR_AMUT>
+      <ODST_ORDR_FK Ref="8" type="DataRelation" isKey="true">
+        <Alias>ODST_ORDR_FK</Alias>
+        <ChildColumns isList="true" count="1">
+          <value>ORDR_CODE</value>
+        </ChildColumns>
+        <ChildSource isRef="5" />
+        <Dictionary isRef="1" />
+        <Name>ODST_ORDR_FK</Name>
+        <NameInSource>ODST_ORDR_FK</NameInSource>
+        <ParentColumns isList="true" count="1">
+          <value>CODE</value>
+        </ParentColumns>
+        <ParentSource isRef="3" />
+      </ODST_ORDR_FK>
+      <RCMT_ODST_FK Ref="9" type="DataRelation" isKey="true">
+        <Alias>RCMT_ODST_FK</Alias>
+        <ChildColumns isList="true" count="1">
+          <value>RCPT_MTOD</value>
+        </ChildColumns>
+        <ChildSource isRef="5" />
+        <Dictionary isRef="1" />
+        <Name>RCMT_ODST_FK</Name>
+        <NameInSource>RCMT_ODST_FK</NameInSource>
+        <ParentColumns isList="true" count="1">
+          <value>VALU</value>
+        </ParentColumns>
+        <ParentSource isRef="6" />
+      </RCMT_ODST_FK>
+    </Relations>
+    <Report isRef="0" />
+    <Variables isList="true" count="11">
+      <value>,SerialNumber,SerialNumber,System.String,,False,False</value>
+      <value>,Date,Date,System.String,,False,False</value>
+      <value>,Hour,Hour,System.String,,False,False</value>
+      <value>,TeacherName,TeacherName,System.String,,False,False</value>
+      <value>,Name,Name,System.String,,False,False</value>
+      <value>,Code,Code,System.String,,False,False</value>
+      <value>,ClassName,ClassName,System.String,,False,False</value>
+      <value>,SaloonNo,SaloonNo,System.String,,False,False</value>
+      <value>,Amount,Amount,System.String,,False,False</value>
+      <value>,EtebarDate,EtebarDate,System.String,,False,False</value>
+      <value>,EnrollUserName,EnrollUserName,System.String,,False,False</value>
+    </Variables>
+  </Dictionary>
+  <EngineVersion>EngineV2</EngineVersion>
+  <GlobalizationStrings isList="true" count="0" />
+  <MetaTags isList="true" count="0" />
+  <Pages isList="true" count="1">
+    <Page1 Ref="10" type="Page" isKey="true">
+      <Border>None;Black;3;Double;False;4;Black</Border>
+      <Brush>Transparent</Brush>
+      <Components isList="true" count="4">
+        <Order_GB Ref="11" type="GroupHeaderBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,0.4,7.2,7.8</ClientRectangle>
+          <Components isList="true" count="20">
+            <Text1 Ref="12" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>0,0.6,4.8,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>MiscFixedSC613,10,Bold</Font>
+              <Guid>c7ff7d98c73c472d90c644818570b5aa</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text1</Name>
+              <Page isRef="10" />
+              <Parent isRef="11" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{Order.CRET_BY}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text1>
+            <Text2 Ref="13" type="Text" isKey="true">
+              <Border>Left, Right;Black;2;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>5.6,0.6,1.6,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text2</Name>
+              <Page isRef="10" />
+              <Parent isRef="11" />
+              <Text>صندوقدار</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text2>
+            <Text5 Ref="14" type="Text" isKey="true">
+              <Border>Left, Right;Black;2;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>5.6,2.4,1.6,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,10,Bold</Font>
+              <Guid>90d8f916d4b946fca3fb3029cd73484a</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text5</Name>
+              <Page isRef="10" />
+              <Parent isRef="11" />
+              <Text>تعداد فاکتور</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text5>
+            <Text4 Ref="15" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>0,2.4,4.8,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>MiscFixedSC613,10,Bold</Font>
+              <Guid>8bea1f0264b74faab6bb569eee153a14</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text4</Name>
+              <Page isRef="10" />
+              <Parent isRef="11" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{Count(Order_GB)}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Totals</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text4>
+            <Text8 Ref="16" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>0,3.6,4.8,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>MiscFixedSC613,10,Bold</Font>
+              <Guid>206df3db58af400aba2dd2ccd333a2f8</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text8</Name>
+              <Page isRef="10" />
+              <Parent isRef="11" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{SumIf(DataOrder_State,Order_State.AMNT,Order_State.RCPT_MTOD == "003")}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="17" type="NumberFormat" isKey="true">
+                <DecimalDigits>0</DecimalDigits>
+                <GroupSeparator>,</GroupSeparator>
+                <NegativePattern>1</NegativePattern>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Totals</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text8>
+            <Text9 Ref="18" type="Text" isKey="true">
+              <Border>Left, Right;Black;2;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>5.6,3.6,1.6,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,10,Bold</Font>
+              <Guid>df3f300c89a444c78f63a6ed33bfd483</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text9</Name>
+              <Page isRef="10" />
+              <Parent isRef="11" />
+              <Text>کارتخوان</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text9>
+            <Text6 Ref="19" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>0,3,4.8,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>MiscFixedSC613,10,Bold</Font>
+              <Guid>ba303aff7d234b34a6afc2a3eefd6883</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text6</Name>
+              <Page isRef="10" />
+              <Parent isRef="11" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{SumIf(DataOrder_State,Order_State.AMNT,Order_State.RCPT_MTOD == "001")}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="20" type="NumberFormat" isKey="true">
+                <DecimalDigits>0</DecimalDigits>
+                <GroupSeparator>,</GroupSeparator>
+                <NegativePattern>1</NegativePattern>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Totals</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text6>
+            <Text7 Ref="21" type="Text" isKey="true">
+              <Border>Left, Right;Black;2;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>5.6,3,1.6,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,10,Bold</Font>
+              <Guid>a36e3a8877ac428aa30b1e39277f9e3d</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text7</Name>
+              <Page isRef="10" />
+              <Parent isRef="11" />
+              <Text>مبلغ نقدی</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text7>
+            <Text12 Ref="22" type="Text" isKey="true">
+              <Border>Left, Right;Black;2;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>5.6,1.2,1.6,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,10,Bold</Font>
+              <Guid>bebf03d86a004ecb8443689a511cceae</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text12</Name>
+              <Page isRef="10" />
+              <Parent isRef="11" />
+              <Text>از تاریخ</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text12>
+            <Text13 Ref="23" type="Text" isKey="true">
+              <Border>Left, Right;Black;2;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>5.6,1.8,1.6,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,10,Bold</Font>
+              <Guid>4515a7555f334dfe9a84f908974ed666</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text13</Name>
+              <Page isRef="10" />
+              <Parent isRef="11" />
+              <Text>تا تاریخ</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text13>
+            <Text14 Ref="24" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>0,1.2,4.8,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>MiscFixedSC613,10,Bold</Font>
+              <Guid>c105fd126b704f3e9f96ceaf61a6d766</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text14</Name>
+              <Page isRef="10" />
+              <Parent isRef="11" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{MinStr(Order.PERS_STRT_DATE)}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Totals</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text14>
+            <Text15 Ref="25" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>0,1.8,4.8,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>MiscFixedSC613,10,Bold</Font>
+              <Guid>ba385030a9e841c2b54c13793040c4ef</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text15</Name>
+              <Page isRef="10" />
+              <Parent isRef="11" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{MaxStr(Order.PERS_STRT_DATE)}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Totals</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text15>
+            <Text17 Ref="26" type="Text" isKey="true">
+              <Border>All;Black;2;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,4.2,3.6,2.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Nazanin,10,Bold</Font>
+              <Guid>a6b6ac5ad35345488705c49b034cd7af</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text17</Name>
+              <Page isRef="10" />
+              <Parent isRef="11" />
+              <Text>مشخصات / امضا امور مالی</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text17>
+            <Text16 Ref="27" type="Text" isKey="true">
+              <Border>Top, Right, Bottom;Black;2;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>3.6,4.2,3.6,2.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Nazanin,10,Bold</Font>
+              <Guid>aabc7ac3d054492ca1a7c3533417f760</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text16</Name>
+              <Page isRef="10" />
+              <Parent isRef="11" />
+              <Text>مشخصات / امضا صندوقدار</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text16>
+            <Text3 Ref="28" type="Text" isKey="true">
+              <Border>All;Black;2;Solid;False;4;Black</Border>
+              <Brush>[216:216:216]</Brush>
+              <ClientRectangle>0,0,7.2,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Titr,9,Bold</Font>
+              <Guid>d60c7ff802b74cae9f3ff9d212659896</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text3</Name>
+              <Page isRef="10" />
+              <Parent isRef="11" />
+              <Text>گزارش عملکرد صندوقدار</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text3>
+            <Text18 Ref="29" type="Text" isKey="true">
+              <Border>All;Black;2;Solid;False;4;Black</Border>
+              <Brush>[216:216:216]</Brush>
+              <ClientRectangle>0,6.6,7.2,1</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Nazanin,9,Bold</Font>
+              <Guid>98193fd6f6894e71afa94ac60514cb57</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text18</Name>
+              <Page isRef="10" />
+              <Parent isRef="11" />
+              <Text>نرم افزار مدیریتی آرتا
+09033927103 - 09915666598</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text18>
+            <Text10 Ref="30" type="Text" isKey="true">
+              <Border>Left, Right;Black;2;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>4.8,3,0.8,1.2</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,10,Bold</Font>
+              <Guid>574284945e3e4de0be42338e055eb70f</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text10</Name>
+              <Page isRef="10" />
+              <Parent isRef="11" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{Order.ORDR_AMUT.DOMN_DESC}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=False, Angle=90, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text10>
+            <StartPointPrimitive1 Ref="31" type="Stimulsoft.Report.Components.StiStartPointPrimitive" isKey="true">
+              <ClientRectangle>0,0.6,0,0</ClientRectangle>
+              <Name>StartPointPrimitive1</Name>
+              <Page isRef="10" />
+              <Parent isRef="11" />
+              <ReferenceToGuid>623fd0b1ba6c4d9582b0bef0103f0d15</ReferenceToGuid>
+            </StartPointPrimitive1>
+            <EndPointPrimitive1 Ref="32" type="Stimulsoft.Report.Components.StiEndPointPrimitive" isKey="true">
+              <ClientRectangle>0,4.2,0,0</ClientRectangle>
+              <Name>EndPointPrimitive1</Name>
+              <Page isRef="10" />
+              <Parent isRef="11" />
+              <ReferenceToGuid>623fd0b1ba6c4d9582b0bef0103f0d15</ReferenceToGuid>
+            </EndPointPrimitive1>
+            <HorizontalLinePrimitive1 Ref="33" type="HorizontalLinePrimitive" isKey="true">
+              <ClientRectangle>0,3,5.6,0.0254</ClientRectangle>
+              <Color>Black</Color>
+              <EndCap Ref="34" type="Cap" isKey="true">
+                <Color>Black</Color>
+              </EndCap>
+              <Name>HorizontalLinePrimitive1</Name>
+              <Page isRef="10" />
+              <Parent isRef="11" />
+              <Size>2</Size>
+              <StartCap Ref="35" type="Cap" isKey="true">
+                <Color>Black</Color>
+              </StartCap>
+            </HorizontalLinePrimitive1>
+          </Components>
+          <Condition>{Order.CRET_BY}</Condition>
+          <Conditions isList="true" count="0" />
+          <Name>Order_GB</Name>
+          <Page isRef="10" />
+          <Parent isRef="10" />
+        </Order_GB>
+        <DataOrder Ref="36" type="DataBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <BusinessObjectGuid isNull="true" />
+          <CalcInvisible>True</CalcInvisible>
+          <ClientRectangle>0,9,7.2,0</ClientRectangle>
+          <Components isList="true" count="0" />
+          <Conditions isList="true" count="0" />
+          <DataSourceName>Order</DataSourceName>
+          <Filters isList="true" count="0" />
+          <Name>DataOrder</Name>
+          <Page isRef="10" />
+          <Parent isRef="10" />
+          <Sort isList="true" count="0" />
+        </DataOrder>
+        <DataOrder_State Ref="37" type="DataBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <BusinessObjectGuid isNull="true" />
+          <CalcInvisible>True</CalcInvisible>
+          <ClientRectangle>0,9.8,7.2,0</ClientRectangle>
+          <Components isList="true" count="0" />
+          <Conditions isList="true" count="0" />
+          <DataRelationName>ODST_ORDR_FK</DataRelationName>
+          <DataSourceName>Order_State</DataSourceName>
+          <Filters isList="true" count="0" />
+          <MasterComponent isRef="36" />
+          <Name>DataOrder_State</Name>
+          <Page isRef="10" />
+          <Parent isRef="10" />
+          <Sort isList="true" count="0" />
+        </DataOrder_State>
+        <VerticalLinePrimitive1 Ref="38" type="VerticalLinePrimitive" isKey="true">
+          <ClientRectangle>0,1,0.0254,3.6</ClientRectangle>
+          <Color>Black</Color>
+          <EndCap Ref="39" type="Cap" isKey="true">
+            <Color>Black</Color>
+          </EndCap>
+          <Guid>623fd0b1ba6c4d9582b0bef0103f0d15</Guid>
+          <Name>VerticalLinePrimitive1</Name>
+          <Page isRef="10" />
+          <Parent isRef="10" />
+          <Size>2</Size>
+          <StartCap Ref="40" type="Cap" isKey="true">
+            <Color>Black</Color>
+          </StartCap>
+        </VerticalLinePrimitive1>
+      </Components>
+      <Conditions isList="true" count="0" />
+      <Guid>6098e725742243daa4a4fe2b67d4ebaf</Guid>
+      <LargeHeight>True</LargeHeight>
+      <Margins>0.4,0.4,0.1,0.1</Margins>
+      <Name>Page1</Name>
+      <PageHeight>20</PageHeight>
+      <PageWidth>8</PageWidth>
+      <Report isRef="0" />
+      <UnlimitedHeight>True</UnlimitedHeight>
+      <Watermark Ref="41" type="Stimulsoft.Report.Components.StiWatermark" isKey="true">
+        <Font>B Titr,10,Bold,Point,False,178</Font>
+        <TextBrush>[50:0:0:0]</TextBrush>
+      </Watermark>
+    </Page1>
+  </Pages>
+  <PrinterSettings Ref="42" type="Stimulsoft.Report.Print.StiPrinterSettings" isKey="true" />
+  <ReferencedAssemblies isList="true" count="8">
+    <value>System.Dll</value>
+    <value>System.Drawing.Dll</value>
+    <value>System.Windows.Forms.Dll</value>
+    <value>System.Data.Dll</value>
+    <value>System.Xml.Dll</value>
+    <value>Stimulsoft.Controls.Dll</value>
+    <value>Stimulsoft.Base.Dll</value>
+    <value>Stimulsoft.Report.Dll</value>
+  </ReferencedAssemblies>
+  <ReportAlias>Report</ReportAlias>
+  <ReportChanged>8/3/2021 2:51:57 AM</ReportChanged>
+  <ReportCreated>9/26/2011 12:44:57 PM</ReportCreated>
+  <ReportFile>D:\Project\MyProject\Documents\Report Repository\PRT_INCM_010_R.mrt</ReportFile>
+  <ReportGuid>99c47d8ed4074507b83181e559fcb6bb</ReportGuid>
+  <ReportName>Report</ReportName>
+  <ReportUnit>Centimeters</ReportUnit>
+  <ReportVersion>2012.2.1304</ReportVersion>
+  <Script>using System;
+using System.Drawing;
+using System.Windows.Forms;
+using System.Data;
+using Stimulsoft.Controls;
+using Stimulsoft.Base.Drawing;
+using Stimulsoft.Report;
+using Stimulsoft.Report.Dialogs;
+using Stimulsoft.Report.Components;
+
+namespace Reports
+{
+    
+    public class Report : Stimulsoft.Report.StiReport
+    {
+        
+        public Report()
+        {
+            this.InitializeComponent();
+        }
+        #region StiReport Designer generated code - do not modify
+		#endregion StiReport Designer generated code - do not modify
+    }
+}
+</Script>
+  <ScriptLanguage>CSharp</ScriptLanguage>
+  <Styles isList="true" count="0" />
+</StiSerializer>

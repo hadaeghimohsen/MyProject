@@ -28,6 +28,7 @@
       /// </summary>
       private void InitializeComponent()
       {
+         this.components = new System.ComponentModel.Container();
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ADM_TOTL_F));
          DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
          DevExpress.Utils.ToolTipTitleItem toolTipTitleItem1 = new DevExpress.Utils.ToolTipTitleItem();
@@ -93,9 +94,9 @@
          this.NumAttn_Lb = new System.Windows.Forms.Label();
          this.CtgyCode_Lb = new System.Windows.Forms.Label();
          this.CbmtCode_Lb = new System.Windows.Forms.Label();
-         this.RegnBs1 = new System.Windows.Forms.BindingSource();
-         this.PrvnBs1 = new System.Windows.Forms.BindingSource();
-         this.MtodBs2 = new System.Windows.Forms.BindingSource();
+         this.RegnBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.PrvnBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.MtodBs2 = new System.Windows.Forms.BindingSource(this.components);
          this.Gb_Expense3 = new System.Windows.Forms.GroupBox();
          this.label3 = new System.Windows.Forms.Label();
          this.Accept_Cb = new System.Windows.Forms.CheckBox();
@@ -105,13 +106,13 @@
          this.RcmtType_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.PydsDesc_Txt = new DevExpress.XtraEditors.TextEdit();
          this.bn_PaymentMethods3 = new System.MaxUi.NewMaxBtn();
-         this.im_images = new System.Windows.Forms.ImageList();
+         this.im_images = new System.Windows.Forms.ImageList(this.components);
          this.DeltPyds_Butn = new System.Windows.Forms.Button();
          this.tbn_POSPayment3 = new DevExpress.XtraEditors.SimpleButton();
          this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-         this.PydtsBs3 = new System.Windows.Forms.BindingSource();
-         this.PymtsBs3 = new System.Windows.Forms.BindingSource();
-         this.RqstBs3 = new System.Windows.Forms.BindingSource();
+         this.PydtsBs3 = new System.Windows.Forms.BindingSource(this.components);
+         this.PymtsBs3 = new System.Windows.Forms.BindingSource(this.components);
+         this.RqstBs3 = new System.Windows.Forms.BindingSource(this.components);
          this.gridView4 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -127,7 +128,7 @@
          this.gridColumn12 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.gridColumn13 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.repositoryItemLookUpEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-         this.DRcmtBs1 = new System.Windows.Forms.BindingSource();
+         this.DRcmtBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.gridColumn14 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.gridColumn15 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.gridColumn16 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -141,7 +142,7 @@
          this.SavePyds_Butn = new System.Windows.Forms.Button();
          this.PymtAmnt_Txt = new DevExpress.XtraEditors.TextEdit();
          this.PydsType_Lov = new DevExpress.XtraEditors.LookUpEdit();
-         this.DPydsBs1 = new System.Windows.Forms.BindingSource();
+         this.DPydsBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.bn_Card2CardPayment3 = new DevExpress.XtraEditors.SimpleButton();
          this.bn_DpstPayment3 = new DevExpress.XtraEditors.SimpleButton();
          this.bn_CashPayment3 = new DevExpress.XtraEditors.SimpleButton();
@@ -156,10 +157,10 @@
          this.colREMN_AMNT = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colAMNT_UNIT_TYPE_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
          this.repositoryItemLookUpEdit5 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-         this.DAtypBs1 = new System.Windows.Forms.BindingSource();
+         this.DAtypBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.Dscn_Lb = new DevExpress.XtraEditors.LabelControl();
          this.gridControl4 = new DevExpress.XtraGrid.GridControl();
-         this.PydsBs3 = new System.Windows.Forms.BindingSource();
+         this.PydsBs3 = new System.Windows.Forms.BindingSource(this.components);
          this.gridView6 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colPYMT_CASH_CODE1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colPYMT_RQST_RQID1 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -179,14 +180,14 @@
          this.colExpense1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.repositoryItemLookUpEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
          this.Pos_Lov = new DevExpress.XtraEditors.LookUpEdit();
-         this.VPosBs1 = new System.Windows.Forms.BindingSource();
+         this.VPosBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.DeltPymt_Butn = new System.Windows.Forms.Button();
          this.UsePos_Cb = new System.Windows.Forms.CheckBox();
          this.PosStng_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.Pymt_Lb = new DevExpress.XtraEditors.LabelControl();
          this.SavePymt_Butn = new System.Windows.Forms.Button();
          this.gridControl5 = new DevExpress.XtraGrid.GridControl();
-         this.PmmtBs3 = new System.Windows.Forms.BindingSource();
+         this.PmmtBs3 = new System.Windows.Forms.BindingSource(this.components);
          this.gridView8 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colPYMT_CASH_CODE2 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colPYMT_RQST_RQID2 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -221,7 +222,7 @@
          this.dateTimeSelector6 = new Atf.UI.DateTimeSelector();
          this.Info_Gb = new System.Windows.Forms.GroupBox();
          this.SexFltr_Pkb = new System.MaxUi.NewPickBtn();
-         this.imageList1 = new System.Windows.Forms.ImageList();
+         this.imageList1 = new System.Windows.Forms.ImageList(this.components);
          this.GustSaveRqst_PickButn = new System.MaxUi.NewPickBtn();
          this.DPST_AMNT_Txt = new DevExpress.XtraEditors.TextEdit();
          this.FNGR_PRNT_TextEdit = new DevExpress.XtraEditors.TextEdit();
@@ -232,8 +233,8 @@
          this.SaveAttn_PkBt = new System.MaxUi.NewPickBtn();
          this.Cbmt003_Butn = new System.Windows.Forms.Button();
          this.NumbOfAttnMont_TextEdit003 = new DevExpress.XtraEditors.TextEdit();
-         this.MbspBs3 = new System.Windows.Forms.BindingSource();
-         this.RqroBs3 = new System.Windows.Forms.BindingSource();
+         this.MbspBs3 = new System.Windows.Forms.BindingSource(this.components);
+         this.RqroBs3 = new System.Windows.Forms.BindingSource(this.components);
          this.IncDecMont_Butn = new DevExpress.XtraEditors.ButtonEdit();
          this.AutoAttn_Btn = new System.Windows.Forms.Button();
          this.CrntDate_Butn = new DevExpress.XtraEditors.SimpleButton();
@@ -241,11 +242,11 @@
          this.NumbMontOfer_TextEdit003 = new DevExpress.XtraEditors.TextEdit();
          this.CopyDate_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.CbmtCode_Lov = new DevExpress.XtraEditors.GridLookUpEdit();
-         this.CbmtBs1 = new System.Windows.Forms.BindingSource();
+         this.CbmtBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.repositoryItemLookUpEdit4 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-         this.DDytpBs1 = new System.Windows.Forms.BindingSource();
+         this.DDytpBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.repositoryItemLookUpEdit7 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-         this.DsxtpBs = new System.Windows.Forms.BindingSource();
+         this.DsxtpBs = new System.Windows.Forms.BindingSource(this.components);
          this.repositoryItemTimeEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTimeEdit();
          this.Cbmt_Gv = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.ClubCode_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -267,7 +268,7 @@
          this.CbmtDesc_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
          this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.CtgyCode_Lov = new DevExpress.XtraEditors.LookUpEdit();
-         this.CtgyBs2 = new System.Windows.Forms.BindingSource();
+         this.CtgyBs2 = new System.Windows.Forms.BindingSource(this.components);
          this.StrtDate_DateTime003 = new Atf.UI.DateTimeSelector();
          this.EndDate_DateTime003 = new Atf.UI.DateTimeSelector();
          this.NewFngrPrnt_Txt = new DevExpress.XtraEditors.TextEdit();
@@ -275,10 +276,10 @@
          this.NumbOfMontDnrm_TextEdit003 = new DevExpress.XtraEditors.TextEdit();
          this.Pblc_Butn = new System.Windows.Forms.Button();
          this.RqttCode_Lov = new DevExpress.XtraEditors.LookUpEdit();
-         this.RqttBs1 = new System.Windows.Forms.BindingSource();
+         this.RqttBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.label2 = new System.Windows.Forms.Label();
          this.Figh_Lov = new DevExpress.XtraEditors.GridLookUpEdit();
-         this.FighBs3 = new System.Windows.Forms.BindingSource();
+         this.FighBs3 = new System.Windows.Forms.BindingSource(this.components);
          this.persianRepositoryItemDateEdit1 = new dxExample.PersianRepositoryItemDateEdit();
          this.gridLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colREGN_PRVN_CNTY_CODE1 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -348,7 +349,7 @@
          this.colRequest2 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colSub_Unit = new DevExpress.XtraGrid.Columns.GridColumn();
          this.label1 = new System.Windows.Forms.Label();
-         this.RqstBn3 = new System.Windows.Forms.BindingNavigator();
+         this.RqstBn3 = new System.Windows.Forms.BindingNavigator(this.components);
          this.RqstBnNew3 = new System.Windows.Forms.ToolStripButton();
          this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
          this.toolStripButton6 = new System.Windows.Forms.ToolStripButton();
@@ -379,14 +380,14 @@
          this.RqstBnBDoc3 = new System.Windows.Forms.ToolStripButton();
          this.RqstBnRegl03 = new System.Windows.Forms.ToolStripButton();
          this.RqstBnExit3 = new System.Windows.Forms.ToolStripButton();
-         this.DCyclBs1 = new System.Windows.Forms.BindingSource();
-         this.MbspBs = new System.Windows.Forms.BindingSource();
+         this.DCyclBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.MbspBs = new System.Windows.Forms.BindingSource(this.components);
          this.Gb_MemberShip3 = new System.Windows.Forms.GroupBox();
          this.Mbsp_gc = new DevExpress.XtraGrid.GridControl();
          this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.CyclCochFileNo_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
          this.repositoryItemLookUpEdit6 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-         this.CochBs1 = new System.Windows.Forms.BindingSource();
+         this.CochBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.CyclMtodCode_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
          this.CyclCtgyCode_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
          this.CyclRwno_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -641,9 +642,9 @@
          this.CtgyCode_Lb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
          this.CtgyCode_Lb.Location = new System.Drawing.Point(400, 38);
          this.CtgyCode_Lb.Name = "CtgyCode_Lb";
-         this.CtgyCode_Lb.Size = new System.Drawing.Size(60, 14);
+         this.CtgyCode_Lb.Size = new System.Drawing.Size(37, 14);
          this.CtgyCode_Lb.TabIndex = 41;
-         this.CtgyCode_Lb.Text = "زیر گروه *:";
+         this.CtgyCode_Lb.Text = "نرخ *:";
          // 
          // CbmtCode_Lb
          // 

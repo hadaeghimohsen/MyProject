@@ -39,7 +39,9 @@ namespace System.RoboTech.Ui.DevelopmentApplication
       {
          iRoboTech = new Data.iRoboTechDataContext(ConnectionString);
 
+         int ordt = Ordt4Bs.Position;
          RoboBs.DataSource = iRoboTech.Robots.Where(r => Fga_Ugov_U.Contains(r.Organ.OGID) && r.RBID == 401);
+         Ordt4Bs.Position = ordt;
 
          requery = false;
       }
@@ -54,11 +56,11 @@ namespace System.RoboTech.Ui.DevelopmentApplication
             SrbtBs.DataSource =
                iRoboTech.Service_Robots
                .Where(sr =>
-                  sr.Robot == robo
-               );
+                  sr.ROBO_RBID == robo.RBID
+               ).ToList();
 
-            UserBs.DataSource = SrbtBs.List.OfType<Data.Service_Robot>().FirstOrDefault(sr => iRoboTech.V_Users.Any(u => u.USER_DB == CurrentUser.ToUpper() && u.CELL_PHON == sr.CELL_PHON));
-            var user = UserBs.Current as Data.Service_Robot;
+            SrbtUserBs.DataSource = SrbtBs.List.OfType<Data.Service_Robot>().FirstOrDefault(sr => vUserBs.List.OfType<Data.V_User>().Any(u => u.USER_DB == CurrentUser.ToUpper() && u.CELL_PHON == sr.CELL_PHON));
+            var user = SrbtUserBs.Current as Data.Service_Robot;
             if (user == null) { MessageBox.Show("متاسفانه عملیات اتصال به کاربر صندوق فروشگاه برقرار نشد"); return; }
 
             RbprBs.DataSource =
@@ -84,25 +86,24 @@ namespace System.RoboTech.Ui.DevelopmentApplication
                      ).Any()
                select rp;
 
+            // اگر درخواستی از روز قبل درون سیستم باقی مانده باشد باید درخواست انصراف آن را ثبت کنیم
+            iRoboTech.ExecuteCommand("UPDATE dbo.[Order] SET ORDR_STAT = '003', Ordr_Desc = N'حذف درخواست های روز های قبل' WHERE Ordr_Type = '025' AND Ordr_Stat = '016' AND CAST(CRET_DATE AS DATE) < CAST(GETDATE() AS DATE);");
+
             SrbtOrdr25Bs.DataSource =
-               SrbtBs.List.OfType<Data.Service_Robot>()
-               .Where(sr =>
-                  sr.Robot == robo &&
-                  sr.STAT == "002" &&
-                  sr.Orders
-                  .Any(o =>
-                     o.ORDR_TYPE == "025" &&
-                     o.ORDR_STAT == "016" &&
-                     o.CRET_BY == CurrentUser.ToUpper()
-                  )
-               );
+               from sr in iRoboTech.Service_Robots
+               join o in iRoboTech.Orders on sr equals o.Service_Robot
+               where sr.STAT == "002"
+                  && o.CRET_BY == CurrentUser.ToUpper()
+                  && o.ORDR_TYPE == "025"
+                  && o.ORDR_STAT == "016"
+               select sr;               
 
             SrbtOrdr25Cont_Lb.Text = SrbtOrdr25Bs.Count.ToString();
             SrbtOrdr25Indx_Lb.Text = "1";
          }
          catch {
             SrbtNameFrm1_Lb.Text = SrbtChatid_Lb.Text = SrbtCellPhon_Lb.Text = SrbtServAdrs_Lb.Text = "---";
-            Ordr4CodeFrm1_Txt.Text = Ordr4FknoFrm1_Txt.Text = "";
+            Ordr4DescFrm1_Txt.Text = Ordr4FknoFrm1_Txt.Text = "";
             Ordt4Bs.Clear();
             SrbtOrdr25Indx_Lb.Text = SrbtOrdr25Cont_Lb.Text = "0";
             Ship001_Butn.NormalColorA = Ship001_Butn.NormalColorB =
@@ -303,7 +304,7 @@ namespace System.RoboTech.Ui.DevelopmentApplication
             var robo = RoboBs.Current as Data.Robot;
             if (robo == null) return;
 
-            var srbt = UserBs.Current as Data.Service_Robot;
+            var srbt = SrbtUserBs.Current as Data.Service_Robot;
             //if (SrbtFrm1_Txt.EditValue != null && SrbtFrm1_Txt.Text.Length > 0)
             if(chatid != null)
                srbt = SrbtBs.Current as Data.Service_Robot;
@@ -315,7 +316,7 @@ namespace System.RoboTech.Ui.DevelopmentApplication
             iRoboTech = new Data.iRoboTechDataContext(ConnectionString);
 
             var ordr25 =
-               iRoboTech.Orders.Where(o => o.Service_Robot == srbt && o.ORDR_TYPE == "025" && o.ORDR_STAT == "001" && !o.Order_Details.Any()).OrderByDescending(o => o.STRT_DATE).FirstOrDefault();
+               iRoboTech.Orders.Where(o => o.Service_Robot == srbt && o.ORDR_TYPE == "025" && o.ORDR_STAT == "001" && o.CRET_BY == CurrentUser && o.CRET_DATE.Value.Date == DateTime.Now.Date).OrderByDescending(o => o.STRT_DATE).FirstOrDefault();
 
             if (ordr25 == null) { MessageBox.Show("در ثبت اطلاعات درخواست سفارش مشکلی پیش آمده لطفا بررسی کنید"); return; }
 
@@ -394,7 +395,7 @@ namespace System.RoboTech.Ui.DevelopmentApplication
             if (srbtordr25 == null) return;
 
             Ordr25Bs.DataSource =
-               iRoboTech.Orders.Where(o => o.Service_Robot == srbtordr25 && o.ORDR_TYPE == "025" && o.ORDR_STAT == "016");
+               iRoboTech.Orders.Where(o => o.Service_Robot == srbtordr25 && o.ORDR_TYPE == "025" && o.ORDR_STAT == "016" && o.CRET_BY == CurrentUser && o.CRET_DATE.Value.Date == DateTime.Now.Date);
          }
          catch { }
       }
@@ -420,7 +421,7 @@ namespace System.RoboTech.Ui.DevelopmentApplication
             var ordr4 = Ordr4Bs.Current as Data.Order;
             if (ordr4 == null) return;
 
-            Ordr4CodeFrm1_Txt.Text = ordr4.CODE.ToString();
+            Ordr4DescFrm1_Txt.Text = ordr4.ORDR_DESC;
             Ordr4FknoFrm1_Txt.Text = ordr4.ORDR_RWNO.ToString();
             PayAmnt_Txt.EditValue = ordr4.DEBT_DNRM;
             CredWlet_Txt.EditValue = ordr4.Service_Robot.Wallets.FirstOrDefault(w => w.WLET_TYPE == "001").AMNT_DNRM;
@@ -543,7 +544,7 @@ namespace System.RoboTech.Ui.DevelopmentApplication
                       new XAttribute("elmntype", "001"),
                       new XElement("Text",
                           new XAttribute("param", ordr.CODE),
-                         textInput
+                          textInput
                       )
                   )
                ),
@@ -583,6 +584,8 @@ namespace System.RoboTech.Ui.DevelopmentApplication
          {
             var ordr25 = Ordr25Bs.Current as Data.Order;
             if (ordr25 == null) return;
+
+            if (MessageBox.Show(this, "آیا با حذف فاکتور موافق هستید؟", "حذف فاکتور", MessageBoxButtons.YesNo) != DialogResult.Yes) return;
 
             // اگر سفارش ردیف های پرداختی داشته باشد
             if (ordr25.Orders.FirstOrDefault(o => o.ORDR_TYPE == "004" && o.ORDR_STAT == "001").Order_States.Any())
@@ -624,10 +627,10 @@ namespace System.RoboTech.Ui.DevelopmentApplication
             }
 
             // حذف کردن درخواست سفارش
-            iRoboTech.ExecuteCommand(string.Format("DELETE dbo.[Order] WHERE Ordr_Code = {0};", ordr25.CODE));
+            iRoboTech.ExecuteCommand(string.Format("UPDATE dbo.[Order] SET Ordr_Stat = '003' WHERE Ordr_Code = {0};", ordr25.CODE));
 
             // حذف کردن درخواست پذیرش سفارش انلاین
-            iRoboTech.ExecuteCommand("DELETE dbo.[Order] WHERE Code = {0};", ordr25.CODE);
+            iRoboTech.ExecuteCommand("UPDATE dbo.[Order] SET Ordr_Stat = '003' WHERE Code = {0};", ordr25.CODE);
 
             requery = true;
          }
@@ -801,7 +804,7 @@ namespace System.RoboTech.Ui.DevelopmentApplication
             // Print Default Active Reports
             //**DfltPrnt002_Butn_Click(null, null);
             //return;
-            var user = UserBs.Current as Data.Service_Robot;
+            var user = SrbtUserBs.Current as Data.Service_Robot;
             if(PayAmnt_Txt.EditValue == null || PayAmnt_Txt.Text.In("", "0")){PayAmnt_Txt.Focus(); return;}
 
             //long? amnt = ordr.AMNT_TYPE == "001" ? PayAmnt_Txt.EditValue.ToString().ToInt64() : PayAmnt_Txt.EditValue.ToString().ToInt64() * 10;
@@ -839,7 +842,7 @@ namespace System.RoboTech.Ui.DevelopmentApplication
             if (VPosBs1.List.Count == 0)
                UsePos_Cb.Checked = false;
 
-            var user = UserBs.Current as Data.Service_Robot;
+            var user = SrbtUserBs.Current as Data.Service_Robot;
             if (PayAmnt_Txt.EditValue == null || PayAmnt_Txt.Text.In("", "0")) { PayAmnt_Txt.Focus(); return; }
 
             //long? amnt = ordr.AMNT_TYPE == "001" ? PayAmnt_Txt.EditValue.ToString().ToInt64() : PayAmnt_Txt.EditValue.ToString().ToInt64() * 10;
@@ -937,7 +940,7 @@ namespace System.RoboTech.Ui.DevelopmentApplication
             // Print Default Active Reports
             //**DfltPrnt002_Butn_Click(null, null);
 
-            var user = UserBs.Current as Data.Service_Robot;
+            var user = SrbtUserBs.Current as Data.Service_Robot;
             if (PayAmnt_Txt.EditValue == null || PayAmnt_Txt.Text.In("", "0")) { PayAmnt_Txt.Focus(); return; }
 
             //long? amnt = ordr.AMNT_TYPE == "001" ? PayAmnt_Txt.EditValue.ToString().ToInt64() : PayAmnt_Txt.EditValue.ToString().ToInt64() * 10;
@@ -982,7 +985,7 @@ namespace System.RoboTech.Ui.DevelopmentApplication
             // Print Default Active Reports
             //**DfltPrnt002_Butn_Click(null, null);
 
-            var user = UserBs.Current as Data.Service_Robot;
+            var user = SrbtUserBs.Current as Data.Service_Robot;
             if (PayAmnt_Txt.EditValue == null || PayAmnt_Txt.Text.In("", "0")) { PayAmnt_Txt.Focus(); return; }
 
             //long? amnt = ordr.AMNT_TYPE == "001" ? PayAmnt_Txt.EditValue.ToString().ToInt64() : PayAmnt_Txt.EditValue.ToString().ToInt64() * 10;
@@ -1141,11 +1144,6 @@ namespace System.RoboTech.Ui.DevelopmentApplication
          {
             MessageBox.Show(exc.Message);
          }
-         //finally
-         //{
-         //   if (requery)
-         //      Execute_Query();
-         //}
       }
 
       private void OdstActn_Butn_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
@@ -1178,7 +1176,7 @@ namespace System.RoboTech.Ui.DevelopmentApplication
          {
             DelCrntOrdrFrm1_Butn_Click(null, null);
 
-            var srbt = UserBs.Current as Data.Service_Robot;            
+            var srbt = SrbtUserBs.Current as Data.Service_Robot;            
             if (srbt == null) return;
 
             SrbtBs.Position = SrbtBs.IndexOf(srbt);
@@ -1197,7 +1195,7 @@ namespace System.RoboTech.Ui.DevelopmentApplication
       {
          try
          {
-            var srbt = UserBs.Current as Data.Service_Robot;
+            var srbt = SrbtUserBs.Current as Data.Service_Robot;
             if (srbt == null) return;
 
             SrbtBs.Position = SrbtBs.IndexOf(srbt);
@@ -1619,6 +1617,136 @@ namespace System.RoboTech.Ui.DevelopmentApplication
       private void RbprFrm1_Txt_Enter(object sender, EventArgs e)
       {
          Master002_Tc.SelectedTab = tp_prod;
+      }
+
+      private void SearchOrderReport_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            FromDate3_Dt.CommitChanges();
+            ToDate3_Dt.CommitChanges();
+
+            if (!FromDate3_Dt.Value.HasValue) FromDate3_Dt.Value = DateTime.Now;
+            if (!ToDate3_Dt.Value.HasValue) ToDate3_Dt.Value = DateTime.Now;
+            if (OrdrRwno3_Txt.EditValue == null || OrdrRwno3_Txt.Text == "") OrdrRwno3_Txt.EditValue = 0;
+            if (ChatId3_Txt.EditValue == null || ChatId3_Txt.Text == "") ChatId3_Txt.EditValue = 0;
+
+            var robo = RoboBs.Current as Data.Robot;
+            if (robo == null) return;
+
+            Ordr4Stp3Bs.DataSource =
+               iRoboTech.Orders
+               .Where(o =>
+                  o.ORDR_TYPE == "004" &&
+                  o.ORDR_STAT != "003" &&
+                  o.ORDR_STAT != "001" && 
+                  (
+                     (!FromDate3_Cbx.Checked || o.STRT_DATE.Value.Date >= FromDate3_Dt.Value.Value.Date) &&
+                     (!ToDate3_Cbx.Checked || o.STRT_DATE.Value.Date <= ToDate3_Dt.Value.Value.Date) &&
+                     (!OrdrRwno3_Cbx.Checked || o.ORDR_RWNO == OrdrRwno3_Txt.Text.ToInt64()) &&
+                     (!CellPhon3_Cbx.Checked || o.CELL_PHON != null && o.CELL_PHON.Contains(CellPhon3_Txt.Text)) &&
+                     (!ChatId3_Cbx.Checked || o.CHAT_ID.ToString().Contains(ChatId3_Txt.Text)) && 
+                     (!CretBy3_Cbx.Checked || o.CRET_BY == CurrentUser)
+                  )
+               );
+
+            Odst4Stp3_Gv.ActiveFilterString = "AMNT_TYPE = '007'";
+
+            CashAmnt3_Txt.EditValue = Ordr4Stp3Bs.List.OfType<Data.Order>().Sum(o => o.Order_States.Where(os => os.AMNT_TYPE == "007" && os.RCPT_MTOD == "001").Sum(os => os.AMNT));
+            PosAmnt3_Txt.EditValue = Ordr4Stp3Bs.List.OfType<Data.Order>().Sum(o => o.Order_States.Where(os => os.AMNT_TYPE == "007" && os.RCPT_MTOD == "003").Sum(os => os.AMNT));
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void ConfPrntFrm3_Butn_Click(object sender, EventArgs e)
+      {
+         var ui = sender as C1Button;
+
+         _DefaultGateway.Gateway(
+            new Job(SendType.External, "Localhost",
+               new List<Job>
+               {
+                  new Job(SendType.Self, 14 /* Execute Stng_Rprt_F */),
+                  new Job(SendType.SelfToUserInterface, "STNG_RPRT_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "ModualReport"), new XAttribute("modul", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + ui.Tag.ToString()))}
+               }
+            )
+         );
+      }
+
+      private void SlctPrntFrm3_Butn_Click(object sender, EventArgs e)
+      {
+         var ui = sender as C1Button;
+
+         _DefaultGateway.Gateway(
+            new Job(SendType.External, "Localhost",
+               new List<Job>
+               {
+                  new Job(SendType.Self, 15 /* Execute Rpt_Mngr_F */)
+                  {
+                     Input = 
+                        new XElement("Print", 
+                           new XAttribute("type", "Selection"), 
+                           new XAttribute("modual", GetType().Name), 
+                           new XAttribute("section", GetType().Name.Substring(0,3) + ui.Tag.ToString()), 
+                           "1 = 1 " + 
+                           (FromDate3_Cbx.Checked ? string.Format("AND CAST(dbo.[Order].Strt_Date AS DATE) >= '{0}' ", FromDate3_Dt.Value.Value.Date) : "") + 
+                           (ToDate3_Cbx.Checked ? string.Format("AND CAST(dbo.[Order].Strt_Date AS DATE) <= '{0}' ", ToDate3_Dt.Value.Value.Date) : "") + 
+                           (OrdrRwno3_Cbx.Checked ? string.Format("AND dbo.[Order].Ordr_Rwno = {0} ", OrdrRwno3_Txt.Text) : "") + 
+                           (CellPhon3_Cbx.Checked ? string.Format("AND dbo.[Order].Cell_Phon = '{0}' ", CellPhon3_Txt.Text) : "") + 
+                           (ChatId3_Cbx.Checked ? string.Format("AND dbo.[Order].Chat_Id = {0} ", ChatId3_Txt.Text) : "") +
+                           (CretBy3_Cbx.Checked ? string.Format("AND dbo.[Order].Cret_By = '{0}' ", CurrentUser) : "") 
+                        )
+                  }
+               }
+            )
+         );
+      }
+
+      private void DfltPrntFrm3_Butn_Click(object sender, EventArgs e)
+      {
+         var ui = sender as C1Button;
+
+         _DefaultGateway.Gateway(
+            new Job(SendType.External, "Localhost",
+               new List<Job>
+               {
+                  new Job(SendType.Self, 15 /* Execute Rpt_Mngr_F */)
+                  {
+                     Input = 
+                        new XElement("Print", 
+                           new XAttribute("type", "Default"), 
+                           new XAttribute("modual", GetType().Name), 
+                           new XAttribute("section", GetType().Name.Substring(0,3) + ui.Tag.ToString()), 
+                           "1 = 1 " + 
+                           (FromDate3_Cbx.Checked ? string.Format("AND CAST(dbo.[Order].Strt_Date AS DATE) >= '{0}' ", FromDate3_Dt.Value.Value.Date) : "") + 
+                           (ToDate3_Cbx.Checked ? string.Format("AND CAST(dbo.[Order].Strt_Date AS DATE) <= '{0}' ", ToDate3_Dt.Value.Value.Date) : "") + 
+                           (OrdrRwno3_Cbx.Checked ? string.Format("AND dbo.[Order].Ordr_Rwno = {0} ", OrdrRwno3_Txt.Text) : "") + 
+                           (CellPhon3_Cbx.Checked ? string.Format("AND dbo.[Order].Cell_Phon = '{0}' ", CellPhon3_Txt.Text) : "") + 
+                           (ChatId3_Cbx.Checked ? string.Format("AND dbo.[Order].Chat_Id = {0} ", ChatId3_Txt.Text) : "") +
+                           (CretBy3_Cbx.Checked ? string.Format("AND dbo.[Order].Cret_By = '{0}' ", CurrentUser) : "") 
+                        )
+                  }
+               }
+            )
+         );
+      }
+
+      private void SaveOrdr25Frm1_Tsm_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var ordr4 = Ordr4Bs.Current as Data.Order;
+            if (ordr4 == null) return;
+
+            iRoboTech.ExecuteCommand("UPDATE dbo.[Order] SET Ordr_Desc = {0} WHERE Code = {1};", Ordr4DescFrm1_Txt.Text, ordr4.CODE);
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
       }
    }
 }

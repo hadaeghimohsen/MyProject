@@ -120,6 +120,7 @@
          this.Btn_AutoExitAttn = new DevExpress.XtraEditors.SimpleButton();
          this.Reload_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.DSxtpBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.colRTNG_NUMB = new DevExpress.XtraGrid.Columns.GridColumn();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTimeEdit1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.AttnBs1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.attendanceGridControl)).BeginInit();
@@ -154,7 +155,7 @@
          this.ExitTime_Clm.OptionsColumn.FixedWidth = true;
          this.ExitTime_Clm.OptionsColumn.ReadOnly = true;
          this.ExitTime_Clm.Visible = true;
-         this.ExitTime_Clm.VisibleIndex = 6;
+         this.ExitTime_Clm.VisibleIndex = 7;
          // 
          // repositoryItemTimeEdit1
          // 
@@ -286,7 +287,8 @@
             this.gridColumn1,
             this.MtodCode_Clm,
             this.CtgyCode_Clm,
-            this.colATTN_SYS_TYPE});
+            this.colATTN_SYS_TYPE,
+            this.colRTNG_NUMB});
          styleFormatCondition1.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
          styleFormatCondition1.Appearance.Options.UseBackColor = true;
          styleFormatCondition1.ApplyToRow = true;
@@ -329,8 +331,8 @@
          this.FileNo_Clm.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Count)});
          this.FileNo_Clm.Visible = true;
-         this.FileNo_Clm.VisibleIndex = 8;
-         this.FileNo_Clm.Width = 148;
+         this.FileNo_Clm.VisibleIndex = 9;
+         this.FileNo_Clm.Width = 129;
          // 
          // colATTN_DATE
          // 
@@ -361,7 +363,8 @@
          this.CochFileNo_Clm.OptionsColumn.AllowEdit = false;
          this.CochFileNo_Clm.OptionsColumn.ReadOnly = true;
          this.CochFileNo_Clm.Visible = true;
-         this.CochFileNo_Clm.VisibleIndex = 5;
+         this.CochFileNo_Clm.VisibleIndex = 6;
+         this.CochFileNo_Clm.Width = 60;
          // 
          // repositoryItemLookUpEdit1
          // 
@@ -393,7 +396,7 @@
          this.EnterTime_Clm.OptionsColumn.FixedWidth = true;
          this.EnterTime_Clm.OptionsColumn.ReadOnly = true;
          this.EnterTime_Clm.Visible = true;
-         this.EnterTime_Clm.VisibleIndex = 7;
+         this.EnterTime_Clm.VisibleIndex = 8;
          this.EnterTime_Clm.Width = 78;
          // 
          // colTOTL_SESN
@@ -464,7 +467,7 @@
          this.gridColumn1.Name = "gridColumn1";
          this.gridColumn1.Visible = true;
          this.gridColumn1.VisibleIndex = 0;
-         this.gridColumn1.Width = 112;
+         this.gridColumn1.Width = 114;
          // 
          // Actn_Butn
          // 
@@ -487,7 +490,8 @@
          this.MtodCode_Clm.OptionsColumn.AllowEdit = false;
          this.MtodCode_Clm.OptionsColumn.ReadOnly = true;
          this.MtodCode_Clm.Visible = true;
-         this.MtodCode_Clm.VisibleIndex = 4;
+         this.MtodCode_Clm.VisibleIndex = 5;
+         this.MtodCode_Clm.Width = 60;
          // 
          // repositoryItemLookUpEdit2
          // 
@@ -513,7 +517,8 @@
          this.CtgyCode_Clm.OptionsColumn.AllowEdit = false;
          this.CtgyCode_Clm.OptionsColumn.ReadOnly = true;
          this.CtgyCode_Clm.Visible = true;
-         this.CtgyCode_Clm.VisibleIndex = 3;
+         this.CtgyCode_Clm.VisibleIndex = 4;
+         this.CtgyCode_Clm.Width = 60;
          // 
          // repositoryItemLookUpEdit3
          // 
@@ -539,7 +544,8 @@
          this.colATTN_SYS_TYPE.OptionsColumn.AllowEdit = false;
          this.colATTN_SYS_TYPE.OptionsColumn.ReadOnly = true;
          this.colATTN_SYS_TYPE.Visible = true;
-         this.colATTN_SYS_TYPE.VisibleIndex = 2;
+         this.colATTN_SYS_TYPE.VisibleIndex = 3;
+         this.colATTN_SYS_TYPE.Width = 60;
          // 
          // repositoryItemLookUpEdit5
          // 
@@ -1049,6 +1055,17 @@
          // 
          this.DSxtpBs1.DataSource = typeof(System.Scsc.Data.D_SXTP);
          // 
+         // colRTNG_NUMB
+         // 
+         this.colRTNG_NUMB.AppearanceCell.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+         this.colRTNG_NUMB.AppearanceCell.Options.UseBackColor = true;
+         this.colRTNG_NUMB.Caption = "امتیاز";
+         this.colRTNG_NUMB.FieldName = "RTNG_NUMB";
+         this.colRTNG_NUMB.Name = "colRTNG_NUMB";
+         this.colRTNG_NUMB.Visible = true;
+         this.colRTNG_NUMB.VisibleIndex = 2;
+         this.colRTNG_NUMB.Width = 34;
+         // 
          // ATTN_DAYN_F
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -1170,5 +1187,6 @@
       private DevExpress.XtraGrid.Columns.GridColumn colATTN_SYS_TYPE;
       private Windows.Forms.BindingSource DActnBs;
       private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repositoryItemLookUpEdit5;
+      private DevExpress.XtraGrid.Columns.GridColumn colRTNG_NUMB;
    }
 }

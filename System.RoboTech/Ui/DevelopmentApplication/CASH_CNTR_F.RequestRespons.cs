@@ -260,6 +260,11 @@ namespace System.RoboTech.Ui.DevelopmentApplication
 
          DRcmtBs.DataSource = iRoboTech.D_RCMTs;
          DAmutBs.DataSource = iRoboTech.D_AMUTs;
+         DodstBs.DataSource = iRoboTech.D_ODSTs;
+         DshipBs.DataSource = iRoboTech.D_SHIPs;
+         vUserBs.DataSource = iRoboTech.V_Users;        
+
+
          job.Status = StatusType.Successful;
       }
 

@@ -28,6 +28,7 @@
       /// </summary>
       private void InitializeComponent()
       {
+         this.components = new System.ComponentModel.Container();
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LSI_FLDF_F));
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
@@ -149,7 +150,7 @@
          this.CellPhon1_Lb = new System.Windows.Forms.Label();
          this.TellPhon1_Lb = new System.Windows.Forms.Label();
          this.NatlCode1_Lb = new System.Windows.Forms.Label();
-         this.vF_Fighs = new System.Windows.Forms.BindingSource();
+         this.vF_Fighs = new System.Windows.Forms.BindingSource(this.components);
          this.vF_Last_Info_FighterResultGridControl = new DevExpress.XtraGrid.GridControl();
          this.PBLC = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colFILE_NO = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -227,7 +228,7 @@
          this.TrnsFngrPrnt_Butn = new System.MaxUi.NewMaxBtn();
          this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
          this.ClubCode_Lov = new DevExpress.XtraEditors.SearchLookUpEdit();
-         this.ClubBs = new System.Windows.Forms.BindingSource();
+         this.ClubBs = new System.Windows.Forms.BindingSource(this.components);
          this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colREGN_PRVN_CNTY_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colREGN_PRVN_CODE1 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -252,7 +253,7 @@
          this.colClub1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colRegion = new DevExpress.XtraGrid.Columns.GridColumn();
          this.SuntCode_Lov = new DevExpress.XtraEditors.SearchLookUpEdit();
-         this.SuntBs1 = new System.Windows.Forms.BindingSource();
+         this.SuntBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.searchLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colBUNT_DEPT_ORGN_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colBUNT_DEPT_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -287,11 +288,11 @@
          this.splitContainerControl2 = new DevExpress.XtraEditors.SplitContainerControl();
          this.Cycl_Gb = new System.Windows.Forms.GroupBox();
          this.Mbsp_gc = new DevExpress.XtraGrid.GridControl();
-         this.MbspBs = new System.Windows.Forms.BindingSource();
+         this.MbspBs = new System.Windows.Forms.BindingSource(this.components);
          this.Mbsp_gv = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.CochFileNo_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
          this.repositoryItemLookUpEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-         this.CochBs1 = new System.Windows.Forms.BindingSource();
+         this.CochBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.MtodCode_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
          this.CtgyCode_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
          this.CyclRwno_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -349,9 +350,9 @@
          this.CellPhon01_Txt = new DevExpress.XtraEditors.TextEdit();
          this.label11 = new System.Windows.Forms.Label();
          this.splitContainerControl3 = new DevExpress.XtraEditors.SplitContainerControl();
-         this.ExportLabel_Txt = new System.Windows.Forms.TextBox();
+         this.ServRecd_Spn = new System.MaxUi.Spinner();
+         this.ConfDate_Cbx = new System.Windows.Forms.CheckBox();
          this.ServConfDate_Dt = new Atf.UI.DateTimeSelector();
-         this.label7 = new System.Windows.Forms.Label();
          this.ExportContact_Butn = new System.Windows.Forms.Button();
          this.SelectExportContactFile_Butn = new System.Windows.Forms.Button();
          this.Btn_Cbmt1 = new System.Windows.Forms.Button();
@@ -381,9 +382,8 @@
          this.gridColumn24 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.label6 = new System.Windows.Forms.Label();
          this.GoogleContact_Rb = new System.Windows.Forms.RadioButton();
-         this.HotmailContact_Rb = new System.Windows.Forms.RadioButton();
-         this.YahooContact_Rb = new System.Windows.Forms.RadioButton();
-         this.AllMenu_Cmn = new System.Windows.Forms.ContextMenuStrip();
+         this.TextFile_Rb = new System.Windows.Forms.RadioButton();
+         this.AllMenu_Cmn = new System.Windows.Forms.ContextMenuStrip(this.components);
          this.RqstBnFignInfo_Lb = new System.Windows.Forms.ToolStripMenuItem();
          this.RqstBnFighInfo = new System.Windows.Forms.ToolStripMenuItem();
          this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
@@ -518,6 +518,7 @@
          this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
          this.toolStripMenuItem65 = new System.Windows.Forms.ToolStripMenuItem();
          this.ExportFile_Sfd = new System.Windows.Forms.SaveFileDialog();
+         this.ExportLabel_Txt = new DevExpress.XtraEditors.TextEdit();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit1.CalendarTimeProperties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.AttnMbsp_Butn)).BeginInit();
@@ -579,6 +580,7 @@
          ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
          this.AllMenu_Cmn.SuspendLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.ExportLabel_Txt.Properties)).BeginInit();
          this.SuspendLayout();
          // 
          // DebtDnrm_Clm
@@ -3528,31 +3530,77 @@
          this.splitContainerControl3.Name = "splitContainerControl3";
          this.splitContainerControl3.Panel1.Controls.Add(this.vF_Last_Info_FighterResultGridControl);
          this.splitContainerControl3.Panel1.Text = "Panel1";
-         this.splitContainerControl3.Panel2.Controls.Add(this.ExportLabel_Txt);
+         this.splitContainerControl3.Panel2.Controls.Add(this.ServRecd_Spn);
+         this.splitContainerControl3.Panel2.Controls.Add(this.ConfDate_Cbx);
          this.splitContainerControl3.Panel2.Controls.Add(this.ServConfDate_Dt);
-         this.splitContainerControl3.Panel2.Controls.Add(this.label7);
          this.splitContainerControl3.Panel2.Controls.Add(this.ExportContact_Butn);
          this.splitContainerControl3.Panel2.Controls.Add(this.SelectExportContactFile_Butn);
          this.splitContainerControl3.Panel2.Controls.Add(this.Btn_Cbmt1);
          this.splitContainerControl3.Panel2.Controls.Add(this.searchLookUpEdit1);
          this.splitContainerControl3.Panel2.Controls.Add(this.label6);
          this.splitContainerControl3.Panel2.Controls.Add(this.GoogleContact_Rb);
-         this.splitContainerControl3.Panel2.Controls.Add(this.HotmailContact_Rb);
-         this.splitContainerControl3.Panel2.Controls.Add(this.YahooContact_Rb);
+         this.splitContainerControl3.Panel2.Controls.Add(this.TextFile_Rb);
+         this.splitContainerControl3.Panel2.Controls.Add(this.ExportLabel_Txt);
          this.splitContainerControl3.Panel2.Text = "Panel2";
          this.splitContainerControl3.Size = new System.Drawing.Size(692, 468);
          this.splitContainerControl3.SplitterPosition = 57;
          this.splitContainerControl3.TabIndex = 2;
          this.splitContainerControl3.Text = "splitContainerControl3";
          // 
-         // ExportLabel_Txt
+         // ServRecd_Spn
          // 
-         this.ExportLabel_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.ExportLabel_Txt.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.ExportLabel_Txt.Location = new System.Drawing.Point(32, 31);
-         this.ExportLabel_Txt.Name = "ExportLabel_Txt";
-         this.ExportLabel_Txt.Size = new System.Drawing.Size(89, 22);
-         this.ExportLabel_Txt.TabIndex = 101;
+         this.ServRecd_Spn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.ServRecd_Spn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.ServRecd_Spn.DecimalPlaces = 0;
+         this.ServRecd_Spn.DefaultValue = new decimal(new int[] {
+            500,
+            0,
+            0,
+            0});
+         this.ServRecd_Spn.FloatValue = 500F;
+         this.ServRecd_Spn.ForeColor = System.Drawing.SystemColors.ControlText;
+         this.ServRecd_Spn.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+         this.ServRecd_Spn.IntValue = 500;
+         this.ServRecd_Spn.Location = new System.Drawing.Point(253, 35);
+         this.ServRecd_Spn.Maximum = new decimal(new int[] {
+            10000000,
+            0,
+            0,
+            0});
+         this.ServRecd_Spn.MaximumSize = new System.Drawing.Size(-2147483648, 16);
+         this.ServRecd_Spn.Minimum = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+         this.ServRecd_Spn.Name = "ServRecd_Spn";
+         this.ServRecd_Spn.Size = new System.Drawing.Size(60, 16);
+         this.ServRecd_Spn.TabIndex = 103;
+         this.ServRecd_Spn.Value = new decimal(new int[] {
+            500,
+            0,
+            0,
+            0});
+         this.ServRecd_Spn.Visible = false;
+         // 
+         // ConfDate_Cbx
+         // 
+         this.ConfDate_Cbx.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.ConfDate_Cbx.AutoSize = true;
+         this.ConfDate_Cbx.Checked = true;
+         this.ConfDate_Cbx.CheckState = System.Windows.Forms.CheckState.Checked;
+         this.ConfDate_Cbx.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.ConfDate_Cbx.Location = new System.Drawing.Point(575, 34);
+         this.ConfDate_Cbx.Name = "ConfDate_Cbx";
+         this.ConfDate_Cbx.Size = new System.Drawing.Size(114, 17);
+         this.ConfDate_Cbx.TabIndex = 102;
+         this.ConfDate_Cbx.Text = "تاریخ ثبت مشتری :";
+         this.ConfDate_Cbx.UseVisualStyleBackColor = true;
+         this.ConfDate_Cbx.CheckedChanged += new System.EventHandler(this.ConfDate_Cbx_CheckedChanged);
          // 
          // ServConfDate_Dt
          // 
@@ -3568,28 +3616,16 @@
          this.ServConfDate_Dt.UsePersianFormat = true;
          this.ServConfDate_Dt.Value = new System.DateTime(2021, 3, 3, 0, 0, 0, 0);
          // 
-         // label7
-         // 
-         this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.label7.AutoSize = true;
-         this.label7.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.label7.Location = new System.Drawing.Point(575, 37);
-         this.label7.Name = "label7";
-         this.label7.Size = new System.Drawing.Size(95, 13);
-         this.label7.TabIndex = 100;
-         this.label7.Text = "تاریخ ثبت مشتری :";
-         // 
          // ExportContact_Butn
          // 
          this.ExportContact_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.ExportContact_Butn.Image = global::System.Scsc.Properties.Resources.ICONS_1045;
+         this.ExportContact_Butn.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.ExportContact_Butn.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
-         this.ExportContact_Butn.Location = new System.Drawing.Point(126, 31);
+         this.ExportContact_Butn.Location = new System.Drawing.Point(152, 29);
          this.ExportContact_Butn.Name = "ExportContact_Butn";
-         this.ExportContact_Butn.Size = new System.Drawing.Size(107, 24);
+         this.ExportContact_Butn.Size = new System.Drawing.Size(97, 24);
          this.ExportContact_Butn.TabIndex = 7;
-         this.ExportContact_Butn.Text = "Export Contact";
-         this.ExportContact_Butn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+         this.ExportContact_Butn.Text = "Export Contacts";
          this.ExportContact_Butn.UseVisualStyleBackColor = true;
          this.ExportContact_Butn.Click += new System.EventHandler(this.ExportContact_Butn_Click);
          // 
@@ -3818,30 +3854,20 @@
          this.GoogleContact_Rb.TabStop = true;
          this.GoogleContact_Rb.Text = "Google";
          this.GoogleContact_Rb.UseVisualStyleBackColor = true;
+         this.GoogleContact_Rb.CheckedChanged += new System.EventHandler(this.TypeContact_Rb_CheckedChanged);
          // 
-         // HotmailContact_Rb
+         // TextFile_Rb
          // 
-         this.HotmailContact_Rb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.HotmailContact_Rb.AutoSize = true;
-         this.HotmailContact_Rb.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.HotmailContact_Rb.Location = new System.Drawing.Point(239, 34);
-         this.HotmailContact_Rb.Name = "HotmailContact_Rb";
-         this.HotmailContact_Rb.Size = new System.Drawing.Size(65, 18);
-         this.HotmailContact_Rb.TabIndex = 6;
-         this.HotmailContact_Rb.Text = "Hotmail";
-         this.HotmailContact_Rb.UseVisualStyleBackColor = true;
-         // 
-         // YahooContact_Rb
-         // 
-         this.YahooContact_Rb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.YahooContact_Rb.AutoSize = true;
-         this.YahooContact_Rb.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.YahooContact_Rb.Location = new System.Drawing.Point(310, 34);
-         this.YahooContact_Rb.Name = "YahooContact_Rb";
-         this.YahooContact_Rb.Size = new System.Drawing.Size(60, 18);
-         this.YahooContact_Rb.TabIndex = 5;
-         this.YahooContact_Rb.Text = "Yahoo";
-         this.YahooContact_Rb.UseVisualStyleBackColor = true;
+         this.TextFile_Rb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.TextFile_Rb.AutoSize = true;
+         this.TextFile_Rb.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.TextFile_Rb.Location = new System.Drawing.Point(319, 34);
+         this.TextFile_Rb.Name = "TextFile_Rb";
+         this.TextFile_Rb.Size = new System.Drawing.Size(51, 18);
+         this.TextFile_Rb.TabIndex = 6;
+         this.TextFile_Rb.Text = "Text";
+         this.TextFile_Rb.UseVisualStyleBackColor = true;
+         this.TextFile_Rb.CheckedChanged += new System.EventHandler(this.TypeContact_Rb_CheckedChanged);
          // 
          // AllMenu_Cmn
          // 
@@ -4895,7 +4921,24 @@
          // ExportFile_Sfd
          // 
          this.ExportFile_Sfd.DefaultExt = "csv";
-         this.ExportFile_Sfd.Filter = "CSV file (*.csv) | *.csv";
+         this.ExportFile_Sfd.Filter = "CSV file (*.csv) | *.csv|Text File (*.txt) | *.txt";
+         // 
+         // ExportLabel_Txt
+         // 
+         this.ExportLabel_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.ExportLabel_Txt.EditValue = "";
+         this.ExportLabel_Txt.Location = new System.Drawing.Point(50, 30);
+         this.ExportLabel_Txt.Name = "ExportLabel_Txt";
+         this.ExportLabel_Txt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.ExportLabel_Txt.Properties.Appearance.Options.UseFont = true;
+         this.ExportLabel_Txt.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+         this.ExportLabel_Txt.Properties.AppearanceFocused.Options.UseBackColor = true;
+         this.ExportLabel_Txt.Properties.Mask.EditMask = "n0";
+         this.ExportLabel_Txt.Properties.Mask.UseMaskAsDisplayFormat = true;
+         this.ExportLabel_Txt.Properties.NullValuePromptShowForEmptyValue = true;
+         this.ExportLabel_Txt.Size = new System.Drawing.Size(100, 22);
+         this.ExportLabel_Txt.TabIndex = 7;
+         this.ExportLabel_Txt.DoubleClick += new System.EventHandler(this.GlobCodeDnrm_Txt_DoubleClick);
          // 
          // LSI_FLDF_F
          // 
@@ -4970,6 +5013,7 @@
          ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
          this.AllMenu_Cmn.ResumeLayout(false);
+         ((System.ComponentModel.ISupportInitialize)(this.ExportLabel_Txt.Properties)).EndInit();
          this.ResumeLayout(false);
 
       }
@@ -5332,14 +5376,10 @@
       private Windows.Forms.Label label6;
       private Windows.Forms.Button Btn_Cbmt1;
       private Atf.UI.DateTimeSelector ServConfDate_Dt;
-      private Windows.Forms.Label label7;
       private Windows.Forms.Button ExportContact_Butn;
       private Windows.Forms.RadioButton GoogleContact_Rb;
-      private Windows.Forms.RadioButton HotmailContact_Rb;
-      private Windows.Forms.RadioButton YahooContact_Rb;
       private Windows.Forms.Button SelectExportContactFile_Butn;
       private Windows.Forms.SaveFileDialog ExportFile_Sfd;
-      private Windows.Forms.TextBox ExportLabel_Txt;
       private DevExpress.XtraEditors.SimpleButton SavePblc_Butn;
       private DevExpress.XtraEditors.SimpleButton ChatHist_Butn;
       private DevExpress.XtraEditors.TextEdit ChatId01_Txt;
@@ -5360,5 +5400,9 @@
       private DevExpress.XtraGrid.Columns.GridColumn gridColumn29;
       private DevExpress.XtraEditors.TextEdit ServNoDnrm01_Txt;
       private Windows.Forms.Label label8;
+      private Windows.Forms.CheckBox ConfDate_Cbx;
+      private Windows.Forms.RadioButton TextFile_Rb;
+      private MaxUi.Spinner ServRecd_Spn;
+      private DevExpress.XtraEditors.TextEdit ExportLabel_Txt;
    }
 }

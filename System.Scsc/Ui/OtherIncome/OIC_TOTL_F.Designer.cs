@@ -574,6 +574,7 @@
          this.treeList1 = new DevExpress.XtraTreeList.TreeList();
          this.RqttBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.DCyclBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
          ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
          this.splitContainer1.Panel1.SuspendLayout();
          this.splitContainer1.Panel2.SuspendLayout();
@@ -826,7 +827,7 @@
          this.splitContainer1.Panel2.Controls.Add(this.Gb_ExpenseItem);
          this.splitContainer1.Panel2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
          this.splitContainer1.Size = new System.Drawing.Size(1202, 629);
-         this.splitContainer1.SplitterDistance = 837;
+         this.splitContainer1.SplitterDistance = 834;
          this.splitContainer1.TabIndex = 0;
          // 
          // Gb_Expense
@@ -845,6 +846,7 @@
          this.Gb_Expense.Controls.Add(this.RcmtType_Butn);
          this.Gb_Expense.Controls.Add(this.UsePos_Cb);
          this.Gb_Expense.Controls.Add(this.PydsType_Butn);
+         this.Gb_Expense.Controls.Add(this.labelControl1);
          this.Gb_Expense.Controls.Add(this.Pymt_Lb);
          this.Gb_Expense.Controls.Add(this.bn_PaymentMethods1);
          this.Gb_Expense.Controls.Add(this.gridControl2);
@@ -869,7 +871,7 @@
          this.Gb_Expense.Controls.Add(this.payment_DetailsGridControl);
          this.Gb_Expense.Location = new System.Drawing.Point(8, 229);
          this.Gb_Expense.Name = "Gb_Expense";
-         this.Gb_Expense.Size = new System.Drawing.Size(826, 390);
+         this.Gb_Expense.Size = new System.Drawing.Size(820, 390);
          this.Gb_Expense.TabIndex = 68;
          this.Gb_Expense.TabStop = false;
          this.Gb_Expense.Text = "اعلام هزینه";
@@ -1219,7 +1221,7 @@
          // Pymt_Lb
          // 
          this.Pymt_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.Pymt_Lb.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.Pymt_Lb.Appearance.Font = new System.Drawing.Font("Tahoma", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.Pymt_Lb.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.Pymt_Lb.LineVisible = true;
          this.Pymt_Lb.Location = new System.Drawing.Point(135, 239);
@@ -1334,7 +1336,6 @@
          this.gridView5.OptionsBehavior.ReadOnly = true;
          this.gridView5.OptionsDetail.EnableMasterViewMode = false;
          this.gridView5.OptionsView.EnableAppearanceEvenRow = true;
-         this.gridView5.OptionsView.ShowFooter = true;
          this.gridView5.OptionsView.ShowGroupPanel = false;
          this.gridView5.OptionsView.ShowIndicator = false;
          // 
@@ -1554,7 +1555,6 @@
          this.gridView4.OptionsBehavior.ReadOnly = true;
          this.gridView4.OptionsDetail.EnableMasterViewMode = false;
          this.gridView4.OptionsView.EnableAppearanceEvenRow = true;
-         this.gridView4.OptionsView.ShowFooter = true;
          this.gridView4.OptionsView.ShowGroupPanel = false;
          this.gridView4.OptionsView.ShowIndicator = false;
          // 
@@ -1841,7 +1841,7 @@
          this.paymentsGridControl.Name = "paymentsGridControl";
          this.paymentsGridControl.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemLookUpEdit5});
-         this.paymentsGridControl.Size = new System.Drawing.Size(429, 61);
+         this.paymentsGridControl.Size = new System.Drawing.Size(429, 41);
          this.paymentsGridControl.TabIndex = 59;
          this.paymentsGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -1882,7 +1882,7 @@
          // 
          // SumExpnPric_Clm
          // 
-         this.SumExpnPric_Clm.AppearanceCell.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+         this.SumExpnPric_Clm.AppearanceCell.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
          this.SumExpnPric_Clm.AppearanceCell.Options.UseBackColor = true;
          this.SumExpnPric_Clm.Caption = "مبلغ کل هزینه";
          this.SumExpnPric_Clm.DisplayFormat.FormatString = "{0:N0}";
@@ -1892,7 +1892,7 @@
          this.SumExpnPric_Clm.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "SUM_EXPN_PRIC", "{0:N0}")});
          this.SumExpnPric_Clm.Visible = true;
-         this.SumExpnPric_Clm.VisibleIndex = 2;
+         this.SumExpnPric_Clm.VisibleIndex = 3;
          this.SumExpnPric_Clm.Width = 83;
          // 
          // SumExpnExtrPrct_Clm
@@ -1904,8 +1904,6 @@
          this.SumExpnExtrPrct_Clm.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
          this.SumExpnExtrPrct_Clm.FieldName = "SUM_EXPN_EXTR_PRCT";
          this.SumExpnExtrPrct_Clm.Name = "SumExpnExtrPrct_Clm";
-         this.SumExpnExtrPrct_Clm.Visible = true;
-         this.SumExpnExtrPrct_Clm.VisibleIndex = 1;
          this.SumExpnExtrPrct_Clm.Width = 118;
          // 
          // colAMNT_UNIT_TYPE_DNRM
@@ -1920,7 +1918,7 @@
          this.colAMNT_UNIT_TYPE_DNRM.OptionsColumn.FixedWidth = true;
          this.colAMNT_UNIT_TYPE_DNRM.OptionsColumn.ReadOnly = true;
          this.colAMNT_UNIT_TYPE_DNRM.Visible = true;
-         this.colAMNT_UNIT_TYPE_DNRM.VisibleIndex = 3;
+         this.colAMNT_UNIT_TYPE_DNRM.VisibleIndex = 4;
          this.colAMNT_UNIT_TYPE_DNRM.Width = 59;
          // 
          // repositoryItemLookUpEdit5
@@ -1961,15 +1959,27 @@
          // 
          // colSUM_RCPT_AMNT
          // 
-         this.colSUM_RCPT_AMNT.Caption = "کل مبلغ دریافتی";
+         this.colSUM_RCPT_AMNT.AppearanceCell.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+         this.colSUM_RCPT_AMNT.AppearanceCell.Options.UseBackColor = true;
+         this.colSUM_RCPT_AMNT.Caption = "دریافتی";
+         this.colSUM_RCPT_AMNT.DisplayFormat.FormatString = "{0:n0}";
+         this.colSUM_RCPT_AMNT.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
          this.colSUM_RCPT_AMNT.FieldName = "SUM_RCPT_EXPN_PRIC";
          this.colSUM_RCPT_AMNT.Name = "colSUM_RCPT_AMNT";
+         this.colSUM_RCPT_AMNT.Visible = true;
+         this.colSUM_RCPT_AMNT.VisibleIndex = 2;
          // 
          // colSUM_PYDS_AMNT
          // 
-         this.colSUM_PYDS_AMNT.Caption = "کل مبلغ تخفیف";
+         this.colSUM_PYDS_AMNT.AppearanceCell.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+         this.colSUM_PYDS_AMNT.AppearanceCell.Options.UseBackColor = true;
+         this.colSUM_PYDS_AMNT.Caption = "تخفیف";
+         this.colSUM_PYDS_AMNT.DisplayFormat.FormatString = "{0:n0}";
+         this.colSUM_PYDS_AMNT.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
          this.colSUM_PYDS_AMNT.FieldName = "SUM_PYMT_DSCN_DNRM";
          this.colSUM_PYDS_AMNT.Name = "colSUM_PYDS_AMNT";
+         this.colSUM_PYDS_AMNT.Visible = true;
+         this.colSUM_PYDS_AMNT.VisibleIndex = 1;
          // 
          // RemoveExpn_Butn
          // 
@@ -2336,7 +2346,6 @@
          this.Pydt_Gv.Name = "Pydt_Gv";
          this.Pydt_Gv.OptionsDetail.EnableMasterViewMode = false;
          this.Pydt_Gv.OptionsSelection.EnableAppearanceFocusedCell = false;
-         this.Pydt_Gv.OptionsView.ShowFooter = true;
          this.Pydt_Gv.OptionsView.ShowGroupPanel = false;
          this.Pydt_Gv.OptionsView.ShowIndicator = false;
          // 
@@ -3307,7 +3316,7 @@
          this.Serv_Gb.Controls.Add(this.DebtAmnt_Lb);
          this.Serv_Gb.Location = new System.Drawing.Point(8, 50);
          this.Serv_Gb.Name = "Serv_Gb";
-         this.Serv_Gb.Size = new System.Drawing.Size(826, 173);
+         this.Serv_Gb.Size = new System.Drawing.Size(820, 173);
          this.Serv_Gb.TabIndex = 66;
          this.Serv_Gb.TabStop = false;
          this.Serv_Gb.Text = "اطلاعات خریدار";
@@ -4473,7 +4482,7 @@
          this.RqstBn1.Name = "RqstBn1";
          this.RqstBn1.PositionItem = this.bindingNavigatorPositionItem;
          this.RqstBn1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-         this.RqstBn1.Size = new System.Drawing.Size(837, 47);
+         this.RqstBn1.Size = new System.Drawing.Size(834, 47);
          this.RqstBn1.TabIndex = 2;
          this.RqstBn1.Text = "bindingNavigator1";
          // 
@@ -4491,7 +4500,7 @@
          // bindingNavigatorCountItem
          // 
          this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-         this.bindingNavigatorCountItem.Size = new System.Drawing.Size(34, 44);
+         this.bindingNavigatorCountItem.Size = new System.Drawing.Size(35, 44);
          this.bindingNavigatorCountItem.Text = "of {0}";
          this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
          // 
@@ -4685,7 +4694,7 @@
          this.Gb_ExpenseItem.Dock = System.Windows.Forms.DockStyle.Fill;
          this.Gb_ExpenseItem.Location = new System.Drawing.Point(0, 0);
          this.Gb_ExpenseItem.Name = "Gb_ExpenseItem";
-         this.Gb_ExpenseItem.Size = new System.Drawing.Size(361, 629);
+         this.Gb_ExpenseItem.Size = new System.Drawing.Size(364, 629);
          this.Gb_ExpenseItem.TabIndex = 4;
          this.Gb_ExpenseItem.TabStop = false;
          this.Gb_ExpenseItem.Text = "کالا و خدمات";
@@ -4701,7 +4710,7 @@
          this.splitContainerControl1.Panel1.Text = "Panel1";
          this.splitContainerControl1.Panel2.Controls.Add(this.splitContainerControl2);
          this.splitContainerControl1.Panel2.Text = "Panel2";
-         this.splitContainerControl1.Size = new System.Drawing.Size(355, 609);
+         this.splitContainerControl1.Size = new System.Drawing.Size(358, 609);
          this.splitContainerControl1.SplitterPosition = 51;
          this.splitContainerControl1.TabIndex = 3;
          this.splitContainerControl1.Text = "splitContainerControl1";
@@ -4712,12 +4721,12 @@
          this.Grop_FLP.Dock = System.Windows.Forms.DockStyle.Fill;
          this.Grop_FLP.Location = new System.Drawing.Point(0, 0);
          this.Grop_FLP.Name = "Grop_FLP";
-         this.Grop_FLP.Size = new System.Drawing.Size(355, 51);
+         this.Grop_FLP.Size = new System.Drawing.Size(358, 51);
          this.Grop_FLP.TabIndex = 2;
          // 
          // button1
          // 
-         this.button1.Location = new System.Drawing.Point(231, 3);
+         this.button1.Location = new System.Drawing.Point(234, 3);
          this.button1.Name = "button1";
          this.button1.Size = new System.Drawing.Size(121, 41);
          this.button1.TabIndex = 0;
@@ -4744,7 +4753,7 @@
          this.splitContainerControl2.Panel2.Controls.Add(this.textEdit6);
          this.splitContainerControl2.Panel2.Controls.Add(this.textEdit7);
          this.splitContainerControl2.Panel2.Text = "Panel2";
-         this.splitContainerControl2.Size = new System.Drawing.Size(355, 553);
+         this.splitContainerControl2.Size = new System.Drawing.Size(358, 553);
          this.splitContainerControl2.SplitterPosition = 668;
          this.splitContainerControl2.TabIndex = 2;
          this.splitContainerControl2.Text = "splitContainerControl2";
@@ -4765,7 +4774,7 @@
             this.repositoryItemLookUpEdit2,
             this.repositoryItemLookUpEdit1,
             this.AddItem_Butn});
-         this.Expn_Gc.Size = new System.Drawing.Size(355, 548);
+         this.Expn_Gc.Size = new System.Drawing.Size(358, 548);
          this.Expn_Gc.TabIndex = 1;
          this.Expn_Gc.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.Expn_Gv});
@@ -5508,6 +5517,20 @@
          // 
          this.DCyclBs1.DataSource = typeof(System.Scsc.Data.D_CYCL);
          // 
+         // labelControl1
+         // 
+         this.labelControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.labelControl1.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+         this.labelControl1.LineVisible = true;
+         this.labelControl1.Location = new System.Drawing.Point(385, 64);
+         this.labelControl1.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
+         this.labelControl1.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.labelControl1.Name = "labelControl1";
+         this.labelControl1.Size = new System.Drawing.Size(429, 17);
+         this.labelControl1.TabIndex = 60;
+         this.labelControl1.Text = "اقلام هزینه فاکتور";
+         // 
          // OIC_TOTL_F
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -6127,5 +6150,6 @@
       private DevExpress.XtraTreeList.TreeList treeList1;
       private DevExpress.XtraEditors.SimpleButton simpleButton3;
       private DevExpress.XtraEditors.CheckEdit PymtVldtType_Cbx;
+      private DevExpress.XtraEditors.LabelControl labelControl1;
    }
 }

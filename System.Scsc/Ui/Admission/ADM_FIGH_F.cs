@@ -148,6 +148,14 @@ namespace System.Scsc.Ui.Admission
                      if (MessageBox.Show(this, "جنسیت مشتری در گروه ثبت نامی قابل قبول نمیباشد، آیا با ثبت مشتری موافق هستید؟ در غیر اینصورت اطلاعات را اصلاح فرمایید", "عدم تطابق جنسیت در گروه ثبت نامی", MessageBoxButtons.YesNo) != DialogResult.Yes) { SEX_TYPE_LookUpEdit.Focus(); return; }
                   }
 
+                  // 1400/06/08 * بررسی اینکه تعداد جلسات به نرخ تعرفه درست انتخاب شده یا خیر
+                  if (!CtgyBs1.List.OfType<Data.Category_Belt>().Any(c => c.CODE == Convert.ToInt64(CtgyCode_Lov.EditValue) && c.NUMB_OF_ATTN_MONT == Convert.ToInt32(NumbOfAttnMont_TextEdit001.Text)) &&
+                     MessageBox.Show(this, "اطلاعات ورودی با اطلاعات آیین نامه مغایرت دارد، آیا نیاز به اصلاح کردن اطلاعات را دارید؟", "مغایرت اطلاعات آیین نامه با اطلاعات ورودی", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                  {
+                     NumbOfAttnMont_TextEdit001.Focus();
+                     return;
+                  }
+
                   if (Rqst == null || Rqst.RQST_STAT == null || Rqst.RQST_STAT == "001")
                      iScsc.ADM_TRQT_F(
                            new XElement("Process",
@@ -536,6 +544,8 @@ namespace System.Scsc.Ui.Admission
 
                NumbOfAttnMont_TextEdit001.EditValue = expn.NUMB_OF_ATTN_MONT ?? 0;               
                NumbMontOfer_TextEdit001.EditValue = expn.NUMB_MONT_OFER ?? 0;
+
+               Btn_RqstRqt1_Click(null, null);
             }
          }
          catch (Exception)
@@ -840,6 +850,66 @@ namespace System.Scsc.Ui.Admission
 
             /* End Request */
             Btn_RqstSav1_Click(null, null);
+         }
+         catch (SqlException se)
+         {
+            MessageBox.Show(se.Message);
+         }
+      }
+
+      private void bn_Card2CardPayment_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            {
+               var rqst = RqstBs1.Current as Data.Request;
+               if (rqst == null) return;
+
+               if (Accept_Cb.Checked)
+               {
+                  var pymt = PymtsBs1.Current as Data.Payment;
+                  if (pymt == null) return;
+
+                  var debtamnt = (pymt.SUM_EXPN_PRIC + pymt.SUM_EXPN_EXTR_PRCT) - (pymt.SUM_RCPT_EXPN_PRIC + pymt.SUM_PYMT_DSCN_DNRM);
+
+                  string mesg = "";
+                  if (debtamnt > 0)
+                  {
+                     mesg =
+                        string.Format(
+                           ">> مبلغ {0} {1} به صورت >> کارت به کارت << در تاریخ {2} در صندوق کاربر {3}  قرار میگیرد",
+                           string.Format("{0:n0}", debtamnt),
+                           DAtypBs1.List.OfType<Data.D_ATYP>().FirstOrDefault(d => d.VALU == pymt.AMNT_UNIT_TYPE_DNRM).DOMN_DESC,
+                           "امروز",
+                           CurrentUser);
+                     mesg += Environment.NewLine;
+                  }
+                  mesg += ">> ذخیره و پایان درخواست";
+
+                  if (MessageBox.Show(this, mesg, "عملیات ثبت نام", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2, MessageBoxOptions.RtlReading) != DialogResult.Yes) return;
+               }
+
+               foreach (Data.Payment pymt in PymtsBs1)
+               {
+                  iScsc.PAY_MSAV_P(
+                     new XElement("Payment",
+                        new XAttribute("actntype", "CheckoutWithCard2Card"),
+                        new XElement("Insert",
+                           new XElement("Payment_Method",
+                              new XAttribute("cashcode", pymt.CASH_CODE),
+                              new XAttribute("rqstrqid", pymt.RQST_RQID)
+                           )
+                        )
+                     )
+                  );
+               }
+
+               /* Loop For Print After Pay */
+               RqstBnPrintAfterPay_Click(null, null);
+
+               /* End Request */
+               Btn_RqstSav1_Click(null, null);
+            }
          }
          catch (SqlException se)
          {

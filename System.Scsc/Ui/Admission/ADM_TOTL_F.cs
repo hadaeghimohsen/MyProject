@@ -827,6 +827,14 @@ namespace System.Scsc.Ui.Admission
                      if (MessageBox.Show(this, "جنسیت مشتری در گروه ثبت نامی قابل قبول نمیباشد، آیا با ثبت مشتری موافق هستید؟ در غیر اینصورت اطلاعات را اصلاح فرمایید", "عدم تطابق جنسیت در گروه ثبت نامی", MessageBoxButtons.YesNo) != DialogResult.Yes) { CbmtCode_Lov.Focus(); return; }
                   }
                }
+
+               // 1400/06/08 * بررسی اینکه تعداد جلسات به نرخ تعرفه درست انتخاب شده یا خیر
+               if (!CtgyBs2.List.OfType<Data.Category_Belt>().Any(c => c.CODE == Convert.ToInt64(CtgyCode_Lov.EditValue) && c.NUMB_OF_ATTN_MONT == Convert.ToInt32(NumbOfAttnMont_TextEdit003.Text)) &&
+                  MessageBox.Show(this, "اطلاعات ورودی با اطلاعات آیین نامه مغایرت دارد، آیا نیاز به اصلاح کردن اطلاعات را دارید؟", "مغایرت اطلاعات آیین نامه با اطلاعات ورودی", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+               {
+                  NumbOfAttnMont_TextEdit003.Focus();
+                  return;
+               }
             }
 
             iScsc.UCC_TRQT_P(
@@ -2120,6 +2128,8 @@ namespace System.Scsc.Ui.Admission
                //EndDate_DateTime003.Value = DateTime.Now.AddDays((double)(expn.NUMB_CYCL_DAY ?? 30));
                NumbOfAttnMont_TextEdit003.EditValue = expn.NUMB_OF_ATTN_MONT ?? 0;
                NumbMontOfer_TextEdit003.EditValue = expn.NUMB_MONT_OFER ?? 0;
+
+               Btn_RqstRqt3_Click(null, null);
             }
          }
          catch (Exception )

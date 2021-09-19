@@ -28,6 +28,7 @@
       /// </summary>
       private void InitializeComponent()
       {
+         this.components = new System.ComponentModel.Container();
          System.Windows.Forms.Label rEGL_YEARLabel;
          System.Windows.Forms.Label rEGL_CODELabel;
          System.Windows.Forms.Label SaleDate_Lb;
@@ -143,7 +144,7 @@
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject38 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject39 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject40 = new DevExpress.Utils.SerializableAppearanceObject();
-         this.Serv_Cms = new System.Windows.Forms.ContextMenuStrip();
+         this.Serv_Cms = new System.Windows.Forms.ContextMenuStrip(this.components);
          this.ServInfo2_Tsmi = new System.Windows.Forms.ToolStripMenuItem();
          this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
          this.ServEdit2_Tsmi = new System.Windows.Forms.ToolStripMenuItem();
@@ -186,7 +187,7 @@
          this.colATTN_TYPE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colATTN_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.Master_Tc = new System.Windows.Forms.TabControl();
-         this.RootMenu_Cms = new System.Windows.Forms.ContextMenuStrip();
+         this.RootMenu_Cms = new System.Windows.Forms.ContextMenuStrip(this.components);
          this.NewListDay_Tsmi = new System.Windows.Forms.ToolStripMenuItem();
          this.ذخیرهکردناطلاعاتلیسنروزانهToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
          this.بستنلیستروزانهToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -206,8 +207,10 @@
          this.splitContainer1 = new System.Windows.Forms.SplitContainer();
          this.InfoParm_Gb = new System.Windows.Forms.GroupBox();
          this.groupBox2 = new System.Windows.Forms.GroupBox();
+         this.Dpnd_Rb = new System.Windows.Forms.RadioButton();
+         this.Indpnd_Rb = new System.Windows.Forms.RadioButton();
          this.ExtpDesk_Lov = new DevExpress.XtraEditors.GridLookUpEdit();
-         this.ExtpDeskBs1 = new System.Windows.Forms.BindingSource();
+         this.ExtpDeskBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.gridView5 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colRQRQ_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colEPIT_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -222,7 +225,7 @@
          this.colRequest_Requester = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colExpense_Item = new DevExpress.XtraGrid.Columns.GridColumn();
          this.ExpnDesk_GridLookUpEdit = new DevExpress.XtraEditors.GridLookUpEdit();
-         this.ExpnDeskBs1 = new System.Windows.Forms.BindingSource();
+         this.ExpnDeskBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colREGL_YEAR1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colREGL_CODE1 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -264,9 +267,9 @@
          this.TablOpen_Lbl = new DevExpress.XtraEditors.LabelControl();
          this.OpenDesk_Butn = new System.Windows.Forms.Button();
          this.Regl_Butn = new System.Windows.Forms.Button();
-         this.AgopBn1 = new System.Windows.Forms.BindingNavigator();
+         this.AgopBn1 = new System.Windows.Forms.BindingNavigator(this.components);
          this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
-         this.AgopBs1 = new System.Windows.Forms.BindingSource();
+         this.AgopBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
          this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
          this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
@@ -282,7 +285,7 @@
          this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
          this.aGOP_DESCTextBox = new System.Windows.Forms.TextBox();
          this.Figh_Lov = new DevExpress.XtraEditors.GridLookUpEdit();
-         this.FighBs = new System.Windows.Forms.BindingSource();
+         this.FighBs = new System.Windows.Forms.BindingSource(this.components);
          this.gridLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.gridColumn15 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.gridColumn19 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -302,10 +305,12 @@
          this.rEGL_YEARTextEdit = new DevExpress.XtraEditors.TextEdit();
          this.rEGL_CODETextEdit = new DevExpress.XtraEditors.TextEdit();
          this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+         this.BackGrnd_Butn = new System.MaxUi.RoundedButton();
+         this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
          this.RecalcDesk_Pgb = new System.Windows.Forms.ProgressBar();
          this.F5Desc_Lb = new DevExpress.XtraEditors.LabelControl();
          this.dateTimeSelector2 = new Atf.UI.DateTimeSelector();
-         this.AodtBs1 = new System.Windows.Forms.BindingSource();
+         this.AodtBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.dateTimeSelector1 = new Atf.UI.DateTimeSelector();
          this.timeEdit2 = new DevExpress.XtraEditors.TimeEdit();
          this.timeEdit1 = new DevExpress.XtraEditors.TimeEdit();
@@ -385,7 +390,7 @@
          this.gridColumn108 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.Txt_CbmtStrtTime = new System.Windows.Forms.MaskedTextBox();
          this.Aodt_Gc = new DevExpress.XtraGrid.GridControl();
-         this.Expn_Cms = new System.Windows.Forms.ContextMenuStrip();
+         this.Expn_Cms = new System.Windows.Forms.ContextMenuStrip(this.components);
          this.هزینههاToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
          this.ServName_Tsmi = new System.Windows.Forms.ToolStripMenuItem();
          this.ServInfo1_Tsmi = new System.Windows.Forms.ToolStripMenuItem();
@@ -559,7 +564,7 @@
          this.repositoryItemTimeEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTimeEdit();
          this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
          this.Pyrt_GridControl = new DevExpress.XtraGrid.GridControl();
-         this.PyrtBs1 = new System.Windows.Forms.BindingSource();
+         this.PyrtBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.gridView3 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colAPDT_AGOP_CODE1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colAPDT_RWNO1 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -567,7 +572,7 @@
          this.Amnt1_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
          this.RcptMtod_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
          this.repositoryItemLookUpEdit3 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-         this.DRcmtBs1 = new System.Windows.Forms.BindingSource();
+         this.DRcmtBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.colACTN_DATE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.persianRepositoryItemDateEdit1 = new dxExample.PersianRepositoryItemDateEdit();
          this.colCRET_BY3 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -584,13 +589,13 @@
          this.UsePos_Cb = new System.Windows.Forms.CheckBox();
          this.PosStng_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.Pos_Lov = new DevExpress.XtraEditors.LookUpEdit();
-         this.VPosBs1 = new System.Windows.Forms.BindingSource();
+         this.VPosBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.PosAmnt_Txt = new DevExpress.XtraEditors.TextEdit();
          this.Cash_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.Pos_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.splitContainerControl2 = new DevExpress.XtraEditors.SplitContainerControl();
          this.Bufe_GridControl = new DevExpress.XtraGrid.GridControl();
-         this.BufeBs1 = new System.Windows.Forms.BindingSource();
+         this.BufeBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colAPDT_AGOP_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colAPDT_RWNO = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -608,8 +613,9 @@
          this.ActnBufeExpn_Butn = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
          this.ExpnPric1_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
          this.panel1 = new System.Windows.Forms.Panel();
+         this.splitContainerControl3 = new DevExpress.XtraEditors.SplitContainerControl();
          this.ExpnBufe_Gc = new DevExpress.XtraGrid.GridControl();
-         this.ExpnBufe_Cms = new System.Windows.Forms.ContextMenuStrip();
+         this.ExpnBufe_Cms = new System.Windows.Forms.ContextMenuStrip(this.components);
          this.ExpnItem3_Tsmi = new System.Windows.Forms.ToolStripMenuItem();
          this.toolStripSeparator14 = new System.Windows.Forms.ToolStripSeparator();
          this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
@@ -636,7 +642,7 @@
          this.toolStripMenuItem36 = new System.Windows.Forms.ToolStripMenuItem();
          this.toolStripMenuItem37 = new System.Windows.Forms.ToolStripMenuItem();
          this.toolStripMenuItem38 = new System.Windows.Forms.ToolStripMenuItem();
-         this.ExpnBufeBs1 = new System.Windows.Forms.BindingSource();
+         this.ExpnBufeBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.advBandedGridView1 = new DevExpress.XtraGrid.Views.BandedGrid.AdvBandedGridView();
          this.GoodList_Clm = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
          this.colREGL_YEAR = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
@@ -663,7 +669,8 @@
          this.AddItem_Butn = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
          this.colEXTR_PRCT = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
          this.bandedGridColumn3 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-         this.AutoRecalc_Tmr = new System.Windows.Forms.Timer();
+         this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+         this.AutoRecalc_Tmr = new System.Windows.Forms.Timer(this.components);
          rEGL_YEARLabel = new System.Windows.Forms.Label();
          rEGL_CODELabel = new System.Windows.Forms.Label();
          SaleDate_Lb = new System.Windows.Forms.Label();
@@ -750,6 +757,8 @@
          ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.ActnBufeExpn_Butn)).BeginInit();
          this.panel1.SuspendLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl3)).BeginInit();
+         this.splitContainerControl3.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.ExpnBufe_Gc)).BeginInit();
          this.ExpnBufe_Cms.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.ExpnBufeBs1)).BeginInit();
@@ -1489,6 +1498,8 @@
          // 
          // groupBox2
          // 
+         this.groupBox2.Controls.Add(this.Dpnd_Rb);
+         this.groupBox2.Controls.Add(this.Indpnd_Rb);
          this.groupBox2.Controls.Add(this.ExtpDesk_Lov);
          this.groupBox2.Controls.Add(this.ExpnDesk_GridLookUpEdit);
          this.groupBox2.Controls.Add(this.TablClosDoCash_Lbl);
@@ -1505,6 +1516,29 @@
          this.groupBox2.TabIndex = 40;
          this.groupBox2.TabStop = false;
          this.groupBox2.Text = "میزها";
+         // 
+         // Dpnd_Rb
+         // 
+         this.Dpnd_Rb.AutoSize = true;
+         this.Dpnd_Rb.Location = new System.Drawing.Point(57, 0);
+         this.Dpnd_Rb.Name = "Dpnd_Rb";
+         this.Dpnd_Rb.Size = new System.Drawing.Size(60, 18);
+         this.Dpnd_Rb.TabIndex = 0;
+         this.Dpnd_Rb.Text = "وابسته";
+         this.Dpnd_Rb.UseVisualStyleBackColor = true;
+         // 
+         // Indpnd_Rb
+         // 
+         this.Indpnd_Rb.AutoSize = true;
+         this.Indpnd_Rb.Checked = true;
+         this.Indpnd_Rb.Location = new System.Drawing.Point(147, 0);
+         this.Indpnd_Rb.Name = "Indpnd_Rb";
+         this.Indpnd_Rb.Size = new System.Drawing.Size(63, 18);
+         this.Indpnd_Rb.TabIndex = 0;
+         this.Indpnd_Rb.TabStop = true;
+         this.Indpnd_Rb.Text = "مستقل";
+         this.Indpnd_Rb.UseVisualStyleBackColor = true;
+         this.Indpnd_Rb.CheckedChanged += new System.EventHandler(this.Indpnd_Rb_CheckedChanged);
          // 
          // ExtpDesk_Lov
          // 
@@ -2589,6 +2623,8 @@
          // 
          // splitContainer2.Panel1
          // 
+         this.splitContainer2.Panel1.Controls.Add(this.BackGrnd_Butn);
+         this.splitContainer2.Panel1.Controls.Add(this.simpleButton1);
          this.splitContainer2.Panel1.Controls.Add(this.RecalcDesk_Pgb);
          this.splitContainer2.Panel1.Controls.Add(this.F5Desc_Lb);
          this.splitContainer2.Panel1.Controls.Add(this.dateTimeSelector2);
@@ -2617,12 +2653,50 @@
          this.splitContainer2.SplitterDistance = 288;
          this.splitContainer2.TabIndex = 1;
          // 
+         // BackGrnd_Butn
+         // 
+         this.BackGrnd_Butn.Active = true;
+         this.BackGrnd_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+         this.BackGrnd_Butn.ButtonStyle = System.MaxUi.RoundedButton.ButtonStyles.Ellipse;
+         this.BackGrnd_Butn.Caption = "";
+         this.BackGrnd_Butn.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold);
+         this.BackGrnd_Butn.GradientStyle = System.MaxUi.RoundedButton.GradientStyles.Vertical;
+         this.BackGrnd_Butn.HoverBorderColor = System.Drawing.Color.Gold;
+         this.BackGrnd_Butn.HoverColorA = System.Drawing.Color.Transparent;
+         this.BackGrnd_Butn.HoverColorB = System.Drawing.Color.Transparent;
+         this.BackGrnd_Butn.ImageProfile = null;
+         this.BackGrnd_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.Normal;
+         this.BackGrnd_Butn.ImageVisiable = false;
+         this.BackGrnd_Butn.Location = new System.Drawing.Point(162, 233);
+         this.BackGrnd_Butn.Name = "BackGrnd_Butn";
+         this.BackGrnd_Butn.NormalBorderColor = System.Drawing.Color.Black;
+         this.BackGrnd_Butn.NormalColorA = System.Drawing.Color.Red;
+         this.BackGrnd_Butn.NormalColorB = System.Drawing.Color.Red;
+         this.BackGrnd_Butn.Size = new System.Drawing.Size(23, 23);
+         this.BackGrnd_Butn.SmoothingQuality = System.MaxUi.RoundedButton.SmoothingQualities.AntiAlias;
+         this.BackGrnd_Butn.TabIndex = 81;
+         this.BackGrnd_Butn.Tooltip = null;
+         this.BackGrnd_Butn.Click += new System.EventHandler(this.AutoRecalc_Tsmi_Click);
+         // 
+         // simpleButton1
+         // 
+         this.simpleButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+         this.simpleButton1.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.Image")));
+         this.simpleButton1.Location = new System.Drawing.Point(8, 233);
+         this.simpleButton1.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
+         this.simpleButton1.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.simpleButton1.Name = "simpleButton1";
+         this.simpleButton1.Size = new System.Drawing.Size(148, 23);
+         this.simpleButton1.TabIndex = 80;
+         this.simpleButton1.Text = "محاسبه مجدد تمام میزها";
+         this.simpleButton1.Click += new System.EventHandler(this.RecalcDesks_Tsmi_Click);
+         // 
          // RecalcDesk_Pgb
          // 
          this.RecalcDesk_Pgb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-         this.RecalcDesk_Pgb.Location = new System.Drawing.Point(8, 242);
+         this.RecalcDesk_Pgb.Location = new System.Drawing.Point(191, 233);
          this.RecalcDesk_Pgb.Name = "RecalcDesk_Pgb";
-         this.RecalcDesk_Pgb.Size = new System.Drawing.Size(66, 14);
+         this.RecalcDesk_Pgb.Size = new System.Drawing.Size(66, 22);
          this.RecalcDesk_Pgb.TabIndex = 79;
          this.RecalcDesk_Pgb.Visible = false;
          // 
@@ -4013,7 +4087,7 @@
          this.Rwno_Clm.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Count)});
          this.Rwno_Clm.Visible = true;
-         this.Rwno_Clm.VisibleIndex = 17;
+         this.Rwno_Clm.VisibleIndex = 13;
          this.Rwno_Clm.Width = 41;
          // 
          // FileNo_Clm
@@ -4025,7 +4099,7 @@
          this.FileNo_Clm.OptionsColumn.AllowEdit = false;
          this.FileNo_Clm.OptionsColumn.ReadOnly = true;
          this.FileNo_Clm.Visible = true;
-         this.FileNo_Clm.VisibleIndex = 14;
+         this.FileNo_Clm.VisibleIndex = 10;
          this.FileNo_Clm.Width = 65;
          // 
          // repositoryItemGridLookUpEdit1
@@ -4510,7 +4584,7 @@
          this.ExpnCode_Clm.OptionsColumn.AllowEdit = false;
          this.ExpnCode_Clm.OptionsColumn.ReadOnly = true;
          this.ExpnCode_Clm.Visible = true;
-         this.ExpnCode_Clm.VisibleIndex = 15;
+         this.ExpnCode_Clm.VisibleIndex = 11;
          this.ExpnCode_Clm.Width = 90;
          // 
          // colMIN_MINT_STEP
@@ -4668,8 +4742,6 @@
          this.CustName_Clm.Caption = "نام مشتری";
          this.CustName_Clm.FieldName = "CUST_NAME";
          this.CustName_Clm.Name = "CustName_Clm";
-         this.CustName_Clm.Visible = true;
-         this.CustName_Clm.VisibleIndex = 11;
          this.CustName_Clm.Width = 83;
          // 
          // CellPhon_Clm
@@ -4679,8 +4751,6 @@
          this.CellPhon_Clm.Caption = "شماره همراه";
          this.CellPhon_Clm.FieldName = "CELL_PHON";
          this.CellPhon_Clm.Name = "CellPhon_Clm";
-         this.CellPhon_Clm.Visible = true;
-         this.CellPhon_Clm.VisibleIndex = 10;
          this.CellPhon_Clm.Width = 78;
          // 
          // CashAmnt_Clm
@@ -4741,8 +4811,6 @@
          this.Num_Clm.ImageAlignment = System.Drawing.StringAlignment.Far;
          this.Num_Clm.Name = "Num_Clm";
          this.Num_Clm.OptionsColumn.FixedWidth = true;
-         this.Num_Clm.Visible = true;
-         this.Num_Clm.VisibleIndex = 13;
          this.Num_Clm.Width = 55;
          // 
          // colAODT_DESC
@@ -4750,8 +4818,6 @@
          this.colAODT_DESC.Caption = "شرح";
          this.colAODT_DESC.FieldName = "AODT_DESC";
          this.colAODT_DESC.Name = "colAODT_DESC";
-         this.colAODT_DESC.Visible = true;
-         this.colAODT_DESC.VisibleIndex = 12;
          this.colAODT_DESC.Width = 71;
          // 
          // colPYDS_AMNT
@@ -4788,7 +4854,7 @@
          this.colEpitDesc.OptionsColumn.AllowEdit = false;
          this.colEpitDesc.OptionsColumn.ReadOnly = true;
          this.colEpitDesc.Visible = true;
-         this.colEpitDesc.VisibleIndex = 16;
+         this.colEpitDesc.VisibleIndex = 12;
          // 
          // ExpnDesk_LOV
          // 
@@ -5223,7 +5289,7 @@
          this.splitContainerControl2.Panel1.Controls.Add(this.Bufe_GridControl);
          this.splitContainerControl2.Panel1.Controls.Add(this.panel1);
          this.splitContainerControl2.Panel1.Text = "Panel1";
-         this.splitContainerControl2.Panel2.Controls.Add(this.ExpnBufe_Gc);
+         this.splitContainerControl2.Panel2.Controls.Add(this.splitContainerControl3);
          this.splitContainerControl2.Panel2.Text = "Panel2";
          this.splitContainerControl2.Size = new System.Drawing.Size(1026, 275);
          this.splitContainerControl2.SplitterPosition = 294;
@@ -5398,6 +5464,20 @@
          this.panel1.Size = new System.Drawing.Size(294, 52);
          this.panel1.TabIndex = 71;
          // 
+         // splitContainerControl3
+         // 
+         this.splitContainerControl3.Dock = System.Windows.Forms.DockStyle.Fill;
+         this.splitContainerControl3.Location = new System.Drawing.Point(0, 0);
+         this.splitContainerControl3.Name = "splitContainerControl3";
+         this.splitContainerControl3.Panel1.Controls.Add(this.ExpnBufe_Gc);
+         this.splitContainerControl3.Panel1.Text = "Panel1";
+         this.splitContainerControl3.Panel2.Controls.Add(this.flowLayoutPanel1);
+         this.splitContainerControl3.Panel2.Text = "Panel2";
+         this.splitContainerControl3.Size = new System.Drawing.Size(727, 275);
+         this.splitContainerControl3.SplitterPosition = 529;
+         this.splitContainerControl3.TabIndex = 36;
+         this.splitContainerControl3.Text = "splitContainerControl3";
+         // 
          // ExpnBufe_Gc
          // 
          this.ExpnBufe_Gc.ContextMenuStrip = this.ExpnBufe_Cms;
@@ -5411,7 +5491,7 @@
          this.ExpnBufe_Gc.Name = "ExpnBufe_Gc";
          this.ExpnBufe_Gc.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.AddItem_Butn});
-         this.ExpnBufe_Gc.Size = new System.Drawing.Size(727, 275);
+         this.ExpnBufe_Gc.Size = new System.Drawing.Size(529, 275);
          this.ExpnBufe_Gc.TabIndex = 35;
          this.ExpnBufe_Gc.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.advBandedGridView1});
@@ -5878,6 +5958,14 @@
          this.bandedGridColumn3.RowIndex = 1;
          this.bandedGridColumn3.Width = 82;
          // 
+         // flowLayoutPanel1
+         // 
+         this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+         this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+         this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+         this.flowLayoutPanel1.Size = new System.Drawing.Size(193, 275);
+         this.flowLayoutPanel1.TabIndex = 0;
+         // 
          // AutoRecalc_Tmr
          // 
          this.AutoRecalc_Tmr.Interval = 60000;
@@ -5972,6 +6060,8 @@
          ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.ActnBufeExpn_Butn)).EndInit();
          this.panel1.ResumeLayout(false);
+         ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl3)).EndInit();
+         this.splitContainerControl3.ResumeLayout(false);
          ((System.ComponentModel.ISupportInitialize)(this.ExpnBufe_Gc)).EndInit();
          this.ExpnBufe_Cms.ResumeLayout(false);
          this.ExpnBufe_Cms.PerformLayout();
@@ -6505,5 +6595,11 @@
       private DevExpress.XtraGrid.Columns.GridColumn colRequest_Requester;
       private DevExpress.XtraGrid.Columns.GridColumn colExpense_Item;
       private DevExpress.XtraGrid.Columns.GridColumn colEpitDesc;
+      private DevExpress.XtraEditors.SplitContainerControl splitContainerControl3;
+      private Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+      private Windows.Forms.RadioButton Dpnd_Rb;
+      private Windows.Forms.RadioButton Indpnd_Rb;
+      private DevExpress.XtraEditors.SimpleButton simpleButton1;
+      private MaxUi.RoundedButton BackGrnd_Butn;
    }
 }

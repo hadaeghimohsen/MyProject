@@ -226,6 +226,13 @@ namespace System.Scsc.Ui.ReportManager
                      s.STIS_DATE.Value.Date <= ToDate9_Date.Value.Value.Date &&
                      s.STIS_STAT == "002"
                   );
+
+               RqroBs.DataSource = 
+                  iScsc.Request_Rows
+                  .Where(rr => 
+                     rr.Request.RQST_STAT != "003" && 
+                     rr.CRET_DATE.Value.Date >= FromDate9_Date.Value.Value.Date &&
+                     rr.CRET_DATE.Value.Date <= ToDate9_Date.Value.Value.Date);
             }
          }
          catch { }
@@ -855,7 +862,7 @@ namespace System.Scsc.Ui.ReportManager
       {
          try
          {
-            if (e.NewValue == null || e.NewValue == "") return;
+            if (e.NewValue == null || e.NewValue.ToString() == "") return;
             cochfileno = (long?)e.NewValue;
          }
          catch { cochfileno = null; }
@@ -942,6 +949,63 @@ namespace System.Scsc.Ui.ReportManager
       {
          RemvStis_Butn_Click(null, null);
          CretStis_Butn_Click(null, null);
+      }
+
+      private void StisBs_CurrentChanged(object sender, EventArgs e)
+      {
+         var stis = StisBs.Current as Data.Statistic;
+
+         Stsd1Bs.DataSource = iScsc.Statistic_Details.Where(sd => sd.Statistic == stis && sd.RECT_TYPE == "001");
+         Stsd2Bs.DataSource = iScsc.Statistic_Details.Where(sd => sd.Statistic == stis && sd.RECT_TYPE == "002");         
+      }
+
+      private void Rqst_Butn_ButtonClick(object sender, ButtonPressedEventArgs e)
+      {
+         try
+         {
+            var rqro = RqroBs.Current as Data.Request_Row;
+            if (rqro == null) return;
+
+            switch (e.Button.Index)
+            {
+               case 0:
+                  _DefaultGateway.Gateway(
+                     new Job(SendType.External, "localhost", "", 46, SendType.Self) { Input = new XElement("Fighter", new XAttribute("fileno", rqro.FIGH_FILE_NO)) }
+                  );
+                  break;
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void RqroBs_CurrentChanged(object sender, EventArgs e)
+      {
+         try
+         {
+            var rqro = RqroBs.Current as Data.Request_Row;
+            if (rqro == null) return;
+
+            switch (rqro.RQTP_CODE)
+            {
+               case "001":
+                  RqstInfo_Lb.Text =
+                     string.Format(
+                        "ثبت نام جدید مشتری برای" + " {0} " + ""
+                        ,
+                        rqro.Fighter.NAME_DNRM
+                     );
+                  break;
+               default:
+                  break;
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
       }
    }
 }

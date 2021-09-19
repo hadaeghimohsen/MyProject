@@ -75,6 +75,7 @@ namespace System.Scsc.Ui.MessageBroadcast
          MsgbBs37.DataSource = iScsc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "037");
          MsgbBs38.DataSource = iScsc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "038");
          MsgbBs39.DataSource = iScsc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "039");
+         MsgbBs40.DataSource = iScsc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "040");
 
          requery = false;
       }
@@ -201,6 +202,9 @@ namespace System.Scsc.Ui.MessageBroadcast
                break;
             case "Msgb_Text039":
                Msg_Count_Char039_Txt.Text = obj.Text.Length.ToString();
+               break;
+            case "Msgb_Text040":
+               Msg_Count_Char040_Txt.Text = obj.Text.Length.ToString();
                break;
 
             default:

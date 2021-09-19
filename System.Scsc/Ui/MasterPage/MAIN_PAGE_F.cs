@@ -521,33 +521,34 @@ namespace System.Scsc.Ui.MasterPage
                _readersDevice = iScsc.External_Devices.Where(d => d.DEV_COMP_TYPE == "002" && d.DEV_TYPE == "001" && d.DEV_CON == "002" && _listIPHost.Contains(d.SERV_IP_ADRS) && d.STAT == "002");
             if (_readersDevice != null && _readersDevice.Any())
             {
-               var enddate = Convert.ToDateTime(xinput.Attribute("enddate").Value);
-               var numbattnmont = Convert.ToInt32(xinput.Attribute("numbattnmont").Value);
-               var sumattnmont = Convert.ToInt32(xinput.Attribute("sumattnmont").Value);
-               var debt = Convert.ToInt64(xinput.Attribute("debt").Value);
-               var fngrprnt = xinput.Attribute("fngrprnt").Value;
+               //var enddate = Convert.ToDateTime(xinput.Attribute("enddate").Value);
+               //var numbattnmont = Convert.ToInt32(xinput.Attribute("numbattnmont").Value);
+               //var sumattnmont = Convert.ToInt32(xinput.Attribute("sumattnmont").Value);
+               //var debt = Convert.ToInt64(xinput.Attribute("debt").Value);
+               //var fngrprnt = xinput.Attribute("fngrprnt").Value;
 
                _readersDevice.ToList()
                   .ForEach(r =>
                      {
-                        var pc = new PersianCalendar();
-                        if(numbattnmont != 0)
-                        {
-                           SendCommandDevExpn("in:" + 
-                              string.Format("{0}/{1}/{2}-{3}&{4:n0}", /*pc.GetYear(enddate)*/ 99, pc.GetMonth(enddate).ToString().PadLeft(2, '0'), pc.GetDayOfMonth(enddate).ToString().PadLeft(2, '0'), sumattnmont.ToString().PadLeft(3, ' '), debt.ToString().PadLeft(16, ' ')), r.DEV_NAME, fngrprnt
-                           );
-                        }
-                        else
-                        {
-                           SendCommandDevExpn("in:" +
-                              string.Format("{0}/{1}/{2}-   &{3:n0}", /*pc.GetYear(enddate)*/ 99, pc.GetMonth(enddate).ToString().PadLeft(2, '0'), pc.GetDayOfMonth(enddate).ToString().PadLeft(2, '0'), debt.ToString().PadLeft(16, ' ')), r.DEV_NAME, fngrprnt
-                           );
-                        }
+                        SendCommandDevExpn("in", r.DEV_NAME, "");
+                        //var pc = new PersianCalendar();
+                        //if(numbattnmont != 0)
+                        //{
+                        //   SendCommandDevExpn("in:" + 
+                        //      string.Format("{0}/{1}/{2}-{3}&{4:n0}", /*pc.GetYear(enddate)*/ 99, pc.GetMonth(enddate).ToString().PadLeft(2, '0'), pc.GetDayOfMonth(enddate).ToString().PadLeft(2, '0'), sumattnmont.ToString().PadLeft(3, ' '), debt.ToString().PadLeft(16, ' ')), r.DEV_NAME, fngrprnt
+                        //   );
+                        //}
+                        //else
+                        //{
+                        //   SendCommandDevExpn("in:" +
+                        //      string.Format("{0}/{1}/{2}-   &{3:n0}", /*pc.GetYear(enddate)*/ 99, pc.GetMonth(enddate).ToString().PadLeft(2, '0'), pc.GetDayOfMonth(enddate).ToString().PadLeft(2, '0'), debt.ToString().PadLeft(16, ' ')), r.DEV_NAME, fngrprnt
+                        //   );
+                        //}
 
-                        SendCommandDevExpn(
-                           "df:" + "WellCome".PadLeft(13, ' ') + 
-                           "&" + "Genetic Gym".PadLeft(16, ' '), r.DEV_NAME, ""
-                        );
+                        //SendCommandDevExpn(
+                        //   "df:" + "WellCome".PadLeft(13, ' ') + 
+                        //   "&" + "Genetic Gym".PadLeft(16, ' '), r.DEV_NAME, ""
+                        //);
                      }
                   );               
             }
@@ -675,33 +676,34 @@ namespace System.Scsc.Ui.MasterPage
                _readersDevice = iScsc.External_Devices.Where(d => d.DEV_COMP_TYPE == "002" && d.DEV_TYPE == "001" && d.DEV_CON == "002"  && _listIPHost.Contains(d.SERV_IP_ADRS) && d.STAT == "002");
             if (_readersDevice != null && _readersDevice.Any())
             {
-               var enddate = Convert.ToDateTime(xinput.Attribute("enddate").Value);
-               var numbattnmont = Convert.ToInt32(xinput.Attribute("numbattnmont").Value);
-               var sumattnmont = Convert.ToInt32(xinput.Attribute("sumattnmont").Value);
-               var debt = Convert.ToInt64(xinput.Attribute("debt").Value);
-               var fngrprnt = xinput.Attribute("fngrprnt").Value;
+               //var enddate = Convert.ToDateTime(xinput.Attribute("enddate").Value);
+               //var numbattnmont = Convert.ToInt32(xinput.Attribute("numbattnmont").Value);
+               //var sumattnmont = Convert.ToInt32(xinput.Attribute("sumattnmont").Value);
+               //var debt = Convert.ToInt64(xinput.Attribute("debt").Value);
+               //var fngrprnt = xinput.Attribute("fngrprnt").Value;
 
                _readersDevice.ToList()
                   .ForEach(r =>
                   {
-                     var pc = new PersianCalendar();
-                     if (numbattnmont != 0)
-                     {
-                        SendCommandDevExpn("ot:" +
-                           string.Format("{0}/{1}/{2}-{3}&{4:n0}", /*pc.GetYear(enddate)*/ 99, pc.GetMonth(enddate).ToString().PadLeft(2, '0'), pc.GetDayOfMonth(enddate).ToString().PadLeft(2, '0'), sumattnmont.ToString().PadLeft(3, ' '), debt.ToString().PadLeft(16, ' ')), r.DEV_NAME, fngrprnt
-                        );
-                     }
-                     else
-                     {
-                        SendCommandDevExpn("ot:" +
-                           string.Format("{0}/{1}/{2}-   &{3:n0}", /*pc.GetYear(enddate)*/ 99, pc.GetMonth(enddate).ToString().PadLeft(2, '0'), pc.GetDayOfMonth(enddate).ToString().PadLeft(2, '0'), debt.ToString().PadLeft(16, ' ')), r.DEV_NAME, fngrprnt
-                        );
-                     }
+                     SendCommandDevExpn("out", r.DEV_NAME, "");
+                     //var pc = new PersianCalendar();
+                     //if (numbattnmont != 0)
+                     //{
+                     //   SendCommandDevExpn("ot:" +
+                     //      string.Format("{0}/{1}/{2}-{3}&{4:n0}", /*pc.GetYear(enddate)*/ 99, pc.GetMonth(enddate).ToString().PadLeft(2, '0'), pc.GetDayOfMonth(enddate).ToString().PadLeft(2, '0'), sumattnmont.ToString().PadLeft(3, ' '), debt.ToString().PadLeft(16, ' ')), r.DEV_NAME, fngrprnt
+                     //   );
+                     //}
+                     //else
+                     //{
+                     //   SendCommandDevExpn("ot:" +
+                     //      string.Format("{0}/{1}/{2}-   &{3:n0}", /*pc.GetYear(enddate)*/ 99, pc.GetMonth(enddate).ToString().PadLeft(2, '0'), pc.GetDayOfMonth(enddate).ToString().PadLeft(2, '0'), debt.ToString().PadLeft(16, ' ')), r.DEV_NAME, fngrprnt
+                     //   );
+                     //}
 
-                     SendCommandDevExpn(
-                        "df:" + "WellCome".PadLeft(13, ' ') +
-                        "&" + "Genetic Gym".PadLeft(16, ' '), r.DEV_NAME, ""
-                     );
+                     //SendCommandDevExpn(
+                     //   "df:" + "WellCome".PadLeft(13, ' ') +
+                     //   "&" + "Genetic Gym".PadLeft(16, ' '), r.DEV_NAME, ""
+                     //);
                   }
                   );
             }
@@ -829,10 +831,10 @@ namespace System.Scsc.Ui.MasterPage
                   {                     
                      SendCommandDevExpn("er" , r.DEV_NAME, FngrPrnt_Txt.Text);
 
-                     SendCommandDevExpn(
-                        "df:" + "WellCome".PadLeft(13, ' ') +
-                        "&" + "Genetic Gym".PadLeft(16, ' '), r.DEV_NAME, ""
-                     );
+                     //SendCommandDevExpn(
+                     //   "df:" + "WellCome".PadLeft(13, ' ') +
+                     //   "&" + "Genetic Gym".PadLeft(16, ' '), r.DEV_NAME, ""
+                     //);
                   }
                   );
             }
@@ -1122,7 +1124,7 @@ namespace System.Scsc.Ui.MasterPage
          {
             BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.YellowGreen;
             
-            var devInfo = iScsc.External_Devices.FirstOrDefault(d => d.DEV_NAME == devName);
+            var devInfo = iScsc.External_Devices.FirstOrDefault(d => d.DEV_NAME == devName && d.STAT == "002");
             //var Serv = iScsc.Fighters.FirstOrDefault(s => s.FNGR_PRNT_DNRM == enrollNumber);
 
             //if (InvokeRequired)

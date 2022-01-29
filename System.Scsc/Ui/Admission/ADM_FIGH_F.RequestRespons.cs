@@ -774,7 +774,6 @@ namespace System.Scsc.Ui.Admission
                      )
                   )
                );
-
             
                /* Loop For Print After Pay */
                RqstBnPrintAfterPay_Click(null, null);

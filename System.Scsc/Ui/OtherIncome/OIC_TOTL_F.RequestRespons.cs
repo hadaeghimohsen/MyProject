@@ -582,34 +582,64 @@ namespace System.Scsc.Ui.OtherIncome
             if (regl.AMNT_TYPE == "002")
                amnt /= 10;
 
-            iScsc.PAY_MSAV_P(
-               new XElement("Payment",
-                  new XAttribute("actntype", "CheckoutWithPOS"),
-                  new XElement("Insert",
-                     new XElement("Payment_Method",
-                        new XAttribute("cashcode", cashcode),
-                        new XAttribute("rqstrqid", rqid),
-                        new XAttribute("amnt", amnt),
-                        new XAttribute("termno", termno),
-                        new XAttribute("tranno", tranno),
-                        new XAttribute("cardno", cardno),
-                        new XAttribute("flowno", flowno),
-                        new XAttribute("refno", refno),
-                        new XAttribute("actndate", actndate),
-                        new XAttribute("valdtype", PymtVldtType_Cbx.Checked ? "002" : "001")
+            // این گزینه برای حالتی می باشد که کل مبلغ پرداخت به صورت کامل روی دستگاه پایانه فروش قرار میگیرد
+            if (UsePos_Cb.Checked)
+            {
+               iScsc.PAY_MSAV_P(
+                  new XElement("Payment",
+                     new XAttribute("actntype", "CheckoutWithPOS"),
+                     new XElement("Insert",
+                        new XElement("Payment_Method",
+                           new XAttribute("cashcode", cashcode),
+                           new XAttribute("rqstrqid", rqid),
+                           new XAttribute("amnt", amnt),
+                           new XAttribute("termno", termno),
+                           new XAttribute("tranno", tranno),
+                           new XAttribute("cardno", cardno),
+                           new XAttribute("flowno", flowno),
+                           new XAttribute("refno", refno),
+                           new XAttribute("actndate", actndate),
+                           new XAttribute("valdtype", PymtVldtType_Cbx.Checked ? "002" : "001")
+                        )
                      )
                   )
-               )
-            );
+               );
 
-            // 1399/12/09 * بعد از اینکه مبلغ دریافتی درون سیستم ثبت شد گزینه به حالت فعال درآید
-            PymtVldtType_Cbx.Checked = true;
+               // 1399/12/09 * بعد از اینکه مبلغ دریافتی درون سیستم ثبت شد گزینه به حالت فعال درآید
+               PymtVldtType_Cbx.Checked = true;
 
-            /* Loop For Print After Pay */
-            RqstBnPrintAfterPay_Click(null, null);
+               /* Loop For Print After Pay */
+               RqstBnPrintAfterPay_Click(null, null);
 
-            /* End Request */
-            Btn_RqstBnASav1_Click(null, null);
+               /* End Request */
+               Btn_RqstBnASav1_Click(null, null);
+            }
+            // این گزینه برای پرداختی پایانه ای هست که به صورت کامل پرداخت نمی شود
+            else
+            {
+               iScsc.PAY_MSAV_P(
+                  new XElement("Payment",
+                     new XAttribute("actntype", "InsertUpdate"),
+                     new XElement("Insert",
+                        new XElement("Payment_Method",
+                           new XAttribute("cashcode", cashcode),
+                           new XAttribute("rqstrqid", rqid),
+                           new XAttribute("amnt", amnt),
+                           new XAttribute("termno", termno),
+                           new XAttribute("tranno", tranno),
+                           new XAttribute("cardno", cardno),
+                           new XAttribute("flowno", flowno),
+                           new XAttribute("refno", refno),
+                           new XAttribute("actndate", actndate),
+                           new XAttribute("valdtype", PymtVldtType_Cbx.Checked ? "002" : "001")
+                        )
+                     )
+                  )
+               );
+
+               // 1399/12/09 * بعد از اینکه مبلغ دریافتی درون سیستم ثبت شد گزینه به حالت فعال درآید
+               PymtVldtType_Cbx.Checked = true;
+            }
          }
          catch (Exception exc)
          {

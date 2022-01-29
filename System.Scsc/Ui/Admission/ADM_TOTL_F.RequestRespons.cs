@@ -680,31 +680,57 @@ namespace System.Scsc.Ui.Admission
          if (regl.AMNT_TYPE == "002")
             amnt /= 10;
 
-         iScsc.PAY_MSAV_P(
-            new XElement("Payment",
-               new XAttribute("actntype", "CheckoutWithPOS"),
-               new XElement("Insert",
-                  new XElement("Payment_Method",
-                     new XAttribute("cashcode", cashcode),
-                     new XAttribute("rqstrqid", rqid),
-                     new XAttribute("amnt", amnt),
-                     new XAttribute("termno", termno),
-                     new XAttribute("tranno", tranno),
-                     new XAttribute("cardno", cardno),
-                     new XAttribute("flowno", flowno),
-                     new XAttribute("refno", refno),
-                     new XAttribute("actndate", actndate)
+         // این گزینه برای حالتی می باشد که کل مبلغ پرداخت به صورت کامل روی دستگاه پایانه فروش قرار میگیرد
+         if (UsePos_Cb.Checked)
+         {
+            iScsc.PAY_MSAV_P(
+               new XElement("Payment",
+                  new XAttribute("actntype", "CheckoutWithPOS"),
+                  new XElement("Insert",
+                     new XElement("Payment_Method",
+                        new XAttribute("cashcode", cashcode),
+                        new XAttribute("rqstrqid", rqid),
+                        new XAttribute("amnt", amnt),
+                        new XAttribute("termno", termno),
+                        new XAttribute("tranno", tranno),
+                        new XAttribute("cardno", cardno),
+                        new XAttribute("flowno", flowno),
+                        new XAttribute("refno", refno),
+                        new XAttribute("actndate", actndate)
+                     )
                   )
                )
-            )
-         );
+            );
 
-         /* Loop For Print After Pay */
-         RqstBnPrintAfterPay_Click(null, null);
+            /* Loop For Print After Pay */
+            RqstBnPrintAfterPay_Click(null, null);
 
-         /* End Request */
-         Btn_RqstSav3_Click(null, null);
-
+            /* End Request */
+            Btn_RqstSav3_Click(null, null);
+         }
+         // این گزینه برای پرداختی پایانه ای هست که به صورت کامل پرداخت نمی شود
+         else
+         {
+            iScsc.PAY_MSAV_P(
+               new XElement("Payment",
+                  new XAttribute("actntype", "InsertUpdate"),
+                  new XElement("Insert",
+                     new XElement("Payment_Method",
+                        new XAttribute("cashcode", cashcode),
+                        new XAttribute("rqstrqid", rqid),
+                        new XAttribute("rcptmtod", "003"),
+                        new XAttribute("amnt", amnt),
+                        new XAttribute("termno", termno),
+                        new XAttribute("tranno", tranno),
+                        new XAttribute("cardno", cardno),
+                        new XAttribute("flowno", flowno),
+                        new XAttribute("refno", refno),
+                        new XAttribute("actndate", actndate)
+                     )
+                  )
+               )
+            );
+         }
          job.Status = StatusType.Successful;
       }
    }

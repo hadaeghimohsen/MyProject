@@ -14,6 +14,7 @@ namespace System.Setup.Ui.LTR.License
    partial class CHK_TINY_F : ISendRequest
    {
       public IRouter _DefaultGateway { get; set; }
+      private string CPU, HDD;
      
 
       public void SendRequest(Job job)
@@ -144,6 +145,17 @@ namespace System.Setup.Ui.LTR.License
       /// <param name="job"></param>
       private void LoadData(Job job)
       {
+         // CPU Serial No
+         _DefaultGateway.Gateway(
+            new Job(SendType.External, "localhost", "Commons:Program:DataGuard", 12 /* Execute CpuSerialNo*/, SendType.Self) { AfterChangedOutput = (output) => { CPU = (string)output; } }
+         );
+
+         // HDD Serial No
+         _DefaultGateway.Gateway(
+            new Job(SendType.External, "localhost", "Commons:Program:DataGuard", 13 /* Execute HDDSerialNo*/, SendType.Self) { AfterChangedOutput = (output) => { HDD = (string)output; } }
+         );
+
+         QrCode_Qb.Text = PblcKey_Txt.Text = StringCipher.Encrypt(string.Format("{0}:{1}", CPU, HDD), "NIAZ100KW4030");
          job.Status = StatusType.Successful;
       }
 

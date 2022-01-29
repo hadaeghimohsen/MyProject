@@ -32,6 +32,16 @@
          System.Windows.Forms.Label label14;
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ADM_FIGH_F));
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem1 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.ToolTipItem toolTipItem1 = new DevExpress.Utils.ToolTipItem();
+         DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem1 = new DevExpress.Utils.ToolTipSeparatorItem();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem2 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.SuperToolTip superToolTip2 = new DevExpress.Utils.SuperToolTip();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem3 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.ToolTipItem toolTipItem2 = new DevExpress.Utils.ToolTipItem();
+         DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem2 = new DevExpress.Utils.ToolTipSeparatorItem();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem4 = new DevExpress.Utils.ToolTipTitleItem();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SuperToolTip superToolTip3 = new DevExpress.Utils.SuperToolTip();
          DevExpress.Utils.ToolTipTitleItem toolTipTitleItem5 = new DevExpress.Utils.ToolTipTitleItem();
@@ -61,16 +71,6 @@
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition1 = new DevExpress.XtraGrid.StyleFormatCondition();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject13 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject14 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.Utils.SuperToolTip superToolTip2 = new DevExpress.Utils.SuperToolTip();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem3 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.ToolTipItem toolTipItem2 = new DevExpress.Utils.ToolTipItem();
-         DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem2 = new DevExpress.Utils.ToolTipSeparatorItem();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem4 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem1 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.ToolTipItem toolTipItem1 = new DevExpress.Utils.ToolTipItem();
-         DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem1 = new DevExpress.Utils.ToolTipSeparatorItem();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem2 = new DevExpress.Utils.ToolTipTitleItem();
          this.colDFLT_STAT = new DevExpress.XtraGrid.Columns.GridColumn();
          this.StrtDate_Lb = new System.Windows.Forms.Label();
          this.CbmtCode_Lb = new System.Windows.Forms.Label();
@@ -231,6 +231,9 @@
          this.textEdit14 = new DevExpress.XtraEditors.TextEdit();
          this.dateTimeSelector6 = new Atf.UI.DateTimeSelector();
          this.Gb_Expense = new System.Windows.Forms.GroupBox();
+         this.bn_DpstPayment3 = new DevExpress.XtraEditors.SimpleButton();
+         this.label3 = new System.Windows.Forms.Label();
+         this.bn_Card2CardPayment3 = new DevExpress.XtraEditors.SimpleButton();
          this.bn_PaymentMethods1 = new System.MaxUi.NewMaxBtn();
          this.RcmtType_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.PydsType_Butn = new DevExpress.XtraEditors.SimpleButton();
@@ -442,9 +445,6 @@
          this.QWkdy003_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.imageList1 = new System.Windows.Forms.ImageList(this.components);
          this.GustSaveRqst_PickButn = new System.MaxUi.NewPickBtn();
-         this.label3 = new System.Windows.Forms.Label();
-         this.bn_Card2CardPayment3 = new DevExpress.XtraEditors.SimpleButton();
-         this.bn_DpstPayment3 = new DevExpress.XtraEditors.SimpleButton();
          label14 = new System.Windows.Forms.Label();
          ((System.ComponentModel.ISupportInitialize)(this.PydtsBs1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.PymtsBs1)).BeginInit();
@@ -1702,6 +1702,93 @@
          this.Gb_Expense.TabStop = false;
          this.Gb_Expense.Text = "اعلام هزینه";
          this.Gb_Expense.Visible = false;
+         // 
+         // bn_DpstPayment3
+         // 
+         this.bn_DpstPayment3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.bn_DpstPayment3.Appearance.BackColor = System.Drawing.Color.Transparent;
+         this.bn_DpstPayment3.Appearance.Font = new System.Drawing.Font("B Kamran", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.bn_DpstPayment3.Appearance.ForeColor = System.Drawing.Color.Black;
+         this.bn_DpstPayment3.Appearance.Options.UseBackColor = true;
+         this.bn_DpstPayment3.Appearance.Options.UseFont = true;
+         this.bn_DpstPayment3.Appearance.Options.UseForeColor = true;
+         this.bn_DpstPayment3.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat;
+         this.bn_DpstPayment3.Enabled = false;
+         this.bn_DpstPayment3.Image = global::System.Scsc.Properties.Resources.IMAGE_1088;
+         this.bn_DpstPayment3.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+         this.bn_DpstPayment3.Location = new System.Drawing.Point(431, 216);
+         this.bn_DpstPayment3.LookAndFeel.SkinName = "Office 2010 Blue";
+         this.bn_DpstPayment3.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.bn_DpstPayment3.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.bn_DpstPayment3.Name = "bn_DpstPayment3";
+         this.bn_DpstPayment3.Size = new System.Drawing.Size(53, 50);
+         toolTipTitleItem1.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
+         toolTipTitleItem1.Appearance.Options.UseImage = true;
+         toolTipTitleItem1.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem1.Image")));
+         toolTipTitleItem1.Text = "کاربر گرامی";
+         toolTipItem1.LeftIndent = 6;
+         toolTipItem1.Text = "برای تسویه حساب کامل و پرداخت کامل مبلغ توسط مشترک";
+         toolTipTitleItem2.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image1")));
+         toolTipTitleItem2.Appearance.Options.UseImage = true;
+         toolTipTitleItem2.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem2.Image")));
+         toolTipTitleItem2.LeftIndent = 6;
+         toolTipTitleItem2.Text = "پرداخت توسط برداشت از سپرده";
+         superToolTip1.Items.Add(toolTipTitleItem1);
+         superToolTip1.Items.Add(toolTipItem1);
+         superToolTip1.Items.Add(toolTipSeparatorItem1);
+         superToolTip1.Items.Add(toolTipTitleItem2);
+         this.bn_DpstPayment3.SuperTip = superToolTip1;
+         this.bn_DpstPayment3.TabIndex = 39;
+         this.bn_DpstPayment3.Tag = "1";
+         // 
+         // label3
+         // 
+         this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.label3.Font = new System.Drawing.Font("Tahoma", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.label3.Location = new System.Drawing.Point(33, 227);
+         this.label3.Name = "label3";
+         this.label3.Size = new System.Drawing.Size(332, 39);
+         this.label3.TabIndex = 38;
+         this.label3.Text = "* کلیه مراحل پرداختی فاکتور اعم از نقدی، کارتخوان، بدهکار و کارت به کارت را شما م" +
+    "یتوانید انجام دهید";
+         // 
+         // bn_Card2CardPayment3
+         // 
+         this.bn_Card2CardPayment3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.bn_Card2CardPayment3.Appearance.BackColor = System.Drawing.Color.Transparent;
+         this.bn_Card2CardPayment3.Appearance.Font = new System.Drawing.Font("B Kamran", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.bn_Card2CardPayment3.Appearance.ForeColor = System.Drawing.Color.Black;
+         this.bn_Card2CardPayment3.Appearance.Options.UseBackColor = true;
+         this.bn_Card2CardPayment3.Appearance.Options.UseFont = true;
+         this.bn_Card2CardPayment3.Appearance.Options.UseForeColor = true;
+         this.bn_Card2CardPayment3.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat;
+         this.bn_Card2CardPayment3.Image = global::System.Scsc.Properties.Resources.IMAGE_1756;
+         this.bn_Card2CardPayment3.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+         this.bn_Card2CardPayment3.Location = new System.Drawing.Point(371, 216);
+         this.bn_Card2CardPayment3.LookAndFeel.SkinName = "Office 2010 Blue";
+         this.bn_Card2CardPayment3.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.bn_Card2CardPayment3.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.bn_Card2CardPayment3.Name = "bn_Card2CardPayment3";
+         this.bn_Card2CardPayment3.Size = new System.Drawing.Size(53, 50);
+         toolTipTitleItem3.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image2")));
+         toolTipTitleItem3.Appearance.Options.UseImage = true;
+         toolTipTitleItem3.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem3.Image")));
+         toolTipTitleItem3.Text = "کاربر گرامی";
+         toolTipItem2.LeftIndent = 6;
+         toolTipItem2.Text = "برای تسویه حساب کامل و پرداخت کامل مبلغ توسط مشترک";
+         toolTipTitleItem4.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image3")));
+         toolTipTitleItem4.Appearance.Options.UseImage = true;
+         toolTipTitleItem4.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem4.Image")));
+         toolTipTitleItem4.LeftIndent = 6;
+         toolTipTitleItem4.Text = "پرداخت توسط کارت به کارت";
+         superToolTip2.Items.Add(toolTipTitleItem3);
+         superToolTip2.Items.Add(toolTipItem2);
+         superToolTip2.Items.Add(toolTipSeparatorItem2);
+         superToolTip2.Items.Add(toolTipTitleItem4);
+         this.bn_Card2CardPayment3.SuperTip = superToolTip2;
+         this.bn_Card2CardPayment3.TabIndex = 37;
+         this.bn_Card2CardPayment3.Tag = "1";
+         this.bn_Card2CardPayment3.Click += new System.EventHandler(this.bn_Card2CardPayment_Click);
          // 
          // bn_PaymentMethods1
          // 
@@ -4094,7 +4181,7 @@
          this.OthrPblc_Ckbx.Name = "OthrPblc_Ckbx";
          this.OthrPblc_Ckbx.Size = new System.Drawing.Size(107, 18);
          this.OthrPblc_Ckbx.TabIndex = 8;
-         this.OthrPblc_Ckbx.Text = "اطلاعات تمکیلی";
+         this.OthrPblc_Ckbx.Text = "اطلاعات تکمیلی";
          this.toolTip1.SetToolTip(this.OthrPblc_Ckbx, "اگر برای بخش اطلاعات فردی مشتری میخواهید که گزینه های جدیدی اضافه کنید می توانید " +
         "این گزینه رو فعال کنید.");
          this.OthrPblc_Ckbx.UseVisualStyleBackColor = true;
@@ -4399,93 +4486,6 @@
          this.GustSaveRqst_PickButn.Size = new System.Drawing.Size(27, 25);
          this.GustSaveRqst_PickButn.TabIndex = 90;
          this.GustSaveRqst_PickButn.TextAligns = System.Drawing.ContentAlignment.MiddleCenter;
-         // 
-         // label3
-         // 
-         this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.label3.Font = new System.Drawing.Font("Tahoma", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.label3.Location = new System.Drawing.Point(33, 227);
-         this.label3.Name = "label3";
-         this.label3.Size = new System.Drawing.Size(332, 39);
-         this.label3.TabIndex = 38;
-         this.label3.Text = "* کلیه مراحل پرداختی فاکتور اعم از نقدی، کارتخوان، بدهکار و کارت به کارت را شما م" +
-    "یتوانید انجام دهید";
-         // 
-         // bn_Card2CardPayment3
-         // 
-         this.bn_Card2CardPayment3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.bn_Card2CardPayment3.Appearance.BackColor = System.Drawing.Color.Transparent;
-         this.bn_Card2CardPayment3.Appearance.Font = new System.Drawing.Font("B Kamran", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.bn_Card2CardPayment3.Appearance.ForeColor = System.Drawing.Color.Black;
-         this.bn_Card2CardPayment3.Appearance.Options.UseBackColor = true;
-         this.bn_Card2CardPayment3.Appearance.Options.UseFont = true;
-         this.bn_Card2CardPayment3.Appearance.Options.UseForeColor = true;
-         this.bn_Card2CardPayment3.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat;
-         this.bn_Card2CardPayment3.Image = global::System.Scsc.Properties.Resources.IMAGE_1756;
-         this.bn_Card2CardPayment3.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.bn_Card2CardPayment3.Location = new System.Drawing.Point(371, 216);
-         this.bn_Card2CardPayment3.LookAndFeel.SkinName = "Office 2010 Blue";
-         this.bn_Card2CardPayment3.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.bn_Card2CardPayment3.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.bn_Card2CardPayment3.Name = "bn_Card2CardPayment3";
-         this.bn_Card2CardPayment3.Size = new System.Drawing.Size(53, 50);
-         toolTipTitleItem3.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image2")));
-         toolTipTitleItem3.Appearance.Options.UseImage = true;
-         toolTipTitleItem3.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem3.Image")));
-         toolTipTitleItem3.Text = "کاربر گرامی";
-         toolTipItem2.LeftIndent = 6;
-         toolTipItem2.Text = "برای تسویه حساب کامل و پرداخت کامل مبلغ توسط مشترک";
-         toolTipTitleItem4.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image3")));
-         toolTipTitleItem4.Appearance.Options.UseImage = true;
-         toolTipTitleItem4.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem4.Image")));
-         toolTipTitleItem4.LeftIndent = 6;
-         toolTipTitleItem4.Text = "پرداخت توسط کارت به کارت";
-         superToolTip2.Items.Add(toolTipTitleItem3);
-         superToolTip2.Items.Add(toolTipItem2);
-         superToolTip2.Items.Add(toolTipSeparatorItem2);
-         superToolTip2.Items.Add(toolTipTitleItem4);
-         this.bn_Card2CardPayment3.SuperTip = superToolTip2;
-         this.bn_Card2CardPayment3.TabIndex = 37;
-         this.bn_Card2CardPayment3.Tag = "1";
-         this.bn_Card2CardPayment3.Click += new System.EventHandler(this.bn_Card2CardPayment_Click);
-         // 
-         // bn_DpstPayment3
-         // 
-         this.bn_DpstPayment3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.bn_DpstPayment3.Appearance.BackColor = System.Drawing.Color.Transparent;
-         this.bn_DpstPayment3.Appearance.Font = new System.Drawing.Font("B Kamran", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.bn_DpstPayment3.Appearance.ForeColor = System.Drawing.Color.Black;
-         this.bn_DpstPayment3.Appearance.Options.UseBackColor = true;
-         this.bn_DpstPayment3.Appearance.Options.UseFont = true;
-         this.bn_DpstPayment3.Appearance.Options.UseForeColor = true;
-         this.bn_DpstPayment3.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat;
-         this.bn_DpstPayment3.Enabled = false;
-         this.bn_DpstPayment3.Image = global::System.Scsc.Properties.Resources.IMAGE_1088;
-         this.bn_DpstPayment3.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.bn_DpstPayment3.Location = new System.Drawing.Point(431, 216);
-         this.bn_DpstPayment3.LookAndFeel.SkinName = "Office 2010 Blue";
-         this.bn_DpstPayment3.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.bn_DpstPayment3.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.bn_DpstPayment3.Name = "bn_DpstPayment3";
-         this.bn_DpstPayment3.Size = new System.Drawing.Size(53, 50);
-         toolTipTitleItem1.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
-         toolTipTitleItem1.Appearance.Options.UseImage = true;
-         toolTipTitleItem1.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem1.Image")));
-         toolTipTitleItem1.Text = "کاربر گرامی";
-         toolTipItem1.LeftIndent = 6;
-         toolTipItem1.Text = "برای تسویه حساب کامل و پرداخت کامل مبلغ توسط مشترک";
-         toolTipTitleItem2.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image1")));
-         toolTipTitleItem2.Appearance.Options.UseImage = true;
-         toolTipTitleItem2.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem2.Image")));
-         toolTipTitleItem2.LeftIndent = 6;
-         toolTipTitleItem2.Text = "پرداخت توسط برداشت از سپرده";
-         superToolTip1.Items.Add(toolTipTitleItem1);
-         superToolTip1.Items.Add(toolTipItem1);
-         superToolTip1.Items.Add(toolTipSeparatorItem1);
-         superToolTip1.Items.Add(toolTipTitleItem2);
-         this.bn_DpstPayment3.SuperTip = superToolTip1;
-         this.bn_DpstPayment3.TabIndex = 39;
-         this.bn_DpstPayment3.Tag = "1";
          // 
          // ADM_FIGH_F
          // 

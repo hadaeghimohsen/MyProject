@@ -1241,7 +1241,7 @@
          // 
          // bbi_basdifnbutn
          // 
-         this.bbi_basdifnbutn.Caption = "اطاعات پایه";
+         this.bbi_basdifnbutn.Caption = "اطلاعات پایه";
          this.bbi_basdifnbutn.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
          this.bbi_basdifnbutn.Id = 92;
          this.bbi_basdifnbutn.LargeGlyph = global::System.Scsc.Properties.Resources.IMAGE_1150;

@@ -1199,6 +1199,15 @@ namespace System.Scsc.Ui.Common
             // مبلغ بدهی
             PayDebtAmnt_Txt.Text = DebtDnrm_TextBox.Text;           
 
+            // 1400/09/17 * مشخص شدن آیتم های درآمدی اعتباری
+            var pydts = iScsc.Payment_Details.Where(pd => pd.EXPR_DATE != null && pd.Request_Row.FIGH_FILE_NO == fileno && pd.Request_Row.Request.RQST_STAT == "002");
+            PivBs.DataSource = pydts.Where(pd => pd.EXPR_DATE.Value.Date >= DateTime.Now);
+            PinvBs.DataSource = pydts.Where(pd => pd.EXPR_DATE.Value.Date < DateTime.Now);
+
+            // 1400/09/21 * گروه بندی
+            FGrpBs.DataSource = iScsc.Fighter_Groupings.Where(g => g.FIGH_FILE_NO == fileno);
+            AGrpBs.DataSource = iScsc.App_Base_Defines.Where(a => a.ENTY_NAME == "Fighter_Grouping");
+
             if(isFirstLoaded) goto commandfinished;
 
             DDebtBs.DataSource = iScsc.D_DEBTs;
@@ -1212,6 +1221,7 @@ namespace System.Scsc.Ui.Common
             DPmstBs.DataSource = iScsc.D_PMSTs;
             DPycoBs.DataSource = iScsc.D_PYCOs;
             DYsnoBs.DataSource = iScsc.D_YSNOs;
+            
             VPosBs1.DataSource = iScsc.V_Pos_Devices;
             if (VPosBs1.List.OfType<Data.V_Pos_Device>().FirstOrDefault(p => p.GTWY_MAC_ADRS == HostNameInfo.Attribute("cpu").Value) != null)
                Pos_Lov.EditValue = VPosBs1.List.OfType<Data.V_Pos_Device>().FirstOrDefault(p => p.GTWY_MAC_ADRS == HostNameInfo.Attribute("cpu").Value).PSID;

@@ -485,6 +485,15 @@
     <Compile Include="Ui\AggregateOperation\AOP_MBSP_F.RequestRespons.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Ui\AggregateOperation\AOP_INSR_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\AggregateOperation\AOP_INSR_F.Designer.cs">
+      <DependentUpon>AOP_INSR_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\AggregateOperation\AOP_INSR_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Ui\AggregateOperation\TBL_ITEM_F.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -1193,6 +1202,7 @@
     <None Include="Properties\DataSources\System.Scsc.Data.External_Device.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.External_Device_Link_Method.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Fighter.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.Fighter_Grouping.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Fighter_Public.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Finance_Document.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Gain_Loss_Rail_Detail.datasource" />
@@ -1400,6 +1410,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Ui\AggregateOperation\AOP_MBSP_F.resx">
       <DependentUpon>AOP_MBSP_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\AggregateOperation\AOP_INSR_F.resx">
+      <DependentUpon>AOP_INSR_F.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ui\AggregateOperation\TBL_ITEM_F.resx">
       <DependentUpon>TBL_ITEM_F.cs</DependentUpon>

@@ -102,9 +102,19 @@ namespace System.Scsc.Ui.AggregateOperation
                MessageBox.Show(exc.Message);
             }
          }
+         else if (keyData == Keys.F3)
+         {
+            MenuCtrl_Tc.SelectedTab = tabPage5;
+         }
+         else if(keyData == Keys.F2)
+         {
+            MenuCtrl_Tc.SelectedTab = tabPage5;
+            Cancel_Butn_Click(null, null);
+         }
          else if (keyData == Keys.Enter)
-         {            
-            SendKeys.Send("{TAB}");
+         {
+            if (!(AddDresItem_Butn.Focused || DelDresItem_Butn.Focused))
+               SendKeys.Send("{TAB}");
          }
          job.Status = StatusType.Successful;
       }
@@ -200,16 +210,24 @@ namespace System.Scsc.Ui.AggregateOperation
                      new List<Job>
                      {
                         #region Access Privilege
+                        //new Job(SendType.Self, 07 /* Execute DoWork4AccessPrivilege */)
+                        //{
+                        //   Input = new List<string> {"<Privilege>206</Privilege><Sub_Sys>5</Sub_Sys>", "DataGuard"},
+                        //   AfterChangedOutput = new Action<object>((output) => {
+                        //      if ((bool)output)
+                        //         return;
+                        //      #region Show Error
+                        //      job.Status = StatusType.Failed;
+                        //      MessageBox.Show(this, "خطا - عدم دسترسی به ردیف 206 امنیتی", "خطا دسترسی");
+                        //      #endregion                           
+                        //   })
+                        //},
                         new Job(SendType.Self, 07 /* Execute DoWork4AccessPrivilege */)
                         {
-                           Input = new List<string> {"<Privilege>206</Privilege><Sub_Sys>5</Sub_Sys>", "DataGuard"},
+                           Input = new List<string> {"<Privilege>218</Privilege><Sub_Sys>5</Sub_Sys>", "DataGuard"},
                            AfterChangedOutput = new Action<object>((output) => {
-                              if ((bool)output)
-                                 return;
-                              #region Show Error
-                              job.Status = StatusType.Failed;
-                              MessageBox.Show(this, "خطا - عدم دسترسی به ردیف 206 امنیتی", "خطا دسترسی");
-                              #endregion                           
+                              IncomeInfo_Gp.Visible = (bool)output;
+                              job.Status = StatusType.Successful;
                            })
                         },
                         #endregion                        
@@ -231,6 +249,8 @@ namespace System.Scsc.Ui.AggregateOperation
          }
          //FighBs.DataSource = iScsc.Fighters.Where(f => f.CONF_STAT == "002" && f.FGPB_TYPE_DNRM != "007" /*&& !f.NAME_DNRM.Contains("مشتری, جلسه ای")*/ && (Fga_Uclb_U.Contains(f.CLUB_CODE_DNRM) || (f.CLUB_CODE_DNRM == null ? f.Club_Methods.Where(cb => Fga_Uclb_U.Contains(cb.CLUB_CODE)).Any() : false)) && Convert.ToInt32(f.ACTV_TAG_DNRM ?? "101") >= 101);
          VPosBs1.DataSource = iScsc.V_Pos_Devices;
+         DSxtpBs1.DataSource = iScsc.D_SXTPs;
+         DAttpBs1.DataSource = iScsc.D_ATTPs;
          job.Status = StatusType.Successful;
       }
 

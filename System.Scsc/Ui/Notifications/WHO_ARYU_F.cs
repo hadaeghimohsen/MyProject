@@ -408,6 +408,11 @@ namespace System.Scsc.Ui.Notifications
 
          RemindAttn_Txt.EditValue = Math.Abs( (int)(attn.NUMB_OF_ATTN_MONT - attn.SUM_ATTN_MONT_DNRM ?? 0) );
          DayRmnd_Txt.Text = (attn.MBSP_END_DATE_DNRM.Value.Date - DateTime.Now.Date).Days.ToString();
+
+         // 1400/09/17 * مشخص شدن آیتم های درآمدی اعتباری
+         var pydts = iScsc.Payment_Details.Where(pd => pd.EXPR_DATE != null && pd.Request_Row.FIGH_FILE_NO == attn.FIGH_FILE_NO && pd.Request_Row.Request.RQST_STAT == "002");
+         PivBs.DataSource = pydts.Where(pd => pd.EXPR_DATE.Value.Date >= DateTime.Now);
+         PinvBs.DataSource = pydts.Where(pd => pd.EXPR_DATE.Value.Date < DateTime.Now);
       }
 
       private void RqstBnExit1_Click(object sender, EventArgs e)
@@ -677,6 +682,11 @@ namespace System.Scsc.Ui.Notifications
          _DefaultGateway.Gateway(_InteractWithScsc);
 
          formcaller = fc;
+      }
+
+      private void PydtBn1_ButtonClick(object sender, NavigatorButtonClickEventArgs e)
+      {
+
       }
 
    }

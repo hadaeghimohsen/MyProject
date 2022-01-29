@@ -1256,6 +1256,8 @@ namespace System.Scsc.Ui.Common
             DscnAmnt_Txt.EditValue = iScsc.Payment_Discounts.Where(pd => pd.PYMT_RQST_RQID == rqid).Sum(pd => pd.AMNT);
             PymtAmnt1_Txt.EditValue = iScsc.Payment_Methods.Where(pd => pd.PYMT_RQST_RQID == rqid).Sum(pd => pd.AMNT);
             DebtPymtAmnt1_Txt.EditValue = Convert.ToInt64(ExpnAmnt_Txt.EditValue) - (Convert.ToInt64(PymtAmnt1_Txt.EditValue) + Convert.ToInt64(DscnAmnt_Txt.EditValue));
+            QStrtTime_Tim.EditValue = mbsp.Fighter_Public.Club_Method.STRT_TIME;
+            QEndTime_Tim.EditValue = mbsp.Fighter_Public.Club_Method.END_TIME;
          }
          catch{
          }
@@ -2790,6 +2792,99 @@ namespace System.Scsc.Ui.Common
             if (requery)
                Btn_Back_Click(null, null);
          }
-      }      
+      }
+
+      private void PydtBn1_ButtonClick(object sender, NavigatorButtonClickEventArgs e)
+      {
+
+      }
+
+      private void CGrp_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost",
+                  new List<Job>
+                  {
+                     new Job(SendType.Self, 154 /* Execute Apbs_Dfin_F */),
+                     new Job(SendType.SelfToUserInterface, "APBS_DFIN_F", 10 /* Execute Actn_CalF_F */)
+                     {
+                        Input = 
+                           new XElement("App_Base",
+                              new XAttribute("tablename", "Fighter_Grouping"),
+                              new XAttribute("formcaller", GetType().Name)
+                           )
+                     }
+                  }
+               )
+            );
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void AddFGrp_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            if (FGrpBs.List.OfType<Data.Fighter_Grouping>().Any(g => g.CODE == 0)) return;
+
+            var fgrp = FGrpBs.AddNew() as Data.Fighter_Grouping;
+            fgrp.FIGH_FILE_NO = fileno;
+
+            iScsc.Fighter_Groupings.InsertOnSubmit(fgrp);
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void DelFGrp_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var fgrp = FGrpBs.Current as Data.Fighter_Grouping;
+            if (fgrp == null) return;
+
+            if (MessageBox.Show(this, "آیا با حذف گروه برای مشتری موافق هستید؟", "حذف گروه") != DialogResult.Yes) return;
+
+            iScsc.Fighter_Groupings.DeleteOnSubmit(fgrp);
+            iScsc.SubmitChanges();
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void SaveFGrp_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            FGrpGv.PostEditor();
+
+            iScsc.SubmitChanges();
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
    }
 }

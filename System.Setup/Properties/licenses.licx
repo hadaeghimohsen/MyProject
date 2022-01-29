@@ -1,4 +1,5 @@
 DevExpress.Patch.InMemoryPatch, DevExpress.Patch.Common, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7fc7bfca2443de66
+C1.Win.C1Ribbon.C1Ribbon, C1.Win.C1Ribbon.2, Version=2.0.20152.67, Culture=neutral, PublicKeyToken=79882d576c6336da
 DevExpress.XtraGrid.GridControl, DevExpress.XtraGrid.v13.1, Version=13.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a
 DevExpress.XtraEditors.SearchLookUpEdit, DevExpress.XtraGrid.v13.1, Version=13.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a
-C1.Win.C1Ribbon.C1Ribbon, C1.Win.C1Ribbon.2, Version=2.0.20152.67, Culture=neutral, PublicKeyToken=79882d576c6336da
+C1.Win.C1BarCode.C1QRCode, C1.Win.C1BarCode.2, Version=2.0.20152.67, Culture=neutral, PublicKeyToken=79882d576c6336da

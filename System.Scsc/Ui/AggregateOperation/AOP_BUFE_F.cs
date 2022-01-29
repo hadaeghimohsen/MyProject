@@ -11,6 +11,8 @@ using System.JobRouting.Jobs;
 using System.Xml.Linq;
 using DevExpress.XtraEditors;
 using System.Scsc.ExtCode;
+using System.Threading;
+using System.Scsc.ExtCode;
 
 namespace System.Scsc.Ui.AggregateOperation
 {
@@ -36,6 +38,8 @@ namespace System.Scsc.Ui.AggregateOperation
          AodtBs1.Position = aodtindx;
 
          FighBs.DataSource = iScsc.Fighters.Where(f => f.CONF_STAT == "002" && f.FGPB_TYPE_DNRM != "007" /*&& !f.NAME_DNRM.Contains("مشتری, جلسه ای")*/ && (Fga_Uclb_U.Contains(f.CLUB_CODE_DNRM) || (f.CLUB_CODE_DNRM == null ? f.Club_Methods.Where(cb => Fga_Uclb_U.Contains(cb.CLUB_CODE)).Any() : false)) && Convert.ToInt32(f.ACTV_TAG_DNRM ?? "101") >= 101);
+
+         ClubBs1.DataSource = iScsc.Clubs.Where(c => Fga_Uclb_U.Contains(c.CODE));
 
          ExpnBufeBs1.DataSource =
             iScsc.Expenses.Where(ex =>
@@ -926,10 +930,10 @@ namespace System.Scsc.Ui.AggregateOperation
             if (aodt == null) return;
 
             if (aodt.STAT.In("002")) { MessageBox.Show("میز هایی که بسته و تسویه یا دفتری حساب کرده اند دیگر قادر به ویرایش نیستید"); return; }
-            if (aodt.STAT.In("003")) { MessageBox.Show("میز بسته شده دیگر قادر به محاسبه نیست"); return; }
+            //if (aodt.STAT.In("003")) { MessageBox.Show("میز بسته شده دیگر قادر به محاسبه نیست"); return; }
 
             // 1395/12/27 * اگر بخواهیم تا این مرحله از کار رو بررسی کنیم که چه میزان هزینه شده باید تاریخ ساعت پایان را داشته باشیم
-            if (aodt.END_TIME == null || aodt.STRT_TIME > aodt.END_TIME)
+            if (aodt.END_TIME == null || aodt.STRT_TIME > aodt.END_TIME || ChckCalcEndTime_Cbx.Checked)
             {
                aodt.END_TIME = DateTime.Now;
             }
@@ -966,7 +970,7 @@ namespace System.Scsc.Ui.AggregateOperation
             var aodt = AodtBs1.Current as Data.Aggregation_Operation_Detail;
 
             if (aodt.STAT.In("002")) { MessageBox.Show("میز هایی که بسته و تسویه یا دفتری حساب کرده اند دیگر قادر به ویرایش نیستند"); Execute_Query(); return; }
-            if (aodt.STAT.In("003")) { MessageBox.Show("میز بسته شده دیگر قادر به ویرایش نیست"); return; }
+            //if (aodt.STAT.In("003")) { MessageBox.Show("میز بسته شده دیگر قادر به ویرایش نیست"); return; }
 
             AodtBs1.EndEdit();
 
@@ -1000,7 +1004,7 @@ namespace System.Scsc.Ui.AggregateOperation
 
             if (aodt == null) return;
 
-            PosAmnt_Txt.EditValue = aodt.TOTL_AMNT_DNRM - ((aodt.CASH_AMNT ?? 0) + (aodt.POS_AMNT ?? 0) + (aodt.PYDS_AMNT ?? 0) + (aodt.DPST_AMNT ?? 0));
+            PosAmnt_Txt.EditValue = Math.Abs((decimal)(aodt.TOTL_AMNT_DNRM - ((aodt.CASH_AMNT ?? 0) + (aodt.POS_AMNT ?? 0) + (aodt.PYDS_AMNT ?? 0) + (aodt.DPST_AMNT ?? 0))));
 
             if (aodt.END_TIME == null)
                TotlMint_Txt.Text = "";
@@ -1053,7 +1057,7 @@ namespace System.Scsc.Ui.AggregateOperation
 
             if (agop.FROM_DATE.Value.Date != DateTime.Now.Date && MessageBox.Show(this, "ایا میز مورد نظر در تاریخ دیگری می خواهید باز کنید", "باز شدن میز در تاریخ غیر از امروز", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
 
-            if (ExpnDesk_GridLookUpEdit.EditValue.ToString() == "") { MessageBox.Show("میزی انتخاب نشده"); return; }
+            if (ExpnDesk_GridLookUpEdit.EditValue == null || ExpnDesk_GridLookUpEdit.EditValue.ToString() == "") { MessageBox.Show("میزی انتخاب نشده"); return; }
             var desk = Convert.ToInt64(ExpnDesk_GridLookUpEdit.EditValue);
 
             long? fileno = null;
@@ -1070,10 +1074,13 @@ namespace System.Scsc.Ui.AggregateOperation
             if (fileno == null) { MessageBox.Show("نام مشتری انتخاب نشده"); return; }
 
             // 1399/11/25 * اگر میز باز باشد دیگر اجازه باز کردن مجدد آن را نداشته یاشیم
-            if(AodtBs1.List.OfType<Data.Aggregation_Operation_Detail>().Any(d => d.Aggregation_Operation == agop && d.EXPN_CODE == desk && d.REC_STAT == "002" && d.STAT == "001"))
+            if (!OpenMoreItem_Cbx.Checked)
             {
-               MessageBox.Show("خطا - میزی که قصد باز کردن آن را دارید در حال حاضر باز می باشد، شما نمیتوانید دوباره همان میز را باز کنید");
-               return;
+               if (AodtBs1.List.OfType<Data.Aggregation_Operation_Detail>().Any(d => d.Aggregation_Operation == agop && d.EXPN_CODE == desk && d.REC_STAT == "002" && d.STAT == "001"))
+               {
+                  MessageBox.Show("خطا - میزی که قصد باز کردن آن را دارید در حال حاضر باز می باشد، شما نمیتوانید دوباره همان میز را باز کنید");
+                  return;
+               }
             }
 
             if(TableCloseOpen)
@@ -1103,8 +1110,9 @@ namespace System.Scsc.Ui.AggregateOperation
                }
             );            
          }
-         catch
+         catch(Exception exc)
          {
+            MessageBox.Show(exc.Message);
          }
          finally
          {
@@ -1246,7 +1254,10 @@ namespace System.Scsc.Ui.AggregateOperation
             if (amnt == 0) return;
 
             // 1400/05/24 * اگر مبلغ وارد شده از مبلغ کل بیشتر باشد
-            if (amnt > (aodt.TOTL_AMNT_DNRM - (aodt.POS_AMNT + aodt.CASH_AMNT + aodt.PYDS_AMNT + aodt.DPST_AMNT))) { if (MessageBox.Show(this, "مبلغ کارتخوان شما از مبلغ کل هزینه میز بیشتر میباشد، ایا مایل به اصلاح قیمت میباشد؟", "مغایرت مالی در وصولی", MessageBoxButtons.YesNo) != DialogResult.Yes) return; else amnt = (long)(aodt.TOTL_AMNT_DNRM - (aodt.POS_AMNT + aodt.CASH_AMNT + aodt.PYDS_AMNT + aodt.DPST_AMNT)); }
+            if (!SaveUpPymt_Cbx.Checked)
+            {
+               if (amnt > (aodt.TOTL_AMNT_DNRM - (aodt.POS_AMNT + aodt.CASH_AMNT + aodt.PYDS_AMNT + aodt.DPST_AMNT))) { if (MessageBox.Show(this, "مبلغ کارتخوان شما از مبلغ کل هزینه میز بیشتر میباشد، ایا مایل به اصلاح قیمت میباشد؟", "مغایرت مالی در وصولی", MessageBoxButtons.YesNo) != DialogResult.Yes) return; else amnt = (long)(aodt.TOTL_AMNT_DNRM - (aodt.POS_AMNT + aodt.CASH_AMNT + aodt.PYDS_AMNT + aodt.DPST_AMNT)); }
+            }
 
             var regl = iScsc.Regulations.FirstOrDefault(r => r.TYPE == "001" && r.REGL_STAT == "002");
 
@@ -1343,6 +1354,9 @@ namespace System.Scsc.Ui.AggregateOperation
             TotlCashAmnt_Txt.Text = agop.Aggregation_Operation_Details.Where(d => d.REC_STAT == "002").Sum(d => d.CASH_AMNT).ToString();
             TotlPosAmnt_Txt.Text = agop.Aggregation_Operation_Details.Where(d => d.REC_STAT == "002").Sum(d => d.POS_AMNT).ToString();
             TotlRemnAmnt_Txt.Text = (agop.Aggregation_Operation_Details.Where(d => d.REC_STAT == "002").Sum(d => d.TOTL_AMNT_DNRM) - agop.Aggregation_Operation_Details.Where(d => d.REC_STAT == "002").Sum(d => d.POS_AMNT + d.CASH_AMNT + d.PYDS_AMNT + d.DPST_AMNT)).ToString();
+
+            InCashBs.DataSource = iScsc.Payment_Row_Types.Where(a => a.APDT_AGOP_CODE == agop.CODE && a.APDT_RWNO == null && a.AMNT > 0);
+            OutCashBs.DataSource = iScsc.Payment_Row_Types.Where(a => a.APDT_AGOP_CODE == agop.CODE && a.APDT_RWNO == null && a.AMNT < 0);
          }
          catch (Exception exc)
          {
@@ -1392,7 +1406,10 @@ namespace System.Scsc.Ui.AggregateOperation
             if (amnt == 0) return;
 
             // 1400/05/24 * اگر مبلغ وارد شده از مبلغ کل بیشتر باشد
-            if (amnt > (aodt.TOTL_AMNT_DNRM - (aodt.POS_AMNT + aodt.CASH_AMNT + aodt.PYDS_AMNT + aodt.DPST_AMNT))) { if (MessageBox.Show(this, "مبلغ نقدی شما از مبلغ کل هزینه میز بیشتر میباشد، ایا مایل به اصلاح قیمت میباشد؟", "مغایرت مالی در وصولی", MessageBoxButtons.YesNo) != DialogResult.Yes) return; else amnt = (long)(aodt.TOTL_AMNT_DNRM - (aodt.POS_AMNT + aodt.CASH_AMNT + aodt.PYDS_AMNT + aodt.DPST_AMNT)); }
+            if (!SaveUpPymt_Cbx.Checked)
+            {
+               if (amnt > (aodt.TOTL_AMNT_DNRM - (aodt.POS_AMNT + aodt.CASH_AMNT + aodt.PYDS_AMNT + aodt.DPST_AMNT))) { if (MessageBox.Show(this, "مبلغ نقدی شما از مبلغ کل هزینه میز بیشتر میباشد، ایا مایل به اصلاح قیمت میباشد؟", "مغایرت مالی در وصولی", MessageBoxButtons.YesNo) != DialogResult.Yes) return; else amnt = (long)(aodt.TOTL_AMNT_DNRM - (aodt.POS_AMNT + aodt.CASH_AMNT + aodt.PYDS_AMNT + aodt.DPST_AMNT)); }
+            }
 
             aodt.CASH_AMNT += amnt;
 
@@ -1525,6 +1542,15 @@ namespace System.Scsc.Ui.AggregateOperation
                }
             }
          }
+
+         try
+         {
+            // 1400/11/01
+            DfltExpnPricTp_Txt.Tag = ExpnDeskBs1.List.OfType<Data.Expense>().FirstOrDefault(ex => ex.CODE == Convert.ToInt64(e.NewValue)).PRIC;
+            DfltExpnPricTp_Txt.EditValue = Convert.ToInt64(DfltExpnPricTp_Txt.Tag) * Convert.ToInt64(Cont_Txt.EditValue);
+            UpdatePrice();
+         }
+         catch { DfltExpnPricTp_Txt.Tag = DfltExpnPricTp_Txt.EditValue = 0; }
       }
 
       private void QuickFindCellPhon_Tsmi_Click(object sender, EventArgs e)
@@ -2861,15 +2887,50 @@ namespace System.Scsc.Ui.AggregateOperation
             int value = 100 / desks.Count();
             RecalcDesk_Pgb.Visible = true;
             RecalcDesk_Pgb.Value = 0;
+
+            List<string> evntLogs = new List<string>();
+
             foreach (var desk in desks)
             {
                AodtBs1.Position = AodtBs1.IndexOf(AodtBs1.List.OfType<Data.Aggregation_Operation_Detail>().FirstOrDefault(d => d.AGOP_CODE == desk.AGOP_CODE && d.RWNO == desk.RWNO));
                CalcDesk_Butn_Click(null, null);
                RecalcDesk_Pgb.Value += value;
+
+               if(PlaySondAlrm_Cbx.Checked)
+               {
+                  if (evntLogs.Count == 0)
+                     evntLogs.Add(DateTime.Now.ToString("HH:mm:ss =>"));
+                  crntdesk = AodtBs1.Current as Data.Aggregation_Operation_Detail;
+                  if(crntdesk.TOTL_AMNT_DNRM - (crntdesk.CASH_AMNT + crntdesk.POS_AMNT + crntdesk.PYDS_AMNT + crntdesk.DPST_AMNT) >= 0)
+                  {
+                     if (evntLogs.Count == 1)
+                     {
+                        new Thread(AlarmShow).Start();
+                     }
+                     evntLogs.Add(string.Format("{{ ({1}) : \"{0}\" - [ {2} ] }}", crntdesk.CUST_NAME, crntdesk.RWNO, crntdesk.NUMB));
+
+                     if(AutoClos_Cbx.Checked)
+                     {
+                        DeskClose_Butn_Click(null, null);
+                        FillEndTime_Butn_Click(null, null);
+
+                        if(FinlRec_Cbx.Checked)
+                        {
+                           RecStat_Butn_ButtonClick(null, new DevExpress.XtraEditors.Controls.ButtonPressedEventArgs(RecStat_Butn.Buttons[3]));
+                        }
+                     }
+                  }
+               }
             }
 
             RecalcDesk_Pgb.Value = 100;
             AodtBs1.Position = AodtBs1.IndexOf(AodtBs1.List.OfType<Data.Aggregation_Operation_Detail>().FirstOrDefault(d => d.AGOP_CODE == crntdesk.AGOP_CODE && d.RWNO == crntdesk.RWNO));
+            
+            if (evntLogs.Count() > 1)
+            {
+               Evnt_Lbx.Items.Insert(0, Evnt_Lbx.Items.Count.ToString() + " ) " + string.Join(",", evntLogs).Replace("=>,", "=> "));
+               MenuCtrl_Tc.SelectedTab = tabPage7;
+            }
          }
          catch (Exception exc)
          {            
@@ -2902,6 +2963,32 @@ namespace System.Scsc.Ui.AggregateOperation
                   }
                }
             }
+         }
+      }
+
+      WMPLib.WindowsMediaPlayer wplayer = new WMPLib.WindowsMediaPlayer();
+      private void AlarmShow()
+      {
+         if (InvokeRequired)
+         {
+            try
+            {
+               wplayer.URL = @".\Media\SubSys\Kernel\Desktop\Sounds\Popcorn.mp3";
+               wplayer.controls.play();
+            }
+            catch { }
+
+            var tempcolor = BackGrnd_Butn.NormalColorA;
+            for (int i = 0; i < 5; i++)
+            {
+               if (i % 2 == 0)
+                  BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.YellowGreen;
+               else
+                  BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.LimeGreen;
+
+               Thread.Sleep(100);
+            }
+            BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = tempcolor;
          }
       }
 
@@ -3022,6 +3109,622 @@ namespace System.Scsc.Ui.AggregateOperation
          {
             var aodt = AodtBs1.Current as Data.Aggregation_Operation_Detail;
             Figh_Lov.EditValue = aodt.FIGH_FILE_NO;
+         }
+      }
+
+      private void MaxF_Butn001_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            FngrPrnt_Txt.EditValue =
+                iScsc.Fighters
+                .Where(f => f.FNGR_PRNT_DNRM != null && f.FNGR_PRNT_DNRM.Length > 0)
+                .Select(f => f.FNGR_PRNT_DNRM)
+                .ToList()
+                .Where(f => f.All(char.IsDigit))
+                .Max(f => Convert.ToInt64(f)) + 1;
+         }
+         catch
+         {
+            FngrPrnt_Txt.EditValue = 1;
+         }
+      }
+
+      private void CellPhonFind_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _serv = FighBs.List.OfType<Data.Fighter>().Where(f => f.CELL_PHON_DNRM == CELL_PHON_TextEdit.Text);
+
+            if (_serv.Count() == 1)
+               Figh_Lov.EditValue = _serv.FirstOrDefault().FILE_NO;
+            else
+            {
+               Figh_Lov.Focus();
+               Figh_Gv.ActiveFilterString = string.Format("CELL_PHON_DNRM LIKE '%{0}%'", CELL_PHON_TextEdit.Text);
+               Figh_Lov.ShowPopup();               
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void FngrPrntFind_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _serv = FighBs.List.OfType<Data.Fighter>().Where(f => f.FNGR_PRNT_DNRM == FngrPrnt_Txt.Text);
+
+            if (_serv.Count() == 1)
+               Figh_Lov.EditValue = _serv.FirstOrDefault().FILE_NO;
+            else
+            {
+               Figh_Lov.Focus();
+               Figh_Gv.ActiveFilterString = string.Format("FNGR_PRNT_DNRM LIKE '{0}'", FngrPrnt_Txt.Text);
+               Figh_Lov.ShowPopup();
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void SaveServ_Butn_Click(object sender, EventArgs e)
+      {
+         #region Check Validation
+         try
+         {
+            var _serv = FighBs.List.OfType<Data.Fighter>().Where(f => f.CELL_PHON_DNRM == CELL_PHON_TextEdit.Text);
+
+            if (_serv.Count() == 1)
+            {
+               Figh_Lov.EditValue = _serv.FirstOrDefault().FILE_NO;
+               Figh_Lov.Focus();
+               return;
+            }
+            else
+            {
+               Figh_Lov.Focus();
+               Figh_Gv.ActiveFilterString = string.Format("CELL_PHON_DNRM LIKE '%{0}%'", CELL_PHON_TextEdit.Text);
+               Figh_Lov.ShowPopup();               
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+
+         try
+         {
+            var _serv = FighBs.List.OfType<Data.Fighter>().Where(f => f.FNGR_PRNT_DNRM == FngrPrnt_Txt.Text);
+
+            if (_serv.Count() == 1)
+            {
+               Figh_Lov.EditValue = _serv.FirstOrDefault().FILE_NO;
+               Figh_Lov.Focus();
+               return;
+            }
+            else
+            {
+               Figh_Lov.Focus();
+               Figh_Gv.ActiveFilterString = string.Format("FNGR_PRNT_DNRM LIKE '{0}'", FngrPrnt_Txt.Text);
+               Figh_Lov.ShowPopup();               
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         #endregion
+
+         #region Save Record in Step One
+         try
+         {
+            if (FngrPrnt_Txt.Text == "")
+            {
+               if (MessageBox.Show(this, "کد شناسایی خالی میباشد آیا مایل به ایجاد کد پیش فرض هستید؟", "هشدار کد شناسایی", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+                  MaxF_Butn001_Click(null, null);
+               else
+               {
+                  FngrPrnt_Txt.Focus();
+                  return;
+               }
+            }
+
+            #region Save Request
+            iScsc.BYR_TRQT_P(
+               new XElement("Process",
+                  new XElement("Request",
+                     new XAttribute("rqid", 0),
+                     new XAttribute("rqtpcode", "025"),
+                     new XAttribute("rqttcode", "004"),
+                     new XAttribute("prvncode", "017"),
+                     new XAttribute("regncode", "001"),
+                     new XElement("Fighter",
+                        new XAttribute("fileno", 0),
+                        new XElement("Frst_Name", FRST_NAME_TextEdit.Text),
+                        new XElement("Last_Name", LAST_NAME_TextEdit.Text),
+                        new XElement("Fath_Name", ""),
+                        new XElement("Sex_Type", SEX_TYPE_LookUpEdit.EditValue),
+                        new XElement("Natl_Code", ""),
+                        new XElement("Brth_Date", ""),
+                        new XElement("Cell_Phon", CELL_PHON_TextEdit.Text),
+                        new XElement("Tell_Phon", ""),
+                        new XElement("Type", "001"),
+                        new XElement("Post_Adrs", ""),
+                        new XElement("Emal_Adrs", ""),
+                        new XElement("Insr_Numb", ""),
+                        new XElement("Insr_Date", ""),
+                        new XElement("Educ_Deg", ""),
+                        new XElement("Club_Code", Club_CodeLookUpEdit.EditValue ?? ""),
+                        new XElement("Dise_Code", ""),
+                        new XElement("Blod_Grop", ""),
+                        new XElement("Fngr_Prnt", FngrPrnt_Txt.EditValue ?? ""),
+                        new XElement("Sunt_Bunt_Dept_Orgn_Code", ""),
+                        new XElement("Sunt_Bunt_Dept_Code", ""),
+                        new XElement("Sunt_Bunt_Code", ""),
+                        new XElement("Sunt_Code", ""),
+                        new XElement("Cord_X", ""),
+                        new XElement("Cord_Y", ""),
+                        new XElement("Mtod_Code", ""),
+                        new XElement("Ctgy_Code", ""),
+                        new XElement("Most_Debt_Clng", ""),
+                        new XElement("Serv_No", ""),
+                        new XElement("Chat_Id", "")
+                     ),
+                     new XElement("Member_Ship",
+                        new XAttribute("strtdate", DateTime.Now.ToString("yyyy-MM-dd")),
+                        new XAttribute("enddate", DateTime.Now.AddYears(120).ToString("yyyy-MM-dd"))
+                     )
+                  )
+               )
+            );
+            #endregion
+
+            #region Get Request Data
+            var Rqids = iScsc.VF_Requests(new XElement("Request", new XAttribute("cretby", CurrentUser)))
+                  .Where(rqst =>
+                        rqst.RQTP_CODE == "025" &&
+                        rqst.RQST_STAT == "001" &&
+                        rqst.RQTT_CODE == "004" &&
+                        rqst.SUB_SYS == 1).Select(r => r.RQID).ToList();
+
+            var Rqst = iScsc.Requests.Where(r => Rqids.Contains(r.RQID) && r.Request_Rows.Any(rr => rr.Fighter_Publics.Any(fp => fp.CELL_PHON == CELL_PHON_TextEdit.Text && fp.FNGR_PRNT == FngrPrnt_Txt.Text))).FirstOrDefault();
+            #endregion
+
+            #region Final Request
+            iScsc.BYR_TSAV_F(
+               new XElement("Process",
+                  new XElement("Request",
+                     new XAttribute("rqid", Rqst.RQID),
+                     new XAttribute("prvncode", Rqst.REGN_PRVN_CODE),
+                     new XAttribute("regncode", Rqst.REGN_CODE),
+                     new XElement("Fighter",
+                        new XAttribute("fileno", Rqst.Fighters.FirstOrDefault().FILE_NO)
+                     )
+                  )
+               )
+            );
+            #endregion
+            requery = true;
+
+            FRST_NAME_TextEdit.Text = LAST_NAME_TextEdit.Text = CELL_PHON_TextEdit.Text = FngrPrnt_Txt.Text = "";
+         }
+         catch (Exception ex)
+         {
+            MessageBox.Show(ex.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+
+         }
+         #endregion         
+      }
+
+      private void ClerForm_Butn_Click(object sender, EventArgs e)
+      {
+         FRST_NAME_TextEdit.Text = LAST_NAME_TextEdit.Text = CELL_PHON_TextEdit.Text = FngrPrnt_Txt.Text = "";
+         FRST_NAME_TextEdit.Focus();
+      }
+
+      private void AutoRecalc_Cbx_CheckedChanged(object sender, EventArgs e)
+      {
+         //AutoRecalc_Tsmi.Checked = AutoRecalc_Cbx.Checked;         
+         //IntervalRecalc_Txt.Enabled = AutoRecalc_Cbx.Checked;
+         AutoRecalc_Tsmi_Click(null, null);
+      }
+
+      private void IntervalRecalc_Txt_TextChanged(object sender, EventArgs e)
+      {
+         IntervalRecalc_Tsmi.Text = IntervalRecalc_Txt.Text;
+      }
+
+      private void DresNumbFind_Txt_Click(object sender, EventArgs e)
+      {
+         try
+         {
+
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void AddDres_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var aodt = AodtBs1.Current as Data.Aggregation_Operation_Detail;
+            if (aodt == null) return;
+
+            if (DratBs.List.OfType<Data.Dresser_Attendance>().Any(d => d.CODE == 0)) return;
+
+            var drat = DratBs.AddNew() as Data.Dresser_Attendance;
+            drat.Aggregation_Operation_Detail = aodt;
+            drat.ATTN_TYPE = "001";
+
+            iScsc.Dresser_Attendances.InsertOnSubmit(drat);
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void DelDres_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var drat = DratBs.Current as Data.Dresser_Attendance;
+            if (drat == null) return;
+
+            if (MessageBox.Show(this, "آیا با حذف رکورد موافق هستید؟", "حذف رکورد", MessageBoxButtons.YesNo) != DialogResult.Yes) return;
+
+            iScsc.Dresser_Attendances.DeleteOnSubmit(drat);
+            iScsc.SubmitChanges();
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void SaveDres_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            Drat_Gv.PostEditor();
+
+            iScsc.SubmitChanges();
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void SaveNewRec_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var lastaodt = AodtBs1.List.OfType<Data.Aggregation_Operation_Detail>().OrderByDescending(a => a.RWNO).FirstOrDefault();
+            
+            #region 1st Step Find Guest
+            var _guest = FighBs.List.OfType<Data.Fighter>().FirstOrDefault(f => f.FGPB_TYPE_DNRM == "005");
+            if(_guest == null)
+            {
+               MessageBox.Show(this, "برای سیستم شما مهمان آزاد تعریف نشده، لطفا مهمان آزاد را تعریف کنید.");
+               return;
+            }
+
+            Figh_Lov.EditValue = _guest.FILE_NO;
+            #endregion
+
+            // Call Open Desk
+            OpenDesk_Butn_Click(null, null);
+
+            // Get Last Record
+            var aodt = AodtBs1.Current as Data.Aggregation_Operation_Detail;
+            if (aodt == null) return;
+
+            if(lastaodt != null)
+               if (lastaodt.RWNO == aodt.RWNO)
+                  return;
+
+            aodt.CUST_NAME = CustName_Txt.Text;
+            aodt.NUMB = (int)Cont_Txt.Value;
+            aodt.PYDS_AMNT = Convert.ToInt64(PydsAmntTp_Txt.EditValue);
+
+            SaveStrtEndTime_Butn_Click(null, null);
+
+            // Save Pos Amnt
+            if(PosAmntTp_Txt.Text != "" && Convert.ToInt64(PosAmntTp_Txt.EditValue) != 0)
+            {
+               PosAmnt_Txt.EditValue = PosAmntTp_Txt.EditValue;
+               Pos_Butn_Click(null, null);
+            }
+
+            // Save Cash Amnt
+            if(CashAmntTp_Txt.Text != "" && Convert.ToInt64(CashAmntTp_Txt.EditValue) != 0)
+            {
+               PosAmnt_Txt.EditValue = CashAmntTp_Txt.EditValue;
+               Cash_Butn_Click(null, null);
+            }
+
+            if (DresItem_Lbx.Items.Count > 0)
+            {
+               string _cmnd = "INSERT INTO dbo.Dresser_Attendance (AODT_AGOP_CODE, AODT_RWNO, CODE, DERS_NUMB) VALUES ";
+               // Save Dresses Number
+               int i = 0;
+               foreach (var item in DresItem_Lbx.Items)
+               {
+                  _cmnd += string.Format("({0}, {1}, {2}, {3}),", aodt.AGOP_CODE, aodt.RWNO, ++i, item);
+               }
+               _cmnd += ";";
+               _cmnd = _cmnd.Replace(",;", ";");
+
+               iScsc.ExecuteCommand(_cmnd);
+            }
+
+            CustName_Txt.Text = "";
+            PosAmntTp_Txt.EditValue = CashAmntTp_Txt.EditValue = PydsAmntTp_Txt.EditValue = null;
+            DresItem_Lbx.Items.Clear();
+            Cont_Txt.Value = 1;
+            CustName_Txt.Focus();
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void AddDresItem_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var agop = AgopBs1.Current as Data.Aggregation_Operation;
+            if (agop == null) return;
+
+            if (DresNum_Txt.EditValue == null || DresNum_Txt.Text == "") return;
+            if (DresItem_Lbx.Items.Contains(DresNum_Txt.Text)) return;
+
+            // Checked Not Exists For another members
+            if(agop.Aggregation_Operation_Details.Any(a => a.REC_STAT == "002" && a.STAT.In("001") && a.Dresser_Attendances.Any(da => da.DERS_NUMB.ToString() == DresNum_Txt.Text)))
+            {
+               if (MessageBox.Show(this, "این شماره کمد در اختیار فرد دیگری میباشد، آیا مطمئن هستید؟", "شماره کمد تکراری", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) != DialogResult.Yes) { DresNum_Txt.Focus(); return; }
+            }
+
+            DresItem_Lbx.Items.Add(DresNum_Txt.Text);
+
+            DresNum_Txt.Text = "";
+            DresNum_Txt.Focus();
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void DelDresItem_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            if (DresItem_Lbx.Items.Count == 0) return;
+            if (DresItem_Lbx.SelectedIndex == -1) DresItem_Lbx.SelectedIndex = 0;
+
+            DresItem_Lbx.Items.RemoveAt(DresItem_Lbx.SelectedIndex);
+
+            DresNum_Txt.Text = "";
+            DresNum_Txt.Focus();
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void FindDres_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var aodt = AodtBs1.List.OfType<Data.Aggregation_Operation_Detail>().FirstOrDefault(a => a.REC_STAT == "002" && a.STAT.In("001", "003") && a.Dresser_Attendances.Any(da => da.DERS_NUMB.ToString() == DresNum_Txt.Text));
+            if (aodt == null) return;
+
+            AodtBs1.Position = AodtBs1.IndexOf(aodt);
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void ColxVisible_Cbx_CheckedChanged(object sender, EventArgs e)
+      {
+         apdt_gv.Columns.OfType<DevExpress.XtraGrid.Columns.GridColumn>().Where(gc => gc.Tag == ((CheckBox)sender).Tag).ToList().ForEach(gc => gc.Visible = ((CheckBox)sender).Checked);
+      }
+
+      private void Cancel_Butn_Click(object sender, EventArgs e)
+      {
+         CustName_Txt.Text = "";
+         PosAmntTp_Txt.EditValue = CashAmntTp_Txt.EditValue = PydsAmntTp_Txt.EditValue = null;
+         DresItem_Lbx.Items.Clear();
+         Cont_Txt.Value = 1;
+         CustName_Txt.Focus();
+      }
+
+      private void DelEvntLogs_Butn_Click(object sender, EventArgs e)
+      {
+         Evnt_Lbx.Items.Clear();
+      }
+
+      private void FillEndTime_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var aodt = AodtBs1.Current as Data.Aggregation_Operation_Detail;
+            if (aodt == null) return;
+
+            aodt.END_TIME = aodt.STRT_TIME.Value.AddMinutes(Convert.ToDouble(EndTimeValu_Txt.EditValue));
+
+            var val = ChckCalcEndTime_Cbx.Checked;
+            ChckCalcEndTime_Cbx.Checked = false;
+
+            CalcDesk_Butn_Click(null, null);
+            
+            ChckCalcEndTime_Cbx.Checked = val;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void ShowSmplGrid_Cbx_CheckedChanged(object sender, EventArgs e)
+      {
+         tabPage2.Controls.OfType<CheckBox>().Where(c => c.Tag != null && c.Tag.In("1", "2", "3", "12")).OrderBy(c => c.Tag).ToList().ForEach(c => c.Checked = !ShowSmplGrid_Cbx.Checked);
+      }
+
+      private void Cont_Txt_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
+      {
+         try
+         {
+            DfltExpnPricTp_Txt.EditValue = Convert.ToInt64(DfltExpnPricTp_Txt.Tag) * Convert.ToInt64(e.NewValue);
+         }
+         catch { }
+      }
+
+      private void UpdatePrice()
+      {
+         try
+         {
+            RmndAmntTp_Txt.EditValue = (Convert.ToInt64(DfltExpnPricTp_Txt.Tag) * Cont_Txt.Value) - (Convert.ToInt64(PosAmntTp_Txt.EditValue) + Convert.ToInt64(CashAmntTp_Txt.EditValue) + Convert.ToInt64(PydsAmntTp_Txt.EditValue));
+         }
+         catch { }
+      }
+
+      private void xAmntTp_Txt_TextChanged(object sender, EventArgs e)
+      {
+         UpdatePrice();
+      }
+
+      private void xAmntInCash_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var agop = AgopBs1.Current as Data.Aggregation_Operation;
+            if (agop == null) return;
+
+            if (AmntInCash_Txt.EditValue == null || AmntInCash_Txt.EditValue.ToString() == "" || Convert.ToInt64(AmntInCash_Txt.EditValue) == 0) return;
+
+            iScsc.ExecuteCommand("INSERT INTO dbo.Payment_Row_Type(Apdt_Agop_Code, Code, Amnt, Rcpt_Mtod, Bank) VALUES({0}, 0, {1}, {2}, {3});", agop.CODE, AmntInCash_Txt.EditValue, ((SimpleButton)sender).Tag, DescInCash_Txt.EditValue);
+            AmntInCash_Txt.EditValue = DescInCash_Txt.EditValue = "";
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void xAmntOutCash_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var agop = AgopBs1.Current as Data.Aggregation_Operation;
+            if (agop == null) return;
+
+            if (AmntOutCash_Txt.EditValue == null || AmntOutCash_Txt.EditValue.ToString() == "" || Convert.ToInt64(AmntOutCash_Txt.EditValue) == 0) return;
+
+            iScsc.ExecuteCommand("INSERT INTO dbo.Payment_Row_Type(Apdt_Agop_Code, Code, Amnt, Rcpt_Mtod, Bank) VALUES({0}, 0, {1}, {2}, {3});", agop.CODE, Convert.ToInt64(AmntOutCash_Txt.EditValue) * -1, ((SimpleButton)sender).Tag, DescOutCash_Txt.EditValue);
+            AmntOutCash_Txt.EditValue = DescOutCash_Txt.EditValue = "";
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void CashInActn_Butn_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            var pymt = InCashBs.Current as Data.Payment_Row_Type;
+            if (pymt == null) return;
+
+            if (MessageBox.Show(this, "آیا با حذف رکورد موافق هستید؟", "حذف رکورد", MessageBoxButtons.YesNo) != DialogResult.Yes) return;
+
+            iScsc.Payment_Row_Types.DeleteOnSubmit(pymt);
+            iScsc.SubmitChanges();
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void CashOutActn_Butn_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            var pymt = OutCashBs.Current as Data.Payment_Row_Type;
+            if (pymt == null) return;
+
+            if (MessageBox.Show(this, "آیا با حذف رکورد موافق هستید؟", "حذف رکورد", MessageBoxButtons.YesNo) != DialogResult.Yes) return;
+
+            iScsc.Payment_Row_Types.DeleteOnSubmit(pymt);
+            iScsc.SubmitChanges();
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
          }
       }
    }

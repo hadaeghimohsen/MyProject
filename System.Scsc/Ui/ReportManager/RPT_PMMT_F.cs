@@ -991,12 +991,12 @@ namespace System.Scsc.Ui.ReportManager
             switch (rqro.RQTP_CODE)
             {
                case "001":
-                  RqstInfo_Lb.Text =
-                     string.Format(
-                        "ثبت نام جدید مشتری برای" + " {0} " + ""
-                        ,
-                        rqro.Fighter.NAME_DNRM
-                     );
+                  //RqstInfo_Lb.Text =
+                  //   string.Format(
+                  //      "ثبت نام جدید مشتری برای" + " {0} " + ""
+                  //      ,
+                  //      rqro.Fighter.NAME_DNRM
+                  //   );
                   break;
                default:
                   break;

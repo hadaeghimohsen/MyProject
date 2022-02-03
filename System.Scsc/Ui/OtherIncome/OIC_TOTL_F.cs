@@ -13,6 +13,8 @@ using System.Data.SqlClient;
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Controls;
 using System.IO;
+using System.Scsc.ExtCode;
+using System.Threading;
 
 namespace System.Scsc.Ui.OtherIncome
 {
@@ -149,7 +151,7 @@ namespace System.Scsc.Ui.OtherIncome
             if (Rqst.SSTT_MSTT_CODE == 2 && (Rqst.SSTT_CODE == 1 || Rqst.SSTT_CODE == 2))
             {
                Gb_Expense.Visible = true;
-               Gb_ExpenseItem.Visible = true;
+               //*Gb_ExpenseItem.Visible = true;
                //Btn_RqstDelete1.Visible = true;
                //Btn_RqstSav1.Visible = false;
                RqstBnDelete1.Enabled = true;
@@ -157,14 +159,14 @@ namespace System.Scsc.Ui.OtherIncome
             else if (!(Rqst.SSTT_MSTT_CODE == 2 && (Rqst.SSTT_CODE == 1 || Rqst.SSTT_CODE == 2)) && Rqst.RQID > 0)
             {
                Gb_Expense.Visible = false;
-               Gb_ExpenseItem.Visible = true;
+               //*Gb_ExpenseItem.Visible = true;
                //Btn_RqstDelete1.Visible = Btn_RqstSav1.Visible = true;
                RqstBnDelete1.Enabled = true;
             }
             else if (Rqst.RQID == 0)
             {
                Gb_Expense.Visible = false;
-               Gb_ExpenseItem.Visible = false;
+               //*Gb_ExpenseItem.Visible = false;
                //Btn_RqstDelete1.Visible = Btn_RqstSav1.Visible = false;
                RqstBnDelete1.Enabled = false;
             }
@@ -172,7 +174,7 @@ namespace System.Scsc.Ui.OtherIncome
          catch
          {
             Gb_Expense.Visible = false;
-            Gb_ExpenseItem.Visible = false;
+            //*Gb_ExpenseItem.Visible = false;
             //Btn_RqstDelete1.Visible = Btn_RqstSav1.Visible = false;
             RqstBnDelete1.Enabled = false;
          }
@@ -381,9 +383,10 @@ namespace System.Scsc.Ui.OtherIncome
                RqstBnASav1.Enabled = false;
 
                UserProFile_Rb.ImageVisiable = true;
+               var rqro = Rqst.Request_Rows.FirstOrDefault() as Data.Request_Row;
                try
                {
-                  var rqro = RqroBs1.Current as Data.Request_Row;
+                  //var rqro = RqroBs1.Current as Data.Request_Row;
 
                   UserProFile_Rb.ImageProfile = null;
                   MemoryStream mStream = new MemoryStream();
@@ -398,6 +401,8 @@ namespace System.Scsc.Ui.OtherIncome
                      UserProFile_Rb.ImageProfile = bm;
                }
                catch { UserProFile_Rb.ImageProfile = global::System.Scsc.Properties.Resources.IMAGE_1482; }
+
+               MbspBs.DataSource = iScsc.Member_Ships.Where(mb => mb.FIGH_FILE_NO == rqro.FIGH_FILE_NO && mb.RECT_CODE == "004" && (mb.TYPE == "001" || mb.TYPE == "005"));
             }
             else if (!(Rqst.SSTT_MSTT_CODE == 2 && (Rqst.SSTT_CODE == 1 || Rqst.SSTT_CODE == 2)) && Rqst.RQID > 0)
             {
@@ -1073,7 +1078,7 @@ namespace System.Scsc.Ui.OtherIncome
             {
                PydtsBs1.AddNew();
                var pydt = PydtsBs1.Current as Data.Payment_Detail;
-               ExpnBs1.List.OfType<Data.Expense>().Where(ex => ex.CODE == expn.CODE).ToList().ForEach(ex => { pydt.EXPN_CODE = ex.CODE; pydt.EXPN_PRIC = ex.PRIC; pydt.EXPN_EXTR_PRCT = ex.EXTR_PRCT; pydt.QNTY = 1; pydt.PYDT_DESC = ex.EXPN_DESC; pydt.PAY_STAT = "001"; pydt.RQRO_RWNO = 1; pydt.MTOD_CODE_DNRM = expn.MTOD_CODE; pydt.CTGY_CODE_DNRM = expn.CTGY_CODE; pydt.EXPR_DATE = DateTime.Now.AddDays((int)expn.NUMB_CYCL_DAY); });
+               ExpnBs1.List.OfType<Data.Expense>().Where(ex => ex.CODE == expn.CODE).ToList().ForEach(ex => { pydt.EXPN_CODE = ex.CODE; pydt.EXPN_PRIC = ex.PRIC; pydt.EXPN_EXTR_PRCT = ex.EXTR_PRCT; pydt.QNTY = 1; pydt.PYDT_DESC = ex.EXPN_DESC; pydt.PAY_STAT = "001"; pydt.RQRO_RWNO = 1; pydt.MTOD_CODE_DNRM = expn.MTOD_CODE; pydt.CTGY_CODE_DNRM = expn.CTGY_CODE; pydt.EXPR_DATE = DateTime.Now.AddDays((int)expn.NUMB_CYCL_DAY).AddHours(expn.MIN_TIME.Value.Hour).AddMinutes(expn.MIN_TIME.Value.Minute).AddSeconds(expn.MIN_TIME.Value.Second); });
             }
             else
             {
@@ -1517,6 +1522,7 @@ namespace System.Scsc.Ui.OtherIncome
 
             requery = true;
             CBMT_CODE_GridLookUpEdit.EditValue = pydt.CBMT_CODE_DNRM;
+            MbspRwnoPydt_Lov.EditValue = pydt.MBSP_RWNO;
             requery = false;
          }
          catch (Exception exc)
@@ -2512,6 +2518,141 @@ namespace System.Scsc.Ui.OtherIncome
          {
             MessageBox.Show(exc.Message);
          }
+      }
+
+      private void MbspRwnoPydt_Lov_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
+      {
+         try
+         {
+            if (requery) { requery = false; return; }
+            var pydt = PydtsBs1.Current as Data.Payment_Detail;
+            if (pydt == null) return;
+
+            //pydt.Club_Method = iScsc.Club_Methods.FirstOrDefault(cm => cm.CODE == (long?)e.NewValue);
+            iScsc.UPD_SEXP_P(
+               new XElement("Request",
+                  new XAttribute("rqid", pydt.PYMT_RQST_RQID),
+                  new XElement("Payment",
+                     new XAttribute("cashcode", pydt.PYMT_CASH_CODE),
+                     new XElement("Payment_Detail",
+                        new XAttribute("code", pydt.CODE),
+                        new XAttribute("expncode", pydt.EXPN_CODE),
+                        new XAttribute("expnpric", pydt.EXPN_PRIC),
+                        new XAttribute("pydtdesc", pydt.PYDT_DESC),
+                        new XAttribute("qnty", pydt.QNTY ?? 1),
+                        new XAttribute("fighfileno", pydt.FIGH_FILE_NO ?? 0),
+                        new XAttribute("cbmtcodednrm", pydt.CBMT_CODE_DNRM ?? 0),
+                        new XAttribute("exprdate", pydt.EXPR_DATE == null ? "" : pydt.EXPR_DATE.Value.ToString("yyyy-MM-dd")),
+                        new XAttribute("mbsprwno", e.NewValue ?? 0)
+                     )
+                  )
+               )
+            );
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void AutoRecalc_Tmr_Tick(object sender, EventArgs e)
+      {
+         try
+         {
+            var _pydts = 
+               iScsc.Payment_Details
+               .Where(
+                  pd => 
+                     pd.Payment.Request.RQTP_CODE == "016" &&
+                     pd.Payment.Request.RQST_STAT == "002" &&
+                     pd.EXPR_DATE.Value <= DateTime.Now &&
+                     pd.TRAN_DATE == null
+               );
+
+            if (_pydts.Count() == 0) return;            
+
+            List<string> evntLogs = new List<string>();
+
+            if(_pydts.Count() > 0)
+            {
+               if (PlaySondAlrm_Cbx.Checked)
+               {
+                  if (evntLogs.Count == 0)
+                     evntLogs.Add(DateTime.Now.ToString("HH:mm:ss => -----------------------------"));
+
+                  if (evntLogs.Count == 1)
+                  {
+                     new Thread(AlarmShow).Start();
+                  }
+
+                  _pydts.ToList().ForEach(
+                     pd =>
+                     {
+                        evntLogs.Add(string.Format(">> \"{0}\" - [ {1} ] <<", iScsc.GET_STRD_U(new XElement("Request", new XAttribute("type", "001"), new XAttribute("rqid", pd.PYMT_RQST_RQID))), pd.QNTY));
+                     }
+                  );                  
+               }
+            }
+
+            iScsc.ExecuteCommand(string.Format("UPDATE Payment_Detail SET TRAN_DATE = GETDATE() WHERE Code IN ({0}) AND TRAN_DATE IS NULL;", string.Join(",", _pydts.Select(pd => pd.CODE))));
+
+            if (evntLogs.Count() > 1)
+            {
+               foreach (var item in evntLogs)
+               {
+                  Evnt_Lbx.Items.Insert(0, item);
+               }
+               
+               Gb_ExpenseItem.SelectedTab = tabPage3;
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void AutoRecalc_Cbx_CheckedChanged(object sender, EventArgs e)
+      {
+         AutoRecalc_Tmr.Enabled = AutoRecalc_Cbx.Checked;
+         AutoRecalc_Tmr.Interval = IntervalRecalc_Txt.Text.ToInt32() * 60000;
+      }
+
+      WMPLib.WindowsMediaPlayer wplayer = new WMPLib.WindowsMediaPlayer();
+      private void AlarmShow()
+      {
+         if (InvokeRequired)
+         {
+            try
+            {
+               wplayer.URL = @".\Media\SubSys\Kernel\Desktop\Sounds\Popcorn.mp3";
+               wplayer.controls.play();
+            }
+            catch { }
+
+            //var tempcolor = BackGrnd_Butn.NormalColorA;
+            //for (int i = 0; i < 5; i++)
+            //{
+            //   if (i % 2 == 0)
+            //      BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.YellowGreen;
+            //   else
+            //      BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.LimeGreen;
+
+            //   Thread.Sleep(100);
+            //}
+            //BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = tempcolor;
+         }
+      }
+
+      private void DelEvntLogs_Butn_Click(object sender, EventArgs e)
+      {
+         Evnt_Lbx.Items.Clear();
       }
    }
 }

@@ -1258,6 +1258,8 @@ namespace System.Scsc.Ui.Common
             DebtPymtAmnt1_Txt.EditValue = Convert.ToInt64(ExpnAmnt_Txt.EditValue) - (Convert.ToInt64(PymtAmnt1_Txt.EditValue) + Convert.ToInt64(DscnAmnt_Txt.EditValue));
             QStrtTime_Tim.EditValue = mbsp.Fighter_Public.Club_Method.STRT_TIME;
             QEndTime_Tim.EditValue = mbsp.Fighter_Public.Club_Method.END_TIME;
+
+            PdtMBs.DataSource = iScsc.Payment_Details.Where(pd => pd.Payment.Request.RQST_STAT == "002" && pd.MBSP_FIGH_FILE_NO == fileno && pd.MBSP_RWNO == mbsp.RWNO);
          }
          catch{
          }

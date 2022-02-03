@@ -337,12 +337,12 @@ namespace System.Scsc.Ui.Admission
                      //TotlExpn_Lb.Text = control.LABL_TEXT; // Place Holder
                      break;
                   case "pymt_lb":
-                     Pymt_Lb.Text = control.LABL_TEXT;
+                     //Pymt_Lb.Text = control.LABL_TEXT;
                      //Pymt_Lb.Text = control.LABL_TEXT; // ToolTip
                      //Pymt_Lb.Text = control.LABL_TEXT; // Place Holder
                      break;
                   case "dscn_lb":
-                     Dscn_Lb.Text = control.LABL_TEXT;
+                     //Dscn_Lb.Text = control.LABL_TEXT;
                      //Dscn_Lb.Text = control.LABL_TEXT; // ToolTip
                      //Dscn_Lb.Text = control.LABL_TEXT; // Place Holder
                      break;

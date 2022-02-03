@@ -97,6 +97,9 @@ namespace System.Scsc.Ui.BaseDefinition
             MtodBs1.Position = mtod;
             Ctgy_Gv.TopRowIndex = ctgy;
             CtgyBs1.Position = ctgy;
+
+            ClubBs1.DataSource = iScsc.Clubs;
+            CochBs1.DataSource = iScsc.Fighters.Where(c => c.FGPB_TYPE_DNRM == "003");
          }
          else if(Tb_Master.SelectedTab == tp_004)
          {
@@ -2642,7 +2645,11 @@ namespace System.Scsc.Ui.BaseDefinition
                      new XAttribute("ipadr3", Stng.IP_ADR3 ?? ""),
                      new XAttribute("portnum3", Stng.PORT_NUM3 ?? 0),
                      new XAttribute("attncompcnc3", Stng.ATTN_COMP_CNC3 ?? ""),
-                     new XAttribute("atn4evntactntype", Stng.ATN4_EVNT_ACTN_TYPE ?? "001")
+                     new XAttribute("atn4evntactntype", Stng.ATN4_EVNT_ACTN_TYPE ?? "001"),
+
+                     new XAttribute("attngustnumbtype", Stng.ATTN_GUST_NUMB_TYPE ?? "002"),
+                     new XAttribute("attndelytime", Stng.ATTN_DELY_TIME ?? 0)
+
                   )
                )
             );

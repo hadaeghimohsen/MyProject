@@ -432,7 +432,7 @@ namespace System.Scsc.Ui.Admission
                      //DtilAmnt_Lb.Text = control.LABL_TEXT; // Place Holder
                      break;
                   case "pymt_lb":
-                     Pymt_Lb.Text = control.LABL_TEXT;
+                     //Pymt_Lb.Text = control.LABL_TEXT;
                      //Pymt_Lb.Text = control.LABL_TEXT; // ToolTip
                      //Pymt_Lb.Text = control.LABL_TEXT; // Place Holder
                      break;

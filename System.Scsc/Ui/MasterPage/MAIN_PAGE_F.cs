@@ -5522,7 +5522,11 @@ namespace System.Scsc.Ui.MasterPage
             {
                var figh = iScsc.Fighters.FirstOrDefault(f => f.FGPB_TYPE_DNRM == "005" && f.SEX_TYPE_DNRM == "001" && f.FIGH_STAT == "002");
 
-               if (figh == null) return;
+               if (figh == null) 
+               {
+                  More_Butn_Click(null, null);
+                  return; 
+               }
 
                _DefaultGateway.Gateway(
                   new Job(SendType.External, "Localhost",
@@ -5539,7 +5543,11 @@ namespace System.Scsc.Ui.MasterPage
             {
                var figh = iScsc.Fighters.FirstOrDefault(f => f.FGPB_TYPE_DNRM == "005" && f.SEX_TYPE_DNRM == "002" && f.FIGH_STAT == "002");
 
-               if (figh == null) return;
+               if (figh == null)
+               {
+                  More_Butn_Click(null, null);
+                  return;
+               }
 
                _DefaultGateway.Gateway(
                   new Job(SendType.External, "Localhost",

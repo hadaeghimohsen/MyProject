@@ -546,6 +546,31 @@ namespace System.Scsc.Ui.OtherIncome
                var rqst = RqstBs1.Current as Data.Request;
                if (rqst == null) return;
 
+               // 1400/11/18 * If Service is Guest AND User Must Fill First, Last Name AND CellPhone
+               if (FrstLastCellRqur_Cbx.Checked && rqst.Request_Rows.FirstOrDefault().Fighter.FGPB_TYPE_DNRM == "005")
+               {
+                  var fp = rqst.Request_Rows.FirstOrDefault().Fighter_Publics.FirstOrDefault();
+                  if (fp.FRST_NAME == null || fp.FRST_NAME.Length == 0)
+                  {
+                     FrstName_Txt.Focus();
+                     return;
+                  }
+
+                  if (fp.LAST_NAME == null || fp.LAST_NAME.Length == 0)
+                  {
+                     LastName_Txt.Focus();
+                     return;
+                  }
+
+                  if (fp.CELL_PHON == null || fp.CELL_PHON.Length == 0)
+                  {
+                     CellPhon_Txt.Focus();
+                     return;
+                  }
+
+                  iScsc.ExecuteCommand(string.Format("UPDATE dbo.Fighter_Public SET Frst_Name = N'{0}', Last_Name = N'{1}', Cell_Phon = '{2}' WHERE Rqro_Rqst_Rqid = {3};", FrstName_Txt.Text, LastName_Txt.Text, CellPhon_Txt.Text, rqst.RQID));
+               }
+
                if (Accept_Cb.Checked)
                {
                   var pymt = PymtsBs1.Current as Data.Payment;
@@ -779,6 +804,31 @@ namespace System.Scsc.Ui.OtherIncome
             {
                var rqst = RqstBs1.Current as Data.Request;
                if (rqst == null) return;
+
+               // 1400/11/18 * If Service is Guest AND User Must Fill First, Last Name AND CellPhone
+               if (FrstLastCellRqur_Cbx.Checked && rqst.Request_Rows.FirstOrDefault().Fighter.FGPB_TYPE_DNRM == "005")
+               {
+                  var fp = rqst.Request_Rows.FirstOrDefault().Fighter_Publics.FirstOrDefault();
+                  if (fp.FRST_NAME == null || fp.FRST_NAME.Length == 0)
+                  {
+                     FrstName_Txt.Focus();
+                     return;
+                  }
+
+                  if (fp.LAST_NAME == null || fp.LAST_NAME.Length == 0)
+                  {
+                     LastName_Txt.Focus();
+                     return;
+                  }
+
+                  if (fp.CELL_PHON == null || fp.CELL_PHON.Length == 0)
+                  {
+                     CellPhon_Txt.Focus();
+                     return;
+                  }
+
+                  iScsc.ExecuteCommand(string.Format("UPDATE dbo.Fighter_Public SET Frst_Name = N'{0}', Last_Name = N'{1}', Cell_Phon = '{2}' WHERE Rqro_Rqst_Rqid = {3};", FrstName_Txt.Text, LastName_Txt.Text, CellPhon_Txt.Text, rqst.RQID));
+               }
 
                if (Accept_Cb.Checked)
                {
@@ -1015,6 +1065,31 @@ namespace System.Scsc.Ui.OtherIncome
 
                var rqst = RqstBs1.Current as Data.Request;
                if (rqst == null) return;
+
+               // 1400/11/18 * If Service is Guest AND User Must Fill First, Last Name AND CellPhone
+               if (FrstLastCellRqur_Cbx.Checked && rqst.Request_Rows.FirstOrDefault().Fighter.FGPB_TYPE_DNRM == "005")
+               {
+                  var fp = rqst.Request_Rows.FirstOrDefault().Fighter_Publics.FirstOrDefault();
+                  if (fp.FRST_NAME == null || fp.FRST_NAME.Length == 0)
+                  {
+                     FrstName_Txt.Focus();
+                     return;
+                  }
+
+                  if (fp.LAST_NAME == null || fp.LAST_NAME.Length == 0)
+                  {
+                     LastName_Txt.Focus();
+                     return;
+                  }
+
+                  if (fp.CELL_PHON == null || fp.CELL_PHON.Length == 0)
+                  {
+                     CellPhon_Txt.Focus();
+                     return;
+                  }
+
+                  iScsc.ExecuteCommand(string.Format("UPDATE dbo.Fighter_Public SET Frst_Name = N'{0}', Last_Name = N'{1}', Cell_Phon = '{2}' WHERE Rqro_Rqst_Rqid = {3};", FrstName_Txt.Text, LastName_Txt.Text, CellPhon_Txt.Text, rqst.RQID));
+               }
 
                if (Accept_Cb.Checked)
                {

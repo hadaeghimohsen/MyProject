@@ -4489,6 +4489,6 @@ namespace System.Scsc.Ui.BaseDefinition
          {
             MessageBox.Show(exc.Message);
          }
-      }
+      }      
    }
 }

@@ -22,6 +22,8 @@ namespace System.Scsc.Ui.Insurance
       private string formCaller = "";
       private string followups = "";
       private long rqstRqid = 0;
+      private string CurrentUser;
+      private long fileno = 0;
 
       public void SendRequest(Job job)
       {
@@ -189,7 +191,7 @@ namespace System.Scsc.Ui.Insurance
          Fga_Uprv_U = iScsc.FGA_UPRV_U() ?? "";
          Fga_Urgn_U = iScsc.FGA_URGN_U() ?? "";
          Fga_Uclb_U = (iScsc.FGA_UCLB_U() ?? "").Split(',').Select(c => (long?)Int64.Parse(c)).ToList();
-
+         CurrentUser = iScsc.GET_CRNTUSER_U(new XElement("User", new XAttribute("actntype", "001")));
 
          var GetHostInfo = new Job(SendType.External, "Localhost", "Commons", 24 /* Execute DoWork4GetHosInfo */, SendType.Self);
          _DefaultGateway.Gateway(GetHostInfo);
@@ -231,11 +233,11 @@ namespace System.Scsc.Ui.Insurance
                      //CashCode_Clm.Text = control.LABL_TEXT; // ToolTip
                      //CashCode_Clm.Text = control.LABL_TEXT; // Place Holder
                      break;
-                  case "rwnopdsc_clm":
-                     RwnoPdsc_Clm.Caption = control.LABL_TEXT;
-                     //RwnoPdsc_Clm.Text = control.LABL_TEXT; // ToolTip
-                     //RwnoPdsc_Clm.Text = control.LABL_TEXT; // Place Holder
-                     break;
+                  //case "rwnopdsc_clm":
+                  //   RwnoPdsc_Clm.Caption = control.LABL_TEXT;
+                  //   //RwnoPdsc_Clm.Text = control.LABL_TEXT; // ToolTip
+                  //   //RwnoPdsc_Clm.Text = control.LABL_TEXT; // Place Holder
+                  //   break;
                   case "gb_info":
                      Gb_Info.Text = control.LABL_TEXT;
                      //Gb_Info.Text = control.LABL_TEXT; // ToolTip
@@ -336,16 +338,16 @@ namespace System.Scsc.Ui.Insurance
                      //TotlExpn_Clm.Text = control.LABL_TEXT; // ToolTip
                      //TotlExpn_Clm.Text = control.LABL_TEXT; // Place Holder
                      break;
-                  case "amntpdsc_clm":
-                     AmntPdsc_Clm.Caption = control.LABL_TEXT;
-                     //AmntPdsc_Clm.Text = control.LABL_TEXT; // ToolTip
-                     //AmntPdsc_Clm.Text = control.LABL_TEXT; // Place Holder
-                     break;
-                  case "pydsdesc_clm":
-                     PydsDesc_Clm.Caption = control.LABL_TEXT;
-                     //PydsDesc_Clm.Text = control.LABL_TEXT; // ToolTip
-                     //PydsDesc_Clm.Text = control.LABL_TEXT; // Place Holder
-                     break;
+                  //case "amntpdsc_clm":
+                  //   AmntPdsc_Clm.Caption = control.LABL_TEXT;
+                  //   //AmntPdsc_Clm.Text = control.LABL_TEXT; // ToolTip
+                  //   //AmntPdsc_Clm.Text = control.LABL_TEXT; // Place Holder
+                  //   break;
+                  //case "pydsdesc_clm":
+                  //   PydsDesc_Clm.Caption = control.LABL_TEXT;
+                  //   //PydsDesc_Clm.Text = control.LABL_TEXT; // ToolTip
+                  //   //PydsDesc_Clm.Text = control.LABL_TEXT; // Place Holder
+                  //   break;
                   case "pymtrwno_clm":
                      PymtRwno_Clm.Caption = control.LABL_TEXT;
                      //PymtRwno_Clm.Text = control.LABL_TEXT; // ToolTip
@@ -468,7 +470,10 @@ namespace System.Scsc.Ui.Insurance
             {
                if (xinput.Attribute("type").Value == "renewinscard")
                {
-                  FILE_NO_LookUpEdit.EditValue = Convert.ToInt64(xinput.Attribute("fileno").Value);
+                  if (RqstBs1.Count > 0 && (RqstBs1.Current as Data.Request).RQID > 0)
+                     RqstBs1.AddNew();
+
+                  FILE_NO_LookUpEdit.EditValue = fileno = Convert.ToInt64(xinput.Attribute("fileno").Value);
                   RQTT_CODELookUpEdit.EditValue = "001";
 
                   // 1397/05/26 * rqstrqid
@@ -477,7 +482,19 @@ namespace System.Scsc.Ui.Insurance
                   else
                      rqstRqid = 0;
 
-                  RqstBnARqt1_Click(null, null);
+                  // 1401/02/04 * بررسی اینکه آیا مشتری درخواست قفل شده در این فرآیند را دارد یا خیر
+                  ShowRqst_PickButn.PickChecked = false;
+                  if (RqstBs1.IndexOf(RqstBs1.List.OfType<Data.Request>().FirstOrDefault(r => r.Request_Rows.Any(rr => rr.Fighter.FILE_NO == fileno))) == -1)
+                  {
+                     FILE_NO_LookUpEdit.EditValue = fileno;
+                     RQTT_CODELookUpEdit.EditValue = "001";
+                     RqstBnARqt1_Click(null, null);
+                  }
+                  else
+                  {
+                     // 1398/09/07 * پیدا کردن درخواست برای مشتری
+                     RqstBs1.Position = RqstBs1.IndexOf(RqstBs1.List.OfType<Data.Request>().FirstOrDefault(r => r.Request_Rows.Any(rr => rr.Fighter.FILE_NO == fileno)));
+                  }
                }
 
                // 1397/05/16
@@ -547,7 +564,8 @@ namespace System.Scsc.Ui.Insurance
                         new XAttribute("cardno", cardno),
                         new XAttribute("flowno", flowno),
                         new XAttribute("refno", refno),
-                        new XAttribute("actndate", actndate)
+                        new XAttribute("actndate", actndate),
+                        new XAttribute("valdtype", "001")
                      )
                   )
                )

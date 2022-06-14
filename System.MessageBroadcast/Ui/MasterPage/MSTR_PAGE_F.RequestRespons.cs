@@ -158,6 +158,7 @@ namespace System.MessageBroadcast.Ui.MasterPage
       /// <param name="job"></param>
       private void LoadData(Job job)
       {
+         DLntpBs.DataSource = iProject.D_LNTPs;
          Execute_Query();
          job.Status = StatusType.Successful;
       }

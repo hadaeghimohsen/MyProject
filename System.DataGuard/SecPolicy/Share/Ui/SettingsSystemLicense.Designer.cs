@@ -28,28 +28,29 @@
       /// </summary>
       private void InitializeComponent()
       {
+         this.components = new System.ComponentModel.Container();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject18 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject9 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject10 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject11 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject24 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject13 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject14 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject15 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject16 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject21 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject9 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject20 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject17 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject23 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject10 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject18 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject19 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject20 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject21 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject22 = new DevExpress.Utils.SerializableAppearanceObject();
          this.panel1 = new System.Windows.Forms.Panel();
          this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
          this.Back_Butn = new DevExpress.XtraEditors.SimpleButton();
@@ -57,14 +58,17 @@
          this.Tb_Master = new System.Windows.Forms.TabControl();
          this.tp_001 = new System.Windows.Forms.TabPage();
          this.splitContainerControl2 = new DevExpress.XtraEditors.SplitContainerControl();
+         this.LicAmntCode_Txt = new DevExpress.XtraEditors.ButtonEdit();
          this.LicAmnt_Txt = new DevExpress.XtraEditors.ButtonEdit();
+         this.labelControl32 = new DevExpress.XtraEditors.LabelControl();
          this.TrialDate_Dt = new Atf.UI.DateTimeSelector();
-         this.SubSysBs = new System.Windows.Forms.BindingSource();
+         this.SubSysBs = new System.Windows.Forms.BindingSource(this.components);
+         this.labelControl26 = new DevExpress.XtraEditors.LabelControl();
          this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
          this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
          this.labelControl35 = new DevExpress.XtraEditors.LabelControl();
          this.Gateway_Lov = new DevExpress.XtraEditors.SearchLookUpEdit();
-         this.GatewayBs = new System.Windows.Forms.BindingSource();
+         this.GatewayBs = new System.Windows.Forms.BindingSource(this.components);
          this.gridView11 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colMAC_ADRS = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colCONF_DATE = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -115,6 +119,11 @@
          this.colMDFY_DATE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
          this.tp_002 = new System.Windows.Forms.TabPage();
+         this.labelControl36 = new DevExpress.XtraEditors.LabelControl();
+         this.LicAmntCode1_Txt = new DevExpress.XtraEditors.ButtonEdit();
+         this.LicAmnt1_Txt = new DevExpress.XtraEditors.ButtonEdit();
+         this.labelControl33 = new DevExpress.XtraEditors.LabelControl();
+         this.labelControl34 = new DevExpress.XtraEditors.LabelControl();
          this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
          this.TrialDate1_Dt = new Atf.UI.DateTimeSelector();
          this.labelControl27 = new DevExpress.XtraEditors.LabelControl();
@@ -209,14 +218,6 @@
          this.UserDefApp_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
          this.simpleButton4 = new DevExpress.XtraEditors.SimpleButton();
-         this.labelControl32 = new DevExpress.XtraEditors.LabelControl();
-         this.LicAmntCode_Txt = new DevExpress.XtraEditors.ButtonEdit();
-         this.LicAmntCode1_Txt = new DevExpress.XtraEditors.ButtonEdit();
-         this.LicAmnt1_Txt = new DevExpress.XtraEditors.ButtonEdit();
-         this.labelControl33 = new DevExpress.XtraEditors.LabelControl();
-         this.labelControl34 = new DevExpress.XtraEditors.LabelControl();
-         this.labelControl26 = new DevExpress.XtraEditors.LabelControl();
-         this.labelControl36 = new DevExpress.XtraEditors.LabelControl();
          this.panel1.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
          this.splitContainerControl1.SuspendLayout();
@@ -224,6 +225,7 @@
          this.tp_001.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl2)).BeginInit();
          this.splitContainerControl2.SuspendLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.LicAmntCode_Txt.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.LicAmnt_Txt.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.SubSysBs)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.Gateway_Lov.Properties)).BeginInit();
@@ -239,6 +241,8 @@
          ((System.ComponentModel.ISupportInitialize)(this.sub_SystemGridControl)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
          this.tp_002.SuspendLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.LicAmntCode1_Txt.Properties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.LicAmnt1_Txt.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.Gateway1_Lov.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.SubSys1_Txt.Properties)).BeginInit();
@@ -267,9 +271,6 @@
          ((System.ComponentModel.ISupportInitialize)(this.memoEdit3.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.ClientKey2_Text.Properties)).BeginInit();
          this.flowLayoutPanel1.SuspendLayout();
-         ((System.ComponentModel.ISupportInitialize)(this.LicAmntCode_Txt.Properties)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.LicAmntCode1_Txt.Properties)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.LicAmnt1_Txt.Properties)).BeginInit();
          this.SuspendLayout();
          // 
          // panel1
@@ -401,6 +402,36 @@
          this.splitContainerControl2.TabIndex = 2;
          this.splitContainerControl2.Text = "splitContainerControl2";
          // 
+         // LicAmntCode_Txt
+         // 
+         this.LicAmntCode_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.LicAmntCode_Txt.EditValue = "";
+         this.LicAmntCode_Txt.Location = new System.Drawing.Point(201, 266);
+         this.LicAmntCode_Txt.Name = "LicAmntCode_Txt";
+         this.LicAmntCode_Txt.Properties.Appearance.BackColor = System.Drawing.Color.White;
+         this.LicAmntCode_Txt.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+         this.LicAmntCode_Txt.Properties.Appearance.Font = new System.Drawing.Font("IRANSans", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.LicAmntCode_Txt.Properties.Appearance.Options.UseBackColor = true;
+         this.LicAmntCode_Txt.Properties.Appearance.Options.UseBorderColor = true;
+         this.LicAmntCode_Txt.Properties.Appearance.Options.UseFont = true;
+         this.LicAmntCode_Txt.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+         this.LicAmntCode_Txt.Properties.AppearanceFocused.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+         this.LicAmntCode_Txt.Properties.AppearanceFocused.Options.UseBackColor = true;
+         this.LicAmntCode_Txt.Properties.AppearanceFocused.Options.UseBorderColor = true;
+         this.LicAmntCode_Txt.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+         this.LicAmntCode_Txt.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
+         this.LicAmntCode_Txt.Properties.DisplayFormat.FormatString = "{0:n0}";
+         this.LicAmntCode_Txt.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+         this.LicAmntCode_Txt.Properties.EditFormat.FormatString = "{0:n0}";
+         this.LicAmntCode_Txt.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+         this.LicAmntCode_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.LicAmntCode_Txt.Properties.NullText = "---";
+         this.LicAmntCode_Txt.Properties.NullValuePrompt = "---";
+         this.LicAmntCode_Txt.Properties.NullValuePromptShowForEmptyValue = true;
+         this.LicAmntCode_Txt.Size = new System.Drawing.Size(318, 28);
+         this.LicAmntCode_Txt.TabIndex = 61;
+         // 
          // LicAmnt_Txt
          // 
          this.LicAmnt_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -419,7 +450,7 @@
          this.LicAmnt_Txt.Properties.AppearanceFocused.Options.UseBorderColor = true;
          this.LicAmnt_Txt.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
          this.LicAmnt_Txt.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
          this.LicAmnt_Txt.Properties.DisplayFormat.FormatString = "{0:n0}";
          this.LicAmnt_Txt.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
          this.LicAmnt_Txt.Properties.EditFormat.FormatString = "{0:n0}";
@@ -433,6 +464,23 @@
          this.LicAmnt_Txt.Properties.NullValuePromptShowForEmptyValue = true;
          this.LicAmnt_Txt.Size = new System.Drawing.Size(318, 28);
          this.LicAmnt_Txt.TabIndex = 61;
+         // 
+         // labelControl32
+         // 
+         this.labelControl32.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.labelControl32.Appearance.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.labelControl32.Appearance.ImageAlign = System.Drawing.ContentAlignment.TopRight;
+         this.labelControl32.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+         this.labelControl32.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+         this.labelControl32.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
+         this.labelControl32.LineColor = System.Drawing.Color.Blue;
+         this.labelControl32.LineLocation = DevExpress.XtraEditors.LineLocation.Right;
+         this.labelControl32.LineOrientation = DevExpress.XtraEditors.LabelLineOrientation.Vertical;
+         this.labelControl32.Location = new System.Drawing.Point(562, 270);
+         this.labelControl32.Name = "labelControl32";
+         this.labelControl32.Size = new System.Drawing.Size(85, 20);
+         this.labelControl32.TabIndex = 58;
+         this.labelControl32.Text = "شماره پیگیری";
          // 
          // TrialDate_Dt
          // 
@@ -452,6 +500,23 @@
          // 
          this.SubSysBs.DataSource = typeof(System.DataGuard.Data.Sub_System);
          this.SubSysBs.CurrentChanged += new System.EventHandler(this.SubSysBs_CurrentChanged);
+         // 
+         // labelControl26
+         // 
+         this.labelControl26.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.labelControl26.Appearance.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.labelControl26.Appearance.ImageAlign = System.Drawing.ContentAlignment.TopRight;
+         this.labelControl26.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+         this.labelControl26.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+         this.labelControl26.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
+         this.labelControl26.LineColor = System.Drawing.Color.Blue;
+         this.labelControl26.LineLocation = DevExpress.XtraEditors.LineLocation.Right;
+         this.labelControl26.LineOrientation = DevExpress.XtraEditors.LabelLineOrientation.Vertical;
+         this.labelControl26.Location = new System.Drawing.Point(110, 234);
+         this.labelControl26.Name = "labelControl26";
+         this.labelControl26.Size = new System.Drawing.Size(85, 20);
+         this.labelControl26.TabIndex = 58;
+         this.labelControl26.Text = "تومان";
          // 
          // labelControl11
          // 
@@ -526,8 +591,8 @@
          this.Gateway_Lov.Properties.AppearanceFocused.Options.UseBorderColor = true;
          this.Gateway_Lov.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
          this.Gateway_Lov.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.DropDown, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject18, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.DropDown, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject3, "", null, null, true),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject4, "", null, null, true)});
          this.Gateway_Lov.Properties.DataSource = this.GatewayBs;
          this.Gateway_Lov.Properties.DisplayMember = "COMP_NAME_DNRM";
          this.Gateway_Lov.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
@@ -622,7 +687,7 @@
          this.DayRemn_Txt.Properties.AppearanceFocused.Options.UseBorderColor = true;
          this.DayRemn_Txt.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
          this.DayRemn_Txt.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject3, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, "", null, null, true)});
          this.DayRemn_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.DayRemn_Txt.Properties.NullText = "---";
          this.DayRemn_Txt.Properties.NullValuePrompt = "---";
@@ -649,7 +714,7 @@
          this.FullName_Txt.Properties.AppearanceFocused.Options.UseBorderColor = true;
          this.FullName_Txt.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
          this.FullName_Txt.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject4, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject6, "", null, null, true)});
          this.FullName_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.FullName_Txt.Properties.NullText = "---";
          this.FullName_Txt.Properties.NullValuePrompt = "---";
@@ -675,7 +740,7 @@
          this.Emal_Txt.Properties.AppearanceFocused.Options.UseBorderColor = true;
          this.Emal_Txt.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
          this.Emal_Txt.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject7, "", null, null, true)});
          this.Emal_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.Emal_Txt.Properties.NullText = "---";
          this.Emal_Txt.Properties.NullValuePrompt = "---";
@@ -701,7 +766,7 @@
          this.CellPhon_Txt.Properties.AppearanceFocused.Options.UseBorderColor = true;
          this.CellPhon_Txt.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
          this.CellPhon_Txt.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject6, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject8, "", null, null, true)});
          this.CellPhon_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.CellPhon_Txt.Properties.NullText = "---";
          this.CellPhon_Txt.Properties.NullValuePrompt = "---";
@@ -727,7 +792,7 @@
          this.CompName_Txt.Properties.AppearanceFocused.Options.UseBorderColor = true;
          this.CompName_Txt.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
          this.CompName_Txt.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject7, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, "", null, null, true)});
          this.CompName_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.CompName_Txt.Properties.NullText = "---";
          this.CompName_Txt.Properties.NullValuePrompt = "---";
@@ -1226,6 +1291,121 @@
          this.tp_002.Text = "دریافت فعال سازی";
          this.tp_002.UseVisualStyleBackColor = true;
          // 
+         // labelControl36
+         // 
+         this.labelControl36.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.labelControl36.Appearance.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.labelControl36.Appearance.ImageAlign = System.Drawing.ContentAlignment.TopRight;
+         this.labelControl36.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+         this.labelControl36.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+         this.labelControl36.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
+         this.labelControl36.LineColor = System.Drawing.Color.Blue;
+         this.labelControl36.LineLocation = DevExpress.XtraEditors.LineLocation.Right;
+         this.labelControl36.LineOrientation = DevExpress.XtraEditors.LabelLineOrientation.Vertical;
+         this.labelControl36.Location = new System.Drawing.Point(370, 360);
+         this.labelControl36.Name = "labelControl36";
+         this.labelControl36.Size = new System.Drawing.Size(69, 20);
+         this.labelControl36.TabIndex = 68;
+         this.labelControl36.Text = "تومان";
+         // 
+         // LicAmntCode1_Txt
+         // 
+         this.LicAmntCode1_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.LicAmntCode1_Txt.EditValue = "";
+         this.LicAmntCode1_Txt.Location = new System.Drawing.Point(445, 392);
+         this.LicAmntCode1_Txt.Name = "LicAmntCode1_Txt";
+         this.LicAmntCode1_Txt.Properties.Appearance.BackColor = System.Drawing.Color.White;
+         this.LicAmntCode1_Txt.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+         this.LicAmntCode1_Txt.Properties.Appearance.Font = new System.Drawing.Font("IRANSans", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.LicAmntCode1_Txt.Properties.Appearance.Options.UseBackColor = true;
+         this.LicAmntCode1_Txt.Properties.Appearance.Options.UseBorderColor = true;
+         this.LicAmntCode1_Txt.Properties.Appearance.Options.UseFont = true;
+         this.LicAmntCode1_Txt.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+         this.LicAmntCode1_Txt.Properties.AppearanceFocused.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+         this.LicAmntCode1_Txt.Properties.AppearanceFocused.Options.UseBackColor = true;
+         this.LicAmntCode1_Txt.Properties.AppearanceFocused.Options.UseBorderColor = true;
+         this.LicAmntCode1_Txt.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+         this.LicAmntCode1_Txt.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject10, "", null, null, true)});
+         this.LicAmntCode1_Txt.Properties.DisplayFormat.FormatString = "{0:n0}";
+         this.LicAmntCode1_Txt.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+         this.LicAmntCode1_Txt.Properties.EditFormat.FormatString = "{0:n0}";
+         this.LicAmntCode1_Txt.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+         this.LicAmntCode1_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.LicAmntCode1_Txt.Properties.Mask.UseMaskAsDisplayFormat = true;
+         this.LicAmntCode1_Txt.Properties.NullText = "---";
+         this.LicAmntCode1_Txt.Properties.NullValuePrompt = "---";
+         this.LicAmntCode1_Txt.Properties.NullValuePromptShowForEmptyValue = true;
+         this.LicAmntCode1_Txt.Size = new System.Drawing.Size(318, 28);
+         this.LicAmntCode1_Txt.TabIndex = 66;
+         // 
+         // LicAmnt1_Txt
+         // 
+         this.LicAmnt1_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.LicAmnt1_Txt.EditValue = "";
+         this.LicAmnt1_Txt.Location = new System.Drawing.Point(445, 356);
+         this.LicAmnt1_Txt.Name = "LicAmnt1_Txt";
+         this.LicAmnt1_Txt.Properties.Appearance.BackColor = System.Drawing.Color.White;
+         this.LicAmnt1_Txt.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+         this.LicAmnt1_Txt.Properties.Appearance.Font = new System.Drawing.Font("IRANSans", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.LicAmnt1_Txt.Properties.Appearance.Options.UseBackColor = true;
+         this.LicAmnt1_Txt.Properties.Appearance.Options.UseBorderColor = true;
+         this.LicAmnt1_Txt.Properties.Appearance.Options.UseFont = true;
+         this.LicAmnt1_Txt.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+         this.LicAmnt1_Txt.Properties.AppearanceFocused.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+         this.LicAmnt1_Txt.Properties.AppearanceFocused.Options.UseBackColor = true;
+         this.LicAmnt1_Txt.Properties.AppearanceFocused.Options.UseBorderColor = true;
+         this.LicAmnt1_Txt.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+         this.LicAmnt1_Txt.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject11, "", null, null, true)});
+         this.LicAmnt1_Txt.Properties.DisplayFormat.FormatString = "{0:n0}";
+         this.LicAmnt1_Txt.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+         this.LicAmnt1_Txt.Properties.EditFormat.FormatString = "{0:n0}";
+         this.LicAmnt1_Txt.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+         this.LicAmnt1_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.LicAmnt1_Txt.Properties.Mask.EditMask = "n0";
+         this.LicAmnt1_Txt.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+         this.LicAmnt1_Txt.Properties.Mask.UseMaskAsDisplayFormat = true;
+         this.LicAmnt1_Txt.Properties.NullText = "---";
+         this.LicAmnt1_Txt.Properties.NullValuePrompt = "---";
+         this.LicAmnt1_Txt.Properties.NullValuePromptShowForEmptyValue = true;
+         this.LicAmnt1_Txt.Size = new System.Drawing.Size(318, 28);
+         this.LicAmnt1_Txt.TabIndex = 67;
+         // 
+         // labelControl33
+         // 
+         this.labelControl33.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.labelControl33.Appearance.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.labelControl33.Appearance.ImageAlign = System.Drawing.ContentAlignment.TopRight;
+         this.labelControl33.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+         this.labelControl33.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+         this.labelControl33.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
+         this.labelControl33.LineColor = System.Drawing.Color.Blue;
+         this.labelControl33.LineLocation = DevExpress.XtraEditors.LineLocation.Right;
+         this.labelControl33.LineOrientation = DevExpress.XtraEditors.LabelLineOrientation.Vertical;
+         this.labelControl33.Location = new System.Drawing.Point(806, 396);
+         this.labelControl33.Name = "labelControl33";
+         this.labelControl33.Size = new System.Drawing.Size(85, 20);
+         this.labelControl33.TabIndex = 64;
+         this.labelControl33.Text = "شماره پیگیری";
+         // 
+         // labelControl34
+         // 
+         this.labelControl34.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.labelControl34.Appearance.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.labelControl34.Appearance.ImageAlign = System.Drawing.ContentAlignment.TopRight;
+         this.labelControl34.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+         this.labelControl34.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+         this.labelControl34.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
+         this.labelControl34.LineColor = System.Drawing.Color.Blue;
+         this.labelControl34.LineLocation = DevExpress.XtraEditors.LineLocation.Right;
+         this.labelControl34.LineOrientation = DevExpress.XtraEditors.LabelLineOrientation.Vertical;
+         this.labelControl34.Location = new System.Drawing.Point(806, 360);
+         this.labelControl34.Name = "labelControl34";
+         this.labelControl34.Size = new System.Drawing.Size(85, 20);
+         this.labelControl34.TabIndex = 65;
+         this.labelControl34.Text = "مبلغ پشتیبانی";
+         // 
          // simpleButton3
          // 
          this.simpleButton3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -1368,8 +1548,8 @@
          this.Gateway1_Lov.Properties.AppearanceFocused.Options.UseBorderColor = true;
          this.Gateway1_Lov.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
          this.Gateway1_Lov.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.DropDown, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject11, "", null, null, true),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject24, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.DropDown, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject12, "", null, null, true),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject13, "", null, null, true)});
          this.Gateway1_Lov.Properties.DataSource = this.GatewayBs;
          this.Gateway1_Lov.Properties.DisplayMember = "COMP_NAME_DNRM";
          this.Gateway1_Lov.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
@@ -1461,7 +1641,7 @@
          this.SubSys1_Txt.Properties.AppearanceFocused.Options.UseBorderColor = true;
          this.SubSys1_Txt.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
          this.SubSys1_Txt.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject12, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject14, "", null, null, true)});
          this.SubSys1_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.SubSys1_Txt.Properties.NullText = "---";
          this.SubSys1_Txt.Properties.NullValuePrompt = "---";
@@ -1488,7 +1668,7 @@
          this.FullName1_Txt.Properties.AppearanceFocused.Options.UseBorderColor = true;
          this.FullName1_Txt.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
          this.FullName1_Txt.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject13, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject15, "", null, null, true)});
          this.FullName1_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.FullName1_Txt.Properties.NullText = "---";
          this.FullName1_Txt.Properties.NullValuePrompt = "---";
@@ -1515,7 +1695,7 @@
          this.Emal1_Txt.Properties.AppearanceFocused.Options.UseBorderColor = true;
          this.Emal1_Txt.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
          this.Emal1_Txt.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject14, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject16, "", null, null, true)});
          this.Emal1_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.Emal1_Txt.Properties.NullText = "---";
          this.Emal1_Txt.Properties.NullValuePrompt = "---";
@@ -1542,7 +1722,7 @@
          this.CellPhon1_Txt.Properties.AppearanceFocused.Options.UseBorderColor = true;
          this.CellPhon1_Txt.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
          this.CellPhon1_Txt.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject15, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject17, "", null, null, true)});
          this.CellPhon1_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.CellPhon1_Txt.Properties.NullText = "---";
          this.CellPhon1_Txt.Properties.NullValuePrompt = "---";
@@ -1656,7 +1836,7 @@
          this.CompName1_Txt.Properties.AppearanceFocused.Options.UseBorderColor = true;
          this.CompName1_Txt.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
          this.CompName1_Txt.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject16, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject18, "", null, null, true)});
          this.CompName1_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.CompName1_Txt.Properties.NullText = "---";
          this.CompName1_Txt.Properties.NullValuePrompt = "---";
@@ -2094,7 +2274,7 @@
          this.SmsCode_Txt.Properties.AppearanceFocused.Options.UseBorderColor = true;
          this.SmsCode_Txt.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
          this.SmsCode_Txt.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject21, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject19, "", null, null, true)});
          this.SmsCode_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.SmsCode_Txt.Properties.NullText = "---";
          this.SmsCode_Txt.Properties.NullValuePrompt = "---";
@@ -2132,7 +2312,7 @@
          this.CmndParmValu_Txt.Properties.AppearanceFocused.Options.UseBorderColor = true;
          this.CmndParmValu_Txt.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
          this.CmndParmValu_Txt.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject8, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject20, "", null, null, true)});
          this.CmndParmValu_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.CmndParmValu_Txt.Properties.NullText = "---";
          this.CmndParmValu_Txt.Properties.NullValuePrompt = "---";
@@ -2158,7 +2338,7 @@
          this.TinyLock_Txt.Properties.AppearanceFocused.Options.UseBorderColor = true;
          this.TinyLock_Txt.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
          this.TinyLock_Txt.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject21, "", null, null, true)});
          this.TinyLock_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.TinyLock_Txt.Properties.NullText = "---";
          this.TinyLock_Txt.Properties.NullValuePrompt = "---";
@@ -2184,7 +2364,7 @@
          this.CmndText_Txt.Properties.AppearanceFocused.Options.UseBorderColor = true;
          this.CmndText_Txt.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
          this.CmndText_Txt.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject20, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject22, "", null, null, true)});
          this.CmndText_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.CmndText_Txt.Properties.NullText = "---";
          this.CmndText_Txt.Properties.NullValuePrompt = "---";
@@ -2606,6 +2786,7 @@
          this.OpenServerGenerateKey2_Butn.TabIndex = 55;
          this.OpenServerGenerateKey2_Butn.ToolTip = "پاک کردن اطلاعات پیش نویس";
          this.OpenServerGenerateKey2_Butn.Visible = false;
+         this.OpenServerGenerateKey2_Butn.Click += new System.EventHandler(this.OpenServerGenerateKey2_Butn_Click);
          // 
          // labelControl31
          // 
@@ -2737,185 +2918,6 @@
          this.simpleButton4.Text = "اجرای دستور";
          this.simpleButton4.Click += new System.EventHandler(this.RightButns_Click);
          // 
-         // labelControl32
-         // 
-         this.labelControl32.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.labelControl32.Appearance.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.labelControl32.Appearance.ImageAlign = System.Drawing.ContentAlignment.TopRight;
-         this.labelControl32.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.labelControl32.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-         this.labelControl32.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl32.LineColor = System.Drawing.Color.Blue;
-         this.labelControl32.LineLocation = DevExpress.XtraEditors.LineLocation.Right;
-         this.labelControl32.LineOrientation = DevExpress.XtraEditors.LabelLineOrientation.Vertical;
-         this.labelControl32.Location = new System.Drawing.Point(562, 270);
-         this.labelControl32.Name = "labelControl32";
-         this.labelControl32.Size = new System.Drawing.Size(85, 20);
-         this.labelControl32.TabIndex = 58;
-         this.labelControl32.Text = "شماره پیگیری";
-         // 
-         // LicAmntCode_Txt
-         // 
-         this.LicAmntCode_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.LicAmntCode_Txt.EditValue = "";
-         this.LicAmntCode_Txt.Location = new System.Drawing.Point(201, 266);
-         this.LicAmntCode_Txt.Name = "LicAmntCode_Txt";
-         this.LicAmntCode_Txt.Properties.Appearance.BackColor = System.Drawing.Color.White;
-         this.LicAmntCode_Txt.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-         this.LicAmntCode_Txt.Properties.Appearance.Font = new System.Drawing.Font("IRANSans", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.LicAmntCode_Txt.Properties.Appearance.Options.UseBackColor = true;
-         this.LicAmntCode_Txt.Properties.Appearance.Options.UseBorderColor = true;
-         this.LicAmntCode_Txt.Properties.Appearance.Options.UseFont = true;
-         this.LicAmntCode_Txt.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-         this.LicAmntCode_Txt.Properties.AppearanceFocused.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-         this.LicAmntCode_Txt.Properties.AppearanceFocused.Options.UseBackColor = true;
-         this.LicAmntCode_Txt.Properties.AppearanceFocused.Options.UseBorderColor = true;
-         this.LicAmntCode_Txt.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-         this.LicAmntCode_Txt.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject17, "", null, null, true)});
-         this.LicAmntCode_Txt.Properties.DisplayFormat.FormatString = "{0:n0}";
-         this.LicAmntCode_Txt.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-         this.LicAmntCode_Txt.Properties.EditFormat.FormatString = "{0:n0}";
-         this.LicAmntCode_Txt.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-         this.LicAmntCode_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.LicAmntCode_Txt.Properties.NullText = "---";
-         this.LicAmntCode_Txt.Properties.NullValuePrompt = "---";
-         this.LicAmntCode_Txt.Properties.NullValuePromptShowForEmptyValue = true;
-         this.LicAmntCode_Txt.Size = new System.Drawing.Size(318, 28);
-         this.LicAmntCode_Txt.TabIndex = 61;
-         // 
-         // LicAmntCode1_Txt
-         // 
-         this.LicAmntCode1_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.LicAmntCode1_Txt.EditValue = "";
-         this.LicAmntCode1_Txt.Location = new System.Drawing.Point(445, 392);
-         this.LicAmntCode1_Txt.Name = "LicAmntCode1_Txt";
-         this.LicAmntCode1_Txt.Properties.Appearance.BackColor = System.Drawing.Color.White;
-         this.LicAmntCode1_Txt.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-         this.LicAmntCode1_Txt.Properties.Appearance.Font = new System.Drawing.Font("IRANSans", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.LicAmntCode1_Txt.Properties.Appearance.Options.UseBackColor = true;
-         this.LicAmntCode1_Txt.Properties.Appearance.Options.UseBorderColor = true;
-         this.LicAmntCode1_Txt.Properties.Appearance.Options.UseFont = true;
-         this.LicAmntCode1_Txt.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-         this.LicAmntCode1_Txt.Properties.AppearanceFocused.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-         this.LicAmntCode1_Txt.Properties.AppearanceFocused.Options.UseBackColor = true;
-         this.LicAmntCode1_Txt.Properties.AppearanceFocused.Options.UseBorderColor = true;
-         this.LicAmntCode1_Txt.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-         this.LicAmntCode1_Txt.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject23, "", null, null, true)});
-         this.LicAmntCode1_Txt.Properties.DisplayFormat.FormatString = "{0:n0}";
-         this.LicAmntCode1_Txt.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-         this.LicAmntCode1_Txt.Properties.EditFormat.FormatString = "{0:n0}";
-         this.LicAmntCode1_Txt.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-         this.LicAmntCode1_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.LicAmntCode1_Txt.Properties.Mask.UseMaskAsDisplayFormat = true;
-         this.LicAmntCode1_Txt.Properties.NullText = "---";
-         this.LicAmntCode1_Txt.Properties.NullValuePrompt = "---";
-         this.LicAmntCode1_Txt.Properties.NullValuePromptShowForEmptyValue = true;
-         this.LicAmntCode1_Txt.Size = new System.Drawing.Size(318, 28);
-         this.LicAmntCode1_Txt.TabIndex = 66;
-         // 
-         // LicAmnt1_Txt
-         // 
-         this.LicAmnt1_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.LicAmnt1_Txt.EditValue = "";
-         this.LicAmnt1_Txt.Location = new System.Drawing.Point(445, 356);
-         this.LicAmnt1_Txt.Name = "LicAmnt1_Txt";
-         this.LicAmnt1_Txt.Properties.Appearance.BackColor = System.Drawing.Color.White;
-         this.LicAmnt1_Txt.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-         this.LicAmnt1_Txt.Properties.Appearance.Font = new System.Drawing.Font("IRANSans", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.LicAmnt1_Txt.Properties.Appearance.Options.UseBackColor = true;
-         this.LicAmnt1_Txt.Properties.Appearance.Options.UseBorderColor = true;
-         this.LicAmnt1_Txt.Properties.Appearance.Options.UseFont = true;
-         this.LicAmnt1_Txt.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-         this.LicAmnt1_Txt.Properties.AppearanceFocused.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-         this.LicAmnt1_Txt.Properties.AppearanceFocused.Options.UseBackColor = true;
-         this.LicAmnt1_Txt.Properties.AppearanceFocused.Options.UseBorderColor = true;
-         this.LicAmnt1_Txt.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-         this.LicAmnt1_Txt.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject10, "", null, null, true)});
-         this.LicAmnt1_Txt.Properties.DisplayFormat.FormatString = "{0:n0}";
-         this.LicAmnt1_Txt.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-         this.LicAmnt1_Txt.Properties.EditFormat.FormatString = "{0:n0}";
-         this.LicAmnt1_Txt.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-         this.LicAmnt1_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.LicAmnt1_Txt.Properties.Mask.EditMask = "n0";
-         this.LicAmnt1_Txt.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-         this.LicAmnt1_Txt.Properties.Mask.UseMaskAsDisplayFormat = true;
-         this.LicAmnt1_Txt.Properties.NullText = "---";
-         this.LicAmnt1_Txt.Properties.NullValuePrompt = "---";
-         this.LicAmnt1_Txt.Properties.NullValuePromptShowForEmptyValue = true;
-         this.LicAmnt1_Txt.Size = new System.Drawing.Size(318, 28);
-         this.LicAmnt1_Txt.TabIndex = 67;
-         // 
-         // labelControl33
-         // 
-         this.labelControl33.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.labelControl33.Appearance.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.labelControl33.Appearance.ImageAlign = System.Drawing.ContentAlignment.TopRight;
-         this.labelControl33.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.labelControl33.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-         this.labelControl33.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl33.LineColor = System.Drawing.Color.Blue;
-         this.labelControl33.LineLocation = DevExpress.XtraEditors.LineLocation.Right;
-         this.labelControl33.LineOrientation = DevExpress.XtraEditors.LabelLineOrientation.Vertical;
-         this.labelControl33.Location = new System.Drawing.Point(806, 396);
-         this.labelControl33.Name = "labelControl33";
-         this.labelControl33.Size = new System.Drawing.Size(85, 20);
-         this.labelControl33.TabIndex = 64;
-         this.labelControl33.Text = "شماره پیگیری";
-         // 
-         // labelControl34
-         // 
-         this.labelControl34.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.labelControl34.Appearance.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.labelControl34.Appearance.ImageAlign = System.Drawing.ContentAlignment.TopRight;
-         this.labelControl34.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.labelControl34.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-         this.labelControl34.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl34.LineColor = System.Drawing.Color.Blue;
-         this.labelControl34.LineLocation = DevExpress.XtraEditors.LineLocation.Right;
-         this.labelControl34.LineOrientation = DevExpress.XtraEditors.LabelLineOrientation.Vertical;
-         this.labelControl34.Location = new System.Drawing.Point(806, 360);
-         this.labelControl34.Name = "labelControl34";
-         this.labelControl34.Size = new System.Drawing.Size(85, 20);
-         this.labelControl34.TabIndex = 65;
-         this.labelControl34.Text = "مبلغ پشتیبانی";
-         // 
-         // labelControl26
-         // 
-         this.labelControl26.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.labelControl26.Appearance.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.labelControl26.Appearance.ImageAlign = System.Drawing.ContentAlignment.TopRight;
-         this.labelControl26.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.labelControl26.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-         this.labelControl26.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl26.LineColor = System.Drawing.Color.Blue;
-         this.labelControl26.LineLocation = DevExpress.XtraEditors.LineLocation.Right;
-         this.labelControl26.LineOrientation = DevExpress.XtraEditors.LabelLineOrientation.Vertical;
-         this.labelControl26.Location = new System.Drawing.Point(110, 234);
-         this.labelControl26.Name = "labelControl26";
-         this.labelControl26.Size = new System.Drawing.Size(85, 20);
-         this.labelControl26.TabIndex = 58;
-         this.labelControl26.Text = "تومان";
-         // 
-         // labelControl36
-         // 
-         this.labelControl36.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.labelControl36.Appearance.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.labelControl36.Appearance.ImageAlign = System.Drawing.ContentAlignment.TopRight;
-         this.labelControl36.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.labelControl36.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-         this.labelControl36.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl36.LineColor = System.Drawing.Color.Blue;
-         this.labelControl36.LineLocation = DevExpress.XtraEditors.LineLocation.Right;
-         this.labelControl36.LineOrientation = DevExpress.XtraEditors.LabelLineOrientation.Vertical;
-         this.labelControl36.Location = new System.Drawing.Point(370, 360);
-         this.labelControl36.Name = "labelControl36";
-         this.labelControl36.Size = new System.Drawing.Size(69, 20);
-         this.labelControl36.TabIndex = 68;
-         this.labelControl36.Text = "تومان";
-         // 
          // SettingsSystemLicense
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -2933,6 +2935,7 @@
          this.tp_001.ResumeLayout(false);
          ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl2)).EndInit();
          this.splitContainerControl2.ResumeLayout(false);
+         ((System.ComponentModel.ISupportInitialize)(this.LicAmntCode_Txt.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.LicAmnt_Txt.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.SubSysBs)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.Gateway_Lov.Properties)).EndInit();
@@ -2949,6 +2952,8 @@
          ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
          this.tp_002.ResumeLayout(false);
          this.tp_002.PerformLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.LicAmntCode1_Txt.Properties)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.LicAmnt1_Txt.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.Gateway1_Lov.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.SubSys1_Txt.Properties)).EndInit();
@@ -2978,9 +2983,6 @@
          ((System.ComponentModel.ISupportInitialize)(this.memoEdit3.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.ClientKey2_Text.Properties)).EndInit();
          this.flowLayoutPanel1.ResumeLayout(false);
-         ((System.ComponentModel.ISupportInitialize)(this.LicAmntCode_Txt.Properties)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.LicAmntCode1_Txt.Properties)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.LicAmnt1_Txt.Properties)).EndInit();
          this.ResumeLayout(false);
 
       }

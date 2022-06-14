@@ -625,6 +625,6 @@ namespace System.Scsc.Ui.ChangeRials
          {
             MessageBox.Show(exc.Message);
          }
-      }
+      }      
    }
 }

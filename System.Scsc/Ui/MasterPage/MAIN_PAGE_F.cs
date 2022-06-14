@@ -162,13 +162,13 @@ namespace System.Scsc.Ui.MasterPage
 
             if (barCodeSetting == null) return;
 
-            if (barCodeSetting.ATTN_SYST_TYPE.NotIn("001", "004")) return;
+            if (barCodeSetting.ATTN_SYST_TYPE.NotIn("001", "004")) { Sp_Barcode.PortName = "NoPort"; return; }
 
             this.AttendanceSystemAlert_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1218;
 
             Sp_Barcode.PortName = barCodeSetting.COMM_PORT_NAME;
             Sp_Barcode.BaudRate = (int)barCodeSetting.BAND_RATE;
-            Sp_Barcode.Open();
+            Sp_Barcode.Open();            
 
             if (Sp_Barcode.IsOpen)
             {
@@ -229,6 +229,14 @@ namespace System.Scsc.Ui.MasterPage
             if (enrollNumber.IndexOf(' ') != -1)
                enrollNumber = enrollNumber.Replace(" ", "");
 
+            if (enrollNumber.IndexOf('') != -1)
+               enrollNumber = enrollNumber.Replace("", "");
+
+            if (enrollNumber.IndexOf('') != -1)
+               enrollNumber = enrollNumber.Replace("", "");
+
+            enrollNumber = enrollNumber.Trim();
+
             //enrollNumber = Regex.Replace(enrollNumber, "[^a-zA-Z][^0-9]", "");
 
             //1397/09/28 * مشخص کردن نوع ثبت حضور و غیاب که با دستگاه یا دستی
@@ -261,14 +269,14 @@ namespace System.Scsc.Ui.MasterPage
             }                       
 
             // 1398/10/03 * سیستم کدینگ کارت برای نرم افزار برای مشتریان چموش
-            if(iScsc.Card_Datasources.Any())
-            {
-               if(!iScsc.Card_Datasources.Any(cd => cd.FNGR_PRNT == enrollNumber))
-               {
-                  AlarmShow();
-                  return;
-               }
-            }
+            //if(iScsc.Card_Datasources.Any())
+            //{
+            //   if(!iScsc.Card_Datasources.Any(cd => cd.FNGR_PRNT == enrollNumber))
+            //   {
+            //      AlarmShow();
+            //      return;
+            //   }
+            //}
 
             if (InvokeRequired)
                Invoke(new Action(() => axCZKEM1_OnAttTransactionEx(enrollNumber, 0, 0, 0, 1395, 1, 1, 1, 1, 1, 1)));
@@ -380,7 +388,7 @@ namespace System.Scsc.Ui.MasterPage
 
             if (gateAttnSetting == null) return;
 
-            if (gateAttnSetting.GATE_ATTN_STAT == "001") return;            
+            if (gateAttnSetting.GATE_ATTN_STAT == "001") { Sp_GateAttn.PortName = "NoPort"; return; }
 
             Sp_GateAttn.PortName = gateAttnSetting.GATE_COMM_PORT_NAME;
             Sp_GateAttn.BaudRate = (int)gateAttnSetting.GATE_BAND_RATE;
@@ -2399,6 +2407,54 @@ namespace System.Scsc.Ui.MasterPage
 
                   }
                }
+               else if (AttnType_Lov.EditValue.ToString() == "009" /* بلیط فروشی استخر */)
+               {
+                  #region قسمت مربوط به بلیط فروشی استخر
+                  // اگر این گزینه باشد که برای مدیریت مجموعه های ورزشی بخواهیم عمل کنیم
+                  // به این صورت که کارت خام باشد فرم ثبت نام مشتری باز شود
+                  // اگر کارت متعلق به عضویت خاصی باشد فرم پروفایل مشتری باز شود
+                  var dev008host = iScsc.External_Devices.FirstOrDefault(ed => ed.SERV_IP_ADRS == xHost.Attribute("ip").Value && ed.STAT == "002" && ed.DEV_TYPE == "001");
+                  var Serv = iScsc.Fighters.FirstOrDefault(f => f.FNGR_PRNT_DNRM == EnrollNumber && f.CONF_STAT == "002");
+                  if (Serv == null)
+                  {
+                     // باز کردن فرم مربوط به ثبت نام مشتری
+                     _DefaultGateway.Gateway(
+                        new Job(SendType.External, "Localhost",
+                           new List<Job>
+                           {
+                              new Job(SendType.Self, 130 /* Execute Adm_Brsr_F */),
+                              new Job(SendType.SelfToUserInterface, "ADM_BRSR_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "fighter"), new XAttribute("enrollnumber", FngrPrnt_Txt.Text))}
+                           })
+                     );
+
+                     // ارسال پیام خطا به دستگاه
+                     if (dev008host != null)
+                     {
+                        SendCommandDevExpn(
+                           "er:          " +
+                           "&  " +
+                           ":         ", dev008host.DEV_NAME, FngrPrnt_Txt.Text);
+                     }
+                  }
+                  else
+                  {
+                     // باز کردن فرم مربوط به پروفایل مشتری
+                     _DefaultGateway.Gateway(
+                        new Job(SendType.External, "Localhost",
+                           new List<Job>
+                           {
+                              new Job(SendType.Self, 64 /* Execute Adm_Totl_F */),
+                              new Job(SendType.SelfToUserInterface, "ADM_TOTL_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "renewcontract"), new XAttribute("enrollnumber", FngrPrnt_Txt.Text), new XAttribute("formcaller", GetType().Name))}
+                           })
+                     );
+                  }
+                  #endregion
+               }
+               else if (AttnType_Lov.EditValue.ToString() == "010" /* حضور و غیاب بلیط فروشی */)
+               {
+                  #region قسمت مربوط به حضور و غیاب بلیط فروشی استخر
+                  #endregion
+               }
                return; 
             }
 
@@ -3545,12 +3601,13 @@ namespace System.Scsc.Ui.MasterPage
                      // اگر مشتری وجود نداشته یا اینکه مشتری اصلا سپرده نداشته باشد
                      if (Serv == null || (regl.AMNT_TYPE == "001" && Serv.DPST_AMNT_DNRM < 10000) || (regl.AMNT_TYPE == "002" && Serv.DPST_AMNT_DNRM < 1000))
                      {
+                        #region اگر مشتری وجود نداشته یا اینکه مشتری اصلا سپرده نداشته باشد
                         // اگر کارت عضویت خام باشد
                         if (Serv == null)
                         {
                            if(getInfoDev.DEV_TYPE == "007")
                               SendCommandDevExpn("er", devName, fngrPrnt);
-                           else if (getInfoDev.DEV_TYPE == "008")
+                           else if (getInfoDev.DEV_TYPE.In("008" /* مدیریت مجتمع */))
                            {
                               var devExpn = iScsc.Expenses.FirstOrDefault(ex => ex.CODE == getInfoDev.EXPN_CODE);
 
@@ -3570,25 +3627,7 @@ namespace System.Scsc.Ui.MasterPage
                                     });
                            _DefaultGateway.Gateway(_InteractWithScsc);
                         }
-                        //else if ((regl.AMNT_TYPE == "001" && Serv.DPST_AMNT_DNRM < 10000) || (regl.AMNT_TYPE == "002" && Serv.DPST_AMNT_DNRM < 1000))
-                        //{
-                        //   Job _InteractWithScsc =
-                        //      new Job(SendType.External, "Localhost",
-                        //         new List<Job>
-                        //         {
-                        //            new Job(SendType.Self, 153 /* Execute Glr_Indc_F */),
-                        //            new Job(SendType.SelfToUserInterface, "GLR_INDC_F", 10 /* Execute Actn_CalF_F */)
-                        //            {
-                        //               Input = 
-                        //                  new XElement("Request", 
-                        //                     new XAttribute("type", "newrequest"), 
-                        //                     new XAttribute("fileno", Serv.FILE_NO),
-                        //                     new XAttribute("formcaller", GetType().Name)
-                        //                  )
-                        //            }
-                        //         });
-                        //   _DefaultGateway.Gateway(_InteractWithScsc);
-                        //}
+
                         if(getInfoDev.DEV_TYPE == "007")
                            SendCommandDevExpn("er", devName, fngrPrnt);
                         else
@@ -3621,6 +3660,7 @@ namespace System.Scsc.Ui.MasterPage
                               }
                            }
                         return;
+                        #endregion
                      }
 
                      if (getInfoDev.DEV_TYPE == "007" /* بازی های زمان متغییر مانند بیلیارد */)
@@ -5658,24 +5698,33 @@ namespace System.Scsc.Ui.MasterPage
             _doActionStep = 0;
 
             // 1399/12/06 * بررسی اینکه مشتریان خلافکار را از استفاده کردن از سیستم ناامید کنیم
-            if (_settings.Any(s => s.EXPR_TYPE.Value))
-            {
-               if (_settings.Any(s => s.LAST_DATE.Value.Date != DateTime.Now.Date))
-               {
-                  if (_settings.Any(s => s.EXPR_VALU.Value.Date < DateTime.Now.Date))
-                  {
-                     if (_settings.Any(s => s.LAST_DATE.Value.Date < DateTime.Now.Date))
-                     {
-                        // در غیر اینصورت سیستم باید کلا بسته شود بدون هیچ گونه اعتراضی
-                        MessageBox.Show(this, "مدت زمان پشتیبانی نرم افزار به اتمام رسیده، لطفا جهت تمدید پشتیبانی با شماره 09033927103 تماس حاصل فرمایید" + Environment.NewLine +
-                                              "ضمنا تمامی رکورد های ثبت شده خارج از تاریخ پشتیبانی فاقد اعتبار میباشند و بعد از بسته شدن نرم افزار تمامی رکوردها به صورت اتومات پاک میشوند",
-                                              "هشدار جهت استفاده از لایسنس نامعتبر", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        Application.Exit();
-                        Process.GetCurrentProcess().Kill();
-                     }
-                  }
-               }
-            }
+            //if (_settings.Any(s => s.EXPR_TYPE.Value))
+            //{
+            //   if (_settings.Any(s => s.LAST_DATE.Value.Date != DateTime.Now.Date))
+            //   {
+            //      if (_settings.Any(s => s.EXPR_VALU.Value.Date < DateTime.Now.Date))
+            //      {
+            //         if (_settings.Any(s => s.LAST_DATE.Value.Date < DateTime.Now.Date))
+            //         {
+            //            // در غیر اینصورت سیستم باید کلا بسته شود بدون هیچ گونه اعتراضی
+            //            MessageBox.Show(this, "مدت زمان پشتیبانی نرم افزار به اتمام رسیده، لطفا جهت تمدید پشتیبانی با شماره 09033927103 تماس حاصل فرمایید" + Environment.NewLine +
+            //                                  "ضمنا تمامی رکورد های ثبت شده خارج از تاریخ پشتیبانی فاقد اعتبار میباشند و بعد از بسته شدن نرم افزار تمامی رکوردها به صورت اتومات پاک میشوند",
+            //                                  "هشدار جهت استفاده از لایسنس نامعتبر", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //            Application.Exit();
+            //            Process.GetCurrentProcess().Kill();
+            //         }
+            //      }
+            //   }
+            //}
+         }
+
+         // 1400/12/14 * چک کردن اینکه مشتری تاریخ سیستم را تغییر ندهد و ما رو کیر کنه
+         if ((ExprInstDate.Date - DateTime.Now.Date).Days < 0 || (CrntDate.Date - DateTime.Now.Date).Days <= -2)
+         {
+            MessageBox.Show("تاریخ اعتبار شما به پایان رسیده", "خطای انقضای ماهیانه محصول", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+
+            Application.Exit();
+            Process.GetCurrentProcess().Kill();
          }
 
          try
@@ -5712,57 +5761,82 @@ namespace System.Scsc.Ui.MasterPage
                SrvrPing_Butn.ToolTip = string.Format("Server IP : {0} Network disconnected.", SrvrPing_Butn.Tag);
             }
 
-            // بررسی دستگاه های درون شبکه
-            foreach (Device_On_Network dev in DeviceOnNetworks)
+            // اگر چک کردن تست ارتباط فعال باشد
+            if (TryPing_Cbx.Checked)
             {
-               // اگر دستگاه غیرفعال بوده
-               if (!dev.PingStatus)
+               // بررسی دستگاه های درون شبکه
+               foreach (Device_On_Network dev in DeviceOnNetworks)
                {
-                  // دستگاه را دوباره تست میکنیم
-                  dev.Ping();
-                  // اگر دستگاه انلاین شد
-                  if (dev.PingStatus)
+                  // اگر دستگاه غیرفعال بوده
+                  if (!dev.PingStatus)
                   {
-                     dev.CallBack();
-                     _DefaultGateway.Gateway(
-                        new Job(SendType.External, "localhost", "Wall", 22 /* Execute SetSystemNotification */, SendType.SelfToUserInterface)
-                        {
-                           Input =
-                              new List<object>
-                              {
-                                 ToolTipIcon.Info,
-                                 string.Format("Device Name : {0}\n\rIP Address : {1}", dev.DeviceName, dev.IPAddress),
-                                 "دستگاه به شبکه متصل شد",
-                                 2000
-                              }
-                        }
-                     );
+                     // دستگاه را دوباره تست میکنیم
+                     dev.Ping();
+                     // اگر دستگاه انلاین شد
+                     if (dev.PingStatus)
+                     {
+                        dev.CallBack();
+                        _DefaultGateway.Gateway(
+                           new Job(SendType.External, "localhost", "Wall", 22 /* Execute SetSystemNotification */, SendType.SelfToUserInterface)
+                           {
+                              Input =
+                                 new List<object>
+                                 {
+                                    ToolTipIcon.Info,
+                                    string.Format("Device Name : {0}\n\rIP Address : {1}", dev.DeviceName, dev.IPAddress),
+                                    "دستگاه به شبکه متصل شد",
+                                    2000
+                                 }
+                           }
+                        );
 
-                     ActionCenter_Butn.ToolTip += "IP Address :" + dev.IPAddress + " connected." + Environment.NewLine;
+                        ActionCenter_Butn.ToolTip += "IP Address :" + dev.IPAddress + " connected." + Environment.NewLine;
+                     }
+                     else
+                     {
+                        _DefaultGateway.Gateway(
+                           new Job(SendType.External, "localhost", "Wall", 22 /* Execute SetSystemNotification */, SendType.SelfToUserInterface)
+                           {
+                              Input =
+                                 new List<object>
+                                 {
+                                    ToolTipIcon.Warning,
+                                    string.Format("Device Name : {0}\n\rIP Address : {1}", dev.DeviceName, dev.IPAddress),
+                                    "دستگاه به شبکه متصل نیست",
+                                    2000
+                                 }
+                           }
+                        );
+
+                        ActionCenter_Butn.ToolTip += "IP Address :" + dev.IPAddress + " disconnected." + Environment.NewLine;
+                     }
                   }
                   else
-                  {
-                     _DefaultGateway.Gateway(
-                        new Job(SendType.External, "localhost", "Wall", 22 /* Execute SetSystemNotification */, SendType.SelfToUserInterface)
-                        {
-                           Input =
-                              new List<object>
-                              {
-                                 ToolTipIcon.Warning,
-                                 string.Format("Device Name : {0}\n\rIP Address : {1}", dev.DeviceName, dev.IPAddress),
-                                 "دستگاه به شبکه متصل نیست",
-                                 2000
-                              }
-                        }
-                     );
+                     dev.Ping();
 
-                     ActionCenter_Butn.ToolTip += "IP Address :" + dev.IPAddress + " disconnected." + Environment.NewLine;
+                  SrvrPing_Butn.ToolTip += string.Format("\nDevice IP : {0} Status : {1}", dev.IPAddress, dev.PingStatus ? "Connected" : "Disconnected");
+               }
+
+               // 1401/03/05 * Check Serial port
+               if(Sp_Barcode.PortName != "NoPort" && Sp_Barcode.PortName.Length > 0)
+               {
+                  if(!Sp_Barcode.IsOpen)
+                  {
+                     new Thread(AlarmShow).Start();
+                     Sp_Barcode.Close();
+                     Sp_Barcode.Open();
                   }
                }
-               else
-                  dev.Ping();
+               if (Sp_GateAttn.PortName != "NoPort" && Sp_GateAttn.PortName.Length > 0)
+               {
+                  if (!Sp_GateAttn.IsOpen)
+                  {
+                     new Thread(AlarmShow).Start();
+                     Sp_GateAttn.Close();
+                     Sp_GateAttn.Open();
+                  }
+               }
 
-               SrvrPing_Butn.ToolTip += string.Format("\nDevice IP : {0} Status : {1}", dev.IPAddress, dev.PingStatus ? "Connected" : "Disconnected");
             }
          }
          catch (Exception exc) { ActionCenter_Butn.ToolTip = exc.Message; }

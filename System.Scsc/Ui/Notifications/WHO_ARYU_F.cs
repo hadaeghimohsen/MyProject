@@ -689,5 +689,158 @@ namespace System.Scsc.Ui.Notifications
 
       }
 
+      private void DebtDnrm_Lb_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost",
+                  new List<Job>
+                  {
+                     new Job(SendType.Self, 46 /* Execute All_Fldf_F */){
+                        Input = 
+                           new XElement("Fighter",
+                              new XAttribute("fileno", fileno)                               
+                           )
+                     },
+                     new Job(SendType.SelfToUserInterface, "ALL_FLDF_F", 10 /* Execute Actn_CalF_F*/ )
+                     {
+                        Input = 
+                        new XElement("Fighter",
+                           new XAttribute("fileno", fileno),
+                           new XAttribute("type", "refresh"),
+                           new XAttribute("tabfocued", "tp_003")
+                        )
+                     }
+                  })
+            );
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void MoveLastItem_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var attn = AttnBs1.Current as Data.Attendance;
+            if(attn == null)return;
+
+            var _qury = iScsc.Attendances.Where(a => a.ATTN_DATE == attn.ATTN_DATE && Fga_Uclb_U.Contains(a.CLUB_CODE) && a.ATTN_STAT == "002").OrderBy(a => a.ENTR_TIME).FirstOrDefault();            
+
+            if (_qury == null) return;
+
+            attncode = _qury.CODE;
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query(true);
+         }
+      }
+
+      private void MoveNextItem_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var attn = AttnBs1.Current as Data.Attendance;
+            if (attn == null) return;
+
+            var _qury = iScsc.Attendances.Where(a => a.ATTN_DATE == attn.ATTN_DATE && Fga_Uclb_U.Contains(a.CLUB_CODE) && a.ATTN_STAT == "002" && a.CODE != attn.CODE && a.ENTR_TIME <= attn.ENTR_TIME).OrderByDescending(a => a.ENTR_TIME).FirstOrDefault();
+
+            if (_qury == null) return;
+
+            attncode = _qury.CODE;
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query(true);
+         }
+      }
+
+      private void MovePreviousItem_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var attn = AttnBs1.Current as Data.Attendance;
+            if (attn == null) return;
+
+            var _qury = iScsc.Attendances.Where(a => a.ATTN_DATE == attn.ATTN_DATE && Fga_Uclb_U.Contains(a.CLUB_CODE) && a.ATTN_STAT == "002" && a.CODE != attn.CODE && a.ENTR_TIME >= attn.ENTR_TIME).OrderBy(a => a.ENTR_TIME).FirstOrDefault();
+
+            if (_qury == null) return;
+
+            attncode = _qury.CODE;
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query(true);
+         }
+      }
+
+      private void MoveFirstItem_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var attn = AttnBs1.Current as Data.Attendance;
+            if (attn == null) return;
+
+            var _qury = iScsc.Attendances.Where(a => a.ATTN_DATE == attn.ATTN_DATE && Fga_Uclb_U.Contains(a.CLUB_CODE) && a.ATTN_STAT == "002").OrderByDescending(a => a.ENTR_TIME).FirstOrDefault();
+
+            if (_qury == null) return;
+
+            attncode = _qury.CODE;
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query(true);
+         }
+      }
+
+      private void OwnrCbmtCode_Lov_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
+      {
+         try
+         {
+            var _attn = AttnBs1.Current as Data.Attendance;
+            if (_attn == null) return;
+
+            iScsc.ExecuteCommand(string.Format("UPDATE dbo.Attendance SET Ownr_Cbmt_Code_Dnrm = {0} WHERE Code = {1};", e.NewValue, _attn.CODE));
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query(true);
+         }
+      }
+
    }
 }

@@ -1387,71 +1387,78 @@ namespace System.Scsc.Ui.Admission
       private void bn_DpstPayment_Click(object sender, EventArgs e)
       {
          try
-         {
+         {            
+            var rqst = RqstBs3.Current as Data.Request;
+            if (rqst == null) return;
+
+            bool finalAction = false;
+            long? debtamnt = 0, dpstamnt = 0;
+
+            var pymt = PymtsBs3.Current as Data.Payment;
+            if (pymt == null) return;
+
+            debtamnt = (pymt.SUM_EXPN_PRIC + pymt.SUM_EXPN_EXTR_PRCT) - (pymt.SUM_RCPT_EXPN_PRIC + pymt.SUM_PYMT_DSCN_DNRM);
+            dpstamnt = pymt.Request.Request_Rows.FirstOrDefault().Fighter.DPST_AMNT_DNRM;
+
+            if (dpstamnt == 0) { MessageBox.Show(this, "مبلغ سپرده مشتری صفر میباشد", "عدم موجودی سپرده مشتری"); return; }
+            // 1401/02/04 * بروزرسانی مبلغ سپرده مشتری
+            if (dpstamnt - pymt.Payment_Methods.Where(pm => pm.RCPT_MTOD == "005").Sum(pm => pm.AMNT) <= 0)
             {
-               var rqst = RqstBs3.Current as Data.Request;
-               if (rqst == null) return;
+               MessageBox.Show(this, "مبلغ اعتبار سپرده برای مشتری وجود ندارد", "عدم موجودی سپرده مشتری"); return;
+            }
+            else
+            {
+               dpstamnt -= pymt.Payment_Methods.Where(pm => pm.RCPT_MTOD == "005").Sum(pm => pm.AMNT);
+            }
 
-               bool finalAction = false;
-               long? debtamnt = 0, dpstamnt = 0;
+            finalAction = debtamnt <= dpstamnt;
+            debtamnt = dpstamnt < debtamnt ? dpstamnt : debtamnt;
 
-               var pymt = PymtsBs3.Current as Data.Payment;
-               if (pymt == null) return;
-
-               debtamnt = (pymt.SUM_EXPN_PRIC + pymt.SUM_EXPN_EXTR_PRCT) - (pymt.SUM_RCPT_EXPN_PRIC + pymt.SUM_PYMT_DSCN_DNRM);
-               dpstamnt = pymt.Request.Request_Rows.FirstOrDefault().Fighter.DPST_AMNT_DNRM;
-
-               if (dpstamnt == 0) { MessageBox.Show(this, "مبلغ سپرده مشتری صفر میباشد", "عدم موجودی سپرده مشتری"); return; }
-
-               finalAction = debtamnt <= dpstamnt;
-               debtamnt = dpstamnt < debtamnt ? dpstamnt : debtamnt;
-
-               if (Accept_Cb.Checked)
+            if (Accept_Cb.Checked)
+            {
+               string mesg = "";
+               if (debtamnt > 0)
                {
-                  string mesg = "";
-                  if (debtamnt > 0)
-                  {
-                     mesg =
-                        string.Format(
-                           ">> مبلغ {0} {1} به صورت >> کسر از سپرده << در تاریخ {2} در صندوق کاربر {3}  قرار میگیرد",
-                           string.Format("{0:n0}", debtamnt),
-                           DAtypBs1.List.OfType<Data.D_ATYP>().FirstOrDefault(d => d.VALU == pymt.AMNT_UNIT_TYPE_DNRM).DOMN_DESC,
-                           "امروز",
-                           CurrentUser);
-                     mesg += Environment.NewLine;
-                  }
-                  mesg += ">> ذخیره و پایان درخواست";
-
-                  if (MessageBox.Show(this, mesg, "عملیات ثبت نام", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2, MessageBoxOptions.RtlReading) != DialogResult.Yes) return;
+                  mesg =
+                     string.Format(
+                        ">> مبلغ {0} {1} به صورت >> کسر از سپرده << در تاریخ {2} در صندوق کاربر {3}  قرار میگیرد",
+                        string.Format("{0:n0}", debtamnt),
+                        DAtypBs1.List.OfType<Data.D_ATYP>().FirstOrDefault(d => d.VALU == pymt.AMNT_UNIT_TYPE_DNRM).DOMN_DESC,
+                        "امروز",
+                        CurrentUser);
+                  mesg += Environment.NewLine;
                }
+               mesg += ">> ذخیره و پایان درخواست";
 
-               foreach (Data.Payment pymt1 in PymtsBs3)
-               {
-                  iScsc.PAY_MSAV_P(
-                     new XElement("Payment",
-                        new XAttribute("actntype", "CheckoutWithDeposit"),
-                        new XElement("Insert",
-                           new XElement("Payment_Method",
-                              new XAttribute("cashcode", pymt1.CASH_CODE),
-                              new XAttribute("rqstrqid", pymt1.RQST_RQID),
-                              new XAttribute("amnt", debtamnt)
-                           )
+               if (MessageBox.Show(this, mesg, "عملیات ثبت نام", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2, MessageBoxOptions.RtlReading) != DialogResult.Yes) return;
+            }
+
+            foreach (Data.Payment pymt1 in PymtsBs3)
+            {
+               iScsc.PAY_MSAV_P(
+                  new XElement("Payment",
+                     new XAttribute("actntype", "CheckoutWithDeposit"),
+                     new XElement("Insert",
+                        new XElement("Payment_Method",
+                           new XAttribute("cashcode", pymt1.CASH_CODE),
+                           new XAttribute("rqstrqid", pymt1.RQST_RQID),
+                           new XAttribute("amnt", debtamnt)
                         )
                      )
-                  );
-               }
-
-               if (finalAction)
-               {
-                  /* Loop For Print After Pay */
-                  RqstBnPrintAfterPay_Click(null, null);
-
-                  /* End Request */
-                  Btn_RqstSav3_Click(null, null);
-               }
-               else
-                  requery = true;
+                  )
+               );
             }
+
+            if (finalAction)
+            {
+               /* Loop For Print After Pay */
+               RqstBnPrintAfterPay_Click(null, null);
+
+               /* End Request */
+               Btn_RqstSav3_Click(null, null);
+            }
+            else
+               requery = true;            
          }
          catch (SqlException se)
          {
@@ -2129,6 +2136,12 @@ namespace System.Scsc.Ui.Admission
                NumbOfAttnMont_TextEdit003.EditValue = expn.NUMB_OF_ATTN_MONT ?? 0;
                NumbMontOfer_TextEdit003.EditValue = expn.NUMB_MONT_OFER ?? 0;
 
+               // Set Price on Label
+               DfltPric_Lb.Text = string.Format("{0:n0} {1} *** {2}", expn.PRIC, DAtypBs1.List.OfType<Data.D_ATYP>().FirstOrDefault(a => a.VALU == expn.Expense_Type.Request_Requester.Regulation.AMNT_TYPE).DOMN_DESC, expn.Method.MTOD_DESC);
+               DfltPric_Lb.Tag = expn.PRIC;
+               TotlPic_Lb.Tag = DAtypBs1.List.OfType<Data.D_ATYP>().FirstOrDefault(a => a.VALU == expn.Expense_Type.Request_Requester.Regulation.AMNT_TYPE).DOMN_DESC;
+               IncAttnPric_Nud.Value = expn.NUMB_OF_ATTN_MONT ?? 0;
+
                Btn_RqstRqt3_Click(null, null);
             }
          }
@@ -2710,6 +2723,99 @@ namespace System.Scsc.Ui.Admission
             Cbmt_Gv.ActiveFilterString = SexFltr_Pkb.PickChecked ? string.Format("[Sex_Type] = '{0}' OR [Sex_Type] = '003'", figh.SEX_TYPE_DNRM) : "";
          }
          catch(Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void IncDec_Butn_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            var rqst = RqstBs3.Current as Data.Request;
+            if (rqst == null) return;
+
+            var pydt = PydtsBs3.Current as Data.Payment_Detail;
+
+            switch (e.Button.Index)
+            {
+               case 0:
+                  iScsc.ExecuteCommand(string.Format("UPDATE dbo.Payment_Detail SET QNTY += 1 WHERE PYMT_RQST_RQID = {0};", rqst.RQID));
+                  requery = true;
+                  break;
+               case 1:
+                  if (pydt.QNTY > 1)
+                  {
+                     iScsc.ExecuteCommand(string.Format("UPDATE dbo.Payment_Detail SET QNTY -= 1 WHERE PYMT_RQST_RQID = {0};", rqst.RQID));
+                     requery = true;
+                  }
+                  break;
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void IncAttnPric_Nud_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            var rqst = RqstBs3.Current as Data.Request;
+            if (rqst == null) return;
+
+            switch (e.Button.Index)
+            {
+               case 1:
+                  if (IncAttnPric_Nud.Value > 0)
+                  {
+                     NumbOfAttnMont_TextEdit003.EditValue = IncAttnPric_Nud.EditValue;
+                     iScsc.ExecuteCommand(string.Format("UPDATE dbo.Payment_Detail SET QNTY = {1} WHERE PYMT_RQST_RQID = {0}; UPDATE dbo.Member_Ship SET NUMB_OF_ATTN_MONT = {1} WHERE Rqro_Rqst_Rqid = {0};", rqst.RQID, IncAttnPric_Nud.Value));
+                     TotlPic_Lb.Text = string.Format("{0:n0} {1}", Convert.ToInt64(DfltPric_Lb.Tag) * IncAttnPric_Nud.Value, TotlPic_Lb.Tag);
+
+                     requery = true;
+                  }
+                  break;
+               default:
+                  break;
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void IncAttnPric_Nud_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
+      {
+         try
+         {
+            var rqst = RqstBs3.Current as Data.Request;
+            if (rqst == null) return;
+
+            if (Convert.ToInt64(e.NewValue) > 0)
+            {
+               TotlPic_Lb.Visible = true;
+               NumbOfAttnMont_TextEdit003.EditValue = e.NewValue;
+               TotlPic_Lb.Text = string.Format("{0:n0} {1}", Convert.ToInt64(DfltPric_Lb.Tag) * Convert.ToInt64(e.NewValue), TotlPic_Lb.Tag);
+            }            
+            else
+            {
+               TotlPic_Lb.Visible = false;
+            }
+         }
+         catch (Exception exc)
          {
             MessageBox.Show(exc.Message);
          }

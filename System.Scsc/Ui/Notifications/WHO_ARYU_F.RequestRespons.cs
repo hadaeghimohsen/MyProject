@@ -27,6 +27,7 @@ namespace System.Scsc.Ui.Notifications
       bool gateControl = false;
       private short? mbsprwno;
       private string formcaller = "";
+      private bool isFirstLoaded = false;
 
       public void SendRequest(Job job)
       {
@@ -275,7 +276,12 @@ namespace System.Scsc.Ui.Notifications
       /// <param name="job"></param>
       private void LoadData(Job job)
       {
-         //CbmtBs1.DataSource = iScsc.Club_Methods.Where(cm => cm.MTOD_STAT == "002");
+         if (isFirstLoaded) goto finishcommand;
+         isFirstLoaded = true;
+
+         finishcommand:
+         CbmtBs1.DataSource = iScsc.Club_Methods.Where(cm => cm.MTOD_STAT == "002");
+
          job.Status = StatusType.Successful;
       }
 

@@ -536,68 +536,25 @@ namespace System.Scsc.Ui.Notifications
          {
             if (Pb_FileNo2.PickChecked && Convert.ToInt64(Nud_FileNo2.EditValue) > 0)
             {
-               //if (iScsc.Fighters.Any(f => f.FILE_NO == Convert.ToInt64(Nud_FileNo2.EditValue) && f.FGPB_TYPE_DNRM == "009"))
-               //{
-                  
-               //   /* نمایش فرم مربوط به مشترییات چند جلسه ای ترکیبی */
-               //   _DefaultGateway.Gateway(
-               //      new Job(SendType.External, "localhost",
-               //         new List<Job>
-               //      {
-               //         new Job(SendType.Self, 115 /* Execute CHOS_CLAS_F */),
-               //         new Job(SendType.SelfToUserInterface, "CHOS_CLAS_F", 10 /* Execute Actn_CalF_F*/ )
-               //         {
-               //            Input = 
-               //            new XElement("Fighter",
-               //               new XAttribute("fileno", Nud_FileNo2.EditValue)
-               //            )
-               //         }
-               //      })
-               //   );
-               //}
-               //else
-               {
-                  iScsc.INS_ATTN_P(null, Convert.ToInt64(Nud_FileNo2.EditValue), Dt_CrntDate2R.Value.Value, null, "001", mbsprwno == 0 ? null : (short?)mbsprwno, attnsystype, attnignrtype);
-                  fileno = Convert.ToInt64(Nud_FileNo2.EditValue);
-               }
+               iScsc.INS_ATTN_P(null, Convert.ToInt64(Nud_FileNo2.EditValue), Dt_CrntDate2R.Value.Value, null, "001", mbsprwno == 0 ? null : (short?)mbsprwno, attnsystype, attnignrtype);
+               fileno = Convert.ToInt64(Nud_FileNo2.EditValue);
             }
             else if (Pb_FileName2.PickChecked && (Lov_FileName2.Text != "" /**/ || Lov_FileName2.EditValue != null))
             {
-               //if (iScsc.Fighters.Any(f => f.FILE_NO == Convert.ToInt64(Lov_FileName2.EditValue) && f.FGPB_TYPE_DNRM == "009"))
-               //{
-               //   /* نمایش فرم مربوط به مشترییات چند جلسه ای ترکیبی */
-               //   _DefaultGateway.Gateway(
-               //      new Job(SendType.External, "localhost",
-               //         new List<Job>
-               //      {
-               //         new Job(SendType.Self, 115 /* Execute CHOS_CLAS_F */),
-               //         new Job(SendType.SelfToUserInterface, "CHOS_CLAS_F", 10 /* Execute Actn_CalF_F*/ )
-               //         {
-               //            Input = 
-               //            new XElement("Fighter",
-               //               new XAttribute("fileno", Lov_FileName2.EditValue)
-               //            )
-               //         }
-               //      })
-               //   );
-               //}
-               //else
+               if (mbsprwno == 0)
                {
-                  if(mbsprwno == 0)
-                  {
-                     // 1400/01/01 * ثبت خطای رخ داده شده درون سیستم
-                     iScsc.INS_LGOP_P(
-                        new XElement("Log",
-                            new XAttribute("fileno", Convert.ToInt64(Lov_FileName2.EditValue)),
-                            new XAttribute("type", "001"),
-                            new XAttribute("text", "اعضا گرامی دوره ای برای شما وجود ندارد یا دوره شما به پایان رسیده")
-                        )
-                     );
-                     throw new Exception("اعضا گرامی دوره ای برای شما وجود ندارد یا دوره شما به پایان رسیده");                     
-                  }
-                  iScsc.INS_ATTN_P(null, Convert.ToInt64(Lov_FileName2.EditValue), Dt_CrntDate2R.Value.Value, null, "001", mbsprwno == 0 ? null : (short?)mbsprwno, attnsystype, attnignrtype);
-                  fileno = Lov_FileName2.EditValue;
+                  // 1400/01/01 * ثبت خطای رخ داده شده درون سیستم
+                  iScsc.INS_LGOP_P(
+                     new XElement("Log",
+                         new XAttribute("fileno", Convert.ToInt64(Lov_FileName2.EditValue)),
+                         new XAttribute("type", "001"),
+                         new XAttribute("text", "اعضا گرامی دوره ای برای شما وجود ندارد یا دوره شما به پایان رسیده")
+                     )
+                  );
+                  throw new Exception("اعضا گرامی دوره ای برای شما وجود ندارد یا دوره شما به پایان رسیده");
                }
+               iScsc.INS_ATTN_P(null, Convert.ToInt64(Lov_FileName2.EditValue), Dt_CrntDate2R.Value.Value, null, "001", mbsprwno == 0 ? null : (short?)mbsprwno, attnsystype, attnignrtype);
+               fileno = Lov_FileName2.EditValue;
             }
 
             requry = true;

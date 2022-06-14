@@ -34,6 +34,40 @@ namespace System.Scsc.Ui.OtherIncome
             //if (tb_master.SelectedTab == tp_001)
             {
                iScsc = new Data.iScscDataContext(ConnectionString);
+               if (iScsc.Settings.Any(s => Fga_Uclb_U.Contains(s.CLUB_CODE) && s.RUN_QURY == "002"))                  
+                  vf_FighBs.DataSource = iScsc.VF_Last_Info_Fighter(null, null, null, null, null, null, null, null, null, null, null, null, null, null, null).OrderBy(f => f.REGN_PRVN_CODE + f.REGN_CODE);
+
+               rqstindex = RqstBs1.Position;
+
+               var Rqids = iScsc.VF_Requests(new XElement("Request", new XAttribute("cretby", ShowRqst_PickButn.PickChecked ? CurrentUser : "")))
+                  .Where(rqst =>
+                        rqst.RQTP_CODE == "025" &&
+                        rqst.RQST_STAT == "001" &&
+                        rqst.RQTT_CODE == "004" &&
+                        rqst.SUB_SYS == 1).Select(r => r.RQID).ToList();
+
+               RqstBs1.DataSource =
+                  iScsc.Requests
+                  .Where(
+                     rqst =>
+                        Rqids.Contains(rqst.RQID)
+                  );
+
+               RqstBs1.Position = rqstindex;
+            }
+         }
+         catch { }
+      }
+
+      private void Execute_Query_Force()
+      {
+         setOnDebt = false;
+         try
+         {
+            //if (tb_master.SelectedTab == tp_001)
+            {
+               iScsc = new Data.iScscDataContext(ConnectionString);
+               //if (iScsc.Settings.Any(s => Fga_Uclb_U.Contains(s.CLUB_CODE) && s.RUN_QURY == "002"))
                vf_FighBs.DataSource = iScsc.VF_Last_Info_Fighter(null, null, null, null, null, null, null, null, null, null, null, null, null, null, null).OrderBy(f => f.REGN_PRVN_CODE + f.REGN_CODE);
 
                rqstindex = RqstBs1.Position;
@@ -334,7 +368,8 @@ namespace System.Scsc.Ui.OtherIncome
                //Set_Current_Record();
                //Create_Record();
                requery = false;
-               vf_FighBs.DataSource = iScsc.VF_Last_Info_Fighter(null, null, null, null, null, null, null, null, null, null, null, null, null, null, null).OrderBy(f => f.REGN_PRVN_CODE + f.REGN_CODE);//.Where(f => Fga_Urgn_U.Split(',').Contains(f.REGN_PRVN_CODE + f.REGN_CODE) && Fga_Uclb_U.Contains(f.CLUB_CODE));
+               // 1400/12/14
+               // vf_FighBs.DataSource = iScsc.VF_Last_Info_Fighter(null, null, null, null, null, null, null, null, null, null, null, null, null, null, null).OrderBy(f => f.REGN_PRVN_CODE + f.REGN_CODE);//.Where(f => Fga_Urgn_U.Split(',').Contains(f.REGN_PRVN_CODE + f.REGN_CODE) && Fga_Uclb_U.Contains(f.CLUB_CODE));
             }
          }
       }
@@ -823,7 +858,7 @@ namespace System.Scsc.Ui.OtherIncome
 
       private void Search_Butn_Click(object sender, EventArgs e)
       {
-         Execute_Query();
+         Execute_Query_Force();
       }
 
       private void AdvnAdmnServ_Butn_Click(object sender, EventArgs e)

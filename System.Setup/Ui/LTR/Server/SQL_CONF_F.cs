@@ -309,9 +309,9 @@ namespace System.Setup.Ui.LTR.Server
             attachdb.ExecuteNonQuery();
             attachdb.Connection.Close();
 
-            if (AttachEmptydb_Cb.Checked)
+            if (AttachEmptydb_Cb.Checked || ChooseSubSys_Lov.Text == "iProject")
             {
-
+               
                // 2nd Step Empty Database for Ready to Use
                /// GET HOST INFO
                var _hostInfo =

@@ -74,6 +74,7 @@ namespace System.Scsc.Ui.BaseDefinition
             switch (formCaller)
             {
                case "MBSP_MARK_F":
+               case "AOP_BUFE_F":
                   _DefaultGateway.Gateway(
                      new Job(SendType.External, "localhost", formCaller, 07 /* Execute LoadData */, SendType.SelfToUserInterface)
                      {

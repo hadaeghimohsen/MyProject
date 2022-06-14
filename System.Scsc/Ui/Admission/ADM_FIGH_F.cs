@@ -184,7 +184,7 @@ namespace System.Scsc.Ui.Admission
                                     new XElement("Cbmt_Code", CbmtCode_Lov.EditValue ?? ""),
                                     new XElement("Dise_Code", ""),
                                     new XElement("Blod_Grop", ""),
-                                    new XElement("Fngr_Prnt", FNGR_PRNT_TextEdit.EditValue ?? ""),
+                                    new XElement("Fngr_Prnt", (FNGR_PRNT_TextEdit.EditValue ?? "").ToString().Trim()),
                                     new XElement("Sunt_Bunt_Dept_Orgn_Code", SUNT_BUNT_DEPT_ORGN_CODELookUpEdit.EditValue ?? ""),
                                     new XElement("Sunt_Bunt_Dept_Code", SUNT_BUNT_DEPT_CODELookUpEdit.EditValue ?? ""),
                                     new XElement("Sunt_Bunt_Code", SUNT_BUNT_CODELookUpEdit.EditValue ?? ""),
@@ -479,74 +479,63 @@ namespace System.Scsc.Ui.Admission
       {
          try
          {
-            //if (tb_master.SelectedTab == tp_001)
+            if (RQTT_CODE_LookUpEdit1.EditValue == null || RQTT_CODE_LookUpEdit1.EditValue.ToString() == "")
+               RQTT_CODE_LookUpEdit1.EditValue = "001";
+
+            // 1401/02/22 * 
+
+            long ctgycode = (long)CtgyCode_Lov.EditValue;
+            string rqttcode = (string)RQTT_CODE_LookUpEdit1.EditValue;
+            var expn = iScsc.Expenses.Where(exp => exp.Expense_Type.Request_Requester.RQTP_CODE == "001" && exp.Expense_Type.Request_Requester.RQTT_CODE == "001" && exp.Expense_Type.Request_Requester.Regulation.REGL_STAT == "002" && exp.Expense_Type.Request_Requester.Regulation.TYPE == "001" && /*exp.MTOD_CODE == mtodcode &&*/ exp.CTGY_CODE == ctgycode && exp.EXPN_STAT == "002").FirstOrDefault();
+
+            /// سیستم تغییر تاریخ شروع و پایان
+            /// Ctrl : تاریخ پایان بر اساس تاریخ شروع به تعداد دوره
+            /// 
+
+            if (ModifierKeys == Keys.Control)
             {
-               //var rqst = RqstBs1.Current as Data.Request;
-               //if (rqst == null) return;
-
-               //long mtodcode = 0;//(long)MtodCode_LookupEdit001.EditValue;
-               if (RQTT_CODE_LookUpEdit1.EditValue == null || RQTT_CODE_LookUpEdit1.EditValue.ToString() == "")
-                  RQTT_CODE_LookUpEdit1.EditValue = "001";
-
-               long ctgycode = (long)CtgyCode_Lov.EditValue;
-               string rqttcode = (string)RQTT_CODE_LookUpEdit1.EditValue;
-               var expn = iScsc.Expenses.Where(exp => exp.Expense_Type.Request_Requester.RQTP_CODE == "001" && exp.Expense_Type.Request_Requester.RQTT_CODE == "001" && exp.Expense_Type.Request_Requester.Regulation.REGL_STAT == "002" && exp.Expense_Type.Request_Requester.Regulation.TYPE == "001" && /*exp.MTOD_CODE == mtodcode &&*/ exp.CTGY_CODE == ctgycode && exp.EXPN_STAT == "002").FirstOrDefault();
-
-               //StrtDate_DateTime001.Value = DateTime.Now;
-               //if (MessageBox.Show(this, "تعداد جلسات با احتساب یک روز در میان می باشد؟", "مشخص شدن تاریخ پایان", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
-               //   EndDate_DateTime001.Value = DateTime.Now.AddDays((double)(2 * (expn.NUMB_OF_ATTN_MONT - 1)));
-               //else
-               //   EndDate_DateTime001.Value = DateTime.Now.AddDays((double)(expn.NUMB_OF_ATTN_MONT ?? 30));
-               
-               /// سیستم تغییر تاریخ شروع و پایان
-               /// Ctrl : تاریخ پایان بر اساس تاریخ شروع به تعداد دوره
-               /// 
-
-               if (ModifierKeys == Keys.Control)
-               {
-                  // تاریخ پایان بر اساس تاریخ شروعی که وارد شده محاسبه گردد
-                  StrtDate_DateTime001.CommitChanges();                  
-                  var strtdate = StrtDate_DateTime001.Value;
-                  if (strtdate.HasValue)
-                     EndDate_DateTime001.Value = strtdate.Value.AddDays((double)(expn.NUMB_CYCL_DAY ?? 30));
-                  else
-                  {
-                     StrtDate_DateTime001.Value = DateTime.Now;
-                     EndDate_DateTime001.Value = DateTime.Now.AddDays((double)(expn.NUMB_CYCL_DAY ?? 30));
-                  }
-               }
-               else if (ModifierKeys == Keys.Shift)
-               {
-                  // تاریخ شروع به اولین روز همان ماه برگردد
-                  StrtDate_DateTime001.CommitChanges();
-                  var strtdate = StrtDate_DateTime001.Value;
-                  if (strtdate.HasValue)
-                  {
-                     var day = StrtDate_DateTime001.GetText("dd").ToInt32();
-                     if(day != 1)
-                        StrtDate_DateTime001.Value = StrtDate_DateTime001.Value.Value.AddDays((day - 1) * -1);
-                     EndDate_DateTime001.Value = StrtDate_DateTime001.Value.Value.AddDays((double)(expn.NUMB_CYCL_DAY ?? 30));
-                  }
-                  else
-                  {
-                     StrtDate_DateTime001.Value = DateTime.Now;
-                     var day = StrtDate_DateTime001.GetText("dd").ToInt32();
-                     if (day != 1)
-                        StrtDate_DateTime001.Value = StrtDate_DateTime001.Value.Value.AddDays((day - 1) * -1);
-                     EndDate_DateTime001.Value = StrtDate_DateTime001.Value.Value.AddDays((double)(expn.NUMB_CYCL_DAY ?? 30));
-                  }
-               }               
+               // تاریخ پایان بر اساس تاریخ شروعی که وارد شده محاسبه گردد
+               StrtDate_DateTime001.CommitChanges();                  
+               var strtdate = StrtDate_DateTime001.Value;
+               if (strtdate.HasValue)
+                  EndDate_DateTime001.Value = strtdate.Value.AddDays((double)(expn.NUMB_CYCL_DAY ?? 30));
                else
                {
                   StrtDate_DateTime001.Value = DateTime.Now;
                   EndDate_DateTime001.Value = DateTime.Now.AddDays((double)(expn.NUMB_CYCL_DAY ?? 30));
                }
-
-               NumbOfAttnMont_TextEdit001.EditValue = expn.NUMB_OF_ATTN_MONT ?? 0;               
-               NumbMontOfer_TextEdit001.EditValue = expn.NUMB_MONT_OFER ?? 0;
-
-               Btn_RqstRqt1_Click(null, null);
             }
+            else if (ModifierKeys == Keys.Shift)
+            {
+               // تاریخ شروع به اولین روز همان ماه برگردد
+               StrtDate_DateTime001.CommitChanges();
+               var strtdate = StrtDate_DateTime001.Value;
+               if (strtdate.HasValue)
+               {
+                  var day = StrtDate_DateTime001.GetText("dd").ToInt32();
+                  if(day != 1)
+                     StrtDate_DateTime001.Value = StrtDate_DateTime001.Value.Value.AddDays((day - 1) * -1);
+                  EndDate_DateTime001.Value = StrtDate_DateTime001.Value.Value.AddDays((double)(expn.NUMB_CYCL_DAY ?? 30));
+               }
+               else
+               {
+                  StrtDate_DateTime001.Value = DateTime.Now;
+                  var day = StrtDate_DateTime001.GetText("dd").ToInt32();
+                  if (day != 1)
+                     StrtDate_DateTime001.Value = StrtDate_DateTime001.Value.Value.AddDays((day - 1) * -1);
+                  EndDate_DateTime001.Value = StrtDate_DateTime001.Value.Value.AddDays((double)(expn.NUMB_CYCL_DAY ?? 30));
+               }
+            }               
+            else
+            {
+               StrtDate_DateTime001.Value = DateTime.Now;
+               EndDate_DateTime001.Value = DateTime.Now.AddDays((double)(expn.NUMB_CYCL_DAY ?? 30));
+            }
+
+            NumbOfAttnMont_TextEdit001.EditValue = expn.NUMB_OF_ATTN_MONT ?? 0;               
+            NumbMontOfer_TextEdit001.EditValue = expn.NUMB_MONT_OFER ?? 0;
+
+            Btn_RqstRqt1_Click(null, null);
          }
          catch (Exception)
          {
@@ -861,55 +850,53 @@ namespace System.Scsc.Ui.Admission
       {
          try
          {
+            var rqst = RqstBs1.Current as Data.Request;
+            if (rqst == null) return;
+
+            if (Accept_Cb.Checked)
             {
-               var rqst = RqstBs1.Current as Data.Request;
-               if (rqst == null) return;
+               var pymt = PymtsBs1.Current as Data.Payment;
+               if (pymt == null) return;
 
-               if (Accept_Cb.Checked)
+               var debtamnt = (pymt.SUM_EXPN_PRIC + pymt.SUM_EXPN_EXTR_PRCT) - (pymt.SUM_RCPT_EXPN_PRIC + pymt.SUM_PYMT_DSCN_DNRM);
+
+               string mesg = "";
+               if (debtamnt > 0)
                {
-                  var pymt = PymtsBs1.Current as Data.Payment;
-                  if (pymt == null) return;
-
-                  var debtamnt = (pymt.SUM_EXPN_PRIC + pymt.SUM_EXPN_EXTR_PRCT) - (pymt.SUM_RCPT_EXPN_PRIC + pymt.SUM_PYMT_DSCN_DNRM);
-
-                  string mesg = "";
-                  if (debtamnt > 0)
-                  {
-                     mesg =
-                        string.Format(
-                           ">> مبلغ {0} {1} به صورت >> کارت به کارت << در تاریخ {2} در صندوق کاربر {3}  قرار میگیرد",
-                           string.Format("{0:n0}", debtamnt),
-                           DAtypBs1.List.OfType<Data.D_ATYP>().FirstOrDefault(d => d.VALU == pymt.AMNT_UNIT_TYPE_DNRM).DOMN_DESC,
-                           "امروز",
-                           CurrentUser);
-                     mesg += Environment.NewLine;
-                  }
-                  mesg += ">> ذخیره و پایان درخواست";
-
-                  if (MessageBox.Show(this, mesg, "عملیات ثبت نام", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2, MessageBoxOptions.RtlReading) != DialogResult.Yes) return;
+                  mesg =
+                     string.Format(
+                        ">> مبلغ {0} {1} به صورت >> کارت به کارت << در تاریخ {2} در صندوق کاربر {3}  قرار میگیرد",
+                        string.Format("{0:n0}", debtamnt),
+                        DAtypBs1.List.OfType<Data.D_ATYP>().FirstOrDefault(d => d.VALU == pymt.AMNT_UNIT_TYPE_DNRM).DOMN_DESC,
+                        "امروز",
+                        CurrentUser);
+                  mesg += Environment.NewLine;
                }
+               mesg += ">> ذخیره و پایان درخواست";
 
-               foreach (Data.Payment pymt in PymtsBs1)
-               {
-                  iScsc.PAY_MSAV_P(
-                     new XElement("Payment",
-                        new XAttribute("actntype", "CheckoutWithCard2Card"),
-                        new XElement("Insert",
-                           new XElement("Payment_Method",
-                              new XAttribute("cashcode", pymt.CASH_CODE),
-                              new XAttribute("rqstrqid", pymt.RQST_RQID)
-                           )
+               if (MessageBox.Show(this, mesg, "عملیات ثبت نام", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2, MessageBoxOptions.RtlReading) != DialogResult.Yes) return;
+            }
+
+            foreach (Data.Payment pymt in PymtsBs1)
+            {
+               iScsc.PAY_MSAV_P(
+                  new XElement("Payment",
+                     new XAttribute("actntype", "CheckoutWithCard2Card"),
+                     new XElement("Insert",
+                        new XElement("Payment_Method",
+                           new XAttribute("cashcode", pymt.CASH_CODE),
+                           new XAttribute("rqstrqid", pymt.RQST_RQID)
                         )
                      )
-                  );
-               }
-
-               /* Loop For Print After Pay */
-               RqstBnPrintAfterPay_Click(null, null);
-
-               /* End Request */
-               Btn_RqstSav1_Click(null, null);
+                  )
+               );
             }
+
+            /* Loop For Print After Pay */
+            RqstBnPrintAfterPay_Click(null, null);
+
+            /* End Request */
+            Btn_RqstSav1_Click(null, null);
          }
          catch (SqlException se)
          {
@@ -1723,6 +1710,46 @@ namespace System.Scsc.Ui.Admission
                   new Job(SendType.SelfToUserInterface, "ADM_BRSR_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "fighter"), new XAttribute("enrollnumber", FNGR_PRNT_TextEdit.Text))}
                })
          );
+      }
+
+      private void IncDec_Butn_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            var rqst = RqstBs1.Current as Data.Request;
+            if (rqst == null) return;
+
+            var pydt = PydtsBs1.Current as Data.Payment_Detail;            
+
+            switch (e.Button.Index)
+            {
+               case 0:
+                  iScsc.ExecuteCommand(string.Format("UPDATE dbo.Payment_Detail SET QNTY += 1 WHERE PYMT_RQST_RQID = {0};", rqst.RQID));
+                  requery = true;
+                  break;
+               case 1:
+                  if (pydt.QNTY > 1)
+                  {
+                     iScsc.ExecuteCommand(string.Format("UPDATE dbo.Payment_Detail SET QNTY -= 1 WHERE PYMT_RQST_RQID = {0};", rqst.RQID));
+                     requery = true;
+                  }
+                  break;
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void bn_DpstPayment3_Click(object sender, EventArgs e)
+      {
+
       }
    }
 }

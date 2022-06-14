@@ -28,14 +28,15 @@
       /// </summary>
       private void InitializeComponent()
       {
-         DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem1 = new DevExpress.Utils.ToolTipTitleItem();
+         this.components = new System.ComponentModel.Container();
+         DevExpress.Utils.SuperToolTip superToolTip2 = new DevExpress.Utils.SuperToolTip();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem3 = new DevExpress.Utils.ToolTipTitleItem();
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GLR_INDC_F));
-         DevExpress.Utils.ToolTipItem toolTipItem1 = new DevExpress.Utils.ToolTipItem();
-         DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem1 = new DevExpress.Utils.ToolTipSeparatorItem();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem2 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.ToolTipItem toolTipItem2 = new DevExpress.Utils.ToolTipItem();
+         DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem2 = new DevExpress.Utils.ToolTipSeparatorItem();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem4 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
          this.MdfyBy_Lb = new System.Windows.Forms.Label();
          this.MdfyDate_Lb = new System.Windows.Forms.Label();
          this.CretBy_Lb = new System.Windows.Forms.Label();
@@ -47,9 +48,9 @@
          this.Amnt_Lb = new System.Windows.Forms.Label();
          this.PaidType_Lb = new System.Windows.Forms.Label();
          this.CrntDebtAmnt_Lb = new System.Windows.Forms.Label();
-         this.RqstBs1 = new System.Windows.Forms.BindingSource();
-         this.FighBs1 = new System.Windows.Forms.BindingSource();
-         this.RqroBs1 = new System.Windows.Forms.BindingSource();
+         this.RqstBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.FighBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.RqroBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.colTARF_CODE_DNRM1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colMOST_DEBT_CLNG_DNRM1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colEXAM_RWNO_DNRM1 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -153,21 +154,21 @@
          this.colCash1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.Info_Gb = new System.Windows.Forms.GroupBox();
          this.ResnDesc_Txt = new DevExpress.XtraEditors.MemoEdit();
-         this.GlrlBs1 = new System.Windows.Forms.BindingSource();
+         this.GlrlBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.groupBox2 = new System.Windows.Forms.GroupBox();
          this.Prct_Txt = new DevExpress.XtraEditors.TextEdit();
          this.Glrd_Pn = new System.Windows.Forms.Panel();
          this.tbn_POSPayment1 = new DevExpress.XtraEditors.SimpleButton();
          this.UsePos_Cb = new System.Windows.Forms.CheckBox();
          this.GlrlDetail_Gv = new DevExpress.XtraGrid.GridControl();
-         this.GlrdBs1 = new System.Windows.Forms.BindingSource();
+         this.GlrdBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.Glrd_gv = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colGLRL_GLID = new DevExpress.XtraGrid.Columns.GridColumn();
          this.Rwno_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
          this.Amnt_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
          this.RcptMtod_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
          this.repositoryItemLookUpEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-         this.DRcmtBs1 = new System.Windows.Forms.BindingSource();
+         this.DRcmtBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.colTERM_NO = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colTRAN_NO = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colCARD_NO = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -183,7 +184,7 @@
          this.colGain_Loss_Rial = new DevExpress.XtraGrid.Columns.GridColumn();
          this.PosStng_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.Pos_Lov = new DevExpress.XtraEditors.LookUpEdit();
-         this.VPosBs1 = new System.Windows.Forms.BindingSource();
+         this.VPosBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.AddAmnt_Butn = new System.Windows.Forms.Button();
          this.DelAmnt_Butn = new System.Windows.Forms.Button();
          this.Glr_Gb = new System.Windows.Forms.GroupBox();
@@ -271,7 +272,7 @@
          this.textEdit14 = new DevExpress.XtraEditors.TextEdit();
          this.textEdit16 = new DevExpress.XtraEditors.TextEdit();
          this.textEdit18 = new DevExpress.XtraEditors.TextEdit();
-         this.RqstBn1 = new System.Windows.Forms.BindingNavigator();
+         this.RqstBn1 = new System.Windows.Forms.BindingNavigator(this.components);
          this.RqstBnNew1 = new System.Windows.Forms.ToolStripButton();
          this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
          this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
@@ -295,7 +296,7 @@
          this.RqstBnADoc1 = new System.Windows.Forms.ToolStripButton();
          this.RqstBnRegl01 = new System.Windows.Forms.ToolStripButton();
          this.RqstBnExit1 = new System.Windows.Forms.ToolStripButton();
-         this.im_images = new System.Windows.Forms.ImageList();
+         this.im_images = new System.Windows.Forms.ImageList(this.components);
          ((System.ComponentModel.ISupportInitialize)(this.RqstBs1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.FighBs1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.RqroBs1)).BeginInit();
@@ -1089,23 +1090,23 @@
          this.tbn_POSPayment1.LookAndFeel.UseDefaultLookAndFeel = false;
          this.tbn_POSPayment1.Name = "tbn_POSPayment1";
          this.tbn_POSPayment1.Size = new System.Drawing.Size(53, 50);
-         toolTipTitleItem1.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
-         toolTipTitleItem1.Appearance.Options.UseImage = true;
-         toolTipTitleItem1.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem1.Image")));
-         toolTipTitleItem1.Text = "کاربر گرامی";
-         toolTipItem1.LeftIndent = 6;
-         toolTipItem1.Text = "برای هرچه بهتر شدن و بالا رفتن سرعت دریافت و پرداخت توسط کاربران امور و کمتر شدن " +
+         toolTipTitleItem3.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
+         toolTipTitleItem3.Appearance.Options.UseImage = true;
+         toolTipTitleItem3.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem3.Image")));
+         toolTipTitleItem3.Text = "کاربر گرامی";
+         toolTipItem2.LeftIndent = 6;
+         toolTipItem2.Text = "برای هرچه بهتر شدن و بالا رفتن سرعت دریافت و پرداخت توسط کاربران امور و کمتر شدن " +
     "اشتباهات دریافت هزینه ها می توانید از پرداخت توسط دستگاه POS انجام دهید.";
-         toolTipTitleItem2.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image1")));
-         toolTipTitleItem2.Appearance.Options.UseImage = true;
-         toolTipTitleItem2.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem2.Image")));
-         toolTipTitleItem2.LeftIndent = 6;
-         toolTipTitleItem2.Text = "پرداخت از طریق دستگاه POS";
-         superToolTip1.Items.Add(toolTipTitleItem1);
-         superToolTip1.Items.Add(toolTipItem1);
-         superToolTip1.Items.Add(toolTipSeparatorItem1);
-         superToolTip1.Items.Add(toolTipTitleItem2);
-         this.tbn_POSPayment1.SuperTip = superToolTip1;
+         toolTipTitleItem4.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image1")));
+         toolTipTitleItem4.Appearance.Options.UseImage = true;
+         toolTipTitleItem4.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem4.Image")));
+         toolTipTitleItem4.LeftIndent = 6;
+         toolTipTitleItem4.Text = "پرداخت از طریق دستگاه POS";
+         superToolTip2.Items.Add(toolTipTitleItem3);
+         superToolTip2.Items.Add(toolTipItem2);
+         superToolTip2.Items.Add(toolTipSeparatorItem2);
+         superToolTip2.Items.Add(toolTipTitleItem4);
+         this.tbn_POSPayment1.SuperTip = superToolTip2;
          this.tbn_POSPayment1.TabIndex = 69;
          this.tbn_POSPayment1.Tag = "1";
          this.tbn_POSPayment1.Click += new System.EventHandler(this.tbn_POSPayment1_Click);
@@ -1334,7 +1335,7 @@
          this.Pos_Lov.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
          this.Pos_Lov.Properties.AppearanceFocused.Options.UseBackColor = true;
          this.Pos_Lov.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject3, "", null, null, true)});
          this.Pos_Lov.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("PSID", "PSID", 49, DevExpress.Utils.FormatType.Numeric, "", false, DevExpress.Utils.HorzAlignment.Far),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("BANK_NAME", "بانک", 79, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near),
@@ -1563,7 +1564,7 @@
          this.FIGH_FILE_NOLookUpEdit.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
          this.FIGH_FILE_NOLookUpEdit.Properties.AppearanceFocused.Options.UseBackColor = true;
          this.FIGH_FILE_NOLookUpEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
          this.FIGH_FILE_NOLookUpEdit.Properties.DataSource = this.FighBs1;
          this.FIGH_FILE_NOLookUpEdit.Properties.DisplayMember = "NAME_DNRM";
          this.FIGH_FILE_NOLookUpEdit.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;

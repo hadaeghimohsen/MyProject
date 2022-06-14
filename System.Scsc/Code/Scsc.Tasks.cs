@@ -4502,6 +4502,7 @@ namespace System.Scsc.Code
                new List<Job>
                {
                   new Job(SendType.Self, 01 /* Execute GetUi */){Input = "glr_indc_f"},
+                  new Job(SendType.SelfToUserInterface, "GLR_INDC_F", 05 /* Execute CheckSecurity */),                  
                   new Job(SendType.SelfToUserInterface, "GLR_INDC_F", 02 /* Execute Set */),                  
                   new Job(SendType.SelfToUserInterface, "GLR_INDC_F", 07 /* Execute Load_Data */),
                   new Job(SendType.SelfToUserInterface, "GLR_INDC_F", 03 /* Execute Paint */),

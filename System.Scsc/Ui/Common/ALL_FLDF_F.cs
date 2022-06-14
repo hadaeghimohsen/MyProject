@@ -2775,7 +2775,7 @@ namespace System.Scsc.Ui.Common
       {
          try
          {
-            if (MessageBox.Show(this, "آیا با حذف کامل مشتری موافق هستید، بعد از انجام عملیات به هیچ عنوان اطلاعات قابلیت بازیابی را ندارند") != DialogResult.Yes) return;
+            if (MessageBox.Show(this, "آیا با حذف کامل مشتری موافق هستید، بعد از انجام عملیات به هیچ عنوان اطلاعات قابلیت بازیابی را ندارند", "هشدار جهت عملیات بدون بازگشت", MessageBoxButtons.YesNo, MessageBoxIcon.Stop) != DialogResult.Yes) return;
 
             iScsc.DEL_FIGH_P(
                new XElement("Fighter",
@@ -2852,7 +2852,7 @@ namespace System.Scsc.Ui.Common
             var fgrp = FGrpBs.Current as Data.Fighter_Grouping;
             if (fgrp == null) return;
 
-            if (MessageBox.Show(this, "آیا با حذف گروه برای مشتری موافق هستید؟", "حذف گروه") != DialogResult.Yes) return;
+            if (MessageBox.Show(this, "آیا با حذف گروه برای مشتری موافق هستید؟", "حذف گروه", MessageBoxButtons.YesNo) != DialogResult.Yes) return;
 
             iScsc.Fighter_Groupings.DeleteOnSubmit(fgrp);
             iScsc.SubmitChanges();

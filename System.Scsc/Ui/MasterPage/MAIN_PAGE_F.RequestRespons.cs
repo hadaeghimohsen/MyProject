@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Xml.Linq;
 using System.Scsc.ExtCode;
 using System.Threading;
+using System.Diagnostics;
 
 namespace System.Scsc.Ui.MasterPage
 {
@@ -21,6 +22,7 @@ namespace System.Scsc.Ui.MasterPage
       private List<long?> Fga_Uclb_U;
       private string Crnt_User;
       private string RegnLang = "054";
+      private DateTime ExprInstDate, CrntDate = DateTime.Now;
 
       //private bool requery = default(bool);
 
@@ -219,7 +221,7 @@ namespace System.Scsc.Ui.MasterPage
                         }
                      )
                }
-            );
+            );            
          }
          catch { }
          job.Status = StatusType.Successful;
@@ -243,6 +245,40 @@ namespace System.Scsc.Ui.MasterPage
          Lbs_CrntUser.Text = Crnt_User = iScsc.GET_CRNTUSER_U(new XElement("User", new XAttribute("actntype", "001")));
 
          //Tm_ShowTime_Tick(null, null);         
+
+         // 1400/12/14 * بررسی اینکه نرم افزار تاریخ سر رسید پرداخت عقب افتاده نداشته باشد
+         var _SubSys = iScsc.V_SubSies.FirstOrDefault();
+         if (_SubSys.EXPR_INST_DATE == null || _SubSys.EXPR_INST_DATE == "")
+         {
+            MessageBox.Show("محتوای اطلاعات خالی میباشد", "خطای انقضای ماهیانه محصول", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+
+            Application.Exit();
+            Process.GetCurrentProcess().Kill();
+         }
+
+         _DefaultGateway.Gateway(
+            new Job(SendType.External, "localhost", "Commons", 41 /* Execute DoWork4Decrypt */, SendType.Self)
+            {
+               Input =
+                  _SubSys.EXPR_INST_DATE,
+               AfterChangedOutput =
+                  new Action<object>(
+                     (output) =>
+                     {
+                        ExprInstDate = Convert.ToDateTime(output);
+                        //CrntDate = DateTime.Now;
+
+                        if ((ExprInstDate.Date - DateTime.Now.Date).Days < 0)
+                        {
+                           MessageBox.Show("تاریخ اعتبار شما به پایان رسیده", "خطای انقضای ماهیانه محصول", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+
+                           Application.Exit();
+                           Process.GetCurrentProcess().Kill();
+                        }
+                     }
+                  )
+            }
+         );
 
          #region Package Item
          //rd_mainmenu.CommandTabs.OfType<RibbonTab>().ToList().ForEach(rt => rt.Items.OfType<RadRibbonBarGroup>().ToList().ForEach(rrbg => rrbg.Items.OfType<RadButtonElement>().ToList().ForEach(rbe => rbe.Visibility = rbe.Tag == null ? Telerik.WinControls.ElementVisibility.Visible : Telerik.WinControls.ElementVisibility.Collapsed)));
@@ -665,6 +701,9 @@ namespace System.Scsc.Ui.MasterPage
          //      });
          //   _DefaultGateway.Gateway(_InteractWithScsc);
          //}
+
+         
+         
 
          if(job.Input != null && (job.Input as XElement).Attribute("type").Value == "accesscontrol")
          {

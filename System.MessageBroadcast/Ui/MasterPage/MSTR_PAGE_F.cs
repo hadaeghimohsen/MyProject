@@ -24,7 +24,7 @@ namespace System.MessageBroadcast.Ui.MasterPage
 
       private void Execute_Query()
       {
-         SmsBs.DataSource = iProject.Message_Broad_Settings.Where(m => m.TYPE == "001");
+         SmsBs.DataSource = iProject.Message_Broad_Settings.Where(m => m.TYPE == "001" && (m.LINE_TYPE == "001" || m.LINE_TYPE == "002") && m.DFLT_STAT == "002");
          HostBs.DataSource = iProject.Gateways.Where(g => g.CONF_STAT == "002" && g.VALD_TYPE_DNRM == "002" && g.AUTH_TYPE_DNRM == "002");
       }
 
@@ -52,6 +52,7 @@ namespace System.MessageBroadcast.Ui.MasterPage
 
       private SmsService.Sms SmsClient;
       private iNotiSmsService.iNotiSMS iNotiSmsClient;
+      private System.MessageBroadcast.Code.Msgb.FarazSms FarazSmsClient;
 
       private void Btn_SmsServerRefresh_Click(object sender, EventArgs e)
       {
@@ -78,6 +79,12 @@ namespace System.MessageBroadcast.Ui.MasterPage
                      // iNoti Sms Provider
                      if (iNotiSmsClient == null)
                         iNotiSmsClient = new iNotiSmsService.iNotiSMS();
+                  }
+                  else if(smsConf.SERV_TYPE == "003")
+                  {
+                     // Faraz SMS
+                     if (FarazSmsClient == null)
+                        FarazSmsClient = new Code.Msgb.FarazSms(smsConf.USER_NAME, smsConf.PASS_WORD);
                   }
 
                   // 1398/07/05 * بررسی وضعیت اتصال اینترنت
@@ -161,6 +168,15 @@ namespace System.MessageBroadcast.Ui.MasterPage
                            new XDocument(
                               new XElement("iNotiSms",
                                  new XElement("SendCredit", iNotiSmsClient.GetChargeRemaining(smsConf.USER_NAME, smsConf.PASS_WORD))
+                              )
+                           );
+                     }
+                     else if(smsConf.SERV_TYPE == "003")
+                     {
+                        xmsRespons =
+                           new XDocument(
+                              new XElement("iNotiSms",
+                                 new XElement("SendCredit", FarazSmsClient.GetCredit())
                               )
                            );
                      }
@@ -391,6 +407,23 @@ namespace System.MessageBroadcast.Ui.MasterPage
          {
             MessageBox.Show(exc.Message);
          }
+      }
+
+      private void Save_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            iProject.SubmitChanges();            
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void Reload_Butn_Click(object sender, EventArgs e)
+      {
+         Execute_Query();
       }
    }
 }

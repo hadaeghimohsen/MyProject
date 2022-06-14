@@ -477,7 +477,8 @@ namespace System.DataGuard.SecPolicy.Share.Ui
                   TinyLock_Txt.Text, // 1
                   CmndDate_Dt.Value.Value.ToString("yyyy-MM-dd"), // 2
                   CmndParmValu_Txt.Text, // 3
-                  subsys.SUB_SYS.ToString() //4
+                  subsys.SUB_SYS.ToString(), //4
+                  Encrypt(CmndDate_Dt.Value.Value.ToString("yyyy-MM-dd")) // 5
                };
             var datastring = string.Join(":", dataclient);
 
@@ -510,6 +511,11 @@ namespace System.DataGuard.SecPolicy.Share.Ui
          {
             MessageBox.Show(exc.Message);
          }
+      }
+
+      private void OpenServerGenerateKey2_Butn_Click(object sender, EventArgs e)
+      {
+
       }
 
       

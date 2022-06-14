@@ -67,6 +67,7 @@
          this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
          this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
          this.tp_003 = new System.Windows.Forms.TabPage();
+         this.AttachEmptydb_Cb = new System.Windows.Forms.CheckBox();
          this.AttachRespons_Lb = new DevExpress.XtraEditors.LabelControl();
          this.AttachDatabaseFile_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.SelectDatabaseFile_Butn = new DevExpress.XtraEditors.SimpleButton();
@@ -82,7 +83,6 @@
          this.SelectBackupFile_Ofd = new System.Windows.Forms.OpenFileDialog();
          this.SelectPathTargetDbFile_Fbd = new System.Windows.Forms.FolderBrowserDialog();
          this.SelectDatabaseFile_Ofd = new System.Windows.Forms.OpenFileDialog();
-         this.AttachEmptydb_Cb = new System.Windows.Forms.CheckBox();
          this.panel1.SuspendLayout();
          this.Tb_Master.SuspendLayout();
          this.tp_001.SuspendLayout();
@@ -696,6 +696,18 @@
          this.tp_003.Text = "Attach Database files";
          this.tp_003.UseVisualStyleBackColor = true;
          // 
+         // AttachEmptydb_Cb
+         // 
+         this.AttachEmptydb_Cb.AutoSize = true;
+         this.AttachEmptydb_Cb.Checked = true;
+         this.AttachEmptydb_Cb.CheckState = System.Windows.Forms.CheckState.Checked;
+         this.AttachEmptydb_Cb.Location = new System.Drawing.Point(176, 241);
+         this.AttachEmptydb_Cb.Name = "AttachEmptydb_Cb";
+         this.AttachEmptydb_Cb.Size = new System.Drawing.Size(115, 18);
+         this.AttachEmptydb_Cb.TabIndex = 83;
+         this.AttachEmptydb_Cb.Text = "Empty Database";
+         this.AttachEmptydb_Cb.UseVisualStyleBackColor = true;
+         // 
          // AttachRespons_Lb
          // 
          this.AttachRespons_Lb.AllowHtmlString = true;
@@ -889,18 +901,6 @@
          // 
          this.SelectDatabaseFile_Ofd.Filter = "Database File|*.*";
          this.SelectDatabaseFile_Ofd.Multiselect = true;
-         // 
-         // AttachEmptydb_Cb
-         // 
-         this.AttachEmptydb_Cb.AutoSize = true;
-         this.AttachEmptydb_Cb.Checked = true;
-         this.AttachEmptydb_Cb.CheckState = System.Windows.Forms.CheckState.Checked;
-         this.AttachEmptydb_Cb.Location = new System.Drawing.Point(176, 241);
-         this.AttachEmptydb_Cb.Name = "AttachEmptydb_Cb";
-         this.AttachEmptydb_Cb.Size = new System.Drawing.Size(115, 18);
-         this.AttachEmptydb_Cb.TabIndex = 83;
-         this.AttachEmptydb_Cb.Text = "Empty Database";
-         this.AttachEmptydb_Cb.UseVisualStyleBackColor = true;
          // 
          // SQL_CONF_F
          // 

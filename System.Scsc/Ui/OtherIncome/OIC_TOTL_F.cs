@@ -416,6 +416,8 @@ namespace System.Scsc.Ui.OtherIncome
                RqstBnDelete1.Enabled = /*Btn_RqstSav1.Visible = */false;
                RqstBnASav1.Enabled = false;
             }
+
+            FgpbBs1_CurrentChanged(null, null);
          }
          catch
          {
@@ -1153,7 +1155,7 @@ namespace System.Scsc.Ui.OtherIncome
             {
                PydtsBs1.AddNew();
                var pydt = PydtsBs1.Current as Data.Payment_Detail;
-               ExpnBs1.List.OfType<Data.Expense>().Where(ex => ex.CODE == expn.CODE).ToList().ForEach(ex => { pydt.EXPN_CODE = ex.CODE; pydt.EXPN_PRIC = ex.PRIC; pydt.EXPN_EXTR_PRCT = ex.EXTR_PRCT; pydt.QNTY = 1; pydt.PYDT_DESC = ex.EXPN_DESC; pydt.PAY_STAT = "001"; pydt.RQRO_RWNO = 1; pydt.MTOD_CODE_DNRM = expn.MTOD_CODE; pydt.CTGY_CODE_DNRM = expn.CTGY_CODE; pydt.EXPR_DATE = DateTime.Now.AddDays((int)expn.NUMB_CYCL_DAY).AddHours(expn.MIN_TIME.Value.Hour).AddMinutes(expn.MIN_TIME.Value.Minute).AddSeconds(expn.MIN_TIME.Value.Second); });
+               ExpnBs1.List.OfType<Data.Expense>().Where(ex => ex.CODE == expn.CODE).ToList().ForEach(ex => { pydt.EXPN_CODE = ex.CODE; pydt.EXPN_PRIC = ex.PRIC; pydt.EXPN_EXTR_PRCT = ex.EXTR_PRCT; pydt.QNTY = 1; pydt.PYDT_DESC = ex.EXPN_DESC; pydt.PAY_STAT = "001"; pydt.RQRO_RWNO = 1; pydt.MTOD_CODE_DNRM = expn.MTOD_CODE; pydt.CTGY_CODE_DNRM = expn.CTGY_CODE; pydt.EXPR_DATE = DateTime.Now.AddDays((int)(expn.NUMB_CYCL_DAY ?? 0)).AddHours(expn.MIN_TIME.Value.Hour).AddMinutes(expn.MIN_TIME.Value.Minute).AddSeconds(expn.MIN_TIME.Value.Second); });
             }
             else
             {
@@ -1450,7 +1452,10 @@ namespace System.Scsc.Ui.OtherIncome
          try
          {
             if (FgpbBs1.Current != null)
-               FreeAdm_Pn.Visible = true;
+               if((FgpbBs1.Current as Data.Fighter_Public).TYPE == "005")
+                  FreeAdm_Pn.Visible = true;
+               else
+                  FreeAdm_Pn.Visible = false;
             else
                FreeAdm_Pn.Visible = false;
          }
@@ -1568,7 +1573,9 @@ namespace System.Scsc.Ui.OtherIncome
                               new XAttribute("qnty", pd.QNTY ?? 1),
                               new XAttribute("fighfileno", pd.FIGH_FILE_NO ?? 0),
                               new XAttribute("cbmtcodednrm", pd.CBMT_CODE_DNRM ?? 0),
-                              new XAttribute("exprdate", pd.EXPR_DATE == null ? "" : pd.EXPR_DATE.Value.ToString("yyyy-MM-dd"))
+                              new XAttribute("exprdate", pd.EXPR_DATE == null ? "" : pd.EXPR_DATE.Value.ToString("yyyy-MM-dd")),
+                              new XAttribute("fromnumb", pd.FROM_NUMB ?? 0),
+                              new XAttribute("tonumb", pd.TO_NUMB ?? 0)
                            )
                         )
                      )
@@ -2728,6 +2735,217 @@ namespace System.Scsc.Ui.OtherIncome
       private void DelEvntLogs_Butn_Click(object sender, EventArgs e)
       {
          Evnt_Lbx.Items.Clear();
+      }
+
+      private void bn_DpstPayment3_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var rqst = RqstBs1.Current as Data.Request;
+            if (rqst == null) return;
+
+            bool finalAction = false;
+            long? debtamnt = 0, dpstamnt = 0;
+
+            var pymt = PymtsBs1.Current as Data.Payment;
+            if (pymt == null) return;
+
+            debtamnt = (pymt.SUM_EXPN_PRIC + pymt.SUM_EXPN_EXTR_PRCT) - (pymt.SUM_RCPT_EXPN_PRIC + pymt.SUM_PYMT_DSCN_DNRM);
+            dpstamnt = pymt.Request.Request_Rows.FirstOrDefault().Fighter.DPST_AMNT_DNRM;
+
+            if (dpstamnt == 0) { MessageBox.Show(this, "مبلغ سپرده مشتری صفر میباشد", "عدم موجودی سپرده مشتری"); return; }
+            // 1401/02/04 * بروزرسانی مبلغ سپرده مشتری
+            if(dpstamnt - pymt.Payment_Methods.Where(pm => pm.RCPT_MTOD == "005").Sum(pm => pm.AMNT) <= 0)
+            {
+               MessageBox.Show("مبلغ اعتبار سپرده برای مشتری وجود ندارد");
+               return;
+            }
+            else
+            {
+               dpstamnt -= pymt.Payment_Methods.Where(pm => pm.RCPT_MTOD == "005").Sum(pm => pm.AMNT);
+            }
+
+            finalAction = debtamnt <= dpstamnt;
+            debtamnt = dpstamnt < debtamnt ? dpstamnt : debtamnt;
+
+            if (Accept_Cb.Checked)
+            {
+               string mesg = "";
+               if (debtamnt > 0)
+               {
+                  mesg =
+                     string.Format(
+                        ">> مبلغ {0} {1} به صورت >> کسر از سپرده << در تاریخ {2} در صندوق کاربر {3}  قرار میگیرد",
+                        string.Format("{0:n0}", debtamnt),
+                        DAtypBs1.List.OfType<Data.D_ATYP>().FirstOrDefault(d => d.VALU == pymt.AMNT_UNIT_TYPE_DNRM).DOMN_DESC,
+                        "امروز",
+                        CurrentUser);
+                  mesg += Environment.NewLine;
+               }
+               mesg += ">> ذخیره و پایان درخواست";
+
+               if (MessageBox.Show(this, mesg, "عملیات ثبت نام", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2, MessageBoxOptions.RtlReading) != DialogResult.Yes) return;
+            }
+
+            foreach (Data.Payment pymt1 in PymtsBs1)
+            {
+               iScsc.PAY_MSAV_P(
+                  new XElement("Payment",
+                     new XAttribute("actntype", "CheckoutWithDeposit"),
+                     new XElement("Insert",
+                        new XElement("Payment_Method",
+                           new XAttribute("cashcode", pymt1.CASH_CODE),
+                           new XAttribute("rqstrqid", pymt1.RQST_RQID),
+                           new XAttribute("amnt", debtamnt),
+                           new XAttribute("valdtype", PymtVldtType_Cbx.Checked ? "002" : "001")
+                        )
+                     )
+                  )
+               );
+            }
+
+            // 1401/02/04 * بعد از اینکه مبلغ دریافتی درون سیستم ثبت شد گزینه به حالت فعال درآید
+            PymtVldtType_Cbx.Checked = true;
+
+            if (finalAction)
+            {
+               /* Loop For Print After Pay */
+               RqstBnPrintAfterPay_Click(null, null);
+
+               /* End Request */
+               Btn_RqstBnASav1_Click(null, null);
+            }
+            else
+               requery = true;
+         }
+         catch (SqlException se)
+         {
+            MessageBox.Show(se.Message);
+         }
+         finally
+         {
+            if (requery)
+            {
+               Execute_Query();
+            }
+         }
+      }
+
+      private void bn_Card2CardPayment3_Click(object sender, EventArgs e)
+      {
+         try
+         {            
+            var rqst = RqstBs1.Current as Data.Request;
+            if (rqst == null) return;
+
+            if (Accept_Cb.Checked)
+            {
+               var pymt = PymtsBs1.Current as Data.Payment;
+               if (pymt == null) return;
+
+               var debtamnt = (pymt.SUM_EXPN_PRIC + pymt.SUM_EXPN_EXTR_PRCT) - (pymt.SUM_RCPT_EXPN_PRIC + pymt.SUM_PYMT_DSCN_DNRM);
+
+               string mesg = "";
+               if (debtamnt > 0)
+               {
+                  mesg =
+                     string.Format(
+                        ">> مبلغ {0} {1} به صورت >> کارت به کارت << در تاریخ {2} در صندوق کاربر {3}  قرار میگیرد",
+                        string.Format("{0:n0}", debtamnt),
+                        DAtypBs1.List.OfType<Data.D_ATYP>().FirstOrDefault(d => d.VALU == pymt.AMNT_UNIT_TYPE_DNRM).DOMN_DESC,
+                        "امروز",
+                        CurrentUser);
+                  mesg += Environment.NewLine;
+               }
+               mesg += ">> ذخیره و پایان درخواست";
+
+               if (MessageBox.Show(this, mesg, "عملیات ثبت نام", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2, MessageBoxOptions.RtlReading) != DialogResult.Yes) return;
+            }
+
+            foreach (Data.Payment pymt in PymtsBs1)
+            {
+               iScsc.PAY_MSAV_P(
+                  new XElement("Payment",
+                     new XAttribute("actntype", "CheckoutWithCard2Card"),
+                     new XElement("Insert",
+                        new XElement("Payment_Method",
+                           new XAttribute("cashcode", pymt.CASH_CODE),
+                           new XAttribute("rqstrqid", pymt.RQST_RQID),
+                           new XAttribute("valdtype", PymtVldtType_Cbx.Checked ? "002" : "001")
+                        )
+                     )
+                  )
+               );
+            }
+
+            // 1401/02/04 * بعد از اینکه مبلغ دریافتی درون سیستم ثبت شد گزینه به حالت فعال درآید
+            PymtVldtType_Cbx.Checked = true;
+
+            /* Loop For Print After Pay */
+            RqstBnPrintAfterPay_Click(null, null);
+
+            /* End Request */
+            Btn_RqstBnASav1_Click(null, null);            
+         }
+         catch (SqlException se)
+         {
+            MessageBox.Show(se.Message);
+         }
+      }
+
+      private void SUNT_CODELookUpEdit_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         switch (e.Button.Index)
+         {
+            case 1:
+               Job _InteractWithScsc =
+                  new Job(SendType.External, "Localhost",
+                     new List<Job>
+                     {
+                        new Job(SendType.External, "Commons",
+                           new List<Job>
+                           {
+                              #region Access Privilege
+                              new Job(SendType.Self, 07 /* Execute DoWork4AccessPrivilege */)
+                              {
+                                 Input = new List<string> 
+                                 {
+                                    "<Privilege>171</Privilege><Sub_Sys>5</Sub_Sys>", 
+                                    "DataGuard"
+                                 },
+                                 AfterChangedOutput = new Action<object>((output) => {
+                                    if ((bool)output)
+                                       return;
+                                    #region Show Error
+                                    MessageBox.Show("خطا: عدم دسترسی به کد 171");
+                                    #endregion                           
+                                 })
+                              },
+                              new Job(SendType.Self, 07 /* Execute DoWork4AccessPrivilege */)
+                              {
+                                 Input = new List<string> 
+                                 {
+                                    "<Privilege>175</Privilege><Sub_Sys>5</Sub_Sys>", 
+                                    "DataGuard"
+                                 },
+                                 AfterChangedOutput = new Action<object>((output) => {
+                                    if ((bool)output)
+                                       return;
+                                    #region Show Error
+                                    MessageBox.Show("خطا: عدم دسترسی به کد 175");
+                                    #endregion                           
+                                 })
+                              }
+                              #endregion
+                           }),
+                        #region DoWork
+                        new Job(SendType.Self, 108 /* Execute Orgn_Totl_F */),
+                        new Job(SendType.SelfToUserInterface, "ORGN_TOTL_F", 10 /* Actn_CalF_P */)
+                        #endregion
+                        });
+               _DefaultGateway.Gateway(_InteractWithScsc);
+               break;
+         }
       }
    }
 }

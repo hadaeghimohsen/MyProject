@@ -27,7 +27,7 @@ namespace System.Scsc.Ui.Insurance
          //if (tb_master.SelectedTab == tp_001)
          {
             iScsc = new Data.iScscDataContext(ConnectionString);
-            var Rqids = iScsc.VF_Requests(new XElement("Request"))
+            var Rqids = iScsc.VF_Requests(new XElement("Request", new XAttribute("cretby", ShowRqst_PickButn.PickChecked ? CurrentUser : "")))
                .Where(rqst =>
                      rqst.RQTP_CODE == "012" &&
                      rqst.RQST_STAT == "001" &&
@@ -111,11 +111,16 @@ namespace System.Scsc.Ui.Insurance
       {
          try
          {
-            if (FILE_NO_LookUpEdit.EditValue == null || Convert.ToInt64(FILE_NO_LookUpEdit.EditValue) == 0) return;
+            if (FILE_NO_LookUpEdit.EditValue == null || FILE_NO_LookUpEdit.EditValue.ToString() == "" || Convert.ToInt64(FILE_NO_LookUpEdit.EditValue) == 0) return;
             
             var Rqst = RqstBs1.Current as Data.Request;
             var Figh = FighBs1.Current as Scsc.Data.Fighter;
             iNSR_DATEPersianDateEdit.CommitChanges();
+
+            if (Rqst != null && Rqst.RQID > 0)
+            {
+               if (!iNSR_DATEPersianDateEdit.Value.HasValue) { iNSR_DATEPersianDateEdit.Focus(); return; }
+            }
 
             if (Rqst == null || Rqst.RQID >= 0)
             {
@@ -438,7 +443,8 @@ namespace System.Scsc.Ui.Insurance
                         new XElement("Insert",
                            new XElement("Payment_Method",
                               new XAttribute("cashcode", pymt.CASH_CODE),
-                              new XAttribute("rqstrqid", pymt.RQST_RQID)
+                              new XAttribute("rqstrqid", pymt.RQST_RQID),
+                              new XAttribute("valdtype", "001")
                      //new XAttribute("amnt", (pymt.SUM_EXPN_PRIC + pymt.SUM_EXPN_EXTR_PRCT) - pymt.Payment_Methods.Sum(pm => pm.AMNT))
                            )
                         )
@@ -528,7 +534,8 @@ namespace System.Scsc.Ui.Insurance
                                              new XAttribute("rqtpcode", ""),
                                              new XAttribute("router", GetType().Name),
                                              new XAttribute("callback", 20),
-                                             new XAttribute("amnt", amnt)
+                                             new XAttribute("amnt", amnt),
+                                             new XAttribute("valdtype", "001")
                                           )
                                     }
                                  }
@@ -549,7 +556,8 @@ namespace System.Scsc.Ui.Insurance
                            new XElement("Insert",
                               new XElement("Payment_Method",
                                  new XAttribute("cashcode", pymt.CASH_CODE),
-                                 new XAttribute("rqstrqid", pymt.RQST_RQID)
+                                 new XAttribute("rqstrqid", pymt.RQST_RQID),
+                                 new XAttribute("valdtype", "001")
                               )
                            )
                         )
@@ -615,25 +623,25 @@ namespace System.Scsc.Ui.Insurance
 
       private void PydsType_Butn_Click(object sender, EventArgs e)
       {
-         try
-         {
-            PydsType_Butn.Text = PydsType_Butn.Tag.ToString() == "0" ? "مبلغی" : "درصدی";
-            PydsType_Butn.Tag = PydsType_Butn.Tag.ToString() == "0" ? "1" : "0";
-            if (PydsType_Lov.EditValue != null || PydsType_Lov.EditValue.ToString() != "") PydsType_Lov.EditValue = "002";
+         //try
+         //{
+         //   PydsType_Butn.Text = PydsType_Butn.Tag.ToString() == "0" ? "مبلغی" : "درصدی";
+         //   PydsType_Butn.Tag = PydsType_Butn.Tag.ToString() == "0" ? "1" : "0";
+         //   if (PydsType_Lov.EditValue != null || PydsType_Lov.EditValue.ToString() != "") PydsType_Lov.EditValue = "002";
 
-            if (PydsType_Butn.Tag.ToString() == "0")
-            {
-               PydsAmnt_Txt.Properties.NullText = PydsAmnt_Txt.Properties.NullValuePrompt = "درصد تخفیف";
-               PydsAmnt_Txt.Properties.MaxLength = 3;
-            }
-            else
-            {
-               PydsAmnt_Txt.Properties.NullText = PydsAmnt_Txt.Properties.NullValuePrompt = "مبلغ تخفیف";
-               PydsAmnt_Txt.Properties.MaxLength = 0;
-            }
-            PydsAmnt_Txt.Focus();
-         }
-         catch { }
+         //   if (PydsType_Butn.Tag.ToString() == "0")
+         //   {
+         //      PydsAmnt_Txt.Properties.NullText = PydsAmnt_Txt.Properties.NullValuePrompt = "درصد تخفیف";
+         //      PydsAmnt_Txt.Properties.MaxLength = 3;
+         //   }
+         //   else
+         //   {
+         //      PydsAmnt_Txt.Properties.NullText = PydsAmnt_Txt.Properties.NullValuePrompt = "مبلغ تخفیف";
+         //      PydsAmnt_Txt.Properties.MaxLength = 0;
+         //   }
+         //   PydsAmnt_Txt.Focus();
+         //}
+         //catch { }
       }
 
       private void RcmtType_Butn_Click(object sender, EventArgs e)
@@ -652,44 +660,44 @@ namespace System.Scsc.Ui.Insurance
 
       private void SavePyds_Butn_Click(object sender, EventArgs e)
       {
-         try
-         {
-            var pymt = PymtsBs1.Current as Data.Payment;
-            if (pymt == null) return;
+         //try
+         //{
+         //   var pymt = PymtsBs1.Current as Data.Payment;
+         //   if (pymt == null) return;
 
-            long? amnt = null;
-            switch (PydsType_Butn.Tag.ToString())
-            {
-               case "0":
-                  if (!(Convert.ToInt32(PydsAmnt_Txt.EditValue) >= 0 && Convert.ToInt32(PydsAmnt_Txt.EditValue) <= 100))
-                  {
-                     PydsAmnt_Txt.EditValue = null;
-                     PydsAmnt_Txt.Focus();
-                  }
+         //   long? amnt = null;
+         //   switch (PydsType_Butn.Tag.ToString())
+         //   {
+         //      case "0":
+         //         if (!(Convert.ToInt32(PydsAmnt_Txt.EditValue) >= 0 && Convert.ToInt32(PydsAmnt_Txt.EditValue) <= 100))
+         //         {
+         //            PydsAmnt_Txt.EditValue = null;
+         //            PydsAmnt_Txt.Focus();
+         //         }
 
-                  amnt = (pymt.SUM_EXPN_PRIC * Convert.ToInt64(PydsAmnt_Txt.EditValue)) / 100;
-                  break;
-               case "1":
-                  amnt = Convert.ToInt32(PydsAmnt_Txt.EditValue);
-                  if (amnt == 0) return;
-                  break;
-            }
+         //         amnt = (pymt.SUM_EXPN_PRIC * Convert.ToInt64(PydsAmnt_Txt.EditValue)) / 100;
+         //         break;
+         //      case "1":
+         //         amnt = Convert.ToInt32(PydsAmnt_Txt.EditValue);
+         //         if (amnt == 0) return;
+         //         break;
+         //   }
 
-            iScsc.INS_PYDS_P(pymt.CASH_CODE, pymt.RQST_RQID, (short?)1, null, amnt, PydsType_Lov.EditValue.ToString(), "002", PydsDesc_Txt.Text);
+         //   iScsc.INS_PYDS_P(pymt.CASH_CODE, pymt.RQST_RQID, (short?)1, null, amnt, PydsType_Lov.EditValue.ToString(), "002", PydsDesc_Txt.Text);
 
-            PydsAmnt_Txt.EditValue = null;
-            PydsDesc_Txt.EditValue = null;
-            requery = true;
-         }
-         catch (Exception exc)
-         {
-            MessageBox.Show(exc.Message);
-         }
-         finally
-         {
-            if (requery)
-               Execute_Query();
-         }
+         //   PydsAmnt_Txt.EditValue = null;
+         //   PydsDesc_Txt.EditValue = null;
+         //   requery = true;
+         //}
+         //catch (Exception exc)
+         //{
+         //   MessageBox.Show(exc.Message);
+         //}
+         //finally
+         //{
+         //   if (requery)
+         //      Execute_Query();
+         //}
       }
 
       private void DeltPyds_Butn_Click(object sender, EventArgs e)
@@ -864,6 +872,194 @@ namespace System.Scsc.Ui.Insurance
             if (requery)
                Execute_Query();
          }
+      }
+
+      private void bn_DpstPayment3_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var rqst = RqstBs1.Current as Data.Request;
+            if (rqst == null) return;
+
+            bool finalAction = false;
+            long? debtamnt = 0, dpstamnt = 0;
+
+            var pymt = PymtsBs1.Current as Data.Payment;
+            if (pymt == null) return;
+
+            debtamnt = (pymt.SUM_EXPN_PRIC + pymt.SUM_EXPN_EXTR_PRCT) - (pymt.SUM_RCPT_EXPN_PRIC + pymt.SUM_PYMT_DSCN_DNRM);
+            dpstamnt = pymt.Request.Request_Rows.FirstOrDefault().Fighter.DPST_AMNT_DNRM;
+
+            if (dpstamnt == 0) { MessageBox.Show(this, "مبلغ سپرده مشتری صفر میباشد", "عدم موجودی سپرده مشتری"); return; }
+            // 1401/02/04 * بروزرسانی مبلغ سپرده مشتری
+            if (dpstamnt - pymt.Payment_Methods.Where(pm => pm.RCPT_MTOD == "005").Sum(pm => pm.AMNT) <= 0)
+            {
+               MessageBox.Show(this, "مبلغ اعتبار سپرده برای مشتری وجود ندارد", "عدم موجودی سپرده مشتری"); return;
+            }
+            else
+            {
+               dpstamnt -= pymt.Payment_Methods.Where(pm => pm.RCPT_MTOD == "005").Sum(pm => pm.AMNT);
+            }
+
+            finalAction = debtamnt <= dpstamnt;
+            debtamnt = dpstamnt < debtamnt ? dpstamnt : debtamnt;
+
+            if (Accept_Cb.Checked)
+            {
+               string mesg = "";
+               if (debtamnt > 0)
+               {
+                  mesg =
+                     string.Format(
+                        ">> مبلغ {0} {1} به صورت >> کسر از سپرده << در تاریخ {2} در صندوق کاربر {3}  قرار میگیرد",
+                        string.Format("{0:n0}", debtamnt),
+                        DAtypBs1.List.OfType<Data.D_ATYP>().FirstOrDefault(d => d.VALU == pymt.AMNT_UNIT_TYPE_DNRM).DOMN_DESC,
+                        "امروز",
+                        CurrentUser);
+                  mesg += Environment.NewLine;
+               }
+               mesg += ">> ذخیره و پایان درخواست";
+
+               if (MessageBox.Show(this, mesg, "عملیات ثبت نام", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2, MessageBoxOptions.RtlReading) != DialogResult.Yes) return;
+            }
+
+            foreach (Data.Payment pymt1 in PymtsBs1)
+            {
+               iScsc.PAY_MSAV_P(
+                  new XElement("Payment",
+                     new XAttribute("actntype", "CheckoutWithDeposit"),
+                     new XElement("Insert",
+                        new XElement("Payment_Method",
+                           new XAttribute("cashcode", pymt1.CASH_CODE),
+                           new XAttribute("rqstrqid", pymt1.RQST_RQID),
+                           new XAttribute("amnt", debtamnt),
+                           new XAttribute("valdtype", "001")
+                        )
+                     )
+                  )
+               );
+            }
+
+            if (finalAction)
+            {
+               /* Loop For Print After Pay */
+               RqstBnPrintAfterPay_Click(null, null);
+
+               /* End Request */
+               Btn_RqstBnASav1_Click(null, null);
+            }
+            else
+               requery = true;
+         }
+         catch (SqlException se)
+         {
+            MessageBox.Show(se.Message);
+         }
+         finally
+         {
+            if (requery)
+            {
+               Execute_Query();
+               requery = false;
+            }
+         }
+      }
+
+      private void bn_Card2CardPayment3_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var rqst = RqstBs1.Current as Data.Request;
+            if (rqst == null) return;
+
+            if (Accept_Cb.Checked)
+            {
+               var pymt = PymtsBs1.Current as Data.Payment;
+               if (pymt == null) return;
+
+               var debtamnt = (pymt.SUM_EXPN_PRIC + pymt.SUM_EXPN_EXTR_PRCT) - (pymt.SUM_RCPT_EXPN_PRIC + pymt.SUM_PYMT_DSCN_DNRM);
+
+               string mesg = "";
+               if (debtamnt > 0)
+               {
+                  mesg =
+                     string.Format(
+                        ">> مبلغ {0} {1} به صورت >> کارت به کارت << در تاریخ {2} در صندوق کاربر {3}  قرار میگیرد",
+                        string.Format("{0:n0}", debtamnt),
+                        DAtypBs1.List.OfType<Data.D_ATYP>().FirstOrDefault(d => d.VALU == pymt.AMNT_UNIT_TYPE_DNRM).DOMN_DESC,
+                        "امروز",
+                        CurrentUser);
+                  mesg += Environment.NewLine;
+               }
+               mesg += ">> ذخیره و پایان درخواست";
+
+               if (MessageBox.Show(this, mesg, "عملیات ثبت نام", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2, MessageBoxOptions.RtlReading) != DialogResult.Yes) return;
+            }
+
+            foreach (Data.Payment pymt in PymtsBs1)
+            {
+               iScsc.PAY_MSAV_P(
+                  new XElement("Payment",
+                     new XAttribute("actntype", "CheckoutWithCard2Card"),
+                     new XElement("Insert",
+                        new XElement("Payment_Method",
+                           new XAttribute("cashcode", pymt.CASH_CODE),
+                           new XAttribute("rqstrqid", pymt.RQST_RQID),
+                           new XAttribute("valdtype", "001")
+                        )
+                     )
+                  )
+               );
+            }
+
+            /* Loop For Print After Pay */
+            RqstBnPrintAfterPay_Click(null, null);
+
+            /* End Request */
+            Btn_RqstBnASav1_Click(null, null);
+         }
+         catch (SqlException se)
+         {
+            MessageBox.Show(se.Message);
+         }
+      }
+
+      private void UpdtExpn_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            iScsc.ExecuteCommand(
+             @"UPDATE e
+                  SET e.PRIC = rg.INSR_PRIC
+                     ,e.EXPN_STAT = '002'
+                 FROM dbo.Expense e
+                     ,dbo.Expense_Type et
+                     ,dbo.Request_Requester rr
+                     ,dbo.Regulation rg
+                WHERE e.EXTP_CODE = et.CODE
+                  AND et.RQRQ_CODE = rr.CODE
+                  AND rr.RQTP_CODE = '012'
+                  AND rr.RQTT_CODE = '001'
+                  AND rr.REGL_YEAR = rg.YEAR
+                  AND rr.REGL_CODE = rg.CODE
+                  AND (e.PRIC != rg.INSR_PRIC OR e.EXPN_STAT != '002');");
+            RqstBnARqt1_Click(null, null);
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void ShowRqst_PickButn_PickCheckedChange(object sender)
+      {
+         Execute_Query();
       }
    }
 }

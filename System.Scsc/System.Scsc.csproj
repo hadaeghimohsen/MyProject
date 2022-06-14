@@ -1320,6 +1320,7 @@
     <None Include="Properties\DataSources\System.Scsc.Data.V_StatisticDiscount.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.V_StatisticReceipt.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.V_StatisticSale.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.V_SubSy.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.V_User.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.V_User_Localization_Form.datasource" />
     <None Include="Properties\Settings.settings">

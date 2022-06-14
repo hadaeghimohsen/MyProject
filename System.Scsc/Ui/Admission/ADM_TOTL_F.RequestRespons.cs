@@ -292,12 +292,12 @@ namespace System.Scsc.Ui.Admission
                      //StrtDate_Lb.Text = control.LABL_TEXT; // Place Holder
                      break;
                   case "montcont_lb":
-                     MontCont_Lb.Text = control.LABL_TEXT;
+                     //MontCont_Lb.Text = control.LABL_TEXT;
                      //MontCont_Lb.Text = control.LABL_TEXT; // ToolTip
                      //MontCont_Lb.Text = control.LABL_TEXT; // Place Holder
                      break;
                   case "daycont_lb":
-                     DayCont_Lb.Text = control.LABL_TEXT;
+                     //DayCont_Lb.Text = control.LABL_TEXT;
                      //DayCont_Lb.Text = control.LABL_TEXT; // ToolTip
                      //DayCont_Lb.Text = control.LABL_TEXT; // Place Holder
                      break;

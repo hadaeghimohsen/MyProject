@@ -124,6 +124,8 @@ namespace System.Scsc.Ui.BaseDefinition
 
       private void AddApbs_Butn_Click(object sender, EventArgs e)
       {
+         if (ApbsBs.List.OfType<Data.App_Base_Define>().Any(a => a.CODE == 0)) return;
+
          ApbsBs.AddNew();
          var apbs = ApbsBs.Current as Data.App_Base_Define;
          apbs.ENTY_NAME = tableName;
@@ -133,6 +135,8 @@ namespace System.Scsc.Ui.BaseDefinition
 
       private void AddSapb_Butn_Click(object sender, EventArgs e)
       {
+         if (SApbBs.List.OfType<Data.App_Base_Define>().Any(a => a.CODE == 0)) return;
+
          SApbBs.AddNew();
          var apbs = SApbBs.Current as Data.App_Base_Define;
          apbs.ENTY_NAME = tableName;

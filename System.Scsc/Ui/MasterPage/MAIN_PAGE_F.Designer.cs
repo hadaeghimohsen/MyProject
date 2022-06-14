@@ -203,26 +203,27 @@
          this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
          this.spc_desktop = new System.Windows.Forms.SplitContainer();
          this.ShopStore_Lnk = new System.Windows.Forms.LinkLabel();
+         this.button5 = new System.Windows.Forms.Button();
+         this.button4 = new System.Windows.Forms.Button();
          this.Licnday_Lnk = new System.Windows.Forms.LinkLabel();
          this.ShoppingStore_Pb = new System.Windows.Forms.PictureBox();
          this.CertificateLogo_Pb = new System.Windows.Forms.PictureBox();
+         this.button3 = new System.Windows.Forms.Button();
+         this.button1 = new System.Windows.Forms.Button();
+         this.button2 = new System.Windows.Forms.Button();
          this.OnlineDres_Butn = new DevExpress.XtraEditors.ButtonEdit();
-         this.button5 = new System.Windows.Forms.Button();
-         this.button4 = new System.Windows.Forms.Button();
          this.ChngAttnActn_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.TlgrmBot_Butn = new DevExpress.XtraEditors.SimpleButton();
-         this.button3 = new System.Windows.Forms.Button();
          this.BackGrnd_Butn = new System.MaxUi.RoundedButton();
          this.AttnType_Lov = new DevExpress.XtraEditors.LookUpEdit();
          this.DaeatBs = new System.Windows.Forms.BindingSource(this.components);
-         this.button2 = new System.Windows.Forms.Button();
          this.AdjustDateTime_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.CardNumb_Text = new DevExpress.XtraEditors.ButtonEdit();
-         this.button1 = new System.Windows.Forms.Button();
          this.FngrPrnt_Txt = new DevExpress.XtraEditors.TextEdit();
          this.ShowInfo_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.StartMenu_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.More_Butn = new DevExpress.XtraEditors.SimpleButton();
+         this.TryPing_Cbx = new System.Windows.Forms.CheckBox();
          this.SrvrPing_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.GameHours_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.GateAttn_Butn = new DevExpress.XtraEditors.SimpleButton();
@@ -1053,6 +1054,7 @@
          this.bbi_bislbutn.Id = 70;
          this.bbi_bislbutn.LargeGlyph = global::System.Scsc.Properties.Resources.IMAGE_1087;
          this.bbi_bislbutn.Name = "bbi_bislbutn";
+         this.bbi_bislbutn.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
          this.bbi_bislbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_bislbutn_ItemClick);
          // 
          // bbi_agmcbutn
@@ -1687,6 +1689,7 @@
          this.ribbonPageGroup17.ItemLinks.Add(this.bbi_evntsysbutn);
          this.ribbonPageGroup17.Name = "ribbonPageGroup17";
          this.ribbonPageGroup17.Text = "فعالیت های سیستم";
+         this.ribbonPageGroup17.Visible = false;
          // 
          // ribbonPage8
          // 
@@ -1694,6 +1697,7 @@
             this.ribbonPageGroup20});
          this.ribbonPage8.Name = "ribbonPage8";
          this.ribbonPage8.Text = "داشبورد";
+         this.ribbonPage8.Visible = false;
          // 
          // ribbonPageGroup20
          // 
@@ -1774,9 +1778,14 @@
          this.spc_desktop.Panel1.BackColor = System.Drawing.Color.White;
          this.spc_desktop.Panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
          this.spc_desktop.Panel1.Controls.Add(this.ShopStore_Lnk);
+         this.spc_desktop.Panel1.Controls.Add(this.button5);
+         this.spc_desktop.Panel1.Controls.Add(this.button4);
          this.spc_desktop.Panel1.Controls.Add(this.Licnday_Lnk);
          this.spc_desktop.Panel1.Controls.Add(this.ShoppingStore_Pb);
          this.spc_desktop.Panel1.Controls.Add(this.CertificateLogo_Pb);
+         this.spc_desktop.Panel1.Controls.Add(this.button3);
+         this.spc_desktop.Panel1.Controls.Add(this.button1);
+         this.spc_desktop.Panel1.Controls.Add(this.button2);
          this.spc_desktop.Panel1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
          // 
          // spc_desktop.Panel2
@@ -1785,21 +1794,17 @@
          this.spc_desktop.Panel2.BackColor = System.Drawing.Color.Gainsboro;
          this.spc_desktop.Panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
          this.spc_desktop.Panel2.Controls.Add(this.OnlineDres_Butn);
-         this.spc_desktop.Panel2.Controls.Add(this.button5);
-         this.spc_desktop.Panel2.Controls.Add(this.button4);
          this.spc_desktop.Panel2.Controls.Add(this.ChngAttnActn_Butn);
          this.spc_desktop.Panel2.Controls.Add(this.TlgrmBot_Butn);
-         this.spc_desktop.Panel2.Controls.Add(this.button3);
          this.spc_desktop.Panel2.Controls.Add(this.BackGrnd_Butn);
          this.spc_desktop.Panel2.Controls.Add(this.AttnType_Lov);
-         this.spc_desktop.Panel2.Controls.Add(this.button2);
          this.spc_desktop.Panel2.Controls.Add(this.AdjustDateTime_Butn);
          this.spc_desktop.Panel2.Controls.Add(this.CardNumb_Text);
-         this.spc_desktop.Panel2.Controls.Add(this.button1);
          this.spc_desktop.Panel2.Controls.Add(this.FngrPrnt_Txt);
          this.spc_desktop.Panel2.Controls.Add(this.ShowInfo_Butn);
          this.spc_desktop.Panel2.Controls.Add(this.StartMenu_Butn);
          this.spc_desktop.Panel2.Controls.Add(this.More_Butn);
+         this.spc_desktop.Panel2.Controls.Add(this.TryPing_Cbx);
          this.spc_desktop.Panel2.Controls.Add(this.SrvrPing_Butn);
          this.spc_desktop.Panel2.Controls.Add(this.GameHours_Butn);
          this.spc_desktop.Panel2.Controls.Add(this.GateAttn_Butn);
@@ -1825,6 +1830,28 @@
          this.ShopStore_Lnk.Text = "بازارچه خرید";
          this.ShopStore_Lnk.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
          this.ShopStore_Lnk.Visible = false;
+         // 
+         // button5
+         // 
+         this.button5.Location = new System.Drawing.Point(1211, 416);
+         this.button5.Name = "button5";
+         this.button5.Size = new System.Drawing.Size(33, 23);
+         this.button5.TabIndex = 21;
+         this.button5.Text = "Empty";
+         this.button5.UseVisualStyleBackColor = true;
+         this.button5.Visible = false;
+         this.button5.Click += new System.EventHandler(this.button5_Click);
+         // 
+         // button4
+         // 
+         this.button4.Location = new System.Drawing.Point(1172, 416);
+         this.button4.Name = "button4";
+         this.button4.Size = new System.Drawing.Size(33, 23);
+         this.button4.TabIndex = 21;
+         this.button4.Text = "Empty";
+         this.button4.UseVisualStyleBackColor = true;
+         this.button4.Visible = false;
+         this.button4.Click += new System.EventHandler(this.button4_Click);
          // 
          // Licnday_Lnk
          // 
@@ -1862,10 +1889,43 @@
          this.CertificateLogo_Pb.TabIndex = 0;
          this.CertificateLogo_Pb.TabStop = false;
          // 
+         // button3
+         // 
+         this.button3.Location = new System.Drawing.Point(1133, 415);
+         this.button3.Name = "button3";
+         this.button3.Size = new System.Drawing.Size(33, 23);
+         this.button3.TabIndex = 21;
+         this.button3.Text = "Empty";
+         this.button3.UseVisualStyleBackColor = true;
+         this.button3.Visible = false;
+         this.button3.Click += new System.EventHandler(this.button3_Click);
+         // 
+         // button1
+         // 
+         this.button1.Location = new System.Drawing.Point(1055, 415);
+         this.button1.Name = "button1";
+         this.button1.Size = new System.Drawing.Size(33, 23);
+         this.button1.TabIndex = 21;
+         this.button1.Text = "Enroll";
+         this.button1.UseVisualStyleBackColor = true;
+         this.button1.Visible = false;
+         this.button1.Click += new System.EventHandler(this.button1_Click);
+         // 
+         // button2
+         // 
+         this.button2.Location = new System.Drawing.Point(1094, 415);
+         this.button2.Name = "button2";
+         this.button2.Size = new System.Drawing.Size(33, 23);
+         this.button2.TabIndex = 21;
+         this.button2.Text = "Delete";
+         this.button2.UseVisualStyleBackColor = true;
+         this.button2.Visible = false;
+         this.button2.Click += new System.EventHandler(this.button2_Click);
+         // 
          // OnlineDres_Butn
          // 
          this.OnlineDres_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.OnlineDres_Butn.Location = new System.Drawing.Point(803, 5);
+         this.OnlineDres_Butn.Location = new System.Drawing.Point(792, 7);
          this.OnlineDres_Butn.MenuManager = this.ribbonControl1;
          this.OnlineDres_Butn.Name = "OnlineDres_Butn";
          this.OnlineDres_Butn.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1881,28 +1941,6 @@
          this.OnlineDres_Butn.Size = new System.Drawing.Size(69, 24);
          this.OnlineDres_Butn.TabIndex = 22;
          this.OnlineDres_Butn.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.OnlineDres_Butn_ButtonClick);
-         // 
-         // button5
-         // 
-         this.button5.Location = new System.Drawing.Point(744, 8);
-         this.button5.Name = "button5";
-         this.button5.Size = new System.Drawing.Size(33, 23);
-         this.button5.TabIndex = 21;
-         this.button5.Text = "Empty";
-         this.button5.UseVisualStyleBackColor = true;
-         this.button5.Visible = false;
-         this.button5.Click += new System.EventHandler(this.button5_Click);
-         // 
-         // button4
-         // 
-         this.button4.Location = new System.Drawing.Point(705, 8);
-         this.button4.Name = "button4";
-         this.button4.Size = new System.Drawing.Size(33, 23);
-         this.button4.TabIndex = 21;
-         this.button4.Text = "Empty";
-         this.button4.UseVisualStyleBackColor = true;
-         this.button4.Visible = false;
-         this.button4.Click += new System.EventHandler(this.button4_Click);
          // 
          // ChngAttnActn_Butn
          // 
@@ -1933,24 +1971,13 @@
          this.TlgrmBot_Butn.Dock = System.Windows.Forms.DockStyle.Right;
          this.TlgrmBot_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1616;
          this.TlgrmBot_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.TlgrmBot_Butn.Location = new System.Drawing.Point(903, 5);
+         this.TlgrmBot_Butn.Location = new System.Drawing.Point(888, 5);
          this.TlgrmBot_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.TlgrmBot_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.TlgrmBot_Butn.Name = "TlgrmBot_Butn";
          this.TlgrmBot_Butn.Size = new System.Drawing.Size(30, 27);
          this.TlgrmBot_Butn.TabIndex = 18;
          this.TlgrmBot_Butn.Click += new System.EventHandler(this.TlgrmBot_Butn_Click);
-         // 
-         // button3
-         // 
-         this.button3.Location = new System.Drawing.Point(666, 7);
-         this.button3.Name = "button3";
-         this.button3.Size = new System.Drawing.Size(33, 23);
-         this.button3.TabIndex = 21;
-         this.button3.Text = "Empty";
-         this.button3.UseVisualStyleBackColor = true;
-         this.button3.Visible = false;
-         this.button3.Click += new System.EventHandler(this.button3_Click);
          // 
          // BackGrnd_Butn
          // 
@@ -1967,7 +1994,7 @@
          this.BackGrnd_Butn.ImageProfile = null;
          this.BackGrnd_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.Normal;
          this.BackGrnd_Butn.ImageVisiable = false;
-         this.BackGrnd_Butn.Location = new System.Drawing.Point(877, 8);
+         this.BackGrnd_Butn.Location = new System.Drawing.Point(866, 8);
          this.BackGrnd_Butn.Name = "BackGrnd_Butn";
          this.BackGrnd_Butn.NormalBorderColor = System.Drawing.Color.Black;
          this.BackGrnd_Butn.NormalColorA = System.Drawing.Color.DimGray;
@@ -2001,17 +2028,6 @@
          // 
          this.DaeatBs.DataSource = typeof(System.Scsc.Data.D_AEAT);
          // 
-         // button2
-         // 
-         this.button2.Location = new System.Drawing.Point(627, 7);
-         this.button2.Name = "button2";
-         this.button2.Size = new System.Drawing.Size(33, 23);
-         this.button2.TabIndex = 21;
-         this.button2.Text = "Delete";
-         this.button2.UseVisualStyleBackColor = true;
-         this.button2.Visible = false;
-         this.button2.Click += new System.EventHandler(this.button2_Click);
-         // 
          // AdjustDateTime_Butn
          // 
          this.AdjustDateTime_Butn.Appearance.BackColor = System.Drawing.Color.Gainsboro;
@@ -2024,7 +2040,7 @@
          this.AdjustDateTime_Butn.Dock = System.Windows.Forms.DockStyle.Right;
          this.AdjustDateTime_Butn.Image = ((System.Drawing.Image)(resources.GetObject("AdjustDateTime_Butn.Image")));
          this.AdjustDateTime_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
-         this.AdjustDateTime_Butn.Location = new System.Drawing.Point(933, 5);
+         this.AdjustDateTime_Butn.Location = new System.Drawing.Point(918, 5);
          this.AdjustDateTime_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.AdjustDateTime_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.AdjustDateTime_Butn.Name = "AdjustDateTime_Butn";
@@ -2066,17 +2082,6 @@
          this.CardNumb_Text.Size = new System.Drawing.Size(280, 28);
          this.CardNumb_Text.TabIndex = 11;
          this.CardNumb_Text.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CardNumb_Text_KeyDown);
-         // 
-         // button1
-         // 
-         this.button1.Location = new System.Drawing.Point(588, 7);
-         this.button1.Name = "button1";
-         this.button1.Size = new System.Drawing.Size(33, 23);
-         this.button1.TabIndex = 21;
-         this.button1.Text = "Enroll";
-         this.button1.UseVisualStyleBackColor = true;
-         this.button1.Visible = false;
-         this.button1.Click += new System.EventHandler(this.button1_Click);
          // 
          // FngrPrnt_Txt
          // 
@@ -2143,13 +2148,25 @@
          this.More_Butn.Dock = System.Windows.Forms.DockStyle.Right;
          this.More_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1189;
          this.More_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.More_Butn.Location = new System.Drawing.Point(1019, 5);
+         this.More_Butn.Location = new System.Drawing.Point(1004, 5);
          this.More_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.More_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.More_Butn.Name = "More_Butn";
          this.More_Butn.Size = new System.Drawing.Size(30, 27);
          this.More_Butn.TabIndex = 9;
          this.More_Butn.Click += new System.EventHandler(this.More_Butn_Click);
+         // 
+         // TryPing_Cbx
+         // 
+         this.TryPing_Cbx.AutoSize = true;
+         this.TryPing_Cbx.Checked = true;
+         this.TryPing_Cbx.CheckState = System.Windows.Forms.CheckState.Checked;
+         this.TryPing_Cbx.Dock = System.Windows.Forms.DockStyle.Right;
+         this.TryPing_Cbx.Location = new System.Drawing.Point(1034, 5);
+         this.TryPing_Cbx.Name = "TryPing_Cbx";
+         this.TryPing_Cbx.Size = new System.Drawing.Size(15, 27);
+         this.TryPing_Cbx.TabIndex = 22;
+         this.TryPing_Cbx.UseVisualStyleBackColor = true;
          // 
          // SrvrPing_Butn
          // 
@@ -2602,6 +2619,7 @@
          ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();
          this.spc_desktop.Panel1.ResumeLayout(false);
          this.spc_desktop.Panel2.ResumeLayout(false);
+         this.spc_desktop.Panel2.PerformLayout();
          ((System.ComponentModel.ISupportInitialize)(this.spc_desktop)).EndInit();
          this.spc_desktop.ResumeLayout(false);
          ((System.ComponentModel.ISupportInitialize)(this.ShoppingStore_Pb)).EndInit();
@@ -2833,5 +2851,6 @@
       private DevExpress.XtraBars.BarButtonItem bbi_grntbutn;
       private Windows.Forms.Button button5;
       private DevExpress.XtraBars.BarButtonItem bbi_evntsysbutn;
+      private Windows.Forms.CheckBox TryPing_Cbx;
    }
 }

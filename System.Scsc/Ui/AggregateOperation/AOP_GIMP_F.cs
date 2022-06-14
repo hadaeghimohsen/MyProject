@@ -281,11 +281,13 @@ namespace System.Scsc.Ui.AggregateOperation
             }
 
             NumbOfAttnMont_TextEdit001.EditValue = expn.NUMB_OF_ATTN_MONT ?? 0;
+
+            SaveGimp_Butn_Click(null, null);
          }
          catch (Exception)
          {
             MessageBox.Show("در آیین نامه نرخ و هزینه تعداد جلسات و اطلاعات اتوماتیک به درستی وارد نشده. لطفا آیین نامه را بررسی و اصلاح کنید");
-         }
+         }         
 
       }
 
@@ -297,6 +299,10 @@ namespace System.Scsc.Ui.AggregateOperation
 
             var agop = AgopBs1.Current as Data.Aggregation_Operation;
             if (agop == null) return;
+
+            if (agop.LETT_NO == null) { MessageBox.Show("شماره نامه قرارداد وارد نشد است"); return; }
+            if (agop.LETT_DATE == null) { MessageBox.Show("تاریخ تنظیم قرارداد وارد نشده است"); return; }
+            if (agop.LETT_OWNR == null) { MessageBox.Show("نام طرف قرارداد وارد نشده است"); return; }
 
             iScsc.INS_AGOP_P(
                new XElement("Process",
@@ -312,7 +318,7 @@ namespace System.Scsc.Ui.AggregateOperation
                      new XAttribute("numbofattnmont", agop.NUMB_OF_ATTN_MONT ?? 0),
                      new XAttribute("newcbmtcode", agop.NEW_CBMT_CODE ?? 0),
                      new XAttribute("fromdate", agop.FROM_DATE.Value.ToString("yyyy-MM-dd")),
-                     new XAttribute("todate", agop.FROM_DATE.Value.ToString("yyyy-MM-dd")),
+                     new XAttribute("todate", agop.TO_DATE.Value.ToString("yyyy-MM-dd")),
                      new XAttribute("oprttype", agop.OPRT_TYPE ?? "007"),
                      new XAttribute("oprtstat", "004"),
                      new XAttribute("agopdesc", agop.AGOP_DESC ?? "خدایا بابت روزی امروز ازت ممنونم"),
@@ -339,6 +345,25 @@ namespace System.Scsc.Ui.AggregateOperation
          {
             if (requery)
                Execute_Query();
+         }
+      }
+
+      private void AddRangFngrPrnt_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var from = FromFngrPrnt_Txt.Text.ToInt64();
+            var to = ToFngrPrnt_Txt.Text.ToInt64();
+
+            for (long i = from; i <= to; i++)
+            {
+               FngrPrnt_Txt.EditValue = i;
+               AddFngrPrnt_Butn_Click(null, null);
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
          }
       }
    }

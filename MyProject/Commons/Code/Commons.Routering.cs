@@ -168,6 +168,12 @@ namespace MyProject.Commons.Code
             case 39:
                DoWork4PinCode(job);
                break;
+            case 40:
+               DoWork4Encrypt(job);
+               break;
+            case 41:
+               DoWork4Decrypt(job);
+               break;
             default:
                job.Status = StatusType.Failed;
                break;

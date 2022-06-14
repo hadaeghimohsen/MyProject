@@ -1056,7 +1056,7 @@ namespace System.DataGuard.Self.Code
          try
          {
             if (iProject == null)
-               iProject = new Data.iProjectDataContext(ConnectionString);
+               iProject = new Data.iProjectDataContext(ConnectionString) {CommandTimeout = 18000};
 
             var xinput = job.Input as XElement;
 

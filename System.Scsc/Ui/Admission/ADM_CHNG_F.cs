@@ -87,6 +87,11 @@ namespace System.Scsc.Ui.Admission
             var Figh = FighBs1.Current as Scsc.Data.Fighter;
             var fgpb = FgpbsBs1.Current as Scsc.Data.Fighter_Public;
 
+            // 1401/02/04 * مقداردهی تاریخ های سیستم
+            iNSR_DATEPersianDateEdit.CommitChanges();
+            BRTH_DATE_PersianDateEdit.CommitChanges();
+            COCH_CRTF_DATE_PersianDateEdit.CommitChanges();
+
             if (Rqst == null || Rqst.RQID >= 0)
             {
                iScsc.PBL_RQST_F(
@@ -123,7 +128,7 @@ namespace System.Scsc.Ui.Admission
                               new XElement("Gudg_Deg", GUDG_DEG_LookUpEdit.EditValue ?? ""),
                               new XElement("Glob_Code", GLOB_CODE_TextEdit.EditValue ?? ""),
                               new XElement("Blod_Grop", BLOD_GROPLookUpEdit.EditValue ?? ""),
-                              new XElement("Fngr_Prnt", FNGR_PRNT_TextEdit.EditValue ?? ""),
+                              new XElement("Fngr_Prnt", (FNGR_PRNT_TextEdit.EditValue ?? "").ToString().Trim()),
                               new XElement("Sunt_Bunt_Dept_Orgn_Code", "00"),
                               new XElement("Sunt_Bunt_Dept_Code", "00"),
                               new XElement("Sunt_Bunt_Code", "00"),

@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors.Controls;
 using System.JobRouting.Jobs;
 using System.Xml.Linq;
+using System.Scsc.ExtCode;
 
 namespace System.Scsc.Ui.ReportManager
 {
@@ -26,7 +27,7 @@ namespace System.Scsc.Ui.ReportManager
 
       private void Execute_Query()
       {
-         iScsc = new Data.iScscDataContext(ConnectionString);
+         iScsc = new Data.iScscDataContext(ConnectionString) { CommandTimeout = 18000 };
          try
          {
             if (tc_master.SelectedTab == tp_001)
@@ -233,6 +234,13 @@ namespace System.Scsc.Ui.ReportManager
                      rr.Request.RQST_STAT != "003" && 
                      rr.CRET_DATE.Value.Date >= FromDate9_Date.Value.Value.Date &&
                      rr.CRET_DATE.Value.Date <= ToDate9_Date.Value.Value.Date);
+
+               LOptBs.DataSource =
+                  iScsc.Log_Operations
+                  .Where(lo => 
+                     lo.CRET_DATE.Value.Date >= FromDate9_Date.Value.Value.Date &&
+                     lo.CRET_DATE.Value.Date <= ToDate9_Date.Value.Value.Date
+                  );
             }
          }
          catch { }
@@ -356,7 +364,7 @@ namespace System.Scsc.Ui.ReportManager
             if (!checkValidateDate(FromDate9_Date.Value.Value.Date)) return;
 
             FromDate1_Date.Value = FromDate2_Date.Value = FromDate4_Date.Value = FromDate3_Date.Value = FromDate5_Date.Value = FromDate6_Date.Value = FromDate8_Date.Value = FromDate9_Date.Value;
-            ToDate1_Date.Value = ToDate2_Date.Value = ToDate4_Date.Value = ToDate3_Date.Value = ToDate5_Date.Value = ToDate6_Date.Value = ToDate8_Date.Value = FromDate9_Date.Value;
+            ToDate1_Date.Value = ToDate2_Date.Value = ToDate4_Date.Value = ToDate3_Date.Value = ToDate5_Date.Value = ToDate6_Date.Value = ToDate8_Date.Value = ToDate9_Date.Value;
          }
 
          Execute_Query();
@@ -892,6 +900,9 @@ namespace System.Scsc.Ui.ReportManager
             if (!FromDate9_Date.Value.HasValue) { MessageBox.Show("تاریخ شروع را مشخص کنید"); FromDate9_Date.Focus(); return; }
             if (!ToDate9_Date.Value.HasValue) { MessageBox.Show("تاریخ پایان را مشخص کنید"); ToDate9_Date.Focus(); return; }
 
+            //FromDate1_Date.Value = FromDate8_Date.Value = FromDate6_Date.Value = FromDate2_Date.Value = FromDate3_Date.Value = FromDate4_Date.Value = FromDate5_Date.Value = FromDate9_Date.Value;
+            //ToDate1_Date.Value = ToDate8_Date.Value = ToDate6_Date.Value = ToDate2_Date.Value = ToDate3_Date.Value = ToDate4_Date.Value = ToDate5_Date.Value = ToDate9_Date.Value;
+
             // 1398/05/20 * بررسی اینکه کاربر اجازه اجرا کردن گزارش در هر تاریخی را دارد یا خیر
             if (!checkValidateDate(FromDate9_Date.Value.Value.Date)) return;
 
@@ -921,6 +932,9 @@ namespace System.Scsc.Ui.ReportManager
          {
             if (!FromDate9_Date.Value.HasValue) { MessageBox.Show("تاریخ شروع را مشخص کنید"); FromDate9_Date.Focus(); return; }
             if (!ToDate9_Date.Value.HasValue) { MessageBox.Show("تاریخ پایان را مشخص کنید"); ToDate9_Date.Focus(); return; }
+
+            //FromDate1_Date.Value = FromDate8_Date.Value = FromDate6_Date.Value = FromDate2_Date.Value = FromDate3_Date.Value = FromDate4_Date.Value = FromDate5_Date.Value = FromDate9_Date.Value;
+            //ToDate1_Date.Value = ToDate8_Date.Value = ToDate6_Date.Value = ToDate2_Date.Value = ToDate3_Date.Value = ToDate4_Date.Value = ToDate5_Date.Value = ToDate9_Date.Value;
 
             // 1398/05/20 * بررسی اینکه کاربر اجازه اجرا کردن گزارش در هر تاریخی را دارد یا خیر
             if (!checkValidateDate(FromDate9_Date.Value.Value.Date)) return;
@@ -1005,6 +1019,273 @@ namespace System.Scsc.Ui.ReportManager
          catch (Exception exc)
          {
             MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void OneS_Rb_CheckedChanged(object sender, EventArgs e)
+      {
+         if (OneS_Rb.Checked)
+            Pydts_Gv.OptionsSelection.MultiSelect = false;
+         else if (MulS_Rb.Checked || AllS_Rb.Checked)
+            Pydts_Gv.OptionsSelection.MultiSelect = true;
+      }
+
+      private void SaveCbmtEdit_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            if (CbmtEdit_Lov.EditValue == null || CbmtEdit_Lov.EditValue.ToString() == "") { CbmtEdit_Lov.Focus(); return; }
+
+            var _xdata =
+               new XElement("Router_Command",
+                   new XAttribute("subsys", 5),
+                   new XAttribute("cmndcode", 109),
+                   new XElement("Payment_Details",
+                       Pydts_Gv.GetSelectedRows()
+                       .ToList()
+                       .Select(r => 
+                          new XElement("Payment_Detail", 
+                             new XAttribute("code", ((Data.Payment_Detail)Pydts_Gv.GetRow(r)).CODE),
+                             new XAttribute("cbmtcode", CbmtEdit_Lov.EditValue)
+                          )
+                       )
+                   )
+               );
+
+            iScsc.RunnerdbCommand(_xdata, ref _xdata);
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void SaveGustInfo_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var fp = FgpbBs1.Current as Data.Fighter_Public;
+            if (fp == null) return;
+
+            if (Pydts_Gv.OptionsSelection.MultiSelect) { MessageBox.Show("برای تغییر مشخصات اطلاعات مشتریان باید نوع انتخاب در حالت تک انتخابی باشد"); OneS_Rb.Checked = true; return; }
+
+            var _xdata =
+               new XElement("Router_Command",
+                   new XAttribute("subsys", 5),
+                   new XAttribute("cmndcode", 110),
+                   new XElement("Fighter_Publics",
+                       Pydts_Gv.GetSelectedRows()
+                       .ToList()
+                       .Select(r =>
+                          new XElement("Fighter_Public",
+                             new XAttribute("rqid", ((Data.Payment_Detail)Pydts_Gv.GetRow(r)).PYMT_RQST_RQID),
+                             new XAttribute("frstname", fp.FRST_NAME ?? ""),
+                             new XAttribute("lastname", fp.LAST_NAME ?? ""),
+                             new XAttribute("cellphon", fp.CELL_PHON ?? ""),
+                             new XAttribute("natlcode", fp.NATL_CODE ?? ""),
+                             new XAttribute("servno", fp.SERV_NO ?? ""),
+                             new XAttribute("suntcode", fp.SUNT_CODE ?? "")
+                          )
+                       )
+                   )
+               );
+
+            iScsc.RunnerdbCommand(_xdata, ref _xdata);
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void PydtBs2_CurrentChanged(object sender, EventArgs e)
+      {
+         try
+         {
+            FgpbBs1.List.Clear();
+
+            var pydt = PydtBs2.Current as Data.Payment_Detail;
+            if (pydt == null) return;
+
+            if (pydt.Request_Row.RQTP_CODE == "016")
+               FgpbBs1.DataSource = iScsc.Fighter_Publics.FirstOrDefault(fp => fp.RQRO_RQST_RQID == pydt.PYMT_RQST_RQID);
+         }
+         catch (Exception exc)
+         {
+            //MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void RunRprt001_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            if (TiktNumb_Rb.Checked && (TiktNumb_Txt.EditValue == null || TiktNumb_Txt.EditValue.ToString() == "")) { TiktNumb_Txt.Focus(); return; }
+            if (SuntTikt_Rb.Checked && (SuntTikt_Lov.EditValue == null || SuntTikt_Lov.EditValue.ToString() == "")) { SuntTikt_Lov.Focus(); return; }
+
+            var _pydts =
+               iScsc.Payment_Details.Where(pd => pd.FROM_NUMB != null).ToList();
+
+            if(TiktNumb_Rb.Checked)
+            {
+               var _rslt = _pydts.Where(pd => Convert.ToInt64(TiktNumb_Txt.EditValue).IsBetween((long)pd.FROM_NUMB, (long)pd.TO_NUMB));
+               PydtBs2.DataSource = _rslt;
+            }
+            else if(SuntTikt_Rb.Checked)
+            {
+               var _rslt = _pydts.Where(pd => pd.Request_Row.Fighter.SUNT_CODE_DNRM == SuntTikt_Lov.EditValue.ToString());
+               PydtBs2.DataSource = _rslt;
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void SaveExprEdit_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            if (!ExprEdit_Dt.Value.HasValue) { ExprEdit_Dt.Focus(); return; }
+
+            var _xdata =
+               new XElement("Router_Command",
+                   new XAttribute("subsys", 5),
+                   new XAttribute("cmndcode", 111),
+                   new XElement("Payment_Details",
+                       Pydts_Gv.GetSelectedRows()
+                       .ToList()
+                       .Select(r =>
+                          new XElement("Payment_Detail",
+                             new XAttribute("code", ((Data.Payment_Detail)Pydts_Gv.GetRow(r)).CODE),
+                             new XAttribute("exprdate", ExprEdit_Dt.Value.Value.ToString("yyyy-MM-dd"))
+                          )
+                       )
+                   )
+               );
+
+            iScsc.RunnerdbCommand(_xdata, ref _xdata);
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void SaveMbspRwnoEdit_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            if (MbspRwnoPydtEdit_Lov.EditValue == null || MbspRwnoPydtEdit_Lov.EditValue.ToString() == "") { MbspRwnoPydtEdit_Lov.Focus(); return; }
+
+            var _xdata =
+               new XElement("Router_Command",
+                   new XAttribute("subsys", 5),
+                   new XAttribute("cmndcode", 112),
+                   new XElement("Payment_Details",
+                       Pydts_Gv.GetSelectedRows()
+                       .ToList()
+                       .Select(r =>
+                          new XElement("Payment_Detail",
+                             new XAttribute("code", ((Data.Payment_Detail)Pydts_Gv.GetRow(r)).CODE),
+                             new XAttribute("mbsprwno", MbspRwnoPydtEdit_Lov.EditValue)
+                          )
+                       )
+                   )
+               );
+
+            iScsc.RunnerdbCommand(_xdata, ref _xdata);
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void MbspRwnoPydtEdit_Cbx_CheckedChanged(object sender, EventArgs e)
+      {
+         try
+         {
+            MbspBs.List.Clear();
+
+            var _pydt = PydtBs2.Current as Data.Payment_Detail;
+            if (_pydt == null) return;
+
+
+            MbspBs.DataSource = iScsc.Member_Ships.Where(m => m.FIGH_FILE_NO == _pydt.Request_Row.FIGH_FILE_NO && m.RECT_CODE == "004" && m.VALD_TYPE == "002");
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void TiktChng_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _pydt = PydtBs2.Current as Data.Payment_Detail;
+            if (_pydt == null) return;
+
+            if (Pydts_Gv.OptionsSelection.MultiSelect) { MessageBox.Show("برای ثبت اطلاعات شماره بلیط به صورت عمده فروشی باید نوع انتخاب در حالت تک انتخابی باشد"); OneS_Rb.Checked = true; return; }
+
+            if (TiktFromNumbEdit_Txt.EditValue == null || TiktFromNumbEdit_Txt.EditValue.ToString() != "") { TiktFromNumbEdit_Txt.Focus(); return; }
+            if (TiktToNumbEdit_Txt.EditValue == null || TiktToNumbEdit_Txt.EditValue.ToString() != "") { TiktToNumbEdit_Txt.Focus(); return; }
+
+            var _xdata =
+               new XElement("Router_Command",
+                   new XAttribute("subsys", 5),
+                   new XAttribute("cmndcode", 113),
+                   new XElement("Fighter_Publics",
+                       Pydts_Gv.GetSelectedRows()
+                       .ToList()
+                       .Select(r =>
+                          new XElement("Payment_Detail",
+                             new XAttribute("code", ((Data.Payment_Detail)Pydts_Gv.GetRow(r)).CODE),
+                             new XAttribute("fromnumb", TiktFromNumbEdit_Txt.EditValue),
+                             new XAttribute("tonumb", TiktToNumbEdit_Txt.EditValue)
+                          )
+                       )
+                   )
+               );
+
+            iScsc.RunnerdbCommand(_xdata, ref _xdata);
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
          }
       }
    }

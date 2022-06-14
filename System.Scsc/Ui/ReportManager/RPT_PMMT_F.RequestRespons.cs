@@ -690,9 +690,11 @@ namespace System.Scsc.Ui.ReportManager
          DCktpBs2.DataSource = iScsc.D_CKTPs;
          DatypBs.DataSource = iScsc.D_ATYPs;
          DittpBs.DataSource = iScsc.D_ITTPs;
+         DLotpBs.DataSource = iScsc.D_LOTPs;
          RqtpBs1.DataSource = iScsc.Request_Types.Where(rt => rt.CODE == "001" || rt.CODE == "009" || rt.CODE == "016" || rt.CODE == "012");
          CbmtBs.DataSource = iScsc.Club_Methods.Where(cb => cb.MTOD_STAT == "002");
          FighBs1.DataSource = iScsc.Fighters.Where(f => f.CONF_STAT == "002" && f.FGPB_TYPE_DNRM == "003" /*&& f.FGPB_TYPE_DNRM != "007" && !f.NAME_DNRM.Contains("مشتری, جلسه ای")*/ && (Fga_Uclb_U.Contains(f.CLUB_CODE_DNRM) || (f.CLUB_CODE_DNRM == null ? f.Club_Methods.Where(cb => Fga_Uclb_U.Contains(cb.CLUB_CODE)).Any() : false)) && Convert.ToInt32(f.ACTV_TAG_DNRM ?? "101") >= 101);
+         SuntBs1.DataSource = iScsc.Sub_Units;
          job.Status = StatusType.Successful;
       }
 

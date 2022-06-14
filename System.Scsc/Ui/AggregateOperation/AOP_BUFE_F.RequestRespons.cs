@@ -113,8 +113,20 @@ namespace System.Scsc.Ui.AggregateOperation
          }
          else if (keyData == Keys.Enter)
          {
-            if (!(AddDresItem_Butn.Focused || DelDresItem_Butn.Focused))
-               SendKeys.Send("{TAB}");
+            //if (!(AddDresItem_Butn.Focused || DelDresItem_Butn.Focused || PosAmntStp_Txt.Focused || CashAmntStp_Txt.Focused))
+               //SendKeys.Send("{TAB}");
+         }
+         else if(keyData == Keys.F6)
+         {
+            PosAmntStp_Txt.Focus();
+         }
+         else if (keyData == Keys.F6)
+         {
+            CashAmntStp_Txt.Focus();
+         }
+         else if (keyData == Keys.F6)
+         {
+            PydsAmntStp_Txt.Focus();
          }
          job.Status = StatusType.Successful;
       }
@@ -226,7 +238,15 @@ namespace System.Scsc.Ui.AggregateOperation
                         {
                            Input = new List<string> {"<Privilege>218</Privilege><Sub_Sys>5</Sub_Sys>", "DataGuard"},
                            AfterChangedOutput = new Action<object>((output) => {
-                              IncomeInfo_Gp.Visible = (bool)output;
+                              rollout2.RolloutStatus = rollout2.Enabled = apdt_gv.OptionsView.ShowFooter = (bool)output;
+                              job.Status = StatusType.Successful;
+                           })
+                        },
+                        new Job(SendType.Self, 07 /* Execute DoWork4AccessPrivilege */)
+                        {
+                           Input = new List<string> {"<Privilege>257</Privilege><Sub_Sys>5</Sub_Sys>", "DataGuard"},
+                           AfterChangedOutput = new Action<object>((output) => {
+                              StrtTime_Te.Enabled = EndTime_Te.Enabled = StrtDate_Dt.Enabled = EndDate_Dt.Enabled = (bool)output;
                               job.Status = StatusType.Successful;
                            })
                         },
@@ -245,12 +265,17 @@ namespace System.Scsc.Ui.AggregateOperation
          if (!isFirstLoaded)
          {
             DRcmtBs1.DataSource = iScsc.D_RCMTs.Where(c => c.VALU == "001" || c.VALU == "003" || c.VALU == "005");
+            SaveInfoStat_Rb_CheckedChanged(null, null);
             isFirstLoaded = true;
          }
          //FighBs.DataSource = iScsc.Fighters.Where(f => f.CONF_STAT == "002" && f.FGPB_TYPE_DNRM != "007" /*&& !f.NAME_DNRM.Contains("مشتری, جلسه ای")*/ && (Fga_Uclb_U.Contains(f.CLUB_CODE_DNRM) || (f.CLUB_CODE_DNRM == null ? f.Club_Methods.Where(cb => Fga_Uclb_U.Contains(cb.CLUB_CODE)).Any() : false)) && Convert.ToInt32(f.ACTV_TAG_DNRM ?? "101") >= 101);
          VPosBs1.DataSource = iScsc.V_Pos_Devices;
          DSxtpBs1.DataSource = iScsc.D_SXTPs;
          DAttpBs1.DataSource = iScsc.D_ATTPs;
+         DActvBs1.DataSource = iScsc.D_ACTVs;
+         InCashApbsBs.DataSource = iScsc.App_Base_Defines.Where(a => a.ENTY_NAME == "Buffe_InCash");
+         OutCashApbsBs.DataSource = iScsc.App_Base_Defines.Where(a => a.ENTY_NAME == "Buffe_OutCash");
+         
          job.Status = StatusType.Successful;
       }
 

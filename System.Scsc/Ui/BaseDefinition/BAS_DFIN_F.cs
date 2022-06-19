@@ -71,11 +71,11 @@ namespace System.Scsc.Ui.BaseDefinition
       private void Execute_Query()
       {
          iScsc = new Data.iScscDataContext(ConnectionString);
-         if(Tb_Master.SelectedTab == tp_001)
+         if (Tb_Master.SelectedTab == tp_001)
          {
             CashBs1.DataSource = iScsc.Cashes;
          }
-         else if(Tb_Master.SelectedTab == tp_002)
+         else if (Tb_Master.SelectedTab == tp_002)
          {
             int income = InComeEpitBs1.Position;
             int outcome = OutComeEpitBs1.Position;
@@ -84,7 +84,7 @@ namespace System.Scsc.Ui.BaseDefinition
             InComeEpitBs1.Position = income;
             OutComeEpitBs1.Position = outcome;
          }
-         else if(Tb_Master.SelectedTab == tp_003)
+         else if (Tb_Master.SelectedTab == tp_003)
          {
             int mtod = MtodBs1.Position;
             int ctgy = CtgyBs1.Position;
@@ -101,7 +101,7 @@ namespace System.Scsc.Ui.BaseDefinition
             ClubBs1.DataSource = iScsc.Clubs;
             CochBs1.DataSource = iScsc.Fighters.Where(c => c.FGPB_TYPE_DNRM == "003");
          }
-         else if(Tb_Master.SelectedTab == tp_004)
+         else if (Tb_Master.SelectedTab == tp_004)
          {
             int c = CntyBs1.Position;
             int p = PrvnBs1.Position;
@@ -117,7 +117,7 @@ namespace System.Scsc.Ui.BaseDefinition
             CblkBs1.Position = b;
             CuntBs1.Position = u;
          }
-         else if(Tb_Master.SelectedTab == tp_005)
+         else if (Tb_Master.SelectedTab == tp_005)
          {
             if (fetchagine)
             {
@@ -133,7 +133,7 @@ namespace System.Scsc.Ui.BaseDefinition
                //CochCbmtInfo();
             }
          }
-         else if(Tb_Master.SelectedTab == tp_006)
+         else if (Tb_Master.SelectedTab == tp_006)
          {
             int club = ClubBs1.Position;
             int cbmt = CbmtBs2.Position;
@@ -144,13 +144,13 @@ namespace System.Scsc.Ui.BaseDefinition
             Cbmt_Gv.TopRowIndex = cbmt;
             CbmtBs2.Position = cbmt;
          }
-         else if(Tb_Master.SelectedTab == tp_007)
+         else if (Tb_Master.SelectedTab == tp_007)
          {
             int hldy = HldyBs.Position;
             HldyBs.DataSource = iScsc.Holidays.Where(h => h.HLDY_DATE.Value.Date >= DateTime.Now.Date);
             HldyBs.Position = hldy;
          }
-         else if(Tb_Master.SelectedTab == tp_008)
+         else if (Tb_Master.SelectedTab == tp_008)
          {
             int coma = ComaBs.Position;
             ComaBs.DataSource = iScsc.Computer_Actions;
@@ -158,11 +158,11 @@ namespace System.Scsc.Ui.BaseDefinition
 
             MtodBs1.DataSource = iScsc.Methods;
          }
-         else if(Tb_Master.SelectedTab == tp_009)
+         else if (Tb_Master.SelectedTab == tp_009)
          {
             ClubBs3.DataSource = iScsc.Clubs;
          }
-         else if(Tb_Master.SelectedTab == tp_010)
+         else if (Tb_Master.SelectedTab == tp_010)
          {
             int exdv = ExdvBs.Position;
             ExdvBs.DataSource = iScsc.External_Devices;
@@ -177,9 +177,14 @@ namespace System.Scsc.Ui.BaseDefinition
             iScsc.Expenses.Where(ex =>
                ex.Regulation.REGL_STAT == "002" /* آیین نامه فعال */ && ex.Regulation.TYPE == "001" /* آیین نامه هزینه */ &&
                ex.Expense_Type.Request_Requester.RQTP_CODE == "016" &&
-               //ex.Expense_Type.Request_Requester.RQTT_CODE == "001" &&
+                  //ex.Expense_Type.Request_Requester.RQTT_CODE == "001" &&
                ex.EXPN_STAT == "002" /* هزینه های فعال */
             );
+         }
+         else if (Tb_Master.SelectedTab == tp_011)
+         {
+            TmplBs.DataSource = iScsc.Templates;
+            TmpiBs.DataSource = iScsc.Template_Items.Where(ti => ti.RECD_STAT == "002");
          }
 
          requery = false;
@@ -241,7 +246,7 @@ namespace System.Scsc.Ui.BaseDefinition
          }
          finally
          {
-            if(requery)
+            if (requery)
             {
                Execute_Query();
                requery = false;
@@ -272,7 +277,7 @@ namespace System.Scsc.Ui.BaseDefinition
          }
          finally
          {
-            if(requery)
+            if (requery)
             {
                Execute_Query();
                requery = false;
@@ -344,7 +349,7 @@ namespace System.Scsc.Ui.BaseDefinition
          }
          finally
          {
-            if(requery)
+            if (requery)
                Execute_Query();
          }
       }
@@ -372,7 +377,7 @@ namespace System.Scsc.Ui.BaseDefinition
          }
          finally
          {
-            if(requery)
+            if (requery)
             {
                Execute_Query();
                requery = false;
@@ -477,7 +482,7 @@ namespace System.Scsc.Ui.BaseDefinition
          if (MtodBs1.List.OfType<Data.Method>().Any(m => m.CODE == 0)) return;
 
          MtodBs1.AddNew();
-         
+
          var mtod = MtodBs1.Current as Data.Method;
          mtod.DFLT_STAT = "001";
          mtod.MTOD_STAT = "002";
@@ -593,9 +598,9 @@ namespace System.Scsc.Ui.BaseDefinition
          var oldctgy = CtgyBs1.Current as Data.Category_Belt;
 
          CtgyBs1.AddNew();
-         
+
          var newctgy = CtgyBs1.Current as Data.Category_Belt;
-         if(oldctgy == null)
+         if (oldctgy == null)
          {
             newctgy.NUMB_MONT_OFER = 0;
             newctgy.NUMB_CYCL_DAY = 29;
@@ -625,7 +630,7 @@ namespace System.Scsc.Ui.BaseDefinition
             Validate();
             CtgyBs1.EndEdit();
 
-            iScsc.SubmitChanges();            
+            iScsc.SubmitChanges();
             requery = true;
          }
          catch (Exception ex)
@@ -634,7 +639,7 @@ namespace System.Scsc.Ui.BaseDefinition
          }
          finally
          {
-            if(requery)
+            if (requery)
             {
                SaveExpenseParam_Butn_Click(null, null);
                Execute_Query();
@@ -676,15 +681,15 @@ namespace System.Scsc.Ui.BaseDefinition
          {
             var mtod = MtodBs1.Current as Data.Method;
             var ctgy = CtgyBs1.Current as Data.Category_Belt;
-            if(mtod == null || ctgy == null)return;
+            if (mtod == null || ctgy == null) return;
 
             var rqtp = ExpnRqtp_Lov.EditValue;
             var rqtt = ExpnRqtt_Lov.EditValue;
             long? epit = (long?)ExpnEpit_Lov.EditValue;
 
-            if(rqtp == null || rqtp.ToString().Length != 3)rqtp = "";
-            if(rqtt == null || rqtt.ToString().Length != 3)rqtt = "";
-            if(epit == null || (long)(epit) == 0) epit = null;
+            if (rqtp == null || rqtp.ToString().Length != 3) rqtp = "";
+            if (rqtt == null || rqtt.ToString().Length != 3) rqtt = "";
+            if (epit == null || (long)(epit) == 0) epit = null;
 
             var expn =
                iScsc.Expenses.
@@ -697,9 +702,9 @@ namespace System.Scsc.Ui.BaseDefinition
                   && ex.CTGY_CODE == ctgy.CODE
                );
 
-            
 
-            if(expn.Count() > 0)
+
+            if (expn.Count() > 0)
             {
                expn.ToList().ForEach(ex =>
                {
@@ -720,8 +725,8 @@ namespace System.Scsc.Ui.BaseDefinition
          }
          finally
          {
-            if(requery)
-            {               
+            if (requery)
+            {
                requery = false;
             }
          }
@@ -855,8 +860,8 @@ namespace System.Scsc.Ui.BaseDefinition
             var prvn = PrvnBs1.Current as Data.Province;
             if (prvn == null) return;
 
-            if (prvn.CNTY_CODE == null || prvn.CNTY_CODE == "" ) {  return; }
-            if (prvn.CODE == null || prvn.CODE == "" ) { return; }
+            if (prvn.CNTY_CODE == null || prvn.CNTY_CODE == "") { return; }
+            if (prvn.CODE == null || prvn.CODE == "") { return; }
             if (prvn.NAME == null || prvn.NAME == "") { return; }
 
             iScsc.SubmitChanges();
@@ -1051,7 +1056,7 @@ namespace System.Scsc.Ui.BaseDefinition
       //   CbmtBs1.DataSource = iScsc.Club_Methods.Where(c => c.COCH_FILE_NO == coch.FILE_NO);
       //   gridView4.TopRowIndex = cbmt;
       //   CbmtBs1.Position = cbmt;
-         
+
       //}
 
       private string GetPersianDate(DateTime? datetime)
@@ -1159,7 +1164,7 @@ namespace System.Scsc.Ui.BaseDefinition
                newcbmt.AMNT = 0;
             }
          }
-         catch(Exception exc) { MessageBox.Show(exc.Message); }
+         catch (Exception exc) { MessageBox.Show(exc.Message); }
       }
 
       private void SaveClubMethod_Butn_Click(object sender, EventArgs e)
@@ -1180,7 +1185,7 @@ namespace System.Scsc.Ui.BaseDefinition
                   iScsc.UPD_CBMT_P(cbmt.CODE, cbmt.CLUB_CODE, cbmt.MTOD_CODE, cbmt.COCH_FILE_NO, cbmt.MTOD_STAT, cbmt.DAY_TYPE, cbmt.STRT_TIME, cbmt.END_TIME, cbmt.SEX_TYPE, cbmt.CBMT_DESC, cbmt.DFLT_STAT, cbmt.CPCT_NUMB, cbmt.CPCT_STAT, cbmt.CBMT_TIME, cbmt.CBMT_TIME_STAT, cbmt.CLAS_TIME, cbmt.AMNT, cbmt.NATL_CODE);
                requery = true;
             }
-            else if(Tb_Master.SelectedTab == tp_005)
+            else if (Tb_Master.SelectedTab == tp_005)
             {
                CbmtBs1.EndEdit();
                CbmtCoch_Gv.PostEditor();
@@ -1191,7 +1196,7 @@ namespace System.Scsc.Ui.BaseDefinition
                fetchagine = false;
             else
                fetchagine = true;
-            
+
          }
          catch (Exception ex)
          {
@@ -1259,7 +1264,7 @@ namespace System.Scsc.Ui.BaseDefinition
          try
          {
             var club = ClubBs1.Current as Data.Club;
-            if (club != null && MessageBox.Show(this, "آیا با حذف شیفت باشگاه موافق هستید؟", "حذف شیفت باشگاه", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2)!= DialogResult.Yes) return;
+            if (club != null && MessageBox.Show(this, "آیا با حذف شیفت باشگاه موافق هستید؟", "حذف شیفت باشگاه", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
 
             iScsc.Clubs.DeleteOnSubmit(club);
             iScsc.SubmitChanges();
@@ -1267,13 +1272,13 @@ namespace System.Scsc.Ui.BaseDefinition
 
             requery = true;
          }
-         catch (Exception )            
+         catch (Exception)
          {
 
          }
          finally
          {
-            if(requery)
+            if (requery)
             {
                Execute_Query();
                requery = false;
@@ -1288,7 +1293,7 @@ namespace System.Scsc.Ui.BaseDefinition
             var club = ClubBs1.Current as Data.Club;
             if (club == null) return;
 
-            _DefaultGateway.Gateway(               
+            _DefaultGateway.Gateway(
                new Job(SendType.External, "localhost",
                   new List<Job>
                   {
@@ -1298,7 +1303,7 @@ namespace System.Scsc.Ui.BaseDefinition
                )
             );
          }
-         catch (Exception )
+         catch (Exception)
          {
             throw;
          }
@@ -1392,7 +1397,7 @@ namespace System.Scsc.Ui.BaseDefinition
          catch (Exception ex)
          {
             MessageBox.Show(ex.Message);
-         }         
+         }
       }
 
       #region PrintButn006
@@ -1415,7 +1420,7 @@ namespace System.Scsc.Ui.BaseDefinition
                crnt = CbmtBs1.Current as Data.Club_Method;
                section = GetType().Name.Substring(0, 3) + "_005_F";
             }
-            
+
             if (crnt == null) return;
 
             Job _InteractWithScsc =
@@ -1544,7 +1549,7 @@ namespace System.Scsc.Ui.BaseDefinition
                      break;
                }
             }
-            else if(Tb_Master.SelectedTab == tp_005)
+            else if (Tb_Master.SelectedTab == tp_005)
             {
                var cbmt = CbmtBs1.Current as Data.Club_Method;
                if (cbmt == null) return;
@@ -1569,7 +1574,7 @@ namespace System.Scsc.Ui.BaseDefinition
                }
             }
          }
-         catch (Exception )
+         catch (Exception)
          {
 
          }
@@ -1593,13 +1598,13 @@ namespace System.Scsc.Ui.BaseDefinition
             }
             requery = true;
          }
-         catch (Exception )
+         catch (Exception)
          {
 
          }
          finally
          {
-            if(requery)
+            if (requery)
             {
                Execute_Query();
             }
@@ -1614,11 +1619,11 @@ namespace System.Scsc.Ui.BaseDefinition
                {
                   x.CBMT_DESC = "";
                   foreach (var item in (from w in x.Club_Method_Weekdays.Where(w => w.STAT == "002")
-                                 join d in iScsc.D_WKDies on w.WEEK_DAY equals d.VALU
-                                 select d.DOMN_DESC))
-	               {
+                                        join d in iScsc.D_WKDies on w.WEEK_DAY equals d.VALU
+                                        select d.DOMN_DESC))
+                  {
                      x.CBMT_DESC = x.CBMT_DESC + item + ", ";
-	               }                  
+                  }
                });
             CbmtBs2.EndEdit();
             iScsc.SubmitChanges();
@@ -1630,7 +1635,7 @@ namespace System.Scsc.Ui.BaseDefinition
          }
          finally
          {
-            if(requery)
+            if (requery)
             {
                Execute_Query();
             }
@@ -1755,7 +1760,7 @@ namespace System.Scsc.Ui.BaseDefinition
          }
          finally
          {
-            if(requery)
+            if (requery)
             {
                Execute_Query();
             }
@@ -1883,7 +1888,7 @@ namespace System.Scsc.Ui.BaseDefinition
          }
          finally
          {
-            if(requery)
+            if (requery)
             {
                Execute_Query();
             }
@@ -1909,7 +1914,7 @@ namespace System.Scsc.Ui.BaseDefinition
             var coch = CochBs1.Current as Data.Fighter;
             if (coch == null) return;
 
-            if(Tb_Master.SelectedTab == tp_005)
+            if (Tb_Master.SelectedTab == tp_005)
             {
                RqstBnCochName_Butn.Text = coch.NAME_DNRM;
                RqstBnCochName_Butn.Text += " ( " + coch.FNGR_PRNT_DNRM + " )";
@@ -1949,7 +1954,7 @@ namespace System.Scsc.Ui.BaseDefinition
                CochProFile1_Rb.ImageProfile = global::System.Scsc.Properties.Resources.IMAGE_1482;
             }
          }
-         catch (Exception exc){}
+         catch (Exception exc) { }
       }
 
       private void DelUnDelCoch_Butn_Click(object sender, EventArgs e)
@@ -1982,7 +1987,7 @@ namespace System.Scsc.Ui.BaseDefinition
                   //var fighhist = iScsc.Fighter_Publics.Where(fp => fp.FIGH_FILE_NO == coch.FILE_NO && fp.RECT_CODE == "004" && (fp.FNGR_PRNT ?? "") != "").OrderByDescending(fp => fp.RWNO).FirstOrDefault();
                   //if (fighhist != null && MessageBox.Show(this, string.Format("آخرین وضعیت کد انگشتی یا کارت مربی {0} می باشد آیا مایل به جای گیزینی مجدد هستید؟", fighhist.FNGR_PRNT), "بازیابی کد انگشتی یا کارت مربی", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) != DialogResult.Yes)
                   //   fighhist.FNGR_PRNT = "";
-               
+
                   //if(fighhist.FNGR_PRNT == "" && MessageBox.Show(this, "آیا می خواهید که کد انگشتی یا کارت جدیدی به مربی اختصاص دهید", "الحاق انگشتی یا کارت جدید به مربی", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                   //{
                   //getfngrprnt:
@@ -2008,7 +2013,7 @@ namespace System.Scsc.Ui.BaseDefinition
             }
             requery = true;
          }
-         catch (Exception exc){}
+         catch (Exception exc) { }
          finally
          {
             if (requery)
@@ -2194,7 +2199,7 @@ namespace System.Scsc.Ui.BaseDefinition
       private void CbmtBs2_CurrentChanged(object sender, EventArgs e)
       {
          var cbmt = CbmtBs2.Current as Data.Club_Method;
-         if(cbmt == null)return;
+         if (cbmt == null) return;
 
          if (Tb_Master.SelectedTab == tp_006)
          {
@@ -2266,9 +2271,9 @@ namespace System.Scsc.Ui.BaseDefinition
          try
          {
             Data.Club_Method c = null;
-            if(Tb_Master.SelectedTab == tp_006)
+            if (Tb_Master.SelectedTab == tp_006)
                c = CbmtBs2.Current as Data.Club_Method;
-            else if(Tb_Master.SelectedTab == tp_005)
+            else if (Tb_Master.SelectedTab == tp_005)
                c = CbmtBs1.Current as Data.Club_Method;
 
             iScsc.STNG_SAVE_P(
@@ -2337,7 +2342,8 @@ namespace System.Scsc.Ui.BaseDefinition
                CbmtwkdyBs1.List.OfType<Data.Club_Method_Weekday>().FirstOrDefault(w => w.WEEK_DAY == sb.Tag.ToString()).STAT = "001";
                sb.Appearance.BackColor = Color.LightGray;
             }
-         }catch{}
+         }
+         catch { }
       }
 
       private void Cbmt_Gv_CustomUnboundColumnData(object sender, DevExpress.XtraGrid.Views.Base.CustomColumnDataEventArgs e)
@@ -2432,10 +2438,10 @@ namespace System.Scsc.Ui.BaseDefinition
                   iScsc.Club_Methods.Where(cm =>
                      cm.CLUB_CODE == club.CODE &&
                      cm.Club_Method_Weekdays.Any(cmw => cmw.STAT == "002" && weekdays.Contains(cmw.WEEK_DAY)) &&
-                     //((cm.STRT_TIME >= strttime && cm.END_TIME <= endtime) ||
-                     // (cm.STRT_TIME <= strttime && cm.END_TIME >= endtime) ||
-                     // ((cm.STRT_TIME <= strttime && cm.END_TIME >= strttime) && cm.END_TIME <= endtime) ||
-                     // ((cm.STRT_TIME >= strttime && cm.STRT_TIME <= endtime)))
+                        //((cm.STRT_TIME >= strttime && cm.END_TIME <= endtime) ||
+                        // (cm.STRT_TIME <= strttime && cm.END_TIME >= endtime) ||
+                        // ((cm.STRT_TIME <= strttime && cm.END_TIME >= strttime) && cm.END_TIME <= endtime) ||
+                        // ((cm.STRT_TIME >= strttime && cm.STRT_TIME <= endtime)))
                      ((cm.STRT_TIME.CompareTo(strttime) >= 0 && cm.END_TIME.CompareTo(endtime) <= 0) ||
                       (cm.STRT_TIME.CompareTo(strttime) <= 0 && cm.END_TIME.CompareTo(endtime) >= 0) ||
                       (cm.STRT_TIME.CompareTo(strttime) <= 0 && cm.END_TIME.CompareTo(strttime) >= 0 && cm.END_TIME.CompareTo(endtime) <= 0) ||
@@ -2667,7 +2673,7 @@ namespace System.Scsc.Ui.BaseDefinition
          try
          {
             string FngrPrnt = "";
-            if(Tb_Master.SelectedTab == tp_005)
+            if (Tb_Master.SelectedTab == tp_005)
             {
                var coch = CochBs1.Current as Data.Fighter;
                if (coch == null) return;
@@ -2675,7 +2681,7 @@ namespace System.Scsc.Ui.BaseDefinition
 
                if (FngrPrnt == "") return;
             }
-            else if(Tb_Master.SelectedTab == tp_006)
+            else if (Tb_Master.SelectedTab == tp_006)
             {
                var cbmt = CbmtBs2.Current as Data.Club_Method;
                if (cbmt == null) return;
@@ -2838,11 +2844,11 @@ namespace System.Scsc.Ui.BaseDefinition
 
       private void RqstBnCochName_Butn_Click(object sender, EventArgs e)
       {
-         if(Tb_Master.SelectedTab == tp_005)
+         if (Tb_Master.SelectedTab == tp_005)
          {
             CochInfo_Lnk_LinkClicked(null, null);
          }
-         else if(Tb_Master.SelectedTab == tp_006)
+         else if (Tb_Master.SelectedTab == tp_006)
          {
             CochProFile_Rb_Click(null, null);
          }
@@ -2851,14 +2857,14 @@ namespace System.Scsc.Ui.BaseDefinition
       private void RqstBnEditPblc_Click(object sender, EventArgs e)
       {
          long fileno = 0;
-         if(Tb_Master.SelectedTab == tp_005)
+         if (Tb_Master.SelectedTab == tp_005)
          {
             var coch = CochBs1.Current as Data.Fighter;
             if (coch == null) return;
 
             fileno = coch.FILE_NO;
          }
-         else if(Tb_Master.SelectedTab == tp_006)
+         else if (Tb_Master.SelectedTab == tp_006)
          {
             var cbmt = CbmtBs2.Current as Data.Club_Method;
             if (cbmt == null) return;
@@ -2880,7 +2886,7 @@ namespace System.Scsc.Ui.BaseDefinition
       {
          long? fileno = 0,
               cbmtcode = null;
-         
+
          if (Tb_Master.SelectedTab == tp_005)
          {
             var coch = CochBs1.Current as Data.Fighter;
@@ -2984,7 +2990,7 @@ namespace System.Scsc.Ui.BaseDefinition
             case DayOfWeek.Wednesday:
                strtdate = strtdate.AddDays(-4);
                break;
-         }         
+         }
          var enddate = DateTime.Now;
          Job _InteractWithScsc =
             new Job(SendType.External, "Localhost",
@@ -3094,7 +3100,7 @@ namespace System.Scsc.Ui.BaseDefinition
                   }
                   #endregion
                });
-         _DefaultGateway.Gateway(_InteractWithScsc);                  
+         _DefaultGateway.Gateway(_InteractWithScsc);
       }
 
       private void RqstBnInComeYear_Butn_Click(object sender, EventArgs e)
@@ -3163,7 +3169,7 @@ namespace System.Scsc.Ui.BaseDefinition
                   }
                   #endregion
                });
-         _DefaultGateway.Gateway(_InteractWithScsc);                  
+         _DefaultGateway.Gateway(_InteractWithScsc);
       }
 
       private void RqstBnAttnMonth_Butn_Click(object sender, EventArgs e)
@@ -3239,7 +3245,7 @@ namespace System.Scsc.Ui.BaseDefinition
                else
                   date = AttnDate6_Dt.Value;
             }
-            else if(Tb_Master.SelectedTab == tp_005)
+            else if (Tb_Master.SelectedTab == tp_005)
             {
                var cbmt = CbmtBs1.Current as Data.Club_Method;
                if (cbmt == null) return;
@@ -3349,7 +3355,7 @@ namespace System.Scsc.Ui.BaseDefinition
                ctgycode = ctgy.CODE;
             }
 
-            
+
 
             Job _InteractWithScsc =
                new Job(SendType.External, "Localhost",
@@ -3378,7 +3384,7 @@ namespace System.Scsc.Ui.BaseDefinition
             var cbmt = CbmtBs1.Current as Data.Club_Method;
             if (cbmt == null) return;
 
-            if(Tb_Master.SelectedTab == tp_005)
+            if (Tb_Master.SelectedTab == tp_005)
             {
                CbmtwkdyBs1.DataSource = cbmt.Club_Method_Weekdays.ToList();
 
@@ -3414,24 +3420,24 @@ namespace System.Scsc.Ui.BaseDefinition
                tb_cbmt1_SelectedIndexChanged(null, null);
             }
          }
-         catch {}
+         catch { }
       }
 
       private void tb_cbmt1_SelectedIndexChanged(object sender, EventArgs e)
       {
          try
          {
-            if(tb_cbmt1.SelectedTab == tp_0052)
+            if (tb_cbmt1.SelectedTab == tp_0052)
             {
                Attn5Bs.List.Clear();
                var cbmt = CbmtBs1.Current as Data.Club_Method;
-               if(cbmt == null)return;
+               if (cbmt == null) return;
 
                if (!ReloadAttn5_Cb.Checked) return;
 
                iScsc.CommandTimeout = 18000;
 
-               var actvmbsp = 
+               var actvmbsp =
                   iScsc.VF_Coach_MemberShip(
                      new XElement("Club_Method",
                         new XAttribute("code", cbmt.CODE)
@@ -3440,9 +3446,9 @@ namespace System.Scsc.Ui.BaseDefinition
 
                Attn5Bs.DataSource =
                   iScsc.Attendances
-                  .Where(a => actvmbsp.Any(am => am.FILE_NO == a.FIGH_FILE_NO && am.RWNO == a.MBSP_RWNO_DNRM));                  
+                  .Where(a => actvmbsp.Any(am => am.FILE_NO == a.FIGH_FILE_NO && am.RWNO == a.MBSP_RWNO_DNRM));
             }
-            else if(tb_cbmt1.SelectedTab == tp_0053)
+            else if (tb_cbmt1.SelectedTab == tp_0053)
             {
                VCochMbsp5Bs.List.Clear();
                var cbmt = CbmtBs1.Current as Data.Club_Method;
@@ -3501,7 +3507,7 @@ namespace System.Scsc.Ui.BaseDefinition
                   iScsc.Attendances
                   .Where(a => actvmbsp.Any(am => am.FILE_NO == a.FIGH_FILE_NO && am.RWNO == a.MBSP_RWNO_DNRM));
             }
-            else if(tb_cbmt2.SelectedTab == tp_0063)
+            else if (tb_cbmt2.SelectedTab == tp_0063)
             {
                Attn6Bs.List.Clear();
                var cbmt = CbmtBs2.Current as Data.Club_Method;
@@ -3542,7 +3548,8 @@ namespace System.Scsc.Ui.BaseDefinition
             {
                AfterChangedOutput =
                   new Action<object>(
-                     (output) => {
+                     (output) =>
+                     {
                         if (ComaBs.List.OfType<Data.Computer_Action>().Any(ca => ca.CODE == 0)) return;
 
                         var hostinfo = output as XElement;
@@ -3827,7 +3834,7 @@ namespace System.Scsc.Ui.BaseDefinition
          try
          {
             dynamic vcochmbsp = null;
-            if(Tb_Master.SelectedTab == tp_005)
+            if (Tb_Master.SelectedTab == tp_005)
                vcochmbsp = VCochMbsp5Bs.Current as Data.VF_Coach_MemberShipResult;
             else
                vcochmbsp = VCochMbsp6Bs.Current as Data.VF_Coach_MemberShipResult;
@@ -3882,12 +3889,12 @@ namespace System.Scsc.Ui.BaseDefinition
                   break;
                default:
                   break;
-            }            
+            }
          }
          catch (Exception exc)
          {
             MessageBox.Show(exc.Message);
-         }         
+         }
       }
 
       private void SelectedImage_Butn_Click(object sender, EventArgs e)
@@ -3950,18 +3957,18 @@ namespace System.Scsc.Ui.BaseDefinition
       {
          try
          {
-            var cbmt = CbmtBs1.Current as Data.Club_Method;            
-            if (cbmt == null) return;            
+            var cbmt = CbmtBs1.Current as Data.Club_Method;
+            if (cbmt == null) return;
 
             var strt = ((DateTime)StrtTime_Tspn.EditValue).TimeOfDay;
             var end = ((DateTime)EndTime_Tspn.EditValue).TimeOfDay;
-            var priod = Convert.ToInt32( Time_Tspn.EditValue );
+            var priod = Convert.ToInt32(Time_Tspn.EditValue);
 
             var i = strt;
 
-            while(i <= end)
+            while (i <= end)
             {
-               if(!CbmtBs1.List.OfType<Data.Club_Method>().Any(t => t.MTOD_CODE == cbmt.MTOD_CODE && t.DAY_TYPE == cbmt.DAY_TYPE && t.STRT_TIME == i && t.END_TIME == i.Add(new TimeSpan(0, priod, 0))))
+               if (!CbmtBs1.List.OfType<Data.Club_Method>().Any(t => t.MTOD_CODE == cbmt.MTOD_CODE && t.DAY_TYPE == cbmt.DAY_TYPE && t.STRT_TIME == i && t.END_TIME == i.Add(new TimeSpan(0, priod, 0))))
                {
                   iScsc.INS_CBMT_P(cbmt.CLUB_CODE, cbmt.MTOD_CODE, cbmt.COCH_FILE_NO, cbmt.DAY_TYPE, i, i.Add(new TimeSpan(0, priod, 0)), cbmt.SEX_TYPE, cbmt.CBMT_DESC, cbmt.DFLT_STAT, cbmt.CPCT_NUMB, cbmt.CPCT_STAT, cbmt.CBMT_TIME, cbmt.CBMT_TIME_STAT, cbmt.CLAS_TIME, cbmt.AMNT, cbmt.NATL_CODE);
                }
@@ -3977,7 +3984,7 @@ namespace System.Scsc.Ui.BaseDefinition
          }
          finally
          {
-            if(requery)
+            if (requery)
                Execute_Query();
          }
       }
@@ -3986,7 +3993,7 @@ namespace System.Scsc.Ui.BaseDefinition
       {
          try
          {
-            
+
             Job _InteractWithScsc =
                new Job(SendType.External, "Localhost",
                   new List<Job>
@@ -4015,7 +4022,7 @@ namespace System.Scsc.Ui.BaseDefinition
                      #endregion
                   });
             _DefaultGateway.Gateway(_InteractWithScsc);
-            
+
          }
          catch (Exception exc)
          {
@@ -4294,7 +4301,7 @@ namespace System.Scsc.Ui.BaseDefinition
                }
             )
          );
-      }      
+      }
       #endregion
 
       private void ProdList_Butn_Click(object sender, EventArgs e)
@@ -4338,7 +4345,7 @@ namespace System.Scsc.Ui.BaseDefinition
                             new XAttribute("type", "expnextr"),
                             new XAttribute("macadrs", dev.DEV_NAME),
                             new XAttribute("expncode", dev.EXPN_CODE),
-                            new XAttribute("cmndtext", 
+                            new XAttribute("cmndtext",
                                "er:" + "0".PadLeft(10, ' ') +
                                "&" + expn.MIN_TIME.Value.Minute.ToString().PadLeft(2, ' ') +
                                ":" + expn.PRIC.ToString("n0").PadLeft(9, ' ')),
@@ -4489,6 +4496,63 @@ namespace System.Scsc.Ui.BaseDefinition
          {
             MessageBox.Show(exc.Message);
          }
-      }      
+      }
+
+      private void AddPlacHldr_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var tmpi = TmpiBs.Current as Data.Template_Item;
+            if (tmpi == null) return;
+            
+            TempText_Txt.Text = TempText_Txt.Text.Insert(TempText_Txt.SelectionStart, tmpi.PLAC_HLDR);
+            TempText_Txt.Focus();
+            AddPlacHldr_Butn.Focus();
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void AddTmp_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            if (TmplBs.List.OfType<Data.Template>().Any(t => t.TMID == 0)) return;
+
+            var tmp = TmplBs.AddNew() as Data.Template;
+            iScsc.Templates.InsertOnSubmit(tmp);
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void SaveTmp_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            Tmpl_gv.PostEditor();
+
+            iScsc.SubmitChanges();
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void DelTmp_Butn_Click(object sender, EventArgs e)
+      {
+
+      }
    }
 }

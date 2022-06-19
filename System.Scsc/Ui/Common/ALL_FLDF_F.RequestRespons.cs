@@ -1208,6 +1208,23 @@ namespace System.Scsc.Ui.Common
             FGrpBs.DataSource = iScsc.Fighter_Groupings.Where(g => g.FIGH_FILE_NO == fileno);
             AGrpBs.DataSource = iScsc.App_Base_Defines.Where(a => a.ENTY_NAME == "Fighter_Grouping");
 
+            // 1401/03/27 * پر کردن شماره تلفن های ارتباطی با مشتری
+            CellPhon_Lsbx.Items.Clear();
+            if (crntinfo.CELL_PHON_DNRM != null && crntinfo.CELL_PHON_DNRM.Length >= 9)
+               CellPhon_Lsbx.Items.Add(crntinfo.CELL_PHON_DNRM);
+            if (crntinfo.DAD_CELL_PHON_DNRM != null && crntinfo.DAD_CELL_PHON_DNRM.Length >= 9)
+               CellPhon_Lsbx.Items.Add(crntinfo.DAD_CELL_PHON_DNRM);
+            if (crntinfo.MOM_CELL_PHON_DNRM != null && crntinfo.MOM_CELL_PHON_DNRM.Length >= 9)
+               CellPhon_Lsbx.Items.Add(crntinfo.MOM_CELL_PHON_DNRM);
+
+            ChatId_Lsbx.Items.Clear();
+            if (crntinfo.CHAT_ID_DNRM != null && crntinfo.CHAT_ID_DNRM >= 9)
+               ChatId_Lsbx.Items.Add(crntinfo.CHAT_ID_DNRM);
+            if (crntinfo.MOM_CHAT_ID_DNRM != null && crntinfo.MOM_CHAT_ID_DNRM >= 9)
+               ChatId_Lsbx.Items.Add(crntinfo.MOM_CHAT_ID_DNRM);
+            if (crntinfo.DAD_CHAT_ID_DNRM != null && crntinfo.DAD_CHAT_ID_DNRM >= 9)
+               ChatId_Lsbx.Items.Add(crntinfo.DAD_CHAT_ID_DNRM);
+
             if(isFirstLoaded) goto commandfinished;
 
             DDebtBs.DataSource = iScsc.D_DEBTs;
@@ -1221,12 +1238,13 @@ namespace System.Scsc.Ui.Common
             DPmstBs.DataSource = iScsc.D_PMSTs;
             DPycoBs.DataSource = iScsc.D_PYCOs;
             DYsnoBs.DataSource = iScsc.D_YSNOs;
+            DMsgsBs.DataSource = iScsc.D_MSGs;
             
             VPosBs1.DataSource = iScsc.V_Pos_Devices;
             if (VPosBs1.List.OfType<Data.V_Pos_Device>().FirstOrDefault(p => p.GTWY_MAC_ADRS == HostNameInfo.Attribute("cpu").Value) != null)
                Pos_Lov.EditValue = VPosBs1.List.OfType<Data.V_Pos_Device>().FirstOrDefault(p => p.GTWY_MAC_ADRS == HostNameInfo.Attribute("cpu").Value).PSID;
-
             
+
             /*vF_TestBs.DataSource = iScsc.VF_Test(fileno);
             vF_CampititionBs.DataSource = iScsc.VF_Campitition(fileno);
             vF_Physical_FitnessBs.DataSource = iScsc.VF_Physical_Fitness(fileno).OrderByDescending(p => p.RWNO);

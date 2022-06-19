@@ -779,6 +779,15 @@
     <Compile Include="Ui\MasterPage\STRT_PROC_F.RequestRespons.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Ui\MessageBroadcast\OPT_MESG_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\MessageBroadcast\OPT_MESG_F.Designer.cs">
+      <DependentUpon>OPT_MESG_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\MessageBroadcast\OPT_MESG_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Ui\Notifications\ATTN_DAYN_F.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -1162,6 +1171,7 @@
     <None Include="Properties\DataSources\System.Scsc.Data.D_MBTP.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_MGTP.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_MRID.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.D_MSG.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_MSGT.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_MSRT.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_MSTP.datasource" />
@@ -1190,6 +1200,7 @@
     <None Include="Properties\DataSources\System.Scsc.Data.D_STOK.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_SUB.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_SXTP.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.D_TMTP.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_TRSL.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_USRT.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_WKDY.datasource" />
@@ -1268,6 +1279,8 @@
     <None Include="Properties\DataSources\System.Scsc.Data.Step_History_Summery.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Sub_State.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Sub_Unit.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.Template.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.Template_Item.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Test.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.User_Club_Fgac.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.User_Region_Fgac.datasource" />
@@ -1309,6 +1322,8 @@
     <None Include="Properties\DataSources\System.Scsc.Data.VF_Save_PaymentsResult.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.VF_StatisticAttendanceResult.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.VF_TestResult.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.V_Appd_Message_Box.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.V_App_Message_Box.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.V_Computer.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.V_DiscountPayment.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.V_GainLoss.datasource" />
@@ -1316,6 +1331,7 @@
     <None Include="Properties\DataSources\System.Scsc.Data.V_Pos_Device.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.V_ReceiptPayment.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.V_Sale.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.V_Smsd_Message_Box.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.V_Sms_Message_Box.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.V_StatisticDiscount.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.V_StatisticReceipt.datasource" />
@@ -1510,6 +1526,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Ui\MasterPage\STRT_PROC_F.resx">
       <DependentUpon>STRT_PROC_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\MessageBroadcast\OPT_MESG_F.resx">
+      <DependentUpon>OPT_MESG_F.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ui\Notifications\ATTN_DAYN_F.resx">
       <DependentUpon>ATTN_DAYN_F.cs</DependentUpon>

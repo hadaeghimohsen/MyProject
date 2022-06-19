@@ -214,6 +214,7 @@ namespace System.Setup.Ui.LTR.Server
                         new XAttribute("databasetest", CreateTestDemoDatabase_Cb.Checked ? "002" : "001"),
                         new XAttribute("tinyserialno", _CheckTinyPlusSerialNoInstallation.Output.ToString()),
                         new XAttribute("emptydb", EmptyDb_Cb.Checked ? "002" : "001"),
+                        new XAttribute("backupfile", BackupFile_Txt.Text),
                         //new XAttribute("licensekey", (_CheckSubSysInstallation.Output as XElement).Attribute("key").Value),
                         _hostInfo.Output as XElement                        
                      ).ToString()

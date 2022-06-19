@@ -13,6 +13,13 @@ namespace System.Scsc.ExtCode
 {
    public static class Extensions
    {
+      #region Exception Handling
+      public static void SaveException(this Scsc.Data.iScscDataContext iScsc, Exception e)
+      {
+         //MessageBox.Show(e.Message);
+      }
+      #endregion
+
       #region Sql Operation
       public static bool In<T>(this T item, params T[] items)
       {

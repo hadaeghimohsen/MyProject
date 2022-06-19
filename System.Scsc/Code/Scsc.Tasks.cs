@@ -556,6 +556,11 @@ namespace System.Scsc.Code
             if (_Msgb_Totl_F == null)
                _Msgb_Totl_F = new Ui.MessageBroadcast.MSGB_TOTL_F { _DefaultGateway = this };
          }
+         else if (value == "opt_mesg_f")
+         {
+            if (_Opt_Mesg_F == null)
+               _Opt_Mesg_F = new Ui.MessageBroadcast.OPT_MESG_F { _DefaultGateway = this };
+         }
          else if(value == "debt_list_f")
          {
             if (_Debt_List_F == null)
@@ -4749,6 +4754,30 @@ namespace System.Scsc.Code
                   new Job(SendType.SelfToUserInterface, "AOP_GIMP_F", 02 /* Execute Set */),                  
                   new Job(SendType.SelfToUserInterface, "AOP_GIMP_F", 07 /* Execute Load_Data */),
                   new Job(SendType.SelfToUserInterface, "AOP_GIMP_F", 03 /* Execute Paint */),
+               });
+         }
+         else if (job.Status == StatusType.SignalForPreconditions)
+         {
+            job.Status = StatusType.Successful;
+         }
+      }
+
+      /// <summary>
+      /// Code 164
+      /// </summary>
+      /// <param name="job"></param>
+      private void Opt_Mesg_F(Job job)
+      {
+         if (job.Status == StatusType.Running)
+         {
+            job.Status = StatusType.WaitForPreconditions;
+            job.OwnerDefineWorkWith.AddRange(
+               new List<Job>
+               {
+                  new Job(SendType.Self, 01 /* Execute GetUi */){Input = "opt_mesg_f"},
+                  new Job(SendType.SelfToUserInterface, "OPT_MESG_F", 02 /* Execute Set */),                  
+                  new Job(SendType.SelfToUserInterface, "OPT_MESG_F", 07 /* Execute Load_Data */),
+                  new Job(SendType.SelfToUserInterface, "OPT_MESG_F", 03 /* Execute Paint */),
                });
          }
          else if (job.Status == StatusType.SignalForPreconditions)

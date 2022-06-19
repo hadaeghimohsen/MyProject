@@ -2888,5 +2888,33 @@ namespace System.Scsc.Ui.Common
                Execute_Query();
          }
       }
+
+      private void CellPhon_Lsbx_SelectedIndexChanged(object sender, EventArgs e)
+      {
+         try
+         {
+            vSmsdBs.DataSource = iScsc.V_Smsd_Message_Boxes.Where(s => s.PHON_NUMB == CellPhon_Lsbx.Text);
+            vSmslBs.List.Clear();
+         }
+         catch (Exception exc)
+         {
+            iScsc.SaveException(exc);
+         }
+      }
+
+      private void vSmsdBs_CurrentChanged(object sender, EventArgs e)
+      {
+         try
+         {
+            var vsmsd = vSmsdBs.Current as Data.V_Smsd_Message_Box;
+            if (vsmsd == null) return;
+
+            vSmslBs.DataSource = iScsc.V_Sms_Message_Boxes.Where(s => s.PHON_NUMB == CellPhon_Lsbx.Text && s.ACTN_DATE.Value.Date == vsmsd.ACTN_DATE);
+         }
+         catch (Exception exc)
+         {
+            iScsc.SaveException(exc);
+         }
+      }
    }
 }

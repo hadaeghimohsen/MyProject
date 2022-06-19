@@ -519,6 +519,9 @@ namespace System.Scsc.Code
             case 163:
                Aop_Gimp_F(job);
                break;
+            case 164:
+               Opt_Mesg_F(job);
+               break;
             default:
                job.Status = StatusType.Failed;
                break;
@@ -855,6 +858,9 @@ namespace System.Scsc.Code
             //   break;
             case "MSGB_TOTL_F":
                _Msgb_Totl_F.SendRequest(job);
+               break;
+            case "OPT_MESG_F":
+               _Opt_Mesg_F.SendRequest(job);
                break;
             case "DEBT_LIST_F":
                _Debt_List_F.SendRequest(job);

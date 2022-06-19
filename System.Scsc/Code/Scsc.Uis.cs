@@ -121,6 +121,7 @@ namespace System.Scsc.Code
       //internal Ui.OtherIncome.OIC_SMSN_F _Oic_Smsn_F { get; set; }
       //internal Ui.Notifications.CHOS_CLAS_F _Chos_Clas_F { get; set; }
       internal Ui.MessageBroadcast.MSGB_TOTL_F _Msgb_Totl_F { get; set; }
+      internal Ui.MessageBroadcast.OPT_MESG_F _Opt_Mesg_F { get; set; }
       internal Ui.DebitsList.DEBT_LIST_F _Debt_List_F { get; set; }
       internal Ui.BodyFitness.BDF_PROS_F _Bdf_Pros_F { get; set; }
       internal Ui.BodyFitness.BSC_BMOV_F _Bsc_Bmov_F { get; set; }

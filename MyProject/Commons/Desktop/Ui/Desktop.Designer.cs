@@ -30,31 +30,16 @@
       {
          this.components = new System.ComponentModel.Container();
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Desktop));
-         DevExpress.Utils.SuperToolTip superToolTip6 = new DevExpress.Utils.SuperToolTip();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem11 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.ToolTipItem toolTipItem6 = new DevExpress.Utils.ToolTipItem();
-         DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem6 = new DevExpress.Utils.ToolTipSeparatorItem();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem12 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.SuperToolTip superToolTip7 = new DevExpress.Utils.SuperToolTip();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem13 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.ToolTipItem toolTipItem7 = new DevExpress.Utils.ToolTipItem();
-         DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem7 = new DevExpress.Utils.ToolTipSeparatorItem();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem14 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.SuperToolTip superToolTip8 = new DevExpress.Utils.SuperToolTip();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem15 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.ToolTipItem toolTipItem8 = new DevExpress.Utils.ToolTipItem();
-         DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem8 = new DevExpress.Utils.ToolTipSeparatorItem();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem16 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.SuperToolTip superToolTip9 = new DevExpress.Utils.SuperToolTip();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem17 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.ToolTipItem toolTipItem9 = new DevExpress.Utils.ToolTipItem();
-         DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem9 = new DevExpress.Utils.ToolTipSeparatorItem();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem18 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.SuperToolTip superToolTip10 = new DevExpress.Utils.SuperToolTip();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem19 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.ToolTipItem toolTipItem10 = new DevExpress.Utils.ToolTipItem();
-         DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem10 = new DevExpress.Utils.ToolTipSeparatorItem();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem20 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem1 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.ToolTipItem toolTipItem1 = new DevExpress.Utils.ToolTipItem();
+         DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem1 = new DevExpress.Utils.ToolTipSeparatorItem();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem2 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.SuperToolTip superToolTip2 = new DevExpress.Utils.SuperToolTip();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem3 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.ToolTipItem toolTipItem2 = new DevExpress.Utils.ToolTipItem();
+         DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem2 = new DevExpress.Utils.ToolTipSeparatorItem();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem4 = new DevExpress.Utils.ToolTipTitleItem();
          this.FLP_Desktop = new System.Windows.Forms.FlowLayoutPanel();
          this.LNK_SecurityManagment = new System.Windows.Forms.LinkLabel();
          this.LNK_ServiceDefinition = new System.Windows.Forms.LinkLabel();
@@ -73,13 +58,9 @@
          this.LNK_GATECONTROL = new System.Windows.Forms.LinkLabel();
          this.panel1 = new System.Windows.Forms.Panel();
          this.AdjustDateTime_Butn = new DevExpress.XtraEditors.SimpleButton();
-         this.simpleButton5 = new DevExpress.XtraEditors.SimpleButton();
-         this.simpleButton4 = new DevExpress.XtraEditors.SimpleButton();
-         this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
          this.StartMenu_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.sb_startdrawer = new DevExpress.XtraEditors.SimpleButton();
          this.Tm_ShowTime = new System.Windows.Forms.Timer(this.components);
-         this.label1 = new System.Windows.Forms.Label();
          this.Cms_MainMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
          this.CrntUser_Tsm = new System.Windows.Forms.ToolStripMenuItem();
          this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripSeparator();
@@ -117,6 +98,7 @@
          this.پشتیبانگیریToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
          this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
          this.ارتباطباماToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+         this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
          this.FLP_Desktop.SuspendLayout();
          this.panel1.SuspendLayout();
          this.Cms_MainMenu.SuspendLayout();
@@ -144,10 +126,10 @@
          this.FLP_Desktop.Controls.Add(this.LNK_ROBOTECH);
          this.FLP_Desktop.Controls.Add(this.LNK_GATECONTROL);
          this.FLP_Desktop.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-         this.FLP_Desktop.Location = new System.Drawing.Point(0, 70);
+         this.FLP_Desktop.Location = new System.Drawing.Point(0, 52);
          this.FLP_Desktop.Name = "FLP_Desktop";
          this.FLP_Desktop.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-         this.FLP_Desktop.Size = new System.Drawing.Size(1005, 520);
+         this.FLP_Desktop.Size = new System.Drawing.Size(1005, 538);
          this.FLP_Desktop.TabIndex = 49;
          // 
          // LNK_SecurityManagment
@@ -415,11 +397,8 @@
          // 
          // panel1
          // 
-         this.panel1.BackColor = System.Drawing.Color.Silver;
+         this.panel1.BackColor = System.Drawing.Color.AliceBlue;
          this.panel1.Controls.Add(this.AdjustDateTime_Butn);
-         this.panel1.Controls.Add(this.simpleButton5);
-         this.panel1.Controls.Add(this.simpleButton4);
-         this.panel1.Controls.Add(this.simpleButton3);
          this.panel1.Controls.Add(this.StartMenu_Butn);
          this.panel1.Controls.Add(this.sb_startdrawer);
          this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -442,129 +421,27 @@
          this.AdjustDateTime_Butn.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
          this.AdjustDateTime_Butn.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat;
          this.AdjustDateTime_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.AdjustDateTime_Butn.Location = new System.Drawing.Point(47, 3);
+         this.AdjustDateTime_Butn.Location = new System.Drawing.Point(3, 4);
          this.AdjustDateTime_Butn.LookAndFeel.SkinName = "Office 2010 Blue";
          this.AdjustDateTime_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.AdjustDateTime_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.AdjustDateTime_Butn.Name = "AdjustDateTime_Butn";
          this.AdjustDateTime_Butn.Size = new System.Drawing.Size(88, 49);
-         toolTipTitleItem11.Text = "کاربر گرامی";
-         toolTipItem6.LeftIndent = 6;
-         toolTipItem6.Text = "برای خروج از محیط کاربری خود و وارد شدن به محیط کاربری دیگر بدون باز و بسته کردن " +
+         toolTipTitleItem1.Text = "کاربر گرامی";
+         toolTipItem1.LeftIndent = 6;
+         toolTipItem1.Text = "برای خروج از محیط کاربری خود و وارد شدن به محیط کاربری دیگر بدون باز و بسته کردن " +
     "نرم افزار برای سرعت عمل بیشتر می توانید از این دکمه برای ورود مجدد استفاده کنید";
-         toolTipTitleItem12.LeftIndent = 6;
-         toolTipTitleItem12.Text = "تغییر مد کاربری";
-         superToolTip6.Items.Add(toolTipTitleItem11);
-         superToolTip6.Items.Add(toolTipItem6);
-         superToolTip6.Items.Add(toolTipSeparatorItem6);
-         superToolTip6.Items.Add(toolTipTitleItem12);
-         this.AdjustDateTime_Butn.SuperTip = superToolTip6;
+         toolTipTitleItem2.LeftIndent = 6;
+         toolTipTitleItem2.Text = "تغییر مد کاربری";
+         superToolTip1.Items.Add(toolTipTitleItem1);
+         superToolTip1.Items.Add(toolTipItem1);
+         superToolTip1.Items.Add(toolTipSeparatorItem1);
+         superToolTip1.Items.Add(toolTipTitleItem2);
+         this.AdjustDateTime_Butn.SuperTip = superToolTip1;
          this.AdjustDateTime_Butn.TabIndex = 3;
          this.AdjustDateTime_Butn.Tag = "1";
          this.AdjustDateTime_Butn.Text = "15:53 pm\r\n1396/02/03";
          this.AdjustDateTime_Butn.Click += new System.EventHandler(this.AdjustDateTime_Butn_Click);
-         // 
-         // simpleButton5
-         // 
-         this.simpleButton5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-         this.simpleButton5.Appearance.BackColor = System.Drawing.Color.Transparent;
-         this.simpleButton5.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.simpleButton5.Appearance.ForeColor = System.Drawing.Color.Blue;
-         this.simpleButton5.Appearance.Options.UseBackColor = true;
-         this.simpleButton5.Appearance.Options.UseFont = true;
-         this.simpleButton5.Appearance.Options.UseForeColor = true;
-         this.simpleButton5.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat;
-         this.simpleButton5.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton5.Image")));
-         this.simpleButton5.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter;
-         this.simpleButton5.Location = new System.Drawing.Point(185, 3);
-         this.simpleButton5.LookAndFeel.SkinName = "Office 2010 Blue";
-         this.simpleButton5.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.simpleButton5.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.simpleButton5.Name = "simpleButton5";
-         this.simpleButton5.Size = new System.Drawing.Size(38, 49);
-         toolTipTitleItem13.Text = "کاربر گرامی";
-         toolTipItem7.LeftIndent = 6;
-         toolTipItem7.Text = "برای خروج از محیط کاربری خود و وارد شدن به محیط کاربری دیگر بدون باز و بسته کردن " +
-    "نرم افزار برای سرعت عمل بیشتر می توانید از این دکمه برای ورود مجدد استفاده کنید";
-         toolTipTitleItem14.LeftIndent = 6;
-         toolTipTitleItem14.Text = "تغییر مد کاربری";
-         superToolTip7.Items.Add(toolTipTitleItem13);
-         superToolTip7.Items.Add(toolTipItem7);
-         superToolTip7.Items.Add(toolTipSeparatorItem7);
-         superToolTip7.Items.Add(toolTipTitleItem14);
-         this.simpleButton5.SuperTip = superToolTip7;
-         this.simpleButton5.TabIndex = 3;
-         this.simpleButton5.Tag = "1";
-         this.simpleButton5.Text = "*";
-         // 
-         // simpleButton4
-         // 
-         this.simpleButton4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-         this.simpleButton4.Appearance.BackColor = System.Drawing.Color.Transparent;
-         this.simpleButton4.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.simpleButton4.Appearance.ForeColor = System.Drawing.Color.Blue;
-         this.simpleButton4.Appearance.Options.UseBackColor = true;
-         this.simpleButton4.Appearance.Options.UseFont = true;
-         this.simpleButton4.Appearance.Options.UseForeColor = true;
-         this.simpleButton4.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat;
-         this.simpleButton4.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton4.Image")));
-         this.simpleButton4.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter;
-         this.simpleButton4.Location = new System.Drawing.Point(141, 3);
-         this.simpleButton4.LookAndFeel.SkinName = "Office 2010 Blue";
-         this.simpleButton4.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.simpleButton4.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.simpleButton4.Name = "simpleButton4";
-         this.simpleButton4.Size = new System.Drawing.Size(38, 49);
-         toolTipTitleItem15.Text = "کاربر گرامی";
-         toolTipItem8.LeftIndent = 6;
-         toolTipItem8.Text = "برای خروج از محیط کاربری خود و وارد شدن به محیط کاربری دیگر بدون باز و بسته کردن " +
-    "نرم افزار برای سرعت عمل بیشتر می توانید از این دکمه برای ورود مجدد استفاده کنید";
-         toolTipTitleItem16.LeftIndent = 6;
-         toolTipTitleItem16.Text = "تغییر مد کاربری";
-         superToolTip8.Items.Add(toolTipTitleItem15);
-         superToolTip8.Items.Add(toolTipItem8);
-         superToolTip8.Items.Add(toolTipSeparatorItem8);
-         superToolTip8.Items.Add(toolTipTitleItem16);
-         this.simpleButton4.SuperTip = superToolTip8;
-         this.simpleButton4.TabIndex = 3;
-         this.simpleButton4.Tag = "1";
-         this.simpleButton4.Text = "2";
-         // 
-         // simpleButton3
-         // 
-         this.simpleButton3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-         this.simpleButton3.Appearance.BackColor = System.Drawing.Color.Transparent;
-         this.simpleButton3.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.simpleButton3.Appearance.ForeColor = System.Drawing.Color.Blue;
-         this.simpleButton3.Appearance.Options.UseBackColor = true;
-         this.simpleButton3.Appearance.Options.UseFont = true;
-         this.simpleButton3.Appearance.Options.UseForeColor = true;
-         this.simpleButton3.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat;
-         this.simpleButton3.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton3.Image")));
-         this.simpleButton3.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter;
-         this.simpleButton3.Location = new System.Drawing.Point(3, 3);
-         this.simpleButton3.LookAndFeel.SkinName = "Office 2010 Blue";
-         this.simpleButton3.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.simpleButton3.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.simpleButton3.Name = "simpleButton3";
-         this.simpleButton3.Size = new System.Drawing.Size(38, 49);
-         toolTipTitleItem17.Text = "کاربر گرامی";
-         toolTipItem9.LeftIndent = 6;
-         toolTipItem9.Text = "برای خروج از محیط کاربری خود و وارد شدن به محیط کاربری دیگر بدون باز و بسته کردن " +
-    "نرم افزار برای سرعت عمل بیشتر می توانید از این دکمه برای ورود مجدد استفاده کنید";
-         toolTipTitleItem18.LeftIndent = 6;
-         toolTipTitleItem18.Text = "تغییر مد کاربری";
-         superToolTip9.Items.Add(toolTipTitleItem17);
-         superToolTip9.Items.Add(toolTipItem9);
-         superToolTip9.Items.Add(toolTipSeparatorItem9);
-         superToolTip9.Items.Add(toolTipTitleItem18);
-         this.simpleButton3.SuperTip = superToolTip9;
-         this.simpleButton3.TabIndex = 3;
-         this.simpleButton3.Tag = "1";
-         this.simpleButton3.Text = "12";
          // 
          // StartMenu_Butn
          // 
@@ -577,25 +454,25 @@
          this.StartMenu_Butn.Appearance.Options.UseFont = true;
          this.StartMenu_Butn.Appearance.Options.UseForeColor = true;
          this.StartMenu_Butn.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat;
-         this.StartMenu_Butn.Image = ((System.Drawing.Image)(resources.GetObject("StartMenu_Butn.Image")));
-         this.StartMenu_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.BottomCenter;
-         this.StartMenu_Butn.Location = new System.Drawing.Point(934, 3);
+         this.StartMenu_Butn.Image = global::MyProject.Properties.Resources.IMAGE_1757;
+         this.StartMenu_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+         this.StartMenu_Butn.Location = new System.Drawing.Point(953, 3);
          this.StartMenu_Butn.LookAndFeel.SkinName = "Office 2010 Blue";
          this.StartMenu_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.StartMenu_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.StartMenu_Butn.Name = "StartMenu_Butn";
-         this.StartMenu_Butn.Size = new System.Drawing.Size(54, 49);
-         toolTipTitleItem19.Text = "کاربر گرامی";
-         toolTipItem10.LeftIndent = 6;
-         toolTipItem10.Text = "برای خروج از محیط کاربری خود و وارد شدن به محیط کاربری دیگر بدون باز و بسته کردن " +
+         this.StartMenu_Butn.Size = new System.Drawing.Size(49, 49);
+         toolTipTitleItem3.Text = "کاربر گرامی";
+         toolTipItem2.LeftIndent = 6;
+         toolTipItem2.Text = "برای خروج از محیط کاربری خود و وارد شدن به محیط کاربری دیگر بدون باز و بسته کردن " +
     "نرم افزار برای سرعت عمل بیشتر می توانید از این دکمه برای ورود مجدد استفاده کنید";
-         toolTipTitleItem20.LeftIndent = 6;
-         toolTipTitleItem20.Text = "تغییر مد کاربری";
-         superToolTip10.Items.Add(toolTipTitleItem19);
-         superToolTip10.Items.Add(toolTipItem10);
-         superToolTip10.Items.Add(toolTipSeparatorItem10);
-         superToolTip10.Items.Add(toolTipTitleItem20);
-         this.StartMenu_Butn.SuperTip = superToolTip10;
+         toolTipTitleItem4.LeftIndent = 6;
+         toolTipTitleItem4.Text = "تغییر مد کاربری";
+         superToolTip2.Items.Add(toolTipTitleItem3);
+         superToolTip2.Items.Add(toolTipItem2);
+         superToolTip2.Items.Add(toolTipSeparatorItem2);
+         superToolTip2.Items.Add(toolTipTitleItem4);
+         this.StartMenu_Butn.SuperTip = superToolTip2;
          this.StartMenu_Butn.TabIndex = 3;
          this.StartMenu_Butn.Tag = "1";
          this.StartMenu_Butn.Click += new System.EventHandler(this.StartMenu_Butn_Click);
@@ -611,14 +488,16 @@
          this.sb_startdrawer.Appearance.Options.UseFont = true;
          this.sb_startdrawer.Appearance.Options.UseForeColor = true;
          this.sb_startdrawer.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
+         this.sb_startdrawer.Enabled = false;
          this.sb_startdrawer.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.sb_startdrawer.Location = new System.Drawing.Point(990, 3);
+         this.sb_startdrawer.Location = new System.Drawing.Point(997, 3);
          this.sb_startdrawer.LookAndFeel.SkinName = "Office 2010 Silver";
          this.sb_startdrawer.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.sb_startdrawer.LookAndFeel.UseDefaultLookAndFeel = false;
          this.sb_startdrawer.Name = "sb_startdrawer";
-         this.sb_startdrawer.Size = new System.Drawing.Size(12, 50);
+         this.sb_startdrawer.Size = new System.Drawing.Size(5, 50);
          this.sb_startdrawer.TabIndex = 3;
+         this.sb_startdrawer.Visible = false;
          this.sb_startdrawer.Click += new System.EventHandler(this.sb_startdrawer_Click);
          // 
          // Tm_ShowTime
@@ -626,18 +505,6 @@
          this.Tm_ShowTime.Enabled = true;
          this.Tm_ShowTime.Interval = 1000;
          this.Tm_ShowTime.Tick += new System.EventHandler(this.Tm_ShowTime_Tick);
-         // 
-         // label1
-         // 
-         this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.label1.Font = new System.Drawing.Font("B Koodak", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.label1.Image = ((System.Drawing.Image)(resources.GetObject("label1.Image")));
-         this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-         this.label1.Location = new System.Drawing.Point(654, 10);
-         this.label1.Name = "label1";
-         this.label1.Size = new System.Drawing.Size(347, 47);
-         this.label1.TabIndex = 45;
-         this.label1.Text = "سیستم یکپارچه نرم افزاری انار";
          // 
          // Cms_MainMenu
          // 
@@ -924,15 +791,30 @@
          this.ارتباطباماToolStripMenuItem.Size = new System.Drawing.Size(220, 66);
          this.ارتباطباماToolStripMenuItem.Text = "ارتباط با ما";
          // 
+         // labelControl1
+         // 
+         this.labelControl1.Appearance.BackColor = System.Drawing.SystemColors.Control;
+         this.labelControl1.Appearance.Font = new System.Drawing.Font("Segoe UI Light", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.labelControl1.Appearance.Image = global::MyProject.Properties.Resources.IMAGE_1757;
+         this.labelControl1.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+         this.labelControl1.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+         this.labelControl1.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+         this.labelControl1.Dock = System.Windows.Forms.DockStyle.Top;
+         this.labelControl1.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+         this.labelControl1.Location = new System.Drawing.Point(0, 0);
+         this.labelControl1.Name = "labelControl1";
+         this.labelControl1.Size = new System.Drawing.Size(1005, 53);
+         this.labelControl1.TabIndex = 4;
+         this.labelControl1.Text = "RelaySoft";
+         // 
          // Desktop
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
          this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-         this.BackColor = System.Drawing.SystemColors.Control;
          this.ContextMenuStrip = this.Cms_MainMenu;
+         this.Controls.Add(this.labelControl1);
          this.Controls.Add(this.FLP_Desktop);
          this.Controls.Add(this.panel1);
-         this.Controls.Add(this.label1);
          this.Name = "Desktop";
          this.Size = new System.Drawing.Size(1005, 645);
          this.FLP_Desktop.ResumeLayout(false);
@@ -944,7 +826,6 @@
 
       #endregion
 
-      private System.Windows.Forms.Label label1;
       private System.Windows.Forms.FlowLayoutPanel FLP_Desktop;
       private System.Windows.Forms.LinkLabel LNK_SecurityManagment;
       private System.Windows.Forms.LinkLabel LNK_ServiceDefinition;
@@ -964,9 +845,6 @@
       private DevExpress.XtraEditors.SimpleButton StartMenu_Butn;
       private System.Windows.Forms.Panel panel1;
       private DevExpress.XtraEditors.SimpleButton AdjustDateTime_Butn;
-      private DevExpress.XtraEditors.SimpleButton simpleButton3;
-      private DevExpress.XtraEditors.SimpleButton simpleButton4;
-      private DevExpress.XtraEditors.SimpleButton simpleButton5;
       private System.Windows.Forms.Timer Tm_ShowTime;
       private System.Windows.Forms.ContextMenuStrip Cms_MainMenu;
       private System.Windows.Forms.ToolStripMenuItem CrntUser_Tsm;
@@ -1006,5 +884,6 @@
       private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
       private System.Windows.Forms.ToolStripMenuItem ارتباطباماToolStripMenuItem;
       private System.Windows.Forms.LinkLabel LNK_GATECONTROL;
+      private DevExpress.XtraEditors.LabelControl labelControl1;
    }
 }

@@ -5621,8 +5621,6 @@
          // 
          this.FrstLastCellRqur_Cbx.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.FrstLastCellRqur_Cbx.AutoSize = true;
-         this.FrstLastCellRqur_Cbx.Checked = true;
-         this.FrstLastCellRqur_Cbx.CheckState = System.Windows.Forms.CheckState.Checked;
          this.FrstLastCellRqur_Cbx.Location = new System.Drawing.Point(58, 54);
          this.FrstLastCellRqur_Cbx.Name = "FrstLastCellRqur_Cbx";
          this.FrstLastCellRqur_Cbx.Size = new System.Drawing.Size(292, 17);
@@ -5704,10 +5702,10 @@
          // Evnt_Lbx
          // 
          this.Evnt_Lbx.Dock = System.Windows.Forms.DockStyle.Fill;
-         this.Evnt_Lbx.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.Evnt_Lbx.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.Evnt_Lbx.FormattingEnabled = true;
          this.Evnt_Lbx.HorizontalScrollbar = true;
-         this.Evnt_Lbx.ItemHeight = 18;
+         this.Evnt_Lbx.ItemHeight = 16;
          this.Evnt_Lbx.Location = new System.Drawing.Point(0, 0);
          this.Evnt_Lbx.Name = "Evnt_Lbx";
          this.Evnt_Lbx.ScrollAlwaysVisible = true;

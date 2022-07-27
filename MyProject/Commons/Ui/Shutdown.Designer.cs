@@ -29,18 +29,18 @@
       private void InitializeComponent()
       {
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Shutdown));
-         DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem1 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.ToolTipItem toolTipItem1 = new DevExpress.Utils.ToolTipItem();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem2 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.SuperToolTip superToolTip2 = new DevExpress.Utils.SuperToolTip();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem3 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.ToolTipItem toolTipItem2 = new DevExpress.Utils.ToolTipItem();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem4 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.SuperToolTip superToolTip3 = new DevExpress.Utils.SuperToolTip();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem5 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.ToolTipItem toolTipItem3 = new DevExpress.Utils.ToolTipItem();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem6 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.SuperToolTip superToolTip4 = new DevExpress.Utils.SuperToolTip();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem7 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.ToolTipItem toolTipItem4 = new DevExpress.Utils.ToolTipItem();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem8 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.SuperToolTip superToolTip5 = new DevExpress.Utils.SuperToolTip();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem9 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.ToolTipItem toolTipItem5 = new DevExpress.Utils.ToolTipItem();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem10 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.SuperToolTip superToolTip6 = new DevExpress.Utils.SuperToolTip();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem11 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.ToolTipItem toolTipItem6 = new DevExpress.Utils.ToolTipItem();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem12 = new DevExpress.Utils.ToolTipTitleItem();
          this.Backup_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.Logout_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.Shutdown_Butn = new DevExpress.XtraEditors.SimpleButton();
@@ -66,25 +66,25 @@
          this.Backup_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.Backup_Butn.Name = "Backup_Butn";
          this.Backup_Butn.Size = new System.Drawing.Size(94, 90);
-         toolTipTitleItem1.Appearance.Image = global::MyProject.Properties.Resources.IMAGE_1221;
-         toolTipTitleItem1.Appearance.Options.UseImage = true;
-         toolTipTitleItem1.Image = global::MyProject.Properties.Resources.IMAGE_1221;
-         toolTipTitleItem1.Text = "پشتیبان گیری";
-         toolTipItem1.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
-         toolTipItem1.Appearance.Options.UseImage = true;
-         toolTipItem1.Image = ((System.Drawing.Image)(resources.GetObject("toolTipItem1.Image")));
-         toolTipItem1.LeftIndent = 6;
-         toolTipItem1.Text = "بعد از اتمام ساعت کار روزانه برای سازمان بهتر است یک نسخه از آخرین اطلاعات را گرف" +
+         toolTipTitleItem7.Appearance.Image = global::MyProject.Properties.Resources.IMAGE_1221;
+         toolTipTitleItem7.Appearance.Options.UseImage = true;
+         toolTipTitleItem7.Image = global::MyProject.Properties.Resources.IMAGE_1221;
+         toolTipTitleItem7.Text = "پشتیبان گیری";
+         toolTipItem4.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
+         toolTipItem4.Appearance.Options.UseImage = true;
+         toolTipItem4.Image = ((System.Drawing.Image)(resources.GetObject("toolTipItem4.Image")));
+         toolTipItem4.LeftIndent = 6;
+         toolTipItem4.Text = "بعد از اتمام ساعت کار روزانه برای سازمان بهتر است یک نسخه از آخرین اطلاعات را گرف" +
     "ته و درون درایو دیگر ذخیره کنید";
-         toolTipTitleItem2.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image1")));
-         toolTipTitleItem2.Appearance.Options.UseImage = true;
-         toolTipTitleItem2.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem2.Image")));
-         toolTipTitleItem2.LeftIndent = 6;
-         toolTipTitleItem2.Text = "واحد پشتیبانی و امنیت و حفاظت اطلاعات";
-         superToolTip1.Items.Add(toolTipTitleItem1);
-         superToolTip1.Items.Add(toolTipItem1);
-         superToolTip1.Items.Add(toolTipTitleItem2);
-         this.Backup_Butn.SuperTip = superToolTip1;
+         toolTipTitleItem8.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image1")));
+         toolTipTitleItem8.Appearance.Options.UseImage = true;
+         toolTipTitleItem8.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem8.Image")));
+         toolTipTitleItem8.LeftIndent = 6;
+         toolTipTitleItem8.Text = "واحد پشتیبانی و امنیت و حفاظت اطلاعات";
+         superToolTip4.Items.Add(toolTipTitleItem7);
+         superToolTip4.Items.Add(toolTipItem4);
+         superToolTip4.Items.Add(toolTipTitleItem8);
+         this.Backup_Butn.SuperTip = superToolTip4;
          this.Backup_Butn.TabIndex = 6;
          this.Backup_Butn.Click += new System.EventHandler(this.Backup_Butn_Click);
          // 
@@ -105,23 +105,23 @@
          this.Logout_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.Logout_Butn.Name = "Logout_Butn";
          this.Logout_Butn.Size = new System.Drawing.Size(94, 90);
-         toolTipTitleItem3.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image2")));
-         toolTipTitleItem3.Appearance.Options.UseImage = true;
-         toolTipTitleItem3.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem3.Image")));
-         toolTipTitleItem3.Text = "خروج از حساب کاربری";
-         toolTipItem2.LeftIndent = 6;
-         toolTipItem2.Text = "برای خروج اضطراری شما می توانید از این دکمه استفاده کنید. موارد مورد نیاز مانند ا" +
+         toolTipTitleItem9.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image2")));
+         toolTipTitleItem9.Appearance.Options.UseImage = true;
+         toolTipTitleItem9.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem9.Image")));
+         toolTipTitleItem9.Text = "خروج از حساب کاربری";
+         toolTipItem5.LeftIndent = 6;
+         toolTipItem5.Text = "برای خروج اضطراری شما می توانید از این دکمه استفاده کنید. موارد مورد نیاز مانند ا" +
     "ین می باشد که بخواهید برای لحظه ای سیستم را رها کنید. یا بخواهید با کاربری متفاو" +
     "تی وارد شوید.";
-         toolTipTitleItem4.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image3")));
-         toolTipTitleItem4.Appearance.Options.UseImage = true;
-         toolTipTitleItem4.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem4.Image")));
-         toolTipTitleItem4.LeftIndent = 6;
-         toolTipTitleItem4.Text = "Logout\r\nCtrl + Backspace";
-         superToolTip2.Items.Add(toolTipTitleItem3);
-         superToolTip2.Items.Add(toolTipItem2);
-         superToolTip2.Items.Add(toolTipTitleItem4);
-         this.Logout_Butn.SuperTip = superToolTip2;
+         toolTipTitleItem10.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image3")));
+         toolTipTitleItem10.Appearance.Options.UseImage = true;
+         toolTipTitleItem10.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem10.Image")));
+         toolTipTitleItem10.LeftIndent = 6;
+         toolTipTitleItem10.Text = "Logout\r\nCtrl + Backspace";
+         superToolTip5.Items.Add(toolTipTitleItem9);
+         superToolTip5.Items.Add(toolTipItem5);
+         superToolTip5.Items.Add(toolTipTitleItem10);
+         this.Logout_Butn.SuperTip = superToolTip5;
          this.Logout_Butn.TabIndex = 6;
          this.Logout_Butn.Click += new System.EventHandler(this.Logout_Butn_Click);
          // 
@@ -142,37 +142,40 @@
          this.Shutdown_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.Shutdown_Butn.Name = "Shutdown_Butn";
          this.Shutdown_Butn.Size = new System.Drawing.Size(94, 90);
-         toolTipTitleItem5.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image4")));
-         toolTipTitleItem5.Appearance.Options.UseImage = true;
-         toolTipTitleItem5.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem5.Image")));
-         toolTipTitleItem5.Text = "خروج از نرم افزار انار";
-         toolTipItem3.LeftIndent = 6;
-         toolTipItem3.Text = "برای اینکه نرم افزار را ببندید و به فعالیت خود در نرم افزار خاتمه دهید می توانید " +
+         toolTipTitleItem11.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image4")));
+         toolTipTitleItem11.Appearance.Options.UseImage = true;
+         toolTipTitleItem11.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem11.Image")));
+         toolTipTitleItem11.Text = "خروج از نرم افزار انار";
+         toolTipItem6.LeftIndent = 6;
+         toolTipItem6.Text = "برای اینکه نرم افزار را ببندید و به فعالیت خود در نرم افزار خاتمه دهید می توانید " +
     "از این دکمه استفاد کنید.";
-         toolTipTitleItem6.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image5")));
-         toolTipTitleItem6.Appearance.Options.UseImage = true;
-         toolTipTitleItem6.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem6.Image")));
-         toolTipTitleItem6.LeftIndent = 6;
-         toolTipTitleItem6.Text = "Shutdown\r\nAlt + F4";
-         superToolTip3.Items.Add(toolTipTitleItem5);
-         superToolTip3.Items.Add(toolTipItem3);
-         superToolTip3.Items.Add(toolTipTitleItem6);
-         this.Shutdown_Butn.SuperTip = superToolTip3;
+         toolTipTitleItem12.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image5")));
+         toolTipTitleItem12.Appearance.Options.UseImage = true;
+         toolTipTitleItem12.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem12.Image")));
+         toolTipTitleItem12.LeftIndent = 6;
+         toolTipTitleItem12.Text = "Shutdown\r\nAlt + F4";
+         superToolTip6.Items.Add(toolTipTitleItem11);
+         superToolTip6.Items.Add(toolTipItem6);
+         superToolTip6.Items.Add(toolTipTitleItem12);
+         this.Shutdown_Butn.SuperTip = superToolTip6;
          this.Shutdown_Butn.TabIndex = 6;
          this.Shutdown_Butn.Click += new System.EventHandler(this.Shutdown_Butn_Click);
          // 
          // labelControl1
          // 
          this.labelControl1.Anchor = System.Windows.Forms.AnchorStyles.None;
-         this.labelControl1.Appearance.Font = new System.Drawing.Font("B Koodak", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.labelControl1.Appearance.ForeColor = System.Drawing.Color.Brown;
-         this.labelControl1.Appearance.Image = global::MyProject.Properties.Resources.IMAGE_1619;
-         this.labelControl1.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+         this.labelControl1.Appearance.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.labelControl1.Appearance.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+         this.labelControl1.Appearance.Image = global::MyProject.Properties.Resources.IMAGE_1758;
+         this.labelControl1.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+         this.labelControl1.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Top;
          this.labelControl1.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+         this.labelControl1.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.TopCenter;
          this.labelControl1.Location = new System.Drawing.Point(241, 69);
          this.labelControl1.Name = "labelControl1";
          this.labelControl1.Size = new System.Drawing.Size(256, 258);
          this.labelControl1.TabIndex = 8;
+         this.labelControl1.Text = "RelaySoft";
          // 
          // labelControl2
          // 

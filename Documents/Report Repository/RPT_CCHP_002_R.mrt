@@ -12,7 +12,7 @@
     <DataSources isList="true" count="1">
       <VF_x0024_Coach_Payment Ref="3" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
         <Alias>VF$Coach_Payment</Alias>
-        <Columns isList="true" count="16">
+        <Columns isList="true" count="19">
           <value>NAME_DNRM,System.String</value>
           <value>MTOD_DESC,System.String</value>
           <value>CTGY_DESC,System.String</value>
@@ -29,6 +29,9 @@
           <value>MBSP_RWNO,System.Int16</value>
           <value>MBSP_STRT_DATE,System.String</value>
           <value>MBSP_END_DATE,System.String</value>
+          <value>DEBT_DNRM,System.Int64</value>
+          <value>MBSP_TOTL_NUMB_ATTN,System.Int32</value>
+          <value>MBSP_CONT_NUMB_ATTN,System.Int32</value>
         </Columns>
         <CommandTimeout>30</CommandTimeout>
         <Dictionary isRef="1" />
@@ -52,7 +55,7 @@
       <Brush>Transparent</Brush>
       <ColumnGaps>0.1</ColumnGaps>
       <Columns>1</Columns>
-      <Components isList="true" count="7">
+      <Components isList="true" count="9">
         <PageHeaderBand1 Ref="5" type="PageHeaderBand" isKey="true">
           <Brush>[210:234:240]</Brush>
           <ClientRectangle>0,0.4,19,1.2</ClientRectangle>
@@ -273,7 +276,7 @@
               <Brush>[214:224:236]</Brush>
               <ClientRectangle>16.8,0,2.2,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>Tahoma,9,Bold</Font>
+              <Font>B Koodak,9,Bold</Font>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>HeaderVF_Coach_Payment_NAME_DNRM</Name>
@@ -291,7 +294,7 @@
               <CanGrow>True</CanGrow>
               <ClientRectangle>0,0,16.8,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>Tahoma,9</Font>
+              <Font>B Koodak,9,Bold</Font>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>DataVF_Coach_Payment_NAME_DNRM</Name>
@@ -312,13 +315,13 @@
         <MTOD_HEDR_GROP Ref="20" type="GroupHeaderBand" isKey="true">
           <Brush>Transparent</Brush>
           <ClientRectangle>0,4,19,1.6</ClientRectangle>
-          <Components isList="true" count="11">
+          <Components isList="true" count="13">
             <HeaderVF_Coach_Payment_MTOD_DESC Ref="21" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[214:224:236]</Brush>
               <ClientRectangle>16.8,0,2.2,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>Tahoma,9,Bold</Font>
+              <Font>B Koodak,9,Bold</Font>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>HeaderVF_Coach_Payment_MTOD_DESC</Name>
@@ -332,11 +335,11 @@
             </HeaderVF_Coach_Payment_MTOD_DESC>
             <DataVF_Coach_Payment_MTOD_DESC Ref="22" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
-              <Brush>[252:230:212]</Brush>
+              <Brush>[255:192:192]</Brush>
               <CanGrow>True</CanGrow>
               <ClientRectangle>0,0,16.8,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>Tahoma,9</Font>
+              <Font>B Koodak,9,Bold</Font>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>DataVF_Coach_Payment_MTOD_DESC</Name>
@@ -352,7 +355,7 @@
               <Brush>[214:224:236]</Brush>
               <ClientRectangle>16.8,0.8,2.2,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>Tahoma,9,Bold</Font>
+              <Font>B Koodak,9,Bold</Font>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>HeaderVF_Coach_Payment_CTGY_DESC</Name>
@@ -367,15 +370,15 @@
             <HeaderVF_Coach_Payment_SUM_RCPT_EXPN_PRIC Ref="24" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[214:224:236]</Brush>
-              <ClientRectangle>3.2,0.8,2.2,0.8</ClientRectangle>
+              <ClientRectangle>2,0.8,2.2,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>Tahoma,9,Bold</Font>
+              <Font>B Koodak,9,Bold</Font>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>HeaderVF_Coach_Payment_SUM_RCPT_EXPN_PRIC</Name>
               <Page isRef="4" />
               <Parent isRef="20" />
-              <Text>مبلغ</Text>
+              <Text>مبلغ پرداختی</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <Type>Expression</Type>
@@ -384,16 +387,16 @@
             <Text3 Ref="25" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[214:224:236]</Brush>
-              <ClientRectangle>5.4,0.8,1.2,0.8</ClientRectangle>
+              <ClientRectangle>11.2,0.8,0.6,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>Tahoma,8</Font>
+              <Font>B Koodak,8</Font>
               <Guid>908aa634e85a4fb0aa59a84ee1308c21</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text3</Name>
               <Page isRef="4" />
               <Parent isRef="20" />
-              <Text>ردیف اصلاحات</Text>
+              <Text>#</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <Type>Expression</Type>
@@ -402,9 +405,9 @@
             <Text13 Ref="26" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[214:224:236]</Brush>
-              <ClientRectangle>0,0.8,2.2,0.8</ClientRectangle>
+              <ClientRectangle>0,0.8,1.6,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>Tahoma,9,Bold</Font>
+              <Font>B Koodak,9,Bold</Font>
               <Guid>013d34c816304725bb03c150888f6896</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
@@ -420,16 +423,16 @@
             <Text14 Ref="27" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[214:224:236]</Brush>
-              <ClientRectangle>2.2,0.8,1,0.8</ClientRectangle>
+              <ClientRectangle>1.6,0.8,0.4,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>Tahoma,9,Bold</Font>
+              <Font>B Titr,9,Bold</Font>
               <Guid>4ecdba2775d54c97b60f18ce0191fb6e</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text14</Name>
               <Page isRef="4" />
               <Parent isRef="20" />
-              <Text>درصد</Text>
+              <Text>%</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <Type>Expression</Type>
@@ -438,9 +441,9 @@
             <Text27 Ref="28" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[214:224:236]</Brush>
-              <ClientRectangle>12.4,0.8,4.4,0.8</ClientRectangle>
+              <ClientRectangle>13.8,0.8,3,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>Tahoma,9,Bold</Font>
+              <Font>B Koodak,9,Bold</Font>
               <Guid>469f455065da45b39471bd8e7baa418a</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
@@ -456,9 +459,9 @@
             <Text28 Ref="29" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[214:224:236]</Brush>
-              <ClientRectangle>8.4,0.8,2,0.8</ClientRectangle>
+              <ClientRectangle>9.2,0.8,2,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>Tahoma,9,Bold</Font>
+              <Font>B Koodak,9,Bold</Font>
               <Guid>c77b34494d6d4bf884766ed187d40473</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
@@ -474,9 +477,9 @@
             <Text29 Ref="30" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[214:224:236]</Brush>
-              <ClientRectangle>6.6,0.8,1.8,0.8</ClientRectangle>
+              <ClientRectangle>7.4,0.8,1.8,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>Tahoma,9,Bold</Font>
+              <Font>B Koodak,9,Bold</Font>
               <Guid>6c507722b0e84b5c9410c4b8033eb6a0</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
@@ -492,9 +495,9 @@
             <Text33 Ref="31" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[214:224:236]</Brush>
-              <ClientRectangle>10.4,0.8,2,0.8</ClientRectangle>
+              <ClientRectangle>11.8,0.8,2,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>Tahoma,9,Bold</Font>
+              <Font>B Koodak,9,Bold</Font>
               <Guid>e9ca3e0b0ff841329920ef8f9a24cbdf</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
@@ -507,6 +510,42 @@
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text33>
+            <Text52 Ref="32" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[214:224:236]</Brush>
+              <ClientRectangle>4.2,0.8,2,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,9,Bold</Font>
+              <Guid>50381be351df49e7a4f2852bc0e5e5cb</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text52</Name>
+              <Page isRef="4" />
+              <Parent isRef="20" />
+              <Text>مبلغ بدهی</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text52>
+            <Text4 Ref="33" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[214:224:236]</Brush>
+              <ClientRectangle>6.2,0.8,1.2,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,8</Font>
+              <Guid>a5b420ac614d45f6a19d17d1c1a1ce96</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text4</Name>
+              <Page isRef="4" />
+              <Parent isRef="20" />
+              <Text># جلسات</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text4>
           </Components>
           <Condition>{VF_Coach_Payment.MTOD_DESC}</Condition>
           <Conditions isList="true" count="0" />
@@ -514,9 +553,9 @@
           <Page isRef="4" />
           <Parent isRef="4" />
         </MTOD_HEDR_GROP>
-        <CTGY_HEDR_GROP Ref="32" type="GroupHeaderBand" isKey="true">
+        <CTGY_HEDR_GROP Ref="34" type="GroupHeaderBand" isKey="true">
           <Brush>Transparent</Brush>
-          <ClientRectangle>0,6.4,19,0.8</ClientRectangle>
+          <ClientRectangle>0,6.4,19,0</ClientRectangle>
           <Components isList="true" count="0" />
           <Condition>{VF_Coach_Payment.CTGY_DESC}</Condition>
           <Conditions isList="true" count="0" />
@@ -525,43 +564,43 @@
           <Page isRef="4" />
           <Parent isRef="4" />
         </CTGY_HEDR_GROP>
-        <DataVF_x0024_Coach_Payment Ref="33" type="DataBand" isKey="true">
+        <DataVF_x0024_Coach_Payment Ref="35" type="DataBand" isKey="true">
           <Brush>Transparent</Brush>
           <BusinessObjectGuid isNull="true" />
-          <ClientRectangle>0,8,19,0.8</ClientRectangle>
-          <Components isList="true" count="9">
-            <DataVF_Coach_Payment_CTGY_DESC Ref="34" type="Text" isKey="true">
+          <ClientRectangle>0,7.2,19,0.8</ClientRectangle>
+          <Components isList="true" count="11">
+            <DataVF_Coach_Payment_CTGY_DESC Ref="36" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <ClientRectangle>16.8,0,2.2,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>Tahoma,9</Font>
+              <Font>B Koodak,9,Bold</Font>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>DataVF_Coach_Payment_CTGY_DESC</Name>
               <Page isRef="4" />
-              <Parent isRef="33" />
+              <Parent isRef="35" />
               <ProcessingDuplicates>Merge</ProcessingDuplicates>
               <ShrinkFontToFit>True</ShrinkFontToFit>
               <Text>{VF_Coach_Payment.CTGY_DESC}</Text>
               <TextBrush>Black</TextBrush>
               <VertAlignment>Center</VertAlignment>
             </DataVF_Coach_Payment_CTGY_DESC>
-            <DataVF_Coach_Payment_SUM_RCPT_EXPN_PRIC Ref="35" type="Text" isKey="true">
+            <DataVF_Coach_Payment_SUM_RCPT_EXPN_PRIC Ref="37" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>3.2,0,2.2,0.8</ClientRectangle>
+              <ClientRectangle>2,0,2.2,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>Tahoma,9</Font>
+              <Font>B Koodak,9</Font>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>DataVF_Coach_Payment_SUM_RCPT_EXPN_PRIC</Name>
               <Page isRef="4" />
-              <Parent isRef="33" />
+              <Parent isRef="35" />
               <ShrinkFontToFit>True</ShrinkFontToFit>
               <Text>{VF_Coach_Payment.SUM_RCPT_EXPN_PRIC}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="36" type="NumberFormat" isKey="true">
+              <TextFormat Ref="38" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>3</NegativePattern>
@@ -569,130 +608,172 @@
               </TextFormat>
               <VertAlignment>Center</VertAlignment>
             </DataVF_Coach_Payment_SUM_RCPT_EXPN_PRIC>
-            <Text16 Ref="37" type="Text" isKey="true">
+            <Text16 Ref="39" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>0,0,2.2,0.8</ClientRectangle>
+              <ClientRectangle>0,0,1.6,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>Tahoma,9,Bold</Font>
+              <Font>B Koodak,9,Bold</Font>
               <Guid>490ab461892f458ab94ef0412e7c16bf</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text16</Name>
               <Page isRef="4" />
-              <Parent isRef="33" />
+              <Parent isRef="35" />
               <ShrinkFontToFit>True</ShrinkFontToFit>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text16>
-            <Text17 Ref="38" type="Text" isKey="true">
+            <Text17 Ref="40" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>2.2,0,1,0.8</ClientRectangle>
+              <ClientRectangle>1.6,0,0.4,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>Tahoma,9,Bold</Font>
+              <Font>B Koodak,9,Bold</Font>
               <Guid>47532c3c857045d2a47ec691d66d1e3d</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text17</Name>
               <Page isRef="4" />
-              <Parent isRef="33" />
+              <Parent isRef="35" />
               <ShrinkFontToFit>True</ShrinkFontToFit>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text17>
-            <Text30 Ref="39" type="Text" isKey="true">
+            <Text30 Ref="41" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>12.4,0,4.4,0.8</ClientRectangle>
+              <ClientRectangle>13.8,0,3,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>Tahoma,9</Font>
+              <Font>B Koodak,9</Font>
               <Guid>411887532a6940c4b5687f3855c07c18</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text30</Name>
               <Page isRef="4" />
-              <Parent isRef="33" />
+              <Parent isRef="35" />
               <ShrinkFontToFit>True</ShrinkFontToFit>
               <Text>{VF_Coach_Payment.FIGH_NAME_DNRM}</Text>
               <TextBrush>Black</TextBrush>
               <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
             </Text30>
-            <Text31 Ref="40" type="Text" isKey="true">
+            <Text31 Ref="42" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>8.4,0,2,0.8</ClientRectangle>
+              <ClientRectangle>9.2,0,2,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>Tahoma,9</Font>
+              <Font>B Koodak,9</Font>
               <Guid>e8b057c9bbbd409ba0bc639052dd2345</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text31</Name>
               <Page isRef="4" />
-              <Parent isRef="33" />
+              <Parent isRef="35" />
               <ShrinkFontToFit>True</ShrinkFontToFit>
               <Text>{VF_Coach_Payment.MBSP_STRT_DATE}</Text>
               <TextBrush>Black</TextBrush>
               <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
             </Text31>
-            <Text32 Ref="41" type="Text" isKey="true">
+            <Text32 Ref="43" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>6.6,0,1.8,0.8</ClientRectangle>
+              <ClientRectangle>7.4,0,1.8,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>Tahoma,9</Font>
+              <Font>B Koodak,9</Font>
               <Guid>109289d55d69410abde699cd3f164801</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text32</Name>
               <Page isRef="4" />
-              <Parent isRef="33" />
+              <Parent isRef="35" />
               <ShrinkFontToFit>True</ShrinkFontToFit>
               <Text>{VF_Coach_Payment.MBSP_END_DATE}</Text>
               <TextBrush>Black</TextBrush>
               <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
             </Text32>
-            <Text34 Ref="42" type="Text" isKey="true">
+            <Text34 Ref="44" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>10.4,0,2,0.8</ClientRectangle>
+              <ClientRectangle>11.8,0,2,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>Tahoma,9</Font>
+              <Font>B Koodak,9</Font>
               <Guid>d2a3022139044f1699072d40ce0f2e3e</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text34</Name>
               <Page isRef="4" />
-              <Parent isRef="33" />
+              <Parent isRef="35" />
               <ShrinkFontToFit>True</ShrinkFontToFit>
               <Text>{VF_Coach_Payment.FNGR_PRNT_DNRM}</Text>
               <TextBrush>Black</TextBrush>
               <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
             </Text34>
-            <Text35 Ref="43" type="Text" isKey="true">
+            <Text35 Ref="45" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>5.4,0,1.2,0.8</ClientRectangle>
+              <ClientRectangle>11.2,0,0.6,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>Tahoma,9</Font>
+              <Font>B Koodak,9</Font>
               <Guid>454b91b17d4847fc8ed929e9d6e61113</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text35</Name>
               <Page isRef="4" />
-              <Parent isRef="33" />
+              <Parent isRef="35" />
               <ShrinkFontToFit>True</ShrinkFontToFit>
               <Text>{VF_Coach_Payment.MBSP_RWNO}</Text>
               <TextBrush>Black</TextBrush>
               <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
             </Text35>
+            <Text53 Ref="46" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[210:234:240]</Brush>
+              <ClientRectangle>4.2,0,2,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,9</Font>
+              <Guid>86ae264a31bf4d849b0ac3e6d9aa2ecf</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text53</Name>
+              <Page isRef="4" />
+              <Parent isRef="35" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{VF_Coach_Payment.DEBT_DNRM}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="47" type="NumberFormat" isKey="true">
+                <DecimalDigits>0</DecimalDigits>
+                <GroupSeparator>,</GroupSeparator>
+                <NegativePattern>3</NegativePattern>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <Type>DataColumn</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text53>
+            <Text18 Ref="48" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>6.2,0,1.2,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,9</Font>
+              <Guid>48a00b81680e4b33a12962468c3ad3bf</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text18</Name>
+              <Page isRef="4" />
+              <Parent isRef="35" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{VF_Coach_Payment.MBSP_CONT_NUMB_ATTN}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>DataColumn</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text18>
           </Components>
           <Conditions isList="true" count="0" />
           <DataRelationName isNull="true" />
@@ -706,150 +787,55 @@
             <value>MBSP_STRT_DATE</value>
           </Sort>
         </DataVF_x0024_Coach_Payment>
-        <CTGY_FOTR_GROP Ref="44" type="GroupFooterBand" isKey="true">
+        <CTGY_FOTR_GROP Ref="49" type="GroupFooterBand" isKey="true">
           <Brush>Transparent</Brush>
-          <ClientRectangle>0,9.6,19,0.8</ClientRectangle>
-          <Components isList="true" count="5">
-            <Text1 Ref="45" type="Text" isKey="true">
-              <Border>All;Black;1;Solid;False;4;Black</Border>
-              <Brush>Transparent</Brush>
-              <ClientRectangle>6.6,0,2.8,0.8</ClientRectangle>
-              <Conditions isList="true" count="0" />
-              <Font>Tahoma,9</Font>
-              <Guid>f3db36bc39c4457bae84ea5c8aa7e5ea</Guid>
-              <HorAlignment>Center</HorAlignment>
-              <Margins>0,0,0,0</Margins>
-              <Name>Text1</Name>
-              <Page isRef="4" />
-              <Parent isRef="44" />
-              <Text>{VF_Coach_Payment.CTGY_DESC}</Text>
-              <TextBrush>Black</TextBrush>
-              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
-              <Type>DataColumn</Type>
-              <VertAlignment>Center</VertAlignment>
-            </Text1>
-            <Text2 Ref="46" type="Text" isKey="true">
-              <Border>All;Black;1;Solid;False;4;Black</Border>
-              <Brush>Transparent</Brush>
-              <ClientRectangle>3.2,0,2.2,0.8</ClientRectangle>
-              <Conditions isList="true" count="0" />
-              <Font>Tahoma,9</Font>
-              <Guid>b0488d7b56934bb0b3cbe417c290121a</Guid>
-              <HorAlignment>Center</HorAlignment>
-              <Margins>0,0,0,0</Margins>
-              <Name>Text2</Name>
-              <Page isRef="4" />
-              <Parent isRef="44" />
-              <Text>{Sum(CTGY_HEDR_GROP,VF_Coach_Payment.SUM_RCPT_EXPN_PRIC)}</Text>
-              <TextBrush>Black</TextBrush>
-              <TextFormat Ref="47" type="NumberFormat" isKey="true">
-                <DecimalDigits>0</DecimalDigits>
-                <GroupSeparator>,</GroupSeparator>
-                <NegativePattern>3</NegativePattern>
-                <UseLocalSetting>False</UseLocalSetting>
-              </TextFormat>
-              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
-              <Type>Totals</Type>
-              <VertAlignment>Center</VertAlignment>
-            </Text2>
-            <Text4 Ref="48" type="Text" isKey="true">
-              <Border>All;Black;1;Solid;False;4;Black</Border>
-              <Brush>Transparent</Brush>
-              <ClientRectangle>5.4,0,1.2,0.8</ClientRectangle>
-              <Conditions isList="true" count="0" />
-              <Font>Tahoma,9</Font>
-              <Guid>670b13c78c204e7ca56cbf309a8f0803</Guid>
-              <HorAlignment>Center</HorAlignment>
-              <Margins>0,0,0,0</Margins>
-              <Name>Text4</Name>
-              <Page isRef="4" />
-              <Parent isRef="44" />
-              <Text>{Count(CTGY_HEDR_GROP)}</Text>
-              <TextBrush>Black</TextBrush>
-              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
-              <Type>Totals</Type>
-              <VertAlignment>Center</VertAlignment>
-            </Text4>
-            <Text18 Ref="49" type="Text" isKey="true">
-              <Border>All;Black;1;Solid;False;4;Black</Border>
-              <Brush>Transparent</Brush>
-              <ClientRectangle>0,0,2.2,0.8</ClientRectangle>
-              <Conditions isList="true" count="0" />
-              <Font>Tahoma,9,Bold</Font>
-              <Guid>2d7c25d9daea4b709c2c36bf573e899c</Guid>
-              <HorAlignment>Center</HorAlignment>
-              <Margins>0,0,0,0</Margins>
-              <Name>Text18</Name>
-              <Page isRef="4" />
-              <Parent isRef="44" />
-              <TextBrush>Black</TextBrush>
-              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
-              <Type>Expression</Type>
-              <VertAlignment>Center</VertAlignment>
-            </Text18>
-            <Text19 Ref="50" type="Text" isKey="true">
-              <Border>All;Black;1;Solid;False;4;Black</Border>
-              <Brush>Transparent</Brush>
-              <ClientRectangle>2.2,0,1,0.8</ClientRectangle>
-              <Conditions isList="true" count="0" />
-              <Font>Tahoma,9,Bold</Font>
-              <Guid>bd0b9cc6f71841fc835efef91be3ea1c</Guid>
-              <HorAlignment>Center</HorAlignment>
-              <Margins>0,0,0,0</Margins>
-              <Name>Text19</Name>
-              <Page isRef="4" />
-              <Parent isRef="44" />
-              <TextBrush>Black</TextBrush>
-              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
-              <Type>Expression</Type>
-              <VertAlignment>Center</VertAlignment>
-            </Text19>
-          </Components>
+          <ClientRectangle>0,8.8,19,0</ClientRectangle>
+          <Components isList="true" count="0" />
           <Conditions isList="true" count="0" />
           <Enabled>False</Enabled>
           <Name>CTGY_FOTR_GROP</Name>
           <Page isRef="4" />
           <Parent isRef="4" />
         </CTGY_FOTR_GROP>
-        <GroupFooterBand1 Ref="51" type="GroupFooterBand" isKey="true">
+        <GroupFooterBand1 Ref="50" type="GroupFooterBand" isKey="true">
           <Border>Top, Left, Bottom;Black;1;Solid;False;4;Black</Border>
-          <Brush>[250:206:170]</Brush>
-          <ClientRectangle>0,11.2,19,0.8</ClientRectangle>
-          <Components isList="true" count="6">
-            <Text5 Ref="52" type="Text" isKey="true">
+          <Brush>[255:192:192]</Brush>
+          <ClientRectangle>0,9.6,19,0.8</ClientRectangle>
+          <Components isList="true" count="10">
+            <Text5 Ref="51" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <CanGrow>True</CanGrow>
-              <ClientRectangle>5.4,0,1.2,0.8</ClientRectangle>
+              <ClientRectangle>7.4,0,1.8,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>Tahoma,9</Font>
+              <Font>B Koodak,9,Bold</Font>
               <Guid>aad5f8c8312444fd918c4003346d0e9b</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text5</Name>
               <Page isRef="4" />
-              <Parent isRef="51" />
-              <Text>جمع کل</Text>
+              <Parent isRef="50" />
+              <Text>جمع</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text5>
-            <Text6 Ref="53" type="Text" isKey="true">
+            <Text6 Ref="52" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>3.2,0,2.2,0.8</ClientRectangle>
+              <ClientRectangle>2,0,2.2,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>Tahoma,9</Font>
+              <Font>B Koodak,9,Bold</Font>
               <Guid>1ccd4cd852ea41f4a0f47a9c6bc61edc</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text6</Name>
               <Page isRef="4" />
-              <Parent isRef="51" />
+              <Parent isRef="50" />
               <Text>{Sum(MTOD_HEDR_GROP,VF_Coach_Payment.SUM_RCPT_EXPN_PRIC)}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="54" type="NumberFormat" isKey="true">
+              <TextFormat Ref="53" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>3</NegativePattern>
@@ -859,82 +845,487 @@
               <Type>Totals</Type>
               <VertAlignment>Center</VertAlignment>
             </Text6>
-            <Text7 Ref="55" type="Text" isKey="true">
+            <Text7 Ref="54" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>15.6,0,1.2,0.8</ClientRectangle>
+              <ClientRectangle>9.2,0,2.6,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>Tahoma,9</Font>
+              <Font>B Koodak,9,Bold</Font>
               <Guid>9acf0a5d6ee446cf9f56fa1f88fdc4dc</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text7</Name>
               <Page isRef="4" />
-              <Parent isRef="51" />
+              <Parent isRef="50" />
               <Text>{Count(MTOD_HEDR_GROP)}</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <Type>Totals</Type>
               <VertAlignment>Center</VertAlignment>
             </Text7>
-            <Text20 Ref="56" type="Text" isKey="true">
+            <Text20 Ref="55" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>0,0,2.2,0.8</ClientRectangle>
+              <ClientRectangle>0,0,1.6,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>Tahoma,9,Bold</Font>
+              <Font>B Koodak,9,Bold</Font>
               <Guid>0ddf1d3decdb43c49dc6f068b7082fa2</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text20</Name>
               <Page isRef="4" />
-              <Parent isRef="51" />
+              <Parent isRef="50" />
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text20>
-            <Text21 Ref="57" type="Text" isKey="true">
+            <Text21 Ref="56" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>2.2,0,1,0.8</ClientRectangle>
+              <ClientRectangle>1.6,0,0.4,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>Tahoma,9,Bold</Font>
+              <Font>B Koodak,9,Bold</Font>
               <Guid>0f3dde51638d4931af27e24d1488312f</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text21</Name>
               <Page isRef="4" />
-              <Parent isRef="51" />
+              <Parent isRef="50" />
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text21>
-            <Text36 Ref="58" type="Text" isKey="true">
+            <Text36 Ref="57" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <CanGrow>True</CanGrow>
-              <ClientRectangle>16.8,0,2.2,0.8</ClientRectangle>
+              <ClientRectangle>11.8,0,2,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>Tahoma,9</Font>
+              <Font>B Koodak,9,Bold</Font>
               <Guid>5cc4ae2ef95b42ac8ebdd423025bc1c1</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text36</Name>
               <Page isRef="4" />
-              <Parent isRef="51" />
+              <Parent isRef="50" />
               <Text>تعداد</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text36>
+            <Text43 Ref="58" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>13.8,0,3,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,9,Bold</Font>
+              <Guid>288cd5f2e8b7436f87eadc0ea4878331</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text43</Name>
+              <Page isRef="4" />
+              <Parent isRef="50" />
+              <Text>{VF_Coach_Payment.MTOD_DESC}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text43>
+            <Text55 Ref="59" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>4.2,0,2,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,9,Bold</Font>
+              <Guid>6a001dd042cb46c1b4a7188c59276215</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text55</Name>
+              <Page isRef="4" />
+              <Parent isRef="50" />
+              <Text>{Sum(MTOD_HEDR_GROP,VF_Coach_Payment.DEBT_DNRM)}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="60" type="NumberFormat" isKey="true">
+                <DecimalDigits>0</DecimalDigits>
+                <GroupSeparator>,</GroupSeparator>
+                <NegativePattern>3</NegativePattern>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Totals</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text55>
+            <Text1 Ref="61" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[214:224:236]</Brush>
+              <ClientRectangle>16.8,0,2.2,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,9,Bold</Font>
+              <Guid>3be7cf3ae7754ea7ad60014f60dd853d</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text1</Name>
+              <Page isRef="4" />
+              <Parent isRef="50" />
+              <Text>جمع گروه</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text1>
+            <Text19 Ref="62" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>6.2,0,1.2,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,9,Bold</Font>
+              <Guid>0910032a890244bdae637eade4c020d6</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text19</Name>
+              <Page isRef="4" />
+              <Parent isRef="50" />
+              <Text>{Sum(MTOD_HEDR_GROP,VF_Coach_Payment.MBSP_CONT_NUMB_ATTN)}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="63" type="NumberFormat" isKey="true">
+                <DecimalDigits>0</DecimalDigits>
+                <GroupSeparator>,</GroupSeparator>
+                <NegativePattern>3</NegativePattern>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Totals</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text19>
           </Components>
           <Conditions isList="true" count="0" />
           <Name>GroupFooterBand1</Name>
           <Page isRef="4" />
           <Parent isRef="4" />
         </GroupFooterBand1>
+        <GroupFooterBand2 Ref="64" type="GroupFooterBand" isKey="true">
+          <Border>Top, Left, Bottom;Black;1;Solid;False;4;Black</Border>
+          <Brush>[252:230:212]</Brush>
+          <ClientRectangle>0,11.2,19,0.8</ClientRectangle>
+          <Components isList="true" count="10">
+            <Text37 Ref="65" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>7.4,0,1.8,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,9,Bold</Font>
+              <Guid>ebdeae8abaaa47c88e6ecd9a11a2ea55</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text37</Name>
+              <Page isRef="4" />
+              <Parent isRef="64" />
+              <Text>جمع</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text37>
+            <Text38 Ref="66" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>2,0,2.2,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,9,Bold</Font>
+              <Guid>b32c09ff68ad440c81b3b05c9cc74690</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text38</Name>
+              <Page isRef="4" />
+              <Parent isRef="64" />
+              <Text>{Sum(COCH_HEDR_GROP,VF_Coach_Payment.SUM_RCPT_EXPN_PRIC)}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="67" type="NumberFormat" isKey="true">
+                <DecimalDigits>0</DecimalDigits>
+                <GroupSeparator>,</GroupSeparator>
+                <NegativePattern>3</NegativePattern>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Totals</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text38>
+            <Text39 Ref="68" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>9.2,0,2.6,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,9,Bold</Font>
+              <Guid>14f2f206691c430385953bd7e3ec88c0</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text39</Name>
+              <Page isRef="4" />
+              <Parent isRef="64" />
+              <Text>{Count(COCH_HEDR_GROP)}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Totals</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text39>
+            <Text40 Ref="69" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,0,1.6,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,9,Bold</Font>
+              <Guid>d51ca56b67af4b1f8fda02dcc9683c4d</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text40</Name>
+              <Page isRef="4" />
+              <Parent isRef="64" />
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text40>
+            <Text41 Ref="70" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>1.6,0,0.4,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,9,Bold</Font>
+              <Guid>4c30192fa55041a28df51f1a7f6433c1</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text41</Name>
+              <Page isRef="4" />
+              <Parent isRef="64" />
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text41>
+            <Text42 Ref="71" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>11.8,0,2,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,9,Bold</Font>
+              <Guid>b7b965a60cee44fa928be0b7162e9bd9</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text42</Name>
+              <Page isRef="4" />
+              <Parent isRef="64" />
+              <Text>تعداد</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text42>
+            <Text44 Ref="72" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>13.8,0,3,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,9,Bold</Font>
+              <Guid>e5603c1ac5d94cef98904589eb5165a9</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text44</Name>
+              <Page isRef="4" />
+              <Parent isRef="64" />
+              <Text>{VF_Coach_Payment.NAME_DNRM}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text44>
+            <Text56 Ref="73" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>4.2,0,2,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,9,Bold</Font>
+              <Guid>54ddf96e95704541bb2f953902b1ea32</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text56</Name>
+              <Page isRef="4" />
+              <Parent isRef="64" />
+              <Text>{Sum(COCH_HEDR_GROP,VF_Coach_Payment.DEBT_DNRM)}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="74" type="NumberFormat" isKey="true">
+                <DecimalDigits>0</DecimalDigits>
+                <GroupSeparator>,</GroupSeparator>
+                <NegativePattern>3</NegativePattern>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Totals</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text56>
+            <Text2 Ref="75" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[214:224:236]</Brush>
+              <ClientRectangle>16.8,0,2.2,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,9,Bold</Font>
+              <Guid>0c0fc188d49f46cab5e5543fe65d6a77</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text2</Name>
+              <Page isRef="4" />
+              <Parent isRef="64" />
+              <Text>جمع سرپرست</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text2>
+            <Text45 Ref="76" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>6.2,0,1.2,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,9,Bold</Font>
+              <Guid>f4d71e7682d94dd982a8659f3e769d61</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text45</Name>
+              <Page isRef="4" />
+              <Parent isRef="64" />
+              <Text>{Sum(COCH_HEDR_GROP,VF_Coach_Payment.MBSP_CONT_NUMB_ATTN)}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="77" type="NumberFormat" isKey="true">
+                <DecimalDigits>0</DecimalDigits>
+                <GroupSeparator>,</GroupSeparator>
+                <NegativePattern>3</NegativePattern>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Totals</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text45>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <Guid>d7b7c9ea448040729404629d9c90d187</Guid>
+          <Name>GroupFooterBand2</Name>
+          <Page isRef="4" />
+          <Parent isRef="4" />
+        </GroupFooterBand2>
+        <FooterBand1 Ref="78" type="FooterBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,12.8,19,0.8</ClientRectangle>
+          <Components isList="true" count="5">
+            <Text47 Ref="79" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[206:221:176]</Brush>
+              <ClientRectangle>2,0,2.2,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,9,Bold</Font>
+              <Guid>1dd3accab17043f281068c8503b9665c</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text47</Name>
+              <Page isRef="4" />
+              <Parent isRef="78" />
+              <Text>{Sum(VF_Coach_Payment.SUM_RCPT_EXPN_PRIC)}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="80" type="NumberFormat" isKey="true">
+                <DecimalDigits>0</DecimalDigits>
+                <GroupSeparator>,</GroupSeparator>
+                <NegativePattern>3</NegativePattern>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Totals</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text47>
+            <Text48 Ref="81" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[223:216:231]</Brush>
+              <ClientRectangle>9.2,0,2.6,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,9,Bold</Font>
+              <Guid>74fd291e90834515b65b67badd61892a</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text48</Name>
+              <Page isRef="4" />
+              <Parent isRef="78" />
+              <Text>{Count(DataVF_Coach_Payment)}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Totals</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text48>
+            <Text51 Ref="82" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[223:216:231]</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>11.8,0,2,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,9,Bold</Font>
+              <Guid>8cf4a84f327a4ccc890248c57b43f42a</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text51</Name>
+              <Page isRef="4" />
+              <Parent isRef="78" />
+              <Text>تعداد</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text51>
+            <Text57 Ref="83" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[210:234:240]</Brush>
+              <ClientRectangle>4.2,0,2,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,9,Bold</Font>
+              <Guid>28831c816e844f2789c71eb5f051c243</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text57</Name>
+              <Page isRef="4" />
+              <Parent isRef="78" />
+              <Text>{Sum(VF_Coach_Payment.DEBT_DNRM)}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="84" type="NumberFormat" isKey="true">
+                <DecimalDigits>0</DecimalDigits>
+                <GroupSeparator>,</GroupSeparator>
+                <NegativePattern>3</NegativePattern>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Totals</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text57>
+            <Text58 Ref="85" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[214:224:236]</Brush>
+              <ClientRectangle>16.8,0,2.2,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,9,Bold</Font>
+              <Guid>f8181f429249418289d93512ed19862b</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text58</Name>
+              <Page isRef="4" />
+              <Parent isRef="78" />
+              <Text>جمع کل</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text58>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <Name>FooterBand1</Name>
+          <Page isRef="4" />
+          <Parent isRef="4" />
+        </FooterBand1>
       </Components>
       <Conditions isList="true" count="0" />
       <Guid>51430267a8b84b10a4d910a61864bf04</Guid>
@@ -945,13 +1336,13 @@
       <PaperSize>A4</PaperSize>
       <Report isRef="0" />
       <RightToLeft>True</RightToLeft>
-      <Watermark Ref="59" type="Stimulsoft.Report.Components.StiWatermark" isKey="true">
+      <Watermark Ref="86" type="Stimulsoft.Report.Components.StiWatermark" isKey="true">
         <Font>Arial,100</Font>
         <TextBrush>[50:0:0:0]</TextBrush>
       </Watermark>
     </Page1>
   </Pages>
-  <PrinterSettings Ref="60" type="Stimulsoft.Report.Print.StiPrinterSettings" isKey="true" />
+  <PrinterSettings Ref="87" type="Stimulsoft.Report.Print.StiPrinterSettings" isKey="true" />
   <ReferencedAssemblies isList="true" count="8">
     <value>System.Dll</value>
     <value>System.Drawing.Dll</value>
@@ -963,10 +1354,10 @@
     <value>Stimulsoft.Report.Dll</value>
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
-  <ReportChanged>12/15/2019 11:27:50 AM</ReportChanged>
+  <ReportChanged>7/21/2022 1:23:28 PM</ReportChanged>
   <ReportCreated>11/19/2017 1:40:49 PM</ReportCreated>
   <ReportFile>D:\Project\MyProject\Documents\Report Repository\RPT_CCHP_002_R.mrt</ReportFile>
-  <ReportGuid>4be14563eeb247f28e35f44bda541675</ReportGuid>
+  <ReportGuid>978668cce2594d81829ca3c6ae1d8995</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Centimeters</ReportUnit>
   <ReportVersion>2012.2.1304</ReportVersion>

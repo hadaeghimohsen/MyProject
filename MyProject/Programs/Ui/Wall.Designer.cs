@@ -28,9 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-         this.components = new System.ComponentModel.Container();
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Wall));
-         this.SysNtfy_Ni = new System.Windows.Forms.NotifyIcon(this.components);
+         this.SysNtfy_Ni = new System.Windows.Forms.NotifyIcon();
          this.SuspendLayout();
          // 
          // SysNtfy_Ni
@@ -39,7 +38,7 @@
          this.SysNtfy_Ni.BalloonTipText = "اینترنت دستگاه شما جهت ارسال پیام غیرفعال یا قطع می باشد";
          this.SysNtfy_Ni.BalloonTipTitle = "وضعیت اتصال اینترنتی";
          this.SysNtfy_Ni.Icon = ((System.Drawing.Icon)(resources.GetObject("SysNtfy_Ni.Icon")));
-         this.SysNtfy_Ni.Text = "اطلاع رسانی نرم افزار جامع انار";
+         this.SysNtfy_Ni.Text = "اطلاع رسانی رله سافت";
          this.SysNtfy_Ni.Visible = true;
          // 
          // Wall

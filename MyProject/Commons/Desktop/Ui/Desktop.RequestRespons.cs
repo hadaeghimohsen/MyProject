@@ -84,6 +84,10 @@ namespace MyProject.Commons.Desktop.Ui
                   });
             #endregion
          }
+         else if (keyData == Keys.LWin || keyData == Keys.RWin)
+         {
+            StartMenu_Butn_Click(null, null);
+         }
 
          job.Status = StatusType.Successful;
       }

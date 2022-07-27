@@ -1258,6 +1258,7 @@ namespace System.Scsc.Ui.Common
             DebtPymtAmnt1_Txt.EditValue = Convert.ToInt64(ExpnAmnt_Txt.EditValue) - (Convert.ToInt64(PymtAmnt1_Txt.EditValue) + Convert.ToInt64(DscnAmnt_Txt.EditValue));
             QStrtTime_Tim.EditValue = mbsp.Fighter_Public.Club_Method.STRT_TIME;
             QEndTime_Tim.EditValue = mbsp.Fighter_Public.Club_Method.END_TIME;
+            MbspFngrPrnt_Txt.EditValue = mbsp.Fighter_Public.FNGR_PRNT;
 
             PdtMBs.DataSource = iScsc.Payment_Details.Where(pd => pd.Payment.Request.RQST_STAT == "002" && pd.MBSP_FIGH_FILE_NO == fileno && pd.MBSP_RWNO == mbsp.RWNO);
          }
@@ -2914,6 +2915,523 @@ namespace System.Scsc.Ui.Common
          catch (Exception exc)
          {
             iScsc.SaveException(exc);
+         }
+      }
+
+      private void AddDsct_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            if (FgdcBs.List.OfType<Data.Fighter_Discount_Card>().Any(fd => fd.CODE == 0)) return;
+
+            var _fgdc = FgdcBs.AddNew() as Data.Fighter_Discount_Card;
+            _fgdc.FIGH_FILE_NO = fileno;
+            _fgdc.STAT = "002";
+            _fgdc.DSCT_TYPE = "001";
+            _fgdc.DSCT_AMNT = 10;
+            _fgdc.DISC_CODE = Guid.NewGuid().ToString().Split('-')[0].ToUpper();
+            _fgdc.EXPR_DATE = DateTime.Now.AddDays(7);
+
+            iScsc.Fighter_Discount_Cards.InsertOnSubmit(_fgdc);
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void DelDsct_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _fgdc = FgdcBs.Current as Data.Fighter_Discount_Card;
+            if (_fgdc == null) return;
+
+            if (MessageBox.Show(this, "آیا با حذف رکورد موافق هستید؟", "حذف رکورد", MessageBoxButtons.YesNo) != DialogResult.Yes) return;
+
+            iScsc.Fighter_Discount_Cards.DeleteOnSubmit(_fgdc);
+
+            iScsc.SubmitChanges();
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void SaveDsct_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            FgdcBs.EndEdit();
+            Fgdc_gv.PostEditor();
+
+            iScsc.SubmitChanges();
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void ChngRecdDsct_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _fgdc = FgdcBs.Current as Data.Fighter_Discount_Card;
+            if (_fgdc == null || _fgdc.CODE == 0) return;
+
+
+            if(_fgdc.MTOD_CODE != null && MessageBox.Show(this, "آیا با تغییرات کد تخفیف از حالت خصوصی به حالت عمومی موافق هستید؟", "تغییر وضعیت رکورد تخفیف", MessageBoxButtons.YesNo) != DialogResult.Yes)
+            {
+               iScsc.ExecuteCommand("UPDATE dbo.Fighter_Discount_Card SET MTOD_CODE = NULL, CTGY_CODE = NULL WHERE CODE = {0};", _fgdc.CODE);
+               requery = true;
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void RecdDsct_Pkbt_PickCheckedChange(object sender)
+      {
+         try
+         {
+            MtodCtgy_Splt.Visible = MtodCtgyAcpt_Butn.Visible = RecdDsct_Pkbt.PickChecked;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void MtodCtgyAcpt_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _fgdc = FgdcBs.Current as Data.Fighter_Discount_Card;
+            if (_fgdc == null) return;
+
+            var _ctgy = CtgyBs.Current as Data.Category_Belt;
+            if (_ctgy == null) return;
+            
+            iScsc.ExecuteCommand("UPDATE dbo.Fighter_Discount_Card SET MTOD_CODE = {1}, CTGY_CODE = {2} WHERE CODE = {0};", _fgdc.CODE, _ctgy.MTOD_CODE, _ctgy.CODE);
+            requery = true;            
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void ChngStat_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _fgdc = FgdcBs.Current as Data.Fighter_Discount_Card;
+            if (_fgdc == null) return;
+
+            iScsc.ExecuteCommand("UPDATE dbo.Fighter_Discount_Card SET STAT = {1} WHERE CODE = {0};", _fgdc.CODE, (_fgdc.STAT == "001" ? "002" : "001"));
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void AddCall_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            if (CallBs.List.OfType<Data.Fighter_Call>().Any(c => c.CODE == 0)) return;
+
+            var _call = CallBs.AddNew() as Data.Fighter_Call;
+            if (_call == null) return;
+
+            _call.FIGH_FILE_NO = fileno;
+            _call.CALL_DATE = DateTime.Now;
+            iScsc.Fighter_Calls.InsertOnSubmit(_call);
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void DelCall_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _call = CallBs.Current as Data.Fighter_Call;
+            if (_call == null) return;
+
+            if (MessageBox.Show(this, "با حذف رکورد موافق هستید؟", "حذف رکورد", MessageBoxButtons.YesNo) != DialogResult.Yes) return;
+
+            iScsc.ExecuteCommand(string.Format("DELETE dbo.Fighter_Call WHERE Code = {0};", _call.CODE));
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+            {
+               Execute_Query();
+               tb_master.SelectedTab = tp_008;
+            }
+         }
+      }
+
+      private void SaveCall_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            CallBs.EndEdit();
+            Call_Gv.PostEditor();
+
+            iScsc.SubmitChanges();
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if(requery)
+            {
+               Execute_Query();
+               tb_master.SelectedTab = tp_008;
+            }
+         }
+      }
+
+      private void FCal_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost",
+                  new List<Job>
+                  {
+                     new Job(SendType.Self, 154 /* Execute Apbs_Dfin_F */),
+                     new Job(SendType.SelfToUserInterface, "APBS_DFIN_F", 10 /* Execute Actn_CalF_F */)
+                     {
+                        Input = 
+                           new XElement("App_Base",
+                              new XAttribute("tablename", "Fighter_Call"),
+                              new XAttribute("formcaller", GetType().Name)
+                           )
+                     }
+                  }
+               )
+            );
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void RlodFCal_Butn_Click(object sender, EventArgs e)
+      {
+         Refresh_Butn_Click(null, null);
+         tb_master.SelectedTab = tp_008;
+      }
+
+      private void AddSurv_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            if (SurvBs.List.OfType<Data.Survey>().Any(s => s.CODE == 0)) return;
+
+            var _surv = SurvBs.AddNew() as Data.Survey;
+            if (_surv == null) return;
+
+            iScsc.Surveys.InsertOnSubmit(_surv);
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void DelSurv_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _surv = SurvBs.Current as Data.Survey;
+            if (_surv == null) return;
+
+            iScsc.ExecuteCommand(string.Format("DELETE dbo.Survey WHERE Code = {0};", _surv.CODE));
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if(requery)
+            {
+               Execute_Query();
+               tb_master.SelectedTab = tp_008;
+            }
+         }
+      }
+
+      private void SaveSurv_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            Surv_Gv.PostEditor();
+
+            iScsc.SubmitChanges();
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if(requery)
+            {
+               Execute_Query();
+               tb_master.SelectedTab = tp_008;
+            }
+         }
+      }
+
+      private void CSurv_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost",
+                  new List<Job>
+                  {
+                     new Job(SendType.Self, 154 /* Execute Apbs_Dfin_F */),
+                     new Job(SendType.SelfToUserInterface, "APBS_DFIN_F", 10 /* Execute Actn_CalF_F */)
+                     {
+                        Input = 
+                           new XElement("App_Base",
+                              new XAttribute("tablename", "Fighter_Call_Survey"),
+                              new XAttribute("formcaller", GetType().Name)
+                           )
+                     }
+                  }
+               )
+            );
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void RlodSurv_Butn_Click(object sender, EventArgs e)
+      {
+         Refresh_Butn_Click(null, null);
+         tb_master.SelectedTab = tp_008;
+      }
+
+      private void InsAlSurv_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _call = CallBs.Current as Data.Fighter_Call;
+            if (_call == null) return;
+
+            iScsc.ExecuteCommand(
+               string.Format(
+               "MERGE dbo.Survey T" + Environment.NewLine +
+               "USING (SELECT Code FROM dbo.App_Base_Define WHERE ENTY_NAME = 'Fighter_Call_Survey') S" + Environment.NewLine + 
+               "ON (T.Call_Code = {0} AND T.SURV_APBS_CODE = S.CODE)" + Environment.NewLine + 
+               "WHEN NOT MATCHED THEN" + Environment.NewLine +
+               "INSERT (CALL_CODE, CODE, SURV_APBS_CODE) VALUES ({0}, dbo.GNRT_NVID_U(), S.Code);", _call.CODE
+               )
+            );
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if(requery)
+            {
+               Execute_Query();
+               tb_master.SelectedTab = tp_008;
+            }
+         }
+      }
+
+      private void RCal_Lov_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
+      {
+         try
+         {
+            var _call = CallBs.Current as Data.Fighter_Call;
+            if (_call == null || e.NewValue == null) return;
+
+            _call.App_Base_Define = RCalBs.List.OfType<Data.App_Base_Define>().SingleOrDefault(a => a.CODE == (long)e.NewValue);
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void CallBs_CurrentChanged(object sender, EventArgs e)
+      {
+         try
+         {
+            var _call = CallBs.Current as Data.Fighter_Call;
+            if (_call == null) return;
+
+            RCal_Lov.EditValue = _call.RSLT_APBS_CODE;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void GnrtDsctSend_Butn_Click(object sender, EventArgs e)
+      {
+         tb_master.SelectedTab = tp_001;
+         tb_1_tp_001.SelectedTab = tabPage7;
+      }
+
+      private void TempDsct_Lov_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            var _dsct = FgdcBs.Current as Data.Fighter_Discount_Card;
+            if (_dsct == null || _dsct.TEMP_TMID == null) return;
+
+            if(_dsct.TEMP_TMID != (long?)TempDsct_Lov.EditValue)
+            {
+               _dsct.Template = TempBs.List.OfType<Data.Template>().FirstOrDefault(t => t.TMID == (long?)TempDsct_Lov.EditValue);
+            }
+
+            #region Precondiotion
+            var _crnt = iScsc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "005");
+            string msg = _dsct.Template.TEMP_TEXT;
+
+            string clubname = "";
+
+            if (_crnt.INSR_CNAM_STAT == "002")
+            {
+               if (_crnt.CLUB_NAME.Trim().Length == 0 && _crnt.CLUB_CODE == null)
+               {
+                  MessageBox.Show("نام بخش مشخص نشده است");
+                  return;
+               }
+               if (_crnt.CLUB_NAME.Trim().Length > 0)
+                  clubname = "\n" + _crnt.CLUB_NAME;
+               else
+                  clubname = "\n" + _crnt.Club.NAME;
+            }            
+            #endregion
+
+            switch (e.Button.Index)
+            {
+               case 1:
+                  // ارسال پیامک به مشتری از طریق پیامک
+                  if (CellPhon01_Txt.Text.Length == 0)
+                  {
+                     MessageBox.Show("شماره تلفن وارد نشده");
+                     return;
+                  }
+                  
+                  iScsc.MSG_SEND_P(
+                     new XElement("Process",
+                        new XElement("Contacts",
+                           new XAttribute("subsys", 5),
+                           new XAttribute("linetype", _crnt.LINE_TYPE),
+                           new XElement("Contact",
+                              new XAttribute("phonnumb", CellPhon01_Txt.Text),
+                              new XElement("Message",
+                                 new XAttribute("type", _crnt.MSGB_TYPE),
+                                 new XAttribute("scdldate", DateTime.Now),
+                                 new XAttribute("btchnumb", _crnt.BTCH_NUMB ?? 0),
+                                 new XAttribute("stepmin", _crnt.STEP_MIN ?? 0),
+                                 new XAttribute("sendtype", "002"), // Bulk Send
+                                 string.Format("{0}{1}", 
+                                    iScsc.GET_TEXT_F(
+                                       new XElement("TemplateToText",
+                                           new XAttribute("fileno", fileno),
+                                           new XAttribute("mbsprwno", 1),
+                                           new XAttribute("fgdccode", _dsct.CODE),
+                                           new XAttribute("text", msg)
+                                       )                                       
+                                    ).Value, 
+                                    clubname
+                                 )
+                              )
+                           )
+                        )
+                     )
+                  );
+
+                  _DefaultGateway.Gateway(
+                     new Job(SendType.External, "localhost", "Wall", 22 /* Execute SetSystemNotification */, SendType.SelfToUserInterface)
+                     {
+                        Input =
+                           new List<object>
+                           {
+                              ToolTipIcon.Info,
+                              "پیام شما با موفقیت درون لیست ارسال سامانه پیامکی قرار گرفت",
+                              "سامانه پیامکی",
+                              2000
+                           }
+                     }
+                  );
+                  break;
+               case 2:
+                  // ارسال پیام به مشتری از طریق بله 
+                  break;
+               default:
+                  break;
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
          }
       }
    }

@@ -313,7 +313,7 @@
          this.PymtAmnt_Txt = new DevExpress.XtraEditors.TextEdit();
          this.DscnAmnt_Txt = new DevExpress.XtraEditors.TextEdit();
          this.ExpnAmnt_Txt = new DevExpress.XtraEditors.TextEdit();
-         this.panel2 = new System.Windows.Forms.Panel();
+         this.ServInfo_Pn = new System.Windows.Forms.Panel();
          this.searchLookUpEdit2 = new DevExpress.XtraEditors.SearchLookUpEdit();
          this.gridView3 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.gridColumn25 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -383,6 +383,7 @@
          this.label6 = new System.Windows.Forms.Label();
          this.GoogleContact_Rb = new System.Windows.Forms.RadioButton();
          this.TextFile_Rb = new System.Windows.Forms.RadioButton();
+         this.ExportLabel_Txt = new DevExpress.XtraEditors.TextEdit();
          this.AllMenu_Cmn = new System.Windows.Forms.ContextMenuStrip(this.components);
          this.RqstBnFignInfo_Lb = new System.Windows.Forms.ToolStripMenuItem();
          this.RqstBnFighInfo = new System.Windows.Forms.ToolStripMenuItem();
@@ -518,7 +519,6 @@
          this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
          this.toolStripMenuItem65 = new System.Windows.Forms.ToolStripMenuItem();
          this.ExportFile_Sfd = new System.Windows.Forms.SaveFileDialog();
-         this.ExportLabel_Txt = new DevExpress.XtraEditors.TextEdit();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit1.CalendarTimeProperties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.AttnMbsp_Butn)).BeginInit();
@@ -562,7 +562,7 @@
          ((System.ComponentModel.ISupportInitialize)(this.PymtAmnt_Txt.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.DscnAmnt_Txt.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.ExpnAmnt_Txt.Properties)).BeginInit();
-         this.panel2.SuspendLayout();
+         this.ServInfo_Pn.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit2.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.gridView3)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.ServNoDnrm01_Txt.Properties)).BeginInit();
@@ -579,8 +579,8 @@
          this.splitContainerControl3.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
-         this.AllMenu_Cmn.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.ExportLabel_Txt.Properties)).BeginInit();
+         this.AllMenu_Cmn.SuspendLayout();
          this.SuspendLayout();
          // 
          // DebtDnrm_Clm
@@ -2375,7 +2375,7 @@
          this.Cycl_Gb.BackColor = System.Drawing.Color.LightGray;
          this.Cycl_Gb.Controls.Add(this.Mbsp_gc);
          this.Cycl_Gb.Controls.Add(this.panel1);
-         this.Cycl_Gb.Controls.Add(this.panel2);
+         this.Cycl_Gb.Controls.Add(this.ServInfo_Pn);
          this.Cycl_Gb.Dock = System.Windows.Forms.DockStyle.Fill;
          this.Cycl_Gb.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.Cycl_Gb.Location = new System.Drawing.Point(0, 0);
@@ -2849,51 +2849,51 @@
          this.ExpnAmnt_Txt.Size = new System.Drawing.Size(73, 22);
          this.ExpnAmnt_Txt.TabIndex = 35;
          // 
-         // panel2
+         // ServInfo_Pn
          // 
-         this.panel2.BackColor = System.Drawing.Color.Transparent;
-         this.panel2.Controls.Add(this.searchLookUpEdit2);
-         this.panel2.Controls.Add(this.simpleButton8);
-         this.panel2.Controls.Add(this.simpleButton5);
-         this.panel2.Controls.Add(this.simpleButton1);
-         this.panel2.Controls.Add(this.SavePblc_Butn);
-         this.panel2.Controls.Add(this.EndDate_DateTime001);
-         this.panel2.Controls.Add(this.FighBnSettingPrint);
-         this.panel2.Controls.Add(this.FighBnDefaultPrint);
-         this.panel2.Controls.Add(this.simpleButton4);
-         this.panel2.Controls.Add(this.simpleButton3);
-         this.panel2.Controls.Add(this.simpleButton7);
-         this.panel2.Controls.Add(this.simpleButton6);
-         this.panel2.Controls.Add(this.ChatHist_Butn);
-         this.panel2.Controls.Add(this.SmsHist_Butn);
-         this.panel2.Controls.Add(this.labelControl1);
-         this.panel2.Controls.Add(this.UserProFile_Rb);
-         this.panel2.Controls.Add(this.SuntCode1_Lb);
-         this.panel2.Controls.Add(this.ServNoDnrm01_Txt);
-         this.panel2.Controls.Add(this.label8);
-         this.panel2.Controls.Add(this.GlobCodeDnrm_Txt);
-         this.panel2.Controls.Add(this.GlobCode1_Lb);
-         this.panel2.Controls.Add(this.textEdit1);
-         this.panel2.Controls.Add(this.TrnsFngrPrnt_Butn);
-         this.panel2.Controls.Add(this.label3);
-         this.panel2.Controls.Add(this.NatlCode1_Lb);
-         this.panel2.Controls.Add(this.textEdit5);
-         this.panel2.Controls.Add(this.TellPhon1_Lb);
-         this.panel2.Controls.Add(this.MomPhon01_Txt);
-         this.panel2.Controls.Add(this.label2);
-         this.panel2.Controls.Add(this.DadPhon01_Txt);
-         this.panel2.Controls.Add(this.label1);
-         this.panel2.Controls.Add(this.MomChatId01_Txt);
-         this.panel2.Controls.Add(this.DadChatId01_Txt);
-         this.panel2.Controls.Add(this.ChatId01_Txt);
-         this.panel2.Controls.Add(this.CellPhon01_Txt);
-         this.panel2.Controls.Add(this.label11);
-         this.panel2.Controls.Add(this.CellPhon1_Lb);
-         this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-         this.panel2.Location = new System.Drawing.Point(3, 17);
-         this.panel2.Name = "panel2";
-         this.panel2.Size = new System.Drawing.Size(671, 176);
-         this.panel2.TabIndex = 12;
+         this.ServInfo_Pn.BackColor = System.Drawing.Color.Transparent;
+         this.ServInfo_Pn.Controls.Add(this.searchLookUpEdit2);
+         this.ServInfo_Pn.Controls.Add(this.simpleButton8);
+         this.ServInfo_Pn.Controls.Add(this.simpleButton5);
+         this.ServInfo_Pn.Controls.Add(this.simpleButton1);
+         this.ServInfo_Pn.Controls.Add(this.SavePblc_Butn);
+         this.ServInfo_Pn.Controls.Add(this.EndDate_DateTime001);
+         this.ServInfo_Pn.Controls.Add(this.FighBnSettingPrint);
+         this.ServInfo_Pn.Controls.Add(this.FighBnDefaultPrint);
+         this.ServInfo_Pn.Controls.Add(this.simpleButton4);
+         this.ServInfo_Pn.Controls.Add(this.simpleButton3);
+         this.ServInfo_Pn.Controls.Add(this.simpleButton7);
+         this.ServInfo_Pn.Controls.Add(this.simpleButton6);
+         this.ServInfo_Pn.Controls.Add(this.ChatHist_Butn);
+         this.ServInfo_Pn.Controls.Add(this.SmsHist_Butn);
+         this.ServInfo_Pn.Controls.Add(this.labelControl1);
+         this.ServInfo_Pn.Controls.Add(this.UserProFile_Rb);
+         this.ServInfo_Pn.Controls.Add(this.SuntCode1_Lb);
+         this.ServInfo_Pn.Controls.Add(this.ServNoDnrm01_Txt);
+         this.ServInfo_Pn.Controls.Add(this.label8);
+         this.ServInfo_Pn.Controls.Add(this.GlobCodeDnrm_Txt);
+         this.ServInfo_Pn.Controls.Add(this.GlobCode1_Lb);
+         this.ServInfo_Pn.Controls.Add(this.textEdit1);
+         this.ServInfo_Pn.Controls.Add(this.TrnsFngrPrnt_Butn);
+         this.ServInfo_Pn.Controls.Add(this.label3);
+         this.ServInfo_Pn.Controls.Add(this.NatlCode1_Lb);
+         this.ServInfo_Pn.Controls.Add(this.textEdit5);
+         this.ServInfo_Pn.Controls.Add(this.TellPhon1_Lb);
+         this.ServInfo_Pn.Controls.Add(this.MomPhon01_Txt);
+         this.ServInfo_Pn.Controls.Add(this.label2);
+         this.ServInfo_Pn.Controls.Add(this.DadPhon01_Txt);
+         this.ServInfo_Pn.Controls.Add(this.label1);
+         this.ServInfo_Pn.Controls.Add(this.MomChatId01_Txt);
+         this.ServInfo_Pn.Controls.Add(this.DadChatId01_Txt);
+         this.ServInfo_Pn.Controls.Add(this.ChatId01_Txt);
+         this.ServInfo_Pn.Controls.Add(this.CellPhon01_Txt);
+         this.ServInfo_Pn.Controls.Add(this.label11);
+         this.ServInfo_Pn.Controls.Add(this.CellPhon1_Lb);
+         this.ServInfo_Pn.Dock = System.Windows.Forms.DockStyle.Top;
+         this.ServInfo_Pn.Location = new System.Drawing.Point(3, 17);
+         this.ServInfo_Pn.Name = "ServInfo_Pn";
+         this.ServInfo_Pn.Size = new System.Drawing.Size(671, 176);
+         this.ServInfo_Pn.TabIndex = 12;
          // 
          // searchLookUpEdit2
          // 
@@ -3571,7 +3571,7 @@
             0,
             0,
             0});
-         this.ServRecd_Spn.MaximumSize = new System.Drawing.Size(-2147483648, 16);
+         this.ServRecd_Spn.MaximumSize = new System.Drawing.Size(0, 16);
          this.ServRecd_Spn.Minimum = new decimal(new int[] {
             0,
             0,
@@ -3868,6 +3868,23 @@
          this.TextFile_Rb.Text = "Text";
          this.TextFile_Rb.UseVisualStyleBackColor = true;
          this.TextFile_Rb.CheckedChanged += new System.EventHandler(this.TypeContact_Rb_CheckedChanged);
+         // 
+         // ExportLabel_Txt
+         // 
+         this.ExportLabel_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.ExportLabel_Txt.EditValue = "";
+         this.ExportLabel_Txt.Location = new System.Drawing.Point(50, 30);
+         this.ExportLabel_Txt.Name = "ExportLabel_Txt";
+         this.ExportLabel_Txt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.ExportLabel_Txt.Properties.Appearance.Options.UseFont = true;
+         this.ExportLabel_Txt.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+         this.ExportLabel_Txt.Properties.AppearanceFocused.Options.UseBackColor = true;
+         this.ExportLabel_Txt.Properties.Mask.EditMask = "n0";
+         this.ExportLabel_Txt.Properties.Mask.UseMaskAsDisplayFormat = true;
+         this.ExportLabel_Txt.Properties.NullValuePromptShowForEmptyValue = true;
+         this.ExportLabel_Txt.Size = new System.Drawing.Size(100, 22);
+         this.ExportLabel_Txt.TabIndex = 7;
+         this.ExportLabel_Txt.DoubleClick += new System.EventHandler(this.GlobCodeDnrm_Txt_DoubleClick);
          // 
          // AllMenu_Cmn
          // 
@@ -4923,23 +4940,6 @@
          this.ExportFile_Sfd.DefaultExt = "csv";
          this.ExportFile_Sfd.Filter = "CSV file (*.csv) | *.csv|Text File (*.txt) | *.txt";
          // 
-         // ExportLabel_Txt
-         // 
-         this.ExportLabel_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.ExportLabel_Txt.EditValue = "";
-         this.ExportLabel_Txt.Location = new System.Drawing.Point(50, 30);
-         this.ExportLabel_Txt.Name = "ExportLabel_Txt";
-         this.ExportLabel_Txt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.ExportLabel_Txt.Properties.Appearance.Options.UseFont = true;
-         this.ExportLabel_Txt.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-         this.ExportLabel_Txt.Properties.AppearanceFocused.Options.UseBackColor = true;
-         this.ExportLabel_Txt.Properties.Mask.EditMask = "n0";
-         this.ExportLabel_Txt.Properties.Mask.UseMaskAsDisplayFormat = true;
-         this.ExportLabel_Txt.Properties.NullValuePromptShowForEmptyValue = true;
-         this.ExportLabel_Txt.Size = new System.Drawing.Size(100, 22);
-         this.ExportLabel_Txt.TabIndex = 7;
-         this.ExportLabel_Txt.DoubleClick += new System.EventHandler(this.GlobCodeDnrm_Txt_DoubleClick);
-         // 
          // LSI_FLDF_F
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -4994,8 +4994,8 @@
          ((System.ComponentModel.ISupportInitialize)(this.PymtAmnt_Txt.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.DscnAmnt_Txt.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.ExpnAmnt_Txt.Properties)).EndInit();
-         this.panel2.ResumeLayout(false);
-         this.panel2.PerformLayout();
+         this.ServInfo_Pn.ResumeLayout(false);
+         this.ServInfo_Pn.PerformLayout();
          ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit2.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.gridView3)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.ServNoDnrm01_Txt.Properties)).EndInit();
@@ -5012,8 +5012,8 @@
          this.splitContainerControl3.ResumeLayout(false);
          ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
-         this.AllMenu_Cmn.ResumeLayout(false);
          ((System.ComponentModel.ISupportInitialize)(this.ExportLabel_Txt.Properties)).EndInit();
+         this.AllMenu_Cmn.ResumeLayout(false);
          this.ResumeLayout(false);
 
       }
@@ -5142,7 +5142,7 @@
       private DevExpress.XtraEditors.TextEdit PymtAmnt_Txt;
       private DevExpress.XtraEditors.TextEdit DscnAmnt_Txt;
       private DevExpress.XtraEditors.TextEdit ExpnAmnt_Txt;
-      private Windows.Forms.Panel panel2;
+      private Windows.Forms.Panel ServInfo_Pn;
       private MaxUi.RoundedButton UserProFile_Rb;
       private DevExpress.XtraGrid.Columns.GridColumn colGLOB_CODE_DNRM;
       private DevExpress.XtraEditors.LabelControl labelControl1;

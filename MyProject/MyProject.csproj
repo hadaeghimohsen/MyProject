@@ -12,6 +12,8 @@
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <IsWebBootstrapper>false</IsWebBootstrapper>
+    <NuGetPackageImportStamp>e86dd012</NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -26,8 +28,6 @@
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
-    <NuGetPackageImportStamp>e86dd012</NuGetPackageImportStamp>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>x86</PlatformTarget>
@@ -50,7 +50,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>iProject.ico</ApplicationIcon>
+    <ApplicationIcon>ICONS_1052.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="DevExpress.Data.v13.1, Version=13.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
@@ -2623,6 +2623,12 @@
     <Content Include="..\System.Resource\Resources\IMAGE_1669.png">
       <Link>Resources\IMAGE_1669.png</Link>
     </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1757.png">
+      <Link>Resources\IMAGE_1757.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1758.png">
+      <Link>Resources\IMAGE_1758.png</Link>
+    </Content>
     <Content Include="Commons\Ui\GMapNet\BSE.Windows.Forms\Resources\ChevronDown.png" />
     <Content Include="Commons\Ui\GMapNet\BSE.Windows.Forms\Resources\ChevronLeft.png" />
     <Content Include="Commons\Ui\GMapNet\BSE.Windows.Forms\Resources\ChevronRight.png" />
@@ -2633,7 +2639,7 @@
     <Content Include="Commons\Ui\GMapNet\BSE.Windows.Forms\Resources\Expand.jpg" />
     <Content Include="Commons\Ui\GMapNet\BSE.Windows.Forms\Resources\Expand_h.jpg" />
     <Content Include="Commons\Ui\GMapNet\BSE.Windows.Forms\Resources\ListViewItemSorter.bmp" />
-    <Content Include="iProject.ico" />
+    <Content Include="ICONS_1052.ico" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

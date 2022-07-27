@@ -641,7 +641,8 @@ namespace System.Scsc.Ui.BaseDefinition
          {
             if (requery)
             {
-               SaveExpenseParam_Butn_Click(null, null);
+               ActvCtgyExpn_Butn_Click(null, null);
+               //SaveExpenseParam_Butn_Click(null, null);
                Execute_Query();
                requery = false;
             }
@@ -1608,6 +1609,35 @@ namespace System.Scsc.Ui.BaseDefinition
             {
                Execute_Query();
             }
+         }
+      }
+
+      private void CtgyActn_Butn_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            var ctgy = CtgyBs1.Current as Data.Category_Belt;
+            if (ctgy == null) return;
+
+            switch (e.Button.Index)
+            {
+               case 0:
+                  ctgy.CTGY_STAT = ctgy.CTGY_STAT == "002" ? "001" : "002";
+                  SaveCategory_Butn_Click(null, null);
+                  break;
+               default:
+                  break;
+            }
+            requery = true;
+         }
+         catch (Exception)
+         {
+
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
          }
       }
 
@@ -4553,6 +4583,6 @@ namespace System.Scsc.Ui.BaseDefinition
       private void DelTmp_Butn_Click(object sender, EventArgs e)
       {
 
-      }
+      }      
    }
 }

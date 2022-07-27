@@ -6910,6 +6910,26 @@ namespace MyProject.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap IMAGE_1757 {
+            get {
+                object obj = ResourceManager.GetObject("IMAGE_1757", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap IMAGE_1758 {
+            get {
+                object obj = ResourceManager.GetObject("IMAGE_1758", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to CREATE TABLE [Cache] (
         ///    [Ip] varchar(15) PRIMARY KEY NOT NULL,
         ///    [CountryName] text NOT NULL,

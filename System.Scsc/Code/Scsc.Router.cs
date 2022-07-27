@@ -522,6 +522,9 @@ namespace System.Scsc.Code
             case 164:
                Opt_Mesg_F(job);
                break;
+            case 165:
+               Adv_Base_F(job);
+               break;
             default:
                job.Status = StatusType.Failed;
                break;
@@ -996,6 +999,9 @@ namespace System.Scsc.Code
                break;
             case "AOP_GIMP_F":
                _Aop_Gimp_F.SendRequest(job);
+               break;
+            case "ADV_BASE_F":
+               _Adv_Base_F.SendRequest(job);
                break;
 
             /* Show Changed */

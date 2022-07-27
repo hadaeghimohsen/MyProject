@@ -28,9 +28,10 @@
       /// </summary>
       private void InitializeComponent()
       {
+         this.components = new System.ComponentModel.Container();
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StartDrawer));
          this.Btn_Start = new System.MaxUi.NewToolBtn();
-         this.imageList1 = new System.Windows.Forms.ImageList();
+         this.imageList1 = new System.Windows.Forms.ImageList(this.components);
          this.Btn_SettingsAccount = new System.MaxUi.NewToolBtn();
          this.Btn_Settings = new System.MaxUi.NewToolBtn();
          this.SuspendLayout();
@@ -58,7 +59,7 @@
          // 
          this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
          this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-         this.imageList1.Images.SetKeyName(0, "IMAGE_1412.png");
+         this.imageList1.Images.SetKeyName(0, "IMAGE_1757.png");
          this.imageList1.Images.SetKeyName(1, "IMAGE_1133.png");
          this.imageList1.Images.SetKeyName(2, "IMAGE_1370.png");
          this.imageList1.Images.SetKeyName(3, "IMAGE_1427.png");

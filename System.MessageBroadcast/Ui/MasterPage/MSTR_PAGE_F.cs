@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Xml.Linq;
 using System.Threading;
 using System.JobRouting.Jobs;
+using System.Diagnostics;
 
 namespace System.MessageBroadcast.Ui.MasterPage
 {
@@ -92,7 +93,7 @@ namespace System.MessageBroadcast.Ui.MasterPage
                   _DefaultGateway.Gateway(
                      new Job(SendType.External, "localhost", "Commons", 38 /* Execute DoWork4PingNetwork */, SendType.Self)
                      {
-                        Input = "google.com",
+                        Input = smsConf.PING_IP_ADRS ?? "google.com",
                         AfterChangedOutput =
                            new Action<object>(
                               (pingStatus) =>
@@ -107,6 +108,9 @@ namespace System.MessageBroadcast.Ui.MasterPage
                                     // ارسال میشود
                                     //_SenderBgwk.Interval = 600000;
                                     //_SenderBgwk.Interval = 60000;
+
+                                    new Thread(InternetDisconnected).Start();
+
                                     _DefaultGateway.Gateway(
                                        new Job(SendType.External, "localhost", "", 03 /* Actn_Extr_P */, SendType.Self)
                                        {
@@ -114,7 +118,7 @@ namespace System.MessageBroadcast.Ui.MasterPage
                                              new XElement("Process",
                                                 new XElement("Action",
                                                    new XAttribute("type", "004"),
-                                                   new XAttribute("value", 600000)
+                                                   new XAttribute("value", smsConf.SLEP_INTR ?? 600000)
                                                 )
                                              )
                                        }
@@ -128,7 +132,7 @@ namespace System.MessageBroadcast.Ui.MasterPage
                                              {
                                                 ToolTipIcon.Warning,
                                                 "بررسی وضعیت اتصال اینترنت",
-                                                "اینترنت سیستم غیرفعال می باشد، سامانه پیامکی پس از 10 دقیقه مجددا فعال میشود",
+                                                string.Format("اینترنت سیستم غیرفعال می باشد، سامانه پیامکی پس از {0} دقیقه مجددا فعال میشود", (smsConf.SLEP_INTR ?? 600000) / 60000),
                                                 2000
                                              }
                                        }
@@ -284,12 +288,13 @@ namespace System.MessageBroadcast.Ui.MasterPage
                });
             #endregion
 
+            var smsConf1 = SmsBs.Current as Data.Message_Broad_Setting;
             // 1398/07/05 * بررسی اینکه آیا اینترنت برقرار می باشد یا خیر
             #region Ping Network
             _DefaultGateway.Gateway(
                new Job(SendType.External, "localhost", "Commons", 38 /* Execute DoWork4PingNetwork */, SendType.Self)
                {
-                  Input = "google.com",
+                  Input = smsConf1.PING_IP_ADRS ?? "google.com",
                   AfterChangedOutput =
                      new Action<object>(
                         (pingStatus) =>
@@ -304,6 +309,10 @@ namespace System.MessageBroadcast.Ui.MasterPage
                               // ارسال میشود
                               //_SenderBgwk.Interval = 600000;
                               //_SenderBgwk.Interval = 60000;
+                              
+
+                              new Thread(InternetDisconnected).Start();
+
                               _DefaultGateway.Gateway(
                                  new Job(SendType.External, "localhost", "", 03 /* Actn_Extr_P */, SendType.Self)
                                  {
@@ -311,7 +320,7 @@ namespace System.MessageBroadcast.Ui.MasterPage
                                        new XElement("Process",
                                           new XElement("Action",
                                              new XAttribute("type", "004"),
-                                             new XAttribute("value", 600000)
+                                             new XAttribute("value", smsConf1.SLEP_INTR ?? 600000)
                                           )
                                        )
                                  }
@@ -325,7 +334,7 @@ namespace System.MessageBroadcast.Ui.MasterPage
                                        {
                                           ToolTipIcon.Warning,
                                           "بررسی وضعیت اتصال اینترنت",
-                                          "اینترنت سیستم غیرفعال می باشد، سامانه پیامکی پس از 10 دقیقه مجددا فعال میشود",
+                                          string.Format("اینترنت سیستم غیرفعال می باشد، سامانه پیامکی پس از {0} دقیقه مجددا فعال میشود", (smsConf1.SLEP_INTR ?? 600000) / 60000),
                                           2000
                                        }
                                  }
@@ -343,6 +352,8 @@ namespace System.MessageBroadcast.Ui.MasterPage
             {
                Thread _tmpWorker = new Thread(new ThreadStart(smsServerRefresh));
                _tmpWorker.Start();
+
+               new Thread(InternetConnected).Start();
             }
             //_tmpWorker.Join();
          }
@@ -424,6 +435,130 @@ namespace System.MessageBroadcast.Ui.MasterPage
       private void Reload_Butn_Click(object sender, EventArgs e)
       {
          Execute_Query();
+      }
+
+      private void SendWorkIntr_Nud_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
+      {
+         var smsconf = SmsBs.Current as Data.Message_Broad_Setting;
+
+         _DefaultGateway.Gateway(
+            new Job(SendType.External, "localhost", "", 03 /* Actn_Extr_P */, SendType.Self)
+            {
+               Input =
+                  new XElement("Process",
+                     new XElement("Action",
+                        new XAttribute("type", "004"),
+                        new XAttribute("value", e.NewValue),
+                        new XElement("LineNumber",
+                           new XAttribute("mbid", smsconf.MBID)
+                        )
+                     )
+                  )
+            }
+         );
+      }
+
+      private void JustToday_Cbx_CheckedChanged(object sender, EventArgs e)
+      {
+         UntilBeforeDay_Nud.Enabled = !JustToday_Cbx.Checked;
+
+         var smsconf = SmsBs.Current as Data.Message_Broad_Setting;
+
+         _DefaultGateway.Gateway(
+            new Job(SendType.External, "localhost", "", 03 /* Actn_Extr_P */, SendType.Self)
+            {
+               Input =
+                  new XElement("Process",
+                     new XElement("Action",
+                        new XAttribute("type", "005"),
+                        new XAttribute("value", JustToday_Cbx.Checked),
+                        new XElement("LineNumber",
+                           new XAttribute("mbid", smsconf.MBID)
+                        )
+                     )
+                  )
+            }
+         );
+      }
+
+      private void UntilBeforeDay_Nud_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
+      {
+         var smsconf = SmsBs.Current as Data.Message_Broad_Setting;
+
+         _DefaultGateway.Gateway(
+            new Job(SendType.External, "localhost", "", 03 /* Actn_Extr_P */, SendType.Self)
+            {
+               Input =
+                  new XElement("Process",
+                     new XElement("Action",
+                        new XAttribute("type", "006"),
+                        new XAttribute("value", e.NewValue),
+                        new XElement("LineNumber",
+                           new XAttribute("mbid", smsconf.MBID)
+                        )
+                     )
+                  )
+            }
+         );
+      }
+
+      private void SmsApiWebSite_Lnk_Click(object sender, EventArgs e)
+      {
+         var smsApi = SmsBs.Current as Data.Message_Broad_Setting;
+
+         if(smsApi.WEB_SITE != null)
+            Process.Start(smsApi.WEB_SITE);
+      }
+
+      WMPLib.WindowsMediaPlayer wplayer = new WMPLib.WindowsMediaPlayer();
+      private void InternetConnected()
+      {
+         if (InvokeRequired)
+         {
+            //try
+            //{
+            //   wplayer.URL = @".\Media\SubSys\Kernel\Desktop\Sounds\Popcorn.mp3";
+            //   wplayer.controls.play();
+            //}
+            //catch { }
+
+            //var tempcolor = BackGrnd_Butn.NormalColorA;
+            for (int i = 0; i < 5; i++)
+            {
+               if (i % 2 == 0)
+                  BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.YellowGreen;
+               else
+                  BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.LimeGreen;
+
+               Thread.Sleep(100);
+            }
+            //BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = tempcolor;
+         }
+      }
+
+      private void InternetDisconnected()
+      {
+         if (InvokeRequired)
+         {
+            //try
+            //{
+            //   wplayer.URL = @".\Media\SubSys\Kernel\Desktop\Sounds\Popcorn.mp3";
+            //   wplayer.controls.play();
+            //}
+            //catch { }
+
+            //var tempcolor = BackGrnd_Butn.NormalColorA;
+            for (int i = 0; i < 5; i++)
+            {
+               if (i % 2 == 0)
+                  BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Red;
+               else
+                  BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.OrangeRed;
+
+               Thread.Sleep(100);
+            }
+            //BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = tempcolor;
+         }
       }
    }
 }

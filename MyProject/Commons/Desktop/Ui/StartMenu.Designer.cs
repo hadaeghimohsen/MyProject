@@ -124,7 +124,7 @@
          this.Back_Butn.Appearance.Options.UseFont = true;
          this.Back_Butn.Appearance.Options.UseForeColor = true;
          this.Back_Butn.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat;
-         this.Back_Butn.Image = global::MyProject.Properties.Resources.IMAGE_1488;
+         this.Back_Butn.Image = global::MyProject.Properties.Resources.IMAGE_1757;
          this.Back_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
          this.Back_Butn.Location = new System.Drawing.Point(3, 486);
          this.Back_Butn.LookAndFeel.SkinName = "Office 2010 Blue";

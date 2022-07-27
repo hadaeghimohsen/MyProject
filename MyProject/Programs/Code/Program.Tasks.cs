@@ -49,7 +49,7 @@ namespace MyProject.Programs.Code
             //_ISP = new System.ISP.Code.ISP(_Commons, _Wall) { _DefaultGateway = this };
             _CRM = new System.CRM.Code.CRM(_Commons, _Wall) { _DefaultGateway = this };
             _RoboTech = new System.RoboTech.Code.RoboTech(_Commons, _Wall) { _DefaultGateway = this };
-            _GateControl = new System.GateControl.Code.GateControl(_Commons, _Wall) { _DefaultGateway = this };
+            //_GateControl = new System.GateControl.Code.GateControl(_Commons, _Wall) { _DefaultGateway = this };
          }
          else
          {

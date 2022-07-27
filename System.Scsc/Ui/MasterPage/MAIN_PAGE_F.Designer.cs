@@ -164,6 +164,7 @@
          this.tol_closegatebutn = new DevExpress.XtraBars.BarButtonItem();
          this.bbi_grntbutn = new DevExpress.XtraBars.BarButtonItem();
          this.bbi_evntsysbutn = new DevExpress.XtraBars.BarButtonItem();
+         this.bbi_dsctcard = new DevExpress.XtraBars.BarButtonItem();
          this.System_RPgc = new DevExpress.XtraBars.Ribbon.RibbonPageCategory();
          this.Base_RbPg = new DevExpress.XtraBars.Ribbon.RibbonPage();
          this.Base_RbGp = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -189,6 +190,7 @@
          this.AgrOption_RbPg = new DevExpress.XtraBars.Ribbon.RibbonPage();
          this.AgrSmsOption_RbGp = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
          this.AgrOprOption_RbGp = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+         this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
          this.Mngr_RPgc = new DevExpress.XtraBars.Ribbon.RibbonPageCategory();
          this.Report_RbPg = new DevExpress.XtraBars.Ribbon.RibbonPage();
          this.Report_RbGp = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -440,9 +442,10 @@
             this.tol_opengatebutn,
             this.tol_closegatebutn,
             this.bbi_grntbutn,
-            this.bbi_evntsysbutn});
+            this.bbi_evntsysbutn,
+            this.bbi_dsctcard});
          this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
-         this.ribbonControl1.MaxItemId = 113;
+         this.ribbonControl1.MaxItemId = 114;
          this.ribbonControl1.Name = "ribbonControl1";
          this.ribbonControl1.PageCategories.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageCategory[] {
             this.System_RPgc,
@@ -1436,6 +1439,16 @@
          this.bbi_evntsysbutn.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbi_evntsysbutn.LargeGlyph")));
          this.bbi_evntsysbutn.Name = "bbi_evntsysbutn";
          // 
+         // bbi_dsctcard
+         // 
+         this.bbi_dsctcard.Caption = "کد تخفیف";
+         this.bbi_dsctcard.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
+         this.bbi_dsctcard.Glyph = global::System.Scsc.Properties.Resources.IMAGE_1206;
+         this.bbi_dsctcard.Id = 113;
+         this.bbi_dsctcard.LargeGlyph = global::System.Scsc.Properties.Resources.IMAGE_1206;
+         this.bbi_dsctcard.Name = "bbi_dsctcard";
+         this.bbi_dsctcard.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_dsctcard_ItemClick);
+         // 
          // System_RPgc
          // 
          this.System_RPgc.Color = System.Drawing.Color.Empty;
@@ -1637,9 +1650,10 @@
          // 
          this.AgrOption_RbPg.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.AgrSmsOption_RbGp,
-            this.AgrOprOption_RbGp});
+            this.AgrOprOption_RbGp,
+            this.ribbonPageGroup2});
          this.AgrOption_RbPg.Name = "AgrOption_RbPg";
-         this.AgrOption_RbPg.Text = "فعالیت های گروهی";
+         this.AgrOption_RbPg.Text = "اطلاع رسانی و تبلیغات";
          // 
          // AgrSmsOption_RbGp
          // 
@@ -1656,6 +1670,13 @@
          this.AgrOprOption_RbGp.ItemLinks.Add(this.bbi_incgbutn);
          this.AgrOprOption_RbGp.Name = "AgrOprOption_RbGp";
          this.AgrOprOption_RbGp.Text = "عملیات دوره ای";
+         this.AgrOprOption_RbGp.Visible = false;
+         // 
+         // ribbonPageGroup2
+         // 
+         this.ribbonPageGroup2.ItemLinks.Add(this.bbi_dsctcard);
+         this.ribbonPageGroup2.Name = "ribbonPageGroup2";
+         this.ribbonPageGroup2.Text = "تبلیغات";
          // 
          // Mngr_RPgc
          // 
@@ -2852,5 +2873,7 @@
       private Windows.Forms.Button button5;
       private DevExpress.XtraBars.BarButtonItem bbi_evntsysbutn;
       private Windows.Forms.CheckBox TryPing_Cbx;
+      private DevExpress.XtraBars.BarButtonItem bbi_dsctcard;
+      private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup2;
    }
 }

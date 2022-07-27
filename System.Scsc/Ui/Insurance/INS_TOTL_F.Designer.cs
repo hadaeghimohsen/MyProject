@@ -203,6 +203,8 @@
          this.Rqid_Lb = new System.Windows.Forms.Label();
          this.dateTimeSelector6 = new Atf.UI.DateTimeSelector();
          this.CretDate_Lb = new System.Windows.Forms.Label();
+         this.groupBox1 = new System.Windows.Forms.GroupBox();
+         this.InsrLink_Lnk = new System.Windows.Forms.LinkLabel();
          this.Gb_Info.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.FgpbsBs1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.RqroBs1)).BeginInit();
@@ -242,6 +244,7 @@
          ((System.ComponentModel.ISupportInitialize)(this.textEdit14.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.textEdit16.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.textEdit18.Properties)).BeginInit();
+         this.groupBox1.SuspendLayout();
          this.SuspendLayout();
          // 
          // InsrDate_Lb
@@ -1992,11 +1995,35 @@
          this.CretDate_Lb.TabIndex = 14;
          this.CretDate_Lb.Text = "تاریخ ایجاد :";
          // 
+         // groupBox1
+         // 
+         this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.groupBox1.Controls.Add(this.InsrLink_Lnk);
+         this.groupBox1.Location = new System.Drawing.Point(625, 405);
+         this.groupBox1.Name = "groupBox1";
+         this.groupBox1.Size = new System.Drawing.Size(310, 68);
+         this.groupBox1.TabIndex = 67;
+         this.groupBox1.TabStop = false;
+         this.groupBox1.Text = "سایت بیمه ورزشی";
+         // 
+         // InsrLink_Lnk
+         // 
+         this.InsrLink_Lnk.AutoSize = true;
+         this.InsrLink_Lnk.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.InsrLink_Lnk.Location = new System.Drawing.Point(31, 26);
+         this.InsrLink_Lnk.Name = "InsrLink_Lnk";
+         this.InsrLink_Lnk.Size = new System.Drawing.Size(248, 16);
+         this.InsrLink_Lnk.TabIndex = 0;
+         this.InsrLink_Lnk.TabStop = true;
+         this.InsrLink_Lnk.Text = "https://insurance.ifsm.ir/UserOnline/Login";
+         this.InsrLink_Lnk.Click += new System.EventHandler(this.InsrLink_Lnk_Click);
+         // 
          // INS_TOTL_F
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
          this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
          this.BackColor = System.Drawing.SystemColors.Control;
+         this.Controls.Add(this.groupBox1);
          this.Controls.Add(this.Gb_Rqst3);
          this.Controls.Add(this.Gb_Expense);
          this.Controls.Add(this.Gb_Info);
@@ -2048,6 +2075,8 @@
          ((System.ComponentModel.ISupportInitialize)(this.textEdit14.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.textEdit16.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.textEdit18.Properties)).EndInit();
+         this.groupBox1.ResumeLayout(false);
+         this.groupBox1.PerformLayout();
          this.ResumeLayout(false);
          this.PerformLayout();
 
@@ -2198,5 +2227,7 @@
       private DevExpress.XtraEditors.SimpleButton bn_Card2CardPayment3;
       private Windows.Forms.CheckBox Accept_Cb;
       private Windows.Forms.Button UpdtExpn_Butn;
+      private Windows.Forms.GroupBox groupBox1;
+      private Windows.Forms.LinkLabel InsrLink_Lnk;
    }
 }

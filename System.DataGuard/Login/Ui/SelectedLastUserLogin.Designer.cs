@@ -137,14 +137,14 @@
          this.label3.Name = "label3";
          this.label3.Size = new System.Drawing.Size(712, 32);
          this.label3.TabIndex = 4;
-         this.label3.Text = "Anar Team Corporation \r\nCellphone : 0917 101 5031 - 0935 744 5978\r\n";
+         this.label3.Text = "RelaySoft Team Corporation \r\nCellphone : 0991 566 6598 - 0903 392 7103\r\n";
          this.label3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
          // 
          // pictureBox1
          // 
          this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
          this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-         this.pictureBox1.Image = global::System.DataGuard.Properties.Resources.IMAGE_1619;
+         this.pictureBox1.Image = global::System.DataGuard.Properties.Resources.IMAGE_1757;
          this.pictureBox1.Location = new System.Drawing.Point(369, 53);
          this.pictureBox1.Name = "pictureBox1";
          this.pictureBox1.Size = new System.Drawing.Size(50, 50);
@@ -274,7 +274,7 @@
          this.ActvLicnTime_LL.LinkColor = System.Drawing.Color.White;
          this.ActvLicnTime_LL.Location = new System.Drawing.Point(672, 696);
          this.ActvLicnTime_LL.Name = "ActvLicnTime_LL";
-         this.ActvLicnTime_LL.Size = new System.Drawing.Size(105, 15);
+         this.ActvLicnTime_LL.Size = new System.Drawing.Size(129, 15);
          this.ActvLicnTime_LL.TabIndex = 14;
          this.ActvLicnTime_LL.TabStop = true;
          this.ActvLicnTime_LL.Text = "9105-0001 - 1400/01/01";

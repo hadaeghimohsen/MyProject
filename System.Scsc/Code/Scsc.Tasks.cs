@@ -787,6 +787,11 @@ namespace System.Scsc.Code
             if (_Wrn_Serv_F == null)
                _Wrn_Serv_F = new Ui.WarrantyService.WRN_SERV_F { _DefaultGateway = this };
          }
+         else if (value == "adv_base_f")
+         {
+            if (_Adv_Base_F == null)
+               _Adv_Base_F = new Ui.Advertising.ADV_BASE_F { _DefaultGateway = this };
+         }
 
          // فرم های نمایش تغییرات
          else if (value == "show_atrq_f")
@@ -1908,6 +1913,7 @@ namespace System.Scsc.Code
                {
                   new Job(SendType.Self, 01 /* Execute GetUi */){Input = "all_fldf_f"},
                   new Job(SendType.SelfToUserInterface, "ALL_FLDF_F", 02 /* Execute Set */),
+                  new Job(SendType.SelfToUserInterface, "ALL_FLDF_F", 05 /* Execute CheckSecurity */),
                   new Job(SendType.SelfToUserInterface, "ALL_FLDF_F", 03 /* Execute Paint */),
                   new Job(SendType.SelfToUserInterface, "ALL_FLDF_F", 07 /* Execute LoadData */){Input = job.Input/*, Executive = ExecutiveType.Asynchronous*/},                  
                });
@@ -2486,6 +2492,7 @@ namespace System.Scsc.Code
                {
                   new Job(SendType.Self, 01 /* Execute GetUi */){Input = "adm_chng_f"},
                   new Job(SendType.SelfToUserInterface, "ADM_CHNG_F", 02 /* Execute Set */){Executive = ExecutiveType.Synchronize},
+                  new Job(SendType.SelfToUserInterface, "ADM_CHNG_F", 05 /* Execute CheckSecurity */),
                   new Job(SendType.SelfToUserInterface, "ADM_CHNG_F", 03 /* Execute Paint */),
                   new Job(SendType.SelfToUserInterface, "ADM_CHNG_F", 07 /* Execute Load_Data */)//{Executive = ExecutiveType.Asynchronous},                  
                });
@@ -4778,6 +4785,31 @@ namespace System.Scsc.Code
                   new Job(SendType.SelfToUserInterface, "OPT_MESG_F", 02 /* Execute Set */),                  
                   new Job(SendType.SelfToUserInterface, "OPT_MESG_F", 07 /* Execute Load_Data */),
                   new Job(SendType.SelfToUserInterface, "OPT_MESG_F", 03 /* Execute Paint */),
+               });
+         }
+         else if (job.Status == StatusType.SignalForPreconditions)
+         {
+            job.Status = StatusType.Successful;
+         }
+      }
+
+      /// <summary>
+      /// Code 165
+      /// </summary>
+      /// <param name="job"></param>
+      private void Adv_Base_F(Job job)
+      {
+         if (job.Status == StatusType.Running)
+         {
+            job.Status = StatusType.WaitForPreconditions;
+            job.OwnerDefineWorkWith.AddRange(
+               new List<Job>
+               {
+                  new Job(SendType.Self, 01 /* Execute GetUi */){Input = "adv_base_f"},
+                  new Job(SendType.SelfToUserInterface, "ADV_BASE_F", 02 /* Execute Set */),                  
+                  new Job(SendType.SelfToUserInterface, "ADV_BASE_F", 05 /* Execute Check_Security */),
+                  new Job(SendType.SelfToUserInterface, "ADV_BASE_F", 07 /* Execute Load_Data */),
+                  new Job(SendType.SelfToUserInterface, "ADV_BASE_F", 03 /* Execute Paint */),
                });
          }
          else if (job.Status == StatusType.SignalForPreconditions)

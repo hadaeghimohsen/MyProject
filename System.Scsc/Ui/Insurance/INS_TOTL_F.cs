@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Xml.Linq;
 using System.JobRouting.Jobs;
 using System.Data.SqlClient;
+using System.Diagnostics;
 
 namespace System.Scsc.Ui.Insurance
 {
@@ -1060,6 +1061,11 @@ namespace System.Scsc.Ui.Insurance
       private void ShowRqst_PickButn_PickCheckedChange(object sender)
       {
          Execute_Query();
+      }
+
+      private void InsrLink_Lnk_Click(object sender, EventArgs e)
+      {
+         Process.Start(InsrLink_Lnk.Text);
       }
    }
 }

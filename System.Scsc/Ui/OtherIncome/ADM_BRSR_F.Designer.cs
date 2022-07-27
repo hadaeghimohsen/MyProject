@@ -28,6 +28,7 @@
       /// </summary>
       private void InitializeComponent()
       {
+         this.components = new System.ComponentModel.Container();
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ADM_BRSR_F));
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition1 = new DevExpress.XtraGrid.StyleFormatCondition();
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition2 = new DevExpress.XtraGrid.StyleFormatCondition();
@@ -74,12 +75,12 @@
          this.label14 = new System.Windows.Forms.Label();
          this.colDEBT_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
          this.persianRepositoryItemDateEdit1 = new dxExample.PersianRepositoryItemDateEdit();
-         this.RqstBs1 = new System.Windows.Forms.BindingSource();
-         this.im_images = new System.Windows.Forms.ImageList();
-         this.FighsBs1 = new System.Windows.Forms.BindingSource();
-         this.RqroBs1 = new System.Windows.Forms.BindingSource();
-         this.FgpbsBs1 = new System.Windows.Forms.BindingSource();
-         this.miniToolStrip = new System.Windows.Forms.BindingNavigator();
+         this.RqstBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.im_images = new System.Windows.Forms.ImageList(this.components);
+         this.FighsBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.RqroBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.FgpbsBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.miniToolStrip = new System.Windows.Forms.BindingNavigator(this.components);
          this.colTARF_CODE_DNRM1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colMOST_DEBT_CLNG_DNRM1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colEXAM_RWNO_DNRM1 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -183,7 +184,7 @@
          this.colCash1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.groupBox1 = new System.Windows.Forms.GroupBox();
          this.vF_Last_Info_FighterResultGridControl = new DevExpress.XtraGrid.GridControl();
-         this.vf_FighBs = new System.Windows.Forms.BindingSource();
+         this.vf_FighBs = new System.Windows.Forms.BindingSource(this.components);
          this.PBLC = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colCELL_PHON_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colTELL_PHON_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -216,8 +217,8 @@
          this.SaveOthr_Butn = new System.Windows.Forms.Button();
          this.ChatId_Lb = new System.Windows.Forms.Label();
          this.CtgyCode_LookupEdit001 = new DevExpress.XtraEditors.LookUpEdit();
-         this.CtgyBs1 = new System.Windows.Forms.BindingSource();
-         this.MtodBs1 = new System.Windows.Forms.BindingSource();
+         this.CtgyBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.MtodBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.MtodCode_LookupEdit001 = new DevExpress.XtraEditors.GridLookUpEdit();
          this.cBMT_CODEGridLookUpEditView = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colCODE1 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -229,9 +230,9 @@
          this.colMDFY_DATE3 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colMethod1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.Club_CodeLookUpEdit = new DevExpress.XtraEditors.LookUpEdit();
-         this.ClubBs1 = new System.Windows.Forms.BindingSource();
+         this.ClubBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.SEX_TYPE_LookUpEdit = new DevExpress.XtraEditors.LookUpEdit();
-         this.DSxtpBs1 = new System.Windows.Forms.BindingSource();
+         this.DSxtpBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.BRTH_DATE_PersianDateEdit = new Atf.UI.DateTimeSelector();
          this.textEdit2 = new DevExpress.XtraEditors.TextEdit();
          this.FRST_NAME_TextEdit = new DevExpress.XtraEditors.TextEdit();
@@ -248,7 +249,7 @@
          this.textEdit14 = new DevExpress.XtraEditors.TextEdit();
          this.textEdit16 = new DevExpress.XtraEditors.TextEdit();
          this.textEdit18 = new DevExpress.XtraEditors.TextEdit();
-         this.RqstBn1 = new System.Windows.Forms.BindingNavigator();
+         this.RqstBn1 = new System.Windows.Forms.BindingNavigator(this.components);
          this.RqstBnNew1 = new System.Windows.Forms.ToolStripButton();
          this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
          this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
@@ -276,7 +277,7 @@
          this.Search_Butn = new System.Windows.Forms.ToolStripButton();
          this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
          this.AdvnAdmnServ_Butn = new System.Windows.Forms.ToolStripButton();
-         this.FighBs1 = new System.Windows.Forms.BindingSource();
+         this.FighBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.Rqst_Gb = new System.Windows.Forms.GroupBox();
          this.ShowRqst_PickButn = new System.MaxUi.NewPickBtn();
          this.UserProFile_Rb = new System.MaxUi.RoundedButton();
@@ -519,7 +520,7 @@
          this.colDEBT_DNRM.OptionsColumn.FixedWidth = true;
          this.colDEBT_DNRM.OptionsColumn.ReadOnly = true;
          this.colDEBT_DNRM.Visible = true;
-         this.colDEBT_DNRM.VisibleIndex = 5;
+         this.colDEBT_DNRM.VisibleIndex = 3;
          this.colDEBT_DNRM.Width = 105;
          // 
          // persianRepositoryItemDateEdit1
@@ -1225,8 +1226,6 @@
          this.colCELL_PHON_DNRM.OptionsColumn.AllowEdit = false;
          this.colCELL_PHON_DNRM.OptionsColumn.ReadOnly = true;
          this.colCELL_PHON_DNRM.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
-         this.colCELL_PHON_DNRM.Visible = true;
-         this.colCELL_PHON_DNRM.VisibleIndex = 1;
          this.colCELL_PHON_DNRM.Width = 47;
          // 
          // colTELL_PHON_DNRM
@@ -1237,8 +1236,6 @@
          this.colTELL_PHON_DNRM.OptionsColumn.AllowEdit = false;
          this.colTELL_PHON_DNRM.OptionsColumn.ReadOnly = true;
          this.colTELL_PHON_DNRM.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
-         this.colTELL_PHON_DNRM.Visible = true;
-         this.colTELL_PHON_DNRM.VisibleIndex = 0;
          this.colTELL_PHON_DNRM.Width = 42;
          // 
          // colInvsFileNo
@@ -1271,7 +1268,7 @@
          this.colDPST_AMNT_DNRM.GroupFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
          this.colDPST_AMNT_DNRM.Name = "colDPST_AMNT_DNRM";
          this.colDPST_AMNT_DNRM.Visible = true;
-         this.colDPST_AMNT_DNRM.VisibleIndex = 4;
+         this.colDPST_AMNT_DNRM.VisibleIndex = 2;
          this.colDPST_AMNT_DNRM.Width = 74;
          // 
          // colFRST_NAME
@@ -1282,7 +1279,7 @@
          this.colFRST_NAME.OptionsColumn.AllowEdit = false;
          this.colFRST_NAME.OptionsColumn.ReadOnly = true;
          this.colFRST_NAME.Visible = true;
-         this.colFRST_NAME.VisibleIndex = 6;
+         this.colFRST_NAME.VisibleIndex = 4;
          this.colFRST_NAME.Width = 84;
          // 
          // colLAST_NAME
@@ -1293,7 +1290,7 @@
          this.colLAST_NAME.OptionsColumn.AllowEdit = false;
          this.colLAST_NAME.OptionsColumn.ReadOnly = true;
          this.colLAST_NAME.Visible = true;
-         this.colLAST_NAME.VisibleIndex = 7;
+         this.colLAST_NAME.VisibleIndex = 5;
          this.colLAST_NAME.Width = 79;
          // 
          // ChatId_Clm
@@ -1302,7 +1299,7 @@
          this.ChatId_Clm.FieldName = "CHAT_ID_DNRM";
          this.ChatId_Clm.Name = "ChatId_Clm";
          this.ChatId_Clm.Visible = true;
-         this.ChatId_Clm.VisibleIndex = 2;
+         this.ChatId_Clm.VisibleIndex = 0;
          this.ChatId_Clm.Width = 74;
          // 
          // colOprt
@@ -1311,7 +1308,7 @@
          this.colOprt.Name = "colOprt";
          this.colOprt.OptionsColumn.FixedWidth = true;
          this.colOprt.Visible = true;
-         this.colOprt.VisibleIndex = 8;
+         this.colOprt.VisibleIndex = 6;
          this.colOprt.Width = 122;
          // 
          // colActn_Butn
@@ -1391,7 +1388,7 @@
          this.colFNGR_PRNT.OptionsColumn.AllowEdit = false;
          this.colFNGR_PRNT.OptionsColumn.ReadOnly = true;
          this.colFNGR_PRNT.Visible = true;
-         this.colFNGR_PRNT.VisibleIndex = 3;
+         this.colFNGR_PRNT.VisibleIndex = 1;
          // 
          // LOV_PRVN
          // 

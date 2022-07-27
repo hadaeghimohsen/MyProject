@@ -121,10 +121,17 @@ namespace System.MessageBroadcast.Code
                case "004":
                   _SenderBgwk.Interval = Convert.ToInt32(action.Element("Action").Attribute("value").Value);
                   break;
+               case "005":
+                  _JustToday = Convert.ToBoolean(action.Element("Action").Attribute("value").Value);
+                  break;
+               case "006":
+                  _UntilBeforeDay = Convert.ToInt32(action.Element("Action").Attribute("value").Value);
+                  break;
                default:
                   break;
             }
-         }catch(Exception ex)
+         }
+         catch(Exception ex)
          {
             //System.Windows.Forms.MessageBox.Show(ex.Message);
             System.Diagnostics.Debug.WriteLine(ex.Message);

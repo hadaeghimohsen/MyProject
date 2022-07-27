@@ -242,6 +242,7 @@ namespace System.Scsc.Ui.ReportManager
                s.Dictionary.Databases.Clear();
                s.Dictionary.Databases.Add(new StiSqlDatabase("iScsc", ConnectionString));
                vc_reportviewer.Report = s;
+               s.Dictionary.DataSources.OfType<StiSqlSource>().ToList().ForEach(i => i.CommandTimeout = 0);
                s.Dictionary.Variables.Add(new StiVariable("WhereClause", WhereClause));
 
                s.Compile();
@@ -262,6 +263,7 @@ namespace System.Scsc.Ui.ReportManager
                s.Dictionary.Databases.Clear();
                s.Dictionary.Databases.Add(new StiSqlDatabase("iScsc", ConnectionString));
                vc_reportviewer.Report = s;
+               s.Dictionary.DataSources.OfType<StiSqlSource>().ToList().ForEach(i => i.CommandTimeout = 0);
                s.Dictionary.Variables.Add(new StiVariable("WhereClause", WhereClause));
 
                s.Compile();
@@ -344,6 +346,7 @@ namespace System.Scsc.Ui.ReportManager
                      s.Dictionary.Databases.Clear();
                      s.Dictionary.Databases.Add(new StiSqlDatabase("iScsc", ConnectionString));
                      vc_reportviewer.Report = s;
+                     s.Dictionary.DataSources.OfType<StiSqlSource>().ToList().ForEach(i => i.CommandTimeout = 0);
                      s.Dictionary.Variables.Add(new StiVariable("WhereClause", WhereClause));
 
                      s.Compile();
@@ -364,6 +367,7 @@ namespace System.Scsc.Ui.ReportManager
                      s.Dictionary.Databases.Clear();
                      s.Dictionary.Databases.Add(new StiSqlDatabase("iScsc", ConnectionString));
                      vc_reportviewer.Report = s;
+                     s.Dictionary.DataSources.OfType<StiSqlSource>().ToList().ForEach(i => i.CommandTimeout = 0);
                      s.Dictionary.Variables.Add(new StiVariable("WhereClause", WhereClause));
 
                      s.Compile();
@@ -418,6 +422,7 @@ namespace System.Scsc.Ui.ReportManager
                      s.Dictionary.Databases.Clear();
                      s.Dictionary.Databases.Add(new StiSqlDatabase("iScsc", ConnectionString));
                      vc_reportviewer.Report = s;
+                     s.Dictionary.DataSources.OfType<StiSqlSource>().ToList().ForEach(i => i.CommandTimeout = 0);
                      s.Dictionary.Variables.Add(new StiVariable("WhereClause", WhereClause));
 
                      s.Compile();
@@ -438,6 +443,7 @@ namespace System.Scsc.Ui.ReportManager
                      s.Dictionary.Databases.Clear();
                      s.Dictionary.Databases.Add(new StiSqlDatabase("iScsc", ConnectionString));
                      vc_reportviewer.Report = s;
+                     s.Dictionary.DataSources.OfType<StiSqlSource>().ToList().ForEach(i => i.CommandTimeout = 0);
                      s.Dictionary.Variables.Add(new StiVariable("WhereClause", WhereClause));
 
                      s.Compile();

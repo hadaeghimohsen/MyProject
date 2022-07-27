@@ -6,11 +6,12 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Text;
 using System.Windows.Forms;
+using System.Windows.Forms.Design;
 
 namespace System.MaxUi
 {
-   /// <summary>A special custom rounding GroupBox with many painting features.</summary>
-   //[ToolboxBitmap(typeof(Grouper), "mmMaxControls.Grouper.bmp")]
+   /// <summary>A special custom rounding GroupBox with many painting features.</summary>   
+   [Designer(typeof(RolloutDesing))]
    [Designer("System.Windows.Forms.Design.ParentControlDesigner, System.Design", typeof(IDesigner))]
    public class Rollout : UserControl
    {
@@ -642,5 +643,72 @@ namespace System.MaxUi
       }
 
       #endregion
+   }
+
+   public class RolloutActionList : DesignerActionList
+   {
+      private Rollout linkControl;
+      public RolloutActionList(Rollout ctrl)
+         : base(ctrl)
+      {
+         linkControl = ctrl;
+      }
+
+      public bool Status
+      {
+         get { return linkControl.RolloutStatus; }
+         set { GetPropertyByName("RolloutStatus").SetValue(linkControl, value); }
+      }
+
+      public string Title
+      {
+         get { return linkControl.RolloutTitle; }
+         set { GetPropertyByName("RolloutTitle").SetValue(linkControl, value); }
+      }
+
+      private PropertyDescriptor GetPropertyByName(string propName)
+      {
+         PropertyDescriptor prop;
+         prop = TypeDescriptor.GetProperties(linkControl)[propName];
+         if (null == prop)
+         {
+            throw new ArgumentException("Matching property not found.", propName);
+         }
+         else
+         {
+            return prop;
+         }
+      }
+
+      public override DesignerActionItemCollection GetSortedActionItems()
+      {
+         // Create eight items.
+         DesignerActionItemCollection items = new DesignerActionItemCollection();
+         // Begin by creating the headers.
+         items.Add(new DesignerActionHeaderItem("Misc"));
+
+         items.Add(new DesignerActionPropertyItem("Status", "Status Rollout", "Misc", ""));
+         items.Add(new DesignerActionPropertyItem("Title", "Title Rollout", "Misc", ""));
+
+         return items;
+      }
+   }
+
+   public class RolloutDesing : ParentControlDesigner
+   {
+      private DesignerActionListCollection actionLists;
+
+      public override DesignerActionListCollection ActionLists
+      {
+         get
+         {
+            if (actionLists == null)
+            {
+               actionLists = new DesignerActionListCollection();
+               actionLists.Add(new RolloutActionList((Rollout)Control));
+            }
+            return actionLists;
+         }
+      }
    }
 }

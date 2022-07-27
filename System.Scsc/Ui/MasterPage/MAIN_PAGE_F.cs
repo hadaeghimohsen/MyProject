@@ -4551,7 +4551,26 @@ namespace System.Scsc.Ui.MasterPage
          Job _InteractWithScsc =
             new Job(SendType.External, "Localhost",
                new List<Job>
-               {                  
+               {
+                  new Job(SendType.External, "Commons",
+                     new List<Job>
+                     {
+                        #region Access Privilege
+                        new Job(SendType.Self, 07 /* Execute DoWork4AccessPrivilege */)
+                        {
+                           Input = new List<string> 
+                           {
+                              "<Privilege>260</Privilege><Sub_Sys>5</Sub_Sys>", 
+                              "DataGuard"
+                           },
+                           AfterChangedOutput = new Action<object>((output) => {
+                              if ((bool)output)
+                                 return;
+                              MessageBox.Show("خطا - عدم دسترسی به ردیف 260 سطوح امینتی", "عدم دسترسی");
+                           })
+                        },
+                        #endregion
+                     }),
                   new Job(SendType.Self, 45 /* Execute Lsi_Fldf_F */){Input = x},
                   new Job(SendType.SelfToUserInterface, "LSI_FLDF_F", 10 /* Actn_CalF_P */){Input = new XElement("Fighter", new XAttribute("showlist", "001"))}
                });
@@ -5224,7 +5243,18 @@ namespace System.Scsc.Ui.MasterPage
                   }
                });
          _DefaultGateway.Gateway(_InteractWithScsc);
-      }      
+      }
+
+      private void bbi_dsctcard_ItemClick(object sender, ItemClickEventArgs e)
+      {
+         Job _InteractWithScsc =
+            new Job(SendType.External, "Localhost",
+               new List<Job>
+               {
+                  new Job(SendType.Self, 165 /* Execute Adv_Base_F */)
+               });
+         _DefaultGateway.Gateway(_InteractWithScsc);
+      }
       #endregion
 
       #region Report
@@ -6268,6 +6298,6 @@ namespace System.Scsc.Ui.MasterPage
       private void button5_Click(object sender, EventArgs e)
       {
          server.Dispose();
-      }
+      }      
    }
 }

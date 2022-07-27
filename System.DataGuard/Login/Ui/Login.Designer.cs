@@ -42,16 +42,16 @@
          this.label5 = new System.Windows.Forms.Label();
          this.label6 = new System.Windows.Forms.Label();
          this.Cancel_Lbl = new System.Windows.Forms.Label();
+         this.label1 = new System.Windows.Forms.Label();
+         this.ActvLicnTime_LL = new System.Windows.Forms.LinkLabel();
+         this.FngrDev_Pb = new System.Windows.Forms.PictureBox();
          this.SwitchUser_RondButn = new System.MaxUi.RoundedButton();
          this.pictureBox2 = new System.Windows.Forms.PictureBox();
          this.User_RondButn = new System.MaxUi.RoundedButton();
-         this.FngrDev_Pb = new System.Windows.Forms.PictureBox();
-         this.label1 = new System.Windows.Forms.Label();
-         this.ActvLicnTime_LL = new System.Windows.Forms.LinkLabel();
          ((System.ComponentModel.ISupportInitialize)(this.te_username.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.te_password.Properties)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.FngrDev_Pb)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
          this.SuspendLayout();
          // 
          // te_username
@@ -222,9 +222,9 @@
          this.label4.Font = new System.Drawing.Font("Segoe UI", 9F);
          this.label4.Location = new System.Drawing.Point(13, 667);
          this.label4.Name = "label4";
-         this.label4.Size = new System.Drawing.Size(169, 15);
+         this.label4.Size = new System.Drawing.Size(195, 15);
          this.label4.TabIndex = 9;
-         this.label4.Text = "© 1392 Anar Team Corporation";
+         this.label4.Text = "© 1392 RelaySoft Team Corporation";
          // 
          // label5
          // 
@@ -248,7 +248,7 @@
          this.label6.Name = "label6";
          this.label6.Size = new System.Drawing.Size(602, 32);
          this.label6.TabIndex = 14;
-         this.label6.Text = "Anar Team Corporation \r\nCellphone : 0917 101 5031 - 0935 744 5978\r\n";
+         this.label6.Text = "RelaySoft Team Corporation \r\nCellphone : 0991 566 6598 - 0903 392 7103\r\n";
          this.label6.TextAlign = System.Drawing.ContentAlignment.TopCenter;
          // 
          // Cancel_Lbl
@@ -262,6 +262,44 @@
          this.Cancel_Lbl.TabIndex = 17;
          this.Cancel_Lbl.Text = "Switch User";
          this.Cancel_Lbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         // 
+         // label1
+         // 
+         this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+         this.label1.AutoSize = true;
+         this.label1.Font = new System.Drawing.Font("Segoe UI", 9F);
+         this.label1.Location = new System.Drawing.Point(242, 501);
+         this.label1.Name = "label1";
+         this.label1.Size = new System.Drawing.Size(141, 15);
+         this.label1.TabIndex = 9;
+         this.label1.Text = "Your Active License Time:";
+         // 
+         // ActvLicnTime_LL
+         // 
+         this.ActvLicnTime_LL.ActiveLinkColor = System.Drawing.Color.Blue;
+         this.ActvLicnTime_LL.Anchor = System.Windows.Forms.AnchorStyles.Top;
+         this.ActvLicnTime_LL.AutoSize = true;
+         this.ActvLicnTime_LL.Font = new System.Drawing.Font("Segoe UI", 9F);
+         this.ActvLicnTime_LL.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
+         this.ActvLicnTime_LL.Location = new System.Drawing.Point(400, 501);
+         this.ActvLicnTime_LL.Name = "ActvLicnTime_LL";
+         this.ActvLicnTime_LL.Size = new System.Drawing.Size(129, 15);
+         this.ActvLicnTime_LL.TabIndex = 6;
+         this.ActvLicnTime_LL.TabStop = true;
+         this.ActvLicnTime_LL.Text = "9105-0001 - 1400/01/01";
+         this.ActvLicnTime_LL.VisitedLinkColor = System.Drawing.Color.Blue;
+         // 
+         // FngrDev_Pb
+         // 
+         this.FngrDev_Pb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+         this.FngrDev_Pb.Image = global::System.DataGuard.Properties.Resources.IMAGE_1211;
+         this.FngrDev_Pb.Location = new System.Drawing.Point(681, 642);
+         this.FngrDev_Pb.Name = "FngrDev_Pb";
+         this.FngrDev_Pb.Size = new System.Drawing.Size(40, 40);
+         this.FngrDev_Pb.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+         this.FngrDev_Pb.TabIndex = 19;
+         this.FngrDev_Pb.TabStop = false;
+         this.FngrDev_Pb.Visible = false;
          // 
          // SwitchUser_RondButn
          // 
@@ -291,7 +329,7 @@
          // pictureBox2
          // 
          this.pictureBox2.Anchor = System.Windows.Forms.AnchorStyles.Top;
-         this.pictureBox2.Image = global::System.DataGuard.Properties.Resources.IMAGE_1619;
+         this.pictureBox2.Image = global::System.DataGuard.Properties.Resources.IMAGE_1757;
          this.pictureBox2.Location = new System.Drawing.Point(339, 63);
          this.pictureBox2.Name = "pictureBox2";
          this.pictureBox2.Size = new System.Drawing.Size(50, 50);
@@ -323,44 +361,6 @@
          this.User_RondButn.TabIndex = 12;
          this.User_RondButn.Tooltip = null;
          // 
-         // FngrDev_Pb
-         // 
-         this.FngrDev_Pb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-         this.FngrDev_Pb.Image = global::System.DataGuard.Properties.Resources.IMAGE_1211;
-         this.FngrDev_Pb.Location = new System.Drawing.Point(681, 642);
-         this.FngrDev_Pb.Name = "FngrDev_Pb";
-         this.FngrDev_Pb.Size = new System.Drawing.Size(40, 40);
-         this.FngrDev_Pb.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-         this.FngrDev_Pb.TabIndex = 19;
-         this.FngrDev_Pb.TabStop = false;
-         this.FngrDev_Pb.Visible = false;
-         // 
-         // label1
-         // 
-         this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-         this.label1.AutoSize = true;
-         this.label1.Font = new System.Drawing.Font("Segoe UI", 9F);
-         this.label1.Location = new System.Drawing.Point(242, 501);
-         this.label1.Name = "label1";
-         this.label1.Size = new System.Drawing.Size(141, 15);
-         this.label1.TabIndex = 9;
-         this.label1.Text = "Your Active License Time:";
-         // 
-         // ActvLicnTime_LL
-         // 
-         this.ActvLicnTime_LL.ActiveLinkColor = System.Drawing.Color.Blue;
-         this.ActvLicnTime_LL.Anchor = System.Windows.Forms.AnchorStyles.Top;
-         this.ActvLicnTime_LL.AutoSize = true;
-         this.ActvLicnTime_LL.Font = new System.Drawing.Font("Segoe UI", 9F);
-         this.ActvLicnTime_LL.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
-         this.ActvLicnTime_LL.Location = new System.Drawing.Point(400, 501);
-         this.ActvLicnTime_LL.Name = "ActvLicnTime_LL";
-         this.ActvLicnTime_LL.Size = new System.Drawing.Size(105, 15);
-         this.ActvLicnTime_LL.TabIndex = 6;
-         this.ActvLicnTime_LL.TabStop = true;
-         this.ActvLicnTime_LL.Text = "9105-0001 - 1400/01/01";
-         this.ActvLicnTime_LL.VisitedLinkColor = System.Drawing.Color.Blue;
-         // 
          // Login
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -391,8 +391,8 @@
          this.Size = new System.Drawing.Size(736, 695);
          ((System.ComponentModel.ISupportInitialize)(this.te_username.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.te_password.Properties)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.FngrDev_Pb)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
          this.ResumeLayout(false);
          this.PerformLayout();
 

@@ -1096,7 +1096,7 @@ namespace MyProject.Commons.Code
          using (Ping p = new Ping())
          {
             //byte[] buffer = Encoding.ASCII.GetBytes("Hello World!");
-            int timeout = 4444; // 4s
+            int timeout = 5000; // 5s
 
             try
             {

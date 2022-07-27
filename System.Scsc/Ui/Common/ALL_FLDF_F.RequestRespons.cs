@@ -42,6 +42,8 @@ namespace System.Scsc.Ui.Common
                UnPaint(job);
                break;
             case 05:
+               CheckSecurity(job);
+               break;
             case 06:
                break;
             case 07:
@@ -1053,6 +1055,39 @@ namespace System.Scsc.Ui.Common
       }
 
       /// <summary>
+      /// Code 05
+      /// </summary>
+      /// <param name="job"></param>
+      private void CheckSecurity(Job job)
+      {
+         Job _InteractWithJob =
+            new Job(SendType.External, "Localhost",
+               new List<Job>
+               {
+                  new Job(SendType.External, "Commons",
+                     new List<Job>
+                     {
+                        #region Access Privilege
+                        new Job(SendType.Self, 07 /* Execute DoWork4AccessPrivilege */)
+                        {
+                           Input = new List<string> {"<Privilege>260</Privilege><Sub_Sys>5</Sub_Sys>", "DataGuard"},
+                           AfterChangedOutput = new Action<object>((output) => {
+                              if ((bool)output)
+                                 job.Status = StatusType.Successful;
+                              else
+                              {
+                                 MessageBox.Show("خطا - عدم دسترسی به ردیف 260 سطوح امینتی", "عدم دسترسی");
+                                 job.Status = StatusType.Failed;
+                              }
+                           })
+                        },
+                        #endregion                        
+                     })                     
+                  });
+         _DefaultGateway.Gateway(_InteractWithJob);         
+      }
+
+      /// <summary>
       /// Code 07
       /// </summary>
       /// <param name="job"></param>
@@ -1208,6 +1243,11 @@ namespace System.Scsc.Ui.Common
             FGrpBs.DataSource = iScsc.Fighter_Groupings.Where(g => g.FIGH_FILE_NO == fileno);
             AGrpBs.DataSource = iScsc.App_Base_Defines.Where(a => a.ENTY_NAME == "Fighter_Grouping");
 
+            // 1401/05/04 * نتیجه تماس
+            CallBs.DataSource = iScsc.Fighter_Calls.Where(c => c.FIGH_FILE_NO == fileno).ToList();
+            RCalBs.DataSource = iScsc.App_Base_Defines.Where(a => a.ENTY_NAME == "Fighter_Call");
+            RSurBs.DataSource = iScsc.App_Base_Defines.Where(a => a.ENTY_NAME == "Fighter_Call_Survey");
+
             // 1401/03/27 * پر کردن شماره تلفن های ارتباطی با مشتری
             CellPhon_Lsbx.Items.Clear();
             if (crntinfo.CELL_PHON_DNRM != null && crntinfo.CELL_PHON_DNRM.Length >= 9)
@@ -1225,6 +1265,12 @@ namespace System.Scsc.Ui.Common
             if (crntinfo.DAD_CHAT_ID_DNRM != null && crntinfo.DAD_CHAT_ID_DNRM >= 9)
                ChatId_Lsbx.Items.Add(crntinfo.DAD_CHAT_ID_DNRM);
 
+            FgdcBs.DataSource = iScsc.Fighter_Discount_Cards.Where(fd => fd.FIGH_FILE_NO == fileno);
+            MtodBs.DataSource = iScsc.Methods.Where(m => m.MTOD_STAT == "002");
+
+            // 1401/05/05 * بارگذاری اطلاعات قالب های پیامی
+            TempBs.DataSource = iScsc.Templates;
+
             if(isFirstLoaded) goto commandfinished;
 
             DDebtBs.DataSource = iScsc.D_DEBTs;
@@ -1239,6 +1285,8 @@ namespace System.Scsc.Ui.Common
             DPycoBs.DataSource = iScsc.D_PYCOs;
             DYsnoBs.DataSource = iScsc.D_YSNOs;
             DMsgsBs.DataSource = iScsc.D_MSGs;
+            DCetpBs.DataSource = iScsc.D_CETPs;
+            RqtpBs.DataSource = iScsc.Request_Types.Where(rt => rt.CODE == "001" || rt.CODE == "016" || rt.CODE == "020");
             
             VPosBs1.DataSource = iScsc.V_Pos_Devices;
             if (VPosBs1.List.OfType<Data.V_Pos_Device>().FirstOrDefault(p => p.GTWY_MAC_ADRS == HostNameInfo.Attribute("cpu").Value) != null)

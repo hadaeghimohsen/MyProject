@@ -206,6 +206,12 @@ namespace System.MessageBroadcast.Ui.MasterPage
                   Ts_SmsWorkerStat.IsOn = true;
                   Ts_SmsBgwkStat.IsOn = true;
                   break;
+               case "InternetConnected":
+                  new Threading.Thread(InternetConnected).Start();
+                  break;
+               case "InternetDisconnected":
+                  new Threading.Thread(InternetDisconnected).Start();
+                  break;
             }
          }
          job.Status = StatusType.Successful;

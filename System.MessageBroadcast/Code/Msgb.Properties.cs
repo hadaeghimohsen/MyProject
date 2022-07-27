@@ -25,6 +25,8 @@ namespace System.MessageBroadcast.Code
       private Timer _CustBgwk;
       
       private bool SmsWorkerStat = true;
+      private bool _JustToday = true;
+      private int _UntilBeforeDay = 1;
       private SmsService.Sms SmsClient; // Web Service Sms Call Company * Mr Vahaj
       private iNotiSmsService.iNotiSMS iNotiSmsClient; // Web Service iNoti Sms Company * Mr Marashi
       private XElement xHost;
@@ -114,7 +116,7 @@ namespace System.MessageBroadcast.Code
             _DefaultGateway.Gateway(
                new Job(SendType.External, "localhost", "Commons", 38 /* Execute DoWork4PingNetwork */, SendType.Self)
                {
-                  Input = "inoti.com",
+                  Input = smsConf.FirstOrDefault().PING_IP_ADRS ?? "google.com",
                   AfterChangedOutput = 
                      new Action<object>(
                         (pingStatus) =>
@@ -127,9 +129,16 @@ namespace System.MessageBroadcast.Code
                               // اگر اینترنت قطع باشد یک وقفه ده دقیقه ای انجام میشود و پیام به برای 
                               // System Try
                               // ارسال میشود
-                              _SenderBgwk.Interval = 600000;
+                              _SenderBgwk.Interval = smsConf.FirstOrDefault().SLEP_INTR ?? 600000;
                               //_SenderBgwk.Interval = 60000;
 
+                              // 1401/04/11 * IF Internet is not Connected System must be Show Alarm DC
+                              Gateway(
+                                 new Job(SendType.External, "localhost", "MSTR_PAGE_F", 10 /* Execute Actn_Calf_P */, SendType.SelfToUserInterface)
+                                 {
+                                    Input = new XElement("SmsConf", new XAttribute("actntype", "InternetDisconnected"))
+                                 }
+                              );
 
                               _DefaultGateway.Gateway(
                                  new Job(SendType.External, "localhost", "Wall", 22 /* Execute SetSystemNotification */, SendType.SelfToUserInterface)
@@ -139,7 +148,7 @@ namespace System.MessageBroadcast.Code
                                        {
                                           ToolTipIcon.Warning,
                                           "بررسی وضعیت اتصال اینترنت",
-                                          "اینترنت سیستم غیرفعال می باشد، سامانه پیامکی پس از 10 دقیقه مجددا فعال میشود",
+                                          string.Format("اینترنت سیستم غیرفعال می باشد، سامانه پیامکی پس از {0} دقیقه مجددا فعال میشود", (smsConf.FirstOrDefault().SLEP_INTR ?? 600000) / 60000),
                                           2000
                                        }
                                  }
@@ -154,6 +163,14 @@ namespace System.MessageBroadcast.Code
             // 1398/07/05 * اگر شبکه اینترنتی فعال باشد سامانه شروع به ارسال پیامک کند
             if (_PingStatus)
             {
+               // 1401/04/11 * IF Internet is Connected System must be Show Alarm CONNECTED
+               Gateway(
+                  new Job(SendType.External, "localhost", "MSTR_PAGE_F", 10 /* Execute Actn_Calf_P */, SendType.SelfToUserInterface)
+                  {
+                     Input = new XElement("SmsConf", new XAttribute("actntype", "InternetConnected"))
+                  }
+               );
+
                int smsSendCount = 0;
                
                #region Send Bulk Sms
@@ -206,7 +223,7 @@ namespace System.MessageBroadcast.Code
                         if (smsConf.FirstOrDefault(smst => smst.TYPE == "001" && smst.BGWK_STAT == "002").MIN_STOP_CHRG >= SendCredit)
                         {
                            // اگر میزان شارژ کمتر میزان باشد سامانه پیامکی باید غیر فعال شود
-                           _DefaultGateway.Gateway(
+                           Gateway(
                               new Job(SendType.External, "localhost", "MSTR_PAGE_F", 10 /* Execute Actn_Calf_P */, SendType.SelfToUserInterface)
                               {
                                  Input = new XElement("SmsConf", new XAttribute("actntype", "SmsServerWorkerOff"))
@@ -217,7 +234,7 @@ namespace System.MessageBroadcast.Code
                            //_SenderBgwk.Stop();
                            //continue;
 
-                           _SenderBgwk.Interval = 600000;
+                           _SenderBgwk.Interval = smsConf.FirstOrDefault().SLEP_INTR ?? 600000;
 
                            _DefaultGateway.Gateway(
                               new Job(SendType.External, "localhost", "Wall", 22 /* Execute SetSystemNotification */, SendType.SelfToUserInterface)
@@ -281,14 +298,14 @@ namespace System.MessageBroadcast.Code
                }
                #endregion
                #region Send Single Sms
-               foreach (var sms in iProject.Sms_Message_Boxes.Where(sms => sms.STAT == "001" && sms.MESG_ID == null && sms.ACTN_DATE <= DateTime.Now && (sms.PHON_NUMB.StartsWith("09") || sms.PHON_NUMB.StartsWith("9")) && sms.PHON_NUMB.Length >= 10 && sms.PHON_NUMB.Length <= 11))
+               foreach (var sms in iProject.Sms_Message_Boxes.Where(sms => sms.STAT == "001" && sms.MESG_ID == null && ((_JustToday && sms.ACTN_DATE.Value.Date == DateTime.Now.Date) || (!_JustToday && sms.ACTN_DATE.Value.Date <= DateTime.Now.Date && sms.ACTN_DATE.Value.Date >= DateTime.Now.Date.AddDays(_UntilBeforeDay * -1))) && (sms.PHON_NUMB.StartsWith("09") || sms.PHON_NUMB.StartsWith("9")) && sms.PHON_NUMB.Length >= 10 && sms.PHON_NUMB.Length <= 11))
                {
                   // 1398/07/05 * برای محکم کاری بیشتر برای هر بار ارسال اطلاعات تست ارتباط انجام شود
                   #region Ping Network
                   _DefaultGateway.Gateway(
                      new Job(SendType.External, "localhost", "Commons", 38 /* Execute DoWork4PingNetwork */, SendType.Self)
                      {
-                        Input = "inoti.com",
+                        Input = smsConf.FirstOrDefault().PING_IP_ADRS ?? "www.google.com",
                         AfterChangedOutput =
                            new Action<object>(
                               (pingStatus) =>
@@ -301,7 +318,15 @@ namespace System.MessageBroadcast.Code
                                     // اگر اینترنت قطع باشد یک وقفه ده دقیقه ای انجام میشود و پیام به برای 
                                     // System Try
                                     // ارسال میشود
-                                    _SenderBgwk.Interval = 600000;
+                                    _SenderBgwk.Interval = smsConf.FirstOrDefault().SLEP_INTR ?? 600000;
+
+                                    // 1401/04/11 * IF Internet is not Connected System must be Show Alarm DC
+                                    Gateway(
+                                       new Job(SendType.External, "localhost", "MSTR_PAGE_F", 10 /* Execute Actn_Calf_P */, SendType.SelfToUserInterface)
+                                       {
+                                          Input = new XElement("SmsConf", new XAttribute("actntype", "InternetDisconnected"))
+                                       }
+                                    );                                    
 
                                     _DefaultGateway.Gateway(
                                        new Job(SendType.External, "localhost", "Wall", 22 /* Execute SetSystemNotification */, SendType.SelfToUserInterface)
@@ -311,7 +336,7 @@ namespace System.MessageBroadcast.Code
                                              {
                                                 ToolTipIcon.Warning,
                                                 "بررسی وضعیت اتصال اینترنت",
-                                                "اینترنت سیستم غیرفعال می باشد، سامانه پیامکی پس از 10 دقیقه مجددا فعال میشود",
+                                                string.Format("اینترنت سیستم غیرفعال می باشد، سامانه پیامکی پس از {0} دقیقه مجددا فعال میشود", (smsConf.FirstOrDefault().SLEP_INTR ?? 600000) / 60000),
                                                 2000
                                              }
                                        }
@@ -325,9 +350,24 @@ namespace System.MessageBroadcast.Code
                   // اگر شبکه اینترنت قطع باشد از حلقه ارسال خارج میشویم
                   if (!_PingStatus)
                   {
+                     // 1401/04/11 * IF Internet is not Connected System must be Show Alarm DC
+                     Gateway(
+                        new Job(SendType.External, "localhost", "MSTR_PAGE_F", 10 /* Execute Actn_Calf_P */, SendType.SelfToUserInterface)
+                        {
+                           Input = new XElement("SmsConf", new XAttribute("actntype", "InternetDisconnected"))
+                        }
+                     );
                      break;
                   }
                   #endregion
+
+                  // 1401/04/11 * IF Internet is Connected System must be Show Alarm CONNECTED
+                  Gateway(
+                     new Job(SendType.External, "localhost", "MSTR_PAGE_F", 10 /* Execute Actn_Calf_P */, SendType.SelfToUserInterface)
+                     {
+                        Input = new XElement("SmsConf", new XAttribute("actntype", "InternetConnected"))
+                     }
+                  );
 
                   if (SmsWorkerStat)
                   {
@@ -374,18 +414,19 @@ namespace System.MessageBroadcast.Code
                         if (smsConf.FirstOrDefault(smst => smst.TYPE == "001" && smst.BGWK_STAT == "002").MIN_STOP_CHRG >= SendCredit)
                         {
                            // اگر میزان شارژ کمتر میزان باشد سامانه پیامکی باید غیر فعال شود
-                           _DefaultGateway.Gateway(
+                           Gateway(
                               new Job(SendType.External, "localhost", "MSTR_PAGE_F", 10 /* Execute Actn_Calf_P */, SendType.SelfToUserInterface)
                               {
                                  Input = new XElement("SmsConf", new XAttribute("actntype", "SmsServerWorkerOff"))
                               }
                            );
+
                            //SmsWorkerStat = false;
                            //_SenderBgwk.Enabled = false;
                            //_SenderBgwk.Stop();
                            //continue;
 
-                           _SenderBgwk.Interval = 600000;
+                           _SenderBgwk.Interval = smsConf.FirstOrDefault().SLEP_INTR ?? 600000;
 
                            _DefaultGateway.Gateway(
                               new Job(SendType.External, "localhost", "Wall", 22 /* Execute SetSystemNotification */, SendType.SelfToUserInterface)
@@ -470,7 +511,7 @@ namespace System.MessageBroadcast.Code
                   }
                }
                #endregion
-               
+
                // بعد از ارسال اگر پیامکی ارسال شده باشد اطلاع رسانی میکنیم
                if(smsSendCount > 0)
                {
@@ -488,6 +529,20 @@ namespace System.MessageBroadcast.Code
                      }
                   );
                }
+
+               // 1401/04/10 * عملیات ارسال پیام به نرم افزار بله
+               // آماده سازی رکوردهای مورد نظر در جدول نرم افزار اپلیکیشن
+               iProject.ExecuteJobScheduleSubSystem(
+                  new XElement("Job",
+                      new XAttribute("type", "SMSTOAPP"),
+                      new XElement("Params",
+                          new XAttribute("justtoday", _JustToday),
+                          new XAttribute("untilbeforeday", _UntilBeforeDay)
+                      )
+                  )
+               );
+
+               // مرحله بعدی ارسال درخواست برای ارسال پیام به مخاطبین
             }
          }
          catch {}

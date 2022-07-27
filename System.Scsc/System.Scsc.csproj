@@ -422,6 +422,15 @@
     <Compile Include="Ui\Admission\MBSP_MARK_F.RequestRespons.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Ui\Advertising\ADV_BASE_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Advertising\ADV_BASE_F.Designer.cs">
+      <DependentUpon>ADV_BASE_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\Advertising\ADV_BASE_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Ui\AggregateOperation\AOP_GIMP_F.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -1083,6 +1092,8 @@
     <None Include="packages.config" />
     <None Include="Properties\DataSources\System.Scsc.Data.Account.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Account_Detail.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.Advertising_Campaign.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.Advertising_Parameter.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Aggregation_Operation.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Aggregation_Operation_Detail.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.App_Base_Define.datasource" />
@@ -1097,6 +1108,7 @@
     <None Include="Properties\DataSources\System.Scsc.Data.Buffet.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Calculate_Calorie.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Calculate_Expense_Coach.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.Call.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Campitition.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Cando.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Cando_Block.datasource" />
@@ -1213,6 +1225,8 @@
     <None Include="Properties\DataSources\System.Scsc.Data.External_Device.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.External_Device_Link_Method.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Fighter.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.Fighter_Call.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.Fighter_Discount_Card.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Fighter_Grouping.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Fighter_Public.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Finance_Document.datasource" />
@@ -1279,6 +1293,7 @@
     <None Include="Properties\DataSources\System.Scsc.Data.Step_History_Summery.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Sub_State.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Sub_Unit.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.Survey.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Template.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Template_Item.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Test.datasource" />
@@ -1406,6 +1421,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Ui\Admission\MBSP_MARK_F.resx">
       <DependentUpon>MBSP_MARK_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\Advertising\ADV_BASE_F.resx">
+      <DependentUpon>ADV_BASE_F.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ui\AggregateOperation\AOP_GIMP_F.resx">
       <DependentUpon>AOP_GIMP_F.cs</DependentUpon>

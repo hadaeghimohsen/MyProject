@@ -100,6 +100,7 @@ namespace System.Scsc.Ui.Admission
       {
          /* تنظیم کردن ناحیه و استان قابل دسترس */
          RqttCode_Lov.EditValue = "001";
+         MemberShip_Gbx.Visible = MbspInfo_Gbx.Visible = false;
       }
 
       private void DefaultTabPage002()
@@ -835,6 +836,20 @@ namespace System.Scsc.Ui.Admission
                   NumbOfAttnMont_TextEdit003.Focus();
                   return;
                }
+
+               // 1401/05/20 * بررسی اینکه آیا منشی رشته تکراری دارد ذخیره میکند
+               if (MbspBs.List.OfType<Data.Member_Ship>()
+                  .Any(m => m.VALD_TYPE == "002" &&                     
+                     DateTime.Now.Date.IsBetween(m.STRT_DATE.Value.Date, m.END_DATE.Value.Date) &&
+                     (m.NUMB_OF_ATTN_MONT == 0 || m.SUM_ATTN_MONT_DNRM < m.NUMB_OF_ATTN_MONT) &&
+                     m.Fighter_Public.CTGY_CODE == Convert.ToInt64(CtgyCode_Lov.EditValue)
+                  )
+                  &&
+                  MessageBox.Show(this, "اطلاعات دوره جدید تکراری میباشد" + Environment.NewLine + "در ردیف دوره های فعال مشتری با مشخصات ثبت شده توسط شما [دوره تکراری وجود دارد]، آیا مایل به اصلاح اطلاعات هستید؟", "وجود اطلاعات تکراری", MessageBoxButtons.YesNo) == DialogResult.Yes)
+               {
+                  CtgyCode_Lov.Focus();
+                  return;
+               }
             }
 
             iScsc.UCC_TRQT_P(
@@ -889,11 +904,15 @@ namespace System.Scsc.Ui.Admission
          {
             var Rqst = RqstBs3.Current as Data.Request;
 
+            // 1401/05/21 * فعال سازی فیلتر برای عدم نمایش اطلاعات کد تخفیف سوخته مشتریان
+            Fgdc_Gv.ActiveFilterString = "STAT = '002'";
+
             if (Rqst.SSTT_MSTT_CODE == 2 && (Rqst.SSTT_CODE == 1 || Rqst.SSTT_CODE == 2))
             {
                CbmtBs1.DataSource = iScsc.Club_Methods.Where(cbmt => Fga_Uclb_U.Contains(cbmt.CLUB_CODE) && cbmt.MTOD_STAT == "002" && Convert.ToInt32(cbmt.Fighter.ACTV_TAG_DNRM ?? "101") >= 101 && (cbmt.Club.REGN_PRVN_CODE + cbmt.Club.REGN_CODE).Contains(Rqst.REGN_PRVN_CODE + Rqst.REGN_CODE))/*.OrderBy(cm => new { cm.CLUB_CODE, cm.COCH_FILE_NO, cm.DAY_TYPE, cm.STRT_TIME })*/;
                Gb_Expense3.Visible = true;
-               Gb_MemberShip3.Visible = true;
+               MemberShip_Gbx.Visible = true;
+               MbspInfo_Gbx.Visible = true;
 
                RqstBnDelete3.Enabled = true;
                RqstBnASav3.Enabled = false;
@@ -903,7 +922,7 @@ namespace System.Scsc.Ui.Admission
 
                FIGH_FILE_NOLookUpEdit_EditValueChanged(null, null);
 
-               Pn_MbspInfo.Visible = true;
+               MbspInfo_Gbx.Visible = true;
 
                ReloadSelectedData();
 
@@ -935,7 +954,8 @@ namespace System.Scsc.Ui.Admission
             {
                CbmtBs1.DataSource = iScsc.Club_Methods.Where(cbmt => Fga_Uclb_U.Contains(cbmt.CLUB_CODE) && cbmt.MTOD_STAT == "002" && Convert.ToInt32(cbmt.Fighter.ACTV_TAG_DNRM ?? "101") >= 101 && (cbmt.Club.REGN_PRVN_CODE + cbmt.Club.REGN_CODE).Contains(Rqst.REGN_PRVN_CODE + Rqst.REGN_CODE))/*.OrderBy(cm => new { cm.CLUB_CODE, cm.COCH_FILE_NO, cm.DAY_TYPE, cm.STRT_TIME })*/;
                Gb_Expense3.Visible = false;
-               Gb_MemberShip3.Visible = true;
+               MemberShip_Gbx.Visible = true;
+               MbspInfo_Gbx.Visible = true;
 
                //Btn_RqstDelete3.Visible = Btn_RqstSav3.Visible = true;
 
@@ -943,7 +963,7 @@ namespace System.Scsc.Ui.Admission
 
                FIGH_FILE_NOLookUpEdit_EditValueChanged(null, null);
 
-               Pn_MbspInfo.Visible = true;
+               MbspInfo_Gbx.Visible = true;
 
                ReloadSelectedData();
 
@@ -974,37 +994,39 @@ namespace System.Scsc.Ui.Admission
             else if (Rqst.RQID == 0)
             {
                Gb_Expense3.Visible = false;
-               Gb_MemberShip3.Visible = false;
+               MemberShip_Gbx.Visible = false;
+               MbspInfo_Gbx.Visible = false;
 
                //Btn_RqstDelete3.Visible = Btn_RqstSav3.Visible = false;
 
                RqstBnDelete3.Enabled = RqstBnASav3.Enabled = false;
 
-               Pn_MbspInfo.Visible = false;
+               MbspInfo_Gbx.Visible = false;
                DefaultTabPage003();
 
                UserProFile_Rb.ImageProfile = global::System.Scsc.Properties.Resources.IMAGE_1482;
                FNGR_PRNT_TextEdit.Text = "";
-               DPST_AMNT_Txt.EditValue = "";
-               DEBT_AMNT_Txt.EditValue = "";
+               //DPST_AMNT_Txt.EditValue = "";
+               //DEBT_AMNT_Txt.EditValue = "";
                SexFltr_Pkb.Visible = false;
             }
          }
          catch
          {
             Gb_Expense3.Visible = false;
-            Gb_MemberShip3.Visible = false;
+            MemberShip_Gbx.Visible = false;
             //Btn_RqstDelete3.Visible = Btn_RqstSav3.Visible = false;
+            MbspInfo_Gbx.Visible = false;
 
             RqstBnDelete3.Enabled = RqstBnASav3.Enabled = false;
 
-            Pn_MbspInfo.Visible = false;
+            MbspInfo_Gbx.Visible = false;
             DefaultTabPage003();
 
             UserProFile_Rb.ImageProfile = global::System.Scsc.Properties.Resources.IMAGE_1482;
             FNGR_PRNT_TextEdit.Text = "";
-            DPST_AMNT_Txt.EditValue = "";
-            DEBT_AMNT_Txt.EditValue = "";
+            //DPST_AMNT_Txt.EditValue = "";
+            //DEBT_AMNT_Txt.EditValue = "";
             SexFltr_Pkb.Visible = false;
          }
       }
@@ -1033,7 +1055,8 @@ namespace System.Scsc.Ui.Admission
             NewFngrPrnt_Cb.Checked = false;
 
             // 1398/05/10 * ثبت پکیج کلاس ها به صورت گروهی
-            if (GustSaveRqst_PickButn.PickChecked)
+            //if (GustSaveRqst_PickButn.PickChecked)
+            if(GustSaveRqst_Cbx.Checked)
             {
                _DefaultGateway.Gateway(
                   new Job(SendType.External, "Localhost",
@@ -2142,6 +2165,9 @@ namespace System.Scsc.Ui.Admission
                TotlPic_Lb.Tag = DAtypBs1.List.OfType<Data.D_ATYP>().FirstOrDefault(a => a.VALU == expn.Expense_Type.Request_Requester.Regulation.AMNT_TYPE).DOMN_DESC;
                IncAttnPric_Nud.Value = expn.NUMB_OF_ATTN_MONT ?? 0;
 
+               // 1401/05/22 * اگر ظرفیت کلاسی پر شده باشد به منشی اعلام میکنیم
+               if (CapacityCycle_Lb.Tag != null && Convert.ToInt64(CapacityCycle_Lb.Tag) <= 0 && MessageBox.Show(this, "ظرفیت ثبت نام گروه انتخابی پر شده، آیا مایل به این هستید که گروه دیگری را انتخاب کنید؟", "محدودیت ظرفیت ثبت نام", MessageBoxButtons.YesNo) == DialogResult.Yes) { CbmtCode_Lov.Focus(); return; }
+
                Btn_RqstRqt3_Click(null, null);
             }
          }
@@ -2157,11 +2183,11 @@ namespace System.Scsc.Ui.Admission
          try
          {
             var fileno = Figh_Lov.EditValue;
-            if (fileno == null) return;
+            if (fileno == null || fileno.ToString() == "") return;
 
             _DefaultGateway.Gateway(
-                     new Job(SendType.External, "localhost", "", 46, SendType.Self) { Input = new XElement("Fighter", new XAttribute("fileno", fileno)) }
-                  );
+               new Job(SendType.External, "localhost", "", 46, SendType.Self) { Input = new XElement("Fighter", new XAttribute("fileno", fileno)) }
+            );
          }
          catch (Exception exc)
          {
@@ -2281,8 +2307,8 @@ namespace System.Scsc.Ui.Admission
          //CtgyBs2.Position = CtgyBs2.List.OfType<Data.Category_Belt>().ToList().FindIndex(c => c.CODE == figh.CTGY_CODE_DNRM);//CtgyCode_LookupEdit003.Properties.GetDataSourceRowIndex(CtgyCode_LookupEdit003.Properties.ValueMember, CtgyCode_LookupEdit003.EditValue);
          CbmtCode_Lov.EditValue = figh.CBMT_CODE_DNRM;
          FNGR_PRNT_TextEdit.EditValue = figh.FNGR_PRNT_DNRM;
-         DPST_AMNT_Txt.EditValue = figh.DPST_AMNT_DNRM;
-         DEBT_AMNT_Txt.EditValue = figh.DEBT_DNRM;
+         //DPST_AMNT_Txt.EditValue = figh.DPST_AMNT_DNRM;
+         //DEBT_AMNT_Txt.EditValue = figh.DEBT_DNRM;
          SexFltr_Pkb.Visible = true;
          SexFltr_Pkb.ImageIndexPickDown = SexFltr_Pkb.ImageIndexPickUp = figh.SEX_TYPE_DNRM == "001" ? 4 : 5;
          SexFltr_Pkb_PickCheckedChange(null);
@@ -2357,7 +2383,7 @@ namespace System.Scsc.Ui.Admission
                   break;
             }
 
-            iScsc.INS_PYDS_P(pymt.CASH_CODE, pymt.RQST_RQID, (short?)1, null, amnt, PydsType_Lov.EditValue.ToString(), "002", PydsDesc_Txt.Text);
+            iScsc.INS_PYDS_P(pymt.CASH_CODE, pymt.RQST_RQID, (short?)1, null, amnt, PydsType_Lov.EditValue.ToString(), "002", PydsDesc_Txt.Text, null, PydsDesc_Txt.Tag == null ? null : (long?)PydsDesc_Txt.Tag);
 
             PydsAmnt_Txt.EditValue = null;
             PydsDesc_Txt.EditValue = null;
@@ -2406,25 +2432,109 @@ namespace System.Scsc.Ui.Admission
 
             if (PymtAmnt_Txt.EditValue == null || PymtAmnt_Txt.EditValue.ToString() == "" || Convert.ToInt64(PymtAmnt_Txt.EditValue) == 0) return;
 
-            switch (RcmtType_Butn.Tag.ToString())
-            {
-               case "0":
-                  iScsc.PAY_MSAV_P(
-                     new XElement("Payment",
-                        new XAttribute("actntype", "InsertUpdate"),
-                        new XElement("Insert",
-                           new XElement("Payment_Method",
-                              new XAttribute("cashcode", pymt.CASH_CODE),
-                              new XAttribute("rqstrqid", pymt.RQST_RQID),
-                              new XAttribute("amnt", PymtAmnt_Txt.EditValue ?? 0),
-                              new XAttribute("rcptmtod", "001"),
-                              new XAttribute("actndate", PymtDate_DateTime001.Value.HasValue ? PymtDate_DateTime001.Value.Value.Date.ToString("yyyy-MM-dd") : DateTime.Now.Date.ToString("yyyy-MM-dd"))
-                           )
-                        )
-                     )
-                  );
-                  break;
-               case "1":
+            #region Old Payment Operation
+            //switch (RcmtType_Butn.Tag.ToString())
+            //{
+            //   case "0":
+            //      iScsc.PAY_MSAV_P(
+            //         new XElement("Payment",
+            //            new XAttribute("actntype", "InsertUpdate"),
+            //            new XElement("Insert",
+            //               new XElement("Payment_Method",
+            //                  new XAttribute("cashcode", pymt.CASH_CODE),
+            //                  new XAttribute("rqstrqid", pymt.RQST_RQID),
+            //                  new XAttribute("amnt", PymtAmnt_Txt.EditValue ?? 0),
+            //                  new XAttribute("rcptmtod", "001"),
+            //                  new XAttribute("actndate", PymtDate_DateTime001.Value.HasValue ? PymtDate_DateTime001.Value.Value.Date.ToString("yyyy-MM-dd") : DateTime.Now.Date.ToString("yyyy-MM-dd"))
+            //               )
+            //            )
+            //         )
+            //      );
+            //      break;
+            //   case "1":
+            //      if (VPosBs1.List.Count == 0) UsePos_Cb.Checked = false;
+
+            //      if (UsePos_Cb.Checked)
+            //      {
+            //         var regl = iScsc.Regulations.FirstOrDefault(r => r.TYPE == "001" && r.REGL_STAT == "002");
+
+            //         long psid;
+            //         if (Pos_Lov.EditValue == null)
+            //         {
+            //            var posdflts = VPosBs1.List.OfType<Data.V_Pos_Device>().Where(p => p.POS_DFLT == "002");
+            //            if (posdflts.Count() == 1)
+            //               Pos_Lov.EditValue = psid = posdflts.FirstOrDefault().PSID;
+            //            else
+            //            {
+            //               Pos_Lov.Focus();
+            //               return;
+            //            }
+            //         }
+            //         else
+            //         {
+            //            psid = (long)Pos_Lov.EditValue;
+            //         }
+
+            //         if (regl.AMNT_TYPE == "002")
+            //            PymtAmnt_Txt.EditValue = Convert.ToInt64(PymtAmnt_Txt.EditValue) * 10;
+
+            //         // از این گزینه برای این استفاده میکنیم که بعد از پرداخت نباید درخواست ثبت نام پایانی شود
+            //         UsePos_Cb.Checked = false;
+
+            //         _DefaultGateway.Gateway(
+            //            new Job(SendType.External, "localhost",
+            //               new List<Job>
+            //               {
+            //                  new Job(SendType.External, "Commons",
+            //                     new List<Job>
+            //                     {
+            //                        new Job(SendType.Self, 34 /* Execute PosPayment */)
+            //                        {
+            //                           Input = 
+            //                              new XElement("PosRequest",
+            //                                 new XAttribute("psid", psid),
+            //                                 new XAttribute("subsys", 5),
+            //                                 new XAttribute("rqid", pymt.RQST_RQID),
+            //                                 new XAttribute("rqtpcode", ""),
+            //                                 new XAttribute("router", GetType().Name),
+            //                                 new XAttribute("callback", 20),
+            //                                 new XAttribute("amnt", Convert.ToInt64( PymtAmnt_Txt.EditValue) )
+            //                              )
+            //                        }
+            //                     }
+            //                  )
+            //               }
+            //            )
+            //         );
+
+            //         UsePos_Cb.Checked = true;
+            //      }
+            //      else
+            //      {
+            //         iScsc.PAY_MSAV_P(
+            //            new XElement("Payment",
+            //               new XAttribute("actntype", "InsertUpdate"),
+            //               new XElement("Insert",
+            //                  new XElement("Payment_Method",
+            //                     new XAttribute("cashcode", pymt.CASH_CODE),
+            //                     new XAttribute("rqstrqid", pymt.RQST_RQID),
+            //                     new XAttribute("amnt", PymtAmnt_Txt.EditValue ?? 0),
+            //                     new XAttribute("rcptmtod", "003"),
+            //                     new XAttribute("actndate", PymtDate_DateTime001.Value.HasValue ? PymtDate_DateTime001.Value.Value.Date.ToString("yyyy-MM-dd") : DateTime.Now.Date.ToString("yyyy-MM-dd"))
+            //                  )
+            //               )
+            //            )
+            //         );
+            //      }
+            //      break;
+            //   default:
+            //      break;
+            //}
+            #endregion
+
+            switch ((RcmtType_Lov.EditValue ?? "001").ToString())
+            {               
+               case "003":
                   if (VPosBs1.List.Count == 0) UsePos_Cb.Checked = false;
 
                   if (UsePos_Cb.Checked)
@@ -2501,11 +2611,26 @@ namespace System.Scsc.Ui.Admission
                   }
                   break;
                default:
+                  iScsc.PAY_MSAV_P(
+                     new XElement("Payment",
+                        new XAttribute("actntype", "InsertUpdate"),
+                        new XElement("Insert",
+                           new XElement("Payment_Method",
+                              new XAttribute("cashcode", pymt.CASH_CODE),
+                              new XAttribute("rqstrqid", pymt.RQST_RQID),
+                              new XAttribute("amnt", PymtAmnt_Txt.EditValue ?? 0),
+                              new XAttribute("rcptmtod", RcmtType_Lov.EditValue ?? "001"),
+                              new XAttribute("actndate", PymtDate_DateTime001.Value.HasValue ? PymtDate_DateTime001.Value.Value.Date.ToString("yyyy-MM-dd") : DateTime.Now.Date.ToString("yyyy-MM-dd"))
+                           )
+                        )
+                     )
+                  );
                   break;
             }
 
             PymtAmnt_Txt.EditValue = null;
             PymtDate_DateTime001.Value = DateTime.Now;
+            RcmtType_Lov.Focus();
             requery = true;
          }
          catch (Exception exc)
@@ -2559,11 +2684,57 @@ namespace System.Scsc.Ui.Admission
             var crntcbmt = CbmtBs1.List.OfType<Data.Club_Method>().FirstOrDefault(c => c.CODE == (long)cbmt);
 
             CtgyBs2.DataSource = iScsc.Category_Belts.Where(c => c.MTOD_CODE == crntcbmt.MTOD_CODE && c.CTGY_STAT == "002");
-         }
-         catch (Exception)
-         {
 
+            var cbmtt = iScsc.Club_Methods.First(cm => cm.CODE == (long)CbmtCode_Lov.EditValue);
+            if (cbmtt == null) return;
+
+            var cmwk = cbmtt.Club_Method_Weekdays.ToList();
+
+            if (cmwk.Count == 0)
+            {
+               ClubWkdy_Pn.Controls.OfType<SimpleButton>().Where(sb => sb.Tag != null).ToList().ForEach(sb => sb.Appearance.BackColor = Color.Gold);
+               return;
+            }
+
+            foreach (var wkdy in cmwk)
+            {
+               var rslt = ClubWkdy_Pn.Controls.OfType<SimpleButton>().FirstOrDefault(sb => sb.Tag != null && sb.Tag.ToString() == wkdy.WEEK_DAY);
+               rslt.Appearance.BackColor = wkdy.STAT == "001" ? Color.LightGray : Color.GreenYellow;
+            }
+
+            // 1401/05/22 * امروز تولد ملودی هست که من بهش تبریک گفتم
+            // ملودی عزیزم همیشه شاد خوشحال باشی، چون قشنگی دنیای من بسته به لبخندهای شیرین تو هست عزیز دلم
+            // بررسی ظرفیت کلاسی
+            if (cbmtt.CPCT_STAT == "002")
+            {
+               var listMbsp =
+                  iScsc.Member_Ships
+                  .Where(ms =>
+                     ms.RECT_CODE == "004" &&
+                     ms.VALD_TYPE == "002" &&
+                     ms.STRT_DATE.Value.Date <= DateTime.Now.Date &&
+                     ms.END_DATE.Value.Date >= DateTime.Now.Date &&
+                     (ms.NUMB_OF_ATTN_MONT == 0 || ms.NUMB_OF_ATTN_MONT > ms.SUM_ATTN_MONT_DNRM) &&
+                     ms.Fighter_Public.CBMT_CODE == cbmtt.CODE
+                  );
+               CapacityCycle_Lb.Text = string.Format("ک.ظ :" + " {0} " + "ب.ظ :" + "{1}", cbmtt.CPCT_NUMB, (cbmtt.CPCT_NUMB - listMbsp.Count()));
+               CapacityCycle_Lb.Tag = cbmtt.CPCT_NUMB - listMbsp.Count();
+
+               if (cbmtt.CPCT_NUMB > listMbsp.Count())
+                  CapacityCycle_Lb.ForeColor = Color.Black;
+               else if (cbmtt.CPCT_NUMB < listMbsp.Count())
+                  CapacityCycle_Lb.ForeColor = Color.Red;
+               else
+                  CapacityCycle_Lb.ForeColor = Color.Green;
+            }
+            else
+            {
+               CapacityCycle_Lb.Text = "نامحدود";
+               CapacityCycle_Lb.Tag = null;
+               CapacityCycle_Lb.ForeColor = Color.Green;
+            }
          }
+         catch { }
       }
 
       #region Finger Print Device Operation
@@ -2814,6 +2985,63 @@ namespace System.Scsc.Ui.Admission
             {
                TotlPic_Lb.Visible = false;
             }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void RcmtType_Lov_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
+      {
+         RcmtType_Butn_Click(null, null);
+      }
+
+      private void NumAttn_Cbx_CheckedChanged(object sender, EventArgs e)
+      {
+         NumAttn2QntyExpn_Pn.Visible = NumAttn_Cbx.Checked;
+      }
+
+      private void Advc_Butn_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            var _rqst = RqstBs3.Current as Data.Request;
+            if (_rqst == null || _rqst.RQID == 0) return;
+
+            var _fgdc = FgdcBs3.Current as Data.Fighter_Discount_Card;
+            if (_fgdc == null) return;
+
+            if (_fgdc.RQST_RQID != null) { MessageBox.Show(this, "این رکورد کد تخفیف قبلا درون درخواست ثبت شده است", "عدم ثبت کد تخفیف"); return; }
+            if (_fgdc.CTGY_CODE != null && _rqst.Request_Rows.FirstOrDefault().Fighter_Publics.FirstOrDefault().CTGY_CODE != _fgdc.CTGY_CODE)
+            {
+               MessageBox.Show(this, "کاربر گرامی این کد تخفیف برای نرخ مورد نظر شما قابل استفاده نمی باشد", "عدم استفاده از کد تخفیف");
+               return;
+            }
+
+            switch (_fgdc.DSCT_TYPE)
+            {
+               case "001":
+                  // %
+                  // اگر دکمه عملیات تخفیف گذاری غیر محتوای درصدی باشد
+                  if (PydsType_Butn.Tag.ToString() != "0") { PydsType_Butn_Click(null, null); }
+                  break;
+               case "002":
+                  // $
+                  // اگر دکمه عملیات تخفیف گذاری غیر محتوای مبلغی باشد
+                  if (PydsType_Butn.Tag.ToString() != "1") { PydsType_Butn_Click(null, null); }
+                  break;
+               default:
+                  break;
+            }
+
+            PydsAmnt_Txt.EditValue = _fgdc.DSCT_AMNT;
+            PydsDesc_Txt.Text = string.Format("کد تخفیف " + "( {0} )" + " بابت : " + "( {1} )" + " توسط کاربر : " + "( {2} )" + " ذخیره شد.", _fgdc.DISC_CODE, _fgdc.DSCT_DESC, CurrentUser);
+            PydsDesc_Txt.Tag = _fgdc.CODE;
+            iScsc.ExecuteCommand(string.Format("UPDATE dbo.Fighter_Discount_Card SET RQST_RQID = {0} WHERE CODE = {1};", _rqst.RQID, _fgdc.CODE));
+            SavePyds_Butn_Click(null, null);
+            PydsDesc_Txt.Tag = null;
+            PymtOprt_Tc.SelectedTab = PymtDsct_Tp;
          }
          catch (Exception exc)
          {

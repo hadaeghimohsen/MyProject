@@ -262,7 +262,7 @@ namespace System.Scsc.Ui.Admission
                      //ActnDate_Clm.Text = control.LABL_TEXT; // Place Holder
                      break;
                   case "numattn_lb":
-                     NumAttn_Lb.Text = control.LABL_TEXT;
+                     //NumAttn_Lb.Text = control.LABL_TEXT;
                      //NumAttn_Lb.Text = control.LABL_TEXT; // ToolTip
                      //NumAttn_Lb.Text = control.LABL_TEXT; // Place Holder
                      break;
@@ -272,7 +272,7 @@ namespace System.Scsc.Ui.Admission
                      //AmntDtil_Lb.Text = control.LABL_TEXT; // Place Holder
                      break;                  
                   case "info_gb":
-                     Info_Gb.Text = control.LABL_TEXT;
+                     //Info_Gb.Text = control.LABL_TEXT;
                      //Info_Gb.Text = control.LABL_TEXT; // ToolTip
                      //Info_Gb.Text = control.LABL_TEXT; // Place Holder
                      break;
@@ -412,7 +412,7 @@ namespace System.Scsc.Ui.Admission
                      //PymtRwno_Clm.Text = control.LABL_TEXT; // Place Holder
                      break;
                   case "gb_rqst3":
-                     Gb_Rqst3.Text = control.LABL_TEXT;
+                     //Gb_Rqst3.Text = control.LABL_TEXT;
                      //Gb_Rqst3.Text = control.LABL_TEXT; // ToolTip
                      //Gb_Rqst3.Text = control.LABL_TEXT; // Place Holder
                      break;
@@ -518,6 +518,8 @@ namespace System.Scsc.Ui.Admission
             DAtypBs1.DataSource = iScsc.D_ATYPs;
             DPydsBs1.DataSource = iScsc.D_PYDS;
             DsxtpBs.DataSource = iScsc.D_SXTPs;
+            DDsatBs.DataSource = iScsc.D_DSATs;
+            DCetpBs.DataSource = iScsc.D_CETPs;
             PrvnBs1.DataSource = iScsc.Provinces.Where(p => Fga_Uprv_U.Split(',').Contains(p.CODE));
 
             isFirstLoaded = true;

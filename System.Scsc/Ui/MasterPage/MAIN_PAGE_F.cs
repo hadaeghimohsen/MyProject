@@ -5251,7 +5251,8 @@ namespace System.Scsc.Ui.MasterPage
             new Job(SendType.External, "Localhost",
                new List<Job>
                {
-                  new Job(SendType.Self, 165 /* Execute Adv_Base_F */)
+                  new Job(SendType.Self, 165 /* Execute Adv_Base_F */),
+                  new Job(SendType.SelfToUserInterface, "ADV_BASE_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("formcaller", GetType().Name))}
                });
          _DefaultGateway.Gateway(_InteractWithScsc);
       }

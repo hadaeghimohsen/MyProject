@@ -182,9 +182,6 @@ namespace System.Scsc.Data
     partial void InsertPayment_Expense(Payment_Expense instance);
     partial void UpdatePayment_Expense(Payment_Expense instance);
     partial void DeletePayment_Expense(Payment_Expense instance);
-    partial void InsertFighter_Public(Fighter_Public instance);
-    partial void UpdateFighter_Public(Fighter_Public instance);
-    partial void DeleteFighter_Public(Fighter_Public instance);
     partial void InsertMessage_Broadcast(Message_Broadcast instance);
     partial void UpdateMessage_Broadcast(Message_Broadcast instance);
     partial void DeleteMessage_Broadcast(Message_Broadcast instance);
@@ -242,9 +239,6 @@ namespace System.Scsc.Data
     partial void InsertStatistic_Detail(Statistic_Detail instance);
     partial void UpdateStatistic_Detail(Statistic_Detail instance);
     partial void DeleteStatistic_Detail(Statistic_Detail instance);
-    partial void InsertFighter(Fighter instance);
-    partial void UpdateFighter(Fighter instance);
-    partial void DeleteFighter(Fighter instance);
     partial void InsertMember_Ship(Member_Ship instance);
     partial void UpdateMember_Ship(Member_Ship instance);
     partial void DeleteMember_Ship(Member_Ship instance);
@@ -273,9 +267,6 @@ namespace System.Scsc.Data
     partial void InsertTemplate_Item(Template_Item instance);
     partial void UpdateTemplate_Item(Template_Item instance);
     partial void DeleteTemplate_Item(Template_Item instance);
-    partial void InsertAdvertising_Campaign(Advertising_Campaign instance);
-    partial void UpdateAdvertising_Campaign(Advertising_Campaign instance);
-    partial void DeleteAdvertising_Campaign(Advertising_Campaign instance);
     partial void InsertFighter_RelationShip(Fighter_RelationShip instance);
     partial void UpdateFighter_RelationShip(Fighter_RelationShip instance);
     partial void DeleteFighter_RelationShip(Fighter_RelationShip instance);
@@ -285,12 +276,21 @@ namespace System.Scsc.Data
     partial void InsertFighter_Call(Fighter_Call instance);
     partial void UpdateFighter_Call(Fighter_Call instance);
     partial void DeleteFighter_Call(Fighter_Call instance);
-    partial void InsertAdvertising_Parameter(Advertising_Parameter instance);
-    partial void UpdateAdvertising_Parameter(Advertising_Parameter instance);
-    partial void DeleteAdvertising_Parameter(Advertising_Parameter instance);
     partial void InsertFighter_Discount_Card(Fighter_Discount_Card instance);
     partial void UpdateFighter_Discount_Card(Fighter_Discount_Card instance);
     partial void DeleteFighter_Discount_Card(Fighter_Discount_Card instance);
+    partial void InsertAdvertising_Campaign(Advertising_Campaign instance);
+    partial void UpdateAdvertising_Campaign(Advertising_Campaign instance);
+    partial void DeleteAdvertising_Campaign(Advertising_Campaign instance);
+    partial void InsertFighter_Public(Fighter_Public instance);
+    partial void UpdateFighter_Public(Fighter_Public instance);
+    partial void DeleteFighter_Public(Fighter_Public instance);
+    partial void InsertFighter(Fighter instance);
+    partial void UpdateFighter(Fighter instance);
+    partial void DeleteFighter(Fighter instance);
+    partial void InsertAdvertising_Parameter(Advertising_Parameter instance);
+    partial void UpdateAdvertising_Parameter(Advertising_Parameter instance);
+    partial void DeleteAdvertising_Parameter(Advertising_Parameter instance);
     #endregion
 		
 		public iScscDataContext() : 
@@ -1667,14 +1667,6 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		public System.Data.Linq.Table<Fighter_Public> Fighter_Publics
-		{
-			get
-			{
-				return this.GetTable<Fighter_Public>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Regulation> Regulations
 		{
 			get
@@ -1875,14 +1867,6 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		public System.Data.Linq.Table<Payment_Discount> Payment_Discounts
-		{
-			get
-			{
-				return this.GetTable<Payment_Discount>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Expense> Expenses
 		{
 			get
@@ -2000,14 +1984,6 @@ namespace System.Scsc.Data
 			get
 			{
 				return this.GetTable<Statistic_Detail>();
-			}
-		}
-		
-		public System.Data.Linq.Table<Fighter> Fighters
-		{
-			get
-			{
-				return this.GetTable<Fighter>();
 			}
 		}
 		
@@ -2155,14 +2131,6 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		public System.Data.Linq.Table<Advertising_Campaign> Advertising_Campaigns
-		{
-			get
-			{
-				return this.GetTable<Advertising_Campaign>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Fighter_RelationShip> Fighter_RelationShips
 		{
 			get
@@ -2187,6 +2155,38 @@ namespace System.Scsc.Data
 			}
 		}
 		
+		public System.Data.Linq.Table<Fighter_Discount_Card> Fighter_Discount_Cards
+		{
+			get
+			{
+				return this.GetTable<Fighter_Discount_Card>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Advertising_Campaign> Advertising_Campaigns
+		{
+			get
+			{
+				return this.GetTable<Advertising_Campaign>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Fighter_Public> Fighter_Publics
+		{
+			get
+			{
+				return this.GetTable<Fighter_Public>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Fighter> Fighters
+		{
+			get
+			{
+				return this.GetTable<Fighter>();
+			}
+		}
+		
 		public System.Data.Linq.Table<Advertising_Parameter> Advertising_Parameters
 		{
 			get
@@ -2195,11 +2195,11 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		public System.Data.Linq.Table<Fighter_Discount_Card> Fighter_Discount_Cards
+		public System.Data.Linq.Table<Payment_Discount> Payment_Discounts
 		{
 			get
 			{
-				return this.GetTable<Fighter_Discount_Card>();
+				return this.GetTable<Payment_Discount>();
 			}
 		}
 		
@@ -2638,21 +2638,6 @@ namespace System.Scsc.Data
 			this.UPD_CBMT_P(((System.Nullable<long>)(obj.CODE)), ((System.Nullable<long>)(obj.CLUB_CODE)), ((System.Nullable<long>)(obj.MTOD_CODE)), ((System.Nullable<long>)(obj.COCH_FILE_NO)), obj.MTOD_STAT, obj.DAY_TYPE, ((System.Nullable<System.TimeSpan>)(obj.STRT_TIME)), ((System.Nullable<System.TimeSpan>)(obj.END_TIME)), obj.SEX_TYPE, obj.CBMT_DESC, obj.DFLT_STAT, ((System.Nullable<int>)(obj.CPCT_NUMB)), obj.CPCT_STAT, ((System.Nullable<int>)(obj.CBMT_TIME)), obj.CBMT_TIME_STAT, ((System.Nullable<int>)(obj.CLAS_TIME)), ((System.Nullable<long>)(obj.AMNT)), obj.NATL_CODE);
 		}
 		
-		private void InsertPayment_Discount(Payment_Discount obj)
-		{
-			this.INS_PYDS_P(((System.Nullable<long>)(obj.PYMT_CASH_CODE)), ((System.Nullable<long>)(obj.PYMT_RQST_RQID)), ((System.Nullable<short>)(obj.RQRO_RWNO)), ((System.Nullable<long>)(obj.EXPN_CODE)), ((System.Nullable<long>)(obj.AMNT)), obj.AMNT_TYPE, obj.STAT, obj.PYDS_DESC);
-		}
-		
-		private void UpdatePayment_Discount(Payment_Discount obj)
-		{
-			this.UPD_PYDS_P(((System.Nullable<long>)(obj.PYMT_CASH_CODE)), ((System.Nullable<long>)(obj.PYMT_RQST_RQID)), ((System.Nullable<short>)(obj.RQRO_RWNO)), ((System.Nullable<short>)(obj.RWNO)), ((System.Nullable<long>)(obj.EXPN_CODE)), ((System.Nullable<long>)(obj.AMNT)), obj.AMNT_TYPE, obj.STAT, obj.PYDS_DESC);
-		}
-		
-		private void DeletePayment_Discount(Payment_Discount obj)
-		{
-			this.DEL_PYDS_P(((System.Nullable<long>)(obj.PYMT_CASH_CODE)), ((System.Nullable<long>)(obj.PYMT_RQST_RQID)), ((System.Nullable<short>)(obj.RQRO_RWNO)), ((System.Nullable<short>)(obj.RWNO)));
-		}
-		
 		private void UpdateExpense(Expense obj)
 		{
 			this.UPD_EXPN_P(((System.Nullable<long>)(obj.CODE)), ((System.Nullable<long>)(obj.PRIC)), obj.EXPN_STAT, obj.ADD_QUTS, obj.COVR_DSCT, obj.EXPN_TYPE, ((System.Nullable<long>)(obj.BUY_PRIC)), ((System.Nullable<long>)(obj.BUY_EXTR_PRCT)), ((System.Nullable<int>)(obj.NUMB_OF_STOK)), ((System.Nullable<int>)(obj.NUMB_OF_SALE)), obj.COVR_TAX, ((System.Nullable<int>)(obj.NUMB_OF_ATTN_MONT)), ((System.Nullable<int>)(obj.NUMB_OF_ATTN_WEEK)), obj.MODL_NUMB_BAR_CODE, obj.PRVT_COCH_EXPN, ((System.Nullable<int>)(obj.NUMB_CYCL_DAY)), ((System.Nullable<int>)(obj.NUMB_MONT_OFER)), ((System.Nullable<int>)(obj.MIN_NUMB)), ((System.Nullable<long>)(obj.GROP_CODE)), obj.EXPN_DESC, ((System.Nullable<System.DateTime>)(obj.MIN_TIME)), obj.RELY_CMND, obj.ORDR_ITEM, ((System.Nullable<long>)(obj.BRND_CODE)));
@@ -2713,6 +2698,21 @@ namespace System.Scsc.Data
 		private void DeleteApp_Base_Define(App_Base_Define obj)
 		{
 			this.DEL_APBS_P(((System.Nullable<long>)(obj.CODE)));
+		}
+		
+		private void InsertPayment_Discount(Payment_Discount obj)
+		{
+			this.INS_PYDS_P(((System.Nullable<long>)(obj.PYMT_CASH_CODE)), ((System.Nullable<long>)(obj.PYMT_RQST_RQID)), ((System.Nullable<short>)(obj.RQRO_RWNO)), ((System.Nullable<long>)(obj.EXPN_CODE)), ((System.Nullable<long>)(obj.AMNT)), obj.AMNT_TYPE, obj.STAT, obj.PYDS_DESC, ((System.Nullable<long>)(obj.ADVC_CODE)), ((System.Nullable<long>)(obj.FGDC_CODE)));
+		}
+		
+		private void UpdatePayment_Discount(Payment_Discount obj)
+		{
+			this.UPD_PYDS_P(((System.Nullable<long>)(obj.PYMT_CASH_CODE)), ((System.Nullable<long>)(obj.PYMT_RQST_RQID)), ((System.Nullable<short>)(obj.RQRO_RWNO)), ((System.Nullable<short>)(obj.RWNO)), ((System.Nullable<long>)(obj.EXPN_CODE)), ((System.Nullable<long>)(obj.AMNT)), obj.AMNT_TYPE, obj.STAT, obj.PYDS_DESC);
+		}
+		
+		private void DeletePayment_Discount(Payment_Discount obj)
+		{
+			this.DEL_PYDS_P(((System.Nullable<long>)(obj.PYMT_CASH_CODE)), ((System.Nullable<long>)(obj.PYMT_RQST_RQID)), ((System.Nullable<short>)(obj.RQRO_RWNO)), ((System.Nullable<short>)(obj.RWNO)));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.VF$Saved_Request", IsComposable=true)]
@@ -4456,12 +4456,6 @@ namespace System.Scsc.Data
 			return ((int)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.VF$All_Info_Fighters", IsComposable=true)]
-		public IQueryable<VF_All_Info_FightersResult> VF_All_Info_Fighters([global::System.Data.Linq.Mapping.ParameterAttribute(Name="FileNo", DbType="BigInt")] System.Nullable<long> fileNo)
-		{
-			return this.CreateMethodCallQuery<VF_All_Info_FightersResult>(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), fileNo);
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.VF$Last_Info_Deleted_Fighter", IsComposable=true)]
 		public IQueryable<VF_Last_Info_Deleted_FighterResult> VF_Last_Info_Deleted_Fighter([global::System.Data.Linq.Mapping.ParameterAttribute(Name="FileNo", DbType="BigInt")] System.Nullable<long> fileNo, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FrstName", DbType="NVarChar(250)")] string frstName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LastName", DbType="NVarChar(250)")] string lastName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NatlCode", DbType="VarChar(10)")] string natlCode, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FngrPrnt", DbType="VarChar(20)")] string fngrPrnt, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CellPhon", DbType="VarChar(11)")] string cellPhon, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TellPhon", DbType="VarChar(11)")] string tellPhon, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SexType", DbType="VarChar(3)")] string sexType, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ServNo", DbType="NVarChar(50)")] string servNo, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="GlobCode", DbType="NVarChar(50)")] string globCode, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MomCellPhon", DbType="VarChar(11)")] string momCellPhon, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MomTellPhon", DbType="VarChar(11)")] string momTellPhon, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DadCellPHon", DbType="VarChar(11)")] string dadCellPHon, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DadTellPHon", DbType="VarChar(11)")] string dadTellPHon)
 		{
@@ -4679,13 +4673,6 @@ namespace System.Scsc.Data
 			return ((int)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.INS_PYDS_P")]
-		public int INS_PYDS_P([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Pymt_Cash_Code", DbType="BigInt")] System.Nullable<long> pymt_Cash_Code, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Pymt_Rqst_Rqid", DbType="BigInt")] System.Nullable<long> pymt_Rqst_Rqid, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Rqro_Rwno", DbType="SmallInt")] System.Nullable<short> rqro_Rwno, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Expn_Code", DbType="BigInt")] System.Nullable<long> expn_Code, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Amnt", DbType="BigInt")] System.Nullable<long> amnt, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Amnt_Type", DbType="VarChar(3)")] string amnt_Type, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Stat", DbType="VarChar(3)")] string stat, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Pyds_Desc", DbType="NVarChar(250)")] string pyds_Desc)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), pymt_Cash_Code, pymt_Rqst_Rqid, rqro_Rwno, expn_Code, amnt, amnt_Type, stat, pyds_Desc);
-			return ((int)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.DEL_PYDS_P")]
 		public int DEL_PYDS_P([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Pymt_Cash_Code", DbType="BigInt")] System.Nullable<long> pymt_Cash_Code, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Pymt_Rqst_Rqid", DbType="BigInt")] System.Nullable<long> pymt_Rqst_Rqid, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Rqro_Rwno", DbType="SmallInt")] System.Nullable<short> rqro_Rwno, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Rwno", DbType="SmallInt")] System.Nullable<short> rwno)
 		{
@@ -4735,12 +4722,6 @@ namespace System.Scsc.Data
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), x);
 			return ((int)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.VF$Last_Info_Fighter", IsComposable=true)]
-		public IQueryable<VF_Last_Info_FighterResult> VF_Last_Info_Fighter([global::System.Data.Linq.Mapping.ParameterAttribute(Name="FileNo", DbType="BigInt")] System.Nullable<long> fileNo, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FrstName", DbType="NVarChar(250)")] string frstName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LastName", DbType="NVarChar(250)")] string lastName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NatlCode", DbType="VarChar(10)")] string natlCode, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FngrPrnt", DbType="VarChar(20)")] string fngrPrnt, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CellPhon", DbType="VarChar(11)")] string cellPhon, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TellPhon", DbType="VarChar(11)")] string tellPhon, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SexType", DbType="VarChar(3)")] string sexType, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ServNo", DbType="NVarChar(50)")] string servNo, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="GlobCode", DbType="NVarChar(50)")] string globCode, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MomCellPhon", DbType="VarChar(11)")] string momCellPhon, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MomTellPhon", DbType="VarChar(11)")] string momTellPhon, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DadCellPHon", DbType="VarChar(11)")] string dadCellPHon, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DadTellPHon", DbType="VarChar(11)")] string dadTellPHon, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SuntCode", DbType="VarChar(4)")] string suntCode)
-		{
-			return this.CreateMethodCallQuery<VF_Last_Info_FighterResult>(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), fileNo, frstName, lastName, natlCode, fngrPrnt, cellPhon, tellPhon, sexType, servNo, globCode, momCellPhon, momTellPhon, dadCellPHon, dadTellPHon, suntCode);
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.INS_LGOP_P")]
@@ -4988,6 +4969,39 @@ namespace System.Scsc.Data
 		public System.Xml.Linq.XElement GET_TEXT_F([global::System.Data.Linq.Mapping.ParameterAttribute(Name="X", DbType="Xml")] System.Xml.Linq.XElement x)
 		{
 			return ((System.Xml.Linq.XElement)(this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), x).ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.CRET_ADVP_P")]
+		public int CRET_ADVP_P([global::System.Data.Linq.Mapping.ParameterAttribute(Name="X", DbType="Xml")] System.Xml.Linq.XElement x)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), x);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.SEND_DSCT_P")]
+		public int SEND_DSCT_P([global::System.Data.Linq.Mapping.ParameterAttribute(Name="X", DbType="Xml")] System.Xml.Linq.XElement x)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), x);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.VF$All_Info_Fighters", IsComposable=true)]
+		public IQueryable<VF_All_Info_FightersResult> VF_All_Info_Fighters([global::System.Data.Linq.Mapping.ParameterAttribute(Name="FileNo", DbType="BigInt")] System.Nullable<long> fileNo)
+		{
+			return this.CreateMethodCallQuery<VF_All_Info_FightersResult>(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), fileNo);
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.VF$Last_Info_Fighter", IsComposable=true)]
+		public IQueryable<VF_Last_Info_FighterResult> VF_Last_Info_Fighter([global::System.Data.Linq.Mapping.ParameterAttribute(Name="FileNo", DbType="BigInt")] System.Nullable<long> fileNo, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FrstName", DbType="NVarChar(250)")] string frstName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LastName", DbType="NVarChar(250)")] string lastName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NatlCode", DbType="VarChar(10)")] string natlCode, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FngrPrnt", DbType="VarChar(20)")] string fngrPrnt, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CellPhon", DbType="VarChar(11)")] string cellPhon, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TellPhon", DbType="VarChar(11)")] string tellPhon, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SexType", DbType="VarChar(3)")] string sexType, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ServNo", DbType="NVarChar(50)")] string servNo, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="GlobCode", DbType="NVarChar(50)")] string globCode, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MomCellPhon", DbType="VarChar(11)")] string momCellPhon, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MomTellPhon", DbType="VarChar(11)")] string momTellPhon, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DadCellPHon", DbType="VarChar(11)")] string dadCellPHon, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DadTellPHon", DbType="VarChar(11)")] string dadTellPHon, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SuntCode", DbType="VarChar(4)")] string suntCode)
+		{
+			return this.CreateMethodCallQuery<VF_Last_Info_FighterResult>(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), fileNo, frstName, lastName, natlCode, fngrPrnt, cellPhon, tellPhon, sexType, servNo, globCode, momCellPhon, momTellPhon, dadCellPHon, dadTellPHon, suntCode);
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.INS_PYDS_P")]
+		public int INS_PYDS_P([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Pymt_Cash_Code", DbType="BigInt")] System.Nullable<long> pymt_Cash_Code, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Pymt_Rqst_Rqid", DbType="BigInt")] System.Nullable<long> pymt_Rqst_Rqid, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Rqro_Rwno", DbType="SmallInt")] System.Nullable<short> rqro_Rwno, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Expn_Code", DbType="BigInt")] System.Nullable<long> expn_Code, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Amnt", DbType="BigInt")] System.Nullable<long> amnt, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Amnt_Type", DbType="VarChar(3)")] string amnt_Type, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Stat", DbType="VarChar(3)")] string stat, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Pyds_Desc", DbType="NVarChar(250)")] string pyds_Desc, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Advc_Code", DbType="BigInt")] System.Nullable<long> advc_Code, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Fgdc_Code", DbType="BigInt")] System.Nullable<long> fgdc_Code)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), pymt_Cash_Code, pymt_Rqst_Rqid, rqro_Rwno, expn_Code, amnt, amnt_Type, stat, pyds_Desc, advc_Code, fgdc_Code);
+			return ((int)(result.ReturnValue));
 		}
 	}
 	
@@ -8838,11 +8852,11 @@ namespace System.Scsc.Data
 		
 		private EntitySet<Misc_Expense> _Misc_Expenses;
 		
-		private EntitySet<Fighter_Public> _Fighter_Publics;
-		
 		private EntitySet<Aggregation_Operation> _Aggregation_Operations;
 		
 		private EntitySet<Request> _Requests;
+		
+		private EntitySet<Fighter_Public> _Fighter_Publics;
 		
 		private EntitySet<Fighter> _Fighters;
 		
@@ -8885,9 +8899,9 @@ namespace System.Scsc.Data
 			this._Candos = new EntitySet<Cando>(new Action<Cando>(this.attach_Candos), new Action<Cando>(this.detach_Candos));
 			this._Clubs = new EntitySet<Club>(new Action<Club>(this.attach_Clubs), new Action<Club>(this.detach_Clubs));
 			this._Misc_Expenses = new EntitySet<Misc_Expense>(new Action<Misc_Expense>(this.attach_Misc_Expenses), new Action<Misc_Expense>(this.detach_Misc_Expenses));
-			this._Fighter_Publics = new EntitySet<Fighter_Public>(new Action<Fighter_Public>(this.attach_Fighter_Publics), new Action<Fighter_Public>(this.detach_Fighter_Publics));
 			this._Aggregation_Operations = new EntitySet<Aggregation_Operation>(new Action<Aggregation_Operation>(this.attach_Aggregation_Operations), new Action<Aggregation_Operation>(this.detach_Aggregation_Operations));
 			this._Requests = new EntitySet<Request>(new Action<Request>(this.attach_Requests), new Action<Request>(this.detach_Requests));
+			this._Fighter_Publics = new EntitySet<Fighter_Public>(new Action<Fighter_Public>(this.attach_Fighter_Publics), new Action<Fighter_Public>(this.detach_Fighter_Publics));
 			this._Fighters = new EntitySet<Fighter>(new Action<Fighter>(this.attach_Fighters), new Action<Fighter>(this.detach_Fighters));
 			this._Province = default(EntityRef<Province>);
 			this._Region1 = default(EntityRef<Region>);
@@ -9203,19 +9217,6 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Region_Fighter_Public", Storage="_Fighter_Publics", ThisKey="PRVN_CNTY_CODE,PRVN_CODE,CODE", OtherKey="REGN_PRVN_CNTY_CODE,REGN_PRVN_CODE,REGN_CODE")]
-		public EntitySet<Fighter_Public> Fighter_Publics
-		{
-			get
-			{
-				return this._Fighter_Publics;
-			}
-			set
-			{
-				this._Fighter_Publics.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Region_Aggregation_Operation", Storage="_Aggregation_Operations", ThisKey="PRVN_CNTY_CODE,PRVN_CODE,CODE", OtherKey="REGN_PRVN_CNTY_CODE,REGN_PRVN_CODE,REGN_CODE")]
 		public EntitySet<Aggregation_Operation> Aggregation_Operations
 		{
@@ -9239,6 +9240,19 @@ namespace System.Scsc.Data
 			set
 			{
 				this._Requests.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Region_Fighter_Public", Storage="_Fighter_Publics", ThisKey="PRVN_CNTY_CODE,PRVN_CODE,CODE", OtherKey="REGN_PRVN_CNTY_CODE,REGN_PRVN_CODE,REGN_CODE")]
+		public EntitySet<Fighter_Public> Fighter_Publics
+		{
+			get
+			{
+				return this._Fighter_Publics;
+			}
+			set
+			{
+				this._Fighter_Publics.Assign(value);
 			}
 		}
 		
@@ -9457,18 +9471,6 @@ namespace System.Scsc.Data
 			entity.Region = null;
 		}
 		
-		private void attach_Fighter_Publics(Fighter_Public entity)
-		{
-			this.SendPropertyChanging();
-			entity.Region = this;
-		}
-		
-		private void detach_Fighter_Publics(Fighter_Public entity)
-		{
-			this.SendPropertyChanging();
-			entity.Region = null;
-		}
-		
 		private void attach_Aggregation_Operations(Aggregation_Operation entity)
 		{
 			this.SendPropertyChanging();
@@ -9488,6 +9490,18 @@ namespace System.Scsc.Data
 		}
 		
 		private void detach_Requests(Request entity)
+		{
+			this.SendPropertyChanging();
+			entity.Region = null;
+		}
+		
+		private void attach_Fighter_Publics(Fighter_Public entity)
+		{
+			this.SendPropertyChanging();
+			entity.Region = this;
+		}
+		
+		private void detach_Fighter_Publics(Fighter_Public entity)
 		{
 			this.SendPropertyChanging();
 			entity.Region = null;
@@ -25742,11 +25756,11 @@ namespace System.Scsc.Data
 		
 		private System.Nullable<System.DateTime> _MDFY_DATE;
 		
-		private EntitySet<Fighter_Public> _Fighter_Publics;
-		
 		private EntitySet<Basic_Calculate_Discount> _Basic_Calculate_Discounts;
 		
 		private EntitySet<Aggregation_Operation> _Aggregation_Operations;
+		
+		private EntitySet<Fighter_Public> _Fighter_Publics;
 		
 		private EntitySet<Fighter> _Fighters;
 		
@@ -25780,9 +25794,9 @@ namespace System.Scsc.Data
 		
 		public Sub_Unit()
 		{
-			this._Fighter_Publics = new EntitySet<Fighter_Public>(new Action<Fighter_Public>(this.attach_Fighter_Publics), new Action<Fighter_Public>(this.detach_Fighter_Publics));
 			this._Basic_Calculate_Discounts = new EntitySet<Basic_Calculate_Discount>(new Action<Basic_Calculate_Discount>(this.attach_Basic_Calculate_Discounts), new Action<Basic_Calculate_Discount>(this.detach_Basic_Calculate_Discounts));
 			this._Aggregation_Operations = new EntitySet<Aggregation_Operation>(new Action<Aggregation_Operation>(this.attach_Aggregation_Operations), new Action<Aggregation_Operation>(this.detach_Aggregation_Operations));
+			this._Fighter_Publics = new EntitySet<Fighter_Public>(new Action<Fighter_Public>(this.attach_Fighter_Publics), new Action<Fighter_Public>(this.detach_Fighter_Publics));
 			this._Fighters = new EntitySet<Fighter>(new Action<Fighter>(this.attach_Fighters), new Action<Fighter>(this.detach_Fighters));
 			this._Base_Unit = default(EntityRef<Base_Unit>);
 			OnCreated();
@@ -26000,19 +26014,6 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Sub_Unit_Fighter_Public", Storage="_Fighter_Publics", ThisKey="BUNT_DEPT_ORGN_CODE,BUNT_DEPT_CODE,BUNT_CODE,CODE", OtherKey="SUNT_BUNT_DEPT_ORGN_CODE,SUNT_BUNT_DEPT_CODE,SUNT_BUNT_CODE,SUNT_CODE")]
-		public EntitySet<Fighter_Public> Fighter_Publics
-		{
-			get
-			{
-				return this._Fighter_Publics;
-			}
-			set
-			{
-				this._Fighter_Publics.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Sub_Unit_Basic_Calculate_Discount", Storage="_Basic_Calculate_Discounts", ThisKey="BUNT_DEPT_ORGN_CODE,BUNT_DEPT_CODE,BUNT_CODE,CODE", OtherKey="SUNT_BUNT_DEPT_ORGN_CODE,SUNT_BUNT_DEPT_CODE,SUNT_BUNT_CODE,SUNT_CODE")]
 		public EntitySet<Basic_Calculate_Discount> Basic_Calculate_Discounts
 		{
@@ -26036,6 +26037,19 @@ namespace System.Scsc.Data
 			set
 			{
 				this._Aggregation_Operations.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Sub_Unit_Fighter_Public", Storage="_Fighter_Publics", ThisKey="BUNT_DEPT_ORGN_CODE,BUNT_DEPT_CODE,BUNT_CODE,CODE", OtherKey="SUNT_BUNT_DEPT_ORGN_CODE,SUNT_BUNT_DEPT_CODE,SUNT_BUNT_CODE,SUNT_CODE")]
+		public EntitySet<Fighter_Public> Fighter_Publics
+		{
+			get
+			{
+				return this._Fighter_Publics;
+			}
+			set
+			{
+				this._Fighter_Publics.Assign(value);
 			}
 		}
 		
@@ -26111,18 +26125,6 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		private void attach_Fighter_Publics(Fighter_Public entity)
-		{
-			this.SendPropertyChanging();
-			entity.Sub_Unit = this;
-		}
-		
-		private void detach_Fighter_Publics(Fighter_Public entity)
-		{
-			this.SendPropertyChanging();
-			entity.Sub_Unit = null;
-		}
-		
 		private void attach_Basic_Calculate_Discounts(Basic_Calculate_Discount entity)
 		{
 			this.SendPropertyChanging();
@@ -26142,6 +26144,18 @@ namespace System.Scsc.Data
 		}
 		
 		private void detach_Aggregation_Operations(Aggregation_Operation entity)
+		{
+			this.SendPropertyChanging();
+			entity.Sub_Unit = null;
+		}
+		
+		private void attach_Fighter_Publics(Fighter_Public entity)
+		{
+			this.SendPropertyChanging();
+			entity.Sub_Unit = this;
+		}
+		
+		private void detach_Fighter_Publics(Fighter_Public entity)
 		{
 			this.SendPropertyChanging();
 			entity.Sub_Unit = null;
@@ -26441,11 +26455,7 @@ namespace System.Scsc.Data
 		
 		private EntitySet<Payment_Expense> _Payment_Expenses;
 		
-		private EntitySet<Fighter_Public> _Fighter_Publics;
-		
 		private EntitySet<Product_Service> _Product_Services;
-		
-		private EntitySet<Payment_Discount> _Payment_Discounts;
 		
 		private EntitySet<Payment_Method> _Payment_Methods;
 		
@@ -26456,6 +26466,10 @@ namespace System.Scsc.Data
 		private EntitySet<Member_Ship> _Member_Ships;
 		
 		private EntitySet<Payment_Detail> _Payment_Details;
+		
+		private EntitySet<Fighter_Public> _Fighter_Publics;
+		
+		private EntitySet<Payment_Discount> _Payment_Discounts;
 		
 		private EntityRef<Region> _Region;
 		
@@ -26513,14 +26527,14 @@ namespace System.Scsc.Data
 			this._Finance_Documents = new EntitySet<Finance_Document>(new Action<Finance_Document>(this.attach_Finance_Documents), new Action<Finance_Document>(this.detach_Finance_Documents));
 			this._Payment_Checks = new EntitySet<Payment_Check>(new Action<Payment_Check>(this.attach_Payment_Checks), new Action<Payment_Check>(this.detach_Payment_Checks));
 			this._Payment_Expenses = new EntitySet<Payment_Expense>(new Action<Payment_Expense>(this.attach_Payment_Expenses), new Action<Payment_Expense>(this.detach_Payment_Expenses));
-			this._Fighter_Publics = new EntitySet<Fighter_Public>(new Action<Fighter_Public>(this.attach_Fighter_Publics), new Action<Fighter_Public>(this.detach_Fighter_Publics));
 			this._Product_Services = new EntitySet<Product_Service>(new Action<Product_Service>(this.attach_Product_Services), new Action<Product_Service>(this.detach_Product_Services));
-			this._Payment_Discounts = new EntitySet<Payment_Discount>(new Action<Payment_Discount>(this.attach_Payment_Discounts), new Action<Payment_Discount>(this.detach_Payment_Discounts));
 			this._Payment_Methods = new EntitySet<Payment_Method>(new Action<Payment_Method>(this.attach_Payment_Methods), new Action<Payment_Method>(this.detach_Payment_Methods));
 			this._Gain_Loss_Rials = new EntitySet<Gain_Loss_Rial>(new Action<Gain_Loss_Rial>(this.attach_Gain_Loss_Rials), new Action<Gain_Loss_Rial>(this.detach_Gain_Loss_Rials));
 			this._Gain_Loss_Rials1 = new EntitySet<Gain_Loss_Rial>(new Action<Gain_Loss_Rial>(this.attach_Gain_Loss_Rials1), new Action<Gain_Loss_Rial>(this.detach_Gain_Loss_Rials1));
 			this._Member_Ships = new EntitySet<Member_Ship>(new Action<Member_Ship>(this.attach_Member_Ships), new Action<Member_Ship>(this.detach_Member_Ships));
 			this._Payment_Details = new EntitySet<Payment_Detail>(new Action<Payment_Detail>(this.attach_Payment_Details), new Action<Payment_Detail>(this.detach_Payment_Details));
+			this._Fighter_Publics = new EntitySet<Fighter_Public>(new Action<Fighter_Public>(this.attach_Fighter_Publics), new Action<Fighter_Public>(this.detach_Fighter_Publics));
+			this._Payment_Discounts = new EntitySet<Payment_Discount>(new Action<Payment_Discount>(this.attach_Payment_Discounts), new Action<Payment_Discount>(this.detach_Payment_Discounts));
 			this._Region = default(EntityRef<Region>);
 			this._Requester_Type = default(EntityRef<Requester_Type>);
 			this._Request_Type = default(EntityRef<Request_Type>);
@@ -26973,19 +26987,6 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Request_Row_Fighter_Public", Storage="_Fighter_Publics", ThisKey="RQST_RQID,RWNO", OtherKey="RQRO_RQST_RQID,RQRO_RWNO")]
-		public EntitySet<Fighter_Public> Fighter_Publics
-		{
-			get
-			{
-				return this._Fighter_Publics;
-			}
-			set
-			{
-				this._Fighter_Publics.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Request_Row_Product_Service", Storage="_Product_Services", ThisKey="RQST_RQID,RWNO", OtherKey="RQRO_RQST_RQID,RQRO_RWNO")]
 		public EntitySet<Product_Service> Product_Services
 		{
@@ -26996,19 +26997,6 @@ namespace System.Scsc.Data
 			set
 			{
 				this._Product_Services.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Request_Row_Payment_Discount", Storage="_Payment_Discounts", ThisKey="RQST_RQID,RWNO", OtherKey="PYMT_RQST_RQID,RQRO_RWNO")]
-		public EntitySet<Payment_Discount> Payment_Discounts
-		{
-			get
-			{
-				return this._Payment_Discounts;
-			}
-			set
-			{
-				this._Payment_Discounts.Assign(value);
 			}
 		}
 		
@@ -27074,6 +27062,32 @@ namespace System.Scsc.Data
 			set
 			{
 				this._Payment_Details.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Request_Row_Fighter_Public", Storage="_Fighter_Publics", ThisKey="RQST_RQID,RWNO", OtherKey="RQRO_RQST_RQID,RQRO_RWNO")]
+		public EntitySet<Fighter_Public> Fighter_Publics
+		{
+			get
+			{
+				return this._Fighter_Publics;
+			}
+			set
+			{
+				this._Fighter_Publics.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Request_Row_Payment_Discount", Storage="_Payment_Discounts", ThisKey="RQST_RQID,RWNO", OtherKey="PYMT_RQST_RQID,RQRO_RWNO")]
+		public EntitySet<Payment_Discount> Payment_Discounts
+		{
+			get
+			{
+				return this._Payment_Discounts;
+			}
+			set
+			{
+				this._Payment_Discounts.Assign(value);
 			}
 		}
 		
@@ -27415,18 +27429,6 @@ namespace System.Scsc.Data
 			entity.Request_Row = null;
 		}
 		
-		private void attach_Fighter_Publics(Fighter_Public entity)
-		{
-			this.SendPropertyChanging();
-			entity.Request_Row = this;
-		}
-		
-		private void detach_Fighter_Publics(Fighter_Public entity)
-		{
-			this.SendPropertyChanging();
-			entity.Request_Row = null;
-		}
-		
 		private void attach_Product_Services(Product_Service entity)
 		{
 			this.SendPropertyChanging();
@@ -27434,18 +27436,6 @@ namespace System.Scsc.Data
 		}
 		
 		private void detach_Product_Services(Product_Service entity)
-		{
-			this.SendPropertyChanging();
-			entity.Request_Row = null;
-		}
-		
-		private void attach_Payment_Discounts(Payment_Discount entity)
-		{
-			this.SendPropertyChanging();
-			entity.Request_Row = this;
-		}
-		
-		private void detach_Payment_Discounts(Payment_Discount entity)
 		{
 			this.SendPropertyChanging();
 			entity.Request_Row = null;
@@ -27506,6 +27496,30 @@ namespace System.Scsc.Data
 		}
 		
 		private void detach_Payment_Details(Payment_Detail entity)
+		{
+			this.SendPropertyChanging();
+			entity.Request_Row = null;
+		}
+		
+		private void attach_Fighter_Publics(Fighter_Public entity)
+		{
+			this.SendPropertyChanging();
+			entity.Request_Row = this;
+		}
+		
+		private void detach_Fighter_Publics(Fighter_Public entity)
+		{
+			this.SendPropertyChanging();
+			entity.Request_Row = null;
+		}
+		
+		private void attach_Payment_Discounts(Payment_Discount entity)
+		{
+			this.SendPropertyChanging();
+			entity.Request_Row = this;
+		}
+		
+		private void detach_Payment_Discounts(Payment_Discount entity)
 		{
 			this.SendPropertyChanging();
 			entity.Request_Row = null;
@@ -28896,9 +28910,9 @@ namespace System.Scsc.Data
 		
 		private EntityRef<Expense> _Expense;
 		
-		private EntityRef<Fighter> _Fighter;
-		
 		private EntityRef<Member_Ship> _Member_Ship;
+		
+		private EntityRef<Fighter> _Fighter;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -28959,8 +28973,8 @@ namespace System.Scsc.Data
 			this._Category_Belt = default(EntityRef<Category_Belt>);
 			this._Club_Method = default(EntityRef<Club_Method>);
 			this._Expense = default(EntityRef<Expense>);
-			this._Fighter = default(EntityRef<Fighter>);
 			this._Member_Ship = default(EntityRef<Member_Ship>);
+			this._Fighter = default(EntityRef<Fighter>);
 			OnCreated();
 		}
 		
@@ -29630,40 +29644,6 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Session_Meeting", Storage="_Fighter", ThisKey="COCH_FILE_NO_DNRM", OtherKey="FILE_NO", IsForeignKey=true)]
-		public Fighter Fighter
-		{
-			get
-			{
-				return this._Fighter.Entity;
-			}
-			set
-			{
-				Fighter previousValue = this._Fighter.Entity;
-				if (((previousValue != value) 
-							|| (this._Fighter.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Fighter.Entity = null;
-						previousValue.Session_Meetings.Remove(this);
-					}
-					this._Fighter.Entity = value;
-					if ((value != null))
-					{
-						value.Session_Meetings.Add(this);
-						this._COCH_FILE_NO_DNRM = value.FILE_NO;
-					}
-					else
-					{
-						this._COCH_FILE_NO_DNRM = default(Nullable<long>);
-					}
-					this.SendPropertyChanged("Fighter");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Member_Ship_Session_Meeting", Storage="_Member_Ship", ThisKey="MBSP_FIGH_FILE_NO,MBSP_RECT_CODE,MBSP_RWNO", OtherKey="FIGH_FILE_NO,RECT_CODE,RWNO", IsForeignKey=true)]
 		public Member_Ship Member_Ship
 		{
@@ -29698,6 +29678,40 @@ namespace System.Scsc.Data
 						this._MBSP_RWNO = default(short);
 					}
 					this.SendPropertyChanged("Member_Ship");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Session_Meeting", Storage="_Fighter", ThisKey="COCH_FILE_NO_DNRM", OtherKey="FILE_NO", IsForeignKey=true)]
+		public Fighter Fighter
+		{
+			get
+			{
+				return this._Fighter.Entity;
+			}
+			set
+			{
+				Fighter previousValue = this._Fighter.Entity;
+				if (((previousValue != value) 
+							|| (this._Fighter.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Fighter.Entity = null;
+						previousValue.Session_Meetings.Remove(this);
+					}
+					this._Fighter.Entity = value;
+					if ((value != null))
+					{
+						value.Session_Meetings.Add(this);
+						this._COCH_FILE_NO_DNRM = value.FILE_NO;
+					}
+					else
+					{
+						this._COCH_FILE_NO_DNRM = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("Fighter");
 				}
 			}
 		}
@@ -29781,9 +29795,9 @@ namespace System.Scsc.Data
 		
 		private EntityRef<Expense> _Expense;
 		
-		private EntityRef<Fighter> _Fighter;
-		
 		private EntityRef<Member_Ship> _Member_Ship;
+		
+		private EntityRef<Fighter> _Fighter;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -29839,8 +29853,8 @@ namespace System.Scsc.Data
 			this._Category_Belt = default(EntityRef<Category_Belt>);
 			this._Club_Method = default(EntityRef<Club_Method>);
 			this._Expense = default(EntityRef<Expense>);
-			this._Fighter = default(EntityRef<Fighter>);
 			this._Member_Ship = default(EntityRef<Member_Ship>);
+			this._Fighter = default(EntityRef<Fighter>);
 			OnCreated();
 		}
 		
@@ -30438,40 +30452,6 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Session", Storage="_Fighter", ThisKey="COCH_FILE_NO_DNRM", OtherKey="FILE_NO", IsForeignKey=true)]
-		public Fighter Fighter
-		{
-			get
-			{
-				return this._Fighter.Entity;
-			}
-			set
-			{
-				Fighter previousValue = this._Fighter.Entity;
-				if (((previousValue != value) 
-							|| (this._Fighter.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Fighter.Entity = null;
-						previousValue.Sessions.Remove(this);
-					}
-					this._Fighter.Entity = value;
-					if ((value != null))
-					{
-						value.Sessions.Add(this);
-						this._COCH_FILE_NO_DNRM = value.FILE_NO;
-					}
-					else
-					{
-						this._COCH_FILE_NO_DNRM = default(Nullable<long>);
-					}
-					this.SendPropertyChanged("Fighter");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Member_Ship_Session", Storage="_Member_Ship", ThisKey="MBSP_FIGH_FILE_NO,MBSP_RECT_CODE,MBSP_RWNO", OtherKey="FIGH_FILE_NO,RECT_CODE,RWNO", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
 		public Member_Ship Member_Ship
 		{
@@ -30506,6 +30486,40 @@ namespace System.Scsc.Data
 						this._MBSP_RWNO = default(short);
 					}
 					this.SendPropertyChanged("Member_Ship");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Session", Storage="_Fighter", ThisKey="COCH_FILE_NO_DNRM", OtherKey="FILE_NO", IsForeignKey=true)]
+		public Fighter Fighter
+		{
+			get
+			{
+				return this._Fighter.Entity;
+			}
+			set
+			{
+				Fighter previousValue = this._Fighter.Entity;
+				if (((previousValue != value) 
+							|| (this._Fighter.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Fighter.Entity = null;
+						previousValue.Sessions.Remove(this);
+					}
+					this._Fighter.Entity = value;
+					if ((value != null))
+					{
+						value.Sessions.Add(this);
+						this._COCH_FILE_NO_DNRM = value.FILE_NO;
+					}
+					else
+					{
+						this._COCH_FILE_NO_DNRM = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("Fighter");
 				}
 			}
 		}
@@ -32886,6 +32900,8 @@ namespace System.Scsc.Data
 		
 		private EntitySet<Request> _Requests;
 		
+		private EntitySet<Advertising_Parameter> _Advertising_Parameters;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -32924,6 +32940,7 @@ namespace System.Scsc.Data
 			this._Aggregation_Operations = new EntitySet<Aggregation_Operation>(new Action<Aggregation_Operation>(this.attach_Aggregation_Operations), new Action<Aggregation_Operation>(this.detach_Aggregation_Operations));
 			this._Calculate_Expense_Coaches = new EntitySet<Calculate_Expense_Coach>(new Action<Calculate_Expense_Coach>(this.attach_Calculate_Expense_Coaches), new Action<Calculate_Expense_Coach>(this.detach_Calculate_Expense_Coaches));
 			this._Requests = new EntitySet<Request>(new Action<Request>(this.attach_Requests), new Action<Request>(this.detach_Requests));
+			this._Advertising_Parameters = new EntitySet<Advertising_Parameter>(new Action<Advertising_Parameter>(this.attach_Advertising_Parameters), new Action<Advertising_Parameter>(this.detach_Advertising_Parameters));
 			OnCreated();
 		}
 		
@@ -33257,6 +33274,19 @@ namespace System.Scsc.Data
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Request_Type_Advertising_Parameter", Storage="_Advertising_Parameters", ThisKey="CODE", OtherKey="RQTP_CODE")]
+		public EntitySet<Advertising_Parameter> Advertising_Parameters
+		{
+			get
+			{
+				return this._Advertising_Parameters;
+			}
+			set
+			{
+				this._Advertising_Parameters.Assign(value);
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -33392,6 +33422,18 @@ namespace System.Scsc.Data
 		}
 		
 		private void detach_Requests(Request entity)
+		{
+			this.SendPropertyChanging();
+			entity.Request_Type = null;
+		}
+		
+		private void attach_Advertising_Parameters(Advertising_Parameter entity)
+		{
+			this.SendPropertyChanging();
+			entity.Request_Type = this;
+		}
+		
+		private void detach_Advertising_Parameters(Advertising_Parameter entity)
 		{
 			this.SendPropertyChanging();
 			entity.Request_Type = null;
@@ -39084,19 +39126,19 @@ namespace System.Scsc.Data
 		
 		private EntitySet<Misc_Expense> _Misc_Expenses;
 		
-		private EntitySet<Fighter_Public> _Fighter_Publics;
-		
 		private EntitySet<Message_Broadcast> _Message_Broadcasts;
 		
 		private EntitySet<Club_Method> _Club_Methods;
 		
 		private EntitySet<Payment> _Payments;
 		
-		private EntitySet<Fighter> _Fighters;
-		
 		private EntitySet<Attendance> _Attendances;
 		
 		private EntitySet<Setting> _Settings;
+		
+		private EntitySet<Fighter_Public> _Fighter_Publics;
+		
+		private EntitySet<Fighter> _Fighters;
 		
 		private EntityRef<Club> _Club1;
 		
@@ -39156,13 +39198,13 @@ namespace System.Scsc.Data
 			this._Clubs = new EntitySet<Club>(new Action<Club>(this.attach_Clubs), new Action<Club>(this.detach_Clubs));
 			this._Payment_Expenses = new EntitySet<Payment_Expense>(new Action<Payment_Expense>(this.attach_Payment_Expenses), new Action<Payment_Expense>(this.detach_Payment_Expenses));
 			this._Misc_Expenses = new EntitySet<Misc_Expense>(new Action<Misc_Expense>(this.attach_Misc_Expenses), new Action<Misc_Expense>(this.detach_Misc_Expenses));
-			this._Fighter_Publics = new EntitySet<Fighter_Public>(new Action<Fighter_Public>(this.attach_Fighter_Publics), new Action<Fighter_Public>(this.detach_Fighter_Publics));
 			this._Message_Broadcasts = new EntitySet<Message_Broadcast>(new Action<Message_Broadcast>(this.attach_Message_Broadcasts), new Action<Message_Broadcast>(this.detach_Message_Broadcasts));
 			this._Club_Methods = new EntitySet<Club_Method>(new Action<Club_Method>(this.attach_Club_Methods), new Action<Club_Method>(this.detach_Club_Methods));
 			this._Payments = new EntitySet<Payment>(new Action<Payment>(this.attach_Payments), new Action<Payment>(this.detach_Payments));
-			this._Fighters = new EntitySet<Fighter>(new Action<Fighter>(this.attach_Fighters), new Action<Fighter>(this.detach_Fighters));
 			this._Attendances = new EntitySet<Attendance>(new Action<Attendance>(this.attach_Attendances), new Action<Attendance>(this.detach_Attendances));
 			this._Settings = new EntitySet<Setting>(new Action<Setting>(this.attach_Settings), new Action<Setting>(this.detach_Settings));
+			this._Fighter_Publics = new EntitySet<Fighter_Public>(new Action<Fighter_Public>(this.attach_Fighter_Publics), new Action<Fighter_Public>(this.detach_Fighter_Publics));
+			this._Fighters = new EntitySet<Fighter>(new Action<Fighter>(this.attach_Fighters), new Action<Fighter>(this.detach_Fighters));
 			this._Club1 = default(EntityRef<Club>);
 			this._Region = default(EntityRef<Region>);
 			OnCreated();
@@ -39662,19 +39704,6 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Club_Fighter_Public", Storage="_Fighter_Publics", ThisKey="CODE", OtherKey="CLUB_CODE")]
-		public EntitySet<Fighter_Public> Fighter_Publics
-		{
-			get
-			{
-				return this._Fighter_Publics;
-			}
-			set
-			{
-				this._Fighter_Publics.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Club_Message_Broadcast", Storage="_Message_Broadcasts", ThisKey="CODE", OtherKey="CLUB_CODE")]
 		public EntitySet<Message_Broadcast> Message_Broadcasts
 		{
@@ -39714,19 +39743,6 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Club_Fighter", Storage="_Fighters", ThisKey="CODE", OtherKey="CLUB_CODE_DNRM")]
-		public EntitySet<Fighter> Fighters
-		{
-			get
-			{
-				return this._Fighters;
-			}
-			set
-			{
-				this._Fighters.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Club_Attendance", Storage="_Attendances", ThisKey="CODE", OtherKey="CLUB_CODE")]
 		public EntitySet<Attendance> Attendances
 		{
@@ -39750,6 +39766,32 @@ namespace System.Scsc.Data
 			set
 			{
 				this._Settings.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Club_Fighter_Public", Storage="_Fighter_Publics", ThisKey="CODE", OtherKey="CLUB_CODE")]
+		public EntitySet<Fighter_Public> Fighter_Publics
+		{
+			get
+			{
+				return this._Fighter_Publics;
+			}
+			set
+			{
+				this._Fighter_Publics.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Club_Fighter", Storage="_Fighters", ThisKey="CODE", OtherKey="CLUB_CODE_DNRM")]
+		public EntitySet<Fighter> Fighters
+		{
+			get
+			{
+				return this._Fighters;
+			}
+			set
+			{
+				this._Fighters.Assign(value);
 			}
 		}
 		
@@ -39917,18 +39959,6 @@ namespace System.Scsc.Data
 			entity.Club = null;
 		}
 		
-		private void attach_Fighter_Publics(Fighter_Public entity)
-		{
-			this.SendPropertyChanging();
-			entity.Club = this;
-		}
-		
-		private void detach_Fighter_Publics(Fighter_Public entity)
-		{
-			this.SendPropertyChanging();
-			entity.Club = null;
-		}
-		
 		private void attach_Message_Broadcasts(Message_Broadcast entity)
 		{
 			this.SendPropertyChanging();
@@ -39965,18 +39995,6 @@ namespace System.Scsc.Data
 			entity.Club = null;
 		}
 		
-		private void attach_Fighters(Fighter entity)
-		{
-			this.SendPropertyChanging();
-			entity.Club = this;
-		}
-		
-		private void detach_Fighters(Fighter entity)
-		{
-			this.SendPropertyChanging();
-			entity.Club = null;
-		}
-		
 		private void attach_Attendances(Attendance entity)
 		{
 			this.SendPropertyChanging();
@@ -39996,6 +40014,30 @@ namespace System.Scsc.Data
 		}
 		
 		private void detach_Settings(Setting entity)
+		{
+			this.SendPropertyChanging();
+			entity.Club = null;
+		}
+		
+		private void attach_Fighter_Publics(Fighter_Public entity)
+		{
+			this.SendPropertyChanging();
+			entity.Club = this;
+		}
+		
+		private void detach_Fighter_Publics(Fighter_Public entity)
+		{
+			this.SendPropertyChanging();
+			entity.Club = null;
+		}
+		
+		private void attach_Fighters(Fighter entity)
+		{
+			this.SendPropertyChanging();
+			entity.Club = this;
+		}
+		
+		private void detach_Fighters(Fighter entity)
 		{
 			this.SendPropertyChanging();
 			entity.Club = null;
@@ -41729,11 +41771,11 @@ namespace System.Scsc.Data
 		
 		private EntityRef<Club_Method> _Club_Method;
 		
-		private EntityRef<Fighter> _Fighter;
-		
 		private EntityRef<Member_Ship> _Member_Ship;
 		
 		private EntityRef<Payment_Detail> _Payment_Detail;
+		
+		private EntityRef<Fighter> _Fighter;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -41838,9 +41880,9 @@ namespace System.Scsc.Data
 			this._Method = default(EntityRef<Method>);
 			this._Category_Belt = default(EntityRef<Category_Belt>);
 			this._Club_Method = default(EntityRef<Club_Method>);
-			this._Fighter = default(EntityRef<Fighter>);
 			this._Member_Ship = default(EntityRef<Member_Ship>);
 			this._Payment_Detail = default(EntityRef<Payment_Detail>);
+			this._Fighter = default(EntityRef<Fighter>);
 			OnCreated();
 		}
 		
@@ -43016,40 +43058,6 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Payment_Expense", Storage="_Fighter", ThisKey="COCH_FILE_NO", OtherKey="FILE_NO", IsForeignKey=true)]
-		public Fighter Fighter
-		{
-			get
-			{
-				return this._Fighter.Entity;
-			}
-			set
-			{
-				Fighter previousValue = this._Fighter.Entity;
-				if (((previousValue != value) 
-							|| (this._Fighter.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Fighter.Entity = null;
-						previousValue.Payment_Expenses.Remove(this);
-					}
-					this._Fighter.Entity = value;
-					if ((value != null))
-					{
-						value.Payment_Expenses.Add(this);
-						this._COCH_FILE_NO = value.FILE_NO;
-					}
-					else
-					{
-						this._COCH_FILE_NO = default(Nullable<long>);
-					}
-					this.SendPropertyChanged("Fighter");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Member_Ship_Payment_Expense", Storage="_Member_Ship", ThisKey="MBSP_FIGH_FILE_NO,MBSP_RECT_CODE,MBSP_RWNO", OtherKey="FIGH_FILE_NO,RECT_CODE,RWNO", IsForeignKey=true)]
 		public Member_Ship Member_Ship
 		{
@@ -43118,6 +43126,40 @@ namespace System.Scsc.Data
 						this._PYDT_CODE = default(Nullable<long>);
 					}
 					this.SendPropertyChanged("Payment_Detail");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Payment_Expense", Storage="_Fighter", ThisKey="COCH_FILE_NO", OtherKey="FILE_NO", IsForeignKey=true)]
+		public Fighter Fighter
+		{
+			get
+			{
+				return this._Fighter.Entity;
+			}
+			set
+			{
+				Fighter previousValue = this._Fighter.Entity;
+				if (((previousValue != value) 
+							|| (this._Fighter.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Fighter.Entity = null;
+						previousValue.Payment_Expenses.Remove(this);
+					}
+					this._Fighter.Entity = value;
+					if ((value != null))
+					{
+						value.Payment_Expenses.Add(this);
+						this._COCH_FILE_NO = value.FILE_NO;
+					}
+					else
+					{
+						this._COCH_FILE_NO = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("Fighter");
 				}
 			}
 		}
@@ -46360,2113 +46402,6 @@ namespace System.Scsc.Data
 					this._OUT_AMNT = value;
 				}
 			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Fighter_Public")]
-	public partial class Fighter_Public : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private string _REGN_PRVN_CNTY_CODE;
-		
-		private string _REGN_PRVN_CODE;
-		
-		private string _REGN_CODE;
-		
-		private System.Nullable<long> _DISE_CODE;
-		
-		private System.Nullable<long> _MTOD_CODE;
-		
-		private System.Nullable<long> _CTGY_CODE;
-		
-		private System.Nullable<long> _CLUB_CODE;
-		
-		private System.Nullable<long> _RQRO_RQST_RQID;
-		
-		private System.Nullable<short> _RQRO_RWNO;
-		
-		private long _FIGH_FILE_NO;
-		
-		private int _RWNO;
-		
-		private string _RECT_CODE;
-		
-		private string _FRST_NAME;
-		
-		private string _LAST_NAME;
-		
-		private string _FATH_NAME;
-		
-		private string _SEX_TYPE;
-		
-		private string _NATL_CODE;
-		
-		private System.Nullable<System.DateTime> _BRTH_DATE;
-		
-		private string _CELL_PHON;
-		
-		private string _TELL_PHON;
-		
-		private string _COCH_DEG;
-		
-		private string _GUDG_DEG;
-		
-		private string _GLOB_CODE;
-		
-		private string _EDUC_DEG;
-		
-		private string _TYPE;
-		
-		private string _POST_ADRS;
-		
-		private string _EMAL_ADRS;
-		
-		private string _INSR_NUMB;
-		
-		private System.Nullable<System.DateTime> _INSR_DATE;
-		
-		private System.Nullable<long> _COCH_FILE_NO;
-		
-		private System.Nullable<System.DateTime> _COCH_CRTF_DATE;
-		
-		private System.Nullable<long> _CBMT_CODE;
-		
-		private string _DAY_TYPE;
-		
-		private System.Nullable<System.TimeSpan> _ATTN_TIME;
-		
-		private string _CALC_EXPN_TYPE;
-		
-		private string _ACTV_TAG;
-		
-		private string _BLOD_GROP;
-		
-		private string _FNGR_PRNT;
-		
-		private string _SUNT_BUNT_DEPT_ORGN_CODE;
-		
-		private string _SUNT_BUNT_DEPT_CODE;
-		
-		private string _SUNT_BUNT_CODE;
-		
-		private string _SUNT_CODE;
-		
-		private System.Nullable<float> _CORD_X;
-		
-		private System.Nullable<float> _CORD_Y;
-		
-		private System.Nullable<long> _MOST_DEBT_CLNG;
-		
-		private string _SERV_NO;
-		
-		private string _BRTH_PLAC;
-		
-		private string _ISSU_PLAC;
-		
-		private string _FATH_WORK;
-		
-		private string _HIST_DESC;
-		
-		private string _DPST_ACNT_SLRY_BANK;
-		
-		private string _DPST_ACNT_SLRY;
-		
-		private System.Nullable<long> _CHAT_ID;
-		
-		private string _MOM_CELL_PHON;
-		
-		private string _DAD_CELL_PHON;
-		
-		private string _MOM_TELL_PHON;
-		
-		private string _DAD_TELL_PHON;
-		
-		private System.Nullable<long> _MOM_CHAT_ID;
-		
-		private System.Nullable<long> _DAD_CHAT_ID;
-		
-		private string _IDTY_NUMB;
-		
-		private string _ZIP_CODE;
-		
-		private string _CMNT;
-		
-		private string _PASS_WORD;
-		
-		private string _CRET_BY;
-		
-		private System.Nullable<System.DateTime> _CRET_DATE;
-		
-		private string _MDFY_BY;
-		
-		private System.Nullable<System.DateTime> _MDFY_DATE;
-		
-		private EntitySet<Present> _Presents;
-		
-		private EntitySet<Member_Ship> _Member_Ships;
-		
-		private EntityRef<Club> _Club;
-		
-		private EntityRef<Diseases_Type> _Diseases_Type;
-		
-		private EntityRef<Region> _Region;
-		
-		private EntityRef<Request_Row> _Request_Row;
-		
-		private EntityRef<Sub_Unit> _Sub_Unit;
-		
-		private EntityRef<Method> _Method;
-		
-		private EntityRef<Category_Belt> _Category_Belt;
-		
-		private EntityRef<Club_Method> _Club_Method;
-		
-		private EntityRef<Fighter> _Fighter;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnREGN_PRVN_CNTY_CODEChanging(string value);
-    partial void OnREGN_PRVN_CNTY_CODEChanged();
-    partial void OnREGN_PRVN_CODEChanging(string value);
-    partial void OnREGN_PRVN_CODEChanged();
-    partial void OnREGN_CODEChanging(string value);
-    partial void OnREGN_CODEChanged();
-    partial void OnDISE_CODEChanging(System.Nullable<long> value);
-    partial void OnDISE_CODEChanged();
-    partial void OnMTOD_CODEChanging(System.Nullable<long> value);
-    partial void OnMTOD_CODEChanged();
-    partial void OnCTGY_CODEChanging(System.Nullable<long> value);
-    partial void OnCTGY_CODEChanged();
-    partial void OnCLUB_CODEChanging(System.Nullable<long> value);
-    partial void OnCLUB_CODEChanged();
-    partial void OnRQRO_RQST_RQIDChanging(System.Nullable<long> value);
-    partial void OnRQRO_RQST_RQIDChanged();
-    partial void OnRQRO_RWNOChanging(System.Nullable<short> value);
-    partial void OnRQRO_RWNOChanged();
-    partial void OnFIGH_FILE_NOChanging(long value);
-    partial void OnFIGH_FILE_NOChanged();
-    partial void OnRWNOChanging(int value);
-    partial void OnRWNOChanged();
-    partial void OnRECT_CODEChanging(string value);
-    partial void OnRECT_CODEChanged();
-    partial void OnFRST_NAMEChanging(string value);
-    partial void OnFRST_NAMEChanged();
-    partial void OnLAST_NAMEChanging(string value);
-    partial void OnLAST_NAMEChanged();
-    partial void OnFATH_NAMEChanging(string value);
-    partial void OnFATH_NAMEChanged();
-    partial void OnSEX_TYPEChanging(string value);
-    partial void OnSEX_TYPEChanged();
-    partial void OnNATL_CODEChanging(string value);
-    partial void OnNATL_CODEChanged();
-    partial void OnBRTH_DATEChanging(System.Nullable<System.DateTime> value);
-    partial void OnBRTH_DATEChanged();
-    partial void OnCELL_PHONChanging(string value);
-    partial void OnCELL_PHONChanged();
-    partial void OnTELL_PHONChanging(string value);
-    partial void OnTELL_PHONChanged();
-    partial void OnCOCH_DEGChanging(string value);
-    partial void OnCOCH_DEGChanged();
-    partial void OnGUDG_DEGChanging(string value);
-    partial void OnGUDG_DEGChanged();
-    partial void OnGLOB_CODEChanging(string value);
-    partial void OnGLOB_CODEChanged();
-    partial void OnEDUC_DEGChanging(string value);
-    partial void OnEDUC_DEGChanged();
-    partial void OnTYPEChanging(string value);
-    partial void OnTYPEChanged();
-    partial void OnPOST_ADRSChanging(string value);
-    partial void OnPOST_ADRSChanged();
-    partial void OnEMAL_ADRSChanging(string value);
-    partial void OnEMAL_ADRSChanged();
-    partial void OnINSR_NUMBChanging(string value);
-    partial void OnINSR_NUMBChanged();
-    partial void OnINSR_DATEChanging(System.Nullable<System.DateTime> value);
-    partial void OnINSR_DATEChanged();
-    partial void OnCOCH_FILE_NOChanging(System.Nullable<long> value);
-    partial void OnCOCH_FILE_NOChanged();
-    partial void OnCOCH_CRTF_DATEChanging(System.Nullable<System.DateTime> value);
-    partial void OnCOCH_CRTF_DATEChanged();
-    partial void OnCBMT_CODEChanging(System.Nullable<long> value);
-    partial void OnCBMT_CODEChanged();
-    partial void OnDAY_TYPEChanging(string value);
-    partial void OnDAY_TYPEChanged();
-    partial void OnATTN_TIMEChanging(System.Nullable<System.TimeSpan> value);
-    partial void OnATTN_TIMEChanged();
-    partial void OnCALC_EXPN_TYPEChanging(string value);
-    partial void OnCALC_EXPN_TYPEChanged();
-    partial void OnACTV_TAGChanging(string value);
-    partial void OnACTV_TAGChanged();
-    partial void OnBLOD_GROPChanging(string value);
-    partial void OnBLOD_GROPChanged();
-    partial void OnFNGR_PRNTChanging(string value);
-    partial void OnFNGR_PRNTChanged();
-    partial void OnSUNT_BUNT_DEPT_ORGN_CODEChanging(string value);
-    partial void OnSUNT_BUNT_DEPT_ORGN_CODEChanged();
-    partial void OnSUNT_BUNT_DEPT_CODEChanging(string value);
-    partial void OnSUNT_BUNT_DEPT_CODEChanged();
-    partial void OnSUNT_BUNT_CODEChanging(string value);
-    partial void OnSUNT_BUNT_CODEChanged();
-    partial void OnSUNT_CODEChanging(string value);
-    partial void OnSUNT_CODEChanged();
-    partial void OnCORD_XChanging(System.Nullable<float> value);
-    partial void OnCORD_XChanged();
-    partial void OnCORD_YChanging(System.Nullable<float> value);
-    partial void OnCORD_YChanged();
-    partial void OnMOST_DEBT_CLNGChanging(System.Nullable<long> value);
-    partial void OnMOST_DEBT_CLNGChanged();
-    partial void OnSERV_NOChanging(string value);
-    partial void OnSERV_NOChanged();
-    partial void OnBRTH_PLACChanging(string value);
-    partial void OnBRTH_PLACChanged();
-    partial void OnISSU_PLACChanging(string value);
-    partial void OnISSU_PLACChanged();
-    partial void OnFATH_WORKChanging(string value);
-    partial void OnFATH_WORKChanged();
-    partial void OnHIST_DESCChanging(string value);
-    partial void OnHIST_DESCChanged();
-    partial void OnDPST_ACNT_SLRY_BANKChanging(string value);
-    partial void OnDPST_ACNT_SLRY_BANKChanged();
-    partial void OnDPST_ACNT_SLRYChanging(string value);
-    partial void OnDPST_ACNT_SLRYChanged();
-    partial void OnCHAT_IDChanging(System.Nullable<long> value);
-    partial void OnCHAT_IDChanged();
-    partial void OnMOM_CELL_PHONChanging(string value);
-    partial void OnMOM_CELL_PHONChanged();
-    partial void OnDAD_CELL_PHONChanging(string value);
-    partial void OnDAD_CELL_PHONChanged();
-    partial void OnMOM_TELL_PHONChanging(string value);
-    partial void OnMOM_TELL_PHONChanged();
-    partial void OnDAD_TELL_PHONChanging(string value);
-    partial void OnDAD_TELL_PHONChanged();
-    partial void OnMOM_CHAT_IDChanging(System.Nullable<long> value);
-    partial void OnMOM_CHAT_IDChanged();
-    partial void OnDAD_CHAT_IDChanging(System.Nullable<long> value);
-    partial void OnDAD_CHAT_IDChanged();
-    partial void OnIDTY_NUMBChanging(string value);
-    partial void OnIDTY_NUMBChanged();
-    partial void OnZIP_CODEChanging(string value);
-    partial void OnZIP_CODEChanged();
-    partial void OnCMNTChanging(string value);
-    partial void OnCMNTChanged();
-    partial void OnPASS_WORDChanging(string value);
-    partial void OnPASS_WORDChanged();
-    partial void OnCRET_BYChanging(string value);
-    partial void OnCRET_BYChanged();
-    partial void OnCRET_DATEChanging(System.Nullable<System.DateTime> value);
-    partial void OnCRET_DATEChanged();
-    partial void OnMDFY_BYChanging(string value);
-    partial void OnMDFY_BYChanged();
-    partial void OnMDFY_DATEChanging(System.Nullable<System.DateTime> value);
-    partial void OnMDFY_DATEChanged();
-    #endregion
-		
-		public Fighter_Public()
-		{
-			this._Presents = new EntitySet<Present>(new Action<Present>(this.attach_Presents), new Action<Present>(this.detach_Presents));
-			this._Member_Ships = new EntitySet<Member_Ship>(new Action<Member_Ship>(this.attach_Member_Ships), new Action<Member_Ship>(this.detach_Member_Ships));
-			this._Club = default(EntityRef<Club>);
-			this._Diseases_Type = default(EntityRef<Diseases_Type>);
-			this._Region = default(EntityRef<Region>);
-			this._Request_Row = default(EntityRef<Request_Row>);
-			this._Sub_Unit = default(EntityRef<Sub_Unit>);
-			this._Method = default(EntityRef<Method>);
-			this._Category_Belt = default(EntityRef<Category_Belt>);
-			this._Club_Method = default(EntityRef<Club_Method>);
-			this._Fighter = default(EntityRef<Fighter>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_REGN_PRVN_CNTY_CODE", DbType="VarChar(3) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
-		public string REGN_PRVN_CNTY_CODE
-		{
-			get
-			{
-				return this._REGN_PRVN_CNTY_CODE;
-			}
-			set
-			{
-				if ((this._REGN_PRVN_CNTY_CODE != value))
-				{
-					if (this._Region.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnREGN_PRVN_CNTY_CODEChanging(value);
-					this.SendPropertyChanging();
-					this._REGN_PRVN_CNTY_CODE = value;
-					this.SendPropertyChanged("REGN_PRVN_CNTY_CODE");
-					this.OnREGN_PRVN_CNTY_CODEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_REGN_PRVN_CODE", DbType="VarChar(3) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
-		public string REGN_PRVN_CODE
-		{
-			get
-			{
-				return this._REGN_PRVN_CODE;
-			}
-			set
-			{
-				if ((this._REGN_PRVN_CODE != value))
-				{
-					if (this._Region.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnREGN_PRVN_CODEChanging(value);
-					this.SendPropertyChanging();
-					this._REGN_PRVN_CODE = value;
-					this.SendPropertyChanged("REGN_PRVN_CODE");
-					this.OnREGN_PRVN_CODEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_REGN_CODE", DbType="VarChar(3) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
-		public string REGN_CODE
-		{
-			get
-			{
-				return this._REGN_CODE;
-			}
-			set
-			{
-				if ((this._REGN_CODE != value))
-				{
-					if (this._Region.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnREGN_CODEChanging(value);
-					this.SendPropertyChanging();
-					this._REGN_CODE = value;
-					this.SendPropertyChanged("REGN_CODE");
-					this.OnREGN_CODEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DISE_CODE", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<long> DISE_CODE
-		{
-			get
-			{
-				return this._DISE_CODE;
-			}
-			set
-			{
-				if ((this._DISE_CODE != value))
-				{
-					if (this._Diseases_Type.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnDISE_CODEChanging(value);
-					this.SendPropertyChanging();
-					this._DISE_CODE = value;
-					this.SendPropertyChanged("DISE_CODE");
-					this.OnDISE_CODEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MTOD_CODE", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<long> MTOD_CODE
-		{
-			get
-			{
-				return this._MTOD_CODE;
-			}
-			set
-			{
-				if ((this._MTOD_CODE != value))
-				{
-					if (this._Method.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnMTOD_CODEChanging(value);
-					this.SendPropertyChanging();
-					this._MTOD_CODE = value;
-					this.SendPropertyChanged("MTOD_CODE");
-					this.OnMTOD_CODEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CTGY_CODE", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<long> CTGY_CODE
-		{
-			get
-			{
-				return this._CTGY_CODE;
-			}
-			set
-			{
-				if ((this._CTGY_CODE != value))
-				{
-					if (this._Category_Belt.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnCTGY_CODEChanging(value);
-					this.SendPropertyChanging();
-					this._CTGY_CODE = value;
-					this.SendPropertyChanged("CTGY_CODE");
-					this.OnCTGY_CODEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CLUB_CODE", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<long> CLUB_CODE
-		{
-			get
-			{
-				return this._CLUB_CODE;
-			}
-			set
-			{
-				if ((this._CLUB_CODE != value))
-				{
-					if (this._Club.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnCLUB_CODEChanging(value);
-					this.SendPropertyChanging();
-					this._CLUB_CODE = value;
-					this.SendPropertyChanged("CLUB_CODE");
-					this.OnCLUB_CODEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RQRO_RQST_RQID", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<long> RQRO_RQST_RQID
-		{
-			get
-			{
-				return this._RQRO_RQST_RQID;
-			}
-			set
-			{
-				if ((this._RQRO_RQST_RQID != value))
-				{
-					if (this._Request_Row.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnRQRO_RQST_RQIDChanging(value);
-					this.SendPropertyChanging();
-					this._RQRO_RQST_RQID = value;
-					this.SendPropertyChanged("RQRO_RQST_RQID");
-					this.OnRQRO_RQST_RQIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RQRO_RWNO", DbType="SmallInt", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<short> RQRO_RWNO
-		{
-			get
-			{
-				return this._RQRO_RWNO;
-			}
-			set
-			{
-				if ((this._RQRO_RWNO != value))
-				{
-					if (this._Request_Row.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnRQRO_RWNOChanging(value);
-					this.SendPropertyChanging();
-					this._RQRO_RWNO = value;
-					this.SendPropertyChanged("RQRO_RWNO");
-					this.OnRQRO_RWNOChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FIGH_FILE_NO", DbType="BigInt NOT NULL", IsPrimaryKey=true)]
-		public long FIGH_FILE_NO
-		{
-			get
-			{
-				return this._FIGH_FILE_NO;
-			}
-			set
-			{
-				if ((this._FIGH_FILE_NO != value))
-				{
-					if (this._Fighter.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnFIGH_FILE_NOChanging(value);
-					this.SendPropertyChanging();
-					this._FIGH_FILE_NO = value;
-					this.SendPropertyChanged("FIGH_FILE_NO");
-					this.OnFIGH_FILE_NOChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RWNO", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int RWNO
-		{
-			get
-			{
-				return this._RWNO;
-			}
-			set
-			{
-				if ((this._RWNO != value))
-				{
-					this.OnRWNOChanging(value);
-					this.SendPropertyChanging();
-					this._RWNO = value;
-					this.SendPropertyChanged("RWNO");
-					this.OnRWNOChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RECT_CODE", DbType="VarChar(3) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string RECT_CODE
-		{
-			get
-			{
-				return this._RECT_CODE;
-			}
-			set
-			{
-				if ((this._RECT_CODE != value))
-				{
-					this.OnRECT_CODEChanging(value);
-					this.SendPropertyChanging();
-					this._RECT_CODE = value;
-					this.SendPropertyChanged("RECT_CODE");
-					this.OnRECT_CODEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FRST_NAME", DbType="NVarChar(250) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
-		public string FRST_NAME
-		{
-			get
-			{
-				return this._FRST_NAME;
-			}
-			set
-			{
-				if ((this._FRST_NAME != value))
-				{
-					this.OnFRST_NAMEChanging(value);
-					this.SendPropertyChanging();
-					this._FRST_NAME = value;
-					this.SendPropertyChanged("FRST_NAME");
-					this.OnFRST_NAMEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LAST_NAME", DbType="NVarChar(250) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
-		public string LAST_NAME
-		{
-			get
-			{
-				return this._LAST_NAME;
-			}
-			set
-			{
-				if ((this._LAST_NAME != value))
-				{
-					this.OnLAST_NAMEChanging(value);
-					this.SendPropertyChanging();
-					this._LAST_NAME = value;
-					this.SendPropertyChanged("LAST_NAME");
-					this.OnLAST_NAMEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FATH_NAME", DbType="NVarChar(250)", UpdateCheck=UpdateCheck.Never)]
-		public string FATH_NAME
-		{
-			get
-			{
-				return this._FATH_NAME;
-			}
-			set
-			{
-				if ((this._FATH_NAME != value))
-				{
-					this.OnFATH_NAMEChanging(value);
-					this.SendPropertyChanging();
-					this._FATH_NAME = value;
-					this.SendPropertyChanged("FATH_NAME");
-					this.OnFATH_NAMEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SEX_TYPE", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
-		public string SEX_TYPE
-		{
-			get
-			{
-				return this._SEX_TYPE;
-			}
-			set
-			{
-				if ((this._SEX_TYPE != value))
-				{
-					this.OnSEX_TYPEChanging(value);
-					this.SendPropertyChanging();
-					this._SEX_TYPE = value;
-					this.SendPropertyChanged("SEX_TYPE");
-					this.OnSEX_TYPEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NATL_CODE", DbType="VarChar(10)", UpdateCheck=UpdateCheck.Never)]
-		public string NATL_CODE
-		{
-			get
-			{
-				return this._NATL_CODE;
-			}
-			set
-			{
-				if ((this._NATL_CODE != value))
-				{
-					this.OnNATL_CODEChanging(value);
-					this.SendPropertyChanging();
-					this._NATL_CODE = value;
-					this.SendPropertyChanged("NATL_CODE");
-					this.OnNATL_CODEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BRTH_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<System.DateTime> BRTH_DATE
-		{
-			get
-			{
-				return this._BRTH_DATE;
-			}
-			set
-			{
-				if ((this._BRTH_DATE != value))
-				{
-					this.OnBRTH_DATEChanging(value);
-					this.SendPropertyChanging();
-					this._BRTH_DATE = value;
-					this.SendPropertyChanged("BRTH_DATE");
-					this.OnBRTH_DATEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CELL_PHON", DbType="VarChar(11)", UpdateCheck=UpdateCheck.Never)]
-		public string CELL_PHON
-		{
-			get
-			{
-				return this._CELL_PHON;
-			}
-			set
-			{
-				if ((this._CELL_PHON != value))
-				{
-					this.OnCELL_PHONChanging(value);
-					this.SendPropertyChanging();
-					this._CELL_PHON = value;
-					this.SendPropertyChanged("CELL_PHON");
-					this.OnCELL_PHONChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TELL_PHON", DbType="VarChar(11)", UpdateCheck=UpdateCheck.Never)]
-		public string TELL_PHON
-		{
-			get
-			{
-				return this._TELL_PHON;
-			}
-			set
-			{
-				if ((this._TELL_PHON != value))
-				{
-					this.OnTELL_PHONChanging(value);
-					this.SendPropertyChanging();
-					this._TELL_PHON = value;
-					this.SendPropertyChanged("TELL_PHON");
-					this.OnTELL_PHONChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_COCH_DEG", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
-		public string COCH_DEG
-		{
-			get
-			{
-				return this._COCH_DEG;
-			}
-			set
-			{
-				if ((this._COCH_DEG != value))
-				{
-					this.OnCOCH_DEGChanging(value);
-					this.SendPropertyChanging();
-					this._COCH_DEG = value;
-					this.SendPropertyChanged("COCH_DEG");
-					this.OnCOCH_DEGChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GUDG_DEG", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
-		public string GUDG_DEG
-		{
-			get
-			{
-				return this._GUDG_DEG;
-			}
-			set
-			{
-				if ((this._GUDG_DEG != value))
-				{
-					this.OnGUDG_DEGChanging(value);
-					this.SendPropertyChanging();
-					this._GUDG_DEG = value;
-					this.SendPropertyChanged("GUDG_DEG");
-					this.OnGUDG_DEGChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GLOB_CODE", DbType="NVarChar(50)", UpdateCheck=UpdateCheck.Never)]
-		public string GLOB_CODE
-		{
-			get
-			{
-				return this._GLOB_CODE;
-			}
-			set
-			{
-				if ((this._GLOB_CODE != value))
-				{
-					this.OnGLOB_CODEChanging(value);
-					this.SendPropertyChanging();
-					this._GLOB_CODE = value;
-					this.SendPropertyChanged("GLOB_CODE");
-					this.OnGLOB_CODEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EDUC_DEG", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
-		public string EDUC_DEG
-		{
-			get
-			{
-				return this._EDUC_DEG;
-			}
-			set
-			{
-				if ((this._EDUC_DEG != value))
-				{
-					this.OnEDUC_DEGChanging(value);
-					this.SendPropertyChanging();
-					this._EDUC_DEG = value;
-					this.SendPropertyChanged("EDUC_DEG");
-					this.OnEDUC_DEGChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TYPE", DbType="VarChar(3) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
-		public string TYPE
-		{
-			get
-			{
-				return this._TYPE;
-			}
-			set
-			{
-				if ((this._TYPE != value))
-				{
-					this.OnTYPEChanging(value);
-					this.SendPropertyChanging();
-					this._TYPE = value;
-					this.SendPropertyChanged("TYPE");
-					this.OnTYPEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_POST_ADRS", DbType="NVarChar(1000)", UpdateCheck=UpdateCheck.Never)]
-		public string POST_ADRS
-		{
-			get
-			{
-				return this._POST_ADRS;
-			}
-			set
-			{
-				if ((this._POST_ADRS != value))
-				{
-					this.OnPOST_ADRSChanging(value);
-					this.SendPropertyChanging();
-					this._POST_ADRS = value;
-					this.SendPropertyChanged("POST_ADRS");
-					this.OnPOST_ADRSChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EMAL_ADRS", DbType="VarChar(250)", UpdateCheck=UpdateCheck.Never)]
-		public string EMAL_ADRS
-		{
-			get
-			{
-				return this._EMAL_ADRS;
-			}
-			set
-			{
-				if ((this._EMAL_ADRS != value))
-				{
-					this.OnEMAL_ADRSChanging(value);
-					this.SendPropertyChanging();
-					this._EMAL_ADRS = value;
-					this.SendPropertyChanged("EMAL_ADRS");
-					this.OnEMAL_ADRSChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_INSR_NUMB", DbType="VarChar(10)", UpdateCheck=UpdateCheck.Never)]
-		public string INSR_NUMB
-		{
-			get
-			{
-				return this._INSR_NUMB;
-			}
-			set
-			{
-				if ((this._INSR_NUMB != value))
-				{
-					this.OnINSR_NUMBChanging(value);
-					this.SendPropertyChanging();
-					this._INSR_NUMB = value;
-					this.SendPropertyChanged("INSR_NUMB");
-					this.OnINSR_NUMBChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_INSR_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<System.DateTime> INSR_DATE
-		{
-			get
-			{
-				return this._INSR_DATE;
-			}
-			set
-			{
-				if ((this._INSR_DATE != value))
-				{
-					this.OnINSR_DATEChanging(value);
-					this.SendPropertyChanging();
-					this._INSR_DATE = value;
-					this.SendPropertyChanged("INSR_DATE");
-					this.OnINSR_DATEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_COCH_FILE_NO", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<long> COCH_FILE_NO
-		{
-			get
-			{
-				return this._COCH_FILE_NO;
-			}
-			set
-			{
-				if ((this._COCH_FILE_NO != value))
-				{
-					this.OnCOCH_FILE_NOChanging(value);
-					this.SendPropertyChanging();
-					this._COCH_FILE_NO = value;
-					this.SendPropertyChanged("COCH_FILE_NO");
-					this.OnCOCH_FILE_NOChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_COCH_CRTF_DATE", DbType="Date", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<System.DateTime> COCH_CRTF_DATE
-		{
-			get
-			{
-				return this._COCH_CRTF_DATE;
-			}
-			set
-			{
-				if ((this._COCH_CRTF_DATE != value))
-				{
-					this.OnCOCH_CRTF_DATEChanging(value);
-					this.SendPropertyChanging();
-					this._COCH_CRTF_DATE = value;
-					this.SendPropertyChanged("COCH_CRTF_DATE");
-					this.OnCOCH_CRTF_DATEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CBMT_CODE", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<long> CBMT_CODE
-		{
-			get
-			{
-				return this._CBMT_CODE;
-			}
-			set
-			{
-				if ((this._CBMT_CODE != value))
-				{
-					if (this._Club_Method.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnCBMT_CODEChanging(value);
-					this.SendPropertyChanging();
-					this._CBMT_CODE = value;
-					this.SendPropertyChanged("CBMT_CODE");
-					this.OnCBMT_CODEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DAY_TYPE", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
-		public string DAY_TYPE
-		{
-			get
-			{
-				return this._DAY_TYPE;
-			}
-			set
-			{
-				if ((this._DAY_TYPE != value))
-				{
-					this.OnDAY_TYPEChanging(value);
-					this.SendPropertyChanging();
-					this._DAY_TYPE = value;
-					this.SendPropertyChanged("DAY_TYPE");
-					this.OnDAY_TYPEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ATTN_TIME", DbType="Time", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<System.TimeSpan> ATTN_TIME
-		{
-			get
-			{
-				return this._ATTN_TIME;
-			}
-			set
-			{
-				if ((this._ATTN_TIME != value))
-				{
-					this.OnATTN_TIMEChanging(value);
-					this.SendPropertyChanging();
-					this._ATTN_TIME = value;
-					this.SendPropertyChanged("ATTN_TIME");
-					this.OnATTN_TIMEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CALC_EXPN_TYPE", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
-		public string CALC_EXPN_TYPE
-		{
-			get
-			{
-				return this._CALC_EXPN_TYPE;
-			}
-			set
-			{
-				if ((this._CALC_EXPN_TYPE != value))
-				{
-					this.OnCALC_EXPN_TYPEChanging(value);
-					this.SendPropertyChanging();
-					this._CALC_EXPN_TYPE = value;
-					this.SendPropertyChanged("CALC_EXPN_TYPE");
-					this.OnCALC_EXPN_TYPEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ACTV_TAG", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
-		public string ACTV_TAG
-		{
-			get
-			{
-				return this._ACTV_TAG;
-			}
-			set
-			{
-				if ((this._ACTV_TAG != value))
-				{
-					this.OnACTV_TAGChanging(value);
-					this.SendPropertyChanging();
-					this._ACTV_TAG = value;
-					this.SendPropertyChanged("ACTV_TAG");
-					this.OnACTV_TAGChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BLOD_GROP", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
-		public string BLOD_GROP
-		{
-			get
-			{
-				return this._BLOD_GROP;
-			}
-			set
-			{
-				if ((this._BLOD_GROP != value))
-				{
-					this.OnBLOD_GROPChanging(value);
-					this.SendPropertyChanging();
-					this._BLOD_GROP = value;
-					this.SendPropertyChanged("BLOD_GROP");
-					this.OnBLOD_GROPChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FNGR_PRNT", DbType="VarChar(20)", UpdateCheck=UpdateCheck.Never)]
-		public string FNGR_PRNT
-		{
-			get
-			{
-				return this._FNGR_PRNT;
-			}
-			set
-			{
-				if ((this._FNGR_PRNT != value))
-				{
-					this.OnFNGR_PRNTChanging(value);
-					this.SendPropertyChanging();
-					this._FNGR_PRNT = value;
-					this.SendPropertyChanged("FNGR_PRNT");
-					this.OnFNGR_PRNTChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SUNT_BUNT_DEPT_ORGN_CODE", DbType="VarChar(2)", UpdateCheck=UpdateCheck.Never)]
-		public string SUNT_BUNT_DEPT_ORGN_CODE
-		{
-			get
-			{
-				return this._SUNT_BUNT_DEPT_ORGN_CODE;
-			}
-			set
-			{
-				if ((this._SUNT_BUNT_DEPT_ORGN_CODE != value))
-				{
-					if (this._Sub_Unit.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnSUNT_BUNT_DEPT_ORGN_CODEChanging(value);
-					this.SendPropertyChanging();
-					this._SUNT_BUNT_DEPT_ORGN_CODE = value;
-					this.SendPropertyChanged("SUNT_BUNT_DEPT_ORGN_CODE");
-					this.OnSUNT_BUNT_DEPT_ORGN_CODEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SUNT_BUNT_DEPT_CODE", DbType="VarChar(2)", UpdateCheck=UpdateCheck.Never)]
-		public string SUNT_BUNT_DEPT_CODE
-		{
-			get
-			{
-				return this._SUNT_BUNT_DEPT_CODE;
-			}
-			set
-			{
-				if ((this._SUNT_BUNT_DEPT_CODE != value))
-				{
-					if (this._Sub_Unit.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnSUNT_BUNT_DEPT_CODEChanging(value);
-					this.SendPropertyChanging();
-					this._SUNT_BUNT_DEPT_CODE = value;
-					this.SendPropertyChanged("SUNT_BUNT_DEPT_CODE");
-					this.OnSUNT_BUNT_DEPT_CODEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SUNT_BUNT_CODE", DbType="VarChar(2)", UpdateCheck=UpdateCheck.Never)]
-		public string SUNT_BUNT_CODE
-		{
-			get
-			{
-				return this._SUNT_BUNT_CODE;
-			}
-			set
-			{
-				if ((this._SUNT_BUNT_CODE != value))
-				{
-					if (this._Sub_Unit.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnSUNT_BUNT_CODEChanging(value);
-					this.SendPropertyChanging();
-					this._SUNT_BUNT_CODE = value;
-					this.SendPropertyChanged("SUNT_BUNT_CODE");
-					this.OnSUNT_BUNT_CODEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SUNT_CODE", DbType="VarChar(4)", UpdateCheck=UpdateCheck.Never)]
-		public string SUNT_CODE
-		{
-			get
-			{
-				return this._SUNT_CODE;
-			}
-			set
-			{
-				if ((this._SUNT_CODE != value))
-				{
-					if (this._Sub_Unit.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnSUNT_CODEChanging(value);
-					this.SendPropertyChanging();
-					this._SUNT_CODE = value;
-					this.SendPropertyChanged("SUNT_CODE");
-					this.OnSUNT_CODEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CORD_X", DbType="Real", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<float> CORD_X
-		{
-			get
-			{
-				return this._CORD_X;
-			}
-			set
-			{
-				if ((this._CORD_X != value))
-				{
-					this.OnCORD_XChanging(value);
-					this.SendPropertyChanging();
-					this._CORD_X = value;
-					this.SendPropertyChanged("CORD_X");
-					this.OnCORD_XChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CORD_Y", DbType="Real", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<float> CORD_Y
-		{
-			get
-			{
-				return this._CORD_Y;
-			}
-			set
-			{
-				if ((this._CORD_Y != value))
-				{
-					this.OnCORD_YChanging(value);
-					this.SendPropertyChanging();
-					this._CORD_Y = value;
-					this.SendPropertyChanged("CORD_Y");
-					this.OnCORD_YChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MOST_DEBT_CLNG", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<long> MOST_DEBT_CLNG
-		{
-			get
-			{
-				return this._MOST_DEBT_CLNG;
-			}
-			set
-			{
-				if ((this._MOST_DEBT_CLNG != value))
-				{
-					this.OnMOST_DEBT_CLNGChanging(value);
-					this.SendPropertyChanging();
-					this._MOST_DEBT_CLNG = value;
-					this.SendPropertyChanged("MOST_DEBT_CLNG");
-					this.OnMOST_DEBT_CLNGChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SERV_NO", DbType="NVarChar(50)", UpdateCheck=UpdateCheck.Never)]
-		public string SERV_NO
-		{
-			get
-			{
-				return this._SERV_NO;
-			}
-			set
-			{
-				if ((this._SERV_NO != value))
-				{
-					this.OnSERV_NOChanging(value);
-					this.SendPropertyChanging();
-					this._SERV_NO = value;
-					this.SendPropertyChanged("SERV_NO");
-					this.OnSERV_NOChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BRTH_PLAC", DbType="NVarChar(100)", UpdateCheck=UpdateCheck.Never)]
-		public string BRTH_PLAC
-		{
-			get
-			{
-				return this._BRTH_PLAC;
-			}
-			set
-			{
-				if ((this._BRTH_PLAC != value))
-				{
-					this.OnBRTH_PLACChanging(value);
-					this.SendPropertyChanging();
-					this._BRTH_PLAC = value;
-					this.SendPropertyChanged("BRTH_PLAC");
-					this.OnBRTH_PLACChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ISSU_PLAC", DbType="NVarChar(100)", UpdateCheck=UpdateCheck.Never)]
-		public string ISSU_PLAC
-		{
-			get
-			{
-				return this._ISSU_PLAC;
-			}
-			set
-			{
-				if ((this._ISSU_PLAC != value))
-				{
-					this.OnISSU_PLACChanging(value);
-					this.SendPropertyChanging();
-					this._ISSU_PLAC = value;
-					this.SendPropertyChanged("ISSU_PLAC");
-					this.OnISSU_PLACChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FATH_WORK", DbType="NVarChar(150)", UpdateCheck=UpdateCheck.Never)]
-		public string FATH_WORK
-		{
-			get
-			{
-				return this._FATH_WORK;
-			}
-			set
-			{
-				if ((this._FATH_WORK != value))
-				{
-					this.OnFATH_WORKChanging(value);
-					this.SendPropertyChanging();
-					this._FATH_WORK = value;
-					this.SendPropertyChanged("FATH_WORK");
-					this.OnFATH_WORKChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HIST_DESC", DbType="NVarChar(500)", UpdateCheck=UpdateCheck.Never)]
-		public string HIST_DESC
-		{
-			get
-			{
-				return this._HIST_DESC;
-			}
-			set
-			{
-				if ((this._HIST_DESC != value))
-				{
-					this.OnHIST_DESCChanging(value);
-					this.SendPropertyChanging();
-					this._HIST_DESC = value;
-					this.SendPropertyChanged("HIST_DESC");
-					this.OnHIST_DESCChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DPST_ACNT_SLRY_BANK", DbType="NVarChar(50)", UpdateCheck=UpdateCheck.Never)]
-		public string DPST_ACNT_SLRY_BANK
-		{
-			get
-			{
-				return this._DPST_ACNT_SLRY_BANK;
-			}
-			set
-			{
-				if ((this._DPST_ACNT_SLRY_BANK != value))
-				{
-					this.OnDPST_ACNT_SLRY_BANKChanging(value);
-					this.SendPropertyChanging();
-					this._DPST_ACNT_SLRY_BANK = value;
-					this.SendPropertyChanged("DPST_ACNT_SLRY_BANK");
-					this.OnDPST_ACNT_SLRY_BANKChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DPST_ACNT_SLRY", DbType="VarChar(50)", UpdateCheck=UpdateCheck.Never)]
-		public string DPST_ACNT_SLRY
-		{
-			get
-			{
-				return this._DPST_ACNT_SLRY;
-			}
-			set
-			{
-				if ((this._DPST_ACNT_SLRY != value))
-				{
-					this.OnDPST_ACNT_SLRYChanging(value);
-					this.SendPropertyChanging();
-					this._DPST_ACNT_SLRY = value;
-					this.SendPropertyChanged("DPST_ACNT_SLRY");
-					this.OnDPST_ACNT_SLRYChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CHAT_ID", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<long> CHAT_ID
-		{
-			get
-			{
-				return this._CHAT_ID;
-			}
-			set
-			{
-				if ((this._CHAT_ID != value))
-				{
-					this.OnCHAT_IDChanging(value);
-					this.SendPropertyChanging();
-					this._CHAT_ID = value;
-					this.SendPropertyChanged("CHAT_ID");
-					this.OnCHAT_IDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MOM_CELL_PHON", DbType="VarChar(11)", UpdateCheck=UpdateCheck.Never)]
-		public string MOM_CELL_PHON
-		{
-			get
-			{
-				return this._MOM_CELL_PHON;
-			}
-			set
-			{
-				if ((this._MOM_CELL_PHON != value))
-				{
-					this.OnMOM_CELL_PHONChanging(value);
-					this.SendPropertyChanging();
-					this._MOM_CELL_PHON = value;
-					this.SendPropertyChanged("MOM_CELL_PHON");
-					this.OnMOM_CELL_PHONChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DAD_CELL_PHON", DbType="VarChar(11)", UpdateCheck=UpdateCheck.Never)]
-		public string DAD_CELL_PHON
-		{
-			get
-			{
-				return this._DAD_CELL_PHON;
-			}
-			set
-			{
-				if ((this._DAD_CELL_PHON != value))
-				{
-					this.OnDAD_CELL_PHONChanging(value);
-					this.SendPropertyChanging();
-					this._DAD_CELL_PHON = value;
-					this.SendPropertyChanged("DAD_CELL_PHON");
-					this.OnDAD_CELL_PHONChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MOM_TELL_PHON", DbType="VarChar(11)", UpdateCheck=UpdateCheck.Never)]
-		public string MOM_TELL_PHON
-		{
-			get
-			{
-				return this._MOM_TELL_PHON;
-			}
-			set
-			{
-				if ((this._MOM_TELL_PHON != value))
-				{
-					this.OnMOM_TELL_PHONChanging(value);
-					this.SendPropertyChanging();
-					this._MOM_TELL_PHON = value;
-					this.SendPropertyChanged("MOM_TELL_PHON");
-					this.OnMOM_TELL_PHONChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DAD_TELL_PHON", DbType="VarChar(11)", UpdateCheck=UpdateCheck.Never)]
-		public string DAD_TELL_PHON
-		{
-			get
-			{
-				return this._DAD_TELL_PHON;
-			}
-			set
-			{
-				if ((this._DAD_TELL_PHON != value))
-				{
-					this.OnDAD_TELL_PHONChanging(value);
-					this.SendPropertyChanging();
-					this._DAD_TELL_PHON = value;
-					this.SendPropertyChanged("DAD_TELL_PHON");
-					this.OnDAD_TELL_PHONChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MOM_CHAT_ID", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<long> MOM_CHAT_ID
-		{
-			get
-			{
-				return this._MOM_CHAT_ID;
-			}
-			set
-			{
-				if ((this._MOM_CHAT_ID != value))
-				{
-					this.OnMOM_CHAT_IDChanging(value);
-					this.SendPropertyChanging();
-					this._MOM_CHAT_ID = value;
-					this.SendPropertyChanged("MOM_CHAT_ID");
-					this.OnMOM_CHAT_IDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DAD_CHAT_ID", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<long> DAD_CHAT_ID
-		{
-			get
-			{
-				return this._DAD_CHAT_ID;
-			}
-			set
-			{
-				if ((this._DAD_CHAT_ID != value))
-				{
-					this.OnDAD_CHAT_IDChanging(value);
-					this.SendPropertyChanging();
-					this._DAD_CHAT_ID = value;
-					this.SendPropertyChanged("DAD_CHAT_ID");
-					this.OnDAD_CHAT_IDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDTY_NUMB", DbType="VarChar(20)", UpdateCheck=UpdateCheck.Never)]
-		public string IDTY_NUMB
-		{
-			get
-			{
-				return this._IDTY_NUMB;
-			}
-			set
-			{
-				if ((this._IDTY_NUMB != value))
-				{
-					this.OnIDTY_NUMBChanging(value);
-					this.SendPropertyChanging();
-					this._IDTY_NUMB = value;
-					this.SendPropertyChanged("IDTY_NUMB");
-					this.OnIDTY_NUMBChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ZIP_CODE", DbType="VarChar(10)", UpdateCheck=UpdateCheck.Never)]
-		public string ZIP_CODE
-		{
-			get
-			{
-				return this._ZIP_CODE;
-			}
-			set
-			{
-				if ((this._ZIP_CODE != value))
-				{
-					this.OnZIP_CODEChanging(value);
-					this.SendPropertyChanging();
-					this._ZIP_CODE = value;
-					this.SendPropertyChanged("ZIP_CODE");
-					this.OnZIP_CODEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CMNT", DbType="NVarChar(4000)", UpdateCheck=UpdateCheck.Never)]
-		public string CMNT
-		{
-			get
-			{
-				return this._CMNT;
-			}
-			set
-			{
-				if ((this._CMNT != value))
-				{
-					this.OnCMNTChanging(value);
-					this.SendPropertyChanging();
-					this._CMNT = value;
-					this.SendPropertyChanged("CMNT");
-					this.OnCMNTChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PASS_WORD", DbType="VarChar(250)", UpdateCheck=UpdateCheck.Never)]
-		public string PASS_WORD
-		{
-			get
-			{
-				return this._PASS_WORD;
-			}
-			set
-			{
-				if ((this._PASS_WORD != value))
-				{
-					this.OnPASS_WORDChanging(value);
-					this.SendPropertyChanging();
-					this._PASS_WORD = value;
-					this.SendPropertyChanged("PASS_WORD");
-					this.OnPASS_WORDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_BY", DbType="VarChar(250)", UpdateCheck=UpdateCheck.Never)]
-		public string CRET_BY
-		{
-			get
-			{
-				return this._CRET_BY;
-			}
-			set
-			{
-				if ((this._CRET_BY != value))
-				{
-					this.OnCRET_BYChanging(value);
-					this.SendPropertyChanging();
-					this._CRET_BY = value;
-					this.SendPropertyChanged("CRET_BY");
-					this.OnCRET_BYChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<System.DateTime> CRET_DATE
-		{
-			get
-			{
-				return this._CRET_DATE;
-			}
-			set
-			{
-				if ((this._CRET_DATE != value))
-				{
-					this.OnCRET_DATEChanging(value);
-					this.SendPropertyChanging();
-					this._CRET_DATE = value;
-					this.SendPropertyChanged("CRET_DATE");
-					this.OnCRET_DATEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_BY", DbType="VarChar(250)", UpdateCheck=UpdateCheck.Never)]
-		public string MDFY_BY
-		{
-			get
-			{
-				return this._MDFY_BY;
-			}
-			set
-			{
-				if ((this._MDFY_BY != value))
-				{
-					this.OnMDFY_BYChanging(value);
-					this.SendPropertyChanging();
-					this._MDFY_BY = value;
-					this.SendPropertyChanged("MDFY_BY");
-					this.OnMDFY_BYChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<System.DateTime> MDFY_DATE
-		{
-			get
-			{
-				return this._MDFY_DATE;
-			}
-			set
-			{
-				if ((this._MDFY_DATE != value))
-				{
-					this.OnMDFY_DATEChanging(value);
-					this.SendPropertyChanging();
-					this._MDFY_DATE = value;
-					this.SendPropertyChanged("MDFY_DATE");
-					this.OnMDFY_DATEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Public_Present", Storage="_Presents", ThisKey="FIGH_FILE_NO,RWNO,RECT_CODE", OtherKey="FGPB_FIGH_FILE_NO,FGPB_RWNO,FGPB_RECT_CODE")]
-		public EntitySet<Present> Presents
-		{
-			get
-			{
-				return this._Presents;
-			}
-			set
-			{
-				this._Presents.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Public_Member_Ship", Storage="_Member_Ships", ThisKey="FIGH_FILE_NO,RWNO,RECT_CODE", OtherKey="FIGH_FILE_NO,FGPB_RWNO_DNRM,FGPB_RECT_CODE_DNRM")]
-		public EntitySet<Member_Ship> Member_Ships
-		{
-			get
-			{
-				return this._Member_Ships;
-			}
-			set
-			{
-				this._Member_Ships.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Club_Fighter_Public", Storage="_Club", ThisKey="CLUB_CODE", OtherKey="CODE", IsForeignKey=true, DeleteRule="SET NULL")]
-		public Club Club
-		{
-			get
-			{
-				return this._Club.Entity;
-			}
-			set
-			{
-				Club previousValue = this._Club.Entity;
-				if (((previousValue != value) 
-							|| (this._Club.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Club.Entity = null;
-						previousValue.Fighter_Publics.Remove(this);
-					}
-					this._Club.Entity = value;
-					if ((value != null))
-					{
-						value.Fighter_Publics.Add(this);
-						this._CLUB_CODE = value.CODE;
-					}
-					else
-					{
-						this._CLUB_CODE = default(Nullable<long>);
-					}
-					this.SendPropertyChanged("Club");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Diseases_Type_Fighter_Public", Storage="_Diseases_Type", ThisKey="DISE_CODE", OtherKey="CODE", IsForeignKey=true, DeleteRule="SET NULL")]
-		public Diseases_Type Diseases_Type
-		{
-			get
-			{
-				return this._Diseases_Type.Entity;
-			}
-			set
-			{
-				Diseases_Type previousValue = this._Diseases_Type.Entity;
-				if (((previousValue != value) 
-							|| (this._Diseases_Type.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Diseases_Type.Entity = null;
-						previousValue.Fighter_Publics.Remove(this);
-					}
-					this._Diseases_Type.Entity = value;
-					if ((value != null))
-					{
-						value.Fighter_Publics.Add(this);
-						this._DISE_CODE = value.CODE;
-					}
-					else
-					{
-						this._DISE_CODE = default(Nullable<long>);
-					}
-					this.SendPropertyChanged("Diseases_Type");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Region_Fighter_Public", Storage="_Region", ThisKey="REGN_PRVN_CNTY_CODE,REGN_PRVN_CODE,REGN_CODE", OtherKey="PRVN_CNTY_CODE,PRVN_CODE,CODE", IsForeignKey=true)]
-		public Region Region
-		{
-			get
-			{
-				return this._Region.Entity;
-			}
-			set
-			{
-				Region previousValue = this._Region.Entity;
-				if (((previousValue != value) 
-							|| (this._Region.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Region.Entity = null;
-						previousValue.Fighter_Publics.Remove(this);
-					}
-					this._Region.Entity = value;
-					if ((value != null))
-					{
-						value.Fighter_Publics.Add(this);
-						this._REGN_PRVN_CNTY_CODE = value.PRVN_CNTY_CODE;
-						this._REGN_PRVN_CODE = value.PRVN_CODE;
-						this._REGN_CODE = value.CODE;
-					}
-					else
-					{
-						this._REGN_PRVN_CNTY_CODE = default(string);
-						this._REGN_PRVN_CODE = default(string);
-						this._REGN_CODE = default(string);
-					}
-					this.SendPropertyChanged("Region");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Request_Row_Fighter_Public", Storage="_Request_Row", ThisKey="RQRO_RQST_RQID,RQRO_RWNO", OtherKey="RQST_RQID,RWNO", IsForeignKey=true, DeleteRule="CASCADE")]
-		public Request_Row Request_Row
-		{
-			get
-			{
-				return this._Request_Row.Entity;
-			}
-			set
-			{
-				Request_Row previousValue = this._Request_Row.Entity;
-				if (((previousValue != value) 
-							|| (this._Request_Row.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Request_Row.Entity = null;
-						previousValue.Fighter_Publics.Remove(this);
-					}
-					this._Request_Row.Entity = value;
-					if ((value != null))
-					{
-						value.Fighter_Publics.Add(this);
-						this._RQRO_RQST_RQID = value.RQST_RQID;
-						this._RQRO_RWNO = value.RWNO;
-					}
-					else
-					{
-						this._RQRO_RQST_RQID = default(Nullable<long>);
-						this._RQRO_RWNO = default(Nullable<short>);
-					}
-					this.SendPropertyChanged("Request_Row");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Sub_Unit_Fighter_Public", Storage="_Sub_Unit", ThisKey="SUNT_BUNT_DEPT_ORGN_CODE,SUNT_BUNT_DEPT_CODE,SUNT_BUNT_CODE,SUNT_CODE", OtherKey="BUNT_DEPT_ORGN_CODE,BUNT_DEPT_CODE,BUNT_CODE,CODE", IsForeignKey=true)]
-		public Sub_Unit Sub_Unit
-		{
-			get
-			{
-				return this._Sub_Unit.Entity;
-			}
-			set
-			{
-				Sub_Unit previousValue = this._Sub_Unit.Entity;
-				if (((previousValue != value) 
-							|| (this._Sub_Unit.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Sub_Unit.Entity = null;
-						previousValue.Fighter_Publics.Remove(this);
-					}
-					this._Sub_Unit.Entity = value;
-					if ((value != null))
-					{
-						value.Fighter_Publics.Add(this);
-						this._SUNT_BUNT_DEPT_ORGN_CODE = value.BUNT_DEPT_ORGN_CODE;
-						this._SUNT_BUNT_DEPT_CODE = value.BUNT_DEPT_CODE;
-						this._SUNT_BUNT_CODE = value.BUNT_CODE;
-						this._SUNT_CODE = value.CODE;
-					}
-					else
-					{
-						this._SUNT_BUNT_DEPT_ORGN_CODE = default(string);
-						this._SUNT_BUNT_DEPT_CODE = default(string);
-						this._SUNT_BUNT_CODE = default(string);
-						this._SUNT_CODE = default(string);
-					}
-					this.SendPropertyChanged("Sub_Unit");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Method_Fighter_Public", Storage="_Method", ThisKey="MTOD_CODE", OtherKey="CODE", IsForeignKey=true, DeleteRule="SET NULL")]
-		public Method Method
-		{
-			get
-			{
-				return this._Method.Entity;
-			}
-			set
-			{
-				Method previousValue = this._Method.Entity;
-				if (((previousValue != value) 
-							|| (this._Method.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Method.Entity = null;
-						previousValue.Fighter_Publics.Remove(this);
-					}
-					this._Method.Entity = value;
-					if ((value != null))
-					{
-						value.Fighter_Publics.Add(this);
-						this._MTOD_CODE = value.CODE;
-					}
-					else
-					{
-						this._MTOD_CODE = default(Nullable<long>);
-					}
-					this.SendPropertyChanged("Method");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Category_Belt_Fighter_Public", Storage="_Category_Belt", ThisKey="CTGY_CODE", OtherKey="CODE", IsForeignKey=true, DeleteRule="SET NULL")]
-		public Category_Belt Category_Belt
-		{
-			get
-			{
-				return this._Category_Belt.Entity;
-			}
-			set
-			{
-				Category_Belt previousValue = this._Category_Belt.Entity;
-				if (((previousValue != value) 
-							|| (this._Category_Belt.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Category_Belt.Entity = null;
-						previousValue.Fighter_Publics.Remove(this);
-					}
-					this._Category_Belt.Entity = value;
-					if ((value != null))
-					{
-						value.Fighter_Publics.Add(this);
-						this._CTGY_CODE = value.CODE;
-					}
-					else
-					{
-						this._CTGY_CODE = default(Nullable<long>);
-					}
-					this.SendPropertyChanged("Category_Belt");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Club_Method_Fighter_Public", Storage="_Club_Method", ThisKey="CBMT_CODE", OtherKey="CODE", IsForeignKey=true)]
-		public Club_Method Club_Method
-		{
-			get
-			{
-				return this._Club_Method.Entity;
-			}
-			set
-			{
-				Club_Method previousValue = this._Club_Method.Entity;
-				if (((previousValue != value) 
-							|| (this._Club_Method.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Club_Method.Entity = null;
-						previousValue.Fighter_Publics.Remove(this);
-					}
-					this._Club_Method.Entity = value;
-					if ((value != null))
-					{
-						value.Fighter_Publics.Add(this);
-						this._CBMT_CODE = value.CODE;
-					}
-					else
-					{
-						this._CBMT_CODE = default(Nullable<long>);
-					}
-					this.SendPropertyChanged("Club_Method");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Fighter_Public", Storage="_Fighter", ThisKey="FIGH_FILE_NO", OtherKey="FILE_NO", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
-		public Fighter Fighter
-		{
-			get
-			{
-				return this._Fighter.Entity;
-			}
-			set
-			{
-				Fighter previousValue = this._Fighter.Entity;
-				if (((previousValue != value) 
-							|| (this._Fighter.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Fighter.Entity = null;
-						previousValue.Fighter_Publics.Remove(this);
-					}
-					this._Fighter.Entity = value;
-					if ((value != null))
-					{
-						value.Fighter_Publics.Add(this);
-						this._FIGH_FILE_NO = value.FILE_NO;
-					}
-					else
-					{
-						this._FIGH_FILE_NO = default(long);
-					}
-					this.SendPropertyChanged("Fighter");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Presents(Present entity)
-		{
-			this.SendPropertyChanging();
-			entity.Fighter_Public = this;
-		}
-		
-		private void detach_Presents(Present entity)
-		{
-			this.SendPropertyChanging();
-			entity.Fighter_Public = null;
-		}
-		
-		private void attach_Member_Ships(Member_Ship entity)
-		{
-			this.SendPropertyChanging();
-			entity.Fighter_Public = this;
-		}
-		
-		private void detach_Member_Ships(Member_Ship entity)
-		{
-			this.SendPropertyChanging();
-			entity.Fighter_Public = null;
 		}
 	}
 	
@@ -52983,8 +50918,6 @@ namespace System.Scsc.Data
 		
 		private EntitySet<Payment_Expense> _Payment_Expenses;
 		
-		private EntitySet<Fighter_Public> _Fighter_Publics;
-		
 		private EntitySet<Basic_Calculate_Discount> _Basic_Calculate_Discounts;
 		
 		private EntitySet<Method> _Methods;
@@ -53001,13 +50934,17 @@ namespace System.Scsc.Data
 		
 		private EntitySet<Calculate_Expense_Coach> _Calculate_Expense_Coaches;
 		
-		private EntitySet<Fighter> _Fighters;
-		
 		private EntitySet<Payment_Detail> _Payment_Details;
 		
 		private EntitySet<Attendance> _Attendances;
 		
 		private EntitySet<Fighter_Discount_Card> _Fighter_Discount_Cards;
+		
+		private EntitySet<Fighter_Public> _Fighter_Publics;
+		
+		private EntitySet<Fighter> _Fighters;
+		
+		private EntitySet<Advertising_Parameter> _Advertising_Parameters;
 		
 		private EntityRef<Method> _Method1;
 		
@@ -53052,7 +50989,6 @@ namespace System.Scsc.Data
 			this._Computer_Actions = new EntitySet<Computer_Action>(new Action<Computer_Action>(this.attach_Computer_Actions), new Action<Computer_Action>(this.detach_Computer_Actions));
 			this._Misc_Expense_Details = new EntitySet<Misc_Expense_Detail>(new Action<Misc_Expense_Detail>(this.attach_Misc_Expense_Details), new Action<Misc_Expense_Detail>(this.detach_Misc_Expense_Details));
 			this._Payment_Expenses = new EntitySet<Payment_Expense>(new Action<Payment_Expense>(this.attach_Payment_Expenses), new Action<Payment_Expense>(this.detach_Payment_Expenses));
-			this._Fighter_Publics = new EntitySet<Fighter_Public>(new Action<Fighter_Public>(this.attach_Fighter_Publics), new Action<Fighter_Public>(this.detach_Fighter_Publics));
 			this._Basic_Calculate_Discounts = new EntitySet<Basic_Calculate_Discount>(new Action<Basic_Calculate_Discount>(this.attach_Basic_Calculate_Discounts), new Action<Basic_Calculate_Discount>(this.detach_Basic_Calculate_Discounts));
 			this._Methods = new EntitySet<Method>(new Action<Method>(this.attach_Methods), new Action<Method>(this.detach_Methods));
 			this._Category_Belts = new EntitySet<Category_Belt>(new Action<Category_Belt>(this.attach_Category_Belts), new Action<Category_Belt>(this.detach_Category_Belts));
@@ -53061,10 +50997,12 @@ namespace System.Scsc.Data
 			this._Aggregation_Operations = new EntitySet<Aggregation_Operation>(new Action<Aggregation_Operation>(this.attach_Aggregation_Operations), new Action<Aggregation_Operation>(this.detach_Aggregation_Operations));
 			this._External_Device_Link_Methods = new EntitySet<External_Device_Link_Method>(new Action<External_Device_Link_Method>(this.attach_External_Device_Link_Methods), new Action<External_Device_Link_Method>(this.detach_External_Device_Link_Methods));
 			this._Calculate_Expense_Coaches = new EntitySet<Calculate_Expense_Coach>(new Action<Calculate_Expense_Coach>(this.attach_Calculate_Expense_Coaches), new Action<Calculate_Expense_Coach>(this.detach_Calculate_Expense_Coaches));
-			this._Fighters = new EntitySet<Fighter>(new Action<Fighter>(this.attach_Fighters), new Action<Fighter>(this.detach_Fighters));
 			this._Payment_Details = new EntitySet<Payment_Detail>(new Action<Payment_Detail>(this.attach_Payment_Details), new Action<Payment_Detail>(this.detach_Payment_Details));
 			this._Attendances = new EntitySet<Attendance>(new Action<Attendance>(this.attach_Attendances), new Action<Attendance>(this.detach_Attendances));
 			this._Fighter_Discount_Cards = new EntitySet<Fighter_Discount_Card>(new Action<Fighter_Discount_Card>(this.attach_Fighter_Discount_Cards), new Action<Fighter_Discount_Card>(this.detach_Fighter_Discount_Cards));
+			this._Fighter_Publics = new EntitySet<Fighter_Public>(new Action<Fighter_Public>(this.attach_Fighter_Publics), new Action<Fighter_Public>(this.detach_Fighter_Publics));
+			this._Fighters = new EntitySet<Fighter>(new Action<Fighter>(this.attach_Fighters), new Action<Fighter>(this.detach_Fighters));
+			this._Advertising_Parameters = new EntitySet<Advertising_Parameter>(new Action<Advertising_Parameter>(this.attach_Advertising_Parameters), new Action<Advertising_Parameter>(this.detach_Advertising_Parameters));
 			this._Method1 = default(EntityRef<Method>);
 			OnCreated();
 		}
@@ -53424,19 +51362,6 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Method_Fighter_Public", Storage="_Fighter_Publics", ThisKey="CODE", OtherKey="MTOD_CODE")]
-		public EntitySet<Fighter_Public> Fighter_Publics
-		{
-			get
-			{
-				return this._Fighter_Publics;
-			}
-			set
-			{
-				this._Fighter_Publics.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Method_Basic_Calculate_Discount", Storage="_Basic_Calculate_Discounts", ThisKey="CODE", OtherKey="MTOD_CODE")]
 		public EntitySet<Basic_Calculate_Discount> Basic_Calculate_Discounts
 		{
@@ -53541,19 +51466,6 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Method_Fighter", Storage="_Fighters", ThisKey="CODE", OtherKey="MTOD_CODE_DNRM")]
-		public EntitySet<Fighter> Fighters
-		{
-			get
-			{
-				return this._Fighters;
-			}
-			set
-			{
-				this._Fighters.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Method_Payment_Detail", Storage="_Payment_Details", ThisKey="CODE", OtherKey="MTOD_CODE_DNRM")]
 		public EntitySet<Payment_Detail> Payment_Details
 		{
@@ -53590,6 +51502,45 @@ namespace System.Scsc.Data
 			set
 			{
 				this._Fighter_Discount_Cards.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Method_Fighter_Public", Storage="_Fighter_Publics", ThisKey="CODE", OtherKey="MTOD_CODE")]
+		public EntitySet<Fighter_Public> Fighter_Publics
+		{
+			get
+			{
+				return this._Fighter_Publics;
+			}
+			set
+			{
+				this._Fighter_Publics.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Method_Fighter", Storage="_Fighters", ThisKey="CODE", OtherKey="MTOD_CODE_DNRM")]
+		public EntitySet<Fighter> Fighters
+		{
+			get
+			{
+				return this._Fighters;
+			}
+			set
+			{
+				this._Fighters.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Method_Advertising_Parameter", Storage="_Advertising_Parameters", ThisKey="CODE", OtherKey="MTOD_CODE")]
+		public EntitySet<Advertising_Parameter> Advertising_Parameters
+		{
+			get
+			{
+				return this._Advertising_Parameters;
+			}
+			set
+			{
+				this._Advertising_Parameters.Assign(value);
 			}
 		}
 		
@@ -53731,18 +51682,6 @@ namespace System.Scsc.Data
 			entity.Method = null;
 		}
 		
-		private void attach_Fighter_Publics(Fighter_Public entity)
-		{
-			this.SendPropertyChanging();
-			entity.Method = this;
-		}
-		
-		private void detach_Fighter_Publics(Fighter_Public entity)
-		{
-			this.SendPropertyChanging();
-			entity.Method = null;
-		}
-		
 		private void attach_Basic_Calculate_Discounts(Basic_Calculate_Discount entity)
 		{
 			this.SendPropertyChanging();
@@ -53839,18 +51778,6 @@ namespace System.Scsc.Data
 			entity.Method = null;
 		}
 		
-		private void attach_Fighters(Fighter entity)
-		{
-			this.SendPropertyChanging();
-			entity.Method = this;
-		}
-		
-		private void detach_Fighters(Fighter entity)
-		{
-			this.SendPropertyChanging();
-			entity.Method = null;
-		}
-		
 		private void attach_Payment_Details(Payment_Detail entity)
 		{
 			this.SendPropertyChanging();
@@ -53882,6 +51809,42 @@ namespace System.Scsc.Data
 		}
 		
 		private void detach_Fighter_Discount_Cards(Fighter_Discount_Card entity)
+		{
+			this.SendPropertyChanging();
+			entity.Method = null;
+		}
+		
+		private void attach_Fighter_Publics(Fighter_Public entity)
+		{
+			this.SendPropertyChanging();
+			entity.Method = this;
+		}
+		
+		private void detach_Fighter_Publics(Fighter_Public entity)
+		{
+			this.SendPropertyChanging();
+			entity.Method = null;
+		}
+		
+		private void attach_Fighters(Fighter entity)
+		{
+			this.SendPropertyChanging();
+			entity.Method = this;
+		}
+		
+		private void detach_Fighters(Fighter entity)
+		{
+			this.SendPropertyChanging();
+			entity.Method = null;
+		}
+		
+		private void attach_Advertising_Parameters(Advertising_Parameter entity)
+		{
+			this.SendPropertyChanging();
+			entity.Method = this;
+		}
+		
+		private void detach_Advertising_Parameters(Advertising_Parameter entity)
 		{
 			this.SendPropertyChanging();
 			entity.Method = null;
@@ -53952,8 +51915,6 @@ namespace System.Scsc.Data
 		
 		private EntitySet<Payment_Expense> _Payment_Expenses;
 		
-		private EntitySet<Fighter_Public> _Fighter_Publics;
-		
 		private EntitySet<Basic_Calculate_Discount> _Basic_Calculate_Discounts;
 		
 		private EntitySet<Expense> _Expenses;
@@ -53962,13 +51923,17 @@ namespace System.Scsc.Data
 		
 		private EntitySet<Calculate_Expense_Coach> _Calculate_Expense_Coaches;
 		
-		private EntitySet<Fighter> _Fighters;
-		
 		private EntitySet<Payment_Detail> _Payment_Details;
 		
 		private EntitySet<Attendance> _Attendances;
 		
 		private EntitySet<Fighter_Discount_Card> _Fighter_Discount_Cards;
+		
+		private EntitySet<Fighter_Public> _Fighter_Publics;
+		
+		private EntitySet<Fighter> _Fighters;
+		
+		private EntitySet<Advertising_Parameter> _Advertising_Parameters;
 		
 		private EntityRef<Method> _Method;
 		
@@ -54031,15 +51996,16 @@ namespace System.Scsc.Data
 			this._Sessions = new EntitySet<Session>(new Action<Session>(this.attach_Sessions), new Action<Session>(this.detach_Sessions));
 			this._Base_Calculate_Expenses = new EntitySet<Base_Calculate_Expense>(new Action<Base_Calculate_Expense>(this.attach_Base_Calculate_Expenses), new Action<Base_Calculate_Expense>(this.detach_Base_Calculate_Expenses));
 			this._Payment_Expenses = new EntitySet<Payment_Expense>(new Action<Payment_Expense>(this.attach_Payment_Expenses), new Action<Payment_Expense>(this.detach_Payment_Expenses));
-			this._Fighter_Publics = new EntitySet<Fighter_Public>(new Action<Fighter_Public>(this.attach_Fighter_Publics), new Action<Fighter_Public>(this.detach_Fighter_Publics));
 			this._Basic_Calculate_Discounts = new EntitySet<Basic_Calculate_Discount>(new Action<Basic_Calculate_Discount>(this.attach_Basic_Calculate_Discounts), new Action<Basic_Calculate_Discount>(this.detach_Basic_Calculate_Discounts));
 			this._Expenses = new EntitySet<Expense>(new Action<Expense>(this.attach_Expenses), new Action<Expense>(this.detach_Expenses));
 			this._Aggregation_Operations = new EntitySet<Aggregation_Operation>(new Action<Aggregation_Operation>(this.attach_Aggregation_Operations), new Action<Aggregation_Operation>(this.detach_Aggregation_Operations));
 			this._Calculate_Expense_Coaches = new EntitySet<Calculate_Expense_Coach>(new Action<Calculate_Expense_Coach>(this.attach_Calculate_Expense_Coaches), new Action<Calculate_Expense_Coach>(this.detach_Calculate_Expense_Coaches));
-			this._Fighters = new EntitySet<Fighter>(new Action<Fighter>(this.attach_Fighters), new Action<Fighter>(this.detach_Fighters));
 			this._Payment_Details = new EntitySet<Payment_Detail>(new Action<Payment_Detail>(this.attach_Payment_Details), new Action<Payment_Detail>(this.detach_Payment_Details));
 			this._Attendances = new EntitySet<Attendance>(new Action<Attendance>(this.attach_Attendances), new Action<Attendance>(this.detach_Attendances));
 			this._Fighter_Discount_Cards = new EntitySet<Fighter_Discount_Card>(new Action<Fighter_Discount_Card>(this.attach_Fighter_Discount_Cards), new Action<Fighter_Discount_Card>(this.detach_Fighter_Discount_Cards));
+			this._Fighter_Publics = new EntitySet<Fighter_Public>(new Action<Fighter_Public>(this.attach_Fighter_Publics), new Action<Fighter_Public>(this.detach_Fighter_Publics));
+			this._Fighters = new EntitySet<Fighter>(new Action<Fighter>(this.attach_Fighters), new Action<Fighter>(this.detach_Fighters));
+			this._Advertising_Parameters = new EntitySet<Advertising_Parameter>(new Action<Advertising_Parameter>(this.attach_Advertising_Parameters), new Action<Advertising_Parameter>(this.detach_Advertising_Parameters));
 			this._Method = default(EntityRef<Method>);
 			OnCreated();
 		}
@@ -54579,19 +52545,6 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Category_Belt_Fighter_Public", Storage="_Fighter_Publics", ThisKey="CODE", OtherKey="CTGY_CODE")]
-		public EntitySet<Fighter_Public> Fighter_Publics
-		{
-			get
-			{
-				return this._Fighter_Publics;
-			}
-			set
-			{
-				this._Fighter_Publics.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Category_Belt_Basic_Calculate_Discount", Storage="_Basic_Calculate_Discounts", ThisKey="CODE", OtherKey="CTGY_CODE")]
 		public EntitySet<Basic_Calculate_Discount> Basic_Calculate_Discounts
 		{
@@ -54644,19 +52597,6 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Category_Belt_Fighter", Storage="_Fighters", ThisKey="CODE", OtherKey="CTGY_CODE_DNRM")]
-		public EntitySet<Fighter> Fighters
-		{
-			get
-			{
-				return this._Fighters;
-			}
-			set
-			{
-				this._Fighters.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Category_Belt_Payment_Detail", Storage="_Payment_Details", ThisKey="CODE", OtherKey="CTGY_CODE_DNRM")]
 		public EntitySet<Payment_Detail> Payment_Details
 		{
@@ -54693,6 +52633,45 @@ namespace System.Scsc.Data
 			set
 			{
 				this._Fighter_Discount_Cards.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Category_Belt_Fighter_Public", Storage="_Fighter_Publics", ThisKey="CODE", OtherKey="CTGY_CODE")]
+		public EntitySet<Fighter_Public> Fighter_Publics
+		{
+			get
+			{
+				return this._Fighter_Publics;
+			}
+			set
+			{
+				this._Fighter_Publics.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Category_Belt_Fighter", Storage="_Fighters", ThisKey="CODE", OtherKey="CTGY_CODE_DNRM")]
+		public EntitySet<Fighter> Fighters
+		{
+			get
+			{
+				return this._Fighters;
+			}
+			set
+			{
+				this._Fighters.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Category_Belt_Advertising_Parameter", Storage="_Advertising_Parameters", ThisKey="CODE", OtherKey="CTGY_CODE")]
+		public EntitySet<Advertising_Parameter> Advertising_Parameters
+		{
+			get
+			{
+				return this._Advertising_Parameters;
+			}
+			set
+			{
+				this._Advertising_Parameters.Assign(value);
 			}
 		}
 		
@@ -54834,18 +52813,6 @@ namespace System.Scsc.Data
 			entity.Category_Belt = null;
 		}
 		
-		private void attach_Fighter_Publics(Fighter_Public entity)
-		{
-			this.SendPropertyChanging();
-			entity.Category_Belt = this;
-		}
-		
-		private void detach_Fighter_Publics(Fighter_Public entity)
-		{
-			this.SendPropertyChanging();
-			entity.Category_Belt = null;
-		}
-		
 		private void attach_Basic_Calculate_Discounts(Basic_Calculate_Discount entity)
 		{
 			this.SendPropertyChanging();
@@ -54894,18 +52861,6 @@ namespace System.Scsc.Data
 			entity.Category_Belt = null;
 		}
 		
-		private void attach_Fighters(Fighter entity)
-		{
-			this.SendPropertyChanging();
-			entity.Category_Belt = this;
-		}
-		
-		private void detach_Fighters(Fighter entity)
-		{
-			this.SendPropertyChanging();
-			entity.Category_Belt = null;
-		}
-		
 		private void attach_Payment_Details(Payment_Detail entity)
 		{
 			this.SendPropertyChanging();
@@ -54937,6 +52892,42 @@ namespace System.Scsc.Data
 		}
 		
 		private void detach_Fighter_Discount_Cards(Fighter_Discount_Card entity)
+		{
+			this.SendPropertyChanging();
+			entity.Category_Belt = null;
+		}
+		
+		private void attach_Fighter_Publics(Fighter_Public entity)
+		{
+			this.SendPropertyChanging();
+			entity.Category_Belt = this;
+		}
+		
+		private void detach_Fighter_Publics(Fighter_Public entity)
+		{
+			this.SendPropertyChanging();
+			entity.Category_Belt = null;
+		}
+		
+		private void attach_Fighters(Fighter entity)
+		{
+			this.SendPropertyChanging();
+			entity.Category_Belt = this;
+		}
+		
+		private void detach_Fighters(Fighter entity)
+		{
+			this.SendPropertyChanging();
+			entity.Category_Belt = null;
+		}
+		
+		private void attach_Advertising_Parameters(Advertising_Parameter entity)
+		{
+			this.SendPropertyChanging();
+			entity.Category_Belt = this;
+		}
+		
+		private void detach_Advertising_Parameters(Advertising_Parameter entity)
 		{
 			this.SendPropertyChanging();
 			entity.Category_Belt = null;
@@ -55001,13 +52992,13 @@ namespace System.Scsc.Data
 		
 		private EntitySet<Payment_Expense> _Payment_Expenses;
 		
-		private EntitySet<Fighter_Public> _Fighter_Publics;
-		
 		private EntitySet<Aggregation_Operation> _Aggregation_Operations;
 		
 		private EntitySet<Calculate_Expense_Coach> _Calculate_Expense_Coaches;
 		
 		private EntitySet<Payment_Detail> _Payment_Details;
+		
+		private EntitySet<Fighter_Public> _Fighter_Publics;
 		
 		private EntityRef<Club> _Club;
 		
@@ -55071,10 +53062,10 @@ namespace System.Scsc.Data
 			this._Sessions = new EntitySet<Session>(new Action<Session>(this.attach_Sessions), new Action<Session>(this.detach_Sessions));
 			this._Club_Method_Weekdays = new EntitySet<Club_Method_Weekday>(new Action<Club_Method_Weekday>(this.attach_Club_Method_Weekdays), new Action<Club_Method_Weekday>(this.detach_Club_Method_Weekdays));
 			this._Payment_Expenses = new EntitySet<Payment_Expense>(new Action<Payment_Expense>(this.attach_Payment_Expenses), new Action<Payment_Expense>(this.detach_Payment_Expenses));
-			this._Fighter_Publics = new EntitySet<Fighter_Public>(new Action<Fighter_Public>(this.attach_Fighter_Publics), new Action<Fighter_Public>(this.detach_Fighter_Publics));
 			this._Aggregation_Operations = new EntitySet<Aggregation_Operation>(new Action<Aggregation_Operation>(this.attach_Aggregation_Operations), new Action<Aggregation_Operation>(this.detach_Aggregation_Operations));
 			this._Calculate_Expense_Coaches = new EntitySet<Calculate_Expense_Coach>(new Action<Calculate_Expense_Coach>(this.attach_Calculate_Expense_Coaches), new Action<Calculate_Expense_Coach>(this.detach_Calculate_Expense_Coaches));
 			this._Payment_Details = new EntitySet<Payment_Detail>(new Action<Payment_Detail>(this.attach_Payment_Details), new Action<Payment_Detail>(this.detach_Payment_Details));
+			this._Fighter_Publics = new EntitySet<Fighter_Public>(new Action<Fighter_Public>(this.attach_Fighter_Publics), new Action<Fighter_Public>(this.detach_Fighter_Publics));
 			this._Club = default(EntityRef<Club>);
 			this._Method = default(EntityRef<Method>);
 			this._Fighter = default(EntityRef<Fighter>);
@@ -55585,19 +53576,6 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Club_Method_Fighter_Public", Storage="_Fighter_Publics", ThisKey="CODE", OtherKey="CBMT_CODE")]
-		public EntitySet<Fighter_Public> Fighter_Publics
-		{
-			get
-			{
-				return this._Fighter_Publics;
-			}
-			set
-			{
-				this._Fighter_Publics.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Club_Method_Aggregation_Operation", Storage="_Aggregation_Operations", ThisKey="CODE", OtherKey="CBMT_CODE")]
 		public EntitySet<Aggregation_Operation> Aggregation_Operations
 		{
@@ -55634,6 +53612,19 @@ namespace System.Scsc.Data
 			set
 			{
 				this._Payment_Details.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Club_Method_Fighter_Public", Storage="_Fighter_Publics", ThisKey="CODE", OtherKey="CBMT_CODE")]
+		public EntitySet<Fighter_Public> Fighter_Publics
+		{
+			get
+			{
+				return this._Fighter_Publics;
+			}
+			set
+			{
+				this._Fighter_Publics.Assign(value);
 			}
 		}
 		
@@ -55807,18 +53798,6 @@ namespace System.Scsc.Data
 			entity.Club_Method = null;
 		}
 		
-		private void attach_Fighter_Publics(Fighter_Public entity)
-		{
-			this.SendPropertyChanging();
-			entity.Club_Method = this;
-		}
-		
-		private void detach_Fighter_Publics(Fighter_Public entity)
-		{
-			this.SendPropertyChanging();
-			entity.Club_Method = null;
-		}
-		
 		private void attach_Aggregation_Operations(Aggregation_Operation entity)
 		{
 			this.SendPropertyChanging();
@@ -55850,6 +53829,18 @@ namespace System.Scsc.Data
 		}
 		
 		private void detach_Payment_Details(Payment_Detail entity)
+		{
+			this.SendPropertyChanging();
+			entity.Club_Method = null;
+		}
+		
+		private void attach_Fighter_Publics(Fighter_Public entity)
+		{
+			this.SendPropertyChanging();
+			entity.Club_Method = this;
+		}
+		
+		private void detach_Fighter_Publics(Fighter_Public entity)
 		{
 			this.SendPropertyChanging();
 			entity.Club_Method = null;
@@ -57390,11 +55381,11 @@ namespace System.Scsc.Data
 		
 		private EntitySet<Payment_Cost> _Payment_Costs;
 		
-		private EntitySet<Payment_Discount> _Payment_Discounts;
-		
 		private EntitySet<Payment_Method> _Payment_Methods;
 		
 		private EntitySet<Payment_Detail> _Payment_Details;
+		
+		private EntitySet<Payment_Discount> _Payment_Discounts;
 		
 		private EntityRef<Cash> _Cash;
 		
@@ -57485,9 +55476,9 @@ namespace System.Scsc.Data
 			this._Account_Details = new EntitySet<Account_Detail>(new Action<Account_Detail>(this.attach_Account_Details), new Action<Account_Detail>(this.detach_Account_Details));
 			this._Payment_Checks = new EntitySet<Payment_Check>(new Action<Payment_Check>(this.attach_Payment_Checks), new Action<Payment_Check>(this.detach_Payment_Checks));
 			this._Payment_Costs = new EntitySet<Payment_Cost>(new Action<Payment_Cost>(this.attach_Payment_Costs), new Action<Payment_Cost>(this.detach_Payment_Costs));
-			this._Payment_Discounts = new EntitySet<Payment_Discount>(new Action<Payment_Discount>(this.attach_Payment_Discounts), new Action<Payment_Discount>(this.detach_Payment_Discounts));
 			this._Payment_Methods = new EntitySet<Payment_Method>(new Action<Payment_Method>(this.attach_Payment_Methods), new Action<Payment_Method>(this.detach_Payment_Methods));
 			this._Payment_Details = new EntitySet<Payment_Detail>(new Action<Payment_Detail>(this.attach_Payment_Details), new Action<Payment_Detail>(this.detach_Payment_Details));
+			this._Payment_Discounts = new EntitySet<Payment_Discount>(new Action<Payment_Discount>(this.attach_Payment_Discounts), new Action<Payment_Discount>(this.detach_Payment_Discounts));
 			this._Cash = default(EntityRef<Cash>);
 			this._Club = default(EntityRef<Club>);
 			this._Regulation = default(EntityRef<Regulation>);
@@ -58254,19 +56245,6 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Payment_Payment_Discount", Storage="_Payment_Discounts", ThisKey="CASH_CODE,RQST_RQID", OtherKey="PYMT_CASH_CODE,PYMT_RQST_RQID")]
-		public EntitySet<Payment_Discount> Payment_Discounts
-		{
-			get
-			{
-				return this._Payment_Discounts;
-			}
-			set
-			{
-				this._Payment_Discounts.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Payment_Payment_Method", Storage="_Payment_Methods", ThisKey="CASH_CODE,RQST_RQID", OtherKey="PYMT_CASH_CODE,PYMT_RQST_RQID")]
 		public EntitySet<Payment_Method> Payment_Methods
 		{
@@ -58290,6 +56268,19 @@ namespace System.Scsc.Data
 			set
 			{
 				this._Payment_Details.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Payment_Payment_Discount", Storage="_Payment_Discounts", ThisKey="CASH_CODE,RQST_RQID", OtherKey="PYMT_CASH_CODE,PYMT_RQST_RQID")]
+		public EntitySet<Payment_Discount> Payment_Discounts
+		{
+			get
+			{
+				return this._Payment_Discounts;
+			}
+			set
+			{
+				this._Payment_Discounts.Assign(value);
 			}
 		}
 		
@@ -58487,18 +56478,6 @@ namespace System.Scsc.Data
 			entity.Payment = null;
 		}
 		
-		private void attach_Payment_Discounts(Payment_Discount entity)
-		{
-			this.SendPropertyChanging();
-			entity.Payment = this;
-		}
-		
-		private void detach_Payment_Discounts(Payment_Discount entity)
-		{
-			this.SendPropertyChanging();
-			entity.Payment = null;
-		}
-		
 		private void attach_Payment_Methods(Payment_Method entity)
 		{
 			this.SendPropertyChanging();
@@ -58522,551 +56501,17 @@ namespace System.Scsc.Data
 			this.SendPropertyChanging();
 			entity.Payment = null;
 		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Payment_Discount")]
-	public partial class Payment_Discount : INotifyPropertyChanging, INotifyPropertyChanged
-	{
 		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private long _PYMT_CASH_CODE;
-		
-		private long _PYMT_RQST_RQID;
-		
-		private short _RQRO_RWNO;
-		
-		private short _RWNO;
-		
-		private System.Nullable<long> _FIGH_FILE_NO_DNRM;
-		
-		private System.Nullable<long> _EXPN_CODE;
-		
-		private System.Nullable<long> _AMNT;
-		
-		private string _AMNT_TYPE;
-		
-		private string _STAT;
-		
-		private string _PYDS_DESC;
-		
-		private string _CRET_BY;
-		
-		private System.Nullable<System.DateTime> _CRET_DATE;
-		
-		private string _MDFY_BY;
-		
-		private System.Nullable<System.DateTime> _MDFY_DATE;
-		
-		private EntityRef<Payment> _Payment;
-		
-		private EntityRef<Request_Row> _Request_Row;
-		
-		private EntityRef<Expense> _Expense;
-		
-		private EntityRef<Fighter> _Fighter;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnPYMT_CASH_CODEChanging(long value);
-    partial void OnPYMT_CASH_CODEChanged();
-    partial void OnPYMT_RQST_RQIDChanging(long value);
-    partial void OnPYMT_RQST_RQIDChanged();
-    partial void OnRQRO_RWNOChanging(short value);
-    partial void OnRQRO_RWNOChanged();
-    partial void OnRWNOChanging(short value);
-    partial void OnRWNOChanged();
-    partial void OnFIGH_FILE_NO_DNRMChanging(System.Nullable<long> value);
-    partial void OnFIGH_FILE_NO_DNRMChanged();
-    partial void OnEXPN_CODEChanging(System.Nullable<long> value);
-    partial void OnEXPN_CODEChanged();
-    partial void OnAMNTChanging(System.Nullable<long> value);
-    partial void OnAMNTChanged();
-    partial void OnAMNT_TYPEChanging(string value);
-    partial void OnAMNT_TYPEChanged();
-    partial void OnSTATChanging(string value);
-    partial void OnSTATChanged();
-    partial void OnPYDS_DESCChanging(string value);
-    partial void OnPYDS_DESCChanged();
-    partial void OnCRET_BYChanging(string value);
-    partial void OnCRET_BYChanged();
-    partial void OnCRET_DATEChanging(System.Nullable<System.DateTime> value);
-    partial void OnCRET_DATEChanged();
-    partial void OnMDFY_BYChanging(string value);
-    partial void OnMDFY_BYChanged();
-    partial void OnMDFY_DATEChanging(System.Nullable<System.DateTime> value);
-    partial void OnMDFY_DATEChanged();
-    #endregion
-		
-		public Payment_Discount()
+		private void attach_Payment_Discounts(Payment_Discount entity)
 		{
-			this._Payment = default(EntityRef<Payment>);
-			this._Request_Row = default(EntityRef<Request_Row>);
-			this._Expense = default(EntityRef<Expense>);
-			this._Fighter = default(EntityRef<Fighter>);
-			OnCreated();
+			this.SendPropertyChanging();
+			entity.Payment = this;
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PYMT_CASH_CODE", DbType="BigInt NOT NULL", IsPrimaryKey=true)]
-		public long PYMT_CASH_CODE
+		private void detach_Payment_Discounts(Payment_Discount entity)
 		{
-			get
-			{
-				return this._PYMT_CASH_CODE;
-			}
-			set
-			{
-				if ((this._PYMT_CASH_CODE != value))
-				{
-					if (this._Payment.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnPYMT_CASH_CODEChanging(value);
-					this.SendPropertyChanging();
-					this._PYMT_CASH_CODE = value;
-					this.SendPropertyChanged("PYMT_CASH_CODE");
-					this.OnPYMT_CASH_CODEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PYMT_RQST_RQID", DbType="BigInt NOT NULL", IsPrimaryKey=true)]
-		public long PYMT_RQST_RQID
-		{
-			get
-			{
-				return this._PYMT_RQST_RQID;
-			}
-			set
-			{
-				if ((this._PYMT_RQST_RQID != value))
-				{
-					if ((this._Payment.HasLoadedOrAssignedValue || this._Request_Row.HasLoadedOrAssignedValue))
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnPYMT_RQST_RQIDChanging(value);
-					this.SendPropertyChanging();
-					this._PYMT_RQST_RQID = value;
-					this.SendPropertyChanged("PYMT_RQST_RQID");
-					this.OnPYMT_RQST_RQIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RQRO_RWNO", DbType="SmallInt NOT NULL", IsPrimaryKey=true)]
-		public short RQRO_RWNO
-		{
-			get
-			{
-				return this._RQRO_RWNO;
-			}
-			set
-			{
-				if ((this._RQRO_RWNO != value))
-				{
-					if (this._Request_Row.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnRQRO_RWNOChanging(value);
-					this.SendPropertyChanging();
-					this._RQRO_RWNO = value;
-					this.SendPropertyChanged("RQRO_RWNO");
-					this.OnRQRO_RWNOChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RWNO", DbType="SmallInt NOT NULL", IsPrimaryKey=true)]
-		public short RWNO
-		{
-			get
-			{
-				return this._RWNO;
-			}
-			set
-			{
-				if ((this._RWNO != value))
-				{
-					this.OnRWNOChanging(value);
-					this.SendPropertyChanging();
-					this._RWNO = value;
-					this.SendPropertyChanged("RWNO");
-					this.OnRWNOChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FIGH_FILE_NO_DNRM", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<long> FIGH_FILE_NO_DNRM
-		{
-			get
-			{
-				return this._FIGH_FILE_NO_DNRM;
-			}
-			set
-			{
-				if ((this._FIGH_FILE_NO_DNRM != value))
-				{
-					if (this._Fighter.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnFIGH_FILE_NO_DNRMChanging(value);
-					this.SendPropertyChanging();
-					this._FIGH_FILE_NO_DNRM = value;
-					this.SendPropertyChanged("FIGH_FILE_NO_DNRM");
-					this.OnFIGH_FILE_NO_DNRMChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EXPN_CODE", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<long> EXPN_CODE
-		{
-			get
-			{
-				return this._EXPN_CODE;
-			}
-			set
-			{
-				if ((this._EXPN_CODE != value))
-				{
-					if (this._Expense.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnEXPN_CODEChanging(value);
-					this.SendPropertyChanging();
-					this._EXPN_CODE = value;
-					this.SendPropertyChanged("EXPN_CODE");
-					this.OnEXPN_CODEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AMNT", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<long> AMNT
-		{
-			get
-			{
-				return this._AMNT;
-			}
-			set
-			{
-				if ((this._AMNT != value))
-				{
-					this.OnAMNTChanging(value);
-					this.SendPropertyChanging();
-					this._AMNT = value;
-					this.SendPropertyChanged("AMNT");
-					this.OnAMNTChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AMNT_TYPE", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
-		public string AMNT_TYPE
-		{
-			get
-			{
-				return this._AMNT_TYPE;
-			}
-			set
-			{
-				if ((this._AMNT_TYPE != value))
-				{
-					this.OnAMNT_TYPEChanging(value);
-					this.SendPropertyChanging();
-					this._AMNT_TYPE = value;
-					this.SendPropertyChanged("AMNT_TYPE");
-					this.OnAMNT_TYPEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STAT", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
-		public string STAT
-		{
-			get
-			{
-				return this._STAT;
-			}
-			set
-			{
-				if ((this._STAT != value))
-				{
-					this.OnSTATChanging(value);
-					this.SendPropertyChanging();
-					this._STAT = value;
-					this.SendPropertyChanged("STAT");
-					this.OnSTATChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PYDS_DESC", DbType="NVarChar(250)", UpdateCheck=UpdateCheck.Never)]
-		public string PYDS_DESC
-		{
-			get
-			{
-				return this._PYDS_DESC;
-			}
-			set
-			{
-				if ((this._PYDS_DESC != value))
-				{
-					this.OnPYDS_DESCChanging(value);
-					this.SendPropertyChanging();
-					this._PYDS_DESC = value;
-					this.SendPropertyChanged("PYDS_DESC");
-					this.OnPYDS_DESCChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_BY", DbType="VarChar(250)", UpdateCheck=UpdateCheck.Never)]
-		public string CRET_BY
-		{
-			get
-			{
-				return this._CRET_BY;
-			}
-			set
-			{
-				if ((this._CRET_BY != value))
-				{
-					this.OnCRET_BYChanging(value);
-					this.SendPropertyChanging();
-					this._CRET_BY = value;
-					this.SendPropertyChanged("CRET_BY");
-					this.OnCRET_BYChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<System.DateTime> CRET_DATE
-		{
-			get
-			{
-				return this._CRET_DATE;
-			}
-			set
-			{
-				if ((this._CRET_DATE != value))
-				{
-					this.OnCRET_DATEChanging(value);
-					this.SendPropertyChanging();
-					this._CRET_DATE = value;
-					this.SendPropertyChanged("CRET_DATE");
-					this.OnCRET_DATEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_BY", DbType="VarChar(250)", UpdateCheck=UpdateCheck.Never)]
-		public string MDFY_BY
-		{
-			get
-			{
-				return this._MDFY_BY;
-			}
-			set
-			{
-				if ((this._MDFY_BY != value))
-				{
-					this.OnMDFY_BYChanging(value);
-					this.SendPropertyChanging();
-					this._MDFY_BY = value;
-					this.SendPropertyChanged("MDFY_BY");
-					this.OnMDFY_BYChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<System.DateTime> MDFY_DATE
-		{
-			get
-			{
-				return this._MDFY_DATE;
-			}
-			set
-			{
-				if ((this._MDFY_DATE != value))
-				{
-					this.OnMDFY_DATEChanging(value);
-					this.SendPropertyChanging();
-					this._MDFY_DATE = value;
-					this.SendPropertyChanged("MDFY_DATE");
-					this.OnMDFY_DATEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Payment_Payment_Discount", Storage="_Payment", ThisKey="PYMT_CASH_CODE,PYMT_RQST_RQID", OtherKey="CASH_CODE,RQST_RQID", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
-		public Payment Payment
-		{
-			get
-			{
-				return this._Payment.Entity;
-			}
-			set
-			{
-				Payment previousValue = this._Payment.Entity;
-				if (((previousValue != value) 
-							|| (this._Payment.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Payment.Entity = null;
-						previousValue.Payment_Discounts.Remove(this);
-					}
-					this._Payment.Entity = value;
-					if ((value != null))
-					{
-						value.Payment_Discounts.Add(this);
-						this._PYMT_CASH_CODE = value.CASH_CODE;
-						this._PYMT_RQST_RQID = value.RQST_RQID;
-					}
-					else
-					{
-						this._PYMT_CASH_CODE = default(long);
-						this._PYMT_RQST_RQID = default(long);
-					}
-					this.SendPropertyChanged("Payment");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Request_Row_Payment_Discount", Storage="_Request_Row", ThisKey="PYMT_RQST_RQID,RQRO_RWNO", OtherKey="RQST_RQID,RWNO", IsForeignKey=true)]
-		public Request_Row Request_Row
-		{
-			get
-			{
-				return this._Request_Row.Entity;
-			}
-			set
-			{
-				Request_Row previousValue = this._Request_Row.Entity;
-				if (((previousValue != value) 
-							|| (this._Request_Row.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Request_Row.Entity = null;
-						previousValue.Payment_Discounts.Remove(this);
-					}
-					this._Request_Row.Entity = value;
-					if ((value != null))
-					{
-						value.Payment_Discounts.Add(this);
-						this._PYMT_RQST_RQID = value.RQST_RQID;
-						this._RQRO_RWNO = value.RWNO;
-					}
-					else
-					{
-						this._PYMT_RQST_RQID = default(long);
-						this._RQRO_RWNO = default(short);
-					}
-					this.SendPropertyChanged("Request_Row");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Expense_Payment_Discount", Storage="_Expense", ThisKey="EXPN_CODE", OtherKey="CODE", IsForeignKey=true)]
-		public Expense Expense
-		{
-			get
-			{
-				return this._Expense.Entity;
-			}
-			set
-			{
-				Expense previousValue = this._Expense.Entity;
-				if (((previousValue != value) 
-							|| (this._Expense.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Expense.Entity = null;
-						previousValue.Payment_Discounts.Remove(this);
-					}
-					this._Expense.Entity = value;
-					if ((value != null))
-					{
-						value.Payment_Discounts.Add(this);
-						this._EXPN_CODE = value.CODE;
-					}
-					else
-					{
-						this._EXPN_CODE = default(Nullable<long>);
-					}
-					this.SendPropertyChanged("Expense");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Payment_Discount", Storage="_Fighter", ThisKey="FIGH_FILE_NO_DNRM", OtherKey="FILE_NO", IsForeignKey=true)]
-		public Fighter Fighter
-		{
-			get
-			{
-				return this._Fighter.Entity;
-			}
-			set
-			{
-				Fighter previousValue = this._Fighter.Entity;
-				if (((previousValue != value) 
-							|| (this._Fighter.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Fighter.Entity = null;
-						previousValue.Payment_Discounts.Remove(this);
-					}
-					this._Fighter.Entity = value;
-					if ((value != null))
-					{
-						value.Payment_Discounts.Add(this);
-						this._FIGH_FILE_NO_DNRM = value.FILE_NO;
-					}
-					else
-					{
-						this._FIGH_FILE_NO_DNRM = default(Nullable<long>);
-					}
-					this.SendPropertyChanged("Fighter");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
+			this.SendPropertyChanging();
+			entity.Payment = null;
 		}
 	}
 	
@@ -59158,11 +56603,11 @@ namespace System.Scsc.Data
 		
 		private EntitySet<Pre_Expense> _Pre_Expenses1;
 		
-		private EntitySet<Payment_Discount> _Payment_Discounts;
-		
 		private EntitySet<Payment_Detail> _Payment_Details;
 		
 		private EntitySet<Aggregation_Operation_Detail> _Aggregation_Operation_Details;
+		
+		private EntitySet<Payment_Discount> _Payment_Discounts;
 		
 		private EntityRef<Category_Belt> _Category_Belt;
 		
@@ -59260,9 +56705,9 @@ namespace System.Scsc.Data
 			this._Buffets = new EntitySet<Buffet>(new Action<Buffet>(this.attach_Buffets), new Action<Buffet>(this.detach_Buffets));
 			this._Pre_Expenses = new EntitySet<Pre_Expense>(new Action<Pre_Expense>(this.attach_Pre_Expenses), new Action<Pre_Expense>(this.detach_Pre_Expenses));
 			this._Pre_Expenses1 = new EntitySet<Pre_Expense>(new Action<Pre_Expense>(this.attach_Pre_Expenses1), new Action<Pre_Expense>(this.detach_Pre_Expenses1));
-			this._Payment_Discounts = new EntitySet<Payment_Discount>(new Action<Payment_Discount>(this.attach_Payment_Discounts), new Action<Payment_Discount>(this.detach_Payment_Discounts));
 			this._Payment_Details = new EntitySet<Payment_Detail>(new Action<Payment_Detail>(this.attach_Payment_Details), new Action<Payment_Detail>(this.detach_Payment_Details));
 			this._Aggregation_Operation_Details = new EntitySet<Aggregation_Operation_Detail>(new Action<Aggregation_Operation_Detail>(this.attach_Aggregation_Operation_Details), new Action<Aggregation_Operation_Detail>(this.detach_Aggregation_Operation_Details));
+			this._Payment_Discounts = new EntitySet<Payment_Discount>(new Action<Payment_Discount>(this.attach_Payment_Discounts), new Action<Payment_Discount>(this.detach_Payment_Discounts));
 			this._Category_Belt = default(EntityRef<Category_Belt>);
 			this._Expense_Type = default(EntityRef<Expense_Type>);
 			this._Method = default(EntityRef<Method>);
@@ -60078,19 +57523,6 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Expense_Payment_Discount", Storage="_Payment_Discounts", ThisKey="CODE", OtherKey="EXPN_CODE")]
-		public EntitySet<Payment_Discount> Payment_Discounts
-		{
-			get
-			{
-				return this._Payment_Discounts;
-			}
-			set
-			{
-				this._Payment_Discounts.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Expense_Payment_Detail", Storage="_Payment_Details", ThisKey="CODE", OtherKey="EXPN_CODE")]
 		public EntitySet<Payment_Detail> Payment_Details
 		{
@@ -60114,6 +57546,19 @@ namespace System.Scsc.Data
 			set
 			{
 				this._Aggregation_Operation_Details.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Expense_Payment_Discount", Storage="_Payment_Discounts", ThisKey="CODE", OtherKey="EXPN_CODE")]
+		public EntitySet<Payment_Discount> Payment_Discounts
+		{
+			get
+			{
+				return this._Payment_Discounts;
+			}
+			set
+			{
+				this._Payment_Discounts.Assign(value);
 			}
 		}
 		
@@ -60415,18 +57860,6 @@ namespace System.Scsc.Data
 			entity.Expense1 = null;
 		}
 		
-		private void attach_Payment_Discounts(Payment_Discount entity)
-		{
-			this.SendPropertyChanging();
-			entity.Expense = this;
-		}
-		
-		private void detach_Payment_Discounts(Payment_Discount entity)
-		{
-			this.SendPropertyChanging();
-			entity.Expense = null;
-		}
-		
 		private void attach_Payment_Details(Payment_Detail entity)
 		{
 			this.SendPropertyChanging();
@@ -60446,6 +57879,18 @@ namespace System.Scsc.Data
 		}
 		
 		private void detach_Aggregation_Operation_Details(Aggregation_Operation_Detail entity)
+		{
+			this.SendPropertyChanging();
+			entity.Expense = null;
+		}
+		
+		private void attach_Payment_Discounts(Payment_Discount entity)
+		{
+			this.SendPropertyChanging();
+			entity.Expense = this;
+		}
+		
+		private void detach_Payment_Discounts(Payment_Discount entity)
 		{
 			this.SendPropertyChanging();
 			entity.Expense = null;
@@ -64983,9 +62428,13 @@ namespace System.Scsc.Data
 		
 		private EntitySet<Statistic_Detail_Request> _Statistic_Detail_Requests;
 		
-		private EntitySet<Fighter> _Fighters;
-		
 		private EntitySet<Aggregation_Operation_Detail> _Aggregation_Operation_Details;
+		
+		private EntitySet<Fighter_Discount_Card> _Fighter_Discount_Cards;
+		
+		private EntitySet<Advertising_Campaign> _Advertising_Campaigns;
+		
+		private EntitySet<Fighter> _Fighters;
 		
 		private EntityRef<Month_Base> _Month_Base;
 		
@@ -65078,8 +62527,10 @@ namespace System.Scsc.Data
 			this._Payments = new EntitySet<Payment>(new Action<Payment>(this.attach_Payments), new Action<Payment>(this.detach_Payments));
 			this._Requests = new EntitySet<Request>(new Action<Request>(this.attach_Requests), new Action<Request>(this.detach_Requests));
 			this._Statistic_Detail_Requests = new EntitySet<Statistic_Detail_Request>(new Action<Statistic_Detail_Request>(this.attach_Statistic_Detail_Requests), new Action<Statistic_Detail_Request>(this.detach_Statistic_Detail_Requests));
-			this._Fighters = new EntitySet<Fighter>(new Action<Fighter>(this.attach_Fighters), new Action<Fighter>(this.detach_Fighters));
 			this._Aggregation_Operation_Details = new EntitySet<Aggregation_Operation_Detail>(new Action<Aggregation_Operation_Detail>(this.attach_Aggregation_Operation_Details), new Action<Aggregation_Operation_Detail>(this.detach_Aggregation_Operation_Details));
+			this._Fighter_Discount_Cards = new EntitySet<Fighter_Discount_Card>(new Action<Fighter_Discount_Card>(this.attach_Fighter_Discount_Cards), new Action<Fighter_Discount_Card>(this.detach_Fighter_Discount_Cards));
+			this._Advertising_Campaigns = new EntitySet<Advertising_Campaign>(new Action<Advertising_Campaign>(this.attach_Advertising_Campaigns), new Action<Advertising_Campaign>(this.detach_Advertising_Campaigns));
+			this._Fighters = new EntitySet<Fighter>(new Action<Fighter>(this.attach_Fighters), new Action<Fighter>(this.detach_Fighters));
 			this._Month_Base = default(EntityRef<Month_Base>);
 			this._Region = default(EntityRef<Region>);
 			this._Request1 = default(EntityRef<Request>);
@@ -65866,19 +63317,6 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Request_Fighter", Storage="_Fighters", ThisKey="RQID", OtherKey="RQST_RQID")]
-		public EntitySet<Fighter> Fighters
-		{
-			get
-			{
-				return this._Fighters;
-			}
-			set
-			{
-				this._Fighters.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Request_Aggregation_Operation_Detail", Storage="_Aggregation_Operation_Details", ThisKey="RQID", OtherKey="RQST_RQID")]
 		public EntitySet<Aggregation_Operation_Detail> Aggregation_Operation_Details
 		{
@@ -65889,6 +63327,45 @@ namespace System.Scsc.Data
 			set
 			{
 				this._Aggregation_Operation_Details.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Request_Fighter_Discount_Card", Storage="_Fighter_Discount_Cards", ThisKey="RQID", OtherKey="RQST_RQID")]
+		public EntitySet<Fighter_Discount_Card> Fighter_Discount_Cards
+		{
+			get
+			{
+				return this._Fighter_Discount_Cards;
+			}
+			set
+			{
+				this._Fighter_Discount_Cards.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Request_Advertising_Campaign", Storage="_Advertising_Campaigns", ThisKey="RQID", OtherKey="RQST_RQID")]
+		public EntitySet<Advertising_Campaign> Advertising_Campaigns
+		{
+			get
+			{
+				return this._Advertising_Campaigns;
+			}
+			set
+			{
+				this._Advertising_Campaigns.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Request_Fighter", Storage="_Fighters", ThisKey="RQID", OtherKey="RQST_RQID")]
+		public EntitySet<Fighter> Fighters
+		{
+			get
+			{
+				return this._Fighters;
+			}
+			set
+			{
+				this._Fighters.Assign(value);
 			}
 		}
 		
@@ -66232,18 +63709,6 @@ namespace System.Scsc.Data
 			entity.Request = null;
 		}
 		
-		private void attach_Fighters(Fighter entity)
-		{
-			this.SendPropertyChanging();
-			entity.Request = this;
-		}
-		
-		private void detach_Fighters(Fighter entity)
-		{
-			this.SendPropertyChanging();
-			entity.Request = null;
-		}
-		
 		private void attach_Aggregation_Operation_Details(Aggregation_Operation_Detail entity)
 		{
 			this.SendPropertyChanging();
@@ -66251,6 +63716,42 @@ namespace System.Scsc.Data
 		}
 		
 		private void detach_Aggregation_Operation_Details(Aggregation_Operation_Detail entity)
+		{
+			this.SendPropertyChanging();
+			entity.Request = null;
+		}
+		
+		private void attach_Fighter_Discount_Cards(Fighter_Discount_Card entity)
+		{
+			this.SendPropertyChanging();
+			entity.Request = this;
+		}
+		
+		private void detach_Fighter_Discount_Cards(Fighter_Discount_Card entity)
+		{
+			this.SendPropertyChanging();
+			entity.Request = null;
+		}
+		
+		private void attach_Advertising_Campaigns(Advertising_Campaign entity)
+		{
+			this.SendPropertyChanging();
+			entity.Request = this;
+		}
+		
+		private void detach_Advertising_Campaigns(Advertising_Campaign entity)
+		{
+			this.SendPropertyChanging();
+			entity.Request = null;
+		}
+		
+		private void attach_Fighters(Fighter entity)
+		{
+			this.SendPropertyChanging();
+			entity.Request = this;
+		}
+		
+		private void detach_Fighters(Fighter entity)
 		{
 			this.SendPropertyChanging();
 			entity.Request = null;
@@ -68095,3210 +65596,6 @@ namespace System.Scsc.Data
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Fighter")]
-	public partial class Fighter : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private string _REGN_PRVN_CNTY_CODE;
-		
-		private string _REGN_PRVN_CODE;
-		
-		private string _REGN_CODE;
-		
-		private long _FILE_NO;
-		
-		private string _TARF_CODE_DNRM;
-		
-		private System.Nullable<long> _MOST_DEBT_CLNG_DNRM;
-		
-		private System.Nullable<long> _DEBT_DNRM;
-		
-		private System.Nullable<long> _BUFE_DEBT_DNTM;
-		
-		private System.Nullable<long> _DPST_AMNT_DNRM;
-		
-		private System.Nullable<int> _FGPB_RWNO_DNRM;
-		
-		private System.Nullable<short> _MBSP_RWNO_DNRM;
-		
-		private System.Nullable<short> _MBCO_RWNO_DNRM;
-		
-		private System.Nullable<short> _MBFZ_RWNO_DNRM;
-		
-		private System.Nullable<short> _MBSM_RWNO_DNRM;
-		
-		private System.Nullable<short> _CAMP_RWNO_DNRM;
-		
-		private System.Nullable<short> _TEST_RWNO_DNRM;
-		
-		private System.Nullable<short> _CLCL_RWNO_DNRM;
-		
-		private System.Nullable<short> _HERT_RWNO_DNRM;
-		
-		private System.Nullable<short> _PSFN_RWNO_DNRM;
-		
-		private System.Nullable<short> _EXAM_RWNO_DNRM;
-		
-		private System.Nullable<short> _BDFT_RWNO_DNRM;
-		
-		private System.Nullable<System.DateTime> _MBSP_STRT_DATE;
-		
-		private System.Nullable<System.DateTime> _MBSP_END_DATE;
-		
-		private string _CONF_STAT;
-		
-		private System.Nullable<System.DateTime> _CONF_DATE;
-		
-		private string _FIGH_STAT;
-		
-		private System.Nullable<long> _RQST_RQID;
-		
-		private string _NAME_DNRM;
-		
-		private string _FRST_NAME_DNRM;
-		
-		private string _LAST_NAME_DNRM;
-		
-		private string _FATH_NAME_DNRM;
-		
-		private string _POST_ADRS_DNRM;
-		
-		private string _SEX_TYPE_DNRM;
-		
-		private System.Nullable<System.DateTime> _BRTH_DATE_DNRM;
-		
-		private string _CELL_PHON_DNRM;
-		
-		private string _TELL_PHON_DNRM;
-		
-		private string _FGPB_TYPE_DNRM;
-		
-		private string _INSR_NUMB_DNRM;
-		
-		private System.Nullable<System.DateTime> _INSR_DATE_DNRM;
-		
-		private System.Nullable<System.DateTime> _TEST_DATE_DNRM;
-		
-		private System.Nullable<System.DateTime> _CAMP_DATE_DNRM;
-		
-		private System.Nullable<long> _CTGY_CODE_DNRM;
-		
-		private System.Nullable<long> _MTOD_CODE_DNRM;
-		
-		private System.Nullable<long> _CLUB_CODE_DNRM;
-		
-		private System.Nullable<long> _COCH_FILE_NO_DNRM;
-		
-		private System.Nullable<short> _COCH_CRTF_YEAR_DNRM;
-		
-		private System.Nullable<long> _CBMT_CODE_DNRM;
-		
-		private string _DAY_TYPE_DNRM;
-		
-		private System.Nullable<System.TimeSpan> _ATTN_TIME_DNRM;
-		
-		private string _ACTV_TAG_DNRM;
-		
-		private string _BLOD_GROP_DNRM;
-		
-		private System.Nullable<long> _FIGH_FILE_NO;
-		
-		private System.Nullable<long> _IMAG_RCDC_RCID_DNRM;
-		
-		private System.Nullable<short> _IMAG_RWNO_DNRM;
-		
-		private string _CARD_NUMB_DNRM;
-		
-		private string _FNGR_PRNT_DNRM;
-		
-		private string _SUNT_BUNT_DEPT_ORGN_CODE_DNRM;
-		
-		private string _SUNT_BUNT_DEPT_CODE_DNRM;
-		
-		private string _SUNT_BUNT_CODE_DNRM;
-		
-		private string _SUNT_CODE_DNRM;
-		
-		private System.Nullable<float> _CORD_X_DNRM;
-		
-		private System.Nullable<float> _CORD_Y_DNRM;
-		
-		private string _SERV_NO_DNRM;
-		
-		private string _NATL_CODE_DNRM;
-		
-		private string _GLOB_CODE_DNRM;
-		
-		private System.Nullable<long> _CHAT_ID_DNRM;
-		
-		private string _MOM_CELL_PHON_DNRM;
-		
-		private string _MOM_TELL_PHON_DNRM;
-		
-		private System.Nullable<long> _MOM_CHAT_ID_DNRM;
-		
-		private string _DAD_CELL_PHON_DNRM;
-		
-		private string _DAD_TELL_PHON_DNRM;
-		
-		private System.Nullable<long> _DAD_CHAT_ID_DNRM;
-		
-		private string _DPST_ACNT_SLRY_BANK_DNRM;
-		
-		private string _DPST_ACNT_SLRY_DNRM;
-		
-		private System.Nullable<short> _RTNG_NUMB_DNRM;
-		
-		private string _CRET_BY;
-		
-		private System.Nullable<System.DateTime> _CRET_DATE;
-		
-		private string _MDFY_BY;
-		
-		private System.Nullable<System.DateTime> _MDFY_DATE;
-		
-		private EntitySet<Campitition> _Campititions;
-		
-		private EntitySet<Exam> _Exams;
-		
-		private EntitySet<Heart_Zone> _Heart_Zones;
-		
-		private EntitySet<Physical_Fitness> _Physical_Fitnesses;
-		
-		private EntitySet<Planning_Overview> _Planning_Overviews;
-		
-		private EntitySet<Test> _Tests;
-		
-		private EntitySet<Calculate_Calorie> _Calculate_Calories;
-		
-		private EntitySet<Body_Fitness> _Body_Fitnesses;
-		
-		private EntitySet<Request_Row> _Request_Rows;
-		
-		private EntitySet<Session_Meeting> _Session_Meetings;
-		
-		private EntitySet<Session> _Sessions;
-		
-		private EntitySet<Misc_Expense_Detail> _Misc_Expense_Details;
-		
-		private EntitySet<Payment_Expense> _Payment_Expenses;
-		
-		private EntitySet<Misc_Expense> _Misc_Expenses;
-		
-		private EntitySet<Fighter_Public> _Fighter_Publics;
-		
-		private EntitySet<Club_Method> _Club_Methods;
-		
-		private EntitySet<Payment_Discount> _Payment_Discounts;
-		
-		private EntitySet<Aggregation_Operation> _Aggregation_Operations;
-		
-		private EntitySet<Payment_Method> _Payment_Methods;
-		
-		private EntitySet<Log_Operation> _Log_Operations;
-		
-		private EntitySet<Calculate_Expense_Coach> _Calculate_Expense_Coaches;
-		
-		private EntitySet<Gain_Loss_Rial> _Gain_Loss_Rials;
-		
-		private EntitySet<Fighter> _Fighters;
-		
-		private EntitySet<Member_Ship> _Member_Ships;
-		
-		private EntitySet<Fighter_Grouping> _Fighter_Groupings;
-		
-		private EntitySet<Note> _Notes;
-		
-		private EntitySet<Payment_Detail> _Payment_Details;
-		
-		private EntitySet<Attendance> _Attendances;
-		
-		private EntitySet<Attendance> _Attendances1;
-		
-		private EntitySet<Aggregation_Operation_Detail> _Aggregation_Operation_Details;
-		
-		private EntitySet<Fighter_RelationShip> _Fighter_RelationShips;
-		
-		private EntitySet<Fighter_RelationShip> _Fighter_RelationShips1;
-		
-		private EntitySet<Fighter_Call> _Fighter_Calls;
-		
-		private EntitySet<Fighter_Discount_Card> _Fighter_Discount_Cards;
-		
-		private EntityRef<Club> _Club;
-		
-		private EntityRef<Category_Belt> _Category_Belt;
-		
-		private EntityRef<Fighter> _Fighter1;
-		
-		private EntityRef<Method> _Method;
-		
-		private EntityRef<Region> _Region;
-		
-		private EntityRef<Request> _Request;
-		
-		private EntityRef<Sub_Unit> _Sub_Unit;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnREGN_PRVN_CNTY_CODEChanging(string value);
-    partial void OnREGN_PRVN_CNTY_CODEChanged();
-    partial void OnREGN_PRVN_CODEChanging(string value);
-    partial void OnREGN_PRVN_CODEChanged();
-    partial void OnREGN_CODEChanging(string value);
-    partial void OnREGN_CODEChanged();
-    partial void OnFILE_NOChanging(long value);
-    partial void OnFILE_NOChanged();
-    partial void OnTARF_CODE_DNRMChanging(string value);
-    partial void OnTARF_CODE_DNRMChanged();
-    partial void OnMOST_DEBT_CLNG_DNRMChanging(System.Nullable<long> value);
-    partial void OnMOST_DEBT_CLNG_DNRMChanged();
-    partial void OnDEBT_DNRMChanging(System.Nullable<long> value);
-    partial void OnDEBT_DNRMChanged();
-    partial void OnBUFE_DEBT_DNTMChanging(System.Nullable<long> value);
-    partial void OnBUFE_DEBT_DNTMChanged();
-    partial void OnDPST_AMNT_DNRMChanging(System.Nullable<long> value);
-    partial void OnDPST_AMNT_DNRMChanged();
-    partial void OnFGPB_RWNO_DNRMChanging(System.Nullable<int> value);
-    partial void OnFGPB_RWNO_DNRMChanged();
-    partial void OnMBSP_RWNO_DNRMChanging(System.Nullable<short> value);
-    partial void OnMBSP_RWNO_DNRMChanged();
-    partial void OnMBCO_RWNO_DNRMChanging(System.Nullable<short> value);
-    partial void OnMBCO_RWNO_DNRMChanged();
-    partial void OnMBFZ_RWNO_DNRMChanging(System.Nullable<short> value);
-    partial void OnMBFZ_RWNO_DNRMChanged();
-    partial void OnMBSM_RWNO_DNRMChanging(System.Nullable<short> value);
-    partial void OnMBSM_RWNO_DNRMChanged();
-    partial void OnCAMP_RWNO_DNRMChanging(System.Nullable<short> value);
-    partial void OnCAMP_RWNO_DNRMChanged();
-    partial void OnTEST_RWNO_DNRMChanging(System.Nullable<short> value);
-    partial void OnTEST_RWNO_DNRMChanged();
-    partial void OnCLCL_RWNO_DNRMChanging(System.Nullable<short> value);
-    partial void OnCLCL_RWNO_DNRMChanged();
-    partial void OnHERT_RWNO_DNRMChanging(System.Nullable<short> value);
-    partial void OnHERT_RWNO_DNRMChanged();
-    partial void OnPSFN_RWNO_DNRMChanging(System.Nullable<short> value);
-    partial void OnPSFN_RWNO_DNRMChanged();
-    partial void OnEXAM_RWNO_DNRMChanging(System.Nullable<short> value);
-    partial void OnEXAM_RWNO_DNRMChanged();
-    partial void OnBDFT_RWNO_DNRMChanging(System.Nullable<short> value);
-    partial void OnBDFT_RWNO_DNRMChanged();
-    partial void OnMBSP_STRT_DATEChanging(System.Nullable<System.DateTime> value);
-    partial void OnMBSP_STRT_DATEChanged();
-    partial void OnMBSP_END_DATEChanging(System.Nullable<System.DateTime> value);
-    partial void OnMBSP_END_DATEChanged();
-    partial void OnCONF_STATChanging(string value);
-    partial void OnCONF_STATChanged();
-    partial void OnCONF_DATEChanging(System.Nullable<System.DateTime> value);
-    partial void OnCONF_DATEChanged();
-    partial void OnFIGH_STATChanging(string value);
-    partial void OnFIGH_STATChanged();
-    partial void OnRQST_RQIDChanging(System.Nullable<long> value);
-    partial void OnRQST_RQIDChanged();
-    partial void OnNAME_DNRMChanging(string value);
-    partial void OnNAME_DNRMChanged();
-    partial void OnFRST_NAME_DNRMChanging(string value);
-    partial void OnFRST_NAME_DNRMChanged();
-    partial void OnLAST_NAME_DNRMChanging(string value);
-    partial void OnLAST_NAME_DNRMChanged();
-    partial void OnFATH_NAME_DNRMChanging(string value);
-    partial void OnFATH_NAME_DNRMChanged();
-    partial void OnPOST_ADRS_DNRMChanging(string value);
-    partial void OnPOST_ADRS_DNRMChanged();
-    partial void OnSEX_TYPE_DNRMChanging(string value);
-    partial void OnSEX_TYPE_DNRMChanged();
-    partial void OnBRTH_DATE_DNRMChanging(System.Nullable<System.DateTime> value);
-    partial void OnBRTH_DATE_DNRMChanged();
-    partial void OnCELL_PHON_DNRMChanging(string value);
-    partial void OnCELL_PHON_DNRMChanged();
-    partial void OnTELL_PHON_DNRMChanging(string value);
-    partial void OnTELL_PHON_DNRMChanged();
-    partial void OnFGPB_TYPE_DNRMChanging(string value);
-    partial void OnFGPB_TYPE_DNRMChanged();
-    partial void OnINSR_NUMB_DNRMChanging(string value);
-    partial void OnINSR_NUMB_DNRMChanged();
-    partial void OnINSR_DATE_DNRMChanging(System.Nullable<System.DateTime> value);
-    partial void OnINSR_DATE_DNRMChanged();
-    partial void OnTEST_DATE_DNRMChanging(System.Nullable<System.DateTime> value);
-    partial void OnTEST_DATE_DNRMChanged();
-    partial void OnCAMP_DATE_DNRMChanging(System.Nullable<System.DateTime> value);
-    partial void OnCAMP_DATE_DNRMChanged();
-    partial void OnCTGY_CODE_DNRMChanging(System.Nullable<long> value);
-    partial void OnCTGY_CODE_DNRMChanged();
-    partial void OnMTOD_CODE_DNRMChanging(System.Nullable<long> value);
-    partial void OnMTOD_CODE_DNRMChanged();
-    partial void OnCLUB_CODE_DNRMChanging(System.Nullable<long> value);
-    partial void OnCLUB_CODE_DNRMChanged();
-    partial void OnCOCH_FILE_NO_DNRMChanging(System.Nullable<long> value);
-    partial void OnCOCH_FILE_NO_DNRMChanged();
-    partial void OnCOCH_CRTF_YEAR_DNRMChanging(System.Nullable<short> value);
-    partial void OnCOCH_CRTF_YEAR_DNRMChanged();
-    partial void OnCBMT_CODE_DNRMChanging(System.Nullable<long> value);
-    partial void OnCBMT_CODE_DNRMChanged();
-    partial void OnDAY_TYPE_DNRMChanging(string value);
-    partial void OnDAY_TYPE_DNRMChanged();
-    partial void OnATTN_TIME_DNRMChanging(System.Nullable<System.TimeSpan> value);
-    partial void OnATTN_TIME_DNRMChanged();
-    partial void OnACTV_TAG_DNRMChanging(string value);
-    partial void OnACTV_TAG_DNRMChanged();
-    partial void OnBLOD_GROP_DNRMChanging(string value);
-    partial void OnBLOD_GROP_DNRMChanged();
-    partial void OnFIGH_FILE_NOChanging(System.Nullable<long> value);
-    partial void OnFIGH_FILE_NOChanged();
-    partial void OnIMAG_RCDC_RCID_DNRMChanging(System.Nullable<long> value);
-    partial void OnIMAG_RCDC_RCID_DNRMChanged();
-    partial void OnIMAG_RWNO_DNRMChanging(System.Nullable<short> value);
-    partial void OnIMAG_RWNO_DNRMChanged();
-    partial void OnCARD_NUMB_DNRMChanging(string value);
-    partial void OnCARD_NUMB_DNRMChanged();
-    partial void OnFNGR_PRNT_DNRMChanging(string value);
-    partial void OnFNGR_PRNT_DNRMChanged();
-    partial void OnSUNT_BUNT_DEPT_ORGN_CODE_DNRMChanging(string value);
-    partial void OnSUNT_BUNT_DEPT_ORGN_CODE_DNRMChanged();
-    partial void OnSUNT_BUNT_DEPT_CODE_DNRMChanging(string value);
-    partial void OnSUNT_BUNT_DEPT_CODE_DNRMChanged();
-    partial void OnSUNT_BUNT_CODE_DNRMChanging(string value);
-    partial void OnSUNT_BUNT_CODE_DNRMChanged();
-    partial void OnSUNT_CODE_DNRMChanging(string value);
-    partial void OnSUNT_CODE_DNRMChanged();
-    partial void OnCORD_X_DNRMChanging(System.Nullable<float> value);
-    partial void OnCORD_X_DNRMChanged();
-    partial void OnCORD_Y_DNRMChanging(System.Nullable<float> value);
-    partial void OnCORD_Y_DNRMChanged();
-    partial void OnSERV_NO_DNRMChanging(string value);
-    partial void OnSERV_NO_DNRMChanged();
-    partial void OnNATL_CODE_DNRMChanging(string value);
-    partial void OnNATL_CODE_DNRMChanged();
-    partial void OnGLOB_CODE_DNRMChanging(string value);
-    partial void OnGLOB_CODE_DNRMChanged();
-    partial void OnCHAT_ID_DNRMChanging(System.Nullable<long> value);
-    partial void OnCHAT_ID_DNRMChanged();
-    partial void OnMOM_CELL_PHON_DNRMChanging(string value);
-    partial void OnMOM_CELL_PHON_DNRMChanged();
-    partial void OnMOM_TELL_PHON_DNRMChanging(string value);
-    partial void OnMOM_TELL_PHON_DNRMChanged();
-    partial void OnMOM_CHAT_ID_DNRMChanging(System.Nullable<long> value);
-    partial void OnMOM_CHAT_ID_DNRMChanged();
-    partial void OnDAD_CELL_PHON_DNRMChanging(string value);
-    partial void OnDAD_CELL_PHON_DNRMChanged();
-    partial void OnDAD_TELL_PHON_DNRMChanging(string value);
-    partial void OnDAD_TELL_PHON_DNRMChanged();
-    partial void OnDAD_CHAT_ID_DNRMChanging(System.Nullable<long> value);
-    partial void OnDAD_CHAT_ID_DNRMChanged();
-    partial void OnDPST_ACNT_SLRY_BANK_DNRMChanging(string value);
-    partial void OnDPST_ACNT_SLRY_BANK_DNRMChanged();
-    partial void OnDPST_ACNT_SLRY_DNRMChanging(string value);
-    partial void OnDPST_ACNT_SLRY_DNRMChanged();
-    partial void OnRTNG_NUMB_DNRMChanging(System.Nullable<short> value);
-    partial void OnRTNG_NUMB_DNRMChanged();
-    partial void OnCRET_BYChanging(string value);
-    partial void OnCRET_BYChanged();
-    partial void OnCRET_DATEChanging(System.Nullable<System.DateTime> value);
-    partial void OnCRET_DATEChanged();
-    partial void OnMDFY_BYChanging(string value);
-    partial void OnMDFY_BYChanged();
-    partial void OnMDFY_DATEChanging(System.Nullable<System.DateTime> value);
-    partial void OnMDFY_DATEChanged();
-    #endregion
-		
-		public Fighter()
-		{
-			this._Campititions = new EntitySet<Campitition>(new Action<Campitition>(this.attach_Campititions), new Action<Campitition>(this.detach_Campititions));
-			this._Exams = new EntitySet<Exam>(new Action<Exam>(this.attach_Exams), new Action<Exam>(this.detach_Exams));
-			this._Heart_Zones = new EntitySet<Heart_Zone>(new Action<Heart_Zone>(this.attach_Heart_Zones), new Action<Heart_Zone>(this.detach_Heart_Zones));
-			this._Physical_Fitnesses = new EntitySet<Physical_Fitness>(new Action<Physical_Fitness>(this.attach_Physical_Fitnesses), new Action<Physical_Fitness>(this.detach_Physical_Fitnesses));
-			this._Planning_Overviews = new EntitySet<Planning_Overview>(new Action<Planning_Overview>(this.attach_Planning_Overviews), new Action<Planning_Overview>(this.detach_Planning_Overviews));
-			this._Tests = new EntitySet<Test>(new Action<Test>(this.attach_Tests), new Action<Test>(this.detach_Tests));
-			this._Calculate_Calories = new EntitySet<Calculate_Calorie>(new Action<Calculate_Calorie>(this.attach_Calculate_Calories), new Action<Calculate_Calorie>(this.detach_Calculate_Calories));
-			this._Body_Fitnesses = new EntitySet<Body_Fitness>(new Action<Body_Fitness>(this.attach_Body_Fitnesses), new Action<Body_Fitness>(this.detach_Body_Fitnesses));
-			this._Request_Rows = new EntitySet<Request_Row>(new Action<Request_Row>(this.attach_Request_Rows), new Action<Request_Row>(this.detach_Request_Rows));
-			this._Session_Meetings = new EntitySet<Session_Meeting>(new Action<Session_Meeting>(this.attach_Session_Meetings), new Action<Session_Meeting>(this.detach_Session_Meetings));
-			this._Sessions = new EntitySet<Session>(new Action<Session>(this.attach_Sessions), new Action<Session>(this.detach_Sessions));
-			this._Misc_Expense_Details = new EntitySet<Misc_Expense_Detail>(new Action<Misc_Expense_Detail>(this.attach_Misc_Expense_Details), new Action<Misc_Expense_Detail>(this.detach_Misc_Expense_Details));
-			this._Payment_Expenses = new EntitySet<Payment_Expense>(new Action<Payment_Expense>(this.attach_Payment_Expenses), new Action<Payment_Expense>(this.detach_Payment_Expenses));
-			this._Misc_Expenses = new EntitySet<Misc_Expense>(new Action<Misc_Expense>(this.attach_Misc_Expenses), new Action<Misc_Expense>(this.detach_Misc_Expenses));
-			this._Fighter_Publics = new EntitySet<Fighter_Public>(new Action<Fighter_Public>(this.attach_Fighter_Publics), new Action<Fighter_Public>(this.detach_Fighter_Publics));
-			this._Club_Methods = new EntitySet<Club_Method>(new Action<Club_Method>(this.attach_Club_Methods), new Action<Club_Method>(this.detach_Club_Methods));
-			this._Payment_Discounts = new EntitySet<Payment_Discount>(new Action<Payment_Discount>(this.attach_Payment_Discounts), new Action<Payment_Discount>(this.detach_Payment_Discounts));
-			this._Aggregation_Operations = new EntitySet<Aggregation_Operation>(new Action<Aggregation_Operation>(this.attach_Aggregation_Operations), new Action<Aggregation_Operation>(this.detach_Aggregation_Operations));
-			this._Payment_Methods = new EntitySet<Payment_Method>(new Action<Payment_Method>(this.attach_Payment_Methods), new Action<Payment_Method>(this.detach_Payment_Methods));
-			this._Log_Operations = new EntitySet<Log_Operation>(new Action<Log_Operation>(this.attach_Log_Operations), new Action<Log_Operation>(this.detach_Log_Operations));
-			this._Calculate_Expense_Coaches = new EntitySet<Calculate_Expense_Coach>(new Action<Calculate_Expense_Coach>(this.attach_Calculate_Expense_Coaches), new Action<Calculate_Expense_Coach>(this.detach_Calculate_Expense_Coaches));
-			this._Gain_Loss_Rials = new EntitySet<Gain_Loss_Rial>(new Action<Gain_Loss_Rial>(this.attach_Gain_Loss_Rials), new Action<Gain_Loss_Rial>(this.detach_Gain_Loss_Rials));
-			this._Fighters = new EntitySet<Fighter>(new Action<Fighter>(this.attach_Fighters), new Action<Fighter>(this.detach_Fighters));
-			this._Member_Ships = new EntitySet<Member_Ship>(new Action<Member_Ship>(this.attach_Member_Ships), new Action<Member_Ship>(this.detach_Member_Ships));
-			this._Fighter_Groupings = new EntitySet<Fighter_Grouping>(new Action<Fighter_Grouping>(this.attach_Fighter_Groupings), new Action<Fighter_Grouping>(this.detach_Fighter_Groupings));
-			this._Notes = new EntitySet<Note>(new Action<Note>(this.attach_Notes), new Action<Note>(this.detach_Notes));
-			this._Payment_Details = new EntitySet<Payment_Detail>(new Action<Payment_Detail>(this.attach_Payment_Details), new Action<Payment_Detail>(this.detach_Payment_Details));
-			this._Attendances = new EntitySet<Attendance>(new Action<Attendance>(this.attach_Attendances), new Action<Attendance>(this.detach_Attendances));
-			this._Attendances1 = new EntitySet<Attendance>(new Action<Attendance>(this.attach_Attendances1), new Action<Attendance>(this.detach_Attendances1));
-			this._Aggregation_Operation_Details = new EntitySet<Aggregation_Operation_Detail>(new Action<Aggregation_Operation_Detail>(this.attach_Aggregation_Operation_Details), new Action<Aggregation_Operation_Detail>(this.detach_Aggregation_Operation_Details));
-			this._Fighter_RelationShips = new EntitySet<Fighter_RelationShip>(new Action<Fighter_RelationShip>(this.attach_Fighter_RelationShips), new Action<Fighter_RelationShip>(this.detach_Fighter_RelationShips));
-			this._Fighter_RelationShips1 = new EntitySet<Fighter_RelationShip>(new Action<Fighter_RelationShip>(this.attach_Fighter_RelationShips1), new Action<Fighter_RelationShip>(this.detach_Fighter_RelationShips1));
-			this._Fighter_Calls = new EntitySet<Fighter_Call>(new Action<Fighter_Call>(this.attach_Fighter_Calls), new Action<Fighter_Call>(this.detach_Fighter_Calls));
-			this._Fighter_Discount_Cards = new EntitySet<Fighter_Discount_Card>(new Action<Fighter_Discount_Card>(this.attach_Fighter_Discount_Cards), new Action<Fighter_Discount_Card>(this.detach_Fighter_Discount_Cards));
-			this._Club = default(EntityRef<Club>);
-			this._Category_Belt = default(EntityRef<Category_Belt>);
-			this._Fighter1 = default(EntityRef<Fighter>);
-			this._Method = default(EntityRef<Method>);
-			this._Region = default(EntityRef<Region>);
-			this._Request = default(EntityRef<Request>);
-			this._Sub_Unit = default(EntityRef<Sub_Unit>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_REGN_PRVN_CNTY_CODE", DbType="VarChar(3) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
-		public string REGN_PRVN_CNTY_CODE
-		{
-			get
-			{
-				return this._REGN_PRVN_CNTY_CODE;
-			}
-			set
-			{
-				if ((this._REGN_PRVN_CNTY_CODE != value))
-				{
-					if (this._Region.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnREGN_PRVN_CNTY_CODEChanging(value);
-					this.SendPropertyChanging();
-					this._REGN_PRVN_CNTY_CODE = value;
-					this.SendPropertyChanged("REGN_PRVN_CNTY_CODE");
-					this.OnREGN_PRVN_CNTY_CODEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_REGN_PRVN_CODE", DbType="VarChar(3) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
-		public string REGN_PRVN_CODE
-		{
-			get
-			{
-				return this._REGN_PRVN_CODE;
-			}
-			set
-			{
-				if ((this._REGN_PRVN_CODE != value))
-				{
-					if (this._Region.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnREGN_PRVN_CODEChanging(value);
-					this.SendPropertyChanging();
-					this._REGN_PRVN_CODE = value;
-					this.SendPropertyChanged("REGN_PRVN_CODE");
-					this.OnREGN_PRVN_CODEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_REGN_CODE", DbType="VarChar(3) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
-		public string REGN_CODE
-		{
-			get
-			{
-				return this._REGN_CODE;
-			}
-			set
-			{
-				if ((this._REGN_CODE != value))
-				{
-					if (this._Region.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnREGN_CODEChanging(value);
-					this.SendPropertyChanging();
-					this._REGN_CODE = value;
-					this.SendPropertyChanged("REGN_CODE");
-					this.OnREGN_CODEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FILE_NO", DbType="BigInt NOT NULL", IsPrimaryKey=true)]
-		public long FILE_NO
-		{
-			get
-			{
-				return this._FILE_NO;
-			}
-			set
-			{
-				if ((this._FILE_NO != value))
-				{
-					this.OnFILE_NOChanging(value);
-					this.SendPropertyChanging();
-					this._FILE_NO = value;
-					this.SendPropertyChanged("FILE_NO");
-					this.OnFILE_NOChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TARF_CODE_DNRM", DbType="VarChar(11)", UpdateCheck=UpdateCheck.Never)]
-		public string TARF_CODE_DNRM
-		{
-			get
-			{
-				return this._TARF_CODE_DNRM;
-			}
-			set
-			{
-				if ((this._TARF_CODE_DNRM != value))
-				{
-					this.OnTARF_CODE_DNRMChanging(value);
-					this.SendPropertyChanging();
-					this._TARF_CODE_DNRM = value;
-					this.SendPropertyChanged("TARF_CODE_DNRM");
-					this.OnTARF_CODE_DNRMChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MOST_DEBT_CLNG_DNRM", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<long> MOST_DEBT_CLNG_DNRM
-		{
-			get
-			{
-				return this._MOST_DEBT_CLNG_DNRM;
-			}
-			set
-			{
-				if ((this._MOST_DEBT_CLNG_DNRM != value))
-				{
-					this.OnMOST_DEBT_CLNG_DNRMChanging(value);
-					this.SendPropertyChanging();
-					this._MOST_DEBT_CLNG_DNRM = value;
-					this.SendPropertyChanged("MOST_DEBT_CLNG_DNRM");
-					this.OnMOST_DEBT_CLNG_DNRMChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DEBT_DNRM", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<long> DEBT_DNRM
-		{
-			get
-			{
-				return this._DEBT_DNRM;
-			}
-			set
-			{
-				if ((this._DEBT_DNRM != value))
-				{
-					this.OnDEBT_DNRMChanging(value);
-					this.SendPropertyChanging();
-					this._DEBT_DNRM = value;
-					this.SendPropertyChanged("DEBT_DNRM");
-					this.OnDEBT_DNRMChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BUFE_DEBT_DNTM", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<long> BUFE_DEBT_DNTM
-		{
-			get
-			{
-				return this._BUFE_DEBT_DNTM;
-			}
-			set
-			{
-				if ((this._BUFE_DEBT_DNTM != value))
-				{
-					this.OnBUFE_DEBT_DNTMChanging(value);
-					this.SendPropertyChanging();
-					this._BUFE_DEBT_DNTM = value;
-					this.SendPropertyChanged("BUFE_DEBT_DNTM");
-					this.OnBUFE_DEBT_DNTMChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DPST_AMNT_DNRM", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<long> DPST_AMNT_DNRM
-		{
-			get
-			{
-				return this._DPST_AMNT_DNRM;
-			}
-			set
-			{
-				if ((this._DPST_AMNT_DNRM != value))
-				{
-					this.OnDPST_AMNT_DNRMChanging(value);
-					this.SendPropertyChanging();
-					this._DPST_AMNT_DNRM = value;
-					this.SendPropertyChanged("DPST_AMNT_DNRM");
-					this.OnDPST_AMNT_DNRMChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FGPB_RWNO_DNRM", DbType="Int", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<int> FGPB_RWNO_DNRM
-		{
-			get
-			{
-				return this._FGPB_RWNO_DNRM;
-			}
-			set
-			{
-				if ((this._FGPB_RWNO_DNRM != value))
-				{
-					this.OnFGPB_RWNO_DNRMChanging(value);
-					this.SendPropertyChanging();
-					this._FGPB_RWNO_DNRM = value;
-					this.SendPropertyChanged("FGPB_RWNO_DNRM");
-					this.OnFGPB_RWNO_DNRMChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MBSP_RWNO_DNRM", DbType="SmallInt", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<short> MBSP_RWNO_DNRM
-		{
-			get
-			{
-				return this._MBSP_RWNO_DNRM;
-			}
-			set
-			{
-				if ((this._MBSP_RWNO_DNRM != value))
-				{
-					this.OnMBSP_RWNO_DNRMChanging(value);
-					this.SendPropertyChanging();
-					this._MBSP_RWNO_DNRM = value;
-					this.SendPropertyChanged("MBSP_RWNO_DNRM");
-					this.OnMBSP_RWNO_DNRMChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MBCO_RWNO_DNRM", DbType="SmallInt", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<short> MBCO_RWNO_DNRM
-		{
-			get
-			{
-				return this._MBCO_RWNO_DNRM;
-			}
-			set
-			{
-				if ((this._MBCO_RWNO_DNRM != value))
-				{
-					this.OnMBCO_RWNO_DNRMChanging(value);
-					this.SendPropertyChanging();
-					this._MBCO_RWNO_DNRM = value;
-					this.SendPropertyChanged("MBCO_RWNO_DNRM");
-					this.OnMBCO_RWNO_DNRMChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MBFZ_RWNO_DNRM", DbType="SmallInt", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<short> MBFZ_RWNO_DNRM
-		{
-			get
-			{
-				return this._MBFZ_RWNO_DNRM;
-			}
-			set
-			{
-				if ((this._MBFZ_RWNO_DNRM != value))
-				{
-					this.OnMBFZ_RWNO_DNRMChanging(value);
-					this.SendPropertyChanging();
-					this._MBFZ_RWNO_DNRM = value;
-					this.SendPropertyChanged("MBFZ_RWNO_DNRM");
-					this.OnMBFZ_RWNO_DNRMChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MBSM_RWNO_DNRM", DbType="SmallInt", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<short> MBSM_RWNO_DNRM
-		{
-			get
-			{
-				return this._MBSM_RWNO_DNRM;
-			}
-			set
-			{
-				if ((this._MBSM_RWNO_DNRM != value))
-				{
-					this.OnMBSM_RWNO_DNRMChanging(value);
-					this.SendPropertyChanging();
-					this._MBSM_RWNO_DNRM = value;
-					this.SendPropertyChanged("MBSM_RWNO_DNRM");
-					this.OnMBSM_RWNO_DNRMChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CAMP_RWNO_DNRM", DbType="SmallInt", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<short> CAMP_RWNO_DNRM
-		{
-			get
-			{
-				return this._CAMP_RWNO_DNRM;
-			}
-			set
-			{
-				if ((this._CAMP_RWNO_DNRM != value))
-				{
-					this.OnCAMP_RWNO_DNRMChanging(value);
-					this.SendPropertyChanging();
-					this._CAMP_RWNO_DNRM = value;
-					this.SendPropertyChanged("CAMP_RWNO_DNRM");
-					this.OnCAMP_RWNO_DNRMChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TEST_RWNO_DNRM", DbType="SmallInt", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<short> TEST_RWNO_DNRM
-		{
-			get
-			{
-				return this._TEST_RWNO_DNRM;
-			}
-			set
-			{
-				if ((this._TEST_RWNO_DNRM != value))
-				{
-					this.OnTEST_RWNO_DNRMChanging(value);
-					this.SendPropertyChanging();
-					this._TEST_RWNO_DNRM = value;
-					this.SendPropertyChanged("TEST_RWNO_DNRM");
-					this.OnTEST_RWNO_DNRMChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CLCL_RWNO_DNRM", DbType="SmallInt", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<short> CLCL_RWNO_DNRM
-		{
-			get
-			{
-				return this._CLCL_RWNO_DNRM;
-			}
-			set
-			{
-				if ((this._CLCL_RWNO_DNRM != value))
-				{
-					this.OnCLCL_RWNO_DNRMChanging(value);
-					this.SendPropertyChanging();
-					this._CLCL_RWNO_DNRM = value;
-					this.SendPropertyChanged("CLCL_RWNO_DNRM");
-					this.OnCLCL_RWNO_DNRMChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HERT_RWNO_DNRM", DbType="SmallInt", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<short> HERT_RWNO_DNRM
-		{
-			get
-			{
-				return this._HERT_RWNO_DNRM;
-			}
-			set
-			{
-				if ((this._HERT_RWNO_DNRM != value))
-				{
-					this.OnHERT_RWNO_DNRMChanging(value);
-					this.SendPropertyChanging();
-					this._HERT_RWNO_DNRM = value;
-					this.SendPropertyChanged("HERT_RWNO_DNRM");
-					this.OnHERT_RWNO_DNRMChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PSFN_RWNO_DNRM", DbType="SmallInt", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<short> PSFN_RWNO_DNRM
-		{
-			get
-			{
-				return this._PSFN_RWNO_DNRM;
-			}
-			set
-			{
-				if ((this._PSFN_RWNO_DNRM != value))
-				{
-					this.OnPSFN_RWNO_DNRMChanging(value);
-					this.SendPropertyChanging();
-					this._PSFN_RWNO_DNRM = value;
-					this.SendPropertyChanged("PSFN_RWNO_DNRM");
-					this.OnPSFN_RWNO_DNRMChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EXAM_RWNO_DNRM", DbType="SmallInt", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<short> EXAM_RWNO_DNRM
-		{
-			get
-			{
-				return this._EXAM_RWNO_DNRM;
-			}
-			set
-			{
-				if ((this._EXAM_RWNO_DNRM != value))
-				{
-					this.OnEXAM_RWNO_DNRMChanging(value);
-					this.SendPropertyChanging();
-					this._EXAM_RWNO_DNRM = value;
-					this.SendPropertyChanged("EXAM_RWNO_DNRM");
-					this.OnEXAM_RWNO_DNRMChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BDFT_RWNO_DNRM", DbType="SmallInt", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<short> BDFT_RWNO_DNRM
-		{
-			get
-			{
-				return this._BDFT_RWNO_DNRM;
-			}
-			set
-			{
-				if ((this._BDFT_RWNO_DNRM != value))
-				{
-					this.OnBDFT_RWNO_DNRMChanging(value);
-					this.SendPropertyChanging();
-					this._BDFT_RWNO_DNRM = value;
-					this.SendPropertyChanged("BDFT_RWNO_DNRM");
-					this.OnBDFT_RWNO_DNRMChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MBSP_STRT_DATE", DbType="Date", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<System.DateTime> MBSP_STRT_DATE
-		{
-			get
-			{
-				return this._MBSP_STRT_DATE;
-			}
-			set
-			{
-				if ((this._MBSP_STRT_DATE != value))
-				{
-					this.OnMBSP_STRT_DATEChanging(value);
-					this.SendPropertyChanging();
-					this._MBSP_STRT_DATE = value;
-					this.SendPropertyChanged("MBSP_STRT_DATE");
-					this.OnMBSP_STRT_DATEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MBSP_END_DATE", DbType="Date", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<System.DateTime> MBSP_END_DATE
-		{
-			get
-			{
-				return this._MBSP_END_DATE;
-			}
-			set
-			{
-				if ((this._MBSP_END_DATE != value))
-				{
-					this.OnMBSP_END_DATEChanging(value);
-					this.SendPropertyChanging();
-					this._MBSP_END_DATE = value;
-					this.SendPropertyChanged("MBSP_END_DATE");
-					this.OnMBSP_END_DATEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CONF_STAT", DbType="VarChar(3) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
-		public string CONF_STAT
-		{
-			get
-			{
-				return this._CONF_STAT;
-			}
-			set
-			{
-				if ((this._CONF_STAT != value))
-				{
-					this.OnCONF_STATChanging(value);
-					this.SendPropertyChanging();
-					this._CONF_STAT = value;
-					this.SendPropertyChanged("CONF_STAT");
-					this.OnCONF_STATChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CONF_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<System.DateTime> CONF_DATE
-		{
-			get
-			{
-				return this._CONF_DATE;
-			}
-			set
-			{
-				if ((this._CONF_DATE != value))
-				{
-					this.OnCONF_DATEChanging(value);
-					this.SendPropertyChanging();
-					this._CONF_DATE = value;
-					this.SendPropertyChanged("CONF_DATE");
-					this.OnCONF_DATEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FIGH_STAT", DbType="VarChar(3) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
-		public string FIGH_STAT
-		{
-			get
-			{
-				return this._FIGH_STAT;
-			}
-			set
-			{
-				if ((this._FIGH_STAT != value))
-				{
-					this.OnFIGH_STATChanging(value);
-					this.SendPropertyChanging();
-					this._FIGH_STAT = value;
-					this.SendPropertyChanged("FIGH_STAT");
-					this.OnFIGH_STATChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RQST_RQID", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<long> RQST_RQID
-		{
-			get
-			{
-				return this._RQST_RQID;
-			}
-			set
-			{
-				if ((this._RQST_RQID != value))
-				{
-					if (this._Request.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnRQST_RQIDChanging(value);
-					this.SendPropertyChanging();
-					this._RQST_RQID = value;
-					this.SendPropertyChanged("RQST_RQID");
-					this.OnRQST_RQIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NAME_DNRM", DbType="NVarChar(500)", UpdateCheck=UpdateCheck.Never)]
-		public string NAME_DNRM
-		{
-			get
-			{
-				return this._NAME_DNRM;
-			}
-			set
-			{
-				if ((this._NAME_DNRM != value))
-				{
-					this.OnNAME_DNRMChanging(value);
-					this.SendPropertyChanging();
-					this._NAME_DNRM = value;
-					this.SendPropertyChanged("NAME_DNRM");
-					this.OnNAME_DNRMChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FRST_NAME_DNRM", DbType="NVarChar(250)", UpdateCheck=UpdateCheck.Never)]
-		public string FRST_NAME_DNRM
-		{
-			get
-			{
-				return this._FRST_NAME_DNRM;
-			}
-			set
-			{
-				if ((this._FRST_NAME_DNRM != value))
-				{
-					this.OnFRST_NAME_DNRMChanging(value);
-					this.SendPropertyChanging();
-					this._FRST_NAME_DNRM = value;
-					this.SendPropertyChanged("FRST_NAME_DNRM");
-					this.OnFRST_NAME_DNRMChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LAST_NAME_DNRM", DbType="NVarChar(250)", UpdateCheck=UpdateCheck.Never)]
-		public string LAST_NAME_DNRM
-		{
-			get
-			{
-				return this._LAST_NAME_DNRM;
-			}
-			set
-			{
-				if ((this._LAST_NAME_DNRM != value))
-				{
-					this.OnLAST_NAME_DNRMChanging(value);
-					this.SendPropertyChanging();
-					this._LAST_NAME_DNRM = value;
-					this.SendPropertyChanged("LAST_NAME_DNRM");
-					this.OnLAST_NAME_DNRMChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FATH_NAME_DNRM", DbType="NVarChar(250)", UpdateCheck=UpdateCheck.Never)]
-		public string FATH_NAME_DNRM
-		{
-			get
-			{
-				return this._FATH_NAME_DNRM;
-			}
-			set
-			{
-				if ((this._FATH_NAME_DNRM != value))
-				{
-					this.OnFATH_NAME_DNRMChanging(value);
-					this.SendPropertyChanging();
-					this._FATH_NAME_DNRM = value;
-					this.SendPropertyChanged("FATH_NAME_DNRM");
-					this.OnFATH_NAME_DNRMChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_POST_ADRS_DNRM", DbType="NVarChar(1000)", UpdateCheck=UpdateCheck.Never)]
-		public string POST_ADRS_DNRM
-		{
-			get
-			{
-				return this._POST_ADRS_DNRM;
-			}
-			set
-			{
-				if ((this._POST_ADRS_DNRM != value))
-				{
-					this.OnPOST_ADRS_DNRMChanging(value);
-					this.SendPropertyChanging();
-					this._POST_ADRS_DNRM = value;
-					this.SendPropertyChanged("POST_ADRS_DNRM");
-					this.OnPOST_ADRS_DNRMChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SEX_TYPE_DNRM", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
-		public string SEX_TYPE_DNRM
-		{
-			get
-			{
-				return this._SEX_TYPE_DNRM;
-			}
-			set
-			{
-				if ((this._SEX_TYPE_DNRM != value))
-				{
-					this.OnSEX_TYPE_DNRMChanging(value);
-					this.SendPropertyChanging();
-					this._SEX_TYPE_DNRM = value;
-					this.SendPropertyChanged("SEX_TYPE_DNRM");
-					this.OnSEX_TYPE_DNRMChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BRTH_DATE_DNRM", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<System.DateTime> BRTH_DATE_DNRM
-		{
-			get
-			{
-				return this._BRTH_DATE_DNRM;
-			}
-			set
-			{
-				if ((this._BRTH_DATE_DNRM != value))
-				{
-					this.OnBRTH_DATE_DNRMChanging(value);
-					this.SendPropertyChanging();
-					this._BRTH_DATE_DNRM = value;
-					this.SendPropertyChanged("BRTH_DATE_DNRM");
-					this.OnBRTH_DATE_DNRMChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CELL_PHON_DNRM", DbType="VarChar(11)", UpdateCheck=UpdateCheck.Never)]
-		public string CELL_PHON_DNRM
-		{
-			get
-			{
-				return this._CELL_PHON_DNRM;
-			}
-			set
-			{
-				if ((this._CELL_PHON_DNRM != value))
-				{
-					this.OnCELL_PHON_DNRMChanging(value);
-					this.SendPropertyChanging();
-					this._CELL_PHON_DNRM = value;
-					this.SendPropertyChanged("CELL_PHON_DNRM");
-					this.OnCELL_PHON_DNRMChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TELL_PHON_DNRM", DbType="VarChar(11)", UpdateCheck=UpdateCheck.Never)]
-		public string TELL_PHON_DNRM
-		{
-			get
-			{
-				return this._TELL_PHON_DNRM;
-			}
-			set
-			{
-				if ((this._TELL_PHON_DNRM != value))
-				{
-					this.OnTELL_PHON_DNRMChanging(value);
-					this.SendPropertyChanging();
-					this._TELL_PHON_DNRM = value;
-					this.SendPropertyChanged("TELL_PHON_DNRM");
-					this.OnTELL_PHON_DNRMChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FGPB_TYPE_DNRM", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
-		public string FGPB_TYPE_DNRM
-		{
-			get
-			{
-				return this._FGPB_TYPE_DNRM;
-			}
-			set
-			{
-				if ((this._FGPB_TYPE_DNRM != value))
-				{
-					this.OnFGPB_TYPE_DNRMChanging(value);
-					this.SendPropertyChanging();
-					this._FGPB_TYPE_DNRM = value;
-					this.SendPropertyChanged("FGPB_TYPE_DNRM");
-					this.OnFGPB_TYPE_DNRMChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_INSR_NUMB_DNRM", DbType="VarChar(10)", UpdateCheck=UpdateCheck.Never)]
-		public string INSR_NUMB_DNRM
-		{
-			get
-			{
-				return this._INSR_NUMB_DNRM;
-			}
-			set
-			{
-				if ((this._INSR_NUMB_DNRM != value))
-				{
-					this.OnINSR_NUMB_DNRMChanging(value);
-					this.SendPropertyChanging();
-					this._INSR_NUMB_DNRM = value;
-					this.SendPropertyChanged("INSR_NUMB_DNRM");
-					this.OnINSR_NUMB_DNRMChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_INSR_DATE_DNRM", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<System.DateTime> INSR_DATE_DNRM
-		{
-			get
-			{
-				return this._INSR_DATE_DNRM;
-			}
-			set
-			{
-				if ((this._INSR_DATE_DNRM != value))
-				{
-					this.OnINSR_DATE_DNRMChanging(value);
-					this.SendPropertyChanging();
-					this._INSR_DATE_DNRM = value;
-					this.SendPropertyChanged("INSR_DATE_DNRM");
-					this.OnINSR_DATE_DNRMChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TEST_DATE_DNRM", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<System.DateTime> TEST_DATE_DNRM
-		{
-			get
-			{
-				return this._TEST_DATE_DNRM;
-			}
-			set
-			{
-				if ((this._TEST_DATE_DNRM != value))
-				{
-					this.OnTEST_DATE_DNRMChanging(value);
-					this.SendPropertyChanging();
-					this._TEST_DATE_DNRM = value;
-					this.SendPropertyChanged("TEST_DATE_DNRM");
-					this.OnTEST_DATE_DNRMChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CAMP_DATE_DNRM", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<System.DateTime> CAMP_DATE_DNRM
-		{
-			get
-			{
-				return this._CAMP_DATE_DNRM;
-			}
-			set
-			{
-				if ((this._CAMP_DATE_DNRM != value))
-				{
-					this.OnCAMP_DATE_DNRMChanging(value);
-					this.SendPropertyChanging();
-					this._CAMP_DATE_DNRM = value;
-					this.SendPropertyChanged("CAMP_DATE_DNRM");
-					this.OnCAMP_DATE_DNRMChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CTGY_CODE_DNRM", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<long> CTGY_CODE_DNRM
-		{
-			get
-			{
-				return this._CTGY_CODE_DNRM;
-			}
-			set
-			{
-				if ((this._CTGY_CODE_DNRM != value))
-				{
-					if (this._Category_Belt.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnCTGY_CODE_DNRMChanging(value);
-					this.SendPropertyChanging();
-					this._CTGY_CODE_DNRM = value;
-					this.SendPropertyChanged("CTGY_CODE_DNRM");
-					this.OnCTGY_CODE_DNRMChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MTOD_CODE_DNRM", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<long> MTOD_CODE_DNRM
-		{
-			get
-			{
-				return this._MTOD_CODE_DNRM;
-			}
-			set
-			{
-				if ((this._MTOD_CODE_DNRM != value))
-				{
-					if (this._Method.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnMTOD_CODE_DNRMChanging(value);
-					this.SendPropertyChanging();
-					this._MTOD_CODE_DNRM = value;
-					this.SendPropertyChanged("MTOD_CODE_DNRM");
-					this.OnMTOD_CODE_DNRMChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CLUB_CODE_DNRM", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<long> CLUB_CODE_DNRM
-		{
-			get
-			{
-				return this._CLUB_CODE_DNRM;
-			}
-			set
-			{
-				if ((this._CLUB_CODE_DNRM != value))
-				{
-					if (this._Club.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnCLUB_CODE_DNRMChanging(value);
-					this.SendPropertyChanging();
-					this._CLUB_CODE_DNRM = value;
-					this.SendPropertyChanged("CLUB_CODE_DNRM");
-					this.OnCLUB_CODE_DNRMChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_COCH_FILE_NO_DNRM", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<long> COCH_FILE_NO_DNRM
-		{
-			get
-			{
-				return this._COCH_FILE_NO_DNRM;
-			}
-			set
-			{
-				if ((this._COCH_FILE_NO_DNRM != value))
-				{
-					this.OnCOCH_FILE_NO_DNRMChanging(value);
-					this.SendPropertyChanging();
-					this._COCH_FILE_NO_DNRM = value;
-					this.SendPropertyChanged("COCH_FILE_NO_DNRM");
-					this.OnCOCH_FILE_NO_DNRMChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_COCH_CRTF_YEAR_DNRM", DbType="SmallInt", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<short> COCH_CRTF_YEAR_DNRM
-		{
-			get
-			{
-				return this._COCH_CRTF_YEAR_DNRM;
-			}
-			set
-			{
-				if ((this._COCH_CRTF_YEAR_DNRM != value))
-				{
-					this.OnCOCH_CRTF_YEAR_DNRMChanging(value);
-					this.SendPropertyChanging();
-					this._COCH_CRTF_YEAR_DNRM = value;
-					this.SendPropertyChanged("COCH_CRTF_YEAR_DNRM");
-					this.OnCOCH_CRTF_YEAR_DNRMChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CBMT_CODE_DNRM", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<long> CBMT_CODE_DNRM
-		{
-			get
-			{
-				return this._CBMT_CODE_DNRM;
-			}
-			set
-			{
-				if ((this._CBMT_CODE_DNRM != value))
-				{
-					this.OnCBMT_CODE_DNRMChanging(value);
-					this.SendPropertyChanging();
-					this._CBMT_CODE_DNRM = value;
-					this.SendPropertyChanged("CBMT_CODE_DNRM");
-					this.OnCBMT_CODE_DNRMChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DAY_TYPE_DNRM", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
-		public string DAY_TYPE_DNRM
-		{
-			get
-			{
-				return this._DAY_TYPE_DNRM;
-			}
-			set
-			{
-				if ((this._DAY_TYPE_DNRM != value))
-				{
-					this.OnDAY_TYPE_DNRMChanging(value);
-					this.SendPropertyChanging();
-					this._DAY_TYPE_DNRM = value;
-					this.SendPropertyChanged("DAY_TYPE_DNRM");
-					this.OnDAY_TYPE_DNRMChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ATTN_TIME_DNRM", DbType="Time", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<System.TimeSpan> ATTN_TIME_DNRM
-		{
-			get
-			{
-				return this._ATTN_TIME_DNRM;
-			}
-			set
-			{
-				if ((this._ATTN_TIME_DNRM != value))
-				{
-					this.OnATTN_TIME_DNRMChanging(value);
-					this.SendPropertyChanging();
-					this._ATTN_TIME_DNRM = value;
-					this.SendPropertyChanged("ATTN_TIME_DNRM");
-					this.OnATTN_TIME_DNRMChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ACTV_TAG_DNRM", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
-		public string ACTV_TAG_DNRM
-		{
-			get
-			{
-				return this._ACTV_TAG_DNRM;
-			}
-			set
-			{
-				if ((this._ACTV_TAG_DNRM != value))
-				{
-					this.OnACTV_TAG_DNRMChanging(value);
-					this.SendPropertyChanging();
-					this._ACTV_TAG_DNRM = value;
-					this.SendPropertyChanged("ACTV_TAG_DNRM");
-					this.OnACTV_TAG_DNRMChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BLOD_GROP_DNRM", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
-		public string BLOD_GROP_DNRM
-		{
-			get
-			{
-				return this._BLOD_GROP_DNRM;
-			}
-			set
-			{
-				if ((this._BLOD_GROP_DNRM != value))
-				{
-					this.OnBLOD_GROP_DNRMChanging(value);
-					this.SendPropertyChanging();
-					this._BLOD_GROP_DNRM = value;
-					this.SendPropertyChanged("BLOD_GROP_DNRM");
-					this.OnBLOD_GROP_DNRMChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FIGH_FILE_NO", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<long> FIGH_FILE_NO
-		{
-			get
-			{
-				return this._FIGH_FILE_NO;
-			}
-			set
-			{
-				if ((this._FIGH_FILE_NO != value))
-				{
-					if (this._Fighter1.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnFIGH_FILE_NOChanging(value);
-					this.SendPropertyChanging();
-					this._FIGH_FILE_NO = value;
-					this.SendPropertyChanged("FIGH_FILE_NO");
-					this.OnFIGH_FILE_NOChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IMAG_RCDC_RCID_DNRM", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<long> IMAG_RCDC_RCID_DNRM
-		{
-			get
-			{
-				return this._IMAG_RCDC_RCID_DNRM;
-			}
-			set
-			{
-				if ((this._IMAG_RCDC_RCID_DNRM != value))
-				{
-					this.OnIMAG_RCDC_RCID_DNRMChanging(value);
-					this.SendPropertyChanging();
-					this._IMAG_RCDC_RCID_DNRM = value;
-					this.SendPropertyChanged("IMAG_RCDC_RCID_DNRM");
-					this.OnIMAG_RCDC_RCID_DNRMChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IMAG_RWNO_DNRM", DbType="SmallInt", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<short> IMAG_RWNO_DNRM
-		{
-			get
-			{
-				return this._IMAG_RWNO_DNRM;
-			}
-			set
-			{
-				if ((this._IMAG_RWNO_DNRM != value))
-				{
-					this.OnIMAG_RWNO_DNRMChanging(value);
-					this.SendPropertyChanging();
-					this._IMAG_RWNO_DNRM = value;
-					this.SendPropertyChanged("IMAG_RWNO_DNRM");
-					this.OnIMAG_RWNO_DNRMChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CARD_NUMB_DNRM", DbType="VarChar(50)", UpdateCheck=UpdateCheck.Never)]
-		public string CARD_NUMB_DNRM
-		{
-			get
-			{
-				return this._CARD_NUMB_DNRM;
-			}
-			set
-			{
-				if ((this._CARD_NUMB_DNRM != value))
-				{
-					this.OnCARD_NUMB_DNRMChanging(value);
-					this.SendPropertyChanging();
-					this._CARD_NUMB_DNRM = value;
-					this.SendPropertyChanged("CARD_NUMB_DNRM");
-					this.OnCARD_NUMB_DNRMChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FNGR_PRNT_DNRM", DbType="VarChar(20)", UpdateCheck=UpdateCheck.Never)]
-		public string FNGR_PRNT_DNRM
-		{
-			get
-			{
-				return this._FNGR_PRNT_DNRM;
-			}
-			set
-			{
-				if ((this._FNGR_PRNT_DNRM != value))
-				{
-					this.OnFNGR_PRNT_DNRMChanging(value);
-					this.SendPropertyChanging();
-					this._FNGR_PRNT_DNRM = value;
-					this.SendPropertyChanged("FNGR_PRNT_DNRM");
-					this.OnFNGR_PRNT_DNRMChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SUNT_BUNT_DEPT_ORGN_CODE_DNRM", DbType="VarChar(2)", UpdateCheck=UpdateCheck.Never)]
-		public string SUNT_BUNT_DEPT_ORGN_CODE_DNRM
-		{
-			get
-			{
-				return this._SUNT_BUNT_DEPT_ORGN_CODE_DNRM;
-			}
-			set
-			{
-				if ((this._SUNT_BUNT_DEPT_ORGN_CODE_DNRM != value))
-				{
-					if (this._Sub_Unit.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnSUNT_BUNT_DEPT_ORGN_CODE_DNRMChanging(value);
-					this.SendPropertyChanging();
-					this._SUNT_BUNT_DEPT_ORGN_CODE_DNRM = value;
-					this.SendPropertyChanged("SUNT_BUNT_DEPT_ORGN_CODE_DNRM");
-					this.OnSUNT_BUNT_DEPT_ORGN_CODE_DNRMChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SUNT_BUNT_DEPT_CODE_DNRM", DbType="VarChar(2)", UpdateCheck=UpdateCheck.Never)]
-		public string SUNT_BUNT_DEPT_CODE_DNRM
-		{
-			get
-			{
-				return this._SUNT_BUNT_DEPT_CODE_DNRM;
-			}
-			set
-			{
-				if ((this._SUNT_BUNT_DEPT_CODE_DNRM != value))
-				{
-					if (this._Sub_Unit.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnSUNT_BUNT_DEPT_CODE_DNRMChanging(value);
-					this.SendPropertyChanging();
-					this._SUNT_BUNT_DEPT_CODE_DNRM = value;
-					this.SendPropertyChanged("SUNT_BUNT_DEPT_CODE_DNRM");
-					this.OnSUNT_BUNT_DEPT_CODE_DNRMChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SUNT_BUNT_CODE_DNRM", DbType="VarChar(2)", UpdateCheck=UpdateCheck.Never)]
-		public string SUNT_BUNT_CODE_DNRM
-		{
-			get
-			{
-				return this._SUNT_BUNT_CODE_DNRM;
-			}
-			set
-			{
-				if ((this._SUNT_BUNT_CODE_DNRM != value))
-				{
-					if (this._Sub_Unit.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnSUNT_BUNT_CODE_DNRMChanging(value);
-					this.SendPropertyChanging();
-					this._SUNT_BUNT_CODE_DNRM = value;
-					this.SendPropertyChanged("SUNT_BUNT_CODE_DNRM");
-					this.OnSUNT_BUNT_CODE_DNRMChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SUNT_CODE_DNRM", DbType="VarChar(4)", UpdateCheck=UpdateCheck.Never)]
-		public string SUNT_CODE_DNRM
-		{
-			get
-			{
-				return this._SUNT_CODE_DNRM;
-			}
-			set
-			{
-				if ((this._SUNT_CODE_DNRM != value))
-				{
-					if (this._Sub_Unit.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnSUNT_CODE_DNRMChanging(value);
-					this.SendPropertyChanging();
-					this._SUNT_CODE_DNRM = value;
-					this.SendPropertyChanged("SUNT_CODE_DNRM");
-					this.OnSUNT_CODE_DNRMChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CORD_X_DNRM", DbType="Real", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<float> CORD_X_DNRM
-		{
-			get
-			{
-				return this._CORD_X_DNRM;
-			}
-			set
-			{
-				if ((this._CORD_X_DNRM != value))
-				{
-					this.OnCORD_X_DNRMChanging(value);
-					this.SendPropertyChanging();
-					this._CORD_X_DNRM = value;
-					this.SendPropertyChanged("CORD_X_DNRM");
-					this.OnCORD_X_DNRMChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CORD_Y_DNRM", DbType="Real", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<float> CORD_Y_DNRM
-		{
-			get
-			{
-				return this._CORD_Y_DNRM;
-			}
-			set
-			{
-				if ((this._CORD_Y_DNRM != value))
-				{
-					this.OnCORD_Y_DNRMChanging(value);
-					this.SendPropertyChanging();
-					this._CORD_Y_DNRM = value;
-					this.SendPropertyChanged("CORD_Y_DNRM");
-					this.OnCORD_Y_DNRMChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SERV_NO_DNRM", DbType="NVarChar(50)", UpdateCheck=UpdateCheck.Never)]
-		public string SERV_NO_DNRM
-		{
-			get
-			{
-				return this._SERV_NO_DNRM;
-			}
-			set
-			{
-				if ((this._SERV_NO_DNRM != value))
-				{
-					this.OnSERV_NO_DNRMChanging(value);
-					this.SendPropertyChanging();
-					this._SERV_NO_DNRM = value;
-					this.SendPropertyChanged("SERV_NO_DNRM");
-					this.OnSERV_NO_DNRMChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NATL_CODE_DNRM", DbType="VarChar(10)", UpdateCheck=UpdateCheck.Never)]
-		public string NATL_CODE_DNRM
-		{
-			get
-			{
-				return this._NATL_CODE_DNRM;
-			}
-			set
-			{
-				if ((this._NATL_CODE_DNRM != value))
-				{
-					this.OnNATL_CODE_DNRMChanging(value);
-					this.SendPropertyChanging();
-					this._NATL_CODE_DNRM = value;
-					this.SendPropertyChanged("NATL_CODE_DNRM");
-					this.OnNATL_CODE_DNRMChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GLOB_CODE_DNRM", DbType="NVarChar(50)", UpdateCheck=UpdateCheck.Never)]
-		public string GLOB_CODE_DNRM
-		{
-			get
-			{
-				return this._GLOB_CODE_DNRM;
-			}
-			set
-			{
-				if ((this._GLOB_CODE_DNRM != value))
-				{
-					this.OnGLOB_CODE_DNRMChanging(value);
-					this.SendPropertyChanging();
-					this._GLOB_CODE_DNRM = value;
-					this.SendPropertyChanged("GLOB_CODE_DNRM");
-					this.OnGLOB_CODE_DNRMChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CHAT_ID_DNRM", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<long> CHAT_ID_DNRM
-		{
-			get
-			{
-				return this._CHAT_ID_DNRM;
-			}
-			set
-			{
-				if ((this._CHAT_ID_DNRM != value))
-				{
-					this.OnCHAT_ID_DNRMChanging(value);
-					this.SendPropertyChanging();
-					this._CHAT_ID_DNRM = value;
-					this.SendPropertyChanged("CHAT_ID_DNRM");
-					this.OnCHAT_ID_DNRMChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MOM_CELL_PHON_DNRM", DbType="VarChar(11)", UpdateCheck=UpdateCheck.Never)]
-		public string MOM_CELL_PHON_DNRM
-		{
-			get
-			{
-				return this._MOM_CELL_PHON_DNRM;
-			}
-			set
-			{
-				if ((this._MOM_CELL_PHON_DNRM != value))
-				{
-					this.OnMOM_CELL_PHON_DNRMChanging(value);
-					this.SendPropertyChanging();
-					this._MOM_CELL_PHON_DNRM = value;
-					this.SendPropertyChanged("MOM_CELL_PHON_DNRM");
-					this.OnMOM_CELL_PHON_DNRMChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MOM_TELL_PHON_DNRM", DbType="VarChar(11)", UpdateCheck=UpdateCheck.Never)]
-		public string MOM_TELL_PHON_DNRM
-		{
-			get
-			{
-				return this._MOM_TELL_PHON_DNRM;
-			}
-			set
-			{
-				if ((this._MOM_TELL_PHON_DNRM != value))
-				{
-					this.OnMOM_TELL_PHON_DNRMChanging(value);
-					this.SendPropertyChanging();
-					this._MOM_TELL_PHON_DNRM = value;
-					this.SendPropertyChanged("MOM_TELL_PHON_DNRM");
-					this.OnMOM_TELL_PHON_DNRMChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MOM_CHAT_ID_DNRM", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<long> MOM_CHAT_ID_DNRM
-		{
-			get
-			{
-				return this._MOM_CHAT_ID_DNRM;
-			}
-			set
-			{
-				if ((this._MOM_CHAT_ID_DNRM != value))
-				{
-					this.OnMOM_CHAT_ID_DNRMChanging(value);
-					this.SendPropertyChanging();
-					this._MOM_CHAT_ID_DNRM = value;
-					this.SendPropertyChanged("MOM_CHAT_ID_DNRM");
-					this.OnMOM_CHAT_ID_DNRMChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DAD_CELL_PHON_DNRM", DbType="VarChar(11)", UpdateCheck=UpdateCheck.Never)]
-		public string DAD_CELL_PHON_DNRM
-		{
-			get
-			{
-				return this._DAD_CELL_PHON_DNRM;
-			}
-			set
-			{
-				if ((this._DAD_CELL_PHON_DNRM != value))
-				{
-					this.OnDAD_CELL_PHON_DNRMChanging(value);
-					this.SendPropertyChanging();
-					this._DAD_CELL_PHON_DNRM = value;
-					this.SendPropertyChanged("DAD_CELL_PHON_DNRM");
-					this.OnDAD_CELL_PHON_DNRMChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DAD_TELL_PHON_DNRM", DbType="VarChar(11)", UpdateCheck=UpdateCheck.Never)]
-		public string DAD_TELL_PHON_DNRM
-		{
-			get
-			{
-				return this._DAD_TELL_PHON_DNRM;
-			}
-			set
-			{
-				if ((this._DAD_TELL_PHON_DNRM != value))
-				{
-					this.OnDAD_TELL_PHON_DNRMChanging(value);
-					this.SendPropertyChanging();
-					this._DAD_TELL_PHON_DNRM = value;
-					this.SendPropertyChanged("DAD_TELL_PHON_DNRM");
-					this.OnDAD_TELL_PHON_DNRMChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DAD_CHAT_ID_DNRM", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<long> DAD_CHAT_ID_DNRM
-		{
-			get
-			{
-				return this._DAD_CHAT_ID_DNRM;
-			}
-			set
-			{
-				if ((this._DAD_CHAT_ID_DNRM != value))
-				{
-					this.OnDAD_CHAT_ID_DNRMChanging(value);
-					this.SendPropertyChanging();
-					this._DAD_CHAT_ID_DNRM = value;
-					this.SendPropertyChanged("DAD_CHAT_ID_DNRM");
-					this.OnDAD_CHAT_ID_DNRMChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DPST_ACNT_SLRY_BANK_DNRM", DbType="NVarChar(50)", UpdateCheck=UpdateCheck.Never)]
-		public string DPST_ACNT_SLRY_BANK_DNRM
-		{
-			get
-			{
-				return this._DPST_ACNT_SLRY_BANK_DNRM;
-			}
-			set
-			{
-				if ((this._DPST_ACNT_SLRY_BANK_DNRM != value))
-				{
-					this.OnDPST_ACNT_SLRY_BANK_DNRMChanging(value);
-					this.SendPropertyChanging();
-					this._DPST_ACNT_SLRY_BANK_DNRM = value;
-					this.SendPropertyChanged("DPST_ACNT_SLRY_BANK_DNRM");
-					this.OnDPST_ACNT_SLRY_BANK_DNRMChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DPST_ACNT_SLRY_DNRM", DbType="NVarChar(50)", UpdateCheck=UpdateCheck.Never)]
-		public string DPST_ACNT_SLRY_DNRM
-		{
-			get
-			{
-				return this._DPST_ACNT_SLRY_DNRM;
-			}
-			set
-			{
-				if ((this._DPST_ACNT_SLRY_DNRM != value))
-				{
-					this.OnDPST_ACNT_SLRY_DNRMChanging(value);
-					this.SendPropertyChanging();
-					this._DPST_ACNT_SLRY_DNRM = value;
-					this.SendPropertyChanged("DPST_ACNT_SLRY_DNRM");
-					this.OnDPST_ACNT_SLRY_DNRMChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RTNG_NUMB_DNRM", DbType="SmallInt", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<short> RTNG_NUMB_DNRM
-		{
-			get
-			{
-				return this._RTNG_NUMB_DNRM;
-			}
-			set
-			{
-				if ((this._RTNG_NUMB_DNRM != value))
-				{
-					this.OnRTNG_NUMB_DNRMChanging(value);
-					this.SendPropertyChanging();
-					this._RTNG_NUMB_DNRM = value;
-					this.SendPropertyChanged("RTNG_NUMB_DNRM");
-					this.OnRTNG_NUMB_DNRMChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_BY", DbType="VarChar(250)", UpdateCheck=UpdateCheck.Never)]
-		public string CRET_BY
-		{
-			get
-			{
-				return this._CRET_BY;
-			}
-			set
-			{
-				if ((this._CRET_BY != value))
-				{
-					this.OnCRET_BYChanging(value);
-					this.SendPropertyChanging();
-					this._CRET_BY = value;
-					this.SendPropertyChanged("CRET_BY");
-					this.OnCRET_BYChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<System.DateTime> CRET_DATE
-		{
-			get
-			{
-				return this._CRET_DATE;
-			}
-			set
-			{
-				if ((this._CRET_DATE != value))
-				{
-					this.OnCRET_DATEChanging(value);
-					this.SendPropertyChanging();
-					this._CRET_DATE = value;
-					this.SendPropertyChanged("CRET_DATE");
-					this.OnCRET_DATEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_BY", DbType="VarChar(250)", UpdateCheck=UpdateCheck.Never)]
-		public string MDFY_BY
-		{
-			get
-			{
-				return this._MDFY_BY;
-			}
-			set
-			{
-				if ((this._MDFY_BY != value))
-				{
-					this.OnMDFY_BYChanging(value);
-					this.SendPropertyChanging();
-					this._MDFY_BY = value;
-					this.SendPropertyChanged("MDFY_BY");
-					this.OnMDFY_BYChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<System.DateTime> MDFY_DATE
-		{
-			get
-			{
-				return this._MDFY_DATE;
-			}
-			set
-			{
-				if ((this._MDFY_DATE != value))
-				{
-					this.OnMDFY_DATEChanging(value);
-					this.SendPropertyChanging();
-					this._MDFY_DATE = value;
-					this.SendPropertyChanged("MDFY_DATE");
-					this.OnMDFY_DATEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Campitition", Storage="_Campititions", ThisKey="FILE_NO", OtherKey="FIGH_FILE_NO")]
-		public EntitySet<Campitition> Campititions
-		{
-			get
-			{
-				return this._Campititions;
-			}
-			set
-			{
-				this._Campititions.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Exam", Storage="_Exams", ThisKey="FILE_NO", OtherKey="FIGH_FILE_NO")]
-		public EntitySet<Exam> Exams
-		{
-			get
-			{
-				return this._Exams;
-			}
-			set
-			{
-				this._Exams.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Heart_Zone", Storage="_Heart_Zones", ThisKey="FILE_NO", OtherKey="FIGH_FILE_NO")]
-		public EntitySet<Heart_Zone> Heart_Zones
-		{
-			get
-			{
-				return this._Heart_Zones;
-			}
-			set
-			{
-				this._Heart_Zones.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Physical_Fitness", Storage="_Physical_Fitnesses", ThisKey="FILE_NO", OtherKey="FIGH_FILE_NO")]
-		public EntitySet<Physical_Fitness> Physical_Fitnesses
-		{
-			get
-			{
-				return this._Physical_Fitnesses;
-			}
-			set
-			{
-				this._Physical_Fitnesses.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Planning_Overview", Storage="_Planning_Overviews", ThisKey="FILE_NO", OtherKey="FIGH_FILE_NO")]
-		public EntitySet<Planning_Overview> Planning_Overviews
-		{
-			get
-			{
-				return this._Planning_Overviews;
-			}
-			set
-			{
-				this._Planning_Overviews.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Test", Storage="_Tests", ThisKey="FILE_NO", OtherKey="FIGH_FILE_NO")]
-		public EntitySet<Test> Tests
-		{
-			get
-			{
-				return this._Tests;
-			}
-			set
-			{
-				this._Tests.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Calculate_Calorie", Storage="_Calculate_Calories", ThisKey="FILE_NO", OtherKey="FIGH_FILE_NO")]
-		public EntitySet<Calculate_Calorie> Calculate_Calories
-		{
-			get
-			{
-				return this._Calculate_Calories;
-			}
-			set
-			{
-				this._Calculate_Calories.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Body_Fitness", Storage="_Body_Fitnesses", ThisKey="FILE_NO", OtherKey="FIGH_FILE_NO")]
-		public EntitySet<Body_Fitness> Body_Fitnesses
-		{
-			get
-			{
-				return this._Body_Fitnesses;
-			}
-			set
-			{
-				this._Body_Fitnesses.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Request_Row", Storage="_Request_Rows", ThisKey="FILE_NO", OtherKey="FIGH_FILE_NO")]
-		public EntitySet<Request_Row> Request_Rows
-		{
-			get
-			{
-				return this._Request_Rows;
-			}
-			set
-			{
-				this._Request_Rows.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Session_Meeting", Storage="_Session_Meetings", ThisKey="FILE_NO", OtherKey="COCH_FILE_NO_DNRM")]
-		public EntitySet<Session_Meeting> Session_Meetings
-		{
-			get
-			{
-				return this._Session_Meetings;
-			}
-			set
-			{
-				this._Session_Meetings.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Session", Storage="_Sessions", ThisKey="FILE_NO", OtherKey="COCH_FILE_NO_DNRM")]
-		public EntitySet<Session> Sessions
-		{
-			get
-			{
-				return this._Sessions;
-			}
-			set
-			{
-				this._Sessions.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Misc_Expense_Detail", Storage="_Misc_Expense_Details", ThisKey="FILE_NO", OtherKey="COCH_FILE_NO")]
-		public EntitySet<Misc_Expense_Detail> Misc_Expense_Details
-		{
-			get
-			{
-				return this._Misc_Expense_Details;
-			}
-			set
-			{
-				this._Misc_Expense_Details.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Payment_Expense", Storage="_Payment_Expenses", ThisKey="FILE_NO", OtherKey="COCH_FILE_NO")]
-		public EntitySet<Payment_Expense> Payment_Expenses
-		{
-			get
-			{
-				return this._Payment_Expenses;
-			}
-			set
-			{
-				this._Payment_Expenses.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Misc_Expense", Storage="_Misc_Expenses", ThisKey="FILE_NO", OtherKey="COCH_FILE_NO")]
-		public EntitySet<Misc_Expense> Misc_Expenses
-		{
-			get
-			{
-				return this._Misc_Expenses;
-			}
-			set
-			{
-				this._Misc_Expenses.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Fighter_Public", Storage="_Fighter_Publics", ThisKey="FILE_NO", OtherKey="FIGH_FILE_NO")]
-		public EntitySet<Fighter_Public> Fighter_Publics
-		{
-			get
-			{
-				return this._Fighter_Publics;
-			}
-			set
-			{
-				this._Fighter_Publics.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Club_Method", Storage="_Club_Methods", ThisKey="FILE_NO", OtherKey="COCH_FILE_NO")]
-		public EntitySet<Club_Method> Club_Methods
-		{
-			get
-			{
-				return this._Club_Methods;
-			}
-			set
-			{
-				this._Club_Methods.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Payment_Discount", Storage="_Payment_Discounts", ThisKey="FILE_NO", OtherKey="FIGH_FILE_NO_DNRM")]
-		public EntitySet<Payment_Discount> Payment_Discounts
-		{
-			get
-			{
-				return this._Payment_Discounts;
-			}
-			set
-			{
-				this._Payment_Discounts.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Aggregation_Operation", Storage="_Aggregation_Operations", ThisKey="FILE_NO", OtherKey="COCH_FILE_NO")]
-		public EntitySet<Aggregation_Operation> Aggregation_Operations
-		{
-			get
-			{
-				return this._Aggregation_Operations;
-			}
-			set
-			{
-				this._Aggregation_Operations.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Payment_Method", Storage="_Payment_Methods", ThisKey="FILE_NO", OtherKey="FIGH_FILE_NO_DNRM")]
-		public EntitySet<Payment_Method> Payment_Methods
-		{
-			get
-			{
-				return this._Payment_Methods;
-			}
-			set
-			{
-				this._Payment_Methods.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Log_Operation", Storage="_Log_Operations", ThisKey="FILE_NO", OtherKey="FIGH_FILE_NO")]
-		public EntitySet<Log_Operation> Log_Operations
-		{
-			get
-			{
-				return this._Log_Operations;
-			}
-			set
-			{
-				this._Log_Operations.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Calculate_Expense_Coach", Storage="_Calculate_Expense_Coaches", ThisKey="FILE_NO", OtherKey="COCH_FILE_NO")]
-		public EntitySet<Calculate_Expense_Coach> Calculate_Expense_Coaches
-		{
-			get
-			{
-				return this._Calculate_Expense_Coaches;
-			}
-			set
-			{
-				this._Calculate_Expense_Coaches.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Gain_Loss_Rial", Storage="_Gain_Loss_Rials", ThisKey="FILE_NO", OtherKey="FIGH_FILE_NO")]
-		public EntitySet<Gain_Loss_Rial> Gain_Loss_Rials
-		{
-			get
-			{
-				return this._Gain_Loss_Rials;
-			}
-			set
-			{
-				this._Gain_Loss_Rials.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Fighter", Storage="_Fighters", ThisKey="FILE_NO", OtherKey="FIGH_FILE_NO")]
-		public EntitySet<Fighter> Fighters
-		{
-			get
-			{
-				return this._Fighters;
-			}
-			set
-			{
-				this._Fighters.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Member_Ship", Storage="_Member_Ships", ThisKey="FILE_NO", OtherKey="FIGH_FILE_NO")]
-		public EntitySet<Member_Ship> Member_Ships
-		{
-			get
-			{
-				return this._Member_Ships;
-			}
-			set
-			{
-				this._Member_Ships.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Fighter_Grouping", Storage="_Fighter_Groupings", ThisKey="FILE_NO", OtherKey="FIGH_FILE_NO")]
-		public EntitySet<Fighter_Grouping> Fighter_Groupings
-		{
-			get
-			{
-				return this._Fighter_Groupings;
-			}
-			set
-			{
-				this._Fighter_Groupings.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Note", Storage="_Notes", ThisKey="FILE_NO", OtherKey="FIGH_FILE_NO")]
-		public EntitySet<Note> Notes
-		{
-			get
-			{
-				return this._Notes;
-			}
-			set
-			{
-				this._Notes.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Payment_Detail", Storage="_Payment_Details", ThisKey="FILE_NO", OtherKey="FIGH_FILE_NO")]
-		public EntitySet<Payment_Detail> Payment_Details
-		{
-			get
-			{
-				return this._Payment_Details;
-			}
-			set
-			{
-				this._Payment_Details.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Attendance", Storage="_Attendances", ThisKey="FILE_NO", OtherKey="COCH_FILE_NO")]
-		public EntitySet<Attendance> Attendances
-		{
-			get
-			{
-				return this._Attendances;
-			}
-			set
-			{
-				this._Attendances.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Attendance1", Storage="_Attendances1", ThisKey="FILE_NO", OtherKey="FIGH_FILE_NO")]
-		public EntitySet<Attendance> Attendances1
-		{
-			get
-			{
-				return this._Attendances1;
-			}
-			set
-			{
-				this._Attendances1.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Aggregation_Operation_Detail", Storage="_Aggregation_Operation_Details", ThisKey="FILE_NO", OtherKey="FIGH_FILE_NO")]
-		public EntitySet<Aggregation_Operation_Detail> Aggregation_Operation_Details
-		{
-			get
-			{
-				return this._Aggregation_Operation_Details;
-			}
-			set
-			{
-				this._Aggregation_Operation_Details.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Fighter_RelationShip", Storage="_Fighter_RelationShips", ThisKey="FILE_NO", OtherKey="FGRS_FIGH_FILE_NO")]
-		public EntitySet<Fighter_RelationShip> Fighter_RelationShips
-		{
-			get
-			{
-				return this._Fighter_RelationShips;
-			}
-			set
-			{
-				this._Fighter_RelationShips.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Fighter_RelationShip1", Storage="_Fighter_RelationShips1", ThisKey="FILE_NO", OtherKey="FIGH_FILE_NO")]
-		public EntitySet<Fighter_RelationShip> Fighter_RelationShips1
-		{
-			get
-			{
-				return this._Fighter_RelationShips1;
-			}
-			set
-			{
-				this._Fighter_RelationShips1.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Fighter_Call", Storage="_Fighter_Calls", ThisKey="FILE_NO", OtherKey="FIGH_FILE_NO")]
-		public EntitySet<Fighter_Call> Fighter_Calls
-		{
-			get
-			{
-				return this._Fighter_Calls;
-			}
-			set
-			{
-				this._Fighter_Calls.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Fighter_Discount_Card", Storage="_Fighter_Discount_Cards", ThisKey="FILE_NO", OtherKey="FIGH_FILE_NO")]
-		public EntitySet<Fighter_Discount_Card> Fighter_Discount_Cards
-		{
-			get
-			{
-				return this._Fighter_Discount_Cards;
-			}
-			set
-			{
-				this._Fighter_Discount_Cards.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Club_Fighter", Storage="_Club", ThisKey="CLUB_CODE_DNRM", OtherKey="CODE", IsForeignKey=true)]
-		public Club Club
-		{
-			get
-			{
-				return this._Club.Entity;
-			}
-			set
-			{
-				Club previousValue = this._Club.Entity;
-				if (((previousValue != value) 
-							|| (this._Club.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Club.Entity = null;
-						previousValue.Fighters.Remove(this);
-					}
-					this._Club.Entity = value;
-					if ((value != null))
-					{
-						value.Fighters.Add(this);
-						this._CLUB_CODE_DNRM = value.CODE;
-					}
-					else
-					{
-						this._CLUB_CODE_DNRM = default(Nullable<long>);
-					}
-					this.SendPropertyChanged("Club");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Category_Belt_Fighter", Storage="_Category_Belt", ThisKey="CTGY_CODE_DNRM", OtherKey="CODE", IsForeignKey=true)]
-		public Category_Belt Category_Belt
-		{
-			get
-			{
-				return this._Category_Belt.Entity;
-			}
-			set
-			{
-				Category_Belt previousValue = this._Category_Belt.Entity;
-				if (((previousValue != value) 
-							|| (this._Category_Belt.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Category_Belt.Entity = null;
-						previousValue.Fighters.Remove(this);
-					}
-					this._Category_Belt.Entity = value;
-					if ((value != null))
-					{
-						value.Fighters.Add(this);
-						this._CTGY_CODE_DNRM = value.CODE;
-					}
-					else
-					{
-						this._CTGY_CODE_DNRM = default(Nullable<long>);
-					}
-					this.SendPropertyChanged("Category_Belt");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Fighter", Storage="_Fighter1", ThisKey="FIGH_FILE_NO", OtherKey="FILE_NO", IsForeignKey=true)]
-		public Fighter Fighter1
-		{
-			get
-			{
-				return this._Fighter1.Entity;
-			}
-			set
-			{
-				Fighter previousValue = this._Fighter1.Entity;
-				if (((previousValue != value) 
-							|| (this._Fighter1.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Fighter1.Entity = null;
-						previousValue.Fighters.Remove(this);
-					}
-					this._Fighter1.Entity = value;
-					if ((value != null))
-					{
-						value.Fighters.Add(this);
-						this._FIGH_FILE_NO = value.FILE_NO;
-					}
-					else
-					{
-						this._FIGH_FILE_NO = default(Nullable<long>);
-					}
-					this.SendPropertyChanged("Fighter1");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Method_Fighter", Storage="_Method", ThisKey="MTOD_CODE_DNRM", OtherKey="CODE", IsForeignKey=true)]
-		public Method Method
-		{
-			get
-			{
-				return this._Method.Entity;
-			}
-			set
-			{
-				Method previousValue = this._Method.Entity;
-				if (((previousValue != value) 
-							|| (this._Method.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Method.Entity = null;
-						previousValue.Fighters.Remove(this);
-					}
-					this._Method.Entity = value;
-					if ((value != null))
-					{
-						value.Fighters.Add(this);
-						this._MTOD_CODE_DNRM = value.CODE;
-					}
-					else
-					{
-						this._MTOD_CODE_DNRM = default(Nullable<long>);
-					}
-					this.SendPropertyChanged("Method");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Region_Fighter", Storage="_Region", ThisKey="REGN_PRVN_CNTY_CODE,REGN_PRVN_CODE,REGN_CODE", OtherKey="PRVN_CNTY_CODE,PRVN_CODE,CODE", IsForeignKey=true)]
-		public Region Region
-		{
-			get
-			{
-				return this._Region.Entity;
-			}
-			set
-			{
-				Region previousValue = this._Region.Entity;
-				if (((previousValue != value) 
-							|| (this._Region.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Region.Entity = null;
-						previousValue.Fighters.Remove(this);
-					}
-					this._Region.Entity = value;
-					if ((value != null))
-					{
-						value.Fighters.Add(this);
-						this._REGN_PRVN_CNTY_CODE = value.PRVN_CNTY_CODE;
-						this._REGN_PRVN_CODE = value.PRVN_CODE;
-						this._REGN_CODE = value.CODE;
-					}
-					else
-					{
-						this._REGN_PRVN_CNTY_CODE = default(string);
-						this._REGN_PRVN_CODE = default(string);
-						this._REGN_CODE = default(string);
-					}
-					this.SendPropertyChanged("Region");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Request_Fighter", Storage="_Request", ThisKey="RQST_RQID", OtherKey="RQID", IsForeignKey=true)]
-		public Request Request
-		{
-			get
-			{
-				return this._Request.Entity;
-			}
-			set
-			{
-				Request previousValue = this._Request.Entity;
-				if (((previousValue != value) 
-							|| (this._Request.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Request.Entity = null;
-						previousValue.Fighters.Remove(this);
-					}
-					this._Request.Entity = value;
-					if ((value != null))
-					{
-						value.Fighters.Add(this);
-						this._RQST_RQID = value.RQID;
-					}
-					else
-					{
-						this._RQST_RQID = default(Nullable<long>);
-					}
-					this.SendPropertyChanged("Request");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Sub_Unit_Fighter", Storage="_Sub_Unit", ThisKey="SUNT_BUNT_DEPT_ORGN_CODE_DNRM,SUNT_BUNT_DEPT_CODE_DNRM,SUNT_BUNT_CODE_DNRM,SUNT_C" +
-			"ODE_DNRM", OtherKey="BUNT_DEPT_ORGN_CODE,BUNT_DEPT_CODE,BUNT_CODE,CODE", IsForeignKey=true)]
-		public Sub_Unit Sub_Unit
-		{
-			get
-			{
-				return this._Sub_Unit.Entity;
-			}
-			set
-			{
-				Sub_Unit previousValue = this._Sub_Unit.Entity;
-				if (((previousValue != value) 
-							|| (this._Sub_Unit.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Sub_Unit.Entity = null;
-						previousValue.Fighters.Remove(this);
-					}
-					this._Sub_Unit.Entity = value;
-					if ((value != null))
-					{
-						value.Fighters.Add(this);
-						this._SUNT_BUNT_DEPT_ORGN_CODE_DNRM = value.BUNT_DEPT_ORGN_CODE;
-						this._SUNT_BUNT_DEPT_CODE_DNRM = value.BUNT_DEPT_CODE;
-						this._SUNT_BUNT_CODE_DNRM = value.BUNT_CODE;
-						this._SUNT_CODE_DNRM = value.CODE;
-					}
-					else
-					{
-						this._SUNT_BUNT_DEPT_ORGN_CODE_DNRM = default(string);
-						this._SUNT_BUNT_DEPT_CODE_DNRM = default(string);
-						this._SUNT_BUNT_CODE_DNRM = default(string);
-						this._SUNT_CODE_DNRM = default(string);
-					}
-					this.SendPropertyChanged("Sub_Unit");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Campititions(Campitition entity)
-		{
-			this.SendPropertyChanging();
-			entity.Fighter = this;
-		}
-		
-		private void detach_Campititions(Campitition entity)
-		{
-			this.SendPropertyChanging();
-			entity.Fighter = null;
-		}
-		
-		private void attach_Exams(Exam entity)
-		{
-			this.SendPropertyChanging();
-			entity.Fighter = this;
-		}
-		
-		private void detach_Exams(Exam entity)
-		{
-			this.SendPropertyChanging();
-			entity.Fighter = null;
-		}
-		
-		private void attach_Heart_Zones(Heart_Zone entity)
-		{
-			this.SendPropertyChanging();
-			entity.Fighter = this;
-		}
-		
-		private void detach_Heart_Zones(Heart_Zone entity)
-		{
-			this.SendPropertyChanging();
-			entity.Fighter = null;
-		}
-		
-		private void attach_Physical_Fitnesses(Physical_Fitness entity)
-		{
-			this.SendPropertyChanging();
-			entity.Fighter = this;
-		}
-		
-		private void detach_Physical_Fitnesses(Physical_Fitness entity)
-		{
-			this.SendPropertyChanging();
-			entity.Fighter = null;
-		}
-		
-		private void attach_Planning_Overviews(Planning_Overview entity)
-		{
-			this.SendPropertyChanging();
-			entity.Fighter = this;
-		}
-		
-		private void detach_Planning_Overviews(Planning_Overview entity)
-		{
-			this.SendPropertyChanging();
-			entity.Fighter = null;
-		}
-		
-		private void attach_Tests(Test entity)
-		{
-			this.SendPropertyChanging();
-			entity.Fighter = this;
-		}
-		
-		private void detach_Tests(Test entity)
-		{
-			this.SendPropertyChanging();
-			entity.Fighter = null;
-		}
-		
-		private void attach_Calculate_Calories(Calculate_Calorie entity)
-		{
-			this.SendPropertyChanging();
-			entity.Fighter = this;
-		}
-		
-		private void detach_Calculate_Calories(Calculate_Calorie entity)
-		{
-			this.SendPropertyChanging();
-			entity.Fighter = null;
-		}
-		
-		private void attach_Body_Fitnesses(Body_Fitness entity)
-		{
-			this.SendPropertyChanging();
-			entity.Fighter = this;
-		}
-		
-		private void detach_Body_Fitnesses(Body_Fitness entity)
-		{
-			this.SendPropertyChanging();
-			entity.Fighter = null;
-		}
-		
-		private void attach_Request_Rows(Request_Row entity)
-		{
-			this.SendPropertyChanging();
-			entity.Fighter = this;
-		}
-		
-		private void detach_Request_Rows(Request_Row entity)
-		{
-			this.SendPropertyChanging();
-			entity.Fighter = null;
-		}
-		
-		private void attach_Session_Meetings(Session_Meeting entity)
-		{
-			this.SendPropertyChanging();
-			entity.Fighter = this;
-		}
-		
-		private void detach_Session_Meetings(Session_Meeting entity)
-		{
-			this.SendPropertyChanging();
-			entity.Fighter = null;
-		}
-		
-		private void attach_Sessions(Session entity)
-		{
-			this.SendPropertyChanging();
-			entity.Fighter = this;
-		}
-		
-		private void detach_Sessions(Session entity)
-		{
-			this.SendPropertyChanging();
-			entity.Fighter = null;
-		}
-		
-		private void attach_Misc_Expense_Details(Misc_Expense_Detail entity)
-		{
-			this.SendPropertyChanging();
-			entity.Fighter = this;
-		}
-		
-		private void detach_Misc_Expense_Details(Misc_Expense_Detail entity)
-		{
-			this.SendPropertyChanging();
-			entity.Fighter = null;
-		}
-		
-		private void attach_Payment_Expenses(Payment_Expense entity)
-		{
-			this.SendPropertyChanging();
-			entity.Fighter = this;
-		}
-		
-		private void detach_Payment_Expenses(Payment_Expense entity)
-		{
-			this.SendPropertyChanging();
-			entity.Fighter = null;
-		}
-		
-		private void attach_Misc_Expenses(Misc_Expense entity)
-		{
-			this.SendPropertyChanging();
-			entity.Fighter = this;
-		}
-		
-		private void detach_Misc_Expenses(Misc_Expense entity)
-		{
-			this.SendPropertyChanging();
-			entity.Fighter = null;
-		}
-		
-		private void attach_Fighter_Publics(Fighter_Public entity)
-		{
-			this.SendPropertyChanging();
-			entity.Fighter = this;
-		}
-		
-		private void detach_Fighter_Publics(Fighter_Public entity)
-		{
-			this.SendPropertyChanging();
-			entity.Fighter = null;
-		}
-		
-		private void attach_Club_Methods(Club_Method entity)
-		{
-			this.SendPropertyChanging();
-			entity.Fighter = this;
-		}
-		
-		private void detach_Club_Methods(Club_Method entity)
-		{
-			this.SendPropertyChanging();
-			entity.Fighter = null;
-		}
-		
-		private void attach_Payment_Discounts(Payment_Discount entity)
-		{
-			this.SendPropertyChanging();
-			entity.Fighter = this;
-		}
-		
-		private void detach_Payment_Discounts(Payment_Discount entity)
-		{
-			this.SendPropertyChanging();
-			entity.Fighter = null;
-		}
-		
-		private void attach_Aggregation_Operations(Aggregation_Operation entity)
-		{
-			this.SendPropertyChanging();
-			entity.Fighter = this;
-		}
-		
-		private void detach_Aggregation_Operations(Aggregation_Operation entity)
-		{
-			this.SendPropertyChanging();
-			entity.Fighter = null;
-		}
-		
-		private void attach_Payment_Methods(Payment_Method entity)
-		{
-			this.SendPropertyChanging();
-			entity.Fighter = this;
-		}
-		
-		private void detach_Payment_Methods(Payment_Method entity)
-		{
-			this.SendPropertyChanging();
-			entity.Fighter = null;
-		}
-		
-		private void attach_Log_Operations(Log_Operation entity)
-		{
-			this.SendPropertyChanging();
-			entity.Fighter = this;
-		}
-		
-		private void detach_Log_Operations(Log_Operation entity)
-		{
-			this.SendPropertyChanging();
-			entity.Fighter = null;
-		}
-		
-		private void attach_Calculate_Expense_Coaches(Calculate_Expense_Coach entity)
-		{
-			this.SendPropertyChanging();
-			entity.Fighter = this;
-		}
-		
-		private void detach_Calculate_Expense_Coaches(Calculate_Expense_Coach entity)
-		{
-			this.SendPropertyChanging();
-			entity.Fighter = null;
-		}
-		
-		private void attach_Gain_Loss_Rials(Gain_Loss_Rial entity)
-		{
-			this.SendPropertyChanging();
-			entity.Fighter = this;
-		}
-		
-		private void detach_Gain_Loss_Rials(Gain_Loss_Rial entity)
-		{
-			this.SendPropertyChanging();
-			entity.Fighter = null;
-		}
-		
-		private void attach_Fighters(Fighter entity)
-		{
-			this.SendPropertyChanging();
-			entity.Fighter1 = this;
-		}
-		
-		private void detach_Fighters(Fighter entity)
-		{
-			this.SendPropertyChanging();
-			entity.Fighter1 = null;
-		}
-		
-		private void attach_Member_Ships(Member_Ship entity)
-		{
-			this.SendPropertyChanging();
-			entity.Fighter = this;
-		}
-		
-		private void detach_Member_Ships(Member_Ship entity)
-		{
-			this.SendPropertyChanging();
-			entity.Fighter = null;
-		}
-		
-		private void attach_Fighter_Groupings(Fighter_Grouping entity)
-		{
-			this.SendPropertyChanging();
-			entity.Fighter = this;
-		}
-		
-		private void detach_Fighter_Groupings(Fighter_Grouping entity)
-		{
-			this.SendPropertyChanging();
-			entity.Fighter = null;
-		}
-		
-		private void attach_Notes(Note entity)
-		{
-			this.SendPropertyChanging();
-			entity.Fighter = this;
-		}
-		
-		private void detach_Notes(Note entity)
-		{
-			this.SendPropertyChanging();
-			entity.Fighter = null;
-		}
-		
-		private void attach_Payment_Details(Payment_Detail entity)
-		{
-			this.SendPropertyChanging();
-			entity.Fighter = this;
-		}
-		
-		private void detach_Payment_Details(Payment_Detail entity)
-		{
-			this.SendPropertyChanging();
-			entity.Fighter = null;
-		}
-		
-		private void attach_Attendances(Attendance entity)
-		{
-			this.SendPropertyChanging();
-			entity.Fighter = this;
-		}
-		
-		private void detach_Attendances(Attendance entity)
-		{
-			this.SendPropertyChanging();
-			entity.Fighter = null;
-		}
-		
-		private void attach_Attendances1(Attendance entity)
-		{
-			this.SendPropertyChanging();
-			entity.Fighter1 = this;
-		}
-		
-		private void detach_Attendances1(Attendance entity)
-		{
-			this.SendPropertyChanging();
-			entity.Fighter1 = null;
-		}
-		
-		private void attach_Aggregation_Operation_Details(Aggregation_Operation_Detail entity)
-		{
-			this.SendPropertyChanging();
-			entity.Fighter = this;
-		}
-		
-		private void detach_Aggregation_Operation_Details(Aggregation_Operation_Detail entity)
-		{
-			this.SendPropertyChanging();
-			entity.Fighter = null;
-		}
-		
-		private void attach_Fighter_RelationShips(Fighter_RelationShip entity)
-		{
-			this.SendPropertyChanging();
-			entity.Fighter = this;
-		}
-		
-		private void detach_Fighter_RelationShips(Fighter_RelationShip entity)
-		{
-			this.SendPropertyChanging();
-			entity.Fighter = null;
-		}
-		
-		private void attach_Fighter_RelationShips1(Fighter_RelationShip entity)
-		{
-			this.SendPropertyChanging();
-			entity.Fighter1 = this;
-		}
-		
-		private void detach_Fighter_RelationShips1(Fighter_RelationShip entity)
-		{
-			this.SendPropertyChanging();
-			entity.Fighter1 = null;
-		}
-		
-		private void attach_Fighter_Calls(Fighter_Call entity)
-		{
-			this.SendPropertyChanging();
-			entity.Fighter = this;
-		}
-		
-		private void detach_Fighter_Calls(Fighter_Call entity)
-		{
-			this.SendPropertyChanging();
-			entity.Fighter = null;
-		}
-		
-		private void attach_Fighter_Discount_Cards(Fighter_Discount_Card entity)
-		{
-			this.SendPropertyChanging();
-			entity.Fighter = this;
-		}
-		
-		private void detach_Fighter_Discount_Cards(Fighter_Discount_Card entity)
-		{
-			this.SendPropertyChanging();
-			entity.Fighter = null;
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Member_Ship")]
 	public partial class Member_Ship : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -71373,11 +65670,11 @@ namespace System.Scsc.Data
 		
 		private EntitySet<Attendance> _Attendances;
 		
+		private EntityRef<Request_Row> _Request_Row;
+		
 		private EntityRef<Fighter_Public> _Fighter_Public;
 		
 		private EntityRef<Fighter> _Fighter;
-		
-		private EntityRef<Request_Row> _Request_Row;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -71450,9 +65747,9 @@ namespace System.Scsc.Data
 			this._Member_Ship_Marks = new EntitySet<Member_Ship_Mark>(new Action<Member_Ship_Mark>(this.attach_Member_Ship_Marks), new Action<Member_Ship_Mark>(this.detach_Member_Ship_Marks));
 			this._Payment_Expenses = new EntitySet<Payment_Expense>(new Action<Payment_Expense>(this.attach_Payment_Expenses), new Action<Payment_Expense>(this.detach_Payment_Expenses));
 			this._Attendances = new EntitySet<Attendance>(new Action<Attendance>(this.attach_Attendances), new Action<Attendance>(this.detach_Attendances));
+			this._Request_Row = default(EntityRef<Request_Row>);
 			this._Fighter_Public = default(EntityRef<Fighter_Public>);
 			this._Fighter = default(EntityRef<Fighter>);
-			this._Request_Row = default(EntityRef<Request_Row>);
 			OnCreated();
 		}
 		
@@ -72121,6 +66418,42 @@ namespace System.Scsc.Data
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Request_Row_Member_Ship", Storage="_Request_Row", ThisKey="RQRO_RQST_RQID,RQRO_RWNO", OtherKey="RQST_RQID,RWNO", IsForeignKey=true, DeleteRule="CASCADE")]
+		public Request_Row Request_Row
+		{
+			get
+			{
+				return this._Request_Row.Entity;
+			}
+			set
+			{
+				Request_Row previousValue = this._Request_Row.Entity;
+				if (((previousValue != value) 
+							|| (this._Request_Row.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Request_Row.Entity = null;
+						previousValue.Member_Ships.Remove(this);
+					}
+					this._Request_Row.Entity = value;
+					if ((value != null))
+					{
+						value.Member_Ships.Add(this);
+						this._RQRO_RQST_RQID = value.RQST_RQID;
+						this._RQRO_RWNO = value.RWNO;
+					}
+					else
+					{
+						this._RQRO_RQST_RQID = default(Nullable<long>);
+						this._RQRO_RWNO = default(Nullable<short>);
+					}
+					this.SendPropertyChanged("Request_Row");
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Public_Member_Ship", Storage="_Fighter_Public", ThisKey="FIGH_FILE_NO,FGPB_RWNO_DNRM,FGPB_RECT_CODE_DNRM", OtherKey="FIGH_FILE_NO,RWNO,RECT_CODE", IsForeignKey=true)]
 		public Fighter_Public Fighter_Public
 		{
@@ -72189,42 +66522,6 @@ namespace System.Scsc.Data
 						this._FIGH_FILE_NO = default(long);
 					}
 					this.SendPropertyChanged("Fighter");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Request_Row_Member_Ship", Storage="_Request_Row", ThisKey="RQRO_RQST_RQID,RQRO_RWNO", OtherKey="RQST_RQID,RWNO", IsForeignKey=true, DeleteRule="CASCADE")]
-		public Request_Row Request_Row
-		{
-			get
-			{
-				return this._Request_Row.Entity;
-			}
-			set
-			{
-				Request_Row previousValue = this._Request_Row.Entity;
-				if (((previousValue != value) 
-							|| (this._Request_Row.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Request_Row.Entity = null;
-						previousValue.Member_Ships.Remove(this);
-					}
-					this._Request_Row.Entity = value;
-					if ((value != null))
-					{
-						value.Member_Ships.Add(this);
-						this._RQRO_RQST_RQID = value.RQST_RQID;
-						this._RQRO_RWNO = value.RWNO;
-					}
-					else
-					{
-						this._RQRO_RQST_RQID = default(Nullable<long>);
-						this._RQRO_RWNO = default(Nullable<short>);
-					}
-					this.SendPropertyChanged("Request_Row");
 				}
 			}
 		}
@@ -72334,9 +66631,9 @@ namespace System.Scsc.Data
 		
 		private System.Nullable<System.DateTime> _MDFY_DATE;
 		
-		private EntityRef<Fighter> _Fighter;
-		
 		private EntityRef<App_Base_Define> _App_Base_Define;
+		
+		private EntityRef<Fighter> _Fighter;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -72364,8 +66661,8 @@ namespace System.Scsc.Data
 		
 		public Fighter_Grouping()
 		{
-			this._Fighter = default(EntityRef<Fighter>);
 			this._App_Base_Define = default(EntityRef<App_Base_Define>);
+			this._Fighter = default(EntityRef<Fighter>);
 			OnCreated();
 		}
 		
@@ -72557,40 +66854,6 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Fighter_Grouping", Storage="_Fighter", ThisKey="FIGH_FILE_NO", OtherKey="FILE_NO", IsForeignKey=true, DeleteRule="CASCADE")]
-		public Fighter Fighter
-		{
-			get
-			{
-				return this._Fighter.Entity;
-			}
-			set
-			{
-				Fighter previousValue = this._Fighter.Entity;
-				if (((previousValue != value) 
-							|| (this._Fighter.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Fighter.Entity = null;
-						previousValue.Fighter_Groupings.Remove(this);
-					}
-					this._Fighter.Entity = value;
-					if ((value != null))
-					{
-						value.Fighter_Groupings.Add(this);
-						this._FIGH_FILE_NO = value.FILE_NO;
-					}
-					else
-					{
-						this._FIGH_FILE_NO = default(Nullable<long>);
-					}
-					this.SendPropertyChanged("Fighter");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="App_Base_Define_Fighter_Grouping", Storage="_App_Base_Define", ThisKey="GROP_CODE", OtherKey="CODE", IsForeignKey=true)]
 		public App_Base_Define App_Base_Define
 		{
@@ -72621,6 +66884,40 @@ namespace System.Scsc.Data
 						this._GROP_CODE = default(Nullable<long>);
 					}
 					this.SendPropertyChanged("App_Base_Define");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Fighter_Grouping", Storage="_Fighter", ThisKey="FIGH_FILE_NO", OtherKey="FILE_NO", IsForeignKey=true, DeleteRule="CASCADE")]
+		public Fighter Fighter
+		{
+			get
+			{
+				return this._Fighter.Entity;
+			}
+			set
+			{
+				Fighter previousValue = this._Fighter.Entity;
+				if (((previousValue != value) 
+							|| (this._Fighter.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Fighter.Entity = null;
+						previousValue.Fighter_Groupings.Remove(this);
+					}
+					this._Fighter.Entity = value;
+					if ((value != null))
+					{
+						value.Fighter_Groupings.Add(this);
+						this._FIGH_FILE_NO = value.FILE_NO;
+					}
+					else
+					{
+						this._FIGH_FILE_NO = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("Fighter");
 				}
 			}
 		}
@@ -74750,13 +69047,13 @@ namespace System.Scsc.Data
 		
 		private EntityRef<Expense> _Expense;
 		
-		private EntityRef<Fighter> _Fighter;
-		
 		private EntityRef<Method> _Method;
 		
 		private EntityRef<Payment> _Payment;
 		
 		private EntityRef<Request_Row> _Request_Row;
+		
+		private EntityRef<Fighter> _Fighter;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -74851,10 +69148,10 @@ namespace System.Scsc.Data
 			this._Club_Method = default(EntityRef<Club_Method>);
 			this._Category_Belt = default(EntityRef<Category_Belt>);
 			this._Expense = default(EntityRef<Expense>);
-			this._Fighter = default(EntityRef<Fighter>);
 			this._Method = default(EntityRef<Method>);
 			this._Payment = default(EntityRef<Payment>);
 			this._Request_Row = default(EntityRef<Request_Row>);
+			this._Fighter = default(EntityRef<Fighter>);
 			OnCreated();
 		}
 		
@@ -75845,40 +70142,6 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Payment_Detail", Storage="_Fighter", ThisKey="FIGH_FILE_NO", OtherKey="FILE_NO", IsForeignKey=true)]
-		public Fighter Fighter
-		{
-			get
-			{
-				return this._Fighter.Entity;
-			}
-			set
-			{
-				Fighter previousValue = this._Fighter.Entity;
-				if (((previousValue != value) 
-							|| (this._Fighter.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Fighter.Entity = null;
-						previousValue.Payment_Details.Remove(this);
-					}
-					this._Fighter.Entity = value;
-					if ((value != null))
-					{
-						value.Payment_Details.Add(this);
-						this._FIGH_FILE_NO = value.FILE_NO;
-					}
-					else
-					{
-						this._FIGH_FILE_NO = default(Nullable<long>);
-					}
-					this.SendPropertyChanged("Fighter");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Method_Payment_Detail", Storage="_Method", ThisKey="MTOD_CODE_DNRM", OtherKey="CODE", IsForeignKey=true)]
 		public Method Method
 		{
@@ -75981,6 +70244,40 @@ namespace System.Scsc.Data
 						this._RQRO_RWNO = default(Nullable<short>);
 					}
 					this.SendPropertyChanged("Request_Row");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Payment_Detail", Storage="_Fighter", ThisKey="FIGH_FILE_NO", OtherKey="FILE_NO", IsForeignKey=true)]
+		public Fighter Fighter
+		{
+			get
+			{
+				return this._Fighter.Entity;
+			}
+			set
+			{
+				Fighter previousValue = this._Fighter.Entity;
+				if (((previousValue != value) 
+							|| (this._Fighter.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Fighter.Entity = null;
+						previousValue.Payment_Details.Remove(this);
+					}
+					this._Fighter.Entity = value;
+					if ((value != null))
+					{
+						value.Payment_Details.Add(this);
+						this._FIGH_FILE_NO = value.FILE_NO;
+					}
+					else
+					{
+						this._FIGH_FILE_NO = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("Fighter");
 				}
 			}
 		}
@@ -76148,17 +70445,17 @@ namespace System.Scsc.Data
 		
 		private EntityRef<Club> _Club;
 		
-		private EntityRef<Fighter> _Fighter;
-		
 		private EntityRef<Category_Belt> _Category_Belt;
-		
-		private EntityRef<Fighter> _Fighter1;
 		
 		private EntityRef<Member_Ship> _Member_Ship;
 		
 		private EntityRef<Method> _Method;
 		
 		private EntityRef<Session> _Session;
+		
+		private EntityRef<Fighter> _Fighter;
+		
+		private EntityRef<Fighter> _Fighter1;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -76265,12 +70562,12 @@ namespace System.Scsc.Data
 			this._Dresser_Attendances = new EntitySet<Dresser_Attendance>(new Action<Dresser_Attendance>(this.attach_Dresser_Attendances), new Action<Dresser_Attendance>(this.detach_Dresser_Attendances));
 			this._Aggregation_Operation_Details = new EntitySet<Aggregation_Operation_Detail>(new Action<Aggregation_Operation_Detail>(this.attach_Aggregation_Operation_Details), new Action<Aggregation_Operation_Detail>(this.detach_Aggregation_Operation_Details));
 			this._Club = default(EntityRef<Club>);
-			this._Fighter = default(EntityRef<Fighter>);
 			this._Category_Belt = default(EntityRef<Category_Belt>);
-			this._Fighter1 = default(EntityRef<Fighter>);
 			this._Member_Ship = default(EntityRef<Member_Ship>);
 			this._Method = default(EntityRef<Method>);
 			this._Session = default(EntityRef<Session>);
+			this._Fighter = default(EntityRef<Fighter>);
+			this._Fighter1 = default(EntityRef<Fighter>);
 			OnCreated();
 		}
 		
@@ -76309,7 +70606,7 @@ namespace System.Scsc.Data
 			{
 				if ((this._FIGH_FILE_NO != value))
 				{
-					if ((this._Fighter1.HasLoadedOrAssignedValue || this._Member_Ship.HasLoadedOrAssignedValue))
+					if ((this._Member_Ship.HasLoadedOrAssignedValue || this._Fighter1.HasLoadedOrAssignedValue))
 					{
 						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
 					}
@@ -77306,40 +71603,6 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Attendance", Storage="_Fighter", ThisKey="COCH_FILE_NO", OtherKey="FILE_NO", IsForeignKey=true)]
-		public Fighter Fighter
-		{
-			get
-			{
-				return this._Fighter.Entity;
-			}
-			set
-			{
-				Fighter previousValue = this._Fighter.Entity;
-				if (((previousValue != value) 
-							|| (this._Fighter.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Fighter.Entity = null;
-						previousValue.Attendances.Remove(this);
-					}
-					this._Fighter.Entity = value;
-					if ((value != null))
-					{
-						value.Attendances.Add(this);
-						this._COCH_FILE_NO = value.FILE_NO;
-					}
-					else
-					{
-						this._COCH_FILE_NO = default(Nullable<long>);
-					}
-					this.SendPropertyChanged("Fighter");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Category_Belt_Attendance", Storage="_Category_Belt", ThisKey="CTGY_CODE_DNRM", OtherKey="CODE", IsForeignKey=true)]
 		public Category_Belt Category_Belt
 		{
@@ -77370,40 +71633,6 @@ namespace System.Scsc.Data
 						this._CTGY_CODE_DNRM = default(Nullable<long>);
 					}
 					this.SendPropertyChanged("Category_Belt");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Attendance1", Storage="_Fighter1", ThisKey="FIGH_FILE_NO", OtherKey="FILE_NO", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
-		public Fighter Fighter1
-		{
-			get
-			{
-				return this._Fighter1.Entity;
-			}
-			set
-			{
-				Fighter previousValue = this._Fighter1.Entity;
-				if (((previousValue != value) 
-							|| (this._Fighter1.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Fighter1.Entity = null;
-						previousValue.Attendances1.Remove(this);
-					}
-					this._Fighter1.Entity = value;
-					if ((value != null))
-					{
-						value.Attendances1.Add(this);
-						this._FIGH_FILE_NO = value.FILE_NO;
-					}
-					else
-					{
-						this._FIGH_FILE_NO = default(long);
-					}
-					this.SendPropertyChanged("Fighter1");
 				}
 			}
 		}
@@ -77510,6 +71739,74 @@ namespace System.Scsc.Data
 						this._SESN_SNID_DNRM = default(Nullable<long>);
 					}
 					this.SendPropertyChanged("Session");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Attendance", Storage="_Fighter", ThisKey="COCH_FILE_NO", OtherKey="FILE_NO", IsForeignKey=true)]
+		public Fighter Fighter
+		{
+			get
+			{
+				return this._Fighter.Entity;
+			}
+			set
+			{
+				Fighter previousValue = this._Fighter.Entity;
+				if (((previousValue != value) 
+							|| (this._Fighter.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Fighter.Entity = null;
+						previousValue.Attendances.Remove(this);
+					}
+					this._Fighter.Entity = value;
+					if ((value != null))
+					{
+						value.Attendances.Add(this);
+						this._COCH_FILE_NO = value.FILE_NO;
+					}
+					else
+					{
+						this._COCH_FILE_NO = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("Fighter");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Attendance1", Storage="_Fighter1", ThisKey="FIGH_FILE_NO", OtherKey="FILE_NO", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
+		public Fighter Fighter1
+		{
+			get
+			{
+				return this._Fighter1.Entity;
+			}
+			set
+			{
+				Fighter previousValue = this._Fighter1.Entity;
+				if (((previousValue != value) 
+							|| (this._Fighter1.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Fighter1.Entity = null;
+						previousValue.Attendances1.Remove(this);
+					}
+					this._Fighter1.Entity = value;
+					if ((value != null))
+					{
+						value.Attendances1.Add(this);
+						this._FIGH_FILE_NO = value.FILE_NO;
+					}
+					else
+					{
+						this._FIGH_FILE_NO = default(long);
+					}
+					this.SendPropertyChanged("Fighter1");
 				}
 			}
 		}
@@ -77657,13 +71954,13 @@ namespace System.Scsc.Data
 		
 		private EntityRef<Basic_Calculate_Discount> _Basic_Calculate_Discount;
 		
-		private EntityRef<Fighter> _Fighter;
-		
 		private EntityRef<Request> _Request;
 		
 		private EntityRef<Expense> _Expense;
 		
 		private EntityRef<App_Base_Define> _App_Base_Define;
+		
+		private EntityRef<Fighter> _Fighter;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -77757,10 +72054,10 @@ namespace System.Scsc.Data
 			this._Aggregation_Operation_Detail1 = default(EntityRef<Aggregation_Operation_Detail>);
 			this._Attendance = default(EntityRef<Attendance>);
 			this._Basic_Calculate_Discount = default(EntityRef<Basic_Calculate_Discount>);
-			this._Fighter = default(EntityRef<Fighter>);
 			this._Request = default(EntityRef<Request>);
 			this._Expense = default(EntityRef<Expense>);
 			this._App_Base_Define = default(EntityRef<App_Base_Define>);
+			this._Fighter = default(EntityRef<Fighter>);
 			OnCreated();
 		}
 		
@@ -78750,40 +73047,6 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Aggregation_Operation_Detail", Storage="_Fighter", ThisKey="FIGH_FILE_NO", OtherKey="FILE_NO", IsForeignKey=true)]
-		public Fighter Fighter
-		{
-			get
-			{
-				return this._Fighter.Entity;
-			}
-			set
-			{
-				Fighter previousValue = this._Fighter.Entity;
-				if (((previousValue != value) 
-							|| (this._Fighter.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Fighter.Entity = null;
-						previousValue.Aggregation_Operation_Details.Remove(this);
-					}
-					this._Fighter.Entity = value;
-					if ((value != null))
-					{
-						value.Aggregation_Operation_Details.Add(this);
-						this._FIGH_FILE_NO = value.FILE_NO;
-					}
-					else
-					{
-						this._FIGH_FILE_NO = default(Nullable<long>);
-					}
-					this.SendPropertyChanged("Fighter");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Request_Aggregation_Operation_Detail", Storage="_Request", ThisKey="RQST_RQID", OtherKey="RQID", IsForeignKey=true)]
 		public Request Request
 		{
@@ -78882,6 +73145,40 @@ namespace System.Scsc.Data
 						this._GROP_APBS_CODE = default(Nullable<long>);
 					}
 					this.SendPropertyChanged("App_Base_Define");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Aggregation_Operation_Detail", Storage="_Fighter", ThisKey="FIGH_FILE_NO", OtherKey="FILE_NO", IsForeignKey=true)]
+		public Fighter Fighter
+		{
+			get
+			{
+				return this._Fighter.Entity;
+			}
+			set
+			{
+				Fighter previousValue = this._Fighter.Entity;
+				if (((previousValue != value) 
+							|| (this._Fighter.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Fighter.Entity = null;
+						previousValue.Aggregation_Operation_Details.Remove(this);
+					}
+					this._Fighter.Entity = value;
+					if ((value != null))
+					{
+						value.Aggregation_Operation_Details.Add(this);
+						this._FIGH_FILE_NO = value.FILE_NO;
+					}
+					else
+					{
+						this._FIGH_FILE_NO = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("Fighter");
 				}
 			}
 		}
@@ -81551,9 +75848,9 @@ namespace System.Scsc.Data
 		
 		private System.Nullable<System.DateTime> _MDFY_DATE;
 		
-		private EntitySet<Advertising_Parameter> _Advertising_Parameters;
-		
 		private EntitySet<Fighter_Discount_Card> _Fighter_Discount_Cards;
+		
+		private EntitySet<Advertising_Parameter> _Advertising_Parameters;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -81587,8 +75884,8 @@ namespace System.Scsc.Data
 		
 		public Template()
 		{
-			this._Advertising_Parameters = new EntitySet<Advertising_Parameter>(new Action<Advertising_Parameter>(this.attach_Advertising_Parameters), new Action<Advertising_Parameter>(this.detach_Advertising_Parameters));
 			this._Fighter_Discount_Cards = new EntitySet<Fighter_Discount_Card>(new Action<Fighter_Discount_Card>(this.attach_Fighter_Discount_Cards), new Action<Fighter_Discount_Card>(this.detach_Fighter_Discount_Cards));
+			this._Advertising_Parameters = new EntitySet<Advertising_Parameter>(new Action<Advertising_Parameter>(this.attach_Advertising_Parameters), new Action<Advertising_Parameter>(this.detach_Advertising_Parameters));
 			OnCreated();
 		}
 		
@@ -81832,19 +76129,6 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Template_Advertising_Parameter", Storage="_Advertising_Parameters", ThisKey="TMID", OtherKey="TEMP_TMID")]
-		public EntitySet<Advertising_Parameter> Advertising_Parameters
-		{
-			get
-			{
-				return this._Advertising_Parameters;
-			}
-			set
-			{
-				this._Advertising_Parameters.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Template_Fighter_Discount_Card", Storage="_Fighter_Discount_Cards", ThisKey="TMID", OtherKey="TEMP_TMID")]
 		public EntitySet<Fighter_Discount_Card> Fighter_Discount_Cards
 		{
@@ -81855,6 +76139,19 @@ namespace System.Scsc.Data
 			set
 			{
 				this._Fighter_Discount_Cards.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Template_Advertising_Parameter", Storage="_Advertising_Parameters", ThisKey="TMID", OtherKey="TEMP_TMID")]
+		public EntitySet<Advertising_Parameter> Advertising_Parameters
+		{
+			get
+			{
+				return this._Advertising_Parameters;
+			}
+			set
+			{
+				this._Advertising_Parameters.Assign(value);
 			}
 		}
 		
@@ -81878,18 +76175,6 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		private void attach_Advertising_Parameters(Advertising_Parameter entity)
-		{
-			this.SendPropertyChanging();
-			entity.Template = this;
-		}
-		
-		private void detach_Advertising_Parameters(Advertising_Parameter entity)
-		{
-			this.SendPropertyChanging();
-			entity.Template = null;
-		}
-		
 		private void attach_Fighter_Discount_Cards(Fighter_Discount_Card entity)
 		{
 			this.SendPropertyChanging();
@@ -81897,6 +76182,18 @@ namespace System.Scsc.Data
 		}
 		
 		private void detach_Fighter_Discount_Cards(Fighter_Discount_Card entity)
+		{
+			this.SendPropertyChanging();
+			entity.Template = null;
+		}
+		
+		private void attach_Advertising_Parameters(Advertising_Parameter entity)
+		{
+			this.SendPropertyChanging();
+			entity.Template = this;
+		}
+		
+		private void detach_Advertising_Parameters(Advertising_Parameter entity)
 		{
 			this.SendPropertyChanging();
 			entity.Template = null;
@@ -82660,205 +76957,6 @@ namespace System.Scsc.Data
 				{
 					this._DOMN_DESC = value;
 				}
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Advertising_Campaign")]
-	public partial class Advertising_Campaign : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private System.Nullable<long> _ADVP_CODE;
-		
-		private long _CODE;
-		
-		private string _CELL_PHON;
-		
-		private string _CRET_BY;
-		
-		private System.Nullable<System.DateTime> _CRET_DATE;
-		
-		private EntityRef<Advertising_Parameter> _Advertising_Parameter;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnADVP_CODEChanging(System.Nullable<long> value);
-    partial void OnADVP_CODEChanged();
-    partial void OnCODEChanging(long value);
-    partial void OnCODEChanged();
-    partial void OnCELL_PHONChanging(string value);
-    partial void OnCELL_PHONChanged();
-    partial void OnCRET_BYChanging(string value);
-    partial void OnCRET_BYChanged();
-    partial void OnCRET_DATEChanging(System.Nullable<System.DateTime> value);
-    partial void OnCRET_DATEChanged();
-    #endregion
-		
-		public Advertising_Campaign()
-		{
-			this._Advertising_Parameter = default(EntityRef<Advertising_Parameter>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ADVP_CODE", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<long> ADVP_CODE
-		{
-			get
-			{
-				return this._ADVP_CODE;
-			}
-			set
-			{
-				if ((this._ADVP_CODE != value))
-				{
-					if (this._Advertising_Parameter.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnADVP_CODEChanging(value);
-					this.SendPropertyChanging();
-					this._ADVP_CODE = value;
-					this.SendPropertyChanged("ADVP_CODE");
-					this.OnADVP_CODEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CODE", DbType="BigInt NOT NULL", IsPrimaryKey=true)]
-		public long CODE
-		{
-			get
-			{
-				return this._CODE;
-			}
-			set
-			{
-				if ((this._CODE != value))
-				{
-					this.OnCODEChanging(value);
-					this.SendPropertyChanging();
-					this._CODE = value;
-					this.SendPropertyChanged("CODE");
-					this.OnCODEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CELL_PHON", DbType="VarChar(11)", UpdateCheck=UpdateCheck.Never)]
-		public string CELL_PHON
-		{
-			get
-			{
-				return this._CELL_PHON;
-			}
-			set
-			{
-				if ((this._CELL_PHON != value))
-				{
-					this.OnCELL_PHONChanging(value);
-					this.SendPropertyChanging();
-					this._CELL_PHON = value;
-					this.SendPropertyChanged("CELL_PHON");
-					this.OnCELL_PHONChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_BY", DbType="VarChar(250)", UpdateCheck=UpdateCheck.Never)]
-		public string CRET_BY
-		{
-			get
-			{
-				return this._CRET_BY;
-			}
-			set
-			{
-				if ((this._CRET_BY != value))
-				{
-					this.OnCRET_BYChanging(value);
-					this.SendPropertyChanging();
-					this._CRET_BY = value;
-					this.SendPropertyChanged("CRET_BY");
-					this.OnCRET_BYChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<System.DateTime> CRET_DATE
-		{
-			get
-			{
-				return this._CRET_DATE;
-			}
-			set
-			{
-				if ((this._CRET_DATE != value))
-				{
-					this.OnCRET_DATEChanging(value);
-					this.SendPropertyChanging();
-					this._CRET_DATE = value;
-					this.SendPropertyChanged("CRET_DATE");
-					this.OnCRET_DATEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Advertising_Parameter_Advertising_Campaign", Storage="_Advertising_Parameter", ThisKey="ADVP_CODE", OtherKey="CODE", IsForeignKey=true, DeleteRule="CASCADE")]
-		public Advertising_Parameter Advertising_Parameter
-		{
-			get
-			{
-				return this._Advertising_Parameter.Entity;
-			}
-			set
-			{
-				Advertising_Parameter previousValue = this._Advertising_Parameter.Entity;
-				if (((previousValue != value) 
-							|| (this._Advertising_Parameter.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Advertising_Parameter.Entity = null;
-						previousValue.Advertising_Campaigns.Remove(this);
-					}
-					this._Advertising_Parameter.Entity = value;
-					if ((value != null))
-					{
-						value.Advertising_Campaigns.Add(this);
-						this._ADVP_CODE = value.CODE;
-					}
-					else
-					{
-						this._ADVP_CODE = default(Nullable<long>);
-					}
-					this.SendPropertyChanged("Advertising_Parameter");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
 	}
@@ -83916,549 +78014,6 @@ namespace System.Scsc.Data
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Advertising_Parameter")]
-	public partial class Advertising_Parameter : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private long _CODE;
-		
-		private string _ADVP_NAME;
-		
-		private string _RECD_TYPE;
-		
-		private System.Nullable<System.DateTime> _EXPR_DATE;
-		
-		private string _DISC_CODE;
-		
-		private string _DSCT_TYPE;
-		
-		private System.Nullable<long> _DSCT_AMNT;
-		
-		private string _RQTP_CODE;
-		
-		private System.Nullable<long> _MTOD_CODE;
-		
-		private System.Nullable<long> _CTGY_CODE;
-		
-		private System.Nullable<int> _NUMB_LAST_DAY;
-		
-		private string _STAT;
-		
-		private System.Nullable<long> _TEMP_TMID;
-		
-		private string _CRET_BY;
-		
-		private System.Nullable<System.DateTime> _CRET_DATE;
-		
-		private string _MDFY_BY;
-		
-		private System.Nullable<System.DateTime> _MDFY_DATE;
-		
-		private EntitySet<Advertising_Campaign> _Advertising_Campaigns;
-		
-		private EntitySet<Fighter_Discount_Card> _Fighter_Discount_Cards;
-		
-		private EntityRef<Template> _Template;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnCODEChanging(long value);
-    partial void OnCODEChanged();
-    partial void OnADVP_NAMEChanging(string value);
-    partial void OnADVP_NAMEChanged();
-    partial void OnRECD_TYPEChanging(string value);
-    partial void OnRECD_TYPEChanged();
-    partial void OnEXPR_DATEChanging(System.Nullable<System.DateTime> value);
-    partial void OnEXPR_DATEChanged();
-    partial void OnDISC_CODEChanging(string value);
-    partial void OnDISC_CODEChanged();
-    partial void OnDSCT_TYPEChanging(string value);
-    partial void OnDSCT_TYPEChanged();
-    partial void OnDSCT_AMNTChanging(System.Nullable<long> value);
-    partial void OnDSCT_AMNTChanged();
-    partial void OnRQTP_CODEChanging(string value);
-    partial void OnRQTP_CODEChanged();
-    partial void OnMTOD_CODEChanging(System.Nullable<long> value);
-    partial void OnMTOD_CODEChanged();
-    partial void OnCTGY_CODEChanging(System.Nullable<long> value);
-    partial void OnCTGY_CODEChanged();
-    partial void OnNUMB_LAST_DAYChanging(System.Nullable<int> value);
-    partial void OnNUMB_LAST_DAYChanged();
-    partial void OnSTATChanging(string value);
-    partial void OnSTATChanged();
-    partial void OnTEMP_TMIDChanging(System.Nullable<long> value);
-    partial void OnTEMP_TMIDChanged();
-    partial void OnCRET_BYChanging(string value);
-    partial void OnCRET_BYChanged();
-    partial void OnCRET_DATEChanging(System.Nullable<System.DateTime> value);
-    partial void OnCRET_DATEChanged();
-    partial void OnMDFY_BYChanging(string value);
-    partial void OnMDFY_BYChanged();
-    partial void OnMDFY_DATEChanging(System.Nullable<System.DateTime> value);
-    partial void OnMDFY_DATEChanged();
-    #endregion
-		
-		public Advertising_Parameter()
-		{
-			this._Advertising_Campaigns = new EntitySet<Advertising_Campaign>(new Action<Advertising_Campaign>(this.attach_Advertising_Campaigns), new Action<Advertising_Campaign>(this.detach_Advertising_Campaigns));
-			this._Fighter_Discount_Cards = new EntitySet<Fighter_Discount_Card>(new Action<Fighter_Discount_Card>(this.attach_Fighter_Discount_Cards), new Action<Fighter_Discount_Card>(this.detach_Fighter_Discount_Cards));
-			this._Template = default(EntityRef<Template>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CODE", DbType="BigInt NOT NULL", IsPrimaryKey=true)]
-		public long CODE
-		{
-			get
-			{
-				return this._CODE;
-			}
-			set
-			{
-				if ((this._CODE != value))
-				{
-					this.OnCODEChanging(value);
-					this.SendPropertyChanging();
-					this._CODE = value;
-					this.SendPropertyChanged("CODE");
-					this.OnCODEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ADVP_NAME", DbType="NVarChar(100)", UpdateCheck=UpdateCheck.Never)]
-		public string ADVP_NAME
-		{
-			get
-			{
-				return this._ADVP_NAME;
-			}
-			set
-			{
-				if ((this._ADVP_NAME != value))
-				{
-					this.OnADVP_NAMEChanging(value);
-					this.SendPropertyChanging();
-					this._ADVP_NAME = value;
-					this.SendPropertyChanged("ADVP_NAME");
-					this.OnADVP_NAMEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RECD_TYPE", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
-		public string RECD_TYPE
-		{
-			get
-			{
-				return this._RECD_TYPE;
-			}
-			set
-			{
-				if ((this._RECD_TYPE != value))
-				{
-					this.OnRECD_TYPEChanging(value);
-					this.SendPropertyChanging();
-					this._RECD_TYPE = value;
-					this.SendPropertyChanged("RECD_TYPE");
-					this.OnRECD_TYPEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EXPR_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<System.DateTime> EXPR_DATE
-		{
-			get
-			{
-				return this._EXPR_DATE;
-			}
-			set
-			{
-				if ((this._EXPR_DATE != value))
-				{
-					this.OnEXPR_DATEChanging(value);
-					this.SendPropertyChanging();
-					this._EXPR_DATE = value;
-					this.SendPropertyChanged("EXPR_DATE");
-					this.OnEXPR_DATEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DISC_CODE", DbType="VarChar(30)", UpdateCheck=UpdateCheck.Never)]
-		public string DISC_CODE
-		{
-			get
-			{
-				return this._DISC_CODE;
-			}
-			set
-			{
-				if ((this._DISC_CODE != value))
-				{
-					this.OnDISC_CODEChanging(value);
-					this.SendPropertyChanging();
-					this._DISC_CODE = value;
-					this.SendPropertyChanged("DISC_CODE");
-					this.OnDISC_CODEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DSCT_TYPE", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
-		public string DSCT_TYPE
-		{
-			get
-			{
-				return this._DSCT_TYPE;
-			}
-			set
-			{
-				if ((this._DSCT_TYPE != value))
-				{
-					this.OnDSCT_TYPEChanging(value);
-					this.SendPropertyChanging();
-					this._DSCT_TYPE = value;
-					this.SendPropertyChanged("DSCT_TYPE");
-					this.OnDSCT_TYPEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DSCT_AMNT", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<long> DSCT_AMNT
-		{
-			get
-			{
-				return this._DSCT_AMNT;
-			}
-			set
-			{
-				if ((this._DSCT_AMNT != value))
-				{
-					this.OnDSCT_AMNTChanging(value);
-					this.SendPropertyChanging();
-					this._DSCT_AMNT = value;
-					this.SendPropertyChanged("DSCT_AMNT");
-					this.OnDSCT_AMNTChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RQTP_CODE", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
-		public string RQTP_CODE
-		{
-			get
-			{
-				return this._RQTP_CODE;
-			}
-			set
-			{
-				if ((this._RQTP_CODE != value))
-				{
-					this.OnRQTP_CODEChanging(value);
-					this.SendPropertyChanging();
-					this._RQTP_CODE = value;
-					this.SendPropertyChanged("RQTP_CODE");
-					this.OnRQTP_CODEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MTOD_CODE", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<long> MTOD_CODE
-		{
-			get
-			{
-				return this._MTOD_CODE;
-			}
-			set
-			{
-				if ((this._MTOD_CODE != value))
-				{
-					this.OnMTOD_CODEChanging(value);
-					this.SendPropertyChanging();
-					this._MTOD_CODE = value;
-					this.SendPropertyChanged("MTOD_CODE");
-					this.OnMTOD_CODEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CTGY_CODE", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<long> CTGY_CODE
-		{
-			get
-			{
-				return this._CTGY_CODE;
-			}
-			set
-			{
-				if ((this._CTGY_CODE != value))
-				{
-					this.OnCTGY_CODEChanging(value);
-					this.SendPropertyChanging();
-					this._CTGY_CODE = value;
-					this.SendPropertyChanged("CTGY_CODE");
-					this.OnCTGY_CODEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NUMB_LAST_DAY", DbType="Int", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<int> NUMB_LAST_DAY
-		{
-			get
-			{
-				return this._NUMB_LAST_DAY;
-			}
-			set
-			{
-				if ((this._NUMB_LAST_DAY != value))
-				{
-					this.OnNUMB_LAST_DAYChanging(value);
-					this.SendPropertyChanging();
-					this._NUMB_LAST_DAY = value;
-					this.SendPropertyChanged("NUMB_LAST_DAY");
-					this.OnNUMB_LAST_DAYChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STAT", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
-		public string STAT
-		{
-			get
-			{
-				return this._STAT;
-			}
-			set
-			{
-				if ((this._STAT != value))
-				{
-					this.OnSTATChanging(value);
-					this.SendPropertyChanging();
-					this._STAT = value;
-					this.SendPropertyChanged("STAT");
-					this.OnSTATChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TEMP_TMID", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<long> TEMP_TMID
-		{
-			get
-			{
-				return this._TEMP_TMID;
-			}
-			set
-			{
-				if ((this._TEMP_TMID != value))
-				{
-					if (this._Template.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnTEMP_TMIDChanging(value);
-					this.SendPropertyChanging();
-					this._TEMP_TMID = value;
-					this.SendPropertyChanged("TEMP_TMID");
-					this.OnTEMP_TMIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_BY", DbType="VarChar(250)", UpdateCheck=UpdateCheck.Never)]
-		public string CRET_BY
-		{
-			get
-			{
-				return this._CRET_BY;
-			}
-			set
-			{
-				if ((this._CRET_BY != value))
-				{
-					this.OnCRET_BYChanging(value);
-					this.SendPropertyChanging();
-					this._CRET_BY = value;
-					this.SendPropertyChanged("CRET_BY");
-					this.OnCRET_BYChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<System.DateTime> CRET_DATE
-		{
-			get
-			{
-				return this._CRET_DATE;
-			}
-			set
-			{
-				if ((this._CRET_DATE != value))
-				{
-					this.OnCRET_DATEChanging(value);
-					this.SendPropertyChanging();
-					this._CRET_DATE = value;
-					this.SendPropertyChanged("CRET_DATE");
-					this.OnCRET_DATEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_BY", DbType="VarChar(250)", UpdateCheck=UpdateCheck.Never)]
-		public string MDFY_BY
-		{
-			get
-			{
-				return this._MDFY_BY;
-			}
-			set
-			{
-				if ((this._MDFY_BY != value))
-				{
-					this.OnMDFY_BYChanging(value);
-					this.SendPropertyChanging();
-					this._MDFY_BY = value;
-					this.SendPropertyChanged("MDFY_BY");
-					this.OnMDFY_BYChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<System.DateTime> MDFY_DATE
-		{
-			get
-			{
-				return this._MDFY_DATE;
-			}
-			set
-			{
-				if ((this._MDFY_DATE != value))
-				{
-					this.OnMDFY_DATEChanging(value);
-					this.SendPropertyChanging();
-					this._MDFY_DATE = value;
-					this.SendPropertyChanged("MDFY_DATE");
-					this.OnMDFY_DATEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Advertising_Parameter_Advertising_Campaign", Storage="_Advertising_Campaigns", ThisKey="CODE", OtherKey="ADVP_CODE")]
-		public EntitySet<Advertising_Campaign> Advertising_Campaigns
-		{
-			get
-			{
-				return this._Advertising_Campaigns;
-			}
-			set
-			{
-				this._Advertising_Campaigns.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Advertising_Parameter_Fighter_Discount_Card", Storage="_Fighter_Discount_Cards", ThisKey="CODE", OtherKey="ADVP_CODE")]
-		public EntitySet<Fighter_Discount_Card> Fighter_Discount_Cards
-		{
-			get
-			{
-				return this._Fighter_Discount_Cards;
-			}
-			set
-			{
-				this._Fighter_Discount_Cards.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Template_Advertising_Parameter", Storage="_Template", ThisKey="TEMP_TMID", OtherKey="TMID", IsForeignKey=true, DeleteRule="SET NULL")]
-		public Template Template
-		{
-			get
-			{
-				return this._Template.Entity;
-			}
-			set
-			{
-				Template previousValue = this._Template.Entity;
-				if (((previousValue != value) 
-							|| (this._Template.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Template.Entity = null;
-						previousValue.Advertising_Parameters.Remove(this);
-					}
-					this._Template.Entity = value;
-					if ((value != null))
-					{
-						value.Advertising_Parameters.Add(this);
-						this._TEMP_TMID = value.TMID;
-					}
-					else
-					{
-						this._TEMP_TMID = default(Nullable<long>);
-					}
-					this.SendPropertyChanged("Template");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Advertising_Campaigns(Advertising_Campaign entity)
-		{
-			this.SendPropertyChanging();
-			entity.Advertising_Parameter = this;
-		}
-		
-		private void detach_Advertising_Campaigns(Advertising_Campaign entity)
-		{
-			this.SendPropertyChanging();
-			entity.Advertising_Parameter = null;
-		}
-		
-		private void attach_Fighter_Discount_Cards(Fighter_Discount_Card entity)
-		{
-			this.SendPropertyChanging();
-			entity.Advertising_Parameter = this;
-		}
-		
-		private void detach_Fighter_Discount_Cards(Fighter_Discount_Card entity)
-		{
-			this.SendPropertyChanging();
-			entity.Advertising_Parameter = null;
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Fighter_Discount_Card")]
 	public partial class Fighter_Discount_Card : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -84493,6 +78048,8 @@ namespace System.Scsc.Data
 		
 		private System.Nullable<long> _TEMP_TMID;
 		
+		private System.Nullable<long> _RQST_RQID;
+		
 		private string _CRET_BY;
 		
 		private System.Nullable<System.DateTime> _CRET_DATE;
@@ -84501,15 +78058,19 @@ namespace System.Scsc.Data
 		
 		private System.Nullable<System.DateTime> _MDFY_DATE;
 		
-		private EntityRef<Advertising_Parameter> _Advertising_Parameter;
+		private EntitySet<Payment_Discount> _Payment_Discounts;
 		
 		private EntityRef<Category_Belt> _Category_Belt;
 		
-		private EntityRef<Fighter> _Fighter;
-		
 		private EntityRef<Method> _Method;
 		
+		private EntityRef<Request> _Request;
+		
 		private EntityRef<Template> _Template;
+		
+		private EntityRef<Fighter> _Fighter;
+		
+		private EntityRef<Advertising_Parameter> _Advertising_Parameter;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -84543,6 +78104,8 @@ namespace System.Scsc.Data
     partial void OnDSCT_DESCChanged();
     partial void OnTEMP_TMIDChanging(System.Nullable<long> value);
     partial void OnTEMP_TMIDChanged();
+    partial void OnRQST_RQIDChanging(System.Nullable<long> value);
+    partial void OnRQST_RQIDChanged();
     partial void OnCRET_BYChanging(string value);
     partial void OnCRET_BYChanged();
     partial void OnCRET_DATEChanging(System.Nullable<System.DateTime> value);
@@ -84555,11 +78118,13 @@ namespace System.Scsc.Data
 		
 		public Fighter_Discount_Card()
 		{
-			this._Advertising_Parameter = default(EntityRef<Advertising_Parameter>);
+			this._Payment_Discounts = new EntitySet<Payment_Discount>(new Action<Payment_Discount>(this.attach_Payment_Discounts), new Action<Payment_Discount>(this.detach_Payment_Discounts));
 			this._Category_Belt = default(EntityRef<Category_Belt>);
-			this._Fighter = default(EntityRef<Fighter>);
 			this._Method = default(EntityRef<Method>);
+			this._Request = default(EntityRef<Request>);
 			this._Template = default(EntityRef<Template>);
+			this._Fighter = default(EntityRef<Fighter>);
+			this._Advertising_Parameter = default(EntityRef<Advertising_Parameter>);
 			OnCreated();
 		}
 		
@@ -84863,6 +78428,30 @@ namespace System.Scsc.Data
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RQST_RQID", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<long> RQST_RQID
+		{
+			get
+			{
+				return this._RQST_RQID;
+			}
+			set
+			{
+				if ((this._RQST_RQID != value))
+				{
+					if (this._Request.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnRQST_RQIDChanging(value);
+					this.SendPropertyChanging();
+					this._RQST_RQID = value;
+					this.SendPropertyChanged("RQST_RQID");
+					this.OnRQST_RQIDChanged();
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_BY", DbType="VarChar(250)", UpdateCheck=UpdateCheck.Never)]
 		public string CRET_BY
 		{
@@ -84943,37 +78532,16 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Advertising_Parameter_Fighter_Discount_Card", Storage="_Advertising_Parameter", ThisKey="ADVP_CODE", OtherKey="CODE", IsForeignKey=true, DeleteRule="CASCADE")]
-		public Advertising_Parameter Advertising_Parameter
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Discount_Card_Payment_Discount", Storage="_Payment_Discounts", ThisKey="CODE", OtherKey="FGDC_CODE")]
+		public EntitySet<Payment_Discount> Payment_Discounts
 		{
 			get
 			{
-				return this._Advertising_Parameter.Entity;
+				return this._Payment_Discounts;
 			}
 			set
 			{
-				Advertising_Parameter previousValue = this._Advertising_Parameter.Entity;
-				if (((previousValue != value) 
-							|| (this._Advertising_Parameter.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Advertising_Parameter.Entity = null;
-						previousValue.Fighter_Discount_Cards.Remove(this);
-					}
-					this._Advertising_Parameter.Entity = value;
-					if ((value != null))
-					{
-						value.Fighter_Discount_Cards.Add(this);
-						this._ADVP_CODE = value.CODE;
-					}
-					else
-					{
-						this._ADVP_CODE = default(Nullable<long>);
-					}
-					this.SendPropertyChanged("Advertising_Parameter");
-				}
+				this._Payment_Discounts.Assign(value);
 			}
 		}
 		
@@ -85007,40 +78575,6 @@ namespace System.Scsc.Data
 						this._CTGY_CODE = default(Nullable<long>);
 					}
 					this.SendPropertyChanged("Category_Belt");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Fighter_Discount_Card", Storage="_Fighter", ThisKey="FIGH_FILE_NO", OtherKey="FILE_NO", IsForeignKey=true, DeleteRule="CASCADE")]
-		public Fighter Fighter
-		{
-			get
-			{
-				return this._Fighter.Entity;
-			}
-			set
-			{
-				Fighter previousValue = this._Fighter.Entity;
-				if (((previousValue != value) 
-							|| (this._Fighter.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Fighter.Entity = null;
-						previousValue.Fighter_Discount_Cards.Remove(this);
-					}
-					this._Fighter.Entity = value;
-					if ((value != null))
-					{
-						value.Fighter_Discount_Cards.Add(this);
-						this._FIGH_FILE_NO = value.FILE_NO;
-					}
-					else
-					{
-						this._FIGH_FILE_NO = default(Nullable<long>);
-					}
-					this.SendPropertyChanged("Fighter");
 				}
 			}
 		}
@@ -85079,6 +78613,40 @@ namespace System.Scsc.Data
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Request_Fighter_Discount_Card", Storage="_Request", ThisKey="RQST_RQID", OtherKey="RQID", IsForeignKey=true, DeleteRule="SET NULL")]
+		public Request Request
+		{
+			get
+			{
+				return this._Request.Entity;
+			}
+			set
+			{
+				Request previousValue = this._Request.Entity;
+				if (((previousValue != value) 
+							|| (this._Request.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Request.Entity = null;
+						previousValue.Fighter_Discount_Cards.Remove(this);
+					}
+					this._Request.Entity = value;
+					if ((value != null))
+					{
+						value.Fighter_Discount_Cards.Add(this);
+						this._RQST_RQID = value.RQID;
+					}
+					else
+					{
+						this._RQST_RQID = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("Request");
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Template_Fighter_Discount_Card", Storage="_Template", ThisKey="TEMP_TMID", OtherKey="TMID", IsForeignKey=true, DeleteRule="SET NULL")]
 		public Template Template
 		{
@@ -85109,6 +78677,7313 @@ namespace System.Scsc.Data
 						this._TEMP_TMID = default(Nullable<long>);
 					}
 					this.SendPropertyChanged("Template");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Fighter_Discount_Card", Storage="_Fighter", ThisKey="FIGH_FILE_NO", OtherKey="FILE_NO", IsForeignKey=true, DeleteRule="CASCADE")]
+		public Fighter Fighter
+		{
+			get
+			{
+				return this._Fighter.Entity;
+			}
+			set
+			{
+				Fighter previousValue = this._Fighter.Entity;
+				if (((previousValue != value) 
+							|| (this._Fighter.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Fighter.Entity = null;
+						previousValue.Fighter_Discount_Cards.Remove(this);
+					}
+					this._Fighter.Entity = value;
+					if ((value != null))
+					{
+						value.Fighter_Discount_Cards.Add(this);
+						this._FIGH_FILE_NO = value.FILE_NO;
+					}
+					else
+					{
+						this._FIGH_FILE_NO = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("Fighter");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Advertising_Parameter_Fighter_Discount_Card", Storage="_Advertising_Parameter", ThisKey="ADVP_CODE", OtherKey="CODE", IsForeignKey=true, DeleteRule="CASCADE")]
+		public Advertising_Parameter Advertising_Parameter
+		{
+			get
+			{
+				return this._Advertising_Parameter.Entity;
+			}
+			set
+			{
+				Advertising_Parameter previousValue = this._Advertising_Parameter.Entity;
+				if (((previousValue != value) 
+							|| (this._Advertising_Parameter.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Advertising_Parameter.Entity = null;
+						previousValue.Fighter_Discount_Cards.Remove(this);
+					}
+					this._Advertising_Parameter.Entity = value;
+					if ((value != null))
+					{
+						value.Fighter_Discount_Cards.Add(this);
+						this._ADVP_CODE = value.CODE;
+					}
+					else
+					{
+						this._ADVP_CODE = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("Advertising_Parameter");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Payment_Discounts(Payment_Discount entity)
+		{
+			this.SendPropertyChanging();
+			entity.Fighter_Discount_Card = this;
+		}
+		
+		private void detach_Payment_Discounts(Payment_Discount entity)
+		{
+			this.SendPropertyChanging();
+			entity.Fighter_Discount_Card = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Advertising_Campaign")]
+	public partial class Advertising_Campaign : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private System.Nullable<long> _ADVP_CODE;
+		
+		private long _CODE;
+		
+		private string _CELL_PHON;
+		
+		private System.Nullable<long> _FIGH_FILE_NO;
+		
+		private string _RECD_STAT;
+		
+		private System.Nullable<long> _RQST_RQID;
+		
+		private System.Nullable<System.DateTime> _ACTN_DATE;
+		
+		private string _CRET_BY;
+		
+		private System.Nullable<System.DateTime> _CRET_DATE;
+		
+		private string _MDFY_BY;
+		
+		private System.Nullable<System.DateTime> _MDFY_DATE;
+		
+		private EntitySet<Payment_Discount> _Payment_Discounts;
+		
+		private EntityRef<Request> _Request;
+		
+		private EntityRef<Fighter> _Fighter;
+		
+		private EntityRef<Advertising_Parameter> _Advertising_Parameter;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnADVP_CODEChanging(System.Nullable<long> value);
+    partial void OnADVP_CODEChanged();
+    partial void OnCODEChanging(long value);
+    partial void OnCODEChanged();
+    partial void OnCELL_PHONChanging(string value);
+    partial void OnCELL_PHONChanged();
+    partial void OnFIGH_FILE_NOChanging(System.Nullable<long> value);
+    partial void OnFIGH_FILE_NOChanged();
+    partial void OnRECD_STATChanging(string value);
+    partial void OnRECD_STATChanged();
+    partial void OnRQST_RQIDChanging(System.Nullable<long> value);
+    partial void OnRQST_RQIDChanged();
+    partial void OnACTN_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnACTN_DATEChanged();
+    partial void OnCRET_BYChanging(string value);
+    partial void OnCRET_BYChanged();
+    partial void OnCRET_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnCRET_DATEChanged();
+    partial void OnMDFY_BYChanging(string value);
+    partial void OnMDFY_BYChanged();
+    partial void OnMDFY_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnMDFY_DATEChanged();
+    #endregion
+		
+		public Advertising_Campaign()
+		{
+			this._Payment_Discounts = new EntitySet<Payment_Discount>(new Action<Payment_Discount>(this.attach_Payment_Discounts), new Action<Payment_Discount>(this.detach_Payment_Discounts));
+			this._Request = default(EntityRef<Request>);
+			this._Fighter = default(EntityRef<Fighter>);
+			this._Advertising_Parameter = default(EntityRef<Advertising_Parameter>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ADVP_CODE", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<long> ADVP_CODE
+		{
+			get
+			{
+				return this._ADVP_CODE;
+			}
+			set
+			{
+				if ((this._ADVP_CODE != value))
+				{
+					if (this._Advertising_Parameter.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnADVP_CODEChanging(value);
+					this.SendPropertyChanging();
+					this._ADVP_CODE = value;
+					this.SendPropertyChanged("ADVP_CODE");
+					this.OnADVP_CODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CODE", DbType="BigInt NOT NULL", IsPrimaryKey=true)]
+		public long CODE
+		{
+			get
+			{
+				return this._CODE;
+			}
+			set
+			{
+				if ((this._CODE != value))
+				{
+					this.OnCODEChanging(value);
+					this.SendPropertyChanging();
+					this._CODE = value;
+					this.SendPropertyChanged("CODE");
+					this.OnCODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CELL_PHON", DbType="VarChar(11)", UpdateCheck=UpdateCheck.Never)]
+		public string CELL_PHON
+		{
+			get
+			{
+				return this._CELL_PHON;
+			}
+			set
+			{
+				if ((this._CELL_PHON != value))
+				{
+					this.OnCELL_PHONChanging(value);
+					this.SendPropertyChanging();
+					this._CELL_PHON = value;
+					this.SendPropertyChanged("CELL_PHON");
+					this.OnCELL_PHONChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FIGH_FILE_NO", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<long> FIGH_FILE_NO
+		{
+			get
+			{
+				return this._FIGH_FILE_NO;
+			}
+			set
+			{
+				if ((this._FIGH_FILE_NO != value))
+				{
+					if (this._Fighter.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnFIGH_FILE_NOChanging(value);
+					this.SendPropertyChanging();
+					this._FIGH_FILE_NO = value;
+					this.SendPropertyChanged("FIGH_FILE_NO");
+					this.OnFIGH_FILE_NOChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RECD_STAT", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		public string RECD_STAT
+		{
+			get
+			{
+				return this._RECD_STAT;
+			}
+			set
+			{
+				if ((this._RECD_STAT != value))
+				{
+					this.OnRECD_STATChanging(value);
+					this.SendPropertyChanging();
+					this._RECD_STAT = value;
+					this.SendPropertyChanged("RECD_STAT");
+					this.OnRECD_STATChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RQST_RQID", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<long> RQST_RQID
+		{
+			get
+			{
+				return this._RQST_RQID;
+			}
+			set
+			{
+				if ((this._RQST_RQID != value))
+				{
+					if (this._Request.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnRQST_RQIDChanging(value);
+					this.SendPropertyChanging();
+					this._RQST_RQID = value;
+					this.SendPropertyChanged("RQST_RQID");
+					this.OnRQST_RQIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ACTN_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<System.DateTime> ACTN_DATE
+		{
+			get
+			{
+				return this._ACTN_DATE;
+			}
+			set
+			{
+				if ((this._ACTN_DATE != value))
+				{
+					this.OnACTN_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._ACTN_DATE = value;
+					this.SendPropertyChanged("ACTN_DATE");
+					this.OnACTN_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_BY", DbType="VarChar(250)", UpdateCheck=UpdateCheck.Never)]
+		public string CRET_BY
+		{
+			get
+			{
+				return this._CRET_BY;
+			}
+			set
+			{
+				if ((this._CRET_BY != value))
+				{
+					this.OnCRET_BYChanging(value);
+					this.SendPropertyChanging();
+					this._CRET_BY = value;
+					this.SendPropertyChanged("CRET_BY");
+					this.OnCRET_BYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<System.DateTime> CRET_DATE
+		{
+			get
+			{
+				return this._CRET_DATE;
+			}
+			set
+			{
+				if ((this._CRET_DATE != value))
+				{
+					this.OnCRET_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._CRET_DATE = value;
+					this.SendPropertyChanged("CRET_DATE");
+					this.OnCRET_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_BY", DbType="VarChar(250)", UpdateCheck=UpdateCheck.Never)]
+		public string MDFY_BY
+		{
+			get
+			{
+				return this._MDFY_BY;
+			}
+			set
+			{
+				if ((this._MDFY_BY != value))
+				{
+					this.OnMDFY_BYChanging(value);
+					this.SendPropertyChanging();
+					this._MDFY_BY = value;
+					this.SendPropertyChanged("MDFY_BY");
+					this.OnMDFY_BYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<System.DateTime> MDFY_DATE
+		{
+			get
+			{
+				return this._MDFY_DATE;
+			}
+			set
+			{
+				if ((this._MDFY_DATE != value))
+				{
+					this.OnMDFY_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._MDFY_DATE = value;
+					this.SendPropertyChanged("MDFY_DATE");
+					this.OnMDFY_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Advertising_Campaign_Payment_Discount", Storage="_Payment_Discounts", ThisKey="CODE", OtherKey="ADVC_CODE")]
+		public EntitySet<Payment_Discount> Payment_Discounts
+		{
+			get
+			{
+				return this._Payment_Discounts;
+			}
+			set
+			{
+				this._Payment_Discounts.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Request_Advertising_Campaign", Storage="_Request", ThisKey="RQST_RQID", OtherKey="RQID", IsForeignKey=true, DeleteRule="SET NULL")]
+		public Request Request
+		{
+			get
+			{
+				return this._Request.Entity;
+			}
+			set
+			{
+				Request previousValue = this._Request.Entity;
+				if (((previousValue != value) 
+							|| (this._Request.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Request.Entity = null;
+						previousValue.Advertising_Campaigns.Remove(this);
+					}
+					this._Request.Entity = value;
+					if ((value != null))
+					{
+						value.Advertising_Campaigns.Add(this);
+						this._RQST_RQID = value.RQID;
+					}
+					else
+					{
+						this._RQST_RQID = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("Request");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Advertising_Campaign", Storage="_Fighter", ThisKey="FIGH_FILE_NO", OtherKey="FILE_NO", IsForeignKey=true, DeleteRule="CASCADE")]
+		public Fighter Fighter
+		{
+			get
+			{
+				return this._Fighter.Entity;
+			}
+			set
+			{
+				Fighter previousValue = this._Fighter.Entity;
+				if (((previousValue != value) 
+							|| (this._Fighter.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Fighter.Entity = null;
+						previousValue.Advertising_Campaigns.Remove(this);
+					}
+					this._Fighter.Entity = value;
+					if ((value != null))
+					{
+						value.Advertising_Campaigns.Add(this);
+						this._FIGH_FILE_NO = value.FILE_NO;
+					}
+					else
+					{
+						this._FIGH_FILE_NO = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("Fighter");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Advertising_Parameter_Advertising_Campaign", Storage="_Advertising_Parameter", ThisKey="ADVP_CODE", OtherKey="CODE", IsForeignKey=true, DeleteRule="CASCADE")]
+		public Advertising_Parameter Advertising_Parameter
+		{
+			get
+			{
+				return this._Advertising_Parameter.Entity;
+			}
+			set
+			{
+				Advertising_Parameter previousValue = this._Advertising_Parameter.Entity;
+				if (((previousValue != value) 
+							|| (this._Advertising_Parameter.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Advertising_Parameter.Entity = null;
+						previousValue.Advertising_Campaigns.Remove(this);
+					}
+					this._Advertising_Parameter.Entity = value;
+					if ((value != null))
+					{
+						value.Advertising_Campaigns.Add(this);
+						this._ADVP_CODE = value.CODE;
+					}
+					else
+					{
+						this._ADVP_CODE = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("Advertising_Parameter");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Payment_Discounts(Payment_Discount entity)
+		{
+			this.SendPropertyChanging();
+			entity.Advertising_Campaign = this;
+		}
+		
+		private void detach_Payment_Discounts(Payment_Discount entity)
+		{
+			this.SendPropertyChanging();
+			entity.Advertising_Campaign = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Fighter_Public")]
+	public partial class Fighter_Public : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _REGN_PRVN_CNTY_CODE;
+		
+		private string _REGN_PRVN_CODE;
+		
+		private string _REGN_CODE;
+		
+		private System.Nullable<long> _DISE_CODE;
+		
+		private System.Nullable<long> _MTOD_CODE;
+		
+		private System.Nullable<long> _CTGY_CODE;
+		
+		private System.Nullable<long> _CLUB_CODE;
+		
+		private System.Nullable<long> _RQRO_RQST_RQID;
+		
+		private System.Nullable<short> _RQRO_RWNO;
+		
+		private long _FIGH_FILE_NO;
+		
+		private int _RWNO;
+		
+		private string _RECT_CODE;
+		
+		private string _FRST_NAME;
+		
+		private string _LAST_NAME;
+		
+		private string _FATH_NAME;
+		
+		private string _SEX_TYPE;
+		
+		private string _NATL_CODE;
+		
+		private System.Nullable<System.DateTime> _BRTH_DATE;
+		
+		private string _CELL_PHON;
+		
+		private string _TELL_PHON;
+		
+		private string _COCH_DEG;
+		
+		private string _GUDG_DEG;
+		
+		private string _GLOB_CODE;
+		
+		private string _EDUC_DEG;
+		
+		private string _TYPE;
+		
+		private string _POST_ADRS;
+		
+		private string _EMAL_ADRS;
+		
+		private string _INSR_NUMB;
+		
+		private System.Nullable<System.DateTime> _INSR_DATE;
+		
+		private System.Nullable<long> _COCH_FILE_NO;
+		
+		private System.Nullable<System.DateTime> _COCH_CRTF_DATE;
+		
+		private System.Nullable<long> _CBMT_CODE;
+		
+		private string _DAY_TYPE;
+		
+		private System.Nullable<System.TimeSpan> _ATTN_TIME;
+		
+		private string _CALC_EXPN_TYPE;
+		
+		private string _ACTV_TAG;
+		
+		private string _BLOD_GROP;
+		
+		private string _FNGR_PRNT;
+		
+		private string _SUNT_BUNT_DEPT_ORGN_CODE;
+		
+		private string _SUNT_BUNT_DEPT_CODE;
+		
+		private string _SUNT_BUNT_CODE;
+		
+		private string _SUNT_CODE;
+		
+		private System.Nullable<float> _CORD_X;
+		
+		private System.Nullable<float> _CORD_Y;
+		
+		private System.Nullable<long> _MOST_DEBT_CLNG;
+		
+		private string _SERV_NO;
+		
+		private string _BRTH_PLAC;
+		
+		private string _ISSU_PLAC;
+		
+		private string _FATH_WORK;
+		
+		private string _HIST_DESC;
+		
+		private string _DPST_ACNT_SLRY_BANK;
+		
+		private string _DPST_ACNT_SLRY;
+		
+		private System.Nullable<long> _CHAT_ID;
+		
+		private string _MOM_CELL_PHON;
+		
+		private string _DAD_CELL_PHON;
+		
+		private string _MOM_TELL_PHON;
+		
+		private string _DAD_TELL_PHON;
+		
+		private System.Nullable<long> _MOM_CHAT_ID;
+		
+		private System.Nullable<long> _DAD_CHAT_ID;
+		
+		private string _IDTY_NUMB;
+		
+		private string _ZIP_CODE;
+		
+		private string _CMNT;
+		
+		private string _PASS_WORD;
+		
+		private System.Nullable<long> _REF_CODE;
+		
+		private string _CRET_BY;
+		
+		private System.Nullable<System.DateTime> _CRET_DATE;
+		
+		private string _MDFY_BY;
+		
+		private System.Nullable<System.DateTime> _MDFY_DATE;
+		
+		private EntitySet<Present> _Presents;
+		
+		private EntitySet<Member_Ship> _Member_Ships;
+		
+		private EntityRef<Club_Method> _Club_Method;
+		
+		private EntityRef<Club> _Club;
+		
+		private EntityRef<Category_Belt> _Category_Belt;
+		
+		private EntityRef<Diseases_Type> _Diseases_Type;
+		
+		private EntityRef<Method> _Method;
+		
+		private EntityRef<Region> _Region;
+		
+		private EntityRef<Request_Row> _Request_Row;
+		
+		private EntityRef<Sub_Unit> _Sub_Unit;
+		
+		private EntityRef<Fighter> _Fighter;
+		
+		private EntityRef<Fighter> _Fighter1;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnREGN_PRVN_CNTY_CODEChanging(string value);
+    partial void OnREGN_PRVN_CNTY_CODEChanged();
+    partial void OnREGN_PRVN_CODEChanging(string value);
+    partial void OnREGN_PRVN_CODEChanged();
+    partial void OnREGN_CODEChanging(string value);
+    partial void OnREGN_CODEChanged();
+    partial void OnDISE_CODEChanging(System.Nullable<long> value);
+    partial void OnDISE_CODEChanged();
+    partial void OnMTOD_CODEChanging(System.Nullable<long> value);
+    partial void OnMTOD_CODEChanged();
+    partial void OnCTGY_CODEChanging(System.Nullable<long> value);
+    partial void OnCTGY_CODEChanged();
+    partial void OnCLUB_CODEChanging(System.Nullable<long> value);
+    partial void OnCLUB_CODEChanged();
+    partial void OnRQRO_RQST_RQIDChanging(System.Nullable<long> value);
+    partial void OnRQRO_RQST_RQIDChanged();
+    partial void OnRQRO_RWNOChanging(System.Nullable<short> value);
+    partial void OnRQRO_RWNOChanged();
+    partial void OnFIGH_FILE_NOChanging(long value);
+    partial void OnFIGH_FILE_NOChanged();
+    partial void OnRWNOChanging(int value);
+    partial void OnRWNOChanged();
+    partial void OnRECT_CODEChanging(string value);
+    partial void OnRECT_CODEChanged();
+    partial void OnFRST_NAMEChanging(string value);
+    partial void OnFRST_NAMEChanged();
+    partial void OnLAST_NAMEChanging(string value);
+    partial void OnLAST_NAMEChanged();
+    partial void OnFATH_NAMEChanging(string value);
+    partial void OnFATH_NAMEChanged();
+    partial void OnSEX_TYPEChanging(string value);
+    partial void OnSEX_TYPEChanged();
+    partial void OnNATL_CODEChanging(string value);
+    partial void OnNATL_CODEChanged();
+    partial void OnBRTH_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnBRTH_DATEChanged();
+    partial void OnCELL_PHONChanging(string value);
+    partial void OnCELL_PHONChanged();
+    partial void OnTELL_PHONChanging(string value);
+    partial void OnTELL_PHONChanged();
+    partial void OnCOCH_DEGChanging(string value);
+    partial void OnCOCH_DEGChanged();
+    partial void OnGUDG_DEGChanging(string value);
+    partial void OnGUDG_DEGChanged();
+    partial void OnGLOB_CODEChanging(string value);
+    partial void OnGLOB_CODEChanged();
+    partial void OnEDUC_DEGChanging(string value);
+    partial void OnEDUC_DEGChanged();
+    partial void OnTYPEChanging(string value);
+    partial void OnTYPEChanged();
+    partial void OnPOST_ADRSChanging(string value);
+    partial void OnPOST_ADRSChanged();
+    partial void OnEMAL_ADRSChanging(string value);
+    partial void OnEMAL_ADRSChanged();
+    partial void OnINSR_NUMBChanging(string value);
+    partial void OnINSR_NUMBChanged();
+    partial void OnINSR_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnINSR_DATEChanged();
+    partial void OnCOCH_FILE_NOChanging(System.Nullable<long> value);
+    partial void OnCOCH_FILE_NOChanged();
+    partial void OnCOCH_CRTF_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnCOCH_CRTF_DATEChanged();
+    partial void OnCBMT_CODEChanging(System.Nullable<long> value);
+    partial void OnCBMT_CODEChanged();
+    partial void OnDAY_TYPEChanging(string value);
+    partial void OnDAY_TYPEChanged();
+    partial void OnATTN_TIMEChanging(System.Nullable<System.TimeSpan> value);
+    partial void OnATTN_TIMEChanged();
+    partial void OnCALC_EXPN_TYPEChanging(string value);
+    partial void OnCALC_EXPN_TYPEChanged();
+    partial void OnACTV_TAGChanging(string value);
+    partial void OnACTV_TAGChanged();
+    partial void OnBLOD_GROPChanging(string value);
+    partial void OnBLOD_GROPChanged();
+    partial void OnFNGR_PRNTChanging(string value);
+    partial void OnFNGR_PRNTChanged();
+    partial void OnSUNT_BUNT_DEPT_ORGN_CODEChanging(string value);
+    partial void OnSUNT_BUNT_DEPT_ORGN_CODEChanged();
+    partial void OnSUNT_BUNT_DEPT_CODEChanging(string value);
+    partial void OnSUNT_BUNT_DEPT_CODEChanged();
+    partial void OnSUNT_BUNT_CODEChanging(string value);
+    partial void OnSUNT_BUNT_CODEChanged();
+    partial void OnSUNT_CODEChanging(string value);
+    partial void OnSUNT_CODEChanged();
+    partial void OnCORD_XChanging(System.Nullable<float> value);
+    partial void OnCORD_XChanged();
+    partial void OnCORD_YChanging(System.Nullable<float> value);
+    partial void OnCORD_YChanged();
+    partial void OnMOST_DEBT_CLNGChanging(System.Nullable<long> value);
+    partial void OnMOST_DEBT_CLNGChanged();
+    partial void OnSERV_NOChanging(string value);
+    partial void OnSERV_NOChanged();
+    partial void OnBRTH_PLACChanging(string value);
+    partial void OnBRTH_PLACChanged();
+    partial void OnISSU_PLACChanging(string value);
+    partial void OnISSU_PLACChanged();
+    partial void OnFATH_WORKChanging(string value);
+    partial void OnFATH_WORKChanged();
+    partial void OnHIST_DESCChanging(string value);
+    partial void OnHIST_DESCChanged();
+    partial void OnDPST_ACNT_SLRY_BANKChanging(string value);
+    partial void OnDPST_ACNT_SLRY_BANKChanged();
+    partial void OnDPST_ACNT_SLRYChanging(string value);
+    partial void OnDPST_ACNT_SLRYChanged();
+    partial void OnCHAT_IDChanging(System.Nullable<long> value);
+    partial void OnCHAT_IDChanged();
+    partial void OnMOM_CELL_PHONChanging(string value);
+    partial void OnMOM_CELL_PHONChanged();
+    partial void OnDAD_CELL_PHONChanging(string value);
+    partial void OnDAD_CELL_PHONChanged();
+    partial void OnMOM_TELL_PHONChanging(string value);
+    partial void OnMOM_TELL_PHONChanged();
+    partial void OnDAD_TELL_PHONChanging(string value);
+    partial void OnDAD_TELL_PHONChanged();
+    partial void OnMOM_CHAT_IDChanging(System.Nullable<long> value);
+    partial void OnMOM_CHAT_IDChanged();
+    partial void OnDAD_CHAT_IDChanging(System.Nullable<long> value);
+    partial void OnDAD_CHAT_IDChanged();
+    partial void OnIDTY_NUMBChanging(string value);
+    partial void OnIDTY_NUMBChanged();
+    partial void OnZIP_CODEChanging(string value);
+    partial void OnZIP_CODEChanged();
+    partial void OnCMNTChanging(string value);
+    partial void OnCMNTChanged();
+    partial void OnPASS_WORDChanging(string value);
+    partial void OnPASS_WORDChanged();
+    partial void OnREF_CODEChanging(System.Nullable<long> value);
+    partial void OnREF_CODEChanged();
+    partial void OnCRET_BYChanging(string value);
+    partial void OnCRET_BYChanged();
+    partial void OnCRET_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnCRET_DATEChanged();
+    partial void OnMDFY_BYChanging(string value);
+    partial void OnMDFY_BYChanged();
+    partial void OnMDFY_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnMDFY_DATEChanged();
+    #endregion
+		
+		public Fighter_Public()
+		{
+			this._Presents = new EntitySet<Present>(new Action<Present>(this.attach_Presents), new Action<Present>(this.detach_Presents));
+			this._Member_Ships = new EntitySet<Member_Ship>(new Action<Member_Ship>(this.attach_Member_Ships), new Action<Member_Ship>(this.detach_Member_Ships));
+			this._Club_Method = default(EntityRef<Club_Method>);
+			this._Club = default(EntityRef<Club>);
+			this._Category_Belt = default(EntityRef<Category_Belt>);
+			this._Diseases_Type = default(EntityRef<Diseases_Type>);
+			this._Method = default(EntityRef<Method>);
+			this._Region = default(EntityRef<Region>);
+			this._Request_Row = default(EntityRef<Request_Row>);
+			this._Sub_Unit = default(EntityRef<Sub_Unit>);
+			this._Fighter = default(EntityRef<Fighter>);
+			this._Fighter1 = default(EntityRef<Fighter>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_REGN_PRVN_CNTY_CODE", DbType="VarChar(3) NOT NULL", CanBeNull=false)]
+		public string REGN_PRVN_CNTY_CODE
+		{
+			get
+			{
+				return this._REGN_PRVN_CNTY_CODE;
+			}
+			set
+			{
+				if ((this._REGN_PRVN_CNTY_CODE != value))
+				{
+					if (this._Region.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnREGN_PRVN_CNTY_CODEChanging(value);
+					this.SendPropertyChanging();
+					this._REGN_PRVN_CNTY_CODE = value;
+					this.SendPropertyChanged("REGN_PRVN_CNTY_CODE");
+					this.OnREGN_PRVN_CNTY_CODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_REGN_PRVN_CODE", DbType="VarChar(3) NOT NULL", CanBeNull=false)]
+		public string REGN_PRVN_CODE
+		{
+			get
+			{
+				return this._REGN_PRVN_CODE;
+			}
+			set
+			{
+				if ((this._REGN_PRVN_CODE != value))
+				{
+					if (this._Region.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnREGN_PRVN_CODEChanging(value);
+					this.SendPropertyChanging();
+					this._REGN_PRVN_CODE = value;
+					this.SendPropertyChanged("REGN_PRVN_CODE");
+					this.OnREGN_PRVN_CODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_REGN_CODE", DbType="VarChar(3) NOT NULL", CanBeNull=false)]
+		public string REGN_CODE
+		{
+			get
+			{
+				return this._REGN_CODE;
+			}
+			set
+			{
+				if ((this._REGN_CODE != value))
+				{
+					if (this._Region.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnREGN_CODEChanging(value);
+					this.SendPropertyChanging();
+					this._REGN_CODE = value;
+					this.SendPropertyChanged("REGN_CODE");
+					this.OnREGN_CODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DISE_CODE", DbType="BigInt")]
+		public System.Nullable<long> DISE_CODE
+		{
+			get
+			{
+				return this._DISE_CODE;
+			}
+			set
+			{
+				if ((this._DISE_CODE != value))
+				{
+					if (this._Diseases_Type.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnDISE_CODEChanging(value);
+					this.SendPropertyChanging();
+					this._DISE_CODE = value;
+					this.SendPropertyChanged("DISE_CODE");
+					this.OnDISE_CODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MTOD_CODE", DbType="BigInt")]
+		public System.Nullable<long> MTOD_CODE
+		{
+			get
+			{
+				return this._MTOD_CODE;
+			}
+			set
+			{
+				if ((this._MTOD_CODE != value))
+				{
+					if (this._Method.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnMTOD_CODEChanging(value);
+					this.SendPropertyChanging();
+					this._MTOD_CODE = value;
+					this.SendPropertyChanged("MTOD_CODE");
+					this.OnMTOD_CODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CTGY_CODE", DbType="BigInt")]
+		public System.Nullable<long> CTGY_CODE
+		{
+			get
+			{
+				return this._CTGY_CODE;
+			}
+			set
+			{
+				if ((this._CTGY_CODE != value))
+				{
+					if (this._Category_Belt.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnCTGY_CODEChanging(value);
+					this.SendPropertyChanging();
+					this._CTGY_CODE = value;
+					this.SendPropertyChanged("CTGY_CODE");
+					this.OnCTGY_CODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CLUB_CODE", DbType="BigInt")]
+		public System.Nullable<long> CLUB_CODE
+		{
+			get
+			{
+				return this._CLUB_CODE;
+			}
+			set
+			{
+				if ((this._CLUB_CODE != value))
+				{
+					if (this._Club.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnCLUB_CODEChanging(value);
+					this.SendPropertyChanging();
+					this._CLUB_CODE = value;
+					this.SendPropertyChanged("CLUB_CODE");
+					this.OnCLUB_CODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RQRO_RQST_RQID", DbType="BigInt")]
+		public System.Nullable<long> RQRO_RQST_RQID
+		{
+			get
+			{
+				return this._RQRO_RQST_RQID;
+			}
+			set
+			{
+				if ((this._RQRO_RQST_RQID != value))
+				{
+					if (this._Request_Row.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnRQRO_RQST_RQIDChanging(value);
+					this.SendPropertyChanging();
+					this._RQRO_RQST_RQID = value;
+					this.SendPropertyChanged("RQRO_RQST_RQID");
+					this.OnRQRO_RQST_RQIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RQRO_RWNO", DbType="SmallInt")]
+		public System.Nullable<short> RQRO_RWNO
+		{
+			get
+			{
+				return this._RQRO_RWNO;
+			}
+			set
+			{
+				if ((this._RQRO_RWNO != value))
+				{
+					if (this._Request_Row.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnRQRO_RWNOChanging(value);
+					this.SendPropertyChanging();
+					this._RQRO_RWNO = value;
+					this.SendPropertyChanged("RQRO_RWNO");
+					this.OnRQRO_RWNOChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FIGH_FILE_NO", DbType="BigInt NOT NULL", IsPrimaryKey=true)]
+		public long FIGH_FILE_NO
+		{
+			get
+			{
+				return this._FIGH_FILE_NO;
+			}
+			set
+			{
+				if ((this._FIGH_FILE_NO != value))
+				{
+					if (this._Fighter.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnFIGH_FILE_NOChanging(value);
+					this.SendPropertyChanging();
+					this._FIGH_FILE_NO = value;
+					this.SendPropertyChanged("FIGH_FILE_NO");
+					this.OnFIGH_FILE_NOChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RWNO", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int RWNO
+		{
+			get
+			{
+				return this._RWNO;
+			}
+			set
+			{
+				if ((this._RWNO != value))
+				{
+					this.OnRWNOChanging(value);
+					this.SendPropertyChanging();
+					this._RWNO = value;
+					this.SendPropertyChanged("RWNO");
+					this.OnRWNOChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RECT_CODE", DbType="VarChar(3) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string RECT_CODE
+		{
+			get
+			{
+				return this._RECT_CODE;
+			}
+			set
+			{
+				if ((this._RECT_CODE != value))
+				{
+					this.OnRECT_CODEChanging(value);
+					this.SendPropertyChanging();
+					this._RECT_CODE = value;
+					this.SendPropertyChanged("RECT_CODE");
+					this.OnRECT_CODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FRST_NAME", DbType="NVarChar(250) NOT NULL", CanBeNull=false)]
+		public string FRST_NAME
+		{
+			get
+			{
+				return this._FRST_NAME;
+			}
+			set
+			{
+				if ((this._FRST_NAME != value))
+				{
+					this.OnFRST_NAMEChanging(value);
+					this.SendPropertyChanging();
+					this._FRST_NAME = value;
+					this.SendPropertyChanged("FRST_NAME");
+					this.OnFRST_NAMEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LAST_NAME", DbType="NVarChar(250) NOT NULL", CanBeNull=false)]
+		public string LAST_NAME
+		{
+			get
+			{
+				return this._LAST_NAME;
+			}
+			set
+			{
+				if ((this._LAST_NAME != value))
+				{
+					this.OnLAST_NAMEChanging(value);
+					this.SendPropertyChanging();
+					this._LAST_NAME = value;
+					this.SendPropertyChanged("LAST_NAME");
+					this.OnLAST_NAMEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FATH_NAME", DbType="NVarChar(250)")]
+		public string FATH_NAME
+		{
+			get
+			{
+				return this._FATH_NAME;
+			}
+			set
+			{
+				if ((this._FATH_NAME != value))
+				{
+					this.OnFATH_NAMEChanging(value);
+					this.SendPropertyChanging();
+					this._FATH_NAME = value;
+					this.SendPropertyChanged("FATH_NAME");
+					this.OnFATH_NAMEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SEX_TYPE", DbType="VarChar(3)")]
+		public string SEX_TYPE
+		{
+			get
+			{
+				return this._SEX_TYPE;
+			}
+			set
+			{
+				if ((this._SEX_TYPE != value))
+				{
+					this.OnSEX_TYPEChanging(value);
+					this.SendPropertyChanging();
+					this._SEX_TYPE = value;
+					this.SendPropertyChanged("SEX_TYPE");
+					this.OnSEX_TYPEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NATL_CODE", DbType="VarChar(10)")]
+		public string NATL_CODE
+		{
+			get
+			{
+				return this._NATL_CODE;
+			}
+			set
+			{
+				if ((this._NATL_CODE != value))
+				{
+					this.OnNATL_CODEChanging(value);
+					this.SendPropertyChanging();
+					this._NATL_CODE = value;
+					this.SendPropertyChanged("NATL_CODE");
+					this.OnNATL_CODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BRTH_DATE", DbType="DateTime")]
+		public System.Nullable<System.DateTime> BRTH_DATE
+		{
+			get
+			{
+				return this._BRTH_DATE;
+			}
+			set
+			{
+				if ((this._BRTH_DATE != value))
+				{
+					this.OnBRTH_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._BRTH_DATE = value;
+					this.SendPropertyChanged("BRTH_DATE");
+					this.OnBRTH_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CELL_PHON", DbType="VarChar(11)")]
+		public string CELL_PHON
+		{
+			get
+			{
+				return this._CELL_PHON;
+			}
+			set
+			{
+				if ((this._CELL_PHON != value))
+				{
+					this.OnCELL_PHONChanging(value);
+					this.SendPropertyChanging();
+					this._CELL_PHON = value;
+					this.SendPropertyChanged("CELL_PHON");
+					this.OnCELL_PHONChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TELL_PHON", DbType="VarChar(11)")]
+		public string TELL_PHON
+		{
+			get
+			{
+				return this._TELL_PHON;
+			}
+			set
+			{
+				if ((this._TELL_PHON != value))
+				{
+					this.OnTELL_PHONChanging(value);
+					this.SendPropertyChanging();
+					this._TELL_PHON = value;
+					this.SendPropertyChanged("TELL_PHON");
+					this.OnTELL_PHONChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_COCH_DEG", DbType="VarChar(3)")]
+		public string COCH_DEG
+		{
+			get
+			{
+				return this._COCH_DEG;
+			}
+			set
+			{
+				if ((this._COCH_DEG != value))
+				{
+					this.OnCOCH_DEGChanging(value);
+					this.SendPropertyChanging();
+					this._COCH_DEG = value;
+					this.SendPropertyChanged("COCH_DEG");
+					this.OnCOCH_DEGChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GUDG_DEG", DbType="VarChar(3)")]
+		public string GUDG_DEG
+		{
+			get
+			{
+				return this._GUDG_DEG;
+			}
+			set
+			{
+				if ((this._GUDG_DEG != value))
+				{
+					this.OnGUDG_DEGChanging(value);
+					this.SendPropertyChanging();
+					this._GUDG_DEG = value;
+					this.SendPropertyChanged("GUDG_DEG");
+					this.OnGUDG_DEGChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GLOB_CODE", DbType="NVarChar(50)")]
+		public string GLOB_CODE
+		{
+			get
+			{
+				return this._GLOB_CODE;
+			}
+			set
+			{
+				if ((this._GLOB_CODE != value))
+				{
+					this.OnGLOB_CODEChanging(value);
+					this.SendPropertyChanging();
+					this._GLOB_CODE = value;
+					this.SendPropertyChanged("GLOB_CODE");
+					this.OnGLOB_CODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EDUC_DEG", DbType="VarChar(3)")]
+		public string EDUC_DEG
+		{
+			get
+			{
+				return this._EDUC_DEG;
+			}
+			set
+			{
+				if ((this._EDUC_DEG != value))
+				{
+					this.OnEDUC_DEGChanging(value);
+					this.SendPropertyChanging();
+					this._EDUC_DEG = value;
+					this.SendPropertyChanged("EDUC_DEG");
+					this.OnEDUC_DEGChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TYPE", DbType="VarChar(3) NOT NULL", CanBeNull=false)]
+		public string TYPE
+		{
+			get
+			{
+				return this._TYPE;
+			}
+			set
+			{
+				if ((this._TYPE != value))
+				{
+					this.OnTYPEChanging(value);
+					this.SendPropertyChanging();
+					this._TYPE = value;
+					this.SendPropertyChanged("TYPE");
+					this.OnTYPEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_POST_ADRS", DbType="NVarChar(1000)")]
+		public string POST_ADRS
+		{
+			get
+			{
+				return this._POST_ADRS;
+			}
+			set
+			{
+				if ((this._POST_ADRS != value))
+				{
+					this.OnPOST_ADRSChanging(value);
+					this.SendPropertyChanging();
+					this._POST_ADRS = value;
+					this.SendPropertyChanged("POST_ADRS");
+					this.OnPOST_ADRSChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EMAL_ADRS", DbType="VarChar(250)")]
+		public string EMAL_ADRS
+		{
+			get
+			{
+				return this._EMAL_ADRS;
+			}
+			set
+			{
+				if ((this._EMAL_ADRS != value))
+				{
+					this.OnEMAL_ADRSChanging(value);
+					this.SendPropertyChanging();
+					this._EMAL_ADRS = value;
+					this.SendPropertyChanged("EMAL_ADRS");
+					this.OnEMAL_ADRSChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_INSR_NUMB", DbType="VarChar(10)")]
+		public string INSR_NUMB
+		{
+			get
+			{
+				return this._INSR_NUMB;
+			}
+			set
+			{
+				if ((this._INSR_NUMB != value))
+				{
+					this.OnINSR_NUMBChanging(value);
+					this.SendPropertyChanging();
+					this._INSR_NUMB = value;
+					this.SendPropertyChanged("INSR_NUMB");
+					this.OnINSR_NUMBChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_INSR_DATE", DbType="DateTime")]
+		public System.Nullable<System.DateTime> INSR_DATE
+		{
+			get
+			{
+				return this._INSR_DATE;
+			}
+			set
+			{
+				if ((this._INSR_DATE != value))
+				{
+					this.OnINSR_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._INSR_DATE = value;
+					this.SendPropertyChanged("INSR_DATE");
+					this.OnINSR_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_COCH_FILE_NO", DbType="BigInt")]
+		public System.Nullable<long> COCH_FILE_NO
+		{
+			get
+			{
+				return this._COCH_FILE_NO;
+			}
+			set
+			{
+				if ((this._COCH_FILE_NO != value))
+				{
+					this.OnCOCH_FILE_NOChanging(value);
+					this.SendPropertyChanging();
+					this._COCH_FILE_NO = value;
+					this.SendPropertyChanged("COCH_FILE_NO");
+					this.OnCOCH_FILE_NOChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_COCH_CRTF_DATE", DbType="Date")]
+		public System.Nullable<System.DateTime> COCH_CRTF_DATE
+		{
+			get
+			{
+				return this._COCH_CRTF_DATE;
+			}
+			set
+			{
+				if ((this._COCH_CRTF_DATE != value))
+				{
+					this.OnCOCH_CRTF_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._COCH_CRTF_DATE = value;
+					this.SendPropertyChanged("COCH_CRTF_DATE");
+					this.OnCOCH_CRTF_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CBMT_CODE", DbType="BigInt")]
+		public System.Nullable<long> CBMT_CODE
+		{
+			get
+			{
+				return this._CBMT_CODE;
+			}
+			set
+			{
+				if ((this._CBMT_CODE != value))
+				{
+					if (this._Club_Method.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnCBMT_CODEChanging(value);
+					this.SendPropertyChanging();
+					this._CBMT_CODE = value;
+					this.SendPropertyChanged("CBMT_CODE");
+					this.OnCBMT_CODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DAY_TYPE", DbType="VarChar(3)")]
+		public string DAY_TYPE
+		{
+			get
+			{
+				return this._DAY_TYPE;
+			}
+			set
+			{
+				if ((this._DAY_TYPE != value))
+				{
+					this.OnDAY_TYPEChanging(value);
+					this.SendPropertyChanging();
+					this._DAY_TYPE = value;
+					this.SendPropertyChanged("DAY_TYPE");
+					this.OnDAY_TYPEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ATTN_TIME", DbType="Time")]
+		public System.Nullable<System.TimeSpan> ATTN_TIME
+		{
+			get
+			{
+				return this._ATTN_TIME;
+			}
+			set
+			{
+				if ((this._ATTN_TIME != value))
+				{
+					this.OnATTN_TIMEChanging(value);
+					this.SendPropertyChanging();
+					this._ATTN_TIME = value;
+					this.SendPropertyChanged("ATTN_TIME");
+					this.OnATTN_TIMEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CALC_EXPN_TYPE", DbType="VarChar(3)")]
+		public string CALC_EXPN_TYPE
+		{
+			get
+			{
+				return this._CALC_EXPN_TYPE;
+			}
+			set
+			{
+				if ((this._CALC_EXPN_TYPE != value))
+				{
+					this.OnCALC_EXPN_TYPEChanging(value);
+					this.SendPropertyChanging();
+					this._CALC_EXPN_TYPE = value;
+					this.SendPropertyChanged("CALC_EXPN_TYPE");
+					this.OnCALC_EXPN_TYPEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ACTV_TAG", DbType="VarChar(3)")]
+		public string ACTV_TAG
+		{
+			get
+			{
+				return this._ACTV_TAG;
+			}
+			set
+			{
+				if ((this._ACTV_TAG != value))
+				{
+					this.OnACTV_TAGChanging(value);
+					this.SendPropertyChanging();
+					this._ACTV_TAG = value;
+					this.SendPropertyChanged("ACTV_TAG");
+					this.OnACTV_TAGChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BLOD_GROP", DbType="VarChar(3)")]
+		public string BLOD_GROP
+		{
+			get
+			{
+				return this._BLOD_GROP;
+			}
+			set
+			{
+				if ((this._BLOD_GROP != value))
+				{
+					this.OnBLOD_GROPChanging(value);
+					this.SendPropertyChanging();
+					this._BLOD_GROP = value;
+					this.SendPropertyChanged("BLOD_GROP");
+					this.OnBLOD_GROPChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FNGR_PRNT", DbType="VarChar(20)")]
+		public string FNGR_PRNT
+		{
+			get
+			{
+				return this._FNGR_PRNT;
+			}
+			set
+			{
+				if ((this._FNGR_PRNT != value))
+				{
+					this.OnFNGR_PRNTChanging(value);
+					this.SendPropertyChanging();
+					this._FNGR_PRNT = value;
+					this.SendPropertyChanged("FNGR_PRNT");
+					this.OnFNGR_PRNTChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SUNT_BUNT_DEPT_ORGN_CODE", DbType="VarChar(2)")]
+		public string SUNT_BUNT_DEPT_ORGN_CODE
+		{
+			get
+			{
+				return this._SUNT_BUNT_DEPT_ORGN_CODE;
+			}
+			set
+			{
+				if ((this._SUNT_BUNT_DEPT_ORGN_CODE != value))
+				{
+					if (this._Sub_Unit.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnSUNT_BUNT_DEPT_ORGN_CODEChanging(value);
+					this.SendPropertyChanging();
+					this._SUNT_BUNT_DEPT_ORGN_CODE = value;
+					this.SendPropertyChanged("SUNT_BUNT_DEPT_ORGN_CODE");
+					this.OnSUNT_BUNT_DEPT_ORGN_CODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SUNT_BUNT_DEPT_CODE", DbType="VarChar(2)")]
+		public string SUNT_BUNT_DEPT_CODE
+		{
+			get
+			{
+				return this._SUNT_BUNT_DEPT_CODE;
+			}
+			set
+			{
+				if ((this._SUNT_BUNT_DEPT_CODE != value))
+				{
+					if (this._Sub_Unit.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnSUNT_BUNT_DEPT_CODEChanging(value);
+					this.SendPropertyChanging();
+					this._SUNT_BUNT_DEPT_CODE = value;
+					this.SendPropertyChanged("SUNT_BUNT_DEPT_CODE");
+					this.OnSUNT_BUNT_DEPT_CODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SUNT_BUNT_CODE", DbType="VarChar(2)")]
+		public string SUNT_BUNT_CODE
+		{
+			get
+			{
+				return this._SUNT_BUNT_CODE;
+			}
+			set
+			{
+				if ((this._SUNT_BUNT_CODE != value))
+				{
+					if (this._Sub_Unit.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnSUNT_BUNT_CODEChanging(value);
+					this.SendPropertyChanging();
+					this._SUNT_BUNT_CODE = value;
+					this.SendPropertyChanged("SUNT_BUNT_CODE");
+					this.OnSUNT_BUNT_CODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SUNT_CODE", DbType="VarChar(4)")]
+		public string SUNT_CODE
+		{
+			get
+			{
+				return this._SUNT_CODE;
+			}
+			set
+			{
+				if ((this._SUNT_CODE != value))
+				{
+					if (this._Sub_Unit.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnSUNT_CODEChanging(value);
+					this.SendPropertyChanging();
+					this._SUNT_CODE = value;
+					this.SendPropertyChanged("SUNT_CODE");
+					this.OnSUNT_CODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CORD_X", DbType="Real")]
+		public System.Nullable<float> CORD_X
+		{
+			get
+			{
+				return this._CORD_X;
+			}
+			set
+			{
+				if ((this._CORD_X != value))
+				{
+					this.OnCORD_XChanging(value);
+					this.SendPropertyChanging();
+					this._CORD_X = value;
+					this.SendPropertyChanged("CORD_X");
+					this.OnCORD_XChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CORD_Y", DbType="Real")]
+		public System.Nullable<float> CORD_Y
+		{
+			get
+			{
+				return this._CORD_Y;
+			}
+			set
+			{
+				if ((this._CORD_Y != value))
+				{
+					this.OnCORD_YChanging(value);
+					this.SendPropertyChanging();
+					this._CORD_Y = value;
+					this.SendPropertyChanged("CORD_Y");
+					this.OnCORD_YChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MOST_DEBT_CLNG", DbType="BigInt")]
+		public System.Nullable<long> MOST_DEBT_CLNG
+		{
+			get
+			{
+				return this._MOST_DEBT_CLNG;
+			}
+			set
+			{
+				if ((this._MOST_DEBT_CLNG != value))
+				{
+					this.OnMOST_DEBT_CLNGChanging(value);
+					this.SendPropertyChanging();
+					this._MOST_DEBT_CLNG = value;
+					this.SendPropertyChanged("MOST_DEBT_CLNG");
+					this.OnMOST_DEBT_CLNGChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SERV_NO", DbType="NVarChar(50)")]
+		public string SERV_NO
+		{
+			get
+			{
+				return this._SERV_NO;
+			}
+			set
+			{
+				if ((this._SERV_NO != value))
+				{
+					this.OnSERV_NOChanging(value);
+					this.SendPropertyChanging();
+					this._SERV_NO = value;
+					this.SendPropertyChanged("SERV_NO");
+					this.OnSERV_NOChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BRTH_PLAC", DbType="NVarChar(100)")]
+		public string BRTH_PLAC
+		{
+			get
+			{
+				return this._BRTH_PLAC;
+			}
+			set
+			{
+				if ((this._BRTH_PLAC != value))
+				{
+					this.OnBRTH_PLACChanging(value);
+					this.SendPropertyChanging();
+					this._BRTH_PLAC = value;
+					this.SendPropertyChanged("BRTH_PLAC");
+					this.OnBRTH_PLACChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ISSU_PLAC", DbType="NVarChar(100)")]
+		public string ISSU_PLAC
+		{
+			get
+			{
+				return this._ISSU_PLAC;
+			}
+			set
+			{
+				if ((this._ISSU_PLAC != value))
+				{
+					this.OnISSU_PLACChanging(value);
+					this.SendPropertyChanging();
+					this._ISSU_PLAC = value;
+					this.SendPropertyChanged("ISSU_PLAC");
+					this.OnISSU_PLACChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FATH_WORK", DbType="NVarChar(150)")]
+		public string FATH_WORK
+		{
+			get
+			{
+				return this._FATH_WORK;
+			}
+			set
+			{
+				if ((this._FATH_WORK != value))
+				{
+					this.OnFATH_WORKChanging(value);
+					this.SendPropertyChanging();
+					this._FATH_WORK = value;
+					this.SendPropertyChanged("FATH_WORK");
+					this.OnFATH_WORKChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HIST_DESC", DbType="NVarChar(500)")]
+		public string HIST_DESC
+		{
+			get
+			{
+				return this._HIST_DESC;
+			}
+			set
+			{
+				if ((this._HIST_DESC != value))
+				{
+					this.OnHIST_DESCChanging(value);
+					this.SendPropertyChanging();
+					this._HIST_DESC = value;
+					this.SendPropertyChanged("HIST_DESC");
+					this.OnHIST_DESCChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DPST_ACNT_SLRY_BANK", DbType="NVarChar(50)")]
+		public string DPST_ACNT_SLRY_BANK
+		{
+			get
+			{
+				return this._DPST_ACNT_SLRY_BANK;
+			}
+			set
+			{
+				if ((this._DPST_ACNT_SLRY_BANK != value))
+				{
+					this.OnDPST_ACNT_SLRY_BANKChanging(value);
+					this.SendPropertyChanging();
+					this._DPST_ACNT_SLRY_BANK = value;
+					this.SendPropertyChanged("DPST_ACNT_SLRY_BANK");
+					this.OnDPST_ACNT_SLRY_BANKChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DPST_ACNT_SLRY", DbType="VarChar(50)")]
+		public string DPST_ACNT_SLRY
+		{
+			get
+			{
+				return this._DPST_ACNT_SLRY;
+			}
+			set
+			{
+				if ((this._DPST_ACNT_SLRY != value))
+				{
+					this.OnDPST_ACNT_SLRYChanging(value);
+					this.SendPropertyChanging();
+					this._DPST_ACNT_SLRY = value;
+					this.SendPropertyChanged("DPST_ACNT_SLRY");
+					this.OnDPST_ACNT_SLRYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CHAT_ID", DbType="BigInt")]
+		public System.Nullable<long> CHAT_ID
+		{
+			get
+			{
+				return this._CHAT_ID;
+			}
+			set
+			{
+				if ((this._CHAT_ID != value))
+				{
+					this.OnCHAT_IDChanging(value);
+					this.SendPropertyChanging();
+					this._CHAT_ID = value;
+					this.SendPropertyChanged("CHAT_ID");
+					this.OnCHAT_IDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MOM_CELL_PHON", DbType="VarChar(11)")]
+		public string MOM_CELL_PHON
+		{
+			get
+			{
+				return this._MOM_CELL_PHON;
+			}
+			set
+			{
+				if ((this._MOM_CELL_PHON != value))
+				{
+					this.OnMOM_CELL_PHONChanging(value);
+					this.SendPropertyChanging();
+					this._MOM_CELL_PHON = value;
+					this.SendPropertyChanged("MOM_CELL_PHON");
+					this.OnMOM_CELL_PHONChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DAD_CELL_PHON", DbType="VarChar(11)")]
+		public string DAD_CELL_PHON
+		{
+			get
+			{
+				return this._DAD_CELL_PHON;
+			}
+			set
+			{
+				if ((this._DAD_CELL_PHON != value))
+				{
+					this.OnDAD_CELL_PHONChanging(value);
+					this.SendPropertyChanging();
+					this._DAD_CELL_PHON = value;
+					this.SendPropertyChanged("DAD_CELL_PHON");
+					this.OnDAD_CELL_PHONChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MOM_TELL_PHON", DbType="VarChar(11)")]
+		public string MOM_TELL_PHON
+		{
+			get
+			{
+				return this._MOM_TELL_PHON;
+			}
+			set
+			{
+				if ((this._MOM_TELL_PHON != value))
+				{
+					this.OnMOM_TELL_PHONChanging(value);
+					this.SendPropertyChanging();
+					this._MOM_TELL_PHON = value;
+					this.SendPropertyChanged("MOM_TELL_PHON");
+					this.OnMOM_TELL_PHONChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DAD_TELL_PHON", DbType="VarChar(11)")]
+		public string DAD_TELL_PHON
+		{
+			get
+			{
+				return this._DAD_TELL_PHON;
+			}
+			set
+			{
+				if ((this._DAD_TELL_PHON != value))
+				{
+					this.OnDAD_TELL_PHONChanging(value);
+					this.SendPropertyChanging();
+					this._DAD_TELL_PHON = value;
+					this.SendPropertyChanged("DAD_TELL_PHON");
+					this.OnDAD_TELL_PHONChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MOM_CHAT_ID", DbType="BigInt")]
+		public System.Nullable<long> MOM_CHAT_ID
+		{
+			get
+			{
+				return this._MOM_CHAT_ID;
+			}
+			set
+			{
+				if ((this._MOM_CHAT_ID != value))
+				{
+					this.OnMOM_CHAT_IDChanging(value);
+					this.SendPropertyChanging();
+					this._MOM_CHAT_ID = value;
+					this.SendPropertyChanged("MOM_CHAT_ID");
+					this.OnMOM_CHAT_IDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DAD_CHAT_ID", DbType="BigInt")]
+		public System.Nullable<long> DAD_CHAT_ID
+		{
+			get
+			{
+				return this._DAD_CHAT_ID;
+			}
+			set
+			{
+				if ((this._DAD_CHAT_ID != value))
+				{
+					this.OnDAD_CHAT_IDChanging(value);
+					this.SendPropertyChanging();
+					this._DAD_CHAT_ID = value;
+					this.SendPropertyChanged("DAD_CHAT_ID");
+					this.OnDAD_CHAT_IDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDTY_NUMB", DbType="VarChar(20)")]
+		public string IDTY_NUMB
+		{
+			get
+			{
+				return this._IDTY_NUMB;
+			}
+			set
+			{
+				if ((this._IDTY_NUMB != value))
+				{
+					this.OnIDTY_NUMBChanging(value);
+					this.SendPropertyChanging();
+					this._IDTY_NUMB = value;
+					this.SendPropertyChanged("IDTY_NUMB");
+					this.OnIDTY_NUMBChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ZIP_CODE", DbType="VarChar(10)")]
+		public string ZIP_CODE
+		{
+			get
+			{
+				return this._ZIP_CODE;
+			}
+			set
+			{
+				if ((this._ZIP_CODE != value))
+				{
+					this.OnZIP_CODEChanging(value);
+					this.SendPropertyChanging();
+					this._ZIP_CODE = value;
+					this.SendPropertyChanged("ZIP_CODE");
+					this.OnZIP_CODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CMNT", DbType="NVarChar(4000)")]
+		public string CMNT
+		{
+			get
+			{
+				return this._CMNT;
+			}
+			set
+			{
+				if ((this._CMNT != value))
+				{
+					this.OnCMNTChanging(value);
+					this.SendPropertyChanging();
+					this._CMNT = value;
+					this.SendPropertyChanged("CMNT");
+					this.OnCMNTChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PASS_WORD", DbType="VarChar(250)")]
+		public string PASS_WORD
+		{
+			get
+			{
+				return this._PASS_WORD;
+			}
+			set
+			{
+				if ((this._PASS_WORD != value))
+				{
+					this.OnPASS_WORDChanging(value);
+					this.SendPropertyChanging();
+					this._PASS_WORD = value;
+					this.SendPropertyChanged("PASS_WORD");
+					this.OnPASS_WORDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_REF_CODE", DbType="BigInt")]
+		public System.Nullable<long> REF_CODE
+		{
+			get
+			{
+				return this._REF_CODE;
+			}
+			set
+			{
+				if ((this._REF_CODE != value))
+				{
+					if (this._Fighter1.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnREF_CODEChanging(value);
+					this.SendPropertyChanging();
+					this._REF_CODE = value;
+					this.SendPropertyChanged("REF_CODE");
+					this.OnREF_CODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_BY", DbType="VarChar(250)")]
+		public string CRET_BY
+		{
+			get
+			{
+				return this._CRET_BY;
+			}
+			set
+			{
+				if ((this._CRET_BY != value))
+				{
+					this.OnCRET_BYChanging(value);
+					this.SendPropertyChanging();
+					this._CRET_BY = value;
+					this.SendPropertyChanged("CRET_BY");
+					this.OnCRET_BYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_DATE", DbType="DateTime")]
+		public System.Nullable<System.DateTime> CRET_DATE
+		{
+			get
+			{
+				return this._CRET_DATE;
+			}
+			set
+			{
+				if ((this._CRET_DATE != value))
+				{
+					this.OnCRET_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._CRET_DATE = value;
+					this.SendPropertyChanged("CRET_DATE");
+					this.OnCRET_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_BY", DbType="VarChar(250)")]
+		public string MDFY_BY
+		{
+			get
+			{
+				return this._MDFY_BY;
+			}
+			set
+			{
+				if ((this._MDFY_BY != value))
+				{
+					this.OnMDFY_BYChanging(value);
+					this.SendPropertyChanging();
+					this._MDFY_BY = value;
+					this.SendPropertyChanged("MDFY_BY");
+					this.OnMDFY_BYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_DATE", DbType="DateTime")]
+		public System.Nullable<System.DateTime> MDFY_DATE
+		{
+			get
+			{
+				return this._MDFY_DATE;
+			}
+			set
+			{
+				if ((this._MDFY_DATE != value))
+				{
+					this.OnMDFY_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._MDFY_DATE = value;
+					this.SendPropertyChanged("MDFY_DATE");
+					this.OnMDFY_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Public_Present", Storage="_Presents", ThisKey="FIGH_FILE_NO,RWNO,RECT_CODE", OtherKey="FGPB_FIGH_FILE_NO,FGPB_RWNO,FGPB_RECT_CODE")]
+		public EntitySet<Present> Presents
+		{
+			get
+			{
+				return this._Presents;
+			}
+			set
+			{
+				this._Presents.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Public_Member_Ship", Storage="_Member_Ships", ThisKey="FIGH_FILE_NO,RWNO,RECT_CODE", OtherKey="FIGH_FILE_NO,FGPB_RWNO_DNRM,FGPB_RECT_CODE_DNRM")]
+		public EntitySet<Member_Ship> Member_Ships
+		{
+			get
+			{
+				return this._Member_Ships;
+			}
+			set
+			{
+				this._Member_Ships.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Club_Method_Fighter_Public", Storage="_Club_Method", ThisKey="CBMT_CODE", OtherKey="CODE", IsForeignKey=true)]
+		public Club_Method Club_Method
+		{
+			get
+			{
+				return this._Club_Method.Entity;
+			}
+			set
+			{
+				Club_Method previousValue = this._Club_Method.Entity;
+				if (((previousValue != value) 
+							|| (this._Club_Method.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Club_Method.Entity = null;
+						previousValue.Fighter_Publics.Remove(this);
+					}
+					this._Club_Method.Entity = value;
+					if ((value != null))
+					{
+						value.Fighter_Publics.Add(this);
+						this._CBMT_CODE = value.CODE;
+					}
+					else
+					{
+						this._CBMT_CODE = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("Club_Method");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Club_Fighter_Public", Storage="_Club", ThisKey="CLUB_CODE", OtherKey="CODE", IsForeignKey=true, DeleteRule="SET NULL")]
+		public Club Club
+		{
+			get
+			{
+				return this._Club.Entity;
+			}
+			set
+			{
+				Club previousValue = this._Club.Entity;
+				if (((previousValue != value) 
+							|| (this._Club.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Club.Entity = null;
+						previousValue.Fighter_Publics.Remove(this);
+					}
+					this._Club.Entity = value;
+					if ((value != null))
+					{
+						value.Fighter_Publics.Add(this);
+						this._CLUB_CODE = value.CODE;
+					}
+					else
+					{
+						this._CLUB_CODE = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("Club");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Category_Belt_Fighter_Public", Storage="_Category_Belt", ThisKey="CTGY_CODE", OtherKey="CODE", IsForeignKey=true, DeleteRule="SET NULL")]
+		public Category_Belt Category_Belt
+		{
+			get
+			{
+				return this._Category_Belt.Entity;
+			}
+			set
+			{
+				Category_Belt previousValue = this._Category_Belt.Entity;
+				if (((previousValue != value) 
+							|| (this._Category_Belt.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Category_Belt.Entity = null;
+						previousValue.Fighter_Publics.Remove(this);
+					}
+					this._Category_Belt.Entity = value;
+					if ((value != null))
+					{
+						value.Fighter_Publics.Add(this);
+						this._CTGY_CODE = value.CODE;
+					}
+					else
+					{
+						this._CTGY_CODE = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("Category_Belt");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Diseases_Type_Fighter_Public", Storage="_Diseases_Type", ThisKey="DISE_CODE", OtherKey="CODE", IsForeignKey=true, DeleteRule="SET NULL")]
+		public Diseases_Type Diseases_Type
+		{
+			get
+			{
+				return this._Diseases_Type.Entity;
+			}
+			set
+			{
+				Diseases_Type previousValue = this._Diseases_Type.Entity;
+				if (((previousValue != value) 
+							|| (this._Diseases_Type.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Diseases_Type.Entity = null;
+						previousValue.Fighter_Publics.Remove(this);
+					}
+					this._Diseases_Type.Entity = value;
+					if ((value != null))
+					{
+						value.Fighter_Publics.Add(this);
+						this._DISE_CODE = value.CODE;
+					}
+					else
+					{
+						this._DISE_CODE = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("Diseases_Type");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Method_Fighter_Public", Storage="_Method", ThisKey="MTOD_CODE", OtherKey="CODE", IsForeignKey=true, DeleteRule="SET NULL")]
+		public Method Method
+		{
+			get
+			{
+				return this._Method.Entity;
+			}
+			set
+			{
+				Method previousValue = this._Method.Entity;
+				if (((previousValue != value) 
+							|| (this._Method.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Method.Entity = null;
+						previousValue.Fighter_Publics.Remove(this);
+					}
+					this._Method.Entity = value;
+					if ((value != null))
+					{
+						value.Fighter_Publics.Add(this);
+						this._MTOD_CODE = value.CODE;
+					}
+					else
+					{
+						this._MTOD_CODE = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("Method");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Region_Fighter_Public", Storage="_Region", ThisKey="REGN_PRVN_CNTY_CODE,REGN_PRVN_CODE,REGN_CODE", OtherKey="PRVN_CNTY_CODE,PRVN_CODE,CODE", IsForeignKey=true)]
+		public Region Region
+		{
+			get
+			{
+				return this._Region.Entity;
+			}
+			set
+			{
+				Region previousValue = this._Region.Entity;
+				if (((previousValue != value) 
+							|| (this._Region.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Region.Entity = null;
+						previousValue.Fighter_Publics.Remove(this);
+					}
+					this._Region.Entity = value;
+					if ((value != null))
+					{
+						value.Fighter_Publics.Add(this);
+						this._REGN_PRVN_CNTY_CODE = value.PRVN_CNTY_CODE;
+						this._REGN_PRVN_CODE = value.PRVN_CODE;
+						this._REGN_CODE = value.CODE;
+					}
+					else
+					{
+						this._REGN_PRVN_CNTY_CODE = default(string);
+						this._REGN_PRVN_CODE = default(string);
+						this._REGN_CODE = default(string);
+					}
+					this.SendPropertyChanged("Region");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Request_Row_Fighter_Public", Storage="_Request_Row", ThisKey="RQRO_RQST_RQID,RQRO_RWNO", OtherKey="RQST_RQID,RWNO", IsForeignKey=true, DeleteRule="CASCADE")]
+		public Request_Row Request_Row
+		{
+			get
+			{
+				return this._Request_Row.Entity;
+			}
+			set
+			{
+				Request_Row previousValue = this._Request_Row.Entity;
+				if (((previousValue != value) 
+							|| (this._Request_Row.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Request_Row.Entity = null;
+						previousValue.Fighter_Publics.Remove(this);
+					}
+					this._Request_Row.Entity = value;
+					if ((value != null))
+					{
+						value.Fighter_Publics.Add(this);
+						this._RQRO_RQST_RQID = value.RQST_RQID;
+						this._RQRO_RWNO = value.RWNO;
+					}
+					else
+					{
+						this._RQRO_RQST_RQID = default(Nullable<long>);
+						this._RQRO_RWNO = default(Nullable<short>);
+					}
+					this.SendPropertyChanged("Request_Row");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Sub_Unit_Fighter_Public", Storage="_Sub_Unit", ThisKey="SUNT_BUNT_DEPT_ORGN_CODE,SUNT_BUNT_DEPT_CODE,SUNT_BUNT_CODE,SUNT_CODE", OtherKey="BUNT_DEPT_ORGN_CODE,BUNT_DEPT_CODE,BUNT_CODE,CODE", IsForeignKey=true)]
+		public Sub_Unit Sub_Unit
+		{
+			get
+			{
+				return this._Sub_Unit.Entity;
+			}
+			set
+			{
+				Sub_Unit previousValue = this._Sub_Unit.Entity;
+				if (((previousValue != value) 
+							|| (this._Sub_Unit.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Sub_Unit.Entity = null;
+						previousValue.Fighter_Publics.Remove(this);
+					}
+					this._Sub_Unit.Entity = value;
+					if ((value != null))
+					{
+						value.Fighter_Publics.Add(this);
+						this._SUNT_BUNT_DEPT_ORGN_CODE = value.BUNT_DEPT_ORGN_CODE;
+						this._SUNT_BUNT_DEPT_CODE = value.BUNT_DEPT_CODE;
+						this._SUNT_BUNT_CODE = value.BUNT_CODE;
+						this._SUNT_CODE = value.CODE;
+					}
+					else
+					{
+						this._SUNT_BUNT_DEPT_ORGN_CODE = default(string);
+						this._SUNT_BUNT_DEPT_CODE = default(string);
+						this._SUNT_BUNT_CODE = default(string);
+						this._SUNT_CODE = default(string);
+					}
+					this.SendPropertyChanged("Sub_Unit");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Fighter_Public", Storage="_Fighter", ThisKey="FIGH_FILE_NO", OtherKey="FILE_NO", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
+		public Fighter Fighter
+		{
+			get
+			{
+				return this._Fighter.Entity;
+			}
+			set
+			{
+				Fighter previousValue = this._Fighter.Entity;
+				if (((previousValue != value) 
+							|| (this._Fighter.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Fighter.Entity = null;
+						previousValue.Fighter_Publics.Remove(this);
+					}
+					this._Fighter.Entity = value;
+					if ((value != null))
+					{
+						value.Fighter_Publics.Add(this);
+						this._FIGH_FILE_NO = value.FILE_NO;
+					}
+					else
+					{
+						this._FIGH_FILE_NO = default(long);
+					}
+					this.SendPropertyChanged("Fighter");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Fighter_Public1", Storage="_Fighter1", ThisKey="REF_CODE", OtherKey="FILE_NO", IsForeignKey=true)]
+		public Fighter Fighter1
+		{
+			get
+			{
+				return this._Fighter1.Entity;
+			}
+			set
+			{
+				Fighter previousValue = this._Fighter1.Entity;
+				if (((previousValue != value) 
+							|| (this._Fighter1.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Fighter1.Entity = null;
+						previousValue.Fighter_Publics1.Remove(this);
+					}
+					this._Fighter1.Entity = value;
+					if ((value != null))
+					{
+						value.Fighter_Publics1.Add(this);
+						this._REF_CODE = value.FILE_NO;
+					}
+					else
+					{
+						this._REF_CODE = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("Fighter1");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Presents(Present entity)
+		{
+			this.SendPropertyChanging();
+			entity.Fighter_Public = this;
+		}
+		
+		private void detach_Presents(Present entity)
+		{
+			this.SendPropertyChanging();
+			entity.Fighter_Public = null;
+		}
+		
+		private void attach_Member_Ships(Member_Ship entity)
+		{
+			this.SendPropertyChanging();
+			entity.Fighter_Public = this;
+		}
+		
+		private void detach_Member_Ships(Member_Ship entity)
+		{
+			this.SendPropertyChanging();
+			entity.Fighter_Public = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Fighter")]
+	public partial class Fighter : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _REGN_PRVN_CNTY_CODE;
+		
+		private string _REGN_PRVN_CODE;
+		
+		private string _REGN_CODE;
+		
+		private long _FILE_NO;
+		
+		private string _TARF_CODE_DNRM;
+		
+		private System.Nullable<long> _MOST_DEBT_CLNG_DNRM;
+		
+		private System.Nullable<long> _DEBT_DNRM;
+		
+		private System.Nullable<long> _BUFE_DEBT_DNTM;
+		
+		private System.Nullable<long> _DPST_AMNT_DNRM;
+		
+		private System.Nullable<int> _FGPB_RWNO_DNRM;
+		
+		private System.Nullable<short> _MBSP_RWNO_DNRM;
+		
+		private System.Nullable<short> _MBCO_RWNO_DNRM;
+		
+		private System.Nullable<short> _MBFZ_RWNO_DNRM;
+		
+		private System.Nullable<short> _MBSM_RWNO_DNRM;
+		
+		private System.Nullable<short> _CAMP_RWNO_DNRM;
+		
+		private System.Nullable<short> _TEST_RWNO_DNRM;
+		
+		private System.Nullable<short> _CLCL_RWNO_DNRM;
+		
+		private System.Nullable<short> _HERT_RWNO_DNRM;
+		
+		private System.Nullable<short> _PSFN_RWNO_DNRM;
+		
+		private System.Nullable<short> _EXAM_RWNO_DNRM;
+		
+		private System.Nullable<short> _BDFT_RWNO_DNRM;
+		
+		private System.Nullable<System.DateTime> _MBSP_STRT_DATE;
+		
+		private System.Nullable<System.DateTime> _MBSP_END_DATE;
+		
+		private string _CONF_STAT;
+		
+		private System.Nullable<System.DateTime> _CONF_DATE;
+		
+		private string _FIGH_STAT;
+		
+		private System.Nullable<long> _RQST_RQID;
+		
+		private string _NAME_DNRM;
+		
+		private string _FRST_NAME_DNRM;
+		
+		private string _LAST_NAME_DNRM;
+		
+		private string _FATH_NAME_DNRM;
+		
+		private string _POST_ADRS_DNRM;
+		
+		private string _SEX_TYPE_DNRM;
+		
+		private System.Nullable<System.DateTime> _BRTH_DATE_DNRM;
+		
+		private string _CELL_PHON_DNRM;
+		
+		private string _TELL_PHON_DNRM;
+		
+		private string _FGPB_TYPE_DNRM;
+		
+		private string _INSR_NUMB_DNRM;
+		
+		private System.Nullable<System.DateTime> _INSR_DATE_DNRM;
+		
+		private System.Nullable<System.DateTime> _TEST_DATE_DNRM;
+		
+		private System.Nullable<System.DateTime> _CAMP_DATE_DNRM;
+		
+		private System.Nullable<long> _CTGY_CODE_DNRM;
+		
+		private System.Nullable<long> _MTOD_CODE_DNRM;
+		
+		private System.Nullable<long> _CLUB_CODE_DNRM;
+		
+		private System.Nullable<long> _COCH_FILE_NO_DNRM;
+		
+		private System.Nullable<short> _COCH_CRTF_YEAR_DNRM;
+		
+		private System.Nullable<long> _CBMT_CODE_DNRM;
+		
+		private string _DAY_TYPE_DNRM;
+		
+		private System.Nullable<System.TimeSpan> _ATTN_TIME_DNRM;
+		
+		private string _ACTV_TAG_DNRM;
+		
+		private string _BLOD_GROP_DNRM;
+		
+		private System.Nullable<long> _REF_CODE_DNRM;
+		
+		private System.Nullable<long> _IMAG_RCDC_RCID_DNRM;
+		
+		private System.Nullable<short> _IMAG_RWNO_DNRM;
+		
+		private string _CARD_NUMB_DNRM;
+		
+		private string _FNGR_PRNT_DNRM;
+		
+		private string _SUNT_BUNT_DEPT_ORGN_CODE_DNRM;
+		
+		private string _SUNT_BUNT_DEPT_CODE_DNRM;
+		
+		private string _SUNT_BUNT_CODE_DNRM;
+		
+		private string _SUNT_CODE_DNRM;
+		
+		private System.Nullable<float> _CORD_X_DNRM;
+		
+		private System.Nullable<float> _CORD_Y_DNRM;
+		
+		private string _SERV_NO_DNRM;
+		
+		private string _NATL_CODE_DNRM;
+		
+		private string _GLOB_CODE_DNRM;
+		
+		private System.Nullable<long> _CHAT_ID_DNRM;
+		
+		private string _MOM_CELL_PHON_DNRM;
+		
+		private string _MOM_TELL_PHON_DNRM;
+		
+		private System.Nullable<long> _MOM_CHAT_ID_DNRM;
+		
+		private string _DAD_CELL_PHON_DNRM;
+		
+		private string _DAD_TELL_PHON_DNRM;
+		
+		private System.Nullable<long> _DAD_CHAT_ID_DNRM;
+		
+		private string _DPST_ACNT_SLRY_BANK_DNRM;
+		
+		private string _DPST_ACNT_SLRY_DNRM;
+		
+		private System.Nullable<short> _RTNG_NUMB_DNRM;
+		
+		private string _CRET_BY;
+		
+		private System.Nullable<System.DateTime> _CRET_DATE;
+		
+		private string _MDFY_BY;
+		
+		private System.Nullable<System.DateTime> _MDFY_DATE;
+		
+		private EntitySet<Campitition> _Campititions;
+		
+		private EntitySet<Exam> _Exams;
+		
+		private EntitySet<Heart_Zone> _Heart_Zones;
+		
+		private EntitySet<Physical_Fitness> _Physical_Fitnesses;
+		
+		private EntitySet<Planning_Overview> _Planning_Overviews;
+		
+		private EntitySet<Test> _Tests;
+		
+		private EntitySet<Calculate_Calorie> _Calculate_Calories;
+		
+		private EntitySet<Body_Fitness> _Body_Fitnesses;
+		
+		private EntitySet<Request_Row> _Request_Rows;
+		
+		private EntitySet<Session_Meeting> _Session_Meetings;
+		
+		private EntitySet<Session> _Sessions;
+		
+		private EntitySet<Misc_Expense_Detail> _Misc_Expense_Details;
+		
+		private EntitySet<Payment_Expense> _Payment_Expenses;
+		
+		private EntitySet<Misc_Expense> _Misc_Expenses;
+		
+		private EntitySet<Club_Method> _Club_Methods;
+		
+		private EntitySet<Aggregation_Operation> _Aggregation_Operations;
+		
+		private EntitySet<Payment_Method> _Payment_Methods;
+		
+		private EntitySet<Log_Operation> _Log_Operations;
+		
+		private EntitySet<Calculate_Expense_Coach> _Calculate_Expense_Coaches;
+		
+		private EntitySet<Gain_Loss_Rial> _Gain_Loss_Rials;
+		
+		private EntitySet<Member_Ship> _Member_Ships;
+		
+		private EntitySet<Fighter_Grouping> _Fighter_Groupings;
+		
+		private EntitySet<Note> _Notes;
+		
+		private EntitySet<Payment_Detail> _Payment_Details;
+		
+		private EntitySet<Attendance> _Attendances;
+		
+		private EntitySet<Attendance> _Attendances1;
+		
+		private EntitySet<Aggregation_Operation_Detail> _Aggregation_Operation_Details;
+		
+		private EntitySet<Fighter_RelationShip> _Fighter_RelationShips;
+		
+		private EntitySet<Fighter_RelationShip> _Fighter_RelationShips1;
+		
+		private EntitySet<Fighter_Call> _Fighter_Calls;
+		
+		private EntitySet<Fighter_Discount_Card> _Fighter_Discount_Cards;
+		
+		private EntitySet<Advertising_Campaign> _Advertising_Campaigns;
+		
+		private EntitySet<Fighter_Public> _Fighter_Publics;
+		
+		private EntitySet<Fighter_Public> _Fighter_Publics1;
+		
+		private EntitySet<Fighter> _Fighters;
+		
+		private EntitySet<Payment_Discount> _Payment_Discounts;
+		
+		private EntityRef<Club> _Club;
+		
+		private EntityRef<Category_Belt> _Category_Belt;
+		
+		private EntityRef<Fighter> _Fighter1;
+		
+		private EntityRef<Method> _Method;
+		
+		private EntityRef<Region> _Region;
+		
+		private EntityRef<Request> _Request;
+		
+		private EntityRef<Sub_Unit> _Sub_Unit;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnREGN_PRVN_CNTY_CODEChanging(string value);
+    partial void OnREGN_PRVN_CNTY_CODEChanged();
+    partial void OnREGN_PRVN_CODEChanging(string value);
+    partial void OnREGN_PRVN_CODEChanged();
+    partial void OnREGN_CODEChanging(string value);
+    partial void OnREGN_CODEChanged();
+    partial void OnFILE_NOChanging(long value);
+    partial void OnFILE_NOChanged();
+    partial void OnTARF_CODE_DNRMChanging(string value);
+    partial void OnTARF_CODE_DNRMChanged();
+    partial void OnMOST_DEBT_CLNG_DNRMChanging(System.Nullable<long> value);
+    partial void OnMOST_DEBT_CLNG_DNRMChanged();
+    partial void OnDEBT_DNRMChanging(System.Nullable<long> value);
+    partial void OnDEBT_DNRMChanged();
+    partial void OnBUFE_DEBT_DNTMChanging(System.Nullable<long> value);
+    partial void OnBUFE_DEBT_DNTMChanged();
+    partial void OnDPST_AMNT_DNRMChanging(System.Nullable<long> value);
+    partial void OnDPST_AMNT_DNRMChanged();
+    partial void OnFGPB_RWNO_DNRMChanging(System.Nullable<int> value);
+    partial void OnFGPB_RWNO_DNRMChanged();
+    partial void OnMBSP_RWNO_DNRMChanging(System.Nullable<short> value);
+    partial void OnMBSP_RWNO_DNRMChanged();
+    partial void OnMBCO_RWNO_DNRMChanging(System.Nullable<short> value);
+    partial void OnMBCO_RWNO_DNRMChanged();
+    partial void OnMBFZ_RWNO_DNRMChanging(System.Nullable<short> value);
+    partial void OnMBFZ_RWNO_DNRMChanged();
+    partial void OnMBSM_RWNO_DNRMChanging(System.Nullable<short> value);
+    partial void OnMBSM_RWNO_DNRMChanged();
+    partial void OnCAMP_RWNO_DNRMChanging(System.Nullable<short> value);
+    partial void OnCAMP_RWNO_DNRMChanged();
+    partial void OnTEST_RWNO_DNRMChanging(System.Nullable<short> value);
+    partial void OnTEST_RWNO_DNRMChanged();
+    partial void OnCLCL_RWNO_DNRMChanging(System.Nullable<short> value);
+    partial void OnCLCL_RWNO_DNRMChanged();
+    partial void OnHERT_RWNO_DNRMChanging(System.Nullable<short> value);
+    partial void OnHERT_RWNO_DNRMChanged();
+    partial void OnPSFN_RWNO_DNRMChanging(System.Nullable<short> value);
+    partial void OnPSFN_RWNO_DNRMChanged();
+    partial void OnEXAM_RWNO_DNRMChanging(System.Nullable<short> value);
+    partial void OnEXAM_RWNO_DNRMChanged();
+    partial void OnBDFT_RWNO_DNRMChanging(System.Nullable<short> value);
+    partial void OnBDFT_RWNO_DNRMChanged();
+    partial void OnMBSP_STRT_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnMBSP_STRT_DATEChanged();
+    partial void OnMBSP_END_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnMBSP_END_DATEChanged();
+    partial void OnCONF_STATChanging(string value);
+    partial void OnCONF_STATChanged();
+    partial void OnCONF_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnCONF_DATEChanged();
+    partial void OnFIGH_STATChanging(string value);
+    partial void OnFIGH_STATChanged();
+    partial void OnRQST_RQIDChanging(System.Nullable<long> value);
+    partial void OnRQST_RQIDChanged();
+    partial void OnNAME_DNRMChanging(string value);
+    partial void OnNAME_DNRMChanged();
+    partial void OnFRST_NAME_DNRMChanging(string value);
+    partial void OnFRST_NAME_DNRMChanged();
+    partial void OnLAST_NAME_DNRMChanging(string value);
+    partial void OnLAST_NAME_DNRMChanged();
+    partial void OnFATH_NAME_DNRMChanging(string value);
+    partial void OnFATH_NAME_DNRMChanged();
+    partial void OnPOST_ADRS_DNRMChanging(string value);
+    partial void OnPOST_ADRS_DNRMChanged();
+    partial void OnSEX_TYPE_DNRMChanging(string value);
+    partial void OnSEX_TYPE_DNRMChanged();
+    partial void OnBRTH_DATE_DNRMChanging(System.Nullable<System.DateTime> value);
+    partial void OnBRTH_DATE_DNRMChanged();
+    partial void OnCELL_PHON_DNRMChanging(string value);
+    partial void OnCELL_PHON_DNRMChanged();
+    partial void OnTELL_PHON_DNRMChanging(string value);
+    partial void OnTELL_PHON_DNRMChanged();
+    partial void OnFGPB_TYPE_DNRMChanging(string value);
+    partial void OnFGPB_TYPE_DNRMChanged();
+    partial void OnINSR_NUMB_DNRMChanging(string value);
+    partial void OnINSR_NUMB_DNRMChanged();
+    partial void OnINSR_DATE_DNRMChanging(System.Nullable<System.DateTime> value);
+    partial void OnINSR_DATE_DNRMChanged();
+    partial void OnTEST_DATE_DNRMChanging(System.Nullable<System.DateTime> value);
+    partial void OnTEST_DATE_DNRMChanged();
+    partial void OnCAMP_DATE_DNRMChanging(System.Nullable<System.DateTime> value);
+    partial void OnCAMP_DATE_DNRMChanged();
+    partial void OnCTGY_CODE_DNRMChanging(System.Nullable<long> value);
+    partial void OnCTGY_CODE_DNRMChanged();
+    partial void OnMTOD_CODE_DNRMChanging(System.Nullable<long> value);
+    partial void OnMTOD_CODE_DNRMChanged();
+    partial void OnCLUB_CODE_DNRMChanging(System.Nullable<long> value);
+    partial void OnCLUB_CODE_DNRMChanged();
+    partial void OnCOCH_FILE_NO_DNRMChanging(System.Nullable<long> value);
+    partial void OnCOCH_FILE_NO_DNRMChanged();
+    partial void OnCOCH_CRTF_YEAR_DNRMChanging(System.Nullable<short> value);
+    partial void OnCOCH_CRTF_YEAR_DNRMChanged();
+    partial void OnCBMT_CODE_DNRMChanging(System.Nullable<long> value);
+    partial void OnCBMT_CODE_DNRMChanged();
+    partial void OnDAY_TYPE_DNRMChanging(string value);
+    partial void OnDAY_TYPE_DNRMChanged();
+    partial void OnATTN_TIME_DNRMChanging(System.Nullable<System.TimeSpan> value);
+    partial void OnATTN_TIME_DNRMChanged();
+    partial void OnACTV_TAG_DNRMChanging(string value);
+    partial void OnACTV_TAG_DNRMChanged();
+    partial void OnBLOD_GROP_DNRMChanging(string value);
+    partial void OnBLOD_GROP_DNRMChanged();
+    partial void OnREF_CODE_DNRMChanging(System.Nullable<long> value);
+    partial void OnREF_CODE_DNRMChanged();
+    partial void OnIMAG_RCDC_RCID_DNRMChanging(System.Nullable<long> value);
+    partial void OnIMAG_RCDC_RCID_DNRMChanged();
+    partial void OnIMAG_RWNO_DNRMChanging(System.Nullable<short> value);
+    partial void OnIMAG_RWNO_DNRMChanged();
+    partial void OnCARD_NUMB_DNRMChanging(string value);
+    partial void OnCARD_NUMB_DNRMChanged();
+    partial void OnFNGR_PRNT_DNRMChanging(string value);
+    partial void OnFNGR_PRNT_DNRMChanged();
+    partial void OnSUNT_BUNT_DEPT_ORGN_CODE_DNRMChanging(string value);
+    partial void OnSUNT_BUNT_DEPT_ORGN_CODE_DNRMChanged();
+    partial void OnSUNT_BUNT_DEPT_CODE_DNRMChanging(string value);
+    partial void OnSUNT_BUNT_DEPT_CODE_DNRMChanged();
+    partial void OnSUNT_BUNT_CODE_DNRMChanging(string value);
+    partial void OnSUNT_BUNT_CODE_DNRMChanged();
+    partial void OnSUNT_CODE_DNRMChanging(string value);
+    partial void OnSUNT_CODE_DNRMChanged();
+    partial void OnCORD_X_DNRMChanging(System.Nullable<float> value);
+    partial void OnCORD_X_DNRMChanged();
+    partial void OnCORD_Y_DNRMChanging(System.Nullable<float> value);
+    partial void OnCORD_Y_DNRMChanged();
+    partial void OnSERV_NO_DNRMChanging(string value);
+    partial void OnSERV_NO_DNRMChanged();
+    partial void OnNATL_CODE_DNRMChanging(string value);
+    partial void OnNATL_CODE_DNRMChanged();
+    partial void OnGLOB_CODE_DNRMChanging(string value);
+    partial void OnGLOB_CODE_DNRMChanged();
+    partial void OnCHAT_ID_DNRMChanging(System.Nullable<long> value);
+    partial void OnCHAT_ID_DNRMChanged();
+    partial void OnMOM_CELL_PHON_DNRMChanging(string value);
+    partial void OnMOM_CELL_PHON_DNRMChanged();
+    partial void OnMOM_TELL_PHON_DNRMChanging(string value);
+    partial void OnMOM_TELL_PHON_DNRMChanged();
+    partial void OnMOM_CHAT_ID_DNRMChanging(System.Nullable<long> value);
+    partial void OnMOM_CHAT_ID_DNRMChanged();
+    partial void OnDAD_CELL_PHON_DNRMChanging(string value);
+    partial void OnDAD_CELL_PHON_DNRMChanged();
+    partial void OnDAD_TELL_PHON_DNRMChanging(string value);
+    partial void OnDAD_TELL_PHON_DNRMChanged();
+    partial void OnDAD_CHAT_ID_DNRMChanging(System.Nullable<long> value);
+    partial void OnDAD_CHAT_ID_DNRMChanged();
+    partial void OnDPST_ACNT_SLRY_BANK_DNRMChanging(string value);
+    partial void OnDPST_ACNT_SLRY_BANK_DNRMChanged();
+    partial void OnDPST_ACNT_SLRY_DNRMChanging(string value);
+    partial void OnDPST_ACNT_SLRY_DNRMChanged();
+    partial void OnRTNG_NUMB_DNRMChanging(System.Nullable<short> value);
+    partial void OnRTNG_NUMB_DNRMChanged();
+    partial void OnCRET_BYChanging(string value);
+    partial void OnCRET_BYChanged();
+    partial void OnCRET_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnCRET_DATEChanged();
+    partial void OnMDFY_BYChanging(string value);
+    partial void OnMDFY_BYChanged();
+    partial void OnMDFY_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnMDFY_DATEChanged();
+    #endregion
+		
+		public Fighter()
+		{
+			this._Campititions = new EntitySet<Campitition>(new Action<Campitition>(this.attach_Campititions), new Action<Campitition>(this.detach_Campititions));
+			this._Exams = new EntitySet<Exam>(new Action<Exam>(this.attach_Exams), new Action<Exam>(this.detach_Exams));
+			this._Heart_Zones = new EntitySet<Heart_Zone>(new Action<Heart_Zone>(this.attach_Heart_Zones), new Action<Heart_Zone>(this.detach_Heart_Zones));
+			this._Physical_Fitnesses = new EntitySet<Physical_Fitness>(new Action<Physical_Fitness>(this.attach_Physical_Fitnesses), new Action<Physical_Fitness>(this.detach_Physical_Fitnesses));
+			this._Planning_Overviews = new EntitySet<Planning_Overview>(new Action<Planning_Overview>(this.attach_Planning_Overviews), new Action<Planning_Overview>(this.detach_Planning_Overviews));
+			this._Tests = new EntitySet<Test>(new Action<Test>(this.attach_Tests), new Action<Test>(this.detach_Tests));
+			this._Calculate_Calories = new EntitySet<Calculate_Calorie>(new Action<Calculate_Calorie>(this.attach_Calculate_Calories), new Action<Calculate_Calorie>(this.detach_Calculate_Calories));
+			this._Body_Fitnesses = new EntitySet<Body_Fitness>(new Action<Body_Fitness>(this.attach_Body_Fitnesses), new Action<Body_Fitness>(this.detach_Body_Fitnesses));
+			this._Request_Rows = new EntitySet<Request_Row>(new Action<Request_Row>(this.attach_Request_Rows), new Action<Request_Row>(this.detach_Request_Rows));
+			this._Session_Meetings = new EntitySet<Session_Meeting>(new Action<Session_Meeting>(this.attach_Session_Meetings), new Action<Session_Meeting>(this.detach_Session_Meetings));
+			this._Sessions = new EntitySet<Session>(new Action<Session>(this.attach_Sessions), new Action<Session>(this.detach_Sessions));
+			this._Misc_Expense_Details = new EntitySet<Misc_Expense_Detail>(new Action<Misc_Expense_Detail>(this.attach_Misc_Expense_Details), new Action<Misc_Expense_Detail>(this.detach_Misc_Expense_Details));
+			this._Payment_Expenses = new EntitySet<Payment_Expense>(new Action<Payment_Expense>(this.attach_Payment_Expenses), new Action<Payment_Expense>(this.detach_Payment_Expenses));
+			this._Misc_Expenses = new EntitySet<Misc_Expense>(new Action<Misc_Expense>(this.attach_Misc_Expenses), new Action<Misc_Expense>(this.detach_Misc_Expenses));
+			this._Club_Methods = new EntitySet<Club_Method>(new Action<Club_Method>(this.attach_Club_Methods), new Action<Club_Method>(this.detach_Club_Methods));
+			this._Aggregation_Operations = new EntitySet<Aggregation_Operation>(new Action<Aggregation_Operation>(this.attach_Aggregation_Operations), new Action<Aggregation_Operation>(this.detach_Aggregation_Operations));
+			this._Payment_Methods = new EntitySet<Payment_Method>(new Action<Payment_Method>(this.attach_Payment_Methods), new Action<Payment_Method>(this.detach_Payment_Methods));
+			this._Log_Operations = new EntitySet<Log_Operation>(new Action<Log_Operation>(this.attach_Log_Operations), new Action<Log_Operation>(this.detach_Log_Operations));
+			this._Calculate_Expense_Coaches = new EntitySet<Calculate_Expense_Coach>(new Action<Calculate_Expense_Coach>(this.attach_Calculate_Expense_Coaches), new Action<Calculate_Expense_Coach>(this.detach_Calculate_Expense_Coaches));
+			this._Gain_Loss_Rials = new EntitySet<Gain_Loss_Rial>(new Action<Gain_Loss_Rial>(this.attach_Gain_Loss_Rials), new Action<Gain_Loss_Rial>(this.detach_Gain_Loss_Rials));
+			this._Member_Ships = new EntitySet<Member_Ship>(new Action<Member_Ship>(this.attach_Member_Ships), new Action<Member_Ship>(this.detach_Member_Ships));
+			this._Fighter_Groupings = new EntitySet<Fighter_Grouping>(new Action<Fighter_Grouping>(this.attach_Fighter_Groupings), new Action<Fighter_Grouping>(this.detach_Fighter_Groupings));
+			this._Notes = new EntitySet<Note>(new Action<Note>(this.attach_Notes), new Action<Note>(this.detach_Notes));
+			this._Payment_Details = new EntitySet<Payment_Detail>(new Action<Payment_Detail>(this.attach_Payment_Details), new Action<Payment_Detail>(this.detach_Payment_Details));
+			this._Attendances = new EntitySet<Attendance>(new Action<Attendance>(this.attach_Attendances), new Action<Attendance>(this.detach_Attendances));
+			this._Attendances1 = new EntitySet<Attendance>(new Action<Attendance>(this.attach_Attendances1), new Action<Attendance>(this.detach_Attendances1));
+			this._Aggregation_Operation_Details = new EntitySet<Aggregation_Operation_Detail>(new Action<Aggregation_Operation_Detail>(this.attach_Aggregation_Operation_Details), new Action<Aggregation_Operation_Detail>(this.detach_Aggregation_Operation_Details));
+			this._Fighter_RelationShips = new EntitySet<Fighter_RelationShip>(new Action<Fighter_RelationShip>(this.attach_Fighter_RelationShips), new Action<Fighter_RelationShip>(this.detach_Fighter_RelationShips));
+			this._Fighter_RelationShips1 = new EntitySet<Fighter_RelationShip>(new Action<Fighter_RelationShip>(this.attach_Fighter_RelationShips1), new Action<Fighter_RelationShip>(this.detach_Fighter_RelationShips1));
+			this._Fighter_Calls = new EntitySet<Fighter_Call>(new Action<Fighter_Call>(this.attach_Fighter_Calls), new Action<Fighter_Call>(this.detach_Fighter_Calls));
+			this._Fighter_Discount_Cards = new EntitySet<Fighter_Discount_Card>(new Action<Fighter_Discount_Card>(this.attach_Fighter_Discount_Cards), new Action<Fighter_Discount_Card>(this.detach_Fighter_Discount_Cards));
+			this._Advertising_Campaigns = new EntitySet<Advertising_Campaign>(new Action<Advertising_Campaign>(this.attach_Advertising_Campaigns), new Action<Advertising_Campaign>(this.detach_Advertising_Campaigns));
+			this._Fighter_Publics = new EntitySet<Fighter_Public>(new Action<Fighter_Public>(this.attach_Fighter_Publics), new Action<Fighter_Public>(this.detach_Fighter_Publics));
+			this._Fighter_Publics1 = new EntitySet<Fighter_Public>(new Action<Fighter_Public>(this.attach_Fighter_Publics1), new Action<Fighter_Public>(this.detach_Fighter_Publics1));
+			this._Fighters = new EntitySet<Fighter>(new Action<Fighter>(this.attach_Fighters), new Action<Fighter>(this.detach_Fighters));
+			this._Payment_Discounts = new EntitySet<Payment_Discount>(new Action<Payment_Discount>(this.attach_Payment_Discounts), new Action<Payment_Discount>(this.detach_Payment_Discounts));
+			this._Club = default(EntityRef<Club>);
+			this._Category_Belt = default(EntityRef<Category_Belt>);
+			this._Fighter1 = default(EntityRef<Fighter>);
+			this._Method = default(EntityRef<Method>);
+			this._Region = default(EntityRef<Region>);
+			this._Request = default(EntityRef<Request>);
+			this._Sub_Unit = default(EntityRef<Sub_Unit>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_REGN_PRVN_CNTY_CODE", DbType="VarChar(3) NOT NULL", CanBeNull=false)]
+		public string REGN_PRVN_CNTY_CODE
+		{
+			get
+			{
+				return this._REGN_PRVN_CNTY_CODE;
+			}
+			set
+			{
+				if ((this._REGN_PRVN_CNTY_CODE != value))
+				{
+					if (this._Region.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnREGN_PRVN_CNTY_CODEChanging(value);
+					this.SendPropertyChanging();
+					this._REGN_PRVN_CNTY_CODE = value;
+					this.SendPropertyChanged("REGN_PRVN_CNTY_CODE");
+					this.OnREGN_PRVN_CNTY_CODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_REGN_PRVN_CODE", DbType="VarChar(3) NOT NULL", CanBeNull=false)]
+		public string REGN_PRVN_CODE
+		{
+			get
+			{
+				return this._REGN_PRVN_CODE;
+			}
+			set
+			{
+				if ((this._REGN_PRVN_CODE != value))
+				{
+					if (this._Region.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnREGN_PRVN_CODEChanging(value);
+					this.SendPropertyChanging();
+					this._REGN_PRVN_CODE = value;
+					this.SendPropertyChanged("REGN_PRVN_CODE");
+					this.OnREGN_PRVN_CODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_REGN_CODE", DbType="VarChar(3) NOT NULL", CanBeNull=false)]
+		public string REGN_CODE
+		{
+			get
+			{
+				return this._REGN_CODE;
+			}
+			set
+			{
+				if ((this._REGN_CODE != value))
+				{
+					if (this._Region.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnREGN_CODEChanging(value);
+					this.SendPropertyChanging();
+					this._REGN_CODE = value;
+					this.SendPropertyChanged("REGN_CODE");
+					this.OnREGN_CODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FILE_NO", DbType="BigInt NOT NULL", IsPrimaryKey=true)]
+		public long FILE_NO
+		{
+			get
+			{
+				return this._FILE_NO;
+			}
+			set
+			{
+				if ((this._FILE_NO != value))
+				{
+					this.OnFILE_NOChanging(value);
+					this.SendPropertyChanging();
+					this._FILE_NO = value;
+					this.SendPropertyChanged("FILE_NO");
+					this.OnFILE_NOChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TARF_CODE_DNRM", DbType="VarChar(11)")]
+		public string TARF_CODE_DNRM
+		{
+			get
+			{
+				return this._TARF_CODE_DNRM;
+			}
+			set
+			{
+				if ((this._TARF_CODE_DNRM != value))
+				{
+					this.OnTARF_CODE_DNRMChanging(value);
+					this.SendPropertyChanging();
+					this._TARF_CODE_DNRM = value;
+					this.SendPropertyChanged("TARF_CODE_DNRM");
+					this.OnTARF_CODE_DNRMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MOST_DEBT_CLNG_DNRM", DbType="BigInt")]
+		public System.Nullable<long> MOST_DEBT_CLNG_DNRM
+		{
+			get
+			{
+				return this._MOST_DEBT_CLNG_DNRM;
+			}
+			set
+			{
+				if ((this._MOST_DEBT_CLNG_DNRM != value))
+				{
+					this.OnMOST_DEBT_CLNG_DNRMChanging(value);
+					this.SendPropertyChanging();
+					this._MOST_DEBT_CLNG_DNRM = value;
+					this.SendPropertyChanged("MOST_DEBT_CLNG_DNRM");
+					this.OnMOST_DEBT_CLNG_DNRMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DEBT_DNRM", DbType="BigInt")]
+		public System.Nullable<long> DEBT_DNRM
+		{
+			get
+			{
+				return this._DEBT_DNRM;
+			}
+			set
+			{
+				if ((this._DEBT_DNRM != value))
+				{
+					this.OnDEBT_DNRMChanging(value);
+					this.SendPropertyChanging();
+					this._DEBT_DNRM = value;
+					this.SendPropertyChanged("DEBT_DNRM");
+					this.OnDEBT_DNRMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BUFE_DEBT_DNTM", DbType="BigInt")]
+		public System.Nullable<long> BUFE_DEBT_DNTM
+		{
+			get
+			{
+				return this._BUFE_DEBT_DNTM;
+			}
+			set
+			{
+				if ((this._BUFE_DEBT_DNTM != value))
+				{
+					this.OnBUFE_DEBT_DNTMChanging(value);
+					this.SendPropertyChanging();
+					this._BUFE_DEBT_DNTM = value;
+					this.SendPropertyChanged("BUFE_DEBT_DNTM");
+					this.OnBUFE_DEBT_DNTMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DPST_AMNT_DNRM", DbType="BigInt")]
+		public System.Nullable<long> DPST_AMNT_DNRM
+		{
+			get
+			{
+				return this._DPST_AMNT_DNRM;
+			}
+			set
+			{
+				if ((this._DPST_AMNT_DNRM != value))
+				{
+					this.OnDPST_AMNT_DNRMChanging(value);
+					this.SendPropertyChanging();
+					this._DPST_AMNT_DNRM = value;
+					this.SendPropertyChanged("DPST_AMNT_DNRM");
+					this.OnDPST_AMNT_DNRMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FGPB_RWNO_DNRM", DbType="Int")]
+		public System.Nullable<int> FGPB_RWNO_DNRM
+		{
+			get
+			{
+				return this._FGPB_RWNO_DNRM;
+			}
+			set
+			{
+				if ((this._FGPB_RWNO_DNRM != value))
+				{
+					this.OnFGPB_RWNO_DNRMChanging(value);
+					this.SendPropertyChanging();
+					this._FGPB_RWNO_DNRM = value;
+					this.SendPropertyChanged("FGPB_RWNO_DNRM");
+					this.OnFGPB_RWNO_DNRMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MBSP_RWNO_DNRM", DbType="SmallInt")]
+		public System.Nullable<short> MBSP_RWNO_DNRM
+		{
+			get
+			{
+				return this._MBSP_RWNO_DNRM;
+			}
+			set
+			{
+				if ((this._MBSP_RWNO_DNRM != value))
+				{
+					this.OnMBSP_RWNO_DNRMChanging(value);
+					this.SendPropertyChanging();
+					this._MBSP_RWNO_DNRM = value;
+					this.SendPropertyChanged("MBSP_RWNO_DNRM");
+					this.OnMBSP_RWNO_DNRMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MBCO_RWNO_DNRM", DbType="SmallInt")]
+		public System.Nullable<short> MBCO_RWNO_DNRM
+		{
+			get
+			{
+				return this._MBCO_RWNO_DNRM;
+			}
+			set
+			{
+				if ((this._MBCO_RWNO_DNRM != value))
+				{
+					this.OnMBCO_RWNO_DNRMChanging(value);
+					this.SendPropertyChanging();
+					this._MBCO_RWNO_DNRM = value;
+					this.SendPropertyChanged("MBCO_RWNO_DNRM");
+					this.OnMBCO_RWNO_DNRMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MBFZ_RWNO_DNRM", DbType="SmallInt")]
+		public System.Nullable<short> MBFZ_RWNO_DNRM
+		{
+			get
+			{
+				return this._MBFZ_RWNO_DNRM;
+			}
+			set
+			{
+				if ((this._MBFZ_RWNO_DNRM != value))
+				{
+					this.OnMBFZ_RWNO_DNRMChanging(value);
+					this.SendPropertyChanging();
+					this._MBFZ_RWNO_DNRM = value;
+					this.SendPropertyChanged("MBFZ_RWNO_DNRM");
+					this.OnMBFZ_RWNO_DNRMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MBSM_RWNO_DNRM", DbType="SmallInt")]
+		public System.Nullable<short> MBSM_RWNO_DNRM
+		{
+			get
+			{
+				return this._MBSM_RWNO_DNRM;
+			}
+			set
+			{
+				if ((this._MBSM_RWNO_DNRM != value))
+				{
+					this.OnMBSM_RWNO_DNRMChanging(value);
+					this.SendPropertyChanging();
+					this._MBSM_RWNO_DNRM = value;
+					this.SendPropertyChanged("MBSM_RWNO_DNRM");
+					this.OnMBSM_RWNO_DNRMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CAMP_RWNO_DNRM", DbType="SmallInt")]
+		public System.Nullable<short> CAMP_RWNO_DNRM
+		{
+			get
+			{
+				return this._CAMP_RWNO_DNRM;
+			}
+			set
+			{
+				if ((this._CAMP_RWNO_DNRM != value))
+				{
+					this.OnCAMP_RWNO_DNRMChanging(value);
+					this.SendPropertyChanging();
+					this._CAMP_RWNO_DNRM = value;
+					this.SendPropertyChanged("CAMP_RWNO_DNRM");
+					this.OnCAMP_RWNO_DNRMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TEST_RWNO_DNRM", DbType="SmallInt")]
+		public System.Nullable<short> TEST_RWNO_DNRM
+		{
+			get
+			{
+				return this._TEST_RWNO_DNRM;
+			}
+			set
+			{
+				if ((this._TEST_RWNO_DNRM != value))
+				{
+					this.OnTEST_RWNO_DNRMChanging(value);
+					this.SendPropertyChanging();
+					this._TEST_RWNO_DNRM = value;
+					this.SendPropertyChanged("TEST_RWNO_DNRM");
+					this.OnTEST_RWNO_DNRMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CLCL_RWNO_DNRM", DbType="SmallInt")]
+		public System.Nullable<short> CLCL_RWNO_DNRM
+		{
+			get
+			{
+				return this._CLCL_RWNO_DNRM;
+			}
+			set
+			{
+				if ((this._CLCL_RWNO_DNRM != value))
+				{
+					this.OnCLCL_RWNO_DNRMChanging(value);
+					this.SendPropertyChanging();
+					this._CLCL_RWNO_DNRM = value;
+					this.SendPropertyChanged("CLCL_RWNO_DNRM");
+					this.OnCLCL_RWNO_DNRMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HERT_RWNO_DNRM", DbType="SmallInt")]
+		public System.Nullable<short> HERT_RWNO_DNRM
+		{
+			get
+			{
+				return this._HERT_RWNO_DNRM;
+			}
+			set
+			{
+				if ((this._HERT_RWNO_DNRM != value))
+				{
+					this.OnHERT_RWNO_DNRMChanging(value);
+					this.SendPropertyChanging();
+					this._HERT_RWNO_DNRM = value;
+					this.SendPropertyChanged("HERT_RWNO_DNRM");
+					this.OnHERT_RWNO_DNRMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PSFN_RWNO_DNRM", DbType="SmallInt")]
+		public System.Nullable<short> PSFN_RWNO_DNRM
+		{
+			get
+			{
+				return this._PSFN_RWNO_DNRM;
+			}
+			set
+			{
+				if ((this._PSFN_RWNO_DNRM != value))
+				{
+					this.OnPSFN_RWNO_DNRMChanging(value);
+					this.SendPropertyChanging();
+					this._PSFN_RWNO_DNRM = value;
+					this.SendPropertyChanged("PSFN_RWNO_DNRM");
+					this.OnPSFN_RWNO_DNRMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EXAM_RWNO_DNRM", DbType="SmallInt")]
+		public System.Nullable<short> EXAM_RWNO_DNRM
+		{
+			get
+			{
+				return this._EXAM_RWNO_DNRM;
+			}
+			set
+			{
+				if ((this._EXAM_RWNO_DNRM != value))
+				{
+					this.OnEXAM_RWNO_DNRMChanging(value);
+					this.SendPropertyChanging();
+					this._EXAM_RWNO_DNRM = value;
+					this.SendPropertyChanged("EXAM_RWNO_DNRM");
+					this.OnEXAM_RWNO_DNRMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BDFT_RWNO_DNRM", DbType="SmallInt")]
+		public System.Nullable<short> BDFT_RWNO_DNRM
+		{
+			get
+			{
+				return this._BDFT_RWNO_DNRM;
+			}
+			set
+			{
+				if ((this._BDFT_RWNO_DNRM != value))
+				{
+					this.OnBDFT_RWNO_DNRMChanging(value);
+					this.SendPropertyChanging();
+					this._BDFT_RWNO_DNRM = value;
+					this.SendPropertyChanged("BDFT_RWNO_DNRM");
+					this.OnBDFT_RWNO_DNRMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MBSP_STRT_DATE", DbType="Date")]
+		public System.Nullable<System.DateTime> MBSP_STRT_DATE
+		{
+			get
+			{
+				return this._MBSP_STRT_DATE;
+			}
+			set
+			{
+				if ((this._MBSP_STRT_DATE != value))
+				{
+					this.OnMBSP_STRT_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._MBSP_STRT_DATE = value;
+					this.SendPropertyChanged("MBSP_STRT_DATE");
+					this.OnMBSP_STRT_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MBSP_END_DATE", DbType="Date")]
+		public System.Nullable<System.DateTime> MBSP_END_DATE
+		{
+			get
+			{
+				return this._MBSP_END_DATE;
+			}
+			set
+			{
+				if ((this._MBSP_END_DATE != value))
+				{
+					this.OnMBSP_END_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._MBSP_END_DATE = value;
+					this.SendPropertyChanged("MBSP_END_DATE");
+					this.OnMBSP_END_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CONF_STAT", DbType="VarChar(3) NOT NULL", CanBeNull=false)]
+		public string CONF_STAT
+		{
+			get
+			{
+				return this._CONF_STAT;
+			}
+			set
+			{
+				if ((this._CONF_STAT != value))
+				{
+					this.OnCONF_STATChanging(value);
+					this.SendPropertyChanging();
+					this._CONF_STAT = value;
+					this.SendPropertyChanged("CONF_STAT");
+					this.OnCONF_STATChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CONF_DATE", DbType="DateTime")]
+		public System.Nullable<System.DateTime> CONF_DATE
+		{
+			get
+			{
+				return this._CONF_DATE;
+			}
+			set
+			{
+				if ((this._CONF_DATE != value))
+				{
+					this.OnCONF_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._CONF_DATE = value;
+					this.SendPropertyChanged("CONF_DATE");
+					this.OnCONF_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FIGH_STAT", DbType="VarChar(3) NOT NULL", CanBeNull=false)]
+		public string FIGH_STAT
+		{
+			get
+			{
+				return this._FIGH_STAT;
+			}
+			set
+			{
+				if ((this._FIGH_STAT != value))
+				{
+					this.OnFIGH_STATChanging(value);
+					this.SendPropertyChanging();
+					this._FIGH_STAT = value;
+					this.SendPropertyChanged("FIGH_STAT");
+					this.OnFIGH_STATChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RQST_RQID", DbType="BigInt")]
+		public System.Nullable<long> RQST_RQID
+		{
+			get
+			{
+				return this._RQST_RQID;
+			}
+			set
+			{
+				if ((this._RQST_RQID != value))
+				{
+					if (this._Request.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnRQST_RQIDChanging(value);
+					this.SendPropertyChanging();
+					this._RQST_RQID = value;
+					this.SendPropertyChanged("RQST_RQID");
+					this.OnRQST_RQIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NAME_DNRM", DbType="NVarChar(500)")]
+		public string NAME_DNRM
+		{
+			get
+			{
+				return this._NAME_DNRM;
+			}
+			set
+			{
+				if ((this._NAME_DNRM != value))
+				{
+					this.OnNAME_DNRMChanging(value);
+					this.SendPropertyChanging();
+					this._NAME_DNRM = value;
+					this.SendPropertyChanged("NAME_DNRM");
+					this.OnNAME_DNRMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FRST_NAME_DNRM", DbType="NVarChar(250)")]
+		public string FRST_NAME_DNRM
+		{
+			get
+			{
+				return this._FRST_NAME_DNRM;
+			}
+			set
+			{
+				if ((this._FRST_NAME_DNRM != value))
+				{
+					this.OnFRST_NAME_DNRMChanging(value);
+					this.SendPropertyChanging();
+					this._FRST_NAME_DNRM = value;
+					this.SendPropertyChanged("FRST_NAME_DNRM");
+					this.OnFRST_NAME_DNRMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LAST_NAME_DNRM", DbType="NVarChar(250)")]
+		public string LAST_NAME_DNRM
+		{
+			get
+			{
+				return this._LAST_NAME_DNRM;
+			}
+			set
+			{
+				if ((this._LAST_NAME_DNRM != value))
+				{
+					this.OnLAST_NAME_DNRMChanging(value);
+					this.SendPropertyChanging();
+					this._LAST_NAME_DNRM = value;
+					this.SendPropertyChanged("LAST_NAME_DNRM");
+					this.OnLAST_NAME_DNRMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FATH_NAME_DNRM", DbType="NVarChar(250)")]
+		public string FATH_NAME_DNRM
+		{
+			get
+			{
+				return this._FATH_NAME_DNRM;
+			}
+			set
+			{
+				if ((this._FATH_NAME_DNRM != value))
+				{
+					this.OnFATH_NAME_DNRMChanging(value);
+					this.SendPropertyChanging();
+					this._FATH_NAME_DNRM = value;
+					this.SendPropertyChanged("FATH_NAME_DNRM");
+					this.OnFATH_NAME_DNRMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_POST_ADRS_DNRM", DbType="NVarChar(1000)")]
+		public string POST_ADRS_DNRM
+		{
+			get
+			{
+				return this._POST_ADRS_DNRM;
+			}
+			set
+			{
+				if ((this._POST_ADRS_DNRM != value))
+				{
+					this.OnPOST_ADRS_DNRMChanging(value);
+					this.SendPropertyChanging();
+					this._POST_ADRS_DNRM = value;
+					this.SendPropertyChanged("POST_ADRS_DNRM");
+					this.OnPOST_ADRS_DNRMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SEX_TYPE_DNRM", DbType="VarChar(3)")]
+		public string SEX_TYPE_DNRM
+		{
+			get
+			{
+				return this._SEX_TYPE_DNRM;
+			}
+			set
+			{
+				if ((this._SEX_TYPE_DNRM != value))
+				{
+					this.OnSEX_TYPE_DNRMChanging(value);
+					this.SendPropertyChanging();
+					this._SEX_TYPE_DNRM = value;
+					this.SendPropertyChanged("SEX_TYPE_DNRM");
+					this.OnSEX_TYPE_DNRMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BRTH_DATE_DNRM", DbType="DateTime")]
+		public System.Nullable<System.DateTime> BRTH_DATE_DNRM
+		{
+			get
+			{
+				return this._BRTH_DATE_DNRM;
+			}
+			set
+			{
+				if ((this._BRTH_DATE_DNRM != value))
+				{
+					this.OnBRTH_DATE_DNRMChanging(value);
+					this.SendPropertyChanging();
+					this._BRTH_DATE_DNRM = value;
+					this.SendPropertyChanged("BRTH_DATE_DNRM");
+					this.OnBRTH_DATE_DNRMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CELL_PHON_DNRM", DbType="VarChar(11)")]
+		public string CELL_PHON_DNRM
+		{
+			get
+			{
+				return this._CELL_PHON_DNRM;
+			}
+			set
+			{
+				if ((this._CELL_PHON_DNRM != value))
+				{
+					this.OnCELL_PHON_DNRMChanging(value);
+					this.SendPropertyChanging();
+					this._CELL_PHON_DNRM = value;
+					this.SendPropertyChanged("CELL_PHON_DNRM");
+					this.OnCELL_PHON_DNRMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TELL_PHON_DNRM", DbType="VarChar(11)")]
+		public string TELL_PHON_DNRM
+		{
+			get
+			{
+				return this._TELL_PHON_DNRM;
+			}
+			set
+			{
+				if ((this._TELL_PHON_DNRM != value))
+				{
+					this.OnTELL_PHON_DNRMChanging(value);
+					this.SendPropertyChanging();
+					this._TELL_PHON_DNRM = value;
+					this.SendPropertyChanged("TELL_PHON_DNRM");
+					this.OnTELL_PHON_DNRMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FGPB_TYPE_DNRM", DbType="VarChar(3)")]
+		public string FGPB_TYPE_DNRM
+		{
+			get
+			{
+				return this._FGPB_TYPE_DNRM;
+			}
+			set
+			{
+				if ((this._FGPB_TYPE_DNRM != value))
+				{
+					this.OnFGPB_TYPE_DNRMChanging(value);
+					this.SendPropertyChanging();
+					this._FGPB_TYPE_DNRM = value;
+					this.SendPropertyChanged("FGPB_TYPE_DNRM");
+					this.OnFGPB_TYPE_DNRMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_INSR_NUMB_DNRM", DbType="VarChar(10)")]
+		public string INSR_NUMB_DNRM
+		{
+			get
+			{
+				return this._INSR_NUMB_DNRM;
+			}
+			set
+			{
+				if ((this._INSR_NUMB_DNRM != value))
+				{
+					this.OnINSR_NUMB_DNRMChanging(value);
+					this.SendPropertyChanging();
+					this._INSR_NUMB_DNRM = value;
+					this.SendPropertyChanged("INSR_NUMB_DNRM");
+					this.OnINSR_NUMB_DNRMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_INSR_DATE_DNRM", DbType="DateTime")]
+		public System.Nullable<System.DateTime> INSR_DATE_DNRM
+		{
+			get
+			{
+				return this._INSR_DATE_DNRM;
+			}
+			set
+			{
+				if ((this._INSR_DATE_DNRM != value))
+				{
+					this.OnINSR_DATE_DNRMChanging(value);
+					this.SendPropertyChanging();
+					this._INSR_DATE_DNRM = value;
+					this.SendPropertyChanged("INSR_DATE_DNRM");
+					this.OnINSR_DATE_DNRMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TEST_DATE_DNRM", DbType="DateTime")]
+		public System.Nullable<System.DateTime> TEST_DATE_DNRM
+		{
+			get
+			{
+				return this._TEST_DATE_DNRM;
+			}
+			set
+			{
+				if ((this._TEST_DATE_DNRM != value))
+				{
+					this.OnTEST_DATE_DNRMChanging(value);
+					this.SendPropertyChanging();
+					this._TEST_DATE_DNRM = value;
+					this.SendPropertyChanged("TEST_DATE_DNRM");
+					this.OnTEST_DATE_DNRMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CAMP_DATE_DNRM", DbType="DateTime")]
+		public System.Nullable<System.DateTime> CAMP_DATE_DNRM
+		{
+			get
+			{
+				return this._CAMP_DATE_DNRM;
+			}
+			set
+			{
+				if ((this._CAMP_DATE_DNRM != value))
+				{
+					this.OnCAMP_DATE_DNRMChanging(value);
+					this.SendPropertyChanging();
+					this._CAMP_DATE_DNRM = value;
+					this.SendPropertyChanged("CAMP_DATE_DNRM");
+					this.OnCAMP_DATE_DNRMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CTGY_CODE_DNRM", DbType="BigInt")]
+		public System.Nullable<long> CTGY_CODE_DNRM
+		{
+			get
+			{
+				return this._CTGY_CODE_DNRM;
+			}
+			set
+			{
+				if ((this._CTGY_CODE_DNRM != value))
+				{
+					if (this._Category_Belt.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnCTGY_CODE_DNRMChanging(value);
+					this.SendPropertyChanging();
+					this._CTGY_CODE_DNRM = value;
+					this.SendPropertyChanged("CTGY_CODE_DNRM");
+					this.OnCTGY_CODE_DNRMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MTOD_CODE_DNRM", DbType="BigInt")]
+		public System.Nullable<long> MTOD_CODE_DNRM
+		{
+			get
+			{
+				return this._MTOD_CODE_DNRM;
+			}
+			set
+			{
+				if ((this._MTOD_CODE_DNRM != value))
+				{
+					if (this._Method.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnMTOD_CODE_DNRMChanging(value);
+					this.SendPropertyChanging();
+					this._MTOD_CODE_DNRM = value;
+					this.SendPropertyChanged("MTOD_CODE_DNRM");
+					this.OnMTOD_CODE_DNRMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CLUB_CODE_DNRM", DbType="BigInt")]
+		public System.Nullable<long> CLUB_CODE_DNRM
+		{
+			get
+			{
+				return this._CLUB_CODE_DNRM;
+			}
+			set
+			{
+				if ((this._CLUB_CODE_DNRM != value))
+				{
+					if (this._Club.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnCLUB_CODE_DNRMChanging(value);
+					this.SendPropertyChanging();
+					this._CLUB_CODE_DNRM = value;
+					this.SendPropertyChanged("CLUB_CODE_DNRM");
+					this.OnCLUB_CODE_DNRMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_COCH_FILE_NO_DNRM", DbType="BigInt")]
+		public System.Nullable<long> COCH_FILE_NO_DNRM
+		{
+			get
+			{
+				return this._COCH_FILE_NO_DNRM;
+			}
+			set
+			{
+				if ((this._COCH_FILE_NO_DNRM != value))
+				{
+					this.OnCOCH_FILE_NO_DNRMChanging(value);
+					this.SendPropertyChanging();
+					this._COCH_FILE_NO_DNRM = value;
+					this.SendPropertyChanged("COCH_FILE_NO_DNRM");
+					this.OnCOCH_FILE_NO_DNRMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_COCH_CRTF_YEAR_DNRM", DbType="SmallInt")]
+		public System.Nullable<short> COCH_CRTF_YEAR_DNRM
+		{
+			get
+			{
+				return this._COCH_CRTF_YEAR_DNRM;
+			}
+			set
+			{
+				if ((this._COCH_CRTF_YEAR_DNRM != value))
+				{
+					this.OnCOCH_CRTF_YEAR_DNRMChanging(value);
+					this.SendPropertyChanging();
+					this._COCH_CRTF_YEAR_DNRM = value;
+					this.SendPropertyChanged("COCH_CRTF_YEAR_DNRM");
+					this.OnCOCH_CRTF_YEAR_DNRMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CBMT_CODE_DNRM", DbType="BigInt")]
+		public System.Nullable<long> CBMT_CODE_DNRM
+		{
+			get
+			{
+				return this._CBMT_CODE_DNRM;
+			}
+			set
+			{
+				if ((this._CBMT_CODE_DNRM != value))
+				{
+					this.OnCBMT_CODE_DNRMChanging(value);
+					this.SendPropertyChanging();
+					this._CBMT_CODE_DNRM = value;
+					this.SendPropertyChanged("CBMT_CODE_DNRM");
+					this.OnCBMT_CODE_DNRMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DAY_TYPE_DNRM", DbType="VarChar(3)")]
+		public string DAY_TYPE_DNRM
+		{
+			get
+			{
+				return this._DAY_TYPE_DNRM;
+			}
+			set
+			{
+				if ((this._DAY_TYPE_DNRM != value))
+				{
+					this.OnDAY_TYPE_DNRMChanging(value);
+					this.SendPropertyChanging();
+					this._DAY_TYPE_DNRM = value;
+					this.SendPropertyChanged("DAY_TYPE_DNRM");
+					this.OnDAY_TYPE_DNRMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ATTN_TIME_DNRM", DbType="Time")]
+		public System.Nullable<System.TimeSpan> ATTN_TIME_DNRM
+		{
+			get
+			{
+				return this._ATTN_TIME_DNRM;
+			}
+			set
+			{
+				if ((this._ATTN_TIME_DNRM != value))
+				{
+					this.OnATTN_TIME_DNRMChanging(value);
+					this.SendPropertyChanging();
+					this._ATTN_TIME_DNRM = value;
+					this.SendPropertyChanged("ATTN_TIME_DNRM");
+					this.OnATTN_TIME_DNRMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ACTV_TAG_DNRM", DbType="VarChar(3)")]
+		public string ACTV_TAG_DNRM
+		{
+			get
+			{
+				return this._ACTV_TAG_DNRM;
+			}
+			set
+			{
+				if ((this._ACTV_TAG_DNRM != value))
+				{
+					this.OnACTV_TAG_DNRMChanging(value);
+					this.SendPropertyChanging();
+					this._ACTV_TAG_DNRM = value;
+					this.SendPropertyChanged("ACTV_TAG_DNRM");
+					this.OnACTV_TAG_DNRMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BLOD_GROP_DNRM", DbType="VarChar(3)")]
+		public string BLOD_GROP_DNRM
+		{
+			get
+			{
+				return this._BLOD_GROP_DNRM;
+			}
+			set
+			{
+				if ((this._BLOD_GROP_DNRM != value))
+				{
+					this.OnBLOD_GROP_DNRMChanging(value);
+					this.SendPropertyChanging();
+					this._BLOD_GROP_DNRM = value;
+					this.SendPropertyChanged("BLOD_GROP_DNRM");
+					this.OnBLOD_GROP_DNRMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_REF_CODE_DNRM", DbType="BigInt")]
+		public System.Nullable<long> REF_CODE_DNRM
+		{
+			get
+			{
+				return this._REF_CODE_DNRM;
+			}
+			set
+			{
+				if ((this._REF_CODE_DNRM != value))
+				{
+					if (this._Fighter1.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnREF_CODE_DNRMChanging(value);
+					this.SendPropertyChanging();
+					this._REF_CODE_DNRM = value;
+					this.SendPropertyChanged("REF_CODE_DNRM");
+					this.OnREF_CODE_DNRMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IMAG_RCDC_RCID_DNRM", DbType="BigInt")]
+		public System.Nullable<long> IMAG_RCDC_RCID_DNRM
+		{
+			get
+			{
+				return this._IMAG_RCDC_RCID_DNRM;
+			}
+			set
+			{
+				if ((this._IMAG_RCDC_RCID_DNRM != value))
+				{
+					this.OnIMAG_RCDC_RCID_DNRMChanging(value);
+					this.SendPropertyChanging();
+					this._IMAG_RCDC_RCID_DNRM = value;
+					this.SendPropertyChanged("IMAG_RCDC_RCID_DNRM");
+					this.OnIMAG_RCDC_RCID_DNRMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IMAG_RWNO_DNRM", DbType="SmallInt")]
+		public System.Nullable<short> IMAG_RWNO_DNRM
+		{
+			get
+			{
+				return this._IMAG_RWNO_DNRM;
+			}
+			set
+			{
+				if ((this._IMAG_RWNO_DNRM != value))
+				{
+					this.OnIMAG_RWNO_DNRMChanging(value);
+					this.SendPropertyChanging();
+					this._IMAG_RWNO_DNRM = value;
+					this.SendPropertyChanged("IMAG_RWNO_DNRM");
+					this.OnIMAG_RWNO_DNRMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CARD_NUMB_DNRM", DbType="VarChar(50)")]
+		public string CARD_NUMB_DNRM
+		{
+			get
+			{
+				return this._CARD_NUMB_DNRM;
+			}
+			set
+			{
+				if ((this._CARD_NUMB_DNRM != value))
+				{
+					this.OnCARD_NUMB_DNRMChanging(value);
+					this.SendPropertyChanging();
+					this._CARD_NUMB_DNRM = value;
+					this.SendPropertyChanged("CARD_NUMB_DNRM");
+					this.OnCARD_NUMB_DNRMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FNGR_PRNT_DNRM", DbType="VarChar(20)")]
+		public string FNGR_PRNT_DNRM
+		{
+			get
+			{
+				return this._FNGR_PRNT_DNRM;
+			}
+			set
+			{
+				if ((this._FNGR_PRNT_DNRM != value))
+				{
+					this.OnFNGR_PRNT_DNRMChanging(value);
+					this.SendPropertyChanging();
+					this._FNGR_PRNT_DNRM = value;
+					this.SendPropertyChanged("FNGR_PRNT_DNRM");
+					this.OnFNGR_PRNT_DNRMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SUNT_BUNT_DEPT_ORGN_CODE_DNRM", DbType="VarChar(2)")]
+		public string SUNT_BUNT_DEPT_ORGN_CODE_DNRM
+		{
+			get
+			{
+				return this._SUNT_BUNT_DEPT_ORGN_CODE_DNRM;
+			}
+			set
+			{
+				if ((this._SUNT_BUNT_DEPT_ORGN_CODE_DNRM != value))
+				{
+					if (this._Sub_Unit.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnSUNT_BUNT_DEPT_ORGN_CODE_DNRMChanging(value);
+					this.SendPropertyChanging();
+					this._SUNT_BUNT_DEPT_ORGN_CODE_DNRM = value;
+					this.SendPropertyChanged("SUNT_BUNT_DEPT_ORGN_CODE_DNRM");
+					this.OnSUNT_BUNT_DEPT_ORGN_CODE_DNRMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SUNT_BUNT_DEPT_CODE_DNRM", DbType="VarChar(2)")]
+		public string SUNT_BUNT_DEPT_CODE_DNRM
+		{
+			get
+			{
+				return this._SUNT_BUNT_DEPT_CODE_DNRM;
+			}
+			set
+			{
+				if ((this._SUNT_BUNT_DEPT_CODE_DNRM != value))
+				{
+					if (this._Sub_Unit.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnSUNT_BUNT_DEPT_CODE_DNRMChanging(value);
+					this.SendPropertyChanging();
+					this._SUNT_BUNT_DEPT_CODE_DNRM = value;
+					this.SendPropertyChanged("SUNT_BUNT_DEPT_CODE_DNRM");
+					this.OnSUNT_BUNT_DEPT_CODE_DNRMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SUNT_BUNT_CODE_DNRM", DbType="VarChar(2)")]
+		public string SUNT_BUNT_CODE_DNRM
+		{
+			get
+			{
+				return this._SUNT_BUNT_CODE_DNRM;
+			}
+			set
+			{
+				if ((this._SUNT_BUNT_CODE_DNRM != value))
+				{
+					if (this._Sub_Unit.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnSUNT_BUNT_CODE_DNRMChanging(value);
+					this.SendPropertyChanging();
+					this._SUNT_BUNT_CODE_DNRM = value;
+					this.SendPropertyChanged("SUNT_BUNT_CODE_DNRM");
+					this.OnSUNT_BUNT_CODE_DNRMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SUNT_CODE_DNRM", DbType="VarChar(4)")]
+		public string SUNT_CODE_DNRM
+		{
+			get
+			{
+				return this._SUNT_CODE_DNRM;
+			}
+			set
+			{
+				if ((this._SUNT_CODE_DNRM != value))
+				{
+					if (this._Sub_Unit.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnSUNT_CODE_DNRMChanging(value);
+					this.SendPropertyChanging();
+					this._SUNT_CODE_DNRM = value;
+					this.SendPropertyChanged("SUNT_CODE_DNRM");
+					this.OnSUNT_CODE_DNRMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CORD_X_DNRM", DbType="Real")]
+		public System.Nullable<float> CORD_X_DNRM
+		{
+			get
+			{
+				return this._CORD_X_DNRM;
+			}
+			set
+			{
+				if ((this._CORD_X_DNRM != value))
+				{
+					this.OnCORD_X_DNRMChanging(value);
+					this.SendPropertyChanging();
+					this._CORD_X_DNRM = value;
+					this.SendPropertyChanged("CORD_X_DNRM");
+					this.OnCORD_X_DNRMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CORD_Y_DNRM", DbType="Real")]
+		public System.Nullable<float> CORD_Y_DNRM
+		{
+			get
+			{
+				return this._CORD_Y_DNRM;
+			}
+			set
+			{
+				if ((this._CORD_Y_DNRM != value))
+				{
+					this.OnCORD_Y_DNRMChanging(value);
+					this.SendPropertyChanging();
+					this._CORD_Y_DNRM = value;
+					this.SendPropertyChanged("CORD_Y_DNRM");
+					this.OnCORD_Y_DNRMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SERV_NO_DNRM", DbType="NVarChar(50)")]
+		public string SERV_NO_DNRM
+		{
+			get
+			{
+				return this._SERV_NO_DNRM;
+			}
+			set
+			{
+				if ((this._SERV_NO_DNRM != value))
+				{
+					this.OnSERV_NO_DNRMChanging(value);
+					this.SendPropertyChanging();
+					this._SERV_NO_DNRM = value;
+					this.SendPropertyChanged("SERV_NO_DNRM");
+					this.OnSERV_NO_DNRMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NATL_CODE_DNRM", DbType="VarChar(10)")]
+		public string NATL_CODE_DNRM
+		{
+			get
+			{
+				return this._NATL_CODE_DNRM;
+			}
+			set
+			{
+				if ((this._NATL_CODE_DNRM != value))
+				{
+					this.OnNATL_CODE_DNRMChanging(value);
+					this.SendPropertyChanging();
+					this._NATL_CODE_DNRM = value;
+					this.SendPropertyChanged("NATL_CODE_DNRM");
+					this.OnNATL_CODE_DNRMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GLOB_CODE_DNRM", DbType="NVarChar(50)")]
+		public string GLOB_CODE_DNRM
+		{
+			get
+			{
+				return this._GLOB_CODE_DNRM;
+			}
+			set
+			{
+				if ((this._GLOB_CODE_DNRM != value))
+				{
+					this.OnGLOB_CODE_DNRMChanging(value);
+					this.SendPropertyChanging();
+					this._GLOB_CODE_DNRM = value;
+					this.SendPropertyChanged("GLOB_CODE_DNRM");
+					this.OnGLOB_CODE_DNRMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CHAT_ID_DNRM", DbType="BigInt")]
+		public System.Nullable<long> CHAT_ID_DNRM
+		{
+			get
+			{
+				return this._CHAT_ID_DNRM;
+			}
+			set
+			{
+				if ((this._CHAT_ID_DNRM != value))
+				{
+					this.OnCHAT_ID_DNRMChanging(value);
+					this.SendPropertyChanging();
+					this._CHAT_ID_DNRM = value;
+					this.SendPropertyChanged("CHAT_ID_DNRM");
+					this.OnCHAT_ID_DNRMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MOM_CELL_PHON_DNRM", DbType="VarChar(11)")]
+		public string MOM_CELL_PHON_DNRM
+		{
+			get
+			{
+				return this._MOM_CELL_PHON_DNRM;
+			}
+			set
+			{
+				if ((this._MOM_CELL_PHON_DNRM != value))
+				{
+					this.OnMOM_CELL_PHON_DNRMChanging(value);
+					this.SendPropertyChanging();
+					this._MOM_CELL_PHON_DNRM = value;
+					this.SendPropertyChanged("MOM_CELL_PHON_DNRM");
+					this.OnMOM_CELL_PHON_DNRMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MOM_TELL_PHON_DNRM", DbType="VarChar(11)")]
+		public string MOM_TELL_PHON_DNRM
+		{
+			get
+			{
+				return this._MOM_TELL_PHON_DNRM;
+			}
+			set
+			{
+				if ((this._MOM_TELL_PHON_DNRM != value))
+				{
+					this.OnMOM_TELL_PHON_DNRMChanging(value);
+					this.SendPropertyChanging();
+					this._MOM_TELL_PHON_DNRM = value;
+					this.SendPropertyChanged("MOM_TELL_PHON_DNRM");
+					this.OnMOM_TELL_PHON_DNRMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MOM_CHAT_ID_DNRM", DbType="BigInt")]
+		public System.Nullable<long> MOM_CHAT_ID_DNRM
+		{
+			get
+			{
+				return this._MOM_CHAT_ID_DNRM;
+			}
+			set
+			{
+				if ((this._MOM_CHAT_ID_DNRM != value))
+				{
+					this.OnMOM_CHAT_ID_DNRMChanging(value);
+					this.SendPropertyChanging();
+					this._MOM_CHAT_ID_DNRM = value;
+					this.SendPropertyChanged("MOM_CHAT_ID_DNRM");
+					this.OnMOM_CHAT_ID_DNRMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DAD_CELL_PHON_DNRM", DbType="VarChar(11)")]
+		public string DAD_CELL_PHON_DNRM
+		{
+			get
+			{
+				return this._DAD_CELL_PHON_DNRM;
+			}
+			set
+			{
+				if ((this._DAD_CELL_PHON_DNRM != value))
+				{
+					this.OnDAD_CELL_PHON_DNRMChanging(value);
+					this.SendPropertyChanging();
+					this._DAD_CELL_PHON_DNRM = value;
+					this.SendPropertyChanged("DAD_CELL_PHON_DNRM");
+					this.OnDAD_CELL_PHON_DNRMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DAD_TELL_PHON_DNRM", DbType="VarChar(11)")]
+		public string DAD_TELL_PHON_DNRM
+		{
+			get
+			{
+				return this._DAD_TELL_PHON_DNRM;
+			}
+			set
+			{
+				if ((this._DAD_TELL_PHON_DNRM != value))
+				{
+					this.OnDAD_TELL_PHON_DNRMChanging(value);
+					this.SendPropertyChanging();
+					this._DAD_TELL_PHON_DNRM = value;
+					this.SendPropertyChanged("DAD_TELL_PHON_DNRM");
+					this.OnDAD_TELL_PHON_DNRMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DAD_CHAT_ID_DNRM", DbType="BigInt")]
+		public System.Nullable<long> DAD_CHAT_ID_DNRM
+		{
+			get
+			{
+				return this._DAD_CHAT_ID_DNRM;
+			}
+			set
+			{
+				if ((this._DAD_CHAT_ID_DNRM != value))
+				{
+					this.OnDAD_CHAT_ID_DNRMChanging(value);
+					this.SendPropertyChanging();
+					this._DAD_CHAT_ID_DNRM = value;
+					this.SendPropertyChanged("DAD_CHAT_ID_DNRM");
+					this.OnDAD_CHAT_ID_DNRMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DPST_ACNT_SLRY_BANK_DNRM", DbType="NVarChar(50)")]
+		public string DPST_ACNT_SLRY_BANK_DNRM
+		{
+			get
+			{
+				return this._DPST_ACNT_SLRY_BANK_DNRM;
+			}
+			set
+			{
+				if ((this._DPST_ACNT_SLRY_BANK_DNRM != value))
+				{
+					this.OnDPST_ACNT_SLRY_BANK_DNRMChanging(value);
+					this.SendPropertyChanging();
+					this._DPST_ACNT_SLRY_BANK_DNRM = value;
+					this.SendPropertyChanged("DPST_ACNT_SLRY_BANK_DNRM");
+					this.OnDPST_ACNT_SLRY_BANK_DNRMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DPST_ACNT_SLRY_DNRM", DbType="NVarChar(50)")]
+		public string DPST_ACNT_SLRY_DNRM
+		{
+			get
+			{
+				return this._DPST_ACNT_SLRY_DNRM;
+			}
+			set
+			{
+				if ((this._DPST_ACNT_SLRY_DNRM != value))
+				{
+					this.OnDPST_ACNT_SLRY_DNRMChanging(value);
+					this.SendPropertyChanging();
+					this._DPST_ACNT_SLRY_DNRM = value;
+					this.SendPropertyChanged("DPST_ACNT_SLRY_DNRM");
+					this.OnDPST_ACNT_SLRY_DNRMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RTNG_NUMB_DNRM", DbType="SmallInt")]
+		public System.Nullable<short> RTNG_NUMB_DNRM
+		{
+			get
+			{
+				return this._RTNG_NUMB_DNRM;
+			}
+			set
+			{
+				if ((this._RTNG_NUMB_DNRM != value))
+				{
+					this.OnRTNG_NUMB_DNRMChanging(value);
+					this.SendPropertyChanging();
+					this._RTNG_NUMB_DNRM = value;
+					this.SendPropertyChanged("RTNG_NUMB_DNRM");
+					this.OnRTNG_NUMB_DNRMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_BY", DbType="VarChar(250)")]
+		public string CRET_BY
+		{
+			get
+			{
+				return this._CRET_BY;
+			}
+			set
+			{
+				if ((this._CRET_BY != value))
+				{
+					this.OnCRET_BYChanging(value);
+					this.SendPropertyChanging();
+					this._CRET_BY = value;
+					this.SendPropertyChanged("CRET_BY");
+					this.OnCRET_BYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_DATE", DbType="DateTime")]
+		public System.Nullable<System.DateTime> CRET_DATE
+		{
+			get
+			{
+				return this._CRET_DATE;
+			}
+			set
+			{
+				if ((this._CRET_DATE != value))
+				{
+					this.OnCRET_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._CRET_DATE = value;
+					this.SendPropertyChanged("CRET_DATE");
+					this.OnCRET_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_BY", DbType="VarChar(250)")]
+		public string MDFY_BY
+		{
+			get
+			{
+				return this._MDFY_BY;
+			}
+			set
+			{
+				if ((this._MDFY_BY != value))
+				{
+					this.OnMDFY_BYChanging(value);
+					this.SendPropertyChanging();
+					this._MDFY_BY = value;
+					this.SendPropertyChanged("MDFY_BY");
+					this.OnMDFY_BYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_DATE", DbType="DateTime")]
+		public System.Nullable<System.DateTime> MDFY_DATE
+		{
+			get
+			{
+				return this._MDFY_DATE;
+			}
+			set
+			{
+				if ((this._MDFY_DATE != value))
+				{
+					this.OnMDFY_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._MDFY_DATE = value;
+					this.SendPropertyChanged("MDFY_DATE");
+					this.OnMDFY_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Campitition", Storage="_Campititions", ThisKey="FILE_NO", OtherKey="FIGH_FILE_NO")]
+		public EntitySet<Campitition> Campititions
+		{
+			get
+			{
+				return this._Campititions;
+			}
+			set
+			{
+				this._Campititions.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Exam", Storage="_Exams", ThisKey="FILE_NO", OtherKey="FIGH_FILE_NO")]
+		public EntitySet<Exam> Exams
+		{
+			get
+			{
+				return this._Exams;
+			}
+			set
+			{
+				this._Exams.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Heart_Zone", Storage="_Heart_Zones", ThisKey="FILE_NO", OtherKey="FIGH_FILE_NO")]
+		public EntitySet<Heart_Zone> Heart_Zones
+		{
+			get
+			{
+				return this._Heart_Zones;
+			}
+			set
+			{
+				this._Heart_Zones.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Physical_Fitness", Storage="_Physical_Fitnesses", ThisKey="FILE_NO", OtherKey="FIGH_FILE_NO")]
+		public EntitySet<Physical_Fitness> Physical_Fitnesses
+		{
+			get
+			{
+				return this._Physical_Fitnesses;
+			}
+			set
+			{
+				this._Physical_Fitnesses.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Planning_Overview", Storage="_Planning_Overviews", ThisKey="FILE_NO", OtherKey="FIGH_FILE_NO")]
+		public EntitySet<Planning_Overview> Planning_Overviews
+		{
+			get
+			{
+				return this._Planning_Overviews;
+			}
+			set
+			{
+				this._Planning_Overviews.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Test", Storage="_Tests", ThisKey="FILE_NO", OtherKey="FIGH_FILE_NO")]
+		public EntitySet<Test> Tests
+		{
+			get
+			{
+				return this._Tests;
+			}
+			set
+			{
+				this._Tests.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Calculate_Calorie", Storage="_Calculate_Calories", ThisKey="FILE_NO", OtherKey="FIGH_FILE_NO")]
+		public EntitySet<Calculate_Calorie> Calculate_Calories
+		{
+			get
+			{
+				return this._Calculate_Calories;
+			}
+			set
+			{
+				this._Calculate_Calories.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Body_Fitness", Storage="_Body_Fitnesses", ThisKey="FILE_NO", OtherKey="FIGH_FILE_NO")]
+		public EntitySet<Body_Fitness> Body_Fitnesses
+		{
+			get
+			{
+				return this._Body_Fitnesses;
+			}
+			set
+			{
+				this._Body_Fitnesses.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Request_Row", Storage="_Request_Rows", ThisKey="FILE_NO", OtherKey="FIGH_FILE_NO")]
+		public EntitySet<Request_Row> Request_Rows
+		{
+			get
+			{
+				return this._Request_Rows;
+			}
+			set
+			{
+				this._Request_Rows.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Session_Meeting", Storage="_Session_Meetings", ThisKey="FILE_NO", OtherKey="COCH_FILE_NO_DNRM")]
+		public EntitySet<Session_Meeting> Session_Meetings
+		{
+			get
+			{
+				return this._Session_Meetings;
+			}
+			set
+			{
+				this._Session_Meetings.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Session", Storage="_Sessions", ThisKey="FILE_NO", OtherKey="COCH_FILE_NO_DNRM")]
+		public EntitySet<Session> Sessions
+		{
+			get
+			{
+				return this._Sessions;
+			}
+			set
+			{
+				this._Sessions.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Misc_Expense_Detail", Storage="_Misc_Expense_Details", ThisKey="FILE_NO", OtherKey="COCH_FILE_NO")]
+		public EntitySet<Misc_Expense_Detail> Misc_Expense_Details
+		{
+			get
+			{
+				return this._Misc_Expense_Details;
+			}
+			set
+			{
+				this._Misc_Expense_Details.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Payment_Expense", Storage="_Payment_Expenses", ThisKey="FILE_NO", OtherKey="COCH_FILE_NO")]
+		public EntitySet<Payment_Expense> Payment_Expenses
+		{
+			get
+			{
+				return this._Payment_Expenses;
+			}
+			set
+			{
+				this._Payment_Expenses.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Misc_Expense", Storage="_Misc_Expenses", ThisKey="FILE_NO", OtherKey="COCH_FILE_NO")]
+		public EntitySet<Misc_Expense> Misc_Expenses
+		{
+			get
+			{
+				return this._Misc_Expenses;
+			}
+			set
+			{
+				this._Misc_Expenses.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Club_Method", Storage="_Club_Methods", ThisKey="FILE_NO", OtherKey="COCH_FILE_NO")]
+		public EntitySet<Club_Method> Club_Methods
+		{
+			get
+			{
+				return this._Club_Methods;
+			}
+			set
+			{
+				this._Club_Methods.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Aggregation_Operation", Storage="_Aggregation_Operations", ThisKey="FILE_NO", OtherKey="COCH_FILE_NO")]
+		public EntitySet<Aggregation_Operation> Aggregation_Operations
+		{
+			get
+			{
+				return this._Aggregation_Operations;
+			}
+			set
+			{
+				this._Aggregation_Operations.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Payment_Method", Storage="_Payment_Methods", ThisKey="FILE_NO", OtherKey="FIGH_FILE_NO_DNRM")]
+		public EntitySet<Payment_Method> Payment_Methods
+		{
+			get
+			{
+				return this._Payment_Methods;
+			}
+			set
+			{
+				this._Payment_Methods.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Log_Operation", Storage="_Log_Operations", ThisKey="FILE_NO", OtherKey="FIGH_FILE_NO")]
+		public EntitySet<Log_Operation> Log_Operations
+		{
+			get
+			{
+				return this._Log_Operations;
+			}
+			set
+			{
+				this._Log_Operations.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Calculate_Expense_Coach", Storage="_Calculate_Expense_Coaches", ThisKey="FILE_NO", OtherKey="COCH_FILE_NO")]
+		public EntitySet<Calculate_Expense_Coach> Calculate_Expense_Coaches
+		{
+			get
+			{
+				return this._Calculate_Expense_Coaches;
+			}
+			set
+			{
+				this._Calculate_Expense_Coaches.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Gain_Loss_Rial", Storage="_Gain_Loss_Rials", ThisKey="FILE_NO", OtherKey="FIGH_FILE_NO")]
+		public EntitySet<Gain_Loss_Rial> Gain_Loss_Rials
+		{
+			get
+			{
+				return this._Gain_Loss_Rials;
+			}
+			set
+			{
+				this._Gain_Loss_Rials.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Member_Ship", Storage="_Member_Ships", ThisKey="FILE_NO", OtherKey="FIGH_FILE_NO")]
+		public EntitySet<Member_Ship> Member_Ships
+		{
+			get
+			{
+				return this._Member_Ships;
+			}
+			set
+			{
+				this._Member_Ships.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Fighter_Grouping", Storage="_Fighter_Groupings", ThisKey="FILE_NO", OtherKey="FIGH_FILE_NO")]
+		public EntitySet<Fighter_Grouping> Fighter_Groupings
+		{
+			get
+			{
+				return this._Fighter_Groupings;
+			}
+			set
+			{
+				this._Fighter_Groupings.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Note", Storage="_Notes", ThisKey="FILE_NO", OtherKey="FIGH_FILE_NO")]
+		public EntitySet<Note> Notes
+		{
+			get
+			{
+				return this._Notes;
+			}
+			set
+			{
+				this._Notes.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Payment_Detail", Storage="_Payment_Details", ThisKey="FILE_NO", OtherKey="FIGH_FILE_NO")]
+		public EntitySet<Payment_Detail> Payment_Details
+		{
+			get
+			{
+				return this._Payment_Details;
+			}
+			set
+			{
+				this._Payment_Details.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Attendance", Storage="_Attendances", ThisKey="FILE_NO", OtherKey="COCH_FILE_NO")]
+		public EntitySet<Attendance> Attendances
+		{
+			get
+			{
+				return this._Attendances;
+			}
+			set
+			{
+				this._Attendances.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Attendance1", Storage="_Attendances1", ThisKey="FILE_NO", OtherKey="FIGH_FILE_NO")]
+		public EntitySet<Attendance> Attendances1
+		{
+			get
+			{
+				return this._Attendances1;
+			}
+			set
+			{
+				this._Attendances1.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Aggregation_Operation_Detail", Storage="_Aggregation_Operation_Details", ThisKey="FILE_NO", OtherKey="FIGH_FILE_NO")]
+		public EntitySet<Aggregation_Operation_Detail> Aggregation_Operation_Details
+		{
+			get
+			{
+				return this._Aggregation_Operation_Details;
+			}
+			set
+			{
+				this._Aggregation_Operation_Details.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Fighter_RelationShip", Storage="_Fighter_RelationShips", ThisKey="FILE_NO", OtherKey="FGRS_FIGH_FILE_NO")]
+		public EntitySet<Fighter_RelationShip> Fighter_RelationShips
+		{
+			get
+			{
+				return this._Fighter_RelationShips;
+			}
+			set
+			{
+				this._Fighter_RelationShips.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Fighter_RelationShip1", Storage="_Fighter_RelationShips1", ThisKey="FILE_NO", OtherKey="FIGH_FILE_NO")]
+		public EntitySet<Fighter_RelationShip> Fighter_RelationShips1
+		{
+			get
+			{
+				return this._Fighter_RelationShips1;
+			}
+			set
+			{
+				this._Fighter_RelationShips1.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Fighter_Call", Storage="_Fighter_Calls", ThisKey="FILE_NO", OtherKey="FIGH_FILE_NO")]
+		public EntitySet<Fighter_Call> Fighter_Calls
+		{
+			get
+			{
+				return this._Fighter_Calls;
+			}
+			set
+			{
+				this._Fighter_Calls.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Fighter_Discount_Card", Storage="_Fighter_Discount_Cards", ThisKey="FILE_NO", OtherKey="FIGH_FILE_NO")]
+		public EntitySet<Fighter_Discount_Card> Fighter_Discount_Cards
+		{
+			get
+			{
+				return this._Fighter_Discount_Cards;
+			}
+			set
+			{
+				this._Fighter_Discount_Cards.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Advertising_Campaign", Storage="_Advertising_Campaigns", ThisKey="FILE_NO", OtherKey="FIGH_FILE_NO")]
+		public EntitySet<Advertising_Campaign> Advertising_Campaigns
+		{
+			get
+			{
+				return this._Advertising_Campaigns;
+			}
+			set
+			{
+				this._Advertising_Campaigns.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Fighter_Public", Storage="_Fighter_Publics", ThisKey="FILE_NO", OtherKey="FIGH_FILE_NO")]
+		public EntitySet<Fighter_Public> Fighter_Publics
+		{
+			get
+			{
+				return this._Fighter_Publics;
+			}
+			set
+			{
+				this._Fighter_Publics.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Fighter_Public1", Storage="_Fighter_Publics1", ThisKey="FILE_NO", OtherKey="REF_CODE")]
+		public EntitySet<Fighter_Public> Fighter_Publics1
+		{
+			get
+			{
+				return this._Fighter_Publics1;
+			}
+			set
+			{
+				this._Fighter_Publics1.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Fighter", Storage="_Fighters", ThisKey="FILE_NO", OtherKey="REF_CODE_DNRM")]
+		public EntitySet<Fighter> Fighters
+		{
+			get
+			{
+				return this._Fighters;
+			}
+			set
+			{
+				this._Fighters.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Payment_Discount", Storage="_Payment_Discounts", ThisKey="FILE_NO", OtherKey="FIGH_FILE_NO_DNRM")]
+		public EntitySet<Payment_Discount> Payment_Discounts
+		{
+			get
+			{
+				return this._Payment_Discounts;
+			}
+			set
+			{
+				this._Payment_Discounts.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Club_Fighter", Storage="_Club", ThisKey="CLUB_CODE_DNRM", OtherKey="CODE", IsForeignKey=true)]
+		public Club Club
+		{
+			get
+			{
+				return this._Club.Entity;
+			}
+			set
+			{
+				Club previousValue = this._Club.Entity;
+				if (((previousValue != value) 
+							|| (this._Club.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Club.Entity = null;
+						previousValue.Fighters.Remove(this);
+					}
+					this._Club.Entity = value;
+					if ((value != null))
+					{
+						value.Fighters.Add(this);
+						this._CLUB_CODE_DNRM = value.CODE;
+					}
+					else
+					{
+						this._CLUB_CODE_DNRM = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("Club");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Category_Belt_Fighter", Storage="_Category_Belt", ThisKey="CTGY_CODE_DNRM", OtherKey="CODE", IsForeignKey=true)]
+		public Category_Belt Category_Belt
+		{
+			get
+			{
+				return this._Category_Belt.Entity;
+			}
+			set
+			{
+				Category_Belt previousValue = this._Category_Belt.Entity;
+				if (((previousValue != value) 
+							|| (this._Category_Belt.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Category_Belt.Entity = null;
+						previousValue.Fighters.Remove(this);
+					}
+					this._Category_Belt.Entity = value;
+					if ((value != null))
+					{
+						value.Fighters.Add(this);
+						this._CTGY_CODE_DNRM = value.CODE;
+					}
+					else
+					{
+						this._CTGY_CODE_DNRM = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("Category_Belt");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Fighter", Storage="_Fighter1", ThisKey="REF_CODE_DNRM", OtherKey="FILE_NO", IsForeignKey=true)]
+		public Fighter Fighter1
+		{
+			get
+			{
+				return this._Fighter1.Entity;
+			}
+			set
+			{
+				Fighter previousValue = this._Fighter1.Entity;
+				if (((previousValue != value) 
+							|| (this._Fighter1.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Fighter1.Entity = null;
+						previousValue.Fighters.Remove(this);
+					}
+					this._Fighter1.Entity = value;
+					if ((value != null))
+					{
+						value.Fighters.Add(this);
+						this._REF_CODE_DNRM = value.FILE_NO;
+					}
+					else
+					{
+						this._REF_CODE_DNRM = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("Fighter1");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Method_Fighter", Storage="_Method", ThisKey="MTOD_CODE_DNRM", OtherKey="CODE", IsForeignKey=true)]
+		public Method Method
+		{
+			get
+			{
+				return this._Method.Entity;
+			}
+			set
+			{
+				Method previousValue = this._Method.Entity;
+				if (((previousValue != value) 
+							|| (this._Method.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Method.Entity = null;
+						previousValue.Fighters.Remove(this);
+					}
+					this._Method.Entity = value;
+					if ((value != null))
+					{
+						value.Fighters.Add(this);
+						this._MTOD_CODE_DNRM = value.CODE;
+					}
+					else
+					{
+						this._MTOD_CODE_DNRM = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("Method");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Region_Fighter", Storage="_Region", ThisKey="REGN_PRVN_CNTY_CODE,REGN_PRVN_CODE,REGN_CODE", OtherKey="PRVN_CNTY_CODE,PRVN_CODE,CODE", IsForeignKey=true)]
+		public Region Region
+		{
+			get
+			{
+				return this._Region.Entity;
+			}
+			set
+			{
+				Region previousValue = this._Region.Entity;
+				if (((previousValue != value) 
+							|| (this._Region.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Region.Entity = null;
+						previousValue.Fighters.Remove(this);
+					}
+					this._Region.Entity = value;
+					if ((value != null))
+					{
+						value.Fighters.Add(this);
+						this._REGN_PRVN_CNTY_CODE = value.PRVN_CNTY_CODE;
+						this._REGN_PRVN_CODE = value.PRVN_CODE;
+						this._REGN_CODE = value.CODE;
+					}
+					else
+					{
+						this._REGN_PRVN_CNTY_CODE = default(string);
+						this._REGN_PRVN_CODE = default(string);
+						this._REGN_CODE = default(string);
+					}
+					this.SendPropertyChanged("Region");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Request_Fighter", Storage="_Request", ThisKey="RQST_RQID", OtherKey="RQID", IsForeignKey=true)]
+		public Request Request
+		{
+			get
+			{
+				return this._Request.Entity;
+			}
+			set
+			{
+				Request previousValue = this._Request.Entity;
+				if (((previousValue != value) 
+							|| (this._Request.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Request.Entity = null;
+						previousValue.Fighters.Remove(this);
+					}
+					this._Request.Entity = value;
+					if ((value != null))
+					{
+						value.Fighters.Add(this);
+						this._RQST_RQID = value.RQID;
+					}
+					else
+					{
+						this._RQST_RQID = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("Request");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Sub_Unit_Fighter", Storage="_Sub_Unit", ThisKey="SUNT_BUNT_DEPT_ORGN_CODE_DNRM,SUNT_BUNT_DEPT_CODE_DNRM,SUNT_BUNT_CODE_DNRM,SUNT_C" +
+			"ODE_DNRM", OtherKey="BUNT_DEPT_ORGN_CODE,BUNT_DEPT_CODE,BUNT_CODE,CODE", IsForeignKey=true)]
+		public Sub_Unit Sub_Unit
+		{
+			get
+			{
+				return this._Sub_Unit.Entity;
+			}
+			set
+			{
+				Sub_Unit previousValue = this._Sub_Unit.Entity;
+				if (((previousValue != value) 
+							|| (this._Sub_Unit.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Sub_Unit.Entity = null;
+						previousValue.Fighters.Remove(this);
+					}
+					this._Sub_Unit.Entity = value;
+					if ((value != null))
+					{
+						value.Fighters.Add(this);
+						this._SUNT_BUNT_DEPT_ORGN_CODE_DNRM = value.BUNT_DEPT_ORGN_CODE;
+						this._SUNT_BUNT_DEPT_CODE_DNRM = value.BUNT_DEPT_CODE;
+						this._SUNT_BUNT_CODE_DNRM = value.BUNT_CODE;
+						this._SUNT_CODE_DNRM = value.CODE;
+					}
+					else
+					{
+						this._SUNT_BUNT_DEPT_ORGN_CODE_DNRM = default(string);
+						this._SUNT_BUNT_DEPT_CODE_DNRM = default(string);
+						this._SUNT_BUNT_CODE_DNRM = default(string);
+						this._SUNT_CODE_DNRM = default(string);
+					}
+					this.SendPropertyChanged("Sub_Unit");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Campititions(Campitition entity)
+		{
+			this.SendPropertyChanging();
+			entity.Fighter = this;
+		}
+		
+		private void detach_Campititions(Campitition entity)
+		{
+			this.SendPropertyChanging();
+			entity.Fighter = null;
+		}
+		
+		private void attach_Exams(Exam entity)
+		{
+			this.SendPropertyChanging();
+			entity.Fighter = this;
+		}
+		
+		private void detach_Exams(Exam entity)
+		{
+			this.SendPropertyChanging();
+			entity.Fighter = null;
+		}
+		
+		private void attach_Heart_Zones(Heart_Zone entity)
+		{
+			this.SendPropertyChanging();
+			entity.Fighter = this;
+		}
+		
+		private void detach_Heart_Zones(Heart_Zone entity)
+		{
+			this.SendPropertyChanging();
+			entity.Fighter = null;
+		}
+		
+		private void attach_Physical_Fitnesses(Physical_Fitness entity)
+		{
+			this.SendPropertyChanging();
+			entity.Fighter = this;
+		}
+		
+		private void detach_Physical_Fitnesses(Physical_Fitness entity)
+		{
+			this.SendPropertyChanging();
+			entity.Fighter = null;
+		}
+		
+		private void attach_Planning_Overviews(Planning_Overview entity)
+		{
+			this.SendPropertyChanging();
+			entity.Fighter = this;
+		}
+		
+		private void detach_Planning_Overviews(Planning_Overview entity)
+		{
+			this.SendPropertyChanging();
+			entity.Fighter = null;
+		}
+		
+		private void attach_Tests(Test entity)
+		{
+			this.SendPropertyChanging();
+			entity.Fighter = this;
+		}
+		
+		private void detach_Tests(Test entity)
+		{
+			this.SendPropertyChanging();
+			entity.Fighter = null;
+		}
+		
+		private void attach_Calculate_Calories(Calculate_Calorie entity)
+		{
+			this.SendPropertyChanging();
+			entity.Fighter = this;
+		}
+		
+		private void detach_Calculate_Calories(Calculate_Calorie entity)
+		{
+			this.SendPropertyChanging();
+			entity.Fighter = null;
+		}
+		
+		private void attach_Body_Fitnesses(Body_Fitness entity)
+		{
+			this.SendPropertyChanging();
+			entity.Fighter = this;
+		}
+		
+		private void detach_Body_Fitnesses(Body_Fitness entity)
+		{
+			this.SendPropertyChanging();
+			entity.Fighter = null;
+		}
+		
+		private void attach_Request_Rows(Request_Row entity)
+		{
+			this.SendPropertyChanging();
+			entity.Fighter = this;
+		}
+		
+		private void detach_Request_Rows(Request_Row entity)
+		{
+			this.SendPropertyChanging();
+			entity.Fighter = null;
+		}
+		
+		private void attach_Session_Meetings(Session_Meeting entity)
+		{
+			this.SendPropertyChanging();
+			entity.Fighter = this;
+		}
+		
+		private void detach_Session_Meetings(Session_Meeting entity)
+		{
+			this.SendPropertyChanging();
+			entity.Fighter = null;
+		}
+		
+		private void attach_Sessions(Session entity)
+		{
+			this.SendPropertyChanging();
+			entity.Fighter = this;
+		}
+		
+		private void detach_Sessions(Session entity)
+		{
+			this.SendPropertyChanging();
+			entity.Fighter = null;
+		}
+		
+		private void attach_Misc_Expense_Details(Misc_Expense_Detail entity)
+		{
+			this.SendPropertyChanging();
+			entity.Fighter = this;
+		}
+		
+		private void detach_Misc_Expense_Details(Misc_Expense_Detail entity)
+		{
+			this.SendPropertyChanging();
+			entity.Fighter = null;
+		}
+		
+		private void attach_Payment_Expenses(Payment_Expense entity)
+		{
+			this.SendPropertyChanging();
+			entity.Fighter = this;
+		}
+		
+		private void detach_Payment_Expenses(Payment_Expense entity)
+		{
+			this.SendPropertyChanging();
+			entity.Fighter = null;
+		}
+		
+		private void attach_Misc_Expenses(Misc_Expense entity)
+		{
+			this.SendPropertyChanging();
+			entity.Fighter = this;
+		}
+		
+		private void detach_Misc_Expenses(Misc_Expense entity)
+		{
+			this.SendPropertyChanging();
+			entity.Fighter = null;
+		}
+		
+		private void attach_Club_Methods(Club_Method entity)
+		{
+			this.SendPropertyChanging();
+			entity.Fighter = this;
+		}
+		
+		private void detach_Club_Methods(Club_Method entity)
+		{
+			this.SendPropertyChanging();
+			entity.Fighter = null;
+		}
+		
+		private void attach_Aggregation_Operations(Aggregation_Operation entity)
+		{
+			this.SendPropertyChanging();
+			entity.Fighter = this;
+		}
+		
+		private void detach_Aggregation_Operations(Aggregation_Operation entity)
+		{
+			this.SendPropertyChanging();
+			entity.Fighter = null;
+		}
+		
+		private void attach_Payment_Methods(Payment_Method entity)
+		{
+			this.SendPropertyChanging();
+			entity.Fighter = this;
+		}
+		
+		private void detach_Payment_Methods(Payment_Method entity)
+		{
+			this.SendPropertyChanging();
+			entity.Fighter = null;
+		}
+		
+		private void attach_Log_Operations(Log_Operation entity)
+		{
+			this.SendPropertyChanging();
+			entity.Fighter = this;
+		}
+		
+		private void detach_Log_Operations(Log_Operation entity)
+		{
+			this.SendPropertyChanging();
+			entity.Fighter = null;
+		}
+		
+		private void attach_Calculate_Expense_Coaches(Calculate_Expense_Coach entity)
+		{
+			this.SendPropertyChanging();
+			entity.Fighter = this;
+		}
+		
+		private void detach_Calculate_Expense_Coaches(Calculate_Expense_Coach entity)
+		{
+			this.SendPropertyChanging();
+			entity.Fighter = null;
+		}
+		
+		private void attach_Gain_Loss_Rials(Gain_Loss_Rial entity)
+		{
+			this.SendPropertyChanging();
+			entity.Fighter = this;
+		}
+		
+		private void detach_Gain_Loss_Rials(Gain_Loss_Rial entity)
+		{
+			this.SendPropertyChanging();
+			entity.Fighter = null;
+		}
+		
+		private void attach_Member_Ships(Member_Ship entity)
+		{
+			this.SendPropertyChanging();
+			entity.Fighter = this;
+		}
+		
+		private void detach_Member_Ships(Member_Ship entity)
+		{
+			this.SendPropertyChanging();
+			entity.Fighter = null;
+		}
+		
+		private void attach_Fighter_Groupings(Fighter_Grouping entity)
+		{
+			this.SendPropertyChanging();
+			entity.Fighter = this;
+		}
+		
+		private void detach_Fighter_Groupings(Fighter_Grouping entity)
+		{
+			this.SendPropertyChanging();
+			entity.Fighter = null;
+		}
+		
+		private void attach_Notes(Note entity)
+		{
+			this.SendPropertyChanging();
+			entity.Fighter = this;
+		}
+		
+		private void detach_Notes(Note entity)
+		{
+			this.SendPropertyChanging();
+			entity.Fighter = null;
+		}
+		
+		private void attach_Payment_Details(Payment_Detail entity)
+		{
+			this.SendPropertyChanging();
+			entity.Fighter = this;
+		}
+		
+		private void detach_Payment_Details(Payment_Detail entity)
+		{
+			this.SendPropertyChanging();
+			entity.Fighter = null;
+		}
+		
+		private void attach_Attendances(Attendance entity)
+		{
+			this.SendPropertyChanging();
+			entity.Fighter = this;
+		}
+		
+		private void detach_Attendances(Attendance entity)
+		{
+			this.SendPropertyChanging();
+			entity.Fighter = null;
+		}
+		
+		private void attach_Attendances1(Attendance entity)
+		{
+			this.SendPropertyChanging();
+			entity.Fighter1 = this;
+		}
+		
+		private void detach_Attendances1(Attendance entity)
+		{
+			this.SendPropertyChanging();
+			entity.Fighter1 = null;
+		}
+		
+		private void attach_Aggregation_Operation_Details(Aggregation_Operation_Detail entity)
+		{
+			this.SendPropertyChanging();
+			entity.Fighter = this;
+		}
+		
+		private void detach_Aggregation_Operation_Details(Aggregation_Operation_Detail entity)
+		{
+			this.SendPropertyChanging();
+			entity.Fighter = null;
+		}
+		
+		private void attach_Fighter_RelationShips(Fighter_RelationShip entity)
+		{
+			this.SendPropertyChanging();
+			entity.Fighter = this;
+		}
+		
+		private void detach_Fighter_RelationShips(Fighter_RelationShip entity)
+		{
+			this.SendPropertyChanging();
+			entity.Fighter = null;
+		}
+		
+		private void attach_Fighter_RelationShips1(Fighter_RelationShip entity)
+		{
+			this.SendPropertyChanging();
+			entity.Fighter1 = this;
+		}
+		
+		private void detach_Fighter_RelationShips1(Fighter_RelationShip entity)
+		{
+			this.SendPropertyChanging();
+			entity.Fighter1 = null;
+		}
+		
+		private void attach_Fighter_Calls(Fighter_Call entity)
+		{
+			this.SendPropertyChanging();
+			entity.Fighter = this;
+		}
+		
+		private void detach_Fighter_Calls(Fighter_Call entity)
+		{
+			this.SendPropertyChanging();
+			entity.Fighter = null;
+		}
+		
+		private void attach_Fighter_Discount_Cards(Fighter_Discount_Card entity)
+		{
+			this.SendPropertyChanging();
+			entity.Fighter = this;
+		}
+		
+		private void detach_Fighter_Discount_Cards(Fighter_Discount_Card entity)
+		{
+			this.SendPropertyChanging();
+			entity.Fighter = null;
+		}
+		
+		private void attach_Advertising_Campaigns(Advertising_Campaign entity)
+		{
+			this.SendPropertyChanging();
+			entity.Fighter = this;
+		}
+		
+		private void detach_Advertising_Campaigns(Advertising_Campaign entity)
+		{
+			this.SendPropertyChanging();
+			entity.Fighter = null;
+		}
+		
+		private void attach_Fighter_Publics(Fighter_Public entity)
+		{
+			this.SendPropertyChanging();
+			entity.Fighter = this;
+		}
+		
+		private void detach_Fighter_Publics(Fighter_Public entity)
+		{
+			this.SendPropertyChanging();
+			entity.Fighter = null;
+		}
+		
+		private void attach_Fighter_Publics1(Fighter_Public entity)
+		{
+			this.SendPropertyChanging();
+			entity.Fighter1 = this;
+		}
+		
+		private void detach_Fighter_Publics1(Fighter_Public entity)
+		{
+			this.SendPropertyChanging();
+			entity.Fighter1 = null;
+		}
+		
+		private void attach_Fighters(Fighter entity)
+		{
+			this.SendPropertyChanging();
+			entity.Fighter1 = this;
+		}
+		
+		private void detach_Fighters(Fighter entity)
+		{
+			this.SendPropertyChanging();
+			entity.Fighter1 = null;
+		}
+		
+		private void attach_Payment_Discounts(Payment_Discount entity)
+		{
+			this.SendPropertyChanging();
+			entity.Fighter = this;
+		}
+		
+		private void detach_Payment_Discounts(Payment_Discount entity)
+		{
+			this.SendPropertyChanging();
+			entity.Fighter = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Advertising_Parameter")]
+	public partial class Advertising_Parameter : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private long _CODE;
+		
+		private string _ADVP_NAME;
+		
+		private string _RECD_TYPE;
+		
+		private System.Nullable<System.DateTime> _EXPR_DATE;
+		
+		private string _DISC_CODE;
+		
+		private string _DSCT_TYPE;
+		
+		private System.Nullable<long> _DSCT_AMNT;
+		
+		private string _RQTP_CODE;
+		
+		private System.Nullable<long> _MTOD_CODE;
+		
+		private System.Nullable<long> _CTGY_CODE;
+		
+		private System.Nullable<int> _NUMB_LAST_DAY;
+		
+		private string _STAT;
+		
+		private System.Nullable<long> _TEMP_TMID;
+		
+		private string _CRET_BY;
+		
+		private System.Nullable<System.DateTime> _CRET_DATE;
+		
+		private string _MDFY_BY;
+		
+		private System.Nullable<System.DateTime> _MDFY_DATE;
+		
+		private EntitySet<Fighter_Discount_Card> _Fighter_Discount_Cards;
+		
+		private EntitySet<Advertising_Campaign> _Advertising_Campaigns;
+		
+		private EntityRef<Category_Belt> _Category_Belt;
+		
+		private EntityRef<Method> _Method;
+		
+		private EntityRef<Request_Type> _Request_Type;
+		
+		private EntityRef<Template> _Template;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnCODEChanging(long value);
+    partial void OnCODEChanged();
+    partial void OnADVP_NAMEChanging(string value);
+    partial void OnADVP_NAMEChanged();
+    partial void OnRECD_TYPEChanging(string value);
+    partial void OnRECD_TYPEChanged();
+    partial void OnEXPR_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnEXPR_DATEChanged();
+    partial void OnDISC_CODEChanging(string value);
+    partial void OnDISC_CODEChanged();
+    partial void OnDSCT_TYPEChanging(string value);
+    partial void OnDSCT_TYPEChanged();
+    partial void OnDSCT_AMNTChanging(System.Nullable<long> value);
+    partial void OnDSCT_AMNTChanged();
+    partial void OnRQTP_CODEChanging(string value);
+    partial void OnRQTP_CODEChanged();
+    partial void OnMTOD_CODEChanging(System.Nullable<long> value);
+    partial void OnMTOD_CODEChanged();
+    partial void OnCTGY_CODEChanging(System.Nullable<long> value);
+    partial void OnCTGY_CODEChanged();
+    partial void OnNUMB_LAST_DAYChanging(System.Nullable<int> value);
+    partial void OnNUMB_LAST_DAYChanged();
+    partial void OnSTATChanging(string value);
+    partial void OnSTATChanged();
+    partial void OnTEMP_TMIDChanging(System.Nullable<long> value);
+    partial void OnTEMP_TMIDChanged();
+    partial void OnCRET_BYChanging(string value);
+    partial void OnCRET_BYChanged();
+    partial void OnCRET_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnCRET_DATEChanged();
+    partial void OnMDFY_BYChanging(string value);
+    partial void OnMDFY_BYChanged();
+    partial void OnMDFY_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnMDFY_DATEChanged();
+    #endregion
+		
+		public Advertising_Parameter()
+		{
+			this._Fighter_Discount_Cards = new EntitySet<Fighter_Discount_Card>(new Action<Fighter_Discount_Card>(this.attach_Fighter_Discount_Cards), new Action<Fighter_Discount_Card>(this.detach_Fighter_Discount_Cards));
+			this._Advertising_Campaigns = new EntitySet<Advertising_Campaign>(new Action<Advertising_Campaign>(this.attach_Advertising_Campaigns), new Action<Advertising_Campaign>(this.detach_Advertising_Campaigns));
+			this._Category_Belt = default(EntityRef<Category_Belt>);
+			this._Method = default(EntityRef<Method>);
+			this._Request_Type = default(EntityRef<Request_Type>);
+			this._Template = default(EntityRef<Template>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CODE", DbType="BigInt NOT NULL", IsPrimaryKey=true)]
+		public long CODE
+		{
+			get
+			{
+				return this._CODE;
+			}
+			set
+			{
+				if ((this._CODE != value))
+				{
+					this.OnCODEChanging(value);
+					this.SendPropertyChanging();
+					this._CODE = value;
+					this.SendPropertyChanged("CODE");
+					this.OnCODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ADVP_NAME", DbType="NVarChar(100)", UpdateCheck=UpdateCheck.Never)]
+		public string ADVP_NAME
+		{
+			get
+			{
+				return this._ADVP_NAME;
+			}
+			set
+			{
+				if ((this._ADVP_NAME != value))
+				{
+					this.OnADVP_NAMEChanging(value);
+					this.SendPropertyChanging();
+					this._ADVP_NAME = value;
+					this.SendPropertyChanged("ADVP_NAME");
+					this.OnADVP_NAMEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RECD_TYPE", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		public string RECD_TYPE
+		{
+			get
+			{
+				return this._RECD_TYPE;
+			}
+			set
+			{
+				if ((this._RECD_TYPE != value))
+				{
+					this.OnRECD_TYPEChanging(value);
+					this.SendPropertyChanging();
+					this._RECD_TYPE = value;
+					this.SendPropertyChanged("RECD_TYPE");
+					this.OnRECD_TYPEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EXPR_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<System.DateTime> EXPR_DATE
+		{
+			get
+			{
+				return this._EXPR_DATE;
+			}
+			set
+			{
+				if ((this._EXPR_DATE != value))
+				{
+					this.OnEXPR_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._EXPR_DATE = value;
+					this.SendPropertyChanged("EXPR_DATE");
+					this.OnEXPR_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DISC_CODE", DbType="VarChar(30)", UpdateCheck=UpdateCheck.Never)]
+		public string DISC_CODE
+		{
+			get
+			{
+				return this._DISC_CODE;
+			}
+			set
+			{
+				if ((this._DISC_CODE != value))
+				{
+					this.OnDISC_CODEChanging(value);
+					this.SendPropertyChanging();
+					this._DISC_CODE = value;
+					this.SendPropertyChanged("DISC_CODE");
+					this.OnDISC_CODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DSCT_TYPE", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		public string DSCT_TYPE
+		{
+			get
+			{
+				return this._DSCT_TYPE;
+			}
+			set
+			{
+				if ((this._DSCT_TYPE != value))
+				{
+					this.OnDSCT_TYPEChanging(value);
+					this.SendPropertyChanging();
+					this._DSCT_TYPE = value;
+					this.SendPropertyChanged("DSCT_TYPE");
+					this.OnDSCT_TYPEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DSCT_AMNT", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<long> DSCT_AMNT
+		{
+			get
+			{
+				return this._DSCT_AMNT;
+			}
+			set
+			{
+				if ((this._DSCT_AMNT != value))
+				{
+					this.OnDSCT_AMNTChanging(value);
+					this.SendPropertyChanging();
+					this._DSCT_AMNT = value;
+					this.SendPropertyChanged("DSCT_AMNT");
+					this.OnDSCT_AMNTChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RQTP_CODE", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		public string RQTP_CODE
+		{
+			get
+			{
+				return this._RQTP_CODE;
+			}
+			set
+			{
+				if ((this._RQTP_CODE != value))
+				{
+					if (this._Request_Type.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnRQTP_CODEChanging(value);
+					this.SendPropertyChanging();
+					this._RQTP_CODE = value;
+					this.SendPropertyChanged("RQTP_CODE");
+					this.OnRQTP_CODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MTOD_CODE", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<long> MTOD_CODE
+		{
+			get
+			{
+				return this._MTOD_CODE;
+			}
+			set
+			{
+				if ((this._MTOD_CODE != value))
+				{
+					if (this._Method.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnMTOD_CODEChanging(value);
+					this.SendPropertyChanging();
+					this._MTOD_CODE = value;
+					this.SendPropertyChanged("MTOD_CODE");
+					this.OnMTOD_CODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CTGY_CODE", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<long> CTGY_CODE
+		{
+			get
+			{
+				return this._CTGY_CODE;
+			}
+			set
+			{
+				if ((this._CTGY_CODE != value))
+				{
+					if (this._Category_Belt.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnCTGY_CODEChanging(value);
+					this.SendPropertyChanging();
+					this._CTGY_CODE = value;
+					this.SendPropertyChanged("CTGY_CODE");
+					this.OnCTGY_CODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NUMB_LAST_DAY", DbType="Int", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<int> NUMB_LAST_DAY
+		{
+			get
+			{
+				return this._NUMB_LAST_DAY;
+			}
+			set
+			{
+				if ((this._NUMB_LAST_DAY != value))
+				{
+					this.OnNUMB_LAST_DAYChanging(value);
+					this.SendPropertyChanging();
+					this._NUMB_LAST_DAY = value;
+					this.SendPropertyChanged("NUMB_LAST_DAY");
+					this.OnNUMB_LAST_DAYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STAT", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		public string STAT
+		{
+			get
+			{
+				return this._STAT;
+			}
+			set
+			{
+				if ((this._STAT != value))
+				{
+					this.OnSTATChanging(value);
+					this.SendPropertyChanging();
+					this._STAT = value;
+					this.SendPropertyChanged("STAT");
+					this.OnSTATChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TEMP_TMID", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<long> TEMP_TMID
+		{
+			get
+			{
+				return this._TEMP_TMID;
+			}
+			set
+			{
+				if ((this._TEMP_TMID != value))
+				{
+					if (this._Template.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnTEMP_TMIDChanging(value);
+					this.SendPropertyChanging();
+					this._TEMP_TMID = value;
+					this.SendPropertyChanged("TEMP_TMID");
+					this.OnTEMP_TMIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_BY", DbType="VarChar(250)", UpdateCheck=UpdateCheck.Never)]
+		public string CRET_BY
+		{
+			get
+			{
+				return this._CRET_BY;
+			}
+			set
+			{
+				if ((this._CRET_BY != value))
+				{
+					this.OnCRET_BYChanging(value);
+					this.SendPropertyChanging();
+					this._CRET_BY = value;
+					this.SendPropertyChanged("CRET_BY");
+					this.OnCRET_BYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<System.DateTime> CRET_DATE
+		{
+			get
+			{
+				return this._CRET_DATE;
+			}
+			set
+			{
+				if ((this._CRET_DATE != value))
+				{
+					this.OnCRET_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._CRET_DATE = value;
+					this.SendPropertyChanged("CRET_DATE");
+					this.OnCRET_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_BY", DbType="VarChar(250)", UpdateCheck=UpdateCheck.Never)]
+		public string MDFY_BY
+		{
+			get
+			{
+				return this._MDFY_BY;
+			}
+			set
+			{
+				if ((this._MDFY_BY != value))
+				{
+					this.OnMDFY_BYChanging(value);
+					this.SendPropertyChanging();
+					this._MDFY_BY = value;
+					this.SendPropertyChanged("MDFY_BY");
+					this.OnMDFY_BYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<System.DateTime> MDFY_DATE
+		{
+			get
+			{
+				return this._MDFY_DATE;
+			}
+			set
+			{
+				if ((this._MDFY_DATE != value))
+				{
+					this.OnMDFY_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._MDFY_DATE = value;
+					this.SendPropertyChanged("MDFY_DATE");
+					this.OnMDFY_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Advertising_Parameter_Fighter_Discount_Card", Storage="_Fighter_Discount_Cards", ThisKey="CODE", OtherKey="ADVP_CODE")]
+		public EntitySet<Fighter_Discount_Card> Fighter_Discount_Cards
+		{
+			get
+			{
+				return this._Fighter_Discount_Cards;
+			}
+			set
+			{
+				this._Fighter_Discount_Cards.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Advertising_Parameter_Advertising_Campaign", Storage="_Advertising_Campaigns", ThisKey="CODE", OtherKey="ADVP_CODE")]
+		public EntitySet<Advertising_Campaign> Advertising_Campaigns
+		{
+			get
+			{
+				return this._Advertising_Campaigns;
+			}
+			set
+			{
+				this._Advertising_Campaigns.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Category_Belt_Advertising_Parameter", Storage="_Category_Belt", ThisKey="CTGY_CODE", OtherKey="CODE", IsForeignKey=true, DeleteRule="SET NULL")]
+		public Category_Belt Category_Belt
+		{
+			get
+			{
+				return this._Category_Belt.Entity;
+			}
+			set
+			{
+				Category_Belt previousValue = this._Category_Belt.Entity;
+				if (((previousValue != value) 
+							|| (this._Category_Belt.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Category_Belt.Entity = null;
+						previousValue.Advertising_Parameters.Remove(this);
+					}
+					this._Category_Belt.Entity = value;
+					if ((value != null))
+					{
+						value.Advertising_Parameters.Add(this);
+						this._CTGY_CODE = value.CODE;
+					}
+					else
+					{
+						this._CTGY_CODE = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("Category_Belt");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Method_Advertising_Parameter", Storage="_Method", ThisKey="MTOD_CODE", OtherKey="CODE", IsForeignKey=true, DeleteRule="SET NULL")]
+		public Method Method
+		{
+			get
+			{
+				return this._Method.Entity;
+			}
+			set
+			{
+				Method previousValue = this._Method.Entity;
+				if (((previousValue != value) 
+							|| (this._Method.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Method.Entity = null;
+						previousValue.Advertising_Parameters.Remove(this);
+					}
+					this._Method.Entity = value;
+					if ((value != null))
+					{
+						value.Advertising_Parameters.Add(this);
+						this._MTOD_CODE = value.CODE;
+					}
+					else
+					{
+						this._MTOD_CODE = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("Method");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Request_Type_Advertising_Parameter", Storage="_Request_Type", ThisKey="RQTP_CODE", OtherKey="CODE", IsForeignKey=true, DeleteRule="SET NULL")]
+		public Request_Type Request_Type
+		{
+			get
+			{
+				return this._Request_Type.Entity;
+			}
+			set
+			{
+				Request_Type previousValue = this._Request_Type.Entity;
+				if (((previousValue != value) 
+							|| (this._Request_Type.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Request_Type.Entity = null;
+						previousValue.Advertising_Parameters.Remove(this);
+					}
+					this._Request_Type.Entity = value;
+					if ((value != null))
+					{
+						value.Advertising_Parameters.Add(this);
+						this._RQTP_CODE = value.CODE;
+					}
+					else
+					{
+						this._RQTP_CODE = default(string);
+					}
+					this.SendPropertyChanged("Request_Type");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Template_Advertising_Parameter", Storage="_Template", ThisKey="TEMP_TMID", OtherKey="TMID", IsForeignKey=true, DeleteRule="SET NULL")]
+		public Template Template
+		{
+			get
+			{
+				return this._Template.Entity;
+			}
+			set
+			{
+				Template previousValue = this._Template.Entity;
+				if (((previousValue != value) 
+							|| (this._Template.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Template.Entity = null;
+						previousValue.Advertising_Parameters.Remove(this);
+					}
+					this._Template.Entity = value;
+					if ((value != null))
+					{
+						value.Advertising_Parameters.Add(this);
+						this._TEMP_TMID = value.TMID;
+					}
+					else
+					{
+						this._TEMP_TMID = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("Template");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Fighter_Discount_Cards(Fighter_Discount_Card entity)
+		{
+			this.SendPropertyChanging();
+			entity.Advertising_Parameter = this;
+		}
+		
+		private void detach_Fighter_Discount_Cards(Fighter_Discount_Card entity)
+		{
+			this.SendPropertyChanging();
+			entity.Advertising_Parameter = null;
+		}
+		
+		private void attach_Advertising_Campaigns(Advertising_Campaign entity)
+		{
+			this.SendPropertyChanging();
+			entity.Advertising_Parameter = this;
+		}
+		
+		private void detach_Advertising_Campaigns(Advertising_Campaign entity)
+		{
+			this.SendPropertyChanging();
+			entity.Advertising_Parameter = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Payment_Discount")]
+	public partial class Payment_Discount : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private long _PYMT_CASH_CODE;
+		
+		private long _PYMT_RQST_RQID;
+		
+		private short _RQRO_RWNO;
+		
+		private short _RWNO;
+		
+		private System.Nullable<long> _FIGH_FILE_NO_DNRM;
+		
+		private System.Nullable<long> _EXPN_CODE;
+		
+		private System.Nullable<long> _AMNT;
+		
+		private string _AMNT_TYPE;
+		
+		private string _STAT;
+		
+		private string _PYDS_DESC;
+		
+		private System.Nullable<long> _ADVC_CODE;
+		
+		private System.Nullable<long> _FGDC_CODE;
+		
+		private string _CRET_BY;
+		
+		private System.Nullable<System.DateTime> _CRET_DATE;
+		
+		private string _MDFY_BY;
+		
+		private System.Nullable<System.DateTime> _MDFY_DATE;
+		
+		private EntityRef<Advertising_Campaign> _Advertising_Campaign;
+		
+		private EntityRef<Expense> _Expense;
+		
+		private EntityRef<Fighter_Discount_Card> _Fighter_Discount_Card;
+		
+		private EntityRef<Fighter> _Fighter;
+		
+		private EntityRef<Payment> _Payment;
+		
+		private EntityRef<Request_Row> _Request_Row;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnPYMT_CASH_CODEChanging(long value);
+    partial void OnPYMT_CASH_CODEChanged();
+    partial void OnPYMT_RQST_RQIDChanging(long value);
+    partial void OnPYMT_RQST_RQIDChanged();
+    partial void OnRQRO_RWNOChanging(short value);
+    partial void OnRQRO_RWNOChanged();
+    partial void OnRWNOChanging(short value);
+    partial void OnRWNOChanged();
+    partial void OnFIGH_FILE_NO_DNRMChanging(System.Nullable<long> value);
+    partial void OnFIGH_FILE_NO_DNRMChanged();
+    partial void OnEXPN_CODEChanging(System.Nullable<long> value);
+    partial void OnEXPN_CODEChanged();
+    partial void OnAMNTChanging(System.Nullable<long> value);
+    partial void OnAMNTChanged();
+    partial void OnAMNT_TYPEChanging(string value);
+    partial void OnAMNT_TYPEChanged();
+    partial void OnSTATChanging(string value);
+    partial void OnSTATChanged();
+    partial void OnPYDS_DESCChanging(string value);
+    partial void OnPYDS_DESCChanged();
+    partial void OnADVC_CODEChanging(System.Nullable<long> value);
+    partial void OnADVC_CODEChanged();
+    partial void OnFGDC_CODEChanging(System.Nullable<long> value);
+    partial void OnFGDC_CODEChanged();
+    partial void OnCRET_BYChanging(string value);
+    partial void OnCRET_BYChanged();
+    partial void OnCRET_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnCRET_DATEChanged();
+    partial void OnMDFY_BYChanging(string value);
+    partial void OnMDFY_BYChanged();
+    partial void OnMDFY_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnMDFY_DATEChanged();
+    #endregion
+		
+		public Payment_Discount()
+		{
+			this._Advertising_Campaign = default(EntityRef<Advertising_Campaign>);
+			this._Expense = default(EntityRef<Expense>);
+			this._Fighter_Discount_Card = default(EntityRef<Fighter_Discount_Card>);
+			this._Fighter = default(EntityRef<Fighter>);
+			this._Payment = default(EntityRef<Payment>);
+			this._Request_Row = default(EntityRef<Request_Row>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PYMT_CASH_CODE", DbType="BigInt NOT NULL", IsPrimaryKey=true)]
+		public long PYMT_CASH_CODE
+		{
+			get
+			{
+				return this._PYMT_CASH_CODE;
+			}
+			set
+			{
+				if ((this._PYMT_CASH_CODE != value))
+				{
+					if (this._Payment.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnPYMT_CASH_CODEChanging(value);
+					this.SendPropertyChanging();
+					this._PYMT_CASH_CODE = value;
+					this.SendPropertyChanged("PYMT_CASH_CODE");
+					this.OnPYMT_CASH_CODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PYMT_RQST_RQID", DbType="BigInt NOT NULL", IsPrimaryKey=true)]
+		public long PYMT_RQST_RQID
+		{
+			get
+			{
+				return this._PYMT_RQST_RQID;
+			}
+			set
+			{
+				if ((this._PYMT_RQST_RQID != value))
+				{
+					if ((this._Payment.HasLoadedOrAssignedValue || this._Request_Row.HasLoadedOrAssignedValue))
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnPYMT_RQST_RQIDChanging(value);
+					this.SendPropertyChanging();
+					this._PYMT_RQST_RQID = value;
+					this.SendPropertyChanged("PYMT_RQST_RQID");
+					this.OnPYMT_RQST_RQIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RQRO_RWNO", DbType="SmallInt NOT NULL", IsPrimaryKey=true)]
+		public short RQRO_RWNO
+		{
+			get
+			{
+				return this._RQRO_RWNO;
+			}
+			set
+			{
+				if ((this._RQRO_RWNO != value))
+				{
+					if (this._Request_Row.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnRQRO_RWNOChanging(value);
+					this.SendPropertyChanging();
+					this._RQRO_RWNO = value;
+					this.SendPropertyChanged("RQRO_RWNO");
+					this.OnRQRO_RWNOChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RWNO", DbType="SmallInt NOT NULL", IsPrimaryKey=true)]
+		public short RWNO
+		{
+			get
+			{
+				return this._RWNO;
+			}
+			set
+			{
+				if ((this._RWNO != value))
+				{
+					this.OnRWNOChanging(value);
+					this.SendPropertyChanging();
+					this._RWNO = value;
+					this.SendPropertyChanged("RWNO");
+					this.OnRWNOChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FIGH_FILE_NO_DNRM", DbType="BigInt")]
+		public System.Nullable<long> FIGH_FILE_NO_DNRM
+		{
+			get
+			{
+				return this._FIGH_FILE_NO_DNRM;
+			}
+			set
+			{
+				if ((this._FIGH_FILE_NO_DNRM != value))
+				{
+					if (this._Fighter.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnFIGH_FILE_NO_DNRMChanging(value);
+					this.SendPropertyChanging();
+					this._FIGH_FILE_NO_DNRM = value;
+					this.SendPropertyChanged("FIGH_FILE_NO_DNRM");
+					this.OnFIGH_FILE_NO_DNRMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EXPN_CODE", DbType="BigInt")]
+		public System.Nullable<long> EXPN_CODE
+		{
+			get
+			{
+				return this._EXPN_CODE;
+			}
+			set
+			{
+				if ((this._EXPN_CODE != value))
+				{
+					if (this._Expense.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnEXPN_CODEChanging(value);
+					this.SendPropertyChanging();
+					this._EXPN_CODE = value;
+					this.SendPropertyChanged("EXPN_CODE");
+					this.OnEXPN_CODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AMNT", DbType="BigInt")]
+		public System.Nullable<long> AMNT
+		{
+			get
+			{
+				return this._AMNT;
+			}
+			set
+			{
+				if ((this._AMNT != value))
+				{
+					this.OnAMNTChanging(value);
+					this.SendPropertyChanging();
+					this._AMNT = value;
+					this.SendPropertyChanged("AMNT");
+					this.OnAMNTChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AMNT_TYPE", DbType="VarChar(3)")]
+		public string AMNT_TYPE
+		{
+			get
+			{
+				return this._AMNT_TYPE;
+			}
+			set
+			{
+				if ((this._AMNT_TYPE != value))
+				{
+					this.OnAMNT_TYPEChanging(value);
+					this.SendPropertyChanging();
+					this._AMNT_TYPE = value;
+					this.SendPropertyChanged("AMNT_TYPE");
+					this.OnAMNT_TYPEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STAT", DbType="VarChar(3)")]
+		public string STAT
+		{
+			get
+			{
+				return this._STAT;
+			}
+			set
+			{
+				if ((this._STAT != value))
+				{
+					this.OnSTATChanging(value);
+					this.SendPropertyChanging();
+					this._STAT = value;
+					this.SendPropertyChanged("STAT");
+					this.OnSTATChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PYDS_DESC", DbType="NVarChar(250)")]
+		public string PYDS_DESC
+		{
+			get
+			{
+				return this._PYDS_DESC;
+			}
+			set
+			{
+				if ((this._PYDS_DESC != value))
+				{
+					this.OnPYDS_DESCChanging(value);
+					this.SendPropertyChanging();
+					this._PYDS_DESC = value;
+					this.SendPropertyChanged("PYDS_DESC");
+					this.OnPYDS_DESCChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ADVC_CODE", DbType="BigInt")]
+		public System.Nullable<long> ADVC_CODE
+		{
+			get
+			{
+				return this._ADVC_CODE;
+			}
+			set
+			{
+				if ((this._ADVC_CODE != value))
+				{
+					if (this._Advertising_Campaign.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnADVC_CODEChanging(value);
+					this.SendPropertyChanging();
+					this._ADVC_CODE = value;
+					this.SendPropertyChanged("ADVC_CODE");
+					this.OnADVC_CODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FGDC_CODE", DbType="BigInt")]
+		public System.Nullable<long> FGDC_CODE
+		{
+			get
+			{
+				return this._FGDC_CODE;
+			}
+			set
+			{
+				if ((this._FGDC_CODE != value))
+				{
+					if (this._Fighter_Discount_Card.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnFGDC_CODEChanging(value);
+					this.SendPropertyChanging();
+					this._FGDC_CODE = value;
+					this.SendPropertyChanged("FGDC_CODE");
+					this.OnFGDC_CODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_BY", DbType="VarChar(250)")]
+		public string CRET_BY
+		{
+			get
+			{
+				return this._CRET_BY;
+			}
+			set
+			{
+				if ((this._CRET_BY != value))
+				{
+					this.OnCRET_BYChanging(value);
+					this.SendPropertyChanging();
+					this._CRET_BY = value;
+					this.SendPropertyChanged("CRET_BY");
+					this.OnCRET_BYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_DATE", DbType="DateTime")]
+		public System.Nullable<System.DateTime> CRET_DATE
+		{
+			get
+			{
+				return this._CRET_DATE;
+			}
+			set
+			{
+				if ((this._CRET_DATE != value))
+				{
+					this.OnCRET_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._CRET_DATE = value;
+					this.SendPropertyChanged("CRET_DATE");
+					this.OnCRET_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_BY", DbType="VarChar(250)")]
+		public string MDFY_BY
+		{
+			get
+			{
+				return this._MDFY_BY;
+			}
+			set
+			{
+				if ((this._MDFY_BY != value))
+				{
+					this.OnMDFY_BYChanging(value);
+					this.SendPropertyChanging();
+					this._MDFY_BY = value;
+					this.SendPropertyChanged("MDFY_BY");
+					this.OnMDFY_BYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_DATE", DbType="DateTime")]
+		public System.Nullable<System.DateTime> MDFY_DATE
+		{
+			get
+			{
+				return this._MDFY_DATE;
+			}
+			set
+			{
+				if ((this._MDFY_DATE != value))
+				{
+					this.OnMDFY_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._MDFY_DATE = value;
+					this.SendPropertyChanged("MDFY_DATE");
+					this.OnMDFY_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Advertising_Campaign_Payment_Discount", Storage="_Advertising_Campaign", ThisKey="ADVC_CODE", OtherKey="CODE", IsForeignKey=true)]
+		public Advertising_Campaign Advertising_Campaign
+		{
+			get
+			{
+				return this._Advertising_Campaign.Entity;
+			}
+			set
+			{
+				Advertising_Campaign previousValue = this._Advertising_Campaign.Entity;
+				if (((previousValue != value) 
+							|| (this._Advertising_Campaign.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Advertising_Campaign.Entity = null;
+						previousValue.Payment_Discounts.Remove(this);
+					}
+					this._Advertising_Campaign.Entity = value;
+					if ((value != null))
+					{
+						value.Payment_Discounts.Add(this);
+						this._ADVC_CODE = value.CODE;
+					}
+					else
+					{
+						this._ADVC_CODE = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("Advertising_Campaign");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Expense_Payment_Discount", Storage="_Expense", ThisKey="EXPN_CODE", OtherKey="CODE", IsForeignKey=true)]
+		public Expense Expense
+		{
+			get
+			{
+				return this._Expense.Entity;
+			}
+			set
+			{
+				Expense previousValue = this._Expense.Entity;
+				if (((previousValue != value) 
+							|| (this._Expense.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Expense.Entity = null;
+						previousValue.Payment_Discounts.Remove(this);
+					}
+					this._Expense.Entity = value;
+					if ((value != null))
+					{
+						value.Payment_Discounts.Add(this);
+						this._EXPN_CODE = value.CODE;
+					}
+					else
+					{
+						this._EXPN_CODE = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("Expense");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Discount_Card_Payment_Discount", Storage="_Fighter_Discount_Card", ThisKey="FGDC_CODE", OtherKey="CODE", IsForeignKey=true)]
+		public Fighter_Discount_Card Fighter_Discount_Card
+		{
+			get
+			{
+				return this._Fighter_Discount_Card.Entity;
+			}
+			set
+			{
+				Fighter_Discount_Card previousValue = this._Fighter_Discount_Card.Entity;
+				if (((previousValue != value) 
+							|| (this._Fighter_Discount_Card.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Fighter_Discount_Card.Entity = null;
+						previousValue.Payment_Discounts.Remove(this);
+					}
+					this._Fighter_Discount_Card.Entity = value;
+					if ((value != null))
+					{
+						value.Payment_Discounts.Add(this);
+						this._FGDC_CODE = value.CODE;
+					}
+					else
+					{
+						this._FGDC_CODE = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("Fighter_Discount_Card");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Payment_Discount", Storage="_Fighter", ThisKey="FIGH_FILE_NO_DNRM", OtherKey="FILE_NO", IsForeignKey=true)]
+		public Fighter Fighter
+		{
+			get
+			{
+				return this._Fighter.Entity;
+			}
+			set
+			{
+				Fighter previousValue = this._Fighter.Entity;
+				if (((previousValue != value) 
+							|| (this._Fighter.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Fighter.Entity = null;
+						previousValue.Payment_Discounts.Remove(this);
+					}
+					this._Fighter.Entity = value;
+					if ((value != null))
+					{
+						value.Payment_Discounts.Add(this);
+						this._FIGH_FILE_NO_DNRM = value.FILE_NO;
+					}
+					else
+					{
+						this._FIGH_FILE_NO_DNRM = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("Fighter");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Payment_Payment_Discount", Storage="_Payment", ThisKey="PYMT_CASH_CODE,PYMT_RQST_RQID", OtherKey="CASH_CODE,RQST_RQID", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
+		public Payment Payment
+		{
+			get
+			{
+				return this._Payment.Entity;
+			}
+			set
+			{
+				Payment previousValue = this._Payment.Entity;
+				if (((previousValue != value) 
+							|| (this._Payment.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Payment.Entity = null;
+						previousValue.Payment_Discounts.Remove(this);
+					}
+					this._Payment.Entity = value;
+					if ((value != null))
+					{
+						value.Payment_Discounts.Add(this);
+						this._PYMT_CASH_CODE = value.CASH_CODE;
+						this._PYMT_RQST_RQID = value.RQST_RQID;
+					}
+					else
+					{
+						this._PYMT_CASH_CODE = default(long);
+						this._PYMT_RQST_RQID = default(long);
+					}
+					this.SendPropertyChanged("Payment");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Request_Row_Payment_Discount", Storage="_Request_Row", ThisKey="PYMT_RQST_RQID,RQRO_RWNO", OtherKey="RQST_RQID,RWNO", IsForeignKey=true)]
+		public Request_Row Request_Row
+		{
+			get
+			{
+				return this._Request_Row.Entity;
+			}
+			set
+			{
+				Request_Row previousValue = this._Request_Row.Entity;
+				if (((previousValue != value) 
+							|| (this._Request_Row.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Request_Row.Entity = null;
+						previousValue.Payment_Discounts.Remove(this);
+					}
+					this._Request_Row.Entity = value;
+					if ((value != null))
+					{
+						value.Payment_Discounts.Add(this);
+						this._PYMT_RQST_RQID = value.RQST_RQID;
+						this._RQRO_RWNO = value.RWNO;
+					}
+					else
+					{
+						this._PYMT_RQST_RQID = default(long);
+						this._RQRO_RWNO = default(short);
+					}
+					this.SendPropertyChanged("Request_Row");
 				}
 			}
 		}
@@ -95476,1094 +96351,6 @@ namespace System.Scsc.Data
 		}
 	}
 	
-	public partial class VF_All_Info_FightersResult
-	{
-		
-		private long _FILE_NO;
-		
-		private System.Nullable<long> _CHAT_ID_DNRM;
-		
-		private int _RWNO;
-		
-		private string _REGN_PRVN_CODE;
-		
-		private string _REGN_CODE;
-		
-		private System.Nullable<long> _RQRO_RQST_RQID;
-		
-		private string _NATL_CODE;
-		
-		private string _GLOB_CODE;
-		
-		private string _POST_ADRS;
-		
-		private string _EMAL_ADRS;
-		
-		private System.Nullable<System.DateTime> _BRTH_DATE;
-		
-		private string _CELL_PHON;
-		
-		private string _TELL_PHON;
-		
-		private string _COCH_DEG;
-		
-		private string _GUDG_DEG;
-		
-		private string _TYPE;
-		
-		private string _INSR_NUMB;
-		
-		private System.Nullable<System.DateTime> _INSR_DATE;
-		
-		private string _FATH_NAME;
-		
-		private string _LAST_NAME;
-		
-		private string _FRST_NAME;
-		
-		private System.Nullable<long> _COCH_FILE_NO;
-		
-		private string _DISE_DESC;
-		
-		private string _MTOD_DESC;
-		
-		private string _CTGY_DESC;
-		
-		private string _CLUB_NAME;
-		
-		private string _TYPE_DESC;
-		
-		private string _COCH_DEGR;
-		
-		private string _GUGD_DEGR;
-		
-		private string _SEX_TYPE;
-		
-		private string _ACTV_TAG;
-		
-		private string _REGN_NAME;
-		
-		private string _PRVN_NAME;
-		
-		private string _BLOD_GROP;
-		
-		private string _RQTP_DESC;
-		
-		private string _FNGR_PRNT;
-		
-		private string _SUNT_BUNT_DEPT_ORGN_CODE;
-		
-		private string _SUNT_BUNT_DEPT_CODE;
-		
-		private string _SUNT_BUNT_CODE;
-		
-		private string _SUNT_CODE;
-		
-		private string _ORGN_DESC;
-		
-		private string _DEPT_DESC;
-		
-		private string _BUNT_DESC;
-		
-		private string _SUNT_DESC;
-		
-		private System.Nullable<float> _CORD_X;
-		
-		private System.Nullable<float> _CORD_Y;
-		
-		private string _SERV_NO;
-		
-		private string _BRTH_PLAC;
-		
-		private string _ISSU_PLAC;
-		
-		private string _FATH_WORK;
-		
-		private string _HIST_DESC;
-		
-		private string _DPST_ACNT_SLRY_BANK;
-		
-		private string _DPST_ACNT_SLRY;
-		
-		private System.Nullable<long> _CBMT_CODE;
-		
-		private string _MOM_CELL_PHON;
-		
-		private string _MOM_TELL_PHON;
-		
-		private System.Nullable<long> _MOM_CHAT_ID;
-		
-		private string _DAD_CELL_PHON;
-		
-		private string _DAD_TELL_PHON;
-		
-		private System.Nullable<long> _DAD_CHAT_ID;
-		
-		public VF_All_Info_FightersResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FILE_NO", DbType="BigInt NOT NULL")]
-		public long FILE_NO
-		{
-			get
-			{
-				return this._FILE_NO;
-			}
-			set
-			{
-				if ((this._FILE_NO != value))
-				{
-					this._FILE_NO = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CHAT_ID_DNRM", DbType="BigInt")]
-		public System.Nullable<long> CHAT_ID_DNRM
-		{
-			get
-			{
-				return this._CHAT_ID_DNRM;
-			}
-			set
-			{
-				if ((this._CHAT_ID_DNRM != value))
-				{
-					this._CHAT_ID_DNRM = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RWNO", DbType="Int NOT NULL")]
-		public int RWNO
-		{
-			get
-			{
-				return this._RWNO;
-			}
-			set
-			{
-				if ((this._RWNO != value))
-				{
-					this._RWNO = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_REGN_PRVN_CODE", DbType="VarChar(3) NOT NULL", CanBeNull=false)]
-		public string REGN_PRVN_CODE
-		{
-			get
-			{
-				return this._REGN_PRVN_CODE;
-			}
-			set
-			{
-				if ((this._REGN_PRVN_CODE != value))
-				{
-					this._REGN_PRVN_CODE = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_REGN_CODE", DbType="VarChar(3) NOT NULL", CanBeNull=false)]
-		public string REGN_CODE
-		{
-			get
-			{
-				return this._REGN_CODE;
-			}
-			set
-			{
-				if ((this._REGN_CODE != value))
-				{
-					this._REGN_CODE = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RQRO_RQST_RQID", DbType="BigInt")]
-		public System.Nullable<long> RQRO_RQST_RQID
-		{
-			get
-			{
-				return this._RQRO_RQST_RQID;
-			}
-			set
-			{
-				if ((this._RQRO_RQST_RQID != value))
-				{
-					this._RQRO_RQST_RQID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NATL_CODE", DbType="VarChar(10)")]
-		public string NATL_CODE
-		{
-			get
-			{
-				return this._NATL_CODE;
-			}
-			set
-			{
-				if ((this._NATL_CODE != value))
-				{
-					this._NATL_CODE = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GLOB_CODE", DbType="NVarChar(50)")]
-		public string GLOB_CODE
-		{
-			get
-			{
-				return this._GLOB_CODE;
-			}
-			set
-			{
-				if ((this._GLOB_CODE != value))
-				{
-					this._GLOB_CODE = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_POST_ADRS", DbType="NVarChar(1000)")]
-		public string POST_ADRS
-		{
-			get
-			{
-				return this._POST_ADRS;
-			}
-			set
-			{
-				if ((this._POST_ADRS != value))
-				{
-					this._POST_ADRS = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EMAL_ADRS", DbType="VarChar(250)")]
-		public string EMAL_ADRS
-		{
-			get
-			{
-				return this._EMAL_ADRS;
-			}
-			set
-			{
-				if ((this._EMAL_ADRS != value))
-				{
-					this._EMAL_ADRS = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BRTH_DATE", DbType="DateTime")]
-		public System.Nullable<System.DateTime> BRTH_DATE
-		{
-			get
-			{
-				return this._BRTH_DATE;
-			}
-			set
-			{
-				if ((this._BRTH_DATE != value))
-				{
-					this._BRTH_DATE = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CELL_PHON", DbType="VarChar(11)")]
-		public string CELL_PHON
-		{
-			get
-			{
-				return this._CELL_PHON;
-			}
-			set
-			{
-				if ((this._CELL_PHON != value))
-				{
-					this._CELL_PHON = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TELL_PHON", DbType="VarChar(11)")]
-		public string TELL_PHON
-		{
-			get
-			{
-				return this._TELL_PHON;
-			}
-			set
-			{
-				if ((this._TELL_PHON != value))
-				{
-					this._TELL_PHON = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_COCH_DEG", DbType="VarChar(3)")]
-		public string COCH_DEG
-		{
-			get
-			{
-				return this._COCH_DEG;
-			}
-			set
-			{
-				if ((this._COCH_DEG != value))
-				{
-					this._COCH_DEG = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GUDG_DEG", DbType="VarChar(3)")]
-		public string GUDG_DEG
-		{
-			get
-			{
-				return this._GUDG_DEG;
-			}
-			set
-			{
-				if ((this._GUDG_DEG != value))
-				{
-					this._GUDG_DEG = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TYPE", DbType="VarChar(3) NOT NULL", CanBeNull=false)]
-		public string TYPE
-		{
-			get
-			{
-				return this._TYPE;
-			}
-			set
-			{
-				if ((this._TYPE != value))
-				{
-					this._TYPE = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_INSR_NUMB", DbType="VarChar(10)")]
-		public string INSR_NUMB
-		{
-			get
-			{
-				return this._INSR_NUMB;
-			}
-			set
-			{
-				if ((this._INSR_NUMB != value))
-				{
-					this._INSR_NUMB = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_INSR_DATE", DbType="DateTime")]
-		public System.Nullable<System.DateTime> INSR_DATE
-		{
-			get
-			{
-				return this._INSR_DATE;
-			}
-			set
-			{
-				if ((this._INSR_DATE != value))
-				{
-					this._INSR_DATE = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FATH_NAME", DbType="NVarChar(250)")]
-		public string FATH_NAME
-		{
-			get
-			{
-				return this._FATH_NAME;
-			}
-			set
-			{
-				if ((this._FATH_NAME != value))
-				{
-					this._FATH_NAME = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LAST_NAME", DbType="NVarChar(250) NOT NULL", CanBeNull=false)]
-		public string LAST_NAME
-		{
-			get
-			{
-				return this._LAST_NAME;
-			}
-			set
-			{
-				if ((this._LAST_NAME != value))
-				{
-					this._LAST_NAME = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FRST_NAME", DbType="NVarChar(250) NOT NULL", CanBeNull=false)]
-		public string FRST_NAME
-		{
-			get
-			{
-				return this._FRST_NAME;
-			}
-			set
-			{
-				if ((this._FRST_NAME != value))
-				{
-					this._FRST_NAME = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_COCH_FILE_NO", DbType="BigInt")]
-		public System.Nullable<long> COCH_FILE_NO
-		{
-			get
-			{
-				return this._COCH_FILE_NO;
-			}
-			set
-			{
-				if ((this._COCH_FILE_NO != value))
-				{
-					this._COCH_FILE_NO = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DISE_DESC", DbType="NVarChar(1000)")]
-		public string DISE_DESC
-		{
-			get
-			{
-				return this._DISE_DESC;
-			}
-			set
-			{
-				if ((this._DISE_DESC != value))
-				{
-					this._DISE_DESC = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MTOD_DESC", DbType="NVarChar(250)")]
-		public string MTOD_DESC
-		{
-			get
-			{
-				return this._MTOD_DESC;
-			}
-			set
-			{
-				if ((this._MTOD_DESC != value))
-				{
-					this._MTOD_DESC = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CTGY_DESC", DbType="NVarChar(255)")]
-		public string CTGY_DESC
-		{
-			get
-			{
-				return this._CTGY_DESC;
-			}
-			set
-			{
-				if ((this._CTGY_DESC != value))
-				{
-					this._CTGY_DESC = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CLUB_NAME", DbType="NVarChar(250)")]
-		public string CLUB_NAME
-		{
-			get
-			{
-				return this._CLUB_NAME;
-			}
-			set
-			{
-				if ((this._CLUB_NAME != value))
-				{
-					this._CLUB_NAME = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TYPE_DESC", DbType="NVarChar(255)")]
-		public string TYPE_DESC
-		{
-			get
-			{
-				return this._TYPE_DESC;
-			}
-			set
-			{
-				if ((this._TYPE_DESC != value))
-				{
-					this._TYPE_DESC = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_COCH_DEGR", DbType="NVarChar(255)")]
-		public string COCH_DEGR
-		{
-			get
-			{
-				return this._COCH_DEGR;
-			}
-			set
-			{
-				if ((this._COCH_DEGR != value))
-				{
-					this._COCH_DEGR = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GUGD_DEGR", DbType="NVarChar(255)")]
-		public string GUGD_DEGR
-		{
-			get
-			{
-				return this._GUGD_DEGR;
-			}
-			set
-			{
-				if ((this._GUGD_DEGR != value))
-				{
-					this._GUGD_DEGR = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SEX_TYPE", DbType="NVarChar(255)")]
-		public string SEX_TYPE
-		{
-			get
-			{
-				return this._SEX_TYPE;
-			}
-			set
-			{
-				if ((this._SEX_TYPE != value))
-				{
-					this._SEX_TYPE = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ACTV_TAG", DbType="NVarChar(255)")]
-		public string ACTV_TAG
-		{
-			get
-			{
-				return this._ACTV_TAG;
-			}
-			set
-			{
-				if ((this._ACTV_TAG != value))
-				{
-					this._ACTV_TAG = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_REGN_NAME", DbType="NVarChar(250)")]
-		public string REGN_NAME
-		{
-			get
-			{
-				return this._REGN_NAME;
-			}
-			set
-			{
-				if ((this._REGN_NAME != value))
-				{
-					this._REGN_NAME = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PRVN_NAME", DbType="NVarChar(250)")]
-		public string PRVN_NAME
-		{
-			get
-			{
-				return this._PRVN_NAME;
-			}
-			set
-			{
-				if ((this._PRVN_NAME != value))
-				{
-					this._PRVN_NAME = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BLOD_GROP", DbType="NVarChar(255)")]
-		public string BLOD_GROP
-		{
-			get
-			{
-				return this._BLOD_GROP;
-			}
-			set
-			{
-				if ((this._BLOD_GROP != value))
-				{
-					this._BLOD_GROP = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RQTP_DESC", DbType="NVarChar(250)")]
-		public string RQTP_DESC
-		{
-			get
-			{
-				return this._RQTP_DESC;
-			}
-			set
-			{
-				if ((this._RQTP_DESC != value))
-				{
-					this._RQTP_DESC = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FNGR_PRNT", DbType="VarChar(20)")]
-		public string FNGR_PRNT
-		{
-			get
-			{
-				return this._FNGR_PRNT;
-			}
-			set
-			{
-				if ((this._FNGR_PRNT != value))
-				{
-					this._FNGR_PRNT = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SUNT_BUNT_DEPT_ORGN_CODE", DbType="VarChar(2)")]
-		public string SUNT_BUNT_DEPT_ORGN_CODE
-		{
-			get
-			{
-				return this._SUNT_BUNT_DEPT_ORGN_CODE;
-			}
-			set
-			{
-				if ((this._SUNT_BUNT_DEPT_ORGN_CODE != value))
-				{
-					this._SUNT_BUNT_DEPT_ORGN_CODE = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SUNT_BUNT_DEPT_CODE", DbType="VarChar(2)")]
-		public string SUNT_BUNT_DEPT_CODE
-		{
-			get
-			{
-				return this._SUNT_BUNT_DEPT_CODE;
-			}
-			set
-			{
-				if ((this._SUNT_BUNT_DEPT_CODE != value))
-				{
-					this._SUNT_BUNT_DEPT_CODE = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SUNT_BUNT_CODE", DbType="VarChar(2)")]
-		public string SUNT_BUNT_CODE
-		{
-			get
-			{
-				return this._SUNT_BUNT_CODE;
-			}
-			set
-			{
-				if ((this._SUNT_BUNT_CODE != value))
-				{
-					this._SUNT_BUNT_CODE = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SUNT_CODE", DbType="VarChar(4)")]
-		public string SUNT_CODE
-		{
-			get
-			{
-				return this._SUNT_CODE;
-			}
-			set
-			{
-				if ((this._SUNT_CODE != value))
-				{
-					this._SUNT_CODE = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ORGN_DESC", DbType="NVarChar(250)")]
-		public string ORGN_DESC
-		{
-			get
-			{
-				return this._ORGN_DESC;
-			}
-			set
-			{
-				if ((this._ORGN_DESC != value))
-				{
-					this._ORGN_DESC = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DEPT_DESC", DbType="NVarChar(250)")]
-		public string DEPT_DESC
-		{
-			get
-			{
-				return this._DEPT_DESC;
-			}
-			set
-			{
-				if ((this._DEPT_DESC != value))
-				{
-					this._DEPT_DESC = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BUNT_DESC", DbType="NVarChar(250)")]
-		public string BUNT_DESC
-		{
-			get
-			{
-				return this._BUNT_DESC;
-			}
-			set
-			{
-				if ((this._BUNT_DESC != value))
-				{
-					this._BUNT_DESC = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SUNT_DESC", DbType="NVarChar(250)")]
-		public string SUNT_DESC
-		{
-			get
-			{
-				return this._SUNT_DESC;
-			}
-			set
-			{
-				if ((this._SUNT_DESC != value))
-				{
-					this._SUNT_DESC = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CORD_X", DbType="Real")]
-		public System.Nullable<float> CORD_X
-		{
-			get
-			{
-				return this._CORD_X;
-			}
-			set
-			{
-				if ((this._CORD_X != value))
-				{
-					this._CORD_X = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CORD_Y", DbType="Real")]
-		public System.Nullable<float> CORD_Y
-		{
-			get
-			{
-				return this._CORD_Y;
-			}
-			set
-			{
-				if ((this._CORD_Y != value))
-				{
-					this._CORD_Y = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SERV_NO", DbType="NVarChar(50)")]
-		public string SERV_NO
-		{
-			get
-			{
-				return this._SERV_NO;
-			}
-			set
-			{
-				if ((this._SERV_NO != value))
-				{
-					this._SERV_NO = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BRTH_PLAC", DbType="NVarChar(100)")]
-		public string BRTH_PLAC
-		{
-			get
-			{
-				return this._BRTH_PLAC;
-			}
-			set
-			{
-				if ((this._BRTH_PLAC != value))
-				{
-					this._BRTH_PLAC = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ISSU_PLAC", DbType="NVarChar(100)")]
-		public string ISSU_PLAC
-		{
-			get
-			{
-				return this._ISSU_PLAC;
-			}
-			set
-			{
-				if ((this._ISSU_PLAC != value))
-				{
-					this._ISSU_PLAC = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FATH_WORK", DbType="NVarChar(150)")]
-		public string FATH_WORK
-		{
-			get
-			{
-				return this._FATH_WORK;
-			}
-			set
-			{
-				if ((this._FATH_WORK != value))
-				{
-					this._FATH_WORK = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HIST_DESC", DbType="NVarChar(500)")]
-		public string HIST_DESC
-		{
-			get
-			{
-				return this._HIST_DESC;
-			}
-			set
-			{
-				if ((this._HIST_DESC != value))
-				{
-					this._HIST_DESC = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DPST_ACNT_SLRY_BANK", DbType="NVarChar(50)")]
-		public string DPST_ACNT_SLRY_BANK
-		{
-			get
-			{
-				return this._DPST_ACNT_SLRY_BANK;
-			}
-			set
-			{
-				if ((this._DPST_ACNT_SLRY_BANK != value))
-				{
-					this._DPST_ACNT_SLRY_BANK = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DPST_ACNT_SLRY", DbType="VarChar(50)")]
-		public string DPST_ACNT_SLRY
-		{
-			get
-			{
-				return this._DPST_ACNT_SLRY;
-			}
-			set
-			{
-				if ((this._DPST_ACNT_SLRY != value))
-				{
-					this._DPST_ACNT_SLRY = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CBMT_CODE", DbType="BigInt")]
-		public System.Nullable<long> CBMT_CODE
-		{
-			get
-			{
-				return this._CBMT_CODE;
-			}
-			set
-			{
-				if ((this._CBMT_CODE != value))
-				{
-					this._CBMT_CODE = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MOM_CELL_PHON", DbType="VarChar(11)")]
-		public string MOM_CELL_PHON
-		{
-			get
-			{
-				return this._MOM_CELL_PHON;
-			}
-			set
-			{
-				if ((this._MOM_CELL_PHON != value))
-				{
-					this._MOM_CELL_PHON = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MOM_TELL_PHON", DbType="VarChar(11)")]
-		public string MOM_TELL_PHON
-		{
-			get
-			{
-				return this._MOM_TELL_PHON;
-			}
-			set
-			{
-				if ((this._MOM_TELL_PHON != value))
-				{
-					this._MOM_TELL_PHON = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MOM_CHAT_ID", DbType="BigInt")]
-		public System.Nullable<long> MOM_CHAT_ID
-		{
-			get
-			{
-				return this._MOM_CHAT_ID;
-			}
-			set
-			{
-				if ((this._MOM_CHAT_ID != value))
-				{
-					this._MOM_CHAT_ID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DAD_CELL_PHON", DbType="VarChar(11)")]
-		public string DAD_CELL_PHON
-		{
-			get
-			{
-				return this._DAD_CELL_PHON;
-			}
-			set
-			{
-				if ((this._DAD_CELL_PHON != value))
-				{
-					this._DAD_CELL_PHON = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DAD_TELL_PHON", DbType="VarChar(11)")]
-		public string DAD_TELL_PHON
-		{
-			get
-			{
-				return this._DAD_TELL_PHON;
-			}
-			set
-			{
-				if ((this._DAD_TELL_PHON != value))
-				{
-					this._DAD_TELL_PHON = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DAD_CHAT_ID", DbType="BigInt")]
-		public System.Nullable<long> DAD_CHAT_ID
-		{
-			get
-			{
-				return this._DAD_CHAT_ID;
-			}
-			set
-			{
-				if ((this._DAD_CHAT_ID != value))
-				{
-					this._DAD_CHAT_ID = value;
-				}
-			}
-		}
-	}
-	
 	public partial class VF_Last_Info_Deleted_FighterResult
 	{
 		
@@ -98962,6 +98749,1112 @@ namespace System.Scsc.Data
 		}
 	}
 	
+	public partial class VF_All_Info_FightersResult
+	{
+		
+		private long _FILE_NO;
+		
+		private System.Nullable<long> _CHAT_ID_DNRM;
+		
+		private int _RWNO;
+		
+		private string _REGN_PRVN_CODE;
+		
+		private string _REGN_CODE;
+		
+		private System.Nullable<long> _RQRO_RQST_RQID;
+		
+		private string _NATL_CODE;
+		
+		private string _GLOB_CODE;
+		
+		private string _POST_ADRS;
+		
+		private string _EMAL_ADRS;
+		
+		private System.Nullable<System.DateTime> _BRTH_DATE;
+		
+		private string _CELL_PHON;
+		
+		private string _TELL_PHON;
+		
+		private string _COCH_DEG;
+		
+		private string _GUDG_DEG;
+		
+		private string _TYPE;
+		
+		private string _INSR_NUMB;
+		
+		private System.Nullable<System.DateTime> _INSR_DATE;
+		
+		private string _FATH_NAME;
+		
+		private string _LAST_NAME;
+		
+		private string _FRST_NAME;
+		
+		private System.Nullable<long> _COCH_FILE_NO;
+		
+		private string _DISE_DESC;
+		
+		private string _MTOD_DESC;
+		
+		private string _CTGY_DESC;
+		
+		private string _CLUB_NAME;
+		
+		private string _TYPE_DESC;
+		
+		private string _COCH_DEGR;
+		
+		private string _GUGD_DEGR;
+		
+		private string _SEX_TYPE;
+		
+		private string _ACTV_TAG;
+		
+		private string _REGN_NAME;
+		
+		private string _PRVN_NAME;
+		
+		private string _BLOD_GROP;
+		
+		private string _RQTP_DESC;
+		
+		private string _FNGR_PRNT;
+		
+		private string _SUNT_BUNT_DEPT_ORGN_CODE;
+		
+		private string _SUNT_BUNT_DEPT_CODE;
+		
+		private string _SUNT_BUNT_CODE;
+		
+		private string _SUNT_CODE;
+		
+		private string _ORGN_DESC;
+		
+		private string _DEPT_DESC;
+		
+		private string _BUNT_DESC;
+		
+		private string _SUNT_DESC;
+		
+		private System.Nullable<float> _CORD_X;
+		
+		private System.Nullable<float> _CORD_Y;
+		
+		private string _SERV_NO;
+		
+		private string _BRTH_PLAC;
+		
+		private string _ISSU_PLAC;
+		
+		private string _FATH_WORK;
+		
+		private string _HIST_DESC;
+		
+		private string _DPST_ACNT_SLRY_BANK;
+		
+		private string _DPST_ACNT_SLRY;
+		
+		private System.Nullable<long> _CBMT_CODE;
+		
+		private string _MOM_CELL_PHON;
+		
+		private string _MOM_TELL_PHON;
+		
+		private System.Nullable<long> _MOM_CHAT_ID;
+		
+		private string _DAD_CELL_PHON;
+		
+		private string _DAD_TELL_PHON;
+		
+		private System.Nullable<long> _DAD_CHAT_ID;
+		
+		private System.Nullable<long> _REF_CODE;
+		
+		public VF_All_Info_FightersResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FILE_NO", DbType="BigInt NOT NULL")]
+		public long FILE_NO
+		{
+			get
+			{
+				return this._FILE_NO;
+			}
+			set
+			{
+				if ((this._FILE_NO != value))
+				{
+					this._FILE_NO = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CHAT_ID_DNRM", DbType="BigInt")]
+		public System.Nullable<long> CHAT_ID_DNRM
+		{
+			get
+			{
+				return this._CHAT_ID_DNRM;
+			}
+			set
+			{
+				if ((this._CHAT_ID_DNRM != value))
+				{
+					this._CHAT_ID_DNRM = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RWNO", DbType="Int NOT NULL")]
+		public int RWNO
+		{
+			get
+			{
+				return this._RWNO;
+			}
+			set
+			{
+				if ((this._RWNO != value))
+				{
+					this._RWNO = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_REGN_PRVN_CODE", DbType="VarChar(3) NOT NULL", CanBeNull=false)]
+		public string REGN_PRVN_CODE
+		{
+			get
+			{
+				return this._REGN_PRVN_CODE;
+			}
+			set
+			{
+				if ((this._REGN_PRVN_CODE != value))
+				{
+					this._REGN_PRVN_CODE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_REGN_CODE", DbType="VarChar(3) NOT NULL", CanBeNull=false)]
+		public string REGN_CODE
+		{
+			get
+			{
+				return this._REGN_CODE;
+			}
+			set
+			{
+				if ((this._REGN_CODE != value))
+				{
+					this._REGN_CODE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RQRO_RQST_RQID", DbType="BigInt")]
+		public System.Nullable<long> RQRO_RQST_RQID
+		{
+			get
+			{
+				return this._RQRO_RQST_RQID;
+			}
+			set
+			{
+				if ((this._RQRO_RQST_RQID != value))
+				{
+					this._RQRO_RQST_RQID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NATL_CODE", DbType="VarChar(10)")]
+		public string NATL_CODE
+		{
+			get
+			{
+				return this._NATL_CODE;
+			}
+			set
+			{
+				if ((this._NATL_CODE != value))
+				{
+					this._NATL_CODE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GLOB_CODE", DbType="NVarChar(50)")]
+		public string GLOB_CODE
+		{
+			get
+			{
+				return this._GLOB_CODE;
+			}
+			set
+			{
+				if ((this._GLOB_CODE != value))
+				{
+					this._GLOB_CODE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_POST_ADRS", DbType="NVarChar(1000)")]
+		public string POST_ADRS
+		{
+			get
+			{
+				return this._POST_ADRS;
+			}
+			set
+			{
+				if ((this._POST_ADRS != value))
+				{
+					this._POST_ADRS = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EMAL_ADRS", DbType="VarChar(250)")]
+		public string EMAL_ADRS
+		{
+			get
+			{
+				return this._EMAL_ADRS;
+			}
+			set
+			{
+				if ((this._EMAL_ADRS != value))
+				{
+					this._EMAL_ADRS = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BRTH_DATE", DbType="DateTime")]
+		public System.Nullable<System.DateTime> BRTH_DATE
+		{
+			get
+			{
+				return this._BRTH_DATE;
+			}
+			set
+			{
+				if ((this._BRTH_DATE != value))
+				{
+					this._BRTH_DATE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CELL_PHON", DbType="VarChar(11)")]
+		public string CELL_PHON
+		{
+			get
+			{
+				return this._CELL_PHON;
+			}
+			set
+			{
+				if ((this._CELL_PHON != value))
+				{
+					this._CELL_PHON = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TELL_PHON", DbType="VarChar(11)")]
+		public string TELL_PHON
+		{
+			get
+			{
+				return this._TELL_PHON;
+			}
+			set
+			{
+				if ((this._TELL_PHON != value))
+				{
+					this._TELL_PHON = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_COCH_DEG", DbType="VarChar(3)")]
+		public string COCH_DEG
+		{
+			get
+			{
+				return this._COCH_DEG;
+			}
+			set
+			{
+				if ((this._COCH_DEG != value))
+				{
+					this._COCH_DEG = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GUDG_DEG", DbType="VarChar(3)")]
+		public string GUDG_DEG
+		{
+			get
+			{
+				return this._GUDG_DEG;
+			}
+			set
+			{
+				if ((this._GUDG_DEG != value))
+				{
+					this._GUDG_DEG = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TYPE", DbType="VarChar(3) NOT NULL", CanBeNull=false)]
+		public string TYPE
+		{
+			get
+			{
+				return this._TYPE;
+			}
+			set
+			{
+				if ((this._TYPE != value))
+				{
+					this._TYPE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_INSR_NUMB", DbType="VarChar(10)")]
+		public string INSR_NUMB
+		{
+			get
+			{
+				return this._INSR_NUMB;
+			}
+			set
+			{
+				if ((this._INSR_NUMB != value))
+				{
+					this._INSR_NUMB = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_INSR_DATE", DbType="DateTime")]
+		public System.Nullable<System.DateTime> INSR_DATE
+		{
+			get
+			{
+				return this._INSR_DATE;
+			}
+			set
+			{
+				if ((this._INSR_DATE != value))
+				{
+					this._INSR_DATE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FATH_NAME", DbType="NVarChar(250)")]
+		public string FATH_NAME
+		{
+			get
+			{
+				return this._FATH_NAME;
+			}
+			set
+			{
+				if ((this._FATH_NAME != value))
+				{
+					this._FATH_NAME = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LAST_NAME", DbType="NVarChar(250) NOT NULL", CanBeNull=false)]
+		public string LAST_NAME
+		{
+			get
+			{
+				return this._LAST_NAME;
+			}
+			set
+			{
+				if ((this._LAST_NAME != value))
+				{
+					this._LAST_NAME = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FRST_NAME", DbType="NVarChar(250) NOT NULL", CanBeNull=false)]
+		public string FRST_NAME
+		{
+			get
+			{
+				return this._FRST_NAME;
+			}
+			set
+			{
+				if ((this._FRST_NAME != value))
+				{
+					this._FRST_NAME = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_COCH_FILE_NO", DbType="BigInt")]
+		public System.Nullable<long> COCH_FILE_NO
+		{
+			get
+			{
+				return this._COCH_FILE_NO;
+			}
+			set
+			{
+				if ((this._COCH_FILE_NO != value))
+				{
+					this._COCH_FILE_NO = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DISE_DESC", DbType="NVarChar(1000)")]
+		public string DISE_DESC
+		{
+			get
+			{
+				return this._DISE_DESC;
+			}
+			set
+			{
+				if ((this._DISE_DESC != value))
+				{
+					this._DISE_DESC = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MTOD_DESC", DbType="NVarChar(250)")]
+		public string MTOD_DESC
+		{
+			get
+			{
+				return this._MTOD_DESC;
+			}
+			set
+			{
+				if ((this._MTOD_DESC != value))
+				{
+					this._MTOD_DESC = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CTGY_DESC", DbType="NVarChar(255)")]
+		public string CTGY_DESC
+		{
+			get
+			{
+				return this._CTGY_DESC;
+			}
+			set
+			{
+				if ((this._CTGY_DESC != value))
+				{
+					this._CTGY_DESC = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CLUB_NAME", DbType="NVarChar(250)")]
+		public string CLUB_NAME
+		{
+			get
+			{
+				return this._CLUB_NAME;
+			}
+			set
+			{
+				if ((this._CLUB_NAME != value))
+				{
+					this._CLUB_NAME = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TYPE_DESC", DbType="NVarChar(255)")]
+		public string TYPE_DESC
+		{
+			get
+			{
+				return this._TYPE_DESC;
+			}
+			set
+			{
+				if ((this._TYPE_DESC != value))
+				{
+					this._TYPE_DESC = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_COCH_DEGR", DbType="NVarChar(255)")]
+		public string COCH_DEGR
+		{
+			get
+			{
+				return this._COCH_DEGR;
+			}
+			set
+			{
+				if ((this._COCH_DEGR != value))
+				{
+					this._COCH_DEGR = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GUGD_DEGR", DbType="NVarChar(255)")]
+		public string GUGD_DEGR
+		{
+			get
+			{
+				return this._GUGD_DEGR;
+			}
+			set
+			{
+				if ((this._GUGD_DEGR != value))
+				{
+					this._GUGD_DEGR = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SEX_TYPE", DbType="NVarChar(255)")]
+		public string SEX_TYPE
+		{
+			get
+			{
+				return this._SEX_TYPE;
+			}
+			set
+			{
+				if ((this._SEX_TYPE != value))
+				{
+					this._SEX_TYPE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ACTV_TAG", DbType="NVarChar(255)")]
+		public string ACTV_TAG
+		{
+			get
+			{
+				return this._ACTV_TAG;
+			}
+			set
+			{
+				if ((this._ACTV_TAG != value))
+				{
+					this._ACTV_TAG = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_REGN_NAME", DbType="NVarChar(250)")]
+		public string REGN_NAME
+		{
+			get
+			{
+				return this._REGN_NAME;
+			}
+			set
+			{
+				if ((this._REGN_NAME != value))
+				{
+					this._REGN_NAME = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PRVN_NAME", DbType="NVarChar(250)")]
+		public string PRVN_NAME
+		{
+			get
+			{
+				return this._PRVN_NAME;
+			}
+			set
+			{
+				if ((this._PRVN_NAME != value))
+				{
+					this._PRVN_NAME = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BLOD_GROP", DbType="NVarChar(255)")]
+		public string BLOD_GROP
+		{
+			get
+			{
+				return this._BLOD_GROP;
+			}
+			set
+			{
+				if ((this._BLOD_GROP != value))
+				{
+					this._BLOD_GROP = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RQTP_DESC", DbType="NVarChar(250)")]
+		public string RQTP_DESC
+		{
+			get
+			{
+				return this._RQTP_DESC;
+			}
+			set
+			{
+				if ((this._RQTP_DESC != value))
+				{
+					this._RQTP_DESC = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FNGR_PRNT", DbType="VarChar(20)")]
+		public string FNGR_PRNT
+		{
+			get
+			{
+				return this._FNGR_PRNT;
+			}
+			set
+			{
+				if ((this._FNGR_PRNT != value))
+				{
+					this._FNGR_PRNT = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SUNT_BUNT_DEPT_ORGN_CODE", DbType="VarChar(2)")]
+		public string SUNT_BUNT_DEPT_ORGN_CODE
+		{
+			get
+			{
+				return this._SUNT_BUNT_DEPT_ORGN_CODE;
+			}
+			set
+			{
+				if ((this._SUNT_BUNT_DEPT_ORGN_CODE != value))
+				{
+					this._SUNT_BUNT_DEPT_ORGN_CODE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SUNT_BUNT_DEPT_CODE", DbType="VarChar(2)")]
+		public string SUNT_BUNT_DEPT_CODE
+		{
+			get
+			{
+				return this._SUNT_BUNT_DEPT_CODE;
+			}
+			set
+			{
+				if ((this._SUNT_BUNT_DEPT_CODE != value))
+				{
+					this._SUNT_BUNT_DEPT_CODE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SUNT_BUNT_CODE", DbType="VarChar(2)")]
+		public string SUNT_BUNT_CODE
+		{
+			get
+			{
+				return this._SUNT_BUNT_CODE;
+			}
+			set
+			{
+				if ((this._SUNT_BUNT_CODE != value))
+				{
+					this._SUNT_BUNT_CODE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SUNT_CODE", DbType="VarChar(4)")]
+		public string SUNT_CODE
+		{
+			get
+			{
+				return this._SUNT_CODE;
+			}
+			set
+			{
+				if ((this._SUNT_CODE != value))
+				{
+					this._SUNT_CODE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ORGN_DESC", DbType="NVarChar(250)")]
+		public string ORGN_DESC
+		{
+			get
+			{
+				return this._ORGN_DESC;
+			}
+			set
+			{
+				if ((this._ORGN_DESC != value))
+				{
+					this._ORGN_DESC = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DEPT_DESC", DbType="NVarChar(250)")]
+		public string DEPT_DESC
+		{
+			get
+			{
+				return this._DEPT_DESC;
+			}
+			set
+			{
+				if ((this._DEPT_DESC != value))
+				{
+					this._DEPT_DESC = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BUNT_DESC", DbType="NVarChar(250)")]
+		public string BUNT_DESC
+		{
+			get
+			{
+				return this._BUNT_DESC;
+			}
+			set
+			{
+				if ((this._BUNT_DESC != value))
+				{
+					this._BUNT_DESC = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SUNT_DESC", DbType="NVarChar(250)")]
+		public string SUNT_DESC
+		{
+			get
+			{
+				return this._SUNT_DESC;
+			}
+			set
+			{
+				if ((this._SUNT_DESC != value))
+				{
+					this._SUNT_DESC = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CORD_X", DbType="Real")]
+		public System.Nullable<float> CORD_X
+		{
+			get
+			{
+				return this._CORD_X;
+			}
+			set
+			{
+				if ((this._CORD_X != value))
+				{
+					this._CORD_X = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CORD_Y", DbType="Real")]
+		public System.Nullable<float> CORD_Y
+		{
+			get
+			{
+				return this._CORD_Y;
+			}
+			set
+			{
+				if ((this._CORD_Y != value))
+				{
+					this._CORD_Y = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SERV_NO", DbType="NVarChar(50)")]
+		public string SERV_NO
+		{
+			get
+			{
+				return this._SERV_NO;
+			}
+			set
+			{
+				if ((this._SERV_NO != value))
+				{
+					this._SERV_NO = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BRTH_PLAC", DbType="NVarChar(100)")]
+		public string BRTH_PLAC
+		{
+			get
+			{
+				return this._BRTH_PLAC;
+			}
+			set
+			{
+				if ((this._BRTH_PLAC != value))
+				{
+					this._BRTH_PLAC = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ISSU_PLAC", DbType="NVarChar(100)")]
+		public string ISSU_PLAC
+		{
+			get
+			{
+				return this._ISSU_PLAC;
+			}
+			set
+			{
+				if ((this._ISSU_PLAC != value))
+				{
+					this._ISSU_PLAC = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FATH_WORK", DbType="NVarChar(150)")]
+		public string FATH_WORK
+		{
+			get
+			{
+				return this._FATH_WORK;
+			}
+			set
+			{
+				if ((this._FATH_WORK != value))
+				{
+					this._FATH_WORK = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HIST_DESC", DbType="NVarChar(500)")]
+		public string HIST_DESC
+		{
+			get
+			{
+				return this._HIST_DESC;
+			}
+			set
+			{
+				if ((this._HIST_DESC != value))
+				{
+					this._HIST_DESC = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DPST_ACNT_SLRY_BANK", DbType="NVarChar(50)")]
+		public string DPST_ACNT_SLRY_BANK
+		{
+			get
+			{
+				return this._DPST_ACNT_SLRY_BANK;
+			}
+			set
+			{
+				if ((this._DPST_ACNT_SLRY_BANK != value))
+				{
+					this._DPST_ACNT_SLRY_BANK = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DPST_ACNT_SLRY", DbType="VarChar(50)")]
+		public string DPST_ACNT_SLRY
+		{
+			get
+			{
+				return this._DPST_ACNT_SLRY;
+			}
+			set
+			{
+				if ((this._DPST_ACNT_SLRY != value))
+				{
+					this._DPST_ACNT_SLRY = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CBMT_CODE", DbType="BigInt")]
+		public System.Nullable<long> CBMT_CODE
+		{
+			get
+			{
+				return this._CBMT_CODE;
+			}
+			set
+			{
+				if ((this._CBMT_CODE != value))
+				{
+					this._CBMT_CODE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MOM_CELL_PHON", DbType="VarChar(11)")]
+		public string MOM_CELL_PHON
+		{
+			get
+			{
+				return this._MOM_CELL_PHON;
+			}
+			set
+			{
+				if ((this._MOM_CELL_PHON != value))
+				{
+					this._MOM_CELL_PHON = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MOM_TELL_PHON", DbType="VarChar(11)")]
+		public string MOM_TELL_PHON
+		{
+			get
+			{
+				return this._MOM_TELL_PHON;
+			}
+			set
+			{
+				if ((this._MOM_TELL_PHON != value))
+				{
+					this._MOM_TELL_PHON = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MOM_CHAT_ID", DbType="BigInt")]
+		public System.Nullable<long> MOM_CHAT_ID
+		{
+			get
+			{
+				return this._MOM_CHAT_ID;
+			}
+			set
+			{
+				if ((this._MOM_CHAT_ID != value))
+				{
+					this._MOM_CHAT_ID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DAD_CELL_PHON", DbType="VarChar(11)")]
+		public string DAD_CELL_PHON
+		{
+			get
+			{
+				return this._DAD_CELL_PHON;
+			}
+			set
+			{
+				if ((this._DAD_CELL_PHON != value))
+				{
+					this._DAD_CELL_PHON = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DAD_TELL_PHON", DbType="VarChar(11)")]
+		public string DAD_TELL_PHON
+		{
+			get
+			{
+				return this._DAD_TELL_PHON;
+			}
+			set
+			{
+				if ((this._DAD_TELL_PHON != value))
+				{
+					this._DAD_TELL_PHON = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DAD_CHAT_ID", DbType="BigInt")]
+		public System.Nullable<long> DAD_CHAT_ID
+		{
+			get
+			{
+				return this._DAD_CHAT_ID;
+			}
+			set
+			{
+				if ((this._DAD_CHAT_ID != value))
+				{
+					this._DAD_CHAT_ID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_REF_CODE", DbType="BigInt")]
+		public System.Nullable<long> REF_CODE
+		{
+			get
+			{
+				return this._REF_CODE;
+			}
+			set
+			{
+				if ((this._REF_CODE != value))
+				{
+					this._REF_CODE = value;
+				}
+			}
+		}
+	}
+	
 	public partial class VF_Last_Info_FighterResult
 	{
 		
@@ -99116,6 +100009,10 @@ namespace System.Scsc.Data
 		private System.Nullable<long> _DAD_CHAT_ID_DNRM;
 		
 		private string _SERV_NO_DNRM;
+		
+		private string _SEX_TYPE_DNRM;
+		
+		private System.Nullable<long> _REF_CODE_DNRM;
 		
 		public VF_Last_Info_FighterResult()
 		{
@@ -100333,6 +101230,38 @@ namespace System.Scsc.Data
 				if ((this._SERV_NO_DNRM != value))
 				{
 					this._SERV_NO_DNRM = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SEX_TYPE_DNRM", DbType="VarChar(3)")]
+		public string SEX_TYPE_DNRM
+		{
+			get
+			{
+				return this._SEX_TYPE_DNRM;
+			}
+			set
+			{
+				if ((this._SEX_TYPE_DNRM != value))
+				{
+					this._SEX_TYPE_DNRM = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_REF_CODE_DNRM", DbType="BigInt")]
+		public System.Nullable<long> REF_CODE_DNRM
+		{
+			get
+			{
+				return this._REF_CODE_DNRM;
+			}
+			set
+			{
+				if ((this._REF_CODE_DNRM != value))
+				{
+					this._REF_CODE_DNRM = value;
 				}
 			}
 		}

@@ -1108,7 +1108,6 @@
     <None Include="Properties\DataSources\System.Scsc.Data.Buffet.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Calculate_Calorie.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Calculate_Expense_Coach.datasource" />
-    <None Include="Properties\DataSources\System.Scsc.Data.Call.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Campitition.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Cando.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Cando_Block.datasource" />
@@ -1229,6 +1228,7 @@
     <None Include="Properties\DataSources\System.Scsc.Data.Fighter_Discount_Card.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Fighter_Grouping.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Fighter_Public.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.Fighter_RelationShip.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Finance_Document.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Gain_Loss_Rail_Detail.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Gain_Loss_Rial.datasource" />

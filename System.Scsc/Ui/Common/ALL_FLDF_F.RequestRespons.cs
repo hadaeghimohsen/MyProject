@@ -419,62 +419,62 @@ namespace System.Scsc.Ui.Common
                      //CyclCtgyCode_Clm.Caption = control.LABL_TEXT; // Place Holder
                      break;
                   case "gorp3_gb":
-                     Gorp3_Gb.Text = control.LABL_TEXT;
+                     //Gorp3_Gb.Text = control.LABL_TEXT;
                      //Gorp3_Gb.Text = control.LABL_TEXT; // ToolTip
                      //Gorp3_Gb.Text = control.LABL_TEXT; // Place Holder
                      break;
                   case "mbsp1rwno_lb":
-                     Mbsp1Rwno_Lb.Text = control.LABL_TEXT;
+                     //Mbsp1Rwno_Lb.Text = control.LABL_TEXT;
                      //Mbsp1Rwno_Lb.Text = control.LABL_TEXT; // ToolTip
                      //Mbsp1Rwno_Lb.Text = control.LABL_TEXT; // Place Holder
                      break;
                   case "mbsp1mont_lb":
-                     Mbsp1Mont_Lb.Text = control.LABL_TEXT;
+                     //Mbsp1Mont_Lb.Text = control.LABL_TEXT;
                      //Mbsp1Mont_Lb.Text = control.LABL_TEXT; // ToolTip
                      //Mbsp1Mont_Lb.Text = control.LABL_TEXT; // Place Holder
                      break;
                   case "mbsp1day_lb":
-                     Mbsp1Day_Lb.Text = control.LABL_TEXT;
+                     //Mbsp1Day_Lb.Text = control.LABL_TEXT;
                      //Mbsp1Day_Lb.Text = control.LABL_TEXT; // ToolTip
                      //Mbsp1Day_Lb.Text = control.LABL_TEXT; // Place Holder
                      break;
                   case "mbsp1strtdate_lb":
-                     Mbsp1StrtDate_Lb.Text = control.LABL_TEXT;
+                     //Mbsp1StrtDate_Lb.Text = control.LABL_TEXT;
                      //Mbsp1StrtDate_Lb.Text = control.LABL_TEXT; // ToolTip
                      //Mbsp1StrtDate_Lb.Text = control.LABL_TEXT; // Place Holder
                      break;
                   case "mbsp1enddate_lb":
-                     Mbsp1EndDate_Lb.Text = control.LABL_TEXT;
+                     //Mbsp1EndDate_Lb.Text = control.LABL_TEXT;
                      //Mbsp1EndDate_Lb.Text = control.LABL_TEXT; // ToolTip
                      //Mbsp1EndDate_Lb.Text = control.LABL_TEXT; // Place Holder
                      break;
                   case "mbco_butn":
-                     Mbco_Butn.Text = control.LABL_TEXT;
+                     //Mbco_Butn.Text = control.LABL_TEXT;
                      //Mbco_Butn.Text = control.LABL_TEXT; // ToolTip
                      //Mbco_Butn.Text = control.LABL_TEXT; // Place Holder
                      break;
                   case "mbfzrwno_lb":
-                     MbfzRwno_Lb.Text = control.LABL_TEXT;
+                     //MbfzRwno_Lb.Text = control.LABL_TEXT;
                      //MbfzRwno_Lb.Text = control.LABL_TEXT; // ToolTip
                      //MbfzRwno_Lb.Text = control.LABL_TEXT; // Place Holder
                      break;
                   case "mbfzday_lb":
-                     MbfzDay_Lb.Text = control.LABL_TEXT;
+                     //MbfzDay_Lb.Text = control.LABL_TEXT;
                      //MbfzDay_Lb.Text = control.LABL_TEXT; // ToolTip
                      //MbfzDay_Lb.Text = control.LABL_TEXT; // Place Holder
                      break;
                   case "stopblocking_butn":
-                     StopBlocking_Butn.Text = control.LABL_TEXT;
+                     //StopBlocking_Butn.Text = control.LABL_TEXT;
                      //StopBlocking_Butn.Text = control.LABL_TEXT; // ToolTip
                      //StopBlocking_Butn.Text = control.LABL_TEXT; // Place Holder
                      break;
                   case "mbfzstrtdate_lb":
-                     MbfzStrtDate_Lb.Text = control.LABL_TEXT;
+                     //MbfzStrtDate_Lb.Text = control.LABL_TEXT;
                      //MbfzStrtDate_Lb.Text = control.LABL_TEXT; // ToolTip
                      //MbfzStrtDate_Lb.Text = control.LABL_TEXT; // Place Holder
                      break;
                   case "mbfzenddate_lb":
-                     MbfzEndDate_Lb.Text = control.LABL_TEXT;
+                     //MbfzEndDate_Lb.Text = control.LABL_TEXT;
                      //MbfzEndDate_Lb.Text = control.LABL_TEXT; // ToolTip
                      //MbfzEndDate_Lb.Text = control.LABL_TEXT; // Place Holder
                      break;
@@ -1196,35 +1196,35 @@ namespace System.Scsc.Ui.Common
             }
 
             //var mbcofigh = iScsc.Fighters.First(f => f.FILE_NO == fileno);
-            if(crntinfo.MBCO_RWNO_DNRM != null)
-            {
-               Mbco_Pn.Visible = true;
-               var mbco = iScsc.Member_Ships.First(m => m.FIGH_FILE_NO == crntinfo.FILE_NO && m.RWNO == crntinfo.MBCO_RWNO_DNRM && m.RECT_CODE == "004");
-               StrtPrivSesn_Date.Value = mbco.STRT_DATE;
-               EndPrivSesn_Date.Value = mbco.END_DATE;
-               MbcoRwno_Txt.Text = mbco.RWNO.ToString();
-               MbcoMont_Txt.Text = mbco.NUMB_OF_MONT_DNRM.ToString();
-               MbcoDays_Txt.Text = mbco.NUMB_OF_DAYS_DNRM.ToString();
-            }
-            else
-            {
-               Mbco_Pn.Visible = false;
-            }
+            //if(crntinfo.MBCO_RWNO_DNRM != null)
+            //{
+            //   Mbco_Pn.Visible = true;
+            //   var mbco = iScsc.Member_Ships.First(m => m.FIGH_FILE_NO == crntinfo.FILE_NO && m.RWNO == crntinfo.MBCO_RWNO_DNRM && m.RECT_CODE == "004");
+            //   StrtPrivSesn_Date.Value = mbco.STRT_DATE;
+            //   EndPrivSesn_Date.Value = mbco.END_DATE;
+            //   MbcoRwno_Txt.Text = mbco.RWNO.ToString();
+            //   MbcoMont_Txt.Text = mbco.NUMB_OF_MONT_DNRM.ToString();
+            //   MbcoDays_Txt.Text = mbco.NUMB_OF_DAYS_DNRM.ToString();
+            //}
+            //else
+            //{
+            //   Mbco_Pn.Visible = false;
+            //}
 
-            if (crntinfo.MBFZ_RWNO_DNRM != null)
-            {
-               var mbfz = iScsc.Member_Ships.First(m => m.FIGH_FILE_NO == crntinfo.FILE_NO && m.RWNO == crntinfo.MBFZ_RWNO_DNRM && m.RECT_CODE == "004");
+            //if (crntinfo.MBFZ_RWNO_DNRM != null)
+            //{
+            //   var mbfz = iScsc.Member_Ships.First(m => m.FIGH_FILE_NO == crntinfo.FILE_NO && m.RWNO == crntinfo.MBFZ_RWNO_DNRM && m.RECT_CODE == "004");
 
-               Mbfz_pn.Visible = mbfz.END_DATE.Value.Date >= DateTime.Now.Date ? true : false;
-               StrtBlok_Date.Value = mbfz.STRT_DATE;
-               EndBlok_Date.Value = mbfz.END_DATE;
-               MbfzRwno_Txt.Text = mbfz.RWNO.ToString();
-               MbfzDays_Txt.Text = mbfz.NUMB_OF_DAYS_DNRM.ToString();
-            }
-            else
-            {
-               Mbfz_pn.Visible = false;
-            }
+            //   Mbfz_pn.Visible = mbfz.END_DATE.Value.Date >= DateTime.Now.Date ? true : false;
+            //   StrtBlok_Date.Value = mbfz.STRT_DATE;
+            //   EndBlok_Date.Value = mbfz.END_DATE;
+            //   MbfzRwno_Txt.Text = mbfz.RWNO.ToString();
+            //   MbfzDays_Txt.Text = mbfz.NUMB_OF_DAYS_DNRM.ToString();
+            //}
+            //else
+            //{
+            //   Mbfz_pn.Visible = false;
+            //}
 
             // 1396/10/13 * نمایش لیست دوره های ثبت نام شده
             MbspBs.DataSource = iScsc.Member_Ships.Where(mb => mb.FIGH_FILE_NO == fileno && mb.RECT_CODE == "004" && (mb.TYPE == "001" || mb.TYPE == "005"));
@@ -1241,12 +1241,15 @@ namespace System.Scsc.Ui.Common
 
             // 1400/09/21 * گروه بندی
             FGrpBs.DataSource = iScsc.Fighter_Groupings.Where(g => g.FIGH_FILE_NO == fileno);
-            AGrpBs.DataSource = iScsc.App_Base_Defines.Where(a => a.ENTY_NAME == "Fighter_Grouping");
+            DGrpBs.DataSource = iScsc.App_Base_Defines.Where(a => a.ENTY_NAME == "Fighter_Grouping");
 
             // 1401/05/04 * نتیجه تماس
             CallBs.DataSource = iScsc.Fighter_Calls.Where(c => c.FIGH_FILE_NO == fileno).ToList();
-            RCalBs.DataSource = iScsc.App_Base_Defines.Where(a => a.ENTY_NAME == "Fighter_Call");
-            RSurBs.DataSource = iScsc.App_Base_Defines.Where(a => a.ENTY_NAME == "Fighter_Call_Survey");
+            DRCalBs.DataSource = iScsc.App_Base_Defines.Where(a => a.ENTY_NAME == "Fighter_Call");
+            DRSurBs.DataSource = iScsc.App_Base_Defines.Where(a => a.ENTY_NAME == "Fighter_Call_Survey");
+
+            // 1401/05/19 * ارتباطات مشتریان
+            DFRltBs.DataSource = iScsc.App_Base_Defines.Where(a => a.ENTY_NAME == "Fighter_RelationShip");
 
             // 1401/03/27 * پر کردن شماره تلفن های ارتباطی با مشتری
             CellPhon_Lsbx.Items.Clear();
@@ -1270,6 +1273,104 @@ namespace System.Scsc.Ui.Common
 
             // 1401/05/05 * بارگذاری اطلاعات قالب های پیامی
             TempBs.DataSource = iScsc.Templates;
+
+            RefImgProf_Rb.ImageVisiable = true;
+            if(crntinfo.REF_CODE_DNRM != null)
+            {
+               RServBs.DataSource = iScsc.Fighters.Where(s => s.FILE_NO == crntinfo.REF_CODE_DNRM);
+               if(RServBs.List.Count == 0)
+               {
+                  RefCode_Gb.Visible = false;
+               }
+               else
+               {
+                  RefCode_Gb.Visible = true;
+                  RefCont_Txt.Text = iScsc.Fighters.Where(s => s.REF_CODE_DNRM == crntinfo.REF_CODE_DNRM).Count().ToString();
+                  try
+                  {
+                     RefImgProf_Rb.ImageProfile = null;
+                     MemoryStream mStream = new MemoryStream();
+                     byte[] pData = iScsc.GET_PIMG_U(new XElement("Fighter", new XAttribute("fileno", crntinfo.REF_CODE_DNRM))).ToArray();
+                     mStream.Write(pData, 0, Convert.ToInt32(pData.Length));
+                     Bitmap bm = new Bitmap(mStream, false);
+                     mStream.Dispose();
+
+                     if (InvokeRequired)
+                        Invoke(new Action(() => RefImgProf_Rb.ImageProfile = bm));
+                     else
+                        RefImgProf_Rb.ImageProfile = bm;
+                  }
+                  catch
+                  {
+                     RefImgProf_Rb.ImageProfile = global::System.Scsc.Properties.Resources.IMAGE_1482;
+                  }
+               }
+            }
+            else
+            {
+               RefCode_Gb.Visible = false;
+            }
+
+
+            CServBs.DataSource =
+               iScsc.ExecuteQuery<Data.Fighter>(
+                  string.Format(
+                     @"WITH ServiceLeveling (
+                        FILE_NO, 
+                        NAME_DNRM,
+                        DEBT_DNRM, 
+                        BETH_DATE_DNRM, 
+                        CELL_PHON_DNRM, 
+                        TELL_PHON_DNRM, 
+                        NATL_CODE_DNRM, 
+                        CHAT_ID_DNRM, 
+                        RTNG_NUMB_DNRM, 
+                        REF_CODE_DNRM, 
+                        LEVL
+                     ) 
+                     AS 
+                     (
+                        SELECT r.FILE_NO,
+                               r.NAME_DNRM,
+                               r.DEBT_DNRM,
+                               r.BRTH_DATE_DNRM,
+                               r.CELL_PHON_DNRM,
+                               r.TELL_PHON_DNRM,
+                               r.NATL_CODE_DNRM,
+                               r.CHAT_ID_DNRM,
+                               r.RTNG_NUMB_DNRM,
+                               r.REF_CODE_DNRM,
+                               1 AS LEVL
+                          FROM dbo.Fighter r
+                         WHERE r.FILE_NO = {0}
+                         UNION ALL 
+                        SELECT c.FILE_NO,
+                               c.NAME_DNRM,
+                               c.DEBT_DNRM,
+                               c.BRTH_DATE_DNRM,
+                               c.CELL_PHON_DNRM,
+                               c.TELL_PHON_DNRM,
+                               c.NATL_CODE_DNRM,
+                               c.CHAT_ID_DNRM,
+                               c.RTNG_NUMB_DNRM,
+                               c.REF_CODE_DNRM,
+                               sl.LEVL + 1 AS LEVL
+                          FROM dbo.Fighter c INNER JOIN ServiceLeveling sl ON c.REF_CODE_DNRM = sl.FILE_NO
+                     )
+                     SELECT FILE_NO, 
+                            NAME_DNRM,
+                            DEBT_DNRM, 
+                            BETH_DATE_DNRM, 
+                            CELL_PHON_DNRM, 
+                            TELL_PHON_DNRM, 
+                            NATL_CODE_DNRM, 
+                            CHAT_ID_DNRM, 
+                            RTNG_NUMB_DNRM, 
+                            REF_CODE_DNRM
+                       FROM ServiceLeveling sl
+                      ORDER BY sl.LEVL, sl.NAME_DNRM", crntinfo.FILE_NO
+                  )
+               );
 
             if(isFirstLoaded) goto commandfinished;
 

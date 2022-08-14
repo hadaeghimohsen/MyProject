@@ -558,7 +558,7 @@ namespace System.Scsc.Ui.AggregateOperation
                               break;
                         }
 
-                        iScsc.INS_PYDS_P(pymt.CASH_CODE, pymt.RQST_RQID, (short?)1, null, amnt, "002", "002", PydsDesc_Txt.Text);
+                        iScsc.INS_PYDS_P(pymt.CASH_CODE, pymt.RQST_RQID, (short?)1, null, amnt, "002", "002", PydsDesc_Txt.Text, null, null);
                      }
                   });
             }
@@ -585,8 +585,7 @@ namespace System.Scsc.Ui.AggregateOperation
                      break;
                }
 
-               iScsc.INS_PYDS_P(pymt.CASH_CODE, pymt.RQST_RQID, (short?)1, null, amnt, "002", "002", PydsDesc_Txt.Text);
-
+               iScsc.INS_PYDS_P(pymt.CASH_CODE, pymt.RQST_RQID, (short?)1, null, amnt, "002", "002", PydsDesc_Txt.Text, null, null);
             }
 
             PydsAmnt_Txt.EditValue = null;

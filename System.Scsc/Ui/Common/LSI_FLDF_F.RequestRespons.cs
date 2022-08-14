@@ -474,6 +474,8 @@ namespace System.Scsc.Ui.Common
             UserProFile_Rb.ImageVisiable = true;
             //isFirstLoaded = true;
 
+            DCetpBs.DataSource = iScsc.D_CETPs;
+
             //finishcommand:
 
             //if (InvokeRequired)

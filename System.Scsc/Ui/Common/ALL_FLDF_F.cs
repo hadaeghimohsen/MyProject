@@ -11,6 +11,7 @@ using System.JobRouting.Jobs;
 using System.Xml.Linq;
 using DevExpress.XtraEditors;
 using System.Scsc.ExtCode;
+using System.IO;
 
 namespace System.Scsc.Ui.Common
 {
@@ -1537,7 +1538,7 @@ namespace System.Scsc.Ui.Common
                   break;
             }
 
-            iScsc.INS_PYDS_P(pymt.CASH_CODE, pymt.RQID, (short?)1, null, amnt, PydsType_Lov.EditValue.ToString(), "002", PydsDesc_Txt.Text);
+            iScsc.INS_PYDS_P(pymt.CASH_CODE, pymt.RQID, (short?)1, null, amnt, PydsType_Lov.EditValue.ToString(), "002", PydsDesc_Txt.Text, null, null);
 
             PydsAmnt_Txt.EditValue = null;
             PydsDesc_Txt.EditValue = null;
@@ -3307,7 +3308,7 @@ namespace System.Scsc.Ui.Common
             var _call = CallBs.Current as Data.Fighter_Call;
             if (_call == null || e.NewValue == null) return;
 
-            _call.App_Base_Define = RCalBs.List.OfType<Data.App_Base_Define>().SingleOrDefault(a => a.CODE == (long)e.NewValue);
+            _call.App_Base_Define = DRCalBs.List.OfType<Data.App_Base_Define>().SingleOrDefault(a => a.CODE == (long)e.NewValue);
          }
          catch (Exception exc)
          {
@@ -3428,6 +3429,125 @@ namespace System.Scsc.Ui.Common
                default:
                   break;
             }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void vF_All_Info_FightersBs_CurrentChanged(object sender, EventArgs e)
+      {
+         try
+         {
+            RefHImgProf_Rb.ImageVisiable = true;
+
+            var _histServ = vF_All_Info_FightersBs.Current as Data.VF_All_Info_FightersResult;
+            if (_histServ == null) return;
+
+            if (_histServ.REF_CODE != null)
+            {
+               RhServBs.DataSource = iScsc.Fighters.Where(s => s.FILE_NO == _histServ.REF_CODE);
+               if (RhServBs.List.Count == 0)
+               {
+                  HRefCode_Gb.Visible = false;
+               }
+               else
+               {
+                  HRefCode_Gb.Visible = true;
+                  RefHCont_Txt.Text = iScsc.Fighters.Where(s => s.REF_CODE_DNRM == _histServ.REF_CODE).Count().ToString();
+                  try
+                  {
+                     RefHImgProf_Rb.ImageProfile = null;
+                     MemoryStream mStream = new MemoryStream();
+                     byte[] pData = iScsc.GET_PIMG_U(new XElement("Fighter", new XAttribute("fileno", _histServ.REF_CODE))).ToArray();
+                     mStream.Write(pData, 0, Convert.ToInt32(pData.Length));
+                     Bitmap bm = new Bitmap(mStream, false);
+                     mStream.Dispose();
+
+                     if (InvokeRequired)
+                        Invoke(new Action(() => RefHImgProf_Rb.ImageProfile = bm));
+                     else
+                        RefHImgProf_Rb.ImageProfile = bm;
+                  }
+                  catch
+                  {
+                     RefHImgProf_Rb.ImageProfile = global::System.Scsc.Properties.Resources.IMAGE_1482;
+                  }
+               }
+            }
+            else
+            {
+               HRefCode_Gb.Visible = false;
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void AddFRlt_Butn_Click(object sender, EventArgs e)
+      {
+
+      }
+
+      private void DelFRlt_Butn_Click(object sender, EventArgs e)
+      {
+
+      }
+
+      private void SaveFRlt_Butn_Click(object sender, EventArgs e)
+      {
+
+      }
+
+      private void FRlt_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost",
+                  new List<Job>
+                  {
+                     new Job(SendType.Self, 154 /* Execute Apbs_Dfin_F */),
+                     new Job(SendType.SelfToUserInterface, "APBS_DFIN_F", 10 /* Execute Actn_CalF_F */)
+                     {
+                        Input = 
+                           new XElement("App_Base",
+                              new XAttribute("tablename", "Fighter_RelationShip"),
+                              new XAttribute("formcaller", GetType().Name)
+                           )
+                     }
+                  }
+               )
+            );
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void FRltLoad_Butn_Click(object sender, EventArgs e)
+      {
+         Refresh_Butn_Click(null, null);
+         tb_master.SelectedTab = tp_009;
+      }
+
+      private void Search_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            RtServBs.DataSource =
+               iScsc.Fighters
+               .Where(f => 
+                  (f.FRST_NAME_DNRM == null || f.FRST_NAME_DNRM.Contains(FrstName_Txt.Text)) &&
+                  (f.FRST_NAME_DNRM == null || f.LAST_NAME_DNRM.Contains(LastName_Txt.Text)) &&
+                  (f.CELL_PHON_DNRM == null || f.CELL_PHON_DNRM.Contains(CellPhon_Txt.Text)) &&
+                  (f.NATL_CODE_DNRM == null || f.NATL_CODE_DNRM.Contains(NatlCode_Txt.Text)) &&
+                  (BothSex_Rb.Checked || (Men_Rb.Checked && f.SEX_TYPE_DNRM == "001") || (Women_Rb.Checked && f.SEX_TYPE_DNRM == "002"))
+               ).Take((int)FtchRows_Nud.Value);
          }
          catch (Exception exc)
          {

@@ -53,6 +53,8 @@
          this.Ts_GrantToRole = new DevExpress.XtraEditors.ToggleSwitch();
          this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
          this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
+         this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
+         this.label1 = new System.Windows.Forms.Label();
          this.panel1.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.UserTitleName_Txt.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.UserName_Be.Properties)).BeginInit();
@@ -131,7 +133,8 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("UserTitleName_Txt.Properties.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
          this.UserTitleName_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.UserTitleName_Txt.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.UserTitleName_Txt.Properties.NullValuePrompt = "نام و نام خانوادگی";
+         this.UserTitleName_Txt.Properties.NullText = "Your name and family";
+         this.UserTitleName_Txt.Properties.NullValuePrompt = "Your name and family";
          this.UserTitleName_Txt.Properties.NullValuePromptShowForEmptyValue = true;
          this.UserTitleName_Txt.RightToLeft = System.Windows.Forms.RightToLeft.No;
          this.UserTitleName_Txt.Size = new System.Drawing.Size(237, 30);
@@ -184,7 +187,10 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("UserName_Be.Properties.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
          this.UserName_Be.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.UserName_Be.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.UserName_Be.Properties.NullValuePrompt = "نام کاربری";
+         this.UserName_Be.Properties.Mask.EditMask = "[a-zA-Z]+";
+         this.UserName_Be.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
+         this.UserName_Be.Properties.NullText = "Username";
+         this.UserName_Be.Properties.NullValuePrompt = "Username";
          this.UserName_Be.Properties.NullValuePromptShowForEmptyValue = true;
          this.UserName_Be.RightToLeft = System.Windows.Forms.RightToLeft.No;
          this.UserName_Be.Size = new System.Drawing.Size(237, 26);
@@ -195,7 +201,7 @@
          // 
          this.ReenterNewPassword_Be.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.ReenterNewPassword_Be.EditValue = "";
-         this.ReenterNewPassword_Be.Location = new System.Drawing.Point(310, 431);
+         this.ReenterNewPassword_Be.Location = new System.Drawing.Point(310, 474);
          this.ReenterNewPassword_Be.Name = "ReenterNewPassword_Be";
          this.ReenterNewPassword_Be.Properties.Appearance.BackColor = System.Drawing.Color.WhiteSmoke;
          this.ReenterNewPassword_Be.Properties.Appearance.BorderColor = System.Drawing.Color.Gray;
@@ -214,7 +220,8 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("ReenterNewPassword_Be.Properties.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject3, "", null, null, true)});
          this.ReenterNewPassword_Be.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.ReenterNewPassword_Be.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.ReenterNewPassword_Be.Properties.NullValuePrompt = "لطفا رمز عبور را دوباره تکرار کنید";
+         this.ReenterNewPassword_Be.Properties.NullText = "Confirm password";
+         this.ReenterNewPassword_Be.Properties.NullValuePrompt = "Confirm password";
          this.ReenterNewPassword_Be.Properties.NullValuePromptShowForEmptyValue = true;
          this.ReenterNewPassword_Be.Properties.UseSystemPasswordChar = true;
          this.ReenterNewPassword_Be.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -225,7 +232,7 @@
          // 
          this.NewPassword_Be.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.NewPassword_Be.EditValue = "";
-         this.NewPassword_Be.Location = new System.Drawing.Point(310, 399);
+         this.NewPassword_Be.Location = new System.Drawing.Point(310, 442);
          this.NewPassword_Be.Name = "NewPassword_Be";
          this.NewPassword_Be.Properties.Appearance.BackColor = System.Drawing.Color.WhiteSmoke;
          this.NewPassword_Be.Properties.Appearance.BorderColor = System.Drawing.Color.Gray;
@@ -244,7 +251,8 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("NewPassword_Be.Properties.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject4, "", null, null, true)});
          this.NewPassword_Be.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.NewPassword_Be.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.NewPassword_Be.Properties.NullValuePrompt = "لطفا رمز عبور خور را وارد کنید";
+         this.NewPassword_Be.Properties.NullText = "Password";
+         this.NewPassword_Be.Properties.NullValuePrompt = "Password";
          this.NewPassword_Be.Properties.NullValuePromptShowForEmptyValue = true;
          this.NewPassword_Be.Properties.UseSystemPasswordChar = true;
          this.NewPassword_Be.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -278,7 +286,7 @@
          this.labelControl2.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
          this.labelControl2.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
          this.labelControl2.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl2.Location = new System.Drawing.Point(419, 367);
+         this.labelControl2.Location = new System.Drawing.Point(419, 410);
          this.labelControl2.Name = "labelControl2";
          this.labelControl2.Size = new System.Drawing.Size(128, 26);
          this.labelControl2.TabIndex = 16;
@@ -317,7 +325,7 @@
          // 
          this.Ts_GrantToPrivilege.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.Ts_GrantToPrivilege.EditValue = true;
-         this.Ts_GrantToPrivilege.Location = new System.Drawing.Point(476, 504);
+         this.Ts_GrantToPrivilege.Location = new System.Drawing.Point(476, 547);
          this.Ts_GrantToPrivilege.Name = "Ts_GrantToPrivilege";
          this.Ts_GrantToPrivilege.Properties.LookAndFeel.SkinName = "Office 2013";
          this.Ts_GrantToPrivilege.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
@@ -358,7 +366,7 @@
          this.labelControl5.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
          this.labelControl5.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
          this.labelControl5.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl5.Location = new System.Drawing.Point(386, 472);
+         this.labelControl5.Location = new System.Drawing.Point(386, 515);
          this.labelControl5.Name = "labelControl5";
          this.labelControl5.Size = new System.Drawing.Size(161, 26);
          this.labelControl5.TabIndex = 23;
@@ -368,7 +376,7 @@
          // 
          this.Ts_GrantToRole.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.Ts_GrantToRole.EditValue = true;
-         this.Ts_GrantToRole.Location = new System.Drawing.Point(476, 566);
+         this.Ts_GrantToRole.Location = new System.Drawing.Point(476, 609);
          this.Ts_GrantToRole.Name = "Ts_GrantToRole";
          this.Ts_GrantToRole.Properties.LookAndFeel.SkinName = "Office 2013";
          this.Ts_GrantToRole.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
@@ -385,7 +393,7 @@
          this.labelControl7.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
          this.labelControl7.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
          this.labelControl7.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl7.Location = new System.Drawing.Point(393, 534);
+         this.labelControl7.Location = new System.Drawing.Point(393, 577);
          this.labelControl7.Name = "labelControl7";
          this.labelControl7.Size = new System.Drawing.Size(154, 26);
          this.labelControl7.TabIndex = 23;
@@ -405,12 +413,37 @@
          this.labelControl3.Size = new System.Drawing.Size(225, 85);
          this.labelControl3.TabIndex = 16;
          // 
+         // labelControl4
+         // 
+         this.labelControl4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.labelControl4.Appearance.BackColor = System.Drawing.Color.Transparent;
+         this.labelControl4.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.labelControl4.Appearance.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+         this.labelControl4.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+         this.labelControl4.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+         this.labelControl4.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
+         this.labelControl4.Location = new System.Drawing.Point(77, 286);
+         this.labelControl4.Name = "labelControl4";
+         this.labelControl4.Size = new System.Drawing.Size(227, 14);
+         this.labelControl4.TabIndex = 16;
+         this.labelControl4.Text = "نام کاربر ( مثل محسن حدایقی، مریم قبادی )";
+         // 
+         // label1
+         // 
+         this.label1.AutoSize = true;
+         this.label1.Location = new System.Drawing.Point(71, 322);
+         this.label1.Name = "label1";
+         this.label1.Size = new System.Drawing.Size(233, 14);
+         this.label1.TabIndex = 24;
+         this.label1.Text = "شناسه کاربر ( مثل MHadaeghi، MaryamG )";
+         // 
          // SettingsDuplicateAccount
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
          this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
          this.BackColor = System.Drawing.SystemColors.ControlLight;
          this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+         this.Controls.Add(this.label1);
          this.Controls.Add(this.labelControl7);
          this.Controls.Add(this.Ts_GrantToRole);
          this.Controls.Add(this.labelControl5);
@@ -424,6 +457,7 @@
          this.Controls.Add(this.UserName_Be);
          this.Controls.Add(this.UserTitleName_Txt);
          this.Controls.Add(this.labelControl3);
+         this.Controls.Add(this.labelControl4);
          this.Controls.Add(this.labelControl2);
          this.Controls.Add(this.labelControl6);
          this.Controls.Add(this.Save_Butn);
@@ -469,6 +503,8 @@
       private DevExpress.XtraEditors.LabelControl labelControl7;
       private Windows.Forms.BindingSource UserBs;
       private DevExpress.XtraEditors.LabelControl labelControl3;
+      private DevExpress.XtraEditors.LabelControl labelControl4;
+      private Windows.Forms.Label label1;
 
    }
 }

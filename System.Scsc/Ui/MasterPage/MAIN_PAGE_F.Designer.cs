@@ -587,7 +587,7 @@
          // 
          // bbi_mbs1butn
          // 
-         this.bbi_mbs1butn.Caption = "تمدید عضویت";
+         this.bbi_mbs1butn.Caption = "ثبت دوره جدید";
          this.bbi_mbs1butn.Glyph = ((System.Drawing.Image)(resources.GetObject("bbi_mbs1butn.Glyph")));
          this.bbi_mbs1butn.Id = 16;
          this.bbi_mbs1butn.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbi_mbs1butn.LargeGlyph")));
@@ -608,6 +608,7 @@
          this.bbi_insrbutn.Id = 17;
          this.bbi_insrbutn.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbi_insrbutn.LargeGlyph")));
          this.bbi_insrbutn.Name = "bbi_insrbutn";
+         this.bbi_insrbutn.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
          this.bbi_insrbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_insrbutn_ItemClick);
          // 
          // bbi_flstbutn
@@ -1120,6 +1121,7 @@
          this.bbi_cpaybutn.Id = 76;
          this.bbi_cpaybutn.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbi_cpaybutn.LargeGlyph")));
          this.bbi_cpaybutn.Name = "bbi_cpaybutn";
+         this.bbi_cpaybutn.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
          this.bbi_cpaybutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_cpaybutn_ItemClick);
          // 
          // bbi_cmanbutn
@@ -1166,6 +1168,7 @@
          this.bbi_mbfzbutn.Id = 82;
          this.bbi_mbfzbutn.LargeGlyph = global::System.Scsc.Properties.Resources.IMAGE_1241;
          this.bbi_mbfzbutn.Name = "bbi_mbfzbutn";
+         this.bbi_mbfzbutn.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
          this.bbi_mbfzbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_mbfzbutn_ItemClick);
          // 
          // bbi_cyclbutn
@@ -1282,6 +1285,7 @@
          this.ksk_incmbutn.Id = 96;
          this.ksk_incmbutn.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("ksk_incmbutn.LargeGlyph")));
          this.ksk_incmbutn.Name = "ksk_incmbutn";
+         this.ksk_incmbutn.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
          this.ksk_incmbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.ksk_incmbutn_ItemClick);
          // 
          // tol_calcbutn
@@ -1428,6 +1432,7 @@
          this.bbi_grntbutn.Id = 111;
          this.bbi_grntbutn.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbi_grntbutn.LargeGlyph")));
          this.bbi_grntbutn.Name = "bbi_grntbutn";
+         this.bbi_grntbutn.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
          this.bbi_grntbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_grntbutn_ItemClick);
          // 
          // bbi_evntsysbutn
@@ -1584,8 +1589,8 @@
          // 
          // OthrOption_RbGp
          // 
-         this.OthrOption_RbGp.ItemLinks.Add(this.bbi_oincbutn);
          this.OthrOption_RbGp.ItemLinks.Add(this.bbi_cmanbutn);
+         this.OthrOption_RbGp.ItemLinks.Add(this.bbi_oincbutn);
          this.OthrOption_RbGp.ItemLinks.Add(this.bbi_exdsbutn);
          this.OthrOption_RbGp.ItemLinks.Add(this.bbi_fdbtbutn);
          this.OthrOption_RbGp.ItemLinks.Add(this.ksk_incmbutn);

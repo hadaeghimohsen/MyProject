@@ -46,35 +46,27 @@ namespace System.Scsc.Ui.Admission
                );
 
          // 1396/11/02 * بدست آوردن شماره پرونده های درگیر در تمدید
-         FighsBs1.DataSource = iScsc.Fighters.Where(f => Rqids.Contains((long)f.RQST_RQID)); 
+         FighsBs1.DataSource = iScsc.Fighters.Where(f => Rqids.Contains((long)f.RQST_RQID));
+         RefDesc_Txt.EditValue = "";
       }
 
       int RqstIndex;
       private void Get_Current_Record()
       {
-         
-         {
-            if (RqstBs1.Count >= 1)
-               RqstIndex = RqstBs1.Position;
-         }         
+         if (RqstBs1.Count >= 1)
+            RqstIndex = RqstBs1.Position;
       }
 
       private void Set_Current_Record()
       {
-         
-         {
-            if (RqstIndex >= 0)
-               RqstBs1.Position = RqstIndex;
-         }         
+         if (RqstIndex >= 0)
+            RqstBs1.Position = RqstIndex;
       }
 
       private void Create_Record()
       {
-         
-         {
-            RqstBs1.AddNew();
-            FILE_NO_LookUpEdit.Focus();
-         }
+         RqstBs1.AddNew();
+         FILE_NO_LookUpEdit.Focus();
       }
 
       private void Btn_RqstBnRqt_Click(object sender, EventArgs e)
@@ -154,6 +146,7 @@ namespace System.Scsc.Ui.Admission
                               new XElement("Idty_Numb", IdtyNumb_Txt.EditValue ?? ""),
                               new XElement("Zip_Code", ZipCode_Txt.EditValue ?? ""),
                               new XElement("Pass_Word", Password_Txt.EditValue ?? ""),
+                              new XElement("Ref_Code", RefCode_Lov.EditValue ?? ""),
                               new XElement("Cmnt", Cmnt_Txt.EditValue ?? "")
                            )
                         )
@@ -231,6 +224,8 @@ namespace System.Scsc.Ui.Admission
       {         
          try
          {
+            Btn_RqstBnRqt_Click(null, null);
+
             var Rqst = RqstBs1.Current as Data.Request;
             if (Rqst != null && Rqst.RQST_STAT == "001")
             {
@@ -634,6 +629,69 @@ namespace System.Scsc.Ui.Admission
       private void GetMap_Butn_Click(object sender, EventArgs e)
       {
 
+      }
+
+      private void FgpbsBs1_CurrentChanged(object sender, EventArgs e)
+      {
+         try
+         {
+            RefDesc_Txt.EditValue = "";
+
+            var fgpb = FgpbsBs1.Current as Data.Fighter_Public;
+            if (fgpb == null) return;
+
+            //MaxAdm_Txt.Text = iScsc.Club_Methods.FirstOrDefault(cb => cb.CODE == fgpb.CBMT_CODE).CPCT_NUMB.ToString();
+            //TotlAdm_Txt.Text = iScsc.Fighters.Where(f => f.CBMT_CODE_DNRM == fgpb.CBMT_CODE && Convert.ToInt32(f.ACTV_TAG_DNRM) >= 101 && f.MBSP_END_DATE.Value.Date >= DateTime.Now.Date).Count().ToString();
+            //NewAdm_Txt.Text = (Convert.ToInt32(TotlAdm_Txt.Text) + 1).ToString();            
+
+            if (fgpb.REF_CODE != null)
+            {
+               if (!RServBs.List.OfType<Data.Fighter>().Any(s => s.FILE_NO == fgpb.REF_CODE))
+                  RServBs.DataSource = iScsc.Fighters.Where(s => s.FILE_NO == fgpb.REF_CODE);
+
+               var _refServ = iScsc.Fighters.FirstOrDefault(s => s.FILE_NO == fgpb.REF_CODE);
+               RefDesc_Txt.Text =
+                  string.Format("نام : " + "{0} " + Environment.NewLine + "شماره موبایل : " + "{1} " + Environment.NewLine + "تعداد معرفین : " + "{2}",
+                     _refServ.NAME_DNRM,
+                     _refServ.CELL_PHON_DNRM,
+                     iScsc.Fighters.Where(s => s.REF_CODE_DNRM == _refServ.FILE_NO).Count()
+                  );
+            }
+         }
+         catch (Exception)
+         {
+
+         }
+      }
+
+      private void CellPhonRefCode_Txt_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            var _rqst = RqstBs1.Current as Data.Request;
+            if (_rqst == null) return;
+
+            RServBs.DataSource = iScsc.Fighters.Where(s => s.CELL_PHON_DNRM.Contains(CellPhonRefCode_Txt.Text));
+            if (RServBs.List.Count == 1)
+            {
+               RefCode_Lov.EditValue = RServBs.List.OfType<Data.Fighter>().FirstOrDefault().FILE_NO;
+               CellPhonRefCode_Txt.EditValue = null;
+            }
+            else if(RServBs.List.Count > 1)
+            {
+               RefCode_Lov.Focus();
+               RefCode_Lov.ShowPopup();
+            }
+            else
+            {
+               RefCode_Lov.EditValue = null;
+               RefDesc_Txt.Text = "";
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
       }      
    }
 }

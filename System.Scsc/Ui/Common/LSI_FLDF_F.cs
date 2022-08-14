@@ -306,7 +306,7 @@ namespace System.Scsc.Ui.Common
             else
                ClubCode = (long?)ClubCode_Lov.EditValue;
 
-            vF_Fighs.DataSource = iScsc.VF_Last_Info_Fighter(null, FrstName_Txt.Text, LastName_Txt.Text, NatlCode_Txt.Text, FngrPrnt_Txt.Text, CellPhon_Txt.Text, TellPhon_Txt.Text, (Men_Rb.Checked ? "001" : Women_Rb.Checked ? "002" : null), ServNo_Txt.Text, GlobCode_Txt.Text, null, null, null, null, SuntCode).Where(f => f.CLUB_CODE == (ClubCode ?? f.CLUB_CODE));
+            vF_Fighs.DataSource = iScsc.VF_Last_Info_Fighter(null, FrstName_Txt.Text, LastName_Txt.Text, NatlCode_Txt.Text, FngrPrnt_Txt.Text, CellPhon_Txt.Text, TellPhon_Txt.Text, (Men_Rb.Checked ? "001" : Women_Rb.Checked ? "002" : null), ServNo_Txt.Text, GlobCode_Txt.Text, null, null, null, null, SuntCode).Where(f => f.CLUB_CODE == (ClubCode ?? f.CLUB_CODE)).OrderByDescending(s => s.END_DATE).Take((int)FtchRows_Nud.Value);
             vF_Last_Info_FighterResultGridControl.Focus();
 
             requery = false;
@@ -320,6 +320,9 @@ namespace System.Scsc.Ui.Common
          {
             var figh = vF_Fighs.Current as Data.VF_Last_Info_FighterResult;
             if (figh == null) return;
+
+            // 1401/05/22 * Focused
+            ServProf_Tc.SelectedIndex = 0;
 
             RqstBnFignInfo_Lb.Text = figh.NAME_DNRM;
             PayDebtAmnt_Txt.Text = figh.DEBT_DNRM.ToString();
@@ -1599,7 +1602,43 @@ namespace System.Scsc.Ui.Common
                ServRecd_Spn.Visible = true;
                break;
          }
-      }      
+      }
 
+      private void ServProf_Tc_SelectedIndexChanged(object sender, EventArgs e)
+      {
+         try
+         {
+            var _serv = vF_Fighs.Current as Data.VF_Last_Info_FighterResult;
+            if (_serv == null) return;            
+
+            switch (ServProf_Tc.SelectedTab.Name)
+            {
+               case "tp_002":
+                  vF_SavePaymentsBs.DataSource = iScsc.VF_Save_Payments(null, _serv.FILE_NO);
+                  break;
+               case "tp_003":
+                  FgdcBs.DataSource = iScsc.Fighter_Discount_Cards.Where(d => d.FIGH_FILE_NO == _serv.FILE_NO);
+                  break;
+               case "tp_004":
+                  break;
+               case "tp_005":
+                  var _mbsp = MbspBs.Current as Data.Member_Ship;
+                  if (_mbsp == null) return;
+
+                  AttnBs2.DataSource = iScsc.Attendances.Where(a => a.FIGH_FILE_NO == _serv.FILE_NO && a.MBSP_RWNO_DNRM == _mbsp.RWNO);
+                  break;
+               default: break;
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void PydtBn1_ButtonClick(object sender, NavigatorButtonClickEventArgs e)
+      {
+
+      }
    }
 }

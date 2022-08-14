@@ -1722,7 +1722,7 @@ namespace System.Scsc.Ui.OtherIncome
                   break;
             }
 
-            iScsc.INS_PYDS_P(pymt.CASH_CODE, pymt.RQST_RQID, (short?)1, null, amnt, PydsType_Lov.EditValue.ToString(), "002", PydsDesc_Txt.Text);
+            iScsc.INS_PYDS_P(pymt.CASH_CODE, pymt.RQST_RQID, (short?)1, null, amnt, PydsType_Lov.EditValue.ToString(), "002", PydsDesc_Txt.Text, null, 0);
 
             PydsAmnt_Txt.EditValue = null;
             PydsDesc_Txt.EditValue = null;

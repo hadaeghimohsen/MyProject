@@ -332,7 +332,7 @@ namespace System.Scsc.Ui.Admission
                      //NatlCode_Lb.Text = control.LABL_TEXT; // Place Holder
                      break;
                   case "mbspdesc_lb":
-                     MbspDesc_Lb.Text = control.LABL_TEXT;
+                     //MbspDesc_Lb.Text = control.LABL_TEXT;
                      //MbspDesc_Lb.Text = control.LABL_TEXT; // ToolTip
                      //MbspDesc_Lb.Text = control.LABL_TEXT; // Place Holder
                      break;
@@ -367,12 +367,12 @@ namespace System.Scsc.Ui.Admission
                      //NumbOfMontDnrm_RB001.Text = control.LABL_TEXT; // Place Holder
                      break;
                   case "numbmontoffr_lb":
-                     NumbMontOffr_Lb.Text = control.LABL_TEXT;
+                     //NumbMontOffr_Lb.Text = control.LABL_TEXT;
                      //NumbMontOffr_Lb.Text = control.LABL_TEXT; // ToolTip
                      //NumbMontOffr_Lb.Text = control.LABL_TEXT; // Place Holder
                      break;
                   case "other_desc":
-                     Other_Desc.Text = control.LABL_TEXT;
+                     //Other_Desc.Text = control.LABL_TEXT;
                      //Other_Desc.Text = control.LABL_TEXT; // ToolTip
                      //Other_Desc.Text = control.LABL_TEXT; // Place Holder
                      break;
@@ -387,7 +387,7 @@ namespace System.Scsc.Ui.Admission
                      //ServNo_Lb.Text = control.LABL_TEXT; // Place Holder
                      break;
                   case "request_lb":
-                     Request_Lb.Text = control.LABL_TEXT;
+                     //Request_Lb.Text = control.LABL_TEXT;
                      //Request_Lb.Text = control.LABL_TEXT; // ToolTip
                      //Request_Lb.Text = control.LABL_TEXT; // Place Holder
                      break;
@@ -601,6 +601,9 @@ namespace System.Scsc.Ui.Admission
             DSxtpBs1.DataSource = iScsc.D_SXTPs.Where(d => d.VALU != "003");
             DDytpBs1.DataSource = iScsc.D_DYTPs;
             DRcmtBs1.DataSource = iScsc.D_RCMTs;
+            DDsatBs.DataSource = iScsc.D_DSATs;
+            DCetpBs.DataSource = iScsc.D_CETPs;
+
             PrvnBs1.DataSource = iScsc.Provinces.Where(p => Fga_Uprv_U.Split(',').Contains(p.CODE));
             
             isFirstLoaded = true;

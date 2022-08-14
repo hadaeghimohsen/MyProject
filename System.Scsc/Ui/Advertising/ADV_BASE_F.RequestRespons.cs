@@ -273,8 +273,14 @@ namespace System.Scsc.Ui.Advertising
          DCetpBs.DataSource = iScsc.D_CETPs;
          DDsatBs.DataSource = iScsc.D_DSATs;
          DActvBs.DataSource = iScsc.D_ACTVs;
+         DSxtpBs.DataSource = iScsc.D_SXTPs;
+         TempBs.DataSource = iScsc.Templates;
          CtgyBs.DataSource = iScsc.Category_Belts.Where(c => c.CTGY_STAT == "002");
          RqtpBs.DataSource = iScsc.Request_Types.Where(rt => (rt.CODE == "001" || rt.CODE == "016" || rt.CODE == "020"));
+         SuntBs.DataSource = iScsc.Sub_Units;
+         SGrpBs.DataSource = iScsc.App_Base_Defines.Where(a => a.ENTY_NAME == "Fighter_Grouping");
+         RCalBs.DataSource = iScsc.App_Base_Defines.Where(a => a.ENTY_NAME == "Fighter_Call");
+         RSurBs.DataSource = iScsc.App_Base_Defines.Where(a => a.ENTY_NAME == "Fighter_Call_Survey");
          job.Status = StatusType.Successful;
       }
 
@@ -300,6 +306,8 @@ namespace System.Scsc.Ui.Advertising
                formCaller = xinput.Attribute("formcaller").Value;
             else
                formCaller = "";
+
+            Execute_Query();
             
          }
          catch { }

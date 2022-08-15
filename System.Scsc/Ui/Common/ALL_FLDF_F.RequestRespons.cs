@@ -1236,8 +1236,8 @@ namespace System.Scsc.Ui.Common
 
             // 1400/09/17 * مشخص شدن آیتم های درآمدی اعتباری
             var pydts = iScsc.Payment_Details.Where(pd => pd.EXPR_DATE != null && pd.Request_Row.FIGH_FILE_NO == fileno && pd.Request_Row.Request.RQST_STAT == "002");
-            PivBs.DataSource = pydts.Where(pd => pd.EXPR_DATE.Value.Date >= DateTime.Now);
-            PinvBs.DataSource = pydts.Where(pd => pd.EXPR_DATE.Value.Date < DateTime.Now);
+            PivBs.DataSource = pydts.Where(pd => pd.EXPR_DATE.Value.Date >= DateTime.Now && pd.EXPR_DATE.Value.Date != pd.CRET_DATE.Value.Date);
+            PinvBs.DataSource = pydts.Where(pd => pd.EXPR_DATE.Value.Date < DateTime.Now && pd.EXPR_DATE.Value.Date != pd.CRET_DATE.Value.Date);
 
             // 1400/09/21 * گروه بندی
             FGrpBs.DataSource = iScsc.Fighter_Groupings.Where(g => g.FIGH_FILE_NO == fileno);

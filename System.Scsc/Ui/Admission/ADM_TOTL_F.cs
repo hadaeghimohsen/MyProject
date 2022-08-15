@@ -109,14 +109,6 @@ namespace System.Scsc.Ui.Admission
          
       }
 
-      //private void DefaultTabPage001()
-      //{
-      //   /* تنظیم کردن ناحیه و استان قابل دسترس */
-      //   REGN_PRVN_CODELookUpEdit.EditValue = Fga_Uprv_U.Split(',')[0];
-      //   REGN_CODELookUpEdit.EditValue = Fga_Urgn_U.Split(',')[0].Substring(3);
-      //   RQTT_CODE_LookUpEdit1.EditValue = "001";
-      //}
-
       int RqstIndex;
       private void Get_Current_Record()
       {
@@ -171,322 +163,7 @@ namespace System.Scsc.Ui.Admission
 
       }
 
-      //private void LL_MoreInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-      //{
-      //   Pn_MoreInfo.Visible = !Pn_MoreInfo.Visible;
-      //   LL_MoreInfo.Text = Pn_MoreInfo.Visible ? "- کمتر ( F3 )" : "+ بیشتر ( F3 )";
-      //   if (Pn_MoreInfo.Visible && LL_MoreInfo.Visible)
-      //   {
-      //      Gb_Info.Height = 449;
-      //      //Gb_Expense.Top = 320;
-      //   }
-      //   else
-      //   {
-      //      Gb_Info.Height = 210;
-      //      //Gb_Expense.Top = 170;
-      //   }
-      //}
-
-      //private void RqstBs1_CurrentChanged(object sender, EventArgs e)
-      //{
-      //   try
-      //   {
-      //      var Rqst = RqstBs1.Current as Data.Request;
-
-      //      if (Rqst.SSTT_MSTT_CODE == 2 && (Rqst.SSTT_CODE == 1 || Rqst.SSTT_CODE == 2))
-      //      {
-      //         Gb_Expense.Visible = true;
-      //         Btn_RqstDelete1.Visible = true;
-      //         Btn_RqstSav1.Visible = false;
-      //      }
-      //      else if (!(Rqst.SSTT_MSTT_CODE == 2 && (Rqst.SSTT_CODE == 1 || Rqst.SSTT_CODE == 2)) && Rqst.RQID > 0)
-      //      {
-      //         Gb_Expense.Visible = false;
-      //         Btn_RqstDelete1.Visible = Btn_RqstSav1.Visible = true;
-      //      }
-      //      else if (Rqst.RQID == 0)
-      //      {
-      //         Gb_Expense.Visible = false;
-      //         Btn_RqstDelete1.Visible = Btn_RqstSav1.Visible = false;
-      //         DefaultTabPage001();
-      //      }
-      //   }
-      //   catch
-      //   {
-      //      Gb_Expense.Visible = false;
-      //      Btn_RqstDelete1.Visible = Btn_RqstSav1.Visible = false;
-      //      DefaultTabPage001();
-      //   }
-      //}
-
-      //private void Btn_RqstRqt1_Click(object sender, EventArgs e)
-      //{
-      //   try
-      //   {
-      //      var Rqst = RqstBs1.Current as Data.Request;
-      //      rqstindex = RqstBs1.Position;
-
-      //      if (Rqst == null || Rqst.RQID >= 0)
-      //      {
-      //         var FighExists =
-      //            iScsc.Fighters
-      //            .Where(f =>
-      //               //(Rqst == null || Rqst.RQID == 0) &&
-      //               (f.FGPB_TYPE_DNRM == "001" || f.FGPB_TYPE_DNRM == "004" || f.FGPB_TYPE_DNRM == "005" || f.FGPB_TYPE_DNRM == "006") &&
-      //               (f.NAME_DNRM.Contains(FRST_NAME_TextEdit.Text) || f.NAME_DNRM.Contains(LAST_NAME_TextEdit.Text) || f.FNGR_PRNT_DNRM == FNGR_PRNT_TextEdit.Text &&
-      //               (f.CONF_STAT == "002") &&
-      //               Fga_Urgn_U.Split(',').Contains(f.REGN_PRVN_CODE + f.REGN_CODE) &&
-      //               Fga_Uclb_U.Contains(f.CLUB_CODE_DNRM)
-      //               ));
-      //         FighBs1.DataSource = FighExists;
-      //         if (FighBs1.Count >= 1)
-      //         {
-      //            fighterGridControl.Visible = true;
-      //            if ((Rqst != null && Rqst.CRET_BY != null) || MessageBox.Show(this, "آیا مشترییی که وارد کرده اید در لیست پایین وجود دارد؟", "لیست مشترییان", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk) == DialogResult.No)
-      //            {
-      //               /*
-      //                * ثبت مشتریی جدید در سیستم
-      //                */
-      //               if (NumbOfMontDnrm_TextEdit001.Text.Trim() == "")
-      //                  NumbOfMontDnrm_TextEdit001.Text = "1";
-
-      //               iScsc.ADM_TRQT_F(
-      //                  new XElement("Process",
-      //                     new XElement("Request",
-      //                        new XAttribute("rqid", Rqst == null ? 0 : Rqst.RQID),
-      //                        new XAttribute("rqtpcode", "001"),
-      //                        new XAttribute("rqttcode", RQTT_CODE_LookUpEdit1.EditValue),
-      //                        new XAttribute("prvncode", REGN_PRVN_CODELookUpEdit.EditValue),
-      //                        new XAttribute("regncode", REGN_CODELookUpEdit.EditValue),
-      //                        new XElement("Fighter",
-      //                           new XAttribute("fileno", Rqst == null ? 0 : Rqst.Fighters.FirstOrDefault() == null ? 0 : Rqst.Fighters.FirstOrDefault().FILE_NO),
-      //                           new XElement("Frst_Name", FRST_NAME_TextEdit.Text ?? ""),
-      //                           new XElement("Last_Name", LAST_NAME_TextEdit.Text ?? ""),
-      //                           new XElement("Fath_Name", FATH_NAME_TextEdit.Text ?? ""),
-      //                           new XElement("Sex_Type", SEX_TYPE_LookUpEdit.EditValue ?? ""),
-      //                           new XElement("Natl_Code", NATL_CODE_TextEdit.Text ?? ""),
-      //                           new XElement("Brth_Date", BRTH_DATE_PersianDateEdit.Value == null ? "" : BRTH_DATE_PersianDateEdit.Value.Value.ToString("yyyy-MM-dd")),
-      //                           new XElement("Cell_Phon", CELL_PHON_TextEdit.Text ?? ""),
-      //                           new XElement("Tell_Phon", TELL_PHON_TextEdit.Text ?? ""),
-      //                           new XElement("Type", RQTT_CODE_LookUpEdit1.EditValue.ToString() == "004" ? "001" : RQTT_CODE_LookUpEdit1.EditValue ?? ""),
-      //                           new XElement("Post_Adrs", POST_ADRS_TextEdit.Text ?? ""),
-      //                           new XElement("Emal_Adrs", EMAL_ADRS_TextEdit.Text ?? ""),
-      //                           new XElement("Insr_Numb", INSR_NUMB_TextEdit.Text ?? ""),
-      //                           new XElement("Insr_Date", INSR_DATE_PersianDateEdit.Value == null ? "" : INSR_DATE_PersianDateEdit.Value.Value.ToString("yyyy-MM-dd")),
-      //                           new XElement("Educ_Deg", EDUC_DEG_LookUpEdit.EditValue ?? ""),
-      //                           new XElement("Cbmt_Code", CBMT_CODE_GridLookUpEdit.EditValue ?? ""),
-      //                           new XElement("Dise_Code", DISE_CODE_LookUpEdit.EditValue ?? ""),
-      //                           new XElement("Blod_Grop", BLOD_GROPLookUpEdit.EditValue ?? ""),
-      //                           new XElement("Fngr_Prnt", FNGR_PRNT_TextEdit.EditValue ?? ""),
-      //                           new XElement("Sunt_Bunt_Dept_Orgn_Code", SUNT_BUNT_DEPT_ORGN_CODELookUpEdit.EditValue ?? ""),
-      //                           new XElement("Sunt_Bunt_Dept_Code", SUNT_BUNT_DEPT_CODELookUpEdit.EditValue ?? ""),
-      //                           new XElement("Sunt_Bunt_Code", SUNT_BUNT_CODELookUpEdit.EditValue ?? ""),
-      //                           new XElement("Sunt_Code", SUNT_CODELookUpEdit.EditValue ?? ""),
-      //                           new XElement("Cord_X", CORD_XTextEdit.EditValue ?? ""),
-      //                           new XElement("Cord_Y", CORD_YTextEdit.EditValue ?? ""),
-      //                           new XElement("Mtod_Code", MtodCode_LookupEdit001.EditValue ?? ""),
-      //                           new XElement("Ctgy_Code", CtgyCode_LookupEdit001.EditValue ?? ""),
-      //                           new XElement("Most_Debt_Clng", SE_MostDebtClngAmnt.Value)
-      //                        ),
-      //                        new XElement("Member_Ship",
-      //                           new XAttribute("strtdate", StrtDate_DateTime001.Value == null ? DateTime.Now.ToString("yyyy-MM-dd") : StrtDate_DateTime001.Value.Value.ToString("yyyy-MM-dd")),
-      //                           new XAttribute("enddate", NumbOfMontDnrm_RB001.Checked ? (StrtDate_DateTime001.Value != null ? StrtDate_DateTime001.Value.Value.AddMonths(Convert.ToInt32(NumbOfMontDnrm_TextEdit001.EditValue)).ToString("yyyy-MM-dd") : DateTime.Now.AddMonths(Convert.ToInt32(NumbOfMontDnrm_TextEdit001.EditValue)).ToString("yyyy-MM-dd")) : (EndDate_DateTime001.Value == null ? StrtDate_DateTime001.Value != null ? StrtDate_DateTime001.Value.Value.AddMonths(1).ToString("yyyy-MM-dd") : DateTime.Now.AddMonths(1).ToString("yyyy-MM-dd") : EndDate_DateTime001.Value.Value.ToString("yyyy-MM-dd"))),
-      //                           new XAttribute("numbmontofer", NumbMontOfer_TextEdit001.Text ?? "0"),
-      //                           new XAttribute("numbofattnmont", NumbOfAttnMont_TextEdit001.Text ?? "0"),
-      //                           new XAttribute("numbofattnweek", NumbOfAttnWeek_TextEdit001.Text ?? "0"),
-      //                           new XAttribute("attndaytype", /*AttnDayType_Lov001.EditValue ??*/ "7")
-      //                        )
-      //                     )
-      //                  )
-      //               );
-      //               fighterGridControl.Visible = false;
-      //               //MessageBox.Show(this, "مشتریی جدید در سیستم ثبت گردید");
-      //               requery = true;
-      //            }
-      //            else
-      //            {
-      //               /*
-      //                * مشتری قبلا در سیستم ثبت شده و عملیات تمدید انجام میدهیم
-      //                */
-      //               MessageBox.Show(this, "مشتری قبلا در سیستم ثبت شده است، پس عملیات تمدید را انجام بدهید");
-      //            }
-      //         }
-      //         else
-      //         {
-      //            fighterGridControl.Visible = false;
-      //            /*
-      //             * ثبت مشتریی جدید در سیستم
-      //             */
-      //            if (NumbOfMontDnrm_TextEdit001.Text.Trim() == "")
-      //               NumbOfMontDnrm_TextEdit001.Text = "1";
-
-      //            if (Rqst == null || Rqst.RQST_STAT == null || Rqst.RQST_STAT == "001")
-      //               iScsc.ADM_TRQT_F(
-      //                     new XElement("Process",
-      //                        new XElement("Request",
-      //                           new XAttribute("rqid", Rqst == null ? 0 : Rqst.RQID),
-      //                           new XAttribute("rqtpcode", "001"),
-      //                           new XAttribute("rqttcode", RQTT_CODE_LookUpEdit1.EditValue),
-      //                           new XAttribute("prvncode", REGN_PRVN_CODELookUpEdit.EditValue),
-      //                           new XAttribute("regncode", REGN_CODELookUpEdit.EditValue),
-      //                           new XElement("Fighter",
-      //                              new XAttribute("fileno", Rqst == null ? 0 : Rqst.Fighters.FirstOrDefault() == null ? 0 : Rqst.Fighters.FirstOrDefault().FILE_NO),
-      //                              new XElement("Frst_Name", FRST_NAME_TextEdit.Text),
-      //                              new XElement("Last_Name", LAST_NAME_TextEdit.Text),
-      //                              new XElement("Fath_Name", FATH_NAME_TextEdit.Text),
-      //                              new XElement("Sex_Type", SEX_TYPE_LookUpEdit.EditValue),
-      //                              new XElement("Natl_Code", NATL_CODE_TextEdit.Text),
-      //                              new XElement("Brth_Date", BRTH_DATE_PersianDateEdit.Value == null ? "" : BRTH_DATE_PersianDateEdit.Value.Value.ToString("yyyy-MM-dd")),
-      //                              new XElement("Cell_Phon", CELL_PHON_TextEdit.Text),
-      //                              new XElement("Tell_Phon", TELL_PHON_TextEdit.Text),
-      //                              new XElement("Type", RQTT_CODE_LookUpEdit1.EditValue),
-      //                              new XElement("Post_Adrs", POST_ADRS_TextEdit.Text),
-      //                              new XElement("Emal_Adrs", EMAL_ADRS_TextEdit.Text),
-      //                              new XElement("Insr_Numb", INSR_NUMB_TextEdit.Text),
-      //                              new XElement("Insr_Date", INSR_DATE_PersianDateEdit.Value == null ? "" : INSR_DATE_PersianDateEdit.Value.Value.ToString("yyyy-MM-dd")),
-      //                              new XElement("Educ_Deg", EDUC_DEG_LookUpEdit.EditValue ?? ""),
-      //                              new XElement("Cbmt_Code", CBMT_CODE_GridLookUpEdit.EditValue ?? ""),
-      //                              new XElement("Dise_Code", DISE_CODE_LookUpEdit.EditValue ?? ""),
-      //                              new XElement("Blod_Grop", BLOD_GROPLookUpEdit.EditValue ?? ""),
-      //                              new XElement("Fngr_Prnt", FNGR_PRNT_TextEdit.EditValue ?? ""),
-      //                              new XElement("Sunt_Bunt_Dept_Orgn_Code", SUNT_BUNT_DEPT_ORGN_CODELookUpEdit.EditValue ?? ""),
-      //                              new XElement("Sunt_Bunt_Dept_Code", SUNT_BUNT_DEPT_CODELookUpEdit.EditValue ?? ""),
-      //                              new XElement("Sunt_Bunt_Code", SUNT_BUNT_CODELookUpEdit.EditValue ?? ""),
-      //                              new XElement("Sunt_Code", SUNT_CODELookUpEdit.EditValue ?? ""),
-      //                              new XElement("Cord_X", CORD_XTextEdit.EditValue ?? ""),
-      //                              new XElement("Cord_Y", CORD_YTextEdit.EditValue ?? ""),
-      //                              new XElement("Mtod_Code", MtodCode_LookupEdit001.EditValue ?? ""),
-      //                              new XElement("Ctgy_Code", CtgyCode_LookupEdit001.EditValue ?? "")
-      //                           ),
-      //                           new XElement("Member_Ship",
-      //                              new XAttribute("strtdate", StrtDate_DateTime001.Value == null ? DateTime.Now.ToString("yyyy-MM-dd") : StrtDate_DateTime001.Value.Value.ToString("yyyy-MM-dd")),
-      //                              new XAttribute("enddate", NumbOfMontDnrm_RB001.Checked ? (StrtDate_DateTime001.Value != null ? StrtDate_DateTime001.Value.Value.AddMonths(Convert.ToInt32(NumbOfMontDnrm_TextEdit001.EditValue)).ToString("yyyy-MM-dd") : DateTime.Now.AddMonths(Convert.ToInt32(NumbOfMontDnrm_TextEdit001.EditValue)).ToString("yyyy-MM-dd")) : (EndDate_DateTime001.Value == null ? StrtDate_DateTime001.Value != null ? StrtDate_DateTime001.Value.Value.AddMonths(1).ToString("yyyy-MM-dd") : DateTime.Now.AddMonths(1).ToString("yyyy-MM-dd") : EndDate_DateTime001.Value.Value.ToString("yyyy-MM-dd"))),
-      //                              new XAttribute("numbmontofer", NumbMontOfer_TextEdit001.Text ?? "0"),
-      //                              new XAttribute("numbofattnmont", NumbOfAttnMont_TextEdit001.Text ?? "0"),
-      //                              new XAttribute("numbofattnweek", NumbOfAttnWeek_TextEdit001.Text ?? "0"),
-      //                              new XAttribute("attndaytype", /*AttnDayType_Lov001.EditValue ??*/ "7")
-      //                           )
-      //                        )
-      //                     )
-      //                  );
-      //            else if (Rqst.RQST_STAT == "002") return;
-      //            //MessageBox.Show(this, "مشتریی جدید در سیستم ثبت گردید");
-      //            requery = true;
-      //         }
-      //      }
-      //   }
-      //   catch (Exception ex)
-      //   {
-      //      MessageBox.Show(ex.Message);
-      //   }
-      //   finally
-      //   {
-      //      if (requery)
-      //      {
-      //         /*
-      //          * Requery Data From Database
-      //          */
-      //         Get_Current_Record();
-      //         Execute_Query();
-      //         Set_Current_Record();
-      //         requery = false;
-      //      }
-      //   }
-      //}
-
-      //private void Btn_RqstDelete1_Click(object sender, EventArgs e)
-      //{
-      //   try
-      //   {
-      //      if (MessageBox.Show(this, "آیا با انصراف درخواست مطمئن هستید؟", "هشدار!", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
-
-      //      var Rqst = RqstBs1.Current as Data.Request;
-
-      //      if (Rqst != null && Rqst.RQID > 0)
-      //      {
-      //         /*
-      //          *  Remove Data From Tables
-      //          */
-      //         iScsc.ADM_TCNL_F(
-      //            new XElement("Process",
-      //               new XElement("Request",
-      //                  new XAttribute("rqid", Rqst.RQID),
-      //                  new XElement("Fighter",
-      //                     new XAttribute("fileno", Rqst.Fighters.FirstOrDefault().FILE_NO)
-      //                  )
-      //               )
-      //            )
-      //         );
-      //         //MessageBox.Show(this, "مشتری حذف گردید!");
-      //      }
-      //      requery = true;
-      //   }
-      //   catch (Exception ex)
-      //   {
-      //      MessageBox.Show(ex.Message);
-      //   }
-      //   finally
-      //   {
-      //      if (requery)
-      //      {
-      //         Get_Current_Record();
-      //         Execute_Query();
-      //         Set_Current_Record();
-      //         Create_Record();
-      //         requery = false;
-      //      }
-      //   }
-      //}
-
       bool setOnDebt = false;
-      //private void Btn_RqstSav1_Click(object sender, EventArgs e)
-      //{
-      //   try
-      //   {
-      //      var Rqst = RqstBs1.Current as Data.Request;
-      //      if (Rqst != null && Rqst.RQST_STAT == "001")
-      //      {
-      //         iScsc.ADM_TSAV_F(
-      //            new XElement("Process",
-      //               new XElement("Request",
-      //                  new XAttribute("rqid", Rqst.RQID),
-      //                  new XAttribute("prvncode", Rqst.REGN_PRVN_CODE),
-      //                  new XAttribute("regncode", Rqst.REGN_CODE),
-      //                  new XElement("Fighter",
-      //                     new XAttribute("fileno", Rqst.Fighters.FirstOrDefault().FILE_NO)
-      //                  ),
-      //                  new XElement("Payment",
-      //                     new XAttribute("setondebt", setOnDebt),
-      //                     PydtsBs1.List.OfType<Data.Payment_Detail>().ToList()
-      //                     .Select(pd => 
-      //                        new XElement("Payment_Detail",
-      //                           new XAttribute("code", pd.CODE),
-      //                           new XAttribute("rcptmtod", pd.RCPT_MTOD ?? "")
-      //                        )
-      //                     )
-      //                  )
-      //               )
-      //            )
-      //         );
-      //         requery = true;
-      //      }
-      //   }
-      //   catch (Exception ex)
-      //   {
-      //      MessageBox.Show(ex.Message);
-      //   }
-      //   finally
-      //   {
-      //      if(requery)
-      //      {
-      //         Get_Current_Record();
-      //         Execute_Query();
-      //         Set_Current_Record();
-      //         Create_Record();
-      //         requery = false;
-      //      }            
-      //   }
-      //}
 
       private void Btn_RqstExit1_Click(object sender, EventArgs e)
       {
@@ -494,131 +171,6 @@ namespace System.Scsc.Ui.Admission
             new Job(SendType.External, "localhost", "ADM_TOTL_F", 00 /* Execute ProcessCmdKey */, SendType.SelfToUserInterface) { Input = Keys.Escape }
          );
       }
-
-      //private void RqstBs2_CurrentChanged(object sender, EventArgs e)
-      //{
-      //   try
-      //   {
-      //      var Rqst = RqstBs2.Current as Data.Request;
-
-      //      if (Rqst.RQID == 0)
-      //      {
-      //         DefaultTabPage002();
-      //      }
-      //   }
-      //   catch
-      //   {            
-      //      DefaultTabPage002();
-      //   }
-      //}
-
-
-      //private void Btn_RqstDelete2_Click(object sender, EventArgs e)
-      //{
-      //   try
-      //   {
-      //      if (MessageBox.Show(this, "آیا با انصراف و حذف ثبت مربی مطمئن هستید؟", "هشدار!", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
-
-      //      var Rqst = RqstBs2.Current as Data.Request;
-
-      //      if (Rqst != null && Rqst.RQID > 0)
-      //      {
-      //         /*
-      //          *  Remove Data From Tables
-      //          */
-      //         iScsc.ADM_TCNL_F(
-      //            new XElement("Process",
-      //               new XElement("Request",
-      //                  new XAttribute("rqid", Rqst.RQID),
-      //                  new XElement("Fighter",
-      //                     new XAttribute("fileno", Rqst.Fighters.FirstOrDefault().FILE_NO)
-      //                  )
-      //               )
-      //            )
-      //         );
-      //         //MessageBox.Show(this, "مربی حذف گردید!");
-      //      }
-      //      requery = true;
-      //   }
-      //   catch (Exception ex)
-      //   {
-      //      MessageBox.Show(ex.Message);
-      //   }
-      //   finally
-      //   {
-      //      if (requery)
-      //      {
-      //         Get_Current_Record();
-      //         Execute_Query();
-      //         Set_Current_Record();
-      //         Create_Record();
-      //         requery = false;
-      //      }
-      //   }
-      //}
-
-      //private void Btn_RqstSav2_Click(object sender, EventArgs e)
-      //{
-      //   try
-      //   {
-      //      var Rqst = RqstBs2.Current as Data.Request;
-      //      iScsc.ADM_MSAV_F(
-      //         new XElement("Process",
-      //            new XElement("Request",
-      //               new XAttribute("rqid", 0),
-      //               new XAttribute("rqtpcode", "001"),
-      //               new XAttribute("rqttcode", RQTT_CODE_LookUpEdit2.EditValue),
-      //               new XAttribute("prvncode", REGN_PRVN_CODELookUpEdit2.EditValue),
-      //               new XAttribute("regncode", REGN_CODELookUpEdit2.EditValue),
-      //               new XElement("Fighter",
-      //                  new XAttribute("fileno", 0),
-      //                  new XElement("Frst_Name", Frst_Name_TextEdit2.Text),
-      //                  new XElement("Last_Name", Last_Name_TextEdit2.Text),
-      //                  new XElement("Fath_Name", Fath_Name_TextEdit2.Text),
-      //                  new XElement("Coch_Deg", COCH_DEG_LookUpEdit2.EditValue),
-      //                  new XElement("Coch_Crtf_Date", COCH_CRTF_DATE_PersianDateEdit2.Value == null ? "" : COCH_CRTF_DATE_PersianDateEdit2.Value.Value.ToString("yyyy-MM-dd")),
-      //                  new XElement("Gudg_Deg", GUDG_DEG_LookUpEdit2.EditValue),
-      //                  new XElement("glob_Code", GLOB_CODE_TextEdit2.EditValue),
-      //                  new XElement("Sex_Type", Sex_Type_LookUpEdit2.EditValue),
-      //                  new XElement("Natl_Code", NATL_CODE_TextEdit2.Text),
-      //                  new XElement("Brth_Date", Brth_Date_PersianDateEdit2.Value == null ? "" : Brth_Date_PersianDateEdit2.Value.Value.ToString("yyyy-MM-dd")),
-      //                  new XElement("Cell_Phon", Cell_Phon_TextEdit2.Text),
-      //                  new XElement("Tell_Phon", Tell_Phon_TextEdit2.Text),
-      //                  new XElement("Type", RQTT_CODE_LookUpEdit2.EditValue),
-      //                  new XElement("Post_Adrs", Post_Adrs_TextEdit2.Text),
-      //                  new XElement("Emal_Adrs", Emal_Adrs_TextEdit2.Text),
-      //                  new XElement("Insr_Numb", Insr_Numb_TextEdit2.Text),
-      //                  new XElement("Insr_Date", Insr_Date_PersianDateEdit2.Value == null ? "" : Insr_Date_PersianDateEdit2.Value.Value.ToString("yyyy-MM-dd")),
-      //                  new XElement("Educ_Deg", Educ_Code_LookUpEdit2.EditValue ?? ""),
-      //                  new XElement("Mtod_Code", MTOD_CODE_LookUpEdit2.EditValue ?? ""),
-      //                  new XElement("Dise_Code", Dise_Code_LookUpEdit2.EditValue ?? ""),
-      //                  new XElement("Calc_Expn_Type", CALC_EXPN_TYPE_LookUpEdit2.EditValue ?? ""),
-      //                  new XElement("Blod_grop", Blod_Grop_LookupEdit.EditValue ?? ""),
-      //                  new XElement("Fngr_Prnt", Fngr_Prnt_TextEdit2.EditValue ?? ""),
-      //                  new XElement("Dpst_Acnt_Slry_Bank", DpstAcntSlryBank_Text2.EditValue ?? ""),
-      //                  new XElement("Dpst_Acnt_Slry", DpstAcntSlry_Text2.EditValue ?? "")
-      //               )
-      //            )
-      //         )
-      //      );
-      //      requery = true;
-      //   }
-      //   catch (Exception ex)
-      //   {
-      //      MessageBox.Show(ex.Message);
-      //   }
-      //   finally
-      //   {
-      //      if (requery)
-      //      {
-      //         Get_Current_Record();
-      //         Execute_Query();
-      //         Set_Current_Record();
-      //         Create_Record();
-      //         requery = false;
-      //      }
-      //   }
-      //}
 
       private void LL_MoreInfo2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
       {
@@ -635,49 +187,6 @@ namespace System.Scsc.Ui.Admission
          //   //Gb_Expense.Top = 170;
          //}
       }
-
-      //private void BTN_MBSP_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
-      //{
-      //   try
-      //   {
-      //      var Figh = FighBs1.Current as Data.Fighter;
-      //      iScsc.UCC_TRQT_P(
-      //         new XElement("Process",
-      //            new XElement("Request",
-      //               new XAttribute("rqtpcode", "009"),
-      //               new XAttribute("rqttcode", Figh.FGPB_TYPE_DNRM),
-      //               new XElement("Request_Row",
-      //                  new XAttribute("fileno", Figh.FILE_NO),
-      //                  new XElement("Member_Ship",
-      //                     new XAttribute("strtdate", ""),
-      //                     new XAttribute("enddate", ""),
-      //                     new XAttribute("prntcont", "1")
-      //                  )
-      //               )
-      //            )
-      //         )
-      //      );
-      //      tb_master.SelectedTab = tp_003;
-      //      requery = true;
-      //   }
-      //   catch (Exception ex)
-      //   {
-      //      MessageBox.Show(ex.Message);
-      //   }
-      //   finally
-      //   {
-      //      if (requery)
-      //      {
-      //         Get_Current_Record();
-      //         //Execute_Query();
-      //         _DefaultGateway.Gateway(
-      //            new Job(SendType.External, "localhost", "ADM_TOTL_F", 07 /* Exec LoadData */, SendType.SelfToUserInterface)
-      //         );
-      //         Set_Current_Record();
-      //         requery = false;
-      //      }
-      //   }
-      //}
 
       private void Btn_Cbmt1_Click(object sender, EventArgs e)
       {
@@ -1091,18 +600,6 @@ namespace System.Scsc.Ui.Admission
          }
       }
       LookUpEdit lov_prvn = null;
-      //private void REGN_PRVN_CODE_EditValueChanged(object sender, EventArgs e)
-      //{
-      //   try
-      //   {
-      //      lov_prvn = sender as LookUpEdit;
-      //      //REGN_CODELookUpEdit.EditValue = null;
-      //      RegnBs1.DataSource = iScsc.Regions.Where(r => r.PRVN_CODE == lov_prvn.EditValue.ToString() && Fga_Urgn_U.Split(',').Contains(r.PRVN_CODE + r.CODE));
-
-      //      REGN_CODELookUpEdit_EditValueChanged(REGN_CODELookUpEdit, e);
-      //   }
-      //   catch { }
-      //}
 
       LookUpEdit lov_regn;
       private void REGN_CODELookUpEdit_EditValueChanged(object sender, EventArgs e)
@@ -1902,48 +1399,6 @@ namespace System.Scsc.Ui.Admission
          }
       }
 
-      //private void sUNT_BUNT_DEPT_ORGN_CODELookUpEdit_Popup(object sender, EventArgs e)
-      //{
-      //   try
-      //   {
-      //      /*var crntorgn = sUNT_BUNT_DEPT_ORGN_CODELookUpEdit.EditValue.ToString();
-      //      DeptBs1.DataSource = iScsc.Departments.Where(d => d.ORGN_CODE == crntorgn);*/
-      //      OrgnBs1.Position = SUNT_BUNT_DEPT_ORGN_CODELookUpEdit.Properties.GetDataSourceRowIndex(SUNT_BUNT_DEPT_ORGN_CODELookUpEdit.Properties.ValueMember, SUNT_BUNT_DEPT_ORGN_CODELookUpEdit.EditValue);
-      //   }
-      //   catch
-      //   {            
-      //   }
-      //}
-
-      //private void sUNT_BUNT_DEPT_CODELookUpEdit_Popup(object sender, EventArgs e)
-      //{
-      //   try
-      //   {
-      //      /*var crntorgn = sUNT_BUNT_DEPT_ORGN_CODELookUpEdit.EditValue.ToString(); 
-      //      var crntdept = sUNT_BUNT_DEPT_CODELookUpEdit.EditValue.ToString();            
-      //      BuntBs1.DataSource = iScsc.Base_Units.Where(b => b.DEPT_CODE == crntdept && b.DEPT_ORGN_CODE == crntorgn);*/
-      //      DeptBs1.Position = SUNT_BUNT_DEPT_CODELookUpEdit.Properties.GetDataSourceRowIndex(SUNT_BUNT_DEPT_CODELookUpEdit.Properties.ValueMember, SUNT_BUNT_DEPT_CODELookUpEdit.EditValue);
-      //   }
-      //   catch
-      //   {
-      //   }
-      //}
-
-      //private void sUNT_BUNT_CODELookUpEdit_Popup(object sender, EventArgs e)
-      //{
-      //   try
-      //   {
-      //      /*var crntorgn = sUNT_BUNT_DEPT_ORGN_CODELookUpEdit.EditValue.ToString();
-      //      var crntdept = sUNT_BUNT_DEPT_CODELookUpEdit.EditValue.ToString();
-      //      var crntbunt = sUNT_BUNT_CODELookUpEdit.EditValue.ToString();
-      //      SuntBs1.DataSource = iScsc.Sub_Units.Where(s => s.BUNT_CODE == crntbunt && s.BUNT_DEPT_CODE == crntdept && s.BUNT_DEPT_ORGN_CODE == crntorgn);*/
-      //      BuntBs1.Position = SUNT_BUNT_CODELookUpEdit.Properties.GetDataSourceRowIndex(SUNT_BUNT_CODELookUpEdit.Properties.ValueMember, SUNT_BUNT_CODELookUpEdit.EditValue);
-      //   }
-      //   catch
-      //   {
-      //   }
-      //}
-
       private void RqstBnADocPicProfile1_Click(object sender, EventArgs e)
       {
          try
@@ -2312,6 +1767,11 @@ namespace System.Scsc.Ui.Admission
          SexFltr_Pkb.Visible = true;
          SexFltr_Pkb.ImageIndexPickDown = SexFltr_Pkb.ImageIndexPickUp = figh.SEX_TYPE_DNRM == "001" ? 4 : 5;
          SexFltr_Pkb_PickCheckedChange(null);
+
+         NoteBs.DataSource =
+            iScsc.Notes.Where(n => n.FIGH_FILE_NO == figh.FILE_NO);
+         FGrpBs.DataSource =
+            iScsc.Fighter_Groupings.Where(g => g.GROP_STAT == "002" && g.FIGH_FILE_NO == figh.FILE_NO);
       }
 
       private void PosStng_Butn_Click(object sender, EventArgs e)
@@ -2581,7 +2041,10 @@ namespace System.Scsc.Ui.Admission
                                              new XAttribute("rqtpcode", ""),
                                              new XAttribute("router", GetType().Name),
                                              new XAttribute("callback", 20),
-                                             new XAttribute("amnt", Convert.ToInt64( PymtAmnt_Txt.EditValue) )
+                                             new XAttribute("amnt", Convert.ToInt64( PymtAmnt_Txt.EditValue)),
+                                             new XAttribute("rcpttoothracnt", Rtoa_Lov.EditValue ?? ""),
+                                             new XAttribute("flowno", FlowNo_Txt.EditValue ?? ""),
+                                             new XAttribute("rcptfilepath", RcptFilePath_Txt.EditValue ?? "")
                                           )
                                     }
                                  }
@@ -2603,7 +2066,10 @@ namespace System.Scsc.Ui.Admission
                                  new XAttribute("rqstrqid", pymt.RQST_RQID),
                                  new XAttribute("amnt", PymtAmnt_Txt.EditValue ?? 0),
                                  new XAttribute("rcptmtod", "003"),
-                                 new XAttribute("actndate", PymtDate_DateTime001.Value.HasValue ? PymtDate_DateTime001.Value.Value.Date.ToString("yyyy-MM-dd") : DateTime.Now.Date.ToString("yyyy-MM-dd"))
+                                 new XAttribute("actndate", PymtDate_DateTime001.Value.HasValue ? PymtDate_DateTime001.Value.Value.Date.ToString("yyyy-MM-dd") : DateTime.Now.Date.ToString("yyyy-MM-dd")),
+                                 new XAttribute("rcpttoothracnt", Rtoa_Lov.EditValue ?? ""),
+                                 new XAttribute("flowno", FlowNo_Txt.EditValue ?? ""),
+                                 new XAttribute("rcptfilepath", RcptFilePath_Txt.EditValue ?? "")
                               )
                            )
                         )
@@ -2620,7 +2086,10 @@ namespace System.Scsc.Ui.Admission
                               new XAttribute("rqstrqid", pymt.RQST_RQID),
                               new XAttribute("amnt", PymtAmnt_Txt.EditValue ?? 0),
                               new XAttribute("rcptmtod", RcmtType_Lov.EditValue ?? "001"),
-                              new XAttribute("actndate", PymtDate_DateTime001.Value.HasValue ? PymtDate_DateTime001.Value.Value.Date.ToString("yyyy-MM-dd") : DateTime.Now.Date.ToString("yyyy-MM-dd"))
+                              new XAttribute("actndate", PymtDate_DateTime001.Value.HasValue ? PymtDate_DateTime001.Value.Value.Date.ToString("yyyy-MM-dd") : DateTime.Now.Date.ToString("yyyy-MM-dd")),
+                              new XAttribute("rcpttoothracnt", Rtoa_Lov.EditValue ?? ""),
+                              new XAttribute("flowno", FlowNo_Txt.EditValue ?? ""),
+                              new XAttribute("rcptfilepath", RcptFilePath_Txt.EditValue ?? "")
                            )
                         )
                      )
@@ -2630,6 +2099,9 @@ namespace System.Scsc.Ui.Admission
 
             PymtAmnt_Txt.EditValue = null;
             PymtDate_DateTime001.Value = DateTime.Now;
+            Rtoa_Lov.EditValue = null;
+            FlowNo_Txt.EditValue = null;
+            RcptFilePath_Txt.EditValue = null;
             RcmtType_Lov.Focus();
             requery = true;
          }
@@ -3047,6 +2519,121 @@ namespace System.Scsc.Ui.Admission
          {
             MessageBox.Show(exc.Message);
          }
+      }
+
+      private void PydtBn1_ButtonClick(object sender, NavigatorButtonClickEventArgs e)
+      {
+
+      }
+
+      private void Adm_Tc_SelectedIndexChanged(object sender, EventArgs e)
+      {
+         try
+         {
+            var _rqst = RqstBs3.Current as Data.Request;
+            if (_rqst == null) return;
+
+            switch (Adm_Tc.SelectedTab.Name)
+            {
+               case "tp_005":
+                  var _mbsp = MbspBs.Current as Data.Member_Ship;
+                  if (_mbsp == null) return;
+
+                  AttnBs2.DataSource = _mbsp.Attendances.Where(a => a.ATTN_STAT == "002");
+                  break;
+               default:
+                  break;
+            }            
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void CapacityCycle_Lb_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _cbmt = iScsc.Club_Methods.First(cm => cm.CODE == (long)CbmtCode_Lov.EditValue);
+            if (_cbmt == null) return;
+
+            ListMbspBs.DataSource =
+               iScsc.Member_Ships
+                  .Where(ms =>
+                     ms.RECT_CODE == "004" &&
+                     ms.VALD_TYPE == "002" &&
+                     ms.STRT_DATE.Value.Date <= DateTime.Now.Date &&
+                     ms.END_DATE.Value.Date >= DateTime.Now.Date &&
+                     (ms.NUMB_OF_ATTN_MONT == 0 || ms.NUMB_OF_ATTN_MONT > ms.SUM_ATTN_MONT_DNRM) &&
+                     ms.Fighter_Public.CBMT_CODE == _cbmt.CODE
+                  );
+
+            if(ListMbspBs.List.Count > 0)
+            {
+               Adm_Tc.SelectedTab = tp_006;
+               More_Tc.SelectedTab = tp_007;
+               CochName_Txt.Text = _cbmt.Fighter.NAME_DNRM;
+               MtodName_Txt.Text = _cbmt.Method.MTOD_DESC;
+               QStrtTime_Tim.EditValue = _cbmt.STRT_TIME;
+               QEndTime_Tim.EditValue = _cbmt.END_TIME;
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void Rtoa_Lov_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            switch (e.Button.Index)
+            {
+               case 1:
+                  _DefaultGateway.Gateway(
+                     new Job(SendType.External, "localhost",
+                        new List<Job>
+                        {
+                           new Job(SendType.Self, 154 /* Execute Apbs_Dfin_F */),
+                           new Job(SendType.SelfToUserInterface, "APBS_DFIN_F", 10 /* Execute Actn_CalF_F */)
+                           {
+                              Input = 
+                                 new XElement("App_Base",
+                                    new XAttribute("tablename", "Payment_To_Another_Account"),
+                                    new XAttribute("formcaller", GetType().Name)
+                                 )
+                           }
+                        }
+                     )
+                  );
+                  break;
+               default:
+                  break;
+            }            
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void ListMbspBs_CurrentChanged(object sender, EventArgs e)
+      {
+         var _mbsp = ListMbspBs.Current as Data.Member_Ship;
+         if (_mbsp == null) return;
+
+         long? _rqid = 0;
+         if (_mbsp.RWNO == 1)
+            _rqid = _mbsp.Request_Row.Request.Request1.RQID;
+         else
+            _rqid = _mbsp.RQRO_RQST_RQID;
+
+         ExpnAmnt1_Txt.EditValue = iScsc.Payment_Details.Where(pd => pd.PYMT_RQST_RQID == _rqid).Sum(pd => (pd.EXPN_PRIC + pd.EXPN_EXTR_PRCT) * pd.QNTY);
+         DscnAmnt1_Txt.EditValue = iScsc.Payment_Discounts.Where(pd => pd.PYMT_RQST_RQID == _rqid).Sum(pd => pd.AMNT);
+         PymtAmnt2_Txt.EditValue = iScsc.Payment_Methods.Where(pd => pd.PYMT_RQST_RQID == _rqid).Sum(pd => pd.AMNT);
+         DebtPymtAmnt1_Txt.EditValue = Convert.ToInt64(ExpnAmnt_Txt.EditValue) - (Convert.ToInt64(PymtAmnt1_Txt.EditValue) + Convert.ToInt64(DscnAmnt_Txt.EditValue));
       }
    }
 }

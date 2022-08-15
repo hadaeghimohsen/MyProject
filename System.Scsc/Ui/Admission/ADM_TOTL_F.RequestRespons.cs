@@ -512,7 +512,6 @@ namespace System.Scsc.Ui.Admission
             RqttBs1.DataSource = iScsc.Requester_Types.Where(rqtt => rqtt.CODE == "001" || rqtt.CODE == "004" /*|| rqtt.CODE == "005" || rqtt.CODE == "006"*/);
             
             DCyclBs1.DataSource = iScsc.D_CYCLs;
-
             DDytpBs1.DataSource = iScsc.D_DYTPs;
             DRcmtBs1.DataSource = iScsc.D_RCMTs;
             DAtypBs1.DataSource = iScsc.D_ATYPs;
@@ -520,6 +519,7 @@ namespace System.Scsc.Ui.Admission
             DsxtpBs.DataSource = iScsc.D_SXTPs;
             DDsatBs.DataSource = iScsc.D_DSATs;
             DCetpBs.DataSource = iScsc.D_CETPs;
+            DYsnoBs.DataSource = iScsc.D_YSNOs;
             PrvnBs1.DataSource = iScsc.Provinces.Where(p => Fga_Uprv_U.Split(',').Contains(p.CODE));
 
             isFirstLoaded = true;
@@ -529,6 +529,7 @@ namespace System.Scsc.Ui.Admission
          #endregion
 
       finishcommand:
+         RtoaBs.DataSource = iScsc.App_Base_Defines.Where(a => a.ENTY_NAME == "Payment_To_Another_Account");
          VPosBs1.DataSource = iScsc.V_Pos_Devices;
          if (VPosBs1.List.OfType<Data.V_Pos_Device>().FirstOrDefault(p => p.GTWY_MAC_ADRS == HostNameInfo.Attribute("cpu").Value) != null)
             Pos_Lov.EditValue = VPosBs1.List.OfType<Data.V_Pos_Device>().FirstOrDefault(p => p.GTWY_MAC_ADRS == HostNameInfo.Attribute("cpu").Value).PSID;

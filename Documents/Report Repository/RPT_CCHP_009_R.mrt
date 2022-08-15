@@ -771,9 +771,11 @@
           <Name>DataVF$Coach_Payment</Name>
           <Page isRef="4" />
           <Parent isRef="4" />
-          <Sort isList="true" count="2">
+          <Sort isList="true" count="4">
             <value>ASC</value>
             <value>MBSP_STRT_DATE</value>
+            <value>ASC</value>
+            <value>FNGR_PRNT_DNRM</value>
           </Sort>
         </DataVF_x0024_Coach_Payment>
         <GroupFooterBand1 Ref="48" type="GroupFooterBand" isKey="true">
@@ -1333,10 +1335,10 @@
     <value>Stimulsoft.Report.Dll</value>
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
-  <ReportChanged>8/14/2022 11:23:45 AM</ReportChanged>
+  <ReportChanged>8/14/2022 3:58:03 PM</ReportChanged>
   <ReportCreated>11/19/2017 1:40:49 PM</ReportCreated>
   <ReportFile>D:\Project\MyProject\Documents\Report Repository\RPT_CCHP_009_R.mrt</ReportFile>
-  <ReportGuid>a433b2f54a4d4092a9ee55850744aa64</ReportGuid>
+  <ReportGuid>3dd6b8a378ae4367bc445c84814949c5</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Centimeters</ReportUnit>
   <ReportVersion>2012.2.1304</ReportVersion>

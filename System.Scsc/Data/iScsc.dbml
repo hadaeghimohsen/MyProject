@@ -1427,13 +1427,13 @@
       <Association Name="Request_Row_Payment_Check" Member="Payment_Checks" ThisKey="RQST_RQID,RWNO" OtherKey="RQRO_RQST_RQID,RQRO_RWNO" Type="Payment_Check" />
       <Association Name="Request_Row_Payment_Expense" Member="Payment_Expenses" ThisKey="RQST_RQID,RWNO" OtherKey="RQRO_RQST_RQID,RQRO_RWNO" Type="Payment_Expense" />
       <Association Name="Request_Row_Product_Service" Member="Product_Services" ThisKey="RQST_RQID,RWNO" OtherKey="RQRO_RQST_RQID,RQRO_RWNO" Type="Product_Service" />
-      <Association Name="Request_Row_Payment_Method" Member="Payment_Methods" ThisKey="RQST_RQID,RWNO" OtherKey="RQRO_RQST_RQID,RQRO_RWNO" Type="Payment_Method" />
       <Association Name="Request_Row_Gain_Loss_Rial" Member="Gain_Loss_Rials" ThisKey="RQST_RQID,RWNO" OtherKey="RQRO_RQST_RQID_DNRM,RQRO_RWNO_DNRM" Type="Gain_Loss_Rial" />
       <Association Name="Request_Row_Gain_Loss_Rial1" Member="Gain_Loss_Rials1" ThisKey="RQST_RQID,RWNO" OtherKey="RQRO_RQST_RQID,RQRO_RWNO" Type="Gain_Loss_Rial" />
       <Association Name="Request_Row_Member_Ship" Member="Member_Ships" ThisKey="RQST_RQID,RWNO" OtherKey="RQRO_RQST_RQID,RQRO_RWNO" Type="Member_Ship" />
       <Association Name="Request_Row_Payment_Detail" Member="Payment_Details" ThisKey="RQST_RQID,RWNO" OtherKey="PYMT_RQST_RQID,RQRO_RWNO" Type="Payment_Detail" />
       <Association Name="Request_Row_Fighter_Public" Member="Fighter_Publics" ThisKey="RQST_RQID,RWNO" OtherKey="RQRO_RQST_RQID,RQRO_RWNO" Type="Fighter_Public" />
       <Association Name="Request_Row_Payment_Discount" Member="Payment_Discounts" ThisKey="RQST_RQID,RWNO" OtherKey="PYMT_RQST_RQID,RQRO_RWNO" Type="Payment_Discount" />
+      <Association Name="Request_Row_Payment_Method" Member="Payment_Methods" ThisKey="RQST_RQID,RWNO" OtherKey="RQRO_RQST_RQID,RQRO_RWNO" Type="Payment_Method" />
       <Association Name="Region_Request_Row" Member="Region" ThisKey="REGN_PRVN_CNTY_CODE,REGN_PRVN_CODE,REGN_CODE" OtherKey="PRVN_CNTY_CODE,PRVN_CODE,CODE" Type="Region" IsForeignKey="true" />
       <Association Name="Requester_Type_Request_Row" Member="Requester_Type" ThisKey="RQTT_CODE" OtherKey="CODE" Type="Requester_Type" IsForeignKey="true" />
       <Association Name="Request_Type_Request_Row" Member="Request_Type" ThisKey="RQTP_CODE" OtherKey="CODE" Type="Request_Type" IsForeignKey="true" />
@@ -3263,9 +3263,9 @@
       <Association Name="Payment_Account_Detail" Member="Account_Details" ThisKey="CASH_CODE,RQST_RQID" OtherKey="PYMT_CASH_CODE,PYMT_RQST_RQID" Type="Account_Detail" />
       <Association Name="Payment_Payment_Check" Member="Payment_Checks" ThisKey="CASH_CODE,RQST_RQID" OtherKey="PYMT_CASH_CODE,PYMT_RQST_RQID" Type="Payment_Check" />
       <Association Name="Payment_Payment_Cost" Member="Payment_Costs" ThisKey="CASH_CODE,RQST_RQID" OtherKey="PYMT_CASH_CODE,PYMT_RQST_RQID" Type="Payment_Cost" />
-      <Association Name="Payment_Payment_Method" Member="Payment_Methods" ThisKey="CASH_CODE,RQST_RQID" OtherKey="PYMT_CASH_CODE,PYMT_RQST_RQID" Type="Payment_Method" />
       <Association Name="Payment_Payment_Detail" Member="Payment_Details" ThisKey="CASH_CODE,RQST_RQID" OtherKey="PYMT_CASH_CODE,PYMT_RQST_RQID" Type="Payment_Detail" />
       <Association Name="Payment_Payment_Discount" Member="Payment_Discounts" ThisKey="CASH_CODE,RQST_RQID" OtherKey="PYMT_CASH_CODE,PYMT_RQST_RQID" Type="Payment_Discount" />
+      <Association Name="Payment_Payment_Method" Member="Payment_Methods" ThisKey="CASH_CODE,RQST_RQID" OtherKey="PYMT_CASH_CODE,PYMT_RQST_RQID" Type="Payment_Method" />
       <Association Name="Cash_Payment" Member="Cash" ThisKey="CASH_CODE" OtherKey="CODE" Type="Cash" IsForeignKey="true" />
       <Association Name="Club_Payment" Member="Club" ThisKey="CLUB_CODE_DNRM" OtherKey="CODE" Type="Club" IsForeignKey="true" />
       <Association Name="Regulation_Payment" Member="Regulation" ThisKey="REGL_YEAR_DNRM,REGL_CODE_DNRM" OtherKey="YEAR,CODE" Type="Regulation" IsForeignKey="true" />
@@ -3443,34 +3443,6 @@
     <Type Name="D_ACTN">
       <Column Name="VALU" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
       <Column Name="DOMN_DESC" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Payment_Method" Member="Payment_Methods">
-    <Type Name="Payment_Method">
-      <Column Name="PYMT_CASH_CODE" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="PYMT_RQST_RQID" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="RQRO_RQST_RQID" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="RQRO_RWNO" Type="System.Int16" DbType="SmallInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="RWNO" Type="System.Int16" DbType="SmallInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="FIGH_FILE_NO_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="AMNT" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="RCPT_MTOD" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="TERM_NO" Type="System.String" DbType="VarChar(20)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="TRAN_NO" Type="System.String" DbType="VarChar(20)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="CARD_NO" Type="System.String" DbType="VarChar(16)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="BANK" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="FLOW_NO" Type="System.String" DbType="VarChar(20)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="REF_NO" Type="System.String" DbType="VarChar(20)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="ACTN_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="SHOP_NO" Type="System.String" DbType="VarChar(20)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="VALD_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(255)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(255)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
-      <Association Name="Payment_Payment_Method" Member="Payment" ThisKey="PYMT_CASH_CODE,PYMT_RQST_RQID" OtherKey="CASH_CODE,RQST_RQID" Type="Payment" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
-      <Association Name="Request_Row_Payment_Method" Member="Request_Row" ThisKey="RQRO_RQST_RQID,RQRO_RWNO" OtherKey="RQST_RQID,RWNO" Type="Request_Row" IsForeignKey="true" />
-      <Association Name="Fighter_Payment_Method" Member="Fighter" ThisKey="FIGH_FILE_NO_DNRM" OtherKey="FILE_NO" Type="Fighter" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.D$LOTP" Member="D_LOTPs">
@@ -4170,6 +4142,7 @@
       <Association Name="App_Base_Define_Fighter_RelationShip" Member="Fighter_RelationShips" ThisKey="CODE" OtherKey="RLTS_CODE" Type="Fighter_RelationShip" />
       <Association Name="App_Base_Define_Survey" Member="Surveys" ThisKey="CODE" OtherKey="SURV_APBS_CODE" Type="Survey" />
       <Association Name="App_Base_Define_Fighter_Call" Member="Fighter_Calls" ThisKey="CODE" OtherKey="RSLT_APBS_CODE" Type="Fighter_Call" />
+      <Association Name="App_Base_Define_Payment_Method" Member="Payment_Methods" ThisKey="CODE" OtherKey="RCPT_TO_OTHR_ACNT" Type="Payment_Method" />
       <Association Name="App_Base_Define_App_Base_Define" Member="App_Base_Define1" ThisKey="REF_CODE" OtherKey="CODE" Type="App_Base_Define" IsForeignKey="true" />
     </Type>
     <InsertFunction FunctionId="FunctionId97">
@@ -4640,7 +4613,6 @@
       <Association Name="Fighter_Misc_Expense" Member="Misc_Expenses" ThisKey="FILE_NO" OtherKey="COCH_FILE_NO" Type="Misc_Expense" />
       <Association Name="Fighter_Club_Method" Member="Club_Methods" ThisKey="FILE_NO" OtherKey="COCH_FILE_NO" Type="Club_Method" />
       <Association Name="Fighter_Aggregation_Operation" Member="Aggregation_Operations" ThisKey="FILE_NO" OtherKey="COCH_FILE_NO" Type="Aggregation_Operation" />
-      <Association Name="Fighter_Payment_Method" Member="Payment_Methods" ThisKey="FILE_NO" OtherKey="FIGH_FILE_NO_DNRM" Type="Payment_Method" />
       <Association Name="Fighter_Log_Operation" Member="Log_Operations" ThisKey="FILE_NO" OtherKey="FIGH_FILE_NO" Type="Log_Operation" />
       <Association Name="Fighter_Calculate_Expense_Coach" Member="Calculate_Expense_Coaches" ThisKey="FILE_NO" OtherKey="COCH_FILE_NO" Type="Calculate_Expense_Coach" />
       <Association Name="Fighter_Gain_Loss_Rial" Member="Gain_Loss_Rials" ThisKey="FILE_NO" OtherKey="FIGH_FILE_NO" Type="Gain_Loss_Rial" />
@@ -4660,6 +4632,7 @@
       <Association Name="Fighter_Fighter_Public1" Member="Fighter_Publics1" ThisKey="FILE_NO" OtherKey="REF_CODE" Type="Fighter_Public" />
       <Association Name="Fighter_Fighter" Member="Fighters" ThisKey="FILE_NO" OtherKey="REF_CODE_DNRM" Type="Fighter" />
       <Association Name="Fighter_Payment_Discount" Member="Payment_Discounts" ThisKey="FILE_NO" OtherKey="FIGH_FILE_NO_DNRM" Type="Payment_Discount" />
+      <Association Name="Fighter_Payment_Method" Member="Payment_Methods" ThisKey="FILE_NO" OtherKey="FIGH_FILE_NO_DNRM" Type="Payment_Method" />
       <Association Name="Club_Fighter" Member="Club" ThisKey="CLUB_CODE_DNRM" OtherKey="CODE" Type="Club" IsForeignKey="true" />
       <Association Name="Category_Belt_Fighter" Member="Category_Belt" ThisKey="CTGY_CODE_DNRM" OtherKey="CODE" Type="Category_Belt" IsForeignKey="true" />
       <Association Name="Fighter_Fighter" Member="Fighter1" ThisKey="REF_CODE_DNRM" OtherKey="FILE_NO" Type="Fighter" IsForeignKey="true" />
@@ -4750,6 +4723,37 @@
       <Argument Parameter="rqro_Rwno" Member="RQRO_RWNO" />
       <Argument Parameter="rwno" Member="RWNO" />
     </DeleteFunction>
+  </Table>
+  <Table Name="dbo.Payment_Method" Member="Payment_Methods">
+    <Type Name="Payment_Method">
+      <Column Name="PYMT_CASH_CODE" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PYMT_RQST_RQID" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="RQRO_RQST_RQID" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="RQRO_RWNO" Type="System.Int16" DbType="SmallInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="RWNO" Type="System.Int16" DbType="SmallInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="FIGH_FILE_NO_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="AMNT" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="RCPT_MTOD" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="TERM_NO" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="TRAN_NO" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="CARD_NO" Type="System.String" DbType="VarChar(16)" CanBeNull="true" />
+      <Column Name="BANK" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="FLOW_NO" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="REF_NO" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="ACTN_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="SHOP_NO" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="VALD_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="RCPT_TO_OTHR_ACNT" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="RCPT_FILE_PATH" Type="System.String" DbType="NVarChar(260)" CanBeNull="true" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="App_Base_Define_Payment_Method" Member="App_Base_Define" ThisKey="RCPT_TO_OTHR_ACNT" OtherKey="CODE" Type="App_Base_Define" IsForeignKey="true" DeleteRule="SET NULL" />
+      <Association Name="Fighter_Payment_Method" Member="Fighter" ThisKey="FIGH_FILE_NO_DNRM" OtherKey="FILE_NO" Type="Fighter" IsForeignKey="true" />
+      <Association Name="Payment_Payment_Method" Member="Payment" ThisKey="PYMT_CASH_CODE,PYMT_RQST_RQID" OtherKey="CASH_CODE,RQST_RQID" Type="Payment" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="Request_Row_Payment_Method" Member="Request_Row" ThisKey="RQRO_RQST_RQID,RQRO_RWNO" OtherKey="RQST_RQID,RWNO" Type="Request_Row" IsForeignKey="true" />
+    </Type>
   </Table>
   <Function Name="dbo.VF$Saved_Request" Method="VF_Saved_Request" IsComposable="true">
     <Parameter Name="Rqid" Parameter="rqid" Type="System.Int64" DbType="BigInt" />

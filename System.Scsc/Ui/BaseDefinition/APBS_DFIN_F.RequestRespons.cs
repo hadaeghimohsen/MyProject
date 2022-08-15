@@ -75,6 +75,8 @@ namespace System.Scsc.Ui.BaseDefinition
             {
                case "MBSP_MARK_F":
                case "AOP_BUFE_F":
+               case "ADM_FIGH_F":
+               case "ADM_TOTL_F":
                   _DefaultGateway.Gateway(
                      new Job(SendType.External, "localhost", formCaller, 07 /* Execute LoadData */, SendType.SelfToUserInterface)
                      {

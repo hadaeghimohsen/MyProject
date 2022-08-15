@@ -1767,7 +1767,10 @@ namespace System.Scsc.Ui.Admission
                                              new XAttribute("rqtpcode", ""),
                                              new XAttribute("router", GetType().Name),
                                              new XAttribute("callback", 20),
-                                             new XAttribute("amnt", Convert.ToInt64(PymtAmnt_Txt.EditValue) )
+                                             new XAttribute("amnt", Convert.ToInt64(PymtAmnt_Txt.EditValue)),
+                                             new XAttribute("rcpttoothracnt", Rtoa_Lov.EditValue ?? ""),
+                                             new XAttribute("flowno", FlowNo_Txt.EditValue ?? ""),
+                                             new XAttribute("rcptfilepath", RcptFilePath_Txt.EditValue ?? "")
                                           )
                                     }
                                  }
@@ -1789,7 +1792,10 @@ namespace System.Scsc.Ui.Admission
                                  new XAttribute("rqstrqid", pymt.RQST_RQID),
                                  new XAttribute("amnt", PymtAmnt_Txt.EditValue ?? 0),
                                  new XAttribute("rcptmtod", "003"),
-                                 new XAttribute("actndate", PymtDate_DateTime001.Value.HasValue ? PymtDate_DateTime001.Value.Value.Date.ToString("yyyy-MM-dd") : DateTime.Now.Date.ToString("yyyy-MM-dd"))
+                                 new XAttribute("actndate", PymtDate_DateTime001.Value.HasValue ? PymtDate_DateTime001.Value.Value.Date.ToString("yyyy-MM-dd") : DateTime.Now.Date.ToString("yyyy-MM-dd")),
+                                 new XAttribute("rcpttoothracnt", Rtoa_Lov.EditValue ?? ""),
+                                 new XAttribute("flowno", FlowNo_Txt.EditValue ?? ""),
+                                 new XAttribute("rcptfilepath", RcptFilePath_Txt.EditValue ?? "")
                               )
                            )
                         )
@@ -1806,7 +1812,10 @@ namespace System.Scsc.Ui.Admission
                               new XAttribute("rqstrqid", pymt.RQST_RQID),
                               new XAttribute("amnt", PymtAmnt_Txt.EditValue ?? 0),
                               new XAttribute("rcptmtod", RcmtType_Lov.EditValue ?? "001"),
-                              new XAttribute("actndate", PymtDate_DateTime001.Value.HasValue ? PymtDate_DateTime001.Value.Value.Date.ToString("yyyy-MM-dd") : DateTime.Now.Date.ToString("yyyy-MM-dd"))
+                              new XAttribute("actndate", PymtDate_DateTime001.Value.HasValue ? PymtDate_DateTime001.Value.Value.Date.ToString("yyyy-MM-dd") : DateTime.Now.Date.ToString("yyyy-MM-dd")),
+                              new XAttribute("rcpttoothracnt", Rtoa_Lov.EditValue ?? ""),
+                              new XAttribute("flowno", FlowNo_Txt.EditValue ?? ""),
+                              new XAttribute("rcptfilepath", RcptFilePath_Txt.EditValue ?? "")
                            )
                         )
                      )
@@ -1816,6 +1825,9 @@ namespace System.Scsc.Ui.Admission
 
             PymtAmnt_Txt.EditValue = null;
             PymtDate_DateTime001.Value = DateTime.Now;
+            Rtoa_Lov.EditValue = null;
+            FlowNo_Txt.EditValue = null;
+            RcptFilePath_Txt.EditValue = null;
             RcmtType_Lov.Focus();
             requery = true;
          }
@@ -2038,6 +2050,91 @@ namespace System.Scsc.Ui.Admission
          {
             MessageBox.Show(exc.Message);
          }
+      }
+
+      private void Rtoa_Lov_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            switch (e.Button.Index)
+            {
+               case 1:
+                  _DefaultGateway.Gateway(
+                     new Job(SendType.External, "localhost",
+                        new List<Job>
+                        {
+                           new Job(SendType.Self, 154 /* Execute Apbs_Dfin_F */),
+                           new Job(SendType.SelfToUserInterface, "APBS_DFIN_F", 10 /* Execute Actn_CalF_F */)
+                           {
+                              Input = 
+                                 new XElement("App_Base",
+                                    new XAttribute("tablename", "Payment_To_Another_Account"),
+                                    new XAttribute("formcaller", GetType().Name)
+                                 )
+                           }
+                        }
+                     )
+                  );
+                  break;
+               default:
+                  break;
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void CapacityCycle_Lb_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _cbmt = iScsc.Club_Methods.First(cm => cm.CODE == (long)CbmtCode_Lov.EditValue);
+            if (_cbmt == null) return;
+
+            ListMbspBs.DataSource =
+               iScsc.Member_Ships
+                  .Where(ms =>
+                     ms.RECT_CODE == "004" &&
+                     ms.VALD_TYPE == "002" &&
+                     ms.STRT_DATE.Value.Date <= DateTime.Now.Date &&
+                     ms.END_DATE.Value.Date >= DateTime.Now.Date &&
+                     (ms.NUMB_OF_ATTN_MONT == 0 || ms.NUMB_OF_ATTN_MONT > ms.SUM_ATTN_MONT_DNRM) &&
+                     ms.Fighter_Public.CBMT_CODE == _cbmt.CODE
+                  );
+
+            if (ListMbspBs.List.Count > 0)
+            {
+               Adm_Tc.SelectedTab = More_Tp;
+               More_Tc.SelectedTab = tp_007;
+               CochName_Txt.Text = _cbmt.Fighter.NAME_DNRM;
+               MtodName_Txt.Text = _cbmt.Method.MTOD_DESC;
+               QStrtTime_Tim.EditValue = _cbmt.STRT_TIME;
+               QEndTime_Tim.EditValue = _cbmt.END_TIME;
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void ListMbspBs_CurrentChanged(object sender, EventArgs e)
+      {
+         var _mbsp = ListMbspBs.Current as Data.Member_Ship;
+         if (_mbsp == null) return;
+
+         long? _rqid = 0;
+         if (_mbsp.RWNO == 1)
+            _rqid = _mbsp.Request_Row.Request.Request1.RQID;
+         else
+            _rqid = _mbsp.RQRO_RQST_RQID;
+
+         ExpnAmnt_Txt.EditValue = iScsc.Payment_Details.Where(pd => pd.PYMT_RQST_RQID == _rqid).Sum(pd => (pd.EXPN_PRIC + pd.EXPN_EXTR_PRCT) * pd.QNTY);
+         DscnAmnt_Txt.EditValue = iScsc.Payment_Discounts.Where(pd => pd.PYMT_RQST_RQID == _rqid).Sum(pd => pd.AMNT);
+         PymtAmnt1_Txt.EditValue = iScsc.Payment_Methods.Where(pd => pd.PYMT_RQST_RQID == _rqid).Sum(pd => pd.AMNT);
+         DebtPymtAmnt1_Txt.EditValue = Convert.ToInt64(ExpnAmnt_Txt.EditValue) - (Convert.ToInt64(PymtAmnt1_Txt.EditValue) + Convert.ToInt64(DscnAmnt_Txt.EditValue));
       }
    }
 }

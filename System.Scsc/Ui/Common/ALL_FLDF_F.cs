@@ -2995,6 +2995,7 @@ namespace System.Scsc.Ui.Common
             var _fgdc = FgdcBs.Current as Data.Fighter_Discount_Card;
             if (_fgdc == null || _fgdc.CODE == 0) return;
 
+            if (_fgdc.RQST_RQID != null && _fgdc.STAT == "001") { MessageBox.Show(this, string.Format("این رکورد تخفیف برای شماره درخواست " + "[ {0} ]" + " استفاده شده است و دیگر قادر به ویرایش آن نیستید.", _fgdc.RQST_RQID), "عدم تغییر در رکورد تخفیف"); return; }
 
             if(_fgdc.MTOD_CODE != null && MessageBox.Show(this, "آیا با تغییرات کد تخفیف از حالت خصوصی به حالت عمومی موافق هستید؟", "تغییر وضعیت رکورد تخفیف", MessageBoxButtons.YesNo) != DialogResult.Yes)
             {
@@ -3055,6 +3056,8 @@ namespace System.Scsc.Ui.Common
          {
             var _fgdc = FgdcBs.Current as Data.Fighter_Discount_Card;
             if (_fgdc == null) return;
+
+            if (_fgdc.RQST_RQID != null && _fgdc.STAT == "001") { MessageBox.Show(this, string.Format("این رکورد تخفیف برای شماره درخواست " + "[ {0} ]" + " استفاده شده است و دیگر قادر به ویرایش آن نیستید.", _fgdc.RQST_RQID), "عدم تغییر در رکورد تخفیف"); return; }
 
             iScsc.ExecuteCommand("UPDATE dbo.Fighter_Discount_Card SET STAT = {1} WHERE CODE = {0};", _fgdc.CODE, (_fgdc.STAT == "001" ? "002" : "001"));
             requery = true;

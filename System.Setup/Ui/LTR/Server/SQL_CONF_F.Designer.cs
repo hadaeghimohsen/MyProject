@@ -29,9 +29,9 @@
       private void InitializeComponent()
       {
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SQL_CONF_F));
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
          this.panel1 = new System.Windows.Forms.Panel();
          this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
          this.Back_Butn = new DevExpress.XtraEditors.SimpleButton();
@@ -83,6 +83,13 @@
          this.SelectBackupFile_Ofd = new System.Windows.Forms.OpenFileDialog();
          this.SelectPathTargetDbFile_Fbd = new System.Windows.Forms.FolderBrowserDialog();
          this.SelectDatabaseFile_Ofd = new System.Windows.Forms.OpenFileDialog();
+         this.tp_005 = new System.Windows.Forms.TabPage();
+         this.labelControl13 = new DevExpress.XtraEditors.LabelControl();
+         this.tabControl1 = new System.Windows.Forms.TabControl();
+         this.tabPage1 = new System.Windows.Forms.TabPage();
+         this.tabPage2 = new System.Windows.Forms.TabPage();
+         this.tabPage3 = new System.Windows.Forms.TabPage();
+         this.tabPage4 = new System.Windows.Forms.TabPage();
          this.panel1.SuspendLayout();
          this.Tb_Master.SuspendLayout();
          this.tp_001.SuspendLayout();
@@ -94,6 +101,8 @@
          ((System.ComponentModel.ISupportInitialize)(this.BackupFile_Txt.Properties)).BeginInit();
          this.tp_003.SuspendLayout();
          this.tp_004.SuspendLayout();
+         this.tp_005.SuspendLayout();
+         this.tabControl1.SuspendLayout();
          this.SuspendLayout();
          // 
          // panel1
@@ -139,6 +148,7 @@
          this.Tb_Master.Controls.Add(this.tp_001);
          this.Tb_Master.Controls.Add(this.tp_002);
          this.Tb_Master.Controls.Add(this.tp_003);
+         this.Tb_Master.Controls.Add(this.tp_005);
          this.Tb_Master.Controls.Add(this.tp_004);
          this.Tb_Master.Dock = System.Windows.Forms.DockStyle.Fill;
          this.Tb_Master.Location = new System.Drawing.Point(0, 59);
@@ -237,7 +247,7 @@
          this.Server_Txt.Properties.AppearanceFocused.Options.UseBorderColor = true;
          this.Server_Txt.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
          this.Server_Txt.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject4, "", null, null, true)});
          this.Server_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.Server_Txt.Properties.NullText = "---";
          this.Server_Txt.Properties.NullValuePrompt = "---";
@@ -601,7 +611,7 @@
          this.PathTargetDbFile_Txt.Properties.AppearanceFocused.Options.UseBorderColor = true;
          this.PathTargetDbFile_Txt.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
          this.PathTargetDbFile_Txt.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
          this.PathTargetDbFile_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.PathTargetDbFile_Txt.Properties.NullText = "---";
          this.PathTargetDbFile_Txt.Properties.NullValuePrompt = "---";
@@ -640,7 +650,7 @@
          this.BackupFile_Txt.Properties.AppearanceFocused.Options.UseBorderColor = true;
          this.BackupFile_Txt.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
          this.BackupFile_Txt.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject3, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
          this.BackupFile_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.BackupFile_Txt.Properties.NullText = "---";
          this.BackupFile_Txt.Properties.NullValuePrompt = "---";
@@ -902,6 +912,86 @@
          this.SelectDatabaseFile_Ofd.Filter = "Database File|*.*";
          this.SelectDatabaseFile_Ofd.Multiselect = true;
          // 
+         // tp_005
+         // 
+         this.tp_005.Controls.Add(this.tabControl1);
+         this.tp_005.Controls.Add(this.labelControl13);
+         this.tp_005.Location = new System.Drawing.Point(4, 23);
+         this.tp_005.Name = "tp_005";
+         this.tp_005.Padding = new System.Windows.Forms.Padding(3);
+         this.tp_005.Size = new System.Drawing.Size(1142, 460);
+         this.tp_005.TabIndex = 4;
+         this.tp_005.Text = "Initialization data";
+         this.tp_005.UseVisualStyleBackColor = true;
+         // 
+         // labelControl13
+         // 
+         this.labelControl13.Appearance.BackColor = System.Drawing.SystemColors.Info;
+         this.labelControl13.Appearance.Font = new System.Drawing.Font("IRANSans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.labelControl13.Appearance.ForeColor = System.Drawing.Color.Black;
+         this.labelControl13.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("labelControl13.Appearance.Image")));
+         this.labelControl13.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+         this.labelControl13.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+         this.labelControl13.Dock = System.Windows.Forms.DockStyle.Top;
+         this.labelControl13.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.LeftTop;
+         this.labelControl13.Location = new System.Drawing.Point(3, 3);
+         this.labelControl13.Name = "labelControl13";
+         this.labelControl13.Size = new System.Drawing.Size(1136, 36);
+         this.labelControl13.TabIndex = 66;
+         this.labelControl13.Text = "Initialization data";
+         // 
+         // tabControl1
+         // 
+         this.tabControl1.Controls.Add(this.tabPage1);
+         this.tabControl1.Controls.Add(this.tabPage2);
+         this.tabControl1.Controls.Add(this.tabPage3);
+         this.tabControl1.Controls.Add(this.tabPage4);
+         this.tabControl1.Location = new System.Drawing.Point(36, 77);
+         this.tabControl1.Name = "tabControl1";
+         this.tabControl1.SelectedIndex = 0;
+         this.tabControl1.Size = new System.Drawing.Size(1068, 350);
+         this.tabControl1.TabIndex = 67;
+         // 
+         // tabPage1
+         // 
+         this.tabPage1.Location = new System.Drawing.Point(4, 23);
+         this.tabPage1.Name = "tabPage1";
+         this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+         this.tabPage1.Size = new System.Drawing.Size(1060, 323);
+         this.tabPage1.TabIndex = 0;
+         this.tabPage1.Text = "iProject";
+         this.tabPage1.UseVisualStyleBackColor = true;
+         // 
+         // tabPage2
+         // 
+         this.tabPage2.Location = new System.Drawing.Point(4, 23);
+         this.tabPage2.Name = "tabPage2";
+         this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+         this.tabPage2.Size = new System.Drawing.Size(1060, 323);
+         this.tabPage2.TabIndex = 1;
+         this.tabPage2.Text = "iRoboTech";
+         this.tabPage2.UseVisualStyleBackColor = true;
+         // 
+         // tabPage3
+         // 
+         this.tabPage3.Location = new System.Drawing.Point(4, 23);
+         this.tabPage3.Name = "tabPage3";
+         this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+         this.tabPage3.Size = new System.Drawing.Size(1060, 323);
+         this.tabPage3.TabIndex = 2;
+         this.tabPage3.Text = "iScsc";
+         this.tabPage3.UseVisualStyleBackColor = true;
+         // 
+         // tabPage4
+         // 
+         this.tabPage4.Location = new System.Drawing.Point(4, 23);
+         this.tabPage4.Name = "tabPage4";
+         this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+         this.tabPage4.Size = new System.Drawing.Size(1060, 323);
+         this.tabPage4.TabIndex = 3;
+         this.tabPage4.Text = "iCRM";
+         this.tabPage4.UseVisualStyleBackColor = true;
+         // 
          // SQL_CONF_F
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -926,6 +1016,8 @@
          this.tp_003.ResumeLayout(false);
          this.tp_003.PerformLayout();
          this.tp_004.ResumeLayout(false);
+         this.tp_005.ResumeLayout(false);
+         this.tabControl1.ResumeLayout(false);
          this.ResumeLayout(false);
 
       }
@@ -983,6 +1075,13 @@
       private DevExpress.XtraEditors.SimpleButton SetCurrentCompName_Butn;
       private Windows.Forms.CheckBox EmptyDb_Cb;
       private Windows.Forms.CheckBox AttachEmptydb_Cb;
+      private Windows.Forms.TabPage tp_005;
+      private DevExpress.XtraEditors.LabelControl labelControl13;
+      private Windows.Forms.TabControl tabControl1;
+      private Windows.Forms.TabPage tabPage1;
+      private Windows.Forms.TabPage tabPage2;
+      private Windows.Forms.TabPage tabPage3;
+      private Windows.Forms.TabPage tabPage4;
 
    }
 }

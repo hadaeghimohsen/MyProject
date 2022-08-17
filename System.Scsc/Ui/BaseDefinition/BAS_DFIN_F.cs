@@ -4582,7 +4582,91 @@ namespace System.Scsc.Ui.BaseDefinition
 
       private void DelTmp_Butn_Click(object sender, EventArgs e)
       {
+         try
+         {
+            var _tmp = TmplBs.Current as Data.Template;
+            if (_tmp == null) return;
 
+            if (MessageBox.Show(this, "آیا با حذف رکورد موافق هستید؟", "حذف رکورد", MessageBoxButtons.YesNo) != DialogResult.Yes) return;
+
+            iScsc.Templates.DeleteOnSubmit(_tmp);
+            iScsc.SubmitChanges();
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void NextCbmt_Butn_Click(object sender, EventArgs e)
+      {
+         CbmtBs2.MoveNext();
+      }
+
+      private void PervCbmt_Butn_Click(object sender, EventArgs e)
+      {
+         CbmtBs2.MovePrevious();
+      }
+
+      private void SaveUpdtCbmt_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _cbmt = CbmtBs2.Current as Data.Club_Method;
+            if (_cbmt == null) return;
+
+            //if (NewTarfCode_Txt.Text == "") { NewTarfCode_Txt.Focus(); return; }
+            if (NewCochFileNo_Txt.EditValue == null || NewCochFileNo_Txt.EditValue.ToString() == "") { NewCochFileNo_Txt.Focus(); return; }
+            if (NewMtodCode_Lov.EditValue == null || NewMtodCode_Lov.EditValue.ToString() == "") { NewMtodCode_Lov.Focus(); return; }
+            if (NewStrtTime_Te.EditValue == null || NewStrtTime_Te.EditValue.ToString() == "") { NewStrtTime_Te.Focus(); return; }
+            if (NewEndTime_Te.EditValue == null || NewEndTime_Te.EditValue.ToString() == "") { NewEndTime_Te.Focus(); return; }
+
+            iScsc.ExecuteCommand(
+               string.Format("UPDATE dbo.Club_Method SET Coch_File_No = {0}, Mtod_Code = {1}, Strt_Time = '{2}', End_Time = '{3}', Cbmt_Desc = N'{4}' WHERE Code = {5};",
+                  NewCochFileNo_Txt.EditValue,
+                  NewMtodCode_Lov.EditValue,
+                  NewStrtTime_Te.EditValue,
+                  NewEndTime_Te.EditValue,
+                  NewCbmtDesc_Txt.Text,
+                  _cbmt.CODE
+               )
+            );
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void CopyCbmt_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _cbmt = CbmtBs2.Current as Data.Club_Method;
+            if (_cbmt == null) return;
+
+            NewCochFileNo_Txt.EditValue = _cbmt.COCH_FILE_NO;
+            NewMtodCode_Lov.EditValue = _cbmt.MTOD_CODE;
+            NewStrtTime_Te.EditValue = _cbmt.STRT_TIME;
+            NewEndTime_Te.EditValue = _cbmt.END_TIME;
+            NewCbmtDesc_Txt.EditValue = _cbmt.CBMT_DESC;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
       }      
    }
 }

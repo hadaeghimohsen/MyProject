@@ -434,7 +434,7 @@ namespace System.Scsc.Ui.Common
          catch (Exception exc)
          {
             MessageBox.Show(exc.Message);
-         }         
+         }
       }
 
       private void MbspInfo_Butn_Click(object sender, EventArgs e)

@@ -2635,5 +2635,169 @@ namespace System.Scsc.Ui.Admission
          PymtAmnt2_Txt.EditValue = iScsc.Payment_Methods.Where(pd => pd.PYMT_RQST_RQID == _rqid).Sum(pd => pd.AMNT);
          DebtPymtAmnt1_Txt.EditValue = Convert.ToInt64(ExpnAmnt_Txt.EditValue) - (Convert.ToInt64(PymtAmnt1_Txt.EditValue) + Convert.ToInt64(DscnAmnt_Txt.EditValue));
       }
+
+      private void Rcpt2OthrAcnt_Lov_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            var _pmmt = PmmtBs3.Current as Data.Payment_Method;
+            if (_pmmt == null || _pmmt.RCPT_TO_OTHR_ACNT == null) return;
+
+            switch (e.Button.Index)
+            {
+               case 1:
+                  Adm_Tc.SelectedTab = tp_006;
+                  More_Tc.SelectedTab = tp_008;
+                  Rcpt2OthrAcnt2_Lov.EditValue = _pmmt.RCPT_TO_OTHR_ACNT;
+                  Rcpt2OthrAcnt2_Lov_ButtonClick(null, new DevExpress.XtraEditors.Controls.ButtonPressedEventArgs(Rcpt2OthrAcnt2_Lov.Properties.Buttons[1]));
+                  break;
+               default:
+                  break;
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void Rcpt2OthrAcnt2_Lov_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            if (!FPmmt_Dt.Value.HasValue)
+            {
+               FPmmt_Dt.CommitChanges();
+               var _fpmmt = FPmmt_Dt.Value;
+               if (_fpmmt.HasValue)
+               {
+                  var day = FPmmt_Dt.GetText("dd").ToInt32();
+                  if (day != 1)
+                     FPmmt_Dt.Value = FPmmt_Dt.Value.Value.AddDays((day - 1) * -1);
+                  TPmmt_Dt.Value = FPmmt_Dt.Value.Value.AddDays(30);
+               }
+               else
+               {
+                  FPmmt_Dt.Value = DateTime.Now;
+                  var day = FPmmt_Dt.GetText("dd").ToInt32();
+                  if (day != 1)
+                     FPmmt_Dt.Value = FPmmt_Dt.Value.Value.AddDays((day - 1) * -1);
+                  TPmmt_Dt.Value = FPmmt_Dt.Value.Value.AddDays(30);
+               }
+            }
+
+            ListPmmtBs.DataSource =
+               iScsc.Payment_Methods
+               .Where(pm => pm.RCPT_TO_OTHR_ACNT == (long?)Rcpt2OthrAcnt2_Lov.EditValue
+                  && pm.ACTN_DATE.Value.Date >= FPmmt_Dt.Value.Value.Date
+                  && pm.ACTN_DATE.Value.Date <= TPmmt_Dt.Value.Value.Date
+               );
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void MbspValdType_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _mbsp = ListMbspBs.Current as Data.Member_Ship;
+            if (_mbsp == null) return;
+
+            if (_mbsp.TYPE == "005")
+            {
+               MessageBox.Show(this, "شما اجازه غیرفعال کردن رکورد بلوکه کردن را ندارید", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
+               return;
+            }
+
+            if (_mbsp.VALD_TYPE == "002")
+            {
+               if (MessageBox.Show(this, "آیا با غیرفعال کردن دوره موافق هستید؟", "غیرفعال کردن دوره", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) != DialogResult.Yes) return;
+
+               iScsc.ExecuteCommand(string.Format("UPDATE Member_Ship SET Vald_Type = '001' WHERE Rqro_Rqst_Rqid = {0};", _mbsp.RQRO_RQST_RQID));
+            }
+            else if (_mbsp.VALD_TYPE == "001")
+            {
+               if (ListMbspBs.List.OfType<Data.Member_Ship>().Any(m => m.RWNO > _mbsp.RWNO && m.TYPE == "005"))
+               {
+                  MessageBox.Show(this, "شما اجازه فعال کردن دوره ابطال شده توسط فرآیند بلوکه کردن را ندارید", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                  return;
+               }
+
+               if (MessageBox.Show(this, "آیا با فعال کردن دوره موافق هستید؟", "فعال کردن دوره", MessageBoxButtons.YesNo, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1) != DialogResult.Yes) return;
+
+               iScsc.ExecuteCommand(string.Format("UPDATE Member_Ship SET Vald_Type = '002' WHERE Rqro_Rqst_Rqid = {0};", _mbsp.RQRO_RQST_RQID));
+            }
+
+            // Reload Data
+            CapacityCycle_Lb_Click(null, null);
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void MbspEdit_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _mbsp = ListMbspBs.Current as Data.Member_Ship;
+            if (_mbsp == null) return;
+
+            Job _InteractWithScsc =
+             new Job(SendType.External, "Localhost",
+                new List<Job>
+                  {
+                     new Job(SendType.External, "Commons",
+                        new List<Job>
+                        {
+                           #region Access Privilege
+                           new Job(SendType.Self, 07 /* Execute DoWork4AccessPrivilege */)
+                           {
+                              Input = new List<string> 
+                              {
+                                 "<Privilege>231</Privilege><Sub_Sys>5</Sub_Sys>", 
+                                 "DataGuard"
+                              },
+                              AfterChangedOutput = new Action<object>((output) => {
+                                 if ((bool)output)
+                                    return;
+                                 MessageBox.Show("خطا - عدم دسترسی به ردیف 231 سطوح امینتی", "عدم دسترسی");
+                              })
+                           },
+                           #endregion
+                        }),
+                     #region DoWork
+                        new Job(SendType.Self, 151 /* Execute Mbsp_Chng_F */),
+                        new Job(SendType.SelfToUserInterface, "MBSP_CHNG_F", 10 /* execute Actn_CalF_F */)
+                        {
+                           Input = 
+                              new XElement("Fighter",
+                                 new XAttribute("fileno", _mbsp.FIGH_FILE_NO),
+                                 new XAttribute("mbsprwno", _mbsp.RWNO),
+                                 new XAttribute("formcaller", GetType().Name)
+                              )
+                        }
+                     #endregion
+                  });
+            _DefaultGateway.Gateway(_InteractWithScsc);
+         }
+         catch { }
+      }
+
+      private void ServProf_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _mbsp = ListMbspBs.Current as Data.Member_Ship;
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost", "", 46, SendType.Self) { Input = new XElement("Fighter", new XAttribute("fileno", _mbsp.FIGH_FILE_NO)) }
+            );
+         }
+         catch { }
+      }
    }
 }

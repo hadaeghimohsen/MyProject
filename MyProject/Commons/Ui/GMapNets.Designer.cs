@@ -29,14 +29,10 @@ namespace MyProject.Commons.Ui
       /// </summary>
       private void InitializeComponent()
       {
-         System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+         System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
          this.panel2 = new System.Windows.Forms.Panel();
-         this.panel4 = new System.Windows.Forms.Panel();
-         this.panel1 = new System.Windows.Forms.Panel();
-         this.SubmitChange_Butn = new DevExpress.XtraEditors.SimpleButton();
-         this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-         this.Back_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.MainMap = new MyProject.Commons.Ui.Code.Map();
+         this.panel4 = new System.Windows.Forms.Panel();
          this.splitter1 = new BSE.Windows.Forms.Splitter();
          this.panelMenu = new BSE.Windows.Forms.Panel();
          this.xPanderPanelList1 = new BSE.Windows.Forms.XPanderPanelList();
@@ -123,9 +119,12 @@ namespace MyProject.Commons.Ui
          this.radioButtonTcpIp = new System.Windows.Forms.RadioButton();
          this.checkBoxTraceRoute = new System.Windows.Forms.CheckBox();
          this.radioButtonVehicle = new System.Windows.Forms.RadioButton();
+         this.panel1 = new System.Windows.Forms.Panel();
+         this.SubmitChange_Butn = new DevExpress.XtraEditors.SimpleButton();
+         this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+         this.Back_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.panel2.SuspendLayout();
          this.panel4.SuspendLayout();
-         this.panel1.SuspendLayout();
          this.panelMenu.SuspendLayout();
          this.xPanderPanelList1.SuspendLayout();
          this.xPanderPanelMain.SuspendLayout();
@@ -144,6 +143,7 @@ namespace MyProject.Commons.Ui
          this.xPanderPanelLive.SuspendLayout();
          this.tableLayoutPanel3.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.GridConnections)).BeginInit();
+         this.panel1.SuspendLayout();
          this.SuspendLayout();
          // 
          // panel2
@@ -155,82 +155,6 @@ namespace MyProject.Commons.Ui
          this.panel2.Name = "panel2";
          this.panel2.Size = new System.Drawing.Size(661, 704);
          this.panel2.TabIndex = 41;
-         // 
-         // panel4
-         // 
-         this.panel4.Controls.Add(this.panel2);
-         this.panel4.Controls.Add(this.splitter1);
-         this.panel4.Controls.Add(this.panelMenu);
-         this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-         this.panel4.Location = new System.Drawing.Point(0, 59);
-         this.panel4.Margin = new System.Windows.Forms.Padding(2);
-         this.panel4.Name = "panel4";
-         this.panel4.Size = new System.Drawing.Size(891, 704);
-         this.panel4.TabIndex = 44;
-         // 
-         // panel1
-         // 
-         this.panel1.Controls.Add(this.SubmitChange_Butn);
-         this.panel1.Controls.Add(this.labelControl1);
-         this.panel1.Controls.Add(this.Back_Butn);
-         this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-         this.panel1.Location = new System.Drawing.Point(0, 0);
-         this.panel1.Name = "panel1";
-         this.panel1.Size = new System.Drawing.Size(891, 59);
-         this.panel1.TabIndex = 45;
-         // 
-         // SubmitChange_Butn
-         // 
-         this.SubmitChange_Butn.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-         this.SubmitChange_Butn.Appearance.BorderColor = System.Drawing.Color.Silver;
-         this.SubmitChange_Butn.Appearance.Font = new System.Drawing.Font("IRANSans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.SubmitChange_Butn.Appearance.Options.UseBackColor = true;
-         this.SubmitChange_Butn.Appearance.Options.UseBorderColor = true;
-         this.SubmitChange_Butn.Appearance.Options.UseFont = true;
-         this.SubmitChange_Butn.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-         this.SubmitChange_Butn.Dock = System.Windows.Forms.DockStyle.Left;
-         this.SubmitChange_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.SubmitChange_Butn.Location = new System.Drawing.Point(0, 0);
-         this.SubmitChange_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.SubmitChange_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.SubmitChange_Butn.Name = "SubmitChange_Butn";
-         this.SubmitChange_Butn.Size = new System.Drawing.Size(61, 59);
-         this.SubmitChange_Butn.TabIndex = 2;
-         this.SubmitChange_Butn.Text = "تایید";
-         this.SubmitChange_Butn.ToolTip = "بازگشت";
-         this.SubmitChange_Butn.Visible = false;
-         this.SubmitChange_Butn.Click += new System.EventHandler(this.SubmitChange_Butn_Click);
-         // 
-         // labelControl1
-         // 
-         this.labelControl1.Appearance.Font = new System.Drawing.Font("B Koodak", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.labelControl1.Appearance.Image = global::MyProject.Properties.Resources.IMAGE_1366;
-         this.labelControl1.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         this.labelControl1.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-         this.labelControl1.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.labelControl1.Dock = System.Windows.Forms.DockStyle.Right;
-         this.labelControl1.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl1.Location = new System.Drawing.Point(727, 0);
-         this.labelControl1.Name = "labelControl1";
-         this.labelControl1.Size = new System.Drawing.Size(103, 59);
-         this.labelControl1.TabIndex = 1;
-         this.labelControl1.Text = "نقشه";
-         // 
-         // Back_Butn
-         // 
-         this.Back_Butn.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(36)))), ((int)(((byte)(248)))));
-         this.Back_Butn.Appearance.Options.UseBackColor = true;
-         this.Back_Butn.Dock = System.Windows.Forms.DockStyle.Right;
-         this.Back_Butn.Image = global::MyProject.Properties.Resources.IMAGE_1371;
-         this.Back_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.Back_Butn.Location = new System.Drawing.Point(830, 0);
-         this.Back_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.Back_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.Back_Butn.Name = "Back_Butn";
-         this.Back_Butn.Size = new System.Drawing.Size(61, 59);
-         this.Back_Butn.TabIndex = 0;
-         this.Back_Butn.ToolTip = "بازگشت";
-         this.Back_Butn.Click += new System.EventHandler(this.Back_Butn_Clicked);
          // 
          // MainMap
          // 
@@ -259,6 +183,18 @@ namespace MyProject.Commons.Ui
          this.MainMap.TabIndex = 0;
          this.MainMap.Zoom = 0D;
          this.MainMap.OnMarkerClick += new GMap.NET.WindowsForms.MarkerClick(this.MainMap_OnMarkerClick_1);
+         // 
+         // panel4
+         // 
+         this.panel4.Controls.Add(this.panel2);
+         this.panel4.Controls.Add(this.splitter1);
+         this.panel4.Controls.Add(this.panelMenu);
+         this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
+         this.panel4.Location = new System.Drawing.Point(0, 59);
+         this.panel4.Margin = new System.Windows.Forms.Padding(2);
+         this.panel4.Name = "panel4";
+         this.panel4.Size = new System.Drawing.Size(891, 704);
+         this.panel4.TabIndex = 44;
          // 
          // splitter1
          // 
@@ -1392,14 +1328,14 @@ namespace MyProject.Commons.Ui
          this.GridConnections.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.CountryName,
             this.ConnectionsCount});
-         dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-         dataGridViewCellStyle2.BackColor = System.Drawing.Color.AliceBlue;
-         dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-         dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.LightSkyBlue;
-         dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-         dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-         this.GridConnections.DefaultCellStyle = dataGridViewCellStyle2;
+         dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+         dataGridViewCellStyle1.BackColor = System.Drawing.Color.AliceBlue;
+         dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+         dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.LightSkyBlue;
+         dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+         dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+         this.GridConnections.DefaultCellStyle = dataGridViewCellStyle1;
          this.GridConnections.Dock = System.Windows.Forms.DockStyle.Fill;
          this.GridConnections.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
          this.GridConnections.Location = new System.Drawing.Point(17, 133);
@@ -1490,6 +1426,70 @@ namespace MyProject.Commons.Ui
          this.radioButtonVehicle.UseVisualStyleBackColor = true;
          this.radioButtonVehicle.CheckedChanged += new System.EventHandler(this.RealTimeChanged);
          // 
+         // panel1
+         // 
+         this.panel1.Controls.Add(this.SubmitChange_Butn);
+         this.panel1.Controls.Add(this.labelControl1);
+         this.panel1.Controls.Add(this.Back_Butn);
+         this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+         this.panel1.Location = new System.Drawing.Point(0, 0);
+         this.panel1.Name = "panel1";
+         this.panel1.Size = new System.Drawing.Size(891, 59);
+         this.panel1.TabIndex = 45;
+         // 
+         // SubmitChange_Butn
+         // 
+         this.SubmitChange_Butn.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+         this.SubmitChange_Butn.Appearance.BorderColor = System.Drawing.Color.Silver;
+         this.SubmitChange_Butn.Appearance.Font = new System.Drawing.Font("IRANSans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.SubmitChange_Butn.Appearance.Options.UseBackColor = true;
+         this.SubmitChange_Butn.Appearance.Options.UseBorderColor = true;
+         this.SubmitChange_Butn.Appearance.Options.UseFont = true;
+         this.SubmitChange_Butn.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
+         this.SubmitChange_Butn.Dock = System.Windows.Forms.DockStyle.Left;
+         this.SubmitChange_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+         this.SubmitChange_Butn.Location = new System.Drawing.Point(0, 0);
+         this.SubmitChange_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.SubmitChange_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.SubmitChange_Butn.Name = "SubmitChange_Butn";
+         this.SubmitChange_Butn.Size = new System.Drawing.Size(61, 59);
+         this.SubmitChange_Butn.TabIndex = 2;
+         this.SubmitChange_Butn.Text = "تایید";
+         this.SubmitChange_Butn.ToolTip = "بازگشت";
+         this.SubmitChange_Butn.Visible = false;
+         this.SubmitChange_Butn.Click += new System.EventHandler(this.SubmitChange_Butn_Click);
+         // 
+         // labelControl1
+         // 
+         this.labelControl1.Appearance.Font = new System.Drawing.Font("B Koodak", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.labelControl1.Appearance.Image = global::MyProject.Properties.Resources.IMAGE_1366;
+         this.labelControl1.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+         this.labelControl1.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+         this.labelControl1.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+         this.labelControl1.Dock = System.Windows.Forms.DockStyle.Right;
+         this.labelControl1.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
+         this.labelControl1.Location = new System.Drawing.Point(727, 0);
+         this.labelControl1.Name = "labelControl1";
+         this.labelControl1.Size = new System.Drawing.Size(103, 59);
+         this.labelControl1.TabIndex = 1;
+         this.labelControl1.Text = "نقشه";
+         // 
+         // Back_Butn
+         // 
+         this.Back_Butn.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(36)))), ((int)(((byte)(248)))));
+         this.Back_Butn.Appearance.Options.UseBackColor = true;
+         this.Back_Butn.Dock = System.Windows.Forms.DockStyle.Right;
+         this.Back_Butn.Image = global::MyProject.Properties.Resources.IMAGE_1371;
+         this.Back_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+         this.Back_Butn.Location = new System.Drawing.Point(830, 0);
+         this.Back_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.Back_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.Back_Butn.Name = "Back_Butn";
+         this.Back_Butn.Size = new System.Drawing.Size(61, 59);
+         this.Back_Butn.TabIndex = 0;
+         this.Back_Butn.ToolTip = "بازگشت";
+         this.Back_Butn.Click += new System.EventHandler(this.Back_Butn_Clicked);
+         // 
          // GMapNets
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1502,7 +1502,6 @@ namespace MyProject.Commons.Ui
          this.Size = new System.Drawing.Size(891, 763);
          this.panel2.ResumeLayout(false);
          this.panel4.ResumeLayout(false);
-         this.panel1.ResumeLayout(false);
          this.panelMenu.ResumeLayout(false);
          this.xPanderPanelList1.ResumeLayout(false);
          this.xPanderPanelMain.ResumeLayout(false);
@@ -1529,6 +1528,7 @@ namespace MyProject.Commons.Ui
          this.tableLayoutPanel3.ResumeLayout(false);
          this.tableLayoutPanel3.PerformLayout();
          ((System.ComponentModel.ISupportInitialize)(this.GridConnections)).EndInit();
+         this.panel1.ResumeLayout(false);
          this.ResumeLayout(false);
 
       }

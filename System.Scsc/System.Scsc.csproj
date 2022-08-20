@@ -1219,6 +1219,7 @@
     <None Include="Properties\DataSources\System.Scsc.Data.Exam.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Expense.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Expense_Cash.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.Expense_Cost.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Expense_Item.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Expense_Type.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.External_Device.datasource" />
@@ -1255,6 +1256,7 @@
     <None Include="Properties\DataSources\System.Scsc.Data.Payment_Cost.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Payment_Detail.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Payment_Detail_Commodity_Sale.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.Payment_Detail_Cost.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Payment_Discount.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Payment_Expense.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Payment_Method.datasource" />

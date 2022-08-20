@@ -644,5 +644,103 @@ namespace System.Scsc.Ui.Regulation
          }
          catch { }
       }
+
+      private void AddExco_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _expn = ExpnBs.Current as Data.Expense;
+            if (_expn == null) return;
+
+            if (ExcoBs.List.OfType<Data.Expense_Cost>().Any(ec => ec.CODE == 0)) return;
+
+            var _exco = ExcoBs.AddNew() as Data.Expense_Cost;
+            iScsc.Expense_Costs.InsertOnSubmit(_exco);
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void DelExco_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void SaveExco_Butn_Click(object sender, EventArgs e)
+      {
+         SubmitRqrq_Click(null, null);
+      }
+
+      private void AExco_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost",
+                  new List<Job>
+                  {
+                     new Job(SendType.Self, 154 /* Execute Apbs_Dfin_F */),
+                     new Job(SendType.SelfToUserInterface, "APBS_DFIN_F", 10 /* Execute Actn_CalF_F */)
+                     {
+                        Input = 
+                           new XElement("App_Base",
+                              new XAttribute("tablename", "Expense_Cost"),
+                              new XAttribute("formcaller", GetType().Name)
+                           )
+                     }
+                  }
+               )
+            );
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void AExcoLoad_Butn_Click(object sender, EventArgs e)
+      {
+
+      }
+
+      private void CalcExco_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _expn = ExpnBs.Current as Data.Expense;
+            if (_expn == null) return;
+
+            iScsc.CALC_EXCO_P(
+               new XElement("Expense",
+                   new XAttribute("code", _expn.CODE),
+                   new XAttribute("pric", _expn.PRIC)
+               )
+            );
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
    }
 }

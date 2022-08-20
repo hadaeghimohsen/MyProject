@@ -417,8 +417,11 @@ namespace System.Scsc.Ui.Regulation
       /// <param name="job"></param>
       private void LoadData(Job job)
       {
-         Rg1 = (job.Input as List<Data.Regulation>)[0];
-         Rg2 = (job.Input as List<Data.Regulation>)[1];
+         if (!(job.Input is XElement))
+         {
+            Rg1 = (job.Input as List<Data.Regulation>)[0];
+            Rg2 = (job.Input as List<Data.Regulation>)[1];
+         }
 
          //Data.Regulation Current = job.Input as Data.Regulation;
 
@@ -435,6 +438,7 @@ namespace System.Scsc.Ui.Regulation
          DDctpBs.DataSource = iScsc.D_DCTPs;
          DYsnoBs.DataSource = iScsc.D_YSNOs;
          DEXPTBs.DataSource = iScsc.D_EXPTs;
+         AExcoBs.DataSource = iScsc.App_Base_Defines.Where(a => a.ENTY_NAME == "Expense_Cost");
          
          MtodBs.DataSource = iScsc.Methods;
          CtgyBs.DataSource = iScsc.Category_Belts;

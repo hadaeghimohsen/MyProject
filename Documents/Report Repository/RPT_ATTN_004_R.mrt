@@ -1,0 +1,969 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<StiSerializer version="1.02" type="Net" application="StiReport">
+  <Dictionary Ref="1" type="Dictionary" isKey="true">
+    <BusinessObjects isList="true" count="0" />
+    <Databases isList="true" count="1">
+      <iScsc Ref="2" type="Stimulsoft.Report.Dictionary.StiSqlDatabase" isKey="true">
+        <Alias>iScsc</Alias>
+        <ConnectionString>User ID=artauser;Integrated Security=False;Data Source=.;Initial Catalog=iScsc;Password=artasport_anardb;Persist Security Info=True</ConnectionString>
+        <Name>iScsc</Name>
+      </iScsc>
+    </Databases>
+    <DataSources isList="true" count="4">
+      <Attendance Ref="3" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
+        <Alias>Attendance</Alias>
+        <Columns isList="true" count="47">
+          <value>CLUB_CODE,System.Int64</value>
+          <value>FIGH_FILE_NO,System.Int64</value>
+          <value>ATTN_DATE,System.String</value>
+          <value>CODE,System.Int64</value>
+          <value>MBSP_RWNO_DNRM,System.Int64</value>
+          <value>MBSP_RECT_CODE_DNRM,System.String</value>
+          <value>COCH_FILE_NO,System.Int64</value>
+          <value>ATTN_TYPE,System.String</value>
+          <value>ENTR_TIME,System.String</value>
+          <value>EXIT_TIME,System.String</value>
+          <value>MUST_EXIT_TIME_DNRM,System.String</value>
+          <value>TOTL_SESN,System.Int64</value>
+          <value>ATTN_STAT,System.String</value>
+          <value>DERS_NUMB,System.Int64</value>
+          <value>NAME_DNRM,System.String</value>
+          <value>CELL_PHON_DNRM,System.String</value>
+          <value>FGPB_TYPE_DNRM,System.String</value>
+          <value>CBMT_CODE_DNRM,System.Int64</value>
+          <value>MTOD_CODE_DNRM,System.Int64</value>
+          <value>CTGY_CODE_DNRM,System.Int64</value>
+          <value>IMAG_RCDC_RCID_DNRM,System.Int64</value>
+          <value>IMAG_RWNO_DNRM,System.Int64</value>
+          <value>FNGR_PRNT_DNRM,System.String</value>
+          <value>DEBT_DNRM,System.Int64</value>
+          <value>BUFE_DEBT_DNRM,System.Int64</value>
+          <value>MBSP_STRT_DATE_DNRM,System.String</value>
+          <value>MBSP_END_DATE_DNRM,System.String</value>
+          <value>BRTH_DATE_DNRM,System.String</value>
+          <value>NUMB_OF_ATTN_MONT,System.Int64</value>
+          <value>SUM_ATTN_MONT_DNRM,System.Int64</value>
+          <value>MBCO_RWNO_DNRM,System.Int64</value>
+          <value>SESN_SNID_DNRM,System.Int64</value>
+          <value>ATTN_DESC,System.String</value>
+          <value>GLOB_CODE_DNRM,System.String</value>
+          <value>PRNT_STAT,System.String</value>
+          <value>PRNT_CONT,System.Int64</value>
+          <value>RCPT_STAT,System.String</value>
+          <value>PMEX_CODE,System.Int64</value>
+          <value>ATTN_SYS_TYPE,System.String</value>
+          <value>SEX_TYPE_DNRM,System.String</value>
+          <value>SEND_MESG_STAT,System.String</value>
+          <value>RTNG_NUMB,System.Int64</value>
+          <value>OWNR_CBMT_CODE_DNRM,System.Int64</value>
+          <value>CRET_BY,System.String</value>
+          <value>CRET_DATE,System.DateTime</value>
+          <value>MDFY_BY,System.String</value>
+          <value>MDFY_DATE,System.DateTime</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1" />
+        <Name>Attendance</Name>
+        <NameInSource>iScsc</NameInSource>
+        <Parameters isList="true" count="0" />
+        <SqlCommand>select * from Attendance WHERE {WhereClause}</SqlCommand>
+      </Attendance>
+      <Club Ref="4" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
+        <Alias>Club</Alias>
+        <Columns isList="true" count="20">
+          <value>REGN_PRVN_CNTY_CODE,System.String</value>
+          <value>REGN_PRVN_CODE,System.String</value>
+          <value>REGN_CODE,System.String</value>
+          <value>CODE,System.Int64</value>
+          <value>NAME,System.String</value>
+          <value>POST_ADRS,System.String</value>
+          <value>EMAL_ADRS,System.String</value>
+          <value>WEB_SITE,System.String</value>
+          <value>CORD_X,System.Double</value>
+          <value>CORD_Y,System.Double</value>
+          <value>TELL_PHON,System.String</value>
+          <value>CELL_PHON,System.String</value>
+          <value>CLUB_CODE,System.Int64</value>
+          <value>ZIP_CODE,System.String</value>
+          <value>ECON_CODE,System.String</value>
+          <value>CLUB_DESC,System.String</value>
+          <value>CRET_BY,System.String</value>
+          <value>CRET_DATE,System.DateTime</value>
+          <value>MDFY_BY,System.String</value>
+          <value>MDFY_DATE,System.DateTime</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1" />
+        <Name>Club</Name>
+        <NameInSource>iScsc</NameInSource>
+        <Parameters isList="true" count="0" />
+        <SqlCommand>select * from Club</SqlCommand>
+      </Club>
+      <Fighter Ref="5" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
+        <Alias>Fighter</Alias>
+        <Columns isList="true" count="79">
+          <value>CONF_STAT,System.String</value>
+          <value>FIGH_STAT,System.String</value>
+          <value>REGN_PRVN_CNTY_CODE,System.String</value>
+          <value>REGN_PRVN_CODE,System.String</value>
+          <value>REGN_CODE,System.String</value>
+          <value>FILE_NO,System.Int64</value>
+          <value>TARF_CODE_DNRM,System.String</value>
+          <value>MOST_DEBT_CLNG_DNRM,System.Int64</value>
+          <value>DEBT_DNRM,System.Int64</value>
+          <value>BUFE_DEBT_DNTM,System.Int64</value>
+          <value>DPST_AMNT_DNRM,System.Int64</value>
+          <value>FGPB_RWNO_DNRM,System.Int64</value>
+          <value>MBSP_RWNO_DNRM,System.Int64</value>
+          <value>MBCO_RWNO_DNRM,System.Int64</value>
+          <value>MBFZ_RWNO_DNRM,System.Int64</value>
+          <value>MBSM_RWNO_DNRM,System.Int64</value>
+          <value>CAMP_RWNO_DNRM,System.Int64</value>
+          <value>TEST_RWNO_DNRM,System.Int64</value>
+          <value>CLCL_RWNO_DNRM,System.Int64</value>
+          <value>HERT_RWNO_DNRM,System.Int64</value>
+          <value>PSFN_RWNO_DNRM,System.Int64</value>
+          <value>EXAM_RWNO_DNRM,System.Int64</value>
+          <value>BDFT_RWNO_DNRM,System.Int64</value>
+          <value>MBSP_STRT_DATE,System.String</value>
+          <value>MBSP_END_DATE,System.String</value>
+          <value>RQST_RQID,System.Int64</value>
+          <value>NAME_DNRM,System.String</value>
+          <value>FRST_NAME_DNRM,System.String</value>
+          <value>LAST_NAME_DNRM,System.String</value>
+          <value>FATH_NAME_DNRM,System.String</value>
+          <value>POST_ADRS_DNRM,System.String</value>
+          <value>SEX_TYPE_DNRM,System.String</value>
+          <value>BRTH_DATE_DNRM,System.DateTime</value>
+          <value>CELL_PHON_DNRM,System.String</value>
+          <value>TELL_PHON_DNRM,System.String</value>
+          <value>FGPB_TYPE_DNRM,System.String</value>
+          <value>INSR_NUMB_DNRM,System.String</value>
+          <value>INSR_DATE_DNRM,System.DateTime</value>
+          <value>TEST_DATE_DNRM,System.DateTime</value>
+          <value>CAMP_DATE_DNRM,System.DateTime</value>
+          <value>CTGY_CODE_DNRM,System.Int64</value>
+          <value>MTOD_CODE_DNRM,System.Int64</value>
+          <value>CLUB_CODE_DNRM,System.Int64</value>
+          <value>COCH_FILE_NO_DNRM,System.Int64</value>
+          <value>COCH_CRTF_YEAR_DNRM,System.Int64</value>
+          <value>CBMT_CODE_DNRM,System.Int64</value>
+          <value>DAY_TYPE_DNRM,System.String</value>
+          <value>ATTN_TIME_DNRM,System.String</value>
+          <value>ACTV_TAG_DNRM,System.String</value>
+          <value>BLOD_GROP_DNRM,System.String</value>
+          <value>REF_CODE_DNRM,System.Int64</value>
+          <value>IMAG_RCDC_RCID_DNRM,System.Int64</value>
+          <value>IMAG_RWNO_DNRM,System.Int64</value>
+          <value>CARD_NUMB_DNRM,System.String</value>
+          <value>FNGR_PRNT_DNRM,System.String</value>
+          <value>SUNT_BUNT_DEPT_ORGN_CODE_DNRM,System.String</value>
+          <value>SUNT_BUNT_DEPT_CODE_DNRM,System.String</value>
+          <value>SUNT_BUNT_CODE_DNRM,System.String</value>
+          <value>SUNT_CODE_DNRM,System.String</value>
+          <value>CORD_X_DNRM,System.Double</value>
+          <value>CORD_Y_DNRM,System.Double</value>
+          <value>SERV_NO_DNRM,System.String</value>
+          <value>NATL_CODE_DNRM,System.String</value>
+          <value>GLOB_CODE_DNRM,System.String</value>
+          <value>CHAT_ID_DNRM,System.Int64</value>
+          <value>MOM_CELL_PHON_DNRM,System.String</value>
+          <value>MOM_TELL_PHON_DNRM,System.String</value>
+          <value>MOM_CHAT_ID_DNRM,System.Int64</value>
+          <value>DAD_CELL_PHON_DNRM,System.String</value>
+          <value>DAD_TELL_PHON_DNRM,System.String</value>
+          <value>DAD_CHAT_ID_DNRM,System.Int64</value>
+          <value>DPST_ACNT_SLRY_BANK_DNRM,System.String</value>
+          <value>DPST_ACNT_SLRY_DNRM,System.String</value>
+          <value>RTNG_NUMB_DNRM,System.Int64</value>
+          <value>CRET_BY,System.String</value>
+          <value>CRET_DATE,System.DateTime</value>
+          <value>MDFY_BY,System.String</value>
+          <value>MDFY_DATE,System.DateTime</value>
+          <value>CONF_DATE,System.DateTime</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1" />
+        <Name>Fighter</Name>
+        <NameInSource>iScsc</NameInSource>
+        <Parameters isList="true" count="0" />
+        <SqlCommand>select * from Fighter</SqlCommand>
+      </Fighter>
+      <Coach Ref="6" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
+        <Alias>Coach</Alias>
+        <Columns isList="true" count="79">
+          <value>CONF_STAT,System.String</value>
+          <value>FIGH_STAT,System.String</value>
+          <value>REGN_PRVN_CNTY_CODE,System.String</value>
+          <value>REGN_PRVN_CODE,System.String</value>
+          <value>REGN_CODE,System.String</value>
+          <value>FILE_NO,System.Int64</value>
+          <value>TARF_CODE_DNRM,System.String</value>
+          <value>MOST_DEBT_CLNG_DNRM,System.Int64</value>
+          <value>DEBT_DNRM,System.Int64</value>
+          <value>BUFE_DEBT_DNTM,System.Int64</value>
+          <value>DPST_AMNT_DNRM,System.Int64</value>
+          <value>FGPB_RWNO_DNRM,System.Int64</value>
+          <value>MBSP_RWNO_DNRM,System.Int64</value>
+          <value>MBCO_RWNO_DNRM,System.Int64</value>
+          <value>MBFZ_RWNO_DNRM,System.Int64</value>
+          <value>MBSM_RWNO_DNRM,System.Int64</value>
+          <value>CAMP_RWNO_DNRM,System.Int64</value>
+          <value>TEST_RWNO_DNRM,System.Int64</value>
+          <value>CLCL_RWNO_DNRM,System.Int64</value>
+          <value>HERT_RWNO_DNRM,System.Int64</value>
+          <value>PSFN_RWNO_DNRM,System.Int64</value>
+          <value>EXAM_RWNO_DNRM,System.Int64</value>
+          <value>BDFT_RWNO_DNRM,System.Int64</value>
+          <value>MBSP_STRT_DATE,System.String</value>
+          <value>MBSP_END_DATE,System.String</value>
+          <value>RQST_RQID,System.Int64</value>
+          <value>NAME_DNRM,System.String</value>
+          <value>FRST_NAME_DNRM,System.String</value>
+          <value>LAST_NAME_DNRM,System.String</value>
+          <value>FATH_NAME_DNRM,System.String</value>
+          <value>POST_ADRS_DNRM,System.String</value>
+          <value>SEX_TYPE_DNRM,System.String</value>
+          <value>BRTH_DATE_DNRM,System.DateTime</value>
+          <value>CELL_PHON_DNRM,System.String</value>
+          <value>TELL_PHON_DNRM,System.String</value>
+          <value>FGPB_TYPE_DNRM,System.String</value>
+          <value>INSR_NUMB_DNRM,System.String</value>
+          <value>INSR_DATE_DNRM,System.DateTime</value>
+          <value>TEST_DATE_DNRM,System.DateTime</value>
+          <value>CAMP_DATE_DNRM,System.DateTime</value>
+          <value>CTGY_CODE_DNRM,System.Int64</value>
+          <value>MTOD_CODE_DNRM,System.Int64</value>
+          <value>CLUB_CODE_DNRM,System.Int64</value>
+          <value>COCH_FILE_NO_DNRM,System.Int64</value>
+          <value>COCH_CRTF_YEAR_DNRM,System.Int64</value>
+          <value>CBMT_CODE_DNRM,System.Int64</value>
+          <value>DAY_TYPE_DNRM,System.String</value>
+          <value>ATTN_TIME_DNRM,System.String</value>
+          <value>ACTV_TAG_DNRM,System.String</value>
+          <value>BLOD_GROP_DNRM,System.String</value>
+          <value>REF_CODE_DNRM,System.Int64</value>
+          <value>IMAG_RCDC_RCID_DNRM,System.Int64</value>
+          <value>IMAG_RWNO_DNRM,System.Int64</value>
+          <value>CARD_NUMB_DNRM,System.String</value>
+          <value>FNGR_PRNT_DNRM,System.String</value>
+          <value>SUNT_BUNT_DEPT_ORGN_CODE_DNRM,System.String</value>
+          <value>SUNT_BUNT_DEPT_CODE_DNRM,System.String</value>
+          <value>SUNT_BUNT_CODE_DNRM,System.String</value>
+          <value>SUNT_CODE_DNRM,System.String</value>
+          <value>CORD_X_DNRM,System.Double</value>
+          <value>CORD_Y_DNRM,System.Double</value>
+          <value>SERV_NO_DNRM,System.String</value>
+          <value>NATL_CODE_DNRM,System.String</value>
+          <value>GLOB_CODE_DNRM,System.String</value>
+          <value>CHAT_ID_DNRM,System.Int64</value>
+          <value>MOM_CELL_PHON_DNRM,System.String</value>
+          <value>MOM_TELL_PHON_DNRM,System.String</value>
+          <value>MOM_CHAT_ID_DNRM,System.Int64</value>
+          <value>DAD_CELL_PHON_DNRM,System.String</value>
+          <value>DAD_TELL_PHON_DNRM,System.String</value>
+          <value>DAD_CHAT_ID_DNRM,System.Int64</value>
+          <value>DPST_ACNT_SLRY_BANK_DNRM,System.String</value>
+          <value>DPST_ACNT_SLRY_DNRM,System.String</value>
+          <value>RTNG_NUMB_DNRM,System.Int64</value>
+          <value>CRET_BY,System.String</value>
+          <value>CRET_DATE,System.DateTime</value>
+          <value>MDFY_BY,System.String</value>
+          <value>MDFY_DATE,System.DateTime</value>
+          <value>CONF_DATE,System.DateTime</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1" />
+        <Name>Coach</Name>
+        <NameInSource>iScsc</NameInSource>
+        <Parameters isList="true" count="0" />
+        <SqlCommand>select * from Fighter</SqlCommand>
+      </Coach>
+    </DataSources>
+    <Relations isList="true" count="3">
+      <FK_ATTN_CLUB Ref="7" type="DataRelation" isKey="true">
+        <Alias>FK_ATTN_CLUB</Alias>
+        <ChildColumns isList="true" count="1">
+          <value>CLUB_CODE</value>
+        </ChildColumns>
+        <ChildSource isRef="3" />
+        <Dictionary isRef="1" />
+        <Name>FK_ATTN_CLUB</Name>
+        <NameInSource>FK_ATTN_CLUB</NameInSource>
+        <ParentColumns isList="true" count="1">
+          <value>CODE</value>
+        </ParentColumns>
+        <ParentSource isRef="4" />
+      </FK_ATTN_CLUB>
+      <FK_ATTN_FIGH Ref="8" type="DataRelation" isKey="true">
+        <Alias>FK_ATTN_FIGH</Alias>
+        <ChildColumns isList="true" count="1">
+          <value>FIGH_FILE_NO</value>
+        </ChildColumns>
+        <ChildSource isRef="3" />
+        <Dictionary isRef="1" />
+        <Name>FK_ATTN_FIGH</Name>
+        <NameInSource>FK_ATTN_FIGH</NameInSource>
+        <ParentColumns isList="true" count="1">
+          <value>FILE_NO</value>
+        </ParentColumns>
+        <ParentSource isRef="5" />
+      </FK_ATTN_FIGH>
+      <FK_ATTN_COCH Ref="9" type="DataRelation" isKey="true">
+        <Alias>FK_ATTN_COCH</Alias>
+        <ChildColumns isList="true" count="1">
+          <value>COCH_FILE_NO</value>
+        </ChildColumns>
+        <ChildSource isRef="3" />
+        <Dictionary isRef="1" />
+        <Name>FK_ATTN_COCH</Name>
+        <NameInSource>FK_ATTN_COCH</NameInSource>
+        <ParentColumns isList="true" count="1">
+          <value>FILE_NO</value>
+        </ParentColumns>
+        <ParentSource isRef="6" />
+      </FK_ATTN_COCH>
+    </Relations>
+    <Report isRef="0" />
+    <Variables isList="true" count="0" />
+  </Dictionary>
+  <EngineVersion>EngineV2</EngineVersion>
+  <GlobalizationStrings isList="true" count="0" />
+  <MetaTags isList="true" count="0" />
+  <Pages isList="true" count="2">
+    <Page1 Ref="10" type="Page" isKey="true">
+      <Border>All;Black;2;Solid;False;4;Black</Border>
+      <Brush>Transparent</Brush>
+      <ColumnGaps>0.1</ColumnGaps>
+      <Columns>1</Columns>
+      <Components isList="true" count="15">
+        <Text12 Ref="11" type="Text" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,1.6,19,0.6</ClientRectangle>
+          <Conditions isList="true" count="0" />
+          <Font>B Mitra,14,Bold</Font>
+          <Guid>934cebe7be2a4219b76091292cd48088</Guid>
+          <HorAlignment>Center</HorAlignment>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text12</Name>
+          <Page isRef="10" />
+          <Parent isRef="10" />
+          <Text>"رضایت نامه درمان چین های صورت با توکسین بوتولینوم"</Text>
+          <TextBrush>Black</TextBrush>
+          <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+          <Type>Expression</Type>
+          <VertAlignment>Center</VertAlignment>
+        </Text12>
+        <Text1 Ref="12" type="Text" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>15.6,2.6,2.4,0.8</ClientRectangle>
+          <Conditions isList="true" count="0" />
+          <Font>B Mitra,14,Bold</Font>
+          <Guid>bf196e3359a5450fbd1263e3df10bfba</Guid>
+          <HorAlignment>Right</HorAlignment>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text1</Name>
+          <Page isRef="10" />
+          <Parent isRef="10" />
+          <Text>توضیح اصول</Text>
+          <TextBrush>Black</TextBrush>
+          <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+          <Type>Expression</Type>
+          <VertAlignment>Center</VertAlignment>
+        </Text1>
+        <Text2 Ref="13" type="Text" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0.2,4,18.2,4.6</ClientRectangle>
+          <Conditions isList="true" count="0" />
+          <Font>B Mitra,14</Font>
+          <Guid>773d68f46bac4bbca0087bd47c1b5000</Guid>
+          <HorAlignment>Right</HorAlignment>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text2</Name>
+          <Page isRef="10" />
+          <Parent isRef="10" />
+          <Text>اینجانب آگاه هستم، هنگامی که مقداری از توکسین بوتولینوم (بوتاکس) به عضله ای تزریق میشود باعث ضعیف شدن و فلج شدن آن عضله میگردد. میدانم که توکسین بوتولینوم (بوتاکس) برای شل نمودن فعالیت چندین عضله یحالت دهنده چهره بکار می رود. نواحی که در این مرکز درمان بر روی آنها انجام میگیرد، میتواند شامل خطوط اخم بین دو ابرو، خطوط افقس پیشانی، بالا بردن آبرو، چین های پنجه کلاغی دور چشم، خطوط زیر چشم، خطوط مورب روی پل بینی باشد. به من توضیح داده شد که در خطوط پیشانی در طرفین بالای ابرو (تحتانی طرفی پیشانی) و اولین چین افقی بالای ابرو تزریق انجام نمیشود و در نتیجه چین های این ناحیه از بین نمی رود. به اینجانب توضیح داده شد که چین هایی که در حالت آرامش صورت (استاتیک)، در قسمت فوقانی صورتم وجود دارد، با تزریق بوتاکس از بین نمی رود عمق آن کاهش می یابد</Text>
+          <TextBrush>Black</TextBrush>
+          <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+          <Type>Expression</Type>
+        </Text2>
+        <Text3 Ref="14" type="Text" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>15.6,10.2,2.4,0.8</ClientRectangle>
+          <Conditions isList="true" count="0" />
+          <Font>B Mitra,14,Bold</Font>
+          <Guid>e18d06cb5f3a48988ad4263c5ca62f75</Guid>
+          <HorAlignment>Right</HorAlignment>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text3</Name>
+          <Page isRef="10" />
+          <Parent isRef="10" />
+          <Text>نتایج</Text>
+          <TextBrush>Black</TextBrush>
+          <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+          <Type>Expression</Type>
+          <VertAlignment>Center</VertAlignment>
+        </Text3>
+        <Text4 Ref="15" type="Text" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>18,2.6,0.4,0.8</ClientRectangle>
+          <Conditions isList="true" count="0" />
+          <Font>Symbol,14,Bold</Font>
+          <Guid>0c79418d651a40fe9a951390c616b9e0</Guid>
+          <HorAlignment>Right</HorAlignment>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text4</Name>
+          <Page isRef="10" />
+          <Parent isRef="10" />
+          <Text>·</Text>
+          <TextBrush>Black</TextBrush>
+          <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+          <Type>Expression</Type>
+          <VertAlignment>Center</VertAlignment>
+        </Text4>
+        <Text5 Ref="16" type="Text" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>18,10.2,0.4,0.8</ClientRectangle>
+          <Conditions isList="true" count="0" />
+          <Font>Symbol,14,Bold</Font>
+          <Guid>bb61ecbfead14903a22588c03370e745</Guid>
+          <HorAlignment>Right</HorAlignment>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text5</Name>
+          <Page isRef="10" />
+          <Parent isRef="10" />
+          <Text>·</Text>
+          <TextBrush>Black</TextBrush>
+          <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+          <Type>Expression</Type>
+          <VertAlignment>Center</VertAlignment>
+        </Text5>
+        <Text6 Ref="17" type="Text" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0.2,11.6,18.2,1.6</ClientRectangle>
+          <Conditions isList="true" count="0" />
+          <Font>B Mitra,14</Font>
+          <Guid>a2f51cccd1a843318bf59e410043f059</Guid>
+          <HorAlignment>Right</HorAlignment>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text6</Name>
+          <Page isRef="10" />
+          <Parent isRef="10" />
+          <Text>نتیجه درمان بین دو تا سه روز ظاهر شده و حداکثر تا 2 هفته به بیشترین میزان اثر خود میرسد. معمولا اثر آن تا 4-6 ماه باقی مانده اما ممکن است طولانی تر باشد. پس از این زمان اگر بخوام دوباره خطوط چروک ایجاد نشود به تزریق مجدد نیاز خواهم داشت</Text>
+          <TextBrush>Black</TextBrush>
+          <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+          <Type>Expression</Type>
+        </Text6>
+        <Text7 Ref="18" type="Text" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>14.2,14.2,3.8,0.8</ClientRectangle>
+          <Conditions isList="true" count="0" />
+          <Font>B Mitra,14,Bold</Font>
+          <Guid>3975864d43a74072a7bbbd5657dac59e</Guid>
+          <HorAlignment>Right</HorAlignment>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text7</Name>
+          <Page isRef="10" />
+          <Parent isRef="10" />
+          <Text>مراقبت پس از تزریق</Text>
+          <TextBrush>Black</TextBrush>
+          <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+          <Type>Expression</Type>
+          <VertAlignment>Center</VertAlignment>
+        </Text7>
+        <Text8 Ref="19" type="Text" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0.2,15.4,18.2,2.8</ClientRectangle>
+          <Conditions isList="true" count="0" />
+          <Font>B Mitra,14</Font>
+          <Guid>59f904622fa0498087242f5c74eb1989</Guid>
+          <HorAlignment>Right</HorAlignment>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text8</Name>
+          <Page isRef="10" />
+          <Parent isRef="10" />
+          <Text>می دانم که باید پس از تزریق به مدت 4 ساعت از خوابیدن و سجده کردن پرهیز کنم
+همچین باید از دستکاری نمودن و فشار دادن محل های تزریق خودداری نمایم تا 72 ساعت از گرم شدن ناحیه درمان، نوشیدن الکل و کارهایی که سبب گر گرفتگی پرهیزکرده و تا پایان دوره اثر توکسین از درمان ناحیه لیزرها خودداری کنم. چرا که انجام لیزر روی نواحی تزریق شده باعث کاهش اثر توکسین میگردد
+</Text>
+          <TextBrush>Black</TextBrush>
+          <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+          <Type>Expression</Type>
+        </Text8>
+        <Text9 Ref="20" type="Text" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>14.6,19.4,3.4,0.8</ClientRectangle>
+          <Conditions isList="true" count="0" />
+          <Font>B Mitra,14,Bold</Font>
+          <Guid>64b0932c67164d378cc74207bc4705e3</Guid>
+          <HorAlignment>Right</HorAlignment>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text9</Name>
+          <Page isRef="10" />
+          <Parent isRef="10" />
+          <Text>خطرات و عوارض</Text>
+          <TextBrush>Black</TextBrush>
+          <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+          <Type>Expression</Type>
+          <VertAlignment>Center</VertAlignment>
+        </Text9>
+        <Text10 Ref="21" type="Text" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>18,19.4,0.4,0.8</ClientRectangle>
+          <Conditions isList="true" count="0" />
+          <Font>Symbol,14,Bold</Font>
+          <Guid>beff71266c6e486182f1d58d4d3e9f65</Guid>
+          <HorAlignment>Right</HorAlignment>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text10</Name>
+          <Page isRef="10" />
+          <Parent isRef="10" />
+          <Text>·</Text>
+          <TextBrush>Black</TextBrush>
+          <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+          <Type>Expression</Type>
+          <VertAlignment>Center</VertAlignment>
+        </Text10>
+        <Text11 Ref="22" type="Text" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0.2,20.6,18.2,3.2</ClientRectangle>
+          <Conditions isList="true" count="0" />
+          <Font>B Mitra,14</Font>
+          <Guid>bcd7536e1d864dee8092a9bc8641290e</Guid>
+          <HorAlignment>Right</HorAlignment>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text11</Name>
+          <Page isRef="10" />
+          <Parent isRef="10" />
+          <Text>درمان خطوط اخم با توکسین بوتولینوم ممکن است سبب افتادگی موقتی مختصر پلک در حدود 1-3 % از افراد تخت درمان شود. این عارضه معمولا 3-4 هفته طول می کشد و خود به خود بهبود می یابد با درمانی که پزشک انجام می دهد افتادگی پلک به صورت علامتی در این 3-4 هفته بهبود خواهد یافت. کمبودی محل های تزریق یا سردرد گذرا نیز ممکن است رخ دهد. دو بینی نیز از دیگر عوارض موقتی است که خود به خود بهبود می یابد. در تعداد بسیار کمی از افراد ممکن است تزریق توکسین بوتولینوم اثر رضایت بخشی نداشته یا اثر آن به اندازه معمول طول نکشد. در موارد نادر نیز در بعضی افراد علائم حساسیتی مانند ورم یا کهیر بروز نماید</Text>
+          <TextBrush>Black</TextBrush>
+          <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+          <Type>Expression</Type>
+        </Text11>
+        <Text13 Ref="23" type="Text" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0.2,25,18.2,2.2</ClientRectangle>
+          <Conditions isList="true" count="0" />
+          <Font>B Mitra,14,Bold</Font>
+          <Guid>da66a58a764d4be298792fd2acfa2ee0</Guid>
+          <HorAlignment>Right</HorAlignment>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text13</Name>
+          <Page isRef="10" />
+          <Parent isRef="10" />
+          <Text>تعهد می نمایم که باردار و شیرده نبوده و هیچگونه بیماری عصبی – عضلانی وعفونت موضعی و عمومی ندارم از داورهایی که به گفته پزشکم با توکسین تداخل دارویی دارند مثل جنتامایسین، سولفات منیزیم، بلوک کننده های کانال کلسیم .... نیز استفاده نمی کنم</Text>
+          <TextBrush>Black</TextBrush>
+          <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+          <Type>Expression</Type>
+        </Text13>
+        <Text14 Ref="24" type="Text" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>18,14.2,0.4,0.8</ClientRectangle>
+          <Conditions isList="true" count="0" />
+          <Font>Symbol,14,Bold</Font>
+          <Guid>3fdfbaf8c0444b3daa7b838c67919794</Guid>
+          <HorAlignment>Right</HorAlignment>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text14</Name>
+          <Page isRef="10" />
+          <Parent isRef="10" />
+          <Text>·</Text>
+          <TextBrush>Black</TextBrush>
+          <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+          <Type>Expression</Type>
+          <VertAlignment>Center</VertAlignment>
+        </Text14>
+        <Text32 Ref="25" type="Text" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,0.4,19,0.6</ClientRectangle>
+          <Conditions isList="true" count="0" />
+          <Font>B Mitra,14,Bold</Font>
+          <Guid>2b535af7bbf84bdf9b542cf03dd3f1b1</Guid>
+          <HorAlignment>Center</HorAlignment>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text32</Name>
+          <Page isRef="10" />
+          <Parent isRef="10" />
+          <Text>به نام خدا</Text>
+          <TextBrush>Black</TextBrush>
+          <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+          <Type>Expression</Type>
+          <VertAlignment>Center</VertAlignment>
+        </Text32>
+      </Components>
+      <Conditions isList="true" count="0" />
+      <Guid>51430267a8b84b10a4d910a61864bf04</Guid>
+      <Margins>1,1,1,1</Margins>
+      <Name>Page1</Name>
+      <PageHeight>29.7</PageHeight>
+      <PageWidth>21</PageWidth>
+      <PaperSize>A4</PaperSize>
+      <Report isRef="0" />
+      <RightToLeft>True</RightToLeft>
+      <Watermark Ref="26" type="Stimulsoft.Report.Components.StiWatermark" isKey="true">
+        <Font>Arial,100</Font>
+        <TextBrush>[50:0:0:0]</TextBrush>
+      </Watermark>
+    </Page1>
+    <Page2 Ref="27" type="Page" isKey="true">
+      <Border>All;Black;2;Solid;False;4;Black</Border>
+      <Brush>Transparent</Brush>
+      <Components isList="true" count="18">
+        <Text15 Ref="28" type="Text" isKey="true">
+          <AutoWidth>True</AutoWidth>
+          <Border>All;Black;1;Solid;False;4;Black</Border>
+          <Brush>Transparent</Brush>
+          <CanGrow>True</CanGrow>
+          <CanShrink>True</CanShrink>
+          <ClientRectangle>0.6,0.6,18.2,4.6</ClientRectangle>
+          <Conditions isList="true" count="0" />
+          <Font>B Mitra,14,Bold</Font>
+          <GrowToHeight>True</GrowToHeight>
+          <HorAlignment>Right</HorAlignment>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text15</Name>
+          <Page isRef="27" />
+          <Parent isRef="27" />
+          <Text>اینجانب {Attendance.FK_ATTN_FIGH.FRST_NAME_DNRM} {Attendance.FK_ATTN_FIGH.LAST_NAME_DNRM} به شماره ملی {Attendance.FK_ATTN_FIGH.NATL_CODE_DNRM} با آگهی کامل و آزادانه به پزشک خود دکتر {Coach.FRST_NAME_DNRM} {Coach.LAST_NAME_DNRM} اجازه میدهم درمان لازم را برایم انجام داده و وی و کادر درمانی را از مسئولیت ناشی از بروز عوارض احتمالی بدون تقصیر پزشک که ممکن است پدید آید مبرا میدانم</Text>
+          <TextBrush>Black</TextBrush>
+          <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+          <Type>Expression</Type>
+        </Text15>
+        <Text16 Ref="29" type="Text" isKey="true">
+          <Border>None;Black;1;Solid;False;4;Black</Border>
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0.6,6,4.6,0.6</ClientRectangle>
+          <Conditions isList="true" count="0" />
+          <Font>B Mitra,14,Bold</Font>
+          <HorAlignment>Center</HorAlignment>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text16</Name>
+          <Page isRef="27" />
+          <Parent isRef="27" />
+          <Text>تاریخ، امضا و اثر انگشت</Text>
+          <TextBrush>Black</TextBrush>
+          <Type>Expression</Type>
+        </Text16>
+        <Text18 Ref="30" type="Text" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>12,9.4,6.6,0.8</ClientRectangle>
+          <Conditions isList="true" count="0" />
+          <Font>B Mitra,14,Bold</Font>
+          <Guid>5224f774cbb54200b091e813c51aff06</Guid>
+          <HorAlignment>Right</HorAlignment>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text18</Name>
+          <Page isRef="27" />
+          <Parent isRef="27" />
+          <Text>دستورات پس از تزریق سم بوتولونیوم</Text>
+          <TextBrush>Black</TextBrush>
+          <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+          <Type>Expression</Type>
+          <VertAlignment>Center</VertAlignment>
+        </Text18>
+        <Text19 Ref="31" type="Text" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>18.6,9.4,0.4,0.8</ClientRectangle>
+          <Conditions isList="true" count="0" />
+          <Font>Symbol,14,Bold</Font>
+          <Guid>6168f66ce9cc4b3a91bf630d63e33f86</Guid>
+          <HorAlignment>Right</HorAlignment>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text19</Name>
+          <Page isRef="27" />
+          <Parent isRef="27" />
+          <Text>·</Text>
+          <TextBrush>Black</TextBrush>
+          <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+          <Type>Expression</Type>
+          <VertAlignment>Center</VertAlignment>
+        </Text19>
+        <Text20 Ref="32" type="Text" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>11.8,9.4,0.6,0.8</ClientRectangle>
+          <Conditions isList="true" count="0" />
+          <Font>Symbol,14,Bold</Font>
+          <Guid>8598141a875c45fa8e94c061e5b09c77</Guid>
+          <HorAlignment>Right</HorAlignment>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text20</Name>
+          <Page isRef="27" />
+          <Parent isRef="27" />
+          <Text>A</Text>
+          <TextBrush>Black</TextBrush>
+          <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+          <Type>Expression</Type>
+          <VertAlignment>Center</VertAlignment>
+        </Text20>
+        <Text21 Ref="33" type="Text" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0.2,10.6,17.8,0.6</ClientRectangle>
+          <Conditions isList="true" count="0" />
+          <Font>B Mitra,14</Font>
+          <Guid>27a3650eadc843c795f9f2ddd52ef282</Guid>
+          <HorAlignment>Right</HorAlignment>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text21</Name>
+          <Page isRef="27" />
+          <Parent isRef="27" />
+          <Text>تا 4 ساعت سر قائم باشد یعنی تا 4 ساعت نخوابید - سجده نکنید - میتوانید مهر را به پیشانی تماس دهید</Text>
+          <TextBrush>Black</TextBrush>
+          <Type>Expression</Type>
+        </Text21>
+        <Text22 Ref="34" type="Text" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>18,10.6,0.6,0.6</ClientRectangle>
+          <Conditions isList="true" count="0" />
+          <Font>B Mitra,14</Font>
+          <Guid>1497487b19a040bc98908fdcbaef141f</Guid>
+          <HorAlignment>Right</HorAlignment>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text22</Name>
+          <Page isRef="27" />
+          <Parent isRef="27" />
+          <Text>( 1</Text>
+          <TextBrush>Black</TextBrush>
+          <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+          <Type>Expression</Type>
+          <VertAlignment>Center</VertAlignment>
+        </Text22>
+        <Text23 Ref="35" type="Text" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0.2,11.4,17.8,0.6</ClientRectangle>
+          <Conditions isList="true" count="0" />
+          <Font>B Mitra,14</Font>
+          <Guid>ac96b748fc604919814b5707a0315bdd</Guid>
+          <HorAlignment>Right</HorAlignment>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text23</Name>
+          <Page isRef="27" />
+          <Parent isRef="27" />
+          <Text>پس از 4 ساعت سجده کردن و خوابیدن منعی ندارد فقط پیشانی ره به مهر فشار ندهید، در حد تماس با مهر باشد</Text>
+          <TextBrush>Black</TextBrush>
+          <Type>Expression</Type>
+        </Text23>
+        <Text24 Ref="36" type="Text" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>18,11.4,0.6,0.6</ClientRectangle>
+          <Conditions isList="true" count="0" />
+          <Font>B Mitra,14</Font>
+          <Guid>ab51b50150a44b26a8daa1e6f44ae0b5</Guid>
+          <HorAlignment>Right</HorAlignment>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text24</Name>
+          <Page isRef="27" />
+          <Parent isRef="27" />
+          <Text>( 2</Text>
+          <TextBrush>Black</TextBrush>
+          <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+          <Type>Expression</Type>
+          <VertAlignment>Center</VertAlignment>
+        </Text24>
+        <Text25 Ref="37" type="Text" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>1.2,12.2,16.8,1.6</ClientRectangle>
+          <Conditions isList="true" count="0" />
+          <Font>B Mitra,14</Font>
+          <Guid>ed6ca0e3a407475c91d79f6b5bcff5e9</Guid>
+          <HorAlignment>Right</HorAlignment>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text25</Name>
+          <Page isRef="27" />
+          <Parent isRef="27" />
+          <Text>روز اول و دوم پس از تزریق از کارهایی که سبب گر گرفتگی می شود مانند نوشیدن الکل، ورزش سنگین، سونای بخار، جکوزی و .... خودداری نمایید و مرتب با عضلات صورت ورزش نمائید - که پیشانی را بالا بیندازید و اخم نکنید</Text>
+          <TextBrush>Black</TextBrush>
+          <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+          <Type>Expression</Type>
+        </Text25>
+        <Text26 Ref="38" type="Text" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>18,12.2,0.6,0.6</ClientRectangle>
+          <Conditions isList="true" count="0" />
+          <Font>B Mitra,14</Font>
+          <Guid>4639ab8da0e04d068d70f823dc027558</Guid>
+          <HorAlignment>Right</HorAlignment>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text26</Name>
+          <Page isRef="27" />
+          <Parent isRef="27" />
+          <Text>( 3</Text>
+          <TextBrush>Black</TextBrush>
+          <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+          <Type>Expression</Type>
+          <VertAlignment>Center</VertAlignment>
+        </Text26>
+        <Text17 Ref="39" type="Text" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>1.2,14,16.8,1.6</ClientRectangle>
+          <Conditions isList="true" count="0" />
+          <Font>B Mitra,14</Font>
+          <Guid>d25d253039514d5d94767a868f61e687</Guid>
+          <HorAlignment>Right</HorAlignment>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text17</Name>
+          <Page isRef="27" />
+          <Parent isRef="27" />
+          <Text>از خاراندن محل تزریق، ماساژ دادن، بند انداختن، لیف و کیسه کشیدن، با حوله فشار دادن، با ماساژ کرم کشیدنتا 15 روز خودداری نمائید. حمام با آب ولرم معمولی هیچ مشکلی ندارد</Text>
+          <TextBrush>Black</TextBrush>
+          <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+          <Type>Expression</Type>
+        </Text17>
+        <Text27 Ref="40" type="Text" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>18,14,0.6,0.6</ClientRectangle>
+          <Conditions isList="true" count="0" />
+          <Font>B Mitra,14</Font>
+          <Guid>fd3dd19fa0164ffbad855fadd4d57a6a</Guid>
+          <HorAlignment>Right</HorAlignment>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text27</Name>
+          <Page isRef="27" />
+          <Parent isRef="27" />
+          <Text>( 4</Text>
+          <TextBrush>Black</TextBrush>
+          <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+          <Type>Expression</Type>
+          <VertAlignment>Center</VertAlignment>
+        </Text27>
+        <Text28 Ref="41" type="Text" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>1.2,15.8,16.8,1.6</ClientRectangle>
+          <Conditions isList="true" count="0" />
+          <Font>B Mitra,14</Font>
+          <Guid>b943a9b1419e4dbfb4ff760102ce796a</Guid>
+          <HorAlignment>Right</HorAlignment>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text28</Name>
+          <Page isRef="27" />
+          <Parent isRef="27" />
+          <Text>این دارو پس از 3 روز اثر میکند و پس از 3 هفته جذبش کامل و به ماکزیمم اثر میرسد و به طور متوسط 4 تا 6 ماه اثرش باقی میماند</Text>
+          <TextBrush>Black</TextBrush>
+          <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+          <Type>Expression</Type>
+        </Text28>
+        <Text29 Ref="42" type="Text" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>18,15.8,0.6,0.6</ClientRectangle>
+          <Conditions isList="true" count="0" />
+          <Font>B Mitra,14</Font>
+          <Guid>cda1324557bd41d58ea0209b1eb28c2a</Guid>
+          <HorAlignment>Right</HorAlignment>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text29</Name>
+          <Page isRef="27" />
+          <Parent isRef="27" />
+          <Text>( 5</Text>
+          <TextBrush>Black</TextBrush>
+          <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+          <Type>Expression</Type>
+          <VertAlignment>Center</VertAlignment>
+        </Text29>
+        <Text30 Ref="43" type="Text" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>1.2,17.6,16.8,1</ClientRectangle>
+          <Conditions isList="true" count="0" />
+          <Font>B Mitra,14</Font>
+          <Guid>d3c625185d4e4b7181782a57a3f0ea93</Guid>
+          <HorAlignment>Right</HorAlignment>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text30</Name>
+          <Page isRef="27" />
+          <Parent isRef="27" />
+          <Text>در صورت هر مشکلی پس از 3 هفته که جذب کامل گردید با مرکز تماس بگیرید</Text>
+          <TextBrush>Black</TextBrush>
+          <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+          <Type>Expression</Type>
+        </Text30>
+        <Text31 Ref="44" type="Text" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>18,17.6,0.6,0.6</ClientRectangle>
+          <Conditions isList="true" count="0" />
+          <Font>B Mitra,14</Font>
+          <Guid>b76d10516bad4ecdb4bb6f4eefb39b42</Guid>
+          <HorAlignment>Right</HorAlignment>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text31</Name>
+          <Page isRef="27" />
+          <Parent isRef="27" />
+          <Text>( 6</Text>
+          <TextBrush>Black</TextBrush>
+          <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+          <Type>Expression</Type>
+          <VertAlignment>Center</VertAlignment>
+        </Text31>
+        <Text33 Ref="45" type="Text" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0.8,6.8,18.2,2</ClientRectangle>
+          <Conditions isList="true" count="0" />
+          <Font>B Mitra,14</Font>
+          <Guid>65dbb989760948e1aefeade180e9fba6</Guid>
+          <HorAlignment>Right</HorAlignment>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text33</Name>
+          <Page isRef="27" />
+          <Parent isRef="27" />
+          <Text>آدرس بیمار : {Attendance.FK_ATTN_FIGH.POST_ADRS_DNRM}
+تلفن همراه : {Attendance.FK_ATTN_FIGH.CELL_PHON_DNRM} تلفن پدر : {Attendance.FK_ATTN_FIGH.DAD_CELL_PHON_DNRM} تلفن مادر : {Attendance.FK_ATTN_FIGH.MOM_CELL_PHON_DNRM}
+تلفن ثابت : {Attendance.FK_ATTN_FIGH.TELL_PHON_DNRM} تلفن ثابت پدر : {Attendance.FK_ATTN_FIGH.DAD_TELL_PHON_DNRM} تلفن ثابت مادر : {Attendance.FK_ATTN_FIGH.MOM_TELL_PHON_DNRM}</Text>
+          <TextBrush>Black</TextBrush>
+          <Type>Expression</Type>
+        </Text33>
+      </Components>
+      <Conditions isList="true" count="0" />
+      <Guid>d89cc8be39274d35801df14cd57b3a90</Guid>
+      <Margins>1,1,1,1</Margins>
+      <Name>Page2</Name>
+      <PageHeight>27.94</PageHeight>
+      <PageWidth>21.59</PageWidth>
+      <PaperSize>Letter</PaperSize>
+      <Report isRef="0" />
+      <Watermark Ref="46" type="Stimulsoft.Report.Components.StiWatermark" isKey="true">
+        <Font>Arial,100</Font>
+        <TextBrush>[50:0:0:0]</TextBrush>
+      </Watermark>
+    </Page2>
+  </Pages>
+  <PrinterSettings Ref="47" type="Stimulsoft.Report.Print.StiPrinterSettings" isKey="true" />
+  <ReferencedAssemblies isList="true" count="8">
+    <value>System.Dll</value>
+    <value>System.Drawing.Dll</value>
+    <value>System.Windows.Forms.Dll</value>
+    <value>System.Data.Dll</value>
+    <value>System.Xml.Dll</value>
+    <value>Stimulsoft.Controls.Dll</value>
+    <value>Stimulsoft.Base.Dll</value>
+    <value>Stimulsoft.Report.Dll</value>
+  </ReferencedAssemblies>
+  <ReportAlias>Report</ReportAlias>
+  <ReportChanged>8/29/2022 9:31:56 AM</ReportChanged>
+  <ReportCreated>11/19/2017 1:40:49 PM</ReportCreated>
+  <ReportFile>D:\Project\MyProject\Documents\Report Repository\RPT_ATTN_004_R.mrt</ReportFile>
+  <ReportGuid>4df5186d529a4d29aedcaa7d243eb599</ReportGuid>
+  <ReportName>Report</ReportName>
+  <ReportUnit>Centimeters</ReportUnit>
+  <ReportVersion>2012.2.1304</ReportVersion>
+  <Script>using System;
+using System.Drawing;
+using System.Windows.Forms;
+using System.Data;
+using Stimulsoft.Controls;
+using Stimulsoft.Base.Drawing;
+using Stimulsoft.Report;
+using Stimulsoft.Report.Dialogs;
+using Stimulsoft.Report.Components;
+
+namespace Reports
+{
+    public class Report : Stimulsoft.Report.StiReport
+    {
+        public Report()        {
+            this.InitializeComponent();
+        }
+
+        #region StiReport Designer generated code - do not modify
+		#endregion StiReport Designer generated code - do not modify
+    }
+}
+</Script>
+  <ScriptLanguage>CSharp</ScriptLanguage>
+  <Styles isList="true" count="0" />
+</StiSerializer>

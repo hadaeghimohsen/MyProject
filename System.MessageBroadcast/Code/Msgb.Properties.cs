@@ -164,12 +164,16 @@ namespace System.MessageBroadcast.Code
             if (_PingStatus)
             {
                // 1401/04/11 * IF Internet is Connected System must be Show Alarm CONNECTED
-               Gateway(
-                  new Job(SendType.External, "localhost", "MSTR_PAGE_F", 10 /* Execute Actn_Calf_P */, SendType.SelfToUserInterface)
-                  {
-                     Input = new XElement("SmsConf", new XAttribute("actntype", "InternetConnected"))
-                  }
-               );
+               try
+               {
+                  Gateway(
+                     new Job(SendType.External, "localhost", "MSTR_PAGE_F", 10 /* Execute Actn_Calf_P */, SendType.SelfToUserInterface)
+                     {
+                        Input = new XElement("SmsConf", new XAttribute("actntype", "InternetConnected"))
+                     }
+                  );
+               }
+               catch { }
 
                int smsSendCount = 0;
                
@@ -211,7 +215,7 @@ namespace System.MessageBroadcast.Code
                      else if (smsConf.FirstOrDefault().SERV_TYPE == "002")
                      {
                         // iNoti Sms Provider
-                        SendCredit = Convert.ToInt32(xsmsserver.Descendants("SendCredit").FirstOrDefault().Value.Split('.')[0]);
+                        SendCredit = (int)double.Parse(xsmsserver.Descendants("SendCredit").FirstOrDefault().Value/*.Split('.')[0]*/);
                      }
 
                      if (smsConf.FirstOrDefault(smst => smst.TYPE == "001" && smst.BGWK_STAT == "002").ALRM_MIN_REMN_CHRG >= SendCredit)
@@ -351,23 +355,31 @@ namespace System.MessageBroadcast.Code
                   if (!_PingStatus)
                   {
                      // 1401/04/11 * IF Internet is not Connected System must be Show Alarm DC
-                     Gateway(
-                        new Job(SendType.External, "localhost", "MSTR_PAGE_F", 10 /* Execute Actn_Calf_P */, SendType.SelfToUserInterface)
-                        {
-                           Input = new XElement("SmsConf", new XAttribute("actntype", "InternetDisconnected"))
-                        }
-                     );
+                     try
+                     {
+                        Gateway(
+                           new Job(SendType.External, "localhost", "MSTR_PAGE_F", 10 /* Execute Actn_Calf_P */, SendType.SelfToUserInterface)
+                           {
+                              Input = new XElement("SmsConf", new XAttribute("actntype", "InternetDisconnected"))
+                           }
+                        );
+                     }
+                     catch { }
                      break;
                   }
                   #endregion
 
                   // 1401/04/11 * IF Internet is Connected System must be Show Alarm CONNECTED
-                  Gateway(
-                     new Job(SendType.External, "localhost", "MSTR_PAGE_F", 10 /* Execute Actn_Calf_P */, SendType.SelfToUserInterface)
-                     {
-                        Input = new XElement("SmsConf", new XAttribute("actntype", "InternetConnected"))
-                     }
-                  );
+                  try
+                  {
+                     Gateway(
+                        new Job(SendType.External, "localhost", "MSTR_PAGE_F", 10 /* Execute Actn_Calf_P */, SendType.SelfToUserInterface)
+                        {
+                           Input = new XElement("SmsConf", new XAttribute("actntype", "InternetConnected"))
+                        }
+                     );
+                  }
+                  catch { }
 
                   if (SmsWorkerStat)
                   {
@@ -402,7 +414,7 @@ namespace System.MessageBroadcast.Code
                      else if (smsConf.FirstOrDefault().SERV_TYPE == "002")
                      {
                         // iNoti Sms Provider
-                        SendCredit = Convert.ToInt32(xsmsserver.Descendants("SendCredit").FirstOrDefault().Value.Split('.')[0]);
+                        SendCredit = (int)double.Parse(xsmsserver.Descendants("SendCredit").FirstOrDefault().Value/*.Split('.')[0]*/);
                      }
 
                      if (smsConf.FirstOrDefault(smst => smst.TYPE == "001" && smst.BGWK_STAT == "002").ALRM_MIN_REMN_CHRG >= SendCredit)

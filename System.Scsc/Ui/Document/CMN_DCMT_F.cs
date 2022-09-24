@@ -350,13 +350,19 @@ namespace System.Scsc.Ui.Document
          img.Save(ms, ImageFormat.Bmp);
          bytes = ms.ToArray();
 
-         var CrntRcdc = (RcvdBs.Current as Data.Receive_Document);
+         //var CrntRcdc = (RcvdBs.Current as Data.Receive_Document);
+         var CrntRcdc = RcvdBs.List.OfType<Data.Receive_Document>().FirstOrDefault(i => i.Request_Document.DCMT_DSID == 13930903120048833);
+         if (CrntRcdc == null) { MessageBox.Show("رکورد عکس 3*4 تعریف نشده"); return; }         
+
          CrntRcdc.Image_Documents.Single().IMAG = Convert.ToBase64String(bytes);
          CrntRcdc.Image_Documents.Single().FILE_NAME = FILE_NAME_TextBox.Text;
          CrntRcdc.Image_Documents.Single().MDFY_STAT = 1;
          TC_Dcmt.SelectedTab = tp_002;
 
+         int _rcvd = RcvdBs.IndexOf(CrntRcdc);
          receive_DocumentBindingNavigatorSaveItem_Click(null, null);
+         RcvdBs.Position = _rcvd;
+
          Btn_SetProfileImage_Click(null, null);
       }
 

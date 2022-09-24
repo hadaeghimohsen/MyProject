@@ -35,8 +35,8 @@ namespace System.Scsc.Ui.Advertising
             AdvpBs.DataSource = iScsc.Advertising_Parameters;
             AdvpBs.Position = _ixAdvp;
 
-            Advc2_Gv.ActiveFilterString = string.Format("RECD_STAT = '002'");
-            Advc3_Gv.ActiveFilterString = string.Format("RECD_STAT = '003'");
+            Advc2_Gv.ActiveFilterString = string.Format("RECD_STAT = '002' AND CELL_PHON != ''");
+            Advc3_Gv.ActiveFilterString = string.Format("RECD_STAT = '003' AND CELL_PHON != ''");
             requery = false;
          }
          catch { }
@@ -282,8 +282,10 @@ namespace System.Scsc.Ui.Advertising
                        new XAttribute("tobd", ToBd_Dt.Value == null ? DateTime.Now.ToString("yyyy-MM-dd") : ToBd_Dt.Value.Value.ToString("yyyy-MM-dd"))
                    ),
                    new XElement("EndCycle",
-                       new XAttribute("isnumblastday", NumbLastDay_Cbx.Checked),
-                       new XAttribute("numblastday", NumbLastDay_Txt.EditValue ?? 0)
+                       new XAttribute("isfromnumblastday", FromNumbLastDay_Cbx.Checked),
+                       new XAttribute("fromnumblastday", FromNumbLastDay_Txt.EditValue ?? 0),
+                       new XAttribute("istonumblastday", ToNumbLastDay_Cbx.Checked),
+                       new XAttribute("tonumblastday", ToNumbLastDay_Txt.EditValue ?? 0)
                    ),
                    new XElement("Inviting",
                        new XAttribute("isnumbinvdir", NumbInvDir_Cbx.Checked),
@@ -340,7 +342,12 @@ namespace System.Scsc.Ui.Advertising
             ServBs.DataSource =
                from f in iScsc.Fighters
                join s in iScsc.Advertising_Campaigns on f.FILE_NO equals s.FIGH_FILE_NO
-               where s.ADVP_CODE == _advp.CODE
+               where s.ADVP_CODE == _advp.CODE &&
+               (
+                  (AdvcRecd002_Tsm.Checked && s.RECD_STAT == "002") || 
+                  (AdvcRecd003_Tsm.Checked && s.RECD_STAT == "003" && s.RQST_RQID == null) || 
+                  (AdvcRecd003Rqst_Tsm.Checked && s.RECD_STAT == "003" && s.RQST_RQID != null)
+               )
                select f;
 
          }
@@ -391,13 +398,18 @@ namespace System.Scsc.Ui.Advertising
 
             if (MessageBox.Show(this, "آیا با ثبت کدهای تخفیف برای مشتریان موافق هستید؟", "ارسال کد تخفیف", MessageBoxButtons.YesNo) != DialogResult.Yes) return;
 
-            if (TempDsct_Lov.EditValue == null || TempDsct_Lov.EditValue.ToString() == "")
+            if (_advp.TEMP_TMID == null)
             {
-               Param_Ro.RolloutStatus = false;
-               Conf_Ro.RolloutStatus = true;
-               TempDsct_Lov.Focus();
-               return;
+               if (TempDsct_Lov.EditValue == null || TempDsct_Lov.EditValue.ToString() == "")
+               {
+                  Param_Ro.RolloutStatus = false;
+                  Conf_Ro.RolloutStatus = true;
+                  TempDsct_Lov.Focus();
+                  return;
+               }
             }
+            else
+               TempDsct_Lov.EditValue = _advp.TEMP_TMID;
 
             iScsc.SEND_DSCT_P(
                new XElement("Advertising_Parameter",
@@ -719,6 +731,61 @@ namespace System.Scsc.Ui.Advertising
                   iScsc.ExecuteCommand(string.Format("UPDATE dbo.Advertising_Parameter SET TEMP_TMID = {0} WHERE CODE = {1};", TempDsct_Lov.EditValue, _advp.CODE));                  
                   break;
             }
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void AdvcRecd00i_Tsm_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _advcRecd00i = sender as ToolStripMenuItem;
+            if (_advcRecd00i == null) return;
+
+            switch (_advcRecd00i.Tag.ToString())
+            {
+               case "002":
+                  AdvcRecd002_Tsm.Checked = true;
+                  AdvcRecd003_Tsm.Checked = AdvcRecd003Rqst_Tsm.Checked = false;
+                  break;
+               case "003":
+                  AdvcRecd003_Tsm.Checked = true;
+                  AdvcRecd002_Tsm.Checked = AdvcRecd003Rqst_Tsm.Checked = false;
+                  break;
+               case "003Rqst":
+                  AdvcRecd003Rqst_Tsm.Checked = true;
+                  AdvcRecd002_Tsm.Checked = AdvcRecd003_Tsm.Checked = false;
+                  break;
+               default:
+                  break;
+            }
+            AdvpBs_CurrentChanged(null, null);
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void DelAdvc_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _advc = AdvcBs.Current as Data.Advertising_Campaign;
+            if (_advc == null) return;
+
+            iScsc.ExecuteCommand(
+               string.Format("DELETE dbo.Advertising_Campaign WHERE Code = {0};", _advc.CODE)
+            );
             requery = true;
          }
          catch (Exception exc)

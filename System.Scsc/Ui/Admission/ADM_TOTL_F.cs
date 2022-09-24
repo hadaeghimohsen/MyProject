@@ -91,6 +91,8 @@ namespace System.Scsc.Ui.Admission
                {
                   DefaultTabPage003();
                }
+
+               Cbmt_Gv.ActiveFilterString = "";
             }
          }
          catch { }
@@ -1621,7 +1623,13 @@ namespace System.Scsc.Ui.Admission
                IncAttnPric_Nud.Value = expn.NUMB_OF_ATTN_MONT ?? 0;
 
                // 1401/05/22 * اگر ظرفیت کلاسی پر شده باشد به منشی اعلام میکنیم
-               if (CapacityCycle_Lb.Tag != null && Convert.ToInt64(CapacityCycle_Lb.Tag) <= 0 && MessageBox.Show(this, "ظرفیت ثبت نام گروه انتخابی پر شده، آیا مایل به این هستید که گروه دیگری را انتخاب کنید؟", "محدودیت ظرفیت ثبت نام", MessageBoxButtons.YesNo) == DialogResult.Yes) { CbmtCode_Lov.Focus(); return; }
+               if (CapacityCycle_Lb.Tag != null && Convert.ToInt64(CapacityCycle_Lb.Tag) <= 0 && MessageBox.Show(this, "ظرفیت ثبت نام گروه انتخابی پر شده، آیا مایل به این هستید که گروه دیگری را انتخاب کنید؟", "محدودیت ظرفیت ثبت نام", MessageBoxButtons.YesNo) == DialogResult.Yes) 
+               {
+                  //SexFltr_Pkb_PickCheckedChange(null);
+                  Cbmt_Gv.ActiveFilterString = string.Format("[Sex_Type] = '{0}' AND MTOD_CODE = {1} OR [Sex_Type] = '003' AND MTOD_CODE = {1}", SexFltr_Pkb.PickChecked ? "001" : "002", expn.MTOD_CODE);
+                  CbmtCode_Lov.Focus(); 
+                  return; 
+               }
 
                Btn_RqstRqt3_Click(null, null);
             }
@@ -2363,7 +2371,7 @@ namespace System.Scsc.Ui.Admission
 
             var figh = rqst.Request_Rows.FirstOrDefault().Fighter;
 
-            Cbmt_Gv.ActiveFilterString = SexFltr_Pkb.PickChecked ? string.Format("[Sex_Type] = '{0}' OR [Sex_Type] = '003'", figh.SEX_TYPE_DNRM) : "";
+            Cbmt_Gv.ActiveFilterString = SexFltr_Pkb.PickChecked ? string.Format("([Sex_Type] = '{0}' OR [Sex_Type] = '003')", figh.SEX_TYPE_DNRM) : "";
          }
          catch(Exception exc)
          {
@@ -2490,6 +2498,7 @@ namespace System.Scsc.Ui.Admission
                MessageBox.Show(this, "کاربر گرامی این کد تخفیف برای نرخ مورد نظر شما قابل استفاده نمی باشد", "عدم استفاده از کد تخفیف");
                return;
             }
+            if (_fgdc.EXPR_DATE.Value.Date < DateTime.Now.Date) { MessageBox.Show(this, "تاریخ انقضای کد تخفیف شما تمام شده است", "عدم اعتبار تاریخ انقضا"); return; }
 
             switch (_fgdc.DSCT_TYPE)
             {
@@ -2798,6 +2807,55 @@ namespace System.Scsc.Ui.Admission
             );
          }
          catch { }
+      }
+
+      private void bn_DiscountPayment3_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var rqst = RqstBs3.Current as Data.Request;
+            if (rqst == null) return;
+
+            if (Accept_Cb.Checked)
+            {
+               var pymt = PymtsBs3.Current as Data.Payment;
+               if (pymt == null) return;
+
+               var debtamnt = (pymt.SUM_EXPN_PRIC + pymt.SUM_EXPN_EXTR_PRCT) - (pymt.SUM_RCPT_EXPN_PRIC + pymt.SUM_PYMT_DSCN_DNRM);
+
+               string mesg = "";
+               if (debtamnt > 0)
+               {
+                  mesg =
+                     string.Format(
+                        ">> مبلغ {0} {1} به صورت >> تخفیف << در تاریخ {2} در صندوق کاربر {3}  قرار میگیرد",
+                        string.Format("{0:n0}", debtamnt),
+                        DAtypBs1.List.OfType<Data.D_ATYP>().FirstOrDefault(d => d.VALU == pymt.AMNT_UNIT_TYPE_DNRM).DOMN_DESC,
+                        "امروز",
+                        CurrentUser);
+                  mesg += Environment.NewLine;
+               }
+               mesg += ">> ذخیره و پایان درخواست";
+
+               if (MessageBox.Show(this, mesg, "عملیات ثبت نام", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2, MessageBoxOptions.RtlReading) != DialogResult.Yes) return;
+            }
+
+            foreach (Data.Payment pymt in PymtsBs3)
+            {
+               var debtamnt = (pymt.SUM_EXPN_PRIC + pymt.SUM_EXPN_EXTR_PRCT) - (pymt.SUM_RCPT_EXPN_PRIC + pymt.SUM_PYMT_DSCN_DNRM);
+               iScsc.INS_PYDS_P(pymt.CASH_CODE, pymt.RQST_RQID, (short?)1, null, debtamnt, PydsType_Lov.EditValue.ToString(), "002", PydsDesc_Txt.Text, PydsDesc_Txt.Tag == null ? null : (long?)PydsDesc_Txt.Tag, null);
+            }
+
+            /* Loop For Print After Pay */
+            RqstBnPrintAfterPay_Click(null, null);
+
+            /* End Request */
+            Btn_RqstSav3_Click(null, null);
+         }
+         catch (SqlException se)
+         {
+            MessageBox.Show(se.Message);
+         }
       }
    }
 }

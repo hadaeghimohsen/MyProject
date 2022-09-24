@@ -106,9 +106,6 @@
          // 
          // FLP_Desktop
          // 
-         this.FLP_Desktop.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
          this.FLP_Desktop.AutoScroll = true;
          this.FLP_Desktop.Controls.Add(this.LNK_SecurityManagment);
          this.FLP_Desktop.Controls.Add(this.LNK_ServiceDefinition);
@@ -125,11 +122,12 @@
          this.FLP_Desktop.Controls.Add(this.LNK_CRM);
          this.FLP_Desktop.Controls.Add(this.LNK_ROBOTECH);
          this.FLP_Desktop.Controls.Add(this.LNK_GATECONTROL);
+         this.FLP_Desktop.Dock = System.Windows.Forms.DockStyle.Fill;
          this.FLP_Desktop.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-         this.FLP_Desktop.Location = new System.Drawing.Point(0, 52);
+         this.FLP_Desktop.Location = new System.Drawing.Point(0, 0);
          this.FLP_Desktop.Name = "FLP_Desktop";
          this.FLP_Desktop.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-         this.FLP_Desktop.Size = new System.Drawing.Size(1005, 538);
+         this.FLP_Desktop.Size = new System.Drawing.Size(1005, 537);
          this.FLP_Desktop.TabIndex = 49;
          // 
          // LNK_SecurityManagment
@@ -793,27 +791,29 @@
          // 
          // labelControl1
          // 
+         this.labelControl1.AllowHtmlString = true;
          this.labelControl1.Appearance.BackColor = System.Drawing.SystemColors.Control;
          this.labelControl1.Appearance.Font = new System.Drawing.Font("Segoe UI Light", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.labelControl1.Appearance.Image = global::MyProject.Properties.Resources.IMAGE_1757;
          this.labelControl1.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         this.labelControl1.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
          this.labelControl1.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.labelControl1.Dock = System.Windows.Forms.DockStyle.Top;
+         this.labelControl1.Dock = System.Windows.Forms.DockStyle.Bottom;
          this.labelControl1.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-         this.labelControl1.Location = new System.Drawing.Point(0, 0);
+         this.labelControl1.Location = new System.Drawing.Point(0, 537);
          this.labelControl1.Name = "labelControl1";
          this.labelControl1.Size = new System.Drawing.Size(1005, 53);
          this.labelControl1.TabIndex = 4;
-         this.labelControl1.Text = "RelaySoft";
+         this.labelControl1.Text = "<size=20>RelaySoft\r\n<size=10><b>Team Corporation</b> \r\n<size=20><color=3,61,152>A" +
+    "ll <b>Services</b> In One Package</color>\r\n<size=10><color=red><b>Just Request</" +
+    "b></color>\r\n";
          // 
          // Desktop
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
          this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
          this.ContextMenuStrip = this.Cms_MainMenu;
-         this.Controls.Add(this.labelControl1);
          this.Controls.Add(this.FLP_Desktop);
+         this.Controls.Add(this.labelControl1);
          this.Controls.Add(this.panel1);
          this.Name = "Desktop";
          this.Size = new System.Drawing.Size(1005, 645);

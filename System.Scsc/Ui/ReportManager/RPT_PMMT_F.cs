@@ -95,6 +95,9 @@ namespace System.Scsc.Ui.ReportManager
                      (cochfileno == null || pd.FIGH_FILE_NO == cochfileno) &&
                      (cbmtcode == null || pd.CBMT_CODE_DNRM == cbmtcode)
                   );
+
+               RpacBs.DataSource = iScsc.Report_Actions;
+               MdrpBs.DataSource = iScsc.Modual_Reports.Where(m => m.MDUL_NAME == "RPT_PYM1_F");
             }
             else if (tc_master.SelectedTab == tp_003)
             {
@@ -139,32 +142,32 @@ namespace System.Scsc.Ui.ReportManager
                      (cochfileno == null || me.COCH_FILE_NO == cochfileno)
                   );
             }
-            else if (tc_master.SelectedTab == tp_005)
-            {
-               var rqtps = Rqtp_Lov5.Properties.Items.OfType<CheckedListBoxItem>().Where(i => i.CheckState == CheckState.Checked).Select(i => i.Value).ToList();
-               var users = User_Lov5.Properties.Items.OfType<CheckedListBoxItem>().Where(i => i.CheckState == CheckState.Checked).Select(i => i.Value).ToList();
+            //else if (tc_master.SelectedTab == tp_005)
+            //{
+            //   var rqtps = Rqtp_Lov5.Properties.Items.OfType<CheckedListBoxItem>().Where(i => i.CheckState == CheckState.Checked).Select(i => i.Value).ToList();
+            //   var users = User_Lov5.Properties.Items.OfType<CheckedListBoxItem>().Where(i => i.CheckState == CheckState.Checked).Select(i => i.Value).ToList();
 
-               long? fileno = null;//, coch = null;
+            //   long? fileno = null;//, coch = null;
 
-               if (Figh_Lov5.EditValue != null && Figh_Lov5.EditValue.ToString() != "")
-                  fileno = (long?)Figh_Lov5.EditValue;
+            //   if (Figh_Lov5.EditValue != null && Figh_Lov5.EditValue.ToString() != "")
+            //      fileno = (long?)Figh_Lov5.EditValue;
 
-               PydtBs5.DataSource =
-                  iScsc.Payment_Details
-                  .Where(pd =>
-                     pd.TRAN_DATE.Value.Date >= FromDate5_Date.Value.Value.Date &&
-                     pd.TRAN_DATE.Value.Date <= ToDate5_Date.Value.Value.Date &&
-                     pd.Payment.PYMT_STAT != "002" &&
-                     /*pd.Request_Row.Request.RQST_DATE.Value.TimeOfDay >= FromTime2_Te.Time.TimeOfDay &&
-                     pd.Request_Row.Request.RQST_DATE.Value.TimeOfDay <= ToTime2_Te.Time.TimeOfDay &&*/
+            //   PydtBs5.DataSource =
+            //      iScsc.Payment_Details
+            //      .Where(pd =>
+            //         pd.TRAN_DATE.Value.Date >= FromDate5_Date.Value.Value.Date &&
+            //         pd.TRAN_DATE.Value.Date <= ToDate5_Date.Value.Value.Date &&
+            //         pd.Payment.PYMT_STAT != "002" &&
+            //         /*pd.Request_Row.Request.RQST_DATE.Value.TimeOfDay >= FromTime2_Te.Time.TimeOfDay &&
+            //         pd.Request_Row.Request.RQST_DATE.Value.TimeOfDay <= ToTime2_Te.Time.TimeOfDay &&*/
 
-                     pd.Request_Row.Request.RQST_STAT == "002" &&
-                     (rqtps.Count == 0 || rqtps.Contains(pd.Request_Row.RQTP_CODE)) &&
-                     (users.Count == 0 || (users.Contains(pd.CRET_BY) || users.Contains(pd.MDFY_BY))) &&
-                     (pd.Request_Row.FIGH_FILE_NO == (fileno ?? pd.Request_Row.FIGH_FILE_NO)) &&
-                     (Fga_Uclb_U.Contains(pd.Payment.CLUB_CODE_DNRM))
-                  );
-            }
+            //         pd.Request_Row.Request.RQST_STAT == "002" &&
+            //         (rqtps.Count == 0 || rqtps.Contains(pd.Request_Row.RQTP_CODE)) &&
+            //         (users.Count == 0 || (users.Contains(pd.CRET_BY) || users.Contains(pd.MDFY_BY))) &&
+            //         (pd.Request_Row.FIGH_FILE_NO == (fileno ?? pd.Request_Row.FIGH_FILE_NO)) &&
+            //         (Fga_Uclb_U.Contains(pd.Payment.CLUB_CODE_DNRM))
+            //      );
+            //}
             else if(tc_master.SelectedTab == tp_006)
             {
                PmckBs.DataSource =
@@ -195,10 +198,10 @@ namespace System.Scsc.Ui.ReportManager
                      (Fga_Uclb_U.Contains(pc.Payment.CLUB_CODE_DNRM))
                   );
             }
-            else if(tc_master.SelectedTab == tp_007)
-            {
-               VInvtBs1.DataSource = iScsc.V_Inventories;
-            }
+            //else if(tc_master.SelectedTab == tp_007)
+            //{
+            //   VInvtBs1.DataSource = iScsc.V_Inventories;
+            //}
             else if(tc_master.SelectedTab == tp_008)
             {
                GPymBs.DataSource =
@@ -252,7 +255,7 @@ namespace System.Scsc.Ui.ReportManager
          FromDate2_Date.CommitChanges(); ToDate2_Date.CommitChanges();
          FromDate3_Date.CommitChanges(); ToDate3_Date.CommitChanges();
          FromDate4_Date.CommitChanges(); ToDate4_Date.CommitChanges();
-         FromDate5_Date.CommitChanges(); ToDate5_Date.CommitChanges();
+         //FromDate5_Date.CommitChanges(); ToDate5_Date.CommitChanges();
          FromDate6_Date.CommitChanges(); ToDate6_Date.CommitChanges();
          FromDate8_Date.CommitChanges(); ToDate8_Date.CommitChanges();
          FromDate9_Date.CommitChanges(); ToDate9_Date.CommitChanges();
@@ -265,12 +268,12 @@ namespace System.Scsc.Ui.ReportManager
             // 1398/05/20 * بررسی اینکه کاربر اجازه اجرا کردن گزارش در هر تاریخی را دارد یا خیر
             if(!checkValidateDate(FromDate1_Date.Value.Value.Date))return;
 
-            FromDate9_Date.Value = FromDate8_Date.Value = FromDate6_Date.Value = FromDate2_Date.Value = FromDate3_Date.Value = FromDate4_Date.Value = FromDate5_Date.Value = FromDate1_Date.Value;
-            ToDate9_Date.Value = ToDate8_Date.Value = ToDate6_Date.Value = ToDate2_Date.Value = ToDate3_Date.Value = ToDate4_Date.Value = ToDate5_Date.Value = ToDate1_Date.Value;
+            FromDate9_Date.Value = FromDate8_Date.Value = FromDate6_Date.Value = FromDate2_Date.Value = FromDate3_Date.Value = FromDate4_Date.Value = FromDate1_Date.Value;
+            ToDate9_Date.Value = ToDate8_Date.Value = ToDate6_Date.Value = ToDate2_Date.Value = ToDate3_Date.Value = ToDate4_Date.Value = ToDate1_Date.Value;
 
-            Rqtp_Lov5.EditValue = Rqtp_Lov2.EditValue = Rqtp_Lov3.EditValue = Rqtp_Lov.EditValue;
-            Figh_Lov5.EditValue = Figh_Lov2.EditValue = Figh_Lov3.EditValue = Figh_Lov.EditValue;
-            User_Lov5.EditValue = User_Lov2.EditValue = User_Lov3.EditValue = User_Lov.EditValue;
+            Rqtp_Lov2.EditValue = Rqtp_Lov3.EditValue = Rqtp_Lov.EditValue;
+            Figh_Lov2.EditValue = Figh_Lov3.EditValue = Figh_Lov.EditValue;
+            User_Lov2.EditValue = User_Lov3.EditValue = User_Lov.EditValue;
          }
          else if(tc_master.SelectedTab == tp_002)
          {
@@ -280,17 +283,17 @@ namespace System.Scsc.Ui.ReportManager
             // 1398/05/20 * بررسی اینکه کاربر اجازه اجرا کردن گزارش در هر تاریخی را دارد یا خیر
             if (!checkValidateDate(FromDate2_Date.Value.Value.Date)) return;
 
-            FromDate9_Date.Value = FromDate8_Date.Value = FromDate6_Date.Value = FromDate1_Date.Value = FromDate3_Date.Value = FromDate4_Date.Value = FromDate5_Date.Value = FromDate2_Date.Value;
-            ToDate9_Date.Value = ToDate8_Date.Value = ToDate6_Date.Value = ToDate1_Date.Value = ToDate3_Date.Value = ToDate4_Date.Value = ToDate5_Date.Value = ToDate2_Date.Value;
+            FromDate9_Date.Value = FromDate8_Date.Value = FromDate6_Date.Value = FromDate1_Date.Value = FromDate3_Date.Value = FromDate4_Date.Value = FromDate2_Date.Value;
+            ToDate9_Date.Value = ToDate8_Date.Value = ToDate6_Date.Value = ToDate1_Date.Value = ToDate3_Date.Value = ToDate4_Date.Value = ToDate2_Date.Value;
             
             if(FromTime2_Te.EditValue == null)
                FromTime2_Te.EditValue = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 00, 00, 00);
             if(ToTime2_Te.EditValue == null)
                ToTime2_Te.EditValue = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 23, 59, 00);
 
-            Rqtp_Lov5.EditValue = Rqtp_Lov.EditValue = Rqtp_Lov3.EditValue = Rqtp_Lov2.EditValue;
-            Figh_Lov5.EditValue = Figh_Lov.EditValue = Figh_Lov3.EditValue = Figh_Lov2.EditValue;
-            User_Lov5.EditValue = User_Lov.EditValue = User_Lov3.EditValue = User_Lov2.EditValue;
+            Rqtp_Lov.EditValue = Rqtp_Lov3.EditValue = Rqtp_Lov2.EditValue;
+            Figh_Lov.EditValue = Figh_Lov3.EditValue = Figh_Lov2.EditValue;
+            User_Lov.EditValue = User_Lov3.EditValue = User_Lov2.EditValue;
          }
          else if (tc_master.SelectedTab == tp_003)
          {
@@ -300,12 +303,12 @@ namespace System.Scsc.Ui.ReportManager
             // 1398/05/20 * بررسی اینکه کاربر اجازه اجرا کردن گزارش در هر تاریخی را دارد یا خیر
             if (!checkValidateDate(FromDate3_Date.Value.Value.Date)) return;
 
-            FromDate9_Date.Value = FromDate8_Date.Value = FromDate6_Date.Value = FromDate5_Date.Value = FromDate1_Date.Value = FromDate2_Date.Value = FromDate4_Date.Value = FromDate3_Date.Value;
-            ToDate9_Date.Value = ToDate8_Date.Value = ToDate6_Date.Value = ToDate5_Date.Value = ToDate1_Date.Value = ToDate2_Date.Value = ToDate4_Date.Value = ToDate3_Date.Value;
+            FromDate9_Date.Value = FromDate8_Date.Value = FromDate6_Date.Value = FromDate1_Date.Value = FromDate2_Date.Value = FromDate4_Date.Value = FromDate3_Date.Value;
+            ToDate9_Date.Value = ToDate8_Date.Value = ToDate6_Date.Value = ToDate1_Date.Value = ToDate2_Date.Value = ToDate4_Date.Value = ToDate3_Date.Value;
 
-            Rqtp_Lov5.EditValue = Rqtp_Lov2.EditValue = Rqtp_Lov.EditValue = Rqtp_Lov3.EditValue;
-            Figh_Lov5.EditValue = Figh_Lov2.EditValue = Figh_Lov.EditValue = Figh_Lov3.EditValue;
-            User_Lov5.EditValue = User_Lov2.EditValue = User_Lov.EditValue = User_Lov3.EditValue;
+            Rqtp_Lov2.EditValue = Rqtp_Lov.EditValue = Rqtp_Lov3.EditValue;
+            Figh_Lov2.EditValue = Figh_Lov.EditValue = Figh_Lov3.EditValue;
+            User_Lov2.EditValue = User_Lov.EditValue = User_Lov3.EditValue;
          }
          else if (tc_master.SelectedTab == tp_004)
          {
@@ -315,24 +318,24 @@ namespace System.Scsc.Ui.ReportManager
             // 1398/05/20 * بررسی اینکه کاربر اجازه اجرا کردن گزارش در هر تاریخی را دارد یا خیر
             if (!checkValidateDate(FromDate4_Date.Value.Value.Date)) return;
 
-            FromDate8_Date.Value = FromDate9_Date.Value = FromDate6_Date.Value = FromDate1_Date.Value = FromDate2_Date.Value = FromDate3_Date.Value = FromDate5_Date.Value = FromDate4_Date.Value;
-            ToDate8_Date.Value = ToDate9_Date.Value = ToDate6_Date.Value = ToDate1_Date.Value = ToDate2_Date.Value = ToDate3_Date.Value = ToDate5_Date.Value = ToDate4_Date.Value;
+            FromDate8_Date.Value = FromDate9_Date.Value = FromDate6_Date.Value = FromDate1_Date.Value = FromDate2_Date.Value = FromDate3_Date.Value = FromDate4_Date.Value;
+            ToDate8_Date.Value = ToDate9_Date.Value = ToDate6_Date.Value = ToDate1_Date.Value = ToDate2_Date.Value = ToDate3_Date.Value = ToDate4_Date.Value;
          }
-         else if (tc_master.SelectedTab == tp_005)
-         {
-            if (!FromDate5_Date.Value.HasValue) { MessageBox.Show("تاریخ شروع را مشخص کنید"); FromDate5_Date.Focus(); return; }
-            if (!ToDate5_Date.Value.HasValue) { MessageBox.Show("تاریخ پایان را مشخص کنید"); ToDate5_Date.Focus(); return; }
+         //else if (tc_master.SelectedTab == tp_005)
+         //{
+         //   if (!FromDate5_Date.Value.HasValue) { MessageBox.Show("تاریخ شروع را مشخص کنید"); FromDate5_Date.Focus(); return; }
+         //   if (!ToDate5_Date.Value.HasValue) { MessageBox.Show("تاریخ پایان را مشخص کنید"); ToDate5_Date.Focus(); return; }
 
-            // 1398/05/20 * بررسی اینکه کاربر اجازه اجرا کردن گزارش در هر تاریخی را دارد یا خیر
-            if (!checkValidateDate(FromDate5_Date.Value.Value.Date)) return;
+         //   // 1398/05/20 * بررسی اینکه کاربر اجازه اجرا کردن گزارش در هر تاریخی را دارد یا خیر
+         //   if (!checkValidateDate(FromDate5_Date.Value.Value.Date)) return;
 
-            FromDate9_Date.Value = FromDate8_Date.Value = FromDate6_Date.Value = FromDate1_Date.Value = FromDate2_Date.Value = FromDate4_Date.Value = FromDate3_Date.Value = FromDate5_Date.Value;
-            ToDate9_Date.Value = ToDate8_Date.Value = ToDate6_Date.Value = ToDate1_Date.Value = ToDate2_Date.Value = ToDate4_Date.Value = ToDate3_Date.Value = ToDate5_Date.Value;
+         //   FromDate9_Date.Value = FromDate8_Date.Value = FromDate6_Date.Value = FromDate1_Date.Value = FromDate2_Date.Value = FromDate4_Date.Value = FromDate3_Date.Value = FromDate5_Date.Value;
+         //   ToDate9_Date.Value = ToDate8_Date.Value = ToDate6_Date.Value = ToDate1_Date.Value = ToDate2_Date.Value = ToDate4_Date.Value = ToDate3_Date.Value = ToDate5_Date.Value;
 
-            Rqtp_Lov2.EditValue = Rqtp_Lov.EditValue = Rqtp_Lov3.EditValue = Rqtp_Lov5.EditValue;
-            Figh_Lov2.EditValue = Figh_Lov.EditValue = Figh_Lov3.EditValue = Figh_Lov5.EditValue;
-            User_Lov2.EditValue = User_Lov.EditValue = User_Lov3.EditValue = User_Lov5.EditValue;
-         }
+         //   Rqtp_Lov2.EditValue = Rqtp_Lov.EditValue = Rqtp_Lov3.EditValue = Rqtp_Lov5.EditValue;
+         //   Figh_Lov2.EditValue = Figh_Lov.EditValue = Figh_Lov3.EditValue = Figh_Lov5.EditValue;
+         //   User_Lov2.EditValue = User_Lov.EditValue = User_Lov3.EditValue = User_Lov5.EditValue;
+         //}
          else if (tc_master.SelectedTab == tp_006)
          {
             if (!FromDate6_Date.Value.HasValue) { MessageBox.Show("تاریخ شروع را مشخص کنید"); FromDate6_Date.Focus(); return; }
@@ -341,8 +344,8 @@ namespace System.Scsc.Ui.ReportManager
             // 1398/05/20 * بررسی اینکه کاربر اجازه اجرا کردن گزارش در هر تاریخی را دارد یا خیر
             if (!checkValidateDate(FromDate6_Date.Value.Value.Date)) return;
 
-            FromDate9_Date.Value = FromDate8_Date.Value = FromDate1_Date.Value = FromDate2_Date.Value = FromDate4_Date.Value = FromDate3_Date.Value = FromDate5_Date.Value = FromDate6_Date.Value;
-            ToDate9_Date.Value = ToDate8_Date.Value = ToDate1_Date.Value = ToDate2_Date.Value = ToDate4_Date.Value = ToDate3_Date.Value = ToDate5_Date.Value = ToDate6_Date.Value;
+            FromDate9_Date.Value = FromDate8_Date.Value = FromDate1_Date.Value = FromDate2_Date.Value = FromDate4_Date.Value = FromDate3_Date.Value = FromDate6_Date.Value;
+            ToDate9_Date.Value = ToDate8_Date.Value = ToDate1_Date.Value = ToDate2_Date.Value = ToDate4_Date.Value = ToDate3_Date.Value = ToDate6_Date.Value;
          }
          else if(tc_master.SelectedTab == tp_008)
          {
@@ -352,8 +355,8 @@ namespace System.Scsc.Ui.ReportManager
             // 1398/05/20 * بررسی اینکه کاربر اجازه اجرا کردن گزارش در هر تاریخی را دارد یا خیر
             if (!checkValidateDate(FromDate8_Date.Value.Value.Date)) return;
 
-            FromDate9_Date.Value = FromDate1_Date.Value = FromDate2_Date.Value = FromDate4_Date.Value = FromDate3_Date.Value = FromDate5_Date.Value = FromDate6_Date.Value = FromDate8_Date.Value;
-            ToDate9_Date.Value = ToDate1_Date.Value = ToDate2_Date.Value = ToDate4_Date.Value = ToDate3_Date.Value = ToDate5_Date.Value = ToDate6_Date.Value = ToDate8_Date.Value;
+            FromDate9_Date.Value = FromDate1_Date.Value = FromDate2_Date.Value = FromDate4_Date.Value = FromDate3_Date.Value = FromDate6_Date.Value = FromDate8_Date.Value;
+            ToDate9_Date.Value = ToDate1_Date.Value = ToDate2_Date.Value = ToDate4_Date.Value = ToDate3_Date.Value = ToDate6_Date.Value = ToDate8_Date.Value;
          }
          else if(tc_master.SelectedTab == tp_009)
          {
@@ -363,8 +366,8 @@ namespace System.Scsc.Ui.ReportManager
             // 1398/05/20 * بررسی اینکه کاربر اجازه اجرا کردن گزارش در هر تاریخی را دارد یا خیر
             if (!checkValidateDate(FromDate9_Date.Value.Value.Date)) return;
 
-            FromDate1_Date.Value = FromDate2_Date.Value = FromDate4_Date.Value = FromDate3_Date.Value = FromDate5_Date.Value = FromDate6_Date.Value = FromDate8_Date.Value = FromDate9_Date.Value;
-            ToDate1_Date.Value = ToDate2_Date.Value = ToDate4_Date.Value = ToDate3_Date.Value = ToDate5_Date.Value = ToDate6_Date.Value = ToDate8_Date.Value = ToDate9_Date.Value;
+            FromDate1_Date.Value = FromDate2_Date.Value = FromDate4_Date.Value = FromDate3_Date.Value = FromDate6_Date.Value = FromDate8_Date.Value = FromDate9_Date.Value;
+            ToDate1_Date.Value = ToDate2_Date.Value = ToDate4_Date.Value = ToDate3_Date.Value = ToDate6_Date.Value = ToDate8_Date.Value = ToDate9_Date.Value;
          }
 
          Execute_Query();
@@ -674,7 +677,7 @@ namespace System.Scsc.Ui.ReportManager
       {
          try
          {
-            Pydtran_Gv.PostEditor();
+            //Pydtran_Gv.PostEditor();
             var pydt = PydtBs5.Current as Data.Payment_Detail;
             switch (e.Button.Index)
             {
@@ -1286,6 +1289,160 @@ namespace System.Scsc.Ui.ReportManager
          {
             if (requery)
                Execute_Query();
+         }
+      }
+
+      private void AddReportAction_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            if (RpacBs.List.OfType<Data.Report_Action>().Any(ra => ra.CODE == 0)) return;
+
+            var _rpac = RpacBs.AddNew() as Data.Report_Action;
+            _rpac.STAT = "002";
+            _rpac.RPRT_NAME = "عنوان گزارش";
+            _rpac.ACTN_NAME = "Exec_Rpac_P";
+            iScsc.Report_Actions.InsertOnSubmit(_rpac);
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void DelReportAction_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _rpac = RpacBs.Current as Data.Report_Action;
+            if (_rpac == null) return;
+
+            if (MessageBox.Show(this, "آیا با حذف رکورد موافق هستید؟", "حذف رکورد", MessageBoxButtons.YesNo) != DialogResult.Yes) return;
+
+            iScsc.ExecuteCommand(string.Format("DELETE dbo.Report_Action WHERE Code = {0};", _rpac.CODE));
+            requery = true;
+         }
+         catch(Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void SaveReportAction_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            RpacBs.EndEdit();
+            Rpac_Gv.PostEditor();
+
+            iScsc.SubmitChanges();
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void CreateReportAction_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            if (!FromDate2_Date.Value.HasValue) { MessageBox.Show("تاریخ شروع را مشخص کنید"); FromDate2_Date.Focus(); return; }
+            if (!ToDate2_Date.Value.HasValue) { MessageBox.Show("تاریخ پایان را مشخص کنید"); ToDate2_Date.Focus(); return; }
+
+            var _rpac = RpacBs.Current as Data.Report_Action;
+            if (_rpac == null) return;
+
+            var _user = User_Lov2.Properties.Items.OfType<CheckedListBoxItem>().Where(i => i.CheckState == CheckState.Checked).Select(i => i.Value).ToList();
+
+            iScsc.ExecuteCommand(
+               string.Format("EXEC dbo.{0} @X = N'{1}'", 
+                  _rpac.ACTN_NAME, 
+                  new XElement("Parameter",
+                      new XAttribute("rpactype", _rpac.RPAC_TYPE),
+                      new XAttribute("fromdate", FromDate2_Date.Value == null ? "" : FromDate2_Date.Value.Value.ToString("yyyy-MM-dd")),
+                      new XAttribute("todate", ToDate2_Date.Value == null ? "" : ToDate2_Date.Value.Value.ToString("yyyy-MM-dd")),
+                      new XAttribute("cochfileno", Figh_Lov2.EditValue ?? ""),
+                      new XAttribute("cbmtcode", Cbmt_Lov2.EditValue ?? ""),
+                      new XAttribute("recdownr", _user.Count == 0 ? "" : string.Join(":", _user))
+                  ).ToString()
+               )
+            );
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void ShowReportAction_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _rpac = RpacBs.Current as Data.Report_Action;
+            if (_rpac == null) return;
+
+            var _rpap = iScsc.Report_Action_Parameters.FirstOrDefault(r => r.RPAC_TYPE == _rpac.RPAC_TYPE && r.CRET_BY == CurrentUser);
+
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "Localhost",
+                 new List<Job>
+                  {
+                     new Job(SendType.Self, 84 /* Execute Rpt_Mngr_F */)
+                     {
+                        Input = 
+                           new XElement("Print", 
+                              new XAttribute("type", "Selected"), 
+                              new XAttribute("mdrpcode", _rpac.MDRP_CODE),
+                              new XAttribute("modual", /*GetType().Name*/formName), 
+                              new XAttribute("section", GetType().Name.Substring(0,3) + "_001_F"),
+                              string.Format("Rpap_Code = {0}", _rpap.CODE)
+                           )
+                     }
+                  })
+            );
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void ShowActnRprt_Lov_EditValueChanging(object sender, ChangingEventArgs e)
+      {
+         try
+         {
+            var _rpac = RpacBs.Current as Data.Report_Action;
+            if (_rpac == null) return;
+
+            _rpac.Modual_Report = iScsc.Modual_Reports.FirstOrDefault(m => m.CODE == (long)e.NewValue);
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
          }
       }
    }

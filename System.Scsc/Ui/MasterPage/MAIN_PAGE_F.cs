@@ -444,17 +444,22 @@ namespace System.Scsc.Ui.MasterPage
       {
          try
          {
-            BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.YellowGreen;
-            if (GateAttn_Butn.Tag != null)
+            try
             {
-               // Open This Gate
-               var gateAttnStng = GateAttn_Butn.Tag as Data.Setting;
-               if (gateAttnStng == null) return;
-
+               BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.YellowGreen;
                GateAttn_Butn.Image = Properties.Resources.IMAGE_1641;
-               if (gateAttnStng.GATE_ENTR_OPEN == "001") return;
-               Sp_GateAttn.Write("in");
+               if (GateAttn_Butn.Tag != null)
+               {
+                  // Open This Gate
+                  var gateAttnStng = GateAttn_Butn.Tag as Data.Setting;
+                  if (gateAttnStng == null) return;
+
+                  GateAttn_Butn.Image = Properties.Resources.IMAGE_1641;
+                  if (gateAttnStng.GATE_ENTR_OPEN == "001") return;
+                  Sp_GateAttn.Write("in");
+               }
             }
+            catch { }
 
             // در این قسمت می توانیم بررسی کنیم که این سیستم به چه گیتی متصل می باشد که بتوانید به آن گیت فرمان دهیم که گیت را باز کند
             var _listIPHost = xHost.Descendants("IP").Select(ip => ip.Value).ToList();
@@ -537,30 +542,29 @@ namespace System.Scsc.Ui.MasterPage
 
                _readersDevice.ToList()
                   .ForEach(r =>
-                     {
-                        SendCommandDevExpn("in", r.DEV_NAME, "");
-                        //var pc = new PersianCalendar();
-                        //if(numbattnmont != 0)
-                        //{
-                        //   SendCommandDevExpn("in:" + 
-                        //      string.Format("{0}/{1}/{2}-{3}&{4:n0}", /*pc.GetYear(enddate)*/ 99, pc.GetMonth(enddate).ToString().PadLeft(2, '0'), pc.GetDayOfMonth(enddate).ToString().PadLeft(2, '0'), sumattnmont.ToString().PadLeft(3, ' '), debt.ToString().PadLeft(16, ' ')), r.DEV_NAME, fngrprnt
-                        //   );
-                        //}
-                        //else
-                        //{
-                        //   SendCommandDevExpn("in:" +
-                        //      string.Format("{0}/{1}/{2}-   &{3:n0}", /*pc.GetYear(enddate)*/ 99, pc.GetMonth(enddate).ToString().PadLeft(2, '0'), pc.GetDayOfMonth(enddate).ToString().PadLeft(2, '0'), debt.ToString().PadLeft(16, ' ')), r.DEV_NAME, fngrprnt
-                        //   );
-                        //}
+                  {
+                     SendCommandDevExpn("in", r.DEV_NAME, "");
+                     //var pc = new PersianCalendar();
+                     //if(numbattnmont != 0)
+                     //{
+                     //   SendCommandDevExpn("in:" + 
+                     //      string.Format("{0}/{1}/{2}-{3}&{4:n0}", /*pc.GetYear(enddate)*/ 99, pc.GetMonth(enddate).ToString().PadLeft(2, '0'), pc.GetDayOfMonth(enddate).ToString().PadLeft(2, '0'), sumattnmont.ToString().PadLeft(3, ' '), debt.ToString().PadLeft(16, ' ')), r.DEV_NAME, fngrprnt
+                     //   );
+                     //}
+                     //else
+                     //{
+                     //   SendCommandDevExpn("in:" +
+                     //      string.Format("{0}/{1}/{2}-   &{3:n0}", /*pc.GetYear(enddate)*/ 99, pc.GetMonth(enddate).ToString().PadLeft(2, '0'), pc.GetDayOfMonth(enddate).ToString().PadLeft(2, '0'), debt.ToString().PadLeft(16, ' ')), r.DEV_NAME, fngrprnt
+                     //   );
+                     //}
 
-                        //SendCommandDevExpn(
-                        //   "df:" + "WellCome".PadLeft(13, ' ') + 
-                        //   "&" + "Genetic Gym".PadLeft(16, ' '), r.DEV_NAME, ""
-                        //);
-                     }
-                  );               
+                     //SendCommandDevExpn(
+                     //   "df:" + "WellCome".PadLeft(13, ' ') + 
+                     //   "&" + "Genetic Gym".PadLeft(16, ' '), r.DEV_NAME, ""
+                     //);
+                  }
+               );               
             }
-
             //MessageBox.Show("Gate is Open");
          }catch(Exception ){}
          finally
@@ -579,18 +583,23 @@ namespace System.Scsc.Ui.MasterPage
       {
          try
          {
-            BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Yellow;
-            if (GateAttn_Butn.Tag != null)
+            try
             {
-               // Close This Gate
-               var gateAttnStng = GateAttn_Butn.Tag as Data.Setting;
-               if (gateAttnStng == null) return;
-
+               BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Yellow;
                GateAttn_Butn.Image = Properties.Resources.IMAGE_1640;
-               if (gateAttnStng.GATE_EXIT_OPEN == "001") return;
-               Sp_GateAttn.Write("out");
-               //MessageBox.Show("Gate is Close");  
+               if (GateAttn_Butn.Tag != null)
+               {
+                  // Close This Gate
+                  var gateAttnStng = GateAttn_Butn.Tag as Data.Setting;
+                  if (gateAttnStng == null) return;
+
+                  GateAttn_Butn.Image = Properties.Resources.IMAGE_1640;
+                  if (gateAttnStng.GATE_EXIT_OPEN == "001") return;
+                  Sp_GateAttn.Write("out");
+                  //MessageBox.Show("Gate is Close");  
+               }
             }
+            catch { }
 
             // در این قسمت می توانیم بررسی کنیم که این سیستم به چه گیتی متصل می باشد که بتوانید به آن گیت فرمان دهیم که گیت را باز کند
             var _listIPHost = xHost.Descendants("IP").Select(ip => ip.Value).ToList();
@@ -712,8 +721,7 @@ namespace System.Scsc.Ui.MasterPage
                      //   "df:" + "WellCome".PadLeft(13, ' ') +
                      //   "&" + "Genetic Gym".PadLeft(16, ' '), r.DEV_NAME, ""
                      //);
-                  }
-                  );
+                  });               
             }
          }
          catch (Exception ) { }
@@ -733,14 +741,18 @@ namespace System.Scsc.Ui.MasterPage
       {
          try
          {
-            BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Tomato;
-            GateAttn_Butn.Image = Properties.Resources.IMAGE_1642;
-
-            if (Sp_GateAttn.IsOpen)
+            try
             {
-               // Error This Gate                        
-               Sp_GateAttn.Write("error");
+               BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Tomato;
+               GateAttn_Butn.Image = Properties.Resources.IMAGE_1642;
+
+               if (Sp_GateAttn.IsOpen)
+               {
+                  // Error This Gate                        
+                  Sp_GateAttn.Write("error");
+               }
             }
+            catch { }
 
             // در این قسمت می توانیم بررسی کنیم که این سیستم به چه گیتی متصل می باشد که بتوانید به آن گیت فرمان دهیم که گیت را باز کند
             var _listIPHost = xHost.Descendants("IP").Select(ip => ip.Value).ToList();

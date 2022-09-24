@@ -599,6 +599,7 @@ namespace System.Scsc.Ui.Admission
             DPydsBs1.DataSource = iScsc.D_PYDS;
             DAtypBs1.DataSource = iScsc.D_ATYPs;
             DSxtpBs1.DataSource = iScsc.D_SXTPs.Where(d => d.VALU != "003");
+            DSxtpBs2.DataSource = iScsc.D_SXTPs;
             DDytpBs1.DataSource = iScsc.D_DYTPs;
             DRcmtBs1.DataSource = iScsc.D_RCMTs;
             DDsatBs.DataSource = iScsc.D_DSATs;

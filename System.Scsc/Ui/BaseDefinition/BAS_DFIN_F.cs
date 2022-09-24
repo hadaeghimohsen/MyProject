@@ -141,7 +141,7 @@ namespace System.Scsc.Ui.BaseDefinition
             CochBs2.DataSource = iScsc.Fighters.Where(c => c.FGPB_TYPE_DNRM == "003" && Convert.ToInt32(c.ACTV_TAG_DNRM) >= 101);
             MtodBs1.DataSource = iScsc.Methods.Where(m => m.MTOD_STAT == "002");
             ClubBs1.Position = club;
-            Cbmt_Gv.TopRowIndex = cbmt;
+            //Cbmt_Gv.TopRowIndex = cbmt;
             CbmtBs2.Position = cbmt;
          }
          else if (Tb_Master.SelectedTab == tp_007)
@@ -1163,6 +1163,8 @@ namespace System.Scsc.Ui.BaseDefinition
                newcbmt.CPCT_NUMB = 0;
                newcbmt.CPCT_STAT = "001";
                newcbmt.AMNT = 0;
+               newcbmt.CPCT_STAT = oldcbmt.CPCT_STAT;
+               newcbmt.CPCT_NUMB = oldcbmt.CPCT_NUMB;
             }
          }
          catch (Exception exc) { MessageBox.Show(exc.Message); }
@@ -2455,7 +2457,9 @@ namespace System.Scsc.Ui.BaseDefinition
             {
                CbmtBs2.DataSource =
                   iScsc.Club_Methods.Where(cm =>
-                     cm.CLUB_CODE == club.CODE);
+                     cm.CLUB_CODE == club.CODE &&
+                     (CbmtStat_Butn.Tag.ToString() == "001" || (cm.MTOD_STAT == "002" && cm.Method.MTOD_STAT == "002" && Convert.ToInt32(cm.Fighter.ACTV_TAG_DNRM) >= 101)) 
+                  );
                ClubWkdy_Spn.Panel2.Controls.OfType<SimpleButton>().Where(sb => sb.Tag != null).ToList().ForEach(sb => sb.Appearance.BackColor = Color.Gold);
                return;
             }
@@ -2467,6 +2471,7 @@ namespace System.Scsc.Ui.BaseDefinition
                CbmtBs2.DataSource =
                   iScsc.Club_Methods.Where(cm =>
                      cm.CLUB_CODE == club.CODE &&
+                     (CbmtStat_Butn.Tag.ToString() == "001" || (cm.MTOD_STAT == "002" && cm.Method.MTOD_STAT == "002" && Convert.ToInt32(cm.Fighter.ACTV_TAG_DNRM) >= 101)) &&
                      cm.Club_Method_Weekdays.Any(cmw => cmw.STAT == "002" && weekdays.Contains(cmw.WEEK_DAY)) &&
                         //((cm.STRT_TIME >= strttime && cm.END_TIME <= endtime) ||
                         // (cm.STRT_TIME <= strttime && cm.END_TIME >= endtime) ||
@@ -4666,6 +4671,33 @@ namespace System.Scsc.Ui.BaseDefinition
          catch (Exception exc)
          {
             MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void CbmtStat_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            SimpleButton sb = sender as SimpleButton;
+
+            if (sb.Appearance.BackColor == Color.Goldenrod)
+            {
+               sb.Appearance.BackColor = Color.GreenYellow;
+               sb.Tag = "002";
+            }
+            else
+            {
+               sb.Appearance.BackColor = Color.Goldenrod;
+               sb.Tag = "001";
+            }
+
+            requery = true;
+         }
+         catch { }
+         finally
+         {
+            if (requery)
+               Execute_Query();
          }
       }      
    }

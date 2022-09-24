@@ -130,7 +130,7 @@ namespace System.Scsc.Ui.ReportManager
                      //RcptMtod_Lb.Text = control.LABL_TEXT; // Place Holder
                      break;
                   case "tp_005":
-                     tp_005.Text = control.LABL_TEXT;
+                     //tp_005.Text = control.LABL_TEXT;
                      //tp_005.Text = control.LABL_TEXT; // ToolTip
                      //tp_005.Text = control.LABL_TEXT; // Place Holder
                      break;
@@ -489,91 +489,91 @@ namespace System.Scsc.Ui.ReportManager
                      //ExpnDesc4_Clm.Caption = control.LABL_TEXT; // ToolTip
                      //ExpnDesc4_Clm.Caption = control.LABL_TEXT; // Place Holder
                      break;
-                  case "parm5_gb":
-                     Parm5_Gb.Text = control.LABL_TEXT;
-                     //Parm5_Gb.Text = control.LABL_TEXT; // ToolTip
-                     //Parm5_Gb.Text = control.LABL_TEXT; // Place Holder
-                     break;
-                  case "fromdate5_lb":
-                     FromDate5_Lb.Text = control.LABL_TEXT;
-                     //FromDate5_Lb.Text = control.LABL_TEXT; // ToolTip
-                     //FromDate5_Lb.Text = control.LABL_TEXT; // Place Holder
-                     break;
-                  case "todate5_lb":
-                     ToDate5_Lb.Text = control.LABL_TEXT;
-                     //ToDate5_Lb.Text = control.LABL_TEXT; // ToolTip
-                     //ToDate5_Lb.Text = control.LABL_TEXT; // Place Holder
-                     break;
-                  case "rqtpcode5_lb":
-                     RqtpCode5_Lb.Text = control.LABL_TEXT;
-                     //RqtpCode5_Lb.Text = control.LABL_TEXT; // ToolTip
-                     //RqtpCode5_Lb.Text = control.LABL_TEXT; // Place Holder
-                     break;
-                  case "cochfileno5_lb":
-                     CochFileNo5_Lb.Text = control.LABL_TEXT;
-                     //CochFileNo5_Lb.Text = control.LABL_TEXT; // ToolTip
-                     //CochFileNo5_Lb.Text = control.LABL_TEXT; // Place Holder
-                     break;
-                  case "cashier5_lb":
-                     Cashier5_Lb.Text = control.LABL_TEXT;
-                     //Cashier5_Lb.Text = control.LABL_TEXT; // ToolTip
-                     //Cashier5_Lb.Text = control.LABL_TEXT; // Place Holder
-                     break;
-                  case "find4_butn":
-                     Find4_Butn.Text = control.LABL_TEXT;
-                     //Find4_Butn.Text = control.LABL_TEXT; // ToolTip
-                     //Find4_Butn.Text = control.LABL_TEXT; // Place Holder
-                     break;
-                  case "back4_butn":
-                     Back4_Butn.Text = control.LABL_TEXT;
-                     //Back4_Butn.Text = control.LABL_TEXT; // ToolTip
-                     //Back4_Butn.Text = control.LABL_TEXT; // Place Holder
-                     break;
-                  case "rqtpcode5_clm":
-                     RqtpCode5_Clm.Caption = control.LABL_TEXT;
-                     //RqtpCode5_Clm.Caption = control.LABL_TEXT; // ToolTip
-                     //RqtpCode5_Clm.Caption = control.LABL_TEXT; // Place Holder
-                     break;
-                  case "fileno5_clm":
-                     FileNo5_Clm.Caption = control.LABL_TEXT;
-                     //FileNo5_Clm.Caption = control.LABL_TEXT; // ToolTip
-                     //FileNo5_Clm.Caption = control.LABL_TEXT; // Place Holder
-                     break;
-                  case "expndesc_clm":
-                     ExpnDesc_Clm.Caption = control.LABL_TEXT;
-                     //ExpnDesc_Clm.Caption = control.LABL_TEXT; // ToolTip
-                     //ExpnDesc_Clm.Caption = control.LABL_TEXT; // Place Holder
-                     break;
-                  case "ownrfileno5_clm":
-                     OwnrFileNo5_Clm.Caption = control.LABL_TEXT;
-                     //OwnrFileNo5_Clm.Caption = control.LABL_TEXT; // ToolTip
-                     //OwnrFileNo5_Clm.Caption = control.LABL_TEXT; // Place Holder
-                     break;
-                  case "tranby5_clm":
-                     TranBy5_Clm.Caption = control.LABL_TEXT;
-                     //TranBy5_Clm.Caption = control.LABL_TEXT; // ToolTip
-                     //TranBy5_Clm.Caption = control.LABL_TEXT; // Place Holder
-                     break;
-                  case "trandate5_clm":
-                     TranDate5_Clm.Caption = control.LABL_TEXT;
-                     //TranDate5_Clm.Caption = control.LABL_TEXT; // ToolTip
-                     //TranDate5_Clm.Caption = control.LABL_TEXT; // Place Holder
-                     break;
-                  case "issudate5_clm":
-                     IssuDate5_Clm.Caption = control.LABL_TEXT;
-                     //IssuDate5_Clm.Caption = control.LABL_TEXT; // ToolTip
-                     //IssuDate5_Clm.Caption = control.LABL_TEXT; // Place Holder
-                     break;
-                  case "issutime5_clm":
-                     IssuTime5_Clm.Caption = control.LABL_TEXT;
-                     //IssuTime5_Clm.Caption = control.LABL_TEXT; // ToolTip
-                     //IssuTime5_Clm.Caption = control.LABL_TEXT; // Place Holder
-                     break;
-                  case "expnpric5_clm":
-                     ExpnPric5_Clm.Caption = control.LABL_TEXT;
-                     //ExpnPric5_Clm.Caption = control.LABL_TEXT; // ToolTip
-                     //ExpnPric5_Clm.Caption = control.LABL_TEXT; // Place Holder
-                     break;
+                  //case "parm5_gb":
+                  //   Parm5_Gb.Text = control.LABL_TEXT;
+                  //   //Parm5_Gb.Text = control.LABL_TEXT; // ToolTip
+                  //   //Parm5_Gb.Text = control.LABL_TEXT; // Place Holder
+                  //   break;
+                  //case "fromdate5_lb":
+                  //   FromDate5_Lb.Text = control.LABL_TEXT;
+                  //   //FromDate5_Lb.Text = control.LABL_TEXT; // ToolTip
+                  //   //FromDate5_Lb.Text = control.LABL_TEXT; // Place Holder
+                  //   break;
+                  //case "todate5_lb":
+                  //   ToDate5_Lb.Text = control.LABL_TEXT;
+                  //   //ToDate5_Lb.Text = control.LABL_TEXT; // ToolTip
+                  //   //ToDate5_Lb.Text = control.LABL_TEXT; // Place Holder
+                  //   break;
+                  //case "rqtpcode5_lb":
+                  //   RqtpCode5_Lb.Text = control.LABL_TEXT;
+                  //   //RqtpCode5_Lb.Text = control.LABL_TEXT; // ToolTip
+                  //   //RqtpCode5_Lb.Text = control.LABL_TEXT; // Place Holder
+                  //   break;
+                  //case "cochfileno5_lb":
+                  //   CochFileNo5_Lb.Text = control.LABL_TEXT;
+                  //   //CochFileNo5_Lb.Text = control.LABL_TEXT; // ToolTip
+                  //   //CochFileNo5_Lb.Text = control.LABL_TEXT; // Place Holder
+                  //   break;
+                  //case "cashier5_lb":
+                  //   Cashier5_Lb.Text = control.LABL_TEXT;
+                  //   //Cashier5_Lb.Text = control.LABL_TEXT; // ToolTip
+                  //   //Cashier5_Lb.Text = control.LABL_TEXT; // Place Holder
+                  //   break;
+                  //case "find4_butn":
+                  //   Find4_Butn.Text = control.LABL_TEXT;
+                  //   //Find4_Butn.Text = control.LABL_TEXT; // ToolTip
+                  //   //Find4_Butn.Text = control.LABL_TEXT; // Place Holder
+                  //   break;
+                  //case "back4_butn":
+                  //   Back4_Butn.Text = control.LABL_TEXT;
+                  //   //Back4_Butn.Text = control.LABL_TEXT; // ToolTip
+                  //   //Back4_Butn.Text = control.LABL_TEXT; // Place Holder
+                  //   break;
+                  //case "rqtpcode5_clm":
+                  //   RqtpCode5_Clm.Caption = control.LABL_TEXT;
+                  //   //RqtpCode5_Clm.Caption = control.LABL_TEXT; // ToolTip
+                  //   //RqtpCode5_Clm.Caption = control.LABL_TEXT; // Place Holder
+                  //   break;
+                  //case "fileno5_clm":
+                  //   FileNo5_Clm.Caption = control.LABL_TEXT;
+                  //   //FileNo5_Clm.Caption = control.LABL_TEXT; // ToolTip
+                  //   //FileNo5_Clm.Caption = control.LABL_TEXT; // Place Holder
+                  //   break;
+                  //case "expndesc_clm":
+                  //   ExpnDesc_Clm.Caption = control.LABL_TEXT;
+                  //   //ExpnDesc_Clm.Caption = control.LABL_TEXT; // ToolTip
+                  //   //ExpnDesc_Clm.Caption = control.LABL_TEXT; // Place Holder
+                  //   break;
+                  //case "ownrfileno5_clm":
+                  //   OwnrFileNo5_Clm.Caption = control.LABL_TEXT;
+                  //   //OwnrFileNo5_Clm.Caption = control.LABL_TEXT; // ToolTip
+                  //   //OwnrFileNo5_Clm.Caption = control.LABL_TEXT; // Place Holder
+                  //   break;
+                  //case "tranby5_clm":
+                  //   TranBy5_Clm.Caption = control.LABL_TEXT;
+                  //   //TranBy5_Clm.Caption = control.LABL_TEXT; // ToolTip
+                  //   //TranBy5_Clm.Caption = control.LABL_TEXT; // Place Holder
+                  //   break;
+                  //case "trandate5_clm":
+                  //   TranDate5_Clm.Caption = control.LABL_TEXT;
+                  //   //TranDate5_Clm.Caption = control.LABL_TEXT; // ToolTip
+                  //   //TranDate5_Clm.Caption = control.LABL_TEXT; // Place Holder
+                  //   break;
+                  //case "issudate5_clm":
+                  //   IssuDate5_Clm.Caption = control.LABL_TEXT;
+                  //   //IssuDate5_Clm.Caption = control.LABL_TEXT; // ToolTip
+                  //   //IssuDate5_Clm.Caption = control.LABL_TEXT; // Place Holder
+                  //   break;
+                  //case "issutime5_clm":
+                  //   IssuTime5_Clm.Caption = control.LABL_TEXT;
+                  //   //IssuTime5_Clm.Caption = control.LABL_TEXT; // ToolTip
+                  //   //IssuTime5_Clm.Caption = control.LABL_TEXT; // Place Holder
+                  //   break;
+                  //case "expnpric5_clm":
+                  //   ExpnPric5_Clm.Caption = control.LABL_TEXT;
+                  //   //ExpnPric5_Clm.Caption = control.LABL_TEXT; // ToolTip
+                  //   //ExpnPric5_Clm.Caption = control.LABL_TEXT; // Place Holder
+                  //   break;
                }
             }
          }
@@ -691,6 +691,7 @@ namespace System.Scsc.Ui.ReportManager
          DatypBs.DataSource = iScsc.D_ATYPs;
          DittpBs.DataSource = iScsc.D_ITTPs;
          DLotpBs.DataSource = iScsc.D_LOTPs;
+         DRpacBs.DataSource = iScsc.D_RPACs;
          RqtpBs1.DataSource = iScsc.Request_Types.Where(rt => rt.CODE == "001" || rt.CODE == "009" || rt.CODE == "016" || rt.CODE == "012");
          CbmtBs.DataSource = iScsc.Club_Methods.Where(cb => cb.MTOD_STAT == "002");
          FighBs1.DataSource = iScsc.Fighters.Where(f => f.CONF_STAT == "002" && f.FGPB_TYPE_DNRM == "003" /*&& f.FGPB_TYPE_DNRM != "007" && !f.NAME_DNRM.Contains("مشتری, جلسه ای")*/ && (Fga_Uclb_U.Contains(f.CLUB_CODE_DNRM) || (f.CLUB_CODE_DNRM == null ? f.Club_Methods.Where(cb => Fga_Uclb_U.Contains(cb.CLUB_CODE)).Any() : false)) && Convert.ToInt32(f.ACTV_TAG_DNRM ?? "101") >= 101);
@@ -715,11 +716,11 @@ namespace System.Scsc.Ui.ReportManager
                formName = "RPT_PMT2_F";
             if(xinput.Attribute("fromdate").Value != null)
             {
-               FromDate1_Date.Value = FromDate2_Date.Value = FromDate3_Date.Value = FromDate4_Date.Value = FromDate5_Date.Value = FromDate6_Date.Value = FromDate8_Date.Value = FromDate9_Date.Value = Convert.ToDateTime(xinput.Attribute("fromdate").Value);
+               FromDate1_Date.Value = FromDate2_Date.Value = FromDate3_Date.Value = FromDate4_Date.Value = FromDate6_Date.Value = FromDate8_Date.Value = FromDate9_Date.Value = Convert.ToDateTime(xinput.Attribute("fromdate").Value);
             }
             if (xinput.Attribute("todate").Value != null)
             {
-               ToDate1_Date.Value = ToDate2_Date.Value = ToDate3_Date.Value = ToDate4_Date.Value = ToDate5_Date.Value = ToDate6_Date.Value = ToDate8_Date.Value = ToDate9_Date.Value = Convert.ToDateTime(xinput.Attribute("todate").Value);
+               ToDate1_Date.Value = ToDate2_Date.Value = ToDate3_Date.Value = ToDate4_Date.Value = ToDate6_Date.Value = ToDate8_Date.Value = ToDate9_Date.Value = Convert.ToDateTime(xinput.Attribute("todate").Value);
             }
             if(xinput.Attribute("useraccount").Value != null)
             {

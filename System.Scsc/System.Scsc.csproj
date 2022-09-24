@@ -1122,6 +1122,7 @@
     <None Include="Properties\DataSources\System.Scsc.Data.Committee.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Computer_Action.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Country.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.Coupon.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Department.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Diseases_Type.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Distance_Category.datasource" />
@@ -1203,6 +1204,7 @@
     <None Include="Properties\DataSources\System.Scsc.Data.D_RCTP.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_RECT.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_RGTP.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.D_RPAC.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_RQST.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_RSLT.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_SALE.datasource" />
@@ -1226,6 +1228,7 @@
     <None Include="Properties\DataSources\System.Scsc.Data.External_Device_Link_Method.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Fighter.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Fighter_Call.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.Fighter_Coupon.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Fighter_Discount_Card.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Fighter_Grouping.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Fighter_Public.datasource" />
@@ -1277,6 +1280,7 @@
     <None Include="Properties\DataSources\System.Scsc.Data.Refunds_Payment_Detail.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Region.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Regulation.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.Report_Action.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Request.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Requester_Type.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Request_Document.datasource" />
@@ -2970,6 +2974,12 @@
     </Content>
     <Content Include="..\System.Resource\Resources\IMAGE_1756.png">
       <Link>Resources\IMAGE_1756.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1759.png">
+      <Link>Resources\IMAGE_1759.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1760.png">
+      <Link>Resources\IMAGE_1760.png</Link>
     </Content>
     <Content Include="cvextern.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

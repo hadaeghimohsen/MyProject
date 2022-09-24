@@ -211,6 +211,7 @@
          this.colCRET_DATE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colMDFY_BY = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colMDFY_DATE = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colTEMP_TMID = new DevExpress.XtraGrid.Columns.GridColumn();
          this.tabControl1 = new System.Windows.Forms.TabControl();
          this.tabPage1 = new System.Windows.Forms.TabPage();
          this.gridControl6 = new DevExpress.XtraGrid.GridControl();
@@ -239,7 +240,7 @@
          this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
          this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
          this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
-         this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
+         this.DelAdvc_Butn = new System.Windows.Forms.ToolStripButton();
          this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
          this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
          this.toolStripButton6 = new System.Windows.Forms.ToolStripButton();
@@ -248,6 +249,11 @@
          this.ShowProfInfo_Butn = new System.Windows.Forms.ToolStripButton();
          this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
          this.SendDsct4Serv_Butn = new System.Windows.Forms.ToolStripButton();
+         this.toolStripSeparator11 = new System.Windows.Forms.ToolStripSeparator();
+         this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
+         this.AdvcRecd002_Tsm = new System.Windows.Forms.ToolStripMenuItem();
+         this.AdvcRecd003_Tsm = new System.Windows.Forms.ToolStripMenuItem();
+         this.AdvcRecd003Rqst_Tsm = new System.Windows.Forms.ToolStripMenuItem();
          this.tabPage2 = new System.Windows.Forms.TabPage();
          this.CellList_Cxl = new System.Windows.Forms.CheckedListBox();
          this.panel3 = new System.Windows.Forms.Panel();
@@ -441,8 +447,10 @@
          this.NumbDpst_Cbx = new System.Windows.Forms.CheckBox();
          this.NumbDpst_Txt = new DevExpress.XtraEditors.TextEdit();
          this.groupBox4 = new System.Windows.Forms.GroupBox();
-         this.NumbLastDay_Cbx = new System.Windows.Forms.CheckBox();
-         this.NumbLastDay_Txt = new DevExpress.XtraEditors.TextEdit();
+         this.ToNumbLastDay_Cbx = new System.Windows.Forms.CheckBox();
+         this.FromNumbLastDay_Cbx = new System.Windows.Forms.CheckBox();
+         this.ToNumbLastDay_Txt = new DevExpress.XtraEditors.TextEdit();
+         this.FromNumbLastDay_Txt = new DevExpress.XtraEditors.TextEdit();
          this.groupBox1 = new System.Windows.Forms.GroupBox();
          this.Women_Cbx = new System.Windows.Forms.CheckBox();
          this.Men_Cbx = new System.Windows.Forms.CheckBox();
@@ -486,7 +494,6 @@
          this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
          this.SrchAdvp_Butn = new System.Windows.Forms.ToolStripButton();
          this.SlctFile_Ofd = new System.Windows.Forms.OpenFileDialog();
-         this.colTEMP_TMID = new DevExpress.XtraGrid.Columns.GridColumn();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit3)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.DActvBs)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit1)).BeginInit();
@@ -579,7 +586,8 @@
          ((System.ComponentModel.ISupportInitialize)(this.SumDpst_Txt.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.NumbDpst_Txt.Properties)).BeginInit();
          this.groupBox4.SuspendLayout();
-         ((System.ComponentModel.ISupportInitialize)(this.NumbLastDay_Txt.Properties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.ToNumbLastDay_Txt.Properties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.FromNumbLastDay_Txt.Properties)).BeginInit();
          this.groupBox1.SuspendLayout();
          this.groupBox2.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.ToAge_Txt.Properties)).BeginInit();
@@ -1714,6 +1722,16 @@
          this.colMDFY_DATE.FieldName = "MDFY_DATE";
          this.colMDFY_DATE.Name = "colMDFY_DATE";
          // 
+         // colTEMP_TMID
+         // 
+         this.colTEMP_TMID.Caption = "قالب پیامکی";
+         this.colTEMP_TMID.FieldName = "Template.TEMP_NAME";
+         this.colTEMP_TMID.Name = "colTEMP_TMID";
+         this.colTEMP_TMID.OptionsColumn.AllowEdit = false;
+         this.colTEMP_TMID.OptionsColumn.ReadOnly = true;
+         this.colTEMP_TMID.Visible = true;
+         this.colTEMP_TMID.VisibleIndex = 1;
+         // 
          // tabControl1
          // 
          this.tabControl1.Controls.Add(this.tabPage1);
@@ -1790,6 +1808,8 @@
          this.gridView8.Name = "gridView8";
          this.gridView8.OptionsBehavior.Editable = false;
          this.gridView8.OptionsBehavior.ReadOnly = true;
+         this.gridView8.OptionsFind.AlwaysVisible = true;
+         this.gridView8.OptionsFind.FindDelay = 100;
          this.gridView8.OptionsSelection.EnableAppearanceFocusedCell = false;
          this.gridView8.OptionsView.ShowDetailButtons = false;
          this.gridView8.OptionsView.ShowFooter = true;
@@ -1931,7 +1951,7 @@
             this.toolStripButton2,
             this.toolStripSeparator4,
             this.toolStripButton3,
-            this.toolStripButton4,
+            this.DelAdvc_Butn,
             this.toolStripButton5,
             this.toolStripSeparator5,
             this.toolStripButton6,
@@ -1939,7 +1959,9 @@
             this.toolStripSeparator6,
             this.ShowProfInfo_Butn,
             this.toolStripSeparator7,
-            this.SendDsct4Serv_Butn});
+            this.SendDsct4Serv_Butn,
+            this.toolStripSeparator11,
+            this.toolStripDropDownButton1});
          this.ServBn.Location = new System.Drawing.Point(3, 3);
          this.ServBn.MoveFirstItem = null;
          this.ServBn.MoveLastItem = null;
@@ -2010,15 +2032,15 @@
          this.toolStripButton3.Size = new System.Drawing.Size(23, 22);
          this.toolStripButton3.Text = "جدید";
          // 
-         // toolStripButton4
+         // DelAdvc_Butn
          // 
-         this.toolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-         this.toolStripButton4.Enabled = false;
-         this.toolStripButton4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton4.Image")));
-         this.toolStripButton4.Name = "toolStripButton4";
-         this.toolStripButton4.RightToLeftAutoMirrorImage = true;
-         this.toolStripButton4.Size = new System.Drawing.Size(23, 22);
-         this.toolStripButton4.Text = "حذف";
+         this.DelAdvc_Butn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+         this.DelAdvc_Butn.Image = ((System.Drawing.Image)(resources.GetObject("DelAdvc_Butn.Image")));
+         this.DelAdvc_Butn.Name = "DelAdvc_Butn";
+         this.DelAdvc_Butn.RightToLeftAutoMirrorImage = true;
+         this.DelAdvc_Butn.Size = new System.Drawing.Size(23, 22);
+         this.DelAdvc_Butn.Text = "حذف";
+         this.DelAdvc_Butn.Click += new System.EventHandler(this.DelAdvc_Butn_Click);
          // 
          // toolStripButton5
          // 
@@ -2083,6 +2105,53 @@
          this.SendDsct4Serv_Butn.Size = new System.Drawing.Size(177, 22);
          this.SendDsct4Serv_Butn.Text = "ثبت کارت تخفیف برای مشتریان";
          this.SendDsct4Serv_Butn.Click += new System.EventHandler(this.SendDsct4Serv_Butn_Click);
+         // 
+         // toolStripSeparator11
+         // 
+         this.toolStripSeparator11.Name = "toolStripSeparator11";
+         this.toolStripSeparator11.Size = new System.Drawing.Size(6, 25);
+         // 
+         // toolStripDropDownButton1
+         // 
+         this.toolStripDropDownButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+         this.toolStripDropDownButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.AdvcRecd002_Tsm,
+            this.AdvcRecd003_Tsm,
+            this.AdvcRecd003Rqst_Tsm});
+         this.toolStripDropDownButton1.Image = global::System.Scsc.Properties.Resources.IMAGE_1112;
+         this.toolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+         this.toolStripDropDownButton1.Name = "toolStripDropDownButton1";
+         this.toolStripDropDownButton1.Size = new System.Drawing.Size(29, 22);
+         this.toolStripDropDownButton1.Text = "نمایش رکوردها";
+         // 
+         // AdvcRecd002_Tsm
+         // 
+         this.AdvcRecd002_Tsm.Checked = true;
+         this.AdvcRecd002_Tsm.CheckOnClick = true;
+         this.AdvcRecd002_Tsm.CheckState = System.Windows.Forms.CheckState.Checked;
+         this.AdvcRecd002_Tsm.Name = "AdvcRecd002_Tsm";
+         this.AdvcRecd002_Tsm.Size = new System.Drawing.Size(190, 22);
+         this.AdvcRecd002_Tsm.Tag = "002";
+         this.AdvcRecd002_Tsm.Text = "رکوردهای جدید";
+         this.AdvcRecd002_Tsm.Click += new System.EventHandler(this.AdvcRecd00i_Tsm_Click);
+         // 
+         // AdvcRecd003_Tsm
+         // 
+         this.AdvcRecd003_Tsm.CheckOnClick = true;
+         this.AdvcRecd003_Tsm.Name = "AdvcRecd003_Tsm";
+         this.AdvcRecd003_Tsm.Size = new System.Drawing.Size(190, 22);
+         this.AdvcRecd003_Tsm.Tag = "003";
+         this.AdvcRecd003_Tsm.Text = "رکوردهای استفاده نشده";
+         this.AdvcRecd003_Tsm.Click += new System.EventHandler(this.AdvcRecd00i_Tsm_Click);
+         // 
+         // AdvcRecd003Rqst_Tsm
+         // 
+         this.AdvcRecd003Rqst_Tsm.CheckOnClick = true;
+         this.AdvcRecd003Rqst_Tsm.Name = "AdvcRecd003Rqst_Tsm";
+         this.AdvcRecd003Rqst_Tsm.Size = new System.Drawing.Size(190, 22);
+         this.AdvcRecd003Rqst_Tsm.Tag = "003Rqst";
+         this.AdvcRecd003Rqst_Tsm.Text = "رکوردهای استفاده شده";
+         this.AdvcRecd003Rqst_Tsm.Click += new System.EventHandler(this.AdvcRecd00i_Tsm_Click);
          // 
          // tabPage2
          // 
@@ -2743,21 +2812,21 @@
          this.Param_Ro.CustomRolloutColor = System.Drawing.Color.LightGray;
          this.Param_Ro.FrameOnMouseOverOnly = false;
          this.Param_Ro.GroupImage = null;
-         this.Param_Ro.Location = new System.Drawing.Point(20, 3);
+         this.Param_Ro.Location = new System.Drawing.Point(3, 3);
          this.Param_Ro.MaxHeight = 1480;
          this.Param_Ro.Name = "Param_Ro";
          this.Param_Ro.Padding = new System.Windows.Forms.Padding(4, 30, 3, 3);
          this.Param_Ro.PaintRollout = true;
          this.Param_Ro.RolloutBorderColor = System.Drawing.Color.Gray;
          this.Param_Ro.RolloutFrameType = System.Windows.Forms.BorderStyle.FixedSingle;
-         this.Param_Ro.RolloutStatus = false;
+         this.Param_Ro.RolloutStatus = true;
          this.Param_Ro.RolloutTitle = "پارامتر";
          this.Param_Ro.RoundCorners = 2;
          this.Param_Ro.ShadowColor = System.Drawing.Color.DarkGray;
          this.Param_Ro.ShadowControl = false;
          this.Param_Ro.ShadowThickness = 3;
          this.Param_Ro.ShowFocusFrame = false;
-         this.Param_Ro.Size = new System.Drawing.Size(237, 22);
+         this.Param_Ro.Size = new System.Drawing.Size(237, 1480);
          this.Param_Ro.TabIndex = 24;
          this.Param_Ro.TitleBorderColor = System.Drawing.Color.Gray;
          // 
@@ -3940,43 +4009,74 @@
          // 
          // groupBox4
          // 
-         this.groupBox4.Controls.Add(this.NumbLastDay_Cbx);
-         this.groupBox4.Controls.Add(this.NumbLastDay_Txt);
+         this.groupBox4.Controls.Add(this.ToNumbLastDay_Cbx);
+         this.groupBox4.Controls.Add(this.FromNumbLastDay_Cbx);
+         this.groupBox4.Controls.Add(this.ToNumbLastDay_Txt);
+         this.groupBox4.Controls.Add(this.FromNumbLastDay_Txt);
          this.groupBox4.Location = new System.Drawing.Point(7, 358);
          this.groupBox4.Name = "groupBox4";
          this.groupBox4.Size = new System.Drawing.Size(224, 52);
          this.groupBox4.TabIndex = 1;
          this.groupBox4.TabStop = false;
-         this.groupBox4.Text = "اتمام دوره";
+         this.groupBox4.Text = "اتمام دوره - ( تعداد روز )";
          // 
-         // NumbLastDay_Cbx
+         // ToNumbLastDay_Cbx
          // 
-         this.NumbLastDay_Cbx.AutoSize = true;
-         this.NumbLastDay_Cbx.Location = new System.Drawing.Point(150, 24);
-         this.NumbLastDay_Cbx.Name = "NumbLastDay_Cbx";
-         this.NumbLastDay_Cbx.Size = new System.Drawing.Size(68, 18);
-         this.NumbLastDay_Cbx.TabIndex = 0;
-         this.NumbLastDay_Cbx.Text = "تعداد روز";
-         this.NumbLastDay_Cbx.UseVisualStyleBackColor = true;
+         this.ToNumbLastDay_Cbx.AutoSize = true;
+         this.ToNumbLastDay_Cbx.Location = new System.Drawing.Point(77, 24);
+         this.ToNumbLastDay_Cbx.Name = "ToNumbLastDay_Cbx";
+         this.ToNumbLastDay_Cbx.Size = new System.Drawing.Size(33, 18);
+         this.ToNumbLastDay_Cbx.TabIndex = 37;
+         this.ToNumbLastDay_Cbx.Text = "تا";
+         this.ToNumbLastDay_Cbx.UseVisualStyleBackColor = true;
          // 
-         // NumbLastDay_Txt
+         // FromNumbLastDay_Cbx
          // 
-         this.NumbLastDay_Txt.EditValue = "0";
-         this.NumbLastDay_Txt.Location = new System.Drawing.Point(6, 21);
-         this.NumbLastDay_Txt.Name = "NumbLastDay_Txt";
-         this.NumbLastDay_Txt.Properties.Appearance.BackColor = System.Drawing.Color.Khaki;
-         this.NumbLastDay_Txt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.NumbLastDay_Txt.Properties.Appearance.Options.UseBackColor = true;
-         this.NumbLastDay_Txt.Properties.Appearance.Options.UseFont = true;
-         this.NumbLastDay_Txt.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-         this.NumbLastDay_Txt.Properties.AppearanceFocused.Options.UseBackColor = true;
-         this.NumbLastDay_Txt.Properties.Mask.EditMask = "n0";
-         this.NumbLastDay_Txt.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-         this.NumbLastDay_Txt.Properties.Mask.UseMaskAsDisplayFormat = true;
-         this.NumbLastDay_Txt.Properties.NullValuePromptShowForEmptyValue = true;
-         this.NumbLastDay_Txt.Size = new System.Drawing.Size(139, 22);
-         this.NumbLastDay_Txt.TabIndex = 36;
-         this.NumbLastDay_Txt.ToolTip = "سن";
+         this.FromNumbLastDay_Cbx.AutoSize = true;
+         this.FromNumbLastDay_Cbx.Location = new System.Drawing.Point(185, 24);
+         this.FromNumbLastDay_Cbx.Name = "FromNumbLastDay_Cbx";
+         this.FromNumbLastDay_Cbx.Size = new System.Drawing.Size(33, 18);
+         this.FromNumbLastDay_Cbx.TabIndex = 0;
+         this.FromNumbLastDay_Cbx.Text = "از";
+         this.FromNumbLastDay_Cbx.UseVisualStyleBackColor = true;
+         // 
+         // ToNumbLastDay_Txt
+         // 
+         this.ToNumbLastDay_Txt.EditValue = "0";
+         this.ToNumbLastDay_Txt.Location = new System.Drawing.Point(26, 21);
+         this.ToNumbLastDay_Txt.Name = "ToNumbLastDay_Txt";
+         this.ToNumbLastDay_Txt.Properties.Appearance.BackColor = System.Drawing.Color.Khaki;
+         this.ToNumbLastDay_Txt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.ToNumbLastDay_Txt.Properties.Appearance.Options.UseBackColor = true;
+         this.ToNumbLastDay_Txt.Properties.Appearance.Options.UseFont = true;
+         this.ToNumbLastDay_Txt.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+         this.ToNumbLastDay_Txt.Properties.AppearanceFocused.Options.UseBackColor = true;
+         this.ToNumbLastDay_Txt.Properties.Mask.EditMask = "n0";
+         this.ToNumbLastDay_Txt.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+         this.ToNumbLastDay_Txt.Properties.Mask.UseMaskAsDisplayFormat = true;
+         this.ToNumbLastDay_Txt.Properties.NullValuePromptShowForEmptyValue = true;
+         this.ToNumbLastDay_Txt.Size = new System.Drawing.Size(44, 22);
+         this.ToNumbLastDay_Txt.TabIndex = 36;
+         this.ToNumbLastDay_Txt.ToolTip = "سن";
+         // 
+         // FromNumbLastDay_Txt
+         // 
+         this.FromNumbLastDay_Txt.EditValue = "0";
+         this.FromNumbLastDay_Txt.Location = new System.Drawing.Point(135, 21);
+         this.FromNumbLastDay_Txt.Name = "FromNumbLastDay_Txt";
+         this.FromNumbLastDay_Txt.Properties.Appearance.BackColor = System.Drawing.Color.Khaki;
+         this.FromNumbLastDay_Txt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.FromNumbLastDay_Txt.Properties.Appearance.Options.UseBackColor = true;
+         this.FromNumbLastDay_Txt.Properties.Appearance.Options.UseFont = true;
+         this.FromNumbLastDay_Txt.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+         this.FromNumbLastDay_Txt.Properties.AppearanceFocused.Options.UseBackColor = true;
+         this.FromNumbLastDay_Txt.Properties.Mask.EditMask = "n0";
+         this.FromNumbLastDay_Txt.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+         this.FromNumbLastDay_Txt.Properties.Mask.UseMaskAsDisplayFormat = true;
+         this.FromNumbLastDay_Txt.Properties.NullValuePromptShowForEmptyValue = true;
+         this.FromNumbLastDay_Txt.Size = new System.Drawing.Size(44, 22);
+         this.FromNumbLastDay_Txt.TabIndex = 36;
+         this.FromNumbLastDay_Txt.ToolTip = "سن";
          // 
          // groupBox1
          // 
@@ -4121,7 +4221,7 @@
          this.Conf_Ro.CustomRolloutColor = System.Drawing.Color.LightGray;
          this.Conf_Ro.FrameOnMouseOverOnly = false;
          this.Conf_Ro.GroupImage = null;
-         this.Conf_Ro.Location = new System.Drawing.Point(20, 31);
+         this.Conf_Ro.Location = new System.Drawing.Point(3, 1489);
          this.Conf_Ro.MaxHeight = 110;
          this.Conf_Ro.Name = "Conf_Ro";
          this.Conf_Ro.Padding = new System.Windows.Forms.Padding(4, 30, 3, 3);
@@ -4421,16 +4521,6 @@
          // 
          this.SlctFile_Ofd.Filter = "\"Text|*.txt|All|*.*\"";
          // 
-         // colTEMP_TMID
-         // 
-         this.colTEMP_TMID.Caption = "قالب پیامکی";
-         this.colTEMP_TMID.FieldName = "Template.TEMP_SUBJ";
-         this.colTEMP_TMID.Name = "colTEMP_TMID";
-         this.colTEMP_TMID.OptionsColumn.AllowEdit = false;
-         this.colTEMP_TMID.OptionsColumn.ReadOnly = true;
-         this.colTEMP_TMID.Visible = true;
-         this.colTEMP_TMID.VisibleIndex = 1;
-         // 
          // ADV_BASE_F
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -4548,7 +4638,8 @@
          ((System.ComponentModel.ISupportInitialize)(this.NumbDpst_Txt.Properties)).EndInit();
          this.groupBox4.ResumeLayout(false);
          this.groupBox4.PerformLayout();
-         ((System.ComponentModel.ISupportInitialize)(this.NumbLastDay_Txt.Properties)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.ToNumbLastDay_Txt.Properties)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.FromNumbLastDay_Txt.Properties)).EndInit();
          this.groupBox1.ResumeLayout(false);
          this.groupBox1.PerformLayout();
          this.groupBox2.ResumeLayout(false);
@@ -4763,8 +4854,8 @@
       private DevExpress.XtraGrid.Columns.GridColumn colCTGY_STAT1;
       private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit repositoryItemCheckEdit1;
       private Windows.Forms.GroupBox groupBox4;
-      private Windows.Forms.CheckBox NumbLastDay_Cbx;
-      private DevExpress.XtraEditors.TextEdit NumbLastDay_Txt;
+      private Windows.Forms.CheckBox FromNumbLastDay_Cbx;
+      private DevExpress.XtraEditors.TextEdit FromNumbLastDay_Txt;
       private Windows.Forms.GroupBox groupBox5;
       private Windows.Forms.CheckBox NumbInvNDir_Cbx;
       private DevExpress.XtraEditors.TextEdit NumbInvNDir_Txt;
@@ -4801,7 +4892,7 @@
       private Windows.Forms.ToolStripButton toolStripButton2;
       private Windows.Forms.ToolStripSeparator toolStripSeparator4;
       private Windows.Forms.ToolStripButton toolStripButton3;
-      private Windows.Forms.ToolStripButton toolStripButton4;
+      private Windows.Forms.ToolStripButton DelAdvc_Butn;
       private Windows.Forms.ToolStripButton toolStripButton5;
       private Windows.Forms.ToolStripSeparator toolStripSeparator5;
       private Windows.Forms.ToolStripButton toolStripButton6;
@@ -5009,5 +5100,12 @@
       private DevExpress.XtraGrid.Columns.GridColumn colAdvertising_Parameter1;
       private DevExpress.XtraGrid.Columns.GridColumn colFighter1;
       private DevExpress.XtraGrid.Columns.GridColumn colTEMP_TMID;
+      private Windows.Forms.ToolStripSeparator toolStripSeparator11;
+      private Windows.Forms.ToolStripDropDownButton toolStripDropDownButton1;
+      private Windows.Forms.ToolStripMenuItem AdvcRecd002_Tsm;
+      private Windows.Forms.ToolStripMenuItem AdvcRecd003_Tsm;
+      private Windows.Forms.ToolStripMenuItem AdvcRecd003Rqst_Tsm;
+      private Windows.Forms.CheckBox ToNumbLastDay_Cbx;
+      private DevExpress.XtraEditors.TextEdit ToNumbLastDay_Txt;
    }
 }

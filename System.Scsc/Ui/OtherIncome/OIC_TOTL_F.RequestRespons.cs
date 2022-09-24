@@ -243,7 +243,7 @@ namespace System.Scsc.Ui.OtherIncome
                switch (control.CNTL_NAME.ToLower())
                {
                   case "rqstdesc_lb":
-                     RqstDesc_Lb.Text = control.LABL_TEXT;
+                     //RqstDesc_Lb.Text = control.LABL_TEXT;
                      //RqstDesc_Lb.Text = control.LABL_TEXT; // ToolTip
                      //RqstDesc_Lb.Text = control.LABL_TEXT; // Place Holder
                      break;
@@ -258,7 +258,7 @@ namespace System.Scsc.Ui.OtherIncome
                      //ExpnDesc_Clm.Text = control.LABL_TEXT; // Place Holder
                      break;
                   case "serv_gb":
-                     Serv_Gb.Text = control.LABL_TEXT;
+                     //Serv_Gb.Text = control.LABL_TEXT;
                      //Serv_Gb.Text = control.LABL_TEXT; // ToolTip
                      //Serv_Gb.Text = control.LABL_TEXT; // Place Holder
                      break;
@@ -449,6 +449,7 @@ namespace System.Scsc.Ui.OtherIncome
          CbmtBs1.DataSource = iScsc.Club_Methods.Where(c => c.MTOD_STAT == "002");
          SuntBs1.DataSource = iScsc.Sub_Units;
          DPydsBs1.DataSource = iScsc.D_PYDS;
+         RtoaBs.DataSource = iScsc.App_Base_Defines.Where(a => a.ENTY_NAME == "Payment_To_Another_Account");
          VPosBs1.DataSource = iScsc.V_Pos_Devices;
          if (VPosBs1.List.OfType<Data.V_Pos_Device>().FirstOrDefault(p => p.GTWY_MAC_ADRS == HostNameInfo.Attribute("cpu").Value) != null)
             Pos_Lov.EditValue = VPosBs1.List.OfType<Data.V_Pos_Device>().FirstOrDefault(p => p.GTWY_MAC_ADRS == HostNameInfo.Attribute("cpu").Value).PSID;

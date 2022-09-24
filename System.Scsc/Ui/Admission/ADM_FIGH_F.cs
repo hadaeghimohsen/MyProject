@@ -60,6 +60,7 @@ namespace System.Scsc.Ui.Admission
 
                // 1401/05/21 * Clear Advertising Campaing Items
                //AdvpBs1.List.Clear();
+               Cbmt_Gv.ActiveFilterString = "";
             }
          }
          catch { }
@@ -176,7 +177,7 @@ namespace System.Scsc.Ui.Admission
                                     new XElement("Last_Name", LAST_NAME_TextEdit.Text),
                                     new XElement("Fath_Name", FATH_NAME_TextEdit.Text),
                                     new XElement("Sex_Type", SEX_TYPE_LookUpEdit.EditValue),
-                                    new XElement("Natl_Code", NATL_CODE_TextEdit.Text),
+                                    new XElement("Natl_Code", new XAttribute("chckvald", NatlCodeVald_Cbx.Checked), NATL_CODE_TextEdit.Text),
                                     new XElement("Brth_Date", BRTH_DATE_PersianDateEdit.Value == null ? "" : BRTH_DATE_PersianDateEdit.Value.Value.ToString("yyyy-MM-dd")),
                                     new XElement("Cell_Phon", CELL_PHON_TextEdit.Text),
                                     new XElement("Tell_Phon", TELL_PHON_TextEdit.Text),
@@ -550,7 +551,12 @@ namespace System.Scsc.Ui.Admission
             DfltPric_Lb.Tag = expn.PRIC;
 
             // 1401/05/22 * اگر ظرفیت کلاسی پر شده باشد به منشی اعلام میکنیم
-            if (CapacityCycle_Lb.Tag != null && Convert.ToInt64(CapacityCycle_Lb.Tag) <= 0 && MessageBox.Show(this, "ظرفیت ثبت نام گروه انتخابی پر شده، آیا مایل به این هستید که گروه دیگری را انتخاب کنید؟", "محدودیت ظرفیت ثبت نام", MessageBoxButtons.YesNo) == DialogResult.Yes) { CbmtCode_Lov.Focus(); return; }
+            if (CapacityCycle_Lb.Tag != null && Convert.ToInt64(CapacityCycle_Lb.Tag) <= 0 && MessageBox.Show(this, "ظرفیت ثبت نام گروه انتخابی پر شده، آیا مایل به این هستید که گروه دیگری را انتخاب کنید؟", "محدودیت ظرفیت ثبت نام", MessageBoxButtons.YesNo) == DialogResult.Yes) 
+            {
+               Cbmt_Gv.ActiveFilterString = string.Format("[Sex_Type] = '{0}' AND MTOD_CODE = {1} OR [Sex_Type] = '003' AND MTOD_CODE = {1}", SEX_TYPE_LookUpEdit.EditValue, expn.MTOD_CODE);
+               CbmtCode_Lov.Focus(); 
+               return; 
+            }
 
             Btn_RqstRqt1_Click(null, null);
          }
@@ -1967,6 +1973,8 @@ namespace System.Scsc.Ui.Admission
             var _rqst = RqstBs1.Current as Data.Request;
             if (_rqst == null) return;
 
+            if (CellPhonRefCode_Txt.EditValue == null || CellPhonRefCode_Txt.Text == "") { CellPhonRefCode_Txt.Focus(); return; }
+
             RServBs.DataSource = iScsc.Fighters.Where(s => s.CELL_PHON_DNRM.Contains(CellPhonRefCode_Txt.Text));
             if(RServBs.List.Count == 1)
             {
@@ -2021,6 +2029,7 @@ namespace System.Scsc.Ui.Admission
                MessageBox.Show(this, "کاربر گرامی این کد تخفیف برای نرخ مورد نظر شما قابل استفاده نمی باشد", "عدم استفاده از کد تخفیف");
                return;
             }
+            if (_advp.EXPR_DATE.Value.Date < DateTime.Now.Date) { MessageBox.Show(this, "تاریخ انقضای کد تخفیف شما تمام شده است", "عدم اعتبار تاریخ انقضا"); return; }
 
             switch (_advp.DSCT_TYPE)
             {
@@ -2299,6 +2308,140 @@ namespace System.Scsc.Ui.Admission
             );
          }
          catch { }
+      }
+
+      private void SEX_TYPE_LookUpEdit_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
+      {
+         try
+         {
+            Cbmt_Gv.ActiveFilterString = string.Format("[Sex_Type] = '{0}' OR [Sex_Type] = '003'", e.NewValue);
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void bn_DiscountPayment1_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var rqst = RqstBs1.Current as Data.Request;
+            if (rqst == null) return;
+
+            if (Accept_Cb.Checked)
+            {
+               var pymt = PymtsBs1.Current as Data.Payment;
+               if (pymt == null) return;
+
+               var debtamnt = (pymt.SUM_EXPN_PRIC + pymt.SUM_EXPN_EXTR_PRCT) - (pymt.SUM_RCPT_EXPN_PRIC + pymt.SUM_PYMT_DSCN_DNRM);
+
+               string mesg = "";
+               if (debtamnt > 0)
+               {
+                  mesg =
+                     string.Format(
+                        ">> مبلغ {0} {1} به صورت >> تخفیف << در تاریخ {2} در صندوق کاربر {3}  قرار میگیرد",
+                        string.Format("{0:n0}", debtamnt),
+                        DAtypBs1.List.OfType<Data.D_ATYP>().FirstOrDefault(d => d.VALU == pymt.AMNT_UNIT_TYPE_DNRM).DOMN_DESC,
+                        "امروز",
+                        CurrentUser);
+                  mesg += Environment.NewLine;
+               }
+               mesg += ">> ذخیره و پایان درخواست";
+
+               if (MessageBox.Show(this, mesg, "عملیات ثبت نام", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2, MessageBoxOptions.RtlReading) != DialogResult.Yes) return;
+            }
+
+            foreach (Data.Payment pymt in PymtsBs1)
+            {
+               var debtamnt = (pymt.SUM_EXPN_PRIC + pymt.SUM_EXPN_EXTR_PRCT) - (pymt.SUM_RCPT_EXPN_PRIC + pymt.SUM_PYMT_DSCN_DNRM);
+               iScsc.INS_PYDS_P(pymt.CASH_CODE, pymt.RQST_RQID, (short?)1, null, debtamnt, PydsType_Lov.EditValue.ToString(), "002", PydsDesc_Txt.Text, PydsDesc_Txt.Tag == null ? null : (long?)PydsDesc_Txt.Tag, null);
+            }
+
+            /* Loop For Print After Pay */
+            RqstBnPrintAfterPay_Click(null, null);
+
+            /* End Request */
+            Btn_RqstSav1_Click(null, null);
+         }
+         catch (SqlException se)
+         {
+            MessageBox.Show(se.Message);
+         }
+      }
+
+      private void CELL_PHON_TextEdit_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            if(CELL_PHON_TextEdit.EditValue == null || CELL_PHON_TextEdit.Text == ""){ CELL_PHON_TextEdit.Focus(); return; }
+
+            FighsBs1.DataSource = 
+               iScsc.Fighters
+                  .Where(
+                     f => f.CELL_PHON_DNRM.Contains(CELL_PHON_TextEdit.Text) && 
+                          f.CONF_STAT == "002" &&                        
+                          (Fga_Uclb_U.Contains(f.CLUB_CODE_DNRM) || 
+                              (f.CLUB_CODE_DNRM == null ? f.Club_Methods.Where(cb => Fga_Uclb_U.Contains(cb.CLUB_CODE)).Any() : false)) && 
+                          Convert.ToInt32(f.ACTV_TAG_DNRM ?? "101") >= 101
+                  );
+
+            if (FighsBs1.Count > 0)
+            {
+               Adm_Tc.SelectedTab = More_Tp;
+               More_Tc.SelectedTab = tp_009;
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void NATL_CODE_TextEdit_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            if (NATL_CODE_TextEdit.EditValue == null || NATL_CODE_TextEdit.Text == "") { NATL_CODE_TextEdit.Focus(); return; }
+
+            FighsBs1.DataSource =
+               iScsc.Fighters
+                  .Where(
+                     f => f.NATL_CODE_DNRM.Contains(NATL_CODE_TextEdit.Text) &&
+                          f.CONF_STAT == "002" &&
+                          (Fga_Uclb_U.Contains(f.CLUB_CODE_DNRM) ||
+                              (f.CLUB_CODE_DNRM == null ? f.Club_Methods.Where(cb => Fga_Uclb_U.Contains(cb.CLUB_CODE)).Any() : false)) &&
+                          Convert.ToInt32(f.ACTV_TAG_DNRM ?? "101") >= 101
+                  );
+
+            if (FighsBs1.Count > 0)
+            {
+               Adm_Tc.SelectedTab = More_Tp;
+               More_Tc.SelectedTab = tp_009;
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void HL_INVSFILENO_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            var _crnt = FighsBs1.Current as Data.Fighter;
+            if (_crnt == null) return;
+
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost", "", 46, SendType.Self) { Input = new XElement("Fighter", new XAttribute("fileno", _crnt.FILE_NO)) }
+            );
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
       }
    }
 }

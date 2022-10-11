@@ -465,7 +465,7 @@
             <Text8 Ref="19" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[214:224:236]</Brush>
-              <ClientRectangle>0,0,2.2,1.2</ClientRectangle>
+              <ClientRectangle>0,0,2,1.2</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>Tahoma,9</Font>
               <Guid>fe651d6ad67445a587ed321aaba8d62e</Guid>
@@ -484,7 +484,7 @@
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[252:230:212]</Brush>
               <CanGrow>True</CanGrow>
-              <ClientRectangle>2.2,0,3.2,1.2</ClientRectangle>
+              <ClientRectangle>2,0,3.4,1.2</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>Tahoma,9</Font>
               <Guid>5cfae7d04814498f96ccc6e27d374e73</Guid>
@@ -679,7 +679,7 @@
               <CanGrow>True</CanGrow>
               <ClientRectangle>0,0,25.4,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Koodak,9,Bold</Font>
+              <Font>B Titr,9,Bold</Font>
               <Guid>f3282e72f7e64dbba9396077c3b8a20f</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
@@ -703,13 +703,13 @@
         <MTOD_HEDR_GROP Ref="32" type="GroupHeaderBand" isKey="true">
           <Brush>Transparent</Brush>
           <ClientRectangle>0,4,27.7,1.6</ClientRectangle>
-          <Components isList="true" count="18">
+          <Components isList="true" count="19">
             <HeaderVF_Coach_Payment_MTOD_DESC Ref="33" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[214:224:236]</Brush>
               <ClientRectangle>25.4,0,2.2,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Koodak,9,Bold</Font>
+              <Font>B Nazanin,9,Bold</Font>
               <Guid>dfbf40041c8942dfaa4a09b4560f4ecf</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
@@ -728,7 +728,7 @@
               <CanGrow>True</CanGrow>
               <ClientRectangle>0,0,25.4,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Koodak,9,Bold</Font>
+              <Font>B Titr,9,Bold</Font>
               <Guid>9936a7557751482bafbf69bfe50e23db</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
@@ -746,7 +746,7 @@
               <Brush>[214:224:236]</Brush>
               <ClientRectangle>25.4,0.8,2.2,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Koodak,9,Bold</Font>
+              <Font>B Nazanin,9,Bold</Font>
               <Guid>e1c80cda5b294ab3bf9ebeefa301ed11</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
@@ -764,7 +764,7 @@
               <Brush>[214:224:236]</Brush>
               <ClientRectangle>2,0.8,2.2,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Koodak,9,Bold</Font>
+              <Font>B Nazanin,9,Bold</Font>
               <Guid>51d52078ef474e2a96399d5b173d5bb8</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
@@ -780,9 +780,9 @@
             <Text3 Ref="37" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[214:224:236]</Brush>
-              <ClientRectangle>19.8,0.8,0.6,0.8</ClientRectangle>
+              <ClientRectangle>17.8,0.8,0.6,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Koodak,8</Font>
+              <Font>B Nazanin,8</Font>
               <Guid>50b9ebe842fb4075bc361330b4cb1c33</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
@@ -800,7 +800,7 @@
               <Brush>[214:224:236]</Brush>
               <ClientRectangle>0,0.8,1.6,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Koodak,9,Bold</Font>
+              <Font>B Nazanin,9,Bold</Font>
               <Guid>08e25037f9984c77810c748a562c022a</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
@@ -818,7 +818,7 @@
               <Brush>[214:224:236]</Brush>
               <ClientRectangle>1.6,0.8,0.4,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Titr,9,Bold</Font>
+              <Font>B Nazanin,9,Bold</Font>
               <Guid>266e70646f6147628f9eb5060f110bb5</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
@@ -836,7 +836,7 @@
               <Brush>[214:224:236]</Brush>
               <ClientRectangle>22.4,0.8,3,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Koodak,9,Bold</Font>
+              <Font>B Nazanin,9,Bold</Font>
               <Guid>10db1b6468654b30b9282bec6de8fd01</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
@@ -852,9 +852,9 @@
             <Text28 Ref="41" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[214:224:236]</Brush>
-              <ClientRectangle>17.8,0.8,2,0.8</ClientRectangle>
+              <ClientRectangle>16.2,0.8,1.6,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Koodak,9,Bold</Font>
+              <Font>B Nazanin,9,Bold</Font>
               <Guid>38b4c1d29a0541e595ee3611b234493f</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
@@ -870,9 +870,9 @@
             <Text29 Ref="42" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[214:224:236]</Brush>
-              <ClientRectangle>16,0.8,1.8,0.8</ClientRectangle>
+              <ClientRectangle>14.6,0.8,1.6,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Koodak,9,Bold</Font>
+              <Font>B Nazanin,9,Bold</Font>
               <Guid>f5b624a07271447f95055d6dedf97ef2</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
@@ -888,9 +888,9 @@
             <Text33 Ref="43" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[214:224:236]</Brush>
-              <ClientRectangle>20.4,0.8,2,0.8</ClientRectangle>
+              <ClientRectangle>18.4,0.8,1.8,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Koodak,9,Bold</Font>
+              <Font>B Nazanin,9,Bold</Font>
               <Guid>0a7d59c6f2984106a1834e963196236e</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
@@ -908,7 +908,7 @@
               <Brush>[214:224:236]</Brush>
               <ClientRectangle>4.2,0.8,2,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Koodak,9,Bold</Font>
+              <Font>B Nazanin,9,Bold</Font>
               <Guid>e5886d9d12574a6bbafe08b9d79cd98d</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
@@ -926,7 +926,7 @@
               <Brush>[214:224:236]</Brush>
               <ClientRectangle>10,0.8,1.2,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Koodak,8</Font>
+              <Font>B Nazanin,8</Font>
               <Guid>a8acecfe49144e1aa946a6eace4c0224</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
@@ -942,9 +942,9 @@
             <Text2 Ref="46" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[214:224:236]</Brush>
-              <ClientRectangle>14.2,0.8,1.8,0.8</ClientRectangle>
+              <ClientRectangle>12.8,0.8,1.8,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Koodak,9,Bold</Font>
+              <Font>B Nazanin,9,Bold</Font>
               <Guid>eb07cd36a0e3472b9069f86345a91c76</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
@@ -960,9 +960,9 @@
             <Text5 Ref="47" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[214:224:236]</Brush>
-              <ClientRectangle>12.6,0.8,1.6,0.8</ClientRectangle>
+              <ClientRectangle>11.2,0.8,1.6,0.4</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Koodak,9,Bold</Font>
+              <Font>B Nazanin,9,Bold</Font>
               <Guid>4e7a265d2aee4d21910883e3aa8fae38</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
@@ -978,9 +978,9 @@
             <Text6 Ref="48" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[214:224:236]</Brush>
-              <ClientRectangle>11.2,0.8,1.4,0.8</ClientRectangle>
+              <ClientRectangle>11.2,1.2,1.6,0.4</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Koodak,9,Bold</Font>
+              <Font>B Nazanin,9,Bold</Font>
               <Guid>fad48208a5ac4b62b6bbd5fd8502aaf0</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
@@ -998,7 +998,7 @@
               <Brush>[214:224:236]</Brush>
               <ClientRectangle>8,0.8,2,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Koodak,9,Bold</Font>
+              <Font>B Nazanin,9,Bold</Font>
               <Guid>926876664ee74e588ea9c2a3f25579cb</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
@@ -1016,7 +1016,7 @@
               <Brush>[214:224:236]</Brush>
               <ClientRectangle>6.2,0.8,2,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Koodak,9,Bold</Font>
+              <Font>B Nazanin,9,Bold</Font>
               <Guid>2cbca5b8f9bf42fe85f325632abaa539</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
@@ -1029,6 +1029,24 @@
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text16>
+            <Text78 Ref="51" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[214:224:236]</Brush>
+              <ClientRectangle>20.2,0.8,2.2,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Nazanin,9,Bold</Font>
+              <Guid>700d5ea7513342a0bca14d63b93a30be</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text78</Name>
+              <Page isRef="17" />
+              <Parent isRef="32" />
+              <Text>شماره موبایل</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text78>
           </Components>
           <Condition>{Report_Temporary.FK_RPTM_CBMT.FK_CBMT_MTOD.MTOD_DESC}</Condition>
           <Conditions isList="true" count="0" />
@@ -1037,23 +1055,23 @@
           <Page isRef="17" />
           <Parent isRef="17" />
         </MTOD_HEDR_GROP>
-        <DataVF_x0024_Coach_Payment Ref="51" type="DataBand" isKey="true">
+        <DataVF_x0024_Coach_Payment Ref="52" type="DataBand" isKey="true">
           <Brush>Transparent</Brush>
           <BusinessObjectGuid isNull="true" />
           <ClientRectangle>0,6.4,27.7,0.8</ClientRectangle>
-          <Components isList="true" count="16">
-            <DataVF_Coach_Payment_CTGY_DESC Ref="52" type="Text" isKey="true">
+          <Components isList="true" count="17">
+            <DataVF_Coach_Payment_CTGY_DESC Ref="53" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <ClientRectangle>25.4,0,2.2,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Koodak,9,Bold</Font>
+              <Font>B Titr,9,Bold</Font>
               <Guid>6131ebef6fdc4cc0a3077f83c435be40</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>DataVF_Coach_Payment_CTGY_DESC</Name>
               <Page isRef="17" />
-              <Parent isRef="51" />
+              <Parent isRef="52" />
               <ProcessingDuplicates>Merge</ProcessingDuplicates>
               <ShrinkFontToFit>True</ShrinkFontToFit>
               <Text>{Report_Temporary.FK_RPTM_CTGY.CTGY_DESC}</Text>
@@ -1061,22 +1079,22 @@
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </DataVF_Coach_Payment_CTGY_DESC>
-            <DataVF_Coach_Payment_SUM_RCPT_EXPN_PRIC Ref="53" type="Text" isKey="true">
+            <DataVF_Coach_Payment_SUM_RCPT_EXPN_PRIC Ref="54" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[173:193:217]</Brush>
               <ClientRectangle>2,0,2.2,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Koodak,9</Font>
+              <Font>B Titr,9</Font>
               <Guid>87cbee89762d494f821a948985d88b3b</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>DataVF_Coach_Payment_SUM_RCPT_EXPN_PRIC</Name>
               <Page isRef="17" />
-              <Parent isRef="51" />
+              <Parent isRef="52" />
               <ShrinkFontToFit>True</ShrinkFontToFit>
               <Text>{Report_Temporary.MBSP_PYMT_AMNT}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="54" type="NumberFormat" isKey="true">
+              <TextFormat Ref="55" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>3</NegativePattern>
@@ -1085,146 +1103,146 @@
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </DataVF_Coach_Payment_SUM_RCPT_EXPN_PRIC>
-            <Text19 Ref="55" type="Text" isKey="true">
+            <Text19 Ref="56" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <ClientRectangle>0,0,1.6,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Koodak,9,Bold</Font>
+              <Font>B Titr,9,Bold</Font>
               <Guid>c790d538ae8b4356904acbed4d680f12</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text19</Name>
               <Page isRef="17" />
-              <Parent isRef="51" />
+              <Parent isRef="52" />
               <ShrinkFontToFit>True</ShrinkFontToFit>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text19>
-            <Text17 Ref="56" type="Text" isKey="true">
+            <Text17 Ref="57" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <ClientRectangle>1.6,0,0.4,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Koodak,9,Bold</Font>
+              <Font>B Titr,9,Bold</Font>
               <Guid>d4a028764ff84b67a207d56bec048607</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text17</Name>
               <Page isRef="17" />
-              <Parent isRef="51" />
+              <Parent isRef="52" />
               <ShrinkFontToFit>True</ShrinkFontToFit>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text17>
-            <Text30 Ref="57" type="Text" isKey="true">
+            <Text30 Ref="58" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <ClientRectangle>22.4,0,3,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Koodak,9</Font>
+              <Font>B Titr,9</Font>
               <Guid>2c61f1079c06435a989819f3b4daa1e7</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text30</Name>
               <Page isRef="17" />
-              <Parent isRef="51" />
+              <Parent isRef="52" />
               <ShrinkFontToFit>True</ShrinkFontToFit>
               <Text>{Report_Temporary.FK_RPTM_FIGH.NAME_DNRM}</Text>
               <TextBrush>Black</TextBrush>
               <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
             </Text30>
-            <Text31 Ref="58" type="Text" isKey="true">
+            <Text31 Ref="59" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>17.8,0,2,0.8</ClientRectangle>
+              <ClientRectangle>16.2,0,1.6,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Koodak,9</Font>
+              <Font>B Titr,9</Font>
               <Guid>415cccebd56540b9bbfd19343771a777</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text31</Name>
               <Page isRef="17" />
-              <Parent isRef="51" />
+              <Parent isRef="52" />
               <ShrinkFontToFit>True</ShrinkFontToFit>
               <Text>{Report_Temporary.MBSP_STRT_DATE}</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text31>
-            <Text32 Ref="59" type="Text" isKey="true">
+            <Text32 Ref="60" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>16,0,1.8,0.8</ClientRectangle>
+              <ClientRectangle>14.6,0,1.6,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Koodak,9</Font>
+              <Font>B Titr,9</Font>
               <Guid>0dd32a8fa1664eaba96af1b7fdb8b9d3</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text32</Name>
               <Page isRef="17" />
-              <Parent isRef="51" />
+              <Parent isRef="52" />
               <ShrinkFontToFit>True</ShrinkFontToFit>
               <Text>{Report_Temporary.MBSP_END_DATE}</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text32>
-            <Text34 Ref="60" type="Text" isKey="true">
+            <Text34 Ref="61" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>20.4,0,2,0.8</ClientRectangle>
+              <ClientRectangle>18.4,0,1.8,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>Consolas,9</Font>
+              <Font>B Titr,9</Font>
               <Guid>8e869e443b7c46769cc2a8e8c685e0cd</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text34</Name>
               <Page isRef="17" />
-              <Parent isRef="51" />
+              <Parent isRef="52" />
               <ShrinkFontToFit>True</ShrinkFontToFit>
               <Text>{Report_Temporary.FNGR_PRNT_DNRM}</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text34>
-            <Text35 Ref="61" type="Text" isKey="true">
+            <Text35 Ref="62" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>19.8,0,0.6,0.8</ClientRectangle>
+              <ClientRectangle>17.8,0,0.6,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Koodak,9</Font>
+              <Font>B Titr,9</Font>
               <Guid>007f9ff5a69c40fba1ba1f9df439b425</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text35</Name>
               <Page isRef="17" />
-              <Parent isRef="51" />
+              <Parent isRef="52" />
               <ShrinkFontToFit>True</ShrinkFontToFit>
               <Text>{Report_Temporary.MBSP_RWNO}</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text35>
-            <Text53 Ref="62" type="Text" isKey="true">
+            <Text53 Ref="63" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[210:234:240]</Brush>
               <ClientRectangle>4.2,0,2,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Koodak,9</Font>
+              <Font>B Titr,9</Font>
               <Guid>a27cb0325c25451d9a645c8daf229dd0</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text53</Name>
               <Page isRef="17" />
-              <Parent isRef="51" />
+              <Parent isRef="52" />
               <ShrinkFontToFit>True</ShrinkFontToFit>
               <Text>{Report_Temporary.MBSP_DEBT_DNRM}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="63" type="NumberFormat" isKey="true">
+              <TextFormat Ref="64" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>3</NegativePattern>
@@ -1233,58 +1251,58 @@
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text53>
-            <Text18 Ref="64" type="Text" isKey="true">
+            <Text18 Ref="65" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <ClientRectangle>10,0,1.2,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Koodak,9</Font>
+              <Font>B Titr,9</Font>
               <Guid>d098596a067841debbf225603277b759</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text18</Name>
               <Page isRef="17" />
-              <Parent isRef="51" />
+              <Parent isRef="52" />
               <ShrinkFontToFit>True</ShrinkFontToFit>
               <Text>{Report_Temporary.MBSP_NUMB_ATTN}</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text18>
-            <Text20 Ref="65" type="Text" isKey="true">
+            <Text20 Ref="66" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>14.2,0,1.8,0.8</ClientRectangle>
+              <ClientRectangle>12.8,0,1.8,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Koodak,9</Font>
+              <Font>B Titr,9</Font>
               <Guid>71354d97a270432d84f4d2f37c523192</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text20</Name>
               <Page isRef="17" />
-              <Parent isRef="51" />
+              <Parent isRef="52" />
               <ShrinkFontToFit>True</ShrinkFontToFit>
               <Text>{Substring(Report_Temporary.FK_RPTM_FIGH.SEX_TYPE_DNRM,2,1)}{Substring(Report_Temporary.FK_RPTM_CBMT.DAY_TYPE,2,1)}{Report_Temporary.FK_RPTM_CTGY.FK_CTGY_MTOD.NATL_CODE}{Report_Temporary.FK_RPTM_CTGY.NATL_CODE}{Report_Temporary.FK_RPTM_CBMT.NATL_CODE}</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text20>
-            <Text26 Ref="66" type="Text" isKey="true">
+            <Text26 Ref="67" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[157:187:97]</Brush>
               <ClientRectangle>8.2,0,1.8,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Koodak,9</Font>
+              <Font>B Titr,9</Font>
               <Guid>2d09955c94ed4184af1424339fb29475</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text26</Name>
               <Page isRef="17" />
-              <Parent isRef="51" />
+              <Parent isRef="52" />
               <ShrinkFontToFit>True</ShrinkFontToFit>
               <Text>{Report_Temporary.MBSP_SUM_EXPN_AMNT}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="67" type="NumberFormat" isKey="true">
+              <TextFormat Ref="68" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>3</NegativePattern>
@@ -1293,22 +1311,22 @@
               <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
             </Text26>
-            <Text36 Ref="68" type="Text" isKey="true">
+            <Text36 Ref="69" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[223:167:166]</Brush>
               <ClientRectangle>6.2,0,2,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Koodak,9</Font>
+              <Font>B Titr,9</Font>
               <Guid>0a6c3dafcf4d4c03938ce910bfe5066b</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text36</Name>
               <Page isRef="17" />
-              <Parent isRef="51" />
+              <Parent isRef="52" />
               <ShrinkFontToFit>True</ShrinkFontToFit>
               <Text>{Report_Temporary.MBSP_PYDS_AMNT}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="69" type="NumberFormat" isKey="true">
+              <TextFormat Ref="70" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>3</NegativePattern>
@@ -1317,48 +1335,66 @@
               <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
             </Text36>
-            <Text21 Ref="70" type="Text" isKey="true">
+            <Text21 Ref="71" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>12.6,0,1.6,0.8</ClientRectangle>
+              <ClientRectangle>11.2,0,1.6,0.4</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Koodak,9</Font>
+              <Font>B Titr,9</Font>
               <Guid>eaaa843c536f45d3a7590d85c98d1816</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text21</Name>
               <Page isRef="17" />
-              <Parent isRef="51" />
+              <Parent isRef="52" />
               <ShrinkFontToFit>True</ShrinkFontToFit>
               <Text>{Report_Temporary.FK_RPTM_CBMT.STRT_TIME}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="71" type="TimeFormat" isKey="true">
+              <TextFormat Ref="72" type="TimeFormat" isKey="true">
                 <StringFormat>HH:mm</StringFormat>
               </TextFormat>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text21>
-            <Text25 Ref="72" type="Text" isKey="true">
+            <Text25 Ref="73" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>11.2,0,1.4,0.8</ClientRectangle>
+              <ClientRectangle>11.2,0.4,1.6,0.4</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Koodak,9</Font>
+              <Font>B Titr,9</Font>
               <Guid>9b0e0ea9b14944a897ac630441f442d5</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text25</Name>
               <Page isRef="17" />
-              <Parent isRef="51" />
+              <Parent isRef="52" />
               <ShrinkFontToFit>True</ShrinkFontToFit>
               <Text>{Report_Temporary.FK_RPTM_CBMT.END_TIME}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="73" type="TimeFormat" isKey="true">
+              <TextFormat Ref="74" type="TimeFormat" isKey="true">
                 <StringFormat>HH:mm</StringFormat>
               </TextFormat>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text25>
+            <Text79 Ref="75" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>20.2,0,2.2,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Titr,9</Font>
+              <Guid>9ec234f190d84845b3eaac9d196652cb</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text79</Name>
+              <Page isRef="17" />
+              <Parent isRef="52" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{Report_Temporary.FK_RPTM_FIGH.CELL_PHON_DNRM}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>DataColumn</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text79>
           </Components>
           <Conditions isList="true" count="0" />
           <DataRelationName isNull="true" />
@@ -1373,23 +1409,23 @@
             <value>MBSP_STRT_DATE</value>
           </Sort>
         </DataVF_x0024_Coach_Payment>
-        <GroupFooterBand1 Ref="74" type="GroupFooterBand" isKey="true">
+        <GroupFooterBand1 Ref="76" type="GroupFooterBand" isKey="true">
           <Brush>Transparent</Brush>
           <ClientRectangle>0,8,27.7,0.8</ClientRectangle>
           <Components isList="true" count="13">
-            <Text37 Ref="75" type="Text" isKey="true">
+            <Text37 Ref="77" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[239:211:210]</Brush>
               <CanGrow>True</CanGrow>
-              <ClientRectangle>11.2,0,1.4,0.8</ClientRectangle>
+              <ClientRectangle>11.2,0,1.6,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Koodak,9,Bold</Font>
+              <Font>B Titr,9,Bold</Font>
               <Guid>6cabe698c97d42bda3f10fc69514926f</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text37</Name>
               <Page isRef="17" />
-              <Parent isRef="74" />
+              <Parent isRef="76" />
               <ShrinkFontToFit>True</ShrinkFontToFit>
               <Text>جمع</Text>
               <TextBrush>Black</TextBrush>
@@ -1397,22 +1433,22 @@
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text37>
-            <Text38 Ref="76" type="Text" isKey="true">
+            <Text38 Ref="78" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[173:193:217]</Brush>
               <ClientRectangle>2,0,2.2,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Koodak,9,Bold</Font>
+              <Font>B Titr,9,Bold</Font>
               <Guid>446d106d6dcd49e1a27dbc3bc7243559</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text38</Name>
               <Page isRef="17" />
-              <Parent isRef="74" />
+              <Parent isRef="76" />
               <ShrinkFontToFit>True</ShrinkFontToFit>
               <Text>{Sum(MTOD_HEDR_GROP,Report_Temporary.MBSP_PYMT_AMNT)}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="77" type="NumberFormat" isKey="true">
+              <TextFormat Ref="79" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>3</NegativePattern>
@@ -1422,18 +1458,18 @@
               <Type>Totals</Type>
               <VertAlignment>Center</VertAlignment>
             </Text38>
-            <Text39 Ref="78" type="Text" isKey="true">
+            <Text39 Ref="80" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[239:211:210]</Brush>
-              <ClientRectangle>19.8,0,1.6,0.8</ClientRectangle>
+              <ClientRectangle>20.2,0,1.2,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Koodak,9,Bold</Font>
+              <Font>B Nazanin,9,Bold</Font>
               <Guid>8a392ffcb06d4bcc950eacd2bf51daf8</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text39</Name>
               <Page isRef="17" />
-              <Parent isRef="74" />
+              <Parent isRef="76" />
               <ShrinkFontToFit>True</ShrinkFontToFit>
               <Text>{Count(MTOD_HEDR_GROP)}</Text>
               <TextBrush>Black</TextBrush>
@@ -1441,96 +1477,96 @@
               <Type>Totals</Type>
               <VertAlignment>Center</VertAlignment>
             </Text39>
-            <Text40 Ref="79" type="Text" isKey="true">
+            <Text40 Ref="81" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <ClientRectangle>0,0,1.6,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Koodak,9,Bold</Font>
+              <Font>B Titr,9,Bold</Font>
               <Guid>65012fc19e364c929457149af9a10b0c</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text40</Name>
               <Page isRef="17" />
-              <Parent isRef="74" />
+              <Parent isRef="76" />
               <ShrinkFontToFit>True</ShrinkFontToFit>
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text40>
-            <Text41 Ref="80" type="Text" isKey="true">
+            <Text41 Ref="82" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <ClientRectangle>1.6,0,0.4,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Koodak,9,Bold</Font>
+              <Font>B Titr,9,Bold</Font>
               <Guid>5a65fec46d8a4f43ac7d781e3494e7af</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text41</Name>
               <Page isRef="17" />
-              <Parent isRef="74" />
+              <Parent isRef="76" />
               <ShrinkFontToFit>True</ShrinkFontToFit>
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text41>
-            <Text42 Ref="81" type="Text" isKey="true">
+            <Text42 Ref="83" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[239:211:210]</Brush>
               <CanGrow>True</CanGrow>
               <ClientRectangle>21.4,0,1,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Koodak,9,Bold</Font>
+              <Font>B Nazanin,9,Bold</Font>
               <Guid>e249dbfda2944bc08727f579aa1bc319</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text42</Name>
               <Page isRef="17" />
-              <Parent isRef="74" />
+              <Parent isRef="76" />
               <ShrinkFontToFit>True</ShrinkFontToFit>
               <Text>تعداد</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text42>
-            <Text43 Ref="82" type="Text" isKey="true">
+            <Text43 Ref="84" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[239:211:210]</Brush>
               <CanGrow>True</CanGrow>
               <ClientRectangle>22.4,0,3,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Koodak,9,Bold</Font>
+              <Font>B Nazanin,9,Bold</Font>
               <Guid>317ea3a4570b4c5a97fbfbc98b43d777</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text43</Name>
               <Page isRef="17" />
-              <Parent isRef="74" />
+              <Parent isRef="76" />
               <ShrinkFontToFit>True</ShrinkFontToFit>
               <Text>{Report_Temporary.FK_RPTM_CBMT.FK_CBMT_MTOD.MTOD_DESC}</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text43>
-            <Text55 Ref="83" type="Text" isKey="true">
+            <Text55 Ref="85" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[210:234:240]</Brush>
               <ClientRectangle>4.2,0,2,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Koodak,9,Bold</Font>
+              <Font>B Titr,9,Bold</Font>
               <Guid>bef21b227d2b46539c93a57cde0054ca</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text55</Name>
               <Page isRef="17" />
-              <Parent isRef="74" />
+              <Parent isRef="76" />
               <ShrinkFontToFit>True</ShrinkFontToFit>
               <Text>{Sum(MTOD_HEDR_GROP,Report_Temporary.MBSP_DEBT_DNRM)}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="84" type="NumberFormat" isKey="true">
+              <TextFormat Ref="86" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>3</NegativePattern>
@@ -1540,18 +1576,18 @@
               <Type>Totals</Type>
               <VertAlignment>Center</VertAlignment>
             </Text55>
-            <Text44 Ref="85" type="Text" isKey="true">
+            <Text44 Ref="87" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[214:224:236]</Brush>
               <ClientRectangle>25.4,0,2.2,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Koodak,9,Bold</Font>
+              <Font>B Nazanin,9,Bold</Font>
               <Guid>e811f599d5c346889457056644efe052</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text44</Name>
               <Page isRef="17" />
-              <Parent isRef="74" />
+              <Parent isRef="76" />
               <ShrinkFontToFit>True</ShrinkFontToFit>
               <Text>جمع گروه</Text>
               <TextBrush>Black</TextBrush>
@@ -1559,45 +1595,20 @@
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text44>
-            <Text45 Ref="86" type="Text" isKey="true">
+            <Text45 Ref="88" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[239:211:210]</Brush>
               <ClientRectangle>10,0,1.2,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Koodak,9,Bold</Font>
+              <Font>B Titr,9,Bold</Font>
               <Guid>d85b5b633231415a8abf0e9a40e87d12</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text45</Name>
               <Page isRef="17" />
-              <Parent isRef="74" />
+              <Parent isRef="76" />
               <ShrinkFontToFit>True</ShrinkFontToFit>
               <Text>{Sum(MTOD_HEDR_GROP,Report_Temporary.MBSP_NUMB_ATTN)}</Text>
-              <TextBrush>Black</TextBrush>
-              <TextFormat Ref="87" type="NumberFormat" isKey="true">
-                <DecimalDigits>0</DecimalDigits>
-                <GroupSeparator>,</GroupSeparator>
-                <NegativePattern>3</NegativePattern>
-                <UseLocalSetting>False</UseLocalSetting>
-              </TextFormat>
-              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
-              <Type>Totals</Type>
-              <VertAlignment>Center</VertAlignment>
-            </Text45>
-            <Text46 Ref="88" type="Text" isKey="true">
-              <Border>All;Black;1;Solid;False;4;Black</Border>
-              <Brush>[157:187:97]</Brush>
-              <ClientRectangle>8.2,0,1.8,0.8</ClientRectangle>
-              <Conditions isList="true" count="0" />
-              <Font>B Koodak,9,Bold</Font>
-              <Guid>387e1cdf78ac4e4e9ee2520a1c687c72</Guid>
-              <HorAlignment>Center</HorAlignment>
-              <Margins>0,0,0,0</Margins>
-              <Name>Text46</Name>
-              <Page isRef="17" />
-              <Parent isRef="74" />
-              <ShrinkFontToFit>True</ShrinkFontToFit>
-              <Text>{Sum(MTOD_HEDR_GROP,Report_Temporary.MBSP_SUM_EXPN_AMNT)}</Text>
               <TextBrush>Black</TextBrush>
               <TextFormat Ref="89" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
@@ -1608,21 +1619,21 @@
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <Type>Totals</Type>
               <VertAlignment>Center</VertAlignment>
-            </Text46>
-            <Text47 Ref="90" type="Text" isKey="true">
+            </Text45>
+            <Text46 Ref="90" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
-              <Brush>[223:167:166]</Brush>
-              <ClientRectangle>6.2,0,2,0.8</ClientRectangle>
+              <Brush>[157:187:97]</Brush>
+              <ClientRectangle>8.2,0,1.8,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Koodak,9,Bold</Font>
-              <Guid>772ca8f4ae964dd188d839b5bde2cb5d</Guid>
+              <Font>B Titr,9,Bold</Font>
+              <Guid>387e1cdf78ac4e4e9ee2520a1c687c72</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
-              <Name>Text47</Name>
+              <Name>Text46</Name>
               <Page isRef="17" />
-              <Parent isRef="74" />
+              <Parent isRef="76" />
               <ShrinkFontToFit>True</ShrinkFontToFit>
-              <Text>{Sum(MTOD_HEDR_GROP,Report_Temporary.MBSP_PYDS_AMNT)}</Text>
+              <Text>{Sum(MTOD_HEDR_GROP,Report_Temporary.MBSP_SUM_EXPN_AMNT)}</Text>
               <TextBrush>Black</TextBrush>
               <TextFormat Ref="91" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
@@ -1633,20 +1644,45 @@
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <Type>Totals</Type>
               <VertAlignment>Center</VertAlignment>
+            </Text46>
+            <Text47 Ref="92" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[223:167:166]</Brush>
+              <ClientRectangle>6.2,0,2,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Titr,9,Bold</Font>
+              <Guid>772ca8f4ae964dd188d839b5bde2cb5d</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text47</Name>
+              <Page isRef="17" />
+              <Parent isRef="76" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{Sum(MTOD_HEDR_GROP,Report_Temporary.MBSP_PYDS_AMNT)}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="93" type="NumberFormat" isKey="true">
+                <DecimalDigits>0</DecimalDigits>
+                <GroupSeparator>,</GroupSeparator>
+                <NegativePattern>3</NegativePattern>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Totals</Type>
+              <VertAlignment>Center</VertAlignment>
             </Text47>
-            <Text63 Ref="92" type="Text" isKey="true">
+            <Text63 Ref="94" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[239:211:210]</Brush>
               <CanGrow>True</CanGrow>
-              <ClientRectangle>12.6,0,7.2,0.8</ClientRectangle>
+              <ClientRectangle>12.8,0,7.4,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Koodak,9,Bold</Font>
+              <Font>B Nazanin,9,Bold</Font>
               <Guid>6a0762fe592348b7af34d40ddc144f3c</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text63</Name>
               <Page isRef="17" />
-              <Parent isRef="74" />
+              <Parent isRef="76" />
               <ShrinkFontToFit>True</ShrinkFontToFit>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
@@ -1659,23 +1695,23 @@
           <Page isRef="17" />
           <Parent isRef="17" />
         </GroupFooterBand1>
-        <GroupFooterBand2 Ref="93" type="GroupFooterBand" isKey="true">
+        <GroupFooterBand2 Ref="95" type="GroupFooterBand" isKey="true">
           <Brush>Transparent</Brush>
           <ClientRectangle>0,9.6,27.7,0.8</ClientRectangle>
           <Components isList="true" count="13">
-            <Text48 Ref="94" type="Text" isKey="true">
+            <Text48 Ref="96" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[252:230:212]</Brush>
               <CanGrow>True</CanGrow>
-              <ClientRectangle>11.2,0,1.4,0.8</ClientRectangle>
+              <ClientRectangle>11.2,0,1.6,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Koodak,9,Bold</Font>
+              <Font>B Titr,9,Bold</Font>
               <Guid>b17699455fde412a9a9a1e88bd9aa53b</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text48</Name>
               <Page isRef="17" />
-              <Parent isRef="93" />
+              <Parent isRef="95" />
               <ShrinkFontToFit>True</ShrinkFontToFit>
               <Text>جمع</Text>
               <TextBrush>Black</TextBrush>
@@ -1683,22 +1719,22 @@
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text48>
-            <Text49 Ref="95" type="Text" isKey="true">
+            <Text49 Ref="97" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[173:193:217]</Brush>
               <ClientRectangle>2,0,2.2,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Koodak,9,Bold</Font>
+              <Font>B Titr,9,Bold</Font>
               <Guid>a04a7f77c59341439ab9bf0f01a9d5a8</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text49</Name>
               <Page isRef="17" />
-              <Parent isRef="93" />
+              <Parent isRef="95" />
               <ShrinkFontToFit>True</ShrinkFontToFit>
               <Text>{Sum(COCH_HEDR_GROP,Report_Temporary.MBSP_PYMT_AMNT)}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="96" type="NumberFormat" isKey="true">
+              <TextFormat Ref="98" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>3</NegativePattern>
@@ -1708,18 +1744,18 @@
               <Type>Totals</Type>
               <VertAlignment>Center</VertAlignment>
             </Text49>
-            <Text50 Ref="97" type="Text" isKey="true">
+            <Text50 Ref="99" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[252:230:212]</Brush>
-              <ClientRectangle>19.8,0,1.6,0.8</ClientRectangle>
+              <ClientRectangle>20.2,0,1.2,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Koodak,9,Bold</Font>
+              <Font>B Nazanin,9,Bold</Font>
               <Guid>c78aa4b675a746df8ac5c43c34d8a7bf</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text50</Name>
               <Page isRef="17" />
-              <Parent isRef="93" />
+              <Parent isRef="95" />
               <ShrinkFontToFit>True</ShrinkFontToFit>
               <Text>{Count(COCH_HEDR_GROP)}</Text>
               <TextBrush>Black</TextBrush>
@@ -1727,96 +1763,96 @@
               <Type>Totals</Type>
               <VertAlignment>Center</VertAlignment>
             </Text50>
-            <Text51 Ref="98" type="Text" isKey="true">
+            <Text51 Ref="100" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <ClientRectangle>0,0,1.6,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Koodak,9,Bold</Font>
+              <Font>B Titr,9,Bold</Font>
               <Guid>4bdd4003242c4542912d76a049d0ff9a</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text51</Name>
               <Page isRef="17" />
-              <Parent isRef="93" />
+              <Parent isRef="95" />
               <ShrinkFontToFit>True</ShrinkFontToFit>
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text51>
-            <Text54 Ref="99" type="Text" isKey="true">
+            <Text54 Ref="101" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <ClientRectangle>1.6,0,0.4,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Koodak,9,Bold</Font>
+              <Font>B Titr,9,Bold</Font>
               <Guid>31687ce689f04284bedd740616920386</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text54</Name>
               <Page isRef="17" />
-              <Parent isRef="93" />
+              <Parent isRef="95" />
               <ShrinkFontToFit>True</ShrinkFontToFit>
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text54>
-            <Text56 Ref="100" type="Text" isKey="true">
+            <Text56 Ref="102" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[252:230:212]</Brush>
               <CanGrow>True</CanGrow>
               <ClientRectangle>21.4,0,1,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Koodak,9,Bold</Font>
+              <Font>B Nazanin,9,Bold</Font>
               <Guid>8ce4bb81c06f49bfa3c0655bc29b8cbe</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text56</Name>
               <Page isRef="17" />
-              <Parent isRef="93" />
+              <Parent isRef="95" />
               <ShrinkFontToFit>True</ShrinkFontToFit>
               <Text>تعداد</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text56>
-            <Text57 Ref="101" type="Text" isKey="true">
+            <Text57 Ref="103" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[252:230:212]</Brush>
               <CanGrow>True</CanGrow>
               <ClientRectangle>22.4,0,3,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Koodak,9,Bold</Font>
+              <Font>B Nazanin,9,Bold</Font>
               <Guid>d10d27b21f2340e89269ed41bb3684d9</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text57</Name>
               <Page isRef="17" />
-              <Parent isRef="93" />
+              <Parent isRef="95" />
               <ShrinkFontToFit>True</ShrinkFontToFit>
               <Text>{Report_Temporary.FK_RPTM_COCH.NAME_DNRM}</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text57>
-            <Text58 Ref="102" type="Text" isKey="true">
+            <Text58 Ref="104" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[210:234:240]</Brush>
               <ClientRectangle>4.2,0,2,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Koodak,9,Bold</Font>
+              <Font>B Titr,9,Bold</Font>
               <Guid>4869fe0049e5430cb527c3f1df69ba71</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text58</Name>
               <Page isRef="17" />
-              <Parent isRef="93" />
+              <Parent isRef="95" />
               <ShrinkFontToFit>True</ShrinkFontToFit>
               <Text>{Sum(COCH_HEDR_GROP,Report_Temporary.MBSP_DEBT_DNRM)}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="103" type="NumberFormat" isKey="true">
+              <TextFormat Ref="105" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>3</NegativePattern>
@@ -1826,18 +1862,18 @@
               <Type>Totals</Type>
               <VertAlignment>Center</VertAlignment>
             </Text58>
-            <Text59 Ref="104" type="Text" isKey="true">
+            <Text59 Ref="106" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[214:224:236]</Brush>
               <ClientRectangle>25.4,0,2.2,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Koodak,9,Bold</Font>
+              <Font>B Nazanin,9,Bold</Font>
               <Guid>890cc6b7d76e4c88a5eb9b3bc7aab293</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text59</Name>
               <Page isRef="17" />
-              <Parent isRef="93" />
+              <Parent isRef="95" />
               <ShrinkFontToFit>True</ShrinkFontToFit>
               <Text>جمع سرپرست</Text>
               <TextBrush>Black</TextBrush>
@@ -1845,45 +1881,20 @@
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text59>
-            <Text60 Ref="105" type="Text" isKey="true">
+            <Text60 Ref="107" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[252:230:212]</Brush>
               <ClientRectangle>10,0,1.2,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Koodak,9,Bold</Font>
+              <Font>B Titr,9,Bold</Font>
               <Guid>66d4102fc3524807bbcd5636b21afbc8</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text60</Name>
               <Page isRef="17" />
-              <Parent isRef="93" />
+              <Parent isRef="95" />
               <ShrinkFontToFit>True</ShrinkFontToFit>
               <Text>{Sum(COCH_HEDR_GROP,Report_Temporary.MBSP_NUMB_ATTN)}</Text>
-              <TextBrush>Black</TextBrush>
-              <TextFormat Ref="106" type="NumberFormat" isKey="true">
-                <DecimalDigits>0</DecimalDigits>
-                <GroupSeparator>,</GroupSeparator>
-                <NegativePattern>3</NegativePattern>
-                <UseLocalSetting>False</UseLocalSetting>
-              </TextFormat>
-              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
-              <Type>Totals</Type>
-              <VertAlignment>Center</VertAlignment>
-            </Text60>
-            <Text61 Ref="107" type="Text" isKey="true">
-              <Border>All;Black;1;Solid;False;4;Black</Border>
-              <Brush>[157:187:97]</Brush>
-              <ClientRectangle>8.2,0,1.8,0.8</ClientRectangle>
-              <Conditions isList="true" count="0" />
-              <Font>B Koodak,9,Bold</Font>
-              <Guid>08c39f0bac464cbc9b81e59f6a36a5ad</Guid>
-              <HorAlignment>Center</HorAlignment>
-              <Margins>0,0,0,0</Margins>
-              <Name>Text61</Name>
-              <Page isRef="17" />
-              <Parent isRef="93" />
-              <ShrinkFontToFit>True</ShrinkFontToFit>
-              <Text>{Sum(COCH_HEDR_GROP,Report_Temporary.MBSP_SUM_EXPN_AMNT)}</Text>
               <TextBrush>Black</TextBrush>
               <TextFormat Ref="108" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
@@ -1894,21 +1905,21 @@
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <Type>Totals</Type>
               <VertAlignment>Center</VertAlignment>
-            </Text61>
-            <Text62 Ref="109" type="Text" isKey="true">
+            </Text60>
+            <Text61 Ref="109" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
-              <Brush>[223:167:166]</Brush>
-              <ClientRectangle>6.2,0,2,0.8</ClientRectangle>
+              <Brush>[157:187:97]</Brush>
+              <ClientRectangle>8.2,0,1.8,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Koodak,9,Bold</Font>
-              <Guid>0f89c39421d44cab9884d3cd54149f15</Guid>
+              <Font>B Titr,9,Bold</Font>
+              <Guid>08c39f0bac464cbc9b81e59f6a36a5ad</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
-              <Name>Text62</Name>
+              <Name>Text61</Name>
               <Page isRef="17" />
-              <Parent isRef="93" />
+              <Parent isRef="95" />
               <ShrinkFontToFit>True</ShrinkFontToFit>
-              <Text>{Sum(COCH_HEDR_GROP,Report_Temporary.MBSP_PYDS_AMNT)}</Text>
+              <Text>{Sum(COCH_HEDR_GROP,Report_Temporary.MBSP_SUM_EXPN_AMNT)}</Text>
               <TextBrush>Black</TextBrush>
               <TextFormat Ref="110" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
@@ -1919,20 +1930,45 @@
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <Type>Totals</Type>
               <VertAlignment>Center</VertAlignment>
+            </Text61>
+            <Text62 Ref="111" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[223:167:166]</Brush>
+              <ClientRectangle>6.2,0,2,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Titr,9,Bold</Font>
+              <Guid>0f89c39421d44cab9884d3cd54149f15</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text62</Name>
+              <Page isRef="17" />
+              <Parent isRef="95" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{Sum(COCH_HEDR_GROP,Report_Temporary.MBSP_PYDS_AMNT)}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="112" type="NumberFormat" isKey="true">
+                <DecimalDigits>0</DecimalDigits>
+                <GroupSeparator>,</GroupSeparator>
+                <NegativePattern>3</NegativePattern>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Totals</Type>
+              <VertAlignment>Center</VertAlignment>
             </Text62>
-            <Text64 Ref="111" type="Text" isKey="true">
+            <Text64 Ref="113" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[252:230:212]</Brush>
               <CanGrow>True</CanGrow>
-              <ClientRectangle>12.6,0,7.2,0.8</ClientRectangle>
+              <ClientRectangle>12.8,0,7.4,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Koodak,9,Bold</Font>
+              <Font>B Nazanin,9,Bold</Font>
               <Guid>f5b5873c80c146af90092f0bb6d8c2a4</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text64</Name>
               <Page isRef="17" />
-              <Parent isRef="93" />
+              <Parent isRef="95" />
               <ShrinkFontToFit>True</ShrinkFontToFit>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
@@ -1945,26 +1981,26 @@
           <Page isRef="17" />
           <Parent isRef="17" />
         </GroupFooterBand2>
-        <FooterBand1 Ref="112" type="FooterBand" isKey="true">
+        <FooterBand1 Ref="114" type="FooterBand" isKey="true">
           <Brush>Transparent</Brush>
           <ClientRectangle>0,11.2,27.7,0.8</ClientRectangle>
           <Components isList="true" count="13">
-            <Text65 Ref="113" type="Text" isKey="true">
+            <Text65 Ref="115" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[173:193:217]</Brush>
               <ClientRectangle>2,0,2.2,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Koodak,9,Bold</Font>
+              <Font>B Titr,9,Bold</Font>
               <Guid>2da4cb72494c4e0db295c91881dc638b</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text65</Name>
               <Page isRef="17" />
-              <Parent isRef="112" />
+              <Parent isRef="114" />
               <ShrinkFontToFit>True</ShrinkFontToFit>
               <Text>{Sum(Report_Temporary.MBSP_PYMT_AMNT)}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="114" type="NumberFormat" isKey="true">
+              <TextFormat Ref="116" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>3</NegativePattern>
@@ -1974,18 +2010,18 @@
               <Type>Totals</Type>
               <VertAlignment>Center</VertAlignment>
             </Text65>
-            <Text66 Ref="115" type="Text" isKey="true">
+            <Text66 Ref="117" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[214:224:236]</Brush>
-              <ClientRectangle>19.8,0,1.6,0.8</ClientRectangle>
+              <ClientRectangle>20.2,0,1.2,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Koodak,9,Bold</Font>
+              <Font>B Nazanin,9,Bold</Font>
               <Guid>77d9156615ad4b6ca5c73c0859193910</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text66</Name>
               <Page isRef="17" />
-              <Parent isRef="112" />
+              <Parent isRef="114" />
               <ShrinkFontToFit>True</ShrinkFontToFit>
               <Text>{Count()}</Text>
               <TextBrush>Black</TextBrush>
@@ -1993,41 +2029,41 @@
               <Type>Totals</Type>
               <VertAlignment>Center</VertAlignment>
             </Text66>
-            <Text67 Ref="116" type="Text" isKey="true">
+            <Text67 Ref="118" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[214:224:236]</Brush>
               <CanGrow>True</CanGrow>
               <ClientRectangle>21.4,0,1,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Koodak,9,Bold</Font>
+              <Font>B Nazanin,9,Bold</Font>
               <Guid>b91859acc18748c68e075b342db9324c</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text67</Name>
               <Page isRef="17" />
-              <Parent isRef="112" />
+              <Parent isRef="114" />
               <ShrinkFontToFit>True</ShrinkFontToFit>
               <Text>تعداد</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text67>
-            <Text68 Ref="117" type="Text" isKey="true">
+            <Text68 Ref="119" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[210:234:240]</Brush>
               <ClientRectangle>4.2,0,2,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Koodak,9,Bold</Font>
+              <Font>B Titr,9,Bold</Font>
               <Guid>ac23b1ed1c0d436cbb4e74d208882635</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text68</Name>
               <Page isRef="17" />
-              <Parent isRef="112" />
+              <Parent isRef="114" />
               <ShrinkFontToFit>True</ShrinkFontToFit>
               <Text>{Sum(Report_Temporary.MBSP_DEBT_DNRM)}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="118" type="NumberFormat" isKey="true">
+              <TextFormat Ref="120" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>3</NegativePattern>
@@ -2037,18 +2073,18 @@
               <Type>Totals</Type>
               <VertAlignment>Center</VertAlignment>
             </Text68>
-            <Text69 Ref="119" type="Text" isKey="true">
+            <Text69 Ref="121" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[214:224:236]</Brush>
               <ClientRectangle>25.4,0,2.2,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Koodak,9,Bold</Font>
+              <Font>B Nazanin,9,Bold</Font>
               <Guid>993190613b0e44dda4ba054c5437104b</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text69</Name>
               <Page isRef="17" />
-              <Parent isRef="112" />
+              <Parent isRef="114" />
               <ShrinkFontToFit>True</ShrinkFontToFit>
               <Text>جمع کل</Text>
               <TextBrush>Black</TextBrush>
@@ -2056,45 +2092,20 @@
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text69>
-            <Text70 Ref="120" type="Text" isKey="true">
+            <Text70 Ref="122" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[223:167:166]</Brush>
               <ClientRectangle>6.2,0,2,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Koodak,9,Bold</Font>
+              <Font>B Titr,9,Bold</Font>
               <Guid>41883f7862ce49129f202ce3903946ae</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text70</Name>
               <Page isRef="17" />
-              <Parent isRef="112" />
+              <Parent isRef="114" />
               <ShrinkFontToFit>True</ShrinkFontToFit>
               <Text>{Sum(Report_Temporary.MBSP_PYDS_AMNT)}</Text>
-              <TextBrush>Black</TextBrush>
-              <TextFormat Ref="121" type="NumberFormat" isKey="true">
-                <DecimalDigits>0</DecimalDigits>
-                <GroupSeparator>,</GroupSeparator>
-                <NegativePattern>3</NegativePattern>
-                <UseLocalSetting>False</UseLocalSetting>
-              </TextFormat>
-              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
-              <Type>Totals</Type>
-              <VertAlignment>Center</VertAlignment>
-            </Text70>
-            <Text71 Ref="122" type="Text" isKey="true">
-              <Border>All;Black;1;Solid;False;4;Black</Border>
-              <Brush>[157:187:97]</Brush>
-              <ClientRectangle>8.2,0,1.8,0.8</ClientRectangle>
-              <Conditions isList="true" count="0" />
-              <Font>B Koodak,9,Bold</Font>
-              <Guid>9dc6c12b1a7e40e1ac4d886d80db04f6</Guid>
-              <HorAlignment>Center</HorAlignment>
-              <Margins>0,0,0,0</Margins>
-              <Name>Text71</Name>
-              <Page isRef="17" />
-              <Parent isRef="112" />
-              <ShrinkFontToFit>True</ShrinkFontToFit>
-              <Text>{Sum(Report_Temporary.MBSP_SUM_EXPN_AMNT)}</Text>
               <TextBrush>Black</TextBrush>
               <TextFormat Ref="123" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
@@ -2105,20 +2116,45 @@
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <Type>Totals</Type>
               <VertAlignment>Center</VertAlignment>
+            </Text70>
+            <Text71 Ref="124" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[157:187:97]</Brush>
+              <ClientRectangle>8.2,0,1.8,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Titr,9,Bold</Font>
+              <Guid>9dc6c12b1a7e40e1ac4d886d80db04f6</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text71</Name>
+              <Page isRef="17" />
+              <Parent isRef="114" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{Sum(Report_Temporary.MBSP_SUM_EXPN_AMNT)}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="125" type="NumberFormat" isKey="true">
+                <DecimalDigits>0</DecimalDigits>
+                <GroupSeparator>,</GroupSeparator>
+                <NegativePattern>3</NegativePattern>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Totals</Type>
+              <VertAlignment>Center</VertAlignment>
             </Text71>
-            <Text72 Ref="124" type="Text" isKey="true">
+            <Text72 Ref="126" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[214:224:236]</Brush>
               <CanGrow>True</CanGrow>
-              <ClientRectangle>11.2,0,1.4,0.8</ClientRectangle>
+              <ClientRectangle>11.2,0,1.6,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Koodak,9,Bold</Font>
+              <Font>B Titr,9,Bold</Font>
               <Guid>67697b53d0e042e4afc5f2524c404d10</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text72</Name>
               <Page isRef="17" />
-              <Parent isRef="112" />
+              <Parent isRef="114" />
               <ShrinkFontToFit>True</ShrinkFontToFit>
               <Text>جمع</Text>
               <TextBrush>Black</TextBrush>
@@ -2126,22 +2162,22 @@
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text72>
-            <Text73 Ref="125" type="Text" isKey="true">
+            <Text73 Ref="127" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[214:224:236]</Brush>
               <ClientRectangle>10,0,1.2,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Koodak,9,Bold</Font>
+              <Font>B Titr,9,Bold</Font>
               <Guid>1f9b256aaac84c9698dcf0efd9c30825</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text73</Name>
               <Page isRef="17" />
-              <Parent isRef="112" />
+              <Parent isRef="114" />
               <ShrinkFontToFit>True</ShrinkFontToFit>
               <Text>{Sum(Report_Temporary.MBSP_NUMB_ATTN)}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="126" type="NumberFormat" isKey="true">
+              <TextFormat Ref="128" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>3</NegativePattern>
@@ -2151,72 +2187,72 @@
               <Type>Totals</Type>
               <VertAlignment>Center</VertAlignment>
             </Text73>
-            <Text74 Ref="127" type="Text" isKey="true">
+            <Text74 Ref="129" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[214:224:236]</Brush>
               <CanGrow>True</CanGrow>
-              <ClientRectangle>12.6,0,7.2,0.8</ClientRectangle>
+              <ClientRectangle>12.8,0,7.4,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Koodak,9,Bold</Font>
+              <Font>B Nazanin,9,Bold</Font>
               <Guid>9267c438596747dfbb5d553a019e8486</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text74</Name>
               <Page isRef="17" />
-              <Parent isRef="112" />
+              <Parent isRef="114" />
               <ShrinkFontToFit>True</ShrinkFontToFit>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text74>
-            <Text75 Ref="128" type="Text" isKey="true">
+            <Text75 Ref="130" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[214:224:236]</Brush>
               <CanGrow>True</CanGrow>
               <ClientRectangle>22.4,0,3,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Koodak,9,Bold</Font>
+              <Font>B Nazanin,9,Bold</Font>
               <Guid>bd5e7a6c128241959fe6167a76c245f8</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text75</Name>
               <Page isRef="17" />
-              <Parent isRef="112" />
+              <Parent isRef="114" />
               <ShrinkFontToFit>True</ShrinkFontToFit>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text75>
-            <Text76 Ref="129" type="Text" isKey="true">
+            <Text76 Ref="131" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <ClientRectangle>0,0,1.6,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Koodak,9,Bold</Font>
+              <Font>B Titr,9,Bold</Font>
               <Guid>8f969f123f374cf7bfd411a81e3f334a</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text76</Name>
               <Page isRef="17" />
-              <Parent isRef="112" />
+              <Parent isRef="114" />
               <ShrinkFontToFit>True</ShrinkFontToFit>
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text76>
-            <Text77 Ref="130" type="Text" isKey="true">
+            <Text77 Ref="132" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <ClientRectangle>1.6,0,0.4,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Koodak,9,Bold</Font>
+              <Font>B Titr,9,Bold</Font>
               <Guid>183d2a80b0af468d85b96ae49291988b</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text77</Name>
               <Page isRef="17" />
-              <Parent isRef="112" />
+              <Parent isRef="114" />
               <ShrinkFontToFit>True</ShrinkFontToFit>
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
@@ -2240,13 +2276,13 @@
       <PageWidth>29.7</PageWidth>
       <PaperSize>A4</PaperSize>
       <Report isRef="0" />
-      <Watermark Ref="131" type="Stimulsoft.Report.Components.StiWatermark" isKey="true">
+      <Watermark Ref="133" type="Stimulsoft.Report.Components.StiWatermark" isKey="true">
         <Font>Arial,100</Font>
         <TextBrush>[50:0:0:0]</TextBrush>
       </Watermark>
     </Page1>
   </Pages>
-  <PrinterSettings Ref="132" type="Stimulsoft.Report.Print.StiPrinterSettings" isKey="true" />
+  <PrinterSettings Ref="134" type="Stimulsoft.Report.Print.StiPrinterSettings" isKey="true" />
   <ReferencedAssemblies isList="true" count="8">
     <value>System.Dll</value>
     <value>System.Drawing.Dll</value>
@@ -2258,10 +2294,10 @@
     <value>Stimulsoft.Report.Dll</value>
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
-  <ReportChanged>9/18/2022 11:37:38 PM</ReportChanged>
+  <ReportChanged>10/10/2022 1:10:33 AM</ReportChanged>
   <ReportCreated>9/17/2022 10:42:19 PM</ReportCreated>
   <ReportFile>D:\Project\MyProject\Documents\Report Repository\RPT_CCHP_010_R.mrt</ReportFile>
-  <ReportGuid>08a819bf947145258d5fc052c4b1d38c</ReportGuid>
+  <ReportGuid>d519402d7d2841919ef0f27d54438cf9</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Centimeters</ReportUnit>
   <ReportVersion>2012.2.1304</ReportVersion>

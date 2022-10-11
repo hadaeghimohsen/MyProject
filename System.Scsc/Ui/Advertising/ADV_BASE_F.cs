@@ -204,6 +204,21 @@ namespace System.Scsc.Ui.Advertising
                   );                  
                }
 
+            var _cochs =
+               new XElement("Coaches",
+                   new XAttribute("iscoch", CochFltr_Cbx.Checked)
+               );
+            if (CochFltr_Cbx.Checked)
+               foreach (var i in Coch_Gv.GetSelectedRows())
+               {
+                  var _item = Coch_Gv.GetRow(i) as Data.Fighter;
+                  _ctgys.Add(
+                     new XElement("Coach",
+                         new XAttribute("fileno", _item.FILE_NO)
+                     )
+                  );
+               }
+
             var _orgns = 
                new XElement("Organs",
                    new XAttribute("isorgn", SuntFltr_Cbx.Checked) 
@@ -268,6 +283,19 @@ namespace System.Scsc.Ui.Advertising
                   );
                }
 
+            // 1401/07/19 * روزهای سرنگونی نظام کثیف آخوندی
+            if(StrtCyclDate_Cbx.Checked)
+            {
+               if (!FromStrtCyclDate_Dt.Value.HasValue) { MessageBox.Show("تاریخ شروع را مشخص کنید"); FromStrtCyclDate_Dt.Focus(); return; }
+               if (!ToStrtCyclDate_Dt.Value.HasValue) { MessageBox.Show("تاریخ پایان را مشخص کنید"); ToStrtCyclDate_Dt.Focus(); return; }
+            }
+
+            if (EndCyclDate_Cbx.Checked)
+            {
+               if (!FromEndCyclDate_Dt.Value.HasValue) { MessageBox.Show("تاریخ شروع را مشخص کنید"); FromEndCyclDate_Dt.Focus(); return; }
+               if (!ToEndCyclDate_Dt.Value.HasValue) { MessageBox.Show("تاریخ پایان را مشخص کنید"); ToEndCyclDate_Dt.Focus(); return; }
+            }
+
             iScsc.CRET_ADVP_P(
                new XElement("Advertising_Parameter",
                    new XAttribute("code", _advp.CODE),
@@ -286,6 +314,15 @@ namespace System.Scsc.Ui.Advertising
                        new XAttribute("fromnumblastday", FromNumbLastDay_Txt.EditValue ?? 0),
                        new XAttribute("istonumblastday", ToNumbLastDay_Cbx.Checked),
                        new XAttribute("tonumblastday", ToNumbLastDay_Txt.EditValue ?? 0)
+                   ),
+                   new XElement("Cycle",
+                       new XAttribute("isstrtcycldate", StrtCyclDate_Cbx.Checked),
+                       new XAttribute("fromstrtcycldate", FromStrtCyclDate_Dt.Value == null ? DateTime.Now.ToString("yyyy-MM-dd") : FromStrtCyclDate_Dt.Value.Value.ToString("yyyy-MM-dd")),
+                       new XAttribute("tostrtcycldate", ToStrtCyclDate_Dt.Value == null ? DateTime.Now.ToString("yyyy-MM-dd") : ToStrtCyclDate_Dt.Value.Value.ToString("yyyy-MM-dd")),
+                       
+                       new XAttribute("isendcycldate", EndCyclDate_Cbx.Checked),
+                       new XAttribute("fromendcycldate", FromEndCyclDate_Dt.Value == null ? DateTime.Now.ToString("yyyy-MM-dd") : FromEndCyclDate_Dt.Value.Value.ToString("yyyy-MM-dd")),
+                       new XAttribute("toendcycldate", ToEndCyclDate_Dt.Value == null ? DateTime.Now.ToString("yyyy-MM-dd") : ToEndCyclDate_Dt.Value.Value.ToString("yyyy-MM-dd"))
                    ),
                    new XElement("Inviting",
                        new XAttribute("isnumbinvdir", NumbInvDir_Cbx.Checked),
@@ -310,6 +347,7 @@ namespace System.Scsc.Ui.Advertising
                        new XAttribute("frompymt", FromPymt_Dt.Value == null ? DateTime.Now.ToString("yyyy-MM-dd") : FromPymt_Dt.Value.Value.ToString("yyyy-MM-dd"))
                    ),
                    _ctgys,
+                   _cochs,
                    _orgns,
                    _grops,
                    _calls,

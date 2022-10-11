@@ -1698,6 +1698,9 @@ namespace System.Scsc.Ui.OtherIncome
             var pymt = PymtsBs1.Current as Data.Payment;
             if (pymt == null) return;
 
+            var pydt = PydtsBs1.Current as Data.Payment_Detail;
+            if (pydt == null) return;
+
             long? amnt = null;
             switch (PydsType_Butn.Tag.ToString())
             {
@@ -1708,7 +1711,10 @@ namespace System.Scsc.Ui.OtherIncome
                      PydsAmnt_Txt.Focus();
                   }
 
-                  amnt = (pymt.SUM_EXPN_PRIC * Convert.ToInt64(PydsAmnt_Txt.EditValue)) / 100;
+                  if(HowPyds_Cbx.Checked)
+                     amnt = ((long?)(pydt.EXPN_PRIC * pydt.QNTY) * Convert.ToInt64(PydsAmnt_Txt.EditValue)) / 100;
+                  else
+                     amnt = (pymt.SUM_EXPN_PRIC * Convert.ToInt64(PydsAmnt_Txt.EditValue)) / 100;
                   break;
                case "1":
                   amnt = Convert.ToInt32(PydsAmnt_Txt.EditValue);
@@ -1716,7 +1722,7 @@ namespace System.Scsc.Ui.OtherIncome
                   break;
             }
 
-            iScsc.INS_PYDS_P(pymt.CASH_CODE, pymt.RQST_RQID, (short?)1, null, amnt, PydsType_Lov.EditValue.ToString(), "002", PydsDesc_Txt.Text, null, null);
+            iScsc.INS_PYDS_P(pymt.CASH_CODE, pymt.RQST_RQID, (short?)1, pydt.EXPN_CODE, amnt, PydsType_Lov.EditValue.ToString(), "002", PydsDesc_Txt.Text, null, null);
 
             PydsAmnt_Txt.EditValue = null;
             PydsDesc_Txt.EditValue = null;

@@ -198,10 +198,18 @@ namespace System.Scsc.Ui.ReportManager
                      (Fga_Uclb_U.Contains(pc.Payment.CLUB_CODE_DNRM))
                   );
             }
-            //else if(tc_master.SelectedTab == tp_007)
-            //{
-            //   VInvtBs1.DataSource = iScsc.V_Inventories;
-            //}
+            else if (tc_master.SelectedTab == tp_007)
+            {
+               VSmsBs7.DataSource =
+                  iScsc.V_Sms_Message_Boxes
+                  .Where(s => 
+                     s.ACTN_DATE >= FromDate7_Date.Value.Value.Date && 
+                     s.ACTN_DATE <= ToDate7_Date.Value.Value.Date &&
+                     (SmsSend003_Rb.Checked ? true : 
+                        (SmsSend001_Rb.Checked ? s.MESG_ID != null : s.MESG_ID == null)
+                     )
+                  );
+            }
             else if(tc_master.SelectedTab == tp_008)
             {
                GPymBs.DataSource =
@@ -255,8 +263,9 @@ namespace System.Scsc.Ui.ReportManager
          FromDate2_Date.CommitChanges(); ToDate2_Date.CommitChanges();
          FromDate3_Date.CommitChanges(); ToDate3_Date.CommitChanges();
          FromDate4_Date.CommitChanges(); ToDate4_Date.CommitChanges();
-         //FromDate5_Date.CommitChanges(); ToDate5_Date.CommitChanges();
+         
          FromDate6_Date.CommitChanges(); ToDate6_Date.CommitChanges();
+         FromDate7_Date.CommitChanges(); ToDate7_Date.CommitChanges();
          FromDate8_Date.CommitChanges(); ToDate8_Date.CommitChanges();
          FromDate9_Date.CommitChanges(); ToDate9_Date.CommitChanges();
 
@@ -268,8 +277,8 @@ namespace System.Scsc.Ui.ReportManager
             // 1398/05/20 * بررسی اینکه کاربر اجازه اجرا کردن گزارش در هر تاریخی را دارد یا خیر
             if(!checkValidateDate(FromDate1_Date.Value.Value.Date))return;
 
-            FromDate9_Date.Value = FromDate8_Date.Value = FromDate6_Date.Value = FromDate2_Date.Value = FromDate3_Date.Value = FromDate4_Date.Value = FromDate1_Date.Value;
-            ToDate9_Date.Value = ToDate8_Date.Value = ToDate6_Date.Value = ToDate2_Date.Value = ToDate3_Date.Value = ToDate4_Date.Value = ToDate1_Date.Value;
+            FromDate7_Date.Value =  FromDate9_Date.Value = FromDate8_Date.Value = FromDate6_Date.Value = FromDate2_Date.Value = FromDate3_Date.Value = FromDate4_Date.Value = FromDate1_Date.Value;
+            ToDate7_Date.Value = ToDate9_Date.Value = ToDate8_Date.Value = ToDate6_Date.Value = ToDate2_Date.Value = ToDate3_Date.Value = ToDate4_Date.Value = ToDate1_Date.Value;
 
             Rqtp_Lov2.EditValue = Rqtp_Lov3.EditValue = Rqtp_Lov.EditValue;
             Figh_Lov2.EditValue = Figh_Lov3.EditValue = Figh_Lov.EditValue;
@@ -283,8 +292,8 @@ namespace System.Scsc.Ui.ReportManager
             // 1398/05/20 * بررسی اینکه کاربر اجازه اجرا کردن گزارش در هر تاریخی را دارد یا خیر
             if (!checkValidateDate(FromDate2_Date.Value.Value.Date)) return;
 
-            FromDate9_Date.Value = FromDate8_Date.Value = FromDate6_Date.Value = FromDate1_Date.Value = FromDate3_Date.Value = FromDate4_Date.Value = FromDate2_Date.Value;
-            ToDate9_Date.Value = ToDate8_Date.Value = ToDate6_Date.Value = ToDate1_Date.Value = ToDate3_Date.Value = ToDate4_Date.Value = ToDate2_Date.Value;
+            FromDate7_Date.Value = FromDate9_Date.Value = FromDate8_Date.Value = FromDate6_Date.Value = FromDate1_Date.Value = FromDate3_Date.Value = FromDate4_Date.Value = FromDate2_Date.Value;
+            ToDate7_Date.Value =   ToDate9_Date.Value = ToDate8_Date.Value = ToDate6_Date.Value = ToDate1_Date.Value = ToDate3_Date.Value = ToDate4_Date.Value = ToDate2_Date.Value;
             
             if(FromTime2_Te.EditValue == null)
                FromTime2_Te.EditValue = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 00, 00, 00);
@@ -303,8 +312,8 @@ namespace System.Scsc.Ui.ReportManager
             // 1398/05/20 * بررسی اینکه کاربر اجازه اجرا کردن گزارش در هر تاریخی را دارد یا خیر
             if (!checkValidateDate(FromDate3_Date.Value.Value.Date)) return;
 
-            FromDate9_Date.Value = FromDate8_Date.Value = FromDate6_Date.Value = FromDate1_Date.Value = FromDate2_Date.Value = FromDate4_Date.Value = FromDate3_Date.Value;
-            ToDate9_Date.Value = ToDate8_Date.Value = ToDate6_Date.Value = ToDate1_Date.Value = ToDate2_Date.Value = ToDate4_Date.Value = ToDate3_Date.Value;
+            FromDate7_Date.Value = FromDate9_Date.Value = FromDate8_Date.Value = FromDate6_Date.Value = FromDate1_Date.Value = FromDate2_Date.Value = FromDate4_Date.Value = FromDate3_Date.Value;
+            ToDate7_Date.Value = ToDate9_Date.Value = ToDate8_Date.Value = ToDate6_Date.Value = ToDate1_Date.Value = ToDate2_Date.Value = ToDate4_Date.Value = ToDate3_Date.Value;
 
             Rqtp_Lov2.EditValue = Rqtp_Lov.EditValue = Rqtp_Lov3.EditValue;
             Figh_Lov2.EditValue = Figh_Lov.EditValue = Figh_Lov3.EditValue;
@@ -318,8 +327,8 @@ namespace System.Scsc.Ui.ReportManager
             // 1398/05/20 * بررسی اینکه کاربر اجازه اجرا کردن گزارش در هر تاریخی را دارد یا خیر
             if (!checkValidateDate(FromDate4_Date.Value.Value.Date)) return;
 
-            FromDate8_Date.Value = FromDate9_Date.Value = FromDate6_Date.Value = FromDate1_Date.Value = FromDate2_Date.Value = FromDate3_Date.Value = FromDate4_Date.Value;
-            ToDate8_Date.Value = ToDate9_Date.Value = ToDate6_Date.Value = ToDate1_Date.Value = ToDate2_Date.Value = ToDate3_Date.Value = ToDate4_Date.Value;
+            FromDate7_Date.Value = FromDate8_Date.Value = FromDate9_Date.Value = FromDate6_Date.Value = FromDate1_Date.Value = FromDate2_Date.Value = FromDate3_Date.Value = FromDate4_Date.Value;
+            ToDate7_Date.Value = ToDate8_Date.Value = ToDate9_Date.Value = ToDate6_Date.Value = ToDate1_Date.Value = ToDate2_Date.Value = ToDate3_Date.Value = ToDate4_Date.Value;
          }
          //else if (tc_master.SelectedTab == tp_005)
          //{
@@ -344,8 +353,19 @@ namespace System.Scsc.Ui.ReportManager
             // 1398/05/20 * بررسی اینکه کاربر اجازه اجرا کردن گزارش در هر تاریخی را دارد یا خیر
             if (!checkValidateDate(FromDate6_Date.Value.Value.Date)) return;
 
-            FromDate9_Date.Value = FromDate8_Date.Value = FromDate1_Date.Value = FromDate2_Date.Value = FromDate4_Date.Value = FromDate3_Date.Value = FromDate6_Date.Value;
-            ToDate9_Date.Value = ToDate8_Date.Value = ToDate1_Date.Value = ToDate2_Date.Value = ToDate4_Date.Value = ToDate3_Date.Value = ToDate6_Date.Value;
+            FromDate7_Date.Value = FromDate9_Date.Value = FromDate8_Date.Value = FromDate1_Date.Value = FromDate2_Date.Value = FromDate4_Date.Value = FromDate3_Date.Value = FromDate6_Date.Value;
+            ToDate7_Date.Value = ToDate9_Date.Value = ToDate8_Date.Value = ToDate1_Date.Value = ToDate2_Date.Value = ToDate4_Date.Value = ToDate3_Date.Value = ToDate6_Date.Value;
+         }
+         else if (tc_master.SelectedTab == tp_007)
+         {
+            if (!FromDate7_Date.Value.HasValue) { MessageBox.Show("تاریخ شروع را مشخص کنید"); FromDate7_Date.Focus(); return; }
+            if (!ToDate7_Date.Value.HasValue) { MessageBox.Show("تاریخ پایان را مشخص کنید"); ToDate7_Date.Focus(); return; }
+
+            // 1398/05/20 * بررسی اینکه کاربر اجازه اجرا کردن گزارش در هر تاریخی را دارد یا خیر
+            if (!checkValidateDate(FromDate7_Date.Value.Value.Date)) return;
+
+            FromDate9_Date.Value = FromDate1_Date.Value = FromDate2_Date.Value = FromDate4_Date.Value = FromDate3_Date.Value = FromDate6_Date.Value = FromDate8_Date.Value = FromDate7_Date.Value;
+            ToDate9_Date.Value = ToDate1_Date.Value = ToDate2_Date.Value = ToDate4_Date.Value = ToDate3_Date.Value = ToDate6_Date.Value = ToDate8_Date.Value = ToDate7_Date.Value;
          }
          else if(tc_master.SelectedTab == tp_008)
          {
@@ -355,8 +375,8 @@ namespace System.Scsc.Ui.ReportManager
             // 1398/05/20 * بررسی اینکه کاربر اجازه اجرا کردن گزارش در هر تاریخی را دارد یا خیر
             if (!checkValidateDate(FromDate8_Date.Value.Value.Date)) return;
 
-            FromDate9_Date.Value = FromDate1_Date.Value = FromDate2_Date.Value = FromDate4_Date.Value = FromDate3_Date.Value = FromDate6_Date.Value = FromDate8_Date.Value;
-            ToDate9_Date.Value = ToDate1_Date.Value = ToDate2_Date.Value = ToDate4_Date.Value = ToDate3_Date.Value = ToDate6_Date.Value = ToDate8_Date.Value;
+            FromDate7_Date.Value = FromDate9_Date.Value = FromDate1_Date.Value = FromDate2_Date.Value = FromDate4_Date.Value = FromDate3_Date.Value = FromDate6_Date.Value = FromDate8_Date.Value;
+            ToDate7_Date.Value = ToDate9_Date.Value = ToDate1_Date.Value = ToDate2_Date.Value = ToDate4_Date.Value = ToDate3_Date.Value = ToDate6_Date.Value = ToDate8_Date.Value;
          }
          else if(tc_master.SelectedTab == tp_009)
          {
@@ -366,8 +386,8 @@ namespace System.Scsc.Ui.ReportManager
             // 1398/05/20 * بررسی اینکه کاربر اجازه اجرا کردن گزارش در هر تاریخی را دارد یا خیر
             if (!checkValidateDate(FromDate9_Date.Value.Value.Date)) return;
 
-            FromDate1_Date.Value = FromDate2_Date.Value = FromDate4_Date.Value = FromDate3_Date.Value = FromDate6_Date.Value = FromDate8_Date.Value = FromDate9_Date.Value;
-            ToDate1_Date.Value = ToDate2_Date.Value = ToDate4_Date.Value = ToDate3_Date.Value = ToDate6_Date.Value = ToDate8_Date.Value = ToDate9_Date.Value;
+            FromDate7_Date.Value = FromDate1_Date.Value = FromDate2_Date.Value = FromDate4_Date.Value = FromDate3_Date.Value = FromDate6_Date.Value = FromDate8_Date.Value = FromDate9_Date.Value;
+            ToDate7_Date.Value = ToDate1_Date.Value = ToDate2_Date.Value = ToDate4_Date.Value = ToDate3_Date.Value = ToDate6_Date.Value = ToDate8_Date.Value = ToDate9_Date.Value;
          }
 
          Execute_Query();

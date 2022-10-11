@@ -155,27 +155,27 @@ namespace System.Scsc.Ui.Admission
                      //EndTime_Clm.Text = control.LABL_TEXT; // Place Holder
                      break;
                   case "namednrm_lb":
-                     NameDnrm_Lb.Text = control.LABL_TEXT;
+                     //NameDnrm_Lb.Text = control.LABL_TEXT;
                      //NameDnrm_Lb.Text = control.LABL_TEXT; // ToolTip
                      //NameDnrm_Lb.Text = control.LABL_TEXT; // Place Holder
                      break;
                   case "brthdate_lb":
-                     BrthDate_Lb.Text = control.LABL_TEXT;
+                     //BrthDate_Lb.Text = control.LABL_TEXT;
                      //BrthDate_Lb.Text = control.LABL_TEXT; // ToolTip
                      //BrthDate_Lb.Text = control.LABL_TEXT; // Place Holder
                      break;
                   case "cellphon_lb":
-                     CellPhon_Lb.Text = control.LABL_TEXT;
+                     //CellPhon_Lb.Text = control.LABL_TEXT;
                      //CellPhon_Lb.Text = control.LABL_TEXT; // ToolTip
                      //CellPhon_Lb.Text = control.LABL_TEXT; // Place Holder
                      break;
                   case "fngrprnt_lb":
-                     FngrPrnt_Lb.Text = control.LABL_TEXT;
+                     //FngrPrnt_Lb.Text = control.LABL_TEXT;
                      //FngrPrnt_Lb.Text = control.LABL_TEXT; // ToolTip
                      //FngrPrnt_Lb.Text = control.LABL_TEXT; // Place Holder
                      break;
                   case "crntmbsp_gb":
-                     CrntMbsp_Gb.Text = control.LABL_TEXT;
+                     //CrntMbsp_Gb.Text = control.LABL_TEXT;
                      //CrntMbsp_Gb.Text = control.LABL_TEXT; // ToolTip
                      //CrntMbsp_Gb.Text = control.LABL_TEXT; // Place Holder
                      break;
@@ -215,12 +215,12 @@ namespace System.Scsc.Ui.Admission
                      //CrntNumbAttnMont_Lb.Text = control.LABL_TEXT; // Place Holder
                      break;
                   case "crntcbmtcode_gb":
-                     CrntCbmtCode_Gb.Text = control.LABL_TEXT;
+                     //CrntCbmtCode_Gb.Text = control.LABL_TEXT;
                      //CrntCbmtCode_Gb.Text = control.LABL_TEXT; // ToolTip
                      //CrntCbmtCode_Gb.Text = control.LABL_TEXT; // Place Holder
                      break;
                   case "newmbsp_gb":
-                     NewMbsp_Gb.Text = control.LABL_TEXT;
+                     //NewMbsp_Gb.Text = control.LABL_TEXT;
                      //NewMbsp_Gb.Text = control.LABL_TEXT; // ToolTip
                      //NewMbsp_Gb.Text = control.LABL_TEXT; // Place Holder
                      break;
@@ -265,7 +265,7 @@ namespace System.Scsc.Ui.Admission
                      //NewConsAttnMot_Lb.Text = control.LABL_TEXT; // Place Holder
                      break;
                   case "newcbmtcode_gb":
-                     NewCbmtCode_Gb.Text = control.LABL_TEXT;
+                     //NewCbmtCode_Gb.Text = control.LABL_TEXT;
                      //NewCbmtCode_Gb.Text = control.LABL_TEXT; // ToolTip
                      //NewCbmtCode_Gb.Text = control.LABL_TEXT; // Place Holder
                      break;

@@ -1620,6 +1620,7 @@ namespace System.Scsc.Ui.Common
                   FgdcBs.DataSource = iScsc.Fighter_Discount_Cards.Where(d => d.FIGH_FILE_NO == _serv.FILE_NO);
                   break;
                case "tp_004":
+                  VSmsBs7.DataSource = iScsc.V_Sms_Message_Boxes.Where(s => s.PHON_NUMB == _serv.CELL_PHON_DNRM);
                   break;
                case "tp_005":
                   var _mbsp = MbspBs.Current as Data.Member_Ship;

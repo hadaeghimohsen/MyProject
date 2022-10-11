@@ -1027,7 +1027,7 @@
          // 
          // bbi_incmbutn
          // 
-         this.bbi_incmbutn.Caption = "فروش";
+         this.bbi_incmbutn.Caption = "گزارش";
          this.bbi_incmbutn.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
          this.bbi_incmbutn.Id = 67;
          this.bbi_incmbutn.LargeGlyph = global::System.Scsc.Properties.Resources.IMAGE_1086;

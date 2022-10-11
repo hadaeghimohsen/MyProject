@@ -210,7 +210,9 @@ namespace System.Scsc.Ui.Admission
                                     new XAttribute("numbmontofer", NumbMontOfer_TextEdit001.Text ?? "0"),
                                     new XAttribute("numbofattnmont", NumbOfAttnMont_TextEdit001.Text ?? "0"),
                                     new XAttribute("numbofattnweek", "0"),
-                                    new XAttribute("attndaytype", /*AttnDayType_Lov001.EditValue ??*/ "7")
+                                    new XAttribute("attndaytype", /*AttnDayType_Lov001.EditValue ??*/ "7"),
+                                    new XAttribute("strttime", StrtTime_Te.Text),
+                                    new XAttribute("endtime", EndTime_Te.Text)
                                  )
                               )
                            )
@@ -557,6 +559,11 @@ namespace System.Scsc.Ui.Admission
                CbmtCode_Lov.Focus(); 
                return; 
             }
+
+            var _crntcbmt = CbmtBs1.List.OfType<Data.Club_Method>().FirstOrDefault(cm => cm.CODE == (long)CbmtCode_Lov.EditValue);
+            // 1401/07/18 * روز سرنگونی حکومت فاسر آخوندی
+            StrtTime_Te.EditValue = _crntcbmt.STRT_TIME;
+            EndTime_Te.EditValue = _crntcbmt.END_TIME;
 
             Btn_RqstRqt1_Click(null, null);
          }

@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.JobRouting.Jobs;
 using System.Xml.Linq;
 using System.IO;
+using System.Scsc.ExtCode;
 
 namespace System.Scsc.Ui.Admission
 {
@@ -46,7 +47,7 @@ namespace System.Scsc.Ui.Admission
             StrtTime_Txt.EditValue = cbmt.STRT_TIME.ToString().Substring(0, 5);
             EndTime_Txt.EditValue = cbmt.END_TIME.ToString().Substring(0, 5);
 
-            CbmtBs1.DataSource = iScsc.Club_Methods.Where(cm => cm.MTOD_STAT == "002" && cm.MTOD_CODE == mbsp.Fighter_Public.MTOD_CODE);
+            CbmtBs1.DataSource = iScsc.Club_Methods.Where(cm => cm.MTOD_STAT == "002" /*&& cm.MTOD_CODE == mbsp.Fighter_Public.MTOD_CODE*/);
 
             Mbsp002Bs.DataSource = iScsc.Member_Ships.FirstOrDefault(mb => mb.RQRO_RQST_RQID == mbsp.RQRO_RQST_RQID && mb.RECT_CODE == "002" && mb.FIGH_FILE_NO == fileno);
          }
@@ -102,7 +103,9 @@ namespace System.Scsc.Ui.Admission
                            new XAttribute("prntcont", "1"),
                            new XAttribute("numbmontofer", 0),
                            new XAttribute("numbofattnmont", NumbAttnMont_TextEdit002.Text ?? "0"),
-                           new XAttribute("sumnumbattnmont", SumNumbAttnMont_TextEdit002.Text ?? "0")
+                           new XAttribute("sumnumbattnmont", SumNumbAttnMont_TextEdit002.Text ?? "0"),
+                           new XAttribute("strttime", StrtTimeN_Txt.Text),
+                           new XAttribute("endtime", EndTimeN_Txt.Text)
                         )
                      )
                   )
@@ -134,6 +137,8 @@ namespace System.Scsc.Ui.Admission
             if (CBMT_CODE_GridLookUpEdit.EditValue == null || CBMT_CODE_GridLookUpEdit.EditValue.ToString() == "") { CBMT_CODE_GridLookUpEdit.Focus(); return; }
             if (CtgyCode_LookupEdit001.EditValue == null || CtgyCode_LookupEdit001.EditValue.ToString() == "") { CtgyCode_LookupEdit001.Focus(); return; }
 
+            if (MessageBox.Show(this, "آیا با ذخیره کردن اطلاعات موافق هستید؟", "ذخیره اطلاعات", MessageBoxButtons.YesNo) != DialogResult.Yes) return;
+
             iScsc.MBSP_SCHG_P(
                new XElement("Process",
                   new XElement("Request",
@@ -163,102 +168,104 @@ namespace System.Scsc.Ui.Admission
             {
                Execute_Query();
 
-               if(TranExpn_Cb.Checked)
-               {
-                  bool checkOK = true;
-                  #region Check Security
-                  _DefaultGateway.Gateway(
-                     new Job(SendType.External, "Desktop",
-                        new List<Job>
-                        {
-                           new Job(SendType.External, "Commons",
-                              new List<Job>
-                              {
-                                 #region Access Privilege
-                                 new Job(SendType.Self, 07 /* Execute DoWork4AccessPrivilege */)
-                                 {
-                                    Input = new List<string> 
-                                    {
-                                       "<Privilege>226</Privilege><Sub_Sys>5</Sub_Sys>", 
-                                       "DataGuard"
-                                    },
-                                    AfterChangedOutput = new Action<object>((output) => {
-                                       if ((bool)output)
-                                          return;
-                                       checkOK = false;
-                                       MessageBox.Show(this, "عدم دسترسی به ردیف 226 امنیتی", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Stop);                             
-                                    })
-                                 }
-                                 #endregion                        
-                              })                     
-                           })
-                  );
-                  #endregion
-                  if (checkOK)
-                  {
-                     var mbspnew = Mbsp002Bs.Current as Data.Member_Ship;
-                     if (mbspnew != null)
-                     {
-                        long? rqid = 0;
-                        if (mbspnew.Request_Row.RQTT_CODE == "004")
-                           rqid = mbspnew.Request_Row.Request.RQST_RQID;
-                        else
-                           rqid = mbspnew.RQRO_RQST_RQID;
+               #region Ignore Operation
+               //if (TranExpn_Cb.Checked)
+               //{
+               //   bool checkOK = true;
+               //   #region Check Security
+               //   _DefaultGateway.Gateway(
+               //      new Job(SendType.External, "Desktop",
+               //         new List<Job>
+               //         {
+               //            new Job(SendType.External, "Commons",
+               //               new List<Job>
+               //               {
+               //                  #region Access Privilege
+               //                  new Job(SendType.Self, 07 /* Execute DoWork4AccessPrivilege */)
+               //                  {
+               //                     Input = new List<string> 
+               //                     {
+               //                        "<Privilege>226</Privilege><Sub_Sys>5</Sub_Sys>", 
+               //                        "DataGuard"
+               //                     },
+               //                     AfterChangedOutput = new Action<object>((output) => {
+               //                        if ((bool)output)
+               //                           return;
+               //                        checkOK = false;
+               //                        MessageBox.Show(this, "عدم دسترسی به ردیف 226 امنیتی", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Stop);                             
+               //                     })
+               //                  }
+               //                  #endregion                        
+               //               })                     
+               //            })
+               //   );
+               //   #endregion
+               //   if (checkOK)
+               //   {
+               //      var mbspnew = Mbsp002Bs.Current as Data.Member_Ship;
+               //      if (mbspnew != null)
+               //      {
+               //         long? rqid = 0;
+               //         if (mbspnew.Request_Row.RQTT_CODE == "004")
+               //            rqid = mbspnew.Request_Row.Request.RQST_RQID;
+               //         else
+               //            rqid = mbspnew.RQRO_RQST_RQID;
 
-                        var pydt = iScsc.Payment_Details.Where(pd => pd.PYMT_RQST_RQID == rqid);
+               //         var pydt = iScsc.Payment_Details.Where(pd => pd.PYMT_RQST_RQID == rqid);
 
-                        if (pydt.Count() > 1 || pydt.Count() == 0)
-                        {
-                           if (MessageBox.Show(this, "کاربر گرامی صورتحساب شما یا وجود ندارد یا بیش از یک آیتم در هزینه های صورتحساب وجود دارد. آیا مایل به بررسی صورتحساب هستید؟", "عدم اصلاح صورتحساب", MessageBoxButtons.YesNo, MessageBoxIcon.Information, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
-                           {
-                              _DefaultGateway.Gateway(
-                                 new Job(SendType.External, "localhost",
-                                    new List<Job>
-                                    {
-                                       new Job(SendType.Self, 46 /* Execute All_Fldf_F */){
-                                          Input = 
-                                             new XElement("Fighter",
-                                                new XAttribute("fileno", fileno)                               
-                                             )
-                                       },
-                                       new Job(SendType.SelfToUserInterface, "ALL_FLDF_F", 10 /* Execute Actn_CalF_F*/ )
-                                       {
-                                          Input = 
-                                          new XElement("Fighter",
-                                             new XAttribute("fileno", fileno),
-                                             new XAttribute("type", "refresh"),
-                                             new XAttribute("tabfocued", "tp_003")
-                                          )
-                                       }
-                                    })
-                              );
-                           }
-                        }
-                        else
-                        {
-                           _DefaultGateway.Gateway(
-                              new Job(SendType.External, "localhost",
-                                 new List<Job>
-                                 {
-                                    new Job(SendType.Self, 150 /* Execute Tran_Expn_F */),
-                                    new Job(SendType.SelfToUserInterface, "TRAN_EXPN_F", 10 /* execute Actn_CalF_F */)
-                                    {
-                                       Input = 
-                                          new XElement("Payment",
-                                             new XAttribute("pydtcode", pydt.FirstOrDefault().CODE),
-                                             new XAttribute("fileno", fileno),
-                                             new XAttribute("formcaller", GetType().Name),
-                                             new XAttribute("cbmtcode", CBMT_CODE_GridLookUpEdit.EditValue),
-                                             new XAttribute("ctgycode", CtgyCode_LookupEdit001.EditValue)
-                                          )
-                                    }
-                                 }
-                              )
-                           );
-                        }
-                     }
-                  }
-               }
+               //         if (pydt.Count() > 1 || pydt.Count() == 0)
+               //         {
+               //            if (MessageBox.Show(this, "کاربر گرامی صورتحساب شما یا وجود ندارد یا بیش از یک آیتم در هزینه های صورتحساب وجود دارد. آیا مایل به بررسی صورتحساب هستید؟", "عدم اصلاح صورتحساب", MessageBoxButtons.YesNo, MessageBoxIcon.Information, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+               //            {
+               //               _DefaultGateway.Gateway(
+               //                  new Job(SendType.External, "localhost",
+               //                     new List<Job>
+               //                     {
+               //                        new Job(SendType.Self, 46 /* Execute All_Fldf_F */){
+               //                           Input = 
+               //                              new XElement("Fighter",
+               //                                 new XAttribute("fileno", fileno)                               
+               //                              )
+               //                        },
+               //                        new Job(SendType.SelfToUserInterface, "ALL_FLDF_F", 10 /* Execute Actn_CalF_F*/ )
+               //                        {
+               //                           Input = 
+               //                           new XElement("Fighter",
+               //                              new XAttribute("fileno", fileno),
+               //                              new XAttribute("type", "refresh"),
+               //                              new XAttribute("tabfocued", "tp_003")
+               //                           )
+               //                        }
+               //                     })
+               //               );
+               //            }
+               //         }
+               //         else
+               //         {
+               //            _DefaultGateway.Gateway(
+               //               new Job(SendType.External, "localhost",
+               //                  new List<Job>
+               //                  {
+               //                     new Job(SendType.Self, 150 /* Execute Tran_Expn_F */),
+               //                     new Job(SendType.SelfToUserInterface, "TRAN_EXPN_F", 10 /* execute Actn_CalF_F */)
+               //                     {
+               //                        Input = 
+               //                           new XElement("Payment",
+               //                              new XAttribute("pydtcode", pydt.FirstOrDefault().CODE),
+               //                              new XAttribute("fileno", fileno),
+               //                              new XAttribute("formcaller", GetType().Name),
+               //                              new XAttribute("cbmtcode", CBMT_CODE_GridLookUpEdit.EditValue),
+               //                              new XAttribute("ctgycode", CtgyCode_LookupEdit001.EditValue)
+               //                           )
+               //                     }
+               //                  }
+               //               )
+               //            );
+               //         }
+               //      }
+               //   }
+               //}
+               #endregion
             }
          }
       }
@@ -287,7 +294,7 @@ namespace System.Scsc.Ui.Admission
          try
          {
             var cbmt = CbmtBs1.List.OfType<Data.Club_Method>().FirstOrDefault(cb => cb.CODE == (long)e.NewValue);
-            MtodDescN_Txt.EditValue = MtodDesc_Txt.Text;
+            MtodDescN_Txt.EditValue = cbmt.Method.MTOD_DESC;
             CtgyDescN_Txt.EditValue = CtgyDesc_Txt.Text;
             StrtTimeN_Txt.EditValue = cbmt.STRT_TIME.ToString().Substring(0, 5);
             EndTimeN_Txt.EditValue = cbmt.END_TIME.ToString().Substring(0, 5);
@@ -320,6 +327,69 @@ namespace System.Scsc.Ui.Admission
             }
          }
          catch { }
+      }
+
+      private void SUNT_CODELookUpEdit_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+
+      }
+
+      private void Btn_AutoCalcAttn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            // 1401/07/16 * روز سرنگونی حکومت کثیف آخوندی
+            long ctgycode = (long)CtgyCode_LookupEdit001.EditValue;
+            var expn = iScsc.Expenses.Where(exp => exp.Expense_Type.Request_Requester.RQTP_CODE == "001" && exp.Expense_Type.Request_Requester.RQTT_CODE == "001" && exp.Expense_Type.Request_Requester.Regulation.REGL_STAT == "002" && exp.Expense_Type.Request_Requester.Regulation.TYPE == "001" && /*exp.MTOD_CODE == mtodcode &&*/ exp.CTGY_CODE == ctgycode && exp.EXPN_STAT == "002").FirstOrDefault();
+
+            /// سیستم تغییر تاریخ شروع و پایان
+            /// Ctrl : تاریخ پایان بر اساس تاریخ شروع به تعداد دوره
+            /// 
+
+            if (ModifierKeys == Keys.Control)
+            {
+               // تاریخ پایان بر اساس تاریخ شروعی که وارد شده محاسبه گردد
+               StrtDate_DateTime002.CommitChanges();
+               var strtdate = StrtDate_DateTime002.Value;
+               if (strtdate.HasValue)
+                  EndDate_DateTime002.Value = strtdate.Value.AddDays((double)(expn.NUMB_CYCL_DAY ?? 30));
+               else
+               {
+                  StrtDate_DateTime002.Value = DateTime.Now;
+                  EndDate_DateTime002.Value = DateTime.Now.AddDays((double)(expn.NUMB_CYCL_DAY ?? 30));
+               }
+            }
+            else if (ModifierKeys == Keys.Shift)
+            {
+               // تاریخ شروع به اولین روز همان ماه برگردد
+               StrtDate_DateTime002.CommitChanges();
+               var strtdate = StrtDate_DateTime002.Value;
+               if (strtdate.HasValue)
+               {
+                  var day = StrtDate_DateTime002.GetText("dd").ToInt32();
+                  if (day != 1)
+                     StrtDate_DateTime002.Value = StrtDate_DateTime002.Value.Value.AddDays((day - 1) * -1);
+                  EndDate_DateTime002.Value = StrtDate_DateTime002.Value.Value.AddDays((double)(expn.NUMB_CYCL_DAY ?? 30));
+               }
+               else
+               {
+                  StrtDate_DateTime002.Value = DateTime.Now;
+                  var day = StrtDate_DateTime002.GetText("dd").ToInt32();
+                  if (day != 1)
+                     StrtDate_DateTime002.Value = StrtDate_DateTime002.Value.Value.AddDays((day - 1) * -1);
+                  EndDate_DateTime002.Value = StrtDate_DateTime002.Value.Value.AddDays((double)(expn.NUMB_CYCL_DAY ?? 30));
+               }
+            }
+            else
+            {
+               StrtDate_DateTime002.Value = DateTime.Now;
+               EndDate_DateTime002.Value = DateTime.Now.AddDays((double)(expn.NUMB_CYCL_DAY ?? 30));
+            }            
+         }
+         catch (Exception)
+         {
+            MessageBox.Show("در آیین نامه نرخ و هزینه تعداد جلسات و اطلاعات اتوماتیک به درستی وارد نشده. لطفا آیین نامه را بررسی و اصلاح کنید");
+         }
       }
    }
 }

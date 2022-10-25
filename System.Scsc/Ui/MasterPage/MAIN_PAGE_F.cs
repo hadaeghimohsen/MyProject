@@ -5662,7 +5662,7 @@ namespace System.Scsc.Ui.MasterPage
                      new List<Job>
                      {
                         new Job(SendType.SelfToUserInterface, "ADM_CHNG_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "setcard"), new XAttribute("value", CardNumb_Text.Text))},
-                        new Job(SendType.SelfToUserInterface, "ADM_FIGH_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "setcard"), new XAttribute("value", CardNumb_Text.Text))}                        
+                        //new Job(SendType.SelfToUserInterface, "ADM_FIGH_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "setcard"), new XAttribute("value", CardNumb_Text.Text))}                        
                      });
                   _DefaultGateway.Gateway(_InteractWithScsc);
 
@@ -5762,13 +5762,13 @@ namespace System.Scsc.Ui.MasterPage
          }
 
          // 1400/12/14 * چک کردن اینکه مشتری تاریخ سیستم را تغییر ندهد و ما رو کیر کنه
-         if ((ExprInstDate.Date - DateTime.Now.Date).Days < 0 || (CrntDate.Date - DateTime.Now.Date).Days <= -2)
-         {
-            MessageBox.Show("تاریخ اعتبار شما به پایان رسیده", "خطای انقضای ماهیانه محصول", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+         //if ((ExprInstDate.Date - DateTime.Now.Date).Days < 0 || (CrntDate.Date - DateTime.Now.Date).Days <= -2)
+         //{
+         //   MessageBox.Show("تاریخ اعتبار شما به پایان رسیده", "خطای انقضای ماهیانه محصول", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
 
-            Application.Exit();
-            Process.GetCurrentProcess().Kill();
-         }
+         //   Application.Exit();
+         //   Process.GetCurrentProcess().Kill();
+         //}
 
          try
          {

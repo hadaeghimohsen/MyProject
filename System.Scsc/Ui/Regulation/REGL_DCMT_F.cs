@@ -259,6 +259,25 @@ namespace System.Scsc.Ui.Regulation
                GropBs.DataSource = iScsc.Group_Expenses.Where(ge => ge.GROP_TYPE == "001").ToList();
                BrndBs.DataSource = iScsc.Group_Expenses.Where(ge => ge.GROP_TYPE == "002").ToList();
                break;
+            case 3:
+               if (MessageBox.Show(this, "آیا با گروه بندی درآمد ها موافق هستید؟", "گروه بندی", MessageBoxButtons.YesNo) != DialogResult.Yes) return;
+
+               if (MessageBox.Show(this, "آیا همه رکوردها بروز شوند؟", "گروه بندی", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                  iScsc.ExecuteCommand(
+                     "INSERT INTO dbo.Group_Expense(Code, Grop_Type, Ordr, Grop_Desc, Stat)" + Environment.NewLine + 
+                     "SELECT m.Code, '001', m.natl_code, m.Mtod_Desc, '002' FROM dbo.Method m" + Environment.NewLine + 
+                     "WHERE m.Code NOT IN (SELECT ge.Code FROM dbo.Group_Expense ge);" + Environment.NewLine + 
+                     "UPDATE Expense SET Grop_Code = Mtod_Code;"
+                  );
+               else
+                  iScsc.ExecuteCommand(
+                     "INSERT INTO dbo.Group_Expense(Code, Grop_Type, Ordr, Grop_Desc, Stat)" + Environment.NewLine +
+                     "SELECT m.Code, '001', m.natl_code, m.Mtod_Desc, '002' FROM dbo.Method m" + Environment.NewLine +
+                     "WHERE m.Code NOT IN (SELECT ge.Code FROM dbo.Group_Expense ge);" + Environment.NewLine +
+                     "UPDATE Expense SET Grop_Code = Mtod_Code WHERE Grop_Code IS NULL;"
+                  );
+               SubmitRqrq_Click(null, null);
+               break;
             default:
                break;
          }
@@ -741,6 +760,57 @@ namespace System.Scsc.Ui.Regulation
             if (requery)
                Execute_Query();
          }
+      }
+
+      private void AddExts_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _extp = EXTPBS.Current as Data.Expense_Type;
+            if (_extp == null) return;
+
+            if (ExtsBs.List.OfType<Data.Expense_Type_Step>().Any(ets => ets.CODE == 0)) return;
+
+            var _exts = ExtsBs.AddNew() as Data.Expense_Type_Step;
+            iScsc.Expense_Type_Steps.InsertOnSubmit(_exts);
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void DelExts_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _exts = ExtsBs.Current as Data.Expense_Type_Step;
+            if (_exts == null) return;
+
+            if(iScsc.Payment_Details.Any(pd => pd.EXTS_CODE == _exts.CODE))
+            {
+               throw new Exception("در جدول اقلام فاکتور ها سوابقی وجود دارد که دیگر نمیتوان این رکورد را پاک کنید، لطفا آن را غیرفعال کنید");
+            }
+
+            if (MessageBox.Show(this, "آیا با حذف رکورد موافق هستید?", "حذف رکورد", MessageBoxButtons.YesNo) != DialogResult.Yes) return;
+
+            iScsc.ExecuteCommand(string.Format("DELETE dbo.Expense_Type_Step WHERE Code = {0};", _exts.CODE));
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void SaveExts_Butn_Click(object sender, EventArgs e)
+      {
+         SubmitRqrq_Click(null, null);
       }
    }
 }

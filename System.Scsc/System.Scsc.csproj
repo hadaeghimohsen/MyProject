@@ -1224,6 +1224,7 @@
     <None Include="Properties\DataSources\System.Scsc.Data.Expense_Cost.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Expense_Item.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Expense_Type.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.Expense_Type_Step.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.External_Device.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.External_Device_Link_Method.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Fighter.datasource" />

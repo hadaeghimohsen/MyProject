@@ -29,10 +29,10 @@
       private void InitializeComponent()
       {
          this.components = new System.ComponentModel.Container();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MBSP_CHNG_F));
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
          this.CrntStrtDate_Lb = new System.Windows.Forms.Label();
          this.CrntEndDate_Lb = new System.Windows.Forms.Label();
          this.CrntNumbAttnMont_Lb = new System.Windows.Forms.Label();
@@ -114,9 +114,9 @@
          this.panel1 = new System.Windows.Forms.Panel();
          this.rollout1 = new System.MaxUi.Rollout();
          this.Btn_AutoCalcAttn = new System.Windows.Forms.Button();
-         this.rollout2 = new System.MaxUi.Rollout();
          this.StrtTimeN_Txt = new DevExpress.XtraEditors.TimeEdit();
          this.EndTimeN_Txt = new DevExpress.XtraEditors.TimeEdit();
+         this.rollout2 = new System.MaxUi.Rollout();
          ((System.ComponentModel.ISupportInitialize)(this.Mbsp004Bs)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.nAME_DNRMTextEdit.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.tELL_PHON_DNRMTextEdit.Properties)).BeginInit();
@@ -153,9 +153,9 @@
          this.FreeAdm_Ro.SuspendLayout();
          this.panel1.SuspendLayout();
          this.rollout1.SuspendLayout();
-         this.rollout2.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.StrtTimeN_Txt.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.EndTimeN_Txt.Properties)).BeginInit();
+         this.rollout2.SuspendLayout();
          this.SuspendLayout();
          // 
          // CrntStrtDate_Lb
@@ -676,7 +676,7 @@
          this.CtgyCode_LookupEdit001.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
          this.CtgyCode_LookupEdit001.Properties.AppearanceFocused.Options.UseBackColor = true;
          this.CtgyCode_LookupEdit001.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject4, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
          this.CtgyCode_LookupEdit001.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("MTOD_CODE", "MTOD_CODE", 94, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("CODE", "CODE", 41, DevExpress.Utils.FormatType.Numeric, "", false, DevExpress.Utils.HorzAlignment.Far),
@@ -692,7 +692,7 @@
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("MDFY_DATE", "MDFY_DATE", 77, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Method", "Method", 50, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("ORGN_DESC", "ORGN_DESC", 78, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("PRIC", "مبلغ کلاس", 40, DevExpress.Utils.FormatType.Numeric, "n0", true, DevExpress.Utils.HorzAlignment.Default),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("PRIC", "مبلغ", 40, DevExpress.Utils.FormatType.Numeric, "n0", true, DevExpress.Utils.HorzAlignment.Default),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("NUMB_CYCL_DAY", "تعداد روز"),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("NUMB_OF_ATTN_MONT", "تعداد جلسات")});
          this.CtgyCode_LookupEdit001.Properties.DataSource = this.CtgyBs1;
@@ -731,8 +731,8 @@
          this.CBMT_CODE_GridLookUpEdit.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
          this.CBMT_CODE_GridLookUpEdit.Properties.AppearanceFocused.Options.UseBackColor = true;
          this.CBMT_CODE_GridLookUpEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("CBMT_CODE_GridLookUpEdit.Properties.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("CBMT_CODE_GridLookUpEdit.Properties.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject3, "", null, null, true)});
          this.CBMT_CODE_GridLookUpEdit.Properties.DataSource = this.CbmtBs1;
          this.CBMT_CODE_GridLookUpEdit.Properties.DisplayMember = "Fighter.NAME_DNRM";
          this.CBMT_CODE_GridLookUpEdit.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
@@ -806,24 +806,22 @@
          this.ClubCode_Clm.Caption = "باشگاه";
          this.ClubCode_Clm.FieldName = "Club.NAME";
          this.ClubCode_Clm.Name = "ClubCode_Clm";
-         this.ClubCode_Clm.Visible = true;
-         this.ClubCode_Clm.VisibleIndex = 0;
          // 
          // MtodCode_Clm
          // 
-         this.MtodCode_Clm.Caption = "سبک";
+         this.MtodCode_Clm.Caption = "گروه";
          this.MtodCode_Clm.FieldName = "Method.MTOD_DESC";
          this.MtodCode_Clm.Name = "MtodCode_Clm";
          this.MtodCode_Clm.Visible = true;
-         this.MtodCode_Clm.VisibleIndex = 1;
+         this.MtodCode_Clm.VisibleIndex = 0;
          // 
          // CochFileNo_Clm
          // 
-         this.CochFileNo_Clm.Caption = "مربی";
+         this.CochFileNo_Clm.Caption = "سرپرست";
          this.CochFileNo_Clm.FieldName = "Fighter.NAME_DNRM";
          this.CochFileNo_Clm.Name = "CochFileNo_Clm";
          this.CochFileNo_Clm.Visible = true;
-         this.CochFileNo_Clm.VisibleIndex = 2;
+         this.CochFileNo_Clm.VisibleIndex = 1;
          // 
          // colCODE1
          // 
@@ -837,7 +835,7 @@
          this.DayType_Clm.FieldName = "DAY_TYPE";
          this.DayType_Clm.Name = "DayType_Clm";
          this.DayType_Clm.Visible = true;
-         this.DayType_Clm.VisibleIndex = 3;
+         this.DayType_Clm.VisibleIndex = 2;
          // 
          // StrtTime_Clm
          // 
@@ -845,7 +843,7 @@
          this.StrtTime_Clm.FieldName = "STRT_TIME";
          this.StrtTime_Clm.Name = "StrtTime_Clm";
          this.StrtTime_Clm.Visible = true;
-         this.StrtTime_Clm.VisibleIndex = 4;
+         this.StrtTime_Clm.VisibleIndex = 3;
          // 
          // EndTime_Clm
          // 
@@ -853,7 +851,7 @@
          this.EndTime_Clm.FieldName = "END_TIME";
          this.EndTime_Clm.Name = "EndTime_Clm";
          this.EndTime_Clm.Visible = true;
-         this.EndTime_Clm.VisibleIndex = 5;
+         this.EndTime_Clm.VisibleIndex = 4;
          // 
          // colMTOD_STAT
          // 
@@ -897,12 +895,12 @@
          // 
          // TimeDesc_Clm
          // 
-         this.TimeDesc_Clm.Caption = "زمان کلاس";
+         this.TimeDesc_Clm.Caption = "زمان";
          this.TimeDesc_Clm.FieldName = "TIME_DESC";
          this.TimeDesc_Clm.Name = "TimeDesc_Clm";
          this.TimeDesc_Clm.UnboundType = DevExpress.Data.UnboundColumnType.String;
          this.TimeDesc_Clm.Visible = true;
-         this.TimeDesc_Clm.VisibleIndex = 6;
+         this.TimeDesc_Clm.VisibleIndex = 5;
          // 
          // CtgyDescN_Txt
          // 
@@ -1274,36 +1272,6 @@
          this.Btn_AutoCalcAttn.UseVisualStyleBackColor = true;
          this.Btn_AutoCalcAttn.Click += new System.EventHandler(this.Btn_AutoCalcAttn_Click);
          // 
-         // rollout2
-         // 
-         this.rollout2.BackgroundColor = System.Drawing.SystemColors.Control;
-         this.rollout2.BackgroundGradientColor = System.Drawing.SystemColors.Control;
-         this.rollout2.BackgroundGradientMode = System.MaxUi.Rollout.GroupBoxGradientMode.None;
-         this.rollout2.BorderThickness = 1F;
-         this.rollout2.Controls.Add(this.RqstMbsp_Butn);
-         this.rollout2.Controls.Add(this.Back_Butn);
-         this.rollout2.Controls.Add(this.SaveMbsp_Butn);
-         this.rollout2.CustomRolloutColor = System.Drawing.Color.LightGray;
-         this.rollout2.FrameOnMouseOverOnly = false;
-         this.rollout2.GroupImage = null;
-         this.rollout2.Location = new System.Drawing.Point(22, 419);
-         this.rollout2.MaxHeight = 78;
-         this.rollout2.Name = "rollout2";
-         this.rollout2.Padding = new System.Windows.Forms.Padding(4, 30, 3, 3);
-         this.rollout2.PaintRollout = true;
-         this.rollout2.RolloutBorderColor = System.Drawing.Color.Gray;
-         this.rollout2.RolloutFrameType = System.Windows.Forms.BorderStyle.FixedSingle;
-         this.rollout2.RolloutStatus = true;
-         this.rollout2.RolloutTitle = "عملیات";
-         this.rollout2.RoundCorners = 2;
-         this.rollout2.ShadowColor = System.Drawing.Color.DarkGray;
-         this.rollout2.ShadowControl = false;
-         this.rollout2.ShadowThickness = 3;
-         this.rollout2.ShowFocusFrame = false;
-         this.rollout2.Size = new System.Drawing.Size(381, 78);
-         this.rollout2.TabIndex = 27;
-         this.rollout2.TitleBorderColor = System.Drawing.Color.Gray;
-         // 
          // StrtTimeN_Txt
          // 
          this.StrtTimeN_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -1358,6 +1326,36 @@
          this.EndTimeN_Txt.Size = new System.Drawing.Size(45, 22);
          this.EndTimeN_Txt.TabIndex = 61;
          // 
+         // rollout2
+         // 
+         this.rollout2.BackgroundColor = System.Drawing.SystemColors.Control;
+         this.rollout2.BackgroundGradientColor = System.Drawing.SystemColors.Control;
+         this.rollout2.BackgroundGradientMode = System.MaxUi.Rollout.GroupBoxGradientMode.None;
+         this.rollout2.BorderThickness = 1F;
+         this.rollout2.Controls.Add(this.RqstMbsp_Butn);
+         this.rollout2.Controls.Add(this.Back_Butn);
+         this.rollout2.Controls.Add(this.SaveMbsp_Butn);
+         this.rollout2.CustomRolloutColor = System.Drawing.Color.LightGray;
+         this.rollout2.FrameOnMouseOverOnly = false;
+         this.rollout2.GroupImage = null;
+         this.rollout2.Location = new System.Drawing.Point(22, 419);
+         this.rollout2.MaxHeight = 78;
+         this.rollout2.Name = "rollout2";
+         this.rollout2.Padding = new System.Windows.Forms.Padding(4, 30, 3, 3);
+         this.rollout2.PaintRollout = true;
+         this.rollout2.RolloutBorderColor = System.Drawing.Color.Gray;
+         this.rollout2.RolloutFrameType = System.Windows.Forms.BorderStyle.FixedSingle;
+         this.rollout2.RolloutStatus = true;
+         this.rollout2.RolloutTitle = "عملیات";
+         this.rollout2.RoundCorners = 2;
+         this.rollout2.ShadowColor = System.Drawing.Color.DarkGray;
+         this.rollout2.ShadowControl = false;
+         this.rollout2.ShadowThickness = 3;
+         this.rollout2.ShowFocusFrame = false;
+         this.rollout2.Size = new System.Drawing.Size(381, 78);
+         this.rollout2.TabIndex = 27;
+         this.rollout2.TitleBorderColor = System.Drawing.Color.Gray;
+         // 
          // MBSP_CHNG_F
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -1407,9 +1405,9 @@
          this.panel1.PerformLayout();
          this.rollout1.ResumeLayout(false);
          this.rollout1.PerformLayout();
-         this.rollout2.ResumeLayout(false);
          ((System.ComponentModel.ISupportInitialize)(this.StrtTimeN_Txt.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.EndTimeN_Txt.Properties)).EndInit();
+         this.rollout2.ResumeLayout(false);
          this.ResumeLayout(false);
 
       }

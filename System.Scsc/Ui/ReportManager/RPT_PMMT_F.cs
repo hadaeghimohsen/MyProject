@@ -1386,6 +1386,8 @@ namespace System.Scsc.Ui.ReportManager
 
             var _user = User_Lov2.Properties.Items.OfType<CheckedListBoxItem>().Where(i => i.CheckState == CheckState.Checked).Select(i => i.Value).ToList();
 
+            if (MessageBox.Show(this, "ایجاد گزارش فرآیند زمان بری میباشد، لطفا تا پایان اجرای فرایند صبر کنید. آیا فرایند انجام شود؟", "ایجاد گزارش", MessageBoxButtons.YesNo) != DialogResult.Yes) return;
+
             iScsc.ExecuteCommand(
                string.Format("EXEC dbo.{0} @X = N'{1}'", 
                   _rpac.ACTN_NAME, 
@@ -1399,6 +1401,8 @@ namespace System.Scsc.Ui.ReportManager
                   ).ToString()
                )
             );
+
+            MessageBox.Show(this, "اجرای گزارش به پایان رسید.");
 
             requery = true;
          }

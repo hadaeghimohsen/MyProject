@@ -1020,5 +1020,61 @@ namespace System.Scsc.Ui.OtherIncome
          }
       }
 
+      private void CELL_PHON_TextEdit_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            if (CELL_PHON_TextEdit.EditValue == null || CELL_PHON_TextEdit.Text == "") { CELL_PHON_TextEdit.Focus(); return; }
+
+            var _qury =
+               iScsc.Fighters
+                  .Where(
+                     f => f.CELL_PHON_DNRM.Contains(CELL_PHON_TextEdit.Text) &&
+                          f.CONF_STAT == "002" &&
+                          (Fga_Uclb_U.Contains(f.CLUB_CODE_DNRM) ||
+                              (f.CLUB_CODE_DNRM == null ? f.Club_Methods.Where(cb => Fga_Uclb_U.Contains(cb.CLUB_CODE)).Any() : false)) &&
+                          Convert.ToInt32(f.ACTV_TAG_DNRM ?? "101") >= 101
+                  );
+
+            if (_qury.Count() > 0)
+            {
+               PBLC.FindFilterText = CELL_PHON_TextEdit.Text;
+               //throw new Exception("این شماره همراه قبلا درون سیستم ثبت شده است، لطفا لیست خود را چک کنید");
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void NatlCode_Txt_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            if (NatlCode_Txt.EditValue == null || NatlCode_Txt.Text == "") { NatlCode_Txt.Focus(); return; }
+
+            var _qury =
+               iScsc.Fighters
+                  .Where(
+                     f => f.NATL_CODE_DNRM.Contains(NatlCode_Txt.Text) &&
+                          f.CONF_STAT == "002" &&
+                          (Fga_Uclb_U.Contains(f.CLUB_CODE_DNRM) ||
+                              (f.CLUB_CODE_DNRM == null ? f.Club_Methods.Where(cb => Fga_Uclb_U.Contains(cb.CLUB_CODE)).Any() : false)) &&
+                          Convert.ToInt32(f.ACTV_TAG_DNRM ?? "101") >= 101
+                  );
+
+            if (_qury.Count() > 0)
+            {
+               PBLC.FindFilterText = NatlCode_Txt.Text;
+               //throw new Exception("این شماره کد ملی قبلا درون سیستم ثبت شده است، لطفا لیست خود را چک کنید");
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
    }
 }

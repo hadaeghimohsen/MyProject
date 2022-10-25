@@ -413,6 +413,9 @@ namespace System.Scsc.Ui.Notifications
          var pydts = iScsc.Payment_Details.Where(pd => pd.EXPR_DATE != null && pd.Request_Row.FIGH_FILE_NO == attn.FIGH_FILE_NO && pd.Request_Row.Request.RQST_STAT == "002");
          PivBs.DataSource = pydts.Where(pd => pd.EXPR_DATE.Value.Date >= DateTime.Now && pd.EXPR_DATE.Value.Date != pd.CRET_DATE.Value.Date);
          PinvBs.DataSource = pydts.Where(pd => pd.EXPR_DATE.Value.Date < DateTime.Now && pd.EXPR_DATE.Value.Date != pd.CRET_DATE.Value.Date);
+
+         // 1401/07/23 * روز سرگونی حکومت کثیف آخوندی
+         PdtMBs.DataSource = iScsc.Payment_Details.Where(pd => pd.MBSP_FIGH_FILE_NO == attn.FIGH_FILE_NO && pd.MBSP_RECT_CODE == "004" && pd.MBSP_RWNO == attn.MBSP_RWNO_DNRM);
       }
 
       private void RqstBnExit1_Click(object sender, EventArgs e)

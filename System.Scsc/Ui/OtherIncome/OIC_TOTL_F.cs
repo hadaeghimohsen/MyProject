@@ -714,7 +714,8 @@ namespace System.Scsc.Ui.OtherIncome
                                     new XAttribute("pydtdesc", pd.PYDT_DESC),
                                     new XAttribute("qnty", pd.QNTY ?? 1),
                                     new XAttribute("fighfileno", pd.FIGH_FILE_NO ?? 0),
-                                    new XAttribute("cbmtcodednrm", pd.CBMT_CODE_DNRM ?? 0)
+                                    new XAttribute("cbmtcodednrm", pd.CBMT_CODE_DNRM ?? 0),
+                                    new XAttribute("mbsprwno", pd.MBSP_RWNO ?? 0)
                                  )
                               )
                            )
@@ -1542,6 +1543,7 @@ namespace System.Scsc.Ui.OtherIncome
                               new XAttribute("qnty", pd.QNTY ?? 1),
                               new XAttribute("fighfileno", pd.FIGH_FILE_NO ?? 0),
                               new XAttribute("cbmtcodednrm", pd.CBMT_CODE_DNRM ?? 0),
+                              new XAttribute("mbsprwno", pd.MBSP_RWNO ?? 0),
                               new XAttribute("exprdate", pd.EXPR_DATE == null ? "" : pd.EXPR_DATE.Value.ToString("yyyy-MM-dd"))
                            )
                         )
@@ -1553,6 +1555,23 @@ namespace System.Scsc.Ui.OtherIncome
             PydtsBs1.List.OfType<Data.Payment_Detail>().Where(p => p.CODE != 0).ToList()
                .ForEach(pd =>
                {
+                  // 1401/07/27 * بررسی اینکه آیا جایگاه رزرو میباشد یا خیر 
+                  // کیرم_تو_بیت_رهبری
+                  // مهسا_امینی
+                  if (pd.EXTS_CODE != null)
+                  {
+                     DateTime? _extsrsrvdate = pd.EXTS_RSRV_DATE == null ? DateTime.Now : pd.EXTS_RSRV_DATE;
+
+                     if (iScsc.Expense_Type_Steps.FirstOrDefault(ets => ets.CODE == (long)pd.EXTS_CODE).QNTY <=
+                            iScsc.Payment_Details
+                            .Where(pdt => pdt.Request_Row.Request.RQST_STAT == "002" &&
+                                         pdt.EXTS_CODE == (long)pd.EXTS_CODE &&
+                                         pdt.EXTS_RSRV_DATE.Value.Date == _extsrsrvdate.Value.Date).Count())
+                     {
+                        if (MessageBox.Show(this, "جایگاه رزرو پر شده است. آیا باز میخواهید جایگاه را پر کنید؟", "جایگاه رزرو شده", MessageBoxButtons.YesNo) != DialogResult.Yes) return;
+                     }
+                  }
+
                   rqst = RqstBs1.Current as Data.Request;
                   iScsc.UPD_SEXP_P(
                      new XElement("Request",
@@ -1567,9 +1586,12 @@ namespace System.Scsc.Ui.OtherIncome
                               new XAttribute("qnty", pd.QNTY ?? 1),
                               new XAttribute("fighfileno", pd.FIGH_FILE_NO ?? 0),
                               new XAttribute("cbmtcodednrm", pd.CBMT_CODE_DNRM ?? 0),
+                              new XAttribute("mbsprwno", pd.MBSP_RWNO ?? 0),
                               new XAttribute("exprdate", pd.EXPR_DATE == null ? "" : pd.EXPR_DATE.Value.ToString("yyyy-MM-dd")),
                               new XAttribute("fromnumb", pd.FROM_NUMB ?? 0),
-                              new XAttribute("tonumb", pd.TO_NUMB ?? 0)
+                              new XAttribute("tonumb", pd.TO_NUMB ?? 0),
+                              new XAttribute("extscode", pd.EXTS_CODE ?? 0),
+                              new XAttribute("extsrsrvdate", pd.EXTS_RSRV_DATE == null ? "" : pd.EXTS_RSRV_DATE.Value.ToString("yyyy-MM-dd"))
                            )
                         )
                      )
@@ -1596,9 +1618,18 @@ namespace System.Scsc.Ui.OtherIncome
             var pydt = PydtsBs1.Current as Data.Payment_Detail;
             if (pydt == null) return;
 
+            if(pydt.Expense != null)
+               ExtsBs1.DataSource =
+                  iScsc.Expense_Type_Steps
+                  .Where(ets => ets.EXTP_CODE == pydt.Expense.EXTP_CODE && ets.STAT == "002" &&
+                                ((RsrvTimeList_Cbx.Checked && (TimeSpan.Compare(DateTime.Now.TimeOfDay, ets.FROM_TIME.Value.TimeOfDay) <= 0) && TimeSpan.Compare(ets.TO_TIME.Value.TimeOfDay, DateTime.Now.TimeOfDay) >= 0) ||                                  
+                                  !RsrvTimeList_Cbx.Checked)
+                  );
+
             requery = true;
             CBMT_CODE_GridLookUpEdit.EditValue = pydt.CBMT_CODE_DNRM;
             MbspRwnoPydt_Lov.EditValue = pydt.MBSP_RWNO;
+            ExtsCode_Lov.EditValue = pydt.EXTS_CODE;
             requery = false;
          }
          catch (Exception exc)
@@ -1629,6 +1660,7 @@ namespace System.Scsc.Ui.OtherIncome
                         new XAttribute("qnty", pydt.QNTY ?? 1),
                         new XAttribute("fighfileno", pydt.FIGH_FILE_NO ?? 0),
                         new XAttribute("cbmtcodednrm", e.NewValue ?? 0),
+                        new XAttribute("mbsprwno", pydt.MBSP_RWNO ?? 0),
                         new XAttribute("exprdate", pydt.EXPR_DATE == null ? "" : pydt.EXPR_DATE.Value.ToString("yyyy-MM-dd"))
                      )
                   )
@@ -3260,5 +3292,191 @@ namespace System.Scsc.Ui.OtherIncome
             MessageBox.Show(se.Message);
          }
       }
+
+      private void ExtsCode_Lov_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
+      {
+         try
+         {
+            if (requery) { requery = false; return; }
+            var pydt = PydtsBs1.Current as Data.Payment_Detail;
+            if (pydt == null) return;
+            if (e.NewValue == null) return;
+
+            // 1401/07/27 * بررسی اینکه آیا جایگاه رزرو میباشد یا خیر 
+            // کیرم_تو_بیت_رهبری
+            // مهسا_امینی
+            DateTime? _extsrsrvdate = pydt.EXTS_RSRV_DATE == null ? DateTime.Now : pydt.EXTS_RSRV_DATE;
+
+            if (iScsc.Expense_Type_Steps.FirstOrDefault(ets => ets.CODE == (long)e.NewValue).QNTY <=
+                   iScsc.Payment_Details
+                   .Where(pd => pd.Request_Row.Request.RQST_STAT == "002" &&
+                                pd.EXTS_CODE == (long)e.NewValue &&
+                                pd.EXTS_RSRV_DATE.Value.Date == _extsrsrvdate.Value.Date).Count())
+            {
+               if (MessageBox.Show(this, "جایگاه رزرو پر شده است. آیا باز میخواهید جایگاه را پر کنید؟", "جایگاه رزرو شده", MessageBoxButtons.YesNo) != DialogResult.Yes) return;
+            }
+
+            //pydt.Club_Method = iScsc.Club_Methods.FirstOrDefault(cm => cm.CODE == (long?)e.NewValue);
+            iScsc.UPD_SEXP_P(
+               new XElement("Request",
+                  new XAttribute("rqid", pydt.PYMT_RQST_RQID),
+                  new XElement("Payment",
+                     new XAttribute("cashcode", pydt.PYMT_CASH_CODE),
+                     new XElement("Payment_Detail",
+                        new XAttribute("code", pydt.CODE),
+                        new XAttribute("expncode", pydt.EXPN_CODE),
+                        new XAttribute("expnpric", pydt.EXPN_PRIC),
+                        new XAttribute("pydtdesc", pydt.PYDT_DESC),
+                        new XAttribute("qnty", pydt.QNTY ?? 1),
+                        new XAttribute("fighfileno", pydt.FIGH_FILE_NO ?? 0),
+                        new XAttribute("cbmtcodednrm", pydt.CBMT_CODE_DNRM ?? 0),                        
+                        new XAttribute("mbsprwno", pydt.MBSP_RWNO ?? 0),
+                        new XAttribute("exprdate", pydt.EXPR_DATE == null ? "" : pydt.EXPR_DATE.Value.ToString("yyyy-MM-dd")),
+                        new XAttribute("extscode", e.NewValue ?? 0),
+                        new XAttribute("extsrsrvdate", pydt.EXTS_RSRV_DATE == null ? "" : pydt.EXTS_RSRV_DATE.Value.ToString("yyyy-MM-dd"))
+                     )
+                  )
+               )
+            );
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void RsrvTimeList_Cbx_CheckedChanged(object sender, EventArgs e)
+      {
+         PydtsBs1_CurrentChanged(null, null);
+      }
+
+      private void ExtsCodes_Lov_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            ExtsRsrvDate_Dt.CommitChanges();
+            if (!ExtsRsrvDate_Dt.Value.HasValue) { ExtsRsrvDate_Dt.Value = DateTime.Now; }
+
+            switch (e.Button.Index)
+            {
+               case 1:
+                  ExtsCodes_Lov.EditValue = null;
+                  break;
+               case 2:
+                  ExtsSaveBs.DataSource =
+                     (from r in iScsc.Requests
+                     join pd in iScsc.Payment_Details on r.RQID equals pd.PYMT_RQST_RQID
+                     join ets in iScsc.Expense_Type_Steps on pd.EXTS_CODE equals ets.CODE
+                     where r.RQST_STAT == "002" &&
+                           r.RQTP_CODE == "016" &&
+                           pd.EXTS_CODE != null && pd.EXTS_RSRV_DATE.Value.Date == ExtsRsrvDate_Dt.Value.Value.Date
+                     select ets).Distinct();
+
+                  if (ExtsCodes_Lov.EditValue == null || ExtsCodes_Lov.EditValue.ToString() == "") { ExtsCodes_Lov.Focus(); return; }
+
+                  RqroExtsBs.DataSource =
+                     from r in iScsc.Requests
+                     join rr in iScsc.Request_Rows on r.RQID equals rr.RQST_RQID
+                     join pd in iScsc.Payment_Details on r.RQID equals pd.PYMT_RQST_RQID
+                     where r.RQST_STAT == "002" &&
+                           r.RQTP_CODE == "016" &&
+                           pd.EXTS_CODE == (long?)ExtsCodes_Lov.EditValue &&
+                           pd.EXTS_RSRV_DATE.Value.Date == ExtsRsrvDate_Dt.Value.Value.Date
+                    select rr;
+                  break;
+               default:
+                  break;
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void SaveNewRqst_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _rqro = RqroExtsBs.Current as Data.Request_Row;
+            if (_rqro == null) return;
+
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "Localhost",
+                     new List<Job>
+                     {                  
+                        //new Job(SendType.Self, 92 /* Execute Oic_Totl_F */),
+                        new Job(SendType.SelfToUserInterface, "OIC_TOTL_F", 10 /* Execute Actn_CalF_F */)
+                        {
+                           Input = 
+                              new XElement("Request", 
+                                 new XAttribute("type", "01"), 
+                                 new XElement("Request_Row", 
+                                    new XAttribute("fileno", _rqro.FIGH_FILE_NO)),                                 
+                                 new XAttribute("rqstrqid", _rqro.RQST_RQID)
+                              )
+                        }
+                     })
+            );
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void CBMT_CODE_GridLookUpEdit_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            var _pydt = PydtsBs1.Current as Data.Payment_Detail;
+            if (_pydt == null) return;
+
+            iScsc.ExecuteCommand(
+               string.Format("UPDATE dbo.Payment_Detail SET Figh_File_No = NULL, Cbmt_Code_Dnrm = NULL WHERE Code = {0};", _pydt.CODE)
+            );
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void MbspRwnoPydt_Lov_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            var _pydt = PydtsBs1.Current as Data.Payment_Detail;
+            if (_pydt == null) return;
+
+            iScsc.ExecuteCommand(
+               string.Format("UPDATE dbo.Payment_Detail SET Mbsp_Figh_File_No = NULL, Mbsp_Rect_Code = NULL, Mbsp_Rwno = NULL WHERE Code = {0};", _pydt.CODE)
+            );
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }      
    }
 }

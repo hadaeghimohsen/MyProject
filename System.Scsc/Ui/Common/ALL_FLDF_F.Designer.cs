@@ -984,6 +984,12 @@
          this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
          this.ShowCrntReglYear_Butn = new System.Windows.Forms.ToolStripMenuItem();
          this.ShowOthrReglYear_Butn = new System.Windows.Forms.ToolStripMenuItem();
+         this.toolStripSeparator34 = new System.Windows.Forms.ToolStripSeparator();
+         this.RqstMBnDefaultPrint1 = new System.Windows.Forms.ToolStripSplitButton();
+         this.RqstBnDefaultPrint1 = new System.Windows.Forms.ToolStripMenuItem();
+         this.RqstBnPrint1 = new System.Windows.Forms.ToolStripMenuItem();
+         this.toolStripSeparator35 = new System.Windows.Forms.ToolStripSeparator();
+         this.RqstBnSettingPrint1 = new System.Windows.Forms.ToolStripMenuItem();
          this.tp_007 = new System.Windows.Forms.TabPage();
          this.splitContainerControl8 = new DevExpress.XtraEditors.SplitContainerControl();
          this.splitContainerControl10 = new DevExpress.XtraEditors.SplitContainerControl();
@@ -10938,7 +10944,9 @@
             this.Tsb_ShowRqtp16,
             this.Tsb_ClearRqtp,
             this.toolStripSeparator5,
-            this.toolStripDropDownButton1});
+            this.toolStripDropDownButton1,
+            this.toolStripSeparator34,
+            this.RqstMBnDefaultPrint1});
          this.PaymentsBn.Location = new System.Drawing.Point(3, 3);
          this.PaymentsBn.MoveFirstItem = this.bindingNavigatorMoveFirstItem1;
          this.PaymentsBn.MoveLastItem = this.bindingNavigatorMoveLastItem1;
@@ -11115,6 +11123,57 @@
          this.ShowOthrReglYear_Butn.Size = new System.Drawing.Size(162, 22);
          this.ShowOthrReglYear_Butn.Text = "سال مالی سنواتی";
          this.ShowOthrReglYear_Butn.Click += new System.EventHandler(this.ShowOthrReglYear_Butn_Click);
+         // 
+         // toolStripSeparator34
+         // 
+         this.toolStripSeparator34.Name = "toolStripSeparator34";
+         this.toolStripSeparator34.Size = new System.Drawing.Size(6, 27);
+         // 
+         // RqstMBnDefaultPrint1
+         // 
+         this.RqstMBnDefaultPrint1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+         this.RqstMBnDefaultPrint1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.RqstBnDefaultPrint1,
+            this.RqstBnPrint1,
+            this.toolStripSeparator35,
+            this.RqstBnSettingPrint1});
+         this.RqstMBnDefaultPrint1.Image = global::System.Scsc.Properties.Resources.IMAGE_1059;
+         this.RqstMBnDefaultPrint1.ImageTransparentColor = System.Drawing.Color.Magenta;
+         this.RqstMBnDefaultPrint1.Name = "RqstMBnDefaultPrint1";
+         this.RqstMBnDefaultPrint1.Size = new System.Drawing.Size(36, 24);
+         this.RqstMBnDefaultPrint1.Text = "چاپ پیش فرض";
+         // 
+         // RqstBnDefaultPrint1
+         // 
+         this.RqstBnDefaultPrint1.Image = global::System.Scsc.Properties.Resources.IMAGE_1059;
+         this.RqstBnDefaultPrint1.Name = "RqstBnDefaultPrint1";
+         this.RqstBnDefaultPrint1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P)));
+         this.RqstBnDefaultPrint1.Size = new System.Drawing.Size(207, 26);
+         this.RqstBnDefaultPrint1.Text = "چاپ پیش فرض";
+         this.RqstBnDefaultPrint1.Click += new System.EventHandler(this.RqstBnDefaultPrint_Click);
+         // 
+         // RqstBnPrint1
+         // 
+         this.RqstBnPrint1.Image = global::System.Scsc.Properties.Resources.IMAGE_1090;
+         this.RqstBnPrint1.Name = "RqstBnPrint1";
+         this.RqstBnPrint1.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
+            | System.Windows.Forms.Keys.P)));
+         this.RqstBnPrint1.Size = new System.Drawing.Size(207, 26);
+         this.RqstBnPrint1.Text = "انتخاب چاپ";
+         this.RqstBnPrint1.Click += new System.EventHandler(this.RqstBnPrint_Click);
+         // 
+         // toolStripSeparator35
+         // 
+         this.toolStripSeparator35.Name = "toolStripSeparator35";
+         this.toolStripSeparator35.Size = new System.Drawing.Size(204, 6);
+         // 
+         // RqstBnSettingPrint1
+         // 
+         this.RqstBnSettingPrint1.Image = global::System.Scsc.Properties.Resources.IMAGE_1091;
+         this.RqstBnSettingPrint1.Name = "RqstBnSettingPrint1";
+         this.RqstBnSettingPrint1.Size = new System.Drawing.Size(207, 26);
+         this.RqstBnSettingPrint1.Text = "تنظیمات چاپ";
+         this.RqstBnSettingPrint1.Click += new System.EventHandler(this.RqstBnSettingPrint_Click);
          // 
          // tp_007
          // 
@@ -19640,5 +19699,11 @@
       private DevExpress.XtraGrid.Columns.GridColumn colMDFY_DATE14;
       private DevExpress.XtraGrid.Columns.GridColumn colApp_Base_Define3;
       private DevExpress.XtraGrid.Columns.GridColumn colPayment_Detail;
+      private Windows.Forms.ToolStripSeparator toolStripSeparator34;
+      private Windows.Forms.ToolStripSplitButton RqstMBnDefaultPrint1;
+      private Windows.Forms.ToolStripMenuItem RqstBnDefaultPrint1;
+      private Windows.Forms.ToolStripMenuItem RqstBnPrint1;
+      private Windows.Forms.ToolStripSeparator toolStripSeparator35;
+      private Windows.Forms.ToolStripMenuItem RqstBnSettingPrint1;
    }
 }

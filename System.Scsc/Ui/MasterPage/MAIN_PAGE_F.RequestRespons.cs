@@ -631,14 +631,18 @@ namespace System.Scsc.Ui.MasterPage
                {
                   c.Dock = DockStyle.Fill;
                   c.Visible = true;
-                  spc_desktop.Panel1.Controls.Add(c);
+                  // 1401/08/07 * پایان حکومت آخوندی ضحاک خامنه ای حروم زاده
+                  if (spc_desktop.Panel1.Controls.IndexOf(c) == -1)
+                     spc_desktop.Panel1.Controls.Add(c);
                   spc_desktop.Panel1.Controls.SetChildIndex(c, 0);
                }), obj);
             else
             {
                obj.Dock = DockStyle.Fill;
                obj.Visible = true;
-               spc_desktop.Panel1.Controls.Add(obj);
+               // 1401/08/07 * پایان حکومت آخوندی ضحاک خامنه ای حروم زاده
+               if (spc_desktop.Panel1.Controls.IndexOf(obj) == -1)
+                  spc_desktop.Panel1.Controls.Add(obj);
                spc_desktop.Panel1.Controls.SetChildIndex(obj, 0);
             }
 
@@ -658,8 +662,12 @@ namespace System.Scsc.Ui.MasterPage
             UserControl obj = (UserControl)job.Input;
             Invoke(new Action<UserControl>(c =>
                {
-                  if(spc_desktop.Panel1.Controls.IndexOf(c) >= 0)
-                     spc_desktop.Panel1.Controls.Remove(c);
+                  if (spc_desktop.Panel1.Controls.IndexOf(c) >= 0)
+                  {
+                     //spc_desktop.Panel1.Controls.Remove(c);
+                     c.Visible = false;
+                     //spc_desktop.Panel1.Controls.SetChildIndex(spc_desktop.Panel1.Controls[1], 0);
+                  }
                }
             ), obj);
             this.Focus();
@@ -670,8 +678,12 @@ namespace System.Scsc.Ui.MasterPage
             job.Status = StatusType.Successful; UserControl obj = (UserControl)job.Input;
             Invoke(new Action<UserControl>(c =>
                {
+                  spc_desktop.Panel1.Refresh();
                   if (spc_desktop.Panel1.Controls.IndexOf(c) >= 0)
-                     spc_desktop.Panel1.Controls.Remove(c);
+                  {
+                     c.Visible = false;
+                     //spc_desktop.Panel1.Controls.Remove(c);
+                  }
                }
                ), obj);
             this.Focus();

@@ -746,7 +746,7 @@ namespace System.Scsc.Ui.BaseDefinition
                iScsc.Expenses.
                Where(ex => ex.Regulation.TYPE == "001"
                   && ex.Regulation.REGL_STAT == "002"
-                  && (ex.Expense_Type.Request_Requester.RQTP_CODE == "001" || ex.Expense_Type.Request_Requester.RQTP_CODE == "009")
+                  && (ex.Expense_Type.Request_Requester.RQTP_CODE == "001" || ex.Expense_Type.Request_Requester.RQTP_CODE == "009" || ex.Expense_Type.Request_Requester.RQTP_CODE == "016")
                   && ex.Expense_Type.Request_Requester.RQTT_CODE == "001"
                   && ex.Expense_Type.EPIT_CODE == epit
                   && ex.MTOD_CODE == mtod.CODE
@@ -1076,7 +1076,6 @@ namespace System.Scsc.Ui.BaseDefinition
             new Job(SendType.External, "localhost", "", 145 /* Execute Bas_Adch_F */, SendType.Self)
          );
       }
-
       #endregion
 
       #region TabPage006

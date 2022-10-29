@@ -715,7 +715,9 @@ namespace System.Scsc.Ui.OtherIncome
                                     new XAttribute("qnty", pd.QNTY ?? 1),
                                     new XAttribute("fighfileno", pd.FIGH_FILE_NO ?? 0),
                                     new XAttribute("cbmtcodednrm", pd.CBMT_CODE_DNRM ?? 0),
-                                    new XAttribute("mbsprwno", pd.MBSP_RWNO ?? 0)
+                                    new XAttribute("mbsprwno", pd.MBSP_RWNO ?? 0),
+                                    new XAttribute("extscode", pd.EXTS_CODE ?? 0),
+                                    new XAttribute("extsrsrvdate", pd.EXTS_RSRV_DATE == null ? "" : pd.EXTS_RSRV_DATE.Value.ToString("yyyy-MM-dd"))
                                  )
                               )
                            )
@@ -1661,7 +1663,9 @@ namespace System.Scsc.Ui.OtherIncome
                         new XAttribute("fighfileno", pydt.FIGH_FILE_NO ?? 0),
                         new XAttribute("cbmtcodednrm", e.NewValue ?? 0),
                         new XAttribute("mbsprwno", pydt.MBSP_RWNO ?? 0),
-                        new XAttribute("exprdate", pydt.EXPR_DATE == null ? "" : pydt.EXPR_DATE.Value.ToString("yyyy-MM-dd"))
+                        new XAttribute("exprdate", pydt.EXPR_DATE == null ? "" : pydt.EXPR_DATE.Value.ToString("yyyy-MM-dd")),
+                        new XAttribute("extscode", pydt.EXTS_CODE ?? 0),
+                        new XAttribute("extsrsrvdate", pydt.EXTS_RSRV_DATE == null ? "" : pydt.EXTS_RSRV_DATE.Value.ToString("yyyy-MM-dd"))
                      )
                   )
                )
@@ -1754,7 +1758,7 @@ namespace System.Scsc.Ui.OtherIncome
                   break;
             }
 
-            iScsc.INS_PYDS_P(pymt.CASH_CODE, pymt.RQST_RQID, (short?)1, pydt.EXPN_CODE, amnt, PydsType_Lov.EditValue.ToString(), "002", PydsDesc_Txt.Text, null, null);
+            iScsc.INS_PYDS_P(pymt.CASH_CODE, pymt.RQST_RQID, (short?)1, HowPyds_Cbx.Checked ? pydt.EXPN_CODE : null, amnt, PydsType_Lov.EditValue.ToString(), "002", PydsDesc_Txt.Text, null, null);
 
             PydsAmnt_Txt.EditValue = null;
             PydsDesc_Txt.EditValue = null;
@@ -2792,7 +2796,9 @@ namespace System.Scsc.Ui.OtherIncome
                         new XAttribute("fighfileno", pydt.FIGH_FILE_NO ?? 0),
                         new XAttribute("cbmtcodednrm", pydt.CBMT_CODE_DNRM ?? 0),
                         new XAttribute("exprdate", pydt.EXPR_DATE == null ? "" : pydt.EXPR_DATE.Value.ToString("yyyy-MM-dd")),
-                        new XAttribute("mbsprwno", e.NewValue ?? 0)
+                        new XAttribute("mbsprwno", e.NewValue ?? 0),
+                        new XAttribute("extscode", pydt.EXTS_CODE ?? 0),
+                        new XAttribute("extsrsrvdate", pydt.EXTS_RSRV_DATE == null ? "" : pydt.EXTS_RSRV_DATE.Value.ToString("yyyy-MM-dd"))
                      )
                   )
                )
@@ -3438,9 +3444,14 @@ namespace System.Scsc.Ui.OtherIncome
             var _pydt = PydtsBs1.Current as Data.Payment_Detail;
             if (_pydt == null) return;
 
-            iScsc.ExecuteCommand(
-               string.Format("UPDATE dbo.Payment_Detail SET Figh_File_No = NULL, Cbmt_Code_Dnrm = NULL WHERE Code = {0};", _pydt.CODE)
-            );
+            switch (e.Button.Index)
+            {
+               case 1:
+                  iScsc.ExecuteCommand(
+                     string.Format("UPDATE dbo.Payment_Detail SET Figh_File_No = NULL, Cbmt_Code_Dnrm = NULL WHERE Code = {0};", _pydt.CODE)
+                  );
+                  break;
+            }
 
             requery = true;
          }
@@ -3462,9 +3473,15 @@ namespace System.Scsc.Ui.OtherIncome
             var _pydt = PydtsBs1.Current as Data.Payment_Detail;
             if (_pydt == null) return;
 
-            iScsc.ExecuteCommand(
-               string.Format("UPDATE dbo.Payment_Detail SET Mbsp_Figh_File_No = NULL, Mbsp_Rect_Code = NULL, Mbsp_Rwno = NULL WHERE Code = {0};", _pydt.CODE)
-            );
+            switch (e.Button.Index)
+            {
+               case 1:
+                  iScsc.ExecuteCommand(
+                     string.Format("UPDATE dbo.Payment_Detail SET Mbsp_Figh_File_No = NULL, Mbsp_Rect_Code = NULL, Mbsp_Rwno = NULL WHERE Code = {0};", _pydt.CODE)
+                  );
+                  break;
+            }
+            
 
             requery = true;
          }
@@ -3477,6 +3494,153 @@ namespace System.Scsc.Ui.OtherIncome
             if (requery)
                Execute_Query();
          }
+      }
+
+      private void TreeSavePymt_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var figh = (RqroExtsBs.Current as Data.Request_Row).Fighter;
+
+            // اگر مشترکی وجود نداشته باشد
+            if (figh == null) return;
+            // اگر مشتری بدهی نداشته باشد
+            if (figh.DEBT_DNRM == 0) return;
+            // اگر مشتری در فرآیندی قفل باشد اجازه پرداخت بدهی وجود ندارد
+            //if (figh.FIGH_STAT == "001") return;
+            if (TreePymtAmnt_Txt.EditValue == null || TreePymtAmnt_Txt.EditValue.ToString() == "" || Convert.ToInt64(TreePymtAmnt_Txt.EditValue) == 0) return;
+            var paydebt = Convert.ToInt64(TreePymtAmnt_Txt.EditValue);
+
+            // مبلغ پرداخت بیشتر از مبلغ بدهی می باشد
+            if (paydebt > figh.DEBT_DNRM) return;
+
+            var vf_SavePayment =
+               iScsc.VF_Save_Payments(null, figh.FILE_NO)
+               .Where(p => ((p.SUM_EXPN_PRIC + p.SUM_EXPN_EXTR_PRCT) - (p.SUM_RCPT_EXPN_PRIC + p.SUM_PYMT_DSCN_DNRM)) > 0).OrderBy(p => p.PYMT_CRET_DATE.Value.Date);
+            foreach (var pymt in vf_SavePayment)
+            {
+               var debt = (long)((pymt.SUM_EXPN_PRIC + pymt.SUM_EXPN_EXTR_PRCT) - (pymt.SUM_RCPT_EXPN_PRIC + pymt.SUM_PYMT_DSCN_DNRM));
+               long amnt = 0;
+
+               if (debt > paydebt)
+                  // اگر بدهی صورتحساب بیشتر از مبلغ پرداخت مشتری باشد
+                  amnt = paydebt;
+               else
+                  // اگر بدهی صورتحساب با مبلغ پرداخت مشتری مساوی یا کمتر باشد
+                  amnt = debt;
+
+               iScsc.PAY_MSAV_P(
+                  new XElement("Payment",
+                     new XAttribute("actntype", "InsertUpdate"),
+                     new XElement("Insert",
+                        new XElement("Payment_Method",
+                           new XAttribute("cashcode", pymt.CASH_CODE),
+                           new XAttribute("rqstrqid", pymt.RQID),
+                           new XAttribute("amnt", amnt),
+                           new XAttribute("rcptmtod", TreeRcmtType_Lov.EditValue),
+                           new XAttribute("actndate", TreePymtDate_DateTime001.Value.HasValue ? TreePymtDate_DateTime001.Value.Value.Date.ToString("yyyy-MM-dd") : DateTime.Now.Date.ToString("yyyy-MM-dd"))
+                        )
+                     )
+                  )
+               );
+
+               paydebt -= amnt;
+               if (paydebt == 0) break;
+            }
+
+            TreeRcmtType_Lov.EditValue = TreePymtAmnt_Txt.EditValue = TreePymtDate_DateTime001.Value = null;
+            requery = true;
+         }
+         catch(Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+            {
+               Execute_Query();
+               RqroExtsBs_CurrentChanged(null, null);
+            }
+         }
+      }
+
+      private void RqroExtsBs_CurrentChanged(object sender, EventArgs e)
+      {
+         try
+         {
+            var _rqroExts = RqroExtsBs.Current as Data.Request_Row;
+            if (_rqroExts == null) return;
+
+            // 1st Step Find Root Request
+            var _rqst = _rqroExts.Request;
+            do
+            {               
+               if (_rqst.RQST_RQID == null)
+                  break;
+               _rqst = _rqst.Request1;
+            } while (true);
+
+            long? _sumTotlPric = 0,
+                  _sumDsctPric = 0,
+                  _sumPymtPric = 0,
+                  _SumDebtPric = 0;
+            
+            ///
+
+            var _rqstLevl =
+               iScsc.ExecuteQuery<Data.Request>(
+                  string.Format(
+                     @"WITH RequestLeveling (
+                        Rqid,
+                        Rqst_Rqid,
+                        LEVL
+                     ) 
+                     AS 
+                     (
+                        SELECT R.RQID,
+                               R.RQST_RQID,
+                               1 AS LEVL
+                          FROM dbo.Request r
+                         WHERE r.RQID = {0}
+                         UNION ALL 
+                        SELECT c.RQID,
+                               c.RQST_RQID,
+                               rl.LEVL + 1 AS LEVL
+                          FROM dbo.Request c INNER JOIN RequestLeveling rl ON c.RQST_RQID = rl.Rqid
+                     )
+                     SELECT Rqid,
+                            Rqst_Rqid                     
+                       FROM RequestLeveling rl
+                      ORDER BY rl.Rqid;", _rqst.RQID
+
+                  )
+               );
+
+            foreach (var _rqid in _rqstLevl)
+            {
+               var _pymt = iScsc.Payments.FirstOrDefault(p => p.RQST_RQID == _rqid.RQID);
+               _sumTotlPric += _pymt.SUM_EXPN_PRIC;
+               _sumDsctPric += _pymt.SUM_PYMT_DSCN_DNRM;
+               _sumPymtPric += _pymt.SUM_RCPT_EXPN_PRIC;
+               _SumDebtPric += (_pymt.SUM_EXPN_PRIC) - (_pymt.SUM_RCPT_EXPN_PRIC + _pymt.SUM_PYMT_DSCN_DNRM);
+            }           
+
+            SumTreeTotlPric_Txt.EditValue = _sumTotlPric;
+            SumTreeDsctPric_Txt.EditValue = _sumDsctPric;
+            SumTreePymtPric_Txt.EditValue = _sumPymtPric;
+            SumTreeDebtPric_Txt.EditValue = _SumDebtPric;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void TreeRcmtType_Lov_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
+      {
+         if(e.NewValue != null)
+            TreePymtAmnt_Txt.EditValue = SumTreeDebtPric_Txt.EditValue;
       }      
    }
 }

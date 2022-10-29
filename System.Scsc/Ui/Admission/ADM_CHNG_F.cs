@@ -692,6 +692,32 @@ namespace System.Scsc.Ui.Admission
          {
             MessageBox.Show(exc.Message);
          }
+      }
+
+      private void RefCode_Lov_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            var _rqst = RqstBs1.Current as Data.Request;
+            if (_rqst == null) return;
+
+            var _fgpb = FgpbsBs1.Current as Data.Fighter_Public;
+            if (_fgpb == null) return;
+
+            switch (e.Button.Index)
+            {
+               case 1:
+                  _fgpb.REF_CODE = null;
+                  RefDesc_Txt.EditValue = "";
+                  break;
+               default:
+                  break;
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
       }      
    }
 }

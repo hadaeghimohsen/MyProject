@@ -290,7 +290,12 @@ namespace System.Scsc.Ui.Regulation
             var expn = ExpnBs.Current as Data.Expense;
             if (expn == null) return;
 
-            expn.EXPN_DESC = string.Format("{0} {1}، {2}", expn.Expense_Type.Expense_Item.EPIT_DESC, expn.Method.MTOD_DESC, expn.Category_Belt.CTGY_DESC);
+            expn.EXPN_DESC = 
+               string.Format("{0} {1}، {2}",  
+               ExtpDesc_Cbx.Checked ? expn.Expense_Type.Expense_Item.EPIT_DESC : "", 
+               MtodDesc_Cbx.Checked ? expn.Method.MTOD_DESC : "", 
+               CtgyDesc_Cbx.Checked ? expn.Category_Belt.CTGY_DESC : ""
+            );
          }
          catch (Exception )
          {
@@ -305,7 +310,12 @@ namespace System.Scsc.Ui.Regulation
             ExpnBs.MoveFirst();
             foreach (var expn in ExpnBs.List.OfType<Data.Expense>())
             {
-               expn.EXPN_DESC = string.Format("{0} {1}، {2}", expn.Expense_Type.Expense_Item.EPIT_DESC, expn.Method.MTOD_DESC, expn.Category_Belt.CTGY_DESC);
+               expn.EXPN_DESC =
+                  string.Format("{0} {1}، {2}",
+                  ExtpDesc_Cbx.Checked ? expn.Expense_Type.Expense_Item.EPIT_DESC : "",
+                  MtodDesc_Cbx.Checked ? expn.Method.MTOD_DESC : "",
+                  CtgyDesc_Cbx.Checked ? expn.Category_Belt.CTGY_DESC : ""
+               );
             }
          }
          catch (Exception )

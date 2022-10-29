@@ -571,107 +571,143 @@ WHERE {WhereClause}</SqlCommand>
     <Page1 Ref="24" type="Page" isKey="true">
       <Border>None;Black;3;Double;False;4;Black</Border>
       <Brush>Transparent</Brush>
-      <Components isList="true" count="6">
-        <DataRequest Ref="25" type="DataBand" isKey="true">
-          <Border>All;Black;1;Solid;False;4;Black</Border>
+      <Components isList="true" count="7">
+        <PageHeaderBand1 Ref="25" type="PageHeaderBand" isKey="true">
           <Brush>Transparent</Brush>
-          <BusinessObjectGuid isNull="true" />
-          <ClientRectangle>0,0.4,6.4,1.8</ClientRectangle>
-          <Components isList="true" count="7">
-            <Text1 Ref="26" type="Text" isKey="true">
+          <ClientRectangle>0,0.4,6.4,2</ClientRectangle>
+          <Components isList="true" count="4">
+            <DataClub_TELL_PHON Ref="26" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>0,0,2.8,0.4</ClientRectangle>
+              <ClientRectangle>0,0.8,3.2,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>Tahoma,10</Font>
-              <HorAlignment>Right</HorAlignment>
+              <Font>B Titr,10</Font>
+              <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
-              <Name>Text1</Name>
+              <Name>DataClub_TELL_PHON</Name>
               <Page isRef="24" />
               <Parent isRef="25" />
               <ShrinkFontToFit>True</ShrinkFontToFit>
-              <Text>{Request.RQID}</Text>
+              <Text>{Club.TELL_PHON}</Text>
               <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <VertAlignment>Center</VertAlignment>
-            </Text1>
-            <Text3 Ref="27" type="Text" isKey="true">
+            </DataClub_TELL_PHON>
+            <DataClub_CELL_PHON Ref="27" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>3,0.4,2.2,0.4</ClientRectangle>
+              <ClientRectangle>3.2,0.8,3.2,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Koodak,11</Font>
+              <Font>B Titr,10</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataClub_CELL_PHON</Name>
+              <Page isRef="24" />
+              <Parent isRef="25" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{Club.CELL_PHON}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </DataClub_CELL_PHON>
+            <DataClub_CLUB_DESC Ref="28" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[216:216:216]</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>0,0,6.4,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Titr,12</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataClub_CLUB_DESC</Name>
+              <Page isRef="24" />
+              <Parent isRef="25" />
+              <Text>{Club.CLUB_DESC}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </DataClub_CLUB_DESC>
+            <DataClub_POST_ADRS Ref="29" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,1.4,6.4,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Titr,10</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataClub_POST_ADRS</Name>
+              <Page isRef="24" />
+              <Parent isRef="25" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{Club.POST_ADRS}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </DataClub_POST_ADRS>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <Name>PageHeaderBand1</Name>
+          <Page isRef="24" />
+          <Parent isRef="24" />
+        </PageHeaderBand1>
+        <DataRequest Ref="30" type="DataBand" isKey="true">
+          <Border>All;Black;1;Solid;False;4;Black</Border>
+          <Brush>Transparent</Brush>
+          <BusinessObjectGuid isNull="true" />
+          <ClientRectangle>0,3.2,6.4,3.6</ClientRectangle>
+          <Components isList="true" count="11">
+            <Text3 Ref="31" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,1.8,2,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,10</Font>
+              <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text3</Name>
               <Page isRef="24" />
-              <Parent isRef="25" />
+              <Parent isRef="30" />
               <Text>{Request.PERS_RQST_DATE}</Text>
               <TextBrush>Black</TextBrush>
               <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
             </Text3>
-            <Text5 Ref="28" type="Text" isKey="true">
+            <Text5 Ref="32" type="Text" isKey="true">
               <Brush>Transparent</Brush>
-              <ClientRectangle>5.4,0.4,1,0.4</ClientRectangle>
+              <ClientRectangle>2.2,1.8,1,0.4</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Koodak,11</Font>
+              <Font>Tahoma,10</Font>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text5</Name>
               <Page isRef="24" />
-              <Parent isRef="25" />
+              <Parent isRef="30" />
               <Text>{Request.MDFY_DATE}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="29" type="TimeFormat" isKey="true">
+              <TextFormat Ref="33" type="TimeFormat" isKey="true">
                 <StringFormat>HH:mm</StringFormat>
               </TextFormat>
               <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
             </Text5>
-            <Text6 Ref="30" type="Text" isKey="true">
+            <Text6 Ref="34" type="Text" isKey="true">
               <Brush>Transparent</Brush>
-              <ClientRectangle>5.2,0.4,0.2,0.4</ClientRectangle>
+              <ClientRectangle>2,1.8,0.2,0.4</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>Tahoma,8</Font>
               <Guid>8cbcfa0655f748ba88c3a024015bd3d6</Guid>
               <Margins>0,0,0,0</Margins>
               <Name>Text6</Name>
               <Page isRef="24" />
-              <Parent isRef="25" />
+              <Parent isRef="30" />
               <Text>-</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
             </Text6>
-            <Text7 Ref="31" type="Text" isKey="true">
-              <Brush>Transparent</Brush>
-              <ClientRectangle>0,0.4,2.8,0.4</ClientRectangle>
-              <Conditions isList="true" count="0" />
-              <Font>Tahoma,10</Font>
-              <HorAlignment>Center</HorAlignment>
-              <Margins>0,0,0,0</Margins>
-              <Name>Text7</Name>
-              <Page isRef="24" />
-              <Parent isRef="25" />
-              <ShrinkFontToFit>True</ShrinkFontToFit>
-              <Text>{Request.MDFY_BY}</Text>
-              <TextBrush>Black</TextBrush>
-              <VertAlignment>Center</VertAlignment>
-            </Text7>
-            <BarCode1 Ref="32" type="Stimulsoft.Report.BarCodes.StiBarCode" isKey="true">
-              <BackColor>Transparent</BackColor>
-              <BarCodeType Ref="33" type="Stimulsoft.Report.BarCodes.StiEAN13BarCodeType" isKey="true" />
-              <ClientRectangle>2.8,0,3.6,0.4</ClientRectangle>
-              <Code>{Request.RQID}</Code>
-              <Conditions isList="true" count="0" />
-              <Font>Arial,8,Bold,Pixel</Font>
-              <ForeColor>Black</ForeColor>
-              <HorAlignment>Right</HorAlignment>
-              <Name>BarCode1</Name>
-              <Page isRef="24" />
-              <Parent isRef="25" />
-              <VertAlignment>Center</VertAlignment>
-            </BarCode1>
-            <Text14 Ref="34" type="Text" isKey="true">
+            <Text14 Ref="35" type="Text" isKey="true">
               <Border>Top;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>0,0.8,6.4,1</ClientRectangle>
+              <ClientRectangle>0,2.6,6.4,1</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Mitra,10,Bold</Font>
               <Guid>fc3faf2b91164be2a53ae1d2cbd9dd8d</Guid>
@@ -679,13 +715,132 @@ WHERE {WhereClause}</SqlCommand>
               <Margins>0,0,0,0</Margins>
               <Name>Text14</Name>
               <Page isRef="24" />
-              <Parent isRef="25" />
+              <Parent isRef="30" />
               <ShrinkFontToFit>True</ShrinkFontToFit>
               <Text>{Request.STRD_VAR1}</Text>
               <TextBrush>Black</TextBrush>
               <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
             </Text14>
+            <Text12 Ref="36" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[216:216:216]</Brush>
+              <ClientRectangle>0,0,6.4,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Nazanin,10,Bold</Font>
+              <Guid>b1e183217b874c45aa4f6fc73f969c76</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text12</Name>
+              <Page isRef="24" />
+              <Parent isRef="30" />
+              <Text>شماره درخواست</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text12>
+            <Text18 Ref="37" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[216:216:216]</Brush>
+              <ClientRectangle>3.2,0.4,3.2,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Nazanin,10,Bold</Font>
+              <Guid>69f8edda69bf4d49b99133368f0f5feb</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text18</Name>
+              <Page isRef="24" />
+              <Parent isRef="30" />
+              <Text>کاربر ثبت کننده</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text18>
+            <Text20 Ref="38" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[216:216:216]</Brush>
+              <ClientRectangle>0,0.4,3.2,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Nazanin,10,Bold</Font>
+              <Guid>9291d204119f455189a65ab1c47a23d7</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text20</Name>
+              <Page isRef="24" />
+              <Parent isRef="30" />
+              <Text>تاریخ و زمان</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text20>
+            <Text7 Ref="39" type="Text" isKey="true">
+              <Border>Left;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>3.2,1.8,3.2,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,10</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text7</Name>
+              <Page isRef="24" />
+              <Parent isRef="30" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{Request.MDFY_BY}</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </Text7>
+            <Text21 Ref="40" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[216:216:216]</Brush>
+              <ClientRectangle>0,2.2,6.4,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Nazanin,10,Bold</Font>
+              <Guid>8a1a391a708a430b9ce2ea2d162e206f</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text21</Name>
+              <Page isRef="24" />
+              <Parent isRef="30" />
+              <Text>مشخصات مشتری</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text21>
+            <Text1 Ref="41" type="Text" isKey="true">
+              <Border>Bottom;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,0.8,6.4,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,10</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text1</Name>
+              <Page isRef="24" />
+              <Parent isRef="30" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{Request.RQID}</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </Text1>
+            <BarCode1 Ref="42" type="Stimulsoft.Report.BarCodes.StiBarCode" isKey="true">
+              <BackColor>Transparent</BackColor>
+              <BarCodeType Ref="43" type="Stimulsoft.Report.BarCodes.StiEAN13BarCodeType" isKey="true" />
+              <Border>Bottom;Black;1;Solid;False;4;Black</Border>
+              <ClientRectangle>0,1.2,6.4,0.6</ClientRectangle>
+              <Code>{Request.RQID}</Code>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,8,Bold,Pixel</Font>
+              <ForeColor>Black</ForeColor>
+              <HorAlignment>Center</HorAlignment>
+              <Name>BarCode1</Name>
+              <Page isRef="24" />
+              <Parent isRef="30" />
+              <VertAlignment>Center</VertAlignment>
+            </BarCode1>
           </Components>
           <Conditions isList="true" count="0" />
           <DataRelationName isNull="true" />
@@ -696,26 +851,26 @@ WHERE {WhereClause}</SqlCommand>
           <Parent isRef="24" />
           <Sort isList="true" count="0" />
         </DataRequest>
-        <DataRequest_Row Ref="35" type="DataBand" isKey="true">
+        <DataRequest_Row Ref="44" type="DataBand" isKey="true">
           <Brush>Transparent</Brush>
           <BusinessObjectGuid isNull="true" />
-          <ClientRectangle>0,3,6.4,0</ClientRectangle>
+          <ClientRectangle>0,7.6,6.4,0</ClientRectangle>
           <Components isList="true" count="0" />
           <Conditions isList="true" count="0" />
           <DataRelationName>Relation</DataRelationName>
           <DataSourceName>Request_Row</DataSourceName>
           <Filters isList="true" count="0" />
-          <MasterComponent isRef="25" />
+          <MasterComponent isRef="30" />
           <Name>DataRequest_Row</Name>
           <Page isRef="24" />
           <Parent isRef="24" />
           <Sort isList="true" count="0" />
         </DataRequest_Row>
-        <HeaderPayment_Detail Ref="36" type="HeaderBand" isKey="true">
+        <HeaderPayment_Detail Ref="45" type="HeaderBand" isKey="true">
           <Brush>Transparent</Brush>
-          <ClientRectangle>0,3.8,6.4,1.2</ClientRectangle>
+          <ClientRectangle>0,8.4,6.4,1.2</ClientRectangle>
           <Components isList="true" count="5">
-            <HeaderPayment_Detail_Relation6_Relation5_Relation4_EPIT_DESC Ref="37" type="Text" isKey="true">
+            <HeaderPayment_Detail_Relation6_Relation5_Relation4_EPIT_DESC Ref="46" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[216:216:216]</Brush>
               <ClientRectangle>2.2,0.4,4.2,0.4</ClientRectangle>
@@ -725,14 +880,14 @@ WHERE {WhereClause}</SqlCommand>
               <Margins>0,0,0,0</Margins>
               <Name>HeaderPayment_Detail_Relation6_Relation5_Relation4_EPIT_DESC</Name>
               <Page isRef="24" />
-              <Parent isRef="36" />
+              <Parent isRef="45" />
               <Text>نام کالا / خدمات</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </HeaderPayment_Detail_Relation6_Relation5_Relation4_EPIT_DESC>
-            <HeaderPayment_Detail_QNTY Ref="38" type="Text" isKey="true">
+            <HeaderPayment_Detail_QNTY Ref="47" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[216:216:216]</Brush>
               <ClientRectangle>0,0.4,0.6,0.4</ClientRectangle>
@@ -742,14 +897,14 @@ WHERE {WhereClause}</SqlCommand>
               <Margins>0,0,0,0</Margins>
               <Name>HeaderPayment_Detail_QNTY</Name>
               <Page isRef="24" />
-              <Parent isRef="36" />
+              <Parent isRef="45" />
               <Text>تعداد</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </HeaderPayment_Detail_QNTY>
-            <HeaderPayment_Detail_EXPN_PRIC Ref="39" type="Text" isKey="true">
+            <HeaderPayment_Detail_EXPN_PRIC Ref="48" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[216:216:216]</Brush>
               <ClientRectangle>0.6,0.4,1.6,0.4</ClientRectangle>
@@ -759,14 +914,14 @@ WHERE {WhereClause}</SqlCommand>
               <Margins>0,0,0,0</Margins>
               <Name>HeaderPayment_Detail_EXPN_PRIC</Name>
               <Page isRef="24" />
-              <Parent isRef="36" />
+              <Parent isRef="45" />
               <Text>مبلغ هزینه</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </HeaderPayment_Detail_EXPN_PRIC>
-            <Text9 Ref="40" type="Text" isKey="true">
+            <Text9 Ref="49" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[216:216:216]</Brush>
               <ClientRectangle>0,0,6.4,0.4</ClientRectangle>
@@ -777,14 +932,14 @@ WHERE {WhereClause}</SqlCommand>
               <Margins>0,0,0,0</Margins>
               <Name>Text9</Name>
               <Page isRef="24" />
-              <Parent isRef="36" />
+              <Parent isRef="45" />
               <Text>مشخصات ریز فاکتور</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text9>
-            <Text16 Ref="41" type="Text" isKey="true">
+            <Text16 Ref="50" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[216:216:216]</Brush>
               <ClientRectangle>0,0.8,6.4,0.4</ClientRectangle>
@@ -795,7 +950,7 @@ WHERE {WhereClause}</SqlCommand>
               <Margins>0,0,0,0</Margins>
               <Name>Text16</Name>
               <Page isRef="24" />
-              <Parent isRef="36" />
+              <Parent isRef="45" />
               <Text>توضیحات</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
@@ -808,42 +963,42 @@ WHERE {WhereClause}</SqlCommand>
           <Page isRef="24" />
           <Parent isRef="24" />
         </HeaderPayment_Detail>
-        <DataPayment_Detail Ref="42" type="DataBand" isKey="true">
+        <DataPayment_Detail Ref="51" type="DataBand" isKey="true">
           <Brush>Transparent</Brush>
           <BusinessObjectGuid isNull="true" />
-          <ClientRectangle>0,5.8,6.4,1.2</ClientRectangle>
+          <ClientRectangle>0,10.4,6.4,1.2</ClientRectangle>
           <Components isList="true" count="4">
-            <DataPayment_Detail_QNTY Ref="43" type="Text" isKey="true">
+            <DataPayment_Detail_QNTY Ref="52" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <ClientRectangle>0,0,0.6,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>Tahoma,10</Font>
+              <Font>B Koodak,10</Font>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>DataPayment_Detail_QNTY</Name>
               <Page isRef="24" />
-              <Parent isRef="42" />
+              <Parent isRef="51" />
               <ShrinkFontToFit>True</ShrinkFontToFit>
               <Text>{Payment_Detail.QNTY}</Text>
               <TextBrush>Black</TextBrush>
               <VertAlignment>Center</VertAlignment>
             </DataPayment_Detail_QNTY>
-            <DataPayment_Detail_EXPN_PRIC Ref="44" type="Text" isKey="true">
+            <DataPayment_Detail_EXPN_PRIC Ref="53" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <ClientRectangle>0.6,0,1.6,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>Tahoma,10</Font>
+              <Font>B Koodak,10</Font>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>DataPayment_Detail_EXPN_PRIC</Name>
               <Page isRef="24" />
-              <Parent isRef="42" />
+              <Parent isRef="51" />
               <ShrinkFontToFit>True</ShrinkFontToFit>
               <Text>{Payment_Detail.EXPN_PRIC}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="45" type="NumberFormat" isKey="true">
+              <TextFormat Ref="54" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -851,7 +1006,7 @@ WHERE {WhereClause}</SqlCommand>
               </TextFormat>
               <VertAlignment>Center</VertAlignment>
             </DataPayment_Detail_EXPN_PRIC>
-            <DataPayment_Detail_EXPN_CODE Ref="46" type="Text" isKey="true">
+            <DataPayment_Detail_EXPN_CODE Ref="55" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <ClientRectangle>2.2,0,4.2,0.6</ClientRectangle>
@@ -861,14 +1016,14 @@ WHERE {WhereClause}</SqlCommand>
               <Margins>0,0,0,0</Margins>
               <Name>DataPayment_Detail_EXPN_CODE</Name>
               <Page isRef="24" />
-              <Parent isRef="42" />
+              <Parent isRef="51" />
               <ShrinkFontToFit>True</ShrinkFontToFit>
               <Text>{Payment_Detail.EXPN_PYDT.EXPN_DESC}</Text>
               <TextBrush>Black</TextBrush>
               <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
             </DataPayment_Detail_EXPN_CODE>
-            <Text11 Ref="47" type="Text" isKey="true">
+            <Text11 Ref="56" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <ClientRectangle>0,0.6,6.4,0.6</ClientRectangle>
@@ -879,7 +1034,7 @@ WHERE {WhereClause}</SqlCommand>
               <Margins>0,0,0,0</Margins>
               <Name>Text11</Name>
               <Page isRef="24" />
-              <Parent isRef="42" />
+              <Parent isRef="51" />
               <ShrinkFontToFit>True</ShrinkFontToFit>
               <Text>{Payment_Detail.STRD_VAR2}</Text>
               <TextBrush>Black</TextBrush>
@@ -891,17 +1046,17 @@ WHERE {WhereClause}</SqlCommand>
           <DataRelationName>Relation7</DataRelationName>
           <DataSourceName>Payment_Detail</DataSourceName>
           <Filters isList="true" count="0" />
-          <MasterComponent isRef="35" />
+          <MasterComponent isRef="44" />
           <Name>DataPayment_Detail</Name>
           <Page isRef="24" />
           <Parent isRef="24" />
           <Sort isList="true" count="0" />
         </DataPayment_Detail>
-        <HeaderBand1 Ref="48" type="HeaderBand" isKey="true">
+        <HeaderBand1 Ref="57" type="HeaderBand" isKey="true">
           <Brush>Transparent</Brush>
-          <ClientRectangle>0,7.8,6.4,0.4</ClientRectangle>
+          <ClientRectangle>0,12.4,6.4,0.4</ClientRectangle>
           <Components isList="true" count="1">
-            <Text23 Ref="49" type="Text" isKey="true">
+            <Text23 Ref="58" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[216:216:216]</Brush>
               <ClientRectangle>0,0,6.4,0.4</ClientRectangle>
@@ -912,7 +1067,7 @@ WHERE {WhereClause}</SqlCommand>
               <Margins>0,0,0,0</Margins>
               <Name>Text23</Name>
               <Page isRef="24" />
-              <Parent isRef="48" />
+              <Parent isRef="57" />
               <Text>مشخصات پرداختی فاکتور</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
@@ -926,25 +1081,25 @@ WHERE {WhereClause}</SqlCommand>
           <Page isRef="24" />
           <Parent isRef="24" />
         </HeaderBand1>
-        <DataPayment Ref="50" type="DataBand" isKey="true">
+        <DataPayment Ref="59" type="DataBand" isKey="true">
           <Brush>Transparent</Brush>
           <BusinessObjectGuid isNull="true" />
-          <ClientRectangle>0,9,6.4,3.4</ClientRectangle>
-          <Components isList="true" count="13">
-            <DataPayment_SUM_EXPN_PRIC Ref="51" type="Text" isKey="true">
+          <ClientRectangle>0,13.6,6.4,3</ClientRectangle>
+          <Components isList="true" count="11">
+            <DataPayment_SUM_EXPN_PRIC Ref="60" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <ClientRectangle>0,0.6,2.8,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>Tahoma,11,Bold</Font>
+              <Font>B Koodak,11,Bold</Font>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>DataPayment_SUM_EXPN_PRIC</Name>
               <Page isRef="24" />
-              <Parent isRef="50" />
+              <Parent isRef="59" />
               <Text>{Payment.SUM_EXPN_PRIC + Payment.SUM_EXPN_EXTR_PRCT}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="52" type="NumberFormat" isKey="true">
+              <TextFormat Ref="61" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -953,20 +1108,20 @@ WHERE {WhereClause}</SqlCommand>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </DataPayment_SUM_EXPN_PRIC>
-            <DataPayment_SUM_RCPT_EXPN_PRIC Ref="53" type="Text" isKey="true">
+            <DataPayment_SUM_RCPT_EXPN_PRIC Ref="62" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[216:216:216]</Brush>
               <ClientRectangle>0,1.8,2.8,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>Tahoma,11,Bold</Font>
+              <Font>B Koodak,11,Bold</Font>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>DataPayment_SUM_RCPT_EXPN_PRIC</Name>
               <Page isRef="24" />
-              <Parent isRef="50" />
+              <Parent isRef="59" />
               <Text>{Payment.SUM_RCPT_EXPN_PRIC}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="54" type="NumberFormat" isKey="true">
+              <TextFormat Ref="63" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -974,20 +1129,20 @@ WHERE {WhereClause}</SqlCommand>
               </TextFormat>
               <VertAlignment>Center</VertAlignment>
             </DataPayment_SUM_RCPT_EXPN_PRIC>
-            <DataPayment_SUM_PYMT_DSCN_DNRM Ref="55" type="Text" isKey="true">
+            <DataPayment_SUM_PYMT_DSCN_DNRM Ref="64" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <ClientRectangle>0,1.2,2.8,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>Tahoma,11,Bold</Font>
+              <Font>B Koodak,11,Bold</Font>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>DataPayment_SUM_PYMT_DSCN_DNRM</Name>
               <Page isRef="24" />
-              <Parent isRef="50" />
+              <Parent isRef="59" />
               <Text>{Payment.SUM_PYMT_DSCN_DNRM}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="56" type="NumberFormat" isKey="true">
+              <TextFormat Ref="65" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -995,7 +1150,7 @@ WHERE {WhereClause}</SqlCommand>
               </TextFormat>
               <VertAlignment>Center</VertAlignment>
             </DataPayment_SUM_PYMT_DSCN_DNRM>
-            <Text2 Ref="57" type="Text" isKey="true">
+            <Text2 Ref="66" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <ClientRectangle>2.8,0,3.6,0.6</ClientRectangle>
@@ -1006,16 +1161,16 @@ WHERE {WhereClause}</SqlCommand>
               <Margins>0,0,0,0</Margins>
               <Name>Text2</Name>
               <Page isRef="24" />
-              <Parent isRef="50" />
+              <Parent isRef="59" />
               <Text> کالا / خدمات</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text2>
-            <Text8 Ref="58" type="Text" isKey="true">
+            <Text8 Ref="67" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>2.8,0.6,3.6,0.6</ClientRectangle>
+              <ClientRectangle>4,0.6,2.4,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Titr,10,Bold</Font>
               <Guid>2670f2de67e4403cbf78f767b81e69a5</Guid>
@@ -1023,16 +1178,16 @@ WHERE {WhereClause}</SqlCommand>
               <Margins>0,0,0,0</Margins>
               <Name>Text8</Name>
               <Page isRef="24" />
-              <Parent isRef="50" />
+              <Parent isRef="59" />
               <Text>مجموع قیمت</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text8>
-            <Text13 Ref="59" type="Text" isKey="true">
+            <Text13 Ref="68" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>2.8,1.2,3.6,0.6</ClientRectangle>
+              <ClientRectangle>4,1.2,2.4,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Titr,10,Bold</Font>
               <Guid>37bfca8315e34eedb866c12df2a1d2e7</Guid>
@@ -1040,16 +1195,16 @@ WHERE {WhereClause}</SqlCommand>
               <Margins>0,0,0,0</Margins>
               <Name>Text13</Name>
               <Page isRef="24" />
-              <Parent isRef="50" />
+              <Parent isRef="59" />
               <Text>مجموع تخفیف</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text13>
-            <Text15 Ref="60" type="Text" isKey="true">
+            <Text15 Ref="69" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[216:216:216]</Brush>
-              <ClientRectangle>2.8,1.8,3.6,0.6</ClientRectangle>
+              <ClientRectangle>4,1.8,2.4,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Titr,10,Bold</Font>
               <Guid>42ee5421f22447af9d44b0071981dc1f</Guid>
@@ -1057,41 +1212,41 @@ WHERE {WhereClause}</SqlCommand>
               <Margins>0,0,0,0</Margins>
               <Name>Text15</Name>
               <Page isRef="24" />
-              <Parent isRef="50" />
+              <Parent isRef="59" />
               <Text>مجموع پرداختی</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text15>
-            <Text4 Ref="61" type="Text" isKey="true">
+            <Text4 Ref="70" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <ClientRectangle>0,0,2.8,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>Tahoma,11,Bold</Font>
+              <Font>B Koodak,11,Bold</Font>
               <Guid>f740c22cadb04cab916301d5e6d23498</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text4</Name>
               <Page isRef="24" />
-              <Parent isRef="50" />
+              <Parent isRef="59" />
               <Text>{Sum(DataPayment_Detail,Payment_Detail.QNTY)}</Text>
               <TextBrush>Black</TextBrush>
               <Type>Totals</Type>
               <VertAlignment>Center</VertAlignment>
             </Text4>
-            <Text10 Ref="62" type="Text" isKey="true">
+            <Text10 Ref="71" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>0,2.4,6.4,1</ClientRectangle>
+              <ClientRectangle>0,2.4,6.4,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Nazanin,10,Bold</Font>
+              <Font>Tahoma,8</Font>
               <Guid>2c6dd800ad2e432d832ee552def8de00</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text10</Name>
               <Page isRef="24" />
-              <Parent isRef="50" />
+              <Parent isRef="59" />
               <ShrinkFontToFit>True</ShrinkFontToFit>
               <Text>مدیریت آرتا از مجموعه نرم افزارهای رله سافت
 09033927103 * 09915666598</Text>
@@ -1099,58 +1254,24 @@ WHERE {WhereClause}</SqlCommand>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text10>
-            <Text12 Ref="63" type="Text" isKey="true">
+            <Text17 Ref="72" type="Text" isKey="true">
               <Border>Top, Right;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>2.8,1.8,1.2,0.6</ClientRectangle>
+              <ClientRectangle>2.8,0.6,1.2,1.8</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Kamran,10</Font>
-              <Guid>7e40984bfb26494a88ab66ac3eaac845</Guid>
-              <HorAlignment>Center</HorAlignment>
-              <Margins>0,0,0,0</Margins>
-              <Name>Text12</Name>
-              <Page isRef="24" />
-              <Parent isRef="50" />
-              <Text>{Payment.DATYP_PYMT.DOMN_DESC}</Text>
-              <TextBrush>Black</TextBrush>
-              <Type>DataColumn</Type>
-              <VertAlignment>Center</VertAlignment>
-            </Text12>
-            <Text17 Ref="64" type="Text" isKey="true">
-              <Border>Top, Right;Black;1;Solid;False;4;Black</Border>
-              <Brush>Transparent</Brush>
-              <ClientRectangle>2.8,1.2,1.2,0.6</ClientRectangle>
-              <Conditions isList="true" count="0" />
-              <Font>B Kamran,10</Font>
+              <Font>B Titr,10</Font>
               <Guid>7ed8be020d6543bbb71ee67a7f359735</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text17</Name>
               <Page isRef="24" />
-              <Parent isRef="50" />
+              <Parent isRef="59" />
               <Text>{Payment.DATYP_PYMT.DOMN_DESC}</Text>
               <TextBrush>Black</TextBrush>
               <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
             </Text17>
-            <Text18 Ref="65" type="Text" isKey="true">
-              <Border>Top, Right;Black;1;Solid;False;4;Black</Border>
-              <Brush>Transparent</Brush>
-              <ClientRectangle>2.8,0.6,1.2,0.6</ClientRectangle>
-              <Conditions isList="true" count="0" />
-              <Font>B Kamran,10</Font>
-              <Guid>b6a31324c68343a7a59d45e1b252a85a</Guid>
-              <HorAlignment>Center</HorAlignment>
-              <Margins>0,0,0,0</Margins>
-              <Name>Text18</Name>
-              <Page isRef="24" />
-              <Parent isRef="50" />
-              <Text>{Payment.DATYP_PYMT.DOMN_DESC}</Text>
-              <TextBrush>Black</TextBrush>
-              <Type>DataColumn</Type>
-              <VertAlignment>Center</VertAlignment>
-            </Text18>
-            <Text19 Ref="66" type="Text" isKey="true">
+            <Text19 Ref="73" type="Text" isKey="true">
               <Border>Top, Right;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <ClientRectangle>2.8,0,1.2,0.6</ClientRectangle>
@@ -1161,7 +1282,7 @@ WHERE {WhereClause}</SqlCommand>
               <Margins>0,0,0,0</Margins>
               <Name>Text19</Name>
               <Page isRef="24" />
-              <Parent isRef="50" />
+              <Parent isRef="59" />
               <Text>تعداد</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
@@ -1172,7 +1293,7 @@ WHERE {WhereClause}</SqlCommand>
           <DataRelationName>Relation8</DataRelationName>
           <DataSourceName>Payment</DataSourceName>
           <Filters isList="true" count="0" />
-          <MasterComponent isRef="25" />
+          <MasterComponent isRef="30" />
           <Name>DataPayment</Name>
           <Page isRef="24" />
           <Parent isRef="24" />
@@ -1183,16 +1304,16 @@ WHERE {WhereClause}</SqlCommand>
       <Guid>6098e725742243daa4a4fe2b67d4ebaf</Guid>
       <Margins>0.4,0.1,0.1,0.1</Margins>
       <Name>Page1</Name>
-      <PageHeight>15.5</PageHeight>
+      <PageHeight>17.5</PageHeight>
       <PageWidth>6.9</PageWidth>
       <Report isRef="0" />
-      <Watermark Ref="67" type="Stimulsoft.Report.Components.StiWatermark" isKey="true">
+      <Watermark Ref="74" type="Stimulsoft.Report.Components.StiWatermark" isKey="true">
         <Font>B Titr,10,Bold,Point,False,178</Font>
         <TextBrush>[50:0:0:0]</TextBrush>
       </Watermark>
     </Page1>
   </Pages>
-  <PrinterSettings Ref="68" type="Stimulsoft.Report.Print.StiPrinterSettings" isKey="true" />
+  <PrinterSettings Ref="75" type="Stimulsoft.Report.Print.StiPrinterSettings" isKey="true" />
   <ReferencedAssemblies isList="true" count="8">
     <value>System.Dll</value>
     <value>System.Drawing.Dll</value>
@@ -1204,10 +1325,10 @@ WHERE {WhereClause}</SqlCommand>
     <value>Stimulsoft.Report.Dll</value>
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
-  <ReportChanged>10/25/2022 10:07:44 AM</ReportChanged>
+  <ReportChanged>10/28/2022 11:21:23 PM</ReportChanged>
   <ReportCreated>9/26/2011 12:44:57 PM</ReportCreated>
   <ReportFile>D:\Project\MyProject\Documents\Report Repository\PRT_INCM_012_R.mrt</ReportFile>
-  <ReportGuid>6b7c561793c3465e93d5fff0844f067a</ReportGuid>
+  <ReportGuid>71518010755b4dd2aa696c8b844bcf25</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Centimeters</ReportUnit>
   <ReportVersion>2012.2.1304</ReportVersion>

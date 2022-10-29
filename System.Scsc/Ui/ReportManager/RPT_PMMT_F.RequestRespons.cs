@@ -716,11 +716,11 @@ namespace System.Scsc.Ui.ReportManager
                formName = "RPT_PMT2_F";
             if(xinput.Attribute("fromdate").Value != null)
             {
-               FromDate1_Date.Value = FromDate2_Date.Value = FromDate3_Date.Value = FromDate4_Date.Value = FromDate6_Date.Value = FromDate7_Date.Value = FromDate8_Date.Value = FromDate9_Date.Value = Convert.ToDateTime(xinput.Attribute("fromdate").Value);
+               FromDate1_Date.Value = FromDate2_Date.Value = FromDate3_Date.Value = FromDate4_Date.Value = FromDate6_Date.Value = FromDate7_Date.Value = FromDate8_Date.Value = FromDate9_Date.Value = FromDate10_Date.Value = FromDate11_Date.Value = FromDate12_Date.Value = Convert.ToDateTime(xinput.Attribute("fromdate").Value);
             }
             if (xinput.Attribute("todate").Value != null)
             {
-               ToDate1_Date.Value = ToDate2_Date.Value = ToDate3_Date.Value = ToDate4_Date.Value = ToDate6_Date.Value = ToDate7_Date.Value = ToDate8_Date.Value = ToDate9_Date.Value = Convert.ToDateTime(xinput.Attribute("todate").Value);
+               ToDate1_Date.Value = ToDate2_Date.Value = ToDate3_Date.Value = ToDate4_Date.Value = ToDate6_Date.Value = ToDate7_Date.Value = ToDate8_Date.Value = ToDate9_Date.Value = ToDate10_Date.Value = ToDate11_Date.Value = ToDate12_Date.Value = Convert.ToDateTime(xinput.Attribute("todate").Value);
             }
             if(xinput.Attribute("useraccount").Value != null)
             {

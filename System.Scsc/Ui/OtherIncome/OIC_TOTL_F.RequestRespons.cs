@@ -273,7 +273,7 @@ namespace System.Scsc.Ui.OtherIncome
                      //Rqid_Lb.Text = control.LABL_TEXT; // Place Holder
                      break;
                   case "debtamnt_lb":
-                     DebtAmnt_Lb.Text = control.LABL_TEXT;
+                     //DebtAmnt_Lb.Text = control.LABL_TEXT;
                      //DebtAmnt_Lb.Text = control.LABL_TEXT; // ToolTip
                      //DebtAmnt_Lb.Text = control.LABL_TEXT; // Place Holder
                      break;

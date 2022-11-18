@@ -161,35 +161,36 @@ namespace System.Scsc.Ui.OtherIncome
                               new XAttribute("regncode", "001"),
                               new XElement("Fighter",
                                  new XAttribute("fileno", Rqst == null ? 0 : Rqst.Fighters.FirstOrDefault() == null ? 0 : Rqst.Fighters.FirstOrDefault().FILE_NO),
-                                 new XElement("Frst_Name", FRST_NAME_TextEdit.Text),
-                                 new XElement("Last_Name", LAST_NAME_TextEdit.Text),
+                                 new XElement("Frst_Name", FrstName_Txt.Text.Trim()),
+                                 new XElement("Last_Name", LastName_Txt.Text.Trim()),
                                  new XElement("Fath_Name", ""),
-                                 new XElement("Sex_Type", SEX_TYPE_LookUpEdit.EditValue),
-                                 new XElement("Natl_Code", NatlCode_Txt.EditValue ?? ""),
-                                 new XElement("Brth_Date", BRTH_DATE_PersianDateEdit.Value == null ? "" : BRTH_DATE_PersianDateEdit.Value.Value.ToString("yyyy-MM-dd")),
-                                 new XElement("Cell_Phon", CELL_PHON_TextEdit.Text),
-                                 new XElement("Tell_Phon", TELL_PHON_TextEdit.Text),
+                                 new XElement("Sex_Type", SexType_Lov.EditValue),
+                                 new XElement("Natl_Code", (NatlCode_Txt.EditValue ?? "").ToString().Trim()),
+                                 new XElement("Brth_Date", BrthDate_Dt.Value == null ? "" : BrthDate_Dt.Value.Value.ToString("yyyy-MM-dd")),
+                                 new XElement("Cell_Phon", CellPhon_Txt.Text.Trim()),
+                                 new XElement("Tell_Phon", TellPhon_Txt.Text.Trim()),
                                  new XElement("Type", "001"),
-                                 new XElement("Post_Adrs", ""),
+                                 new XElement("Post_Adrs", (PostAdrs_Txt.EditValue ?? "").ToString().Trim()),
                                  new XElement("Emal_Adrs", ""),
-                                 new XElement("Insr_Numb", ""),
-                                 new XElement("Insr_Date", ""),
+                                 new XElement("Insr_Numb", (InsrNumb_Txt.Text ?? "").ToString().Trim()),
+                                 new XElement("Insr_Date", InsrDate_Dt.Value == null ? "" : InsrDate_Dt.Value.Value.ToString("yyyy-MM-dd")),
                                  new XElement("Educ_Deg", ""),
-                                 new XElement("Club_Code", Club_CodeLookUpEdit.EditValue ?? ""),
+                                 new XElement("Club_Code", ClubCode_Lov.EditValue ?? ""),
                                  new XElement("Dise_Code", ""),
                                  new XElement("Blod_Grop", ""),
-                                 new XElement("Fngr_Prnt", FngrPrnt_Txt.EditValue ?? ""),
+                                 new XElement("Fngr_Prnt", (FngrPrnt_Txt.EditValue ?? "").ToString().Trim()),
                                  new XElement("Sunt_Bunt_Dept_Orgn_Code", ""),
                                  new XElement("Sunt_Bunt_Dept_Code", ""),
                                  new XElement("Sunt_Bunt_Code", ""),
-                                 new XElement("Sunt_Code", ""),
+                                 new XElement("Sunt_Code", SuntCode_Lov.EditValue ?? ""),
                                  new XElement("Cord_X", ""),
                                  new XElement("Cord_Y", ""),
-                                 new XElement("Mtod_Code", MtodCode_LookupEdit001.EditValue ?? ""),
-                                 new XElement("Ctgy_Code", CtgyCode_LookupEdit001.EditValue ?? ""),
+                                 new XElement("Mtod_Code", ""),
+                                 new XElement("Ctgy_Code",  ""),
                                  new XElement("Most_Debt_Clng", ""),
-                                 new XElement("Serv_No", ""),
-                                 new XElement("Chat_Id", TelgCode_Txt.EditValue ?? "")
+                                 new XElement("Serv_No", (ServNo_Txt.EditValue ?? "").ToString().Trim()),
+                                 new XElement("Chat_Id", (TelgCode_Txt.EditValue ?? "").ToString().Trim()),
+                                 new XElement("Ref_Code", (RefCode_Lov.EditValue ?? "").ToString().Trim())
                               ),
                               new XElement("Member_Ship",
                                  new XAttribute("strtdate", DateTime.Now.ToString("yyyy-MM-dd")),
@@ -294,6 +295,9 @@ namespace System.Scsc.Ui.OtherIncome
                );
                requery = true;
                //tc_pblc.SelectedTab = tp_pblcinfo;
+               
+               if(!LockAftrSave_Cbx.Checked)
+                  PBLC.FindFilterText = "";
 
                // 1399/12/09
                if (GoProfile_Pbt.PickChecked)
@@ -310,7 +314,6 @@ namespace System.Scsc.Ui.OtherIncome
                if (ChargeCredit_Ckbx.Checked)
                   followups += "GLR_INDC_F;";
                
-
                #region 3th
                if (OthrExpnInfo_Ckbx.Checked)
                   _DefaultGateway.Gateway(
@@ -615,22 +618,6 @@ namespace System.Scsc.Ui.OtherIncome
          }
       }
 
-      private void MtodCode_LookupEdit001_Popup(object sender, EventArgs e)
-      {
-         try
-         {
-            var mtod = MtodCode_LookupEdit001.EditValue;
-
-            if (mtod == null || mtod.ToString() == "") return;            
-
-            CtgyBs1.DataSource = iScsc.Category_Belts.Where(c => c.MTOD_CODE == (long)mtod);
-         }
-         catch (Exception )
-         {
-                        
-         }
-      }
-
       private void BTN_MBSP_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
       {
          
@@ -655,85 +642,29 @@ namespace System.Scsc.Ui.OtherIncome
 
       private void IncDecMont_Butn_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
       {
-         
-      }
 
-      private void Butn_TakePicture_Click(object sender, EventArgs e)
-      {
-         try
-         {
-            if (true)
-            {
-               var fileno = (vf_FighBs.Current as Data.VF_Last_Info_FighterResult).FILE_NO;
-               var rqst = (from r in iScsc.Requests
-                           join rr in iScsc.Request_Rows on r.RQID equals rr.RQST_RQID
-                           where rr.FIGH_FILE_NO == Convert.ToInt64(fileno)
-                              && (r.RQTP_CODE == "001" || r.RQTP_CODE == "025")
-                           select r).FirstOrDefault();
-               if (rqst == null) return;
-
-               var result = (
-                        from r in iScsc.Regulations
-                        join rqrq in iScsc.Request_Requesters on r equals rqrq.Regulation
-                        join rqdc in iScsc.Request_Documents on rqrq equals rqdc.Request_Requester
-                        join rcdc in iScsc.Receive_Documents on rqdc equals rcdc.Request_Document
-                        where r.TYPE == "001"
-                           && r.REGL_STAT == "002"
-                           && rqrq.RQTP_CODE == rqst.RQTP_CODE
-                           && rqrq.RQTT_CODE == rqst.RQTT_CODE
-                           && rqdc.DCMT_DSID == 13930903120048833 // عکس 4*3
-                           && rcdc.RQRO_RQST_RQID == rqst.RQID
-                           && rcdc.RQRO_RWNO == 1
-                        select rcdc).FirstOrDefault();
-               if (result == null) return;
-
-               _DefaultGateway.Gateway(
-                  new Job(SendType.External, "Localhost",
-                     new List<Job>
-                     {
-                        new Job(SendType.Self,  59 /* Execute Cmn_Dcmt_F */){ Input = iScsc.Request_Rows.Where(rr => rr.RQST_RQID == rqst.RQID && rr.RWNO == 1).Single() },
-                        new Job(SendType.SelfToUserInterface, "CMN_DCMT_F", 10 /* Execute Actn_CalF_F */)
-                        {
-                           Input = 
-                              new XElement("Action",
-                                 new XAttribute("type", "001"),
-                                 new XAttribute("typedesc", "Force Active Camera Picture Profile"),
-                                 new XElement("Document",
-                                    new XAttribute("rcid", result.RCID)
-                                 )
-                              )
-                        }
-                     }
-                  )
-               );
-            }
-         }
-         catch
-         {
-
-         }
       }
 
       private void vF_Last_Info_FighterResultBindingSource_CurrentChanged(object sender, EventArgs e)
       {
          var fileno = (vf_FighBs.Current as Data.VF_Last_Info_FighterResult).FILE_NO;
-         try
-         {
-            UserProFile_Rb.ImageProfile = null;
-            MemoryStream mStream = new MemoryStream();
-            byte[] pData = iScsc.GET_PIMG_U(new XElement("Fighter", new XAttribute("fileno", fileno))).ToArray();
-            mStream.Write(pData, 0, Convert.ToInt32(pData.Length));
-            Bitmap bm = new Bitmap(mStream, false);
-            mStream.Dispose();
+         //try
+         //{
+         //   UserProFile_Rb.ImageProfile = null;
+         //   MemoryStream mStream = new MemoryStream();
+         //   byte[] pData = iScsc.GET_PIMG_U(new XElement("Fighter", new XAttribute("fileno", fileno))).ToArray();
+         //   mStream.Write(pData, 0, Convert.ToInt32(pData.Length));
+         //   Bitmap bm = new Bitmap(mStream, false);
+         //   mStream.Dispose();
 
-            UserProFile_Rb.Visible = true;
+         //   UserProFile_Rb.Visible = true;
 
-            if (InvokeRequired)
-               Invoke(new Action(() => UserProFile_Rb.ImageProfile = bm));
-            else
-               UserProFile_Rb.ImageProfile = bm;
-         }
-         catch { UserProFile_Rb.ImageProfile = global::System.Scsc.Properties.Resources.IMAGE_1482; }
+         //   if (InvokeRequired)
+         //      Invoke(new Action(() => UserProFile_Rb.ImageProfile = bm));
+         //   else
+         //      UserProFile_Rb.ImageProfile = bm;
+         //}
+         //catch { UserProFile_Rb.ImageProfile = global::System.Scsc.Properties.Resources.IMAGE_1482; }
       }
 
       private void UserProFile_Rb_Click(object sender, EventArgs e)
@@ -845,7 +776,7 @@ namespace System.Scsc.Ui.OtherIncome
       {
          if(FngrPrnt_Txt.Text != "")
          {
-            FRST_NAME_TextEdit.Text = LAST_NAME_TextEdit.Text = FngrPrnt_Txt.Text;
+            FrstName_Txt.Text = LastName_Txt.Text = FngrPrnt_Txt.Text;
 
             Btn_RqstRqt1_Click(null, null);
          }
@@ -913,7 +844,7 @@ namespace System.Scsc.Ui.OtherIncome
          try
          {
             if(SrchType_Cbx.Checked)
-               PBLC.FindFilterText = CELL_PHON_TextEdit.Text;
+               PBLC.FindFilterText = CellPhon_Txt.Text;
             // اگر تعداد کاراکتر از 11 تا کمتر باشد هیچ گونه مقایسه ای انجام نشود
             #region Comment
             //if (e.NewValue.ToString().Length < 11) return;
@@ -1028,12 +959,12 @@ namespace System.Scsc.Ui.OtherIncome
       {
          try
          {
-            if (CELL_PHON_TextEdit.EditValue == null || CELL_PHON_TextEdit.Text == "") { CELL_PHON_TextEdit.Focus(); return; }
+            if (CellPhon_Txt.EditValue == null || CellPhon_Txt.Text == "") { CellPhon_Txt.Focus(); return; }
 
             var _qury =
                iScsc.Fighters
                   .Where(
-                     f => f.CELL_PHON_DNRM.Contains(CELL_PHON_TextEdit.Text) &&
+                     f => f.CELL_PHON_DNRM.Contains(CellPhon_Txt.Text) &&
                           f.CONF_STAT == "002" &&
                           (Fga_Uclb_U.Contains(f.CLUB_CODE_DNRM) ||
                               (f.CLUB_CODE_DNRM == null ? f.Club_Methods.Where(cb => Fga_Uclb_U.Contains(cb.CLUB_CODE)).Any() : false)) &&
@@ -1042,7 +973,7 @@ namespace System.Scsc.Ui.OtherIncome
 
             if (_qury.Count() > 0)
             {
-               PBLC.FindFilterText = CELL_PHON_TextEdit.Text;
+               PBLC.FindFilterText = CellPhon_Txt.Text;
                //throw new Exception("این شماره همراه قبلا درون سیستم ثبت شده است، لطفا لیست خود را چک کنید");
             }
          }
@@ -1086,6 +1017,129 @@ namespace System.Scsc.Ui.OtherIncome
          {
             if(SrchType_Cbx.Checked)
                PBLC.FindFilterText = NatlCode_Txt.Text;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void SUNT_CODELookUpEdit_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+
+      }
+
+      private void SuntCode_Lov_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            switch (e.Button.Index)
+            {
+               case 1:                  
+                  _DefaultGateway.Gateway(
+                     new Job(SendType.External, "Localhost",
+                        new List<Job>
+                        {
+                           new Job(SendType.External, "Commons",
+                              new List<Job>
+                              {
+                                 #region Access Privilege
+                                 new Job(SendType.Self, 07 /* Execute DoWork4AccessPrivilege */)
+                                 {
+                                    Input = new List<string> 
+                                    {
+                                       "<Privilege>171</Privilege><Sub_Sys>5</Sub_Sys>", 
+                                       "DataGuard"
+                                    },
+                                    AfterChangedOutput = new Action<object>((output) => {
+                                       if ((bool)output)
+                                          return;
+                                       #region Show Error
+                                       MessageBox.Show("خطا: عدم دسترسی به کد 171");
+                                       #endregion                           
+                                    })
+                                 },
+                                 new Job(SendType.Self, 07 /* Execute DoWork4AccessPrivilege */)
+                                 {
+                                    Input = new List<string> 
+                                    {
+                                       "<Privilege>175</Privilege><Sub_Sys>5</Sub_Sys>", 
+                                       "DataGuard"
+                                    },
+                                    AfterChangedOutput = new Action<object>((output) => {
+                                       if ((bool)output)
+                                          return;
+                                       #region Show Error
+                                       MessageBox.Show("خطا: عدم دسترسی به کد 175");
+                                       #endregion                           
+                                    })
+                                 }
+                                 #endregion
+                              }),
+                           #region DoWork
+                           new Job(SendType.Self, 108 /* Execute Orgn_Totl_F */),
+                           new Job(SendType.SelfToUserInterface, "ORGN_TOTL_F", 10 /* Actn_CalF_P */)
+                           #endregion
+                           })
+                  );
+                  break;
+               default:
+                  break;
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void CellPhonRefCode_Txt_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            var _rqst = RqstBs1.Current as Data.Request;
+            if (_rqst == null) return;
+
+            RServBs.DataSource = iScsc.Fighters.Where(s => s.CELL_PHON_DNRM.Contains(CellPhonRefCode_Txt.Text));
+            if (RServBs.List.Count == 1)
+            {
+               RefCode_Lov.EditValue = RServBs.List.OfType<Data.Fighter>().FirstOrDefault().FILE_NO;
+               CellPhonRefCode_Txt.EditValue = null;
+            }
+            else if (RServBs.List.Count > 1)
+            {
+               RefCode_Lov.Focus();
+               RefCode_Lov.ShowPopup();
+            }
+            else
+            {
+               RefCode_Lov.EditValue = null;
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void RefCode_Lov_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            var _rqst = RqstBs1.Current as Data.Request;
+            if (_rqst == null) return;
+
+            var _fgpb = FgpbsBs1.Current as Data.Fighter_Public;
+            if (_fgpb == null) return;
+
+            switch (e.Button.Index)
+            {
+               case 1:
+                  _fgpb.REF_CODE = null;
+                  break;
+               default:
+                  break;
+            }
          }
          catch (Exception exc)
          {

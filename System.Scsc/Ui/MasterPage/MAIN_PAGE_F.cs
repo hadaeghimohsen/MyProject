@@ -6220,6 +6220,21 @@ namespace System.Scsc.Ui.MasterPage
                   );
                   break;
                case 1:
+                  if (OnlineDres_Butn.Text == "") return;
+                  var _attn = iScsc.Attendances.Where(a => a.ATTN_DATE == DateTime.Now.Date && a.EXIT_TIME == null && a.ATTN_STAT == "002" && a.DERS_NUMB == OnlineDres_Butn.Text.ToInt32());
+                  if(_attn.Count() == 1)
+                  {
+                     AttnType_Lov.EditValue = "003";
+                     ChngAttnActn_Butn_Click(null, null);
+                     CardNumb_Text.Text = _attn.FirstOrDefault().FNGR_PRNT_DNRM;
+                     CardNumb_Text_Properties_ButtonClick(CardNumb_Text, new DevExpress.XtraEditors.Controls.ButtonPressedEventArgs(CardNumb_Text.Properties.Buttons[3]));
+                  }
+                  else if(_attn.Count() > 1)
+                  {
+                     AttendanceSystemAlert_Butn_Click(null, null);
+                  }
+                  break;
+               default:
                   break;
             }
          }
@@ -6311,6 +6326,31 @@ namespace System.Scsc.Ui.MasterPage
       private void button5_Click(object sender, EventArgs e)
       {
          server.Dispose();
+      }
+
+      private void CWlet_Tm_Tick(object sender, EventArgs e)
+      {
+         try
+         {
+            // بررسی اینکه آیا مشتری درصدی میباشد یا خیر
+            if (!iScsc.V_Transaction_Fees.Any(t => t.STAT == "002" && t.TXFE_PRCT > 0)) { CWlet_Pb.Visible = CWlet_Lnk.Visible = CWlet_Txt.Visible = CWlet_Tm.Enabled = false; return; }
+
+            var _cwlt = iScsc.V_Admin_Wallets.Where(w => w.WLET_TYPE == "001").FirstOrDefault();
+            if (_cwlt == null) { CWlet_Pb.Visible = CWlet_Lnk.Visible = CWlet_Txt.Visible = CWlet_Tm.Enabled = false; return; }
+
+            CWlet_Pb.Visible = CWlet_Lnk.Visible = CWlet_Txt.Visible = CWlet_Tm.Enabled = true;
+            CWlet_Txt.EditValue = _cwlt.AMNT_DNRM;
+            CWlet_Lnk.Tag = _cwlt;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void CWlet_Pb_Click(object sender, EventArgs e)
+      {
+         CWlet_Tm_Tick(null, null);
       }      
    }
 }

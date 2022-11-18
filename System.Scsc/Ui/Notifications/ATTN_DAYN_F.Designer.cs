@@ -82,6 +82,8 @@
          this.colATTN_SYS_TYPE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.repositoryItemLookUpEdit5 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
          this.DActnBs = new System.Windows.Forms.BindingSource(this.components);
+         this.colRTNG_NUMB = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colDebtDnrm = new DevExpress.XtraGrid.Columns.GridColumn();
          this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
          this.AttnParm_Gb = new System.Windows.Forms.GroupBox();
          this.ClearCbmt_Butn = new DevExpress.XtraEditors.SimpleButton();
@@ -120,7 +122,6 @@
          this.Btn_AutoExitAttn = new DevExpress.XtraEditors.SimpleButton();
          this.Reload_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.DSxtpBs1 = new System.Windows.Forms.BindingSource(this.components);
-         this.colRTNG_NUMB = new DevExpress.XtraGrid.Columns.GridColumn();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTimeEdit1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.AttnBs1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.attendanceGridControl)).BeginInit();
@@ -216,7 +217,7 @@
          this.Back_Butn.Appearance.Options.UseBackColor = true;
          this.Back_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1061;
          this.Back_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.Back_Butn.Location = new System.Drawing.Point(681, 2);
+         this.Back_Butn.Location = new System.Drawing.Point(688, 2);
          this.Back_Butn.LookAndFeel.SkinName = "Office 2010 Silver";
          this.Back_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.Back_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
@@ -245,7 +246,7 @@
             this.repositoryItemLookUpEdit2,
             this.repositoryItemLookUpEdit3,
             this.repositoryItemLookUpEdit5});
-         this.attendanceGridControl.Size = new System.Drawing.Size(739, 408);
+         this.attendanceGridControl.Size = new System.Drawing.Size(746, 609);
          this.attendanceGridControl.TabIndex = 0;
          this.attendanceGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -288,7 +289,8 @@
             this.MtodCode_Clm,
             this.CtgyCode_Clm,
             this.colATTN_SYS_TYPE,
-            this.colRTNG_NUMB});
+            this.colRTNG_NUMB,
+            this.colDebtDnrm});
          styleFormatCondition1.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
          styleFormatCondition1.Appearance.Options.UseBackColor = true;
          styleFormatCondition1.ApplyToRow = true;
@@ -331,8 +333,8 @@
          this.FileNo_Clm.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Count)});
          this.FileNo_Clm.Visible = true;
-         this.FileNo_Clm.VisibleIndex = 9;
-         this.FileNo_Clm.Width = 129;
+         this.FileNo_Clm.VisibleIndex = 10;
+         this.FileNo_Clm.Width = 115;
          // 
          // colATTN_DATE
          // 
@@ -364,7 +366,7 @@
          this.CochFileNo_Clm.OptionsColumn.ReadOnly = true;
          this.CochFileNo_Clm.Visible = true;
          this.CochFileNo_Clm.VisibleIndex = 6;
-         this.CochFileNo_Clm.Width = 60;
+         this.CochFileNo_Clm.Width = 52;
          // 
          // repositoryItemLookUpEdit1
          // 
@@ -467,7 +469,7 @@
          this.gridColumn1.Name = "gridColumn1";
          this.gridColumn1.Visible = true;
          this.gridColumn1.VisibleIndex = 0;
-         this.gridColumn1.Width = 114;
+         this.gridColumn1.Width = 108;
          // 
          // Actn_Butn
          // 
@@ -491,7 +493,7 @@
          this.MtodCode_Clm.OptionsColumn.ReadOnly = true;
          this.MtodCode_Clm.Visible = true;
          this.MtodCode_Clm.VisibleIndex = 5;
-         this.MtodCode_Clm.Width = 60;
+         this.MtodCode_Clm.Width = 52;
          // 
          // repositoryItemLookUpEdit2
          // 
@@ -518,7 +520,7 @@
          this.CtgyCode_Clm.OptionsColumn.ReadOnly = true;
          this.CtgyCode_Clm.Visible = true;
          this.CtgyCode_Clm.VisibleIndex = 4;
-         this.CtgyCode_Clm.Width = 60;
+         this.CtgyCode_Clm.Width = 52;
          // 
          // repositoryItemLookUpEdit3
          // 
@@ -545,7 +547,7 @@
          this.colATTN_SYS_TYPE.OptionsColumn.ReadOnly = true;
          this.colATTN_SYS_TYPE.Visible = true;
          this.colATTN_SYS_TYPE.VisibleIndex = 3;
-         this.colATTN_SYS_TYPE.Width = 60;
+         this.colATTN_SYS_TYPE.Width = 52;
          // 
          // repositoryItemLookUpEdit5
          // 
@@ -561,6 +563,32 @@
          // DActnBs
          // 
          this.DActnBs.DataSource = typeof(System.Scsc.Data.D_SXTP);
+         // 
+         // colRTNG_NUMB
+         // 
+         this.colRTNG_NUMB.AppearanceCell.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+         this.colRTNG_NUMB.AppearanceCell.Options.UseBackColor = true;
+         this.colRTNG_NUMB.Caption = "امتیاز";
+         this.colRTNG_NUMB.FieldName = "RTNG_NUMB";
+         this.colRTNG_NUMB.Name = "colRTNG_NUMB";
+         this.colRTNG_NUMB.Visible = true;
+         this.colRTNG_NUMB.VisibleIndex = 2;
+         this.colRTNG_NUMB.Width = 29;
+         // 
+         // colDebtDnrm
+         // 
+         this.colDebtDnrm.Caption = "بدهی";
+         this.colDebtDnrm.DisplayFormat.FormatString = "{0:n0}";
+         this.colDebtDnrm.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+         this.colDebtDnrm.FieldName = "Fighter1.DEBT_DNRM";
+         this.colDebtDnrm.GroupFormat.FormatString = "{0:n0}";
+         this.colDebtDnrm.GroupFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+         this.colDebtDnrm.Name = "colDebtDnrm";
+         this.colDebtDnrm.OptionsColumn.AllowEdit = false;
+         this.colDebtDnrm.OptionsColumn.ReadOnly = true;
+         this.colDebtDnrm.Visible = true;
+         this.colDebtDnrm.VisibleIndex = 9;
+         this.colDebtDnrm.Width = 64;
          // 
          // splitContainerControl1
          // 
@@ -582,7 +610,7 @@
          this.splitContainerControl1.Panel1.Text = "Panel1";
          this.splitContainerControl1.Panel2.Controls.Add(this.attendanceGridControl);
          this.splitContainerControl1.Panel2.Text = "Panel2";
-         this.splitContainerControl1.Size = new System.Drawing.Size(739, 512);
+         this.splitContainerControl1.Size = new System.Drawing.Size(746, 713);
          this.splitContainerControl1.SplitterPosition = 99;
          this.splitContainerControl1.TabIndex = 3;
          this.splitContainerControl1.Text = "splitContainerControl1";
@@ -948,7 +976,7 @@
          this.PrintSetting_Butn.ImageIndex = 2;
          this.PrintSetting_Butn.ImageList = this.imageList1;
          this.PrintSetting_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.PrintSetting_Butn.Location = new System.Drawing.Point(610, 59);
+         this.PrintSetting_Butn.Location = new System.Drawing.Point(617, 59);
          this.PrintSetting_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.PrintSetting_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.PrintSetting_Butn.Name = "PrintSetting_Butn";
@@ -978,7 +1006,7 @@
          this.Print_Butn.ImageIndex = 1;
          this.Print_Butn.ImageList = this.imageList1;
          this.Print_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.Print_Butn.Location = new System.Drawing.Point(656, 59);
+         this.Print_Butn.Location = new System.Drawing.Point(663, 59);
          this.Print_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.Print_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.Print_Butn.Name = "Print_Butn";
@@ -998,7 +1026,7 @@
          this.PrintDefault_Butn.ImageIndex = 0;
          this.PrintDefault_Butn.ImageList = this.imageList1;
          this.PrintDefault_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.PrintDefault_Butn.Location = new System.Drawing.Point(702, 59);
+         this.PrintDefault_Butn.Location = new System.Drawing.Point(709, 59);
          this.PrintDefault_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.PrintDefault_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.PrintDefault_Butn.Name = "PrintDefault_Butn";
@@ -1017,7 +1045,7 @@
          this.AtenDesc_Lb.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.AtenDesc_Lb.Location = new System.Drawing.Point(505, 3);
          this.AtenDesc_Lb.Name = "AtenDesc_Lb";
-         this.AtenDesc_Lb.Size = new System.Drawing.Size(170, 50);
+         this.AtenDesc_Lb.Size = new System.Drawing.Size(177, 50);
          this.AtenDesc_Lb.TabIndex = 1;
          this.AtenDesc_Lb.Text = "لیست حضوری اعضا";
          // 
@@ -1055,17 +1083,6 @@
          // 
          this.DSxtpBs1.DataSource = typeof(System.Scsc.Data.D_SXTP);
          // 
-         // colRTNG_NUMB
-         // 
-         this.colRTNG_NUMB.AppearanceCell.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-         this.colRTNG_NUMB.AppearanceCell.Options.UseBackColor = true;
-         this.colRTNG_NUMB.Caption = "امتیاز";
-         this.colRTNG_NUMB.FieldName = "RTNG_NUMB";
-         this.colRTNG_NUMB.Name = "colRTNG_NUMB";
-         this.colRTNG_NUMB.Visible = true;
-         this.colRTNG_NUMB.VisibleIndex = 2;
-         this.colRTNG_NUMB.Width = 34;
-         // 
          // ATTN_DAYN_F
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -1076,7 +1093,7 @@
          this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.Name = "ATTN_DAYN_F";
          this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-         this.Size = new System.Drawing.Size(755, 512);
+         this.Size = new System.Drawing.Size(762, 713);
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTimeEdit1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.AttnBs1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.attendanceGridControl)).EndInit();
@@ -1188,5 +1205,6 @@
       private Windows.Forms.BindingSource DActnBs;
       private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repositoryItemLookUpEdit5;
       private DevExpress.XtraGrid.Columns.GridColumn colRTNG_NUMB;
+      private DevExpress.XtraGrid.Columns.GridColumn colDebtDnrm;
    }
 }

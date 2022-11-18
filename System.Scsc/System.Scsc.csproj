@@ -1286,6 +1286,8 @@
     <None Include="Properties\DataSources\System.Scsc.Data.Requester_Type.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Request_Document.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Request_Letter.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.Request_Parameter.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.Request_Parameter_Value.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Request_Regulation_History.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Request_Requester.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Request_Row.datasource" />
@@ -1305,6 +1307,7 @@
     <None Include="Properties\DataSources\System.Scsc.Data.Template_Item.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Test.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.User_Club_Fgac.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.User_Link_Method.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.User_Region_Fgac.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.User_Request_Requester_Fgac.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.VD_SaleReceiptDiscount.datasource" />
@@ -1344,6 +1347,7 @@
     <None Include="Properties\DataSources\System.Scsc.Data.VF_Save_PaymentsResult.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.VF_StatisticAttendanceResult.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.VF_TestResult.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.V_Admin_Wallet.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.V_Appd_Message_Box.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.V_App_Message_Box.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.V_Computer.datasource" />
@@ -1359,6 +1363,7 @@
     <None Include="Properties\DataSources\System.Scsc.Data.V_StatisticReceipt.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.V_StatisticSale.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.V_SubSy.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.V_Transaction_Fee.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.V_User.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.V_User_Localization_Form.datasource" />
     <None Include="Properties\Settings.settings">

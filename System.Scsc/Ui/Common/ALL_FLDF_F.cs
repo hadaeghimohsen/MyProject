@@ -1368,6 +1368,22 @@ namespace System.Scsc.Ui.Common
                case 6:
                   AttnBs2.DataSource = iScsc.Attendances.Where(a => a.FIGH_FILE_NO == fileno);
                   break;
+               case 9:
+                  int _rqst = RqstBs.Position;
+                  int _rqpm = RqpmBs.Position;
+                  int _rqpv = RqpvBs.Position;
+                  RqstBs.DataSource = 
+                     from r in iScsc.Requests
+                     join rr in iScsc.Request_Rows on r.RQID equals rr.RQST_RQID
+                     where r.RQST_STAT == "002" &&
+                           (r.RQTP_CODE == "001" || r.RQTP_CODE == "009" || r.RQTP_CODE == "016") &&
+                           rr.FIGH_FILE_NO == fileno
+                     orderby r.SAVE_DATE
+                     select r;
+                  RqstBs.Position = _rqst;
+                  RqpmBs.Position = _rqpm;
+                  RqpvBs.Position = _rqpv;
+                  break;
                default:
                   break;
             }
@@ -1400,7 +1416,7 @@ namespace System.Scsc.Ui.Common
                  new Job(SendType.External, "Localhost",
                     new List<Job>
                   {
-                     new Job(SendType.Self, 84 /* Execute Rpt_Mngr_F */){Input = new XElement("Print", new XAttribute("type", "Selection"), new XAttribute("modual", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_001_F"), string.Format("File_No = '{0}'", fileno))}
+                     new Job(SendType.Self, 84 /* Execute Rpt_Mngr_F */){Input = new XElement("Print", new XAttribute("type", "Selection"), new XAttribute("modual", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_001_F"), string.Format("File_No = {0}", fileno))}
                   });
             _DefaultGateway.Gateway(_InteractWithScsc);
          }
@@ -1416,7 +1432,7 @@ namespace System.Scsc.Ui.Common
               new Job(SendType.External, "Localhost",
                  new List<Job>
                   {
-                     new Job(SendType.Self, 84 /* Execute Rpt_Mngr_F */){Input = new XElement("Print", new XAttribute("type", "Default"), new XAttribute("modual", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_001_F"), string.Format("File_No = '{0}'", fileno))}
+                     new Job(SendType.Self, 84 /* Execute Rpt_Mngr_F */){Input = new XElement("Print", new XAttribute("type", "Default"), new XAttribute("modual", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_001_F"), string.Format("File_No = {0}", fileno))}
                   });
             _DefaultGateway.Gateway(_InteractWithScsc);
          }
@@ -3598,5 +3614,165 @@ namespace System.Scsc.Ui.Common
                   });
          _DefaultGateway.Gateway(_InteractWithScsc);
       }
+
+      private void SaveRqpm_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            RqpmBs.EndEdit();
+            RqpmGv.PostEditor();
+
+            iScsc.SubmitChanges();
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+            {
+               Execute_Query();
+               tb_master.SelectedTab = tp_010;
+            }
+         }
+      }
+
+      private void FRqpm_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost",
+                  new List<Job>
+                  {
+                     new Job(SendType.Self, 154 /* Execute Apbs_Dfin_F */),
+                     new Job(SendType.SelfToUserInterface, "APBS_DFIN_F", 10 /* Execute Actn_CalF_F */)
+                     {
+                        Input = 
+                           new XElement("App_Base",
+                              new XAttribute("tablename", "Request_Parameter"),
+                              new XAttribute("formcaller", GetType().Name)
+                           )
+                     }
+                  }
+               )
+            );
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void RlodRqpm_Butn_Click(object sender, EventArgs e)
+      {
+         Refresh_Butn_Click(null, null);
+         tb_master.SelectedTab = tp_010;
+      }
+
+      private void InsFRqpm_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _rqst = RqstBs.Current as Data.Request;
+            if (_rqst == null) return;
+
+            iScsc.ExecuteCommand(
+               string.Format(
+               "MERGE dbo.Request_Parameter T" + Environment.NewLine +
+               "USING (SELECT Code FROM dbo.App_Base_Define WHERE ENTY_NAME = 'Request_Parameter' AND REF_CODE IS NULL) S" + Environment.NewLine +
+               "ON (T.Rqst_Rqid = {0} AND T.APBS_CODE = S.CODE)" + Environment.NewLine +
+               "WHEN NOT MATCHED THEN" + Environment.NewLine +
+               "INSERT (Rqst_Rqid, CODE, APBS_CODE) VALUES ({0}, dbo.GNRT_NVID_U(), S.Code);", _rqst.RQID
+               )
+            );
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+            {
+               Execute_Query();
+               tb_master.SelectedTab = tp_010;
+            }
+         }
+      }
+
+      private void SaveRqpv_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            RqpvBs.EndEdit();
+            RqpvGv.PostEditor();
+
+            iScsc.SubmitChanges();
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if(requery)
+            {
+               Execute_Query();
+               tb_master.SelectedTab = tp_010;
+            }
+         }
+      }
+
+      private void InsRqpv_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _rqpm = RqpmBs.Current as Data.Request_Parameter;
+            if (_rqpm == null) return;
+
+            iScsc.ExecuteCommand(
+               string.Format(
+               "MERGE dbo.Request_Parameter_Value T" + Environment.NewLine +
+               "USING (SELECT Code FROM dbo.App_Base_Define WHERE Ref_Code = {1}) S" + Environment.NewLine +
+               "ON (T.Rqpm_Code = {0} AND T.APBS_CODE = S.CODE)" + Environment.NewLine +
+               "WHEN NOT MATCHED THEN" + Environment.NewLine +
+               "INSERT (Rqpm_Code, CODE, APBS_CODE) VALUES ({0}, dbo.GNRT_NVID_U(), S.Code);", _rqpm.CODE, _rqpm.APBS_CODE
+               )
+            );
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+            {
+               Execute_Query();
+               tb_master.SelectedTab = tp_010;
+            }
+         }
+      }
+
+      private void RqpmBs_CurrentChanged(object sender, EventArgs e)
+      {
+         try
+         {
+            var _rqpm = RqpmBs.Current as Data.Request_Parameter;
+            if (_rqpm == null) return;
+
+            DRqpmBs.DataSource = _rqpm.App_Base_Define;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }      
    }
 }

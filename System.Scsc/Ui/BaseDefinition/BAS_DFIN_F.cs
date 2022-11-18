@@ -4698,6 +4698,267 @@ namespace System.Scsc.Ui.BaseDefinition
             if (requery)
                Execute_Query();
          }
-      }      
+      }
+
+      private void AddUlkm_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void DelUlkm_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void SaveUlkm_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void MergUsers4Mtod_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            switch(MessageBox.Show(this, "آیا ثبت دسترسی کاربران به گروه خدمات جاری باشد یا تمام گروه ها؟", "نحوه دسترسی به گروه خدمات", MessageBoxButtons.YesNoCancel))
+            {
+               case DialogResult.Yes:
+                  var _mtod = MtodBs1.Current as Data.Method;
+                  if (_mtod == null) return;
+
+                  iScsc.ExecuteCommand(
+                     string.Format(
+                        "Merge dbo.User_Link_Method T " + 
+                        "Using (Select u.Id As User_Id, {0} As Mtod_Code from dbo.V#Users u) S " +
+                        "On (T.Mtod_Code = S.Mtod_Code And T.User_Id = S.User_Id) " + 
+                        "When Not Matched Then Insert (Mtod_Code, User_Id, Code, Stat) Values(S.Mtod_Code, S.User_Id, dbo.Gnrt_Nvid_U(), '002');",
+                        _mtod.CODE
+                     )
+                  );
+                  break;
+               case DialogResult.No:
+                  iScsc.ExecuteCommand(
+                        "Merge dbo.User_Link_Method T " +
+                        "Using (Select u.Id As User_Id, m.Code As Mtod_Code from dbo.V#Users u, dbo.Method m) S " +
+                        "On (T.Mtod_Code = S.Mtod_Code And T.User_Id = S.User_Id) " +
+                        "When Not Matched Then Insert (Mtod_Code, User_Id, Code, Stat) Values(S.Mtod_Code, S.User_Id, dbo.Gnrt_Nvid_U(), '002');"
+                  );
+                  break;
+               default:
+                  break;
+            }
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void DupCexc_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _cexc = CexcBs.Current as Data.Calculate_Expense_Coach;
+            if (_cexc == null) return;
+
+            iScsc.DUP_CEXC_P(
+               new XElement("OpIran",
+                   new XAttribute("cexccode", _cexc.CODE)
+               )
+            );
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void ADCexc_Tsm_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _cexc = CexcBs.Current as Data.Calculate_Expense_Coach;
+            if (_cexc == null) return;
+
+            // 1401/08/20 * مرگ بر اصل ولایت فقیه
+            // مرگ بر خامنه ای
+            // اگر کلید کنترل گرفته شده باشد تمام گروه خدمات برای این پرسنل فعال یا غیر فعال میکنیم
+            if(ModifierKeys == Keys.Control)
+            {
+               iScsc.ExecuteCommand(
+                  string.Format(
+                     "UPDATE dbo.Calculate_Expense_Coach SET Stat = '{0}' " + 
+                     "WHERE Coch_File_No = {1} AND Mtod_Code = {2} AND Rqtp_Code = {3} AND Extp_Code = {4};",
+                     _cexc.STAT == "001" ? "002" : "001",
+                     _cexc.COCH_FILE_NO,
+                     _cexc.MTOD_CODE,
+                     _cexc.RQTP_CODE,
+                     _cexc.EXTP_CODE
+                  )
+               );
+            }
+            else if (ModifierKeys == Keys.Shift)
+            {
+               iScsc.ExecuteCommand(
+                  string.Format(
+                     "UPDATE dbo.Calculate_Expense_Coach SET Stat = '{0}' " + 
+                     "WHERE Mtod_Code = {1} AND Rqtp_Code = {2} AND Extp_Code = {3};",
+                     _cexc.STAT == "001" ? "002" : "001",
+                     _cexc.MTOD_CODE,
+                     _cexc.RQTP_CODE,
+                     _cexc.EXTP_CODE
+                  )
+               );
+            }
+            else
+            {
+               iScsc.ExecuteCommand(
+                  string.Format(
+                     "UPDATE dbo.Calculate_Expense_Coach SET Stat = '{0}' " + 
+                     "WHERE Code = {1};",
+                     _cexc.STAT == "001" ? "002" : "001",
+                     _cexc.CODE
+                  )
+               );
+            }
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void CopyCexc_Tsm_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _cexc = CexcBs.Current as Data.Calculate_Expense_Coach;
+            if (_cexc == null) return;
+
+            if(ModifierKeys == Keys.Control)
+            {
+               // برای سرگروه تمام پرسنل
+               iScsc.ExecuteCommand(
+                  string.Format(
+                     "UPDATE dbo.Calculate_Expense_Coach " +
+                     "SET Calc_Expn_Type = '{3}', Calc_Type = '{4}', Prct_Valu = {5}, Stat = '{6}', Pymt_Stat = '{7}' " +
+                     "WHERE Mtod_Code = {0} AND Rqtp_Code = {1} AND Extp_Code = {2};",
+                     _cexc.MTOD_CODE,
+                     _cexc.RQTP_CODE,
+                     _cexc.EXTP_CODE,
+                     _cexc.CALC_EXPN_TYPE,
+                     _cexc.CALC_TYPE,
+                     _cexc.PRCT_VALU,
+                     _cexc.STAT,
+                     _cexc.PYMT_STAT
+                  )
+               );
+            }
+            else if (ModifierKeys == Keys.Shift)
+            {
+               iScsc.ExecuteCommand(
+                  string.Format(
+                     "UPDATE dbo.Calculate_Expense_Coach " +
+                     "SET Calc_Expn_Type = '{1}', Calc_Type = '{2}', Prct_Valu = {3}, Stat = '{4}', Pymt_Stat = '{5}' " +
+                     "WHERE Coch_File_No = {0};",
+                     _cexc.COCH_FILE_NO,
+                     _cexc.CALC_EXPN_TYPE,
+                     _cexc.CALC_TYPE,
+                     _cexc.PRCT_VALU,
+                     _cexc.STAT,
+                     _cexc.PYMT_STAT
+                  )
+               );
+            }
+            else if (ModifierKeys == (Keys.Control | Keys.Shift))
+            {
+               iScsc.ExecuteCommand(
+                  string.Format(
+                     "UPDATE dbo.Calculate_Expense_Coach " +
+                     "SET Calc_Expn_Type = '{0}', Calc_Type = '{1}', Prct_Valu = {2}, Stat = '{3}', Pymt_Stat = '{4}';" ,
+                     _cexc.CALC_EXPN_TYPE,
+                     _cexc.CALC_TYPE,
+                     _cexc.PRCT_VALU,
+                     _cexc.STAT,
+                     _cexc.PYMT_STAT
+                  )
+               );
+            }
+            else
+            {
+               // برای تمام آیتم های سرگروه خوده پرسنل
+               iScsc.ExecuteCommand(
+                  string.Format(
+                     "UPDATE dbo.Calculate_Expense_Coach " + 
+                     "SET Calc_Expn_Type = '{4}', Calc_Type = '{5}', Prct_Valu = {6}, Stat = '{7}', Pymt_Stat = '{8}' " +  
+                     "WHERE Coch_File_No = {0} AND Mtod_Code = {1} AND Rqtp_Code = {2} AND Extp_Code = {3};",
+                     _cexc.COCH_FILE_NO,
+                     _cexc.MTOD_CODE,
+                     _cexc.RQTP_CODE,
+                     _cexc.EXTP_CODE,
+                     _cexc.CALC_EXPN_TYPE,
+                     _cexc.CALC_TYPE,
+                     _cexc.PRCT_VALU,
+                     _cexc.STAT,
+                     _cexc.PYMT_STAT
+                  )
+               );
+            }
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if(requery)
+               Execute_Query();
+         }
+      }
    }
 }

@@ -136,6 +136,9 @@ namespace System.Scsc.Ui.Regulation
          var CrntExtp = EXTPBS.Position;
          var CrntExpn = ExpnBs.Position;
          var CrntExcs = EXCSBS.Position;
+         var crntpexp = PexpBs1.Position;
+         var crntexts = ExtsBs.Position;
+         var crntcexc = CexcBs.Position;
          iScsc = new Data.iScscDataContext(ConnectionString);
          RqrqBs.DataSource = iScsc.Request_Requesters.Where(rg => rg.Regulation == (Data.Regulation)ReglBs.Current).OrderBy(rq => rq.RQTP_CODE).ThenBy(rq => rq.RQTT_CODE);
          GV_RQRQ.TopRowIndex = CrntRqrq;
@@ -145,6 +148,9 @@ namespace System.Scsc.Ui.Regulation
          EXTPBS.Position = CrntExtp;
          ExpnBs.Position = CrntExpn;
          EXCSBS.Position = CrntExcs;
+         PexpBs1.Position = crntpexp;
+         ExtsBs.Position = crntexts;
+         CexcBs.Position = crntcexc;
          requery = false;
       }
 
@@ -821,6 +827,144 @@ namespace System.Scsc.Ui.Regulation
       private void SaveExts_Butn_Click(object sender, EventArgs e)
       {
          SubmitRqrq_Click(null, null);
+      }
+
+      private void AddCexc_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _expn = ExpnBs.Current as Data.Expense;
+            if (_expn == null) return;
+
+            if (CexcBs.List.OfType<Data.Calculate_Expense_Coach>().Any(c => c.CODE == 0)) return;
+            var _cexc = CexcBs.AddNew() as Data.Calculate_Expense_Coach;
+
+            _cexc.EXPN_CODE = _expn.CODE;
+            _cexc.EPIT_CODE = _expn.Expense_Type.EPIT_CODE;
+            _cexc.EXTP_CODE = _expn.EXTP_CODE;
+            _cexc.MTOD_CODE = _expn.MTOD_CODE;
+            _cexc.CTGY_CODE = _expn.CTGY_CODE;
+            _cexc.RQTP_CODE = _expn.Expense_Type.Request_Requester.RQTP_CODE;
+            _cexc.RQTT_CODE = _expn.Expense_Type.Request_Requester.RQTT_CODE;
+            _cexc.CALC_EXPN_TYPE = _cexc.RQTP_CODE == "016" ? null : "001";
+            _cexc.CALC_TYPE = "001";
+            _cexc.PRCT_VALU = 10;
+            _cexc.STAT = "002";
+            _cexc.PYMT_STAT = "002";            
+            _cexc.EFCT_DATE_TYPE = _cexc.RQTP_CODE == "016" ? "004" : "002";
+
+            iScsc.Calculate_Expense_Coaches.InsertOnSubmit(_cexc);
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void DelCexc_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _cexc = CexcBs.Current as Data.Calculate_Expense_Coach;
+            if (_cexc == null) return;
+
+            if (MessageBox.Show(this, "آیا با حذف رکورد موافق هستید؟", "حذف رکورد", MessageBoxButtons.YesNo) != DialogResult.Yes) return;
+
+            iScsc.Calculate_Expense_Coaches.DeleteOnSubmit(_cexc);
+            iScsc.SubmitChanges();
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void SaveCexc_Butn_Click(object sender, EventArgs e)
+      {
+         SubmitRqrq_Click(null, null);
+      }
+
+      private void DupCexc_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _cexc = CexcBs.Current as Data.Calculate_Expense_Coach;
+            if (_cexc == null) return;
+
+            iScsc.DUP_CEXC_P(
+               new XElement("OpIran",                   
+                   new XAttribute("cexccode", _cexc.CODE)
+               )
+            );
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void Coch_Lov_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
+      {
+         try
+         {
+            var _cexc = CexcBs.Current as Data.Calculate_Expense_Coach;
+            if (_cexc == null || _cexc.CODE == 0) return;
+
+            iScsc.ExecuteCommand(
+               string.Format("UPDATE dbo.Calculate_Expense_Coach SET Coch_File_No = {0} WHERE Code = {1};", e.NewValue, _cexc.CODE)
+            );
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void CopyRsvr_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _extp = EXTPBS.Current as Data.Expense_Type;
+            if (_extp == null) return;
+
+            iScsc.DUP_EXTS_P(
+               new XElement("OpIran",
+                   new XAttribute("extpcode", _extp.CODE),
+                   new XAttribute("fromhour", string.Format("{0}:00", FromHour_Txt.Text)),
+                   new XAttribute("tohour", string.Format("{0}:00", ToHour_Txt.Text)),
+                   new XAttribute("gaphour", GapHour_Txt.Text),
+                   new XAttribute("qnty", Qnty_Txt.Text)
+               )
+            );
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if(requery)
+               Execute_Query();
+         }
       }
    }
 }

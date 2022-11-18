@@ -310,6 +310,10 @@ namespace System.Scsc.Ui.ReportManager
          FromDate11_Date.CommitChanges(); ToDate11_Date.CommitChanges();
          FromDate12_Date.CommitChanges(); ToDate12_Date.CommitChanges();
 
+         // مرگ بر دیکتاتور
+         // 1401/08/26 * زن_زندگی_آزادی
+         Save_Default_Report_Action_Parameter();
+
          if (tc_master.SelectedTab == tp_001)
          {
             if (!FromDate1_Date.Value.HasValue) { MessageBox.Show("تاریخ شروع را مشخص کنید"); FromDate1_Date.Focus(); return; }
@@ -647,89 +651,82 @@ namespace System.Scsc.Ui.ReportManager
 
       private void RqstBnPrint_Click(object sender, EventArgs e)
       {
-         //if (tc_master.SelectedTab == tp_001)
-         {
-            Find_Butn_Click(null, null);
+         Find_Butn_Click(null, null);
 
-            Job _InteractWithScsc =
-              new Job(SendType.External, "Localhost",
-                 new List<Job>
+         Job _InteractWithScsc =
+            new Job(SendType.External, "Localhost",
+               new List<Job>
+               {
+                  new Job(SendType.Self, 84 /* Execute Rpt_Mngr_F */)
                   {
-                     new Job(SendType.Self, 84 /* Execute Rpt_Mngr_F */)
-                     {
-                        Input = 
-                           new XElement("Print", 
-                              new XAttribute("type", "Selection"), 
-                              new XAttribute("modual", /*GetType().Name*/formName), 
-                              new XAttribute("section", GetType().Name.Substring(0,3) + "_001_F"),
-                              //string.Format("<Request fromrqstdate=\"{0}\" torqstdate=\"{1}\" cretby=\"{2}\"><Club_Method cochfileno=\"{3}\" code=\"{4}\" ctgycode=\"{5}\"/></Request>", FromDate2_Date.Value.Value.Date.ToString("yyyy-MM-dd"), ToDate2_Date.Value.Value.Date.ToString("yyyy-MM-dd"), User_Lov2.EditValue, Figh_Lov2.EditValue, Cbmt_Lov2.EditValue, Ctgy_lov2.EditValue )
-                              string.Format("<Request fromrqstdate=\"{0}\" torqstdate=\"{1}\" cretby=\"{2}\"><Club_Method cochfileno=\"{3}\" code=\"{4}\" ctgycode=\"{5}\"/></Request>", 
-                                            FromDate2_Date.Value.Value.Date.ToString("yyyy-MM-dd"), 
-                                            ToDate2_Date.Value.Value.Date.ToString("yyyy-MM-dd"), 
-                                            User_Lov2.EditValue, 
-                                            Figh_Lov2.EditValue/*cochfileno*/, 
-                                            Cbmt_Lov2.EditValue/*cbmtcode*/, 
-                                            Ctgy_lov2.EditValue )
-                           )
-                     }
-                  });
-            _DefaultGateway.Gateway(_InteractWithScsc);
-         }
+                     Input = 
+                        new XElement("Print", 
+                           new XAttribute("type", "Selection"), 
+                           new XAttribute("modual", /*GetType().Name*/formName), 
+                           new XAttribute("section", GetType().Name.Substring(0,3) + "_001_F"),
+                           //string.Format("<Request fromrqstdate=\"{0}\" torqstdate=\"{1}\" cretby=\"{2}\"><Club_Method cochfileno=\"{3}\" code=\"{4}\" ctgycode=\"{5}\"/></Request>", FromDate2_Date.Value.Value.Date.ToString("yyyy-MM-dd"), ToDate2_Date.Value.Value.Date.ToString("yyyy-MM-dd"), User_Lov2.EditValue, Figh_Lov2.EditValue, Cbmt_Lov2.EditValue, Ctgy_lov2.EditValue )
+                           string.Format("<Request fromrqstdate=\"{0}\" torqstdate=\"{1}\" cretby=\"{2}\"><Club_Method cochfileno=\"{3}\" code=\"{4}\" ctgycode=\"{5}\"/><Organ code=\"{6}\"/></Request>", 
+                                          FromDate2_Date.Value.Value.Date.ToString("yyyy-MM-dd"), 
+                                          ToDate2_Date.Value.Value.Date.ToString("yyyy-MM-dd"), 
+                                          User_Lov2.EditValue, 
+                                          Figh_Lov2.EditValue/*cochfileno*/, 
+                                          Cbmt_Lov2.EditValue/*cbmtcode*/, 
+                                          Ctgy_lov2.EditValue,
+                                          Sunt_Lov2.EditValue)
+                        )
+                  }
+               });
+         _DefaultGateway.Gateway(_InteractWithScsc);
       }
 
       private void RqstBnDefaultPrint_Click(object sender, EventArgs e)
       {
-         //if (tc_master.SelectedTab == tp_001)
-         {
-            Find_Butn_Click(null, null);
+         Find_Butn_Click(null, null);
 
-            Job _InteractWithScsc =
-              new Job(SendType.External, "Localhost",
-                 new List<Job>
+         Job _InteractWithScsc =
+            new Job(SendType.External, "Localhost",
+               new List<Job>
+               {
+                  new Job(SendType.Self, 84 /* Execute Rpt_Mngr_F */)
                   {
-                     new Job(SendType.Self, 84 /* Execute Rpt_Mngr_F */)
-                     {
-                        Input = 
-                           new XElement("Print", 
-                              new XAttribute("type", "Default"), 
-                              new XAttribute("modual", /*GetType().Name*/ formName), 
-                              new XAttribute("section", GetType().Name.Substring(0,3) + "_001_F"), 
-                              string.Format("<Request fromrqstdate=\"{0}\" torqstdate=\"{1}\" cretby=\"{2}\"><Club_Method cochfileno=\"{3}\" code=\"{4}\" ctgycode=\"{5}\"/></Request>", 
-                                 FromDate2_Date.Value.Value.Date.ToString("yyyy-MM-dd"), 
-                                 ToDate2_Date.Value.Value.Date.ToString("yyyy-MM-dd"), 
-                                 User_Lov2.EditValue, 
-                                 Figh_Lov2.EditValue, 
-                                 Cbmt_Lov2.EditValue/*cbmtcode*/, 
-                                 Ctgy_lov2.EditValue 
-                              )
+                     Input = 
+                        new XElement("Print", 
+                           new XAttribute("type", "Default"), 
+                           new XAttribute("modual", /*GetType().Name*/ formName), 
+                           new XAttribute("section", GetType().Name.Substring(0,3) + "_001_F"), 
+                           string.Format("<Request fromrqstdate=\"{0}\" torqstdate=\"{1}\" cretby=\"{2}\"><Club_Method cochfileno=\"{3}\" code=\"{4}\" ctgycode=\"{5}\"/><Organ code=\"{6}\"/></Request>", 
+                              FromDate2_Date.Value.Value.Date.ToString("yyyy-MM-dd"), 
+                              ToDate2_Date.Value.Value.Date.ToString("yyyy-MM-dd"), 
+                              User_Lov2.EditValue, 
+                              Figh_Lov2.EditValue, 
+                              Cbmt_Lov2.EditValue/*cbmtcode*/, 
+                              Ctgy_lov2.EditValue,
+                              Sunt_Lov2.EditValue
                            )
-                     }
-                  });
-            _DefaultGateway.Gateway(_InteractWithScsc);
-         }
+                        )
+                  }
+               });
+         _DefaultGateway.Gateway(_InteractWithScsc);
       }
 
       private void RqstBnSettingPrint_Click(object sender, EventArgs e)
       {
-         //if (tc_master.SelectedTab == tp_001)
-         {
-            Job _InteractWithScsc =
-              new Job(SendType.External, "Localhost",
-                 new List<Job>
+         Job _InteractWithScsc =
+            new Job(SendType.External, "Localhost",
+               new List<Job>
+               {
+                  new Job(SendType.Self, 81 /* Execute Cfg_Stng_F */),
+                  new Job(SendType.SelfToUserInterface, "CFG_STNG_F", 10 /* Actn_CalF_P */)
                   {
-                     new Job(SendType.Self, 81 /* Execute Cfg_Stng_F */),
-                     new Job(SendType.SelfToUserInterface, "CFG_STNG_F", 10 /* Actn_CalF_P */)
-                     {
-                        Input = 
-                           new XElement("Request", 
-                              new XAttribute("type", "ModualReport"), 
-                              new XAttribute("modul", /*GetType().Name*/ formName), 
-                              new XAttribute("section", GetType().Name.Substring(0,3) + "_001_F")
-                           )
-                     }
-                  });
-            _DefaultGateway.Gateway(_InteractWithScsc);
-         }
+                     Input = 
+                        new XElement("Request", 
+                           new XAttribute("type", "ModualReport"), 
+                           new XAttribute("modul", /*GetType().Name*/ formName), 
+                           new XAttribute("section", GetType().Name.Substring(0,3) + "_001_F")
+                        )
+                  }
+               });
+         _DefaultGateway.Gateway(_InteractWithScsc);
       }
 
       private void Expn_Butn_ButtonClick(object sender, ButtonPressedEventArgs e)
@@ -1459,6 +1456,10 @@ namespace System.Scsc.Ui.ReportManager
             if (_rpac == null) return;
 
             var _user = User_Lov2.Properties.Items.OfType<CheckedListBoxItem>().Where(i => i.CheckState == CheckState.Checked).Select(i => i.Value).ToList();
+            
+            Data.Sub_Unit _orgn = null;
+            if(Sunt_Lov2.EditValue != null && Sunt_Lov2.EditValue.ToString() != "")
+               _orgn = SuntBs1.List.OfType<Data.Sub_Unit>().FirstOrDefault(o => o.CODE == Sunt_Lov2.EditValue);
 
             if (MessageBox.Show(this, "ایجاد گزارش فرآیند زمان بری میباشد، لطفا تا پایان اجرای فرایند صبر کنید. آیا فرایند انجام شود؟", "ایجاد گزارش", MessageBoxButtons.YesNo) != DialogResult.Yes) return;
 
@@ -1471,7 +1472,11 @@ namespace System.Scsc.Ui.ReportManager
                       new XAttribute("todate", ToDate2_Date.Value == null ? "" : ToDate2_Date.Value.Value.ToString("yyyy-MM-dd")),
                       new XAttribute("cochfileno", Figh_Lov2.EditValue ?? ""),
                       new XAttribute("cbmtcode", Cbmt_Lov2.EditValue ?? ""),
-                      new XAttribute("recdownr", _user.Count == 0 ? "" : string.Join(":", _user))
+                      new XAttribute("recdownr", _user.Count == 0 ? "" : string.Join(":", _user)),
+                      new XAttribute("suntcode", _orgn != null ? _orgn.CODE : ""),
+                      new XAttribute("suntbuntcode", _orgn != null ? _orgn.BUNT_CODE : ""),
+                      new XAttribute("suntbuntdeptcode", _orgn != null ? _orgn.BUNT_DEPT_CODE : ""),
+                      new XAttribute("suntbuntdeptorgncode", _orgn != null ? _orgn.BUNT_DEPT_ORGN_CODE : "")
                   ).ToString()
                )
             );
@@ -1609,6 +1614,52 @@ namespace System.Scsc.Ui.ReportManager
                default:
                   break;
             }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void Save_Default_Report_Action_Parameter()
+      {
+         try
+         {
+            var _rpac = iScsc.Report_Action_Parameters.FirstOrDefault(r => r.RPAC_TYPE == "000" && r.CRET_BY == CurrentUser);
+
+            var _user = User_Lov2.Properties.Items.OfType<CheckedListBoxItem>().Where(i => i.CheckState == CheckState.Checked).Select(i => i.Value).ToList();
+            Data.Sub_Unit _orgn = null;
+            if(Sunt_Lov2.EditValue != null && Sunt_Lov2.EditValue.ToString() != "")
+               _orgn = SuntBs1.List.OfType<Data.Sub_Unit>().FirstOrDefault(o => o.CODE == Sunt_Lov2.EditValue);
+
+            if(_rpac == null)
+            {
+               _rpac = new Data.Report_Action_Parameter() ;
+               _rpac.RPAC_TYPE = "000";
+               _rpac.FROM_DATE = FromDate2_Date.Value;
+               _rpac.TO_DATE = ToDate2_Date.Value;
+               _rpac.RECD_OWNR = _user.Count == 0 ? "" : string.Join(":", _user);
+               _rpac.COCH_FILE_NO = (long?)Figh_Lov2.EditValue;
+               _rpac.CBMT_CODE = (long?)Cbmt_Lov2.EditValue;
+               _rpac.SUNT_BUNT_DEPT_ORGN_CODE = _orgn == null ? null : _orgn.BUNT_DEPT_ORGN_CODE;
+               _rpac.SUNT_BUNT_DEPT_CODE = _orgn == null ? null : _orgn.BUNT_DEPT_CODE;
+               _rpac.SUNT_BUNT_CODE = _orgn == null ? null : _orgn.BUNT_CODE;
+               _rpac.SUNT_CODE = _orgn == null ? null : _orgn.CODE;
+               iScsc.Report_Action_Parameters.InsertOnSubmit(_rpac);
+            }
+            else
+            {
+               _rpac.FROM_DATE = FromDate2_Date.Value;
+               _rpac.TO_DATE = ToDate2_Date.Value;
+               _rpac.RECD_OWNR = _user.Count == 0 ? null : string.Join(":", _user);
+               _rpac.COCH_FILE_NO = (long?)Figh_Lov2.EditValue;
+               _rpac.CBMT_CODE = (long?)Cbmt_Lov2.EditValue;
+               _rpac.SUNT_BUNT_DEPT_ORGN_CODE = _orgn == null ? null : _orgn.BUNT_DEPT_ORGN_CODE;
+               _rpac.SUNT_BUNT_DEPT_CODE = _orgn == null ? null : _orgn.BUNT_DEPT_CODE;
+               _rpac.SUNT_BUNT_CODE = _orgn == null ? null : _orgn.BUNT_CODE;
+               _rpac.SUNT_CODE = _orgn == null ? null : _orgn.CODE;
+            }
+            iScsc.SubmitChanges();
          }
          catch (Exception exc)
          {

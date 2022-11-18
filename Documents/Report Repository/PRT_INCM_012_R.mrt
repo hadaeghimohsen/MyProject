@@ -100,7 +100,7 @@
       </Fighter>
       <Payment Ref="4" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
         <Alias>Payment</Alias>
-        <Columns isList="true" count="29">
+        <Columns isList="true" count="38">
           <value>CASH_CODE,System.Int64</value>
           <value>RQST_RQID,System.Int64</value>
           <value>TYPE,System.String</value>
@@ -130,13 +130,26 @@
           <value>MDFY_DATE,System.DateTime</value>
           <value>REGL_YEAR_DNRM,System.Int64</value>
           <value>REGL_CODE_DNRM,System.Int64</value>
+          <value>YEAR,System.Int16</value>
+          <value>CYCL,System.String</value>
+          <value>PYMT_NO,System.Int32</value>
+          <value>PYMT_PYMT_NO,System.Int32</value>
+          <value>PYMT_TYPE,System.String</value>
+          <value>PYMT_STAT,System.String</value>
+          <value>PROF_AMNT_DNRM,System.Int64</value>
+          <value>DEDU_AMNT_DNRM,System.Int64</value>
+          <value>SUM_RCPT_DPST_AMNT,System.Int64</value>
         </Columns>
         <CommandTimeout>30</CommandTimeout>
         <Dictionary isRef="1" />
         <Name>Payment</Name>
         <NameInSource>iScsc</NameInSource>
         <Parameters isList="true" count="0" />
-        <SqlCommand>select * from Payment</SqlCommand>
+        <SqlCommand>SELECT *, 
+	   (SELECT ISNULL(Sum(pm.Amnt), 0) 
+          FROM Payment_Method pm
+         WHERE pm.Pymt_Rqst_Rqid = p.Rqst_Rqid AND pm.Rcpt_Mtod = '005') AS SUM_RCPT_DPST_AMNT
+FROM Payment p</SqlCommand>
       </Payment>
       <Payment_Detail Ref="5" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
         <Alias>Payment_Detail</Alias>
@@ -1084,8 +1097,8 @@ WHERE {WhereClause}</SqlCommand>
         <DataPayment Ref="59" type="DataBand" isKey="true">
           <Brush>Transparent</Brush>
           <BusinessObjectGuid isNull="true" />
-          <ClientRectangle>0,13.6,6.4,3</ClientRectangle>
-          <Components isList="true" count="11">
+          <ClientRectangle>0,13.6,6.4,3.6</ClientRectangle>
+          <Components isList="true" count="13">
             <DataPayment_SUM_EXPN_PRIC Ref="60" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
@@ -1119,7 +1132,7 @@ WHERE {WhereClause}</SqlCommand>
               <Name>DataPayment_SUM_RCPT_EXPN_PRIC</Name>
               <Page isRef="24" />
               <Parent isRef="59" />
-              <Text>{Payment.SUM_RCPT_EXPN_PRIC}</Text>
+              <Text>{Payment.SUM_RCPT_EXPN_PRIC - Payment.SUM_RCPT_DPST_AMNT}</Text>
               <TextBrush>Black</TextBrush>
               <TextFormat Ref="63" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
@@ -1127,6 +1140,7 @@ WHERE {WhereClause}</SqlCommand>
                 <NegativePattern>1</NegativePattern>
                 <UseLocalSetting>False</UseLocalSetting>
               </TextFormat>
+              <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </DataPayment_SUM_RCPT_EXPN_PRIC>
             <DataPayment_SUM_PYMT_DSCN_DNRM Ref="64" type="Text" isKey="true">
@@ -1238,7 +1252,7 @@ WHERE {WhereClause}</SqlCommand>
             <Text10 Ref="71" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>0,2.4,6.4,0.6</ClientRectangle>
+              <ClientRectangle>0,3,6.4,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>Tahoma,8</Font>
               <Guid>2c6dd800ad2e432d832ee552def8de00</Guid>
@@ -1257,7 +1271,7 @@ WHERE {WhereClause}</SqlCommand>
             <Text17 Ref="72" type="Text" isKey="true">
               <Border>Top, Right;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>2.8,0.6,1.2,1.8</ClientRectangle>
+              <ClientRectangle>2.8,0.6,1.2,2.4</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Titr,10</Font>
               <Guid>7ed8be020d6543bbb71ee67a7f359735</Guid>
@@ -1288,6 +1302,46 @@ WHERE {WhereClause}</SqlCommand>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text19>
+            <Text22 Ref="74" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[216:216:216]</Brush>
+              <ClientRectangle>0,2.4,2.8,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,11,Bold</Font>
+              <Guid>f12cea0e4b3f420bae8fa73a4abc1583</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text22</Name>
+              <Page isRef="24" />
+              <Parent isRef="59" />
+              <Text>{Payment.SUM_RCPT_DPST_AMNT}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="75" type="NumberFormat" isKey="true">
+                <DecimalDigits>0</DecimalDigits>
+                <GroupSeparator>,</GroupSeparator>
+                <NegativePattern>1</NegativePattern>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <Type>DataColumn</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text22>
+            <Text24 Ref="76" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[216:216:216]</Brush>
+              <ClientRectangle>4,2.4,2.4,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Titr,10,Bold</Font>
+              <Guid>d353c80e5b744768aa4f6085bd0e3aab</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text24</Name>
+              <Page isRef="24" />
+              <Parent isRef="59" />
+              <Text>برداشت از سپرده</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text24>
           </Components>
           <Conditions isList="true" count="0" />
           <DataRelationName>Relation8</DataRelationName>
@@ -1307,13 +1361,13 @@ WHERE {WhereClause}</SqlCommand>
       <PageHeight>17.5</PageHeight>
       <PageWidth>6.9</PageWidth>
       <Report isRef="0" />
-      <Watermark Ref="74" type="Stimulsoft.Report.Components.StiWatermark" isKey="true">
+      <Watermark Ref="77" type="Stimulsoft.Report.Components.StiWatermark" isKey="true">
         <Font>B Titr,10,Bold,Point,False,178</Font>
         <TextBrush>[50:0:0:0]</TextBrush>
       </Watermark>
     </Page1>
   </Pages>
-  <PrinterSettings Ref="75" type="Stimulsoft.Report.Print.StiPrinterSettings" isKey="true" />
+  <PrinterSettings Ref="78" type="Stimulsoft.Report.Print.StiPrinterSettings" isKey="true" />
   <ReferencedAssemblies isList="true" count="8">
     <value>System.Dll</value>
     <value>System.Drawing.Dll</value>
@@ -1325,10 +1379,10 @@ WHERE {WhereClause}</SqlCommand>
     <value>Stimulsoft.Report.Dll</value>
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
-  <ReportChanged>10/28/2022 11:21:23 PM</ReportChanged>
+  <ReportChanged>11/5/2022 11:35:47 AM</ReportChanged>
   <ReportCreated>9/26/2011 12:44:57 PM</ReportCreated>
   <ReportFile>D:\Project\MyProject\Documents\Report Repository\PRT_INCM_012_R.mrt</ReportFile>
-  <ReportGuid>71518010755b4dd2aa696c8b844bcf25</ReportGuid>
+  <ReportGuid>bbe20489592a4c24a1b5c9ab92f72910</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Centimeters</ReportUnit>
   <ReportVersion>2012.2.1304</ReportVersion>

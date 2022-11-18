@@ -25,6 +25,7 @@ namespace System.Scsc.Ui.Regulation
             PexpBs1.EndEdit();
             Bcds_Gv.PostEditor();
             ExtsGv.PostEditor();
+            Cexc_Gv.PostEditor();
 
             iScsc.SubmitChanges();
             /*iScsc.Refresh(System.Data.Linq.RefreshMode.OverwriteCurrentValues, iScsc.Request_Requesters);            
@@ -42,6 +43,7 @@ namespace System.Scsc.Ui.Regulation
             var CrntExcs = EXCSBS.Position;
             var crntpexp = PexpBs1.Position;
             var crntexts = ExtsBs.Position;
+            var crntcexc = CexcBs.Position;
             iScsc = new Data.iScscDataContext(ConnectionString);
             RqrqBs.DataSource = iScsc.Request_Requesters.Where(rg => rg.Regulation == (Data.Regulation)ReglBs.Current).OrderBy(rq => rq.RQTP_CODE).ThenBy(rq => rq.RQTT_CODE);
             GV_RQRQ.TopRowIndex = CrntRqrq;
@@ -51,6 +53,7 @@ namespace System.Scsc.Ui.Regulation
             EXCSBS.Position = CrntExcs;
             PexpBs1.Position = crntpexp;
             ExtsBs.Position = crntexts;
+            CexcBs.Position = crntcexc;
             AllExpnBs1.DataSource = iScsc.Expenses.Where(ex => ex.Regulation == (Data.Regulation)ReglBs.Current && ex.EXPN_STAT == "002" && ex.Expense_Type.Request_Requester.PERM_STAT == "002");
          }
       }

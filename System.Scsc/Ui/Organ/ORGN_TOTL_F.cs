@@ -196,6 +196,11 @@ namespace System.Scsc.Ui.Organ
 
       private void SuntAdd_Butn_Click(object sender, EventArgs e)
       {
+         var _bunt = BuntBs1.Current as Data.Base_Unit;
+         if (_bunt == null) return;
+
+         if (SuntBs1.List.OfType<Data.Sub_Unit>().Any(s => s.CODE == null)) return;
+
          SuntBs1.AddNew();
       }
 

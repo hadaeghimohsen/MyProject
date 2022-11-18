@@ -238,7 +238,10 @@ namespace System.Scsc.Ui.Common
                PBLC.ActiveFilterString = "TYPE != '003' And [colRemnDay] <= 3 And [colRemnDay] >= 1";
                break;
             case "Gray_Lbl":
-               PBLC.ActiveFilterString = "TYPE != '003' And [colRemnDay] < 0";
+               PBLC.ActiveFilterString = "TYPE != '003' And [colRemnDay] < -7";
+               break;
+            case "Gold_Lbl":
+               PBLC.ActiveFilterString = "TYPE != '003' And [colRemnDay] < 0 And [colRemnDay] >= -7";
                break;
             case "YellowGreen_Lbl":
                PBLC.ActiveFilterString = "TYPE != '003'";
@@ -1562,14 +1565,14 @@ namespace System.Scsc.Ui.Common
             iScsc.SCVF_PBLC_P(
                new XElement("Fighter",
                    new XAttribute("fileno", _LastInfo.FILE_NO),
-                   new XAttribute("cellphon", _LastInfo.CELL_PHON_DNRM ?? ""),
-                   new XAttribute("tellphon", _LastInfo.TELL_PHON_DNRM ?? ""),
-                   new XAttribute("dadcellphon", _LastInfo.DAD_CELL_PHON_DNRM ?? ""),
-                   new XAttribute("momcellphon", _LastInfo.MOM_CELL_PHON_DNRM ?? ""),
+                   new XAttribute("cellphon", (_LastInfo.CELL_PHON_DNRM ?? "").ToString().Trim()),
+                   new XAttribute("tellphon", (_LastInfo.TELL_PHON_DNRM ?? "").ToString().Trim()),
+                   new XAttribute("dadcellphon", (_LastInfo.DAD_CELL_PHON_DNRM ?? "").ToString().Trim()),
+                   new XAttribute("momcellphon", (_LastInfo.MOM_CELL_PHON_DNRM ?? "").ToString().Trim()),
                    new XAttribute("suntcode", _LastInfo.SUNT_CODE ?? ""),
-                   new XAttribute("globcode", _LastInfo.GLOB_CODE ?? ""),
-                   new XAttribute("servno", _LastInfo.SERV_NO_DNRM ?? ""),
-                   new XAttribute("natlcode", _LastInfo.NATL_CODE ?? ""),
+                   new XAttribute("globcode", (_LastInfo.GLOB_CODE ?? "").ToString().Trim()),
+                   new XAttribute("servno", (_LastInfo.SERV_NO_DNRM ?? "").ToString().Trim()),
+                   new XAttribute("natlcode", (_LastInfo.NATL_CODE ?? "").ToString().Trim()),
                    new XAttribute("insrdate", _LastInfo.INSR_DATE_DNRM.HasValue ? _LastInfo.INSR_DATE_DNRM.Value.Date.ToString("yyyy-MM-dd") : ""),
                    new XAttribute("chatid", _LastInfo.CHAT_ID_DNRM ?? 0),
                    new XAttribute("dadchatid", _LastInfo.DAD_CHAT_ID_DNRM ?? 0),

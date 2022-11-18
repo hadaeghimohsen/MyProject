@@ -58,6 +58,8 @@ namespace System.Scsc.Ui.OtherIncome
                ex.EXPN_STAT == "002" /* هزینه های فعال */
             );
 
+            DocsBs1.DataSource = iScsc.Modual_Reports.Where(m => m.MDUL_NAME == GetType().Name && m.STAT == "002");
+
             // 1397/05/15 * بدست آوردن شماره پرونده های درگیر در تمدید
             FighsBs1.DataSource = 
                iScsc.Fighters
@@ -96,6 +98,7 @@ namespace System.Scsc.Ui.OtherIncome
                   Grop_FLP.Controls.Add(b);
                }
             );
+            
 
             PydtsBs1.Position = pydt;
          }
@@ -206,8 +209,9 @@ namespace System.Scsc.Ui.OtherIncome
                            new XAttribute("lastname", LastName_Txt.Text),
                            new XAttribute("natlcode", NatlCode_Txt.Text),
                            new XAttribute("cellphon", CellPhon_Txt.Text),
-                           new XAttribute("suntcode", SUNT_CODELookUpEdit.EditValue ?? ""),
-                           new XAttribute("servno", SERV_NO_TextEdit.EditValue ?? "")
+                           new XAttribute("suntcode", SuntCode_Lov.EditValue ?? ""),
+                           new XAttribute("servno", SERV_NO_TextEdit.EditValue ?? ""),
+                           new XAttribute("cochfileno", Coch_Lov.EditValue ?? "")
                         )
                      )
                   )
@@ -1449,10 +1453,10 @@ namespace System.Scsc.Ui.OtherIncome
          try
          {
             if (FgpbBs1.Current != null)
-               if((FgpbBs1.Current as Data.Fighter_Public).TYPE == "005")
+               //if((FgpbBs1.Current as Data.Fighter_Public).TYPE == "005")
                   FreeAdm_Ro.RolloutStatus = true;
-               else
-                  FreeAdm_Ro.RolloutStatus = false;
+               //else
+                  //FreeAdm_Ro.RolloutStatus = false;
             else
                FreeAdm_Ro.RolloutStatus = false;
          }
@@ -3641,6 +3645,102 @@ namespace System.Scsc.Ui.OtherIncome
       {
          if(e.NewValue != null)
             TreePymtAmnt_Txt.EditValue = SumTreeDebtPric_Txt.EditValue;
-      }      
+      }
+
+      private void Coch_Lov_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            var _rqst = RqstBs1.Current as Data.Request;
+            if (_rqst == null) return;
+
+            switch (e.Button.Index)
+            {
+               case 0:
+                  break;
+               case 1:
+                  Coch_Lov.EditValue = null;
+                  break;
+               case 2:
+                  Btn_RqstBnARqt1_Click(null, null);
+                  break;
+               default:
+                  break;
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void SuntCode_Lov_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            switch (e.Button.Index)
+            {
+               case 1:
+                  _DefaultGateway.Gateway(
+                     new Job(SendType.External, "Localhost",
+                        new List<Job>
+                        {
+                           new Job(SendType.External, "Commons",
+                              new List<Job>
+                              {
+                                 #region Access Privilege
+                                 new Job(SendType.Self, 07 /* Execute DoWork4AccessPrivilege */)
+                                 {
+                                    Input = new List<string> 
+                                    {
+                                       "<Privilege>171</Privilege><Sub_Sys>5</Sub_Sys>", 
+                                       "DataGuard"
+                                    },
+                                    AfterChangedOutput = new Action<object>((output) => {
+                                       if ((bool)output)
+                                          return;
+                                       #region Show Error
+                                       MessageBox.Show("خطا: عدم دسترسی به کد 171");
+                                       #endregion                           
+                                    })
+                                 },
+                                 new Job(SendType.Self, 07 /* Execute DoWork4AccessPrivilege */)
+                                 {
+                                    Input = new List<string> 
+                                    {
+                                       "<Privilege>175</Privilege><Sub_Sys>5</Sub_Sys>", 
+                                       "DataGuard"
+                                    },
+                                    AfterChangedOutput = new Action<object>((output) => {
+                                       if ((bool)output)
+                                          return;
+                                       #region Show Error
+                                       MessageBox.Show("خطا: عدم دسترسی به کد 175");
+                                       #endregion                           
+                                    })
+                                 }
+                                 #endregion
+                              }),
+                           #region DoWork
+                           new Job(SendType.Self, 108 /* Execute Orgn_Totl_F */),
+                           new Job(SendType.SelfToUserInterface, "ORGN_TOTL_F", 10 /* Actn_CalF_P */)
+                           #endregion
+                           })
+                  );
+                  break;
+               default:
+                  break;
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
    }
 }

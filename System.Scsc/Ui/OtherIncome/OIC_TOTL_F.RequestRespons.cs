@@ -447,6 +447,7 @@ namespace System.Scsc.Ui.OtherIncome
          DYsnoBs1.DataSource = iScsc.D_YSNOs;
          DDytpBs.DataSource = iScsc.D_DYTPs;
          CbmtBs1.DataSource = iScsc.Club_Methods.Where(c => c.MTOD_STAT == "002");
+         CochBs1.DataSource = iScsc.Fighters.Where(c => c.FGPB_TYPE_DNRM == "003" && c.ACTV_TAG_DNRM == "101" && c.CONF_STAT == "002");
          SuntBs1.DataSource = iScsc.Sub_Units;
          DPydsBs1.DataSource = iScsc.D_PYDS;
          RtoaBs.DataSource = iScsc.App_Base_Defines.Where(a => a.ENTY_NAME == "Payment_To_Another_Account");

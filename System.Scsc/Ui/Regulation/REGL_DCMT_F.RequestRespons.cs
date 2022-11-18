@@ -450,7 +450,10 @@ namespace System.Scsc.Ui.Regulation
          DDsatBs1.DataSource = iScsc.D_DSATs;
          SuntBs1.DataSource = iScsc.Sub_Units;
          DCetpBs1.DataSource = iScsc.D_CETPs;
-
+         CochBs.DataSource = iScsc.Fighters.Where(f => f.CONF_STAT == "002" && f.ACTV_TAG_DNRM == "101" && f.FGPB_TYPE_DNRM == "003");
+         DegrBs.DataSource = iScsc.D_DEGRs;
+         DEfdtBs.DataSource = iScsc.D_EFDTs;
+         DcxtpBs.DataSource = iScsc.D_CXTPs;
          SubmitRqrq_Click(null, null);
 
          GV_RQRQ.ActiveFilterString = "RQTT_CODE != '002' AND RQTT_CODE != '006' AND RQTT_CODE != '008'";

@@ -425,7 +425,7 @@ namespace System.Scsc.Ui.CalculateExpense
             if (c == null || c.CODE == 0) return;
 
             iScsc.UPD_CEXC_P(
-               c.CODE, c.COCH_FILE_NO, c.EPIT_CODE, c.RQTT_CODE, c.COCH_DEG,
+               c.CODE, c.EXPN_CODE, c.COCH_FILE_NO, c.EPIT_CODE, c.RQTT_CODE, c.COCH_DEG,
                c.EXTP_CODE, c.MTOD_CODE, (long?)e.NewValue, c.CALC_TYPE, c.PRCT_VALU, c.STAT,
                c.RQTP_CODE, c.CALC_EXPN_TYPE, c.PYMT_STAT, c.MIN_NUMB_ATTN, c.MIN_ATTN_STAT, 
                c.RDUC_AMNT, c.CBMT_CODE, c.EFCT_DATE_TYPE, c.EXPR_PAY_DAY, c.TAX_PRCT_VALU, c.FORE_GIVN_ATTN_NUMB

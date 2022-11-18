@@ -1,0 +1,1424 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<StiSerializer version="1.02" type="Net" application="StiReport">
+  <Dictionary Ref="1" type="Dictionary" isKey="true">
+    <BusinessObjects isList="true" count="0" />
+    <Databases isList="true" count="1">
+      <iScsc Ref="2" type="Stimulsoft.Report.Dictionary.StiSqlDatabase" isKey="true">
+        <Alias>iScsc</Alias>
+        <ConnectionString>User ID=artauser;Integrated Security=False;Data Source=.;Initial Catalog=iScsc;Password=artasport_anardb;Persist Security Info=True</ConnectionString>
+        <Name>iScsc</Name>
+      </iScsc>
+    </Databases>
+    <DataSources isList="true" count="2">
+      <MQL Ref="3" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
+        <Alias>MQL</Alias>
+        <Columns isList="true" count="26">
+          <value>RWNO,System.Int64</value>
+          <value>RQID,System.Int64</value>
+          <value>RQST_NUMB,System.Int64</value>
+          <value>RQTP_CODE,System.String</value>
+          <value>PERS_SAVE_DATE,System.String</value>
+          <value>PERS_SAVE_TIME,System.TimeSpan</value>
+          <value>CRET_BY,System.String</value>
+          <value>NAME_DNRM,System.String</value>
+          <value>SEX_DESC,System.String</value>
+          <value>NATL_CODE_DNRM,System.String</value>
+          <value>CELL_PHON_DNRM,System.String</value>
+          <value>BRTH_DATE,System.String</value>
+          <value>SERV_NO_DNRM,System.String</value>
+          <value>GLOB_CODE_DNRM,System.String</value>
+          <value>INSR_NUMB_DNRM,System.String</value>
+          <value>PYMT_NO,System.Int32</value>
+          <value>PYDT_LIST,System.String</value>
+          <value>SUM_EXPN_PRIC,System.Int64</value>
+          <value>SUM_PYMT_DSCN_DNRM,System.Int64</value>
+          <value>SUM_RCPT_EXPN_PRIC,System.Int64</value>
+          <value>DEBT_DNRM,System.Int64</value>
+          <value>ORGN_CODE_DNRM,System.String</value>
+          <value>SUNT_DESC,System.String</value>
+          <value>REF_INFO,System.String</value>
+          <value>PERS_INSR_DATE,System.String</value>
+          <value>AGE,System.Int32</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1" />
+        <Name>MQL</Name>
+        <NameInSource>iScsc</NameInSource>
+        <Parameters isList="true" count="0" />
+        <SqlCommand>SELECT ROW_NUMBER() OVER (ORDER BY f.Orgn_Code_Dnrm, r.Save_Date) AS RWNO,
+       r.RQID,
+       r.RQST_NUMB,
+       r.RQTP_CODE,
+       dbo.get_mtos_u(r.save_date) as PERS_SAVE_DATE,
+       cast(r.Save_Date as Time(0)) as PERS_SAVE_TIME,
+       r.CRET_BY,
+       f.NAME_DNRM,
+       ds.DOMN_DESC as SEX_DESC,
+       f.NATL_CODE_DNRM,
+       f.CELL_PHON_DNRM,
+       dbo.GET_MTOS_U(f.brth_date_dnrm) as BRTH_DATE,
+       DATEDIFF(Year, Brth_Date_Dnrm, GetDate()) + 1 as AGE,
+       f.SERV_NO_DNRM, 
+       f.GLOB_CODE_DNRM,
+       f.INSR_NUMB_DNRM,
+       dbo.Get_Mtos_U(f.INSR_DATE_DNRM) AS PERS_INSR_DATE,
+       p.PYMT_NO,
+(SELECT 
+	(SELECT (pd.PYDT_DESC + ', ')       
+	FROM dbo.Payment_Detail pd
+             WHERE pd.Pymt_Rqst_Rqid = rr.Rqst_Rqid
+	           FOR XML PATH(''), TYPE)
+	      .value('text()[1]', 'NVARCHAR(MAX)')) AS PYDT_LIST,	    
+       p.SUM_EXPN_PRIC,
+	    p.SUM_PYMT_DSCN_DNRM,
+       p.SUM_RCPT_EXPN_PRIC,
+	    p.SUM_EXPN_PRIC - (p.SUM_RCPT_EXPN_PRIC + p.SUM_PYMT_DSCN_DNRM) AS DEBT_DNRM,
+       f.ORGN_CODE_DNRM,
+       su.SUNT_DESC,
+(select fr.NAME_DNRM + N' - ' + fr.CELL_PHON_DNRM 
+	from fighter fr 
+         where fr.file_no = f.ref_code_dnrm) REF_INFO
+  FROM dbo.Request r, dbo.Request_Row rr, 
+       dbo.Fighter f, dbo.Payment p, V#Report_Action_Parameter va,
+       dbo.Sub_Unit su,
+       dbo.D$SXTP ds       
+ WHERE r.RQID = rr.RQST_RQID
+   AND rr.FIGH_FILE_NO = f.FILE_NO
+   AND r.RQID = p.RQST_RQID      
+   and r.RQST_STAT = '002'
+   and r.RQTP_CODE in ('001', '009', '016')
+   and f.ORGN_CODE_DNRM = su.ORGN_CODE_DNRM
+   and f.sex_type_dnrm = ds.VALU
+   AND cast(r.save_date as date) between va.from_date and va.to_date
+   and (va.orgn_code_dnrm is null OR (va.orgn_code_dnrm = f.ORGN_CODE_DNRM));</SqlCommand>
+      </MQL>
+      <V_x0023_Report_Action_Parameter Ref="4" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
+        <Alias>V#Report_Action_Parameter</Alias>
+        <Columns isList="true" count="18">
+          <value>CODE,System.Int64</value>
+          <value>RPAC_TYPE,System.String</value>
+          <value>FROM_DATE,System.String</value>
+          <value>TO_DATE,System.String</value>
+          <value>RECD_OWNR,System.String</value>
+          <value>COCH_FILE_NO,System.Int64</value>
+          <value>CBMT_CODE,System.Int64</value>
+          <value>SUNT_CODE,System.String</value>
+          <value>SUNT_BUNT_CODE,System.String</value>
+          <value>SUNT_BUNT_DEPT_CODE,System.String</value>
+          <value>SUNT_BUNT_DEPT_ORGN_CODE,System.String</value>
+          <value>ORGN_CODE_DNRM,System.String</value>
+          <value>CRET_BY,System.String</value>
+          <value>CRET_DATE,System.DateTime</value>
+          <value>MDFY_BY,System.String</value>
+          <value>MDFY_DATE,System.DateTime</value>
+          <value>PRES_FROM_DATE,System.String</value>
+          <value>PRES_TO_DATE,System.String</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1" />
+        <Name>V#Report_Action_Parameter</Name>
+        <NameInSource>iScsc</NameInSource>
+        <Parameters isList="true" count="0" />
+        <SqlCommand>select *,
+	   dbo.Get_Mtos_U(FROM_DATE) AS PRES_FROM_DATE,	
+	   dbo.Get_Mtos_U(TO_DATE) AS PRES_TO_DATE
+  from V#Report_Action_Parameter</SqlCommand>
+      </V_x0023_Report_Action_Parameter>
+    </DataSources>
+    <Relations isList="true" count="0" />
+    <Report isRef="0" />
+    <Variables isList="true" count="0" />
+  </Dictionary>
+  <EngineVersion>EngineV2</EngineVersion>
+  <GlobalizationStrings isList="true" count="0" />
+  <MetaTags isList="true" count="0" />
+  <Pages isList="true" count="1">
+    <Page1 Ref="5" type="Page" isKey="true">
+      <Border>None;Black;2;Solid;False;4;Black</Border>
+      <Brush>Transparent</Brush>
+      <Components isList="true" count="7">
+        <PageHeaderBand1 Ref="6" type="PageHeaderBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,0.2,10.91,0.3</ClientRectangle>
+          <Components isList="true" count="1">
+            <Text1 Ref="7" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[216:216:216]</Brush>
+              <ClientRectangle>0,0,10.9,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,12,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text1</Name>
+              <Page isRef="5" />
+              <Parent isRef="6" />
+              <Text>گزارش صورت وضعیت سازمان ها و ارگان های طرف قرارداد</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text1>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <Name>PageHeaderBand1</Name>
+          <Page isRef="5" />
+          <Parent isRef="5" />
+        </PageHeaderBand1>
+        <DataV_x0023_Report_Action_Parameter Ref="8" type="DataBand" isKey="true">
+          <Border>Top, Left, Bottom;Black;1;Solid;False;4;Black</Border>
+          <Brush>Transparent</Brush>
+          <BusinessObjectGuid isNull="true" />
+          <ClientRectangle>0,0.9,10.91,0.3</ClientRectangle>
+          <Components isList="true" count="4">
+            <DataV_Report_Action_Parameter_PRES_FROM_DATE Ref="9" type="Text" isKey="true">
+              <Border>Left;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>6.8,0,1.5,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,12</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataV_Report_Action_Parameter_PRES_FROM_DATE</Name>
+              <Page isRef="5" />
+              <Parent isRef="8" />
+              <Text>{V_Report_Action_Parameter.PRES_TO_DATE}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>DataColumn</Type>
+              <VertAlignment>Center</VertAlignment>
+            </DataV_Report_Action_Parameter_PRES_FROM_DATE>
+            <DataV_Report_Action_Parameter_PRES_TO_DATE Ref="10" type="Text" isKey="true">
+              <Border>Left;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>9,0,1.4,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,12</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataV_Report_Action_Parameter_PRES_TO_DATE</Name>
+              <Page isRef="5" />
+              <Parent isRef="8" />
+              <Text>{V_Report_Action_Parameter.PRES_FROM_DATE}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>DataColumn</Type>
+              <VertAlignment>Center</VertAlignment>
+            </DataV_Report_Action_Parameter_PRES_TO_DATE>
+            <HeaderV_Report_Action_Parameter_PRES_TO_DATE Ref="11" type="Text" isKey="true">
+              <Border>Right;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>10.4,0,0.5,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,12,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderV_Report_Action_Parameter_PRES_TO_DATE</Name>
+              <Page isRef="5" />
+              <Parent isRef="8" />
+              <Text>از تاریخ</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderV_Report_Action_Parameter_PRES_TO_DATE>
+            <Text4 Ref="12" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>8.3,0,0.7,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,12,Bold</Font>
+              <Guid>2a549fa540064b0cbad4ee945b293319</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text4</Name>
+              <Page isRef="5" />
+              <Parent isRef="8" />
+              <Text>تا تاریخ</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text4>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <DataSourceName>V#Report_Action_Parameter</DataSourceName>
+          <Filters isList="true" count="0" />
+          <Name>DataV#Report_Action_Parameter</Name>
+          <Page isRef="5" />
+          <Parent isRef="5" />
+          <Sort isList="true" count="0" />
+        </DataV_x0023_Report_Action_Parameter>
+        <HeaderMQL Ref="13" type="HeaderBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,1.6,10.91,0.6</ClientRectangle>
+          <Components isList="true" count="22">
+            <HeaderMQL_NAME_DNRM Ref="14" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[216:216:216]</Brush>
+              <ClientRectangle>6.8,0,1.5,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,12</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderMQL_NAME_DNRM</Name>
+              <Page isRef="5" />
+              <Parent isRef="13" />
+              <Text>نام مشتری</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderMQL_NAME_DNRM>
+            <HeaderMQL_SEX_DESC Ref="15" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[216:216:216]</Brush>
+              <ClientRectangle>6.8,0.3,0.4,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,11</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderMQL_SEX_DESC</Name>
+              <Page isRef="5" />
+              <Parent isRef="13" />
+              <Text>جنسیت</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderMQL_SEX_DESC>
+            <HeaderMQL_NATL_CODE_DNRM Ref="16" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[216:216:216]</Brush>
+              <ClientRectangle>6,0,0.8,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,12</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderMQL_NATL_CODE_DNRM</Name>
+              <Page isRef="5" />
+              <Parent isRef="13" />
+              <Text>کد ملی</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderMQL_NATL_CODE_DNRM>
+            <HeaderMQL_CELL_PHON_DNRM Ref="17" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[216:216:216]</Brush>
+              <ClientRectangle>6,0.3,0.8,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,12</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderMQL_CELL_PHON_DNRM</Name>
+              <Page isRef="5" />
+              <Parent isRef="13" />
+              <Text>شماره موبایل</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderMQL_CELL_PHON_DNRM>
+            <HeaderMQL_BRTH_DATE Ref="18" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[216:216:216]</Brush>
+              <ClientRectangle>7.2,0.3,0.7,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,12</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderMQL_BRTH_DATE</Name>
+              <Page isRef="5" />
+              <Parent isRef="13" />
+              <Text>تاریخ تولد</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderMQL_BRTH_DATE>
+            <HeaderMQL_SERV_NO_DNRM Ref="19" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[216:216:216]</Brush>
+              <ClientRectangle>4.5,0.3,0.8,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,12</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderMQL_SERV_NO_DNRM</Name>
+              <Page isRef="5" />
+              <Parent isRef="13" />
+              <Text>کد اشتراک</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderMQL_SERV_NO_DNRM>
+            <HeaderMQL_GLOB_CODE_DNRM Ref="20" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[216:216:216]</Brush>
+              <ClientRectangle>4.5,0,0.8,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,12</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderMQL_GLOB_CODE_DNRM</Name>
+              <Page isRef="5" />
+              <Parent isRef="13" />
+              <Text>شماره پرسنلی</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderMQL_GLOB_CODE_DNRM>
+            <HeaderMQL_INSR_NUMB_DNRM Ref="21" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[216:216:216]</Brush>
+              <ClientRectangle>5.3,0,0.7,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,12</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderMQL_INSR_NUMB_DNRM</Name>
+              <Page isRef="5" />
+              <Parent isRef="13" />
+              <Text>شماره بیمه</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderMQL_INSR_NUMB_DNRM>
+            <HeaderMQL_INSR_DATE_DNRM Ref="22" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[216:216:216]</Brush>
+              <ClientRectangle>5.3,0.3,0.7,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,12</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderMQL_INSR_DATE_DNRM</Name>
+              <Page isRef="5" />
+              <Parent isRef="13" />
+              <Text>تاریخ اعتبار</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderMQL_INSR_DATE_DNRM>
+            <HeaderMQL_PYMT_NO Ref="23" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[216:216:216]</Brush>
+              <ClientRectangle>1.3,0,0.3,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,10</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderMQL_PYMT_NO</Name>
+              <Page isRef="5" />
+              <Parent isRef="13" />
+              <Text>#</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderMQL_PYMT_NO>
+            <HeaderMQL_PYDT_LIST Ref="24" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[216:216:216]</Brush>
+              <ClientRectangle>1.3,0.3,3.2,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,12</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderMQL_PYDT_LIST</Name>
+              <Page isRef="5" />
+              <Parent isRef="13" />
+              <Text>لیست خدمات</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderMQL_PYDT_LIST>
+            <HeaderMQL_SUM_EXPN_PRIC Ref="25" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[216:216:216]</Brush>
+              <ClientRectangle>3.7,0,0.8,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,12</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderMQL_SUM_EXPN_PRIC</Name>
+              <Page isRef="5" />
+              <Parent isRef="13" />
+              <Text>جمع کل</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderMQL_SUM_EXPN_PRIC>
+            <HeaderMQL_SUM_PYMT_DSCN_DNRM Ref="26" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[216:216:216]</Brush>
+              <ClientRectangle>3,0,0.7,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,12</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderMQL_SUM_PYMT_DSCN_DNRM</Name>
+              <Page isRef="5" />
+              <Parent isRef="13" />
+              <Text>تخفیف</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderMQL_SUM_PYMT_DSCN_DNRM>
+            <HeaderMQL_SUM_RCPT_EXPN_PRIC Ref="27" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[216:216:216]</Brush>
+              <ClientRectangle>2.3,0,0.7,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,12</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderMQL_SUM_RCPT_EXPN_PRIC</Name>
+              <Page isRef="5" />
+              <Parent isRef="13" />
+              <Text>پرداختی</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderMQL_SUM_RCPT_EXPN_PRIC>
+            <HeaderMQL_DEBT_DNRM Ref="28" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[216:216:216]</Brush>
+              <ClientRectangle>1.6,0,0.7,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,12</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderMQL_DEBT_DNRM</Name>
+              <Page isRef="5" />
+              <Parent isRef="13" />
+              <Text>بدهی</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderMQL_DEBT_DNRM>
+            <HeaderMQL_SUNT_DESC Ref="29" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[216:216:216]</Brush>
+              <ClientRectangle>9.8,0,1.1,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,12</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderMQL_SUNT_DESC</Name>
+              <Page isRef="5" />
+              <Parent isRef="13" />
+              <Text>عنوان ارگان</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderMQL_SUNT_DESC>
+            <HeaderMQL_RQID Ref="30" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[216:216:216]</Brush>
+              <ClientRectangle>9,0,0.8,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,12</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderMQL_RQID</Name>
+              <Page isRef="5" />
+              <Parent isRef="13" />
+              <Text>شماره درخواست</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderMQL_RQID>
+            <HeaderMQL_RQST_NUMB Ref="31" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[216:216:216]</Brush>
+              <ClientRectangle>9,0.3,0.8,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,12</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderMQL_RQST_NUMB</Name>
+              <Page isRef="5" />
+              <Parent isRef="13" />
+              <Text>تعداد مراجعه</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderMQL_RQST_NUMB>
+            <HeaderMQL_PERS_SAVE_DATE Ref="32" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[216:216:216]</Brush>
+              <ClientRectangle>8.3,0,0.7,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,12</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderMQL_PERS_SAVE_DATE</Name>
+              <Page isRef="5" />
+              <Parent isRef="13" />
+              <Text>تاریخ</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderMQL_PERS_SAVE_DATE>
+            <HeaderMQL_PERS_SAVE_TIME Ref="33" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[216:216:216]</Brush>
+              <ClientRectangle>8.3,0.3,0.7,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,12</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderMQL_PERS_SAVE_TIME</Name>
+              <Page isRef="5" />
+              <Parent isRef="13" />
+              <Text>زمان</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderMQL_PERS_SAVE_TIME>
+            <HeaderMQL_REF_INFO Ref="34" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[216:216:216]</Brush>
+              <ClientRectangle>0,0,1.3,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,12</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderMQL_REF_INFO</Name>
+              <Page isRef="5" />
+              <Parent isRef="13" />
+              <Text>اطلاعات معرف</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderMQL_REF_INFO>
+            <Text2 Ref="35" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[216:216:216]</Brush>
+              <ClientRectangle>7.9,0.3,0.4,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,12</Font>
+              <Guid>d89876b1ac284bccb7e16ca369daad6b</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text2</Name>
+              <Page isRef="5" />
+              <Parent isRef="13" />
+              <Text>سن</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text2>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <Name>HeaderMQL</Name>
+          <Page isRef="5" />
+          <Parent isRef="5" />
+        </HeaderMQL>
+        <Orgn_Gp Ref="36" type="GroupHeaderBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,2.6,10.91,0</ClientRectangle>
+          <Components isList="true" count="0" />
+          <Condition>{MQL.ORGN_CODE_DNRM}</Condition>
+          <Conditions isList="true" count="0" />
+          <Name>Orgn_Gp</Name>
+          <Page isRef="5" />
+          <Parent isRef="5" />
+        </Orgn_Gp>
+        <DataMQL Ref="37" type="DataBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <BusinessObjectGuid isNull="true" />
+          <ClientRectangle>0,3,10.91,0.6</ClientRectangle>
+          <Components isList="true" count="22">
+            <DataMQL_NAME_DNRM Ref="38" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>6.8,0,1.5,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,12</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataMQL_NAME_DNRM</Name>
+              <Page isRef="5" />
+              <Parent isRef="37" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{MQL.NAME_DNRM}</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </DataMQL_NAME_DNRM>
+            <DataMQL_SEX_DESC Ref="39" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[210:234:240]</Brush>
+              <ClientRectangle>6.8,0.3,0.4,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,12</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataMQL_SEX_DESC</Name>
+              <Page isRef="5" />
+              <Parent isRef="37" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{MQL.SEX_DESC}</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </DataMQL_SEX_DESC>
+            <DataMQL_NATL_CODE_DNRM Ref="40" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>6,0,0.8,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,12</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataMQL_NATL_CODE_DNRM</Name>
+              <Page isRef="5" />
+              <Parent isRef="37" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{MQL.NATL_CODE_DNRM}</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </DataMQL_NATL_CODE_DNRM>
+            <DataMQL_CELL_PHON_DNRM Ref="41" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[210:234:240]</Brush>
+              <ClientRectangle>6,0.3,0.8,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,12</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataMQL_CELL_PHON_DNRM</Name>
+              <Page isRef="5" />
+              <Parent isRef="37" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{MQL.CELL_PHON_DNRM}</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </DataMQL_CELL_PHON_DNRM>
+            <DataMQL_BRTH_DATE Ref="42" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[210:234:240]</Brush>
+              <ClientRectangle>7.2,0.3,0.7,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,12</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataMQL_BRTH_DATE</Name>
+              <Page isRef="5" />
+              <Parent isRef="37" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{MQL.BRTH_DATE}</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </DataMQL_BRTH_DATE>
+            <DataMQL_SERV_NO_DNRM Ref="43" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[210:234:240]</Brush>
+              <ClientRectangle>4.5,0.3,0.8,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,12</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataMQL_SERV_NO_DNRM</Name>
+              <Page isRef="5" />
+              <Parent isRef="37" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{MQL.SERV_NO_DNRM}</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </DataMQL_SERV_NO_DNRM>
+            <DataMQL_GLOB_CODE_DNRM Ref="44" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>4.5,0,0.8,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,12</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataMQL_GLOB_CODE_DNRM</Name>
+              <Page isRef="5" />
+              <Parent isRef="37" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{MQL.GLOB_CODE_DNRM}</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </DataMQL_GLOB_CODE_DNRM>
+            <DataMQL_INSR_NUMB_DNRM Ref="45" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>5.3,0,0.7,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,12</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataMQL_INSR_NUMB_DNRM</Name>
+              <Page isRef="5" />
+              <Parent isRef="37" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{MQL.INSR_NUMB_DNRM}</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </DataMQL_INSR_NUMB_DNRM>
+            <DataMQL_INSR_DATE_DNRM Ref="46" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[210:234:240]</Brush>
+              <ClientRectangle>5.3,0.3,0.7,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,12</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataMQL_INSR_DATE_DNRM</Name>
+              <Page isRef="5" />
+              <Parent isRef="37" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{MQL.PERS_INSR_DATE}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>DataColumn</Type>
+              <VertAlignment>Center</VertAlignment>
+            </DataMQL_INSR_DATE_DNRM>
+            <DataMQL_PYMT_NO Ref="47" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[214:224:236]</Brush>
+              <ClientRectangle>1.3,0,0.3,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,12</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataMQL_PYMT_NO</Name>
+              <Page isRef="5" />
+              <Parent isRef="37" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{MQL.PYMT_NO}</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </DataMQL_PYMT_NO>
+            <DataMQL_PYDT_LIST Ref="48" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[206:221:176]</Brush>
+              <ClientRectangle>1.3,0.3,3.2,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,12</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataMQL_PYDT_LIST</Name>
+              <Page isRef="5" />
+              <Parent isRef="37" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{MQL.PYDT_LIST}</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </DataMQL_PYDT_LIST>
+            <DataMQL_SUM_EXPN_PRIC Ref="49" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[230:238:215]</Brush>
+              <ClientRectangle>3.7,0,0.8,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,12</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataMQL_SUM_EXPN_PRIC</Name>
+              <Page isRef="5" />
+              <Parent isRef="37" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{MQL.SUM_EXPN_PRIC}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="50" type="NumberFormat" isKey="true">
+                <DecimalDigits>0</DecimalDigits>
+                <GroupSeparator>,</GroupSeparator>
+                <NegativePattern>1</NegativePattern>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <VertAlignment>Center</VertAlignment>
+            </DataMQL_SUM_EXPN_PRIC>
+            <DataMQL_SUM_PYMT_DSCN_DNRM Ref="51" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[252:230:212]</Brush>
+              <ClientRectangle>3,0,0.7,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,12</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataMQL_SUM_PYMT_DSCN_DNRM</Name>
+              <Page isRef="5" />
+              <Parent isRef="37" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{MQL.SUM_PYMT_DSCN_DNRM}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="52" type="NumberFormat" isKey="true">
+                <DecimalDigits>0</DecimalDigits>
+                <GroupSeparator>,</GroupSeparator>
+                <NegativePattern>1</NegativePattern>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <VertAlignment>Center</VertAlignment>
+            </DataMQL_SUM_PYMT_DSCN_DNRM>
+            <DataMQL_SUM_RCPT_EXPN_PRIC Ref="53" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[210:234:240]</Brush>
+              <ClientRectangle>2.3,0,0.7,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,12</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataMQL_SUM_RCPT_EXPN_PRIC</Name>
+              <Page isRef="5" />
+              <Parent isRef="37" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{MQL.SUM_RCPT_EXPN_PRIC}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="54" type="NumberFormat" isKey="true">
+                <DecimalDigits>0</DecimalDigits>
+                <GroupSeparator>,</GroupSeparator>
+                <NegativePattern>1</NegativePattern>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <VertAlignment>Center</VertAlignment>
+            </DataMQL_SUM_RCPT_EXPN_PRIC>
+            <DataMQL_DEBT_DNRM Ref="55" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[223:216:231]</Brush>
+              <ClientRectangle>1.6,0,0.7,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,12</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataMQL_DEBT_DNRM</Name>
+              <Page isRef="5" />
+              <Parent isRef="37" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{MQL.DEBT_DNRM}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="56" type="NumberFormat" isKey="true">
+                <DecimalDigits>0</DecimalDigits>
+                <GroupSeparator>,</GroupSeparator>
+                <NegativePattern>1</NegativePattern>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <VertAlignment>Center</VertAlignment>
+            </DataMQL_DEBT_DNRM>
+            <DataMQL_SUNT_DESC Ref="57" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>9.8,0,1.1,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,12,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataMQL_SUNT_DESC</Name>
+              <Page isRef="5" />
+              <Parent isRef="37" />
+              <ProcessingDuplicates>Merge</ProcessingDuplicates>
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{MQL.SUNT_DESC}</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </DataMQL_SUNT_DESC>
+            <DataMQL_RQID Ref="58" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>9,0,0.8,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,12</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataMQL_RQID</Name>
+              <Page isRef="5" />
+              <Parent isRef="37" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{MQL.RQID}</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </DataMQL_RQID>
+            <DataMQL_RQST_NUMB Ref="59" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[210:234:240]</Brush>
+              <ClientRectangle>9,0.3,0.8,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,12</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataMQL_RQST_NUMB</Name>
+              <Page isRef="5" />
+              <Parent isRef="37" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{MQL.RQST_NUMB}</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </DataMQL_RQST_NUMB>
+            <DataMQL_PERS_SAVE_DATE Ref="60" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>8.3,0,0.7,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,12</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataMQL_PERS_SAVE_DATE</Name>
+              <Page isRef="5" />
+              <Parent isRef="37" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{MQL.PERS_SAVE_DATE}</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </DataMQL_PERS_SAVE_DATE>
+            <DataMQL_PERS_SAVE_TIME Ref="61" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[210:234:240]</Brush>
+              <ClientRectangle>8.3,0.3,0.7,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,12</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataMQL_PERS_SAVE_TIME</Name>
+              <Page isRef="5" />
+              <Parent isRef="37" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{MQL.PERS_SAVE_TIME}</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </DataMQL_PERS_SAVE_TIME>
+            <DataMQL_REF_INFO Ref="62" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>0,0,1.3,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,12</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataMQL_REF_INFO</Name>
+              <Page isRef="5" />
+              <Parent isRef="37" />
+              <Text>{MQL.REF_INFO}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </DataMQL_REF_INFO>
+            <Text3 Ref="63" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[210:234:240]</Brush>
+              <ClientRectangle>7.9,0.3,0.4,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,12</Font>
+              <Guid>10f505f96c3d48fdb71b67250e7f0a06</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text3</Name>
+              <Page isRef="5" />
+              <Parent isRef="37" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{MQL.AGE}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>DataColumn</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text3>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <DataRelationName isNull="true" />
+          <DataSourceName>MQL</DataSourceName>
+          <Filters isList="true" count="0" />
+          <Name>DataMQL</Name>
+          <Page isRef="5" />
+          <Parent isRef="5" />
+          <Sort isList="true" count="4">
+            <value>ASC</value>
+            <value>ORGN_CODE_DNRM</value>
+            <value>ASC</value>
+            <value>PERS_SAVE_DATE</value>
+          </Sort>
+        </DataMQL>
+        <GroupFooterBand1 Ref="64" type="GroupFooterBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,4,10.91,0.3</ClientRectangle>
+          <Components isList="true" count="7">
+            <Text5 Ref="65" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[230:238:215]</Brush>
+              <ClientRectangle>3.7,0,0.8,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,12</Font>
+              <Guid>091ee0fee7ca44ecad3ebad4f7480917</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text5</Name>
+              <Page isRef="5" />
+              <Parent isRef="64" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{Sum(Orgn_Gp,MQL.SUM_EXPN_PRIC)}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="66" type="NumberFormat" isKey="true">
+                <DecimalDigits>0</DecimalDigits>
+                <GroupSeparator>,</GroupSeparator>
+                <NegativePattern>1</NegativePattern>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <Type>Totals</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text5>
+            <Text6 Ref="67" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[252:230:212]</Brush>
+              <ClientRectangle>3,0,0.7,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,12</Font>
+              <Guid>af9514d740744c019e07742b8d2d014d</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text6</Name>
+              <Page isRef="5" />
+              <Parent isRef="64" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{Sum(Orgn_Gp,MQL.SUM_PYMT_DSCN_DNRM)}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="68" type="NumberFormat" isKey="true">
+                <DecimalDigits>0</DecimalDigits>
+                <GroupSeparator>,</GroupSeparator>
+                <NegativePattern>1</NegativePattern>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <Type>Totals</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text6>
+            <Text7 Ref="69" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[210:234:240]</Brush>
+              <ClientRectangle>2.3,0,0.7,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,12</Font>
+              <Guid>bbf7fc32f6c049949125813eb4b345ba</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text7</Name>
+              <Page isRef="5" />
+              <Parent isRef="64" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{Sum(Orgn_Gp,MQL.SUM_RCPT_EXPN_PRIC)}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="70" type="NumberFormat" isKey="true">
+                <DecimalDigits>0</DecimalDigits>
+                <GroupSeparator>,</GroupSeparator>
+                <NegativePattern>1</NegativePattern>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <Type>Totals</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text7>
+            <Text8 Ref="71" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[223:216:231]</Brush>
+              <ClientRectangle>1.6,0,0.7,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,12</Font>
+              <Guid>b7cf58c8308847fabf3a6d42e22b0b54</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text8</Name>
+              <Page isRef="5" />
+              <Parent isRef="64" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{Sum(Orgn_Gp,MQL.DEBT_DNRM)}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="72" type="NumberFormat" isKey="true">
+                <DecimalDigits>0</DecimalDigits>
+                <GroupSeparator>,</GroupSeparator>
+                <NegativePattern>1</NegativePattern>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <Type>Totals</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text8>
+            <Text9 Ref="73" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[216:216:216]</Brush>
+              <ClientRectangle>4.5,0,6.4,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,12</Font>
+              <Guid>0e47f0d1e7e649a0bdcacf7a245731ec</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text9</Name>
+              <Page isRef="5" />
+              <Parent isRef="64" />
+              <Text>سرجمع ارگان طرف قرارداد {MQL.SUNT_DESC}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text9>
+            <Text10 Ref="74" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[214:224:236]</Brush>
+              <ClientRectangle>1.3,0,0.3,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,12</Font>
+              <Guid>842cdb43ef1d4491bb14eefea20ad6f9</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text10</Name>
+              <Page isRef="5" />
+              <Parent isRef="64" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{Count(Orgn_Gp)}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Totals</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text10>
+            <Text11 Ref="75" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[216:216:216]</Brush>
+              <ClientRectangle>0,0,1.3,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,12</Font>
+              <Guid>2e6ae49592ff4a578bfbbff7f1fdd1bf</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text11</Name>
+              <Page isRef="5" />
+              <Parent isRef="64" />
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text11>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <Name>GroupFooterBand1</Name>
+          <Page isRef="5" />
+          <Parent isRef="5" />
+        </GroupFooterBand1>
+        <FooterBand1 Ref="76" type="FooterBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,4.7,10.91,0.3</ClientRectangle>
+          <Components isList="true" count="7">
+            <Text12 Ref="77" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[230:238:215]</Brush>
+              <ClientRectangle>3.7,0,0.8,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,12</Font>
+              <Guid>49d4447eccba428cb11c3f7ddbae5aea</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text12</Name>
+              <Page isRef="5" />
+              <Parent isRef="76" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{Sum(DataMQL,MQL.SUM_EXPN_PRIC)}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="78" type="NumberFormat" isKey="true">
+                <DecimalDigits>0</DecimalDigits>
+                <GroupSeparator>,</GroupSeparator>
+                <NegativePattern>1</NegativePattern>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <Type>Totals</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text12>
+            <Text13 Ref="79" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[252:230:212]</Brush>
+              <ClientRectangle>3,0,0.7,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,12</Font>
+              <Guid>e6b8e52dbcde412f9de4039b43e2d87f</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text13</Name>
+              <Page isRef="5" />
+              <Parent isRef="76" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{Sum(DataMQL,MQL.SUM_PYMT_DSCN_DNRM)}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="80" type="NumberFormat" isKey="true">
+                <DecimalDigits>0</DecimalDigits>
+                <GroupSeparator>,</GroupSeparator>
+                <NegativePattern>1</NegativePattern>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <Type>Totals</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text13>
+            <Text14 Ref="81" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[210:234:240]</Brush>
+              <ClientRectangle>2.3,0,0.7,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,12</Font>
+              <Guid>8664c0969d8244bbb2dd26768d907f2f</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text14</Name>
+              <Page isRef="5" />
+              <Parent isRef="76" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{Sum(DataMQL,MQL.SUM_RCPT_EXPN_PRIC)}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="82" type="NumberFormat" isKey="true">
+                <DecimalDigits>0</DecimalDigits>
+                <GroupSeparator>,</GroupSeparator>
+                <NegativePattern>1</NegativePattern>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <Type>Totals</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text14>
+            <Text15 Ref="83" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[223:216:231]</Brush>
+              <ClientRectangle>1.6,0,0.7,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,12</Font>
+              <Guid>5d9c1b24ddf347feb48af97a40f1c48b</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text15</Name>
+              <Page isRef="5" />
+              <Parent isRef="76" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{Sum(DataMQL,MQL.DEBT_DNRM)}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="84" type="NumberFormat" isKey="true">
+                <DecimalDigits>0</DecimalDigits>
+                <GroupSeparator>,</GroupSeparator>
+                <NegativePattern>1</NegativePattern>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <Type>Totals</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text15>
+            <Text16 Ref="85" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[216:216:216]</Brush>
+              <ClientRectangle>4.5,0,6.4,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,12</Font>
+              <Guid>b5165067d26d4654aa2311582f11f2f9</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text16</Name>
+              <Page isRef="5" />
+              <Parent isRef="76" />
+              <Text>سرجمع کلی تمام ارگان های طرف قرارداد</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text16>
+            <Text17 Ref="86" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[214:224:236]</Brush>
+              <ClientRectangle>1.3,0,0.3,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,12</Font>
+              <Guid>f2bfa4654f8a4f87b7615161d6215d20</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text17</Name>
+              <Page isRef="5" />
+              <Parent isRef="76" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{Count(DataMQL)}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Totals</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text17>
+            <Text18 Ref="87" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[216:216:216]</Brush>
+              <ClientRectangle>0,0,1.3,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,12</Font>
+              <Guid>f4a95d68a8e743bbb9c844435023dd12</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text18</Name>
+              <Page isRef="5" />
+              <Parent isRef="76" />
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text18>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <Name>FooterBand1</Name>
+          <Page isRef="5" />
+          <Parent isRef="5" />
+        </FooterBand1>
+      </Components>
+      <Conditions isList="true" count="0" />
+      <Guid>f46b5748cded4abd8fde54218cad21df</Guid>
+      <Margins>0.39,0.39,0.39,0.39</Margins>
+      <Name>Page1</Name>
+      <Orientation>Landscape</Orientation>
+      <PageHeight>8.27</PageHeight>
+      <PageWidth>11.69</PageWidth>
+      <PaperSize>A4</PaperSize>
+      <Report isRef="0" />
+      <Watermark Ref="88" type="Stimulsoft.Report.Components.StiWatermark" isKey="true">
+        <Font>Arial,100</Font>
+        <TextBrush>[50:0:0:0]</TextBrush>
+      </Watermark>
+    </Page1>
+  </Pages>
+  <PrinterSettings Ref="89" type="Stimulsoft.Report.Print.StiPrinterSettings" isKey="true" />
+  <ReferencedAssemblies isList="true" count="8">
+    <value>System.Dll</value>
+    <value>System.Drawing.Dll</value>
+    <value>System.Windows.Forms.Dll</value>
+    <value>System.Data.Dll</value>
+    <value>System.Xml.Dll</value>
+    <value>Stimulsoft.Controls.Dll</value>
+    <value>Stimulsoft.Base.Dll</value>
+    <value>Stimulsoft.Report.Dll</value>
+  </ReferencedAssemblies>
+  <ReportAlias>Report</ReportAlias>
+  <ReportChanged>11/17/2022 11:14:33 PM</ReportChanged>
+  <ReportCreated>11/17/2022 1:34:43 PM</ReportCreated>
+  <ReportFile>D:\Project\MyProject\Documents\Report Repository\RPT_STAT_001.mrt</ReportFile>
+  <ReportGuid>02816697e99c45feb1a99e6caf067b63</ReportGuid>
+  <ReportName>Report</ReportName>
+  <ReportUnit>Inches</ReportUnit>
+  <ReportVersion>2012.2.1304</ReportVersion>
+  <Script>using System;
+using System.Drawing;
+using System.Windows.Forms;
+using System.Data;
+using Stimulsoft.Controls;
+using Stimulsoft.Base.Drawing;
+using Stimulsoft.Report;
+using Stimulsoft.Report.Dialogs;
+using Stimulsoft.Report.Components;
+
+namespace Reports
+{
+    public class Report : Stimulsoft.Report.StiReport
+    {
+        public Report()        {
+            this.InitializeComponent();
+        }
+
+        #region StiReport Designer generated code - do not modify
+        #endregion StiReport Designer generated code - do not modify
+    }
+}
+</Script>
+  <ScriptLanguage>CSharp</ScriptLanguage>
+  <Styles isList="true" count="0" />
+</StiSerializer>

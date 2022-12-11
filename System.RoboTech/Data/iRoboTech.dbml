@@ -1217,11 +1217,11 @@
       <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
       <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Association Name="Wallet_Detail_Order_State" Member="Wallet_Detail" ThisKey="WLDT_CODE" OtherKey="CODE" Type="Wallet_Detail" IsForeignKey="true" />
       <Association Name="Service_Robot_Discount_Card_Order_State" Member="Service_Robot_Discount_Card" ThisKey="DISC_DCID" OtherKey="DCID" Type="Service_Robot_Discount_Card" IsForeignKey="true" />
       <Association Name="Service_Robot_Gift_Card_Order_State" Member="Service_Robot_Gift_Card" ThisKey="GIFC_GCID" OtherKey="GCID" Type="Service_Robot_Gift_Card" IsForeignKey="true" />
       <Association Name="App_Base_Define_Order_State" Member="App_Base_Define" ThisKey="APBS_CODE" OtherKey="CODE" Type="App_Base_Define" IsForeignKey="true" />
       <Association Name="Order_Order_State" Member="Order" ThisKey="ORDR_CODE" OtherKey="CODE" Type="Order" IsForeignKey="true" DeleteRule="CASCADE" />
+      <Association Name="Wallet_Detail_Order_State" Member="Wallet_Detail" ThisKey="WLDT_CODE" OtherKey="CODE" Type="Wallet_Detail" IsForeignKey="true" />
     </Type>
     <InsertFunction FunctionId="FunctionId61">
       <Argument Parameter="ordr_Code" Member="ORDR_CODE" />
@@ -1610,32 +1610,6 @@
       <Column Name="DOMN_DESC" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
-  <Table Name="dbo.Wallet_Detail" Member="Wallet_Details">
-    <Type Name="Wallet_Detail">
-      <Column Name="TXFE_TFID" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="ORDR_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="WLET_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="CODE" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="RWNO" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="CHAT_ID" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="AMNT_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="AMNT" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="AMNT_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="AMNT_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="CONF_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="CONF_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="CONF_DESC" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="CRNT_WLET_AMNT_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
-      <Association Name="Wallet_Detail_Order_State" Member="Order_States" ThisKey="CODE" OtherKey="WLDT_CODE" Type="Order_State" />
-      <Association Name="Wallet_Wallet_Detail" Member="Wallet" ThisKey="WLET_CODE" OtherKey="CODE" Type="Wallet" IsForeignKey="true" DeleteRule="CASCADE" />
-      <Association Name="Transaction_Fee_Wallet_Detail" Member="Transaction_Fee" ThisKey="TXFE_TFID" OtherKey="TFID" Type="Transaction_Fee" IsForeignKey="true" DeleteRule="CASCADE" />
-      <Association Name="Order_Wallet_Detail" Member="Order" ThisKey="ORDR_CODE" OtherKey="CODE" Type="Order" IsForeignKey="true" DeleteRule="CASCADE" />
-    </Type>
-  </Table>
   <Table Name="dbo.Service_Robot_Discount_Card" Member="Service_Robot_Discount_Cards">
     <Type Name="Service_Robot_Discount_Card">
       <Column Name="SRBT_SERV_FILE_NO" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
@@ -1702,28 +1676,6 @@
       <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
       <Association Name="Service_Robot_Service_Robot_Inviting_Contact" Member="Service_Robot" ThisKey="SRBT_SERV_FILE_NO,SRBT_ROBO_RBID" OtherKey="SERV_FILE_NO,ROBO_RBID" Type="Service_Robot" IsForeignKey="true" DeleteRule="CASCADE" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Wallet" Member="Wallets">
-    <Type Name="Wallet">
-      <Column Name="SRBT_SERV_FILE_NO" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="SRBT_ROBO_RBID" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="CODE" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="CHAT_ID" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="WLET_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="AMNT_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="LAST_IN_AMNT_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="LAST_IN_DATE_DNRM" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="LAST_OUT_AMNT_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="LAST_OUT_DATE_DNRM" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="TEMP_AMNT_USE" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
-      <Association Name="Wallet_Wallet_Detail" Member="Wallet_Details" ThisKey="CODE" OtherKey="WLET_CODE" Type="Wallet_Detail" />
-      <Association Name="Robot_Wallet" Member="Robot" ThisKey="SRBT_ROBO_RBID" OtherKey="RBID" Type="Robot" IsForeignKey="true" />
-      <Association Name="Service_Robot_Wallet" Member="Service_Robot" ThisKey="SRBT_SERV_FILE_NO,SRBT_ROBO_RBID" OtherKey="SERV_FILE_NO,ROBO_RBID" Type="Service_Robot" IsForeignKey="true" DeleteRule="CASCADE" />
     </Type>
   </Table>
   <Table Name="dbo.D$WLTP" Member="D_WLTPs">
@@ -2540,6 +2492,7 @@
       <Association Name="Robot_Product_Service_Robot_Seller_Partner" Member="Service_Robot_Seller_Partners" ThisKey="CODE" OtherKey="RBPR_CODE" Type="Service_Robot_Seller_Partner" />
       <Association Name="Robot_Product_Robot_Product_Download" Member="Robot_Product_Downloads" ThisKey="CODE" OtherKey="RBPR_CODE" Type="Robot_Product_Download" />
       <Association Name="Robot_Product_Robot_Product_Limited" Member="Robot_Product_Limiteds" ThisKey="CODE" OtherKey="RBPR_CODE" Type="Robot_Product_Limited" />
+      <Association Name="Robot_Product_Robot_Product_Divdend" Member="Robot_Product_Divdends" ThisKey="CODE" OtherKey="RBPR_CODE" Type="Robot_Product_Divdend" />
       <Association Name="Robot_Robot_Product" Member="Robot" ThisKey="ROBO_RBID" OtherKey="RBID" Type="Robot" IsForeignKey="true" DeleteRule="CASCADE" />
       <Association Name="App_Base_Define_Robot_Product" Member="App_Base_Define" ThisKey="UNIT_APBS_CODE" OtherKey="CODE" Type="App_Base_Define" IsForeignKey="true" DeleteRule="CASCADE" />
     </Type>
@@ -2791,7 +2744,6 @@
       <Association Name="Robot_Menu_Ussd" Member="Menu_Ussds" ThisKey="RBID" OtherKey="ROBO_RBID" Type="Menu_Ussd" />
       <Association Name="Robot_Organ_Media" Member="Organ_Medias" ThisKey="RBID" OtherKey="ROBO_RBID" Type="Organ_Media" />
       <Association Name="Robot_Robot_Product_Discount" Member="Robot_Product_Discounts" ThisKey="RBID" OtherKey="ROBO_RBID" Type="Robot_Product_Discount" />
-      <Association Name="Robot_Wallet" Member="Wallets" ThisKey="RBID" OtherKey="SRBT_ROBO_RBID" Type="Wallet" />
       <Association Name="Robot_Send_Advertising_Tariff" Member="Send_Advertising_Tariffs" ThisKey="RBID" OtherKey="ROBO_RBID" Type="Send_Advertising_Tariff" />
       <Association Name="Robot_Send_Advertising" Member="Send_Advertisings" ThisKey="RBID" OtherKey="ROBO_RBID" Type="Send_Advertising" />
       <Association Name="Robot_Service_Robot_Public" Member="Service_Robot_Publics" ThisKey="RBID" OtherKey="SRBT_ROBO_RBID" Type="Service_Robot_Public" />
@@ -2809,6 +2761,7 @@
       <Association Name="Robot_Robot" Member="Robots" ThisKey="RBID" OtherKey="ROBO_RBID" Type="Robot" />
       <Association Name="Robot_Service_Robot" Member="Service_Robots" ThisKey="RBID" OtherKey="ROBO_RBID" Type="Service_Robot" />
       <Association Name="Robot_Order" Member="Orders" ThisKey="RBID" OtherKey="SRBT_ROBO_RBID" Type="Order" />
+      <Association Name="Robot_Wallet" Member="Wallets" ThisKey="RBID" OtherKey="SRBT_ROBO_RBID" Type="Wallet" />
       <Association Name="Organ_Robot" Member="Organ" ThisKey="ORGN_OGID" OtherKey="OGID" Type="Organ" IsForeignKey="true" />
       <Association Name="Robot_Robot" Member="Robot1" ThisKey="ROBO_RBID" OtherKey="RBID" Type="Robot" IsForeignKey="true" />
     </Type>
@@ -3118,7 +3071,6 @@
       <Association Name="Service_Robot_Service_Robot_Discount_Card" Member="Service_Robot_Discount_Cards" ThisKey="SERV_FILE_NO,ROBO_RBID" OtherKey="SRBT_SERV_FILE_NO,SRBT_ROBO_RBID" Type="Service_Robot_Discount_Card" />
       <Association Name="Service_Robot_Service_Robot_Gift_Card" Member="Service_Robot_Gift_Cards" ThisKey="SERV_FILE_NO,ROBO_RBID" OtherKey="SRBT_SERV_FILE_NO,SRBT_ROBO_RBID" Type="Service_Robot_Gift_Card" />
       <Association Name="Service_Robot_Service_Robot_Inviting_Contact" Member="Service_Robot_Inviting_Contacts" ThisKey="SERV_FILE_NO,ROBO_RBID" OtherKey="SRBT_SERV_FILE_NO,SRBT_ROBO_RBID" Type="Service_Robot_Inviting_Contact" />
-      <Association Name="Service_Robot_Wallet" Member="Wallets" ThisKey="SERV_FILE_NO,ROBO_RBID" OtherKey="SRBT_SERV_FILE_NO,SRBT_ROBO_RBID" Type="Wallet" />
       <Association Name="Service_Robot_Service_Robot_Replay_Message" Member="Service_Robot_Replay_Messages" ThisKey="SERV_FILE_NO,ROBO_RBID" OtherKey="SRBT_SERV_FILE_NO,SRBT_ROBO_RBID" Type="Service_Robot_Replay_Message" />
       <Association Name="Service_Robot_Service_Robot_Send_Advertising" Member="Service_Robot_Send_Advertisings" ThisKey="SERV_FILE_NO,ROBO_RBID" OtherKey="SRBT_SERV_FILE_NO,SRBT_ROBO_RBID" Type="Service_Robot_Send_Advertising" />
       <Association Name="Service_Robot_Service_Robot_Public" Member="Service_Robot_Publics" ThisKey="SERV_FILE_NO,ROBO_RBID" OtherKey="SRBT_SERV_FILE_NO,SRBT_ROBO_RBID" Type="Service_Robot_Public" />
@@ -3132,6 +3084,8 @@
       <Association Name="Service_Robot_Service_Robot" Member="Service_Robots" ThisKey="SERV_FILE_NO,ROBO_RBID" OtherKey="REF_SERV_FILE_NO,REF_ROBO_RBID" Type="Service_Robot" />
       <Association Name="Service_Robot_Order" Member="Orders" ThisKey="SERV_FILE_NO,ROBO_RBID" OtherKey="SRBT_SERV_FILE_NO,SRBT_ROBO_RBID" Type="Order" />
       <Association Name="Service_Robot_Service_Robot_Visit" Member="Service_Robot_Visits" ThisKey="SERV_FILE_NO,ROBO_RBID" OtherKey="SRRB_SERV_FILE_NO,SRRB_ROBO_RBID" Type="Service_Robot_Visit" />
+      <Association Name="Service_Robot_Wallet" Member="Wallets" ThisKey="SERV_FILE_NO,ROBO_RBID" OtherKey="SRBT_SERV_FILE_NO,SRBT_ROBO_RBID" Type="Wallet" />
+      <Association Name="Service_Robot_Order_Balance" Member="Order_Balances" ThisKey="SERV_FILE_NO,ROBO_RBID" OtherKey="SRBT_SERV_FILE_NO,SRBT_ROBO_RBID" Type="Order_Balance" />
       <Association Name="Service_Robot_Service_Robot" Member="Service_Robot1" ThisKey="REF_SERV_FILE_NO,REF_ROBO_RBID" OtherKey="SERV_FILE_NO,ROBO_RBID" Type="Service_Robot" IsForeignKey="true" />
       <Association Name="Group_Header_Service_Robot" Member="Group_Header" ThisKey="GRPH_GHID" OtherKey="GHID" Type="Group_Header" IsForeignKey="true" />
       <Association Name="Region_Service_Robot" Member="Region" ThisKey="REGN_PRVN_CNTY_CODE,REGN_PRVN_CODE,REGN_CODE" OtherKey="PRVN_CNTY_CODE,PRVN_CODE,CODE" Type="Region" IsForeignKey="true" />
@@ -3294,12 +3248,15 @@
       <Association Name="Order_Order_Access" Member="Order_Accesses" ThisKey="CODE" OtherKey="ORDR_CODE" Type="Order_Access" />
       <Association Name="Order_Order_State" Member="Order_States" ThisKey="CODE" OtherKey="ORDR_CODE" Type="Order_State" />
       <Association Name="Order_Order_Step_History" Member="Order_Step_Histories" ThisKey="CODE" OtherKey="ORDR_CODE" Type="Order_Step_History" />
-      <Association Name="Order_Wallet_Detail" Member="Wallet_Details" ThisKey="CODE" OtherKey="ORDR_CODE" Type="Wallet_Detail" />
       <Association Name="Order_Service_Robot_Discount_Card" Member="Service_Robot_Discount_Cards" ThisKey="CODE" OtherKey="ORDR_CODE" Type="Service_Robot_Discount_Card" />
       <Association Name="Order_Service_Robot_Gift_Card" Member="Service_Robot_Gift_Cards" ThisKey="CODE" OtherKey="ORDR_CODE" Type="Service_Robot_Gift_Card" />
       <Association Name="Order_Send_Advertising" Member="Send_Advertisings" ThisKey="CODE" OtherKey="ORDR_CODE" Type="Send_Advertising" />
       <Association Name="Order_Order_Detail" Member="Order_Details" ThisKey="CODE" OtherKey="ORDR_CODE" Type="Order_Detail" />
       <Association Name="Order_Order" Member="Orders" ThisKey="CODE" OtherKey="ORDR_CODE" Type="Order" />
+      <Association Name="Order_Wallet_Detail" Member="Wallet_Details" ThisKey="CODE" OtherKey="ORDR_CODE" Type="Wallet_Detail" />
+      <Association Name="Order_Order_Balance_Detail" Member="Order_Balance_Details" ThisKey="CODE" OtherKey="ORDR_CODE" Type="Order_Balance_Detail" />
+      <Association Name="Order_Order_Profit_Product_Divdend" Member="Order_Profit_Product_Divdends" ThisKey="CODE" OtherKey="ORDR_CODE" Type="Order_Profit_Product_Divdend" />
+      <Association Name="Order_Order_Profit_Product_Divdend_Detail" Member="Order_Profit_Product_Divdend_Details" ThisKey="CODE" OtherKey="ORDR_CODE" Type="Order_Profit_Product_Divdend_Detail" />
       <Association Name="App_Base_Define_Order" Member="App_Base_Define" ThisKey="SERV_INTR_APBS_CODE" OtherKey="CODE" Type="App_Base_Define" IsForeignKey="true" />
       <Association Name="App_Base_Define_Order1" Member="App_Base_Define1" ThisKey="SERV_JOB_APBS_CODE" OtherKey="CODE" Type="App_Base_Define" IsForeignKey="true" />
       <Association Name="App_Base_Define_Order2" Member="App_Base_Define2" ThisKey="APBS_CODE" OtherKey="CODE" Type="App_Base_Define" IsForeignKey="true" />
@@ -3412,6 +3369,149 @@
       <Column Name="SRID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="VIST_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Association Name="Service_Robot_Service_Robot_Visit" Member="Service_Robot" ThisKey="SRRB_SERV_FILE_NO,SRRB_ROBO_RBID" OtherKey="SERV_FILE_NO,ROBO_RBID" Type="Service_Robot" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Wallet" Member="Wallets">
+    <Type Name="Wallet">
+      <Column Name="SRBT_SERV_FILE_NO" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="SRBT_ROBO_RBID" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CODE" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CHAT_ID" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="WLET_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="AMNT_DNRM" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="LAST_IN_AMNT_DNRM" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="LAST_IN_DATE_DNRM" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="LAST_OUT_AMNT_DNRM" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="LAST_OUT_DATE_DNRM" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="TEMP_AMNT_USE" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="Wallet_Wallet_Detail" Member="Wallet_Details" ThisKey="CODE" OtherKey="WLET_CODE" Type="Wallet_Detail" />
+      <Association Name="Robot_Wallet" Member="Robot" ThisKey="SRBT_ROBO_RBID" OtherKey="RBID" Type="Robot" IsForeignKey="true" />
+      <Association Name="Service_Robot_Wallet" Member="Service_Robot" ThisKey="SRBT_SERV_FILE_NO,SRBT_ROBO_RBID" OtherKey="SERV_FILE_NO,ROBO_RBID" Type="Service_Robot" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Wallet_Detail" Member="Wallet_Details">
+    <Type Name="Wallet_Detail">
+      <Column Name="TXFE_TFID" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ORDR_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="WLET_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CODE" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="RWNO" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CHAT_ID" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="AMNT_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="AMNT" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="AMNT_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="AMNT_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CONF_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CONF_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CONF_DESC" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRNT_WLET_AMNT_DNRM" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="Wallet_Detail_Order_State" Member="Order_States" ThisKey="CODE" OtherKey="WLDT_CODE" Type="Order_State" />
+      <Association Name="Wallet_Detail_Order_Profit_Product_Divdend_Detail" Member="Order_Profit_Product_Divdend_Details" ThisKey="CODE" OtherKey="WLDT_CODE" Type="Order_Profit_Product_Divdend_Detail" />
+      <Association Name="Order_Wallet_Detail" Member="Order" ThisKey="ORDR_CODE" OtherKey="CODE" Type="Order" IsForeignKey="true" DeleteRule="CASCADE" />
+      <Association Name="Transaction_Fee_Wallet_Detail" Member="Transaction_Fee" ThisKey="TXFE_TFID" OtherKey="TFID" Type="Transaction_Fee" IsForeignKey="true" DeleteRule="CASCADE" />
+      <Association Name="Wallet_Wallet_Detail" Member="Wallet" ThisKey="WLET_CODE" OtherKey="CODE" Type="Wallet" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Robot_Product_Divdend" Member="Robot_Product_Divdends">
+    <Type Name="Robot_Product_Divdend">
+      <Column Name="RBPR_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="CODE" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TARF_CODE_DNRM" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="AMNT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MONT_PRFT_NUMB" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="PRCT_VALU" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Robot_Product_Divdend_Order_Profit_Product_Divdend" Member="Order_Profit_Product_Divdends" ThisKey="CODE" OtherKey="RPDV_CODE" Type="Order_Profit_Product_Divdend" />
+      <Association Name="Robot_Product_Robot_Product_Divdend" Member="Robot_Product" ThisKey="RBPR_CODE" OtherKey="CODE" Type="Robot_Product" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Order_Balance" Member="Order_Balances">
+    <Type Name="Order_Balance">
+      <Column Name="SRBT_SERV_FILE_NO" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="SRBT_ROBO_RBID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="CODE" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CHAT_ID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="LEFT_AMNT_DNRM" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="RIGH_AMNT_DNRM" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="SELF_AMNT_DNRM" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Order_Balance_Order_Balance_Detail" Member="Order_Balance_Details" ThisKey="CODE" OtherKey="OBLN_CODE" Type="Order_Balance_Detail" />
+      <Association Name="Service_Robot_Order_Balance" Member="Service_Robot" ThisKey="SRBT_SERV_FILE_NO,SRBT_ROBO_RBID" OtherKey="SERV_FILE_NO,ROBO_RBID" Type="Service_Robot" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Order_Balance_Detail" Member="Order_Balance_Details">
+    <Type Name="Order_Balance_Detail">
+      <Column Name="OBLN_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="CODE" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CHAT_ID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="ORDR_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="EXPN_AMNT" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="DIR_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="AMNT_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Order_Balance_Order_Balance_Detail" Member="Order_Balance" ThisKey="OBLN_CODE" OtherKey="CODE" Type="Order_Balance" IsForeignKey="true" />
+      <Association Name="Order_Order_Balance_Detail" Member="Order" ThisKey="ORDR_CODE" OtherKey="CODE" Type="Order" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Order_Profit_Product_Divdend" Member="Order_Profit_Product_Divdends">
+    <Type Name="Order_Profit_Product_Divdend">
+      <Column Name="ORDR_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="RPDV_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="CODE" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CHAT_ID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="TARF_CODE_DNRM" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="MAX_PRFT_AMNT_DNRM" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="CRNT_PRFT_AMNT_DNRM" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="LAST_PRFT_RWNO_DNRM" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LAST_PRFT_AMNT_DNRM" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="LAST_PRFT_DATE_DNRM" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Order_Profit_Product_Divdend_Order_Profit_Product_Divdend_Detail" Member="Order_Profit_Product_Divdend_Details" ThisKey="CODE" OtherKey="OPPD_CODE" Type="Order_Profit_Product_Divdend_Detail" />
+      <Association Name="Order_Order_Profit_Product_Divdend" Member="Order" ThisKey="ORDR_CODE" OtherKey="CODE" Type="Order" IsForeignKey="true" />
+      <Association Name="Robot_Product_Divdend_Order_Profit_Product_Divdend" Member="Robot_Product_Divdend" ThisKey="RPDV_CODE" OtherKey="CODE" Type="Robot_Product_Divdend" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Order_Profit_Product_Divdend_Detail" Member="Order_Profit_Product_Divdend_Details">
+    <Type Name="Order_Profit_Product_Divdend_Detail">
+      <Column Name="OPPD_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="CODE" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="RWNO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CHAT_ID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="TARF_CODE_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="AMNT" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="AMNT_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="ACTN_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ORDR_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="WLDT_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="CONF_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Order_Profit_Product_Divdend_Order_Profit_Product_Divdend_Detail" Member="Order_Profit_Product_Divdend" ThisKey="OPPD_CODE" OtherKey="CODE" Type="Order_Profit_Product_Divdend" IsForeignKey="true" />
+      <Association Name="Order_Order_Profit_Product_Divdend_Detail" Member="Order" ThisKey="ORDR_CODE" OtherKey="CODE" Type="Order" IsForeignKey="true" />
+      <Association Name="Wallet_Detail_Order_Profit_Product_Divdend_Detail" Member="Wallet_Detail" ThisKey="WLDT_CODE" OtherKey="CODE" Type="Wallet_Detail" IsForeignKey="true" />
     </Type>
   </Table>
   <Function Id="FunctionId3" Name="dbo.DEL_CNTY_P" Method="DEL_CNTY_P">

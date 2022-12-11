@@ -319,11 +319,10 @@ namespace System.Scsc.Ui.Common
 
       private void vF_Last_Info_FighterResultBindingSource_CurrentChanged(object sender, EventArgs e)
       {
+         var figh = vF_Fighs.Current as Data.VF_Last_Info_FighterResult;
+         if (figh == null) return;
          try
          {
-            var figh = vF_Fighs.Current as Data.VF_Last_Info_FighterResult;
-            if (figh == null) return;
-
             // 1401/05/22 * Focused
             ServProf_Tc.SelectedIndex = 0;
 
@@ -333,7 +332,7 @@ namespace System.Scsc.Ui.Common
             MbspBs.DataSource = iScsc.Member_Ships.Where(mb => mb.FIGH_FILE_NO == figh.FILE_NO && mb.RECT_CODE == "004" && (mb.TYPE == "001" || mb.TYPE == "005"));
             Mbsp_gv.TopRowIndex = 0;
 
-            UserProFile_Rb.ImageProfile = null;
+            UserProFile1_Rb.ImageProfile = UserProFile_Rb.ImageProfile = null;
             MemoryStream mStream = new MemoryStream();
             byte[] pData = iScsc.GET_PIMG_U(new XElement("Fighter", new XAttribute("fileno", figh.FILE_NO))).ToArray();
             mStream.Write(pData, 0, Convert.ToInt32(pData.Length));
@@ -343,14 +342,14 @@ namespace System.Scsc.Ui.Common
             //Pb_FighImg.Visible = true;            
 
             if (InvokeRequired)
-               Invoke(new Action(() => UserProFile_Rb.ImageProfile = bm));
+               Invoke(new Action(() => { UserProFile1_Rb.ImageProfile = UserProFile_Rb.ImageProfile = bm; }));
             else
-               UserProFile_Rb.ImageProfile = bm;
+               UserProFile1_Rb.ImageProfile = UserProFile_Rb.ImageProfile = bm;
          }
          catch
          { //Pb_FighImg.Visible = false;
             UserProFile_Rb.ImageProfile = global::System.Scsc.Properties.Resources.IMAGE_1482;
-         }
+         }         
       }
 
       private void MbspBs_CurrentChanged(object sender, EventArgs e)
@@ -372,6 +371,7 @@ namespace System.Scsc.Ui.Common
             DscnAmnt_Txt.EditValue = iScsc.Payment_Discounts.Where(pd => pd.PYMT_RQST_RQID == rqid).Sum(pd => pd.AMNT);
             PymtAmnt_Txt.EditValue = iScsc.Payment_Methods.Where(pd => pd.PYMT_RQST_RQID == rqid).Sum(pd => pd.AMNT);
             DebtPymtAmnt_Txt.EditValue = Convert.ToInt64(ExpnAmnt_Txt.EditValue) - (Convert.ToInt64(PymtAmnt_Txt.EditValue) + Convert.ToInt64(DscnAmnt_Txt.EditValue));
+            PdtMBs.DataSource = iScsc.Payment_Details.Where(pd => pd.Request_Row.Request.RQST_STAT == "002" && pd.MBSP_FIGH_FILE_NO == mbsp.FIGH_FILE_NO && pd.MBSP_RWNO == mbsp.RWNO);
          }
          catch
          {
@@ -1631,6 +1631,71 @@ namespace System.Scsc.Ui.Common
 
                   AttnBs2.DataSource = iScsc.Attendances.Where(a => a.FIGH_FILE_NO == _serv.FILE_NO && a.MBSP_RWNO_DNRM == _mbsp.RWNO);
                   break;
+               case "tp_006":
+                  LeftName_Lb.Text = RightName_Lb.Text = "";
+                  var _qury = iScsc.Fighters.Where(f => f.REF_CODE_DNRM == _serv.FILE_NO || f.FILE_NO == _serv.LEFT_FILE_NO || f.FILE_NO == _serv.RIGH_FILE_NO);
+                  // Set Profile for Left Direct
+                  try
+                  {
+                     var _left = _qury.FirstOrDefault(f => f.FILE_NO == _serv.LEFT_FILE_NO);
+                     if (_left != null)
+                     {
+                        LeftName_Lb.Text = _left.NAME_DNRM;
+                        LeftUserProFile_Rb.ImageProfile = null;
+                        MemoryStream mStream = new MemoryStream();
+                        byte[] pData = iScsc.GET_PIMG_U(new XElement("Fighter", new XAttribute("fileno", _serv.LEFT_FILE_NO))).ToArray();
+                        mStream.Write(pData, 0, Convert.ToInt32(pData.Length));
+                        Bitmap bm = new Bitmap(mStream, false);
+                        mStream.Dispose();
+
+                        //Pb_FighImg.Visible = true;            
+
+                        if (InvokeRequired)
+                           Invoke(new Action(() => LeftUserProFile_Rb.ImageProfile = bm));
+                        else
+                           LeftUserProFile_Rb.ImageProfile = bm;
+                     }
+                     else
+                     {
+                        throw new Exception("Show Default Image");
+                     }
+                  }
+                  catch
+                  {
+                     LeftUserProFile_Rb.ImageProfile = global::System.Scsc.Properties.Resources.IMAGE_1482;
+                  }
+
+                  // Set Profile for Right Direct
+                  try
+                  {
+                     var _right = _qury.FirstOrDefault(f => f.FILE_NO == _serv.RIGH_FILE_NO);
+                     if (_right != null)
+                     {
+                        RightName_Lb.Text = _right.NAME_DNRM;
+                        RightUserProFile_Rb.ImageProfile = null;
+                        MemoryStream mStream = new MemoryStream();
+                        byte[] pData = iScsc.GET_PIMG_U(new XElement("Fighter", new XAttribute("fileno", _serv.RIGH_FILE_NO))).ToArray();
+                        mStream.Write(pData, 0, Convert.ToInt32(pData.Length));
+                        Bitmap bm = new Bitmap(mStream, false);
+                        mStream.Dispose();
+
+                        //Pb_FighImg.Visible = true;            
+
+                        if (InvokeRequired)
+                           Invoke(new Action(() => RightUserProFile_Rb.ImageProfile = bm));
+                        else
+                           RightUserProFile_Rb.ImageProfile = bm;
+                     }
+                     else
+                     {
+                        throw new Exception("Show Default Image");
+                     }
+                  }
+                  catch
+                  {
+                     RightUserProFile_Rb.ImageProfile = global::System.Scsc.Properties.Resources.IMAGE_1482;
+                  }
+                  break;
                default: break;
             }
          }
@@ -1643,6 +1708,85 @@ namespace System.Scsc.Ui.Common
       private void PydtBn1_ButtonClick(object sender, NavigatorButtonClickEventArgs e)
       {
 
+      }
+
+      private void CellPhonRefCode_Txt_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            //var _rqst = RqstBs1.Current as Data.Request;
+            //if (_rqst == null) return;
+
+            RServBs.DataSource = iScsc.Fighters.Where(s => s.CELL_PHON_DNRM.Contains(CellPhonRefCode_Txt.Text));
+            if (RServBs.List.Count == 1)
+            {
+               RefCode_Lov.EditValue = RServBs.List.OfType<Data.Fighter>().FirstOrDefault().FILE_NO;
+               CellPhonRefCode_Txt.EditValue = null;
+            }
+            else if (RServBs.List.Count > 1)
+            {
+               RefCode_Lov.Focus();
+               RefCode_Lov.ShowPopup();
+            }
+            else
+            {
+               RefCode_Lov.EditValue = null;
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void RefCode_Lov_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            var _rootServ = vF_Fighs.Current as Data.VF_Last_Info_FighterResult;
+            if (_rootServ == null) return;
+
+            if(RefCode_Lov.EditValue == null || RefCode_Lov.EditValue.ToString() == "")return;
+            var _chldServ = RServBs.List.OfType<Data.Fighter>().FirstOrDefault(f => f.FILE_NO == (long)RefCode_Lov.EditValue);
+
+            if (MessageBox.Show(this, "آیا با ثبت جایگاه برای مشتری موافق هستید؟ درصورت ثبت جایگاه به هیچ عنوان قابل تغییر نیست", "ثبت جایگاه سازمانی", MessageBoxButtons.YesNo) != DialogResult.Yes) return;
+
+            switch (e.Button.Index)
+            {
+               case 1:
+                  iScsc.ExecuteCommand(
+                     string.Format(
+                        "UPDATE dbo.Fighter " + 
+                           "SET LEFT_FILE_NO = {0} " + 
+                         "WHERE FILE_NO = dbo.Find_Pos_U( '001', {1} );",
+                         _chldServ.FILE_NO,
+                         _rootServ.FILE_NO
+                     )
+                  );
+                  MessageBox.Show(this, "اطلاعات با موفقیت در جایگاه سمت چپ ذخیره شد، لطفا صفحه خود را دوباره بارگذاری کنید");
+                  break;
+               case 2:
+                  iScsc.ExecuteCommand(
+                     string.Format(
+                        "UPDATE dbo.Fighter " +
+                           "SET RIGH_FILE_NO = {0} " +
+                         "WHERE FILE_NO = dbo.Find_Pos_U( '001', {1} );",
+                         _chldServ.FILE_NO,
+                         _rootServ.FILE_NO
+                     )
+                  );
+                  MessageBox.Show(this, "اطلاعات با موفقیت در جایگاه سمت راست ذخیره شد، لطفا صفحه خود را دوباره بارگذاری کنید");
+                  break;
+               default:
+                  break;
+            }
+            
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
       }
    }
 }

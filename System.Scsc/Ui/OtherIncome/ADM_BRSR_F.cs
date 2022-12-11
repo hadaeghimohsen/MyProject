@@ -1097,8 +1097,8 @@ namespace System.Scsc.Ui.OtherIncome
       {
          try
          {
-            var _rqst = RqstBs1.Current as Data.Request;
-            if (_rqst == null) return;
+            //var _rqst = RqstBs1.Current as Data.Request;
+            //if (_rqst == null) return;
 
             RServBs.DataSource = iScsc.Fighters.Where(s => s.CELL_PHON_DNRM.Contains(CellPhonRefCode_Txt.Text));
             if (RServBs.List.Count == 1)

@@ -74,10 +74,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
          }
          else if (keyData == (Keys.Control | Keys.Alt | Keys.Shift | Keys.ControlKey))
          {
-            Password_Txt.Text = PasswordHash + SaltKey + VIKey;
-            PasswordHash_Txt.Text = PasswordHash;
-            SaltKey_Txt.Text = SaltKey;
-            VIKey_Txt.Text = VIKey;
+            Password_Txt.Text = PasswordHash + SaltKey + VIKey;            
          }
 
          job.Status = StatusType.Successful;

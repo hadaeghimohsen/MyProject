@@ -402,5 +402,26 @@ namespace System.Scsc.Ui.CalculateExpense
                Execute_Query();
          }
       }
+
+      private void MsedBs_CurrentChanged(object sender, EventArgs e)
+      {
+         try
+         {
+            MPydtBs.DataSource = null;
+
+            var _msed = MsedBs.Current as Data.Misc_Expense_Deduction;
+            if (_msed == null) return;
+
+            MPydtBs.DataSource = 
+               from pm in iScsc.Payment_Methods
+               join pd in iScsc.Payment_Details on pm.PYMT_RQST_RQID equals pd.PYMT_RQST_RQID
+               where pm.CODE == _msed.PMTD_CODE
+               select pd;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
    }
 }

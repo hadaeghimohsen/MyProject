@@ -759,6 +759,7 @@ namespace System.Scsc.Ui.BaseDefinition
          DRectBs.DataSource = iScsc.D_RECTs;
          DConfBs.DataSource = iScsc.D_CONFs;
          UserBs1.DataSource = iScsc.V_Users;
+         DMsgtBs.DataSource = iScsc.D_MSGTs;
 
          AttnComPortName_Lov.Items.Clear();
          GateComPortName_Lov.Items.Clear();

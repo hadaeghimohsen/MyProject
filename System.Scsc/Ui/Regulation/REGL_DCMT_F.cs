@@ -139,6 +139,7 @@ namespace System.Scsc.Ui.Regulation
          var crntpexp = PexpBs1.Position;
          var crntexts = ExtsBs.Position;
          var crntcexc = CexcBs.Position;
+         var crntbcds = BcdsBs1.Position;
          iScsc = new Data.iScscDataContext(ConnectionString);
          RqrqBs.DataSource = iScsc.Request_Requesters.Where(rg => rg.Regulation == (Data.Regulation)ReglBs.Current).OrderBy(rq => rq.RQTP_CODE).ThenBy(rq => rq.RQTT_CODE);
          GV_RQRQ.TopRowIndex = CrntRqrq;
@@ -151,6 +152,7 @@ namespace System.Scsc.Ui.Regulation
          PexpBs1.Position = crntpexp;
          ExtsBs.Position = crntexts;
          CexcBs.Position = crntcexc;
+         BcdsBs1.Position = crntbcds;
          requery = false;
       }
 
@@ -464,16 +466,16 @@ namespace System.Scsc.Ui.Regulation
             Grop_Lov.EditValue = expn.GROP_CODE;
 
             // 1397/10/08 * بارگذاری اطلاعات مربوط به تخفیفات سیستم
-            BcdsBs1.DataSource = 
-               iScsc.Basic_Calculate_Discounts
-               .Where(
-                  b =>
-                     b.Regulation == expn.Regulation &&
-                     b.RQTP_CODE == rqtpcode &&
-                     b.RQTT_CODE == expn.Expense_Type.Request_Requester.RQTT_CODE &&
-                     b.Category_Belt == expn.Category_Belt &&
-                     b.Expense_Item == expn.Expense_Type.Expense_Item
-               );
+            //BcdsBs1.DataSource = 
+            //   iScsc.Basic_Calculate_Discounts
+            //   .Where(
+            //      b =>
+            //         b.Regulation == expn.Regulation &&
+            //         b.RQTP_CODE == rqtpcode &&
+            //         b.RQTT_CODE == expn.Expense_Type.Request_Requester.RQTT_CODE &&
+            //         b.Category_Belt == expn.Category_Belt &&
+            //         b.Expense_Item == expn.Expense_Type.Expense_Item
+            //   );
          }
          catch { }
       }
@@ -550,6 +552,7 @@ namespace System.Scsc.Ui.Regulation
             bcds.RQTP_CODE = rqtpcode;
             bcds.RQTT_CODE = expn.Expense_Type.Request_Requester.RQTT_CODE;
             bcds.EPIT_CODE = expn.Expense_Type.EPIT_CODE;
+            bcds.EXPN_CODE = expn.CODE;
 
             iScsc.Basic_Calculate_Discounts.InsertOnSubmit(bcds);
          }
@@ -963,6 +966,65 @@ namespace System.Scsc.Ui.Regulation
          finally
          {
             if(requery)
+               Execute_Query();
+         }
+      }
+
+      private void CopyOExpn_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _bcd = BcdsBs1.Current as Data.Basic_Calculate_Discount;
+            if (_bcd == null) return;
+
+            iScsc.ExecuteCommand(
+               string.Format(
+                  @"MERGE dbo.Basic_Calculate_Discount T
+                  USING (SELECT e.CODE AS EXPN_CODE, 
+                                e.MTOD_CODE, e.CTGY_CODE, 
+                                bd.SUNT_BUNT_DEPT_ORGN_CODE, 
+                                bd.SUNT_BUNT_DEPT_CODE, 
+                                bd.SUNT_BUNT_CODE, 
+                                bd.SUNT_CODE,
+                                bd.ORGN_CODE_DNRM,
+                                e.REGL_YEAR, e.REGL_CODE,
+                                et.EPIT_CODE, rr.RQTP_CODE, rr.RQTT_CODE,
+                                bd.AMNT_DSCT, bd.PRCT_DSCT, bd.DSCT_TYPE, bd.STAT, bd.ACTN_TYPE, bd.FROM_DATE, bd.TO_DATE
+                           FROM dbo.Expense e, 
+                                dbo.Expense_Type et, dbo.Request_Requester rr,
+                                dbo.Basic_Calculate_Discount bd
+                          WHERE bd.Code = '{0}'
+                            AND e.EXTP_CODE = et.CODE
+                            AND et.RQRQ_CODE = rr.CODE) S
+                  ON (T.ORGN_CODE_DNRM = S.ORGN_CODE_DNRM AND 
+                      T.EXPN_CODE = S.EXPN_CODE AND 
+                      T.Actn_Type = s.Actn_Type )
+                  WHEN NOT MATCHED THEN 
+                     INSERT (SUNT_BUNT_DEPT_ORGN_CODE, SUNT_BUNT_DEPT_CODE, SUNT_BUNT_CODE, SUNT_CODE, 
+                             REGL_YEAR, REGL_CODE, CODE, EPIT_CODE, RQTP_CODE, RQTT_CODE, AMNT_DSCT, 
+                             PRCT_DSCT, DSCT_TYPE, STAT, ACTN_TYPE, FROM_DATE, TO_DATE, MTOD_CODE, CTGY_CODE, EXPN_CODE)
+                     VALUES (s.SUNT_BUNT_DEPT_ORGN_CODE, s.SUNT_BUNT_DEPT_CODE, s.SUNT_BUNT_CODE, s.SUNT_CODE, 
+                             s.REGL_YEAR, s.REGL_CODE, dbo.GNRT_NVID_U(), s.EPIT_CODE, s.RQTP_CODE, s.RQTT_CODE, s.AMNT_DSCT,
+                             s.PRCT_DSCT, s.DSCT_TYPE, s.STAT, s.ACTN_TYPE, s.FROM_DATE, s.TO_DATE, s.MTOD_CODE, s.CTGY_CODE, s.EXPN_CODE)
+                  WHEN MATCHED THEN 
+                     UPDATE SET
+                        T.DSCT_TYPE = s.DSCT_TYPE,
+                        T.AMNT_DSCT = s.AMNT_DSCT,
+                        T.PRCT_DSCT = s.PRCT_DSCT,
+                        T.STAT = S.STAT,
+                        T.FROM_DATE = S.FROM_DATE,
+                        T.TO_DATE = S.TO_DATE;", _bcd.CODE
+               )
+            );
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
                Execute_Query();
          }
       }

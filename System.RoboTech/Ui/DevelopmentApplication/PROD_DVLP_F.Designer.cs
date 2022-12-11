@@ -9274,7 +9274,7 @@
          this.Galery_Tp.Location = new System.Drawing.Point(4, 76);
          this.Galery_Tp.Name = "Galery_Tp";
          this.Galery_Tp.Padding = new System.Windows.Forms.Padding(3);
-         this.Galery_Tp.Size = new System.Drawing.Size(694, 430);
+         this.Galery_Tp.Size = new System.Drawing.Size(694, 429);
          this.Galery_Tp.TabIndex = 9;
          this.Galery_Tp.Text = "گالری محصول فروشنده";
          this.Galery_Tp.UseVisualStyleBackColor = true;
@@ -9291,7 +9291,7 @@
          this.gridControl3.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemLookUpEdit14,
             this.repositoryItemLookUpEdit15});
-         this.gridControl3.Size = new System.Drawing.Size(688, 399);
+         this.gridControl3.Size = new System.Drawing.Size(688, 398);
          this.gridControl3.TabIndex = 62;
          this.gridControl3.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.Rbpp_Gv});

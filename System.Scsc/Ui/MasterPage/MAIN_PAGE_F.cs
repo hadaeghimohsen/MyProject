@@ -2200,6 +2200,7 @@ namespace System.Scsc.Ui.MasterPage
       {
          try
          {
+            return;
             CardNumb_Text.Text = CardNumber.ToString();
             //var control = spc_desktop.Panel1.Controls.OfType<Control>().FirstOrDefault();
             //if (control == null) return;

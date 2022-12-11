@@ -1036,11 +1036,13 @@
           <Name>DataMQL</Name>
           <Page isRef="5" />
           <Parent isRef="5" />
-          <Sort isList="true" count="4">
+          <Sort isList="true" count="6">
             <value>ASC</value>
             <value>ORGN_CODE_DNRM</value>
             <value>ASC</value>
             <value>PERS_SAVE_DATE</value>
+            <value>ASC</value>
+            <value>PERS_SAVE_TIME</value>
           </Sort>
         </DataMQL>
         <GroupFooterBand1 Ref="64" type="GroupFooterBand" isKey="true">
@@ -1389,10 +1391,10 @@
     <value>Stimulsoft.Report.Dll</value>
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
-  <ReportChanged>11/17/2022 11:14:33 PM</ReportChanged>
+  <ReportChanged>11/23/2022 11:31:16 AM</ReportChanged>
   <ReportCreated>11/17/2022 1:34:43 PM</ReportCreated>
   <ReportFile>D:\Project\MyProject\Documents\Report Repository\RPT_STAT_001.mrt</ReportFile>
-  <ReportGuid>02816697e99c45feb1a99e6caf067b63</ReportGuid>
+  <ReportGuid>171aed1154f14b0a9d728ce43e8c1d17</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Inches</ReportUnit>
   <ReportVersion>2012.2.1304</ReportVersion>
@@ -1415,7 +1417,7 @@ namespace Reports
         }
 
         #region StiReport Designer generated code - do not modify
-        #endregion StiReport Designer generated code - do not modify
+		#endregion StiReport Designer generated code - do not modify
     }
 }
 </Script>

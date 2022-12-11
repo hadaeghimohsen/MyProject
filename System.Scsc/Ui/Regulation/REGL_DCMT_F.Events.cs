@@ -37,24 +37,28 @@ namespace System.Scsc.Ui.Regulation
          }
          finally
          {
-            var CrntRqrq = RqrqBs.Position;
-            var CrntExtp = EXTPBS.Position;
-            var CrntExpn = ExpnBs.Position;
-            var CrntExcs = EXCSBS.Position;
-            var crntpexp = PexpBs1.Position;
-            var crntexts = ExtsBs.Position;
-            var crntcexc = CexcBs.Position;
-            iScsc = new Data.iScscDataContext(ConnectionString);
-            RqrqBs.DataSource = iScsc.Request_Requesters.Where(rg => rg.Regulation == (Data.Regulation)ReglBs.Current).OrderBy(rq => rq.RQTP_CODE).ThenBy(rq => rq.RQTT_CODE);
-            GV_RQRQ.TopRowIndex = CrntRqrq;
-            RqrqBs.Position = CrntRqrq;
-            EXTPBS.Position = CrntExtp;
-            ExpnBs.Position = CrntExpn;
-            EXCSBS.Position = CrntExcs;
-            PexpBs1.Position = crntpexp;
-            ExtsBs.Position = crntexts;
-            CexcBs.Position = crntcexc;
-            AllExpnBs1.DataSource = iScsc.Expenses.Where(ex => ex.Regulation == (Data.Regulation)ReglBs.Current && ex.EXPN_STAT == "002" && ex.Expense_Type.Request_Requester.PERM_STAT == "002");
+            Execute_Query();
+            //var CrntRqrq = RqrqBs.Position;
+            //var CrntExtp = EXTPBS.Position;
+            //var CrntExpn = ExpnBs.Position;
+            //var CrntExcs = EXCSBS.Position;
+            //var crntpexp = PexpBs1.Position;
+            //var crntexts = ExtsBs.Position;
+            //var crntcexc = CexcBs.Position;
+            //var crntbcds = BcdsBs1.Position;
+            //iScsc = new Data.iScscDataContext(ConnectionString);
+            //RqrqBs.DataSource = iScsc.Request_Requesters.Where(rg => rg.Regulation == (Data.Regulation)ReglBs.Current).OrderBy(rq => rq.RQTP_CODE).ThenBy(rq => rq.RQTT_CODE);
+            //GV_RQRQ.TopRowIndex = CrntRqrq;
+            //RqrqBs.Position = CrntRqrq;
+            //EXTPBS.Position = CrntExtp;
+            //ExpnBs.Position = CrntExpn;
+            //EXCSBS.Position = CrntExcs;
+            //PexpBs1.Position = crntpexp;
+            //ExtsBs.Position = crntexts;
+            //CexcBs.Position = crntcexc;
+            //BcdsBs1.Position = crntbcds;
+
+            //AllExpnBs1.DataSource = iScsc.Expenses.Where(ex => ex.Regulation == (Data.Regulation)ReglBs.Current && ex.EXPN_STAT == "002" && ex.Expense_Type.Request_Requester.PERM_STAT == "002");
          }
       }
 
@@ -241,18 +245,19 @@ namespace System.Scsc.Ui.Regulation
                {
                   if (requery)
                   {
-                     var CrntRqrq = RqrqBs.Position;
-                     var CrntExtpIndex = EXTPBS.Position;
-                     var CrntExpn = ExpnBs.Position;
-                     var CrntExcs = EXCSBS.Position;
-                     iScsc = new Data.iScscDataContext(ConnectionString);
-                     RqrqBs.DataSource = iScsc.Request_Requesters.Where(rg => rg.Regulation == (Data.Regulation)ReglBs.Current).OrderBy(rq => rq.RQTP_CODE).ThenBy(rq => rq.RQTT_CODE);
-                     GV_RQRQ.TopRowIndex = CrntRqrq;
-                     RqrqBs.Position = CrntRqrq;
-                     EXTPBS.Position = CrntExtpIndex;
-                     ExpnBs.Position = CrntExpn;
-                     EXCSBS.Position = CrntExcs;
-                     requery = false;
+                     Execute_Query();
+                     //var CrntRqrq = RqrqBs.Position;
+                     //var CrntExtpIndex = EXTPBS.Position;
+                     //var CrntExpn = ExpnBs.Position;
+                     //var CrntExcs = EXCSBS.Position;
+                     //iScsc = new Data.iScscDataContext(ConnectionString);
+                     //RqrqBs.DataSource = iScsc.Request_Requesters.Where(rg => rg.Regulation == (Data.Regulation)ReglBs.Current).OrderBy(rq => rq.RQTP_CODE).ThenBy(rq => rq.RQTT_CODE);
+                     //GV_RQRQ.TopRowIndex = CrntRqrq;
+                     //RqrqBs.Position = CrntRqrq;
+                     //EXTPBS.Position = CrntExtpIndex;
+                     //ExpnBs.Position = CrntExpn;
+                     //EXCSBS.Position = CrntExcs;
+                     //requery = false;
                   }
                }
             }

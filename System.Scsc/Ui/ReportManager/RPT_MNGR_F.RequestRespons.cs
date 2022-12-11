@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
+using System.Scsc.ExtCode;
 
 namespace System.Scsc.Ui.ReportManager
 {
@@ -317,6 +318,16 @@ namespace System.Scsc.Ui.ReportManager
             ModualName = (job.Input as XElement).Attribute("modual").Value;
             SectionName = (job.Input as XElement).Attribute("section").Value;
             WhereClause = (job.Input as XElement).Value;
+
+            // 1401/09/11 * ثبت وضعیت چاپ برای درخواست
+            if (PrintType != "Selection" && /*WhereClause.StartsWith("Request.Rqid = ")*/ ModualName.In("OIC_TOTL_F", "ADM_FIGH_F", "ADM_TOTL_F"))
+            {
+               iScsc.ExecuteCommand(
+                  string.Format(
+                     "UPDATE dbo.Request SET SSTT_MSTT_CODE = 2, SSTT_CODE = 3 WHERE {0};", WhereClause
+                  )
+               );
+            }
 
             if (PrintType == "Selection")
             {

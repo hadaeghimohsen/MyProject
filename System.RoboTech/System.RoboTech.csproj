@@ -620,7 +620,11 @@
     <None Include="Properties\DataSources\System.RoboTech.Data.Modual_Report.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Order.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Order_Access.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.Order_Balance.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.Order_Balance_Detail.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Order_Detail.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.Order_Profit_Product_Divdend.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.Order_Profit_Product_Divdend_Detail.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Order_State.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Order_Step_History.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Organ.datasource" />
@@ -648,6 +652,7 @@
     <None Include="Properties\DataSources\System.RoboTech.Data.Robot_Product.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Robot_Product_Alternative.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Robot_Product_Discount.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.Robot_Product_Divdend.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Robot_Product_Download.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Robot_Product_Limited.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Robot_Product_Preview.datasource" />

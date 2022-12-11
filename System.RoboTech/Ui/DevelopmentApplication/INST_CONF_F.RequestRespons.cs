@@ -207,9 +207,9 @@ namespace System.RoboTech.Ui.DevelopmentApplication
          DsdtpBs.DataSource = iRoboTech.D_SDTPs;
          DelmtBs.DataSource = iRoboTech.D_ELMTs;
          HostBs.DataSource = iRoboTech.V_Computers;
-         FollowersSelectOption_Fb.Images = FollowingSelectOption_Fb.Images = new Image[] { Properties.Resources.IMAGE_1700, Properties.Resources.IMAGE_1699, Properties.Resources.IMAGE_1701 };
-         FolwPage_Fb.Images = new Image[] { Properties.Resources.IMAGE_1707, Properties.Resources.IMAGE_1708 };
-         FlwrInsAutoSpac_Fcb.Images = FlwnInsAutoSpac_Fcb.Images = InsAutoSpac_Fcb.Images = new Image[] { Properties.Resources.IMAGE_1709, Properties.Resources.IMAGE_1710, Properties.Resources.IMAGE_1711 };
+         //FollowersSelectOption_Fb.Images = FollowingSelectOption_Fb.Images = new Image[] { Properties.Resources.IMAGE_1700, Properties.Resources.IMAGE_1699, Properties.Resources.IMAGE_1701 };
+         //FolwPage_Fb.Images = new Image[] { Properties.Resources.IMAGE_1707, Properties.Resources.IMAGE_1708 };
+         //FlwrInsAutoSpac_Fcb.Images = FlwnInsAutoSpac_Fcb.Images = InsAutoSpac_Fcb.Images = new Image[] { Properties.Resources.IMAGE_1709, Properties.Resources.IMAGE_1710, Properties.Resources.IMAGE_1711 };
 
          job.Status = StatusType.Successful;
       }

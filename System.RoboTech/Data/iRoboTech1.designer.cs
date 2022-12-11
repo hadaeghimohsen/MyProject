@@ -106,9 +106,6 @@ namespace System.RoboTech.Data
     partial void InsertService_Robot_Seller_Product_Gift(Service_Robot_Seller_Product_Gift instance);
     partial void UpdateService_Robot_Seller_Product_Gift(Service_Robot_Seller_Product_Gift instance);
     partial void DeleteService_Robot_Seller_Product_Gift(Service_Robot_Seller_Product_Gift instance);
-    partial void InsertWallet_Detail(Wallet_Detail instance);
-    partial void UpdateWallet_Detail(Wallet_Detail instance);
-    partial void DeleteWallet_Detail(Wallet_Detail instance);
     partial void InsertService_Robot_Discount_Card(Service_Robot_Discount_Card instance);
     partial void UpdateService_Robot_Discount_Card(Service_Robot_Discount_Card instance);
     partial void DeleteService_Robot_Discount_Card(Service_Robot_Discount_Card instance);
@@ -118,9 +115,6 @@ namespace System.RoboTech.Data
     partial void InsertService_Robot_Inviting_Contact(Service_Robot_Inviting_Contact instance);
     partial void UpdateService_Robot_Inviting_Contact(Service_Robot_Inviting_Contact instance);
     partial void DeleteService_Robot_Inviting_Contact(Service_Robot_Inviting_Contact instance);
-    partial void InsertWallet(Wallet instance);
-    partial void UpdateWallet(Wallet instance);
-    partial void DeleteWallet(Wallet instance);
     partial void InsertRobot_Product_Preview(Robot_Product_Preview instance);
     partial void UpdateRobot_Product_Preview(Robot_Product_Preview instance);
     partial void DeleteRobot_Product_Preview(Robot_Product_Preview instance);
@@ -208,6 +202,27 @@ namespace System.RoboTech.Data
     partial void InsertService_Robot_Visit(Service_Robot_Visit instance);
     partial void UpdateService_Robot_Visit(Service_Robot_Visit instance);
     partial void DeleteService_Robot_Visit(Service_Robot_Visit instance);
+    partial void InsertWallet(Wallet instance);
+    partial void UpdateWallet(Wallet instance);
+    partial void DeleteWallet(Wallet instance);
+    partial void InsertWallet_Detail(Wallet_Detail instance);
+    partial void UpdateWallet_Detail(Wallet_Detail instance);
+    partial void DeleteWallet_Detail(Wallet_Detail instance);
+    partial void InsertRobot_Product_Divdend(Robot_Product_Divdend instance);
+    partial void UpdateRobot_Product_Divdend(Robot_Product_Divdend instance);
+    partial void DeleteRobot_Product_Divdend(Robot_Product_Divdend instance);
+    partial void InsertOrder_Balance(Order_Balance instance);
+    partial void UpdateOrder_Balance(Order_Balance instance);
+    partial void DeleteOrder_Balance(Order_Balance instance);
+    partial void InsertOrder_Balance_Detail(Order_Balance_Detail instance);
+    partial void UpdateOrder_Balance_Detail(Order_Balance_Detail instance);
+    partial void DeleteOrder_Balance_Detail(Order_Balance_Detail instance);
+    partial void InsertOrder_Profit_Product_Divdend(Order_Profit_Product_Divdend instance);
+    partial void UpdateOrder_Profit_Product_Divdend(Order_Profit_Product_Divdend instance);
+    partial void DeleteOrder_Profit_Product_Divdend(Order_Profit_Product_Divdend instance);
+    partial void InsertOrder_Profit_Product_Divdend_Detail(Order_Profit_Product_Divdend_Detail instance);
+    partial void UpdateOrder_Profit_Product_Divdend_Detail(Order_Profit_Product_Divdend_Detail instance);
+    partial void DeleteOrder_Profit_Product_Divdend_Detail(Order_Profit_Product_Divdend_Detail instance);
     #endregion
 		
 		public iRoboTechDataContext() : 
@@ -928,14 +943,6 @@ namespace System.RoboTech.Data
 			}
 		}
 		
-		public System.Data.Linq.Table<Wallet_Detail> Wallet_Details
-		{
-			get
-			{
-				return this.GetTable<Wallet_Detail>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Service_Robot_Discount_Card> Service_Robot_Discount_Cards
 		{
 			get
@@ -957,14 +964,6 @@ namespace System.RoboTech.Data
 			get
 			{
 				return this.GetTable<Service_Robot_Inviting_Contact>();
-			}
-		}
-		
-		public System.Data.Linq.Table<Wallet> Wallets
-		{
-			get
-			{
-				return this.GetTable<Wallet>();
 			}
 		}
 		
@@ -1485,6 +1484,62 @@ namespace System.RoboTech.Data
 			get
 			{
 				return this.GetTable<Service_Robot_Visit>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Wallet> Wallets
+		{
+			get
+			{
+				return this.GetTable<Wallet>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Wallet_Detail> Wallet_Details
+		{
+			get
+			{
+				return this.GetTable<Wallet_Detail>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Robot_Product_Divdend> Robot_Product_Divdends
+		{
+			get
+			{
+				return this.GetTable<Robot_Product_Divdend>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Order_Balance> Order_Balances
+		{
+			get
+			{
+				return this.GetTable<Order_Balance>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Order_Balance_Detail> Order_Balance_Details
+		{
+			get
+			{
+				return this.GetTable<Order_Balance_Detail>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Order_Profit_Product_Divdend> Order_Profit_Product_Divdends
+		{
+			get
+			{
+				return this.GetTable<Order_Profit_Product_Divdend>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Order_Profit_Product_Divdend_Detail> Order_Profit_Product_Divdend_Details
+		{
+			get
+			{
+				return this.GetTable<Order_Profit_Product_Divdend_Detail>();
 			}
 		}
 		
@@ -17812,8 +17867,6 @@ namespace System.RoboTech.Data
 		
 		private System.Nullable<System.DateTime> _MDFY_DATE;
 		
-		private EntityRef<Wallet_Detail> _Wallet_Detail;
-		
 		private EntityRef<Service_Robot_Discount_Card> _Service_Robot_Discount_Card;
 		
 		private EntityRef<Service_Robot_Gift_Card> _Service_Robot_Gift_Card;
@@ -17821,6 +17874,8 @@ namespace System.RoboTech.Data
 		private EntityRef<App_Base_Define> _App_Base_Define;
 		
 		private EntityRef<Order> _Order;
+		
+		private EntityRef<Wallet_Detail> _Wallet_Detail;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -17882,11 +17937,11 @@ namespace System.RoboTech.Data
 		
 		public Order_State()
 		{
-			this._Wallet_Detail = default(EntityRef<Wallet_Detail>);
 			this._Service_Robot_Discount_Card = default(EntityRef<Service_Robot_Discount_Card>);
 			this._Service_Robot_Gift_Card = default(EntityRef<Service_Robot_Gift_Card>);
 			this._App_Base_Define = default(EntityRef<App_Base_Define>);
 			this._Order = default(EntityRef<Order>);
+			this._Wallet_Detail = default(EntityRef<Wallet_Detail>);
 			OnCreated();
 		}
 		
@@ -18430,40 +18485,6 @@ namespace System.RoboTech.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Wallet_Detail_Order_State", Storage="_Wallet_Detail", ThisKey="WLDT_CODE", OtherKey="CODE", IsForeignKey=true)]
-		public Wallet_Detail Wallet_Detail
-		{
-			get
-			{
-				return this._Wallet_Detail.Entity;
-			}
-			set
-			{
-				Wallet_Detail previousValue = this._Wallet_Detail.Entity;
-				if (((previousValue != value) 
-							|| (this._Wallet_Detail.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Wallet_Detail.Entity = null;
-						previousValue.Order_States.Remove(this);
-					}
-					this._Wallet_Detail.Entity = value;
-					if ((value != null))
-					{
-						value.Order_States.Add(this);
-						this._WLDT_CODE = value.CODE;
-					}
-					else
-					{
-						this._WLDT_CODE = default(Nullable<long>);
-					}
-					this.SendPropertyChanged("Wallet_Detail");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Service_Robot_Discount_Card_Order_State", Storage="_Service_Robot_Discount_Card", ThisKey="DISC_DCID", OtherKey="DCID", IsForeignKey=true)]
 		public Service_Robot_Discount_Card Service_Robot_Discount_Card
 		{
@@ -18596,6 +18617,40 @@ namespace System.RoboTech.Data
 						this._ORDR_CODE = default(Nullable<long>);
 					}
 					this.SendPropertyChanged("Order");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Wallet_Detail_Order_State", Storage="_Wallet_Detail", ThisKey="WLDT_CODE", OtherKey="CODE", IsForeignKey=true)]
+		public Wallet_Detail Wallet_Detail
+		{
+			get
+			{
+				return this._Wallet_Detail.Entity;
+			}
+			set
+			{
+				Wallet_Detail previousValue = this._Wallet_Detail.Entity;
+				if (((previousValue != value) 
+							|| (this._Wallet_Detail.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Wallet_Detail.Entity = null;
+						previousValue.Order_States.Remove(this);
+					}
+					this._Wallet_Detail.Entity = value;
+					if ((value != null))
+					{
+						value.Order_States.Add(this);
+						this._WLDT_CODE = value.CODE;
+					}
+					else
+					{
+						this._WLDT_CODE = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("Wallet_Detail");
 				}
 			}
 		}
@@ -24769,627 +24824,6 @@ namespace System.RoboTech.Data
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Wallet_Detail")]
-	public partial class Wallet_Detail : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private System.Nullable<long> _TXFE_TFID;
-		
-		private System.Nullable<long> _ORDR_CODE;
-		
-		private System.Nullable<long> _WLET_CODE;
-		
-		private long _CODE;
-		
-		private System.Nullable<int> _RWNO;
-		
-		private System.Nullable<long> _CHAT_ID;
-		
-		private string _AMNT_TYPE;
-		
-		private System.Nullable<long> _AMNT;
-		
-		private System.Nullable<System.DateTime> _AMNT_DATE;
-		
-		private string _AMNT_STAT;
-		
-		private string _CONF_STAT;
-		
-		private System.Nullable<System.DateTime> _CONF_DATE;
-		
-		private string _CONF_DESC;
-		
-		private System.Nullable<long> _CRNT_WLET_AMNT_DNRM;
-		
-		private string _CRET_BY;
-		
-		private System.Nullable<System.DateTime> _CRET_DATE;
-		
-		private string _MDFY_BY;
-		
-		private System.Nullable<System.DateTime> _MDFY_DATE;
-		
-		private EntitySet<Order_State> _Order_States;
-		
-		private EntityRef<Wallet> _Wallet;
-		
-		private EntityRef<Transaction_Fee> _Transaction_Fee;
-		
-		private EntityRef<Order> _Order;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnTXFE_TFIDChanging(System.Nullable<long> value);
-    partial void OnTXFE_TFIDChanged();
-    partial void OnORDR_CODEChanging(System.Nullable<long> value);
-    partial void OnORDR_CODEChanged();
-    partial void OnWLET_CODEChanging(System.Nullable<long> value);
-    partial void OnWLET_CODEChanged();
-    partial void OnCODEChanging(long value);
-    partial void OnCODEChanged();
-    partial void OnRWNOChanging(System.Nullable<int> value);
-    partial void OnRWNOChanged();
-    partial void OnCHAT_IDChanging(System.Nullable<long> value);
-    partial void OnCHAT_IDChanged();
-    partial void OnAMNT_TYPEChanging(string value);
-    partial void OnAMNT_TYPEChanged();
-    partial void OnAMNTChanging(System.Nullable<long> value);
-    partial void OnAMNTChanged();
-    partial void OnAMNT_DATEChanging(System.Nullable<System.DateTime> value);
-    partial void OnAMNT_DATEChanged();
-    partial void OnAMNT_STATChanging(string value);
-    partial void OnAMNT_STATChanged();
-    partial void OnCONF_STATChanging(string value);
-    partial void OnCONF_STATChanged();
-    partial void OnCONF_DATEChanging(System.Nullable<System.DateTime> value);
-    partial void OnCONF_DATEChanged();
-    partial void OnCONF_DESCChanging(string value);
-    partial void OnCONF_DESCChanged();
-    partial void OnCRNT_WLET_AMNT_DNRMChanging(System.Nullable<long> value);
-    partial void OnCRNT_WLET_AMNT_DNRMChanged();
-    partial void OnCRET_BYChanging(string value);
-    partial void OnCRET_BYChanged();
-    partial void OnCRET_DATEChanging(System.Nullable<System.DateTime> value);
-    partial void OnCRET_DATEChanged();
-    partial void OnMDFY_BYChanging(string value);
-    partial void OnMDFY_BYChanged();
-    partial void OnMDFY_DATEChanging(System.Nullable<System.DateTime> value);
-    partial void OnMDFY_DATEChanged();
-    #endregion
-		
-		public Wallet_Detail()
-		{
-			this._Order_States = new EntitySet<Order_State>(new Action<Order_State>(this.attach_Order_States), new Action<Order_State>(this.detach_Order_States));
-			this._Wallet = default(EntityRef<Wallet>);
-			this._Transaction_Fee = default(EntityRef<Transaction_Fee>);
-			this._Order = default(EntityRef<Order>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TXFE_TFID", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<long> TXFE_TFID
-		{
-			get
-			{
-				return this._TXFE_TFID;
-			}
-			set
-			{
-				if ((this._TXFE_TFID != value))
-				{
-					if (this._Transaction_Fee.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnTXFE_TFIDChanging(value);
-					this.SendPropertyChanging();
-					this._TXFE_TFID = value;
-					this.SendPropertyChanged("TXFE_TFID");
-					this.OnTXFE_TFIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ORDR_CODE", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<long> ORDR_CODE
-		{
-			get
-			{
-				return this._ORDR_CODE;
-			}
-			set
-			{
-				if ((this._ORDR_CODE != value))
-				{
-					if (this._Order.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnORDR_CODEChanging(value);
-					this.SendPropertyChanging();
-					this._ORDR_CODE = value;
-					this.SendPropertyChanged("ORDR_CODE");
-					this.OnORDR_CODEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WLET_CODE", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<long> WLET_CODE
-		{
-			get
-			{
-				return this._WLET_CODE;
-			}
-			set
-			{
-				if ((this._WLET_CODE != value))
-				{
-					if (this._Wallet.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnWLET_CODEChanging(value);
-					this.SendPropertyChanging();
-					this._WLET_CODE = value;
-					this.SendPropertyChanged("WLET_CODE");
-					this.OnWLET_CODEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CODE", DbType="BigInt NOT NULL", IsPrimaryKey=true)]
-		public long CODE
-		{
-			get
-			{
-				return this._CODE;
-			}
-			set
-			{
-				if ((this._CODE != value))
-				{
-					this.OnCODEChanging(value);
-					this.SendPropertyChanging();
-					this._CODE = value;
-					this.SendPropertyChanged("CODE");
-					this.OnCODEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RWNO", DbType="Int", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<int> RWNO
-		{
-			get
-			{
-				return this._RWNO;
-			}
-			set
-			{
-				if ((this._RWNO != value))
-				{
-					this.OnRWNOChanging(value);
-					this.SendPropertyChanging();
-					this._RWNO = value;
-					this.SendPropertyChanged("RWNO");
-					this.OnRWNOChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CHAT_ID", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<long> CHAT_ID
-		{
-			get
-			{
-				return this._CHAT_ID;
-			}
-			set
-			{
-				if ((this._CHAT_ID != value))
-				{
-					this.OnCHAT_IDChanging(value);
-					this.SendPropertyChanging();
-					this._CHAT_ID = value;
-					this.SendPropertyChanged("CHAT_ID");
-					this.OnCHAT_IDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AMNT_TYPE", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
-		public string AMNT_TYPE
-		{
-			get
-			{
-				return this._AMNT_TYPE;
-			}
-			set
-			{
-				if ((this._AMNT_TYPE != value))
-				{
-					this.OnAMNT_TYPEChanging(value);
-					this.SendPropertyChanging();
-					this._AMNT_TYPE = value;
-					this.SendPropertyChanged("AMNT_TYPE");
-					this.OnAMNT_TYPEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AMNT", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<long> AMNT
-		{
-			get
-			{
-				return this._AMNT;
-			}
-			set
-			{
-				if ((this._AMNT != value))
-				{
-					this.OnAMNTChanging(value);
-					this.SendPropertyChanging();
-					this._AMNT = value;
-					this.SendPropertyChanged("AMNT");
-					this.OnAMNTChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AMNT_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<System.DateTime> AMNT_DATE
-		{
-			get
-			{
-				return this._AMNT_DATE;
-			}
-			set
-			{
-				if ((this._AMNT_DATE != value))
-				{
-					this.OnAMNT_DATEChanging(value);
-					this.SendPropertyChanging();
-					this._AMNT_DATE = value;
-					this.SendPropertyChanged("AMNT_DATE");
-					this.OnAMNT_DATEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AMNT_STAT", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
-		public string AMNT_STAT
-		{
-			get
-			{
-				return this._AMNT_STAT;
-			}
-			set
-			{
-				if ((this._AMNT_STAT != value))
-				{
-					this.OnAMNT_STATChanging(value);
-					this.SendPropertyChanging();
-					this._AMNT_STAT = value;
-					this.SendPropertyChanged("AMNT_STAT");
-					this.OnAMNT_STATChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CONF_STAT", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
-		public string CONF_STAT
-		{
-			get
-			{
-				return this._CONF_STAT;
-			}
-			set
-			{
-				if ((this._CONF_STAT != value))
-				{
-					this.OnCONF_STATChanging(value);
-					this.SendPropertyChanging();
-					this._CONF_STAT = value;
-					this.SendPropertyChanged("CONF_STAT");
-					this.OnCONF_STATChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CONF_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<System.DateTime> CONF_DATE
-		{
-			get
-			{
-				return this._CONF_DATE;
-			}
-			set
-			{
-				if ((this._CONF_DATE != value))
-				{
-					this.OnCONF_DATEChanging(value);
-					this.SendPropertyChanging();
-					this._CONF_DATE = value;
-					this.SendPropertyChanged("CONF_DATE");
-					this.OnCONF_DATEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CONF_DESC", DbType="NVarChar(500)", UpdateCheck=UpdateCheck.Never)]
-		public string CONF_DESC
-		{
-			get
-			{
-				return this._CONF_DESC;
-			}
-			set
-			{
-				if ((this._CONF_DESC != value))
-				{
-					this.OnCONF_DESCChanging(value);
-					this.SendPropertyChanging();
-					this._CONF_DESC = value;
-					this.SendPropertyChanged("CONF_DESC");
-					this.OnCONF_DESCChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRNT_WLET_AMNT_DNRM", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<long> CRNT_WLET_AMNT_DNRM
-		{
-			get
-			{
-				return this._CRNT_WLET_AMNT_DNRM;
-			}
-			set
-			{
-				if ((this._CRNT_WLET_AMNT_DNRM != value))
-				{
-					this.OnCRNT_WLET_AMNT_DNRMChanging(value);
-					this.SendPropertyChanging();
-					this._CRNT_WLET_AMNT_DNRM = value;
-					this.SendPropertyChanged("CRNT_WLET_AMNT_DNRM");
-					this.OnCRNT_WLET_AMNT_DNRMChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_BY", DbType="VarChar(250)", UpdateCheck=UpdateCheck.Never)]
-		public string CRET_BY
-		{
-			get
-			{
-				return this._CRET_BY;
-			}
-			set
-			{
-				if ((this._CRET_BY != value))
-				{
-					this.OnCRET_BYChanging(value);
-					this.SendPropertyChanging();
-					this._CRET_BY = value;
-					this.SendPropertyChanged("CRET_BY");
-					this.OnCRET_BYChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<System.DateTime> CRET_DATE
-		{
-			get
-			{
-				return this._CRET_DATE;
-			}
-			set
-			{
-				if ((this._CRET_DATE != value))
-				{
-					this.OnCRET_DATEChanging(value);
-					this.SendPropertyChanging();
-					this._CRET_DATE = value;
-					this.SendPropertyChanged("CRET_DATE");
-					this.OnCRET_DATEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_BY", DbType="VarChar(250)", UpdateCheck=UpdateCheck.Never)]
-		public string MDFY_BY
-		{
-			get
-			{
-				return this._MDFY_BY;
-			}
-			set
-			{
-				if ((this._MDFY_BY != value))
-				{
-					this.OnMDFY_BYChanging(value);
-					this.SendPropertyChanging();
-					this._MDFY_BY = value;
-					this.SendPropertyChanged("MDFY_BY");
-					this.OnMDFY_BYChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<System.DateTime> MDFY_DATE
-		{
-			get
-			{
-				return this._MDFY_DATE;
-			}
-			set
-			{
-				if ((this._MDFY_DATE != value))
-				{
-					this.OnMDFY_DATEChanging(value);
-					this.SendPropertyChanging();
-					this._MDFY_DATE = value;
-					this.SendPropertyChanged("MDFY_DATE");
-					this.OnMDFY_DATEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Wallet_Detail_Order_State", Storage="_Order_States", ThisKey="CODE", OtherKey="WLDT_CODE")]
-		public EntitySet<Order_State> Order_States
-		{
-			get
-			{
-				return this._Order_States;
-			}
-			set
-			{
-				this._Order_States.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Wallet_Wallet_Detail", Storage="_Wallet", ThisKey="WLET_CODE", OtherKey="CODE", IsForeignKey=true, DeleteRule="CASCADE")]
-		public Wallet Wallet
-		{
-			get
-			{
-				return this._Wallet.Entity;
-			}
-			set
-			{
-				Wallet previousValue = this._Wallet.Entity;
-				if (((previousValue != value) 
-							|| (this._Wallet.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Wallet.Entity = null;
-						previousValue.Wallet_Details.Remove(this);
-					}
-					this._Wallet.Entity = value;
-					if ((value != null))
-					{
-						value.Wallet_Details.Add(this);
-						this._WLET_CODE = value.CODE;
-					}
-					else
-					{
-						this._WLET_CODE = default(Nullable<long>);
-					}
-					this.SendPropertyChanged("Wallet");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Transaction_Fee_Wallet_Detail", Storage="_Transaction_Fee", ThisKey="TXFE_TFID", OtherKey="TFID", IsForeignKey=true, DeleteRule="CASCADE")]
-		public Transaction_Fee Transaction_Fee
-		{
-			get
-			{
-				return this._Transaction_Fee.Entity;
-			}
-			set
-			{
-				Transaction_Fee previousValue = this._Transaction_Fee.Entity;
-				if (((previousValue != value) 
-							|| (this._Transaction_Fee.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Transaction_Fee.Entity = null;
-						previousValue.Wallet_Details.Remove(this);
-					}
-					this._Transaction_Fee.Entity = value;
-					if ((value != null))
-					{
-						value.Wallet_Details.Add(this);
-						this._TXFE_TFID = value.TFID;
-					}
-					else
-					{
-						this._TXFE_TFID = default(Nullable<long>);
-					}
-					this.SendPropertyChanged("Transaction_Fee");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Order_Wallet_Detail", Storage="_Order", ThisKey="ORDR_CODE", OtherKey="CODE", IsForeignKey=true, DeleteRule="CASCADE")]
-		public Order Order
-		{
-			get
-			{
-				return this._Order.Entity;
-			}
-			set
-			{
-				Order previousValue = this._Order.Entity;
-				if (((previousValue != value) 
-							|| (this._Order.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Order.Entity = null;
-						previousValue.Wallet_Details.Remove(this);
-					}
-					this._Order.Entity = value;
-					if ((value != null))
-					{
-						value.Wallet_Details.Add(this);
-						this._ORDR_CODE = value.CODE;
-					}
-					else
-					{
-						this._ORDR_CODE = default(Nullable<long>);
-					}
-					this.SendPropertyChanged("Order");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Order_States(Order_State entity)
-		{
-			this.SendPropertyChanging();
-			entity.Wallet_Detail = this;
-		}
-		
-		private void detach_Order_States(Order_State entity)
-		{
-			this.SendPropertyChanging();
-			entity.Wallet_Detail = null;
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Service_Robot_Discount_Card")]
 	public partial class Service_Robot_Discount_Card : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -26977,516 +26411,6 @@ namespace System.RoboTech.Data
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Wallet")]
-	public partial class Wallet : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private System.Nullable<long> _SRBT_SERV_FILE_NO;
-		
-		private System.Nullable<long> _SRBT_ROBO_RBID;
-		
-		private long _CODE;
-		
-		private System.Nullable<long> _CHAT_ID;
-		
-		private string _WLET_TYPE;
-		
-		private System.Nullable<long> _AMNT_DNRM;
-		
-		private System.Nullable<long> _LAST_IN_AMNT_DNRM;
-		
-		private System.Nullable<System.DateTime> _LAST_IN_DATE_DNRM;
-		
-		private System.Nullable<long> _LAST_OUT_AMNT_DNRM;
-		
-		private System.Nullable<System.DateTime> _LAST_OUT_DATE_DNRM;
-		
-		private System.Nullable<long> _TEMP_AMNT_USE;
-		
-		private string _CRET_BY;
-		
-		private System.Nullable<System.DateTime> _CRET_DATE;
-		
-		private string _MDFY_BY;
-		
-		private System.Nullable<System.DateTime> _MDFY_DATE;
-		
-		private EntitySet<Wallet_Detail> _Wallet_Details;
-		
-		private EntityRef<Robot> _Robot;
-		
-		private EntityRef<Service_Robot> _Service_Robot;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnSRBT_SERV_FILE_NOChanging(System.Nullable<long> value);
-    partial void OnSRBT_SERV_FILE_NOChanged();
-    partial void OnSRBT_ROBO_RBIDChanging(System.Nullable<long> value);
-    partial void OnSRBT_ROBO_RBIDChanged();
-    partial void OnCODEChanging(long value);
-    partial void OnCODEChanged();
-    partial void OnCHAT_IDChanging(System.Nullable<long> value);
-    partial void OnCHAT_IDChanged();
-    partial void OnWLET_TYPEChanging(string value);
-    partial void OnWLET_TYPEChanged();
-    partial void OnAMNT_DNRMChanging(System.Nullable<long> value);
-    partial void OnAMNT_DNRMChanged();
-    partial void OnLAST_IN_AMNT_DNRMChanging(System.Nullable<long> value);
-    partial void OnLAST_IN_AMNT_DNRMChanged();
-    partial void OnLAST_IN_DATE_DNRMChanging(System.Nullable<System.DateTime> value);
-    partial void OnLAST_IN_DATE_DNRMChanged();
-    partial void OnLAST_OUT_AMNT_DNRMChanging(System.Nullable<long> value);
-    partial void OnLAST_OUT_AMNT_DNRMChanged();
-    partial void OnLAST_OUT_DATE_DNRMChanging(System.Nullable<System.DateTime> value);
-    partial void OnLAST_OUT_DATE_DNRMChanged();
-    partial void OnTEMP_AMNT_USEChanging(System.Nullable<long> value);
-    partial void OnTEMP_AMNT_USEChanged();
-    partial void OnCRET_BYChanging(string value);
-    partial void OnCRET_BYChanged();
-    partial void OnCRET_DATEChanging(System.Nullable<System.DateTime> value);
-    partial void OnCRET_DATEChanged();
-    partial void OnMDFY_BYChanging(string value);
-    partial void OnMDFY_BYChanged();
-    partial void OnMDFY_DATEChanging(System.Nullable<System.DateTime> value);
-    partial void OnMDFY_DATEChanged();
-    #endregion
-		
-		public Wallet()
-		{
-			this._Wallet_Details = new EntitySet<Wallet_Detail>(new Action<Wallet_Detail>(this.attach_Wallet_Details), new Action<Wallet_Detail>(this.detach_Wallet_Details));
-			this._Robot = default(EntityRef<Robot>);
-			this._Service_Robot = default(EntityRef<Service_Robot>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SRBT_SERV_FILE_NO", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<long> SRBT_SERV_FILE_NO
-		{
-			get
-			{
-				return this._SRBT_SERV_FILE_NO;
-			}
-			set
-			{
-				if ((this._SRBT_SERV_FILE_NO != value))
-				{
-					if (this._Service_Robot.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnSRBT_SERV_FILE_NOChanging(value);
-					this.SendPropertyChanging();
-					this._SRBT_SERV_FILE_NO = value;
-					this.SendPropertyChanged("SRBT_SERV_FILE_NO");
-					this.OnSRBT_SERV_FILE_NOChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SRBT_ROBO_RBID", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<long> SRBT_ROBO_RBID
-		{
-			get
-			{
-				return this._SRBT_ROBO_RBID;
-			}
-			set
-			{
-				if ((this._SRBT_ROBO_RBID != value))
-				{
-					if ((this._Robot.HasLoadedOrAssignedValue || this._Service_Robot.HasLoadedOrAssignedValue))
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnSRBT_ROBO_RBIDChanging(value);
-					this.SendPropertyChanging();
-					this._SRBT_ROBO_RBID = value;
-					this.SendPropertyChanged("SRBT_ROBO_RBID");
-					this.OnSRBT_ROBO_RBIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CODE", DbType="BigInt NOT NULL", IsPrimaryKey=true)]
-		public long CODE
-		{
-			get
-			{
-				return this._CODE;
-			}
-			set
-			{
-				if ((this._CODE != value))
-				{
-					this.OnCODEChanging(value);
-					this.SendPropertyChanging();
-					this._CODE = value;
-					this.SendPropertyChanged("CODE");
-					this.OnCODEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CHAT_ID", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<long> CHAT_ID
-		{
-			get
-			{
-				return this._CHAT_ID;
-			}
-			set
-			{
-				if ((this._CHAT_ID != value))
-				{
-					this.OnCHAT_IDChanging(value);
-					this.SendPropertyChanging();
-					this._CHAT_ID = value;
-					this.SendPropertyChanged("CHAT_ID");
-					this.OnCHAT_IDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WLET_TYPE", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
-		public string WLET_TYPE
-		{
-			get
-			{
-				return this._WLET_TYPE;
-			}
-			set
-			{
-				if ((this._WLET_TYPE != value))
-				{
-					this.OnWLET_TYPEChanging(value);
-					this.SendPropertyChanging();
-					this._WLET_TYPE = value;
-					this.SendPropertyChanged("WLET_TYPE");
-					this.OnWLET_TYPEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AMNT_DNRM", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<long> AMNT_DNRM
-		{
-			get
-			{
-				return this._AMNT_DNRM;
-			}
-			set
-			{
-				if ((this._AMNT_DNRM != value))
-				{
-					this.OnAMNT_DNRMChanging(value);
-					this.SendPropertyChanging();
-					this._AMNT_DNRM = value;
-					this.SendPropertyChanged("AMNT_DNRM");
-					this.OnAMNT_DNRMChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LAST_IN_AMNT_DNRM", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<long> LAST_IN_AMNT_DNRM
-		{
-			get
-			{
-				return this._LAST_IN_AMNT_DNRM;
-			}
-			set
-			{
-				if ((this._LAST_IN_AMNT_DNRM != value))
-				{
-					this.OnLAST_IN_AMNT_DNRMChanging(value);
-					this.SendPropertyChanging();
-					this._LAST_IN_AMNT_DNRM = value;
-					this.SendPropertyChanged("LAST_IN_AMNT_DNRM");
-					this.OnLAST_IN_AMNT_DNRMChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LAST_IN_DATE_DNRM", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<System.DateTime> LAST_IN_DATE_DNRM
-		{
-			get
-			{
-				return this._LAST_IN_DATE_DNRM;
-			}
-			set
-			{
-				if ((this._LAST_IN_DATE_DNRM != value))
-				{
-					this.OnLAST_IN_DATE_DNRMChanging(value);
-					this.SendPropertyChanging();
-					this._LAST_IN_DATE_DNRM = value;
-					this.SendPropertyChanged("LAST_IN_DATE_DNRM");
-					this.OnLAST_IN_DATE_DNRMChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LAST_OUT_AMNT_DNRM", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<long> LAST_OUT_AMNT_DNRM
-		{
-			get
-			{
-				return this._LAST_OUT_AMNT_DNRM;
-			}
-			set
-			{
-				if ((this._LAST_OUT_AMNT_DNRM != value))
-				{
-					this.OnLAST_OUT_AMNT_DNRMChanging(value);
-					this.SendPropertyChanging();
-					this._LAST_OUT_AMNT_DNRM = value;
-					this.SendPropertyChanged("LAST_OUT_AMNT_DNRM");
-					this.OnLAST_OUT_AMNT_DNRMChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LAST_OUT_DATE_DNRM", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<System.DateTime> LAST_OUT_DATE_DNRM
-		{
-			get
-			{
-				return this._LAST_OUT_DATE_DNRM;
-			}
-			set
-			{
-				if ((this._LAST_OUT_DATE_DNRM != value))
-				{
-					this.OnLAST_OUT_DATE_DNRMChanging(value);
-					this.SendPropertyChanging();
-					this._LAST_OUT_DATE_DNRM = value;
-					this.SendPropertyChanged("LAST_OUT_DATE_DNRM");
-					this.OnLAST_OUT_DATE_DNRMChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TEMP_AMNT_USE", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<long> TEMP_AMNT_USE
-		{
-			get
-			{
-				return this._TEMP_AMNT_USE;
-			}
-			set
-			{
-				if ((this._TEMP_AMNT_USE != value))
-				{
-					this.OnTEMP_AMNT_USEChanging(value);
-					this.SendPropertyChanging();
-					this._TEMP_AMNT_USE = value;
-					this.SendPropertyChanged("TEMP_AMNT_USE");
-					this.OnTEMP_AMNT_USEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_BY", DbType="VarChar(250)", UpdateCheck=UpdateCheck.Never)]
-		public string CRET_BY
-		{
-			get
-			{
-				return this._CRET_BY;
-			}
-			set
-			{
-				if ((this._CRET_BY != value))
-				{
-					this.OnCRET_BYChanging(value);
-					this.SendPropertyChanging();
-					this._CRET_BY = value;
-					this.SendPropertyChanged("CRET_BY");
-					this.OnCRET_BYChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<System.DateTime> CRET_DATE
-		{
-			get
-			{
-				return this._CRET_DATE;
-			}
-			set
-			{
-				if ((this._CRET_DATE != value))
-				{
-					this.OnCRET_DATEChanging(value);
-					this.SendPropertyChanging();
-					this._CRET_DATE = value;
-					this.SendPropertyChanged("CRET_DATE");
-					this.OnCRET_DATEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_BY", DbType="VarChar(250)", UpdateCheck=UpdateCheck.Never)]
-		public string MDFY_BY
-		{
-			get
-			{
-				return this._MDFY_BY;
-			}
-			set
-			{
-				if ((this._MDFY_BY != value))
-				{
-					this.OnMDFY_BYChanging(value);
-					this.SendPropertyChanging();
-					this._MDFY_BY = value;
-					this.SendPropertyChanged("MDFY_BY");
-					this.OnMDFY_BYChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<System.DateTime> MDFY_DATE
-		{
-			get
-			{
-				return this._MDFY_DATE;
-			}
-			set
-			{
-				if ((this._MDFY_DATE != value))
-				{
-					this.OnMDFY_DATEChanging(value);
-					this.SendPropertyChanging();
-					this._MDFY_DATE = value;
-					this.SendPropertyChanged("MDFY_DATE");
-					this.OnMDFY_DATEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Wallet_Wallet_Detail", Storage="_Wallet_Details", ThisKey="CODE", OtherKey="WLET_CODE")]
-		public EntitySet<Wallet_Detail> Wallet_Details
-		{
-			get
-			{
-				return this._Wallet_Details;
-			}
-			set
-			{
-				this._Wallet_Details.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Robot_Wallet", Storage="_Robot", ThisKey="SRBT_ROBO_RBID", OtherKey="RBID", IsForeignKey=true)]
-		public Robot Robot
-		{
-			get
-			{
-				return this._Robot.Entity;
-			}
-			set
-			{
-				Robot previousValue = this._Robot.Entity;
-				if (((previousValue != value) 
-							|| (this._Robot.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Robot.Entity = null;
-						previousValue.Wallets.Remove(this);
-					}
-					this._Robot.Entity = value;
-					if ((value != null))
-					{
-						value.Wallets.Add(this);
-						this._SRBT_ROBO_RBID = value.RBID;
-					}
-					else
-					{
-						this._SRBT_ROBO_RBID = default(Nullable<long>);
-					}
-					this.SendPropertyChanged("Robot");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Service_Robot_Wallet", Storage="_Service_Robot", ThisKey="SRBT_SERV_FILE_NO,SRBT_ROBO_RBID", OtherKey="SERV_FILE_NO,ROBO_RBID", IsForeignKey=true, DeleteRule="CASCADE")]
-		public Service_Robot Service_Robot
-		{
-			get
-			{
-				return this._Service_Robot.Entity;
-			}
-			set
-			{
-				Service_Robot previousValue = this._Service_Robot.Entity;
-				if (((previousValue != value) 
-							|| (this._Service_Robot.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Service_Robot.Entity = null;
-						previousValue.Wallets.Remove(this);
-					}
-					this._Service_Robot.Entity = value;
-					if ((value != null))
-					{
-						value.Wallets.Add(this);
-						this._SRBT_SERV_FILE_NO = value.SERV_FILE_NO;
-						this._SRBT_ROBO_RBID = value.ROBO_RBID;
-					}
-					else
-					{
-						this._SRBT_SERV_FILE_NO = default(Nullable<long>);
-						this._SRBT_ROBO_RBID = default(Nullable<long>);
-					}
-					this.SendPropertyChanged("Service_Robot");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Wallet_Details(Wallet_Detail entity)
-		{
-			this.SendPropertyChanging();
-			entity.Wallet = this;
-		}
-		
-		private void detach_Wallet_Details(Wallet_Detail entity)
-		{
-			this.SendPropertyChanging();
-			entity.Wallet = null;
 		}
 	}
 	
@@ -40317,6 +39241,8 @@ namespace System.RoboTech.Data
 		
 		private EntitySet<Robot_Product_Limited> _Robot_Product_Limiteds;
 		
+		private EntitySet<Robot_Product_Divdend> _Robot_Product_Divdends;
+		
 		private EntityRef<Robot> _Robot;
 		
 		private EntityRef<App_Base_Define> _App_Base_Define;
@@ -40478,6 +39404,7 @@ namespace System.RoboTech.Data
 			this._Service_Robot_Seller_Partners = new EntitySet<Service_Robot_Seller_Partner>(new Action<Service_Robot_Seller_Partner>(this.attach_Service_Robot_Seller_Partners), new Action<Service_Robot_Seller_Partner>(this.detach_Service_Robot_Seller_Partners));
 			this._Robot_Product_Downloads = new EntitySet<Robot_Product_Download>(new Action<Robot_Product_Download>(this.attach_Robot_Product_Downloads), new Action<Robot_Product_Download>(this.detach_Robot_Product_Downloads));
 			this._Robot_Product_Limiteds = new EntitySet<Robot_Product_Limited>(new Action<Robot_Product_Limited>(this.attach_Robot_Product_Limiteds), new Action<Robot_Product_Limited>(this.detach_Robot_Product_Limiteds));
+			this._Robot_Product_Divdends = new EntitySet<Robot_Product_Divdend>(new Action<Robot_Product_Divdend>(this.attach_Robot_Product_Divdends), new Action<Robot_Product_Divdend>(this.detach_Robot_Product_Divdends));
 			this._Robot = default(EntityRef<Robot>);
 			this._App_Base_Define = default(EntityRef<App_Base_Define>);
 			OnCreated();
@@ -42026,6 +40953,19 @@ namespace System.RoboTech.Data
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Robot_Product_Robot_Product_Divdend", Storage="_Robot_Product_Divdends", ThisKey="CODE", OtherKey="RBPR_CODE")]
+		public EntitySet<Robot_Product_Divdend> Robot_Product_Divdends
+		{
+			get
+			{
+				return this._Robot_Product_Divdends;
+			}
+			set
+			{
+				this._Robot_Product_Divdends.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Robot_Robot_Product", Storage="_Robot", ThisKey="ROBO_RBID", OtherKey="RBID", IsForeignKey=true, DeleteRule="CASCADE")]
 		public Robot Robot
 		{
@@ -42289,6 +41229,18 @@ namespace System.RoboTech.Data
 		}
 		
 		private void detach_Robot_Product_Limiteds(Robot_Product_Limited entity)
+		{
+			this.SendPropertyChanging();
+			entity.Robot_Product = null;
+		}
+		
+		private void attach_Robot_Product_Divdends(Robot_Product_Divdend entity)
+		{
+			this.SendPropertyChanging();
+			entity.Robot_Product = this;
+		}
+		
+		private void detach_Robot_Product_Divdends(Robot_Product_Divdend entity)
 		{
 			this.SendPropertyChanging();
 			entity.Robot_Product = null;
@@ -43735,8 +42687,6 @@ namespace System.RoboTech.Data
 		
 		private EntitySet<Robot_Product_Discount> _Robot_Product_Discounts;
 		
-		private EntitySet<Wallet> _Wallets;
-		
 		private EntitySet<Send_Advertising_Tariff> _Send_Advertising_Tariffs;
 		
 		private EntitySet<Send_Advertising> _Send_Advertisings;
@@ -43770,6 +42720,8 @@ namespace System.RoboTech.Data
 		private EntitySet<Service_Robot> _Service_Robots;
 		
 		private EntitySet<Order> _Orders;
+		
+		private EntitySet<Wallet> _Wallets;
 		
 		private EntityRef<Organ> _Organ;
 		
@@ -43922,7 +42874,6 @@ namespace System.RoboTech.Data
 			this._Menu_Ussds = new EntitySet<Menu_Ussd>(new Action<Menu_Ussd>(this.attach_Menu_Ussds), new Action<Menu_Ussd>(this.detach_Menu_Ussds));
 			this._Organ_Medias = new EntitySet<Organ_Media>(new Action<Organ_Media>(this.attach_Organ_Medias), new Action<Organ_Media>(this.detach_Organ_Medias));
 			this._Robot_Product_Discounts = new EntitySet<Robot_Product_Discount>(new Action<Robot_Product_Discount>(this.attach_Robot_Product_Discounts), new Action<Robot_Product_Discount>(this.detach_Robot_Product_Discounts));
-			this._Wallets = new EntitySet<Wallet>(new Action<Wallet>(this.attach_Wallets), new Action<Wallet>(this.detach_Wallets));
 			this._Send_Advertising_Tariffs = new EntitySet<Send_Advertising_Tariff>(new Action<Send_Advertising_Tariff>(this.attach_Send_Advertising_Tariffs), new Action<Send_Advertising_Tariff>(this.detach_Send_Advertising_Tariffs));
 			this._Send_Advertisings = new EntitySet<Send_Advertising>(new Action<Send_Advertising>(this.attach_Send_Advertisings), new Action<Send_Advertising>(this.detach_Send_Advertisings));
 			this._Service_Robot_Publics = new EntitySet<Service_Robot_Public>(new Action<Service_Robot_Public>(this.attach_Service_Robot_Publics), new Action<Service_Robot_Public>(this.detach_Service_Robot_Publics));
@@ -43940,6 +42891,7 @@ namespace System.RoboTech.Data
 			this._Robots = new EntitySet<Robot>(new Action<Robot>(this.attach_Robots), new Action<Robot>(this.detach_Robots));
 			this._Service_Robots = new EntitySet<Service_Robot>(new Action<Service_Robot>(this.attach_Service_Robots), new Action<Service_Robot>(this.detach_Service_Robots));
 			this._Orders = new EntitySet<Order>(new Action<Order>(this.attach_Orders), new Action<Order>(this.detach_Orders));
+			this._Wallets = new EntitySet<Wallet>(new Action<Wallet>(this.attach_Wallets), new Action<Wallet>(this.detach_Wallets));
 			this._Organ = default(EntityRef<Organ>);
 			this._Robot1 = default(EntityRef<Robot>);
 			OnCreated();
@@ -45376,19 +44328,6 @@ namespace System.RoboTech.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Robot_Wallet", Storage="_Wallets", ThisKey="RBID", OtherKey="SRBT_ROBO_RBID")]
-		public EntitySet<Wallet> Wallets
-		{
-			get
-			{
-				return this._Wallets;
-			}
-			set
-			{
-				this._Wallets.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Robot_Send_Advertising_Tariff", Storage="_Send_Advertising_Tariffs", ThisKey="RBID", OtherKey="ROBO_RBID")]
 		public EntitySet<Send_Advertising_Tariff> Send_Advertising_Tariffs
 		{
@@ -45607,6 +44546,19 @@ namespace System.RoboTech.Data
 			set
 			{
 				this._Orders.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Robot_Wallet", Storage="_Wallets", ThisKey="RBID", OtherKey="SRBT_ROBO_RBID")]
+		public EntitySet<Wallet> Wallets
+		{
+			get
+			{
+				return this._Wallets;
+			}
+			set
+			{
+				this._Wallets.Assign(value);
 			}
 		}
 		
@@ -45830,18 +44782,6 @@ namespace System.RoboTech.Data
 			entity.Robot = null;
 		}
 		
-		private void attach_Wallets(Wallet entity)
-		{
-			this.SendPropertyChanging();
-			entity.Robot = this;
-		}
-		
-		private void detach_Wallets(Wallet entity)
-		{
-			this.SendPropertyChanging();
-			entity.Robot = null;
-		}
-		
 		private void attach_Send_Advertising_Tariffs(Send_Advertising_Tariff entity)
 		{
 			this.SendPropertyChanging();
@@ -46041,6 +44981,18 @@ namespace System.RoboTech.Data
 		}
 		
 		private void detach_Orders(Order entity)
+		{
+			this.SendPropertyChanging();
+			entity.Robot = null;
+		}
+		
+		private void attach_Wallets(Wallet entity)
+		{
+			this.SendPropertyChanging();
+			entity.Robot = this;
+		}
+		
+		private void detach_Wallets(Wallet entity)
 		{
 			this.SendPropertyChanging();
 			entity.Robot = null;
@@ -48737,8 +47689,6 @@ namespace System.RoboTech.Data
 		
 		private EntitySet<Service_Robot_Inviting_Contact> _Service_Robot_Inviting_Contacts;
 		
-		private EntitySet<Wallet> _Wallets;
-		
 		private EntitySet<Service_Robot_Replay_Message> _Service_Robot_Replay_Messages;
 		
 		private EntitySet<Service_Robot_Send_Advertising> _Service_Robot_Send_Advertisings;
@@ -48764,6 +47714,10 @@ namespace System.RoboTech.Data
 		private EntitySet<Order> _Orders;
 		
 		private EntitySet<Service_Robot_Visit> _Service_Robot_Visits;
+		
+		private EntitySet<Wallet> _Wallets;
+		
+		private EntitySet<Order_Balance> _Order_Balances;
 		
 		private EntityRef<Service_Robot> _Service_Robot1;
 		
@@ -48869,7 +47823,6 @@ namespace System.RoboTech.Data
 			this._Service_Robot_Discount_Cards = new EntitySet<Service_Robot_Discount_Card>(new Action<Service_Robot_Discount_Card>(this.attach_Service_Robot_Discount_Cards), new Action<Service_Robot_Discount_Card>(this.detach_Service_Robot_Discount_Cards));
 			this._Service_Robot_Gift_Cards = new EntitySet<Service_Robot_Gift_Card>(new Action<Service_Robot_Gift_Card>(this.attach_Service_Robot_Gift_Cards), new Action<Service_Robot_Gift_Card>(this.detach_Service_Robot_Gift_Cards));
 			this._Service_Robot_Inviting_Contacts = new EntitySet<Service_Robot_Inviting_Contact>(new Action<Service_Robot_Inviting_Contact>(this.attach_Service_Robot_Inviting_Contacts), new Action<Service_Robot_Inviting_Contact>(this.detach_Service_Robot_Inviting_Contacts));
-			this._Wallets = new EntitySet<Wallet>(new Action<Wallet>(this.attach_Wallets), new Action<Wallet>(this.detach_Wallets));
 			this._Service_Robot_Replay_Messages = new EntitySet<Service_Robot_Replay_Message>(new Action<Service_Robot_Replay_Message>(this.attach_Service_Robot_Replay_Messages), new Action<Service_Robot_Replay_Message>(this.detach_Service_Robot_Replay_Messages));
 			this._Service_Robot_Send_Advertisings = new EntitySet<Service_Robot_Send_Advertising>(new Action<Service_Robot_Send_Advertising>(this.attach_Service_Robot_Send_Advertisings), new Action<Service_Robot_Send_Advertising>(this.detach_Service_Robot_Send_Advertisings));
 			this._Service_Robot_Publics = new EntitySet<Service_Robot_Public>(new Action<Service_Robot_Public>(this.attach_Service_Robot_Publics), new Action<Service_Robot_Public>(this.detach_Service_Robot_Publics));
@@ -48883,6 +47836,8 @@ namespace System.RoboTech.Data
 			this._Service_Robots = new EntitySet<Service_Robot>(new Action<Service_Robot>(this.attach_Service_Robots), new Action<Service_Robot>(this.detach_Service_Robots));
 			this._Orders = new EntitySet<Order>(new Action<Order>(this.attach_Orders), new Action<Order>(this.detach_Orders));
 			this._Service_Robot_Visits = new EntitySet<Service_Robot_Visit>(new Action<Service_Robot_Visit>(this.attach_Service_Robot_Visits), new Action<Service_Robot_Visit>(this.detach_Service_Robot_Visits));
+			this._Wallets = new EntitySet<Wallet>(new Action<Wallet>(this.attach_Wallets), new Action<Wallet>(this.detach_Wallets));
+			this._Order_Balances = new EntitySet<Order_Balance>(new Action<Order_Balance>(this.attach_Order_Balances), new Action<Order_Balance>(this.detach_Order_Balances));
 			this._Service_Robot1 = default(EntityRef<Service_Robot>);
 			this._Group_Header = default(EntityRef<Group_Header>);
 			this._Region = default(EntityRef<Region>);
@@ -49825,19 +48780,6 @@ namespace System.RoboTech.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Service_Robot_Wallet", Storage="_Wallets", ThisKey="SERV_FILE_NO,ROBO_RBID", OtherKey="SRBT_SERV_FILE_NO,SRBT_ROBO_RBID")]
-		public EntitySet<Wallet> Wallets
-		{
-			get
-			{
-				return this._Wallets;
-			}
-			set
-			{
-				this._Wallets.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Service_Robot_Service_Robot_Replay_Message", Storage="_Service_Robot_Replay_Messages", ThisKey="SERV_FILE_NO,ROBO_RBID", OtherKey="SRBT_SERV_FILE_NO,SRBT_ROBO_RBID")]
 		public EntitySet<Service_Robot_Replay_Message> Service_Robot_Replay_Messages
 		{
@@ -50004,6 +48946,32 @@ namespace System.RoboTech.Data
 			set
 			{
 				this._Service_Robot_Visits.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Service_Robot_Wallet", Storage="_Wallets", ThisKey="SERV_FILE_NO,ROBO_RBID", OtherKey="SRBT_SERV_FILE_NO,SRBT_ROBO_RBID")]
+		public EntitySet<Wallet> Wallets
+		{
+			get
+			{
+				return this._Wallets;
+			}
+			set
+			{
+				this._Wallets.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Service_Robot_Order_Balance", Storage="_Order_Balances", ThisKey="SERV_FILE_NO,ROBO_RBID", OtherKey="SRBT_SERV_FILE_NO,SRBT_ROBO_RBID")]
+		public EntitySet<Order_Balance> Order_Balances
+		{
+			get
+			{
+				return this._Order_Balances;
+			}
+			set
+			{
+				this._Order_Balances.Assign(value);
 			}
 		}
 		
@@ -50371,18 +49339,6 @@ namespace System.RoboTech.Data
 			entity.Service_Robot = null;
 		}
 		
-		private void attach_Wallets(Wallet entity)
-		{
-			this.SendPropertyChanging();
-			entity.Service_Robot = this;
-		}
-		
-		private void detach_Wallets(Wallet entity)
-		{
-			this.SendPropertyChanging();
-			entity.Service_Robot = null;
-		}
-		
 		private void attach_Service_Robot_Replay_Messages(Service_Robot_Replay_Message entity)
 		{
 			this.SendPropertyChanging();
@@ -50534,6 +49490,30 @@ namespace System.RoboTech.Data
 		}
 		
 		private void detach_Service_Robot_Visits(Service_Robot_Visit entity)
+		{
+			this.SendPropertyChanging();
+			entity.Service_Robot = null;
+		}
+		
+		private void attach_Wallets(Wallet entity)
+		{
+			this.SendPropertyChanging();
+			entity.Service_Robot = this;
+		}
+		
+		private void detach_Wallets(Wallet entity)
+		{
+			this.SendPropertyChanging();
+			entity.Service_Robot = null;
+		}
+		
+		private void attach_Order_Balances(Order_Balance entity)
+		{
+			this.SendPropertyChanging();
+			entity.Service_Robot = this;
+		}
+		
+		private void detach_Order_Balances(Order_Balance entity)
 		{
 			this.SendPropertyChanging();
 			entity.Service_Robot = null;
@@ -51403,8 +50383,6 @@ namespace System.RoboTech.Data
 		
 		private EntitySet<Order_Step_History> _Order_Step_Histories;
 		
-		private EntitySet<Wallet_Detail> _Wallet_Details;
-		
 		private EntitySet<Service_Robot_Discount_Card> _Service_Robot_Discount_Cards;
 		
 		private EntitySet<Service_Robot_Gift_Card> _Service_Robot_Gift_Cards;
@@ -51414,6 +50392,14 @@ namespace System.RoboTech.Data
 		private EntitySet<Order_Detail> _Order_Details;
 		
 		private EntitySet<Order> _Orders;
+		
+		private EntitySet<Wallet_Detail> _Wallet_Details;
+		
+		private EntitySet<Order_Balance_Detail> _Order_Balance_Details;
+		
+		private EntitySet<Order_Profit_Product_Divdend> _Order_Profit_Product_Divdends;
+		
+		private EntitySet<Order_Profit_Product_Divdend_Detail> _Order_Profit_Product_Divdend_Details;
 		
 		private EntityRef<App_Base_Define> _App_Base_Define;
 		
@@ -51565,12 +50551,15 @@ namespace System.RoboTech.Data
 			this._Order_Accesses = new EntitySet<Order_Access>(new Action<Order_Access>(this.attach_Order_Accesses), new Action<Order_Access>(this.detach_Order_Accesses));
 			this._Order_States = new EntitySet<Order_State>(new Action<Order_State>(this.attach_Order_States), new Action<Order_State>(this.detach_Order_States));
 			this._Order_Step_Histories = new EntitySet<Order_Step_History>(new Action<Order_Step_History>(this.attach_Order_Step_Histories), new Action<Order_Step_History>(this.detach_Order_Step_Histories));
-			this._Wallet_Details = new EntitySet<Wallet_Detail>(new Action<Wallet_Detail>(this.attach_Wallet_Details), new Action<Wallet_Detail>(this.detach_Wallet_Details));
 			this._Service_Robot_Discount_Cards = new EntitySet<Service_Robot_Discount_Card>(new Action<Service_Robot_Discount_Card>(this.attach_Service_Robot_Discount_Cards), new Action<Service_Robot_Discount_Card>(this.detach_Service_Robot_Discount_Cards));
 			this._Service_Robot_Gift_Cards = new EntitySet<Service_Robot_Gift_Card>(new Action<Service_Robot_Gift_Card>(this.attach_Service_Robot_Gift_Cards), new Action<Service_Robot_Gift_Card>(this.detach_Service_Robot_Gift_Cards));
 			this._Send_Advertisings = new EntitySet<Send_Advertising>(new Action<Send_Advertising>(this.attach_Send_Advertisings), new Action<Send_Advertising>(this.detach_Send_Advertisings));
 			this._Order_Details = new EntitySet<Order_Detail>(new Action<Order_Detail>(this.attach_Order_Details), new Action<Order_Detail>(this.detach_Order_Details));
 			this._Orders = new EntitySet<Order>(new Action<Order>(this.attach_Orders), new Action<Order>(this.detach_Orders));
+			this._Wallet_Details = new EntitySet<Wallet_Detail>(new Action<Wallet_Detail>(this.attach_Wallet_Details), new Action<Wallet_Detail>(this.detach_Wallet_Details));
+			this._Order_Balance_Details = new EntitySet<Order_Balance_Detail>(new Action<Order_Balance_Detail>(this.attach_Order_Balance_Details), new Action<Order_Balance_Detail>(this.detach_Order_Balance_Details));
+			this._Order_Profit_Product_Divdends = new EntitySet<Order_Profit_Product_Divdend>(new Action<Order_Profit_Product_Divdend>(this.attach_Order_Profit_Product_Divdends), new Action<Order_Profit_Product_Divdend>(this.detach_Order_Profit_Product_Divdends));
+			this._Order_Profit_Product_Divdend_Details = new EntitySet<Order_Profit_Product_Divdend_Detail>(new Action<Order_Profit_Product_Divdend_Detail>(this.attach_Order_Profit_Product_Divdend_Details), new Action<Order_Profit_Product_Divdend_Detail>(this.detach_Order_Profit_Product_Divdend_Details));
 			this._App_Base_Define = default(EntityRef<App_Base_Define>);
 			this._App_Base_Define1 = default(EntityRef<App_Base_Define>);
 			this._App_Base_Define2 = default(EntityRef<App_Base_Define>);
@@ -52905,19 +51894,6 @@ namespace System.RoboTech.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Order_Wallet_Detail", Storage="_Wallet_Details", ThisKey="CODE", OtherKey="ORDR_CODE")]
-		public EntitySet<Wallet_Detail> Wallet_Details
-		{
-			get
-			{
-				return this._Wallet_Details;
-			}
-			set
-			{
-				this._Wallet_Details.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Order_Service_Robot_Discount_Card", Storage="_Service_Robot_Discount_Cards", ThisKey="CODE", OtherKey="ORDR_CODE")]
 		public EntitySet<Service_Robot_Discount_Card> Service_Robot_Discount_Cards
 		{
@@ -52980,6 +51956,58 @@ namespace System.RoboTech.Data
 			set
 			{
 				this._Orders.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Order_Wallet_Detail", Storage="_Wallet_Details", ThisKey="CODE", OtherKey="ORDR_CODE")]
+		public EntitySet<Wallet_Detail> Wallet_Details
+		{
+			get
+			{
+				return this._Wallet_Details;
+			}
+			set
+			{
+				this._Wallet_Details.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Order_Order_Balance_Detail", Storage="_Order_Balance_Details", ThisKey="CODE", OtherKey="ORDR_CODE")]
+		public EntitySet<Order_Balance_Detail> Order_Balance_Details
+		{
+			get
+			{
+				return this._Order_Balance_Details;
+			}
+			set
+			{
+				this._Order_Balance_Details.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Order_Order_Profit_Product_Divdend", Storage="_Order_Profit_Product_Divdends", ThisKey="CODE", OtherKey="ORDR_CODE")]
+		public EntitySet<Order_Profit_Product_Divdend> Order_Profit_Product_Divdends
+		{
+			get
+			{
+				return this._Order_Profit_Product_Divdends;
+			}
+			set
+			{
+				this._Order_Profit_Product_Divdends.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Order_Order_Profit_Product_Divdend_Detail", Storage="_Order_Profit_Product_Divdend_Details", ThisKey="CODE", OtherKey="ORDR_CODE")]
+		public EntitySet<Order_Profit_Product_Divdend_Detail> Order_Profit_Product_Divdend_Details
+		{
+			get
+			{
+				return this._Order_Profit_Product_Divdend_Details;
+			}
+			set
+			{
+				this._Order_Profit_Product_Divdend_Details.Assign(value);
 			}
 		}
 		
@@ -53293,18 +52321,6 @@ namespace System.RoboTech.Data
 			entity.Order = null;
 		}
 		
-		private void attach_Wallet_Details(Wallet_Detail entity)
-		{
-			this.SendPropertyChanging();
-			entity.Order = this;
-		}
-		
-		private void detach_Wallet_Details(Wallet_Detail entity)
-		{
-			this.SendPropertyChanging();
-			entity.Order = null;
-		}
-		
 		private void attach_Service_Robot_Discount_Cards(Service_Robot_Discount_Card entity)
 		{
 			this.SendPropertyChanging();
@@ -53363,6 +52379,54 @@ namespace System.RoboTech.Data
 		{
 			this.SendPropertyChanging();
 			entity.Order1 = null;
+		}
+		
+		private void attach_Wallet_Details(Wallet_Detail entity)
+		{
+			this.SendPropertyChanging();
+			entity.Order = this;
+		}
+		
+		private void detach_Wallet_Details(Wallet_Detail entity)
+		{
+			this.SendPropertyChanging();
+			entity.Order = null;
+		}
+		
+		private void attach_Order_Balance_Details(Order_Balance_Detail entity)
+		{
+			this.SendPropertyChanging();
+			entity.Order = this;
+		}
+		
+		private void detach_Order_Balance_Details(Order_Balance_Detail entity)
+		{
+			this.SendPropertyChanging();
+			entity.Order = null;
+		}
+		
+		private void attach_Order_Profit_Product_Divdends(Order_Profit_Product_Divdend entity)
+		{
+			this.SendPropertyChanging();
+			entity.Order = this;
+		}
+		
+		private void detach_Order_Profit_Product_Divdends(Order_Profit_Product_Divdend entity)
+		{
+			this.SendPropertyChanging();
+			entity.Order = null;
+		}
+		
+		private void attach_Order_Profit_Product_Divdend_Details(Order_Profit_Product_Divdend_Detail entity)
+		{
+			this.SendPropertyChanging();
+			entity.Order = this;
+		}
+		
+		private void detach_Order_Profit_Product_Divdend_Details(Order_Profit_Product_Divdend_Detail entity)
+		{
+			this.SendPropertyChanging();
+			entity.Order = null;
 		}
 	}
 	
@@ -53857,6 +52921,3302 @@ namespace System.RoboTech.Data
 						this._SRRB_ROBO_RBID = default(Nullable<long>);
 					}
 					this.SendPropertyChanged("Service_Robot");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Wallet")]
+	public partial class Wallet : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private System.Nullable<long> _SRBT_SERV_FILE_NO;
+		
+		private System.Nullable<long> _SRBT_ROBO_RBID;
+		
+		private long _CODE;
+		
+		private System.Nullable<long> _CHAT_ID;
+		
+		private string _WLET_TYPE;
+		
+		private System.Nullable<decimal> _AMNT_DNRM;
+		
+		private System.Nullable<decimal> _LAST_IN_AMNT_DNRM;
+		
+		private System.Nullable<System.DateTime> _LAST_IN_DATE_DNRM;
+		
+		private System.Nullable<decimal> _LAST_OUT_AMNT_DNRM;
+		
+		private System.Nullable<System.DateTime> _LAST_OUT_DATE_DNRM;
+		
+		private System.Nullable<decimal> _TEMP_AMNT_USE;
+		
+		private string _CRET_BY;
+		
+		private System.Nullable<System.DateTime> _CRET_DATE;
+		
+		private string _MDFY_BY;
+		
+		private System.Nullable<System.DateTime> _MDFY_DATE;
+		
+		private EntitySet<Wallet_Detail> _Wallet_Details;
+		
+		private EntityRef<Robot> _Robot;
+		
+		private EntityRef<Service_Robot> _Service_Robot;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnSRBT_SERV_FILE_NOChanging(System.Nullable<long> value);
+    partial void OnSRBT_SERV_FILE_NOChanged();
+    partial void OnSRBT_ROBO_RBIDChanging(System.Nullable<long> value);
+    partial void OnSRBT_ROBO_RBIDChanged();
+    partial void OnCODEChanging(long value);
+    partial void OnCODEChanged();
+    partial void OnCHAT_IDChanging(System.Nullable<long> value);
+    partial void OnCHAT_IDChanged();
+    partial void OnWLET_TYPEChanging(string value);
+    partial void OnWLET_TYPEChanged();
+    partial void OnAMNT_DNRMChanging(System.Nullable<decimal> value);
+    partial void OnAMNT_DNRMChanged();
+    partial void OnLAST_IN_AMNT_DNRMChanging(System.Nullable<decimal> value);
+    partial void OnLAST_IN_AMNT_DNRMChanged();
+    partial void OnLAST_IN_DATE_DNRMChanging(System.Nullable<System.DateTime> value);
+    partial void OnLAST_IN_DATE_DNRMChanged();
+    partial void OnLAST_OUT_AMNT_DNRMChanging(System.Nullable<decimal> value);
+    partial void OnLAST_OUT_AMNT_DNRMChanged();
+    partial void OnLAST_OUT_DATE_DNRMChanging(System.Nullable<System.DateTime> value);
+    partial void OnLAST_OUT_DATE_DNRMChanged();
+    partial void OnTEMP_AMNT_USEChanging(System.Nullable<decimal> value);
+    partial void OnTEMP_AMNT_USEChanged();
+    partial void OnCRET_BYChanging(string value);
+    partial void OnCRET_BYChanged();
+    partial void OnCRET_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnCRET_DATEChanged();
+    partial void OnMDFY_BYChanging(string value);
+    partial void OnMDFY_BYChanged();
+    partial void OnMDFY_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnMDFY_DATEChanged();
+    #endregion
+		
+		public Wallet()
+		{
+			this._Wallet_Details = new EntitySet<Wallet_Detail>(new Action<Wallet_Detail>(this.attach_Wallet_Details), new Action<Wallet_Detail>(this.detach_Wallet_Details));
+			this._Robot = default(EntityRef<Robot>);
+			this._Service_Robot = default(EntityRef<Service_Robot>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SRBT_SERV_FILE_NO", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<long> SRBT_SERV_FILE_NO
+		{
+			get
+			{
+				return this._SRBT_SERV_FILE_NO;
+			}
+			set
+			{
+				if ((this._SRBT_SERV_FILE_NO != value))
+				{
+					if (this._Service_Robot.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnSRBT_SERV_FILE_NOChanging(value);
+					this.SendPropertyChanging();
+					this._SRBT_SERV_FILE_NO = value;
+					this.SendPropertyChanged("SRBT_SERV_FILE_NO");
+					this.OnSRBT_SERV_FILE_NOChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SRBT_ROBO_RBID", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<long> SRBT_ROBO_RBID
+		{
+			get
+			{
+				return this._SRBT_ROBO_RBID;
+			}
+			set
+			{
+				if ((this._SRBT_ROBO_RBID != value))
+				{
+					if ((this._Robot.HasLoadedOrAssignedValue || this._Service_Robot.HasLoadedOrAssignedValue))
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnSRBT_ROBO_RBIDChanging(value);
+					this.SendPropertyChanging();
+					this._SRBT_ROBO_RBID = value;
+					this.SendPropertyChanged("SRBT_ROBO_RBID");
+					this.OnSRBT_ROBO_RBIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CODE", DbType="BigInt NOT NULL", IsPrimaryKey=true)]
+		public long CODE
+		{
+			get
+			{
+				return this._CODE;
+			}
+			set
+			{
+				if ((this._CODE != value))
+				{
+					this.OnCODEChanging(value);
+					this.SendPropertyChanging();
+					this._CODE = value;
+					this.SendPropertyChanged("CODE");
+					this.OnCODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CHAT_ID", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<long> CHAT_ID
+		{
+			get
+			{
+				return this._CHAT_ID;
+			}
+			set
+			{
+				if ((this._CHAT_ID != value))
+				{
+					this.OnCHAT_IDChanging(value);
+					this.SendPropertyChanging();
+					this._CHAT_ID = value;
+					this.SendPropertyChanged("CHAT_ID");
+					this.OnCHAT_IDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WLET_TYPE", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		public string WLET_TYPE
+		{
+			get
+			{
+				return this._WLET_TYPE;
+			}
+			set
+			{
+				if ((this._WLET_TYPE != value))
+				{
+					this.OnWLET_TYPEChanging(value);
+					this.SendPropertyChanging();
+					this._WLET_TYPE = value;
+					this.SendPropertyChanged("WLET_TYPE");
+					this.OnWLET_TYPEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AMNT_DNRM", DbType="Decimal(18,2)", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<decimal> AMNT_DNRM
+		{
+			get
+			{
+				return this._AMNT_DNRM;
+			}
+			set
+			{
+				if ((this._AMNT_DNRM != value))
+				{
+					this.OnAMNT_DNRMChanging(value);
+					this.SendPropertyChanging();
+					this._AMNT_DNRM = value;
+					this.SendPropertyChanged("AMNT_DNRM");
+					this.OnAMNT_DNRMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LAST_IN_AMNT_DNRM", DbType="Decimal(18,2)", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<decimal> LAST_IN_AMNT_DNRM
+		{
+			get
+			{
+				return this._LAST_IN_AMNT_DNRM;
+			}
+			set
+			{
+				if ((this._LAST_IN_AMNT_DNRM != value))
+				{
+					this.OnLAST_IN_AMNT_DNRMChanging(value);
+					this.SendPropertyChanging();
+					this._LAST_IN_AMNT_DNRM = value;
+					this.SendPropertyChanged("LAST_IN_AMNT_DNRM");
+					this.OnLAST_IN_AMNT_DNRMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LAST_IN_DATE_DNRM", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<System.DateTime> LAST_IN_DATE_DNRM
+		{
+			get
+			{
+				return this._LAST_IN_DATE_DNRM;
+			}
+			set
+			{
+				if ((this._LAST_IN_DATE_DNRM != value))
+				{
+					this.OnLAST_IN_DATE_DNRMChanging(value);
+					this.SendPropertyChanging();
+					this._LAST_IN_DATE_DNRM = value;
+					this.SendPropertyChanged("LAST_IN_DATE_DNRM");
+					this.OnLAST_IN_DATE_DNRMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LAST_OUT_AMNT_DNRM", DbType="Decimal(18,2)", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<decimal> LAST_OUT_AMNT_DNRM
+		{
+			get
+			{
+				return this._LAST_OUT_AMNT_DNRM;
+			}
+			set
+			{
+				if ((this._LAST_OUT_AMNT_DNRM != value))
+				{
+					this.OnLAST_OUT_AMNT_DNRMChanging(value);
+					this.SendPropertyChanging();
+					this._LAST_OUT_AMNT_DNRM = value;
+					this.SendPropertyChanged("LAST_OUT_AMNT_DNRM");
+					this.OnLAST_OUT_AMNT_DNRMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LAST_OUT_DATE_DNRM", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<System.DateTime> LAST_OUT_DATE_DNRM
+		{
+			get
+			{
+				return this._LAST_OUT_DATE_DNRM;
+			}
+			set
+			{
+				if ((this._LAST_OUT_DATE_DNRM != value))
+				{
+					this.OnLAST_OUT_DATE_DNRMChanging(value);
+					this.SendPropertyChanging();
+					this._LAST_OUT_DATE_DNRM = value;
+					this.SendPropertyChanged("LAST_OUT_DATE_DNRM");
+					this.OnLAST_OUT_DATE_DNRMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TEMP_AMNT_USE", DbType="Decimal(18,2)", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<decimal> TEMP_AMNT_USE
+		{
+			get
+			{
+				return this._TEMP_AMNT_USE;
+			}
+			set
+			{
+				if ((this._TEMP_AMNT_USE != value))
+				{
+					this.OnTEMP_AMNT_USEChanging(value);
+					this.SendPropertyChanging();
+					this._TEMP_AMNT_USE = value;
+					this.SendPropertyChanged("TEMP_AMNT_USE");
+					this.OnTEMP_AMNT_USEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_BY", DbType="VarChar(250)", UpdateCheck=UpdateCheck.Never)]
+		public string CRET_BY
+		{
+			get
+			{
+				return this._CRET_BY;
+			}
+			set
+			{
+				if ((this._CRET_BY != value))
+				{
+					this.OnCRET_BYChanging(value);
+					this.SendPropertyChanging();
+					this._CRET_BY = value;
+					this.SendPropertyChanged("CRET_BY");
+					this.OnCRET_BYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<System.DateTime> CRET_DATE
+		{
+			get
+			{
+				return this._CRET_DATE;
+			}
+			set
+			{
+				if ((this._CRET_DATE != value))
+				{
+					this.OnCRET_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._CRET_DATE = value;
+					this.SendPropertyChanged("CRET_DATE");
+					this.OnCRET_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_BY", DbType="VarChar(250)", UpdateCheck=UpdateCheck.Never)]
+		public string MDFY_BY
+		{
+			get
+			{
+				return this._MDFY_BY;
+			}
+			set
+			{
+				if ((this._MDFY_BY != value))
+				{
+					this.OnMDFY_BYChanging(value);
+					this.SendPropertyChanging();
+					this._MDFY_BY = value;
+					this.SendPropertyChanged("MDFY_BY");
+					this.OnMDFY_BYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<System.DateTime> MDFY_DATE
+		{
+			get
+			{
+				return this._MDFY_DATE;
+			}
+			set
+			{
+				if ((this._MDFY_DATE != value))
+				{
+					this.OnMDFY_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._MDFY_DATE = value;
+					this.SendPropertyChanged("MDFY_DATE");
+					this.OnMDFY_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Wallet_Wallet_Detail", Storage="_Wallet_Details", ThisKey="CODE", OtherKey="WLET_CODE")]
+		public EntitySet<Wallet_Detail> Wallet_Details
+		{
+			get
+			{
+				return this._Wallet_Details;
+			}
+			set
+			{
+				this._Wallet_Details.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Robot_Wallet", Storage="_Robot", ThisKey="SRBT_ROBO_RBID", OtherKey="RBID", IsForeignKey=true)]
+		public Robot Robot
+		{
+			get
+			{
+				return this._Robot.Entity;
+			}
+			set
+			{
+				Robot previousValue = this._Robot.Entity;
+				if (((previousValue != value) 
+							|| (this._Robot.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Robot.Entity = null;
+						previousValue.Wallets.Remove(this);
+					}
+					this._Robot.Entity = value;
+					if ((value != null))
+					{
+						value.Wallets.Add(this);
+						this._SRBT_ROBO_RBID = value.RBID;
+					}
+					else
+					{
+						this._SRBT_ROBO_RBID = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("Robot");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Service_Robot_Wallet", Storage="_Service_Robot", ThisKey="SRBT_SERV_FILE_NO,SRBT_ROBO_RBID", OtherKey="SERV_FILE_NO,ROBO_RBID", IsForeignKey=true, DeleteRule="CASCADE")]
+		public Service_Robot Service_Robot
+		{
+			get
+			{
+				return this._Service_Robot.Entity;
+			}
+			set
+			{
+				Service_Robot previousValue = this._Service_Robot.Entity;
+				if (((previousValue != value) 
+							|| (this._Service_Robot.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Service_Robot.Entity = null;
+						previousValue.Wallets.Remove(this);
+					}
+					this._Service_Robot.Entity = value;
+					if ((value != null))
+					{
+						value.Wallets.Add(this);
+						this._SRBT_SERV_FILE_NO = value.SERV_FILE_NO;
+						this._SRBT_ROBO_RBID = value.ROBO_RBID;
+					}
+					else
+					{
+						this._SRBT_SERV_FILE_NO = default(Nullable<long>);
+						this._SRBT_ROBO_RBID = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("Service_Robot");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Wallet_Details(Wallet_Detail entity)
+		{
+			this.SendPropertyChanging();
+			entity.Wallet = this;
+		}
+		
+		private void detach_Wallet_Details(Wallet_Detail entity)
+		{
+			this.SendPropertyChanging();
+			entity.Wallet = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Wallet_Detail")]
+	public partial class Wallet_Detail : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private System.Nullable<long> _TXFE_TFID;
+		
+		private System.Nullable<long> _ORDR_CODE;
+		
+		private System.Nullable<long> _WLET_CODE;
+		
+		private long _CODE;
+		
+		private System.Nullable<int> _RWNO;
+		
+		private System.Nullable<long> _CHAT_ID;
+		
+		private string _AMNT_TYPE;
+		
+		private System.Nullable<decimal> _AMNT;
+		
+		private System.Nullable<System.DateTime> _AMNT_DATE;
+		
+		private string _AMNT_STAT;
+		
+		private string _CONF_STAT;
+		
+		private System.Nullable<System.DateTime> _CONF_DATE;
+		
+		private string _CONF_DESC;
+		
+		private System.Nullable<decimal> _CRNT_WLET_AMNT_DNRM;
+		
+		private string _CRET_BY;
+		
+		private System.Nullable<System.DateTime> _CRET_DATE;
+		
+		private string _MDFY_BY;
+		
+		private System.Nullable<System.DateTime> _MDFY_DATE;
+		
+		private EntitySet<Order_State> _Order_States;
+		
+		private EntitySet<Order_Profit_Product_Divdend_Detail> _Order_Profit_Product_Divdend_Details;
+		
+		private EntityRef<Order> _Order;
+		
+		private EntityRef<Transaction_Fee> _Transaction_Fee;
+		
+		private EntityRef<Wallet> _Wallet;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnTXFE_TFIDChanging(System.Nullable<long> value);
+    partial void OnTXFE_TFIDChanged();
+    partial void OnORDR_CODEChanging(System.Nullable<long> value);
+    partial void OnORDR_CODEChanged();
+    partial void OnWLET_CODEChanging(System.Nullable<long> value);
+    partial void OnWLET_CODEChanged();
+    partial void OnCODEChanging(long value);
+    partial void OnCODEChanged();
+    partial void OnRWNOChanging(System.Nullable<int> value);
+    partial void OnRWNOChanged();
+    partial void OnCHAT_IDChanging(System.Nullable<long> value);
+    partial void OnCHAT_IDChanged();
+    partial void OnAMNT_TYPEChanging(string value);
+    partial void OnAMNT_TYPEChanged();
+    partial void OnAMNTChanging(System.Nullable<decimal> value);
+    partial void OnAMNTChanged();
+    partial void OnAMNT_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnAMNT_DATEChanged();
+    partial void OnAMNT_STATChanging(string value);
+    partial void OnAMNT_STATChanged();
+    partial void OnCONF_STATChanging(string value);
+    partial void OnCONF_STATChanged();
+    partial void OnCONF_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnCONF_DATEChanged();
+    partial void OnCONF_DESCChanging(string value);
+    partial void OnCONF_DESCChanged();
+    partial void OnCRNT_WLET_AMNT_DNRMChanging(System.Nullable<decimal> value);
+    partial void OnCRNT_WLET_AMNT_DNRMChanged();
+    partial void OnCRET_BYChanging(string value);
+    partial void OnCRET_BYChanged();
+    partial void OnCRET_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnCRET_DATEChanged();
+    partial void OnMDFY_BYChanging(string value);
+    partial void OnMDFY_BYChanged();
+    partial void OnMDFY_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnMDFY_DATEChanged();
+    #endregion
+		
+		public Wallet_Detail()
+		{
+			this._Order_States = new EntitySet<Order_State>(new Action<Order_State>(this.attach_Order_States), new Action<Order_State>(this.detach_Order_States));
+			this._Order_Profit_Product_Divdend_Details = new EntitySet<Order_Profit_Product_Divdend_Detail>(new Action<Order_Profit_Product_Divdend_Detail>(this.attach_Order_Profit_Product_Divdend_Details), new Action<Order_Profit_Product_Divdend_Detail>(this.detach_Order_Profit_Product_Divdend_Details));
+			this._Order = default(EntityRef<Order>);
+			this._Transaction_Fee = default(EntityRef<Transaction_Fee>);
+			this._Wallet = default(EntityRef<Wallet>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TXFE_TFID", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<long> TXFE_TFID
+		{
+			get
+			{
+				return this._TXFE_TFID;
+			}
+			set
+			{
+				if ((this._TXFE_TFID != value))
+				{
+					if (this._Transaction_Fee.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnTXFE_TFIDChanging(value);
+					this.SendPropertyChanging();
+					this._TXFE_TFID = value;
+					this.SendPropertyChanged("TXFE_TFID");
+					this.OnTXFE_TFIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ORDR_CODE", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<long> ORDR_CODE
+		{
+			get
+			{
+				return this._ORDR_CODE;
+			}
+			set
+			{
+				if ((this._ORDR_CODE != value))
+				{
+					if (this._Order.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnORDR_CODEChanging(value);
+					this.SendPropertyChanging();
+					this._ORDR_CODE = value;
+					this.SendPropertyChanged("ORDR_CODE");
+					this.OnORDR_CODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WLET_CODE", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<long> WLET_CODE
+		{
+			get
+			{
+				return this._WLET_CODE;
+			}
+			set
+			{
+				if ((this._WLET_CODE != value))
+				{
+					if (this._Wallet.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnWLET_CODEChanging(value);
+					this.SendPropertyChanging();
+					this._WLET_CODE = value;
+					this.SendPropertyChanged("WLET_CODE");
+					this.OnWLET_CODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CODE", DbType="BigInt NOT NULL", IsPrimaryKey=true)]
+		public long CODE
+		{
+			get
+			{
+				return this._CODE;
+			}
+			set
+			{
+				if ((this._CODE != value))
+				{
+					this.OnCODEChanging(value);
+					this.SendPropertyChanging();
+					this._CODE = value;
+					this.SendPropertyChanged("CODE");
+					this.OnCODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RWNO", DbType="Int", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<int> RWNO
+		{
+			get
+			{
+				return this._RWNO;
+			}
+			set
+			{
+				if ((this._RWNO != value))
+				{
+					this.OnRWNOChanging(value);
+					this.SendPropertyChanging();
+					this._RWNO = value;
+					this.SendPropertyChanged("RWNO");
+					this.OnRWNOChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CHAT_ID", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<long> CHAT_ID
+		{
+			get
+			{
+				return this._CHAT_ID;
+			}
+			set
+			{
+				if ((this._CHAT_ID != value))
+				{
+					this.OnCHAT_IDChanging(value);
+					this.SendPropertyChanging();
+					this._CHAT_ID = value;
+					this.SendPropertyChanged("CHAT_ID");
+					this.OnCHAT_IDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AMNT_TYPE", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		public string AMNT_TYPE
+		{
+			get
+			{
+				return this._AMNT_TYPE;
+			}
+			set
+			{
+				if ((this._AMNT_TYPE != value))
+				{
+					this.OnAMNT_TYPEChanging(value);
+					this.SendPropertyChanging();
+					this._AMNT_TYPE = value;
+					this.SendPropertyChanged("AMNT_TYPE");
+					this.OnAMNT_TYPEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AMNT", DbType="Decimal(18,2)", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<decimal> AMNT
+		{
+			get
+			{
+				return this._AMNT;
+			}
+			set
+			{
+				if ((this._AMNT != value))
+				{
+					this.OnAMNTChanging(value);
+					this.SendPropertyChanging();
+					this._AMNT = value;
+					this.SendPropertyChanged("AMNT");
+					this.OnAMNTChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AMNT_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<System.DateTime> AMNT_DATE
+		{
+			get
+			{
+				return this._AMNT_DATE;
+			}
+			set
+			{
+				if ((this._AMNT_DATE != value))
+				{
+					this.OnAMNT_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._AMNT_DATE = value;
+					this.SendPropertyChanged("AMNT_DATE");
+					this.OnAMNT_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AMNT_STAT", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		public string AMNT_STAT
+		{
+			get
+			{
+				return this._AMNT_STAT;
+			}
+			set
+			{
+				if ((this._AMNT_STAT != value))
+				{
+					this.OnAMNT_STATChanging(value);
+					this.SendPropertyChanging();
+					this._AMNT_STAT = value;
+					this.SendPropertyChanged("AMNT_STAT");
+					this.OnAMNT_STATChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CONF_STAT", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		public string CONF_STAT
+		{
+			get
+			{
+				return this._CONF_STAT;
+			}
+			set
+			{
+				if ((this._CONF_STAT != value))
+				{
+					this.OnCONF_STATChanging(value);
+					this.SendPropertyChanging();
+					this._CONF_STAT = value;
+					this.SendPropertyChanged("CONF_STAT");
+					this.OnCONF_STATChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CONF_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<System.DateTime> CONF_DATE
+		{
+			get
+			{
+				return this._CONF_DATE;
+			}
+			set
+			{
+				if ((this._CONF_DATE != value))
+				{
+					this.OnCONF_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._CONF_DATE = value;
+					this.SendPropertyChanged("CONF_DATE");
+					this.OnCONF_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CONF_DESC", DbType="NVarChar(500)", UpdateCheck=UpdateCheck.Never)]
+		public string CONF_DESC
+		{
+			get
+			{
+				return this._CONF_DESC;
+			}
+			set
+			{
+				if ((this._CONF_DESC != value))
+				{
+					this.OnCONF_DESCChanging(value);
+					this.SendPropertyChanging();
+					this._CONF_DESC = value;
+					this.SendPropertyChanged("CONF_DESC");
+					this.OnCONF_DESCChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRNT_WLET_AMNT_DNRM", DbType="Decimal(18,2)", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<decimal> CRNT_WLET_AMNT_DNRM
+		{
+			get
+			{
+				return this._CRNT_WLET_AMNT_DNRM;
+			}
+			set
+			{
+				if ((this._CRNT_WLET_AMNT_DNRM != value))
+				{
+					this.OnCRNT_WLET_AMNT_DNRMChanging(value);
+					this.SendPropertyChanging();
+					this._CRNT_WLET_AMNT_DNRM = value;
+					this.SendPropertyChanged("CRNT_WLET_AMNT_DNRM");
+					this.OnCRNT_WLET_AMNT_DNRMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_BY", DbType="VarChar(250)", UpdateCheck=UpdateCheck.Never)]
+		public string CRET_BY
+		{
+			get
+			{
+				return this._CRET_BY;
+			}
+			set
+			{
+				if ((this._CRET_BY != value))
+				{
+					this.OnCRET_BYChanging(value);
+					this.SendPropertyChanging();
+					this._CRET_BY = value;
+					this.SendPropertyChanged("CRET_BY");
+					this.OnCRET_BYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<System.DateTime> CRET_DATE
+		{
+			get
+			{
+				return this._CRET_DATE;
+			}
+			set
+			{
+				if ((this._CRET_DATE != value))
+				{
+					this.OnCRET_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._CRET_DATE = value;
+					this.SendPropertyChanged("CRET_DATE");
+					this.OnCRET_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_BY", DbType="VarChar(250)", UpdateCheck=UpdateCheck.Never)]
+		public string MDFY_BY
+		{
+			get
+			{
+				return this._MDFY_BY;
+			}
+			set
+			{
+				if ((this._MDFY_BY != value))
+				{
+					this.OnMDFY_BYChanging(value);
+					this.SendPropertyChanging();
+					this._MDFY_BY = value;
+					this.SendPropertyChanged("MDFY_BY");
+					this.OnMDFY_BYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<System.DateTime> MDFY_DATE
+		{
+			get
+			{
+				return this._MDFY_DATE;
+			}
+			set
+			{
+				if ((this._MDFY_DATE != value))
+				{
+					this.OnMDFY_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._MDFY_DATE = value;
+					this.SendPropertyChanged("MDFY_DATE");
+					this.OnMDFY_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Wallet_Detail_Order_State", Storage="_Order_States", ThisKey="CODE", OtherKey="WLDT_CODE")]
+		public EntitySet<Order_State> Order_States
+		{
+			get
+			{
+				return this._Order_States;
+			}
+			set
+			{
+				this._Order_States.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Wallet_Detail_Order_Profit_Product_Divdend_Detail", Storage="_Order_Profit_Product_Divdend_Details", ThisKey="CODE", OtherKey="WLDT_CODE")]
+		public EntitySet<Order_Profit_Product_Divdend_Detail> Order_Profit_Product_Divdend_Details
+		{
+			get
+			{
+				return this._Order_Profit_Product_Divdend_Details;
+			}
+			set
+			{
+				this._Order_Profit_Product_Divdend_Details.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Order_Wallet_Detail", Storage="_Order", ThisKey="ORDR_CODE", OtherKey="CODE", IsForeignKey=true, DeleteRule="CASCADE")]
+		public Order Order
+		{
+			get
+			{
+				return this._Order.Entity;
+			}
+			set
+			{
+				Order previousValue = this._Order.Entity;
+				if (((previousValue != value) 
+							|| (this._Order.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Order.Entity = null;
+						previousValue.Wallet_Details.Remove(this);
+					}
+					this._Order.Entity = value;
+					if ((value != null))
+					{
+						value.Wallet_Details.Add(this);
+						this._ORDR_CODE = value.CODE;
+					}
+					else
+					{
+						this._ORDR_CODE = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("Order");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Transaction_Fee_Wallet_Detail", Storage="_Transaction_Fee", ThisKey="TXFE_TFID", OtherKey="TFID", IsForeignKey=true, DeleteRule="CASCADE")]
+		public Transaction_Fee Transaction_Fee
+		{
+			get
+			{
+				return this._Transaction_Fee.Entity;
+			}
+			set
+			{
+				Transaction_Fee previousValue = this._Transaction_Fee.Entity;
+				if (((previousValue != value) 
+							|| (this._Transaction_Fee.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Transaction_Fee.Entity = null;
+						previousValue.Wallet_Details.Remove(this);
+					}
+					this._Transaction_Fee.Entity = value;
+					if ((value != null))
+					{
+						value.Wallet_Details.Add(this);
+						this._TXFE_TFID = value.TFID;
+					}
+					else
+					{
+						this._TXFE_TFID = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("Transaction_Fee");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Wallet_Wallet_Detail", Storage="_Wallet", ThisKey="WLET_CODE", OtherKey="CODE", IsForeignKey=true, DeleteRule="CASCADE")]
+		public Wallet Wallet
+		{
+			get
+			{
+				return this._Wallet.Entity;
+			}
+			set
+			{
+				Wallet previousValue = this._Wallet.Entity;
+				if (((previousValue != value) 
+							|| (this._Wallet.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Wallet.Entity = null;
+						previousValue.Wallet_Details.Remove(this);
+					}
+					this._Wallet.Entity = value;
+					if ((value != null))
+					{
+						value.Wallet_Details.Add(this);
+						this._WLET_CODE = value.CODE;
+					}
+					else
+					{
+						this._WLET_CODE = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("Wallet");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Order_States(Order_State entity)
+		{
+			this.SendPropertyChanging();
+			entity.Wallet_Detail = this;
+		}
+		
+		private void detach_Order_States(Order_State entity)
+		{
+			this.SendPropertyChanging();
+			entity.Wallet_Detail = null;
+		}
+		
+		private void attach_Order_Profit_Product_Divdend_Details(Order_Profit_Product_Divdend_Detail entity)
+		{
+			this.SendPropertyChanging();
+			entity.Wallet_Detail = this;
+		}
+		
+		private void detach_Order_Profit_Product_Divdend_Details(Order_Profit_Product_Divdend_Detail entity)
+		{
+			this.SendPropertyChanging();
+			entity.Wallet_Detail = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Robot_Product_Divdend")]
+	public partial class Robot_Product_Divdend : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private System.Nullable<long> _RBPR_CODE;
+		
+		private long _CODE;
+		
+		private string _TARF_CODE_DNRM;
+		
+		private System.Nullable<int> _AMNT;
+		
+		private System.Nullable<int> _MONT_PRFT_NUMB;
+		
+		private string _STAT;
+		
+		private System.Nullable<float> _PRCT_VALU;
+		
+		private string _CRET_BY;
+		
+		private System.Nullable<System.DateTime> _CRET_DATE;
+		
+		private string _MDFY_BY;
+		
+		private System.Nullable<System.DateTime> _MDFY_DATE;
+		
+		private EntitySet<Order_Profit_Product_Divdend> _Order_Profit_Product_Divdends;
+		
+		private EntityRef<Robot_Product> _Robot_Product;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnRBPR_CODEChanging(System.Nullable<long> value);
+    partial void OnRBPR_CODEChanged();
+    partial void OnCODEChanging(long value);
+    partial void OnCODEChanged();
+    partial void OnTARF_CODE_DNRMChanging(string value);
+    partial void OnTARF_CODE_DNRMChanged();
+    partial void OnAMNTChanging(System.Nullable<int> value);
+    partial void OnAMNTChanged();
+    partial void OnMONT_PRFT_NUMBChanging(System.Nullable<int> value);
+    partial void OnMONT_PRFT_NUMBChanged();
+    partial void OnSTATChanging(string value);
+    partial void OnSTATChanged();
+    partial void OnPRCT_VALUChanging(System.Nullable<float> value);
+    partial void OnPRCT_VALUChanged();
+    partial void OnCRET_BYChanging(string value);
+    partial void OnCRET_BYChanged();
+    partial void OnCRET_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnCRET_DATEChanged();
+    partial void OnMDFY_BYChanging(string value);
+    partial void OnMDFY_BYChanged();
+    partial void OnMDFY_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnMDFY_DATEChanged();
+    #endregion
+		
+		public Robot_Product_Divdend()
+		{
+			this._Order_Profit_Product_Divdends = new EntitySet<Order_Profit_Product_Divdend>(new Action<Order_Profit_Product_Divdend>(this.attach_Order_Profit_Product_Divdends), new Action<Order_Profit_Product_Divdend>(this.detach_Order_Profit_Product_Divdends));
+			this._Robot_Product = default(EntityRef<Robot_Product>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RBPR_CODE", DbType="BigInt")]
+		public System.Nullable<long> RBPR_CODE
+		{
+			get
+			{
+				return this._RBPR_CODE;
+			}
+			set
+			{
+				if ((this._RBPR_CODE != value))
+				{
+					if (this._Robot_Product.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnRBPR_CODEChanging(value);
+					this.SendPropertyChanging();
+					this._RBPR_CODE = value;
+					this.SendPropertyChanged("RBPR_CODE");
+					this.OnRBPR_CODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CODE", DbType="BigInt NOT NULL", IsPrimaryKey=true)]
+		public long CODE
+		{
+			get
+			{
+				return this._CODE;
+			}
+			set
+			{
+				if ((this._CODE != value))
+				{
+					this.OnCODEChanging(value);
+					this.SendPropertyChanging();
+					this._CODE = value;
+					this.SendPropertyChanged("CODE");
+					this.OnCODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TARF_CODE_DNRM", DbType="VarChar(100)")]
+		public string TARF_CODE_DNRM
+		{
+			get
+			{
+				return this._TARF_CODE_DNRM;
+			}
+			set
+			{
+				if ((this._TARF_CODE_DNRM != value))
+				{
+					this.OnTARF_CODE_DNRMChanging(value);
+					this.SendPropertyChanging();
+					this._TARF_CODE_DNRM = value;
+					this.SendPropertyChanged("TARF_CODE_DNRM");
+					this.OnTARF_CODE_DNRMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AMNT", DbType="Int")]
+		public System.Nullable<int> AMNT
+		{
+			get
+			{
+				return this._AMNT;
+			}
+			set
+			{
+				if ((this._AMNT != value))
+				{
+					this.OnAMNTChanging(value);
+					this.SendPropertyChanging();
+					this._AMNT = value;
+					this.SendPropertyChanged("AMNT");
+					this.OnAMNTChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MONT_PRFT_NUMB", DbType="Int")]
+		public System.Nullable<int> MONT_PRFT_NUMB
+		{
+			get
+			{
+				return this._MONT_PRFT_NUMB;
+			}
+			set
+			{
+				if ((this._MONT_PRFT_NUMB != value))
+				{
+					this.OnMONT_PRFT_NUMBChanging(value);
+					this.SendPropertyChanging();
+					this._MONT_PRFT_NUMB = value;
+					this.SendPropertyChanged("MONT_PRFT_NUMB");
+					this.OnMONT_PRFT_NUMBChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STAT", DbType="VarChar(3)")]
+		public string STAT
+		{
+			get
+			{
+				return this._STAT;
+			}
+			set
+			{
+				if ((this._STAT != value))
+				{
+					this.OnSTATChanging(value);
+					this.SendPropertyChanging();
+					this._STAT = value;
+					this.SendPropertyChanged("STAT");
+					this.OnSTATChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PRCT_VALU", DbType="Real")]
+		public System.Nullable<float> PRCT_VALU
+		{
+			get
+			{
+				return this._PRCT_VALU;
+			}
+			set
+			{
+				if ((this._PRCT_VALU != value))
+				{
+					this.OnPRCT_VALUChanging(value);
+					this.SendPropertyChanging();
+					this._PRCT_VALU = value;
+					this.SendPropertyChanged("PRCT_VALU");
+					this.OnPRCT_VALUChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_BY", DbType="VarChar(250)")]
+		public string CRET_BY
+		{
+			get
+			{
+				return this._CRET_BY;
+			}
+			set
+			{
+				if ((this._CRET_BY != value))
+				{
+					this.OnCRET_BYChanging(value);
+					this.SendPropertyChanging();
+					this._CRET_BY = value;
+					this.SendPropertyChanged("CRET_BY");
+					this.OnCRET_BYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_DATE", DbType="DateTime")]
+		public System.Nullable<System.DateTime> CRET_DATE
+		{
+			get
+			{
+				return this._CRET_DATE;
+			}
+			set
+			{
+				if ((this._CRET_DATE != value))
+				{
+					this.OnCRET_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._CRET_DATE = value;
+					this.SendPropertyChanged("CRET_DATE");
+					this.OnCRET_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_BY", DbType="VarChar(250)")]
+		public string MDFY_BY
+		{
+			get
+			{
+				return this._MDFY_BY;
+			}
+			set
+			{
+				if ((this._MDFY_BY != value))
+				{
+					this.OnMDFY_BYChanging(value);
+					this.SendPropertyChanging();
+					this._MDFY_BY = value;
+					this.SendPropertyChanged("MDFY_BY");
+					this.OnMDFY_BYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_DATE", DbType="DateTime")]
+		public System.Nullable<System.DateTime> MDFY_DATE
+		{
+			get
+			{
+				return this._MDFY_DATE;
+			}
+			set
+			{
+				if ((this._MDFY_DATE != value))
+				{
+					this.OnMDFY_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._MDFY_DATE = value;
+					this.SendPropertyChanged("MDFY_DATE");
+					this.OnMDFY_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Robot_Product_Divdend_Order_Profit_Product_Divdend", Storage="_Order_Profit_Product_Divdends", ThisKey="CODE", OtherKey="RPDV_CODE")]
+		public EntitySet<Order_Profit_Product_Divdend> Order_Profit_Product_Divdends
+		{
+			get
+			{
+				return this._Order_Profit_Product_Divdends;
+			}
+			set
+			{
+				this._Order_Profit_Product_Divdends.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Robot_Product_Robot_Product_Divdend", Storage="_Robot_Product", ThisKey="RBPR_CODE", OtherKey="CODE", IsForeignKey=true)]
+		public Robot_Product Robot_Product
+		{
+			get
+			{
+				return this._Robot_Product.Entity;
+			}
+			set
+			{
+				Robot_Product previousValue = this._Robot_Product.Entity;
+				if (((previousValue != value) 
+							|| (this._Robot_Product.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Robot_Product.Entity = null;
+						previousValue.Robot_Product_Divdends.Remove(this);
+					}
+					this._Robot_Product.Entity = value;
+					if ((value != null))
+					{
+						value.Robot_Product_Divdends.Add(this);
+						this._RBPR_CODE = value.CODE;
+					}
+					else
+					{
+						this._RBPR_CODE = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("Robot_Product");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Order_Profit_Product_Divdends(Order_Profit_Product_Divdend entity)
+		{
+			this.SendPropertyChanging();
+			entity.Robot_Product_Divdend = this;
+		}
+		
+		private void detach_Order_Profit_Product_Divdends(Order_Profit_Product_Divdend entity)
+		{
+			this.SendPropertyChanging();
+			entity.Robot_Product_Divdend = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Order_Balance")]
+	public partial class Order_Balance : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private System.Nullable<long> _SRBT_SERV_FILE_NO;
+		
+		private System.Nullable<long> _SRBT_ROBO_RBID;
+		
+		private long _CODE;
+		
+		private System.Nullable<long> _CHAT_ID;
+		
+		private System.Nullable<decimal> _LEFT_AMNT_DNRM;
+		
+		private System.Nullable<decimal> _RIGH_AMNT_DNRM;
+		
+		private System.Nullable<decimal> _SELF_AMNT_DNRM;
+		
+		private string _CRET_BY;
+		
+		private System.Nullable<System.DateTime> _CRET_DATE;
+		
+		private string _MDFY_BY;
+		
+		private System.Nullable<System.DateTime> _MDFY_DATE;
+		
+		private EntitySet<Order_Balance_Detail> _Order_Balance_Details;
+		
+		private EntityRef<Service_Robot> _Service_Robot;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnSRBT_SERV_FILE_NOChanging(System.Nullable<long> value);
+    partial void OnSRBT_SERV_FILE_NOChanged();
+    partial void OnSRBT_ROBO_RBIDChanging(System.Nullable<long> value);
+    partial void OnSRBT_ROBO_RBIDChanged();
+    partial void OnCODEChanging(long value);
+    partial void OnCODEChanged();
+    partial void OnCHAT_IDChanging(System.Nullable<long> value);
+    partial void OnCHAT_IDChanged();
+    partial void OnLEFT_AMNT_DNRMChanging(System.Nullable<decimal> value);
+    partial void OnLEFT_AMNT_DNRMChanged();
+    partial void OnRIGH_AMNT_DNRMChanging(System.Nullable<decimal> value);
+    partial void OnRIGH_AMNT_DNRMChanged();
+    partial void OnSELF_AMNT_DNRMChanging(System.Nullable<decimal> value);
+    partial void OnSELF_AMNT_DNRMChanged();
+    partial void OnCRET_BYChanging(string value);
+    partial void OnCRET_BYChanged();
+    partial void OnCRET_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnCRET_DATEChanged();
+    partial void OnMDFY_BYChanging(string value);
+    partial void OnMDFY_BYChanged();
+    partial void OnMDFY_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnMDFY_DATEChanged();
+    #endregion
+		
+		public Order_Balance()
+		{
+			this._Order_Balance_Details = new EntitySet<Order_Balance_Detail>(new Action<Order_Balance_Detail>(this.attach_Order_Balance_Details), new Action<Order_Balance_Detail>(this.detach_Order_Balance_Details));
+			this._Service_Robot = default(EntityRef<Service_Robot>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SRBT_SERV_FILE_NO", DbType="BigInt")]
+		public System.Nullable<long> SRBT_SERV_FILE_NO
+		{
+			get
+			{
+				return this._SRBT_SERV_FILE_NO;
+			}
+			set
+			{
+				if ((this._SRBT_SERV_FILE_NO != value))
+				{
+					if (this._Service_Robot.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnSRBT_SERV_FILE_NOChanging(value);
+					this.SendPropertyChanging();
+					this._SRBT_SERV_FILE_NO = value;
+					this.SendPropertyChanged("SRBT_SERV_FILE_NO");
+					this.OnSRBT_SERV_FILE_NOChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SRBT_ROBO_RBID", DbType="BigInt")]
+		public System.Nullable<long> SRBT_ROBO_RBID
+		{
+			get
+			{
+				return this._SRBT_ROBO_RBID;
+			}
+			set
+			{
+				if ((this._SRBT_ROBO_RBID != value))
+				{
+					if (this._Service_Robot.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnSRBT_ROBO_RBIDChanging(value);
+					this.SendPropertyChanging();
+					this._SRBT_ROBO_RBID = value;
+					this.SendPropertyChanged("SRBT_ROBO_RBID");
+					this.OnSRBT_ROBO_RBIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CODE", DbType="BigInt NOT NULL", IsPrimaryKey=true)]
+		public long CODE
+		{
+			get
+			{
+				return this._CODE;
+			}
+			set
+			{
+				if ((this._CODE != value))
+				{
+					this.OnCODEChanging(value);
+					this.SendPropertyChanging();
+					this._CODE = value;
+					this.SendPropertyChanged("CODE");
+					this.OnCODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CHAT_ID", DbType="BigInt")]
+		public System.Nullable<long> CHAT_ID
+		{
+			get
+			{
+				return this._CHAT_ID;
+			}
+			set
+			{
+				if ((this._CHAT_ID != value))
+				{
+					this.OnCHAT_IDChanging(value);
+					this.SendPropertyChanging();
+					this._CHAT_ID = value;
+					this.SendPropertyChanged("CHAT_ID");
+					this.OnCHAT_IDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LEFT_AMNT_DNRM", DbType="Decimal(18,2)")]
+		public System.Nullable<decimal> LEFT_AMNT_DNRM
+		{
+			get
+			{
+				return this._LEFT_AMNT_DNRM;
+			}
+			set
+			{
+				if ((this._LEFT_AMNT_DNRM != value))
+				{
+					this.OnLEFT_AMNT_DNRMChanging(value);
+					this.SendPropertyChanging();
+					this._LEFT_AMNT_DNRM = value;
+					this.SendPropertyChanged("LEFT_AMNT_DNRM");
+					this.OnLEFT_AMNT_DNRMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RIGH_AMNT_DNRM", DbType="Decimal(18,2)")]
+		public System.Nullable<decimal> RIGH_AMNT_DNRM
+		{
+			get
+			{
+				return this._RIGH_AMNT_DNRM;
+			}
+			set
+			{
+				if ((this._RIGH_AMNT_DNRM != value))
+				{
+					this.OnRIGH_AMNT_DNRMChanging(value);
+					this.SendPropertyChanging();
+					this._RIGH_AMNT_DNRM = value;
+					this.SendPropertyChanged("RIGH_AMNT_DNRM");
+					this.OnRIGH_AMNT_DNRMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SELF_AMNT_DNRM", DbType="Decimal(18,2)")]
+		public System.Nullable<decimal> SELF_AMNT_DNRM
+		{
+			get
+			{
+				return this._SELF_AMNT_DNRM;
+			}
+			set
+			{
+				if ((this._SELF_AMNT_DNRM != value))
+				{
+					this.OnSELF_AMNT_DNRMChanging(value);
+					this.SendPropertyChanging();
+					this._SELF_AMNT_DNRM = value;
+					this.SendPropertyChanged("SELF_AMNT_DNRM");
+					this.OnSELF_AMNT_DNRMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_BY", DbType="VarChar(250)")]
+		public string CRET_BY
+		{
+			get
+			{
+				return this._CRET_BY;
+			}
+			set
+			{
+				if ((this._CRET_BY != value))
+				{
+					this.OnCRET_BYChanging(value);
+					this.SendPropertyChanging();
+					this._CRET_BY = value;
+					this.SendPropertyChanged("CRET_BY");
+					this.OnCRET_BYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_DATE", DbType="DateTime")]
+		public System.Nullable<System.DateTime> CRET_DATE
+		{
+			get
+			{
+				return this._CRET_DATE;
+			}
+			set
+			{
+				if ((this._CRET_DATE != value))
+				{
+					this.OnCRET_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._CRET_DATE = value;
+					this.SendPropertyChanged("CRET_DATE");
+					this.OnCRET_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_BY", DbType="VarChar(250)")]
+		public string MDFY_BY
+		{
+			get
+			{
+				return this._MDFY_BY;
+			}
+			set
+			{
+				if ((this._MDFY_BY != value))
+				{
+					this.OnMDFY_BYChanging(value);
+					this.SendPropertyChanging();
+					this._MDFY_BY = value;
+					this.SendPropertyChanged("MDFY_BY");
+					this.OnMDFY_BYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_DATE", DbType="DateTime")]
+		public System.Nullable<System.DateTime> MDFY_DATE
+		{
+			get
+			{
+				return this._MDFY_DATE;
+			}
+			set
+			{
+				if ((this._MDFY_DATE != value))
+				{
+					this.OnMDFY_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._MDFY_DATE = value;
+					this.SendPropertyChanged("MDFY_DATE");
+					this.OnMDFY_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Order_Balance_Order_Balance_Detail", Storage="_Order_Balance_Details", ThisKey="CODE", OtherKey="OBLN_CODE")]
+		public EntitySet<Order_Balance_Detail> Order_Balance_Details
+		{
+			get
+			{
+				return this._Order_Balance_Details;
+			}
+			set
+			{
+				this._Order_Balance_Details.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Service_Robot_Order_Balance", Storage="_Service_Robot", ThisKey="SRBT_SERV_FILE_NO,SRBT_ROBO_RBID", OtherKey="SERV_FILE_NO,ROBO_RBID", IsForeignKey=true)]
+		public Service_Robot Service_Robot
+		{
+			get
+			{
+				return this._Service_Robot.Entity;
+			}
+			set
+			{
+				Service_Robot previousValue = this._Service_Robot.Entity;
+				if (((previousValue != value) 
+							|| (this._Service_Robot.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Service_Robot.Entity = null;
+						previousValue.Order_Balances.Remove(this);
+					}
+					this._Service_Robot.Entity = value;
+					if ((value != null))
+					{
+						value.Order_Balances.Add(this);
+						this._SRBT_SERV_FILE_NO = value.SERV_FILE_NO;
+						this._SRBT_ROBO_RBID = value.ROBO_RBID;
+					}
+					else
+					{
+						this._SRBT_SERV_FILE_NO = default(Nullable<long>);
+						this._SRBT_ROBO_RBID = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("Service_Robot");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Order_Balance_Details(Order_Balance_Detail entity)
+		{
+			this.SendPropertyChanging();
+			entity.Order_Balance = this;
+		}
+		
+		private void detach_Order_Balance_Details(Order_Balance_Detail entity)
+		{
+			this.SendPropertyChanging();
+			entity.Order_Balance = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Order_Balance_Detail")]
+	public partial class Order_Balance_Detail : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private System.Nullable<long> _OBLN_CODE;
+		
+		private long _CODE;
+		
+		private System.Nullable<long> _CHAT_ID;
+		
+		private System.Nullable<long> _ORDR_CODE;
+		
+		private System.Nullable<decimal> _EXPN_AMNT;
+		
+		private string _DIR_TYPE;
+		
+		private string _AMNT_STAT;
+		
+		private string _CRET_BY;
+		
+		private System.Nullable<System.DateTime> _CRET_DATE;
+		
+		private string _MDFY_BY;
+		
+		private System.Nullable<System.DateTime> _MDFY_DATE;
+		
+		private EntityRef<Order_Balance> _Order_Balance;
+		
+		private EntityRef<Order> _Order;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnOBLN_CODEChanging(System.Nullable<long> value);
+    partial void OnOBLN_CODEChanged();
+    partial void OnCODEChanging(long value);
+    partial void OnCODEChanged();
+    partial void OnCHAT_IDChanging(System.Nullable<long> value);
+    partial void OnCHAT_IDChanged();
+    partial void OnORDR_CODEChanging(System.Nullable<long> value);
+    partial void OnORDR_CODEChanged();
+    partial void OnEXPN_AMNTChanging(System.Nullable<decimal> value);
+    partial void OnEXPN_AMNTChanged();
+    partial void OnDIR_TYPEChanging(string value);
+    partial void OnDIR_TYPEChanged();
+    partial void OnAMNT_STATChanging(string value);
+    partial void OnAMNT_STATChanged();
+    partial void OnCRET_BYChanging(string value);
+    partial void OnCRET_BYChanged();
+    partial void OnCRET_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnCRET_DATEChanged();
+    partial void OnMDFY_BYChanging(string value);
+    partial void OnMDFY_BYChanged();
+    partial void OnMDFY_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnMDFY_DATEChanged();
+    #endregion
+		
+		public Order_Balance_Detail()
+		{
+			this._Order_Balance = default(EntityRef<Order_Balance>);
+			this._Order = default(EntityRef<Order>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OBLN_CODE", DbType="BigInt")]
+		public System.Nullable<long> OBLN_CODE
+		{
+			get
+			{
+				return this._OBLN_CODE;
+			}
+			set
+			{
+				if ((this._OBLN_CODE != value))
+				{
+					if (this._Order_Balance.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnOBLN_CODEChanging(value);
+					this.SendPropertyChanging();
+					this._OBLN_CODE = value;
+					this.SendPropertyChanged("OBLN_CODE");
+					this.OnOBLN_CODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CODE", DbType="BigInt NOT NULL", IsPrimaryKey=true)]
+		public long CODE
+		{
+			get
+			{
+				return this._CODE;
+			}
+			set
+			{
+				if ((this._CODE != value))
+				{
+					this.OnCODEChanging(value);
+					this.SendPropertyChanging();
+					this._CODE = value;
+					this.SendPropertyChanged("CODE");
+					this.OnCODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CHAT_ID", DbType="BigInt")]
+		public System.Nullable<long> CHAT_ID
+		{
+			get
+			{
+				return this._CHAT_ID;
+			}
+			set
+			{
+				if ((this._CHAT_ID != value))
+				{
+					this.OnCHAT_IDChanging(value);
+					this.SendPropertyChanging();
+					this._CHAT_ID = value;
+					this.SendPropertyChanged("CHAT_ID");
+					this.OnCHAT_IDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ORDR_CODE", DbType="BigInt")]
+		public System.Nullable<long> ORDR_CODE
+		{
+			get
+			{
+				return this._ORDR_CODE;
+			}
+			set
+			{
+				if ((this._ORDR_CODE != value))
+				{
+					if (this._Order.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnORDR_CODEChanging(value);
+					this.SendPropertyChanging();
+					this._ORDR_CODE = value;
+					this.SendPropertyChanged("ORDR_CODE");
+					this.OnORDR_CODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EXPN_AMNT", DbType="Decimal(18,2)")]
+		public System.Nullable<decimal> EXPN_AMNT
+		{
+			get
+			{
+				return this._EXPN_AMNT;
+			}
+			set
+			{
+				if ((this._EXPN_AMNT != value))
+				{
+					this.OnEXPN_AMNTChanging(value);
+					this.SendPropertyChanging();
+					this._EXPN_AMNT = value;
+					this.SendPropertyChanged("EXPN_AMNT");
+					this.OnEXPN_AMNTChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DIR_TYPE", DbType="VarChar(3)")]
+		public string DIR_TYPE
+		{
+			get
+			{
+				return this._DIR_TYPE;
+			}
+			set
+			{
+				if ((this._DIR_TYPE != value))
+				{
+					this.OnDIR_TYPEChanging(value);
+					this.SendPropertyChanging();
+					this._DIR_TYPE = value;
+					this.SendPropertyChanged("DIR_TYPE");
+					this.OnDIR_TYPEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AMNT_STAT", DbType="VarChar(3)")]
+		public string AMNT_STAT
+		{
+			get
+			{
+				return this._AMNT_STAT;
+			}
+			set
+			{
+				if ((this._AMNT_STAT != value))
+				{
+					this.OnAMNT_STATChanging(value);
+					this.SendPropertyChanging();
+					this._AMNT_STAT = value;
+					this.SendPropertyChanged("AMNT_STAT");
+					this.OnAMNT_STATChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_BY", DbType="VarChar(250)")]
+		public string CRET_BY
+		{
+			get
+			{
+				return this._CRET_BY;
+			}
+			set
+			{
+				if ((this._CRET_BY != value))
+				{
+					this.OnCRET_BYChanging(value);
+					this.SendPropertyChanging();
+					this._CRET_BY = value;
+					this.SendPropertyChanged("CRET_BY");
+					this.OnCRET_BYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_DATE", DbType="DateTime")]
+		public System.Nullable<System.DateTime> CRET_DATE
+		{
+			get
+			{
+				return this._CRET_DATE;
+			}
+			set
+			{
+				if ((this._CRET_DATE != value))
+				{
+					this.OnCRET_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._CRET_DATE = value;
+					this.SendPropertyChanged("CRET_DATE");
+					this.OnCRET_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_BY", DbType="VarChar(250)")]
+		public string MDFY_BY
+		{
+			get
+			{
+				return this._MDFY_BY;
+			}
+			set
+			{
+				if ((this._MDFY_BY != value))
+				{
+					this.OnMDFY_BYChanging(value);
+					this.SendPropertyChanging();
+					this._MDFY_BY = value;
+					this.SendPropertyChanged("MDFY_BY");
+					this.OnMDFY_BYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_DATE", DbType="DateTime")]
+		public System.Nullable<System.DateTime> MDFY_DATE
+		{
+			get
+			{
+				return this._MDFY_DATE;
+			}
+			set
+			{
+				if ((this._MDFY_DATE != value))
+				{
+					this.OnMDFY_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._MDFY_DATE = value;
+					this.SendPropertyChanged("MDFY_DATE");
+					this.OnMDFY_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Order_Balance_Order_Balance_Detail", Storage="_Order_Balance", ThisKey="OBLN_CODE", OtherKey="CODE", IsForeignKey=true)]
+		public Order_Balance Order_Balance
+		{
+			get
+			{
+				return this._Order_Balance.Entity;
+			}
+			set
+			{
+				Order_Balance previousValue = this._Order_Balance.Entity;
+				if (((previousValue != value) 
+							|| (this._Order_Balance.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Order_Balance.Entity = null;
+						previousValue.Order_Balance_Details.Remove(this);
+					}
+					this._Order_Balance.Entity = value;
+					if ((value != null))
+					{
+						value.Order_Balance_Details.Add(this);
+						this._OBLN_CODE = value.CODE;
+					}
+					else
+					{
+						this._OBLN_CODE = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("Order_Balance");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Order_Order_Balance_Detail", Storage="_Order", ThisKey="ORDR_CODE", OtherKey="CODE", IsForeignKey=true)]
+		public Order Order
+		{
+			get
+			{
+				return this._Order.Entity;
+			}
+			set
+			{
+				Order previousValue = this._Order.Entity;
+				if (((previousValue != value) 
+							|| (this._Order.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Order.Entity = null;
+						previousValue.Order_Balance_Details.Remove(this);
+					}
+					this._Order.Entity = value;
+					if ((value != null))
+					{
+						value.Order_Balance_Details.Add(this);
+						this._ORDR_CODE = value.CODE;
+					}
+					else
+					{
+						this._ORDR_CODE = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("Order");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Order_Profit_Product_Divdend")]
+	public partial class Order_Profit_Product_Divdend : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private System.Nullable<long> _ORDR_CODE;
+		
+		private System.Nullable<long> _RPDV_CODE;
+		
+		private long _CODE;
+		
+		private System.Nullable<long> _CHAT_ID;
+		
+		private string _TARF_CODE_DNRM;
+		
+		private System.Nullable<decimal> _MAX_PRFT_AMNT_DNRM;
+		
+		private System.Nullable<decimal> _CRNT_PRFT_AMNT_DNRM;
+		
+		private System.Nullable<int> _LAST_PRFT_RWNO_DNRM;
+		
+		private System.Nullable<decimal> _LAST_PRFT_AMNT_DNRM;
+		
+		private System.Nullable<System.DateTime> _LAST_PRFT_DATE_DNRM;
+		
+		private string _CRET_BY;
+		
+		private System.Nullable<System.DateTime> _CRET_DATE;
+		
+		private string _MDFY_BY;
+		
+		private System.Nullable<System.DateTime> _MDFY_DATE;
+		
+		private EntitySet<Order_Profit_Product_Divdend_Detail> _Order_Profit_Product_Divdend_Details;
+		
+		private EntityRef<Order> _Order;
+		
+		private EntityRef<Robot_Product_Divdend> _Robot_Product_Divdend;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnORDR_CODEChanging(System.Nullable<long> value);
+    partial void OnORDR_CODEChanged();
+    partial void OnRPDV_CODEChanging(System.Nullable<long> value);
+    partial void OnRPDV_CODEChanged();
+    partial void OnCODEChanging(long value);
+    partial void OnCODEChanged();
+    partial void OnCHAT_IDChanging(System.Nullable<long> value);
+    partial void OnCHAT_IDChanged();
+    partial void OnTARF_CODE_DNRMChanging(string value);
+    partial void OnTARF_CODE_DNRMChanged();
+    partial void OnMAX_PRFT_AMNT_DNRMChanging(System.Nullable<decimal> value);
+    partial void OnMAX_PRFT_AMNT_DNRMChanged();
+    partial void OnCRNT_PRFT_AMNT_DNRMChanging(System.Nullable<decimal> value);
+    partial void OnCRNT_PRFT_AMNT_DNRMChanged();
+    partial void OnLAST_PRFT_RWNO_DNRMChanging(System.Nullable<int> value);
+    partial void OnLAST_PRFT_RWNO_DNRMChanged();
+    partial void OnLAST_PRFT_AMNT_DNRMChanging(System.Nullable<decimal> value);
+    partial void OnLAST_PRFT_AMNT_DNRMChanged();
+    partial void OnLAST_PRFT_DATE_DNRMChanging(System.Nullable<System.DateTime> value);
+    partial void OnLAST_PRFT_DATE_DNRMChanged();
+    partial void OnCRET_BYChanging(string value);
+    partial void OnCRET_BYChanged();
+    partial void OnCRET_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnCRET_DATEChanged();
+    partial void OnMDFY_BYChanging(string value);
+    partial void OnMDFY_BYChanged();
+    partial void OnMDFY_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnMDFY_DATEChanged();
+    #endregion
+		
+		public Order_Profit_Product_Divdend()
+		{
+			this._Order_Profit_Product_Divdend_Details = new EntitySet<Order_Profit_Product_Divdend_Detail>(new Action<Order_Profit_Product_Divdend_Detail>(this.attach_Order_Profit_Product_Divdend_Details), new Action<Order_Profit_Product_Divdend_Detail>(this.detach_Order_Profit_Product_Divdend_Details));
+			this._Order = default(EntityRef<Order>);
+			this._Robot_Product_Divdend = default(EntityRef<Robot_Product_Divdend>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ORDR_CODE", DbType="BigInt")]
+		public System.Nullable<long> ORDR_CODE
+		{
+			get
+			{
+				return this._ORDR_CODE;
+			}
+			set
+			{
+				if ((this._ORDR_CODE != value))
+				{
+					if (this._Order.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnORDR_CODEChanging(value);
+					this.SendPropertyChanging();
+					this._ORDR_CODE = value;
+					this.SendPropertyChanged("ORDR_CODE");
+					this.OnORDR_CODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RPDV_CODE", DbType="BigInt")]
+		public System.Nullable<long> RPDV_CODE
+		{
+			get
+			{
+				return this._RPDV_CODE;
+			}
+			set
+			{
+				if ((this._RPDV_CODE != value))
+				{
+					if (this._Robot_Product_Divdend.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnRPDV_CODEChanging(value);
+					this.SendPropertyChanging();
+					this._RPDV_CODE = value;
+					this.SendPropertyChanged("RPDV_CODE");
+					this.OnRPDV_CODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CODE", DbType="BigInt NOT NULL", IsPrimaryKey=true)]
+		public long CODE
+		{
+			get
+			{
+				return this._CODE;
+			}
+			set
+			{
+				if ((this._CODE != value))
+				{
+					this.OnCODEChanging(value);
+					this.SendPropertyChanging();
+					this._CODE = value;
+					this.SendPropertyChanged("CODE");
+					this.OnCODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CHAT_ID", DbType="BigInt")]
+		public System.Nullable<long> CHAT_ID
+		{
+			get
+			{
+				return this._CHAT_ID;
+			}
+			set
+			{
+				if ((this._CHAT_ID != value))
+				{
+					this.OnCHAT_IDChanging(value);
+					this.SendPropertyChanging();
+					this._CHAT_ID = value;
+					this.SendPropertyChanged("CHAT_ID");
+					this.OnCHAT_IDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TARF_CODE_DNRM", DbType="VarChar(250)")]
+		public string TARF_CODE_DNRM
+		{
+			get
+			{
+				return this._TARF_CODE_DNRM;
+			}
+			set
+			{
+				if ((this._TARF_CODE_DNRM != value))
+				{
+					this.OnTARF_CODE_DNRMChanging(value);
+					this.SendPropertyChanging();
+					this._TARF_CODE_DNRM = value;
+					this.SendPropertyChanged("TARF_CODE_DNRM");
+					this.OnTARF_CODE_DNRMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MAX_PRFT_AMNT_DNRM", DbType="Decimal(18,2)")]
+		public System.Nullable<decimal> MAX_PRFT_AMNT_DNRM
+		{
+			get
+			{
+				return this._MAX_PRFT_AMNT_DNRM;
+			}
+			set
+			{
+				if ((this._MAX_PRFT_AMNT_DNRM != value))
+				{
+					this.OnMAX_PRFT_AMNT_DNRMChanging(value);
+					this.SendPropertyChanging();
+					this._MAX_PRFT_AMNT_DNRM = value;
+					this.SendPropertyChanged("MAX_PRFT_AMNT_DNRM");
+					this.OnMAX_PRFT_AMNT_DNRMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRNT_PRFT_AMNT_DNRM", DbType="Decimal(18,2)")]
+		public System.Nullable<decimal> CRNT_PRFT_AMNT_DNRM
+		{
+			get
+			{
+				return this._CRNT_PRFT_AMNT_DNRM;
+			}
+			set
+			{
+				if ((this._CRNT_PRFT_AMNT_DNRM != value))
+				{
+					this.OnCRNT_PRFT_AMNT_DNRMChanging(value);
+					this.SendPropertyChanging();
+					this._CRNT_PRFT_AMNT_DNRM = value;
+					this.SendPropertyChanged("CRNT_PRFT_AMNT_DNRM");
+					this.OnCRNT_PRFT_AMNT_DNRMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LAST_PRFT_RWNO_DNRM", DbType="Int")]
+		public System.Nullable<int> LAST_PRFT_RWNO_DNRM
+		{
+			get
+			{
+				return this._LAST_PRFT_RWNO_DNRM;
+			}
+			set
+			{
+				if ((this._LAST_PRFT_RWNO_DNRM != value))
+				{
+					this.OnLAST_PRFT_RWNO_DNRMChanging(value);
+					this.SendPropertyChanging();
+					this._LAST_PRFT_RWNO_DNRM = value;
+					this.SendPropertyChanged("LAST_PRFT_RWNO_DNRM");
+					this.OnLAST_PRFT_RWNO_DNRMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LAST_PRFT_AMNT_DNRM", DbType="Decimal(18,2)")]
+		public System.Nullable<decimal> LAST_PRFT_AMNT_DNRM
+		{
+			get
+			{
+				return this._LAST_PRFT_AMNT_DNRM;
+			}
+			set
+			{
+				if ((this._LAST_PRFT_AMNT_DNRM != value))
+				{
+					this.OnLAST_PRFT_AMNT_DNRMChanging(value);
+					this.SendPropertyChanging();
+					this._LAST_PRFT_AMNT_DNRM = value;
+					this.SendPropertyChanged("LAST_PRFT_AMNT_DNRM");
+					this.OnLAST_PRFT_AMNT_DNRMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LAST_PRFT_DATE_DNRM", DbType="DateTime")]
+		public System.Nullable<System.DateTime> LAST_PRFT_DATE_DNRM
+		{
+			get
+			{
+				return this._LAST_PRFT_DATE_DNRM;
+			}
+			set
+			{
+				if ((this._LAST_PRFT_DATE_DNRM != value))
+				{
+					this.OnLAST_PRFT_DATE_DNRMChanging(value);
+					this.SendPropertyChanging();
+					this._LAST_PRFT_DATE_DNRM = value;
+					this.SendPropertyChanged("LAST_PRFT_DATE_DNRM");
+					this.OnLAST_PRFT_DATE_DNRMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_BY", DbType="VarChar(250)")]
+		public string CRET_BY
+		{
+			get
+			{
+				return this._CRET_BY;
+			}
+			set
+			{
+				if ((this._CRET_BY != value))
+				{
+					this.OnCRET_BYChanging(value);
+					this.SendPropertyChanging();
+					this._CRET_BY = value;
+					this.SendPropertyChanged("CRET_BY");
+					this.OnCRET_BYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_DATE", DbType="DateTime")]
+		public System.Nullable<System.DateTime> CRET_DATE
+		{
+			get
+			{
+				return this._CRET_DATE;
+			}
+			set
+			{
+				if ((this._CRET_DATE != value))
+				{
+					this.OnCRET_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._CRET_DATE = value;
+					this.SendPropertyChanged("CRET_DATE");
+					this.OnCRET_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_BY", DbType="VarChar(250)")]
+		public string MDFY_BY
+		{
+			get
+			{
+				return this._MDFY_BY;
+			}
+			set
+			{
+				if ((this._MDFY_BY != value))
+				{
+					this.OnMDFY_BYChanging(value);
+					this.SendPropertyChanging();
+					this._MDFY_BY = value;
+					this.SendPropertyChanged("MDFY_BY");
+					this.OnMDFY_BYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_DATE", DbType="DateTime")]
+		public System.Nullable<System.DateTime> MDFY_DATE
+		{
+			get
+			{
+				return this._MDFY_DATE;
+			}
+			set
+			{
+				if ((this._MDFY_DATE != value))
+				{
+					this.OnMDFY_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._MDFY_DATE = value;
+					this.SendPropertyChanged("MDFY_DATE");
+					this.OnMDFY_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Order_Profit_Product_Divdend_Order_Profit_Product_Divdend_Detail", Storage="_Order_Profit_Product_Divdend_Details", ThisKey="CODE", OtherKey="OPPD_CODE")]
+		public EntitySet<Order_Profit_Product_Divdend_Detail> Order_Profit_Product_Divdend_Details
+		{
+			get
+			{
+				return this._Order_Profit_Product_Divdend_Details;
+			}
+			set
+			{
+				this._Order_Profit_Product_Divdend_Details.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Order_Order_Profit_Product_Divdend", Storage="_Order", ThisKey="ORDR_CODE", OtherKey="CODE", IsForeignKey=true)]
+		public Order Order
+		{
+			get
+			{
+				return this._Order.Entity;
+			}
+			set
+			{
+				Order previousValue = this._Order.Entity;
+				if (((previousValue != value) 
+							|| (this._Order.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Order.Entity = null;
+						previousValue.Order_Profit_Product_Divdends.Remove(this);
+					}
+					this._Order.Entity = value;
+					if ((value != null))
+					{
+						value.Order_Profit_Product_Divdends.Add(this);
+						this._ORDR_CODE = value.CODE;
+					}
+					else
+					{
+						this._ORDR_CODE = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("Order");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Robot_Product_Divdend_Order_Profit_Product_Divdend", Storage="_Robot_Product_Divdend", ThisKey="RPDV_CODE", OtherKey="CODE", IsForeignKey=true)]
+		public Robot_Product_Divdend Robot_Product_Divdend
+		{
+			get
+			{
+				return this._Robot_Product_Divdend.Entity;
+			}
+			set
+			{
+				Robot_Product_Divdend previousValue = this._Robot_Product_Divdend.Entity;
+				if (((previousValue != value) 
+							|| (this._Robot_Product_Divdend.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Robot_Product_Divdend.Entity = null;
+						previousValue.Order_Profit_Product_Divdends.Remove(this);
+					}
+					this._Robot_Product_Divdend.Entity = value;
+					if ((value != null))
+					{
+						value.Order_Profit_Product_Divdends.Add(this);
+						this._RPDV_CODE = value.CODE;
+					}
+					else
+					{
+						this._RPDV_CODE = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("Robot_Product_Divdend");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Order_Profit_Product_Divdend_Details(Order_Profit_Product_Divdend_Detail entity)
+		{
+			this.SendPropertyChanging();
+			entity.Order_Profit_Product_Divdend = this;
+		}
+		
+		private void detach_Order_Profit_Product_Divdend_Details(Order_Profit_Product_Divdend_Detail entity)
+		{
+			this.SendPropertyChanging();
+			entity.Order_Profit_Product_Divdend = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Order_Profit_Product_Divdend_Detail")]
+	public partial class Order_Profit_Product_Divdend_Detail : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private System.Nullable<long> _OPPD_CODE;
+		
+		private long _CODE;
+		
+		private System.Nullable<int> _RWNO;
+		
+		private System.Nullable<long> _CHAT_ID;
+		
+		private System.Nullable<long> _TARF_CODE_DNRM;
+		
+		private System.Nullable<decimal> _AMNT;
+		
+		private string _AMNT_TYPE;
+		
+		private System.Nullable<System.DateTime> _ACTN_DATE;
+		
+		private System.Nullable<long> _ORDR_CODE;
+		
+		private System.Nullable<long> _WLDT_CODE;
+		
+		private string _CONF_STAT;
+		
+		private string _CRET_BY;
+		
+		private System.Nullable<System.DateTime> _CRET_DATE;
+		
+		private string _MDFY_BY;
+		
+		private System.Nullable<System.DateTime> _MDFY_DATE;
+		
+		private EntityRef<Order_Profit_Product_Divdend> _Order_Profit_Product_Divdend;
+		
+		private EntityRef<Order> _Order;
+		
+		private EntityRef<Wallet_Detail> _Wallet_Detail;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnOPPD_CODEChanging(System.Nullable<long> value);
+    partial void OnOPPD_CODEChanged();
+    partial void OnCODEChanging(long value);
+    partial void OnCODEChanged();
+    partial void OnRWNOChanging(System.Nullable<int> value);
+    partial void OnRWNOChanged();
+    partial void OnCHAT_IDChanging(System.Nullable<long> value);
+    partial void OnCHAT_IDChanged();
+    partial void OnTARF_CODE_DNRMChanging(System.Nullable<long> value);
+    partial void OnTARF_CODE_DNRMChanged();
+    partial void OnAMNTChanging(System.Nullable<decimal> value);
+    partial void OnAMNTChanged();
+    partial void OnAMNT_TYPEChanging(string value);
+    partial void OnAMNT_TYPEChanged();
+    partial void OnACTN_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnACTN_DATEChanged();
+    partial void OnORDR_CODEChanging(System.Nullable<long> value);
+    partial void OnORDR_CODEChanged();
+    partial void OnWLDT_CODEChanging(System.Nullable<long> value);
+    partial void OnWLDT_CODEChanged();
+    partial void OnCONF_STATChanging(string value);
+    partial void OnCONF_STATChanged();
+    partial void OnCRET_BYChanging(string value);
+    partial void OnCRET_BYChanged();
+    partial void OnCRET_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnCRET_DATEChanged();
+    partial void OnMDFY_BYChanging(string value);
+    partial void OnMDFY_BYChanged();
+    partial void OnMDFY_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnMDFY_DATEChanged();
+    #endregion
+		
+		public Order_Profit_Product_Divdend_Detail()
+		{
+			this._Order_Profit_Product_Divdend = default(EntityRef<Order_Profit_Product_Divdend>);
+			this._Order = default(EntityRef<Order>);
+			this._Wallet_Detail = default(EntityRef<Wallet_Detail>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OPPD_CODE", DbType="BigInt")]
+		public System.Nullable<long> OPPD_CODE
+		{
+			get
+			{
+				return this._OPPD_CODE;
+			}
+			set
+			{
+				if ((this._OPPD_CODE != value))
+				{
+					if (this._Order_Profit_Product_Divdend.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnOPPD_CODEChanging(value);
+					this.SendPropertyChanging();
+					this._OPPD_CODE = value;
+					this.SendPropertyChanged("OPPD_CODE");
+					this.OnOPPD_CODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CODE", DbType="BigInt NOT NULL", IsPrimaryKey=true)]
+		public long CODE
+		{
+			get
+			{
+				return this._CODE;
+			}
+			set
+			{
+				if ((this._CODE != value))
+				{
+					this.OnCODEChanging(value);
+					this.SendPropertyChanging();
+					this._CODE = value;
+					this.SendPropertyChanged("CODE");
+					this.OnCODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RWNO", DbType="Int")]
+		public System.Nullable<int> RWNO
+		{
+			get
+			{
+				return this._RWNO;
+			}
+			set
+			{
+				if ((this._RWNO != value))
+				{
+					this.OnRWNOChanging(value);
+					this.SendPropertyChanging();
+					this._RWNO = value;
+					this.SendPropertyChanged("RWNO");
+					this.OnRWNOChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CHAT_ID", DbType="BigInt")]
+		public System.Nullable<long> CHAT_ID
+		{
+			get
+			{
+				return this._CHAT_ID;
+			}
+			set
+			{
+				if ((this._CHAT_ID != value))
+				{
+					this.OnCHAT_IDChanging(value);
+					this.SendPropertyChanging();
+					this._CHAT_ID = value;
+					this.SendPropertyChanged("CHAT_ID");
+					this.OnCHAT_IDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TARF_CODE_DNRM", DbType="BigInt")]
+		public System.Nullable<long> TARF_CODE_DNRM
+		{
+			get
+			{
+				return this._TARF_CODE_DNRM;
+			}
+			set
+			{
+				if ((this._TARF_CODE_DNRM != value))
+				{
+					this.OnTARF_CODE_DNRMChanging(value);
+					this.SendPropertyChanging();
+					this._TARF_CODE_DNRM = value;
+					this.SendPropertyChanged("TARF_CODE_DNRM");
+					this.OnTARF_CODE_DNRMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AMNT", DbType="Decimal(18,2)")]
+		public System.Nullable<decimal> AMNT
+		{
+			get
+			{
+				return this._AMNT;
+			}
+			set
+			{
+				if ((this._AMNT != value))
+				{
+					this.OnAMNTChanging(value);
+					this.SendPropertyChanging();
+					this._AMNT = value;
+					this.SendPropertyChanged("AMNT");
+					this.OnAMNTChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AMNT_TYPE", DbType="VarChar(3)")]
+		public string AMNT_TYPE
+		{
+			get
+			{
+				return this._AMNT_TYPE;
+			}
+			set
+			{
+				if ((this._AMNT_TYPE != value))
+				{
+					this.OnAMNT_TYPEChanging(value);
+					this.SendPropertyChanging();
+					this._AMNT_TYPE = value;
+					this.SendPropertyChanged("AMNT_TYPE");
+					this.OnAMNT_TYPEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ACTN_DATE", DbType="DateTime")]
+		public System.Nullable<System.DateTime> ACTN_DATE
+		{
+			get
+			{
+				return this._ACTN_DATE;
+			}
+			set
+			{
+				if ((this._ACTN_DATE != value))
+				{
+					this.OnACTN_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._ACTN_DATE = value;
+					this.SendPropertyChanged("ACTN_DATE");
+					this.OnACTN_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ORDR_CODE", DbType="BigInt")]
+		public System.Nullable<long> ORDR_CODE
+		{
+			get
+			{
+				return this._ORDR_CODE;
+			}
+			set
+			{
+				if ((this._ORDR_CODE != value))
+				{
+					if (this._Order.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnORDR_CODEChanging(value);
+					this.SendPropertyChanging();
+					this._ORDR_CODE = value;
+					this.SendPropertyChanged("ORDR_CODE");
+					this.OnORDR_CODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WLDT_CODE", DbType="BigInt")]
+		public System.Nullable<long> WLDT_CODE
+		{
+			get
+			{
+				return this._WLDT_CODE;
+			}
+			set
+			{
+				if ((this._WLDT_CODE != value))
+				{
+					if (this._Wallet_Detail.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnWLDT_CODEChanging(value);
+					this.SendPropertyChanging();
+					this._WLDT_CODE = value;
+					this.SendPropertyChanged("WLDT_CODE");
+					this.OnWLDT_CODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CONF_STAT", DbType="VarChar(3)")]
+		public string CONF_STAT
+		{
+			get
+			{
+				return this._CONF_STAT;
+			}
+			set
+			{
+				if ((this._CONF_STAT != value))
+				{
+					this.OnCONF_STATChanging(value);
+					this.SendPropertyChanging();
+					this._CONF_STAT = value;
+					this.SendPropertyChanged("CONF_STAT");
+					this.OnCONF_STATChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_BY", DbType="VarChar(250)")]
+		public string CRET_BY
+		{
+			get
+			{
+				return this._CRET_BY;
+			}
+			set
+			{
+				if ((this._CRET_BY != value))
+				{
+					this.OnCRET_BYChanging(value);
+					this.SendPropertyChanging();
+					this._CRET_BY = value;
+					this.SendPropertyChanged("CRET_BY");
+					this.OnCRET_BYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_DATE", DbType="DateTime")]
+		public System.Nullable<System.DateTime> CRET_DATE
+		{
+			get
+			{
+				return this._CRET_DATE;
+			}
+			set
+			{
+				if ((this._CRET_DATE != value))
+				{
+					this.OnCRET_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._CRET_DATE = value;
+					this.SendPropertyChanged("CRET_DATE");
+					this.OnCRET_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_BY", DbType="VarChar(250)")]
+		public string MDFY_BY
+		{
+			get
+			{
+				return this._MDFY_BY;
+			}
+			set
+			{
+				if ((this._MDFY_BY != value))
+				{
+					this.OnMDFY_BYChanging(value);
+					this.SendPropertyChanging();
+					this._MDFY_BY = value;
+					this.SendPropertyChanged("MDFY_BY");
+					this.OnMDFY_BYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_DATE", DbType="DateTime")]
+		public System.Nullable<System.DateTime> MDFY_DATE
+		{
+			get
+			{
+				return this._MDFY_DATE;
+			}
+			set
+			{
+				if ((this._MDFY_DATE != value))
+				{
+					this.OnMDFY_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._MDFY_DATE = value;
+					this.SendPropertyChanged("MDFY_DATE");
+					this.OnMDFY_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Order_Profit_Product_Divdend_Order_Profit_Product_Divdend_Detail", Storage="_Order_Profit_Product_Divdend", ThisKey="OPPD_CODE", OtherKey="CODE", IsForeignKey=true)]
+		public Order_Profit_Product_Divdend Order_Profit_Product_Divdend
+		{
+			get
+			{
+				return this._Order_Profit_Product_Divdend.Entity;
+			}
+			set
+			{
+				Order_Profit_Product_Divdend previousValue = this._Order_Profit_Product_Divdend.Entity;
+				if (((previousValue != value) 
+							|| (this._Order_Profit_Product_Divdend.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Order_Profit_Product_Divdend.Entity = null;
+						previousValue.Order_Profit_Product_Divdend_Details.Remove(this);
+					}
+					this._Order_Profit_Product_Divdend.Entity = value;
+					if ((value != null))
+					{
+						value.Order_Profit_Product_Divdend_Details.Add(this);
+						this._OPPD_CODE = value.CODE;
+					}
+					else
+					{
+						this._OPPD_CODE = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("Order_Profit_Product_Divdend");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Order_Order_Profit_Product_Divdend_Detail", Storage="_Order", ThisKey="ORDR_CODE", OtherKey="CODE", IsForeignKey=true)]
+		public Order Order
+		{
+			get
+			{
+				return this._Order.Entity;
+			}
+			set
+			{
+				Order previousValue = this._Order.Entity;
+				if (((previousValue != value) 
+							|| (this._Order.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Order.Entity = null;
+						previousValue.Order_Profit_Product_Divdend_Details.Remove(this);
+					}
+					this._Order.Entity = value;
+					if ((value != null))
+					{
+						value.Order_Profit_Product_Divdend_Details.Add(this);
+						this._ORDR_CODE = value.CODE;
+					}
+					else
+					{
+						this._ORDR_CODE = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("Order");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Wallet_Detail_Order_Profit_Product_Divdend_Detail", Storage="_Wallet_Detail", ThisKey="WLDT_CODE", OtherKey="CODE", IsForeignKey=true)]
+		public Wallet_Detail Wallet_Detail
+		{
+			get
+			{
+				return this._Wallet_Detail.Entity;
+			}
+			set
+			{
+				Wallet_Detail previousValue = this._Wallet_Detail.Entity;
+				if (((previousValue != value) 
+							|| (this._Wallet_Detail.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Wallet_Detail.Entity = null;
+						previousValue.Order_Profit_Product_Divdend_Details.Remove(this);
+					}
+					this._Wallet_Detail.Entity = value;
+					if ((value != null))
+					{
+						value.Order_Profit_Product_Divdend_Details.Add(this);
+						this._WLDT_CODE = value.CODE;
+					}
+					else
+					{
+						this._WLDT_CODE = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("Wallet_Detail");
 				}
 			}
 		}

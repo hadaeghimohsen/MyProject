@@ -351,7 +351,7 @@ namespace System.Scsc.Ui.Admission
                // 1401/05/20 * بررسی اینکه آیا منشی رشته تکراری دارد ذخیره میکند
                if (MbspBs.List.OfType<Data.Member_Ship>()
                   .Any(m => m.VALD_TYPE == "002" &&                     
-                     DateTime.Now.Date.IsBetween(m.STRT_DATE.Value.Date, m.END_DATE.Value.Date) &&
+                     StrtDate_DateTime003.Value.Value.Date.IsBetween(m.STRT_DATE.Value.Date, m.END_DATE.Value.Date) &&
                      (m.NUMB_OF_ATTN_MONT == 0 || m.SUM_ATTN_MONT_DNRM < m.NUMB_OF_ATTN_MONT) &&
                      m.Fighter_Public.CTGY_CODE == Convert.ToInt64(CtgyCode_Lov.EditValue)
                   )
@@ -420,7 +420,7 @@ namespace System.Scsc.Ui.Admission
             // 1401/05/21 * فعال سازی فیلتر برای عدم نمایش اطلاعات کد تخفیف سوخته مشتریان
             Fgdc_Gv.ActiveFilterString = "STAT = '002'";
 
-            if (Rqst.SSTT_MSTT_CODE == 2 && (Rqst.SSTT_CODE == 1 || Rqst.SSTT_CODE == 2))
+            if (Rqst.SSTT_MSTT_CODE == 2 && (Rqst.SSTT_CODE == 1 || Rqst.SSTT_CODE == 2 || Rqst.SSTT_CODE == 3))
             {
                CbmtBs1.DataSource = iScsc.Club_Methods.Where(cbmt => Fga_Uclb_U.Contains(cbmt.CLUB_CODE) && cbmt.MTOD_STAT == "002" && Convert.ToInt32(cbmt.Fighter.ACTV_TAG_DNRM ?? "101") >= 101 && (cbmt.Club.REGN_PRVN_CODE + cbmt.Club.REGN_CODE).Contains(Rqst.REGN_PRVN_CODE + Rqst.REGN_CODE))/*.OrderBy(cm => new { cm.CLUB_CODE, cm.COCH_FILE_NO, cm.DAY_TYPE, cm.STRT_TIME })*/;
                Gb_Expense3.Visible = true;
@@ -463,7 +463,7 @@ namespace System.Scsc.Ui.Admission
                // 1397/12/18 * نمایش اطلاعات دوره های قبلی مشتری
                MbspBs.DataSource = iScsc.Member_Ships.Where(mb => mb.FIGH_FILE_NO == Rqst.Request_Rows.FirstOrDefault().FIGH_FILE_NO && mb.RECT_CODE == "004" && (mb.TYPE == "001" || mb.TYPE == "005"));
             }
-            else if (!(Rqst.SSTT_MSTT_CODE == 2 && (Rqst.SSTT_CODE == 1 || Rqst.SSTT_CODE == 2)) && Rqst.RQID > 0)
+            else if (!(Rqst.SSTT_MSTT_CODE == 2 && (Rqst.SSTT_CODE == 1 || Rqst.SSTT_CODE == 2 || Rqst.SSTT_CODE == 3)) && Rqst.RQID > 0)
             {
                CbmtBs1.DataSource = iScsc.Club_Methods.Where(cbmt => Fga_Uclb_U.Contains(cbmt.CLUB_CODE) && cbmt.MTOD_STAT == "002" && Convert.ToInt32(cbmt.Fighter.ACTV_TAG_DNRM ?? "101") >= 101 && (cbmt.Club.REGN_PRVN_CODE + cbmt.Club.REGN_CODE).Contains(Rqst.REGN_PRVN_CODE + Rqst.REGN_CODE))/*.OrderBy(cm => new { cm.CLUB_CODE, cm.COCH_FILE_NO, cm.DAY_TYPE, cm.STRT_TIME })*/;
                Gb_Expense3.Visible = false;
@@ -1856,6 +1856,28 @@ namespace System.Scsc.Ui.Admission
                   amnt = Convert.ToInt32(PydsAmnt_Txt.EditValue);
                   if (amnt == 0) return;
                   break;
+            }
+
+            // 1401/09/19 * #MahsaAmini
+            // اگر تخفیف برای پرسنل بخواهیم ثبت کنیم باید چک کنیم که آیا تخفیف وارد شده بیشتر سهم پرسنل نباشد
+            if (PydsType_Lov.EditValue.ToString() == "005")
+            {
+               var _pydt = PydtsBs3.Current as Data.Payment_Detail;
+
+               var _calcexpn =
+                  iScsc.CALC_EXPN_U(
+                     new XElement("Request",
+                         new XAttribute("rqid", pymt.RQST_RQID),
+                         new XAttribute("expncode", _pydt.EXPN_CODE)
+                     )
+                  );
+
+               // اگر مبلغ تخفیف بیشتر از سهم پرسنل باشد باید جلو آن گرفته شود
+               if (_calcexpn < amnt)
+               {
+                  MessageBox.Show(this, "مبلغ تخفیف وارد شده از سهم پرسنل بیشتر حق پرداختی ایشان میباشد، لطفا درصد تخفیف یا مبلغ تخفیف را اصلاح کنید", "تخفیف غیرمجاز پرسنل");
+                  return;
+               }
             }
 
             iScsc.INS_PYDS_P(pymt.CASH_CODE, pymt.RQST_RQID, (short?)1, null, amnt, PydsType_Lov.EditValue.ToString(), "002", PydsDesc_Txt.Text, null, PydsDesc_Txt.Tag == null ? null : (long?)PydsDesc_Txt.Tag);

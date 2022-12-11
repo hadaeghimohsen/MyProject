@@ -183,6 +183,7 @@ WHERE  Request.RQST_STAT != '003'
               <Brush>White</Brush>
               <ClientRectangle>148,28,40,8</ClientRectangle>
               <Conditions isList="true" count="0" />
+              <Enabled>False</Enabled>
               <Font>B Nazanin,12,Bold</Font>
               <HorAlignment>Right</HorAlignment>
               <Margins>0,0,0,0</Margins>
@@ -250,7 +251,7 @@ WHERE  Request.RQST_STAT != '003'
               <Name>Text10</Name>
               <Page isRef="4" />
               <Parent isRef="5" />
-              <Text>نام هنرجو : {iQuery.NAME_DNRM}</Text>
+              <Text>نام مشتری : {iQuery.NAME_DNRM}</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
@@ -508,7 +509,7 @@ WHERE  Request.RQST_STAT != '003'
               <Name>Text32</Name>
               <Page isRef="4" />
               <Parent isRef="5" />
-              <Text>بارکد هنرجو</Text>
+              <Text>بارکد مشتری</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
@@ -558,10 +559,10 @@ WHERE  Request.RQST_STAT != '003'
               <Type>Expression</Type>
             </Text17>
             <Image1 Ref="35" type="Image" isKey="true">
-              <Border>None;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <ClientRectangle>156,0,40,26</ClientRectangle>
               <Conditions isList="true" count="0" />
+              <Enabled>False</Enabled>
               <File>\\localhost\Report Repository\Logo\Logo.jpeg</File>
               <Name>Image1</Name>
               <Page isRef="4" />
@@ -737,10 +738,10 @@ WHERE  Request.RQST_STAT != '003'
     <value>Stimulsoft.Report.Dll</value>
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
-  <ReportChanged>12/19/2018 8:07:41 PM</ReportChanged>
+  <ReportChanged>11/30/2022 12:22:11 PM</ReportChanged>
   <ReportCreated>1/2/2016 4:35:07 PM</ReportCreated>
   <ReportFile>D:\Project\MyProject\Documents\Report Repository\RPT_ADM_003_FISH_R.mrt</ReportFile>
-  <ReportGuid>76242aad364d460aacb9e9936d2403a9</ReportGuid>
+  <ReportGuid>cad0e7ab7f174bb7a88113000accced7</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Millimeters</ReportUnit>
   <ReportVersion>2012.2.1304</ReportVersion>

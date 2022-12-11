@@ -53,11 +53,11 @@ namespace System.MaxUi
          set { toolTips = value; }
       }
 
-      private Image[] images;
+      private ImageList images;
       /// <summary>
       /// Get/set the array of images used for all the options of the button.
       /// </summary>
-      public Image[] Images
+      public ImageList Images
       {
          get { return images; }
          set
@@ -77,7 +77,7 @@ namespace System.MaxUi
          get { return selectedIndex; }
          set
          {
-            selectedIndex = Math.Min(Math.Max(0, value), (images == null ? 0 : images.Length - 1));
+            selectedIndex = Math.Min(Math.Max(0, value), (images == null ? 0 : images.Images.Count - 1));
             Invalidate();
          }
       }
@@ -192,7 +192,7 @@ namespace System.MaxUi
       /// </summary>
       public void ShowFlyout()
       {
-         if (images == null || images.Length == 0) return;
+         if (images == null || images.Images.Count == 0) return;
 
          flyoutIsOpen = true;
          flyoutForm = new FlyoutForm(this);
@@ -265,7 +265,10 @@ namespace System.MaxUi
             e.Graphics.FillRectangle(MaxConnection.Instance.CheckedBrush, r);
          }
 
-         if (images != null && selectedIndex >= 0 && selectedIndex < images.Length)
+         // 1401/10/15
+         Rectangle _imageRectangle = new Rectangle((Width - images.ImageSize.Width) / 2, (Height - images.ImageSize.Height) / 2, images.ImageSize.Width, images.ImageSize.Height);
+
+         if (images != null && selectedIndex >= 0 && selectedIndex < images.Images.Count)
          {
             if (showChecked)
             {
@@ -273,13 +276,13 @@ namespace System.MaxUi
                {
                   m.Translate(1, 1);
                   e.Graphics.Transform = m;
-                  e.Graphics.DrawImage(images[selectedIndex], ClientRectangle);
+                  e.Graphics.DrawImage(images.Images[selectedIndex], /*ClientRectangle*/ _imageRectangle);
                   e.Graphics.ResetTransform();
                }
             }
             else
             {
-               e.Graphics.DrawImage(images[selectedIndex], ClientRectangle);
+               e.Graphics.DrawImage(images.Images[selectedIndex], /*ClientRectangle*/ _imageRectangle);
             }
          }
          //frame
@@ -288,7 +291,7 @@ namespace System.MaxUi
             MaxConnection.Instance.DrawFrame(e.Graphics, ClientRectangle, ShowChecked);
          }
 
-         if (images != null && images.Length > 1)
+         if (images != null && images.Images.Count > 1)
          {
             //flyout hint triangle
             Point[] bigTriangle = new Point[] {
@@ -347,7 +350,7 @@ namespace System.MaxUi
 
             bmps[i] = Strip.Clone(new Rectangle(x, y, w, h), Strip.PixelFormat);
          }
-         Images = bmps;
+         //Images = bmps;
       }
 
       protected override void OnMouseEnter(EventArgs e)

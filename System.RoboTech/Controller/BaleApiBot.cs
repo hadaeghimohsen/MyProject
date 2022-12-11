@@ -2502,26 +2502,26 @@ namespace System.RoboTech.Controller
                //   await Bot.SendTextMessageAsync(chat.Message.Chat.Id, menucmndtype.USSD_CODE + ", " + (chat.UssdCode ?? "No Parent"));
                if (e.Message.Photo != null)
                {
-                  await Bot.SendTextMessageAsync(e.Message.Chat.Id, "Photo :\n\r\n\r" + e.Message.Photo.Reverse().FirstOrDefault().FileId);
+                  await Bot.SendTextMessageAsync(e.Message.Chat.Id, "Photo :" + e.Message.Photo.Reverse().FirstOrDefault().FileId);
                   fileid = e.Message.Photo.Reverse().FirstOrDefault().FileId;
                   filetype = "002";
                   //await Bot.GetFileAsync(chat.Message.Photo.Reverse().FirstOrDefault().FileId, new FileStream(@"C:\Image\MyFile.jpg", FileMode.OpenOrCreate));
                }
                else if (e.Message.Video != null)
                {
-                  await Bot.SendTextMessageAsync(e.Message.Chat.Id, "Video :\n\r\n\r" + e.Message.Video.FileId);
+                  await Bot.SendTextMessageAsync(e.Message.Chat.Id, "Video :" + e.Message.Video.FileId);
                   fileid = e.Message.Video.FileId;
                   filetype = "003";
                }
                else if (e.Message.Document != null)
                {
-                  await Bot.SendTextMessageAsync(e.Message.Chat.Id, "Document :\n\r\n\r" + e.Message.Document.FileId);
+                  await Bot.SendTextMessageAsync(e.Message.Chat.Id, "Document :" + e.Message.Document.FileId);
                   fileid = e.Message.Document.FileId;
                   filetype = "004";
                }
                else if (e.Message.Audio != null)
                {
-                  await Bot.SendTextMessageAsync(e.Message.Chat.Id, "Audio :\n\r\n\r" + e.Message.Audio.FileId);
+                  await Bot.SendTextMessageAsync(e.Message.Chat.Id, "Audio :" + e.Message.Audio.FileId);
                   fileid = e.Message.Audio.FileId;
                   filetype = "006";
                }
@@ -2532,7 +2532,7 @@ namespace System.RoboTech.Controller
                }
                else if (e.Message.Sticker != null)
                {
-                  await Bot.SendTextMessageAsync(e.Message.Chat.Id, "Sticker :\n\r\n\r" + e.Message.Sticker.FileId);
+                  await Bot.SendTextMessageAsync(e.Message.Chat.Id, "Sticker :" + e.Message.Sticker.FileId);
                   await Bot.SendStickerAsync(e.Message.Chat.Id, /*"BQADBAADOwMAAgXhMAewhyhhPvCl1QI"*/new InputOnlineFile(e.Message.Sticker.FileId), false, e.Message.MessageId);
                   fileid = e.Message.Sticker.FileId;
                   filetype = "007";

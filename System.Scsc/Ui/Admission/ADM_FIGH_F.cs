@@ -72,14 +72,14 @@ namespace System.Scsc.Ui.Admission
          {
             var Rqst = RqstBs1.Current as Data.Request;
 
-            if (Rqst.SSTT_MSTT_CODE == 2 && (Rqst.SSTT_CODE == 1 || Rqst.SSTT_CODE == 2))
+            if (Rqst.SSTT_MSTT_CODE == 2 && (Rqst.SSTT_CODE == 1 || Rqst.SSTT_CODE == 2 || Rqst.SSTT_CODE == 3))
             {
                Gb_Expense.Visible = true;
                //Btn_RqstDelete1.Visible = true;
                //Btn_RqstSav1.Visible = false;
                RqstBnASav1.Enabled = false;
             }
-            else if (!(Rqst.SSTT_MSTT_CODE == 2 && (Rqst.SSTT_CODE == 1 || Rqst.SSTT_CODE == 2)) && Rqst.RQID > 0)
+            else if (!(Rqst.SSTT_MSTT_CODE == 2 && (Rqst.SSTT_CODE == 1 || Rqst.SSTT_CODE == 2 || Rqst.SSTT_CODE == 3)) && Rqst.RQID > 0)
             {
                Gb_Expense.Visible = false;
                //Btn_RqstDelete1.Visible = Btn_RqstSav1.Visible = true;
@@ -255,13 +255,20 @@ namespace System.Scsc.Ui.Admission
                /*
                 *  Remove Data From Tables
                 */
-               iScsc.ADM_TCNL_F(
+               /*iScsc.ADM_TCNL_F(
                   new XElement("Process",
                      new XElement("Request",
                         new XAttribute("rqid", Rqst.RQID),
                         new XElement("Fighter",
                            new XAttribute("fileno", Rqst.Fighters.FirstOrDefault().FILE_NO)
                         )
+                     )
+                  )
+               );*/
+               iScsc.CNCL_RQST_F(
+                  new XElement("Process",
+                     new XElement("Request",
+                        new XAttribute("rqid", Rqst.RQID)
                      )
                   )
                );
@@ -1580,6 +1587,28 @@ namespace System.Scsc.Ui.Admission
                   amnt = Convert.ToInt32(PydsAmnt_Txt.EditValue);
                   if (amnt == 0) return;
                   break;
+            }
+
+            // 1401/09/19 * #MahsaAmini
+            // اگر تخفیف برای پرسنل بخواهیم ثبت کنیم باید چک کنیم که آیا تخفیف وارد شده بیشتر سهم پرسنل نباشد
+            if(PydsType_Lov.EditValue.ToString() == "005")
+            {
+               var _pydt = PydtsBs1.Current as Data.Payment_Detail;
+
+               var _calcexpn = 
+                  iScsc.CALC_EXPN_U(
+                     new XElement("Request",
+                         new XAttribute("rqid", pymt.RQST_RQID),
+                         new XAttribute("expncode", _pydt.EXPN_CODE)
+                     )
+                  );
+
+               // اگر مبلغ تخفیف بیشتر از سهم پرسنل باشد باید جلو آن گرفته شود
+               if (_calcexpn < amnt)
+               {
+                  MessageBox.Show(this, "مبلغ تخفیف وارد شده از سهم پرسنل بیشتر حق پرداختی ایشان میباشد، لطفا درصد تخفیف یا مبلغ تخفیف را اصلاح کنید", "تخفیف غیرمجاز پرسنل");
+                  return;
+               }
             }
 
             iScsc.INS_PYDS_P(pymt.CASH_CODE, pymt.RQST_RQID, (short?)1, null, amnt, PydsType_Lov.EditValue.ToString(), "002", PydsDesc_Txt.Text, PydsDesc_Txt.Tag == null ? null : (long?)PydsDesc_Txt.Tag, null);

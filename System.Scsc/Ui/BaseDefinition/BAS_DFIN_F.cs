@@ -746,7 +746,7 @@ namespace System.Scsc.Ui.BaseDefinition
                iScsc.Expenses.
                Where(ex => ex.Regulation.TYPE == "001"
                   && ex.Regulation.REGL_STAT == "002"
-                  && (ex.Expense_Type.Request_Requester.RQTP_CODE == "001" || ex.Expense_Type.Request_Requester.RQTP_CODE == "009" || ex.Expense_Type.Request_Requester.RQTP_CODE == "016")
+                  && (ex.Expense_Type.Request_Requester.RQTP_CODE == "001" || ex.Expense_Type.Request_Requester.RQTP_CODE == "009")
                   && ex.Expense_Type.Request_Requester.RQTT_CODE == "001"
                   && ex.Expense_Type.EPIT_CODE == epit
                   && ex.MTOD_CODE == mtod.CODE
@@ -1164,6 +1164,7 @@ namespace System.Scsc.Ui.BaseDefinition
                newcbmt.AMNT = 0;
                newcbmt.CPCT_STAT = oldcbmt.CPCT_STAT;
                newcbmt.CPCT_NUMB = oldcbmt.CPCT_NUMB;
+               newcbmt.CBMT_DESC = oldcbmt.CBMT_DESC;
             }
          }
          catch (Exception exc) { MessageBox.Show(exc.Message); }
@@ -4814,6 +4815,9 @@ namespace System.Scsc.Ui.BaseDefinition
       {
          try
          {
+            CexcBs.EndEdit();
+            Cexc_Gv.PostEditor();
+
             var _cexc = CexcBs.Current as Data.Calculate_Expense_Coach;
             if (_cexc == null) return;
 
@@ -4876,6 +4880,9 @@ namespace System.Scsc.Ui.BaseDefinition
       {
          try
          {
+            CexcBs.EndEdit();
+            Cexc_Gv.PostEditor();
+
             var _cexc = CexcBs.Current as Data.Calculate_Expense_Coach;
             if (_cexc == null) return;
 
@@ -4958,6 +4965,70 @@ namespace System.Scsc.Ui.BaseDefinition
          {
             if(requery)
                Execute_Query();
+         }
+      }
+
+      private void SaveCexc_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            CexcBs.EndEdit();
+            Cexc_Gv.PostEditor();
+
+            iScsc.SubmitChanges();
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void Ulkm_Butn_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            var _ulkm = UlkmBs1.Current as Data.User_Link_Method;
+            if (_ulkm == null) return;
+
+            _ulkm.STAT = _ulkm.STAT == "001" ? "002" : "001";
+
+            iScsc.SubmitChanges();
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }         
+      }
+
+      private void Msgt_Lov_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            var _tmpl = TmplBs.Current as Data.Template;
+            if (_tmpl == null) return;
+
+            if (Msgt_Lov.EditValue == null || Msgt_Lov.EditValue.ToString() == "") return;
+
+            switch (e.Button.Index)
+            {
+               case 1:
+                  iScsc.ExecuteCommand(
+                     string.Format("UPDATE dbo.Message_Broadcast SET Msgb_Text = N'{0}' WHERE Msgb_Type = '{1}'", _tmpl.TEMP_TEXT, Msgt_Lov.EditValue)
+                  );
+                  break;
+               default:
+                  break;
+            }
+                     }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
          }
       }
    }

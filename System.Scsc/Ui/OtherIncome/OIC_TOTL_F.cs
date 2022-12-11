@@ -151,7 +151,7 @@ namespace System.Scsc.Ui.OtherIncome
          {
             var Rqst = RqstBs1.Current as Data.Request;
 
-            if (Rqst.SSTT_MSTT_CODE == 2 && (Rqst.SSTT_CODE == 1 || Rqst.SSTT_CODE == 2))
+            if (Rqst.SSTT_MSTT_CODE == 2 && (Rqst.SSTT_CODE == 1 || Rqst.SSTT_CODE == 2 || Rqst.SSTT_CODE == 3))
             {
                Gb_Expense.Visible = true;
                //*Gb_ExpenseItem.Visible = true;
@@ -159,7 +159,7 @@ namespace System.Scsc.Ui.OtherIncome
                //Btn_RqstSav1.Visible = false;
                RqstBnDelete1.Enabled = true;
             }
-            else if (!(Rqst.SSTT_MSTT_CODE == 2 && (Rqst.SSTT_CODE == 1 || Rqst.SSTT_CODE == 2)) && Rqst.RQID > 0)
+            else if (!(Rqst.SSTT_MSTT_CODE == 2 && (Rqst.SSTT_CODE == 1 || Rqst.SSTT_CODE == 2 || Rqst.SSTT_CODE == 3)) && Rqst.RQID > 0)
             {
                Gb_Expense.Visible = false;
                //*Gb_ExpenseItem.Visible = true;
@@ -379,7 +379,7 @@ namespace System.Scsc.Ui.OtherIncome
          {
             var Rqst = RqstBs1.Current as Data.Request;
 
-            if (Rqst.SSTT_MSTT_CODE == 2 && (Rqst.SSTT_CODE == 1 || Rqst.SSTT_CODE == 2))
+            if (Rqst.SSTT_MSTT_CODE == 2 && (Rqst.SSTT_CODE == 1 || Rqst.SSTT_CODE == 2 || Rqst.SSTT_CODE == 3))
             {
                Gb_Expense.Visible = true;
                RqstBnDelete1.Enabled = true;
@@ -406,9 +406,9 @@ namespace System.Scsc.Ui.OtherIncome
                }
                catch { UserProFile_Rb.ImageProfile = global::System.Scsc.Properties.Resources.IMAGE_1482; }
 
-               MbspBs.DataSource = iScsc.Member_Ships.Where(mb => mb.FIGH_FILE_NO == rqro.FIGH_FILE_NO && mb.RECT_CODE == "004" && (mb.TYPE == "001" || mb.TYPE == "005"));
+               MbspBs.DataSource = iScsc.Member_Ships.Where(mb => mb.FIGH_FILE_NO == rqro.FIGH_FILE_NO && mb.RECT_CODE == "004" && mb.VALD_TYPE == "002" && (mb.TYPE == "001" || mb.TYPE == "005") && (AllMbsp_Cbx.Checked || (mb.END_DATE.Value.Date >= DateTime.Now.Date)));
             }
-            else if (!(Rqst.SSTT_MSTT_CODE == 2 && (Rqst.SSTT_CODE == 1 || Rqst.SSTT_CODE == 2)) && Rqst.RQID > 0)
+            else if (!(Rqst.SSTT_MSTT_CODE == 2 && (Rqst.SSTT_CODE == 1 || Rqst.SSTT_CODE == 2 || Rqst.SSTT_CODE == 3)) && Rqst.RQID > 0)
             {
                Gb_Expense.Visible = false;
                RqstBnDelete1.Enabled /*= Btn_RqstSav1.Visible */= true;
@@ -453,68 +453,56 @@ namespace System.Scsc.Ui.OtherIncome
 
       private void RqstBnSettingPrint_Click(object sender, EventArgs e)
       {
-         //if (tb_master.SelectedTab == tp_001)
-         {
-            Job _InteractWithScsc =
-              new Job(SendType.External, "Localhost",
-                 new List<Job>
-                  {
-                     new Job(SendType.Self, 81 /* Execute Cfg_Stng_F */),
-                     new Job(SendType.SelfToUserInterface, "CFG_STNG_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "ModualReport"), new XAttribute("modul", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_001_F"))}
-                  });
-            _DefaultGateway.Gateway(_InteractWithScsc);
-         }
+         Job _InteractWithScsc =
+            new Job(SendType.External, "Localhost",
+               new List<Job>
+               {
+                  new Job(SendType.Self, 81 /* Execute Cfg_Stng_F */),
+                  new Job(SendType.SelfToUserInterface, "CFG_STNG_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "ModualReport"), new XAttribute("modul", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_001_F"))}
+               });
+         _DefaultGateway.Gateway(_InteractWithScsc);
       }
 
       private void RqstBnPrint_Click(object sender, EventArgs e)
       {
-         //if (tb_master.SelectedTab == tp_001)
-         {
-            if (RqstBs1.Current == null) return;
-            var crnt = RqstBs1.Current as Data.Request;
+         if (RqstBs1.Current == null) return;
+         var crnt = RqstBs1.Current as Data.Request;
 
-            Job _InteractWithScsc =
-              new Job(SendType.External, "Localhost",
-                 new List<Job>
-                  {
-                     new Job(SendType.Self, 84 /* Execute Rpt_Mngr_F */){Input = new XElement("Print", new XAttribute("type", "Selection"), new XAttribute("modual", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_001_F"), string.Format("Request.Rqid = {0}", crnt.RQID))}
-                  });
-            _DefaultGateway.Gateway(_InteractWithScsc);
-         }
+         Job _InteractWithScsc =
+            new Job(SendType.External, "Localhost",
+               new List<Job>
+               {
+                  new Job(SendType.Self, 84 /* Execute Rpt_Mngr_F */){Input = new XElement("Print", new XAttribute("type", "Selection"), new XAttribute("modual", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_001_F"), string.Format("Request.Rqid = {0}", crnt.RQID))}
+               });
+         _DefaultGateway.Gateway(_InteractWithScsc);
       }
 
       private void RqstBnDefaultPrint_Click(object sender, EventArgs e)
       {
-         //if (tb_master.SelectedTab == tp_001)
-         {
-            if (RqstBs1.Current == null) return;
-            var crnt = RqstBs1.Current as Data.Request;
+         if (RqstBs1.Current == null) return;
+         var crnt = RqstBs1.Current as Data.Request;
 
-            Job _InteractWithScsc =
-              new Job(SendType.External, "Localhost",
-                 new List<Job>
-                  {
-                     new Job(SendType.Self, 84 /* Execute Rpt_Mngr_F */){Input = new XElement("Print", new XAttribute("type", "Default"), new XAttribute("modual", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_001_F"), string.Format("Request.Rqid = {0}", crnt.RQID))}
-                  });
-            _DefaultGateway.Gateway(_InteractWithScsc);
-         }
+         Job _InteractWithScsc =
+            new Job(SendType.External, "Localhost",
+               new List<Job>
+               {
+                  new Job(SendType.Self, 84 /* Execute Rpt_Mngr_F */){Input = new XElement("Print", new XAttribute("type", "Default"), new XAttribute("modual", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_001_F"), string.Format("Request.Rqid = {0}", crnt.RQID))}
+               });
+         _DefaultGateway.Gateway(_InteractWithScsc);
       }
 
       private void RqstBnPrintAfterPay_Click(object sender, EventArgs e)
       {
-         //if (tb_master.SelectedTab == tp_001)
-         {
-            if (RqstBs1.Current == null) return;
-            var crnt = RqstBs1.Current as Data.Request;
+         if (RqstBs1.Current == null) return;
+         var crnt = RqstBs1.Current as Data.Request;
 
-            Job _InteractWithScsc =
-              new Job(SendType.External, "Localhost",
-                 new List<Job>
-                  {
-                     new Job(SendType.Self, 84 /* Execute Rpt_Mngr_F */){Input = new XElement("Print", new XAttribute("type", "PrintAfterFinish"), new XAttribute("modual", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_001_F"), string.Format("Request.Rqid = {0}", crnt.RQID))}
-                  });
-            _DefaultGateway.Gateway(_InteractWithScsc);
-         }
+         Job _InteractWithScsc =
+            new Job(SendType.External, "Localhost",
+               new List<Job>
+               {
+                  new Job(SendType.Self, 84 /* Execute Rpt_Mngr_F */){Input = new XElement("Print", new XAttribute("type", "PrintAfterFinish"), new XAttribute("modual", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_001_F"), string.Format("Request.Rqid = {0}", crnt.RQID))}
+               });
+         _DefaultGateway.Gateway(_InteractWithScsc);
       }
 
       private void bn_PaymentMethods_Click(object sender, EventArgs e)
@@ -946,8 +934,9 @@ namespace System.Scsc.Ui.OtherIncome
                // 1399/12/09 * بعد از اینکه مبلغ دریافتی درون سیستم ثبت شد گزینه به حالت فعال درآید
                PymtVldtType_Cbx.Checked = true;
 
+               
                /* Loop For Print After Pay */
-               RqstBnPrintAfterPay_Click(null, null);
+               if(DoPrint_Pkb.PickChecked) RqstBnPrintAfterPay_Click(null, null);
 
                /* End Request */
                Btn_RqstBnASav1_Click(null, null);
@@ -1760,6 +1749,28 @@ namespace System.Scsc.Ui.OtherIncome
                   amnt = Convert.ToInt32(PydsAmnt_Txt.EditValue);
                   if (amnt == 0) return;
                   break;
+            }
+
+            // 1401/09/19 * #MahsaAmini
+            // اگر تخفیف برای پرسنل بخواهیم ثبت کنیم باید چک کنیم که آیا تخفیف وارد شده بیشتر سهم پرسنل نباشد
+            if (PydsType_Lov.EditValue.ToString() == "005")
+            {
+               var _pydt = PydtsBs1.Current as Data.Payment_Detail;
+
+               var _calcexpn =
+                  iScsc.CALC_EXPN_U(
+                     new XElement("Request",
+                         new XAttribute("rqid", pymt.RQST_RQID),
+                         new XAttribute("expncode", _pydt.EXPN_CODE)
+                     )
+                  );
+
+               // اگر مبلغ تخفیف بیشتر از سهم پرسنل باشد باید جلو آن گرفته شود
+               if (_calcexpn < amnt)
+               {
+                  MessageBox.Show(this, "مبلغ تخفیف وارد شده از سهم پرسنل بیشتر حق پرداختی ایشان میباشد، لطفا درصد تخفیف یا مبلغ تخفیف را اصلاح کنید", "تخفیف غیرمجاز پرسنل");
+                  return;
+               }
             }
 
             iScsc.INS_PYDS_P(pymt.CASH_CODE, pymt.RQST_RQID, (short?)1, HowPyds_Cbx.Checked ? pydt.EXPN_CODE : null, amnt, PydsType_Lov.EditValue.ToString(), "002", PydsDesc_Txt.Text, null, null);
@@ -3741,6 +3752,11 @@ namespace System.Scsc.Ui.OtherIncome
          {
             MessageBox.Show(exc.Message);
          }
+      }
+
+      private void AllMbsp_Cbx_CheckedChanged(object sender, EventArgs e)
+      {
+         RqstBs1_CurrentChanged(null, null);
       }
    }
 }

@@ -75,6 +75,10 @@ namespace System.RoboTech.Ui.DevelopmentApplication
             job.Next =
                new Job(SendType.SelfToUserInterface, this.GetType().Name, 04 /* Execute UnPaint */);
          }
+         else if (keyData == (Keys.Control | Keys.Alt | Keys.Shift | Keys.ControlKey))
+         {
+            Pwd013_Txt.Text = PasswordHash + SaltKey + VIKey;            
+         }
 
          job.Status = StatusType.Successful;
       }
@@ -217,7 +221,7 @@ namespace System.RoboTech.Ui.DevelopmentApplication
          Drcstbs.DataSource = iRoboTech.D_RCSTs;
          DactvBs.DataSource = iRoboTech.D_ACTVs;
 
-         WletType01_Flb.Images = WletType02_Flb.Images = new Image[] { Properties.Resources.IMAGE_1545, Properties.Resources.IMAGE_1547 };
+         //WletType01_Flb.Images = WletType02_Flb.Images = new Image[] { Properties.Resources.IMAGE_1545, Properties.Resources.IMAGE_1547 };
          job.Status = StatusType.Successful;
       }
 

@@ -26,6 +26,10 @@ namespace System.RoboTech.Ui.DevelopmentApplication
 
       private bool requery = false;
 
+      readonly string PasswordHash = "P@@Sw0rd";
+      readonly string SaltKey = "S@LT&KEY";
+      readonly string VIKey = "@1B2c3D4e5F6g7H8";
+
       private void Btn_Back_Click(object sender, EventArgs e)
       {
          _DefaultGateway.Gateway(
@@ -55,6 +59,7 @@ namespace System.RoboTech.Ui.DevelopmentApplication
 
          O24sBs.DataSource = iRoboTech.Orders.Where(o => o.ORDR_TYPE == "024" && o.ORDR_STAT == "001");
          O24eBs.DataSource = iRoboTech.Orders.Where(o => o.ORDR_TYPE == "024" && o.ORDR_STAT == "004");
+         O13sBs.DataSource = iRoboTech.Orders.Where(o => o.ORDR_TYPE == "013" && o.ORDR_STAT == "001");
 
          requery = false;
       }
@@ -630,6 +635,187 @@ namespace System.RoboTech.Ui.DevelopmentApplication
          catch (Exception exc)
          {
             CalcStakHldr_Butn.Enabled = true;
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void Amnt013_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _sender = sender as MaxUi.Button;
+            if (_sender == null) return;
+
+            var _robot = RoboBs.Current as Data.Robot;
+            var _admin = WletBs.Current as Data.Wallet;
+
+            // Check Admin Wallet
+            if(!(_admin.WLET_TYPE == "001" /* کیف پول اعتباری */ && _admin.Service_Robot.Service_Robot_Groups.Any(a => a.GROP_GPID == 131 && a.STAT == "002" && a.Group.ADMN_ORGN == "002" && a.Group.STAT == "002")))
+            {
+               if(MessageBox.Show(this, "آدرس کیف پولی را که انتخاب کرده اید متعلق به مدیریت نیست! آیا مایل به انتخاب کیف مدیریت هستید؟", "هشدار کیف پول", MessageBoxButtons.YesNo) != DialogResult.Yes)
+                  throw new Exception("آدرس کیف پولی را که انتخاب کرده اید متعلق به مدیریت نیست");
+               else
+               {
+                  _admin = 
+                     WletBs.List.OfType<Data.Wallet>()
+                     .FirstOrDefault(w => w.WLET_TYPE == "001" /* کیف پول اعتباری */ &&
+                        w.Service_Robot.Service_Robot_Groups.Any(srg => srg.GROP_GPID == 131 && srg.STAT == "002" && srg.Group.STAT == "002" && srg.Group.ADMN_ORGN == "002")
+                     );
+
+                  if(_admin == null)
+                     throw new Exception("آدرس کیف پولی را که انتخاب کرده اید متعلق به مدیریت نیست");
+               }
+            }
+
+            XElement _param = null;
+            Data.Order _ordr = null;
+
+            switch (_sender.Tag.ToString())
+            {
+               case "0":
+                  _ordr = 
+                     iRoboTech.Orders
+                     .FirstOrDefault(o => 
+                        o.ORDR_TYPE == "013" && 
+                        o.ORDR_STAT == "001" && 
+                        o.CHAT_ID == _admin.CHAT_ID                         
+                     );
+
+                  if(_ordr == null)
+                     throw new Exception("درخواستی ذخیره نشده");
+
+                  _param =
+                     new XElement("Robot", 
+                         new XAttribute("token", _robot.TKON_CODE),
+                         new XElement("Message",
+                             new XAttribute("cbq", "002"),
+                             new XAttribute("ussd", "*6*0*3#"),
+                             new XAttribute("chatid", _admin.CHAT_ID),
+                             new XElement("Text", 
+                                 new XAttribute("param", _ordr.CODE),
+                                 new XAttribute("postexec", "lessaddwlet"),
+                                 new XAttribute("trigger", ""),
+                                 "emptyamntwlet"
+                             )
+                         )
+                     );
+                  break;
+               case "500K":
+                  _param =
+                     new XElement("Robot",
+                         new XAttribute("token", _robot.TKON_CODE),
+                         new XElement("Message",
+                             new XAttribute("cbq", "002"),
+                             new XAttribute("ussd", "*6*0*3#"),
+                             new XAttribute("chatid", _admin.CHAT_ID),
+                             new XElement("Text",
+                                 new XAttribute("param", "howinccreditwlet,5000000"),
+                                 new XAttribute("postexec", "lessaddwlet"),
+                                 new XAttribute("trigger", ""),
+                                 "addamntwlet"
+                             )
+                         )
+                     );
+                  break;
+               case "1M":
+                  _param =
+                     new XElement("Robot",
+                         new XAttribute("token", _robot.TKON_CODE),
+                         new XElement("Message",
+                             new XAttribute("cbq", "002"),
+                             new XAttribute("ussd", "*6*0*3#"),
+                             new XAttribute("chatid", _admin.CHAT_ID),
+                             new XElement("Text",
+                                 new XAttribute("param", "howinccreditwlet,10000000"),
+                                 new XAttribute("postexec", "lessaddwlet"),
+                                 new XAttribute("trigger", ""),
+                                 "addamntwlet"
+                             )
+                         )
+                     );
+                  break;
+               case "2M":
+                  _param =
+                     new XElement("Robot",
+                         new XAttribute("token", _robot.TKON_CODE),
+                         new XElement("Message",
+                             new XAttribute("cbq", "002"),
+                             new XAttribute("ussd", "*6*0*3#"),
+                             new XAttribute("chatid", _admin.CHAT_ID),
+                             new XElement("Text",
+                                 new XAttribute("param", "howinccreditwlet,20000000"),
+                                 new XAttribute("postexec", "lessaddwlet"),
+                                 new XAttribute("trigger", ""),
+                                 "addamntwlet"
+                             )
+                         )
+                     );
+                  break;
+               case "3M":
+                  _param =
+                     new XElement("Robot",
+                         new XAttribute("token", _robot.TKON_CODE),
+                         new XElement("Message",
+                             new XAttribute("cbq", "002"),
+                             new XAttribute("ussd", "*6*0*3#"),
+                             new XAttribute("chatid", _admin.CHAT_ID),
+                             new XElement("Text",
+                                 new XAttribute("param", "howinccreditwlet,30000000"),
+                                 new XAttribute("postexec", "lessaddwlet"),
+                                 new XAttribute("trigger", ""),
+                                 "addamntwlet"
+                             )
+                         )
+                     );
+                  break;
+            }
+
+            XElement _result = null;
+            iRoboTech.Analisis_Message_P(_param, ref _result);
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void Confirm013_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _ordr = O13sBs.Current as Data.Order;
+            if (_ordr == null) return;
+
+            if (Txid013_Txt.Text == "" || Txid013_Txt.Text.Length < 4) { Txid013_Txt.Focus(); return; }
+            if (Pwd013_Txt.Text != PasswordHash + SaltKey + VIKey) { Pwd013_Txt.Focus(); return; }
+
+            XElement _result = null;
+
+            iRoboTech.SAVE_PYMT_P(
+               new XElement("Payment",
+                   new XAttribute("ordrcode", _ordr.CODE),
+                   new XAttribute("txid", Txid013_Txt.Text),
+                   new XAttribute("totlamnt", _ordr.SUM_EXPN_AMNT_DNRM),
+                   new XAttribute("rcptmtod", "009"),
+                   new XAttribute("autochngamnt", "002")
+               ),
+               ref _result
+            );
+            requery = true;
+         }
+         catch (Exception exc)
+         {
             MessageBox.Show(exc.Message);
          }
          finally
